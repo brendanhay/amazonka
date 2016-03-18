@@ -19,9 +19,9 @@ module Network.AWS.MarketplaceAnalytics.Types.Sum where
 
 import           Network.AWS.Prelude
 
--- | The type of the data set to publish.
 data DataSetType
-    = CustomerProfileByIndustry
+    = CustomerProfileByGeography
+    | CustomerProfileByIndustry
     | CustomerProfileByRevenue
     | CustomerSubscriberAnnualSubscriptions
     | CustomerSubscriberHourlyMonthlySubscriptions
@@ -35,12 +35,14 @@ data DataSetType
     | DisbursedAmountByAgeOfUncollectedFunds
     | DisbursedAmountByCustomerGeo
     | DisbursedAmountByProduct
+    | DisbursedAmountByProductWithUncollectedFunds
     | MonthlyRevenueAnnualSubscriptions
     | MonthlyRevenueBillingAndRevenueData
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DataSetType where
     parser = takeLowerText >>= \case
+        "customer_profile_by_geography" -> pure CustomerProfileByGeography
         "customer_profile_by_industry" -> pure CustomerProfileByIndustry
         "customer_profile_by_revenue" -> pure CustomerProfileByRevenue
         "customer_subscriber_annual_subscriptions" -> pure CustomerSubscriberAnnualSubscriptions
@@ -55,13 +57,15 @@ instance FromText DataSetType where
         "disbursed_amount_by_age_of_uncollected_funds" -> pure DisbursedAmountByAgeOfUncollectedFunds
         "disbursed_amount_by_customer_geo" -> pure DisbursedAmountByCustomerGeo
         "disbursed_amount_by_product" -> pure DisbursedAmountByProduct
+        "disbursed_amount_by_product_with_uncollected_funds" -> pure DisbursedAmountByProductWithUncollectedFunds
         "monthly_revenue_annual_subscriptions" -> pure MonthlyRevenueAnnualSubscriptions
         "monthly_revenue_billing_and_revenue_data" -> pure MonthlyRevenueBillingAndRevenueData
         e -> fromTextError $ "Failure parsing DataSetType from value: '" <> e
-           <> "'. Accepted values: customer_profile_by_industry, customer_profile_by_revenue, customer_subscriber_annual_subscriptions, customer_subscriber_hourly_monthly_subscriptions, daily_business_canceled_product_subscribers, daily_business_fees, daily_business_free_trial_conversions, daily_business_new_instances, daily_business_new_product_subscribers, daily_business_usage_by_instance_type, disbursed_amount_by_age_of_disbursed_funds, disbursed_amount_by_age_of_uncollected_funds, disbursed_amount_by_customer_geo, disbursed_amount_by_product, monthly_revenue_annual_subscriptions, monthly_revenue_billing_and_revenue_data"
+           <> "'. Accepted values: customer_profile_by_geography, customer_profile_by_industry, customer_profile_by_revenue, customer_subscriber_annual_subscriptions, customer_subscriber_hourly_monthly_subscriptions, daily_business_canceled_product_subscribers, daily_business_fees, daily_business_free_trial_conversions, daily_business_new_instances, daily_business_new_product_subscribers, daily_business_usage_by_instance_type, disbursed_amount_by_age_of_disbursed_funds, disbursed_amount_by_age_of_uncollected_funds, disbursed_amount_by_customer_geo, disbursed_amount_by_product, disbursed_amount_by_product_with_uncollected_funds, monthly_revenue_annual_subscriptions, monthly_revenue_billing_and_revenue_data"
 
 instance ToText DataSetType where
     toText = \case
+        CustomerProfileByGeography -> "customer_profile_by_geography"
         CustomerProfileByIndustry -> "customer_profile_by_industry"
         CustomerProfileByRevenue -> "customer_profile_by_revenue"
         CustomerSubscriberAnnualSubscriptions -> "customer_subscriber_annual_subscriptions"
@@ -76,6 +80,7 @@ instance ToText DataSetType where
         DisbursedAmountByAgeOfUncollectedFunds -> "disbursed_amount_by_age_of_uncollected_funds"
         DisbursedAmountByCustomerGeo -> "disbursed_amount_by_customer_geo"
         DisbursedAmountByProduct -> "disbursed_amount_by_product"
+        DisbursedAmountByProductWithUncollectedFunds -> "disbursed_amount_by_product_with_uncollected_funds"
         MonthlyRevenueAnnualSubscriptions -> "monthly_revenue_annual_subscriptions"
         MonthlyRevenueBillingAndRevenueData -> "monthly_revenue_billing_and_revenue_data"
 

@@ -93,6 +93,14 @@ gdpcAppARN = lens _gdpcAppARN (\ s a -> s{_gdpcAppARN = a});
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
 --
+-- -   APPIUM_PYTHON: The Appium Python type.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+--
+-- -   APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+--
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
@@ -102,6 +110,8 @@ gdpcAppARN = lens _gdpcAppARN (\ s a -> s{_gdpcAppARN = a});
 -- -   UIAUTOMATOR: The uiautomator type.
 --
 -- -   XCTEST: The XCode test type.
+--
+-- -   XCTEST_UI: The XCode UI test type.
 --
 gdpcTestType :: Lens' GetDevicePoolCompatibility (Maybe TestType)
 gdpcTestType = lens _gdpcTestType (\ s a -> s{_gdpcTestType = a});

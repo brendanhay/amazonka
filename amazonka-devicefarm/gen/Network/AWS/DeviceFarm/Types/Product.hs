@@ -117,38 +117,52 @@ aName = lens _aName (\ s a -> s{_aName = a});
 --
 -- Allowed values include the following:
 --
--- -   APPIUM_JAVA_OUTPUT: The Appium Java output type.
+-- -   UNKNOWN: An unknown type.
 --
--- -   APPIUM_JAVA_XML_OUTPUT: The Appium Java XML output type.
---
--- -   APPIUM_SERVER_OUTPUT: The Appium server output type.
---
--- -   AUTOMATION_OUTPUT: The automation output type.
---
--- -   CALABASH_JSON_OUTPUT: The Calabash JSON output type.
---
--- -   CALABASH_JAVA_XML_OUTPUT: The Calabash Java XML output type.
---
--- -   CALABASH_PRETTY_OUTPUT: The Calabash pretty output type.
---
--- -   CALABASH_STANDARD_OUTPUT: The Calabash standard output type.
+-- -   SCREENSHOT: The screenshot type.
 --
 -- -   DEVICE_LOG: The device log type.
---
--- -   EXERCISER_MONKEY_OUTPUT: For Android, the artifact (log) generated
---     by an Android fuzz test.
---
--- -   INSTRUMENTATION_OUTPUT: The instrumentation type.
 --
 -- -   MESSAGE_LOG: The message log type.
 --
 -- -   RESULT_LOG: The result log type.
 --
--- -   SCREENSHOT: The screenshot type.
---
 -- -   SERVICE_LOG: The service log type.
 --
--- -   UNKNOWN: An unknown type.
+-- -   WEBKIT_LOG: The web kit log type.
+--
+-- -   INSTRUMENTATION_OUTPUT: The instrumentation type.
+--
+-- -   EXERCISER_MONKEY_OUTPUT: For Android, the artifact (log) generated
+--     by an Android fuzz test.
+--
+-- -   CALABASH_JSON_OUTPUT: The Calabash JSON output type.
+--
+-- -   CALABASH_PRETTY_OUTPUT: The Calabash pretty output type.
+--
+-- -   CALABASH_STANDARD_OUTPUT: The Calabash standard output type.
+--
+-- -   CALABASH_JAVA_XML_OUTPUT: The Calabash Java XML output type.
+--
+-- -   AUTOMATION_OUTPUT: The automation output type.
+--
+-- -   APPIUM_SERVER_OUTPUT: The Appium server output type.
+--
+-- -   APPIUM_JAVA_OUTPUT: The Appium Java output type.
+--
+-- -   APPIUM_JAVA_XML_OUTPUT: The Appium Java XML output type.
+--
+-- -   APPIUM_PYTHON_OUTPUT: The Appium Python output type.
+--
+-- -   APPIUM_PYTHON_XML_OUTPUT: The Appium Python XML output type.
+--
+-- -   EXPLORER_EVENT_LOG: The Explorer event log output type.
+--
+-- -   EXPLORER_SUMMARY_LOG: The Explorer summary log output type.
+--
+-- -   APPLICATION_CRASH_REPORT: The application crash report output type.
+--
+-- -   XCTEST_LOG: The XCode test output type.
 --
 aType :: Lens' Artifact (Maybe ArtifactType)
 aType = lens _aType (\ s a -> s{_aType = a});
@@ -820,6 +834,14 @@ jobDeviceMinutes = lens _jobDeviceMinutes (\ s a -> s{_jobDeviceMinutes = a});
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
 --
+-- -   APPIUM_PYTHON: The Appium Python type.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+--
+-- -   APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+--
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
@@ -829,6 +851,8 @@ jobDeviceMinutes = lens _jobDeviceMinutes (\ s a -> s{_jobDeviceMinutes = a});
 -- -   UIAUTOMATOR: The uiautomator type.
 --
 -- -   XCTEST: The XCode test type.
+--
+-- -   XCTEST_UI: The XCode UI test type.
 --
 jobType :: Lens' Job (Maybe TestType)
 jobType = lens _jobType (\ s a -> s{_jobType = a});
@@ -1431,6 +1455,14 @@ runDeviceMinutes = lens _runDeviceMinutes (\ s a -> s{_runDeviceMinutes = a});
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
 --
+-- -   APPIUM_PYTHON: The Appium Python type.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+--
+-- -   APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+--
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
@@ -1440,6 +1472,8 @@ runDeviceMinutes = lens _runDeviceMinutes (\ s a -> s{_runDeviceMinutes = a});
 -- -   UIAUTOMATOR: The uiautomator type.
 --
 -- -   XCTEST: The XCode test type.
+--
+-- -   XCTEST_UI: The XCode UI test type.
 --
 runType :: Lens' Run (Maybe TestType)
 runType = lens _runType (\ s a -> s{_runType = a});
@@ -1713,6 +1747,14 @@ srtFilter = lens _srtFilter (\ s a -> s{_srtFilter = a});
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
 --
+-- -   APPIUM_PYTHON: The Appium Python type.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+--
+-- -   APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+--
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
@@ -1722,6 +1764,8 @@ srtFilter = lens _srtFilter (\ s a -> s{_srtFilter = a});
 -- -   UIAUTOMATOR: The uiautomator type.
 --
 -- -   XCTEST: The XCode test type.
+--
+-- -   XCTEST_UI: The XCode UI test type.
 --
 srtType :: Lens' ScheduleRunTest TestType
 srtType = lens _srtType (\ s a -> s{_srtType = a});
@@ -1871,6 +1915,14 @@ sDeviceMinutes = lens _sDeviceMinutes (\ s a -> s{_sDeviceMinutes = a});
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
 --
+-- -   APPIUM_PYTHON: The Appium Python type.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+--
+-- -   APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+--
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
@@ -1880,6 +1932,8 @@ sDeviceMinutes = lens _sDeviceMinutes (\ s a -> s{_sDeviceMinutes = a});
 -- -   UIAUTOMATOR: The uiautomator type.
 --
 -- -   XCTEST: The XCode test type.
+--
+-- -   XCTEST_UI: The XCode UI test type.
 --
 sType :: Lens' Suite (Maybe TestType)
 sType = lens _sType (\ s a -> s{_sType = a});
@@ -2043,6 +2097,14 @@ tDeviceMinutes = lens _tDeviceMinutes (\ s a -> s{_tDeviceMinutes = a});
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
 --
+-- -   APPIUM_PYTHON: The Appium Python type.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+--
+-- -   APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+--
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
@@ -2052,6 +2114,8 @@ tDeviceMinutes = lens _tDeviceMinutes (\ s a -> s{_tDeviceMinutes = a});
 -- -   UIAUTOMATOR: The uiautomator type.
 --
 -- -   XCTEST: The XCode test type.
+--
+-- -   XCTEST_UI: The XCode UI test type.
 --
 tType :: Lens' Test (Maybe TestType)
 tType = lens _tType (\ s a -> s{_tType = a});
@@ -2216,6 +2280,8 @@ uMetadata = lens _uMetadata (\ s a -> s{_uMetadata = a});
 --
 -- -   IOS_APP: An iOS upload.
 --
+-- -   WEB_APP: A web appliction upload.
+--
 -- -   EXTERNAL_DATA: An external data upload.
 --
 -- -   APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package
@@ -2224,19 +2290,28 @@ uMetadata = lens _uMetadata (\ s a -> s{_uMetadata = a});
 -- -   APPIUM_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package
 --     upload.
 --
--- -   CALABASH_TEST_PACKAGE: A Calabash test package upload.
---
--- -   INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.
---
--- -   UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.
---
--- -   XCTEST_TEST_PACKAGE: An XCode test package upload.
+-- -   APPIUM_PYTHON_TEST_PACKAGE: An Appium Python test package upload.
 --
 -- -   APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test
 --     package upload.
 --
 -- -   APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test
 --     package upload.
+--
+-- -   APPIUM_WEB_PYTHON_TEST_PACKAGE: An Appium Python test package
+--     upload.
+--
+-- -   CALABASH_TEST_PACKAGE: A Calabash test package upload.
+--
+-- -   INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.
+--
+-- -   UIAUTOMATION_TEST_PACKAGE: A uiautomation test package upload.
+--
+-- -   UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.
+--
+-- -   XCTEST_TEST_PACKAGE: An XCode test package upload.
+--
+-- -   XCTEST_UI_TEST_PACKAGE: An XCode UI test package upload.
 --
 uType :: Lens' Upload (Maybe UploadType)
 uType = lens _uType (\ s a -> s{_uType = a});

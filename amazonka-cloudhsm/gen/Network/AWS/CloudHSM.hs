@@ -52,11 +52,17 @@ module Network.AWS.CloudHSM
     -- ** DescribeLunaClient
     , module Network.AWS.CloudHSM.DescribeLunaClient
 
+    -- ** ListTagsForResource
+    , module Network.AWS.CloudHSM.ListTagsForResource
+
     -- ** CreateHAPG
     , module Network.AWS.CloudHSM.CreateHAPG
 
     -- ** CreateHSM
     , module Network.AWS.CloudHSM.CreateHSM
+
+    -- ** RemoveTagsFromResource
+    , module Network.AWS.CloudHSM.RemoveTagsFromResource
 
     -- ** DescribeHAPG
     , module Network.AWS.CloudHSM.DescribeHAPG
@@ -66,6 +72,9 @@ module Network.AWS.CloudHSM
 
     -- ** ListLunaClients
     , module Network.AWS.CloudHSM.ListLunaClients
+
+    -- ** AddTagsToResource
+    , module Network.AWS.CloudHSM.AddTagsToResource
 
     -- ** GetConfig
     , module Network.AWS.CloudHSM.GetConfig
@@ -101,8 +110,15 @@ module Network.AWS.CloudHSM
 
     -- ** SubscriptionType
     , SubscriptionType (..)
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
     ) where
 
+import           Network.AWS.CloudHSM.AddTagsToResource
 import           Network.AWS.CloudHSM.CreateHAPG
 import           Network.AWS.CloudHSM.CreateHSM
 import           Network.AWS.CloudHSM.CreateLunaClient
@@ -117,9 +133,11 @@ import           Network.AWS.CloudHSM.ListAvailableZones
 import           Network.AWS.CloudHSM.ListHAPGs
 import           Network.AWS.CloudHSM.ListHSMs
 import           Network.AWS.CloudHSM.ListLunaClients
+import           Network.AWS.CloudHSM.ListTagsForResource
 import           Network.AWS.CloudHSM.ModifyHAPG
 import           Network.AWS.CloudHSM.ModifyHSM
 import           Network.AWS.CloudHSM.ModifyLunaClient
+import           Network.AWS.CloudHSM.RemoveTagsFromResource
 import           Network.AWS.CloudHSM.Types
 import           Network.AWS.CloudHSM.Waiters
 

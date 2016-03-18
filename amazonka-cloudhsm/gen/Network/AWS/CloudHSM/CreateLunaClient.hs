@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the CreateLunaClient action.
+-- | Contains the inputs for the < CreateLunaClient> action.
 --
 -- /See:/ 'createLunaClient' smart constructor.
 data CreateLunaClient = CreateLunaClient'
@@ -110,7 +110,7 @@ instance ToPath CreateLunaClient where
 instance ToQuery CreateLunaClient where
         toQuery = const mempty
 
--- | Contains the output of the CreateLunaClient action.
+-- | Contains the output of the < CreateLunaClient> action.
 --
 -- /See:/ 'createLunaClientResponse' smart constructor.
 data CreateLunaClientResponse = CreateLunaClientResponse'

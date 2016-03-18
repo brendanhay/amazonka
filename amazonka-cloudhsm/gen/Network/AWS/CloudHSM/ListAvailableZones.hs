@@ -42,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the ListAvailableZones action.
+-- | Contains the inputs for the < ListAvailableZones> action.
 --
 -- /See:/ 'listAvailableZones' smart constructor.
 data ListAvailableZones =

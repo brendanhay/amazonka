@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DeleteHapg action.
+-- | Contains the inputs for the < DeleteHapg> action.
 --
 -- /See:/ 'deleteHAPG' smart constructor.
 newtype DeleteHAPG = DeleteHAPG'
@@ -96,7 +96,7 @@ instance ToPath DeleteHAPG where
 instance ToQuery DeleteHAPG where
         toQuery = const mempty
 
--- | Contains the output of the DeleteHapg action.
+-- | Contains the output of the < DeleteHapg> action.
 --
 -- /See:/ 'deleteHAPGResponse' smart constructor.
 data DeleteHAPGResponse = DeleteHAPGResponse'

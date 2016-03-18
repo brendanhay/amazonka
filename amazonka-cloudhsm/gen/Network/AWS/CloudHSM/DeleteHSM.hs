@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an HSM. Once complete, this operation cannot be undone and your
--- key material cannot be recovered.
+-- Deletes an HSM. After completion, this operation cannot be undone and
+-- your key material cannot be recovered.
 --
 -- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteHSM.html AWS API Reference> for DeleteHSM.
 module Network.AWS.CloudHSM.DeleteHSM
@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DeleteHsm action.
+-- | Contains the inputs for the < DeleteHsm> operation.
 --
 -- /See:/ 'deleteHSM' smart constructor.
 newtype DeleteHSM = DeleteHSM'
@@ -97,7 +97,7 @@ instance ToPath DeleteHSM where
 instance ToQuery DeleteHSM where
         toQuery = const mempty
 
--- | Contains the output of the DeleteHsm action.
+-- | Contains the output of the < DeleteHsm> operation.
 --
 -- /See:/ 'deleteHSMResponse' smart constructor.
 data DeleteHSMResponse = DeleteHSMResponse'
@@ -126,6 +126,6 @@ deleteHSMResponse pResponseStatus_ pStatus_ =
 dhsmrsResponseStatus :: Lens' DeleteHSMResponse Int
 dhsmrsResponseStatus = lens _dhsmrsResponseStatus (\ s a -> s{_dhsmrsResponseStatus = a});
 
--- | The status of the action.
+-- | The status of the operation.
 dhsmrsStatus :: Lens' DeleteHSMResponse Text
 dhsmrsStatus = lens _dhsmrsStatus (\ s a -> s{_dhsmrsStatus = a});

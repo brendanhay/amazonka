@@ -52,7 +52,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DescribeHapg action.
+-- | Contains the inputs for the < DescribeHapg> action.
 --
 -- /See:/ 'describeHAPG' smart constructor.
 newtype DescribeHAPG = DescribeHAPG'
@@ -114,7 +114,7 @@ instance ToPath DescribeHAPG where
 instance ToQuery DescribeHAPG where
         toQuery = const mempty
 
--- | Contains the output of the DescribeHapg action.
+-- | Contains the output of the < DescribeHapg> action.
 --
 -- /See:/ 'describeHAPGResponse' smart constructor.
 data DescribeHAPGResponse = DescribeHAPGResponse'

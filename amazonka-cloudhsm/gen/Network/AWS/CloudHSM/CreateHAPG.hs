@@ -46,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the CreateHapgRequest action.
+-- | Contains the inputs for the < CreateHapgRequest> action.
 --
 -- /See:/ 'createHAPG' smart constructor.
 newtype CreateHAPG = CreateHAPG'
@@ -98,7 +98,7 @@ instance ToPath CreateHAPG where
 instance ToQuery CreateHAPG where
         toQuery = const mempty
 
--- | Contains the output of the CreateHAPartitionGroup action.
+-- | Contains the output of the < CreateHAPartitionGroup> action.
 --
 -- /See:/ 'createHAPGResponse' smart constructor.
 data CreateHAPGResponse = CreateHAPGResponse'

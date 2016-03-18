@@ -89,3 +89,31 @@ instance ToJSON LogLevel where
 
 instance FromJSON LogLevel where
     parseJSON = parseJSONText "LogLevel"
+
+data MessageFormat
+    = JSON
+    | Raw
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText MessageFormat where
+    parser = takeLowerText >>= \case
+        "json" -> pure JSON
+        "raw" -> pure Raw
+        e -> fromTextError $ "Failure parsing MessageFormat from value: '" <> e
+           <> "'. Accepted values: JSON, RAW"
+
+instance ToText MessageFormat where
+    toText = \case
+        JSON -> "JSON"
+        Raw -> "RAW"
+
+instance Hashable     MessageFormat
+instance ToByteString MessageFormat
+instance ToQuery      MessageFormat
+instance ToHeader     MessageFormat
+
+instance ToJSON MessageFormat where
+    toJSON = toJSONText
+
+instance FromJSON MessageFormat where
+    parseJSON = parseJSONText "MessageFormat"

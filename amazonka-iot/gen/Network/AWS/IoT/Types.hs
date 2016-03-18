@@ -39,15 +39,21 @@ module Network.AWS.IoT.Types
     -- * LogLevel
     , LogLevel (..)
 
+    -- * MessageFormat
+    , MessageFormat (..)
+
     -- * Action
     , Action
     , action
+    , aCloudwatchMetric
+    , aCloudwatchAlarm
     , aSns
     , aDynamoDB
     , aFirehose
     , aLambda
     , aKinesis
     , aS3
+    , aElasticsearch
     , aRepublish
     , aSqs
 
@@ -75,6 +81,24 @@ module Network.AWS.IoT.Types
     , cdCertificateId
     , cdCreationDate
 
+    -- * CloudwatchAlarmAction
+    , CloudwatchAlarmAction
+    , cloudwatchAlarmAction
+    , caaRoleARN
+    , caaAlarmName
+    , caaStateReason
+    , caaStateValue
+
+    -- * CloudwatchMetricAction
+    , CloudwatchMetricAction
+    , cloudwatchMetricAction
+    , cmaMetricTimestamp
+    , cmaRoleARN
+    , cmaMetricNamespace
+    , cmaMetricName
+    , cmaMetricValue
+    , cmaMetricUnit
+
     -- * DynamoDBAction
     , DynamoDBAction
     , dynamoDBAction
@@ -85,6 +109,15 @@ module Network.AWS.IoT.Types
     , ddaHashKeyValue
     , ddaRangeKeyField
     , ddaRangeKeyValue
+
+    -- * ElasticsearchAction
+    , ElasticsearchAction
+    , elasticsearchAction
+    , eaRoleARN
+    , eaEndpoint
+    , eaIndex
+    , eaType
+    , eaId
 
     -- * FirehoseAction
     , FirehoseAction
@@ -145,6 +178,7 @@ module Network.AWS.IoT.Types
     -- * SNSAction
     , SNSAction
     , snsAction
+    , snsaMessageFormat
     , snsaTargetARN
     , snsaRoleARN
 
@@ -177,6 +211,7 @@ module Network.AWS.IoT.Types
     , trliCreatedAt
     , trliRuleDisabled
     , trliRuleName
+    , trliRuleARN
     , trliTopicPattern
 
     -- * TopicRulePayload
@@ -217,6 +252,7 @@ ioT =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -235,8 +271,8 @@ _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceE
 _InvalidRequestException =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestException"
 
--- | You can\'t transfer the the certificate because authorization policies
--- are still attached.
+-- | You can\'t transfer the certificate because authorization policies are
+-- still attached.
 _TransferConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _TransferConflictException =
     _ServiceError . hasStatus 409 . hasCode "TransferConflictException"
@@ -262,8 +298,8 @@ _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a S
 _ResourceAlreadyExistsException =
     _ServiceError . hasStatus 409 . hasCode "ResourceAlreadyExistsException"
 
--- | You can\'t revert the certificate transfer because it has already
--- completed.
+-- | You can\'t revert the certificate transfer because the transfer is
+-- already complete.
 _TransferAlreadyCompletedException :: AsError a => Getting (First ServiceError) a ServiceError
 _TransferAlreadyCompletedException =
     _ServiceError . hasStatus 410 . hasCode "TransferAlreadyCompletedException"

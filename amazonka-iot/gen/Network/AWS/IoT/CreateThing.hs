@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a thing in the thing registry.
+-- Creates a thing in the Thing Registry.
 --
 -- /See:/ <https://aws.amazon.com/iot#CreateThing.html AWS API Reference> for CreateThing.
 module Network.AWS.IoT.CreateThing
@@ -70,9 +70,9 @@ createThing pThingName_ =
     , _ctThingName = pThingName_
     }
 
--- | The attribute payload. Which consists of up to 3 name\/value pairs in a
--- JSON document. For example:
--- {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}
+-- | The attribute payload, which consists of up to 3 name\/value pairs in a
+-- JSON document (for example,
+-- {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
 ctAttributePayload :: Lens' CreateThing (Maybe AttributePayload)
 ctAttributePayload = lens _ctAttributePayload (\ s a -> s{_ctAttributePayload = a});
 

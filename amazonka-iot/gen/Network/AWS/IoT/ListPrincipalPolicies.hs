@@ -19,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the policies attached to the specified principal. If you use an
--- Amazon Cognito identity, the ID needs to be in
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax Amazon Cognito Identity format>.
+-- Cognito identity, the ID must be in
+-- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax AmazonCognito Identity format>.
 --
 -- /See:/ <https://aws.amazon.com/iot#ListPrincipalPolicies.html AWS API Reference> for ListPrincipalPolicies.
 module Network.AWS.IoT.ListPrincipalPolicies

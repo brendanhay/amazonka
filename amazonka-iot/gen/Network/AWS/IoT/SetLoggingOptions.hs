@@ -45,7 +45,7 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setLoggingOptions' smart constructor.
 newtype SetLoggingOptions = SetLoggingOptions'
-    { _sloLoggingOptionsPayload :: Maybe LoggingOptionsPayload
+    { _sloLoggingOptionsPayload :: LoggingOptionsPayload
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetLoggingOptions' with the minimum fields required to make a request.
@@ -54,14 +54,15 @@ newtype SetLoggingOptions = SetLoggingOptions'
 --
 -- * 'sloLoggingOptionsPayload'
 setLoggingOptions
-    :: SetLoggingOptions
-setLoggingOptions =
+    :: LoggingOptionsPayload -- ^ 'sloLoggingOptionsPayload'
+    -> SetLoggingOptions
+setLoggingOptions pLoggingOptionsPayload_ =
     SetLoggingOptions'
-    { _sloLoggingOptionsPayload = Nothing
+    { _sloLoggingOptionsPayload = pLoggingOptionsPayload_
     }
 
 -- | The logging options payload.
-sloLoggingOptionsPayload :: Lens' SetLoggingOptions (Maybe LoggingOptionsPayload)
+sloLoggingOptionsPayload :: Lens' SetLoggingOptions LoggingOptionsPayload
 sloLoggingOptionsPayload = lens _sloLoggingOptionsPayload (\ s a -> s{_sloLoggingOptionsPayload = a});
 
 instance AWSRequest SetLoggingOptions where
@@ -76,8 +77,9 @@ instance ToJSON SetLoggingOptions where
         toJSON SetLoggingOptions'{..}
           = object
               (catMaybes
-                 [("loggingOptionsPayload" .=) <$>
-                    _sloLoggingOptionsPayload])
+                 [Just
+                    ("loggingOptionsPayload" .=
+                       _sloLoggingOptionsPayload)])
 
 instance ToPath SetLoggingOptions where
         toPath = const "/loggingOptions"

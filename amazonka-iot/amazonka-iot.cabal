@@ -72,6 +72,8 @@ library
         , Network.AWS.IoT.DescribeThing
         , Network.AWS.IoT.DetachPrincipalPolicy
         , Network.AWS.IoT.DetachThingPrincipal
+        , Network.AWS.IoT.DisableTopicRule
+        , Network.AWS.IoT.EnableTopicRule
         , Network.AWS.IoT.GetLoggingOptions
         , Network.AWS.IoT.GetPolicy
         , Network.AWS.IoT.GetPolicyVersion

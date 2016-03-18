@@ -71,10 +71,10 @@ detachPrincipalPolicy pPolicyName_ pPrincipal_ =
 dppPolicyName :: Lens' DetachPrincipalPolicy Text
 dppPolicyName = lens _dppPolicyName (\ s a -> s{_dppPolicyName = a});
 
--- | The principal
+-- | The principal.
 --
 -- If the principal is a certificate, specify the certificate ARN. If the
--- principal is a Cognito identity specify the identity ID.
+-- principal is an Amazon Cognito identity, specify the identity ID.
 dppPrincipal :: Lens' DetachPrincipalPolicy Text
 dppPrincipal = lens _dppPrincipal (\ s a -> s{_dppPrincipal = a});
 

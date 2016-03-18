@@ -25,19 +25,26 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'action' smart constructor.
 data Action = Action'
-    { _aSns       :: !(Maybe SNSAction)
-    , _aDynamoDB  :: !(Maybe DynamoDBAction)
-    , _aFirehose  :: !(Maybe FirehoseAction)
-    , _aLambda    :: !(Maybe LambdaAction)
-    , _aKinesis   :: !(Maybe KinesisAction)
-    , _aS3        :: !(Maybe S3Action)
-    , _aRepublish :: !(Maybe RepublishAction)
-    , _aSqs       :: !(Maybe SqsAction)
+    { _aCloudwatchMetric :: !(Maybe CloudwatchMetricAction)
+    , _aCloudwatchAlarm  :: !(Maybe CloudwatchAlarmAction)
+    , _aSns              :: !(Maybe SNSAction)
+    , _aDynamoDB         :: !(Maybe DynamoDBAction)
+    , _aFirehose         :: !(Maybe FirehoseAction)
+    , _aLambda           :: !(Maybe LambdaAction)
+    , _aKinesis          :: !(Maybe KinesisAction)
+    , _aS3               :: !(Maybe S3Action)
+    , _aElasticsearch    :: !(Maybe ElasticsearchAction)
+    , _aRepublish        :: !(Maybe RepublishAction)
+    , _aSqs              :: !(Maybe SqsAction)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Action' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aCloudwatchMetric'
+--
+-- * 'aCloudwatchAlarm'
 --
 -- * 'aSns'
 --
@@ -51,6 +58,8 @@ data Action = Action'
 --
 -- * 'aS3'
 --
+-- * 'aElasticsearch'
+--
 -- * 'aRepublish'
 --
 -- * 'aSqs'
@@ -58,17 +67,28 @@ action
     :: Action
 action =
     Action'
-    { _aSns = Nothing
+    { _aCloudwatchMetric = Nothing
+    , _aCloudwatchAlarm = Nothing
+    , _aSns = Nothing
     , _aDynamoDB = Nothing
     , _aFirehose = Nothing
     , _aLambda = Nothing
     , _aKinesis = Nothing
     , _aS3 = Nothing
+    , _aElasticsearch = Nothing
     , _aRepublish = Nothing
     , _aSqs = Nothing
     }
 
--- | Publish to an SNS topic.
+-- | Capture a CloudWatch metric.
+aCloudwatchMetric :: Lens' Action (Maybe CloudwatchMetricAction)
+aCloudwatchMetric = lens _aCloudwatchMetric (\ s a -> s{_aCloudwatchMetric = a});
+
+-- | Change the state of a CloudWatch alarm.
+aCloudwatchAlarm :: Lens' Action (Maybe CloudwatchAlarmAction)
+aCloudwatchAlarm = lens _aCloudwatchAlarm (\ s a -> s{_aCloudwatchAlarm = a});
+
+-- | Publish to an Amazon SNS topic.
 aSns :: Lens' Action (Maybe SNSAction)
 aSns = lens _aSns (\ s a -> s{_aSns = a});
 
@@ -76,7 +96,7 @@ aSns = lens _aSns (\ s a -> s{_aSns = a});
 aDynamoDB :: Lens' Action (Maybe DynamoDBAction)
 aDynamoDB = lens _aDynamoDB (\ s a -> s{_aDynamoDB = a});
 
--- | Undocumented member.
+-- | Write to an Amazon Kinesis Firehose stream.
 aFirehose :: Lens' Action (Maybe FirehoseAction)
 aFirehose = lens _aFirehose (\ s a -> s{_aFirehose = a});
 
@@ -84,19 +104,23 @@ aFirehose = lens _aFirehose (\ s a -> s{_aFirehose = a});
 aLambda :: Lens' Action (Maybe LambdaAction)
 aLambda = lens _aLambda (\ s a -> s{_aLambda = a});
 
--- | Write data to a Kinesis stream.
+-- | Write data to an Amazon Kinesis stream.
 aKinesis :: Lens' Action (Maybe KinesisAction)
 aKinesis = lens _aKinesis (\ s a -> s{_aKinesis = a});
 
--- | Write to an S3 bucket.
+-- | Write to an Amazon S3 bucket.
 aS3 :: Lens' Action (Maybe S3Action)
 aS3 = lens _aS3 (\ s a -> s{_aS3 = a});
+
+-- | Write data to an Amazon Elasticsearch Service; domain.
+aElasticsearch :: Lens' Action (Maybe ElasticsearchAction)
+aElasticsearch = lens _aElasticsearch (\ s a -> s{_aElasticsearch = a});
 
 -- | Publish to another MQTT topic.
 aRepublish :: Lens' Action (Maybe RepublishAction)
 aRepublish = lens _aRepublish (\ s a -> s{_aRepublish = a});
 
--- | Publish to an SQS queue.
+-- | Publish to an Amazon SQS queue.
 aSqs :: Lens' Action (Maybe SqsAction)
 aSqs = lens _aSqs (\ s a -> s{_aSqs = a});
 
@@ -105,11 +129,15 @@ instance FromJSON Action where
           = withObject "Action"
               (\ x ->
                  Action' <$>
-                   (x .:? "sns") <*> (x .:? "dynamoDB") <*>
-                     (x .:? "firehose")
+                   (x .:? "cloudwatchMetric") <*>
+                     (x .:? "cloudwatchAlarm")
+                     <*> (x .:? "sns")
+                     <*> (x .:? "dynamoDB")
+                     <*> (x .:? "firehose")
                      <*> (x .:? "lambda")
                      <*> (x .:? "kinesis")
                      <*> (x .:? "s3")
+                     <*> (x .:? "elasticsearch")
                      <*> (x .:? "republish")
                      <*> (x .:? "sqs"))
 
@@ -117,18 +145,19 @@ instance ToJSON Action where
         toJSON Action'{..}
           = object
               (catMaybes
-                 [("sns" .=) <$> _aSns,
-                  ("dynamoDB" .=) <$> _aDynamoDB,
+                 [("cloudwatchMetric" .=) <$> _aCloudwatchMetric,
+                  ("cloudwatchAlarm" .=) <$> _aCloudwatchAlarm,
+                  ("sns" .=) <$> _aSns, ("dynamoDB" .=) <$> _aDynamoDB,
                   ("firehose" .=) <$> _aFirehose,
                   ("lambda" .=) <$> _aLambda,
                   ("kinesis" .=) <$> _aKinesis, ("s3" .=) <$> _aS3,
+                  ("elasticsearch" .=) <$> _aElasticsearch,
                   ("republish" .=) <$> _aRepublish,
                   ("sqs" .=) <$> _aSqs])
 
 -- | The attribute payload, a JSON string containing up to three key-value
--- pairs.
---
--- For example: {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}
+-- pairs (for example,
+-- {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
 --
 -- /See:/ 'attributePayload' smart constructor.
 newtype AttributePayload = AttributePayload'
@@ -147,9 +176,8 @@ attributePayload =
     { _apAttributes = Nothing
     }
 
--- | A JSON string containing up to three key-value pair in JSON format.
---
--- For example: {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}
+-- | A JSON string containing up to three key-value pair in JSON format (for
+-- example, {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
 apAttributes :: Lens' AttributePayload (HashMap Text Text)
 apAttributes = lens _apAttributes (\ s a -> s{_apAttributes = a}) . _Default . _Map;
 
@@ -297,6 +325,169 @@ instance FromJSON CertificateDescription where
                      <*> (x .:? "certificateId")
                      <*> (x .:? "creationDate"))
 
+-- | Describes an action that updates a CloudWatch alarm.
+--
+-- /See:/ 'cloudwatchAlarmAction' smart constructor.
+data CloudwatchAlarmAction = CloudwatchAlarmAction'
+    { _caaRoleARN     :: !Text
+    , _caaAlarmName   :: !Text
+    , _caaStateReason :: !Text
+    , _caaStateValue  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloudwatchAlarmAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caaRoleARN'
+--
+-- * 'caaAlarmName'
+--
+-- * 'caaStateReason'
+--
+-- * 'caaStateValue'
+cloudwatchAlarmAction
+    :: Text -- ^ 'caaRoleARN'
+    -> Text -- ^ 'caaAlarmName'
+    -> Text -- ^ 'caaStateReason'
+    -> Text -- ^ 'caaStateValue'
+    -> CloudwatchAlarmAction
+cloudwatchAlarmAction pRoleARN_ pAlarmName_ pStateReason_ pStateValue_ =
+    CloudwatchAlarmAction'
+    { _caaRoleARN = pRoleARN_
+    , _caaAlarmName = pAlarmName_
+    , _caaStateReason = pStateReason_
+    , _caaStateValue = pStateValue_
+    }
+
+-- | The IAM role that allows access to the CloudWatch alarm.
+caaRoleARN :: Lens' CloudwatchAlarmAction Text
+caaRoleARN = lens _caaRoleARN (\ s a -> s{_caaRoleARN = a});
+
+-- | The CloudWatch alarm name.
+caaAlarmName :: Lens' CloudwatchAlarmAction Text
+caaAlarmName = lens _caaAlarmName (\ s a -> s{_caaAlarmName = a});
+
+-- | The reason for the alarm change.
+caaStateReason :: Lens' CloudwatchAlarmAction Text
+caaStateReason = lens _caaStateReason (\ s a -> s{_caaStateReason = a});
+
+-- | The value of the alarm state. Acceptable values are: OK, ALARM,
+-- INSUFFICIENT_DATA.
+caaStateValue :: Lens' CloudwatchAlarmAction Text
+caaStateValue = lens _caaStateValue (\ s a -> s{_caaStateValue = a});
+
+instance FromJSON CloudwatchAlarmAction where
+        parseJSON
+          = withObject "CloudwatchAlarmAction"
+              (\ x ->
+                 CloudwatchAlarmAction' <$>
+                   (x .: "roleArn") <*> (x .: "alarmName") <*>
+                     (x .: "stateReason")
+                     <*> (x .: "stateValue"))
+
+instance ToJSON CloudwatchAlarmAction where
+        toJSON CloudwatchAlarmAction'{..}
+          = object
+              (catMaybes
+                 [Just ("roleArn" .= _caaRoleARN),
+                  Just ("alarmName" .= _caaAlarmName),
+                  Just ("stateReason" .= _caaStateReason),
+                  Just ("stateValue" .= _caaStateValue)])
+
+-- | Describes an action that captures a CloudWatch metric.
+--
+-- /See:/ 'cloudwatchMetricAction' smart constructor.
+data CloudwatchMetricAction = CloudwatchMetricAction'
+    { _cmaMetricTimestamp :: !(Maybe Text)
+    , _cmaRoleARN         :: !Text
+    , _cmaMetricNamespace :: !Text
+    , _cmaMetricName      :: !Text
+    , _cmaMetricValue     :: !Text
+    , _cmaMetricUnit      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloudwatchMetricAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cmaMetricTimestamp'
+--
+-- * 'cmaRoleARN'
+--
+-- * 'cmaMetricNamespace'
+--
+-- * 'cmaMetricName'
+--
+-- * 'cmaMetricValue'
+--
+-- * 'cmaMetricUnit'
+cloudwatchMetricAction
+    :: Text -- ^ 'cmaRoleARN'
+    -> Text -- ^ 'cmaMetricNamespace'
+    -> Text -- ^ 'cmaMetricName'
+    -> Text -- ^ 'cmaMetricValue'
+    -> Text -- ^ 'cmaMetricUnit'
+    -> CloudwatchMetricAction
+cloudwatchMetricAction pRoleARN_ pMetricNamespace_ pMetricName_ pMetricValue_ pMetricUnit_ =
+    CloudwatchMetricAction'
+    { _cmaMetricTimestamp = Nothing
+    , _cmaRoleARN = pRoleARN_
+    , _cmaMetricNamespace = pMetricNamespace_
+    , _cmaMetricName = pMetricName_
+    , _cmaMetricValue = pMetricValue_
+    , _cmaMetricUnit = pMetricUnit_
+    }
+
+-- | An optional
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp>.
+cmaMetricTimestamp :: Lens' CloudwatchMetricAction (Maybe Text)
+cmaMetricTimestamp = lens _cmaMetricTimestamp (\ s a -> s{_cmaMetricTimestamp = a});
+
+-- | The IAM role that allows access to the CloudWatch metric.
+cmaRoleARN :: Lens' CloudwatchMetricAction Text
+cmaRoleARN = lens _cmaRoleARN (\ s a -> s{_cmaRoleARN = a});
+
+-- | The CloudWatch metric namespace name.
+cmaMetricNamespace :: Lens' CloudwatchMetricAction Text
+cmaMetricNamespace = lens _cmaMetricNamespace (\ s a -> s{_cmaMetricNamespace = a});
+
+-- | The CloudWatch metric name.
+cmaMetricName :: Lens' CloudwatchMetricAction Text
+cmaMetricName = lens _cmaMetricName (\ s a -> s{_cmaMetricName = a});
+
+-- | The CloudWatch metric value.
+cmaMetricValue :: Lens' CloudwatchMetricAction Text
+cmaMetricValue = lens _cmaMetricValue (\ s a -> s{_cmaMetricValue = a});
+
+-- | The
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit metric unit>
+-- supported by CloudWatch.
+cmaMetricUnit :: Lens' CloudwatchMetricAction Text
+cmaMetricUnit = lens _cmaMetricUnit (\ s a -> s{_cmaMetricUnit = a});
+
+instance FromJSON CloudwatchMetricAction where
+        parseJSON
+          = withObject "CloudwatchMetricAction"
+              (\ x ->
+                 CloudwatchMetricAction' <$>
+                   (x .:? "metricTimestamp") <*> (x .: "roleArn") <*>
+                     (x .: "metricNamespace")
+                     <*> (x .: "metricName")
+                     <*> (x .: "metricValue")
+                     <*> (x .: "metricUnit"))
+
+instance ToJSON CloudwatchMetricAction where
+        toJSON CloudwatchMetricAction'{..}
+          = object
+              (catMaybes
+                 [("metricTimestamp" .=) <$> _cmaMetricTimestamp,
+                  Just ("roleArn" .= _cmaRoleARN),
+                  Just ("metricNamespace" .= _cmaMetricNamespace),
+                  Just ("metricName" .= _cmaMetricName),
+                  Just ("metricValue" .= _cmaMetricValue),
+                  Just ("metricUnit" .= _cmaMetricUnit)])
+
 -- | Describes an action to write to a DynamoDB table.
 --
 -- The 'tableName', 'hashKeyField', and 'rangeKeyField' values must match
@@ -306,10 +497,9 @@ instance FromJSON CertificateDescription where
 -- template syntax. These templates provide data at runtime. The syntax is
 -- as follows: ${/sql-expression/}.
 --
--- You can specify any expression that\'s valid in a WHERE or SELECT
--- clause, including JSON properties, comparisons, calculations, and
--- functions. For example, the following field uses the third level of the
--- topic:
+-- You can specify any valid expression in a WHERE or SELECT clause,
+-- including JSON properties, comparisons, calculations, and functions. For
+-- example, the following field uses the third level of the topic:
 --
 -- '\"hashKeyValue\": \"${topic(3)}\"'
 --
@@ -364,7 +554,7 @@ dynamoDBAction pTableName_ pRoleARN_ pHashKeyField_ pHashKeyValue_ pRangeKeyFiel
     , _ddaRangeKeyValue = pRangeKeyValue_
     }
 
--- | The action payload, this name can be customized.
+-- | The action payload. This name can be customized.
 ddaPayloadField :: Lens' DynamoDBAction (Maybe Text)
 ddaPayloadField = lens _ddaPayloadField (\ s a -> s{_ddaPayloadField = a});
 
@@ -372,7 +562,7 @@ ddaPayloadField = lens _ddaPayloadField (\ s a -> s{_ddaPayloadField = a});
 ddaTableName :: Lens' DynamoDBAction Text
 ddaTableName = lens _ddaTableName (\ s a -> s{_ddaTableName = a});
 
--- | The ARN of the IAM role that grants access.
+-- | The ARN of the IAM role that grants access to the DynamoDB table.
 ddaRoleARN :: Lens' DynamoDBAction Text
 ddaRoleARN = lens _ddaRoleARN (\ s a -> s{_ddaRoleARN = a});
 
@@ -416,7 +606,90 @@ instance ToJSON DynamoDBAction where
                   Just ("rangeKeyField" .= _ddaRangeKeyField),
                   Just ("rangeKeyValue" .= _ddaRangeKeyValue)])
 
--- | /See:/ 'firehoseAction' smart constructor.
+-- | Describes an action that writes data to an Amazon Elasticsearch Service;
+-- domain.
+--
+-- /See:/ 'elasticsearchAction' smart constructor.
+data ElasticsearchAction = ElasticsearchAction'
+    { _eaRoleARN  :: !Text
+    , _eaEndpoint :: !Text
+    , _eaIndex    :: !Text
+    , _eaType     :: !Text
+    , _eaId       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ElasticsearchAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eaRoleARN'
+--
+-- * 'eaEndpoint'
+--
+-- * 'eaIndex'
+--
+-- * 'eaType'
+--
+-- * 'eaId'
+elasticsearchAction
+    :: Text -- ^ 'eaRoleARN'
+    -> Text -- ^ 'eaEndpoint'
+    -> Text -- ^ 'eaIndex'
+    -> Text -- ^ 'eaType'
+    -> Text -- ^ 'eaId'
+    -> ElasticsearchAction
+elasticsearchAction pRoleARN_ pEndpoint_ pIndex_ pType_ pId_ =
+    ElasticsearchAction'
+    { _eaRoleARN = pRoleARN_
+    , _eaEndpoint = pEndpoint_
+    , _eaIndex = pIndex_
+    , _eaType = pType_
+    , _eaId = pId_
+    }
+
+-- | The IAM role ARN that has access to Elasticsearch.
+eaRoleARN :: Lens' ElasticsearchAction Text
+eaRoleARN = lens _eaRoleARN (\ s a -> s{_eaRoleARN = a});
+
+-- | The endpoint of your Elasticsearch domain.
+eaEndpoint :: Lens' ElasticsearchAction Text
+eaEndpoint = lens _eaEndpoint (\ s a -> s{_eaEndpoint = a});
+
+-- | The Elasticsearch index where you want to store your data.
+eaIndex :: Lens' ElasticsearchAction Text
+eaIndex = lens _eaIndex (\ s a -> s{_eaIndex = a});
+
+-- | The type of document you are storing.
+eaType :: Lens' ElasticsearchAction Text
+eaType = lens _eaType (\ s a -> s{_eaType = a});
+
+-- | The unique identifier for the document you are storing.
+eaId :: Lens' ElasticsearchAction Text
+eaId = lens _eaId (\ s a -> s{_eaId = a});
+
+instance FromJSON ElasticsearchAction where
+        parseJSON
+          = withObject "ElasticsearchAction"
+              (\ x ->
+                 ElasticsearchAction' <$>
+                   (x .: "roleArn") <*> (x .: "endpoint") <*>
+                     (x .: "index")
+                     <*> (x .: "type")
+                     <*> (x .: "id"))
+
+instance ToJSON ElasticsearchAction where
+        toJSON ElasticsearchAction'{..}
+          = object
+              (catMaybes
+                 [Just ("roleArn" .= _eaRoleARN),
+                  Just ("endpoint" .= _eaEndpoint),
+                  Just ("index" .= _eaIndex), Just ("type" .= _eaType),
+                  Just ("id" .= _eaId)])
+
+-- | Describes an action that writes data to an Amazon Kinesis Firehose
+-- stream.
+--
+-- /See:/ 'firehoseAction' smart constructor.
 data FirehoseAction = FirehoseAction'
     { _faRoleARN            :: !Text
     , _faDeliveryStreamName :: !Text
@@ -439,11 +712,11 @@ firehoseAction pRoleARN_ pDeliveryStreamName_ =
     , _faDeliveryStreamName = pDeliveryStreamName_
     }
 
--- | Undocumented member.
+-- | The IAM role that grants access to the Amazon Kinesis Firehost stream.
 faRoleARN :: Lens' FirehoseAction Text
 faRoleARN = lens _faRoleARN (\ s a -> s{_faRoleARN = a});
 
--- | Undocumented member.
+-- | The delivery stream name.
 faDeliveryStreamName :: Lens' FirehoseAction Text
 faDeliveryStreamName = lens _faDeliveryStreamName (\ s a -> s{_faDeliveryStreamName = a});
 
@@ -533,11 +806,11 @@ kinesisAction pRoleARN_ pStreamName_ =
 kaPartitionKey :: Lens' KinesisAction (Maybe Text)
 kaPartitionKey = lens _kaPartitionKey (\ s a -> s{_kaPartitionKey = a});
 
--- | The ARN of the IAM role that grants access.
+-- | The ARN of the IAM role that grants access to the Amazon Kinesis stream.
 kaRoleARN :: Lens' KinesisAction Text
 kaRoleARN = lens _kaRoleARN (\ s a -> s{_kaRoleARN = a});
 
--- | The name of the Kinesis stream.
+-- | The name of the Amazon Kinesis stream.
 kaStreamName :: Lens' KinesisAction Text
 kaStreamName = lens _kaStreamName (\ s a -> s{_kaStreamName = a});
 
@@ -557,7 +830,7 @@ instance ToJSON KinesisAction where
                   Just ("roleArn" .= _kaRoleARN),
                   Just ("streamName" .= _kaStreamName)])
 
--- | Describes an action to invoke a Lamdba function.
+-- | Describes an action to invoke a Lambda function.
 --
 -- /See:/ 'lambdaAction' smart constructor.
 newtype LambdaAction = LambdaAction'
@@ -796,7 +1069,7 @@ s3Action pRoleARN_ pBucketName_ pKey_ =
 sRoleARN :: Lens' S3Action Text
 sRoleARN = lens _sRoleARN (\ s a -> s{_sRoleARN = a});
 
--- | The S3 bucket.
+-- | The Amazon S3 bucket.
 sBucketName :: Lens' S3Action Text
 sBucketName = lens _sBucketName (\ s a -> s{_sBucketName = a});
 
@@ -824,13 +1097,16 @@ instance ToJSON S3Action where
 --
 -- /See:/ 'snsAction' smart constructor.
 data SNSAction = SNSAction'
-    { _snsaTargetARN :: !Text
-    , _snsaRoleARN   :: !Text
+    { _snsaMessageFormat :: !(Maybe MessageFormat)
+    , _snsaTargetARN     :: !Text
+    , _snsaRoleARN       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SNSAction' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'snsaMessageFormat'
 --
 -- * 'snsaTargetARN'
 --
@@ -841,9 +1117,20 @@ snsAction
     -> SNSAction
 snsAction pTargetARN_ pRoleARN_ =
     SNSAction'
-    { _snsaTargetARN = pTargetARN_
+    { _snsaMessageFormat = Nothing
+    , _snsaTargetARN = pTargetARN_
     , _snsaRoleARN = pRoleARN_
     }
+
+-- | The message format of the message to publish. Optional. Accepted values
+-- are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\".
+-- SNS uses this setting to determine if the payload should be parsed and
+-- relevant platform-specific bits of the payload should be extracted. To
+-- read more about SNS message formats, see
+-- <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html > refer to
+-- their official documentation.
+snsaMessageFormat :: Lens' SNSAction (Maybe MessageFormat)
+snsaMessageFormat = lens _snsaMessageFormat (\ s a -> s{_snsaMessageFormat = a});
 
 -- | The ARN of the SNS topic.
 snsaTargetARN :: Lens' SNSAction Text
@@ -858,16 +1145,18 @@ instance FromJSON SNSAction where
           = withObject "SNSAction"
               (\ x ->
                  SNSAction' <$>
-                   (x .: "targetArn") <*> (x .: "roleArn"))
+                   (x .:? "messageFormat") <*> (x .: "targetArn") <*>
+                     (x .: "roleArn"))
 
 instance ToJSON SNSAction where
         toJSON SNSAction'{..}
           = object
               (catMaybes
-                 [Just ("targetArn" .= _snsaTargetARN),
+                 [("messageFormat" .=) <$> _snsaMessageFormat,
+                  Just ("targetArn" .= _snsaTargetARN),
                   Just ("roleArn" .= _snsaRoleARN)])
 
--- | Describes an action to publish data to an SQS queue.
+-- | Describes an action to publish data to an Amazon SQS queue.
 --
 -- /See:/ 'sqsAction' smart constructor.
 data SqsAction = SqsAction'
@@ -1019,7 +1308,7 @@ trRuleName :: Lens' TopicRule (Maybe Text)
 trRuleName = lens _trRuleName (\ s a -> s{_trRuleName = a});
 
 -- | The SQL statement used to query the topic. When using a SQL query with
--- multiple lines, be sure to escape the newline characters properly.
+-- multiple lines, be sure to escape the newline characters.
 trSql :: Lens' TopicRule (Maybe Text)
 trSql = lens _trSql (\ s a -> s{_trSql = a});
 
@@ -1045,6 +1334,7 @@ data TopicRuleListItem = TopicRuleListItem'
     { _trliCreatedAt    :: !(Maybe POSIX)
     , _trliRuleDisabled :: !(Maybe Bool)
     , _trliRuleName     :: !(Maybe Text)
+    , _trliRuleARN      :: !(Maybe Text)
     , _trliTopicPattern :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1058,6 +1348,8 @@ data TopicRuleListItem = TopicRuleListItem'
 --
 -- * 'trliRuleName'
 --
+-- * 'trliRuleARN'
+--
 -- * 'trliTopicPattern'
 topicRuleListItem
     :: TopicRuleListItem
@@ -1066,6 +1358,7 @@ topicRuleListItem =
     { _trliCreatedAt = Nothing
     , _trliRuleDisabled = Nothing
     , _trliRuleName = Nothing
+    , _trliRuleARN = Nothing
     , _trliTopicPattern = Nothing
     }
 
@@ -1081,6 +1374,10 @@ trliRuleDisabled = lens _trliRuleDisabled (\ s a -> s{_trliRuleDisabled = a});
 trliRuleName :: Lens' TopicRuleListItem (Maybe Text)
 trliRuleName = lens _trliRuleName (\ s a -> s{_trliRuleName = a});
 
+-- | The rule ARN.
+trliRuleARN :: Lens' TopicRuleListItem (Maybe Text)
+trliRuleARN = lens _trliRuleARN (\ s a -> s{_trliRuleARN = a});
+
 -- | The pattern for the topic names that apply.
 trliTopicPattern :: Lens' TopicRuleListItem (Maybe Text)
 trliTopicPattern = lens _trliTopicPattern (\ s a -> s{_trliTopicPattern = a});
@@ -1092,6 +1389,7 @@ instance FromJSON TopicRuleListItem where
                  TopicRuleListItem' <$>
                    (x .:? "createdAt") <*> (x .:? "ruleDisabled") <*>
                      (x .:? "ruleName")
+                     <*> (x .:? "ruleArn")
                      <*> (x .:? "topicPattern"))
 
 -- | Describes a rule.

@@ -27,7 +27,7 @@ module Network.AWS.IoT.DeleteTopicRule
       deleteTopicRule
     , DeleteTopicRule
     -- * Request Lenses
-    , dtrRuleName
+    , dRuleName
 
     -- * Destructuring the Response
     , deleteTopicRuleResponse
@@ -45,25 +45,25 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteTopicRule' smart constructor.
 newtype DeleteTopicRule = DeleteTopicRule'
-    { _dtrRuleName :: Text
+    { _dRuleName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteTopicRule' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrRuleName'
+-- * 'dRuleName'
 deleteTopicRule
-    :: Text -- ^ 'dtrRuleName'
+    :: Text -- ^ 'dRuleName'
     -> DeleteTopicRule
 deleteTopicRule pRuleName_ =
     DeleteTopicRule'
-    { _dtrRuleName = pRuleName_
+    { _dRuleName = pRuleName_
     }
 
 -- | The name of the rule.
-dtrRuleName :: Lens' DeleteTopicRule Text
-dtrRuleName = lens _dtrRuleName (\ s a -> s{_dtrRuleName = a});
+dRuleName :: Lens' DeleteTopicRule Text
+dRuleName = lens _dRuleName (\ s a -> s{_dRuleName = a});
 
 instance AWSRequest DeleteTopicRule where
         type Rs DeleteTopicRule = DeleteTopicRuleResponse
@@ -75,7 +75,7 @@ instance ToHeaders DeleteTopicRule where
 
 instance ToPath DeleteTopicRule where
         toPath DeleteTopicRule'{..}
-          = mconcat ["/rules/", toBS _dtrRuleName]
+          = mconcat ["/rules/", toBS _dRuleName]
 
 instance ToQuery DeleteTopicRule where
         toQuery = const mempty

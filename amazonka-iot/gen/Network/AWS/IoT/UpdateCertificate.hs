@@ -21,9 +21,9 @@
 -- Updates the status of the specified certificate. This operation is
 -- idempotent.
 --
--- Moving a cert from the ACTIVE state (including REVOKED) will NOT
--- disconnect currently-connected devices, although these devices will be
--- unable to reconnect.
+-- Moving a certificate from the ACTIVE state (including REVOKED) will not
+-- disconnect currently connected devices, but these devices will be unable
+-- to reconnect.
 --
 -- The ACTIVE state is required to authenticate devices connecting to AWS
 -- IoT using a certificate.
@@ -80,6 +80,10 @@ ucCertificateId :: Lens' UpdateCertificate Text
 ucCertificateId = lens _ucCertificateId (\ s a -> s{_ucCertificateId = a});
 
 -- | The new status.
+--
+-- __Note:__ Setting the status to PENDING_TRANSFER will result in an
+-- exception being thrown. PENDING_TRANSFER is a status used internally by
+-- AWS IoT. It is not intended for developer use.
 ucNewStatus :: Lens' UpdateCertificate CertificateStatus
 ucNewStatus = lens _ucNewStatus (\ s a -> s{_ucNewStatus = a});
 

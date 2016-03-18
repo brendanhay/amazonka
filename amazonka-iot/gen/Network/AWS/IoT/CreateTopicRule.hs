@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a rule.
+-- Creates a rule. Creating rules is an administrator-level action. Any
+-- user who has permission to create rules will be able to access data
+-- processed by the rule.
 --
 -- /See:/ <https://aws.amazon.com/iot#CreateTopicRule.html AWS API Reference> for CreateTopicRule.
 module Network.AWS.IoT.CreateTopicRule

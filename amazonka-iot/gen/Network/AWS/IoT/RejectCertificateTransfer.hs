@@ -22,12 +22,12 @@
 -- certificate transfer, the certificate status changes from
 -- __PENDING_TRANFER__ to __INACTIVE__.
 --
--- To check for pending certificate transfers, call ListCertificates to
+-- To check for pending certificate transfers, call < ListCertificates> to
 -- enumerate your certificates.
 --
--- This operation can only be called by the transfer destination. Once
--- called, the certificate will be returned to the source\'s account in the
--- INACTIVE state.
+-- This operation can only be called by the transfer destination. After it
+-- is called, the certificate will be returned to the source\'s account in
+-- the INACTIVE state.
 --
 -- /See:/ <https://aws.amazon.com/iot#RejectCertificateTransfer.html AWS API Reference> for RejectCertificateTransfer.
 module Network.AWS.IoT.RejectCertificateTransfer

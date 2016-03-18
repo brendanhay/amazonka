@@ -75,7 +75,7 @@ listPrincipalThings pPrincipal_ =
     , _lptPrincipal = pPrincipal_
     }
 
--- | Undocumented member.
+-- | A token used to retrieve the next value.
 lptNextToken :: Lens' ListPrincipalThings (Maybe Text)
 lptNextToken = lens _lptNextToken (\ s a -> s{_lptNextToken = a});
 

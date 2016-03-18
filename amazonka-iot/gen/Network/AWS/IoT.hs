@@ -117,6 +117,9 @@ module Network.AWS.IoT
     -- ** DeletePolicyVersion
     , module Network.AWS.IoT.DeletePolicyVersion
 
+    -- ** DisableTopicRule
+    , module Network.AWS.IoT.DisableTopicRule
+
     -- ** CreateTopicRule
     , module Network.AWS.IoT.CreateTopicRule
 
@@ -183,6 +186,9 @@ module Network.AWS.IoT
     -- ** CreateKeysAndCertificate
     , module Network.AWS.IoT.CreateKeysAndCertificate
 
+    -- ** EnableTopicRule
+    , module Network.AWS.IoT.EnableTopicRule
+
     -- ** AcceptCertificateTransfer
     , module Network.AWS.IoT.AcceptCertificateTransfer
 
@@ -212,15 +218,21 @@ module Network.AWS.IoT
     -- ** LogLevel
     , LogLevel (..)
 
+    -- ** MessageFormat
+    , MessageFormat (..)
+
     -- ** Action
     , Action
     , action
+    , aCloudwatchMetric
+    , aCloudwatchAlarm
     , aSns
     , aDynamoDB
     , aFirehose
     , aLambda
     , aKinesis
     , aS3
+    , aElasticsearch
     , aRepublish
     , aSqs
 
@@ -248,6 +260,24 @@ module Network.AWS.IoT
     , cdCertificateId
     , cdCreationDate
 
+    -- ** CloudwatchAlarmAction
+    , CloudwatchAlarmAction
+    , cloudwatchAlarmAction
+    , caaRoleARN
+    , caaAlarmName
+    , caaStateReason
+    , caaStateValue
+
+    -- ** CloudwatchMetricAction
+    , CloudwatchMetricAction
+    , cloudwatchMetricAction
+    , cmaMetricTimestamp
+    , cmaRoleARN
+    , cmaMetricNamespace
+    , cmaMetricName
+    , cmaMetricValue
+    , cmaMetricUnit
+
     -- ** DynamoDBAction
     , DynamoDBAction
     , dynamoDBAction
@@ -258,6 +288,15 @@ module Network.AWS.IoT
     , ddaHashKeyValue
     , ddaRangeKeyField
     , ddaRangeKeyValue
+
+    -- ** ElasticsearchAction
+    , ElasticsearchAction
+    , elasticsearchAction
+    , eaRoleARN
+    , eaEndpoint
+    , eaIndex
+    , eaType
+    , eaId
 
     -- ** FirehoseAction
     , FirehoseAction
@@ -318,6 +357,7 @@ module Network.AWS.IoT
     -- ** SNSAction
     , SNSAction
     , snsAction
+    , snsaMessageFormat
     , snsaTargetARN
     , snsaRoleARN
 
@@ -350,6 +390,7 @@ module Network.AWS.IoT
     , trliCreatedAt
     , trliRuleDisabled
     , trliRuleName
+    , trliRuleARN
     , trliTopicPattern
 
     -- ** TopicRulePayload
@@ -381,6 +422,8 @@ import           Network.AWS.IoT.DescribeEndpoint
 import           Network.AWS.IoT.DescribeThing
 import           Network.AWS.IoT.DetachPrincipalPolicy
 import           Network.AWS.IoT.DetachThingPrincipal
+import           Network.AWS.IoT.DisableTopicRule
+import           Network.AWS.IoT.EnableTopicRule
 import           Network.AWS.IoT.GetLoggingOptions
 import           Network.AWS.IoT.GetPolicy
 import           Network.AWS.IoT.GetPolicyVersion

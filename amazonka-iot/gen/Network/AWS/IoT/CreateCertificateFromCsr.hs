@@ -24,24 +24,24 @@
 -- __Note__ Reusing the same certificate signing request (CSR) results in a
 -- distinct certificate.
 --
--- You can create multiple certificates in a batch by creating a directory
--- and copying multiple .csr files into that directory and specifying that
--- directory on the command line. The following commands show how to create
--- a batch of certificates given a batch of CSRs.
+-- You can create multiple certificates in a batch by creating a directory,
+-- copying multiple .csr files into that directory, and then specifying
+-- that directory on the command line. The following commands show how to
+-- create a batch of certificates given a batch of CSRs.
 --
 -- Assuming a set of CSRs are located inside of the directory
 -- my-csr-directory:
 --
 -- >
 --
--- On Linux and OSX, the command is:
+-- On Linux and OS X, the command is:
 --
 -- $ ls my-csr-directory\/ | xargs -I {} aws iot
 -- create-certificate-from-csr --certificate-signing-request
 -- file:\/\/my-csr-directory\/{}
 --
 -- This command lists all of the CSRs in my-csr-directory and pipes each
--- CSR filename to the aws iot create-certificate-from-csr AWS CLI command
+-- CSR file name to the aws iot create-certificate-from-csr AWS CLI command
 -- to create a certificate for the corresponding CSR.
 --
 -- The aws iot create-certificate-from-csr part of the command can also be
@@ -57,7 +57,7 @@
 -- > ls -Name my-csr-directory | %{aws iot create-certificate-from-csr
 -- --certificate-signing-request file:\/\/my-csr-directory\/$_}
 --
--- On Windows Command Prompt, the command to create certificates for all
+-- On a Windows command prompt, the command to create certificates for all
 -- CSRs in my-csr-directory is:
 --
 -- > forfiles \/p my-csr-directory \/c \"cmd \/c aws iot

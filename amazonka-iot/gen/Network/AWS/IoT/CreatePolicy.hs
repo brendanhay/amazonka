@@ -81,9 +81,9 @@ createPolicy pPolicyName_ pPolicyDocument_ =
 cpPolicyName :: Lens' CreatePolicy Text
 cpPolicyName = lens _cpPolicyName (\ s a -> s{_cpPolicyName = a});
 
--- | The JSON document that describes the policy. The length of the
--- __policyDocument__ must be a minimum length of 1, with a maximum length
--- of 2048, excluding whitespace.
+-- | The JSON document that describes the policy. __policyDocument__ must
+-- have a minimum length of 1, with a maximum length of 2048, excluding
+-- whitespace.
 cpPolicyDocument :: Lens' CreatePolicy Text
 cpPolicyDocument = lens _cpPolicyDocument (\ s a -> s{_cpPolicyDocument = a});
 

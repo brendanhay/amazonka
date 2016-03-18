@@ -21,7 +21,7 @@
 -- Accepts a pending certificate transfer. The default state of the
 -- certificate is INACTIVE.
 --
--- To check for pending certificate transfers, call ListCertificates to
+-- To check for pending certificate transfers, call < ListCertificates> to
 -- enumerate your certificates.
 --
 -- /See:/ <https://aws.amazon.com/iot#AcceptCertificateTransfer.html AWS API Reference> for AcceptCertificateTransfer.

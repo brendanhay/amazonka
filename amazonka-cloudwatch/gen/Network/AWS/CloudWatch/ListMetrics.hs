@@ -19,8 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of valid metrics stored for the AWS account owner.
--- Returned metrics can be used with GetMetricStatistics to obtain
+-- Returned metrics can be used with < GetMetricStatistics> to obtain
 -- statistical data for a given metric.
+--
+-- Up to 500 results are returned for any one call. To retrieve further
+-- results, use returned 'NextToken' values with subsequent 'ListMetrics'
+-- operations.
+--
+-- If you create a metric with the < PutMetricData> action, allow up to
+-- fifteen minutes for the metric to appear in calls to the 'ListMetrics'
+-- action. Statistics about the metric, however, are available sooner using
+-- < GetMetricStatistics>.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html AWS API Reference> for ListMetrics.
 --
@@ -135,7 +144,7 @@ instance ToQuery ListMetrics where
                "Dimensions" =:
                  toQuery (toQueryList "member" <$> _lmDimensions)]
 
--- | The output for the ListMetrics action.
+-- | The output for the < ListMetrics> action.
 --
 -- /See:/ 'listMetricsResponse' smart constructor.
 data ListMetricsResponse = ListMetricsResponse'

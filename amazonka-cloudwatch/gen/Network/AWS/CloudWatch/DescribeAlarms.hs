@@ -157,7 +157,7 @@ instance ToQuery DescribeAlarms where
                  toQuery (toQueryList "member" <$> _daAlarmNames),
                "MaxRecords" =: _daMaxRecords]
 
--- | The output for the DescribeAlarms action.
+-- | The output for the < DescribeAlarms> action.
 --
 -- /See:/ 'describeAlarmsResponse' smart constructor.
 data DescribeAlarmsResponse = DescribeAlarmsResponse'

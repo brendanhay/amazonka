@@ -22,6 +22,9 @@
 -- or item type. If an alarm name is not specified, Amazon CloudWatch
 -- returns histories for all of the owner\'s alarms.
 --
+-- Amazon CloudWatch retains the history of an alarm for two weeks, whether
+-- or not you delete the alarm.
+--
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html AWS API Reference> for DescribeAlarmHistory.
 --
 -- This operation returns paginated results.
@@ -155,7 +158,7 @@ instance ToQuery DescribeAlarmHistory where
                "NextToken" =: _dahNextToken,
                "MaxRecords" =: _dahMaxRecords]
 
--- | The output for the DescribeAlarmHistory action.
+-- | The output for the < DescribeAlarmHistory> action.
 --
 -- /See:/ 'describeAlarmHistoryResponse' smart constructor.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'

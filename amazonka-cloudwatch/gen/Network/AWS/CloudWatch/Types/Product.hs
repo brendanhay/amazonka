@@ -22,7 +22,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | The 'AlarmHistoryItem' data type contains descriptive information about
--- the history of a specific alarm. If you call DescribeAlarmHistory,
+-- the history of a specific alarm. If you call < DescribeAlarmHistory>,
 -- Amazon CloudWatch returns this data type as part of the
 -- DescribeAlarmHistoryResult data type.
 --
@@ -75,12 +75,7 @@ ahiHistoryData = lens _ahiHistoryData (\ s a -> s{_ahiHistoryData = a});
 ahiHistorySummary :: Lens' AlarmHistoryItem (Maybe Text)
 ahiHistorySummary = lens _ahiHistorySummary (\ s a -> s{_ahiHistorySummary = a});
 
--- | The time stamp for the alarm history item. Amazon CloudWatch uses
--- Coordinated Universal Time (UTC) when returning time stamps, which do
--- not accommodate seasonal adjustments such as daylight savings time. For
--- more information, see
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps>
--- in the /Amazon CloudWatch Developer Guide/.
+-- | The time stamp for the alarm history item.
 ahiTimestamp :: Lens' AlarmHistoryItem (Maybe UTCTime)
 ahiTimestamp = lens _ahiTimestamp (\ s a -> s{_ahiTimestamp = a}) . mapping _Time;
 
@@ -161,12 +156,7 @@ dSum = lens _dSum (\ s a -> s{_dSum = a});
 dUnit :: Lens' Datapoint (Maybe StandardUnit)
 dUnit = lens _dUnit (\ s a -> s{_dUnit = a});
 
--- | The time stamp used for the datapoint. Amazon CloudWatch uses
--- Coordinated Universal Time (UTC) when returning time stamps, which do
--- not accommodate seasonal adjustments such as daylight savings time. For
--- more information, see
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps>
--- in the /Amazon CloudWatch Developer Guide/.
+-- | The time stamp used for the datapoint.
 dTimestamp :: Lens' Datapoint (Maybe UTCTime)
 dTimestamp = lens _dTimestamp (\ s a -> s{_dTimestamp = a}) . mapping _Time;
 
@@ -183,7 +173,7 @@ instance FromXML Datapoint where
 -- | The 'Dimension' data type further expands on the identity of a metric
 -- using a Name, Value pair.
 --
--- For examples that use one or more dimensions, see PutMetricData.
+-- For examples that use one or more dimensions, see < PutMetricData>.
 --
 -- /See:/ 'dimension' smart constructor.
 data Dimension = Dimension'
@@ -224,7 +214,8 @@ instance ToQuery Dimension where
         toQuery Dimension'{..}
           = mconcat ["Name" =: _dName, "Value" =: _dValue]
 
--- | The 'DimensionFilter' data type is used to filter ListMetrics results.
+-- | The 'DimensionFilter' data type is used to filter < ListMetrics>
+-- results.
 --
 -- /See:/ 'dimensionFilter' smart constructor.
 data DimensionFilter = DimensionFilter'
@@ -249,6 +240,9 @@ dimensionFilter pName_ =
     }
 
 -- | The value of the dimension to be matched.
+--
+-- Specifying a 'Name' without specifying a 'Value' returns all values
+-- associated with that 'Name'.
 dfValue :: Lens' DimensionFilter (Maybe Text)
 dfValue = lens _dfValue (\ s a -> s{_dfValue = a});
 
@@ -261,8 +255,8 @@ instance ToQuery DimensionFilter where
           = mconcat ["Value" =: _dfValue, "Name" =: _dfName]
 
 -- | The 'Metric' data type contains information about a specific metric. If
--- you call ListMetrics, Amazon CloudWatch returns information contained by
--- this data type.
+-- you call < ListMetrics>, Amazon CloudWatch returns information contained
+-- by this data type.
 --
 -- The example in the Examples section publishes two metrics named buffers
 -- and latency. Both metrics are in the examples namespace. Both metrics
@@ -312,8 +306,8 @@ instance FromXML Metric where
                 (x .@? "Dimensions" .!@ mempty >>=
                    may (parseXMLList "member"))
 
--- | The MetricAlarm data type represents an alarm. You can use
--- PutMetricAlarm to create or update an alarm.
+-- | The < MetricAlarm> data type represents an alarm. You can use
+-- < PutMetricAlarm> to create or update an alarm.
 --
 -- /See:/ 'metricAlarm' smart constructor.
 data MetricAlarm = MetricAlarm'
@@ -416,12 +410,7 @@ metricAlarm =
 maAlarmName :: Lens' MetricAlarm (Maybe Text)
 maAlarmName = lens _maAlarmName (\ s a -> s{_maAlarmName = a});
 
--- | The time stamp of the last update to the alarm\'s state. Amazon
--- CloudWatch uses Coordinated Universal Time (UTC) when returning time
--- stamps, which do not accommodate seasonal adjustments such as daylight
--- savings time. For more information, see
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps>
--- in the /Amazon CloudWatch Developer Guide/.
+-- | The time stamp of the last update to the alarm\'s state.
 maStateUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maStateUpdatedTimestamp = lens _maStateUpdatedTimestamp (\ s a -> s{_maStateUpdatedTimestamp = a}) . mapping _Time;
 
@@ -454,8 +443,7 @@ maComparisonOperator = lens _maComparisonOperator (\ s a -> s{_maComparisonOpera
 
 -- | The list of actions to execute when this alarm transitions into an 'OK'
 -- state from any other state. Each action is specified as an Amazon
--- Resource Number (ARN). Currently the only actions supported are
--- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
+-- Resource Name (ARN).
 maOKActions :: Lens' MetricAlarm [Text]
 maOKActions = lens _maOKActions (\ s a -> s{_maOKActions = a}) . _Default . _Coerce;
 
@@ -467,12 +455,7 @@ maStateValue = lens _maStateValue (\ s a -> s{_maStateValue = a});
 maThreshold :: Lens' MetricAlarm (Maybe Double)
 maThreshold = lens _maThreshold (\ s a -> s{_maThreshold = a});
 
--- | The time stamp of the last update to the alarm configuration. Amazon
--- CloudWatch uses Coordinated Universal Time (UTC) when returning time
--- stamps, which do not accommodate seasonal adjustments such as daylight
--- savings time. For more information, see
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps>
--- in the /Amazon CloudWatch Developer Guide/.
+-- | The time stamp of the last update to the alarm configuration.
 maAlarmConfigurationUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maAlarmConfigurationUpdatedTimestamp = lens _maAlarmConfigurationUpdatedTimestamp (\ s a -> s{_maAlarmConfigurationUpdatedTimestamp = a}) . mapping _Time;
 
@@ -483,9 +466,7 @@ maActionsEnabled = lens _maActionsEnabled (\ s a -> s{_maActionsEnabled = a});
 
 -- | The list of actions to execute when this alarm transitions into an
 -- 'INSUFFICIENT_DATA' state from any other state. Each action is specified
--- as an Amazon Resource Number (ARN). Currently the only actions supported
--- are publishing to an Amazon SNS topic or triggering an Auto Scaling
--- policy.
+-- as an Amazon Resource Name (ARN).
 --
 -- The current WSDL lists this attribute as 'UnknownActions'.
 maInsufficientDataActions :: Lens' MetricAlarm [Text]
@@ -509,8 +490,7 @@ maAlarmARN = lens _maAlarmARN (\ s a -> s{_maAlarmARN = a});
 
 -- | The list of actions to execute when this alarm transitions into an
 -- 'ALARM' state from any other state. Each action is specified as an
--- Amazon Resource Number (ARN). Currently the only actions supported are
--- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
+-- Amazon Resource Name (ARN).
 maAlarmActions :: Lens' MetricAlarm [Text]
 maAlarmActions = lens _maAlarmActions (\ s a -> s{_maAlarmActions = a}) . _Default . _Coerce;
 
@@ -556,7 +536,7 @@ instance FromXML MetricAlarm where
                 <*> (x .@? "Statistic")
 
 -- | The 'MetricDatum' data type encapsulates the information sent with
--- PutMetricData to either create a new metric or add new values to be
+-- < PutMetricData> to either create a new metric or add new values to be
 -- aggregated into an existing metric.
 --
 -- /See:/ 'metricDatum' smart constructor.
@@ -600,10 +580,10 @@ metricDatum pMetricName_ =
 -- | The value for the metric.
 --
 -- Although the 'Value' parameter accepts numbers of type 'Double', Amazon
--- CloudWatch truncates values with very large exponents. Values with
--- base-10 exponents greater than 126 (1 x 10^126) are truncated. Likewise,
--- values with base-10 exponents less than -130 (1 x 10^-130) are also
--- truncated.
+-- CloudWatch rejects values that are either too small or too large. Values
+-- must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or
+-- 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN,
+-- +Infinity, -Infinity) are not supported.
 mdValue :: Lens' MetricDatum (Maybe Double)
 mdValue = lens _mdValue (\ s a -> s{_mdValue = a});
 
@@ -617,13 +597,9 @@ mdDimensions = lens _mdDimensions (\ s a -> s{_mdDimensions = a}) . _Default . _
 mdUnit :: Lens' MetricDatum (Maybe StandardUnit)
 mdUnit = lens _mdUnit (\ s a -> s{_mdUnit = a});
 
--- | The time stamp used for the metric. If not specified, the default value
--- is set to the time the metric data was received. Amazon CloudWatch uses
--- Coordinated Universal Time (UTC) when returning time stamps, which do
--- not accommodate seasonal adjustments such as daylight savings time. For
--- more information, see
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps>
--- in the /Amazon CloudWatch Developer Guide/.
+-- | The time stamp used for the metric in ISO 8601 Universal Coordinated
+-- Time (UTC) format. If not specified, the default value is set to the
+-- time the metric data was received.
 mdTimestamp :: Lens' MetricDatum (Maybe UTCTime)
 mdTimestamp = lens _mdTimestamp (\ s a -> s{_mdTimestamp = a}) . mapping _Time;
 
@@ -646,7 +622,7 @@ instance ToQuery MetricDatum where
                "MetricName" =: _mdMetricName]
 
 -- | The 'StatisticSet' data type describes the 'StatisticValues' component
--- of MetricDatum, and represents a set of statistics that describes a
+-- of < MetricDatum>, and represents a set of statistics that describes a
 -- specific metric.
 --
 -- /See:/ 'statisticSet' smart constructor.

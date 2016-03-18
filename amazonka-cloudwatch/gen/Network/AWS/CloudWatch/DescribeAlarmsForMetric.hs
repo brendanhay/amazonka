@@ -93,7 +93,9 @@ describeAlarmsForMetric pMetricName_ pNamespace_ =
 dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
 dafmPeriod = lens _dafmPeriod (\ s a -> s{_dafmPeriod = a}) . mapping _Nat;
 
--- | The list of dimensions associated with the metric.
+-- | The list of dimensions associated with the metric. If the metric has any
+-- associated dimensions, you must specify them in order for the
+-- DescribeAlarmsForMetric to succeed.
 dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
 dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a}) . _Default . _Coerce;
 
@@ -144,7 +146,7 @@ instance ToQuery DescribeAlarmsForMetric where
                "MetricName" =: _dafmMetricName,
                "Namespace" =: _dafmNamespace]
 
--- | The output for the DescribeAlarmsForMetric action.
+-- | The output for the < DescribeAlarmsForMetric> action.
 --
 -- /See:/ 'describeAlarmsForMetricResponse' smart constructor.
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'

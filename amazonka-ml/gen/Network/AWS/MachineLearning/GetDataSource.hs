@@ -148,7 +148,7 @@ instance ToPath GetDataSource where
 instance ToQuery GetDataSource where
         toQuery = const mempty
 
--- | Represents the output of a GetDataSource operation and describes a
+-- | Represents the output of a < GetDataSource> operation and describes a
 -- 'DataSource'.
 --
 -- /See:/ 'getDataSourceResponse' smart constructor.

@@ -20,20 +20,20 @@
 --
 -- Creates a 'DataSource' from
 -- <http://aws.amazon.com/redshift/ Amazon Redshift>. A 'DataSource'
--- references data that can be used to perform either CreateMLModel,
--- CreateEvaluation or CreateBatchPrediction operations.
+-- references data that can be used to perform either < CreateMLModel>,
+-- < CreateEvaluation> or < CreateBatchPrediction> operations.
 --
 -- 'CreateDataSourceFromRedshift' is an asynchronous operation. In response
 -- to 'CreateDataSourceFromRedshift', Amazon Machine Learning (Amazon ML)
 -- immediately returns and sets the 'DataSource' status to 'PENDING'. After
 -- the 'DataSource' is created and ready for use, Amazon ML sets the
 -- 'Status' parameter to 'COMPLETED'. 'DataSource' in 'COMPLETED' or
--- 'PENDING' status can only be used to perform CreateMLModel,
--- CreateEvaluation, or CreateBatchPrediction operations.
+-- 'PENDING' status can only be used to perform < CreateMLModel>,
+-- < CreateEvaluation>, or < CreateBatchPrediction> operations.
 --
 -- If Amazon ML cannot accept the input source, it sets the 'Status'
 -- parameter to 'FAILED' and includes an error message in the 'Message'
--- attribute of the GetDataSource operation response.
+-- attribute of the < GetDataSource> operation response.
 --
 -- The observations should exist in the database hosted on an Amazon
 -- Redshift cluster and should be specified by a 'SelectSqlQuery'. Amazon
@@ -215,12 +215,12 @@ instance ToPath CreateDataSourceFromRedshift where
 instance ToQuery CreateDataSourceFromRedshift where
         toQuery = const mempty
 
--- | Represents the output of a CreateDataSourceFromRedshift operation, and
--- is an acknowledgement that Amazon ML received the request.
+-- | Represents the output of a < CreateDataSourceFromRedshift> operation,
+-- and is an acknowledgement that Amazon ML received the request.
 --
--- The CreateDataSourceFromRedshift operation is asynchronous. You can poll
--- for updates by using the GetBatchPrediction operation and checking the
--- 'Status' parameter.
+-- The < CreateDataSourceFromRedshift> operation is asynchronous. You can
+-- poll for updates by using the < GetBatchPrediction> operation and
+-- checking the 'Status' parameter.
 --
 -- /See:/ 'createDataSourceFromRedshiftResponse' smart constructor.
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'

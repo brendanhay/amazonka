@@ -22,7 +22,7 @@
 -- unusable.
 --
 -- After using the 'DeleteBatchPrediction' operation, you can use the
--- GetBatchPrediction operation to verify that the status of the
+-- < GetBatchPrediction> operation to verify that the status of the
 -- 'BatchPrediction' changed to DELETED.
 --
 -- __Caution:__ The result of the 'DeleteBatchPrediction' operation is
@@ -107,10 +107,10 @@ instance ToPath DeleteBatchPrediction where
 instance ToQuery DeleteBatchPrediction where
         toQuery = const mempty
 
--- | Represents the output of a DeleteBatchPrediction operation.
+-- | Represents the output of a < DeleteBatchPrediction> operation.
 --
--- You can use the GetBatchPrediction operation and check the value of the
--- 'Status' parameter to see whether a 'BatchPrediction' is marked as
+-- You can use the < GetBatchPrediction> operation and check the value of
+-- the 'Status' parameter to see whether a 'BatchPrediction' is marked as
 -- 'DELETED'.
 --
 -- /See:/ 'deleteBatchPredictionResponse' smart constructor.

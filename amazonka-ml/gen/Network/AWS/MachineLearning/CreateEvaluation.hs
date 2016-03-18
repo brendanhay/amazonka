@@ -34,7 +34,7 @@
 -- 'Evaluation' is created and ready for use, Amazon ML sets the status to
 -- 'COMPLETED'.
 --
--- You can use the GetEvaluation operation to check progress of the
+-- You can use the < GetEvaluation> operation to check progress of the
 -- evaluation during the creation operation.
 --
 -- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateEvaluation.html AWS API Reference> for CreateEvaluation.
@@ -151,12 +151,12 @@ instance ToPath CreateEvaluation where
 instance ToQuery CreateEvaluation where
         toQuery = const mempty
 
--- | Represents the output of a CreateEvaluation operation, and is an
+-- | Represents the output of a < CreateEvaluation> operation, and is an
 -- acknowledgement that Amazon ML received the request.
 --
--- CreateEvaluation operation is asynchronous. You can poll for status
--- updates by using the GetEvaluation operation and checking the 'Status'
--- parameter.
+-- < CreateEvaluation> operation is asynchronous. You can poll for status
+-- updates by using the < GetEvaluation> operation and checking the
+-- 'Status' parameter.
 --
 -- /See:/ 'createEvaluationResponse' smart constructor.
 data CreateEvaluationResponse = CreateEvaluationResponse'

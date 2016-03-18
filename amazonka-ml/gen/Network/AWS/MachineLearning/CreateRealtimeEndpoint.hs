@@ -102,7 +102,7 @@ instance ToPath CreateRealtimeEndpoint where
 instance ToQuery CreateRealtimeEndpoint where
         toQuery = const mempty
 
--- | Represents the output of an CreateRealtimeEndpoint operation.
+-- | Represents the output of an < CreateRealtimeEndpoint> operation.
 --
 -- The result contains the 'MLModelId' and the endpoint information for the
 -- 'MLModel'.

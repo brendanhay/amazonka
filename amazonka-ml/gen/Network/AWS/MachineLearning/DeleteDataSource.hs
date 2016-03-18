@@ -21,7 +21,7 @@
 -- Assigns the DELETED status to a 'DataSource', rendering it unusable.
 --
 -- After using the 'DeleteDataSource' operation, you can use the
--- GetDataSource operation to verify that the status of the 'DataSource'
+-- < GetDataSource> operation to verify that the status of the 'DataSource'
 -- changed to DELETED.
 --
 -- __Caution:__ The results of the 'DeleteDataSource' operation are
@@ -103,7 +103,7 @@ instance ToPath DeleteDataSource where
 instance ToQuery DeleteDataSource where
         toQuery = const mempty
 
--- | Represents the output of a DeleteDataSource operation.
+-- | Represents the output of a < DeleteDataSource> operation.
 --
 -- /See:/ 'deleteDataSourceResponse' smart constructor.
 data DeleteDataSourceResponse = DeleteDataSourceResponse'

@@ -147,8 +147,8 @@ instance ToPath GetMLModel where
 instance ToQuery GetMLModel where
         toQuery = const mempty
 
--- | Represents the output of a GetMLModel operation, and provides detailed
--- information about a 'MLModel'.
+-- | Represents the output of a < GetMLModel> operation, and provides
+-- detailed information about a 'MLModel'.
 --
 -- /See:/ 'getMLModelResponse' smart constructor.
 data GetMLModelResponse = GetMLModelResponse'

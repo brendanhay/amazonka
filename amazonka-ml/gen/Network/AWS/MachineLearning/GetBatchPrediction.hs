@@ -122,8 +122,8 @@ instance ToPath GetBatchPrediction where
 instance ToQuery GetBatchPrediction where
         toQuery = const mempty
 
--- | Represents the output of a GetBatchPrediction operation and describes a
--- 'BatchPrediction'.
+-- | Represents the output of a < GetBatchPrediction> operation and describes
+-- a 'BatchPrediction'.
 --
 -- /See:/ 'getBatchPredictionResponse' smart constructor.
 data GetBatchPredictionResponse = GetBatchPredictionResponse'
@@ -245,7 +245,7 @@ gbprsCreatedByIAMUser = lens _gbprsCreatedByIAMUser (\ s a -> s{_gbprsCreatedByI
 gbprsName :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsName = lens _gbprsName (\ s a -> s{_gbprsName = a});
 
--- | A link to the file that contains logs of the CreateBatchPrediction
+-- | A link to the file that contains logs of the < CreateBatchPrediction>
 -- operation.
 gbprsLogURI :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsLogURI = lens _gbprsLogURI (\ s a -> s{_gbprsLogURI = a});

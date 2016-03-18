@@ -252,7 +252,7 @@ instance ToPath DescribeMLModels where
 instance ToQuery DescribeMLModels where
         toQuery = const mempty
 
--- | Represents the output of a DescribeMLModels operation. The content is
+-- | Represents the output of a < DescribeMLModels> operation. The content is
 -- essentially a list of 'MLModel'.
 --
 -- /See:/ 'describeMLModelsResponse' smart constructor.
@@ -281,7 +281,7 @@ describeMLModelsResponse pResponseStatus_ =
     , _dmlmsrsResponseStatus = pResponseStatus_
     }
 
--- | A list of MLModel that meet the search criteria.
+-- | A list of < MLModel> that meet the search criteria.
 dmlmsrsResults :: Lens' DescribeMLModelsResponse [MLModel]
 dmlmsrsResults = lens _dmlmsrsResults (\ s a -> s{_dmlmsrsResults = a}) . _Default . _Coerce;
 

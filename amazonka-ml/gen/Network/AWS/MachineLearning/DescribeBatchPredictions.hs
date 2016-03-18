@@ -254,7 +254,7 @@ instance ToPath DescribeBatchPredictions where
 instance ToQuery DescribeBatchPredictions where
         toQuery = const mempty
 
--- | Represents the output of a DescribeBatchPredictions operation. The
+-- | Represents the output of a < DescribeBatchPredictions> operation. The
 -- content is essentially a list of 'BatchPrediction's.
 --
 -- /See:/ 'describeBatchPredictionsResponse' smart constructor.
@@ -283,7 +283,7 @@ describeBatchPredictionsResponse pResponseStatus_ =
     , _drsResponseStatus = pResponseStatus_
     }
 
--- | A list of BatchPrediction objects that meet the search criteria.
+-- | A list of < BatchPrediction> objects that meet the search criteria.
 drsResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
 drsResults = lens _drsResults (\ s a -> s{_drsResults = a}) . _Default . _Coerce;
 

@@ -20,8 +20,8 @@
 --
 -- Updates the 'MLModelName' and the 'ScoreThreshold' of an 'MLModel'.
 --
--- You can use the GetMLModel operation to view the contents of the updated
--- data element.
+-- You can use the < GetMLModel> operation to view the contents of the
+-- updated data element.
 --
 -- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateMLModel.html AWS API Reference> for UpdateMLModel.
 module Network.AWS.MachineLearning.UpdateMLModel
@@ -125,9 +125,9 @@ instance ToPath UpdateMLModel where
 instance ToQuery UpdateMLModel where
         toQuery = const mempty
 
--- | Represents the output of an UpdateMLModel operation.
+-- | Represents the output of an < UpdateMLModel> operation.
 --
--- You can see the updated content by using the GetMLModel operation.
+-- You can see the updated content by using the < GetMLModel> operation.
 --
 -- /See:/ 'updateMLModelResponse' smart constructor.
 data UpdateMLModelResponse = UpdateMLModelResponse'

@@ -29,7 +29,7 @@
 -- returns and sets the 'BatchPrediction' status to 'PENDING'. After the
 -- 'BatchPrediction' completes, Amazon ML sets the status to 'COMPLETED'.
 --
--- You can poll for status updates by using the GetBatchPrediction
+-- You can poll for status updates by using the < GetBatchPrediction>
 -- operation and checking the 'Status' parameter of the result. After the
 -- 'COMPLETED' status appears, the results are available in the location
 -- specified by the 'OutputUri' parameter.
@@ -168,11 +168,11 @@ instance ToPath CreateBatchPrediction where
 instance ToQuery CreateBatchPrediction where
         toQuery = const mempty
 
--- | Represents the output of a CreateBatchPrediction operation, and is an
+-- | Represents the output of a < CreateBatchPrediction> operation, and is an
 -- acknowledgement that Amazon ML received the request.
 --
--- The CreateBatchPrediction operation is asynchronous. You can poll for
--- status updates by using the GetBatchPrediction operation and checking
+-- The < CreateBatchPrediction> operation is asynchronous. You can poll for
+-- status updates by using the < GetBatchPrediction> operation and checking
 -- the 'Status' parameter of the result.
 --
 -- /See:/ 'createBatchPredictionResponse' smart constructor.

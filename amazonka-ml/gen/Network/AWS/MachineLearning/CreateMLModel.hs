@@ -30,13 +30,13 @@
 -- and sets the 'MLModel' status to 'PENDING'. After the 'MLModel' is
 -- created and ready for use, Amazon ML sets the status to 'COMPLETED'.
 --
--- You can use the GetMLModel operation to check progress of the 'MLModel'
--- during the creation operation.
+-- You can use the < GetMLModel> operation to check progress of the
+-- 'MLModel' during the creation operation.
 --
--- CreateMLModel requires a 'DataSource' with computed statistics, which
+-- < CreateMLModel> requires a 'DataSource' with computed statistics, which
 -- can be created by setting 'ComputeStatistics' to 'true' in
--- CreateDataSourceFromRDS, CreateDataSourceFromS3, or
--- CreateDataSourceFromRedshift operations.
+-- < CreateDataSourceFromRDS>, < CreateDataSourceFromS3>, or
+-- < CreateDataSourceFromRedshift> operations.
 --
 -- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateMLModel.html AWS API Reference> for CreateMLModel.
 module Network.AWS.MachineLearning.CreateMLModel
@@ -228,11 +228,11 @@ instance ToPath CreateMLModel where
 instance ToQuery CreateMLModel where
         toQuery = const mempty
 
--- | Represents the output of a CreateMLModel operation, and is an
+-- | Represents the output of a < CreateMLModel> operation, and is an
 -- acknowledgement that Amazon ML received the request.
 --
--- The CreateMLModel operation is asynchronous. You can poll for status
--- updates by using the GetMLModel operation and checking the 'Status'
+-- The < CreateMLModel> operation is asynchronous. You can poll for status
+-- updates by using the < GetMLModel> operation and checking the 'Status'
 -- parameter.
 --
 -- /See:/ 'createMLModelResponse' smart constructor.

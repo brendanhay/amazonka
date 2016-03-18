@@ -19,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a 'DataSource' object. A 'DataSource' references data that can
--- be used to perform CreateMLModel, CreateEvaluation, or
--- CreateBatchPrediction operations.
+-- be used to perform < CreateMLModel>, < CreateEvaluation>, or
+-- < CreateBatchPrediction> operations.
 --
 -- 'CreateDataSourceFromS3' is an asynchronous operation. In response to
 -- 'CreateDataSourceFromS3', Amazon Machine Learning (Amazon ML)
 -- immediately returns and sets the 'DataSource' status to 'PENDING'. After
 -- the 'DataSource' is created and ready for use, Amazon ML sets the
 -- 'Status' parameter to 'COMPLETED'. 'DataSource' in 'COMPLETED' or
--- 'PENDING' status can only be used to perform CreateMLModel,
--- CreateEvaluation or CreateBatchPrediction operations.
+-- 'PENDING' status can only be used to perform < CreateMLModel>,
+-- < CreateEvaluation> or < CreateBatchPrediction> operations.
 --
 -- If Amazon ML cannot accept the input source, it sets the 'Status'
 -- parameter to 'FAILED' and includes an error message in the 'Message'
--- attribute of the GetDataSource operation response.
+-- attribute of the < GetDataSource> operation response.
 --
 -- The observation data used in a 'DataSource' should be ready to use; that
 -- is, it should have a consistent structure, and missing data values
@@ -181,12 +181,12 @@ instance ToPath CreateDataSourceFromS3 where
 instance ToQuery CreateDataSourceFromS3 where
         toQuery = const mempty
 
--- | Represents the output of a CreateDataSourceFromS3 operation, and is an
--- acknowledgement that Amazon ML received the request.
+-- | Represents the output of a < CreateDataSourceFromS3> operation, and is
+-- an acknowledgement that Amazon ML received the request.
 --
--- The CreateDataSourceFromS3 operation is asynchronous. You can poll for
--- updates by using the GetBatchPrediction operation and checking the
--- 'Status' parameter.
+-- The < CreateDataSourceFromS3> operation is asynchronous. You can poll
+-- for updates by using the < GetBatchPrediction> operation and checking
+-- the 'Status' parameter.
 --
 -- /See:/ 'createDataSourceFromS3Response' smart constructor.
 data CreateDataSourceFromS3Response = CreateDataSourceFromS3Response'

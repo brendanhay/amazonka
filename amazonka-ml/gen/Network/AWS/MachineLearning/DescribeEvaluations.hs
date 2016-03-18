@@ -253,8 +253,8 @@ instance ToPath DescribeEvaluations where
 instance ToQuery DescribeEvaluations where
         toQuery = const mempty
 
--- | Represents the query results from a DescribeEvaluations operation. The
--- content is essentially a list of 'Evaluation'.
+-- | Represents the query results from a < DescribeEvaluations> operation.
+-- The content is essentially a list of 'Evaluation'.
 --
 -- /See:/ 'describeEvaluationsResponse' smart constructor.
 data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
@@ -282,7 +282,7 @@ describeEvaluationsResponse pResponseStatus_ =
     , _desrsResponseStatus = pResponseStatus_
     }
 
--- | A list of Evaluation that meet the search criteria.
+-- | A list of < Evaluation> that meet the search criteria.
 desrsResults :: Lens' DescribeEvaluationsResponse [Evaluation]
 desrsResults = lens _desrsResults (\ s a -> s{_desrsResults = a}) . _Default . _Coerce;
 

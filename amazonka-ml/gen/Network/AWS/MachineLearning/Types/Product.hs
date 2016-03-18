@@ -21,7 +21,7 @@ import           Network.AWS.Lens
 import           Network.AWS.MachineLearning.Types.Sum
 import           Network.AWS.Prelude
 
--- | Represents the output of GetBatchPrediction operation.
+-- | Represents the output of < GetBatchPrediction> operation.
 --
 -- The content consists of the detailed metadata, the status, and the data
 -- file information of a /Batch Prediction/.
@@ -165,7 +165,7 @@ instance FromJSON BatchPrediction where
                      <*> (x .:? "Message")
                      <*> (x .:? "OutputUri"))
 
--- | Represents the output of the GetDataSource operation.
+-- | Represents the output of the < GetDataSource> operation.
 --
 -- The content consists of the detailed metadata and data file information
 -- and the current status of the 'DataSource'.
@@ -341,7 +341,7 @@ instance FromJSON DataSource where
                      <*> (x .:? "DataRearrangement")
                      <*> (x .:? "RoleARN"))
 
--- | Represents the output of GetEvaluation operation.
+-- | Represents the output of < GetEvaluation> operation.
 --
 -- The content consists of the detailed metadata and data file information
 -- and the current status of the 'Evaluation'.
@@ -493,7 +493,7 @@ instance FromJSON Evaluation where
                      <*> (x .:? "Message")
                      <*> (x .:? "EvaluationDataSourceId"))
 
--- | Represents the output of a GetMLModel operation.
+-- | Represents the output of a < GetMLModel> operation.
 --
 -- The content consists of the detailed metadata and the current status of
 -- the 'MLModel'.
@@ -681,7 +681,7 @@ mlmName = lens _mlmName (\ s a -> s{_mlmName = a});
 mlmEndpointInfo :: Lens' MLModel (Maybe RealtimeEndpointInfo)
 mlmEndpointInfo = lens _mlmEndpointInfo (\ s a -> s{_mlmEndpointInfo = a});
 
--- | The ID of the training 'DataSource'. The CreateMLModel operation uses
+-- | The ID of the training 'DataSource'. The < CreateMLModel> operation uses
 -- the 'TrainingDataSourceId'.
 mlmTrainingDataSourceId :: Lens' MLModel (Maybe Text)
 mlmTrainingDataSourceId = lens _mlmTrainingDataSourceId (\ s a -> s{_mlmTrainingDataSourceId = a});
@@ -1149,8 +1149,8 @@ rdsMetadata =
     , _rmServiceRole = Nothing
     }
 
--- | The SQL query that is supplied during CreateDataSourceFromRDS. Returns
--- only if 'Verbose' is true in 'GetDataSourceInput'.
+-- | The SQL query that is supplied during < CreateDataSourceFromRDS>.
+-- Returns only if 'Verbose' is true in 'GetDataSourceInput'.
 rmSelectSqlQuery :: Lens' RDSMetadata (Maybe Text)
 rmSelectSqlQuery = lens _rmSelectSqlQuery (\ s a -> s{_rmSelectSqlQuery = a});
 
@@ -1505,7 +1505,7 @@ redshiftMetadata =
     , _redDatabaseUserName = Nothing
     }
 
--- | The SQL query that is specified during CreateDataSourceFromRedshift.
+-- | The SQL query that is specified during < CreateDataSourceFromRedshift>.
 -- Returns only if 'Verbose' is true in GetDataSourceInput.
 redSelectSqlQuery :: Lens' RedshiftMetadata (Maybe Text)
 redSelectSqlQuery = lens _redSelectSqlQuery (\ s a -> s{_redSelectSqlQuery = a});

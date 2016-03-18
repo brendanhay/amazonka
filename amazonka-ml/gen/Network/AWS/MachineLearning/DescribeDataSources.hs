@@ -248,8 +248,8 @@ instance ToPath DescribeDataSources where
 instance ToQuery DescribeDataSources where
         toQuery = const mempty
 
--- | Represents the query results from a DescribeDataSources operation. The
--- content is essentially a list of 'DataSource'.
+-- | Represents the query results from a < DescribeDataSources> operation.
+-- The content is essentially a list of 'DataSource'.
 --
 -- /See:/ 'describeDataSourcesResponse' smart constructor.
 data DescribeDataSourcesResponse = DescribeDataSourcesResponse'

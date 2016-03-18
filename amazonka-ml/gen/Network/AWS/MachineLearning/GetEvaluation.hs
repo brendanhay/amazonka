@@ -121,7 +121,7 @@ instance ToPath GetEvaluation where
 instance ToQuery GetEvaluation where
         toQuery = const mempty
 
--- | Represents the output of a GetEvaluation operation and describes an
+-- | Represents the output of a < GetEvaluation> operation and describes an
 -- 'Evaluation'.
 --
 -- /See:/ 'getEvaluationResponse' smart constructor.
@@ -252,7 +252,8 @@ gersCreatedByIAMUser = lens _gersCreatedByIAMUser (\ s a -> s{_gersCreatedByIAMU
 gersName :: Lens' GetEvaluationResponse (Maybe Text)
 gersName = lens _gersName (\ s a -> s{_gersName = a});
 
--- | A link to the file that contains logs of the CreateEvaluation operation.
+-- | A link to the file that contains logs of the < CreateEvaluation>
+-- operation.
 gersLogURI :: Lens' GetEvaluationResponse (Maybe Text)
 gersLogURI = lens _gersLogURI (\ s a -> s{_gersLogURI = a});
 

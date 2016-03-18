@@ -176,7 +176,7 @@ instance ToQuery DescribeCacheEngineVersions where
                "Engine" =: _dcevEngine, "Marker" =: _dcevMarker,
                "MaxRecords" =: _dcevMaxRecords]
 
--- | Represents the output of a DescribeCacheEngineVersions action.
+-- | Represents the output of a < DescribeCacheEngineVersions> action.
 --
 -- /See:/ 'describeCacheEngineVersionsResponse' smart constructor.
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'

@@ -195,7 +195,7 @@ dcprsCacheNodeTypeSpecificParameters = lens _dcprsCacheNodeTypeSpecificParameter
 dcprsMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 dcprsMarker = lens _dcprsMarker (\ s a -> s{_dcprsMarker = a});
 
--- | A list of Parameter instances.
+-- | A list of < Parameter> instances.
 dcprsParameters :: Lens' DescribeCacheParametersResponse [Parameter]
 dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
 

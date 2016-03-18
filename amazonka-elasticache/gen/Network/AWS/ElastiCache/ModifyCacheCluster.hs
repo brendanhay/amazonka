@@ -183,13 +183,13 @@ mccSnapshotWindow = lens _mccSnapshotWindow (\ s a -> s{_mccSnapshotWindow = a})
 -- Scenarios:
 --
 -- -   __Scenario 1:__ You have 3 active nodes and wish to add 2 nodes.
---      Specify 'NumCacheNodes=5' (3 + 2) and optionally specify two
+--     Specify 'NumCacheNodes=5' (3 + 2) and optionally specify two
 --     Availability Zones for the two new nodes.
 -- -   __Scenario 2:__ You have 3 active nodes and 2 nodes pending creation
 --     (from the scenario 1 call) and want to add 1 more node.
---      Specify 'NumCacheNodes=6' ((3 + 2) + 1)
+--     Specify 'NumCacheNodes=6' ((3 + 2) + 1)
 -- -   __Scenario 3:__ You want to cancel all pending actions.
---      Specify 'NumCacheNodes=3' to cancel all pending actions.
+--     Specify 'NumCacheNodes=3' to cancel all pending actions.
 --
 -- The Availability Zone placement of nodes pending creation cannot be
 -- modified. If you wish to cancel any nodes pending creation, add 0 nodes
@@ -214,7 +214,7 @@ mccSnapshotWindow = lens _mccSnapshotWindow (\ s a -> s{_mccSnapshotWindow = a})
 -- >   Scenario-3   Create           Delete        The new delete, pending or immediate, replaces the pending create.
 -- >
 -- >   Scenario-4   Create           Create        The new create is added to the pending create.
--- >                                                __Important:__
+-- >                                               __Important:__
 -- >                                               If the new create request is __Apply Immediately - Yes__, all creates are performed immediately. If the new create request is __Apply Immediately - No__, all creates are pending.
 -- >   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --
@@ -334,8 +334,8 @@ mccNotificationTopicARN = lens _mccNotificationTopicARN (\ s a -> s{_mccNotifica
 -- __Note:__
 -- Adding or removing Memcached cache nodes can be applied immediately or
 -- as a pending action. See 'ApplyImmediately'.
---  A pending action to modify the number of cache nodes in a cluster
--- during its maintenance window, whether by adding or removing nodes in
+-- A pending action to modify the number of cache nodes in a cluster during
+-- its maintenance window, whether by adding or removing nodes in
 -- accordance with the scale out architecture, is not queued. The
 -- customer\'s latest request to add or remove nodes to the cluster
 -- overrides any previous pending actions to modify the number of cache

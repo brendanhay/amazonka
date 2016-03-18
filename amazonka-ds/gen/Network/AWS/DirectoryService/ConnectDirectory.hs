@@ -49,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the ConnectDirectory operation.
+-- | Contains the inputs for the < ConnectDirectory> operation.
 --
 -- /See:/ 'connectDirectory' smart constructor.
 data ConnectDirectory = ConnectDirectory'
@@ -113,8 +113,8 @@ cdPassword = lens _cdPassword (\ s a -> s{_cdPassword = a}) . _Sensitive;
 cdSize :: Lens' ConnectDirectory DirectorySize
 cdSize = lens _cdSize (\ s a -> s{_cdSize = a});
 
--- | A DirectoryConnectSettings object that contains additional information
--- for the operation.
+-- | A < DirectoryConnectSettings> object that contains additional
+-- information for the operation.
 cdConnectSettings :: Lens' ConnectDirectory DirectoryConnectSettings
 cdConnectSettings = lens _cdConnectSettings (\ s a -> s{_cdConnectSettings = a});
 
@@ -154,7 +154,7 @@ instance ToPath ConnectDirectory where
 instance ToQuery ConnectDirectory where
         toQuery = const mempty
 
--- | Contains the results of the ConnectDirectory operation.
+-- | Contains the results of the < ConnectDirectory> operation.
 --
 -- /See:/ 'connectDirectoryResponse' smart constructor.
 data ConnectDirectoryResponse = ConnectDirectoryResponse'

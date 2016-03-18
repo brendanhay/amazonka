@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the EnableRadius operation.
+-- | Contains the inputs for the < EnableRadius> operation.
 --
 -- /See:/ 'enableRadius' smart constructor.
 data EnableRadius = EnableRadius'
@@ -74,7 +74,7 @@ enableRadius pDirectoryId_ pRadiusSettings_ =
 erDirectoryId :: Lens' EnableRadius Text
 erDirectoryId = lens _erDirectoryId (\ s a -> s{_erDirectoryId = a});
 
--- | A RadiusSettings object that contains information about the RADIUS
+-- | A < RadiusSettings> object that contains information about the RADIUS
 -- server.
 erRadiusSettings :: Lens' EnableRadius RadiusSettings
 erRadiusSettings = lens _erRadiusSettings (\ s a -> s{_erRadiusSettings = a});
@@ -110,7 +110,7 @@ instance ToPath EnableRadius where
 instance ToQuery EnableRadius where
         toQuery = const mempty
 
--- | Contains the results of the EnableRadius operation.
+-- | Contains the results of the < EnableRadius> operation.
 --
 -- /See:/ 'enableRadiusResponse' smart constructor.
 newtype EnableRadiusResponse = EnableRadiusResponse'

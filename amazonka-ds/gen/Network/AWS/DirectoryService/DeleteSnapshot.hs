@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DeleteSnapshot operation.
+-- | Contains the inputs for the < DeleteSnapshot> operation.
 --
 -- /See:/ 'deleteSnapshot' smart constructor.
 newtype DeleteSnapshot = DeleteSnapshot'
@@ -98,7 +98,7 @@ instance ToPath DeleteSnapshot where
 instance ToQuery DeleteSnapshot where
         toQuery = const mempty
 
--- | Contains the results of the DeleteSnapshot operation.
+-- | Contains the results of the < DeleteSnapshot> operation.
 --
 -- /See:/ 'deleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'

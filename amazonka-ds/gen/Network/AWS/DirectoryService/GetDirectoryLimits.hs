@@ -42,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the GetDirectoryLimits operation.
+-- | Contains the inputs for the < GetDirectoryLimits> operation.
 --
 -- /See:/ 'getDirectoryLimits' smart constructor.
 data GetDirectoryLimits =
@@ -84,7 +84,7 @@ instance ToPath GetDirectoryLimits where
 instance ToQuery GetDirectoryLimits where
         toQuery = const mempty
 
--- | Contains the results of the GetDirectoryLimits operation.
+-- | Contains the results of the < GetDirectoryLimits> operation.
 --
 -- /See:/ 'getDirectoryLimitsResponse' smart constructor.
 data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
@@ -108,7 +108,7 @@ getDirectoryLimitsResponse pResponseStatus_ =
     , _gdlrsResponseStatus = pResponseStatus_
     }
 
--- | A DirectoryLimits object that contains the directory limits for the
+-- | A < DirectoryLimits> object that contains the directory limits for the
 -- current region.
 gdlrsDirectoryLimits :: Lens' GetDirectoryLimitsResponse (Maybe DirectoryLimits)
 gdlrsDirectoryLimits = lens _gdlrsDirectoryLimits (\ s a -> s{_gdlrsDirectoryLimits = a});

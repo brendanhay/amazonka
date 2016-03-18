@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the GetSnapshotLimits operation.
+-- | Contains the inputs for the < GetSnapshotLimits> operation.
 --
 -- /See:/ 'getSnapshotLimits' smart constructor.
 newtype GetSnapshotLimits = GetSnapshotLimits'
@@ -98,7 +98,7 @@ instance ToPath GetSnapshotLimits where
 instance ToQuery GetSnapshotLimits where
         toQuery = const mempty
 
--- | Contains the results of the GetSnapshotLimits operation.
+-- | Contains the results of the < GetSnapshotLimits> operation.
 --
 -- /See:/ 'getSnapshotLimitsResponse' smart constructor.
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
@@ -122,8 +122,8 @@ getSnapshotLimitsResponse pResponseStatus_ =
     , _gslrsResponseStatus = pResponseStatus_
     }
 
--- | A SnapshotLimits object that contains the manual snapshot limits for the
--- specified directory.
+-- | A < SnapshotLimits> object that contains the manual snapshot limits for
+-- the specified directory.
 gslrsSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
 gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits = a});
 

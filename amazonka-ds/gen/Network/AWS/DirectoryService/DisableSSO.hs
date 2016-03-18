@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DisableSso operation.
+-- | Contains the inputs for the < DisableSso> operation.
 --
 -- /See:/ 'disableSSO' smart constructor.
 data DisableSSO = DisableSSO'
@@ -127,7 +127,7 @@ instance ToPath DisableSSO where
 instance ToQuery DisableSSO where
         toQuery = const mempty
 
--- | Contains the results of the DisableSso operation.
+-- | Contains the results of the < DisableSso> operation.
 --
 -- /See:/ 'disableSSOResponse' smart constructor.
 newtype DisableSSOResponse = DisableSSOResponse'

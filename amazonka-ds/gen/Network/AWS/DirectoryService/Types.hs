@@ -50,6 +50,9 @@ module Network.AWS.DirectoryService.Types
     -- * SnapshotType
     , SnapshotType (..)
 
+    -- * TopicStatus
+    , TopicStatus (..)
+
     -- * TrustDirection
     , TrustDirection (..)
 
@@ -139,6 +142,15 @@ module Network.AWS.DirectoryService.Types
     , dvsdSecurityGroupId
     , dvsdAvailabilityZones
 
+    -- * EventTopic
+    , EventTopic
+    , eventTopic
+    , etStatus
+    , etDirectoryId
+    , etTopicName
+    , etTopicARN
+    , etCreatedDateTime
+
     -- * RadiusSettings
     , RadiusSettings
     , radiusSettings
@@ -211,6 +223,7 @@ directoryService =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -245,7 +258,7 @@ _EntityAlreadyExistsException =
     _ServiceError . hasCode "EntityAlreadyExistsException"
 
 -- | The maximum number of directories in the region has been reached. You
--- can use the GetDirectoryLimits operation to determine your directory
+-- can use the < GetDirectoryLimits> operation to determine your directory
 -- limits in the region.
 _DirectoryLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectoryLimitExceededException =
@@ -272,7 +285,7 @@ _ServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceException = _ServiceError . hasCode "ServiceException"
 
 -- | The maximum number of manual snapshots for the directory has been
--- reached. You can use the GetSnapshotLimits operation to determine the
+-- reached. You can use the < GetSnapshotLimits> operation to determine the
 -- snapshot limits for a directory.
 _SnapshotLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotLimitExceededException =

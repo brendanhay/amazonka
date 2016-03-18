@@ -49,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the CreateDirectory operation.
+-- | Contains the inputs for the < CreateDirectory> operation.
 --
 -- /See:/ 'createDirectory' smart constructor.
 data CreateDirectory = CreateDirectory'
@@ -95,8 +95,8 @@ createDirectory pName_ pPassword_ pSize_ =
 cShortName :: Lens' CreateDirectory (Maybe Text)
 cShortName = lens _cShortName (\ s a -> s{_cShortName = a});
 
--- | A DirectoryVpcSettings object that contains additional information for
--- the operation.
+-- | A < DirectoryVpcSettings> object that contains additional information
+-- for the operation.
 cVPCSettings :: Lens' CreateDirectory (Maybe DirectoryVPCSettings)
 cVPCSettings = lens _cVPCSettings (\ s a -> s{_cVPCSettings = a});
 
@@ -154,7 +154,7 @@ instance ToPath CreateDirectory where
 instance ToQuery CreateDirectory where
         toQuery = const mempty
 
--- | Contains the results of the CreateDirectory operation.
+-- | Contains the results of the < CreateDirectory> operation.
 --
 -- /See:/ 'createDirectoryResponse' smart constructor.
 data CreateDirectoryResponse = CreateDirectoryResponse'

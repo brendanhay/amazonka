@@ -51,7 +51,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the CreateAlias operation.
+-- | Contains the inputs for the < CreateAlias> operation.
 --
 -- /See:/ 'createAlias' smart constructor.
 data CreateAlias = CreateAlias'
@@ -121,7 +121,7 @@ instance ToPath CreateAlias where
 instance ToQuery CreateAlias where
         toQuery = const mempty
 
--- | Contains the results of the CreateAlias operation.
+-- | Contains the results of the < CreateAlias> operation.
 --
 -- /See:/ 'createAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'

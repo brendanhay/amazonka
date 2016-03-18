@@ -24,7 +24,7 @@
 -- This operation supports pagination with the use of the /NextToken/
 -- request and response parameters. If more results are available, the
 -- /DescribeSnapshots.NextToken/ member contains a token that you pass in
--- the next call to DescribeSnapshots to retrieve the next set of items.
+-- the next call to < DescribeSnapshots> to retrieve the next set of items.
 --
 -- You can also specify a maximum number of return results with the /Limit/
 -- parameter.
@@ -57,7 +57,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DescribeSnapshots operation.
+-- | Contains the inputs for the < DescribeSnapshots> operation.
 --
 -- /See:/ 'describeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
@@ -94,7 +94,7 @@ dsDirectoryId :: Lens' DescribeSnapshots (Maybe Text)
 dsDirectoryId = lens _dsDirectoryId (\ s a -> s{_dsDirectoryId = a});
 
 -- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to
--- DescribeSnapshots. Pass null if this is the first call.
+-- < DescribeSnapshots>. Pass null if this is the first call.
 dsNextToken :: Lens' DescribeSnapshots (Maybe Text)
 dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a});
 
@@ -144,7 +144,7 @@ instance ToPath DescribeSnapshots where
 instance ToQuery DescribeSnapshots where
         toQuery = const mempty
 
--- | Contains the results of the DescribeSnapshots operation.
+-- | Contains the results of the < DescribeSnapshots> operation.
 --
 -- /See:/ 'describeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
@@ -173,11 +173,11 @@ describeSnapshotsResponse pResponseStatus_ =
     }
 
 -- | If not null, more results are available. Pass this value in the
--- /NextToken/ member of a subsequent call to DescribeSnapshots.
+-- /NextToken/ member of a subsequent call to < DescribeSnapshots>.
 dssrsNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
 
--- | The list of Snapshot objects that were retrieved.
+-- | The list of < Snapshot> objects that were retrieved.
 --
 -- It is possible that this list contains less than the number of items
 -- specified in the /Limit/ member of the request. This occurs if there are

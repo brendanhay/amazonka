@@ -25,7 +25,7 @@
 --
 -- This action returns as soon as the restore operation is initiated. You
 -- can monitor the progress of the restore operation by calling the
--- DescribeDirectories operation with the directory identifier. When the
+-- < DescribeDirectories> operation with the directory identifier. When the
 -- __DirectoryDescription.Stage__ value changes to 'Active', the restore
 -- operation is complete.
 --
@@ -52,7 +52,8 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | An object representing the inputs for the RestoreFromSnapshot operation.
+-- | An object representing the inputs for the < RestoreFromSnapshot>
+-- operation.
 --
 -- /See:/ 'restoreFromSnapshot' smart constructor.
 newtype RestoreFromSnapshot = RestoreFromSnapshot'
@@ -106,7 +107,7 @@ instance ToPath RestoreFromSnapshot where
 instance ToQuery RestoreFromSnapshot where
         toQuery = const mempty
 
--- | Contains the results of the RestoreFromSnapshot operation.
+-- | Contains the results of the < RestoreFromSnapshot> operation.
 --
 -- /See:/ 'restoreFromSnapshotResponse' smart constructor.
 newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'

@@ -55,7 +55,9 @@ library
         , Network.AWS.DirectoryService.DeleteDirectory
         , Network.AWS.DirectoryService.DeleteSnapshot
         , Network.AWS.DirectoryService.DeleteTrust
+        , Network.AWS.DirectoryService.DeregisterEventTopic
         , Network.AWS.DirectoryService.DescribeDirectories
+        , Network.AWS.DirectoryService.DescribeEventTopics
         , Network.AWS.DirectoryService.DescribeSnapshots
         , Network.AWS.DirectoryService.DescribeTrusts
         , Network.AWS.DirectoryService.DisableRadius
@@ -64,6 +66,7 @@ library
         , Network.AWS.DirectoryService.EnableSSO
         , Network.AWS.DirectoryService.GetDirectoryLimits
         , Network.AWS.DirectoryService.GetSnapshotLimits
+        , Network.AWS.DirectoryService.RegisterEventTopic
         , Network.AWS.DirectoryService.RestoreFromSnapshot
         , Network.AWS.DirectoryService.Types
         , Network.AWS.DirectoryService.UpdateRadius

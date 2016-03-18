@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DisableRadius operation.
+-- | Contains the inputs for the < DisableRadius> operation.
 --
 -- /See:/ 'disableRadius' smart constructor.
 newtype DisableRadius = DisableRadius'
@@ -98,7 +98,7 @@ instance ToPath DisableRadius where
 instance ToQuery DisableRadius where
         toQuery = const mempty
 
--- | Contains the results of the DisableRadius operation.
+-- | Contains the results of the < DisableRadius> operation.
 --
 -- /See:/ 'disableRadiusResponse' smart constructor.
 newtype DisableRadiusResponse = DisableRadiusResponse'

@@ -91,7 +91,7 @@ dtDirectoryId :: Lens' DescribeTrusts (Maybe Text)
 dtDirectoryId = lens _dtDirectoryId (\ s a -> s{_dtDirectoryId = a});
 
 -- | The /DescribeTrustsResult.NextToken/ value from a previous call to
--- DescribeTrusts. Pass null if this is the first call.
+-- < DescribeTrusts>. Pass null if this is the first call.
 dtNextToken :: Lens' DescribeTrusts (Maybe Text)
 dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 
@@ -169,8 +169,8 @@ describeTrustsResponse pResponseStatus_ =
     }
 
 -- | If not null, more results are available. Pass this value for the
--- /NextToken/ parameter in a subsequent call to DescribeTrusts to retrieve
--- the next set of items.
+-- /NextToken/ parameter in a subsequent call to < DescribeTrusts> to
+-- retrieve the next set of items.
 dtrsNextToken :: Lens' DescribeTrustsResponse (Maybe Text)
 dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 

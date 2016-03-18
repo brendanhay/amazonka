@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the EnableSso operation.
+-- | Contains the inputs for the < EnableSso> operation.
 --
 -- /See:/ 'enableSSO' smart constructor.
 data EnableSSO = EnableSSO'
@@ -127,7 +127,7 @@ instance ToPath EnableSSO where
 instance ToQuery EnableSSO where
         toQuery = const mempty
 
--- | Contains the results of the EnableSso operation.
+-- | Contains the results of the < EnableSso> operation.
 --
 -- /See:/ 'enableSSOResponse' smart constructor.
 newtype EnableSSOResponse = EnableSSOResponse'

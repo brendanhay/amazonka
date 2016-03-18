@@ -281,6 +281,7 @@ module Network.AWS.ECS
     , csServiceARN
     , csTaskDefinition
     , csRoleARN
+    , csDeploymentConfiguration
 
     -- ** Deployment
     , Deployment
@@ -293,6 +294,12 @@ module Network.AWS.ECS
     , dId
     , dUpdatedAt
     , dTaskDefinition
+
+    -- ** DeploymentConfiguration
+    , DeploymentConfiguration
+    , deploymentConfiguration
+    , dcMinimumHealthyPercent
+    , dcMaximumPercent
 
     -- ** Failure
     , Failure

@@ -21,7 +21,34 @@
 -- Runs and maintains a desired number of tasks from a specified task
 -- definition. If the number of tasks running in a service drops below
 -- 'desiredCount', Amazon ECS spawns another instantiation of the task in
--- the specified cluster. To update an existing service, see UpdateService.
+-- the specified cluster. To update an existing service, see
+-- < UpdateService>.
+--
+-- You can optionally specify a deployment configuration for your service.
+-- During a deployment (which is triggered by changing the task definition
+-- of a service with an < UpdateService> operation), the service scheduler
+-- uses the 'minimumHealthyPercent' and 'maximumPercent' parameters to
+-- determine the deployment strategy.
+--
+-- If the 'minimumHealthyPercent' is below 100%, the scheduler can ignore
+-- the 'desiredCount' temporarily during a deployment. For example, if your
+-- service has a 'desiredCount' of four tasks, a 'minimumHealthyPercent' of
+-- 50% allows the scheduler to stop two existing tasks before starting two
+-- new tasks. Tasks for services that /do not/ use a load balancer are
+-- considered healthy if they are in the 'RUNNING' state; tasks for
+-- services that /do/ use a load balancer are considered healthy if they
+-- are in the 'RUNNING' state and the container instance it is hosted on is
+-- reported as healthy by the load balancer. The default value for
+-- 'minimumHealthyPercent' is 50% in the console and 100% for the AWS CLI,
+-- the AWS SDKs, and the APIs.
+--
+-- The 'maximumPercent' parameter represents an upper limit on the number
+-- of running tasks during a deployment, which enables you to define the
+-- deployment batch size. For example, if your service has a 'desiredCount'
+-- of four tasks, a 'maximumPercent' value of 200% starts four new tasks
+-- before stopping the four older tasks (provided that the cluster
+-- resources required to do this are available). The default value for
+-- 'maximumPercent' is 200%.
 --
 -- When the service scheduler launches new tasks, it attempts to balance
 -- them across the Availability Zones in your cluster with the following
@@ -54,6 +81,7 @@ module Network.AWS.ECS.CreateService
     , cClientToken
     , cLoadBalancers
     , cRole
+    , cDeploymentConfiguration
     , cServiceName
     , cTaskDefinition
     , cDesiredCount
@@ -75,13 +103,14 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createService' smart constructor.
 data CreateService = CreateService'
-    { _cCluster        :: !(Maybe Text)
-    , _cClientToken    :: !(Maybe Text)
-    , _cLoadBalancers  :: !(Maybe [LoadBalancer])
-    , _cRole           :: !(Maybe Text)
-    , _cServiceName    :: !Text
-    , _cTaskDefinition :: !Text
-    , _cDesiredCount   :: !Int
+    { _cCluster                 :: !(Maybe Text)
+    , _cClientToken             :: !(Maybe Text)
+    , _cLoadBalancers           :: !(Maybe [LoadBalancer])
+    , _cRole                    :: !(Maybe Text)
+    , _cDeploymentConfiguration :: !(Maybe DeploymentConfiguration)
+    , _cServiceName             :: !Text
+    , _cTaskDefinition          :: !Text
+    , _cDesiredCount            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateService' with the minimum fields required to make a request.
@@ -95,6 +124,8 @@ data CreateService = CreateService'
 -- * 'cLoadBalancers'
 --
 -- * 'cRole'
+--
+-- * 'cDeploymentConfiguration'
 --
 -- * 'cServiceName'
 --
@@ -112,6 +143,7 @@ createService pServiceName_ pTaskDefinition_ pDesiredCount_ =
     , _cClientToken = Nothing
     , _cLoadBalancers = Nothing
     , _cRole = Nothing
+    , _cDeploymentConfiguration = Nothing
     , _cServiceName = pServiceName_
     , _cTaskDefinition = pTaskDefinition_
     , _cDesiredCount = pDesiredCount_
@@ -140,6 +172,11 @@ cLoadBalancers = lens _cLoadBalancers (\ s a -> s{_cLoadBalancers = a}) . _Defau
 -- balancer with your service.
 cRole :: Lens' CreateService (Maybe Text)
 cRole = lens _cRole (\ s a -> s{_cRole = a});
+
+-- | Optional deployment parameters that control how many tasks run during
+-- the deployment and the ordering of stopping and starting tasks.
+cDeploymentConfiguration :: Lens' CreateService (Maybe DeploymentConfiguration)
+cDeploymentConfiguration = lens _cDeploymentConfiguration (\ s a -> s{_cDeploymentConfiguration = a});
 
 -- | The name of your service. Up to 255 letters (uppercase and lowercase),
 -- numbers, hyphens, and underscores are allowed. Service names must be
@@ -186,6 +223,8 @@ instance ToJSON CreateService where
                   ("clientToken" .=) <$> _cClientToken,
                   ("loadBalancers" .=) <$> _cLoadBalancers,
                   ("role" .=) <$> _cRole,
+                  ("deploymentConfiguration" .=) <$>
+                    _cDeploymentConfiguration,
                   Just ("serviceName" .= _cServiceName),
                   Just ("taskDefinition" .= _cTaskDefinition),
                   Just ("desiredCount" .= _cDesiredCount)])

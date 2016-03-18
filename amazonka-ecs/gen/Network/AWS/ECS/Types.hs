@@ -143,6 +143,7 @@ module Network.AWS.ECS.Types
     , csServiceARN
     , csTaskDefinition
     , csRoleARN
+    , csDeploymentConfiguration
 
     -- * Deployment
     , Deployment
@@ -155,6 +156,12 @@ module Network.AWS.ECS.Types
     , dId
     , dUpdatedAt
     , dTaskDefinition
+
+    -- * DeploymentConfiguration
+    , DeploymentConfiguration
+    , deploymentConfiguration
+    , dcMinimumHealthyPercent
+    , dcMaximumPercent
 
     -- * Failure
     , Failure
@@ -320,6 +327,7 @@ eCS =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -340,27 +348,28 @@ _ServerException = _ServiceError . hasCode "ServerException"
 
 -- | You cannot delete a cluster that contains services. You must first
 -- update the service to reduce its desired task count to 0 and then delete
--- the service. For more information, see UpdateService and DeleteService.
+-- the service. For more information, see < UpdateService> and
+-- < DeleteService>.
 _ClusterContainsServicesException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterContainsServicesException =
     _ServiceError . hasCode "ClusterContainsServicesException"
 
 -- | You cannot delete a cluster that has registered container instances. You
 -- must first deregister the container instances before you can delete the
--- cluster. For more information, see DeregisterContainerInstance.
+-- cluster. For more information, see < DeregisterContainerInstance>.
 _ClusterContainsContainerInstancesException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterContainsContainerInstancesException =
     _ServiceError . hasCode "ClusterContainsContainerInstancesException"
 
 -- | The specified service is not active. You cannot update a service that is
 -- not active. If you have previously deleted a service, you can re-create
--- it with CreateService.
+-- it with < CreateService>.
 _ServiceNotActiveException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceNotActiveException =
     _ServiceError . hasCode "ServiceNotActiveException"
 
 -- | The specified cluster could not be found. You can view your available
--- clusters with ListClusters. Amazon ECS clusters are region-specific.
+-- clusters with < ListClusters>. Amazon ECS clusters are region-specific.
 _ClusterNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterNotFoundException = _ServiceError . hasCode "ClusterNotFoundException"
 
@@ -372,8 +381,8 @@ _NoUpdateAvailableException =
     _ServiceError . hasCode "NoUpdateAvailableException"
 
 -- | The specified service could not be found. You can view your available
--- services with ListServices. Amazon ECS services are cluster-specific and
--- region-specific.
+-- services with < ListServices>. Amazon ECS services are cluster-specific
+-- and region-specific.
 _ServiceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceNotFoundException = _ServiceError . hasCode "ServiceNotFoundException"
 

@@ -20,8 +20,8 @@
 --
 -- Deletes the specified cluster. You must deregister all container
 -- instances from this cluster before you may delete it. You can list the
--- container instances in a cluster with ListContainerInstances and
--- deregister them with DeregisterContainerInstance.
+-- container instances in a cluster with < ListContainerInstances> and
+-- deregister them with < DeregisterContainerInstance>.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteCluster.html AWS API Reference> for DeleteCluster.
 module Network.AWS.ECS.DeleteCluster

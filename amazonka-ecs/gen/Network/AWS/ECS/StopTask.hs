@@ -20,7 +20,7 @@
 --
 -- Stops a running task.
 --
--- When StopTask is called on a task, the equivalent of 'docker stop' is
+-- When < StopTask> is called on a task, the equivalent of 'docker stop' is
 -- issued to the containers running in the task. This results in a
 -- 'SIGTERM' and a 30-second timeout, after which 'SIGKILL' is sent and the
 -- containers are forcibly stopped. If the container handles the 'SIGTERM'
@@ -88,7 +88,7 @@ stCluster = lens _stCluster (\ s a -> s{_stCluster = a});
 -- | An optional message specified when a task is stopped. For example, if
 -- you are using a custom scheduler, you can use this parameter to specify
 -- the reason for stopping the task here, and the message will appear in
--- subsequent DescribeTasks API operations on this task. Up to 255
+-- subsequent < DescribeTasks> API operations on this task. Up to 255
 -- characters are allowed in this message.
 stReason :: Lens' StopTask (Maybe Text)
 stReason = lens _stReason (\ s a -> s{_stReason = a});

@@ -45,7 +45,9 @@ attribute pName_ =
     , _aName = pName_
     }
 
--- | The value of the container instance attribute.
+-- | The value of the container instance attribute (at this time, the value
+-- here is 'Null', but this could change in future revisions for
+-- expandability).
 aValue :: Lens' Attribute (Maybe Text)
 aValue = lens _aValue (\ s a -> s{_aValue = a});
 
@@ -143,7 +145,7 @@ cClusterName :: Lens' Cluster (Maybe Text)
 cClusterName = lens _cClusterName (\ s a -> s{_cClusterName = a});
 
 -- | The number of services that are running on the cluster in an 'ACTIVE'
--- state. You can view these services with ListServices.
+-- state. You can view these services with < ListServices>.
 cActiveServicesCount :: Lens' Cluster (Maybe Int)
 cActiveServicesCount = lens _cActiveServicesCount (\ s a -> s{_cActiveServicesCount = a});
 
@@ -372,6 +374,13 @@ containerDefinition =
 -- <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API>
 -- and the 'IMAGE' parameter of
 -- <https://docs.docker.com/reference/commandline/run/ docker run>.
+--
+-- -   Images in official repositories on Docker Hub use a single name (for
+--     example, 'ubuntu' or 'mongo').
+-- -   Images in other repositories on Docker Hub are qualified with an
+--     organization name (for example, 'amazon\/amazon-ecs-agent').
+-- -   Images in other online repositories are qualified further by a
+--     domain name (for example, 'quay.io\/assemblyline\/ubuntu').
 cdImage :: Lens' ContainerDefinition (Maybe Text)
 cdImage = lens _cdImage (\ s a -> s{_cdImage = a});
 
@@ -480,7 +489,7 @@ cdWorkingDirectory = lens _cdWorkingDirectory (\ s a -> s{_cdWorkingDirectory = 
 -- <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API>
 -- and the '--ulimit' option to
 -- <https://docs.docker.com/reference/commandline/run/ docker run>. Valid
--- naming values are displayed in the Ulimit data type. This parameter
+-- naming values are displayed in the < Ulimit> data type. This parameter
 -- requires version 1.18 of the Docker Remote API or greater on your
 -- container instance. To check the Docker Remote API version on your
 -- container instance, log into your container instance and run the
@@ -507,6 +516,11 @@ cdPrivileged = lens _cdPrivileged (\ s a -> s{_cdPrivileged = a});
 -- <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API>
 -- and the '--publish' option to
 -- <https://docs.docker.com/reference/commandline/run/ docker run>.
+--
+-- After a task reaches the 'RUNNING' status, manual and automatic host and
+-- container port assignments are visible in the __Network Bindings__
+-- section of a container description of a selected task in the Amazon ECS
+-- console, or the 'networkBindings' section < DescribeTasks> responses.
 cdPortMappings :: Lens' ContainerDefinition [PortMapping]
 cdPortMappings = lens _cdPortMappings (\ s a -> s{_cdPortMappings = a}) . _Default . _Coerce;
 
@@ -576,7 +590,7 @@ cdDnsSearchDomains = lens _cdDnsSearchDomains (\ s a -> s{_cdDnsSearchDomains = 
 -- <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API>
 -- and the '--log-driver' option to
 -- <https://docs.docker.com/reference/commandline/run/ docker run>. Valid
--- log drivers are displayed in the LogConfiguration data type. This
+-- log drivers are displayed in the < LogConfiguration> data type. This
 -- parameter requires version 1.18 of the Docker Remote API or greater on
 -- your container instance. To check the Docker Remote API version on your
 -- container instance, log into your container instance and run the
@@ -637,7 +651,7 @@ cdMountPoints = lens _cdMountPoints (\ s a -> s{_cdMountPoints = a}) . _Default 
 -- section of the
 -- <https://docs.docker.com/reference/api/docker_remote_api_v1.19/ Docker Remote API>
 -- and the '--link' option to
--- <https://docs.docker.com/reference/commandline/run/ 'docker run'>.
+-- <https://docs.docker.com/reference/commandline/run/ docker run>.
 --
 -- Containers that are collocated on a single container instance may be
 -- able to communicate with each other without requiring links or host port
@@ -973,18 +987,19 @@ instance ToJSON ContainerOverride where
 --
 -- /See:/ 'containerService' smart constructor.
 data ContainerService = ContainerService'
-    { _csRunningCount   :: !(Maybe Int)
-    , _csStatus         :: !(Maybe Text)
-    , _csClusterARN     :: !(Maybe Text)
-    , _csDesiredCount   :: !(Maybe Int)
-    , _csLoadBalancers  :: !(Maybe [LoadBalancer])
-    , _csPendingCount   :: !(Maybe Int)
-    , _csEvents         :: !(Maybe [ServiceEvent])
-    , _csDeployments    :: !(Maybe [Deployment])
-    , _csServiceName    :: !(Maybe Text)
-    , _csServiceARN     :: !(Maybe Text)
-    , _csTaskDefinition :: !(Maybe Text)
-    , _csRoleARN        :: !(Maybe Text)
+    { _csRunningCount            :: !(Maybe Int)
+    , _csStatus                  :: !(Maybe Text)
+    , _csClusterARN              :: !(Maybe Text)
+    , _csDesiredCount            :: !(Maybe Int)
+    , _csLoadBalancers           :: !(Maybe [LoadBalancer])
+    , _csPendingCount            :: !(Maybe Int)
+    , _csEvents                  :: !(Maybe [ServiceEvent])
+    , _csDeployments             :: !(Maybe [Deployment])
+    , _csServiceName             :: !(Maybe Text)
+    , _csServiceARN              :: !(Maybe Text)
+    , _csTaskDefinition          :: !(Maybe Text)
+    , _csRoleARN                 :: !(Maybe Text)
+    , _csDeploymentConfiguration :: !(Maybe DeploymentConfiguration)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContainerService' with the minimum fields required to make a request.
@@ -1014,6 +1029,8 @@ data ContainerService = ContainerService'
 -- * 'csTaskDefinition'
 --
 -- * 'csRoleARN'
+--
+-- * 'csDeploymentConfiguration'
 containerService
     :: ContainerService
 containerService =
@@ -1030,6 +1047,7 @@ containerService =
     , _csServiceARN = Nothing
     , _csTaskDefinition = Nothing
     , _csRoleARN = Nothing
+    , _csDeploymentConfiguration = Nothing
     }
 
 -- | The number of tasks in the cluster that are in the 'RUNNING' state.
@@ -1048,7 +1066,8 @@ csClusterARN = lens _csClusterARN (\ s a -> s{_csClusterARN = a});
 
 -- | The desired number of instantiations of the task definition to keep
 -- running on the service. This value is specified when the service is
--- created with CreateService, and it can be modified with UpdateService.
+-- created with < CreateService>, and it can be modified with
+-- < UpdateService>.
 csDesiredCount :: Lens' ContainerService (Maybe Int)
 csDesiredCount = lens _csDesiredCount (\ s a -> s{_csDesiredCount = a});
 
@@ -1071,7 +1090,10 @@ csEvents = lens _csEvents (\ s a -> s{_csEvents = a}) . _Default . _Coerce;
 csDeployments :: Lens' ContainerService [Deployment]
 csDeployments = lens _csDeployments (\ s a -> s{_csDeployments = a}) . _Default . _Coerce;
 
--- | A user-generated string that you can use to identify your service.
+-- | The name of your service. Up to 255 letters (uppercase and lowercase),
+-- numbers, hyphens, and underscores are allowed. Service names must be
+-- unique within a cluster, but you can have similarly named services in
+-- multiple clusters within a region or across multiple regions.
 csServiceName :: Lens' ContainerService (Maybe Text)
 csServiceName = lens _csServiceName (\ s a -> s{_csServiceName = a});
 
@@ -1084,8 +1106,8 @@ csServiceARN :: Lens' ContainerService (Maybe Text)
 csServiceARN = lens _csServiceARN (\ s a -> s{_csServiceARN = a});
 
 -- | The task definition to use for tasks in the service. This value is
--- specified when the service is created with CreateService, and it can be
--- modified with UpdateService.
+-- specified when the service is created with < CreateService>, and it can
+-- be modified with < UpdateService>.
 csTaskDefinition :: Lens' ContainerService (Maybe Text)
 csTaskDefinition = lens _csTaskDefinition (\ s a -> s{_csTaskDefinition = a});
 
@@ -1094,6 +1116,11 @@ csTaskDefinition = lens _csTaskDefinition (\ s a -> s{_csTaskDefinition = a});
 -- instances with a load balancer.
 csRoleARN :: Lens' ContainerService (Maybe Text)
 csRoleARN = lens _csRoleARN (\ s a -> s{_csRoleARN = a});
+
+-- | Optional deployment parameters that control how many tasks run during
+-- the deployment and the ordering of stopping and starting tasks.
+csDeploymentConfiguration :: Lens' ContainerService (Maybe DeploymentConfiguration)
+csDeploymentConfiguration = lens _csDeploymentConfiguration (\ s a -> s{_csDeploymentConfiguration = a});
 
 instance FromJSON ContainerService where
         parseJSON
@@ -1110,7 +1137,8 @@ instance FromJSON ContainerService where
                      <*> (x .:? "serviceName")
                      <*> (x .:? "serviceArn")
                      <*> (x .:? "taskDefinition")
-                     <*> (x .:? "roleArn"))
+                     <*> (x .:? "roleArn")
+                     <*> (x .:? "deploymentConfiguration"))
 
 -- | The details of an Amazon ECS service deployment.
 --
@@ -1210,6 +1238,62 @@ instance FromJSON Deployment where
                      <*> (x .:? "updatedAt")
                      <*> (x .:? "taskDefinition"))
 
+-- | Optional deployment parameters that control how many tasks run during
+-- the deployment and the ordering of stopping and starting tasks.
+--
+-- /See:/ 'deploymentConfiguration' smart constructor.
+data DeploymentConfiguration = DeploymentConfiguration'
+    { _dcMinimumHealthyPercent :: !(Maybe Int)
+    , _dcMaximumPercent        :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeploymentConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcMinimumHealthyPercent'
+--
+-- * 'dcMaximumPercent'
+deploymentConfiguration
+    :: DeploymentConfiguration
+deploymentConfiguration =
+    DeploymentConfiguration'
+    { _dcMinimumHealthyPercent = Nothing
+    , _dcMaximumPercent = Nothing
+    }
+
+-- | The lower limit (as a percentage of the service\'s 'desiredCount') of
+-- the number of running tasks that must remain running and healthy in a
+-- service during a deployment. The minimum healthy tasks during a
+-- deployment is the 'desiredCount' multiplied by the
+-- 'minimumHealthyPercent'\/100, rounded up to the nearest integer value.
+dcMinimumHealthyPercent :: Lens' DeploymentConfiguration (Maybe Int)
+dcMinimumHealthyPercent = lens _dcMinimumHealthyPercent (\ s a -> s{_dcMinimumHealthyPercent = a});
+
+-- | The upper limit (as a percentage of the service\'s 'desiredCount') of
+-- the number of running tasks that can be running in a service during a
+-- deployment. The maximum number of tasks during a deployment is the
+-- 'desiredCount' multiplied by the 'maximumPercent'\/100, rounded down to
+-- the nearest integer value.
+dcMaximumPercent :: Lens' DeploymentConfiguration (Maybe Int)
+dcMaximumPercent = lens _dcMaximumPercent (\ s a -> s{_dcMaximumPercent = a});
+
+instance FromJSON DeploymentConfiguration where
+        parseJSON
+          = withObject "DeploymentConfiguration"
+              (\ x ->
+                 DeploymentConfiguration' <$>
+                   (x .:? "minimumHealthyPercent") <*>
+                     (x .:? "maximumPercent"))
+
+instance ToJSON DeploymentConfiguration where
+        toJSON DeploymentConfiguration'{..}
+          = object
+              (catMaybes
+                 [("minimumHealthyPercent" .=) <$>
+                    _dcMinimumHealthyPercent,
+                  ("maximumPercent" .=) <$> _dcMaximumPercent])
+
 -- | A failed resource.
 --
 -- /See:/ 'failure' smart constructor.
@@ -1249,7 +1333,7 @@ instance FromJSON Failure where
 
 -- | Hostnames and IP address entries that are added to the '\/etc\/hosts'
 -- file of a container via the 'extraHosts' parameter of its
--- ContainerDefinition.
+-- < ContainerDefinition>.
 --
 -- /See:/ 'hostEntry' smart constructor.
 data HostEntry = HostEntry'
@@ -1317,7 +1401,12 @@ hostVolumeProperties =
 
 -- | The path on the host container instance that is presented to the
 -- container. If this parameter is empty, then the Docker daemon has
--- assigned a host path for you.
+-- assigned a host path for you. If the 'host' parameter contains a
+-- 'sourcePath' file location, then the data volume persists at the
+-- specified location on the host container instance until you delete it
+-- manually. If the 'sourcePath' value does not exist on the host container
+-- instance, the Docker daemon creates it. If the location does exist, the
+-- contents of the source path folder are exported.
 hvpSourcePath :: Lens' HostVolumeProperties (Maybe Text)
 hvpSourcePath = lens _hvpSourcePath (\ s a -> s{_hvpSourcePath = a});
 
@@ -1409,7 +1498,8 @@ loadBalancer =
 lbLoadBalancerName :: Lens' LoadBalancer (Maybe Text)
 lbLoadBalancerName = lens _lbLoadBalancerName (\ s a -> s{_lbLoadBalancerName = a});
 
--- | The name of the container to associate with the load balancer.
+-- | The name of the container (as it appears in a container definition) to
+-- associate with the load balancer.
 lbContainerName :: Lens' LoadBalancer (Maybe Text)
 lbContainerName = lens _lbContainerName (\ s a -> s{_lbContainerName = a});
 
@@ -1552,7 +1642,7 @@ instance ToJSON MountPoint where
 -- | Details on the network bindings between a container and its host
 -- container instance. After a task reaches the 'RUNNING' status, manual
 -- and automatic host and container port assignments are visible in the
--- 'networkBindings' section of DescribeTasks API responses.
+-- 'networkBindings' section of < DescribeTasks> API responses.
 --
 -- /See:/ 'networkBinding' smart constructor.
 data NetworkBinding = NetworkBinding'
@@ -1622,7 +1712,7 @@ instance ToJSON NetworkBinding where
 -- instance to send or receive traffic. Port mappings are specified as part
 -- of the container definition. After a task reaches the 'RUNNING' status,
 -- manual and automatic host and container port assignments are visible in
--- the 'networkBindings' section of DescribeTasks API responses.
+-- the 'networkBindings' section of < DescribeTasks> API responses.
 --
 -- /See:/ 'portMapping' smart constructor.
 data PortMapping = PortMapping'
@@ -1675,8 +1765,8 @@ pmProtocol = lens _pmProtocol (\ s a -> s{_pmProtocol = a});
 -- was previously specified in a running task is also reserved while the
 -- task is running (after a task stops, the host port is released).The
 -- current reserved ports are displayed in the 'remainingResources' of
--- DescribeContainerInstances output, and a container instance may have up
--- to 50 reserved ports at a time, including the default reserved ports
+-- < DescribeContainerInstances> output, and a container instance may have
+-- up to 50 reserved ports at a time, including the default reserved ports
 -- (automatically assigned ports do not count toward this limit).
 pmHostPort :: Lens' PortMapping (Maybe Int)
 pmHostPort = lens _pmHostPort (\ s a -> s{_pmHostPort = a});
@@ -2258,14 +2348,17 @@ volume =
     , _vHost = Nothing
     }
 
--- | The name of the volume. This name is referenced in the 'sourceVolume'
--- parameter of container definition 'mountPoints'.
+-- | The name of the volume. Up to 255 letters (uppercase and lowercase),
+-- numbers, hyphens, and underscores are allowed. This name is referenced
+-- in the 'sourceVolume' parameter of container definition 'mountPoints'.
 vName :: Lens' Volume (Maybe Text)
 vName = lens _vName (\ s a -> s{_vName = a});
 
--- | The path on the host container instance that is presented to the
--- containers which access the volume. If this parameter is empty, then the
--- Docker daemon assigns a host path for you.
+-- | The contents of the 'host' parameter determine whether your data volume
+-- persists on the host container instance and where it is stored. If the
+-- host parameter is empty, then the Docker daemon assigns a host path for
+-- your data volume, but the data is not guaranteed to persist after the
+-- containers associated with it stop running.
 vHost :: Lens' Volume (Maybe HostVolumeProperties)
 vHost = lens _vHost (\ s a -> s{_vHost = a});
 

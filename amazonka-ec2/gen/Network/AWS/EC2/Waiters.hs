@@ -549,10 +549,7 @@ instanceExists =
     { _waitName = "InstanceExists"
     , _waitAttempts = 40
     , _waitDelay = 5
-    , _waitAcceptors = [ matchAll
-                             True
-                             AcceptSuccess
-                             (nonEmpty (folding (concatOf dirsReservations)))
+    , _waitAcceptors = [ matchStatus 200 AcceptSuccess
                        , matchError "InvalidInstanceIDNotFound" AcceptRetry]
     }
 

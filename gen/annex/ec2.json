@@ -41,6 +41,23 @@
                     "expected": "deregistered"
                 }
             ]
+        },
+        "InstanceExists": {
+            "delay": 5,
+            "maxAttempts": 40,
+            "operation": "DescribeInstances",
+            "acceptors": [
+                {
+                    "matcher": "status",
+                    "expected": 200,
+                    "state": "success"
+                },
+                {
+                    "matcher": "error",
+                    "expected": "InvalidInstanceIDNotFound",
+                    "state": "retry"
+                }
+            ]
         }
     }
 }

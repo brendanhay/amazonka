@@ -1,5 +1,3 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html",
-    "operationUrl": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-",
     "libraryName": "amazonka-route53-domains"
 }

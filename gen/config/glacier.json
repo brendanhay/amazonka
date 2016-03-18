@@ -1,5 +1,3 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html",
-    "operationUrl": "http://docs.aws.amazon.com/amazonglacier/latest/dev/api-",
     "libraryName": "amazonka-glacier"
 }

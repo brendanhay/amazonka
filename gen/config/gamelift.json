@@ -1,5 +1,3 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/apigateway/api-reference/",
-    "operationUrl": "http://docs.aws.amazon.com/apigateway/api-reference/resource/",
     "libraryName": "amazonka-gamelift"
 }

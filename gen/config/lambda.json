@@ -1,6 +1,4 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html",
-    "operationUrl": "http://docs.aws.amazon.com/lambda/latest/dg/API_",
     "libraryName": "amazonka-lambda",
     "typeOverrides": {
         "InvocationRequest": {

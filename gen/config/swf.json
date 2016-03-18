@@ -1,6 +1,4 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html",
-    "operationUrl": "http://docs.aws.amazon.com/amazonswf/latest/apireference/API_",
     "libraryName": "amazonka-swf",
     "typeOverrides": {
         "ActivityTask": {

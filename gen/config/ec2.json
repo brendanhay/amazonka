@@ -1,6 +1,4 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html",
-    "operationUrl": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-",
     "libraryName": "amazonka-ec2",
     "ignoredWaiters": [
         "ConsoleOutputAvailable",

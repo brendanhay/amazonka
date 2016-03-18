@@ -1,5 +1,3 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html",
-    "operationUrl": "http://docs.aws.amazon.com/STS/latest/APIReference/API_",
     "libraryName": "amazonka-sts"
 }

@@ -1,6 +1,4 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/Welcome.html",
-    "operationUrl": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_",
     "libraryName": "amazonka-elasticbeanstalk",
     "typeOverrides": {
         "EventSeverity": {

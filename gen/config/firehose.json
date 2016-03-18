@@ -1,5 +1,3 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/firehose/latest/APIReference/Welcome.html",
-    "operationUrl": "http://docs.aws.amazon.com/firehose/latest/APIReference/API_",
     "libraryName": "amazonka-kinesis-firehose"
 }

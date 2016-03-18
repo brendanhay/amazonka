@@ -1,5 +1,3 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html",
-    "operationUrl": "http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-",
     "libraryName": "amazonka-elasticsearch"
 }

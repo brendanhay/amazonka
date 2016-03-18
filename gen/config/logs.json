@@ -1,5 +1,3 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.html",
-    "operationUrl": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_",
     "libraryName": "amazonka-cloudwatch-logs"
 }

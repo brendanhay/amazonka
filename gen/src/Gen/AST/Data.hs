@@ -327,11 +327,12 @@ pp i d
     | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
     | otherwise   = pure p
   where
-    e = flip mappend (", when formatting datatype: " <> p) . LText.pack
+    e = flip mappend (", when formatting datatype:\n\n" <> p <> "\n") . LText.pack
 
     p = LText.dropWhile isSpace
       . LText.pack
       $ prettyPrintStyleMode s m d
+
 
     s = style
         { mode           = PageMode

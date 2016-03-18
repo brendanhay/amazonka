@@ -1,4 +1,4 @@
-resolver: nightly-2015-11-17
+resolver: lts-5.4
 flags:    {}
 extra-deps:
   - text-regex-replace-0.1.1.1

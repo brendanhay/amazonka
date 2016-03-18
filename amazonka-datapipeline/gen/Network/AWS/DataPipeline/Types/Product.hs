@@ -672,7 +672,7 @@ toAttemptId :: Lens' TaskObject (Maybe Text)
 toAttemptId = lens _toAttemptId (\ s a -> s{_toAttemptId = a});
 
 -- | An internal identifier for the task. This ID is passed to the
--- SetTaskStatus and ReportTaskProgress actions.
+-- < SetTaskStatus> and < ReportTaskProgress> actions.
 toTaskId :: Lens' TaskObject (Maybe Text)
 toTaskId = lens _toTaskId (\ s a -> s{_toTaskId = a});
 

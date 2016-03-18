@@ -161,7 +161,7 @@ lprsResponseStatus :: Lens' ListPipelinesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
 -- | The pipeline identifiers. If you require additional information about
--- the pipelines, you can use these identifiers to call DescribePipelines
--- and GetPipelineDefinition.
+-- the pipelines, you can use these identifiers to call
+-- < DescribePipelines> and < GetPipelineDefinition>.
 lprsPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 lprsPipelineIdList = lens _lprsPipelineIdList (\ s a -> s{_lprsPipelineIdList = a}) . _Coerce;

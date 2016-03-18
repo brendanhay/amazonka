@@ -21,15 +21,15 @@
 -- Task runners call 'ReportTaskProgress' when assigned a task to
 -- acknowledge that it has the task. If the web service does not receive
 -- this acknowledgement within 2 minutes, it assigns the task in a
--- subsequent PollForTask call. After this initial acknowledgement, the
+-- subsequent < PollForTask> call. After this initial acknowledgement, the
 -- task runner only needs to report progress every 15 minutes to maintain
 -- its ownership of the task. You can change this reporting time from 15
 -- minutes by specifying a 'reportProgressTimeout' field in your pipeline.
 --
 -- If a task runner does not report its status after 5 minutes, AWS Data
 -- Pipeline assumes that the task runner is unable to process the task and
--- reassigns the task in a subsequent response to PollForTask. Task runners
--- should call 'ReportTaskProgress' every 60 seconds.
+-- reassigns the task in a subsequent response to < PollForTask>. Task
+-- runners should call 'ReportTaskProgress' every 60 seconds.
 --
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskProgress.html AWS API Reference> for ReportTaskProgress.
 module Network.AWS.DataPipeline.ReportTaskProgress
@@ -86,7 +86,7 @@ rtpFields :: Lens' ReportTaskProgress [Field]
 rtpFields = lens _rtpFields (\ s a -> s{_rtpFields = a}) . _Default . _Coerce;
 
 -- | The ID of the task assigned to the task runner. This value is provided
--- in the response for PollForTask.
+-- in the response for < PollForTask>.
 rtpTaskId :: Lens' ReportTaskProgress Text
 rtpTaskId = lens _rtpTaskId (\ s a -> s{_rtpTaskId = a});
 
@@ -152,6 +152,7 @@ rtprsResponseStatus :: Lens' ReportTaskProgressResponse Int
 rtprsResponseStatus = lens _rtprsResponseStatus (\ s a -> s{_rtprsResponseStatus = a});
 
 -- | If true, the calling task runner should cancel processing of the task.
--- The task runner does not need to call SetTaskStatus for canceled tasks.
+-- The task runner does not need to call < SetTaskStatus> for canceled
+-- tasks.
 rtprsCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprsCanceled = lens _rtprsCanceled (\ s a -> s{_rtprsCanceled = a});

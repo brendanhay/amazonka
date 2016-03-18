@@ -22,7 +22,7 @@
 -- If the pipeline does not pass validation, activation fails.
 --
 -- If you need to pause the pipeline to investigate an issue with a
--- component, such as a data source or script, call DeactivatePipeline.
+-- component, such as a data source or script, call < DeactivatePipeline>.
 --
 -- To activate a finished pipeline, modify the end date for the pipeline
 -- and then activate it.

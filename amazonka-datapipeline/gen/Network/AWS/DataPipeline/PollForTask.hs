@@ -171,8 +171,8 @@ pollForTaskResponse pResponseStatus_ =
 -- | The information needed to complete the task that is being assigned to
 -- the task runner. One of the fields returned in this object is 'taskId',
 -- which contains an identifier for the task being assigned. The calling
--- task runner uses 'taskId' in subsequent calls to ReportTaskProgress and
--- SetTaskStatus.
+-- task runner uses 'taskId' in subsequent calls to < ReportTaskProgress>
+-- and < SetTaskStatus>.
 pftrsTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrsTaskObject = lens _pftrsTaskObject (\ s a -> s{_pftrsTaskObject = a});
 

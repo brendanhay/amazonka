@@ -22,7 +22,7 @@
 -- task is completed and provide information about the final status. A task
 -- runner makes this call regardless of whether the task was sucessful. A
 -- task runner does not need to call 'SetTaskStatus' for tasks that are
--- canceled by the web service during a call to ReportTaskProgress.
+-- canceled by the web service during a call to < ReportTaskProgress>.
 --
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetTaskStatus.html AWS API Reference> for SetTaskStatus.
 module Network.AWS.DataPipeline.SetTaskStatus
@@ -110,7 +110,7 @@ stsErrorMessage :: Lens' SetTaskStatus (Maybe Text)
 stsErrorMessage = lens _stsErrorMessage (\ s a -> s{_stsErrorMessage = a});
 
 -- | The ID of the task assigned to the task runner. This value is provided
--- in the response for PollForTask.
+-- in the response for < PollForTask>.
 stsTaskId :: Lens' SetTaskStatus Text
 stsTaskId = lens _stsTaskId (\ s a -> s{_stsTaskId = a});
 

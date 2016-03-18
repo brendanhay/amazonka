@@ -27,7 +27,7 @@
 -- read permissions.
 --
 -- To retrieve the full pipeline definition instead of metadata about the
--- pipeline, call GetPipelineDefinition.
+-- pipeline, call < GetPipelineDefinition>.
 --
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html AWS API Reference> for DescribePipelines.
 module Network.AWS.DataPipeline.DescribePipelines
@@ -74,7 +74,7 @@ describePipelines =
 
 -- | The IDs of the pipelines to describe. You can pass as many as 25
 -- identifiers in a single call. To obtain pipeline IDs, call
--- ListPipelines.
+-- < ListPipelines>.
 dpPipelineIds :: Lens' DescribePipelines [Text]
 dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a}) . _Coerce;
 

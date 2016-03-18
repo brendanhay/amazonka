@@ -348,8 +348,8 @@ instance FromJSON FilteredLogEvent where
 
 -- | A log event is a record of some activity that was recorded by the
 -- application or resource being monitored. The log event record that
--- Amazon CloudWatch Logs understands contains two properties: the
--- timestamp of when the event occurred, and the raw event message.
+-- CloudWatch Logs understands contains two properties: the timestamp of
+-- when the event occurred, and the raw event message.
 --
 -- /See:/ 'inputLogEvent' smart constructor.
 data InputLogEvent = InputLogEvent'
@@ -555,9 +555,9 @@ instance FromJSON LogStream where
                      <*> (x .:? "lastIngestionTime")
                      <*> (x .:? "lastEventTimestamp"))
 
--- | Metric filters can be used to express how Amazon CloudWatch Logs would
--- extract metric observations from ingested log events and transform them
--- to metric data in a CloudWatch metric.
+-- | Metric filters can be used to express how CloudWatch Logs would extract
+-- metric observations from ingested log events and transform them to
+-- metric data in a CloudWatch metric.
 --
 -- /See:/ 'metricFilter' smart constructor.
 data MetricFilter = MetricFilter'

@@ -94,8 +94,8 @@ pdDestinationName = lens _pdDestinationName (\ s a -> s{_pdDestinationName = a})
 pdTargetARN :: Lens' PutDestination Text
 pdTargetARN = lens _pdTargetARN (\ s a -> s{_pdTargetARN = a});
 
--- | The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to
--- do Amazon Kinesis PutRecord requests on the desitnation stream.
+-- | The ARN of an IAM role that grants CloudWatch Logs permissions to do
+-- Amazon Kinesis PutRecord requests on the desitnation stream.
 pdRoleARN :: Lens' PutDestination Text
 pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a});
 

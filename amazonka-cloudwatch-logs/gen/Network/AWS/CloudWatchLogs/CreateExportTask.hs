@@ -24,7 +24,8 @@
 -- This is an asynchronous call. If all the required information is
 -- provided, this API will initiate an export task and respond with the
 -- task Id. Once started, 'DescribeExportTasks' can be used to get the
--- status of an export task.
+-- status of an export task. You can only have one active ('RUNNING' or
+-- 'PENDING') export task at a time, per account.
 --
 -- You can export logs from multiple log groups or multiple time ranges to
 -- the same Amazon S3 bucket. To separate out log data for each export
@@ -141,7 +142,7 @@ cetTo = lens _cetTo (\ s a -> s{_cetTo = a}) . _Nat;
 
 -- | Name of Amazon S3 bucket to which the log data will be exported.
 --
--- __NOTE: Only buckets in the same AWS region are supported__
+-- __Note:__ Only buckets in the same AWS region are supported.
 cetDestination :: Lens' CreateExportTask Text
 cetDestination = lens _cetDestination (\ s a -> s{_cetDestination = a});
 

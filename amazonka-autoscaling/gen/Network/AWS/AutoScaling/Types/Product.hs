@@ -311,7 +311,7 @@ autoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ pDesiredCapacity_ pD
     , _asgCreatedTime = _Time # pCreatedTime_
     }
 
--- | The current state of the group when DeleteAutoScalingGroup is in
+-- | The current state of the group when < DeleteAutoScalingGroup> is in
 -- progress.
 asgStatus :: Lens' AutoScalingGroup (Maybe Text)
 asgStatus = lens _asgStatus (\ s a -> s{_asgStatus = a});
@@ -508,7 +508,7 @@ asidAvailabilityZone :: Lens' AutoScalingInstanceDetails Text
 asidAvailabilityZone = lens _asidAvailabilityZone (\ s a -> s{_asidAvailabilityZone = a});
 
 -- | The lifecycle state for the instance. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html#AutoScalingStates Auto Scaling Instance States>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle>
 -- in the /Auto Scaling Developer Guide/.
 asidLifecycleState :: Lens' AutoScalingInstanceDetails Text
 asidLifecycleState = lens _asidLifecycleState (\ s a -> s{_asidLifecycleState = a});
@@ -644,29 +644,26 @@ ebs =
     , _ebsSnapshotId = Nothing
     }
 
--- | Indicates whether to delete the volume on instance termination.
+-- | Indicates whether the volume is deleted on instance termination.
 --
 -- Default: 'true'
 ebsDeleteOnTermination :: Lens' EBS (Maybe Bool)
 ebsDeleteOnTermination = lens _ebsDeleteOnTermination (\ s a -> s{_ebsDeleteOnTermination = a});
 
--- | The volume size, in gigabytes.
---
--- Valid values: If the volume type is 'io1', the minimum size of the
--- volume is 10 GiB. If you specify 'SnapshotId' and 'VolumeSize',
--- 'VolumeSize' must be equal to or larger than the size of the snapshot.
+-- | The volume size, in GiB. For 'standard' volumes, specify a value from 1
+-- to 1,024. For 'io1' volumes, specify a value from 4 to 16,384. For 'gp2'
+-- volumes, specify a value from 1 to 16,384. If you specify a snapshot,
+-- the volume size must be equal to or larger than the snapshot size.
 --
 -- Default: If you create a volume from a snapshot and you don\'t specify a
--- volume size, the default is the size of the snapshot.
---
--- Required: Required when the volume type is 'io1'.
+-- volume size, the default is the snapshot size.
 ebsVolumeSize :: Lens' EBS (Maybe Natural)
 ebsVolumeSize = lens _ebsVolumeSize (\ s a -> s{_ebsVolumeSize = a}) . mapping _Nat;
 
--- | For Provisioned IOPS (SSD) volumes only. The number of I\/O operations
--- per second (IOPS) to provision for the volume.
+-- | The number of I\/O operations per second (IOPS) to provision for the
+-- volume.
 --
--- Default: None
+-- Constraint: Required when the volume type is 'io1'.
 ebsIOPS :: Lens' EBS (Maybe Natural)
 ebsIOPS = lens _ebsIOPS (\ s a -> s{_ebsIOPS = a}) . mapping _Nat;
 
@@ -681,9 +678,11 @@ ebsIOPS = lens _ebsIOPS (\ s a -> s{_ebsIOPS = a}) . mapping _Nat;
 ebsEncrypted :: Lens' EBS (Maybe Bool)
 ebsEncrypted = lens _ebsEncrypted (\ s a -> s{_ebsEncrypted = a});
 
--- | The volume type.
+-- | The volume type. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Valid values: 'standard | io1 | gp2'
+-- Valid values: 'standard' | 'io1' | 'gp2'
 --
 -- Default: 'standard'
 ebsVolumeType :: Lens' EBS (Maybe Text)
@@ -866,7 +865,9 @@ iAvailabilityZone = lens _iAvailabilityZone (\ s a -> s{_iAvailabilityZone = a})
 iLifecycleState :: Lens' Instance LifecycleState
 iLifecycleState = lens _iLifecycleState (\ s a -> s{_iLifecycleState = a});
 
--- | The health status of the instance.
+-- | The health status of the instance. \"Healthy\" means that the instance
+-- is healthy and should remain in service. \"Unhealthy\" means that the
+-- instance is unhealthy and Auto Scaling should terminate and replace it.
 iHealthStatus :: Lens' Instance Text
 iHealthStatus = lens _iHealthStatus (\ s a -> s{_iHealthStatus = a});
 
@@ -1034,8 +1035,9 @@ lcKeyName :: Lens' LaunchConfiguration (Maybe Text)
 lcKeyName = lens _lcKeyName (\ s a -> s{_lcKeyName = a});
 
 -- | The IDs of one or more security groups for the VPC specified in
--- 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is
--- specified, and cannot be used otherwise. For more information, see
+-- 'ClassicLinkVPCId'. This parameter is required if you specify a
+-- ClassicLink-enabled VPC, and cannot be used otherwise. For more
+-- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 lcClassicLinkVPCSecurityGroups :: Lens' LaunchConfiguration [Text]
@@ -1140,9 +1142,7 @@ instance FromXML LaunchConfiguration where
 --     terminated
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html Auto Scaling Pending State>
--- and
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle>
 -- in the /Auto Scaling Developer Guide/.
 --
 -- /See:/ 'lifecycleHook' smart constructor.
@@ -1206,9 +1206,9 @@ lhLifecycleHookName = lens _lhLifecycleHookName (\ s a -> s{_lhLifecycleHookName
 
 -- | The maximum time, in seconds, that can elapse before the lifecycle hook
 -- times out. The default is 3600 seconds (1 hour). When the lifecycle hook
--- times out, Auto Scaling performs the action defined in the
--- 'DefaultResult' parameter. You can prevent the lifecycle hook from
--- timing out by calling RecordLifecycleActionHeartbeat.
+-- times out, Auto Scaling performs the default action. You can prevent the
+-- lifecycle hook from timing out by calling
+-- < RecordLifecycleActionHeartbeat>.
 lhHeartbeatTimeout :: Lens' LifecycleHook (Maybe Int)
 lhHeartbeatTimeout = lens _lhHeartbeatTimeout (\ s a -> s{_lhHeartbeatTimeout = a});
 
@@ -1244,7 +1244,7 @@ lhNotificationTargetARN = lens _lhNotificationTargetARN (\ s a -> s{_lhNotificat
 
 -- | The state of the EC2 instance to which you want to attach the lifecycle
 -- hook. For a list of lifecycle hook types, see
--- DescribeLifecycleHookTypes.
+-- < DescribeLifecycleHookTypes>.
 lhLifecycleTransition :: Lens' LifecycleHook (Maybe Text)
 lhLifecycleTransition = lens _lhLifecycleTransition (\ s a -> s{_lhLifecycleTransition = a});
 
@@ -1767,7 +1767,7 @@ sugaScheduledActionARN = lens _sugaScheduledActionARN (\ s a -> s{_sugaScheduled
 sugaStartTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaStartTime = lens _sugaStartTime (\ s a -> s{_sugaStartTime = a}) . mapping _Time;
 
--- | This parameter is deprecated; use 'StartTime' instead.
+-- | This parameter is deprecated.
 sugaTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaTime = lens _sugaTime (\ s a -> s{_sugaTime = a}) . mapping _Time;
 
@@ -1913,7 +1913,7 @@ instance ToQuery StepAdjustment where
                "ScalingAdjustment" =: _saScalingAdjustment]
 
 -- | Describes an Auto Scaling process that has been suspended. For more
--- information, see ProcessType.
+-- information, see < ProcessType>.
 --
 -- /See:/ 'suspendedProcess' smart constructor.
 data SuspendedProcess = SuspendedProcess'

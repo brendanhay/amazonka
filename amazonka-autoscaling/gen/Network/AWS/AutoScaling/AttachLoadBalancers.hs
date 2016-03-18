@@ -21,8 +21,8 @@
 -- Attaches one or more load balancers to the specified Auto Scaling group.
 --
 -- To describe the load balancers for an Auto Scaling group, use
--- DescribeLoadBalancers. To detach the load balancer from the Auto Scaling
--- group, use DetachLoadBalancers.
+-- < DescribeLoadBalancers>. To detach the load balancer from the Auto
+-- Scaling group, use < DetachLoadBalancers>.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group>

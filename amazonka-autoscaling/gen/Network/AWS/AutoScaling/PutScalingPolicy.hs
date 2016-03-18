@@ -166,7 +166,7 @@ pspScalingAdjustment = lens _pspScalingAdjustment (\ s a -> s{_pspScalingAdjustm
 -- 'SimpleScaling'.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns>
 -- in the /Auto Scaling Developer Guide/.
 pspCooldown :: Lens' PutScalingPolicy (Maybe Int)
 pspCooldown = lens _pspCooldown (\ s a -> s{_pspCooldown = a});

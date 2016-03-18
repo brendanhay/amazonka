@@ -22,7 +22,7 @@
 --
 -- If you exceed your maximum limit of launch configurations, which by
 -- default is 100 per region, the call fails. For information about viewing
--- and updating this limit, see DescribeAccountLimits.
+-- and updating this limit, see < DescribeAccountLimits>.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html Launch Configurations>
@@ -152,7 +152,7 @@ createLaunchConfiguration pLaunchConfigurationName_ =
     , _clcLaunchConfigurationName = pLaunchConfigurationName_
     }
 
--- | The ID of the EC2 instance to use to create the launch configuration.
+-- | The ID of the instance to use to create the launch configuration.
 --
 -- The new launch configuration derives attributes from the instance, with
 -- the exception of the block device mapping.
@@ -169,12 +169,11 @@ clcInstanceId = lens _clcInstanceId (\ s a -> s{_clcInstanceId = a});
 -- | Used for groups that launch instances into a virtual private cloud
 -- (VPC). Specifies whether to assign a public IP address to each instance.
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon Virtual Private Cloud>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC>
 -- in the /Auto Scaling Developer Guide/.
 --
--- If you specify a value for this parameter, be sure to specify at least
--- one subnet using the /VPCZoneIdentifier/ parameter when you create your
--- group.
+-- If you specify this parameter, be sure to specify at least one subnet
+-- when you create your group.
 --
 -- Default: If the instance is launched into a default subnet, the default
 -- is 'true'. If the instance is launched into a nondefault subnet, the
@@ -202,7 +201,7 @@ clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a})
 -- | The maximum hourly price to be paid for any Spot Instance launched to
 -- fulfill the request. Spot Instances are launched when the price you
 -- specify exceeds the current Spot market price. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launch Spot Instances in Your Auto Scaling Group>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launching Spot Instances in Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
 clcSpotPrice :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcSpotPrice = lens _clcSpotPrice (\ s a -> s{_clcSpotPrice = a});
@@ -214,7 +213,7 @@ clcSpotPrice = lens _clcSpotPrice (\ s a -> s{_clcSpotPrice = a});
 -- every minute and your account is charged a fee. When you disable
 -- detailed monitoring, by specifying 'False', CloudWatch generates metrics
 -- every 5 minutes. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html Monitor Your Auto Scaling Instances>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html Monitoring Your Auto Scaling Instances and Groups>
 -- in the /Auto Scaling Developer Guide/.
 clcInstanceMonitoring :: Lens' CreateLaunchConfiguration (Maybe InstanceMonitoring)
 clcInstanceMonitoring = lens _clcInstanceMonitoring (\ s a -> s{_clcInstanceMonitoring = a});
@@ -225,9 +224,10 @@ clcInstanceMonitoring = lens _clcInstanceMonitoring (\ s a -> s{_clcInstanceMoni
 clcKeyName :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcKeyName = lens _clcKeyName (\ s a -> s{_clcKeyName = a});
 
--- | The IDs of one or more security groups for the VPC specified in
--- 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is
--- specified, and is not supported otherwise. For more information, see
+-- | The IDs of one or more security groups for the specified
+-- ClassicLink-enabled VPC. This parameter is required if you specify a
+-- ClassicLink-enabled VPC, and is not supported otherwise. For more
+-- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 clcClassicLinkVPCSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
@@ -263,9 +263,6 @@ clcEBSOptimized = lens _clcEBSOptimized (\ s a -> s{_clcEBSOptimized = a});
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- At this time, launch configurations don\'t support compressed (zipped)
--- user data files.
 clcUserData :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcUserData = lens _clcUserData (\ s a -> s{_clcUserData = a});
 
@@ -303,12 +300,11 @@ clcImageId = lens _clcImageId (\ s a -> s{_clcImageId = a});
 -- launch Dedicated Instances into a shared tenancy VPC (VPC with instance
 -- placement tenancy attribute set to 'default').
 --
--- If you specify a value for this parameter, be sure to specify at least
--- one subnet using the /VPCZoneIdentifier/ parameter when you create your
--- group.
+-- If you specify this parameter, be sure to specify at least one subnet
+-- when you create your group.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon Virtual Private Cloud>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC>
 -- in the /Auto Scaling Developer Guide/.
 --
 -- Valid values: 'default' | 'dedicated'

@@ -97,10 +97,10 @@ desMaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
 desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a});
 
 -- | The activity IDs of the desired scaling activities. If this list is
--- omitted, all activities are described. If the 'AutoScalingGroupName'
--- parameter is provided, the results are limited to that group. The list
--- of requested activities cannot contain more than 50 items. If unknown
--- activities are requested, they are ignored with no error.
+-- omitted, all activities are described. If you specify an Auto Scaling
+-- group, the results are limited to that group. The list of requested
+-- activities cannot contain more than 50 items. If unknown activities are
+-- requested, they are ignored with no error.
 desActivityIds :: Lens' DescribeScalingActivities [Text]
 desActivityIds = lens _desActivityIds (\ s a -> s{_desActivityIds = a}) . _Default . _Coerce;
 

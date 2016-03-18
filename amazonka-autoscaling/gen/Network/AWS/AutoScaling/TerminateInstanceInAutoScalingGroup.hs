@@ -72,7 +72,7 @@ terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity
     , _tiiasgShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
     }
 
--- | The ID of the EC2 instance.
+-- | The ID of the instance.
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
 tiiasgInstanceId = lens _tiiasgInstanceId (\ s a -> s{_tiiasgInstanceId = a});
 

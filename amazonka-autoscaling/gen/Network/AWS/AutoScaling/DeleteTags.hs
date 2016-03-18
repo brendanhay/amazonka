@@ -58,10 +58,7 @@ deleteTags =
     { _dtTags = mempty
     }
 
--- | Each tag should be defined by its resource type, resource ID, key,
--- value, and a propagate flag. Valid values are: Resource type =
--- /auto-scaling-group/, Resource ID = /AutoScalingGroupName/, key=/value/,
--- value=/value/, propagate=/true/ or /false/.
+-- | One or more tags.
 dtTags :: Lens' DeleteTags [Tag]
 dtTags = lens _dtTags (\ s a -> s{_dtTags = a}) . _Coerce;
 

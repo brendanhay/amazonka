@@ -22,7 +22,7 @@
 --
 -- If you exceed your maximum limit of Auto Scaling groups, which by
 -- default is 20 per region, the call fails. For information about viewing
--- and updating this limit, see DescribeAccountLimits.
+-- and updating this limit, see < DescribeAccountLimits>.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroup.html Auto Scaling Groups>
@@ -144,9 +144,9 @@ createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
     , _casgMaxSize = pMaxSize_
     }
 
--- | The ID of the EC2 instance used to create a launch configuration for the
--- group. Alternatively, use the 'LaunchConfigurationName' parameter to
--- specify a launch configuration instead of an EC2 instance.
+-- | The ID of the instance used to create a launch configuration for the
+-- group. Alternatively, specify a launch configuration instead of an EC2
+-- instance.
 --
 -- When you specify an ID of an instance, Auto Scaling creates a new launch
 -- configuration and associates it with the group. This launch
@@ -154,7 +154,7 @@ createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
 -- the exception of the block device mapping.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html Create an Auto Scaling Group from an EC2 Instance>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html Create an Auto Scaling Group Using an EC2 Instance>
 -- in the /Auto Scaling Developer Guide/.
 casgInstanceId :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgInstanceId = lens _casgInstanceId (\ s a -> s{_casgInstanceId = a});
@@ -164,7 +164,7 @@ casgInstanceId = lens _casgInstanceId (\ s a -> s{_casgInstanceId = a});
 -- listed.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your Auto Scaling Group>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html Controlling Which Instances Auto Scaling Terminates During Scale In>
 -- in the /Auto Scaling Developer Guide/.
 casgTerminationPolicies :: Lens' CreateAutoScalingGroup [Text]
 casgTerminationPolicies = lens _casgTerminationPolicies (\ s a -> s{_casgTerminationPolicies = a}) . _Default . _Coerce;
@@ -177,7 +177,7 @@ casgTerminationPolicies = lens _casgTerminationPolicies (\ s a -> s{_casgTermina
 -- This parameter is required if you are adding an 'ELB' health check.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks for Auto Scaling Instances>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>
 -- in the /Auto Scaling Developer Guide/.
 casgHealthCheckGracePeriod :: Lens' CreateAutoScalingGroup (Maybe Int)
 casgHealthCheckGracePeriod = lens _casgHealthCheckGracePeriod (\ s a -> s{_casgHealthCheckGracePeriod = a});
@@ -195,7 +195,7 @@ casgNewInstancesProtectedFromScaleIn = lens _casgNewInstancesProtectedFromScaleI
 -- specified.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon Virtual Private Cloud>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC>
 -- in the /Auto Scaling Developer Guide/.
 casgVPCZoneIdentifier :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgVPCZoneIdentifier = lens _casgVPCZoneIdentifier (\ s a -> s{_casgVPCZoneIdentifier = a});
@@ -204,13 +204,13 @@ casgVPCZoneIdentifier = lens _casgVPCZoneIdentifier (\ s a -> s{_casgVPCZoneIden
 -- before another scaling activity can start. The default is 300.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns>
 -- in the /Auto Scaling Developer Guide/.
 casgDefaultCooldown :: Lens' CreateAutoScalingGroup (Maybe Int)
 casgDefaultCooldown = lens _casgDefaultCooldown (\ s a -> s{_casgDefaultCooldown = a});
 
 -- | One or more Availability Zones for the group. This parameter is optional
--- if you specify subnets using the 'VPCZoneIdentifier' parameter.
+-- if you specify one or more subnets.
 casgAvailabilityZones :: Lens' CreateAutoScalingGroup (Maybe (NonEmpty Text))
 casgAvailabilityZones = lens _casgAvailabilityZones (\ s a -> s{_casgAvailabilityZones = a}) . mapping _List1;
 
@@ -220,9 +220,8 @@ casgAvailabilityZones = lens _casgAvailabilityZones (\ s a -> s{_casgAvailabilit
 casgDesiredCapacity :: Lens' CreateAutoScalingGroup (Maybe Int)
 casgDesiredCapacity = lens _casgDesiredCapacity (\ s a -> s{_casgDesiredCapacity = a});
 
--- | The name of the launch configuration. Alternatively, use the
--- 'InstanceId' parameter to specify an EC2 instance instead of a launch
--- configuration.
+-- | The name of the launch configuration. Alternatively, specify an EC2
+-- instance instead of a launch configuration.
 casgLaunchConfigurationName :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgLaunchConfigurationName = lens _casgLaunchConfigurationName (\ s a -> s{_casgLaunchConfigurationName = a});
 
@@ -246,15 +245,12 @@ casgPlacementGroup = lens _casgPlacementGroup (\ s a -> s{_casgPlacementGroup = 
 -- | One or more load balancers.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html Load Balance Your Auto Scaling Group>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html Using a Load Balancer With an Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
 casgLoadBalancerNames :: Lens' CreateAutoScalingGroup [Text]
 casgLoadBalancerNames = lens _casgLoadBalancerNames (\ s a -> s{_casgLoadBalancerNames = a}) . _Default . _Coerce;
 
--- | The tag to be created or updated. Each tag should be defined by its
--- resource type, resource ID, key, value, and a propagate flag. Valid
--- values: key=/value/, value=/value/, propagate=/true/ or /false/. Value
--- and propagate are optional parameters.
+-- | One or more tags.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Tagging Auto Scaling Groups and Instances>

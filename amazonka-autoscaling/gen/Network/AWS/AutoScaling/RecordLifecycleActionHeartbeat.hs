@@ -18,27 +18,29 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Records a heartbeat for the lifecycle action associated with a specific
--- token. This extends the timeout by the length of time defined by the
--- 'HeartbeatTimeout' parameter of PutLifecycleHook.
+-- Records a heartbeat for the lifecycle action associated with the
+-- specified token or instance. This extends the timeout by the length of
+-- time defined using < PutLifecycleHook>.
 --
--- This operation is a part of the basic sequence for adding a lifecycle
--- hook to an Auto Scaling group:
+-- This step is a part of the procedure for adding a lifecycle hook to an
+-- Auto Scaling group:
 --
--- 1.  Create a notification target. A target can be either an Amazon SQS
---     queue or an Amazon SNS topic.
--- 2.  Create an IAM role. This role allows Auto Scaling to publish
---     lifecycle notifications to the designated SQS queue or SNS topic.
--- 3.  Create the lifecycle hook. You can create a hook that acts when
---     instances launch or when instances terminate.
--- 4.  __If necessary, record the lifecycle action heartbeat to keep the
---     instance in a pending state.__
--- 5.  Complete the lifecycle action.
+-- 1.  (Optional) Create a Lambda function and a rule that allows
+--     CloudWatch Events to invoke your Lambda function when Auto Scaling
+--     launches or terminates instances.
+-- 2.  (Optional) Create a notification target and an IAM role. The target
+--     can be either an Amazon SQS queue or an Amazon SNS topic. The role
+--     allows Auto Scaling to publish lifecycle notifications to the
+--     target.
+-- 3.  Create the lifecycle hook. Specify whether the hook is used when the
+--     instances launch or terminate.
+-- 4.  __If you need more time, record the lifecycle action heartbeat to
+--     keep the instance in a pending state.__
+-- 5.  If you finish before the timeout period ends, complete the lifecycle
+--     action.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html Auto Scaling Pending State>
--- and
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle>
 -- in the /Auto Scaling Developer Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_RecordLifecycleActionHeartbeat.html AWS API Reference> for RecordLifecycleActionHeartbeat.
@@ -48,9 +50,10 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
       recordLifecycleActionHeartbeat
     , RecordLifecycleActionHeartbeat
     -- * Request Lenses
+    , rlahInstanceId
+    , rlahLifecycleActionToken
     , rlahLifecycleHookName
     , rlahAutoScalingGroupName
-    , rlahLifecycleActionToken
 
     -- * Destructuring the Response
     , recordLifecycleActionHeartbeatResponse
@@ -68,31 +71,44 @@ import           Network.AWS.Response
 
 -- | /See:/ 'recordLifecycleActionHeartbeat' smart constructor.
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
-    { _rlahLifecycleHookName    :: !Text
+    { _rlahInstanceId           :: !(Maybe Text)
+    , _rlahLifecycleActionToken :: !(Maybe Text)
+    , _rlahLifecycleHookName    :: !Text
     , _rlahAutoScalingGroupName :: !Text
-    , _rlahLifecycleActionToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RecordLifecycleActionHeartbeat' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'rlahInstanceId'
+--
+-- * 'rlahLifecycleActionToken'
+--
 -- * 'rlahLifecycleHookName'
 --
 -- * 'rlahAutoScalingGroupName'
---
--- * 'rlahLifecycleActionToken'
 recordLifecycleActionHeartbeat
     :: Text -- ^ 'rlahLifecycleHookName'
     -> Text -- ^ 'rlahAutoScalingGroupName'
-    -> Text -- ^ 'rlahLifecycleActionToken'
     -> RecordLifecycleActionHeartbeat
-recordLifecycleActionHeartbeat pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleActionToken_ =
+recordLifecycleActionHeartbeat pLifecycleHookName_ pAutoScalingGroupName_ =
     RecordLifecycleActionHeartbeat'
-    { _rlahLifecycleHookName = pLifecycleHookName_
+    { _rlahInstanceId = Nothing
+    , _rlahLifecycleActionToken = Nothing
+    , _rlahLifecycleHookName = pLifecycleHookName_
     , _rlahAutoScalingGroupName = pAutoScalingGroupName_
-    , _rlahLifecycleActionToken = pLifecycleActionToken_
     }
+
+-- | The ID of the instance.
+rlahInstanceId :: Lens' RecordLifecycleActionHeartbeat (Maybe Text)
+rlahInstanceId = lens _rlahInstanceId (\ s a -> s{_rlahInstanceId = a});
+
+-- | A token that uniquely identifies a specific lifecycle action associated
+-- with an instance. Auto Scaling sends this token to the notification
+-- target you specified when you created the lifecycle hook.
+rlahLifecycleActionToken :: Lens' RecordLifecycleActionHeartbeat (Maybe Text)
+rlahLifecycleActionToken = lens _rlahLifecycleActionToken (\ s a -> s{_rlahLifecycleActionToken = a});
 
 -- | The name of the lifecycle hook.
 rlahLifecycleHookName :: Lens' RecordLifecycleActionHeartbeat Text
@@ -101,12 +117,6 @@ rlahLifecycleHookName = lens _rlahLifecycleHookName (\ s a -> s{_rlahLifecycleHo
 -- | The name of the Auto Scaling group for the hook.
 rlahAutoScalingGroupName :: Lens' RecordLifecycleActionHeartbeat Text
 rlahAutoScalingGroupName = lens _rlahAutoScalingGroupName (\ s a -> s{_rlahAutoScalingGroupName = a});
-
--- | A token that uniquely identifies a specific lifecycle action associated
--- with an instance. Auto Scaling sends this token to the notification
--- target you specified when you created the lifecycle hook.
-rlahLifecycleActionToken :: Lens' RecordLifecycleActionHeartbeat Text
-rlahLifecycleActionToken = lens _rlahLifecycleActionToken (\ s a -> s{_rlahLifecycleActionToken = a});
 
 instance AWSRequest RecordLifecycleActionHeartbeat
          where
@@ -133,9 +143,10 @@ instance ToQuery RecordLifecycleActionHeartbeat where
               ["Action" =:
                  ("RecordLifecycleActionHeartbeat" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
+               "InstanceId" =: _rlahInstanceId,
+               "LifecycleActionToken" =: _rlahLifecycleActionToken,
                "LifecycleHookName" =: _rlahLifecycleHookName,
-               "AutoScalingGroupName" =: _rlahAutoScalingGroupName,
-               "LifecycleActionToken" =: _rlahLifecycleActionToken]
+               "AutoScalingGroupName" =: _rlahAutoScalingGroupName]
 
 -- | /See:/ 'recordLifecycleActionHeartbeatResponse' smart constructor.
 newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'

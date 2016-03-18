@@ -73,7 +73,7 @@ attachInstances pAutoScalingGroupName_ =
     , _aiAutoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | One or more EC2 instance IDs.
+-- | One or more instance IDs.
 aiInstanceIds :: Lens' AttachInstances [Text]
 aiInstanceIds = lens _aiInstanceIds (\ s a -> s{_aiInstanceIds = a}) . _Default . _Coerce;
 

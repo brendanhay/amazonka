@@ -118,10 +118,7 @@ putScheduledUpdateGroupAction pAutoScalingGroupName_ pScheduledActionName_ =
 psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaStartTime = lens _psugaStartTime (\ s a -> s{_psugaStartTime = a}) . mapping _Time;
 
--- | This parameter is deprecated; use 'StartTime' instead.
---
--- The time for this action to start. If both 'Time' and 'StartTime' are
--- specified, their values must be identical.
+-- | This parameter is deprecated.
 psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaTime = lens _psugaTime (\ s a -> s{_psugaTime = a}) . mapping _Time;
 

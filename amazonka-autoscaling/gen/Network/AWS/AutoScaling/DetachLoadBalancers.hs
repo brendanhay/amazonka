@@ -24,7 +24,7 @@
 -- When you detach a load balancer, it enters the 'Removing' state while
 -- deregistering the instances in the group. When all instances are
 -- deregistered, then you can no longer describe the load balancer using
--- DescribeLoadBalancers. Note that the instances remain running.
+-- < DescribeLoadBalancers>. Note that the instances remain running.
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachLoadBalancers.html AWS API Reference> for DetachLoadBalancers.
 module Network.AWS.AutoScaling.DetachLoadBalancers

@@ -297,6 +297,7 @@ autoScaling =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -312,7 +313,7 @@ _AlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
 
 -- | You have already reached a limit for your Auto Scaling resources (for
 -- example, groups, launch configurations, or lifecycle hooks). For more
--- information, see DescribeAccountLimits.
+-- information, see < DescribeAccountLimits>.
 _LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 

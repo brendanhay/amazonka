@@ -20,7 +20,7 @@
 --
 -- Describes the actions scheduled for your Auto Scaling group that
 -- haven\'t run. To describe the actions that have already run, use
--- DescribeScalingActivities.
+-- < DescribeScalingActivities>.
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActions.html AWS API Reference> for DescribeScheduledActions.
 --
@@ -121,8 +121,7 @@ dsasEndTime = lens _dsasEndTime (\ s a -> s{_dsasEndTime = a}) . mapping _Time;
 --
 -- You can describe up to a maximum of 50 instances with a single call. If
 -- there are more items to return, the call returns a token. To get the
--- next set of items, repeat the call with the returned token in the
--- 'NextToken' parameter.
+-- next set of items, repeat the call with the returned token.
 dsasScheduledActionNames :: Lens' DescribeScheduledActions [Text]
 dsasScheduledActionNames = lens _dsasScheduledActionNames (\ s a -> s{_dsasScheduledActionNames = a}) . _Default . _Coerce;
 

@@ -172,7 +172,7 @@ instance ToQuery DownloadDBLogFilePortion where
                "LogFileName" =: _ddlfpLogFileName]
 
 -- | This data type is used as a response element to
--- DownloadDBLogFilePortion.
+-- < DownloadDBLogFilePortion>.
 --
 -- /See:/ 'downloadDBLogFilePortionResponse' smart constructor.
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'

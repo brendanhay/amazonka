@@ -181,7 +181,7 @@ instance ToQuery DescribeDBLogFiles where
                "MaxRecords" =: _ddlfMaxRecords,
                "DBInstanceIdentifier" =: _ddlfDBInstanceIdentifier]
 
--- | The response from a call to DescribeDBLogFiles.
+-- | The response from a call to < DescribeDBLogFiles>.
 --
 -- /See:/ 'describeDBLogFilesResponse' smart constructor.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'

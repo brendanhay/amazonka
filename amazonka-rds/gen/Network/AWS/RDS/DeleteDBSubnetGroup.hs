@@ -68,11 +68,10 @@ deleteDBSubnetGroup pDBSubnetGroupName_ =
 --
 -- You cannot delete the default subnet group.
 --
--- Constraints:
+-- Constraints: Must contain no more than 255 alphanumeric characters,
+-- periods, underscores, spaces, or hyphens. Must not be default.
 --
--- -   Must be 1 to 255 alphanumeric characters
--- -   First character must be a letter
--- -   Cannot end with a hyphen or contain two consecutive hyphens
+-- Example: 'mySubnetgroup'
 ddbsgDBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
 ddbsgDBSubnetGroupName = lens _ddbsgDBSubnetGroupName (\ s a -> s{_ddbsgDBSubnetGroupName = a});
 

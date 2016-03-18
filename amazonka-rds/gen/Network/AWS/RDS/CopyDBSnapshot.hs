@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Copies the specified DBSnapshot. The source DB snapshot must be in the
+-- Copies the specified DB Snapshot. The source DB snapshot must be in the
 -- \"available\" state.
 --
 -- If you are copying from a shared manual DB snapshot, the
@@ -32,6 +32,7 @@ module Network.AWS.RDS.CopyDBSnapshot
     , CopyDBSnapshot
     -- * Request Lenses
     , cdsCopyTags
+    , cdsKMSKeyId
     , cdsTags
     , cdsSourceDBSnapshotIdentifier
     , cdsTargetDBSnapshotIdentifier
@@ -56,6 +57,7 @@ import           Network.AWS.Response
 -- /See:/ 'copyDBSnapshot' smart constructor.
 data CopyDBSnapshot = CopyDBSnapshot'
     { _cdsCopyTags                   :: !(Maybe Bool)
+    , _cdsKMSKeyId                   :: !(Maybe Text)
     , _cdsTags                       :: !(Maybe [Tag])
     , _cdsSourceDBSnapshotIdentifier :: !Text
     , _cdsTargetDBSnapshotIdentifier :: !Text
@@ -66,6 +68,8 @@ data CopyDBSnapshot = CopyDBSnapshot'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdsCopyTags'
+--
+-- * 'cdsKMSKeyId'
 --
 -- * 'cdsTags'
 --
@@ -79,6 +83,7 @@ copyDBSnapshot
 copyDBSnapshot pSourceDBSnapshotIdentifier_ pTargetDBSnapshotIdentifier_ =
     CopyDBSnapshot'
     { _cdsCopyTags = Nothing
+    , _cdsKMSKeyId = Nothing
     , _cdsTags = Nothing
     , _cdsSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier_
     , _cdsTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier_
@@ -88,6 +93,25 @@ copyDBSnapshot pSourceDBSnapshotIdentifier_ pTargetDBSnapshotIdentifier_ =
 -- snapshot; otherwise false. The default is false.
 cdsCopyTags :: Lens' CopyDBSnapshot (Maybe Bool)
 cdsCopyTags = lens _cdsCopyTags (\ s a -> s{_cdsCopyTags = a});
+
+-- | The AWS Key Management Service (AWS KMS) key identifier for an encrypted
+-- DB snapshot. The KMS key identifier is the Amazon Resource Name (ARN) or
+-- the KMS key alias for the KMS encryption key.
+--
+-- If you copy an unencrypted DB snapshot and specify a value for the
+-- 'KmsKeyId' parameter, Amazon RDS encrypts the target DB snapshot using
+-- the specified KMS encryption key.
+--
+-- If you copy an encrypted DB snapshot from your AWS account, you can
+-- specify a value for 'KmsKeyId' to encrypt the copy with a new KMS
+-- encryption key. If you don\'t specify a value for 'KmsKeyId' then the
+-- copy of the DB snapshot is encrypted with the same KMS key as the source
+-- DB snapshot.
+--
+-- If you copy an encrypted DB snapshot that is shared from another AWS
+-- account, then you must specify a value for 'KmsKeyId'.
+cdsKMSKeyId :: Lens' CopyDBSnapshot (Maybe Text)
+cdsKMSKeyId = lens _cdsKMSKeyId (\ s a -> s{_cdsKMSKeyId = a});
 
 -- | Undocumented member.
 cdsTags :: Lens' CopyDBSnapshot [Tag]
@@ -148,6 +172,7 @@ instance ToQuery CopyDBSnapshot where
               ["Action" =: ("CopyDBSnapshot" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "CopyTags" =: _cdsCopyTags,
+               "KmsKeyId" =: _cdsKMSKeyId,
                "Tags" =: toQuery (toQueryList "Tag" <$> _cdsTags),
                "SourceDBSnapshotIdentifier" =:
                  _cdsSourceDBSnapshotIdentifier,

@@ -155,7 +155,7 @@ instance ToQuery DescribeDBParameterGroups where
                "MaxRecords" =: _ddpgMaxRecords]
 
 -- | Contains the result of a successful invocation of the
--- DescribeDBParameterGroups action.
+-- < DescribeDBParameterGroups> action.
 --
 -- /See:/ 'describeDBParameterGroupsResponse' smart constructor.
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
@@ -189,7 +189,7 @@ describeDBParameterGroupsResponse pResponseStatus_ =
 ddpgrsMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
 ddpgrsMarker = lens _ddpgrsMarker (\ s a -> s{_ddpgrsMarker = a});
 
--- | A list of DBParameterGroup instances.
+-- | A list of < DBParameterGroup> instances.
 ddpgrsDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
 ddpgrsDBParameterGroups = lens _ddpgrsDBParameterGroups (\ s a -> s{_ddpgrsDBParameterGroups = a}) . _Default . _Coerce;
 

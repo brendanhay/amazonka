@@ -165,7 +165,7 @@ instance ToQuery DescribeDBParameters where
                "DBParameterGroupName" =: _ddpDBParameterGroupName]
 
 -- | Contains the result of a successful invocation of the
--- DescribeDBParameters action.
+-- < DescribeDBParameters> action.
 --
 -- /See:/ 'describeDBParametersResponse' smart constructor.
 data DescribeDBParametersResponse = DescribeDBParametersResponse'
@@ -199,7 +199,7 @@ describeDBParametersResponse pResponseStatus_ =
 ddprsMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
 ddprsMarker = lens _ddprsMarker (\ s a -> s{_ddprsMarker = a});
 
--- | A list of Parameter values.
+-- | A list of < Parameter> values.
 ddprsParameters :: Lens' DescribeDBParametersResponse [Parameter]
 ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _Default . _Coerce;
 

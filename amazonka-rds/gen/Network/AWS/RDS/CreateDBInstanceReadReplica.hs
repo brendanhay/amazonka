@@ -186,6 +186,11 @@ cdirrAutoMinorVersionUpgrade = lens _cdirrAutoMinorVersionUpgrade (\ s a -> s{_c
 --         Replicas will be created in the same VPC.
 --     -   Not specify a DB subnet group. All these Read Replicas will be
 --         created outside of any VPC.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters,
+-- periods, underscores, spaces, or hyphens. Must not be default.
+--
+-- Example: 'mySubnetgroup'
 cdirrDBSubnetGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrDBSubnetGroupName = lens _cdirrDBSubnetGroupName (\ s a -> s{_cdirrDBSubnetGroupName = a});
 

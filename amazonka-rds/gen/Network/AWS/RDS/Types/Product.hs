@@ -71,7 +71,7 @@ instance FromXML AccountQuota where
 --
 -- This data type is used as an element in the following data type:
 --
--- -   OrderableDBInstanceOption
+-- -   < OrderableDBInstanceOption>
 --
 -- /See:/ 'availabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
@@ -161,7 +161,7 @@ instance FromXML Certificate where
                 <*> (x .@? "ValidFrom")
 
 -- | This data type is used as a response element in the action
--- DescribeDBEngineVersions.
+-- < DescribeDBEngineVersions>.
 --
 -- /See:/ 'characterSet' smart constructor.
 data CharacterSet = CharacterSet'
@@ -200,14 +200,14 @@ instance FromXML CharacterSet where
 
 -- | Contains the result of a successful invocation of the following actions:
 --
--- -   CreateDBCluster
--- -   DeleteDBCluster
--- -   FailoverDBCluster
--- -   ModifyDBCluster
--- -   RestoreDBClusterFromSnapshot
+-- -   < CreateDBCluster>
+-- -   < DeleteDBCluster>
+-- -   < FailoverDBCluster>
+-- -   < ModifyDBCluster>
+-- -   < RestoreDBClusterFromSnapshot>
 --
--- This data type is used as a response element in the DescribeDBClusters
--- action.
+-- This data type is used as a response element in the
+-- < DescribeDBClusters> action.
 --
 -- /See:/ 'dbCluster' smart constructor.
 data DBCluster = DBCluster'
@@ -360,9 +360,9 @@ dcDBClusterParameterGroup = lens _dcDBClusterParameterGroup (\ s a -> s{_dcDBClu
 dcMasterUsername :: Lens' DBCluster (Maybe Text)
 dcMasterUsername = lens _dcMasterUsername (\ s a -> s{_dcMasterUsername = a});
 
--- | If 'StorageEncrypted' is true, the region-unique, immutable identifier
--- for the encrypted DB cluster. This identifier is found in AWS CloudTrail
--- log entries whenever the KMS key for the DB cluster is accessed.
+-- | The region-unique, immutable identifier for the DB cluster. This
+-- identifier is found in AWS CloudTrail log entries whenever the KMS key
+-- for the DB cluster is accessed.
 dcDBClusterResourceId :: Lens' DBCluster (Maybe Text)
 dcDBClusterResourceId = lens _dcDBClusterResourceId (\ s a -> s{_dcDBClusterResourceId = a});
 
@@ -571,11 +571,11 @@ instance FromXML DBClusterOptionGroupStatus where
                 (x .@? "DBClusterOptionGroupName")
 
 -- | Contains the result of a successful invocation of the
--- CreateDBClusterParameterGroup action.
+-- < CreateDBClusterParameterGroup> action.
 --
 -- This data type is used as a request parameter in the
--- DeleteDBClusterParameterGroup action, and as a response element in the
--- DescribeDBClusterParameterGroups action.
+-- < DeleteDBClusterParameterGroup> action, and as a response element in
+-- the < DescribeDBClusterParameterGroups> action.
 --
 -- /See:/ 'dbClusterParameterGroup' smart constructor.
 data DBClusterParameterGroup = DBClusterParameterGroup'
@@ -662,11 +662,11 @@ instance FromXML DBClusterParameterGroupNameMessage
 
 -- | Contains the result of a successful invocation of the following actions:
 --
--- -   CreateDBClusterSnapshot
--- -   DeleteDBClusterSnapshot
+-- -   < CreateDBClusterSnapshot>
+-- -   < DeleteDBClusterSnapshot>
 --
 -- This data type is used as a response element in the
--- DescribeDBClusterSnapshots action.
+-- < DescribeDBClusterSnapshots> action.
 --
 -- /See:/ 'dbClusterSnapshot' smart constructor.
 data DBClusterSnapshot = DBClusterSnapshot'
@@ -848,7 +848,7 @@ instance FromXML DBClusterSnapshot where
                 <*> (x .@? "Port")
 
 -- | This data type is used as a response element in the action
--- DescribeDBEngineVersions.
+-- < DescribeDBEngineVersions>.
 --
 -- /See:/ 'dbEngineVersion' smart constructor.
 data DBEngineVersion = DBEngineVersion'
@@ -949,12 +949,12 @@ instance FromXML DBEngineVersion where
 
 -- | Contains the result of a successful invocation of the following actions:
 --
--- -   CreateDBInstance
--- -   DeleteDBInstance
--- -   ModifyDBInstance
+-- -   < CreateDBInstance>
+-- -   < DeleteDBInstance>
+-- -   < ModifyDBInstance>
 --
--- This data type is used as a response element in the DescribeDBInstances
--- action.
+-- This data type is used as a response element in the
+-- < DescribeDBInstances> action.
 --
 -- /See:/ 'dbInstance' smart constructor.
 data DBInstance = DBInstance'
@@ -1308,10 +1308,9 @@ diSecondaryAvailabilityZone = lens _diSecondaryAvailabilityZone (\ s a -> s{_diS
 diAllocatedStorage :: Lens' DBInstance (Maybe Int)
 diAllocatedStorage = lens _diAllocatedStorage (\ s a -> s{_diAllocatedStorage = a});
 
--- | If 'StorageEncrypted' is true, the region-unique, immutable identifier
--- for the encrypted DB instance. This identifier is found in AWS
--- CloudTrail log entries whenever the KMS key for the DB instance is
--- accessed.
+-- | The region-unique, immutable identifier for the DB instance. This
+-- identifier is found in AWS CloudTrail log entries whenever the KMS key
+-- for the DB instance is accessed.
 diDBiResourceId :: Lens' DBInstance (Maybe Text)
 diDBiResourceId = lens _diDBiResourceId (\ s a -> s{_diDBiResourceId = a});
 
@@ -1496,11 +1495,11 @@ instance FromXML DBInstanceStatusInfo where
                 <*> (x .@? "Message")
 
 -- | Contains the result of a successful invocation of the
--- CreateDBParameterGroup action.
+-- < CreateDBParameterGroup> action.
 --
 -- This data type is used as a request parameter in the
--- DeleteDBParameterGroup action, and as a response element in the
--- DescribeDBParameterGroups action.
+-- < DeleteDBParameterGroup> action, and as a response element in the
+-- < DescribeDBParameterGroups> action.
 --
 -- /See:/ 'dbParameterGroup' smart constructor.
 data DBParameterGroup = DBParameterGroup'
@@ -1548,7 +1547,7 @@ instance FromXML DBParameterGroup where
                 <*> (x .@? "Description")
 
 -- | Contains the result of a successful invocation of the
--- ModifyDBParameterGroup or ResetDBParameterGroup action.
+-- < ModifyDBParameterGroup> or < ResetDBParameterGroup> action.
 --
 -- /See:/ 'dbParameterGroupNameMessage' smart constructor.
 newtype DBParameterGroupNameMessage = DBParameterGroupNameMessage'
@@ -1580,12 +1579,12 @@ instance FromXML DBParameterGroupNameMessage where
 --
 -- This data type is used as a response element in the following actions:
 --
--- -   CreateDBInstance
--- -   CreateDBInstanceReadReplica
--- -   DeleteDBInstance
--- -   ModifyDBInstance
--- -   RebootDBInstance
--- -   RestoreDBInstanceFromDBSnapshot
+-- -   < CreateDBInstance>
+-- -   < CreateDBInstanceReadReplica>
+-- -   < DeleteDBInstance>
+-- -   < ModifyDBInstance>
+-- -   < RebootDBInstance>
+-- -   < RestoreDBInstanceFromDBSnapshot>
 --
 -- /See:/ 'dbParameterGroupStatus' smart constructor.
 data DBParameterGroupStatus = DBParameterGroupStatus'
@@ -1624,13 +1623,13 @@ instance FromXML DBParameterGroupStatus where
 
 -- | Contains the result of a successful invocation of the following actions:
 --
--- -   DescribeDBSecurityGroups
--- -   AuthorizeDBSecurityGroupIngress
--- -   CreateDBSecurityGroup
--- -   RevokeDBSecurityGroupIngress
+-- -   < DescribeDBSecurityGroups>
+-- -   < AuthorizeDBSecurityGroupIngress>
+-- -   < CreateDBSecurityGroup>
+-- -   < RevokeDBSecurityGroupIngress>
 --
 -- This data type is used as a response element in the
--- DescribeDBSecurityGroups action.
+-- < DescribeDBSecurityGroups> action.
 --
 -- /See:/ 'dbSecurityGroup' smart constructor.
 data DBSecurityGroup = DBSecurityGroup'
@@ -1677,7 +1676,7 @@ dbsgVPCId = lens _dbsgVPCId (\ s a -> s{_dbsgVPCId = a});
 dbsgOwnerId :: Lens' DBSecurityGroup (Maybe Text)
 dbsgOwnerId = lens _dbsgOwnerId (\ s a -> s{_dbsgOwnerId = a});
 
--- | Contains a list of IPRange elements.
+-- | Contains a list of < IPRange> elements.
 dbsgIPRanges :: Lens' DBSecurityGroup [IPRange]
 dbsgIPRanges = lens _dbsgIPRanges (\ s a -> s{_dbsgIPRanges = a}) . _Default . _Coerce;
 
@@ -1685,7 +1684,7 @@ dbsgIPRanges = lens _dbsgIPRanges (\ s a -> s{_dbsgIPRanges = a}) . _Default . _
 dbsgDBSecurityGroupName :: Lens' DBSecurityGroup (Maybe Text)
 dbsgDBSecurityGroupName = lens _dbsgDBSecurityGroupName (\ s a -> s{_dbsgDBSecurityGroupName = a});
 
--- | Contains a list of EC2SecurityGroup elements.
+-- | Contains a list of < EC2SecurityGroup> elements.
 dbsgEC2SecurityGroups :: Lens' DBSecurityGroup [EC2SecurityGroup]
 dbsgEC2SecurityGroups = lens _dbsgEC2SecurityGroups (\ s a -> s{_dbsgEC2SecurityGroups = a}) . _Default . _Coerce;
 
@@ -1707,10 +1706,10 @@ instance FromXML DBSecurityGroup where
 
 -- | This data type is used as a response element in the following actions:
 --
--- -   ModifyDBInstance
--- -   RebootDBInstance
--- -   RestoreDBInstanceFromDBSnapshot
--- -   RestoreDBInstanceToPointInTime
+-- -   < ModifyDBInstance>
+-- -   < RebootDBInstance>
+-- -   < RestoreDBInstanceFromDBSnapshot>
+-- -   < RestoreDBInstanceToPointInTime>
 --
 -- /See:/ 'dbSecurityGroupMembership' smart constructor.
 data DBSecurityGroupMembership = DBSecurityGroupMembership'
@@ -1748,11 +1747,11 @@ instance FromXML DBSecurityGroupMembership where
 
 -- | Contains the result of a successful invocation of the following actions:
 --
--- -   CreateDBSnapshot
--- -   DeleteDBSnapshot
+-- -   < CreateDBSnapshot>
+-- -   < DeleteDBSnapshot>
 --
--- This data type is used as a response element in the DescribeDBSnapshots
--- action.
+-- This data type is used as a response element in the
+-- < DescribeDBSnapshots> action.
 --
 -- /See:/ 'dbSnapshot' smart constructor.
 data DBSnapshot = DBSnapshot'
@@ -1990,7 +1989,7 @@ instance FromXML DBSnapshot where
 --
 -- Manual DB snapshot attributes are used to authorize other AWS accounts
 -- to restore a manual DB snapshot. For more information, see the
--- ModifyDBSnapshotAttribute API.
+-- < ModifyDBSnapshotAttribute> API.
 --
 -- /See:/ 'dbSnapshotAttribute' smart constructor.
 data DBSnapshotAttribute = DBSnapshotAttribute'
@@ -2038,11 +2037,11 @@ instance FromXML DBSnapshotAttribute where
                 <*> (x .@? "AttributeName")
 
 -- | Contains the results of a successful call to the
--- DescribeDBSnapshotAttributes API.
+-- < DescribeDBSnapshotAttributes> API.
 --
 -- Manual DB snapshot attributes are used to authorize other AWS accounts
 -- to copy or restore a manual DB snapshot. For more information, see the
--- ModifyDBSnapshotAttribute API.
+-- < ModifyDBSnapshotAttribute> API.
 --
 -- /See:/ 'dbSnapshotAttributesResult' smart constructor.
 data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
@@ -2082,13 +2081,13 @@ instance FromXML DBSnapshotAttributesResult where
 
 -- | Contains the result of a successful invocation of the following actions:
 --
--- -   CreateDBSubnetGroup
--- -   ModifyDBSubnetGroup
--- -   DescribeDBSubnetGroups
--- -   DeleteDBSubnetGroup
+-- -   < CreateDBSubnetGroup>
+-- -   < ModifyDBSubnetGroup>
+-- -   < DescribeDBSubnetGroups>
+-- -   < DeleteDBSubnetGroup>
 --
 -- This data type is used as a response element in the
--- DescribeDBSubnetGroups action.
+-- < DescribeDBSubnetGroups> action.
 --
 -- /See:/ 'dbSubnetGroup' smart constructor.
 data DBSubnetGroup = DBSubnetGroup'
@@ -2123,7 +2122,7 @@ dbSubnetGroup =
     , _dsgSubnetGroupStatus = Nothing
     }
 
--- | Specifies the name of the DB subnet group.
+-- | The name of the DB subnet group.
 dsgDBSubnetGroupName :: Lens' DBSubnetGroup (Maybe Text)
 dsgDBSubnetGroupName = lens _dsgDBSubnetGroupName (\ s a -> s{_dsgDBSubnetGroupName = a});
 
@@ -2131,7 +2130,7 @@ dsgDBSubnetGroupName = lens _dsgDBSubnetGroupName (\ s a -> s{_dsgDBSubnetGroupN
 dsgVPCId :: Lens' DBSubnetGroup (Maybe Text)
 dsgVPCId = lens _dsgVPCId (\ s a -> s{_dsgVPCId = a});
 
--- | Contains a list of Subnet elements.
+-- | Contains a list of < Subnet> elements.
 dsgSubnets :: Lens' DBSubnetGroup [Subnet]
 dsgSubnets = lens _dsgSubnets (\ s a -> s{_dsgSubnets = a}) . _Default . _Coerce;
 
@@ -2152,7 +2151,7 @@ instance FromXML DBSubnetGroup where
                 <*> (x .@? "DBSubnetGroupDescription")
                 <*> (x .@? "SubnetGroupStatus")
 
--- | This data type is used as a response element to DescribeDBLogFiles.
+-- | This data type is used as a response element to < DescribeDBLogFiles>.
 --
 -- /See:/ 'describeDBLogFilesDetails' smart constructor.
 data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'
@@ -2199,9 +2198,9 @@ instance FromXML DescribeDBLogFilesDetails where
 
 -- | This data type is used as a response element in the following actions:
 --
--- -   AuthorizeDBSecurityGroupIngress
--- -   DescribeDBSecurityGroups
--- -   RevokeDBSecurityGroupIngress
+-- -   < AuthorizeDBSecurityGroupIngress>
+-- -   < DescribeDBSecurityGroups>
+-- -   < RevokeDBSecurityGroupIngress>
 --
 -- /See:/ 'ec2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
@@ -2260,9 +2259,9 @@ instance FromXML EC2SecurityGroup where
 
 -- | This data type is used as a response element in the following actions:
 --
--- -   CreateDBInstance
--- -   DescribeDBInstances
--- -   DeleteDBInstance
+-- -   < CreateDBInstance>
+-- -   < DescribeDBInstances>
+-- -   < DeleteDBInstance>
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
@@ -2309,7 +2308,7 @@ instance FromXML Endpoint where
                 (x .@? "Port")
 
 -- | Contains the result of a successful invocation of the
--- DescribeEngineDefaultParameters action.
+-- < DescribeEngineDefaultParameters> action.
 --
 -- /See:/ 'engineDefaults' smart constructor.
 data EngineDefaults = EngineDefaults'
@@ -2359,7 +2358,7 @@ instance FromXML EngineDefaults where
                 (x .@? "Parameters" .!@ mempty >>=
                    may (parseXMLList "Parameter"))
 
--- | This data type is used as a response element in the DescribeEvents
+-- | This data type is used as a response element in the < DescribeEvents>
 -- action.
 --
 -- /See:/ 'event' smart constructor.
@@ -2426,7 +2425,7 @@ instance FromXML Event where
                 <*> (x .@? "Message")
 
 -- | Contains the results of a successful invocation of the
--- DescribeEventCategories action.
+-- < DescribeEventCategories> action.
 --
 -- /See:/ 'eventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
@@ -2465,7 +2464,7 @@ instance FromXML EventCategoriesMap where
                    may (parseXMLList "EventCategory"))
 
 -- | Contains the results of a successful invocation of the
--- DescribeEventSubscriptions action.
+-- < DescribeEventSubscriptions> action.
 --
 -- /See:/ 'eventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
@@ -2616,7 +2615,7 @@ instance ToQuery Filter where
                "Values" =: toQueryList "Value" _fValues]
 
 -- | This data type is used as a response element in the
--- DescribeDBSecurityGroups action.
+-- < DescribeDBSecurityGroups> action.
 --
 -- /See:/ 'ipRange' smart constructor.
 data IPRange = IPRange'
@@ -2937,8 +2936,10 @@ optionGroupMembership =
     , _ogmOptionGroupName = Nothing
     }
 
--- | The status of the DB instance\'s option group membership (e.g. in-sync,
--- pending, pending-maintenance, applying).
+-- | The status of the DB instance\'s option group membership. Valid values
+-- are: 'in-sync', 'pending-apply', 'pending-removal',
+-- 'pending-maintenance-apply', 'pending-maintenance-removal', 'applying',
+-- 'removing', and 'failed'.
 ogmStatus :: Lens' OptionGroupMembership (Maybe Text)
 ogmStatus = lens _ogmStatus (\ s a -> s{_ogmStatus = a});
 
@@ -3273,7 +3274,7 @@ instance ToQuery OptionSetting where
 -- | Contains a list of available options for a DB instance
 --
 -- This data type is used as a response element in the
--- DescribeOrderableDBInstanceOptions action.
+-- < DescribeOrderableDBInstanceOptions> action.
 --
 -- /See:/ 'orderableDBInstanceOption' smart constructor.
 data OrderableDBInstanceOption = OrderableDBInstanceOption'
@@ -3403,10 +3404,10 @@ instance FromXML OrderableDBInstanceOption where
                 <*> (x .@? "StorageType")
 
 -- | This data type is used as a request parameter in the
--- ModifyDBParameterGroup and ResetDBParameterGroup actions.
+-- < ModifyDBParameterGroup> and < ResetDBParameterGroup> actions.
 --
 -- This data type is used as a response element in the
--- DescribeEngineDefaultParameters and DescribeDBParameters actions.
+-- < DescribeEngineDefaultParameters> and < DescribeDBParameters> actions.
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
@@ -3599,10 +3600,10 @@ pmaForcedApplyDate = lens _pmaForcedApplyDate (\ s a -> s{_pmaForcedApplyDate = 
 
 -- | The effective date when the pending maintenance action will be applied
 -- to the resource. This date takes into account opt-in requests received
--- from the ApplyPendingMaintenanceAction API, the 'AutoAppliedAfterDate',
--- and the 'ForcedApplyDate'. This value is blank if an opt-in request has
--- not been received and nothing has been specified as
--- 'AutoAppliedAfterDate' or 'ForcedApplyDate'.
+-- from the < ApplyPendingMaintenanceAction> API, the
+-- 'AutoAppliedAfterDate', and the 'ForcedApplyDate'. This value is blank
+-- if an opt-in request has not been received and nothing has been
+-- specified as 'AutoAppliedAfterDate' or 'ForcedApplyDate'.
 pmaCurrentApplyDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
 pmaCurrentApplyDate = lens _pmaCurrentApplyDate (\ s a -> s{_pmaCurrentApplyDate = a}) . mapping _Time;
 
@@ -3615,7 +3616,7 @@ instance FromXML PendingMaintenanceAction where
                 <*> (x .@? "ForcedApplyDate")
                 <*> (x .@? "CurrentApplyDate")
 
--- | This data type is used as a response element in the ModifyDBInstance
+-- | This data type is used as a response element in the < ModifyDBInstance>
 -- action.
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
@@ -3742,8 +3743,8 @@ instance FromXML PendingModifiedValues where
                 <*> (x .@? "StorageType")
 
 -- | This data type is used as a response element in the
--- DescribeReservedDBInstances and DescribeReservedDBInstancesOfferings
--- actions.
+-- < DescribeReservedDBInstances> and
+-- < DescribeReservedDBInstancesOfferings> actions.
 --
 -- /See:/ 'recurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
@@ -3781,8 +3782,8 @@ instance FromXML RecurringCharge where
                 (x .@? "RecurringChargeAmount")
 
 -- | This data type is used as a response element in the
--- DescribeReservedDBInstances and PurchaseReservedDBInstancesOffering
--- actions.
+-- < DescribeReservedDBInstances> and
+-- < PurchaseReservedDBInstancesOffering> actions.
 --
 -- /See:/ 'reservedDBInstance' smart constructor.
 data ReservedDBInstance = ReservedDBInstance'
@@ -3929,7 +3930,7 @@ instance FromXML ReservedDBInstance where
                 <*> (x .@? "Duration")
 
 -- | This data type is used as a response element in the
--- DescribeReservedDBInstancesOfferings action.
+-- < DescribeReservedDBInstancesOfferings> action.
 --
 -- /See:/ 'reservedDBInstancesOffering' smart constructor.
 data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
@@ -4081,7 +4082,7 @@ instance FromXML ResourcePendingMaintenanceActions
                 <*> (x .@? "ResourceIdentifier")
 
 -- | This data type is used as a response element in the
--- DescribeDBSubnetGroups action.
+-- < DescribeDBSubnetGroups> action.
 --
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'

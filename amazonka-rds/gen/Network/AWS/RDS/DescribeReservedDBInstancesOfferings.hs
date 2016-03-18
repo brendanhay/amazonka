@@ -218,7 +218,7 @@ instance ToQuery DescribeReservedDBInstancesOfferings
                "Duration" =: _drdioDuration]
 
 -- | Contains the result of a successful invocation of the
--- DescribeReservedDBInstancesOfferings action.
+-- < DescribeReservedDBInstancesOfferings> action.
 --
 -- /See:/ 'describeReservedDBInstancesOfferingsResponse' smart constructor.
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'

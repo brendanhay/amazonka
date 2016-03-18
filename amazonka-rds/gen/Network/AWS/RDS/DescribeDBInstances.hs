@@ -155,7 +155,7 @@ instance ToQuery DescribeDBInstances where
                "MaxRecords" =: _ddbiMaxRecords]
 
 -- | Contains the result of a successful invocation of the
--- DescribeDBInstances action.
+-- < DescribeDBInstances> action.
 --
 -- /See:/ 'describeDBInstancesResponse' smart constructor.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
@@ -183,7 +183,7 @@ describeDBInstancesResponse pResponseStatus_ =
     , _ddbirsResponseStatus = pResponseStatus_
     }
 
--- | A list of DBInstance instances.
+-- | A list of < DBInstance> instances.
 ddbirsDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
 ddbirsDBInstances = lens _ddbirsDBInstances (\ s a -> s{_ddbirsDBInstances = a}) . _Default . _Coerce;
 

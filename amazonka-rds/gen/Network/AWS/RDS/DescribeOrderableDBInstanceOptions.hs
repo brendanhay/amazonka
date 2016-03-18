@@ -199,7 +199,7 @@ instance ToQuery DescribeOrderableDBInstanceOptions
                "Engine" =: _dodioEngine]
 
 -- | Contains the result of a successful invocation of the
--- DescribeOrderableDBInstanceOptions action.
+-- < DescribeOrderableDBInstanceOptions> action.
 --
 -- /See:/ 'describeOrderableDBInstanceOptionsResponse' smart constructor.
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
@@ -227,7 +227,7 @@ describeOrderableDBInstanceOptionsResponse pResponseStatus_ =
     , _dodiorsResponseStatus = pResponseStatus_
     }
 
--- | An OrderableDBInstanceOption structure containing information about
+-- | An < OrderableDBInstanceOption> structure containing information about
 -- orderable options for the DB instance.
 dodiorsOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
 dodiorsOrderableDBInstanceOptions = lens _dodiorsOrderableDBInstanceOptions (\ s a -> s{_dodiorsOrderableDBInstanceOptions = a}) . _Default . _Coerce;

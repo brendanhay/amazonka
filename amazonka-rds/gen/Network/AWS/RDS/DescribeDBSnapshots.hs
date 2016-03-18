@@ -107,7 +107,7 @@ describeDBSnapshots =
 -- false. The default is false.
 --
 -- An AWS account is given permission to restore a manual DB snapshot from
--- another AWS account by the ModifyDBSnapshotAttribute API.
+-- another AWS account by the < ModifyDBSnapshotAttribute> API.
 ddsIncludeShared :: Lens' DescribeDBSnapshots (Maybe Bool)
 ddsIncludeShared = lens _ddsIncludeShared (\ s a -> s{_ddsIncludeShared = a});
 
@@ -188,7 +188,7 @@ ddsMaxRecords = lens _ddsMaxRecords (\ s a -> s{_ddsMaxRecords = a});
 -- restored by any AWS account; otherwise false. The default is false.
 --
 -- An manual DB snapshot is shared as public by the
--- ModifyDBSnapshotAttribute API.
+-- < ModifyDBSnapshotAttribute> API.
 ddsIncludePublic :: Lens' DescribeDBSnapshots (Maybe Bool)
 ddsIncludePublic = lens _ddsIncludePublic (\ s a -> s{_ddsIncludePublic = a});
 
@@ -234,7 +234,7 @@ instance ToQuery DescribeDBSnapshots where
                "IncludePublic" =: _ddsIncludePublic]
 
 -- | Contains the result of a successful invocation of the
--- DescribeDBSnapshots action.
+-- < DescribeDBSnapshots> action.
 --
 -- /See:/ 'describeDBSnapshotsResponse' smart constructor.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
@@ -268,7 +268,7 @@ describeDBSnapshotsResponse pResponseStatus_ =
 ddsrsMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
 ddsrsMarker = lens _ddsrsMarker (\ s a -> s{_ddsrsMarker = a});
 
--- | A list of DBSnapshot instances.
+-- | A list of < DBSnapshot> instances.
 ddsrsDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
 ddsrsDBSnapshots = lens _ddsrsDBSnapshots (\ s a -> s{_ddsrsDBSnapshots = a}) . _Default . _Coerce;
 

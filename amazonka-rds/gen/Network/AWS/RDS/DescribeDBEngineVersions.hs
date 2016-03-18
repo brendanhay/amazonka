@@ -197,7 +197,7 @@ instance ToQuery DescribeDBEngineVersions where
                "MaxRecords" =: _ddevMaxRecords]
 
 -- | Contains the result of a successful invocation of the
--- DescribeDBEngineVersions action.
+-- < DescribeDBEngineVersions> action.
 --
 -- /See:/ 'describeDBEngineVersionsResponse' smart constructor.
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'

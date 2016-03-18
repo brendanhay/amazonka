@@ -133,6 +133,11 @@ rdcfsEngineVersion :: Lens' RestoreDBClusterFromSnapshot (Maybe Text)
 rdcfsEngineVersion = lens _rdcfsEngineVersion (\ s a -> s{_rdcfsEngineVersion = a});
 
 -- | The name of the DB subnet group to use for the new DB cluster.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters,
+-- periods, underscores, spaces, or hyphens. Must not be default.
+--
+-- Example: 'mySubnetgroup'
 rdcfsDBSubnetGroupName :: Lens' RestoreDBClusterFromSnapshot (Maybe Text)
 rdcfsDBSubnetGroupName = lens _rdcfsDBSubnetGroupName (\ s a -> s{_rdcfsDBSubnetGroupName = a});
 

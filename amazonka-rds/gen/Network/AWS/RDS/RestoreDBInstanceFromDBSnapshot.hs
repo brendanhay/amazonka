@@ -20,12 +20,11 @@
 --
 -- Creates a new DB instance from a DB snapshot. The target database is
 -- created from the source database restore point with the most of original
--- configuration, but in a system chosen availability zone with the default
--- security group, the default subnet group, and the default DB parameter
--- group. By default, the new DB instance is created as a single-AZ
--- deployment except when the instance is a SQL Server instance that has an
--- option group that is associated with mirroring; in this case, the
--- instance becomes a mirrored AZ deployment and not a single-AZ
+-- configuration with the default security group and the default DB
+-- parameter group. By default, the new DB instance is created as a
+-- single-AZ deployment except when the instance is a SQL Server instance
+-- that has an option group that is associated with mirroring; in this
+-- case, the instance becomes a mirrored AZ deployment and not a single-AZ
 -- deployment.
 --
 -- If your intent is to replace your original DB instance with the new,
@@ -203,6 +202,11 @@ rdifdsAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bo
 rdifdsAutoMinorVersionUpgrade = lens _rdifdsAutoMinorVersionUpgrade (\ s a -> s{_rdifdsAutoMinorVersionUpgrade = a});
 
 -- | The DB subnet group name to use for the new instance.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters,
+-- periods, underscores, spaces, or hyphens. Must not be default.
+--
+-- Example: 'mySubnetgroup'
 rdifdsDBSubnetGroupName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsDBSubnetGroupName = lens _rdifdsDBSubnetGroupName (\ s a -> s{_rdifdsDBSubnetGroupName = a});
 

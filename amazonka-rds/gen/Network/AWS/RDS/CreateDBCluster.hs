@@ -173,6 +173,13 @@ cdcStorageEncrypted :: Lens' CreateDBCluster (Maybe Bool)
 cdcStorageEncrypted = lens _cdcStorageEncrypted (\ s a -> s{_cdcStorageEncrypted = a});
 
 -- | A DB subnet group to associate with this DB cluster.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters,
+-- periods, underscores, spaces, or hyphens. Must not be default.
+--
+-- +
+--
+-- Example: 'mySubnetgroup'
 cdcDBSubnetGroupName :: Lens' CreateDBCluster (Maybe Text)
 cdcDBSubnetGroupName = lens _cdcDBSubnetGroupName (\ s a -> s{_cdcDBSubnetGroupName = a});
 

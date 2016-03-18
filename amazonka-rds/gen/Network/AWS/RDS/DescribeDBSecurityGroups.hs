@@ -149,7 +149,7 @@ instance ToQuery DescribeDBSecurityGroups where
                "DBSecurityGroupName" =: _ddbsgDBSecurityGroupName]
 
 -- | Contains the result of a successful invocation of the
--- DescribeDBSecurityGroups action.
+-- < DescribeDBSecurityGroups> action.
 --
 -- /See:/ 'describeDBSecurityGroupsResponse' smart constructor.
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
@@ -177,7 +177,7 @@ describeDBSecurityGroupsResponse pResponseStatus_ =
     , _ddbsgrsResponseStatus = pResponseStatus_
     }
 
--- | A list of DBSecurityGroup instances.
+-- | A list of < DBSecurityGroup> instances.
 ddbsgrsDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
 ddbsgrsDBSecurityGroups = lens _ddbsgrsDBSecurityGroups (\ s a -> s{_ddbsgrsDBSecurityGroups = a}) . _Default . _Coerce;
 

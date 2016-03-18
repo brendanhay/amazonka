@@ -152,7 +152,7 @@ instance ToQuery DescribeDBSubnetGroups where
                "MaxRecords" =: _ddsgMaxRecords]
 
 -- | Contains the result of a successful invocation of the
--- DescribeDBSubnetGroups action.
+-- < DescribeDBSubnetGroups> action.
 --
 -- /See:/ 'describeDBSubnetGroupsResponse' smart constructor.
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
@@ -180,7 +180,7 @@ describeDBSubnetGroupsResponse pResponseStatus_ =
     , _ddsgrsResponseStatus = pResponseStatus_
     }
 
--- | A list of DBSubnetGroup instances.
+-- | A list of < DBSubnetGroup> instances.
 ddsgrsDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
 ddsgrsDBSubnetGroups = lens _ddsgrsDBSubnetGroups (\ s a -> s{_ddsgrsDBSubnetGroups = a}) . _Default . _Coerce;
 

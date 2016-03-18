@@ -220,7 +220,7 @@ instance ToQuery DescribeReservedDBInstances where
                "Duration" =: _drdiDuration]
 
 -- | Contains the result of a successful invocation of the
--- DescribeReservedDBInstances action.
+-- < DescribeReservedDBInstances> action.
 --
 -- /See:/ 'describeReservedDBInstancesResponse' smart constructor.
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'

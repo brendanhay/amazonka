@@ -23,7 +23,7 @@
 --
 -- To share a manual DB snapshot with other AWS accounts, specify 'restore'
 -- as the 'AttributeName' and use the 'ValuesToAdd' parameter to add a list
--- of the AWS account ids that are authorized to retore the manual DB
+-- of the AWS account ids that are authorized to restore the manual DB
 -- snapshot. Uses the value 'all' to make the manual DB snapshot public and
 -- can by copied or restored by all AWS accounts. Do not add the 'all'
 -- value for any manual DB snapshots that contain private information that
@@ -31,7 +31,7 @@
 --
 -- To view which AWS accounts have access to copy or restore a manual DB
 -- snapshot, or whether a manual DB snapshot public or private, use the
--- DescribeDBSnapshotAttributes API.
+-- < DescribeDBSnapshotAttributes> API.
 --
 -- If the manual DB snapshot is encrypted, it cannot be shared.
 --

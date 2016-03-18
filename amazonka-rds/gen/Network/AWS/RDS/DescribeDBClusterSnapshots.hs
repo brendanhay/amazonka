@@ -185,7 +185,7 @@ instance ToQuery DescribeDBClusterSnapshots where
                "MaxRecords" =: _ddbcsMaxRecords]
 
 -- | Provides a list of DB cluster snapshots for the user as the result of a
--- call to the DescribeDBClusterSnapshots action.
+-- call to the < DescribeDBClusterSnapshots> action.
 --
 -- /See:/ 'describeDBClusterSnapshotsResponse' smart constructor.
 data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
@@ -214,8 +214,8 @@ describeDBClusterSnapshotsResponse pResponseStatus_ =
     }
 
 -- | An optional pagination token provided by a previous
--- DescribeDBClusterSnapshots request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
+-- < DescribeDBClusterSnapshots> request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
 -- specified by 'MaxRecords'.
 ddbcsrsMarker :: Lens' DescribeDBClusterSnapshotsResponse (Maybe Text)
 ddbcsrsMarker = lens _ddbcsrsMarker (\ s a -> s{_ddbcsrsMarker = a});

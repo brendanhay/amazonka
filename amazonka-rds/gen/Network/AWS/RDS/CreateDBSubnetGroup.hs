@@ -89,7 +89,7 @@ cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default . _Coerce;
 -- string.
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters,
--- periods, underscores, or hyphens. Must not be default.
+-- periods, underscores, spaces, or hyphens. Must not be default.
 --
 -- Example: 'mySubnetgroup'
 cdbsgDBSubnetGroupName :: Lens' CreateDBSubnetGroup Text

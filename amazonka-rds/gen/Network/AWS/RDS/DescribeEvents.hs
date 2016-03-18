@@ -223,7 +223,7 @@ instance ToQuery DescribeEvents where
                "Marker" =: _deMarker, "MaxRecords" =: _deMaxRecords,
                "EndTime" =: _deEndTime, "Duration" =: _deDuration]
 
--- | Contains the result of a successful invocation of the DescribeEvents
+-- | Contains the result of a successful invocation of the < DescribeEvents>
 -- action.
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
@@ -252,7 +252,7 @@ describeEventsResponse pResponseStatus_ =
     , _dersResponseStatus = pResponseStatus_
     }
 
--- | A list of Event instances.
+-- | A list of < Event> instances.
 dersEvents :: Lens' DescribeEventsResponse [Event]
 dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 

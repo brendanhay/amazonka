@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing Method resource.
+-- Updates an existing < Method> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateMethod.html AWS API Reference> for UpdateMethod.
 module Network.AWS.APIGateway.UpdateMethod
@@ -40,6 +40,7 @@ module Network.AWS.APIGateway.UpdateMethod
     , mHttpMethod
     , mRequestModels
     , mRequestParameters
+    , mAuthorizerId
     , mAuthorizationType
     , mApiKeyRequired
     , mMethodIntegration
@@ -52,7 +53,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to update an existing Method resource.
+-- | Request to update an existing < Method> resource.
 --
 -- /See:/ 'updateMethod' smart constructor.
 data UpdateMethod = UpdateMethod'
@@ -91,15 +92,15 @@ updateMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
 ummPatchOperations :: Lens' UpdateMethod [PatchOperation]
 ummPatchOperations = lens _ummPatchOperations (\ s a -> s{_ummPatchOperations = a}) . _Default . _Coerce;
 
--- | The RestApi identifier for the Method resource.
+-- | The < RestApi> identifier for the < Method> resource.
 ummRestAPIId :: Lens' UpdateMethod Text
 ummRestAPIId = lens _ummRestAPIId (\ s a -> s{_ummRestAPIId = a});
 
--- | The Resource identifier for the Method resource.
+-- | The < Resource> identifier for the < Method> resource.
 ummResourceId :: Lens' UpdateMethod Text
 ummResourceId = lens _ummResourceId (\ s a -> s{_ummResourceId = a});
 
--- | The HTTP verb that identifies the Method resource.
+-- | The HTTP verb that identifies the < Method> resource.
 ummHttpMethod :: Lens' UpdateMethod Text
 ummHttpMethod = lens _ummHttpMethod (\ s a -> s{_ummHttpMethod = a});
 
@@ -109,7 +110,10 @@ instance AWSRequest UpdateMethod where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateMethod where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateMethod where
         toJSON UpdateMethod'{..}

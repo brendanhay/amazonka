@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about a Resource resource.
+-- Changes information about a < Resource> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateResource.html AWS API Reference> for UpdateResource.
 module Network.AWS.APIGateway.UpdateResource
@@ -49,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to change information about a Resource resource.
+-- | Request to change information about a < Resource> resource.
 --
 -- /See:/ 'updateResource' smart constructor.
 data UpdateResource = UpdateResource'
@@ -83,11 +83,11 @@ updateResource pRestAPIId_ pResourceId_ =
 urPatchOperations :: Lens' UpdateResource [PatchOperation]
 urPatchOperations = lens _urPatchOperations (\ s a -> s{_urPatchOperations = a}) . _Default . _Coerce;
 
--- | The RestApi identifier for the Resource resource.
+-- | The < RestApi> identifier for the < Resource> resource.
 urRestAPIId :: Lens' UpdateResource Text
 urRestAPIId = lens _urRestAPIId (\ s a -> s{_urRestAPIId = a});
 
--- | The identifier of the Resource resource.
+-- | The identifier of the < Resource> resource.
 urResourceId :: Lens' UpdateResource Text
 urResourceId = lens _urResourceId (\ s a -> s{_urResourceId = a});
 
@@ -97,7 +97,10 @@ instance AWSRequest UpdateResource where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateResource where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateResource where
         toJSON UpdateResource'{..}

@@ -81,7 +81,10 @@ instance AWSRequest FlushStageCache where
         response = receiveNull FlushStageCacheResponse'
 
 instance ToHeaders FlushStageCache where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath FlushStageCache where
         toPath FlushStageCache'{..}

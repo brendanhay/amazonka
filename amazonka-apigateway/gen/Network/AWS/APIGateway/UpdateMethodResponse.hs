@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing MethodResponse resource.
+-- Updates an existing < MethodResponse> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateMethodResponse.html AWS API Reference> for UpdateMethodResponse.
 module Network.AWS.APIGateway.UpdateMethodResponse
@@ -49,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to update an existing MethodResponse resource.
+-- | A request to update an existing < MethodResponse> resource.
 --
 -- /See:/ 'updateMethodResponse' smart constructor.
 data UpdateMethodResponse = UpdateMethodResponse'
@@ -93,19 +93,19 @@ updateMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
 umPatchOperations :: Lens' UpdateMethodResponse [PatchOperation]
 umPatchOperations = lens _umPatchOperations (\ s a -> s{_umPatchOperations = a}) . _Default . _Coerce;
 
--- | The RestApi identifier for the MethodResponse resource.
+-- | The < RestApi> identifier for the < MethodResponse> resource.
 umRestAPIId :: Lens' UpdateMethodResponse Text
 umRestAPIId = lens _umRestAPIId (\ s a -> s{_umRestAPIId = a});
 
--- | The Resource identifier for the MethodResponse resource.
+-- | The < Resource> identifier for the < MethodResponse> resource.
 umResourceId :: Lens' UpdateMethodResponse Text
 umResourceId = lens _umResourceId (\ s a -> s{_umResourceId = a});
 
--- | The HTTP verb identifier for the parent Method resource.
+-- | The HTTP verb identifier for the parent < Method> resource.
 umHttpMethod :: Lens' UpdateMethodResponse Text
 umHttpMethod = lens _umHttpMethod (\ s a -> s{_umHttpMethod = a});
 
--- | The status code identifier for the MethodResponse resource.
+-- | The status code identifier for the < MethodResponse> resource.
 umStatusCode :: Lens' UpdateMethodResponse Text
 umStatusCode = lens _umStatusCode (\ s a -> s{_umStatusCode = a});
 
@@ -115,7 +115,10 @@ instance AWSRequest UpdateMethodResponse where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateMethodResponse where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateMethodResponse where
         toJSON UpdateMethodResponse'{..}

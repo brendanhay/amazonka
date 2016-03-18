@@ -148,7 +148,10 @@ instance AWSRequest TestInvokeMethod where
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders TestInvokeMethod where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON TestInvokeMethod where
         toJSON TestInvokeMethod'{..}

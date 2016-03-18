@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the RestApi resource in the collection.
+-- Lists the < RestApi> resource in the collection.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetRestAPI.html AWS API Reference> for GetRestAPI.
 module Network.AWS.APIGateway.GetRestAPI
@@ -46,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to list an existing RestApi defined for your collection.
+-- | Request to list an existing < RestApi> defined for your collection.
 --
 -- /See:/ 'getRestAPI' smart constructor.
 newtype GetRestAPI = GetRestAPI'
@@ -66,7 +66,7 @@ getRestAPI pRestAPIId_ =
     { _graRestAPIId = pRestAPIId_
     }
 
--- | The identifier of the RestApi resource.
+-- | The identifier of the < RestApi> resource.
 graRestAPIId :: Lens' GetRestAPI Text
 graRestAPIId = lens _graRestAPIId (\ s a -> s{_graRestAPIId = a});
 
@@ -76,7 +76,10 @@ instance AWSRequest GetRestAPI where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders GetRestAPI where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetRestAPI where
         toPath GetRestAPI'{..}

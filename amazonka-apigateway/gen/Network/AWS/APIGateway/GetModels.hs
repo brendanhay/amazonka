@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes existing Models defined for a RestApi resource.
+-- Describes existing < Models> defined for a < RestApi> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetModels.html AWS API Reference> for GetModels.
 --
@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to list existing Models defined for a RestApi resource.
+-- | Request to list existing < Models> defined for a < RestApi> resource.
 --
 -- /See:/ 'getModels' smart constructor.
 data GetModels = GetModels'
@@ -83,12 +83,12 @@ getModels pRestAPIId_ =
 gmsLimit :: Lens' GetModels (Maybe Int)
 gmsLimit = lens _gmsLimit (\ s a -> s{_gmsLimit = a});
 
--- | The position of the next set of results in the Models resource to get
+-- | The position of the next set of results in the < Models> resource to get
 -- information about.
 gmsPosition :: Lens' GetModels (Maybe Text)
 gmsPosition = lens _gmsPosition (\ s a -> s{_gmsPosition = a});
 
--- | The RestApi identifier.
+-- | The < RestApi> identifier.
 gmsRestAPIId :: Lens' GetModels Text
 gmsRestAPIId = lens _gmsRestAPIId (\ s a -> s{_gmsRestAPIId = a});
 
@@ -110,7 +110,10 @@ instance AWSRequest GetModels where
                      (pure (fromEnum s)))
 
 instance ToHeaders GetModels where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetModels where
         toPath GetModels'{..}
@@ -122,7 +125,7 @@ instance ToQuery GetModels where
           = mconcat
               ["limit" =: _gmsLimit, "position" =: _gmsPosition]
 
--- | Represents a collection of Model resources.
+-- | Represents a collection of < Model> resources.
 --
 -- /See:/ 'getModelsResponse' smart constructor.
 data GetModelsResponse = GetModelsResponse'
@@ -150,7 +153,7 @@ getModelsResponse pResponseStatus_ =
     , _gmrsResponseStatus = pResponseStatus_
     }
 
--- | Gets the current Model resource in the collection.
+-- | Gets the current < Model> resource in the collection.
 gmrsItems :: Lens' GetModelsResponse [Model]
 gmrsItems = lens _gmrsItems (\ s a -> s{_gmrsItems = a}) . _Default . _Coerce;
 

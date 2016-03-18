@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about an ApiKey resource.
+-- Changes information about an < ApiKey> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateAPIKey.html AWS API Reference> for UpdateAPIKey.
 module Network.AWS.APIGateway.UpdateAPIKey
@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to change information about an ApiKey resource.
+-- | A request to change information about an < ApiKey> resource.
 --
 -- /See:/ 'updateAPIKey' smart constructor.
 data UpdateAPIKey = UpdateAPIKey'
@@ -79,7 +79,7 @@ updateAPIKey pApiKey_ =
 uakPatchOperations :: Lens' UpdateAPIKey [PatchOperation]
 uakPatchOperations = lens _uakPatchOperations (\ s a -> s{_uakPatchOperations = a}) . _Default . _Coerce;
 
--- | The identifier of the ApiKey resource to be updated.
+-- | The identifier of the < ApiKey> resource to be updated.
 uakApiKey :: Lens' UpdateAPIKey Text
 uakApiKey = lens _uakApiKey (\ s a -> s{_uakApiKey = a});
 
@@ -89,7 +89,10 @@ instance AWSRequest UpdateAPIKey where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateAPIKey where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateAPIKey where
         toJSON UpdateAPIKey'{..}

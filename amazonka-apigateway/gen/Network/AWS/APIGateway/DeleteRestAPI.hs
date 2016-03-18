@@ -61,7 +61,7 @@ deleteRestAPI pRestAPIId_ =
     { _draRestAPIId = pRestAPIId_
     }
 
--- | The ID of the RestApi you want to delete.
+-- | The ID of the < RestApi> you want to delete.
 draRestAPIId :: Lens' DeleteRestAPI Text
 draRestAPIId = lens _draRestAPIId (\ s a -> s{_draRestAPIId = a});
 
@@ -71,7 +71,10 @@ instance AWSRequest DeleteRestAPI where
         response = receiveNull DeleteRestAPIResponse'
 
 instance ToHeaders DeleteRestAPI where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteRestAPI where
         toPath DeleteRestAPI'{..}

@@ -24,6 +24,9 @@ module Network.AWS.APIGateway.Types
     , _BadRequestException
     , _LimitExceededException
 
+    -- * AuthorizerType
+    , AuthorizerType (..)
+
     -- * CacheClusterSize
     , CacheClusterSize (..)
 
@@ -35,6 +38,9 @@ module Network.AWS.APIGateway.Types
 
     -- * Op
     , Op (..)
+
+    -- * UnauthorizedCacheControlHeaderStrategy
+    , UnauthorizedCacheControlHeaderStrategy (..)
 
     -- * APIKey
     , APIKey
@@ -52,6 +58,18 @@ module Network.AWS.APIGateway.Types
     , account
     , aCloudwatchRoleARN
     , aThrottleSettings
+
+    -- * Authorizer
+    , Authorizer
+    , authorizer
+    , aAuthorizerURI
+    , aIdentityValidationExpression
+    , aName
+    , aId
+    , aAuthorizerResultTtlInSeconds
+    , aType
+    , aIdentitySource
+    , aAuthorizerCredentials
 
     -- * BasePathMapping
     , BasePathMapping
@@ -113,6 +131,7 @@ module Network.AWS.APIGateway.Types
     , mHttpMethod
     , mRequestModels
     , mRequestParameters
+    , mAuthorizerId
     , mAuthorizationType
     , mApiKeyRequired
     , mMethodIntegration
@@ -132,9 +151,11 @@ module Network.AWS.APIGateway.Types
     , msThrottlingBurstLimit
     , msCacheDataEncrypted
     , msLoggingLevel
+    , msRequireAuthorizationForCacheControl
     , msCachingEnabled
     , msMetricsEnabled
     , msThrottlingRateLimit
+    , msUnauthorizedCacheControlHeaderStrategy
 
     -- * MethodSnapshot
     , MethodSnapshot
@@ -233,6 +254,7 @@ aPIGateway =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"

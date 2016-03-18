@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes an existing model defined for a RestApi resource.
+-- Describes an existing model defined for a < RestApi> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetModel.html AWS API Reference> for GetModel.
 module Network.AWS.APIGateway.GetModel
@@ -49,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to list information about a model in an existing RestApi
+-- | Request to list information about a model in an existing < RestApi>
 -- resource.
 --
 -- /See:/ 'getModel' smart constructor.
@@ -84,7 +84,7 @@ getModel pRestAPIId_ pModelName_ =
 ggFlatten :: Lens' GetModel (Maybe Bool)
 ggFlatten = lens _ggFlatten (\ s a -> s{_ggFlatten = a});
 
--- | The RestApi identifier under which the Model exists.
+-- | The < RestApi> identifier under which the < Model> exists.
 ggRestAPIId :: Lens' GetModel Text
 ggRestAPIId = lens _ggRestAPIId (\ s a -> s{_ggRestAPIId = a});
 
@@ -98,7 +98,10 @@ instance AWSRequest GetModel where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders GetModel where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetModel where
         toPath GetModel'{..}

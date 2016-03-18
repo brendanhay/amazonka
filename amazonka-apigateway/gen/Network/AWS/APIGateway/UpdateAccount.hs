@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about the current Account resource.
+-- Changes information about the current < Account> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateAccount.html AWS API Reference> for UpdateAccount.
 module Network.AWS.APIGateway.UpdateAccount
@@ -45,7 +45,7 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to change information about the current
--- Account resource.
+-- < Account> resource.
 --
 -- /See:/ 'updateAccount' smart constructor.
 newtype UpdateAccount = UpdateAccount'
@@ -75,7 +75,10 @@ instance AWSRequest UpdateAccount where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateAccount where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateAccount where
         toJSON UpdateAccount'{..}

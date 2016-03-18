@@ -101,7 +101,10 @@ instance AWSRequest GetIntegration where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders GetIntegration where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetIntegration where
         toPath GetIntegration'{..}

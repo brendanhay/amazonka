@@ -47,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to update an existing RestApi resource in your collection.
+-- | Request to update an existing < RestApi> resource in your collection.
 --
 -- /See:/ 'updateRestAPI' smart constructor.
 data UpdateRestAPI = UpdateRestAPI'
@@ -76,7 +76,7 @@ updateRestAPI pRestAPIId_ =
 uraPatchOperations :: Lens' UpdateRestAPI [PatchOperation]
 uraPatchOperations = lens _uraPatchOperations (\ s a -> s{_uraPatchOperations = a}) . _Default . _Coerce;
 
--- | The ID of the RestApi you want to update.
+-- | The ID of the < RestApi> you want to update.
 uraRestAPIId :: Lens' UpdateRestAPI Text
 uraRestAPIId = lens _uraRestAPIId (\ s a -> s{_uraRestAPIId = a});
 
@@ -86,7 +86,10 @@ instance AWSRequest UpdateRestAPI where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateRestAPI where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateRestAPI where
         toJSON UpdateRestAPI'{..}

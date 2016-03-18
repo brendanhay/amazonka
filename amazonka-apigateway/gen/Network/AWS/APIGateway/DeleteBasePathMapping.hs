@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the BasePathMapping resource.
+-- Deletes the < BasePathMapping> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteBasePathMapping.html AWS API Reference> for DeleteBasePathMapping.
 module Network.AWS.APIGateway.DeleteBasePathMapping
@@ -42,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to delete the BasePathMapping resource.
+-- | A request to delete the < BasePathMapping> resource.
 --
 -- /See:/ 'deleteBasePathMapping' smart constructor.
 data DeleteBasePathMapping = DeleteBasePathMapping'
@@ -67,11 +67,11 @@ deleteBasePathMapping pDomainName_ pBasePath_ =
     , _dbpmBasePath = pBasePath_
     }
 
--- | The domain name of the BasePathMapping resource to delete.
+-- | The domain name of the < BasePathMapping> resource to delete.
 dbpmDomainName :: Lens' DeleteBasePathMapping Text
 dbpmDomainName = lens _dbpmDomainName (\ s a -> s{_dbpmDomainName = a});
 
--- | The base path name of the BasePathMapping resource to delete.
+-- | The base path name of the < BasePathMapping> resource to delete.
 dbpmBasePath :: Lens' DeleteBasePathMapping Text
 dbpmBasePath = lens _dbpmBasePath (\ s a -> s{_dbpmBasePath = a});
 
@@ -82,7 +82,10 @@ instance AWSRequest DeleteBasePathMapping where
         response = receiveNull DeleteBasePathMappingResponse'
 
 instance ToHeaders DeleteBasePathMapping where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteBasePathMapping where
         toPath DeleteBasePathMapping'{..}

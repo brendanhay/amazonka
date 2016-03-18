@@ -49,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to update an existing model in an existing RestApi resource.
+-- | Request to update an existing model in an existing < RestApi> resource.
 --
 -- /See:/ 'updateModel' smart constructor.
 data UpdateModel = UpdateModel'
@@ -83,7 +83,7 @@ updateModel pRestAPIId_ pModelName_ =
 uPatchOperations :: Lens' UpdateModel [PatchOperation]
 uPatchOperations = lens _uPatchOperations (\ s a -> s{_uPatchOperations = a}) . _Default . _Coerce;
 
--- | The RestApi identifier under which the model exists.
+-- | The < RestApi> identifier under which the model exists.
 uRestAPIId :: Lens' UpdateModel Text
 uRestAPIId = lens _uRestAPIId (\ s a -> s{_uRestAPIId = a});
 
@@ -97,7 +97,10 @@ instance AWSRequest UpdateModel where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateModel where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateModel where
         toJSON UpdateModel'{..}

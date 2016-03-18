@@ -97,7 +97,10 @@ instance AWSRequest GetClientCertificates where
                      (pure (fromEnum s)))
 
 instance ToHeaders GetClientCertificates where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetClientCertificates where
         toPath = const "/clientcertificates"

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new RestApi resource.
+-- Creates a new < RestApi> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateRestAPI.html AWS API Reference> for CreateRestAPI.
 module Network.AWS.APIGateway.CreateRestAPI
@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to add a new RestApi resource to your collection.
+-- | Request to add a new < RestApi> resource to your collection.
 --
 -- /See:/ 'createRestAPI' smart constructor.
 data CreateRestAPI = CreateRestAPI'
@@ -76,15 +76,15 @@ createRestAPI pName_ =
     , _craName = pName_
     }
 
--- | The name of the RestApi that you want to clone from.
+-- | The Id of the < RestApi> that you want to clone from.
 craCloneFrom :: Lens' CreateRestAPI (Maybe Text)
 craCloneFrom = lens _craCloneFrom (\ s a -> s{_craCloneFrom = a});
 
--- | The description of the RestApi.
+-- | The description of the < RestApi>.
 craDescription :: Lens' CreateRestAPI (Maybe Text)
 craDescription = lens _craDescription (\ s a -> s{_craDescription = a});
 
--- | The name of the RestApi.
+-- | The name of the < RestApi>.
 craName :: Lens' CreateRestAPI Text
 craName = lens _craName (\ s a -> s{_craName = a});
 
@@ -94,7 +94,10 @@ instance AWSRequest CreateRestAPI where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateRestAPI where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON CreateRestAPI where
         toJSON CreateRestAPI'{..}

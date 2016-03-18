@@ -117,7 +117,10 @@ instance AWSRequest UpdateIntegrationResponse where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateIntegrationResponse where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateIntegrationResponse where
         toJSON UpdateIntegrationResponse'{..}

@@ -130,6 +130,9 @@ module Network.AWS.APIGateway
     -- ** CreateDomainName
     , module Network.AWS.APIGateway.CreateDomainName
 
+    -- ** FlushStageAuthorizersCache
+    , module Network.AWS.APIGateway.FlushStageAuthorizersCache
+
     -- ** DeleteModel
     , module Network.AWS.APIGateway.DeleteModel
 
@@ -166,6 +169,9 @@ module Network.AWS.APIGateway
     -- ** GetDomainName
     , module Network.AWS.APIGateway.GetDomainName
 
+    -- ** GetAuthorizers
+    , module Network.AWS.APIGateway.GetAuthorizers
+
     -- ** PutIntegrationResponse
     , module Network.AWS.APIGateway.PutIntegrationResponse
 
@@ -187,6 +193,9 @@ module Network.AWS.APIGateway
     -- ** UpdateIntegration
     , module Network.AWS.APIGateway.UpdateIntegration
 
+    -- ** TestInvokeAuthorizer
+    , module Network.AWS.APIGateway.TestInvokeAuthorizer
+
     -- ** GenerateClientCertificate
     , module Network.AWS.APIGateway.GenerateClientCertificate
 
@@ -199,8 +208,14 @@ module Network.AWS.APIGateway
     -- ** PutIntegration
     , module Network.AWS.APIGateway.PutIntegration
 
+    -- ** GetAuthorizer
+    , module Network.AWS.APIGateway.GetAuthorizer
+
     -- ** GetStage
     , module Network.AWS.APIGateway.GetStage
+
+    -- ** GetExport
+    , module Network.AWS.APIGateway.GetExport
 
     -- ** GetSDK
     , module Network.AWS.APIGateway.GetSDK
@@ -219,6 +234,15 @@ module Network.AWS.APIGateway
 
     -- ** UpdateClientCertificate
     , module Network.AWS.APIGateway.UpdateClientCertificate
+
+    -- ** CreateAuthorizer
+    , module Network.AWS.APIGateway.CreateAuthorizer
+
+    -- ** UpdateAuthorizer
+    , module Network.AWS.APIGateway.UpdateAuthorizer
+
+    -- ** DeleteAuthorizer
+    , module Network.AWS.APIGateway.DeleteAuthorizer
 
     -- ** CreateStage
     , module Network.AWS.APIGateway.CreateStage
@@ -258,6 +282,9 @@ module Network.AWS.APIGateway
 
     -- * Types
 
+    -- ** AuthorizerType
+    , AuthorizerType (..)
+
     -- ** CacheClusterSize
     , CacheClusterSize (..)
 
@@ -269,6 +296,9 @@ module Network.AWS.APIGateway
 
     -- ** Op
     , Op (..)
+
+    -- ** UnauthorizedCacheControlHeaderStrategy
+    , UnauthorizedCacheControlHeaderStrategy (..)
 
     -- ** APIKey
     , APIKey
@@ -286,6 +316,18 @@ module Network.AWS.APIGateway
     , account
     , aCloudwatchRoleARN
     , aThrottleSettings
+
+    -- ** Authorizer
+    , Authorizer
+    , authorizer
+    , aAuthorizerURI
+    , aIdentityValidationExpression
+    , aName
+    , aId
+    , aAuthorizerResultTtlInSeconds
+    , aType
+    , aIdentitySource
+    , aAuthorizerCredentials
 
     -- ** BasePathMapping
     , BasePathMapping
@@ -347,6 +389,7 @@ module Network.AWS.APIGateway
     , mHttpMethod
     , mRequestModels
     , mRequestParameters
+    , mAuthorizerId
     , mAuthorizationType
     , mApiKeyRequired
     , mMethodIntegration
@@ -366,9 +409,11 @@ module Network.AWS.APIGateway
     , msThrottlingBurstLimit
     , msCacheDataEncrypted
     , msLoggingLevel
+    , msRequireAuthorizationForCacheControl
     , msCachingEnabled
     , msMetricsEnabled
     , msThrottlingRateLimit
+    , msUnauthorizedCacheControlHeaderStrategy
 
     -- ** MethodSnapshot
     , MethodSnapshot
@@ -439,6 +484,7 @@ module Network.AWS.APIGateway
     ) where
 
 import           Network.AWS.APIGateway.CreateAPIKey
+import           Network.AWS.APIGateway.CreateAuthorizer
 import           Network.AWS.APIGateway.CreateBasePathMapping
 import           Network.AWS.APIGateway.CreateDeployment
 import           Network.AWS.APIGateway.CreateDomainName
@@ -447,6 +493,7 @@ import           Network.AWS.APIGateway.CreateResource
 import           Network.AWS.APIGateway.CreateRestAPI
 import           Network.AWS.APIGateway.CreateStage
 import           Network.AWS.APIGateway.DeleteAPIKey
+import           Network.AWS.APIGateway.DeleteAuthorizer
 import           Network.AWS.APIGateway.DeleteBasePathMapping
 import           Network.AWS.APIGateway.DeleteClientCertificate
 import           Network.AWS.APIGateway.DeleteDeployment
@@ -459,11 +506,14 @@ import           Network.AWS.APIGateway.DeleteModel
 import           Network.AWS.APIGateway.DeleteResource
 import           Network.AWS.APIGateway.DeleteRestAPI
 import           Network.AWS.APIGateway.DeleteStage
+import           Network.AWS.APIGateway.FlushStageAuthorizersCache
 import           Network.AWS.APIGateway.FlushStageCache
 import           Network.AWS.APIGateway.GenerateClientCertificate
 import           Network.AWS.APIGateway.GetAccount
 import           Network.AWS.APIGateway.GetAPIKey
 import           Network.AWS.APIGateway.GetAPIKeys
+import           Network.AWS.APIGateway.GetAuthorizer
+import           Network.AWS.APIGateway.GetAuthorizers
 import           Network.AWS.APIGateway.GetBasePathMapping
 import           Network.AWS.APIGateway.GetBasePathMappings
 import           Network.AWS.APIGateway.GetClientCertificate
@@ -472,6 +522,7 @@ import           Network.AWS.APIGateway.GetDeployment
 import           Network.AWS.APIGateway.GetDeployments
 import           Network.AWS.APIGateway.GetDomainName
 import           Network.AWS.APIGateway.GetDomainNames
+import           Network.AWS.APIGateway.GetExport
 import           Network.AWS.APIGateway.GetIntegration
 import           Network.AWS.APIGateway.GetIntegrationResponse
 import           Network.AWS.APIGateway.GetMethod
@@ -490,10 +541,12 @@ import           Network.AWS.APIGateway.PutIntegration
 import           Network.AWS.APIGateway.PutIntegrationResponse
 import           Network.AWS.APIGateway.PutMethod
 import           Network.AWS.APIGateway.PutMethodResponse
+import           Network.AWS.APIGateway.TestInvokeAuthorizer
 import           Network.AWS.APIGateway.TestInvokeMethod
 import           Network.AWS.APIGateway.Types
 import           Network.AWS.APIGateway.UpdateAccount
 import           Network.AWS.APIGateway.UpdateAPIKey
+import           Network.AWS.APIGateway.UpdateAuthorizer
 import           Network.AWS.APIGateway.UpdateBasePathMapping
 import           Network.AWS.APIGateway.UpdateClientCertificate
 import           Network.AWS.APIGateway.UpdateDeployment

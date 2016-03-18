@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe a BasePathMapping resource.
+-- Describe a < BasePathMapping> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetBasePathMapping.html AWS API Reference> for GetBasePathMapping.
 module Network.AWS.APIGateway.GetBasePathMapping
@@ -46,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to describe a BasePathMapping resource.
+-- | Request to describe a < BasePathMapping> resource.
 --
 -- /See:/ 'getBasePathMapping' smart constructor.
 data GetBasePathMapping = GetBasePathMapping'
@@ -71,7 +71,7 @@ getBasePathMapping pDomainName_ pBasePath_ =
     , _gbpmBasePath = pBasePath_
     }
 
--- | The domain name of the BasePathMapping resource to be described.
+-- | The domain name of the < BasePathMapping> resource to be described.
 gbpmDomainName :: Lens' GetBasePathMapping Text
 gbpmDomainName = lens _gbpmDomainName (\ s a -> s{_gbpmDomainName = a});
 
@@ -88,7 +88,10 @@ instance AWSRequest GetBasePathMapping where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders GetBasePathMapping where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetBasePathMapping where
         toPath GetBasePathMapping'{..}

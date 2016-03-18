@@ -85,7 +85,10 @@ instance AWSRequest UpdateClientCertificate where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateClientCertificate where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateClientCertificate where
         toJSON UpdateClientCertificate'{..}

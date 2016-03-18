@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about a Deployment resource.
+-- Changes information about a < Deployment> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateDeployment.html AWS API Reference> for UpdateDeployment.
 module Network.AWS.APIGateway.UpdateDeployment
@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to change information about a Deployment
+-- | Requests Amazon API Gateway to change information about a < Deployment>
 -- resource.
 --
 -- /See:/ 'updateDeployment' smart constructor.
@@ -83,12 +83,12 @@ updateDeployment pRestAPIId_ pDeploymentId_ =
 udPatchOperations :: Lens' UpdateDeployment [PatchOperation]
 udPatchOperations = lens _udPatchOperations (\ s a -> s{_udPatchOperations = a}) . _Default . _Coerce;
 
--- | The replacement identifier of the RestApi resource for the Deployment
--- resource to change information about.
+-- | The replacement identifier of the < RestApi> resource for the
+-- < Deployment> resource to change information about.
 udRestAPIId :: Lens' UpdateDeployment Text
 udRestAPIId = lens _udRestAPIId (\ s a -> s{_udRestAPIId = a});
 
--- | The replacment identifier for the Deployment resource to change
+-- | The replacment identifier for the < Deployment> resource to change
 -- information about.
 udDeploymentId :: Lens' UpdateDeployment Text
 udDeploymentId = lens _udDeploymentId (\ s a -> s{_udDeploymentId = a});
@@ -99,7 +99,10 @@ instance AWSRequest UpdateDeployment where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateDeployment where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateDeployment where
         toJSON UpdateDeployment'{..}

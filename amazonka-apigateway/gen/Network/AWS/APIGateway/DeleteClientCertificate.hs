@@ -71,7 +71,10 @@ instance AWSRequest DeleteClientCertificate where
           = receiveNull DeleteClientCertificateResponse'
 
 instance ToHeaders DeleteClientCertificate where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteClientCertificate where
         toPath DeleteClientCertificate'{..}

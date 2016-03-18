@@ -92,7 +92,10 @@ instance AWSRequest DeleteIntegration where
         response = receiveNull DeleteIntegrationResponse''
 
 instance ToHeaders DeleteIntegration where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteIntegration where
         toPath DeleteIntegration'{..}

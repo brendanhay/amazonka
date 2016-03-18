@@ -42,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to delete an existing model in an existing RestApi resource.
+-- | Request to delete an existing model in an existing < RestApi> resource.
 --
 -- /See:/ 'deleteModel' smart constructor.
 data DeleteModel = DeleteModel'
@@ -67,7 +67,7 @@ deleteModel pRestAPIId_ pModelName_ =
     , _dModelName = pModelName_
     }
 
--- | The RestApi under which the model will be deleted.
+-- | The < RestApi> under which the model will be deleted.
 dRestAPIId :: Lens' DeleteModel Text
 dRestAPIId = lens _dRestAPIId (\ s a -> s{_dRestAPIId = a});
 
@@ -81,7 +81,10 @@ instance AWSRequest DeleteModel where
         response = receiveNull DeleteModelResponse'
 
 instance ToHeaders DeleteModel where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteModel where
         toPath DeleteModel'{..}

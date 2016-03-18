@@ -81,19 +81,19 @@ createAPIKey =
     , _cakDescription = Nothing
     }
 
--- | Specifies whether the ApiKey can be used by callers.
+-- | Specifies whether the < ApiKey> can be used by callers.
 cakEnabled :: Lens' CreateAPIKey (Maybe Bool)
 cakEnabled = lens _cakEnabled (\ s a -> s{_cakEnabled = a});
 
--- | The name of the ApiKey.
+-- | The name of the < ApiKey>.
 cakName :: Lens' CreateAPIKey (Maybe Text)
 cakName = lens _cakName (\ s a -> s{_cakName = a});
 
--- | Specifies whether the ApiKey can be used by callers.
+-- | Specifies whether the < ApiKey> can be used by callers.
 cakStageKeys :: Lens' CreateAPIKey [StageKey]
 cakStageKeys = lens _cakStageKeys (\ s a -> s{_cakStageKeys = a}) . _Default . _Coerce;
 
--- | The description of the ApiKey.
+-- | The description of the < ApiKey>.
 cakDescription :: Lens' CreateAPIKey (Maybe Text)
 cakDescription = lens _cakDescription (\ s a -> s{_cakDescription = a});
 
@@ -103,7 +103,10 @@ instance AWSRequest CreateAPIKey where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateAPIKey where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON CreateAPIKey where
         toJSON CreateAPIKey'{..}

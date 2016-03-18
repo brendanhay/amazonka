@@ -110,8 +110,8 @@ piSelectionPattern = lens _piSelectionPattern (\ s a -> s{_piSelectionPattern = 
 -- | Represents response parameters that can be read from the backend
 -- response. Response parameters are represented as a key\/value map, with
 -- a destination as the key and a source as the value. A destination must
--- match an existing response parameter in the Method. The source can be a
--- header from the backend response, or a static value. Static values are
+-- match an existing response parameter in the < Method>. The source can be
+-- a header from the backend response, or a static value. Static values are
 -- specified using enclosing single quotes, and backend response headers
 -- can be read using the pattern 'integration.response.header.{name}'.
 piResponseParameters :: Lens' PutIntegrationResponse (HashMap Text Text)
@@ -130,7 +130,7 @@ piHttpMethod :: Lens' PutIntegrationResponse Text
 piHttpMethod = lens _piHttpMethod (\ s a -> s{_piHttpMethod = a});
 
 -- | Specifies the status code that is used to map the integration response
--- to an existing MethodResponse.
+-- to an existing < MethodResponse>.
 piStatusCode :: Lens' PutIntegrationResponse Text
 piStatusCode = lens _piStatusCode (\ s a -> s{_piStatusCode = a});
 
@@ -140,7 +140,10 @@ instance AWSRequest PutIntegrationResponse where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders PutIntegrationResponse where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON PutIntegrationResponse where
         toJSON PutIntegrationResponse'{..}

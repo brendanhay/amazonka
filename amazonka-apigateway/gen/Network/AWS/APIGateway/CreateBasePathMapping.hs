@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new BasePathMapping resource.
+-- Creates a new < BasePathMapping> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateBasePathMapping.html AWS API Reference> for CreateBasePathMapping.
 module Network.AWS.APIGateway.CreateBasePathMapping
@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to create a new BasePathMapping resource.
+-- | Requests Amazon API Gateway to create a new < BasePathMapping> resource.
 --
 -- /See:/ 'createBasePathMapping' smart constructor.
 data CreateBasePathMapping = CreateBasePathMapping'
@@ -94,7 +94,7 @@ cbpmStage = lens _cbpmStage (\ s a -> s{_cbpmStage = a});
 cbpmBasePath :: Lens' CreateBasePathMapping (Maybe Text)
 cbpmBasePath = lens _cbpmBasePath (\ s a -> s{_cbpmBasePath = a});
 
--- | The domain name of the BasePathMapping resource to create.
+-- | The domain name of the < BasePathMapping> resource to create.
 cbpmDomainName :: Lens' CreateBasePathMapping Text
 cbpmDomainName = lens _cbpmDomainName (\ s a -> s{_cbpmDomainName = a});
 
@@ -108,7 +108,10 @@ instance AWSRequest CreateBasePathMapping where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateBasePathMapping where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON CreateBasePathMapping where
         toJSON CreateBasePathMapping'{..}

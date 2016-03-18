@@ -109,7 +109,10 @@ instance AWSRequest GetSDK where
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders GetSDK where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetSDK where
         toPath GetSDK'{..}

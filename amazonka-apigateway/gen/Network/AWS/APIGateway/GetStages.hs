@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about one or more Stage resources.
+-- Gets information about one or more < Stage> resources.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetStages.html AWS API Reference> for GetStages.
 module Network.AWS.APIGateway.GetStages
@@ -45,8 +45,8 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about one or more Stage
--- resources.
+-- | Requests Amazon API Gateway to get information about one or more
+-- < Stage> resources.
 --
 -- /See:/ 'getStages' smart constructor.
 data GetStages = GetStages'
@@ -88,7 +88,10 @@ instance AWSRequest GetStages where
                    (x .?> "item" .!@ mempty) <*> (pure (fromEnum s)))
 
 instance ToHeaders GetStages where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetStages where
         toPath GetStages'{..}
@@ -99,7 +102,8 @@ instance ToQuery GetStages where
         toQuery GetStages'{..}
           = mconcat ["deploymentId" =: _gsDeploymentId]
 
--- | A list of Stage resource that are associated with the ApiKey resource.
+-- | A list of < Stage> resource that are associated with the < ApiKey>
+-- resource.
 --
 -- /See:/ 'getStagesResponse' smart constructor.
 data GetStagesResponse = GetStagesResponse'
@@ -123,7 +127,7 @@ getStagesResponse pResponseStatus_ =
     , _gsrsResponseStatus = pResponseStatus_
     }
 
--- | An individual Stage resource.
+-- | An individual < Stage> resource.
 gsrsItem :: Lens' GetStagesResponse [Stage]
 gsrsItem = lens _gsrsItem (\ s a -> s{_gsrsItem = a}) . _Default . _Coerce;
 

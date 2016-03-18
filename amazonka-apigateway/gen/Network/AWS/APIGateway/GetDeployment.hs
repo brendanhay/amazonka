@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a Deployment resource.
+-- Gets information about a < Deployment> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetDeployment.html AWS API Reference> for GetDeployment.
 module Network.AWS.APIGateway.GetDeployment
@@ -47,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about a Deployment
+-- | Requests Amazon API Gateway to get information about a < Deployment>
 -- resource.
 --
 -- /See:/ 'getDeployment' smart constructor.
@@ -73,12 +73,12 @@ getDeployment pRestAPIId_ pDeploymentId_ =
     , _gDeploymentId = pDeploymentId_
     }
 
--- | The identifier of the RestApi resource for the Deployment resource to
--- get information about.
+-- | The identifier of the < RestApi> resource for the < Deployment> resource
+-- to get information about.
 gRestAPIId :: Lens' GetDeployment Text
 gRestAPIId = lens _gRestAPIId (\ s a -> s{_gRestAPIId = a});
 
--- | The identifier of the Deployment resource to get information about.
+-- | The identifier of the < Deployment> resource to get information about.
 gDeploymentId :: Lens' GetDeployment Text
 gDeploymentId = lens _gDeploymentId (\ s a -> s{_gDeploymentId = a});
 
@@ -88,7 +88,10 @@ instance AWSRequest GetDeployment where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders GetDeployment where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetDeployment where
         toPath GetDeployment'{..}

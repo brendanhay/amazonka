@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a MethodResponse to an existing Method resource.
+-- Adds a < MethodResponse> to an existing < Method> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/PutMethodResponse.html AWS API Reference> for PutMethodResponse.
 module Network.AWS.APIGateway.PutMethodResponse
@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to add a MethodResponse to an existing Method resource.
+-- | Request to add a < MethodResponse> to an existing < Method> resource.
 --
 -- /See:/ 'putMethodResponse' smart constructor.
 data PutMethodResponse = PutMethodResponse'
@@ -93,9 +93,9 @@ putMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _pmStatusCode = pStatusCode_
     }
 
--- | Specifies the Model resources used for the response\'s content type.
+-- | Specifies the < Model> resources used for the response\'s content type.
 -- Response models are represented as a key\/value map, with a content type
--- as the key and a Model name as the value.
+-- as the key and a < Model> name as the value.
 pmResponseModels :: Lens' PutMethodResponse (HashMap Text Text)
 pmResponseModels = lens _pmResponseModels (\ s a -> s{_pmResponseModels = a}) . _Default . _Map;
 
@@ -110,15 +110,15 @@ pmResponseModels = lens _pmResponseModels (\ s a -> s{_pmResponseModels = a}) . 
 pmResponseParameters :: Lens' PutMethodResponse (HashMap Text Bool)
 pmResponseParameters = lens _pmResponseParameters (\ s a -> s{_pmResponseParameters = a}) . _Default . _Map;
 
--- | The RestApi identifier for the Method resource.
+-- | The < RestApi> identifier for the < Method> resource.
 pmRestAPIId :: Lens' PutMethodResponse Text
 pmRestAPIId = lens _pmRestAPIId (\ s a -> s{_pmRestAPIId = a});
 
--- | The Resource identifier for the Method resource.
+-- | The < Resource> identifier for the < Method> resource.
 pmResourceId :: Lens' PutMethodResponse Text
 pmResourceId = lens _pmResourceId (\ s a -> s{_pmResourceId = a});
 
--- | The HTTP verb that identifies the Method resource.
+-- | The HTTP verb that identifies the < Method> resource.
 pmHttpMethod :: Lens' PutMethodResponse Text
 pmHttpMethod = lens _pmHttpMethod (\ s a -> s{_pmHttpMethod = a});
 
@@ -132,7 +132,10 @@ instance AWSRequest PutMethodResponse where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders PutMethodResponse where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON PutMethodResponse where
         toJSON PutMethodResponse'{..}

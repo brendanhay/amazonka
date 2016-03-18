@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about the DomainName resource.
+-- Changes information about the < DomainName> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateDomainName.html AWS API Reference> for UpdateDomainName.
 module Network.AWS.APIGateway.UpdateDomainName
@@ -47,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to change information about the DomainName resource.
+-- | A request to change information about the < DomainName> resource.
 --
 -- /See:/ 'updateDomainName' smart constructor.
 data UpdateDomainName = UpdateDomainName'
@@ -76,7 +76,7 @@ updateDomainName pDomainName_ =
 udnPatchOperations :: Lens' UpdateDomainName [PatchOperation]
 udnPatchOperations = lens _udnPatchOperations (\ s a -> s{_udnPatchOperations = a}) . _Default . _Coerce;
 
--- | The name of the DomainName resource to be changed.
+-- | The name of the < DomainName> resource to be changed.
 udnDomainName :: Lens' UpdateDomainName Text
 udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
 
@@ -86,7 +86,10 @@ instance AWSRequest UpdateDomainName where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateDomainName where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateDomainName where
         toJSON UpdateDomainName'{..}

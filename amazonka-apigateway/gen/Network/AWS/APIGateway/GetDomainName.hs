@@ -47,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to get the name of a DomainName resource.
+-- | Request to get the name of a < DomainName> resource.
 --
 -- /See:/ 'getDomainName' smart constructor.
 newtype GetDomainName = GetDomainName'
@@ -67,7 +67,7 @@ getDomainName pDomainName_ =
     { _gdnDomainName = pDomainName_
     }
 
--- | The name of the DomainName resource.
+-- | The name of the < DomainName> resource.
 gdnDomainName :: Lens' GetDomainName Text
 gdnDomainName = lens _gdnDomainName (\ s a -> s{_gdnDomainName = a});
 
@@ -77,7 +77,10 @@ instance AWSRequest GetDomainName where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders GetDomainName where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetDomainName where
         toPath GetDomainName'{..}

@@ -73,11 +73,11 @@ getResource pRestAPIId_ pResourceId_ =
     , _grResourceId = pResourceId_
     }
 
--- | The RestApi identifier for the resource.
+-- | The < RestApi> identifier for the resource.
 grRestAPIId :: Lens' GetResource Text
 grRestAPIId = lens _grRestAPIId (\ s a -> s{_grRestAPIId = a});
 
--- | The identifier for the Resource resource.
+-- | The identifier for the < Resource> resource.
 grResourceId :: Lens' GetResource Text
 grResourceId = lens _grResourceId (\ s a -> s{_grResourceId = a});
 
@@ -87,7 +87,10 @@ instance AWSRequest GetResource where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders GetResource where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetResource where
         toPath GetResource'{..}

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a Stage resource.
+-- Deletes a < Stage> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteStage.html AWS API Reference> for DeleteStage.
 module Network.AWS.APIGateway.DeleteStage
@@ -42,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to delete a Stage resource.
+-- | Requests Amazon API Gateway to delete a < Stage> resource.
 --
 -- /See:/ 'deleteStage' smart constructor.
 data DeleteStage = DeleteStage'
@@ -67,11 +67,12 @@ deleteStage pRestAPIId_ pStageName_ =
     , _dsStageName = pStageName_
     }
 
--- | The identifier of the RestApi resource for the Stage resource to delete.
+-- | The identifier of the < RestApi> resource for the < Stage> resource to
+-- delete.
 dsRestAPIId :: Lens' DeleteStage Text
 dsRestAPIId = lens _dsRestAPIId (\ s a -> s{_dsRestAPIId = a});
 
--- | The name of the Stage resource to delete.
+-- | The name of the < Stage> resource to delete.
 dsStageName :: Lens' DeleteStage Text
 dsStageName = lens _dsStageName (\ s a -> s{_dsStageName = a});
 
@@ -81,7 +82,10 @@ instance AWSRequest DeleteStage where
         response = receiveNull DeleteStageResponse'
 
 instance ToHeaders DeleteStage where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteStage where
         toPath DeleteStage'{..}

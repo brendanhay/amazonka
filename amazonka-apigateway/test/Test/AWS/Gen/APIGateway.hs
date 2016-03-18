@@ -103,6 +103,9 @@ import Test.AWS.APIGateway.Internal
 --         , testCreateDomainName $
 --             createDomainName
 --
+--         , testFlushStageAuthorizersCache $
+--             flushStageAuthorizersCache
+--
 --         , testDeleteModel $
 --             deleteModel
 --
@@ -139,6 +142,9 @@ import Test.AWS.APIGateway.Internal
 --         , testGetDomainName $
 --             getDomainName
 --
+--         , testGetAuthorizers $
+--             getAuthorizers
+--
 --         , testPutIntegrationResponse $
 --             putIntegrationResponse
 --
@@ -160,6 +166,9 @@ import Test.AWS.APIGateway.Internal
 --         , testUpdateIntegration $
 --             updateIntegration
 --
+--         , testTestInvokeAuthorizer $
+--             testInvokeAuthorizer
+--
 --         , testGenerateClientCertificate $
 --             generateClientCertificate
 --
@@ -172,8 +181,14 @@ import Test.AWS.APIGateway.Internal
 --         , testPutIntegration $
 --             putIntegration
 --
+--         , testGetAuthorizer $
+--             getAuthorizer
+--
 --         , testGetStage $
 --             getStage
+--
+--         , testGetExport $
+--             getExport
 --
 --         , testGetSDK $
 --             getSDK
@@ -192,6 +207,15 @@ import Test.AWS.APIGateway.Internal
 --
 --         , testUpdateClientCertificate $
 --             updateClientCertificate
+--
+--         , testCreateAuthorizer $
+--             createAuthorizer
+--
+--         , testUpdateAuthorizer $
+--             updateAuthorizer
+--
+--         , testDeleteAuthorizer $
+--             deleteAuthorizer
 --
 --         , testCreateStage $
 --             createStage
@@ -307,6 +331,9 @@ import Test.AWS.APIGateway.Internal
 --         , testCreateDomainNameResponse $
 --             domainName
 --
+--         , testFlushStageAuthorizersCacheResponse $
+--             flushStageAuthorizersCacheResponse
+--
 --         , testDeleteModelResponse $
 --             deleteModelResponse
 --
@@ -343,6 +370,9 @@ import Test.AWS.APIGateway.Internal
 --         , testGetDomainNameResponse $
 --             domainName
 --
+--         , testGetAuthorizersResponse $
+--             getAuthorizersResponse
+--
 --         , testPutIntegrationResponseResponse $
 --             integrationResponse
 --
@@ -364,6 +394,9 @@ import Test.AWS.APIGateway.Internal
 --         , testUpdateIntegrationResponse $
 --             integration
 --
+--         , testTestInvokeAuthorizerResponse $
+--             testInvokeAuthorizerResponse
+--
 --         , testGenerateClientCertificateResponse $
 --             clientCertificate
 --
@@ -376,8 +409,14 @@ import Test.AWS.APIGateway.Internal
 --         , testPutIntegrationResponse $
 --             integration
 --
+--         , testGetAuthorizerResponse $
+--             authorizer
+--
 --         , testGetStageResponse $
 --             stage
+--
+--         , testGetExportResponse $
+--             getExportResponse
 --
 --         , testGetSDKResponse $
 --             getSDKResponse
@@ -396,6 +435,15 @@ import Test.AWS.APIGateway.Internal
 --
 --         , testUpdateClientCertificateResponse $
 --             clientCertificate
+--
+--         , testCreateAuthorizerResponse $
+--             authorizer
+--
+--         , testUpdateAuthorizerResponse $
+--             authorizer
+--
+--         , testDeleteAuthorizerResponse $
+--             deleteAuthorizerResponse
 --
 --         , testCreateStageResponse $
 --             stage
@@ -563,6 +611,11 @@ testCreateDomainName = req
     "CreateDomainName"
     "fixture/CreateDomainName.yaml"
 
+testFlushStageAuthorizersCache :: FlushStageAuthorizersCache -> TestTree
+testFlushStageAuthorizersCache = req
+    "FlushStageAuthorizersCache"
+    "fixture/FlushStageAuthorizersCache.yaml"
+
 testDeleteModel :: DeleteModel -> TestTree
 testDeleteModel = req
     "DeleteModel"
@@ -623,6 +676,11 @@ testGetDomainName = req
     "GetDomainName"
     "fixture/GetDomainName.yaml"
 
+testGetAuthorizers :: GetAuthorizers -> TestTree
+testGetAuthorizers = req
+    "GetAuthorizers"
+    "fixture/GetAuthorizers.yaml"
+
 testPutIntegrationResponse :: PutIntegrationResponse -> TestTree
 testPutIntegrationResponse = req
     "PutIntegrationResponse"
@@ -658,6 +716,11 @@ testUpdateIntegration = req
     "UpdateIntegration"
     "fixture/UpdateIntegration.yaml"
 
+testTestInvokeAuthorizer :: TestInvokeAuthorizer -> TestTree
+testTestInvokeAuthorizer = req
+    "TestInvokeAuthorizer"
+    "fixture/TestInvokeAuthorizer.yaml"
+
 testGenerateClientCertificate :: GenerateClientCertificate -> TestTree
 testGenerateClientCertificate = req
     "GenerateClientCertificate"
@@ -678,10 +741,20 @@ testPutIntegration = req
     "PutIntegration"
     "fixture/PutIntegration.yaml"
 
+testGetAuthorizer :: GetAuthorizer -> TestTree
+testGetAuthorizer = req
+    "GetAuthorizer"
+    "fixture/GetAuthorizer.yaml"
+
 testGetStage :: GetStage -> TestTree
 testGetStage = req
     "GetStage"
     "fixture/GetStage.yaml"
+
+testGetExport :: GetExport -> TestTree
+testGetExport = req
+    "GetExport"
+    "fixture/GetExport.yaml"
 
 testGetSDK :: GetSDK -> TestTree
 testGetSDK = req
@@ -712,6 +785,21 @@ testUpdateClientCertificate :: UpdateClientCertificate -> TestTree
 testUpdateClientCertificate = req
     "UpdateClientCertificate"
     "fixture/UpdateClientCertificate.yaml"
+
+testCreateAuthorizer :: CreateAuthorizer -> TestTree
+testCreateAuthorizer = req
+    "CreateAuthorizer"
+    "fixture/CreateAuthorizer.yaml"
+
+testUpdateAuthorizer :: UpdateAuthorizer -> TestTree
+testUpdateAuthorizer = req
+    "UpdateAuthorizer"
+    "fixture/UpdateAuthorizer.yaml"
+
+testDeleteAuthorizer :: DeleteAuthorizer -> TestTree
+testDeleteAuthorizer = req
+    "DeleteAuthorizer"
+    "fixture/DeleteAuthorizer.yaml"
 
 testCreateStage :: CreateStage -> TestTree
 testCreateStage = req
@@ -950,6 +1038,13 @@ testCreateDomainNameResponse = res
     aPIGateway
     (Proxy :: Proxy CreateDomainName)
 
+testFlushStageAuthorizersCacheResponse :: FlushStageAuthorizersCacheResponse -> TestTree
+testFlushStageAuthorizersCacheResponse = res
+    "FlushStageAuthorizersCacheResponse"
+    "fixture/FlushStageAuthorizersCacheResponse.proto"
+    aPIGateway
+    (Proxy :: Proxy FlushStageAuthorizersCache)
+
 testDeleteModelResponse :: DeleteModelResponse -> TestTree
 testDeleteModelResponse = res
     "DeleteModelResponse"
@@ -1034,6 +1129,13 @@ testGetDomainNameResponse = res
     aPIGateway
     (Proxy :: Proxy GetDomainName)
 
+testGetAuthorizersResponse :: GetAuthorizersResponse -> TestTree
+testGetAuthorizersResponse = res
+    "GetAuthorizersResponse"
+    "fixture/GetAuthorizersResponse.proto"
+    aPIGateway
+    (Proxy :: Proxy GetAuthorizers)
+
 testPutIntegrationResponseResponse :: IntegrationResponse -> TestTree
 testPutIntegrationResponseResponse = res
     "PutIntegrationResponseResponse"
@@ -1083,6 +1185,13 @@ testUpdateIntegrationResponse = res
     aPIGateway
     (Proxy :: Proxy UpdateIntegration)
 
+testTestInvokeAuthorizerResponse :: TestInvokeAuthorizerResponse -> TestTree
+testTestInvokeAuthorizerResponse = res
+    "TestInvokeAuthorizerResponse"
+    "fixture/TestInvokeAuthorizerResponse.proto"
+    aPIGateway
+    (Proxy :: Proxy TestInvokeAuthorizer)
+
 testGenerateClientCertificateResponse :: ClientCertificate -> TestTree
 testGenerateClientCertificateResponse = res
     "GenerateClientCertificateResponse"
@@ -1111,12 +1220,26 @@ testPutIntegrationResponse = res
     aPIGateway
     (Proxy :: Proxy PutIntegration)
 
+testGetAuthorizerResponse :: Authorizer -> TestTree
+testGetAuthorizerResponse = res
+    "GetAuthorizerResponse"
+    "fixture/GetAuthorizerResponse.proto"
+    aPIGateway
+    (Proxy :: Proxy GetAuthorizer)
+
 testGetStageResponse :: Stage -> TestTree
 testGetStageResponse = res
     "GetStageResponse"
     "fixture/GetStageResponse.proto"
     aPIGateway
     (Proxy :: Proxy GetStage)
+
+testGetExportResponse :: GetExportResponse -> TestTree
+testGetExportResponse = res
+    "GetExportResponse"
+    "fixture/GetExportResponse.proto"
+    aPIGateway
+    (Proxy :: Proxy GetExport)
 
 testGetSDKResponse :: GetSDKResponse -> TestTree
 testGetSDKResponse = res
@@ -1159,6 +1282,27 @@ testUpdateClientCertificateResponse = res
     "fixture/UpdateClientCertificateResponse.proto"
     aPIGateway
     (Proxy :: Proxy UpdateClientCertificate)
+
+testCreateAuthorizerResponse :: Authorizer -> TestTree
+testCreateAuthorizerResponse = res
+    "CreateAuthorizerResponse"
+    "fixture/CreateAuthorizerResponse.proto"
+    aPIGateway
+    (Proxy :: Proxy CreateAuthorizer)
+
+testUpdateAuthorizerResponse :: Authorizer -> TestTree
+testUpdateAuthorizerResponse = res
+    "UpdateAuthorizerResponse"
+    "fixture/UpdateAuthorizerResponse.proto"
+    aPIGateway
+    (Proxy :: Proxy UpdateAuthorizer)
+
+testDeleteAuthorizerResponse :: DeleteAuthorizerResponse -> TestTree
+testDeleteAuthorizerResponse = res
+    "DeleteAuthorizerResponse"
+    "fixture/DeleteAuthorizerResponse.proto"
+    aPIGateway
+    (Proxy :: Proxy DeleteAuthorizer)
 
 testCreateStageResponse :: Stage -> TestTree
 testCreateStageResponse = res

@@ -90,7 +90,7 @@ createDomainName pDomainName_ pCertificateName_ pCertificateBody_ pCertificatePr
     , _cdnCertificateChain = pCertificateChain_
     }
 
--- | The name of the DomainName resource.
+-- | The name of the < DomainName> resource.
 cdnDomainName :: Lens' CreateDomainName Text
 cdnDomainName = lens _cdnDomainName (\ s a -> s{_cdnDomainName = a});
 
@@ -122,7 +122,10 @@ instance AWSRequest CreateDomainName where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateDomainName where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON CreateDomainName where
         toJSON CreateDomainName'{..}

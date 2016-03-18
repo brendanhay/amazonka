@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the current ApiKeys resource.
+-- Gets information about the current < ApiKeys> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetAPIKeys.html AWS API Reference> for GetAPIKeys.
 --
@@ -49,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to get information about the current ApiKeys resource.
+-- | A request to get information about the current < ApiKeys> resource.
 --
 -- /See:/ 'getAPIKeys' smart constructor.
 data GetAPIKeys = GetAPIKeys'
@@ -72,11 +72,12 @@ getAPIKeys =
     , _gakPosition = Nothing
     }
 
--- | The maximum number of ApiKeys to get information about.
+-- | The maximum number of < ApiKeys> to get information about.
 gakLimit :: Lens' GetAPIKeys (Maybe Int)
 gakLimit = lens _gakLimit (\ s a -> s{_gakLimit = a});
 
--- | The position of the current ApiKeys resource to get information about.
+-- | The position of the current < ApiKeys> resource to get information
+-- about.
 gakPosition :: Lens' GetAPIKeys (Maybe Text)
 gakPosition = lens _gakPosition (\ s a -> s{_gakPosition = a});
 
@@ -98,7 +99,10 @@ instance AWSRequest GetAPIKeys where
                      (pure (fromEnum s)))
 
 instance ToHeaders GetAPIKeys where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetAPIKeys where
         toPath = const "/apikeys"
@@ -108,7 +112,7 @@ instance ToQuery GetAPIKeys where
           = mconcat
               ["limit" =: _gakLimit, "position" =: _gakPosition]
 
--- | Represents a collection of ApiKey resources.
+-- | Represents a collection of < ApiKey> resources.
 --
 -- /See:/ 'getAPIKeysResponse' smart constructor.
 data GetAPIKeysResponse = GetAPIKeysResponse'
@@ -136,8 +140,8 @@ getAPIKeysResponse pResponseStatus_ =
     , _gakrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any ApiKey resources in the collection of ApiKey
--- resources.
+-- | The current page of any < ApiKey> resources in the collection of
+-- < ApiKey> resources.
 gakrsItems :: Lens' GetAPIKeysResponse [APIKey]
 gakrsItems = lens _gakrsItems (\ s a -> s{_gakrsItems = a}) . _Default . _Coerce;
 

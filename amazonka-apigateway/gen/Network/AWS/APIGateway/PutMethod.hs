@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Add a method to an existing Resource resource.
+-- Add a method to an existing < Resource> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/PutMethod.html AWS API Reference> for PutMethod.
 module Network.AWS.APIGateway.PutMethod
@@ -29,6 +29,7 @@ module Network.AWS.APIGateway.PutMethod
     -- * Request Lenses
     , putRequestModels
     , putRequestParameters
+    , putAuthorizerId
     , putApiKeyRequired
     , putRestAPIId
     , putResourceId
@@ -43,6 +44,7 @@ module Network.AWS.APIGateway.PutMethod
     , mHttpMethod
     , mRequestModels
     , mRequestParameters
+    , mAuthorizerId
     , mAuthorizationType
     , mApiKeyRequired
     , mMethodIntegration
@@ -55,12 +57,13 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to add a method to an existing Resource resource.
+-- | Request to add a method to an existing < Resource> resource.
 --
 -- /See:/ 'putMethod' smart constructor.
 data PutMethod = PutMethod'
     { _putRequestModels     :: !(Maybe (Map Text Text))
     , _putRequestParameters :: !(Maybe (Map Text Bool))
+    , _putAuthorizerId      :: !(Maybe Text)
     , _putApiKeyRequired    :: !(Maybe Bool)
     , _putRestAPIId         :: !Text
     , _putResourceId        :: !Text
@@ -75,6 +78,8 @@ data PutMethod = PutMethod'
 -- * 'putRequestModels'
 --
 -- * 'putRequestParameters'
+--
+-- * 'putAuthorizerId'
 --
 -- * 'putApiKeyRequired'
 --
@@ -95,6 +100,7 @@ putMethod pRestAPIId_ pResourceId_ pHttpMethod_ pAuthorizationType_ =
     PutMethod'
     { _putRequestModels = Nothing
     , _putRequestParameters = Nothing
+    , _putAuthorizerId = Nothing
     , _putApiKeyRequired = Nothing
     , _putRestAPIId = pRestAPIId_
     , _putResourceId = pResourceId_
@@ -102,9 +108,9 @@ putMethod pRestAPIId_ pResourceId_ pHttpMethod_ pAuthorizationType_ =
     , _putAuthorizationType = pAuthorizationType_
     }
 
--- | Specifies the Model resources used for the request\'s content type.
+-- | Specifies the < Model> resources used for the request\'s content type.
 -- Request models are represented as a key\/value map, with a content type
--- as the key and a Model name as the value.
+-- as the key and a < Model> name as the value.
 putRequestModels :: Lens' PutMethod (HashMap Text Text)
 putRequestModels = lens _putRequestModels (\ s a -> s{_putRequestModels = a}) . _Default . _Map;
 
@@ -120,15 +126,20 @@ putRequestModels = lens _putRequestModels (\ s a -> s{_putRequestModels = a}) . 
 putRequestParameters :: Lens' PutMethod (HashMap Text Bool)
 putRequestParameters = lens _putRequestParameters (\ s a -> s{_putRequestParameters = a}) . _Default . _Map;
 
--- | Specifies whether the method required a valid ApiKey.
+-- | Specifies the identifier of an < Authorizer> to use on this Method, if
+-- the type is CUSTOM.
+putAuthorizerId :: Lens' PutMethod (Maybe Text)
+putAuthorizerId = lens _putAuthorizerId (\ s a -> s{_putAuthorizerId = a});
+
+-- | Specifies whether the method required a valid < ApiKey>.
 putApiKeyRequired :: Lens' PutMethod (Maybe Bool)
 putApiKeyRequired = lens _putApiKeyRequired (\ s a -> s{_putApiKeyRequired = a});
 
--- | The RestApi identifier for the new Method resource.
+-- | The < RestApi> identifier for the new < Method> resource.
 putRestAPIId :: Lens' PutMethod Text
 putRestAPIId = lens _putRestAPIId (\ s a -> s{_putRestAPIId = a});
 
--- | The Resource identifier for the new Method resource.
+-- | The < Resource> identifier for the new < Method> resource.
 putResourceId :: Lens' PutMethod Text
 putResourceId = lens _putResourceId (\ s a -> s{_putResourceId = a});
 
@@ -146,7 +157,10 @@ instance AWSRequest PutMethod where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders PutMethod where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON PutMethod where
         toJSON PutMethod'{..}
@@ -154,6 +168,7 @@ instance ToJSON PutMethod where
               (catMaybes
                  [("requestModels" .=) <$> _putRequestModels,
                   ("requestParameters" .=) <$> _putRequestParameters,
+                  ("authorizerId" .=) <$> _putAuthorizerId,
                   ("apiKeyRequired" .=) <$> _putApiKeyRequired,
                   Just ("authorizationType" .= _putAuthorizationType)])
 

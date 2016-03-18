@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing MethodResponse resource.
+-- Deletes an existing < MethodResponse> resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteMethodResponse.html AWS API Reference> for DeleteMethodResponse.
 module Network.AWS.APIGateway.DeleteMethodResponse
@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to delete an existing MethodResponse resource.
+-- | A request to delete an existing < MethodResponse> resource.
 --
 -- /See:/ 'deleteMethodResponse' smart constructor.
 data DeleteMethodResponse = DeleteMethodResponse'
@@ -79,19 +79,19 @@ deleteMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _dmStatusCode = pStatusCode_
     }
 
--- | The RestApi identifier for the MethodResponse resource.
+-- | The < RestApi> identifier for the < MethodResponse> resource.
 dmRestAPIId :: Lens' DeleteMethodResponse Text
 dmRestAPIId = lens _dmRestAPIId (\ s a -> s{_dmRestAPIId = a});
 
--- | The Resource identifier for the MethodResponse resource.
+-- | The < Resource> identifier for the < MethodResponse> resource.
 dmResourceId :: Lens' DeleteMethodResponse Text
 dmResourceId = lens _dmResourceId (\ s a -> s{_dmResourceId = a});
 
--- | The HTTP verb identifier for the parent Method resource.
+-- | The HTTP verb identifier for the parent < Method> resource.
 dmHttpMethod :: Lens' DeleteMethodResponse Text
 dmHttpMethod = lens _dmHttpMethod (\ s a -> s{_dmHttpMethod = a});
 
--- | The status code identifier for the MethodResponse resource.
+-- | The status code identifier for the < MethodResponse> resource.
 dmStatusCode :: Lens' DeleteMethodResponse Text
 dmStatusCode = lens _dmStatusCode (\ s a -> s{_dmStatusCode = a});
 
@@ -102,7 +102,10 @@ instance AWSRequest DeleteMethodResponse where
         response = receiveNull DeleteMethodResponseResponse'
 
 instance ToHeaders DeleteMethodResponse where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteMethodResponse where
         toPath DeleteMethodResponse'{..}

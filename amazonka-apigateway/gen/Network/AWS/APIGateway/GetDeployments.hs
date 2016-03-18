@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a Deployments collection.
+-- Gets information about a < Deployments> collection.
 --
 -- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetDeployments.html AWS API Reference> for GetDeployments.
 --
@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about a Deployments
+-- | Requests Amazon API Gateway to get information about a < Deployments>
 -- collection.
 --
 -- /See:/ 'getDeployments' smart constructor.
@@ -79,19 +79,19 @@ getDeployments pRestAPIId_ =
     , _gdRestAPIId = pRestAPIId_
     }
 
--- | The maximum number of Deployment resources in the collection to get
+-- | The maximum number of < Deployment> resources in the collection to get
 -- information about. The default limit is 25. It should be an integer
 -- between 1 - 500.
 gdLimit :: Lens' GetDeployments (Maybe Int)
 gdLimit = lens _gdLimit (\ s a -> s{_gdLimit = a});
 
--- | The position of the current Deployment resource in the collection to get
--- information about.
+-- | The position of the current < Deployment> resource in the collection to
+-- get information about.
 gdPosition :: Lens' GetDeployments (Maybe Text)
 gdPosition = lens _gdPosition (\ s a -> s{_gdPosition = a});
 
--- | The identifier of the RestApi resource for the collection of Deployment
--- resources to get information about.
+-- | The identifier of the < RestApi> resource for the collection of
+-- < Deployment> resources to get information about.
 gdRestAPIId :: Lens' GetDeployments Text
 gdRestAPIId = lens _gdRestAPIId (\ s a -> s{_gdRestAPIId = a});
 
@@ -113,7 +113,10 @@ instance AWSRequest GetDeployments where
                      (pure (fromEnum s)))
 
 instance ToHeaders GetDeployments where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetDeployments where
         toPath GetDeployments'{..}
@@ -156,7 +159,7 @@ getDeploymentsResponse pResponseStatus_ =
     , _gdrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any Deployment resources in the collection of
+-- | The current page of any < Deployment> resources in the collection of
 -- deployment resources.
 gdrsItems :: Lens' GetDeploymentsResponse [Deployment]
 gdrsItems = lens _gdrsItems (\ s a -> s{_gdrsItems = a}) . _Default . _Coerce;

@@ -72,7 +72,7 @@ getModelTemplate pRestAPIId_ pModelName_ =
     , _gmtModelName = pModelName_
     }
 
--- | The ID of the RestApi under which the model exists.
+-- | The ID of the < RestApi> under which the model exists.
 gmtRestAPIId :: Lens' GetModelTemplate Text
 gmtRestAPIId = lens _gmtRestAPIId (\ s a -> s{_gmtRestAPIId = a});
 
@@ -90,7 +90,10 @@ instance AWSRequest GetModelTemplate where
                    (x .?> "value") <*> (pure (fromEnum s)))
 
 instance ToHeaders GetModelTemplate where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetModelTemplate where
         toPath GetModelTemplate'{..}

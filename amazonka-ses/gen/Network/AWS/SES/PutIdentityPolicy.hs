@@ -56,10 +56,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to apply an authorization
--- policy to an identity.
---
--- /See:/ 'putIdentityPolicy' smart constructor.
+-- | /See:/ 'putIdentityPolicy' smart constructor.
 data PutIdentityPolicy = PutIdentityPolicy'
     { _pipIdentity   :: !Text
     , _pipPolicyName :: !Text
@@ -134,10 +131,7 @@ instance ToQuery PutIdentityPolicy where
                "PolicyName" =: _pipPolicyName,
                "Policy" =: _pipPolicy]
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
---
--- /See:/ 'putIdentityPolicyResponse' smart constructor.
+-- | /See:/ 'putIdentityPolicyResponse' smart constructor.
 newtype PutIdentityPolicyResponse = PutIdentityPolicyResponse'
     { _piprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

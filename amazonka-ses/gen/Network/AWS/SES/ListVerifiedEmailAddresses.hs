@@ -87,10 +87,7 @@ instance ToQuery ListVerifiedEmailAddresses where
                     ("ListVerifiedEmailAddresses" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | Represents a list of all the email addresses verified for the current
--- user.
---
--- /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
+-- | /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
     { _lvearsVerifiedEmailAddresses :: !(Maybe [Text])
     , _lvearsResponseStatus         :: !Int

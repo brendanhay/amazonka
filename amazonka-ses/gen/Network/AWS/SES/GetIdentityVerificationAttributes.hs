@@ -49,10 +49,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to provide the verification
--- attributes for a list of identities.
---
--- /See:/ 'getIdentityVerificationAttributes' smart constructor.
+-- | /See:/ 'getIdentityVerificationAttributes' smart constructor.
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'
     { _givaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -104,9 +101,7 @@ instance ToQuery GetIdentityVerificationAttributes
                "Version" =: ("2010-12-01" :: ByteString),
                "Identities" =: toQueryList "member" _givaIdentities]
 
--- | Represents the verification attributes for a list of identities.
---
--- /See:/ 'getIdentityVerificationAttributesResponse' smart constructor.
+-- | /See:/ 'getIdentityVerificationAttributesResponse' smart constructor.
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
     { _givarsResponseStatus         :: !Int
     , _givarsVerificationAttributes :: !(Map Text IdentityVerificationAttributes)

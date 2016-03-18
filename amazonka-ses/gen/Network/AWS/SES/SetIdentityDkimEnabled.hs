@@ -60,10 +60,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to enable or disable DKIM
--- signing for an identity.
---
--- /See:/ 'setIdentityDkimEnabled' smart constructor.
+-- | /See:/ 'setIdentityDkimEnabled' smart constructor.
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
     { _sideIdentity    :: !Text
     , _sideDkimEnabled :: !Bool
@@ -120,10 +117,7 @@ instance ToQuery SetIdentityDkimEnabled where
                "Identity" =: _sideIdentity,
                "DkimEnabled" =: _sideDkimEnabled]
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
---
--- /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
+-- | /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
 newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
     { _sidersResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

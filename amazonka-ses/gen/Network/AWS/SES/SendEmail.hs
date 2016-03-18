@@ -74,14 +74,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to send a single email
--- message.
---
--- This datatype can be used in application code to compose a message
--- consisting of source, destination, message, reply-to, and return-path
--- parts. This object can then be sent using the 'SendEmail' action.
---
--- /See:/ 'sendEmail' smart constructor.
+-- | /See:/ 'sendEmail' smart constructor.
 data SendEmail = SendEmail'
     { _seReturnPath       :: !(Maybe Text)
     , _seSourceARN        :: !(Maybe Text)
@@ -233,10 +226,7 @@ instance ToQuery SendEmail where
                "Destination" =: _seDestination,
                "Message" =: _seMessage]
 
--- | Represents a unique message ID returned from a successful 'SendEmail'
--- request.
---
--- /See:/ 'sendEmailResponse' smart constructor.
+-- | /See:/ 'sendEmailResponse' smart constructor.
 data SendEmailResponse = SendEmailResponse'
     { _sersResponseStatus :: !Int
     , _sersMessageId      :: !Text

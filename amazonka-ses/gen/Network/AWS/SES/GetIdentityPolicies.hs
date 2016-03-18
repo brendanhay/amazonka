@@ -58,10 +58,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to retrieve the text of a
--- list of authorization policies applying to an identity.
---
--- /See:/ 'getIdentityPolicies' smart constructor.
+-- | /See:/ 'getIdentityPolicies' smart constructor.
 data GetIdentityPolicies = GetIdentityPolicies'
     { _gipIdentity    :: !Text
     , _gipPolicyNames :: ![Text]
@@ -126,10 +123,7 @@ instance ToQuery GetIdentityPolicies where
                "PolicyNames" =:
                  toQueryList "member" _gipPolicyNames]
 
--- | Represents a map of policy names to policies returned from a successful
--- 'GetIdentityPolicies' request.
---
--- /See:/ 'getIdentityPoliciesResponse' smart constructor.
+-- | /See:/ 'getIdentityPoliciesResponse' smart constructor.
 data GetIdentityPoliciesResponse = GetIdentityPoliciesResponse'
     { _giprsResponseStatus :: !Int
     , _giprsPolicies       :: !(Map Text Text)

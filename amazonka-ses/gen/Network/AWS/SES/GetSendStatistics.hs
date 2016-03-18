@@ -83,11 +83,7 @@ instance ToQuery GetSendStatistics where
                  ["Action" =: ("GetSendStatistics" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | Represents a list of 'SendDataPoint' items returned from a successful
--- 'GetSendStatistics' request. This list contains aggregated data from the
--- previous two weeks of sending activity.
---
--- /See:/ 'getSendStatisticsResponse' smart constructor.
+-- | /See:/ 'getSendStatisticsResponse' smart constructor.
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
     { _gssrsSendDataPoints :: !(Maybe [SendDataPoint])
     , _gssrsResponseStatus :: !Int

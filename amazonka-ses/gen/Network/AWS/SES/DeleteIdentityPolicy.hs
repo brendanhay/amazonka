@@ -56,12 +56,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to delete an authorization
--- policy applying to an identity.
---
--- This request succeeds regardless of whether the specified policy exists.
---
--- /See:/ 'deleteIdentityPolicy' smart constructor.
+-- | /See:/ 'deleteIdentityPolicy' smart constructor.
 data DeleteIdentityPolicy = DeleteIdentityPolicy'
     { _dipIdentity   :: !Text
     , _dipPolicyName :: !Text
@@ -121,10 +116,7 @@ instance ToQuery DeleteIdentityPolicy where
                "Identity" =: _dipIdentity,
                "PolicyName" =: _dipPolicyName]
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
---
--- /See:/ 'deleteIdentityPolicyResponse' smart constructor.
+-- | /See:/ 'deleteIdentityPolicyResponse' smart constructor.
 newtype DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
     { _diprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

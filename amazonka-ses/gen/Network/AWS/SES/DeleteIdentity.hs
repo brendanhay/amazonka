@@ -46,10 +46,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to delete an identity from
--- the list of identities for the AWS Account.
---
--- /See:/ 'deleteIdentity' smart constructor.
+-- | /See:/ 'deleteIdentity' smart constructor.
 newtype DeleteIdentity = DeleteIdentity'
     { _diIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -93,10 +90,7 @@ instance ToQuery DeleteIdentity where
                "Version" =: ("2010-12-01" :: ByteString),
                "Identity" =: _diIdentity]
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
---
--- /See:/ 'deleteIdentityResponse' smart constructor.
+-- | /See:/ 'deleteIdentityResponse' smart constructor.
 newtype DeleteIdentityResponse = DeleteIdentityResponse'
     { _dirsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

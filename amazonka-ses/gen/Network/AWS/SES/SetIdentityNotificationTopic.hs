@@ -57,9 +57,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to set or clear an identity\'s notification topic.
---
--- /See:/ 'setIdentityNotificationTopic' smart constructor.
+-- | /See:/ 'setIdentityNotificationTopic' smart constructor.
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
     { _sintSNSTopic         :: !(Maybe Text)
     , _sintIdentity         :: !Text
@@ -132,10 +130,7 @@ instance ToQuery SetIdentityNotificationTopic where
                "Identity" =: _sintIdentity,
                "NotificationType" =: _sintNotificationType]
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
---
--- /See:/ 'setIdentityNotificationTopicResponse' smart constructor.
+-- | /See:/ 'setIdentityNotificationTopicResponse' smart constructor.
 newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
     { _sintrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

@@ -46,10 +46,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to begin email address
--- verification.
---
--- /See:/ 'verifyEmailIdentity' smart constructor.
+-- | /See:/ 'verifyEmailIdentity' smart constructor.
 newtype VerifyEmailIdentity = VerifyEmailIdentity'
     { _veiEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -93,10 +90,7 @@ instance ToQuery VerifyEmailIdentity where
                "Version" =: ("2010-12-01" :: ByteString),
                "EmailAddress" =: _veiEmailAddress]
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
---
--- /See:/ 'verifyEmailIdentityResponse' smart constructor.
+-- | /See:/ 'verifyEmailIdentityResponse' smart constructor.
 newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
     { _veirsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

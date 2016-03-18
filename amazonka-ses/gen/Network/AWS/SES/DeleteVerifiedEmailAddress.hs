@@ -47,10 +47,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to delete an address from
--- the list of verified email addresses.
---
--- /See:/ 'deleteVerifiedEmailAddress' smart constructor.
+-- | /See:/ 'deleteVerifiedEmailAddress' smart constructor.
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
     { _dveaEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

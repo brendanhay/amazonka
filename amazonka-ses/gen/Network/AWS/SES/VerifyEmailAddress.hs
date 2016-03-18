@@ -48,10 +48,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to begin email address
--- verification.
---
--- /See:/ 'verifyEmailAddress' smart constructor.
+-- | /See:/ 'verifyEmailAddress' smart constructor.
 newtype VerifyEmailAddress = VerifyEmailAddress'
     { _veaEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

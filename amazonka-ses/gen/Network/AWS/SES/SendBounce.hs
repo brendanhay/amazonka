@@ -59,11 +59,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Request object for sending a simple\/complex bounce. It contains all of
--- the information needed to generate a basic DSN or a fully-customized
--- DSN.
---
--- /See:/ 'sendBounce' smart constructor.
+-- | /See:/ 'sendBounce' smart constructor.
 data SendBounce = SendBounce'
     { _sbMessageDsn               :: !(Maybe MessageDsn)
     , _sbExplanation              :: !(Maybe Text)

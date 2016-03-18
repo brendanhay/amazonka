@@ -55,8 +55,14 @@ import Test.AWS.SES.Internal
 --         , testDescribeReceiptRuleSet $
 --             describeReceiptRuleSet
 --
+--         , testGetIdentityMailFromDomainAttributes $
+--             getIdentityMailFromDomainAttributes
+--
 --         , testCreateReceiptFilter $
 --             createReceiptFilter
+--
+--         , testSetIdentityMailFromDomain $
+--             setIdentityMailFromDomain
 --
 --         , testSetIdentityFeedbackForwardingEnabled $
 --             setIdentityFeedbackForwardingEnabled
@@ -175,8 +181,14 @@ import Test.AWS.SES.Internal
 --         , testDescribeReceiptRuleSetResponse $
 --             describeReceiptRuleSetResponse
 --
+--         , testGetIdentityMailFromDomainAttributesResponse $
+--             getIdentityMailFromDomainAttributesResponse
+--
 --         , testCreateReceiptFilterResponse $
 --             createReceiptFilterResponse
+--
+--         , testSetIdentityMailFromDomainResponse $
+--             setIdentityMailFromDomainResponse
 --
 --         , testSetIdentityFeedbackForwardingEnabledResponse $
 --             setIdentityFeedbackForwardingEnabledResponse
@@ -315,10 +327,20 @@ testDescribeReceiptRuleSet = req
     "DescribeReceiptRuleSet"
     "fixture/DescribeReceiptRuleSet.yaml"
 
+testGetIdentityMailFromDomainAttributes :: GetIdentityMailFromDomainAttributes -> TestTree
+testGetIdentityMailFromDomainAttributes = req
+    "GetIdentityMailFromDomainAttributes"
+    "fixture/GetIdentityMailFromDomainAttributes.yaml"
+
 testCreateReceiptFilter :: CreateReceiptFilter -> TestTree
 testCreateReceiptFilter = req
     "CreateReceiptFilter"
     "fixture/CreateReceiptFilter.yaml"
+
+testSetIdentityMailFromDomain :: SetIdentityMailFromDomain -> TestTree
+testSetIdentityMailFromDomain = req
+    "SetIdentityMailFromDomain"
+    "fixture/SetIdentityMailFromDomain.yaml"
 
 testSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnabled -> TestTree
 testSetIdentityFeedbackForwardingEnabled = req
@@ -530,12 +552,26 @@ testDescribeReceiptRuleSetResponse = res
     sES
     (Proxy :: Proxy DescribeReceiptRuleSet)
 
+testGetIdentityMailFromDomainAttributesResponse :: GetIdentityMailFromDomainAttributesResponse -> TestTree
+testGetIdentityMailFromDomainAttributesResponse = res
+    "GetIdentityMailFromDomainAttributesResponse"
+    "fixture/GetIdentityMailFromDomainAttributesResponse.proto"
+    sES
+    (Proxy :: Proxy GetIdentityMailFromDomainAttributes)
+
 testCreateReceiptFilterResponse :: CreateReceiptFilterResponse -> TestTree
 testCreateReceiptFilterResponse = res
     "CreateReceiptFilterResponse"
     "fixture/CreateReceiptFilterResponse.proto"
     sES
     (Proxy :: Proxy CreateReceiptFilter)
+
+testSetIdentityMailFromDomainResponse :: SetIdentityMailFromDomainResponse -> TestTree
+testSetIdentityMailFromDomainResponse = res
+    "SetIdentityMailFromDomainResponse"
+    "fixture/SetIdentityMailFromDomainResponse.proto"
+    sES
+    (Proxy :: Proxy SetIdentityMailFromDomain)
 
 testSetIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
 testSetIdentityFeedbackForwardingEnabledResponse = res

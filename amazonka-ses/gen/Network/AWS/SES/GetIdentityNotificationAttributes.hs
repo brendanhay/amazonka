@@ -106,12 +106,7 @@ instance ToQuery GetIdentityNotificationAttributes
                "Version" =: ("2010-12-01" :: ByteString),
                "Identities" =: toQueryList "member" _ginaIdentities]
 
--- | Describes whether an identity has Amazon Simple Notification Service
--- (Amazon SNS) topics set for bounce, complaint, and\/or delivery
--- notifications, and specifies whether feedback forwarding is enabled for
--- bounce and complaint notifications.
---
--- /See:/ 'getIdentityNotificationAttributesResponse' smart constructor.
+-- | /See:/ 'getIdentityNotificationAttributesResponse' smart constructor.
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
     { _ginarsResponseStatus         :: !Int
     , _ginarsNotificationAttributes :: !(Map Text IdentityNotificationAttributes)

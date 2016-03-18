@@ -64,14 +64,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Given a list of verified identities, describes their DKIM attributes.
--- The DKIM attributes of an email address identity includes whether DKIM
--- signing is individually enabled or disabled for that address. The DKIM
--- attributes of a domain name identity includes whether DKIM signing is
--- enabled, as well as the DNS records (tokens) that must remain published
--- in the domain name\'s DNS.
---
--- /See:/ 'getIdentityDkimAttributes' smart constructor.
+-- | /See:/ 'getIdentityDkimAttributes' smart constructor.
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes'
     { _gidaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -119,9 +112,7 @@ instance ToQuery GetIdentityDkimAttributes where
                "Version" =: ("2010-12-01" :: ByteString),
                "Identities" =: toQueryList "member" _gidaIdentities]
 
--- | Represents a list of all the DKIM attributes for the specified identity.
---
--- /See:/ 'getIdentityDkimAttributesResponse' smart constructor.
+-- | /See:/ 'getIdentityDkimAttributesResponse' smart constructor.
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
     { _gidarsResponseStatus :: !Int
     , _gidarsDkimAttributes :: !(Map Text IdentityDkimAttributes)

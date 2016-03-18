@@ -46,10 +46,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to begin domain
--- verification.
---
--- /See:/ 'verifyDomainIdentity' smart constructor.
+-- | /See:/ 'verifyDomainIdentity' smart constructor.
 newtype VerifyDomainIdentity = VerifyDomainIdentity'
     { _vdiDomain :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -94,9 +91,7 @@ instance ToQuery VerifyDomainIdentity where
                "Version" =: ("2010-12-01" :: ByteString),
                "Domain" =: _vdiDomain]
 
--- | Represents a token used for domain ownership verification.
---
--- /See:/ 'verifyDomainIdentityResponse' smart constructor.
+-- | /See:/ 'verifyDomainIdentityResponse' smart constructor.
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
     { _vdirsResponseStatus    :: !Int
     , _vdirsVerificationToken :: !Text

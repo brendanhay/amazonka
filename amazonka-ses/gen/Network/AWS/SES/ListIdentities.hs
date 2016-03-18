@@ -53,10 +53,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to list all identities for
--- the AWS Account.
---
--- /See:/ 'listIdentities' smart constructor.
+-- | /See:/ 'listIdentities' smart constructor.
 data ListIdentities = ListIdentities'
     { _liIdentityType :: !(Maybe IdentityType)
     , _liNextToken    :: !(Maybe Text)
@@ -129,9 +126,7 @@ instance ToQuery ListIdentities where
                "NextToken" =: _liNextToken,
                "MaxItems" =: _liMaxItems]
 
--- | Represents a list of all verified identities for the AWS Account.
---
--- /See:/ 'listIdentitiesResponse' smart constructor.
+-- | /See:/ 'listIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
     { _lirsNextToken      :: !(Maybe Text)
     , _lirsResponseStatus :: !Int

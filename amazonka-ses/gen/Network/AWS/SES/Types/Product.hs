@@ -471,6 +471,70 @@ instance FromXML IdentityDkimAttributes where
                 <*> (x .@ "DkimEnabled")
                 <*> (x .@ "DkimVerificationStatus")
 
+-- | Represents the custom MAIL FROM domain attributes of a verified identity
+-- (email address or domain).
+--
+-- /See:/ 'identityMailFromDomainAttributes' smart constructor.
+data IdentityMailFromDomainAttributes = IdentityMailFromDomainAttributes'
+    { _imfdaMailFromDomain       :: !Text
+    , _imfdaMailFromDomainStatus :: !CustomMailFromStatus
+    , _imfdaBehaviorOnMXFailure  :: !BehaviorOnMXFailure
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IdentityMailFromDomainAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'imfdaMailFromDomain'
+--
+-- * 'imfdaMailFromDomainStatus'
+--
+-- * 'imfdaBehaviorOnMXFailure'
+identityMailFromDomainAttributes
+    :: Text -- ^ 'imfdaMailFromDomain'
+    -> CustomMailFromStatus -- ^ 'imfdaMailFromDomainStatus'
+    -> BehaviorOnMXFailure -- ^ 'imfdaBehaviorOnMXFailure'
+    -> IdentityMailFromDomainAttributes
+identityMailFromDomainAttributes pMailFromDomain_ pMailFromDomainStatus_ pBehaviorOnMXFailure_ =
+    IdentityMailFromDomainAttributes'
+    { _imfdaMailFromDomain = pMailFromDomain_
+    , _imfdaMailFromDomainStatus = pMailFromDomainStatus_
+    , _imfdaBehaviorOnMXFailure = pBehaviorOnMXFailure_
+    }
+
+-- | The custom MAIL FROM domain that the identity is configured to use.
+imfdaMailFromDomain :: Lens' IdentityMailFromDomainAttributes Text
+imfdaMailFromDomain = lens _imfdaMailFromDomain (\ s a -> s{_imfdaMailFromDomain = a});
+
+-- | The state that indicates whether Amazon SES has successfully read the MX
+-- record required for custom MAIL FROM domain setup. If the state is
+-- 'Success', Amazon SES uses the specified custom MAIL FROM domain when
+-- the verified identity sends an email. All other states indicate that
+-- Amazon SES takes the action described by 'BehaviorOnMXFailure'.
+imfdaMailFromDomainStatus :: Lens' IdentityMailFromDomainAttributes CustomMailFromStatus
+imfdaMailFromDomainStatus = lens _imfdaMailFromDomainStatus (\ s a -> s{_imfdaMailFromDomainStatus = a});
+
+-- | The action that Amazon SES takes if it cannot successfully read the
+-- required MX record when you send an email. A value of 'UseDefaultValue'
+-- indicates that if Amazon SES cannot read the required MX record, it uses
+-- amazonses.com (or a subdomain of that) as the MAIL FROM domain. A value
+-- of 'RejectMessage' indicates that if Amazon SES cannot read the required
+-- MX record, Amazon SES returns a 'MailFromDomainNotVerified' error and
+-- does not send the email.
+--
+-- The custom MAIL FROM setup states that result in this behavior are
+-- 'Pending', 'Failed', and 'TemporaryFailure'.
+imfdaBehaviorOnMXFailure :: Lens' IdentityMailFromDomainAttributes BehaviorOnMXFailure
+imfdaBehaviorOnMXFailure = lens _imfdaBehaviorOnMXFailure (\ s a -> s{_imfdaBehaviorOnMXFailure = a});
+
+instance FromXML IdentityMailFromDomainAttributes
+         where
+        parseXML x
+          = IdentityMailFromDomainAttributes' <$>
+              (x .@ "MailFromDomain") <*>
+                (x .@ "MailFromDomainStatus")
+                <*> (x .@ "BehaviorOnMXFailure")
+
 -- | Represents the notification attributes of an identity, including whether
 -- an identity has Amazon Simple Notification Service (Amazon SNS) topics
 -- set for bounce, complaint, and\/or delivery notifications, and whether
@@ -1066,11 +1130,11 @@ receiptRule pName_ =
     }
 
 -- | If 'true', then messages to which this receipt rule applies are scanned
--- for spam and viruses. The default value is 'true'.
+-- for spam and viruses. The default value is 'false'.
 rrScanEnabled :: Lens' ReceiptRule (Maybe Bool)
 rrScanEnabled = lens _rrScanEnabled (\ s a -> s{_rrScanEnabled = a});
 
--- | If 'true', the receipt rule is active. The default value is true.
+-- | If 'true', the receipt rule is active. The default value is 'false'.
 rrEnabled :: Lens' ReceiptRule (Maybe Bool)
 rrEnabled = lens _rrEnabled (\ s a -> s{_rrEnabled = a});
 
@@ -1422,13 +1486,16 @@ instance ToQuery S3Action where
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-sns.html Amazon SES Developer Guide>.
 --
 -- /See:/ 'snsAction' smart constructor.
-newtype SNSAction = SNSAction'
-    { _saTopicARN :: Text
+data SNSAction = SNSAction'
+    { _saEncoding :: !(Maybe SNSActionEncoding)
+    , _saTopicARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SNSAction' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'saEncoding'
 --
 -- * 'saTopicARN'
 snsAction
@@ -1436,8 +1503,16 @@ snsAction
     -> SNSAction
 snsAction pTopicARN_ =
     SNSAction'
-    { _saTopicARN = pTopicARN_
+    { _saEncoding = Nothing
+    , _saTopicARN = pTopicARN_
     }
+
+-- | The encoding to use for the email within the Amazon SNS notification.
+-- UTF-8 is easier to use, but may not preserve all special characters when
+-- a message was encoded with a different encoding format. Base64 preserves
+-- all special characters. The default value is UTF-8.
+saEncoding :: Lens' SNSAction (Maybe SNSActionEncoding)
+saEncoding = lens _saEncoding (\ s a -> s{_saEncoding = a});
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An
 -- example of an Amazon SNS topic ARN is
@@ -1448,11 +1523,15 @@ saTopicARN :: Lens' SNSAction Text
 saTopicARN = lens _saTopicARN (\ s a -> s{_saTopicARN = a});
 
 instance FromXML SNSAction where
-        parseXML x = SNSAction' <$> (x .@ "TopicArn")
+        parseXML x
+          = SNSAction' <$>
+              (x .@? "Encoding") <*> (x .@ "TopicArn")
 
 instance ToQuery SNSAction where
         toQuery SNSAction'{..}
-          = mconcat ["TopicArn" =: _saTopicARN]
+          = mconcat
+              ["Encoding" =: _saEncoding,
+               "TopicArn" =: _saTopicARN]
 
 -- | Represents sending statistics data. Each 'SendDataPoint' contains
 -- statistics for a 15-minute period of sending activity.

@@ -19,6 +19,31 @@ module Network.AWS.SES.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data BehaviorOnMXFailure
+    = RejectMessage
+    | UseDefaultValue
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText BehaviorOnMXFailure where
+    parser = takeLowerText >>= \case
+        "rejectmessage" -> pure RejectMessage
+        "usedefaultvalue" -> pure UseDefaultValue
+        e -> fromTextError $ "Failure parsing BehaviorOnMXFailure from value: '" <> e
+           <> "'. Accepted values: RejectMessage, UseDefaultValue"
+
+instance ToText BehaviorOnMXFailure where
+    toText = \case
+        RejectMessage -> "RejectMessage"
+        UseDefaultValue -> "UseDefaultValue"
+
+instance Hashable     BehaviorOnMXFailure
+instance ToByteString BehaviorOnMXFailure
+instance ToQuery      BehaviorOnMXFailure
+instance ToHeader     BehaviorOnMXFailure
+
+instance FromXML BehaviorOnMXFailure where
+    parseXML = parseXMLText "BehaviorOnMXFailure"
+
 data BounceType
     = BTContentRejected
     | BTDoesNotExist
@@ -52,6 +77,37 @@ instance Hashable     BounceType
 instance ToByteString BounceType
 instance ToQuery      BounceType
 instance ToHeader     BounceType
+
+data CustomMailFromStatus
+    = CMFSFailed
+    | CMFSPending
+    | CMFSSuccess
+    | CMFSTemporaryFailure
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText CustomMailFromStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure CMFSFailed
+        "pending" -> pure CMFSPending
+        "success" -> pure CMFSSuccess
+        "temporaryfailure" -> pure CMFSTemporaryFailure
+        e -> fromTextError $ "Failure parsing CustomMailFromStatus from value: '" <> e
+           <> "'. Accepted values: Failed, Pending, Success, TemporaryFailure"
+
+instance ToText CustomMailFromStatus where
+    toText = \case
+        CMFSFailed -> "Failed"
+        CMFSPending -> "Pending"
+        CMFSSuccess -> "Success"
+        CMFSTemporaryFailure -> "TemporaryFailure"
+
+instance Hashable     CustomMailFromStatus
+instance ToByteString CustomMailFromStatus
+instance ToQuery      CustomMailFromStatus
+instance ToHeader     CustomMailFromStatus
+
+instance FromXML CustomMailFromStatus where
+    parseXML = parseXMLText "CustomMailFromStatus"
 
 data DsnAction
     = DADelayed
@@ -180,6 +236,31 @@ instance ToHeader     ReceiptFilterPolicy
 
 instance FromXML ReceiptFilterPolicy where
     parseXML = parseXMLText "ReceiptFilterPolicy"
+
+data SNSActionEncoding
+    = BASE64
+    | Utf8
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText SNSActionEncoding where
+    parser = takeLowerText >>= \case
+        "base64" -> pure BASE64
+        "utf-8" -> pure Utf8
+        e -> fromTextError $ "Failure parsing SNSActionEncoding from value: '" <> e
+           <> "'. Accepted values: Base64, UTF-8"
+
+instance ToText SNSActionEncoding where
+    toText = \case
+        BASE64 -> "Base64"
+        Utf8 -> "UTF-8"
+
+instance Hashable     SNSActionEncoding
+instance ToByteString SNSActionEncoding
+instance ToQuery      SNSActionEncoding
+instance ToHeader     SNSActionEncoding
+
+instance FromXML SNSActionEncoding where
+    parseXML = parseXMLText "SNSActionEncoding"
 
 data StopScope =
     RuleSet

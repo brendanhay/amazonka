@@ -81,10 +81,7 @@ instance ToQuery GetSendQuota where
                  ["Action" =: ("GetSendQuota" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | Represents the user\'s current activity limits returned from a
--- successful 'GetSendQuota' request.
---
--- /See:/ 'getSendQuotaResponse' smart constructor.
+-- | /See:/ 'getSendQuotaResponse' smart constructor.
 data GetSendQuotaResponse = GetSendQuotaResponse'
     { _gsqrsMaxSendRate     :: !(Maybe Double)
     , _gsqrsSentLast24Hours :: !(Maybe Double)

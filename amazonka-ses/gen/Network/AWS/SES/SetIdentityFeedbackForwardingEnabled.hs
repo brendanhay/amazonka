@@ -125,10 +125,7 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
                "Identity" =: _siffeIdentity,
                "ForwardingEnabled" =: _siffeForwardingEnabled]
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
---
--- /See:/ 'setIdentityFeedbackForwardingEnabledResponse' smart constructor.
+-- | /See:/ 'setIdentityFeedbackForwardingEnabledResponse' smart constructor.
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
     { _siffersResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

@@ -57,10 +57,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to list all authorization
--- policies, by name, applying to an identity.
---
--- /See:/ 'listIdentityPolicies' smart constructor.
+-- | /See:/ 'listIdentityPolicies' smart constructor.
 newtype ListIdentityPolicies = ListIdentityPolicies'
     { _lipIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -113,10 +110,7 @@ instance ToQuery ListIdentityPolicies where
                "Version" =: ("2010-12-01" :: ByteString),
                "Identity" =: _lipIdentity]
 
--- | Represents a list of policy names returned from a successful
--- 'ListIdentityPolicies' request.
---
--- /See:/ 'listIdentityPoliciesResponse' smart constructor.
+-- | /See:/ 'listIdentityPoliciesResponse' smart constructor.
 data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
     { _liprsResponseStatus :: !Int
     , _liprsPolicyNames    :: ![Text]

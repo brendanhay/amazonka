@@ -63,6 +63,7 @@ library
         , Network.AWS.SES.DescribeReceiptRule
         , Network.AWS.SES.DescribeReceiptRuleSet
         , Network.AWS.SES.GetIdentityDkimAttributes
+        , Network.AWS.SES.GetIdentityMailFromDomainAttributes
         , Network.AWS.SES.GetIdentityNotificationAttributes
         , Network.AWS.SES.GetIdentityPolicies
         , Network.AWS.SES.GetIdentityVerificationAttributes
@@ -81,6 +82,7 @@ library
         , Network.AWS.SES.SetActiveReceiptRuleSet
         , Network.AWS.SES.SetIdentityDkimEnabled
         , Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
+        , Network.AWS.SES.SetIdentityMailFromDomain
         , Network.AWS.SES.SetIdentityNotificationTopic
         , Network.AWS.SES.SetReceiptRulePosition
         , Network.AWS.SES.Types

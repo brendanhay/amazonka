@@ -21,6 +21,8 @@
 -- Lists the associations for the specified SSM document or instance.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListAssociations.html AWS API Reference> for ListAssociations.
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListAssociations
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.ListAssociations
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -88,6 +91,13 @@ laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat
 -- results.
 laAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
 laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . _List1;
+
+instance AWSPager ListAssociations where
+        page rq rs
+          | stop (rs ^. larsNextToken) = Nothing
+          | stop (rs ^. larsAssociations) = Nothing
+          | otherwise =
+            Just $ rq & laNextToken .~ rs ^. larsNextToken
 
 instance AWSRequest ListAssociations where
         type Rs ListAssociations = ListAssociationsResponse

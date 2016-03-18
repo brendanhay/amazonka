@@ -20,7 +20,7 @@
 --
 -- Creates an SSM document.
 --
--- After you create an SSM document, you can use CreateAssociation to
+-- After you create an SSM document, you can use < CreateAssociation> to
 -- associate it with one or more running instances.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateDocument.html AWS API Reference> for CreateDocument.

@@ -21,6 +21,8 @@
 -- Describes one or more of your SSM documents.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListDocuments.html AWS API Reference> for ListDocuments.
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListDocuments
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.ListDocuments
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -87,6 +90,13 @@ ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 -- next set of results.
 ldMaxResults :: Lens' ListDocuments (Maybe Natural)
 ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a}) . mapping _Nat;
+
+instance AWSPager ListDocuments where
+        page rq rs
+          | stop (rs ^. ldrsNextToken) = Nothing
+          | stop (rs ^. ldrsDocumentIdentifiers) = Nothing
+          | otherwise =
+            Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
 
 instance AWSRequest ListDocuments where
         type Rs ListDocuments = ListDocumentsResponse

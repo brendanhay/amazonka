@@ -21,6 +21,8 @@
 -- Lists the commands requested by users of the AWS account.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListCommands.html AWS API Reference> for ListCommands.
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListCommands
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.SSM.ListCommands
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -105,6 +108,13 @@ lcCommandId = lens _lcCommandId (\ s a -> s{_lcCommandId = a});
 -- the next set of results.
 lcMaxResults :: Lens' ListCommands (Maybe Natural)
 lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat;
+
+instance AWSPager ListCommands where
+        page rq rs
+          | stop (rs ^. lcrsNextToken) = Nothing
+          | stop (rs ^. lcrsCommands) = Nothing
+          | otherwise =
+            Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
 
 instance AWSRequest ListCommands where
         type Rs ListCommands = ListCommandsResponse

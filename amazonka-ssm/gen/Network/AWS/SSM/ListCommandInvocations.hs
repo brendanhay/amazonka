@@ -26,6 +26,8 @@
 -- execution.
 --
 -- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListCommandInvocations.html AWS API Reference> for ListCommandInvocations.
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListCommandInvocations
     (
     -- * Creating a Request
@@ -49,6 +51,7 @@ module Network.AWS.SSM.ListCommandInvocations
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -110,8 +113,8 @@ lciNextToken = lens _lciNextToken (\ s a -> s{_lciNextToken = a});
 lciCommandId :: Lens' ListCommandInvocations (Maybe Text)
 lciCommandId = lens _lciCommandId (\ s a -> s{_lciCommandId = a});
 
--- | (Optional) If set this returns the response of the command executions.
--- By default this is set to False.
+-- | (Optional) If set this returns the response of the command executions
+-- and any command output. By default this is set to False.
 lciDetails :: Lens' ListCommandInvocations (Maybe Bool)
 lciDetails = lens _lciDetails (\ s a -> s{_lciDetails = a});
 
@@ -120,6 +123,13 @@ lciDetails = lens _lciDetails (\ s a -> s{_lciDetails = a});
 -- the next set of results.
 lciMaxResults :: Lens' ListCommandInvocations (Maybe Natural)
 lciMaxResults = lens _lciMaxResults (\ s a -> s{_lciMaxResults = a}) . mapping _Nat;
+
+instance AWSPager ListCommandInvocations where
+        page rq rs
+          | stop (rs ^. lcirsNextToken) = Nothing
+          | stop (rs ^. lcirsCommandInvocations) = Nothing
+          | otherwise =
+            Just $ rq & lciNextToken .~ rs ^. lcirsNextToken
 
 instance AWSRequest ListCommandInvocations where
         type Rs ListCommandInvocations =

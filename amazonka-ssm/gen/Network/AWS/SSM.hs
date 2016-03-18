@@ -222,10 +222,10 @@ module Network.AWS.SSM
     -- ** CreateDocument
     , module Network.AWS.SSM.CreateDocument
 
-    -- ** ListCommandInvocations
+    -- ** ListCommandInvocations (Paginated)
     , module Network.AWS.SSM.ListCommandInvocations
 
-    -- ** ListDocuments
+    -- ** ListDocuments (Paginated)
     , module Network.AWS.SSM.ListDocuments
 
     -- ** GetDocument
@@ -243,7 +243,7 @@ module Network.AWS.SSM
     -- ** DescribeInstanceInformation
     , module Network.AWS.SSM.DescribeInstanceInformation
 
-    -- ** ListAssociations
+    -- ** ListAssociations (Paginated)
     , module Network.AWS.SSM.ListAssociations
 
     -- ** DeleteAssociation
@@ -252,7 +252,7 @@ module Network.AWS.SSM
     -- ** SendCommand
     , module Network.AWS.SSM.SendCommand
 
-    -- ** ListCommands
+    -- ** ListCommands (Paginated)
     , module Network.AWS.SSM.ListCommands
 
     -- ** DeleteDocument

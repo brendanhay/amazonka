@@ -54,8 +54,8 @@ aruAssumedRoleId :: Lens' AssumedRoleUser Text
 aruAssumedRoleId = lens _aruAssumedRoleId (\ s a -> s{_aruAssumedRoleId = a});
 
 -- | The ARN of the temporary security credentials that are returned from the
--- AssumeRole action. For more information about ARNs and how to use them
--- in policies, see
+-- < AssumeRole> action. For more information about ARNs and how to use
+-- them in policies, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
 -- in /Using IAM/.
 aruARN :: Lens' AssumedRoleUser Text

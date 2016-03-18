@@ -263,9 +263,9 @@ instance ToQuery AssumeRoleWithWebIdentity where
                "RoleSessionName" =: _arwwiRoleSessionName,
                "WebIdentityToken" =: _arwwiWebIdentityToken]
 
--- | Contains the response to a successful AssumeRoleWithWebIdentity request,
--- including temporary AWS credentials that can be used to make AWS
--- requests.
+-- | Contains the response to a successful < AssumeRoleWithWebIdentity>
+-- request, including temporary AWS credentials that can be used to make
+-- AWS requests.
 --
 -- /See:/ 'assumeRoleWithWebIdentityResponse' smart constructor.
 data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
@@ -333,6 +333,12 @@ arwwirsPackedPolicySize = lens _arwwirsPackedPolicySize (\ s a -> s{_arwwirsPack
 
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security token.
+--
+-- __Note:__ The size of the security token that STS APIs return is not
+-- fixed. We strongly recommend that you make no assumptions about the
+-- maximum size. As of this writing, the typical size is less than 4096
+-- bytes, but that can vary. Also, future updates to AWS might require
+-- larger sizes.
 arwwirsCredentials :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Credentials)
 arwwirsCredentials = lens _arwwirsCredentials (\ s a -> s{_arwwirsCredentials = a});
 

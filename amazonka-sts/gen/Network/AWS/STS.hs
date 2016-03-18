@@ -86,6 +86,9 @@ module Network.AWS.STS
     -- ** PackedPolicyTooLargeException
     , _PackedPolicyTooLargeException
 
+    -- ** RegionDisabledException
+    , _RegionDisabledException
+
     -- ** IdPCommunicationErrorException
     , _IdPCommunicationErrorException
 

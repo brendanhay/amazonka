@@ -236,7 +236,7 @@ arRoleARN = lens _arRoleARN (\ s a -> s{_arRoleARN = a});
 
 -- | An identifier for the assumed role session.
 --
--- Use the role session name to uniquely identity a session when the same
+-- Use the role session name to uniquely identify a session when the same
 -- role is assumed by different principals or for different reasons. In
 -- cross-account scenarios, the role session name is visible to, and can be
 -- logged by the account that owns the role. The role session name is also
@@ -276,7 +276,7 @@ instance ToQuery AssumeRole where
                "RoleArn" =: _arRoleARN,
                "RoleSessionName" =: _arRoleSessionName]
 
--- | Contains the response to a successful AssumeRole request, including
+-- | Contains the response to a successful < AssumeRole> request, including
 -- temporary AWS credentials that can be used to make AWS requests.
 --
 -- /See:/ 'assumeRoleResponse' smart constructor.
@@ -317,6 +317,12 @@ arrsPackedPolicySize = lens _arrsPackedPolicySize (\ s a -> s{_arrsPackedPolicyS
 
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security (or session) token.
+--
+-- __Note:__ The size of the security token that STS APIs return is not
+-- fixed. We strongly recommend that you make no assumptions about the
+-- maximum size. As of this writing, the typical size is less than 4096
+-- bytes, but that can vary. Also, future updates to AWS might require
+-- larger sizes.
 arrsCredentials :: Lens' AssumeRoleResponse (Maybe Credentials)
 arrsCredentials = lens _arrsCredentials (\ s a -> s{_arrsCredentials = a});
 

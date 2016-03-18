@@ -19,6 +19,7 @@ module Network.AWS.STS.Types
     , _MalformedPolicyDocumentException
     , _InvalidAuthorizationMessageException
     , _PackedPolicyTooLargeException
+    , _RegionDisabledException
     , _IdPCommunicationErrorException
     , _InvalidIdentityTokenException
     , _ExpiredTokenException
@@ -74,6 +75,7 @@ sTS =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -102,6 +104,16 @@ _InvalidAuthorizationMessageException =
 _PackedPolicyTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
 _PackedPolicyTooLargeException =
     _ServiceError . hasStatus 400 . hasCode "PackedPolicyTooLarge"
+
+-- | STS is not activated in the requested region for the account that is
+-- being asked to create temporary credentials. The account administrator
+-- must activate STS in that region using the IAM Console. For more
+-- information, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating AWS STS in an AWS Region>
+-- in the /Using IAM/.
+_RegionDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
+_RegionDisabledException =
+    _ServiceError . hasStatus 403 . hasCode "RegionDisabledException"
 
 -- | The request could not be fulfilled because the non-AWS identity provider
 -- (IDP) that was asked to verify the incoming identity token could not be

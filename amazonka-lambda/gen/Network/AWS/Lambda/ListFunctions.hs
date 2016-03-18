@@ -20,10 +20,15 @@
 --
 -- Returns a list of your Lambda functions. For each function, the response
 -- includes the function configuration information. You must use
--- GetFunction to retrieve the code for your function.
+-- < GetFunction> to retrieve the code for your function.
 --
 -- This operation requires permission for the 'lambda:ListFunctions'
 -- action.
+--
+-- If you are using versioning feature, the response returns list of
+-- $LATEST versions of your functions. For information about the versioning
+-- feature, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_ListFunctions.html AWS API Reference> for ListFunctions.
 --
@@ -116,7 +121,7 @@ instance ToQuery ListFunctions where
               ["Marker" =: _lfMarker, "MaxItems" =: _lfMaxItems]
 
 -- | Contains a list of AWS Lambda function configurations (see
--- FunctionConfiguration.
+-- < FunctionConfiguration>.
 --
 -- /See:/ 'listFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'

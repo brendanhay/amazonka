@@ -23,6 +23,11 @@
 -- file in the request body. If the function name already exists, the
 -- operation will fail. Note that the function name is case-sensitive.
 --
+-- If you are using versioning, you can also publish a version of the
+-- Lambda function you are creating using the 'Publish' parameter. For more
+-- information about versioning, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+--
 -- This operation requires permission for the 'lambda:CreateFunction'
 -- action.
 --
@@ -34,6 +39,7 @@ module Network.AWS.Lambda.CreateFunction
     , CreateFunction
     -- * Request Lenses
     , cfMemorySize
+    , cfVPCConfig
     , cfTimeout
     , cfDescription
     , cfPublish
@@ -51,6 +57,7 @@ module Network.AWS.Lambda.CreateFunction
     , fcRuntime
     , fcFunctionARN
     , fcRole
+    , fcVPCConfig
     , fcVersion
     , fcFunctionName
     , fcCodeSize
@@ -71,6 +78,7 @@ import           Network.AWS.Response
 -- | /See:/ 'createFunction' smart constructor.
 data CreateFunction = CreateFunction'
     { _cfMemorySize   :: !(Maybe Nat)
+    , _cfVPCConfig    :: !(Maybe VPCConfig)
     , _cfTimeout      :: !(Maybe Nat)
     , _cfDescription  :: !(Maybe Text)
     , _cfPublish      :: !(Maybe Bool)
@@ -86,6 +94,8 @@ data CreateFunction = CreateFunction'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cfMemorySize'
+--
+-- * 'cfVPCConfig'
 --
 -- * 'cfTimeout'
 --
@@ -112,6 +122,7 @@ createFunction
 createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
     CreateFunction'
     { _cfMemorySize = Nothing
+    , _cfVPCConfig = Nothing
     , _cfTimeout = Nothing
     , _cfDescription = Nothing
     , _cfPublish = Nothing
@@ -131,6 +142,13 @@ createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
 cfMemorySize :: Lens' CreateFunction (Maybe Natural)
 cfMemorySize = lens _cfMemorySize (\ s a -> s{_cfMemorySize = a}) . mapping _Nat;
 
+-- | If your Lambda function accesses resources in a VPC, you provide this
+-- parameter identifying the list of security group IDs and subnet IDs.
+-- These must belong to the same VPC. You must provide at least one
+-- security group and one subnet ID.
+cfVPCConfig :: Lens' CreateFunction (Maybe VPCConfig)
+cfVPCConfig = lens _cfVPCConfig (\ s a -> s{_cfVPCConfig = a});
+
 -- | The function execution time at which Lambda should terminate the
 -- function. Because the execution time has cost implications, we recommend
 -- you set this value based on your expected execution time. The default is
@@ -148,28 +166,21 @@ cfDescription = lens _cfDescription (\ s a -> s{_cfDescription = a});
 cfPublish :: Lens' CreateFunction (Maybe Bool)
 cfPublish = lens _cfPublish (\ s a -> s{_cfPublish = a});
 
--- | The name you want to assign to the function you are uploading. You can
--- specify an unqualified function name (for example, \"Thumbnail\") or you
--- can specify Amazon Resource Name (ARN) of the function (for example,
--- \"arn:aws:lambda:us-west-2:account-id:function:ThumbNail\"). AWS Lambda
--- also allows you to specify only the account ID qualifier (for example,
--- \"account-id:Thumbnail\"). Note that the length constraint applies only
--- to the ARN. If you specify only the function name, it is limited to 64
--- character in length. The function names appear in the console and are
--- returned in the ListFunctions API. Function names are used to specify
--- functions to other AWS Lambda APIs, such as Invoke.
+-- | The name you want to assign to the function you are uploading. The
+-- function names appear in the console and are returned in the
+-- < ListFunctions> API. Function names are used to specify functions to
+-- other AWS Lambda APIs, such as < Invoke>.
 cfFunctionName :: Lens' CreateFunction Text
 cfFunctionName = lens _cfFunctionName (\ s a -> s{_cfFunctionName = a});
 
 -- | The runtime environment for the Lambda function you are uploading.
--- Currently, Lambda supports \"java\" and \"nodejs\" as the runtime.
 cfRuntime :: Lens' CreateFunction Runtime
 cfRuntime = lens _cfRuntime (\ s a -> s{_cfRuntime = a});
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when
 -- it executes your function to access any other Amazon Web Services (AWS)
 -- resources. For more information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>.
 cfRole :: Lens' CreateFunction Text
 cfRole = lens _cfRole (\ s a -> s{_cfRole = a});
 
@@ -198,6 +209,7 @@ instance ToJSON CreateFunction where
           = object
               (catMaybes
                  [("MemorySize" .=) <$> _cfMemorySize,
+                  ("VpcConfig" .=) <$> _cfVPCConfig,
                   ("Timeout" .=) <$> _cfTimeout,
                   ("Description" .=) <$> _cfDescription,
                   ("Publish" .=) <$> _cfPublish,

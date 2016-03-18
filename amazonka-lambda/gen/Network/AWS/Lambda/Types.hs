@@ -16,15 +16,22 @@ module Network.AWS.Lambda.Types
       lambda
 
     -- * Errors
+    , _EC2ThrottledException
     , _PolicyLengthExceededException
+    , _EC2AccessDeniedException
+    , _InvalidSubnetIdException
     , _UnsupportedMediaTypeException
     , _InvalidRequestContentException
+    , _ENILimitReachedException
     , _InvalidParameterValueException
     , _RequestTooLargeException
     , _TooManyRequestsException
+    , _InvalidSecurityGroupIdException
+    , _SubnetIPAddressLimitReachedException
     , _ServiceException
     , _CodeStorageExceededException
     , _ResourceConflictException
+    , _EC2UnexpectedException
     , _ResourceNotFoundException
 
     -- * EventSourcePosition
@@ -80,6 +87,7 @@ module Network.AWS.Lambda.Types
     , fcRuntime
     , fcFunctionARN
     , fcRole
+    , fcVPCConfig
     , fcVersion
     , fcFunctionName
     , fcCodeSize
@@ -88,6 +96,19 @@ module Network.AWS.Lambda.Types
     , fcLastModified
     , fcCodeSha256
     , fcDescription
+
+    -- * VPCConfig
+    , VPCConfig
+    , vpcConfig
+    , vpccSecurityGroupIds
+    , vpccSubnetIds
+
+    -- * VPCConfigResponse
+    , VPCConfigResponse
+    , vpcConfigResponse
+    , vcSecurityGroupIds
+    , vcSubnetIds
+    , vcVPCId
     ) where
 
 import           Network.AWS.Lambda.Types.Product
@@ -119,6 +140,7 @@ lambda =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -127,10 +149,28 @@ lambda =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+-- | AWS Lambda was throttled by Amazon EC2 during Lambda function
+-- initiatization using the execution role provided for the Lambda
+-- function.
+_EC2ThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
+_EC2ThrottledException =
+    _ServiceError . hasStatus 502 . hasCode "EC2ThrottledException"
+
 -- | Lambda function access policy is limited to 20 KB.
 _PolicyLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _PolicyLengthExceededException =
     _ServiceError . hasStatus 400 . hasCode "PolicyLengthExceededException"
+
+-- | Prism for EC2AccessDeniedException' errors.
+_EC2AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+_EC2AccessDeniedException =
+    _ServiceError . hasStatus 502 . hasCode "EC2AccessDeniedException"
+
+-- | The Subnet ID provided in the Lambda function VPC configuration is
+-- invalid.
+_InvalidSubnetIdException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidSubnetIdException =
+    _ServiceError . hasStatus 502 . hasCode "InvalidSubnetIDException"
 
 -- | The content type of the 'Invoke' request body is not JSON.
 _UnsupportedMediaTypeException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -142,6 +182,13 @@ _InvalidRequestContentException :: AsError a => Getting (First ServiceError) a S
 _InvalidRequestContentException =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestContentException"
 
+-- | AWS Lambda was not able to create an Elastic Network Interface (ENI) in
+-- the VPC, specified as part of Lambda function configuration, because the
+-- limit for network interfaces has been reached.
+_ENILimitReachedException :: AsError a => Getting (First ServiceError) a ServiceError
+_ENILimitReachedException =
+    _ServiceError . hasStatus 502 . hasCode "ENILimitReachedException"
+
 -- | One of the parameters in the request is invalid. For example, if you
 -- provided an IAM role for AWS Lambda to assume in the 'CreateFunction' or
 -- the 'UpdateFunctionConfiguration' API, that AWS Lambda is unable to
@@ -152,7 +199,7 @@ _InvalidParameterValueException =
 
 -- | The request payload exceeded the 'Invoke' request body JSON input limit.
 -- For more information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits>.
 _RequestTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
 _RequestTooLargeException =
     _ServiceError . hasStatus 413 . hasCode "RequestTooLargeException"
@@ -161,6 +208,19 @@ _RequestTooLargeException =
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
     _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException"
+
+-- | The Security Group ID provided in the Lambda function VPC configuration
+-- is invalid.
+_InvalidSecurityGroupIdException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidSecurityGroupIdException =
+    _ServiceError . hasStatus 502 . hasCode "InvalidSecurityGroupIDException"
+
+-- | AWS Lambda was not able to set up VPC access for the Lambda function
+-- because one or more configured subnets has no available IP addresses.
+_SubnetIPAddressLimitReachedException :: AsError a => Getting (First ServiceError) a ServiceError
+_SubnetIPAddressLimitReachedException =
+    _ServiceError .
+    hasStatus 502 . hasCode "SubnetIPAddressLimitReachedException"
 
 -- | The AWS Lambda service encountered an internal error.
 _ServiceException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -176,6 +236,12 @@ _CodeStorageExceededException =
 _ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceConflictException =
     _ServiceError . hasStatus 409 . hasCode "ResourceConflictException"
+
+-- | AWS Lambda received an unexpected EC2 client exception while setting up
+-- for the Lambda function.
+_EC2UnexpectedException :: AsError a => Getting (First ServiceError) a ServiceError
+_EC2UnexpectedException =
+    _ServiceError . hasStatus 502 . hasCode "EC2UnexpectedException"
 
 -- | The resource (for example, a Lambda function or access policy statement)
 -- specified in the request does not exist.

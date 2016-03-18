@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns configuration information for the specified event source mapping
--- (see CreateEventSourceMapping).
+-- (see < CreateEventSourceMapping>).
 --
 -- This operation requires permission for the
 -- 'lambda:GetEventSourceMapping' action.

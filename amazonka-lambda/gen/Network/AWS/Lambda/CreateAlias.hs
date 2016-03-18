@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an alias to the specified Lambda function version. For more
--- information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html Introduction to AWS Lambda Aliases>
+-- Creates an alias that points to the specified Lambda function version.
+-- For more information, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
+--
+-- Alias names are unique for a given function.
 --
 -- This requires permission for the lambda:CreateAlias action.
 --
@@ -93,7 +95,7 @@ caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
 caFunctionName :: Lens' CreateAlias Text
 caFunctionName = lens _caFunctionName (\ s a -> s{_caFunctionName = a});
 
--- | Name for the alias your creating.
+-- | Name for the alias you are creating.
 caName :: Lens' CreateAlias Text
 caName = lens _caName (\ s a -> s{_caName = a});
 

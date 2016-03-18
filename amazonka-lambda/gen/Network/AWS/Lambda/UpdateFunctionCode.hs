@@ -22,6 +22,11 @@
 -- only be used on an existing Lambda function and cannot be used to update
 -- the function configuration.
 --
+-- If you are using the versioning feature, note this API will always
+-- update the $LATEST version of your Lambda function. For information
+-- about the versioning feature, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+--
 -- This operation requires permission for the 'lambda:UpdateFunctionCode'
 -- action.
 --
@@ -47,6 +52,7 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , fcRuntime
     , fcFunctionARN
     , fcRole
+    , fcVPCConfig
     , fcVersion
     , fcFunctionName
     , fcCodeSize
@@ -135,13 +141,12 @@ uPublish = lens _uPublish (\ s a -> s{_uPublish = a});
 
 -- | The existing Lambda function name whose code you want to replace.
 --
--- You can specify an unqualified function name (for example,
--- \"Thumbnail\") or you can specify Amazon Resource Name (ARN) of the
--- function (for example,
--- \"arn:aws:lambda:us-west-2:account-id:function:ThumbNail\"). AWS Lambda
--- also allows you to specify only the account ID qualifier (for example,
--- \"account-id:Thumbnail\"). Note that the length constraint applies only
--- to the ARN. If you specify only the function name, it is limited to 64
+-- You can specify a function name (for example, 'Thumbnail') or you can
+-- specify Amazon Resource Name (ARN) of the function (for example,
+-- 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda
+-- also allows you to specify a partial ARN (for example,
+-- 'account-id:Thumbnail'). Note that the length constraint applies only to
+-- the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
 uFunctionName :: Lens' UpdateFunctionCode Text
 uFunctionName = lens _uFunctionName (\ s a -> s{_uFunctionName = a});

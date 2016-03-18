@@ -61,9 +61,9 @@ acName = lens _acName (\ s a -> s{_acName = a});
 acFunctionVersion :: Lens' AliasConfiguration (Maybe Text)
 acFunctionVersion = lens _acFunctionVersion (\ s a -> s{_acFunctionVersion = a});
 
--- | Lambda function ARN that is qualified using alias name as the suffix.
--- For example, if you create an alias \"BETA\" pointing to a helloworld
--- function version, the ARN is
+-- | Lambda function ARN that is qualified using the alias name as the
+-- suffix. For example, if you create an alias called 'BETA' that points to
+-- a helloworld function version, the ARN is
 -- 'arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA'.
 acAliasARN :: Lens' AliasConfiguration (Maybe Text)
 acAliasARN = lens _acAliasARN (\ s a -> s{_acAliasARN = a});
@@ -134,9 +134,8 @@ eventSourceMappingConfiguration =
 esmcEventSourceARN :: Lens' EventSourceMappingConfiguration (Maybe Text)
 esmcEventSourceARN = lens _esmcEventSourceARN (\ s a -> s{_esmcEventSourceARN = a});
 
--- | The state of the event source mapping. It can be \"Creating\",
--- \"Enabled\", \"Disabled\", \"Enabling\", \"Disabling\", \"Updating\", or
--- \"Deleting\".
+-- | The state of the event source mapping. It can be 'Creating', 'Enabled',
+-- 'Disabled', 'Enabling', 'Disabling', 'Updating', or 'Deleting'.
 esmcState :: Lens' EventSourceMappingConfiguration (Maybe Text)
 esmcState = lens _esmcState (\ s a -> s{_esmcState = a});
 
@@ -224,8 +223,10 @@ fcS3ObjectVersion = lens _fcS3ObjectVersion (\ s a -> s{_fcS3ObjectVersion = a})
 fcS3Key :: Lens' FunctionCode (Maybe Text)
 fcS3Key = lens _fcS3Key (\ s a -> s{_fcS3Key = a});
 
--- | A base64-encoded .zip file containing your deployment package. For more
--- information about creating a .zip file, go to
+-- | A zip file containing your deployment package. If you are using the API
+-- directly, the zip file must be base64-encoded (if you are using the AWS
+-- SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you). For
+-- more information about creating a .zip file, go to
 -- <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions>
 -- in the /AWS Lambda Developer Guide/.
 --
@@ -299,6 +300,7 @@ data FunctionConfiguration = FunctionConfiguration'
     , _fcRuntime      :: !(Maybe Runtime)
     , _fcFunctionARN  :: !(Maybe Text)
     , _fcRole         :: !(Maybe Text)
+    , _fcVPCConfig    :: !(Maybe VPCConfigResponse)
     , _fcVersion      :: !(Maybe Text)
     , _fcFunctionName :: !(Maybe Text)
     , _fcCodeSize     :: !(Maybe Integer)
@@ -320,6 +322,8 @@ data FunctionConfiguration = FunctionConfiguration'
 -- * 'fcFunctionARN'
 --
 -- * 'fcRole'
+--
+-- * 'fcVPCConfig'
 --
 -- * 'fcVersion'
 --
@@ -344,6 +348,7 @@ functionConfiguration =
     , _fcRuntime = Nothing
     , _fcFunctionARN = Nothing
     , _fcRole = Nothing
+    , _fcVPCConfig = Nothing
     , _fcVersion = Nothing
     , _fcFunctionName = Nothing
     , _fcCodeSize = Nothing
@@ -373,6 +378,10 @@ fcFunctionARN = lens _fcFunctionARN (\ s a -> s{_fcFunctionARN = a});
 fcRole :: Lens' FunctionConfiguration (Maybe Text)
 fcRole = lens _fcRole (\ s a -> s{_fcRole = a});
 
+-- | VPC configuration associated with your Lambda function.
+fcVPCConfig :: Lens' FunctionConfiguration (Maybe VPCConfigResponse)
+fcVPCConfig = lens _fcVPCConfig (\ s a -> s{_fcVPCConfig = a});
+
 -- | The version of the Lambda function.
 fcVersion :: Lens' FunctionConfiguration (Maybe Text)
 fcVersion = lens _fcVersion (\ s a -> s{_fcVersion = a});
@@ -396,7 +405,7 @@ fcHandler = lens _fcHandler (\ s a -> s{_fcHandler = a});
 fcTimeout :: Lens' FunctionConfiguration (Maybe Natural)
 fcTimeout = lens _fcTimeout (\ s a -> s{_fcTimeout = a}) . mapping _Nat;
 
--- | The timestamp of the last time you updated the function.
+-- | The time stamp of the last time you updated the function.
 fcLastModified :: Lens' FunctionConfiguration (Maybe Text)
 fcLastModified = lens _fcLastModified (\ s a -> s{_fcLastModified = a});
 
@@ -416,6 +425,7 @@ instance FromJSON FunctionConfiguration where
                    (x .:? "MemorySize") <*> (x .:? "Runtime") <*>
                      (x .:? "FunctionArn")
                      <*> (x .:? "Role")
+                     <*> (x .:? "VpcConfig")
                      <*> (x .:? "Version")
                      <*> (x .:? "FunctionName")
                      <*> (x .:? "CodeSize")
@@ -424,3 +434,92 @@ instance FromJSON FunctionConfiguration where
                      <*> (x .:? "LastModified")
                      <*> (x .:? "CodeSha256")
                      <*> (x .:? "Description"))
+
+-- | If your Lambda function accesses resources in a VPC, you provide this
+-- parameter identifying the list of security group IDs and subnet IDs.
+-- These must belong to the same VPC. You must provide at least one
+-- security group and one subnet ID.
+--
+-- /See:/ 'vpcConfig' smart constructor.
+data VPCConfig = VPCConfig'
+    { _vpccSecurityGroupIds :: !(Maybe [Text])
+    , _vpccSubnetIds        :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VPCConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vpccSecurityGroupIds'
+--
+-- * 'vpccSubnetIds'
+vpcConfig
+    :: VPCConfig
+vpcConfig =
+    VPCConfig'
+    { _vpccSecurityGroupIds = Nothing
+    , _vpccSubnetIds = Nothing
+    }
+
+-- | A list of one or more security groups IDs in your VPC.
+vpccSecurityGroupIds :: Lens' VPCConfig [Text]
+vpccSecurityGroupIds = lens _vpccSecurityGroupIds (\ s a -> s{_vpccSecurityGroupIds = a}) . _Default . _Coerce;
+
+-- | A list of one or more subnet IDs in your VPC.
+vpccSubnetIds :: Lens' VPCConfig [Text]
+vpccSubnetIds = lens _vpccSubnetIds (\ s a -> s{_vpccSubnetIds = a}) . _Default . _Coerce;
+
+instance ToJSON VPCConfig where
+        toJSON VPCConfig'{..}
+          = object
+              (catMaybes
+                 [("SecurityGroupIds" .=) <$> _vpccSecurityGroupIds,
+                  ("SubnetIds" .=) <$> _vpccSubnetIds])
+
+-- | VPC configuration associated with your Lambda function.
+--
+-- /See:/ 'vpcConfigResponse' smart constructor.
+data VPCConfigResponse = VPCConfigResponse'
+    { _vcSecurityGroupIds :: !(Maybe [Text])
+    , _vcSubnetIds        :: !(Maybe [Text])
+    , _vcVPCId            :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VPCConfigResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vcSecurityGroupIds'
+--
+-- * 'vcSubnetIds'
+--
+-- * 'vcVPCId'
+vpcConfigResponse
+    :: VPCConfigResponse
+vpcConfigResponse =
+    VPCConfigResponse'
+    { _vcSecurityGroupIds = Nothing
+    , _vcSubnetIds = Nothing
+    , _vcVPCId = Nothing
+    }
+
+-- | A list of security group IDs associated with the Lambda function.
+vcSecurityGroupIds :: Lens' VPCConfigResponse [Text]
+vcSecurityGroupIds = lens _vcSecurityGroupIds (\ s a -> s{_vcSecurityGroupIds = a}) . _Default . _Coerce;
+
+-- | A list of subnet IDs associated with the Lambda function.
+vcSubnetIds :: Lens' VPCConfigResponse [Text]
+vcSubnetIds = lens _vcSubnetIds (\ s a -> s{_vcSubnetIds = a}) . _Default . _Coerce;
+
+-- | The VPC ID associated with you Lambda function.
+vcVPCId :: Lens' VPCConfigResponse (Maybe Text)
+vcVPCId = lens _vcVPCId (\ s a -> s{_vcVPCId = a});
+
+instance FromJSON VPCConfigResponse where
+        parseJSON
+          = withObject "VPCConfigResponse"
+              (\ x ->
+                 VPCConfigResponse' <$>
+                   (x .:? "SecurityGroupIds" .!= mempty) <*>
+                     (x .:? "SubnetIds" .!= mempty)
+                     <*> (x .:? "VpcId"))

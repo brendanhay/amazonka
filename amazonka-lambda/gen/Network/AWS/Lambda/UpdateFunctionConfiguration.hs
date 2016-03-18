@@ -24,6 +24,11 @@
 -- existing Lambda function and cannot be used to update the function\'s
 -- code.
 --
+-- If you are using the versioning feature, note this API will always
+-- update the $LATEST version of your Lambda function. For information
+-- about the versioning feature, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+--
 -- This operation requires permission for the
 -- 'lambda:UpdateFunctionConfiguration' action.
 --
@@ -36,6 +41,7 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     -- * Request Lenses
     , ufcMemorySize
     , ufcRole
+    , ufcVPCConfig
     , ufcHandler
     , ufcTimeout
     , ufcDescription
@@ -49,6 +55,7 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , fcRuntime
     , fcFunctionARN
     , fcRole
+    , fcVPCConfig
     , fcVersion
     , fcFunctionName
     , fcCodeSize
@@ -70,6 +77,7 @@ import           Network.AWS.Response
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     { _ufcMemorySize   :: !(Maybe Nat)
     , _ufcRole         :: !(Maybe Text)
+    , _ufcVPCConfig    :: !(Maybe VPCConfig)
     , _ufcHandler      :: !(Maybe Text)
     , _ufcTimeout      :: !(Maybe Nat)
     , _ufcDescription  :: !(Maybe Text)
@@ -83,6 +91,8 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 -- * 'ufcMemorySize'
 --
 -- * 'ufcRole'
+--
+-- * 'ufcVPCConfig'
 --
 -- * 'ufcHandler'
 --
@@ -98,6 +108,7 @@ updateFunctionConfiguration pFunctionName_ =
     UpdateFunctionConfiguration'
     { _ufcMemorySize = Nothing
     , _ufcRole = Nothing
+    , _ufcVPCConfig = Nothing
     , _ufcHandler = Nothing
     , _ufcTimeout = Nothing
     , _ufcDescription = Nothing
@@ -118,8 +129,12 @@ ufcMemorySize = lens _ufcMemorySize (\ s a -> s{_ufcMemorySize = a}) . mapping _
 ufcRole :: Lens' UpdateFunctionConfiguration (Maybe Text)
 ufcRole = lens _ufcRole (\ s a -> s{_ufcRole = a});
 
+-- | Undocumented member.
+ufcVPCConfig :: Lens' UpdateFunctionConfiguration (Maybe VPCConfig)
+ufcVPCConfig = lens _ufcVPCConfig (\ s a -> s{_ufcVPCConfig = a});
+
 -- | The function that Lambda calls to begin executing your function. For
--- Node.js, it is the /module-name.export/ value in your function.
+-- Node.js, it is the 'module-name.export' value in your function.
 ufcHandler :: Lens' UpdateFunctionConfiguration (Maybe Text)
 ufcHandler = lens _ufcHandler (\ s a -> s{_ufcHandler = a});
 
@@ -137,13 +152,12 @@ ufcDescription = lens _ufcDescription (\ s a -> s{_ufcDescription = a});
 
 -- | The name of the Lambda function.
 --
--- You can specify an unqualified function name (for example,
--- \"Thumbnail\") or you can specify Amazon Resource Name (ARN) of the
--- function (for example,
--- \"arn:aws:lambda:us-west-2:account-id:function:ThumbNail\"). AWS Lambda
--- also allows you to specify only the account ID qualifier (for example,
--- \"account-id:Thumbnail\"). Note that the length constraint applies only
--- to the ARN. If you specify only the function name, it is limited to 64
+-- You can specify a function name (for example, 'Thumbnail') or you can
+-- specify Amazon Resource Name (ARN) of the function (for example,
+-- 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda
+-- also allows you to specify a partial ARN (for example,
+-- 'account-id:Thumbnail'). Note that the length constraint applies only to
+-- the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
 ufcFunctionName :: Lens' UpdateFunctionConfiguration Text
 ufcFunctionName = lens _ufcFunctionName (\ s a -> s{_ufcFunctionName = a});
@@ -163,6 +177,7 @@ instance ToJSON UpdateFunctionConfiguration where
               (catMaybes
                  [("MemorySize" .=) <$> _ufcMemorySize,
                   ("Role" .=) <$> _ufcRole,
+                  ("VpcConfig" .=) <$> _ufcVPCConfig,
                   ("Handler" .=) <$> _ufcHandler,
                   ("Timeout" .=) <$> _ufcTimeout,
                   ("Description" .=) <$> _ufcDescription])

@@ -22,7 +22,7 @@
 -- the response includes information such as the alias ARN, description,
 -- alias name, and the function version to which it points. For more
 -- information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html Introduction to AWS Lambda Aliases>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
 --
 -- This requires permission for the lambda:ListAliases action.
 --
@@ -85,7 +85,7 @@ listAliases pFunctionName_ =
     }
 
 -- | Optional string. An opaque pagination token returned from a previous
--- ListAliases operation. If present, indicates where to continue the
+-- 'ListAliases' operation. If present, indicates where to continue the
 -- listing.
 laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
@@ -96,8 +96,8 @@ laMaxItems :: Lens' ListAliases (Maybe Natural)
 laMaxItems = lens _laMaxItems (\ s a -> s{_laMaxItems = a}) . mapping _Nat;
 
 -- | If you specify this optional parameter, the API returns only the aliases
--- pointing to the specific Lambda function version, otherwise returns all
--- aliases created for the Lambda function.
+-- that are pointing to the specific Lambda function version, otherwise the
+-- API returns all of the aliases created for the Lambda function.
 laFunctionVersion :: Lens' ListAliases (Maybe Text)
 laFunctionVersion = lens _laFunctionVersion (\ s a -> s{_laFunctionVersion = a});
 
@@ -156,7 +156,7 @@ listAliasesResponse pResponseStatus_ =
     , _larsResponseStatus = pResponseStatus_
     }
 
--- | An list of alises.
+-- | A list of aliases.
 larsAliases :: Lens' ListAliasesResponse [AliasConfiguration]
 larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce;
 

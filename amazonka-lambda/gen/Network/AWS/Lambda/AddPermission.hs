@@ -20,7 +20,7 @@
 --
 -- Adds a permission to the resource policy associated with the specified
 -- AWS Lambda function. You use resource policies to grant permissions to
--- event sources that use \"push\" model. In \"push\" model, event sources
+-- event sources that use /push/ model. In a /push/ model, event sources
 -- (such as Amazon S3 and custom applications) invoke your Lambda function.
 -- Each permission you add to the resource policy allows an event source,
 -- permission to invoke the Lambda function.
@@ -28,12 +28,11 @@
 -- For information about the push model, see
 -- <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>.
 --
--- If you are using versioning feature (see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html AWS Lambda Function Versioning and Aliases>),
--- a Lambda function can have multiple ARNs that can be used to invoke the
--- function. Note that, each permission you add to resource policy using
--- this API is specific to an ARN, specified using the 'Qualifier'
--- parameter
+-- If you are using versioning, the permissions you add are specific to the
+-- Lambda function version or alias you specify in the 'AddPermission'
+-- request via the 'Qualifier' parameter. For more information about
+-- versioning, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
 -- This operation requires permission for the 'lambda:AddPermission'
 -- action.
@@ -134,15 +133,15 @@ apSourceAccount = lens _apSourceAccount (\ s a -> s{_apSourceAccount = a});
 apSourceARN :: Lens' AddPermission (Maybe Text)
 apSourceARN = lens _apSourceARN (\ s a -> s{_apSourceARN = a});
 
--- | You can specify this optional query parameter to specify function
--- version or alias name. The permission will then apply to the specific
--- qualified ARN. For example, if you specify function version 2 as the
--- qualifier, then permission applies only when request is made using
--- qualified function ARN:
+-- | You can use this optional query parameter to describe a qualified ARN
+-- using a function version or an alias name. The permission will then
+-- apply to the specific qualified ARN. For example, if you specify
+-- function version 2 as the qualifier, then permission applies only when
+-- request is made using qualified function ARN:
 --
 -- 'arn:aws:lambda:aws-region:acct-id:function:function-name:2'
 --
--- If you specify alias name, for example \"PROD\", then the permission is
+-- If you specify an alias name, for example 'PROD', then the permission is
 -- valid only for requests made using the alias ARN:
 --
 -- 'arn:aws:lambda:aws-region:acct-id:function:function-name:PROD'
@@ -157,13 +156,12 @@ apQualifier = lens _apQualifier (\ s a -> s{_apQualifier = a});
 -- | Name of the Lambda function whose resource policy you are updating by
 -- adding a new permission.
 --
--- You can specify an unqualified function name (for example,
--- \"Thumbnail\") or you can specify Amazon Resource Name (ARN) of the
--- function (for example,
--- \"arn:aws:lambda:us-west-2:account-id:function:ThumbNail\"). AWS Lambda
--- also allows you to specify only the account ID qualifier (for example,
--- \"account-id:Thumbnail\"). Note that the length constraint applies only
--- to the ARN. If you specify only the function name, it is limited to 64
+-- You can specify a function name (for example, 'Thumbnail') or you can
+-- specify Amazon Resource Name (ARN) of the function (for example,
+-- 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda
+-- also allows you to specify partial ARN (for example,
+-- 'account-id:Thumbnail'). Note that the length constraint applies only to
+-- the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
 apFunctionName :: Lens' AddPermission Text
 apFunctionName = lens _apFunctionName (\ s a -> s{_apFunctionName = a});
@@ -173,17 +171,17 @@ apStatementId :: Lens' AddPermission Text
 apStatementId = lens _apStatementId (\ s a -> s{_apStatementId = a});
 
 -- | The AWS Lambda action you want to allow in this statement. Each Lambda
--- action is a string starting with \"lambda:\" followed by the API name
--- (see Operations). For example, \"lambda:CreateFunction\". You can use
--- wildcard (\"lambda:*\") to grant permission for all AWS Lambda actions.
+-- action is a string starting with 'lambda:' followed by the API name (see
+-- < Operations>). For example, 'lambda:CreateFunction'. You can use
+-- wildcard ('lambda:*') to grant permission for all AWS Lambda actions.
 apAction :: Lens' AddPermission Text
 apAction = lens _apAction (\ s a -> s{_apAction = a});
 
 -- | The principal who is getting this permission. It can be Amazon S3
--- service Principal (\"s3.amazonaws.com\") if you want Amazon S3 to invoke
+-- service Principal ('s3.amazonaws.com') if you want Amazon S3 to invoke
 -- the function, an AWS account ID if you are granting cross-account
 -- permission, or any valid AWS service principal such as
--- \"sns.amazonaws.com\". For example, you might want to allow a custom
+-- 'sns.amazonaws.com'. For example, you might want to allow a custom
 -- application in another AWS account to push events to AWS Lambda by
 -- invoking your function.
 apPrincipal :: Lens' AddPermission Text
@@ -244,8 +242,8 @@ addPermissionResponse pResponseStatus_ =
     }
 
 -- | The permission statement you specified in the request. The response
--- returns the same as a string using \"\\\" as an escape character in the
--- JSON.
+-- returns the same as a string using a backslash (\"\\\") as an escape
+-- character in the JSON.
 aprsStatement :: Lens' AddPermissionResponse (Maybe Text)
 aprsStatement = lens _aprsStatement (\ s a -> s{_aprsStatement = a});
 

@@ -21,9 +21,9 @@
 -- Returns the specified alias information such as the alias ARN,
 -- description, and function version it is pointing to. For more
 -- information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html Introduction to AWS Lambda Aliases>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
 --
--- This requires permission for the lambda:GetAlias action.
+-- This requires permission for the 'lambda:GetAlias' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetAlias.html AWS API Reference> for GetAlias.
 module Network.AWS.Lambda.GetAlias
@@ -76,7 +76,7 @@ getAlias pFunctionName_ pName_ =
     }
 
 -- | Function name for which the alias is created. An alias is a subresource
--- that exists only in the context of an existing Lambda function. So you
+-- that exists only in the context of an existing Lambda function so you
 -- must specify the function name.
 gaFunctionName :: Lens' GetAlias Text
 gaFunctionName = lens _gaFunctionName (\ s a -> s{_gaFunctionName = a});

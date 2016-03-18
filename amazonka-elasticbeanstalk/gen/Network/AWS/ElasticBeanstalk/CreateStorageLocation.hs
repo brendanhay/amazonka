@@ -78,7 +78,7 @@ instance ToQuery CreateStorageLocation where
                  ["Action" =: ("CreateStorageLocation" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | Results of a CreateStorageLocationResult call.
+-- | Results of a < CreateStorageLocationResult> call.
 --
 -- /See:/ 'createStorageLocationResponse' smart constructor.
 data CreateStorageLocationResponse = CreateStorageLocationResponse'

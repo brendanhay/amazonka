@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the compiled information from a RequestEnvironmentInfo
+-- Retrieves the compiled information from a < RequestEnvironmentInfo>
 -- request.
 --
 -- Related Topics
 --
--- -   RequestEnvironmentInfo
+-- -   < RequestEnvironmentInfo>
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RetrieveEnvironmentInfo.html AWS API Reference> for RetrieveEnvironmentInfo.
 module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
@@ -158,7 +158,7 @@ retrieveEnvironmentInfoResponse pResponseStatus_ =
     , _reirsResponseStatus = pResponseStatus_
     }
 
--- | The EnvironmentInfoDescription of the environment.
+-- | The < EnvironmentInfoDescription> of the environment.
 reirsEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
 reirsEnvironmentInfo = lens _reirsEnvironmentInfo (\ s a -> s{_reirsEnvironmentInfo = a}) . _Default . _Coerce;
 

@@ -29,8 +29,8 @@
 --
 -- When updating the configuration settings to a new template or individual
 -- settings, a draft configuration is created and
--- DescribeConfigurationSettings for this environment returns two setting
--- descriptions with different 'DeploymentStatus' values.
+-- < DescribeConfigurationSettings> for this environment returns two
+-- setting descriptions with different 'DeploymentStatus' values.
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateEnvironment.html AWS API Reference> for UpdateEnvironment.
 module Network.AWS.ElasticBeanstalk.UpdateEnvironment

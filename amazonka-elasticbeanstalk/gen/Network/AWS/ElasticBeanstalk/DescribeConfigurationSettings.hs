@@ -30,7 +30,7 @@
 --
 -- Related Topics
 --
--- -   DeleteEnvironmentConfiguration
+-- -   < DeleteEnvironmentConfiguration>
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationSettings.html AWS API Reference> for DescribeConfigurationSettings.
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
@@ -166,7 +166,7 @@ describeConfigurationSettingsResponse pResponseStatus_ =
     , _dcsrsResponseStatus = pResponseStatus_
     }
 
--- | A list of ConfigurationSettingsDescription.
+-- | A list of < ConfigurationSettingsDescription>.
 dcsrsConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
 dcsrsConfigurationSettings = lens _dcsrsConfigurationSettings (\ s a -> s{_dcsrsConfigurationSettings = a}) . _Default . _Coerce;
 

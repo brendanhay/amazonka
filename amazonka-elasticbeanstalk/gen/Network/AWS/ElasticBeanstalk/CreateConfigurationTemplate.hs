@@ -24,9 +24,9 @@
 --
 -- Related Topics
 --
--- -   DescribeConfigurationOptions
--- -   DescribeConfigurationSettings
--- -   ListAvailableSolutionStacks
+-- -   < DescribeConfigurationOptions>
+-- -   < DescribeConfigurationSettings>
+-- -   < ListAvailableSolutionStacks>
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateConfigurationTemplate.html AWS API Reference> for CreateConfigurationTemplate.
 module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
@@ -138,8 +138,8 @@ cctSourceConfiguration = lens _cctSourceConfiguration (\ s a -> s{_cctSourceConf
 -- server for a configuration template. It determines the set of
 -- configuration options as well as the possible and default values.
 --
--- Use ListAvailableSolutionStacks to obtain a list of available solution
--- stacks.
+-- Use < ListAvailableSolutionStacks> to obtain a list of available
+-- solution stacks.
 --
 -- A solution stack name or a source configuration parameter must be
 -- specified, otherwise AWS Elastic Beanstalk returns an

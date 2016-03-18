@@ -119,7 +119,7 @@ describeApplicationsResponse pResponseStatus_ =
     , _darsResponseStatus = pResponseStatus_
     }
 
--- | This parameter contains a list of ApplicationDescription.
+-- | This parameter contains a list of < ApplicationDescription>.
 darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default . _Coerce;
 

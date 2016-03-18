@@ -162,7 +162,7 @@ validateConfigurationSettingsResponse pResponseStatus_ =
     , _vcsrsResponseStatus = pResponseStatus_
     }
 
--- | A list of ValidationMessage.
+-- | A list of < ValidationMessage>.
 vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default . _Coerce;
 

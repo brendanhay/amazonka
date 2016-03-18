@@ -180,7 +180,7 @@ describeConfigurationOptionsResponse pResponseStatus_ =
 dcorsSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorsSolutionStackName = lens _dcorsSolutionStackName (\ s a -> s{_dcorsSolutionStackName = a});
 
--- | A list of ConfigurationOptionDescription.
+-- | A list of < ConfigurationOptionDescription>.
 dcorsOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
 dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default . _Coerce;
 

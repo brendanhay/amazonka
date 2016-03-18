@@ -136,7 +136,7 @@ describeEnvironmentResourcesResponse pResponseStatus_ =
     , _derrsResponseStatus = pResponseStatus_
     }
 
--- | A list of EnvironmentResourceDescription.
+-- | A list of < EnvironmentResourceDescription>.
 derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
 derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEnvironmentResources = a});
 

@@ -29,11 +29,11 @@
 -- files for every Amazon EC2 instance into a '.zip' file. Legacy and .NET
 -- containers do not support bundle logs.
 --
--- Use RetrieveEnvironmentInfo to obtain the set of logs.
+-- Use < RetrieveEnvironmentInfo> to obtain the set of logs.
 --
 -- Related Topics
 --
--- -   RetrieveEnvironmentInfo
+-- -   < RetrieveEnvironmentInfo>
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RequestEnvironmentInfo.html AWS API Reference> for RequestEnvironmentInfo.
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo

@@ -27,7 +27,7 @@
 --
 -- Related Topics
 --
--- -   DescribeConfigurationOptions
+-- -   < DescribeConfigurationOptions>
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateConfigurationTemplate.html AWS API Reference> for UpdateConfigurationTemplate.
 module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate

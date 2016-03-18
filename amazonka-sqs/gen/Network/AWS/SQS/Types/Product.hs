@@ -80,7 +80,7 @@ instance FromXML BatchResultErrorEntry where
                 <*> (x .@ "Code")
 
 -- | Encloses a receipt handle and an entry id for each message in
--- ChangeMessageVisibilityBatch.
+-- < ChangeMessageVisibilityBatch>.
 --
 -- All of the following parameters are list parameters that must be
 -- prefixed with 'ChangeMessageVisibilityBatchRequestEntry.n', where 'n' is
@@ -141,7 +141,7 @@ instance ToQuery
               ["VisibilityTimeout" =: _cVisibilityTimeout,
                "Id" =: _cId, "ReceiptHandle" =: _cReceiptHandle]
 
--- | Encloses the id of an entry in ChangeMessageVisibilityBatch.
+-- | Encloses the id of an entry in < ChangeMessageVisibilityBatch>.
 --
 -- /See:/ 'changeMessageVisibilityBatchResultEntry' smart constructor.
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry'
@@ -213,7 +213,7 @@ instance ToQuery DeleteMessageBatchRequestEntry where
               ["Id" =: _dmbreId,
                "ReceiptHandle" =: _dmbreReceiptHandle]
 
--- | Encloses the id an entry in DeleteMessageBatch.
+-- | Encloses the id an entry in < DeleteMessageBatch>.
 --
 -- /See:/ 'deleteMessageBatchResultEntry' smart constructor.
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'
@@ -503,7 +503,7 @@ instance ToQuery SendMessageBatchRequestEntry where
                "MessageBody" =: _sMessageBody]
 
 -- | Encloses a message ID for successfully enqueued message of a
--- SendMessageBatch.
+-- < SendMessageBatch>.
 --
 -- /See:/ 'sendMessageBatchResultEntry' smart constructor.
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry'

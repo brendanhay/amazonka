@@ -29,8 +29,8 @@
 -- in the /Amazon SQS Developer Guide/.
 --
 -- 'AddPermission' writes an Amazon SQS-generated policy. If you want to
--- write your own policy, use SetQueueAttributes to upload your policy. For
--- more information about writing your own policy, see
+-- write your own policy, use < SetQueueAttributes> to upload your policy.
+-- For more information about writing your own policy, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AccessPolicyLanguage.html Using The Access Policy Language>
 -- in the /Amazon SQS Developer Guide/.
 --

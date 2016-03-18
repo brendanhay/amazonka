@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes up to ten messages from the specified queue. This is a batch
--- version of DeleteMessage. The result of the delete action on each
+-- version of < DeleteMessage>. The result of the delete action on each
 -- message is reported individually in the response.
 --
 -- Because the batch request can result in a combination of successful and
@@ -118,8 +118,8 @@ instance ToQuery DeleteMessageBatch where
                  _dmbEntries]
 
 -- | For each message in the batch, the response contains a
--- DeleteMessageBatchResultEntry tag if the message is deleted or a
--- BatchResultErrorEntry tag if the message cannot be deleted.
+-- < DeleteMessageBatchResultEntry> tag if the message is deleted or a
+-- < BatchResultErrorEntry> tag if the message cannot be deleted.
 --
 -- /See:/ 'deleteMessageBatchResponse' smart constructor.
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
@@ -151,10 +151,10 @@ deleteMessageBatchResponse pResponseStatus_ =
 dmbrsResponseStatus :: Lens' DeleteMessageBatchResponse Int
 dmbrsResponseStatus = lens _dmbrsResponseStatus (\ s a -> s{_dmbrsResponseStatus = a});
 
--- | A list of DeleteMessageBatchResultEntry items.
+-- | A list of < DeleteMessageBatchResultEntry> items.
 dmbrsSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
 dmbrsSuccessful = lens _dmbrsSuccessful (\ s a -> s{_dmbrsSuccessful = a}) . _Coerce;
 
--- | A list of BatchResultErrorEntry items.
+-- | A list of < BatchResultErrorEntry> items.
 dmbrsFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
 dmbrsFailed = lens _dmbrsFailed (\ s a -> s{_dmbrsFailed = a}) . _Coerce;

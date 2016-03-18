@@ -27,9 +27,9 @@
 --
 -- When you delete a queue, the deletion process takes up to 60 seconds.
 -- Requests you send involving that queue during the 60 seconds might
--- succeed. For example, a SendMessage request might succeed, but after the
--- 60 seconds, the queue and that message you sent no longer exist. Also,
--- when you delete a queue, you must wait at least 60 seconds before
+-- succeed. For example, a < SendMessage> request might succeed, but after
+-- the 60 seconds, the queue and that message you sent no longer exist.
+-- Also, when you delete a queue, you must wait at least 60 seconds before
 -- creating a queue with the same name.
 --
 -- We reserve the right to delete queues that have had no activity for more

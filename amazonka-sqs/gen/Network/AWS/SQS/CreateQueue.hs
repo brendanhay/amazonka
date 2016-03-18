@@ -29,10 +29,10 @@
 -- You may pass one or more attributes in the request. If you do not
 -- provide a value for any attribute, the queue will have the default value
 -- for that attribute. Permitted attributes are the same that can be set
--- using SetQueueAttributes.
+-- using < SetQueueAttributes>.
 --
--- Use GetQueueUrl to get a queue\'s URL. GetQueueUrl requires only the
--- 'QueueName' parameter.
+-- Use < GetQueueUrl> to get a queue\'s URL. < GetQueueUrl> requires only
+-- the 'QueueName' parameter.
 --
 -- If you provide the name of an existing queue, along with the exact names
 -- and values of all the queue\'s attributes, 'CreateQueue' returns the
@@ -116,7 +116,7 @@ createQueue pQueueName_ =
 --     <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of AWS IAM Policies>
 --     in the /Amazon IAM User Guide/.
 -- -   'ReceiveMessageWaitTimeSeconds' - The time for which a
---     ReceiveMessage call will wait for a message to arrive. An integer
+--     < ReceiveMessage> call will wait for a message to arrive. An integer
 --     from 0 to 20 (seconds). The default for this attribute is 0.
 -- -   'VisibilityTimeout' - The visibility timeout for the queue. An
 --     integer from 0 to 43200 (12 hours). The default for this attribute

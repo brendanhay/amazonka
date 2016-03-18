@@ -16,6 +16,7 @@ module Network.AWS.CloudFront.Types
       cloudFront
 
     -- * Errors
+    , _TooManyOriginCustomHeaders
     , _InvalidErrorCode
     , _TooManyCacheBehaviors
     , _TooManyCloudFrontOriginAccessIdentities
@@ -86,6 +87,9 @@ module Network.AWS.CloudFront.Types
 
     -- * PriceClass
     , PriceClass (..)
+
+    -- * SSLProtocol
+    , SSLProtocol (..)
 
     -- * SSLSupportMethod
     , SSLSupportMethod (..)
@@ -196,9 +200,16 @@ module Network.AWS.CloudFront.Types
     , cerItems
     , cerQuantity
 
+    -- * CustomHeaders
+    , CustomHeaders
+    , customHeaders
+    , chItems
+    , chQuantity
+
     -- * CustomOriginConfig
     , CustomOriginConfig
     , customOriginConfig
+    , cocOriginSSLProtocols
     , cocHTTPPort
     , cocHTTPSPort
     , cocOriginProtocolPolicy
@@ -343,11 +354,24 @@ module Network.AWS.CloudFront.Types
     -- * Origin
     , Origin
     , origin
+    , oCustomHeaders
     , oCustomOriginConfig
     , oS3OriginConfig
     , oOriginPath
     , oId
     , oDomainName
+
+    -- * OriginCustomHeader
+    , OriginCustomHeader
+    , originCustomHeader
+    , ochHeaderName
+    , ochHeaderValue
+
+    -- * OriginSSLProtocols
+    , OriginSSLProtocols
+    , originSSLProtocols
+    , ospQuantity
+    , ospItems
 
     -- * Origins
     , Origins
@@ -447,6 +471,7 @@ module Network.AWS.CloudFront.Types
     , ViewerCertificate
     , viewerCertificate
     , vcSSLSupportMethod
+    , vcACMCertificateARN
     , vcCertificateSource
     , vcMinimumProtocolVersion
     , vcCertificate
@@ -460,14 +485,14 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-09-17' of the Amazon CloudFront SDK configuration.
+-- | API version '2016-01-28' of the Amazon CloudFront SDK configuration.
 cloudFront :: Service
 cloudFront =
     Service
     { _svcAbbrev = "CloudFront"
     , _svcSigner = v4
     , _svcPrefix = "cloudfront"
-    , _svcVersion = "2015-09-17"
+    , _svcVersion = "2016-01-28"
     , _svcEndpoint = defaultEndpoint cloudFront
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
@@ -483,6 +508,7 @@ cloudFront =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -490,6 +516,11 @@ cloudFront =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
+
+-- | Prism for TooManyOriginCustomHeaders' errors.
+_TooManyOriginCustomHeaders :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyOriginCustomHeaders =
+    _ServiceError . hasStatus 400 . hasCode "TooManyOriginCustomHeaders"
 
 -- | Prism for InvalidErrorCode' errors.
 _InvalidErrorCode :: AsError a => Getting (First ServiceError) a ServiceError

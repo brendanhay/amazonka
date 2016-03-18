@@ -984,11 +984,58 @@ instance ToXML CustomErrorResponses where
                    (toXMLList "CustomErrorResponse" <$> _cerItems),
                "Quantity" @= _cerQuantity]
 
+-- | A complex type that contains the list of Custom Headers for each origin.
+--
+-- /See:/ 'customHeaders' smart constructor.
+data CustomHeaders = CustomHeaders'
+    { _chItems    :: !(Maybe [OriginCustomHeader])
+    , _chQuantity :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CustomHeaders' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'chItems'
+--
+-- * 'chQuantity'
+customHeaders
+    :: Int -- ^ 'chQuantity'
+    -> CustomHeaders
+customHeaders pQuantity_ =
+    CustomHeaders'
+    { _chItems = Nothing
+    , _chQuantity = pQuantity_
+    }
+
+-- | A complex type that contains the custom headers for this Origin.
+chItems :: Lens' CustomHeaders [OriginCustomHeader]
+chItems = lens _chItems (\ s a -> s{_chItems = a}) . _Default . _Coerce;
+
+-- | The number of custom headers for this origin.
+chQuantity :: Lens' CustomHeaders Int
+chQuantity = lens _chQuantity (\ s a -> s{_chQuantity = a});
+
+instance FromXML CustomHeaders where
+        parseXML x
+          = CustomHeaders' <$>
+              (x .@? "Items" .!@ mempty >>=
+                 may (parseXMLList "OriginCustomHeader"))
+                <*> (x .@ "Quantity")
+
+instance ToXML CustomHeaders where
+        toXML CustomHeaders'{..}
+          = mconcat
+              ["Items" @=
+                 toXML (toXMLList "OriginCustomHeader" <$> _chItems),
+               "Quantity" @= _chQuantity]
+
 -- | A customer origin.
 --
 -- /See:/ 'customOriginConfig' smart constructor.
 data CustomOriginConfig = CustomOriginConfig'
-    { _cocHTTPPort             :: !Int
+    { _cocOriginSSLProtocols   :: !(Maybe OriginSSLProtocols)
+    , _cocHTTPPort             :: !Int
     , _cocHTTPSPort            :: !Int
     , _cocOriginProtocolPolicy :: !OriginProtocolPolicy
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -996,6 +1043,8 @@ data CustomOriginConfig = CustomOriginConfig'
 -- | Creates a value of 'CustomOriginConfig' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cocOriginSSLProtocols'
 --
 -- * 'cocHTTPPort'
 --
@@ -1009,10 +1058,16 @@ customOriginConfig
     -> CustomOriginConfig
 customOriginConfig pHTTPPort_ pHTTPSPort_ pOriginProtocolPolicy_ =
     CustomOriginConfig'
-    { _cocHTTPPort = pHTTPPort_
+    { _cocOriginSSLProtocols = Nothing
+    , _cocHTTPPort = pHTTPPort_
     , _cocHTTPSPort = pHTTPSPort_
     , _cocOriginProtocolPolicy = pOriginProtocolPolicy_
     }
+
+-- | The SSL\/TLS protocols that you want CloudFront to use when
+-- communicating with your origin over HTTPS.
+cocOriginSSLProtocols :: Lens' CustomOriginConfig (Maybe OriginSSLProtocols)
+cocOriginSSLProtocols = lens _cocOriginSSLProtocols (\ s a -> s{_cocOriginSSLProtocols = a});
 
 -- | The HTTP port the custom origin listens on.
 cocHTTPPort :: Lens' CustomOriginConfig Int
@@ -1029,13 +1084,15 @@ cocOriginProtocolPolicy = lens _cocOriginProtocolPolicy (\ s a -> s{_cocOriginPr
 instance FromXML CustomOriginConfig where
         parseXML x
           = CustomOriginConfig' <$>
-              (x .@ "HTTPPort") <*> (x .@ "HTTPSPort") <*>
-                (x .@ "OriginProtocolPolicy")
+              (x .@? "OriginSslProtocols") <*> (x .@ "HTTPPort")
+                <*> (x .@ "HTTPSPort")
+                <*> (x .@ "OriginProtocolPolicy")
 
 instance ToXML CustomOriginConfig where
         toXML CustomOriginConfig'{..}
           = mconcat
-              ["HTTPPort" @= _cocHTTPPort,
+              ["OriginSslProtocols" @= _cocOriginSSLProtocols,
+               "HTTPPort" @= _cocHTTPPort,
                "HTTPSPort" @= _cocHTTPSPort,
                "OriginProtocolPolicy" @= _cocOriginProtocolPolicy]
 
@@ -2355,7 +2412,8 @@ instance ToXML LoggingConfig where
 --
 -- /See:/ 'origin' smart constructor.
 data Origin = Origin'
-    { _oCustomOriginConfig :: !(Maybe CustomOriginConfig)
+    { _oCustomHeaders      :: !(Maybe CustomHeaders)
+    , _oCustomOriginConfig :: !(Maybe CustomOriginConfig)
     , _oS3OriginConfig     :: !(Maybe S3OriginConfig)
     , _oOriginPath         :: !(Maybe Text)
     , _oId                 :: !Text
@@ -2365,6 +2423,8 @@ data Origin = Origin'
 -- | Creates a value of 'Origin' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'oCustomHeaders'
 --
 -- * 'oCustomOriginConfig'
 --
@@ -2381,12 +2441,18 @@ origin
     -> Origin
 origin pId_ pDomainName_ =
     Origin'
-    { _oCustomOriginConfig = Nothing
+    { _oCustomHeaders = Nothing
+    , _oCustomOriginConfig = Nothing
     , _oS3OriginConfig = Nothing
     , _oOriginPath = Nothing
     , _oId = pId_
     , _oDomainName = pDomainName_
     }
+
+-- | A complex type that contains information about the custom headers
+-- associated with this Origin.
+oCustomHeaders :: Lens' Origin (Maybe CustomHeaders)
+oCustomHeaders = lens _oCustomHeaders (\ s a -> s{_oCustomHeaders = a});
 
 -- | A complex type that contains information about a custom origin. If the
 -- origin is an Amazon S3 bucket, use the S3OriginConfig element instead.
@@ -2425,8 +2491,9 @@ oDomainName = lens _oDomainName (\ s a -> s{_oDomainName = a});
 instance FromXML Origin where
         parseXML x
           = Origin' <$>
-              (x .@? "CustomOriginConfig") <*>
-                (x .@? "S3OriginConfig")
+              (x .@? "CustomHeaders") <*>
+                (x .@? "CustomOriginConfig")
+                <*> (x .@? "S3OriginConfig")
                 <*> (x .@? "OriginPath")
                 <*> (x .@ "Id")
                 <*> (x .@ "DomainName")
@@ -2434,10 +2501,104 @@ instance FromXML Origin where
 instance ToXML Origin where
         toXML Origin'{..}
           = mconcat
-              ["CustomOriginConfig" @= _oCustomOriginConfig,
+              ["CustomHeaders" @= _oCustomHeaders,
+               "CustomOriginConfig" @= _oCustomOriginConfig,
                "S3OriginConfig" @= _oS3OriginConfig,
                "OriginPath" @= _oOriginPath, "Id" @= _oId,
                "DomainName" @= _oDomainName]
+
+-- | A complex type that contains information related to a Header
+--
+-- /See:/ 'originCustomHeader' smart constructor.
+data OriginCustomHeader = OriginCustomHeader'
+    { _ochHeaderName  :: !Text
+    , _ochHeaderValue :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OriginCustomHeader' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ochHeaderName'
+--
+-- * 'ochHeaderValue'
+originCustomHeader
+    :: Text -- ^ 'ochHeaderName'
+    -> Text -- ^ 'ochHeaderValue'
+    -> OriginCustomHeader
+originCustomHeader pHeaderName_ pHeaderValue_ =
+    OriginCustomHeader'
+    { _ochHeaderName = pHeaderName_
+    , _ochHeaderValue = pHeaderValue_
+    }
+
+-- | The header\'s name.
+ochHeaderName :: Lens' OriginCustomHeader Text
+ochHeaderName = lens _ochHeaderName (\ s a -> s{_ochHeaderName = a});
+
+-- | The header\'s value.
+ochHeaderValue :: Lens' OriginCustomHeader Text
+ochHeaderValue = lens _ochHeaderValue (\ s a -> s{_ochHeaderValue = a});
+
+instance FromXML OriginCustomHeader where
+        parseXML x
+          = OriginCustomHeader' <$>
+              (x .@ "HeaderName") <*> (x .@ "HeaderValue")
+
+instance ToXML OriginCustomHeader where
+        toXML OriginCustomHeader'{..}
+          = mconcat
+              ["HeaderName" @= _ochHeaderName,
+               "HeaderValue" @= _ochHeaderValue]
+
+-- | A complex type that contains the list of SSL\/TLS protocols that you
+-- want CloudFront to use when communicating with your origin over HTTPS.
+--
+-- /See:/ 'originSSLProtocols' smart constructor.
+data OriginSSLProtocols = OriginSSLProtocols'
+    { _ospQuantity :: !Int
+    , _ospItems    :: ![SSLProtocol]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OriginSSLProtocols' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ospQuantity'
+--
+-- * 'ospItems'
+originSSLProtocols
+    :: Int -- ^ 'ospQuantity'
+    -> OriginSSLProtocols
+originSSLProtocols pQuantity_ =
+    OriginSSLProtocols'
+    { _ospQuantity = pQuantity_
+    , _ospItems = mempty
+    }
+
+-- | The number of SSL\/TLS protocols that you want to allow CloudFront to
+-- use when establishing an HTTPS connection with this origin.
+ospQuantity :: Lens' OriginSSLProtocols Int
+ospQuantity = lens _ospQuantity (\ s a -> s{_ospQuantity = a});
+
+-- | A complex type that contains one SslProtocol element for each SSL\/TLS
+-- protocol that you want to allow CloudFront to use when establishing an
+-- HTTPS connection with this origin.
+ospItems :: Lens' OriginSSLProtocols [SSLProtocol]
+ospItems = lens _ospItems (\ s a -> s{_ospItems = a}) . _Coerce;
+
+instance FromXML OriginSSLProtocols where
+        parseXML x
+          = OriginSSLProtocols' <$>
+              (x .@ "Quantity") <*>
+                (x .@? "Items" .!@ mempty >>=
+                   parseXMLList "SslProtocol")
+
+instance ToXML OriginSSLProtocols where
+        toXML OriginSSLProtocols'{..}
+          = mconcat
+              ["Quantity" @= _ospQuantity,
+               "Items" @= toXMLList "SslProtocol" _ospItems]
 
 -- | A complex type that contains information about origins for this
 -- distribution.
@@ -3280,6 +3441,7 @@ instance ToXML TrustedSigners where
 -- /See:/ 'viewerCertificate' smart constructor.
 data ViewerCertificate = ViewerCertificate'
     { _vcSSLSupportMethod             :: !(Maybe SSLSupportMethod)
+    , _vcACMCertificateARN            :: !(Maybe Text)
     , _vcCertificateSource            :: !(Maybe CertificateSource)
     , _vcMinimumProtocolVersion       :: !(Maybe MinimumProtocolVersion)
     , _vcCertificate                  :: !(Maybe Text)
@@ -3292,6 +3454,8 @@ data ViewerCertificate = ViewerCertificate'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vcSSLSupportMethod'
+--
+-- * 'vcACMCertificateARN'
 --
 -- * 'vcCertificateSource'
 --
@@ -3307,6 +3471,7 @@ viewerCertificate
 viewerCertificate =
     ViewerCertificate'
     { _vcSSLSupportMethod = Nothing
+    , _vcACMCertificateARN = Nothing
     , _vcCertificateSource = Nothing
     , _vcMinimumProtocolVersion = Nothing
     , _vcCertificate = Nothing
@@ -3328,13 +3493,15 @@ vcSSLSupportMethod :: Lens' ViewerCertificate (Maybe SSLSupportMethod)
 vcSSLSupportMethod = lens _vcSSLSupportMethod (\ s a -> s{_vcSSLSupportMethod = a});
 
 -- | If you want viewers to use HTTPS to request your objects and you\'re
--- using the CloudFront domain name of your distribution in your object
--- URLs (for example, https:\/\/d111111abcdef8.cloudfront.net\/logo.jpg),
--- set to \"cloudfront\". If you want viewers to use HTTPS to request your
--- objects and you\'re using an alternate domain name in your object URLs
--- (for example, https:\/\/example.com\/logo.jpg), set to \"iam\", and
--- update the Certificate field with the IAM certificate identifier of the
--- custom viewer certificate for this distribution.
+-- using an alternate domain name in your object URLs (for example,
+-- https:\/\/example.com\/logo.jpg), specify the ACM certificate ARN of the
+-- custom viewer certificate for this distribution. Specify either this
+-- value, IAMCertificateId, or CloudFrontDefaultCertificate.
+vcACMCertificateARN :: Lens' ViewerCertificate (Maybe Text)
+vcACMCertificateARN = lens _vcACMCertificateARN (\ s a -> s{_vcACMCertificateARN = a});
+
+-- | Note: this field is deprecated. Please use one of [ACMCertificateArn,
+-- IAMCertificateId, CloudFrontDefaultCertificate].
 vcCertificateSource :: Lens' ViewerCertificate (Maybe CertificateSource)
 vcCertificateSource = lens _vcCertificateSource (\ s a -> s{_vcCertificateSource = a});
 
@@ -3353,29 +3520,24 @@ vcCertificateSource = lens _vcCertificateSource (\ s a -> s{_vcCertificateSource
 vcMinimumProtocolVersion :: Lens' ViewerCertificate (Maybe MinimumProtocolVersion)
 vcMinimumProtocolVersion = lens _vcMinimumProtocolVersion (\ s a -> s{_vcMinimumProtocolVersion = a});
 
--- | If you want viewers to use HTTPS to request your objects and you\'re
--- using an alternate domain name in your object URLs (for example,
--- https:\/\/example.com\/logo.jpg), set to the IAM certificate identifier
--- of the custom viewer certificate for this distribution.
+-- | Note: this field is deprecated. Please use one of [ACMCertificateArn,
+-- IAMCertificateId, CloudFrontDefaultCertificate].
 vcCertificate :: Lens' ViewerCertificate (Maybe Text)
 vcCertificate = lens _vcCertificate (\ s a -> s{_vcCertificate = a});
 
--- | Note: this field is deprecated. Please use \"iam\" as CertificateSource
--- and specify the IAM certificate Id as the Certificate. If you want
--- viewers to use HTTPS to request your objects and you\'re using an
--- alternate domain name in your object URLs (for example,
+-- | If you want viewers to use HTTPS to request your objects and you\'re
+-- using an alternate domain name in your object URLs (for example,
 -- https:\/\/example.com\/logo.jpg), specify the IAM certificate identifier
 -- of the custom viewer certificate for this distribution. Specify either
--- this value or CloudFrontDefaultCertificate.
+-- this value, ACMCertificateArn, or CloudFrontDefaultCertificate.
 vcIAMCertificateId :: Lens' ViewerCertificate (Maybe Text)
 vcIAMCertificateId = lens _vcIAMCertificateId (\ s a -> s{_vcIAMCertificateId = a});
 
--- | Note: this field is deprecated. Please use \"cloudfront\" as
--- CertificateSource and omit specifying a Certificate. If you want viewers
--- to use HTTPS to request your objects and you\'re using the CloudFront
--- domain name of your distribution in your object URLs (for example,
--- https:\/\/d111111abcdef8.cloudfront.net\/logo.jpg), set to true. Omit
--- this value if you are setting an IAMCertificateId.
+-- | If you want viewers to use HTTPS to request your objects and you\'re
+-- using the CloudFront domain name of your distribution in your object
+-- URLs (for example, https:\/\/d111111abcdef8.cloudfront.net\/logo.jpg),
+-- set to true. Omit this value if you are setting an ACMCertificateArn or
+-- IAMCertificateId.
 vcCloudFrontDefaultCertificate :: Lens' ViewerCertificate (Maybe Bool)
 vcCloudFrontDefaultCertificate = lens _vcCloudFrontDefaultCertificate (\ s a -> s{_vcCloudFrontDefaultCertificate = a});
 
@@ -3383,7 +3545,8 @@ instance FromXML ViewerCertificate where
         parseXML x
           = ViewerCertificate' <$>
               (x .@? "SSLSupportMethod") <*>
-                (x .@? "CertificateSource")
+                (x .@? "ACMCertificateArn")
+                <*> (x .@? "CertificateSource")
                 <*> (x .@? "MinimumProtocolVersion")
                 <*> (x .@? "Certificate")
                 <*> (x .@? "IAMCertificateId")
@@ -3393,6 +3556,7 @@ instance ToXML ViewerCertificate where
         toXML ViewerCertificate'{..}
           = mconcat
               ["SSLSupportMethod" @= _vcSSLSupportMethod,
+               "ACMCertificateArn" @= _vcACMCertificateARN,
                "CertificateSource" @= _vcCertificateSource,
                "MinimumProtocolVersion" @=
                  _vcMinimumProtocolVersion,

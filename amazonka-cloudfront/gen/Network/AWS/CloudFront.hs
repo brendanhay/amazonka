@@ -32,6 +32,9 @@ module Network.AWS.CloudFront
     -- * Errors
     -- $errors
 
+    -- ** TooManyOriginCustomHeaders
+    , _TooManyOriginCustomHeaders
+
     -- ** InvalidErrorCode
     , _InvalidErrorCode
 
@@ -283,6 +286,9 @@ module Network.AWS.CloudFront
     -- ** PriceClass
     , PriceClass (..)
 
+    -- ** SSLProtocol
+    , SSLProtocol (..)
+
     -- ** SSLSupportMethod
     , SSLSupportMethod (..)
 
@@ -392,9 +398,16 @@ module Network.AWS.CloudFront
     , cerItems
     , cerQuantity
 
+    -- ** CustomHeaders
+    , CustomHeaders
+    , customHeaders
+    , chItems
+    , chQuantity
+
     -- ** CustomOriginConfig
     , CustomOriginConfig
     , customOriginConfig
+    , cocOriginSSLProtocols
     , cocHTTPPort
     , cocHTTPSPort
     , cocOriginProtocolPolicy
@@ -539,11 +552,24 @@ module Network.AWS.CloudFront
     -- ** Origin
     , Origin
     , origin
+    , oCustomHeaders
     , oCustomOriginConfig
     , oS3OriginConfig
     , oOriginPath
     , oId
     , oDomainName
+
+    -- ** OriginCustomHeader
+    , OriginCustomHeader
+    , originCustomHeader
+    , ochHeaderName
+    , ochHeaderValue
+
+    -- ** OriginSSLProtocols
+    , OriginSSLProtocols
+    , originSSLProtocols
+    , ospQuantity
+    , ospItems
 
     -- ** Origins
     , Origins
@@ -643,6 +669,7 @@ module Network.AWS.CloudFront
     , ViewerCertificate
     , viewerCertificate
     , vcSSLSupportMethod
+    , vcACMCertificateARN
     , vcCertificateSource
     , vcMinimumProtocolVersion
     , vcCertificate

@@ -20,19 +20,22 @@ module Network.AWS.CloudFront.Types.Sum where
 import           Network.AWS.Prelude
 
 data CertificateSource
-    = Cloudfront
+    = Acm
+    | Cloudfront
     | IAM
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CertificateSource where
     parser = takeLowerText >>= \case
+        "acm" -> pure Acm
         "cloudfront" -> pure Cloudfront
         "iam" -> pure IAM
         e -> fromTextError $ "Failure parsing CertificateSource from value: '" <> e
-           <> "'. Accepted values: cloudfront, iam"
+           <> "'. Accepted values: acm, cloudfront, iam"
 
 instance ToText CertificateSource where
     toText = \case
+        Acm -> "acm"
         Cloudfront -> "cloudfront"
         IAM -> "iam"
 
@@ -153,21 +156,21 @@ instance ToXML Method where
     toXML = toXMLText
 
 data MinimumProtocolVersion
-    = SSLV3
-    | TLSV1
+    = MPVSSLV3
+    | MPVTLSV1
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MinimumProtocolVersion where
     parser = takeLowerText >>= \case
-        "sslv3" -> pure SSLV3
-        "tlsv1" -> pure TLSV1
+        "sslv3" -> pure MPVSSLV3
+        "tlsv1" -> pure MPVTLSV1
         e -> fromTextError $ "Failure parsing MinimumProtocolVersion from value: '" <> e
            <> "'. Accepted values: SSLv3, TLSv1"
 
 instance ToText MinimumProtocolVersion where
     toText = \case
-        SSLV3 -> "SSLv3"
-        TLSV1 -> "TLSv1"
+        MPVSSLV3 -> "SSLv3"
+        MPVTLSV1 -> "TLSv1"
 
 instance Hashable     MinimumProtocolVersion
 instance ToByteString MinimumProtocolVersion
@@ -182,19 +185,22 @@ instance ToXML MinimumProtocolVersion where
 
 data OriginProtocolPolicy
     = HTTPOnly
+    | HTTPSOnly
     | MatchViewer
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OriginProtocolPolicy where
     parser = takeLowerText >>= \case
         "http-only" -> pure HTTPOnly
+        "https-only" -> pure HTTPSOnly
         "match-viewer" -> pure MatchViewer
         e -> fromTextError $ "Failure parsing OriginProtocolPolicy from value: '" <> e
-           <> "'. Accepted values: http-only, match-viewer"
+           <> "'. Accepted values: http-only, https-only, match-viewer"
 
 instance ToText OriginProtocolPolicy where
     toText = \case
         HTTPOnly -> "http-only"
+        HTTPSOnly -> "https-only"
         MatchViewer -> "match-viewer"
 
 instance Hashable     OriginProtocolPolicy
@@ -239,6 +245,40 @@ instance FromXML PriceClass where
 instance ToXML PriceClass where
     toXML = toXMLText
 
+data SSLProtocol
+    = SSLV3
+    | TLSV1
+    | TLSV1_1
+    | TLSV1_2
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText SSLProtocol where
+    parser = takeLowerText >>= \case
+        "sslv3" -> pure SSLV3
+        "tlsv1" -> pure TLSV1
+        "tlsv1.1" -> pure TLSV1_1
+        "tlsv1.2" -> pure TLSV1_2
+        e -> fromTextError $ "Failure parsing SSLProtocol from value: '" <> e
+           <> "'. Accepted values: SSLv3, TLSv1, TLSv1.1, TLSv1.2"
+
+instance ToText SSLProtocol where
+    toText = \case
+        SSLV3 -> "SSLv3"
+        TLSV1 -> "TLSv1"
+        TLSV1_1 -> "TLSv1.1"
+        TLSV1_2 -> "TLSv1.2"
+
+instance Hashable     SSLProtocol
+instance ToByteString SSLProtocol
+instance ToQuery      SSLProtocol
+instance ToHeader     SSLProtocol
+
+instance FromXML SSLProtocol where
+    parseXML = parseXMLText "SSLProtocol"
+
+instance ToXML SSLProtocol where
+    toXML = toXMLText
+
 data SSLSupportMethod
     = SNIOnly
     | VIP
@@ -268,24 +308,24 @@ instance ToXML SSLSupportMethod where
     toXML = toXMLText
 
 data ViewerProtocolPolicy
-    = AllowAll
-    | HTTPSOnly
-    | RedirectToHTTPS
+    = VPPAllowAll
+    | VPPHTTPSOnly
+    | VPPRedirectToHTTPS
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ViewerProtocolPolicy where
     parser = takeLowerText >>= \case
-        "allow-all" -> pure AllowAll
-        "https-only" -> pure HTTPSOnly
-        "redirect-to-https" -> pure RedirectToHTTPS
+        "allow-all" -> pure VPPAllowAll
+        "https-only" -> pure VPPHTTPSOnly
+        "redirect-to-https" -> pure VPPRedirectToHTTPS
         e -> fromTextError $ "Failure parsing ViewerProtocolPolicy from value: '" <> e
            <> "'. Accepted values: allow-all, https-only, redirect-to-https"
 
 instance ToText ViewerProtocolPolicy where
     toText = \case
-        AllowAll -> "allow-all"
-        HTTPSOnly -> "https-only"
-        RedirectToHTTPS -> "redirect-to-https"
+        VPPAllowAll -> "allow-all"
+        VPPHTTPSOnly -> "https-only"
+        VPPRedirectToHTTPS -> "redirect-to-https"
 
 instance Hashable     ViewerProtocolPolicy
 instance ToByteString ViewerProtocolPolicy

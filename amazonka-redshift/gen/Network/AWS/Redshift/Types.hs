@@ -26,6 +26,7 @@ module Network.AWS.Redshift.Types
     , _ClusterSecurityGroupAlreadyExistsFault
     , _ClusterSnapshotNotFoundFault
     , _InvalidElasticIPFault
+    , _TableRestoreNotFoundFault
     , _HSMConfigurationNotFoundFault
     , _AuthorizationAlreadyExistsFault
     , _SubscriptionCategoryNotFoundFault
@@ -52,6 +53,7 @@ module Network.AWS.Redshift.Types
     , _SnapshotCopyGrantAlreadyExistsFault
     , _SNSNoAuthorizationFault
     , _InvalidClusterStateFault
+    , _InvalidTableRestoreArgumentFault
     , _SnapshotCopyGrantNotFoundFault
     , _HSMConfigurationQuotaExceededFault
     , _ClusterSnapshotQuotaExceededFault
@@ -63,6 +65,7 @@ module Network.AWS.Redshift.Types
     , _ClusterSubnetGroupNotFoundFault
     , _BucketNotFoundFault
     , _InvalidSubscriptionStateFault
+    , _DependentServiceRequestThrottlingFault
     , _AuthorizationNotFoundFault
     , _InvalidClusterSubnetGroupStateFault
     , _UnsupportedOperationFault
@@ -76,6 +79,7 @@ module Network.AWS.Redshift.Types
     , _EventSubscriptionQuotaExceededFault
     , _InvalidClusterParameterGroupStateFault
     , _ReservedNodeAlreadyExistsFault
+    , _InProgressTableRestoreQuotaExceededFault
     , _InvalidRestoreFault
     , _ResourceNotFoundFault
     , _SubscriptionEventIdNotFoundFault
@@ -101,6 +105,9 @@ module Network.AWS.Redshift.Types
 
     -- * SourceType
     , SourceType (..)
+
+    -- * TableRestoreStatusType
+    , TableRestoreStatusType (..)
 
     -- * AccountWithRestoreAccess
     , AccountWithRestoreAccess
@@ -353,6 +360,7 @@ module Network.AWS.Redshift.Types
     , PendingModifiedValues
     , pendingModifiedValues
     , pmvMasterUserPassword
+    , pmvPubliclyAccessible
     , pmvAutomatedSnapshotRetentionPeriod
     , pmvClusterIdentifier
     , pmvNumberOfNodes
@@ -450,6 +458,24 @@ module Network.AWS.Redshift.Types
     , sSubnetIdentifier
     , sSubnetAvailabilityZone
 
+    -- * TableRestoreStatus
+    , TableRestoreStatus
+    , tableRestoreStatus
+    , trsStatus
+    , trsTargetSchemaName
+    , trsSnapshotIdentifier
+    , trsSourceDatabaseName
+    , trsTableRestoreRequestId
+    , trsNewTableName
+    , trsTargetDatabaseName
+    , trsSourceSchemaName
+    , trsClusterIdentifier
+    , trsRequestTime
+    , trsSourceTableName
+    , trsTotalDataInMegaBytes
+    , trsProgressInMegaBytes
+    , trsMessage
+
     -- * Tag
     , Tag
     , tag
@@ -499,6 +525,7 @@ redshift =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -562,6 +589,11 @@ _ClusterSnapshotNotFoundFault =
 _InvalidElasticIPFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidElasticIPFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidElasticIpFault"
+
+-- | The specified 'TableRestoreRequestId' value was not found.
+_TableRestoreNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_TableRestoreNotFoundFault =
+    _ServiceError . hasStatus 400 . hasCode "TableRestoreNotFoundFault"
 
 -- | There is no Amazon Redshift HSM configuration with the specified
 -- identifier.
@@ -694,7 +726,7 @@ _SNSTopicARNNotFoundFault :: AsError a => Getting (First ServiceError) a Service
 _SNSTopicARNNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "SNSTopicArnNotFound"
 
--- | The /ClusterIdentifier/ parameter does not refer to an existing cluster.
+-- | The 'ClusterIdentifier' parameter does not refer to an existing cluster.
 _ClusterNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "ClusterNotFound"
@@ -725,6 +757,13 @@ _SNSNoAuthorizationFault =
 _InvalidClusterStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClusterStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidClusterState"
+
+-- | The value specified for the 'sourceDatabaseName', 'sourceSchemaName', or
+-- 'sourceTableName' parameter, or a combination of these, doesn\'t exist
+-- in the snapshot.
+_InvalidTableRestoreArgumentFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTableRestoreArgumentFault =
+    _ServiceError . hasStatus 400 . hasCode "InvalidTableRestoreArgument"
 
 -- | The specified snapshot copy grant can\'t be found. Make sure that the
 -- name is typed correctly and that the grant exists in the destination
@@ -793,6 +832,14 @@ _InvalidSubscriptionStateFault :: AsError a => Getting (First ServiceError) a Se
 _InvalidSubscriptionStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidSubscriptionStateFault"
 
+-- | The request cannot be completed because a dependent service is
+-- throttling requests made by Amazon Redshift on your behalf. Wait and
+-- retry the request.
+_DependentServiceRequestThrottlingFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DependentServiceRequestThrottlingFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "DependentServiceRequestThrottlingFault"
+
 -- | The specified CIDR IP range or EC2 security group is not authorized for
 -- the specified cluster security group.
 _AuthorizationNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
@@ -816,8 +863,8 @@ _ClusterSubnetGroupAlreadyExistsFault :: AsError a => Getting (First ServiceErro
 _ClusterSubnetGroupAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "ClusterSubnetGroupAlreadyExists"
 
--- | The state of the cluster snapshot is not 'available', or other accounts
--- are authorized to access the snapshot.
+-- | The specified cluster snapshot is not in the 'available' state, or other
+-- accounts are authorized to access the snapshot.
 _InvalidClusterSnapshotStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClusterSnapshotStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidClusterSnapshotState"
@@ -867,6 +914,14 @@ _InvalidClusterParameterGroupStateFault =
 _ReservedNodeAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ReservedNodeAlreadyExistsFault =
     _ServiceError . hasStatus 404 . hasCode "ReservedNodeAlreadyExists"
+
+-- | You have exceeded the allowed number of table restore requests. Wait for
+-- your current table restore requests to complete before making a new
+-- request.
+_InProgressTableRestoreQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InProgressTableRestoreQuotaExceededFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "InProgressTableRestoreQuotaExceededFault"
 
 -- | The restore is invalid.
 _InvalidRestoreFault :: AsError a => Getting (First ServiceError) a ServiceError

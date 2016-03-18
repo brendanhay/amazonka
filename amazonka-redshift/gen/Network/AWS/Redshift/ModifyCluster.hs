@@ -41,11 +41,13 @@ module Network.AWS.Redshift.ModifyCluster
     , ModifyCluster
     -- * Request Lenses
     , mcMasterUserPassword
+    , mcPubliclyAccessible
     , mcHSMConfigurationIdentifier
     , mcClusterSecurityGroups
     , mcAutomatedSnapshotRetentionPeriod
     , mcHSMClientCertificateIdentifier
     , mcNumberOfNodes
+    , mcElasticIP
     , mcPreferredMaintenanceWindow
     , mcVPCSecurityGroupIds
     , mcClusterType
@@ -76,11 +78,13 @@ import           Network.AWS.Response
 -- /See:/ 'modifyCluster' smart constructor.
 data ModifyCluster = ModifyCluster'
     { _mcMasterUserPassword               :: !(Maybe Text)
+    , _mcPubliclyAccessible               :: !(Maybe Bool)
     , _mcHSMConfigurationIdentifier       :: !(Maybe Text)
     , _mcClusterSecurityGroups            :: !(Maybe [Text])
     , _mcAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
     , _mcHSMClientCertificateIdentifier   :: !(Maybe Text)
     , _mcNumberOfNodes                    :: !(Maybe Int)
+    , _mcElasticIP                        :: !(Maybe Text)
     , _mcPreferredMaintenanceWindow       :: !(Maybe Text)
     , _mcVPCSecurityGroupIds              :: !(Maybe [Text])
     , _mcClusterType                      :: !(Maybe Text)
@@ -98,6 +102,8 @@ data ModifyCluster = ModifyCluster'
 --
 -- * 'mcMasterUserPassword'
 --
+-- * 'mcPubliclyAccessible'
+--
 -- * 'mcHSMConfigurationIdentifier'
 --
 -- * 'mcClusterSecurityGroups'
@@ -107,6 +113,8 @@ data ModifyCluster = ModifyCluster'
 -- * 'mcHSMClientCertificateIdentifier'
 --
 -- * 'mcNumberOfNodes'
+--
+-- * 'mcElasticIP'
 --
 -- * 'mcPreferredMaintenanceWindow'
 --
@@ -131,11 +139,13 @@ modifyCluster
 modifyCluster pClusterIdentifier_ =
     ModifyCluster'
     { _mcMasterUserPassword = Nothing
+    , _mcPubliclyAccessible = Nothing
     , _mcHSMConfigurationIdentifier = Nothing
     , _mcClusterSecurityGroups = Nothing
     , _mcAutomatedSnapshotRetentionPeriod = Nothing
     , _mcHSMClientCertificateIdentifier = Nothing
     , _mcNumberOfNodes = Nothing
+    , _mcElasticIP = Nothing
     , _mcPreferredMaintenanceWindow = Nothing
     , _mcVPCSecurityGroupIds = Nothing
     , _mcClusterType = Nothing
@@ -170,6 +180,11 @@ modifyCluster pClusterIdentifier_ =
 mcMasterUserPassword :: Lens' ModifyCluster (Maybe Text)
 mcMasterUserPassword = lens _mcMasterUserPassword (\ s a -> s{_mcMasterUserPassword = a});
 
+-- | If 'true', the cluster can be accessed from a public network. Only
+-- clusters in VPCs can be set to be publicly available.
+mcPubliclyAccessible :: Lens' ModifyCluster (Maybe Bool)
+mcPubliclyAccessible = lens _mcPubliclyAccessible (\ s a -> s{_mcPubliclyAccessible = a});
+
 -- | Specifies the name of the HSM configuration that contains the
 -- information the Amazon Redshift cluster can use to retrieve and store
 -- keys in an HSM.
@@ -193,7 +208,7 @@ mcClusterSecurityGroups = lens _mcClusterSecurityGroups (\ s a -> s{_mcClusterSe
 -- | The number of days that automated snapshots are retained. If the value
 -- is 0, automated snapshots are disabled. Even if automated snapshots are
 -- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot.
+-- < CreateClusterSnapshot>.
 --
 -- If you decrease the automated snapshot retention period from its current
 -- value, existing automated snapshots that fall outside of the new
@@ -219,11 +234,22 @@ mcHSMClientCertificateIdentifier = lens _mcHSMClientCertificateIdentifier (\ s a
 -- will be a temporary outage while the old cluster is deleted and your
 -- connection is switched to the new cluster. When the new connection is
 -- complete, the original access permissions for the cluster are restored.
--- You can use DescribeResize to track the progress of the resize request.
+-- You can use < DescribeResize> to track the progress of the resize
+-- request.
 --
 -- Valid Values: Integer greater than '0'.
 mcNumberOfNodes :: Lens' ModifyCluster (Maybe Int)
 mcNumberOfNodes = lens _mcNumberOfNodes (\ s a -> s{_mcNumberOfNodes = a});
+
+-- | The Elastic IP (EIP) address for the cluster.
+--
+-- Constraints: The cluster must be provisioned in EC2-VPC and
+-- publicly-accessible through an Internet gateway. For more information
+-- about provisioning clusters in EC2-VPC, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster>
+-- in the Amazon Redshift Cluster Management Guide.
+mcElasticIP :: Lens' ModifyCluster (Maybe Text)
+mcElasticIP = lens _mcElasticIP (\ s a -> s{_mcElasticIP = a});
 
 -- | The weekly time range (in UTC) during which system maintenance can
 -- occur, if necessary. If system maintenance is necessary during the
@@ -255,7 +281,7 @@ mcVPCSecurityGroupIds = lens _mcVPCSecurityGroupIds (\ s a -> s{_mcVPCSecurityGr
 -- into a read-only mode. After Amazon Redshift provisions a new cluster
 -- based on your resize requirements, there will be outage for a period
 -- while the old cluster is deleted and your connection is switched to the
--- new cluster. You can use DescribeResize to track the progress of the
+-- new cluster. You can use < DescribeResize> to track the progress of the
 -- resize request.
 --
 -- Valid Values: ' multi-node | single-node '
@@ -300,7 +326,8 @@ mcClusterVersion = lens _mcClusterVersion (\ s a -> s{_mcClusterVersion = a});
 -- will be a temporary outage while the old cluster is deleted and your
 -- connection is switched to the new cluster. When the new connection is
 -- complete, the original access permissions for the cluster are restored.
--- You can use DescribeResize to track the progress of the resize request.
+-- You can use < DescribeResize> to track the progress of the resize
+-- request.
 --
 -- Valid Values: ' ds1.xlarge' | 'ds1.8xlarge' | ' ds2.xlarge' |
 -- 'ds2.8xlarge' | 'dc1.large' | 'dc1.8xlarge'.
@@ -316,7 +343,7 @@ mcAllowVersionUpgrade = lens _mcAllowVersionUpgrade (\ s a -> s{_mcAllowVersionU
 
 -- | The name of the cluster parameter group to apply to this cluster. This
 -- change is applied only after the cluster is rebooted. To reboot a
--- cluster use RebootCluster.
+-- cluster use < RebootCluster>.
 --
 -- Default: Uses existing setting.
 --
@@ -352,6 +379,7 @@ instance ToQuery ModifyCluster where
               ["Action" =: ("ModifyCluster" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "MasterUserPassword" =: _mcMasterUserPassword,
+               "PubliclyAccessible" =: _mcPubliclyAccessible,
                "HsmConfigurationIdentifier" =:
                  _mcHSMConfigurationIdentifier,
                "ClusterSecurityGroups" =:
@@ -363,6 +391,7 @@ instance ToQuery ModifyCluster where
                "HsmClientCertificateIdentifier" =:
                  _mcHSMClientCertificateIdentifier,
                "NumberOfNodes" =: _mcNumberOfNodes,
+               "ElasticIp" =: _mcElasticIP,
                "PreferredMaintenanceWindow" =:
                  _mcPreferredMaintenanceWindow,
                "VpcSecurityGroupIds" =:

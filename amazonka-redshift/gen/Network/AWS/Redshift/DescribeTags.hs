@@ -71,7 +71,7 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the output from the 'DescribeTags' action.
+-- |
 --
 -- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
@@ -202,7 +202,7 @@ instance ToQuery DescribeTags where
                  toQuery (toQueryList "TagKey" <$> _dtTagKeys),
                "Marker" =: _dtMarker, "MaxRecords" =: _dtMaxRecords]
 
--- | Contains the output from the 'DescribeTags' action.
+-- |
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'

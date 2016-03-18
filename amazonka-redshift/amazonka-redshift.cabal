@@ -109,6 +109,7 @@ library
         , Network.AWS.Redshift.DescribeReservedNodes
         , Network.AWS.Redshift.DescribeResize
         , Network.AWS.Redshift.DescribeSnapshotCopyGrants
+        , Network.AWS.Redshift.DescribeTableRestoreStatus
         , Network.AWS.Redshift.DescribeTags
         , Network.AWS.Redshift.DisableLogging
         , Network.AWS.Redshift.DisableSnapshotCopy
@@ -123,6 +124,7 @@ library
         , Network.AWS.Redshift.RebootCluster
         , Network.AWS.Redshift.ResetClusterParameterGroup
         , Network.AWS.Redshift.RestoreFromClusterSnapshot
+        , Network.AWS.Redshift.RestoreTableFromClusterSnapshot
         , Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
         , Network.AWS.Redshift.RevokeSnapshotAccess
         , Network.AWS.Redshift.RotateEncryptionKey

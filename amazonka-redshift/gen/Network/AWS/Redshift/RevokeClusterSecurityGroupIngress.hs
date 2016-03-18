@@ -20,8 +20,8 @@
 --
 -- Revokes an ingress rule in an Amazon Redshift security group for a
 -- previously authorized IP range or Amazon EC2 security group. To add an
--- ingress rule, see AuthorizeClusterSecurityGroupIngress. For information
--- about managing security groups, go to
+-- ingress rule, see < AuthorizeClusterSecurityGroupIngress>. For
+-- information about managing security groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
@@ -52,7 +52,7 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | ???
+-- |
 --
 -- /See:/ 'revokeClusterSecurityGroupIngress' smart constructor.
 data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'

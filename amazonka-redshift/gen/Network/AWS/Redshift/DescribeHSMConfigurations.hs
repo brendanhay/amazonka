@@ -126,7 +126,7 @@ dhsmcTagKeys :: Lens' DescribeHSMConfigurations [Text]
 dhsmcTagKeys = lens _dhsmcTagKeys (\ s a -> s{_dhsmcTagKeys = a}) . _Default . _Coerce;
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeHsmConfigurations
+-- of response records. When the results of a < DescribeHsmConfigurations>
 -- request exceed the value specified in 'MaxRecords', AWS returns a value
 -- in the 'Marker' field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the 'Marker'
@@ -224,7 +224,7 @@ describeHSMConfigurationsResponse pResponseStatus_ =
 dhcrsMarker :: Lens' DescribeHSMConfigurationsResponse (Maybe Text)
 dhcrsMarker = lens _dhcrsMarker (\ s a -> s{_dhcrsMarker = a});
 
--- | A list of Amazon Redshift HSM configurations.
+-- | A list of 'HsmConfiguration' objects.
 dhcrsHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfiguration]
 dhcrsHSMConfigurations = lens _dhcrsHSMConfigurations (\ s a -> s{_dhcrsHSMConfigurations = a}) . _Default . _Coerce;
 

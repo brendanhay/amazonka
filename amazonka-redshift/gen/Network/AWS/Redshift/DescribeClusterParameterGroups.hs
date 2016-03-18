@@ -127,7 +127,7 @@ dcpgTagKeys = lens _dcpgTagKeys (\ s a -> s{_dcpgTagKeys = a}) . _Default . _Coe
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
--- DescribeClusterParameterGroups request exceed the value specified in
+-- < DescribeClusterParameterGroups> request exceed the value specified in
 -- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the 'Marker' parameter and retrying the
@@ -197,7 +197,7 @@ instance ToQuery DescribeClusterParameterGroups where
                "MaxRecords" =: _dcpgMaxRecords,
                "ParameterGroupName" =: _dcpgParameterGroupName]
 
--- | Contains the output from the DescribeClusterParameterGroups action.
+-- | Contains the output from the < DescribeClusterParameterGroups> action.
 --
 -- /See:/ 'describeClusterParameterGroupsResponse' smart constructor.
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'
@@ -234,8 +234,8 @@ describeClusterParameterGroupsResponse pResponseStatus_ =
 dcpgrsMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
 dcpgrsMarker = lens _dcpgrsMarker (\ s a -> s{_dcpgrsMarker = a});
 
--- | A list of ClusterParameterGroup instances. Each instance describes one
--- cluster parameter group.
+-- | A list of < ClusterParameterGroup> instances. Each instance describes
+-- one cluster parameter group.
 dcpgrsParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
 dcpgrsParameterGroups = lens _dcpgrsParameterGroups (\ s a -> s{_dcpgrsParameterGroups = a}) . _Default . _Coerce;
 

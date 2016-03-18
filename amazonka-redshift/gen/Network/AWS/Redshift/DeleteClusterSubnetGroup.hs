@@ -41,7 +41,9 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteClusterSubnetGroup' smart constructor.
+-- |
+--
+-- /See:/ 'deleteClusterSubnetGroup' smart constructor.
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
     { _dcsgClusterSubnetGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

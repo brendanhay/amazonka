@@ -25,7 +25,7 @@
 --
 -- You can specify /source/ filter to retrieve parameters of only specific
 -- type. For example, to retrieve parameters that were modified by a user
--- action such as from ModifyClusterParameterGroup, you can specify
+-- action such as from < ModifyClusterParameterGroup>, you can specify
 -- /source/ equal to /user/.
 --
 -- For more information about parameters and parameter groups, go to
@@ -94,7 +94,7 @@ describeClusterParameters pParameterGroupName_ =
     }
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterParameters
+-- of response records. When the results of a < DescribeClusterParameters>
 -- request exceed the value specified in 'MaxRecords', AWS returns a value
 -- in the 'Marker' field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the 'Marker'
@@ -165,7 +165,7 @@ instance ToQuery DescribeClusterParameters where
                "Source" =: _dcpsSource,
                "ParameterGroupName" =: _dcpsParameterGroupName]
 
--- | Contains the output from the DescribeClusterParameters action.
+-- | Contains the output from the < DescribeClusterParameters> action.
 --
 -- /See:/ 'describeClusterParametersResponse' smart constructor.
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
@@ -202,8 +202,8 @@ describeClusterParametersResponse pResponseStatus_ =
 dcprsMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
 dcprsMarker = lens _dcprsMarker (\ s a -> s{_dcprsMarker = a});
 
--- | A list of Parameter instances. Each instance lists the parameters of one
--- cluster parameter group.
+-- | A list of < Parameter> instances. Each instance lists the parameters of
+-- one cluster parameter group.
 dcprsParameters :: Lens' DescribeClusterParametersResponse [Parameter]
 dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
 

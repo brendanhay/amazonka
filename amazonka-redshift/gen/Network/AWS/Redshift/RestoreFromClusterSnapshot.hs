@@ -23,10 +23,10 @@
 -- original cluster from which the snapshot was created, except that the
 -- new cluster is created with the default cluster security and parameter
 -- groups. After Amazon Redshift creates the cluster, you can use the
--- ModifyCluster API to associate a different security group and different
--- parameter group with the restored cluster. If you are using a DS node
--- type, you can also choose to change to another DS node type of the same
--- size during restore.
+-- < ModifyCluster> API to associate a different security group and
+-- different parameter group with the restored cluster. If you are using a
+-- DS node type, you can also choose to change to another DS node type of
+-- the same size during restore.
 --
 -- If you restore a cluster into a VPC, you must provide a cluster subnet
 -- group where you want the cluster restored.
@@ -42,6 +42,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
       restoreFromClusterSnapshot
     , RestoreFromClusterSnapshot
     -- * Request Lenses
+    , rfcsAdditionalInfo
     , rfcsPubliclyAccessible
     , rfcsSnapshotClusterIdentifier
     , rfcsHSMConfigurationIdentifier
@@ -81,7 +82,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreFromClusterSnapshot' smart constructor.
 data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
-    { _rfcsPubliclyAccessible               :: !(Maybe Bool)
+    { _rfcsAdditionalInfo                   :: !(Maybe Text)
+    , _rfcsPubliclyAccessible               :: !(Maybe Bool)
     , _rfcsSnapshotClusterIdentifier        :: !(Maybe Text)
     , _rfcsHSMConfigurationIdentifier       :: !(Maybe Text)
     , _rfcsClusterSecurityGroups            :: !(Maybe [Text])
@@ -105,6 +107,8 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 -- | Creates a value of 'RestoreFromClusterSnapshot' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rfcsAdditionalInfo'
 --
 -- * 'rfcsPubliclyAccessible'
 --
@@ -149,7 +153,8 @@ restoreFromClusterSnapshot
     -> RestoreFromClusterSnapshot
 restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
     RestoreFromClusterSnapshot'
-    { _rfcsPubliclyAccessible = Nothing
+    { _rfcsAdditionalInfo = Nothing
+    , _rfcsPubliclyAccessible = Nothing
     , _rfcsSnapshotClusterIdentifier = Nothing
     , _rfcsHSMConfigurationIdentifier = Nothing
     , _rfcsClusterSecurityGroups = Nothing
@@ -169,6 +174,10 @@ restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
     , _rfcsClusterIdentifier = pClusterIdentifier_
     , _rfcsSnapshotIdentifier = pSnapshotIdentifier_
     }
+
+-- | Reserved.
+rfcsAdditionalInfo :: Lens' RestoreFromClusterSnapshot (Maybe Text)
+rfcsAdditionalInfo = lens _rfcsAdditionalInfo (\ s a -> s{_rfcsAdditionalInfo = a});
 
 -- | If 'true', the cluster can be accessed from a public network.
 rfcsPubliclyAccessible :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
@@ -198,7 +207,7 @@ rfcsClusterSecurityGroups = lens _rfcsClusterSecurityGroups (\ s a -> s{_rfcsClu
 -- | The number of days that automated snapshots are retained. If the value
 -- is 0, automated snapshots are disabled. Even if automated snapshots are
 -- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot.
+-- < CreateClusterSnapshot>.
 --
 -- Default: The value selected for the cluster from which the snapshot was
 -- taken.
@@ -355,6 +364,7 @@ instance ToQuery RestoreFromClusterSnapshot where
               ["Action" =:
                  ("RestoreFromClusterSnapshot" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
+               "AdditionalInfo" =: _rfcsAdditionalInfo,
                "PubliclyAccessible" =: _rfcsPubliclyAccessible,
                "SnapshotClusterIdentifier" =:
                  _rfcsSnapshotClusterIdentifier,

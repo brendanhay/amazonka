@@ -69,7 +69,7 @@ describeLoggingStatus pClusterIdentifier_ =
     { _dlsClusterIdentifier = pClusterIdentifier_
     }
 
--- | The identifier of the cluster to get the logging status from.
+-- | The identifier of the cluster from which to get the logging status.
 --
 -- Example: 'examplecluster'
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text

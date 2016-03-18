@@ -24,8 +24,8 @@
 -- was initiated and completed, the status of the resize remains as
 -- 'SUCCEEDED' until the next resize.
 --
--- A resize operation can be requested using ModifyCluster and specifying a
--- different number or type of nodes for the cluster.
+-- A resize operation can be requested using < ModifyCluster> and
+-- specifying a different number or type of nodes for the cluster.
 --
 -- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeResize.html AWS API Reference> for DescribeResize.
 module Network.AWS.Redshift.DescribeResize

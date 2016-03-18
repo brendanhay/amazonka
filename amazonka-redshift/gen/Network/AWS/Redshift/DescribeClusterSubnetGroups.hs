@@ -124,11 +124,12 @@ dcsgsClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dcsgsClusterSubnetGroupName = lens _dcsgsClusterSubnetGroupName (\ s a -> s{_dcsgsClusterSubnetGroupName = a});
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSubnetGroups
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
+-- of response records. When the results of a
+-- < DescribeClusterSubnetGroups> request exceed the value specified in
+-- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
+-- You can retrieve the next set of response records by providing the
+-- returned marker value in the 'Marker' parameter and retrying the
+-- request.
 dcsgsMarker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
 dcsgsMarker = lens _dcsgsMarker (\ s a -> s{_dcsgsMarker = a});
 
@@ -186,7 +187,7 @@ instance ToQuery DescribeClusterSubnetGroups where
                "Marker" =: _dcsgsMarker,
                "MaxRecords" =: _dcsgsMaxRecords]
 
--- | Contains the output from the DescribeClusterSubnetGroups action.
+-- | Contains the output from the < DescribeClusterSubnetGroups> action.
 --
 -- /See:/ 'describeClusterSubnetGroupsResponse' smart constructor.
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
@@ -214,7 +215,7 @@ describeClusterSubnetGroupsResponse pResponseStatus_ =
     , _dcsgrsResponseStatus = pResponseStatus_
     }
 
--- | A list of ClusterSubnetGroup instances.
+-- | A list of < ClusterSubnetGroup> instances.
 dcsgrsClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
 dcsgrsClusterSubnetGroups = lens _dcsgrsClusterSubnetGroups (\ s a -> s{_dcsgrsClusterSubnetGroups = a}) . _Default . _Coerce;
 

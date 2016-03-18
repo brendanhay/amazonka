@@ -51,7 +51,7 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | ???
+-- |
 --
 -- /See:/ 'createClusterSecurityGroup' smart constructor.
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup'

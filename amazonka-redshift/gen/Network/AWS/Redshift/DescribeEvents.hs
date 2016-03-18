@@ -145,11 +145,11 @@ deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEvents request exceed
--- the value specified in 'MaxRecords', AWS returns a value in the 'Marker'
--- field of the response. You can retrieve the next set of response records
--- by providing the returned marker value in the 'Marker' parameter and
--- retrying the request.
+-- of response records. When the results of a < DescribeEvents> request
+-- exceed the value specified in 'MaxRecords', AWS returns a value in the
+-- 'Marker' field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the 'Marker'
+-- parameter and retrying the request.
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 
@@ -218,7 +218,7 @@ instance ToQuery DescribeEvents where
                "Marker" =: _deMarker, "MaxRecords" =: _deMaxRecords,
                "EndTime" =: _deEndTime, "Duration" =: _deDuration]
 
--- | Contains the output from the DescribeEvents action.
+-- |
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
@@ -246,7 +246,7 @@ describeEventsResponse pResponseStatus_ =
     , _dersResponseStatus = pResponseStatus_
     }
 
--- | A list of Event instances.
+-- | A list of 'Event' instances.
 dersEvents :: Lens' DescribeEventsResponse [Event]
 dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 

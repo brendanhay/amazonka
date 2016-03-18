@@ -82,9 +82,9 @@ drnReservedNodeId :: Lens' DescribeReservedNodes (Maybe Text)
 drnReservedNodeId = lens _drnReservedNodeId (\ s a -> s{_drnReservedNodeId = a});
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeReservedNodes request
--- exceed the value specified in 'MaxRecords', AWS returns a value in the
--- 'Marker' field of the response. You can retrieve the next set of
+-- of response records. When the results of a < DescribeReservedNodes>
+-- request exceed the value specified in 'MaxRecords', AWS returns a value
+-- in the 'Marker' field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the 'Marker'
 -- parameter and retrying the request.
 drnMarker :: Lens' DescribeReservedNodes (Maybe Text)
@@ -137,7 +137,7 @@ instance ToQuery DescribeReservedNodes where
                "Marker" =: _drnMarker,
                "MaxRecords" =: _drnMaxRecords]
 
--- | Contains the output from the DescribeReservedNodes action.
+-- |
 --
 -- /See:/ 'describeReservedNodesResponse' smart constructor.
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
@@ -165,7 +165,7 @@ describeReservedNodesResponse pResponseStatus_ =
     , _drnrsResponseStatus = pResponseStatus_
     }
 
--- | The list of reserved nodes.
+-- | The list of 'ReservedNode' objects.
 drnrsReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
 drnrsReservedNodes = lens _drnrsReservedNodes (\ s a -> s{_drnrsReservedNodes = a}) . _Default . _Coerce;
 

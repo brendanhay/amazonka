@@ -127,11 +127,12 @@ dhccHSMClientCertificateIdentifier :: Lens' DescribeHSMClientCertificates (Maybe
 dhccHSMClientCertificateIdentifier = lens _dhccHSMClientCertificateIdentifier (\ s a -> s{_dhccHSMClientCertificateIdentifier = a});
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeHsmClientCertificates
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
+-- of response records. When the results of a
+-- < DescribeHsmClientCertificates> request exceed the value specified in
+-- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
+-- You can retrieve the next set of response records by providing the
+-- returned marker value in the 'Marker' parameter and retrying the
+-- request.
 dhccMarker :: Lens' DescribeHSMClientCertificates (Maybe Text)
 dhccMarker = lens _dhccMarker (\ s a -> s{_dhccMarker = a});
 

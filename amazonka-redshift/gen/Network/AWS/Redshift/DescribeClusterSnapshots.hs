@@ -173,7 +173,7 @@ dSnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
 dSnapshotType = lens _dSnapshotType (\ s a -> s{_dSnapshotType = a});
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSnapshots
+-- of response records. When the results of a < DescribeClusterSnapshots>
 -- request exceed the value specified in 'MaxRecords', AWS returns a value
 -- in the 'Marker' field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the 'Marker'
@@ -253,7 +253,7 @@ instance ToQuery DescribeClusterSnapshots where
                "EndTime" =: _dEndTime,
                "OwnerAccount" =: _dOwnerAccount]
 
--- | Contains the output from the DescribeClusterSnapshots action.
+-- | Contains the output from the < DescribeClusterSnapshots> action.
 --
 -- /See:/ 'describeClusterSnapshotsResponse' smart constructor.
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'
@@ -281,7 +281,7 @@ describeClusterSnapshotsResponse pResponseStatus_ =
     , _dcssrsResponseStatus = pResponseStatus_
     }
 
--- | A list of Snapshot instances.
+-- | A list of < Snapshot> instances.
 dcssrsSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
 dcssrsSnapshots = lens _dcssrsSnapshots (\ s a -> s{_dcssrsSnapshots = a}) . _Default . _Coerce;
 

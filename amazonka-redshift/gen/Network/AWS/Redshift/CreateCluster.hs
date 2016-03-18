@@ -34,6 +34,7 @@ module Network.AWS.Redshift.CreateCluster
       createCluster
     , CreateCluster
     -- * Request Lenses
+    , ccAdditionalInfo
     , ccPubliclyAccessible
     , ccHSMConfigurationIdentifier
     , ccClusterSecurityGroups
@@ -78,7 +79,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createCluster' smart constructor.
 data CreateCluster = CreateCluster'
-    { _ccPubliclyAccessible               :: !(Maybe Bool)
+    { _ccAdditionalInfo                   :: !(Maybe Text)
+    , _ccPubliclyAccessible               :: !(Maybe Bool)
     , _ccHSMConfigurationIdentifier       :: !(Maybe Text)
     , _ccClusterSecurityGroups            :: !(Maybe [Text])
     , _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
@@ -107,6 +109,8 @@ data CreateCluster = CreateCluster'
 -- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccAdditionalInfo'
 --
 -- * 'ccPubliclyAccessible'
 --
@@ -163,7 +167,8 @@ createCluster
     -> CreateCluster
 createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPassword_ =
     CreateCluster'
-    { _ccPubliclyAccessible = Nothing
+    { _ccAdditionalInfo = Nothing
+    , _ccPubliclyAccessible = Nothing
     , _ccHSMConfigurationIdentifier = Nothing
     , _ccClusterSecurityGroups = Nothing
     , _ccAutomatedSnapshotRetentionPeriod = Nothing
@@ -189,6 +194,10 @@ createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPasswor
     , _ccMasterUserPassword = pMasterUserPassword_
     }
 
+-- | Reserved.
+ccAdditionalInfo :: Lens' CreateCluster (Maybe Text)
+ccAdditionalInfo = lens _ccAdditionalInfo (\ s a -> s{_ccAdditionalInfo = a});
+
 -- | If 'true', the cluster can be accessed from a public network.
 ccPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
 ccPubliclyAccessible = lens _ccPubliclyAccessible (\ s a -> s{_ccPubliclyAccessible = a});
@@ -208,7 +217,7 @@ ccClusterSecurityGroups = lens _ccClusterSecurityGroups (\ s a -> s{_ccClusterSe
 -- | The number of days that automated snapshots are retained. If the value
 -- is 0, automated snapshots are disabled. Even if automated snapshots are
 -- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot.
+-- < CreateClusterSnapshot>.
 --
 -- Default: '1'
 --
@@ -464,6 +473,7 @@ instance ToQuery CreateCluster where
           = mconcat
               ["Action" =: ("CreateCluster" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
+               "AdditionalInfo" =: _ccAdditionalInfo,
                "PubliclyAccessible" =: _ccPubliclyAccessible,
                "HsmConfigurationIdentifier" =:
                  _ccHSMConfigurationIdentifier,

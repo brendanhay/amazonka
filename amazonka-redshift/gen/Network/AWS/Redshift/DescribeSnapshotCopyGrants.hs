@@ -170,7 +170,7 @@ instance ToQuery DescribeSnapshotCopyGrants where
                "SnapshotCopyGrantName" =:
                  _dscgsSnapshotCopyGrantName]
 
--- | The result of the snapshot copy grant.
+-- |
 --
 -- /See:/ 'describeSnapshotCopyGrantsResponse' smart constructor.
 data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
@@ -198,7 +198,7 @@ describeSnapshotCopyGrantsResponse pResponseStatus_ =
     , _dscgrsResponseStatus = pResponseStatus_
     }
 
--- | The list of snapshot copy grants.
+-- | The list of 'SnapshotCopyGrant' objects.
 dscgrsSnapshotCopyGrants :: Lens' DescribeSnapshotCopyGrantsResponse [SnapshotCopyGrant]
 dscgrsSnapshotCopyGrants = lens _dscgrsSnapshotCopyGrants (\ s a -> s{_dscgrsSnapshotCopyGrants = a}) . _Default . _Coerce;
 

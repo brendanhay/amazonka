@@ -69,7 +69,8 @@ describeEventCategories =
 -- | The source type, such as cluster or parameter group, to which the
 -- described event categories apply.
 --
--- Valid values: cluster, snapshot, parameter group, and security group.
+-- Valid values: cluster, cluster-snapshot, cluster-parameter-group, and
+-- cluster-security-group.
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 

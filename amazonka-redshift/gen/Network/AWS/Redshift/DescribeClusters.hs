@@ -128,7 +128,7 @@ dcClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
 dcClusterIdentifier = lens _dcClusterIdentifier (\ s a -> s{_dcClusterIdentifier = a});
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusters request
+-- of response records. When the results of a < DescribeClusters> request
 -- exceed the value specified in 'MaxRecords', AWS returns a value in the
 -- 'Marker' field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the 'Marker'
@@ -188,7 +188,7 @@ instance ToQuery DescribeClusters where
                "ClusterIdentifier" =: _dcClusterIdentifier,
                "Marker" =: _dcMarker, "MaxRecords" =: _dcMaxRecords]
 
--- | Contains the output from the DescribeClusters action.
+-- | Contains the output from the < DescribeClusters> action.
 --
 -- /See:/ 'describeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
@@ -225,7 +225,7 @@ describeClustersResponse pResponseStatus_ =
 dcrsMarker :: Lens' DescribeClustersResponse (Maybe Text)
 dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 
--- | A list of Cluster objects, where each object describes one cluster.
+-- | A list of 'Cluster' objects, where each object describes one cluster.
 dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
 

@@ -45,9 +45,9 @@
 -- You cannot specify an empty string as an attribute name.
 --
 -- Because Amazon SimpleDB makes multiple copies of client data and uses an
--- eventual consistency update model, an immediate GetAttributes or Select
--- operation (read) immediately after a PutAttributes or DeleteAttributes
--- operation (write) might not return the updated data.
+-- eventual consistency update model, an immediate < GetAttributes> or
+-- < Select> operation (read) immediately after a < PutAttributes> or
+-- < DeleteAttributes> operation (write) might not return the updated data.
 --
 -- The following limitations are enforced for this operation:
 --

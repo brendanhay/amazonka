@@ -13,8 +13,6 @@
 {% include "_include/license.ede" %}
 --
 -- {{ documentation | stripPrefix("-- | ") }}
---
--- /See:/ <{{ operationUrl }}{{ name }}.html AWS API Reference> for {{ input.name }}.
 {% if pager %}
 --
 -- This operation returns paginated results.

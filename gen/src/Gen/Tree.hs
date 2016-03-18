@@ -31,7 +31,6 @@ import           Control.Monad.Except
 import           Data.Aeson                hiding (json)
 import           Data.Bifunctor
 import           Data.Functor.Identity
-import qualified Data.HashMap.Strict       as Map
 import           Data.Monoid
 import           Data.Text                 (Text)
 import qualified Data.Text                 as Text
@@ -147,11 +146,10 @@ operation' :: Library
 operation' l t o = module' n is t $ do
     x <- JS.objectErr (show n) o
     y <- JS.objectErr "metadata" (toJSON m)
-    return $! Map.insert "operationUrl" (toJSON u) (y <> x)
+    return $! y <> x
   where
     n  = operationNS (l ^. libraryNS) (o ^. opName)
     m  = l ^. metadata
-    u  = l ^. operationUrl
 
     is = operationImports l o
 

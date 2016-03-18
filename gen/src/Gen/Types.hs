@@ -132,8 +132,6 @@ makeClassy ''Versions
 
 data Config = Config
     { _libraryName       :: Text
-    , _referenceUrl      :: Text
-    , _operationUrl      :: Text
     , _operationModules  :: [NS]
     , _operationPlugins  :: Map Id [Text]
     , _typeModules       :: [NS]
@@ -147,8 +145,6 @@ makeClassy ''Config
 instance FromJSON Config where
     parseJSON = withObject "config" $ \o -> Config
         <$> o .:  "libraryName"
-        <*> o .:  "referenceUrl"
-        <*> o .:  "operationUrl"
         <*> o .:? "operationModules"  .!= mempty
         <*> o .:? "operationPlugins"  .!= mempty
         <*> o .:? "typeModules"       .!= mempty
@@ -182,9 +178,7 @@ instance ToJSON Library where
       where
         Object y = toJSON (l ^. metadata)
         Object x = object
-            [ "referenceUrl"      .= (l ^. referenceUrl)
-            , "operationUrl"      .= (l ^. operationUrl)
-            , "plainDescription"  .= Desc 0 (l ^. documentation)
+            [ "plainDescription"  .= Desc 0 (l ^. documentation)
             , "cabalDescription"  .= Desc 4 (l ^. documentation)
             , "documentation"     .= (l ^. documentation)
             , "libraryName"       .= (l ^. libraryName)

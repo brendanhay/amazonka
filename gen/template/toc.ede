@@ -6,8 +6,6 @@
 {% include "_include/license.ede" %}
 --
 -- {{ documentation | stripPrefix("-- | ") }}
---
--- /See:/ <{{ referenceUrl }} AWS API Reference>
 module {{ moduleName }}
     (
     -- * Service Configuration

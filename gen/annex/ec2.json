@@ -5,6 +5,7 @@
     "shapes": {
         "AttachmentStatus": {
             "enum":[
+                "available",
                 "attaching",
                 "attached",
                 "detaching",

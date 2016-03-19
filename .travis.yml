@@ -84,6 +84,8 @@ matrix:
     # Remainder
     - env: GHCVER=7.10.3 LIBRARY=amazonka-apigateway
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.3 LIBRARY=amazonka-certificatemanager
+      addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-cloudformation
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-cloudfront
@@ -97,6 +99,8 @@ matrix:
     - env: GHCVER=7.10.3 LIBRARY=amazonka-cloudtrail
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-cloudwatch
+      addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.3 LIBRARY=amazonka-cloudwatch-events
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-cloudwatch-logs
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
@@ -118,11 +122,15 @@ matrix:
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-directconnect
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.3 LIBRARY=amazonka-dms
+      addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-ds
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-dynamodb
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-dynamodb-streams
+      addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.3 LIBRARY=amazonka-ecr
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-ecs
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
@@ -137,6 +145,8 @@ matrix:
     - env: GHCVER=7.10.3 LIBRARY=amazonka-elastictranscoder
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-emr
+      addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.3 LIBRARY=amazonka-gamelift
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-glacier
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
@@ -157,6 +167,8 @@ matrix:
     - env: GHCVER=7.10.3 LIBRARY=amazonka-lambda
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-marketplace-analytics
+      addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.3 LIBRARY=amazonka-marketplace-metering
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-ml
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }

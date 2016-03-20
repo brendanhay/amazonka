@@ -181,6 +181,7 @@ data AttachmentStatus
     | Busy
     | Detached
     | Detaching
+    | IsAvailable
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AttachmentStatus where
@@ -190,8 +191,9 @@ instance FromText AttachmentStatus where
         "busy" -> pure Busy
         "detached" -> pure Detached
         "detaching" -> pure Detaching
+        "available" -> pure IsAvailable
         e -> fromTextError $ "Failure parsing AttachmentStatus from value: '" <> e
-           <> "'. Accepted values: attached, attaching, busy, detached, detaching"
+           <> "'. Accepted values: attached, attaching, busy, detached, detaching, available"
 
 instance ToText AttachmentStatus where
     toText = \case

@@ -113,7 +113,7 @@ mipInstanceId = lens _mipInstanceId (\ s a -> s{_mipInstanceId = a});
 instance AWSRequest ModifyInstancePlacement where
         type Rs ModifyInstancePlacement =
              ModifyInstancePlacementResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

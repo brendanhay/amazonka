@@ -73,7 +73,7 @@ tjfJobFlowIds = lens _tjfJobFlowIds (\ s a -> s{_tjfJobFlowIds = a}) . _Coerce;
 
 instance AWSRequest TerminateJobFlows where
         type Rs TerminateJobFlows = TerminateJobFlowsResponse
-        request = postJSON eMR
+        request = postJSON emr
         response = receiveNull TerminateJobFlowsResponse'
 
 instance Hashable TerminateJobFlows

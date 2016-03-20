@@ -94,7 +94,7 @@ bdiImageIds = lens _bdiImageIds (\ s a -> s{_bdiImageIds = a}) . _List1;
 
 instance AWSRequest BatchDeleteImage where
         type Rs BatchDeleteImage = BatchDeleteImageResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

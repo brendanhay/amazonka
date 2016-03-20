@@ -87,7 +87,7 @@ gaRestAPIId = lens _gaRestAPIId (\ s a -> s{_gaRestAPIId = a});
 
 instance AWSRequest GetAuthorizers where
         type Rs GetAuthorizers = GetAuthorizersResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

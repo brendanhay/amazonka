@@ -93,7 +93,7 @@ udDeploymentId = lens _udDeploymentId (\ s a -> s{_udDeploymentId = a});
 
 instance AWSRequest UpdateDeployment where
         type Rs UpdateDeployment = Deployment
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateDeployment

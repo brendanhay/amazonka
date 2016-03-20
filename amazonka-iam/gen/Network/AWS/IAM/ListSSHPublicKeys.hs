@@ -109,7 +109,7 @@ lspkMaxItems = lens _lspkMaxItems (\ s a -> s{_lspkMaxItems = a}) . mapping _Nat
 
 instance AWSRequest ListSSHPublicKeys where
         type Rs ListSSHPublicKeys = ListSSHPublicKeysResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListSSHPublicKeysResult"
               (\ s h x ->

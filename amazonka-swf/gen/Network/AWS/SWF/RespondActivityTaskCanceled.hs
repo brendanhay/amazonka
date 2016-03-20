@@ -112,7 +112,7 @@ rTaskToken = lens _rTaskToken (\ s a -> s{_rTaskToken = a});
 instance AWSRequest RespondActivityTaskCanceled where
         type Rs RespondActivityTaskCanceled =
              RespondActivityTaskCanceledResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveNull RespondActivityTaskCanceledResponse'
 

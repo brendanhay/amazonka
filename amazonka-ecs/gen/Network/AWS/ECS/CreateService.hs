@@ -196,7 +196,7 @@ cDesiredCount = lens _cDesiredCount (\ s a -> s{_cDesiredCount = a});
 
 instance AWSRequest CreateService where
         type Rs CreateService = CreateServiceResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

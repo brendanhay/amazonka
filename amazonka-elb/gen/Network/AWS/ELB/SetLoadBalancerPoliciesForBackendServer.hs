@@ -98,7 +98,7 @@ instance AWSRequest
          SetLoadBalancerPoliciesForBackendServer where
         type Rs SetLoadBalancerPoliciesForBackendServer =
              SetLoadBalancerPoliciesForBackendServerResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper
               "SetLoadBalancerPoliciesForBackendServerResult"

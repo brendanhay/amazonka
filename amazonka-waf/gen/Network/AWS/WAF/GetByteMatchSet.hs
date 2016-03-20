@@ -68,7 +68,7 @@ gbmsByteMatchSetId = lens _gbmsByteMatchSetId (\ s a -> s{_gbmsByteMatchSetId = 
 
 instance AWSRequest GetByteMatchSet where
         type Rs GetByteMatchSet = GetByteMatchSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

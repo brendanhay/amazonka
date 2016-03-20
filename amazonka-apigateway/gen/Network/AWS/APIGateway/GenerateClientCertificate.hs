@@ -68,7 +68,7 @@ gccDescription = lens _gccDescription (\ s a -> s{_gccDescription = a});
 
 instance AWSRequest GenerateClientCertificate where
         type Rs GenerateClientCertificate = ClientCertificate
-        request = postJSON aPIGateway
+        request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GenerateClientCertificate

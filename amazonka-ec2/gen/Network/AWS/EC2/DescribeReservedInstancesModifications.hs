@@ -142,7 +142,7 @@ instance AWSRequest
          DescribeReservedInstancesModifications where
         type Rs DescribeReservedInstancesModifications =
              DescribeReservedInstancesModificationsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

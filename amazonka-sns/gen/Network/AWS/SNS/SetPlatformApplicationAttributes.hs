@@ -98,7 +98,7 @@ instance AWSRequest SetPlatformApplicationAttributes
          where
         type Rs SetPlatformApplicationAttributes =
              SetPlatformApplicationAttributesResponse
-        request = postQuery sNS
+        request = postQuery sns
         response
           = receiveNull
               SetPlatformApplicationAttributesResponse'

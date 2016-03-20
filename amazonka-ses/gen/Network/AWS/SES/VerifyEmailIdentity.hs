@@ -69,7 +69,7 @@ veiEmailAddress = lens _veiEmailAddress (\ s a -> s{_veiEmailAddress = a});
 instance AWSRequest VerifyEmailIdentity where
         type Rs VerifyEmailIdentity =
              VerifyEmailIdentityResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "VerifyEmailIdentityResult"
               (\ s h x ->

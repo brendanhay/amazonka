@@ -124,7 +124,7 @@ instance AWSRequest ModifyNetworkInterfaceAttribute
          where
         type Rs ModifyNetworkInterfaceAttribute =
              ModifyNetworkInterfaceAttributeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull
               ModifyNetworkInterfaceAttributeResponse'

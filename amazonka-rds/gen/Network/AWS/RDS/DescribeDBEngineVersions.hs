@@ -160,7 +160,7 @@ instance AWSPager DescribeDBEngineVersions where
 instance AWSRequest DescribeDBEngineVersions where
         type Rs DescribeDBEngineVersions =
              DescribeDBEngineVersionsResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DescribeDBEngineVersionsResult"
               (\ s h x ->

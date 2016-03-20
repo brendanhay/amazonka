@@ -127,7 +127,7 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext
          where
         type Rs GenerateDataKeyWithoutPlaintext =
              GenerateDataKeyWithoutPlaintextResponse
-        request = postJSON kMS
+        request = postJSON kms
         response
           = receiveJSON
               (\ s h x ->

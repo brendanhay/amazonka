@@ -76,7 +76,7 @@ uarpPolicyDocument = lens _uarpPolicyDocument (\ s a -> s{_uarpPolicyDocument = 
 instance AWSRequest UpdateAssumeRolePolicy where
         type Rs UpdateAssumeRolePolicy =
              UpdateAssumeRolePolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveNull UpdateAssumeRolePolicyResponse'
 

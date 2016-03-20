@@ -144,7 +144,7 @@ uwaChangeToken = lens _uwaChangeToken (\ s a -> s{_uwaChangeToken = a});
 
 instance AWSRequest UpdateWebACL where
         type Rs UpdateWebACL = UpdateWebACLResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

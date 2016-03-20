@@ -114,7 +114,7 @@ derContainerInstance = lens _derContainerInstance (\ s a -> s{_derContainerInsta
 instance AWSRequest DeregisterContainerInstance where
         type Rs DeregisterContainerInstance =
              DeregisterContainerInstanceResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

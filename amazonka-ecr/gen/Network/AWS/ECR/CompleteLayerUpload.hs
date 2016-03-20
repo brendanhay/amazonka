@@ -109,7 +109,7 @@ cluLayerDigests = lens _cluLayerDigests (\ s a -> s{_cluLayerDigests = a}) . _Li
 instance AWSRequest CompleteLayerUpload where
         type Rs CompleteLayerUpload =
              CompleteLayerUploadResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

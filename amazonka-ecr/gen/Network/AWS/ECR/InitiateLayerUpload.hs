@@ -83,7 +83,7 @@ iluRepositoryName = lens _iluRepositoryName (\ s a -> s{_iluRepositoryName = a})
 instance AWSRequest InitiateLayerUpload where
         type Rs InitiateLayerUpload =
              InitiateLayerUploadResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

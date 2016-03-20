@@ -234,7 +234,7 @@ sreRawMessage = lens _sreRawMessage (\ s a -> s{_sreRawMessage = a});
 
 instance AWSRequest SendRawEmail where
         type Rs SendRawEmail = SendRawEmailResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "SendRawEmailResult"
               (\ s h x ->

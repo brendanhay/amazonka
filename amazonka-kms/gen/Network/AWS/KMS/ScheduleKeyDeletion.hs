@@ -107,7 +107,7 @@ skdKeyId = lens _skdKeyId (\ s a -> s{_skdKeyId = a});
 instance AWSRequest ScheduleKeyDeletion where
         type Rs ScheduleKeyDeletion =
              ScheduleKeyDeletionResponse
-        request = postJSON kMS
+        request = postJSON kms
         response
           = receiveJSON
               (\ s h x ->

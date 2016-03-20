@@ -100,7 +100,7 @@ instance AWSPager ListIdentities where
 
 instance AWSRequest ListIdentities where
         type Rs ListIdentities = ListIdentitiesResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "ListIdentitiesResult"
               (\ s h x ->

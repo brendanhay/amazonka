@@ -127,7 +127,7 @@ mdsaDBSnapshotIdentifier = lens _mdsaDBSnapshotIdentifier (\ s a -> s{_mdsaDBSna
 instance AWSRequest ModifyDBSnapshotAttribute where
         type Rs ModifyDBSnapshotAttribute =
              ModifyDBSnapshotAttributeResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "ModifyDBSnapshotAttributeResult"
               (\ s h x ->

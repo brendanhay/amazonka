@@ -69,7 +69,7 @@ uaPatchOperations = lens _uaPatchOperations (\ s a -> s{_uaPatchOperations = a})
 
 instance AWSRequest UpdateAccount where
         type Rs UpdateAccount = Account
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateAccount

@@ -93,7 +93,7 @@ instance AWSPager ListKeys where
 
 instance AWSRequest ListKeys where
         type Rs ListKeys = ListKeysResponse
-        request = postJSON kMS
+        request = postJSON kms
         response
           = receiveJSON
               (\ s h x ->

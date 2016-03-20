@@ -77,7 +77,7 @@ rhHostIds = lens _rhHostIds (\ s a -> s{_rhHostIds = a}) . _Coerce;
 
 instance AWSRequest ReleaseHosts where
         type Rs ReleaseHosts = ReleaseHostsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

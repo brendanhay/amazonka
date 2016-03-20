@@ -99,7 +99,7 @@ cvmdVirtualMFADeviceName = lens _cvmdVirtualMFADeviceName (\ s a -> s{_cvmdVirtu
 instance AWSRequest CreateVirtualMFADevice where
         type Rs CreateVirtualMFADevice =
              CreateVirtualMFADeviceResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "CreateVirtualMFADeviceResult"
               (\ s h x ->

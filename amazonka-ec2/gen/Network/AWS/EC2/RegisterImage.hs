@@ -209,7 +209,7 @@ riName = lens _riName (\ s a -> s{_riName = a});
 
 instance AWSRequest RegisterImage where
         type Rs RegisterImage = RegisterImageResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

@@ -81,7 +81,7 @@ drpRepositoryName = lens _drpRepositoryName (\ s a -> s{_drpRepositoryName = a})
 instance AWSRequest DeleteRepositoryPolicy where
         type Rs DeleteRepositoryPolicy =
              DeleteRepositoryPolicyResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

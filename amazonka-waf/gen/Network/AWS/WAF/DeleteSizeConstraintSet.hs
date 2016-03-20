@@ -93,7 +93,7 @@ dscsChangeToken = lens _dscsChangeToken (\ s a -> s{_dscsChangeToken = a});
 instance AWSRequest DeleteSizeConstraintSet where
         type Rs DeleteSizeConstraintSet =
              DeleteSizeConstraintSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

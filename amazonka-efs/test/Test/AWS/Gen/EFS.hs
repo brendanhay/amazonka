@@ -163,75 +163,75 @@ testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
 testDescribeTagsResponse = res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
-    eFS
+    efs
     (Proxy :: Proxy DescribeTags)
 
 testDescribeMountTargetsResponse :: DescribeMountTargetsResponse -> TestTree
 testDescribeMountTargetsResponse = res
     "DescribeMountTargetsResponse"
     "fixture/DescribeMountTargetsResponse.proto"
-    eFS
+    efs
     (Proxy :: Proxy DescribeMountTargets)
 
 testDescribeFileSystemsResponse :: DescribeFileSystemsResponse -> TestTree
 testDescribeFileSystemsResponse = res
     "DescribeFileSystemsResponse"
     "fixture/DescribeFileSystemsResponse.proto"
-    eFS
+    efs
     (Proxy :: Proxy DescribeFileSystems)
 
 testDeleteMountTargetResponse :: DeleteMountTargetResponse -> TestTree
 testDeleteMountTargetResponse = res
     "DeleteMountTargetResponse"
     "fixture/DeleteMountTargetResponse.proto"
-    eFS
+    efs
     (Proxy :: Proxy DeleteMountTarget)
 
 testCreateTagsResponse :: CreateTagsResponse -> TestTree
 testCreateTagsResponse = res
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
-    eFS
+    efs
     (Proxy :: Proxy CreateTags)
 
 testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
 testDeleteTagsResponse = res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
-    eFS
+    efs
     (Proxy :: Proxy DeleteTags)
 
 testDescribeMountTargetSecurityGroupsResponse :: DescribeMountTargetSecurityGroupsResponse -> TestTree
 testDescribeMountTargetSecurityGroupsResponse = res
     "DescribeMountTargetSecurityGroupsResponse"
     "fixture/DescribeMountTargetSecurityGroupsResponse.proto"
-    eFS
+    efs
     (Proxy :: Proxy DescribeMountTargetSecurityGroups)
 
 testModifyMountTargetSecurityGroupsResponse :: ModifyMountTargetSecurityGroupsResponse -> TestTree
 testModifyMountTargetSecurityGroupsResponse = res
     "ModifyMountTargetSecurityGroupsResponse"
     "fixture/ModifyMountTargetSecurityGroupsResponse.proto"
-    eFS
+    efs
     (Proxy :: Proxy ModifyMountTargetSecurityGroups)
 
 testCreateFileSystemResponse :: FileSystemDescription -> TestTree
 testCreateFileSystemResponse = res
     "CreateFileSystemResponse"
     "fixture/CreateFileSystemResponse.proto"
-    eFS
+    efs
     (Proxy :: Proxy CreateFileSystem)
 
 testDeleteFileSystemResponse :: DeleteFileSystemResponse -> TestTree
 testDeleteFileSystemResponse = res
     "DeleteFileSystemResponse"
     "fixture/DeleteFileSystemResponse.proto"
-    eFS
+    efs
     (Proxy :: Proxy DeleteFileSystem)
 
 testCreateMountTargetResponse :: MountTargetDescription -> TestTree
 testCreateMountTargetResponse = res
     "CreateMountTargetResponse"
     "fixture/CreateMountTargetResponse.proto"
-    eFS
+    efs
     (Proxy :: Proxy CreateMountTarget)

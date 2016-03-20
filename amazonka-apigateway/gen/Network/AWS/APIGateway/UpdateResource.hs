@@ -91,7 +91,7 @@ urResourceId = lens _urResourceId (\ s a -> s{_urResourceId = a});
 
 instance AWSRequest UpdateResource where
         type Rs UpdateResource = Resource
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateResource

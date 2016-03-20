@@ -79,7 +79,7 @@ instance AWSPager ListTopics where
 
 instance AWSRequest ListTopics where
         type Rs ListTopics = ListTopicsResponse
-        request = postQuery sNS
+        request = postQuery sns
         response
           = receiveXMLWrapper "ListTopicsResult"
               (\ s h x ->

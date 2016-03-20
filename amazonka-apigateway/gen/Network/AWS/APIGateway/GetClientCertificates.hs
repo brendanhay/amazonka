@@ -86,7 +86,7 @@ instance AWSPager GetClientCertificates where
 instance AWSRequest GetClientCertificates where
         type Rs GetClientCertificates =
              GetClientCertificatesResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

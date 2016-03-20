@@ -21,7 +21,7 @@
 module Network.AWS.APIGateway
     (
     -- * Service Configuration
-      aPIGateway
+      apiGateway
 
     -- * Errors
     -- $errors

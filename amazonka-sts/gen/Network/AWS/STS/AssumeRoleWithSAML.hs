@@ -194,7 +194,7 @@ arwsamlSAMLAssertion = lens _arwsamlSAMLAssertion (\ s a -> s{_arwsamlSAMLAssert
 instance AWSRequest AssumeRoleWithSAML where
         type Rs AssumeRoleWithSAML =
              AssumeRoleWithSAMLResponse
-        request = postQuery sTS
+        request = postQuery sts
         response
           = receiveXMLWrapper "AssumeRoleWithSAMLResult"
               (\ s h x ->

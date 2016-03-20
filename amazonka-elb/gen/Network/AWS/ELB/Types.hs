@@ -13,7 +13,7 @@
 module Network.AWS.ELB.Types
     (
     -- * Service Configuration
-      eLB
+      elb
 
     -- * Errors
     , _PolicyNotFoundException
@@ -223,14 +223,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
 -- | API version '2012-06-01' of the Amazon Elastic Load Balancing SDK configuration.
-eLB :: Service
-eLB =
+elb :: Service
+elb =
     Service
     { _svcAbbrev = "ELB"
     , _svcSigner = v4
     , _svcPrefix = "elasticloadbalancing"
     , _svcVersion = "2012-06-01"
-    , _svcEndpoint = defaultEndpoint eLB
+    , _svcEndpoint = defaultEndpoint elb
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseXMLError

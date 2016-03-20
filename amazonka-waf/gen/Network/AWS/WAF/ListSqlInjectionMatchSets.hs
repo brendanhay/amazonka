@@ -90,7 +90,7 @@ lsimsLimit = lens _lsimsLimit (\ s a -> s{_lsimsLimit = a}) . _Nat;
 instance AWSRequest ListSqlInjectionMatchSets where
         type Rs ListSqlInjectionMatchSets =
              ListSqlInjectionMatchSetsResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

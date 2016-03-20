@@ -87,7 +87,7 @@ instance AWSRequest ModifyReplicationSubnetGroup
          where
         type Rs ModifyReplicationSubnetGroup =
              ModifyReplicationSubnetGroupResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

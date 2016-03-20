@@ -867,523 +867,523 @@ testGetResourceResponse :: Resource -> TestTree
 testGetResourceResponse = res
     "GetResourceResponse"
     "fixture/GetResourceResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetResource)
 
 testGetDeploymentsResponse :: GetDeploymentsResponse -> TestTree
 testGetDeploymentsResponse = res
     "GetDeploymentsResponse"
     "fixture/GetDeploymentsResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetDeployments)
 
 testGetDeploymentResponse :: Deployment -> TestTree
 testGetDeploymentResponse = res
     "GetDeploymentResponse"
     "fixture/GetDeploymentResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetDeployment)
 
 testGetDomainNamesResponse :: GetDomainNamesResponse -> TestTree
 testGetDomainNamesResponse = res
     "GetDomainNamesResponse"
     "fixture/GetDomainNamesResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetDomainNames)
 
 testGetClientCertificateResponse :: ClientCertificate -> TestTree
 testGetClientCertificateResponse = res
     "GetClientCertificateResponse"
     "fixture/GetClientCertificateResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetClientCertificate)
 
 testGetMethodResponseResponse :: MethodResponse -> TestTree
 testGetMethodResponseResponse = res
     "GetMethodResponseResponse"
     "fixture/GetMethodResponseResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetMethodResponse)
 
 testGetModelsResponse :: GetModelsResponse -> TestTree
 testGetModelsResponse = res
     "GetModelsResponse"
     "fixture/GetModelsResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetModels)
 
 testGetBasePathMappingResponse :: BasePathMapping -> TestTree
 testGetBasePathMappingResponse = res
     "GetBasePathMappingResponse"
     "fixture/GetBasePathMappingResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetBasePathMapping)
 
 testPutMethodResponseResponse :: MethodResponse -> TestTree
 testPutMethodResponseResponse = res
     "PutMethodResponseResponse"
     "fixture/PutMethodResponseResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy PutMethodResponse)
 
 testDeleteMethodResponseResponse :: DeleteMethodResponseResponse -> TestTree
 testDeleteMethodResponseResponse = res
     "DeleteMethodResponseResponse"
     "fixture/DeleteMethodResponseResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteMethodResponse)
 
 testUpdateMethodResponseResponse :: MethodResponse -> TestTree
 testUpdateMethodResponseResponse = res
     "UpdateMethodResponseResponse"
     "fixture/UpdateMethodResponseResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateMethodResponse)
 
 testDeleteStageResponse :: DeleteStageResponse -> TestTree
 testDeleteStageResponse = res
     "DeleteStageResponse"
     "fixture/DeleteStageResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteStage)
 
 testUpdateStageResponse :: Stage -> TestTree
 testUpdateStageResponse = res
     "UpdateStageResponse"
     "fixture/UpdateStageResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateStage)
 
 testGetRestAPIsResponse :: GetRestAPIsResponse -> TestTree
 testGetRestAPIsResponse = res
     "GetRestAPIsResponse"
     "fixture/GetRestAPIsResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetRestAPIs)
 
 testCreateDeploymentResponse :: Deployment -> TestTree
 testCreateDeploymentResponse = res
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy CreateDeployment)
 
 testCreateBasePathMappingResponse :: BasePathMapping -> TestTree
 testCreateBasePathMappingResponse = res
     "CreateBasePathMappingResponse"
     "fixture/CreateBasePathMappingResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy CreateBasePathMapping)
 
 testGetIntegrationResponse :: Integration -> TestTree
 testGetIntegrationResponse = res
     "GetIntegrationResponse"
     "fixture/GetIntegrationResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetIntegration)
 
 testUpdateAccountResponse :: Account -> TestTree
 testUpdateAccountResponse = res
     "UpdateAccountResponse"
     "fixture/UpdateAccountResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateAccount)
 
 testDeleteDeploymentResponse :: DeleteDeploymentResponse -> TestTree
 testDeleteDeploymentResponse = res
     "DeleteDeploymentResponse"
     "fixture/DeleteDeploymentResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteDeployment)
 
 testUpdateDeploymentResponse :: Deployment -> TestTree
 testUpdateDeploymentResponse = res
     "UpdateDeploymentResponse"
     "fixture/UpdateDeploymentResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateDeployment)
 
 testDeleteResourceResponse :: DeleteResourceResponse -> TestTree
 testDeleteResourceResponse = res
     "DeleteResourceResponse"
     "fixture/DeleteResourceResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteResource)
 
 testUpdateResourceResponse :: Resource -> TestTree
 testUpdateResourceResponse = res
     "UpdateResourceResponse"
     "fixture/UpdateResourceResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateResource)
 
 testCreateModelResponse :: Model -> TestTree
 testCreateModelResponse = res
     "CreateModelResponse"
     "fixture/CreateModelResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy CreateModel)
 
 testGetIntegrationResponseResponse :: IntegrationResponse -> TestTree
 testGetIntegrationResponseResponse = res
     "GetIntegrationResponseResponse"
     "fixture/GetIntegrationResponseResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetIntegrationResponse)
 
 testCreateDomainNameResponse :: DomainName -> TestTree
 testCreateDomainNameResponse = res
     "CreateDomainNameResponse"
     "fixture/CreateDomainNameResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy CreateDomainName)
 
 testFlushStageAuthorizersCacheResponse :: FlushStageAuthorizersCacheResponse -> TestTree
 testFlushStageAuthorizersCacheResponse = res
     "FlushStageAuthorizersCacheResponse"
     "fixture/FlushStageAuthorizersCacheResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy FlushStageAuthorizersCache)
 
 testDeleteModelResponse :: DeleteModelResponse -> TestTree
 testDeleteModelResponse = res
     "DeleteModelResponse"
     "fixture/DeleteModelResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteModel)
 
 testUpdateModelResponse :: Model -> TestTree
 testUpdateModelResponse = res
     "UpdateModelResponse"
     "fixture/UpdateModelResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateModel)
 
 testDeleteAPIKeyResponse :: DeleteAPIKeyResponse -> TestTree
 testDeleteAPIKeyResponse = res
     "DeleteAPIKeyResponse"
     "fixture/DeleteAPIKeyResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteAPIKey)
 
 testUpdateAPIKeyResponse :: APIKey -> TestTree
 testUpdateAPIKeyResponse = res
     "UpdateAPIKeyResponse"
     "fixture/UpdateAPIKeyResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateAPIKey)
 
 testGetRestAPIResponse :: RestAPI -> TestTree
 testGetRestAPIResponse = res
     "GetRestAPIResponse"
     "fixture/GetRestAPIResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetRestAPI)
 
 testGetStagesResponse :: GetStagesResponse -> TestTree
 testGetStagesResponse = res
     "GetStagesResponse"
     "fixture/GetStagesResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetStages)
 
 testGetMethodResponse :: Method -> TestTree
 testGetMethodResponse = res
     "GetMethodResponse"
     "fixture/GetMethodResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetMethod)
 
 testGetModelResponse :: Model -> TestTree
 testGetModelResponse = res
     "GetModelResponse"
     "fixture/GetModelResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetModel)
 
 testUpdateRestAPIResponse :: RestAPI -> TestTree
 testUpdateRestAPIResponse = res
     "UpdateRestAPIResponse"
     "fixture/UpdateRestAPIResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateRestAPI)
 
 testDeleteRestAPIResponse :: DeleteRestAPIResponse -> TestTree
 testDeleteRestAPIResponse = res
     "DeleteRestAPIResponse"
     "fixture/DeleteRestAPIResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteRestAPI)
 
 testTestInvokeMethodResponse :: TestInvokeMethodResponse -> TestTree
 testTestInvokeMethodResponse = res
     "TestInvokeMethodResponse"
     "fixture/TestInvokeMethodResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy TestInvokeMethod)
 
 testGetDomainNameResponse :: DomainName -> TestTree
 testGetDomainNameResponse = res
     "GetDomainNameResponse"
     "fixture/GetDomainNameResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetDomainName)
 
 testGetAuthorizersResponse :: GetAuthorizersResponse -> TestTree
 testGetAuthorizersResponse = res
     "GetAuthorizersResponse"
     "fixture/GetAuthorizersResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetAuthorizers)
 
 testPutIntegrationResponseResponse :: IntegrationResponse -> TestTree
 testPutIntegrationResponseResponse = res
     "PutIntegrationResponseResponse"
     "fixture/PutIntegrationResponseResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy PutIntegrationResponse)
 
 testFlushStageCacheResponse :: FlushStageCacheResponse -> TestTree
 testFlushStageCacheResponse = res
     "FlushStageCacheResponse"
     "fixture/FlushStageCacheResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy FlushStageCache)
 
 testCreateRestAPIResponse :: RestAPI -> TestTree
 testCreateRestAPIResponse = res
     "CreateRestAPIResponse"
     "fixture/CreateRestAPIResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy CreateRestAPI)
 
 testDeleteIntegrationResponseResponse :: DeleteIntegrationResponseResponse -> TestTree
 testDeleteIntegrationResponseResponse = res
     "DeleteIntegrationResponseResponse"
     "fixture/DeleteIntegrationResponseResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteIntegrationResponse)
 
 testUpdateIntegrationResponseResponse :: IntegrationResponse -> TestTree
 testUpdateIntegrationResponseResponse = res
     "UpdateIntegrationResponseResponse"
     "fixture/UpdateIntegrationResponseResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateIntegrationResponse)
 
 testDeleteIntegrationResponse :: DeleteIntegrationResponse' -> TestTree
 testDeleteIntegrationResponse = res
     "DeleteIntegrationResponse"
     "fixture/DeleteIntegrationResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteIntegration)
 
 testUpdateIntegrationResponse :: Integration -> TestTree
 testUpdateIntegrationResponse = res
     "UpdateIntegrationResponse"
     "fixture/UpdateIntegrationResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateIntegration)
 
 testTestInvokeAuthorizerResponse :: TestInvokeAuthorizerResponse -> TestTree
 testTestInvokeAuthorizerResponse = res
     "TestInvokeAuthorizerResponse"
     "fixture/TestInvokeAuthorizerResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy TestInvokeAuthorizer)
 
 testGenerateClientCertificateResponse :: ClientCertificate -> TestTree
 testGenerateClientCertificateResponse = res
     "GenerateClientCertificateResponse"
     "fixture/GenerateClientCertificateResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GenerateClientCertificate)
 
 testGetResourcesResponse :: GetResourcesResponse -> TestTree
 testGetResourcesResponse = res
     "GetResourcesResponse"
     "fixture/GetResourcesResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetResources)
 
 testGetAccountResponse :: Account -> TestTree
 testGetAccountResponse = res
     "GetAccountResponse"
     "fixture/GetAccountResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetAccount)
 
 testPutIntegrationResponse :: Integration -> TestTree
 testPutIntegrationResponse = res
     "PutIntegrationResponse"
     "fixture/PutIntegrationResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy PutIntegration)
 
 testGetAuthorizerResponse :: Authorizer -> TestTree
 testGetAuthorizerResponse = res
     "GetAuthorizerResponse"
     "fixture/GetAuthorizerResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetAuthorizer)
 
 testGetStageResponse :: Stage -> TestTree
 testGetStageResponse = res
     "GetStageResponse"
     "fixture/GetStageResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetStage)
 
 testGetExportResponse :: GetExportResponse -> TestTree
 testGetExportResponse = res
     "GetExportResponse"
     "fixture/GetExportResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetExport)
 
 testGetSDKResponse :: GetSDKResponse -> TestTree
 testGetSDKResponse = res
     "GetSDKResponse"
     "fixture/GetSDKResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetSDK)
 
 testGetAPIKeysResponse :: GetAPIKeysResponse -> TestTree
 testGetAPIKeysResponse = res
     "GetAPIKeysResponse"
     "fixture/GetAPIKeysResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetAPIKeys)
 
 testDeleteBasePathMappingResponse :: DeleteBasePathMappingResponse -> TestTree
 testDeleteBasePathMappingResponse = res
     "DeleteBasePathMappingResponse"
     "fixture/DeleteBasePathMappingResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteBasePathMapping)
 
 testUpdateBasePathMappingResponse :: BasePathMapping -> TestTree
 testUpdateBasePathMappingResponse = res
     "UpdateBasePathMappingResponse"
     "fixture/UpdateBasePathMappingResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateBasePathMapping)
 
 testDeleteClientCertificateResponse :: DeleteClientCertificateResponse -> TestTree
 testDeleteClientCertificateResponse = res
     "DeleteClientCertificateResponse"
     "fixture/DeleteClientCertificateResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteClientCertificate)
 
 testUpdateClientCertificateResponse :: ClientCertificate -> TestTree
 testUpdateClientCertificateResponse = res
     "UpdateClientCertificateResponse"
     "fixture/UpdateClientCertificateResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateClientCertificate)
 
 testCreateAuthorizerResponse :: Authorizer -> TestTree
 testCreateAuthorizerResponse = res
     "CreateAuthorizerResponse"
     "fixture/CreateAuthorizerResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy CreateAuthorizer)
 
 testUpdateAuthorizerResponse :: Authorizer -> TestTree
 testUpdateAuthorizerResponse = res
     "UpdateAuthorizerResponse"
     "fixture/UpdateAuthorizerResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateAuthorizer)
 
 testDeleteAuthorizerResponse :: DeleteAuthorizerResponse -> TestTree
 testDeleteAuthorizerResponse = res
     "DeleteAuthorizerResponse"
     "fixture/DeleteAuthorizerResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteAuthorizer)
 
 testCreateStageResponse :: Stage -> TestTree
 testCreateStageResponse = res
     "CreateStageResponse"
     "fixture/CreateStageResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy CreateStage)
 
 testCreateAPIKeyResponse :: APIKey -> TestTree
 testCreateAPIKeyResponse = res
     "CreateAPIKeyResponse"
     "fixture/CreateAPIKeyResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy CreateAPIKey)
 
 testPutMethodResponse :: Method -> TestTree
 testPutMethodResponse = res
     "PutMethodResponse"
     "fixture/PutMethodResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy PutMethod)
 
 testUpdateDomainNameResponse :: DomainName -> TestTree
 testUpdateDomainNameResponse = res
     "UpdateDomainNameResponse"
     "fixture/UpdateDomainNameResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateDomainName)
 
 testDeleteDomainNameResponse :: DeleteDomainNameResponse -> TestTree
 testDeleteDomainNameResponse = res
     "DeleteDomainNameResponse"
     "fixture/DeleteDomainNameResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteDomainName)
 
 testCreateResourceResponse :: Resource -> TestTree
 testCreateResourceResponse = res
     "CreateResourceResponse"
     "fixture/CreateResourceResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy CreateResource)
 
 testDeleteMethodResponse :: DeleteMethodResponse' -> TestTree
 testDeleteMethodResponse = res
     "DeleteMethodResponse"
     "fixture/DeleteMethodResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy DeleteMethod)
 
 testUpdateMethodResponse :: Method -> TestTree
 testUpdateMethodResponse = res
     "UpdateMethodResponse"
     "fixture/UpdateMethodResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy UpdateMethod)
 
 testGetClientCertificatesResponse :: GetClientCertificatesResponse -> TestTree
 testGetClientCertificatesResponse = res
     "GetClientCertificatesResponse"
     "fixture/GetClientCertificatesResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetClientCertificates)
 
 testGetModelTemplateResponse :: GetModelTemplateResponse -> TestTree
 testGetModelTemplateResponse = res
     "GetModelTemplateResponse"
     "fixture/GetModelTemplateResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetModelTemplate)
 
 testGetBasePathMappingsResponse :: GetBasePathMappingsResponse -> TestTree
 testGetBasePathMappingsResponse = res
     "GetBasePathMappingsResponse"
     "fixture/GetBasePathMappingsResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetBasePathMappings)
 
 testGetAPIKeyResponse :: APIKey -> TestTree
 testGetAPIKeyResponse = res
     "GetAPIKeyResponse"
     "fixture/GetAPIKeyResponse.proto"
-    aPIGateway
+    apiGateway
     (Proxy :: Proxy GetAPIKey)

@@ -162,7 +162,7 @@ rsgeGroupId = lens _rsgeGroupId (\ s a -> s{_rsgeGroupId = a});
 instance AWSRequest RevokeSecurityGroupEgress where
         type Rs RevokeSecurityGroupEgress =
              RevokeSecurityGroupEgressResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull RevokeSecurityGroupEgressResponse'
 

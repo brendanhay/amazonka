@@ -88,7 +88,7 @@ matvPublicIP = lens _matvPublicIP (\ s a -> s{_matvPublicIP = a});
 
 instance AWSRequest MoveAddressToVPC where
         type Rs MoveAddressToVPC = MoveAddressToVPCResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

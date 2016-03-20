@@ -94,7 +94,7 @@ cpgStrategy = lens _cpgStrategy (\ s a -> s{_cpgStrategy = a});
 instance AWSRequest CreatePlacementGroup where
         type Rs CreatePlacementGroup =
              CreatePlacementGroupResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull CreatePlacementGroupResponse'
 
 instance Hashable CreatePlacementGroup

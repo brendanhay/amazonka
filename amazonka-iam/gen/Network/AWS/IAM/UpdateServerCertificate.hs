@@ -105,7 +105,7 @@ uServerCertificateName = lens _uServerCertificateName (\ s a -> s{_uServerCertif
 instance AWSRequest UpdateServerCertificate where
         type Rs UpdateServerCertificate =
              UpdateServerCertificateResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveNull UpdateServerCertificateResponse'
 

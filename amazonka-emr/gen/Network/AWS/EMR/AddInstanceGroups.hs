@@ -78,7 +78,7 @@ aigJobFlowId = lens _aigJobFlowId (\ s a -> s{_aigJobFlowId = a});
 
 instance AWSRequest AddInstanceGroups where
         type Rs AddInstanceGroups = AddInstanceGroupsResponse
-        request = postJSON eMR
+        request = postJSON emr
         response
           = receiveJSON
               (\ s h x ->

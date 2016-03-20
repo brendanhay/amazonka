@@ -92,7 +92,7 @@ pkpPolicy = lens _pkpPolicy (\ s a -> s{_pkpPolicy = a});
 
 instance AWSRequest PutKeyPolicy where
         type Rs PutKeyPolicy = PutKeyPolicyResponse
-        request = postJSON kMS
+        request = postJSON kms
         response = receiveNull PutKeyPolicyResponse'
 
 instance Hashable PutKeyPolicy

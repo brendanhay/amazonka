@@ -77,7 +77,7 @@ daInstanceId = lens _daInstanceId (\ s a -> s{_daInstanceId = a});
 instance AWSRequest DescribeAssociation where
         type Rs DescribeAssociation =
              DescribeAssociationResponse
-        request = postJSON sSM
+        request = postJSON ssm
         response
           = receiveJSON
               (\ s h x ->

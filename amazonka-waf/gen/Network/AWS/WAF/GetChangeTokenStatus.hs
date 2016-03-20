@@ -76,7 +76,7 @@ gctsChangeToken = lens _gctsChangeToken (\ s a -> s{_gctsChangeToken = a});
 instance AWSRequest GetChangeTokenStatus where
         type Rs GetChangeTokenStatus =
              GetChangeTokenStatusResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

@@ -81,7 +81,7 @@ dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerIns
 instance AWSRequest DescribeContainerInstances where
         type Rs DescribeContainerInstances =
              DescribeContainerInstancesResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

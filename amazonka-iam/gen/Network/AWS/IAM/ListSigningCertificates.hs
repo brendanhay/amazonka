@@ -117,7 +117,7 @@ instance AWSPager ListSigningCertificates where
 instance AWSRequest ListSigningCertificates where
         type Rs ListSigningCertificates =
              ListSigningCertificatesResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListSigningCertificatesResult"
               (\ s h x ->

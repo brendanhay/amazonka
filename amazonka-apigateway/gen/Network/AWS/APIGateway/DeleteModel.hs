@@ -75,7 +75,7 @@ dModelName = lens _dModelName (\ s a -> s{_dModelName = a});
 
 instance AWSRequest DeleteModel where
         type Rs DeleteModel = DeleteModelResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull DeleteModelResponse'
 
 instance Hashable DeleteModel

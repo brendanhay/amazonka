@@ -84,7 +84,7 @@ gaaAuthorizerId = lens _gaaAuthorizerId (\ s a -> s{_gaaAuthorizerId = a});
 
 instance AWSRequest GetAuthorizer where
         type Rs GetAuthorizer = Authorizer
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetAuthorizer

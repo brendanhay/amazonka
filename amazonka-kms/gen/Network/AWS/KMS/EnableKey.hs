@@ -69,7 +69,7 @@ ekKeyId = lens _ekKeyId (\ s a -> s{_ekKeyId = a});
 
 instance AWSRequest EnableKey where
         type Rs EnableKey = EnableKeyResponse
-        request = postJSON kMS
+        request = postJSON kms
         response = receiveNull EnableKeyResponse'
 
 instance Hashable EnableKey

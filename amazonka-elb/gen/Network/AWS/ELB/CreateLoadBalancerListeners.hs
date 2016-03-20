@@ -82,7 +82,7 @@ clblListeners = lens _clblListeners (\ s a -> s{_clblListeners = a}) . _Coerce;
 instance AWSRequest CreateLoadBalancerListeners where
         type Rs CreateLoadBalancerListeners =
              CreateLoadBalancerListenersResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper
               "CreateLoadBalancerListenersResult"

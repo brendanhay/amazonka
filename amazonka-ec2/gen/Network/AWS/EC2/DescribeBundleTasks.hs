@@ -118,7 +118,7 @@ dbtDryRun = lens _dbtDryRun (\ s a -> s{_dbtDryRun = a});
 instance AWSRequest DescribeBundleTasks where
         type Rs DescribeBundleTasks =
              DescribeBundleTasksResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

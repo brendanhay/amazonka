@@ -78,7 +78,7 @@ diImageId = lens _diImageId (\ s a -> s{_diImageId = a});
 
 instance AWSRequest DeregisterImage where
         type Rs DeregisterImage = DeregisterImageResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeregisterImageResponse'
 
 instance Hashable DeregisterImage

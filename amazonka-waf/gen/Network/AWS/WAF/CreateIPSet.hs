@@ -98,7 +98,7 @@ cisChangeToken = lens _cisChangeToken (\ s a -> s{_cisChangeToken = a});
 
 instance AWSRequest CreateIPSet where
         type Rs CreateIPSet = CreateIPSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

@@ -89,7 +89,7 @@ ubpmBasePath = lens _ubpmBasePath (\ s a -> s{_ubpmBasePath = a});
 
 instance AWSRequest UpdateBasePathMapping where
         type Rs UpdateBasePathMapping = BasePathMapping
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateBasePathMapping

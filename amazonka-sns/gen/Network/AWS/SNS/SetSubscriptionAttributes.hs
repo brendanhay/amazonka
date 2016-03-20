@@ -89,7 +89,7 @@ ssaAttributeName = lens _ssaAttributeName (\ s a -> s{_ssaAttributeName = a});
 instance AWSRequest SetSubscriptionAttributes where
         type Rs SetSubscriptionAttributes =
              SetSubscriptionAttributesResponse
-        request = postQuery sNS
+        request = postQuery sns
         response
           = receiveNull SetSubscriptionAttributesResponse'
 

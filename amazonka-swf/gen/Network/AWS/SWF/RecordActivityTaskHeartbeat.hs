@@ -128,7 +128,7 @@ rathTaskToken = lens _rathTaskToken (\ s a -> s{_rathTaskToken = a});
 instance AWSRequest RecordActivityTaskHeartbeat where
         type Rs RecordActivityTaskHeartbeat =
              RecordActivityTaskHeartbeatResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveJSON
               (\ s h x ->

@@ -75,7 +75,7 @@ cabEntries = lens _cabEntries (\ s a -> s{_cabEntries = a}) . _Coerce;
 instance AWSRequest CreateAssociationBatch where
         type Rs CreateAssociationBatch =
              CreateAssociationBatchResponse
-        request = postJSON sSM
+        request = postJSON ssm
         response
           = receiveJSON
               (\ s h x ->

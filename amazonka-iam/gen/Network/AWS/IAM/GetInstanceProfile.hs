@@ -72,7 +72,7 @@ gipInstanceProfileName = lens _gipInstanceProfileName (\ s a -> s{_gipInstancePr
 instance AWSRequest GetInstanceProfile where
         type Rs GetInstanceProfile =
              GetInstanceProfileResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "GetInstanceProfileResult"
               (\ s h x ->

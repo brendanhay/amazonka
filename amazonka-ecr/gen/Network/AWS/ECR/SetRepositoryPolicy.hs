@@ -103,7 +103,7 @@ srpPolicyText = lens _srpPolicyText (\ s a -> s{_srpPolicyText = a});
 instance AWSRequest SetRepositoryPolicy where
         type Rs SetRepositoryPolicy =
              SetRepositoryPolicyResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

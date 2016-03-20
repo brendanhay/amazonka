@@ -86,7 +86,7 @@ aaDryRun = lens _aaDryRun (\ s a -> s{_aaDryRun = a});
 
 instance AWSRequest AllocateAddress where
         type Rs AllocateAddress = AllocateAddressResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

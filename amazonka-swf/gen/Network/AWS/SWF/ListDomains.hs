@@ -144,7 +144,7 @@ instance AWSPager ListDomains where
 
 instance AWSRequest ListDomains where
         type Rs ListDomains = ListDomainsResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveJSON
               (\ s h x ->

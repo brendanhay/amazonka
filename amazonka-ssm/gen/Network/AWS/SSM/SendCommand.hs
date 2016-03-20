@@ -127,7 +127,7 @@ scDocumentName = lens _scDocumentName (\ s a -> s{_scDocumentName = a});
 
 instance AWSRequest SendCommand where
         type Rs SendCommand = SendCommandResponse
-        request = postJSON sSM
+        request = postJSON ssm
         response
           = receiveJSON
               (\ s h x ->

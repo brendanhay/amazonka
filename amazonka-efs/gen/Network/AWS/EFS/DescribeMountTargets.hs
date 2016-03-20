@@ -110,7 +110,7 @@ dmtMountTargetId = lens _dmtMountTargetId (\ s a -> s{_dmtMountTargetId = a});
 instance AWSRequest DescribeMountTargets where
         type Rs DescribeMountTargets =
              DescribeMountTargetsResponse
-        request = get eFS
+        request = get efs
         response
           = receiveJSON
               (\ s h x ->

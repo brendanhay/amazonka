@@ -39,7 +39,6 @@ import           Data.List              (nub)
 import           Data.Maybe
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
-import           Data.Text.Manipulate   (lowerHead)
 import           Gen.Text
 import           Gen.TH
 import           Gen.Types.Ann
@@ -402,6 +401,7 @@ instance ToJSON a => ToJSON (Operation Identity a b) where
 data Metadata f = Metadata
     { _protocol         :: !Protocol
     , _serviceAbbrev    :: Text
+    , _serviceConfig    :: Text
     , _serviceFullName  :: Text
     , _apiVersion       :: Text
     , _signatureVersion :: !Signature
@@ -419,7 +419,8 @@ instance FromJSON (Metadata Maybe) where
     parseJSON = withObject "meta" $ \o -> Metadata
         <$> o .:  "protocol"
         <*> o .:  "serviceAbbreviation"
-        <*> (o .: "serviceFullName" <&> renameService)
+        <*> (o .: "serviceAbbreviation" <&> serviceFunction)
+        <*> (o .: "serviceFullName"     <&> renameService)
         <*> o .:  "apiVersion"
         <*> o .:  "signatureVersion"
         <*> o .:  "endpointPrefix"
@@ -441,9 +442,6 @@ serviceError m =
         Query      -> "parseXMLError"
         EC2        -> "parseXMLError"
         APIGateway -> "parseJSONError"
-
-serviceFunction :: HasMetadata a f => a -> Text
-serviceFunction m = lowerHead (m ^. serviceAbbrev)
 
 data Service f a b c = Service
     { _metadata'     :: Metadata f

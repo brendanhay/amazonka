@@ -80,7 +80,7 @@ grpRepositoryName = lens _grpRepositoryName (\ s a -> s{_grpRepositoryName = a})
 instance AWSRequest GetRepositoryPolicy where
         type Rs GetRepositoryPolicy =
              GetRepositoryPolicyResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

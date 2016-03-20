@@ -88,7 +88,7 @@ cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstancePr
 instance AWSRequest CreateInstanceProfile where
         type Rs CreateInstanceProfile =
              CreateInstanceProfileResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "CreateInstanceProfileResult"
               (\ s h x ->

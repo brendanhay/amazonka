@@ -67,7 +67,7 @@ getChangeToken = GetChangeToken'
 
 instance AWSRequest GetChangeToken where
         type Rs GetChangeToken = GetChangeTokenResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

@@ -80,7 +80,7 @@ bdaItems = lens _bdaItems (\ s a -> s{_bdaItems = a}) . _Coerce;
 instance AWSRequest BatchDeleteAttributes where
         type Rs BatchDeleteAttributes =
              BatchDeleteAttributesResponse
-        request = postQuery sDB
+        request = postQuery sdb
         response = receiveNull BatchDeleteAttributesResponse'
 
 instance Hashable BatchDeleteAttributes

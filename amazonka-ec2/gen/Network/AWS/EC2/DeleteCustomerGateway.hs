@@ -77,7 +77,7 @@ dcgcCustomerGatewayId = lens _dcgcCustomerGatewayId (\ s a -> s{_dcgcCustomerGat
 instance AWSRequest DeleteCustomerGateway where
         type Rs DeleteCustomerGateway =
              DeleteCustomerGatewayResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeleteCustomerGatewayResponse'
 
 instance Hashable DeleteCustomerGateway

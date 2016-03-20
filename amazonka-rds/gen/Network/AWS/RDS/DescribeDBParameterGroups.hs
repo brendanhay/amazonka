@@ -124,7 +124,7 @@ instance AWSPager DescribeDBParameterGroups where
 instance AWSRequest DescribeDBParameterGroups where
         type Rs DescribeDBParameterGroups =
              DescribeDBParameterGroupsResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DescribeDBParameterGroupsResult"
               (\ s h x ->

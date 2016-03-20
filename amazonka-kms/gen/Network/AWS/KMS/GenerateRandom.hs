@@ -66,7 +66,7 @@ grNumberOfBytes = lens _grNumberOfBytes (\ s a -> s{_grNumberOfBytes = a}) . map
 
 instance AWSRequest GenerateRandom where
         type Rs GenerateRandom = GenerateRandomResponse
-        request = postJSON kMS
+        request = postJSON kms
         response
           = receiveJSON
               (\ s h x ->

@@ -82,7 +82,7 @@ dvvVolumeId = lens _dvvVolumeId (\ s a -> s{_dvvVolumeId = a});
 
 instance AWSRequest DeleteVolume where
         type Rs DeleteVolume = DeleteVolumeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeleteVolumeResponse'
 
 instance Hashable DeleteVolume

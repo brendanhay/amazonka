@@ -230,7 +230,7 @@ arwwiWebIdentityToken = lens _arwwiWebIdentityToken (\ s a -> s{_arwwiWebIdentit
 instance AWSRequest AssumeRoleWithWebIdentity where
         type Rs AssumeRoleWithWebIdentity =
              AssumeRoleWithWebIdentityResponse
-        request = postQuery sTS
+        request = postQuery sts
         response
           = receiveXMLWrapper "AssumeRoleWithWebIdentityResult"
               (\ s h x ->

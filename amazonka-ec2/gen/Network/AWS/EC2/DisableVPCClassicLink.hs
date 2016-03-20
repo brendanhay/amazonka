@@ -80,7 +80,7 @@ dvpcclVPCId = lens _dvpcclVPCId (\ s a -> s{_dvpcclVPCId = a});
 instance AWSRequest DisableVPCClassicLink where
         type Rs DisableVPCClassicLink =
              DisableVPCClassicLinkResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

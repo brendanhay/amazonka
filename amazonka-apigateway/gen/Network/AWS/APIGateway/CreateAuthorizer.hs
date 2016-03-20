@@ -140,7 +140,7 @@ caIdentitySource = lens _caIdentitySource (\ s a -> s{_caIdentitySource = a});
 
 instance AWSRequest CreateAuthorizer where
         type Rs CreateAuthorizer = Authorizer
-        request = postJSON aPIGateway
+        request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CreateAuthorizer

@@ -79,7 +79,7 @@ uccClientCertificateId = lens _uccClientCertificateId (\ s a -> s{_uccClientCert
 
 instance AWSRequest UpdateClientCertificate where
         type Rs UpdateClientCertificate = ClientCertificate
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateClientCertificate

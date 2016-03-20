@@ -107,7 +107,7 @@ instance AWSRequest RespondDecisionTaskCompleted
          where
         type Rs RespondDecisionTaskCompleted =
              RespondDecisionTaskCompletedResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveNull RespondDecisionTaskCompletedResponse'
 

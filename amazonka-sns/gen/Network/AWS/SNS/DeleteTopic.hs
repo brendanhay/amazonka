@@ -66,7 +66,7 @@ dtTopicARN = lens _dtTopicARN (\ s a -> s{_dtTopicARN = a});
 
 instance AWSRequest DeleteTopic where
         type Rs DeleteTopic = DeleteTopicResponse
-        request = postQuery sNS
+        request = postQuery sns
         response = receiveNull DeleteTopicResponse'
 
 instance Hashable DeleteTopic

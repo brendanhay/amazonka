@@ -116,7 +116,7 @@ ahAvailabilityZone = lens _ahAvailabilityZone (\ s a -> s{_ahAvailabilityZone = 
 
 instance AWSRequest AllocateHosts where
         type Rs AllocateHosts = AllocateHostsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

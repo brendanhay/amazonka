@@ -157,7 +157,7 @@ miaImageId = lens _miaImageId (\ s a -> s{_miaImageId = a});
 instance AWSRequest ModifyImageAttribute where
         type Rs ModifyImageAttribute =
              ModifyImageAttributeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull ModifyImageAttributeResponse'
 
 instance Hashable ModifyImageAttribute

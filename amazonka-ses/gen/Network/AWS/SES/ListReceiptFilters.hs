@@ -59,7 +59,7 @@ listReceiptFilters = ListReceiptFilters'
 instance AWSRequest ListReceiptFilters where
         type Rs ListReceiptFilters =
              ListReceiptFiltersResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "ListReceiptFiltersResult"
               (\ s h x ->

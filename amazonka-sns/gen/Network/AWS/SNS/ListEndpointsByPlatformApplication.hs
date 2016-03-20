@@ -103,7 +103,7 @@ instance AWSRequest
          ListEndpointsByPlatformApplication where
         type Rs ListEndpointsByPlatformApplication =
              ListEndpointsByPlatformApplicationResponse
-        request = postQuery sNS
+        request = postQuery sns
         response
           = receiveXMLWrapper
               "ListEndpointsByPlatformApplicationResult"

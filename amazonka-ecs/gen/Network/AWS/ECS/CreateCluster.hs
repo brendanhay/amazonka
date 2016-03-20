@@ -70,7 +70,7 @@ ccClusterName = lens _ccClusterName (\ s a -> s{_ccClusterName = a});
 
 instance AWSRequest CreateCluster where
         type Rs CreateCluster = CreateClusterResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

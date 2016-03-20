@@ -405,229 +405,229 @@ testGetSizeConstraintSetResponse :: GetSizeConstraintSetResponse -> TestTree
 testGetSizeConstraintSetResponse = res
     "GetSizeConstraintSetResponse"
     "fixture/GetSizeConstraintSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy GetSizeConstraintSet)
 
 testUpdateRuleResponse :: UpdateRuleResponse -> TestTree
 testUpdateRuleResponse = res
     "UpdateRuleResponse"
     "fixture/UpdateRuleResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy UpdateRule)
 
 testDeleteRuleResponse :: DeleteRuleResponse -> TestTree
 testDeleteRuleResponse = res
     "DeleteRuleResponse"
     "fixture/DeleteRuleResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy DeleteRule)
 
 testCreateIPSetResponse :: CreateIPSetResponse -> TestTree
 testCreateIPSetResponse = res
     "CreateIPSetResponse"
     "fixture/CreateIPSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy CreateIPSet)
 
 testGetChangeTokenStatusResponse :: GetChangeTokenStatusResponse -> TestTree
 testGetChangeTokenStatusResponse = res
     "GetChangeTokenStatusResponse"
     "fixture/GetChangeTokenStatusResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy GetChangeTokenStatus)
 
 testDeleteWebACLResponse :: DeleteWebACLResponse -> TestTree
 testDeleteWebACLResponse = res
     "DeleteWebACLResponse"
     "fixture/DeleteWebACLResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy DeleteWebACL)
 
 testUpdateWebACLResponse :: UpdateWebACLResponse -> TestTree
 testUpdateWebACLResponse = res
     "UpdateWebACLResponse"
     "fixture/UpdateWebACLResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy UpdateWebACL)
 
 testListWebACLsResponse :: ListWebACLsResponse -> TestTree
 testListWebACLsResponse = res
     "ListWebACLsResponse"
     "fixture/ListWebACLsResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy ListWebACLs)
 
 testListRulesResponse :: ListRulesResponse -> TestTree
 testListRulesResponse = res
     "ListRulesResponse"
     "fixture/ListRulesResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy ListRules)
 
 testCreateRuleResponse :: CreateRuleResponse -> TestTree
 testCreateRuleResponse = res
     "CreateRuleResponse"
     "fixture/CreateRuleResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy CreateRule)
 
 testCreateWebACLResponse :: CreateWebACLResponse -> TestTree
 testCreateWebACLResponse = res
     "CreateWebACLResponse"
     "fixture/CreateWebACLResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy CreateWebACL)
 
 testListByteMatchSetsResponse :: ListByteMatchSetsResponse -> TestTree
 testListByteMatchSetsResponse = res
     "ListByteMatchSetsResponse"
     "fixture/ListByteMatchSetsResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy ListByteMatchSets)
 
 testGetIPSetResponse :: GetIPSetResponse -> TestTree
 testGetIPSetResponse = res
     "GetIPSetResponse"
     "fixture/GetIPSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy GetIPSet)
 
 testGetWebACLResponse :: GetWebACLResponse -> TestTree
 testGetWebACLResponse = res
     "GetWebACLResponse"
     "fixture/GetWebACLResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy GetWebACL)
 
 testGetRuleResponse :: GetRuleResponse -> TestTree
 testGetRuleResponse = res
     "GetRuleResponse"
     "fixture/GetRuleResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy GetRule)
 
 testGetChangeTokenResponse :: GetChangeTokenResponse -> TestTree
 testGetChangeTokenResponse = res
     "GetChangeTokenResponse"
     "fixture/GetChangeTokenResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy GetChangeToken)
 
 testListSizeConstraintSetsResponse :: ListSizeConstraintSetsResponse -> TestTree
 testListSizeConstraintSetsResponse = res
     "ListSizeConstraintSetsResponse"
     "fixture/ListSizeConstraintSetsResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy ListSizeConstraintSets)
 
 testGetSampledRequestsResponse :: GetSampledRequestsResponse -> TestTree
 testGetSampledRequestsResponse = res
     "GetSampledRequestsResponse"
     "fixture/GetSampledRequestsResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy GetSampledRequests)
 
 testGetSqlInjectionMatchSetResponse :: GetSqlInjectionMatchSetResponse -> TestTree
 testGetSqlInjectionMatchSetResponse = res
     "GetSqlInjectionMatchSetResponse"
     "fixture/GetSqlInjectionMatchSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy GetSqlInjectionMatchSet)
 
 testCreateSqlInjectionMatchSetResponse :: CreateSqlInjectionMatchSetResponse -> TestTree
 testCreateSqlInjectionMatchSetResponse = res
     "CreateSqlInjectionMatchSetResponse"
     "fixture/CreateSqlInjectionMatchSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy CreateSqlInjectionMatchSet)
 
 testCreateByteMatchSetResponse :: CreateByteMatchSetResponse -> TestTree
 testCreateByteMatchSetResponse = res
     "CreateByteMatchSetResponse"
     "fixture/CreateByteMatchSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy CreateByteMatchSet)
 
 testUpdateByteMatchSetResponse :: UpdateByteMatchSetResponse -> TestTree
 testUpdateByteMatchSetResponse = res
     "UpdateByteMatchSetResponse"
     "fixture/UpdateByteMatchSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy UpdateByteMatchSet)
 
 testDeleteByteMatchSetResponse :: DeleteByteMatchSetResponse -> TestTree
 testDeleteByteMatchSetResponse = res
     "DeleteByteMatchSetResponse"
     "fixture/DeleteByteMatchSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy DeleteByteMatchSet)
 
 testDeleteIPSetResponse :: DeleteIPSetResponse -> TestTree
 testDeleteIPSetResponse = res
     "DeleteIPSetResponse"
     "fixture/DeleteIPSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy DeleteIPSet)
 
 testUpdateIPSetResponse :: UpdateIPSetResponse -> TestTree
 testUpdateIPSetResponse = res
     "UpdateIPSetResponse"
     "fixture/UpdateIPSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy UpdateIPSet)
 
 testListIPSetsResponse :: ListIPSetsResponse -> TestTree
 testListIPSetsResponse = res
     "ListIPSetsResponse"
     "fixture/ListIPSetsResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy ListIPSets)
 
 testGetByteMatchSetResponse :: GetByteMatchSetResponse -> TestTree
 testGetByteMatchSetResponse = res
     "GetByteMatchSetResponse"
     "fixture/GetByteMatchSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy GetByteMatchSet)
 
 testDeleteSizeConstraintSetResponse :: DeleteSizeConstraintSetResponse -> TestTree
 testDeleteSizeConstraintSetResponse = res
     "DeleteSizeConstraintSetResponse"
     "fixture/DeleteSizeConstraintSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy DeleteSizeConstraintSet)
 
 testUpdateSizeConstraintSetResponse :: UpdateSizeConstraintSetResponse -> TestTree
 testUpdateSizeConstraintSetResponse = res
     "UpdateSizeConstraintSetResponse"
     "fixture/UpdateSizeConstraintSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy UpdateSizeConstraintSet)
 
 testCreateSizeConstraintSetResponse :: CreateSizeConstraintSetResponse -> TestTree
 testCreateSizeConstraintSetResponse = res
     "CreateSizeConstraintSetResponse"
     "fixture/CreateSizeConstraintSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy CreateSizeConstraintSet)
 
 testListSqlInjectionMatchSetsResponse :: ListSqlInjectionMatchSetsResponse -> TestTree
 testListSqlInjectionMatchSetsResponse = res
     "ListSqlInjectionMatchSetsResponse"
     "fixture/ListSqlInjectionMatchSetsResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy ListSqlInjectionMatchSets)
 
 testDeleteSqlInjectionMatchSetResponse :: DeleteSqlInjectionMatchSetResponse -> TestTree
 testDeleteSqlInjectionMatchSetResponse = res
     "DeleteSqlInjectionMatchSetResponse"
     "fixture/DeleteSqlInjectionMatchSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy DeleteSqlInjectionMatchSet)
 
 testUpdateSqlInjectionMatchSetResponse :: UpdateSqlInjectionMatchSetResponse -> TestTree
 testUpdateSqlInjectionMatchSetResponse = res
     "UpdateSqlInjectionMatchSetResponse"
     "fixture/UpdateSqlInjectionMatchSetResponse.proto"
-    wAF
+    waf
     (Proxy :: Proxy UpdateSqlInjectionMatchSet)

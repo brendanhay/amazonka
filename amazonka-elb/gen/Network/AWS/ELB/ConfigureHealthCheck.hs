@@ -82,7 +82,7 @@ chcHealthCheck = lens _chcHealthCheck (\ s a -> s{_chcHealthCheck = a});
 instance AWSRequest ConfigureHealthCheck where
         type Rs ConfigureHealthCheck =
              ConfigureHealthCheckResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper "ConfigureHealthCheckResult"
               (\ s h x ->

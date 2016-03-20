@@ -131,7 +131,7 @@ cwaChangeToken = lens _cwaChangeToken (\ s a -> s{_cwaChangeToken = a});
 
 instance AWSRequest CreateWebACL where
         type Rs CreateWebACL = CreateWebACLResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

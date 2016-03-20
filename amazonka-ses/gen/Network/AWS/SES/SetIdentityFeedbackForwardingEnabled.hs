@@ -96,7 +96,7 @@ instance AWSRequest
          SetIdentityFeedbackForwardingEnabled where
         type Rs SetIdentityFeedbackForwardingEnabled =
              SetIdentityFeedbackForwardingEnabledResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper
               "SetIdentityFeedbackForwardingEnabledResult"

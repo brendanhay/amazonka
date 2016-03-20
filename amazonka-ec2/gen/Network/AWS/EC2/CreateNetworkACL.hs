@@ -84,7 +84,7 @@ cnaVPCId = lens _cnaVPCId (\ s a -> s{_cnaVPCId = a});
 
 instance AWSRequest CreateNetworkACL where
         type Rs CreateNetworkACL = CreateNetworkACLResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

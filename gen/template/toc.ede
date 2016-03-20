@@ -9,7 +9,7 @@
 module {{ moduleName }}
     (
     -- * Service Configuration
-      {{ serviceAbbrev | lowerHead }}
+      {{ serviceConfig }}
 
     -- * Errors
     -- $errors

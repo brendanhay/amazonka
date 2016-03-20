@@ -110,7 +110,7 @@ instance AWSPager ListInstances where
 
 instance AWSRequest ListInstances where
         type Rs ListInstances = ListInstancesResponse
-        request = postJSON eMR
+        request = postJSON emr
         response
           = receiveJSON
               (\ s h x ->

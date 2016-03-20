@@ -134,7 +134,7 @@ rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a})
 instance AWSRequest RegisterContainerInstance where
         type Rs RegisterContainerInstance =
              RegisterContainerInstanceResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

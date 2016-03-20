@@ -83,7 +83,7 @@ atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce;
 
 instance AWSRequest AddTags where
         type Rs AddTags = AddTagsResponse
-        request = postJSON eMR
+        request = postJSON emr
         response
           = receiveEmpty
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))

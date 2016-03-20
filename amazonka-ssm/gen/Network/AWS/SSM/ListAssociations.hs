@@ -99,7 +99,7 @@ instance AWSPager ListAssociations where
 
 instance AWSRequest ListAssociations where
         type Rs ListAssociations = ListAssociationsResponse
-        request = postJSON sSM
+        request = postJSON ssm
         response
           = receiveJSON
               (\ s h x ->

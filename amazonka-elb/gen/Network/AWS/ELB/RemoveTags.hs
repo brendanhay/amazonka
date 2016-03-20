@@ -75,7 +75,7 @@ rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . _List1;
 
 instance AWSRequest RemoveTags where
         type Rs RemoveTags = RemoveTagsResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper "RemoveTagsResult"
               (\ s h x ->

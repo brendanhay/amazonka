@@ -119,7 +119,7 @@ dmaMaxResults = lens _dmaMaxResults (\ s a -> s{_dmaMaxResults = a});
 instance AWSRequest DescribeMovingAddresses where
         type Rs DescribeMovingAddresses =
              DescribeMovingAddressesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

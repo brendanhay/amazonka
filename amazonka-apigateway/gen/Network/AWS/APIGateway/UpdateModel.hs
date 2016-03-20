@@ -91,7 +91,7 @@ uModelName = lens _uModelName (\ s a -> s{_uModelName = a});
 
 instance AWSRequest UpdateModel where
         type Rs UpdateModel = Model
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateModel

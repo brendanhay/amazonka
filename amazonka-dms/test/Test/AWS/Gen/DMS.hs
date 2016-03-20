@@ -361,201 +361,201 @@ testDeleteReplicationInstanceResponse :: DeleteReplicationInstanceResponse -> Te
 testDeleteReplicationInstanceResponse = res
     "DeleteReplicationInstanceResponse"
     "fixture/DeleteReplicationInstanceResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DeleteReplicationInstance)
 
 testCreateEndpointResponse :: CreateEndpointResponse -> TestTree
 testCreateEndpointResponse = res
     "CreateEndpointResponse"
     "fixture/CreateEndpointResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy CreateEndpoint)
 
 testDescribeSchemasResponse :: DescribeSchemasResponse -> TestTree
 testDescribeSchemasResponse = res
     "DescribeSchemasResponse"
     "fixture/DescribeSchemasResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DescribeSchemas)
 
 testDeleteEndpointResponse :: DeleteEndpointResponse -> TestTree
 testDeleteEndpointResponse = res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DeleteEndpoint)
 
 testListTagsForResourceResponse :: ListTagsForResourceResponse -> TestTree
 testListTagsForResourceResponse = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy ListTagsForResource)
 
 testDescribeEndpointTypesResponse :: DescribeEndpointTypesResponse -> TestTree
 testDescribeEndpointTypesResponse = res
     "DescribeEndpointTypesResponse"
     "fixture/DescribeEndpointTypesResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DescribeEndpointTypes)
 
 testDeleteReplicationTaskResponse :: DeleteReplicationTaskResponse -> TestTree
 testDeleteReplicationTaskResponse = res
     "DeleteReplicationTaskResponse"
     "fixture/DeleteReplicationTaskResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DeleteReplicationTask)
 
 testTestConnectionResponse :: TestConnectionResponse -> TestTree
 testTestConnectionResponse = res
     "TestConnectionResponse"
     "fixture/TestConnectionResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy TestConnection)
 
 testDescribeConnectionsResponse :: DescribeConnectionsResponse -> TestTree
 testDescribeConnectionsResponse = res
     "DescribeConnectionsResponse"
     "fixture/DescribeConnectionsResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DescribeConnections)
 
 testRemoveTagsFromResourceResponse :: RemoveTagsFromResourceResponse -> TestTree
 testRemoveTagsFromResourceResponse = res
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy RemoveTagsFromResource)
 
 testModifyEndpointResponse :: ModifyEndpointResponse -> TestTree
 testModifyEndpointResponse = res
     "ModifyEndpointResponse"
     "fixture/ModifyEndpointResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy ModifyEndpoint)
 
 testDescribeTableStatisticsResponse :: DescribeTableStatisticsResponse -> TestTree
 testDescribeTableStatisticsResponse = res
     "DescribeTableStatisticsResponse"
     "fixture/DescribeTableStatisticsResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DescribeTableStatistics)
 
 testDescribeReplicationSubnetGroupsResponse :: DescribeReplicationSubnetGroupsResponse -> TestTree
 testDescribeReplicationSubnetGroupsResponse = res
     "DescribeReplicationSubnetGroupsResponse"
     "fixture/DescribeReplicationSubnetGroupsResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DescribeReplicationSubnetGroups)
 
 testStartReplicationTaskResponse :: StartReplicationTaskResponse -> TestTree
 testStartReplicationTaskResponse = res
     "StartReplicationTaskResponse"
     "fixture/StartReplicationTaskResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy StartReplicationTask)
 
 testAddTagsToResourceResponse :: AddTagsToResourceResponse -> TestTree
 testAddTagsToResourceResponse = res
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy AddTagsToResource)
 
 testCreateReplicationSubnetGroupResponse :: CreateReplicationSubnetGroupResponse -> TestTree
 testCreateReplicationSubnetGroupResponse = res
     "CreateReplicationSubnetGroupResponse"
     "fixture/CreateReplicationSubnetGroupResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy CreateReplicationSubnetGroup)
 
 testRefreshSchemasResponse :: RefreshSchemasResponse -> TestTree
 testRefreshSchemasResponse = res
     "RefreshSchemasResponse"
     "fixture/RefreshSchemasResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy RefreshSchemas)
 
 testDescribeReplicationTasksResponse :: DescribeReplicationTasksResponse -> TestTree
 testDescribeReplicationTasksResponse = res
     "DescribeReplicationTasksResponse"
     "fixture/DescribeReplicationTasksResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DescribeReplicationTasks)
 
 testDescribeOrderableReplicationInstancesResponse :: DescribeOrderableReplicationInstancesResponse -> TestTree
 testDescribeOrderableReplicationInstancesResponse = res
     "DescribeOrderableReplicationInstancesResponse"
     "fixture/DescribeOrderableReplicationInstancesResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DescribeOrderableReplicationInstances)
 
 testCreateReplicationTaskResponse :: CreateReplicationTaskResponse -> TestTree
 testCreateReplicationTaskResponse = res
     "CreateReplicationTaskResponse"
     "fixture/CreateReplicationTaskResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy CreateReplicationTask)
 
 testDescribeEndpointsResponse :: DescribeEndpointsResponse -> TestTree
 testDescribeEndpointsResponse = res
     "DescribeEndpointsResponse"
     "fixture/DescribeEndpointsResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DescribeEndpoints)
 
 testModifyReplicationInstanceResponse :: ModifyReplicationInstanceResponse -> TestTree
 testModifyReplicationInstanceResponse = res
     "ModifyReplicationInstanceResponse"
     "fixture/ModifyReplicationInstanceResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy ModifyReplicationInstance)
 
 testModifyReplicationSubnetGroupResponse :: ModifyReplicationSubnetGroupResponse -> TestTree
 testModifyReplicationSubnetGroupResponse = res
     "ModifyReplicationSubnetGroupResponse"
     "fixture/ModifyReplicationSubnetGroupResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy ModifyReplicationSubnetGroup)
 
 testDescribeAccountAttributesResponse :: DescribeAccountAttributesResponse -> TestTree
 testDescribeAccountAttributesResponse = res
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DescribeAccountAttributes)
 
 testDescribeReplicationInstancesResponse :: DescribeReplicationInstancesResponse -> TestTree
 testDescribeReplicationInstancesResponse = res
     "DescribeReplicationInstancesResponse"
     "fixture/DescribeReplicationInstancesResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DescribeReplicationInstances)
 
 testDescribeRefreshSchemasStatusResponse :: DescribeRefreshSchemasStatusResponse -> TestTree
 testDescribeRefreshSchemasStatusResponse = res
     "DescribeRefreshSchemasStatusResponse"
     "fixture/DescribeRefreshSchemasStatusResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DescribeRefreshSchemasStatus)
 
 testStopReplicationTaskResponse :: StopReplicationTaskResponse -> TestTree
 testStopReplicationTaskResponse = res
     "StopReplicationTaskResponse"
     "fixture/StopReplicationTaskResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy StopReplicationTask)
 
 testCreateReplicationInstanceResponse :: CreateReplicationInstanceResponse -> TestTree
 testCreateReplicationInstanceResponse = res
     "CreateReplicationInstanceResponse"
     "fixture/CreateReplicationInstanceResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy CreateReplicationInstance)
 
 testDeleteReplicationSubnetGroupResponse :: DeleteReplicationSubnetGroupResponse -> TestTree
 testDeleteReplicationSubnetGroupResponse = res
     "DeleteReplicationSubnetGroupResponse"
     "fixture/DeleteReplicationSubnetGroupResponse.proto"
-    dMS
+    dms
     (Proxy :: Proxy DeleteReplicationSubnetGroup)

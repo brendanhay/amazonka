@@ -98,7 +98,7 @@ cngAllocationId = lens _cngAllocationId (\ s a -> s{_cngAllocationId = a});
 
 instance AWSRequest CreateNatGateway where
         type Rs CreateNatGateway = CreateNatGatewayResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

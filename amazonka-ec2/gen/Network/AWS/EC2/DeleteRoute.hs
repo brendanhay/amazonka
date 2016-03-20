@@ -86,7 +86,7 @@ drDestinationCIdRBlock = lens _drDestinationCIdRBlock (\ s a -> s{_drDestination
 
 instance AWSRequest DeleteRoute where
         type Rs DeleteRoute = DeleteRouteResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeleteRouteResponse'
 
 instance Hashable DeleteRoute

@@ -87,7 +87,7 @@ dRepositoryName = lens _dRepositoryName (\ s a -> s{_dRepositoryName = a});
 
 instance AWSRequest DeleteRepository where
         type Rs DeleteRepository = DeleteRepositoryResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

@@ -199,7 +199,7 @@ cmtSubnetId = lens _cmtSubnetId (\ s a -> s{_cmtSubnetId = a});
 
 instance AWSRequest CreateMountTarget where
         type Rs CreateMountTarget = MountTargetDescription
-        request = postJSON eFS
+        request = postJSON efs
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CreateMountTarget

@@ -32,7 +32,7 @@
 module Network.AWS.SNS
     (
     -- * Service Configuration
-      sNS
+      sns
 
     -- * Errors
     -- $errors

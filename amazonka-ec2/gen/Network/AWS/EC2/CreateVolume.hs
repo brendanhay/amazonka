@@ -193,7 +193,7 @@ creAvailabilityZone = lens _creAvailabilityZone (\ s a -> s{_creAvailabilityZone
 
 instance AWSRequest CreateVolume where
         type Rs CreateVolume = Volume
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveXML (\ s h x -> parseXML x)
 
 instance Hashable CreateVolume

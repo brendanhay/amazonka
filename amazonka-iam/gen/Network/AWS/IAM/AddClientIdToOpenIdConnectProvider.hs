@@ -82,7 +82,7 @@ instance AWSRequest
          AddClientIdToOpenIdConnectProvider where
         type Rs AddClientIdToOpenIdConnectProvider =
              AddClientIdToOpenIdConnectProviderResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveNull
               AddClientIdToOpenIdConnectProviderResponse'

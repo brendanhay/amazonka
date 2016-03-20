@@ -99,7 +99,7 @@ instance AWSPager DescribeLoadBalancers where
 instance AWSRequest DescribeLoadBalancers where
         type Rs DescribeLoadBalancers =
              DescribeLoadBalancersResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper "DescribeLoadBalancersResult"
               (\ s h x ->

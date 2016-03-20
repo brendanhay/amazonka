@@ -92,7 +92,7 @@ dvpcaAttribute = lens _dvpcaAttribute (\ s a -> s{_dvpcaAttribute = a});
 instance AWSRequest DescribeVPCAttribute where
         type Rs DescribeVPCAttribute =
              DescribeVPCAttributeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

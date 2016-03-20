@@ -109,7 +109,7 @@ prpPolicyDocument = lens _prpPolicyDocument (\ s a -> s{_prpPolicyDocument = a})
 
 instance AWSRequest PutRolePolicy where
         type Rs PutRolePolicy = PutRolePolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull PutRolePolicyResponse'
 
 instance Hashable PutRolePolicy

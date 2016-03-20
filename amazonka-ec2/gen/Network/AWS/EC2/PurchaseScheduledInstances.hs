@@ -97,7 +97,7 @@ psiPurchaseRequests = lens _psiPurchaseRequests (\ s a -> s{_psiPurchaseRequests
 instance AWSRequest PurchaseScheduledInstances where
         type Rs PurchaseScheduledInstances =
              PurchaseScheduledInstancesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

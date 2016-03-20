@@ -133,7 +133,7 @@ cdStageName = lens _cdStageName (\ s a -> s{_cdStageName = a});
 
 instance AWSRequest CreateDeployment where
         type Rs CreateDeployment = Deployment
-        request = postJSON aPIGateway
+        request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CreateDeployment

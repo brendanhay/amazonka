@@ -131,7 +131,7 @@ apActions = lens _apActions (\ s a -> s{_apActions = a}) . _Coerce;
 
 instance AWSRequest AddPermission where
         type Rs AddPermission = AddPermissionResponse
-        request = postQuery sQS
+        request = postQuery sqs
         response = receiveNull AddPermissionResponse'
 
 instance Hashable AddPermission

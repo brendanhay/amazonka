@@ -109,7 +109,7 @@ instance AWSPager ListContainerInstances where
 instance AWSRequest ListContainerInstances where
         type Rs ListContainerInstances =
              ListContainerInstancesResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

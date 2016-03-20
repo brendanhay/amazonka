@@ -74,7 +74,7 @@ dRuleSetName = lens _dRuleSetName (\ s a -> s{_dRuleSetName = a});
 instance AWSRequest DeleteReceiptRuleSet where
         type Rs DeleteReceiptRuleSet =
              DeleteReceiptRuleSetResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "DeleteReceiptRuleSetResult"
               (\ s h x ->

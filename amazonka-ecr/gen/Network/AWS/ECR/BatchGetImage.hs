@@ -92,7 +92,7 @@ bgiImageIds = lens _bgiImageIds (\ s a -> s{_bgiImageIds = a}) . _List1;
 
 instance AWSRequest BatchGetImage where
         type Rs BatchGetImage = BatchGetImageResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

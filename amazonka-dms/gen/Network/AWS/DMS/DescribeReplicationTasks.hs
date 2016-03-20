@@ -99,7 +99,7 @@ drtMaxRecords = lens _drtMaxRecords (\ s a -> s{_drtMaxRecords = a});
 instance AWSRequest DescribeReplicationTasks where
         type Rs DescribeReplicationTasks =
              DescribeReplicationTasksResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

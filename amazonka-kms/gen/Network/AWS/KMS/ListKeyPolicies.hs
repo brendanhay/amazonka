@@ -115,7 +115,7 @@ instance AWSPager ListKeyPolicies where
 
 instance AWSRequest ListKeyPolicies where
         type Rs ListKeyPolicies = ListKeyPoliciesResponse
-        request = postJSON kMS
+        request = postJSON kms
         response
           = receiveJSON
               (\ s h x ->

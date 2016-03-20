@@ -1,5 +1,64 @@
 # Change Log
 
+## [1.3.8](https://github.com/brendanhay/amazonka/tree/1.3.8)
+Released: **20 March, 2016**, Compare: [1.3.8](https://github.com/brendanhay/amazonka/compare/1.3.7...1.3.8)
+
+### Fixed
+
+- Host header missing for presigned URLs. [\#264](https://github.com/brendanhay/amazonka/pull/264)
+- Set all API Gateway communication to `Accept: application/json`. [\#266](https://github.com/brendanhay/amazonka/pull/266)
+- Override EC2 `AttachmentStatus` to add `"available"`. [\#273](https://github.com/brendanhay/amazonka/pull/273) [\#275](https://github.com/brendanhay/amazonka/pull/275)
+- Allow EC2 `DeleteTags` to omit the tag value. [\#270](https://github.com/brendanhay/amazonka/pull/270)
+- Add `Hashable` instances for non-streaming types. [\#267](https://github.com/brendanhay/amazonka/pull/270)
+
+### Updated Service Definitions
+
+> The following services contain a large number (3 months worth) of definition updates.
+Please see the relevant libraries for specific changes:
+
+- API Gateway
+- AutoScaling
+- CloudFormation
+- CloudFront
+- CloudHSM
+- CloudSearchDomain
+- CloudWatch
+- CloudWatchLogs
+- CodeCommit
+- CodeDeploy
+- Config
+- DeviceFarm
+- DirectConnect
+- DirectoryService
+- DynamoDB
+- EC2
+- ECS
+- EMR
+- IAM
+- IoT
+- Lambda
+- Marketplace Analytics
+- OpsWorks
+- RDS
+- Redshift
+- Route53
+- S3
+- SES
+- SSM
+- STS
+- StorageGateway
+- Web Application Firewall
+
+### New Libraries
+
+- `amazonka-certificatemanager`: AWS Certificate Manager.
+- `amazonka-dms`: Database Migration Service.
+- `amazonka-ecr`: Elastic Container Registry.
+- `amazonka-cloudwatch-events`: CloudWatch Events.
+- `amazonka-gamelift`: Amazon GameLift.
+- `amazonka-marketplace-metering`: AWS Markpletplace Metering.
+
+
 ## [1.3.7](https://github.com/brendanhay/amazonka/tree/1.3.7)
 Released: **18 December, 2015**, Compare: [1.3.7](https://github.com/brendanhay/amazonka/compare/1.3.6...1.3.7)
 
@@ -14,7 +73,7 @@ Released: **18 December, 2015**, Compare: [1.3.7](https://github.com/brendanhay/
 - The `AWS_PROFILE` environment variable can now be used to override the default
   file credentials location. [\#254](https://github.com/brendanhay/amazonka/issues/254)
 
-### Updated
+### Updated Service Definitions
 
 - AutoScaling: Updated service definition.
 - CloudFront: GZip support.
@@ -40,7 +99,7 @@ Released: **18 November, 2015**, Compare: [1.3.6](https://github.com/brendanhay/
 - Fix S3 `BucketLocationConstraint` type de/serialisation. [\#249](https://github.com/brendanhay/amazonka/issues/249)
 - Fix S3 `PutBucketACL` header vs request body serialisation. [\#241](https://github.com/brendanhay/amazonka/issues/241)
 
-### Updated
+### Changes
 
 - `await` responses now indicate request fulfillment. [\#245](https://github.com/brendanhay/amazonka/issues/245)
 

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateModel
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a new Model resource to an existing RestApi resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateModel.html AWS API Reference> for CreateModel.
+-- Adds a new < Model> resource to an existing < RestApi> resource.
 module Network.AWS.APIGateway.CreateModel
     (
     -- * Creating a Request
@@ -51,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to add a new Model to an existing RestApi resource.
+-- | Request to add a new < Model> to an existing < RestApi> resource.
 --
 -- /See:/ 'createModel' smart constructor.
 data CreateModel = CreateModel'
@@ -98,7 +96,7 @@ cmSchema = lens _cmSchema (\ s a -> s{_cmSchema = a});
 cmDescription :: Lens' CreateModel (Maybe Text)
 cmDescription = lens _cmDescription (\ s a -> s{_cmDescription = a});
 
--- | The RestApi identifier under which the Model will be created.
+-- | The < RestApi> identifier under which the < Model> will be created.
 cmRestAPIId :: Lens' CreateModel Text
 cmRestAPIId = lens _cmRestAPIId (\ s a -> s{_cmRestAPIId = a});
 
@@ -115,8 +113,13 @@ instance AWSRequest CreateModel where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateModel
+
 instance ToHeaders CreateModel where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON CreateModel where
         toJSON CreateModel'{..}

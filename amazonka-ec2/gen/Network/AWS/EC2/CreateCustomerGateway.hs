@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateCustomerGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -44,8 +44,6 @@
 -- gateway, and subsequent requests return information about the existing
 -- customer gateway. The subsequent requests do not create new customer
 -- gateway resources.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateCustomerGateway.html AWS API Reference> for CreateCustomerGateway.
 module Network.AWS.EC2.CreateCustomerGateway
     (
     -- * Creating a Request
@@ -136,6 +134,8 @@ instance AWSRequest CreateCustomerGateway where
               (\ s h x ->
                  CreateCustomerGatewayResponse' <$>
                    (x .@? "customerGateway") <*> (pure (fromEnum s)))
+
+instance Hashable CreateCustomerGateway
 
 instance ToHeaders CreateCustomerGateway where
         toHeaders = const mempty

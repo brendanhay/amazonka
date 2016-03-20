@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.ListPublicKeys
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- digest file is signed with a private key unique to its region.
 -- Therefore, when you validate a digest file from a particular region, you
 -- must look in the same region for its corresponding public key.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListPublicKeys.html AWS API Reference> for ListPublicKeys.
 module Network.AWS.CloudTrail.ListPublicKeys
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest ListPublicKeys where
                    (x .?> "PublicKeyList" .!@ mempty) <*>
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListPublicKeys
 
 instance ToHeaders ListPublicKeys where
         toHeaders

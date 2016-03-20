@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeImportImageTasks
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Displays details about an import virtual machine or import snapshot
 -- tasks that are already created.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImportImageTasks.html AWS API Reference> for DescribeImportImageTasks.
 module Network.AWS.EC2.DescribeImportImageTasks
     (
     -- * Creating a Request
@@ -118,6 +116,8 @@ instance AWSRequest DescribeImportImageTasks where
                      (x .@? "importImageTaskSet" .!@ mempty >>=
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeImportImageTasks
 
 instance ToHeaders DescribeImportImageTasks where
         toHeaders = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBLogFiles
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of DB log files for the DB instance.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBLogFiles.html AWS API Reference> for DescribeDBLogFiles.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBLogFiles
@@ -161,6 +159,8 @@ instance AWSRequest DescribeDBLogFiles where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBLogFiles
+
 instance ToHeaders DescribeDBLogFiles where
         toHeaders = const mempty
 
@@ -181,7 +181,7 @@ instance ToQuery DescribeDBLogFiles where
                "MaxRecords" =: _ddlfMaxRecords,
                "DBInstanceIdentifier" =: _ddlfDBInstanceIdentifier]
 
--- | The response from a call to DescribeDBLogFiles.
+-- | The response from a call to < DescribeDBLogFiles>.
 --
 -- /See:/ 'describeDBLogFilesResponse' smart constructor.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'

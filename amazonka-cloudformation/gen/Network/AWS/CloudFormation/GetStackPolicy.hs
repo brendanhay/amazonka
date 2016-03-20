@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.GetStackPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns the stack policy for a specified stack. If a stack doesn\'t have
 -- a policy, a null value is returned.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetStackPolicy.html AWS API Reference> for GetStackPolicy.
 module Network.AWS.CloudFormation.GetStackPolicy
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the GetStackPolicy action.
+-- | The input for the < GetStackPolicy> action.
 --
 -- /See:/ 'getStackPolicy' smart constructor.
 newtype GetStackPolicy = GetStackPolicy'
@@ -79,6 +77,8 @@ instance AWSRequest GetStackPolicy where
                  GetStackPolicyResponse' <$>
                    (x .@? "StackPolicyBody") <*> (pure (fromEnum s)))
 
+instance Hashable GetStackPolicy
+
 instance ToHeaders GetStackPolicy where
         toHeaders = const mempty
 
@@ -92,7 +92,7 @@ instance ToQuery GetStackPolicy where
                "Version" =: ("2010-05-15" :: ByteString),
                "StackName" =: _gspStackName]
 
--- | The output for the GetStackPolicy action.
+-- | The output for the < GetStackPolicy> action.
 --
 -- /See:/ 'getStackPolicyResponse' smart constructor.
 data GetStackPolicyResponse = GetStackPolicyResponse'

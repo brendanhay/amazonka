@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.SetLoggingOptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the logging options.
---
--- /See:/ <https://aws.amazon.com/iot#SetLoggingOptions.html AWS API Reference> for SetLoggingOptions.
 module Network.AWS.IoT.SetLoggingOptions
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setLoggingOptions' smart constructor.
 newtype SetLoggingOptions = SetLoggingOptions'
-    { _sloLoggingOptionsPayload :: Maybe LoggingOptionsPayload
+    { _sloLoggingOptionsPayload :: LoggingOptionsPayload
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetLoggingOptions' with the minimum fields required to make a request.
@@ -54,20 +52,23 @@ newtype SetLoggingOptions = SetLoggingOptions'
 --
 -- * 'sloLoggingOptionsPayload'
 setLoggingOptions
-    :: SetLoggingOptions
-setLoggingOptions =
+    :: LoggingOptionsPayload -- ^ 'sloLoggingOptionsPayload'
+    -> SetLoggingOptions
+setLoggingOptions pLoggingOptionsPayload_ =
     SetLoggingOptions'
-    { _sloLoggingOptionsPayload = Nothing
+    { _sloLoggingOptionsPayload = pLoggingOptionsPayload_
     }
 
 -- | The logging options payload.
-sloLoggingOptionsPayload :: Lens' SetLoggingOptions (Maybe LoggingOptionsPayload)
+sloLoggingOptionsPayload :: Lens' SetLoggingOptions LoggingOptionsPayload
 sloLoggingOptionsPayload = lens _sloLoggingOptionsPayload (\ s a -> s{_sloLoggingOptionsPayload = a});
 
 instance AWSRequest SetLoggingOptions where
         type Rs SetLoggingOptions = SetLoggingOptionsResponse
         request = postJSON ioT
         response = receiveNull SetLoggingOptionsResponse'
+
+instance Hashable SetLoggingOptions
 
 instance ToHeaders SetLoggingOptions where
         toHeaders = const mempty
@@ -76,8 +77,9 @@ instance ToJSON SetLoggingOptions where
         toJSON SetLoggingOptions'{..}
           = object
               (catMaybes
-                 [("loggingOptionsPayload" .=) <$>
-                    _sloLoggingOptionsPayload])
+                 [Just
+                    ("loggingOptionsPayload" .=
+                       _sloLoggingOptionsPayload)])
 
 instance ToPath SetLoggingOptions where
         toPath = const "/loggingOptions"

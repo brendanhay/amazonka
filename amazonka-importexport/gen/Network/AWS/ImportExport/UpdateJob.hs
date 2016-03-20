@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.UpdateJob
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- file attached to this request replaces the original manifest file. You
 -- can only use the operation after a CreateJob request but before the data
 -- transfer starts and you can only use it on jobs you own.
---
--- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebUpdateJob.html AWS API Reference> for UpdateJob.
 module Network.AWS.ImportExport.UpdateJob
     (
     -- * Creating a Request
@@ -124,6 +122,8 @@ instance AWSRequest UpdateJob where
                      (x .@? "ArtifactList" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable UpdateJob
 
 instance ToHeaders UpdateJob where
         toHeaders = const mempty

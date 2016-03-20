@@ -12,28 +12,27 @@
 
 -- |
 -- Module      : Network.AWS.WAF.DeleteRule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes a Rule. You can\'t delete a 'Rule' if it\'s still
+-- Permanently deletes a < Rule>. You can\'t delete a 'Rule' if it\'s still
 -- used in any 'WebACL' objects or if it still includes any predicates,
 -- such as 'ByteMatchSet' objects.
 --
--- If you just want to remove a 'Rule' from a 'WebACL', use UpdateWebACL.
+-- If you just want to remove a 'Rule' from a 'WebACL', use
+-- < UpdateWebACL>.
 --
 -- To permanently delete a 'Rule' from AWS WAF, perform the following
 -- steps:
 --
 -- 1.  Update the 'Rule' to remove predicates, if any. For more
---     information, see UpdateRule.
--- 2.  Use GetChangeToken to get the change token that you provide in the
---     'ChangeToken' parameter of a 'DeleteRule' request.
+--     information, see < UpdateRule>.
+-- 2.  Use < GetChangeToken> to get the change token that you provide in
+--     the 'ChangeToken' parameter of a 'DeleteRule' request.
 -- 3.  Submit a 'DeleteRule' request.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteRule.html AWS API Reference> for DeleteRule.
 module Network.AWS.WAF.DeleteRule
     (
     -- * Creating a Request
@@ -81,12 +80,12 @@ deleteRule pRuleId_ pChangeToken_ =
     , _drChangeToken = pChangeToken_
     }
 
--- | The 'RuleId' of the Rule that you want to delete. 'RuleId' is returned
--- by CreateRule and by ListRules.
+-- | The 'RuleId' of the < Rule> that you want to delete. 'RuleId' is
+-- returned by < CreateRule> and by < ListRules>.
 drRuleId :: Lens' DeleteRule Text
 drRuleId = lens _drRuleId (\ s a -> s{_drRuleId = a});
 
--- | The value returned by the most recent call to GetChangeToken.
+-- | The value returned by the most recent call to < GetChangeToken>.
 drChangeToken :: Lens' DeleteRule Text
 drChangeToken = lens _drChangeToken (\ s a -> s{_drChangeToken = a});
 
@@ -98,6 +97,8 @@ instance AWSRequest DeleteRule where
               (\ s h x ->
                  DeleteRuleResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteRule
 
 instance ToHeaders DeleteRule where
         toHeaders
@@ -145,7 +146,7 @@ deleteRuleResponse pResponseStatus_ =
 
 -- | The 'ChangeToken' that you used to submit the 'DeleteRule' request. You
 -- can also use this value to query the status of the request. For more
--- information, see GetChangeTokenStatus.
+-- information, see < GetChangeTokenStatus>.
 drrsChangeToken :: Lens' DeleteRuleResponse (Maybe Text)
 drrsChangeToken = lens _drrsChangeToken (\ s a -> s{_drrsChangeToken = a});
 

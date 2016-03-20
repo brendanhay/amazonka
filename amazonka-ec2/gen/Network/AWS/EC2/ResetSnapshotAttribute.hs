@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetSnapshotAttribute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- For more information on modifying snapshot permissions, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetSnapshotAttribute.html AWS API Reference> for ResetSnapshotAttribute.
 module Network.AWS.EC2.ResetSnapshotAttribute
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest ResetSnapshotAttribute where
         request = postQuery eC2
         response
           = receiveNull ResetSnapshotAttributeResponse'
+
+instance Hashable ResetSnapshotAttribute
 
 instance ToHeaders ResetSnapshotAttribute where
         toHeaders = const mempty

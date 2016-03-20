@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.SendMessage
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 --
 -- #x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to
 -- #x10FFFF]
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html AWS API Reference> for SendMessage.
 module Network.AWS.SQS.SendMessage
     (
     -- * Creating a Request
@@ -124,6 +122,8 @@ instance AWSRequest SendMessage where
                    (x .@? "MessageId") <*> (x .@? "MD5OfMessageBody")
                      <*> (x .@? "MD5OfMessageAttributes")
                      <*> (pure (fromEnum s)))
+
+instance Hashable SendMessage
 
 instance ToHeaders SendMessage where
         toHeaders = const mempty

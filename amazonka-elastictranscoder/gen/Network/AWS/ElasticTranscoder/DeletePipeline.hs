@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.DeletePipeline
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- You can only delete a pipeline that has never been used or that is not
 -- currently in use (doesn\'t contain any active jobs). If the pipeline is
 -- currently in use, 'DeletePipeline' returns an error.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePipeline.html AWS API Reference> for DeletePipeline.
 module Network.AWS.ElasticTranscoder.DeletePipeline
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest DeletePipeline where
           = receiveEmpty
               (\ s h x ->
                  DeletePipelineResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeletePipeline
 
 instance ToHeaders DeletePipeline where
         toHeaders = const mempty

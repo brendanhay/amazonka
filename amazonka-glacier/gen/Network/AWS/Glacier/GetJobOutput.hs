@@ -12,16 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.GetJobOutput
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation downloads the output of the job you initiated using
--- InitiateJob. Depending on the job type you specified when you initiated
--- the job, the output will be either the content of an archive or a vault
--- inventory.
+-- < InitiateJob>. Depending on the job type you specified when you
+-- initiated the job, the output will be either the content of an archive
+-- or a vault inventory.
 --
 -- A job ID will not expire for at least 24 hours after Amazon Glacier
 -- completes the job. That is, you can download the job output within the
@@ -47,9 +47,9 @@
 --
 -- 4.  After downloading all the parts of the job output, you have a list
 --     of eight checksum values. Compute the tree hash of these values to
---     find the checksum of the entire output. Using the DescribeJob API,
---     obtain job information of the job that provided you the output. The
---     response includes the checksum of the entire archive stored in
+--     find the checksum of the entire output. Using the < DescribeJob>
+--     API, obtain job information of the job that provided you the output.
+--     The response includes the checksum of the entire archive stored in
 --     Amazon Glacier. You compare this value with the checksum you
 --     computed to ensure you have downloaded the entire archive content
 --     with no errors.
@@ -65,8 +65,6 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive.html Downloading an Archive>,
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-job-output-get.html Get Job Output>
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetJobOutput.html AWS API Reference> for GetJobOutput.
 module Network.AWS.Glacier.GetJobOutput
     (
     -- * Creating a Request
@@ -169,6 +167,8 @@ instance AWSRequest GetJobOutput where
                      <*> (h .#? "Content-Type")
                      <*> (pure (fromEnum s))
                      <*> (pure x))
+
+instance Hashable GetJobOutput
 
 instance ToHeaders GetJobOutput where
         toHeaders GetJobOutput'{..}

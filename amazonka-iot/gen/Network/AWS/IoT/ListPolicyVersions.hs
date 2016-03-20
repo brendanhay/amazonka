@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListPolicyVersions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Lists the versions of the specified policy, and identifies the default
 -- version.
---
--- /See:/ <https://aws.amazon.com/iot#ListPolicyVersions.html AWS API Reference> for ListPolicyVersions.
 module Network.AWS.IoT.ListPolicyVersions
     (
     -- * Creating a Request
@@ -79,6 +77,8 @@ instance AWSRequest ListPolicyVersions where
                  ListPolicyVersionsResponse' <$>
                    (x .?> "policyVersions" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable ListPolicyVersions
 
 instance ToHeaders ListPolicyVersions where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListRolePolicies
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,15 +23,14 @@
 --
 -- A role can also have managed policies attached to it. To list the
 -- managed policies that are attached to a role, use
--- ListAttachedRolePolicies. For more information about policies, refer to
+-- < ListAttachedRolePolicies>. For more information about policies, refer
+-- to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters. If there are no inline policies embedded with the specified
 -- role, the action returns an empty list.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRolePolicies.html AWS API Reference> for ListRolePolicies.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListRolePolicies
@@ -131,6 +130,8 @@ instance AWSRequest ListRolePolicies where
                      (x .@? "PolicyNames" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListRolePolicies
+
 instance ToHeaders ListRolePolicies where
         toHeaders = const mempty
 
@@ -145,7 +146,7 @@ instance ToQuery ListRolePolicies where
                "Marker" =: _lrpMarker, "MaxItems" =: _lrpMaxItems,
                "RoleName" =: _lrpRoleName]
 
--- | Contains the response to a successful ListRolePolicies request.
+-- | Contains the response to a successful < ListRolePolicies> request.
 --
 -- /See:/ 'listRolePoliciesResponse' smart constructor.
 data ListRolePoliciesResponse = ListRolePoliciesResponse'

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Represents the success of a third party job as returned to the pipeline
 -- by a job worker. Only used for partner actions.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutThirdPartyJobSuccessResult.html AWS API Reference> for PutThirdPartyJobSuccessResult.
 module Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
     (
     -- * Creating a Request
@@ -114,6 +112,8 @@ instance AWSRequest PutThirdPartyJobSuccessResult
         request = postJSON codePipeline
         response
           = receiveNull PutThirdPartyJobSuccessResultResponse'
+
+instance Hashable PutThirdPartyJobSuccessResult
 
 instance ToHeaders PutThirdPartyJobSuccessResult
          where

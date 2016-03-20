@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DeleteArchive
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -44,8 +44,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html Delete Archive>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteArchive.html AWS API Reference> for DeleteArchive.
 module Network.AWS.Glacier.DeleteArchive
     (
     -- * Creating a Request
@@ -118,6 +116,8 @@ instance AWSRequest DeleteArchive where
         type Rs DeleteArchive = DeleteArchiveResponse
         request = delete glacier
         response = receiveNull DeleteArchiveResponse'
+
+instance Hashable DeleteArchive
 
 instance ToHeaders DeleteArchive where
         toHeaders = const mempty

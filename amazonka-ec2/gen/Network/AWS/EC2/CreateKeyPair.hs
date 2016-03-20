@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateKeyPair
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,13 +28,11 @@
 --
 -- The key pair returned to you is available only in the region in which
 -- you create it. To create a key pair that is available in all regions,
--- use ImportKeyPair.
+-- use < ImportKeyPair>.
 --
 -- For more information about key pairs, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateKeyPair.html AWS API Reference> for CreateKeyPair.
 module Network.AWS.EC2.CreateKeyPair
     (
     -- * Creating a Request
@@ -106,6 +104,8 @@ instance AWSRequest CreateKeyPair where
                    (pure (fromEnum s)) <*> (x .@ "keyName") <*>
                      (x .@ "keyFingerprint")
                      <*> (x .@ "keyMaterial"))
+
+instance Hashable CreateKeyPair
 
 instance ToHeaders CreateKeyPair where
         toHeaders = const mempty

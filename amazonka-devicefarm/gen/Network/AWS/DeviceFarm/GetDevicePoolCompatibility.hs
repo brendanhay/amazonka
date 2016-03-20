@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetDevicePoolCompatibility
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about compatibility with a device pool.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetDevicePoolCompatibility.html AWS API Reference> for GetDevicePoolCompatibility.
 module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
     (
     -- * Creating a Request
@@ -93,6 +91,14 @@ gdpcAppARN = lens _gdpcAppARN (\ s a -> s{_gdpcAppARN = a});
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
 --
+-- -   APPIUM_PYTHON: The Appium Python type.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+--
+-- -   APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+--
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
@@ -102,6 +108,8 @@ gdpcAppARN = lens _gdpcAppARN (\ s a -> s{_gdpcAppARN = a});
 -- -   UIAUTOMATOR: The uiautomator type.
 --
 -- -   XCTEST: The XCode test type.
+--
+-- -   XCTEST_UI: The XCode UI test type.
 --
 gdpcTestType :: Lens' GetDevicePoolCompatibility (Maybe TestType)
 gdpcTestType = lens _gdpcTestType (\ s a -> s{_gdpcTestType = a});
@@ -121,6 +129,8 @@ instance AWSRequest GetDevicePoolCompatibility where
                    (x .?> "incompatibleDevices" .!@ mempty) <*>
                      (x .?> "compatibleDevices" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetDevicePoolCompatibility
 
 instance ToHeaders GetDevicePoolCompatibility where
         toHeaders

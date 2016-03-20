@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBParameterGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted
 -- cannot be associated with any DB instances.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBParameterGroup.html AWS API Reference> for DeleteDBParameterGroup.
 module Network.AWS.RDS.DeleteDBParameterGroup
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest DeleteDBParameterGroup where
         request = postQuery rDS
         response
           = receiveNull DeleteDBParameterGroupResponse'
+
+instance Hashable DeleteDBParameterGroup
 
 instance ToHeaders DeleteDBParameterGroup where
         toHeaders = const mempty

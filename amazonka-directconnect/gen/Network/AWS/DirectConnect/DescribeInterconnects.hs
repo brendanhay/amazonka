@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeInterconnects
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- If an interconnect ID is provided, it will only return this particular
 -- interconnect.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnects.html AWS API Reference> for DescribeInterconnects.
 module Network.AWS.DirectConnect.DescribeInterconnects
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DescribeInterconnects where
                  DescribeInterconnectsResponse' <$>
                    (x .?> "interconnects" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeInterconnects
 
 instance ToHeaders DescribeInterconnects where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.GetConsoleOutput
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,6 @@
 --
 -- For Windows instances, the instance console output includes output from
 -- the EC2Config service.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetConsoleOutput.html AWS API Reference> for GetConsoleOutput.
 module Network.AWS.EC2.GetConsoleOutput
     (
     -- * Creating a Request
@@ -110,6 +108,8 @@ instance AWSRequest GetConsoleOutput where
                      (x .@? "timestamp")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetConsoleOutput
+
 instance ToHeaders GetConsoleOutput where
         toHeaders = const mempty
 
@@ -158,7 +158,8 @@ getConsoleOutputResponse pResponseStatus_ =
 gcorsInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorsInstanceId = lens _gcorsInstanceId (\ s a -> s{_gcorsInstanceId = a});
 
--- | The console output, Base64 encoded.
+-- | The console output, Base64 encoded. If using a command line tool, the
+-- tools decode the output for you.
 gcorsOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorsOutput = lens _gcorsOutput (\ s a -> s{_gcorsOutput = a});
 

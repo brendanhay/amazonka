@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains.Search
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -43,8 +43,6 @@
 -- endpoint for your domain, use the Amazon CloudSearch configuration
 -- service 'DescribeDomains' action. A domain\'s endpoints are also
 -- displayed on the domain dashboard in the Amazon CloudSearch console.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Search.html AWS API Reference> for Search.
 module Network.AWS.CloudSearchDomains.Search
     (
     -- * Creating a Request
@@ -60,6 +58,7 @@ module Network.AWS.CloudSearchDomains.Search
     , seaQueryParser
     , seaStart
     , seaHighlight
+    , seaStats
     , seaSort
     , seaFacet
     , seaPartial
@@ -71,6 +70,7 @@ module Network.AWS.CloudSearchDomains.Search
     -- * Response Lenses
     , searsStatus
     , searsFacets
+    , searsStats
     , searsHits
     , searsResponseStatus
     ) where
@@ -95,6 +95,7 @@ data Search = Search'
     , _seaQueryParser  :: !(Maybe QueryParser)
     , _seaStart        :: !(Maybe Integer)
     , _seaHighlight    :: !(Maybe Text)
+    , _seaStats        :: !(Maybe Text)
     , _seaSort         :: !(Maybe Text)
     , _seaFacet        :: !(Maybe Text)
     , _seaPartial      :: !(Maybe Bool)
@@ -123,6 +124,8 @@ data Search = Search'
 --
 -- * 'seaHighlight'
 --
+-- * 'seaStats'
+--
 -- * 'seaSort'
 --
 -- * 'seaFacet'
@@ -144,6 +147,7 @@ search pQuery_ =
     , _seaQueryParser = Nothing
     , _seaStart = Nothing
     , _seaHighlight = Nothing
+    , _seaStats = Nothing
     , _seaSort = Nothing
     , _seaFacet = Nothing
     , _seaPartial = Nothing
@@ -384,6 +388,16 @@ seaStart = lens _seaStart (\ s a -> s{_seaStart = a});
 seaHighlight :: Lens' Search (Maybe Text)
 seaHighlight = lens _seaHighlight (\ s a -> s{_seaHighlight = a});
 
+-- | Specifies one or more fields for which to get statistics information.
+-- Each specified field must be facet-enabled in the domain configuration.
+-- The fields are specified in JSON using the form:
+--
+-- '{\"FIELD-A\":{},\"FIELD-B\":{}}'
+--
+-- There are currently no options supported for statistics.
+seaStats :: Lens' Search (Maybe Text)
+seaStats = lens _seaStats (\ s a -> s{_seaStats = a});
+
 -- | Specifies the fields or custom expressions to use to sort the search
 -- results. Multiple fields or expressions are specified as a
 -- comma-separated list. You must specify the sort direction ('asc' or
@@ -494,8 +508,11 @@ instance AWSRequest Search where
               (\ s h x ->
                  SearchResponse' <$>
                    (x .?> "status") <*> (x .?> "facets" .!@ mempty) <*>
-                     (x .?> "hits")
+                     (x .?> "stats" .!@ mempty)
+                     <*> (x .?> "hits")
                      <*> (pure (fromEnum s)))
+
+instance Hashable Search
 
 instance ToHeaders Search where
         toHeaders
@@ -515,9 +532,10 @@ instance ToQuery Search where
                "q.options" =: _seaQueryOptions,
                "fq" =: _seaFilterQuery, "size" =: _seaSize,
                "q.parser" =: _seaQueryParser, "start" =: _seaStart,
-               "highlight" =: _seaHighlight, "sort" =: _seaSort,
-               "facet" =: _seaFacet, "partial" =: _seaPartial,
-               "q" =: _seaQuery, "format=sdk&pretty=true"]
+               "highlight" =: _seaHighlight, "stats" =: _seaStats,
+               "sort" =: _seaSort, "facet" =: _seaFacet,
+               "partial" =: _seaPartial, "q" =: _seaQuery,
+               "format=sdk&pretty=true"]
 
 -- | The result of a 'Search' request. Contains the documents that match the
 -- specified search criteria and any requested fields, highlights, and
@@ -527,6 +545,7 @@ instance ToQuery Search where
 data SearchResponse = SearchResponse'
     { _searsStatus         :: !(Maybe SearchStatus)
     , _searsFacets         :: !(Maybe (Map Text BucketInfo))
+    , _searsStats          :: !(Maybe (Map Text FieldStats))
     , _searsHits           :: !(Maybe Hits)
     , _searsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -539,6 +558,8 @@ data SearchResponse = SearchResponse'
 --
 -- * 'searsFacets'
 --
+-- * 'searsStats'
+--
 -- * 'searsHits'
 --
 -- * 'searsResponseStatus'
@@ -549,6 +570,7 @@ searchResponse pResponseStatus_ =
     SearchResponse'
     { _searsStatus = Nothing
     , _searsFacets = Nothing
+    , _searsStats = Nothing
     , _searsHits = Nothing
     , _searsResponseStatus = pResponseStatus_
     }
@@ -560,6 +582,10 @@ searsStatus = lens _searsStatus (\ s a -> s{_searsStatus = a});
 -- | The requested facet information.
 searsFacets :: Lens' SearchResponse (HashMap Text BucketInfo)
 searsFacets = lens _searsFacets (\ s a -> s{_searsFacets = a}) . _Default . _Map;
+
+-- | The requested field statistics information.
+searsStats :: Lens' SearchResponse (HashMap Text FieldStats)
+searsStats = lens _searsStats (\ s a -> s{_searsStats = a}) . _Default . _Map;
 
 -- | The documents that match the search criteria.
 searsHits :: Lens' SearchResponse (Maybe Hits)

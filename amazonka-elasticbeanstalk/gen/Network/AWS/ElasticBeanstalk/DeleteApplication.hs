@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteApplication
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- Amazon S3 bucket.
 --
 -- You cannot delete an application that has a running environment.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplication.html AWS API Reference> for DeleteApplication.
 module Network.AWS.ElasticBeanstalk.DeleteApplication
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest DeleteApplication where
         type Rs DeleteApplication = DeleteApplicationResponse
         request = postQuery elasticBeanstalk
         response = receiveNull DeleteApplicationResponse'
+
+instance Hashable DeleteApplication
 
 instance ToHeaders DeleteApplication where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.ListAliases
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,11 +22,9 @@
 -- the response includes information such as the alias ARN, description,
 -- alias name, and the function version to which it points. For more
 -- information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html Introduction to AWS Lambda Aliases>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
 --
 -- This requires permission for the lambda:ListAliases action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_ListAliases.html AWS API Reference> for ListAliases.
 module Network.AWS.Lambda.ListAliases
     (
     -- * Creating a Request
@@ -85,7 +83,7 @@ listAliases pFunctionName_ =
     }
 
 -- | Optional string. An opaque pagination token returned from a previous
--- ListAliases operation. If present, indicates where to continue the
+-- 'ListAliases' operation. If present, indicates where to continue the
 -- listing.
 laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
@@ -96,8 +94,8 @@ laMaxItems :: Lens' ListAliases (Maybe Natural)
 laMaxItems = lens _laMaxItems (\ s a -> s{_laMaxItems = a}) . mapping _Nat;
 
 -- | If you specify this optional parameter, the API returns only the aliases
--- pointing to the specific Lambda function version, otherwise returns all
--- aliases created for the Lambda function.
+-- that are pointing to the specific Lambda function version, otherwise the
+-- API returns all of the aliases created for the Lambda function.
 laFunctionVersion :: Lens' ListAliases (Maybe Text)
 laFunctionVersion = lens _laFunctionVersion (\ s a -> s{_laFunctionVersion = a});
 
@@ -114,6 +112,8 @@ instance AWSRequest ListAliases where
                  ListAliasesResponse' <$>
                    (x .?> "Aliases" .!@ mempty) <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListAliases
 
 instance ToHeaders ListAliases where
         toHeaders = const mempty
@@ -156,7 +156,7 @@ listAliasesResponse pResponseStatus_ =
     , _larsResponseStatus = pResponseStatus_
     }
 
--- | An list of alises.
+-- | A list of aliases.
 larsAliases :: Lens' ListAliasesResponse [AliasConfiguration]
 larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce;
 

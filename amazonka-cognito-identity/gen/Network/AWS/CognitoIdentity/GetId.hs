@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetId
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- create an implicit linked account.
 --
 -- This is a public API. You do not need any credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html AWS API Reference> for GetId.
 module Network.AWS.CognitoIdentity.GetId
     (
     -- * Creating a Request
@@ -106,6 +104,8 @@ instance AWSRequest GetId where
               (\ s h x ->
                  GetIdResponse' <$>
                    (x .?> "IdentityId") <*> (pure (fromEnum s)))
+
+instance Hashable GetId
 
 instance ToHeaders GetId where
         toHeaders

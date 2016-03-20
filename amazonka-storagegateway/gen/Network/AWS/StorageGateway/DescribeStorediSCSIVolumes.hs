@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- in the request. The list of gateway volumes in the request must be from
 -- one gateway. In the response Amazon Storage Gateway returns volume
 -- information sorted by volume ARNs.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeStorediSCSIVolumes.html AWS API Reference> for DescribeStorediSCSIVolumes.
 module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     (
     -- * Creating a Request
@@ -48,7 +46,7 @@ import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON Object containing a list of
--- DescribeStorediSCSIVolumesInput$VolumeARNs.
+-- < DescribeStorediSCSIVolumesInput$VolumeARNs>.
 --
 -- /See:/ 'describeStorediSCSIVolumes' smart constructor.
 newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes'
@@ -69,7 +67,8 @@ describeStorediSCSIVolumes =
 
 -- | An array of strings where each string represents the Amazon Resource
 -- Name (ARN) of a stored volume. All of the specified stored volumes must
--- from the same gateway. Use ListVolumes to get volume ARNs for a gateway.
+-- from the same gateway. Use < ListVolumes> to get volume ARNs for a
+-- gateway.
 dsscsivVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
 dsscsivVolumeARNs = lens _dsscsivVolumeARNs (\ s a -> s{_dsscsivVolumeARNs = a}) . _Coerce;
 
@@ -83,6 +82,8 @@ instance AWSRequest DescribeStorediSCSIVolumes where
                  DescribeStorediSCSIVolumesResponse' <$>
                    (x .?> "StorediSCSIVolumes" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeStorediSCSIVolumes
 
 instance ToHeaders DescribeStorediSCSIVolumes where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPNConnectionRoute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- between an existing virtual private gateway and a VPN customer gateway.
 -- The static route allows traffic to be routed from the virtual private
 -- gateway to the VPN customer gateway.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPNConnectionRoute.html AWS API Reference> for DeleteVPNConnectionRoute.
 module Network.AWS.EC2.DeleteVPNConnectionRoute
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest DeleteVPNConnectionRoute where
         request = postQuery eC2
         response
           = receiveNull DeleteVPNConnectionRouteResponse'
+
+instance Hashable DeleteVPNConnectionRoute
 
 instance ToHeaders DeleteVPNConnectionRoute where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVPNGateways
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- For more information about virtual private gateways, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding an IPsec Hardware VPN to Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPNGateways.html AWS API Reference> for DescribeVPNGateways.
 module Network.AWS.EC2.DescribeVPNGateways
     (
     -- * Creating a Request
@@ -84,7 +82,7 @@ describeVPNGateways =
 -- -   'attachment.vpc-id' - The ID of an attached VPC.
 --
 -- -   'availability-zone' - The Availability Zone for the virtual private
---     gateway.
+--     gateway (if applicable).
 --
 -- -   'state' - The state of the virtual private gateway ('pending' |
 --     'available' | 'deleting' | 'deleted').
@@ -135,6 +133,8 @@ instance AWSRequest DescribeVPNGateways where
                    (x .@? "vpnGatewaySet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeVPNGateways
 
 instance ToHeaders DescribeVPNGateways where
         toHeaders = const mempty

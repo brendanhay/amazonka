@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.UpdateRadius
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Updates the Remote Authentication Dial In User Service (RADIUS) server
 -- information for an AD Connector directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_UpdateRadius.html AWS API Reference> for UpdateRadius.
 module Network.AWS.DirectoryService.UpdateRadius
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the UpdateRadius operation.
+-- | Contains the inputs for the < UpdateRadius> operation.
 --
 -- /See:/ 'updateRadius' smart constructor.
 data UpdateRadius = UpdateRadius'
@@ -75,7 +73,7 @@ updateRadius pDirectoryId_ pRadiusSettings_ =
 urDirectoryId :: Lens' UpdateRadius Text
 urDirectoryId = lens _urDirectoryId (\ s a -> s{_urDirectoryId = a});
 
--- | A RadiusSettings object that contains information about the RADIUS
+-- | A < RadiusSettings> object that contains information about the RADIUS
 -- server.
 urRadiusSettings :: Lens' UpdateRadius RadiusSettings
 urRadiusSettings = lens _urRadiusSettings (\ s a -> s{_urRadiusSettings = a});
@@ -87,6 +85,8 @@ instance AWSRequest UpdateRadius where
           = receiveEmpty
               (\ s h x ->
                  UpdateRadiusResponse' <$> (pure (fromEnum s)))
+
+instance Hashable UpdateRadius
 
 instance ToHeaders UpdateRadius where
         toHeaders
@@ -111,7 +111,7 @@ instance ToPath UpdateRadius where
 instance ToQuery UpdateRadius where
         toQuery = const mempty
 
--- | Contains the results of the UpdateRadius operation.
+-- | Contains the results of the < UpdateRadius> operation.
 --
 -- /See:/ 'updateRadiusResponse' smart constructor.
 newtype UpdateRadiusResponse = UpdateRadiusResponse'

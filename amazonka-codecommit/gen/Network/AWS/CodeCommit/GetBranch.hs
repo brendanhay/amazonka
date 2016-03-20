@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.GetBranch
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about a repository branch, including its name and
+-- Returns information about a repository branch, including its name and
 -- the last commit ID.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetBranch.html AWS API Reference> for GetBranch.
 module Network.AWS.CodeCommit.GetBranch
     (
     -- * Creating a Request
@@ -73,7 +71,8 @@ getBranch =
 gbBranchName :: Lens' GetBranch (Maybe Text)
 gbBranchName = lens _gbBranchName (\ s a -> s{_gbBranchName = a});
 
--- | Undocumented member.
+-- | The name of the repository that contains the branch for which you want
+-- to retrieve information.
 gbRepositoryName :: Lens' GetBranch (Maybe Text)
 gbRepositoryName = lens _gbRepositoryName (\ s a -> s{_gbRepositoryName = a});
 
@@ -85,6 +84,8 @@ instance AWSRequest GetBranch where
               (\ s h x ->
                  GetBranchResponse' <$>
                    (x .?> "branch") <*> (pure (fromEnum s)))
+
+instance Hashable GetBranch
 
 instance ToHeaders GetBranch where
         toHeaders

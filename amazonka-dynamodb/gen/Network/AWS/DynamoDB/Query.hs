@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.Query
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,13 +21,13 @@
 -- A /Query/ operation uses the primary key of a table or a secondary index
 -- to directly access items from that table or index.
 --
--- Use the /KeyConditionExpression/ parameter to provide a specific hash
--- key value. The /Query/ operation will return all of the items from the
--- table or index with that hash key value. You can optionally narrow the
--- scope of the /Query/ operation by specifying a range key value and a
--- comparison operator in /KeyConditionExpression/. You can use the
--- /ScanIndexForward/ parameter to get results in forward or reverse order,
--- by range key or by index key.
+-- Use the /KeyConditionExpression/ parameter to provide a specific value
+-- for the partition key. The /Query/ operation will return all of the
+-- items from the table or index with that partition key value. You can
+-- optionally narrow the scope of the /Query/ operation by specifying a
+-- sort key value and a comparison operator in /KeyConditionExpression/.
+-- You can use the /ScanIndexForward/ parameter to get results in forward
+-- or reverse order, by sort key.
 --
 -- Queries that do not return results consume the minimum number of read
 -- capacity units for that type of read operation.
@@ -46,8 +46,6 @@
 -- consistent result. Global secondary indexes support eventually
 -- consistent reads only, so do not specify /ConsistentRead/ when querying
 -- a global secondary index.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html AWS API Reference> for Query.
 --
 -- This operation returns paginated results.
 module Network.AWS.DynamoDB.Query
@@ -185,18 +183,18 @@ query pTableName_ =
 --
 -- The selection criteria for the query. For a query on a table, you can
 -- have conditions only on the table primary key attributes. You must
--- provide the hash key attribute name and value as an 'EQ' condition. You
--- can optionally provide a second condition, referring to the range key
--- attribute.
+-- provide the partition key name and value as an 'EQ' condition. You can
+-- optionally provide a second condition, referring to the sort key.
 --
--- If you don\'t provide a range key condition, all of the items that match
--- the hash key will be retrieved. If a /FilterExpression/ or /QueryFilter/
--- is present, it will be applied after the items are retrieved.
+-- If you don\'t provide a sort key condition, all of the items that match
+-- the partition key will be retrieved. If a /FilterExpression/ or
+-- /QueryFilter/ is present, it will be applied after the items are
+-- retrieved.
 --
 -- For a query on an index, you can have conditions only on the index key
--- attributes. You must provide the index hash attribute name and value as
+-- attributes. You must provide the index partition key name and value as
 -- an 'EQ' condition. You can optionally provide a second condition,
--- referring to the index key range attribute.
+-- referring to the index sort key.
 --
 -- Each /KeyConditions/ element consists of an attribute name to compare,
 -- along with the following:
@@ -428,7 +426,7 @@ qFilterExpression = lens _qFilterExpression (\ s a -> s{_qFilterExpression = a})
 -- one of the conditions must evaluate to true, rather than all of them.)
 --
 -- Note that /QueryFilter/ does not allow key attributes. You cannot define
--- a filter condition on a hash key or range key.
+-- a filter condition on a partition key or a sort key.
 --
 -- Each /QueryFilter/ element consists of an attribute name to compare,
 -- along with the following:
@@ -501,20 +499,20 @@ qExpressionAttributeValues = lens _qExpressionAttributeValues (\ s a -> s{_qExpr
 qReturnConsumedCapacity :: Lens' Query (Maybe ReturnConsumedCapacity)
 qReturnConsumedCapacity = lens _qReturnConsumedCapacity (\ s a -> s{_qReturnConsumedCapacity = a});
 
--- | Specifies the order in which to return the query results - either
--- ascending ('true') or descending ('false').
+-- | Specifies the order for index traversal: If 'true' (default), the
+-- traversal is performed in ascending order; if 'false', the traversal is
+-- performed in descending order.
 --
--- Items with the same hash key are stored in sorted order by range key .If
--- the range key data type is Number, the results are stored in numeric
--- order. For type String, the results are returned in order of ASCII
+-- Items with the same partition key value are stored in sorted order by
+-- sort key. If the sort key data type is Number, the results are stored in
+-- numeric order. For type String, the results are stored in order of ASCII
 -- character code values. For type Binary, DynamoDB treats each byte of the
 -- binary data as unsigned.
 --
--- If /ScanIndexForward/ is 'true', DynamoDB returns the results in order,
--- by range key. This is the default behavior.
---
--- If /ScanIndexForward/ is 'false', DynamoDB sorts the results in
--- descending order by range key, and then returns the results to the
+-- If /ScanIndexForward/ is 'true', DynamoDB returns the results in the
+-- order in which they are stored (by sort key value). This is the default
+-- behavior. If /ScanIndexForward/ is 'false', DynamoDB reads the results
+-- in reverse order by sort key value, and then returns the results to the
 -- client.
 qScanIndexForward :: Lens' Query (Maybe Bool)
 qScanIndexForward = lens _qScanIndexForward (\ s a -> s{_qScanIndexForward = a});
@@ -585,55 +583,56 @@ qSelect = lens _qSelect (\ s a -> s{_qSelect = a});
 -- | The condition that specifies the key value(s) for items to be retrieved
 -- by the /Query/ action.
 --
--- The condition must perform an equality test on a single hash key value.
--- The condition can also perform one of several comparison tests on a
--- single range key value. /Query/ can use /KeyConditionExpression/ to
--- retrieve one item with a given hash and range key value, or several
--- items that have the same hash key value but different range key values.
+-- The condition must perform an equality test on a single partition key
+-- value. The condition can also perform one of several comparison tests on
+-- a single sort key value. /Query/ can use /KeyConditionExpression/ to
+-- retrieve one item with a given partition key value and sort key value,
+-- or several items that have the same partition key value but different
+-- sort key values.
 --
--- The hash key equality test is required, and must be specified in the
--- following format:
+-- The partition key equality test is required, and must be specified in
+-- the following format:
 --
--- 'hashAttributeName' /=/ ':hashval'
+-- 'partitionKeyName' /=/ ':partitionkeyval'
 --
--- If you also want to provide a range key condition, it must be combined
--- using /AND/ with the hash key condition. Following is an example, using
--- the __=__ comparison operator for the range key:
+-- If you also want to provide a condition for the sort key, it must be
+-- combined using /AND/ with the condition for the sort key. Following is
+-- an example, using the __=__ comparison operator for the sort key:
 --
--- 'hashAttributeName' /=/ ':hashval' /AND/ 'rangeAttributeName' /=/
--- ':rangeval'
+-- 'partitionKeyName' /=/ ':partitionkeyval' /AND/ 'sortKeyName' /=/
+-- ':sortkeyval'
 --
--- Valid comparisons for the range key condition are as follows:
+-- Valid comparisons for the sort key condition are as follows:
 --
--- -   'rangeAttributeName' /=/ ':rangeval' - true if the range key is
---     equal to ':rangeval'.
+-- -   'sortKeyName' /=/ ':sortkeyval' - true if the sort key value is
+--     equal to ':sortkeyval'.
 --
--- -   'rangeAttributeName' /\</ ':rangeval' - true if the range key is
---     less than ':rangeval'.
+-- -   'sortKeyName' /&#x3C;/ ':sortkeyval' - true if the sort key value is
+--     less than ':sortkeyval'.
 --
--- -   'rangeAttributeName' /\<=/ ':rangeval' - true if the range key is
---     less than or equal to ':rangeval'.
+-- -   'sortKeyName' /&#x3C;=/ ':sortkeyval' - true if the sort key value
+--     is less than or equal to ':sortkeyval'.
 --
--- -   'rangeAttributeName' />/ ':rangeval' - true if the range key is
---     greater than ':rangeval'.
+-- -   'sortKeyName' /&#x3E;/ ':sortkeyval' - true if the sort key value is
+--     greater than ':sortkeyval'.
 --
--- -   'rangeAttributeName' />=/ ':rangeval' - true if the range key is
---     greater than or equal to ':rangeval'.
+-- -   'sortKeyName' /&#x3E;=/ ':sortkeyval' - true if the sort key value
+--     is greater than or equal to ':sortkeyval'.
 --
--- -   'rangeAttributeName' /BETWEEN/ ':rangeval1' /AND/ ':rangeval2' -
---     true if the range key is greater than or equal to ':rangeval1', and
---     less than or equal to ':rangeval2'.
+-- -   'sortKeyName' /BETWEEN/ ':sortkeyval1' /AND/ ':sortkeyval2' - true
+--     if the sort key value is greater than or equal to ':sortkeyval1',
+--     and less than or equal to ':sortkeyval2'.
 --
--- -   /begins_with (/'rangeAttributeName', ':rangeval'/)/ - true if the
---     range key begins with a particular operand. (You cannot use this
---     function with a range key that is of type Number.) Note that the
+-- -   /begins_with (/'sortKeyName', ':sortkeyval'/)/ - true if the sort
+--     key value begins with a particular operand. (You cannot use this
+--     function with a sort key that is of type Number.) Note that the
 --     function name 'begins_with' is case-sensitive.
 --
 -- Use the /ExpressionAttributeValues/ parameter to replace tokens such as
--- ':hashval' and ':rangeval' with actual values at runtime.
+-- ':partitionval' and ':sortval' with actual values at runtime.
 --
 -- You can optionally use the /ExpressionAttributeNames/ parameter to
--- replace the names of the hash and range attributes with placeholder
+-- replace the names of the partition key and sort key with placeholder
 -- tokens. This option might be necessary if an attribute name conflicts
 -- with a DynamoDB reserved word. For example, the following
 -- /KeyConditionExpression/ parameter causes an error because /Size/ is a
@@ -722,6 +721,8 @@ instance AWSRequest Query where
                      <*> (x .?> "Items" .!@ mempty)
                      <*> (x .?> "ConsumedCapacity")
                      <*> (pure (fromEnum s)))
+
+instance Hashable Query
 
 instance ToHeaders Query where
         toHeaders
@@ -821,7 +822,7 @@ qrsLastEvaluatedKey = lens _qrsLastEvaluatedKey (\ s a -> s{_qrsLastEvaluatedKey
 --
 -- If you used a /QueryFilter/ in the request, then /Count/ is the number
 -- of items returned after the filter was applied, and /ScannedCount/ is
--- the number of matching items before> the filter was applied.
+-- the number of matching items before the filter was applied.
 --
 -- If you did not use a filter in the request, then /Count/ and
 -- /ScannedCount/ are the same.

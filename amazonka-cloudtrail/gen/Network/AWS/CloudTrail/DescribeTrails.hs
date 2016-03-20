@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.DescribeTrails
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Retrieves settings for the trail associated with the current region for
 -- your account.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DescribeTrails.html AWS API Reference> for DescribeTrails.
 module Network.AWS.CloudTrail.DescribeTrails
     (
     -- * Creating a Request
@@ -103,6 +101,8 @@ instance AWSRequest DescribeTrails where
                  DescribeTrailsResponse' <$>
                    (x .?> "trailList" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeTrails
 
 instance ToHeaders DescribeTrails where
         toHeaders

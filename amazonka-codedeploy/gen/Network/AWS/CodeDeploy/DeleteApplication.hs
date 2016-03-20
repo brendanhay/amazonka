@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeleteApplication
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an application.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteApplication.html AWS API Reference> for DeleteApplication.
 module Network.AWS.CodeDeploy.DeleteApplication
     (
     -- * Creating a Request
@@ -61,8 +59,8 @@ deleteApplication pApplicationName_ =
     { _daApplicationName = pApplicationName_
     }
 
--- | The name of an existing AWS CodeDeploy application associated with the
--- applicable IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the applicable
+-- IAM user or AWS account.
 daApplicationName :: Lens' DeleteApplication Text
 daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a});
 
@@ -70,6 +68,8 @@ instance AWSRequest DeleteApplication where
         type Rs DeleteApplication = DeleteApplicationResponse
         request = postJSON codeDeploy
         response = receiveNull DeleteApplicationResponse'
+
+instance Hashable DeleteApplication
 
 instance ToHeaders DeleteApplication where
         toHeaders

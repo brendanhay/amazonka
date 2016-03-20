@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetIntegrationResponse
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a get integration response.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetIntegrationResponse.html AWS API Reference> for GetIntegrationResponse.
 module Network.AWS.APIGateway.GetIntegrationResponse
     (
     -- * Creating a Request
@@ -105,8 +103,13 @@ instance AWSRequest GetIntegrationResponse where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetIntegrationResponse
+
 instance ToHeaders GetIntegrationResponse where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetIntegrationResponse where
         toPath GetIntegrationResponse'{..}

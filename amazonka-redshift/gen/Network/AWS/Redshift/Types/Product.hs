@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -49,6 +49,8 @@ instance FromXML AccountWithRestoreAccess where
         parseXML x
           = AccountWithRestoreAccess' <$> (x .@? "AccountId")
 
+instance Hashable AccountWithRestoreAccess
+
 -- | Describes an availability zone.
 --
 -- /See:/ 'availabilityZone' smart constructor.
@@ -74,6 +76,8 @@ azName = lens _azName (\ s a -> s{_azName = a});
 
 instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
+
+instance Hashable AvailabilityZone
 
 -- | Describes a cluster.
 --
@@ -313,7 +317,7 @@ cVPCSecurityGroups = lens _cVPCSecurityGroups (\ s a -> s{_cVPCSecurityGroups = 
 cHSMStatus :: Lens' Cluster (Maybe HSMStatus)
 cHSMStatus = lens _cHSMStatus (\ s a -> s{_cHSMStatus = a});
 
--- | Describes the status of the elastic IP (EIP) address.
+-- | The status of the elastic IP (EIP) address.
 cElasticIPStatus :: Lens' Cluster (Maybe ElasticIPStatus)
 cElasticIPStatus = lens _cElasticIPStatus (\ s a -> s{_cElasticIPStatus = a});
 
@@ -339,8 +343,24 @@ cEndpoint = lens _cEndpoint (\ s a -> s{_cEndpoint = a});
 cAllowVersionUpgrade :: Lens' Cluster (Maybe Bool)
 cAllowVersionUpgrade = lens _cAllowVersionUpgrade (\ s a -> s{_cAllowVersionUpgrade = a});
 
--- | The current state of this cluster. Possible values include 'available',
--- 'creating', 'deleting', 'rebooting', 'renaming', and 'resizing'.
+-- | The current state of the cluster. Possible values are:
+--
+-- -   'available'
+-- -   'creating'
+-- -   'deleting'
+-- -   'final-snapshot'
+-- -   'hardware-failure'
+-- -   'incompatible-hsm'
+-- -   'incompatible-network'
+-- -   'incompatible-parameters'
+-- -   'incompatible-restore'
+-- -   'modifying'
+-- -   'rebooting'
+-- -   'renaming'
+-- -   'resizing'
+-- -   'rotating-keys'
+-- -   'storage-full'
+-- -   'updating-hsm'
 cClusterStatus :: Lens' Cluster (Maybe Text)
 cClusterStatus = lens _cClusterStatus (\ s a -> s{_cClusterStatus = a});
 
@@ -409,6 +429,8 @@ instance FromXML Cluster where
                    may (parseXMLList "member"))
                 <*> (x .@? "DBName")
 
+instance Hashable Cluster
+
 -- | The identifier of a node in a cluster.
 --
 -- /See:/ 'clusterNode' smart constructor.
@@ -453,6 +475,8 @@ instance FromXML ClusterNode where
           = ClusterNode' <$>
               (x .@? "NodeRole") <*> (x .@? "PrivateIPAddress") <*>
                 (x .@? "PublicIPAddress")
+
+instance Hashable ClusterNode
 
 -- | Describes a parameter group.
 --
@@ -512,9 +536,9 @@ instance FromXML ClusterParameterGroup where
                    may (parseXMLList "Tag"))
                 <*> (x .@? "ParameterGroupName")
 
--- | Contains the output from the ModifyClusterParameterGroup and
--- ResetClusterParameterGroup actions and indicate the parameter group
--- involved and the status of the operation on the parameter group.
+instance Hashable ClusterParameterGroup
+
+-- |
 --
 -- /See:/ 'clusterParameterGroupNameMessage' smart constructor.
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
@@ -553,6 +577,8 @@ instance FromXML ClusterParameterGroupNameMessage
           = ClusterParameterGroupNameMessage' <$>
               (x .@? "ParameterGroupStatus") <*>
                 (x .@? "ParameterGroupName")
+
+instance Hashable ClusterParameterGroupNameMessage
 
 -- | Describes the status of a parameter group.
 --
@@ -604,6 +630,8 @@ instance FromXML ClusterParameterGroupStatus where
                  may (parseXMLList "member"))
                 <*> (x .@? "ParameterApplyStatus")
                 <*> (x .@? "ParameterGroupName")
+
+instance Hashable ClusterParameterGroupStatus
 
 -- | Describes the status of a parameter group.
 --
@@ -668,6 +696,8 @@ instance FromXML ClusterParameterStatus where
               (x .@? "ParameterApplyErrorDescription") <*>
                 (x .@? "ParameterName")
                 <*> (x .@? "ParameterApplyStatus")
+
+instance Hashable ClusterParameterStatus
 
 -- | Describes a security group.
 --
@@ -741,7 +771,9 @@ instance FromXML ClusterSecurityGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
--- | Describes a security group.
+instance Hashable ClusterSecurityGroup
+
+-- | Describes a cluster security group.
 --
 -- /See:/ 'clusterSecurityGroupMembership' smart constructor.
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
@@ -777,6 +809,8 @@ instance FromXML ClusterSecurityGroupMembership where
           = ClusterSecurityGroupMembership' <$>
               (x .@? "Status") <*>
                 (x .@? "ClusterSecurityGroupName")
+
+instance Hashable ClusterSecurityGroupMembership
 
 -- | Returns the destination region and retention period that are configured
 -- for cross-region snapshot copy.
@@ -827,6 +861,8 @@ instance FromXML ClusterSnapshotCopyStatus where
                 (x .@? "DestinationRegion")
                 <*> (x .@? "SnapshotCopyGrantName")
 
+instance Hashable ClusterSnapshotCopyStatus
+
 -- | Describes a subnet group.
 --
 -- /See:/ 'clusterSubnetGroup' smart constructor.
@@ -870,7 +906,7 @@ clusterSubnetGroup =
 csgVPCId :: Lens' ClusterSubnetGroup (Maybe Text)
 csgVPCId = lens _csgVPCId (\ s a -> s{_csgVPCId = a});
 
--- | A list of the VPC Subnet elements.
+-- | A list of the VPC < Subnet> elements.
 csgSubnets :: Lens' ClusterSubnetGroup [Subnet]
 csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a}) . _Default . _Coerce;
 
@@ -903,6 +939,8 @@ instance FromXML ClusterSubnetGroup where
                 <*>
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
+
+instance Hashable ClusterSubnetGroup
 
 -- | Describes a cluster version, including the parameter group family and
 -- description of the version.
@@ -950,6 +988,8 @@ instance FromXML ClusterVersion where
               (x .@? "ClusterParameterGroupFamily") <*>
                 (x .@? "ClusterVersion")
                 <*> (x .@? "Description")
+
+instance Hashable ClusterVersion
 
 -- | Describes the default cluster parameters for a parameter group family.
 --
@@ -1003,6 +1043,8 @@ instance FromXML DefaultClusterParameters where
                 (x .@? "Parameters" .!@ mempty >>=
                    may (parseXMLList "Parameter"))
                 <*> (x .@? "ParameterGroupFamily")
+
+instance Hashable DefaultClusterParameters
 
 -- | Describes an Amazon EC2 security group.
 --
@@ -1062,6 +1104,8 @@ instance FromXML EC2SecurityGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
+instance Hashable EC2SecurityGroup
+
 -- | Describes the status of the elastic IP (EIP) address.
 --
 -- /See:/ 'elasticIPStatus' smart constructor.
@@ -1085,7 +1129,7 @@ elasticIPStatus =
     , _eisElasticIP = Nothing
     }
 
--- | Describes the status of the elastic IP (EIP) address.
+-- | The status of the elastic IP (EIP) address.
 eisStatus :: Lens' ElasticIPStatus (Maybe Text)
 eisStatus = lens _eisStatus (\ s a -> s{_eisStatus = a});
 
@@ -1097,6 +1141,8 @@ instance FromXML ElasticIPStatus where
         parseXML x
           = ElasticIPStatus' <$>
               (x .@? "Status") <*> (x .@? "ElasticIp")
+
+instance Hashable ElasticIPStatus
 
 -- | Describes a connection endpoint.
 --
@@ -1132,6 +1178,8 @@ ePort = lens _ePort (\ s a -> s{_ePort = a});
 instance FromXML Endpoint where
         parseXML x
           = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
+
+instance Hashable Endpoint
 
 -- | Describes an event.
 --
@@ -1220,7 +1268,11 @@ instance FromXML Event where
                 <*> (x .@? "Message")
                 <*> (x .@? "EventId")
 
--- | /See:/ 'eventCategoriesMap' smart constructor.
+instance Hashable Event
+
+-- | Describes event categories.
+--
+-- /See:/ 'eventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
     { _ecmSourceType :: !(Maybe Text)
     , _ecmEvents     :: !(Maybe [EventInfoMap])
@@ -1241,8 +1293,8 @@ eventCategoriesMap =
     , _ecmEvents = Nothing
     }
 
--- | The Amazon Redshift source type, such as cluster or cluster-snapshot,
--- that the returned categories belong to.
+-- | The source type, such as cluster or cluster-snapshot, that the returned
+-- categories belong to.
 ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
 ecmSourceType = lens _ecmSourceType (\ s a -> s{_ecmSourceType = a});
 
@@ -1257,7 +1309,11 @@ instance FromXML EventCategoriesMap where
                 (x .@? "Events" .!@ mempty >>=
                    may (parseXMLList "EventInfoMap"))
 
--- | /See:/ 'eventInfoMap' smart constructor.
+instance Hashable EventCategoriesMap
+
+-- | Describes event information.
+--
+-- /See:/ 'eventInfoMap' smart constructor.
 data EventInfoMap = EventInfoMap'
     { _eimEventDescription :: !(Maybe Text)
     , _eimSeverity         :: !(Maybe Text)
@@ -1312,7 +1368,11 @@ instance FromXML EventInfoMap where
                    may (parseXMLList "EventCategory"))
                 <*> (x .@? "EventId")
 
--- | /See:/ 'eventSubscription' smart constructor.
+instance Hashable EventInfoMap
+
+-- | Describes event subscriptions.
+--
+-- /See:/ 'eventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
     { _esStatus                   :: !(Maybe Text)
     , _esCustomerAWSId            :: !(Maybe Text)
@@ -1454,6 +1514,8 @@ instance FromXML EventSubscription where
                 (x .@? "SourceIdsList" .!@ mempty >>=
                    may (parseXMLList "SourceId"))
 
+instance Hashable EventSubscription
+
 -- | Returns information about an HSM client certificate. The certificate is
 -- stored in a secure Hardware Storage Module (HSM), and used by the Amazon
 -- Redshift cluster to encrypt data files.
@@ -1504,6 +1566,8 @@ instance FromXML HSMClientCertificate where
                 <*>
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
+
+instance Hashable HSMClientCertificate
 
 -- | Returns information about an HSM configuration, which is an object that
 -- describes to Amazon Redshift clusters the information they require to
@@ -1575,7 +1639,9 @@ instance FromXML HSMConfiguration where
                    may (parseXMLList "Tag"))
                 <*> (x .@? "HsmIpAddress")
 
--- |
+instance Hashable HSMConfiguration
+
+-- | Describes the status of changes to HSM settings.
 --
 -- /See:/ 'hsmStatus' smart constructor.
 data HSMStatus = HSMStatus'
@@ -1627,6 +1693,8 @@ instance FromXML HSMStatus where
                 (x .@? "HsmConfigurationIdentifier")
                 <*> (x .@? "HsmClientCertificateIdentifier")
 
+instance Hashable HSMStatus
+
 -- | Describes an IP range used in a security group.
 --
 -- /See:/ 'ipRange' smart constructor.
@@ -1673,6 +1741,8 @@ instance FromXML IPRange where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
+instance Hashable IPRange
+
 -- | Describes the status of logging for a cluster.
 --
 -- /See:/ 'loggingStatus' smart constructor.
@@ -1716,7 +1786,7 @@ loggingStatus =
 lsLastFailureTime :: Lens' LoggingStatus (Maybe UTCTime)
 lsLastFailureTime = lens _lsLastFailureTime (\ s a -> s{_lsLastFailureTime = a}) . mapping _Time;
 
--- | The last time when logs were delivered.
+-- | The last time that logs were delivered.
 lsLastSuccessfulDeliveryTime :: Lens' LoggingStatus (Maybe UTCTime)
 lsLastSuccessfulDeliveryTime = lens _lsLastSuccessfulDeliveryTime (\ s a -> s{_lsLastSuccessfulDeliveryTime = a}) . mapping _Time;
 
@@ -1745,6 +1815,8 @@ instance FromXML LoggingStatus where
                 <*> (x .@? "BucketName")
                 <*> (x .@? "LoggingEnabled")
                 <*> (x .@? "LastFailureMessage")
+
+instance Hashable LoggingStatus
 
 -- | Describes an orderable cluster option.
 --
@@ -1802,6 +1874,8 @@ instance FromXML OrderableClusterOption where
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
 
+instance Hashable OrderableClusterOption
+
 -- | Describes a parameter in a cluster parameter group.
 --
 -- /See:/ 'parameter' smart constructor.
@@ -1853,7 +1927,13 @@ parameter =
     , _pDescription = Nothing
     }
 
--- | Specifies how to apply the parameter. Supported value: 'static'.
+-- | Specifies how to apply the WLM configuration parameter. Some properties
+-- can be applied dynamically, while other properties require that any
+-- associated clusters be rebooted for the configuration changes to be
+-- applied. For more information about parameters and parameter groups, go
+-- to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
+-- in the /Amazon Redshift Cluster Management Guide/.
 pApplyType :: Lens' Parameter (Maybe ParameterApplyType)
 pApplyType = lens _pApplyType (\ s a -> s{_pApplyType = a});
 
@@ -1903,6 +1983,8 @@ instance FromXML Parameter where
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
 
+instance Hashable Parameter
+
 instance ToQuery Parameter where
         toQuery Parameter'{..}
           = mconcat
@@ -1923,6 +2005,7 @@ instance ToQuery Parameter where
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
     { _pmvMasterUserPassword               :: !(Maybe Text)
+    , _pmvPubliclyAccessible               :: !(Maybe Bool)
     , _pmvAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
     , _pmvClusterIdentifier                :: !(Maybe Text)
     , _pmvNumberOfNodes                    :: !(Maybe Int)
@@ -1936,6 +2019,8 @@ data PendingModifiedValues = PendingModifiedValues'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pmvMasterUserPassword'
+--
+-- * 'pmvPubliclyAccessible'
 --
 -- * 'pmvAutomatedSnapshotRetentionPeriod'
 --
@@ -1953,6 +2038,7 @@ pendingModifiedValues
 pendingModifiedValues =
     PendingModifiedValues'
     { _pmvMasterUserPassword = Nothing
+    , _pmvPubliclyAccessible = Nothing
     , _pmvAutomatedSnapshotRetentionPeriod = Nothing
     , _pmvClusterIdentifier = Nothing
     , _pmvNumberOfNodes = Nothing
@@ -1965,6 +2051,11 @@ pendingModifiedValues =
 -- cluster.
 pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
 pmvMasterUserPassword = lens _pmvMasterUserPassword (\ s a -> s{_pmvMasterUserPassword = a});
+
+-- | The pending or in-progress change of the ability to connect to the
+-- cluster from the public network.
+pmvPubliclyAccessible :: Lens' PendingModifiedValues (Maybe Bool)
+pmvPubliclyAccessible = lens _pmvPubliclyAccessible (\ s a -> s{_pmvPubliclyAccessible = a});
 
 -- | The pending or in-progress change of the automated snapshot retention
 -- period.
@@ -1995,12 +2086,15 @@ instance FromXML PendingModifiedValues where
         parseXML x
           = PendingModifiedValues' <$>
               (x .@? "MasterUserPassword") <*>
-                (x .@? "AutomatedSnapshotRetentionPeriod")
+                (x .@? "PubliclyAccessible")
+                <*> (x .@? "AutomatedSnapshotRetentionPeriod")
                 <*> (x .@? "ClusterIdentifier")
                 <*> (x .@? "NumberOfNodes")
                 <*> (x .@? "ClusterType")
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
+
+instance Hashable PendingModifiedValues
 
 -- | Describes a recurring charge.
 --
@@ -2040,9 +2134,11 @@ instance FromXML RecurringCharge where
               (x .@? "RecurringChargeFrequency") <*>
                 (x .@? "RecurringChargeAmount")
 
+instance Hashable RecurringCharge
+
 -- | Describes a reserved node. You can call the
--- DescribeReservedNodeOfferings API to obtain the available reserved node
--- offerings.
+-- < DescribeReservedNodeOfferings> API to obtain the available reserved
+-- node offerings.
 --
 -- /See:/ 'reservedNode' smart constructor.
 data ReservedNode = ReservedNode'
@@ -2180,6 +2276,8 @@ instance FromXML ReservedNode where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
+instance Hashable ReservedNode
+
 -- | Describes a reserved node offering.
 --
 -- /See:/ 'reservedNodeOffering' smart constructor.
@@ -2278,6 +2376,8 @@ instance FromXML ReservedNodeOffering where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
+instance Hashable ReservedNodeOffering
+
 -- | Describes the status of a cluster restore action. Returns null if the
 -- cluster was not created by restoring a snapshot.
 --
@@ -2356,6 +2456,8 @@ instance FromXML RestoreStatus where
                 <*> (x .@? "ProgressInMegaBytes")
                 <*> (x .@? "ElapsedTimeInSeconds")
                 <*> (x .@? "SnapshotSizeInMegaBytes")
+
+instance Hashable RestoreStatus
 
 -- | Describes a snapshot.
 --
@@ -2487,11 +2589,11 @@ snapshot =
 -- | The snapshot status. The value of the status depends on the API
 -- operation used.
 --
--- -   CreateClusterSnapshot and CopyClusterSnapshot returns status as
---     \"creating\".
--- -   DescribeClusterSnapshots returns status as \"creating\",
+-- -   < CreateClusterSnapshot> and < CopyClusterSnapshot> returns status
+--     as \"creating\".
+-- -   < DescribeClusterSnapshots> returns status as \"creating\",
 --     \"available\", \"final snapshot\", or \"failed\".
--- -   DeleteClusterSnapshot returns status as \"deleted\".
+-- -   < DeleteClusterSnapshot> returns status as \"deleted\".
 sStatus :: Lens' Snapshot (Maybe Text)
 sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 
@@ -2546,8 +2648,8 @@ sClusterIdentifier = lens _sClusterIdentifier (\ s a -> s{_sClusterIdentifier = 
 sNumberOfNodes :: Lens' Snapshot (Maybe Int)
 sNumberOfNodes = lens _sNumberOfNodes (\ s a -> s{_sNumberOfNodes = a});
 
--- | The snapshot type. Snapshots created using CreateClusterSnapshot and
--- CopyClusterSnapshot will be of type \"manual\".
+-- | The snapshot type. Snapshots created using < CreateClusterSnapshot> and
+-- < CopyClusterSnapshot> will be of type \"manual\".
 sSnapshotType :: Lens' Snapshot (Maybe Text)
 sSnapshotType = lens _sSnapshotType (\ s a -> s{_sSnapshotType = a});
 
@@ -2659,6 +2761,8 @@ instance FromXML Snapshot where
                 <*> (x .@? "TotalBackupSizeInMegaBytes")
                 <*> (x .@? "DBName")
 
+instance Hashable Snapshot
+
 -- | The snapshot copy grant that grants Amazon Redshift permission to
 -- encrypt copied snapshots with the specified customer master key (CMK)
 -- from AWS KMS in the destination region.
@@ -2714,6 +2818,8 @@ instance FromXML SnapshotCopyGrant where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
+instance Hashable SnapshotCopyGrant
+
 -- | Describes a subnet.
 --
 -- /See:/ 'subnet' smart constructor.
@@ -2759,6 +2865,161 @@ instance FromXML Subnet where
               (x .@? "SubnetStatus") <*> (x .@? "SubnetIdentifier")
                 <*> (x .@? "SubnetAvailabilityZone")
 
+instance Hashable Subnet
+
+-- | Describes the status of a < RestoreTableFromClusterSnapshot> operation.
+--
+-- /See:/ 'tableRestoreStatus' smart constructor.
+data TableRestoreStatus = TableRestoreStatus'
+    { _trsStatus                :: !(Maybe TableRestoreStatusType)
+    , _trsTargetSchemaName      :: !(Maybe Text)
+    , _trsSnapshotIdentifier    :: !(Maybe Text)
+    , _trsSourceDatabaseName    :: !(Maybe Text)
+    , _trsTableRestoreRequestId :: !(Maybe Text)
+    , _trsNewTableName          :: !(Maybe Text)
+    , _trsTargetDatabaseName    :: !(Maybe Text)
+    , _trsSourceSchemaName      :: !(Maybe Text)
+    , _trsClusterIdentifier     :: !(Maybe Text)
+    , _trsRequestTime           :: !(Maybe ISO8601)
+    , _trsSourceTableName       :: !(Maybe Text)
+    , _trsTotalDataInMegaBytes  :: !(Maybe Integer)
+    , _trsProgressInMegaBytes   :: !(Maybe Integer)
+    , _trsMessage               :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TableRestoreStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'trsStatus'
+--
+-- * 'trsTargetSchemaName'
+--
+-- * 'trsSnapshotIdentifier'
+--
+-- * 'trsSourceDatabaseName'
+--
+-- * 'trsTableRestoreRequestId'
+--
+-- * 'trsNewTableName'
+--
+-- * 'trsTargetDatabaseName'
+--
+-- * 'trsSourceSchemaName'
+--
+-- * 'trsClusterIdentifier'
+--
+-- * 'trsRequestTime'
+--
+-- * 'trsSourceTableName'
+--
+-- * 'trsTotalDataInMegaBytes'
+--
+-- * 'trsProgressInMegaBytes'
+--
+-- * 'trsMessage'
+tableRestoreStatus
+    :: TableRestoreStatus
+tableRestoreStatus =
+    TableRestoreStatus'
+    { _trsStatus = Nothing
+    , _trsTargetSchemaName = Nothing
+    , _trsSnapshotIdentifier = Nothing
+    , _trsSourceDatabaseName = Nothing
+    , _trsTableRestoreRequestId = Nothing
+    , _trsNewTableName = Nothing
+    , _trsTargetDatabaseName = Nothing
+    , _trsSourceSchemaName = Nothing
+    , _trsClusterIdentifier = Nothing
+    , _trsRequestTime = Nothing
+    , _trsSourceTableName = Nothing
+    , _trsTotalDataInMegaBytes = Nothing
+    , _trsProgressInMegaBytes = Nothing
+    , _trsMessage = Nothing
+    }
+
+-- | A value that describes the current state of the table restore request.
+--
+-- Valid Values: 'SUCCEEDED', 'FAILED', 'CANCELLED', 'PENDING',
+-- 'IN_PROGRESS'
+trsStatus :: Lens' TableRestoreStatus (Maybe TableRestoreStatusType)
+trsStatus = lens _trsStatus (\ s a -> s{_trsStatus = a});
+
+-- | The name of the schema to restore the table to.
+trsTargetSchemaName :: Lens' TableRestoreStatus (Maybe Text)
+trsTargetSchemaName = lens _trsTargetSchemaName (\ s a -> s{_trsTargetSchemaName = a});
+
+-- | The identifier of the snapshot that the table is being restored from.
+trsSnapshotIdentifier :: Lens' TableRestoreStatus (Maybe Text)
+trsSnapshotIdentifier = lens _trsSnapshotIdentifier (\ s a -> s{_trsSnapshotIdentifier = a});
+
+-- | The name of the source database that contains the table being restored.
+trsSourceDatabaseName :: Lens' TableRestoreStatus (Maybe Text)
+trsSourceDatabaseName = lens _trsSourceDatabaseName (\ s a -> s{_trsSourceDatabaseName = a});
+
+-- | The unique identifier for the table restore request.
+trsTableRestoreRequestId :: Lens' TableRestoreStatus (Maybe Text)
+trsTableRestoreRequestId = lens _trsTableRestoreRequestId (\ s a -> s{_trsTableRestoreRequestId = a});
+
+-- | The name of the table to create as a result of the table restore
+-- request.
+trsNewTableName :: Lens' TableRestoreStatus (Maybe Text)
+trsNewTableName = lens _trsNewTableName (\ s a -> s{_trsNewTableName = a});
+
+-- | The name of the database to restore the table to.
+trsTargetDatabaseName :: Lens' TableRestoreStatus (Maybe Text)
+trsTargetDatabaseName = lens _trsTargetDatabaseName (\ s a -> s{_trsTargetDatabaseName = a});
+
+-- | The name of the source schema that contains the table being restored.
+trsSourceSchemaName :: Lens' TableRestoreStatus (Maybe Text)
+trsSourceSchemaName = lens _trsSourceSchemaName (\ s a -> s{_trsSourceSchemaName = a});
+
+-- | The identifier of the Amazon Redshift cluster that the table is being
+-- restored to.
+trsClusterIdentifier :: Lens' TableRestoreStatus (Maybe Text)
+trsClusterIdentifier = lens _trsClusterIdentifier (\ s a -> s{_trsClusterIdentifier = a});
+
+-- | The time that the table restore request was made, in Universal
+-- Coordinated Time (UTC).
+trsRequestTime :: Lens' TableRestoreStatus (Maybe UTCTime)
+trsRequestTime = lens _trsRequestTime (\ s a -> s{_trsRequestTime = a}) . mapping _Time;
+
+-- | The name of the source table being restored.
+trsSourceTableName :: Lens' TableRestoreStatus (Maybe Text)
+trsSourceTableName = lens _trsSourceTableName (\ s a -> s{_trsSourceTableName = a});
+
+-- | The total amount of data to restore to the new table, in megabytes (MB).
+trsTotalDataInMegaBytes :: Lens' TableRestoreStatus (Maybe Integer)
+trsTotalDataInMegaBytes = lens _trsTotalDataInMegaBytes (\ s a -> s{_trsTotalDataInMegaBytes = a});
+
+-- | The amount of data restored to the new table so far, in megabytes (MB).
+trsProgressInMegaBytes :: Lens' TableRestoreStatus (Maybe Integer)
+trsProgressInMegaBytes = lens _trsProgressInMegaBytes (\ s a -> s{_trsProgressInMegaBytes = a});
+
+-- | A description of the status of the table restore request. Status values
+-- include 'SUCCEEDED', 'FAILED', 'CANCELLED', 'PENDING', 'IN_PROGRESS'.
+trsMessage :: Lens' TableRestoreStatus (Maybe Text)
+trsMessage = lens _trsMessage (\ s a -> s{_trsMessage = a});
+
+instance FromXML TableRestoreStatus where
+        parseXML x
+          = TableRestoreStatus' <$>
+              (x .@? "Status") <*> (x .@? "TargetSchemaName") <*>
+                (x .@? "SnapshotIdentifier")
+                <*> (x .@? "SourceDatabaseName")
+                <*> (x .@? "TableRestoreRequestId")
+                <*> (x .@? "NewTableName")
+                <*> (x .@? "TargetDatabaseName")
+                <*> (x .@? "SourceSchemaName")
+                <*> (x .@? "ClusterIdentifier")
+                <*> (x .@? "RequestTime")
+                <*> (x .@? "SourceTableName")
+                <*> (x .@? "TotalDataInMegaBytes")
+                <*> (x .@? "ProgressInMegaBytes")
+                <*> (x .@? "Message")
+
+instance Hashable TableRestoreStatus
+
 -- | A tag consisting of a name\/value pair for a resource.
 --
 -- /See:/ 'tag' smart constructor.
@@ -2793,6 +3054,8 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
+
+instance Hashable Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -2860,6 +3123,8 @@ instance FromXML TaggedResource where
               (x .@? "Tag") <*> (x .@? "ResourceType") <*>
                 (x .@? "ResourceName")
 
+instance Hashable TaggedResource
+
 -- | Describes the members of a VPC security group.
 --
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
@@ -2883,11 +3148,11 @@ vpcSecurityGroupMembership =
     , _vsgmVPCSecurityGroupId = Nothing
     }
 
--- | Undocumented member.
+-- | The status of the VPC security group.
 vsgmStatus :: Lens' VPCSecurityGroupMembership (Maybe Text)
 vsgmStatus = lens _vsgmStatus (\ s a -> s{_vsgmStatus = a});
 
--- | Undocumented member.
+-- | The identifier of the VPC security group.
 vsgmVPCSecurityGroupId :: Lens' VPCSecurityGroupMembership (Maybe Text)
 vsgmVPCSecurityGroupId = lens _vsgmVPCSecurityGroupId (\ s a -> s{_vsgmVPCSecurityGroupId = a});
 
@@ -2895,3 +3160,5 @@ instance FromXML VPCSecurityGroupMembership where
         parseXML x
           = VPCSecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "VpcSecurityGroupId")
+
+instance Hashable VPCSecurityGroupMembership

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeResourceGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the resource group specified by the resource group ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DescribeResourceGroup.html AWS API Reference> for DescribeResourceGroup.
 module Network.AWS.Inspector.DescribeResourceGroup
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest DescribeResourceGroup where
               (\ s h x ->
                  DescribeResourceGroupResponse' <$>
                    (x .?> "resourceGroup") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeResourceGroup
 
 instance ToHeaders DescribeResourceGroup where
         toHeaders

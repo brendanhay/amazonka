@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.LocalizeText
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Translates a textual identifier into a user-readable text in a specified
 -- locale.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_LocalizeText.html AWS API Reference> for LocalizeText.
 module Network.AWS.Inspector.LocalizeText
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest LocalizeText where
                  LocalizeTextResponse' <$>
                    (x .?> "results" .!@ mempty) <*> (x .?> "message")
                      <*> (pure (fromEnum s)))
+
+instance Hashable LocalizeText
 
 instance ToHeaders LocalizeText where
         toHeaders

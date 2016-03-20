@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.GetSnapshotLimits
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Obtains the manual snapshot limits for a directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_GetSnapshotLimits.html AWS API Reference> for GetSnapshotLimits.
 module Network.AWS.DirectoryService.GetSnapshotLimits
     (
     -- * Creating a Request
@@ -44,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the GetSnapshotLimits operation.
+-- | Contains the inputs for the < GetSnapshotLimits> operation.
 --
 -- /See:/ 'getSnapshotLimits' smart constructor.
 newtype GetSnapshotLimits = GetSnapshotLimits'
@@ -77,6 +75,8 @@ instance AWSRequest GetSnapshotLimits where
                  GetSnapshotLimitsResponse' <$>
                    (x .?> "SnapshotLimits") <*> (pure (fromEnum s)))
 
+instance Hashable GetSnapshotLimits
+
 instance ToHeaders GetSnapshotLimits where
         toHeaders
           = const
@@ -98,7 +98,7 @@ instance ToPath GetSnapshotLimits where
 instance ToQuery GetSnapshotLimits where
         toQuery = const mempty
 
--- | Contains the results of the GetSnapshotLimits operation.
+-- | Contains the results of the < GetSnapshotLimits> operation.
 --
 -- /See:/ 'getSnapshotLimitsResponse' smart constructor.
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
@@ -122,8 +122,8 @@ getSnapshotLimitsResponse pResponseStatus_ =
     , _gslrsResponseStatus = pResponseStatus_
     }
 
--- | A SnapshotLimits object that contains the manual snapshot limits for the
--- specified directory.
+-- | A < SnapshotLimits> object that contains the manual snapshot limits for
+-- the specified directory.
 gslrsSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
 gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits = a});
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.CreateLoadBalancer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html Elastic Load Balancing Limits>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancer.html AWS API Reference> for CreateLoadBalancer.
 module Network.AWS.ELB.CreateLoadBalancer
     (
     -- * Creating a Request
@@ -122,7 +120,7 @@ clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a}) . _Default . _Coerce
 -- You must specify at least one Availability Zone.
 --
 -- You can add more Availability Zones after you create the load balancer
--- using EnableAvailabilityZonesForLoadBalancer.
+-- using < EnableAvailabilityZonesForLoadBalancer>.
 clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
 clbAvailabilityZones = lens _clbAvailabilityZones (\ s a -> s{_clbAvailabilityZones = a}) . _Default . _Coerce;
 
@@ -174,6 +172,8 @@ instance AWSRequest CreateLoadBalancer where
               (\ s h x ->
                  CreateLoadBalancerResponse' <$>
                    (x .@? "DNSName") <*> (pure (fromEnum s)))
+
+instance Hashable CreateLoadBalancer
 
 instance ToHeaders CreateLoadBalancer where
         toHeaders = const mempty

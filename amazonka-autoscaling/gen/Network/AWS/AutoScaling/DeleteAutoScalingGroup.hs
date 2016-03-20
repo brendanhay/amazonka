@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteAutoScalingGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,15 +28,13 @@
 -- action.
 --
 -- To remove instances from the Auto Scaling group before deleting it, call
--- DetachInstances with the list of instances and the option to decrement
--- the desired capacity so that Auto Scaling does not launch replacement
--- instances.
+-- < DetachInstances> with the list of instances and the option to
+-- decrement the desired capacity so that Auto Scaling does not launch
+-- replacement instances.
 --
 -- To terminate all instances before deleting the Auto Scaling group, call
--- UpdateAutoScalingGroup and set the minimum size and desired capacity of
--- the Auto Scaling group to zero.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html AWS API Reference> for DeleteAutoScalingGroup.
+-- < UpdateAutoScalingGroup> and set the minimum size and desired capacity
+-- of the Auto Scaling group to zero.
 module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest DeleteAutoScalingGroup where
         request = postQuery autoScaling
         response
           = receiveNull DeleteAutoScalingGroupResponse'
+
+instance Hashable DeleteAutoScalingGroup
 
 instance ToHeaders DeleteAutoScalingGroup where
         toHeaders = const mempty

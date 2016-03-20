@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetModel
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes an existing model defined for a RestApi resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetModel.html AWS API Reference> for GetModel.
+-- Describes an existing model defined for a < RestApi> resource.
 module Network.AWS.APIGateway.GetModel
     (
     -- * Creating a Request
@@ -49,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to list information about a model in an existing RestApi
+-- | Request to list information about a model in an existing < RestApi>
 -- resource.
 --
 -- /See:/ 'getModel' smart constructor.
@@ -84,7 +82,7 @@ getModel pRestAPIId_ pModelName_ =
 ggFlatten :: Lens' GetModel (Maybe Bool)
 ggFlatten = lens _ggFlatten (\ s a -> s{_ggFlatten = a});
 
--- | The RestApi identifier under which the Model exists.
+-- | The < RestApi> identifier under which the < Model> exists.
 ggRestAPIId :: Lens' GetModel Text
 ggRestAPIId = lens _ggRestAPIId (\ s a -> s{_ggRestAPIId = a});
 
@@ -97,8 +95,13 @@ instance AWSRequest GetModel where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetModel
+
 instance ToHeaders GetModel where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetModel where
         toPath GetModel'{..}

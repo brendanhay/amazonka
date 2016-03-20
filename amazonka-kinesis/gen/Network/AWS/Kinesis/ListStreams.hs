@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.ListStreams
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -34,9 +34,7 @@
 -- request is then added to the list. You can continue this process until
 -- all the stream names have been collected in the list.
 --
--- ListStreams has a limit of 5 transactions per second per account.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreams.html AWS API Reference> for ListStreams.
+-- < ListStreams> has a limit of 5 transactions per second per account.
 --
 -- This operation returns paginated results.
 module Network.AWS.Kinesis.ListStreams
@@ -115,6 +113,8 @@ instance AWSRequest ListStreams where
                    (pure (fromEnum s)) <*>
                      (x .?> "StreamNames" .!@ mempty)
                      <*> (x .:> "HasMoreStreams"))
+
+instance Hashable ListStreams
 
 instance ToHeaders ListStreams where
         toHeaders

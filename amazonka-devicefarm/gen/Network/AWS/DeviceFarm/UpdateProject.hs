@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.UpdateProject
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Modifies the specified project name, given the project ARN and a new
 -- name.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_UpdateProject.html AWS API Reference> for UpdateProject.
 module Network.AWS.DeviceFarm.UpdateProject
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest UpdateProject where
               (\ s h x ->
                  UpdateProjectResponse' <$>
                    (x .?> "project") <*> (pure (fromEnum s)))
+
+instance Hashable UpdateProject
 
 instance ToHeaders UpdateProject where
         toHeaders

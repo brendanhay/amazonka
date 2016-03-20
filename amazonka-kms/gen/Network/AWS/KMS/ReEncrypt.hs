@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ReEncrypt
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,9 +30,7 @@
 -- re-encryption from or to the key. The statement is included
 -- automatically when you authorize use of the key through the console but
 -- must be included manually when you set a policy by using the
--- PutKeyPolicy function.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html AWS API Reference> for ReEncrypt.
+-- < PutKeyPolicy> function.
 module Network.AWS.KMS.ReEncrypt
     (
     -- * Creating a Request
@@ -149,6 +147,8 @@ instance AWSRequest ReEncrypt where
                    (x .?> "SourceKeyId") <*> (x .?> "KeyId") <*>
                      (x .?> "CiphertextBlob")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ReEncrypt
 
 instance ToHeaders ReEncrypt where
         toHeaders

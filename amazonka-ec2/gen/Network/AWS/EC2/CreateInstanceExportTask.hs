@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateInstanceExportTask
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- and known limitations for the types of instances you can export, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html Exporting EC2 Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInstanceExportTask.html AWS API Reference> for CreateInstanceExportTask.
 module Network.AWS.EC2.CreateInstanceExportTask
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest CreateInstanceExportTask where
               (\ s h x ->
                  CreateInstanceExportTaskResponse' <$>
                    (x .@? "exportTask") <*> (pure (fromEnum s)))
+
+instance Hashable CreateInstanceExportTask
 
 instance ToHeaders CreateInstanceExportTask where
         toHeaders = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetDistribution
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the information about a distribution.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistribution.html AWS API Reference> for GetDistribution.
 module Network.AWS.CloudFront.GetDistribution
     (
     -- * Creating a Request
@@ -79,12 +77,14 @@ instance AWSRequest GetDistribution where
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetDistribution
+
 instance ToHeaders GetDistribution where
         toHeaders = const mempty
 
 instance ToPath GetDistribution where
         toPath GetDistribution'{..}
-          = mconcat ["/2015-09-17/distribution/", toBS _gdId]
+          = mconcat ["/2016-01-28/distribution/", toBS _gdId]
 
 instance ToQuery GetDistribution where
         toQuery = const mempty

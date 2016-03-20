@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.AttachThingPrincipal
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches the specified principal to the specified thing.
---
--- /See:/ <https://aws.amazon.com/iot#AttachThingPrincipal.html AWS API Reference> for AttachThingPrincipal.
 module Network.AWS.IoT.AttachThingPrincipal
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest AttachThingPrincipal where
               (\ s h x ->
                  AttachThingPrincipalResponse' <$>
                    (pure (fromEnum s)))
+
+instance Hashable AttachThingPrincipal
 
 instance ToHeaders AttachThingPrincipal where
         toHeaders AttachThingPrincipal'{..}

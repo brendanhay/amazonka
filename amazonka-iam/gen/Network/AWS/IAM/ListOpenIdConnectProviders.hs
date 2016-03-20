@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListOpenIdConnectProviders
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists information about the OpenID Connect providers in the AWS account.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIdConnectProviders.html AWS API Reference> for ListOpenIdConnectProviders.
 module Network.AWS.IAM.ListOpenIdConnectProviders
     (
     -- * Creating a Request
@@ -66,6 +64,8 @@ instance AWSRequest ListOpenIdConnectProviders where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListOpenIdConnectProviders
+
 instance ToHeaders ListOpenIdConnectProviders where
         toHeaders = const mempty
 
@@ -80,7 +80,7 @@ instance ToQuery ListOpenIdConnectProviders where
                     ("ListOpenIDConnectProviders" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful ListOpenIDConnectProviders
+-- | Contains the response to a successful < ListOpenIDConnectProviders>
 -- request.
 --
 -- /See:/ 'listOpenIdConnectProvidersResponse' smart constructor.

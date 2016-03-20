@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListInstanceProfilesForRole
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfilesForRole.html AWS API Reference> for ListInstanceProfilesForRole.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListInstanceProfilesForRole
@@ -128,6 +126,8 @@ instance AWSRequest ListInstanceProfilesForRole where
                      (x .@? "InstanceProfiles" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListInstanceProfilesForRole
+
 instance ToHeaders ListInstanceProfilesForRole where
         toHeaders = const mempty
 
@@ -144,7 +144,7 @@ instance ToQuery ListInstanceProfilesForRole where
                "MaxItems" =: _lipfrMaxItems,
                "RoleName" =: _lipfrRoleName]
 
--- | Contains the response to a successful ListInstanceProfilesForRole
+-- | Contains the response to a successful < ListInstanceProfilesForRole>
 -- request.
 --
 -- /See:/ 'listInstanceProfilesForRoleResponse' smart constructor.

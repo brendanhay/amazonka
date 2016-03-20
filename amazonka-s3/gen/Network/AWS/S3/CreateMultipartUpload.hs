@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.CreateMultipartUpload
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- stop getting charged for storage of the uploaded parts. Only after you
 -- either complete or abort multipart upload, Amazon S3 frees up the parts
 -- storage and stops charging you for the parts storage.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/CreateMultipartUpload.html AWS API Reference> for CreateMultipartUpload.
 module Network.AWS.S3.CreateMultipartUpload
     (
     -- * Creating a Request
@@ -63,6 +61,8 @@ module Network.AWS.S3.CreateMultipartUpload
     , cmursRequestCharged
     , cmursBucket
     , cmursSSECustomerAlgorithm
+    , cmursAbortDate
+    , cmursAbortRuleId
     , cmursKey
     , cmursSSECustomerKeyMD5
     , cmursSSEKMSKeyId
@@ -298,6 +298,8 @@ instance AWSRequest CreateMultipartUpload where
                      <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-algorithm")
+                     <*> (h .#? "x-amz-abort-date")
+                     <*> (h .#? "x-amz-abort-rule-id")
                      <*> (x .@? "Key")
                      <*>
                      (h .#?
@@ -307,6 +309,8 @@ instance AWSRequest CreateMultipartUpload where
                      <*> (x .@? "UploadId")
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (pure (fromEnum s)))
+
+instance Hashable CreateMultipartUpload
 
 instance ToHeaders CreateMultipartUpload where
         toHeaders CreateMultipartUpload'{..}
@@ -350,6 +354,8 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     { _cmursRequestCharged       :: !(Maybe RequestCharged)
     , _cmursBucket               :: !(Maybe BucketName)
     , _cmursSSECustomerAlgorithm :: !(Maybe Text)
+    , _cmursAbortDate            :: !(Maybe RFC822)
+    , _cmursAbortRuleId          :: !(Maybe Text)
     , _cmursKey                  :: !(Maybe ObjectKey)
     , _cmursSSECustomerKeyMD5    :: !(Maybe Text)
     , _cmursSSEKMSKeyId          :: !(Maybe (Sensitive Text))
@@ -367,6 +373,10 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
 -- * 'cmursBucket'
 --
 -- * 'cmursSSECustomerAlgorithm'
+--
+-- * 'cmursAbortDate'
+--
+-- * 'cmursAbortRuleId'
 --
 -- * 'cmursKey'
 --
@@ -387,6 +397,8 @@ createMultipartUploadResponse pResponseStatus_ =
     { _cmursRequestCharged = Nothing
     , _cmursBucket = Nothing
     , _cmursSSECustomerAlgorithm = Nothing
+    , _cmursAbortDate = Nothing
+    , _cmursAbortRuleId = Nothing
     , _cmursKey = Nothing
     , _cmursSSECustomerKeyMD5 = Nothing
     , _cmursSSEKMSKeyId = Nothing
@@ -408,6 +420,16 @@ cmursBucket = lens _cmursBucket (\ s a -> s{_cmursBucket = a});
 -- encryption algorithm used.
 cmursSSECustomerAlgorithm :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmursSSECustomerAlgorithm = lens _cmursSSECustomerAlgorithm (\ s a -> s{_cmursSSECustomerAlgorithm = a});
+
+-- | Date when multipart upload will become eligible for abort operation by
+-- lifecycle.
+cmursAbortDate :: Lens' CreateMultipartUploadResponse (Maybe UTCTime)
+cmursAbortDate = lens _cmursAbortDate (\ s a -> s{_cmursAbortDate = a}) . mapping _Time;
+
+-- | Id of the lifecycle rule that makes a multipart upload eligible for
+-- abort operation.
+cmursAbortRuleId :: Lens' CreateMultipartUploadResponse (Maybe Text)
+cmursAbortRuleId = lens _cmursAbortRuleId (\ s a -> s{_cmursAbortRuleId = a});
 
 -- | Object key for which the multipart upload was initiated.
 cmursKey :: Lens' CreateMultipartUploadResponse (Maybe ObjectKey)

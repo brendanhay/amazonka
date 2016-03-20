@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -136,6 +136,8 @@ instance FromXML Activity where
                 <*> (x .@ "StartTime")
                 <*> (x .@ "StatusCode")
 
+instance Hashable Activity
+
 -- | Describes a policy adjustment type.
 --
 -- For more information, see
@@ -167,6 +169,8 @@ atAdjustmentType = lens _atAdjustmentType (\ s a -> s{_atAdjustmentType = a});
 instance FromXML AdjustmentType where
         parseXML x
           = AdjustmentType' <$> (x .@? "AdjustmentType")
+
+instance Hashable AdjustmentType
 
 -- | Describes an alarm.
 --
@@ -203,6 +207,8 @@ instance FromXML Alarm where
         parseXML x
           = Alarm' <$>
               (x .@? "AlarmName") <*> (x .@? "AlarmARN")
+
+instance Hashable Alarm
 
 -- | Describes an Auto Scaling group.
 --
@@ -311,7 +317,7 @@ autoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ pDesiredCapacity_ pD
     , _asgCreatedTime = _Time # pCreatedTime_
     }
 
--- | The current state of the group when DeleteAutoScalingGroup is in
+-- | The current state of the group when < DeleteAutoScalingGroup> is in
 -- progress.
 asgStatus :: Lens' AutoScalingGroup (Maybe Text)
 asgStatus = lens _asgStatus (\ s a -> s{_asgStatus = a});
@@ -445,6 +451,8 @@ instance FromXML AutoScalingGroup where
                 <*> (x .@ "HealthCheckType")
                 <*> (x .@ "CreatedTime")
 
+instance Hashable AutoScalingGroup
+
 -- | Describes an EC2 instance associated with an Auto Scaling group.
 --
 -- /See:/ 'autoScalingInstanceDetails' smart constructor.
@@ -508,7 +516,7 @@ asidAvailabilityZone :: Lens' AutoScalingInstanceDetails Text
 asidAvailabilityZone = lens _asidAvailabilityZone (\ s a -> s{_asidAvailabilityZone = a});
 
 -- | The lifecycle state for the instance. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html#AutoScalingStates Auto Scaling Instance States>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle>
 -- in the /Auto Scaling Developer Guide/.
 asidLifecycleState :: Lens' AutoScalingInstanceDetails Text
 asidLifecycleState = lens _asidLifecycleState (\ s a -> s{_asidLifecycleState = a});
@@ -537,6 +545,8 @@ instance FromXML AutoScalingInstanceDetails where
                 <*> (x .@ "HealthStatus")
                 <*> (x .@ "LaunchConfigurationName")
                 <*> (x .@ "ProtectedFromScaleIn")
+
+instance Hashable AutoScalingInstanceDetails
 
 -- | Describes a block device mapping.
 --
@@ -598,6 +608,8 @@ instance FromXML BlockDeviceMapping where
                 (x .@? "Ebs")
                 <*> (x .@ "DeviceName")
 
+instance Hashable BlockDeviceMapping
+
 instance ToQuery BlockDeviceMapping where
         toQuery BlockDeviceMapping'{..}
           = mconcat
@@ -644,29 +656,26 @@ ebs =
     , _ebsSnapshotId = Nothing
     }
 
--- | Indicates whether to delete the volume on instance termination.
+-- | Indicates whether the volume is deleted on instance termination.
 --
 -- Default: 'true'
 ebsDeleteOnTermination :: Lens' EBS (Maybe Bool)
 ebsDeleteOnTermination = lens _ebsDeleteOnTermination (\ s a -> s{_ebsDeleteOnTermination = a});
 
--- | The volume size, in gigabytes.
---
--- Valid values: If the volume type is 'io1', the minimum size of the
--- volume is 10 GiB. If you specify 'SnapshotId' and 'VolumeSize',
--- 'VolumeSize' must be equal to or larger than the size of the snapshot.
+-- | The volume size, in GiB. For 'standard' volumes, specify a value from 1
+-- to 1,024. For 'io1' volumes, specify a value from 4 to 16,384. For 'gp2'
+-- volumes, specify a value from 1 to 16,384. If you specify a snapshot,
+-- the volume size must be equal to or larger than the snapshot size.
 --
 -- Default: If you create a volume from a snapshot and you don\'t specify a
--- volume size, the default is the size of the snapshot.
---
--- Required: Required when the volume type is 'io1'.
+-- volume size, the default is the snapshot size.
 ebsVolumeSize :: Lens' EBS (Maybe Natural)
 ebsVolumeSize = lens _ebsVolumeSize (\ s a -> s{_ebsVolumeSize = a}) . mapping _Nat;
 
--- | For Provisioned IOPS (SSD) volumes only. The number of I\/O operations
--- per second (IOPS) to provision for the volume.
+-- | The number of I\/O operations per second (IOPS) to provision for the
+-- volume.
 --
--- Default: None
+-- Constraint: Required when the volume type is 'io1'.
 ebsIOPS :: Lens' EBS (Maybe Natural)
 ebsIOPS = lens _ebsIOPS (\ s a -> s{_ebsIOPS = a}) . mapping _Nat;
 
@@ -681,9 +690,11 @@ ebsIOPS = lens _ebsIOPS (\ s a -> s{_ebsIOPS = a}) . mapping _Nat;
 ebsEncrypted :: Lens' EBS (Maybe Bool)
 ebsEncrypted = lens _ebsEncrypted (\ s a -> s{_ebsEncrypted = a});
 
--- | The volume type.
+-- | The volume type. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Valid values: 'standard | io1 | gp2'
+-- Valid values: 'standard' | 'io1' | 'gp2'
 --
 -- Default: 'standard'
 ebsVolumeType :: Lens' EBS (Maybe Text)
@@ -702,6 +713,8 @@ instance FromXML EBS where
                 <*> (x .@? "Encrypted")
                 <*> (x .@? "VolumeType")
                 <*> (x .@? "SnapshotId")
+
+instance Hashable EBS
 
 instance ToQuery EBS where
         toQuery EBS'{..}
@@ -765,6 +778,8 @@ instance FromXML EnabledMetric where
           = EnabledMetric' <$>
               (x .@? "Granularity") <*> (x .@? "Metric")
 
+instance Hashable EnabledMetric
+
 -- | Describes a filter.
 --
 -- /See:/ 'filter'' smart constructor.
@@ -797,6 +812,8 @@ fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Default . _Coerce;
 -- '\"key\"', '\"value\"', and '\"propagate-at-launch\"'.
 fName :: Lens' Filter Text
 fName = lens _fName (\ s a -> s{_fName = a});
+
+instance Hashable Filter
 
 instance ToQuery Filter where
         toQuery Filter'{..}
@@ -866,7 +883,9 @@ iAvailabilityZone = lens _iAvailabilityZone (\ s a -> s{_iAvailabilityZone = a})
 iLifecycleState :: Lens' Instance LifecycleState
 iLifecycleState = lens _iLifecycleState (\ s a -> s{_iLifecycleState = a});
 
--- | The health status of the instance.
+-- | The health status of the instance. \"Healthy\" means that the instance
+-- is healthy and should remain in service. \"Unhealthy\" means that the
+-- instance is unhealthy and Auto Scaling should terminate and replace it.
 iHealthStatus :: Lens' Instance Text
 iHealthStatus = lens _iHealthStatus (\ s a -> s{_iHealthStatus = a});
 
@@ -884,6 +903,8 @@ instance FromXML Instance where
                 <*> (x .@ "LifecycleState")
                 <*> (x .@ "HealthStatus")
                 <*> (x .@ "ProtectedFromScaleIn")
+
+instance Hashable Instance
 
 -- | Describes whether instance monitoring is enabled.
 --
@@ -911,6 +932,8 @@ imEnabled = lens _imEnabled (\ s a -> s{_imEnabled = a});
 instance FromXML InstanceMonitoring where
         parseXML x
           = InstanceMonitoring' <$> (x .@? "Enabled")
+
+instance Hashable InstanceMonitoring
 
 instance ToQuery InstanceMonitoring where
         toQuery InstanceMonitoring'{..}
@@ -1034,8 +1057,9 @@ lcKeyName :: Lens' LaunchConfiguration (Maybe Text)
 lcKeyName = lens _lcKeyName (\ s a -> s{_lcKeyName = a});
 
 -- | The IDs of one or more security groups for the VPC specified in
--- 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is
--- specified, and cannot be used otherwise. For more information, see
+-- 'ClassicLinkVPCId'. This parameter is required if you specify a
+-- ClassicLink-enabled VPC, and cannot be used otherwise. For more
+-- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 lcClassicLinkVPCSecurityGroups :: Lens' LaunchConfiguration [Text]
@@ -1130,6 +1154,8 @@ instance FromXML LaunchConfiguration where
                 <*> (x .@ "InstanceType")
                 <*> (x .@ "CreatedTime")
 
+instance Hashable LaunchConfiguration
+
 -- | Describes a lifecycle hook, which tells Auto Scaling that you want to
 -- perform an action when an instance launches or terminates. When you have
 -- a lifecycle hook in place, the Auto Scaling group will either:
@@ -1140,9 +1166,7 @@ instance FromXML LaunchConfiguration where
 --     terminated
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html Auto Scaling Pending State>
--- and
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle>
 -- in the /Auto Scaling Developer Guide/.
 --
 -- /See:/ 'lifecycleHook' smart constructor.
@@ -1206,9 +1230,9 @@ lhLifecycleHookName = lens _lhLifecycleHookName (\ s a -> s{_lhLifecycleHookName
 
 -- | The maximum time, in seconds, that can elapse before the lifecycle hook
 -- times out. The default is 3600 seconds (1 hour). When the lifecycle hook
--- times out, Auto Scaling performs the action defined in the
--- 'DefaultResult' parameter. You can prevent the lifecycle hook from
--- timing out by calling RecordLifecycleActionHeartbeat.
+-- times out, Auto Scaling performs the default action. You can prevent the
+-- lifecycle hook from timing out by calling
+-- < RecordLifecycleActionHeartbeat>.
 lhHeartbeatTimeout :: Lens' LifecycleHook (Maybe Int)
 lhHeartbeatTimeout = lens _lhHeartbeatTimeout (\ s a -> s{_lhHeartbeatTimeout = a});
 
@@ -1244,7 +1268,7 @@ lhNotificationTargetARN = lens _lhNotificationTargetARN (\ s a -> s{_lhNotificat
 
 -- | The state of the EC2 instance to which you want to attach the lifecycle
 -- hook. For a list of lifecycle hook types, see
--- DescribeLifecycleHookTypes.
+-- < DescribeLifecycleHookTypes>.
 lhLifecycleTransition :: Lens' LifecycleHook (Maybe Text)
 lhLifecycleTransition = lens _lhLifecycleTransition (\ s a -> s{_lhLifecycleTransition = a});
 
@@ -1265,6 +1289,8 @@ instance FromXML LifecycleHook where
                 <*> (x .@? "NotificationTargetARN")
                 <*> (x .@? "LifecycleTransition")
                 <*> (x .@? "RoleARN")
+
+instance Hashable LifecycleHook
 
 -- | Describes the state of a load balancer.
 --
@@ -1317,6 +1343,8 @@ instance FromXML LoadBalancerState where
           = LoadBalancerState' <$>
               (x .@? "State") <*> (x .@? "LoadBalancerName")
 
+instance Hashable LoadBalancerState
+
 -- | Describes a metric.
 --
 -- /See:/ 'metricCollectionType' smart constructor.
@@ -1361,6 +1389,8 @@ instance FromXML MetricCollectionType where
         parseXML x
           = MetricCollectionType' <$> (x .@? "Metric")
 
+instance Hashable MetricCollectionType
+
 -- | Describes a granularity of a metric.
 --
 -- /See:/ 'metricGranularityType' smart constructor.
@@ -1387,6 +1417,8 @@ mgtGranularity = lens _mgtGranularity (\ s a -> s{_mgtGranularity = a});
 instance FromXML MetricGranularityType where
         parseXML x
           = MetricGranularityType' <$> (x .@? "Granularity")
+
+instance Hashable MetricGranularityType
 
 -- | Describes a notification.
 --
@@ -1445,6 +1477,8 @@ instance FromXML NotificationConfiguration where
               (x .@? "TopicARN") <*> (x .@? "AutoScalingGroupName")
                 <*> (x .@? "NotificationType")
 
+instance Hashable NotificationConfiguration
+
 -- | Describes a process type.
 --
 -- For more information, see
@@ -1492,6 +1526,8 @@ ptProcessName = lens _ptProcessName (\ s a -> s{_ptProcessName = a});
 
 instance FromXML ProcessType where
         parseXML x = ProcessType' <$> (x .@ "ProcessName")
+
+instance Hashable ProcessType
 
 -- | Describes a scaling policy.
 --
@@ -1645,6 +1681,8 @@ instance FromXML ScalingPolicy where
                 <*> (x .@? "MetricAggregationType")
                 <*> (x .@? "MinAdjustmentMagnitude")
 
+instance Hashable ScalingPolicy
+
 -- | /See:/ 'scalingProcessQuery' smart constructor.
 data ScalingProcessQuery = ScalingProcessQuery'
     { _spqScalingProcesses     :: !(Maybe [Text])
@@ -1691,6 +1729,8 @@ spqScalingProcesses = lens _spqScalingProcesses (\ s a -> s{_spqScalingProcesses
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 spqAutoScalingGroupName :: Lens' ScalingProcessQuery Text
 spqAutoScalingGroupName = lens _spqAutoScalingGroupName (\ s a -> s{_spqAutoScalingGroupName = a});
+
+instance Hashable ScalingProcessQuery
 
 instance ToQuery ScalingProcessQuery where
         toQuery ScalingProcessQuery'{..}
@@ -1767,7 +1807,7 @@ sugaScheduledActionARN = lens _sugaScheduledActionARN (\ s a -> s{_sugaScheduled
 sugaStartTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaStartTime = lens _sugaStartTime (\ s a -> s{_sugaStartTime = a}) . mapping _Time;
 
--- | This parameter is deprecated; use 'StartTime' instead.
+-- | This parameter is deprecated.
 sugaTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaTime = lens _sugaTime (\ s a -> s{_sugaTime = a}) . mapping _Time;
 
@@ -1812,6 +1852,8 @@ instance FromXML ScheduledUpdateGroupAction where
                 <*> (x .@? "MinSize")
                 <*> (x .@? "AutoScalingGroupName")
                 <*> (x .@? "EndTime")
+
+instance Hashable ScheduledUpdateGroupAction
 
 -- | Describes an adjustment based on the difference between the value of the
 -- aggregated CloudWatch metric and the breach threshold that you\'ve
@@ -1903,6 +1945,8 @@ instance FromXML StepAdjustment where
                 (x .@? "MetricIntervalUpperBound")
                 <*> (x .@ "ScalingAdjustment")
 
+instance Hashable StepAdjustment
+
 instance ToQuery StepAdjustment where
         toQuery StepAdjustment'{..}
           = mconcat
@@ -1913,7 +1957,7 @@ instance ToQuery StepAdjustment where
                "ScalingAdjustment" =: _saScalingAdjustment]
 
 -- | Describes an Auto Scaling process that has been suspended. For more
--- information, see ProcessType.
+-- information, see < ProcessType>.
 --
 -- /See:/ 'suspendedProcess' smart constructor.
 data SuspendedProcess = SuspendedProcess'
@@ -1948,6 +1992,8 @@ instance FromXML SuspendedProcess where
         parseXML x
           = SuspendedProcess' <$>
               (x .@? "ProcessName") <*> (x .@? "SuspensionReason")
+
+instance Hashable SuspendedProcess
 
 -- | Describes a tag for an Auto Scaling group.
 --
@@ -2009,6 +2055,8 @@ tagPropagateAtLaunch = lens _tagPropagateAtLaunch (\ s a -> s{_tagPropagateAtLau
 -- | The tag value.
 tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
+instance Hashable Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -2086,3 +2134,5 @@ instance FromXML TagDescription where
                 (x .@ "Key")
                 <*> (x .@ "PropagateAtLaunch")
                 <*> (x .@ "Value")
+
+instance Hashable TagDescription

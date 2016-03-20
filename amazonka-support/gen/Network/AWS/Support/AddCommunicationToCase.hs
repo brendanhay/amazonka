@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.AddCommunicationToCase
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 --
 -- This operation implements a subset of the features of the AWS Support
 -- Center.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddCommunicationToCase.html AWS API Reference> for AddCommunicationToCase.
 module Network.AWS.Support.AddCommunicationToCase
     (
     -- * Creating a Request
@@ -100,7 +98,7 @@ actcCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
 actcCcEmailAddresses = lens _actcCcEmailAddresses (\ s a -> s{_actcCcEmailAddresses = a}) . _Default . _Coerce;
 
 -- | The ID of a set of one or more attachments for the communication to add
--- to the case. Create the set by calling AddAttachmentsToSet
+-- to the case. Create the set by calling < AddAttachmentsToSet>
 actcAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
 actcAttachmentSetId = lens _actcAttachmentSetId (\ s a -> s{_actcAttachmentSetId = a});
 
@@ -117,6 +115,8 @@ instance AWSRequest AddCommunicationToCase where
               (\ s h x ->
                  AddCommunicationToCaseResponse' <$>
                    (x .?> "result") <*> (pure (fromEnum s)))
+
+instance Hashable AddCommunicationToCase
 
 instance ToHeaders AddCommunicationToCase where
         toHeaders
@@ -144,7 +144,7 @@ instance ToPath AddCommunicationToCase where
 instance ToQuery AddCommunicationToCase where
         toQuery = const mempty
 
--- | The result of the AddCommunicationToCase operation.
+-- | The result of the < AddCommunicationToCase> operation.
 --
 -- /See:/ 'addCommunicationToCaseResponse' smart constructor.
 data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
@@ -168,7 +168,7 @@ addCommunicationToCaseResponse pResponseStatus_ =
     , _actcrsResponseStatus = pResponseStatus_
     }
 
--- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
+-- | True if < AddCommunicationToCase> succeeds. Otherwise, returns an error.
 actcrsResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrsResult = lens _actcrsResult (\ s a -> s{_actcrsResult = a});
 

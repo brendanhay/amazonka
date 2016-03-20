@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.TransferCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,16 +22,14 @@
 --
 -- You can cancel the transfer until it is acknowledged by the recipient.
 --
--- No notification is sent to the transfer destination\'s account, it is up
+-- No notification is sent to the transfer destination\'s account. It is up
 -- to the caller to notify the transfer target.
 --
--- The certificate being transferred must not be in the ACTIVE state. It
--- can be deactivated using the UpdateCertificate API.
+-- The certificate being transferred must not be in the ACTIVE state. You
+-- can use the UpdateCertificate API to deactivate it.
 --
--- The certificate must not have any policies attached to it. These can be
--- detached using the DetachPrincipalPolicy API.
---
--- /See:/ <https://aws.amazon.com/iot#TransferCertificate.html AWS API Reference> for TransferCertificate.
+-- The certificate must not have any policies attached to it. You can use
+-- the DetachPrincipalPolicy API to detach them.
 module Network.AWS.IoT.TransferCertificate
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest TransferCertificate where
                  TransferCertificateResponse' <$>
                    (x .?> "transferredCertificateArn") <*>
                      (pure (fromEnum s)))
+
+instance Hashable TransferCertificate
 
 instance ToHeaders TransferCertificate where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetAccountSummary
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- For information about limitations on IAM entities, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html AWS API Reference> for GetAccountSummary.
 module Network.AWS.IAM.GetAccountSummary
     (
     -- * Creating a Request
@@ -69,6 +67,8 @@ instance AWSRequest GetAccountSummary where
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetAccountSummary
+
 instance ToHeaders GetAccountSummary where
         toHeaders = const mempty
 
@@ -82,7 +82,7 @@ instance ToQuery GetAccountSummary where
                  ["Action" =: ("GetAccountSummary" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful GetAccountSummary request.
+-- | Contains the response to a successful < GetAccountSummary> request.
 --
 -- /See:/ 'getAccountSummaryResponse' smart constructor.
 data GetAccountSummaryResponse = GetAccountSummaryResponse'

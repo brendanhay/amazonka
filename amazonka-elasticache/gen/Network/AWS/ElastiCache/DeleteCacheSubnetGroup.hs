@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteCacheSubnetGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- You cannot delete a cache subnet group if it is associated with any
 -- cache clusters.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSubnetGroup.html AWS API Reference> for DeleteCacheSubnetGroup.
 module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest DeleteCacheSubnetGroup where
         request = postQuery elastiCache
         response
           = receiveNull DeleteCacheSubnetGroupResponse'
+
+instance Hashable DeleteCacheSubnetGroup
 
 instance ToHeaders DeleteCacheSubnetGroup where
         toHeaders = const mempty

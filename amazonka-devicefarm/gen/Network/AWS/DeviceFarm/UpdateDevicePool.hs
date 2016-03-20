@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.UpdateDevicePool
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Modifies the name, description, and rules in a device pool given the
 -- attributes and the pool ARN. Rule updates are all-or-nothing, meaning
 -- they can only be updated as a whole (or not at all).
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_UpdateDevicePool.html AWS API Reference> for UpdateDevicePool.
 module Network.AWS.DeviceFarm.UpdateDevicePool
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest UpdateDevicePool where
               (\ s h x ->
                  UpdateDevicePoolResponse' <$>
                    (x .?> "devicePool") <*> (pure (fromEnum s)))
+
+instance Hashable UpdateDevicePool
 
 instance ToHeaders UpdateDevicePool where
         toHeaders

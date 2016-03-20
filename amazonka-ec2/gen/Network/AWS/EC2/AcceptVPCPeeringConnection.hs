@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AcceptVPCPeeringConnection
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- must be the owner of the peer VPC. Use the
 -- 'DescribeVpcPeeringConnections' request to view your outstanding VPC
 -- peering connection requests.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AcceptVPCPeeringConnection.html AWS API Reference> for AcceptVPCPeeringConnection.
 module Network.AWS.EC2.AcceptVPCPeeringConnection
     (
     -- * Creating a Request
@@ -91,6 +89,8 @@ instance AWSRequest AcceptVPCPeeringConnection where
                  AcceptVPCPeeringConnectionResponse' <$>
                    (x .@? "vpcPeeringConnection") <*>
                      (pure (fromEnum s)))
+
+instance Hashable AcceptVPCPeeringConnection
 
 instance ToHeaders AcceptVPCPeeringConnection where
         toHeaders = const mempty

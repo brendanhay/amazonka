@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListLocalDisks
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- value of present (the disk is available to use), missing (the disk is no
 -- longer connected to the gateway), or mismatch (the disk node is occupied
 -- by a disk that has incorrect metadata or the disk content is corrupted).
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListLocalDisks.html AWS API Reference> for ListLocalDisks.
 module Network.AWS.StorageGateway.ListLocalDisks
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest ListLocalDisks where
                  ListLocalDisksResponse' <$>
                    (x .?> "GatewayARN") <*> (x .?> "Disks" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListLocalDisks
 
 instance ToHeaders ListLocalDisks where
         toHeaders

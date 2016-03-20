@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteTape
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified virtual tape.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteTape.html AWS API Reference> for DeleteTape.
 module Network.AWS.StorageGateway.DeleteTape
     (
     -- * Creating a Request
@@ -71,7 +69,7 @@ deleteTape pGatewayARN_ pTapeARN_ =
     }
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
--- tape to delete is associated with. Use the ListGateways operation to
+-- tape to delete is associated with. Use the < ListGateways> operation to
 -- return a list of gateways for your account and region.
 delGatewayARN :: Lens' DeleteTape Text
 delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a});
@@ -88,6 +86,8 @@ instance AWSRequest DeleteTape where
               (\ s h x ->
                  DeleteTapeResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteTape
 
 instance ToHeaders DeleteTape where
         toHeaders

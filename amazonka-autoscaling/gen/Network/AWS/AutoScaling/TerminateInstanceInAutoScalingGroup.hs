@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- This call simply makes a termination request. The instance is not
 -- terminated immediately.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_TerminateInstanceInAutoScalingGroup.html AWS API Reference> for TerminateInstanceInAutoScalingGroup.
 module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     (
     -- * Creating a Request
@@ -72,7 +70,7 @@ terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity
     , _tiiasgShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
     }
 
--- | The ID of the EC2 instance.
+-- | The ID of the instance.
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
 tiiasgInstanceId = lens _tiiasgInstanceId (\ s a -> s{_tiiasgInstanceId = a});
 
@@ -92,6 +90,8 @@ instance AWSRequest
               (\ s h x ->
                  TerminateInstanceInAutoScalingGroupResponse' <$>
                    (x .@? "Activity") <*> (pure (fromEnum s)))
+
+instance Hashable TerminateInstanceInAutoScalingGroup
 
 instance ToHeaders
          TerminateInstanceInAutoScalingGroup where

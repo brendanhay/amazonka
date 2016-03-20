@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DetachLoadBalancerFromSubnets
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- balancer in the removed subnet go into the 'OutOfService' state. Then,
 -- the load balancer balances the traffic among the remaining routable
 -- subnets.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DetachLoadBalancerFromSubnets.html AWS API Reference> for DetachLoadBalancerFromSubnets.
 module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest DetachLoadBalancerFromSubnets
                    (x .@? "Subnets" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DetachLoadBalancerFromSubnets
 
 instance ToHeaders DetachLoadBalancerFromSubnets
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeEcsClusters
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- policy that explicitly grants permission. For more information on user
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeEcsClusters.html AWS API Reference> for DescribeEcsClusters.
 module Network.AWS.OpsWorks.DescribeEcsClusters
     (
     -- * Creating a Request
@@ -124,6 +122,8 @@ instance AWSRequest DescribeEcsClusters where
                    (x .?> "NextToken") <*>
                      (x .?> "EcsClusters" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeEcsClusters
 
 instance ToHeaders DescribeEcsClusters where
         toHeaders

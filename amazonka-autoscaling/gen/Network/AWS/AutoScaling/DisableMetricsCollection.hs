@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DisableMetricsCollection
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Disables monitoring of the specified metrics for the specified Auto
 -- Scaling group.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DisableMetricsCollection.html AWS API Reference> for DisableMetricsCollection.
 module Network.AWS.AutoScaling.DisableMetricsCollection
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest DisableMetricsCollection where
         request = postQuery autoScaling
         response
           = receiveNull DisableMetricsCollectionResponse'
+
+instance Hashable DisableMetricsCollection
 
 instance ToHeaders DisableMetricsCollection where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyInstancePlacement
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,6 @@
 -- one of them must be specified in the request. Affinity and tenancy can
 -- be modified in the same request, but tenancy can only be modified on
 -- instances that are stopped.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyInstancePlacement.html AWS API Reference> for ModifyInstancePlacement.
 module Network.AWS.EC2.ModifyInstancePlacement
     (
     -- * Creating a Request
@@ -121,6 +119,8 @@ instance AWSRequest ModifyInstancePlacement where
               (\ s h x ->
                  ModifyInstancePlacementResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
+
+instance Hashable ModifyInstancePlacement
 
 instance ToHeaders ModifyInstancePlacement where
         toHeaders = const mempty

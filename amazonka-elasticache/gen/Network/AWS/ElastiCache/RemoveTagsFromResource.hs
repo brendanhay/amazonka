@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.RemoveTagsFromResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- The /RemoveTagsFromResource/ action removes the tags identified by the
 -- 'TagKeys' list from the named resource.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RemoveTagsFromResource.html AWS API Reference> for RemoveTagsFromResource.
 module Network.AWS.ElastiCache.RemoveTagsFromResource
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest RemoveTagsFromResource where
         response
           = receiveXMLWrapper "RemoveTagsFromResourceResult"
               (\ s h x -> parseXML x)
+
+instance Hashable RemoveTagsFromResource
 
 instance ToHeaders RemoveTagsFromResource where
         toHeaders = const mempty

@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -75,6 +75,8 @@ instance FromJSON CognitoStreams where
                  CognitoStreams' <$>
                    (x .:? "StreamingStatus") <*> (x .:? "StreamName")
                      <*> (x .:? "RoleArn"))
+
+instance Hashable CognitoStreams
 
 instance ToJSON CognitoStreams where
         toJSON CognitoStreams'{..}
@@ -174,6 +176,8 @@ instance FromJSON Dataset where
                      <*> (x .:? "LastModifiedBy")
                      <*> (x .:? "IdentityId"))
 
+instance Hashable Dataset
+
 -- | Usage information for the identity pool.
 --
 -- /See:/ 'identityPoolUsage' smart constructor.
@@ -232,6 +236,8 @@ instance FromJSON IdentityPoolUsage where
                      (x .:? "IdentityPoolId")
                      <*> (x .:? "DataStorage")
                      <*> (x .:? "SyncSessionsCount"))
+
+instance Hashable IdentityPoolUsage
 
 -- | Usage information for the identity.
 --
@@ -303,6 +309,8 @@ instance FromJSON IdentityUsage where
                      <*> (x .:? "DataStorage")
                      <*> (x .:? "IdentityId"))
 
+instance Hashable IdentityUsage
+
 -- | Configuration options to be applied to the identity pool.
 --
 -- /See:/ 'pushSync' smart constructor.
@@ -342,6 +350,8 @@ instance FromJSON PushSync where
                  PushSync' <$>
                    (x .:? "ApplicationArns" .!= mempty) <*>
                      (x .:? "RoleArn"))
+
+instance Hashable PushSync
 
 instance ToJSON PushSync where
         toJSON PushSync'{..}
@@ -425,6 +435,8 @@ instance FromJSON Record where
                      <*> (x .:? "Key")
                      <*> (x .:? "LastModifiedBy"))
 
+instance Hashable Record
+
 -- | An update operation for a record.
 --
 -- /See:/ 'recordPatch' smart constructor.
@@ -482,6 +494,8 @@ rpKey = lens _rpKey (\ s a -> s{_rpKey = a});
 -- | Last known server sync count for this record. Set to 0 if unknown.
 rpSyncCount :: Lens' RecordPatch Integer
 rpSyncCount = lens _rpSyncCount (\ s a -> s{_rpSyncCount = a});
+
+instance Hashable RecordPatch
 
 instance ToJSON RecordPatch where
         toJSON RecordPatch'{..}

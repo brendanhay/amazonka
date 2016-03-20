@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetSendStatistics
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- interval.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendStatistics.html AWS API Reference> for GetSendStatistics.
 module Network.AWS.SES.GetSendStatistics
     (
     -- * Creating a Request
@@ -70,6 +68,8 @@ instance AWSRequest GetSendStatistics where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetSendStatistics
+
 instance ToHeaders GetSendStatistics where
         toHeaders = const mempty
 
@@ -83,11 +83,7 @@ instance ToQuery GetSendStatistics where
                  ["Action" =: ("GetSendStatistics" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | Represents a list of 'SendDataPoint' items returned from a successful
--- 'GetSendStatistics' request. This list contains aggregated data from the
--- previous two weeks of sending activity.
---
--- /See:/ 'getSendStatisticsResponse' smart constructor.
+-- | /See:/ 'getSendStatisticsResponse' smart constructor.
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
     { _gssrsSendDataPoints :: !(Maybe [SendDataPoint])
     , _gssrsResponseStatus :: !Int

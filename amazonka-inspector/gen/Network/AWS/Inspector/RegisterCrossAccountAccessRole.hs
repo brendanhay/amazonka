@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.RegisterCrossAccountAccessRole
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Register the role that Inspector uses to list your EC2 instances during
 -- the assessment.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_RegisterCrossAccountAccessRole.html AWS API Reference> for RegisterCrossAccountAccessRole.
 module Network.AWS.Inspector.RegisterCrossAccountAccessRole
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest RegisterCrossAccountAccessRole
               (\ s h x ->
                  RegisterCrossAccountAccessRoleResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
+
+instance Hashable RegisterCrossAccountAccessRole
 
 instance ToHeaders RegisterCrossAccountAccessRole
          where

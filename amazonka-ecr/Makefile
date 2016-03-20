@@ -1,0 +1,1 @@
+include ../share/library.mk

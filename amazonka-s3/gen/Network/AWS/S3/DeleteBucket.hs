@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucket
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Deletes the bucket. All objects (including all object versions and
 -- Delete Markers) in the bucket must be deleted before the bucket itself
 -- can be deleted.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucket.html AWS API Reference> for DeleteBucket.
 module Network.AWS.S3.DeleteBucket
     (
     -- * Creating a Request
@@ -69,6 +67,8 @@ instance AWSRequest DeleteBucket where
         type Rs DeleteBucket = DeleteBucketResponse
         request = delete s3
         response = receiveNull DeleteBucketResponse'
+
+instance Hashable DeleteBucket
 
 instance ToHeaders DeleteBucket where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.RebuildEnvironment
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Deletes and recreates all of the AWS resources (for example: the Auto
 -- Scaling group, load balancer, etc.) for a specified environment and
 -- forces a restart.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RebuildEnvironment.html AWS API Reference> for RebuildEnvironment.
 module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest RebuildEnvironment where
              RebuildEnvironmentResponse
         request = postQuery elasticBeanstalk
         response = receiveNull RebuildEnvironmentResponse'
+
+instance Hashable RebuildEnvironment
 
 instance ToHeaders RebuildEnvironment where
         toHeaders = const mempty

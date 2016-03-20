@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateHealthCheck
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,12 +21,10 @@
 -- This action creates a new health check.
 --
 -- To create a new health check, send a 'POST' request to the
--- '2013-04-01\/healthcheck' resource. The request body must include an XML
--- document with a 'CreateHealthCheckRequest' element. The response returns
--- the 'CreateHealthCheckResponse' element that contains metadata about the
--- health check.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html AWS API Reference> for CreateHealthCheck.
+-- '\/Route 53 API version\/healthcheck' resource. The request body must
+-- include a document with a 'CreateHealthCheckRequest' element. The
+-- response returns the 'CreateHealthCheckResponse' element that contains
+-- metadata about the health check.
 module Network.AWS.Route53.CreateHealthCheck
     (
     -- * Creating a Request
@@ -104,6 +102,8 @@ instance AWSRequest CreateHealthCheck where
                  CreateHealthCheckResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HealthCheck") <*>
                      (h .# "Location"))
+
+instance Hashable CreateHealthCheck
 
 instance ToElement CreateHealthCheck where
         toElement

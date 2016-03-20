@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.Types
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,6 +20,7 @@ module Network.AWS.SES.Types
     , _RuleDoesNotExistException
     , _MessageRejected
     , _RuleSetDoesNotExistException
+    , _MailFromDomainNotVerifiedException
     , _InvalidLambdaFunctionException
     , _InvalidPolicyException
     , _InvalidS3ConfigurationException
@@ -27,8 +28,14 @@ module Network.AWS.SES.Types
     , _AlreadyExistsException
     , _LimitExceededException
 
+    -- * BehaviorOnMXFailure
+    , BehaviorOnMXFailure (..)
+
     -- * BounceType
     , BounceType (..)
+
+    -- * CustomMailFromStatus
+    , CustomMailFromStatus (..)
 
     -- * DsnAction
     , DsnAction (..)
@@ -44,6 +51,9 @@ module Network.AWS.SES.Types
 
     -- * ReceiptFilterPolicy
     , ReceiptFilterPolicy (..)
+
+    -- * SNSActionEncoding
+    , SNSActionEncoding (..)
 
     -- * StopScope
     , StopScope (..)
@@ -108,6 +118,13 @@ module Network.AWS.SES.Types
     , idaDkimTokens
     , idaDkimEnabled
     , idaDkimVerificationStatus
+
+    -- * IdentityMailFromDomainAttributes
+    , IdentityMailFromDomainAttributes
+    , identityMailFromDomainAttributes
+    , imfdaMailFromDomain
+    , imfdaMailFromDomainStatus
+    , imfdaBehaviorOnMXFailure
 
     -- * IdentityNotificationAttributes
     , IdentityNotificationAttributes
@@ -209,6 +226,7 @@ module Network.AWS.SES.Types
     -- * SNSAction
     , SNSAction
     , snsAction
+    , saEncoding
     , saTopicARN
 
     -- * SendDataPoint
@@ -262,6 +280,7 @@ sES =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -288,6 +307,16 @@ _MessageRejected = _ServiceError . hasStatus 400 . hasCode "MessageRejected"
 _RuleSetDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _RuleSetDoesNotExistException =
     _ServiceError . hasStatus 400 . hasCode "RuleSetDoesNotExist"
+
+-- | Indicates that the message could not be sent because Amazon SES could
+-- not read the MX record required to use the specified MAIL FROM domain.
+-- For information about editing the custom MAIL FROM domain settings for
+-- an identity, see the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html Amazon SES Developer Guide>.
+_MailFromDomainNotVerifiedException :: AsError a => Getting (First ServiceError) a ServiceError
+_MailFromDomainNotVerifiedException =
+    _ServiceError .
+    hasStatus 400 . hasCode "MailFromDomainNotVerifiedException"
 
 -- | Indicates that the provided AWS Lambda function is invalid, or that
 -- Amazon SES could not execute the provided function, possibly due to

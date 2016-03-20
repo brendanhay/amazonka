@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheParameters
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- The /DescribeCacheParameters/ action returns the detailed parameter list
 -- for a particular cache parameter group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameters.html AWS API Reference> for DescribeCacheParameters.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheParameters
@@ -136,6 +134,8 @@ instance AWSRequest DescribeCacheParameters where
                         may (parseXMLList "Parameter"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCacheParameters
+
 instance ToHeaders DescribeCacheParameters where
         toHeaders = const mempty
 
@@ -195,7 +195,7 @@ dcprsCacheNodeTypeSpecificParameters = lens _dcprsCacheNodeTypeSpecificParameter
 dcprsMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 dcprsMarker = lens _dcprsMarker (\ s a -> s{_dcprsMarker = a});
 
--- | A list of Parameter instances.
+-- | A list of < Parameter> instances.
 dcprsParameters :: Lens' DescribeCacheParametersResponse [Parameter]
 dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
 

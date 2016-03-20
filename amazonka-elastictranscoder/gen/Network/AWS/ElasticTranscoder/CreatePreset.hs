@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.CreatePreset
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -36,8 +36,6 @@
 -- information, see the International Telecommunication Union publication
 -- /Recommendation ITU-T H.264: Advanced video coding for generic
 -- audiovisual services/.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePreset.html AWS API Reference> for CreatePreset.
 module Network.AWS.ElasticTranscoder.CreatePreset
     (
     -- * Creating a Request
@@ -145,6 +143,8 @@ instance AWSRequest CreatePreset where
                  CreatePresetResponse' <$>
                    (x .?> "Warning") <*> (x .?> "Preset") <*>
                      (pure (fromEnum s)))
+
+instance Hashable CreatePreset
 
 instance ToHeaders CreatePreset where
         toHeaders = const mempty

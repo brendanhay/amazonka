@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeComplianceByConfigRule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,7 +26,7 @@
 -- and it is noncompliant if any of these resources do not comply.
 --
 -- If AWS Config has no current evaluation results for the rule, it returns
--- 'InsufficientData'. This result might indicate one of the following
+-- 'INSUFFICIENT_DATA'. This result might indicate one of the following
 -- conditions:
 --
 -- -   AWS Config has never invoked an evaluation for the rule. To check
@@ -42,8 +42,6 @@
 -- -   The rule\'s AWS Lambda function has returned 'NOT_APPLICABLE' for
 --     all evaluation results. This can occur if the resources were deleted
 --     or removed from the rule\'s scope.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeComplianceByConfigRule.html AWS API Reference> for DescribeComplianceByConfigRule.
 module Network.AWS.Config.DescribeComplianceByConfigRule
     (
     -- * Creating a Request
@@ -99,8 +97,10 @@ describeComplianceByConfigRule =
 dcbcrConfigRuleNames :: Lens' DescribeComplianceByConfigRule [Text]
 dcbcrConfigRuleNames = lens _dcbcrConfigRuleNames (\ s a -> s{_dcbcrConfigRuleNames = a}) . _Default . _Coerce;
 
--- | Filters the results by compliance. The valid values are 'Compliant' and
--- 'NonCompliant'.
+-- | Filters the results by compliance.
+--
+-- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and
+-- 'INSUFFICIENT_DATA'.
 dcbcrComplianceTypes :: Lens' DescribeComplianceByConfigRule [ComplianceType]
 dcbcrComplianceTypes = lens _dcbcrComplianceTypes (\ s a -> s{_dcbcrComplianceTypes = a}) . _Default . _Coerce;
 
@@ -121,6 +121,8 @@ instance AWSRequest DescribeComplianceByConfigRule
                    (x .?> "ComplianceByConfigRules" .!@ mempty) <*>
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeComplianceByConfigRule
 
 instance ToHeaders DescribeComplianceByConfigRule
          where

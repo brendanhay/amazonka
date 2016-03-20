@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DeleteMountTarget
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -37,15 +37,13 @@
 --
 -- The 'DeleteMountTarget' call returns while the mount target state is
 -- still \"deleting\". You can check the mount target deletion by calling
--- the DescribeMountTargets API, which returns a list of mount target
+-- the < DescribeMountTargets> API, which returns a list of mount target
 -- descriptions for the given file system.
 --
 -- The operation also requires permission for the following Amazon EC2
 -- action on the mount target\'s network interface:
 --
 -- -   'ec2:DeleteNetworkInterface'
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteMountTarget.html AWS API Reference> for DeleteMountTarget.
 module Network.AWS.EFS.DeleteMountTarget
     (
     -- * Creating a Request
@@ -92,6 +90,8 @@ instance AWSRequest DeleteMountTarget where
         type Rs DeleteMountTarget = DeleteMountTargetResponse
         request = delete eFS
         response = receiveNull DeleteMountTargetResponse'
+
+instance Hashable DeleteMountTarget
 
 instance ToHeaders DeleteMountTarget where
         toHeaders = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteDomainName
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the DomainName resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteDomainName.html AWS API Reference> for DeleteDomainName.
+-- Deletes the < DomainName> resource.
 module Network.AWS.APIGateway.DeleteDomainName
     (
     -- * Creating a Request
@@ -41,7 +39,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to delete the DomainName resource.
+-- | A request to delete the < DomainName> resource.
 --
 -- /See:/ 'deleteDomainName' smart constructor.
 newtype DeleteDomainName = DeleteDomainName'
@@ -61,7 +59,7 @@ deleteDomainName pDomainName_ =
     { _ddnDomainName = pDomainName_
     }
 
--- | The name of the DomainName resource to be deleted.
+-- | The name of the < DomainName> resource to be deleted.
 ddnDomainName :: Lens' DeleteDomainName Text
 ddnDomainName = lens _ddnDomainName (\ s a -> s{_ddnDomainName = a});
 
@@ -70,8 +68,13 @@ instance AWSRequest DeleteDomainName where
         request = delete aPIGateway
         response = receiveNull DeleteDomainNameResponse'
 
+instance Hashable DeleteDomainName
+
 instance ToHeaders DeleteDomainName where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteDomainName where
         toPath DeleteDomainName'{..}

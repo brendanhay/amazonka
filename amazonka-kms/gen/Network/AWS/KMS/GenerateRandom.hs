@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GenerateRandom
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Generates an unpredictable byte string.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html AWS API Reference> for GenerateRandom.
 module Network.AWS.KMS.GenerateRandom
     (
     -- * Creating a Request
@@ -74,6 +72,8 @@ instance AWSRequest GenerateRandom where
               (\ s h x ->
                  GenerateRandomResponse' <$>
                    (x .?> "Plaintext") <*> (pure (fromEnum s)))
+
+instance Hashable GenerateRandom
 
 instance ToHeaders GenerateRandom where
         toHeaders

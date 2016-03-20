@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateSigningCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- Because this action works for access keys under the AWS account, you can
 -- use this action to manage root credentials even if the AWS account has
 -- no associated users.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSigningCertificate.html AWS API Reference> for UpdateSigningCertificate.
 module Network.AWS.IAM.UpdateSigningCertificate
     (
     -- * Creating a Request
@@ -98,6 +96,8 @@ instance AWSRequest UpdateSigningCertificate where
         request = postQuery iAM
         response
           = receiveNull UpdateSigningCertificateResponse'
+
+instance Hashable UpdateSigningCertificate
 
 instance ToHeaders UpdateSigningCertificate where
         toHeaders = const mempty

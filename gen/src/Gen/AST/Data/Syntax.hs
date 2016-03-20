@@ -6,7 +6,7 @@
 {-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.AST.Data.Syntax
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -30,7 +30,6 @@ import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Gen.AST.Data.Field
 import           Gen.AST.Data.Instance
-import           Gen.AST.TypeOf
 import           Gen.Protocol                 (Names (..))
 import qualified Gen.Protocol                 as Proto
 import           Gen.Types
@@ -149,7 +148,7 @@ dataD n fs cs = DataDecl noLoc arity [] (ident (typeId n)) [] fs ds
         [QualConDecl _ _ _ (RecDecl _ [_])] -> NewType
         _                                   -> DataType
 
-    ds = map ((,[]) . UnQual . Ident . drop 1 . show) cs
+    ds = map ((,[]) . UnQual . Ident) (mapMaybe derivingName cs)
 
 recordD :: HasMetadata a Identity => a -> Id -> [Field] -> QualConDecl
 recordD m n = conD . \case
@@ -332,6 +331,7 @@ responseE p r fs = app (responseF p r fs) bdy
             _ | f ^. fieldPayload -> parseOne   f
             JSON                  -> parseJSONE p pJE pJEMay pJEDef f
             RestJSON              -> parseJSONE p pJE pJEMay pJEDef f
+            APIGateway            -> parseJSONE p pJE pJEMay pJEDef f
             _                     -> parseXMLE  p f
 
     parseOne :: Field -> Exp
@@ -347,9 +347,10 @@ responseE p r fs = app (responseF p r fs) bdy
     parseAll :: Exp
     parseAll = flip app (var "x") $
         case p of
-            JSON     -> var "eitherParseJSON"
-            RestJSON -> var "eitherParseJSON"
-            _        -> var "parseXML"
+            JSON       -> var "eitherParseJSON"
+            RestJSON   -> var "eitherParseJSON"
+            APIGateway -> var "eitherParseJSON"
+            _          -> var "parseXML"
 
     body = any fieldStream fs
 
@@ -364,6 +365,10 @@ instanceD p n = \case
     ToPath    es   -> toPathD      n es
     ToQuery   es   -> toQueryD   p n es
     ToBody    f    -> toBodyD      n f
+    IsHashable     -> hashableD    n
+
+hashableD :: Id -> Decl
+hashableD n = instD "Hashable" n []
 
 -- FIXME: merge D + E constructors where possible
 fromXMLD :: Protocol -> Id -> [Field] -> Decl

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.UpdateScalingParameters
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateScalingParameters.html AWS API Reference> for UpdateScalingParameters.
 module Network.AWS.CloudSearch.UpdateScalingParameters
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest UpdateScalingParameters where
               (\ s h x ->
                  UpdateScalingParametersResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ScalingParameters"))
+
+instance Hashable UpdateScalingParameters
 
 instance ToHeaders UpdateScalingParameters where
         toHeaders = const mempty

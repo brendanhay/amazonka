@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- of verified identities.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentity.html AWS API Reference> for DeleteIdentity.
 module Network.AWS.SES.DeleteIdentity
     (
     -- * Creating a Request
@@ -46,10 +44,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to delete an identity from
--- the list of identities for the AWS Account.
---
--- /See:/ 'deleteIdentity' smart constructor.
+-- | /See:/ 'deleteIdentity' smart constructor.
 newtype DeleteIdentity = DeleteIdentity'
     { _diIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -80,6 +75,8 @@ instance AWSRequest DeleteIdentity where
               (\ s h x ->
                  DeleteIdentityResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteIdentity
+
 instance ToHeaders DeleteIdentity where
         toHeaders = const mempty
 
@@ -93,10 +90,7 @@ instance ToQuery DeleteIdentity where
                "Version" =: ("2010-12-01" :: ByteString),
                "Identity" =: _diIdentity]
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
---
--- /See:/ 'deleteIdentityResponse' smart constructor.
+-- | /See:/ 'deleteIdentityResponse' smart constructor.
 newtype DeleteIdentityResponse = DeleteIdentityResponse'
     { _dirsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

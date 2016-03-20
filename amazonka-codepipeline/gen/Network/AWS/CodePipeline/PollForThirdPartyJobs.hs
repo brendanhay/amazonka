@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PollForThirdPartyJobs
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- for the Amazon S3 bucket used to store artifacts for the pipeline, if
 -- the action requires access to that Amazon S3 bucket for input or output
 -- artifacts.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PollForThirdPartyJobs.html AWS API Reference> for PollForThirdPartyJobs.
 module Network.AWS.CodePipeline.PollForThirdPartyJobs
     (
     -- * Creating a Request
@@ -92,6 +90,8 @@ instance AWSRequest PollForThirdPartyJobs where
               (\ s h x ->
                  PollForThirdPartyJobsResponse' <$>
                    (x .?> "jobs" .!@ mempty) <*> (pure (fromEnum s)))
+
+instance Hashable PollForThirdPartyJobs
 
 instance ToHeaders PollForThirdPartyJobs where
         toHeaders

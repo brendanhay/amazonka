@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListUserPolicies
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,15 +22,14 @@
 --
 -- A user can also have managed policies attached to it. To list the
 -- managed policies that are attached to a user, use
--- ListAttachedUserPolicies. For more information about policies, refer to
+-- < ListAttachedUserPolicies>. For more information about policies, refer
+-- to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters. If there are no inline policies embedded with the specified
 -- user, the action returns an empty list.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserPolicies.html AWS API Reference> for ListUserPolicies.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListUserPolicies
@@ -130,6 +129,8 @@ instance AWSRequest ListUserPolicies where
                      (x .@? "PolicyNames" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListUserPolicies
+
 instance ToHeaders ListUserPolicies where
         toHeaders = const mempty
 
@@ -144,7 +145,7 @@ instance ToQuery ListUserPolicies where
                "Marker" =: _lupMarker, "MaxItems" =: _lupMaxItems,
                "UserName" =: _lupUserName]
 
--- | Contains the response to a successful ListUserPolicies request.
+-- | Contains the response to a successful < ListUserPolicies> request.
 --
 -- /See:/ 'listUserPoliciesResponse' smart constructor.
 data ListUserPoliciesResponse = ListUserPoliciesResponse'

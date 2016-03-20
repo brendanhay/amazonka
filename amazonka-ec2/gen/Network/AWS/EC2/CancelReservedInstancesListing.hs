@@ -12,20 +12,18 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelReservedInstancesListing
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels the specified Reserved instance listing in the Reserved Instance
+-- Cancels the specified Reserved Instance listing in the Reserved Instance
 -- Marketplace.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelReservedInstancesListing.html AWS API Reference> for CancelReservedInstancesListing.
 module Network.AWS.EC2.CancelReservedInstancesListing
     (
     -- * Creating a Request
@@ -67,7 +65,7 @@ cancelReservedInstancesListing pReservedInstancesListingId_ =
     { _crilReservedInstancesListingId = pReservedInstancesListingId_
     }
 
--- | The ID of the Reserved instance listing.
+-- | The ID of the Reserved Instance listing.
 crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
 crilReservedInstancesListingId = lens _crilReservedInstancesListingId (\ s a -> s{_crilReservedInstancesListingId = a});
 
@@ -83,6 +81,8 @@ instance AWSRequest CancelReservedInstancesListing
                    (x .@? "reservedInstancesListingsSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable CancelReservedInstancesListing
 
 instance ToHeaders CancelReservedInstancesListing
          where
@@ -122,7 +122,7 @@ cancelReservedInstancesListingResponse pResponseStatus_ =
     , _crilrsResponseStatus = pResponseStatus_
     }
 
--- | The Reserved instance listing.
+-- | The Reserved Instance listing.
 crilrsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
 crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default . _Coerce;
 

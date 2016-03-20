@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RemoveTagsFromResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- For an overview on tagging an Amazon RDS resource, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveTagsFromResource.html AWS API Reference> for RemoveTagsFromResource.
 module Network.AWS.RDS.RemoveTagsFromResource
     (
     -- * Creating a Request
@@ -85,6 +83,8 @@ instance AWSRequest RemoveTagsFromResource where
         request = postQuery rDS
         response
           = receiveNull RemoveTagsFromResourceResponse'
+
+instance Hashable RemoveTagsFromResource
 
 instance ToHeaders RemoveTagsFromResource where
         toHeaders = const mempty

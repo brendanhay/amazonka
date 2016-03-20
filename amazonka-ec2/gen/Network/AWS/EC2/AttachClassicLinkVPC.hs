@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachClassicLinkVPC
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 --
 -- Linking your instance to a VPC is sometimes referred to as /attaching/
 -- your instance.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachClassicLinkVPC.html AWS API Reference> for AttachClassicLinkVPC.
 module Network.AWS.EC2.AttachClassicLinkVPC
     (
     -- * Creating a Request
@@ -120,6 +118,8 @@ instance AWSRequest AttachClassicLinkVPC where
               (\ s h x ->
                  AttachClassicLinkVPCResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
+
+instance Hashable AttachClassicLinkVPC
 
 instance ToHeaders AttachClassicLinkVPC where
         toHeaders = const mempty

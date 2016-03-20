@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetApplicationRevision
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an application revision.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplicationRevision.html AWS API Reference> for GetApplicationRevision.
 module Network.AWS.CodeDeploy.GetApplicationRevision
     (
     -- * Creating a Request
@@ -76,8 +74,8 @@ getApplicationRevision pApplicationName_ pRevision_ =
 garApplicationName :: Lens' GetApplicationRevision Text
 garApplicationName = lens _garApplicationName (\ s a -> s{_garApplicationName = a});
 
--- | Information about the application revision to get, including the
--- revision\'s type and its location.
+-- | Information about the application revision to get, including type and
+-- location.
 garRevision :: Lens' GetApplicationRevision RevisionLocation
 garRevision = lens _garRevision (\ s a -> s{_garRevision = a});
 
@@ -92,6 +90,8 @@ instance AWSRequest GetApplicationRevision where
                    (x .?> "applicationName") <*> (x .?> "revisionInfo")
                      <*> (x .?> "revision")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetApplicationRevision
 
 instance ToHeaders GetApplicationRevision where
         toHeaders
@@ -156,8 +156,7 @@ garrsApplicationName = lens _garrsApplicationName (\ s a -> s{_garrsApplicationN
 garrsRevisionInfo :: Lens' GetApplicationRevisionResponse (Maybe GenericRevisionInfo)
 garrsRevisionInfo = lens _garrsRevisionInfo (\ s a -> s{_garrsRevisionInfo = a});
 
--- | Additional information about the revision, including the revision\'s
--- type and its location.
+-- | Additional information about the revision, including type and location.
 garrsRevision :: Lens' GetApplicationRevisionResponse (Maybe RevisionLocation)
 garrsRevision = lens _garrsRevision (\ s a -> s{_garrsRevision = a});
 

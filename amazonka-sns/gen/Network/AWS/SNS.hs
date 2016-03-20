@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- your service requests, retrying requests, and handling error responses.
 -- For a list of available SDKs, go to
 -- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/Welcome.html AWS API Reference>
 module Network.AWS.SNS
     (
     -- * Service Configuration

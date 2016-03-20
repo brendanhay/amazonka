@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.AttachAssessmentAndRulesPackage
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Attaches the rules package specified by the rules package ARN to the
 -- assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_AttachAssessmentAndRulesPackage.html AWS API Reference> for AttachAssessmentAndRulesPackage.
 module Network.AWS.Inspector.AttachAssessmentAndRulesPackage
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest AttachAssessmentAndRulesPackage
               (\ s h x ->
                  AttachAssessmentAndRulesPackageResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
+
+instance Hashable AttachAssessmentAndRulesPackage
 
 instance ToHeaders AttachAssessmentAndRulesPackage
          where

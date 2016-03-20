@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.STS.GetSessionToken
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -54,8 +54,6 @@
 -- credentials, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken Temporary Credentials for Users in Untrusted Environments>
 -- in the /Using IAM/.
---
--- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html AWS API Reference> for GetSessionToken.
 module Network.AWS.STS.GetSessionToken
     (
     -- * Creating a Request
@@ -144,6 +142,8 @@ instance AWSRequest GetSessionToken where
                  GetSessionTokenResponse' <$>
                    (x .@? "Credentials") <*> (pure (fromEnum s)))
 
+instance Hashable GetSessionToken
+
 instance ToHeaders GetSessionToken where
         toHeaders = const mempty
 
@@ -159,8 +159,9 @@ instance ToQuery GetSessionToken where
                "DurationSeconds" =: _gstDurationSeconds,
                "SerialNumber" =: _gstSerialNumber]
 
--- | Contains the response to a successful GetSessionToken request, including
--- temporary AWS credentials that can be used to make AWS requests.
+-- | Contains the response to a successful < GetSessionToken> request,
+-- including temporary AWS credentials that can be used to make AWS
+-- requests.
 --
 -- /See:/ 'getSessionTokenResponse' smart constructor.
 data GetSessionTokenResponse = GetSessionTokenResponse'
@@ -184,7 +185,14 @@ getSessionTokenResponse pResponseStatus_ =
     , _gstrsResponseStatus = pResponseStatus_
     }
 
--- | The session credentials for API authentication.
+-- | The temporary security credentials, which include an access key ID, a
+-- secret access key, and a security (or session) token.
+--
+-- __Note:__ The size of the security token that STS APIs return is not
+-- fixed. We strongly recommend that you make no assumptions about the
+-- maximum size. As of this writing, the typical size is less than 4096
+-- bytes, but that can vary. Also, future updates to AWS might require
+-- larger sizes.
 gstrsCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrsCredentials = lens _gstrsCredentials (\ s a -> s{_gstrsCredentials = a});
 

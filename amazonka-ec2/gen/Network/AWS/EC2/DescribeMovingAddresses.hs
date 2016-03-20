@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeMovingAddresses
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- platform, or that are being restored to the EC2-Classic platform. This
 -- request does not return information about any other Elastic IP addresses
 -- in your account.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeMovingAddresses.html AWS API Reference> for DescribeMovingAddresses.
 module Network.AWS.EC2.DescribeMovingAddresses
     (
     -- * Creating a Request
@@ -130,6 +128,8 @@ instance AWSRequest DescribeMovingAddresses where
                       may (parseXMLList "item"))
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeMovingAddresses
 
 instance ToHeaders DescribeMovingAddresses where
         toHeaders = const mempty

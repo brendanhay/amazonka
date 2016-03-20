@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.AddTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- case-sensitive key value pairs. An Elasticsearch domain may have up to
 -- 10 tags. See
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging Tagging Amazon Elasticsearch Service Domains for more information.>
---
--- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-AddTags.html AWS API Reference> for AddTags.
 module Network.AWS.ElasticSearch.AddTags
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest AddTags where
         type Rs AddTags = AddTagsResponse
         request = postJSON elasticSearch
         response = receiveNull AddTagsResponse'
+
+instance Hashable AddTags
 
 instance ToHeaders AddTags where
         toHeaders = const mempty

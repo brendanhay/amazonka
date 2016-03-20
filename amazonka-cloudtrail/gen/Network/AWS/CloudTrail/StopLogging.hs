@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.StopLogging
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- or an 'InvalidHomeRegionException' will occur. This operation cannot be
 -- called on the shadow trails (replicated trails in other regions) of a
 -- trail enabled in all regions.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopLogging.html AWS API Reference> for StopLogging.
 module Network.AWS.CloudTrail.StopLogging
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest StopLogging where
           = receiveEmpty
               (\ s h x ->
                  StopLoggingResponse' <$> (pure (fromEnum s)))
+
+instance Hashable StopLogging
 
 instance ToHeaders StopLogging where
         toHeaders

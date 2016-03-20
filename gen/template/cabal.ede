@@ -7,7 +7,7 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2015 Brendan Hay
+copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -26,7 +26,7 @@ description:
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.{{ serviceAbbrev }}" and the <{{ referenceUrl }} AWS API Reference>
+    See "Network.AWS.{{ serviceAbbrev }}" or <https://aws.amazon.com/documentation/ the AWS Documentation>
     to get started.
 
 source-repository head

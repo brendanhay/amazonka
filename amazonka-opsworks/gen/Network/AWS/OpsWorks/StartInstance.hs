@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.StartInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StartInstance.html AWS API Reference> for StartInstance.
 module Network.AWS.OpsWorks.StartInstance
     (
     -- * Creating a Request
@@ -74,6 +72,8 @@ instance AWSRequest StartInstance where
         type Rs StartInstance = StartInstanceResponse
         request = postJSON opsWorks
         response = receiveNull StartInstanceResponse'
+
+instance Hashable StartInstance
 
 instance ToHeaders StartInstance where
         toHeaders

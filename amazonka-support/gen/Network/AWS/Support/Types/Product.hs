@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -66,6 +66,8 @@ instance FromJSON Attachment where
                  Attachment' <$>
                    (x .:? "data") <*> (x .:? "fileName"))
 
+instance Hashable Attachment
+
 instance ToJSON Attachment where
         toJSON Attachment'{..}
           = object
@@ -74,7 +76,7 @@ instance ToJSON Attachment where
                   ("fileName" .=) <$> _aFileName])
 
 -- | The file name and ID of an attachment to a case communication. You can
--- use the ID to retrieve the attachment with the DescribeAttachment
+-- use the ID to retrieve the attachment with the < DescribeAttachment>
 -- operation.
 --
 -- /See:/ 'attachmentDetails' smart constructor.
@@ -113,8 +115,10 @@ instance FromJSON AttachmentDetails where
                  AttachmentDetails' <$>
                    (x .:? "attachmentId") <*> (x .:? "fileName"))
 
+instance Hashable AttachmentDetails
+
 -- | A JSON-formatted object that contains the metadata for a support case.
--- It is contained the response from a DescribeCases request.
+-- It is contained the response from a < DescribeCases> request.
 -- __CaseDetails__ contains the following fields:
 --
 -- 1.  __CaseID.__ The AWS Support case ID requested or returned in the
@@ -122,21 +126,21 @@ instance FromJSON AttachmentDetails where
 --     this example: case-/12345678910-2013-c4c1d2bf33c5cf47/.
 -- 2.  __CategoryCode.__ The category of problem for the AWS Support case.
 --     Corresponds to the CategoryCode values returned by a call to
---     DescribeServices.
+--     < DescribeServices>.
 -- 3.  __DisplayId.__ The identifier for the case on pages in the AWS
 --     Support Center.
 -- 4.  __Language.__ The ISO 639-1 code for the language in which AWS
 --     provides support. AWS Support currently supports English (\"en\")
 --     and Japanese (\"ja\"). Language parameters must be passed explicitly
 --     for operations that take them.
--- 5.  __RecentCommunications.__ One or more Communication objects. Fields
---     of these objects are 'Attachments', 'Body', 'CaseId', 'SubmittedBy',
---     and 'TimeCreated'.
+-- 5.  __RecentCommunications.__ One or more < Communication> objects.
+--     Fields of these objects are 'Attachments', 'Body', 'CaseId',
+--     'SubmittedBy', and 'TimeCreated'.
 -- 6.  __NextToken.__ A resumption point for pagination.
 -- 7.  __ServiceCode.__ The identifier for the AWS service that corresponds
---     to the service code defined in the call to DescribeServices.
+--     to the service code defined in the call to < DescribeServices>.
 -- 8.  __SeverityCode.__ The severity code assigned to the case. Contains
---     one of the values returned by the call to DescribeSeverityLevels.
+--     one of the values returned by the call to < DescribeSeverityLevels>.
 -- 9.  __Status.__ The status of the case in the AWS Support Center.
 -- 10. __Subject.__ The subject line of the case.
 -- 11. __SubmittedBy.__ The email address of the account that submitted the
@@ -220,7 +224,7 @@ cdRecentCommunications :: Lens' CaseDetails (Maybe RecentCaseCommunications)
 cdRecentCommunications = lens _cdRecentCommunications (\ s a -> s{_cdRecentCommunications = a});
 
 -- | The code for the severity level returned by the call to
--- DescribeSeverityLevels.
+-- < DescribeSeverityLevels>.
 cdSeverityCode :: Lens' CaseDetails (Maybe Text)
 cdSeverityCode = lens _cdSeverityCode (\ s a -> s{_cdSeverityCode = a});
 
@@ -258,7 +262,8 @@ cdTimeCreated = lens _cdTimeCreated (\ s a -> s{_cdTimeCreated = a});
 cdCategoryCode :: Lens' CaseDetails (Maybe Text)
 cdCategoryCode = lens _cdCategoryCode (\ s a -> s{_cdCategoryCode = a});
 
--- | The code for the AWS service returned by the call to DescribeServices.
+-- | The code for the AWS service returned by the call to
+-- < DescribeServices>.
 cdServiceCode :: Lens' CaseDetails (Maybe Text)
 cdServiceCode = lens _cdServiceCode (\ s a -> s{_cdServiceCode = a});
 
@@ -279,8 +284,10 @@ instance FromJSON CaseDetails where
                      <*> (x .:? "categoryCode")
                      <*> (x .:? "serviceCode"))
 
+instance Hashable CaseDetails
+
 -- | A JSON-formatted name\/value pair that represents the category name and
--- category code of the problem, selected from the DescribeServices
+-- category code of the problem, selected from the < DescribeServices>
 -- response for each AWS service.
 --
 -- /See:/ 'category' smart constructor.
@@ -317,6 +324,8 @@ instance FromJSON Category where
           = withObject "Category"
               (\ x ->
                  Category' <$> (x .:? "name") <*> (x .:? "code"))
+
+instance Hashable Category
 
 -- | A communication associated with an AWS Support case. The communication
 -- consists of the case ID, the message body, attachment information, the
@@ -387,6 +396,8 @@ instance FromJSON Communication where
                      <*> (x .:? "timeCreated")
                      <*> (x .:? "attachmentSet" .!= mempty))
 
+instance Hashable Communication
+
 -- | The five most recent communications associated with the case.
 --
 -- /See:/ 'recentCaseCommunications' smart constructor.
@@ -425,6 +436,8 @@ instance FromJSON RecentCaseCommunications where
                  RecentCaseCommunications' <$>
                    (x .:? "nextToken") <*>
                      (x .:? "communications" .!= mempty))
+
+instance Hashable RecentCaseCommunications
 
 -- | A code and name pair that represent a severity level that can be applied
 -- to a support case.
@@ -467,7 +480,9 @@ instance FromJSON SeverityLevel where
               (\ x ->
                  SeverityLevel' <$> (x .:? "name") <*> (x .:? "code"))
 
--- | Information about an AWS service returned by the DescribeServices
+instance Hashable SeverityLevel
+
+-- | Information about an AWS service returned by the < DescribeServices>
 -- operation.
 --
 -- /See:/ 'supportService' smart constructor.
@@ -498,7 +513,7 @@ supportService =
 -- | A list of categories that describe the type of support issue a case
 -- describes. Categories consist of a category name and a category code.
 -- Category names and codes are passed to AWS Support when you call
--- CreateCase.
+-- < CreateCase>.
 ssCategories :: Lens' SupportService [Category]
 ssCategories = lens _ssCategories (\ s a -> s{_ssCategories = a}) . _Default . _Coerce;
 
@@ -507,8 +522,8 @@ ssCategories = lens _ssCategories (\ s a -> s{_ssCategories = a}) . _Default . _
 ssName :: Lens' SupportService (Maybe Text)
 ssName = lens _ssName (\ s a -> s{_ssName = a});
 
--- | The code for an AWS service returned by the DescribeServices response.
--- The 'Name' element contains the corresponding friendly name.
+-- | The code for an AWS service returned by the < DescribeServices>
+-- response. The 'Name' element contains the corresponding friendly name.
 ssCode :: Lens' SupportService (Maybe Text)
 ssCode = lens _ssCode (\ s a -> s{_ssCode = a});
 
@@ -519,6 +534,8 @@ instance FromJSON SupportService where
                  SupportService' <$>
                    (x .:? "categories" .!= mempty) <*> (x .:? "name")
                      <*> (x .:? "code"))
+
+instance Hashable SupportService
 
 -- | The container for summary information that relates to the category of
 -- the Trusted Advisor check.
@@ -552,6 +569,9 @@ instance FromJSON
               (\ x ->
                  TrustedAdvisorCategorySpecificSummary' <$>
                    (x .:? "costOptimizing"))
+
+instance Hashable
+         TrustedAdvisorCategorySpecificSummary
 
 -- | The description and metadata for a Trusted Advisor check.
 --
@@ -611,9 +631,9 @@ tacdCategory = lens _tacdCategory (\ s a -> s{_tacdCategory = a});
 
 -- | The column headings for the data returned by the Trusted Advisor check.
 -- The order of the headings corresponds to the order of the data in the
--- __Metadata__ element of the TrustedAdvisorResourceDetail for the check.
--- __Metadata__ contains all the data that is shown in the Excel download,
--- even in those cases where the UI shows just summary data.
+-- __Metadata__ element of the < TrustedAdvisorResourceDetail> for the
+-- check. __Metadata__ contains all the data that is shown in the Excel
+-- download, even in those cases where the UI shows just summary data.
 tacdMetadata :: Lens' TrustedAdvisorCheckDescription [Text]
 tacdMetadata = lens _tacdMetadata (\ s a -> s{_tacdMetadata = a}) . _Coerce;
 
@@ -627,6 +647,8 @@ instance FromJSON TrustedAdvisorCheckDescription
                      (x .: "description")
                      <*> (x .: "category")
                      <*> (x .:? "metadata" .!= mempty))
+
+instance Hashable TrustedAdvisorCheckDescription
 
 -- | The refresh status of a Trusted Advisor check.
 --
@@ -682,8 +704,10 @@ instance FromJSON TrustedAdvisorCheckRefreshStatus
                    (x .: "checkId") <*> (x .: "status") <*>
                      (x .: "millisUntilNextRefreshable"))
 
+instance Hashable TrustedAdvisorCheckRefreshStatus
+
 -- | The results of a Trusted Advisor check returned by
--- DescribeTrustedAdvisorCheckResult.
+-- < DescribeTrustedAdvisorCheckResult>.
 --
 -- /See:/ 'trustedAdvisorCheckResult' smart constructor.
 data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'
@@ -763,6 +787,8 @@ instance FromJSON TrustedAdvisorCheckResult where
                      <*> (x .: "resourcesSummary")
                      <*> (x .: "categorySpecificSummary")
                      <*> (x .:? "flaggedResources" .!= mempty))
+
+instance Hashable TrustedAdvisorCheckResult
 
 -- | A summary of a Trusted Advisor check result, including the alert status,
 -- last refresh, and number of resources examined.
@@ -846,6 +872,8 @@ instance FromJSON TrustedAdvisorCheckSummary where
                      <*> (x .: "resourcesSummary")
                      <*> (x .: "categorySpecificSummary"))
 
+instance Hashable TrustedAdvisorCheckSummary
+
 -- | The estimated cost savings that might be realized if the recommended
 -- actions are taken.
 --
@@ -890,6 +918,8 @@ instance FromJSON TrustedAdvisorCostOptimizingSummary
                  TrustedAdvisorCostOptimizingSummary' <$>
                    (x .: "estimatedMonthlySavings") <*>
                      (x .: "estimatedPercentMonthlySavings"))
+
+instance Hashable TrustedAdvisorCostOptimizingSummary
 
 -- | Contains information about a resource identified by a Trusted Advisor
 -- check.
@@ -950,10 +980,10 @@ tardResourceId = lens _tardResourceId (\ s a -> s{_tardResourceId = a});
 
 -- | Additional information about the identified resource. The exact metadata
 -- and its order can be obtained by inspecting the
--- TrustedAdvisorCheckDescription object returned by the call to
--- DescribeTrustedAdvisorChecks. __Metadata__ contains all the data that is
--- shown in the Excel download, even in those cases where the UI shows just
--- summary data.
+-- < TrustedAdvisorCheckDescription> object returned by the call to
+-- < DescribeTrustedAdvisorChecks>. __Metadata__ contains all the data that
+-- is shown in the Excel download, even in those cases where the UI shows
+-- just summary data.
 tardMetadata :: Lens' TrustedAdvisorResourceDetail [Text]
 tardMetadata = lens _tardMetadata (\ s a -> s{_tardMetadata = a}) . _Coerce;
 
@@ -967,8 +997,10 @@ instance FromJSON TrustedAdvisorResourceDetail where
                      <*> (x .: "resourceId")
                      <*> (x .:? "metadata" .!= mempty))
 
+instance Hashable TrustedAdvisorResourceDetail
+
 -- | Details about AWS resources that were analyzed in a call to Trusted
--- Advisor DescribeTrustedAdvisorCheckSummaries.
+-- Advisor < DescribeTrustedAdvisorCheckSummaries>.
 --
 -- /See:/ 'trustedAdvisorResourcesSummary' smart constructor.
 data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'
@@ -1033,3 +1065,5 @@ instance FromJSON TrustedAdvisorResourcesSummary
                      (x .: "resourcesFlagged")
                      <*> (x .: "resourcesIgnored")
                      <*> (x .: "resourcesSuppressed"))
+
+instance Hashable TrustedAdvisorResourcesSummary

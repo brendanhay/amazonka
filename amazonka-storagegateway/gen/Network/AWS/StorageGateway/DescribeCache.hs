@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeCache
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- The response includes disk IDs that are configured as cache, and it
 -- includes the amount of cache allocated and used.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCache.html AWS API Reference> for DescribeCache.
 module Network.AWS.StorageGateway.DescribeCache
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest DescribeCache where
                      <*> (x .?> "CacheAllocatedInBytes")
                      <*> (x .?> "CacheDirtyPercentage")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeCache
 
 instance ToHeaders DescribeCache where
         toHeaders

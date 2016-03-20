@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVPCEndpoints
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your VPC endpoints.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCEndpoints.html AWS API Reference> for DescribeVPCEndpoints.
 module Network.AWS.EC2.DescribeVPCEndpoints
     (
     -- * Creating a Request
@@ -133,6 +131,8 @@ instance AWSRequest DescribeVPCEndpoints where
                      (x .@? "vpcEndpointSet" .!@ mempty >>=
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeVPCEndpoints
 
 instance ToHeaders DescribeVPCEndpoints where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,10 +28,8 @@
 -- the policies, use the 'PolicyNames' parameter to list the policies that
 -- you want to enable.
 --
--- You can use DescribeLoadBalancers or DescribeLoadBalancerPolicies to
--- verify that the policy is associated with the back-end server.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesForBackendServer.html AWS API Reference> for SetLoadBalancerPoliciesForBackendServer.
+-- You can use < DescribeLoadBalancers> or < DescribeLoadBalancerPolicies>
+-- to verify that the policy is associated with the back-end server.
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     (
     -- * Creating a Request
@@ -107,6 +105,9 @@ instance AWSRequest
               (\ s h x ->
                  SetLoadBalancerPoliciesForBackendServerResponse' <$>
                    (pure (fromEnum s)))
+
+instance Hashable
+         SetLoadBalancerPoliciesForBackendServer
 
 instance ToHeaders
          SetLoadBalancerPoliciesForBackendServer where

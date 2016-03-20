@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.ListPipelines
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Lists the pipeline identifiers for all active pipelines that you have
 -- permission to access.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ListPipelines.html AWS API Reference> for ListPipelines.
 --
 -- This operation returns paginated results.
 module Network.AWS.DataPipeline.ListPipelines
@@ -94,6 +92,8 @@ instance AWSRequest ListPipelines where
                      (pure (fromEnum s))
                      <*> (x .?> "pipelineIdList" .!@ mempty))
 
+instance Hashable ListPipelines
+
 instance ToHeaders ListPipelines where
         toHeaders
           = const
@@ -161,7 +161,7 @@ lprsResponseStatus :: Lens' ListPipelinesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 
 -- | The pipeline identifiers. If you require additional information about
--- the pipelines, you can use these identifiers to call DescribePipelines
--- and GetPipelineDefinition.
+-- the pipelines, you can use these identifiers to call
+-- < DescribePipelines> and < GetPipelineDefinition>.
 lprsPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 lprsPipelineIdList = lens _lprsPipelineIdList (\ s a -> s{_lprsPipelineIdList = a}) . _Coerce;

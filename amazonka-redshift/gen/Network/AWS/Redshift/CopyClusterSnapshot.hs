@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CopyClusterSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,6 @@
 -- For more information about working with snapshots, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CopyClusterSnapshot.html AWS API Reference> for CopyClusterSnapshot.
 module Network.AWS.Redshift.CopyClusterSnapshot
     (
     -- * Creating a Request
@@ -129,6 +127,8 @@ instance AWSRequest CopyClusterSnapshot where
               (\ s h x ->
                  CopyClusterSnapshotResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
+
+instance Hashable CopyClusterSnapshot
 
 instance ToHeaders CopyClusterSnapshot where
         toHeaders = const mempty

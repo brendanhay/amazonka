@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.WAF.ListSqlInjectionMatchSets
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of SqlInjectionMatchSet objects.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListSqlInjectionMatchSets.html AWS API Reference> for ListSqlInjectionMatchSets.
+-- Returns an array of < SqlInjectionMatchSet> objects.
 module Network.AWS.WAF.ListSqlInjectionMatchSets
     (
     -- * Creating a Request
@@ -46,7 +44,7 @@ import           Network.AWS.Response
 import           Network.AWS.WAF.Types
 import           Network.AWS.WAF.Types.Product
 
--- | A request to list the SqlInjectionMatchSet objects created by the
+-- | A request to list the < SqlInjectionMatchSet> objects created by the
 -- current AWS account.
 --
 -- /See:/ 'listSqlInjectionMatchSets' smart constructor.
@@ -72,19 +70,20 @@ listSqlInjectionMatchSets pLimit_ =
     }
 
 -- | If you specify a value for 'Limit' and you have more
--- SqlInjectionMatchSet objects than the value of 'Limit', AWS WAF returns
--- a 'NextMarker' value in the response that allows you to list another
--- group of 'SqlInjectionMatchSets'. For the second and subsequent
+-- < SqlInjectionMatchSet> objects than the value of 'Limit', AWS WAF
+-- returns a 'NextMarker' value in the response that allows you to list
+-- another group of 'SqlInjectionMatchSets'. For the second and subsequent
 -- 'ListSqlInjectionMatchSets' requests, specify the value of 'NextMarker'
 -- from the previous response to get information about another batch of
 -- 'SqlInjectionMatchSets'.
 lsimsNextMarker :: Lens' ListSqlInjectionMatchSets (Maybe Text)
 lsimsNextMarker = lens _lsimsNextMarker (\ s a -> s{_lsimsNextMarker = a});
 
--- | Specifies the number of SqlInjectionMatchSet objects that you want AWS
--- WAF to return for this request. If you have more 'SqlInjectionMatchSet'
--- objects than the number you specify for 'Limit', the response includes a
--- 'NextMarker' value that you can use to get another batch of 'Rules'.
+-- | Specifies the number of < SqlInjectionMatchSet> objects that you want
+-- AWS WAF to return for this request. If you have more
+-- 'SqlInjectionMatchSet' objects than the number you specify for 'Limit',
+-- the response includes a 'NextMarker' value that you can use to get
+-- another batch of 'Rules'.
 lsimsLimit :: Lens' ListSqlInjectionMatchSets Natural
 lsimsLimit = lens _lsimsLimit (\ s a -> s{_lsimsLimit = a}) . _Nat;
 
@@ -99,6 +98,8 @@ instance AWSRequest ListSqlInjectionMatchSets where
                    (x .?> "NextMarker") <*>
                      (x .?> "SqlInjectionMatchSets" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListSqlInjectionMatchSets
 
 instance ToHeaders ListSqlInjectionMatchSets where
         toHeaders
@@ -123,7 +124,7 @@ instance ToPath ListSqlInjectionMatchSets where
 instance ToQuery ListSqlInjectionMatchSets where
         toQuery = const mempty
 
--- | The response to a ListSqlInjectionMatchSets request.
+-- | The response to a < ListSqlInjectionMatchSets> request.
 --
 -- /See:/ 'listSqlInjectionMatchSetsResponse' smart constructor.
 data ListSqlInjectionMatchSetsResponse = ListSqlInjectionMatchSetsResponse'
@@ -151,8 +152,8 @@ listSqlInjectionMatchSetsResponse pResponseStatus_ =
     , _lsimsrsResponseStatus = pResponseStatus_
     }
 
--- | If you have more SqlInjectionMatchSet objects than the number that you
--- specified for 'Limit' in the request, the response includes a
+-- | If you have more < SqlInjectionMatchSet> objects than the number that
+-- you specified for 'Limit' in the request, the response includes a
 -- 'NextMarker' value. To list more 'SqlInjectionMatchSet' objects, submit
 -- another 'ListSqlInjectionMatchSets' request, and specify the
 -- 'NextMarker' value from the response in the 'NextMarker' value in the
@@ -160,7 +161,7 @@ listSqlInjectionMatchSetsResponse pResponseStatus_ =
 lsimsrsNextMarker :: Lens' ListSqlInjectionMatchSetsResponse (Maybe Text)
 lsimsrsNextMarker = lens _lsimsrsNextMarker (\ s a -> s{_lsimsrsNextMarker = a});
 
--- | An array of SqlInjectionMatchSetSummary objects.
+-- | An array of < SqlInjectionMatchSetSummary> objects.
 lsimsrsSqlInjectionMatchSets :: Lens' ListSqlInjectionMatchSetsResponse [SqlInjectionMatchSetSummary]
 lsimsrsSqlInjectionMatchSets = lens _lsimsrsSqlInjectionMatchSets (\ s a -> s{_lsimsrsSqlInjectionMatchSets = a}) . _Default . _Coerce;
 

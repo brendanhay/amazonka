@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.GetShardIterator
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- A shard iterator expires 15 minutes after it is returned to the
 -- requester.
---
--- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_GetShardIterator.html AWS API Reference> for GetShardIterator.
 module Network.AWS.DynamoDBStreams.GetShardIterator
     (
     -- * Creating a Request
@@ -131,6 +129,8 @@ instance AWSRequest GetShardIterator where
               (\ s h x ->
                  GetShardIteratorResponse' <$>
                    (x .?> "ShardIterator") <*> (pure (fromEnum s)))
+
+instance Hashable GetShardIterator
 
 instance ToHeaders GetShardIterator where
         toHeaders

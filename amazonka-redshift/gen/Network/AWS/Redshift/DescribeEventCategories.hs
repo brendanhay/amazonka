@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeEventCategories
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- specified source type. For a list of the event categories and source
 -- types, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html Amazon Redshift Event Notifications>.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventCategories.html AWS API Reference> for DescribeEventCategories.
 module Network.AWS.Redshift.DescribeEventCategories
     (
     -- * Creating a Request
@@ -69,7 +67,8 @@ describeEventCategories =
 -- | The source type, such as cluster or parameter group, to which the
 -- described event categories apply.
 --
--- Valid values: cluster, snapshot, parameter group, and security group.
+-- Valid values: cluster, cluster-snapshot, cluster-parameter-group, and
+-- cluster-security-group.
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 
@@ -84,6 +83,8 @@ instance AWSRequest DescribeEventCategories where
                    (x .@? "EventCategoriesMapList" .!@ mempty >>=
                       may (parseXMLList "EventCategoriesMap"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeEventCategories
 
 instance ToHeaders DescribeEventCategories where
         toHeaders = const mempty

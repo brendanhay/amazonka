@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeregisterVolume
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterVolume.html AWS API Reference> for DeregisterVolume.
 module Network.AWS.OpsWorks.DeregisterVolume
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest DeregisterVolume where
         type Rs DeregisterVolume = DeregisterVolumeResponse
         request = postJSON opsWorks
         response = receiveNull DeregisterVolumeResponse'
+
+instance Hashable DeregisterVolume
 
 instance ToHeaders DeregisterVolume where
         toHeaders

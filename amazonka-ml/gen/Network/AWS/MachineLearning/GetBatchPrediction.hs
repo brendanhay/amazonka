@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.GetBatchPrediction
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns a 'BatchPrediction' that includes detailed metadata, status, and
 -- data file information for a 'Batch Prediction' request.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetBatchPrediction.html AWS API Reference> for GetBatchPrediction.
 module Network.AWS.MachineLearning.GetBatchPrediction
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest GetBatchPrediction where
                      <*> (x .?> "OutputUri")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetBatchPrediction
+
 instance ToHeaders GetBatchPrediction where
         toHeaders
           = const
@@ -122,8 +122,8 @@ instance ToPath GetBatchPrediction where
 instance ToQuery GetBatchPrediction where
         toQuery = const mempty
 
--- | Represents the output of a GetBatchPrediction operation and describes a
--- 'BatchPrediction'.
+-- | Represents the output of a < GetBatchPrediction> operation and describes
+-- a 'BatchPrediction'.
 --
 -- /See:/ 'getBatchPredictionResponse' smart constructor.
 data GetBatchPredictionResponse = GetBatchPredictionResponse'
@@ -245,7 +245,7 @@ gbprsCreatedByIAMUser = lens _gbprsCreatedByIAMUser (\ s a -> s{_gbprsCreatedByI
 gbprsName :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsName = lens _gbprsName (\ s a -> s{_gbprsName = a});
 
--- | A link to the file that contains logs of the CreateBatchPrediction
+-- | A link to the file that contains logs of the < CreateBatchPrediction>
 -- operation.
 gbprsLogURI :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprsLogURI = lens _gbprsLogURI (\ s a -> s{_gbprsLogURI = a});

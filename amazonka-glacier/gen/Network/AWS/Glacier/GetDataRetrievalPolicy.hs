@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.GetDataRetrievalPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- and region specified in the GET request. For more information about data
 -- retrieval policies, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetDataRetrievalPolicy.html AWS API Reference> for GetDataRetrievalPolicy.
 module Network.AWS.Glacier.GetDataRetrievalPolicy
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest GetDataRetrievalPolicy where
               (\ s h x ->
                  GetDataRetrievalPolicyResponse' <$>
                    (x .?> "Policy") <*> (pure (fromEnum s)))
+
+instance Hashable GetDataRetrievalPolicy
 
 instance ToHeaders GetDataRetrievalPolicy where
         toHeaders = const mempty

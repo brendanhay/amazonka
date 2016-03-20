@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironments
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns descriptions for existing environments.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html AWS API Reference> for DescribeEnvironments.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     (
     -- * Creating a Request
@@ -128,6 +126,8 @@ instance AWSRequest DescribeEnvironments where
         response
           = receiveXMLWrapper "DescribeEnvironmentsResult"
               (\ s h x -> parseXML x)
+
+instance Hashable DescribeEnvironments
 
 instance ToHeaders DescribeEnvironments where
         toHeaders = const mempty

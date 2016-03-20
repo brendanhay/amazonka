@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.BatchGetItem
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -76,8 +76,6 @@
 -- according to the type of read. For more information, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations Capacity Units Calculations>
 -- in the /Amazon DynamoDB Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchGetItem.html AWS API Reference> for BatchGetItem.
 module Network.AWS.DynamoDB.BatchGetItem
     (
     -- * Creating a Request
@@ -181,10 +179,10 @@ bgiReturnConsumedCapacity = lens _bgiReturnConsumedCapacity (\ s a -> s{_bgiRetu
 --
 -- -   /Keys/ - An array of primary key attribute values that define
 --     specific items in the table. For each primary key, you must provide
---     /all/ of the key attributes. For example, with a hash type primary
---     key, you only need to provide the hash attribute. For a
---     hash-and-range type primary key, you must provide /both/ the hash
---     attribute and the range attribute.
+--     /all/ of the key attributes. For example, with a simple primary key,
+--     you only need to provide the partition key value. For a composite
+--     key, you must provide /both/ the partition key value and the sort
+--     key value.
 --
 -- -   /ProjectionExpression/ - A string that identifies one or more
 --     attributes to retrieve from the table. These attributes can include
@@ -235,6 +233,8 @@ instance AWSRequest BatchGetItem where
                      (x .?> "Responses" .!@ mempty)
                      <*> (x .?> "ConsumedCapacity" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable BatchGetItem
 
 instance ToHeaders BatchGetItem where
         toHeaders

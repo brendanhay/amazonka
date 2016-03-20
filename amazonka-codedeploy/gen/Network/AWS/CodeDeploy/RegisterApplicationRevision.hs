@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.RegisterApplicationRevision
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers with AWS CodeDeploy a revision for the specified application.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterApplicationRevision.html AWS API Reference> for RegisterApplicationRevision.
 module Network.AWS.CodeDeploy.RegisterApplicationRevision
     (
     -- * Creating a Request
@@ -76,13 +74,13 @@ registerApplicationRevision pApplicationName_ pRevision_ =
 rarDescription :: Lens' RegisterApplicationRevision (Maybe Text)
 rarDescription = lens _rarDescription (\ s a -> s{_rarDescription = a});
 
--- | The name of an existing AWS CodeDeploy application associated with the
--- applicable IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the applicable
+-- IAM user or AWS account.
 rarApplicationName :: Lens' RegisterApplicationRevision Text
 rarApplicationName = lens _rarApplicationName (\ s a -> s{_rarApplicationName = a});
 
--- | Information about the application revision to register, including the
--- revision\'s type and its location.
+-- | Information about the application revision to register, including type
+-- and location.
 rarRevision :: Lens' RegisterApplicationRevision RevisionLocation
 rarRevision = lens _rarRevision (\ s a -> s{_rarRevision = a});
 
@@ -92,6 +90,8 @@ instance AWSRequest RegisterApplicationRevision where
         request = postJSON codeDeploy
         response
           = receiveNull RegisterApplicationRevisionResponse'
+
+instance Hashable RegisterApplicationRevision
 
 instance ToHeaders RegisterApplicationRevision where
         toHeaders

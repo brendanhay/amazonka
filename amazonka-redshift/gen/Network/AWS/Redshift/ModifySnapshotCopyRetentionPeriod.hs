@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Modifies the number of days to retain automated snapshots in the
 -- destination region after they are copied from the source region.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifySnapshotCopyRetentionPeriod.html AWS API Reference> for ModifySnapshotCopyRetentionPeriod.
 module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     (
     -- * Creating a Request
@@ -103,6 +101,8 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod
               (\ s h x ->
                  ModifySnapshotCopyRetentionPeriodResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
+
+instance Hashable ModifySnapshotCopyRetentionPeriod
 
 instance ToHeaders ModifySnapshotCopyRetentionPeriod
          where

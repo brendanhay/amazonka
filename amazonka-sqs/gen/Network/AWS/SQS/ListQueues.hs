@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ListQueues
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- returned is 1000. If you specify a value for the optional
 -- 'QueueNamePrefix' parameter, only queues with a name beginning with the
 -- specified value are returned.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueues.html AWS API Reference> for ListQueues.
 module Network.AWS.SQS.ListQueues
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest ListQueues where
                  ListQueuesResponse' <$>
                    (may (parseXMLList "QueueUrl") x) <*>
                      (pure (fromEnum s)))
+
+instance Hashable ListQueues
 
 instance ToHeaders ListQueues where
         toHeaders = const mempty

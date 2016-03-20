@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateAPIKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about an ApiKey resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateAPIKey.html AWS API Reference> for UpdateAPIKey.
+-- Changes information about an < ApiKey> resource.
 module Network.AWS.APIGateway.UpdateAPIKey
     (
     -- * Creating a Request
@@ -50,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to change information about an ApiKey resource.
+-- | A request to change information about an < ApiKey> resource.
 --
 -- /See:/ 'updateAPIKey' smart constructor.
 data UpdateAPIKey = UpdateAPIKey'
@@ -79,7 +77,7 @@ updateAPIKey pApiKey_ =
 uakPatchOperations :: Lens' UpdateAPIKey [PatchOperation]
 uakPatchOperations = lens _uakPatchOperations (\ s a -> s{_uakPatchOperations = a}) . _Default . _Coerce;
 
--- | The identifier of the ApiKey resource to be updated.
+-- | The identifier of the < ApiKey> resource to be updated.
 uakApiKey :: Lens' UpdateAPIKey Text
 uakApiKey = lens _uakApiKey (\ s a -> s{_uakApiKey = a});
 
@@ -88,8 +86,13 @@ instance AWSRequest UpdateAPIKey where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateAPIKey
+
 instance ToHeaders UpdateAPIKey where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateAPIKey where
         toJSON UpdateAPIKey'{..}

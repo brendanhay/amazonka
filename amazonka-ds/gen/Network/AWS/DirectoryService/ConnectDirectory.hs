@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.ConnectDirectory
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an AD Connector to connect to an on-premises directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_ConnectDirectory.html AWS API Reference> for ConnectDirectory.
 module Network.AWS.DirectoryService.ConnectDirectory
     (
     -- * Creating a Request
@@ -49,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the ConnectDirectory operation.
+-- | Contains the inputs for the < ConnectDirectory> operation.
 --
 -- /See:/ 'connectDirectory' smart constructor.
 data ConnectDirectory = ConnectDirectory'
@@ -113,8 +111,8 @@ cdPassword = lens _cdPassword (\ s a -> s{_cdPassword = a}) . _Sensitive;
 cdSize :: Lens' ConnectDirectory DirectorySize
 cdSize = lens _cdSize (\ s a -> s{_cdSize = a});
 
--- | A DirectoryConnectSettings object that contains additional information
--- for the operation.
+-- | A < DirectoryConnectSettings> object that contains additional
+-- information for the operation.
 cdConnectSettings :: Lens' ConnectDirectory DirectoryConnectSettings
 cdConnectSettings = lens _cdConnectSettings (\ s a -> s{_cdConnectSettings = a});
 
@@ -126,6 +124,8 @@ instance AWSRequest ConnectDirectory where
               (\ s h x ->
                  ConnectDirectoryResponse' <$>
                    (x .?> "DirectoryId") <*> (pure (fromEnum s)))
+
+instance Hashable ConnectDirectory
 
 instance ToHeaders ConnectDirectory where
         toHeaders
@@ -154,7 +154,7 @@ instance ToPath ConnectDirectory where
 instance ToQuery ConnectDirectory where
         toQuery = const mempty
 
--- | Contains the results of the ConnectDirectory operation.
+-- | Contains the results of the < ConnectDirectory> operation.
 --
 -- /See:/ 'connectDirectoryResponse' smart constructor.
 data ConnectDirectoryResponse = ConnectDirectoryResponse'

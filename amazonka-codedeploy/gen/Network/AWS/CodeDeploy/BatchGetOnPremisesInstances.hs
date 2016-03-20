@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more on-premises instances.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetOnPremisesInstances.html AWS API Reference> for BatchGetOnPremisesInstances.
 module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
     (
     -- * Creating a Request
@@ -63,7 +61,7 @@ batchGetOnPremisesInstances =
     { _bgopiInstanceNames = Nothing
     }
 
--- | The names of the on-premises instances to get information about.
+-- | The names of the on-premises instances about which to get information.
 bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
 bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a}) . _Default . _Coerce;
 
@@ -77,6 +75,8 @@ instance AWSRequest BatchGetOnPremisesInstances where
                  BatchGetOnPremisesInstancesResponse' <$>
                    (x .?> "instanceInfos" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable BatchGetOnPremisesInstances
 
 instance ToHeaders BatchGetOnPremisesInstances where
         toHeaders

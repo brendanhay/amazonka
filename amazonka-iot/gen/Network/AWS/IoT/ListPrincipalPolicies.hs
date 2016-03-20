@@ -12,17 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListPrincipalPolicies
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the policies attached to the specified principal. If you use an
--- Amazon Cognito identity, the ID needs to be in
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax Amazon Cognito Identity format>.
---
--- /See:/ <https://aws.amazon.com/iot#ListPrincipalPolicies.html AWS API Reference> for ListPrincipalPolicies.
+-- Cognito identity, the ID must be in
+-- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax AmazonCognito Identity format>.
 module Network.AWS.IoT.ListPrincipalPolicies
     (
     -- * Creating a Request
@@ -110,6 +108,8 @@ instance AWSRequest ListPrincipalPolicies where
                    (x .?> "nextMarker") <*>
                      (x .?> "policies" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListPrincipalPolicies
 
 instance ToHeaders ListPrincipalPolicies where
         toHeaders ListPrincipalPolicies'{..}

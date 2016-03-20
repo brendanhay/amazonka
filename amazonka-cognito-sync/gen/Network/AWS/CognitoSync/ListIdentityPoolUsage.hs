@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.ListIdentityPoolUsage
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- ListIdentityPoolUsage can only be called with developer credentials. You
 -- cannot make this API call with the temporary user credentials provided
 -- by Cognito Identity.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListIdentityPoolUsage.html AWS API Reference> for ListIdentityPoolUsage.
 module Network.AWS.CognitoSync.ListIdentityPoolUsage
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest ListIdentityPoolUsage where
                      <*> (x .?> "NextToken")
                      <*> (x .?> "MaxResults")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListIdentityPoolUsage
 
 instance ToHeaders ListIdentityPoolUsage where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeTaskDefinition
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 --
 -- You can only describe 'INACTIVE' task definitions while an active task
 -- or service references them.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskDefinition.html AWS API Reference> for DescribeTaskDefinition.
 module Network.AWS.ECS.DescribeTaskDefinition
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest DescribeTaskDefinition where
               (\ s h x ->
                  DescribeTaskDefinitionResponse' <$>
                    (x .?> "taskDefinition") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeTaskDefinition
 
 instance ToHeaders DescribeTaskDefinition where
         toHeaders

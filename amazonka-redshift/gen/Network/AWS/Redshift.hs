@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,6 @@
 -- <http://docs.aws.amazon.com/redshift/latest/dg/welcome.html Amazon Redshift Database Developer Guide>
 -- explains how to design, build, query, and maintain the databases that
 -- make up your data warehouse.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Redshift
     (
     -- * Service Configuration
@@ -77,6 +75,9 @@ module Network.AWS.Redshift
 
     -- ** InvalidElasticIPFault
     , _InvalidElasticIPFault
+
+    -- ** TableRestoreNotFoundFault
+    , _TableRestoreNotFoundFault
 
     -- ** HSMConfigurationNotFoundFault
     , _HSMConfigurationNotFoundFault
@@ -156,6 +157,9 @@ module Network.AWS.Redshift
     -- ** InvalidClusterStateFault
     , _InvalidClusterStateFault
 
+    -- ** InvalidTableRestoreArgumentFault
+    , _InvalidTableRestoreArgumentFault
+
     -- ** SnapshotCopyGrantNotFoundFault
     , _SnapshotCopyGrantNotFoundFault
 
@@ -188,6 +192,9 @@ module Network.AWS.Redshift
 
     -- ** InvalidSubscriptionStateFault
     , _InvalidSubscriptionStateFault
+
+    -- ** DependentServiceRequestThrottlingFault
+    , _DependentServiceRequestThrottlingFault
 
     -- ** AuthorizationNotFoundFault
     , _AuthorizationNotFoundFault
@@ -227,6 +234,9 @@ module Network.AWS.Redshift
 
     -- ** ReservedNodeAlreadyExistsFault
     , _ReservedNodeAlreadyExistsFault
+
+    -- ** InProgressTableRestoreQuotaExceededFault
+    , _InProgressTableRestoreQuotaExceededFault
 
     -- ** InvalidRestoreFault
     , _InvalidRestoreFault
@@ -384,6 +394,9 @@ module Network.AWS.Redshift
     -- ** CreateHSMClientCertificate
     , module Network.AWS.Redshift.CreateHSMClientCertificate
 
+    -- ** RestoreTableFromClusterSnapshot
+    , module Network.AWS.Redshift.RestoreTableFromClusterSnapshot
+
     -- ** DescribeDefaultClusterParameters (Paginated)
     , module Network.AWS.Redshift.DescribeDefaultClusterParameters
 
@@ -419,6 +432,9 @@ module Network.AWS.Redshift
 
     -- ** AuthorizeClusterSecurityGroupIngress
     , module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
+
+    -- ** DescribeTableRestoreStatus
+    , module Network.AWS.Redshift.DescribeTableRestoreStatus
 
     -- ** CreateClusterSnapshot
     , module Network.AWS.Redshift.CreateClusterSnapshot
@@ -484,6 +500,9 @@ module Network.AWS.Redshift
 
     -- ** SourceType
     , SourceType (..)
+
+    -- ** TableRestoreStatusType
+    , TableRestoreStatusType (..)
 
     -- ** AccountWithRestoreAccess
     , AccountWithRestoreAccess
@@ -736,6 +755,7 @@ module Network.AWS.Redshift
     , PendingModifiedValues
     , pendingModifiedValues
     , pmvMasterUserPassword
+    , pmvPubliclyAccessible
     , pmvAutomatedSnapshotRetentionPeriod
     , pmvClusterIdentifier
     , pmvNumberOfNodes
@@ -833,6 +853,24 @@ module Network.AWS.Redshift
     , sSubnetIdentifier
     , sSubnetAvailabilityZone
 
+    -- ** TableRestoreStatus
+    , TableRestoreStatus
+    , tableRestoreStatus
+    , trsStatus
+    , trsTargetSchemaName
+    , trsSnapshotIdentifier
+    , trsSourceDatabaseName
+    , trsTableRestoreRequestId
+    , trsNewTableName
+    , trsTargetDatabaseName
+    , trsSourceSchemaName
+    , trsClusterIdentifier
+    , trsRequestTime
+    , trsSourceTableName
+    , trsTotalDataInMegaBytes
+    , trsProgressInMegaBytes
+    , trsMessage
+
     -- ** Tag
     , Tag
     , tag
@@ -895,6 +933,7 @@ import           Network.AWS.Redshift.DescribeReservedNodeOfferings
 import           Network.AWS.Redshift.DescribeReservedNodes
 import           Network.AWS.Redshift.DescribeResize
 import           Network.AWS.Redshift.DescribeSnapshotCopyGrants
+import           Network.AWS.Redshift.DescribeTableRestoreStatus
 import           Network.AWS.Redshift.DescribeTags
 import           Network.AWS.Redshift.DisableLogging
 import           Network.AWS.Redshift.DisableSnapshotCopy
@@ -909,6 +948,7 @@ import           Network.AWS.Redshift.PurchaseReservedNodeOffering
 import           Network.AWS.Redshift.RebootCluster
 import           Network.AWS.Redshift.ResetClusterParameterGroup
 import           Network.AWS.Redshift.RestoreFromClusterSnapshot
+import           Network.AWS.Redshift.RestoreTableFromClusterSnapshot
 import           Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
 import           Network.AWS.Redshift.RevokeSnapshotAccess
 import           Network.AWS.Redshift.RotateEncryptionKey

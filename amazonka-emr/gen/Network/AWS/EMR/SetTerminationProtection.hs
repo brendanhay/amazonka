@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.SetTerminationProtection
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,6 @@
 -- For more information, go to
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html Protecting a Job Flow from Termination>
 -- in the /Amazon Elastic MapReduce Developer\'s Guide./
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_SetTerminationProtection.html AWS API Reference> for SetTerminationProtection.
 module Network.AWS.EMR.SetTerminationProtection
     (
     -- * Creating a Request
@@ -61,7 +59,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input argument to the TerminationProtection operation.
+-- | The input argument to the < TerminationProtection> operation.
 --
 -- /See:/ 'setTerminationProtection' smart constructor.
 data SetTerminationProtection = SetTerminationProtection'
@@ -86,8 +84,8 @@ setTerminationProtection pTerminationProtected_ =
     }
 
 -- | A list of strings that uniquely identify the job flows to protect. This
--- identifier is returned by RunJobFlow and can also be obtained from
--- DescribeJobFlows .
+-- identifier is returned by < RunJobFlow> and can also be obtained from
+-- < DescribeJobFlows> .
 stpJobFlowIds :: Lens' SetTerminationProtection [Text]
 stpJobFlowIds = lens _stpJobFlowIds (\ s a -> s{_stpJobFlowIds = a}) . _Coerce;
 
@@ -103,6 +101,8 @@ instance AWSRequest SetTerminationProtection where
         request = postJSON eMR
         response
           = receiveNull SetTerminationProtectionResponse'
+
+instance Hashable SetTerminationProtection
 
 instance ToHeaders SetTerminationProtection where
         toHeaders

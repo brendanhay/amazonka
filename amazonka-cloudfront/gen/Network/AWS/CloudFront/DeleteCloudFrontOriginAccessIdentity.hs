@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete an origin access identity.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteCloudFrontOriginAccessIdentity.html AWS API Reference> for DeleteCloudFrontOriginAccessIdentity.
 module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request
@@ -84,6 +82,9 @@ instance AWSRequest
           = receiveNull
               DeleteCloudFrontOriginAccessIdentityResponse'
 
+instance Hashable
+         DeleteCloudFrontOriginAccessIdentity
+
 instance ToHeaders
          DeleteCloudFrontOriginAccessIdentity where
         toHeaders DeleteCloudFrontOriginAccessIdentity'{..}
@@ -93,7 +94,7 @@ instance ToPath DeleteCloudFrontOriginAccessIdentity
          where
         toPath DeleteCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2015-09-17/origin-access-identity/cloudfront/",
+              ["/2016-01-28/origin-access-identity/cloudfront/",
                toBS _dcfoaiId]
 
 instance ToQuery DeleteCloudFrontOriginAccessIdentity

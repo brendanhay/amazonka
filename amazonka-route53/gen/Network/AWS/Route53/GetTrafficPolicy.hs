@@ -12,17 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetTrafficPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a specific traffic policy version. To get the
--- information, send a 'GET' request to the '2013-04-01\/trafficpolicy'
--- resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html AWS API Reference> for GetTrafficPolicy.
+-- information, send a 'GET' request to the
+-- '\/Route 53 API version\/trafficpolicy' resource.
 module Network.AWS.Route53.GetTrafficPolicy
     (
     -- * Creating a Request
@@ -48,8 +46,9 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | Gets information about a specific traffic policy version. To get the
--- information, send a GET request to the 2013-04-01\/trafficpolicy
--- resource, and specify the ID and the version of the traffic policy.
+-- information, send a GET request to the \//Route 53 API
+-- version/\/trafficpolicy resource, and specify the ID and the version of
+-- the traffic policy.
 --
 -- /See:/ 'getTrafficPolicy' smart constructor.
 data GetTrafficPolicy = GetTrafficPolicy'
@@ -91,6 +90,8 @@ instance AWSRequest GetTrafficPolicy where
               (\ s h x ->
                  GetTrafficPolicyResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "TrafficPolicy"))
+
+instance Hashable GetTrafficPolicy
 
 instance ToHeaders GetTrafficPolicy where
         toHeaders = const mempty

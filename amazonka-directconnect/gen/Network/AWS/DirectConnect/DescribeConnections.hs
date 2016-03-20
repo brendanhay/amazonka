@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeConnections
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- If a connection ID is provided, the call returns only that particular
 -- connection.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnections.html AWS API Reference> for DescribeConnections.
 module Network.AWS.DirectConnect.DescribeConnections
     (
     -- * Creating a Request
@@ -73,6 +71,8 @@ instance AWSRequest DescribeConnections where
         type Rs DescribeConnections = Connections
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable DescribeConnections
 
 instance ToHeaders DescribeConnections where
         toHeaders

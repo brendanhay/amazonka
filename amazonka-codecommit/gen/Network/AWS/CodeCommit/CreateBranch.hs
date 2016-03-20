@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.CreateBranch
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- Calling the create branch operation does not set a repository\'s default
 -- branch. To do this, call the update default branch operation.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_CreateBranch.html AWS API Reference> for CreateBranch.
 module Network.AWS.CodeCommit.CreateBranch
     (
     -- * Creating a Request
@@ -85,9 +83,6 @@ cbBranchName :: Lens' CreateBranch Text
 cbBranchName = lens _cbBranchName (\ s a -> s{_cbBranchName = a});
 
 -- | The ID of the commit to point the new branch to.
---
--- If this commit ID is not specified, the new branch will point to the
--- commit that is pointed to by the repository\'s default branch.
 cbCommitId :: Lens' CreateBranch Text
 cbCommitId = lens _cbCommitId (\ s a -> s{_cbCommitId = a});
 
@@ -95,6 +90,8 @@ instance AWSRequest CreateBranch where
         type Rs CreateBranch = CreateBranchResponse
         request = postJSON codeCommit
         response = receiveNull CreateBranchResponse'
+
+instance Hashable CreateBranch
 
 instance ToHeaders CreateBranch where
         toHeaders

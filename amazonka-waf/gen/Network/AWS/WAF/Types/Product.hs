@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,13 +21,13 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.WAF.Types.Sum
 
--- | The 'ActivatedRule' object in an UpdateWebACL request specifies a 'Rule'
--- that you want to insert or delete, the priority of the 'Rule' in the
--- 'WebACL', and the action that you want AWS WAF to take when a web
+-- | The 'ActivatedRule' object in an < UpdateWebACL> request specifies a
+-- 'Rule' that you want to insert or delete, the priority of the 'Rule' in
+-- the 'WebACL', and the action that you want AWS WAF to take when a web
 -- request matches the 'Rule' ('ALLOW', 'BLOCK', or 'COUNT').
 --
 -- To specify whether to insert or delete a 'Rule', use the 'Action'
--- parameter in the WebACLUpdate data type.
+-- parameter in the < WebACLUpdate> data type.
 --
 -- /See:/ 'activatedRule' smart constructor.
 data ActivatedRule = ActivatedRule'
@@ -66,11 +66,11 @@ arPriority :: Lens' ActivatedRule Int
 arPriority = lens _arPriority (\ s a -> s{_arPriority = a});
 
 -- | The 'RuleId' for a 'Rule'. You use 'RuleId' to get more information
--- about a 'Rule' (see GetRule), update a 'Rule' (see UpdateRule), insert a
--- 'Rule' into a 'WebACL' or delete a one from a 'WebACL' (see
--- UpdateWebACL), or delete a 'Rule' from AWS WAF (see DeleteRule).
+-- about a 'Rule' (see < GetRule>), update a 'Rule' (see < UpdateRule>),
+-- insert a 'Rule' into a 'WebACL' or delete a one from a 'WebACL' (see
+-- < UpdateWebACL>), or delete a 'Rule' from AWS WAF (see < DeleteRule>).
 --
--- 'RuleId' is returned by CreateRule and by ListRules.
+-- 'RuleId' is returned by < CreateRule> and by < ListRules>.
 arRuleId :: Lens' ActivatedRule Text
 arRuleId = lens _arRuleId (\ s a -> s{_arRuleId = a});
 
@@ -95,6 +95,8 @@ instance FromJSON ActivatedRule where
                    (x .: "Priority") <*> (x .: "RuleId") <*>
                      (x .: "Action"))
 
+instance Hashable ActivatedRule
+
 instance ToJSON ActivatedRule where
         toJSON ActivatedRule'{..}
           = object
@@ -103,7 +105,7 @@ instance ToJSON ActivatedRule where
                   Just ("RuleId" .= _arRuleId),
                   Just ("Action" .= _arAction)])
 
--- | In a GetByteMatchSet request, 'ByteMatchSet' is a complex type that
+-- | In a < GetByteMatchSet> request, 'ByteMatchSet' is a complex type that
 -- contains the 'ByteMatchSetId' and 'Name' of a 'ByteMatchSet', and the
 -- values that you specified when you updated the 'ByteMatchSet'.
 --
@@ -139,19 +141,19 @@ byteMatchSet pByteMatchSetId_ =
     , _bmsByteMatchTuples = mempty
     }
 
--- | A friendly name or description of the ByteMatchSet. You can\'t change
+-- | A friendly name or description of the < ByteMatchSet>. You can\'t change
 -- 'Name' after you create a 'ByteMatchSet'.
 bmsName :: Lens' ByteMatchSet (Maybe Text)
 bmsName = lens _bmsName (\ s a -> s{_bmsName = a});
 
 -- | The 'ByteMatchSetId' for a 'ByteMatchSet'. You use 'ByteMatchSetId' to
--- get information about a 'ByteMatchSet' (see GetByteMatchSet), update a
--- 'ByteMatchSet' (see UpdateByteMatchSet, insert a 'ByteMatchSet' into a
--- 'Rule' or delete one from a 'Rule' (see UpdateRule), and delete a
--- 'ByteMatchSet' from AWS WAF (see DeleteByteMatchSet).
+-- get information about a 'ByteMatchSet' (see < GetByteMatchSet>), update
+-- a 'ByteMatchSet' (see < UpdateByteMatchSet>, insert a 'ByteMatchSet'
+-- into a 'Rule' or delete one from a 'Rule' (see < UpdateRule>), and
+-- delete a 'ByteMatchSet' from AWS WAF (see < DeleteByteMatchSet>).
 --
--- 'ByteMatchSetId' is returned by CreateByteMatchSet and by
--- ListByteMatchSets.
+-- 'ByteMatchSetId' is returned by < CreateByteMatchSet> and by
+-- < ListByteMatchSets>.
 bmsByteMatchSetId :: Lens' ByteMatchSet Text
 bmsByteMatchSetId = lens _bmsByteMatchSetId (\ s a -> s{_bmsByteMatchSetId = a});
 
@@ -170,8 +172,10 @@ instance FromJSON ByteMatchSet where
                    (x .:? "Name") <*> (x .: "ByteMatchSetId") <*>
                      (x .:? "ByteMatchTuples" .!= mempty))
 
--- | Returned by ListByteMatchSets. Each 'ByteMatchSetSummary' object
--- includes the 'Name' and 'ByteMatchSetId' for one ByteMatchSet.
+instance Hashable ByteMatchSet
+
+-- | Returned by < ListByteMatchSets>. Each 'ByteMatchSetSummary' object
+-- includes the 'Name' and 'ByteMatchSetId' for one < ByteMatchSet>.
 --
 -- /See:/ 'byteMatchSetSummary' smart constructor.
 data ByteMatchSetSummary = ByteMatchSetSummary'
@@ -201,12 +205,12 @@ byteMatchSetSummary pByteMatchSetId_ pName_ =
 -- a 'ByteMatchSet' from a 'Rule', and delete a 'ByteMatchSet' from AWS
 -- WAF.
 --
--- 'ByteMatchSetId' is returned by CreateByteMatchSet and by
--- ListByteMatchSets.
+-- 'ByteMatchSetId' is returned by < CreateByteMatchSet> and by
+-- < ListByteMatchSets>.
 bmssByteMatchSetId :: Lens' ByteMatchSetSummary Text
 bmssByteMatchSetId = lens _bmssByteMatchSetId (\ s a -> s{_bmssByteMatchSetId = a});
 
--- | A friendly name or description of the ByteMatchSet. You can\'t change
+-- | A friendly name or description of the < ByteMatchSet>. You can\'t change
 -- 'Name' after you create a 'ByteMatchSet'.
 bmssName :: Lens' ByteMatchSetSummary Text
 bmssName = lens _bmssName (\ s a -> s{_bmssName = a});
@@ -218,9 +222,11 @@ instance FromJSON ByteMatchSetSummary where
                  ByteMatchSetSummary' <$>
                    (x .: "ByteMatchSetId") <*> (x .: "Name"))
 
--- | In an UpdateByteMatchSet request, 'ByteMatchSetUpdate' specifies whether
--- to insert or delete a ByteMatchTuple and includes the settings for the
--- 'ByteMatchTuple'.
+instance Hashable ByteMatchSetSummary
+
+-- | In an < UpdateByteMatchSet> request, 'ByteMatchSetUpdate' specifies
+-- whether to insert or delete a < ByteMatchTuple> and includes the
+-- settings for the 'ByteMatchTuple'.
 --
 -- /See:/ 'byteMatchSetUpdate' smart constructor.
 data ByteMatchSetUpdate = ByteMatchSetUpdate'
@@ -245,7 +251,7 @@ byteMatchSetUpdate pAction_ pByteMatchTuple_ =
     , _bmsuByteMatchTuple = pByteMatchTuple_
     }
 
--- | Specifies whether to insert or delete a ByteMatchTuple.
+-- | Specifies whether to insert or delete a < ByteMatchTuple>.
 bmsuAction :: Lens' ByteMatchSetUpdate ChangeAction
 bmsuAction = lens _bmsuAction (\ s a -> s{_bmsuAction = a});
 
@@ -256,6 +262,8 @@ bmsuAction = lens _bmsuAction (\ s a -> s{_bmsuAction = a});
 -- delete from the 'ByteMatchSet'.
 bmsuByteMatchTuple :: Lens' ByteMatchSetUpdate ByteMatchTuple
 bmsuByteMatchTuple = lens _bmsuByteMatchTuple (\ s a -> s{_bmsuByteMatchTuple = a});
+
+instance Hashable ByteMatchSetUpdate
 
 instance ToJSON ByteMatchSetUpdate where
         toJSON ByteMatchSetUpdate'{..}
@@ -303,7 +311,7 @@ byteMatchTuple pFieldToMatch_ pTargetString_ pTextTransformation_ pPositionalCon
 
 -- | The part of a web request that you want AWS WAF to search, such as a
 -- specified header or a query string. For more information, see
--- FieldToMatch.
+-- < FieldToMatch>.
 bmtFieldToMatch :: Lens' ByteMatchTuple FieldToMatch
 bmtFieldToMatch = lens _bmtFieldToMatch (\ s a -> s{_bmtFieldToMatch = a});
 
@@ -314,8 +322,8 @@ bmtFieldToMatch = lens _bmtFieldToMatch (\ s a -> s{_bmtFieldToMatch = a});
 -- Valid values depend on the values that you specified for 'FieldToMatch':
 --
 -- -   'HEADER': The value that you want AWS WAF to search for in the
---     request header that you specified in FieldToMatch, for example, the
---     value of the 'User-Agent' or 'Referer' header.
+--     request header that you specified in < FieldToMatch>, for example,
+--     the value of the 'User-Agent' or 'Referer' header.
 -- -   'METHOD': The HTTP method, which indicates the type of operation
 --     specified in the request. CloudFront supports the following methods:
 --     'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', and 'PUT'.
@@ -325,6 +333,14 @@ bmtFieldToMatch = lens _bmtFieldToMatch (\ s a -> s{_bmtFieldToMatch = a});
 -- -   'URI': The value that you want AWS WAF to search for in the part of
 --     a URL that identifies a resource, for example,
 --     '\/images\/daily-ad.jpg'.
+-- -   'BODY': The part of a request that contains any additional data that
+--     you want to send to your web server as the HTTP request body, such
+--     as data from a form. The request body immediately follows the
+--     request headers. Note that only the first '8192' bytes of the
+--     request body are forwarded to AWS WAF for inspection. To allow or
+--     block requests based on the length of the body, you can create a
+--     size constraint set. For more information, see
+--     < CreateSizeConstraintSet>.
 --
 -- If 'TargetString' includes alphabetic characters A-Z and a-z, note that
 -- the value is case sensitive.
@@ -467,6 +483,8 @@ instance FromJSON ByteMatchTuple where
                      (x .: "TextTransformation")
                      <*> (x .: "PositionalConstraint"))
 
+instance Hashable ByteMatchTuple
+
 instance ToJSON ByteMatchTuple where
         toJSON ByteMatchTuple'{..}
           = object
@@ -526,6 +544,14 @@ ftmData = lens _ftmData (\ s a -> s{_ftmData = a});
 --     appears after a '?' character, if any.
 -- -   'URI': The part of a web request that identifies a resource, for
 --     example, '\/images\/daily-ad.jpg'.
+-- -   'BODY': The part of a request that contains any additional data that
+--     you want to send to your web server as the HTTP request body, such
+--     as data from a form. The request body immediately follows the
+--     request headers. Note that only the first '8192' bytes of the
+--     request body are forwarded to AWS WAF for inspection. To allow or
+--     block requests based on the length of the body, you can create a
+--     size constraint set. For more information, see
+--     < CreateSizeConstraintSet>.
 ftmType :: Lens' FieldToMatch MatchFieldType
 ftmType = lens _ftmType (\ s a -> s{_ftmType = a});
 
@@ -535,6 +561,8 @@ instance FromJSON FieldToMatch where
               (\ x ->
                  FieldToMatch' <$> (x .:? "Data") <*> (x .: "Type"))
 
+instance Hashable FieldToMatch
+
 instance ToJSON FieldToMatch where
         toJSON FieldToMatch'{..}
           = object
@@ -542,10 +570,10 @@ instance ToJSON FieldToMatch where
                  [("Data" .=) <$> _ftmData,
                   Just ("Type" .= _ftmType)])
 
--- | The response from a GetSampledRequests request includes an 'HTTPHeader'
--- complex type that appears as 'Headers' in the response syntax.
--- 'HTTPHeader' contains the names and values of all of the headers that
--- appear in one of the web requests that were returned by
+-- | The response from a < GetSampledRequests> request includes an
+-- 'HTTPHeader' complex type that appears as 'Headers' in the response
+-- syntax. 'HTTPHeader' contains the names and values of all of the headers
+-- that appear in one of the web requests that were returned by
 -- 'GetSampledRequests'.
 --
 -- /See:/ 'hTTPHeader' smart constructor.
@@ -583,10 +611,12 @@ instance FromJSON HTTPHeader where
               (\ x ->
                  HTTPHeader' <$> (x .:? "Value") <*> (x .:? "Name"))
 
--- | The response from a GetSampledRequests request includes an 'HTTPRequest'
--- complex type that appears as 'Request' in the response syntax.
--- 'HTTPRequest' contains information about one of the web requests that
--- were returned by 'GetSampledRequests'.
+instance Hashable HTTPHeader
+
+-- | The response from a < GetSampledRequests> request includes an
+-- 'HTTPRequest' complex type that appears as 'Request' in the response
+-- syntax. 'HTTPRequest' contains information about one of the web requests
+-- that were returned by 'GetSampledRequests'.
 --
 -- /See:/ 'hTTPRequest' smart constructor.
 data HTTPRequest = HTTPRequest'
@@ -674,6 +704,8 @@ instance FromJSON HTTPRequest where
                      <*> (x .:? "Method")
                      <*> (x .:? "ClientIP"))
 
+instance Hashable HTTPRequest
+
 -- | Contains one or more IP addresses or blocks of IP addresses specified in
 -- Classless Inter-Domain Routing (CIDR) notation. To specify an individual
 -- IP address, you specify the four-part IP address followed by a '\/32',
@@ -707,17 +739,17 @@ ipSet pIPSetId_ =
     , _isIPSetDescriptors = mempty
     }
 
--- | A friendly name or description of the IPSet. You can\'t change the name
--- of an 'IPSet' after you create it.
+-- | A friendly name or description of the < IPSet>. You can\'t change the
+-- name of an 'IPSet' after you create it.
 isName :: Lens' IPSet (Maybe Text)
 isName = lens _isName (\ s a -> s{_isName = a});
 
 -- | The 'IPSetId' for an 'IPSet'. You use 'IPSetId' to get information about
--- an 'IPSet' (see GetIPSet), update an 'IPSet' (see UpdateIPSet), insert
--- an 'IPSet' into a 'Rule' or delete one from a 'Rule' (see UpdateRule),
--- and delete an 'IPSet' from AWS WAF (see DeleteIPSet).
+-- an 'IPSet' (see < GetIPSet>), update an 'IPSet' (see < UpdateIPSet>),
+-- insert an 'IPSet' into a 'Rule' or delete one from a 'Rule' (see
+-- < UpdateRule>), and delete an 'IPSet' from AWS WAF (see < DeleteIPSet>).
 --
--- 'IPSetId' is returned by CreateIPSet and by ListIPSets.
+-- 'IPSetId' is returned by < CreateIPSet> and by < ListIPSets>.
 isIPSetId :: Lens' IPSet Text
 isIPSetId = lens _isIPSetId (\ s a -> s{_isIPSetId = a});
 
@@ -740,6 +772,8 @@ instance FromJSON IPSet where
                  IPSet' <$>
                    (x .:? "Name") <*> (x .: "IPSetId") <*>
                      (x .:? "IPSetDescriptors" .!= mempty))
+
+instance Hashable IPSet
 
 -- | Specifies the IP address type ('IPV4') and the IP address range (in CIDR
 -- format) that web requests originate from.
@@ -793,6 +827,8 @@ instance FromJSON IPSetDescriptor where
                  IPSetDescriptor' <$>
                    (x .: "Type") <*> (x .: "Value"))
 
+instance Hashable IPSetDescriptor
+
 instance ToJSON IPSetDescriptor where
         toJSON IPSetDescriptor'{..}
           = object
@@ -825,13 +861,13 @@ ipSetSummary pIPSetId_ pName_ =
     , _issName = pName_
     }
 
--- | The 'IPSetId' for an IPSet. You can use 'IPSetId' in a GetIPSet request
--- to get detailed information about an IPSet.
+-- | The 'IPSetId' for an < IPSet>. You can use 'IPSetId' in a < GetIPSet>
+-- request to get detailed information about an < IPSet>.
 issIPSetId :: Lens' IPSetSummary Text
 issIPSetId = lens _issIPSetId (\ s a -> s{_issIPSetId = a});
 
--- | A friendly name or description of the IPSet. You can\'t change the name
--- of an 'IPSet' after you create it.
+-- | A friendly name or description of the < IPSet>. You can\'t change the
+-- name of an 'IPSet' after you create it.
 issName :: Lens' IPSetSummary Text
 issName = lens _issName (\ s a -> s{_issName = a});
 
@@ -841,7 +877,10 @@ instance FromJSON IPSetSummary where
               (\ x ->
                  IPSetSummary' <$> (x .: "IPSetId") <*> (x .: "Name"))
 
--- | Specifies the type of update to perform to an IPSet with UpdateIPSet.
+instance Hashable IPSetSummary
+
+-- | Specifies the type of update to perform to an < IPSet> with
+-- < UpdateIPSet>.
 --
 -- /See:/ 'ipSetUpdate' smart constructor.
 data IPSetUpdate = IPSetUpdate'
@@ -866,7 +905,7 @@ ipSetUpdate pAction_ pIPSetDescriptor_ =
     , _isuIPSetDescriptor = pIPSetDescriptor_
     }
 
--- | Specifies whether to insert or delete an IP address with UpdateIPSet.
+-- | Specifies whether to insert or delete an IP address with < UpdateIPSet>.
 isuAction :: Lens' IPSetUpdate ChangeAction
 isuAction = lens _isuAction (\ s a -> s{_isuAction = a});
 
@@ -875,6 +914,8 @@ isuAction = lens _isuAction (\ s a -> s{_isuAction = a});
 isuIPSetDescriptor :: Lens' IPSetUpdate IPSetDescriptor
 isuIPSetDescriptor = lens _isuIPSetDescriptor (\ s a -> s{_isuIPSetDescriptor = a});
 
+instance Hashable IPSetUpdate
+
 instance ToJSON IPSetUpdate where
         toJSON IPSetUpdate'{..}
           = object
@@ -882,10 +923,10 @@ instance ToJSON IPSetUpdate where
                  [Just ("Action" .= _isuAction),
                   Just ("IPSetDescriptor" .= _isuIPSetDescriptor)])
 
--- | Specifies the ByteMatchSet, IPSet, and SqlInjectionMatchSet objects that
--- you want to add to a 'Rule' and, for each object, indicates whether you
--- want to negate the settings, for example, requests that do NOT originate
--- from the IP address 192.0.2.44.
+-- | Specifies the < ByteMatchSet>, < IPSet>, and < SqlInjectionMatchSet>
+-- objects that you want to add to a 'Rule' and, for each object, indicates
+-- whether you want to negate the settings, for example, requests that do
+-- NOT originate from the IP address 192.0.2.44.
 --
 -- /See:/ 'predicate' smart constructor.
 data Predicate = Predicate'
@@ -916,16 +957,16 @@ predicate pNegated_ pType_ pDataId_ =
     }
 
 -- | Set 'Negated' to 'False' if you want AWS WAF to allow, block, or count
--- requests based on the settings in the specified ByteMatchSet, IPSet, or
--- SqlInjectionMatchSet. For example, if an 'IPSet' includes the IP address
--- '192.0.2.44', AWS WAF will allow or block requests based on that IP
--- address.
+-- requests based on the settings in the specified < ByteMatchSet>,
+-- < IPSet>, or < SqlInjectionMatchSet>. For example, if an 'IPSet'
+-- includes the IP address '192.0.2.44', AWS WAF will allow or block
+-- requests based on that IP address.
 --
 -- Set 'Negated' to 'True' if you want AWS WAF to allow or block a request
--- based on the negation of the settings in the ByteMatchSet, IPSet, or
--- SqlInjectionMatchSet. For example, if an 'IPSet' includes the IP address
--- '192.0.2.44', AWS WAF will allow, block, or count requests based on all
--- IP addresses /except/ '192.0.2.44'.
+-- based on the negation of the settings in the < ByteMatchSet>, < IPSet>,
+-- or < SqlInjectionMatchSet>. For example, if an 'IPSet' includes the IP
+-- address '192.0.2.44', AWS WAF will allow, block, or count requests based
+-- on all IP addresses /except/ '192.0.2.44'.
 pNegated :: Lens' Predicate Bool
 pNegated = lens _pNegated (\ s a -> s{_pNegated = a});
 
@@ -947,6 +988,8 @@ instance FromJSON Predicate where
                    (x .: "Negated") <*> (x .: "Type") <*>
                      (x .: "DataId"))
 
+instance Hashable Predicate
+
 instance ToJSON Predicate where
         toJSON Predicate'{..}
           = object
@@ -955,10 +998,10 @@ instance ToJSON Predicate where
                   Just ("Type" .= _pType),
                   Just ("DataId" .= _pDataId)])
 
--- | A combination of ByteMatchSet, IPSet, and\/or SqlInjectionMatchSet
--- objects that identify the web requests that you want to allow, block, or
--- count. For example, you might create a 'Rule' that includes the
--- following predicates:
+-- | A combination of < ByteMatchSet>, < IPSet>, and\/or
+-- < SqlInjectionMatchSet> objects that identify the web requests that you
+-- want to allow, block, or count. For example, you might create a 'Rule'
+-- that includes the following predicates:
 --
 -- -   An 'IPSet' that causes AWS WAF to search for web requests that
 --     originate from the IP address '192.0.2.44'
@@ -1009,18 +1052,18 @@ rName :: Lens' Rule (Maybe Text)
 rName = lens _rName (\ s a -> s{_rName = a});
 
 -- | A unique identifier for a 'Rule'. You use 'RuleId' to get more
--- information about a 'Rule' (see GetRule), update a 'Rule' (see
--- UpdateRule), insert a 'Rule' into a 'WebACL' or delete a one from a
--- 'WebACL' (see UpdateWebACL), or delete a 'Rule' from AWS WAF (see
--- DeleteRule).
+-- information about a 'Rule' (see < GetRule>), update a 'Rule' (see
+-- < UpdateRule>), insert a 'Rule' into a 'WebACL' or delete a one from a
+-- 'WebACL' (see < UpdateWebACL>), or delete a 'Rule' from AWS WAF (see
+-- < DeleteRule>).
 --
--- 'RuleId' is returned by CreateRule and by ListRules.
+-- 'RuleId' is returned by < CreateRule> and by < ListRules>.
 rRuleId :: Lens' Rule Text
 rRuleId = lens _rRuleId (\ s a -> s{_rRuleId = a});
 
 -- | The 'Predicates' object contains one 'Predicate' element for each
--- ByteMatchSet, IPSet, or SqlInjectionMatchSet object that you want to
--- include in a 'Rule'.
+-- < ByteMatchSet>, < IPSet>, or < SqlInjectionMatchSet> object that you
+-- want to include in a 'Rule'.
 rPredicates :: Lens' Rule [Predicate]
 rPredicates = lens _rPredicates (\ s a -> s{_rPredicates = a}) . _Coerce;
 
@@ -1032,6 +1075,8 @@ instance FromJSON Rule where
                    (x .:? "MetricName") <*> (x .:? "Name") <*>
                      (x .: "RuleId")
                      <*> (x .:? "Predicates" .!= mempty))
+
+instance Hashable Rule
 
 -- | Contains the identifier and the friendly name or description of the
 -- 'Rule'.
@@ -1060,17 +1105,17 @@ ruleSummary pRuleId_ pName_ =
     }
 
 -- | A unique identifier for a 'Rule'. You use 'RuleId' to get more
--- information about a 'Rule' (see GetRule), update a 'Rule' (see
--- UpdateRule), insert a 'Rule' into a 'WebACL' or delete one from a
--- 'WebACL' (see UpdateWebACL), or delete a 'Rule' from AWS WAF (see
--- DeleteRule).
+-- information about a 'Rule' (see < GetRule>), update a 'Rule' (see
+-- < UpdateRule>), insert a 'Rule' into a 'WebACL' or delete one from a
+-- 'WebACL' (see < UpdateWebACL>), or delete a 'Rule' from AWS WAF (see
+-- < DeleteRule>).
 --
--- 'RuleId' is returned by CreateRule and by ListRules.
+-- 'RuleId' is returned by < CreateRule> and by < ListRules>.
 rsRuleId :: Lens' RuleSummary Text
 rsRuleId = lens _rsRuleId (\ s a -> s{_rsRuleId = a});
 
--- | A friendly name or description of the Rule. You can\'t change the name
--- of a 'Rule' after you create it.
+-- | A friendly name or description of the < Rule>. You can\'t change the
+-- name of a 'Rule' after you create it.
 rsName :: Lens' RuleSummary Text
 rsName = lens _rsName (\ s a -> s{_rsName = a});
 
@@ -1079,6 +1124,8 @@ instance FromJSON RuleSummary where
           = withObject "RuleSummary"
               (\ x ->
                  RuleSummary' <$> (x .: "RuleId") <*> (x .: "Name"))
+
+instance Hashable RuleSummary
 
 -- | Specifies a 'Predicate' (such as an 'IPSet') and indicates whether you
 -- want to add it to a 'Rule' or delete it from a 'Rule'.
@@ -1116,6 +1163,8 @@ ruAction = lens _ruAction (\ s a -> s{_ruAction = a});
 ruPredicate :: Lens' RuleUpdate Predicate
 ruPredicate = lens _ruPredicate (\ s a -> s{_ruPredicate = a});
 
+instance Hashable RuleUpdate
+
 instance ToJSON RuleUpdate where
         toJSON RuleUpdate'{..}
           = object
@@ -1123,7 +1172,7 @@ instance ToJSON RuleUpdate where
                  [Just ("Action" .= _ruAction),
                   Just ("Predicate" .= _ruPredicate)])
 
--- | The response from a GetSampledRequests request includes a
+-- | The response from a < GetSampledRequests> request includes a
 -- 'SampledHTTPRequests' complex type that appears as 'SampledRequests' in
 -- the response syntax. 'SampledHTTPRequests' contains one
 -- 'SampledHTTPRequest' object for each web request that is returned by
@@ -1190,6 +1239,337 @@ instance FromJSON SampledHTTPRequest where
                      (x .: "Request")
                      <*> (x .: "Weight"))
 
+instance Hashable SampledHTTPRequest
+
+-- | Specifies a constraint on the size of a part of the web request. AWS WAF
+-- uses the 'Size', 'ComparisonOperator', and 'FieldToMatch' to build an
+-- expression in the form of \"'Size' 'ComparisonOperator' size in bytes of
+-- 'FieldToMatch'\". If that expression is true, the 'SizeConstraint' is
+-- considered to match.
+--
+-- /See:/ 'sizeConstraint' smart constructor.
+data SizeConstraint = SizeConstraint'
+    { _scFieldToMatch       :: !FieldToMatch
+    , _scTextTransformation :: !TextTransformation
+    , _scComparisonOperator :: !ComparisonOperator
+    , _scSize               :: !Nat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SizeConstraint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scFieldToMatch'
+--
+-- * 'scTextTransformation'
+--
+-- * 'scComparisonOperator'
+--
+-- * 'scSize'
+sizeConstraint
+    :: FieldToMatch -- ^ 'scFieldToMatch'
+    -> TextTransformation -- ^ 'scTextTransformation'
+    -> ComparisonOperator -- ^ 'scComparisonOperator'
+    -> Natural -- ^ 'scSize'
+    -> SizeConstraint
+sizeConstraint pFieldToMatch_ pTextTransformation_ pComparisonOperator_ pSize_ =
+    SizeConstraint'
+    { _scFieldToMatch = pFieldToMatch_
+    , _scTextTransformation = pTextTransformation_
+    , _scComparisonOperator = pComparisonOperator_
+    , _scSize = _Nat # pSize_
+    }
+
+-- | Undocumented member.
+scFieldToMatch :: Lens' SizeConstraint FieldToMatch
+scFieldToMatch = lens _scFieldToMatch (\ s a -> s{_scFieldToMatch = a});
+
+-- | Text transformations eliminate some of the unusual formatting that
+-- attackers use in web requests in an effort to bypass AWS WAF. If you
+-- specify a transformation, AWS WAF performs the transformation on
+-- 'FieldToMatch' before inspecting a request for a match.
+--
+-- Note that if you choose 'BODY' for the value of 'Type', you must choose
+-- 'NONE' for 'TextTransformation' because CloudFront forwards only the
+-- first 8192 bytes for inspection.
+--
+-- __NONE__
+--
+-- Specify 'NONE' if you don\'t want to perform any text transformations.
+--
+-- __CMD_LINE__
+--
+-- When you\'re concerned that attackers are injecting an operating system
+-- command line command and using unusual formatting to disguise some or
+-- all of the command, use this option to perform the following
+-- transformations:
+--
+-- -   Delete the following characters: \\ \" \' ^
+-- -   Delete spaces before the following characters: \/ (
+-- -   Replace the following characters with a space: , ;
+-- -   Replace multiple spaces with one space
+-- -   Convert uppercase letters (A-Z) to lowercase (a-z)
+--
+-- __COMPRESS_WHITE_SPACE__
+--
+-- Use this option to replace the following characters with a space
+-- character (decimal 32):
+--
+-- -   \\f, formfeed, decimal 12
+-- -   \\t, tab, decimal 9
+-- -   \\n, newline, decimal 10
+-- -   \\r, carriage return, decimal 13
+-- -   \\v, vertical tab, decimal 11
+-- -   non-breaking space, decimal 160
+--
+-- 'COMPRESS_WHITE_SPACE' also replaces multiple spaces with one space.
+--
+-- __HTML_ENTITY_DECODE__
+--
+-- Use this option to replace HTML-encoded characters with unencoded
+-- characters. 'HTML_ENTITY_DECODE' performs the following operations:
+--
+-- -   Replaces '(ampersand)quot;' with '\"'
+-- -   Replaces '(ampersand)nbsp;' with a non-breaking space, decimal 160
+-- -   Replaces '(ampersand)lt;' with a \"less than\" symbol
+-- -   Replaces '(ampersand)gt;' with '>'
+-- -   Replaces characters that are represented in hexadecimal format,
+--     '(ampersand)#xhhhh;', with the corresponding characters
+-- -   Replaces characters that are represented in decimal format,
+--     '(ampersand)#nnnn;', with the corresponding characters
+--
+-- __LOWERCASE__
+--
+-- Use this option to convert uppercase letters (A-Z) to lowercase (a-z).
+--
+-- __URL_DECODE__
+--
+-- Use this option to decode a URL-encoded value.
+scTextTransformation :: Lens' SizeConstraint TextTransformation
+scTextTransformation = lens _scTextTransformation (\ s a -> s{_scTextTransformation = a});
+
+-- | The type of comparison you want AWS WAF to perform. AWS WAF uses this in
+-- combination with the provided 'Size' and 'FieldToMatch' to build an
+-- expression in the form of \"'Size' 'ComparisonOperator' size in bytes of
+-- 'FieldToMatch'\". If that expression is true, the 'SizeConstraint' is
+-- considered to match.
+--
+-- __EQ__: Used to test if the 'Size' is equal to the size of the
+-- 'FieldToMatch'
+--
+-- __NE__: Used to test if the 'Size' is not equal to the size of the
+-- 'FieldToMatch'
+--
+-- __LE__: Used to test if the 'Size' is less than or equal to the size of
+-- the 'FieldToMatch'
+--
+-- __LT__: Used to test if the 'Size' is strictly less than the size of the
+-- 'FieldToMatch'
+--
+-- __GE__: Used to test if the 'Size' is greater than or equal to the size
+-- of the 'FieldToMatch'
+--
+-- __GT__: Used to test if the 'Size' is strictly greater than the size of
+-- the 'FieldToMatch'
+scComparisonOperator :: Lens' SizeConstraint ComparisonOperator
+scComparisonOperator = lens _scComparisonOperator (\ s a -> s{_scComparisonOperator = a});
+
+-- | The size in bytes that you want AWS WAF to compare against the size of
+-- the specified 'FieldToMatch'. AWS WAF uses this in combination with
+-- 'ComparisonOperator' and 'FieldToMatch' to build an expression in the
+-- form of \"'Size' 'ComparisonOperator' size in bytes of 'FieldToMatch'\".
+-- If that expression is true, the 'SizeConstraint' is considered to match.
+--
+-- Valid values for size are 0 - 21474836480 bytes (0 - 20 GB).
+--
+-- If you specify 'URI' for the value of 'Type', the \/ in the URI counts
+-- as one character. For example, the URI '\/logo.jpg' is nine characters
+-- long.
+scSize :: Lens' SizeConstraint Natural
+scSize = lens _scSize (\ s a -> s{_scSize = a}) . _Nat;
+
+instance FromJSON SizeConstraint where
+        parseJSON
+          = withObject "SizeConstraint"
+              (\ x ->
+                 SizeConstraint' <$>
+                   (x .: "FieldToMatch") <*> (x .: "TextTransformation")
+                     <*> (x .: "ComparisonOperator")
+                     <*> (x .: "Size"))
+
+instance Hashable SizeConstraint
+
+instance ToJSON SizeConstraint where
+        toJSON SizeConstraint'{..}
+          = object
+              (catMaybes
+                 [Just ("FieldToMatch" .= _scFieldToMatch),
+                  Just ("TextTransformation" .= _scTextTransformation),
+                  Just ("ComparisonOperator" .= _scComparisonOperator),
+                  Just ("Size" .= _scSize)])
+
+-- | A complex type that contains 'SizeConstraint' objects, which specify the
+-- parts of web requests that you want AWS WAF to inspect the size of. If a
+-- 'SizeConstraintSet' contains more than one 'SizeConstraint' object, a
+-- request only needs to match one constraint to be considered a match.
+--
+-- /See:/ 'sizeConstraintSet' smart constructor.
+data SizeConstraintSet = SizeConstraintSet'
+    { _scsName                :: !(Maybe Text)
+    , _scsSizeConstraintSetId :: !Text
+    , _scsSizeConstraints     :: ![SizeConstraint]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SizeConstraintSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scsName'
+--
+-- * 'scsSizeConstraintSetId'
+--
+-- * 'scsSizeConstraints'
+sizeConstraintSet
+    :: Text -- ^ 'scsSizeConstraintSetId'
+    -> SizeConstraintSet
+sizeConstraintSet pSizeConstraintSetId_ =
+    SizeConstraintSet'
+    { _scsName = Nothing
+    , _scsSizeConstraintSetId = pSizeConstraintSetId_
+    , _scsSizeConstraints = mempty
+    }
+
+-- | The name, if any, of the 'SizeConstraintSet'.
+scsName :: Lens' SizeConstraintSet (Maybe Text)
+scsName = lens _scsName (\ s a -> s{_scsName = a});
+
+-- | A unique identifier for a 'SizeConstraintSet'. You use
+-- 'SizeConstraintSetId' to get information about a 'SizeConstraintSet'
+-- (see < GetSizeConstraintSet>), update a 'SizeConstraintSet' (see
+-- < UpdateSizeConstraintSet>, insert a 'SizeConstraintSet' into a 'Rule'
+-- or delete one from a 'Rule' (see < UpdateRule>), and delete a
+-- 'SizeConstraintSet' from AWS WAF (see < DeleteSizeConstraintSet>).
+--
+-- 'SizeConstraintSetId' is returned by < CreateSizeConstraintSet> and by
+-- < ListSizeConstraintSets>.
+scsSizeConstraintSetId :: Lens' SizeConstraintSet Text
+scsSizeConstraintSetId = lens _scsSizeConstraintSetId (\ s a -> s{_scsSizeConstraintSetId = a});
+
+-- | Specifies the parts of web requests that you want to inspect the size
+-- of.
+scsSizeConstraints :: Lens' SizeConstraintSet [SizeConstraint]
+scsSizeConstraints = lens _scsSizeConstraints (\ s a -> s{_scsSizeConstraints = a}) . _Coerce;
+
+instance FromJSON SizeConstraintSet where
+        parseJSON
+          = withObject "SizeConstraintSet"
+              (\ x ->
+                 SizeConstraintSet' <$>
+                   (x .:? "Name") <*> (x .: "SizeConstraintSetId") <*>
+                     (x .:? "SizeConstraints" .!= mempty))
+
+instance Hashable SizeConstraintSet
+
+-- | The 'Id' and 'Name' of a 'SizeConstraintSet'.
+--
+-- /See:/ 'sizeConstraintSetSummary' smart constructor.
+data SizeConstraintSetSummary = SizeConstraintSetSummary'
+    { _scssSizeConstraintSetId :: !Text
+    , _scssName                :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SizeConstraintSetSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scssSizeConstraintSetId'
+--
+-- * 'scssName'
+sizeConstraintSetSummary
+    :: Text -- ^ 'scssSizeConstraintSetId'
+    -> Text -- ^ 'scssName'
+    -> SizeConstraintSetSummary
+sizeConstraintSetSummary pSizeConstraintSetId_ pName_ =
+    SizeConstraintSetSummary'
+    { _scssSizeConstraintSetId = pSizeConstraintSetId_
+    , _scssName = pName_
+    }
+
+-- | A unique identifier for a 'SizeConstraintSet'. You use
+-- 'SizeConstraintSetId' to get information about a 'SizeConstraintSet'
+-- (see < GetSizeConstraintSet>), update a 'SizeConstraintSet' (see
+-- < UpdateSizeConstraintSet>, insert a 'SizeConstraintSet' into a 'Rule'
+-- or delete one from a 'Rule' (see < UpdateRule>), and delete a
+-- 'SizeConstraintSet' from AWS WAF (see < DeleteSizeConstraintSet>).
+--
+-- 'SizeConstraintSetId' is returned by < CreateSizeConstraintSet> and by
+-- < ListSizeConstraintSets>.
+scssSizeConstraintSetId :: Lens' SizeConstraintSetSummary Text
+scssSizeConstraintSetId = lens _scssSizeConstraintSetId (\ s a -> s{_scssSizeConstraintSetId = a});
+
+-- | The name of the 'SizeConstraintSet', if any.
+scssName :: Lens' SizeConstraintSetSummary Text
+scssName = lens _scssName (\ s a -> s{_scssName = a});
+
+instance FromJSON SizeConstraintSetSummary where
+        parseJSON
+          = withObject "SizeConstraintSetSummary"
+              (\ x ->
+                 SizeConstraintSetSummary' <$>
+                   (x .: "SizeConstraintSetId") <*> (x .: "Name"))
+
+instance Hashable SizeConstraintSetSummary
+
+-- | Specifies the part of a web request that you want to inspect the size of
+-- and indicates whether you want to add the specification to a
+-- < SizeConstraintSet> or delete it from a 'SizeConstraintSet'.
+--
+-- /See:/ 'sizeConstraintSetUpdate' smart constructor.
+data SizeConstraintSetUpdate = SizeConstraintSetUpdate'
+    { _scsuAction         :: !ChangeAction
+    , _scsuSizeConstraint :: !SizeConstraint
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SizeConstraintSetUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scsuAction'
+--
+-- * 'scsuSizeConstraint'
+sizeConstraintSetUpdate
+    :: ChangeAction -- ^ 'scsuAction'
+    -> SizeConstraint -- ^ 'scsuSizeConstraint'
+    -> SizeConstraintSetUpdate
+sizeConstraintSetUpdate pAction_ pSizeConstraint_ =
+    SizeConstraintSetUpdate'
+    { _scsuAction = pAction_
+    , _scsuSizeConstraint = pSizeConstraint_
+    }
+
+-- | Specify 'INSERT' to add a < SizeConstraintSetUpdate> to a
+-- < SizeConstraintSet>. Use 'DELETE' to remove a 'SizeConstraintSetUpdate'
+-- from a 'SizeConstraintSet'.
+scsuAction :: Lens' SizeConstraintSetUpdate ChangeAction
+scsuAction = lens _scsuAction (\ s a -> s{_scsuAction = a});
+
+-- | Specifies a constraint on the size of a part of the web request. AWS WAF
+-- uses the 'Size', 'ComparisonOperator', and 'FieldToMatch' to build an
+-- expression in the form of \"'Size' 'ComparisonOperator' size in bytes of
+-- 'FieldToMatch'\". If that expression is true, the 'SizeConstraint' is
+-- considered to match.
+scsuSizeConstraint :: Lens' SizeConstraintSetUpdate SizeConstraint
+scsuSizeConstraint = lens _scsuSizeConstraint (\ s a -> s{_scsuSizeConstraint = a});
+
+instance Hashable SizeConstraintSetUpdate
+
+instance ToJSON SizeConstraintSetUpdate where
+        toJSON SizeConstraintSetUpdate'{..}
+          = object
+              (catMaybes
+                 [Just ("Action" .= _scsuAction),
+                  Just ("SizeConstraint" .= _scsuSizeConstraint)])
+
 -- | A complex type that contains 'SqlInjectionMatchTuple' objects, which
 -- specify the parts of web requests that you want AWS WAF to inspect for
 -- snippets of malicious SQL code and, if you want AWS WAF to inspect a
@@ -1230,14 +1610,14 @@ simsName = lens _simsName (\ s a -> s{_simsName = a});
 
 -- | A unique identifier for a 'SqlInjectionMatchSet'. You use
 -- 'SqlInjectionMatchSetId' to get information about a
--- 'SqlInjectionMatchSet' (see GetSqlInjectionMatchSet), update a
--- 'SqlInjectionMatchSet' (see UpdateSqlInjectionMatchSet, insert a
+-- 'SqlInjectionMatchSet' (see < GetSqlInjectionMatchSet>), update a
+-- 'SqlInjectionMatchSet' (see < UpdateSqlInjectionMatchSet>, insert a
 -- 'SqlInjectionMatchSet' into a 'Rule' or delete one from a 'Rule' (see
--- UpdateRule), and delete a 'SqlInjectionMatchSet' from AWS WAF (see
--- DeleteByteMatchSet).
+-- < UpdateRule>), and delete a 'SqlInjectionMatchSet' from AWS WAF (see
+-- < DeleteSqlInjectionMatchSet>).
 --
--- 'SqlInjectionMatchSetId' is returned by CreateSqlInjectionMatchSet and
--- by ListSqlInjectionMatchSets.
+-- 'SqlInjectionMatchSetId' is returned by < CreateSqlInjectionMatchSet>
+-- and by < ListSqlInjectionMatchSets>.
 simsSqlInjectionMatchSetId :: Lens' SqlInjectionMatchSet Text
 simsSqlInjectionMatchSetId = lens _simsSqlInjectionMatchSetId (\ s a -> s{_simsSqlInjectionMatchSetId = a});
 
@@ -1253,6 +1633,8 @@ instance FromJSON SqlInjectionMatchSet where
                  SqlInjectionMatchSet' <$>
                    (x .:? "Name") <*> (x .: "SqlInjectionMatchSetId")
                      <*> (x .:? "SqlInjectionMatchTuples" .!= mempty))
+
+instance Hashable SqlInjectionMatchSet
 
 -- | The 'Id' and 'Name' of a 'SqlInjectionMatchSet'.
 --
@@ -1281,14 +1663,14 @@ sqlInjectionMatchSetSummary pSqlInjectionMatchSetId_ pName_ =
 
 -- | A unique identifier for a 'SqlInjectionMatchSet'. You use
 -- 'SqlInjectionMatchSetId' to get information about a
--- 'SqlInjectionMatchSet' (see GetSqlInjectionMatchSet), update a
--- 'SqlInjectionMatchSet' (see UpdateSqlInjectionMatchSet, insert a
+-- 'SqlInjectionMatchSet' (see < GetSqlInjectionMatchSet>), update a
+-- 'SqlInjectionMatchSet' (see < UpdateSqlInjectionMatchSet>, insert a
 -- 'SqlInjectionMatchSet' into a 'Rule' or delete one from a 'Rule' (see
--- UpdateRule), and delete a 'SqlInjectionMatchSet' from AWS WAF (see
--- DeleteByteMatchSet).
+-- < UpdateRule>), and delete a 'SqlInjectionMatchSet' from AWS WAF (see
+-- < DeleteSqlInjectionMatchSet>).
 --
--- 'SqlInjectionMatchSetId' is returned by CreateSqlInjectionMatchSet and
--- by ListSqlInjectionMatchSets.
+-- 'SqlInjectionMatchSetId' is returned by < CreateSqlInjectionMatchSet>
+-- and by < ListSqlInjectionMatchSets>.
 simssSqlInjectionMatchSetId :: Lens' SqlInjectionMatchSetSummary Text
 simssSqlInjectionMatchSetId = lens _simssSqlInjectionMatchSetId (\ s a -> s{_simssSqlInjectionMatchSetId = a});
 
@@ -1303,9 +1685,11 @@ instance FromJSON SqlInjectionMatchSetSummary where
                  SqlInjectionMatchSetSummary' <$>
                    (x .: "SqlInjectionMatchSetId") <*> (x .: "Name"))
 
+instance Hashable SqlInjectionMatchSetSummary
+
 -- | Specifies the part of a web request that you want to inspect for
 -- snippets of malicious SQL code and indicates whether you want to add the
--- specification to a SqlInjectionMatchSet or delete it from a
+-- specification to a < SqlInjectionMatchSet> or delete it from a
 -- 'SqlInjectionMatchSet'.
 --
 -- /See:/ 'sqlInjectionMatchSetUpdate' smart constructor.
@@ -1331,8 +1715,8 @@ sqlInjectionMatchSetUpdate pAction_ pSqlInjectionMatchTuple_ =
     , _simsuSqlInjectionMatchTuple = pSqlInjectionMatchTuple_
     }
 
--- | Specify 'INSERT' to add a SqlInjectionMatchSetUpdate to a
--- SqlInjectionMatchSet. Use 'DELETE' to remove a
+-- | Specify 'INSERT' to add a < SqlInjectionMatchSetUpdate> to a
+-- < SqlInjectionMatchSet>. Use 'DELETE' to remove a
 -- 'SqlInjectionMatchSetUpdate' from a 'SqlInjectionMatchSet'.
 simsuAction :: Lens' SqlInjectionMatchSetUpdate ChangeAction
 simsuAction = lens _simsuAction (\ s a -> s{_simsuAction = a});
@@ -1342,6 +1726,8 @@ simsuAction = lens _simsuAction (\ s a -> s{_simsuAction = a});
 -- header, the name of the header.
 simsuSqlInjectionMatchTuple :: Lens' SqlInjectionMatchSetUpdate SqlInjectionMatchTuple
 simsuSqlInjectionMatchTuple = lens _simsuSqlInjectionMatchTuple (\ s a -> s{_simsuSqlInjectionMatchTuple = a});
+
+instance Hashable SqlInjectionMatchSetUpdate
 
 instance ToJSON SqlInjectionMatchSetUpdate where
         toJSON SqlInjectionMatchSetUpdate'{..}
@@ -1386,7 +1772,7 @@ simtFieldToMatch = lens _simtFieldToMatch (\ s a -> s{_simtFieldToMatch = a});
 -- | Text transformations eliminate some of the unusual formatting that
 -- attackers use in web requests in an effort to bypass AWS WAF. If you
 -- specify a transformation, AWS WAF performs the transformation on
--- 'TargetString' before inspecting a request for a match.
+-- 'FieldToMatch' before inspecting a request for a match.
 --
 -- __CMD_LINE__
 --
@@ -1451,6 +1837,8 @@ instance FromJSON SqlInjectionMatchTuple where
                    (x .: "FieldToMatch") <*>
                      (x .: "TextTransformation"))
 
+instance Hashable SqlInjectionMatchTuple
+
 instance ToJSON SqlInjectionMatchTuple where
         toJSON SqlInjectionMatchTuple'{..}
           = object
@@ -1459,18 +1847,18 @@ instance ToJSON SqlInjectionMatchTuple where
                   Just
                     ("TextTransformation" .= _simtTextTransformation)])
 
--- | In a GetSampledRequests request, the 'StartTime' and 'EndTime' objects
--- specify the time range for which you want AWS WAF to return a sample of
--- web requests.
+-- | In a < GetSampledRequests> request, the 'StartTime' and 'EndTime'
+-- objects specify the time range for which you want AWS WAF to return a
+-- sample of web requests.
 --
--- In a GetSampledRequests response, the 'StartTime' and 'EndTime' objects
--- specify the time range for which AWS WAF actually returned a sample of
--- web requests. AWS WAF gets the specified number of requests from among
--- the first 5,000 requests that your AWS resource receives during the
--- specified time period. If your resource receives more than 5,000
--- requests during that period, AWS WAF stops sampling after the 5,000th
--- request. In that case, 'EndTime' is the time that AWS WAF received the
--- 5,000th request.
+-- In a < GetSampledRequests> response, the 'StartTime' and 'EndTime'
+-- objects specify the time range for which AWS WAF actually returned a
+-- sample of web requests. AWS WAF gets the specified number of requests
+-- from among the first 5,000 requests that your AWS resource receives
+-- during the specified time period. If your resource receives more than
+-- 5,000 requests during that period, AWS WAF stops sampling after the
+-- 5,000th request. In that case, 'EndTime' is the time that AWS WAF
+-- received the 5,000th request.
 --
 -- /See:/ 'timeWindow' smart constructor.
 data TimeWindow = TimeWindow'
@@ -1513,6 +1901,8 @@ instance FromJSON TimeWindow where
               (\ x ->
                  TimeWindow' <$>
                    (x .: "StartTime") <*> (x .: "EndTime"))
+
+instance Hashable TimeWindow
 
 instance ToJSON TimeWindow where
         toJSON TimeWindow'{..}
@@ -1562,6 +1952,8 @@ instance FromJSON WafAction where
           = withObject "WafAction"
               (\ x -> WafAction' <$> (x .: "Type"))
 
+instance Hashable WafAction
+
 instance ToJSON WafAction where
         toJSON WafAction'{..}
           = object (catMaybes [Just ("Type" .= _waType)])
@@ -1574,7 +1966,7 @@ instance ToJSON WafAction where
 -- with a CloudFront distribution to identify the requests that you want
 -- AWS WAF to filter. If you add more than one 'Rule' to a 'WebACL', a
 -- request needs to match only one of the specifications to be allowed,
--- blocked, or counted. For more information, see UpdateWebACL.
+-- blocked, or counted. For more information, see < UpdateWebACL>.
 --
 -- /See:/ 'webACL' smart constructor.
 data WebACL = WebACL'
@@ -1621,15 +2013,16 @@ waName :: Lens' WebACL (Maybe Text)
 waName = lens _waName (\ s a -> s{_waName = a});
 
 -- | A unique identifier for a 'WebACL'. You use 'WebACLId' to get
--- information about a 'WebACL' (see GetWebACL), update a 'WebACL' (see
--- UpdateWebACL, and delete a 'WebACL' from AWS WAF (see DeleteWebACL).
+-- information about a 'WebACL' (see < GetWebACL>), update a 'WebACL' (see
+-- < UpdateWebACL>, and delete a 'WebACL' from AWS WAF (see
+-- < DeleteWebACL>).
 --
--- 'WebACLId' is returned by CreateWebACL and by ListWebACLs.
+-- 'WebACLId' is returned by < CreateWebACL> and by < ListWebACLs>.
 waWebACLId :: Lens' WebACL Text
 waWebACLId = lens _waWebACLId (\ s a -> s{_waWebACLId = a});
 
 -- | The action to perform if none of the 'Rules' contained in the 'WebACL'
--- match. The action is specified by the WafAction object.
+-- match. The action is specified by the < WafAction> object.
 waDefaultAction :: Lens' WebACL WafAction
 waDefaultAction = lens _waDefaultAction (\ s a -> s{_waDefaultAction = a});
 
@@ -1648,7 +2041,9 @@ instance FromJSON WebACL where
                      <*> (x .: "DefaultAction")
                      <*> (x .:? "Rules" .!= mempty))
 
--- | Contains the identifier and the name or description of the WebACL.
+instance Hashable WebACL
+
+-- | Contains the identifier and the name or description of the < WebACL>.
 --
 -- /See:/ 'webACLSummary' smart constructor.
 data WebACLSummary = WebACLSummary'
@@ -1674,15 +2069,16 @@ webACLSummary pWebACLId_ pName_ =
     }
 
 -- | A unique identifier for a 'WebACL'. You use 'WebACLId' to get
--- information about a 'WebACL' (see GetWebACL), update a 'WebACL' (see
--- UpdateWebACL, and delete a 'WebACL' from AWS WAF (see DeleteWebACL).
+-- information about a 'WebACL' (see < GetWebACL>), update a 'WebACL' (see
+-- < UpdateWebACL>, and delete a 'WebACL' from AWS WAF (see
+-- < DeleteWebACL>).
 --
--- 'WebACLId' is returned by CreateWebACL and by ListWebACLs.
+-- 'WebACLId' is returned by < CreateWebACL> and by < ListWebACLs>.
 wasWebACLId :: Lens' WebACLSummary Text
 wasWebACLId = lens _wasWebACLId (\ s a -> s{_wasWebACLId = a});
 
--- | A friendly name or description of the WebACL. You can\'t change the name
--- of a 'WebACL' after you create it.
+-- | A friendly name or description of the < WebACL>. You can\'t change the
+-- name of a 'WebACL' after you create it.
 wasName :: Lens' WebACLSummary Text
 wasName = lens _wasName (\ s a -> s{_wasName = a});
 
@@ -1692,6 +2088,8 @@ instance FromJSON WebACLSummary where
               (\ x ->
                  WebACLSummary' <$>
                    (x .: "WebACLId") <*> (x .: "Name"))
+
+instance Hashable WebACLSummary
 
 -- | Specifies whether to insert a 'Rule' into or delete a 'Rule' from a
 -- 'WebACL'.
@@ -1727,6 +2125,8 @@ wauAction = lens _wauAction (\ s a -> s{_wauAction = a});
 -- | Undocumented member.
 wauActivatedRule :: Lens' WebACLUpdate ActivatedRule
 wauActivatedRule = lens _wauActivatedRule (\ s a -> s{_wauActivatedRule = a});
+
+instance Hashable WebACLUpdate
 
 instance ToJSON WebACLUpdate where
         toJSON WebACLUpdate'{..}

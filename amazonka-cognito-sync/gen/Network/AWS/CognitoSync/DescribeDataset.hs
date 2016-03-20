@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.DescribeDataset
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- This API can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials. You should use Cognito
 -- Identity credentials to make this API call.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeDataset.html AWS API Reference> for DescribeDataset.
 module Network.AWS.CognitoSync.DescribeDataset
     (
     -- * Creating a Request
@@ -109,6 +107,8 @@ instance AWSRequest DescribeDataset where
               (\ s h x ->
                  DescribeDatasetResponse' <$>
                    (x .?> "Dataset") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeDataset
 
 instance ToHeaders DescribeDataset where
         toHeaders

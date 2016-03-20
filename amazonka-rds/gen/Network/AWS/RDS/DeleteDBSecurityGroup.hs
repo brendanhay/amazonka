@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBSecurityGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- The specified DB security group must not be associated with any DB
 -- instances.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSecurityGroup.html AWS API Reference> for DeleteDBSecurityGroup.
 module Network.AWS.RDS.DeleteDBSecurityGroup
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest DeleteDBSecurityGroup where
              DeleteDBSecurityGroupResponse
         request = postQuery rDS
         response = receiveNull DeleteDBSecurityGroupResponse'
+
+instance Hashable DeleteDBSecurityGroup
 
 instance ToHeaders DeleteDBSecurityGroup where
         toHeaders = const mempty

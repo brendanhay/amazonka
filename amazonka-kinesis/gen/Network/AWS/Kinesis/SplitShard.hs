@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.SplitShard
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -38,9 +38,9 @@
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-split.html Split a Shard>
 -- in the /Amazon Kinesis Developer Guide/.
 --
--- You can use DescribeStream to determine the shard ID and hash key values
--- for the 'ShardToSplit' and 'NewStartingHashKey' parameters that are
--- specified in the 'SplitShard' request.
+-- You can use < DescribeStream> to determine the shard ID and hash key
+-- values for the 'ShardToSplit' and 'NewStartingHashKey' parameters that
+-- are specified in the 'SplitShard' request.
 --
 -- 'SplitShard' is an asynchronous operation. Upon receiving a 'SplitShard'
 -- request, Amazon Kinesis immediately returns a response and sets the
@@ -63,12 +63,10 @@
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support>.
 --
 -- If you try to operate on too many streams in parallel using
--- CreateStream, DeleteStream, MergeShards or SplitShard, you receive a
--- 'LimitExceededException'.
+-- < CreateStream>, < DeleteStream>, < MergeShards> or < SplitShard>, you
+-- receive a 'LimitExceededException'.
 --
 -- 'SplitShard' has limit of 5 transactions per second per account.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_SplitShard.html AWS API Reference> for SplitShard.
 module Network.AWS.Kinesis.SplitShard
     (
     -- * Creating a Request
@@ -144,6 +142,8 @@ instance AWSRequest SplitShard where
         type Rs SplitShard = SplitShardResponse
         request = postJSON kinesis
         response = receiveNull SplitShardResponse'
+
+instance Hashable SplitShard
 
 instance ToHeaders SplitShard where
         toHeaders

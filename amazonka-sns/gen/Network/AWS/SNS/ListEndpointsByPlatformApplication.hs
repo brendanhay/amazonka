@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListEndpointsByPlatformApplication
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- there are no more records to return, NextToken will be null. For more
 -- information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListEndpointsByPlatformApplication.html AWS API Reference> for ListEndpointsByPlatformApplication.
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListEndpointsByPlatformApplication
@@ -115,6 +113,8 @@ instance AWSRequest
                      (x .@? "Endpoints" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListEndpointsByPlatformApplication
 
 instance ToHeaders ListEndpointsByPlatformApplication
          where

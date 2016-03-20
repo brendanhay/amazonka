@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.CompleteMultipartUpload
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Completes a multipart upload by assembling previously uploaded parts.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/CompleteMultipartUpload.html AWS API Reference> for CompleteMultipartUpload.
 module Network.AWS.S3.CompleteMultipartUpload
     (
     -- * Creating a Request
@@ -130,6 +128,8 @@ instance AWSRequest CompleteMultipartUpload where
                      (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (pure (fromEnum s)))
+
+instance Hashable CompleteMultipartUpload
 
 instance ToElement CompleteMultipartUpload where
         toElement

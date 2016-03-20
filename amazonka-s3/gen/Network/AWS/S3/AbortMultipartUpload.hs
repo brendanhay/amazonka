@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.AbortMultipartUpload
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- To verify that all parts have been removed, so you don\'t get charged
 -- for the part storage, you should call the List Parts operation and
 -- ensure the parts list is empty.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/AbortMultipartUpload.html AWS API Reference> for AbortMultipartUpload.
 module Network.AWS.S3.AbortMultipartUpload
     (
     -- * Creating a Request
@@ -109,6 +107,8 @@ instance AWSRequest AbortMultipartUpload where
                  AbortMultipartUploadResponse' <$>
                    (h .#? "x-amz-request-charged") <*>
                      (pure (fromEnum s)))
+
+instance Hashable AbortMultipartUpload
 
 instance ToHeaders AbortMultipartUpload where
         toHeaders AbortMultipartUpload'{..}

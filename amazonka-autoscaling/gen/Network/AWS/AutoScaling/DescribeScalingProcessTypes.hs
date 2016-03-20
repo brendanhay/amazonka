@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeScalingProcessTypes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the scaling process types for use with ResumeProcesses and
--- SuspendProcesses.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingProcessTypes.html AWS API Reference> for DescribeScalingProcessTypes.
+-- Describes the scaling process types for use with < ResumeProcesses> and
+-- < SuspendProcesses>.
 module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     (
     -- * Creating a Request
@@ -66,6 +64,8 @@ instance AWSRequest DescribeScalingProcessTypes where
                    (x .@? "Processes" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeScalingProcessTypes
 
 instance ToHeaders DescribeScalingProcessTypes where
         toHeaders = const mempty

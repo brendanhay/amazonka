@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListArtifacts
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about artifacts.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListArtifacts.html AWS API Reference> for ListArtifacts.
 module Network.AWS.DeviceFarm.ListArtifacts
     (
     -- * Creating a Request
@@ -106,6 +104,8 @@ instance AWSRequest ListArtifacts where
                    (x .?> "artifacts" .!@ mempty) <*>
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListArtifacts
 
 instance ToHeaders ListArtifacts where
         toHeaders

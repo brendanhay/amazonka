@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteAccountPasswordPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the password policy for the AWS account.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountPasswordPolicy.html AWS API Reference> for DeleteAccountPasswordPolicy.
 module Network.AWS.IAM.DeleteAccountPasswordPolicy
     (
     -- * Creating a Request
@@ -56,6 +54,8 @@ instance AWSRequest DeleteAccountPasswordPolicy where
         request = postQuery iAM
         response
           = receiveNull DeleteAccountPasswordPolicyResponse'
+
+instance Hashable DeleteAccountPasswordPolicy
 
 instance ToHeaders DeleteAccountPasswordPolicy where
         toHeaders = const mempty

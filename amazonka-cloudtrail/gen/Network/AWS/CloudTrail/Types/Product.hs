@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -97,6 +97,8 @@ instance FromJSON Event where
                      <*> (x .:? "EventName")
                      <*> (x .:? "EventId"))
 
+instance Hashable Event
+
 -- | Specifies an attribute and value that filter the events returned.
 --
 -- /See:/ 'lookupAttribute' smart constructor.
@@ -129,6 +131,8 @@ laAttributeKey = lens _laAttributeKey (\ s a -> s{_laAttributeKey = a});
 -- | Specifies a value for the specified AttributeKey.
 laAttributeValue :: Lens' LookupAttribute Text
 laAttributeValue = lens _laAttributeValue (\ s a -> s{_laAttributeValue = a});
+
+instance Hashable LookupAttribute
 
 instance ToJSON LookupAttribute where
         toJSON LookupAttribute'{..}
@@ -199,6 +203,8 @@ instance FromJSON PublicKey where
                      <*> (x .:? "Value")
                      <*> (x .:? "ValidityStartTime"))
 
+instance Hashable PublicKey
+
 -- | Specifies the type and name of a resource referenced by an event.
 --
 -- /See:/ 'resource' smart constructor.
@@ -245,6 +251,8 @@ instance FromJSON Resource where
                  Resource' <$>
                    (x .:? "ResourceType") <*> (x .:? "ResourceName"))
 
+instance Hashable Resource
+
 -- | A resource tag.
 --
 -- /See:/ 'resourceTag' smart constructor.
@@ -283,6 +291,8 @@ instance FromJSON ResourceTag where
                  ResourceTag' <$>
                    (x .:? "ResourceId") <*>
                      (x .:? "TagsList" .!= mempty))
+
+instance Hashable ResourceTag
 
 -- | A custom key-value pair associated with a resource such as a CloudTrail
 -- trail.
@@ -324,6 +334,8 @@ instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
+
+instance Hashable Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -434,8 +446,8 @@ tKMSKeyId = lens _tKMSKeyId (\ s a -> s{_tKMSKeyId = a});
 tHomeRegion :: Lens' Trail (Maybe Text)
 tHomeRegion = lens _tHomeRegion (\ s a -> s{_tHomeRegion = a});
 
--- | Name of the trail set by calling CreateTrail. The maximum length is 128
--- characters.
+-- | Name of the trail set by calling < CreateTrail>. The maximum length is
+-- 128 characters.
 tName :: Lens' Trail (Maybe Text)
 tName = lens _tName (\ s a -> s{_tName = a});
 
@@ -477,3 +489,5 @@ instance FromJSON Trail where
                      <*> (x .:? "CloudWatchLogsRoleArn")
                      <*> (x .:? "S3BucketName")
                      <*> (x .:? "IsMultiRegionTrail"))
+
+instance Hashable Trail

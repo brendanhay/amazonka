@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.GetTopicRule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified rule.
---
--- /See:/ <https://aws.amazon.com/iot#GetTopicRule.html AWS API Reference> for GetTopicRule.
 module Network.AWS.IoT.GetTopicRule
     (
     -- * Creating a Request
@@ -34,6 +32,7 @@ module Network.AWS.IoT.GetTopicRule
     , GetTopicRuleResponse
     -- * Response Lenses
     , gtrrsRule
+    , gtrrsRuleARN
     , gtrrsResponseStatus
     ) where
 
@@ -75,7 +74,10 @@ instance AWSRequest GetTopicRule where
           = receiveJSON
               (\ s h x ->
                  GetTopicRuleResponse' <$>
-                   (x .?> "rule") <*> (pure (fromEnum s)))
+                   (x .?> "rule") <*> (x .?> "ruleArn") <*>
+                     (pure (fromEnum s)))
+
+instance Hashable GetTopicRule
 
 instance ToHeaders GetTopicRule where
         toHeaders = const mempty
@@ -92,6 +94,7 @@ instance ToQuery GetTopicRule where
 -- /See:/ 'getTopicRuleResponse' smart constructor.
 data GetTopicRuleResponse = GetTopicRuleResponse'
     { _gtrrsRule           :: !(Maybe TopicRule)
+    , _gtrrsRuleARN        :: !(Maybe Text)
     , _gtrrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -101,6 +104,8 @@ data GetTopicRuleResponse = GetTopicRuleResponse'
 --
 -- * 'gtrrsRule'
 --
+-- * 'gtrrsRuleARN'
+--
 -- * 'gtrrsResponseStatus'
 getTopicRuleResponse
     :: Int -- ^ 'gtrrsResponseStatus'
@@ -108,12 +113,17 @@ getTopicRuleResponse
 getTopicRuleResponse pResponseStatus_ =
     GetTopicRuleResponse'
     { _gtrrsRule = Nothing
+    , _gtrrsRuleARN = Nothing
     , _gtrrsResponseStatus = pResponseStatus_
     }
 
 -- | The rule.
 gtrrsRule :: Lens' GetTopicRuleResponse (Maybe TopicRule)
 gtrrsRule = lens _gtrrsRule (\ s a -> s{_gtrrsRule = a});
+
+-- | The rule ARN.
+gtrrsRuleARN :: Lens' GetTopicRuleResponse (Maybe Text)
+gtrrsRuleARN = lens _gtrrsRuleARN (\ s a -> s{_gtrrsRuleARN = a});
 
 -- | The response status code.
 gtrrsResponseStatus :: Lens' GetTopicRuleResponse Int

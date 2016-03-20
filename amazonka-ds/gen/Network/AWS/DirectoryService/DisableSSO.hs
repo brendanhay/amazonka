@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DisableSSO
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables single-sign on for a directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableSSO.html AWS API Reference> for DisableSSO.
 module Network.AWS.DirectoryService.DisableSSO
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DisableSso operation.
+-- | Contains the inputs for the < DisableSso> operation.
 --
 -- /See:/ 'disableSSO' smart constructor.
 data DisableSSO = DisableSSO'
@@ -103,6 +101,8 @@ instance AWSRequest DisableSSO where
               (\ s h x ->
                  DisableSSOResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DisableSSO
+
 instance ToHeaders DisableSSO where
         toHeaders
           = const
@@ -127,7 +127,7 @@ instance ToPath DisableSSO where
 instance ToQuery DisableSSO where
         toQuery = const mempty
 
--- | Contains the results of the DisableSso operation.
+-- | Contains the results of the < DisableSso> operation.
 --
 -- /See:/ 'disableSSOResponse' smart constructor.
 newtype DisableSSOResponse = DisableSSOResponse'

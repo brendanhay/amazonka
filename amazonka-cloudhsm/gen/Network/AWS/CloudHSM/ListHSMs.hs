@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ListHSMs
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,10 +23,8 @@
 --
 -- This operation supports pagination with the use of the /NextToken/
 -- member. If more results are available, the /NextToken/ member of the
--- response contains a token that you pass in the next call to ListHsms to
--- retrieve the next set of items.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListHSMs.html AWS API Reference> for ListHSMs.
+-- response contains a token that you pass in the next call to < ListHsms>
+-- to retrieve the next set of items.
 module Network.AWS.CloudHSM.ListHSMs
     (
     -- * Creating a Request
@@ -68,7 +66,7 @@ listHSMs =
     { _lhsmNextToken = Nothing
     }
 
--- | The /NextToken/ value from a previous call to ListHsms. Pass null if
+-- | The /NextToken/ value from a previous call to < ListHsms>. Pass null if
 -- this is the first call.
 lhsmNextToken :: Lens' ListHSMs (Maybe Text)
 lhsmNextToken = lens _lhsmNextToken (\ s a -> s{_lhsmNextToken = a});
@@ -82,6 +80,8 @@ instance AWSRequest ListHSMs where
                  ListHSMsResponse' <$>
                    (x .?> "NextToken") <*> (x .?> "HsmList" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListHSMs
 
 instance ToHeaders ListHSMs where
         toHeaders
@@ -103,7 +103,7 @@ instance ToPath ListHSMs where
 instance ToQuery ListHSMs where
         toQuery = const mempty
 
--- | Contains the output of the ListHsms action.
+-- | Contains the output of the < ListHsms> operation.
 --
 -- /See:/ 'listHSMsResponse' smart constructor.
 data ListHSMsResponse = ListHSMsResponse'
@@ -131,8 +131,8 @@ listHSMsResponse pResponseStatus_ =
     , _lhsmrsResponseStatus = pResponseStatus_
     }
 
--- | If not null, more results are available. Pass this value to ListHsms to
--- retrieve the next set of items.
+-- | If not null, more results are available. Pass this value to < ListHsms>
+-- to retrieve the next set of items.
 lhsmrsNextToken :: Lens' ListHSMsResponse (Maybe Text)
 lhsmrsNextToken = lens _lhsmrsNextToken (\ s a -> s{_lhsmrsNextToken = a});
 

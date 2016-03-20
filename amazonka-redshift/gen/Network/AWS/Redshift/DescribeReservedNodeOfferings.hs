@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeReservedNodeOfferings
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,14 +23,12 @@
 -- recurring costs of reserving the node and duration the node will be
 -- reserved for you. These descriptions help you determine which reserve
 -- node offering you want to purchase. You then use the unique offering ID
--- in you call to PurchaseReservedNodeOffering to reserve one or more nodes
--- for your Amazon Redshift cluster.
+-- in you call to < PurchaseReservedNodeOffering> to reserve one or more
+-- nodes for your Amazon Redshift cluster.
 --
 -- For more information about reserved node offerings, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodeOfferings.html AWS API Reference> for DescribeReservedNodeOfferings.
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeReservedNodeOfferings
@@ -92,11 +90,12 @@ drnoReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferings (Maybe Text)
 drnoReservedNodeOfferingId = lens _drnoReservedNodeOfferingId (\ s a -> s{_drnoReservedNodeOfferingId = a});
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeReservedNodeOfferings
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
+-- of response records. When the results of a
+-- < DescribeReservedNodeOfferings> request exceed the value specified in
+-- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
+-- You can retrieve the next set of response records by providing the
+-- returned marker value in the 'Marker' parameter and retrying the
+-- request.
 drnoMarker :: Lens' DescribeReservedNodeOfferings (Maybe Text)
 drnoMarker = lens _drnoMarker (\ s a -> s{_drnoMarker = a});
 
@@ -134,6 +133,8 @@ instance AWSRequest DescribeReservedNodeOfferings
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeReservedNodeOfferings
+
 instance ToHeaders DescribeReservedNodeOfferings
          where
         toHeaders = const mempty
@@ -152,7 +153,7 @@ instance ToQuery DescribeReservedNodeOfferings where
                "Marker" =: _drnoMarker,
                "MaxRecords" =: _drnoMaxRecords]
 
--- | Contains the output from the DescribeReservedNodeOfferings action.
+-- |
 --
 -- /See:/ 'describeReservedNodeOfferingsResponse' smart constructor.
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'
@@ -180,7 +181,7 @@ describeReservedNodeOfferingsResponse pResponseStatus_ =
     , _drnorsResponseStatus = pResponseStatus_
     }
 
--- | A list of reserved node offerings.
+-- | A list of 'ReservedNodeOffering' objects.
 drnorsReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
 drnorsReservedNodeOfferings = lens _drnorsReservedNodeOfferings (\ s a -> s{_drnorsReservedNodeOfferings = a}) . _Default . _Coerce;
 

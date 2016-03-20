@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachInternetGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Detaches an Internet gateway from a VPC, disabling connectivity between
 -- the Internet and the VPC. The VPC must not contain any running instances
 -- with Elastic IP addresses.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachInternetGateway.html AWS API Reference> for DetachInternetGateway.
 module Network.AWS.EC2.DetachInternetGateway
     (
     -- * Creating a Request
@@ -92,6 +90,8 @@ instance AWSRequest DetachInternetGateway where
              DetachInternetGatewayResponse
         request = postQuery eC2
         response = receiveNull DetachInternetGatewayResponse'
+
+instance Hashable DetachInternetGateway
 
 instance ToHeaders DetachInternetGateway where
         toHeaders = const mempty

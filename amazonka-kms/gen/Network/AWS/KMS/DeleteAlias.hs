@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.KMS.DeleteAlias
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified alias. To map an alias to a different key, call
--- UpdateAlias.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteAlias.html AWS API Reference> for DeleteAlias.
+-- < UpdateAlias>.
 module Network.AWS.KMS.DeleteAlias
     (
     -- * Creating a Request
@@ -70,6 +68,8 @@ instance AWSRequest DeleteAlias where
         type Rs DeleteAlias = DeleteAliasResponse
         request = postJSON kMS
         response = receiveNull DeleteAliasResponse'
+
+instance Hashable DeleteAlias
 
 instance ToHeaders DeleteAlias where
         toHeaders

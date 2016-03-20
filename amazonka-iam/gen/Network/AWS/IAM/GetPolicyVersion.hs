@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetPolicyVersion
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,17 +21,16 @@
 -- Retrieves information about the specified version of the specified
 -- managed policy, including the policy document.
 --
--- To list the available versions for a policy, use ListPolicyVersions.
+-- To list the available versions for a policy, use < ListPolicyVersions>.
 --
 -- This API retrieves information about managed policies. To retrieve
 -- information about an inline policy that is embedded in a user, group, or
--- role, use the GetUserPolicy, GetGroupPolicy, or GetRolePolicy API.
+-- role, use the < GetUserPolicy>, < GetGroupPolicy>, or < GetRolePolicy>
+-- API.
 --
 -- For more information about the types of policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html AWS API Reference> for GetPolicyVersion.
 module Network.AWS.IAM.GetPolicyVersion
     (
     -- * Creating a Request
@@ -96,6 +95,8 @@ instance AWSRequest GetPolicyVersion where
                  GetPolicyVersionResponse' <$>
                    (x .@? "PolicyVersion") <*> (pure (fromEnum s)))
 
+instance Hashable GetPolicyVersion
+
 instance ToHeaders GetPolicyVersion where
         toHeaders = const mempty
 
@@ -110,7 +111,7 @@ instance ToQuery GetPolicyVersion where
                "PolicyArn" =: _gpvPolicyARN,
                "VersionId" =: _gpvVersionId]
 
--- | Contains the response to a successful GetPolicyVersion request.
+-- | Contains the response to a successful < GetPolicyVersion> request.
 --
 -- /See:/ 'getPolicyVersionResponse' smart constructor.
 data GetPolicyVersionResponse = GetPolicyVersionResponse'

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EMR.DescribeStep
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides more detail about the cluster step.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeStep.html AWS API Reference> for DescribeStep.
 module Network.AWS.EMR.DescribeStep
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest DescribeStep where
               (\ s h x ->
                  DescribeStepResponse' <$>
                    (x .?> "Step") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeStep
 
 instance ToHeaders DescribeStep where
         toHeaders

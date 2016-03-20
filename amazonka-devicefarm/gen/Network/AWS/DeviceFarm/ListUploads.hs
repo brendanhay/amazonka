@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListUploads
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about uploads.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListUploads.html AWS API Reference> for ListUploads.
 module Network.AWS.DeviceFarm.ListUploads
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest ListUploads where
                  ListUploadsResponse' <$>
                    (x .?> "nextToken") <*> (x .?> "uploads" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListUploads
 
 instance ToHeaders ListUploads where
         toHeaders

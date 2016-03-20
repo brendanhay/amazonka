@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListSSHPublicKeys
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 --
 -- Although each user is limited to a small number of keys, you can still
 -- paginate the results using the 'MaxItems' and 'Marker' parameters.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSSHPublicKeys.html AWS API Reference> for ListSSHPublicKeys.
 module Network.AWS.IAM.ListSSHPublicKeys
     (
     -- * Creating a Request
@@ -122,6 +120,8 @@ instance AWSRequest ListSSHPublicKeys where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListSSHPublicKeys
+
 instance ToHeaders ListSSHPublicKeys where
         toHeaders = const mempty
 
@@ -136,7 +136,7 @@ instance ToQuery ListSSHPublicKeys where
                "UserName" =: _lspkUserName, "Marker" =: _lspkMarker,
                "MaxItems" =: _lspkMaxItems]
 
--- | Contains the response to a successful ListSSHPublicKeys request.
+-- | Contains the response to a successful < ListSSHPublicKeys> request.
 --
 -- /See:/ 'listSSHPublicKeysResponse' smart constructor.
 data ListSSHPublicKeysResponse = ListSSHPublicKeysResponse'

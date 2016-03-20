@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.BatchPutAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,7 @@
 --
 -- The 'BatchPutAttributes' operation creates or replaces attributes within
 -- one or more items. By using this operation, the client can perform
--- multiple PutAttribute operation with a single call. This helps yield
+-- multiple < PutAttribute> operation with a single call. This helps yield
 -- savings in round trips and latencies, enabling Amazon SimpleDB to
 -- optimize requests and generally produce better throughput.
 --
@@ -66,8 +66,6 @@
 -- -   1 billion attributes per domain
 -- -   10 GB of total user data storage per domain
 -- -   25 item limit per 'BatchPutAttributes' operation
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchPutAttributes.html AWS API Reference> for BatchPutAttributes.
 module Network.AWS.SDB.BatchPutAttributes
     (
     -- * Creating a Request
@@ -124,6 +122,8 @@ instance AWSRequest BatchPutAttributes where
              BatchPutAttributesResponse
         request = postQuery sDB
         response = receiveNull BatchPutAttributesResponse'
+
+instance Hashable BatchPutAttributes
 
 instance ToHeaders BatchPutAttributes where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.StartConfigurationRecorder
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- You must have created at least one delivery channel to successfully
 -- start the configuration recorder.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html AWS API Reference> for StartConfigurationRecorder.
 module Network.AWS.Config.StartConfigurationRecorder
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the StartConfigurationRecorder action.
+-- | The input for the < StartConfigurationRecorder> action.
 --
 -- /See:/ 'startConfigurationRecorder' smart constructor.
 newtype StartConfigurationRecorder = StartConfigurationRecorder'
@@ -76,6 +74,8 @@ instance AWSRequest StartConfigurationRecorder where
         request = postJSON config
         response
           = receiveNull StartConfigurationRecorderResponse'
+
+instance Hashable StartConfigurationRecorder
 
 instance ToHeaders StartConfigurationRecorder where
         toHeaders

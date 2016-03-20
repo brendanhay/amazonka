@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.GetRecords
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 --
 -- GetRecords can retrieve a maximum of 1 MB of data or 2000 stream
 -- records, whichever comes first.
---
--- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_GetRecords.html AWS API Reference> for GetRecords.
 module Network.AWS.DynamoDBStreams.GetRecords
     (
     -- * Creating a Request
@@ -101,6 +99,8 @@ instance AWSRequest GetRecords where
                    (x .?> "Records" .!@ mempty) <*>
                      (x .?> "NextShardIterator")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetRecords
 
 instance ToHeaders GetRecords where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.GetShippingLabel
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- This operation generates a pre-paid UPS shipping label that you will use
 -- to ship your device to AWS for processing.
---
--- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetShippingLabel.html AWS API Reference> for GetShippingLabel.
 module Network.AWS.ImportExport.GetShippingLabel
     (
     -- * Creating a Request
@@ -175,6 +173,8 @@ instance AWSRequest GetShippingLabel where
                  GetShippingLabelResponse' <$>
                    (x .@? "ShippingLabelURL") <*> (x .@? "Warning") <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetShippingLabel
 
 instance ToHeaders GetShippingLabel where
         toHeaders = const mempty

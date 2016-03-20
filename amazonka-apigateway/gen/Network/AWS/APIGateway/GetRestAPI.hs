@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetRestAPI
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the RestApi resource in the collection.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetRestAPI.html AWS API Reference> for GetRestAPI.
+-- Lists the < RestApi> resource in the collection.
 module Network.AWS.APIGateway.GetRestAPI
     (
     -- * Creating a Request
@@ -46,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to list an existing RestApi defined for your collection.
+-- | Request to list an existing < RestApi> defined for your collection.
 --
 -- /See:/ 'getRestAPI' smart constructor.
 newtype GetRestAPI = GetRestAPI'
@@ -66,7 +64,7 @@ getRestAPI pRestAPIId_ =
     { _graRestAPIId = pRestAPIId_
     }
 
--- | The identifier of the RestApi resource.
+-- | The identifier of the < RestApi> resource.
 graRestAPIId :: Lens' GetRestAPI Text
 graRestAPIId = lens _graRestAPIId (\ s a -> s{_graRestAPIId = a});
 
@@ -75,8 +73,13 @@ instance AWSRequest GetRestAPI where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetRestAPI
+
 instance ToHeaders GetRestAPI where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetRestAPI where
         toPath GetRestAPI'{..}

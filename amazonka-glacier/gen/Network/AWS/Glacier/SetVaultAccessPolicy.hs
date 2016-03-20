@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.SetVaultAccessPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- You can set one access policy per vault and the policy can be up to 20
 -- KB in size. For more information about vault access policies, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html AWS API Reference> for SetVaultAccessPolicy.
 module Network.AWS.Glacier.SetVaultAccessPolicy
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest SetVaultAccessPolicy where
              SetVaultAccessPolicyResponse
         request = putJSON glacier
         response = receiveNull SetVaultAccessPolicyResponse'
+
+instance Hashable SetVaultAccessPolicy
 
 instance ToHeaders SetVaultAccessPolicy where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CancelCertificateTransfer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,16 +21,14 @@
 -- Cancels a pending transfer for the specified certificate.
 --
 -- __Note__ Only the transfer source account can use this operation to
--- cancel a transfer (transfer destinations can use
--- RejectCertificateTransfer instead). After transfer, AWS IoT returns the
--- certificate to the source account in the INACTIVE state. Once the
--- destination account has accepted the transfer, the transfer may no
--- longer be cancelled.
+-- cancel a transfer. (Transfer destinations can use
+-- < RejectCertificateTransfer> instead.) After transfer, AWS IoT returns
+-- the certificate to the source account in the INACTIVE state. After the
+-- destination account has accepted the transfer, the transfer cannot be
+-- cancelled.
 --
 -- After a certificate transfer is cancelled, the status of the certificate
 -- changes from PENDING_TRANSFER to INACTIVE.
---
--- /See:/ <https://aws.amazon.com/iot#CancelCertificateTransfer.html AWS API Reference> for CancelCertificateTransfer.
 module Network.AWS.IoT.CancelCertificateTransfer
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest CancelCertificateTransfer where
         request = patchJSON ioT
         response
           = receiveNull CancelCertificateTransferResponse'
+
+instance Hashable CancelCertificateTransfer
 
 instance ToHeaders CancelCertificateTransfer where
         toHeaders = const mempty

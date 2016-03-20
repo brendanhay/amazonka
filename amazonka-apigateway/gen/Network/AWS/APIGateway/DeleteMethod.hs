@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteMethod
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing Method resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteMethod.html AWS API Reference> for DeleteMethod.
+-- Deletes an existing < Method> resource.
 module Network.AWS.APIGateway.DeleteMethod
     (
     -- * Creating a Request
@@ -43,7 +41,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to delete an existing Method resource.
+-- | Request to delete an existing < Method> resource.
 --
 -- /See:/ 'deleteMethod' smart constructor.
 data DeleteMethod = DeleteMethod'
@@ -73,15 +71,15 @@ deleteMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _dmmHttpMethod = pHttpMethod_
     }
 
--- | The RestApi identifier for the Method resource.
+-- | The < RestApi> identifier for the < Method> resource.
 dmmRestAPIId :: Lens' DeleteMethod Text
 dmmRestAPIId = lens _dmmRestAPIId (\ s a -> s{_dmmRestAPIId = a});
 
--- | The Resource identifier for the Method resource.
+-- | The < Resource> identifier for the < Method> resource.
 dmmResourceId :: Lens' DeleteMethod Text
 dmmResourceId = lens _dmmResourceId (\ s a -> s{_dmmResourceId = a});
 
--- | The HTTP verb that identifies the Method resource.
+-- | The HTTP verb that identifies the < Method> resource.
 dmmHttpMethod :: Lens' DeleteMethod Text
 dmmHttpMethod = lens _dmmHttpMethod (\ s a -> s{_dmmHttpMethod = a});
 
@@ -90,8 +88,13 @@ instance AWSRequest DeleteMethod where
         request = delete aPIGateway
         response = receiveNull DeleteMethodResponse''
 
+instance Hashable DeleteMethod
+
 instance ToHeaders DeleteMethod where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteMethod where
         toPath DeleteMethod'{..}

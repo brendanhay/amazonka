@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSpotFleetRequests
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes your Spot fleet requests.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetRequests.html AWS API Reference> for DescribeSpotFleetRequests.
 module Network.AWS.EC2.DescribeSpotFleetRequests
     (
     -- * Creating a Request
@@ -112,6 +110,8 @@ instance AWSRequest DescribeSpotFleetRequests where
                    (x .@? "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .@? "spotFleetRequestConfigSet" .!@ mempty >>=
                         parseXMLList "item"))
+
+instance Hashable DescribeSpotFleetRequests
 
 instance ToHeaders DescribeSpotFleetRequests where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListGroupsForUser
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupsForUser.html AWS API Reference> for ListGroupsForUser.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListGroupsForUser
@@ -123,6 +121,8 @@ instance AWSRequest ListGroupsForUser where
                      (x .@? "Groups" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListGroupsForUser
+
 instance ToHeaders ListGroupsForUser where
         toHeaders = const mempty
 
@@ -137,7 +137,7 @@ instance ToQuery ListGroupsForUser where
                "Marker" =: _lgfuMarker, "MaxItems" =: _lgfuMaxItems,
                "UserName" =: _lgfuUserName]
 
--- | Contains the response to a successful ListGroupsForUser request.
+-- | Contains the response to a successful < ListGroupsForUser> request.
 --
 -- /See:/ 'listGroupsForUserResponse' smart constructor.
 data ListGroupsForUserResponse = ListGroupsForUserResponse'

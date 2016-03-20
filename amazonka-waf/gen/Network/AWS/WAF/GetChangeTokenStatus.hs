@@ -12,14 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetChangeTokenStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the status of a 'ChangeToken' that you got by calling
--- GetChangeToken. 'ChangeTokenStatus' is one of the following values:
+-- < GetChangeToken>. 'ChangeTokenStatus' is one of the following values:
 --
 -- -   'PROVISIONED': You requested the change token by calling
 --     'GetChangeToken', but you haven\'t used it yet in a call to create,
@@ -27,8 +27,6 @@
 -- -   'PENDING': AWS WAF is propagating the create, update, or delete
 --     request to all AWS WAF servers.
 -- -   'IN_SYNC': Propagation is complete.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetChangeTokenStatus.html AWS API Reference> for GetChangeTokenStatus.
 module Network.AWS.WAF.GetChangeTokenStatus
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest GetChangeTokenStatus where
               (\ s h x ->
                  GetChangeTokenStatusResponse' <$>
                    (x .?> "ChangeTokenStatus") <*> (pure (fromEnum s)))
+
+instance Hashable GetChangeTokenStatus
 
 instance ToHeaders GetChangeTokenStatus where
         toHeaders

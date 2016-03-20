@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.Encrypt
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,15 +33,13 @@
 -- Unless you are moving encrypted data from one region to another, you
 -- don\'t use this function to encrypt a generated data key within a
 -- region. You retrieve data keys already encrypted by calling the
--- GenerateDataKey or GenerateDataKeyWithoutPlaintext function. Data keys
--- don\'t need to be encrypted again by calling 'Encrypt'.
+-- < GenerateDataKey> or < GenerateDataKeyWithoutPlaintext> function. Data
+-- keys don\'t need to be encrypted again by calling 'Encrypt'.
 --
 -- If you want to encrypt data locally in your application, you can use the
 -- 'GenerateDataKey' function to return a plaintext data encryption key and
 -- a copy of the key encrypted under the customer master key (CMK) of your
 -- choosing.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html AWS API Reference> for Encrypt.
 module Network.AWS.KMS.Encrypt
     (
     -- * Creating a Request
@@ -148,6 +146,8 @@ instance AWSRequest Encrypt where
                  EncryptResponse' <$>
                    (x .?> "KeyId") <*> (x .?> "CiphertextBlob") <*>
                      (pure (fromEnum s)))
+
+instance Hashable Encrypt
 
 instance ToHeaders Encrypt where
         toHeaders

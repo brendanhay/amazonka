@@ -12,34 +12,33 @@
 
 -- |
 -- Module      : Network.AWS.WAF.CreateSqlInjectionMatchSet
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a SqlInjectionMatchSet, which you use to allow, block, or count
--- requests that contain snippets of SQL code in a specified part of web
--- requests. AWS WAF searches for character sequences that are likely to be
--- malicious strings.
+-- Creates a < SqlInjectionMatchSet>, which you use to allow, block, or
+-- count requests that contain snippets of SQL code in a specified part of
+-- web requests. AWS WAF searches for character sequences that are likely
+-- to be malicious strings.
 --
 -- To create and configure a 'SqlInjectionMatchSet', perform the following
 -- steps:
 --
--- 1.  Use GetChangeToken to get the change token that you provide in the
---     'ChangeToken' parameter of a 'CreateSqlInjectionMatchSet' request.
+-- 1.  Use < GetChangeToken> to get the change token that you provide in
+--     the 'ChangeToken' parameter of a 'CreateSqlInjectionMatchSet'
+--     request.
 -- 2.  Submit a 'CreateSqlInjectionMatchSet' request.
 -- 3.  Use 'GetChangeToken' to get the change token that you provide in the
---     'ChangeToken' parameter of an UpdateSqlInjectionMatchSet request.
--- 4.  Submit an UpdateSqlInjectionMatchSet request to specify the parts of
---     web requests in which you want to allow, block, or count malicious
---     SQL code.
+--     'ChangeToken' parameter of an < UpdateSqlInjectionMatchSet> request.
+-- 4.  Submit an < UpdateSqlInjectionMatchSet> request to specify the parts
+--     of web requests in which you want to allow, block, or count
+--     malicious SQL code.
 --
 -- For more information about how to use the AWS WAF API to allow or block
 -- HTTP requests, see the
 -- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_CreateSqlInjectionMatchSet.html AWS API Reference> for CreateSqlInjectionMatchSet.
 module Network.AWS.WAF.CreateSqlInjectionMatchSet
     (
     -- * Creating a Request
@@ -65,7 +64,7 @@ import           Network.AWS.Response
 import           Network.AWS.WAF.Types
 import           Network.AWS.WAF.Types.Product
 
--- | A request to create a SqlInjectionMatchSet.
+-- | A request to create a < SqlInjectionMatchSet>.
 --
 -- /See:/ 'createSqlInjectionMatchSet' smart constructor.
 data CreateSqlInjectionMatchSet = CreateSqlInjectionMatchSet'
@@ -90,13 +89,13 @@ createSqlInjectionMatchSet pName_ pChangeToken_ =
     , _csimsChangeToken = pChangeToken_
     }
 
--- | A friendly name or description for the SqlInjectionMatchSet that you\'re
--- creating. You can\'t change 'Name' after you create the
+-- | A friendly name or description for the < SqlInjectionMatchSet> that
+-- you\'re creating. You can\'t change 'Name' after you create the
 -- 'SqlInjectionMatchSet'.
 csimsName :: Lens' CreateSqlInjectionMatchSet Text
 csimsName = lens _csimsName (\ s a -> s{_csimsName = a});
 
--- | The value returned by the most recent call to GetChangeToken.
+-- | The value returned by the most recent call to < GetChangeToken>.
 csimsChangeToken :: Lens' CreateSqlInjectionMatchSet Text
 csimsChangeToken = lens _csimsChangeToken (\ s a -> s{_csimsChangeToken = a});
 
@@ -111,6 +110,8 @@ instance AWSRequest CreateSqlInjectionMatchSet where
                    (x .?> "SqlInjectionMatchSet") <*>
                      (x .?> "ChangeToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable CreateSqlInjectionMatchSet
 
 instance ToHeaders CreateSqlInjectionMatchSet where
         toHeaders
@@ -163,14 +164,14 @@ createSqlInjectionMatchSetResponse pResponseStatus_ =
     , _csimsrsResponseStatus = pResponseStatus_
     }
 
--- | A SqlInjectionMatchSet.
+-- | A < SqlInjectionMatchSet>.
 csimsrsSqlInjectionMatchSet :: Lens' CreateSqlInjectionMatchSetResponse (Maybe SqlInjectionMatchSet)
 csimsrsSqlInjectionMatchSet = lens _csimsrsSqlInjectionMatchSet (\ s a -> s{_csimsrsSqlInjectionMatchSet = a});
 
 -- | The 'ChangeToken' that you used to submit the
 -- 'CreateSqlInjectionMatchSet' request. You can also use this value to
 -- query the status of the request. For more information, see
--- GetChangeTokenStatus.
+-- < GetChangeTokenStatus>.
 csimsrsChangeToken :: Lens' CreateSqlInjectionMatchSetResponse (Maybe Text)
 csimsrsChangeToken = lens _csimsrsChangeToken (\ s a -> s{_csimsrsChangeToken = a});
 

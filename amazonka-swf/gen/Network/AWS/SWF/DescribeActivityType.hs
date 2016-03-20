@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeActivityType
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -44,8 +44,6 @@
 -- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeActivityType.html AWS API Reference> for DescribeActivityType.
 module Network.AWS.SWF.DescribeActivityType
     (
     -- * Creating a Request
@@ -115,6 +113,8 @@ instance AWSRequest DescribeActivityType where
                    (pure (fromEnum s)) <*> (x .:> "typeInfo") <*>
                      (x .:> "configuration"))
 
+instance Hashable DescribeActivityType
+
 instance ToHeaders DescribeActivityType where
         toHeaders
           = const
@@ -179,9 +179,10 @@ datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus
 --
 -- -   __REGISTERED__: The type is registered and available. Workers
 --     supporting this type should be running.
--- -   __DEPRECATED__: The type was deprecated using DeprecateActivityType,
---     but is still in use. You should keep workers supporting this type
---     running. You cannot create new tasks of this type.
+-- -   __DEPRECATED__: The type was deprecated using
+--     < DeprecateActivityType>, but is still in use. You should keep
+--     workers supporting this type running. You cannot create new tasks of
+--     this type.
 datrsTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
 datrsTypeInfo = lens _datrsTypeInfo (\ s a -> s{_datrsTypeInfo = a});
 

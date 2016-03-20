@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListClusters
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- example, filtering by cluster creation date and time or by status. This
 -- call returns a maximum of 50 clusters per call, but returns a marker to
 -- track the paging of the cluster list across multiple ListClusters calls.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListClusters.html AWS API Reference> for ListClusters.
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListClusters
@@ -119,6 +117,8 @@ instance AWSRequest ListClusters where
                  ListClustersResponse' <$>
                    (x .?> "Marker") <*> (x .?> "Clusters" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListClusters
 
 instance ToHeaders ListClusters where
         toHeaders

@@ -12,19 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.CreateAlias
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an alias to the specified Lambda function version. For more
--- information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html Introduction to AWS Lambda Aliases>
+-- Creates an alias that points to the specified Lambda function version.
+-- For more information, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
+--
+-- Alias names are unique for a given function.
 --
 -- This requires permission for the lambda:CreateAlias action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html AWS API Reference> for CreateAlias.
 module Network.AWS.Lambda.CreateAlias
     (
     -- * Creating a Request
@@ -93,7 +93,7 @@ caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
 caFunctionName :: Lens' CreateAlias Text
 caFunctionName = lens _caFunctionName (\ s a -> s{_caFunctionName = a});
 
--- | Name for the alias your creating.
+-- | Name for the alias you are creating.
 caName :: Lens' CreateAlias Text
 caName = lens _caName (\ s a -> s{_caName = a});
 
@@ -105,6 +105,8 @@ instance AWSRequest CreateAlias where
         type Rs CreateAlias = AliasConfiguration
         request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable CreateAlias
 
 instance ToHeaders CreateAlias where
         toHeaders = const mempty

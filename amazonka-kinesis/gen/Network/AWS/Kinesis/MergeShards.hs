@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.MergeShards
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -41,7 +41,7 @@
 -- stream does not exist, 'MergeShards' returns a
 -- 'ResourceNotFoundException'.
 --
--- You can use DescribeStream to check the state of the stream, which is
+-- You can use < DescribeStream> to check the state of the stream, which is
 -- returned in 'StreamStatus'.
 --
 -- 'MergeShards' is an asynchronous operation. Upon receiving a
@@ -50,16 +50,14 @@
 -- Amazon Kinesis sets the 'StreamStatus' to 'ACTIVE'. Read and write
 -- operations continue to work while the stream is in the 'UPDATING' state.
 --
--- You use DescribeStream to determine the shard IDs that are specified in
--- the 'MergeShards' request.
+-- You use < DescribeStream> to determine the shard IDs that are specified
+-- in the 'MergeShards' request.
 --
 -- If you try to operate on too many streams in parallel using
--- CreateStream, DeleteStream, 'MergeShards' or SplitShard, you will
--- receive a 'LimitExceededException'.
+-- < CreateStream>, < DeleteStream>, 'MergeShards' or < SplitShard>, you
+-- will receive a 'LimitExceededException'.
 --
 -- 'MergeShards' has limit of 5 transactions per second per account.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_MergeShards.html AWS API Reference> for MergeShards.
 module Network.AWS.Kinesis.MergeShards
     (
     -- * Creating a Request
@@ -129,6 +127,8 @@ instance AWSRequest MergeShards where
         type Rs MergeShards = MergeShardsResponse
         request = postJSON kinesis
         response = receiveNull MergeShardsResponse'
+
+instance Hashable MergeShards
 
 instance ToHeaders MergeShards where
         toHeaders

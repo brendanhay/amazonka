@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteReplicationGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- When you receive a successful response from this action, Amazon
 -- ElastiCache immediately begins deleting the selected resources; you
 -- cannot cancel or revert this action.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteReplicationGroup.html AWS API Reference> for DeleteReplicationGroup.
 module Network.AWS.ElastiCache.DeleteReplicationGroup
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest DeleteReplicationGroup where
               (\ s h x ->
                  DeleteReplicationGroupResponse' <$>
                    (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteReplicationGroup
 
 instance ToHeaders DeleteReplicationGroup where
         toHeaders = const mempty

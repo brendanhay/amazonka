@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.UpdatePipeline
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- a JSON file with the pipeline structure in conjunction with
 -- UpdatePipeline to provide the full structure of the pipeline. Updating
 -- the pipeline increases the version number of the pipeline by 1.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_UpdatePipeline.html AWS API Reference> for UpdatePipeline.
 module Network.AWS.CodePipeline.UpdatePipeline
     (
     -- * Creating a Request
@@ -79,6 +77,8 @@ instance AWSRequest UpdatePipeline where
               (\ s h x ->
                  UpdatePipelineResponse' <$>
                    (x .?> "pipeline") <*> (pure (fromEnum s)))
+
+instance Hashable UpdatePipeline
 
 instance ToHeaders UpdatePipeline where
         toHeaders

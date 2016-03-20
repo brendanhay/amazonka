@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,6 @@
 --
 -- For an overview of CIDR ranges, go to the
 -- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html AWS API Reference> for AuthorizeDBSecurityGroupIngress.
 module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     (
     -- * Creating a Request
@@ -139,6 +137,8 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress
               (\ s h x ->
                  AuthorizeDBSecurityGroupIngressResponse' <$>
                    (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
+
+instance Hashable AuthorizeDBSecurityGroupIngress
 
 instance ToHeaders AuthorizeDBSecurityGroupIngress
          where

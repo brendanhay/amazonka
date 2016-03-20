@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ModifyCacheParameterGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- The /ModifyCacheParameterGroup/ action modifies the parameters of a
 -- cache parameter group. You can modify up to 20 parameters in a single
 -- request by submitting a list parameter name and value pairs.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html AWS API Reference> for ModifyCacheParameterGroup.
 module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest ModifyCacheParameterGroup where
         response
           = receiveXMLWrapper "ModifyCacheParameterGroupResult"
               (\ s h x -> parseXML x)
+
+instance Hashable ModifyCacheParameterGroup
 
 instance ToHeaders ModifyCacheParameterGroup where
         toHeaders = const mempty

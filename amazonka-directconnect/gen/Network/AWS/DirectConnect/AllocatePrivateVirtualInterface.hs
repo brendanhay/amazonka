@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- virtual interface owner by calling ConfirmPrivateVirtualInterface. Until
 -- this step has been completed, the virtual interface will be in
 -- \'Confirming\' state, and will not be available for handling traffic.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePrivateVirtualInterface.html AWS API Reference> for AllocatePrivateVirtualInterface.
 module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     (
     -- * Creating a Request
@@ -124,6 +122,8 @@ instance AWSRequest AllocatePrivateVirtualInterface
              VirtualInterface
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable AllocatePrivateVirtualInterface
 
 instance ToHeaders AllocatePrivateVirtualInterface
          where

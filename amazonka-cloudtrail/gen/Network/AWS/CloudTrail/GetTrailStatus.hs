@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.GetTrailStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- errors, and start and stop logging times for each trail. This operation
 -- returns trail status from a single region. To return trail status from
 -- all regions, you must call the operation on each region.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetTrailStatus.html AWS API Reference> for GetTrailStatus.
 module Network.AWS.CloudTrail.GetTrailStatus
     (
     -- * Creating a Request
@@ -116,6 +114,8 @@ instance AWSRequest GetTrailStatus where
                      <*> (x .?> "LatestNotificationAttemptTime")
                      <*> (x .?> "StopLoggingTime")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetTrailStatus
 
 instance ToHeaders GetTrailStatus where
         toHeaders

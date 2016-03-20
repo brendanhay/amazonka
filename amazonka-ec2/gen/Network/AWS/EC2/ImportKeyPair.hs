@@ -12,23 +12,22 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportKeyPair
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Imports the public key from an RSA key pair that you created with a
--- third-party tool. Compare this with CreateKeyPair, in which AWS creates
--- the key pair and gives the keys to you (AWS keeps a copy of the public
--- key). With ImportKeyPair, you create the key pair and give AWS just the
--- public key. The private key is never transferred between you and AWS.
+-- third-party tool. Compare this with < CreateKeyPair>, in which AWS
+-- creates the key pair and gives the keys to you (AWS keeps a copy of the
+-- public key). With ImportKeyPair, you create the key pair and give AWS
+-- just the public key. The private key is never transferred between you
+-- and AWS.
 --
 -- For more information about key pairs, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportKeyPair.html AWS API Reference> for ImportKeyPair.
 module Network.AWS.EC2.ImportKeyPair
     (
     -- * Creating a Request
@@ -113,6 +112,8 @@ instance AWSRequest ImportKeyPair where
                  ImportKeyPairResponse' <$>
                    (x .@? "keyFingerprint") <*> (x .@? "keyName") <*>
                      (pure (fromEnum s)))
+
+instance Hashable ImportKeyPair
 
 instance ToHeaders ImportKeyPair where
         toHeaders = const mempty

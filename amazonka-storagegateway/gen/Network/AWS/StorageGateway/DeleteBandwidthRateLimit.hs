@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteBandwidthRateLimit
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- delete both. If you delete only one of the limits, the other limit
 -- remains unchanged. To specify which gateway to work with, use the Amazon
 -- Resource Name (ARN) of the gateway in your request.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteBandwidthRateLimit.html AWS API Reference> for DeleteBandwidthRateLimit.
 module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest DeleteBandwidthRateLimit where
               (\ s h x ->
                  DeleteBandwidthRateLimitResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteBandwidthRateLimit
 
 instance ToHeaders DeleteBandwidthRateLimit where
         toHeaders

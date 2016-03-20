@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ListRetirableGrants
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,9 +22,7 @@
 -- matches the one specified.
 --
 -- A typical use is to list all grants that you are able to retire. To
--- retire a grant, use RetireGrant.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListRetirableGrants.html AWS API Reference> for ListRetirableGrants.
+-- retire a grant, use < RetireGrant>.
 module Network.AWS.KMS.ListRetirableGrants
     (
     -- * Creating a Request
@@ -109,6 +107,8 @@ instance AWSRequest ListRetirableGrants where
         type Rs ListRetirableGrants = ListGrantsResponse
         request = postJSON kMS
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable ListRetirableGrants
 
 instance ToHeaders ListRetirableGrants where
         toHeaders

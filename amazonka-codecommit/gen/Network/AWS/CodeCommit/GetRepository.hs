@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.GetRepository
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a repository.
+-- Returns information about a repository.
 --
 -- The description field for a repository accepts all HTML characters and
 -- all valid Unicode characters. Applications that do not HTML-encode the
@@ -26,8 +26,6 @@
 -- potentially malicious code. Make sure that you HTML-encode the
 -- description field in any application that uses this API to display the
 -- repository description on a web page.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetRepository.html AWS API Reference> for GetRepository.
 module Network.AWS.CodeCommit.GetRepository
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest GetRepository where
               (\ s h x ->
                  GetRepositoryResponse' <$>
                    (x .?> "repositoryMetadata") <*> (pure (fromEnum s)))
+
+instance Hashable GetRepository
 
 instance ToHeaders GetRepository where
         toHeaders

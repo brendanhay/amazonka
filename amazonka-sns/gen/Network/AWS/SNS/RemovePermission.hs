@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.SNS.RemovePermission
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes a statement from a topic\'s access control policy.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_RemovePermission.html AWS API Reference> for RemovePermission.
 module Network.AWS.SNS.RemovePermission
     (
     -- * Creating a Request
@@ -79,6 +77,8 @@ instance AWSRequest RemovePermission where
         type Rs RemovePermission = RemovePermissionResponse
         request = postQuery sNS
         response = receiveNull RemovePermissionResponse'
+
+instance Hashable RemovePermission
 
 instance ToHeaders RemovePermission where
         toHeaders = const mempty

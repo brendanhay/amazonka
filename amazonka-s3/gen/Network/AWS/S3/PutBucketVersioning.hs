@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketVersioning
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Sets the versioning state of an existing bucket. To set the versioning
 -- state, you must be the bucket owner.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketVersioning.html AWS API Reference> for PutBucketVersioning.
 module Network.AWS.S3.PutBucketVersioning
     (
     -- * Creating a Request
@@ -98,6 +96,8 @@ instance AWSRequest PutBucketVersioning where
              PutBucketVersioningResponse
         request = putXML s3
         response = receiveNull PutBucketVersioningResponse'
+
+instance Hashable PutBucketVersioning
 
 instance ToElement PutBucketVersioning where
         toElement

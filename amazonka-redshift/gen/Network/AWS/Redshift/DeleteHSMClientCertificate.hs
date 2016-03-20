@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteHSMClientCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified HSM client certificate.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHSMClientCertificate.html AWS API Reference> for DeleteHSMClientCertificate.
 module Network.AWS.Redshift.DeleteHSMClientCertificate
     (
     -- * Creating a Request
@@ -71,6 +69,8 @@ instance AWSRequest DeleteHSMClientCertificate where
         request = postQuery redshift
         response
           = receiveNull DeleteHSMClientCertificateResponse'
+
+instance Hashable DeleteHSMClientCertificate
 
 instance ToHeaders DeleteHSMClientCertificate where
         toHeaders = const mempty

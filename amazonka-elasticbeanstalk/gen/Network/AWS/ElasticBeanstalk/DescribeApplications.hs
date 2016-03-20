@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplications
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the descriptions of existing applications.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplications.html AWS API Reference> for DescribeApplications.
 module Network.AWS.ElasticBeanstalk.DescribeApplications
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DescribeApplications where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeApplications
+
 instance ToHeaders DescribeApplications where
         toHeaders = const mempty
 
@@ -119,7 +119,7 @@ describeApplicationsResponse pResponseStatus_ =
     , _darsResponseStatus = pResponseStatus_
     }
 
--- | This parameter contains a list of ApplicationDescription.
+-- | This parameter contains a list of < ApplicationDescription>.
 darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default . _Coerce;
 

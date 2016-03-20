@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.EnableVPCClassicLink
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the Amazon Elastic Compute Cloud User Guide.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVPCClassicLink.html AWS API Reference> for EnableVPCClassicLink.
 module Network.AWS.EC2.EnableVPCClassicLink
     (
     -- * Creating a Request
@@ -95,6 +93,8 @@ instance AWSRequest EnableVPCClassicLink where
               (\ s h x ->
                  EnableVPCClassicLinkResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
+
+instance Hashable EnableVPCClassicLink
 
 instance ToHeaders EnableVPCClassicLink where
         toHeaders = const mempty

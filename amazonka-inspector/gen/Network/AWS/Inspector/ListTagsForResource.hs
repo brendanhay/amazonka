@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListTagsForResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all tags associated with a resource.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListTagsForResource.html AWS API Reference> for ListTagsForResource.
 module Network.AWS.Inspector.ListTagsForResource
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest ListTagsForResource where
               (\ s h x ->
                  ListTagsForResourceResponse' <$>
                    (x .?> "tagList" .!@ mempty) <*> (pure (fromEnum s)))
+
+instance Hashable ListTagsForResource
 
 instance ToHeaders ListTagsForResource where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CreateCacheSecurityGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- creating a cache cluster inside of a VPC, use a cache subnet group
 -- instead. For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html CreateCacheSubnetGroup>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSecurityGroup.html AWS API Reference> for CreateCacheSecurityGroup.
 module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     (
     -- * Creating a Request
@@ -101,6 +99,8 @@ instance AWSRequest CreateCacheSecurityGroup where
               (\ s h x ->
                  CreateCacheSecurityGroupResponse' <$>
                    (x .@? "CacheSecurityGroup") <*> (pure (fromEnum s)))
+
+instance Hashable CreateCacheSecurityGroup
 
 instance ToHeaders CreateCacheSecurityGroup where
         toHeaders = const mempty

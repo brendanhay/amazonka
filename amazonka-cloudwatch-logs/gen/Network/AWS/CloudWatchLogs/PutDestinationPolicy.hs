@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutDestinationPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html IAM policy document>
 -- that is used to authorize claims to register a subscription filter
 -- against a given destination.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html AWS API Reference> for PutDestinationPolicy.
 module Network.AWS.CloudWatchLogs.PutDestinationPolicy
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest PutDestinationPolicy where
              PutDestinationPolicyResponse
         request = postJSON cloudWatchLogs
         response = receiveNull PutDestinationPolicyResponse'
+
+instance Hashable PutDestinationPolicy
 
 instance ToHeaders PutDestinationPolicy where
         toHeaders

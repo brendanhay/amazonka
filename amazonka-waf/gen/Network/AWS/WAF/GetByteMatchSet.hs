@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetByteMatchSet
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the ByteMatchSet specified by 'ByteMatchSetId'.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetByteMatchSet.html AWS API Reference> for GetByteMatchSet.
+-- Returns the < ByteMatchSet> specified by 'ByteMatchSetId'.
 module Network.AWS.WAF.GetByteMatchSet
     (
     -- * Creating a Request
@@ -62,9 +60,9 @@ getByteMatchSet pByteMatchSetId_ =
     { _gbmsByteMatchSetId = pByteMatchSetId_
     }
 
--- | The 'ByteMatchSetId' of the ByteMatchSet that you want to get.
--- 'ByteMatchSetId' is returned by CreateByteMatchSet and by
--- ListByteMatchSets.
+-- | The 'ByteMatchSetId' of the < ByteMatchSet> that you want to get.
+-- 'ByteMatchSetId' is returned by < CreateByteMatchSet> and by
+-- < ListByteMatchSets>.
 gbmsByteMatchSetId :: Lens' GetByteMatchSet Text
 gbmsByteMatchSetId = lens _gbmsByteMatchSetId (\ s a -> s{_gbmsByteMatchSetId = a});
 
@@ -76,6 +74,8 @@ instance AWSRequest GetByteMatchSet where
               (\ s h x ->
                  GetByteMatchSetResponse' <$>
                    (x .?> "ByteMatchSet") <*> (pure (fromEnum s)))
+
+instance Hashable GetByteMatchSet
 
 instance ToHeaders GetByteMatchSet where
         toHeaders
@@ -120,16 +120,16 @@ getByteMatchSetResponse pResponseStatus_ =
     , _gbmsrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the ByteMatchSet that you specified in the
+-- | Information about the < ByteMatchSet> that you specified in the
 -- 'GetByteMatchSet' request. For more information, see the following
 -- topics:
 --
--- -   ByteMatchSet: Contains 'ByteMatchSetId', 'ByteMatchTuples', and
+-- -   < ByteMatchSet>: Contains 'ByteMatchSetId', 'ByteMatchTuples', and
 --     'Name'
--- -   'ByteMatchTuples': Contains an array of ByteMatchTuple objects. Each
---     'ByteMatchTuple' object contains FieldToMatch,
+-- -   'ByteMatchTuples': Contains an array of < ByteMatchTuple> objects.
+--     Each 'ByteMatchTuple' object contains < FieldToMatch>,
 --     'PositionalConstraint', 'TargetString', and 'TextTransformation'
--- -   FieldToMatch: Contains 'Data' and 'Type'
+-- -   < FieldToMatch>: Contains 'Data' and 'Type'
 gbmsrsByteMatchSet :: Lens' GetByteMatchSetResponse (Maybe ByteMatchSet)
 gbmsrsByteMatchSet = lens _gbmsrsByteMatchSet (\ s a -> s{_gbmsrsByteMatchSet = a});
 

@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.Types
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -226,17 +226,20 @@ module Network.AWS.IAM.Types
     -- * PolicyGroup
     , PolicyGroup
     , policyGroup
+    , pgGroupId
     , pgGroupName
 
     -- * PolicyRole
     , PolicyRole
     , policyRole
     , prRoleName
+    , prRoleId
 
     -- * PolicyUser
     , PolicyUser
     , policyUser
     , puUserName
+    , puUserId
 
     -- * PolicyVersion
     , PolicyVersion
@@ -263,7 +266,7 @@ module Network.AWS.IAM.Types
 
     -- * Role
     , Role
-    , role
+    , role'
     , rAssumeRolePolicyDocument
     , rPath
     , rRoleName
@@ -411,6 +414,7 @@ iAM =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -420,7 +424,7 @@ iAM =
       | otherwise = Nothing
 
 -- | The request was rejected because the credential report does not exist.
--- To generate a credential report, use GenerateCredentialReport.
+-- To generate a credential report, use < GenerateCredentialReport>.
 _CredentialReportNotPresentException :: AsError a => Getting (First ServiceError) a ServiceError
 _CredentialReportNotPresentException =
     _ServiceError . hasStatus 410 . hasCode "ReportNotPresent"
@@ -451,8 +455,8 @@ _MalformedCertificateException =
 
 -- | The request was rejected because the most recent credential report has
 -- expired. To generate a new credential report, use
--- GenerateCredentialReport. For more information about credential report
--- expiration, see
+-- < GenerateCredentialReport>. For more information about credential
+-- report expiration, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports>
 -- in the /IAM User Guide/.
 _CredentialReportExpiredException :: AsError a => Getting (First ServiceError) a ServiceError

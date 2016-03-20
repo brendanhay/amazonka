@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.StartInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -39,8 +39,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StartInstances.html AWS API Reference> for StartInstances.
 module Network.AWS.EC2.StartInstances
     (
     -- * Creating a Request
@@ -116,6 +114,8 @@ instance AWSRequest StartInstances where
                    (x .@? "instancesSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable StartInstances
 
 instance ToHeaders StartInstances where
         toHeaders = const mempty

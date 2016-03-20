@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifySnapshotAttribute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Snapshots with AWS Marketplace product codes cannot be made public.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySnapshotAttribute.html AWS API Reference> for ModifySnapshotAttribute.
 module Network.AWS.EC2.ModifySnapshotAttribute
     (
     -- * Creating a Request
@@ -138,6 +136,8 @@ instance AWSRequest ModifySnapshotAttribute where
         request = postQuery eC2
         response
           = receiveNull ModifySnapshotAttributeResponse'
+
+instance Hashable ModifySnapshotAttribute
 
 instance ToHeaders ModifySnapshotAttribute where
         toHeaders = const mempty

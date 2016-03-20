@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.ListDomains
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- 'ListDomains' successive times with the 'NextToken' provided by the
 -- operation returns up to 'MaxNumberOfDomains' more domain names with each
 -- successive operation call.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_ListDomains.html AWS API Reference> for ListDomains.
 --
 -- This operation returns paginated results.
 module Network.AWS.SDB.ListDomains
@@ -103,6 +101,8 @@ instance AWSRequest ListDomains where
                    (may (parseXMLList "DomainName") x) <*>
                      (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListDomains
 
 instance ToHeaders ListDomains where
         toHeaders = const mempty

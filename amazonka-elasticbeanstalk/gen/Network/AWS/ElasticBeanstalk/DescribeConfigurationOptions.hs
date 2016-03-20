@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- stack defines. The description includes the values the options, their
 -- default values, and an indication of the required action on a running
 -- environment if an option value is changed.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationOptions.html AWS API Reference> for DescribeConfigurationOptions.
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     (
     -- * Creating a Request
@@ -129,6 +127,8 @@ instance AWSRequest DescribeConfigurationOptions
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeConfigurationOptions
+
 instance ToHeaders DescribeConfigurationOptions where
         toHeaders = const mempty
 
@@ -180,7 +180,7 @@ describeConfigurationOptionsResponse pResponseStatus_ =
 dcorsSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorsSolutionStackName = lens _dcorsSolutionStackName (\ s a -> s{_dcorsSolutionStackName = a});
 
--- | A list of ConfigurationOptionDescription.
+-- | A list of < ConfigurationOptionDescription>.
 dcorsOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
 dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default . _Coerce;
 

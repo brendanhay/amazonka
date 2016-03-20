@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
 -- | Contains information about an Inspector agent. This data type is used as
--- a response element in the ListAssessmentAgents action.
+-- a response element in the < ListAssessmentAgents> action.
 --
 -- /See:/ 'agent' smart constructor.
 data Agent = Agent'
@@ -118,8 +118,10 @@ instance FromJSON Agent where
                      <*> (x .:? "agentHealthDetails")
                      <*> (x .:? "agentHealth"))
 
+instance Hashable Agent
+
 -- | This data type is used as a response element in the
--- PreviewAgentsForResourceGroup action.
+-- < PreviewAgentsForResourceGroup> action.
 --
 -- /See:/ 'agentPreview' smart constructor.
 data AgentPreview = AgentPreview'
@@ -157,8 +159,10 @@ instance FromJSON AgentPreview where
                  AgentPreview' <$>
                    (x .:? "autoScalingGroup") <*> (x .:? "agentId"))
 
--- | This data type is used as a response element in the ListAssessmentAgents
--- action.
+instance Hashable AgentPreview
+
+-- | This data type is used as a response element in the
+-- < ListAssessmentAgents> action.
 --
 -- /See:/ 'agentsFilter' smart constructor.
 newtype AgentsFilter = AgentsFilter'
@@ -179,9 +183,11 @@ agentsFilter =
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must be the exact match of the value of the __agentHealth__
--- property of the Agent data type.
+-- property of the < Agent> data type.
 afAgentHealthList :: Lens' AgentsFilter [Text]
 afAgentHealthList = lens _afAgentHealthList (\ s a -> s{_afAgentHealthList = a}) . _Default . _Coerce;
+
+instance Hashable AgentsFilter
 
 instance ToJSON AgentsFilter where
         toJSON AgentsFilter'{..}
@@ -192,7 +198,7 @@ instance ToJSON AgentsFilter where
 -- | Contains information about an Inspector application.
 --
 -- This data type is used as the response element in the
--- DescribeApplication action.
+-- < DescribeApplication> action.
 --
 -- /See:/ 'application' smart constructor.
 data Application = Application'
@@ -241,8 +247,10 @@ instance FromJSON Application where
                      (x .:? "resourceGroupArn")
                      <*> (x .:? "applicationName"))
 
--- | This data type is used as the request parameter in the ListApplications
--- action.
+instance Hashable Application
+
+-- | This data type is used as the request parameter in the
+-- < ListApplications> action.
 --
 -- /See:/ 'applicationsFilter' smart constructor.
 newtype ApplicationsFilter = ApplicationsFilter'
@@ -263,9 +271,11 @@ applicationsFilter =
 
 -- | For a record to match a filter, an explicit value or a string containing
 -- a wildcard specified for this data type property must match the value of
--- the __applicationName__ property of the Application data type.
+-- the __applicationName__ property of the < Application> data type.
 afApplicationNamePatterns :: Lens' ApplicationsFilter [Text]
 afApplicationNamePatterns = lens _afApplicationNamePatterns (\ s a -> s{_afApplicationNamePatterns = a}) . _Default . _Coerce;
+
+instance Hashable ApplicationsFilter
 
 instance ToJSON ApplicationsFilter where
         toJSON ApplicationsFilter'{..}
@@ -276,8 +286,8 @@ instance ToJSON ApplicationsFilter where
 
 -- | Contains information about an Inspector assessment.
 --
--- This data type is used as the response element in the DescribeAssessment
--- action.
+-- This data type is used as the response element in the
+-- < DescribeAssessment> action.
 --
 -- /See:/ 'assessment' smart constructor.
 data Assessment = Assessment'
@@ -391,8 +401,10 @@ instance FromJSON Assessment where
                      <*> (x .:? "durationInSeconds")
                      <*> (x .:? "assessmentName"))
 
--- | This data type is used as the request parameter in the ListAssessments
--- and ListAttachedAssessments actions.
+instance Hashable Assessment
+
+-- | This data type is used as the request parameter in the
+-- < ListAssessments> and < ListAttachedAssessments> actions.
 --
 -- /See:/ 'assessmentsFilter' smart constructor.
 data AssessmentsFilter = AssessmentsFilter'
@@ -433,32 +445,32 @@ assessmentsFilter =
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must be the exact match of the value of the __dataCollected__
--- property of the Assessment data type.
+-- property of the < Assessment> data type.
 afDataCollected :: Lens' AssessmentsFilter (Maybe Bool)
 afDataCollected = lens _afDataCollected (\ s a -> s{_afDataCollected = a});
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must be the exact match of the value of the __assessmentState__
--- property of the Assessment data type.
+-- property of the < Assessment> data type.
 afAssessmentStates :: Lens' AssessmentsFilter [Text]
 afAssessmentStates = lens _afAssessmentStates (\ s a -> s{_afAssessmentStates = a}) . _Default . _Coerce;
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must inclusively match any value between the specified minimum
--- and maximum values of the __startTime__ property of the Assessment data
--- type.
+-- and maximum values of the __startTime__ property of the < Assessment>
+-- data type.
 afStartTimeRange :: Lens' AssessmentsFilter (Maybe TimestampRange)
 afStartTimeRange = lens _afStartTimeRange (\ s a -> s{_afStartTimeRange = a});
 
 -- | For a record to match a filter, an explicit value or a string containing
 -- a wildcard specified for this data type property must match the value of
--- the __assessmentName__ property of the Assessment data type.
+-- the __assessmentName__ property of the < Assessment> data type.
 afAssessmentNamePatterns :: Lens' AssessmentsFilter [Text]
 afAssessmentNamePatterns = lens _afAssessmentNamePatterns (\ s a -> s{_afAssessmentNamePatterns = a}) . _Default . _Coerce;
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must inclusively match any value between the specified minimum
--- and maximum values of the __endTime__ property of the Assessment data
+-- and maximum values of the __endTime__ property of the < Assessment> data
 -- type.
 afEndTimeRange :: Lens' AssessmentsFilter (Maybe TimestampRange)
 afEndTimeRange = lens _afEndTimeRange (\ s a -> s{_afEndTimeRange = a});
@@ -466,9 +478,11 @@ afEndTimeRange = lens _afEndTimeRange (\ s a -> s{_afEndTimeRange = a});
 -- | For a record to match a filter, the value specified for this data type
 -- property must inclusively match any value between the specified minimum
 -- and maximum values of the __durationInSeconds__ property of the
--- Assessment data type.
+-- < Assessment> data type.
 afDurationRange :: Lens' AssessmentsFilter (Maybe DurationRange)
 afDurationRange = lens _afDurationRange (\ s a -> s{_afDurationRange = a});
+
+instance Hashable AssessmentsFilter
 
 instance ToJSON AssessmentsFilter where
         toJSON AssessmentsFilter'{..}
@@ -483,8 +497,8 @@ instance ToJSON AssessmentsFilter where
                   ("durationRange" .=) <$> _afDurationRange])
 
 -- | This data type is used as a response element in the
--- AddAttributesToFindings action and a request parameter in the
--- CreateAssessment action.
+-- < AddAttributesToFindings> action and a request parameter in the
+-- < CreateAssessment> action.
 --
 -- /See:/ 'attribute' smart constructor.
 data Attribute = Attribute'
@@ -521,13 +535,15 @@ instance FromJSON Attribute where
               (\ x ->
                  Attribute' <$> (x .:? "value") <*> (x .:? "key"))
 
+instance Hashable Attribute
+
 instance ToJSON Attribute where
         toJSON Attribute'{..}
           = object
               (catMaybes
                  [("value" .=) <$> _aValue, ("key" .=) <$> _aKey])
 
--- | This data type is used in the AssessmentsFilter data type.
+-- | This data type is used in the < AssessmentsFilter> data type.
 --
 -- /See:/ 'durationRange' smart constructor.
 data DurationRange = DurationRange'
@@ -559,6 +575,8 @@ drMaximum = lens _drMaximum (\ s a -> s{_drMaximum = a});
 drMinimum :: Lens' DurationRange (Maybe Int)
 drMinimum = lens _drMinimum (\ s a -> s{_drMinimum = a});
 
+instance Hashable DurationRange
+
 instance ToJSON DurationRange where
         toJSON DurationRange'{..}
           = object
@@ -568,7 +586,7 @@ instance ToJSON DurationRange where
 
 -- | Contains information about an Inspector finding.
 --
--- This data type is used as the response element in the DescribeFinding
+-- This data type is used as the response element in the < DescribeFinding>
 -- action.
 --
 -- /See:/ 'finding' smart constructor.
@@ -700,7 +718,9 @@ instance FromJSON Finding where
                      <*> (x .:? "description")
                      <*> (x .:? "recommendation"))
 
--- | This data type is used as a request parameter in the ListFindings
+instance Hashable Finding
+
+-- | This data type is used as a request parameter in the < ListFindings>
 -- action.
 --
 -- /See:/ 'findingsFilter' smart constructor.
@@ -738,33 +758,35 @@ findingsFilter =
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must be the exact match of the value of the __ruleName__
--- property of the Finding data type.
+-- property of the < Finding> data type.
 ffRuleNames :: Lens' FindingsFilter [Text]
 ffRuleNames = lens _ffRuleNames (\ s a -> s{_ffRuleNames = a}) . _Default . _Coerce;
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must be the exact match of the value of the __userAttributes__
--- property of the Finding data type.
+-- property of the < Finding> data type.
 ffUserAttributes :: Lens' FindingsFilter [Attribute]
 ffUserAttributes = lens _ffUserAttributes (\ s a -> s{_ffUserAttributes = a}) . _Default . _Coerce;
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must be the exact match of the value of the __rulesPackageArn__
--- property of the Finding data type.
+-- property of the < Finding> data type.
 ffRulesPackageARNs :: Lens' FindingsFilter [Text]
 ffRulesPackageARNs = lens _ffRulesPackageARNs (\ s a -> s{_ffRulesPackageARNs = a}) . _Default . _Coerce;
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must be the exact match of the value of the __attributes__
--- property of the Finding data type.
+-- property of the < Finding> data type.
 ffAttributes :: Lens' FindingsFilter [Attribute]
 ffAttributes = lens _ffAttributes (\ s a -> s{_ffAttributes = a}) . _Default . _Coerce;
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must be the exact match of the value of the __severity__
--- property of the Finding data type.
+-- property of the < Finding> data type.
 ffSeverities :: Lens' FindingsFilter [Text]
 ffSeverities = lens _ffSeverities (\ s a -> s{_ffSeverities = a}) . _Default . _Coerce;
+
+instance Hashable FindingsFilter
 
 instance ToJSON FindingsFilter where
         toJSON FindingsFilter'{..}
@@ -777,7 +799,7 @@ instance ToJSON FindingsFilter where
                   ("severities" .=) <$> _ffSeverities])
 
 -- | The textual identifier. This data type is used as the request parameter
--- in the LocalizeText action.
+-- in the < LocalizeText> action.
 --
 -- /See:/ 'localizedText' smart constructor.
 data LocalizedText = LocalizedText'
@@ -800,7 +822,7 @@ localizedText =
     , _ltParameters = Nothing
     }
 
--- | The facility and id properties of the LocalizedTextKey data type.
+-- | The facility and id properties of the < LocalizedTextKey> data type.
 ltKey :: Lens' LocalizedText (Maybe LocalizedTextKey)
 ltKey = lens _ltKey (\ s a -> s{_ltKey = a});
 
@@ -816,6 +838,8 @@ instance FromJSON LocalizedText where
                  LocalizedText' <$>
                    (x .:? "key") <*> (x .:? "parameters" .!= mempty))
 
+instance Hashable LocalizedText
+
 instance ToJSON LocalizedText where
         toJSON LocalizedText'{..}
           = object
@@ -823,7 +847,7 @@ instance ToJSON LocalizedText where
                  [("key" .=) <$> _ltKey,
                   ("parameters" .=) <$> _ltParameters])
 
--- | This data type is used in the LocalizedText data type.
+-- | This data type is used in the < LocalizedText> data type.
 --
 -- /See:/ 'localizedTextKey' smart constructor.
 data LocalizedTextKey = LocalizedTextKey'
@@ -861,6 +885,8 @@ instance FromJSON LocalizedTextKey where
                  LocalizedTextKey' <$>
                    (x .:? "facility") <*> (x .:? "id"))
 
+instance Hashable LocalizedTextKey
+
 instance ToJSON LocalizedTextKey where
         toJSON LocalizedTextKey'{..}
           = object
@@ -868,7 +894,7 @@ instance ToJSON LocalizedTextKey where
                  [("facility" .=) <$> _ltkFacility,
                   ("id" .=) <$> _ltkId])
 
--- | This data type is used in the Telemetry data type.
+-- | This data type is used in the < Telemetry> data type.
 --
 -- This is metadata about the behavioral data collected by the Inspector
 -- agent on your EC2 instances during an assessment and passed to the
@@ -921,7 +947,9 @@ instance FromJSON MessageTypeTelemetry where
                    (x .:? "dataSize") <*> (x .:? "messageType") <*>
                      (x .:? "count"))
 
--- | This data type is used in the LocalizedText data type.
+instance Hashable MessageTypeTelemetry
+
+-- | This data type is used in the < LocalizedText> data type.
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
@@ -958,6 +986,8 @@ instance FromJSON Parameter where
               (\ x ->
                  Parameter' <$> (x .:? "value") <*> (x .:? "name"))
 
+instance Hashable Parameter
+
 instance ToJSON Parameter where
         toJSON Parameter'{..}
           = object
@@ -969,7 +999,7 @@ instance ToJSON Parameter where
 -- comprise the application.
 --
 -- This data type is used as the response element in the
--- DescribeResourceGroup action.
+-- < DescribeResourceGroup> action.
 --
 -- /See:/ 'resourceGroup' smart constructor.
 data ResourceGroup = ResourceGroup'
@@ -994,7 +1024,7 @@ resourceGroup =
 
 -- | The tags (key and value pairs) of the resource group.
 --
--- This data type property is used in the CreateResourceGroup action.
+-- This data type property is used in the < CreateResourceGroup> action.
 --
 -- A collection of keys and an array of possible values in JSON format.
 --
@@ -1015,10 +1045,12 @@ instance FromJSON ResourceGroup where
                    (x .:? "resourceGroupTags") <*>
                      (x .:? "resourceGroupArn"))
 
+instance Hashable ResourceGroup
+
 -- | Contains information about an Inspector rules package.
 --
 -- This data type is used as the response element in the
--- DescribeRulesPackage action.
+-- < DescribeRulesPackage> action.
 --
 -- /See:/ 'rulesPackage' smart constructor.
 data RulesPackage = RulesPackage'
@@ -1083,10 +1115,12 @@ instance FromJSON RulesPackage where
                      <*> (x .:? "description")
                      <*> (x .:? "provider"))
 
+instance Hashable RulesPackage
+
 -- | A snapshot of an Inspector assessment that contains the assessment\'s
 -- findings.
 --
--- This data type is used as the response element in the DescribeRun
+-- This data type is used as the response element in the < DescribeRun>
 -- action.
 --
 -- /See:/ 'run' smart constructor.
@@ -1175,7 +1209,10 @@ instance FromJSON Run where
                      <*> (x .:? "completionTime")
                      <*> (x .:? "runArn"))
 
--- | This data type is used as the request parameter in the ListRuns action.
+instance Hashable Run
+
+-- | This data type is used as the request parameter in the < ListRuns>
+-- action.
 --
 -- /See:/ 'runsFilter' smart constructor.
 data RunsFilter = RunsFilter'
@@ -1212,35 +1249,37 @@ runsFilter =
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must inclusively match any value between the specified minimum
--- and maximum values of the __creationTime__ property of the Run data
+-- and maximum values of the __creationTime__ property of the < Run> data
 -- type.
 rfCreationTime :: Lens' RunsFilter (Maybe TimestampRange)
 rfCreationTime = lens _rfCreationTime (\ s a -> s{_rfCreationTime = a});
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must match a list of values of the __rulesPackages__ property
--- of the Run data type.
+-- of the < Run> data type.
 rfRulesPackages :: Lens' RunsFilter [Text]
 rfRulesPackages = lens _rfRulesPackages (\ s a -> s{_rfRulesPackages = a}) . _Default . _Coerce;
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must be the exact match of the value of the __runState__
--- property of the Run data type.
+-- property of the < Run> data type.
 rfRunStates :: Lens' RunsFilter [Text]
 rfRunStates = lens _rfRunStates (\ s a -> s{_rfRunStates = a}) . _Default . _Coerce;
 
 -- | For a record to match a filter, an explicit value or a string containing
 -- a wildcard specified for this data type property must match the value of
--- the __runName__ property of the Run data type.
+-- the __runName__ property of the < Run> data type.
 rfRunNamePatterns :: Lens' RunsFilter [Text]
 rfRunNamePatterns = lens _rfRunNamePatterns (\ s a -> s{_rfRunNamePatterns = a}) . _Default . _Coerce;
 
 -- | For a record to match a filter, the value specified for this data type
 -- property must inclusively match any value between the specified minimum
--- and maximum values of the __completionTime__ property of the Run data
+-- and maximum values of the __completionTime__ property of the < Run> data
 -- type.
 rfCompletionTime :: Lens' RunsFilter (Maybe TimestampRange)
 rfCompletionTime = lens _rfCompletionTime (\ s a -> s{_rfCompletionTime = a});
+
+instance Hashable RunsFilter
 
 instance ToJSON RunsFilter where
         toJSON RunsFilter'{..}
@@ -1254,8 +1293,9 @@ instance ToJSON RunsFilter where
 
 -- | A key and value pair.
 --
--- This data type is used as a request parameter in the SetTagsForResource
--- action and a response element in the ListTagsForResource action.
+-- This data type is used as a request parameter in the
+-- < SetTagsForResource> action and a response element in the
+-- < ListTagsForResource> action.
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
@@ -1291,6 +1331,8 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
+instance Hashable Tag
+
 instance ToJSON Tag where
         toJSON Tag'{..}
           = object
@@ -1301,7 +1343,7 @@ instance ToJSON Tag where
 -- the agent.
 --
 -- This data type is used as the response element in the
--- GetAssessmentTelemetry action.
+-- < GetAssessmentTelemetry> action.
 --
 -- /See:/ 'telemetry' smart constructor.
 data Telemetry = Telemetry'
@@ -1341,8 +1383,10 @@ instance FromJSON Telemetry where
                    (x .:? "status") <*>
                      (x .:? "messageTypeTelemetries" .!= mempty))
 
--- | This data type is used in the AssessmentsFilter and RunsFilter data
--- types.
+instance Hashable Telemetry
+
+-- | This data type is used in the < AssessmentsFilter> and < RunsFilter>
+-- data types.
 --
 -- /See:/ 'timestampRange' smart constructor.
 data TimestampRange = TimestampRange'
@@ -1372,6 +1416,8 @@ trMaximum = lens _trMaximum (\ s a -> s{_trMaximum = a}) . mapping _Time;
 -- | The minimum value of the timestamp range.
 trMinimum :: Lens' TimestampRange (Maybe UTCTime)
 trMinimum = lens _trMinimum (\ s a -> s{_trMinimum = a}) . mapping _Time;
+
+instance Hashable TimestampRange
 
 instance ToJSON TimestampRange where
         toJSON TimestampRange'{..}

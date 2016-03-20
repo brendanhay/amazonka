@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateAccessKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -36,8 +36,6 @@
 -- example, in a text file) if you want to be able to access it again. If a
 -- secret key is lost, you can delete the access keys for the associated
 -- user and then create new keys.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html AWS API Reference> for CreateAccessKey.
 module Network.AWS.IAM.CreateAccessKey
     (
     -- * Creating a Request
@@ -91,6 +89,8 @@ instance AWSRequest CreateAccessKey where
                  CreateAccessKeyResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "AccessKey"))
 
+instance Hashable CreateAccessKey
+
 instance ToHeaders CreateAccessKey where
         toHeaders = const mempty
 
@@ -104,7 +104,7 @@ instance ToQuery CreateAccessKey where
                "Version" =: ("2010-05-08" :: ByteString),
                "UserName" =: _cakUserName]
 
--- | Contains the response to a successful CreateAccessKey request.
+-- | Contains the response to a successful < CreateAccessKey> request.
 --
 -- /See:/ 'createAccessKeyResponse' smart constructor.
 data CreateAccessKeyResponse = CreateAccessKeyResponse'

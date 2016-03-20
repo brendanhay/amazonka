@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.Scan
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -35,12 +35,11 @@
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#QueryAndScanParallelScan Parallel Scan>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- By default, /Scan/ uses eventually consistent reads when acessing the
--- data in the table or local secondary index. However, you can use
--- strongly consistent reads instead by setting the /ConsistentRead/
--- parameter to /true/.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html AWS API Reference> for Scan.
+-- By default, /Scan/ uses eventually consistent reads when accessing the
+-- data in a table; therefore, the result set might not include the changes
+-- to data in the table immediately before the operation began. If you need
+-- a consistent copy of the data, as of the time that the Scan begins, you
+-- can set the /ConsistentRead/ parameter to /true/.
 --
 -- This operation returns paginated results.
 module Network.AWS.DynamoDB.Scan
@@ -326,23 +325,19 @@ sFilterExpression = lens _sFilterExpression (\ s a -> s{_sFilterExpression = a})
 -- | A Boolean value that determines the read consistency model during the
 -- scan:
 --
--- -   If /ConsistentRead/ is 'false', then /Scan/ will use eventually
---     consistent reads. The data returned from /Scan/ might not contain
---     the results of other recently completed write operations (PutItem,
---     UpdateItem or DeleteItem). The /Scan/ response might include some
---     stale data.
+-- -   If /ConsistentRead/ is 'false', then the data returned from /Scan/
+--     might not contain the results from other recently completed write
+--     operations (PutItem, UpdateItem or DeleteItem).
 --
--- -   If /ConsistentRead/ is 'true', then /Scan/ will use strongly
---     consistent reads. All of the write operations that completed before
---     the /Scan/ began are guaranteed to be contained in the /Scan/
---     response.
+-- -   If /ConsistentRead/ is 'true', then all of the write operations that
+--     completed before the /Scan/ began are guaranteed to be contained in
+--     the /Scan/ response.
 --
--- The default setting for /ConsistentRead/ is 'false', meaning that
--- eventually consistent reads will be used.
+-- The default setting for /ConsistentRead/ is 'false'.
 --
--- Strongly consistent reads are not supported on global secondary indexes.
--- If you scan a global secondary index with /ConsistentRead/ set to true,
--- you will receive a /ValidationException/.
+-- The /ConsistentRead/ parameter is not supported on global secondary
+-- indexes. If you scan a global secondary index with /ConsistentRead/ set
+-- to true, you will receive a /ValidationException/.
 sConsistentRead :: Lens' Scan (Maybe Bool)
 sConsistentRead = lens _sConsistentRead (\ s a -> s{_sConsistentRead = a});
 
@@ -494,6 +489,8 @@ instance AWSRequest Scan where
                      <*> (x .?> "Items" .!@ mempty)
                      <*> (x .?> "ConsumedCapacity")
                      <*> (pure (fromEnum s)))
+
+instance Hashable Scan
 
 instance ToHeaders Scan where
         toHeaders

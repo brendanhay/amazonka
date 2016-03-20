@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheckCount
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve a count of all your health checks, send a 'GET' request to
--- the '2013-04-01\/healthcheckcount' resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckCount.html AWS API Reference> for GetHealthCheckCount.
+-- the '\/Route 53 API version\/healthcheckcount' resource.
 module Network.AWS.Route53.GetHealthCheckCount
     (
     -- * Creating a Request
@@ -44,7 +42,7 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | To retrieve a count of all your health checks, send a 'GET' request to
--- the '2013-04-01\/healthcheckcount' resource.
+-- the '\/Route 53 API version\/healthcheckcount' resource.
 --
 -- /See:/ 'getHealthCheckCount' smart constructor.
 data GetHealthCheckCount =
@@ -66,6 +64,8 @@ instance AWSRequest GetHealthCheckCount where
               (\ s h x ->
                  GetHealthCheckCountResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HealthCheckCount"))
+
+instance Hashable GetHealthCheckCount
 
 instance ToHeaders GetHealthCheckCount where
         toHeaders = const mempty

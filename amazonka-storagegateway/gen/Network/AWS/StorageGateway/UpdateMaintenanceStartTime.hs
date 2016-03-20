@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateMaintenanceStartTime
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- This operation updates a gateway\'s weekly maintenance start time
 -- information, including day and time of the week. The maintenance time is
 -- the time in your gateway\'s time zone.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateMaintenanceStartTime.html AWS API Reference> for UpdateMaintenanceStartTime.
 module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     (
     -- * Creating a Request
@@ -51,9 +49,9 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the following fields:
 --
--- -   UpdateMaintenanceStartTimeInput$DayOfWeek
--- -   UpdateMaintenanceStartTimeInput$HourOfDay
--- -   UpdateMaintenanceStartTimeInput$MinuteOfHour
+-- -   < UpdateMaintenanceStartTimeInput$DayOfWeek>
+-- -   < UpdateMaintenanceStartTimeInput$HourOfDay>
+-- -   < UpdateMaintenanceStartTimeInput$MinuteOfHour>
 --
 -- /See:/ 'updateMaintenanceStartTime' smart constructor.
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
@@ -117,6 +115,8 @@ instance AWSRequest UpdateMaintenanceStartTime where
               (\ s h x ->
                  UpdateMaintenanceStartTimeResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+
+instance Hashable UpdateMaintenanceStartTime
 
 instance ToHeaders UpdateMaintenanceStartTime where
         toHeaders

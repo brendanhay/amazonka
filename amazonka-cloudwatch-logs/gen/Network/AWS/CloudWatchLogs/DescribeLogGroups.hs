@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- in the response body. You can also limit the number of log groups
 -- returned in the response by specifying the 'limit' parameter in the
 -- request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html AWS API Reference> for DescribeLogGroups.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeLogGroups
@@ -116,6 +114,8 @@ instance AWSRequest DescribeLogGroups where
                    (x .?> "logGroups" .!@ mempty) <*>
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeLogGroups
 
 instance ToHeaders DescribeLogGroups where
         toHeaders

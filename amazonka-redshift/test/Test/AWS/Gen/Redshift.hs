@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.Redshift
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -112,6 +112,9 @@ import Test.AWS.Redshift.Internal
 --         , testCreateHSMClientCertificate $
 --             createHSMClientCertificate
 --
+--         , testRestoreTableFromClusterSnapshot $
+--             restoreTableFromClusterSnapshot
+--
 --         , testDescribeDefaultClusterParameters $
 --             describeDefaultClusterParameters
 --
@@ -147,6 +150,9 @@ import Test.AWS.Redshift.Internal
 --
 --         , testAuthorizeClusterSecurityGroupIngress $
 --             authorizeClusterSecurityGroupIngress
+--
+--         , testDescribeTableRestoreStatus $
+--             describeTableRestoreStatus
 --
 --         , testCreateClusterSnapshot $
 --             createClusterSnapshot
@@ -292,6 +298,9 @@ import Test.AWS.Redshift.Internal
 --         , testCreateHSMClientCertificateResponse $
 --             createHSMClientCertificateResponse
 --
+--         , testRestoreTableFromClusterSnapshotResponse $
+--             restoreTableFromClusterSnapshotResponse
+--
 --         , testDescribeDefaultClusterParametersResponse $
 --             describeDefaultClusterParametersResponse
 --
@@ -327,6 +336,9 @@ import Test.AWS.Redshift.Internal
 --
 --         , testAuthorizeClusterSecurityGroupIngressResponse $
 --             authorizeClusterSecurityGroupIngressResponse
+--
+--         , testDescribeTableRestoreStatusResponse $
+--             describeTableRestoreStatusResponse
 --
 --         , testCreateClusterSnapshotResponse $
 --             createClusterSnapshotResponse
@@ -530,6 +542,11 @@ testCreateHSMClientCertificate = req
     "CreateHSMClientCertificate"
     "fixture/CreateHSMClientCertificate.yaml"
 
+testRestoreTableFromClusterSnapshot :: RestoreTableFromClusterSnapshot -> TestTree
+testRestoreTableFromClusterSnapshot = req
+    "RestoreTableFromClusterSnapshot"
+    "fixture/RestoreTableFromClusterSnapshot.yaml"
+
 testDescribeDefaultClusterParameters :: DescribeDefaultClusterParameters -> TestTree
 testDescribeDefaultClusterParameters = req
     "DescribeDefaultClusterParameters"
@@ -589,6 +606,11 @@ testAuthorizeClusterSecurityGroupIngress :: AuthorizeClusterSecurityGroupIngress
 testAuthorizeClusterSecurityGroupIngress = req
     "AuthorizeClusterSecurityGroupIngress"
     "fixture/AuthorizeClusterSecurityGroupIngress.yaml"
+
+testDescribeTableRestoreStatus :: DescribeTableRestoreStatus -> TestTree
+testDescribeTableRestoreStatus = req
+    "DescribeTableRestoreStatus"
+    "fixture/DescribeTableRestoreStatus.yaml"
 
 testCreateClusterSnapshot :: CreateClusterSnapshot -> TestTree
 testCreateClusterSnapshot = req
@@ -883,6 +905,13 @@ testCreateHSMClientCertificateResponse = res
     redshift
     (Proxy :: Proxy CreateHSMClientCertificate)
 
+testRestoreTableFromClusterSnapshotResponse :: RestoreTableFromClusterSnapshotResponse -> TestTree
+testRestoreTableFromClusterSnapshotResponse = res
+    "RestoreTableFromClusterSnapshotResponse"
+    "fixture/RestoreTableFromClusterSnapshotResponse.proto"
+    redshift
+    (Proxy :: Proxy RestoreTableFromClusterSnapshot)
+
 testDescribeDefaultClusterParametersResponse :: DescribeDefaultClusterParametersResponse -> TestTree
 testDescribeDefaultClusterParametersResponse = res
     "DescribeDefaultClusterParametersResponse"
@@ -966,6 +995,13 @@ testAuthorizeClusterSecurityGroupIngressResponse = res
     "fixture/AuthorizeClusterSecurityGroupIngressResponse.proto"
     redshift
     (Proxy :: Proxy AuthorizeClusterSecurityGroupIngress)
+
+testDescribeTableRestoreStatusResponse :: DescribeTableRestoreStatusResponse -> TestTree
+testDescribeTableRestoreStatusResponse = res
+    "DescribeTableRestoreStatusResponse"
+    "fixture/DescribeTableRestoreStatusResponse.proto"
+    redshift
+    (Proxy :: Proxy DescribeTableRestoreStatus)
 
 testCreateClusterSnapshotResponse :: CreateClusterSnapshotResponse -> TestTree
 testCreateClusterSnapshotResponse = res

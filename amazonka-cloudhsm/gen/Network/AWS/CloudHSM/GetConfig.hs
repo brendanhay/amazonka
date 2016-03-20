@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.GetConfig
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Gets the configuration files necessary to connect to all high
 -- availability partition groups the client is associated with.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_GetConfig.html AWS API Reference> for GetConfig.
 module Network.AWS.CloudHSM.GetConfig
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest GetConfig where
                    (x .?> "ConfigFile") <*> (x .?> "ConfigCred") <*>
                      (x .?> "ConfigType")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetConfig
 
 instance ToHeaders GetConfig where
         toHeaders

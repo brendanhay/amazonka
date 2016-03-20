@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateStack
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateStack.html AWS API Reference> for UpdateStack.
 module Network.AWS.OpsWorks.UpdateStack
     (
     -- * Creating a Request
@@ -187,7 +185,7 @@ usChefConfiguration = lens _usChefConfiguration (\ s a -> s{_usChefConfiguration
 -- The default setting is 'LATEST'. To specify an agent version, you must
 -- use the complete version number, not the abbreviated number shown on the
 -- console. For a list of available agent version numbers, call
--- DescribeAgentVersions.
+-- < DescribeAgentVersions>.
 --
 -- You can also specify an agent version when you create or update an
 -- instance, which overrides the stack\'s default setting.
@@ -227,7 +225,7 @@ usCustomCookbooksSource = lens _usCustomCookbooksSource (\ s a -> s{_usCustomCoo
 -- region. For more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 -- If you also specify a value for 'DefaultSubnetId', the subnet must be in
--- the same zone. For more information, see CreateStack.
+-- the same zone. For more information, see < CreateStack>.
 usDefaultAvailabilityZone :: Lens' UpdateStack (Maybe Text)
 usDefaultAvailabilityZone = lens _usDefaultAvailabilityZone (\ s a -> s{_usDefaultAvailabilityZone = a});
 
@@ -296,9 +294,10 @@ usUseCustomCookbooks = lens _usUseCustomCookbooks (\ s a -> s{_usUseCustomCookbo
 usDefaultSubnetId :: Lens' UpdateStack (Maybe Text)
 usDefaultSubnetId = lens _usDefaultSubnetId (\ s a -> s{_usDefaultSubnetId = a});
 
--- | The configuration manager. When you clone a stack, we recommend that you
--- use the configuration manager to specify the Chef version: 0.9, 11.4, or
--- 11.10. The default value is currently 11.4.
+-- | The configuration manager. When you update a stack, we recommend that
+-- you use the configuration manager to specify the Chef version: 12,
+-- 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default
+-- value for Linux stacks is currently 11.4.
 usConfigurationManager :: Lens' UpdateStack (Maybe StackConfigurationManager)
 usConfigurationManager = lens _usConfigurationManager (\ s a -> s{_usConfigurationManager = a});
 
@@ -333,6 +332,8 @@ instance AWSRequest UpdateStack where
         type Rs UpdateStack = UpdateStackResponse
         request = postJSON opsWorks
         response = receiveNull UpdateStackResponse'
+
+instance Hashable UpdateStack
 
 instance ToHeaders UpdateStack where
         toHeaders

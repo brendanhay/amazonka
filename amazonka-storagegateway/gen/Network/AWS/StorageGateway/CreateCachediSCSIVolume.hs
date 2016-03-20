@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateCachediSCSIVolume
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 -- architecture.
 --
 -- Cache storage must be allocated to the gateway before you can create a
--- cached volume. Use the AddCache operation to add cache storage to a
+-- cached volume. Use the < AddCache> operation to add cache storage to a
 -- gateway.
 --
 -- In the request, you must specify the gateway, size of the volume in
@@ -32,8 +32,6 @@
 -- creates the volume and returns information about it such as the volume
 -- Amazon Resource Name (ARN), its size, and the iSCSI target ARN that
 -- initiators can use to connect to the volume target.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateCachediSCSIVolume.html AWS API Reference> for CreateCachediSCSIVolume.
 module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     (
     -- * Creating a Request
@@ -139,6 +137,8 @@ instance AWSRequest CreateCachediSCSIVolume where
                  CreateCachediSCSIVolumeResponse' <$>
                    (x .?> "TargetARN") <*> (x .?> "VolumeARN") <*>
                      (pure (fromEnum s)))
+
+instance Hashable CreateCachediSCSIVolume
 
 instance ToHeaders CreateCachediSCSIVolume where
         toHeaders

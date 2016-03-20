@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteIntegrationResponse
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a delete integration response.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteIntegrationResponse.html AWS API Reference> for DeleteIntegrationResponse.
 module Network.AWS.APIGateway.DeleteIntegrationResponse
     (
     -- * Creating a Request
@@ -102,8 +100,13 @@ instance AWSRequest DeleteIntegrationResponse where
         response
           = receiveNull DeleteIntegrationResponseResponse'
 
+instance Hashable DeleteIntegrationResponse
+
 instance ToHeaders DeleteIntegrationResponse where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteIntegrationResponse where
         toPath DeleteIntegrationResponse'{..}

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetOpenIdConnectProvider
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the specified OpenID Connect provider.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIdConnectProvider.html AWS API Reference> for GetOpenIdConnectProvider.
 module Network.AWS.IAM.GetOpenIdConnectProvider
     (
     -- * Creating a Request
@@ -67,7 +65,7 @@ getOpenIdConnectProvider pOpenIdConnectProviderARN_ =
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to get information for. You can get a list of OIDC provider ARNs by
--- using the ListOpenIDConnectProviders action.
+-- using the < ListOpenIDConnectProviders> action.
 goicpOpenIdConnectProviderARN :: Lens' GetOpenIdConnectProvider Text
 goicpOpenIdConnectProviderARN = lens _goicpOpenIdConnectProviderARN (\ s a -> s{_goicpOpenIdConnectProviderARN = a});
 
@@ -87,6 +85,8 @@ instance AWSRequest GetOpenIdConnectProvider where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetOpenIdConnectProvider
+
 instance ToHeaders GetOpenIdConnectProvider where
         toHeaders = const mempty
 
@@ -102,7 +102,8 @@ instance ToQuery GetOpenIdConnectProvider where
                "OpenIDConnectProviderArn" =:
                  _goicpOpenIdConnectProviderARN]
 
--- | Contains the response to a successful GetOpenIDConnectProvider request.
+-- | Contains the response to a successful < GetOpenIDConnectProvider>
+-- request.
 --
 -- /See:/ 'getOpenIdConnectProviderResponse' smart constructor.
 data GetOpenIdConnectProviderResponse = GetOpenIdConnectProviderResponse'
@@ -144,19 +145,19 @@ goicprsCreateDate :: Lens' GetOpenIdConnectProviderResponse (Maybe UTCTime)
 goicprsCreateDate = lens _goicprsCreateDate (\ s a -> s{_goicprsCreateDate = a}) . mapping _Time;
 
 -- | The URL that the IAM OpenID Connect provider is associated with. For
--- more information, see CreateOpenIDConnectProvider.
+-- more information, see < CreateOpenIDConnectProvider>.
 goicprsURL :: Lens' GetOpenIdConnectProviderResponse (Maybe Text)
 goicprsURL = lens _goicprsURL (\ s a -> s{_goicprsURL = a});
 
 -- | A list of certificate thumbprints that are associated with the specified
 -- IAM OpenID Connect provider. For more information, see
--- CreateOpenIDConnectProvider.
+-- < CreateOpenIDConnectProvider>.
 goicprsThumbprintList :: Lens' GetOpenIdConnectProviderResponse [Text]
 goicprsThumbprintList = lens _goicprsThumbprintList (\ s a -> s{_goicprsThumbprintList = a}) . _Default . _Coerce;
 
 -- | A list of client IDs (also known as audiences) that are associated with
 -- the specified IAM OpenID Connect provider. For more information, see
--- CreateOpenIDConnectProvider.
+-- < CreateOpenIDConnectProvider>.
 goicprsClientIdList :: Lens' GetOpenIdConnectProviderResponse [Text]
 goicprsClientIdList = lens _goicprsClientIdList (\ s a -> s{_goicprsClientIdList = a}) . _Default . _Coerce;
 

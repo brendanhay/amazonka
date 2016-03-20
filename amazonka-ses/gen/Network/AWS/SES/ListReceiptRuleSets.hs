@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListReceiptRuleSets
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListReceiptRuleSets.html AWS API Reference> for ListReceiptRuleSets.
 module Network.AWS.SES.ListReceiptRuleSets
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest ListReceiptRuleSets where
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListReceiptRuleSets
 
 instance ToHeaders ListReceiptRuleSets where
         toHeaders = const mempty

@@ -12,17 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a snapshot of a Simple AD directory.
+-- Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS
+-- cloud.
 --
 -- You cannot take snapshots of AD Connector directories.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateSnapshot.html AWS API Reference> for CreateSnapshot.
 module Network.AWS.DirectoryService.CreateSnapshot
     (
     -- * Creating a Request
@@ -47,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the CreateSnapshot operation.
+-- | Contains the inputs for the < CreateSnapshot> operation.
 --
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
@@ -75,7 +74,7 @@ createSnapshot pDirectoryId_ =
 csName :: Lens' CreateSnapshot (Maybe Text)
 csName = lens _csName (\ s a -> s{_csName = a});
 
--- | The identifier of the directory to take a snapshot of.
+-- | The identifier of the directory of which to take a snapshot.
 csDirectoryId :: Lens' CreateSnapshot Text
 csDirectoryId = lens _csDirectoryId (\ s a -> s{_csDirectoryId = a});
 
@@ -87,6 +86,8 @@ instance AWSRequest CreateSnapshot where
               (\ s h x ->
                  CreateSnapshotResponse' <$>
                    (x .?> "SnapshotId") <*> (pure (fromEnum s)))
+
+instance Hashable CreateSnapshot
 
 instance ToHeaders CreateSnapshot where
         toHeaders
@@ -111,7 +112,7 @@ instance ToPath CreateSnapshot where
 instance ToQuery CreateSnapshot where
         toQuery = const mempty
 
--- | Contains the results of the CreateSnapshot operation.
+-- | Contains the results of the < CreateSnapshot> operation.
 --
 -- /See:/ 'createSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'

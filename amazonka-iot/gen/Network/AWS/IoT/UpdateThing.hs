@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.UpdateThing
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the data for a thing.
---
--- /See:/ <https://aws.amazon.com/iot#UpdateThing.html AWS API Reference> for UpdateThing.
 module Network.AWS.IoT.UpdateThing
     (
     -- * Creating a Request
@@ -74,9 +72,8 @@ utThingName :: Lens' UpdateThing Text
 utThingName = lens _utThingName (\ s a -> s{_utThingName = a});
 
 -- | The attribute payload, a JSON string containing up to three key-value
--- pairs.
---
--- For example: {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}
+-- pairs (for example,
+-- {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
 utAttributePayload :: Lens' UpdateThing AttributePayload
 utAttributePayload = lens _utAttributePayload (\ s a -> s{_utAttributePayload = a});
 
@@ -87,6 +84,8 @@ instance AWSRequest UpdateThing where
           = receiveEmpty
               (\ s h x ->
                  UpdateThingResponse' <$> (pure (fromEnum s)))
+
+instance Hashable UpdateThing
 
 instance ToHeaders UpdateThing where
         toHeaders = const mempty

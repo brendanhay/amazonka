@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusterSnapshots
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -35,8 +35,6 @@
 -- If both tag keys and values are omitted from the request, snapshots are
 -- returned regardless of whether they have tag keys or values associated
 -- with them.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSnapshots.html AWS API Reference> for DescribeClusterSnapshots.
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusterSnapshots
@@ -173,7 +171,7 @@ dSnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
 dSnapshotType = lens _dSnapshotType (\ s a -> s{_dSnapshotType = a});
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSnapshots
+-- of response records. When the results of a < DescribeClusterSnapshots>
 -- request exceed the value specified in 'MaxRecords', AWS returns a value
 -- in the 'Marker' field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the 'Marker'
@@ -229,6 +227,8 @@ instance AWSRequest DescribeClusterSnapshots where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeClusterSnapshots
+
 instance ToHeaders DescribeClusterSnapshots where
         toHeaders = const mempty
 
@@ -253,7 +253,7 @@ instance ToQuery DescribeClusterSnapshots where
                "EndTime" =: _dEndTime,
                "OwnerAccount" =: _dOwnerAccount]
 
--- | Contains the output from the DescribeClusterSnapshots action.
+-- | Contains the output from the < DescribeClusterSnapshots> action.
 --
 -- /See:/ 'describeClusterSnapshotsResponse' smart constructor.
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'
@@ -281,7 +281,7 @@ describeClusterSnapshotsResponse pResponseStatus_ =
     , _dcssrsResponseStatus = pResponseStatus_
     }
 
--- | A list of Snapshot instances.
+-- | A list of < Snapshot> instances.
 dcssrsSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
 dcssrsSnapshots = lens _dcssrsSnapshots (\ s a -> s{_dcssrsSnapshots = a}) . _Default . _Coerce;
 

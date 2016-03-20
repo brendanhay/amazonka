@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.ListRecords
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- ListRecords can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials. You should use Cognito
 -- Identity credentials to make this API call.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListRecords.html AWS API Reference> for ListRecords.
 module Network.AWS.CognitoSync.ListRecords
     (
     -- * Creating a Request
@@ -161,6 +159,8 @@ instance AWSRequest ListRecords where
                      <*> (x .?> "LastModifiedBy")
                      <*> (x .?> "DatasetSyncCount")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListRecords
 
 instance ToHeaders ListRecords where
         toHeaders

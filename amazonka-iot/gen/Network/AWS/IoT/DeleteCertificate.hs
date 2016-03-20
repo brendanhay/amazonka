@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,11 +21,9 @@
 -- Deletes the specified certificate.
 --
 -- A certificate cannot be deleted if it has a policy attached to it or if
--- its status is set to ACTIVE. To delete a certificate, first detach all
--- policies using the DetachPrincipalPolicy API. Next use the
--- UpdateCertificate API to set the certificate to the INACTIVE status.
---
--- /See:/ <https://aws.amazon.com/iot#DeleteCertificate.html AWS API Reference> for DeleteCertificate.
+-- its status is set to ACTIVE. To delete a certificate, first use the
+-- < DetachPrincipalPolicy> API to detach all policies. Next, use the
+-- < UpdateCertificate> API to set the certificate to the INACTIVE status.
 module Network.AWS.IoT.DeleteCertificate
     (
     -- * Creating a Request
@@ -74,6 +72,8 @@ instance AWSRequest DeleteCertificate where
         type Rs DeleteCertificate = DeleteCertificateResponse
         request = delete ioT
         response = receiveNull DeleteCertificateResponse'
+
+instance Hashable DeleteCertificate
 
 instance ToHeaders DeleteCertificate where
         toHeaders = const mempty

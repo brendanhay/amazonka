@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribePlacementGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- about placement groups and cluster instances, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePlacementGroups.html AWS API Reference> for DescribePlacementGroups.
 module Network.AWS.EC2.DescribePlacementGroups
     (
     -- * Creating a Request
@@ -111,6 +109,8 @@ instance AWSRequest DescribePlacementGroups where
                    (x .@? "placementGroupSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribePlacementGroups
 
 instance ToHeaders DescribePlacementGroups where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.DescribeCluster
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,9 +20,7 @@
 --
 -- Provides cluster-level details including status, hardware and software
 -- configuration, VPC settings, and so on. For information about the
--- cluster steps, see ListSteps.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeCluster.html AWS API Reference> for DescribeCluster.
+-- cluster steps, see < ListSteps>.
 module Network.AWS.EMR.DescribeCluster
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest DescribeCluster where
               (\ s h x ->
                  DescribeClusterResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Cluster"))
+
+instance Hashable DescribeCluster
 
 instance ToHeaders DescribeCluster where
         toHeaders

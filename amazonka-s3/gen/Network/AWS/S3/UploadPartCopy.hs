@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.UploadPartCopy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Uploads a part by copying data from an existing object as data source.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/UploadPartCopy.html AWS API Reference> for UploadPartCopy.
 module Network.AWS.S3.UploadPartCopy
     (
     -- * Creating a Request
@@ -259,6 +257,8 @@ instance AWSRequest UploadPartCopy where
                      (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (pure (fromEnum s)))
+
+instance Hashable UploadPartCopy
 
 instance ToHeaders UploadPartCopy where
         toHeaders UploadPartCopy'{..}

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetApplications
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more applications.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetApplications.html AWS API Reference> for BatchGetApplications.
 module Network.AWS.CodeDeploy.BatchGetApplications
     (
     -- * Creating a Request
@@ -63,8 +61,7 @@ batchGetApplications =
     { _bgaApplicationNames = Nothing
     }
 
--- | A list of application names, with multiple application names separated
--- by spaces.
+-- | A list of application names separated by spaces.
 bgaApplicationNames :: Lens' BatchGetApplications [Text]
 bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a}) . _Default . _Coerce;
 
@@ -78,6 +75,8 @@ instance AWSRequest BatchGetApplications where
                  BatchGetApplicationsResponse' <$>
                    (x .?> "applicationsInfo" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable BatchGetApplications
 
 instance ToHeaders BatchGetApplications where
         toHeaders

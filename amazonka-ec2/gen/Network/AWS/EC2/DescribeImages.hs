@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeImages
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- Deregistered images are included in the returned results for an
 -- unspecified interval after deregistration.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImages.html AWS API Reference> for DescribeImages.
 module Network.AWS.EC2.DescribeImages
     (
     -- * Creating a Request
@@ -207,6 +205,8 @@ instance AWSRequest DescribeImages where
                    (x .@? "imagesSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeImages
 
 instance ToHeaders DescribeImages where
         toHeaders = const mempty

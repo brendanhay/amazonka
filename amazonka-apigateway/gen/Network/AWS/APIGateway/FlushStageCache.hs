@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.FlushStageCache
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Flushes a stage\'s cache.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/FlushStageCache.html AWS API Reference> for FlushStageCache.
 module Network.AWS.APIGateway.FlushStageCache
     (
     -- * Creating a Request
@@ -80,8 +78,13 @@ instance AWSRequest FlushStageCache where
         request = delete aPIGateway
         response = receiveNull FlushStageCacheResponse'
 
+instance Hashable FlushStageCache
+
 instance ToHeaders FlushStageCache where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath FlushStageCache where
         toPath FlushStageCache'{..}

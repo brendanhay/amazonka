@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVPCEndpoint
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Modifies attributes of a specified VPC endpoint. You can modify the
 -- policy associated with the endpoint, and you can add and remove route
 -- tables associated with the endpoint.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVPCEndpoint.html AWS API Reference> for ModifyVPCEndpoint.
 module Network.AWS.EC2.ModifyVPCEndpoint
     (
     -- * Creating a Request
@@ -126,6 +124,8 @@ instance AWSRequest ModifyVPCEndpoint where
               (\ s h x ->
                  ModifyVPCEndpointResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
+
+instance Hashable ModifyVPCEndpoint
 
 instance ToHeaders ModifyVPCEndpoint where
         toHeaders = const mempty

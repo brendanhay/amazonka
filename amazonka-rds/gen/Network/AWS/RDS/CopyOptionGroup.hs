@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CopyOptionGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Copies the specified option group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyOptionGroup.html AWS API Reference> for CopyOptionGroup.
 module Network.AWS.RDS.CopyOptionGroup
     (
     -- * Creating a Request
@@ -126,6 +124,8 @@ instance AWSRequest CopyOptionGroup where
               (\ s h x ->
                  CopyOptionGroupResponse' <$>
                    (x .@? "OptionGroup") <*> (pure (fromEnum s)))
+
+instance Hashable CopyOptionGroup
 
 instance ToHeaders CopyOptionGroup where
         toHeaders = const mempty

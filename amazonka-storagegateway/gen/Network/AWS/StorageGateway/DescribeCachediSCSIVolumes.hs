@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- The list of gateway volumes in the request must be from one gateway. In
 -- the response Amazon Storage Gateway returns volume information sorted by
 -- volume Amazon Resource Name (ARN).
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCachediSCSIVolumes.html AWS API Reference> for DescribeCachediSCSIVolumes.
 module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest DescribeCachediSCSIVolumes where
                  DescribeCachediSCSIVolumesResponse' <$>
                    (x .?> "CachediSCSIVolumes" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeCachediSCSIVolumes
 
 instance ToHeaders DescribeCachediSCSIVolumes where
         toHeaders

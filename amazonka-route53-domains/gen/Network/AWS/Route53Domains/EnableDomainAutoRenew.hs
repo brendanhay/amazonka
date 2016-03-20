@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.EnableDomainAutoRenew
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- on the website for our registrar partner, Gandi. Route 53 requires that
 -- you renew before the end of the renewal period that is listed on the
 -- Gandi website so we can complete processing before the deadline.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-EnableDomainAutoRenew.html AWS API Reference> for EnableDomainAutoRenew.
 module Network.AWS.Route53Domains.EnableDomainAutoRenew
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest EnableDomainAutoRenew where
               (\ s h x ->
                  EnableDomainAutoRenewResponse' <$>
                    (pure (fromEnum s)))
+
+instance Hashable EnableDomainAutoRenew
 
 instance ToHeaders EnableDomainAutoRenew where
         toHeaders

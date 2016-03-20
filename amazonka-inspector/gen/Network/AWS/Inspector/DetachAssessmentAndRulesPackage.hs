@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DetachAssessmentAndRulesPackage
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Detaches the rules package specified by the rules package ARN from the
 -- assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DetachAssessmentAndRulesPackage.html AWS API Reference> for DetachAssessmentAndRulesPackage.
 module Network.AWS.Inspector.DetachAssessmentAndRulesPackage
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest DetachAssessmentAndRulesPackage
               (\ s h x ->
                  DetachAssessmentAndRulesPackageResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
+
+instance Hashable DetachAssessmentAndRulesPackage
 
 instance ToHeaders DetachAssessmentAndRulesPackage
          where

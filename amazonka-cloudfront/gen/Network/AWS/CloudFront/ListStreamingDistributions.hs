@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListStreamingDistributions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- List streaming distributions.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListStreamingDistributions.html AWS API Reference> for ListStreamingDistributions.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListStreamingDistributions
@@ -112,11 +110,13 @@ instance AWSRequest ListStreamingDistributions where
                  ListStreamingDistributionsResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
 
+instance Hashable ListStreamingDistributions
+
 instance ToHeaders ListStreamingDistributions where
         toHeaders = const mempty
 
 instance ToPath ListStreamingDistributions where
-        toPath = const "/2015-09-17/streaming-distribution"
+        toPath = const "/2016-01-28/streaming-distribution"
 
 instance ToQuery ListStreamingDistributions where
         toQuery ListStreamingDistributions'{..}

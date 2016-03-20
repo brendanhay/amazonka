@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.AddTagsToResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,6 @@
 --
 -- You can create a maximum of 10 tags for each resource. Virtual tapes and
 -- storage volumes that are recovered to a new gateway maintain their tags.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddTagsToResource.html AWS API Reference> for AddTagsToResource.
 module Network.AWS.StorageGateway.AddTagsToResource
     (
     -- * Creating a Request
@@ -103,6 +101,8 @@ instance AWSRequest AddTagsToResource where
               (\ s h x ->
                  AddTagsToResourceResponse' <$>
                    (x .?> "ResourceARN") <*> (pure (fromEnum s)))
+
+instance Hashable AddTagsToResource
 
 instance ToHeaders AddTagsToResource where
         toHeaders

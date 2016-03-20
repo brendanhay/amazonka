@@ -12,36 +12,34 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateReservedInstancesListing
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a listing for Amazon EC2 Reserved instances to be sold in the
--- Reserved Instance Marketplace. You can submit one Reserved instance
--- listing at a time. To get a list of your Reserved instances, you can use
--- the DescribeReservedInstances operation.
+-- Creates a listing for Amazon EC2 Reserved Instances to be sold in the
+-- Reserved Instance Marketplace. You can submit one Reserved Instance
+-- listing at a time. To get a list of your Reserved Instances, you can use
+-- the < DescribeReservedInstances> operation.
 --
 -- The Reserved Instance Marketplace matches sellers who want to resell
--- Reserved instance capacity that they no longer need with buyers who want
--- to purchase additional capacity. Reserved instances bought and sold
+-- Reserved Instance capacity that they no longer need with buyers who want
+-- to purchase additional capacity. Reserved Instances bought and sold
 -- through the Reserved Instance Marketplace work like any other Reserved
--- instances.
+-- Instances.
 --
--- To sell your Reserved instances, you must first register as a seller in
+-- To sell your Reserved Instances, you must first register as a seller in
 -- the Reserved Instance Marketplace. After completing the registration
 -- process, you can create a Reserved Instance Marketplace listing of some
--- or all of your Reserved instances, and specify the upfront price to
--- receive for them. Your Reserved instance listings then become available
--- for purchase. To view the details of your Reserved instance listing, you
--- can use the DescribeReservedInstancesListings operation.
+-- or all of your Reserved Instances, and specify the upfront price to
+-- receive for them. Your Reserved Instance listings then become available
+-- for purchase. To view the details of your Reserved Instance listing, you
+-- can use the < DescribeReservedInstancesListings> operation.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateReservedInstancesListing.html AWS API Reference> for CreateReservedInstancesListing.
 module Network.AWS.EC2.CreateReservedInstancesListing
     (
     -- * Creating a Request
@@ -100,19 +98,19 @@ createReservedInstancesListing pReservedInstancesId_ pInstanceCount_ pClientToke
     , _crilClientToken = pClientToken_
     }
 
--- | The ID of the active Reserved instance.
+-- | The ID of the active Reserved Instance.
 crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
 crilReservedInstancesId = lens _crilReservedInstancesId (\ s a -> s{_crilReservedInstancesId = a});
 
--- | The number of instances that are a part of a Reserved instance account
+-- | The number of instances that are a part of a Reserved Instance account
 -- to be listed in the Reserved Instance Marketplace. This number should be
 -- less than or equal to the instance count associated with the Reserved
--- instance ID specified in this call.
+-- Instance ID specified in this call.
 crilInstanceCount :: Lens' CreateReservedInstancesListing Int
 crilInstanceCount = lens _crilInstanceCount (\ s a -> s{_crilInstanceCount = a});
 
--- | A list specifying the price of the Reserved instance for each month
--- remaining in the Reserved instance term.
+-- | A list specifying the price of the Reserved Instance for each month
+-- remaining in the Reserved Instance term.
 crilPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
 crilPriceSchedules = lens _crilPriceSchedules (\ s a -> s{_crilPriceSchedules = a}) . _Coerce;
 
@@ -135,6 +133,8 @@ instance AWSRequest CreateReservedInstancesListing
                    (x .@? "reservedInstancesListingsSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable CreateReservedInstancesListing
 
 instance ToHeaders CreateReservedInstancesListing
          where
@@ -176,7 +176,7 @@ createReservedInstancesListingResponse pResponseStatus_ =
     , _crersResponseStatus = pResponseStatus_
     }
 
--- | Information about the Reserved instance listing.
+-- | Information about the Reserved Instance listing.
 crersReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
 crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> s{_crersReservedInstancesListings = a}) . _Default . _Coerce;
 

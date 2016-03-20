@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateTrafficPolicyInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,12 +27,10 @@
 -- 'CreateTrafficPolicyInstance' created.
 --
 -- To create a traffic policy instance, send a 'POST' request to the
--- '2013-04-01\/trafficpolicyinstance' resource. The request body must
--- include an XML document with a 'CreateTrafficPolicyRequest' element. The
--- response returns the 'CreateTrafficPolicyInstanceResponse' element,
--- which contains information about the traffic policy instance.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicyInstance.html AWS API Reference> for CreateTrafficPolicyInstance.
+-- '\/Route 53 API version\/trafficpolicyinstance' resource. The request
+-- body must include a document with a 'CreateTrafficPolicyRequest'
+-- element. The response returns the 'CreateTrafficPolicyInstanceResponse'
+-- element, which contains information about the traffic policy instance.
 module Network.AWS.Route53.CreateTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -140,6 +138,8 @@ instance AWSRequest CreateTrafficPolicyInstance where
                    (pure (fromEnum s)) <*>
                      (x .@ "TrafficPolicyInstance")
                      <*> (h .# "Location"))
+
+instance Hashable CreateTrafficPolicyInstance
 
 instance ToElement CreateTrafficPolicyInstance where
         toElement

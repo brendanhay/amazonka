@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateTapes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,10 +22,8 @@
 -- and then archive the tapes.
 --
 -- Cache storage must be allocated to the gateway before you can create
--- virtual tapes. Use the AddCache operation to add cache storage to a
+-- virtual tapes. Use the < AddCache> operation to add cache storage to a
 -- gateway.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateTapes.html AWS API Reference> for CreateTapes.
 module Network.AWS.StorageGateway.CreateTapes
     (
     -- * Creating a Request
@@ -93,15 +91,15 @@ createTapes pGatewayARN_ pTapeSizeInBytes_ pClientToken_ pNumTapesToCreate_ pTap
     , _ctTapeBarcodePrefix = pTapeBarcodePrefix_
     }
 
--- | The unique Amazon Resource Name(ARN) that represents the gateway to
--- associate the virtual tapes with. Use the ListGateways operation to
+-- | The unique Amazon Resource Name (ARN) that represents the gateway to
+-- associate the virtual tapes with. Use the < ListGateways> operation to
 -- return a list of gateways for your account and region.
 ctGatewayARN :: Lens' CreateTapes Text
 ctGatewayARN = lens _ctGatewayARN (\ s a -> s{_ctGatewayARN = a});
 
--- | The size, in bytes, of the virtual tapes you want to create.
+-- | The size, in bytes, of the virtual tapes that you want to create.
 --
--- The size must be gigabyte (1024*1024*1024 byte) aligned.
+-- The size must be aligned by gigabyte (1024*1024*1024 byte).
 ctTapeSizeInBytes :: Lens' CreateTapes Integer
 ctTapeSizeInBytes = lens _ctTapeSizeInBytes (\ s a -> s{_ctTapeSizeInBytes = a});
 
@@ -113,15 +111,15 @@ ctTapeSizeInBytes = lens _ctTapeSizeInBytes (\ s a -> s{_ctTapeSizeInBytes = a})
 ctClientToken :: Lens' CreateTapes Text
 ctClientToken = lens _ctClientToken (\ s a -> s{_ctClientToken = a});
 
--- | The number of virtual tapes you want to create.
+-- | The number of virtual tapes that you want to create.
 ctNumTapesToCreate :: Lens' CreateTapes Natural
 ctNumTapesToCreate = lens _ctNumTapesToCreate (\ s a -> s{_ctNumTapesToCreate = a}) . _Nat;
 
--- | A prefix you append to the barcode of the virtual tape you are creating.
--- This makes a barcode unique.
+-- | A prefix that you append to the barcode of the virtual tape you are
+-- creating. This prefix makes the barcode unique.
 --
--- The prefix must be 1 to 4 characters in length and must be upper-case
--- letters A-Z.
+-- The prefix must be 1 to 4 characters in length and must be one of the
+-- uppercase letters from A to Z.
 ctTapeBarcodePrefix :: Lens' CreateTapes Text
 ctTapeBarcodePrefix = lens _ctTapeBarcodePrefix (\ s a -> s{_ctTapeBarcodePrefix = a});
 
@@ -134,6 +132,8 @@ instance AWSRequest CreateTapes where
                  CreateTapesResponse' <$>
                    (x .?> "TapeARNs" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable CreateTapes
 
 instance ToHeaders CreateTapes where
         toHeaders
@@ -185,8 +185,8 @@ createTapesResponse pResponseStatus_ =
     , _ctrsResponseStatus = pResponseStatus_
     }
 
--- | A list of unique Amazon Resource Named (ARN) that represents the virtual
--- tapes that were created.
+-- | A list of unique Amazon Resource Names (ARNs) that represents the
+-- virtual tapes that were created.
 ctrsTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrsTapeARNs = lens _ctrsTapeARNs (\ s a -> s{_ctrsTapeARNs = a}) . _Default . _Coerce;
 

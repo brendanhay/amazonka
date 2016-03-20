@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.SetInstanceProtection
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection Instance Protection>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetInstanceProtection.html AWS API Reference> for SetInstanceProtection.
 module Network.AWS.AutoScaling.SetInstanceProtection
     (
     -- * Creating a Request
@@ -98,6 +96,8 @@ instance AWSRequest SetInstanceProtection where
               (\ s h x ->
                  SetInstanceProtectionResponse' <$>
                    (pure (fromEnum s)))
+
+instance Hashable SetInstanceProtection
 
 instance ToHeaders SetInstanceProtection where
         toHeaders = const mempty

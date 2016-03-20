@@ -12,24 +12,26 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.ListEventSourceMappings
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of event source mappings you created using the
--- 'CreateEventSourceMapping' (see CreateEventSourceMapping), where you
--- identify a stream as an event source. This list does not include Amazon
--- S3 event sources.
+-- 'CreateEventSourceMapping' (see < CreateEventSourceMapping>).
 --
 -- For each mapping, the API returns configuration information. You can
 -- optionally specify filters to retrieve specific event source mappings.
 --
+-- If you are using the versioning feature, you can get list of event
+-- source mappings for a specific Lambda function version or an alias as
+-- described in the 'FunctionName' parameter. For information about the
+-- versioning feature, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+--
 -- This operation requires permission for the
 -- 'lambda:ListEventSourceMappings' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_ListEventSourceMappings.html AWS API Reference> for ListEventSourceMappings.
 --
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListEventSourceMappings
@@ -106,14 +108,15 @@ lesmMaxItems = lens _lesmMaxItems (\ s a -> s{_lesmMaxItems = a}) . mapping _Nat
 
 -- | The name of the Lambda function.
 --
--- You can specify an unqualified function name (for example,
--- \"Thumbnail\") or you can specify Amazon Resource Name (ARN) of the
--- function (for example,
--- \"arn:aws:lambda:us-west-2:account-id:function:ThumbNail\"). AWS Lambda
--- also allows you to specify only the account ID qualifier (for example,
--- \"account-id:Thumbnail\"). Note that the length constraint applies only
--- to the ARN. If you specify only the function name, it is limited to 64
--- character in length.
+-- You can specify the function name (for example, 'Thumbnail') or you can
+-- specify Amazon Resource Name (ARN) of the function (for example,
+-- 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). If you are
+-- using versioning, you can also provide a qualified function ARN (ARN
+-- that is qualified with function version or alias name as suffix). AWS
+-- Lambda also allows you to specify only the function name with the
+-- account ID qualifier (for example, 'account-id:Thumbnail'). Note that
+-- the length constraint applies only to the ARN. If you specify only the
+-- function name, it is limited to 64 character in length.
 lesmFunctionName :: Lens' ListEventSourceMappings (Maybe Text)
 lesmFunctionName = lens _lesmFunctionName (\ s a -> s{_lesmFunctionName = a});
 
@@ -136,6 +139,8 @@ instance AWSRequest ListEventSourceMappings where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListEventSourceMappings
+
 instance ToHeaders ListEventSourceMappings where
         toHeaders = const mempty
 
@@ -150,7 +155,7 @@ instance ToQuery ListEventSourceMappings where
                "FunctionName" =: _lesmFunctionName]
 
 -- | Contains a list of event sources (see
--- API_EventSourceMappingConfiguration)
+-- < API_EventSourceMappingConfiguration>)
 --
 -- /See:/ 'listEventSourceMappingsResponse' smart constructor.
 data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'

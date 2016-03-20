@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateAccessKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 -- For information about rotating keys, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html Managing Keys and Certificates>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccessKey.html AWS API Reference> for UpdateAccessKey.
 module Network.AWS.IAM.UpdateAccessKey
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest UpdateAccessKey where
         type Rs UpdateAccessKey = UpdateAccessKeyResponse
         request = postQuery iAM
         response = receiveNull UpdateAccessKeyResponse'
+
+instance Hashable UpdateAccessKey
 
 instance ToHeaders UpdateAccessKey where
         toHeaders = const mempty

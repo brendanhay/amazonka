@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromRDS
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,21 +21,20 @@
 -- Creates a 'DataSource' object from an
 -- <http://aws.amazon.com/rds/ Amazon Relational Database Service> (Amazon
 -- RDS). A 'DataSource' references data that can be used to perform
--- CreateMLModel, CreateEvaluation, or CreateBatchPrediction operations.
+-- < CreateMLModel>, < CreateEvaluation>, or < CreateBatchPrediction>
+-- operations.
 --
 -- 'CreateDataSourceFromRDS' is an asynchronous operation. In response to
 -- 'CreateDataSourceFromRDS', Amazon Machine Learning (Amazon ML)
 -- immediately returns and sets the 'DataSource' status to 'PENDING'. After
 -- the 'DataSource' is created and ready for use, Amazon ML sets the
 -- 'Status' parameter to 'COMPLETED'. 'DataSource' in 'COMPLETED' or
--- 'PENDING' status can only be used to perform CreateMLModel,
--- CreateEvaluation, or CreateBatchPrediction operations.
+-- 'PENDING' status can only be used to perform < CreateMLModel>,
+-- < CreateEvaluation>, or < CreateBatchPrediction> operations.
 --
 -- If Amazon ML cannot accept the input source, it sets the 'Status'
 -- parameter to 'FAILED' and includes an error message in the 'Message'
--- attribute of the GetDataSource operation response.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateDataSourceFromRDS.html AWS API Reference> for CreateDataSourceFromRDS.
+-- attribute of the < GetDataSource> operation response.
 module Network.AWS.MachineLearning.CreateDataSourceFromRDS
     (
     -- * Creating a Request
@@ -183,6 +182,8 @@ instance AWSRequest CreateDataSourceFromRDS where
                  CreateDataSourceFromRDSResponse' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDataSourceFromRDS
+
 instance ToHeaders CreateDataSourceFromRDS where
         toHeaders
           = const
@@ -210,15 +211,15 @@ instance ToPath CreateDataSourceFromRDS where
 instance ToQuery CreateDataSourceFromRDS where
         toQuery = const mempty
 
--- | Represents the output of a CreateDataSourceFromRDS operation, and is an
--- acknowledgement that Amazon ML received the request.
+-- | Represents the output of a < CreateDataSourceFromRDS> operation, and is
+-- an acknowledgement that Amazon ML received the request.
 --
--- The CreateDataSourceFromRDS operation is asynchronous. You can poll for
--- updates by using the GetBatchPrediction operation and checking the
--- 'Status' parameter. You can inspect the 'Message' when 'Status' shows up
--- as 'FAILED'. You can also check the progress of the copy operation by
--- going to the 'DataPipeline' console and looking up the pipeline using
--- the pipelineId from the describe call.
+-- The < CreateDataSourceFromRDS> operation is asynchronous. You can poll
+-- for updates by using the < GetBatchPrediction> operation and checking
+-- the 'Status' parameter. You can inspect the 'Message' when 'Status'
+-- shows up as 'FAILED'. You can also check the progress of the copy
+-- operation by going to the 'DataPipeline' console and looking up the
+-- pipeline using the pipelineId from the describe call.
 --
 -- /See:/ 'createDataSourceFromRDSResponse' smart constructor.
 data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'

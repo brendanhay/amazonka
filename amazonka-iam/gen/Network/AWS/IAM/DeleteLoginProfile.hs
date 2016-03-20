@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteLoginProfile
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,9 +26,7 @@
 -- through the command line interface or the API. To prevent all user
 -- access you must also either make the access key inactive or delete it.
 -- For more information about making keys inactive or deleting them, see
--- UpdateAccessKey and DeleteAccessKey.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteLoginProfile.html AWS API Reference> for DeleteLoginProfile.
+-- < UpdateAccessKey> and < DeleteAccessKey>.
 module Network.AWS.IAM.DeleteLoginProfile
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest DeleteLoginProfile where
              DeleteLoginProfileResponse
         request = postQuery iAM
         response = receiveNull DeleteLoginProfileResponse'
+
+instance Hashable DeleteLoginProfile
 
 instance ToHeaders DeleteLoginProfile where
         toHeaders = const mempty

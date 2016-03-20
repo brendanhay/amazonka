@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteKeyPair
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Deletes the specified key pair, by removing the public key from Amazon
 -- EC2.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteKeyPair.html AWS API Reference> for DeleteKeyPair.
 module Network.AWS.EC2.DeleteKeyPair
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DeleteKeyPair where
         type Rs DeleteKeyPair = DeleteKeyPairResponse
         request = postQuery eC2
         response = receiveNull DeleteKeyPairResponse'
+
+instance Hashable DeleteKeyPair
 
 instance ToHeaders DeleteKeyPair where
         toHeaders = const mempty

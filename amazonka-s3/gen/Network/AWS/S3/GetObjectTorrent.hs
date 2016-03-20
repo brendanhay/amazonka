@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetObjectTorrent
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Return torrent files from a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectTorrent.html AWS API Reference> for GetObjectTorrent.
 module Network.AWS.S3.GetObjectTorrent
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest GetObjectTorrent where
                    (h .#? "x-amz-request-charged") <*>
                      (pure (fromEnum s))
                      <*> (pure x))
+
+instance Hashable GetObjectTorrent
 
 instance ToHeaders GetObjectTorrent where
         toHeaders GetObjectTorrent'{..}

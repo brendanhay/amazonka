@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,18 +25,18 @@
 -- token provider trusted by AWS Security Token Service (STS) to access
 -- temporary, limited-privilege AWS credentials.
 --
--- To provide end-user credentials, first make an unsigned call to GetId.
--- If the end user is authenticated with one of the supported identity
--- providers, set the 'Logins' map with the identity provider token.
--- 'GetId' returns a unique identifier for the user.
+-- To provide end-user credentials, first make an unsigned call to
+-- < GetId>. If the end user is authenticated with one of the supported
+-- identity providers, set the 'Logins' map with the identity provider
+-- token. 'GetId' returns a unique identifier for the user.
 --
--- Next, make an unsigned call to GetCredentialsForIdentity. This call
+-- Next, make an unsigned call to < GetCredentialsForIdentity>. This call
 -- expects the same 'Logins' map as the 'GetId' call, as well as the
 -- 'IdentityID' originally returned by 'GetId'. Assuming your identity pool
--- has been configured via the SetIdentityPoolRoles operation,
+-- has been configured via the < SetIdentityPoolRoles> operation,
 -- 'GetCredentialsForIdentity' will return AWS credentials for your use. If
 -- your pool has not been configured with 'SetIdentityPoolRoles', or if you
--- want to follow legacy flow, make an unsigned call to GetOpenIdToken,
+-- want to follow legacy flow, make an unsigned call to < GetOpenIdToken>,
 -- which returns the OpenID token necessary to call STS and retrieve AWS
 -- credentials. This call expects the same 'Logins' map as the 'GetId'
 -- call, as well as the 'IdentityID' originally returned by 'GetId'. The
@@ -48,8 +48,6 @@
 -- application, you will probably want to make API calls via the AWS Mobile
 -- SDK. To learn more, see the
 -- <http://docs.aws.amazon.com/mobile/index.html AWS Mobile SDK Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CognitoIdentity
     (
     -- * Service Configuration

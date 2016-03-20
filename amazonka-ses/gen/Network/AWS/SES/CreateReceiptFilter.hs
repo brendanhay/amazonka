@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.CreateReceiptFilter
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptFilter.html AWS API Reference> for CreateReceiptFilter.
 module Network.AWS.SES.CreateReceiptFilter
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest CreateReceiptFilter where
           = receiveXMLWrapper "CreateReceiptFilterResult"
               (\ s h x ->
                  CreateReceiptFilterResponse' <$> (pure (fromEnum s)))
+
+instance Hashable CreateReceiptFilter
 
 instance ToHeaders CreateReceiptFilter where
         toHeaders = const mempty

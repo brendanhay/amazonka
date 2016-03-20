@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Data.Map
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
@@ -68,6 +68,8 @@ type role Map nominal representational
 
 _Map :: (Coercible a b, Coercible b a) => Iso' (Map k a) (HashMap k b)
 _Map = iso (coerce . toMap) (Map . coerce)
+
+instance (Hashable k, Hashable v) => Hashable (Map k v)
 
 instance (Hashable k, Eq k) => IsList (Map k v) where
    type Item (Map k v) = (k, v)

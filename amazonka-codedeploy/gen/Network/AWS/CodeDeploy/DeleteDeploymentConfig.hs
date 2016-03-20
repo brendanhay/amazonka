@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeleteDeploymentConfig
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,9 +21,7 @@
 -- Deletes a deployment configuration.
 --
 -- A deployment configuration cannot be deleted if it is currently in use.
--- Also, predefined configurations cannot be deleted.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentConfig.html AWS API Reference> for DeleteDeploymentConfig.
+-- Predefined configurations cannot be deleted.
 module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     (
     -- * Creating a Request
@@ -64,8 +62,8 @@ deleteDeploymentConfig pDeploymentConfigName_ =
     { _ddcDeploymentConfigName = pDeploymentConfigName_
     }
 
--- | The name of an existing deployment configuration associated with the
--- applicable IAM user or AWS account.
+-- | The name of a deployment configuration associated with the applicable
+-- IAM user or AWS account.
 ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
 ddcDeploymentConfigName = lens _ddcDeploymentConfigName (\ s a -> s{_ddcDeploymentConfigName = a});
 
@@ -75,6 +73,8 @@ instance AWSRequest DeleteDeploymentConfig where
         request = postJSON codeDeploy
         response
           = receiveNull DeleteDeploymentConfigResponse'
+
+instance Hashable DeleteDeploymentConfig
 
 instance ToHeaders DeleteDeploymentConfig where
         toHeaders

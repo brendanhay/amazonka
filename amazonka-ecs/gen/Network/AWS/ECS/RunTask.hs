@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.RunTask
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- container instance, use 'StartTask' instead.
 --
 -- The 'count' parameter is limited to 10 tasks per call.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html AWS API Reference> for RunTask.
 module Network.AWS.ECS.RunTask
     (
     -- * Creating a Request
@@ -117,7 +115,7 @@ rtCount = lens _rtCount (\ s a -> s{_rtCount = a});
 -- automatically trigger a task to run a batch process job, you could apply
 -- a unique identifier for that job to your task with the 'startedBy'
 -- parameter. You can then identify which tasks belong to that job by
--- filtering the results of a ListTasks call with the 'startedBy' value.
+-- filtering the results of a < ListTasks> call with the 'startedBy' value.
 --
 -- If a task is started by an Amazon ECS service, then the 'startedBy'
 -- parameter contains the deployment ID of the service that starts it.
@@ -140,6 +138,8 @@ instance AWSRequest RunTask where
                    (x .?> "failures" .!@ mempty) <*>
                      (x .?> "tasks" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable RunTask
 
 instance ToHeaders RunTask where
         toHeaders

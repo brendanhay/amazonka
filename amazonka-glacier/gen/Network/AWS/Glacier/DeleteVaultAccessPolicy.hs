@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DeleteVaultAccessPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- if there is no policy associated with the vault. For more information
 -- about vault access policies, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteVaultAccessPolicy.html AWS API Reference> for DeleteVaultAccessPolicy.
 module Network.AWS.Glacier.DeleteVaultAccessPolicy
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest DeleteVaultAccessPolicy where
         request = delete glacier
         response
           = receiveNull DeleteVaultAccessPolicyResponse'
+
+instance Hashable DeleteVaultAccessPolicy
 
 instance ToHeaders DeleteVaultAccessPolicy where
         toHeaders = const mempty

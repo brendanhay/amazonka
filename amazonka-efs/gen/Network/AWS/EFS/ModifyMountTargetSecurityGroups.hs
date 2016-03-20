@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.ModifyMountTargetSecurityGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,9 +21,9 @@
 -- Modifies the set of security groups in effect for a mount target.
 --
 -- When you create a mount target, Amazon EFS also creates a new network
--- interface (see CreateMountTarget). This operation replaces the security
--- groups in effect for the network interface associated with a mount
--- target, with the 'SecurityGroups' provided in the request. This
+-- interface (see < CreateMountTarget>). This operation replaces the
+-- security groups in effect for the network interface associated with a
+-- mount target, with the 'SecurityGroups' provided in the request. This
 -- operation requires that the network interface of the mount target has
 -- been created and the life cycle state of the mount target is not
 -- \"deleted\".
@@ -34,8 +34,6 @@
 --     mount target\'s file system.
 -- -   'ec2:ModifyNetworkInterfaceAttribute' action on the mount target\'s
 --     network interface.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_ModifyMountTargetSecurityGroups.html AWS API Reference> for ModifyMountTargetSecurityGroups.
 module Network.AWS.EFS.ModifyMountTargetSecurityGroups
     (
     -- * Creating a Request
@@ -95,6 +93,8 @@ instance AWSRequest ModifyMountTargetSecurityGroups
         response
           = receiveNull
               ModifyMountTargetSecurityGroupsResponse'
+
+instance Hashable ModifyMountTargetSecurityGroups
 
 instance ToHeaders ModifyMountTargetSecurityGroups
          where

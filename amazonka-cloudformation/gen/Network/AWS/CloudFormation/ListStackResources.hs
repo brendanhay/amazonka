@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ListStackResources
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- For deleted stacks, ListStackResources returns resource information for
 -- up to 90 days after the stack has been deleted.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackResources.html AWS API Reference> for ListStackResources.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStackResources
@@ -52,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the ListStackResource action.
+-- | The input for the < ListStackResource> action.
 --
 -- /See:/ 'listStackResources' smart constructor.
 data ListStackResources = ListStackResources'
@@ -76,10 +74,8 @@ listStackResources pStackName_ =
     , _lsrStackName = pStackName_
     }
 
--- | String that identifies the start of the next list of stack resource
--- summaries, if there is one.
---
--- Default: There is no default value.
+-- | A string that identifies the next page of stack resources that you want
+-- to retrieve.
 lsrNextToken :: Lens' ListStackResources (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
 
@@ -114,6 +110,8 @@ instance AWSRequest ListStackResources where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListStackResources
+
 instance ToHeaders ListStackResources where
         toHeaders = const mempty
 
@@ -128,7 +126,7 @@ instance ToQuery ListStackResources where
                "NextToken" =: _lsrNextToken,
                "StackName" =: _lsrStackName]
 
--- | The output for a ListStackResources action.
+-- | The output for a < ListStackResources> action.
 --
 -- /See:/ 'listStackResourcesResponse' smart constructor.
 data ListStackResourcesResponse = ListStackResourcesResponse'
@@ -156,8 +154,9 @@ listStackResourcesResponse pResponseStatus_ =
     , _lsrrsResponseStatus = pResponseStatus_
     }
 
--- | String that identifies the start of the next list of stack resources, if
--- there is one.
+-- | If the output exceeds 1 MB in size, a string that identifies the next
+-- page of stack resources. If no additional page exists, this value is
+-- null.
 lsrrsNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
 lsrrsNextToken = lens _lsrrsNextToken (\ s a -> s{_lsrrsNextToken = a});
 

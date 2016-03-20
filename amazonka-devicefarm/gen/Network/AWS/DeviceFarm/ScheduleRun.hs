@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ScheduleRun
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Schedules a run.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ScheduleRun.html AWS API Reference> for ScheduleRun.
 module Network.AWS.DeviceFarm.ScheduleRun
     (
     -- * Creating a Request
@@ -123,6 +121,8 @@ instance AWSRequest ScheduleRun where
               (\ s h x ->
                  ScheduleRunResponse' <$>
                    (x .?> "run") <*> (pure (fromEnum s)))
+
+instance Hashable ScheduleRun
 
 instance ToHeaders ScheduleRun where
         toHeaders

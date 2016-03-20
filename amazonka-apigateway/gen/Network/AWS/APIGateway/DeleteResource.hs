@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a Resource resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteResource.html AWS API Reference> for DeleteResource.
+-- Deletes a < Resource> resource.
 module Network.AWS.APIGateway.DeleteResource
     (
     -- * Creating a Request
@@ -42,7 +40,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to delete a Resource.
+-- | Request to delete a < Resource>.
 --
 -- /See:/ 'deleteResource' smart constructor.
 data DeleteResource = DeleteResource'
@@ -67,11 +65,11 @@ deleteResource pRestAPIId_ pResourceId_ =
     , _drResourceId = pResourceId_
     }
 
--- | The RestApi identifier for the Resource resource.
+-- | The < RestApi> identifier for the < Resource> resource.
 drRestAPIId :: Lens' DeleteResource Text
 drRestAPIId = lens _drRestAPIId (\ s a -> s{_drRestAPIId = a});
 
--- | The identifier of the Resource resource.
+-- | The identifier of the < Resource> resource.
 drResourceId :: Lens' DeleteResource Text
 drResourceId = lens _drResourceId (\ s a -> s{_drResourceId = a});
 
@@ -80,8 +78,13 @@ instance AWSRequest DeleteResource where
         request = delete aPIGateway
         response = receiveNull DeleteResourceResponse'
 
+instance Hashable DeleteResource
+
 instance ToHeaders DeleteResource where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteResource where
         toPath DeleteResource'{..}

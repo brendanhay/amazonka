@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeCustomerGateways
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- For more information about VPN customer gateways, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeCustomerGateways.html AWS API Reference> for DescribeCustomerGateways.
 module Network.AWS.EC2.DescribeCustomerGateways
     (
     -- * Creating a Request
@@ -132,6 +130,8 @@ instance AWSRequest DescribeCustomerGateways where
                    (x .@? "customerGatewaySet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeCustomerGateways
 
 instance ToHeaders DescribeCustomerGateways where
         toHeaders = const mempty

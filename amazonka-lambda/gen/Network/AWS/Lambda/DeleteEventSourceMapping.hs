@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.DeleteEventSourceMapping
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- This operation requires permission for the
 -- 'lambda:DeleteEventSourceMapping' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteEventSourceMapping.html AWS API Reference> for DeleteEventSourceMapping.
 module Network.AWS.Lambda.DeleteEventSourceMapping
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest DeleteEventSourceMapping where
              EventSourceMappingConfiguration
         request = delete lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable DeleteEventSourceMapping
 
 instance ToHeaders DeleteEventSourceMapping where
         toHeaders = const mempty

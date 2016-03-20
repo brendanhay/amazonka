@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -59,6 +59,8 @@ instance FromJSON AccountSettings where
                  AccountSettings' <$>
                    (x .:? "awsAccountNumber") <*>
                      (x .:? "unmeteredDevices" .!= mempty))
+
+instance Hashable AccountSettings
 
 -- | Represents the output of a test. Examples of artifacts include logs and
 -- screenshots.
@@ -117,38 +119,52 @@ aName = lens _aName (\ s a -> s{_aName = a});
 --
 -- Allowed values include the following:
 --
--- -   APPIUM_JAVA_OUTPUT: The Appium Java output type.
+-- -   UNKNOWN: An unknown type.
 --
--- -   APPIUM_JAVA_XML_OUTPUT: The Appium Java XML output type.
---
--- -   APPIUM_SERVER_OUTPUT: The Appium server output type.
---
--- -   AUTOMATION_OUTPUT: The automation output type.
---
--- -   CALABASH_JSON_OUTPUT: The Calabash JSON output type.
---
--- -   CALABASH_JAVA_XML_OUTPUT: The Calabash Java XML output type.
---
--- -   CALABASH_PRETTY_OUTPUT: The Calabash pretty output type.
---
--- -   CALABASH_STANDARD_OUTPUT: The Calabash standard output type.
+-- -   SCREENSHOT: The screenshot type.
 --
 -- -   DEVICE_LOG: The device log type.
---
--- -   EXERCISER_MONKEY_OUTPUT: For Android, the artifact (log) generated
---     by an Android fuzz test.
---
--- -   INSTRUMENTATION_OUTPUT: The instrumentation type.
 --
 -- -   MESSAGE_LOG: The message log type.
 --
 -- -   RESULT_LOG: The result log type.
 --
--- -   SCREENSHOT: The screenshot type.
---
 -- -   SERVICE_LOG: The service log type.
 --
--- -   UNKNOWN: An unknown type.
+-- -   WEBKIT_LOG: The web kit log type.
+--
+-- -   INSTRUMENTATION_OUTPUT: The instrumentation type.
+--
+-- -   EXERCISER_MONKEY_OUTPUT: For Android, the artifact (log) generated
+--     by an Android fuzz test.
+--
+-- -   CALABASH_JSON_OUTPUT: The Calabash JSON output type.
+--
+-- -   CALABASH_PRETTY_OUTPUT: The Calabash pretty output type.
+--
+-- -   CALABASH_STANDARD_OUTPUT: The Calabash standard output type.
+--
+-- -   CALABASH_JAVA_XML_OUTPUT: The Calabash Java XML output type.
+--
+-- -   AUTOMATION_OUTPUT: The automation output type.
+--
+-- -   APPIUM_SERVER_OUTPUT: The Appium server output type.
+--
+-- -   APPIUM_JAVA_OUTPUT: The Appium Java output type.
+--
+-- -   APPIUM_JAVA_XML_OUTPUT: The Appium Java XML output type.
+--
+-- -   APPIUM_PYTHON_OUTPUT: The Appium Python output type.
+--
+-- -   APPIUM_PYTHON_XML_OUTPUT: The Appium Python XML output type.
+--
+-- -   EXPLORER_EVENT_LOG: The Explorer event log output type.
+--
+-- -   EXPLORER_SUMMARY_LOG: The Explorer summary log output type.
+--
+-- -   APPLICATION_CRASH_REPORT: The application crash report output type.
+--
+-- -   XCTEST_LOG: The XCode test output type.
 --
 aType :: Lens' Artifact (Maybe ArtifactType)
 aType = lens _aType (\ s a -> s{_aType = a});
@@ -162,6 +178,8 @@ instance FromJSON Artifact where
                      (x .:? "extension")
                      <*> (x .:? "name")
                      <*> (x .:? "type"))
+
+instance Hashable Artifact
 
 -- | Represents the amount of CPU that an app is using on a physical device.
 --
@@ -212,6 +230,8 @@ instance FromJSON CPU where
                  CPU' <$>
                    (x .:? "frequency") <*> (x .:? "clock") <*>
                      (x .:? "architecture"))
+
+instance Hashable CPU
 
 -- | Represents entity counters.
 --
@@ -295,6 +315,8 @@ instance FromJSON Counters where
                      <*> (x .:? "total")
                      <*> (x .:? "failed")
                      <*> (x .:? "errored"))
+
+instance Hashable Counters
 
 -- | Represents a device type that an app is tested against.
 --
@@ -456,6 +478,8 @@ instance FromJSON Device where
                      <*> (x .:? "cpu")
                      <*> (x .:? "heapSize"))
 
+instance Hashable Device
+
 -- | Represents the total (metered or unmetered) minutes used by the resource
 -- to run tests. Contains the sum of minutes consumed by all children.
 --
@@ -506,6 +530,8 @@ instance FromJSON DeviceMinutes where
                  DeviceMinutes' <$>
                    (x .:? "metered") <*> (x .:? "total") <*>
                      (x .:? "unmetered"))
+
+instance Hashable DeviceMinutes
 
 -- | Represents a collection of device types.
 --
@@ -581,6 +607,8 @@ instance FromJSON DevicePool where
                      <*> (x .:? "type")
                      <*> (x .:? "description"))
 
+instance Hashable DevicePool
+
 -- | Represents a device pool compatibility result.
 --
 -- /See:/ 'devicePoolCompatibilityResult' smart constructor.
@@ -627,6 +655,8 @@ instance FromJSON DevicePoolCompatibilityResult where
                  DevicePoolCompatibilityResult' <$>
                    (x .:? "device") <*> (x .:? "compatible") <*>
                      (x .:? "incompatibilityMessages" .!= mempty))
+
+instance Hashable DevicePoolCompatibilityResult
 
 -- | Represents information about incompatibility.
 --
@@ -676,6 +706,8 @@ instance FromJSON IncompatibilityMessage where
               (\ x ->
                  IncompatibilityMessage' <$>
                    (x .:? "type") <*> (x .:? "message"))
+
+instance Hashable IncompatibilityMessage
 
 -- | Represents a device.
 --
@@ -820,6 +852,14 @@ jobDeviceMinutes = lens _jobDeviceMinutes (\ s a -> s{_jobDeviceMinutes = a});
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
 --
+-- -   APPIUM_PYTHON: The Appium Python type.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+--
+-- -   APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+--
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
@@ -829,6 +869,8 @@ jobDeviceMinutes = lens _jobDeviceMinutes (\ s a -> s{_jobDeviceMinutes = a});
 -- -   UIAUTOMATOR: The uiautomator type.
 --
 -- -   XCTEST: The XCode test type.
+--
+-- -   XCTEST_UI: The XCode UI test type.
 --
 jobType :: Lens' Job (Maybe TestType)
 jobType = lens _jobType (\ s a -> s{_jobType = a});
@@ -857,6 +899,8 @@ instance FromJSON Job where
                      <*> (x .:? "type")
                      <*> (x .:? "message")
                      <*> (x .:? "started"))
+
+instance Hashable Job
 
 -- | Represents a latitude and longitude pair, expressed in geographic
 -- coordinate system degrees (for example 47.6204, -122.3491).
@@ -893,6 +937,8 @@ lLatitude = lens _lLatitude (\ s a -> s{_lLatitude = a});
 -- | The longitude.
 lLongitude :: Lens' Location Double
 lLongitude = lens _lLongitude (\ s a -> s{_lLongitude = a});
+
+instance Hashable Location
 
 instance ToJSON Location where
         toJSON Location'{..}
@@ -1001,6 +1047,8 @@ instance FromJSON Problem where
                      <*> (x .:? "message")
                      <*> (x .:? "suite"))
 
+instance Hashable Problem
+
 -- | Information about a problem detail.
 --
 -- /See:/ 'problemDetail' smart constructor.
@@ -1037,6 +1085,8 @@ instance FromJSON ProblemDetail where
           = withObject "ProblemDetail"
               (\ x ->
                  ProblemDetail' <$> (x .:? "arn") <*> (x .:? "name"))
+
+instance Hashable ProblemDetail
 
 -- | Represents an operating-system neutral workspace for running and
 -- managing tests.
@@ -1085,6 +1135,8 @@ instance FromJSON Project where
                  Project' <$>
                    (x .:? "arn") <*> (x .:? "created") <*>
                      (x .:? "name"))
+
+instance Hashable Project
 
 -- | Represents the set of radios and their states on a device. Examples of
 -- radios include Wi-Fi, GPS, Bluetooth, and NFC.
@@ -1135,6 +1187,8 @@ rBluetooth = lens _rBluetooth (\ s a -> s{_rBluetooth = a});
 rWifi :: Lens' Radios (Maybe Bool)
 rWifi = lens _rWifi (\ s a -> s{_rWifi = a});
 
+instance Hashable Radios
+
 instance ToJSON Radios where
         toJSON Radios'{..}
           = object
@@ -1180,6 +1234,8 @@ instance FromJSON Resolution where
           = withObject "Resolution"
               (\ x ->
                  Resolution' <$> (x .:? "height") <*> (x .:? "width"))
+
+instance Hashable Resolution
 
 -- | Represents a condition for a device pool.
 --
@@ -1249,6 +1305,8 @@ instance FromJSON Rule where
                  Rule' <$>
                    (x .:? "attribute") <*> (x .:? "operator") <*>
                      (x .:? "value"))
+
+instance Hashable Rule
 
 instance ToJSON Rule where
         toJSON Rule'{..}
@@ -1431,6 +1489,14 @@ runDeviceMinutes = lens _runDeviceMinutes (\ s a -> s{_runDeviceMinutes = a});
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
 --
+-- -   APPIUM_PYTHON: The Appium Python type.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+--
+-- -   APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+--
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
@@ -1440,6 +1506,8 @@ runDeviceMinutes = lens _runDeviceMinutes (\ s a -> s{_runDeviceMinutes = a});
 -- -   UIAUTOMATOR: The uiautomator type.
 --
 -- -   XCTEST: The XCode test type.
+--
+-- -   XCTEST_UI: The XCode UI test type.
 --
 runType :: Lens' Run (Maybe TestType)
 runType = lens _runType (\ s a -> s{_runType = a});
@@ -1475,6 +1543,8 @@ instance FromJSON Run where
                      <*> (x .:? "message")
                      <*> (x .:? "totalJobs")
                      <*> (x .:? "started"))
+
+instance Hashable Run
 
 -- | Represents a sample of performance data.
 --
@@ -1566,6 +1636,8 @@ instance FromJSON Sample where
                  Sample' <$>
                    (x .:? "arn") <*> (x .:? "url") <*> (x .:? "type"))
 
+instance Hashable Sample
+
 -- | Represents the settings for a run. Includes things like location, radio
 -- states, auxiliary apps, and network profiles.
 --
@@ -1641,6 +1713,8 @@ srcExtraDataPackageARN = lens _srcExtraDataPackageARN (\ s a -> s{_srcExtraDataP
 srcAuxiliaryApps :: Lens' ScheduleRunConfiguration [Text]
 srcAuxiliaryApps = lens _srcAuxiliaryApps (\ s a -> s{_srcAuxiliaryApps = a}) . _Default . _Coerce;
 
+instance Hashable ScheduleRunConfiguration
+
 instance ToJSON ScheduleRunConfiguration where
         toJSON ScheduleRunConfiguration'{..}
           = object
@@ -1713,6 +1787,14 @@ srtFilter = lens _srtFilter (\ s a -> s{_srtFilter = a});
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
 --
+-- -   APPIUM_PYTHON: The Appium Python type.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+--
+-- -   APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+--
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
@@ -1723,8 +1805,12 @@ srtFilter = lens _srtFilter (\ s a -> s{_srtFilter = a});
 --
 -- -   XCTEST: The XCode test type.
 --
+-- -   XCTEST_UI: The XCode UI test type.
+--
 srtType :: Lens' ScheduleRunTest TestType
 srtType = lens _srtType (\ s a -> s{_srtType = a});
+
+instance Hashable ScheduleRunTest
 
 instance ToJSON ScheduleRunTest where
         toJSON ScheduleRunTest'{..}
@@ -1871,6 +1957,14 @@ sDeviceMinutes = lens _sDeviceMinutes (\ s a -> s{_sDeviceMinutes = a});
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
 --
+-- -   APPIUM_PYTHON: The Appium Python type.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+--
+-- -   APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+--
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
@@ -1880,6 +1974,8 @@ sDeviceMinutes = lens _sDeviceMinutes (\ s a -> s{_sDeviceMinutes = a});
 -- -   UIAUTOMATOR: The uiautomator type.
 --
 -- -   XCTEST: The XCode test type.
+--
+-- -   XCTEST_UI: The XCode UI test type.
 --
 sType :: Lens' Suite (Maybe TestType)
 sType = lens _sType (\ s a -> s{_sType = a});
@@ -1907,6 +2003,8 @@ instance FromJSON Suite where
                      <*> (x .:? "type")
                      <*> (x .:? "message")
                      <*> (x .:? "started"))
+
+instance Hashable Suite
 
 -- | Represents a condition that is evaluated.
 --
@@ -2043,6 +2141,14 @@ tDeviceMinutes = lens _tDeviceMinutes (\ s a -> s{_tDeviceMinutes = a});
 --
 -- -   APPIUM_JAVA_TESTNG: The Appium Java TestNG type.
 --
+-- -   APPIUM_PYTHON: The Appium Python type.
+--
+-- -   APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.
+--
+-- -   APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.
+--
+-- -   APPIUM_WEB_PYTHON: The Appium Python type for Web apps.
+--
 -- -   CALABASH: The Calabash type.
 --
 -- -   INSTRUMENTATION: The Instrumentation type.
@@ -2052,6 +2158,8 @@ tDeviceMinutes = lens _tDeviceMinutes (\ s a -> s{_tDeviceMinutes = a});
 -- -   UIAUTOMATOR: The uiautomator type.
 --
 -- -   XCTEST: The XCode test type.
+--
+-- -   XCTEST_UI: The XCode UI test type.
 --
 tType :: Lens' Test (Maybe TestType)
 tType = lens _tType (\ s a -> s{_tType = a});
@@ -2079,6 +2187,8 @@ instance FromJSON Test where
                      <*> (x .:? "type")
                      <*> (x .:? "message")
                      <*> (x .:? "started"))
+
+instance Hashable Test
 
 -- | A collection of one or more problems, grouped by their result.
 --
@@ -2117,6 +2227,8 @@ instance FromJSON UniqueProblem where
               (\ x ->
                  UniqueProblem' <$>
                    (x .:? "problems" .!= mempty) <*> (x .:? "message"))
+
+instance Hashable UniqueProblem
 
 -- | An app or a set of one or more tests to upload or that have been
 -- uploaded.
@@ -2216,6 +2328,8 @@ uMetadata = lens _uMetadata (\ s a -> s{_uMetadata = a});
 --
 -- -   IOS_APP: An iOS upload.
 --
+-- -   WEB_APP: A web appliction upload.
+--
 -- -   EXTERNAL_DATA: An external data upload.
 --
 -- -   APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package
@@ -2224,19 +2338,28 @@ uMetadata = lens _uMetadata (\ s a -> s{_uMetadata = a});
 -- -   APPIUM_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package
 --     upload.
 --
--- -   CALABASH_TEST_PACKAGE: A Calabash test package upload.
---
--- -   INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.
---
--- -   UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.
---
--- -   XCTEST_TEST_PACKAGE: An XCode test package upload.
+-- -   APPIUM_PYTHON_TEST_PACKAGE: An Appium Python test package upload.
 --
 -- -   APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test
 --     package upload.
 --
 -- -   APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test
 --     package upload.
+--
+-- -   APPIUM_WEB_PYTHON_TEST_PACKAGE: An Appium Python test package
+--     upload.
+--
+-- -   CALABASH_TEST_PACKAGE: A Calabash test package upload.
+--
+-- -   INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.
+--
+-- -   UIAUTOMATION_TEST_PACKAGE: A uiautomation test package upload.
+--
+-- -   UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.
+--
+-- -   XCTEST_TEST_PACKAGE: An XCode test package upload.
+--
+-- -   XCTEST_UI_TEST_PACKAGE: An XCode UI test package upload.
 --
 uType :: Lens' Upload (Maybe UploadType)
 uType = lens _uType (\ s a -> s{_uType = a});
@@ -2262,3 +2385,5 @@ instance FromJSON Upload where
                      <*> (x .:? "type")
                      <*> (x .:? "message")
                      <*> (x .:? "contentType"))
+
+instance Hashable Upload

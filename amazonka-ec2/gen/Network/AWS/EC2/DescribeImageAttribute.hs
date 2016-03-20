@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeImageAttribute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Describes the specified attribute of the specified AMI. You can specify
 -- only one attribute at a time.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImageAttribute.html AWS API Reference> for DescribeImageAttribute.
 module Network.AWS.EC2.DescribeImageAttribute
     (
     -- * Creating a Request
@@ -96,8 +94,8 @@ diaiImageId = lens _diaiImageId (\ s a -> s{_diaiImageId = a});
 --
 -- __Note__: Depending on your account privileges, the 'blockDeviceMapping'
 -- attribute may return a 'Client.AuthFailure' error. If this happens, use
--- DescribeImages to get information about the block device mapping for the
--- AMI.
+-- < DescribeImages> to get information about the block device mapping for
+-- the AMI.
 diaiAttribute :: Lens' DescribeImageAttribute ImageAttributeName
 diaiAttribute = lens _diaiAttribute (\ s a -> s{_diaiAttribute = a});
 
@@ -123,6 +121,8 @@ instance AWSRequest DescribeImageAttribute where
                      (x .@? "blockDeviceMapping" .!@ mempty >>=
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeImageAttribute
 
 instance ToHeaders DescribeImageAttribute where
         toHeaders = const mempty

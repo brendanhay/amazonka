@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeConfigurationRecorders
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- the configuration recorders associated with the account.
 --
 -- Currently, you can specify only one configuration recorder per account.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html AWS API Reference> for DescribeConfigurationRecorders.
 module Network.AWS.Config.DescribeConfigurationRecorders
     (
     -- * Creating a Request
@@ -48,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the DescribeConfigurationRecorders action.
+-- | The input for the < DescribeConfigurationRecorders> action.
 --
 -- /See:/ 'describeConfigurationRecorders' smart constructor.
 newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders'
@@ -83,6 +81,8 @@ instance AWSRequest DescribeConfigurationRecorders
                    (x .?> "ConfigurationRecorders" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeConfigurationRecorders
+
 instance ToHeaders DescribeConfigurationRecorders
          where
         toHeaders
@@ -107,7 +107,7 @@ instance ToPath DescribeConfigurationRecorders where
 instance ToQuery DescribeConfigurationRecorders where
         toQuery = const mempty
 
--- | The output for the DescribeConfigurationRecorders action.
+-- | The output for the < DescribeConfigurationRecorders> action.
 --
 -- /See:/ 'describeConfigurationRecordersResponse' smart constructor.
 data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'

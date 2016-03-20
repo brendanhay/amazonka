@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetSDK
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetSDK.html AWS API Reference> for GetSDK.
 module Network.AWS.APIGateway.GetSDK
     (
     -- * Creating a Request
@@ -108,8 +106,13 @@ instance AWSRequest GetSDK where
                      (h .#? "Content-Type")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetSDK
+
 instance ToHeaders GetSDK where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetSDK where
         toPath GetSDK'{..}

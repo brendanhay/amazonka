@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.ListDatasets
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- ListDatasets can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials. You should use the
 -- Cognito Identity credentials to make this API call.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListDatasets.html AWS API Reference> for ListDatasets.
 module Network.AWS.CognitoSync.ListDatasets
     (
     -- * Creating a Request
@@ -118,6 +116,8 @@ instance AWSRequest ListDatasets where
                    (x .?> "Count") <*> (x .?> "NextToken") <*>
                      (x .?> "Datasets" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListDatasets
 
 instance ToHeaders ListDatasets where
         toHeaders

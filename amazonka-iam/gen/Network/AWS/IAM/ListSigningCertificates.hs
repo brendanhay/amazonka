@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListSigningCertificates
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- Because this action works for access keys under the AWS account, you can
 -- use this action to manage root credentials even if the AWS account has
 -- no associated users.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSigningCertificates.html AWS API Reference> for ListSigningCertificates.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListSigningCertificates
@@ -130,6 +128,8 @@ instance AWSRequest ListSigningCertificates where
                      (x .@? "Certificates" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListSigningCertificates
+
 instance ToHeaders ListSigningCertificates where
         toHeaders = const mempty
 
@@ -145,7 +145,8 @@ instance ToQuery ListSigningCertificates where
                "UserName" =: _lUserName, "Marker" =: _lMarker,
                "MaxItems" =: _lMaxItems]
 
--- | Contains the response to a successful ListSigningCertificates request.
+-- | Contains the response to a successful < ListSigningCertificates>
+-- request.
 --
 -- /See:/ 'listSigningCertificatesResponse' smart constructor.
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse'

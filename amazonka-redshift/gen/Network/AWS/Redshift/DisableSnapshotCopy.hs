@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DisableSnapshotCopy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,11 +22,9 @@
 -- region for a specified cluster.
 --
 -- If your cluster and its snapshots are encrypted using a customer master
--- key (CMK) from AWS KMS, use DeleteSnapshotCopyGrant to delete the grant
--- that grants Amazon Redshift permission to the CMK in the destination
--- region.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableSnapshotCopy.html AWS API Reference> for DisableSnapshotCopy.
+-- key (CMK) from AWS KMS, use < DeleteSnapshotCopyGrant> to delete the
+-- grant that grants Amazon Redshift permission to the CMK in the
+-- destination region.
 module Network.AWS.Redshift.DisableSnapshotCopy
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest DisableSnapshotCopy where
               (\ s h x ->
                  DisableSnapshotCopyResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
+
+instance Hashable DisableSnapshotCopy
 
 instance ToHeaders DisableSnapshotCopy where
         toHeaders = const mempty

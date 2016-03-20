@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified tags.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteTags.html AWS API Reference> for DeleteTags.
 module Network.AWS.AutoScaling.DeleteTags
     (
     -- * Creating a Request
@@ -58,10 +56,7 @@ deleteTags =
     { _dtTags = mempty
     }
 
--- | Each tag should be defined by its resource type, resource ID, key,
--- value, and a propagate flag. Valid values are: Resource type =
--- /auto-scaling-group/, Resource ID = /AutoScalingGroupName/, key=/value/,
--- value=/value/, propagate=/true/ or /false/.
+-- | One or more tags.
 dtTags :: Lens' DeleteTags [Tag]
 dtTags = lens _dtTags (\ s a -> s{_dtTags = a}) . _Coerce;
 
@@ -69,6 +64,8 @@ instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse
         request = postQuery autoScaling
         response = receiveNull DeleteTagsResponse'
+
+instance Hashable DeleteTags
 
 instance ToHeaders DeleteTags where
         toHeaders = const mempty

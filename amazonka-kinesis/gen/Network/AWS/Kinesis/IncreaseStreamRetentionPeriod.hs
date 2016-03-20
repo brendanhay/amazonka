@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- operation has been called. For example, if a stream’s retention period
 -- is set to 24 hours and is increased to 168 hours, any data that is older
 -- than 24 hours will remain inaccessible to consumer applications.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_IncreaseStreamRetentionPeriod.html AWS API Reference> for IncreaseStreamRetentionPeriod.
 module Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
     (
     -- * Creating a Request
@@ -52,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for IncreaseStreamRetentionPeriod.
+-- | Represents the input for < IncreaseStreamRetentionPeriod>.
 --
 -- /See:/ 'increaseStreamRetentionPeriod' smart constructor.
 data IncreaseStreamRetentionPeriod = IncreaseStreamRetentionPeriod'
@@ -93,6 +91,8 @@ instance AWSRequest IncreaseStreamRetentionPeriod
         request = postJSON kinesis
         response
           = receiveNull IncreaseStreamRetentionPeriodResponse'
+
+instance Hashable IncreaseStreamRetentionPeriod
 
 instance ToHeaders IncreaseStreamRetentionPeriod
          where

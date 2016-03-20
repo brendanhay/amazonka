@@ -12,17 +12,24 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.ListMetrics
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of valid metrics stored for the AWS account owner.
--- Returned metrics can be used with GetMetricStatistics to obtain
+-- Returned metrics can be used with < GetMetricStatistics> to obtain
 -- statistical data for a given metric.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html AWS API Reference> for ListMetrics.
+-- Up to 500 results are returned for any one call. To retrieve further
+-- results, use returned 'NextToken' values with subsequent 'ListMetrics'
+-- operations.
+--
+-- If you create a metric with the < PutMetricData> action, allow up to
+-- fifteen minutes for the metric to appear in calls to the 'ListMetrics'
+-- action. Statistics about the metric, however, are available sooner using
+-- < GetMetricStatistics>.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.ListMetrics
@@ -118,6 +125,8 @@ instance AWSRequest ListMetrics where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListMetrics
+
 instance ToHeaders ListMetrics where
         toHeaders = const mempty
 
@@ -135,7 +144,7 @@ instance ToQuery ListMetrics where
                "Dimensions" =:
                  toQuery (toQueryList "member" <$> _lmDimensions)]
 
--- | The output for the ListMetrics action.
+-- | The output for the < ListMetrics> action.
 --
 -- /See:/ 'listMetricsResponse' smart constructor.
 data ListMetricsResponse = ListMetricsResponse'

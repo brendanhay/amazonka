@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreatePolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- The created policy is the default version for the policy. This operation
 -- creates a policy version with a version identifier of __1__ and sets
 -- __1__ as the policy\'s default version.
---
--- /See:/ <https://aws.amazon.com/iot#CreatePolicy.html AWS API Reference> for CreatePolicy.
 module Network.AWS.IoT.CreatePolicy
     (
     -- * Creating a Request
@@ -81,9 +79,9 @@ createPolicy pPolicyName_ pPolicyDocument_ =
 cpPolicyName :: Lens' CreatePolicy Text
 cpPolicyName = lens _cpPolicyName (\ s a -> s{_cpPolicyName = a});
 
--- | The JSON document that describes the policy. The length of the
--- __policyDocument__ must be a minimum length of 1, with a maximum length
--- of 2048, excluding whitespace.
+-- | The JSON document that describes the policy. __policyDocument__ must
+-- have a minimum length of 1, with a maximum length of 2048, excluding
+-- whitespace.
 cpPolicyDocument :: Lens' CreatePolicy Text
 cpPolicyDocument = lens _cpPolicyDocument (\ s a -> s{_cpPolicyDocument = a});
 
@@ -98,6 +96,8 @@ instance AWSRequest CreatePolicy where
                      (x .?> "policyVersionId")
                      <*> (x .?> "policyArn")
                      <*> (pure (fromEnum s)))
+
+instance Hashable CreatePolicy
 
 instance ToHeaders CreatePolicy where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.GetVaultLock
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,17 +33,15 @@
 --     state.
 --
 -- A vault lock is put into the 'InProgress' state by calling
--- InitiateVaultLock. A vault lock is put into the 'Locked' state by
--- calling CompleteVaultLock. You can abort the vault locking process by
--- calling AbortVaultLock. For more information about the vault locking
+-- < InitiateVaultLock>. A vault lock is put into the 'Locked' state by
+-- calling < CompleteVaultLock>. You can abort the vault locking process by
+-- calling < AbortVaultLock>. For more information about the vault locking
 -- process,
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock>.
 --
 -- If there is no vault lock policy set on the vault, the operation returns
 -- a '404 Not found' error. For more information about vault lock policies,
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultLock.html AWS API Reference> for GetVaultLock.
 module Network.AWS.Glacier.GetVaultLock
     (
     -- * Creating a Request
@@ -119,6 +117,8 @@ instance AWSRequest GetVaultLock where
                      (x .?> "CreationDate")
                      <*> (x .?> "Policy")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetVaultLock
 
 instance ToHeaders GetVaultLock where
         toHeaders = const mempty

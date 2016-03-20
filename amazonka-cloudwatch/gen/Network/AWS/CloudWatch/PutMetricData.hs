@@ -12,32 +12,30 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.PutMetricData
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Publishes metric data points to Amazon CloudWatch. Amazon Cloudwatch
+-- Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch
 -- associates the data points with the specified metric. If the specified
--- metric does not exist, Amazon CloudWatch creates the metric. It can take
--- up to fifteen minutes for a new metric to appear in calls to the
--- ListMetrics action.
+-- metric does not exist, Amazon CloudWatch creates the metric. When Amazon
+-- CloudWatch creates a metric, it can take up to fifteen minutes for the
+-- metric to appear in calls to the < ListMetrics> action.
 --
--- The size of a PutMetricData request is limited to 8 KB for HTTP GET
--- requests and 40 KB for HTTP POST requests.
+-- Each 'PutMetricData' request is limited to 8 KB in size for HTTP GET
+-- requests and is limited to 40 KB in size for HTTP POST requests.
 --
 -- Although the 'Value' parameter accepts numbers of type 'Double', Amazon
--- CloudWatch truncates values with very large exponents. Values with
--- base-10 exponents greater than 126 (1 x 10^126) are truncated. Likewise,
--- values with base-10 exponents less than -130 (1 x 10^-130) are also
--- truncated.
+-- CloudWatch rejects values that are either too small or too large. Values
+-- must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or
+-- 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN,
+-- +Infinity, -Infinity) are not supported.
 --
 -- Data that is timestamped 24 hours or more in the past may take in excess
 -- of 48 hours to become available from submission time using
 -- 'GetMetricStatistics'.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricData.html AWS API Reference> for PutMetricData.
 module Network.AWS.CloudWatch.PutMetricData
     (
     -- * Creating a Request
@@ -82,6 +80,10 @@ putMetricData pNamespace_ =
     }
 
 -- | The namespace for the metric data.
+--
+-- You cannot specify a namespace that begins with \"AWS\/\". Namespaces
+-- that begin with \"AWS\/\" are reserved for other Amazon Web Services
+-- products that send metrics to Amazon CloudWatch.
 pmdNamespace :: Lens' PutMetricData Text
 pmdNamespace = lens _pmdNamespace (\ s a -> s{_pmdNamespace = a});
 
@@ -93,6 +95,8 @@ instance AWSRequest PutMetricData where
         type Rs PutMetricData = PutMetricDataResponse
         request = postQuery cloudWatch
         response = receiveNull PutMetricDataResponse'
+
+instance Hashable PutMetricData
 
 instance ToHeaders PutMetricData where
         toHeaders = const mempty

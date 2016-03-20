@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateStage
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about a Stage resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateStage.html AWS API Reference> for UpdateStage.
+-- Changes information about a < Stage> resource.
 module Network.AWS.APIGateway.UpdateStage
     (
     -- * Creating a Request
@@ -55,7 +53,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to change information about a Stage
+-- | Requests Amazon API Gateway to change information about a < Stage>
 -- resource.
 --
 -- /See:/ 'updateStage' smart constructor.
@@ -90,12 +88,12 @@ updateStage pRestAPIId_ pStageName_ =
 usPatchOperations :: Lens' UpdateStage [PatchOperation]
 usPatchOperations = lens _usPatchOperations (\ s a -> s{_usPatchOperations = a}) . _Default . _Coerce;
 
--- | The identifier of the RestApi resource for the Stage resource to change
--- information about.
+-- | The identifier of the < RestApi> resource for the < Stage> resource to
+-- change information about.
 usRestAPIId :: Lens' UpdateStage Text
 usRestAPIId = lens _usRestAPIId (\ s a -> s{_usRestAPIId = a});
 
--- | The name of the Stage resource to change information about.
+-- | The name of the < Stage> resource to change information about.
 usStageName :: Lens' UpdateStage Text
 usStageName = lens _usStageName (\ s a -> s{_usStageName = a});
 
@@ -104,8 +102,13 @@ instance AWSRequest UpdateStage where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateStage
+
 instance ToHeaders UpdateStage where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateStage where
         toJSON UpdateStage'{..}

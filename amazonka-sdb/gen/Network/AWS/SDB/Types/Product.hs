@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -78,6 +78,8 @@ instance FromXML Attribute where
                 <*> (x .@ "Name")
                 <*> (x .@ "Value")
 
+instance Hashable Attribute
+
 instance ToQuery Attribute where
         toQuery Attribute'{..}
           = mconcat
@@ -115,6 +117,8 @@ diAttributes = lens _diAttributes (\ s a -> s{_diAttributes = a}) . _Default . _
 -- | Undocumented member.
 diName :: Lens' DeletableItem Text
 diName = lens _diName (\ s a -> s{_diName = a});
+
+instance Hashable DeletableItem
 
 instance ToQuery DeletableItem where
         toQuery DeletableItem'{..}
@@ -168,6 +172,8 @@ instance FromXML Item where
               (x .@? "AlternateNameEncoding") <*> (x .@ "Name") <*>
                 (parseXMLList "Attribute" x)
 
+instance Hashable Item
+
 -- |
 --
 -- /See:/ 'replaceableAttribute' smart constructor.
@@ -210,6 +216,8 @@ raName = lens _raName (\ s a -> s{_raName = a});
 raValue :: Lens' ReplaceableAttribute Text
 raValue = lens _raValue (\ s a -> s{_raValue = a});
 
+instance Hashable ReplaceableAttribute
+
 instance ToQuery ReplaceableAttribute where
         toQuery ReplaceableAttribute'{..}
           = mconcat
@@ -247,6 +255,8 @@ riName = lens _riName (\ s a -> s{_riName = a});
 -- | The list of attributes for a replaceable item.
 riAttributes :: Lens' ReplaceableItem [ReplaceableAttribute]
 riAttributes = lens _riAttributes (\ s a -> s{_riAttributes = a}) . _Coerce;
+
+instance Hashable ReplaceableItem
 
 instance ToQuery ReplaceableItem where
         toQuery ReplaceableItem'{..}
@@ -301,6 +311,8 @@ ucValue = lens _ucValue (\ s a -> s{_ucValue = a});
 -- | The name of the attribute involved in the condition.
 ucName :: Lens' UpdateCondition (Maybe Text)
 ucName = lens _ucName (\ s a -> s{_ucName = a});
+
+instance Hashable UpdateCondition
 
 instance ToQuery UpdateCondition where
         toQuery UpdateCondition'{..}

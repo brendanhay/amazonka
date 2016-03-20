@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.UpdateContainerAgent
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- updating the Amazon ECS container agent on other operating systems, see
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent>
 -- in the /Amazon EC2 Container Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateContainerAgent.html AWS API Reference> for UpdateContainerAgent.
 module Network.AWS.ECS.UpdateContainerAgent
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest UpdateContainerAgent where
               (\ s h x ->
                  UpdateContainerAgentResponse' <$>
                    (x .?> "containerInstance") <*> (pure (fromEnum s)))
+
+instance Hashable UpdateContainerAgent
 
 instance ToHeaders UpdateContainerAgent where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ModifyInstanceGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- settings of an instance group. The input parameters include the new
 -- target instance count for the group and the instance group ID. The call
 -- will either succeed or fail atomically.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ModifyInstanceGroups.html AWS API Reference> for ModifyInstanceGroups.
 module Network.AWS.EMR.ModifyInstanceGroups
     (
     -- * Creating a Request
@@ -72,6 +70,8 @@ instance AWSRequest ModifyInstanceGroups where
              ModifyInstanceGroupsResponse
         request = postJSON eMR
         response = receiveNull ModifyInstanceGroupsResponse'
+
+instance Hashable ModifyInstanceGroups
 
 instance ToHeaders ModifyInstanceGroups where
         toHeaders

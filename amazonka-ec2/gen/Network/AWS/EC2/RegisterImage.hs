@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RegisterImage
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,8 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- For Amazon EBS-backed instances, CreateImage creates and registers the
--- AMI in a single request, so you don\'t have to register the AMI
+-- For Amazon EBS-backed instances, < CreateImage> creates and registers
+-- the AMI in a single request, so you don\'t have to register the AMI
 -- yourself.
 --
 -- You can also use 'RegisterImage' to create an Amazon EBS-backed Linux
@@ -44,7 +44,7 @@
 -- can\'t successfully launch an instance from the AMI.
 --
 -- To create Windows AMIs or to create AMIs for Linux operating systems
--- that must retain AMI billing codes to work properly, see CreateImage.
+-- that must retain AMI billing codes to work properly, see < CreateImage>.
 --
 -- If needed, you can deregister an AMI at any time. Any modifications you
 -- make to an AMI backed by an instance store volume invalidates its
@@ -53,8 +53,6 @@
 --
 -- You can\'t register an image where a secondary (non-root) snapshot has
 -- AWS Marketplace product codes.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RegisterImage.html AWS API Reference> for RegisterImage.
 module Network.AWS.EC2.RegisterImage
     (
     -- * Creating a Request
@@ -217,6 +215,8 @@ instance AWSRequest RegisterImage where
               (\ s h x ->
                  RegisterImageResponse' <$>
                    (x .@? "imageId") <*> (pure (fromEnum s)))
+
+instance Hashable RegisterImage
 
 instance ToHeaders RegisterImage where
         toHeaders = const mempty

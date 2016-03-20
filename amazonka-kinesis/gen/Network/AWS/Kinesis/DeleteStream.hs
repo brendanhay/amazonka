@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DeleteStream
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,18 +28,16 @@
 -- until Amazon Kinesis completes the deletion.
 --
 -- __Note:__ Amazon Kinesis might continue to accept data read and write
--- operations, such as PutRecord, PutRecords, and GetRecords, on a stream
--- in the 'DELETING' state until the stream deletion is complete.
+-- operations, such as < PutRecord>, < PutRecords>, and < GetRecords>, on a
+-- stream in the 'DELETING' state until the stream deletion is complete.
 --
 -- When you delete a stream, any shards in that stream are also deleted,
 -- and any tags are dissociated from the stream.
 --
--- You can use the DescribeStream operation to check the state of the
+-- You can use the < DescribeStream> operation to check the state of the
 -- stream, which is returned in 'StreamStatus'.
 --
--- DeleteStream has a limit of 5 transactions per second per account.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DeleteStream.html AWS API Reference> for DeleteStream.
+-- < DeleteStream> has a limit of 5 transactions per second per account.
 module Network.AWS.Kinesis.DeleteStream
     (
     -- * Creating a Request
@@ -60,7 +58,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for DeleteStream.
+-- | Represents the input for < DeleteStream>.
 --
 -- /See:/ 'deleteStream' smart constructor.
 newtype DeleteStream = DeleteStream'
@@ -88,6 +86,8 @@ instance AWSRequest DeleteStream where
         type Rs DeleteStream = DeleteStreamResponse
         request = postJSON kinesis
         response = receiveNull DeleteStreamResponse'
+
+instance Hashable DeleteStream
 
 instance ToHeaders DeleteStream where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.SubmitContainerStateChange
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- it is not intended for use outside of the agent.
 --
 -- Sent to acknowledge that a container changed states.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_SubmitContainerStateChange.html AWS API Reference> for SubmitContainerStateChange.
 module Network.AWS.ECS.SubmitContainerStateChange
     (
     -- * Creating a Request
@@ -133,6 +131,8 @@ instance AWSRequest SubmitContainerStateChange where
               (\ s h x ->
                  SubmitContainerStateChangeResponse' <$>
                    (x .?> "acknowledgment") <*> (pure (fromEnum s)))
+
+instance Hashable SubmitContainerStateChange
 
 instance ToHeaders SubmitContainerStateChange where
         toHeaders

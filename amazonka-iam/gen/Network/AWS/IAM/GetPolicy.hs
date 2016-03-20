@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,19 +22,18 @@
 -- policy\'s default version and the total number of users, groups, and
 -- roles that the policy is attached to. For a list of the specific users,
 -- groups, and roles that the policy is attached to, use the
--- ListEntitiesForPolicy API. This API returns metadata about the policy.
--- To retrieve the policy document for a specific version of the policy,
--- use GetPolicyVersion.
+-- < ListEntitiesForPolicy> API. This API returns metadata about the
+-- policy. To retrieve the policy document for a specific version of the
+-- policy, use < GetPolicyVersion>.
 --
 -- This API retrieves information about managed policies. To retrieve
 -- information about an inline policy that is embedded with a user, group,
--- or role, use the GetUserPolicy, GetGroupPolicy, or GetRolePolicy API.
+-- or role, use the < GetUserPolicy>, < GetGroupPolicy>, or
+-- < GetRolePolicy> API.
 --
 -- For more information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html AWS API Reference> for GetPolicy.
 module Network.AWS.IAM.GetPolicy
     (
     -- * Creating a Request
@@ -89,6 +88,8 @@ instance AWSRequest GetPolicy where
                  GetPolicyResponse' <$>
                    (x .@? "Policy") <*> (pure (fromEnum s)))
 
+instance Hashable GetPolicy
+
 instance ToHeaders GetPolicy where
         toHeaders = const mempty
 
@@ -102,7 +103,7 @@ instance ToQuery GetPolicy where
                "Version" =: ("2010-05-08" :: ByteString),
                "PolicyArn" =: _gpPolicyARN]
 
--- | Contains the response to a successful GetPolicy request.
+-- | Contains the response to a successful < GetPolicy> request.
 --
 -- /See:/ 'getPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'

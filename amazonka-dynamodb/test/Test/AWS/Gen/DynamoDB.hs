@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.DynamoDB
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -49,6 +49,9 @@ import Test.AWS.DynamoDB.Internal
 --         , testDescribeTable $
 --             describeTable
 --
+--         , testDescribeLimits $
+--             describeLimits
+--
 --         , testGetItem $
 --             getItem
 --
@@ -90,6 +93,9 @@ import Test.AWS.DynamoDB.Internal
 --
 --         , testDescribeTableResponse $
 --             describeTableResponse
+--
+--         , testDescribeLimitsResponse $
+--             describeLimitsResponse
 --
 --         , testGetItemResponse $
 --             getItemResponse
@@ -148,6 +154,11 @@ testDescribeTable :: DescribeTable -> TestTree
 testDescribeTable = req
     "DescribeTable"
     "fixture/DescribeTable.yaml"
+
+testDescribeLimits :: DescribeLimits -> TestTree
+testDescribeLimits = req
+    "DescribeLimits"
+    "fixture/DescribeLimits.yaml"
 
 testGetItem :: GetItem -> TestTree
 testGetItem = req
@@ -229,6 +240,13 @@ testDescribeTableResponse = res
     "fixture/DescribeTableResponse.proto"
     dynamoDB
     (Proxy :: Proxy DescribeTable)
+
+testDescribeLimitsResponse :: DescribeLimitsResponse -> TestTree
+testDescribeLimitsResponse = res
+    "DescribeLimitsResponse"
+    "fixture/DescribeLimitsResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy DescribeLimits)
 
 testGetItemResponse :: GetItemResponse -> TestTree
 testGetItemResponse = res

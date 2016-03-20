@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ModifyLunaClient
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- This action can potentially start a workflow to install the new
 -- certificate on the client\'s HSMs.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyLunaClient.html AWS API Reference> for ModifyLunaClient.
 module Network.AWS.CloudHSM.ModifyLunaClient
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest ModifyLunaClient where
               (\ s h x ->
                  ModifyLunaClientResponse' <$>
                    (x .?> "ClientArn") <*> (pure (fromEnum s)))
+
+instance Hashable ModifyLunaClient
 
 instance ToHeaders ModifyLunaClient where
         toHeaders

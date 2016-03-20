@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteHealthCheck
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- This action deletes a health check. To delete a health check, send a
--- 'DELETE' request to the '2013-04-01\/healthcheck\/health check ID'
--- resource.
+-- 'DELETE' request to the
+-- '\/Route 53 API version\/healthcheck\/health check ID' resource.
 --
 -- You can delete a health check only if there are no resource record sets
 -- associated with this health check. If resource record sets are
@@ -29,9 +29,7 @@
 -- is associated with resource record sets, Amazon Route 53 will deny your
 -- request with a 'HealthCheckInUse' error. For information about
 -- disassociating the records from your health check, see
--- ChangeResourceRecordSets.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html AWS API Reference> for DeleteHealthCheck.
+-- < ChangeResourceRecordSets>.
 module Network.AWS.Route53.DeleteHealthCheck
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest DeleteHealthCheck where
           = receiveEmpty
               (\ s h x ->
                  DeleteHealthCheckResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeleteHealthCheck
 
 instance ToHeaders DeleteHealthCheck where
         toHeaders = const mempty

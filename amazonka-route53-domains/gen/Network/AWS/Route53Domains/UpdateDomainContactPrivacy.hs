@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.UpdateDomainContactPrivacy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- operation ID that you can use with GetOperationDetail to track the
 -- progress and completion of the action. If the request is not completed
 -- successfully, the domain registrant will be notified by email.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainContactPrivacy.html AWS API Reference> for UpdateDomainContactPrivacy.
 module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     (
     -- * Creating a Request
@@ -158,6 +156,8 @@ instance AWSRequest UpdateDomainContactPrivacy where
               (\ s h x ->
                  UpdateDomainContactPrivacyResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
+
+instance Hashable UpdateDomainContactPrivacy
 
 instance ToHeaders UpdateDomainContactPrivacy where
         toHeaders

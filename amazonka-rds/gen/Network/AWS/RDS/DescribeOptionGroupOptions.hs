@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeOptionGroupOptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes all available options.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOptionGroupOptions.html AWS API Reference> for DescribeOptionGroupOptions.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeOptionGroupOptions
@@ -139,6 +137,8 @@ instance AWSRequest DescribeOptionGroupOptions where
                       may (parseXMLList "OptionGroupOption"))
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeOptionGroupOptions
 
 instance ToHeaders DescribeOptionGroupOptions where
         toHeaders = const mempty

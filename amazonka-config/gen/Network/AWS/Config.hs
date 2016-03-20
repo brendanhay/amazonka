@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Config
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -40,8 +40,6 @@
 -- see
 -- <http://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html What Is AWS Config?>
 -- in the /AWS Config Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Config
     (
     -- * Service Configuration

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.KMS.PutKeyPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches a policy to the specified key.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html AWS API Reference> for PutKeyPolicy.
 module Network.AWS.KMS.PutKeyPolicy
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest PutKeyPolicy where
         type Rs PutKeyPolicy = PutKeyPolicyResponse
         request = postJSON kMS
         response = receiveNull PutKeyPolicyResponse'
+
+instance Hashable PutKeyPolicy
 
 instance ToHeaders PutKeyPolicy where
         toHeaders

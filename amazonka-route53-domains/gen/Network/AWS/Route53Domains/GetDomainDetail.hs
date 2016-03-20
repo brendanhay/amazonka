@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.GetDomainDetail
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- This operation returns detailed information about the domain. The
 -- domain\'s contact information is also returned as part of the output.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetDomainDetail.html AWS API Reference> for GetDomainDetail.
 module Network.AWS.Route53Domains.GetDomainDetail
     (
     -- * Creating a Request
@@ -127,6 +125,8 @@ instance AWSRequest GetDomainDetail where
                      <*> (x .:> "AdminContact")
                      <*> (x .:> "RegistrantContact")
                      <*> (x .:> "TechContact"))
+
+instance Hashable GetDomainDetail
 
 instance ToHeaders GetDomainDetail where
         toHeaders

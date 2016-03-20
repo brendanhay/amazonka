@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVPCEndpointServices
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Describes all supported AWS services that can be specified when creating
 -- a VPC endpoint.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCEndpointServices.html AWS API Reference> for DescribeVPCEndpointServices.
 module Network.AWS.EC2.DescribeVPCEndpointServices
     (
     -- * Creating a Request
@@ -106,6 +104,8 @@ instance AWSRequest DescribeVPCEndpointServices where
                       may (parseXMLList "item"))
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeVPCEndpointServices
 
 instance ToHeaders DescribeVPCEndpointServices where
         toHeaders = const mempty

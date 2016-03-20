@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UploadServerCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -42,8 +42,6 @@
 -- Query API with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html Calling the API by Making HTTP Query Requests>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html AWS API Reference> for UploadServerCertificate.
 module Network.AWS.IAM.UploadServerCertificate
     (
     -- * Creating a Request
@@ -151,6 +149,8 @@ instance AWSRequest UploadServerCertificate where
                    (x .@? "ServerCertificateMetadata") <*>
                      (pure (fromEnum s)))
 
+instance Hashable UploadServerCertificate
+
 instance ToHeaders UploadServerCertificate where
         toHeaders = const mempty
 
@@ -169,7 +169,8 @@ instance ToQuery UploadServerCertificate where
                "CertificateBody" =: _uscCertificateBody,
                "PrivateKey" =: _uscPrivateKey]
 
--- | Contains the response to a successful UploadServerCertificate request.
+-- | Contains the response to a successful < UploadServerCertificate>
+-- request.
 --
 -- /See:/ 'uploadServerCertificateResponse' smart constructor.
 data UploadServerCertificateResponse = UploadServerCertificateResponse'

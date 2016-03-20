@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateSAMLProvider
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- This operation requires
 -- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSAMLProvider.html AWS API Reference> for UpdateSAMLProvider.
 module Network.AWS.IAM.UpdateSAMLProvider
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest UpdateSAMLProvider where
                  UpdateSAMLProviderResponse' <$>
                    (x .@? "SAMLProviderArn") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateSAMLProvider
+
 instance ToHeaders UpdateSAMLProvider where
         toHeaders = const mempty
 
@@ -109,7 +109,7 @@ instance ToQuery UpdateSAMLProvider where
                  _usamlpSAMLMetadataDocument,
                "SAMLProviderArn" =: _usamlpSAMLProviderARN]
 
--- | Contains the response to a successful UpdateSAMLProvider request.
+-- | Contains the response to a successful < UpdateSAMLProvider> request.
 --
 -- /See:/ 'updateSAMLProviderResponse' smart constructor.
 data UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'

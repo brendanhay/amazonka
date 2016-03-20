@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.CreatePipeline
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- The CreatePipeline operation creates a pipeline with settings that you
 -- specify.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePipeline.html AWS API Reference> for CreatePipeline.
 module Network.AWS.ElasticTranscoder.CreatePipeline
     (
     -- * Creating a Request
@@ -308,6 +306,8 @@ instance AWSRequest CreatePipeline where
                  CreatePipelineResponse' <$>
                    (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
                      <*> (pure (fromEnum s)))
+
+instance Hashable CreatePipeline
 
 instance ToHeaders CreatePipeline where
         toHeaders = const mempty

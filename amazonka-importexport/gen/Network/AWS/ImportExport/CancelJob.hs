@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.CancelJob
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- This operation cancels a specified job. Only the job owner can cancel
 -- it. The operation fails if the job has already started or is complete.
---
--- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebCancelJob.html AWS API Reference> for CancelJob.
 module Network.AWS.ImportExport.CancelJob
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest CancelJob where
               (\ s h x ->
                  CancelJobResponse' <$>
                    (x .@? "Success") <*> (pure (fromEnum s)))
+
+instance Hashable CancelJob
 
 instance ToHeaders CancelJob where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.GetPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Gets information about the specified policy with the policy document of
 -- the default version.
---
--- /See:/ <https://aws.amazon.com/iot#GetPolicy.html AWS API Reference> for GetPolicy.
 module Network.AWS.IoT.GetPolicy
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest GetPolicy where
                      (x .?> "defaultVersionId")
                      <*> (x .?> "policyArn")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetPolicy
 
 instance ToHeaders GetPolicy where
         toHeaders = const mempty

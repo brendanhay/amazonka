@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetApplication
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an application.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplication.html AWS API Reference> for GetApplication.
 module Network.AWS.CodeDeploy.GetApplication
     (
     -- * Creating a Request
@@ -64,8 +62,8 @@ getApplication pApplicationName_ =
     { _gaApplicationName = pApplicationName_
     }
 
--- | The name of an existing AWS CodeDeploy application associated with the
--- applicable IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the applicable
+-- IAM user or AWS account.
 gaApplicationName :: Lens' GetApplication Text
 gaApplicationName = lens _gaApplicationName (\ s a -> s{_gaApplicationName = a});
 
@@ -77,6 +75,8 @@ instance AWSRequest GetApplication where
               (\ s h x ->
                  GetApplicationResponse' <$>
                    (x .?> "application") <*> (pure (fromEnum s)))
+
+instance Hashable GetApplication
 
 instance ToHeaders GetApplication where
         toHeaders

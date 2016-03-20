@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheckLastFailureReason
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,9 +21,8 @@
 -- If you want to learn why a health check is currently failing or why it
 -- failed most recently (if at all), you can get the failure reason for the
 -- most recent failure. Send a 'GET' request to the
--- '2013-04-01\/healthcheck\/health check ID\/lastfailurereason' resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckLastFailureReason.html AWS API Reference> for GetHealthCheckLastFailureReason.
+-- '\/Route 53 API version\/healthcheck\/health check ID\/lastfailurereason'
+-- resource.
 module Network.AWS.Route53.GetHealthCheckLastFailureReason
     (
     -- * Creating a Request
@@ -85,6 +84,8 @@ instance AWSRequest GetHealthCheckLastFailureReason
                    (pure (fromEnum s)) <*>
                      (x .@? "HealthCheckObservations" .!@ mempty >>=
                         parseXMLList "HealthCheckObservation"))
+
+instance Hashable GetHealthCheckLastFailureReason
 
 instance ToHeaders GetHealthCheckLastFailureReason
          where

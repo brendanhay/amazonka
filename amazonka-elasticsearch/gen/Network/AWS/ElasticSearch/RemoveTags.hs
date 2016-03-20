@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.RemoveTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Removes the specified set of tags from the specified Elasticsearch
 -- domain.
---
--- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-RemoveTags.html AWS API Reference> for RemoveTags.
 module Network.AWS.ElasticSearch.RemoveTags
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest RemoveTags where
         type Rs RemoveTags = RemoveTagsResponse
         request = postJSON elasticSearch
         response = receiveNull RemoveTagsResponse'
+
+instance Hashable RemoveTags
 
 instance ToHeaders RemoveTags where
         toHeaders = const mempty

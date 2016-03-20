@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.UpdateRepositoryDescription
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- potentially malicious code. Make sure that you HTML-encode the
 -- description field in any application that uses this API to display the
 -- repository description on a web page.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_UpdateRepositoryDescription.html AWS API Reference> for UpdateRepositoryDescription.
 module Network.AWS.CodeCommit.UpdateRepositoryDescription
     (
     -- * Creating a Request
@@ -73,7 +71,8 @@ updateRepositoryDescription pRepositoryName_ =
     , _urdRepositoryName = pRepositoryName_
     }
 
--- | The new comment or description for the specified repository.
+-- | The new comment or description for the specified repository. Repository
+-- descriptions are limited to 1,000 characters.
 urdRepositoryDescription :: Lens' UpdateRepositoryDescription (Maybe Text)
 urdRepositoryDescription = lens _urdRepositoryDescription (\ s a -> s{_urdRepositoryDescription = a});
 
@@ -88,6 +87,8 @@ instance AWSRequest UpdateRepositoryDescription where
         request = postJSON codeCommit
         response
           = receiveNull UpdateRepositoryDescriptionResponse'
+
+instance Hashable UpdateRepositoryDescription
 
 instance ToHeaders UpdateRepositoryDescription where
         toHeaders

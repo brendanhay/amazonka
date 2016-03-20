@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeConversionTasks
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,9 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeConversionTasks.html AWS API Reference> for DescribeConversionTasks.
+-- For information about the import manifest referenced by this API action,
+-- see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 module Network.AWS.EC2.DescribeConversionTasks
     (
     -- * Creating a Request
@@ -100,6 +102,8 @@ instance AWSRequest DescribeConversionTasks where
                    (x .@? "conversionTasks" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeConversionTasks
 
 instance ToHeaders DescribeConversionTasks where
         toHeaders = const mempty

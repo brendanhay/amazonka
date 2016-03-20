@@ -1,5 +1,5 @@
 name:                  amazonka-core
-version:               1.3.7
+version:               1.3.8
 synopsis:              Core data types and functionality for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2015 Brendan Hay
+copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
@@ -94,7 +94,7 @@ library
         , text                 >= 1.1
         , transformers         >= 0.2
         , transformers-compat  >= 0.3
-        , unordered-containers >= 0.2.5
+        , unordered-containers >= 0.2.7
         , xml-conduit          >= 1.2
         , xml-types            >= 0.3.4
 

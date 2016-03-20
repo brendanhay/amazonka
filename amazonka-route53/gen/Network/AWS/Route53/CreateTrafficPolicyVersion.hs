@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateTrafficPolicyVersion
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,12 +28,10 @@
 -- www.example.com).
 --
 -- To create a new version, send a 'POST' request to the
--- '2013-04-01\/trafficpolicy\/' resource. The request body includes an XML
--- document with a 'CreateTrafficPolicyVersionRequest' element. The
--- response returns the 'CreateTrafficPolicyVersionResponse' element, which
--- contains information about the new version of the traffic policy.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicyVersion.html AWS API Reference> for CreateTrafficPolicyVersion.
+-- '\/Route 53 API version\/trafficpolicy\/' resource. The request body
+-- includes a document with a 'CreateTrafficPolicyVersionRequest' element.
+-- The response returns the 'CreateTrafficPolicyVersionResponse' element,
+-- which contains information about the new version of the traffic policy.
 module Network.AWS.Route53.CreateTrafficPolicyVersion
     (
     -- * Creating a Request
@@ -116,6 +114,8 @@ instance AWSRequest CreateTrafficPolicyVersion where
                  CreateTrafficPolicyVersionResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "TrafficPolicy") <*>
                      (h .# "Location"))
+
+instance Hashable CreateTrafficPolicyVersion
 
 instance ToElement CreateTrafficPolicyVersion where
         toElement

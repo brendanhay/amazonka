@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteRole
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- you are about to delete. Deleting a role or instance profile that is
 -- associated with a running instance will break any applications running
 -- on the instance.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRole.html AWS API Reference> for DeleteRole.
 module Network.AWS.IAM.DeleteRole
     (
     -- * Creating a Request
@@ -74,6 +72,8 @@ instance AWSRequest DeleteRole where
         type Rs DeleteRole = DeleteRoleResponse
         request = postQuery iAM
         response = receiveNull DeleteRoleResponse'
+
+instance Hashable DeleteRole
 
 instance ToHeaders DeleteRole where
         toHeaders = const mempty

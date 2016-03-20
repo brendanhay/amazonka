@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreatePrivateVirtualInterface
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Creates a new private virtual interface. A virtual interface is the VLAN
 -- that transports AWS Direct Connect traffic. A private virtual interface
 -- supports sending traffic to a single virtual private cloud (VPC).
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePrivateVirtualInterface.html AWS API Reference> for CreatePrivateVirtualInterface.
 module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     (
     -- * Creating a Request
@@ -102,6 +100,8 @@ instance AWSRequest CreatePrivateVirtualInterface
              VirtualInterface
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable CreatePrivateVirtualInterface
 
 instance ToHeaders CreatePrivateVirtualInterface
          where

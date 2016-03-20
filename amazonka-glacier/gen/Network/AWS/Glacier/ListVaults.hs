@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListVaults
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -41,8 +41,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html List Vaults>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListVaults.html AWS API Reference> for ListVaults.
 --
 -- This operation returns paginated results.
 module Network.AWS.Glacier.ListVaults
@@ -137,6 +135,8 @@ instance AWSRequest ListVaults where
                  ListVaultsResponse' <$>
                    (x .?> "Marker") <*> (x .?> "VaultList" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListVaults
 
 instance ToHeaders ListVaults where
         toHeaders = const mempty

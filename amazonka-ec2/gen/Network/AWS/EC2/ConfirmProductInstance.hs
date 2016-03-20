@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ConfirmProductInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- action can only be used by the owner of the product code. It is useful
 -- when a product code owner needs to verify whether another user\'s
 -- instance is eligible for support.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ConfirmProductInstance.html AWS API Reference> for ConfirmProductInstance.
 module Network.AWS.EC2.ConfirmProductInstance
     (
     -- * Creating a Request
@@ -102,6 +100,8 @@ instance AWSRequest ConfirmProductInstance where
                  ConfirmProductInstanceResponse' <$>
                    (x .@? "return") <*> (x .@? "ownerId") <*>
                      (pure (fromEnum s)))
+
+instance Hashable ConfirmProductInstance
 
 instance ToHeaders ConfirmProductInstance where
         toHeaders = const mempty

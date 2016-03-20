@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.Types.Sum
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -89,3 +89,31 @@ instance ToJSON LogLevel where
 
 instance FromJSON LogLevel where
     parseJSON = parseJSONText "LogLevel"
+
+data MessageFormat
+    = JSON
+    | Raw
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText MessageFormat where
+    parser = takeLowerText >>= \case
+        "json" -> pure JSON
+        "raw" -> pure Raw
+        e -> fromTextError $ "Failure parsing MessageFormat from value: '" <> e
+           <> "'. Accepted values: JSON, RAW"
+
+instance ToText MessageFormat where
+    toText = \case
+        JSON -> "JSON"
+        Raw -> "RAW"
+
+instance Hashable     MessageFormat
+instance ToByteString MessageFormat
+instance ToQuery      MessageFormat
+instance ToHeader     MessageFormat
+
+instance ToJSON MessageFormat where
+    toJSON = toJSONText
+
+instance FromJSON MessageFormat where
+    parseJSON = parseJSONText "MessageFormat"

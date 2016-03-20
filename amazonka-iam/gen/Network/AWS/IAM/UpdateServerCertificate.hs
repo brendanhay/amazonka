@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateServerCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -39,8 +39,6 @@
 -- permissions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html AWS API Reference> for UpdateServerCertificate.
 module Network.AWS.IAM.UpdateServerCertificate
     (
     -- * Creating a Request
@@ -110,6 +108,8 @@ instance AWSRequest UpdateServerCertificate where
         request = postQuery iAM
         response
           = receiveNull UpdateServerCertificateResponse'
+
+instance Hashable UpdateServerCertificate
 
 instance ToHeaders UpdateServerCertificate where
         toHeaders = const mempty

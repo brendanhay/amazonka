@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an instance as part of a deployment.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentInstance.html AWS API Reference> for GetDeploymentInstance.
 module Network.AWS.CodeDeploy.GetDeploymentInstance
     (
     -- * Creating a Request
@@ -74,7 +72,7 @@ getDeploymentInstance pDeploymentId_ pInstanceId_ =
 gdiDeploymentId :: Lens' GetDeploymentInstance Text
 gdiDeploymentId = lens _gdiDeploymentId (\ s a -> s{_gdiDeploymentId = a});
 
--- | The unique ID of an instance in the deployment\'s deployment group.
+-- | The unique ID of an instance in the deployment group.
 gdiInstanceId :: Lens' GetDeploymentInstance Text
 gdiInstanceId = lens _gdiInstanceId (\ s a -> s{_gdiInstanceId = a});
 
@@ -87,6 +85,8 @@ instance AWSRequest GetDeploymentInstance where
               (\ s h x ->
                  GetDeploymentInstanceResponse' <$>
                    (x .?> "instanceSummary") <*> (pure (fromEnum s)))
+
+instance Hashable GetDeploymentInstance
 
 instance ToHeaders GetDeploymentInstance where
         toHeaders

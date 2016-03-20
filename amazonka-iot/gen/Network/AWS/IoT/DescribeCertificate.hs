@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DescribeCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified certificate.
---
--- /See:/ <https://aws.amazon.com/iot#DescribeCertificate.html AWS API Reference> for DescribeCertificate.
 module Network.AWS.IoT.DescribeCertificate
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest DescribeCertificate where
                  DescribeCertificateResponse' <$>
                    (x .?> "certificateDescription") <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeCertificate
 
 instance ToHeaders DescribeCertificate where
         toHeaders = const mempty

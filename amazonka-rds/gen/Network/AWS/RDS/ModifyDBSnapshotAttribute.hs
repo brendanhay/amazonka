@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBSnapshotAttribute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,7 +23,7 @@
 --
 -- To share a manual DB snapshot with other AWS accounts, specify 'restore'
 -- as the 'AttributeName' and use the 'ValuesToAdd' parameter to add a list
--- of the AWS account ids that are authorized to retore the manual DB
+-- of the AWS account ids that are authorized to restore the manual DB
 -- snapshot. Uses the value 'all' to make the manual DB snapshot public and
 -- can by copied or restored by all AWS accounts. Do not add the 'all'
 -- value for any manual DB snapshots that contain private information that
@@ -31,11 +31,9 @@
 --
 -- To view which AWS accounts have access to copy or restore a manual DB
 -- snapshot, or whether a manual DB snapshot public or private, use the
--- DescribeDBSnapshotAttributes API.
+-- < DescribeDBSnapshotAttributes> API.
 --
 -- If the manual DB snapshot is encrypted, it cannot be shared.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSnapshotAttribute.html AWS API Reference> for ModifyDBSnapshotAttribute.
 module Network.AWS.RDS.ModifyDBSnapshotAttribute
     (
     -- * Creating a Request
@@ -136,6 +134,8 @@ instance AWSRequest ModifyDBSnapshotAttribute where
                  ModifyDBSnapshotAttributeResponse' <$>
                    (x .@? "DBSnapshotAttributesResult") <*>
                      (pure (fromEnum s)))
+
+instance Hashable ModifyDBSnapshotAttribute
 
 instance ToHeaders ModifyDBSnapshotAttribute where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPCPeeringConnection
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- or the owner of the peer VPC can delete the VPC peering connection if
 -- it\'s in the 'active' state. The owner of the requester VPC can delete a
 -- VPC peering connection in the 'pending-acceptance' state.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPCPeeringConnection.html AWS API Reference> for DeleteVPCPeeringConnection.
 module Network.AWS.EC2.DeleteVPCPeeringConnection
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest DeleteVPCPeeringConnection where
               (\ s h x ->
                  DeleteVPCPeeringConnectionResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteVPCPeeringConnection
 
 instance ToHeaders DeleteVPCPeeringConnection where
         toHeaders = const mempty

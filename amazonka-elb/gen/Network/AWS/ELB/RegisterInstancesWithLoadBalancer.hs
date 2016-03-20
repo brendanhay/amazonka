@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.RegisterInstancesWithLoadBalancer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,7 +29,7 @@
 -- Note that 'RegisterInstanceWithLoadBalancer' completes when the request
 -- has been registered. Instance registration takes a little time to
 -- complete. To check the state of the registered instances, use
--- DescribeLoadBalancers or DescribeInstanceHealth.
+-- < DescribeLoadBalancers> or < DescribeInstanceHealth>.
 --
 -- After the instance is registered, it starts receiving traffic and
 -- requests from the load balancer. Any instance that is not in one of the
@@ -44,13 +44,11 @@
 -- routing traffic to the instances. We recommend that you use the
 -- following sequence: stop the instance, deregister the instance, start
 -- the instance, and then register the instance. To deregister instances
--- from a load balancer, use DeregisterInstancesFromLoadBalancer.
+-- from a load balancer, use < DeregisterInstancesFromLoadBalancer>.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register EC2 Instances>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_RegisterInstancesWithLoadBalancer.html AWS API Reference> for RegisterInstancesWithLoadBalancer.
 module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     (
     -- * Creating a Request
@@ -118,6 +116,8 @@ instance AWSRequest RegisterInstancesWithLoadBalancer
                    (x .@? "Instances" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable RegisterInstancesWithLoadBalancer
 
 instance ToHeaders RegisterInstancesWithLoadBalancer
          where

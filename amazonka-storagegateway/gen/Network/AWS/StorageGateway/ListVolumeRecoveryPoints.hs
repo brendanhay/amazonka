@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListVolumeRecoveryPoints
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,10 +24,8 @@
 -- Each gateway-cached volume has one recovery point. A volume recovery
 -- point is a point in time at which all data of the volume is consistent
 -- and from which you can create a snapshot. To create a snapshot from a
--- volume recovery point use the CreateSnapshotFromVolumeRecoveryPoint
+-- volume recovery point use the < CreateSnapshotFromVolumeRecoveryPoint>
 -- operation.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeRecoveryPoints.html AWS API Reference> for ListVolumeRecoveryPoints.
 module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     (
     -- * Creating a Request
@@ -85,6 +83,8 @@ instance AWSRequest ListVolumeRecoveryPoints where
                    (x .?> "VolumeRecoveryPointInfos" .!@ mempty) <*>
                      (x .?> "GatewayARN")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListVolumeRecoveryPoints
 
 instance ToHeaders ListVolumeRecoveryPoints where
         toHeaders

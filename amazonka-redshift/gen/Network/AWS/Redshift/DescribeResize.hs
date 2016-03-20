@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeResize
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,10 +24,8 @@
 -- was initiated and completed, the status of the resize remains as
 -- 'SUCCEEDED' until the next resize.
 --
--- A resize operation can be requested using ModifyCluster and specifying a
--- different number or type of nodes for the cluster.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeResize.html AWS API Reference> for DescribeResize.
+-- A resize operation can be requested using < ModifyCluster> and
+-- specifying a different number or type of nodes for the cluster.
 module Network.AWS.Redshift.DescribeResize
     (
     -- * Creating a Request
@@ -115,6 +113,8 @@ instance AWSRequest DescribeResize where
                      <*> (x .@? "TargetClusterType")
                      <*> (x .@? "ElapsedTimeInSeconds")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeResize
 
 instance ToHeaders DescribeResize where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.EnableVGWRoutePropagation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Enables a virtual private gateway (VGW) to propagate routes to the
 -- specified route table of a VPC.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVGWRoutePropagation.html AWS API Reference> for EnableVGWRoutePropagation.
 module Network.AWS.EC2.EnableVGWRoutePropagation
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest EnableVGWRoutePropagation where
         request = postQuery eC2
         response
           = receiveNull EnableVGWRoutePropagationResponse'
+
+instance Hashable EnableVGWRoutePropagation
 
 instance ToHeaders EnableVGWRoutePropagation where
         toHeaders = const mempty

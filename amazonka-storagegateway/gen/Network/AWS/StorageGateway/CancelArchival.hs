@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CancelArchival
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Cancels archiving of a virtual tape to the virtual tape shelf (VTS)
 -- after the archiving process is initiated.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelArchival.html AWS API Reference> for CancelArchival.
 module Network.AWS.StorageGateway.CancelArchival
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest CancelArchival where
               (\ s h x ->
                  CancelArchivalResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
+
+instance Hashable CancelArchival
 
 instance ToHeaders CancelArchival where
         toHeaders

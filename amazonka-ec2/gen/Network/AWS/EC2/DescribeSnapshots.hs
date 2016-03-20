@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSnapshots
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -65,8 +65,6 @@
 -- For more information about EBS snapshots, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html AWS API Reference> for DescribeSnapshots.
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeSnapshots
@@ -242,6 +240,8 @@ instance AWSRequest DescribeSnapshots where
                      (x .@? "snapshotSet" .!@ mempty >>=
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeSnapshots
 
 instance ToHeaders DescribeSnapshots where
         toHeaders = const mempty

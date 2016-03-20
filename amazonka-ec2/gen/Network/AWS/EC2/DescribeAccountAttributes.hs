@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeAccountAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -39,8 +39,6 @@
 -- -   'vpc-max-elastic-ips': The maximum number of Elastic IP addresses
 --     that you can allocate for use with EC2-VPC.
 --
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAccountAttributes.html AWS API Reference> for DescribeAccountAttributes.
 module Network.AWS.EC2.DescribeAccountAttributes
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest DescribeAccountAttributes where
                    (x .@? "accountAttributeSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeAccountAttributes
 
 instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty

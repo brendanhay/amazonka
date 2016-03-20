@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetStreamingDistribution
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the information about a streaming distribution.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetStreamingDistribution.html AWS API Reference> for GetStreamingDistribution.
 module Network.AWS.CloudFront.GetStreamingDistribution
     (
     -- * Creating a Request
@@ -80,13 +78,15 @@ instance AWSRequest GetStreamingDistribution where
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetStreamingDistribution
+
 instance ToHeaders GetStreamingDistribution where
         toHeaders = const mempty
 
 instance ToPath GetStreamingDistribution where
         toPath GetStreamingDistribution'{..}
           = mconcat
-              ["/2015-09-17/streaming-distribution/", toBS _gsdId]
+              ["/2016-01-28/streaming-distribution/", toBS _gsdId]
 
 instance ToQuery GetStreamingDistribution where
         toQuery = const mempty

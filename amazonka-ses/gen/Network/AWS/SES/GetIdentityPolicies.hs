@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetIdentityPolicies
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityPolicies.html AWS API Reference> for GetIdentityPolicies.
 module Network.AWS.SES.GetIdentityPolicies
     (
     -- * Creating a Request
@@ -58,10 +56,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to retrieve the text of a
--- list of authorization policies applying to an identity.
---
--- /See:/ 'getIdentityPolicies' smart constructor.
+-- | /See:/ 'getIdentityPolicies' smart constructor.
 data GetIdentityPolicies = GetIdentityPolicies'
     { _gipIdentity    :: !Text
     , _gipPolicyNames :: ![Text]
@@ -111,6 +106,8 @@ instance AWSRequest GetIdentityPolicies where
                      (x .@? "Policies" .!@ mempty >>=
                         parseXMLMap "entry" "key" "value"))
 
+instance Hashable GetIdentityPolicies
+
 instance ToHeaders GetIdentityPolicies where
         toHeaders = const mempty
 
@@ -126,10 +123,7 @@ instance ToQuery GetIdentityPolicies where
                "PolicyNames" =:
                  toQueryList "member" _gipPolicyNames]
 
--- | Represents a map of policy names to policies returned from a successful
--- 'GetIdentityPolicies' request.
---
--- /See:/ 'getIdentityPoliciesResponse' smart constructor.
+-- | /See:/ 'getIdentityPoliciesResponse' smart constructor.
 data GetIdentityPoliciesResponse = GetIdentityPoliciesResponse'
     { _giprsResponseStatus :: !Int
     , _giprsPolicies       :: !(Map Text Text)

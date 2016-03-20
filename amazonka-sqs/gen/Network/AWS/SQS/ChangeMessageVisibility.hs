@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ChangeMessageVisibility
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -54,8 +54,6 @@
 -- it is received, the visibility timeout for the message the next time it
 -- is received reverts to the original timeout value, not the value you set
 -- with the 'ChangeMessageVisibility' action.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibility.html AWS API Reference> for ChangeMessageVisibility.
 module Network.AWS.SQS.ChangeMessageVisibility
     (
     -- * Creating a Request
@@ -111,7 +109,7 @@ cmvQueueURL :: Lens' ChangeMessageVisibility Text
 cmvQueueURL = lens _cmvQueueURL (\ s a -> s{_cmvQueueURL = a});
 
 -- | The receipt handle associated with the message whose visibility timeout
--- should be changed. This parameter is returned by the ReceiveMessage
+-- should be changed. This parameter is returned by the < ReceiveMessage>
 -- action.
 cmvReceiptHandle :: Lens' ChangeMessageVisibility Text
 cmvReceiptHandle = lens _cmvReceiptHandle (\ s a -> s{_cmvReceiptHandle = a});
@@ -127,6 +125,8 @@ instance AWSRequest ChangeMessageVisibility where
         request = postQuery sQS
         response
           = receiveNull ChangeMessageVisibilityResponse'
+
+instance Hashable ChangeMessageVisibility
 
 instance ToHeaders ChangeMessageVisibility where
         toHeaders = const mempty

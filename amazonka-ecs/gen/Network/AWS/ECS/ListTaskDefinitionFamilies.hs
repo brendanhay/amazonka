@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListTaskDefinitionFamilies
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- account (which may include task definition families that no longer have
 -- any 'ACTIVE' task definitions). You can filter the results with the
 -- 'familyPrefix' parameter.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitionFamilies.html AWS API Reference> for ListTaskDefinitionFamilies.
 --
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListTaskDefinitionFamilies
@@ -122,6 +120,8 @@ instance AWSRequest ListTaskDefinitionFamilies where
                  ListTaskDefinitionFamiliesResponse' <$>
                    (x .?> "families" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListTaskDefinitionFamilies
 
 instance ToHeaders ListTaskDefinitionFamilies where
         toHeaders

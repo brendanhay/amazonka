@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a new origin access identity.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateCloudFrontOriginAccessIdentity.html AWS API Reference> for CreateCloudFrontOriginAccessIdentity.
 module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request
@@ -83,11 +81,14 @@ instance AWSRequest
                      (parseXML x)
                      <*> (pure (fromEnum s)))
 
+instance Hashable
+         CreateCloudFrontOriginAccessIdentity
+
 instance ToElement
          CreateCloudFrontOriginAccessIdentity where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2015-09-17/}CloudFrontOriginAccessIdentityConfig"
+              "{http://cloudfront.amazonaws.com/doc/2016-01-28/}CloudFrontOriginAccessIdentityConfig"
               .
               _ccfoaiCloudFrontOriginAccessIdentityConfig
 
@@ -99,7 +100,7 @@ instance ToPath CreateCloudFrontOriginAccessIdentity
          where
         toPath
           = const
-              "/2015-09-17/origin-access-identity/cloudfront"
+              "/2016-01-28/origin-access-identity/cloudfront"
 
 instance ToQuery CreateCloudFrontOriginAccessIdentity
          where

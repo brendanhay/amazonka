@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.DeactivatePipeline
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,11 +21,9 @@
 -- Deactivates the specified running pipeline. The pipeline is set to the
 -- 'DEACTIVATING' state until the deactivation process completes.
 --
--- To resume a deactivated pipeline, use ActivatePipeline. By default, the
--- pipeline resumes from the last completed execution. Optionally, you can
--- specify the date and time to resume the pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeactivatePipeline.html AWS API Reference> for DeactivatePipeline.
+-- To resume a deactivated pipeline, use < ActivatePipeline>. By default,
+-- the pipeline resumes from the last completed execution. Optionally, you
+-- can specify the date and time to resume the pipeline.
 module Network.AWS.DataPipeline.DeactivatePipeline
     (
     -- * Creating a Request
@@ -91,6 +89,8 @@ instance AWSRequest DeactivatePipeline where
           = receiveEmpty
               (\ s h x ->
                  DeactivatePipelineResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeactivatePipeline
 
 instance ToHeaders DeactivatePipeline where
         toHeaders

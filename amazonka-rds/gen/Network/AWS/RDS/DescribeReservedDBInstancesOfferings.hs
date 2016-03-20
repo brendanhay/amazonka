@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeReservedDBInstancesOfferings
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists available reserved DB instance offerings.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstancesOfferings.html AWS API Reference> for DescribeReservedDBInstancesOfferings.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
@@ -189,6 +187,9 @@ instance AWSRequest
                         may (parseXMLList "ReservedDBInstancesOffering"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable
+         DescribeReservedDBInstancesOfferings
+
 instance ToHeaders
          DescribeReservedDBInstancesOfferings where
         toHeaders = const mempty
@@ -218,7 +219,7 @@ instance ToQuery DescribeReservedDBInstancesOfferings
                "Duration" =: _drdioDuration]
 
 -- | Contains the result of a successful invocation of the
--- DescribeReservedDBInstancesOfferings action.
+-- < DescribeReservedDBInstancesOfferings> action.
 --
 -- /See:/ 'describeReservedDBInstancesOfferingsResponse' smart constructor.
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'

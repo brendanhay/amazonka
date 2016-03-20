@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.InitiateVaultLock
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -36,23 +36,21 @@
 -- vault lock enters the 'InProgress' state. After the 24 hour window ends,
 -- the lock ID expires, the vault automatically exits the 'InProgress'
 -- state, and the vault lock policy is removed from the vault. You call
--- CompleteVaultLock to complete the vault locking process by setting the
--- state of the vault lock to 'Locked'.
+-- < CompleteVaultLock> to complete the vault locking process by setting
+-- the state of the vault lock to 'Locked'.
 --
 -- After a vault lock is in the 'Locked' state, you cannot initiate a new
 -- vault lock for the vault.
 --
--- You can abort the vault locking process by calling AbortVaultLock. You
--- can get the state of the vault lock by calling GetVaultLock. For more
--- information about the vault locking process,
+-- You can abort the vault locking process by calling < AbortVaultLock>.
+-- You can get the state of the vault lock by calling < GetVaultLock>. For
+-- more information about the vault locking process,
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock>.
 --
 -- If this operation is called when the vault lock is in the 'InProgress'
 -- state, the operation returns an 'AccessDeniedException' error. When the
--- vault lock is in the 'InProgress' state you must call AbortVaultLock
+-- vault lock is in the 'InProgress' state you must call < AbortVaultLock>
 -- before you can initiate a new vault lock policy.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-InitiateVaultLock.html AWS API Reference> for InitiateVaultLock.
 module Network.AWS.Glacier.InitiateVaultLock
     (
     -- * Creating a Request
@@ -134,6 +132,8 @@ instance AWSRequest InitiateVaultLock where
               (\ s h x ->
                  InitiateVaultLockResponse' <$>
                    (h .#? "x-amz-lock-id") <*> (pure (fromEnum s)))
+
+instance Hashable InitiateVaultLock
 
 instance ToHeaders InitiateVaultLock where
         toHeaders = const mempty

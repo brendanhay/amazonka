@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeleteConfigRule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,13 +22,11 @@
 --
 -- AWS Config sets the state of a rule to 'DELETING' until the deletion is
 -- complete. You cannot update a rule while it is in this state. If you
--- make a 'PutConfigRule' request for the rule, you will receive a
--- 'ResourceInUseException'.
+-- make a 'PutConfigRule' or 'DeleteConfigRule' request for the rule, you
+-- will receive a 'ResourceInUseException'.
 --
 -- You can check the state of a rule by using the 'DescribeConfigRules'
 -- request.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigRule.html AWS API Reference> for DeleteConfigRule.
 module Network.AWS.Config.DeleteConfigRule
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest DeleteConfigRule where
         type Rs DeleteConfigRule = DeleteConfigRuleResponse
         request = postJSON config
         response = receiveNull DeleteConfigRuleResponse'
+
+instance Hashable DeleteConfigRule
 
 instance ToHeaders DeleteConfigRule where
         toHeaders

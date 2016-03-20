@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeAccountLimits
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Retrieves your account\'s AWS CloudFormation limits, such as the maximum
 -- number of stacks that you can create in your account.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeAccountLimits.html AWS API Reference> for DescribeAccountLimits.
 module Network.AWS.CloudFormation.DescribeAccountLimits
     (
     -- * Creating a Request
@@ -46,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the DescribeAccountLimits action.
+-- | The input for the < DescribeAccountLimits> action.
 --
 -- /See:/ 'describeAccountLimits' smart constructor.
 newtype DescribeAccountLimits = DescribeAccountLimits'
@@ -83,6 +81,8 @@ instance AWSRequest DescribeAccountLimits where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAccountLimits
+
 instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty
 
@@ -96,7 +96,7 @@ instance ToQuery DescribeAccountLimits where
                "Version" =: ("2010-05-15" :: ByteString),
                "NextToken" =: _dalNextToken]
 
--- | The output for the DescribeAccountLimits action.
+-- | The output for the < DescribeAccountLimits> action.
 --
 -- /See:/ 'describeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
@@ -124,8 +124,8 @@ describeAccountLimitsResponse pResponseStatus_ =
     , _dalrsResponseStatus = pResponseStatus_
     }
 
--- | A string that identifies the next page of limits. If no additional page
--- exists, this value is null.
+-- | If the output exceeds 1 MB in size, a string that identifies the next
+-- page of limits. If no additional page exists, this value is null.
 dalrsNextToken :: Lens' DescribeAccountLimitsResponse (Maybe Text)
 dalrsNextToken = lens _dalrsNextToken (\ s a -> s{_dalrsNextToken = a});
 

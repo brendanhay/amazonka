@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- List origin access identities.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListCloudFrontOriginAccessIdentities.html AWS API Reference> for ListCloudFrontOriginAccessIdentities.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
@@ -115,6 +113,9 @@ instance AWSRequest
                  ListCloudFrontOriginAccessIdentitiesResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
 
+instance Hashable
+         ListCloudFrontOriginAccessIdentities
+
 instance ToHeaders
          ListCloudFrontOriginAccessIdentities where
         toHeaders = const mempty
@@ -123,7 +124,7 @@ instance ToPath ListCloudFrontOriginAccessIdentities
          where
         toPath
           = const
-              "/2015-09-17/origin-access-identity/cloudfront"
+              "/2016-01-28/origin-access-identity/cloudfront"
 
 instance ToQuery ListCloudFrontOriginAccessIdentities
          where

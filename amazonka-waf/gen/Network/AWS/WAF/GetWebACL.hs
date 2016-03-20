@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetWebACL
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the WebACL that is specified by 'WebACLId'.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetWebACL.html AWS API Reference> for GetWebACL.
+-- Returns the < WebACL> that is specified by 'WebACLId'.
 module Network.AWS.WAF.GetWebACL
     (
     -- * Creating a Request
@@ -62,8 +60,8 @@ getWebACL pWebACLId_ =
     { _gwaWebACLId = pWebACLId_
     }
 
--- | The 'WebACLId' of the WebACL that you want to get. 'WebACLId' is
--- returned by CreateWebACL and by ListWebACLs.
+-- | The 'WebACLId' of the < WebACL> that you want to get. 'WebACLId' is
+-- returned by < CreateWebACL> and by < ListWebACLs>.
 gwaWebACLId :: Lens' GetWebACL Text
 gwaWebACLId = lens _gwaWebACLId (\ s a -> s{_gwaWebACLId = a});
 
@@ -75,6 +73,8 @@ instance AWSRequest GetWebACL where
               (\ s h x ->
                  GetWebACLResponse' <$>
                    (x .?> "WebACL") <*> (pure (fromEnum s)))
+
+instance Hashable GetWebACL
 
 instance ToHeaders GetWebACL where
         toHeaders
@@ -118,12 +118,12 @@ getWebACLResponse pResponseStatus_ =
     , _gwarsResponseStatus = pResponseStatus_
     }
 
--- | Information about the WebACL that you specified in the 'GetWebACL'
+-- | Information about the < WebACL> that you specified in the 'GetWebACL'
 -- request. For more information, see the following topics:
 --
--- -   WebACL: Contains 'DefaultAction', 'MetricName', 'Name', an array of
---     'Rule' objects, and 'WebACLId'
--- -   'DefaultAction' (Data type is WafAction): Contains 'Type'
+-- -   < WebACL>: Contains 'DefaultAction', 'MetricName', 'Name', an array
+--     of 'Rule' objects, and 'WebACLId'
+-- -   'DefaultAction' (Data type is < WafAction>): Contains 'Type'
 -- -   'Rules': Contains an array of 'ActivatedRule' objects, which contain
 --     'Action', 'Priority', and 'RuleId'
 -- -   'Action': Contains 'Type'

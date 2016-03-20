@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBSubnetGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 --
 -- For an overview of CIDR ranges, go to the
 -- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSubnetGroups.html AWS API Reference> for DescribeDBSubnetGroups.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBSubnetGroups
@@ -133,6 +131,8 @@ instance AWSRequest DescribeDBSubnetGroups where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBSubnetGroups
+
 instance ToHeaders DescribeDBSubnetGroups where
         toHeaders = const mempty
 
@@ -152,7 +152,7 @@ instance ToQuery DescribeDBSubnetGroups where
                "MaxRecords" =: _ddsgMaxRecords]
 
 -- | Contains the result of a successful invocation of the
--- DescribeDBSubnetGroups action.
+-- < DescribeDBSubnetGroups> action.
 --
 -- /See:/ 'describeDBSubnetGroupsResponse' smart constructor.
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
@@ -180,7 +180,7 @@ describeDBSubnetGroupsResponse pResponseStatus_ =
     , _ddsgrsResponseStatus = pResponseStatus_
     }
 
--- | A list of DBSubnetGroup instances.
+-- | A list of < DBSubnetGroup> instances.
 ddsgrsDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
 ddsgrsDBSubnetGroups = lens _ddsgrsDBSubnetGroups (\ s a -> s{_ddsgrsDBSubnetGroups = a}) . _Default . _Coerce;
 

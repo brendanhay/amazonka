@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ModifyCacheSubnetGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- The /ModifyCacheSubnetGroup/ action modifies an existing cache subnet
 -- group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheSubnetGroup.html AWS API Reference> for ModifyCacheSubnetGroup.
 module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     (
     -- * Creating a Request
@@ -102,6 +100,8 @@ instance AWSRequest ModifyCacheSubnetGroup where
               (\ s h x ->
                  ModifyCacheSubnetGroupResponse' <$>
                    (x .@? "CacheSubnetGroup") <*> (pure (fromEnum s)))
+
+instance Hashable ModifyCacheSubnetGroup
 
 instance ToHeaders ModifyCacheSubnetGroup where
         toHeaders = const mempty

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.STS
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -67,8 +67,6 @@
 -- was made, and so on. To learn more about CloudTrail, including how to
 -- turn it on and find your log files, see the
 -- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html AWS CloudTrail User Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.STS
     (
     -- * Service Configuration
@@ -85,6 +83,9 @@ module Network.AWS.STS
 
     -- ** PackedPolicyTooLargeException
     , _PackedPolicyTooLargeException
+
+    -- ** RegionDisabledException
+    , _RegionDisabledException
 
     -- ** IdPCommunicationErrorException
     , _IdPCommunicationErrorException

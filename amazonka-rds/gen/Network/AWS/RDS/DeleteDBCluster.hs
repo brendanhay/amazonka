@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBCluster
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- For more information on Amazon Aurora, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBCluster.html AWS API Reference> for DeleteDBCluster.
 module Network.AWS.RDS.DeleteDBCluster
     (
     -- * Creating a Request
@@ -127,6 +125,8 @@ instance AWSRequest DeleteDBCluster where
               (\ s h x ->
                  DeleteDBClusterResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteDBCluster
 
 instance ToHeaders DeleteDBCluster where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateBatchPrediction
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,12 +29,10 @@
 -- returns and sets the 'BatchPrediction' status to 'PENDING'. After the
 -- 'BatchPrediction' completes, Amazon ML sets the status to 'COMPLETED'.
 --
--- You can poll for status updates by using the GetBatchPrediction
+-- You can poll for status updates by using the < GetBatchPrediction>
 -- operation and checking the 'Status' parameter of the result. After the
 -- 'COMPLETED' status appears, the results are available in the location
 -- specified by the 'OutputUri' parameter.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateBatchPrediction.html AWS API Reference> for CreateBatchPrediction.
 module Network.AWS.MachineLearning.CreateBatchPrediction
     (
     -- * Creating a Request
@@ -139,6 +137,8 @@ instance AWSRequest CreateBatchPrediction where
                  CreateBatchPredictionResponse' <$>
                    (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateBatchPrediction
+
 instance ToHeaders CreateBatchPrediction where
         toHeaders
           = const
@@ -168,11 +168,11 @@ instance ToPath CreateBatchPrediction where
 instance ToQuery CreateBatchPrediction where
         toQuery = const mempty
 
--- | Represents the output of a CreateBatchPrediction operation, and is an
+-- | Represents the output of a < CreateBatchPrediction> operation, and is an
 -- acknowledgement that Amazon ML received the request.
 --
--- The CreateBatchPrediction operation is asynchronous. You can poll for
--- status updates by using the GetBatchPrediction operation and checking
+-- The < CreateBatchPrediction> operation is asynchronous. You can poll for
+-- status updates by using the < GetBatchPrediction> operation and checking
 -- the 'Status' parameter of the result.
 --
 -- /See:/ 'createBatchPredictionResponse' smart constructor.

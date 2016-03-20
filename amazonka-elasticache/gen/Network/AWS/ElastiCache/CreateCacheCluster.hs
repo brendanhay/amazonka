@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CreateCacheCluster
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- The /CreateCacheCluster/ action creates a cache cluster. All nodes in
 -- the cache cluster run the same protocol-compliant cache engine software,
 -- either Memcached or Redis.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheCluster.html AWS API Reference> for CreateCacheCluster.
 module Network.AWS.ElastiCache.CreateCacheCluster
     (
     -- * Creating a Request
@@ -426,6 +424,8 @@ instance AWSRequest CreateCacheCluster where
               (\ s h x ->
                  CreateCacheClusterResponse' <$>
                    (x .@? "CacheCluster") <*> (pure (fromEnum s)))
+
+instance Hashable CreateCacheCluster
 
 instance ToHeaders CreateCacheCluster where
         toHeaders = const mempty

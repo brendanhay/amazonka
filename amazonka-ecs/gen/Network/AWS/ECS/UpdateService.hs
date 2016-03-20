@@ -12,31 +12,47 @@
 
 -- |
 -- Module      : Network.AWS.ECS.UpdateService
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modify the desired count or task definition used in a service.
+-- Modifies the desired count, deployment configuration, or task definition
+-- used in a service.
 --
 -- You can add to or subtract from the number of instantiations of a task
 -- definition in a service by specifying the cluster that the service is
 -- running in and a new 'desiredCount' parameter.
 --
--- You can use 'UpdateService' to modify your task definition and deploy a
--- new version of your service, one task at a time. If you modify the task
--- definition with 'UpdateService', Amazon ECS spawns a task with the new
--- version of the task definition and then stops an old task after the new
--- version is running. Because 'UpdateService' starts a new version of the
--- task before stopping an old version, your cluster must have capacity to
--- support one more instantiation of the task when 'UpdateService' is run.
--- If your cluster cannot support another instantiation of the task used in
--- your service, you can reduce the desired count of your service by one
--- before modifying the task definition.
+-- You can use < UpdateService> to modify your task definition and deploy a
+-- new version of your service.
 --
--- When UpdateService replaces a task during an update, the equivalent of
--- 'docker stop' is issued to the containers running in the task. This
+-- You can also update the deployment configuration of a service. When a
+-- deployment is triggered by updating the task definition of a service,
+-- the service scheduler uses the deployment configuration parameters,
+-- 'minimumHealthyPercent' and 'maximumPercent', to determine the
+-- deployment strategy.
+--
+-- If the 'minimumHealthyPercent' is below 100%, the scheduler can ignore
+-- the 'desiredCount' temporarily during a deployment. For example, if your
+-- service has a 'desiredCount' of four tasks, a 'minimumHealthyPercent' of
+-- 50% allows the scheduler to stop two existing tasks before starting two
+-- new tasks. Tasks for services that /do not/ use a load balancer are
+-- considered healthy if they are in the 'RUNNING' state; tasks for
+-- services that /do/ use a load balancer are considered healthy if they
+-- are in the 'RUNNING' state and the container instance it is hosted on is
+-- reported as healthy by the load balancer.
+--
+-- The 'maximumPercent' parameter represents an upper limit on the number
+-- of running tasks during a deployment, which enables you to define the
+-- deployment batch size. For example, if your service has a 'desiredCount'
+-- of four tasks, a 'maximumPercent' value of 200% starts four new tasks
+-- before stopping the four older tasks (provided that the cluster
+-- resources required to do this are available).
+--
+-- When < UpdateService> stops a task during a deployment, the equivalent
+-- of 'docker stop' is issued to the containers running in the task. This
 -- results in a 'SIGTERM' and a 30-second timeout, after which 'SIGKILL' is
 -- sent and the containers are forcibly stopped. If the container handles
 -- the 'SIGTERM' gracefully and exits within 30 seconds from receiving it,
@@ -61,8 +77,6 @@
 --     container instances with the fewest number of running tasks for this
 --     service.
 --
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html AWS API Reference> for UpdateService.
 module Network.AWS.ECS.UpdateService
     (
     -- * Creating a Request
@@ -72,6 +86,7 @@ module Network.AWS.ECS.UpdateService
     , usCluster
     , usDesiredCount
     , usTaskDefinition
+    , usDeploymentConfiguration
     , usService
 
     -- * Destructuring the Response
@@ -91,10 +106,11 @@ import           Network.AWS.Response
 
 -- | /See:/ 'updateService' smart constructor.
 data UpdateService = UpdateService'
-    { _usCluster        :: !(Maybe Text)
-    , _usDesiredCount   :: !(Maybe Int)
-    , _usTaskDefinition :: !(Maybe Text)
-    , _usService        :: !Text
+    { _usCluster                 :: !(Maybe Text)
+    , _usDesiredCount            :: !(Maybe Int)
+    , _usTaskDefinition          :: !(Maybe Text)
+    , _usDeploymentConfiguration :: !(Maybe DeploymentConfiguration)
+    , _usService                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateService' with the minimum fields required to make a request.
@@ -107,6 +123,8 @@ data UpdateService = UpdateService'
 --
 -- * 'usTaskDefinition'
 --
+-- * 'usDeploymentConfiguration'
+--
 -- * 'usService'
 updateService
     :: Text -- ^ 'usService'
@@ -116,6 +134,7 @@ updateService pService_ =
     { _usCluster = Nothing
     , _usDesiredCount = Nothing
     , _usTaskDefinition = Nothing
+    , _usDeploymentConfiguration = Nothing
     , _usService = pService_
     }
 
@@ -139,6 +158,11 @@ usDesiredCount = lens _usDesiredCount (\ s a -> s{_usDesiredCount = a});
 usTaskDefinition :: Lens' UpdateService (Maybe Text)
 usTaskDefinition = lens _usTaskDefinition (\ s a -> s{_usTaskDefinition = a});
 
+-- | Optional deployment parameters that control how many tasks run during
+-- the deployment and the ordering of stopping and starting tasks.
+usDeploymentConfiguration :: Lens' UpdateService (Maybe DeploymentConfiguration)
+usDeploymentConfiguration = lens _usDeploymentConfiguration (\ s a -> s{_usDeploymentConfiguration = a});
+
 -- | The name of the service to update.
 usService :: Lens' UpdateService Text
 usService = lens _usService (\ s a -> s{_usService = a});
@@ -151,6 +175,8 @@ instance AWSRequest UpdateService where
               (\ s h x ->
                  UpdateServiceResponse' <$>
                    (x .?> "service") <*> (pure (fromEnum s)))
+
+instance Hashable UpdateService
 
 instance ToHeaders UpdateService where
         toHeaders
@@ -169,6 +195,8 @@ instance ToJSON UpdateService where
                  [("cluster" .=) <$> _usCluster,
                   ("desiredCount" .=) <$> _usDesiredCount,
                   ("taskDefinition" .=) <$> _usTaskDefinition,
+                  ("deploymentConfiguration" .=) <$>
+                    _usDeploymentConfiguration,
                   Just ("service" .= _usService)])
 
 instance ToPath UpdateService where

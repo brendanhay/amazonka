@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- For more information, see the
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide Amazon CloudSearch Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html AWS API Reference>
 module Network.AWS.CloudSearchDomains
     (
     -- * Service Configuration
@@ -77,6 +75,18 @@ module Network.AWS.CloudSearchDomains
     , DocumentServiceWarning
     , documentServiceWarning
     , dswMessage
+
+    -- ** FieldStats
+    , FieldStats
+    , fieldStats
+    , fsMax
+    , fsMean
+    , fsCount
+    , fsMissing
+    , fsStddev
+    , fsMin
+    , fsSumOfSquares
+    , fsSum
 
     -- ** Hit
     , Hit

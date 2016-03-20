@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -14,8 +14,6 @@
 -- AWS Device Farm is a service that enables mobile app developers to test
 -- Android, iOS, and Fire OS apps on physical phones, tablets, and other
 -- devices in the cloud.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DeviceFarm
     (
     -- * Service Configuration

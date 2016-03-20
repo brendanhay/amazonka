@@ -1,6 +1,4 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html",
-    "operationUrl": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_",
     "libraryName": "amazonka-autoscaling",
     "typeOverrides": {
         "AutoScalingGroup": {

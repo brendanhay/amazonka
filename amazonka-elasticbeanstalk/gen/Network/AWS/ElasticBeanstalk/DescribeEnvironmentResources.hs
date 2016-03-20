@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns AWS resources for this environment.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentResources.html AWS API Reference> for DescribeEnvironmentResources.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest DescribeEnvironmentResources
                    (x .@? "EnvironmentResources") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeEnvironmentResources
+
 instance ToHeaders DescribeEnvironmentResources where
         toHeaders = const mempty
 
@@ -136,7 +136,7 @@ describeEnvironmentResourcesResponse pResponseStatus_ =
     , _derrsResponseStatus = pResponseStatus_
     }
 
--- | A list of EnvironmentResourceDescription.
+-- | A list of < EnvironmentResourceDescription>.
 derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
 derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEnvironmentResources = a});
 

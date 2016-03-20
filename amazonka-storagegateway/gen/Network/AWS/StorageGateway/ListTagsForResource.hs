@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListTagsForResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,17 +20,15 @@
 --
 -- This operation lists the tags that have been added to the specified
 -- resource.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListTagsForResource.html AWS API Reference> for ListTagsForResource.
 module Network.AWS.StorageGateway.ListTagsForResource
     (
     -- * Creating a Request
       listTagsForResource
     , ListTagsForResource
     -- * Request Lenses
-    , ltfrResourceARN
     , ltfrMarker
     , ltfrLimit
+    , ltfrResourceARN
 
     -- * Destructuring the Response
     , listTagsForResourceResponse
@@ -53,33 +51,29 @@ import           Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-    { _ltfrResourceARN :: !(Maybe Text)
-    , _ltfrMarker      :: !(Maybe Text)
+    { _ltfrMarker      :: !(Maybe Text)
     , _ltfrLimit       :: !(Maybe Nat)
+    , _ltfrResourceARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrResourceARN'
---
 -- * 'ltfrMarker'
 --
 -- * 'ltfrLimit'
+--
+-- * 'ltfrResourceARN'
 listTagsForResource
-    :: ListTagsForResource
-listTagsForResource =
+    :: Text -- ^ 'ltfrResourceARN'
+    -> ListTagsForResource
+listTagsForResource pResourceARN_ =
     ListTagsForResource'
-    { _ltfrResourceARN = Nothing
-    , _ltfrMarker = Nothing
+    { _ltfrMarker = Nothing
     , _ltfrLimit = Nothing
+    , _ltfrResourceARN = pResourceARN_
     }
-
--- | The Amazon Resource Name (ARN) of the resource for which you want to
--- list tags.
-ltfrResourceARN :: Lens' ListTagsForResource (Maybe Text)
-ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
 
 -- | An opaque string that indicates the position at which to begin returning
 -- the list of tags.
@@ -90,6 +84,11 @@ ltfrMarker = lens _ltfrMarker (\ s a -> s{_ltfrMarker = a});
 -- number of items.
 ltfrLimit :: Lens' ListTagsForResource (Maybe Natural)
 ltfrLimit = lens _ltfrLimit (\ s a -> s{_ltfrLimit = a}) . mapping _Nat;
+
+-- | The Amazon Resource Name (ARN) of the resource for which you want to
+-- list tags.
+ltfrResourceARN :: Lens' ListTagsForResource Text
+ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
 
 instance AWSRequest ListTagsForResource where
         type Rs ListTagsForResource =
@@ -102,6 +101,8 @@ instance AWSRequest ListTagsForResource where
                    (x .?> "ResourceARN") <*> (x .?> "Marker") <*>
                      (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListTagsForResource
 
 instance ToHeaders ListTagsForResource where
         toHeaders
@@ -117,9 +118,9 @@ instance ToJSON ListTagsForResource where
         toJSON ListTagsForResource'{..}
           = object
               (catMaybes
-                 [("ResourceARN" .=) <$> _ltfrResourceARN,
-                  ("Marker" .=) <$> _ltfrMarker,
-                  ("Limit" .=) <$> _ltfrLimit])
+                 [("Marker" .=) <$> _ltfrMarker,
+                  ("Limit" .=) <$> _ltfrLimit,
+                  Just ("ResourceARN" .= _ltfrResourceARN)])
 
 instance ToPath ListTagsForResource where
         toPath = const "/"

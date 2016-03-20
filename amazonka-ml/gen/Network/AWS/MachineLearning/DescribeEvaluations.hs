@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DescribeEvaluations
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns a list of 'DescribeEvaluations' that match the search criteria
 -- in the request.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeEvaluations.html AWS API Reference> for DescribeEvaluations.
 --
 -- This operation returns paginated results.
 module Network.AWS.MachineLearning.DescribeEvaluations
@@ -224,6 +222,8 @@ instance AWSRequest DescribeEvaluations where
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeEvaluations
+
 instance ToHeaders DescribeEvaluations where
         toHeaders
           = const
@@ -253,8 +253,8 @@ instance ToPath DescribeEvaluations where
 instance ToQuery DescribeEvaluations where
         toQuery = const mempty
 
--- | Represents the query results from a DescribeEvaluations operation. The
--- content is essentially a list of 'Evaluation'.
+-- | Represents the query results from a < DescribeEvaluations> operation.
+-- The content is essentially a list of 'Evaluation'.
 --
 -- /See:/ 'describeEvaluationsResponse' smart constructor.
 data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
@@ -282,7 +282,7 @@ describeEvaluationsResponse pResponseStatus_ =
     , _desrsResponseStatus = pResponseStatus_
     }
 
--- | A list of Evaluation that meet the search criteria.
+-- | A list of < Evaluation> that meet the search criteria.
 desrsResults :: Lens' DescribeEvaluationsResponse [Evaluation]
 desrsResults = lens _desrsResults (\ s a -> s{_desrsResults = a}) . _Default . _Coerce;
 

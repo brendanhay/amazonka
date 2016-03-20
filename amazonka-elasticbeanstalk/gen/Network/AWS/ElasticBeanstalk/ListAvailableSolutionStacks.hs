@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of the available solution stack names.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html AWS API Reference> for ListAvailableSolutionStacks.
 module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     (
     -- * Creating a Request
@@ -70,6 +68,8 @@ instance AWSRequest ListAvailableSolutionStacks where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListAvailableSolutionStacks
+
 instance ToHeaders ListAvailableSolutionStacks where
         toHeaders = const mempty
 
@@ -116,7 +116,8 @@ listAvailableSolutionStacksResponse pResponseStatus_ =
 lassrsSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
 lassrsSolutionStacks = lens _lassrsSolutionStacks (\ s a -> s{_lassrsSolutionStacks = a}) . _Default . _Coerce;
 
--- | A list of available solution stacks and their SolutionStackDescription.
+-- | A list of available solution stacks and their
+-- < SolutionStackDescription>.
 lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
 lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\ s a -> s{_lassrsSolutionStackDetails = a}) . _Default . _Coerce;
 

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSpotFleetInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the running instances for the specified Spot fleet.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetInstances.html AWS API Reference> for DescribeSpotFleetInstances.
 module Network.AWS.EC2.DescribeSpotFleetInstances
     (
     -- * Creating a Request
@@ -116,6 +114,8 @@ instance AWSRequest DescribeSpotFleetInstances where
                      <*>
                      (x .@? "activeInstanceSet" .!@ mempty >>=
                         parseXMLList "item"))
+
+instance Hashable DescribeSpotFleetInstances
 
 instance ToHeaders DescribeSpotFleetInstances where
         toHeaders = const mempty

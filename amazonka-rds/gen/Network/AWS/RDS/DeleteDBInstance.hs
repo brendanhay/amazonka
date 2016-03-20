@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,6 @@
 -- \'failed\', \'incompatible-restore\', or \'incompatible-network\', it
 -- can only be deleted when the SkipFinalSnapshot parameter is set to
 -- \"true\".
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBInstance.html AWS API Reference> for DeleteDBInstance.
 module Network.AWS.RDS.DeleteDBInstance
     (
     -- * Creating a Request
@@ -141,6 +139,8 @@ instance AWSRequest DeleteDBInstance where
               (\ s h x ->
                  DeleteDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteDBInstance
 
 instance ToHeaders DeleteDBInstance where
         toHeaders = const mempty

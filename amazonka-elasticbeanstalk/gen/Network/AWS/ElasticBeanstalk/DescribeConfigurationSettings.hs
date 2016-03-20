@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,9 +30,7 @@
 --
 -- Related Topics
 --
--- -   DeleteEnvironmentConfiguration
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationSettings.html AWS API Reference> for DescribeConfigurationSettings.
+-- -   < DeleteEnvironmentConfiguration>
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     (
     -- * Creating a Request
@@ -124,6 +122,8 @@ instance AWSRequest DescribeConfigurationSettings
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeConfigurationSettings
+
 instance ToHeaders DescribeConfigurationSettings
          where
         toHeaders = const mempty
@@ -166,7 +166,7 @@ describeConfigurationSettingsResponse pResponseStatus_ =
     , _dcsrsResponseStatus = pResponseStatus_
     }
 
--- | A list of ConfigurationSettingsDescription.
+-- | A list of < ConfigurationSettingsDescription>.
 dcsrsConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
 dcsrsConfigurationSettings = lens _dcsrsConfigurationSettings (\ s a -> s{_dcsrsConfigurationSettings = a}) . _Default . _Coerce;
 

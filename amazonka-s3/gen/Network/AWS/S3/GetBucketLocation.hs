@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketLocation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the region the bucket resides in.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLocation.html AWS API Reference> for GetBucketLocation.
 module Network.AWS.S3.GetBucketLocation
     (
     -- * Creating a Request
@@ -74,6 +72,8 @@ instance AWSRequest GetBucketLocation where
               (\ s h x ->
                  GetBucketLocationResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
+
+instance Hashable GetBucketLocation
 
 instance ToHeaders GetBucketLocation where
         toHeaders = const mempty

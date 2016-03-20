@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetDevice
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a unique device type.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetDevice.html AWS API Reference> for GetDevice.
 module Network.AWS.DeviceFarm.GetDevice
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest GetDevice where
               (\ s h x ->
                  GetDeviceResponse' <$>
                    (x .?> "device") <*> (pure (fromEnum s)))
+
+instance Hashable GetDevice
 
 instance ToHeaders GetDevice where
         toHeaders

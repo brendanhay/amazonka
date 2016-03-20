@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ListPresets
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- The ListPresets operation gets a list of the default presets included
 -- with Elastic Transcoder and the presets that you\'ve added in an AWS
 -- region.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPresets.html AWS API Reference> for ListPresets.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListPresets
@@ -103,6 +101,8 @@ instance AWSRequest ListPresets where
                    (x .?> "NextPageToken") <*>
                      (x .?> "Presets" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListPresets
 
 instance ToHeaders ListPresets where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ConfirmSubscription
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- token is valid, the action creates a new subscription and returns its
 -- Amazon Resource Name (ARN). This call requires an AWS signature only
 -- when the 'AuthenticateOnUnsubscribe' flag is set to \"true\".
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html AWS API Reference> for ConfirmSubscription.
 module Network.AWS.SNS.ConfirmSubscription
     (
     -- * Creating a Request
@@ -103,6 +101,8 @@ instance AWSRequest ConfirmSubscription where
               (\ s h x ->
                  ConfirmSubscriptionResponse' <$>
                    (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
+
+instance Hashable ConfirmSubscription
 
 instance ToHeaders ConfirmSubscription where
         toHeaders = const mempty

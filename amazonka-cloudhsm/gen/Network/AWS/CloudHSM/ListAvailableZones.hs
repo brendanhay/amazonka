@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ListAvailableZones
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the Availability Zones that have available AWS CloudHSM capacity.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListAvailableZones.html AWS API Reference> for ListAvailableZones.
 module Network.AWS.CloudHSM.ListAvailableZones
     (
     -- * Creating a Request
@@ -42,7 +40,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the ListAvailableZones action.
+-- | Contains the inputs for the < ListAvailableZones> action.
 --
 -- /See:/ 'listAvailableZones' smart constructor.
 data ListAvailableZones =
@@ -64,6 +62,8 @@ instance AWSRequest ListAvailableZones where
               (\ s h x ->
                  ListAvailableZonesResponse' <$>
                    (x .?> "AZList" .!@ mempty) <*> (pure (fromEnum s)))
+
+instance Hashable ListAvailableZones
 
 instance ToHeaders ListAvailableZones where
         toHeaders

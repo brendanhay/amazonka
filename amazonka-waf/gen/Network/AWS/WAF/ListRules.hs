@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.WAF.ListRules
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of RuleSummary objects.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListRules.html AWS API Reference> for ListRules.
+-- Returns an array of < RuleSummary> objects.
 module Network.AWS.WAF.ListRules
     (
     -- * Creating a Request
@@ -93,6 +91,8 @@ instance AWSRequest ListRules where
                    (x .?> "Rules" .!@ mempty) <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListRules
+
 instance ToHeaders ListRules where
         toHeaders
           = const
@@ -141,7 +141,7 @@ listRulesResponse pResponseStatus_ =
     , _lrrsResponseStatus = pResponseStatus_
     }
 
--- | An array of RuleSummary objects.
+-- | An array of < RuleSummary> objects.
 lrrsRules :: Lens' ListRulesResponse [RuleSummary]
 lrrsRules = lens _lrrsRules (\ s a -> s{_lrrsRules = a}) . _Default . _Coerce;
 

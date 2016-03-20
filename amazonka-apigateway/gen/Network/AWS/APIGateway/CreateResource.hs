@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a Resource resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateResource.html AWS API Reference> for CreateResource.
+-- Creates a < Resource> resource.
 module Network.AWS.APIGateway.CreateResource
     (
     -- * Creating a Request
@@ -49,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to create a Resource resource.
+-- | Requests Amazon API Gateway to create a < Resource> resource.
 --
 -- /See:/ 'createResource' smart constructor.
 data CreateResource = CreateResource'
@@ -79,7 +77,7 @@ createResource pRestAPIId_ pParentId_ pPathPart_ =
     , _crPathPart = pPathPart_
     }
 
--- | The identifier of the RestApi for the resource.
+-- | The identifier of the < RestApi> for the resource.
 crRestAPIId :: Lens' CreateResource Text
 crRestAPIId = lens _crRestAPIId (\ s a -> s{_crRestAPIId = a});
 
@@ -96,8 +94,13 @@ instance AWSRequest CreateResource where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateResource
+
 instance ToHeaders CreateResource where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON CreateResource where
         toJSON CreateResource'{..}

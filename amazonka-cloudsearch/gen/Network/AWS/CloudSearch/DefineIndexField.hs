@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineIndexField
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- configuration replaces the old one. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineIndexField.html AWS API Reference> for DefineIndexField.
 module Network.AWS.CloudSearch.DefineIndexField
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest DefineIndexField where
               (\ s h x ->
                  DefineIndexFieldResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "IndexField"))
+
+instance Hashable DefineIndexField
 
 instance ToHeaders DefineIndexField where
         toHeaders = const mempty

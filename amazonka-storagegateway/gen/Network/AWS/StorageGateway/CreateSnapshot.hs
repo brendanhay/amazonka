@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -39,8 +39,6 @@
 -- To list or delete a snapshot, you must use the Amazon EC2 API. For more
 -- information, see DescribeSnapshots or DeleteSnapshot in the
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html EC2 API reference>.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshot.html AWS API Reference> for CreateSnapshot.
 module Network.AWS.StorageGateway.CreateSnapshot
     (
     -- * Creating a Request
@@ -68,8 +66,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   CreateSnapshotInput$SnapshotDescription
--- -   CreateSnapshotInput$VolumeARN
+-- -   < CreateSnapshotInput$SnapshotDescription>
+-- -   < CreateSnapshotInput$VolumeARN>
 --
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
@@ -94,7 +92,7 @@ createSnapshot pVolumeARN_ pSnapshotDescription_ =
     , _csSnapshotDescription = pSnapshotDescription_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
 -- operation to return a list of gateway volumes.
 csVolumeARN :: Lens' CreateSnapshot Text
 csVolumeARN = lens _csVolumeARN (\ s a -> s{_csVolumeARN = a});
@@ -115,6 +113,8 @@ instance AWSRequest CreateSnapshot where
                  CreateSnapshotResponse' <$>
                    (x .?> "VolumeARN") <*> (x .?> "SnapshotId") <*>
                      (pure (fromEnum s)))
+
+instance Hashable CreateSnapshot
 
 instance ToHeaders CreateSnapshot where
         toHeaders
@@ -176,7 +176,7 @@ csrsVolumeARN = lens _csrsVolumeARN (\ s a -> s{_csrsVolumeARN = a});
 -- | The snapshot ID that is used to refer to the snapshot in future
 -- operations such as describing snapshots (Amazon Elastic Compute Cloud
 -- API 'DescribeSnapshots') or creating a volume from a snapshot
--- (CreateStorediSCSIVolume).
+-- (< CreateStorediSCSIVolume>).
 csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 

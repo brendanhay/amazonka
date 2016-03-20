@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListVolumeInitiators
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- This operation lists iSCSI initiators that are connected to a volume.
 -- You can use this operation to determine whether a volume is being used
 -- or not.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeInitiators.html AWS API Reference> for ListVolumeInitiators.
 module Network.AWS.StorageGateway.ListVolumeInitiators
     (
     -- * Creating a Request
@@ -66,7 +64,7 @@ listVolumeInitiators pVolumeARN_ =
     { _lviVolumeARN = pVolumeARN_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
 -- operation to return a list of gateway volumes for the gateway.
 lviVolumeARN :: Lens' ListVolumeInitiators Text
 lviVolumeARN = lens _lviVolumeARN (\ s a -> s{_lviVolumeARN = a});
@@ -81,6 +79,8 @@ instance AWSRequest ListVolumeInitiators where
                  ListVolumeInitiatorsResponse' <$>
                    (x .?> "Initiators" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable ListVolumeInitiators
 
 instance ToHeaders ListVolumeInitiators where
         toHeaders

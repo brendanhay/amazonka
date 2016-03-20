@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.BatchGetRepositories
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about one or more repositories.
+-- Returns information about one or more repositories.
 --
 -- The description field for a repository accepts all HTML characters and
 -- all valid Unicode characters. Applications that do not HTML-encode the
@@ -26,8 +26,6 @@
 -- potentially malicious code. Make sure that you HTML-encode the
 -- description field in any application that uses this API to display the
 -- repository description on a web page.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_BatchGetRepositories.html AWS API Reference> for BatchGetRepositories.
 module Network.AWS.CodeCommit.BatchGetRepositories
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest BatchGetRepositories where
                    (x .?> "repositories" .!@ mempty) <*>
                      (x .?> "repositoriesNotFound" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable BatchGetRepositories
 
 instance ToHeaders BatchGetRepositories where
         toHeaders

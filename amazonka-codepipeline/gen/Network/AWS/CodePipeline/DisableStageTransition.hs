@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.DisableStageTransition
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Prevents artifacts in a pipeline from transitioning to the next stage in
 -- the pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_DisableStageTransition.html AWS API Reference> for DisableStageTransition.
 module Network.AWS.CodePipeline.DisableStageTransition
     (
     -- * Creating a Request
@@ -109,6 +107,8 @@ instance AWSRequest DisableStageTransition where
         request = postJSON codePipeline
         response
           = receiveNull DisableStageTransitionResponse'
+
+instance Hashable DisableStageTransition
 
 instance ToHeaders DisableStageTransition where
         toHeaders

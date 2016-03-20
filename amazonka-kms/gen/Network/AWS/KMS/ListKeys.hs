@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ListKeys
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the customer master keys.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html AWS API Reference> for ListKeys.
 --
 -- This operation returns paginated results.
 module Network.AWS.KMS.ListKeys
@@ -103,6 +101,8 @@ instance AWSRequest ListKeys where
                    (x .?> "Truncated") <*> (x .?> "Keys" .!@ mempty) <*>
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListKeys
 
 instance ToHeaders ListKeys where
         toHeaders

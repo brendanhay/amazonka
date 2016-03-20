@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,9 +20,7 @@
 --
 -- Returns the refresh status of the Trusted Advisor checks that have the
 -- specified check IDs. Check IDs can be obtained by calling
--- DescribeTrustedAdvisorChecks.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.html AWS API Reference> for DescribeTrustedAdvisorCheckRefreshStatuses.
+-- < DescribeTrustedAdvisorChecks>.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     (
     -- * Creating a Request
@@ -80,6 +78,9 @@ instance AWSRequest
                    (pure (fromEnum s)) <*>
                      (x .?> "statuses" .!@ mempty))
 
+instance Hashable
+         DescribeTrustedAdvisorCheckRefreshStatuses
+
 instance ToHeaders
          DescribeTrustedAdvisorCheckRefreshStatuses where
         toHeaders
@@ -107,7 +108,7 @@ instance ToQuery
         toQuery = const mempty
 
 -- | The statuses of the Trusted Advisor checks returned by the
--- DescribeTrustedAdvisorCheckRefreshStatuses operation.
+-- < DescribeTrustedAdvisorCheckRefreshStatuses> operation.
 --
 -- /See:/ 'describeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'

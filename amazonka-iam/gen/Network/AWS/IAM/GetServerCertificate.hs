@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetServerCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- manage with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html AWS API Reference> for GetServerCertificate.
 module Network.AWS.IAM.GetServerCertificate
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest GetServerCertificate where
                  GetServerCertificateResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ServerCertificate"))
 
+instance Hashable GetServerCertificate
+
 instance ToHeaders GetServerCertificate where
         toHeaders = const mempty
 
@@ -96,7 +96,7 @@ instance ToQuery GetServerCertificate where
                "Version" =: ("2010-05-08" :: ByteString),
                "ServerCertificateName" =: _gscServerCertificateName]
 
--- | Contains the response to a successful GetServerCertificate request.
+-- | Contains the response to a successful < GetServerCertificate> request.
 --
 -- /See:/ 'getServerCertificateResponse' smart constructor.
 data GetServerCertificateResponse = GetServerCertificateResponse'

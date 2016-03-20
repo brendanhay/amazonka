@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeElasticLoadBalancers
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticLoadBalancers.html AWS API Reference> for DescribeElasticLoadBalancers.
 module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     (
     -- * Creating a Request
@@ -95,6 +93,8 @@ instance AWSRequest DescribeElasticLoadBalancers
                  DescribeElasticLoadBalancersResponse' <$>
                    (x .?> "ElasticLoadBalancers" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeElasticLoadBalancers
 
 instance ToHeaders DescribeElasticLoadBalancers where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateAccountPasswordPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- For more information about using a password policy, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM Password Policy>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html AWS API Reference> for UpdateAccountPasswordPolicy.
 module Network.AWS.IAM.UpdateAccountPasswordPolicy
     (
     -- * Creating a Request
@@ -180,6 +178,8 @@ instance AWSRequest UpdateAccountPasswordPolicy where
         request = postQuery iAM
         response
           = receiveNull UpdateAccountPasswordPolicyResponse'
+
+instance Hashable UpdateAccountPasswordPolicy
 
 instance ToHeaders UpdateAccountPasswordPolicy where
         toHeaders = const mempty

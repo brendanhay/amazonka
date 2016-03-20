@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateLayer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateLayer.html AWS API Reference> for UpdateLayer.
 module Network.AWS.OpsWorks.UpdateLayer
     (
     -- * Creating a Request
@@ -153,7 +151,7 @@ ulCustomSecurityGroupIds = lens _ulCustomSecurityGroupIds (\ s a -> s{_ulCustomS
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is 'true'. To control when updates are
 -- installed, set this value to 'false'. You must then update your
--- instances manually by using CreateDeployment to run the
+-- instances manually by using < CreateDeployment> to run the
 -- 'update_dependencies' stack command or manually running 'yum' (Amazon
 -- Linux) or 'apt-get' (Ubuntu) on the instances.
 --
@@ -237,6 +235,8 @@ instance AWSRequest UpdateLayer where
         type Rs UpdateLayer = UpdateLayerResponse
         request = postJSON opsWorks
         response = receiveNull UpdateLayerResponse'
+
+instance Hashable UpdateLayer
 
 instance ToHeaders UpdateLayer where
         toHeaders

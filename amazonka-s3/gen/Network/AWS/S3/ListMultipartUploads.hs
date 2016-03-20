@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.ListMultipartUploads
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation lists in-progress multipart uploads.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListMultipartUploads.html AWS API Reference> for ListMultipartUploads.
 --
 -- This operation returns paginated results.
 module Network.AWS.S3.ListMultipartUploads
@@ -170,6 +168,8 @@ instance AWSRequest ListMultipartUploads where
                      <*> (x .@? "NextUploadIdMarker")
                      <*> (x .@? "Delimiter")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListMultipartUploads
 
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty

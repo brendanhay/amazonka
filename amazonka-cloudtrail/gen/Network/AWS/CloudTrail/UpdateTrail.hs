@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.UpdateTrail
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- exists for the bucket. 'UpdateTrail' must be called from the region in
 -- which the trail was created; otherwise, an 'InvalidHomeRegionException'
 -- is thrown.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateTrail.html AWS API Reference> for UpdateTrail.
 module Network.AWS.CloudTrail.UpdateTrail
     (
     -- * Creating a Request
@@ -233,6 +231,8 @@ instance AWSRequest UpdateTrail where
                      <*> (x .?> "S3BucketName")
                      <*> (x .?> "IsMultiRegionTrail")
                      <*> (pure (fromEnum s)))
+
+instance Hashable UpdateTrail
 
 instance ToHeaders UpdateTrail where
         toHeaders

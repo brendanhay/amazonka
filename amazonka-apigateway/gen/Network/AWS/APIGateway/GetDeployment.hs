@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDeployment
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a Deployment resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetDeployment.html AWS API Reference> for GetDeployment.
+-- Gets information about a < Deployment> resource.
 module Network.AWS.APIGateway.GetDeployment
     (
     -- * Creating a Request
@@ -47,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about a Deployment
+-- | Requests Amazon API Gateway to get information about a < Deployment>
 -- resource.
 --
 -- /See:/ 'getDeployment' smart constructor.
@@ -73,12 +71,12 @@ getDeployment pRestAPIId_ pDeploymentId_ =
     , _gDeploymentId = pDeploymentId_
     }
 
--- | The identifier of the RestApi resource for the Deployment resource to
--- get information about.
+-- | The identifier of the < RestApi> resource for the < Deployment> resource
+-- to get information about.
 gRestAPIId :: Lens' GetDeployment Text
 gRestAPIId = lens _gRestAPIId (\ s a -> s{_gRestAPIId = a});
 
--- | The identifier of the Deployment resource to get information about.
+-- | The identifier of the < Deployment> resource to get information about.
 gDeploymentId :: Lens' GetDeployment Text
 gDeploymentId = lens _gDeploymentId (\ s a -> s{_gDeploymentId = a});
 
@@ -87,8 +85,13 @@ instance AWSRequest GetDeployment where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetDeployment
+
 instance ToHeaders GetDeployment where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetDeployment where
         toPath GetDeployment'{..}

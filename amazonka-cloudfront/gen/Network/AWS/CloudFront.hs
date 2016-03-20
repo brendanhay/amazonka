@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- currently in that edge location, CloudFront retrieves it from an Amazon
 -- S3 bucket or an HTTP server (for example, a web server) that you have
 -- identified as the source for the definitive version of your content.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudFront
     (
     -- * Service Configuration
@@ -31,6 +29,9 @@ module Network.AWS.CloudFront
 
     -- * Errors
     -- $errors
+
+    -- ** TooManyOriginCustomHeaders
+    , _TooManyOriginCustomHeaders
 
     -- ** InvalidErrorCode
     , _InvalidErrorCode
@@ -283,6 +284,9 @@ module Network.AWS.CloudFront
     -- ** PriceClass
     , PriceClass (..)
 
+    -- ** SSLProtocol
+    , SSLProtocol (..)
+
     -- ** SSLSupportMethod
     , SSLSupportMethod (..)
 
@@ -392,9 +396,16 @@ module Network.AWS.CloudFront
     , cerItems
     , cerQuantity
 
+    -- ** CustomHeaders
+    , CustomHeaders
+    , customHeaders
+    , chItems
+    , chQuantity
+
     -- ** CustomOriginConfig
     , CustomOriginConfig
     , customOriginConfig
+    , cocOriginSSLProtocols
     , cocHTTPPort
     , cocHTTPSPort
     , cocOriginProtocolPolicy
@@ -539,11 +550,24 @@ module Network.AWS.CloudFront
     -- ** Origin
     , Origin
     , origin
+    , oCustomHeaders
     , oCustomOriginConfig
     , oS3OriginConfig
     , oOriginPath
     , oId
     , oDomainName
+
+    -- ** OriginCustomHeader
+    , OriginCustomHeader
+    , originCustomHeader
+    , ochHeaderName
+    , ochHeaderValue
+
+    -- ** OriginSSLProtocols
+    , OriginSSLProtocols
+    , originSSLProtocols
+    , ospQuantity
+    , ospItems
 
     -- ** Origins
     , Origins
@@ -643,6 +667,7 @@ module Network.AWS.CloudFront
     , ViewerCertificate
     , viewerCertificate
     , vcSSLSupportMethod
+    , vcACMCertificateARN
     , vcCertificateSource
     , vcMinimumProtocolVersion
     , vcCertificate

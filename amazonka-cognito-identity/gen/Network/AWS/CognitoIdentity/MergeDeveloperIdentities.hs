@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.MergeDeveloperIdentities
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- provider, but as two different users, an exception will be thrown.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_MergeDeveloperIdentities.html AWS API Reference> for MergeDeveloperIdentities.
 module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     (
     -- * Creating a Request
@@ -123,6 +121,8 @@ instance AWSRequest MergeDeveloperIdentities where
               (\ s h x ->
                  MergeDeveloperIdentitiesResponse' <$>
                    (x .?> "IdentityId") <*> (pure (fromEnum s)))
+
+instance Hashable MergeDeveloperIdentities
 
 instance ToHeaders MergeDeveloperIdentities where
         toHeaders

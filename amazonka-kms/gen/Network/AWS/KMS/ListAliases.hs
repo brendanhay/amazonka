@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ListAliases
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all of the key aliases in the account.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html AWS API Reference> for ListAliases.
 --
 -- This operation returns paginated results.
 module Network.AWS.KMS.ListAliases
@@ -103,6 +101,8 @@ instance AWSRequest ListAliases where
                    (x .?> "Truncated") <*> (x .?> "Aliases" .!@ mempty)
                      <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListAliases
 
 instance ToHeaders ListAliases where
         toHeaders

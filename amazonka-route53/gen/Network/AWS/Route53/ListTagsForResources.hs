@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListTagsForResources
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResources.html AWS API Reference> for ListTagsForResources.
 module Network.AWS.Route53.ListTagsForResources
     (
     -- * Creating a Request
@@ -95,6 +93,8 @@ instance AWSRequest ListTagsForResources where
                    (pure (fromEnum s)) <*>
                      (x .@? "ResourceTagSets" .!@ mempty >>=
                         parseXMLList "ResourceTagSet"))
+
+instance Hashable ListTagsForResources
 
 instance ToElement ListTagsForResources where
         toElement

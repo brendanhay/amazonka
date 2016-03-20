@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.PromoteReadReplica
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- before promoting the Read Replica. This ensures that no backup is taken
 -- during the promotion process. Once the instance is promoted to a primary
 -- instance, backups are taken based on your backup settings.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PromoteReadReplica.html AWS API Reference> for PromoteReadReplica.
 module Network.AWS.RDS.PromoteReadReplica
     (
     -- * Creating a Request
@@ -131,6 +129,8 @@ instance AWSRequest PromoteReadReplica where
               (\ s h x ->
                  PromoteReadReplicaResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
+
+instance Hashable PromoteReadReplica
 
 instance ToHeaders PromoteReadReplica where
         toHeaders = const mempty

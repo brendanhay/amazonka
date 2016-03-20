@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.DeleteCustomActionType
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 --
 -- You cannot recreate a custom action after it has been deleted unless you
 -- increase the version number of the action.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_DeleteCustomActionType.html AWS API Reference> for DeleteCustomActionType.
 module Network.AWS.CodePipeline.DeleteCustomActionType
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest DeleteCustomActionType where
         request = postJSON codePipeline
         response
           = receiveNull DeleteCustomActionTypeResponse'
+
+instance Hashable DeleteCustomActionType
 
 instance ToHeaders DeleteCustomActionType where
         toHeaders

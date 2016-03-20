@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateComputer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Creates a computer account in the specified directory, and joins the
 -- computer to the directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateComputer.html AWS API Reference> for CreateComputer.
 module Network.AWS.DirectoryService.CreateComputer
     (
     -- * Creating a Request
@@ -49,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the CreateComputer operation.
+-- | Contains the inputs for the < CreateComputer> operation.
 --
 -- /See:/ 'createComputer' smart constructor.
 data CreateComputer = CreateComputer'
@@ -87,8 +85,8 @@ createComputer pDirectoryId_ pComputerName_ pPassword_ =
     , _ccPassword = _Sensitive # pPassword_
     }
 
--- | An array of Attribute objects that contain any LDAP attributes to apply
--- to the computer account.
+-- | An array of < Attribute> objects that contain any LDAP attributes to
+-- apply to the computer account.
 ccComputerAttributes :: Lens' CreateComputer [Attribute]
 ccComputerAttributes = lens _ccComputerAttributes (\ s a -> s{_ccComputerAttributes = a}) . _Default . _Coerce;
 
@@ -119,6 +117,8 @@ instance AWSRequest CreateComputer where
                  CreateComputerResponse' <$>
                    (x .?> "Computer") <*> (pure (fromEnum s)))
 
+instance Hashable CreateComputer
+
 instance ToHeaders CreateComputer where
         toHeaders
           = const
@@ -146,7 +146,7 @@ instance ToPath CreateComputer where
 instance ToQuery CreateComputer where
         toQuery = const mempty
 
--- | Contains the results for the CreateComputer operation.
+-- | Contains the results for the < CreateComputer> operation.
 --
 -- /See:/ 'createComputerResponse' smart constructor.
 data CreateComputerResponse = CreateComputerResponse'
@@ -170,7 +170,7 @@ createComputerResponse pResponseStatus_ =
     , _ccrsResponseStatus = pResponseStatus_
     }
 
--- | A Computer object that represents the computer account.
+-- | A < Computer> object that represents the computer account.
 ccrsComputer :: Lens' CreateComputerResponse (Maybe Computer)
 ccrsComputer = lens _ccrsComputer (\ s a -> s{_ccrsComputer = a});
 

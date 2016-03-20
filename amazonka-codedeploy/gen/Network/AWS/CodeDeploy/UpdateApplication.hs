@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.UpdateApplication
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes an existing application\'s name.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateApplication.html AWS API Reference> for UpdateApplication.
+-- Changes the name of an application.
 module Network.AWS.CodeDeploy.UpdateApplication
     (
     -- * Creating a Request
@@ -65,11 +63,11 @@ updateApplication =
     , _uaApplicationName = Nothing
     }
 
--- | The new name that you want to change the application to.
+-- | The new name to give the application.
 uaNewApplicationName :: Lens' UpdateApplication (Maybe Text)
 uaNewApplicationName = lens _uaNewApplicationName (\ s a -> s{_uaNewApplicationName = a});
 
--- | The current name of the application that you want to change.
+-- | The current name of the application you want to change.
 uaApplicationName :: Lens' UpdateApplication (Maybe Text)
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 
@@ -77,6 +75,8 @@ instance AWSRequest UpdateApplication where
         type Rs UpdateApplication = UpdateApplicationResponse
         request = postJSON codeDeploy
         response = receiveNull UpdateApplicationResponse'
+
+instance Hashable UpdateApplication
 
 instance ToHeaders UpdateApplication where
         toHeaders

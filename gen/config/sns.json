@@ -1,5 +1,3 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/sns/latest/api/Welcome.html",
-    "operationUrl": "http://docs.aws.amazon.com/sns/latest/api/API_",
     "libraryName": "amazonka-sns"
 }

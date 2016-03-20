@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.AddPermission
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,8 @@
 -- in the /Amazon SQS Developer Guide/.
 --
 -- 'AddPermission' writes an Amazon SQS-generated policy. If you want to
--- write your own policy, use SetQueueAttributes to upload your policy. For
--- more information about writing your own policy, see
+-- write your own policy, use < SetQueueAttributes> to upload your policy.
+-- For more information about writing your own policy, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AccessPolicyLanguage.html Using The Access Policy Language>
 -- in the /Amazon SQS Developer Guide/.
 --
@@ -41,8 +41,6 @@
 -- '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_AddPermission.html AWS API Reference> for AddPermission.
 module Network.AWS.SQS.AddPermission
     (
     -- * Creating a Request
@@ -135,6 +133,8 @@ instance AWSRequest AddPermission where
         type Rs AddPermission = AddPermissionResponse
         request = postQuery sQS
         response = receiveNull AddPermissionResponse'
+
+instance Hashable AddPermission
 
 instance ToHeaders AddPermission where
         toHeaders = const mempty

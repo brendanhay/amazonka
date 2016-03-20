@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeHosts
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- currently using. All listed instances consume capacity on your Dedicated
 -- host. Dedicated hosts that have recently been released will be listed
 -- with the state 'released'.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeHosts.html AWS API Reference> for DescribeHosts.
 module Network.AWS.EC2.DescribeHosts
     (
     -- * Creating a Request
@@ -134,6 +132,8 @@ instance AWSRequest DescribeHosts where
                       may (parseXMLList "item"))
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeHosts
 
 instance ToHeaders DescribeHosts where
         toHeaders = const mempty

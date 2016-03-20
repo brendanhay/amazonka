@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.StartWorkflowExecution
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -51,8 +51,6 @@
 -- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_StartWorkflowExecution.html AWS API Reference> for StartWorkflowExecution.
 module Network.AWS.SWF.StartWorkflowExecution
     (
     -- * Creating a Request
@@ -148,14 +146,15 @@ startWorkflowExecution pDomain_ pWorkflowId_ pWorkflowType_ =
 
 -- | The list of tags to associate with the workflow execution. You can
 -- specify a maximum of 5 tags. You can list workflow executions with a
--- specific tag by calling ListOpenWorkflowExecutions or
--- ListClosedWorkflowExecutions and specifying a TagFilter.
+-- specific tag by calling < ListOpenWorkflowExecutions> or
+-- < ListClosedWorkflowExecutions> and specifying a < TagFilter>.
 sTagList :: Lens' StartWorkflowExecution [Text]
 sTagList = lens _sTagList (\ s a -> s{_sTagList = a}) . _Default . _Coerce;
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the 'defaultTaskStartToCloseTimout'
--- specified when registering the workflow type using RegisterWorkflowType.
+-- specified when registering the workflow type using
+-- < RegisterWorkflowType>.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -232,9 +231,9 @@ sTaskPriority = lens _sTaskPriority (\ s a -> s{_sTaskPriority = a});
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- this workflow execution if it is terminated, by calling the
--- TerminateWorkflowExecution action explicitly or due to an expired
+-- < TerminateWorkflowExecution> action explicitly or due to an expired
 -- timeout. This policy overrides the default child policy specified when
--- registering the workflow type using RegisterWorkflowType.
+-- registering the workflow type using < RegisterWorkflowType>.
 --
 -- The supported child policies are:
 --
@@ -283,6 +282,8 @@ instance AWSRequest StartWorkflowExecution where
               (\ s h x ->
                  StartWorkflowExecutionResponse' <$>
                    (x .?> "runId") <*> (pure (fromEnum s)))
+
+instance Hashable StartWorkflowExecution
 
 instance ToHeaders StartWorkflowExecution where
         toHeaders

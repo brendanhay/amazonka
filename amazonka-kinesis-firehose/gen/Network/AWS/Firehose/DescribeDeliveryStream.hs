@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.DescribeDeliveryStream
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,10 +20,8 @@
 --
 -- Describes the specified delivery stream and gets the status. For
 -- example, after your delivery stream is created, call
--- DescribeDeliveryStream to see if the delivery stream is 'ACTIVE' and
+-- < DescribeDeliveryStream> to see if the delivery stream is 'ACTIVE' and
 -- therefore ready for data to be sent to it.
---
--- /See:/ <http://docs.aws.amazon.com/firehose/latest/APIReference/API_DescribeDeliveryStream.html AWS API Reference> for DescribeDeliveryStream.
 module Network.AWS.Firehose.DescribeDeliveryStream
     (
     -- * Creating a Request
@@ -49,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DescribeDeliveryStream.
+-- | Contains the parameters for < DescribeDeliveryStream>.
 --
 -- /See:/ 'describeDeliveryStream' smart constructor.
 data DescribeDeliveryStream = DescribeDeliveryStream'
@@ -103,6 +101,8 @@ instance AWSRequest DescribeDeliveryStream where
                    (pure (fromEnum s)) <*>
                      (x .:> "DeliveryStreamDescription"))
 
+instance Hashable DescribeDeliveryStream
+
 instance ToHeaders DescribeDeliveryStream where
         toHeaders
           = const
@@ -129,7 +129,7 @@ instance ToPath DescribeDeliveryStream where
 instance ToQuery DescribeDeliveryStream where
         toQuery = const mempty
 
--- | Contains the output of DescribeDeliveryStream.
+-- | Contains the output of < DescribeDeliveryStream>.
 --
 -- /See:/ 'describeDeliveryStreamResponse' smart constructor.
 data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'

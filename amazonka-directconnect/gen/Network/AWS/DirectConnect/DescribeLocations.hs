@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeLocations
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Returns the list of AWS Direct Connect locations in the current AWS
 -- region. These are the locations that may be selected when calling
 -- CreateConnection or CreateInterconnect.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html AWS API Reference> for DescribeLocations.
 module Network.AWS.DirectConnect.DescribeLocations
     (
     -- * Creating a Request
@@ -64,6 +62,8 @@ instance AWSRequest DescribeLocations where
                  DescribeLocationsResponse' <$>
                    (x .?> "locations" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeLocations
 
 instance ToHeaders DescribeLocations where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromRedshift
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,20 +20,20 @@
 --
 -- Creates a 'DataSource' from
 -- <http://aws.amazon.com/redshift/ Amazon Redshift>. A 'DataSource'
--- references data that can be used to perform either CreateMLModel,
--- CreateEvaluation or CreateBatchPrediction operations.
+-- references data that can be used to perform either < CreateMLModel>,
+-- < CreateEvaluation> or < CreateBatchPrediction> operations.
 --
 -- 'CreateDataSourceFromRedshift' is an asynchronous operation. In response
 -- to 'CreateDataSourceFromRedshift', Amazon Machine Learning (Amazon ML)
 -- immediately returns and sets the 'DataSource' status to 'PENDING'. After
 -- the 'DataSource' is created and ready for use, Amazon ML sets the
 -- 'Status' parameter to 'COMPLETED'. 'DataSource' in 'COMPLETED' or
--- 'PENDING' status can only be used to perform CreateMLModel,
--- CreateEvaluation, or CreateBatchPrediction operations.
+-- 'PENDING' status can only be used to perform < CreateMLModel>,
+-- < CreateEvaluation>, or < CreateBatchPrediction> operations.
 --
 -- If Amazon ML cannot accept the input source, it sets the 'Status'
 -- parameter to 'FAILED' and includes an error message in the 'Message'
--- attribute of the GetDataSource operation response.
+-- attribute of the < GetDataSource> operation response.
 --
 -- The observations should exist in the database hosted on an Amazon
 -- Redshift cluster and should be specified by a 'SelectSqlQuery'. Amazon
@@ -52,8 +52,6 @@
 -- or split apart into word combinations? The recipe provides answers to
 -- these questions. For more information, see the Amazon Machine Learning
 -- Developer Guide.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateDataSourceFromRedshift.html AWS API Reference> for CreateDataSourceFromRedshift.
 module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
     (
     -- * Creating a Request
@@ -189,6 +187,8 @@ instance AWSRequest CreateDataSourceFromRedshift
                  CreateDataSourceFromRedshiftResponse' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDataSourceFromRedshift
+
 instance ToHeaders CreateDataSourceFromRedshift where
         toHeaders
           = const
@@ -215,12 +215,12 @@ instance ToPath CreateDataSourceFromRedshift where
 instance ToQuery CreateDataSourceFromRedshift where
         toQuery = const mempty
 
--- | Represents the output of a CreateDataSourceFromRedshift operation, and
--- is an acknowledgement that Amazon ML received the request.
+-- | Represents the output of a < CreateDataSourceFromRedshift> operation,
+-- and is an acknowledgement that Amazon ML received the request.
 --
--- The CreateDataSourceFromRedshift operation is asynchronous. You can poll
--- for updates by using the GetBatchPrediction operation and checking the
--- 'Status' parameter.
+-- The < CreateDataSourceFromRedshift> operation is asynchronous. You can
+-- poll for updates by using the < GetBatchPrediction> operation and
+-- checking the 'Status' parameter.
 --
 -- /See:/ 'createDataSourceFromRedshiftResponse' smart constructor.
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'

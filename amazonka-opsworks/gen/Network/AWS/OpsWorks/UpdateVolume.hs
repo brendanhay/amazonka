@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateVolume
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateVolume.html AWS API Reference> for UpdateVolume.
 module Network.AWS.OpsWorks.UpdateVolume
     (
     -- * Creating a Request
@@ -93,6 +91,8 @@ instance AWSRequest UpdateVolume where
         type Rs UpdateVolume = UpdateVolumeResponse
         request = postJSON opsWorks
         response = receiveNull UpdateVolumeResponse'
+
+instance Hashable UpdateVolume
 
 instance ToHeaders UpdateVolume where
         toHeaders

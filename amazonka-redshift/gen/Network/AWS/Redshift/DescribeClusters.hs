@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusters
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -34,8 +34,6 @@
 -- If both tag keys and values are omitted from the request, clusters are
 -- returned regardless of whether they have tag keys or values associated
 -- with them.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusters.html AWS API Reference> for DescribeClusters.
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusters
@@ -128,7 +126,7 @@ dcClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
 dcClusterIdentifier = lens _dcClusterIdentifier (\ s a -> s{_dcClusterIdentifier = a});
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusters request
+-- of response records. When the results of a < DescribeClusters> request
 -- exceed the value specified in 'MaxRecords', AWS returns a value in the
 -- 'Marker' field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the 'Marker'
@@ -170,6 +168,8 @@ instance AWSRequest DescribeClusters where
                         may (parseXMLList "Cluster"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeClusters
+
 instance ToHeaders DescribeClusters where
         toHeaders = const mempty
 
@@ -188,7 +188,7 @@ instance ToQuery DescribeClusters where
                "ClusterIdentifier" =: _dcClusterIdentifier,
                "Marker" =: _dcMarker, "MaxRecords" =: _dcMaxRecords]
 
--- | Contains the output from the DescribeClusters action.
+-- | Contains the output from the < DescribeClusters> action.
 --
 -- /See:/ 'describeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
@@ -225,7 +225,7 @@ describeClustersResponse pResponseStatus_ =
 dcrsMarker :: Lens' DescribeClustersResponse (Maybe Text)
 dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 
--- | A list of Cluster objects, where each object describes one cluster.
+-- | A list of 'Cluster' objects, where each object describes one cluster.
 dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
 

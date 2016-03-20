@@ -12,17 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteVolume
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation deletes the specified gateway volume that you previously
--- created using the CreateCachediSCSIVolume or CreateStorediSCSIVolume
--- API. For gateway-stored volumes, the local disk that was configured as
--- the storage volume is not deleted. You can reuse the local disk to
--- create another storage volume.
+-- created using the < CreateCachediSCSIVolume> or
+-- < CreateStorediSCSIVolume> API. For gateway-stored volumes, the local
+-- disk that was configured as the storage volume is not deleted. You can
+-- reuse the local disk to create another storage volume.
 --
 -- Before you delete a gateway volume, make sure there are no iSCSI
 -- connections to the volume you are deleting. You should also make sure
@@ -34,8 +34,6 @@
 --
 -- In the request, you must provide the Amazon Resource Name (ARN) of the
 -- storage volume you want to delete.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteVolume.html AWS API Reference> for DeleteVolume.
 module Network.AWS.StorageGateway.DeleteVolume
     (
     -- * Creating a Request
@@ -59,7 +57,7 @@ import           Network.AWS.Response
 import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
--- | A JSON object containing the DeleteVolumeInput$VolumeARN to delete.
+-- | A JSON object containing the < DeleteVolumeInput$VolumeARN> to delete.
 --
 -- /See:/ 'deleteVolume' smart constructor.
 newtype DeleteVolume = DeleteVolume'
@@ -79,7 +77,7 @@ deleteVolume pVolumeARN_ =
     { _dvVolumeARN = pVolumeARN_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
 -- operation to return a list of gateway volumes.
 dvVolumeARN :: Lens' DeleteVolume Text
 dvVolumeARN = lens _dvVolumeARN (\ s a -> s{_dvVolumeARN = a});
@@ -92,6 +90,8 @@ instance AWSRequest DeleteVolume where
               (\ s h x ->
                  DeleteVolumeResponse' <$>
                    (x .?> "VolumeARN") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteVolume
 
 instance ToHeaders DeleteVolume where
         toHeaders

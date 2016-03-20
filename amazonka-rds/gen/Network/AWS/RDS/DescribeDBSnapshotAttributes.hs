@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBSnapshotAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,9 +30,7 @@
 --
 -- To add or remove access for an AWS account to copy or restore a manual
 -- DB snapshot, or to make the manual DB snapshot public or private, use
--- the ModifyDBSnapshotAttribute API.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshotAttributes.html AWS API Reference> for DescribeDBSnapshotAttributes.
+-- the < ModifyDBSnapshotAttribute> API.
 module Network.AWS.RDS.DescribeDBSnapshotAttributes
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest DescribeDBSnapshotAttributes
                  DescribeDBSnapshotAttributesResponse' <$>
                    (x .@? "DBSnapshotAttributesResult") <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeDBSnapshotAttributes
 
 instance ToHeaders DescribeDBSnapshotAttributes where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteLifecycleHook
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- If there are any outstanding lifecycle actions, they are completed first
 -- ('ABANDON' for launching instances, 'CONTINUE' for terminating
 -- instances).
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLifecycleHook.html AWS API Reference> for DeleteLifecycleHook.
 module Network.AWS.AutoScaling.DeleteLifecycleHook
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest DeleteLifecycleHook where
           = receiveXMLWrapper "DeleteLifecycleHookResult"
               (\ s h x ->
                  DeleteLifecycleHookResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeleteLifecycleHook
 
 instance ToHeaders DeleteLifecycleHook where
         toHeaders = const mempty

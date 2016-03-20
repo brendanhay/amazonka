@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetAccountSettings
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns the number of unmetered iOS and\/or unmetered Android devices
 -- that have been purchased by the account.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetAccountSettings.html AWS API Reference> for GetAccountSettings.
 module Network.AWS.DeviceFarm.GetAccountSettings
     (
     -- * Creating a Request
@@ -63,6 +61,8 @@ instance AWSRequest GetAccountSettings where
               (\ s h x ->
                  GetAccountSettingsResponse' <$>
                    (x .?> "accountSettings") <*> (pure (fromEnum s)))
+
+instance Hashable GetAccountSettings
 
 instance ToHeaders GetAccountSettings where
         toHeaders

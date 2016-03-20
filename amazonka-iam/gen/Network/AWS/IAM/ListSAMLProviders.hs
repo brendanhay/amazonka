@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListSAMLProviders
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- This operation requires
 -- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSAMLProviders.html AWS API Reference> for ListSAMLProviders.
 module Network.AWS.IAM.ListSAMLProviders
     (
     -- * Creating a Request
@@ -67,6 +65,8 @@ instance AWSRequest ListSAMLProviders where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListSAMLProviders
+
 instance ToHeaders ListSAMLProviders where
         toHeaders = const mempty
 
@@ -80,7 +80,7 @@ instance ToQuery ListSAMLProviders where
                  ["Action" =: ("ListSAMLProviders" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful ListSAMLProviders request.
+-- | Contains the response to a successful < ListSAMLProviders> request.
 --
 -- /See:/ 'listSAMLProvidersResponse' smart constructor.
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'

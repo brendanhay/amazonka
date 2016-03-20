@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteIdentityPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentityPolicy.html AWS API Reference> for DeleteIdentityPolicy.
 module Network.AWS.SES.DeleteIdentityPolicy
     (
     -- * Creating a Request
@@ -56,12 +54,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to delete an authorization
--- policy applying to an identity.
---
--- This request succeeds regardless of whether the specified policy exists.
---
--- /See:/ 'deleteIdentityPolicy' smart constructor.
+-- | /See:/ 'deleteIdentityPolicy' smart constructor.
 data DeleteIdentityPolicy = DeleteIdentityPolicy'
     { _dipIdentity   :: !Text
     , _dipPolicyName :: !Text
@@ -107,6 +100,8 @@ instance AWSRequest DeleteIdentityPolicy where
                  DeleteIdentityPolicyResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable DeleteIdentityPolicy
+
 instance ToHeaders DeleteIdentityPolicy where
         toHeaders = const mempty
 
@@ -121,10 +116,7 @@ instance ToQuery DeleteIdentityPolicy where
                "Identity" =: _dipIdentity,
                "PolicyName" =: _dipPolicyName]
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
---
--- /See:/ 'deleteIdentityPolicyResponse' smart constructor.
+-- | /See:/ 'deleteIdentityPolicyResponse' smart constructor.
 newtype DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
     { _diprsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

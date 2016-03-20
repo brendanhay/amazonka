@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetOnPremisesInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an on-premises instance.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetOnPremisesInstance.html AWS API Reference> for GetOnPremisesInstance.
 module Network.AWS.CodeDeploy.GetOnPremisesInstance
     (
     -- * Creating a Request
@@ -64,7 +62,7 @@ getOnPremisesInstance pInstanceName_ =
     { _gopiInstanceName = pInstanceName_
     }
 
--- | The name of the on-premises instance to get information about
+-- | The name of the on-premises instance about which to get information.
 gopiInstanceName :: Lens' GetOnPremisesInstance Text
 gopiInstanceName = lens _gopiInstanceName (\ s a -> s{_gopiInstanceName = a});
 
@@ -77,6 +75,8 @@ instance AWSRequest GetOnPremisesInstance where
               (\ s h x ->
                  GetOnPremisesInstanceResponse' <$>
                    (x .?> "instanceInfo") <*> (pure (fromEnum s)))
+
+instance Hashable GetOnPremisesInstance
 
 instance ToHeaders GetOnPremisesInstance where
         toHeaders

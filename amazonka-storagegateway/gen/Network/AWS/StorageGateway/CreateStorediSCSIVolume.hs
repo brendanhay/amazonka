@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateStorediSCSIVolume
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 -- creates the volume and returns volume information such as the volume
 -- Amazon Resource Name (ARN), its size, and the iSCSI target ARN that
 -- initiators can use to connect to the volume target.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateStorediSCSIVolume.html AWS API Reference> for CreateStorediSCSIVolume.
 module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     (
     -- * Creating a Request
@@ -65,11 +63,11 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   CreateStorediSCSIVolumeInput$DiskId
--- -   CreateStorediSCSIVolumeInput$NetworkInterfaceId
--- -   CreateStorediSCSIVolumeInput$PreserveExistingData
--- -   CreateStorediSCSIVolumeInput$SnapshotId
--- -   CreateStorediSCSIVolumeInput$TargetName
+-- -   < CreateStorediSCSIVolumeInput$DiskId>
+-- -   < CreateStorediSCSIVolumeInput$NetworkInterfaceId>
+-- -   < CreateStorediSCSIVolumeInput$PreserveExistingData>
+-- -   < CreateStorediSCSIVolumeInput$SnapshotId>
+-- -   < CreateStorediSCSIVolumeInput$TargetName>
 --
 -- /See:/ 'createStorediSCSIVolume' smart constructor.
 data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
@@ -143,14 +141,15 @@ csscsivPreserveExistingData = lens _csscsivPreserveExistingData (\ s a -> s{_css
 -- | The name of the iSCSI target used by initiators to connect to the target
 -- and as a suffix for the target ARN. For example, specifying 'TargetName'
 -- as /myvolume/ results in the target ARN of
--- arn:aws:storagegateway:us-east-1:111122223333:gateway\/mygateway\/target\/iqn.1997-05.com.amazon:myvolume.
+-- arn:aws:storagegateway:us-east-1:111122223333:gateway\/sgw-12A3456B\/target\/iqn.1997-05.com.amazon:myvolume.
 -- The target name must be unique across all volumes of a gateway.
 csscsivTargetName :: Lens' CreateStorediSCSIVolume Text
 csscsivTargetName = lens _csscsivTargetName (\ s a -> s{_csscsivTargetName = a});
 
 -- | The network interface of the gateway on which to expose the iSCSI
--- target. Only IPv4 addresses are accepted. Use DescribeGatewayInformation
--- to get a list of the network interfaces available on a gateway.
+-- target. Only IPv4 addresses are accepted. Use
+-- < DescribeGatewayInformation> to get a list of the network interfaces
+-- available on a gateway.
 --
 -- /Valid Values/: A valid IP address.
 csscsivNetworkInterfaceId :: Lens' CreateStorediSCSIVolume Text
@@ -167,6 +166,8 @@ instance AWSRequest CreateStorediSCSIVolume where
                    (x .?> "TargetARN") <*> (x .?> "VolumeARN") <*>
                      (x .?> "VolumeSizeInBytes")
                      <*> (pure (fromEnum s)))
+
+instance Hashable CreateStorediSCSIVolume
 
 instance ToHeaders CreateStorediSCSIVolume where
         toHeaders

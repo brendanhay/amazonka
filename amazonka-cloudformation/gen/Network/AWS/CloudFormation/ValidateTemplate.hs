@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.ValidateTemplate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Validates a specified template.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ValidateTemplate.html AWS API Reference> for ValidateTemplate.
 module Network.AWS.CloudFormation.ValidateTemplate
     (
     -- * Creating a Request
@@ -48,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for ValidateTemplate action.
+-- | The input for < ValidateTemplate> action.
 --
 -- /See:/ 'validateTemplate' smart constructor.
 data ValidateTemplate = ValidateTemplate'
@@ -108,6 +106,8 @@ instance AWSRequest ValidateTemplate where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ValidateTemplate
+
 instance ToHeaders ValidateTemplate where
         toHeaders = const mempty
 
@@ -122,7 +122,7 @@ instance ToQuery ValidateTemplate where
                "TemplateBody" =: _vtTemplateBody,
                "TemplateURL" =: _vtTemplateURL]
 
--- | The output for ValidateTemplate action.
+-- | The output for < ValidateTemplate> action.
 --
 -- /See:/ 'validateTemplateResponse' smart constructor.
 data ValidateTemplateResponse = ValidateTemplateResponse'
@@ -174,9 +174,9 @@ vtrsDescription = lens _vtrsDescription (\ s a -> s{_vtrsDescription = a});
 -- | The capabilities found within the template. Currently, AWS
 -- CloudFormation supports only the CAPABILITY_IAM capability. If your
 -- template contains IAM resources, you must specify the CAPABILITY_IAM
--- value for this parameter when you use the CreateStack or UpdateStack
--- actions with your template; otherwise, those actions return an
--- InsufficientCapabilities error.
+-- value for this parameter when you use the < CreateStack> or
+-- < UpdateStack> actions with your template; otherwise, those actions
+-- return an InsufficientCapabilities error.
 vtrsCapabilities :: Lens' ValidateTemplateResponse [Capability]
 vtrsCapabilities = lens _vtrsCapabilities (\ s a -> s{_vtrsCapabilities = a}) . _Default . _Coerce;
 

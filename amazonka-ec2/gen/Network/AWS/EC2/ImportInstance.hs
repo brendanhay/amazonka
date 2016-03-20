@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,13 +20,15 @@
 --
 -- Creates an import instance task using metadata from the specified disk
 -- image. 'ImportInstance' only supports single-volume VMs. To import
--- multi-volume VMs, use ImportImage. After importing the image, you then
--- upload it using the 'ec2-import-volume' command in the EC2 command line
--- tools. For more information, see
+-- multi-volume VMs, use < ImportImage>. After importing the image, you
+-- then upload it using the 'ec2-import-volume' command in the EC2 command
+-- line tools. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportInstance.html AWS API Reference> for ImportInstance.
+-- For information about the import manifest referenced by this API action,
+-- see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 module Network.AWS.EC2.ImportInstance
     (
     -- * Creating a Request
@@ -119,6 +121,8 @@ instance AWSRequest ImportInstance where
               (\ s h x ->
                  ImportInstanceResponse' <$>
                    (x .@? "conversionTask") <*> (pure (fromEnum s)))
+
+instance Hashable ImportInstance
 
 instance ToHeaders ImportInstance where
         toHeaders = const mempty

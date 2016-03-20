@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListUsers
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html AWS API Reference> for ListUsers.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListUsers
@@ -128,6 +126,8 @@ instance AWSRequest ListUsers where
                      <*>
                      (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
 
+instance Hashable ListUsers
+
 instance ToHeaders ListUsers where
         toHeaders = const mempty
 
@@ -142,7 +142,7 @@ instance ToQuery ListUsers where
                "PathPrefix" =: _luPathPrefix, "Marker" =: _luMarker,
                "MaxItems" =: _luMaxItems]
 
--- | Contains the response to a successful ListUsers request.
+-- | Contains the response to a successful < ListUsers> request.
 --
 -- /See:/ 'listUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'

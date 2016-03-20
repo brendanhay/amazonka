@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- This action returns a list of messages indicating any errors or warnings
 -- associated with the selection of option values.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ValidateConfigurationSettings.html AWS API Reference> for ValidateConfigurationSettings.
 module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     (
     -- * Creating a Request
@@ -119,6 +117,8 @@ instance AWSRequest ValidateConfigurationSettings
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ValidateConfigurationSettings
+
 instance ToHeaders ValidateConfigurationSettings
          where
         toHeaders = const mempty
@@ -162,7 +162,7 @@ validateConfigurationSettingsResponse pResponseStatus_ =
     , _vcsrsResponseStatus = pResponseStatus_
     }
 
--- | A list of ValidationMessage.
+-- | A list of < ValidationMessage>.
 vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default . _Coerce;
 

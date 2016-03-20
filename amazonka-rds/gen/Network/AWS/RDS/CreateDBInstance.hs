@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new DB instance.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html AWS API Reference> for CreateDBInstance.
 module Network.AWS.RDS.CreateDBInstance
     (
     -- * Creating a Request
@@ -249,6 +247,7 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
 --     ' 5.5.40b | 5.5.41 | 5.5.42'
 -- -   __Version 5.6 (Available in all regions):__
 --     ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23'
+-- -   __Version 5.7 (Available in all regions):__ ' 5.7.10'
 --
 -- __MariaDB__
 --
@@ -344,7 +343,7 @@ cdiStorageEncrypted = lens _cdiStorageEncrypted (\ s a -> s{_cdiStorageEncrypted
 
 -- | The identifier of the DB cluster that the instance will belong to.
 --
--- For information on creating a DB cluster, see CreateDBCluster.
+-- For information on creating a DB cluster, see < CreateDBCluster>.
 --
 -- Type: String
 cdiDBClusterIdentifier :: Lens' CreateDBInstance (Maybe Text)
@@ -474,8 +473,10 @@ cdiMonitoringRoleARN = lens _cdiMonitoringRoleARN (\ s a -> s{_cdiMonitoringRole
 -- | The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for the DB instance.
 --
--- Constraints: To use PIOPS, this value must be an integer greater than
--- 1000.
+-- Constraints: Must be a multiple between 3 and 10 of the storage amount
+-- for the DB instance. Must also be an integer multiple of 1000. For
+-- example, if the size of your DB instance is 500 GB, then your 'Iops'
+-- value can be 2000, 3000, 4000, or 5000.
 cdiIOPS :: Lens' CreateDBInstance (Maybe Int)
 cdiIOPS = lens _cdiIOPS (\ s a -> s{_cdiIOPS = a});
 
@@ -834,6 +835,8 @@ instance AWSRequest CreateDBInstance where
               (\ s h x ->
                  CreateDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
+
+instance Hashable CreateDBInstance
 
 instance ToHeaders CreateDBInstance where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeDeliveryChannelStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- status of all delivery channels associated with the account.
 --
 -- Currently, you can specify only one delivery channel per account.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannelStatus.html AWS API Reference> for DescribeDeliveryChannelStatus.
 module Network.AWS.Config.DescribeDeliveryChannelStatus
     (
     -- * Creating a Request
@@ -48,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the DeliveryChannelStatus action.
+-- | The input for the < DeliveryChannelStatus> action.
 --
 -- /See:/ 'describeDeliveryChannelStatus' smart constructor.
 newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus'
@@ -83,6 +81,8 @@ instance AWSRequest DescribeDeliveryChannelStatus
                    (x .?> "DeliveryChannelsStatus" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeDeliveryChannelStatus
+
 instance ToHeaders DescribeDeliveryChannelStatus
          where
         toHeaders
@@ -107,7 +107,7 @@ instance ToPath DescribeDeliveryChannelStatus where
 instance ToQuery DescribeDeliveryChannelStatus where
         toQuery = const mempty
 
--- | The output for the DescribeDeliveryChannelStatus action.
+-- | The output for the < DescribeDeliveryChannelStatus> action.
 --
 -- /See:/ 'describeDeliveryChannelStatusResponse' smart constructor.
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'

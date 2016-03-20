@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.PollForTask
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,6 @@
 -- to 90 seconds. The task runner should not call 'PollForTask' again on
 -- the same 'workerGroup' until it receives a response, and this can take
 -- up to 90 seconds.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PollForTask.html AWS API Reference> for PollForTask.
 module Network.AWS.DataPipeline.PollForTask
     (
     -- * Creating a Request
@@ -121,6 +119,8 @@ instance AWSRequest PollForTask where
                  PollForTaskResponse' <$>
                    (x .?> "taskObject") <*> (pure (fromEnum s)))
 
+instance Hashable PollForTask
+
 instance ToHeaders PollForTask where
         toHeaders
           = const
@@ -171,8 +171,8 @@ pollForTaskResponse pResponseStatus_ =
 -- | The information needed to complete the task that is being assigned to
 -- the task runner. One of the fields returned in this object is 'taskId',
 -- which contains an identifier for the task being assigned. The calling
--- task runner uses 'taskId' in subsequent calls to ReportTaskProgress and
--- SetTaskStatus.
+-- task runner uses 'taskId' in subsequent calls to < ReportTaskProgress>
+-- and < SetTaskStatus>.
 pftrsTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrsTaskObject = lens _pftrsTaskObject (\ s a -> s{_pftrsTaskObject = a});
 

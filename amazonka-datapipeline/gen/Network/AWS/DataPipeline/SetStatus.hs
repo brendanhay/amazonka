@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.SetStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- set depends on the type of object (for example, DataNode or Activity).
 -- You cannot perform this operation on 'FINISHED' pipelines and attempting
 -- to do so returns 'InvalidRequestException'.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetStatus.html AWS API Reference> for SetStatus.
 module Network.AWS.DataPipeline.SetStatus
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest SetStatus where
         type Rs SetStatus = SetStatusResponse
         request = postJSON dataPipeline
         response = receiveNull SetStatusResponse'
+
+instance Hashable SetStatus
 
 instance ToHeaders SetStatus where
         toHeaders

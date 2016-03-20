@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteSecurityGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- instance, or is referenced by another security group, the operation
 -- fails with 'InvalidGroup.InUse' in EC2-Classic or 'DependencyViolation'
 -- in EC2-VPC.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSecurityGroup.html AWS API Reference> for DeleteSecurityGroup.
 module Network.AWS.EC2.DeleteSecurityGroup
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest DeleteSecurityGroup where
              DeleteSecurityGroupResponse
         request = postQuery eC2
         response = receiveNull DeleteSecurityGroupResponse'
+
+instance Hashable DeleteSecurityGroup
 
 instance ToHeaders DeleteSecurityGroup where
         toHeaders = const mempty

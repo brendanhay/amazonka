@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.TerminateJobFlows
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- TerminateJobFlows is asynchronous. Depending on the configuration of the
 -- job flow, it may take up to 5-20 minutes for the job flow to completely
 -- terminate and release allocated resources, such as Amazon EC2 instances.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_TerminateJobFlows.html AWS API Reference> for TerminateJobFlows.
 module Network.AWS.EMR.TerminateJobFlows
     (
     -- * Creating a Request
@@ -50,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the TerminateJobFlows operation.
+-- | Input to the < TerminateJobFlows> operation.
 --
 -- /See:/ 'terminateJobFlows' smart constructor.
 newtype TerminateJobFlows = TerminateJobFlows'
@@ -77,6 +75,8 @@ instance AWSRequest TerminateJobFlows where
         type Rs TerminateJobFlows = TerminateJobFlowsResponse
         request = postJSON eMR
         response = receiveNull TerminateJobFlowsResponse'
+
+instance Hashable TerminateJobFlows
 
 instance ToHeaders TerminateJobFlows where
         toHeaders

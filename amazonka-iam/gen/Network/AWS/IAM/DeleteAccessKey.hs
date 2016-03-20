@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteAccessKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- this action works for access keys under the AWS account, you can use
 -- this action to manage root credentials even if the AWS account has no
 -- associated users.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html AWS API Reference> for DeleteAccessKey.
 module Network.AWS.IAM.DeleteAccessKey
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest DeleteAccessKey where
         type Rs DeleteAccessKey = DeleteAccessKeyResponse
         request = postQuery iAM
         response = receiveNull DeleteAccessKeyResponse'
+
+instance Hashable DeleteAccessKey
 
 instance ToHeaders DeleteAccessKey where
         toHeaders = const mempty

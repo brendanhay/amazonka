@@ -12,22 +12,20 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyReservedInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the Availability Zone, instance count, instance type, or
--- network platform (EC2-Classic or EC2-VPC) of your Reserved instances.
--- The Reserved instances to be modified must be identical, except for
+-- network platform (EC2-Classic or EC2-VPC) of your Reserved Instances.
+-- The Reserved Instances to be modified must be identical, except for
 -- Availability Zone, network platform, and instance type.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances>
 -- in the Amazon Elastic Compute Cloud User Guide.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyReservedInstances.html AWS API Reference> for ModifyReservedInstances.
 module Network.AWS.EC2.ModifyReservedInstances
     (
     -- * Creating a Request
@@ -84,11 +82,11 @@ modifyReservedInstances =
 mriClientToken :: Lens' ModifyReservedInstances (Maybe Text)
 mriClientToken = lens _mriClientToken (\ s a -> s{_mriClientToken = a});
 
--- | The IDs of the Reserved instances to modify.
+-- | The IDs of the Reserved Instances to modify.
 mriReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
 mriReservedInstancesIds = lens _mriReservedInstancesIds (\ s a -> s{_mriReservedInstancesIds = a}) . _Coerce;
 
--- | The configuration settings for the Reserved instances to modify.
+-- | The configuration settings for the Reserved Instances to modify.
 mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
 mriTargetConfigurations = lens _mriTargetConfigurations (\ s a -> s{_mriTargetConfigurations = a}) . _Coerce;
 
@@ -102,6 +100,8 @@ instance AWSRequest ModifyReservedInstances where
                  ModifyReservedInstancesResponse' <$>
                    (x .@? "reservedInstancesModificationId") <*>
                      (pure (fromEnum s)))
+
+instance Hashable ModifyReservedInstances
 
 instance ToHeaders ModifyReservedInstances where
         toHeaders = const mempty

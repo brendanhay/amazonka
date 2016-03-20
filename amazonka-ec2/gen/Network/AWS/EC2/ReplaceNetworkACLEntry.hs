@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceNetworkACLEntry
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- network ACLs, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkACLEntry.html AWS API Reference> for ReplaceNetworkACLEntry.
 module Network.AWS.EC2.ReplaceNetworkACLEntry
     (
     -- * Creating a Request
@@ -156,6 +154,8 @@ instance AWSRequest ReplaceNetworkACLEntry where
         request = postQuery eC2
         response
           = receiveNull ReplaceNetworkACLEntryResponse'
+
+instance Hashable ReplaceNetworkACLEntry
 
 instance ToHeaders ReplaceNetworkACLEntry where
         toHeaders = const mempty

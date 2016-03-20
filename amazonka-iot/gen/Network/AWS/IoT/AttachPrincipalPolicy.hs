@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.AttachPrincipalPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Attaches the specified policy to the specified principal (certificate or
 -- other credential).
---
--- /See:/ <https://aws.amazon.com/iot#AttachPrincipalPolicy.html AWS API Reference> for AttachPrincipalPolicy.
 module Network.AWS.IoT.AttachPrincipalPolicy
     (
     -- * Creating a Request
@@ -72,8 +70,8 @@ attachPrincipalPolicy pPolicyName_ pPrincipal_ =
 appPolicyName :: Lens' AttachPrincipalPolicy Text
 appPolicyName = lens _appPolicyName (\ s a -> s{_appPolicyName = a});
 
--- | The principal which can be a certificate ARN (as returned from the
--- CreateCertificate operation) or a Cognito ID.
+-- | The principal, which can be a certificate ARN (as returned from the
+-- CreateCertificate operation) or an Amazon Cognito ID.
 appPrincipal :: Lens' AttachPrincipalPolicy Text
 appPrincipal = lens _appPrincipal (\ s a -> s{_appPrincipal = a});
 
@@ -82,6 +80,8 @@ instance AWSRequest AttachPrincipalPolicy where
              AttachPrincipalPolicyResponse
         request = putJSON ioT
         response = receiveNull AttachPrincipalPolicyResponse'
+
+instance Hashable AttachPrincipalPolicy
 
 instance ToHeaders AttachPrincipalPolicy where
         toHeaders AttachPrincipalPolicy'{..}

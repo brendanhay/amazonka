@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -16,8 +16,6 @@
 -- This is the /AWS Directory Service API Reference/. This guide provides
 -- detailed information about AWS Directory Service operations, data types,
 -- parameters, and errors.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/welcome.html AWS API Reference>
 module Network.AWS.DirectoryService
     (
     -- * Service Configuration
@@ -71,6 +69,9 @@ module Network.AWS.DirectoryService
     -- ** GetSnapshotLimits
     , module Network.AWS.DirectoryService.GetSnapshotLimits
 
+    -- ** RegisterEventTopic
+    , module Network.AWS.DirectoryService.RegisterEventTopic
+
     -- ** ConnectDirectory
     , module Network.AWS.DirectoryService.ConnectDirectory
 
@@ -89,8 +90,14 @@ module Network.AWS.DirectoryService
     -- ** CreateMicrosoftAD
     , module Network.AWS.DirectoryService.CreateMicrosoftAD
 
+    -- ** DeregisterEventTopic
+    , module Network.AWS.DirectoryService.DeregisterEventTopic
+
     -- ** CreateDirectory
     , module Network.AWS.DirectoryService.CreateDirectory
+
+    -- ** DescribeEventTopics
+    , module Network.AWS.DirectoryService.DescribeEventTopics
 
     -- ** EnableSSO
     , module Network.AWS.DirectoryService.EnableSSO
@@ -156,6 +163,9 @@ module Network.AWS.DirectoryService
 
     -- ** SnapshotType
     , SnapshotType (..)
+
+    -- ** TopicStatus
+    , TopicStatus (..)
 
     -- ** TrustDirection
     , TrustDirection (..)
@@ -246,6 +256,15 @@ module Network.AWS.DirectoryService
     , dvsdSecurityGroupId
     , dvsdAvailabilityZones
 
+    -- ** EventTopic
+    , EventTopic
+    , eventTopic
+    , etStatus
+    , etDirectoryId
+    , etTopicName
+    , etTopicARN
+    , etCreatedDateTime
+
     -- ** RadiusSettings
     , RadiusSettings
     , radiusSettings
@@ -299,7 +318,9 @@ import           Network.AWS.DirectoryService.CreateTrust
 import           Network.AWS.DirectoryService.DeleteDirectory
 import           Network.AWS.DirectoryService.DeleteSnapshot
 import           Network.AWS.DirectoryService.DeleteTrust
+import           Network.AWS.DirectoryService.DeregisterEventTopic
 import           Network.AWS.DirectoryService.DescribeDirectories
+import           Network.AWS.DirectoryService.DescribeEventTopics
 import           Network.AWS.DirectoryService.DescribeSnapshots
 import           Network.AWS.DirectoryService.DescribeTrusts
 import           Network.AWS.DirectoryService.DisableRadius
@@ -308,6 +329,7 @@ import           Network.AWS.DirectoryService.EnableRadius
 import           Network.AWS.DirectoryService.EnableSSO
 import           Network.AWS.DirectoryService.GetDirectoryLimits
 import           Network.AWS.DirectoryService.GetSnapshotLimits
+import           Network.AWS.DirectoryService.RegisterEventTopic
 import           Network.AWS.DirectoryService.RestoreFromSnapshot
 import           Network.AWS.DirectoryService.Types
 import           Network.AWS.DirectoryService.UpdateRadius

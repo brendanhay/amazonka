@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeDocument
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified SSM document.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeDocument.html AWS API Reference> for DescribeDocument.
 module Network.AWS.SSM.DescribeDocument
     (
     -- * Creating a Request
@@ -74,6 +72,8 @@ instance AWSRequest DescribeDocument where
               (\ s h x ->
                  DescribeDocumentResponse' <$>
                    (x .?> "Document") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeDocument
 
 instance ToHeaders DescribeDocument where
         toHeaders

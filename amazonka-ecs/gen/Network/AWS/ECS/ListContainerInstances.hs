@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListContainerInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of container instances in a specified cluster.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html AWS API Reference> for ListContainerInstances.
 --
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListContainerInstances
@@ -119,6 +117,8 @@ instance AWSRequest ListContainerInstances where
                    (x .?> "containerInstanceArns" .!@ mempty) <*>
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListContainerInstances
 
 instance ToHeaders ListContainerInstances where
         toHeaders

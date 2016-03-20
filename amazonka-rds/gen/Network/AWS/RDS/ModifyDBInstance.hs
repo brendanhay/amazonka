@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Modify settings for a DB instance. You can change one or more database
 -- configuration parameters by specifying these parameters and the new
 -- values in the request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html AWS API Reference> for ModifyDBInstance.
 module Network.AWS.RDS.ModifyDBInstance
     (
     -- * Creating a Request
@@ -206,7 +204,7 @@ modifyDBInstance pDBInstanceIdentifier_ =
 -- family for the new engine version must be specified. The new DB
 -- parameter group can be the default for that DB parameter group family.
 --
--- For a list of valid engine versions, see CreateDBInstance.
+-- For a list of valid engine versions, see < CreateDBInstance>.
 mdiEngineVersion :: Lens' ModifyDBInstance (Maybe Text)
 mdiEngineVersion = lens _mdiEngineVersion (\ s a -> s{_mdiEngineVersion = a});
 
@@ -291,9 +289,11 @@ mdiDBPortNumber = lens _mdiDBPortNumber (\ s a -> s{_mdiDBPortNumber = a});
 mdiMasterUserPassword :: Lens' ModifyDBInstance (Maybe Text)
 mdiMasterUserPassword = lens _mdiMasterUserPassword (\ s a -> s{_mdiMasterUserPassword = a});
 
--- | True to make the DB instance Internet-facing with a publicly resolvable
--- DNS name, which resolves to a public IP address. False to make the DB
--- instance internal with a DNS name that resolves to a private IP address.
+-- | Boolean value that indicates if the DB instance has a publicly
+-- resolvable DNS name. Set to 'True' to make the DB instance
+-- Internet-facing with a publicly resolvable DNS name, which resolves to a
+-- public IP address. Set to 'False' to make the DB instance internal with
+-- a DNS name that resolves to a private IP address.
 --
 -- 'PubliclyAccessible' only applies to DB instances in a VPC. The DB
 -- instance must be part of a public subnet and 'PubliclyAccessible' must
@@ -407,7 +407,7 @@ mdiTDECredentialPassword = lens _mdiTDECredentialPassword (\ s a -> s{_mdiTDECre
 
 -- | The new compute and memory capacity of the DB instance. To determine the
 -- instance classes that are available for a particular DB engine, use the
--- DescribeOrderableDBInstanceOptions action.
+-- < DescribeOrderableDBInstanceOptions> action.
 --
 -- Passing a value for this setting causes an outage during the change and
 -- is applied during the next maintenance window, unless 'ApplyImmediately'
@@ -603,7 +603,7 @@ mdiAllocatedStorage = lens _mdiAllocatedStorage (\ s a -> s{_mdiAllocatedStorage
 -- If this parameter is set to 'false', changes to the DB instance are
 -- applied during the next maintenance window. Some parameter changes can
 -- cause an outage and will be applied on the next call to
--- RebootDBInstance, or the next failure reboot. Review the table of
+-- < RebootDBInstance>, or the next failure reboot. Review the table of
 -- parameters in
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html Modifying a DB Instance and Using the Apply Immediately Parameter>
 -- to see the impact that setting 'ApplyImmediately' to 'true' or 'false'
@@ -671,6 +671,8 @@ instance AWSRequest ModifyDBInstance where
               (\ s h x ->
                  ModifyDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
+
+instance Hashable ModifyDBInstance
 
 instance ToHeaders ModifyDBInstance where
         toHeaders = const mempty

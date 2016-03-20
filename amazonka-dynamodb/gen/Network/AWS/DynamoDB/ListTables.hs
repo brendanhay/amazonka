@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.ListTables
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Returns an array of table names associated with the current account and
 -- endpoint. The output from /ListTables/ is paginated, with each page
 -- returning a maximum of 100 table names.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTables.html AWS API Reference> for ListTables.
 --
 -- This operation returns paginated results.
 module Network.AWS.DynamoDB.ListTables
@@ -104,6 +102,8 @@ instance AWSRequest ListTables where
                    (x .?> "LastEvaluatedTableName") <*>
                      (x .?> "TableNames" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListTables
 
 instance ToHeaders ListTables where
         toHeaders

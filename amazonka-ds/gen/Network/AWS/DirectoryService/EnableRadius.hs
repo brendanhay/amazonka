@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.EnableRadius
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Enables multi-factor authentication (MFA) with the Remote Authentication
 -- Dial In User Service (RADIUS) server for an AD Connector directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableRadius.html AWS API Reference> for EnableRadius.
 module Network.AWS.DirectoryService.EnableRadius
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the EnableRadius operation.
+-- | Contains the inputs for the < EnableRadius> operation.
 --
 -- /See:/ 'enableRadius' smart constructor.
 data EnableRadius = EnableRadius'
@@ -74,7 +72,7 @@ enableRadius pDirectoryId_ pRadiusSettings_ =
 erDirectoryId :: Lens' EnableRadius Text
 erDirectoryId = lens _erDirectoryId (\ s a -> s{_erDirectoryId = a});
 
--- | A RadiusSettings object that contains information about the RADIUS
+-- | A < RadiusSettings> object that contains information about the RADIUS
 -- server.
 erRadiusSettings :: Lens' EnableRadius RadiusSettings
 erRadiusSettings = lens _erRadiusSettings (\ s a -> s{_erRadiusSettings = a});
@@ -86,6 +84,8 @@ instance AWSRequest EnableRadius where
           = receiveEmpty
               (\ s h x ->
                  EnableRadiusResponse' <$> (pure (fromEnum s)))
+
+instance Hashable EnableRadius
 
 instance ToHeaders EnableRadius where
         toHeaders
@@ -110,7 +110,7 @@ instance ToPath EnableRadius where
 instance ToQuery EnableRadius where
         toQuery = const mempty
 
--- | Contains the results of the EnableRadius operation.
+-- | Contains the results of the < EnableRadius> operation.
 --
 -- /See:/ 'enableRadiusResponse' smart constructor.
 newtype EnableRadiusResponse = EnableRadiusResponse'

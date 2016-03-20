@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSecurityGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- in the /Amazon Elastic Compute Cloud User Guide/ and
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroups.html AWS API Reference> for DescribeSecurityGroups.
 module Network.AWS.EC2.DescribeSecurityGroups
     (
     -- * Creating a Request
@@ -163,6 +161,8 @@ instance AWSRequest DescribeSecurityGroups where
                    (x .@? "securityGroupInfo" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeSecurityGroups
 
 instance ToHeaders DescribeSecurityGroups where
         toHeaders = const mempty

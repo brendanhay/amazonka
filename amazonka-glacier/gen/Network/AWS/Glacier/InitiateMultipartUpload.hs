@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.InitiateMultipartUpload
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- This operation initiates a multipart upload. Amazon Glacier creates a
 -- multipart upload resource and returns its ID in the response. The
 -- multipart upload ID is used in subsequent requests to upload parts of an
--- archive (see UploadMultipartPart).
+-- archive (see < UploadMultipartPart>).
 --
 -- When you initiate a multipart upload, you specify the part size in
 -- number of bytes. The part size must be a megabyte (1024 KB) multiplied
@@ -29,11 +29,11 @@
 -- MB), 8388608 (8 MB), and so on. The minimum allowable part size is 1 MB,
 -- and the maximum is 4 GB.
 --
--- Every part you upload to this resource (see UploadMultipartPart), except
--- the last one, must have the same size. The last one can be the same size
--- or smaller. For example, suppose you want to upload a 16.2 MB file. If
--- you initiate the multipart upload with a part size of 4 MB, you will
--- upload four parts of 4 MB each and one part of 0.2 MB.
+-- Every part you upload to this resource (see < UploadMultipartPart>),
+-- except the last one, must have the same size. The last one can be the
+-- same size or smaller. For example, suppose you want to upload a 16.2 MB
+-- file. If you initiate the multipart upload with a part size of 4 MB, you
+-- will upload four parts of 4 MB each and one part of 0.2 MB.
 --
 -- You don\'t need to know the size of the archive when you start a
 -- multipart upload because Amazon Glacier does not require you to specify
@@ -55,8 +55,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html Initiate Multipart Upload>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-InitiateMultipartUpload.html AWS API Reference> for InitiateMultipartUpload.
 module Network.AWS.Glacier.InitiateMultipartUpload
     (
     -- * Creating a Request
@@ -155,6 +153,8 @@ instance AWSRequest InitiateMultipartUpload where
                    (h .#? "Location") <*>
                      (h .#? "x-amz-multipart-upload-id")
                      <*> (pure (fromEnum s)))
+
+instance Hashable InitiateMultipartUpload
 
 instance ToHeaders InitiateMultipartUpload where
         toHeaders InitiateMultipartUpload'{..}

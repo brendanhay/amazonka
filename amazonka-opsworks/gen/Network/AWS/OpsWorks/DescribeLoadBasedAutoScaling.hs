@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeLoadBasedAutoScaling.html AWS API Reference> for DescribeLoadBasedAutoScaling.
 module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     (
     -- * Creating a Request
@@ -85,6 +83,8 @@ instance AWSRequest DescribeLoadBasedAutoScaling
                    (x .?> "LoadBasedAutoScalingConfigurations" .!@
                       mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeLoadBasedAutoScaling
 
 instance ToHeaders DescribeLoadBasedAutoScaling where
         toHeaders

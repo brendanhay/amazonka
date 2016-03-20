@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBSubnetGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Modifies an existing DB subnet group. DB subnet groups must contain at
 -- least one subnet in at least two AZs in the region.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSubnetGroup.html AWS API Reference> for ModifyDBSubnetGroup.
 module Network.AWS.RDS.ModifyDBSubnetGroup
     (
     -- * Creating a Request
@@ -82,8 +80,8 @@ mdsgDBSubnetGroupDescription = lens _mdsgDBSubnetGroupDescription (\ s a -> s{_m
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string.
 --
--- Constraints: Must contain no more than 255 alphanumeric characters or
--- hyphens. Must not be \"Default\".
+-- Constraints: Must contain no more than 255 alphanumeric characters,
+-- periods, underscores, spaces, or hyphens. Must not be \"default\".
 --
 -- Example: 'mySubnetgroup'
 mdsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
@@ -102,6 +100,8 @@ instance AWSRequest ModifyDBSubnetGroup where
               (\ s h x ->
                  ModifyDBSubnetGroupResponse' <$>
                    (x .@? "DBSubnetGroup") <*> (pure (fromEnum s)))
+
+instance Hashable ModifyDBSubnetGroup
 
 instance ToHeaders ModifyDBSubnetGroup where
         toHeaders = const mempty

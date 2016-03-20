@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DeleteRun
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the assessment run specified by the run ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DeleteRun.html AWS API Reference> for DeleteRun.
 module Network.AWS.Inspector.DeleteRun
     (
     -- * Creating a Request
@@ -74,6 +72,8 @@ instance AWSRequest DeleteRun where
               (\ s h x ->
                  DeleteRunResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteRun
 
 instance ToHeaders DeleteRun where
         toHeaders

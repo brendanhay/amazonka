@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateConnection
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- can establish connections with AWS Direct Connect locations in multiple
 -- regions, but a connection in one region does not provide connectivity to
 -- other regions.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html AWS API Reference> for CreateConnection.
 module Network.AWS.DirectConnect.CreateConnection
     (
     -- * Creating a Request
@@ -109,6 +107,8 @@ instance AWSRequest CreateConnection where
         type Rs CreateConnection = Connection
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable CreateConnection
 
 instance ToHeaders CreateConnection where
         toHeaders

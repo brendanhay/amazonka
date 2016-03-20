@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.ConfirmConnection
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- Upon creation, the hosted connection is initially in the \'Ordering\'
 -- state, and will remain in this state until the owner calls
 -- ConfirmConnection to confirm creation of the hosted connection.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmConnection.html AWS API Reference> for ConfirmConnection.
 module Network.AWS.DirectConnect.ConfirmConnection
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest ConfirmConnection where
               (\ s h x ->
                  ConfirmConnectionResponse' <$>
                    (x .?> "connectionState") <*> (pure (fromEnum s)))
+
+instance Hashable ConfirmConnection
 
 instance ToHeaders ConfirmConnection where
         toHeaders

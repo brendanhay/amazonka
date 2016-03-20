@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Firehose
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -16,8 +16,6 @@
 -- Amazon Kinesis Firehose is a fully-managed service that delivers
 -- real-time streaming data to destinations such as Amazon S3 and Amazon
 -- Redshift.
---
--- /See:/ <http://docs.aws.amazon.com/firehose/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Firehose
     (
     -- * Service Configuration

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RevokeSnapshotAccess
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- For more information about working with snapshots, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeSnapshotAccess.html AWS API Reference> for RevokeSnapshotAccess.
 module Network.AWS.Redshift.RevokeSnapshotAccess
     (
     -- * Creating a Request
@@ -106,6 +104,8 @@ instance AWSRequest RevokeSnapshotAccess where
               (\ s h x ->
                  RevokeSnapshotAccessResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
+
+instance Hashable RevokeSnapshotAccess
 
 instance ToHeaders RevokeSnapshotAccess where
         toHeaders = const mempty

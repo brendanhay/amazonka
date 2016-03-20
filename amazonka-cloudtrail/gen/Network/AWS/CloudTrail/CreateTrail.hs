@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.CreateTrail
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Creates a trail that specifies the settings for delivery of log data to
 -- an Amazon S3 bucket. A maximum of five trails can exist in a region,
 -- irrespective of the region in which they were created.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateTrail.html AWS API Reference> for CreateTrail.
 module Network.AWS.CloudTrail.CreateTrail
     (
     -- * Creating a Request
@@ -223,6 +221,8 @@ instance AWSRequest CreateTrail where
                      <*> (x .?> "S3BucketName")
                      <*> (x .?> "IsMultiRegionTrail")
                      <*> (pure (fromEnum s)))
+
+instance Hashable CreateTrail
 
 instance ToHeaders CreateTrail where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.AttachInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach EC2 Instances to Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachInstances.html AWS API Reference> for AttachInstances.
 module Network.AWS.AutoScaling.AttachInstances
     (
     -- * Creating a Request
@@ -73,7 +71,7 @@ attachInstances pAutoScalingGroupName_ =
     , _aiAutoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | One or more EC2 instance IDs.
+-- | One or more instance IDs.
 aiInstanceIds :: Lens' AttachInstances [Text]
 aiInstanceIds = lens _aiInstanceIds (\ s a -> s{_aiInstanceIds = a}) . _Default . _Coerce;
 
@@ -85,6 +83,8 @@ instance AWSRequest AttachInstances where
         type Rs AttachInstances = AttachInstancesResponse
         request = postQuery autoScaling
         response = receiveNull AttachInstancesResponse'
+
+instance Hashable AttachInstances
 
 instance ToHeaders AttachInstances where
         toHeaders = const mempty

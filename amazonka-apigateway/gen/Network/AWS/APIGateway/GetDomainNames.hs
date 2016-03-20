@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDomainNames
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Represents a collection of DomainName resources.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetDomainNames.html AWS API Reference> for GetDomainNames.
+-- Represents a collection of < DomainName> resources.
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetDomainNames
@@ -49,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to describe a collection of DomainName resources.
+-- | Request to describe a collection of < DomainName> resources.
 --
 -- /See:/ 'getDomainNames' smart constructor.
 data GetDomainNames = GetDomainNames'
@@ -72,7 +70,7 @@ getDomainNames =
     , _gdnPosition = Nothing
     }
 
--- | The maximum number of DomainName resources in the collection to get
+-- | The maximum number of < DomainName> resources in the collection to get
 -- information about. The default limit is 25. It should be an integer
 -- between 1 - 500.
 gdnLimit :: Lens' GetDomainNames (Maybe Int)
@@ -99,8 +97,13 @@ instance AWSRequest GetDomainNames where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetDomainNames
+
 instance ToHeaders GetDomainNames where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetDomainNames where
         toPath = const "/domainnames"
@@ -110,7 +113,7 @@ instance ToQuery GetDomainNames where
           = mconcat
               ["limit" =: _gdnLimit, "position" =: _gdnPosition]
 
--- | Represents a collection of DomainName resources.
+-- | Represents a collection of < DomainName> resources.
 --
 -- /See:/ 'getDomainNamesResponse' smart constructor.
 data GetDomainNamesResponse = GetDomainNamesResponse'
@@ -138,8 +141,8 @@ getDomainNamesResponse pResponseStatus_ =
     , _gdnrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any DomainName resources in the collection of
--- DomainName resources.
+-- | The current page of any < DomainName> resources in the collection of
+-- < DomainName> resources.
 gdnrsItems :: Lens' GetDomainNamesResponse [DomainName]
 gdnrsItems = lens _gdnrsItems (\ s a -> s{_gdnrsItems = a}) . _Default . _Coerce;
 

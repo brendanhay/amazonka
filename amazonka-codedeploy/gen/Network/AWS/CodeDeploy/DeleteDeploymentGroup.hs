@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeleteDeploymentGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a deployment group.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentGroup.html AWS API Reference> for DeleteDeploymentGroup.
 module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     (
     -- * Creating a Request
@@ -70,8 +68,8 @@ deleteDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
     , _ddgDeploymentGroupName = pDeploymentGroupName_
     }
 
--- | The name of an existing AWS CodeDeploy application associated with the
--- applicable IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the applicable
+-- IAM user or AWS account.
 ddgApplicationName :: Lens' DeleteDeploymentGroup Text
 ddgApplicationName = lens _ddgApplicationName (\ s a -> s{_ddgApplicationName = a});
 
@@ -89,6 +87,8 @@ instance AWSRequest DeleteDeploymentGroup where
                  DeleteDeploymentGroupResponse' <$>
                    (x .?> "hooksNotCleanedUp" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DeleteDeploymentGroup
 
 instance ToHeaders DeleteDeploymentGroup where
         toHeaders
@@ -141,7 +141,7 @@ deleteDeploymentGroupResponse pResponseStatus_ =
 -- | If the output contains no data, and the corresponding deployment group
 -- contained at least one Auto Scaling group, AWS CodeDeploy successfully
 -- removed all corresponding Auto Scaling lifecycle event hooks from the
--- Amazon EC2 instances in the Auto Scaling. If the output does contain
+-- Amazon EC2 instances in the Auto Scaling group. If the output contains
 -- data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event
 -- hooks from the Amazon EC2 instances in the Auto Scaling group.
 ddgrsHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]

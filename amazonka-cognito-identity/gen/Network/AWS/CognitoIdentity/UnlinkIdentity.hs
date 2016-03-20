@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.UnlinkIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- last linked login will make this identity inaccessible.
 --
 -- This is a public API. You do not need any credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UnlinkIdentity.html AWS API Reference> for UnlinkIdentity.
 module Network.AWS.CognitoIdentity.UnlinkIdentity
     (
     -- * Creating a Request
@@ -92,6 +90,8 @@ instance AWSRequest UnlinkIdentity where
         type Rs UnlinkIdentity = UnlinkIdentityResponse
         request = postJSON cognitoIdentity
         response = receiveNull UnlinkIdentityResponse'
+
+instance Hashable UnlinkIdentity
 
 instance ToHeaders UnlinkIdentity where
         toHeaders

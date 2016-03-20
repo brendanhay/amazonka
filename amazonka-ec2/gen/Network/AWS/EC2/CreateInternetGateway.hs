@@ -12,19 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateInternetGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an Internet gateway for use with a VPC. After creating the
--- Internet gateway, you attach it to a VPC using AttachInternetGateway.
+-- Internet gateway, you attach it to a VPC using < AttachInternetGateway>.
 --
 -- For more information about your VPC and Internet gateway, see the
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInternetGateway.html AWS API Reference> for CreateInternetGateway.
 module Network.AWS.EC2.CreateInternetGateway
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest CreateInternetGateway where
               (\ s h x ->
                  CreateInternetGatewayResponse' <$>
                    (x .@? "internetGateway") <*> (pure (fromEnum s)))
+
+instance Hashable CreateInternetGateway
 
 instance ToHeaders CreateInternetGateway where
         toHeaders = const mempty

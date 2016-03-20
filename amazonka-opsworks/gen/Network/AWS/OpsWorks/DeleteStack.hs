@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteStack
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteStack.html AWS API Reference> for DeleteStack.
 module Network.AWS.OpsWorks.DeleteStack
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest DeleteStack where
         type Rs DeleteStack = DeleteStackResponse
         request = postJSON opsWorks
         response = receiveNull DeleteStackResponse'
+
+instance Hashable DeleteStack
 
 instance ToHeaders DeleteStack where
         toHeaders

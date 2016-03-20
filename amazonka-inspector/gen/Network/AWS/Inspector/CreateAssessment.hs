@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.CreateAssessment
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Creates an assessment for the application specified by the application
 -- ARN. You can create up to 500 assessments per AWS account.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_CreateAssessment.html AWS API Reference> for CreateAssessment.
 module Network.AWS.Inspector.CreateAssessment
     (
     -- * Creating a Request
@@ -110,6 +108,8 @@ instance AWSRequest CreateAssessment where
               (\ s h x ->
                  CreateAssessmentResponse' <$>
                    (x .?> "assessmentArn") <*> (pure (fromEnum s)))
+
+instance Hashable CreateAssessment
 
 instance ToHeaders CreateAssessment where
         toHeaders

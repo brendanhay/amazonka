@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeBundleTasks
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- bundle task is no longer in the list, you can still register an AMI from
 -- it. Just use 'RegisterImage' with the Amazon S3 bucket name and image
 -- manifest name you provided to the bundle task.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeBundleTasks.html AWS API Reference> for DescribeBundleTasks.
 module Network.AWS.EC2.DescribeBundleTasks
     (
     -- * Creating a Request
@@ -128,6 +126,8 @@ instance AWSRequest DescribeBundleTasks where
                    (x .@? "bundleInstanceTasksSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeBundleTasks
 
 instance ToHeaders DescribeBundleTasks where
         toHeaders = const mempty

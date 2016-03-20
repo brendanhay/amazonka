@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeRegions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- For a list of the regions supported by Amazon EC2, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeRegions.html AWS API Reference> for DescribeRegions.
 module Network.AWS.EC2.DescribeRegions
     (
     -- * Creating a Request
@@ -105,6 +103,8 @@ instance AWSRequest DescribeRegions where
                    (x .@? "regionInfo" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeRegions
 
 instance ToHeaders DescribeRegions where
         toHeaders = const mempty

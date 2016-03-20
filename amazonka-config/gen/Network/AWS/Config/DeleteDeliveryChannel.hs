@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeleteDeliveryChannel
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,9 +23,7 @@
 -- The delivery channel cannot be deleted if it is the only delivery
 -- channel and the configuration recorder is still running. To delete the
 -- delivery channel, stop the running configuration recorder using the
--- StopConfigurationRecorder action.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html AWS API Reference> for DeleteDeliveryChannel.
+-- < StopConfigurationRecorder> action.
 module Network.AWS.Config.DeleteDeliveryChannel
     (
     -- * Creating a Request
@@ -46,8 +44,8 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the DeleteDeliveryChannel action. The action accepts the
--- following data in JSON format.
+-- | The input for the < DeleteDeliveryChannel> action. The action accepts
+-- the following data in JSON format.
 --
 -- /See:/ 'deleteDeliveryChannel' smart constructor.
 newtype DeleteDeliveryChannel = DeleteDeliveryChannel'
@@ -76,6 +74,8 @@ instance AWSRequest DeleteDeliveryChannel where
              DeleteDeliveryChannelResponse
         request = postJSON config
         response = receiveNull DeleteDeliveryChannelResponse'
+
+instance Hashable DeleteDeliveryChannel
 
 instance ToHeaders DeleteDeliveryChannel where
         toHeaders

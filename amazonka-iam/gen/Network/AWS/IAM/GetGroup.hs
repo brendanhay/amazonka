@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns a list of users that are in the specified group. You can
 -- paginate the results using the 'MaxItems' and 'Marker' parameters.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html AWS API Reference> for GetGroup.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.GetGroup
@@ -122,6 +120,8 @@ instance AWSRequest GetGroup where
                      <*>
                      (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
 
+instance Hashable GetGroup
+
 instance ToHeaders GetGroup where
         toHeaders = const mempty
 
@@ -136,7 +136,7 @@ instance ToQuery GetGroup where
                "Marker" =: _ggMarker, "MaxItems" =: _ggMaxItems,
                "GroupName" =: _ggGroupName]
 
--- | Contains the response to a successful GetGroup request.
+-- | Contains the response to a successful < GetGroup> request.
 --
 -- /See:/ 'getGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateBandwidthRateLimit
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 --
 -- To specify which gateway to update, use the Amazon Resource Name (ARN)
 -- of the gateway in your request.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateBandwidthRateLimit.html AWS API Reference> for UpdateBandwidthRateLimit.
 module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     (
     -- * Creating a Request
@@ -59,8 +57,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec
--- -   UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec
+-- -   < UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec>
+-- -   < UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec>
 --
 -- /See:/ 'updateBandwidthRateLimit' smart constructor.
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
@@ -109,6 +107,8 @@ instance AWSRequest UpdateBandwidthRateLimit where
               (\ s h x ->
                  UpdateBandwidthRateLimitResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+
+instance Hashable UpdateBandwidthRateLimit
 
 instance ToHeaders UpdateBandwidthRateLimit where
         toHeaders

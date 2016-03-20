@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.ListOperations
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- This operation returns the operation IDs of operations that are not yet
 -- complete.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListOperations.html AWS API Reference> for ListOperations.
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53Domains.ListOperations
@@ -116,6 +114,8 @@ instance AWSRequest ListOperations where
                  ListOperationsResponse' <$>
                    (x .?> "NextPageMarker") <*> (pure (fromEnum s)) <*>
                      (x .?> "Operations" .!@ mempty))
+
+instance Hashable ListOperations
 
 instance ToHeaders ListOperations where
         toHeaders

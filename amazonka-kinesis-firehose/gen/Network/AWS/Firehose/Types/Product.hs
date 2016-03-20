@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -66,6 +66,8 @@ instance FromJSON BufferingHints where
               (\ x ->
                  BufferingHints' <$>
                    (x .:? "SizeInMBs") <*> (x .:? "IntervalInSeconds"))
+
+instance Hashable BufferingHints
 
 instance ToJSON BufferingHints where
         toJSON BufferingHints'{..}
@@ -144,6 +146,8 @@ instance FromJSON CopyCommand where
                  CopyCommand' <$>
                    (x .:? "CopyOptions") <*> (x .:? "DataTableColumns")
                      <*> (x .: "DataTableName"))
+
+instance Hashable CopyCommand
 
 instance ToJSON CopyCommand where
         toJSON CopyCommand'{..}
@@ -225,7 +229,7 @@ dsdDeliveryStreamARN = lens _dsdDeliveryStreamARN (\ s a -> s{_dsdDeliveryStream
 dsdDeliveryStreamStatus :: Lens' DeliveryStreamDescription DeliveryStreamStatus
 dsdDeliveryStreamStatus = lens _dsdDeliveryStreamStatus (\ s a -> s{_dsdDeliveryStreamStatus = a});
 
--- | Used when calling the UpdateDestination operation. Each time the
+-- | Used when calling the < UpdateDestination> operation. Each time the
 -- destination is updated for the delivery stream, the VersionId is
 -- changed, and the current VersionId is required when updating the
 -- destination. This is so that the service knows it is applying the
@@ -254,6 +258,8 @@ instance FromJSON DeliveryStreamDescription where
                      <*> (x .: "VersionId")
                      <*> (x .:? "Destinations" .!= mempty)
                      <*> (x .: "HasMoreDestinations"))
+
+instance Hashable DeliveryStreamDescription
 
 -- | Describes the destination for a delivery stream.
 --
@@ -304,6 +310,8 @@ instance FromJSON DestinationDescription where
                      (x .:? "RedshiftDestinationDescription")
                      <*> (x .: "DestinationId"))
 
+instance Hashable DestinationDescription
+
 -- | Describes the encryption for a destination in Amazon S3.
 --
 -- /See:/ 'encryptionConfiguration' smart constructor.
@@ -344,6 +352,8 @@ instance FromJSON EncryptionConfiguration where
                    (x .:? "NoEncryptionConfig") <*>
                      (x .:? "KMSEncryptionConfig"))
 
+instance Hashable EncryptionConfiguration
+
 instance ToJSON EncryptionConfiguration where
         toJSON EncryptionConfiguration'{..}
           = object
@@ -383,13 +393,15 @@ instance FromJSON KMSEncryptionConfig where
               (\ x ->
                  KMSEncryptionConfig' <$> (x .: "AWSKMSKeyARN"))
 
+instance Hashable KMSEncryptionConfig
+
 instance ToJSON KMSEncryptionConfig where
         toJSON KMSEncryptionConfig'{..}
           = object
               (catMaybes
                  [Just ("AWSKMSKeyARN" .= _kecAWSKMSKeyARN)])
 
--- | Contains the result for an individual record from a PutRecordBatch
+-- | Contains the result for an individual record from a < PutRecordBatch>
 -- request. If the record is successfully added to your delivery stream, it
 -- receives a record ID. If the record fails to be added to your delivery
 -- stream, the result includes an error code and an error message.
@@ -439,6 +451,8 @@ instance FromJSON PutRecordBatchResponseEntry where
                    (x .:? "RecordId") <*> (x .:? "ErrorCode") <*>
                      (x .:? "ErrorMessage"))
 
+instance Hashable PutRecordBatchResponseEntry
+
 -- | The unit of data in a delivery stream.
 --
 -- /See:/ 'record' smart constructor.
@@ -469,6 +483,8 @@ record pData_ =
 -- This 'Lens' accepts and returns only raw unencoded data.
 rData :: Lens' Record ByteString
 rData = lens _rData (\ s a -> s{_rData = a}) . _Base64;
+
+instance Hashable Record
 
 instance ToJSON Record where
         toJSON Record'{..}
@@ -541,7 +557,7 @@ rdcPassword = lens _rdcPassword (\ s a -> s{_rdcPassword = a}) . _Sensitive;
 
 -- | The S3 configuration for the intermediate location from which Amazon
 -- Redshift obtains data. Restrictions are described in the topic for
--- CreateDeliveryStream.
+-- < CreateDeliveryStream>.
 --
 -- The compression formats 'SNAPPY' or 'ZIP' cannot be specified in
 -- 'RedshiftDestinationConfiguration.S3Configuration' because the Amazon
@@ -549,6 +565,8 @@ rdcPassword = lens _rdcPassword (\ s a -> s{_rdcPassword = a}) . _Sensitive;
 -- these compression formats.
 rdcS3Configuration :: Lens' RedshiftDestinationConfiguration S3DestinationConfiguration
 rdcS3Configuration = lens _rdcS3Configuration (\ s a -> s{_rdcS3Configuration = a});
+
+instance Hashable RedshiftDestinationConfiguration
 
 instance ToJSON RedshiftDestinationConfiguration
          where
@@ -633,6 +651,8 @@ instance FromJSON RedshiftDestinationDescription
                      <*> (x .: "Username")
                      <*> (x .: "S3DestinationDescription"))
 
+instance Hashable RedshiftDestinationDescription
+
 -- | Describes an update for a destination in Amazon Redshift.
 --
 -- /See:/ 'redshiftDestinationUpdate' smart constructor.
@@ -700,6 +720,8 @@ rduClusterJDBCURL = lens _rduClusterJDBCURL (\ s a -> s{_rduClusterJDBCURL = a})
 -- | The ARN of the AWS credentials.
 rduRoleARN :: Lens' RedshiftDestinationUpdate (Maybe Text)
 rduRoleARN = lens _rduRoleARN (\ s a -> s{_rduRoleARN = a});
+
+instance Hashable RedshiftDestinationUpdate
 
 instance ToJSON RedshiftDestinationUpdate where
         toJSON RedshiftDestinationUpdate'{..}
@@ -788,6 +810,8 @@ sdcRoleARN = lens _sdcRoleARN (\ s a -> s{_sdcRoleARN = a});
 -- | The ARN of the S3 bucket.
 sdcBucketARN :: Lens' S3DestinationConfiguration Text
 sdcBucketARN = lens _sdcBucketARN (\ s a -> s{_sdcBucketARN = a});
+
+instance Hashable S3DestinationConfiguration
 
 instance ToJSON S3DestinationConfiguration where
         toJSON S3DestinationConfiguration'{..}
@@ -888,6 +912,8 @@ instance FromJSON S3DestinationDescription where
                      <*> (x .: "CompressionFormat")
                      <*> (x .: "EncryptionConfiguration"))
 
+instance Hashable S3DestinationDescription
+
 -- | Describes an update for a destination in Amazon S3.
 --
 -- /See:/ 's3DestinationUpdate' smart constructor.
@@ -962,6 +988,8 @@ sduBucketARN = lens _sduBucketARN (\ s a -> s{_sduBucketARN = a});
 -- | The ARN of the AWS credentials.
 sduRoleARN :: Lens' S3DestinationUpdate (Maybe Text)
 sduRoleARN = lens _sduRoleARN (\ s a -> s{_sduRoleARN = a});
+
+instance Hashable S3DestinationUpdate
 
 instance ToJSON S3DestinationUpdate where
         toJSON S3DestinationUpdate'{..}

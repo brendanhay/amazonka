@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.SSM.SendCommand
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Executes commands on one or more remote instances.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_SendCommand.html AWS API Reference> for SendCommand.
 module Network.AWS.SSM.SendCommand
     (
     -- * Creating a Request
@@ -135,6 +133,8 @@ instance AWSRequest SendCommand where
               (\ s h x ->
                  SendCommandResponse' <$>
                    (x .?> "Command") <*> (pure (fromEnum s)))
+
+instance Hashable SendCommand
 
 instance ToHeaders SendCommand where
         toHeaders

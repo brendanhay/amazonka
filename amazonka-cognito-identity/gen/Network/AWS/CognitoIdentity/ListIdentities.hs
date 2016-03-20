@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.ListIdentities
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Lists the identities in a pool.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_ListIdentities.html AWS API Reference> for ListIdentities.
 module Network.AWS.CognitoIdentity.ListIdentities
     (
     -- * Creating a Request
@@ -112,6 +110,8 @@ instance AWSRequest ListIdentities where
                    (x .?> "IdentityPoolId") <*> (x .?> "NextToken") <*>
                      (x .?> "Identities" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListIdentities
 
 instance ToHeaders ListIdentities where
         toHeaders

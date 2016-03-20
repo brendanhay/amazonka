@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetIdentityVerificationAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 --
 -- This action is throttled at one request per second and can only get
 -- verification attributes for up to 100 identities at a time.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityVerificationAttributes.html AWS API Reference> for GetIdentityVerificationAttributes.
 module Network.AWS.SES.GetIdentityVerificationAttributes
     (
     -- * Creating a Request
@@ -49,10 +47,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to provide the verification
--- attributes for a list of identities.
---
--- /See:/ 'getIdentityVerificationAttributes' smart constructor.
+-- | /See:/ 'getIdentityVerificationAttributes' smart constructor.
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'
     { _givaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -87,6 +82,8 @@ instance AWSRequest GetIdentityVerificationAttributes
                      (x .@? "VerificationAttributes" .!@ mempty >>=
                         parseXMLMap "entry" "key" "value"))
 
+instance Hashable GetIdentityVerificationAttributes
+
 instance ToHeaders GetIdentityVerificationAttributes
          where
         toHeaders = const mempty
@@ -104,9 +101,7 @@ instance ToQuery GetIdentityVerificationAttributes
                "Version" =: ("2010-12-01" :: ByteString),
                "Identities" =: toQueryList "member" _givaIdentities]
 
--- | Represents the verification attributes for a list of identities.
---
--- /See:/ 'getIdentityVerificationAttributesResponse' smart constructor.
+-- | /See:/ 'getIdentityVerificationAttributesResponse' smart constructor.
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
     { _givarsResponseStatus         :: !Int
     , _givarsVerificationAttributes :: !(Map Text IdentityVerificationAttributes)

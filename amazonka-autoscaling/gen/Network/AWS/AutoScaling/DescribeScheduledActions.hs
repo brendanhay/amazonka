@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeScheduledActions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,9 +20,7 @@
 --
 -- Describes the actions scheduled for your Auto Scaling group that
 -- haven\'t run. To describe the actions that have already run, use
--- DescribeScalingActivities.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActions.html AWS API Reference> for DescribeScheduledActions.
+-- < DescribeScalingActivities>.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeScheduledActions
@@ -121,8 +119,7 @@ dsasEndTime = lens _dsasEndTime (\ s a -> s{_dsasEndTime = a}) . mapping _Time;
 --
 -- You can describe up to a maximum of 50 instances with a single call. If
 -- there are more items to return, the call returns a token. To get the
--- next set of items, repeat the call with the returned token in the
--- 'NextToken' parameter.
+-- next set of items, repeat the call with the returned token.
 dsasScheduledActionNames :: Lens' DescribeScheduledActions [Text]
 dsasScheduledActionNames = lens _dsasScheduledActionNames (\ s a -> s{_dsasScheduledActionNames = a}) . _Default . _Coerce;
 
@@ -146,6 +143,8 @@ instance AWSRequest DescribeScheduledActions where
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeScheduledActions
 
 instance ToHeaders DescribeScheduledActions where
         toHeaders = const mempty

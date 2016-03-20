@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ShutdownGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,21 +29,19 @@
 -- down the gateway component in the VM to avoid unpredictable conditions.
 --
 -- After the gateway is shutdown, you cannot call any other API except
--- StartGateway, DescribeGatewayInformation, and ListGateways. For more
--- information, see ActivateGateway. Your applications cannot read from or
--- write to the gateway\'s storage volumes, and there are no snapshots
--- taken.
+-- < StartGateway>, < DescribeGatewayInformation>, and < ListGateways>. For
+-- more information, see < ActivateGateway>. Your applications cannot read
+-- from or write to the gateway\'s storage volumes, and there are no
+-- snapshots taken.
 --
 -- When you make a shutdown request, you will get a '200 OK' success
 -- response immediately. However, it might take some time for the gateway
--- to shut down. You can call the DescribeGatewayInformation API to check
--- the status. For more information, see ActivateGateway.
+-- to shut down. You can call the < DescribeGatewayInformation> API to
+-- check the status. For more information, see < ActivateGateway>.
 --
 -- If do not intend to use the gateway again, you must delete the gateway
--- (using DeleteGateway) to no longer pay software charges associated with
--- the gateway.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ShutdownGateway.html AWS API Reference> for ShutdownGateway.
+-- (using < DeleteGateway>) to no longer pay software charges associated
+-- with the gateway.
 module Network.AWS.StorageGateway.ShutdownGateway
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest ShutdownGateway where
               (\ s h x ->
                  ShutdownGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+
+instance Hashable ShutdownGateway
 
 instance ToHeaders ShutdownGateway where
         toHeaders

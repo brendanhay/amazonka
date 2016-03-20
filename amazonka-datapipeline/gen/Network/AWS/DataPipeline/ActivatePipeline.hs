@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.ActivatePipeline
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,12 +22,10 @@
 -- If the pipeline does not pass validation, activation fails.
 --
 -- If you need to pause the pipeline to investigate an issue with a
--- component, such as a data source or script, call DeactivatePipeline.
+-- component, such as a data source or script, call < DeactivatePipeline>.
 --
 -- To activate a finished pipeline, modify the end date for the pipeline
 -- and then activate it.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ActivatePipeline.html AWS API Reference> for ActivatePipeline.
 module Network.AWS.DataPipeline.ActivatePipeline
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest ActivatePipeline where
           = receiveEmpty
               (\ s h x ->
                  ActivatePipelineResponse' <$> (pure (fromEnum s)))
+
+instance Hashable ActivatePipeline
 
 instance ToHeaders ActivatePipeline where
         toHeaders

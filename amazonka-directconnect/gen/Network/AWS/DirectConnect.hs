@@ -5,35 +5,25 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Direct Connect makes it easy to establish a dedicated network
--- connection from your premises to Amazon Web Services (AWS). Using AWS
--- Direct Connect, you can establish private connectivity between AWS and
--- your data center, office, or colocation environment, which in many cases
--- can reduce your network costs, increase bandwidth throughput, and
--- provide a more consistent network experience than Internet-based
--- connections.
---
--- The AWS Direct Connect API Reference provides descriptions, syntax, and
--- usage examples for each of the actions and data types for AWS Direct
--- Connect. Use the following links to get started using the /AWS Direct
--- Connect API Reference/:
---
--- -   <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_Operations.html Actions>:
---     An alphabetical list of all AWS Direct Connect actions.
--- -   <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_Types.html Data Types>:
---     An alphabetical list of all AWS Direct Connect data types.
--- -   <http://docs.aws.amazon.com/directconnect/latest/APIReference/CommonParameters.html Common Query Parameters>:
---     Parameters that all Query actions can use.
--- -   <http://docs.aws.amazon.com/directconnect/latest/APIReference/CommonErrors.html Common Errors>:
---     Client and server errors that all actions can return.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/Welcome.html AWS API Reference>
+-- AWS Direct Connect links your internal network to an AWS Direct Connect
+-- location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic
+-- cable. One end of the cable is connected to your router, the other to an
+-- AWS Direct Connect router. With this connection in place, you can create
+-- virtual interfaces directly to the AWS cloud (for example, to Amazon
+-- Elastic Compute Cloud (Amazon EC2) and Amazon Simple Storage Service
+-- (Amazon S3)) and to Amazon Virtual Private Cloud (Amazon VPC), bypassing
+-- Internet service providers in your network path. An AWS Direct Connect
+-- location provides access to AWS in the region it is associated with, as
+-- well as access to other US regions. For example, you can provision a
+-- single connection to any AWS Direct Connect location in the US and use
+-- it to access public AWS services in all US Regions and AWS GovCloud
+-- (US).
 module Network.AWS.DirectConnect
     (
     -- * Service Configuration

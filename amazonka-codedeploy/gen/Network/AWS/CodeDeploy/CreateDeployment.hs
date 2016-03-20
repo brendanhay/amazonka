@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.CreateDeployment
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deploys an application revision through the specified deployment group.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html AWS API Reference> for CreateDeployment.
 module Network.AWS.CodeDeploy.CreateDeployment
     (
     -- * Creating a Request
@@ -89,8 +87,8 @@ createDeployment pApplicationName_ =
     , _cdApplicationName = pApplicationName_
     }
 
--- | The name of an existing deployment configuration associated with the
--- applicable IAM user or AWS account.
+-- | The name of a deployment configuration associated with the applicable
+-- IAM user or AWS account.
 --
 -- If not specified, the value configured in the deployment group will be
 -- used as the default. If the deployment group does not have a deployment
@@ -99,8 +97,7 @@ createDeployment pApplicationName_ =
 cdDeploymentConfigName :: Lens' CreateDeployment (Maybe Text)
 cdDeploymentConfigName = lens _cdDeploymentConfigName (\ s a -> s{_cdDeploymentConfigName = a});
 
--- | The type of revision to deploy, along with information about the
--- revision\'s location.
+-- | The type and location of the revision to deploy.
 cdRevision :: Lens' CreateDeployment (Maybe RevisionLocation)
 cdRevision = lens _cdRevision (\ s a -> s{_cdRevision = a});
 
@@ -108,25 +105,24 @@ cdRevision = lens _cdRevision (\ s a -> s{_cdRevision = a});
 cdDescription :: Lens' CreateDeployment (Maybe Text)
 cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 
--- | The deployment group\'s name.
+-- | The name of the deployment group.
 cdDeploymentGroupName :: Lens' CreateDeployment (Maybe Text)
 cdDeploymentGroupName = lens _cdDeploymentGroupName (\ s a -> s{_cdDeploymentGroupName = a});
 
 -- | If set to true, then if the deployment causes the ApplicationStop
--- deployment lifecycle event to fail to a specific instance, the
--- deployment will not be considered to have failed to that instance at
--- that point and will continue on to the BeforeInstall deployment
--- lifecycle event.
+-- deployment lifecycle event to an instance to fail, the deployment to
+-- that instance will not be considered to have failed at that point and
+-- will continue on to the BeforeInstall deployment lifecycle event.
 --
 -- If set to false or not specified, then if the deployment causes the
--- ApplicationStop deployment lifecycle event to fail to a specific
--- instance, the deployment will stop to that instance, and the deployment
--- to that instance will be considered to have failed.
+-- ApplicationStop deployment lifecycle event to fail to an instance, the
+-- deployment to that instance will stop, and the deployment to that
+-- instance will be considered to have failed.
 cdIgnoreApplicationStopFailures :: Lens' CreateDeployment (Maybe Bool)
 cdIgnoreApplicationStopFailures = lens _cdIgnoreApplicationStopFailures (\ s a -> s{_cdIgnoreApplicationStopFailures = a});
 
--- | The name of an existing AWS CodeDeploy application associated with the
--- applicable IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the applicable
+-- IAM user or AWS account.
 cdApplicationName :: Lens' CreateDeployment Text
 cdApplicationName = lens _cdApplicationName (\ s a -> s{_cdApplicationName = a});
 
@@ -138,6 +134,8 @@ instance AWSRequest CreateDeployment where
               (\ s h x ->
                  CreateDeploymentResponse' <$>
                    (x .?> "deploymentId") <*> (pure (fromEnum s)))
+
+instance Hashable CreateDeployment
 
 instance ToHeaders CreateDeployment where
         toHeaders

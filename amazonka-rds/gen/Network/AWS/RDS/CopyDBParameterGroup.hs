@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CopyDBParameterGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Copies the specified DB parameter group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBParameterGroup.html AWS API Reference> for CopyDBParameterGroup.
 module Network.AWS.RDS.CopyDBParameterGroup
     (
     -- * Creating a Request
@@ -127,6 +125,8 @@ instance AWSRequest CopyDBParameterGroup where
               (\ s h x ->
                  CopyDBParameterGroupResponse' <$>
                    (x .@? "DBParameterGroup") <*> (pure (fromEnum s)))
+
+instance Hashable CopyDBParameterGroup
 
 instance ToHeaders CopyDBParameterGroup where
         toHeaders = const mempty

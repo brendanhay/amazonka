@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DescribeJob
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,7 @@
 -- including the job initiation date, the user who initiated the job, the
 -- job status code\/message and the Amazon SNS topic to notify after Amazon
 -- Glacier completes the job. For more information about initiating a job,
--- see InitiateJob.
+-- see < InitiateJob>.
 --
 -- This operation enables you to check the status of your job. However, it
 -- is strongly recommended that you set up an Amazon SNS topic and specify
@@ -41,8 +41,6 @@
 -- For information about the underlying REST API, go to
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html Working with Archives in Amazon Glacier>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DescribeJob.html AWS API Reference> for DescribeJob.
 module Network.AWS.Glacier.DescribeJob
     (
     -- * Creating a Request
@@ -133,6 +131,8 @@ instance AWSRequest DescribeJob where
         type Rs DescribeJob = GlacierJobDescription
         request = get glacier
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable DescribeJob
 
 instance ToHeaders DescribeJob where
         toHeaders = const mempty

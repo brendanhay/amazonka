@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeLoadBalancers
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the load balancers for the specified Auto Scaling group.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLoadBalancers.html AWS API Reference> for DescribeLoadBalancers.
 module Network.AWS.AutoScaling.DescribeLoadBalancers
     (
     -- * Creating a Request
@@ -98,6 +96,8 @@ instance AWSRequest DescribeLoadBalancers where
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeLoadBalancers
 
 instance ToHeaders DescribeLoadBalancers where
         toHeaders = const mempty

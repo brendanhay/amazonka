@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeChapCredentials
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- This operation returns an array of Challenge-Handshake Authentication
 -- Protocol (CHAP) credentials information for a specified iSCSI target,
 -- one for each target-initiator pair.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeChapCredentials.html AWS API Reference> for DescribeChapCredentials.
 module Network.AWS.StorageGateway.DescribeChapCredentials
     (
     -- * Creating a Request
@@ -68,8 +66,8 @@ describeChapCredentials pTargetARN_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
--- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
--- for specified VolumeARN.
+-- < DescribeStorediSCSIVolumes> operation to return to retrieve the
+-- TargetARN for specified VolumeARN.
 dccTargetARN :: Lens' DescribeChapCredentials Text
 dccTargetARN = lens _dccTargetARN (\ s a -> s{_dccTargetARN = a});
 
@@ -83,6 +81,8 @@ instance AWSRequest DescribeChapCredentials where
                  DescribeChapCredentialsResponse' <$>
                    (x .?> "ChapCredentials" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeChapCredentials
 
 instance ToHeaders DescribeChapCredentials where
         toHeaders
@@ -129,7 +129,7 @@ describeChapCredentialsResponse pResponseStatus_ =
     , _dccrsResponseStatus = pResponseStatus_
     }
 
--- | An array of ChapInfo objects that represent CHAP credentials. Each
+-- | An array of < ChapInfo> objects that represent CHAP credentials. Each
 -- object in the array contains CHAP credential information for one
 -- target-initiator pair. If no CHAP credentials are set, an empty array is
 -- returned. CHAP credential information is provided in a JSON object with

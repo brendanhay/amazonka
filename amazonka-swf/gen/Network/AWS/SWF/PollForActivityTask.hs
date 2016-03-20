@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.SWF.PollForActivityTask
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used by workers to get an ActivityTask from the specified activity
+-- Used by workers to get an < ActivityTask> from the specified activity
 -- 'taskList'. This initiates a long poll, where the service holds the HTTP
 -- connection open and responds as soon as a task becomes available. The
 -- maximum time the service holds on to the request before responding is 60
@@ -51,8 +51,6 @@
 -- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForActivityTask.html AWS API Reference> for PollForActivityTask.
 module Network.AWS.SWF.PollForActivityTask
     (
     -- * Creating a Request
@@ -144,6 +142,8 @@ instance AWSRequest PollForActivityTask where
                      <*> (x .:> "startedEventId")
                      <*> (x .:> "workflowExecution")
                      <*> (x .:> "activityType"))
+
+instance Hashable PollForActivityTask
 
 instance ToHeaders PollForActivityTask where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateHostedZone
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,10 +21,10 @@
 -- This action creates a new hosted zone.
 --
 -- To create a new hosted zone, send a 'POST' request to the
--- '2013-04-01\/hostedzone' resource. The request body must include an XML
--- document with a 'CreateHostedZoneRequest' element. The response returns
--- the 'CreateHostedZoneResponse' element that contains metadata about the
--- hosted zone.
+-- '\/Route 53 API version\/hostedzone' resource. The request body must
+-- include a document with a 'CreateHostedZoneRequest' element. The
+-- response returns the 'CreateHostedZoneResponse' element that contains
+-- metadata about the hosted zone.
 --
 -- Amazon Route 53 automatically creates a default SOA record and four NS
 -- records for the zone. The NS records in the hosted zone are the name
@@ -41,8 +41,6 @@
 -- When trying to create a hosted zone using a reusable delegation set, you
 -- could specify an optional DelegationSetId, and Route53 would assign
 -- those 4 NS records for the zone, instead of alloting a new one.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html AWS API Reference> for CreateHostedZone.
 module Network.AWS.Route53.CreateHostedZone
     (
     -- * Creating a Request
@@ -165,6 +163,8 @@ instance AWSRequest CreateHostedZone where
                      <*> (x .@ "DelegationSet")
                      <*> (h .# "Location"))
 
+instance Hashable CreateHostedZone
+
 instance ToElement CreateHostedZone where
         toElement
           = mkElement
@@ -248,7 +248,7 @@ chzrsHostedZone = lens _chzrsHostedZone (\ s a -> s{_chzrsHostedZone = a});
 
 -- | A complex type that contains information about the request to create a
 -- hosted zone. This includes an ID that you use when you call the
--- GetChange action to get the current status of the change request.
+-- < GetChange> action to get the current status of the change request.
 chzrsChangeInfo :: Lens' CreateHostedZoneResponse ChangeInfo
 chzrsChangeInfo = lens _chzrsChangeInfo (\ s a -> s{_chzrsChangeInfo = a});
 

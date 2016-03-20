@@ -1,5 +1,5 @@
 name:                  amazonka-codecommit
-version:               1.3.7
+version:               1.3.8
 synopsis:              Amazon CodeCommit SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2015 Brendan Hay
+copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -16,16 +16,47 @@ description:
     AWS CodeCommit
 
     This is the /AWS CodeCommit API Reference/. This reference provides
-    descriptions of the AWS CodeCommit API.
+    descriptions of the operations and data types for AWS CodeCommit API.
 
     You can use the AWS CodeCommit API to work with the following objects:
 
-    -   Repositories
-    -   Branches
-    -   Commits
+    -   Repositories, by calling the following:
+        -   < BatchGetRepositories>, which returns information about one or
+            more repositories associated with your AWS account
+        -   < CreateRepository>, which creates an AWS CodeCommit repository
+        -   < DeleteRepository>, which deletes an AWS CodeCommit repository
+        -   < GetRepository>, which returns information about a specified
+            repository
+        -   < ListRepositories>, which lists all AWS CodeCommit repositories
+            associated with your AWS account
+        -   < UpdateRepositoryDescription>, which sets or updates the
+            description of the repository
+        -   < UpdateRepositoryName>, which changes the name of the
+            repository. If you change the name of a repository, no other
+            users of that repository will be able to access it until you
+            send them the new HTTPS or SSH URL to use.
+    -   Branches, by calling the following:
+        -   < CreateBranch>, which creates a new branch in a specified
+            repository
+        -   < GetBranch>, which returns information about a specified branch
+        -   < ListBranches>, which lists all branches for a specified
+            repository
+        -   < UpdateDefaultBranch>, which changes the default branch for a
+            repository
+    -   Information about committed code in a repository, by calling the
+        following:
+        -   < GetCommit>, which returns information about a commit,
+            including commit messages and committer information.
+    -   Triggers, by calling the following:
+        -   < GetRepositoryTriggers>, which returns information about
+            triggers configured for a repository
+        -   < PutRepositoryTriggers>, which replaces all triggers for a
+            repository and can be used to create or delete triggers
+        -   < TestRepositoryTriggers>, which tests the functionality of a
+            repository trigger by sending data to the trigger target
 
-    For information about how to use AWS CodeCommit, see the /AWS CodeCommit
-    User Guide/.
+    For information about how to use AWS CodeCommit, see the
+    <http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit User Guide>.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -38,7 +69,7 @@ description:
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.CodeCommit" and the <http://docs.aws.amazon.com/codecommit/latest/APIReference/Welcome.html AWS API Reference>
+    See "Network.AWS.CodeCommit" or <https://aws.amazon.com/documentation/ the AWS Documentation>
     to get started.
 
 source-repository head
@@ -58,9 +89,13 @@ library
         , Network.AWS.CodeCommit.CreateRepository
         , Network.AWS.CodeCommit.DeleteRepository
         , Network.AWS.CodeCommit.GetBranch
+        , Network.AWS.CodeCommit.GetCommit
         , Network.AWS.CodeCommit.GetRepository
+        , Network.AWS.CodeCommit.GetRepositoryTriggers
         , Network.AWS.CodeCommit.ListBranches
         , Network.AWS.CodeCommit.ListRepositories
+        , Network.AWS.CodeCommit.PutRepositoryTriggers
+        , Network.AWS.CodeCommit.TestRepositoryTriggers
         , Network.AWS.CodeCommit.Types
         , Network.AWS.CodeCommit.UpdateDefaultBranch
         , Network.AWS.CodeCommit.UpdateRepositoryDescription
@@ -72,7 +107,7 @@ library
         , Network.AWS.CodeCommit.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.7.*
+          amazonka-core == 1.3.8.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-codecommit-test
@@ -92,9 +127,9 @@ test-suite amazonka-codecommit-test
         , Test.AWS.CodeCommit.Internal
 
     build-depends:
-          amazonka-core == 1.3.7.*
-        , amazonka-test == 1.3.7.*
-        , amazonka-codecommit == 1.3.7.*
+          amazonka-core == 1.3.8.*
+        , amazonka-test == 1.3.8.*
+        , amazonka-codecommit == 1.3.8.*
         , base
         , bytestring
         , tasty

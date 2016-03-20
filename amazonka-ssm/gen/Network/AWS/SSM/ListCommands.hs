@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListCommands
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,7 @@
 --
 -- Lists the commands requested by users of the AWS account.
 --
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListCommands.html AWS API Reference> for ListCommands.
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListCommands
     (
     -- * Creating a Request
@@ -43,6 +43,7 @@ module Network.AWS.SSM.ListCommands
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -106,6 +107,13 @@ lcCommandId = lens _lcCommandId (\ s a -> s{_lcCommandId = a});
 lcMaxResults :: Lens' ListCommands (Maybe Natural)
 lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat;
 
+instance AWSPager ListCommands where
+        page rq rs
+          | stop (rs ^. lcrsNextToken) = Nothing
+          | stop (rs ^. lcrsCommands) = Nothing
+          | otherwise =
+            Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
+
 instance AWSRequest ListCommands where
         type Rs ListCommands = ListCommandsResponse
         request = postJSON sSM
@@ -115,6 +123,8 @@ instance AWSRequest ListCommands where
                  ListCommandsResponse' <$>
                    (x .?> "Commands" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListCommands
 
 instance ToHeaders ListCommands where
         toHeaders

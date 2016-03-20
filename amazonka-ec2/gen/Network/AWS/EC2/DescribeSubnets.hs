@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSubnets
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- For more information about subnets, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSubnets.html AWS API Reference> for DescribeSubnets.
 module Network.AWS.EC2.DescribeSubnets
     (
     -- * Creating a Request
@@ -138,6 +136,8 @@ instance AWSRequest DescribeSubnets where
                    (x .@? "subnetSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeSubnets
 
 instance ToHeaders DescribeSubnets where
         toHeaders = const mempty

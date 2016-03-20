@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- The /DescribeReservedCacheNodesOfferings/ action lists available
 -- reserved cache node offerings.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodesOfferings.html AWS API Reference> for DescribeReservedCacheNodesOfferings.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
@@ -201,6 +199,8 @@ instance AWSRequest
                      (x .@? "ReservedCacheNodesOfferings" .!@ mempty >>=
                         may (parseXMLList "ReservedCacheNodesOffering"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeReservedCacheNodesOfferings
 
 instance ToHeaders
          DescribeReservedCacheNodesOfferings where

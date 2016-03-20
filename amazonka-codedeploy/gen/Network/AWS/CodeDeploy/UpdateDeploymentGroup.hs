@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.UpdateDeploymentGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about an existing deployment group.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateDeploymentGroup.html AWS API Reference> for UpdateDeploymentGroup.
+-- Changes information about a deployment group.
 module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     (
     -- * Creating a Request
@@ -32,6 +30,7 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , udgNewDeploymentGroupName
     , udgEc2TagFilters
     , udgOnPremisesInstanceTagFilters
+    , udgTriggerConfigurations
     , udgAutoScalingGroups
     , udgApplicationName
     , udgCurrentDeploymentGroupName
@@ -60,6 +59,7 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
     , _udgNewDeploymentGroupName       :: !(Maybe Text)
     , _udgEc2TagFilters                :: !(Maybe [EC2TagFilter])
     , _udgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+    , _udgTriggerConfigurations        :: !(Maybe [TriggerConfig])
     , _udgAutoScalingGroups            :: !(Maybe [Text])
     , _udgApplicationName              :: !Text
     , _udgCurrentDeploymentGroupName   :: !Text
@@ -79,6 +79,8 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 --
 -- * 'udgOnPremisesInstanceTagFilters'
 --
+-- * 'udgTriggerConfigurations'
+--
 -- * 'udgAutoScalingGroups'
 --
 -- * 'udgApplicationName'
@@ -95,12 +97,13 @@ updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
     , _udgNewDeploymentGroupName = Nothing
     , _udgEc2TagFilters = Nothing
     , _udgOnPremisesInstanceTagFilters = Nothing
+    , _udgTriggerConfigurations = Nothing
     , _udgAutoScalingGroups = Nothing
     , _udgApplicationName = pApplicationName_
     , _udgCurrentDeploymentGroupName = pCurrentDeploymentGroupName_
     }
 
--- | A replacement service role\'s ARN, if you want to change it.
+-- | A replacement ARN for the service role, if you want to change it.
 udgServiceRoleARN :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgServiceRoleARN = lens _udgServiceRoleARN (\ s a -> s{_udgServiceRoleARN = a});
 
@@ -113,18 +116,27 @@ udgDeploymentConfigName = lens _udgDeploymentConfigName (\ s a -> s{_udgDeployme
 udgNewDeploymentGroupName :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgNewDeploymentGroupName = lens _udgNewDeploymentGroupName (\ s a -> s{_udgNewDeploymentGroupName = a});
 
--- | The replacement set of Amazon EC2 tags to filter on, if you want to
--- change them.
+-- | The replacement set of Amazon EC2 tags on which to filter, if you want
+-- to change them. To keep the existing tags, enter their names. To remove
+-- tags, do not enter any tag names.
 udgEc2TagFilters :: Lens' UpdateDeploymentGroup [EC2TagFilter]
 udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a}) . _Default . _Coerce;
 
--- | The replacement set of on-premises instance tags for filter on, if you
--- want to change them.
+-- | The replacement set of on-premises instance tags on which to filter, if
+-- you want to change them. To keep the existing tags, enter their names.
+-- To remove tags, do not enter any tag names.
 udgOnPremisesInstanceTagFilters :: Lens' UpdateDeploymentGroup [TagFilter]
 udgOnPremisesInstanceTagFilters = lens _udgOnPremisesInstanceTagFilters (\ s a -> s{_udgOnPremisesInstanceTagFilters = a}) . _Default . _Coerce;
 
+-- | Information about triggers to change when the deployment group is
+-- updated.
+udgTriggerConfigurations :: Lens' UpdateDeploymentGroup [TriggerConfig]
+udgTriggerConfigurations = lens _udgTriggerConfigurations (\ s a -> s{_udgTriggerConfigurations = a}) . _Default . _Coerce;
+
 -- | The replacement list of Auto Scaling groups to be included in the
--- deployment group, if you want to change them.
+-- deployment group, if you want to change them. To keep the Auto Scaling
+-- groups, enter their names. To remove Auto Scaling groups, do not enter
+-- any Auto Scaling group names.
 udgAutoScalingGroups :: Lens' UpdateDeploymentGroup [Text]
 udgAutoScalingGroups = lens _udgAutoScalingGroups (\ s a -> s{_udgAutoScalingGroups = a}) . _Default . _Coerce;
 
@@ -132,7 +144,7 @@ udgAutoScalingGroups = lens _udgAutoScalingGroups (\ s a -> s{_udgAutoScalingGro
 udgApplicationName :: Lens' UpdateDeploymentGroup Text
 udgApplicationName = lens _udgApplicationName (\ s a -> s{_udgApplicationName = a});
 
--- | The current name of the existing deployment group.
+-- | The current name of the deployment group.
 udgCurrentDeploymentGroupName :: Lens' UpdateDeploymentGroup Text
 udgCurrentDeploymentGroupName = lens _udgCurrentDeploymentGroupName (\ s a -> s{_udgCurrentDeploymentGroupName = a});
 
@@ -146,6 +158,8 @@ instance AWSRequest UpdateDeploymentGroup where
                  UpdateDeploymentGroupResponse' <$>
                    (x .?> "hooksNotCleanedUp" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable UpdateDeploymentGroup
 
 instance ToHeaders UpdateDeploymentGroup where
         toHeaders
@@ -169,6 +183,8 @@ instance ToJSON UpdateDeploymentGroup where
                   ("ec2TagFilters" .=) <$> _udgEc2TagFilters,
                   ("onPremisesInstanceTagFilters" .=) <$>
                     _udgOnPremisesInstanceTagFilters,
+                  ("triggerConfigurations" .=) <$>
+                    _udgTriggerConfigurations,
                   ("autoScalingGroups" .=) <$> _udgAutoScalingGroups,
                   Just ("applicationName" .= _udgApplicationName),
                   Just
@@ -208,7 +224,7 @@ updateDeploymentGroupResponse pResponseStatus_ =
 -- | If the output contains no data, and the corresponding deployment group
 -- contained at least one Auto Scaling group, AWS CodeDeploy successfully
 -- removed all corresponding Auto Scaling lifecycle event hooks from the
--- AWS account. If the output does contain data, AWS CodeDeploy could not
+-- AWS account. If the output contains data, AWS CodeDeploy could not
 -- remove some Auto Scaling lifecycle event hooks from the AWS account.
 udgrsHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrsHooksNotCleanedUp = lens _udgrsHooksNotCleanedUp (\ s a -> s{_udgrsHooksNotCleanedUp = a}) . _Default . _Coerce;

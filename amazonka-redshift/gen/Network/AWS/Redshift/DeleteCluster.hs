@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteCluster
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,7 @@
 --
 -- Deletes a previously provisioned cluster. A successful response from the
 -- web service indicates that the request was received correctly. Use
--- DescribeClusters to monitor the status of the deletion. The delete
+-- < DescribeClusters> to monitor the status of the deletion. The delete
 -- operation cannot be canceled or reverted once submitted. For more
 -- information about managing clusters, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
@@ -37,8 +37,6 @@
 -- For more information about managing clusters, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/ .
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteCluster.html AWS API Reference> for DeleteCluster.
 module Network.AWS.Redshift.DeleteCluster
     (
     -- * Creating a Request
@@ -135,6 +133,8 @@ instance AWSRequest DeleteCluster where
               (\ s h x ->
                  DeleteClusterResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteCluster
 
 instance ToHeaders DeleteCluster where
         toHeaders = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.KMS.EnableKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Marks a key as enabled, thereby permitting its use.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html AWS API Reference> for EnableKey.
 module Network.AWS.KMS.EnableKey
     (
     -- * Creating a Request
@@ -73,6 +71,8 @@ instance AWSRequest EnableKey where
         type Rs EnableKey = EnableKeyResponse
         request = postJSON kMS
         response = receiveNull EnableKeyResponse'
+
+instance Hashable EnableKey
 
 instance ToHeaders EnableKey where
         toHeaders

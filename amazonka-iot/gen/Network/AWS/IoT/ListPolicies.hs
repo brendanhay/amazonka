@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListPolicies
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists your policies.
---
--- /See:/ <https://aws.amazon.com/iot#ListPolicies.html AWS API Reference> for ListPolicies.
 module Network.AWS.IoT.ListPolicies
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest ListPolicies where
                    (x .?> "nextMarker") <*>
                      (x .?> "policies" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListPolicies
 
 instance ToHeaders ListPolicies where
         toHeaders = const mempty

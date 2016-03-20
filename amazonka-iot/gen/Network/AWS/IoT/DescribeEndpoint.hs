@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DescribeEndpoint
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Returns a unique endpoint specific to the AWS account making the call.
 -- You specify the following URI when updating state information for your
 -- thing: https:\/\//endpoint/\/things\//thingName/\/shadow.
---
--- /See:/ <https://aws.amazon.com/iot#DescribeEndpoint.html AWS API Reference> for DescribeEndpoint.
 module Network.AWS.IoT.DescribeEndpoint
     (
     -- * Creating a Request
@@ -65,6 +63,8 @@ instance AWSRequest DescribeEndpoint where
               (\ s h x ->
                  DescribeEndpointResponse' <$>
                    (x .?> "endpointAddress") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeEndpoint
 
 instance ToHeaders DescribeEndpoint where
         toHeaders = const mempty

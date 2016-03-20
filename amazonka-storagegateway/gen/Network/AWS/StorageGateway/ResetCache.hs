@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ResetCache
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 -- disks, there will be no configured cache disks left in the gateway, so
 -- you must configure at least one new cache disk for your gateway to
 -- function properly.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ResetCache.html AWS API Reference> for ResetCache.
 module Network.AWS.StorageGateway.ResetCache
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest ResetCache where
               (\ s h x ->
                  ResetCacheResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+
+instance Hashable ResetCache
 
 instance ToHeaders ResetCache where
         toHeaders

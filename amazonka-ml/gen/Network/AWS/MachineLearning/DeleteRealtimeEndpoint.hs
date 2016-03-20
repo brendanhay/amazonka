@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DeleteRealtimeEndpoint
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a real time endpoint of an 'MLModel'.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteRealtimeEndpoint.html AWS API Reference> for DeleteRealtimeEndpoint.
 module Network.AWS.MachineLearning.DeleteRealtimeEndpoint
     (
     -- * Creating a Request
@@ -79,6 +77,8 @@ instance AWSRequest DeleteRealtimeEndpoint where
                      (x .?> "MLModelId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DeleteRealtimeEndpoint
+
 instance ToHeaders DeleteRealtimeEndpoint where
         toHeaders
           = const
@@ -100,7 +100,7 @@ instance ToPath DeleteRealtimeEndpoint where
 instance ToQuery DeleteRealtimeEndpoint where
         toQuery = const mempty
 
--- | Represents the output of an DeleteRealtimeEndpoint operation.
+-- | Represents the output of an < DeleteRealtimeEndpoint> operation.
 --
 -- The result contains the 'MLModelId' and the endpoint information for the
 -- 'MLModel'.

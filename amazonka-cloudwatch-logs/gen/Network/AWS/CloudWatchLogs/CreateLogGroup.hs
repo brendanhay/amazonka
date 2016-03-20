@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- -   Log group names can be between 1 and 512 characters long.
 -- -   Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\'
 --     (hyphen), \'\/\' (forward slash), and \'.\' (period).
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogGroup.html AWS API Reference> for CreateLogGroup.
 module Network.AWS.CloudWatchLogs.CreateLogGroup
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest CreateLogGroup where
         type Rs CreateLogGroup = CreateLogGroupResponse
         request = postJSON cloudWatchLogs
         response = receiveNull CreateLogGroupResponse'
+
+instance Hashable CreateLogGroup
 
 instance ToHeaders CreateLogGroup where
         toHeaders

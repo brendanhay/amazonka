@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateSubnet
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -45,8 +45,6 @@
 -- For more information about subnets, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSubnet.html AWS API Reference> for CreateSubnet.
 module Network.AWS.EC2.CreateSubnet
     (
     -- * Creating a Request
@@ -136,6 +134,8 @@ instance AWSRequest CreateSubnet where
               (\ s h x ->
                  CreateSubnetResponse' <$>
                    (x .@? "subnet") <*> (pure (fromEnum s)))
+
+instance Hashable CreateSubnet
 
 instance ToHeaders CreateSubnet where
         toHeaders = const mempty

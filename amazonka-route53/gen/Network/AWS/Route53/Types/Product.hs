@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -115,6 +115,9 @@ atHostedZoneId = lens _atHostedZoneId (\ s a -> s{_atHostedZoneId = a});
 --     values for 'HostedZoneId' and 'DNSName'. If you get one value from
 --     the console and the other value from the API or the CLI, creating
 --     the resource record set will fail.
+-- -   __An Elastic Beanstalk environment:__ Specify the CNAME attribute
+--     for the environment. (The environment must have a regionalized
+--     domain name.)
 -- -   __An Amazon S3 bucket that is configured as a static website:__
 --     Specify the domain name of the Amazon S3 website endpoint in which
 --     you created the bucket; for example,
@@ -125,7 +128,9 @@ atHostedZoneId = lens _atHostedZoneId (\ s a -> s{_atHostedZoneId = a});
 --     about using Amazon S3 buckets for websites, see
 --     <http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html Hosting a Static Website on Amazon S3>
 --     in the /Amazon Simple Storage Service Developer Guide/.
--- -
+-- -   __Another Amazon Route 53 resource record set:__ Specify the value
+--     of the 'Name' element for a resource record set in the current
+--     hosted zone.
 --
 -- For more information and an example, see
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html Example: Creating Alias Resource Record Sets>
@@ -165,8 +170,8 @@ atDNSName = lens _atDNSName (\ s a -> s{_atDNSName = a});
 --
 -- Note the following:
 --
--- -   You cannot set EvaluateTargetHealth to true when the alias target is
---     a CloudFront distribution.
+-- -   You cannot set 'EvaluateTargetHealth' to true when the alias target
+--     is a CloudFront distribution.
 -- -   If the AWS resource that you specify in 'AliasTarget' is a resource
 --     record set or a group of resource record sets (for example, a group
 --     of weighted resource record sets), but it is not another alias
@@ -205,6 +210,8 @@ instance FromXML AliasTarget where
           = AliasTarget' <$>
               (x .@ "HostedZoneId") <*> (x .@ "DNSName") <*>
                 (x .@ "EvaluateTargetHealth")
+
+instance Hashable AliasTarget
 
 instance ToXML AliasTarget where
         toXML AliasTarget'{..}
@@ -261,10 +268,7 @@ cAction = lens _cAction (\ s a -> s{_cAction = a});
 cResourceRecordSet :: Lens' Change ResourceRecordSet
 cResourceRecordSet = lens _cResourceRecordSet (\ s a -> s{_cResourceRecordSet = a});
 
-instance FromXML Change where
-        parseXML x
-          = Change' <$>
-              (x .@ "Action") <*> (x .@ "ResourceRecordSet")
+instance Hashable Change
 
 instance ToXML Change where
         toXML Change'{..}
@@ -307,103 +311,18 @@ cbComment = lens _cbComment (\ s a -> s{_cbComment = a});
 cbChanges :: Lens' ChangeBatch (NonEmpty Change)
 cbChanges = lens _cbChanges (\ s a -> s{_cbChanges = a}) . _List1;
 
+instance Hashable ChangeBatch
+
 instance ToXML ChangeBatch where
         toXML ChangeBatch'{..}
           = mconcat
               ["Comment" @= _cbComment,
                "Changes" @= toXMLList "Change" _cbChanges]
 
--- | A complex type that lists the changes and information for a ChangeBatch.
---
--- /See:/ 'changeBatchRecord' smart constructor.
-data ChangeBatchRecord = ChangeBatchRecord'
-    { _cbrChanges     :: !(Maybe (List1 Change))
-    , _cbrSubmittedAt :: !(Maybe ISO8601)
-    , _cbrSubmitter   :: !(Maybe Text)
-    , _cbrComment     :: !(Maybe Text)
-    , _cbrId          :: !Text
-    , _cbrStatus      :: !ChangeStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | Creates a value of 'ChangeBatchRecord' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbrChanges'
---
--- * 'cbrSubmittedAt'
---
--- * 'cbrSubmitter'
---
--- * 'cbrComment'
---
--- * 'cbrId'
---
--- * 'cbrStatus'
-changeBatchRecord
-    :: Text -- ^ 'cbrId'
-    -> ChangeStatus -- ^ 'cbrStatus'
-    -> ChangeBatchRecord
-changeBatchRecord pId_ pStatus_ =
-    ChangeBatchRecord'
-    { _cbrChanges = Nothing
-    , _cbrSubmittedAt = Nothing
-    , _cbrSubmitter = Nothing
-    , _cbrComment = Nothing
-    , _cbrId = pId_
-    , _cbrStatus = pStatus_
-    }
-
--- | A list of changes made in the ChangeBatch.
-cbrChanges :: Lens' ChangeBatchRecord (Maybe (NonEmpty Change))
-cbrChanges = lens _cbrChanges (\ s a -> s{_cbrChanges = a}) . mapping _List1;
-
--- | The date and time the change was submitted, in the format
--- 'YYYY-MM-DDThh:mm:ssZ', as specified in the ISO 8601 standard (for
--- example, 2009-11-19T19:37:58Z). The 'Z' after the time indicates that
--- the time is listed in Coordinated Universal Time (UTC).
-cbrSubmittedAt :: Lens' ChangeBatchRecord (Maybe UTCTime)
-cbrSubmittedAt = lens _cbrSubmittedAt (\ s a -> s{_cbrSubmittedAt = a}) . mapping _Time;
-
--- | The AWS account ID attached to the changes.
-cbrSubmitter :: Lens' ChangeBatchRecord (Maybe Text)
-cbrSubmitter = lens _cbrSubmitter (\ s a -> s{_cbrSubmitter = a});
-
 -- | A complex type that describes change information about changes made to
 -- your hosted zone.
 --
--- This element contains an ID that you use when performing a GetChange
--- action to get detailed information about the change.
-cbrComment :: Lens' ChangeBatchRecord (Maybe Text)
-cbrComment = lens _cbrComment (\ s a -> s{_cbrComment = a});
-
--- | The ID of the request. Use this ID to track when the change has
--- completed across all Amazon Route 53 DNS servers.
-cbrId :: Lens' ChangeBatchRecord Text
-cbrId = lens _cbrId (\ s a -> s{_cbrId = a});
-
--- | The current state of the request. 'PENDING' indicates that this request
--- has not yet been applied to all Amazon Route 53 DNS servers.
---
--- Valid Values: 'PENDING' | 'INSYNC'
-cbrStatus :: Lens' ChangeBatchRecord ChangeStatus
-cbrStatus = lens _cbrStatus (\ s a -> s{_cbrStatus = a});
-
-instance FromXML ChangeBatchRecord where
-        parseXML x
-          = ChangeBatchRecord' <$>
-              (x .@? "Changes" .!@ mempty >>=
-                 may (parseXMLList1 "Change"))
-                <*> (x .@? "SubmittedAt")
-                <*> (x .@? "Submitter")
-                <*> (x .@? "Comment")
-                <*> (x .@ "Id")
-                <*> (x .@ "Status")
-
--- | A complex type that describes change information about changes made to
--- your hosted zone.
---
--- This element contains an ID that you use when performing a GetChange
+-- This element contains an ID that you use when performing a < GetChange>
 -- action to get detailed information about the change.
 --
 -- /See:/ 'changeInfo' smart constructor.
@@ -441,7 +360,7 @@ changeInfo pId_ pStatus_ pSubmittedAt_ =
 -- | A complex type that describes change information about changes made to
 -- your hosted zone.
 --
--- This element contains an ID that you use when performing a GetChange
+-- This element contains an ID that you use when performing a < GetChange>
 -- action to get detailed information about the change.
 ciComment :: Lens' ChangeInfo (Maybe Text)
 ciComment = lens _ciComment (\ s a -> s{_ciComment = a});
@@ -470,6 +389,8 @@ instance FromXML ChangeInfo where
           = ChangeInfo' <$>
               (x .@? "Comment") <*> (x .@ "Id") <*> (x .@ "Status")
                 <*> (x .@ "SubmittedAt")
+
+instance Hashable ChangeInfo
 
 -- | A complex type that contains name server information.
 --
@@ -521,6 +442,8 @@ instance FromXML DelegationSet where
                 (x .@? "NameServers" .!@ mempty >>=
                    parseXMLList1 "NameServer")
 
+instance Hashable DelegationSet
+
 -- | A complex type that contains information about a geo location.
 --
 -- /See:/ 'geoLocation' smart constructor.
@@ -552,7 +475,7 @@ geoLocation =
 -- subdivision code is only valid with the appropriate country code.
 --
 -- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns
--- an InvalidInput error.
+-- an < InvalidInput> error.
 glSubdivisionCode :: Lens' GeoLocation (Maybe Text)
 glSubdivisionCode = lens _glSubdivisionCode (\ s a -> s{_glSubdivisionCode = a});
 
@@ -571,7 +494,7 @@ glCountryCode = lens _glCountryCode (\ s a -> s{_glCountryCode = a});
 -- Valid values: 'AF' | 'AN' | 'AS' | 'EU' | 'OC' | 'NA' | 'SA'
 --
 -- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or
--- 'SubdivisionCode' returns an InvalidInput error.
+-- 'SubdivisionCode' returns an < InvalidInput> error.
 glContinentCode :: Lens' GeoLocation (Maybe Text)
 glContinentCode = lens _glContinentCode (\ s a -> s{_glContinentCode = a});
 
@@ -580,6 +503,8 @@ instance FromXML GeoLocation where
           = GeoLocation' <$>
               (x .@? "SubdivisionCode") <*> (x .@? "CountryCode")
                 <*> (x .@? "ContinentCode")
+
+instance Hashable GeoLocation
 
 instance ToXML GeoLocation where
         toXML GeoLocation'{..}
@@ -671,6 +596,8 @@ instance FromXML GeoLocationDetails where
                 <*> (x .@? "ContinentCode")
                 <*> (x .@? "ContinentName")
 
+instance Hashable GeoLocationDetails
+
 -- | A complex type that contains identifying information about the health
 -- check.
 --
@@ -732,12 +659,15 @@ instance FromXML HealthCheck where
                 (x .@ "HealthCheckConfig")
                 <*> (x .@ "HealthCheckVersion")
 
+instance Hashable HealthCheck
+
 -- | A complex type that contains the health check configuration.
 --
 -- /See:/ 'healthCheckConfig' smart constructor.
 data HealthCheckConfig = HealthCheckConfig'
     { _hccFailureThreshold         :: !(Maybe Nat)
     , _hccIPAddress                :: !(Maybe Text)
+    , _hccEnableSNI                :: !(Maybe Bool)
     , _hccSearchString             :: !(Maybe Text)
     , _hccHealthThreshold          :: !(Maybe Nat)
     , _hccResourcePath             :: !(Maybe Text)
@@ -757,6 +687,8 @@ data HealthCheckConfig = HealthCheckConfig'
 -- * 'hccFailureThreshold'
 --
 -- * 'hccIPAddress'
+--
+-- * 'hccEnableSNI'
 --
 -- * 'hccSearchString'
 --
@@ -784,6 +716,7 @@ healthCheckConfig pType_ =
     HealthCheckConfig'
     { _hccFailureThreshold = Nothing
     , _hccIPAddress = Nothing
+    , _hccEnableSNI = Nothing
     , _hccSearchString = Nothing
     , _hccHealthThreshold = Nothing
     , _hccResourcePath = Nothing
@@ -810,8 +743,18 @@ hccFailureThreshold = lens _hccFailureThreshold (\ s a -> s{_hccFailureThreshold
 hccIPAddress :: Lens' HealthCheckConfig (Maybe Text)
 hccIPAddress = lens _hccIPAddress (\ s a -> s{_hccIPAddress = a});
 
+-- | Specify whether you want Amazon Route 53 to send the value of
+-- 'FullyQualifiedDomainName' to the endpoint in the 'client_hello' message
+-- during TLS negotiation. If you don\'t specify a value for 'EnableSNI',
+-- Amazon Route 53 defaults to 'true' when 'Type' is 'HTTPS' or
+-- 'HTTPS_STR_MATCH' and defaults to 'false' when 'Type' is any other
+-- value.
+hccEnableSNI :: Lens' HealthCheckConfig (Maybe Bool)
+hccEnableSNI = lens _hccEnableSNI (\ s a -> s{_hccEnableSNI = a});
+
 -- | A string to search for in the body of a health check response. Required
--- for HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.
+-- for HTTP_STR_MATCH and HTTPS_STR_MATCH health checks. Amazon Route 53
+-- considers case when searching for 'SearchString' in the response body.
 hccSearchString :: Lens' HealthCheckConfig (Maybe Text)
 hccSearchString = lens _hccSearchString (\ s a -> s{_hccSearchString = a});
 
@@ -874,6 +817,7 @@ instance FromXML HealthCheckConfig where
         parseXML x
           = HealthCheckConfig' <$>
               (x .@? "FailureThreshold") <*> (x .@? "IPAddress")
+                <*> (x .@? "EnableSNI")
                 <*> (x .@? "SearchString")
                 <*> (x .@? "HealthThreshold")
                 <*> (x .@? "ResourcePath")
@@ -887,11 +831,14 @@ instance FromXML HealthCheckConfig where
                 <*> (x .@? "Port")
                 <*> (x .@ "Type")
 
+instance Hashable HealthCheckConfig
+
 instance ToXML HealthCheckConfig where
         toXML HealthCheckConfig'{..}
           = mconcat
               ["FailureThreshold" @= _hccFailureThreshold,
                "IPAddress" @= _hccIPAddress,
+               "EnableSNI" @= _hccEnableSNI,
                "SearchString" @= _hccSearchString,
                "HealthThreshold" @= _hccHealthThreshold,
                "ResourcePath" @= _hccResourcePath,
@@ -944,6 +891,8 @@ instance FromXML HealthCheckObservation where
         parseXML x
           = HealthCheckObservation' <$>
               (x .@? "IPAddress") <*> (x .@? "StatusReport")
+
+instance Hashable HealthCheckObservation
 
 -- | A complex type that contain information about the specified hosted zone.
 --
@@ -1019,6 +968,8 @@ instance FromXML HostedZone where
                 <*> (x .@ "Name")
                 <*> (x .@ "CallerReference")
 
+instance Hashable HostedZone
+
 -- | A complex type that contains an optional comment about your hosted zone.
 -- If you don\'t want to specify a comment, you can omit the
 -- 'HostedZoneConfig' and 'Comment' elements from the XML document.
@@ -1058,6 +1009,8 @@ instance FromXML HostedZoneConfig where
         parseXML x
           = HostedZoneConfig' <$>
               (x .@? "PrivateZone") <*> (x .@? "Comment")
+
+instance Hashable HostedZoneConfig
 
 instance ToXML HostedZoneConfig where
         toXML HostedZoneConfig'{..}
@@ -1100,6 +1053,8 @@ rrValue = lens _rrValue (\ s a -> s{_rrValue = a});
 
 instance FromXML ResourceRecord where
         parseXML x = ResourceRecord' <$> (x .@ "Value")
+
+instance Hashable ResourceRecord
 
 instance ToXML ResourceRecord where
         toXML ResourceRecord'{..}
@@ -1450,6 +1405,8 @@ instance FromXML ResourceRecordSet where
                 <*> (x .@ "Name")
                 <*> (x .@ "Type")
 
+instance Hashable ResourceRecordSet
+
 instance ToXML ResourceRecordSet where
         toXML ResourceRecordSet'{..}
           = mconcat
@@ -1518,6 +1475,8 @@ instance FromXML ResourceTagSet where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList1 "Tag"))
 
+instance Hashable ResourceTagSet
+
 -- | A complex type that contains information about the health check status
 -- for the current observation.
 --
@@ -1558,6 +1517,8 @@ instance FromXML StatusReport where
           = StatusReport' <$>
               (x .@? "Status") <*> (x .@? "CheckedTime")
 
+instance Hashable StatusReport
+
 -- | A single tag containing a key and value.
 --
 -- /See:/ 'tag' smart constructor.
@@ -1592,6 +1553,8 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
+
+instance Hashable Tag
 
 instance ToXML Tag where
         toXML Tag'{..}
@@ -1671,6 +1634,8 @@ instance FromXML TrafficPolicy where
                 <*> (x .@ "Name")
                 <*> (x .@ "Type")
                 <*> (x .@ "Document")
+
+instance Hashable TrafficPolicy
 
 -- | /See:/ 'trafficPolicyInstance' smart constructor.
 data TrafficPolicyInstance = TrafficPolicyInstance'
@@ -1778,6 +1743,8 @@ instance FromXML TrafficPolicyInstance where
                 <*> (x .@ "TrafficPolicyVersion")
                 <*> (x .@ "TrafficPolicyType")
 
+instance Hashable TrafficPolicyInstance
+
 -- | /See:/ 'trafficPolicySummary' smart constructor.
 data TrafficPolicySummary = TrafficPolicySummary'
     { _tpsId                 :: !Text
@@ -1843,6 +1810,8 @@ instance FromXML TrafficPolicySummary where
                 (x .@ "LatestVersion")
                 <*> (x .@ "TrafficPolicyCount")
 
+instance Hashable TrafficPolicySummary
+
 -- | /See:/ 'vpc' smart constructor.
 data VPC = VPC'
     { _vpcVPCRegion :: !(Maybe VPCRegion)
@@ -1875,6 +1844,8 @@ vpcVPCId = lens _vpcVPCId (\ s a -> s{_vpcVPCId = a});
 instance FromXML VPC where
         parseXML x
           = VPC' <$> (x .@? "VPCRegion") <*> (x .@? "VPCId")
+
+instance Hashable VPC
 
 instance ToXML VPC where
         toXML VPC'{..}

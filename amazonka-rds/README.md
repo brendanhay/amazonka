@@ -8,7 +8,7 @@
 
 ## Version
 
-`1.3.7`
+`1.3.8`
 
 
 ## Description
@@ -44,7 +44,7 @@ maintenance window. For a summary of the Amazon RDS interfaces, go to
 <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces Available RDS Interfaces>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-rds)
-and the [AWS API Reference](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html).
+and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
 which provides mechanisms for specifying AuthN/AuthZ information and sending requests.

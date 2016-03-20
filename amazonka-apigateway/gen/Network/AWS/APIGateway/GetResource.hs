@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists information about a resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetResource.html AWS API Reference> for GetResource.
 module Network.AWS.APIGateway.GetResource
     (
     -- * Creating a Request
@@ -73,11 +71,11 @@ getResource pRestAPIId_ pResourceId_ =
     , _grResourceId = pResourceId_
     }
 
--- | The RestApi identifier for the resource.
+-- | The < RestApi> identifier for the resource.
 grRestAPIId :: Lens' GetResource Text
 grRestAPIId = lens _grRestAPIId (\ s a -> s{_grRestAPIId = a});
 
--- | The identifier for the Resource resource.
+-- | The identifier for the < Resource> resource.
 grResourceId :: Lens' GetResource Text
 grResourceId = lens _grResourceId (\ s a -> s{_grResourceId = a});
 
@@ -86,8 +84,13 @@ instance AWSRequest GetResource where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetResource
+
 instance ToHeaders GetResource where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetResource where
         toPath GetResource'{..}

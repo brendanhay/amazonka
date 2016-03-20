@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.Types
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -101,16 +101,6 @@ module Network.AWS.Route53.Types
     , cbComment
     , cbChanges
 
-    -- * ChangeBatchRecord
-    , ChangeBatchRecord
-    , changeBatchRecord
-    , cbrChanges
-    , cbrSubmittedAt
-    , cbrSubmitter
-    , cbrComment
-    , cbrId
-    , cbrStatus
-
     -- * ChangeInfo
     , ChangeInfo
     , changeInfo
@@ -156,6 +146,7 @@ module Network.AWS.Route53.Types
     , healthCheckConfig
     , hccFailureThreshold
     , hccIPAddress
+    , hccEnableSNI
     , hccSearchString
     , hccHealthThreshold
     , hccResourcePath
@@ -299,6 +290,7 @@ route53 =
     check e
       | has (hasCode "Throttling" . hasStatus 400) e =
           Just "request_limit_exceeded"
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"

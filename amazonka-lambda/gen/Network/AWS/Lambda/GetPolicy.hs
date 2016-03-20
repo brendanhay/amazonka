@@ -12,20 +12,24 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the resource policy, containing a list of permissions that apply
--- to a specific to an ARN that you specify via the 'Qualifier' paramter.
+-- Returns the resource policy associated with the specified Lambda
+-- function.
 --
--- For informration about adding permissions, see AddPermission.
+-- If you are using the versioning feature, you can get the resource policy
+-- associated with the specific Lambda function version or alias by
+-- specifying the version or alias name using the 'Qualifier' parameter.
+-- For more information about versioning, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+--
+-- For information about adding permissions, see < AddPermission>.
 --
 -- You need permission for the 'lambda:GetPolicy action.'
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetPolicy.html AWS API Reference> for GetPolicy.
 module Network.AWS.Lambda.GetPolicy
     (
     -- * Creating a Request
@@ -72,24 +76,25 @@ getPolicy pFunctionName_ =
     , _gpFunctionName = pFunctionName_
     }
 
--- | You can specify this optional query parameter to specify function
--- version or alias name in which case this API will return all permissions
--- associated with the specific ARN. If you don\'t provide this parameter,
--- the API will return permissions that apply to the unqualified function
--- ARN.
+-- | You can specify this optional query parameter to specify a function
+-- version or an alias name in which case this API will return all
+-- permissions associated with the specific qualified ARN. If you don\'t
+-- provide this parameter, the API will return permissions that apply to
+-- the unqualified function ARN.
 gpQualifier :: Lens' GetPolicy (Maybe Text)
 gpQualifier = lens _gpQualifier (\ s a -> s{_gpQualifier = a});
 
 -- | Function name whose resource policy you want to retrieve.
 --
--- You can specify an unqualified function name (for example,
--- \"Thumbnail\") or you can specify Amazon Resource Name (ARN) of the
--- function (for example,
--- \"arn:aws:lambda:us-west-2:account-id:function:ThumbNail\"). AWS Lambda
--- also allows you to specify only the account ID qualifier (for example,
--- \"account-id:Thumbnail\"). Note that the length constraint applies only
--- to the ARN. If you specify only the function name, it is limited to 64
--- character in length.
+-- You can specify the function name (for example, 'Thumbnail') or you can
+-- specify Amazon Resource Name (ARN) of the function (for example,
+-- 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). If you are
+-- using versioning, you can also provide a qualified function ARN (ARN
+-- that is qualified with function version or alias name as suffix). AWS
+-- Lambda also allows you to specify only the function name with the
+-- account ID qualifier (for example, 'account-id:Thumbnail'). Note that
+-- the length constraint applies only to the ARN. If you specify only the
+-- function name, it is limited to 64 character in length.
 gpFunctionName :: Lens' GetPolicy Text
 gpFunctionName = lens _gpFunctionName (\ s a -> s{_gpFunctionName = a});
 
@@ -102,6 +107,8 @@ instance AWSRequest GetPolicy where
                  GetPolicyResponse' <$>
                    (x .?> "Policy") <*> (pure (fromEnum s)))
 
+instance Hashable GetPolicy
+
 instance ToHeaders GetPolicy where
         toHeaders = const mempty
 
@@ -112,7 +119,8 @@ instance ToPath GetPolicy where
                "/policy"]
 
 instance ToQuery GetPolicy where
-        toQuery = const mempty
+        toQuery GetPolicy'{..}
+          = mconcat ["Qualifier" =: _gpQualifier]
 
 -- | /See:/ 'getPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
@@ -137,8 +145,8 @@ getPolicyResponse pResponseStatus_ =
     }
 
 -- | The resource policy associated with the specified function. The response
--- returns the same as a string using \"\\\" as an escape character in the
--- JSON.
+-- returns the same as a string using a backslash (\"\\\") as an escape
+-- character in the JSON.
 gprsPolicy :: Lens' GetPolicyResponse (Maybe Text)
 gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 

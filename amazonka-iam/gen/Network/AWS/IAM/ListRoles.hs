@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListRoles
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRoles.html AWS API Reference> for ListRoles.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListRoles
@@ -129,6 +127,8 @@ instance AWSRequest ListRoles where
                      <*>
                      (x .@? "Roles" .!@ mempty >>= parseXMLList "member"))
 
+instance Hashable ListRoles
+
 instance ToHeaders ListRoles where
         toHeaders = const mempty
 
@@ -143,7 +143,7 @@ instance ToQuery ListRoles where
                "PathPrefix" =: _lrPathPrefix, "Marker" =: _lrMarker,
                "MaxItems" =: _lrMaxItems]
 
--- | Contains the response to a successful ListRoles request.
+-- | Contains the response to a successful < ListRoles> request.
 --
 -- /See:/ 'listRolesResponse' smart constructor.
 data ListRolesResponse = ListRolesResponse'

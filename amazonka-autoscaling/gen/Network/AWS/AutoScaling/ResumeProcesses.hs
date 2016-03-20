@@ -12,20 +12,18 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.ResumeProcesses
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resumes the specified suspended Auto Scaling processes for the specified
--- Auto Scaling group. To resume specific processes, use the
--- 'ScalingProcesses' parameter. To resume all processes, omit the
--- 'ScalingProcesses' parameter. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspend and Resume Auto Scaling Processes>
--- in the /Auto Scaling Developer Guide/.
+-- Resumes the specified suspended Auto Scaling processes, or all suspended
+-- process, for the specified Auto Scaling group.
 --
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ResumeProcesses.html AWS API Reference> for ResumeProcesses.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes>
+-- in the /Auto Scaling Developer Guide/.
 module Network.AWS.AutoScaling.ResumeProcesses
     (
     -- * Creating a Request
@@ -98,6 +96,8 @@ instance AWSRequest ResumeProcesses where
         type Rs ResumeProcesses = ResumeProcessesResponse
         request = postQuery autoScaling
         response = receiveNull ResumeProcessesResponse'
+
+instance Hashable ResumeProcesses
 
 instance ToHeaders ResumeProcesses where
         toHeaders = const mempty

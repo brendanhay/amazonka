@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.RegisterTaskDefinition
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- definition parameters and defaults, see
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
 -- in the /Amazon EC2 Container Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterTaskDefinition.html AWS API Reference> for RegisterTaskDefinition.
 module Network.AWS.ECS.RegisterTaskDefinition
     (
     -- * Creating a Request
@@ -103,6 +101,8 @@ instance AWSRequest RegisterTaskDefinition where
               (\ s h x ->
                  RegisterTaskDefinitionResponse' <$>
                    (x .?> "taskDefinition") <*> (pure (fromEnum s)))
+
+instance Hashable RegisterTaskDefinition
 
 instance ToHeaders RegisterTaskDefinition where
         toHeaders

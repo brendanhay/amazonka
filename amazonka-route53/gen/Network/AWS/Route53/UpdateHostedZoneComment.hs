@@ -12,20 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.Route53.UpdateHostedZoneComment
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- To update the hosted zone comment, send a 'POST' request to the
--- '2013-04-01\/hostedzone\/hosted zone ID' resource. The request body must
--- include an XML document with a 'UpdateHostedZoneCommentRequest' element.
--- The response to this request includes the modified 'HostedZone' element.
+-- '\/Route 53 API version\/hostedzone\/hosted zone ID' resource. The
+-- request body must include a document with a
+-- 'UpdateHostedZoneCommentRequest' element. The response to this request
+-- includes the modified 'HostedZone' element.
 --
 -- The comment can have a maximum length of 256 characters.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneComment.html AWS API Reference> for UpdateHostedZoneComment.
 module Network.AWS.Route53.UpdateHostedZoneComment
     (
     -- * Creating a Request
@@ -92,6 +91,8 @@ instance AWSRequest UpdateHostedZoneComment where
               (\ s h x ->
                  UpdateHostedZoneCommentResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HostedZone"))
+
+instance Hashable UpdateHostedZoneComment
 
 instance ToElement UpdateHostedZoneComment where
         toElement

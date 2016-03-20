@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DeleteHAPG
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a high-availability partition group.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteHAPG.html AWS API Reference> for DeleteHAPG.
 module Network.AWS.CloudHSM.DeleteHAPG
     (
     -- * Creating a Request
@@ -44,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DeleteHapg action.
+-- | Contains the inputs for the < DeleteHapg> action.
 --
 -- /See:/ 'deleteHAPG' smart constructor.
 newtype DeleteHAPG = DeleteHAPG'
@@ -77,6 +75,8 @@ instance AWSRequest DeleteHAPG where
                  DeleteHAPGResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Status"))
 
+instance Hashable DeleteHAPG
+
 instance ToHeaders DeleteHAPG where
         toHeaders
           = const
@@ -96,7 +96,7 @@ instance ToPath DeleteHAPG where
 instance ToQuery DeleteHAPG where
         toQuery = const mempty
 
--- | Contains the output of the DeleteHapg action.
+-- | Contains the output of the < DeleteHapg> action.
 --
 -- /See:/ 'deleteHAPGResponse' smart constructor.
 data DeleteHAPGResponse = DeleteHAPGResponse'

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MarketplaceAnalytics.GenerateDataSet
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,16 +28,15 @@
 -- exists (e.g. if the same data set is requested twice), the original file
 -- will be overwritten by the new file. Requires a Role with an attached
 -- permissions policy providing Allow permissions for the following
--- actions: s3:PutObject, s3:getBucketLocation, sns:SetRegion,
--- sns:ListTopics, sns:Publish, iam:GetRolePolicy.
---
--- /See:/ <http://docs.aws.amazon.com/marketplace#GenerateDataSet.html AWS API Reference> for GenerateDataSet.
+-- actions: s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes,
+-- sns:Publish, iam:GetRolePolicy.
 module Network.AWS.MarketplaceAnalytics.GenerateDataSet
     (
     -- * Creating a Request
       generateDataSet
     , GenerateDataSet
     -- * Request Lenses
+    , gdsCustomerDefinedValues
     , gdsDestinationS3Prefix
     , gdsDataSetType
     , gdsDataSetPublicationDate
@@ -64,7 +63,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'generateDataSet' smart constructor.
 data GenerateDataSet = GenerateDataSet'
-    { _gdsDestinationS3Prefix     :: !(Maybe Text)
+    { _gdsCustomerDefinedValues   :: !(Maybe (Map Text Text))
+    , _gdsDestinationS3Prefix     :: !(Maybe Text)
     , _gdsDataSetType             :: !DataSetType
     , _gdsDataSetPublicationDate  :: !POSIX
     , _gdsRoleNameARN             :: !Text
@@ -75,6 +75,8 @@ data GenerateDataSet = GenerateDataSet'
 -- | Creates a value of 'GenerateDataSet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdsCustomerDefinedValues'
 --
 -- * 'gdsDestinationS3Prefix'
 --
@@ -96,7 +98,8 @@ generateDataSet
     -> GenerateDataSet
 generateDataSet pDataSetType_ pDataSetPublicationDate_ pRoleNameARN_ pDestinationS3BucketName_ pSnsTopicARN_ =
     GenerateDataSet'
-    { _gdsDestinationS3Prefix = Nothing
+    { _gdsCustomerDefinedValues = Nothing
+    , _gdsDestinationS3Prefix = Nothing
     , _gdsDataSetType = pDataSetType_
     , _gdsDataSetPublicationDate = _Time # pDataSetPublicationDate_
     , _gdsRoleNameARN = pRoleNameARN_
@@ -104,27 +107,88 @@ generateDataSet pDataSetType_ pDataSetPublicationDate_ pRoleNameARN_ pDestinatio
     , _gdsSnsTopicARN = pSnsTopicARN_
     }
 
--- | Undocumented member.
+-- | (Optional) Key-value pairs which will be returned, unmodified, in the
+-- Amazon SNS notification message and the data set metadata file. These
+-- key-value pairs can be used to correlated responses with tracking
+-- information from other systems.
+gdsCustomerDefinedValues :: Lens' GenerateDataSet (HashMap Text Text)
+gdsCustomerDefinedValues = lens _gdsCustomerDefinedValues (\ s a -> s{_gdsCustomerDefinedValues = a}) . _Default . _Map;
+
+-- | (Optional) The desired S3 prefix for the published data set, similar to
+-- a directory path in standard file systems. For example, if given the
+-- bucket name \"mybucket\" and the prefix \"myprefix\/mydatasets\", the
+-- output file \"outputfile\" would be published to
+-- \"s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\". If the prefix
+-- directory structure does not exist, it will be created. If no prefix is
+-- provided, the data set will be published to the S3 bucket root.
 gdsDestinationS3Prefix :: Lens' GenerateDataSet (Maybe Text)
 gdsDestinationS3Prefix = lens _gdsDestinationS3Prefix (\ s a -> s{_gdsDestinationS3Prefix = a});
 
--- | Undocumented member.
+-- | The desired data set type.
+--
+-- -   /customer_subscriber_hourly_monthly_subscriptions/ - Available daily
+--     by 5:00 PM Pacific Time since 2014-07-21.
+-- -   /customer_subscriber_annual_subscriptions/ - Available daily by 5:00
+--     PM Pacific Time since 2014-07-21.
+-- -   /daily_business_usage_by_instance_type/ - Available daily by 5:00 PM
+--     Pacific Time since 2015-01-26.
+-- -   /daily_business_fees/ - Available daily by 5:00 PM Pacific Time
+--     since 2015-01-26.
+-- -   /daily_business_free_trial_conversions/ - Available daily by 5:00 PM
+--     Pacific Time since 2015-01-26.
+-- -   /daily_business_new_instances/ - Available daily by 5:00 PM Pacific
+--     Time since 2015-01-26.
+-- -   /daily_business_new_product_subscribers/ - Available daily by 5:00
+--     PM Pacific Time since 2015-01-26.
+-- -   /daily_business_canceled_product_subscribers/ - Available daily by
+--     5:00 PM Pacific Time since 2015-01-26.
+-- -   /monthly_revenue_billing_and_revenue_data/ - Available monthly on
+--     the 4th day of the month by 5:00 PM Pacific Time since 2015-02.
+-- -   /monthly_revenue_annual_subscriptions/ - Available monthly on the
+--     4th day of the month by 5:00 PM Pacific Time since 2015-02.
+-- -   /disbursed_amount_by_product/ - Available every 30 days by 5:00 PM
+--     Pacific Time since 2015-01-26.
+-- -   /disbursed_amount_by_product_with_uncollected_funds/ -This data set
+--     is only available from 2012-04-19 until 2015-01-25. After
+--     2015-01-25, this data set was split into three data sets:
+--     disbursed_amount_by_product,
+--     disbursed_amount_by_age_of_uncollected_funds, and
+--     disbursed_amount_by_age_of_disbursed_funds.
+-- -   /disbursed_amount_by_customer_geo/ - Available every 30 days by 5:00
+--     PM Pacific Time since 2012-04-19.
+-- -   /disbursed_amount_by_age_of_uncollected_funds/ - Available every 30
+--     days by 5:00 PM Pacific Time since 2015-01-26.
+-- -   /disbursed_amount_by_age_of_disbursed_funds/ - Available every 30
+--     days by 5:00 PM Pacific Time since 2015-01-26.
+-- -   /customer_profile_by_industry/ - Available daily by 5:00 PM Pacific
+--     Time since 2015-10-01.
+-- -   /customer_profile_by_revenue/ - Available daily by 5:00 PM Pacific
+--     Time since 2015-10-01.
+-- -   /customer_profile_by_geography/ - Available daily by 5:00 PM Pacific
+--     Time since 2015-10-01.
 gdsDataSetType :: Lens' GenerateDataSet DataSetType
 gdsDataSetType = lens _gdsDataSetType (\ s a -> s{_gdsDataSetType = a});
 
--- | Undocumented member.
+-- | The date a data set was published. For daily data sets, provide a date
+-- with day-level granularity for the desired day. For weekly data sets,
+-- provide a date with day-level granularity within the desired week (the
+-- day value will be ignored). For monthly data sets, provide a date with
+-- month-level granularity for the desired month (the day value will be
+-- ignored).
 gdsDataSetPublicationDate :: Lens' GenerateDataSet UTCTime
 gdsDataSetPublicationDate = lens _gdsDataSetPublicationDate (\ s a -> s{_gdsDataSetPublicationDate = a}) . _Time;
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the Role with an attached permissions
+-- policy to interact with the provided AWS services.
 gdsRoleNameARN :: Lens' GenerateDataSet Text
 gdsRoleNameARN = lens _gdsRoleNameARN (\ s a -> s{_gdsRoleNameARN = a});
 
--- | Undocumented member.
+-- | The name (friendly name, not ARN) of the destination S3 bucket.
 gdsDestinationS3BucketName :: Lens' GenerateDataSet Text
 gdsDestinationS3BucketName = lens _gdsDestinationS3BucketName (\ s a -> s{_gdsDestinationS3BucketName = a});
 
--- | Undocumented member.
+-- | Amazon Resource Name (ARN) for the SNS Topic that will be notified when
+-- the data set has been published or if an error has occurred.
 gdsSnsTopicARN :: Lens' GenerateDataSet Text
 gdsSnsTopicARN = lens _gdsSnsTopicARN (\ s a -> s{_gdsSnsTopicARN = a});
 
@@ -136,6 +200,8 @@ instance AWSRequest GenerateDataSet where
               (\ s h x ->
                  GenerateDataSetResponse' <$>
                    (x .?> "dataSetRequestId") <*> (pure (fromEnum s)))
+
+instance Hashable GenerateDataSet
 
 instance ToHeaders GenerateDataSet where
         toHeaders
@@ -151,7 +217,9 @@ instance ToJSON GenerateDataSet where
         toJSON GenerateDataSet'{..}
           = object
               (catMaybes
-                 [("destinationS3Prefix" .=) <$>
+                 [("customerDefinedValues" .=) <$>
+                    _gdsCustomerDefinedValues,
+                  ("destinationS3Prefix" .=) <$>
                     _gdsDestinationS3Prefix,
                   Just ("dataSetType" .= _gdsDataSetType),
                   Just
@@ -193,7 +261,9 @@ generateDataSetResponse pResponseStatus_ =
     , _gdsrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | A unique identifier representing a specific request to the
+-- GenerateDataSet operation. This identifier can be used to correlate a
+-- request with notifications from the SNS topic.
 gdsrsDataSetRequestId :: Lens' GenerateDataSetResponse (Maybe Text)
 gdsrsDataSetRequestId = lens _gdsrsDataSetRequestId (\ s a -> s{_gdsrsDataSetRequestId = a});
 

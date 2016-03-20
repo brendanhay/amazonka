@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateSSHPublicKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- CodeCommit repository, see
 -- <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections>
 -- in the /AWS CodeCommit User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSSHPublicKey.html AWS API Reference> for UpdateSSHPublicKey.
 module Network.AWS.IAM.UpdateSSHPublicKey
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest UpdateSSHPublicKey where
              UpdateSSHPublicKeyResponse
         request = postQuery iAM
         response = receiveNull UpdateSSHPublicKeyResponse'
+
+instance Hashable UpdateSSHPublicKey
 
 instance ToHeaders UpdateSSHPublicKey where
         toHeaders = const mempty

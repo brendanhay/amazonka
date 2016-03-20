@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -66,6 +66,8 @@ instance FromJSON AccessPoliciesStatus where
                  AccessPoliciesStatus' <$>
                    (x .: "Options") <*> (x .: "Status"))
 
+instance Hashable AccessPoliciesStatus
+
 -- | Status of the advanced options for the specified Elasticsearch domain.
 -- Currently, the following advanced options are available:
 --
@@ -119,6 +121,8 @@ instance FromJSON AdvancedOptionsStatus where
                  AdvancedOptionsStatus' <$>
                    (x .:? "Options" .!= mempty) <*> (x .: "Status"))
 
+instance Hashable AdvancedOptionsStatus
+
 -- | /See:/ 'domainInfo' smart constructor.
 newtype DomainInfo = DomainInfo'
     { _diDomainName :: Maybe Text
@@ -144,6 +148,8 @@ instance FromJSON DomainInfo where
         parseJSON
           = withObject "DomainInfo"
               (\ x -> DomainInfo' <$> (x .:? "DomainName"))
+
+instance Hashable DomainInfo
 
 -- | Options to enable, disable, and specify the properties of EBS storage
 -- volumes. For more information, see
@@ -203,6 +209,8 @@ instance FromJSON EBSOptions where
                      (x .:? "VolumeType")
                      <*> (x .:? "EBSEnabled"))
 
+instance Hashable EBSOptions
+
 instance ToJSON EBSOptions where
         toJSON EBSOptions'{..}
           = object
@@ -252,6 +260,8 @@ instance FromJSON EBSOptionsStatus where
               (\ x ->
                  EBSOptionsStatus' <$>
                    (x .: "Options") <*> (x .: "Status"))
+
+instance Hashable EBSOptionsStatus
 
 -- | Specifies the configuration for the domain cluster, such as the type and
 -- number of instances.
@@ -335,6 +345,8 @@ instance FromJSON ElasticsearchClusterConfig where
                      <*> (x .:? "ZoneAwarenessEnabled")
                      <*> (x .:? "InstanceType"))
 
+instance Hashable ElasticsearchClusterConfig
+
 instance ToJSON ElasticsearchClusterConfig where
         toJSON ElasticsearchClusterConfig'{..}
           = object
@@ -393,6 +405,8 @@ instance FromJSON ElasticsearchClusterConfigStatus
               (\ x ->
                  ElasticsearchClusterConfigStatus' <$>
                    (x .: "Options") <*> (x .: "Status"))
+
+instance Hashable ElasticsearchClusterConfigStatus
 
 -- | The configuration of an Elasticsearch domain.
 --
@@ -460,6 +474,8 @@ instance FromJSON ElasticsearchDomainConfig where
                      (x .:? "ElasticsearchClusterConfig")
                      <*> (x .:? "SnapshotOptions")
                      <*> (x .:? "AdvancedOptions"))
+
+instance Hashable ElasticsearchDomainConfig
 
 -- | The current status of an Elasticsearch domain.
 --
@@ -607,6 +623,8 @@ instance FromJSON ElasticsearchDomainStatus where
                      <*> (x .: "ARN")
                      <*> (x .: "ElasticsearchClusterConfig"))
 
+instance Hashable ElasticsearchDomainStatus
+
 -- | Provides the current status of the entity.
 --
 -- /See:/ 'optionStatus' smart constructor.
@@ -675,6 +693,8 @@ instance FromJSON OptionStatus where
                      <*> (x .: "UpdateDate")
                      <*> (x .: "State"))
 
+instance Hashable OptionStatus
+
 -- | Specifies the time, in UTC format, when the service takes a daily
 -- automated snapshot of the specified Elasticsearch domain. Default value
 -- is '0' hours.
@@ -708,6 +728,8 @@ instance FromJSON SnapshotOptions where
               (\ x ->
                  SnapshotOptions' <$>
                    (x .:? "AutomatedSnapshotStartHour"))
+
+instance Hashable SnapshotOptions
 
 instance ToJSON SnapshotOptions where
         toJSON SnapshotOptions'{..}
@@ -757,6 +779,8 @@ instance FromJSON SnapshotOptionsStatus where
                  SnapshotOptionsStatus' <$>
                    (x .: "Options") <*> (x .: "Status"))
 
+instance Hashable SnapshotOptionsStatus
+
 -- | Specifies a key value pair for a resource tag.
 --
 -- /See:/ 'tag' smart constructor.
@@ -798,6 +822,8 @@ instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
+
+instance Hashable Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}

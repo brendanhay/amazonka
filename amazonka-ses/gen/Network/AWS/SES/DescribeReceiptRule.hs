@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DescribeReceiptRule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DescribeReceiptRule.html AWS API Reference> for DescribeReceiptRule.
 module Network.AWS.SES.DescribeReceiptRule
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest DescribeReceiptRule where
               (\ s h x ->
                  DescribeReceiptRuleResponse' <$>
                    (x .@? "Rule") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeReceiptRule
 
 instance ToHeaders DescribeReceiptRule where
         toHeaders = const mempty

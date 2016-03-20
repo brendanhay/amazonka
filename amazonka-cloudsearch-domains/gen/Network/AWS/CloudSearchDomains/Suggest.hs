@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains.Suggest
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -37,8 +37,6 @@
 -- configuration service 'DescribeDomains' action. A domain\'s endpoints
 -- are also displayed on the domain dashboard in the Amazon CloudSearch
 -- console.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_Suggest.html AWS API Reference> for Suggest.
 module Network.AWS.CloudSearchDomains.Suggest
     (
     -- * Creating a Request
@@ -115,6 +113,8 @@ instance AWSRequest Suggest where
                  SuggestResponse' <$>
                    (x .?> "suggest") <*> (x .?> "status") <*>
                      (pure (fromEnum s)))
+
+instance Hashable Suggest
 
 instance ToHeaders Suggest where
         toHeaders

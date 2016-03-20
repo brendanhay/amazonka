@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheSecurityGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- The /DescribeCacheSecurityGroups/ action returns a list of cache
 -- security group descriptions. If a cache security group name is
 -- specified, the list will contain only the description of that group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSecurityGroups.html AWS API Reference> for DescribeCacheSecurityGroups.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
@@ -120,6 +118,8 @@ instance AWSRequest DescribeCacheSecurityGroups where
                       may (parseXMLList "CacheSecurityGroup"))
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeCacheSecurityGroups
 
 instance ToHeaders DescribeCacheSecurityGroups where
         toHeaders = const mempty

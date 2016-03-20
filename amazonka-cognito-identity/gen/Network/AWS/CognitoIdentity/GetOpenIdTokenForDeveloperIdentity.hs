@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -35,8 +35,6 @@
 -- specified 'IdentityPoolId'.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdTokenForDeveloperIdentity.html AWS API Reference> for GetOpenIdTokenForDeveloperIdentity.
 module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     (
     -- * Creating a Request
@@ -140,6 +138,8 @@ instance AWSRequest
                  GetOpenIdTokenForDeveloperIdentityResponse' <$>
                    (x .?> "Token") <*> (x .?> "IdentityId") <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetOpenIdTokenForDeveloperIdentity
 
 instance ToHeaders GetOpenIdTokenForDeveloperIdentity
          where

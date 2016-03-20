@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GetKeyPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a policy attached to the specified key.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyPolicy.html AWS API Reference> for GetKeyPolicy.
 module Network.AWS.KMS.GetKeyPolicy
     (
     -- * Creating a Request
@@ -79,7 +77,8 @@ gkpKeyId :: Lens' GetKeyPolicy Text
 gkpKeyId = lens _gkpKeyId (\ s a -> s{_gkpKeyId = a});
 
 -- | String that contains the name of the policy. Currently, this must be
--- \"default\". Policy names can be discovered by calling ListKeyPolicies.
+-- \"default\". Policy names can be discovered by calling
+-- < ListKeyPolicies>.
 gkpPolicyName :: Lens' GetKeyPolicy Text
 gkpPolicyName = lens _gkpPolicyName (\ s a -> s{_gkpPolicyName = a});
 
@@ -91,6 +90,8 @@ instance AWSRequest GetKeyPolicy where
               (\ s h x ->
                  GetKeyPolicyResponse' <$>
                    (x .?> "Policy") <*> (pure (fromEnum s)))
+
+instance Hashable GetKeyPolicy
 
 instance ToHeaders GetKeyPolicy where
         toHeaders

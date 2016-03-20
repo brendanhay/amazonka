@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListJobs
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about jobs.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListJobs.html AWS API Reference> for ListJobs.
 module Network.AWS.DeviceFarm.ListJobs
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest ListJobs where
                  ListJobsResponse' <$>
                    (x .?> "jobs" .!@ mempty) <*> (x .?> "nextToken") <*>
                      (pure (fromEnum s)))
+
+instance Hashable ListJobs
 
 instance ToHeaders ListJobs where
         toHeaders

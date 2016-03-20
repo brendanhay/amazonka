@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetAccountPasswordPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Retrieves the password policy for the AWS account. For more information
 -- about using a password policy, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM Password Policy>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountPasswordPolicy.html AWS API Reference> for GetAccountPasswordPolicy.
 module Network.AWS.IAM.GetAccountPasswordPolicy
     (
     -- * Creating a Request
@@ -65,6 +63,8 @@ instance AWSRequest GetAccountPasswordPolicy where
                  GetAccountPasswordPolicyResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "PasswordPolicy"))
 
+instance Hashable GetAccountPasswordPolicy
+
 instance ToHeaders GetAccountPasswordPolicy where
         toHeaders = const mempty
 
@@ -79,7 +79,8 @@ instance ToQuery GetAccountPasswordPolicy where
                     ("GetAccountPasswordPolicy" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful GetAccountPasswordPolicy request.
+-- | Contains the response to a successful < GetAccountPasswordPolicy>
+-- request.
 --
 -- /See:/ 'getAccountPasswordPolicyResponse' smart constructor.
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'

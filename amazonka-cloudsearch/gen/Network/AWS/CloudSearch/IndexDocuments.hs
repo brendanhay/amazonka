@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.IndexDocuments
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,9 +20,7 @@
 --
 -- Tells the search domain to start indexing its documents using the latest
 -- indexing options. This operation must be invoked to activate options
--- whose OptionStatus is 'RequiresIndexDocuments'.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_IndexDocuments.html AWS API Reference> for IndexDocuments.
+-- whose < OptionStatus> is 'RequiresIndexDocuments'.
 module Network.AWS.CloudSearch.IndexDocuments
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest IndexDocuments where
                    (x .@? "FieldNames" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable IndexDocuments
 
 instance ToHeaders IndexDocuments where
         toHeaders = const mempty

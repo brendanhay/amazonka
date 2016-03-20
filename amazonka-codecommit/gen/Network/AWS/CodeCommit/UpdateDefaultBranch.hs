@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.UpdateDefaultBranch
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- If you use this operation to change the default branch name to the
 -- current default branch name, a success message is returned even though
 -- the default branch did not change.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_UpdateDefaultBranch.html AWS API Reference> for UpdateDefaultBranch.
 module Network.AWS.CodeCommit.UpdateDefaultBranch
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest UpdateDefaultBranch where
              UpdateDefaultBranchResponse
         request = postJSON codeCommit
         response = receiveNull UpdateDefaultBranchResponse'
+
+instance Hashable UpdateDefaultBranch
 
 instance ToHeaders UpdateDefaultBranch where
         toHeaders

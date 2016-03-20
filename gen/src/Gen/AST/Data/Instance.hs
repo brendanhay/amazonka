@@ -5,7 +5,7 @@
 {-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.AST.Data.Instance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -38,21 +38,23 @@ data Inst
     | ToQuery   [Either (Text, Maybe Text) Field]
     | ToPath    [Either Text Field]
     | ToBody    Field
+    | IsHashable
 
 instance ToJSON Inst where
     toJSON = toJSON . instToText
 
 instToText :: Inst -> Text
 instToText = \case
-    FromJSON  {} -> "FromJSON"
-    FromXML   {} -> "FromXML"
-    ToJSON    {} -> "ToJSON"
-    ToXML     {} -> "ToXML"
-    ToElement {} -> "ToElement"
-    ToHeaders {} -> "ToHeaders"
-    ToQuery   {} -> "ToQuery"
-    ToPath    {} -> "ToPath"
-    ToBody    {} -> "ToBody"
+    FromJSON   {} -> "FromJSON"
+    FromXML    {} -> "FromXML"
+    ToJSON     {} -> "ToJSON"
+    ToXML      {} -> "ToXML"
+    ToElement  {} -> "ToElement"
+    ToHeaders  {} -> "ToHeaders"
+    ToQuery    {} -> "ToQuery"
+    ToPath     {} -> "ToPath"
+    ToBody     {} -> "ToBody"
+    IsHashable    -> "Hashable"
 
 shapeInsts :: Protocol -> Mode -> [Field] -> [Inst]
 shapeInsts p m fs = go m
@@ -65,19 +67,21 @@ shapeInsts p m fs = go m
 
     inp :: Protocol -> [Field] -> Inst
     inp = \case
-        JSON     -> ToJSON
-        RestJSON -> ToJSON
-        RestXML  -> ToXML
-        Query    -> ToQuery . map Right
-        EC2      -> ToQuery . map Right
+        JSON       -> ToJSON
+        RestJSON   -> ToJSON
+        RestXML    -> ToXML
+        Query      -> ToQuery . map Right
+        EC2        -> ToQuery . map Right
+        APIGateway -> ToJSON
 
     out :: Protocol -> [Field] -> Inst
     out = \case
-        JSON     -> FromJSON
-        RestJSON -> FromJSON
-        RestXML  -> FromXML
-        Query    -> FromXML
-        EC2      -> FromXML
+        JSON       -> FromJSON
+        RestJSON   -> FromJSON
+        RestXML    -> FromXML
+        Query      -> FromXML
+        EC2        -> FromXML
+        APIGateway -> FromJSON
 
 requestInsts :: HasMetadata a f
              => a
@@ -183,12 +187,14 @@ requestInsts m oname h r fs = do
 
     protocolHeaders :: [(Text, Text)]
     protocolHeaders = case p of
-        JSON     -> t ++ c
-        RestJSON -> c
-        _        -> []
+        JSON       -> t ++ c
+        RestJSON   -> c
+        APIGateway -> j ++ c
+        _          -> []
       where
         t = maybeToList $ ("X-Amz-Target",) <$> target
         c = maybeToList $ ("Content-Type",) <$> content
+        j = [("Accept", "application/json")]
 
     protocolQuery :: [(Text, Maybe Text)]
     protocolQuery = case p of

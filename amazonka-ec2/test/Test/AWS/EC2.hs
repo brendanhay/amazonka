@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Test.AWS.EC2
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
@@ -97,7 +97,7 @@ fixtures =
                                         & ibdmEBS        ?~
                                             (ebsInstanceBlockDevice
                                                 & eibdDeleteOnTermination ?~ True
-                                                & eibdStatus              ?~ Attached
+                                                & eibdStatus              ?~ AAttached
                                                 & eibdVolumeId            ?~ "vol-1a2b3c4d"
                                                 & eibdAttachTime          ?~ $(mkTime "2014-03-18T21:47:02+0000"))
                                     ]
@@ -116,7 +116,7 @@ fixtures =
                                         & iniAttachment          ?~
                                             (instanceNetworkInterfaceAttachment
                                                 & iniaDeleteOnTermination ?~ True
-                                                & iniaStatus              ?~ Attached
+                                                & iniaStatus              ?~ AAttached
                                                 & iniaAttachmentId        ?~ "eni-attach-1a2b3c4d"
                                                 & iniaAttachTime          ?~ $(mkTime "2014-03-18T21:47:02+0000")
                                                 & iniaDeviceIndex         ?~ 0)

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.GetVaultNotifications
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,9 +22,9 @@
 -- the specified vault.
 --
 -- For information about setting a notification configuration on a vault,
--- see SetVaultNotifications. If a notification configuration for a vault
--- is not set, the operation returns a '404 Not Found' error. For more
--- information about vault notifications, see
+-- see < SetVaultNotifications>. If a notification configuration for a
+-- vault is not set, the operation returns a '404 Not Found' error. For
+-- more information about vault notifications, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html Configuring Vault Notifications in Amazon Glacier>.
 --
 -- An AWS account has full permission to perform all operations (actions).
@@ -38,8 +38,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html Get Vault Notification Configuration>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultNotifications.html AWS API Reference> for GetVaultNotifications.
 module Network.AWS.Glacier.GetVaultNotifications
     (
     -- * Creating a Request
@@ -111,6 +109,8 @@ instance AWSRequest GetVaultNotifications where
               (\ s h x ->
                  GetVaultNotificationsResponse' <$>
                    (eitherParseJSON x) <*> (pure (fromEnum s)))
+
+instance Hashable GetVaultNotifications
 
 instance ToHeaders GetVaultNotifications where
         toHeaders = const mempty

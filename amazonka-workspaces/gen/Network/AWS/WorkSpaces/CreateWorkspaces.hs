@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.CreateWorkspaces
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- This operation is asynchronous and returns before the WorkSpaces are
 -- created.
---
--- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_CreateWorkspaces.html AWS API Reference> for CreateWorkspaces.
 module Network.AWS.WorkSpaces.CreateWorkspaces
     (
     -- * Creating a Request
@@ -48,7 +46,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the CreateWorkspaces operation.
+-- | Contains the inputs for the < CreateWorkspaces> operation.
 --
 -- /See:/ 'createWorkspaces' smart constructor.
 newtype CreateWorkspaces = CreateWorkspaces'
@@ -83,6 +81,8 @@ instance AWSRequest CreateWorkspaces where
                      (x .?> "PendingRequests" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateWorkspaces
+
 instance ToHeaders CreateWorkspaces where
         toHeaders
           = const
@@ -103,7 +103,7 @@ instance ToPath CreateWorkspaces where
 instance ToQuery CreateWorkspaces where
         toQuery = const mempty
 
--- | Contains the result of the CreateWorkspaces operation.
+-- | Contains the result of the < CreateWorkspaces> operation.
 --
 -- /See:/ 'createWorkspacesResponse' smart constructor.
 data CreateWorkspacesResponse = CreateWorkspacesResponse'
@@ -139,8 +139,9 @@ cwrsFailedRequests = lens _cwrsFailedRequests (\ s a -> s{_cwrsFailedRequests = 
 -- | An array of structures that represent the WorkSpaces that were created.
 --
 -- Because this operation is asynchronous, the identifier in 'WorkspaceId'
--- is not immediately available. If you immediately call DescribeWorkspaces
--- with this identifier, no information will be returned.
+-- is not immediately available. If you immediately call
+-- < DescribeWorkspaces> with this identifier, no information will be
+-- returned.
 cwrsPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
 cwrsPendingRequests = lens _cwrsPendingRequests (\ s a -> s{_cwrsPendingRequests = a}) . _Default . _Coerce;
 

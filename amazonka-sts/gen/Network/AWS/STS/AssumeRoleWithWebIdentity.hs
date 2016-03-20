@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.STS.AssumeRoleWithWebIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -94,8 +94,6 @@
 --     This article discusses web identity federation and shows an example
 --     of how to use web identity federation to get access to content in
 --     Amazon S3.
---
--- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html AWS API Reference> for AssumeRoleWithWebIdentity.
 module Network.AWS.STS.AssumeRoleWithWebIdentity
     (
     -- * Creating a Request
@@ -245,6 +243,8 @@ instance AWSRequest AssumeRoleWithWebIdentity where
                      <*> (x .@? "Provider")
                      <*> (pure (fromEnum s)))
 
+instance Hashable AssumeRoleWithWebIdentity
+
 instance ToHeaders AssumeRoleWithWebIdentity where
         toHeaders = const mempty
 
@@ -263,9 +263,9 @@ instance ToQuery AssumeRoleWithWebIdentity where
                "RoleSessionName" =: _arwwiRoleSessionName,
                "WebIdentityToken" =: _arwwiWebIdentityToken]
 
--- | Contains the response to a successful AssumeRoleWithWebIdentity request,
--- including temporary AWS credentials that can be used to make AWS
--- requests.
+-- | Contains the response to a successful < AssumeRoleWithWebIdentity>
+-- request, including temporary AWS credentials that can be used to make
+-- AWS requests.
 --
 -- /See:/ 'assumeRoleWithWebIdentityResponse' smart constructor.
 data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
@@ -333,6 +333,12 @@ arwwirsPackedPolicySize = lens _arwwirsPackedPolicySize (\ s a -> s{_arwwirsPack
 
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security token.
+--
+-- __Note:__ The size of the security token that STS APIs return is not
+-- fixed. We strongly recommend that you make no assumptions about the
+-- maximum size. As of this writing, the typical size is less than 4096
+-- bytes, but that can vary. Also, future updates to AWS might require
+-- larger sizes.
 arwwirsCredentials :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Credentials)
 arwwirsCredentials = lens _arwwirsCredentials (\ s a -> s{_arwwirsCredentials = a});
 

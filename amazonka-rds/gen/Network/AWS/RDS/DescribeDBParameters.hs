@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBParameters
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the detailed parameter list for a particular DB parameter group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameters.html AWS API Reference> for DescribeDBParameters.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBParameters
@@ -146,6 +144,8 @@ instance AWSRequest DescribeDBParameters where
                         may (parseXMLList "Parameter"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBParameters
+
 instance ToHeaders DescribeDBParameters where
         toHeaders = const mempty
 
@@ -165,7 +165,7 @@ instance ToQuery DescribeDBParameters where
                "DBParameterGroupName" =: _ddpDBParameterGroupName]
 
 -- | Contains the result of a successful invocation of the
--- DescribeDBParameters action.
+-- < DescribeDBParameters> action.
 --
 -- /See:/ 'describeDBParametersResponse' smart constructor.
 data DescribeDBParametersResponse = DescribeDBParametersResponse'
@@ -199,7 +199,7 @@ describeDBParametersResponse pResponseStatus_ =
 ddprsMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
 ddprsMarker = lens _ddprsMarker (\ s a -> s{_ddprsMarker = a});
 
--- | A list of Parameter values.
+-- | A list of < Parameter> values.
 ddprsParameters :: Lens' DescribeDBParametersResponse [Parameter]
 ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _Default . _Coerce;
 

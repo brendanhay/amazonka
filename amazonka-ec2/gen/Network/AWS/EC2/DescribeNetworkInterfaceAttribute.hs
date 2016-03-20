@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeNetworkInterfaceAttribute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Describes a network interface attribute. You can specify only one
 -- attribute at a time.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkInterfaceAttribute.html AWS API Reference> for DescribeNetworkInterfaceAttribute.
 module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest DescribeNetworkInterfaceAttribute
                      <*> (x .@? "attachment")
                      <*> (x .@? "description")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeNetworkInterfaceAttribute
 
 instance ToHeaders DescribeNetworkInterfaceAttribute
          where

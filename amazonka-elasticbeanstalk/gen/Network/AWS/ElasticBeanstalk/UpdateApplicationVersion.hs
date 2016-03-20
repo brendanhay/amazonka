@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- If a property (for example, 'description') is not provided, the value
 -- remains unchanged. To clear properties, specify an empty string.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplicationVersion.html AWS API Reference> for UpdateApplicationVersion.
 module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     (
     -- * Creating a Request
@@ -103,6 +101,8 @@ instance AWSRequest UpdateApplicationVersion where
         response
           = receiveXMLWrapper "UpdateApplicationVersionResult"
               (\ s h x -> parseXML x)
+
+instance Hashable UpdateApplicationVersion
 
 instance ToHeaders UpdateApplicationVersion where
         toHeaders = const mempty

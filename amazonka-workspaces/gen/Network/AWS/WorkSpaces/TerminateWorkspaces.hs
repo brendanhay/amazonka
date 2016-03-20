@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.TerminateWorkspaces
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 --
 -- This operation is asynchronous and will return before the WorkSpaces
 -- have been completely terminated.
---
--- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_TerminateWorkspaces.html AWS API Reference> for TerminateWorkspaces.
 module Network.AWS.WorkSpaces.TerminateWorkspaces
     (
     -- * Creating a Request
@@ -54,7 +52,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the TerminateWorkspaces operation.
+-- | Contains the inputs for the < TerminateWorkspaces> operation.
 --
 -- /See:/ 'terminateWorkspaces' smart constructor.
 newtype TerminateWorkspaces = TerminateWorkspaces'
@@ -89,6 +87,8 @@ instance AWSRequest TerminateWorkspaces where
                    (x .?> "FailedRequests" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable TerminateWorkspaces
+
 instance ToHeaders TerminateWorkspaces where
         toHeaders
           = const
@@ -113,7 +113,7 @@ instance ToPath TerminateWorkspaces where
 instance ToQuery TerminateWorkspaces where
         toQuery = const mempty
 
--- | Contains the results of the TerminateWorkspaces operation.
+-- | Contains the results of the < TerminateWorkspaces> operation.
 --
 -- /See:/ 'terminateWorkspacesResponse' smart constructor.
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'

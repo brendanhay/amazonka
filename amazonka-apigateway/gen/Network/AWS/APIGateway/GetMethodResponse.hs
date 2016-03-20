@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetMethodResponse
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a MethodResponse resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetMethodResponse.html AWS API Reference> for GetMethodResponse.
+-- Describes a < MethodResponse> resource.
 module Network.AWS.APIGateway.GetMethodResponse
     (
     -- * Creating a Request
@@ -48,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to describe a MethodResponse resource.
+-- | Request to describe a < MethodResponse> resource.
 --
 -- /See:/ 'getMethodResponse' smart constructor.
 data GetMethodResponse = GetMethodResponse'
@@ -83,19 +81,19 @@ getMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _gmStatusCode = pStatusCode_
     }
 
--- | The RestApi identifier for the MethodResponse resource.
+-- | The < RestApi> identifier for the < MethodResponse> resource.
 gmRestAPIId :: Lens' GetMethodResponse Text
 gmRestAPIId = lens _gmRestAPIId (\ s a -> s{_gmRestAPIId = a});
 
--- | The Resource identifier for the MethodResponse resource.
+-- | The < Resource> identifier for the < MethodResponse> resource.
 gmResourceId :: Lens' GetMethodResponse Text
 gmResourceId = lens _gmResourceId (\ s a -> s{_gmResourceId = a});
 
--- | The HTTP verb identifier for the parent Method resource.
+-- | The HTTP verb identifier for the parent < Method> resource.
 gmHttpMethod :: Lens' GetMethodResponse Text
 gmHttpMethod = lens _gmHttpMethod (\ s a -> s{_gmHttpMethod = a});
 
--- | The status code identifier for the MethodResponse resource.
+-- | The status code identifier for the < MethodResponse> resource.
 gmStatusCode :: Lens' GetMethodResponse Text
 gmStatusCode = lens _gmStatusCode (\ s a -> s{_gmStatusCode = a});
 
@@ -104,8 +102,13 @@ instance AWSRequest GetMethodResponse where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetMethodResponse
+
 instance ToHeaders GetMethodResponse where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetMethodResponse where
         toPath GetMethodResponse'{..}

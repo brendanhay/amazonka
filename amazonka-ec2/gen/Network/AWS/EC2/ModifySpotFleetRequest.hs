@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifySpotFleetRequest
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -40,8 +40,6 @@
 -- pools. Alternatively, you can request that the Spot fleet keep the fleet
 -- at its current size, but not replace any Spot instances that are
 -- interrupted or that you terminate manually.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySpotFleetRequest.html AWS API Reference> for ModifySpotFleetRequest.
 module Network.AWS.EC2.ModifySpotFleetRequest
     (
     -- * Creating a Request
@@ -118,6 +116,8 @@ instance AWSRequest ModifySpotFleetRequest where
               (\ s h x ->
                  ModifySpotFleetRequestResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
+
+instance Hashable ModifySpotFleetRequest
 
 instance ToHeaders ModifySpotFleetRequest where
         toHeaders = const mempty

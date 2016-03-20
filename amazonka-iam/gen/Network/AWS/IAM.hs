@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -69,8 +69,6 @@
 -- -   <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>.
 --     This set of topics walk you through the process of signing a request
 --     using an access key ID and secret access key.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.IAM
     (
     -- * Service Configuration
@@ -685,17 +683,20 @@ module Network.AWS.IAM
     -- ** PolicyGroup
     , PolicyGroup
     , policyGroup
+    , pgGroupId
     , pgGroupName
 
     -- ** PolicyRole
     , PolicyRole
     , policyRole
     , prRoleName
+    , prRoleId
 
     -- ** PolicyUser
     , PolicyUser
     , policyUser
     , puUserName
+    , puUserId
 
     -- ** PolicyVersion
     , PolicyVersion
@@ -722,7 +723,7 @@ module Network.AWS.IAM
 
     -- ** Role
     , Role
-    , role
+    , role'
     , rAssumeRolePolicyDocument
     , rPath
     , rRoleName

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.CreateBucket
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/CreateBucket.html AWS API Reference> for CreateBucket.
 module Network.AWS.S3.CreateBucket
     (
     -- * Creating a Request
@@ -139,6 +137,8 @@ instance AWSRequest CreateBucket where
               (\ s h x ->
                  CreateBucketResponse' <$>
                    (h .#? "Location") <*> (pure (fromEnum s)))
+
+instance Hashable CreateBucket
 
 instance ToElement CreateBucket where
         toElement

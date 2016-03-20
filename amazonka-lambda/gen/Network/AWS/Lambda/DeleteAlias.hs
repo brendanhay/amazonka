@@ -12,18 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.DeleteAlias
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes specified Lambda function alias. For more information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html Introduction to AWS Lambda Aliases>
+-- Deletes the specified Lambda function alias. For more information, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
 --
 -- This requires permission for the lambda:DeleteAlias action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteAlias.html AWS API Reference> for DeleteAlias.
 module Network.AWS.Lambda.DeleteAlias
     (
     -- * Creating a Request
@@ -68,7 +66,8 @@ deleteAlias pFunctionName_ pName_ =
     , _daName = pName_
     }
 
--- | The Lambda function name for which the alias is created.
+-- | The Lambda function name for which the alias is created. Deleting an
+-- alias does not delete the function version to which it is pointing.
 daFunctionName :: Lens' DeleteAlias Text
 daFunctionName = lens _daFunctionName (\ s a -> s{_daFunctionName = a});
 
@@ -80,6 +79,8 @@ instance AWSRequest DeleteAlias where
         type Rs DeleteAlias = DeleteAliasResponse
         request = delete lambda
         response = receiveNull DeleteAliasResponse'
+
+instance Hashable DeleteAlias
 
 instance ToHeaders DeleteAlias where
         toHeaders = const mempty

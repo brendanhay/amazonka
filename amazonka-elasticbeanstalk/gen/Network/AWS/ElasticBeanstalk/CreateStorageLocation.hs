@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreateStorageLocation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Creates the Amazon S3 storage location for the account.
 --
 -- This location is used to store user log files.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateStorageLocation.html AWS API Reference> for CreateStorageLocation.
 module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     (
     -- * Creating a Request
@@ -65,6 +63,8 @@ instance AWSRequest CreateStorageLocation where
                  CreateStorageLocationResponse' <$>
                    (x .@? "S3Bucket") <*> (pure (fromEnum s)))
 
+instance Hashable CreateStorageLocation
+
 instance ToHeaders CreateStorageLocation where
         toHeaders = const mempty
 
@@ -78,7 +78,7 @@ instance ToQuery CreateStorageLocation where
                  ["Action" =: ("CreateStorageLocation" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | Results of a CreateStorageLocationResult call.
+-- | Results of a < CreateStorageLocationResult> call.
 --
 -- /See:/ 'createStorageLocationResponse' smart constructor.
 data CreateStorageLocationResponse = CreateStorageLocationResponse'

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.Select
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 --
 -- For information on how to construct select expressions, see Using Select
 -- to Create Amazon SimpleDB Queries in the Developer Guide.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_Select.html AWS API Reference> for Select.
 --
 -- This operation returns paginated results.
 module Network.AWS.SDB.Select
@@ -121,6 +119,8 @@ instance AWSRequest Select where
                  SelectResponse' <$>
                    (may (parseXMLList "Item") x) <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable Select
 
 instance ToHeaders Select where
         toHeaders = const mempty

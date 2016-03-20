@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.DeleteAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,11 +25,9 @@
 -- on the same item or attribute does not result in an error response.
 --
 -- Because Amazon SimpleDB makes multiple copies of item data and uses an
--- eventual consistency update model, performing a GetAttributes or Select
--- operation (read) immediately after a 'DeleteAttributes' or PutAttributes
--- operation (write) might not return updated item data.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteAttributes.html AWS API Reference> for DeleteAttributes.
+-- eventual consistency update model, performing a < GetAttributes> or
+-- < Select> operation (read) immediately after a 'DeleteAttributes' or
+-- < PutAttributes> operation (write) might not return updated item data.
 module Network.AWS.SDB.DeleteAttributes
     (
     -- * Creating a Request
@@ -109,6 +107,8 @@ instance AWSRequest DeleteAttributes where
         type Rs DeleteAttributes = DeleteAttributesResponse
         request = postQuery sDB
         response = receiveNull DeleteAttributesResponse'
+
+instance Hashable DeleteAttributes
 
 instance ToHeaders DeleteAttributes where
         toHeaders = const mempty

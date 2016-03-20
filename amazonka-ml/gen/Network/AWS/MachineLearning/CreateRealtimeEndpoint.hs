@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateRealtimeEndpoint
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Creates a real-time endpoint for the 'MLModel'. The endpoint contains
 -- the URI of the 'MLModel'; that is, the location to send real-time
 -- prediction requests for the specified 'MLModel'.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateRealtimeEndpoint.html AWS API Reference> for CreateRealtimeEndpoint.
 module Network.AWS.MachineLearning.CreateRealtimeEndpoint
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest CreateRealtimeEndpoint where
                      (x .?> "MLModelId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateRealtimeEndpoint
+
 instance ToHeaders CreateRealtimeEndpoint where
         toHeaders
           = const
@@ -102,7 +102,7 @@ instance ToPath CreateRealtimeEndpoint where
 instance ToQuery CreateRealtimeEndpoint where
         toQuery = const mempty
 
--- | Represents the output of an CreateRealtimeEndpoint operation.
+-- | Represents the output of an < CreateRealtimeEndpoint> operation.
 --
 -- The result contains the 'MLModelId' and the endpoint information for the
 -- 'MLModel'.

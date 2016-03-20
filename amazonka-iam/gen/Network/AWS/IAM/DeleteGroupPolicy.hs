@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteGroupPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,12 +22,10 @@
 -- group.
 --
 -- A group can also have managed policies attached to it. To detach a
--- managed policy from a group, use DetachGroupPolicy. For more information
--- about policies, refer to
+-- managed policy from a group, use < DetachGroupPolicy>. For more
+-- information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroupPolicy.html AWS API Reference> for DeleteGroupPolicy.
 module Network.AWS.IAM.DeleteGroupPolicy
     (
     -- * Creating a Request
@@ -85,6 +83,8 @@ instance AWSRequest DeleteGroupPolicy where
         type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
         request = postQuery iAM
         response = receiveNull DeleteGroupPolicyResponse'
+
+instance Hashable DeleteGroupPolicy
 
 instance ToHeaders DeleteGroupPolicy where
         toHeaders = const mempty

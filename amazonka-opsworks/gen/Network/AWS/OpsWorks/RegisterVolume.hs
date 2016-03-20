@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterVolume
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,7 @@
 --
 -- Registers an Amazon EBS volume with a specified stack. A volume can be
 -- registered with only one stack at a time. If the volume is already
--- registered, you must first deregister it by calling DeregisterVolume.
+-- registered, you must first deregister it by calling < DeregisterVolume>.
 -- For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --
@@ -29,8 +29,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterVolume.html AWS API Reference> for RegisterVolume.
 module Network.AWS.OpsWorks.RegisterVolume
     (
     -- * Creating a Request
@@ -93,6 +91,8 @@ instance AWSRequest RegisterVolume where
               (\ s h x ->
                  RegisterVolumeResponse' <$>
                    (x .?> "VolumeId") <*> (pure (fromEnum s)))
+
+instance Hashable RegisterVolume
 
 instance ToHeaders RegisterVolume where
         toHeaders

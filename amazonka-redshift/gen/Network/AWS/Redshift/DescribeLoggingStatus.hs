@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeLoggingStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Describes whether information, such as queries and connection attempts,
 -- is being logged for the specified Amazon Redshift cluster.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeLoggingStatus.html AWS API Reference> for DescribeLoggingStatus.
 module Network.AWS.Redshift.DescribeLoggingStatus
     (
     -- * Creating a Request
@@ -69,7 +67,7 @@ describeLoggingStatus pClusterIdentifier_ =
     { _dlsClusterIdentifier = pClusterIdentifier_
     }
 
--- | The identifier of the cluster to get the logging status from.
+-- | The identifier of the cluster from which to get the logging status.
 --
 -- Example: 'examplecluster'
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
@@ -81,6 +79,8 @@ instance AWSRequest DescribeLoggingStatus where
         response
           = receiveXMLWrapper "DescribeLoggingStatusResult"
               (\ s h x -> parseXML x)
+
+instance Hashable DescribeLoggingStatus
 
 instance ToHeaders DescribeLoggingStatus where
         toHeaders = const mempty

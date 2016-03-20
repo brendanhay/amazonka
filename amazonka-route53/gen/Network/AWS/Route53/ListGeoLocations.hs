@@ -12,18 +12,18 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListGeoLocations
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve a list of supported geo locations, send a 'GET' request to
--- the '2013-04-01\/geolocations' resource. The response to this request
--- includes a 'GeoLocationDetailsList' element with zero, one, or multiple
--- 'GeoLocationDetails' child elements. The list is sorted by country code,
--- and then subdivision code, followed by continents at the end of the
--- list.
+-- the '\/Route 53 API version\/geolocations' resource. The response to
+-- this request includes a 'GeoLocationDetailsList' element with zero, one,
+-- or multiple 'GeoLocationDetails' child elements. The list is sorted by
+-- country code, and then subdivision code, followed by continents at the
+-- end of the list.
 --
 -- By default, the list of geo locations is displayed on a single page. You
 -- can control the length of the page that is displayed by using the
@@ -33,8 +33,6 @@
 -- populated. You can pass these as parameters to
 -- 'StartContinentCode, StartCountryCode, StartSubdivisionCode' to control
 -- the geo location that the list begins with.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html AWS API Reference> for ListGeoLocations.
 module Network.AWS.Route53.ListGeoLocations
     (
     -- * Creating a Request
@@ -66,7 +64,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | The input for a ListGeoLocations request.
+-- | The input for a 'ListGeoLocations' request.
 --
 -- /See:/ 'listGeoLocations' smart constructor.
 data ListGeoLocations = ListGeoLocations'
@@ -101,7 +99,7 @@ listGeoLocations =
 -- locations that you want the 'ListGeoLocations' request to list.
 --
 -- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns
--- an InvalidInput error.
+-- an < InvalidInput> error.
 lglStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartSubdivisionCode = lens _lglStartSubdivisionCode (\ s a -> s{_lglStartSubdivisionCode = a});
 
@@ -124,7 +122,7 @@ lglStartCountryCode = lens _lglStartCountryCode (\ s a -> s{_lglStartCountryCode
 -- Valid values: 'AF' | 'AN' | 'AS' | 'EU' | 'OC' | 'NA' | 'SA'
 --
 -- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or
--- 'SubdivisionCode' returns an InvalidInput error.
+-- 'SubdivisionCode' returns an < InvalidInput> error.
 lglStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartContinentCode = lens _lglStartContinentCode (\ s a -> s{_lglStartContinentCode = a});
 
@@ -144,6 +142,8 @@ instance AWSRequest ListGeoLocations where
                         parseXMLList "GeoLocationDetails")
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
+
+instance Hashable ListGeoLocations
 
 instance ToHeaders ListGeoLocations where
         toHeaders = const mempty
@@ -208,22 +208,22 @@ listGeoLocationsResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
 
 -- | If the results were truncated, the continent code of the next geo
 -- location in the list. This element is present only if
--- ListGeoLocationsResponse$IsTruncated is true and the next geo location
--- to list is a continent location.
+-- < ListGeoLocationsResponse$IsTruncated> is true and the next geo
+-- location to list is a continent location.
 lglrsNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextContinentCode = lens _lglrsNextContinentCode (\ s a -> s{_lglrsNextContinentCode = a});
 
 -- | If the results were truncated, the country code of the next geo location
 -- in the list. This element is present only if
--- ListGeoLocationsResponse$IsTruncated is true and the next geo location
--- to list is not a continent location.
+-- < ListGeoLocationsResponse$IsTruncated> is true and the next geo
+-- location to list is not a continent location.
 lglrsNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextCountryCode = lens _lglrsNextCountryCode (\ s a -> s{_lglrsNextCountryCode = a});
 
 -- | If the results were truncated, the subdivision code of the next geo
 -- location in the list. This element is present only if
--- ListGeoLocationsResponse$IsTruncated is true and the next geo location
--- has a subdivision.
+-- < ListGeoLocationsResponse$IsTruncated> is true and the next geo
+-- location has a subdivision.
 lglrsNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextSubdivisionCode = lens _lglrsNextSubdivisionCode (\ s a -> s{_lglrsNextSubdivisionCode = a});
 
@@ -239,9 +239,9 @@ lglrsGeoLocationDetailsList = lens _lglrsGeoLocationDetailsList (\ s a -> s{_lgl
 -- | A flag that indicates whether there are more geo locations to be listed.
 -- If your results were truncated, you can make a follow-up request for the
 -- next page of results by using the values included in the
--- ListGeoLocationsResponse$NextContinentCode,
--- ListGeoLocationsResponse$NextCountryCode and
--- ListGeoLocationsResponse$NextSubdivisionCode elements.
+-- < ListGeoLocationsResponse$NextContinentCode>,
+-- < ListGeoLocationsResponse$NextCountryCode> and
+-- < ListGeoLocationsResponse$NextSubdivisionCode> elements.
 --
 -- Valid Values: 'true' | 'false'
 lglrsIsTruncated :: Lens' ListGeoLocationsResponse Bool

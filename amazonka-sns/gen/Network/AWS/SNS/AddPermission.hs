@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.AddPermission
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Adds a statement to a topic\'s access control policy, granting access
 -- for the specified AWS accounts to the specified actions.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_AddPermission.html AWS API Reference> for AddPermission.
 module Network.AWS.SNS.AddPermission
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest AddPermission where
         type Rs AddPermission = AddPermissionResponse
         request = postQuery sNS
         response = receiveNull AddPermissionResponse'
+
+instance Hashable AddPermission
 
 instance ToHeaders AddPermission where
         toHeaders = const mempty

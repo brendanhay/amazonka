@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- need for you to operate your own cluster management and configuration
 -- management systems or worry about scaling your management
 -- infrastructure.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.ECS
     (
     -- * Service Configuration
@@ -281,6 +279,7 @@ module Network.AWS.ECS
     , csServiceARN
     , csTaskDefinition
     , csRoleARN
+    , csDeploymentConfiguration
 
     -- ** Deployment
     , Deployment
@@ -293,6 +292,12 @@ module Network.AWS.ECS
     , dId
     , dUpdatedAt
     , dTaskDefinition
+
+    -- ** DeploymentConfiguration
+    , DeploymentConfiguration
+    , deploymentConfiguration
+    , dcMinimumHealthyPercent
+    , dcMaximumPercent
 
     -- ** Failure
     , Failure

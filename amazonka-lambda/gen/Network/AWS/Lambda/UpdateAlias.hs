@@ -12,19 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.UpdateAlias
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Using this API you can update function version to which the alias points
--- to and alias description. For more information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html Introduction to AWS Lambda Aliases>
+-- Using this API you can update the function version to which the alias
+-- points and the alias description. For more information, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
 --
 -- This requires permission for the lambda:UpdateAlias action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateAlias.html AWS API Reference> for UpdateAlias.
 module Network.AWS.Lambda.UpdateAlias
     (
     -- * Creating a Request
@@ -84,13 +82,12 @@ updateAlias pFunctionName_ pName_ =
     , _uaName = pName_
     }
 
--- | Using this parameter you can optionally change the Lambda function
--- version to which the alias to points to.
+-- | Using this parameter you can change the Lambda function version to which
+-- the alias points.
 uaFunctionVersion :: Lens' UpdateAlias (Maybe Text)
 uaFunctionVersion = lens _uaFunctionVersion (\ s a -> s{_uaFunctionVersion = a});
 
--- | You can optionally change the description of the alias using this
--- parameter.
+-- | You can change the description of the alias using this parameter.
 uaDescription :: Lens' UpdateAlias (Maybe Text)
 uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
 
@@ -106,6 +103,8 @@ instance AWSRequest UpdateAlias where
         type Rs UpdateAlias = AliasConfiguration
         request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable UpdateAlias
 
 instance ToHeaders UpdateAlias where
         toHeaders = const mempty

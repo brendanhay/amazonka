@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RebootDBInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -36,8 +36,6 @@
 -- recommend that you reduce database activities as much as possible during
 -- the reboot process to reduce rollback activity for in-transit
 -- transactions.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html AWS API Reference> for RebootDBInstance.
 module Network.AWS.RDS.RebootDBInstance
     (
     -- * Creating a Request
@@ -112,6 +110,8 @@ instance AWSRequest RebootDBInstance where
               (\ s h x ->
                  RebootDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
+
+instance Hashable RebootDBInstance
 
 instance ToHeaders RebootDBInstance where
         toHeaders = const mempty

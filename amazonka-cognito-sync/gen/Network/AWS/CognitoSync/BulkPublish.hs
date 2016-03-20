@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.BulkPublish
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- This API can only be called with developer credentials. You cannot call
 -- this API with the temporary user credentials provided by Cognito
 -- Identity.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_BulkPublish.html AWS API Reference> for BulkPublish.
 module Network.AWS.CognitoSync.BulkPublish
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest BulkPublish where
               (\ s h x ->
                  BulkPublishResponse' <$>
                    (x .?> "IdentityPoolId") <*> (pure (fromEnum s)))
+
+instance Hashable BulkPublish
 
 instance ToHeaders BulkPublish where
         toHeaders

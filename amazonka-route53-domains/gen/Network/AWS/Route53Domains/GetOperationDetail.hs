@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.GetOperationDetail
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- This operation returns the current status of an operation that is not
 -- completed.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetOperationDetail.html AWS API Reference> for GetOperationDetail.
 module Network.AWS.Route53Domains.GetOperationDetail
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest GetOperationDetail where
                      <*> (x .?> "Type")
                      <*> (x .?> "Message")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetOperationDetail
 
 instance ToHeaders GetOperationDetail where
         toHeaders

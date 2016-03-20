@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceRouteTableAssociation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- the main route table in the VPC. You just specify the main route
 -- table\'s association ID and the route table to be the new main route
 -- table.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRouteTableAssociation.html AWS API Reference> for ReplaceRouteTableAssociation.
 module Network.AWS.EC2.ReplaceRouteTableAssociation
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest ReplaceRouteTableAssociation
               (\ s h x ->
                  ReplaceRouteTableAssociationResponse' <$>
                    (x .@? "newAssociationId") <*> (pure (fromEnum s)))
+
+instance Hashable ReplaceRouteTableAssociation
 
 instance ToHeaders ReplaceRouteTableAssociation where
         toHeaders = const mempty

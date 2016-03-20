@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -65,7 +65,7 @@ aiApplicationId = lens _aiApplicationId (\ s a -> s{_aiApplicationId = a});
 aiApplicationName :: Lens' ApplicationInfo (Maybe Text)
 aiApplicationName = lens _aiApplicationName (\ s a -> s{_aiApplicationName = a});
 
--- | The time that the application was created.
+-- | The time at which the application was created.
 aiCreateTime :: Lens' ApplicationInfo (Maybe UTCTime)
 aiCreateTime = lens _aiCreateTime (\ s a -> s{_aiCreateTime = a}) . mapping _Time;
 
@@ -77,6 +77,8 @@ instance FromJSON ApplicationInfo where
                    (x .:? "linkedToGitHub") <*> (x .:? "applicationId")
                      <*> (x .:? "applicationName")
                      <*> (x .:? "createTime"))
+
+instance Hashable ApplicationInfo
 
 -- | Information about an Auto Scaling group.
 --
@@ -116,6 +118,8 @@ instance FromJSON AutoScalingGroup where
                  AutoScalingGroup' <$>
                    (x .:? "hook") <*> (x .:? "name"))
 
+instance Hashable AutoScalingGroup
+
 -- | Information about a deployment configuration.
 --
 -- /See:/ 'deploymentConfigInfo' smart constructor.
@@ -151,7 +155,7 @@ deploymentConfigInfo =
 dciDeploymentConfigName :: Lens' DeploymentConfigInfo (Maybe Text)
 dciDeploymentConfigName = lens _dciDeploymentConfigName (\ s a -> s{_dciDeploymentConfigName = a});
 
--- | Information about the number or percentage of minimum healthy instances.
+-- | Information about the number or percentage of minimum healthy instance.
 dciMinimumHealthyHosts :: Lens' DeploymentConfigInfo (Maybe MinimumHealthyHosts)
 dciMinimumHealthyHosts = lens _dciMinimumHealthyHosts (\ s a -> s{_dciMinimumHealthyHosts = a});
 
@@ -159,7 +163,7 @@ dciMinimumHealthyHosts = lens _dciMinimumHealthyHosts (\ s a -> s{_dciMinimumHea
 dciDeploymentConfigId :: Lens' DeploymentConfigInfo (Maybe Text)
 dciDeploymentConfigId = lens _dciDeploymentConfigId (\ s a -> s{_dciDeploymentConfigId = a});
 
--- | The time that the deployment configuration was created.
+-- | The time at which the deployment configuration was created.
 dciCreateTime :: Lens' DeploymentConfigInfo (Maybe UTCTime)
 dciCreateTime = lens _dciCreateTime (\ s a -> s{_dciCreateTime = a}) . mapping _Time;
 
@@ -173,6 +177,8 @@ instance FromJSON DeploymentConfigInfo where
                      <*> (x .:? "deploymentConfigId")
                      <*> (x .:? "createTime"))
 
+instance Hashable DeploymentConfigInfo
+
 -- | Information about a deployment group.
 --
 -- /See:/ 'deploymentGroupInfo' smart constructor.
@@ -183,6 +189,7 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
     , _dgiEc2TagFilters                :: !(Maybe [EC2TagFilter])
     , _dgiOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
     , _dgiApplicationName              :: !(Maybe Text)
+    , _dgiTriggerConfigurations        :: !(Maybe [TriggerConfig])
     , _dgiDeploymentGroupId            :: !(Maybe Text)
     , _dgiAutoScalingGroups            :: !(Maybe [AutoScalingGroup])
     , _dgiDeploymentGroupName          :: !(Maybe Text)
@@ -204,6 +211,8 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
 --
 -- * 'dgiApplicationName'
 --
+-- * 'dgiTriggerConfigurations'
+--
 -- * 'dgiDeploymentGroupId'
 --
 -- * 'dgiAutoScalingGroups'
@@ -219,6 +228,7 @@ deploymentGroupInfo =
     , _dgiEc2TagFilters = Nothing
     , _dgiOnPremisesInstanceTagFilters = Nothing
     , _dgiApplicationName = Nothing
+    , _dgiTriggerConfigurations = Nothing
     , _dgiDeploymentGroupId = Nothing
     , _dgiAutoScalingGroups = Nothing
     , _dgiDeploymentGroupName = Nothing
@@ -232,22 +242,26 @@ dgiServiceRoleARN = lens _dgiServiceRoleARN (\ s a -> s{_dgiServiceRoleARN = a})
 dgiDeploymentConfigName :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiDeploymentConfigName = lens _dgiDeploymentConfigName (\ s a -> s{_dgiDeploymentConfigName = a});
 
--- | Information about the deployment group\'s target revision, including the
--- revision\'s type and its location.
+-- | Information about the deployment group\'s target revision, including
+-- type and location.
 dgiTargetRevision :: Lens' DeploymentGroupInfo (Maybe RevisionLocation)
 dgiTargetRevision = lens _dgiTargetRevision (\ s a -> s{_dgiTargetRevision = a});
 
--- | The Amazon EC2 tags to filter on.
+-- | The Amazon EC2 tags on which to filter.
 dgiEc2TagFilters :: Lens' DeploymentGroupInfo [EC2TagFilter]
 dgiEc2TagFilters = lens _dgiEc2TagFilters (\ s a -> s{_dgiEc2TagFilters = a}) . _Default . _Coerce;
 
--- | The on-premises instance tags to filter on.
+-- | The on-premises instance tags on which to filter.
 dgiOnPremisesInstanceTagFilters :: Lens' DeploymentGroupInfo [TagFilter]
 dgiOnPremisesInstanceTagFilters = lens _dgiOnPremisesInstanceTagFilters (\ s a -> s{_dgiOnPremisesInstanceTagFilters = a}) . _Default . _Coerce;
 
 -- | The application name.
 dgiApplicationName :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiApplicationName = lens _dgiApplicationName (\ s a -> s{_dgiApplicationName = a});
+
+-- | A list of associated triggers.
+dgiTriggerConfigurations :: Lens' DeploymentGroupInfo [TriggerConfig]
+dgiTriggerConfigurations = lens _dgiTriggerConfigurations (\ s a -> s{_dgiTriggerConfigurations = a}) . _Default . _Coerce;
 
 -- | The deployment group ID.
 dgiDeploymentGroupId :: Lens' DeploymentGroupInfo (Maybe Text)
@@ -272,9 +286,12 @@ instance FromJSON DeploymentGroupInfo where
                      <*> (x .:? "ec2TagFilters" .!= mempty)
                      <*> (x .:? "onPremisesInstanceTagFilters" .!= mempty)
                      <*> (x .:? "applicationName")
+                     <*> (x .:? "triggerConfigurations" .!= mempty)
                      <*> (x .:? "deploymentGroupId")
                      <*> (x .:? "autoScalingGroups" .!= mempty)
                      <*> (x .:? "deploymentGroupName"))
+
+instance Hashable DeploymentGroupInfo
 
 -- | Information about a deployment.
 --
@@ -347,7 +364,7 @@ deploymentInfo =
     , _diIgnoreApplicationStopFailures = Nothing
     }
 
--- | How the deployment was created:
+-- | The means by which the deployment was created:
 --
 -- -   user: A user created the deployment.
 -- -   autoscaling: Auto Scaling created the deployment.
@@ -366,17 +383,16 @@ diDeploymentId = lens _diDeploymentId (\ s a -> s{_diDeploymentId = a});
 diDeploymentConfigName :: Lens' DeploymentInfo (Maybe Text)
 diDeploymentConfigName = lens _diDeploymentConfigName (\ s a -> s{_diDeploymentConfigName = a});
 
--- | A timestamp indicating when the deployment began deploying to the
+-- | A timestamp indicating when the deployment was deployed to the
 -- deployment group.
 --
--- Note that in some cases, the reported value of the start time may be
--- later than the complete time. This is due to differences in the clock
--- settings of various back-end servers that participate in the overall
--- deployment process.
+-- In some cases, the reported value of the start time may be later than
+-- the complete time. This is due to differences in the clock settings of
+-- back-end servers that participate in the deployment process.
 diStartTime :: Lens' DeploymentInfo (Maybe UTCTime)
 diStartTime = lens _diStartTime (\ s a -> s{_diStartTime = a}) . mapping _Time;
 
--- | A timestamp indicating when the deployment was completed.
+-- | A timestamp indicating when the deployment was complete.
 diCompleteTime :: Lens' DeploymentInfo (Maybe UTCTime)
 diCompleteTime = lens _diCompleteTime (\ s a -> s{_diCompleteTime = a}) . mapping _Time;
 
@@ -392,8 +408,8 @@ diDeploymentOverview = lens _diDeploymentOverview (\ s a -> s{_diDeploymentOverv
 diApplicationName :: Lens' DeploymentInfo (Maybe Text)
 diApplicationName = lens _diApplicationName (\ s a -> s{_diApplicationName = a});
 
--- | Information about the location of application artifacts that are stored
--- and the service to retrieve them from.
+-- | Information about the location of stored application artifacts and the
+-- service from which to retrieve them.
 diRevision :: Lens' DeploymentInfo (Maybe RevisionLocation)
 diRevision = lens _diRevision (\ s a -> s{_diRevision = a});
 
@@ -410,14 +426,14 @@ diDeploymentGroupName :: Lens' DeploymentInfo (Maybe Text)
 diDeploymentGroupName = lens _diDeploymentGroupName (\ s a -> s{_diDeploymentGroupName = a});
 
 -- | If true, then if the deployment causes the ApplicationStop deployment
--- lifecycle event to fail to a specific instance, the deployment will not
--- be considered to have failed to that instance at that point and will
--- continue on to the BeforeInstall deployment lifecycle event.
+-- lifecycle event to an instance to fail, the deployment to that instance
+-- will not be considered to have failed at that point and will continue on
+-- to the BeforeInstall deployment lifecycle event.
 --
 -- If false or not specified, then if the deployment causes the
--- ApplicationStop deployment lifecycle event to fail to a specific
--- instance, the deployment will stop to that instance, and the deployment
--- to that instance will be considered to have failed.
+-- ApplicationStop deployment lifecycle event to an instance to fail, the
+-- deployment to that instance will stop, and the deployment to that
+-- instance will be considered to have failed.
 diIgnoreApplicationStopFailures :: Lens' DeploymentInfo (Maybe Bool)
 diIgnoreApplicationStopFailures = lens _diIgnoreApplicationStopFailures (\ s a -> s{_diIgnoreApplicationStopFailures = a});
 
@@ -439,6 +455,8 @@ instance FromJSON DeploymentInfo where
                      <*> (x .:? "createTime")
                      <*> (x .:? "deploymentGroupName")
                      <*> (x .:? "ignoreApplicationStopFailures"))
+
+instance Hashable DeploymentInfo
 
 -- | Information about the deployment status of the instances in the
 -- deployment.
@@ -476,23 +494,24 @@ deploymentOverview =
     , _doFailed = Nothing
     }
 
--- | The number of instances that are pending in the deployment.
+-- | The number of instances in the deployment in a pending state.
 doPending :: Lens' DeploymentOverview (Maybe Integer)
 doPending = lens _doPending (\ s a -> s{_doPending = a});
 
--- | The number of instances that have been skipped in the deployment.
+-- | The number of instances in the deployment in a skipped state.
 doSkipped :: Lens' DeploymentOverview (Maybe Integer)
 doSkipped = lens _doSkipped (\ s a -> s{_doSkipped = a});
 
--- | The number of instances that are in progress in the deployment.
+-- | The number of instances in which the deployment is in progress.
 doInProgress :: Lens' DeploymentOverview (Maybe Integer)
 doInProgress = lens _doInProgress (\ s a -> s{_doInProgress = a});
 
--- | The number of instances that have succeeded in the deployment.
+-- | The number of instances in the deployment to which revisions have been
+-- successfully deployed.
 doSucceeded :: Lens' DeploymentOverview (Maybe Integer)
 doSucceeded = lens _doSucceeded (\ s a -> s{_doSucceeded = a});
 
--- | The number of instances that have failed in the deployment.
+-- | The number of instances in the deployment in a failed state.
 doFailed :: Lens' DeploymentOverview (Maybe Integer)
 doFailed = lens _doFailed (\ s a -> s{_doFailed = a});
 
@@ -505,6 +524,8 @@ instance FromJSON DeploymentOverview where
                      (x .:? "InProgress")
                      <*> (x .:? "Succeeded")
                      <*> (x .:? "Failed"))
+
+instance Hashable DeploymentOverview
 
 -- | Diagnostic information about executable scripts that are part of a
 -- deployment.
@@ -538,7 +559,10 @@ diagnostics =
     , _dMessage = Nothing
     }
 
--- | The last portion of the associated diagnostic log.
+-- | The last portion of the diagnostic log.
+--
+-- If available, AWS CodeDeploy returns up to the last 4 KB of the
+-- diagnostic log.
 dLogTail :: Lens' Diagnostics (Maybe Text)
 dLogTail = lens _dLogTail (\ s a -> s{_dLogTail = a});
 
@@ -573,6 +597,8 @@ instance FromJSON Diagnostics where
                    (x .:? "logTail") <*> (x .:? "errorCode") <*>
                      (x .:? "scriptName")
                      <*> (x .:? "message"))
+
+instance Hashable Diagnostics
 
 -- | Information about a tag filter.
 --
@@ -624,6 +650,8 @@ instance FromJSON EC2TagFilter where
                  EC2TagFilter' <$>
                    (x .:? "Value") <*> (x .:? "Key") <*> (x .:? "Type"))
 
+instance Hashable EC2TagFilter
+
 instance ToJSON EC2TagFilter where
         toJSON EC2TagFilter'{..}
           = object
@@ -656,33 +684,32 @@ errorInformation =
 
 -- | The error code:
 --
--- -   APPLICATION_MISSING: The application was missing. Note that this
---     error code will most likely be raised if the application is deleted
---     after the deployment is created but before it starts.
--- -   DEPLOYMENT_GROUP_MISSING: The deployment group was missing. Note
---     that this error code will most likely be raised if the deployment
---     group is deleted after the deployment is created but before it
---     starts.
+-- -   APPLICATION_MISSING: The application was missing. This error code
+--     will most likely be raised if the application is deleted after the
+--     deployment is created but before it is started.
+-- -   DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This
+--     error code will most likely be raised if the deployment group is
+--     deleted after the deployment is created but before it is started.
 -- -   HEALTH_CONSTRAINTS: The deployment failed on too many instances to
---     be able to successfully deploy within the specified instance health
---     constraints.
--- -   HEALTH_CONSTRAINTS_INVALID: The revision can never successfully
---     deploy within the instance health constraints as specified.
+--     be successfully deployed within the instance health constraints
+--     specified.
+-- -   HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully
+--     deployed within the instance health constraints specified.
 -- -   IAM_ROLE_MISSING: The service role cannot be accessed.
 -- -   IAM_ROLE_PERMISSIONS: The service role does not have the correct
 --     permissions.
 -- -   INTERNAL_ERROR: There was an internal error.
 -- -   NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the
 --     Amazon EC2 service.
--- -   NO_INSTANCES: No instances were specified, or no instances can be
+-- -   NO_INSTANCES: No instance were specified, or no instance can be
 --     found.
--- -   OVER_MAX_INSTANCES: The maximum number of instances was exceeded.
+-- -   OVER_MAX_INSTANCES: The maximum number of instance was exceeded.
 -- -   THROTTLED: The operation was throttled because the calling account
 --     exceeded the throttling limits of one or more AWS services.
 -- -   TIMEOUT: The deployment has timed out.
--- -   REVISION_MISSING: The revision ID was missing. Note that this error
---     code will most likely be raised if the revision is deleted after the
---     deployment is created but before it starts.
+-- -   REVISION_MISSING: The revision ID was missing. This error code will
+--     most likely be raised if the revision is deleted after the
+--     deployment is created but before it is started.
 eiCode :: Lens' ErrorInformation (Maybe DeployErrorCode)
 eiCode = lens _eiCode (\ s a -> s{_eiCode = a});
 
@@ -696,6 +723,8 @@ instance FromJSON ErrorInformation where
               (\ x ->
                  ErrorInformation' <$>
                    (x .:? "code") <*> (x .:? "message"))
+
+instance Hashable ErrorInformation
 
 -- | Information about an application revision.
 --
@@ -740,7 +769,7 @@ griRegisterTime = lens _griRegisterTime (\ s a -> s{_griRegisterTime = a}) . map
 griFirstUsedTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
 griFirstUsedTime = lens _griFirstUsedTime (\ s a -> s{_griFirstUsedTime = a}) . mapping _Time;
 
--- | A list of deployment groups that use this revision.
+-- | The deployment groups for which this is the current target revision.
 griDeploymentGroups :: Lens' GenericRevisionInfo [Text]
 griDeploymentGroups = lens _griDeploymentGroups (\ s a -> s{_griDeploymentGroups = a}) . _Default . _Coerce;
 
@@ -762,8 +791,10 @@ instance FromJSON GenericRevisionInfo where
                      <*> (x .:? "lastUsedTime")
                      <*> (x .:? "description"))
 
--- | Information about the location of application artifacts that are stored
--- in GitHub.
+instance Hashable GenericRevisionInfo
+
+-- | Information about the location of application artifacts stored in
+-- GitHub.
 --
 -- /See:/ 'gitHubLocation' smart constructor.
 data GitHubLocation = GitHubLocation'
@@ -786,8 +817,8 @@ gitHubLocation =
     , _ghlRepository = Nothing
     }
 
--- | The SHA1 commit ID of the GitHub commit that references the that
--- represents the bundled artifacts for the application revision.
+-- | The SHA1 commit ID of the GitHub commit that represents the bundled
+-- artifacts for the application revision.
 ghlCommitId :: Lens' GitHubLocation (Maybe Text)
 ghlCommitId = lens _ghlCommitId (\ s a -> s{_ghlCommitId = a});
 
@@ -805,6 +836,8 @@ instance FromJSON GitHubLocation where
               (\ x ->
                  GitHubLocation' <$>
                    (x .:? "commitId") <*> (x .:? "repository"))
+
+instance Hashable GitHubLocation
 
 instance ToJSON GitHubLocation where
         toJSON GitHubLocation'{..}
@@ -852,7 +885,7 @@ instanceInfo =
     , _iiTags = Nothing
     }
 
--- | The time that the on-premises instance was registered.
+-- | The time at which the on-premises instance was registered.
 iiRegisterTime :: Lens' InstanceInfo (Maybe UTCTime)
 iiRegisterTime = lens _iiRegisterTime (\ s a -> s{_iiRegisterTime = a}) . mapping _Time;
 
@@ -860,7 +893,7 @@ iiRegisterTime = lens _iiRegisterTime (\ s a -> s{_iiRegisterTime = a}) . mappin
 iiInstanceARN :: Lens' InstanceInfo (Maybe Text)
 iiInstanceARN = lens _iiInstanceARN (\ s a -> s{_iiInstanceARN = a});
 
--- | If the on-premises instance was deregistered, the time that the
+-- | If the on-premises instance was deregistered, the time at which the
 -- on-premises instance was deregistered.
 iiDeregisterTime :: Lens' InstanceInfo (Maybe UTCTime)
 iiDeregisterTime = lens _iiDeregisterTime (\ s a -> s{_iiDeregisterTime = a}) . mapping _Time;
@@ -873,7 +906,7 @@ iiIamUserARN = lens _iiIamUserARN (\ s a -> s{_iiIamUserARN = a});
 iiInstanceName :: Lens' InstanceInfo (Maybe Text)
 iiInstanceName = lens _iiInstanceName (\ s a -> s{_iiInstanceName = a});
 
--- | The tags that are currently associated with the on-premises instance.
+-- | The tags currently associated with the on-premises instance.
 iiTags :: Lens' InstanceInfo [Tag]
 iiTags = lens _iiTags (\ s a -> s{_iiTags = a}) . _Default . _Coerce;
 
@@ -887,6 +920,8 @@ instance FromJSON InstanceInfo where
                      <*> (x .:? "iamUserArn")
                      <*> (x .:? "instanceName")
                      <*> (x .:? "tags" .!= mempty))
+
+instance Hashable InstanceInfo
 
 -- | Information about an instance in a deployment.
 --
@@ -960,6 +995,8 @@ instance FromJSON InstanceSummary where
                      <*> (x .:? "lastUpdatedAt")
                      <*> (x .:? "lifecycleEvents" .!= mempty))
 
+instance Hashable InstanceSummary
+
 -- | Information about a deployment lifecycle event.
 --
 -- /See:/ 'lifecycleEvent' smart constructor.
@@ -999,7 +1036,7 @@ lifecycleEvent =
 --
 -- -   Pending: The deployment lifecycle event is pending.
 -- -   InProgress: The deployment lifecycle event is in progress.
--- -   Succeeded: The deployment lifecycle event has succeeded.
+-- -   Succeeded: The deployment lifecycle event ran successfully.
 -- -   Failed: The deployment lifecycle event has failed.
 -- -   Skipped: The deployment lifecycle event has been skipped.
 -- -   Unknown: The deployment lifecycle event is unknown.
@@ -1033,7 +1070,9 @@ instance FromJSON LifecycleEvent where
                      <*> (x .:? "diagnostics")
                      <*> (x .:? "endTime"))
 
--- | Information about minimum healthy instances.
+instance Hashable LifecycleEvent
+
+-- | Information about minimum healthy instance.
 --
 -- /See:/ 'minimumHealthyHosts' smart constructor.
 data MinimumHealthyHosts = MinimumHealthyHosts'
@@ -1056,29 +1095,35 @@ minimumHealthyHosts =
     , _mhhType = Nothing
     }
 
--- | The minimum healthy instances value.
+-- | The minimum healthy instance value.
 mhhValue :: Lens' MinimumHealthyHosts (Maybe Int)
 mhhValue = lens _mhhValue (\ s a -> s{_mhhValue = a});
 
--- | The minimum healthy instances type:
+-- | The minimum healthy instance type:
 --
--- -   HOST_COUNT: The minimum number of healthy instances, as an absolute
+-- -   HOST_COUNT: The minimum number of healthy instance as an absolute
 --     value.
--- -   FLEET_PERCENT: The minimum number of healthy instances, as a
---     percentage of the total number of instances in the deployment.
+-- -   FLEET_PERCENT: The minimum number of healthy instance as a
+--     percentage of the total number of instance in the deployment.
 --
--- For example, for 9 instances, if a HOST_COUNT of 6 is specified, deploy
--- to up to 3 instances at a time. The deployment succeeds if 6 or more
--- instances are successfully deployed to; otherwise, the deployment fails.
--- If a FLEET_PERCENT of 40 is specified, deploy to up to 5 instances at a
--- time. The deployment succeeds if 4 or more instances are successfully
--- deployed to; otherwise, the deployment fails.
+-- In an example of nine instance, if a HOST_COUNT of six is specified,
+-- deploy to up to three instances at a time. The deployment will be
+-- successful if six or more instances are deployed to successfully;
+-- otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified,
+-- deploy to up to five instance at a time. The deployment will be
+-- successful if four or more instance are deployed to successfully;
+-- otherwise, the deployment fails.
 --
 -- In a call to the get deployment configuration operation,
--- CodeDeployDefault.OneAtATime will return a minimum healthy instances
--- type of MOST_CONCURRENCY and a value of 1. This means a deployment to
--- only one instances at a time. (You cannot set the type to
--- MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.)
+-- CodeDeployDefault.OneAtATime will return a minimum healthy instance type
+-- of MOST_CONCURRENCY and a value of 1. This means a deployment to only
+-- one instance at a time. (You cannot set the type to MOST_CONCURRENCY,
+-- only to HOST_COUNT or FLEET_PERCENT.) In addition, with
+-- CodeDeployDefault.OneAtATime, AWS CodeDeploy will try to ensure that all
+-- instances but one are kept in a healthy state during the deployment.
+-- Although this allows one instance at a time to be taken offline for a
+-- new deployment, it also means that if the deployment to the last
+-- instance fails, the overall deployment still succeeds.
 mhhType :: Lens' MinimumHealthyHosts (Maybe MinimumHealthyHostsType)
 mhhType = lens _mhhType (\ s a -> s{_mhhType = a});
 
@@ -1089,6 +1134,8 @@ instance FromJSON MinimumHealthyHosts where
                  MinimumHealthyHosts' <$>
                    (x .:? "value") <*> (x .:? "type"))
 
+instance Hashable MinimumHealthyHosts
+
 instance ToJSON MinimumHealthyHosts where
         toJSON MinimumHealthyHosts'{..}
           = object
@@ -1096,7 +1143,48 @@ instance ToJSON MinimumHealthyHosts where
                  [("value" .=) <$> _mhhValue,
                   ("type" .=) <$> _mhhType])
 
--- | Information about an application revision\'s location.
+-- | Information about an application revision.
+--
+-- /See:/ 'revisionInfo' smart constructor.
+data RevisionInfo = RevisionInfo'
+    { _riGenericRevisionInfo :: !(Maybe GenericRevisionInfo)
+    , _riRevisionLocation    :: !(Maybe RevisionLocation)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RevisionInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'riGenericRevisionInfo'
+--
+-- * 'riRevisionLocation'
+revisionInfo
+    :: RevisionInfo
+revisionInfo =
+    RevisionInfo'
+    { _riGenericRevisionInfo = Nothing
+    , _riRevisionLocation = Nothing
+    }
+
+-- | Undocumented member.
+riGenericRevisionInfo :: Lens' RevisionInfo (Maybe GenericRevisionInfo)
+riGenericRevisionInfo = lens _riGenericRevisionInfo (\ s a -> s{_riGenericRevisionInfo = a});
+
+-- | Undocumented member.
+riRevisionLocation :: Lens' RevisionInfo (Maybe RevisionLocation)
+riRevisionLocation = lens _riRevisionLocation (\ s a -> s{_riRevisionLocation = a});
+
+instance FromJSON RevisionInfo where
+        parseJSON
+          = withObject "RevisionInfo"
+              (\ x ->
+                 RevisionInfo' <$>
+                   (x .:? "genericRevisionInfo") <*>
+                     (x .:? "revisionLocation"))
+
+instance Hashable RevisionInfo
+
+-- | Information about the location of an application revision.
 --
 -- /See:/ 'revisionLocation' smart constructor.
 data RevisionLocation = RevisionLocation'
@@ -1123,7 +1211,7 @@ revisionLocation =
     , _rlGitHubLocation = Nothing
     }
 
--- | The application revision\'s type:
+-- | The type of application revision:
 --
 -- -   S3: An application revision stored in Amazon S3.
 -- -   GitHub: An application revision stored in GitHub.
@@ -1146,6 +1234,8 @@ instance FromJSON RevisionLocation where
                    (x .:? "revisionType") <*> (x .:? "s3Location") <*>
                      (x .:? "gitHubLocation"))
 
+instance Hashable RevisionLocation
+
 instance ToJSON RevisionLocation where
         toJSON RevisionLocation'{..}
           = object
@@ -1154,8 +1244,8 @@ instance ToJSON RevisionLocation where
                   ("s3Location" .=) <$> _rlS3Location,
                   ("gitHubLocation" .=) <$> _rlGitHubLocation])
 
--- | Information about the location of application artifacts that are stored
--- in Amazon S3.
+-- | Information about the location of application artifacts stored in Amazon
+-- S3.
 --
 -- /See:/ 's3Location' smart constructor.
 data S3Location = S3Location'
@@ -1234,6 +1324,8 @@ instance FromJSON S3Location where
                      <*> (x .:? "key")
                      <*> (x .:? "version"))
 
+instance Hashable S3Location
+
 instance ToJSON S3Location where
         toJSON S3Location'{..}
           = object
@@ -1278,6 +1370,8 @@ instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
+
+instance Hashable Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -1335,6 +1429,8 @@ instance FromJSON TagFilter where
                  TagFilter' <$>
                    (x .:? "Value") <*> (x .:? "Key") <*> (x .:? "Type"))
 
+instance Hashable TagFilter
+
 instance ToJSON TagFilter where
         toJSON TagFilter'{..}
           = object
@@ -1365,20 +1461,91 @@ timeRange =
     , _trEnd = Nothing
     }
 
--- | The time range\'s start time.
+-- | The start time of the time range.
 --
--- Specify null to leave the time range\'s start time open-ended.
+-- Specify null to leave the start time open-ended.
 trStart :: Lens' TimeRange (Maybe UTCTime)
 trStart = lens _trStart (\ s a -> s{_trStart = a}) . mapping _Time;
 
--- | The time range\'s end time.
+-- | The end time of the time range.
 --
--- Specify null to leave the time range\'s end time open-ended.
+-- Specify null to leave the end time open-ended.
 trEnd :: Lens' TimeRange (Maybe UTCTime)
 trEnd = lens _trEnd (\ s a -> s{_trEnd = a}) . mapping _Time;
+
+instance Hashable TimeRange
 
 instance ToJSON TimeRange where
         toJSON TimeRange'{..}
           = object
               (catMaybes
                  [("start" .=) <$> _trStart, ("end" .=) <$> _trEnd])
+
+-- | Information about notification triggers for the deployment group.
+--
+-- /See:/ 'triggerConfig' smart constructor.
+data TriggerConfig = TriggerConfig'
+    { _tcTriggerName      :: !(Maybe Text)
+    , _tcTriggerEvents    :: !(Maybe [TriggerEventType])
+    , _tcTriggerTargetARN :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TriggerConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tcTriggerName'
+--
+-- * 'tcTriggerEvents'
+--
+-- * 'tcTriggerTargetARN'
+triggerConfig
+    :: TriggerConfig
+triggerConfig =
+    TriggerConfig'
+    { _tcTriggerName = Nothing
+    , _tcTriggerEvents = Nothing
+    , _tcTriggerTargetARN = Nothing
+    }
+
+-- | The name of the notification trigger.
+tcTriggerName :: Lens' TriggerConfig (Maybe Text)
+tcTriggerName = lens _tcTriggerName (\ s a -> s{_tcTriggerName = a});
+
+-- | The event type or types for which notifications are triggered.
+--
+-- The following event type values are supported:
+--
+-- -   DEPLOYMENT_START
+-- -   DEPLOYMENT_SUCCESS
+-- -   DEPLOYMENT_FAILURE
+-- -   DEPLOYMENT_STOP
+-- -   INSTANCE_START
+-- -   INSTANCE_SUCCESS
+-- -   INSTANCE_FAILURE
+tcTriggerEvents :: Lens' TriggerConfig [TriggerEventType]
+tcTriggerEvents = lens _tcTriggerEvents (\ s a -> s{_tcTriggerEvents = a}) . _Default . _Coerce;
+
+-- | The ARN of the Amazon Simple Notification Service topic through which
+-- notifications about deployment or instance events are sent.
+tcTriggerTargetARN :: Lens' TriggerConfig (Maybe Text)
+tcTriggerTargetARN = lens _tcTriggerTargetARN (\ s a -> s{_tcTriggerTargetARN = a});
+
+instance FromJSON TriggerConfig where
+        parseJSON
+          = withObject "TriggerConfig"
+              (\ x ->
+                 TriggerConfig' <$>
+                   (x .:? "triggerName") <*>
+                     (x .:? "triggerEvents" .!= mempty)
+                     <*> (x .:? "triggerTargetArn"))
+
+instance Hashable TriggerConfig
+
+instance ToJSON TriggerConfig where
+        toJSON TriggerConfig'{..}
+          = object
+              (catMaybes
+                 [("triggerName" .=) <$> _tcTriggerName,
+                  ("triggerEvents" .=) <$> _tcTriggerEvents,
+                  ("triggerTargetArn" .=) <$> _tcTriggerTargetARN])

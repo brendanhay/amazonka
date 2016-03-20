@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.CreateJob
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- one output for the Kindle Fire and another output for the Apple iPhone
 -- 4s), you currently must use the Elastic Transcoder API to list the jobs
 -- (as opposed to the AWS Console).
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreateJob.html AWS API Reference> for CreateJob.
 module Network.AWS.ElasticTranscoder.CreateJob
     (
     -- * Creating a Request
@@ -155,6 +153,8 @@ instance AWSRequest CreateJob where
               (\ s h x ->
                  CreateJobResponse' <$>
                    (x .?> "Job") <*> (pure (fromEnum s)))
+
+instance Hashable CreateJob
 
 instance ToHeaders CreateJob where
         toHeaders = const mempty

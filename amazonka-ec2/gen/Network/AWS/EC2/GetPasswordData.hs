@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.GetPasswordData
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,6 @@
 -- Password generation and encryption takes a few moments. We recommend
 -- that you wait up to 15 minutes after launching an instance before trying
 -- to retrieve the generated password.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetPasswordData.html AWS API Reference> for GetPasswordData.
 module Network.AWS.EC2.GetPasswordData
     (
     -- * Creating a Request
@@ -104,6 +102,8 @@ instance AWSRequest GetPasswordData where
                    (pure (fromEnum s)) <*> (x .@ "instanceId") <*>
                      (x .@ "passwordData")
                      <*> (x .@ "timestamp"))
+
+instance Hashable GetPasswordData
 
 instance ToHeaders GetPasswordData where
         toHeaders = const mempty

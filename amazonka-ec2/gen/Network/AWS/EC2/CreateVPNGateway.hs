@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPNGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- For more information about virtual private gateways, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPNGateway.html AWS API Reference> for CreateVPNGateway.
 module Network.AWS.EC2.CreateVPNGateway
     (
     -- * Creating a Request
@@ -101,6 +99,8 @@ instance AWSRequest CreateVPNGateway where
               (\ s h x ->
                  CreateVPNGatewayResponse' <$>
                    (x .@? "vpnGateway") <*> (pure (fromEnum s)))
+
+instance Hashable CreateVPNGateway
 
 instance ToHeaders CreateVPNGateway where
         toHeaders = const mempty

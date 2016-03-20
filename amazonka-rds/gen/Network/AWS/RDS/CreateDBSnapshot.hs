@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Creates a DBSnapshot. The source DBInstance must be in \"available\"
 -- state.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSnapshot.html AWS API Reference> for CreateDBSnapshot.
 module Network.AWS.RDS.CreateDBSnapshot
     (
     -- * Creating a Request
@@ -112,6 +110,8 @@ instance AWSRequest CreateDBSnapshot where
               (\ s h x ->
                  CreateDBSnapshotResponse' <$>
                    (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
+
+instance Hashable CreateDBSnapshot
 
 instance ToHeaders CreateDBSnapshot where
         toHeaders = const mempty

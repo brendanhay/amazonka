@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.SignalResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- number of signals or the timeout period is exceeded. The SignalResource
 -- API is useful in cases where you want to send signals from anywhere
 -- other than an Amazon EC2 instance.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SignalResource.html AWS API Reference> for SignalResource.
 module Network.AWS.CloudFormation.SignalResource
     (
     -- * Creating a Request
@@ -50,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the SignalResource action.
+-- | The input for the < SignalResource> action.
 --
 -- /See:/ 'signalResource' smart constructor.
 data SignalResource = SignalResource'
@@ -112,6 +110,8 @@ instance AWSRequest SignalResource where
         type Rs SignalResource = SignalResourceResponse
         request = postQuery cloudFormation
         response = receiveNull SignalResourceResponse'
+
+instance Hashable SignalResource
 
 instance ToHeaders SignalResource where
         toHeaders = const mempty

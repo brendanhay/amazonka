@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CreateSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- The /CreateSnapshot/ action creates a copy of an entire cache cluster at
 -- a specific moment in time.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html AWS API Reference> for CreateSnapshot.
 module Network.AWS.ElastiCache.CreateSnapshot
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest CreateSnapshot where
               (\ s h x ->
                  CreateSnapshotResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
+
+instance Hashable CreateSnapshot
 
 instance ToHeaders CreateSnapshot where
         toHeaders = const mempty

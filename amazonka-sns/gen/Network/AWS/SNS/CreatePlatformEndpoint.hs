@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.CreatePlatformEndpoint
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -34,8 +34,6 @@
 -- provided: ChannelId and UserId. The token field must also contain the
 -- ChannelId. For more information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html Creating an Amazon SNS Endpoint for Baidu>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformEndpoint.html AWS API Reference> for CreatePlatformEndpoint.
 module Network.AWS.SNS.CreatePlatformEndpoint
     (
     -- * Creating a Request
@@ -128,6 +126,8 @@ instance AWSRequest CreatePlatformEndpoint where
               (\ s h x ->
                  CreatePlatformEndpointResponse' <$>
                    (x .@? "EndpointArn") <*> (pure (fromEnum s)))
+
+instance Hashable CreatePlatformEndpoint
 
 instance ToHeaders CreatePlatformEndpoint where
         toHeaders = const mempty

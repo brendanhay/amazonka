@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.Subscribe
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- message. To actually create a subscription, the endpoint owner must call
 -- the 'ConfirmSubscription' action with the token from the confirmation
 -- message. Confirmation tokens are valid for three days.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html AWS API Reference> for Subscribe.
 module Network.AWS.SNS.Subscribe
     (
     -- * Creating a Request
@@ -121,6 +119,8 @@ instance AWSRequest Subscribe where
               (\ s h x ->
                  SubscribeResponse' <$>
                    (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
+
+instance Hashable Subscribe
 
 instance ToHeaders Subscribe where
         toHeaders = const mempty

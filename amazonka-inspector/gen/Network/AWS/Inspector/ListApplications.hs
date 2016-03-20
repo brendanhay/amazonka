@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListApplications
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Lists the ARNs of the applications within this AWS account. For more
 -- information about applications, see
 -- <https://docs.aws.amazon.com/inspector/latest/userguide//inspector_applications.html Inspector Applications>.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListApplications.html AWS API Reference> for ListApplications.
 module Network.AWS.Inspector.ListApplications
     (
     -- * Creating a Request
@@ -106,6 +104,8 @@ instance AWSRequest ListApplications where
                    (x .?> "applicationArnList" .!@ mempty) <*>
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListApplications
 
 instance ToHeaders ListApplications where
         toHeaders

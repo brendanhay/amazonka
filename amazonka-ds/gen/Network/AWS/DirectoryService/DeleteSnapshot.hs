@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DeleteSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a directory snapshot.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteSnapshot.html AWS API Reference> for DeleteSnapshot.
 module Network.AWS.DirectoryService.DeleteSnapshot
     (
     -- * Creating a Request
@@ -44,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DeleteSnapshot operation.
+-- | Contains the inputs for the < DeleteSnapshot> operation.
 --
 -- /See:/ 'deleteSnapshot' smart constructor.
 newtype DeleteSnapshot = DeleteSnapshot'
@@ -77,6 +75,8 @@ instance AWSRequest DeleteSnapshot where
                  DeleteSnapshotResponse' <$>
                    (x .?> "SnapshotId") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteSnapshot
+
 instance ToHeaders DeleteSnapshot where
         toHeaders
           = const
@@ -98,7 +98,7 @@ instance ToPath DeleteSnapshot where
 instance ToQuery DeleteSnapshot where
         toQuery = const mempty
 
--- | Contains the results of the DeleteSnapshot operation.
+-- | Contains the results of the < DeleteSnapshot> operation.
 --
 -- /See:/ 'deleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.UpdateTable
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,6 @@
 -- 'UPDATING', you cannot issue another /UpdateTable/ request. When the
 -- table returns to the 'ACTIVE' state, the /UpdateTable/ operation is
 -- complete.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html AWS API Reference> for UpdateTable.
 module Network.AWS.DynamoDB.UpdateTable
     (
     -- * Creating a Request
@@ -149,6 +147,8 @@ instance AWSRequest UpdateTable where
               (\ s h x ->
                  UpdateTableResponse' <$>
                    (x .?> "TableDescription") <*> (pure (fromEnum s)))
+
+instance Hashable UpdateTable
 
 instance ToHeaders UpdateTable where
         toHeaders

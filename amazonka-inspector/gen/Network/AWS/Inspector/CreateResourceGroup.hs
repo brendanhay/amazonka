@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.CreateResourceGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- pairs) that are used to select the EC2 instances to be included in an
 -- Inspector application. The created resource group is then used to create
 -- an Inspector application.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_CreateResourceGroup.html AWS API Reference> for CreateResourceGroup.
 module Network.AWS.Inspector.CreateResourceGroup
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest CreateResourceGroup where
               (\ s h x ->
                  CreateResourceGroupResponse' <$>
                    (x .?> "resourceGroupArn") <*> (pure (fromEnum s)))
+
+instance Hashable CreateResourceGroup
 
 instance ToHeaders CreateResourceGroup where
         toHeaders

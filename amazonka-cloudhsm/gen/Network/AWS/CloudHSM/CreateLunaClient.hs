@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.CreateLunaClient
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an HSM client.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateLunaClient.html AWS API Reference> for CreateLunaClient.
 module Network.AWS.CloudHSM.CreateLunaClient
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the CreateLunaClient action.
+-- | Contains the inputs for the < CreateLunaClient> action.
 --
 -- /See:/ 'createLunaClient' smart constructor.
 data CreateLunaClient = CreateLunaClient'
@@ -87,6 +85,8 @@ instance AWSRequest CreateLunaClient where
                  CreateLunaClientResponse' <$>
                    (x .?> "ClientArn") <*> (pure (fromEnum s)))
 
+instance Hashable CreateLunaClient
+
 instance ToHeaders CreateLunaClient where
         toHeaders
           = const
@@ -110,7 +110,7 @@ instance ToPath CreateLunaClient where
 instance ToQuery CreateLunaClient where
         toQuery = const mempty
 
--- | Contains the output of the CreateLunaClient action.
+-- | Contains the output of the < CreateLunaClient> action.
 --
 -- /See:/ 'createLunaClientResponse' smart constructor.
 data CreateLunaClientResponse = CreateLunaClientResponse'

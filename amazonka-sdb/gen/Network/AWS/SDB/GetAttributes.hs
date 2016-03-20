@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.GetAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- If the item does not exist on the replica that was accessed for this
 -- operation, an empty set is returned. The system does not return an error
 -- as it cannot guarantee the item does not exist on other replicas.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_GetAttributes.html AWS API Reference> for GetAttributes.
 module Network.AWS.SDB.GetAttributes
     (
     -- * Creating a Request
@@ -113,6 +111,8 @@ instance AWSRequest GetAttributes where
                  GetAttributesResponse' <$>
                    (may (parseXMLList "Attribute") x) <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetAttributes
 
 instance ToHeaders GetAttributes where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DeregisterTaskDefinition
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- 'INACTIVE' task definition (although there may be up to a 10 minute
 -- window following deregistration where these restrictions have not yet
 -- taken effect).
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html AWS API Reference> for DeregisterTaskDefinition.
 module Network.AWS.ECS.DeregisterTaskDefinition
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest DeregisterTaskDefinition where
               (\ s h x ->
                  DeregisterTaskDefinitionResponse' <$>
                    (x .?> "taskDefinition") <*> (pure (fromEnum s)))
+
+instance Hashable DeregisterTaskDefinition
 
 instance ToHeaders DeregisterTaskDefinition where
         toHeaders

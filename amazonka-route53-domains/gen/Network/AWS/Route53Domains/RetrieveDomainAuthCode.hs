@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.RetrieveDomainAuthCode
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- This operation returns the AuthCode for the domain. To transfer a domain
 -- to another registrar, you provide this value to the new registrar.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-RetrieveDomainAuthCode.html AWS API Reference> for RetrieveDomainAuthCode.
 module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest RetrieveDomainAuthCode where
               (\ s h x ->
                  RetrieveDomainAuthCodeResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "AuthCode"))
+
+instance Hashable RetrieveDomainAuthCode
 
 instance ToHeaders RetrieveDomainAuthCode where
         toHeaders

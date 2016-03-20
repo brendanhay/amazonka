@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CreateDocument
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,10 +20,8 @@
 --
 -- Creates an SSM document.
 --
--- After you create an SSM document, you can use CreateAssociation to
+-- After you create an SSM document, you can use < CreateAssociation> to
 -- associate it with one or more running instances.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateDocument.html AWS API Reference> for CreateDocument.
 module Network.AWS.SSM.CreateDocument
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest CreateDocument where
                  CreateDocumentResponse' <$>
                    (x .?> "DocumentDescription") <*>
                      (pure (fromEnum s)))
+
+instance Hashable CreateDocument
 
 instance ToHeaders CreateDocument where
         toHeaders

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeNatGateways
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of the your NAT gateways.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNatGateways.html AWS API Reference> for DescribeNatGateways.
 module Network.AWS.EC2.DescribeNatGateways
     (
     -- * Creating a Request
@@ -120,6 +118,8 @@ instance AWSRequest DescribeNatGateways where
                       may (parseXMLList "item"))
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeNatGateways
 
 instance ToHeaders DescribeNatGateways where
         toHeaders = const mempty

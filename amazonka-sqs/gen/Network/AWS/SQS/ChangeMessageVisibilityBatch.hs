@@ -12,16 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ChangeMessageVisibilityBatch
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes the visibility timeout of multiple messages. This is a batch
--- version of ChangeMessageVisibility. The result of the action on each
+-- version of < ChangeMessageVisibility>. The result of the action on each
 -- message is reported individually in the response. You can send up to 10
--- ChangeMessageVisibility requests with each
+-- < ChangeMessageVisibility> requests with each
 -- 'ChangeMessageVisibilityBatch' action.
 --
 -- Because the batch request can result in a combination of successful and
@@ -35,8 +35,6 @@
 -- '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html AWS API Reference> for ChangeMessageVisibilityBatch.
 module Network.AWS.SQS.ChangeMessageVisibilityBatch
     (
     -- * Creating a Request
@@ -109,6 +107,8 @@ instance AWSRequest ChangeMessageVisibilityBatch
                         x)
                      <*> (parseXMLList "BatchResultErrorEntry" x))
 
+instance Hashable ChangeMessageVisibilityBatch
+
 instance ToHeaders ChangeMessageVisibilityBatch where
         toHeaders = const mempty
 
@@ -127,8 +127,8 @@ instance ToQuery ChangeMessageVisibilityBatch where
                  _cmvbEntries]
 
 -- | For each message in the batch, the response contains a
--- ChangeMessageVisibilityBatchResultEntry tag if the message succeeds or a
--- BatchResultErrorEntry tag if the message fails.
+-- < ChangeMessageVisibilityBatchResultEntry> tag if the message succeeds
+-- or a < BatchResultErrorEntry> tag if the message fails.
 --
 -- /See:/ 'changeMessageVisibilityBatchResponse' smart constructor.
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'
@@ -160,10 +160,10 @@ changeMessageVisibilityBatchResponse pResponseStatus_ =
 cmvbrsResponseStatus :: Lens' ChangeMessageVisibilityBatchResponse Int
 cmvbrsResponseStatus = lens _cmvbrsResponseStatus (\ s a -> s{_cmvbrsResponseStatus = a});
 
--- | A list of ChangeMessageVisibilityBatchResultEntry items.
+-- | A list of < ChangeMessageVisibilityBatchResultEntry> items.
 cmvbrsSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
 cmvbrsSuccessful = lens _cmvbrsSuccessful (\ s a -> s{_cmvbrsSuccessful = a}) . _Coerce;
 
--- | A list of BatchResultErrorEntry items.
+-- | A list of < BatchResultErrorEntry> items.
 cmvbrsFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
 cmvbrsFailed = lens _cmvbrsFailed (\ s a -> s{_cmvbrsFailed = a}) . _Coerce;

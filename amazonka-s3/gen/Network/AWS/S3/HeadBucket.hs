@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.HeadBucket
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- This operation is useful to determine if a bucket exists and you have
 -- permission to access it.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadBucket.html AWS API Reference> for HeadBucket.
 module Network.AWS.S3.HeadBucket
     (
     -- * Creating a Request
@@ -68,6 +66,8 @@ instance AWSRequest HeadBucket where
         type Rs HeadBucket = HeadBucketResponse
         request = head' s3
         response = receiveNull HeadBucketResponse'
+
+instance Hashable HeadBucket
 
 instance ToHeaders HeadBucket where
         toHeaders = const mempty

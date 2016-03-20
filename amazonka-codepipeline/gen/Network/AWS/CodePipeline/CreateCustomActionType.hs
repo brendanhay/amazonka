@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.CreateCustomActionType
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Creates a new custom action that can be used in all pipelines associated
 -- with the AWS account. Only used for custom actions.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_CreateCustomActionType.html AWS API Reference> for CreateCustomActionType.
 module Network.AWS.CodePipeline.CreateCustomActionType
     (
     -- * Creating a Request
@@ -141,6 +139,8 @@ instance AWSRequest CreateCustomActionType where
               (\ s h x ->
                  CreateCustomActionTypeResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "actionType"))
+
+instance Hashable CreateCustomActionType
 
 instance ToHeaders CreateCustomActionType where
         toHeaders

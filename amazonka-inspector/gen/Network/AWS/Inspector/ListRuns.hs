@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListRuns
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Lists the assessment runs associated with the assessments specified by
 -- the assessment ARNs.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListRuns.html AWS API Reference> for ListRuns.
 module Network.AWS.Inspector.ListRuns
     (
     -- * Creating a Request
@@ -114,6 +112,8 @@ instance AWSRequest ListRuns where
                    (x .?> "runArnList" .!@ mempty) <*>
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListRuns
 
 instance ToHeaders ListRuns where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.UpdateEventSourceMapping
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,10 +24,19 @@
 -- stream records, but to change the stream itself, you must create a new
 -- mapping.
 --
+-- If you are using the versioning feature, you can update the event source
+-- mapping to map to a specific Lambda function version or alias as
+-- described in the 'FunctionName' parameter. For information about the
+-- versioning feature, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+--
+-- If you disable the event source mapping, AWS Lambda stops polling. If
+-- you enable again, it will resume polling from the time it had stopped
+-- polling, so you don\'t lose processing of any records. However, if you
+-- delete event source mapping and create it again, it will reset.
+--
 -- This operation requires permission for the
 -- 'lambda:UpdateEventSourceMapping' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateEventSourceMapping.html AWS API Reference> for UpdateEventSourceMapping.
 module Network.AWS.Lambda.UpdateEventSourceMapping
     (
     -- * Creating a Request
@@ -102,14 +111,19 @@ uesmBatchSize = lens _uesmBatchSize (\ s a -> s{_uesmBatchSize = a}) . mapping _
 
 -- | The Lambda function to which you want the stream records sent.
 --
--- You can specify an unqualified function name (for example,
--- \"Thumbnail\") or you can specify Amazon Resource Name (ARN) of the
--- function (for example,
--- \"arn:aws:lambda:us-west-2:account-id:function:ThumbNail\"). AWS Lambda
--- also allows you to specify only the account ID qualifier (for example,
--- \"account-id:Thumbnail\"). Note that the length constraint applies only
--- to the ARN. If you specify only the function name, it is limited to 64
--- character in length.
+-- You can specify a function name (for example, 'Thumbnail') or you can
+-- specify Amazon Resource Name (ARN) of the function (for example,
+-- 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda
+-- also allows you to specify a partial ARN (for example,
+-- 'account-id:Thumbnail').
+--
+-- If you are using versioning, you can also provide a qualified function
+-- ARN (ARN that is qualified with function version or alias name as
+-- suffix). For more information about versioning, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>
+--
+-- Note that the length constraint applies only to the ARN. If you specify
+-- only the function name, it is limited to 64 character in length.
 uesmFunctionName :: Lens' UpdateEventSourceMapping (Maybe Text)
 uesmFunctionName = lens _uesmFunctionName (\ s a -> s{_uesmFunctionName = a});
 
@@ -122,6 +136,8 @@ instance AWSRequest UpdateEventSourceMapping where
              EventSourceMappingConfiguration
         request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable UpdateEventSourceMapping
 
 instance ToHeaders UpdateEventSourceMapping where
         toHeaders = const mempty

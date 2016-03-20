@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.AssociateElasticIP
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,7 @@
 --
 -- Associates one of the stack\'s registered Elastic IP addresses with a
 -- specified instance. The address must first be registered with the stack
--- by calling RegisterElasticIp. For more information, see
+-- by calling < RegisterElasticIp>. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a
@@ -28,8 +28,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssociateElasticIP.html AWS API Reference> for AssociateElasticIP.
 module Network.AWS.OpsWorks.AssociateElasticIP
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest AssociateElasticIP where
              AssociateElasticIPResponse
         request = postJSON opsWorks
         response = receiveNull AssociateElasticIPResponse'
+
+instance Hashable AssociateElasticIP
 
 instance ToHeaders AssociateElasticIP where
         toHeaders

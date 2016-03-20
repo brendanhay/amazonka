@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListDocuments
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,7 @@
 --
 -- Describes one or more of your SSM documents.
 --
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListDocuments.html AWS API Reference> for ListDocuments.
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListDocuments
     (
     -- * Creating a Request
@@ -41,6 +41,7 @@ module Network.AWS.SSM.ListDocuments
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -88,6 +89,13 @@ ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 ldMaxResults :: Lens' ListDocuments (Maybe Natural)
 ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a}) . mapping _Nat;
 
+instance AWSPager ListDocuments where
+        page rq rs
+          | stop (rs ^. ldrsNextToken) = Nothing
+          | stop (rs ^. ldrsDocumentIdentifiers) = Nothing
+          | otherwise =
+            Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
+
 instance AWSRequest ListDocuments where
         type Rs ListDocuments = ListDocumentsResponse
         request = postJSON sSM
@@ -98,6 +106,8 @@ instance AWSRequest ListDocuments where
                    (x .?> "DocumentIdentifiers" .!@ mempty) <*>
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListDocuments
 
 instance ToHeaders ListDocuments where
         toHeaders

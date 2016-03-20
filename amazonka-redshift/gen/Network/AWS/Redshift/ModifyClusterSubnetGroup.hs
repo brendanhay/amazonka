@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ModifyClusterSubnetGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Modifies a cluster subnet group to include the specified list of VPC
 -- subnets. The operation replaces the existing list of subnets with the
 -- new list of subnets.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSubnetGroup.html AWS API Reference> for ModifyClusterSubnetGroup.
 module Network.AWS.Redshift.ModifyClusterSubnetGroup
     (
     -- * Creating a Request
@@ -98,6 +96,8 @@ instance AWSRequest ModifyClusterSubnetGroup where
               (\ s h x ->
                  ModifyClusterSubnetGroupResponse' <$>
                    (x .@? "ClusterSubnetGroup") <*> (pure (fromEnum s)))
+
+instance Hashable ModifyClusterSubnetGroup
 
 instance ToHeaders ModifyClusterSubnetGroup where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteInstance.html AWS API Reference> for DeleteInstance.
 module Network.AWS.OpsWorks.DeleteInstance
     (
     -- * Creating a Request
@@ -95,6 +93,8 @@ instance AWSRequest DeleteInstance where
         type Rs DeleteInstance = DeleteInstanceResponse
         request = postJSON opsWorks
         response = receiveNull DeleteInstanceResponse'
+
+instance Hashable DeleteInstance
 
 instance ToHeaders DeleteInstance where
         toHeaders

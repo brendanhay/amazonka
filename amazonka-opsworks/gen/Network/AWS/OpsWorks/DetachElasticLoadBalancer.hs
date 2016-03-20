@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DetachElasticLoadBalancer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DetachElasticLoadBalancer.html AWS API Reference> for DetachElasticLoadBalancer.
 module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest DetachElasticLoadBalancer where
         request = postJSON opsWorks
         response
           = receiveNull DetachElasticLoadBalancerResponse'
+
+instance Hashable DetachElasticLoadBalancer
 
 instance ToHeaders DetachElasticLoadBalancer where
         toHeaders

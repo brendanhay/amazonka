@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.DeletePlatformApplication
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Deletes a platform application object for one of the supported push
 -- notification services, such as APNS and GCM. For more information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_DeletePlatformApplication.html AWS API Reference> for DeletePlatformApplication.
 module Network.AWS.SNS.DeletePlatformApplication
     (
     -- * Creating a Request
@@ -73,6 +71,8 @@ instance AWSRequest DeletePlatformApplication where
         request = postQuery sNS
         response
           = receiveNull DeletePlatformApplicationResponse'
+
+instance Hashable DeletePlatformApplication
 
 instance ToHeaders DeletePlatformApplication where
         toHeaders = const mempty

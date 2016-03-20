@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SendEmail
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -43,8 +43,6 @@
 --     maximum number of emails you can send in a 24-hour period. For
 --     information about your sending quota, go to the
 --     <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SendEmail.html AWS API Reference> for SendEmail.
 module Network.AWS.SES.SendEmail
     (
     -- * Creating a Request
@@ -74,14 +72,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to send a single email
--- message.
---
--- This datatype can be used in application code to compose a message
--- consisting of source, destination, message, reply-to, and return-path
--- parts. This object can then be sent using the 'SendEmail' action.
---
--- /See:/ 'sendEmail' smart constructor.
+-- | /See:/ 'sendEmail' smart constructor.
 data SendEmail = SendEmail'
     { _seReturnPath       :: !(Maybe Text)
     , _seSourceARN        :: !(Maybe Text)
@@ -212,6 +203,8 @@ instance AWSRequest SendEmail where
                  SendEmailResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "MessageId"))
 
+instance Hashable SendEmail
+
 instance ToHeaders SendEmail where
         toHeaders = const mempty
 
@@ -233,10 +226,7 @@ instance ToQuery SendEmail where
                "Destination" =: _seDestination,
                "Message" =: _seMessage]
 
--- | Represents a unique message ID returned from a successful 'SendEmail'
--- request.
---
--- /See:/ 'sendEmailResponse' smart constructor.
+-- | /See:/ 'sendEmailResponse' smart constructor.
 data SendEmailResponse = SendEmailResponse'
     { _sersResponseStatus :: !Int
     , _sersMessageId      :: !Text

@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.Types.Sum
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -18,6 +18,31 @@
 module Network.AWS.APIGateway.Types.Sum where
 
 import           Network.AWS.Prelude
+
+data AuthorizerType =
+    Token
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AuthorizerType where
+    parser = takeLowerText >>= \case
+        "token" -> pure Token
+        e -> fromTextError $ "Failure parsing AuthorizerType from value: '" <> e
+           <> "'. Accepted values: TOKEN"
+
+instance ToText AuthorizerType where
+    toText = \case
+        Token -> "TOKEN"
+
+instance Hashable     AuthorizerType
+instance ToByteString AuthorizerType
+instance ToQuery      AuthorizerType
+instance ToHeader     AuthorizerType
+
+instance ToJSON AuthorizerType where
+    toJSON = toJSONText
+
+instance FromJSON AuthorizerType where
+    parseJSON = parseJSONText "AuthorizerType"
 
 -- | Returns the size of the __CacheCluster__.
 data CacheClusterSize
@@ -169,3 +194,31 @@ instance ToHeader     Op
 
 instance ToJSON Op where
     toJSON = toJSONText
+
+data UnauthorizedCacheControlHeaderStrategy
+    = FailWith403
+    | SucceedWithResponseHeader
+    | SucceedWithoutResponseHeader
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText UnauthorizedCacheControlHeaderStrategy where
+    parser = takeLowerText >>= \case
+        "fail_with_403" -> pure FailWith403
+        "succeed_with_response_header" -> pure SucceedWithResponseHeader
+        "succeed_without_response_header" -> pure SucceedWithoutResponseHeader
+        e -> fromTextError $ "Failure parsing UnauthorizedCacheControlHeaderStrategy from value: '" <> e
+           <> "'. Accepted values: FAIL_WITH_403, SUCCEED_WITH_RESPONSE_HEADER, SUCCEED_WITHOUT_RESPONSE_HEADER"
+
+instance ToText UnauthorizedCacheControlHeaderStrategy where
+    toText = \case
+        FailWith403 -> "FAIL_WITH_403"
+        SucceedWithResponseHeader -> "SUCCEED_WITH_RESPONSE_HEADER"
+        SucceedWithoutResponseHeader -> "SUCCEED_WITHOUT_RESPONSE_HEADER"
+
+instance Hashable     UnauthorizedCacheControlHeaderStrategy
+instance ToByteString UnauthorizedCacheControlHeaderStrategy
+instance ToQuery      UnauthorizedCacheControlHeaderStrategy
+instance ToHeader     UnauthorizedCacheControlHeaderStrategy
+
+instance FromJSON UnauthorizedCacheControlHeaderStrategy where
+    parseJSON = parseJSONText "UnauthorizedCacheControlHeaderStrategy"

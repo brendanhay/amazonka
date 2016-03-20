@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -16,8 +16,6 @@
 -- Hadoop processing combined with several AWS products to do tasks such as
 -- web indexing, data mining, log file analysis, machine learning,
 -- scientific simulation, and data warehousing.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html AWS API Reference>
 module Network.AWS.EMR
     (
     -- * Service Configuration
@@ -207,6 +205,30 @@ module Network.AWS.EMR
     , cClassification
     , cProperties
 
+    -- ** EBSBlockDevice
+    , EBSBlockDevice
+    , ebsBlockDevice
+    , ebdDevice
+    , ebdVolumeSpecification
+
+    -- ** EBSBlockDeviceConfig
+    , EBSBlockDeviceConfig
+    , ebsBlockDeviceConfig
+    , ebdcVolumesPerInstance
+    , ebdcVolumeSpecification
+
+    -- ** EBSConfiguration
+    , EBSConfiguration
+    , ebsConfiguration
+    , ecEBSOptimized
+    , ecEBSBlockDeviceConfigs
+
+    -- ** EBSVolume
+    , EBSVolume
+    , ebsVolume
+    , evDevice
+    , evVolumeId
+
     -- ** EC2InstanceAttributes
     , EC2InstanceAttributes
     , ec2InstanceAttributes
@@ -217,6 +239,7 @@ module Network.AWS.EMR
     , eiaIAMInstanceProfile
     , eiaEmrManagedMasterSecurityGroup
     , eiaEC2SubnetId
+    , eiaServiceAccessSecurityGroup
     , eiaEC2AvailabilityZone
 
     -- ** HadoopJARStepConfig
@@ -240,9 +263,11 @@ module Network.AWS.EMR
     , instance'
     , iStatus
     , iPublicDNSName
+    , iEBSVolumes
     , iEC2InstanceId
     , iPrivateIPAddress
     , iId
+    , iInstanceGroupId
     , iPrivateDNSName
     , iPublicIPAddress
 
@@ -255,7 +280,9 @@ module Network.AWS.EMR
     , igRunningInstanceCount
     , igConfigurations
     , igInstanceGroupType
+    , igEBSBlockDevices
     , igInstanceType
+    , igEBSOptimized
     , igMarket
     , igName
     , igId
@@ -263,6 +290,7 @@ module Network.AWS.EMR
     -- ** InstanceGroupConfig
     , InstanceGroupConfig
     , instanceGroupConfig
+    , igcEBSConfiguration
     , igcBidPrice
     , igcConfigurations
     , igcMarket
@@ -333,6 +361,7 @@ module Network.AWS.EMR
     , jficMasterInstanceType
     , jficInstanceGroups
     , jficKeepJobFlowAliveWhenNoSteps
+    , jficServiceAccessSecurityGroup
     , jficTerminationProtected
     , jficPlacement
 
@@ -409,6 +438,13 @@ module Network.AWS.EMR
     , tag
     , tagValue
     , tagKey
+
+    -- ** VolumeSpecification
+    , VolumeSpecification
+    , volumeSpecification
+    , vsIOPS
+    , vsVolumeType
+    , vsSizeInGB
     ) where
 
 import           Network.AWS.EMR.AddInstanceGroups

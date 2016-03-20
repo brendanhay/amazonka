@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListSuites
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about suites.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListSuites.html AWS API Reference> for ListSuites.
 module Network.AWS.DeviceFarm.ListSuites
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest ListSuites where
                  ListSuitesResponse' <$>
                    (x .?> "nextToken") <*> (x .?> "suites" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListSuites
 
 instance ToHeaders ListSuites where
         toHeaders

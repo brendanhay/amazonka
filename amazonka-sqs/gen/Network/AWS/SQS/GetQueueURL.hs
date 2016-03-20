@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.GetQueueURL
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,11 +25,9 @@
 -- 'QueueOwnerAWSAccountId' parameter to specify the account ID of the
 -- queue\'s owner. The queue\'s owner must grant you permission to access
 -- the queue. For more information about shared queue access, see
--- AddPermission or go to
+-- < AddPermission> or go to
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues>
 -- in the /Amazon SQS Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueURL.html AWS API Reference> for GetQueueURL.
 module Network.AWS.SQS.GetQueueURL
     (
     -- * Creating a Request
@@ -93,6 +91,8 @@ instance AWSRequest GetQueueURL where
               (\ s h x ->
                  GetQueueURLResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "QueueUrl"))
+
+instance Hashable GetQueueURL
 
 instance ToHeaders GetQueueURL where
         toHeaders = const mempty

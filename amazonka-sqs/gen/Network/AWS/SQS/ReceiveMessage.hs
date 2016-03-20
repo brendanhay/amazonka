@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ReceiveMessage
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -63,8 +63,6 @@
 -- Going forward, new attributes might be added. If you are writing code
 -- that calls this action, we recommend that you structure your code so
 -- that it can handle new attributes gracefully.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html AWS API Reference> for ReceiveMessage.
 module Network.AWS.SQS.ReceiveMessage
     (
     -- * Creating a Request
@@ -198,6 +196,8 @@ instance AWSRequest ReceiveMessage where
                  ReceiveMessageResponse' <$>
                    (may (parseXMLList "Message") x) <*>
                      (pure (fromEnum s)))
+
+instance Hashable ReceiveMessage
 
 instance ToHeaders ReceiveMessage where
         toHeaders = const mempty

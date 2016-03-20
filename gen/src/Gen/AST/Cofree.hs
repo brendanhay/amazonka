@@ -5,7 +5,7 @@
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.AST.Cofree
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -19,11 +19,11 @@ module Gen.AST.Cofree where
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
-import           Control.Lens
+import           Control.Lens           hiding ((:<))
 import           Control.Monad.Except
 import           Control.Monad.State
 import qualified Data.HashMap.Strict    as Map
-import           Gen.AST.TypeOf
+import           Gen.Types.TypeOf
 import           Gen.Formatting
 import           Gen.Types
 

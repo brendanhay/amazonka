@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeEvents
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- to a particular DB instance, DB security group, database snapshot, or DB
 -- parameter group can be obtained by providing the name as a parameter. By
 -- default, the past hour of events are returned.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEvents
@@ -201,6 +199,8 @@ instance AWSRequest DescribeEvents where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeEvents
+
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty
 
@@ -223,7 +223,7 @@ instance ToQuery DescribeEvents where
                "Marker" =: _deMarker, "MaxRecords" =: _deMaxRecords,
                "EndTime" =: _deEndTime, "Duration" =: _deDuration]
 
--- | Contains the result of a successful invocation of the DescribeEvents
+-- | Contains the result of a successful invocation of the < DescribeEvents>
 -- action.
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
@@ -252,7 +252,7 @@ describeEventsResponse pResponseStatus_ =
     , _dersResponseStatus = pResponseStatus_
     }
 
--- | A list of Event instances.
+-- | A list of < Event> instances.
 dersEvents :: Lens' DescribeEventsResponse [Event]
 dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 

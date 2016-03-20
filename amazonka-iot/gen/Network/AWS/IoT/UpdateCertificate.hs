@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.UpdateCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,14 +21,12 @@
 -- Updates the status of the specified certificate. This operation is
 -- idempotent.
 --
--- Moving a cert from the ACTIVE state (including REVOKED) will NOT
--- disconnect currently-connected devices, although these devices will be
--- unable to reconnect.
+-- Moving a certificate from the ACTIVE state (including REVOKED) will not
+-- disconnect currently connected devices, but these devices will be unable
+-- to reconnect.
 --
 -- The ACTIVE state is required to authenticate devices connecting to AWS
 -- IoT using a certificate.
---
--- /See:/ <https://aws.amazon.com/iot#UpdateCertificate.html AWS API Reference> for UpdateCertificate.
 module Network.AWS.IoT.UpdateCertificate
     (
     -- * Creating a Request
@@ -80,6 +78,10 @@ ucCertificateId :: Lens' UpdateCertificate Text
 ucCertificateId = lens _ucCertificateId (\ s a -> s{_ucCertificateId = a});
 
 -- | The new status.
+--
+-- __Note:__ Setting the status to PENDING_TRANSFER will result in an
+-- exception being thrown. PENDING_TRANSFER is a status used internally by
+-- AWS IoT. It is not intended for developer use.
 ucNewStatus :: Lens' UpdateCertificate CertificateStatus
 ucNewStatus = lens _ucNewStatus (\ s a -> s{_ucNewStatus = a});
 
@@ -87,6 +89,8 @@ instance AWSRequest UpdateCertificate where
         type Rs UpdateCertificate = UpdateCertificateResponse
         request = putJSON ioT
         response = receiveNull UpdateCertificateResponse'
+
+instance Hashable UpdateCertificate
 
 instance ToHeaders UpdateCertificate where
         toHeaders = const mempty

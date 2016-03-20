@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DeliverConfigSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 --     completed.
 -- -   Notification of delivery failure, if the delivery failed to
 --     complete.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliverConfigSnapshot.html AWS API Reference> for DeliverConfigSnapshot.
 module Network.AWS.Config.DeliverConfigSnapshot
     (
     -- * Creating a Request
@@ -53,7 +51,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the DeliverConfigSnapshot action.
+-- | The input for the < DeliverConfigSnapshot> action.
 --
 -- /See:/ 'deliverConfigSnapshot' smart constructor.
 newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
@@ -88,6 +86,8 @@ instance AWSRequest DeliverConfigSnapshot where
                  DeliverConfigSnapshotResponse' <$>
                    (x .?> "configSnapshotId") <*> (pure (fromEnum s)))
 
+instance Hashable DeliverConfigSnapshot
+
 instance ToHeaders DeliverConfigSnapshot where
         toHeaders
           = const
@@ -111,7 +111,7 @@ instance ToPath DeliverConfigSnapshot where
 instance ToQuery DeliverConfigSnapshot where
         toQuery = const mempty
 
--- | The output for the DeliverConfigSnapshot action in JSON format.
+-- | The output for the < DeliverConfigSnapshot> action in JSON format.
 --
 -- /See:/ 'deliverConfigSnapshotResponse' smart constructor.
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'

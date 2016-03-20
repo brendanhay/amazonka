@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.PutScalingPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- limit, see
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>
 -- in the /Amazon Web Services General Reference/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScalingPolicy.html AWS API Reference> for PutScalingPolicy.
 module Network.AWS.AutoScaling.PutScalingPolicy
     (
     -- * Creating a Request
@@ -166,7 +164,7 @@ pspScalingAdjustment = lens _pspScalingAdjustment (\ s a -> s{_pspScalingAdjustm
 -- 'SimpleScaling'.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns>
 -- in the /Auto Scaling Developer Guide/.
 pspCooldown :: Lens' PutScalingPolicy (Maybe Int)
 pspCooldown = lens _pspCooldown (\ s a -> s{_pspCooldown = a});
@@ -211,6 +209,8 @@ instance AWSRequest PutScalingPolicy where
               (\ s h x ->
                  PutScalingPolicyResponse' <$>
                    (x .@? "PolicyARN") <*> (pure (fromEnum s)))
+
+instance Hashable PutScalingPolicy
 
 instance ToHeaders PutScalingPolicy where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.GetShardIterator
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,34 +33,32 @@
 -- by a specific sequence number by using the 'AT_SEQUENCE_NUMBER' shard
 -- iterator type, or right after the sequence number by using the
 -- 'AFTER_SEQUENCE_NUMBER' shard iterator type, using sequence numbers
--- returned by earlier calls to PutRecord, PutRecords, GetRecords, or
--- DescribeStream. You can specify the shard iterator type 'TRIM_HORIZON'
--- in the request to cause 'ShardIterator' to point to the last untrimmed
--- record in the shard in the system, which is the oldest data record in
--- the shard. Or you can point to just after the most recent record in the
--- shard, by using the shard iterator type 'LATEST', so that you always
--- read the most recent data in the shard.
+-- returned by earlier calls to < PutRecord>, < PutRecords>, < GetRecords>,
+-- or < DescribeStream>. You can specify the shard iterator type
+-- 'TRIM_HORIZON' in the request to cause 'ShardIterator' to point to the
+-- last untrimmed record in the shard in the system, which is the oldest
+-- data record in the shard. Or you can point to just after the most recent
+-- record in the shard, by using the shard iterator type 'LATEST', so that
+-- you always read the most recent data in the shard.
 --
 -- When you repeatedly read from an Amazon Kinesis stream use a
--- GetShardIterator request to get the first shard iterator for use in your
--- first GetRecords request and then use the shard iterator returned by the
--- GetRecords request in 'NextShardIterator' for subsequent reads. A new
--- shard iterator is returned by every GetRecords request in
--- 'NextShardIterator', which you use in the 'ShardIterator' parameter of
--- the next GetRecords request.
+-- < GetShardIterator> request to get the first shard iterator for use in
+-- your first < GetRecords> request and then use the shard iterator
+-- returned by the < GetRecords> request in 'NextShardIterator' for
+-- subsequent reads. A new shard iterator is returned by every
+-- < GetRecords> request in 'NextShardIterator', which you use in the
+-- 'ShardIterator' parameter of the next < GetRecords> request.
 --
--- If a GetShardIterator request is made too often, you receive a
+-- If a < GetShardIterator> request is made too often, you receive a
 -- 'ProvisionedThroughputExceededException'. For more information about
--- throughput limits, see GetRecords.
+-- throughput limits, see < GetRecords>.
 --
 -- If the shard is closed, the iterator can\'t return more data, and
--- GetShardIterator returns 'null' for its 'ShardIterator'. A shard can be
--- closed using SplitShard or MergeShards.
+-- < GetShardIterator> returns 'null' for its 'ShardIterator'. A shard can
+-- be closed using < SplitShard> or < MergeShards>.
 --
--- GetShardIterator has a limit of 5 transactions per second per account
+-- < GetShardIterator> has a limit of 5 transactions per second per account
 -- per open shard.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html AWS API Reference> for GetShardIterator.
 module Network.AWS.Kinesis.GetShardIterator
     (
     -- * Creating a Request
@@ -158,6 +156,8 @@ instance AWSRequest GetShardIterator where
               (\ s h x ->
                  GetShardIteratorResponse' <$>
                    (x .?> "ShardIterator") <*> (pure (fromEnum s)))
+
+instance Hashable GetShardIterator
 
 instance ToHeaders GetShardIterator where
         toHeaders

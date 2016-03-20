@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- Allocates a VLAN number and a specified amount of bandwidth for use by a
 -- hosted connection on the given interconnect.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.html AWS API Reference> for AllocateConnectionOnInterconnect.
 module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     (
     -- * Creating a Request
@@ -145,6 +143,8 @@ instance AWSRequest AllocateConnectionOnInterconnect
         type Rs AllocateConnectionOnInterconnect = Connection
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable AllocateConnectionOnInterconnect
 
 instance ToHeaders AllocateConnectionOnInterconnect
          where

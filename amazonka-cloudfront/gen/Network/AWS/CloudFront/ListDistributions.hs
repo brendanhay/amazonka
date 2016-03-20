@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListDistributions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- List distributions.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributions.html AWS API Reference> for ListDistributions.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListDistributions
@@ -105,11 +103,13 @@ instance AWSRequest ListDistributions where
                  ListDistributionsResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
 
+instance Hashable ListDistributions
+
 instance ToHeaders ListDistributions where
         toHeaders = const mempty
 
 instance ToPath ListDistributions where
-        toPath = const "/2015-09-17/distribution"
+        toPath = const "/2016-01-28/distribution"
 
 instance ToQuery ListDistributions where
         toQuery ListDistributions'{..}

@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.SWF.PollForDecisionTask
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used by deciders to get a DecisionTask from the specified decision
+-- Used by deciders to get a < DecisionTask> from the specified decision
 -- 'taskList'. A decision task may be returned for any open workflow
 -- execution that is using the specified task list. The task includes a
 -- paginated view of the history of the workflow execution. The decider
@@ -62,8 +62,6 @@
 -- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForDecisionTask.html AWS API Reference> for PollForDecisionTask.
 --
 -- This operation returns paginated results.
 module Network.AWS.SWF.PollForDecisionTask
@@ -149,9 +147,9 @@ pollForDecisionTask pDomain_ pTaskList_ =
 -- returned in a single call.
 --
 -- The 'nextPageToken' returned by this action cannot be used with
--- GetWorkflowExecutionHistory to get the next page. You must call
--- PollForDecisionTask again (with the 'nextPageToken') to retrieve the
--- next page of history records. Calling PollForDecisionTask with a
+-- < GetWorkflowExecutionHistory> to get the next page. You must call
+-- < PollForDecisionTask> again (with the 'nextPageToken') to retrieve the
+-- next page of history records. Calling < PollForDecisionTask> with a
 -- 'nextPageToken' will not return a new decision task.
 --
 -- .
@@ -218,6 +216,8 @@ instance AWSRequest PollForDecisionTask where
                      <*> (x .:> "workflowExecution")
                      <*> (x .:> "workflowType")
                      <*> (x .?> "events" .!@ mempty))
+
+instance Hashable PollForDecisionTask
 
 instance ToHeaders PollForDecisionTask where
         toHeaders

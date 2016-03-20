@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.SetDefaultPolicyVersion
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,13 +23,11 @@
 --
 -- This action affects all users, groups, and roles that the policy is
 -- attached to. To list the users, groups, and roles that the policy is
--- attached to, use the ListEntitiesForPolicy API.
+-- attached to, use the < ListEntitiesForPolicy> API.
 --
 -- For information about managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_SetDefaultPolicyVersion.html AWS API Reference> for SetDefaultPolicyVersion.
 module Network.AWS.IAM.SetDefaultPolicyVersion
     (
     -- * Creating a Request
@@ -92,6 +90,8 @@ instance AWSRequest SetDefaultPolicyVersion where
         request = postQuery iAM
         response
           = receiveNull SetDefaultPolicyVersionResponse'
+
+instance Hashable SetDefaultPolicyVersion
 
 instance ToHeaders SetDefaultPolicyVersion where
         toHeaders = const mempty

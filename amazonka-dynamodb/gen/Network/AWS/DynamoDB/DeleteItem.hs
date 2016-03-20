@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DeleteItem
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,6 @@
 -- Conditional deletes are useful for deleting items only if specific
 -- conditions are met. If those conditions are met, DynamoDB performs the
 -- delete. Otherwise, the item is not deleted.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html AWS API Reference> for DeleteItem.
 module Network.AWS.DynamoDB.DeleteItem
     (
     -- * Creating a Request
@@ -221,7 +219,8 @@ diReturnItemCollectionMetrics = lens _diReturnItemCollectionMetrics (\ s a -> s{
 --
 --     These function names are case-sensitive.
 --
--- -   Comparison operators: ' = | \<> | \< | > | \<= | >= | BETWEEN | IN'
+-- -   Comparison operators:
+--     ' = | &#x3C;&#x3E; | &#x3C; | &#x3E; | &#x3C;= | &#x3E;= | BETWEEN | IN'
 --
 -- -   Logical operators: 'AND | OR | NOT'
 --
@@ -489,9 +488,9 @@ diTableName = lens _diTableName (\ s a -> s{_diTableName = a});
 -- primary key of the item to delete.
 --
 -- For the primary key, you must provide all of the attributes. For
--- example, with a hash type primary key, you only need to provide the hash
--- attribute. For a hash-and-range type primary key, you must provide both
--- the hash attribute and the range attribute.
+-- example, with a simple primary key, you only need to provide a value for
+-- the partition key. For a composite primary key, you must provide values
+-- for both the partition key and the sort key.
 diKey :: Lens' DeleteItem (HashMap Text AttributeValue)
 diKey = lens _diKey (\ s a -> s{_diKey = a}) . _Map;
 
@@ -506,6 +505,8 @@ instance AWSRequest DeleteItem where
                      (x .?> "ConsumedCapacity")
                      <*> (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable DeleteItem
 
 instance ToHeaders DeleteItem where
         toHeaders
@@ -582,8 +583,9 @@ deleteItemResponse pResponseStatus_ =
 --
 -- Each /ItemCollectionMetrics/ element consists of:
 --
--- -   /ItemCollectionKey/ - The hash key value of the item collection.
---     This is the same as the hash key of the item.
+-- -   /ItemCollectionKey/ - The partition key value of the item
+--     collection. This is the same as the partition key value of the item
+--     itself.
 --
 -- -   /SizeEstimateRange/ - An estimate of item collection size, in
 --     gigabytes. This value is a two-element array containing a lower

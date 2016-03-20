@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketVersioning
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the versioning state of a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketVersioning.html AWS API Reference> for GetBucketVersioning.
 module Network.AWS.S3.GetBucketVersioning
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest GetBucketVersioning where
                  GetBucketVersioningResponse' <$>
                    (x .@? "Status") <*> (x .@? "MfaDelete") <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetBucketVersioning
 
 instance ToHeaders GetBucketVersioning where
         toHeaders = const mempty

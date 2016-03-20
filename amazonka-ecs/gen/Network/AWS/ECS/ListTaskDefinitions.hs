@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListTaskDefinitions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Returns a list of task definitions that are registered to your account.
 -- You can filter the results by family name with the 'familyPrefix'
 -- parameter or by status with the 'status' parameter.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitions.html AWS API Reference> for ListTaskDefinitions.
 --
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListTaskDefinitions
@@ -149,6 +147,8 @@ instance AWSRequest ListTaskDefinitions where
                    (x .?> "taskDefinitionArns" .!@ mempty) <*>
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListTaskDefinitions
 
 instance ToHeaders ListTaskDefinitions where
         toHeaders

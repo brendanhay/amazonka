@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DeregisterContainerInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,6 @@
 --
 -- When you terminate a container instance, it is automatically
 -- deregistered from your cluster.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html AWS API Reference> for DeregisterContainerInstance.
 module Network.AWS.ECS.DeregisterContainerInstance
     (
     -- * Creating a Request
@@ -122,6 +120,8 @@ instance AWSRequest DeregisterContainerInstance where
               (\ s h x ->
                  DeregisterContainerInstanceResponse' <$>
                    (x .?> "containerInstance") <*> (pure (fromEnum s)))
+
+instance Hashable DeregisterContainerInstance
 
 instance ToHeaders DeregisterContainerInstance where
         toHeaders

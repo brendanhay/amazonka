@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ReadJob
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- The ReadJob operation returns detailed information about a job.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadJob.html AWS API Reference> for ReadJob.
 module Network.AWS.ElasticTranscoder.ReadJob
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest ReadJob where
               (\ s h x ->
                  ReadJobResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Job"))
+
+instance Hashable ReadJob
 
 instance ToHeaders ReadJob where
         toHeaders = const mempty

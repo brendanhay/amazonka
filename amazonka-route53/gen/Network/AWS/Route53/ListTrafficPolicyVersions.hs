@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListTrafficPolicyVersions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,6 @@
 -- -   __IsTruncated__
 -- -   __TrafficPolicyVersionMarker__
 -- -   __MaxItems__
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyVersions.html AWS API Reference> for ListTrafficPolicyVersions.
 module Network.AWS.Route53.ListTrafficPolicyVersions
     (
     -- * Creating a Request
@@ -134,6 +132,8 @@ instance AWSRequest ListTrafficPolicyVersions where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "TrafficPolicyVersionMarker")
                      <*> (x .@ "MaxItems"))
+
+instance Hashable ListTrafficPolicyVersions
 
 instance ToHeaders ListTrafficPolicyVersions where
         toHeaders = const mempty

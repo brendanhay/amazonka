@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ApplyPendingMaintenanceAction
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Applies a pending maintenance action to a resource (for example, to a DB
 -- instance).
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ApplyPendingMaintenanceAction.html AWS API Reference> for ApplyPendingMaintenanceAction.
 module Network.AWS.RDS.ApplyPendingMaintenanceAction
     (
     -- * Creating a Request
@@ -113,6 +111,8 @@ instance AWSRequest ApplyPendingMaintenanceAction
                  ApplyPendingMaintenanceActionResponse' <$>
                    (x .@? "ResourcePendingMaintenanceActions") <*>
                      (pure (fromEnum s)))
+
+instance Hashable ApplyPendingMaintenanceAction
 
 instance ToHeaders ApplyPendingMaintenanceAction
          where

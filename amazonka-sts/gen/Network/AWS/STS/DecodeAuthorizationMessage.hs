@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.STS.DecodeAuthorizationMessage
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -47,8 +47,6 @@
 -- -   The requested action.
 -- -   The requested resource.
 -- -   The values of condition keys in the context of the user\'s request.
---
--- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_DecodeAuthorizationMessage.html AWS API Reference> for DecodeAuthorizationMessage.
 module Network.AWS.STS.DecodeAuthorizationMessage
     (
     -- * Creating a Request
@@ -104,6 +102,8 @@ instance AWSRequest DecodeAuthorizationMessage where
               (\ s h x ->
                  DecodeAuthorizationMessageResponse' <$>
                    (x .@? "DecodedMessage") <*> (pure (fromEnum s)))
+
+instance Hashable DecodeAuthorizationMessage
 
 instance ToHeaders DecodeAuthorizationMessage where
         toHeaders = const mempty

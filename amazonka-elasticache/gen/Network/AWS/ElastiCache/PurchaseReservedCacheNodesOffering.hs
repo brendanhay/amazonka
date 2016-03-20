@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- The /PurchaseReservedCacheNodesOffering/ action allows you to purchase a
 -- reserved cache node offering.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html AWS API Reference> for PurchaseReservedCacheNodesOffering.
 module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     (
     -- * Creating a Request
@@ -104,6 +102,8 @@ instance AWSRequest
               (\ s h x ->
                  PurchaseReservedCacheNodesOfferingResponse' <$>
                    (x .@? "ReservedCacheNode") <*> (pure (fromEnum s)))
+
+instance Hashable PurchaseReservedCacheNodesOffering
 
 instance ToHeaders PurchaseReservedCacheNodesOffering
          where

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -40,8 +40,6 @@
 -- -   /ListStreams/ - Returns a list of all the streams associated with
 --     the current AWS account and endpoint.
 --
---
--- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/Welcome.html AWS API Reference>
 module Network.AWS.DynamoDBStreams
     (
     -- * Service Configuration

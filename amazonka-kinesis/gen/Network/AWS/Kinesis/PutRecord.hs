@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.PutRecord
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -60,10 +60,8 @@
 --
 -- By default, data records are accessible for only 24 hours from the time
 -- that they are added to an Amazon Kinesis stream. This retention period
--- can be modified using the DecreaseStreamRetentionPeriod and
--- IncreaseStreamRetentionPeriod operations.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html AWS API Reference> for PutRecord.
+-- can be modified using the < DecreaseStreamRetentionPeriod> and
+-- < IncreaseStreamRetentionPeriod> operations.
 module Network.AWS.Kinesis.PutRecord
     (
     -- * Creating a Request
@@ -182,6 +180,8 @@ instance AWSRequest PutRecord where
                  PutRecordResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "ShardId") <*>
                      (x .:> "SequenceNumber"))
+
+instance Hashable PutRecord
 
 instance ToHeaders PutRecord where
         toHeaders

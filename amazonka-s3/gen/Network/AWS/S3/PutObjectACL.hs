@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutObjectACL
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- uses the acl subresource to set the access control list (ACL)
 -- permissions for an object that already exists in a bucket
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutObjectACL.html AWS API Reference> for PutObjectACL.
 module Network.AWS.S3.PutObjectACL
     (
     -- * Creating a Request
@@ -169,6 +167,8 @@ instance AWSRequest PutObjectACL where
                  PutObjectACLResponse' <$>
                    (h .#? "x-amz-request-charged") <*>
                      (pure (fromEnum s)))
+
+instance Hashable PutObjectACL
 
 instance ToElement PutObjectACL where
         toElement

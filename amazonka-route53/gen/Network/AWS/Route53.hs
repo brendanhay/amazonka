@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -17,8 +17,6 @@
 -- (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service
 -- (Amazon S3). You can also use Amazon Route 53 to route users to your
 -- infrastructure outside of AWS.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.Route53
     (
     -- * Service Configuration
@@ -240,9 +238,6 @@ module Network.AWS.Route53
     -- ** CreateReusableDelegationSet
     , module Network.AWS.Route53.CreateReusableDelegationSet
 
-    -- ** ListChangeBatchesByRRSet
-    , module Network.AWS.Route53.ListChangeBatchesByRRSet
-
     -- ** GetHealthCheckCount
     , module Network.AWS.Route53.GetHealthCheckCount
 
@@ -251,12 +246,6 @@ module Network.AWS.Route53
 
     -- ** GetHostedZoneCount
     , module Network.AWS.Route53.GetHostedZoneCount
-
-    -- ** ListChangeBatchesByHostedZone
-    , module Network.AWS.Route53.ListChangeBatchesByHostedZone
-
-    -- ** GetChangeDetails
-    , module Network.AWS.Route53.GetChangeDetails
 
     -- ** GetReusableDelegationSet
     , module Network.AWS.Route53.GetReusableDelegationSet
@@ -348,16 +337,6 @@ module Network.AWS.Route53
     , cbComment
     , cbChanges
 
-    -- ** ChangeBatchRecord
-    , ChangeBatchRecord
-    , changeBatchRecord
-    , cbrChanges
-    , cbrSubmittedAt
-    , cbrSubmitter
-    , cbrComment
-    , cbrId
-    , cbrStatus
-
     -- ** ChangeInfo
     , ChangeInfo
     , changeInfo
@@ -403,6 +382,7 @@ module Network.AWS.Route53
     , healthCheckConfig
     , hccFailureThreshold
     , hccIPAddress
+    , hccEnableSNI
     , hccSearchString
     , hccHealthThreshold
     , hccResourcePath
@@ -530,7 +510,6 @@ import           Network.AWS.Route53.DeleteTrafficPolicy
 import           Network.AWS.Route53.DeleteTrafficPolicyInstance
 import           Network.AWS.Route53.DisassociateVPCFromHostedZone
 import           Network.AWS.Route53.GetChange
-import           Network.AWS.Route53.GetChangeDetails
 import           Network.AWS.Route53.GetCheckerIPRanges
 import           Network.AWS.Route53.GetGeoLocation
 import           Network.AWS.Route53.GetHealthCheck
@@ -544,8 +523,6 @@ import           Network.AWS.Route53.GetTrafficPolicy
 import           Network.AWS.Route53.GetTrafficPolicyInstance
 import           Network.AWS.Route53.GetTrafficPolicyInstanceCount
 import           Network.AWS.Route53.Internal
-import           Network.AWS.Route53.ListChangeBatchesByHostedZone
-import           Network.AWS.Route53.ListChangeBatchesByRRSet
 import           Network.AWS.Route53.ListGeoLocations
 import           Network.AWS.Route53.ListHealthChecks
 import           Network.AWS.Route53.ListHostedZones

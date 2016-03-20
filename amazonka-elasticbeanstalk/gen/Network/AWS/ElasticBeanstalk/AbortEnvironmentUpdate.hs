@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Cancels in-progress environment configuration update or application
 -- version deployment.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_AbortEnvironmentUpdate.html AWS API Reference> for AbortEnvironmentUpdate.
 module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest AbortEnvironmentUpdate where
         request = postQuery elasticBeanstalk
         response
           = receiveNull AbortEnvironmentUpdateResponse'
+
+instance Hashable AbortEnvironmentUpdate
 
 instance ToHeaders AbortEnvironmentUpdate where
         toHeaders = const mempty

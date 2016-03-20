@@ -6,7 +6,7 @@
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.AST.Override
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -22,13 +22,13 @@ module Gen.AST.Override
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
-import           Control.Lens
+import           Control.Lens           hiding ((:<))
 import           Control.Monad.State
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import           Data.List              ((\\))
 import           Data.Monoid
-import           Gen.AST.TypeOf
+import           Gen.Types.TypeOf
 import           Gen.Types
 
 data Env = Env

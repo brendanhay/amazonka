@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DescribeTrusts
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- If no input parameters are provided, such as DirectoryId or TrustIds,
 -- this request describes all the trust relationships belonging to the
 -- account.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeTrusts.html AWS API Reference> for DescribeTrusts.
 module Network.AWS.DirectoryService.DescribeTrusts
     (
     -- * Creating a Request
@@ -91,7 +89,7 @@ dtDirectoryId :: Lens' DescribeTrusts (Maybe Text)
 dtDirectoryId = lens _dtDirectoryId (\ s a -> s{_dtDirectoryId = a});
 
 -- | The /DescribeTrustsResult.NextToken/ value from a previous call to
--- DescribeTrusts. Pass null if this is the first call.
+-- < DescribeTrusts>. Pass null if this is the first call.
 dtNextToken :: Lens' DescribeTrusts (Maybe Text)
 dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 
@@ -116,6 +114,8 @@ instance AWSRequest DescribeTrusts where
                  DescribeTrustsResponse' <$>
                    (x .?> "NextToken") <*> (x .?> "Trusts" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeTrusts
 
 instance ToHeaders DescribeTrusts where
         toHeaders
@@ -169,8 +169,8 @@ describeTrustsResponse pResponseStatus_ =
     }
 
 -- | If not null, more results are available. Pass this value for the
--- /NextToken/ parameter in a subsequent call to DescribeTrusts to retrieve
--- the next set of items.
+-- /NextToken/ parameter in a subsequent call to < DescribeTrusts> to
+-- retrieve the next set of items.
 dtrsNextToken :: Lens' DescribeTrustsResponse (Maybe Text)
 dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 

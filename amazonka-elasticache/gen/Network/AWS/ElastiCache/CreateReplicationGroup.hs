@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CreateReplicationGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- it, up to a total of five read replicas.
 --
 -- __Note:__ This action is valid only for Redis.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html AWS API Reference> for CreateReplicationGroup.
 module Network.AWS.ElastiCache.CreateReplicationGroup
     (
     -- * Creating a Request
@@ -415,6 +413,8 @@ instance AWSRequest CreateReplicationGroup where
               (\ s h x ->
                  CreateReplicationGroupResponse' <$>
                    (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
+
+instance Hashable CreateReplicationGroup
 
 instance ToHeaders CreateReplicationGroup where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Modifies the cluster configuration of the specified Elasticsearch
 -- domain, setting as setting the instance type and the number of
 -- instances.
---
--- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-UpdateElasticsearchDomainConfig.html AWS API Reference> for UpdateElasticsearchDomainConfig.
 module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
     (
     -- * Creating a Request
@@ -132,6 +130,8 @@ instance AWSRequest UpdateElasticsearchDomainConfig
               (\ s h x ->
                  UpdateElasticsearchDomainConfigResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "DomainConfig"))
+
+instance Hashable UpdateElasticsearchDomainConfig
 
 instance ToHeaders UpdateElasticsearchDomainConfig
          where

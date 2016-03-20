@@ -10,7 +10,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.Internal
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : This Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
@@ -63,6 +63,8 @@ newtype BucketName = BucketName Text
         , ToLog
         )
 
+instance Hashable BucketName
+
 -- FIXME: Add the difference between weak + strong ETags and their respective
 -- equalities if necessary, see: https://github.com/brendanhay/amazonka/issues/76
 newtype ETag = ETag ByteString
@@ -84,6 +86,8 @@ newtype ETag = ETag ByteString
         , ToLog
         )
 
+instance Hashable ETag
+
 newtype ObjectVersionId = ObjectVersionId Text
     deriving
         ( Eq
@@ -103,6 +107,8 @@ newtype ObjectVersionId = ObjectVersionId Text
         , ToLog
         )
 
+instance Hashable ObjectVersionId
+
 newtype LocationConstraint = LocationConstraint { constraintRegion :: Region }
     deriving
         ( Eq
@@ -119,6 +125,8 @@ newtype LocationConstraint = LocationConstraint { constraintRegion :: Region }
 
 _LocationConstraint :: Iso' LocationConstraint Region
 _LocationConstraint = iso constraintRegion LocationConstraint
+
+instance Hashable LocationConstraint
 
 instance FromText LocationConstraint where
     parser = LocationConstraint <$> (parser <|> go)
@@ -158,6 +166,8 @@ newtype ObjectKey = ObjectKey Text
         , ToPath
         , ToLog
         )
+
+instance Hashable ObjectKey
 
 type Delimiter = Char
 

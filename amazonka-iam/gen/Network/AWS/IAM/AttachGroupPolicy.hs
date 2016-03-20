@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.AttachGroupPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,13 +21,11 @@
 -- Attaches the specified managed policy to the specified group.
 --
 -- You use this API to attach a managed policy to a group. To embed an
--- inline policy in a group, use PutGroupPolicy.
+-- inline policy in a group, use < PutGroupPolicy>.
 --
 -- For more information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachGroupPolicy.html AWS API Reference> for AttachGroupPolicy.
 module Network.AWS.IAM.AttachGroupPolicy
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest AttachGroupPolicy where
         type Rs AttachGroupPolicy = AttachGroupPolicyResponse
         request = postQuery iAM
         response = receiveNull AttachGroupPolicyResponse'
+
+instance Hashable AttachGroupPolicy
 
 instance ToHeaders AttachGroupPolicy where
         toHeaders = const mempty

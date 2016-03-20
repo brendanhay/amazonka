@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeAvailabilityOptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html Configuring Availability Options>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeAvailabilityOptions.html AWS API Reference> for DescribeAvailabilityOptions.
 module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest DescribeAvailabilityOptions where
                  DescribeAvailabilityOptionsResponse' <$>
                    (x .@? "AvailabilityOptions") <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeAvailabilityOptions
 
 instance ToHeaders DescribeAvailabilityOptions where
         toHeaders = const mempty

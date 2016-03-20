@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.SetPlatformApplicationAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- push notification services, such as APNS and GCM. For more information,
 -- see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html AWS API Reference> for SetPlatformApplicationAttributes.
 module Network.AWS.SNS.SetPlatformApplicationAttributes
     (
     -- * Creating a Request
@@ -104,6 +102,8 @@ instance AWSRequest SetPlatformApplicationAttributes
         response
           = receiveNull
               SetPlatformApplicationAttributesResponse'
+
+instance Hashable SetPlatformApplicationAttributes
 
 instance ToHeaders SetPlatformApplicationAttributes
          where

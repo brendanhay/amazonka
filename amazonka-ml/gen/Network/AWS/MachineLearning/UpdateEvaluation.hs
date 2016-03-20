@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.UpdateEvaluation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,10 +20,8 @@
 --
 -- Updates the 'EvaluationName' of an 'Evaluation'.
 --
--- You can use the GetEvaluation operation to view the contents of the
+-- You can use the < GetEvaluation> operation to view the contents of the
 -- updated data element.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateEvaluation.html AWS API Reference> for UpdateEvaluation.
 module Network.AWS.MachineLearning.UpdateEvaluation
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest UpdateEvaluation where
                  UpdateEvaluationResponse' <$>
                    (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateEvaluation
+
 instance ToHeaders UpdateEvaluation where
         toHeaders
           = const
@@ -111,9 +111,9 @@ instance ToPath UpdateEvaluation where
 instance ToQuery UpdateEvaluation where
         toQuery = const mempty
 
--- | Represents the output of an UpdateEvaluation operation.
+-- | Represents the output of an < UpdateEvaluation> operation.
 --
--- You can see the updated content by using the GetEvaluation operation.
+-- You can see the updated content by using the < GetEvaluation> operation.
 --
 -- /See:/ 'updateEvaluationResponse' smart constructor.
 data UpdateEvaluationResponse = UpdateEvaluationResponse'

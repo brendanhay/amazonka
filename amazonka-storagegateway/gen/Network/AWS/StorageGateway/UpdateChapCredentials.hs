@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateChapCredentials
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- When you update CHAP credentials, all existing connections on the target
 -- are closed and initiators must reconnect with the new credentials.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateChapCredentials.html AWS API Reference> for UpdateChapCredentials.
 module Network.AWS.StorageGateway.UpdateChapCredentials
     (
     -- * Creating a Request
@@ -56,10 +54,10 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   UpdateChapCredentialsInput$InitiatorName
--- -   UpdateChapCredentialsInput$SecretToAuthenticateInitiator
--- -   UpdateChapCredentialsInput$SecretToAuthenticateTarget
--- -   UpdateChapCredentialsInput$TargetARN
+-- -   < UpdateChapCredentialsInput$InitiatorName>
+-- -   < UpdateChapCredentialsInput$SecretToAuthenticateInitiator>
+-- -   < UpdateChapCredentialsInput$SecretToAuthenticateTarget>
+-- -   < UpdateChapCredentialsInput$TargetARN>
 --
 -- /See:/ 'updateChapCredentials' smart constructor.
 data UpdateChapCredentials = UpdateChapCredentials'
@@ -103,7 +101,7 @@ uccSecretToAuthenticateTarget :: Lens' UpdateChapCredentials (Maybe Text)
 uccSecretToAuthenticateTarget = lens _uccSecretToAuthenticateTarget (\ s a -> s{_uccSecretToAuthenticateTarget = a});
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
--- DescribeStorediSCSIVolumes operation to return the TargetARN for
+-- < DescribeStorediSCSIVolumes> operation to return the TargetARN for
 -- specified VolumeARN.
 uccTargetARN :: Lens' UpdateChapCredentials Text
 uccTargetARN = lens _uccTargetARN (\ s a -> s{_uccTargetARN = a});
@@ -129,6 +127,8 @@ instance AWSRequest UpdateChapCredentials where
                  UpdateChapCredentialsResponse' <$>
                    (x .?> "TargetARN") <*> (x .?> "InitiatorName") <*>
                      (pure (fromEnum s)))
+
+instance Hashable UpdateChapCredentials
 
 instance ToHeaders UpdateChapCredentials where
         toHeaders

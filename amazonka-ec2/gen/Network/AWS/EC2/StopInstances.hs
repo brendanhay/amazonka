@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.StopInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -52,8 +52,6 @@
 -- For more information about troubleshooting, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html Troubleshooting Stopping Your Instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StopInstances.html AWS API Reference> for StopInstances.
 module Network.AWS.EC2.StopInstances
     (
     -- * Creating a Request
@@ -134,6 +132,8 @@ instance AWSRequest StopInstances where
                    (x .@? "instancesSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable StopInstances
 
 instance ToHeaders StopInstances where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyHosts
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- if you want the instance to launch onto a specific host. If no host ID
 -- is provided, the instance will be launched onto a suitable host which
 -- has auto-placement enabled.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyHosts.html AWS API Reference> for ModifyHosts.
 module Network.AWS.EC2.ModifyHosts
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest ModifyHosts where
                      (x .@? "successful" .!@ mempty >>=
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable ModifyHosts
 
 instance ToHeaders ModifyHosts where
         toHeaders = const mempty

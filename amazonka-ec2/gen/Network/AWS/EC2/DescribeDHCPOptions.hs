@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeDHCPOptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- For more information about DHCP options sets, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeDHCPOptions.html AWS API Reference> for DescribeDHCPOptions.
 module Network.AWS.EC2.DescribeDHCPOptions
     (
     -- * Creating a Request
@@ -124,6 +122,8 @@ instance AWSRequest DescribeDHCPOptions where
                    (x .@? "dhcpOptionsSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeDHCPOptions
 
 instance ToHeaders DescribeDHCPOptions where
         toHeaders = const mempty

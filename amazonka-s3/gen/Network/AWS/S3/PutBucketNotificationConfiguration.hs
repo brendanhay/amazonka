@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketNotificationConfiguration
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables notifications of specified events for a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketNotificationConfiguration.html AWS API Reference> for PutBucketNotificationConfiguration.
 module Network.AWS.S3.PutBucketNotificationConfiguration
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest
         response
           = receiveNull
               PutBucketNotificationConfigurationResponse'
+
+instance Hashable PutBucketNotificationConfiguration
 
 instance ToElement PutBucketNotificationConfiguration
          where

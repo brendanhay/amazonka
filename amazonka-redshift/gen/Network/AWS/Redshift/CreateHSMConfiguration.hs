@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateHSMConfiguration
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- HSM client certificate. For more information, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules>
 -- in the Amazon Redshift Cluster Management Guide.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHSMConfiguration.html AWS API Reference> for CreateHSMConfiguration.
 module Network.AWS.Redshift.CreateHSMConfiguration
     (
     -- * Creating a Request
@@ -149,6 +147,8 @@ instance AWSRequest CreateHSMConfiguration where
               (\ s h x ->
                  CreateHSMConfigurationResponse' <$>
                    (x .@? "HsmConfiguration") <*> (pure (fromEnum s)))
+
+instance Hashable CreateHSMConfiguration
 
 instance ToHeaders CreateHSMConfiguration where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.DescribeStream
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- more stream records). If both 'StartingSequenceNumber' and
 -- 'EndingSequenceNumber' are present, the that shared is closed and can no
 -- longer receive more data.
---
--- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_DescribeStream.html AWS API Reference> for DescribeStream.
 module Network.AWS.DynamoDBStreams.DescribeStream
     (
     -- * Creating a Request
@@ -107,6 +105,8 @@ instance AWSRequest DescribeStream where
               (\ s h x ->
                  DescribeStreamResponse' <$>
                    (x .?> "StreamDescription") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeStream
 
 instance ToHeaders DescribeStream where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Deletes the retention policy of the specified log group. Log events
 -- would not expire if they belong to log groups without a retention
 -- policy.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html AWS API Reference> for DeleteRetentionPolicy.
 module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
     (
     -- * Creating a Request
@@ -71,6 +69,8 @@ instance AWSRequest DeleteRetentionPolicy where
              DeleteRetentionPolicyResponse
         request = postJSON cloudWatchLogs
         response = receiveNull DeleteRetentionPolicyResponse'
+
+instance Hashable DeleteRetentionPolicy
 
 instance ToHeaders DeleteRetentionPolicy where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportImage
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Import single or multi-volume disk images or EBS snapshots into an
 -- Amazon Machine Image (AMI).
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportImage.html AWS API Reference> for ImportImage.
 module Network.AWS.EC2.ImportImage
     (
     -- * Creating a Request
@@ -196,6 +194,8 @@ instance AWSRequest ImportImage where
                      <*> (x .@? "architecture")
                      <*> (x .@? "description")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ImportImage
 
 instance ToHeaders ImportImage where
         toHeaders = const mempty

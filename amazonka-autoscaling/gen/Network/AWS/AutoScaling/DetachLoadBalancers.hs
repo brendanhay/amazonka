@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DetachLoadBalancers
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,9 +24,7 @@
 -- When you detach a load balancer, it enters the 'Removing' state while
 -- deregistering the instances in the group. When all instances are
 -- deregistered, then you can no longer describe the load balancer using
--- DescribeLoadBalancers. Note that the instances remain running.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachLoadBalancers.html AWS API Reference> for DetachLoadBalancers.
+-- < DescribeLoadBalancers>. Note that the instances remain running.
 module Network.AWS.AutoScaling.DetachLoadBalancers
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest DetachLoadBalancers where
           = receiveXMLWrapper "DetachLoadBalancersResult"
               (\ s h x ->
                  DetachLoadBalancersResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DetachLoadBalancers
 
 instance ToHeaders DetachLoadBalancers where
         toHeaders = const mempty

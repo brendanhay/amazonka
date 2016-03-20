@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.ListFunctions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,12 +20,15 @@
 --
 -- Returns a list of your Lambda functions. For each function, the response
 -- includes the function configuration information. You must use
--- GetFunction to retrieve the code for your function.
+-- < GetFunction> to retrieve the code for your function.
 --
 -- This operation requires permission for the 'lambda:ListFunctions'
 -- action.
 --
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_ListFunctions.html AWS API Reference> for ListFunctions.
+-- If you are using versioning feature, the response returns list of
+-- $LATEST versions of your functions. For information about the versioning
+-- feature, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListFunctions
@@ -104,6 +107,8 @@ instance AWSRequest ListFunctions where
                      (x .?> "Functions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListFunctions
+
 instance ToHeaders ListFunctions where
         toHeaders = const mempty
 
@@ -116,7 +121,7 @@ instance ToQuery ListFunctions where
               ["Marker" =: _lfMarker, "MaxItems" =: _lfMaxItems]
 
 -- | Contains a list of AWS Lambda function configurations (see
--- FunctionConfiguration.
+-- < FunctionConfiguration>.
 --
 -- /See:/ 'listFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'

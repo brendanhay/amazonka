@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterElasticIP
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,8 @@
 --
 -- Registers an Elastic IP address with a specified stack. An address can
 -- be registered with only one stack at a time. If the address is already
--- registered, you must first deregister it by calling DeregisterElasticIp.
--- For more information, see
+-- registered, you must first deregister it by calling
+-- < DeregisterElasticIp>. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a
@@ -29,8 +29,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterElasticIP.html AWS API Reference> for RegisterElasticIP.
 module Network.AWS.OpsWorks.RegisterElasticIP
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest RegisterElasticIP where
               (\ s h x ->
                  RegisterElasticIPResponse' <$>
                    (x .?> "ElasticIp") <*> (pure (fromEnum s)))
+
+instance Hashable RegisterElasticIP
 
 instance ToHeaders RegisterElasticIP where
         toHeaders

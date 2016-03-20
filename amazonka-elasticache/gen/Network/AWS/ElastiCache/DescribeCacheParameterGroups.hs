@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheParameterGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- The /DescribeCacheParameterGroups/ action returns a list of cache
 -- parameter group descriptions. If a cache parameter group name is
 -- specified, the list will contain only the descriptions for that group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameterGroups.html AWS API Reference> for DescribeCacheParameterGroups.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheParameterGroups
@@ -121,6 +119,8 @@ instance AWSRequest DescribeCacheParameterGroups
                       may (parseXMLList "CacheParameterGroup"))
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeCacheParameterGroups
 
 instance ToHeaders DescribeCacheParameterGroups where
         toHeaders = const mempty

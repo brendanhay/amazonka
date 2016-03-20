@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- cloudsearch.us-east-1.amazonaws.com. For a current list of supported
 -- regions and endpoints, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints>.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html AWS API Reference>
 module Network.AWS.CloudSearch
     (
     -- * Service Configuration

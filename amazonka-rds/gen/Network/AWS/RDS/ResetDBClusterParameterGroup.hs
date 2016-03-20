@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ResetDBClusterParameterGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,15 +26,13 @@
 --
 -- When resetting the entire group, dynamic parameters are updated
 -- immediately and static parameters are set to 'pending-reboot' to take
--- effect on the next DB instance restart or RebootDBInstance request. You
--- must call RebootDBInstance for every DB instance in your DB cluster that
--- you want the updated static parameter to apply to.
+-- effect on the next DB instance restart or < RebootDBInstance> request.
+-- You must call < RebootDBInstance> for every DB instance in your DB
+-- cluster that you want the updated static parameter to apply to.
 --
 -- For more information on Amazon Aurora, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBClusterParameterGroup.html AWS API Reference> for ResetDBClusterParameterGroup.
 module Network.AWS.RDS.ResetDBClusterParameterGroup
     (
     -- * Creating a Request
@@ -113,6 +111,8 @@ instance AWSRequest ResetDBClusterParameterGroup
           = receiveXMLWrapper
               "ResetDBClusterParameterGroupResult"
               (\ s h x -> parseXML x)
+
+instance Hashable ResetDBClusterParameterGroup
 
 instance ToHeaders ResetDBClusterParameterGroup where
         toHeaders = const mempty

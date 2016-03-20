@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.AddTagsToResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- For an overview on tagging Amazon RDS resources, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddTagsToResource.html AWS API Reference> for AddTagsToResource.
 module Network.AWS.RDS.AddTagsToResource
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest AddTagsToResource where
         type Rs AddTagsToResource = AddTagsToResourceResponse
         request = postQuery rDS
         response = receiveNull AddTagsToResourceResponse'
+
+instance Hashable AddTagsToResource
 
 instance ToHeaders AddTagsToResource where
         toHeaders = const mempty

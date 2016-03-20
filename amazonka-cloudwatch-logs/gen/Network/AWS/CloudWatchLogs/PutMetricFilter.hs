@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutMetricFilter
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 --
 -- The maximum number of metric filters that can be associated with a log
 -- group is 100.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutMetricFilter.html AWS API Reference> for PutMetricFilter.
 module Network.AWS.CloudWatchLogs.PutMetricFilter
     (
     -- * Creating a Request
@@ -104,6 +102,8 @@ instance AWSRequest PutMetricFilter where
         type Rs PutMetricFilter = PutMetricFilterResponse
         request = postJSON cloudWatchLogs
         response = receiveNull PutMetricFilterResponse'
+
+instance Hashable PutMetricFilter
 
 instance ToHeaders PutMetricFilter where
         toHeaders

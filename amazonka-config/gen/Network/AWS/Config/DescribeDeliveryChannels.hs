@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeDeliveryChannels
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- delivery channels associated with the account.
 --
 -- Currently, you can specify only one delivery channel per account.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannels.html AWS API Reference> for DescribeDeliveryChannels.
 module Network.AWS.Config.DescribeDeliveryChannels
     (
     -- * Creating a Request
@@ -48,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the DescribeDeliveryChannels action.
+-- | The input for the < DescribeDeliveryChannels> action.
 --
 -- /See:/ 'describeDeliveryChannels' smart constructor.
 newtype DescribeDeliveryChannels = DescribeDeliveryChannels'
@@ -82,6 +80,8 @@ instance AWSRequest DescribeDeliveryChannels where
                    (x .?> "DeliveryChannels" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeDeliveryChannels
+
 instance ToHeaders DescribeDeliveryChannels where
         toHeaders
           = const
@@ -105,7 +105,7 @@ instance ToPath DescribeDeliveryChannels where
 instance ToQuery DescribeDeliveryChannels where
         toQuery = const mempty
 
--- | The output for the DescribeDeliveryChannels action.
+-- | The output for the < DescribeDeliveryChannels> action.
 --
 -- /See:/ 'describeDeliveryChannelsResponse' smart constructor.
 data DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'

@@ -1,0 +1,105 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.APIGateway.GetAuthorizer
+-- Copyright   : (c) 2013-2016 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Describe an existing < Authorizer> resource.
+module Network.AWS.APIGateway.GetAuthorizer
+    (
+    -- * Creating a Request
+      getAuthorizer
+    , GetAuthorizer
+    -- * Request Lenses
+    , gaaRestAPIId
+    , gaaAuthorizerId
+
+    -- * Destructuring the Response
+    , authorizer
+    , Authorizer
+    -- * Response Lenses
+    , aAuthorizerURI
+    , aIdentityValidationExpression
+    , aName
+    , aId
+    , aAuthorizerResultTtlInSeconds
+    , aType
+    , aIdentitySource
+    , aAuthorizerCredentials
+    ) where
+
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | Request to describe an existing < Authorizer> resource.
+--
+-- /See:/ 'getAuthorizer' smart constructor.
+data GetAuthorizer = GetAuthorizer'
+    { _gaaRestAPIId    :: !Text
+    , _gaaAuthorizerId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetAuthorizer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gaaRestAPIId'
+--
+-- * 'gaaAuthorizerId'
+getAuthorizer
+    :: Text -- ^ 'gaaRestAPIId'
+    -> Text -- ^ 'gaaAuthorizerId'
+    -> GetAuthorizer
+getAuthorizer pRestAPIId_ pAuthorizerId_ =
+    GetAuthorizer'
+    { _gaaRestAPIId = pRestAPIId_
+    , _gaaAuthorizerId = pAuthorizerId_
+    }
+
+-- | The < RestApi> identifier for the < Authorizer> resource.
+gaaRestAPIId :: Lens' GetAuthorizer Text
+gaaRestAPIId = lens _gaaRestAPIId (\ s a -> s{_gaaRestAPIId = a});
+
+-- | The identifier of the < Authorizer> resource.
+gaaAuthorizerId :: Lens' GetAuthorizer Text
+gaaAuthorizerId = lens _gaaAuthorizerId (\ s a -> s{_gaaAuthorizerId = a});
+
+instance AWSRequest GetAuthorizer where
+        type Rs GetAuthorizer = Authorizer
+        request = get aPIGateway
+        response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable GetAuthorizer
+
+instance ToHeaders GetAuthorizer where
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
+
+instance ToPath GetAuthorizer where
+        toPath GetAuthorizer'{..}
+          = mconcat
+              ["/restapis/", toBS _gaaRestAPIId, "/authorizers/",
+               toBS _gaaAuthorizerId]
+
+instance ToQuery GetAuthorizer where
+        toQuery = const mempty

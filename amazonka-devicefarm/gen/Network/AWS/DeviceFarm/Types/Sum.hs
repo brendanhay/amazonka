@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.Types.Sum
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -50,6 +50,8 @@ instance ToJSON ArtifactCategory where
 data ArtifactType
     = AppiumJavaOutput
     | AppiumJavaXMLOutput
+    | AppiumPythonOutput
+    | AppiumPythonXMLOutput
     | AppiumServerOutput
     | ApplicationCrashReport
     | AutomationOutput
@@ -68,12 +70,15 @@ data ArtifactType
     | ServiceLog
     | Unknown
     | WebkitLog
+    | XctestLog
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ArtifactType where
     parser = takeLowerText >>= \case
         "appium_java_output" -> pure AppiumJavaOutput
         "appium_java_xml_output" -> pure AppiumJavaXMLOutput
+        "appium_python_output" -> pure AppiumPythonOutput
+        "appium_python_xml_output" -> pure AppiumPythonXMLOutput
         "appium_server_output" -> pure AppiumServerOutput
         "application_crash_report" -> pure ApplicationCrashReport
         "automation_output" -> pure AutomationOutput
@@ -92,13 +97,16 @@ instance FromText ArtifactType where
         "service_log" -> pure ServiceLog
         "unknown" -> pure Unknown
         "webkit_log" -> pure WebkitLog
+        "xctest_log" -> pure XctestLog
         e -> fromTextError $ "Failure parsing ArtifactType from value: '" <> e
-           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_SERVER_OUTPUT, APPLICATION_CRASH_REPORT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, EXPLORER_EVENT_LOG, EXPLORER_SUMMARY_LOG, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN, WEBKIT_LOG"
+           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_PYTHON_OUTPUT, APPIUM_PYTHON_XML_OUTPUT, APPIUM_SERVER_OUTPUT, APPLICATION_CRASH_REPORT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, EXPLORER_EVENT_LOG, EXPLORER_SUMMARY_LOG, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN, WEBKIT_LOG, XCTEST_LOG"
 
 instance ToText ArtifactType where
     toText = \case
         AppiumJavaOutput -> "APPIUM_JAVA_OUTPUT"
         AppiumJavaXMLOutput -> "APPIUM_JAVA_XML_OUTPUT"
+        AppiumPythonOutput -> "APPIUM_PYTHON_OUTPUT"
+        AppiumPythonXMLOutput -> "APPIUM_PYTHON_XML_OUTPUT"
         AppiumServerOutput -> "APPIUM_SERVER_OUTPUT"
         ApplicationCrashReport -> "APPLICATION_CRASH_REPORT"
         AutomationOutput -> "AUTOMATION_OUTPUT"
@@ -117,6 +125,7 @@ instance ToText ArtifactType where
         ServiceLog -> "SERVICE_LOG"
         Unknown -> "UNKNOWN"
         WebkitLog -> "WEBKIT_LOG"
+        XctestLog -> "XCTEST_LOG"
 
 instance Hashable     ArtifactType
 instance ToByteString ArtifactType
@@ -450,8 +459,10 @@ instance FromJSON SampleType where
 data TestType
     = AppiumJavaJunit
     | AppiumJavaTestng
+    | AppiumPython
     | AppiumWebJavaJunit
     | AppiumWebJavaTestng
+    | AppiumWebPython
     | BuiltinExplorer
     | BuiltinFuzz
     | Calabash
@@ -459,14 +470,17 @@ data TestType
     | Uiautomation
     | Uiautomator
     | Xctest
+    | XctestUi
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TestType where
     parser = takeLowerText >>= \case
         "appium_java_junit" -> pure AppiumJavaJunit
         "appium_java_testng" -> pure AppiumJavaTestng
+        "appium_python" -> pure AppiumPython
         "appium_web_java_junit" -> pure AppiumWebJavaJunit
         "appium_web_java_testng" -> pure AppiumWebJavaTestng
+        "appium_web_python" -> pure AppiumWebPython
         "builtin_explorer" -> pure BuiltinExplorer
         "builtin_fuzz" -> pure BuiltinFuzz
         "calabash" -> pure Calabash
@@ -474,15 +488,18 @@ instance FromText TestType where
         "uiautomation" -> pure Uiautomation
         "uiautomator" -> pure Uiautomator
         "xctest" -> pure Xctest
+        "xctest_ui" -> pure XctestUi
         e -> fromTextError $ "Failure parsing TestType from value: '" <> e
-           <> "'. Accepted values: APPIUM_JAVA_JUNIT, APPIUM_JAVA_TESTNG, APPIUM_WEB_JAVA_JUNIT, APPIUM_WEB_JAVA_TESTNG, BUILTIN_EXPLORER, BUILTIN_FUZZ, CALABASH, INSTRUMENTATION, UIAUTOMATION, UIAUTOMATOR, XCTEST"
+           <> "'. Accepted values: APPIUM_JAVA_JUNIT, APPIUM_JAVA_TESTNG, APPIUM_PYTHON, APPIUM_WEB_JAVA_JUNIT, APPIUM_WEB_JAVA_TESTNG, APPIUM_WEB_PYTHON, BUILTIN_EXPLORER, BUILTIN_FUZZ, CALABASH, INSTRUMENTATION, UIAUTOMATION, UIAUTOMATOR, XCTEST, XCTEST_UI"
 
 instance ToText TestType where
     toText = \case
         AppiumJavaJunit -> "APPIUM_JAVA_JUNIT"
         AppiumJavaTestng -> "APPIUM_JAVA_TESTNG"
+        AppiumPython -> "APPIUM_PYTHON"
         AppiumWebJavaJunit -> "APPIUM_WEB_JAVA_JUNIT"
         AppiumWebJavaTestng -> "APPIUM_WEB_JAVA_TESTNG"
+        AppiumWebPython -> "APPIUM_WEB_PYTHON"
         BuiltinExplorer -> "BUILTIN_EXPLORER"
         BuiltinFuzz -> "BUILTIN_FUZZ"
         Calabash -> "CALABASH"
@@ -490,6 +507,7 @@ instance ToText TestType where
         Uiautomation -> "UIAUTOMATION"
         Uiautomator -> "UIAUTOMATOR"
         Xctest -> "XCTEST"
+        XctestUi -> "XCTEST_UI"
 
 instance Hashable     TestType
 instance ToByteString TestType
@@ -537,8 +555,10 @@ data UploadType
     = AndroidApp
     | AppiumJavaJunitTestPackage
     | AppiumJavaTestngTestPackage
+    | AppiumPythonTestPackage
     | AppiumWebJavaJunitTestPackage
     | AppiumWebJavaTestngTestPackage
+    | AppiumWebPythonTestPackage
     | CalabashTestPackage
     | ExternalData
     | InstrumentationTestPackage
@@ -547,6 +567,7 @@ data UploadType
     | UiautomatorTestPackage
     | WebApp
     | XctestTestPackage
+    | XctestUiTestPackage
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText UploadType where
@@ -554,8 +575,10 @@ instance FromText UploadType where
         "android_app" -> pure AndroidApp
         "appium_java_junit_test_package" -> pure AppiumJavaJunitTestPackage
         "appium_java_testng_test_package" -> pure AppiumJavaTestngTestPackage
+        "appium_python_test_package" -> pure AppiumPythonTestPackage
         "appium_web_java_junit_test_package" -> pure AppiumWebJavaJunitTestPackage
         "appium_web_java_testng_test_package" -> pure AppiumWebJavaTestngTestPackage
+        "appium_web_python_test_package" -> pure AppiumWebPythonTestPackage
         "calabash_test_package" -> pure CalabashTestPackage
         "external_data" -> pure ExternalData
         "instrumentation_test_package" -> pure InstrumentationTestPackage
@@ -564,16 +587,19 @@ instance FromText UploadType where
         "uiautomator_test_package" -> pure UiautomatorTestPackage
         "web_app" -> pure WebApp
         "xctest_test_package" -> pure XctestTestPackage
+        "xctest_ui_test_package" -> pure XctestUiTestPackage
         e -> fromTextError $ "Failure parsing UploadType from value: '" <> e
-           <> "'. Accepted values: ANDROID_APP, APPIUM_JAVA_JUNIT_TEST_PACKAGE, APPIUM_JAVA_TESTNG_TEST_PACKAGE, APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE, APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE, CALABASH_TEST_PACKAGE, EXTERNAL_DATA, INSTRUMENTATION_TEST_PACKAGE, IOS_APP, UIAUTOMATION_TEST_PACKAGE, UIAUTOMATOR_TEST_PACKAGE, WEB_APP, XCTEST_TEST_PACKAGE"
+           <> "'. Accepted values: ANDROID_APP, APPIUM_JAVA_JUNIT_TEST_PACKAGE, APPIUM_JAVA_TESTNG_TEST_PACKAGE, APPIUM_PYTHON_TEST_PACKAGE, APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE, APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE, APPIUM_WEB_PYTHON_TEST_PACKAGE, CALABASH_TEST_PACKAGE, EXTERNAL_DATA, INSTRUMENTATION_TEST_PACKAGE, IOS_APP, UIAUTOMATION_TEST_PACKAGE, UIAUTOMATOR_TEST_PACKAGE, WEB_APP, XCTEST_TEST_PACKAGE, XCTEST_UI_TEST_PACKAGE"
 
 instance ToText UploadType where
     toText = \case
         AndroidApp -> "ANDROID_APP"
         AppiumJavaJunitTestPackage -> "APPIUM_JAVA_JUNIT_TEST_PACKAGE"
         AppiumJavaTestngTestPackage -> "APPIUM_JAVA_TESTNG_TEST_PACKAGE"
+        AppiumPythonTestPackage -> "APPIUM_PYTHON_TEST_PACKAGE"
         AppiumWebJavaJunitTestPackage -> "APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE"
         AppiumWebJavaTestngTestPackage -> "APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE"
+        AppiumWebPythonTestPackage -> "APPIUM_WEB_PYTHON_TEST_PACKAGE"
         CalabashTestPackage -> "CALABASH_TEST_PACKAGE"
         ExternalData -> "EXTERNAL_DATA"
         InstrumentationTestPackage -> "INSTRUMENTATION_TEST_PACKAGE"
@@ -582,6 +608,7 @@ instance ToText UploadType where
         UiautomatorTestPackage -> "UIAUTOMATOR_TEST_PACKAGE"
         WebApp -> "WEB_APP"
         XctestTestPackage -> "XCTEST_TEST_PACKAGE"
+        XctestUiTestPackage -> "XCTEST_UI_TEST_PACKAGE"
 
 instance Hashable     UploadType
 instance ToByteString UploadType

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.GetTopicAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns all of the properties of a topic. Topic properties returned
 -- might differ based on the authorization of the user.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetTopicAttributes.html AWS API Reference> for GetTopicAttributes.
 module Network.AWS.SNS.GetTopicAttributes
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest GetTopicAttributes where
                    (x .@? "Attributes" .!@ mempty >>=
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetTopicAttributes
 
 instance ToHeaders GetTopicAttributes where
         toHeaders = const mempty

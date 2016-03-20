@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeletePolicyVersion
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,15 +21,13 @@
 -- Deletes the specified version of the specified managed policy.
 --
 -- You cannot delete the default version of a policy using this API. To
--- delete the default version of a policy, use DeletePolicy. To find out
+-- delete the default version of a policy, use < DeletePolicy>. To find out
 -- which version of a policy is marked as the default version, use
--- ListPolicyVersions.
+-- < ListPolicyVersions>.
 --
 -- For information about versions for managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicyVersion.html AWS API Reference> for DeletePolicyVersion.
 module Network.AWS.IAM.DeletePolicyVersion
     (
     -- * Creating a Request
@@ -91,6 +89,8 @@ instance AWSRequest DeletePolicyVersion where
              DeletePolicyVersionResponse
         request = postQuery iAM
         response = receiveNull DeletePolicyVersionResponse'
+
+instance Hashable DeletePolicyVersion
 
 instance ToHeaders DeletePolicyVersion where
         toHeaders = const mempty

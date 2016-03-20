@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetCredentialsForIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- Security Token Service with the appropriate role for the token.
 --
 -- This is a public API. You do not need any credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html AWS API Reference> for GetCredentialsForIdentity.
 module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest GetCredentialsForIdentity where
                  GetCredentialsForIdentityResponse' <$>
                    (x .?> "Credentials") <*> (x .?> "IdentityId") <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetCredentialsForIdentity
 
 instance ToHeaders GetCredentialsForIdentity where
         toHeaders

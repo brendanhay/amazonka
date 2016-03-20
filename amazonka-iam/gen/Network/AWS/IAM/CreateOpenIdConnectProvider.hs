@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateOpenIdConnectProvider
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -35,9 +35,7 @@
 --
 -- Because trust for the OIDC provider is ultimately derived from the IAM
 -- provider that this action creates, it is a best practice to limit access
--- to the CreateOpenIDConnectProvider action to highly-privileged users.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIdConnectProvider.html AWS API Reference> for CreateOpenIdConnectProvider.
+-- to the < CreateOpenIDConnectProvider> action to highly-privileged users.
 module Network.AWS.IAM.CreateOpenIdConnectProvider
     (
     -- * Creating a Request
@@ -154,6 +152,8 @@ instance AWSRequest CreateOpenIdConnectProvider where
                    (x .@? "OpenIDConnectProviderArn") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateOpenIdConnectProvider
+
 instance ToHeaders CreateOpenIdConnectProvider where
         toHeaders = const mempty
 
@@ -173,7 +173,7 @@ instance ToQuery CreateOpenIdConnectProvider where
                "ThumbprintList" =:
                  toQueryList "member" _coicpThumbprintList]
 
--- | Contains the response to a successful CreateOpenIDConnectProvider
+-- | Contains the response to a successful < CreateOpenIDConnectProvider>
 -- request.
 --
 -- /See:/ 'createOpenIdConnectProviderResponse' smart constructor.
@@ -199,7 +199,8 @@ createOpenIdConnectProviderResponse pResponseStatus_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that
--- was created. For more information, see OpenIDConnectProviderListEntry.
+-- was created. For more information, see
+-- < OpenIDConnectProviderListEntry>.
 coicprsOpenIdConnectProviderARN :: Lens' CreateOpenIdConnectProviderResponse (Maybe Text)
 coicprsOpenIdConnectProviderARN = lens _coicprsOpenIdConnectProviderARN (\ s a -> s{_coicprsOpenIdConnectProviderARN = a});
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.ListObjects
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Returns some or all (up to 1000) of the objects in a bucket. You can use
 -- the request parameters as selection criteria to return a subset of the
 -- objects in a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjects.html AWS API Reference> for ListObjects.
 --
 -- This operation returns paginated results.
 module Network.AWS.S3.ListObjects
@@ -159,6 +157,8 @@ instance AWSRequest ListObjects where
                      <*> (x .@? "IsTruncated")
                      <*> (x .@? "Delimiter")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListObjects
 
 instance ToHeaders ListObjects where
         toHeaders = const mempty

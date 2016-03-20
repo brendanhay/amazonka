@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListAccountAliases
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- only one). For information about using an AWS account alias, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccountAliases.html AWS API Reference> for ListAccountAliases.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListAccountAliases
@@ -114,6 +112,8 @@ instance AWSRequest ListAccountAliases where
                      (x .@? "AccountAliases" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListAccountAliases
+
 instance ToHeaders ListAccountAliases where
         toHeaders = const mempty
 
@@ -127,7 +127,7 @@ instance ToQuery ListAccountAliases where
                "Version" =: ("2010-05-08" :: ByteString),
                "Marker" =: _laaMarker, "MaxItems" =: _laaMaxItems]
 
--- | Contains the response to a successful ListAccountAliases request.
+-- | Contains the response to a successful < ListAccountAliases> request.
 --
 -- /See:/ 'listAccountAliasesResponse' smart constructor.
 data ListAccountAliasesResponse = ListAccountAliasesResponse'

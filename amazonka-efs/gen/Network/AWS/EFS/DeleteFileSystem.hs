@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DeleteFileSystem
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,19 +24,17 @@
 --
 -- You cannot delete a file system that is in use. That is, if the file
 -- system has any mount targets, you must first delete them. For more
--- information, see DescribeMountTargets and DeleteMountTarget.
+-- information, see < DescribeMountTargets> and < DeleteMountTarget>.
 --
 -- The 'DeleteFileSystem' call returns while the file system state is still
 -- \"deleting\". You can check the file system deletion status by calling
--- the DescribeFileSystems API, which returns a list of file systems in
+-- the < DescribeFileSystems> API, which returns a list of file systems in
 -- your account. If you pass file system ID or creation token for the
--- deleted file system, the DescribeFileSystems will return a 404
+-- deleted file system, the < DescribeFileSystems> will return a 404
 -- \"FileSystemNotFound\" error.
 --
 -- This operation requires permission for the
 -- 'elasticfilesystem:DeleteFileSystem' action.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteFileSystem.html AWS API Reference> for DeleteFileSystem.
 module Network.AWS.EFS.DeleteFileSystem
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest DeleteFileSystem where
         type Rs DeleteFileSystem = DeleteFileSystemResponse
         request = delete eFS
         response = receiveNull DeleteFileSystemResponse'
+
+instance Hashable DeleteFileSystem
 
 instance ToHeaders DeleteFileSystem where
         toHeaders = const mempty

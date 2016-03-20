@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DeleteTrust
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Deletes an existing trust relationship between your Microsoft AD in the
 -- AWS cloud and an external domain.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteTrust.html AWS API Reference> for DeleteTrust.
 module Network.AWS.DirectoryService.DeleteTrust
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest DeleteTrust where
               (\ s h x ->
                  DeleteTrustResponse' <$>
                    (x .?> "TrustId") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteTrust
 
 instance ToHeaders DeleteTrust where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteSSHPublicKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- CodeCommit repository, see
 -- <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections>
 -- in the /AWS CodeCommit User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSSHPublicKey.html AWS API Reference> for DeleteSSHPublicKey.
 module Network.AWS.IAM.DeleteSSHPublicKey
     (
     -- * Creating a Request
@@ -85,6 +83,8 @@ instance AWSRequest DeleteSSHPublicKey where
              DeleteSSHPublicKeyResponse
         request = postQuery iAM
         response = receiveNull DeleteSSHPublicKeyResponse'
+
+instance Hashable DeleteSSHPublicKey
 
 instance ToHeaders DeleteSSHPublicKey where
         toHeaders = const mempty

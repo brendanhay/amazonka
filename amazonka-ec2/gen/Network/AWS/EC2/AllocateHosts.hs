@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AllocateHosts
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Allocates a Dedicated host to your account. At minimum you need to
 -- specify the instance size type, Availability Zone, and quantity of hosts
 -- you want to allocate.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateHosts.html AWS API Reference> for AllocateHosts.
 module Network.AWS.EC2.AllocateHosts
     (
     -- * Creating a Request
@@ -126,6 +124,8 @@ instance AWSRequest AllocateHosts where
                    (x .@? "hostIdSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable AllocateHosts
 
 instance ToHeaders AllocateHosts where
         toHeaders = const mempty

@@ -12,21 +12,22 @@
 
 -- |
 -- Module      : Network.AWS.EC2.MoveAddressToVPC
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC
--- platform. The Elastic IP address must be allocated to your account, and
--- it must not be associated with an instance. After the Elastic IP address
--- is moved, it is no longer available for use in the EC2-Classic platform,
--- unless you move it back using the RestoreAddressToClassic request. You
--- cannot move an Elastic IP address that\'s allocated for use in the
--- EC2-VPC platform to the EC2-Classic platform.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MoveAddressToVPC.html AWS API Reference> for MoveAddressToVPC.
+-- platform. The Elastic IP address must be allocated to your account for
+-- more than 24 hours, and it must not be associated with an instance.
+-- After the Elastic IP address is moved, it is no longer available for use
+-- in the EC2-Classic platform, unless you move it back using the
+-- < RestoreAddressToClassic> request. You cannot move an Elastic IP
+-- address that\'s allocated for use in the EC2-VPC platform to the
+-- EC2-Classic platform. You cannot migrate an Elastic IP address that\'s
+-- associated with a reverse DNS record. Contact AWS account and billing
+-- support to remove the reverse DNS record.
 module Network.AWS.EC2.MoveAddressToVPC
     (
     -- * Creating a Request
@@ -94,6 +95,8 @@ instance AWSRequest MoveAddressToVPC where
                  MoveAddressToVPCResponse' <$>
                    (x .@? "status") <*> (x .@? "allocationId") <*>
                      (pure (fromEnum s)))
+
+instance Hashable MoveAddressToVPC
 
 instance ToHeaders MoveAddressToVPC where
         toHeaders = const mempty

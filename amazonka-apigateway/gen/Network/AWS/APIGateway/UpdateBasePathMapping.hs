@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateBasePathMapping
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about the BasePathMapping resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateBasePathMapping.html AWS API Reference> for UpdateBasePathMapping.
+-- Changes information about the < BasePathMapping> resource.
 module Network.AWS.APIGateway.UpdateBasePathMapping
     (
     -- * Creating a Request
@@ -47,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to change information about the BasePathMapping resource.
+-- | A request to change information about the < BasePathMapping> resource.
 --
 -- /See:/ 'updateBasePathMapping' smart constructor.
 data UpdateBasePathMapping = UpdateBasePathMapping'
@@ -81,11 +79,11 @@ updateBasePathMapping pDomainName_ pBasePath_ =
 ubpmPatchOperations :: Lens' UpdateBasePathMapping [PatchOperation]
 ubpmPatchOperations = lens _ubpmPatchOperations (\ s a -> s{_ubpmPatchOperations = a}) . _Default . _Coerce;
 
--- | The domain name of the BasePathMapping resource to change.
+-- | The domain name of the < BasePathMapping> resource to change.
 ubpmDomainName :: Lens' UpdateBasePathMapping Text
 ubpmDomainName = lens _ubpmDomainName (\ s a -> s{_ubpmDomainName = a});
 
--- | The base path of the BasePathMapping resource to change.
+-- | The base path of the < BasePathMapping> resource to change.
 ubpmBasePath :: Lens' UpdateBasePathMapping Text
 ubpmBasePath = lens _ubpmBasePath (\ s a -> s{_ubpmBasePath = a});
 
@@ -94,8 +92,13 @@ instance AWSRequest UpdateBasePathMapping where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateBasePathMapping
+
 instance ToHeaders UpdateBasePathMapping where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateBasePathMapping where
         toJSON UpdateBasePathMapping'{..}

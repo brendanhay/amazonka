@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.SetVaultNotifications
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,15 +32,15 @@
 -- a notification for the following vault events:
 --
 -- -   __ArchiveRetrievalCompleted__ This event occurs when a job that was
---     initiated for an archive retrieval is completed (InitiateJob). The
---     status of the completed job can be \"Succeeded\" or \"Failed\". The
---     notification sent to the SNS topic is the same output as returned
---     from DescribeJob.
--- -   __InventoryRetrievalCompleted__ This event occurs when a job that
---     was initiated for an inventory retrieval is completed (InitiateJob).
+--     initiated for an archive retrieval is completed (< InitiateJob>).
 --     The status of the completed job can be \"Succeeded\" or \"Failed\".
 --     The notification sent to the SNS topic is the same output as
---     returned from DescribeJob.
+--     returned from < DescribeJob>.
+-- -   __InventoryRetrievalCompleted__ This event occurs when a job that
+--     was initiated for an inventory retrieval is completed
+--     (< InitiateJob>). The status of the completed job can be
+--     \"Succeeded\" or \"Failed\". The notification sent to the SNS topic
+--     is the same output as returned from < DescribeJob>.
 --
 -- An AWS account has full permission to perform all operations (actions).
 -- However, AWS Identity and Access Management (IAM) users don\'t have any
@@ -53,8 +53,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html Set Vault Notification Configuration>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultNotifications.html AWS API Reference> for SetVaultNotifications.
 module Network.AWS.Glacier.SetVaultNotifications
     (
     -- * Creating a Request
@@ -128,6 +126,8 @@ instance AWSRequest SetVaultNotifications where
              SetVaultNotificationsResponse
         request = putJSON glacier
         response = receiveNull SetVaultNotificationsResponse'
+
+instance Hashable SetVaultNotifications
 
 instance ToHeaders SetVaultNotifications where
         toHeaders = const mempty

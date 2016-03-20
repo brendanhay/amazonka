@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Return a list of connections that have been provisioned on the given
 -- interconnect.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnectionsOnInterconnect.html AWS API Reference> for DescribeConnectionsOnInterconnect.
 module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     (
     -- * Creating a Request
@@ -79,6 +77,8 @@ instance AWSRequest DescribeConnectionsOnInterconnect
              Connections
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable DescribeConnectionsOnInterconnect
 
 instance ToHeaders DescribeConnectionsOnInterconnect
          where

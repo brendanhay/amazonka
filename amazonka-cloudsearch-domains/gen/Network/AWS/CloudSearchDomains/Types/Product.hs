@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -59,6 +59,8 @@ instance FromJSON Bucket where
               (\ x ->
                  Bucket' <$> (x .:? "value") <*> (x .:? "count"))
 
+instance Hashable Bucket
+
 -- | A container for the calculated facet values and counts.
 --
 -- /See:/ 'bucketInfo' smart constructor.
@@ -86,6 +88,8 @@ instance FromJSON BucketInfo where
         parseJSON
           = withObject "BucketInfo"
               (\ x -> BucketInfo' <$> (x .:? "buckets" .!= mempty))
+
+instance Hashable BucketInfo
 
 -- | A warning returned by the document service when an issue is discovered
 -- while processing an upload request.
@@ -116,6 +120,127 @@ instance FromJSON DocumentServiceWarning where
           = withObject "DocumentServiceWarning"
               (\ x ->
                  DocumentServiceWarning' <$> (x .:? "message"))
+
+instance Hashable DocumentServiceWarning
+
+-- | The statistics for a field calculated in the request.
+--
+-- /See:/ 'fieldStats' smart constructor.
+data FieldStats = FieldStats'
+    { _fsMax          :: !(Maybe Text)
+    , _fsMean         :: !(Maybe Text)
+    , _fsCount        :: !(Maybe Integer)
+    , _fsMissing      :: !(Maybe Integer)
+    , _fsStddev       :: !(Maybe Double)
+    , _fsMin          :: !(Maybe Text)
+    , _fsSumOfSquares :: !(Maybe Double)
+    , _fsSum          :: !(Maybe Double)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'FieldStats' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fsMax'
+--
+-- * 'fsMean'
+--
+-- * 'fsCount'
+--
+-- * 'fsMissing'
+--
+-- * 'fsStddev'
+--
+-- * 'fsMin'
+--
+-- * 'fsSumOfSquares'
+--
+-- * 'fsSum'
+fieldStats
+    :: FieldStats
+fieldStats =
+    FieldStats'
+    { _fsMax = Nothing
+    , _fsMean = Nothing
+    , _fsCount = Nothing
+    , _fsMissing = Nothing
+    , _fsStddev = Nothing
+    , _fsMin = Nothing
+    , _fsSumOfSquares = Nothing
+    , _fsSum = Nothing
+    }
+
+-- | The maximum value found in the specified field in the result set.
+--
+-- If the field is numeric ('int', 'int-array', 'double', or
+-- 'double-array'), 'max' is the string representation of a
+-- double-precision 64-bit floating point value. If the field is 'date' or
+-- 'date-array', 'max' is the string representation of a date with the
+-- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
+-- yyyy-mm-ddTHH:mm:ss.SSSZ.
+fsMax :: Lens' FieldStats (Maybe Text)
+fsMax = lens _fsMax (\ s a -> s{_fsMax = a});
+
+-- | The average of the values found in the specified field in the result
+-- set.
+--
+-- If the field is numeric ('int', 'int-array', 'double', or
+-- 'double-array'), 'mean' is the string representation of a
+-- double-precision 64-bit floating point value. If the field is 'date' or
+-- 'date-array', 'mean' is the string representation of a date with the
+-- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
+-- yyyy-mm-ddTHH:mm:ss.SSSZ.
+fsMean :: Lens' FieldStats (Maybe Text)
+fsMean = lens _fsMean (\ s a -> s{_fsMean = a});
+
+-- | The number of documents that contain a value in the specified field in
+-- the result set.
+fsCount :: Lens' FieldStats (Maybe Integer)
+fsCount = lens _fsCount (\ s a -> s{_fsCount = a});
+
+-- | The number of documents that do not contain a value in the specified
+-- field in the result set.
+fsMissing :: Lens' FieldStats (Maybe Integer)
+fsMissing = lens _fsMissing (\ s a -> s{_fsMissing = a});
+
+-- | The standard deviation of the values in the specified field in the
+-- result set.
+fsStddev :: Lens' FieldStats (Maybe Double)
+fsStddev = lens _fsStddev (\ s a -> s{_fsStddev = a});
+
+-- | The minimum value found in the specified field in the result set.
+--
+-- If the field is numeric ('int', 'int-array', 'double', or
+-- 'double-array'), 'min' is the string representation of a
+-- double-precision 64-bit floating point value. If the field is 'date' or
+-- 'date-array', 'min' is the string representation of a date with the
+-- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
+-- yyyy-mm-ddTHH:mm:ss.SSSZ.
+fsMin :: Lens' FieldStats (Maybe Text)
+fsMin = lens _fsMin (\ s a -> s{_fsMin = a});
+
+-- | The sum of all field values in the result set squared.
+fsSumOfSquares :: Lens' FieldStats (Maybe Double)
+fsSumOfSquares = lens _fsSumOfSquares (\ s a -> s{_fsSumOfSquares = a});
+
+-- | The sum of the field values across the documents in the result set.
+-- 'null' for date fields.
+fsSum :: Lens' FieldStats (Maybe Double)
+fsSum = lens _fsSum (\ s a -> s{_fsSum = a});
+
+instance FromJSON FieldStats where
+        parseJSON
+          = withObject "FieldStats"
+              (\ x ->
+                 FieldStats' <$>
+                   (x .:? "max") <*> (x .:? "mean") <*> (x .:? "count")
+                     <*> (x .:? "missing")
+                     <*> (x .:? "stddev")
+                     <*> (x .:? "min")
+                     <*> (x .:? "sumOfSquares")
+                     <*> (x .:? "sum"))
+
+instance Hashable FieldStats
 
 -- | Information about a document that matches the search request.
 --
@@ -174,6 +299,8 @@ instance FromJSON Hit where
                      (x .:? "highlights" .!= mempty)
                      <*> (x .:? "fields" .!= mempty))
 
+instance Hashable Hit
+
 -- | The collection of documents that match the search request.
 --
 -- /See:/ 'hits' smart constructor.
@@ -231,6 +358,8 @@ instance FromJSON Hits where
                      (x .:? "start")
                      <*> (x .:? "found"))
 
+instance Hashable Hits
+
 -- | Contains the resource id ('rid') and the time it took to process the
 -- request ('timems').
 --
@@ -268,6 +397,8 @@ instance FromJSON SearchStatus where
           = withObject "SearchStatus"
               (\ x ->
                  SearchStatus' <$> (x .:? "rid") <*> (x .:? "timems"))
+
+instance Hashable SearchStatus
 
 -- | Container for the suggestion information returned in a
 -- 'SuggestResponse'.
@@ -317,6 +448,8 @@ instance FromJSON SuggestModel where
                    (x .:? "found") <*> (x .:? "suggestions" .!= mempty)
                      <*> (x .:? "query"))
 
+instance Hashable SuggestModel
+
 -- | Contains the resource id ('rid') and the time it took to process the
 -- request ('timems').
 --
@@ -355,6 +488,8 @@ instance FromJSON SuggestStatus where
               (\ x ->
                  SuggestStatus' <$>
                    (x .:? "rid") <*> (x .:? "timems"))
+
+instance Hashable SuggestStatus
 
 -- | An autocomplete suggestion that matches the query string specified in a
 -- 'SuggestRequest'.
@@ -404,3 +539,5 @@ instance FromJSON SuggestionMatch where
                  SuggestionMatch' <$>
                    (x .:? "suggestion") <*> (x .:? "score") <*>
                      (x .:? "id"))
+
+instance Hashable SuggestionMatch

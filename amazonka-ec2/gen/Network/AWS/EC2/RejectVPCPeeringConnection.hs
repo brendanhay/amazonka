@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RejectVPCPeeringConnection
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,12 +20,10 @@
 --
 -- Rejects a VPC peering connection request. The VPC peering connection
 -- must be in the 'pending-acceptance' state. Use the
--- DescribeVpcPeeringConnections request to view your outstanding VPC
+-- < DescribeVpcPeeringConnections> request to view your outstanding VPC
 -- peering connection requests. To delete an active VPC peering connection,
 -- or to delete a VPC peering connection request that you initiated, use
--- DeleteVpcPeeringConnection.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RejectVPCPeeringConnection.html AWS API Reference> for RejectVPCPeeringConnection.
+-- < DeleteVpcPeeringConnection>.
 module Network.AWS.EC2.RejectVPCPeeringConnection
     (
     -- * Creating a Request
@@ -92,6 +90,8 @@ instance AWSRequest RejectVPCPeeringConnection where
               (\ s h x ->
                  RejectVPCPeeringConnectionResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
+
+instance Hashable RejectVPCPeeringConnection
 
 instance ToHeaders RejectVPCPeeringConnection where
         toHeaders = const mempty

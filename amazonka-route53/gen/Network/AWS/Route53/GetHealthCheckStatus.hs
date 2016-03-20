@@ -12,17 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheckStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve the health check status, send a 'GET' request to the
--- '2013-04-01\/healthcheck\/health check ID\/status' resource. You can use
--- this call to get a health check\'s current status.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckStatus.html AWS API Reference> for GetHealthCheckStatus.
+-- '\/Route 53 API version\/healthcheck\/health check ID\/status' resource.
+-- You can use this call to get a health check\'s current status.
 module Network.AWS.Route53.GetHealthCheckStatus
     (
     -- * Creating a Request
@@ -97,7 +95,7 @@ getHealthCheckStatus pHealthCheckId_ =
 --     or failover alias resource record set, and you specify health check
 --     IDs for all of the resource record sets that are referenced by the
 --     alias resource record sets. For more information about this
---     configuration, see EvaluateTargetHealth.
+--     configuration, see < EvaluateTargetHealth>.
 --
 --     Amazon Route 53 doesn\'t check the health of the endpoint specified
 --     in the resource record set, for example, the endpoint specified by
@@ -143,6 +141,8 @@ instance AWSRequest GetHealthCheckStatus where
                    (pure (fromEnum s)) <*>
                      (x .@? "HealthCheckObservations" .!@ mempty >>=
                         parseXMLList "HealthCheckObservation"))
+
+instance Hashable GetHealthCheckStatus
 
 instance ToHeaders GetHealthCheckStatus where
         toHeaders = const mempty

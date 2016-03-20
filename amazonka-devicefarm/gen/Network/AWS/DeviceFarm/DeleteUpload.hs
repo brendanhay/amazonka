@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.DeleteUpload
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an upload given the upload ARN.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_DeleteUpload.html AWS API Reference> for DeleteUpload.
 module Network.AWS.DeviceFarm.DeleteUpload
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest DeleteUpload where
           = receiveEmpty
               (\ s h x ->
                  DeleteUploadResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeleteUpload
 
 instance ToHeaders DeleteUpload where
         toHeaders

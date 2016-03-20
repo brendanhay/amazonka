@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.DeleteDomain
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- The 'DeleteDomain' operation deletes a domain. Any items (and their
 -- attributes) in the domain are deleted as well. The 'DeleteDomain'
 -- operation might take 10 or more seconds to complete.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteDomain.html AWS API Reference> for DeleteDomain.
 module Network.AWS.SDB.DeleteDomain
     (
     -- * Creating a Request
@@ -69,6 +67,8 @@ instance AWSRequest DeleteDomain where
         type Rs DeleteDomain = DeleteDomainResponse
         request = postQuery sDB
         response = receiveNull DeleteDomainResponse'
+
+instance Hashable DeleteDomain
 
 instance ToHeaders DeleteDomain where
         toHeaders = const mempty

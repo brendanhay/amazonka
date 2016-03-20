@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.VerifyEmailAddress
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- preferred.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailAddress.html AWS API Reference> for VerifyEmailAddress.
 module Network.AWS.SES.VerifyEmailAddress
     (
     -- * Creating a Request
@@ -48,10 +46,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to begin email address
--- verification.
---
--- /See:/ 'verifyEmailAddress' smart constructor.
+-- | /See:/ 'verifyEmailAddress' smart constructor.
 newtype VerifyEmailAddress = VerifyEmailAddress'
     { _veaEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -78,6 +73,8 @@ instance AWSRequest VerifyEmailAddress where
              VerifyEmailAddressResponse
         request = postQuery sES
         response = receiveNull VerifyEmailAddressResponse'
+
+instance Hashable VerifyEmailAddress
 
 instance ToHeaders VerifyEmailAddress where
         toHeaders = const mempty

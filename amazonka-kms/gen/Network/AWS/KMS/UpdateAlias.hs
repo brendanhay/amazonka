@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.UpdateAlias
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,6 @@
 --
 -- The alias and the key it is mapped to must be in the same AWS account
 -- and the same region.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateAlias.html AWS API Reference> for UpdateAlias.
 module Network.AWS.KMS.UpdateAlias
     (
     -- * Creating a Request
@@ -93,7 +91,7 @@ uaAliasName = lens _uaAliasName (\ s a -> s{_uaAliasName = a});
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
 --
--- You can call ListAliases to verify that the alias is mapped to the
+-- You can call < ListAliases> to verify that the alias is mapped to the
 -- correct 'TargetKeyId'.
 uaTargetKeyId :: Lens' UpdateAlias Text
 uaTargetKeyId = lens _uaTargetKeyId (\ s a -> s{_uaTargetKeyId = a});
@@ -102,6 +100,8 @@ instance AWSRequest UpdateAlias where
         type Rs UpdateAlias = UpdateAliasResponse
         request = postJSON kMS
         response = receiveNull UpdateAliasResponse'
+
+instance Hashable UpdateAlias
 
 instance ToHeaders UpdateAlias where
         toHeaders

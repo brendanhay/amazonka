@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IAM.AddUserToGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds the specified user to the specified group.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddUserToGroup.html AWS API Reference> for AddUserToGroup.
 module Network.AWS.IAM.AddUserToGroup
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest AddUserToGroup where
         type Rs AddUserToGroup = AddUserToGroupResponse
         request = postQuery iAM
         response = receiveNull AddUserToGroupResponse'
+
+instance Hashable AddUserToGroup
 
 instance ToHeaders AddUserToGroup where
         toHeaders = const mempty

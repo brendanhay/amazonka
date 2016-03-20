@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReplaceNetworkACLAssociation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- network ACL. For more information about network ACLs, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceNetworkACLAssociation.html AWS API Reference> for ReplaceNetworkACLAssociation.
 module Network.AWS.EC2.ReplaceNetworkACLAssociation
     (
     -- * Creating a Request
@@ -103,6 +101,8 @@ instance AWSRequest ReplaceNetworkACLAssociation
               (\ s h x ->
                  ReplaceNetworkACLAssociationResponse' <$>
                    (x .@? "newAssociationId") <*> (pure (fromEnum s)))
+
+instance Hashable ReplaceNetworkACLAssociation
 
 instance ToHeaders ReplaceNetworkACLAssociation where
         toHeaders = const mempty

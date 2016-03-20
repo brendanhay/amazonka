@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.DeleteRepository
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- Deleting a repository also deletes all associated objects and metadata.
 -- After a repository is deleted, all future push calls to the deleted
 -- repository will fail.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_DeleteRepository.html AWS API Reference> for DeleteRepository.
 module Network.AWS.CodeCommit.DeleteRepository
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest DeleteRepository where
               (\ s h x ->
                  DeleteRepositoryResponse' <$>
                    (x .?> "repositoryId") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteRepository
 
 instance ToHeaders DeleteRepository where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateNatGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- information, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html NAT Gateways>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNatGateway.html AWS API Reference> for CreateNatGateway.
 module Network.AWS.EC2.CreateNatGateway
     (
     -- * Creating a Request
@@ -107,6 +105,8 @@ instance AWSRequest CreateNatGateway where
                  CreateNatGatewayResponse' <$>
                    (x .@? "clientToken") <*> (x .@? "natGateway") <*>
                      (pure (fromEnum s)))
+
+instance Hashable CreateNatGateway
 
 instance ToHeaders CreateNatGateway where
         toHeaders = const mempty

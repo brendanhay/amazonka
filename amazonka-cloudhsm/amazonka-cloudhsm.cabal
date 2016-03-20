@@ -1,5 +1,5 @@
 name:                  amazonka-cloudhsm
-version:               1.3.7
+version:               1.3.8
 synopsis:              Amazon CloudHSM SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2015 Brendan Hay
+copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -26,7 +26,7 @@ description:
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.CloudHSM" and the <http://docs.aws.amazon.com/cloudhsm/latest/dg/welcome.html AWS API Reference>
+    See "Network.AWS.CloudHSM" or <https://aws.amazon.com/documentation/ the AWS Documentation>
     to get started.
 
 source-repository head
@@ -41,6 +41,7 @@ library
 
     exposed-modules:
           Network.AWS.CloudHSM
+        , Network.AWS.CloudHSM.AddTagsToResource
         , Network.AWS.CloudHSM.CreateHAPG
         , Network.AWS.CloudHSM.CreateHSM
         , Network.AWS.CloudHSM.CreateLunaClient
@@ -55,9 +56,11 @@ library
         , Network.AWS.CloudHSM.ListHAPGs
         , Network.AWS.CloudHSM.ListHSMs
         , Network.AWS.CloudHSM.ListLunaClients
+        , Network.AWS.CloudHSM.ListTagsForResource
         , Network.AWS.CloudHSM.ModifyHAPG
         , Network.AWS.CloudHSM.ModifyHSM
         , Network.AWS.CloudHSM.ModifyLunaClient
+        , Network.AWS.CloudHSM.RemoveTagsFromResource
         , Network.AWS.CloudHSM.Types
         , Network.AWS.CloudHSM.Waiters
 
@@ -66,7 +69,7 @@ library
         , Network.AWS.CloudHSM.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.7.*
+          amazonka-core == 1.3.8.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudhsm-test
@@ -86,9 +89,9 @@ test-suite amazonka-cloudhsm-test
         , Test.AWS.CloudHSM.Internal
 
     build-depends:
-          amazonka-core == 1.3.7.*
-        , amazonka-test == 1.3.7.*
-        , amazonka-cloudhsm == 1.3.7.*
+          amazonka-core == 1.3.8.*
+        , amazonka-test == 1.3.8.*
+        , amazonka-cloudhsm == 1.3.8.*
         , base
         , bytestring
         , tasty

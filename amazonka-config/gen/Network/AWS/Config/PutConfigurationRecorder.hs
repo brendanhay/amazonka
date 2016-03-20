@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.PutConfigurationRecorder
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- If 'ConfigurationRecorder' does not have the __recordingGroup__
 -- parameter specified, the default is to record all supported resource
 -- types.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html AWS API Reference> for PutConfigurationRecorder.
 module Network.AWS.Config.PutConfigurationRecorder
     (
     -- * Creating a Request
@@ -52,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the PutConfigurationRecorder action.
+-- | The input for the < PutConfigurationRecorder> action.
 --
 -- /See:/ 'putConfigurationRecorder' smart constructor.
 newtype PutConfigurationRecorder = PutConfigurationRecorder'
@@ -83,6 +81,8 @@ instance AWSRequest PutConfigurationRecorder where
         request = postJSON config
         response
           = receiveNull PutConfigurationRecorderResponse'
+
+instance Hashable PutConfigurationRecorder
 
 instance ToHeaders PutConfigurationRecorder where
         toHeaders

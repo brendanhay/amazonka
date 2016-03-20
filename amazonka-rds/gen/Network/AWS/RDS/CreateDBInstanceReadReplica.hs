@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBInstanceReadReplica
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- DB instance, except as specified below.
 --
 -- The source DB instance must have backup retention enabled.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html AWS API Reference> for CreateDBInstanceReadReplica.
 module Network.AWS.RDS.CreateDBInstanceReadReplica
     (
     -- * Creating a Request
@@ -186,6 +184,11 @@ cdirrAutoMinorVersionUpgrade = lens _cdirrAutoMinorVersionUpgrade (\ s a -> s{_c
 --         Replicas will be created in the same VPC.
 --     -   Not specify a DB subnet group. All these Read Replicas will be
 --         created outside of any VPC.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters,
+-- periods, underscores, spaces, or hyphens. Must not be default.
+--
+-- Example: 'mySubnetgroup'
 cdirrDBSubnetGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrDBSubnetGroupName = lens _cdirrDBSubnetGroupName (\ s a -> s{_cdirrDBSubnetGroupName = a});
 
@@ -307,6 +310,8 @@ instance AWSRequest CreateDBInstanceReadReplica where
               (\ s h x ->
                  CreateDBInstanceReadReplicaResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
+
+instance Hashable CreateDBInstanceReadReplica
 
 instance ToHeaders CreateDBInstanceReadReplica where
         toHeaders = const mempty

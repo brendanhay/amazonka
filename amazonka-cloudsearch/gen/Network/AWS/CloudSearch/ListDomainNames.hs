@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.ListDomainNames
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all search domains owned by an account.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ListDomainNames.html AWS API Reference> for ListDomainNames.
 module Network.AWS.CloudSearch.ListDomainNames
     (
     -- * Creating a Request
@@ -63,6 +61,8 @@ instance AWSRequest ListDomainNames where
                    (x .@? "DomainNames" .!@ mempty >>=
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListDomainNames
 
 instance ToHeaders ListDomainNames where
         toHeaders = const mempty

@@ -12,27 +12,27 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromS3
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a 'DataSource' object. A 'DataSource' references data that can
--- be used to perform CreateMLModel, CreateEvaluation, or
--- CreateBatchPrediction operations.
+-- be used to perform < CreateMLModel>, < CreateEvaluation>, or
+-- < CreateBatchPrediction> operations.
 --
 -- 'CreateDataSourceFromS3' is an asynchronous operation. In response to
 -- 'CreateDataSourceFromS3', Amazon Machine Learning (Amazon ML)
 -- immediately returns and sets the 'DataSource' status to 'PENDING'. After
 -- the 'DataSource' is created and ready for use, Amazon ML sets the
 -- 'Status' parameter to 'COMPLETED'. 'DataSource' in 'COMPLETED' or
--- 'PENDING' status can only be used to perform CreateMLModel,
--- CreateEvaluation or CreateBatchPrediction operations.
+-- 'PENDING' status can only be used to perform < CreateMLModel>,
+-- < CreateEvaluation> or < CreateBatchPrediction> operations.
 --
 -- If Amazon ML cannot accept the input source, it sets the 'Status'
 -- parameter to 'FAILED' and includes an error message in the 'Message'
--- attribute of the GetDataSource operation response.
+-- attribute of the < GetDataSource> operation response.
 --
 -- The observation data used in a 'DataSource' should be ready to use; that
 -- is, it should have a consistent structure, and missing data values
@@ -52,8 +52,6 @@
 -- another variable, or split apart into word combinations? The recipe
 -- provides answers to these questions. For more information, see the
 -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateDataSourceFromS3.html AWS API Reference> for CreateDataSourceFromS3.
 module Network.AWS.MachineLearning.CreateDataSourceFromS3
     (
     -- * Creating a Request
@@ -156,6 +154,8 @@ instance AWSRequest CreateDataSourceFromS3 where
                  CreateDataSourceFromS3Response' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDataSourceFromS3
+
 instance ToHeaders CreateDataSourceFromS3 where
         toHeaders
           = const
@@ -181,12 +181,12 @@ instance ToPath CreateDataSourceFromS3 where
 instance ToQuery CreateDataSourceFromS3 where
         toQuery = const mempty
 
--- | Represents the output of a CreateDataSourceFromS3 operation, and is an
--- acknowledgement that Amazon ML received the request.
+-- | Represents the output of a < CreateDataSourceFromS3> operation, and is
+-- an acknowledgement that Amazon ML received the request.
 --
--- The CreateDataSourceFromS3 operation is asynchronous. You can poll for
--- updates by using the GetBatchPrediction operation and checking the
--- 'Status' parameter.
+-- The < CreateDataSourceFromS3> operation is asynchronous. You can poll
+-- for updates by using the < GetBatchPrediction> operation and checking
+-- the 'Status' parameter.
 --
 -- /See:/ 'createDataSourceFromS3Response' smart constructor.
 data CreateDataSourceFromS3Response = CreateDataSourceFromS3Response'

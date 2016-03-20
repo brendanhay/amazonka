@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- environment gets a copy of the template. You can delete or modify the
 -- environment\'s copy of the template without affecting the running
 -- environment.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteConfigurationTemplate.html AWS API Reference> for DeleteConfigurationTemplate.
 module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest DeleteConfigurationTemplate where
         request = postQuery elasticBeanstalk
         response
           = receiveNull DeleteConfigurationTemplateResponse'
+
+instance Hashable DeleteConfigurationTemplate
 
 instance ToHeaders DeleteConfigurationTemplate where
         toHeaders = const mempty

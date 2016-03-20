@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.ScheduleKeyDeletion
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,20 +23,18 @@
 -- provide a waiting period, the default period of 30 days is used. When
 -- this operation is successful, the state of the CMK changes to
 -- 'PendingDeletion'. Before the waiting period ends, you can use
--- CancelKeyDeletion to cancel the deletion of the CMK. After the waiting
--- period ends, AWS KMS deletes the CMK and all AWS KMS data associated
--- with it, including all aliases that point to it.
+-- < CancelKeyDeletion> to cancel the deletion of the CMK. After the
+-- waiting period ends, AWS KMS deletes the CMK and all AWS KMS data
+-- associated with it, including all aliases that point to it.
 --
 -- Deleting a CMK is a destructive and potentially dangerous operation.
 -- When a CMK is deleted, all data that was encrypted under the CMK is
 -- rendered unrecoverable. To restrict the use of a CMK without deleting
--- it, use DisableKey.
+-- it, use < DisableKey>.
 --
 -- For more information about scheduling a CMK for deletion, go to
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html Deleting Customer Master Keys>
 -- in the /AWS Key Management Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html AWS API Reference> for ScheduleKeyDeletion.
 module Network.AWS.KMS.ScheduleKeyDeletion
     (
     -- * Creating a Request
@@ -101,8 +99,8 @@ skdPendingWindowInDays = lens _skdPendingWindowInDays (\ s a -> s{_skdPendingWin
 -- -   Key ARN:
 --     arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab
 --
--- To obtain the unique key ID and key ARN for a given CMK, use ListKeys or
--- DescribeKey.
+-- To obtain the unique key ID and key ARN for a given CMK, use < ListKeys>
+-- or < DescribeKey>.
 skdKeyId :: Lens' ScheduleKeyDeletion Text
 skdKeyId = lens _skdKeyId (\ s a -> s{_skdKeyId = a});
 
@@ -116,6 +114,8 @@ instance AWSRequest ScheduleKeyDeletion where
                  ScheduleKeyDeletionResponse' <$>
                    (x .?> "KeyId") <*> (x .?> "DeletionDate") <*>
                      (pure (fromEnum s)))
+
+instance Hashable ScheduleKeyDeletion
 
 instance ToHeaders ScheduleKeyDeletion where
         toHeaders

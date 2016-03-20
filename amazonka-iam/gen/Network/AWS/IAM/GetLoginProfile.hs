@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetLoginProfile
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Retrieves the user name and password-creation date for the specified
 -- user. If the user has not been assigned a password, the action returns a
 -- 404 ('NoSuchEntity') error.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html AWS API Reference> for GetLoginProfile.
 module Network.AWS.IAM.GetLoginProfile
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest GetLoginProfile where
                  GetLoginProfileResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "LoginProfile"))
 
+instance Hashable GetLoginProfile
+
 instance ToHeaders GetLoginProfile where
         toHeaders = const mempty
 
@@ -90,7 +90,7 @@ instance ToQuery GetLoginProfile where
                "Version" =: ("2010-05-08" :: ByteString),
                "UserName" =: _glpUserName]
 
--- | Contains the response to a successful GetLoginProfile request.
+-- | Contains the response to a successful < GetLoginProfile> request.
 --
 -- /See:/ 'getLoginProfileResponse' smart constructor.
 data GetLoginProfileResponse = GetLoginProfileResponse'

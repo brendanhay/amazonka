@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.AddTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/add-remove-tags.html Tag Your Load Balancer>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AddTags.html AWS API Reference> for AddTags.
 module Network.AWS.ELB.AddTags
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest AddTags where
         response
           = receiveXMLWrapper "AddTagsResult"
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
+
+instance Hashable AddTags
 
 instance ToHeaders AddTags where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPCEndpoint
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- can also specify the VPC route tables that use the endpoint.
 --
 -- Currently, only endpoints to Amazon S3 are supported.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPCEndpoint.html AWS API Reference> for CreateVPCEndpoint.
 module Network.AWS.EC2.CreateVPCEndpoint
     (
     -- * Creating a Request
@@ -124,7 +122,7 @@ cveVPCId :: Lens' CreateVPCEndpoint Text
 cveVPCId = lens _cveVPCId (\ s a -> s{_cveVPCId = a});
 
 -- | The AWS service name, in the form 'com.amazonaws.region.service'. To get
--- a list of available services, use the DescribeVpcEndpointServices
+-- a list of available services, use the < DescribeVpcEndpointServices>
 -- request.
 cveServiceName :: Lens' CreateVPCEndpoint Text
 cveServiceName = lens _cveServiceName (\ s a -> s{_cveServiceName = a});
@@ -138,6 +136,8 @@ instance AWSRequest CreateVPCEndpoint where
                  CreateVPCEndpointResponse' <$>
                    (x .@? "clientToken") <*> (x .@? "vpcEndpoint") <*>
                      (pure (fromEnum s)))
+
+instance Hashable CreateVPCEndpoint
 
 instance ToHeaders CreateVPCEndpoint where
         toHeaders = const mempty

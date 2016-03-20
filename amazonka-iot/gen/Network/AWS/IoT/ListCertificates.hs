@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListCertificates
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,10 +20,8 @@
 --
 -- Lists your certificates.
 --
--- The results are paginated with a default page size of 25. You can
--- retrieve additional results using the returned marker.
---
--- /See:/ <https://aws.amazon.com/iot#ListCertificates.html AWS API Reference> for ListCertificates.
+-- The results are paginated with a default page size of 25. You can use
+-- the returned marker to retrieve additional results.
 module Network.AWS.IoT.ListCertificates
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest ListCertificates where
                    (x .?> "certificates" .!@ mempty) <*>
                      (x .?> "nextMarker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListCertificates
 
 instance ToHeaders ListCertificates where
         toHeaders = const mempty

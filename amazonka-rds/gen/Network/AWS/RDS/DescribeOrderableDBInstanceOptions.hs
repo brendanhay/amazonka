@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeOrderableDBInstanceOptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns a list of orderable DB instance options for the specified
 -- engine.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOrderableDBInstanceOptions.html AWS API Reference> for DescribeOrderableDBInstanceOptions.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
@@ -174,6 +172,8 @@ instance AWSRequest
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeOrderableDBInstanceOptions
+
 instance ToHeaders DescribeOrderableDBInstanceOptions
          where
         toHeaders = const mempty
@@ -199,7 +199,7 @@ instance ToQuery DescribeOrderableDBInstanceOptions
                "Engine" =: _dodioEngine]
 
 -- | Contains the result of a successful invocation of the
--- DescribeOrderableDBInstanceOptions action.
+-- < DescribeOrderableDBInstanceOptions> action.
 --
 -- /See:/ 'describeOrderableDBInstanceOptionsResponse' smart constructor.
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
@@ -227,7 +227,7 @@ describeOrderableDBInstanceOptionsResponse pResponseStatus_ =
     , _dodiorsResponseStatus = pResponseStatus_
     }
 
--- | An OrderableDBInstanceOption structure containing information about
+-- | An < OrderableDBInstanceOption> structure containing information about
 -- orderable options for the DB instance.
 dodiorsOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
 dodiorsOrderableDBInstanceOptions = lens _dodiorsOrderableDBInstanceOptions (\ s a -> s{_dodiorsOrderableDBInstanceOptions = a}) . _Default . _Coerce;

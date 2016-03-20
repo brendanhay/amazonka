@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.RebootCacheCluster
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- rebooted) to be lost.
 --
 -- When the reboot is complete, a cache cluster event is created.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebootCacheCluster.html AWS API Reference> for RebootCacheCluster.
 module Network.AWS.ElastiCache.RebootCacheCluster
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest RebootCacheCluster where
               (\ s h x ->
                  RebootCacheClusterResponse' <$>
                    (x .@? "CacheCluster") <*> (pure (fromEnum s)))
+
+instance Hashable RebootCacheCluster
 
 instance ToHeaders RebootCacheCluster where
         toHeaders = const mempty

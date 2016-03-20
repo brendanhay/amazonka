@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteDHCPOptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- of DHCP options before you can delete it. You can disassociate the set
 -- of DHCP options by associating either a new set of options or the
 -- default set of options with the VPC.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteDHCPOptions.html AWS API Reference> for DeleteDHCPOptions.
 module Network.AWS.EC2.DeleteDHCPOptions
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest DeleteDHCPOptions where
         type Rs DeleteDHCPOptions = DeleteDHCPOptionsResponse
         request = postQuery eC2
         response = receiveNull DeleteDHCPOptionsResponse'
+
+instance Hashable DeleteDHCPOptions
 
 instance ToHeaders DeleteDHCPOptions where
         toHeaders = const mempty

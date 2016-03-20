@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeletePolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,18 +20,16 @@
 --
 -- Deletes the specified policy.
 --
--- A policy cannot be deleted if it has non-default versions and\/or it is
+-- A policy cannot be deleted if it has non-default versions or it is
 -- attached to any certificate.
 --
--- To delete a policy, delete all non-default versions of the policy using
--- the DeletePolicyVersion API, detach the policy from any certificate
--- using the DetachPrincipalPolicy API, and then use the DeletePolicy API
--- to delete the policy.
+-- To delete a policy, use the DeletePolicyVersion API to delete all
+-- non-default versions of the policy; use the DetachPrincipalPolicy API to
+-- detach the policy from any certificate; and then use the DeletePolicy
+-- API to delete the policy.
 --
 -- When a policy is deleted using DeletePolicy, its default version is
 -- deleted with it.
---
--- /See:/ <https://aws.amazon.com/iot#DeletePolicy.html AWS API Reference> for DeletePolicy.
 module Network.AWS.IoT.DeletePolicy
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DeletePolicy where
         type Rs DeletePolicy = DeletePolicyResponse
         request = delete ioT
         response = receiveNull DeletePolicyResponse'
+
+instance Hashable DeletePolicy
 
 instance ToHeaders DeletePolicy where
         toHeaders = const mempty

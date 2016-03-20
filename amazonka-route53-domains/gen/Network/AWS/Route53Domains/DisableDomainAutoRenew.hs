@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.DisableDomainAutoRenew
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- you disable automatic renewal, registration for the domain will not be
 -- renewed when the expiration date passes, and you will lose control of
 -- the domain name.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-DisableDomainAutoRenew.html AWS API Reference> for DisableDomainAutoRenew.
 module Network.AWS.Route53Domains.DisableDomainAutoRenew
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DisableDomainAutoRenew where
               (\ s h x ->
                  DisableDomainAutoRenewResponse' <$>
                    (pure (fromEnum s)))
+
+instance Hashable DisableDomainAutoRenew
 
 instance ToHeaders DisableDomainAutoRenew where
         toHeaders

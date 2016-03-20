@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -58,6 +58,8 @@ instance FromJSON Attribute where
               (\ x ->
                  Attribute' <$> (x .:? "Value") <*> (x .:? "Name"))
 
+instance Hashable Attribute
+
 instance ToJSON Attribute where
         toJSON Attribute'{..}
           = object
@@ -95,8 +97,8 @@ computer =
 cComputerId :: Lens' Computer (Maybe Text)
 cComputerId = lens _cComputerId (\ s a -> s{_cComputerId = a});
 
--- | An array of Attribute objects containing the LDAP attributes that belong
--- to the computer account.
+-- | An array of < Attribute> objects containing the LDAP attributes that
+-- belong to the computer account.
 cComputerAttributes :: Lens' Computer [Attribute]
 cComputerAttributes = lens _cComputerAttributes (\ s a -> s{_cComputerAttributes = a}) . _Default . _Coerce;
 
@@ -113,7 +115,9 @@ instance FromJSON Computer where
                      (x .:? "ComputerAttributes" .!= mempty)
                      <*> (x .:? "ComputerName"))
 
--- | Contains information for the ConnectDirectory operation when an AD
+instance Hashable Computer
+
+-- | Contains information for the < ConnectDirectory> operation when an AD
 -- Connector directory is being created.
 --
 -- /See:/ 'directoryConnectSettings' smart constructor.
@@ -170,6 +174,8 @@ dcsCustomerDNSIPs = lens _dcsCustomerDNSIPs (\ s a -> s{_dcsCustomerDNSIPs = a})
 -- -   Join computers to the domain
 dcsCustomerUserName :: Lens' DirectoryConnectSettings Text
 dcsCustomerUserName = lens _dcsCustomerUserName (\ s a -> s{_dcsCustomerUserName = a});
+
+instance Hashable DirectoryConnectSettings
 
 instance ToJSON DirectoryConnectSettings where
         toJSON DirectoryConnectSettings'{..}
@@ -255,6 +261,8 @@ instance FromJSON DirectoryConnectSettingsDescription
                      <*> (x .:? "SecurityGroupId")
                      <*> (x .:? "ConnectIps" .!= mempty)
                      <*> (x .:? "AvailabilityZones" .!= mempty))
+
+instance Hashable DirectoryConnectSettingsDescription
 
 -- | Contains information about an AWS Directory Service directory.
 --
@@ -370,7 +378,7 @@ ddShortName = lens _ddShortName (\ s a -> s{_ddShortName = a});
 ddSize :: Lens' DirectoryDescription (Maybe DirectorySize)
 ddSize = lens _ddSize (\ s a -> s{_ddSize = a});
 
--- | A RadiusSettings object that contains information about the RADIUS
+-- | A < RadiusSettings> object that contains information about the RADIUS
 -- server configured for this directory.
 ddRadiusSettings :: Lens' DirectoryDescription (Maybe RadiusSettings)
 ddRadiusSettings = lens _ddRadiusSettings (\ s a -> s{_ddRadiusSettings = a});
@@ -394,7 +402,7 @@ ddStageLastUpdatedDateTime :: Lens' DirectoryDescription (Maybe UTCTime)
 ddStageLastUpdatedDateTime = lens _ddStageLastUpdatedDateTime (\ s a -> s{_ddStageLastUpdatedDateTime = a}) . mapping _Time;
 
 -- | Indicates if single-sign on is enabled for the directory. For more
--- information, see EnableSso and DisableSso.
+-- information, see < EnableSso> and < DisableSso>.
 ddSSOEnabled :: Lens' DirectoryDescription (Maybe Bool)
 ddSSOEnabled = lens _ddSSOEnabled (\ s a -> s{_ddSSOEnabled = a});
 
@@ -406,7 +414,7 @@ ddSSOEnabled = lens _ddSSOEnabled (\ s a -> s{_ddSSOEnabled = a});
 ddDNSIPAddrs :: Lens' DirectoryDescription [Text]
 ddDNSIPAddrs = lens _ddDNSIPAddrs (\ s a -> s{_ddDNSIPAddrs = a}) . _Default . _Coerce;
 
--- | A DirectoryVpcSettingsDescription object that contains additional
+-- | A < DirectoryVpcSettingsDescription> object that contains additional
 -- information about a directory. This member is only present if the
 -- directory is a Simple AD or Managed AD directory.
 ddVPCSettings :: Lens' DirectoryDescription (Maybe DirectoryVPCSettingsDescription)
@@ -420,7 +428,7 @@ ddType = lens _ddType (\ s a -> s{_ddType = a});
 ddStageReason :: Lens' DirectoryDescription (Maybe Text)
 ddStageReason = lens _ddStageReason (\ s a -> s{_ddStageReason = a});
 
--- | A DirectoryConnectSettingsDescription object that contains additional
+-- | A < DirectoryConnectSettingsDescription> object that contains additional
 -- information about an AD Connector directory. This member is only present
 -- if the directory is an AD Connector directory.
 ddConnectSettings :: Lens' DirectoryDescription (Maybe DirectoryConnectSettingsDescription)
@@ -452,6 +460,8 @@ instance FromJSON DirectoryDescription where
                      <*> (x .:? "StageReason")
                      <*> (x .:? "ConnectSettings")
                      <*> (x .:? "Description"))
+
+instance Hashable DirectoryDescription
 
 -- | Contains directory limit information for a region.
 --
@@ -555,8 +565,10 @@ instance FromJSON DirectoryLimits where
                      <*> (x .:? "CloudOnlyDirectoriesLimitReached")
                      <*> (x .:? "CloudOnlyMicrosoftADCurrentCount"))
 
--- | Contains VPC information for the CreateDirectory or CreateMicrosoftAD
--- operation.
+instance Hashable DirectoryLimits
+
+-- | Contains VPC information for the < CreateDirectory> or
+-- < CreateMicrosoftAD> operation.
 --
 -- /See:/ 'directoryVPCSettings' smart constructor.
 data DirectoryVPCSettings = DirectoryVPCSettings'
@@ -589,6 +601,8 @@ dvsVPCId = lens _dvsVPCId (\ s a -> s{_dvsVPCId = a});
 -- creates a directory server and a DNS server in each of these subnets.
 dvsSubnetIds :: Lens' DirectoryVPCSettings [Text]
 dvsSubnetIds = lens _dvsSubnetIds (\ s a -> s{_dvsSubnetIds = a}) . _Coerce;
+
+instance Hashable DirectoryVPCSettings
 
 instance ToJSON DirectoryVPCSettings where
         toJSON DirectoryVPCSettings'{..}
@@ -656,6 +670,79 @@ instance FromJSON DirectoryVPCSettingsDescription
                    (x .:? "SubnetIds" .!= mempty) <*> (x .:? "VpcId")
                      <*> (x .:? "SecurityGroupId")
                      <*> (x .:? "AvailabilityZones" .!= mempty))
+
+instance Hashable DirectoryVPCSettingsDescription
+
+-- | Information about SNS topic and AWS Directory Service directory
+-- associations.
+--
+-- /See:/ 'eventTopic' smart constructor.
+data EventTopic = EventTopic'
+    { _etStatus          :: !(Maybe TopicStatus)
+    , _etDirectoryId     :: !(Maybe Text)
+    , _etTopicName       :: !(Maybe Text)
+    , _etTopicARN        :: !(Maybe Text)
+    , _etCreatedDateTime :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EventTopic' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'etStatus'
+--
+-- * 'etDirectoryId'
+--
+-- * 'etTopicName'
+--
+-- * 'etTopicARN'
+--
+-- * 'etCreatedDateTime'
+eventTopic
+    :: EventTopic
+eventTopic =
+    EventTopic'
+    { _etStatus = Nothing
+    , _etDirectoryId = Nothing
+    , _etTopicName = Nothing
+    , _etTopicARN = Nothing
+    , _etCreatedDateTime = Nothing
+    }
+
+-- | The topic registration status.
+etStatus :: Lens' EventTopic (Maybe TopicStatus)
+etStatus = lens _etStatus (\ s a -> s{_etStatus = a});
+
+-- | The Directory ID of an AWS Directory Service directory that will publish
+-- status messages to an SNS topic.
+etDirectoryId :: Lens' EventTopic (Maybe Text)
+etDirectoryId = lens _etDirectoryId (\ s a -> s{_etDirectoryId = a});
+
+-- | The name of an AWS SNS topic the receives status messages from the
+-- directory.
+etTopicName :: Lens' EventTopic (Maybe Text)
+etTopicName = lens _etTopicName (\ s a -> s{_etTopicName = a});
+
+-- | The SNS topic ARN (Amazon Resource Name).
+etTopicARN :: Lens' EventTopic (Maybe Text)
+etTopicARN = lens _etTopicARN (\ s a -> s{_etTopicARN = a});
+
+-- | The date and time of when you associated your directory with the SNS
+-- topic.
+etCreatedDateTime :: Lens' EventTopic (Maybe UTCTime)
+etCreatedDateTime = lens _etCreatedDateTime (\ s a -> s{_etCreatedDateTime = a}) . mapping _Time;
+
+instance FromJSON EventTopic where
+        parseJSON
+          = withObject "EventTopic"
+              (\ x ->
+                 EventTopic' <$>
+                   (x .:? "Status") <*> (x .:? "DirectoryId") <*>
+                     (x .:? "TopicName")
+                     <*> (x .:? "TopicArn")
+                     <*> (x .:? "CreatedDateTime"))
+
+instance Hashable EventTopic
 
 -- | Contains information about a Remote Authentication Dial In User Service
 -- (RADIUS) server.
@@ -756,6 +843,8 @@ instance FromJSON RadiusSettings where
                      <*> (x .:? "RadiusTimeout")
                      <*> (x .:? "RadiusPort"))
 
+instance Hashable RadiusSettings
+
 instance ToJSON RadiusSettings where
         toJSON RadiusSettings'{..}
           = object
@@ -844,6 +933,8 @@ instance FromJSON Snapshot where
                      <*> (x .:? "Type")
                      <*> (x .:? "SnapshotId"))
 
+instance Hashable Snapshot
+
 -- | Contains manual snapshot limit information for a directory.
 --
 -- /See:/ 'snapshotLimits' smart constructor.
@@ -891,6 +982,8 @@ instance FromJSON SnapshotLimits where
                    (x .:? "ManualSnapshotsLimitReached") <*>
                      (x .:? "ManualSnapshotsCurrentCount")
                      <*> (x .:? "ManualSnapshotsLimit"))
+
+instance Hashable SnapshotLimits
 
 -- | Describes a trust relationship between an Microsoft AD in the AWS cloud
 -- and an external domain.
@@ -995,3 +1088,5 @@ instance FromJSON Trust where
                      <*> (x .:? "RemoteDomainName")
                      <*> (x .:? "TrustId")
                      <*> (x .:? "CreatedDateTime"))
+
+instance Hashable Trust

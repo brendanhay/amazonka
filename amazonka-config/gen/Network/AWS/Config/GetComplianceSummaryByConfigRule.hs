@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetComplianceSummaryByConfigRule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns the number of AWS Config rules that are compliant and
 -- noncompliant, up to a maximum of 25 for each.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_GetComplianceSummaryByConfigRule.html AWS API Reference> for GetComplianceSummaryByConfigRule.
 module Network.AWS.Config.GetComplianceSummaryByConfigRule
     (
     -- * Creating a Request
@@ -64,6 +62,8 @@ instance AWSRequest GetComplianceSummaryByConfigRule
               (\ s h x ->
                  GetComplianceSummaryByConfigRuleResponse' <$>
                    (x .?> "ComplianceSummary") <*> (pure (fromEnum s)))
+
+instance Hashable GetComplianceSummaryByConfigRule
 
 instance ToHeaders GetComplianceSummaryByConfigRule
          where

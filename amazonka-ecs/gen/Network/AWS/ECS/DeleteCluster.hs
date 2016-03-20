@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DeleteCluster
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,10 +20,8 @@
 --
 -- Deletes the specified cluster. You must deregister all container
 -- instances from this cluster before you may delete it. You can list the
--- container instances in a cluster with ListContainerInstances and
--- deregister them with DeregisterContainerInstance.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteCluster.html AWS API Reference> for DeleteCluster.
+-- container instances in a cluster with < ListContainerInstances> and
+-- deregister them with < DeregisterContainerInstance>.
 module Network.AWS.ECS.DeleteCluster
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest DeleteCluster where
               (\ s h x ->
                  DeleteClusterResponse' <$>
                    (x .?> "cluster") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteCluster
 
 instance ToHeaders DeleteCluster where
         toHeaders

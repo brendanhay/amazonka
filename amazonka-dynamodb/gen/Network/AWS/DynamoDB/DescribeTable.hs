@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DescribeTable
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,13 +22,11 @@
 -- table, when it was created, the primary key schema, and any indexes on
 -- the table.
 --
--- If you issue a DescribeTable request immediately after a CreateTable
--- request, DynamoDB might return a ResourceNotFoundException. This is
--- because DescribeTable uses an eventually consistent query, and the
+-- If you issue a /DescribeTable/ request immediately after a /CreateTable/
+-- request, DynamoDB might return a /ResourceNotFoundException/. This is
+-- because /DescribeTable/ uses an eventually consistent query, and the
 -- metadata for your table might not be available at that moment. Wait for
--- a few seconds, and then try the DescribeTable request again.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html AWS API Reference> for DescribeTable.
+-- a few seconds, and then try the /DescribeTable/ request again.
 module Network.AWS.DynamoDB.DescribeTable
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest DescribeTable where
               (\ s h x ->
                  DescribeTableResponse' <$>
                    (x .?> "Table") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeTable
 
 instance ToHeaders DescribeTable where
         toHeaders

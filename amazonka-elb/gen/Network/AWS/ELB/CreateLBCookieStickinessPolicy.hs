@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.CreateLBCookieStickinessPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky-sessions.html#enable-sticky-sessions-duration Duration-Based Session Stickiness>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLBCookieStickinessPolicy.html AWS API Reference> for CreateLBCookieStickinessPolicy.
 module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     (
     -- * Creating a Request
@@ -118,6 +116,8 @@ instance AWSRequest CreateLBCookieStickinessPolicy
               (\ s h x ->
                  CreateLBCookieStickinessPolicyResponse' <$>
                    (pure (fromEnum s)))
+
+instance Hashable CreateLBCookieStickinessPolicy
 
 instance ToHeaders CreateLBCookieStickinessPolicy
          where

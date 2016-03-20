@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteSAMLProvider
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 --
 -- This operation requires
 -- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSAMLProvider.html AWS API Reference> for DeleteSAMLProvider.
 module Network.AWS.IAM.DeleteSAMLProvider
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest DeleteSAMLProvider where
              DeleteSAMLProviderResponse
         request = postQuery iAM
         response = receiveNull DeleteSAMLProviderResponse'
+
+instance Hashable DeleteSAMLProvider
 
 instance ToHeaders DeleteSAMLProvider where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.GetTemplate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- after the stack has been deleted.
 --
 -- If the template does not exist, a 'ValidationError' is returned.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplate.html AWS API Reference> for GetTemplate.
 module Network.AWS.CloudFormation.GetTemplate
     (
     -- * Creating a Request
@@ -50,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for a GetTemplate action.
+-- | The input for a < GetTemplate> action.
 --
 -- /See:/ 'getTemplate' smart constructor.
 newtype GetTemplate = GetTemplate'
@@ -90,6 +88,8 @@ instance AWSRequest GetTemplate where
                  GetTemplateResponse' <$>
                    (x .@? "TemplateBody") <*> (pure (fromEnum s)))
 
+instance Hashable GetTemplate
+
 instance ToHeaders GetTemplate where
         toHeaders = const mempty
 
@@ -103,7 +103,7 @@ instance ToQuery GetTemplate where
                "Version" =: ("2010-05-15" :: ByteString),
                "StackName" =: _gtStackName]
 
--- | The output for GetTemplate action.
+-- | The output for < GetTemplate> action.
 --
 -- /See:/ 'getTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'

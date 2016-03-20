@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UnassignInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UnassignInstance.html AWS API Reference> for UnassignInstance.
 module Network.AWS.OpsWorks.UnassignInstance
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest UnassignInstance where
         type Rs UnassignInstance = UnassignInstanceResponse
         request = postJSON opsWorks
         response = receiveNull UnassignInstanceResponse'
+
+instance Hashable UnassignInstance
 
 instance ToHeaders UnassignInstance where
         toHeaders

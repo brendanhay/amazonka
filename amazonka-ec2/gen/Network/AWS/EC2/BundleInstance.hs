@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.BundleInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html AWS API Reference> for BundleInstance.
 module Network.AWS.EC2.BundleInstance
     (
     -- * Creating a Request
@@ -114,6 +112,8 @@ instance AWSRequest BundleInstance where
               (\ s h x ->
                  BundleInstanceResponse' <$>
                    (x .@? "bundleInstanceTask") <*> (pure (fromEnum s)))
+
+instance Hashable BundleInstance
 
 instance ToHeaders BundleInstance where
         toHeaders = const mempty

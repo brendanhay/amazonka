@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateUser
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html AWS API Reference> for CreateUser.
 module Network.AWS.IAM.CreateUser
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest CreateUser where
                  CreateUserResponse' <$>
                    (x .@? "User") <*> (pure (fromEnum s)))
 
+instance Hashable CreateUser
+
 instance ToHeaders CreateUser where
         toHeaders = const mempty
 
@@ -107,7 +107,7 @@ instance ToQuery CreateUser where
                "Version" =: ("2010-05-08" :: ByteString),
                "Path" =: _cuPath, "UserName" =: _cuUserName]
 
--- | Contains the response to a successful CreateUser request.
+-- | Contains the response to a successful < CreateUser> request.
 --
 -- /See:/ 'createUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'

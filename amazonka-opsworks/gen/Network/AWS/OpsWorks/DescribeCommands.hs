@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeCommands
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeCommands.html AWS API Reference> for DescribeCommands.
 module Network.AWS.OpsWorks.DescribeCommands
     (
     -- * Creating a Request
@@ -106,6 +104,8 @@ instance AWSRequest DescribeCommands where
                  DescribeCommandsResponse' <$>
                    (x .?> "Commands" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeCommands
 
 instance ToHeaders DescribeCommands where
         toHeaders

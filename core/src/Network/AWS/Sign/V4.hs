@@ -11,7 +11,7 @@
 
 -- |
 -- Module      : Network.AWS.Sign.V4
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
@@ -30,7 +30,7 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
-import           Network.AWS.Lens            ((.~), (<>~))
+import           Network.AWS.Lens            ((%~), (.~), (<>~))
 import           Network.AWS.Request
 import           Network.AWS.Sign.V4.Base
 import           Network.AWS.Sign.V4.Chunked
@@ -58,7 +58,8 @@ presign ex rq a r ts = signRequest meta mempty auth
 
     digest = Tag "UNSIGNED-PAYLOAD"
 
-    prepare = rqHeaders .~ []
+    prepare = rqHeaders %~ ( hdr hHost (_endpointHost end) )
+    end     = _svcEndpoint (_rqService rq) r
 
 sign :: Algorithm a
 sign rq a r ts =

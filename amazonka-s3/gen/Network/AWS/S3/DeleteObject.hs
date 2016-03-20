@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteObject
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Removes the null version (if there is one) of an object and inserts a
 -- delete marker, which becomes the latest version of the object. If there
 -- isn\'t a null version, Amazon S3 does not remove any objects.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObject.html AWS API Reference> for DeleteObject.
 module Network.AWS.S3.DeleteObject
     (
     -- * Creating a Request
@@ -119,6 +117,8 @@ instance AWSRequest DeleteObject where
                      (h .#? "x-amz-version-id")
                      <*> (h .#? "x-amz-delete-marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DeleteObject
 
 instance ToHeaders DeleteObject where
         toHeaders DeleteObject'{..}

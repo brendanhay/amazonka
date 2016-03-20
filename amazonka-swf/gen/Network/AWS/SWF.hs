@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- This documentation serves as reference only. For a broader overview of
 -- the Amazon SWF programming model, see the
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/ Amazon SWF Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html AWS API Reference>
 module Network.AWS.SWF
     (
     -- * Service Configuration

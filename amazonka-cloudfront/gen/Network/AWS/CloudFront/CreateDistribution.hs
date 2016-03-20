@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateDistribution
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a new distribution.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateDistribution.html AWS API Reference> for CreateDistribution.
 module Network.AWS.CloudFront.CreateDistribution
     (
     -- * Creating a Request
@@ -82,10 +80,12 @@ instance AWSRequest CreateDistribution where
                      (h .#? "Location")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateDistribution
+
 instance ToElement CreateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2015-09-17/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2016-01-28/}DistributionConfig"
               .
               _cdDistributionConfig
 
@@ -93,7 +93,7 @@ instance ToHeaders CreateDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateDistribution where
-        toPath = const "/2015-09-17/distribution"
+        toPath = const "/2016-01-28/distribution"
 
 instance ToQuery CreateDistribution where
         toQuery = const mempty

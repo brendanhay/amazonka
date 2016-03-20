@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListThingPrincipals
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the principals associated with the specified thing.
---
--- /See:/ <https://aws.amazon.com/iot#ListThingPrincipals.html AWS API Reference> for ListThingPrincipals.
 module Network.AWS.IoT.ListThingPrincipals
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest ListThingPrincipals where
                  ListThingPrincipalsResponse' <$>
                    (x .?> "principals" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable ListThingPrincipals
 
 instance ToHeaders ListThingPrincipals where
         toHeaders = const mempty

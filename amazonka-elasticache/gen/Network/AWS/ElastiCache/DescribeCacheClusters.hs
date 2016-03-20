@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheClusters
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -42,8 +42,6 @@
 --
 -- If cache nodes are currently being removed from the cache cluster, no
 -- endpoint information for the removed nodes is displayed.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheClusters.html AWS API Reference> for DescribeCacheClusters.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheClusters
@@ -151,6 +149,8 @@ instance AWSRequest DescribeCacheClusters where
                       may (parseXMLList "CacheCluster"))
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeCacheClusters
 
 instance ToHeaders DescribeCacheClusters where
         toHeaders = const mempty

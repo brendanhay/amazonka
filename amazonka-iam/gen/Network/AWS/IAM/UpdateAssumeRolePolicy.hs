@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateAssumeRolePolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Updates the policy that grants an entity permission to assume a role.
 -- For more information about roles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html AWS API Reference> for UpdateAssumeRolePolicy.
 module Network.AWS.IAM.UpdateAssumeRolePolicy
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest UpdateAssumeRolePolicy where
         request = postQuery iAM
         response
           = receiveNull UpdateAssumeRolePolicyResponse'
+
+instance Hashable UpdateAssumeRolePolicy
 
 instance ToHeaders UpdateAssumeRolePolicy where
         toHeaders = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds tags to on-premises instances.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_AddTagsToOnPremisesInstances.html AWS API Reference> for AddTagsToOnPremisesInstances.
 module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
     (
     -- * Creating a Request
@@ -42,7 +40,8 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of an adds tags to on-premises instance operation.
+-- | Represents the input of, and adds tags to, an on-premises instance
+-- operation.
 --
 -- /See:/ 'addTagsToOnPremisesInstances' smart constructor.
 data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
@@ -67,12 +66,12 @@ addTagsToOnPremisesInstances =
 
 -- | The tag key-value pairs to add to the on-premises instances.
 --
--- Keys and values are both required. Keys cannot be nulls or empty
--- strings. Value-only tags are not allowed.
+-- Keys and values are both required. Keys cannot be null or empty strings.
+-- Value-only tags are not allowed.
 attopiTags :: Lens' AddTagsToOnPremisesInstances [Tag]
 attopiTags = lens _attopiTags (\ s a -> s{_attopiTags = a}) . _Coerce;
 
--- | The names of the on-premises instances to add tags to.
+-- | The names of the on-premises instances to which to add tags.
 attopiInstanceNames :: Lens' AddTagsToOnPremisesInstances [Text]
 attopiInstanceNames = lens _attopiInstanceNames (\ s a -> s{_attopiInstanceNames = a}) . _Coerce;
 
@@ -83,6 +82,8 @@ instance AWSRequest AddTagsToOnPremisesInstances
         request = postJSON codeDeploy
         response
           = receiveNull AddTagsToOnPremisesInstancesResponse'
+
+instance Hashable AddTagsToOnPremisesInstances
 
 instance ToHeaders AddTagsToOnPremisesInstances where
         toHeaders

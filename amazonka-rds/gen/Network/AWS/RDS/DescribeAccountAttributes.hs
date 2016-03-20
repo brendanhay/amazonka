@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeAccountAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- current usage toward that quota, and the quota\'s maximum value.
 --
 -- This command does not take any parameters.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeAccountAttributes.html AWS API Reference> for DescribeAccountAttributes.
 module Network.AWS.RDS.DescribeAccountAttributes
     (
     -- * Creating a Request
@@ -72,6 +70,8 @@ instance AWSRequest DescribeAccountAttributes where
                       may (parseXMLList "AccountQuota"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAccountAttributes
+
 instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty
 
@@ -110,9 +110,9 @@ describeAccountAttributesResponse pResponseStatus_ =
     , _daarsResponseStatus = pResponseStatus_
     }
 
--- | A list of AccountQuota objects. Within this list, each quota has a name,
--- a count of usage toward the quota maximum, and a maximum value for the
--- quota.
+-- | A list of < AccountQuota> objects. Within this list, each quota has a
+-- name, a count of usage toward the quota maximum, and a maximum value for
+-- the quota.
 daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
 daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce;
 

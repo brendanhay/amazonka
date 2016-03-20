@@ -12,17 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListThings
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists your things. You can pass an AttributeName and\/or AttributeValue
--- to filter your things. For example: \"ListThings where
--- AttributeName=Color and AttributeValue=Red\"
---
--- /See:/ <https://aws.amazon.com/iot#ListThings.html AWS API Reference> for ListThings.
+-- Lists your things. You can pass an AttributeName or AttributeValue to
+-- filter your things (for example, \"ListThings where AttributeName=Color
+-- and AttributeValue=Red\").
 module Network.AWS.IoT.ListThings
     (
     -- * Creating a Request
@@ -106,6 +104,8 @@ instance AWSRequest ListThings where
                  ListThingsResponse' <$>
                    (x .?> "nextToken") <*> (x .?> "things" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListThings
 
 instance ToHeaders ListThings where
         toHeaders = const mempty

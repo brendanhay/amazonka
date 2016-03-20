@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBSubnetGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Creates a new DB subnet group. DB subnet groups must contain at least
 -- one subnet in at least two AZs in the region.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSubnetGroup.html AWS API Reference> for CreateDBSubnetGroup.
 module Network.AWS.RDS.CreateDBSubnetGroup
     (
     -- * Creating a Request
@@ -89,7 +87,7 @@ cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default . _Coerce;
 -- string.
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters,
--- periods, underscores, or hyphens. Must not be default.
+-- periods, underscores, spaces, or hyphens. Must not be default.
 --
 -- Example: 'mySubnetgroup'
 cdbsgDBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
@@ -112,6 +110,8 @@ instance AWSRequest CreateDBSubnetGroup where
               (\ s h x ->
                  CreateDBSubnetGroupResponse' <$>
                    (x .@? "DBSubnetGroup") <*> (pure (fromEnum s)))
+
+instance Hashable CreateDBSubnetGroup
 
 instance ToHeaders CreateDBSubnetGroup where
         toHeaders = const mempty

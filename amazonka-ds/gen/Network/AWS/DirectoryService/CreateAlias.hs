@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateAlias
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 --
 -- After an alias has been created, it cannot be deleted or reused, so this
 -- operation should only be used when absolutely necessary.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateAlias.html AWS API Reference> for CreateAlias.
 module Network.AWS.DirectoryService.CreateAlias
     (
     -- * Creating a Request
@@ -51,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the CreateAlias operation.
+-- | Contains the inputs for the < CreateAlias> operation.
 --
 -- /See:/ 'createAlias' smart constructor.
 data CreateAlias = CreateAlias'
@@ -98,6 +96,8 @@ instance AWSRequest CreateAlias where
                    (x .?> "DirectoryId") <*> (x .?> "Alias") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateAlias
+
 instance ToHeaders CreateAlias where
         toHeaders
           = const
@@ -121,7 +121,7 @@ instance ToPath CreateAlias where
 instance ToQuery CreateAlias where
         toQuery = const mempty
 
--- | Contains the results of the CreateAlias operation.
+-- | Contains the results of the < CreateAlias> operation.
 --
 -- /See:/ 'createAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.AddTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- value, the tag will be created with the specified key and a value of
 -- null. You can tag a trail that applies to all regions only from the
 -- region in which the trail was created (that is, from its home region).
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AddTags.html AWS API Reference> for AddTags.
 module Network.AWS.CloudTrail.AddTags
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest AddTags where
         response
           = receiveEmpty
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
+
+instance Hashable AddTags
 
 instance ToHeaders AddTags where
         toHeaders

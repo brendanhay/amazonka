@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.EnableLogging
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Starts logging information, such as queries and connection attempts, for
 -- the specified Amazon Redshift cluster.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableLogging.html AWS API Reference> for EnableLogging.
 module Network.AWS.Redshift.EnableLogging
     (
     -- * Creating a Request
@@ -117,6 +115,8 @@ instance AWSRequest EnableLogging where
         response
           = receiveXMLWrapper "EnableLoggingResult"
               (\ s h x -> parseXML x)
+
+instance Hashable EnableLogging
 
 instance ToHeaders EnableLogging where
         toHeaders = const mempty

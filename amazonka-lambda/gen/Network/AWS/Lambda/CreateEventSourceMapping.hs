@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.CreateEventSourceMapping
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,24 +22,28 @@
 -- either an Amazon Kinesis stream or an Amazon DynamoDB stream. AWS Lambda
 -- invokes the specified function when records are posted to the stream.
 --
--- This is the pull model, where AWS Lambda invokes the function. For more
--- information, go to
+-- This association between a stream source and a Lambda function is called
+-- the event source mapping.
+--
+-- This event source mapping is relevant only in the AWS Lambda pull model,
+-- where AWS Lambda invokes the function. For more information, go to
 -- <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>
 -- in the /AWS Lambda Developer Guide/.
 --
--- This association between an Amazon Kinesis stream and a Lambda function
--- is called the event source mapping. You provide the configuration
--- information (for example, which stream to read from and which Lambda
--- function to invoke) for the event source mapping in the request body.
+-- You provide mapping information (for example, which stream to read from
+-- and which Lambda function to invoke) in the request body.
 --
 -- Each event source, such as an Amazon Kinesis or a DynamoDB stream, can
 -- be associated with multiple AWS Lambda function. A given Lambda function
 -- can be associated with multiple AWS event sources.
 --
+-- If you are using versioning, you can specify a specific function version
+-- or an alias via the function name parameter. For more information about
+-- versioning, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+--
 -- This operation requires permission for the
 -- 'lambda:CreateEventSourceMapping' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html AWS API Reference> for CreateEventSourceMapping.
 module Network.AWS.Lambda.CreateEventSourceMapping
     (
     -- * Creating a Request
@@ -132,14 +136,20 @@ cesmEventSourceARN = lens _cesmEventSourceARN (\ s a -> s{_cesmEventSourceARN = 
 -- | The Lambda function to invoke when AWS Lambda detects an event on the
 -- stream.
 --
--- You can specify an unqualified function name (for example,
--- \"Thumbnail\") or you can specify Amazon Resource Name (ARN) of the
--- function (for example,
--- \"arn:aws:lambda:us-west-2:account-id:function:ThumbNail\"). AWS Lambda
--- also allows you to specify only the account ID qualifier (for example,
--- \"account-id:Thumbnail\"). Note that the length constraint applies only
--- to the ARN. If you specify only the function name, it is limited to 64
--- character in length.
+-- You can specify the function name (for example, 'Thumbnail') or you can
+-- specify Amazon Resource Name (ARN) of the function (for example,
+-- 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail').
+--
+-- If you are using versioning, you can also provide a qualified function
+-- ARN (ARN that is qualified with function version or alias name as
+-- suffix). For more information about versioning, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>
+--
+-- AWS Lambda also allows you to specify only the function name with the
+-- account ID qualifier (for example, 'account-id:Thumbnail').
+--
+-- Note that the length constraint applies only to the ARN. If you specify
+-- only the function name, it is limited to 64 character in length.
 cesmFunctionName :: Lens' CreateEventSourceMapping Text
 cesmFunctionName = lens _cesmFunctionName (\ s a -> s{_cesmFunctionName = a});
 
@@ -155,6 +165,8 @@ instance AWSRequest CreateEventSourceMapping where
              EventSourceMappingConfiguration
         request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable CreateEventSourceMapping
 
 instance ToHeaders CreateEventSourceMapping where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.GetAssessmentTelemetry
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns the metadata about the telemetry (application behavioral data)
 -- for the assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_GetAssessmentTelemetry.html AWS API Reference> for GetAssessmentTelemetry.
 module Network.AWS.Inspector.GetAssessmentTelemetry
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest GetAssessmentTelemetry where
                  GetAssessmentTelemetryResponse' <$>
                    (x .?> "telemetry" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetAssessmentTelemetry
 
 instance ToHeaders GetAssessmentTelemetry where
         toHeaders

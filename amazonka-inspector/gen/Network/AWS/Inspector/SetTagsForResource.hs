@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.SetTagsForResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Sets tags (key and value pairs) to the assessment specified by the
 -- assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_SetTagsForResource.html AWS API Reference> for SetTagsForResource.
 module Network.AWS.Inspector.SetTagsForResource
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest SetTagsForResource where
               (\ s h x ->
                  SetTagsForResourceResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
+
+instance Hashable SetTagsForResource
 
 instance ToHeaders SetTagsForResource where
         toHeaders

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteRoute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified route from the specified route table.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRoute.html AWS API Reference> for DeleteRoute.
 module Network.AWS.EC2.DeleteRoute
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest DeleteRoute where
         type Rs DeleteRoute = DeleteRouteResponse
         request = postQuery eC2
         response = receiveNull DeleteRouteResponse'
+
+instance Hashable DeleteRoute
 
 instance ToHeaders DeleteRoute where
         toHeaders = const mempty

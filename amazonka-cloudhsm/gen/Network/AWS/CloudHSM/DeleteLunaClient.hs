@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DeleteLunaClient
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a client.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteLunaClient.html AWS API Reference> for DeleteLunaClient.
 module Network.AWS.CloudHSM.DeleteLunaClient
     (
     -- * Creating a Request
@@ -74,6 +72,8 @@ instance AWSRequest DeleteLunaClient where
               (\ s h x ->
                  DeleteLunaClientResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Status"))
+
+instance Hashable DeleteLunaClient
 
 instance ToHeaders DeleteLunaClient where
         toHeaders

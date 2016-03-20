@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketNotificationConfiguration
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the notification configuration of a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketNotificationConfiguration.html AWS API Reference> for GetBucketNotificationConfiguration.
 module Network.AWS.S3.GetBucketNotificationConfiguration
     (
     -- * Creating a Request
@@ -63,7 +61,7 @@ getBucketNotificationConfiguration pBucket_ =
     { _gbncBucket = pBucket_
     }
 
--- | Name of the buket to get the notification configuration for.
+-- | Name of the bucket to get the notification configuration for.
 gbncBucket :: Lens' GetBucketNotificationConfiguration BucketName
 gbncBucket = lens _gbncBucket (\ s a -> s{_gbncBucket = a});
 
@@ -73,6 +71,8 @@ instance AWSRequest
              NotificationConfiguration
         request = get s3
         response = receiveXML (\ s h x -> parseXML x)
+
+instance Hashable GetBucketNotificationConfiguration
 
 instance ToHeaders GetBucketNotificationConfiguration
          where

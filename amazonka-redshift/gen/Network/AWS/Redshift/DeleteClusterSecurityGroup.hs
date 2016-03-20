@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteClusterSecurityGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- For information about managing security groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSecurityGroup.html AWS API Reference> for DeleteClusterSecurityGroup.
 module Network.AWS.Redshift.DeleteClusterSecurityGroup
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest DeleteClusterSecurityGroup where
         request = postQuery redshift
         response
           = receiveNull DeleteClusterSecurityGroupResponse'
+
+instance Hashable DeleteClusterSecurityGroup
 
 instance ToHeaders DeleteClusterSecurityGroup where
         toHeaders = const mempty

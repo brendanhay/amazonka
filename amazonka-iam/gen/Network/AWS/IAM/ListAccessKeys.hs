@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListAccessKeys
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,6 @@
 --
 -- To ensure the security of your AWS account, the secret access key is
 -- accessible only during key and user creation.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html AWS API Reference> for ListAccessKeys.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListAccessKeys
@@ -132,6 +130,8 @@ instance AWSRequest ListAccessKeys where
                      (x .@? "AccessKeyMetadata" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListAccessKeys
+
 instance ToHeaders ListAccessKeys where
         toHeaders = const mempty
 
@@ -146,7 +146,7 @@ instance ToQuery ListAccessKeys where
                "UserName" =: _lakUserName, "Marker" =: _lakMarker,
                "MaxItems" =: _lakMaxItems]
 
--- | Contains the response to a successful ListAccessKeys request.
+-- | Contains the response to a successful < ListAccessKeys> request.
 --
 -- /See:/ 'listAccessKeysResponse' smart constructor.
 data ListAccessKeysResponse = ListAccessKeysResponse'

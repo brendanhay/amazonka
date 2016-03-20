@@ -1,5 +1,3 @@
 {
-    "referenceUrl": "http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/Welcome.html",
-    "operationUrl": "http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_",
     "libraryName": "amazonka-dynamodb-streams"
 }

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBClusterSnapshots
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- For more information on Amazon Aurora, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusterSnapshots.html AWS API Reference> for DescribeDBClusterSnapshots.
 module Network.AWS.RDS.DescribeDBClusterSnapshots
     (
     -- * Creating a Request
@@ -163,6 +161,8 @@ instance AWSRequest DescribeDBClusterSnapshots where
                         may (parseXMLList "DBClusterSnapshot"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBClusterSnapshots
+
 instance ToHeaders DescribeDBClusterSnapshots where
         toHeaders = const mempty
 
@@ -185,7 +185,7 @@ instance ToQuery DescribeDBClusterSnapshots where
                "MaxRecords" =: _ddbcsMaxRecords]
 
 -- | Provides a list of DB cluster snapshots for the user as the result of a
--- call to the DescribeDBClusterSnapshots action.
+-- call to the < DescribeDBClusterSnapshots> action.
 --
 -- /See:/ 'describeDBClusterSnapshotsResponse' smart constructor.
 data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
@@ -214,8 +214,8 @@ describeDBClusterSnapshotsResponse pResponseStatus_ =
     }
 
 -- | An optional pagination token provided by a previous
--- DescribeDBClusterSnapshots request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
+-- < DescribeDBClusterSnapshots> request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
 -- specified by 'MaxRecords'.
 ddbcsrsMarker :: Lens' DescribeDBClusterSnapshotsResponse (Maybe Text)
 ddbcsrsMarker = lens _ddbcsrsMarker (\ s a -> s{_ddbcsrsMarker = a});

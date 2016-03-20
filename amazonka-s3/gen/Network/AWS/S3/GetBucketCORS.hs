@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketCORS
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the cors configuration for the bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketCORS.html AWS API Reference> for GetBucketCORS.
 module Network.AWS.S3.GetBucketCORS
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest GetBucketCORS where
                  GetBucketCORSResponse' <$>
                    (may (parseXMLList "CORSRule") x) <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetBucketCORS
 
 instance ToHeaders GetBucketCORS where
         toHeaders = const mempty

@@ -12,17 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetGeoLocation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve a single geo location, send a 'GET' request to the
--- '2013-04-01\/geolocation' resource with one of these options:
--- continentcode | countrycode | countrycode and subdivisioncode.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html AWS API Reference> for GetGeoLocation.
+-- '\/Route 53 API version\/geolocation' resource with one of these
+-- options: continentcode | countrycode | countrycode and subdivisioncode.
 module Network.AWS.Route53.GetGeoLocation
     (
     -- * Creating a Request
@@ -80,7 +78,7 @@ getGeoLocation =
 -- subdivision code is only valid with the appropriate country code.
 --
 -- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns
--- an InvalidInput error.
+-- an < InvalidInput> error.
 gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
 gglSubdivisionCode = lens _gglSubdivisionCode (\ s a -> s{_gglSubdivisionCode = a});
 
@@ -99,7 +97,7 @@ gglCountryCode = lens _gglCountryCode (\ s a -> s{_gglCountryCode = a});
 -- Valid values: 'AF' | 'AN' | 'AS' | 'EU' | 'OC' | 'NA' | 'SA'
 --
 -- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or
--- 'SubdivisionCode' returns an InvalidInput error.
+-- 'SubdivisionCode' returns an < InvalidInput> error.
 gglContinentCode :: Lens' GetGeoLocation (Maybe Text)
 gglContinentCode = lens _gglContinentCode (\ s a -> s{_gglContinentCode = a});
 
@@ -111,6 +109,8 @@ instance AWSRequest GetGeoLocation where
               (\ s h x ->
                  GetGeoLocationResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "GeoLocationDetails"))
+
+instance Hashable GetGeoLocation
 
 instance ToHeaders GetGeoLocation where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,12 +22,10 @@
 --
 -- Updating a running environment with any configuration changes creates a
 -- draft configuration set. You can get the draft configuration using
--- DescribeConfigurationSettings while the update is in progress or if the
--- update fails. The 'DeploymentStatus' for the draft configuration
+-- < DescribeConfigurationSettings> while the update is in progress or if
+-- the update fails. The 'DeploymentStatus' for the draft configuration
 -- indicates whether the deployment is in process or has failed. The draft
 -- configuration remains in existence until it is deleted with this action.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteEnvironmentConfiguration.html AWS API Reference> for DeleteEnvironmentConfiguration.
 module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest DeleteEnvironmentConfiguration
         request = postQuery elasticBeanstalk
         response
           = receiveNull DeleteEnvironmentConfigurationResponse'
+
+instance Hashable DeleteEnvironmentConfiguration
 
 instance ToHeaders DeleteEnvironmentConfiguration
          where

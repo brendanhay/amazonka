@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteDestination
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Deletes the destination with the specified name and eventually disables
 -- all the subscription filters that publish to it. This will not delete
 -- the physical resource encapsulated by the destination.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDestination.html AWS API Reference> for DeleteDestination.
 module Network.AWS.CloudWatchLogs.DeleteDestination
     (
     -- * Creating a Request
@@ -69,6 +67,8 @@ instance AWSRequest DeleteDestination where
         type Rs DeleteDestination = DeleteDestinationResponse
         request = postJSON cloudWatchLogs
         response = receiveNull DeleteDestinationResponse'
+
+instance Hashable DeleteDestination
 
 instance ToHeaders DeleteDestination where
         toHeaders

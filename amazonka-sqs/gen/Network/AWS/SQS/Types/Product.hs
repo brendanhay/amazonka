@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -79,8 +79,10 @@ instance FromXML BatchResultErrorEntry where
                 (x .@ "SenderFault")
                 <*> (x .@ "Code")
 
+instance Hashable BatchResultErrorEntry
+
 -- | Encloses a receipt handle and an entry id for each message in
--- ChangeMessageVisibilityBatch.
+-- < ChangeMessageVisibilityBatch>.
 --
 -- All of the following parameters are list parameters that must be
 -- prefixed with 'ChangeMessageVisibilityBatchRequestEntry.n', where 'n' is
@@ -134,6 +136,9 @@ cId = lens _cId (\ s a -> s{_cId = a});
 cReceiptHandle :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
 cReceiptHandle = lens _cReceiptHandle (\ s a -> s{_cReceiptHandle = a});
 
+instance Hashable
+         ChangeMessageVisibilityBatchRequestEntry
+
 instance ToQuery
          ChangeMessageVisibilityBatchRequestEntry where
         toQuery ChangeMessageVisibilityBatchRequestEntry'{..}
@@ -141,7 +146,7 @@ instance ToQuery
               ["VisibilityTimeout" =: _cVisibilityTimeout,
                "Id" =: _cId, "ReceiptHandle" =: _cReceiptHandle]
 
--- | Encloses the id of an entry in ChangeMessageVisibilityBatch.
+-- | Encloses the id of an entry in < ChangeMessageVisibilityBatch>.
 --
 -- /See:/ 'changeMessageVisibilityBatchResultEntry' smart constructor.
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry'
@@ -171,6 +176,9 @@ instance FromXML
         parseXML x
           = ChangeMessageVisibilityBatchResultEntry' <$>
               (x .@ "Id")
+
+instance Hashable
+         ChangeMessageVisibilityBatchResultEntry
 
 -- | Encloses a receipt handle and an identifier for it.
 --
@@ -207,13 +215,15 @@ dmbreId = lens _dmbreId (\ s a -> s{_dmbreId = a});
 dmbreReceiptHandle :: Lens' DeleteMessageBatchRequestEntry Text
 dmbreReceiptHandle = lens _dmbreReceiptHandle (\ s a -> s{_dmbreReceiptHandle = a});
 
+instance Hashable DeleteMessageBatchRequestEntry
+
 instance ToQuery DeleteMessageBatchRequestEntry where
         toQuery DeleteMessageBatchRequestEntry'{..}
           = mconcat
               ["Id" =: _dmbreId,
                "ReceiptHandle" =: _dmbreReceiptHandle]
 
--- | Encloses the id an entry in DeleteMessageBatch.
+-- | Encloses the id an entry in < DeleteMessageBatch>.
 --
 -- /See:/ 'deleteMessageBatchResultEntry' smart constructor.
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'
@@ -240,6 +250,8 @@ dId = lens _dId (\ s a -> s{_dId = a});
 instance FromXML DeleteMessageBatchResultEntry where
         parseXML x
           = DeleteMessageBatchResultEntry' <$> (x .@ "Id")
+
+instance Hashable DeleteMessageBatchResultEntry
 
 -- | An Amazon SQS message.
 --
@@ -337,6 +349,8 @@ instance FromXML Message where
                 <*> (x .@? "MessageId")
                 <*> (x .@? "MD5OfMessageAttributes")
 
+instance Hashable Message
+
 -- | The user-specified message attribute value. For string data types, the
 -- value attribute has the same restrictions on the content as the message
 -- body. For more information, see
@@ -425,6 +439,8 @@ instance FromXML MessageAttributeValue where
                    may (parseXMLList "BinaryListValue"))
                 <*> (x .@ "DataType")
 
+instance Hashable MessageAttributeValue
+
 instance ToQuery MessageAttributeValue where
         toQuery MessageAttributeValue'{..}
           = mconcat
@@ -493,6 +509,8 @@ sId = lens _sId (\ s a -> s{_sId = a});
 sMessageBody :: Lens' SendMessageBatchRequestEntry Text
 sMessageBody = lens _sMessageBody (\ s a -> s{_sMessageBody = a});
 
+instance Hashable SendMessageBatchRequestEntry
+
 instance ToQuery SendMessageBatchRequestEntry where
         toQuery SendMessageBatchRequestEntry'{..}
           = mconcat
@@ -503,7 +521,7 @@ instance ToQuery SendMessageBatchRequestEntry where
                "MessageBody" =: _sMessageBody]
 
 -- | Encloses a message ID for successfully enqueued message of a
--- SendMessageBatch.
+-- < SendMessageBatch>.
 --
 -- /See:/ 'sendMessageBatchResultEntry' smart constructor.
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
@@ -566,3 +584,5 @@ instance FromXML SendMessageBatchResultEntry where
               (x .@? "MD5OfMessageAttributes") <*> (x .@ "Id") <*>
                 (x .@ "MessageId")
                 <*> (x .@ "MD5OfMessageBody")
+
+instance Hashable SendMessageBatchResultEntry

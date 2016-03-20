@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeSeverityLevels
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,9 +20,7 @@
 --
 -- Returns the list of severity levels that you can assign to an AWS
 -- Support case. The severity level for a case is also a field in the
--- CaseDetails data type included in any CreateCase request.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeSeverityLevels.html AWS API Reference> for DescribeSeverityLevels.
+-- < CaseDetails> data type included in any < CreateCase> request.
 module Network.AWS.Support.DescribeSeverityLevels
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest DescribeSeverityLevels where
                    (x .?> "severityLevels" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeSeverityLevels
+
 instance ToHeaders DescribeSeverityLevels where
         toHeaders
           = const
@@ -102,7 +102,7 @@ instance ToPath DescribeSeverityLevels where
 instance ToQuery DescribeSeverityLevels where
         toQuery = const mempty
 
--- | The list of severity levels returned by the DescribeSeverityLevels
+-- | The list of severity levels returned by the < DescribeSeverityLevels>
 -- operation.
 --
 -- /See:/ 'describeSeverityLevelsResponse' smart constructor.

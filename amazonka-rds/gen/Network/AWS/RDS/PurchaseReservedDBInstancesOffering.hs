@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.PurchaseReservedDBInstancesOffering
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Purchases a reserved DB instance offering.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html AWS API Reference> for PurchaseReservedDBInstancesOffering.
 module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     (
     -- * Creating a Request
@@ -112,6 +110,8 @@ instance AWSRequest
               (\ s h x ->
                  PurchaseReservedDBInstancesOfferingResponse' <$>
                    (x .@? "ReservedDBInstance") <*> (pure (fromEnum s)))
+
+instance Hashable PurchaseReservedDBInstancesOffering
 
 instance ToHeaders
          PurchaseReservedDBInstancesOffering where

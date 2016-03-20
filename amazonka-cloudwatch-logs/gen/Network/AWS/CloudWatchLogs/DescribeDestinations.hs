@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeDestinations
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- value in the response body. You can also limit the number of
 -- destinations returned in the response by specifying the 'limit'
 -- parameter in the request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDestinations.html AWS API Reference> for DescribeDestinations.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeDestinations
@@ -115,6 +113,8 @@ instance AWSRequest DescribeDestinations where
                    (x .?> "nextToken") <*>
                      (x .?> "destinations" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeDestinations
 
 instance ToHeaders DescribeDestinations where
         toHeaders

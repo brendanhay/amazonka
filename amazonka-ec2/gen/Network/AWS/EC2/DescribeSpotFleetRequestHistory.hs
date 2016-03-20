@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSpotFleetRequestHistory
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- Spot fleet events are delayed by up to 30 seconds before they can be
 -- described. This ensures that you can query by the last evaluated time
 -- and not miss a recorded event.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetRequestHistory.html AWS API Reference> for DescribeSpotFleetRequestHistory.
 module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     (
     -- * Creating a Request
@@ -146,6 +144,8 @@ instance AWSRequest DescribeSpotFleetRequestHistory
                      <*>
                      (x .@? "historyRecordSet" .!@ mempty >>=
                         parseXMLList "item"))
+
+instance Hashable DescribeSpotFleetRequestHistory
 
 instance ToHeaders DescribeSpotFleetRequestHistory
          where

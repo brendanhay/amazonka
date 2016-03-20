@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DeleteDataSource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,13 +21,11 @@
 -- Assigns the DELETED status to a 'DataSource', rendering it unusable.
 --
 -- After using the 'DeleteDataSource' operation, you can use the
--- GetDataSource operation to verify that the status of the 'DataSource'
+-- < GetDataSource> operation to verify that the status of the 'DataSource'
 -- changed to DELETED.
 --
 -- __Caution:__ The results of the 'DeleteDataSource' operation are
 -- irreversible.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteDataSource.html AWS API Reference> for DeleteDataSource.
 module Network.AWS.MachineLearning.DeleteDataSource
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest DeleteDataSource where
                  DeleteDataSourceResponse' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteDataSource
+
 instance ToHeaders DeleteDataSource where
         toHeaders
           = const
@@ -103,7 +103,7 @@ instance ToPath DeleteDataSource where
 instance ToQuery DeleteDataSource where
         toQuery = const mempty
 
--- | Represents the output of a DeleteDataSource operation.
+-- | Represents the output of a < DeleteDataSource> operation.
 --
 -- /See:/ 'deleteDataSourceResponse' smart constructor.
 data DeleteDataSourceResponse = DeleteDataSourceResponse'

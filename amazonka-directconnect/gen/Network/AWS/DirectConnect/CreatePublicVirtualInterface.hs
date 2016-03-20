@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreatePublicVirtualInterface
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- that transports AWS Direct Connect traffic. A public virtual interface
 -- supports sending traffic to public services of AWS such as Amazon Simple
 -- Storage Service (Amazon S3).
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePublicVirtualInterface.html AWS API Reference> for CreatePublicVirtualInterface.
 module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     (
     -- * Creating a Request
@@ -103,6 +101,8 @@ instance AWSRequest CreatePublicVirtualInterface
              VirtualInterface
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable CreatePublicVirtualInterface
 
 instance ToHeaders CreatePublicVirtualInterface where
         toHeaders

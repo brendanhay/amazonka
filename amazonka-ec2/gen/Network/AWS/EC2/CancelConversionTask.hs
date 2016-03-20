@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelConversionTask
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelConversionTask.html AWS API Reference> for CancelConversionTask.
 module Network.AWS.EC2.CancelConversionTask
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest CancelConversionTask where
              CancelConversionTaskResponse
         request = postQuery eC2
         response = receiveNull CancelConversionTaskResponse'
+
+instance Hashable CancelConversionTask
 
 instance ToHeaders CancelConversionTask where
         toHeaders = const mempty

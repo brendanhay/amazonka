@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutObject
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds an object to a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutObject.html AWS API Reference> for PutObject.
 module Network.AWS.S3.PutObject
     (
     -- * Creating a Request
@@ -264,7 +262,7 @@ poGrantFullControl = lens _poGrantFullControl (\ s a -> s{_poGrantFullControl = 
 poContentEncoding :: Lens' PutObject (Maybe Text)
 poContentEncoding = lens _poContentEncoding (\ s a -> s{_poContentEncoding = a});
 
--- | Undocumented member.
+-- | The base64-encoded 128-bit MD5 digest of the part data.
 poContentMD5 :: Lens' PutObject (Maybe Text)
 poContentMD5 = lens _poContentMD5 (\ s a -> s{_poContentMD5 = a});
 
@@ -297,11 +295,11 @@ poServerSideEncryption = lens _poServerSideEncryption (\ s a -> s{_poServerSideE
 poContentType :: Lens' PutObject (Maybe Text)
 poContentType = lens _poContentType (\ s a -> s{_poContentType = a});
 
--- | Undocumented member.
+-- | Name of the bucket to which the PUT operation was initiated.
 poBucket :: Lens' PutObject BucketName
 poBucket = lens _poBucket (\ s a -> s{_poBucket = a});
 
--- | Undocumented member.
+-- | Object key for which the PUT operation was initiated.
 poKey :: Lens' PutObject ObjectKey
 poKey = lens _poKey (\ s a -> s{_poKey = a});
 

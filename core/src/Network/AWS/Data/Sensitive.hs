@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Data.Sensitive
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
@@ -13,6 +13,7 @@
 module Network.AWS.Data.Sensitive where
 
 import           Data.Data                   (Data, Typeable)
+import           Data.Hashable
 import           Data.Monoid
 import           Data.String
 import           GHC.Generics                (Generic)
@@ -46,6 +47,8 @@ newtype Sensitive a = Sensitive { desensitise :: a }
 
 instance Show (Sensitive a) where
     show = const "******"
+
+instance Hashable a => Hashable (Sensitive a)
 
 _Sensitive :: Iso' (Sensitive a) a
 _Sensitive = iso desensitise Sensitive

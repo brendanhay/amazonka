@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListGateways
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- response returns only a truncated list of your gateways-the response
 -- contains a marker that you can specify in your next request to fetch the
 -- next page of gateways.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListGateways.html AWS API Reference> for ListGateways.
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListGateways
@@ -62,8 +60,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing zero or more of the following fields:
 --
--- -   ListGatewaysInput$Limit
--- -   ListGatewaysInput$Marker
+-- -   < ListGatewaysInput$Limit>
+-- -   < ListGatewaysInput$Marker>
 --
 -- /See:/ 'listGateways' smart constructor.
 data ListGateways = ListGateways'
@@ -112,6 +110,8 @@ instance AWSRequest ListGateways where
                  ListGatewaysResponse' <$>
                    (x .?> "Marker") <*> (x .?> "Gateways" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListGateways
 
 instance ToHeaders ListGateways where
         toHeaders

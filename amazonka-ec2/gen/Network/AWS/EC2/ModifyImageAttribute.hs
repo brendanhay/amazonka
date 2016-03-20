@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyImageAttribute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- AWS Marketplace product codes cannot be modified. Images with an AWS
 -- Marketplace product code cannot be made public.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyImageAttribute.html AWS API Reference> for ModifyImageAttribute.
 module Network.AWS.EC2.ModifyImageAttribute
     (
     -- * Creating a Request
@@ -161,6 +159,8 @@ instance AWSRequest ModifyImageAttribute where
              ModifyImageAttributeResponse
         request = postQuery eC2
         response = receiveNull ModifyImageAttributeResponse'
+
+instance Hashable ModifyImageAttribute
 
 instance ToHeaders ModifyImageAttribute where
         toHeaders = const mempty

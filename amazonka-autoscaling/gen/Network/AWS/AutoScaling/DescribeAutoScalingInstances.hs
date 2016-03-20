@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Describes one or more Auto Scaling instances. If a list is not provided,
 -- the call describes all instances.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html AWS API Reference> for DescribeAutoScalingInstances.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances
@@ -81,9 +79,9 @@ describeAutoScalingInstances =
 dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
 dasiNextToken = lens _dasiNextToken (\ s a -> s{_dasiNextToken = a});
 
--- | One or more Auto Scaling instances to describe, up to 50 instances. If
--- you omit this parameter, all Auto Scaling instances are described. If
--- you specify an ID that does not exist, it is ignored with no error.
+-- | The instances to describe; up to 50 instance IDs. If you omit this
+-- parameter, all Auto Scaling instances are described. If you specify an
+-- ID that does not exist, it is ignored with no error.
 dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
 dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a}) . _Default . _Coerce;
 
@@ -112,6 +110,8 @@ instance AWSRequest DescribeAutoScalingInstances
                      (x .@? "AutoScalingInstances" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeAutoScalingInstances
 
 instance ToHeaders DescribeAutoScalingInstances where
         toHeaders = const mempty

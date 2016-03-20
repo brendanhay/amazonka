@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.HeadObject
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- the object itself. This operation is useful if you\'re only interested
 -- in an object\'s metadata. To use HEAD, you must have READ access to the
 -- object.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadObject.html AWS API Reference> for HeadObject.
 module Network.AWS.S3.HeadObject
     (
     -- * Creating a Request
@@ -241,6 +239,8 @@ instance AWSRequest HeadObject where
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (h .#? "Content-Type")
                      <*> (pure (fromEnum s)))
+
+instance Hashable HeadObject
 
 instance ToHeaders HeadObject where
         toHeaders HeadObject'{..}

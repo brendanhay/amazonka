@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachVPNGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- You must wait for the attachment\'s state to switch to 'detached' before
 -- you can delete the VPC or attach a different VPC to the virtual private
 -- gateway.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVPNGateway.html AWS API Reference> for DetachVPNGateway.
 module Network.AWS.EC2.DetachVPNGateway
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest DetachVPNGateway where
         type Rs DetachVPNGateway = DetachVPNGatewayResponse
         request = postQuery eC2
         response = receiveNull DetachVPNGatewayResponse'
+
+instance Hashable DetachVPNGateway
 
 instance ToHeaders DetachVPNGateway where
         toHeaders = const mempty

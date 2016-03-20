@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ChangePassword
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,12 +21,10 @@
 -- Changes the password of the IAM user who is calling this action. The
 -- root account password is not affected by this action.
 --
--- To change the password for a different user, see UpdateLoginProfile. For
--- more information about modifying passwords, see
+-- To change the password for a different user, see < UpdateLoginProfile>.
+-- For more information about modifying passwords, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html AWS API Reference> for ChangePassword.
 module Network.AWS.IAM.ChangePassword
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest ChangePassword where
         type Rs ChangePassword = ChangePasswordResponse
         request = postQuery iAM
         response = receiveNull ChangePasswordResponse'
+
+instance Hashable ChangePassword
 
 instance ToHeaders ChangePassword where
         toHeaders = const mempty

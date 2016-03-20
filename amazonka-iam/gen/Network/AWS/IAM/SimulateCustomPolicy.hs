@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.SimulateCustomPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,18 +28,16 @@
 -- actions.
 --
 -- If you want to simulate existing policies attached to an IAM user,
--- group, or role, use SimulatePrincipalPolicy instead.
+-- group, or role, use < SimulatePrincipalPolicy> instead.
 --
 -- Context keys are variables maintained by AWS and its services that
 -- provide details about the context of an API query request. You can use
 -- the 'Condition' element of an IAM policy to evaluate context keys. To
 -- get the list of context keys that the policies require for correct
--- simulation, use GetContextKeysForCustomPolicy.
+-- simulation, use < GetContextKeysForCustomPolicy>.
 --
 -- If the output is long, you can use 'MaxItems' and 'Marker' parameters to
 -- paginate the results.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html AWS API Reference> for SimulateCustomPolicy.
 module Network.AWS.IAM.SimulateCustomPolicy
     (
     -- * Creating a Request
@@ -270,6 +268,8 @@ instance AWSRequest SimulateCustomPolicy where
         response
           = receiveXMLWrapper "SimulateCustomPolicyResult"
               (\ s h x -> parseXML x)
+
+instance Hashable SimulateCustomPolicy
 
 instance ToHeaders SimulateCustomPolicy where
         toHeaders = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.EnableStageTransition
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables artifacts in a pipeline to transition to a stage in a pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_EnableStageTransition.html AWS API Reference> for EnableStageTransition.
 module Network.AWS.CodePipeline.EnableStageTransition
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest EnableStageTransition where
              EnableStageTransitionResponse
         request = postJSON codePipeline
         response = receiveNull EnableStageTransitionResponse'
+
+instance Hashable EnableStageTransition
 
 instance ToHeaders EnableStageTransition where
         toHeaders

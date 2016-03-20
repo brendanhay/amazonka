@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteServerCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -36,8 +36,6 @@
 -- information, go to
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html DeleteLoadBalancerListeners>
 -- in the /Elastic Load Balancing API Reference/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServerCertificate.html AWS API Reference> for DeleteServerCertificate.
 module Network.AWS.IAM.DeleteServerCertificate
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest DeleteServerCertificate where
         request = postQuery iAM
         response
           = receiveNull DeleteServerCertificateResponse'
+
+instance Hashable DeleteServerCertificate
 
 instance ToHeaders DeleteServerCertificate where
         toHeaders = const mempty

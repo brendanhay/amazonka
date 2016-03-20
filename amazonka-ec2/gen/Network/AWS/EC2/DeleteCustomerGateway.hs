@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteCustomerGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Deletes the specified customer gateway. You must delete the VPN
 -- connection before you can delete the customer gateway.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteCustomerGateway.html AWS API Reference> for DeleteCustomerGateway.
 module Network.AWS.EC2.DeleteCustomerGateway
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest DeleteCustomerGateway where
              DeleteCustomerGatewayResponse
         request = postQuery eC2
         response = receiveNull DeleteCustomerGatewayResponse'
+
+instance Hashable DeleteCustomerGateway
 
 instance ToHeaders DeleteCustomerGateway where
         toHeaders = const mempty

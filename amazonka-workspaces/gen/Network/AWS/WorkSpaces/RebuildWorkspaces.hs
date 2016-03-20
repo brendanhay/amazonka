@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.RebuildWorkspaces
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -39,8 +39,6 @@
 --
 -- This operation is asynchronous and will return before the WorkSpaces
 -- have been completely rebuilt.
---
--- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_RebuildWorkspaces.html AWS API Reference> for RebuildWorkspaces.
 module Network.AWS.WorkSpaces.RebuildWorkspaces
     (
     -- * Creating a Request
@@ -64,7 +62,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the RebuildWorkspaces operation.
+-- | Contains the inputs for the < RebuildWorkspaces> operation.
 --
 -- /See:/ 'rebuildWorkspaces' smart constructor.
 newtype RebuildWorkspaces = RebuildWorkspaces'
@@ -98,6 +96,8 @@ instance AWSRequest RebuildWorkspaces where
                    (x .?> "FailedRequests" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable RebuildWorkspaces
+
 instance ToHeaders RebuildWorkspaces where
         toHeaders
           = const
@@ -122,7 +122,7 @@ instance ToPath RebuildWorkspaces where
 instance ToQuery RebuildWorkspaces where
         toQuery = const mempty
 
--- | Contains the results of the RebuildWorkspaces operation.
+-- | Contains the results of the < RebuildWorkspaces> operation.
 --
 -- /See:/ 'rebuildWorkspacesResponse' smart constructor.
 data RebuildWorkspacesResponse = RebuildWorkspacesResponse'

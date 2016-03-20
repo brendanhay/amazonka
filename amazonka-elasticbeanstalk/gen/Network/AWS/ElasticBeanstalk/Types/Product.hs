@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -98,6 +98,8 @@ instance FromXML ApplicationDescription where
                    may (parseXMLList "member"))
                 <*> (x .@? "Description")
 
+instance Hashable ApplicationDescription
+
 -- | Result message containing a single description of an application.
 --
 -- /See:/ 'applicationDescriptionMessage' smart constructor.
@@ -117,7 +119,7 @@ applicationDescriptionMessage =
     { _admApplication = Nothing
     }
 
--- | The ApplicationDescription of the application.
+-- | The < ApplicationDescription> of the application.
 admApplication :: Lens' ApplicationDescriptionMessage (Maybe ApplicationDescription)
 admApplication = lens _admApplication (\ s a -> s{_admApplication = a});
 
@@ -125,6 +127,8 @@ instance FromXML ApplicationDescriptionMessage where
         parseXML x
           = ApplicationDescriptionMessage' <$>
               (x .@? "Application")
+
+instance Hashable ApplicationDescriptionMessage
 
 -- | Represents the application metrics for a specified environment.
 --
@@ -185,6 +189,8 @@ instance FromXML ApplicationMetrics where
               (x .@? "RequestCount") <*> (x .@? "Latency") <*>
                 (x .@? "StatusCodes")
                 <*> (x .@? "Duration")
+
+instance Hashable ApplicationMetrics
 
 -- | Describes the properties of an application version.
 --
@@ -267,6 +273,8 @@ instance FromXML ApplicationVersionDescription where
                 <*> (x .@? "ApplicationName")
                 <*> (x .@? "Description")
 
+instance Hashable ApplicationVersionDescription
+
 -- | Result message wrapping a single description of an application version.
 --
 -- /See:/ 'applicationVersionDescriptionMessage' smart constructor.
@@ -286,7 +294,7 @@ applicationVersionDescriptionMessage =
     { _avdmApplicationVersion = Nothing
     }
 
--- | The ApplicationVersionDescription of the application version.
+-- | The < ApplicationVersionDescription> of the application version.
 avdmApplicationVersion :: Lens' ApplicationVersionDescriptionMessage (Maybe ApplicationVersionDescription)
 avdmApplicationVersion = lens _avdmApplicationVersion (\ s a -> s{_avdmApplicationVersion = a});
 
@@ -295,6 +303,9 @@ instance FromXML ApplicationVersionDescriptionMessage
         parseXML x
           = ApplicationVersionDescriptionMessage' <$>
               (x .@? "ApplicationVersion")
+
+instance Hashable
+         ApplicationVersionDescriptionMessage
 
 -- | Describes an Auto Scaling launch configuration.
 --
@@ -321,6 +332,8 @@ asgName = lens _asgName (\ s a -> s{_asgName = a});
 
 instance FromXML AutoScalingGroup where
         parseXML x = AutoScalingGroup' <$> (x .@? "Name")
+
+instance Hashable AutoScalingGroup
 
 -- | Represents CPU utilization information from the specified instance that
 -- belongs to the AWS Elastic Beanstalk environment. Use the 'instanceId'
@@ -412,6 +425,8 @@ instance FromXML CPUUtilization where
                 <*> (x .@? "User")
                 <*> (x .@? "IOWait")
                 <*> (x .@? "Nice")
+
+instance Hashable CPUUtilization
 
 -- | Describes the possible values for a configuration option.
 --
@@ -569,6 +584,8 @@ instance FromXML ConfigurationOptionDescription where
                 <*> (x .@? "ValueType")
                 <*> (x .@? "MinValue")
 
+instance Hashable ConfigurationOptionDescription
+
 -- | A specification identifying an individual configuration option along
 -- with its current value. For a list of possible option values, go to
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html Option Values>
@@ -625,6 +642,8 @@ instance FromXML ConfigurationOptionSetting where
               (x .@? "OptionName") <*> (x .@? "ResourceName") <*>
                 (x .@? "Namespace")
                 <*> (x .@? "Value")
+
+instance Hashable ConfigurationOptionSetting
 
 instance ToQuery ConfigurationOptionSetting where
         toQuery ConfigurationOptionSetting'{..}
@@ -747,6 +766,8 @@ instance FromXML ConfigurationSettingsDescription
                 <*> (x .@? "DeploymentStatus")
                 <*> (x .@? "SolutionStackName")
                 <*> (x .@? "Description")
+
+instance Hashable ConfigurationSettingsDescription
 
 -- | Describes the properties of an environment.
 --
@@ -961,6 +982,8 @@ instance FromXML EnvironmentDescription where
                    may (parseXMLList "member"))
                 <*> (x .@? "Description")
 
+instance Hashable EnvironmentDescription
+
 -- | Result message containing a list of environment descriptions.
 --
 -- /See:/ 'environmentDescriptionsMessage' smart constructor.
@@ -980,7 +1003,7 @@ environmentDescriptionsMessage =
     { _edmEnvironments = Nothing
     }
 
--- | Returns an EnvironmentDescription list.
+-- | Returns an < EnvironmentDescription> list.
 edmEnvironments :: Lens' EnvironmentDescriptionsMessage [EnvironmentDescription]
 edmEnvironments = lens _edmEnvironments (\ s a -> s{_edmEnvironments = a}) . _Default . _Coerce;
 
@@ -989,6 +1012,8 @@ instance FromXML EnvironmentDescriptionsMessage where
           = EnvironmentDescriptionsMessage' <$>
               (x .@? "Environments" .!@ mempty >>=
                  may (parseXMLList "member"))
+
+instance Hashable EnvironmentDescriptionsMessage
 
 -- | The information retrieved from the Amazon EC2 instances.
 --
@@ -1044,6 +1069,8 @@ instance FromXML EnvironmentInfoDescription where
                 <*> (x .@? "InfoType")
                 <*> (x .@? "Message")
 
+instance Hashable EnvironmentInfoDescription
+
 -- | A link to another environment, defined in the environment\'s manifest.
 -- Links provide connection information in system properties that can be
 -- used to connect to another environment in the same group. See
@@ -1083,6 +1110,8 @@ instance FromXML EnvironmentLink where
         parseXML x
           = EnvironmentLink' <$>
               (x .@? "LinkName") <*> (x .@? "EnvironmentName")
+
+instance Hashable EnvironmentLink
 
 -- | Describes the AWS resources in use by this environment. This data is
 -- live.
@@ -1178,6 +1207,8 @@ instance FromXML EnvironmentResourceDescription where
                 (x .@? "AutoScalingGroups" .!@ mempty >>=
                    may (parseXMLList "member"))
 
+instance Hashable EnvironmentResourceDescription
+
 -- | Describes the AWS resources in use by this environment. This data is not
 -- live data.
 --
@@ -1207,6 +1238,8 @@ instance FromXML EnvironmentResourcesDescription
         parseXML x
           = EnvironmentResourcesDescription' <$>
               (x .@? "LoadBalancer")
+
+instance Hashable EnvironmentResourcesDescription
 
 -- | Describes the properties of an environment tier
 --
@@ -1252,6 +1285,8 @@ instance FromXML EnvironmentTier where
           = EnvironmentTier' <$>
               (x .@? "Name") <*> (x .@? "Version") <*>
                 (x .@? "Type")
+
+instance Hashable EnvironmentTier
 
 instance ToQuery EnvironmentTier where
         toQuery EnvironmentTier'{..}
@@ -1350,6 +1385,8 @@ instance FromXML EventDescription where
                 <*> (x .@? "EventDate")
                 <*> (x .@? "Message")
 
+instance Hashable EventDescription
+
 -- | The description of an Amazon EC2 instance.
 --
 -- /See:/ 'instance'' smart constructor.
@@ -1375,6 +1412,8 @@ iId = lens _iId (\ s a -> s{_iId = a});
 
 instance FromXML Instance where
         parseXML x = Instance' <$> (x .@? "Id")
+
+instance Hashable Instance
 
 -- | Represents summary information about the health of an instance. For more
 -- information, see
@@ -1475,6 +1514,8 @@ instance FromXML InstanceHealthSummary where
                 <*> (x .@? "Degraded")
                 <*> (x .@? "Info")
 
+instance Hashable InstanceHealthSummary
+
 -- | Represents the average latency for the slowest X percent of requests
 -- over the last 10 seconds.
 --
@@ -1573,6 +1614,8 @@ instance FromXML Latency where
                 <*> (x .@? "P99")
                 <*> (x .@? "P10")
 
+instance Hashable Latency
+
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'launchConfiguration' smart constructor.
@@ -1598,6 +1641,8 @@ lcName = lens _lcName (\ s a -> s{_lcName = a});
 
 instance FromXML LaunchConfiguration where
         parseXML x = LaunchConfiguration' <$> (x .@? "Name")
+
+instance Hashable LaunchConfiguration
 
 -- | Describes the properties of a Listener for the LoadBalancer.
 --
@@ -1634,6 +1679,8 @@ instance FromXML Listener where
         parseXML x
           = Listener' <$> (x .@? "Protocol") <*> (x .@? "Port")
 
+instance Hashable Listener
+
 -- | Describes a LoadBalancer.
 --
 -- /See:/ 'loadBalancer' smart constructor.
@@ -1659,6 +1706,8 @@ lbName = lens _lbName (\ s a -> s{_lbName = a});
 
 instance FromXML LoadBalancer where
         parseXML x = LoadBalancer' <$> (x .@? "Name")
+
+instance Hashable LoadBalancer
 
 -- | Describes the details of a LoadBalancer.
 --
@@ -1706,6 +1755,8 @@ instance FromXML LoadBalancerDescription where
                 (x .@? "Listeners" .!@ mempty >>=
                    may (parseXMLList "member"))
 
+instance Hashable LoadBalancerDescription
+
 -- | A regular expression representing a restriction on a string
 -- configuration option value.
 --
@@ -1743,6 +1794,8 @@ instance FromXML OptionRestrictionRegex where
         parseXML x
           = OptionRestrictionRegex' <$>
               (x .@? "Pattern") <*> (x .@? "Label")
+
+instance Hashable OptionRestrictionRegex
 
 -- | A specification identifying an individual configuration option.
 --
@@ -1782,6 +1835,8 @@ osResourceName = lens _osResourceName (\ s a -> s{_osResourceName = a});
 -- | A unique namespace identifying the option\'s associated AWS resource.
 osNamespace :: Lens' OptionSpecification (Maybe Text)
 osNamespace = lens _osNamespace (\ s a -> s{_osNamespace = a});
+
+instance Hashable OptionSpecification
 
 instance ToQuery OptionSpecification where
         toQuery OptionSpecification'{..}
@@ -1825,6 +1880,8 @@ instance FromXML Queue where
         parseXML x
           = Queue' <$> (x .@? "URL") <*> (x .@? "Name")
 
+instance Hashable Queue
+
 -- | A specification of a location in Amazon S3.
 --
 -- /See:/ 's3Location' smart constructor.
@@ -1860,6 +1917,8 @@ instance FromXML S3Location where
         parseXML x
           = S3Location' <$>
               (x .@? "S3Key") <*> (x .@? "S3Bucket")
+
+instance Hashable S3Location
 
 instance ToQuery S3Location where
         toQuery S3Location'{..}
@@ -1957,6 +2016,8 @@ instance FromXML SingleInstanceHealth where
                 <*> (x .@? "HealthStatus")
                 <*> (x .@? "LaunchedAt")
 
+instance Hashable SingleInstanceHealth
+
 -- | Describes the solution stack.
 --
 -- /See:/ 'solutionStackDescription' smart constructor.
@@ -1995,6 +2056,8 @@ instance FromXML SolutionStackDescription where
                  may (parseXMLList "member"))
                 <*> (x .@? "SolutionStackName")
 
+instance Hashable SolutionStackDescription
+
 -- | A specification for an environment configuration
 --
 -- /See:/ 'sourceConfiguration' smart constructor.
@@ -2025,6 +2088,8 @@ scTemplateName = lens _scTemplateName (\ s a -> s{_scTemplateName = a});
 -- | The name of the application associated with the configuration.
 scApplicationName :: Lens' SourceConfiguration (Maybe Text)
 scApplicationName = lens _scApplicationName (\ s a -> s{_scApplicationName = a});
+
+instance Hashable SourceConfiguration
 
 instance ToQuery SourceConfiguration where
         toQuery SourceConfiguration'{..}
@@ -2092,6 +2157,8 @@ instance FromXML StatusCodes where
                 (x .@? "Status4xx")
                 <*> (x .@? "Status5xx")
 
+instance Hashable StatusCodes
+
 -- | Represents CPU utilization and load average information for applications
 -- running in the specified environment.
 --
@@ -2133,6 +2200,8 @@ instance FromXML SystemStatus where
                 (x .@? "LoadAverage" .!@ mempty >>=
                    may (parseXMLList "member"))
 
+instance Hashable SystemStatus
+
 -- | Describes a tag applied to a resource in an environment.
 --
 -- /See:/ 'tag' smart constructor.
@@ -2164,6 +2233,8 @@ tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
+instance Hashable Tag
+
 instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
@@ -2193,6 +2264,8 @@ tName = lens _tName (\ s a -> s{_tName = a});
 
 instance FromXML Trigger where
         parseXML x = Trigger' <$> (x .@? "Name")
+
+instance Hashable Trigger
 
 -- | An error or warning for a desired configuration option value.
 --
@@ -2252,3 +2325,5 @@ instance FromXML ValidationMessage where
               (x .@? "OptionName") <*> (x .@? "Severity") <*>
                 (x .@? "Namespace")
                 <*> (x .@? "Message")
+
+instance Hashable ValidationMessage

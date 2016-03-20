@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListTopics
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- list of topics, up to 100. If there are more topics, a 'NextToken' is
 -- also returned. Use the 'NextToken' parameter in a new 'ListTopics' call
 -- to get further results.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html AWS API Reference> for ListTopics.
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListTopics
@@ -90,6 +88,8 @@ instance AWSRequest ListTopics where
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListTopics
 
 instance ToHeaders ListTopics where
         toHeaders = const mempty

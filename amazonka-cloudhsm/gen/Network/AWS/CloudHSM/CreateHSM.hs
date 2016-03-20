@@ -12,17 +12,24 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.CreateHSM
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an uninitialized HSM instance. Running this command provisions
--- an HSM appliance and will result in charges to your AWS account for the
--- HSM.
+-- Creates an uninitialized HSM instance.
 --
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateHSM.html AWS API Reference> for CreateHSM.
+-- There is an upfront fee charged for each HSM instance that you create
+-- with the < CreateHsm> operation. If you accidentally provision an HSM
+-- and want to request a refund, delete the instance using the < DeleteHsm>
+-- operation, go to the
+-- <https://console.aws.amazon.com/support/home#/ AWS Support Center>,
+-- create a new case, and select __Account and Billing Support__.
+--
+-- It can take up to 20 minutes to create and provision an HSM. You can
+-- monitor the status of the HSM with the < DescribeHsm> operation. The HSM
+-- is ready to be initialized when the status changes to 'RUNNING'.
 module Network.AWS.CloudHSM.CreateHSM
     (
     -- * Creating a Request
@@ -53,7 +60,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the CreateHsm action.
+-- | Contains the inputs for the < CreateHsm> operation.
 --
 -- /See:/ 'createHSM' smart constructor.
 data CreateHSM = CreateHSM'
@@ -105,11 +112,12 @@ createHSM pSubnetId_ pSSHKey_ pIAMRoleARN_ pSubscriptionType_ =
     }
 
 -- | A user-defined token to ensure idempotence. Subsequent calls to this
--- action with the same token will be ignored.
+-- operation with the same token will be ignored.
 chClientToken :: Lens' CreateHSM (Maybe Text)
 chClientToken = lens _chClientToken (\ s a -> s{_chClientToken = a});
 
--- | The IP address for the syslog monitoring server.
+-- | The IP address for the syslog monitoring server. The AWS CloudHSM
+-- service only supports one syslog monitoring server.
 chSyslogIP :: Lens' CreateHSM (Maybe Text)
 chSyslogIP = lens _chSyslogIP (\ s a -> s{_chSyslogIP = a});
 
@@ -118,6 +126,9 @@ chExternalId :: Lens' CreateHSM (Maybe Text)
 chExternalId = lens _chExternalId (\ s a -> s{_chExternalId = a});
 
 -- | The IP address to assign to the HSM\'s ENI.
+--
+-- If an IP address is not specified, an IP address will be randomly chosen
+-- from the CIDR range of the subnet.
 chEniIP :: Lens' CreateHSM (Maybe Text)
 chEniIP = lens _chEniIP (\ s a -> s{_chEniIP = a});
 
@@ -134,7 +145,7 @@ chSSHKey = lens _chSSHKey (\ s a -> s{_chSSHKey = a});
 chIAMRoleARN :: Lens' CreateHSM Text
 chIAMRoleARN = lens _chIAMRoleARN (\ s a -> s{_chIAMRoleARN = a});
 
--- | The subscription type.
+-- | Undocumented member.
 chSubscriptionType :: Lens' CreateHSM SubscriptionType
 chSubscriptionType = lens _chSubscriptionType (\ s a -> s{_chSubscriptionType = a});
 
@@ -146,6 +157,8 @@ instance AWSRequest CreateHSM where
               (\ s h x ->
                  CreateHSMResponse' <$>
                    (x .?> "HsmArn") <*> (pure (fromEnum s)))
+
+instance Hashable CreateHSM
 
 instance ToHeaders CreateHSM where
         toHeaders
@@ -175,7 +188,7 @@ instance ToPath CreateHSM where
 instance ToQuery CreateHSM where
         toQuery = const mempty
 
--- | Contains the output of the CreateHsm action.
+-- | Contains the output of the < CreateHsm> operation.
 --
 -- /See:/ 'createHSMResponse' smart constructor.
 data CreateHSMResponse = CreateHSMResponse'

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEvents
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- This action returns the most recent 1,000 events from the specified
 -- 'NextToken'.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElasticBeanstalk.DescribeEvents
@@ -195,6 +193,8 @@ instance AWSRequest DescribeEvents where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeEvents
+
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty
 
@@ -247,12 +247,12 @@ describeEventsResponse pResponseStatus_ =
     }
 
 -- | If returned, this indicates that there are more results to obtain. Use
--- this token in the next DescribeEvents call to get the next batch of
+-- this token in the next < DescribeEvents> call to get the next batch of
 -- events.
 dersNextToken :: Lens' DescribeEventsResponse (Maybe Text)
 dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a});
 
--- | A list of EventDescription.
+-- | A list of < EventDescription>.
 dersEvents :: Lens' DescribeEventsResponse [EventDescription]
 dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetStage
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a Stage resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetStage.html AWS API Reference> for GetStage.
+-- Gets information about a < Stage> resource.
 module Network.AWS.APIGateway.GetStage
     (
     -- * Creating a Request
@@ -54,7 +52,8 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about a Stage resource.
+-- | Requests Amazon API Gateway to get information about a < Stage>
+-- resource.
 --
 -- /See:/ 'getStage' smart constructor.
 data GetStage = GetStage'
@@ -79,12 +78,12 @@ getStage pRestAPIId_ pStageName_ =
     , _gssStageName = pStageName_
     }
 
--- | The identifier of the RestApi resource for the Stage resource to get
--- information about.
+-- | The identifier of the < RestApi> resource for the < Stage> resource to
+-- get information about.
 gssRestAPIId :: Lens' GetStage Text
 gssRestAPIId = lens _gssRestAPIId (\ s a -> s{_gssRestAPIId = a});
 
--- | The name of the Stage resource to get information about.
+-- | The name of the < Stage> resource to get information about.
 gssStageName :: Lens' GetStage Text
 gssStageName = lens _gssStageName (\ s a -> s{_gssStageName = a});
 
@@ -93,8 +92,13 @@ instance AWSRequest GetStage where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetStage
+
 instance ToHeaders GetStage where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetStage where
         toPath GetStage'{..}

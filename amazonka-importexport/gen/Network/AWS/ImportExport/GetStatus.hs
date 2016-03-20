@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.GetStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- is in the processing pipeline, the status of the results, and the
 -- signature value associated with the job. You can only return information
 -- about jobs you own.
---
--- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetStatus.html AWS API Reference> for GetStatus.
 module Network.AWS.ImportExport.GetStatus
     (
     -- * Creating a Request
@@ -120,6 +118,8 @@ instance AWSRequest GetStatus where
                      <*> (x .@? "LocationMessage")
                      <*> (x .@? "ProgressMessage")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetStatus
 
 instance ToHeaders GetStatus where
         toHeaders = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketTagging
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the tag set associated with the bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketTagging.html AWS API Reference> for GetBucketTagging.
 module Network.AWS.S3.GetBucketTagging
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest GetBucketTagging where
                  GetBucketTaggingResponse' <$>
                    (pure (fromEnum s)) <*>
                      (x .@? "TagSet" .!@ mempty >>= parseXMLList "Tag"))
+
+instance Hashable GetBucketTagging
 
 instance ToHeaders GetBucketTagging where
         toHeaders = const mempty

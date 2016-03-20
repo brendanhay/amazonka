@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListVolumes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,8 @@
 --
 -- This operation lists the iSCSI stored volumes of a gateway. Results are
 -- sorted by volume ARN. The response includes only the volume ARNs. If you
--- want additional volume information, use the DescribeStorediSCSIVolumes
--- API.
+-- want additional volume information, use the
+-- < DescribeStorediSCSIVolumes> API.
 --
 -- The operation supports pagination. By default, the operation returns a
 -- maximum of up to 100 volumes. You can optionally specify the 'Limit'
@@ -29,8 +29,6 @@
 -- number of volumes returned in the response is truncated, the response
 -- includes a Marker field. You can use this Marker value in your
 -- subsequent request to retrieve the next set of volumes.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumes.html AWS API Reference> for ListVolumes.
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListVolumes
@@ -63,8 +61,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object that contains one or more of the following fields:
 --
--- -   ListVolumesInput$Limit
--- -   ListVolumesInput$Marker
+-- -   < ListVolumesInput$Limit>
+-- -   < ListVolumesInput$Marker>
 --
 -- /See:/ 'listVolumes' smart constructor.
 data ListVolumes = ListVolumes'
@@ -124,6 +122,8 @@ instance AWSRequest ListVolumes where
                    (x .?> "GatewayARN") <*> (x .?> "Marker") <*>
                      (x .?> "VolumeInfos" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListVolumes
 
 instance ToHeaders ListVolumes where
         toHeaders

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.ExecutePolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Executes the specified policy.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExecutePolicy.html AWS API Reference> for ExecutePolicy.
 module Network.AWS.AutoScaling.ExecutePolicy
     (
     -- * Creating a Request
@@ -86,7 +84,7 @@ executePolicy pPolicyName_ =
 -- This parameter is not supported if the policy type is 'StepScaling'.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns>
 -- in the /Auto Scaling Developer Guide/.
 epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
 epHonorCooldown = lens _epHonorCooldown (\ s a -> s{_epHonorCooldown = a});
@@ -124,6 +122,8 @@ instance AWSRequest ExecutePolicy where
         type Rs ExecutePolicy = ExecutePolicyResponse
         request = postQuery autoScaling
         response = receiveNull ExecutePolicyResponse'
+
+instance Hashable ExecutePolicy
 
 instance ToHeaders ExecutePolicy where
         toHeaders = const mempty

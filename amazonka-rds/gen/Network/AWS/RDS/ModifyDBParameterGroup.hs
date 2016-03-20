@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBParameterGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -39,8 +39,6 @@
 -- <https://console.aws.amazon.com/rds/ Amazon RDS console> or the
 -- /DescribeDBParameters/ command to verify that your DB parameter group
 -- has been created or modified.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBParameterGroup.html AWS API Reference> for ModifyDBParameterGroup.
 module Network.AWS.RDS.ModifyDBParameterGroup
     (
     -- * Creating a Request
@@ -119,6 +117,8 @@ instance AWSRequest ModifyDBParameterGroup where
         response
           = receiveXMLWrapper "ModifyDBParameterGroupResult"
               (\ s h x -> parseXML x)
+
+instance Hashable ModifyDBParameterGroup
 
 instance ToHeaders ModifyDBParameterGroup where
         toHeaders = const mempty

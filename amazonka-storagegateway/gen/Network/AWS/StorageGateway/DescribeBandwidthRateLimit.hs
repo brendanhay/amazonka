@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeBandwidthRateLimit
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- operation returns only the gateway ARN in the response body. To specify
 -- which gateway to describe, use the Amazon Resource Name (ARN) of the
 -- gateway in your request.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeBandwidthRateLimit.html AWS API Reference> for DescribeBandwidthRateLimit.
 module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest DescribeBandwidthRateLimit where
                      (x .?> "AverageUploadRateLimitInBitsPerSec")
                      <*> (x .?> "AverageDownloadRateLimitInBitsPerSec")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeBandwidthRateLimit
 
 instance ToHeaders DescribeBandwidthRateLimit where
         toHeaders

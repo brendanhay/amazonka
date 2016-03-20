@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPNGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- delete the VPN connection. Note that you don\'t need to delete the
 -- virtual private gateway if you plan to delete and recreate the VPN
 -- connection between your VPC and your network.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPNGateway.html AWS API Reference> for DeleteVPNGateway.
 module Network.AWS.EC2.DeleteVPNGateway
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest DeleteVPNGateway where
         type Rs DeleteVPNGateway = DeleteVPNGatewayResponse
         request = postQuery eC2
         response = receiveNull DeleteVPNGatewayResponse'
+
+instance Hashable DeleteVPNGateway
 
 instance ToHeaders DeleteVPNGateway where
         toHeaders = const mempty

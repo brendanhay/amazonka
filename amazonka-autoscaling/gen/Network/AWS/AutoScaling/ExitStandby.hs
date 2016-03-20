@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.ExitStandby
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,10 +21,8 @@
 -- Moves the specified instances out of 'Standby' mode.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html Auto Scaling InService State>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExitStandby.html AWS API Reference> for ExitStandby.
 module Network.AWS.AutoScaling.ExitStandby
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest ExitStandby where
                    (x .@? "Activities" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable ExitStandby
 
 instance ToHeaders ExitStandby where
         toHeaders = const mempty

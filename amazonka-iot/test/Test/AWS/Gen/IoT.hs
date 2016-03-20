@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.IoT
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -57,6 +57,9 @@ import Test.AWS.IoT.Internal
 --
 --         , testDeletePolicyVersion $
 --             deletePolicyVersion
+--
+--         , testDisableTopicRule $
+--             disableTopicRule
 --
 --         , testCreateTopicRule $
 --             createTopicRule
@@ -124,6 +127,9 @@ import Test.AWS.IoT.Internal
 --         , testCreateKeysAndCertificate $
 --             createKeysAndCertificate
 --
+--         , testEnableTopicRule $
+--             enableTopicRule
+--
 --         , testAcceptCertificateTransfer $
 --             acceptCertificateTransfer
 --
@@ -177,6 +183,9 @@ import Test.AWS.IoT.Internal
 --
 --         , testDeletePolicyVersionResponse $
 --             deletePolicyVersionResponse
+--
+--         , testDisableTopicRuleResponse $
+--             disableTopicRuleResponse
 --
 --         , testCreateTopicRuleResponse $
 --             createTopicRuleResponse
@@ -243,6 +252,9 @@ import Test.AWS.IoT.Internal
 --
 --         , testCreateKeysAndCertificateResponse $
 --             createKeysAndCertificateResponse
+--
+--         , testEnableTopicRuleResponse $
+--             enableTopicRuleResponse
 --
 --         , testAcceptCertificateTransferResponse $
 --             acceptCertificateTransferResponse
@@ -319,6 +331,11 @@ testDeletePolicyVersion :: DeletePolicyVersion -> TestTree
 testDeletePolicyVersion = req
     "DeletePolicyVersion"
     "fixture/DeletePolicyVersion.yaml"
+
+testDisableTopicRule :: DisableTopicRule -> TestTree
+testDisableTopicRule = req
+    "DisableTopicRule"
+    "fixture/DisableTopicRule.yaml"
 
 testCreateTopicRule :: CreateTopicRule -> TestTree
 testCreateTopicRule = req
@@ -430,6 +447,11 @@ testCreateKeysAndCertificate = req
     "CreateKeysAndCertificate"
     "fixture/CreateKeysAndCertificate.yaml"
 
+testEnableTopicRule :: EnableTopicRule -> TestTree
+testEnableTopicRule = req
+    "EnableTopicRule"
+    "fixture/EnableTopicRule.yaml"
+
 testAcceptCertificateTransfer :: AcceptCertificateTransfer -> TestTree
 testAcceptCertificateTransfer = req
     "AcceptCertificateTransfer"
@@ -536,6 +558,13 @@ testDeletePolicyVersionResponse = res
     "fixture/DeletePolicyVersionResponse.proto"
     ioT
     (Proxy :: Proxy DeletePolicyVersion)
+
+testDisableTopicRuleResponse :: DisableTopicRuleResponse -> TestTree
+testDisableTopicRuleResponse = res
+    "DisableTopicRuleResponse"
+    "fixture/DisableTopicRuleResponse.proto"
+    ioT
+    (Proxy :: Proxy DisableTopicRule)
 
 testCreateTopicRuleResponse :: CreateTopicRuleResponse -> TestTree
 testCreateTopicRuleResponse = res
@@ -690,6 +719,13 @@ testCreateKeysAndCertificateResponse = res
     "fixture/CreateKeysAndCertificateResponse.proto"
     ioT
     (Proxy :: Proxy CreateKeysAndCertificate)
+
+testEnableTopicRuleResponse :: EnableTopicRuleResponse -> TestTree
+testEnableTopicRuleResponse = res
+    "EnableTopicRuleResponse"
+    "fixture/EnableTopicRuleResponse.proto"
+    ioT
+    (Proxy :: Proxy EnableTopicRule)
 
 testAcceptCertificateTransferResponse :: AcceptCertificateTransferResponse -> TestTree
 testAcceptCertificateTransferResponse = res

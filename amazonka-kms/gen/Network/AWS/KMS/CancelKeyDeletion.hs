@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.CancelKeyDeletion
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,14 +20,12 @@
 --
 -- Cancels the deletion of a customer master key (CMK). When this operation
 -- is successful, the CMK is set to the 'Disabled' state. To enable a CMK,
--- use EnableKey.
+-- use < EnableKey>.
 --
 -- For more information about scheduling and canceling deletion of a CMK,
 -- go to
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html Deleting Customer Master Keys>
 -- in the /AWS Key Management Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CancelKeyDeletion.html AWS API Reference> for CancelKeyDeletion.
 module Network.AWS.KMS.CancelKeyDeletion
     (
     -- * Creating a Request
@@ -79,8 +77,8 @@ cancelKeyDeletion pKeyId_ =
 -- -   Key ARN:
 --     arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab
 --
--- To obtain the unique key ID and key ARN for a given CMK, use ListKeys or
--- DescribeKey.
+-- To obtain the unique key ID and key ARN for a given CMK, use < ListKeys>
+-- or < DescribeKey>.
 ckdKeyId :: Lens' CancelKeyDeletion Text
 ckdKeyId = lens _ckdKeyId (\ s a -> s{_ckdKeyId = a});
 
@@ -92,6 +90,8 @@ instance AWSRequest CancelKeyDeletion where
               (\ s h x ->
                  CancelKeyDeletionResponse' <$>
                    (x .?> "KeyId") <*> (pure (fromEnum s)))
+
+instance Hashable CancelKeyDeletion
 
 instance ToHeaders CancelKeyDeletion where
         toHeaders

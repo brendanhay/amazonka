@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeletePolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,13 +26,13 @@
 -- for deleting a managed policy:
 --
 -- 1.  Detach the policy from all users, groups, and roles that the policy
---     is attached to, using the DetachUserPolicy, DetachGroupPolicy, or
---     DetachRolePolicy APIs. To list all the users, groups, and roles that
---     a policy is attached to, use ListEntitiesForPolicy.
--- 2.  Delete all versions of the policy using DeletePolicyVersion. To list
---     the policy\'s versions, use ListPolicyVersions. You cannot use
---     DeletePolicyVersion to delete the version that is marked as the
---     default version. You delete the policy\'s default version in the
+--     is attached to, using the < DetachUserPolicy>, < DetachGroupPolicy>,
+--     or < DetachRolePolicy> APIs. To list all the users, groups, and
+--     roles that a policy is attached to, use < ListEntitiesForPolicy>.
+-- 2.  Delete all versions of the policy using < DeletePolicyVersion>. To
+--     list the policy\'s versions, use < ListPolicyVersions>. You cannot
+--     use < DeletePolicyVersion> to delete the version that is marked as
+--     the default version. You delete the policy\'s default version in the
 --     next step of the process.
 -- 3.  Delete the policy (this automatically deletes the policy\'s default
 --     version) using this API.
@@ -40,8 +40,6 @@
 -- For information about managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicy.html AWS API Reference> for DeletePolicy.
 module Network.AWS.IAM.DeletePolicy
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest DeletePolicy where
         type Rs DeletePolicy = DeletePolicyResponse
         request = postQuery iAM
         response = receiveNull DeletePolicyResponse'
+
+instance Hashable DeletePolicy
 
 instance ToHeaders DeletePolicy where
         toHeaders = const mempty

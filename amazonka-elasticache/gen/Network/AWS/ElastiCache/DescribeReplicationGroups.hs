@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeReplicationGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- particular replication group. If no identifier is specified,
 -- /DescribeReplicationGroups/ returns information about all replication
 -- groups.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html AWS API Reference> for DescribeReplicationGroups.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeReplicationGroups
@@ -124,6 +122,8 @@ instance AWSRequest DescribeReplicationGroups where
                      (x .@? "ReplicationGroups" .!@ mempty >>=
                         may (parseXMLList "ReplicationGroup"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeReplicationGroups
 
 instance ToHeaders DescribeReplicationGroups where
         toHeaders = const mempty

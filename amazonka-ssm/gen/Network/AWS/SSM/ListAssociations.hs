@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.ListAssociations
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,7 @@
 --
 -- Lists the associations for the specified SSM document or instance.
 --
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListAssociations.html AWS API Reference> for ListAssociations.
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListAssociations
     (
     -- * Creating a Request
@@ -41,6 +41,7 @@ module Network.AWS.SSM.ListAssociations
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -89,6 +90,13 @@ laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat
 laAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
 laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . _List1;
 
+instance AWSPager ListAssociations where
+        page rq rs
+          | stop (rs ^. larsNextToken) = Nothing
+          | stop (rs ^. larsAssociations) = Nothing
+          | otherwise =
+            Just $ rq & laNextToken .~ rs ^. larsNextToken
+
 instance AWSRequest ListAssociations where
         type Rs ListAssociations = ListAssociationsResponse
         request = postJSON sSM
@@ -99,6 +107,8 @@ instance AWSRequest ListAssociations where
                    (x .?> "NextToken") <*>
                      (x .?> "Associations" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListAssociations
 
 instance ToHeaders ListAssociations where
         toHeaders

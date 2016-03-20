@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetContextKeysForPrincipalPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,20 +26,18 @@
 --
 -- You can optionally include a list of one or more additional policies,
 -- specified as strings. If you want to include only a list of policies by
--- string, use GetContextKeysForCustomPolicy instead.
+-- string, use < GetContextKeysForCustomPolicy> instead.
 --
 -- __Note:__ This API discloses information about the permissions granted
 -- to other users. If you do not want users to see other user\'s
 -- permissions, then consider allowing them to use
--- GetContextKeysForCustomPolicy instead.
+-- < GetContextKeysForCustomPolicy> instead.
 --
 -- Context keys are variables maintained by AWS and its services that
 -- provide details about the context of an API query request, and can be
 -- evaluated by using the 'Condition' element of an IAM policy. Use
 -- GetContextKeysForPrincipalPolicy to understand what key names and values
--- you must supply when you call SimulatePrincipalPolicy.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html AWS API Reference> for GetContextKeysForPrincipalPolicy.
+-- you must supply when you call < SimulatePrincipalPolicy>.
 module Network.AWS.IAM.GetContextKeysForPrincipalPolicy
     (
     -- * Creating a Request
@@ -110,6 +108,8 @@ instance AWSRequest GetContextKeysForPrincipalPolicy
           = receiveXMLWrapper
               "GetContextKeysForPrincipalPolicyResult"
               (\ s h x -> parseXML x)
+
+instance Hashable GetContextKeysForPrincipalPolicy
 
 instance ToHeaders GetContextKeysForPrincipalPolicy
          where

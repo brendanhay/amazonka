@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeCertificates
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Lists the set of CA certificates provided by Amazon RDS for this AWS
 -- account.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeCertificates.html AWS API Reference> for DescribeCertificates.
 module Network.AWS.RDS.DescribeCertificates
     (
     -- * Creating a Request
@@ -96,9 +94,10 @@ dcFilters = lens _dcFilters (\ s a -> s{_dcFilters = a}) . _Default . _Coerce;
 dcCertificateIdentifier :: Lens' DescribeCertificates (Maybe Text)
 dcCertificateIdentifier = lens _dcCertificateIdentifier (\ s a -> s{_dcCertificateIdentifier = a});
 
--- | An optional pagination token provided by a previous DescribeCertificates
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous
+-- < DescribeCertificates> request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by 'MaxRecords'.
 dcMarker :: Lens' DescribeCertificates (Maybe Text)
 dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
 
@@ -125,6 +124,8 @@ instance AWSRequest DescribeCertificates where
                       may (parseXMLList "Certificate"))
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeCertificates
 
 instance ToHeaders DescribeCertificates where
         toHeaders = const mempty
@@ -170,13 +171,14 @@ describeCertificatesResponse pResponseStatus_ =
     , _dcrsResponseStatus = pResponseStatus_
     }
 
--- | The list of Certificate objects for the AWS account.
+-- | The list of < Certificate> objects for the AWS account.
 dcrsCertificates :: Lens' DescribeCertificatesResponse [Certificate]
 dcrsCertificates = lens _dcrsCertificates (\ s a -> s{_dcrsCertificates = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous DescribeCertificates
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by 'MaxRecords' .
+-- | An optional pagination token provided by a previous
+-- < DescribeCertificates> request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by 'MaxRecords' .
 dcrsMarker :: Lens' DescribeCertificatesResponse (Maybe Text)
 dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 

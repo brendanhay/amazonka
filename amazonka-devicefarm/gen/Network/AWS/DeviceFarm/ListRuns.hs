@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListRuns
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about runs.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListRuns.html AWS API Reference> for ListRuns.
 module Network.AWS.DeviceFarm.ListRuns
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest ListRuns where
                  ListRunsResponse' <$>
                    (x .?> "runs" .!@ mempty) <*> (x .?> "nextToken") <*>
                      (pure (fromEnum s)))
+
+instance Hashable ListRuns
 
 instance ToHeaders ListRuns where
         toHeaders

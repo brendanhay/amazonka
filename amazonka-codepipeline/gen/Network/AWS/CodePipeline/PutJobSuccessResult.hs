@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PutJobSuccessResult
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Represents the success of a job as returned to the pipeline by a job
 -- worker. Only used for custom actions.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutJobSuccessResult.html AWS API Reference> for PutJobSuccessResult.
 module Network.AWS.CodePipeline.PutJobSuccessResult
     (
     -- * Creating a Request
@@ -102,6 +100,8 @@ instance AWSRequest PutJobSuccessResult where
              PutJobSuccessResultResponse
         request = postJSON codePipeline
         response = receiveNull PutJobSuccessResultResponse'
+
+instance Hashable PutJobSuccessResult
 
 instance ToHeaders PutJobSuccessResult where
         toHeaders

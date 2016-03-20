@@ -18,7 +18,7 @@
 {-# LANGUAGE TypeOperators          #-}
 
 -- Module      : Gen.Types.Service
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -31,7 +31,7 @@ module Gen.Types.Service where
 
 import           Control.Comonad
 import           Control.Comonad.Cofree
-import           Control.Lens           hiding ((.=))
+import           Control.Lens           hiding ((:<), List, (.=))
 import           Data.Aeson             hiding (Bool)
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
@@ -100,6 +100,7 @@ data Protocol
     | RestXML
     | Query
     | EC2
+    | APIGateway
       deriving (Eq, Show, Generic)
 
 instance FromJSON Protocol where
@@ -107,19 +108,21 @@ instance FromJSON Protocol where
 
 instance ToJSON Protocol where
     toJSON = String . \case
-        JSON     -> "JSON"
-        RestJSON -> "JSON"
-        RestXML  -> "XML"
-        Query    -> "Query"
-        EC2      -> "Query"
+        JSON       -> "JSON"
+        RestJSON   -> "JSON"
+        RestXML    -> "XML"
+        Query      -> "Query"
+        EC2        -> "Query"
+        APIGateway -> "APIGateway"
 
 timestamp :: Protocol -> Timestamp
 timestamp = \case
-    JSON     -> POSIX
-    RestJSON -> POSIX
-    RestXML  -> ISO8601
-    Query    -> ISO8601
-    EC2      -> ISO8601
+    JSON       -> POSIX
+    RestJSON   -> POSIX
+    RestXML    -> ISO8601
+    Query      -> ISO8601
+    EC2        -> ISO8601
+    APIGateway -> POSIX
 
 data Checksum
     = MD5
@@ -432,11 +435,12 @@ instance ToJSON (Metadata Identity) where
 serviceError :: HasMetadata a f => a -> Text
 serviceError m =
     case m ^. protocol of
-        JSON     -> "parseJSONError"
-        RestJSON -> "parseJSONError"
-        RestXML  -> "parseXMLError"
-        Query    -> "parseXMLError"
-        EC2      -> "parseXMLError"
+        JSON       -> "parseJSONError"
+        RestJSON   -> "parseJSONError"
+        RestXML    -> "parseXMLError"
+        Query      -> "parseXMLError"
+        EC2        -> "parseXMLError"
+        APIGateway -> "parseJSONError"
 
 serviceFunction :: HasMetadata a f => a -> Text
 serviceFunction m = lowerHead (m ^. serviceAbbrev)

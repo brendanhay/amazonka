@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,7 +25,7 @@
 -- A volume recovery point is a point in time at which all data of the
 -- volume is consistent and from which you can create a snapshot. To get a
 -- list of volume recovery point for gateway-cached volumes, use
--- ListVolumeRecoveryPoints.
+-- < ListVolumeRecoveryPoints>.
 --
 -- In the 'CreateSnapshotFromVolumeRecoveryPoint' request, you identify the
 -- volume by providing its Amazon Resource Name (ARN). You must also
@@ -38,8 +38,6 @@
 --
 -- To list or delete a snapshot, you must use the Amazon EC2 API. For more
 -- information, in /Amazon Elastic Compute Cloud API Reference/.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshotFromVolumeRecoveryPoint.html AWS API Reference> for CreateSnapshotFromVolumeRecoveryPoint.
 module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     (
     -- * Creating a Request
@@ -110,6 +108,9 @@ instance AWSRequest
                      (x .?> "VolumeARN")
                      <*> (x .?> "SnapshotId")
                      <*> (pure (fromEnum s)))
+
+instance Hashable
+         CreateSnapshotFromVolumeRecoveryPoint
 
 instance ToHeaders
          CreateSnapshotFromVolumeRecoveryPoint where

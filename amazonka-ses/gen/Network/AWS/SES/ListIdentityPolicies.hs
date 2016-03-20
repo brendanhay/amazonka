@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListIdentityPolicies
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentityPolicies.html AWS API Reference> for ListIdentityPolicies.
 module Network.AWS.SES.ListIdentityPolicies
     (
     -- * Creating a Request
@@ -57,10 +55,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to list all authorization
--- policies, by name, applying to an identity.
---
--- /See:/ 'listIdentityPolicies' smart constructor.
+-- | /See:/ 'listIdentityPolicies' smart constructor.
 newtype ListIdentityPolicies = ListIdentityPolicies'
     { _lipIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -100,6 +95,8 @@ instance AWSRequest ListIdentityPolicies where
                      (x .@? "PolicyNames" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListIdentityPolicies
+
 instance ToHeaders ListIdentityPolicies where
         toHeaders = const mempty
 
@@ -113,10 +110,7 @@ instance ToQuery ListIdentityPolicies where
                "Version" =: ("2010-12-01" :: ByteString),
                "Identity" =: _lipIdentity]
 
--- | Represents a list of policy names returned from a successful
--- 'ListIdentityPolicies' request.
---
--- /See:/ 'listIdentityPoliciesResponse' smart constructor.
+-- | /See:/ 'listIdentityPoliciesResponse' smart constructor.
 data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
     { _liprsResponseStatus :: !Int
     , _liprsPolicyNames    :: ![Text]

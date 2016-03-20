@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.CreateKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,9 +22,7 @@
 -- encrypt small amounts of data (less than 4K) directly, but they are most
 -- commonly used to encrypt or envelope data keys that are then used to
 -- encrypt customer data. For more information about data keys, see
--- GenerateDataKey and GenerateDataKeyWithoutPlaintext.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html AWS API Reference> for CreateKey.
+-- < GenerateDataKey> and < GenerateDataKeyWithoutPlaintext>.
 module Network.AWS.KMS.CreateKey
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest CreateKey where
               (\ s h x ->
                  CreateKeyResponse' <$>
                    (x .?> "KeyMetadata") <*> (pure (fromEnum s)))
+
+instance Hashable CreateKey
 
 instance ToHeaders CreateKey where
         toHeaders

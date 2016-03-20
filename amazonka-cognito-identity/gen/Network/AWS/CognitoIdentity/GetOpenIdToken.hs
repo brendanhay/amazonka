@@ -12,21 +12,19 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetOpenIdToken
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets an OpenID token, using a known Cognito ID. This known Cognito ID is
--- returned by GetId. You can optionally add additional logins for the
+-- returned by < GetId>. You can optionally add additional logins for the
 -- identity. Supplying multiple logins creates an implicit link.
 --
 -- The OpenId token is valid for 15 minutes.
 --
 -- This is a public API. You do not need any credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdToken.html AWS API Reference> for GetOpenIdToken.
 module Network.AWS.CognitoIdentity.GetOpenIdToken
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest GetOpenIdToken where
                  GetOpenIdTokenResponse' <$>
                    (x .?> "Token") <*> (x .?> "IdentityId") <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetOpenIdToken
 
 instance ToHeaders GetOpenIdToken where
         toHeaders

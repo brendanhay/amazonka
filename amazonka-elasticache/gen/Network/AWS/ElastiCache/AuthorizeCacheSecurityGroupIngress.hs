@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- You cannot authorize ingress from an Amazon EC2 security group in one
 -- region to an ElastiCache cluster in another region.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html AWS API Reference> for AuthorizeCacheSecurityGroupIngress.
 module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest
               (\ s h x ->
                  AuthorizeCacheSecurityGroupIngressResponse' <$>
                    (x .@? "CacheSecurityGroup") <*> (pure (fromEnum s)))
+
+instance Hashable AuthorizeCacheSecurityGroupIngress
 
 instance ToHeaders AuthorizeCacheSecurityGroupIngress
          where

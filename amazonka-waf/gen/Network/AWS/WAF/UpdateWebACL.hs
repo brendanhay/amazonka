@@ -12,13 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.WAF.UpdateWebACL
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inserts or deletes ActivatedRule objects in a 'WebACL'. Each 'Rule'
+-- Inserts or deletes < ActivatedRule> objects in a 'WebACL'. Each 'Rule'
 -- identifies web requests that you want to allow, block, or count. When
 -- you update a 'WebACL', you specify the following values:
 --
@@ -45,14 +45,14 @@
 -- To create and configure a 'WebACL', perform the following steps:
 --
 -- 1.  Create and update the predicates that you want to include in
---     'Rules'. For more information, see CreateByteMatchSet,
---     UpdateByteMatchSet, CreateIPSet, UpdateIPSet,
---     CreateSqlInjectionMatchSet, and UpdateSqlInjectionMatchSet.
+--     'Rules'. For more information, see < CreateByteMatchSet>,
+--     < UpdateByteMatchSet>, < CreateIPSet>, < UpdateIPSet>,
+--     < CreateSqlInjectionMatchSet>, and < UpdateSqlInjectionMatchSet>.
 -- 2.  Create and update the 'Rules' that you want to include in the
---     'WebACL'. For more information, see CreateRule and UpdateRule.
--- 3.  Create a 'WebACL'. See CreateWebACL.
+--     'WebACL'. For more information, see < CreateRule> and < UpdateRule>.
+-- 3.  Create a 'WebACL'. See < CreateWebACL>.
 -- 4.  Use 'GetChangeToken' to get the change token that you provide in the
---     'ChangeToken' parameter of an UpdateWebACL request.
+--     'ChangeToken' parameter of an < UpdateWebACL> request.
 -- 5.  Submit an 'UpdateWebACL' request to specify the 'Rules' that you
 --     want to include in the 'WebACL', to specify the default action, and
 --     to associate the 'WebACL' with a CloudFront distribution.
@@ -60,8 +60,6 @@
 -- For more information about how to use the AWS WAF API to allow or block
 -- HTTP requests, see the
 -- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateWebACL.html AWS API Reference> for UpdateWebACL.
 module Network.AWS.WAF.UpdateWebACL
     (
     -- * Creating a Request
@@ -119,15 +117,15 @@ updateWebACL pWebACLId_ pChangeToken_ =
     , _uwaChangeToken = pChangeToken_
     }
 
--- | An array of updates to make to the WebACL.
+-- | An array of updates to make to the < WebACL>.
 --
 -- An array of 'WebACLUpdate' objects that you want to insert into or
--- delete from a WebACL. For more information, see the applicable data
+-- delete from a < WebACL>. For more information, see the applicable data
 -- types:
 --
--- -   WebACLUpdate: Contains 'Action' and 'ActivatedRule'
--- -   ActivatedRule: Contains 'Action', 'Priority', and 'RuleId'
--- -   WafAction: Contains 'Type'
+-- -   < WebACLUpdate>: Contains 'Action' and 'ActivatedRule'
+-- -   < ActivatedRule>: Contains 'Action', 'Priority', and 'RuleId'
+-- -   < WafAction>: Contains 'Type'
 uwaUpdates :: Lens' UpdateWebACL [WebACLUpdate]
 uwaUpdates = lens _uwaUpdates (\ s a -> s{_uwaUpdates = a}) . _Default . _Coerce;
 
@@ -135,12 +133,12 @@ uwaUpdates = lens _uwaUpdates (\ s a -> s{_uwaUpdates = a}) . _Default . _Coerce
 uwaDefaultAction :: Lens' UpdateWebACL (Maybe WafAction)
 uwaDefaultAction = lens _uwaDefaultAction (\ s a -> s{_uwaDefaultAction = a});
 
--- | The 'WebACLId' of the WebACL that you want to update. 'WebACLId' is
--- returned by CreateWebACL and by ListWebACLs.
+-- | The 'WebACLId' of the < WebACL> that you want to update. 'WebACLId' is
+-- returned by < CreateWebACL> and by < ListWebACLs>.
 uwaWebACLId :: Lens' UpdateWebACL Text
 uwaWebACLId = lens _uwaWebACLId (\ s a -> s{_uwaWebACLId = a});
 
--- | The value returned by the most recent call to GetChangeToken.
+-- | The value returned by the most recent call to < GetChangeToken>.
 uwaChangeToken :: Lens' UpdateWebACL Text
 uwaChangeToken = lens _uwaChangeToken (\ s a -> s{_uwaChangeToken = a});
 
@@ -152,6 +150,8 @@ instance AWSRequest UpdateWebACL where
               (\ s h x ->
                  UpdateWebACLResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
+
+instance Hashable UpdateWebACL
 
 instance ToHeaders UpdateWebACL where
         toHeaders
@@ -201,7 +201,7 @@ updateWebACLResponse pResponseStatus_ =
 
 -- | The 'ChangeToken' that you used to submit the 'UpdateWebACL' request.
 -- You can also use this value to query the status of the request. For more
--- information, see GetChangeTokenStatus.
+-- information, see < GetChangeTokenStatus>.
 uwarsChangeToken :: Lens' UpdateWebACLResponse (Maybe Text)
 uwarsChangeToken = lens _uwarsChangeToken (\ s a -> s{_uwarsChangeToken = a});
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -35,8 +35,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html Deleting an Amazon EBS Snapshot>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSnapshot.html AWS API Reference> for DeleteSnapshot.
 module Network.AWS.EC2.DeleteSnapshot
     (
     -- * Creating a Request
@@ -95,6 +93,8 @@ instance AWSRequest DeleteSnapshot where
         type Rs DeleteSnapshot = DeleteSnapshotResponse
         request = postQuery eC2
         response = receiveNull DeleteSnapshotResponse'
+
+instance Hashable DeleteSnapshot
 
 instance ToHeaders DeleteSnapshot where
         toHeaders = const mempty

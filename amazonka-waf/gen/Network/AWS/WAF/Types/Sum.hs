@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.Types.Sum
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -72,6 +72,46 @@ instance ToHeader     ChangeTokenStatus
 instance FromJSON ChangeTokenStatus where
     parseJSON = parseJSONText "ChangeTokenStatus"
 
+data ComparisonOperator
+    = EQ'
+    | GE
+    | GT'
+    | LE
+    | LT'
+    | NE
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ComparisonOperator where
+    parser = takeLowerText >>= \case
+        "eq" -> pure EQ'
+        "ge" -> pure GE
+        "gt" -> pure GT'
+        "le" -> pure LE
+        "lt" -> pure LT'
+        "ne" -> pure NE
+        e -> fromTextError $ "Failure parsing ComparisonOperator from value: '" <> e
+           <> "'. Accepted values: EQ, GE, GT, LE, LT, NE"
+
+instance ToText ComparisonOperator where
+    toText = \case
+        EQ' -> "EQ"
+        GE -> "GE"
+        GT' -> "GT"
+        LE -> "LE"
+        LT' -> "LT"
+        NE -> "NE"
+
+instance Hashable     ComparisonOperator
+instance ToByteString ComparisonOperator
+instance ToQuery      ComparisonOperator
+instance ToHeader     ComparisonOperator
+
+instance ToJSON ComparisonOperator where
+    toJSON = toJSONText
+
+instance FromJSON ComparisonOperator where
+    parseJSON = parseJSONText "ComparisonOperator"
+
 data IPSetDescriptorType =
     IPV4
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -98,7 +138,8 @@ instance FromJSON IPSetDescriptorType where
     parseJSON = parseJSONText "IPSetDescriptorType"
 
 data MatchFieldType
-    = Header
+    = Body
+    | Header
     | Method
     | QueryString
     | URI
@@ -106,15 +147,17 @@ data MatchFieldType
 
 instance FromText MatchFieldType where
     parser = takeLowerText >>= \case
+        "body" -> pure Body
         "header" -> pure Header
         "method" -> pure Method
         "query_string" -> pure QueryString
         "uri" -> pure URI
         e -> fromTextError $ "Failure parsing MatchFieldType from value: '" <> e
-           <> "'. Accepted values: HEADER, METHOD, QUERY_STRING, URI"
+           <> "'. Accepted values: BODY, HEADER, METHOD, QUERY_STRING, URI"
 
 instance ToText MatchFieldType where
     toText = \case
+        Body -> "BODY"
         Header -> "HEADER"
         Method -> "METHOD"
         QueryString -> "QUERY_STRING"
@@ -171,6 +214,7 @@ instance FromJSON PositionalConstraint where
 data PredicateType
     = ByteMatch
     | IPMatch
+    | SizeConstraint
     | SqlInjectionMatch
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
@@ -178,14 +222,16 @@ instance FromText PredicateType where
     parser = takeLowerText >>= \case
         "bytematch" -> pure ByteMatch
         "ipmatch" -> pure IPMatch
+        "sizeconstraint" -> pure SizeConstraint
         "sqlinjectionmatch" -> pure SqlInjectionMatch
         e -> fromTextError $ "Failure parsing PredicateType from value: '" <> e
-           <> "'. Accepted values: ByteMatch, IPMatch, SqlInjectionMatch"
+           <> "'. Accepted values: ByteMatch, IPMatch, SizeConstraint, SqlInjectionMatch"
 
 instance ToText PredicateType where
     toText = \case
         ByteMatch -> "ByteMatch"
         IPMatch -> "IPMatch"
+        SizeConstraint -> "SizeConstraint"
         SqlInjectionMatch -> "SqlInjectionMatch"
 
 instance Hashable     PredicateType

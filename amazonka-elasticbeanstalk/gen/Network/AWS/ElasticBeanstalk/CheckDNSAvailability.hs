@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CheckDNSAvailability
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Checks if the specified CNAME is available.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CheckDNSAvailability.html AWS API Reference> for CheckDNSAvailability.
 module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest CheckDNSAvailability where
                    (x .@? "FullyQualifiedCNAME") <*> (x .@? "Available")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CheckDNSAvailability
+
 instance ToHeaders CheckDNSAvailability where
         toHeaders = const mempty
 
@@ -121,7 +121,7 @@ checkDNSAvailabilityResponse pResponseStatus_ =
     , _cdarsResponseStatus = pResponseStatus_
     }
 
--- | The fully qualified CNAME to reserve when CreateEnvironment is called
+-- | The fully qualified CNAME to reserve when < CreateEnvironment> is called
 -- with the provided prefix.
 cdarsFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
 cdarsFullyQualifiedCNAME = lens _cdarsFullyQualifiedCNAME (\ s a -> s{_cdarsFullyQualifiedCNAME = a});

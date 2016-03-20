@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CloudHSM
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -43,11 +43,17 @@ import Test.AWS.CloudHSM.Internal
 --         , testDescribeLunaClient $
 --             describeLunaClient
 --
+--         , testListTagsForResource $
+--             listTagsForResource
+--
 --         , testCreateHAPG $
 --             createHAPG
 --
 --         , testCreateHSM $
 --             createHSM
+--
+--         , testRemoveTagsFromResource $
+--             removeTagsFromResource
 --
 --         , testDescribeHAPG $
 --             describeHAPG
@@ -57,6 +63,9 @@ import Test.AWS.CloudHSM.Internal
 --
 --         , testListLunaClients $
 --             listLunaClients
+--
+--         , testAddTagsToResource $
+--             addTagsToResource
 --
 --         , testGetConfig $
 --             getConfig
@@ -97,11 +106,17 @@ import Test.AWS.CloudHSM.Internal
 --         , testDescribeLunaClientResponse $
 --             describeLunaClientResponse
 --
+--         , testListTagsForResourceResponse $
+--             listTagsForResourceResponse
+--
 --         , testCreateHAPGResponse $
 --             createHAPGResponse
 --
 --         , testCreateHSMResponse $
 --             createHSMResponse
+--
+--         , testRemoveTagsFromResourceResponse $
+--             removeTagsFromResourceResponse
 --
 --         , testDescribeHAPGResponse $
 --             describeHAPGResponse
@@ -111,6 +126,9 @@ import Test.AWS.CloudHSM.Internal
 --
 --         , testListLunaClientsResponse $
 --             listLunaClientsResponse
+--
+--         , testAddTagsToResourceResponse $
+--             addTagsToResourceResponse
 --
 --         , testGetConfigResponse $
 --             getConfigResponse
@@ -163,6 +181,11 @@ testDescribeLunaClient = req
     "DescribeLunaClient"
     "fixture/DescribeLunaClient.yaml"
 
+testListTagsForResource :: ListTagsForResource -> TestTree
+testListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 testCreateHAPG :: CreateHAPG -> TestTree
 testCreateHAPG = req
     "CreateHAPG"
@@ -172,6 +195,11 @@ testCreateHSM :: CreateHSM -> TestTree
 testCreateHSM = req
     "CreateHSM"
     "fixture/CreateHSM.yaml"
+
+testRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
+testRemoveTagsFromResource = req
+    "RemoveTagsFromResource"
+    "fixture/RemoveTagsFromResource.yaml"
 
 testDescribeHAPG :: DescribeHAPG -> TestTree
 testDescribeHAPG = req
@@ -187,6 +215,11 @@ testListLunaClients :: ListLunaClients -> TestTree
 testListLunaClients = req
     "ListLunaClients"
     "fixture/ListLunaClients.yaml"
+
+testAddTagsToResource :: AddTagsToResource -> TestTree
+testAddTagsToResource = req
+    "AddTagsToResource"
+    "fixture/AddTagsToResource.yaml"
 
 testGetConfig :: GetConfig -> TestTree
 testGetConfig = req
@@ -260,6 +293,13 @@ testDescribeLunaClientResponse = res
     cloudHSM
     (Proxy :: Proxy DescribeLunaClient)
 
+testListTagsForResourceResponse :: ListTagsForResourceResponse -> TestTree
+testListTagsForResourceResponse = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    cloudHSM
+    (Proxy :: Proxy ListTagsForResource)
+
 testCreateHAPGResponse :: CreateHAPGResponse -> TestTree
 testCreateHAPGResponse = res
     "CreateHAPGResponse"
@@ -273,6 +313,13 @@ testCreateHSMResponse = res
     "fixture/CreateHSMResponse.proto"
     cloudHSM
     (Proxy :: Proxy CreateHSM)
+
+testRemoveTagsFromResourceResponse :: RemoveTagsFromResourceResponse -> TestTree
+testRemoveTagsFromResourceResponse = res
+    "RemoveTagsFromResourceResponse"
+    "fixture/RemoveTagsFromResourceResponse.proto"
+    cloudHSM
+    (Proxy :: Proxy RemoveTagsFromResource)
 
 testDescribeHAPGResponse :: DescribeHAPGResponse -> TestTree
 testDescribeHAPGResponse = res
@@ -294,6 +341,13 @@ testListLunaClientsResponse = res
     "fixture/ListLunaClientsResponse.proto"
     cloudHSM
     (Proxy :: Proxy ListLunaClients)
+
+testAddTagsToResourceResponse :: AddTagsToResourceResponse -> TestTree
+testAddTagsToResourceResponse = res
+    "AddTagsToResourceResponse"
+    "fixture/AddTagsToResourceResponse.proto"
+    cloudHSM
+    (Proxy :: Proxy AddTagsToResource)
 
 testGetConfigResponse :: GetConfigResponse -> TestTree
 testGetConfigResponse = res

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetComplianceSummaryByResourceType
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- are noncompliant. You can specify one or more resource types to get
 -- these numbers for each resource type. The maximum number returned is
 -- 100.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_GetComplianceSummaryByResourceType.html AWS API Reference> for GetComplianceSummaryByResourceType.
 module Network.AWS.Config.GetComplianceSummaryByResourceType
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest
                    (x .?> "ComplianceSummariesByResourceType" .!@
                       mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetComplianceSummaryByResourceType
 
 instance ToHeaders GetComplianceSummaryByResourceType
          where

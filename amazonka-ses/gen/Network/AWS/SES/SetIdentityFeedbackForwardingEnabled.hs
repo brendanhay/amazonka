@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 --
 -- For more information about using notifications with Amazon SES, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityFeedbackForwardingEnabled.html AWS API Reference> for SetIdentityFeedbackForwardingEnabled.
 module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     (
     -- * Creating a Request
@@ -106,6 +104,9 @@ instance AWSRequest
                  SetIdentityFeedbackForwardingEnabledResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable
+         SetIdentityFeedbackForwardingEnabled
+
 instance ToHeaders
          SetIdentityFeedbackForwardingEnabled where
         toHeaders = const mempty
@@ -125,10 +126,7 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
                "Identity" =: _siffeIdentity,
                "ForwardingEnabled" =: _siffeForwardingEnabled]
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
---
--- /See:/ 'setIdentityFeedbackForwardingEnabledResponse' smart constructor.
+-- | /See:/ 'setIdentityFeedbackForwardingEnabledResponse' smart constructor.
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
     { _siffersResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

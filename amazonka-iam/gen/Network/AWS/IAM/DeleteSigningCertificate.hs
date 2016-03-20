@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteSigningCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- this action works for access keys under the AWS account, you can use
 -- this action to manage root credentials even if the AWS account has no
 -- associated users.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSigningCertificate.html AWS API Reference> for DeleteSigningCertificate.
 module Network.AWS.IAM.DeleteSigningCertificate
     (
     -- * Creating a Request
@@ -85,6 +83,8 @@ instance AWSRequest DeleteSigningCertificate where
         request = postQuery iAM
         response
           = receiveNull DeleteSigningCertificateResponse'
+
+instance Hashable DeleteSigningCertificate
 
 instance ToHeaders DeleteSigningCertificate where
         toHeaders = const mempty

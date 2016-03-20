@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RequestSpotInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,25 +25,23 @@
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotInstances.html AWS API Reference> for RequestSpotInstances.
 module Network.AWS.EC2.RequestSpotInstances
     (
     -- * Creating a Request
       requestSpotInstances
     , RequestSpotInstances
     -- * Request Lenses
-    , rsiBlockDurationMinutes
-    , rsiClientToken
-    , rsiInstanceCount
-    , rsiLaunchSpecification
-    , rsiAvailabilityZoneGroup
-    , rsiValidUntil
-    , rsiLaunchGroup
-    , rsiType
-    , rsiValidFrom
-    , rsiDryRun
-    , rsiSpotPrice
+    , rsisBlockDurationMinutes
+    , rsisClientToken
+    , rsisInstanceCount
+    , rsisLaunchSpecification
+    , rsisAvailabilityZoneGroup
+    , rsisValidUntil
+    , rsisLaunchGroup
+    , rsisType
+    , rsisValidFrom
+    , rsisDryRun
+    , rsisSpotPrice
 
     -- * Destructuring the Response
     , requestSpotInstancesResponse
@@ -64,64 +62,65 @@ import           Network.AWS.Response
 --
 -- /See:/ 'requestSpotInstances' smart constructor.
 data RequestSpotInstances = RequestSpotInstances'
-    { _rsiBlockDurationMinutes  :: !(Maybe Int)
-    , _rsiClientToken           :: !(Maybe Text)
-    , _rsiInstanceCount         :: !(Maybe Int)
-    , _rsiLaunchSpecification   :: !(Maybe RequestSpotLaunchSpecification)
-    , _rsiAvailabilityZoneGroup :: !(Maybe Text)
-    , _rsiValidUntil            :: !(Maybe ISO8601)
-    , _rsiLaunchGroup           :: !(Maybe Text)
-    , _rsiType                  :: !(Maybe SpotInstanceType)
-    , _rsiValidFrom             :: !(Maybe ISO8601)
-    , _rsiDryRun                :: !(Maybe Bool)
-    , _rsiSpotPrice             :: !Text
+    { _rsisBlockDurationMinutes  :: !(Maybe Int)
+    , _rsisClientToken           :: !(Maybe Text)
+    , _rsisInstanceCount         :: !(Maybe Int)
+    , _rsisLaunchSpecification   :: !(Maybe RequestSpotLaunchSpecification)
+    , _rsisAvailabilityZoneGroup :: !(Maybe Text)
+    , _rsisValidUntil            :: !(Maybe ISO8601)
+    , _rsisLaunchGroup           :: !(Maybe Text)
+    , _rsisType                  :: !(Maybe SpotInstanceType)
+    , _rsisValidFrom             :: !(Maybe ISO8601)
+    , _rsisDryRun                :: !(Maybe Bool)
+    , _rsisSpotPrice             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RequestSpotInstances' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsiBlockDurationMinutes'
+-- * 'rsisBlockDurationMinutes'
 --
--- * 'rsiClientToken'
+-- * 'rsisClientToken'
 --
--- * 'rsiInstanceCount'
+-- * 'rsisInstanceCount'
 --
--- * 'rsiLaunchSpecification'
+-- * 'rsisLaunchSpecification'
 --
--- * 'rsiAvailabilityZoneGroup'
+-- * 'rsisAvailabilityZoneGroup'
 --
--- * 'rsiValidUntil'
+-- * 'rsisValidUntil'
 --
--- * 'rsiLaunchGroup'
+-- * 'rsisLaunchGroup'
 --
--- * 'rsiType'
+-- * 'rsisType'
 --
--- * 'rsiValidFrom'
+-- * 'rsisValidFrom'
 --
--- * 'rsiDryRun'
+-- * 'rsisDryRun'
 --
--- * 'rsiSpotPrice'
+-- * 'rsisSpotPrice'
 requestSpotInstances
-    :: Text -- ^ 'rsiSpotPrice'
+    :: Text -- ^ 'rsisSpotPrice'
     -> RequestSpotInstances
 requestSpotInstances pSpotPrice_ =
     RequestSpotInstances'
-    { _rsiBlockDurationMinutes = Nothing
-    , _rsiClientToken = Nothing
-    , _rsiInstanceCount = Nothing
-    , _rsiLaunchSpecification = Nothing
-    , _rsiAvailabilityZoneGroup = Nothing
-    , _rsiValidUntil = Nothing
-    , _rsiLaunchGroup = Nothing
-    , _rsiType = Nothing
-    , _rsiValidFrom = Nothing
-    , _rsiDryRun = Nothing
-    , _rsiSpotPrice = pSpotPrice_
+    { _rsisBlockDurationMinutes = Nothing
+    , _rsisClientToken = Nothing
+    , _rsisInstanceCount = Nothing
+    , _rsisLaunchSpecification = Nothing
+    , _rsisAvailabilityZoneGroup = Nothing
+    , _rsisValidUntil = Nothing
+    , _rsisLaunchGroup = Nothing
+    , _rsisType = Nothing
+    , _rsisValidFrom = Nothing
+    , _rsisDryRun = Nothing
+    , _rsisSpotPrice = pSpotPrice_
     }
 
--- | The required duration for the Spot instances, in minutes. This value
--- must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
+-- | The required duration for the Spot instances (also known as Spot
+-- blocks), in minutes. This value must be a multiple of 60 (60, 120, 180,
+-- 240, 300, or 360).
 --
 -- The duration period starts as soon as your Spot instance receives its
 -- instance ID. At the end of the duration period, Amazon EC2 marks the
@@ -131,25 +130,25 @@ requestSpotInstances pSpotPrice_ =
 --
 -- Note that you can\'t specify an Availability Zone group or a launch
 -- group if you specify a duration.
-rsiBlockDurationMinutes :: Lens' RequestSpotInstances (Maybe Int)
-rsiBlockDurationMinutes = lens _rsiBlockDurationMinutes (\ s a -> s{_rsiBlockDurationMinutes = a});
+rsisBlockDurationMinutes :: Lens' RequestSpotInstances (Maybe Int)
+rsisBlockDurationMinutes = lens _rsisBlockDurationMinutes (\ s a -> s{_rsisBlockDurationMinutes = a});
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-rsiClientToken :: Lens' RequestSpotInstances (Maybe Text)
-rsiClientToken = lens _rsiClientToken (\ s a -> s{_rsiClientToken = a});
+rsisClientToken :: Lens' RequestSpotInstances (Maybe Text)
+rsisClientToken = lens _rsisClientToken (\ s a -> s{_rsisClientToken = a});
 
 -- | The maximum number of Spot instances to launch.
 --
 -- Default: 1
-rsiInstanceCount :: Lens' RequestSpotInstances (Maybe Int)
-rsiInstanceCount = lens _rsiInstanceCount (\ s a -> s{_rsiInstanceCount = a});
+rsisInstanceCount :: Lens' RequestSpotInstances (Maybe Int)
+rsisInstanceCount = lens _rsisInstanceCount (\ s a -> s{_rsisInstanceCount = a});
 
 -- | Undocumented member.
-rsiLaunchSpecification :: Lens' RequestSpotInstances (Maybe RequestSpotLaunchSpecification)
-rsiLaunchSpecification = lens _rsiLaunchSpecification (\ s a -> s{_rsiLaunchSpecification = a});
+rsisLaunchSpecification :: Lens' RequestSpotInstances (Maybe RequestSpotLaunchSpecification)
+rsisLaunchSpecification = lens _rsisLaunchSpecification (\ s a -> s{_rsisLaunchSpecification = a});
 
 -- | The user-specified name for a logical grouping of bids.
 --
@@ -171,8 +170,8 @@ rsiLaunchSpecification = lens _rsiLaunchSpecification (\ s a -> s{_rsiLaunchSpec
 -- even if you specified the same Availability Zone group.
 --
 -- Default: Instances are launched in any available Availability Zone.
-rsiAvailabilityZoneGroup :: Lens' RequestSpotInstances (Maybe Text)
-rsiAvailabilityZoneGroup = lens _rsiAvailabilityZoneGroup (\ s a -> s{_rsiAvailabilityZoneGroup = a});
+rsisAvailabilityZoneGroup :: Lens' RequestSpotInstances (Maybe Text)
+rsisAvailabilityZoneGroup = lens _rsisAvailabilityZoneGroup (\ s a -> s{_rsisAvailabilityZoneGroup = a});
 
 -- | The end date of the request. If this is a one-time request, the request
 -- remains active until all instances launch, the request is canceled, or
@@ -180,21 +179,21 @@ rsiAvailabilityZoneGroup = lens _rsiAvailabilityZoneGroup (\ s a -> s{_rsiAvaila
 -- until it is canceled or this date and time is reached.
 --
 -- Default: The request is effective indefinitely.
-rsiValidUntil :: Lens' RequestSpotInstances (Maybe UTCTime)
-rsiValidUntil = lens _rsiValidUntil (\ s a -> s{_rsiValidUntil = a}) . mapping _Time;
+rsisValidUntil :: Lens' RequestSpotInstances (Maybe UTCTime)
+rsisValidUntil = lens _rsisValidUntil (\ s a -> s{_rsisValidUntil = a}) . mapping _Time;
 
 -- | The instance launch group. Launch groups are Spot instances that launch
 -- together and terminate together.
 --
 -- Default: Instances are launched and terminated individually
-rsiLaunchGroup :: Lens' RequestSpotInstances (Maybe Text)
-rsiLaunchGroup = lens _rsiLaunchGroup (\ s a -> s{_rsiLaunchGroup = a});
+rsisLaunchGroup :: Lens' RequestSpotInstances (Maybe Text)
+rsisLaunchGroup = lens _rsisLaunchGroup (\ s a -> s{_rsisLaunchGroup = a});
 
 -- | The Spot instance request type.
 --
 -- Default: 'one-time'
-rsiType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
-rsiType = lens _rsiType (\ s a -> s{_rsiType = a});
+rsisType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
+rsisType = lens _rsisType (\ s a -> s{_rsisType = a});
 
 -- | The start date of the request. If this is a one-time request, the
 -- request becomes active at this date and time and remains active until
@@ -203,20 +202,20 @@ rsiType = lens _rsiType (\ s a -> s{_rsiType = a});
 -- and time and remains active until it expires or is canceled.
 --
 -- Default: The request is effective indefinitely.
-rsiValidFrom :: Lens' RequestSpotInstances (Maybe UTCTime)
-rsiValidFrom = lens _rsiValidFrom (\ s a -> s{_rsiValidFrom = a}) . mapping _Time;
+rsisValidFrom :: Lens' RequestSpotInstances (Maybe UTCTime)
+rsisValidFrom = lens _rsisValidFrom (\ s a -> s{_rsisValidFrom = a}) . mapping _Time;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is 'DryRunOperation'.
 -- Otherwise, it is 'UnauthorizedOperation'.
-rsiDryRun :: Lens' RequestSpotInstances (Maybe Bool)
-rsiDryRun = lens _rsiDryRun (\ s a -> s{_rsiDryRun = a});
+rsisDryRun :: Lens' RequestSpotInstances (Maybe Bool)
+rsisDryRun = lens _rsisDryRun (\ s a -> s{_rsisDryRun = a});
 
 -- | The maximum hourly price (bid) for any Spot instance launched to fulfill
 -- the request.
-rsiSpotPrice :: Lens' RequestSpotInstances Text
-rsiSpotPrice = lens _rsiSpotPrice (\ s a -> s{_rsiSpotPrice = a});
+rsisSpotPrice :: Lens' RequestSpotInstances Text
+rsisSpotPrice = lens _rsisSpotPrice (\ s a -> s{_rsisSpotPrice = a});
 
 instance AWSRequest RequestSpotInstances where
         type Rs RequestSpotInstances =
@@ -230,6 +229,8 @@ instance AWSRequest RequestSpotInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable RequestSpotInstances
+
 instance ToHeaders RequestSpotInstances where
         toHeaders = const mempty
 
@@ -241,15 +242,17 @@ instance ToQuery RequestSpotInstances where
           = mconcat
               ["Action" =: ("RequestSpotInstances" :: ByteString),
                "Version" =: ("2015-10-01" :: ByteString),
-               "BlockDurationMinutes" =: _rsiBlockDurationMinutes,
-               "ClientToken" =: _rsiClientToken,
-               "InstanceCount" =: _rsiInstanceCount,
-               "LaunchSpecification" =: _rsiLaunchSpecification,
-               "AvailabilityZoneGroup" =: _rsiAvailabilityZoneGroup,
-               "ValidUntil" =: _rsiValidUntil,
-               "LaunchGroup" =: _rsiLaunchGroup, "Type" =: _rsiType,
-               "ValidFrom" =: _rsiValidFrom, "DryRun" =: _rsiDryRun,
-               "SpotPrice" =: _rsiSpotPrice]
+               "BlockDurationMinutes" =: _rsisBlockDurationMinutes,
+               "ClientToken" =: _rsisClientToken,
+               "InstanceCount" =: _rsisInstanceCount,
+               "LaunchSpecification" =: _rsisLaunchSpecification,
+               "AvailabilityZoneGroup" =:
+                 _rsisAvailabilityZoneGroup,
+               "ValidUntil" =: _rsisValidUntil,
+               "LaunchGroup" =: _rsisLaunchGroup,
+               "Type" =: _rsisType, "ValidFrom" =: _rsisValidFrom,
+               "DryRun" =: _rsisDryRun,
+               "SpotPrice" =: _rsisSpotPrice]
 
 -- | Contains the output of RequestSpotInstances.
 --

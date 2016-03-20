@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.BuildSuggesters
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Indexes the search suggestions. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters Configuring Suggesters>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_BuildSuggesters.html AWS API Reference> for BuildSuggesters.
 module Network.AWS.CloudSearch.BuildSuggesters
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest BuildSuggesters where
                    (x .@? "FieldNames" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable BuildSuggesters
 
 instance ToHeaders BuildSuggesters where
         toHeaders = const mempty

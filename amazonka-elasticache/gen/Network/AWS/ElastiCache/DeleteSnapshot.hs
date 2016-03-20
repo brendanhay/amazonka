@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- The /DeleteSnapshot/ action deletes an existing snapshot. When you
 -- receive a successful response from this action, ElastiCache immediately
 -- begins deleting the snapshot; you cannot cancel or revert this action.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteSnapshot.html AWS API Reference> for DeleteSnapshot.
 module Network.AWS.ElastiCache.DeleteSnapshot
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest DeleteSnapshot where
               (\ s h x ->
                  DeleteSnapshotResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteSnapshot
 
 instance ToHeaders DeleteSnapshot where
         toHeaders = const mempty

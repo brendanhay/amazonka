@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetTest
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a test.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetTest.html AWS API Reference> for GetTest.
 module Network.AWS.DeviceFarm.GetTest
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest GetTest where
               (\ s h x ->
                  GetTestResponse' <$>
                    (x .?> "test") <*> (pure (fromEnum s)))
+
+instance Hashable GetTest
 
 instance ToHeaders GetTest where
         toHeaders

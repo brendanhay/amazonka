@@ -8,7 +8,7 @@
 
 ## Version
 
-`1.3.7`
+`1.3.8`
 
 
 ## Description
@@ -24,7 +24,7 @@ a current list of supported regions and endpoints, see
 <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elasticsearch)
-and the [AWS API Reference](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html).
+and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
 which provides mechanisms for specifying AuthN/AuthZ information and sending requests.

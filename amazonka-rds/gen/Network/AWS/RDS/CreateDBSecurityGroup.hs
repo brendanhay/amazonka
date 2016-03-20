@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBSecurityGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Creates a new DB security group. DB security groups control access to a
 -- DB instance.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSecurityGroup.html AWS API Reference> for CreateDBSecurityGroup.
 module Network.AWS.RDS.CreateDBSecurityGroup
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest CreateDBSecurityGroup where
               (\ s h x ->
                  CreateDBSecurityGroupResponse' <$>
                    (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
+
+instance Hashable CreateDBSecurityGroup
 
 instance ToHeaders CreateDBSecurityGroup where
         toHeaders = const mempty

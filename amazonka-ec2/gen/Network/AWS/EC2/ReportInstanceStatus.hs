@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReportInstanceStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,14 +20,13 @@
 --
 -- Submits feedback about the status of an instance. The instance must be
 -- in the 'running' state. If your experience with the instance differs
--- from the instance status returned by DescribeInstanceStatus, use
--- ReportInstanceStatus to report your experience with the instance. Amazon
--- EC2 collects this information to improve the accuracy of status checks.
+-- from the instance status returned by < DescribeInstanceStatus>, use
+-- < ReportInstanceStatus> to report your experience with the instance.
+-- Amazon EC2 collects this information to improve the accuracy of status
+-- checks.
 --
 -- Use of this action does not change the value returned by
--- DescribeInstanceStatus.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReportInstanceStatus.html AWS API Reference> for ReportInstanceStatus.
+-- < DescribeInstanceStatus>.
 module Network.AWS.EC2.ReportInstanceStatus
     (
     -- * Creating a Request
@@ -159,6 +158,8 @@ instance AWSRequest ReportInstanceStatus where
              ReportInstanceStatusResponse
         request = postQuery eC2
         response = receiveNull ReportInstanceStatusResponse'
+
+instance Hashable ReportInstanceStatus
 
 instance ToHeaders ReportInstanceStatus where
         toHeaders = const mempty

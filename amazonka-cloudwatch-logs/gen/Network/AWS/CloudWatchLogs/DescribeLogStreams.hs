@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogStreams
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- returned in the response by specifying the 'limit' parameter in the
 -- request. This operation has a limit of five transactions per second,
 -- after which transactions are throttled.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html AWS API Reference> for DescribeLogStreams.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeLogStreams
@@ -152,6 +150,8 @@ instance AWSRequest DescribeLogStreams where
                    (x .?> "nextToken") <*>
                      (x .?> "logStreams" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeLogStreams
 
 instance ToHeaders DescribeLogStreams where
         toHeaders

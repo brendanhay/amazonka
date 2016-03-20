@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.Unsubscribe
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- subscription owner, a final cancellation message is delivered to the
 -- endpoint, so that the endpoint owner can easily resubscribe to the topic
 -- if the 'Unsubscribe' request was unintended.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html AWS API Reference> for Unsubscribe.
 module Network.AWS.SNS.Unsubscribe
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest Unsubscribe where
         type Rs Unsubscribe = UnsubscribeResponse
         request = postQuery sNS
         response = receiveNull UnsubscribeResponse'
+
+instance Hashable Unsubscribe
 
 instance ToHeaders Unsubscribe where
         toHeaders = const mempty

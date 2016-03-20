@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteCacheSecurityGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- You cannot delete a cache security group if it is associated with any
 -- cache clusters.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSecurityGroup.html AWS API Reference> for DeleteCacheSecurityGroup.
 module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest DeleteCacheSecurityGroup where
         request = postQuery elastiCache
         response
           = receiveNull DeleteCacheSecurityGroupResponse'
+
+instance Hashable DeleteCacheSecurityGroup
 
 instance ToHeaders DeleteCacheSecurityGroup where
         toHeaders = const mempty

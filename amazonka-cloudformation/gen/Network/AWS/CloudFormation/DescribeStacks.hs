@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStacks
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns the description for the specified stack; if no stack name was
 -- specified, then it returns the description for all the stacks created.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStacks.html AWS API Reference> for DescribeStacks.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.DescribeStacks
@@ -50,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for DescribeStacks action.
+-- | The input for < DescribeStacks> action.
 --
 -- /See:/ 'describeStacks' smart constructor.
 data DescribeStacks = DescribeStacks'
@@ -73,8 +71,8 @@ describeStacks =
     , _dStackName = Nothing
     }
 
--- | String that identifies the start of the next list of stacks, if there is
--- one.
+-- | A string that identifies the next page of stacks that you want to
+-- retrieve.
 dNextToken :: Lens' DescribeStacks (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
@@ -108,6 +106,8 @@ instance AWSRequest DescribeStacks where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeStacks
+
 instance ToHeaders DescribeStacks where
         toHeaders = const mempty
 
@@ -122,7 +122,7 @@ instance ToQuery DescribeStacks where
                "NextToken" =: _dNextToken,
                "StackName" =: _dStackName]
 
--- | The output for a DescribeStacks action.
+-- | The output for a < DescribeStacks> action.
 --
 -- /See:/ 'describeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
@@ -150,8 +150,8 @@ describeStacksResponse pResponseStatus_ =
     , _dsrsResponseStatus = pResponseStatus_
     }
 
--- | String that identifies the start of the next list of stacks, if there is
--- one.
+-- | If the output exceeds 1 MB in size, a string that identifies the next
+-- page of stacks. If no additional page exists, this value is null.
 dsrsNextToken :: Lens' DescribeStacksResponse (Maybe Text)
 dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListPolicyVersions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- For more information about managed policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html AWS API Reference> for ListPolicyVersions.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListPolicyVersions
@@ -126,6 +124,8 @@ instance AWSRequest ListPolicyVersions where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListPolicyVersions
+
 instance ToHeaders ListPolicyVersions where
         toHeaders = const mempty
 
@@ -140,7 +140,7 @@ instance ToQuery ListPolicyVersions where
                "Marker" =: _lpvMarker, "MaxItems" =: _lpvMaxItems,
                "PolicyArn" =: _lpvPolicyARN]
 
--- | Contains the response to a successful ListPolicyVersions request.
+-- | Contains the response to a successful < ListPolicyVersions> request.
 --
 -- /See:/ 'listPolicyVersionsResponse' smart constructor.
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'

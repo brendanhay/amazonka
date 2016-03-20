@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteClusterSubnetGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified cluster subnet group.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSubnetGroup.html AWS API Reference> for DeleteClusterSubnetGroup.
 module Network.AWS.Redshift.DeleteClusterSubnetGroup
     (
     -- * Creating a Request
@@ -41,7 +39,9 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteClusterSubnetGroup' smart constructor.
+-- |
+--
+-- /See:/ 'deleteClusterSubnetGroup' smart constructor.
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
     { _dcsgClusterSubnetGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -69,6 +69,8 @@ instance AWSRequest DeleteClusterSubnetGroup where
         request = postQuery redshift
         response
           = receiveNull DeleteClusterSubnetGroupResponse'
+
+instance Hashable DeleteClusterSubnetGroup
 
 instance ToHeaders DeleteClusterSubnetGroup where
         toHeaders = const mempty

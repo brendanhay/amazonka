@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DescribeAlarms
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- alarms for the user are returned. Alarms can be retrieved by using only
 -- a prefix for the alarm name, the alarm state, or a prefix for any
 -- action.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html AWS API Reference> for DescribeAlarms.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarms
@@ -138,6 +136,8 @@ instance AWSRequest DescribeAlarms where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAlarms
+
 instance ToHeaders DescribeAlarms where
         toHeaders = const mempty
 
@@ -157,7 +157,7 @@ instance ToQuery DescribeAlarms where
                  toQuery (toQueryList "member" <$> _daAlarmNames),
                "MaxRecords" =: _daMaxRecords]
 
--- | The output for the DescribeAlarms action.
+-- | The output for the < DescribeAlarms> action.
 --
 -- /See:/ 'describeAlarmsResponse' smart constructor.
 data DescribeAlarmsResponse = DescribeAlarmsResponse'

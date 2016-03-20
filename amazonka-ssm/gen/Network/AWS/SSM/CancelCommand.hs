@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.CancelCommand
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Attempts to cancel the command specified by the Command ID. There is no
 -- guarantee that the command will be terminated and the underlying process
 -- stopped.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CancelCommand.html AWS API Reference> for CancelCommand.
 module Network.AWS.SSM.CancelCommand
     (
     -- * Creating a Request
@@ -85,6 +83,8 @@ instance AWSRequest CancelCommand where
           = receiveEmpty
               (\ s h x ->
                  CancelCommandResponse' <$> (pure (fromEnum s)))
+
+instance Hashable CancelCommand
 
 instance ToHeaders CancelCommand where
         toHeaders

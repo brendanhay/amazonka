@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes one or more tags from one or more on-premises instances.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RemoveTagsFromOnPremisesInstances.html AWS API Reference> for RemoveTagsFromOnPremisesInstances.
 module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
     (
     -- * Creating a Request
@@ -70,7 +68,7 @@ removeTagsFromOnPremisesInstances =
 rtfopiTags :: Lens' RemoveTagsFromOnPremisesInstances [Tag]
 rtfopiTags = lens _rtfopiTags (\ s a -> s{_rtfopiTags = a}) . _Coerce;
 
--- | The names of the on-premises instances to remove tags from.
+-- | The names of the on-premises instances from which to remove tags.
 rtfopiInstanceNames :: Lens' RemoveTagsFromOnPremisesInstances [Text]
 rtfopiInstanceNames = lens _rtfopiInstanceNames (\ s a -> s{_rtfopiInstanceNames = a}) . _Coerce;
 
@@ -82,6 +80,8 @@ instance AWSRequest RemoveTagsFromOnPremisesInstances
         response
           = receiveNull
               RemoveTagsFromOnPremisesInstancesResponse'
+
+instance Hashable RemoveTagsFromOnPremisesInstances
 
 instance ToHeaders RemoveTagsFromOnPremisesInstances
          where

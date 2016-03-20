@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.DeleteTagsForDomain
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- All tag operations are eventually consistent; subsequent operations may
 -- not immediately represent all issued operations.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-DeleteTagsForDomain.html AWS API Reference> for DeleteTagsForDomain.
 module Network.AWS.Route53Domains.DeleteTagsForDomain
     (
     -- * Creating a Request
@@ -109,6 +107,8 @@ instance AWSRequest DeleteTagsForDomain where
           = receiveEmpty
               (\ s h x ->
                  DeleteTagsForDomainResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeleteTagsForDomain
 
 instance ToHeaders DeleteTagsForDomain where
         toHeaders

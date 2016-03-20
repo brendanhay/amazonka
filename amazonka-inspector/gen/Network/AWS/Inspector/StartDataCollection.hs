@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.StartDataCollection
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Starts data collection for the assessment specified by the assessment
 -- ARN. For this API to function properly, you must not exceed the limit of
 -- running up to 500 concurrent agents per AWS account.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_StartDataCollection.html AWS API Reference> for StartDataCollection.
 module Network.AWS.Inspector.StartDataCollection
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest StartDataCollection where
               (\ s h x ->
                  StartDataCollectionResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
+
+instance Hashable StartDataCollection
 
 instance ToHeaders StartDataCollection where
         toHeaders

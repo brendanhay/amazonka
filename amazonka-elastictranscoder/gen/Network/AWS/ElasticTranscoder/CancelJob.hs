@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.CancelJob
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,9 +22,8 @@
 --
 -- You can only cancel a job that has a status of 'Submitted'. To prevent a
 -- pipeline from starting to process a job while you\'re getting the job
--- identifier, use UpdatePipelineStatus to temporarily pause the pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CancelJob.html AWS API Reference> for CancelJob.
+-- identifier, use < UpdatePipelineStatus> to temporarily pause the
+-- pipeline.
 module Network.AWS.ElasticTranscoder.CancelJob
     (
     -- * Creating a Request
@@ -70,7 +69,7 @@ cancelJob pId_ =
 -- | The identifier of the job that you want to cancel.
 --
 -- To get a list of the jobs (including their 'jobId') that have a status
--- of 'Submitted', use the ListJobsByStatus API action.
+-- of 'Submitted', use the < ListJobsByStatus> API action.
 cjId :: Lens' CancelJob Text
 cjId = lens _cjId (\ s a -> s{_cjId = a});
 
@@ -81,6 +80,8 @@ instance AWSRequest CancelJob where
           = receiveEmpty
               (\ s h x ->
                  CancelJobResponse' <$> (pure (fromEnum s)))
+
+instance Hashable CancelJob
 
 instance ToHeaders CancelJob where
         toHeaders = const mempty

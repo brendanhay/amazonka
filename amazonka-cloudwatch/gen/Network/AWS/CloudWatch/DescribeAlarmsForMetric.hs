@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmsForMetric
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Retrieves all alarms for a single metric. Specify a statistic, period,
 -- or unit to filter the set of alarms further.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmsForMetric.html AWS API Reference> for DescribeAlarmsForMetric.
 module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     (
     -- * Creating a Request
@@ -93,7 +91,9 @@ describeAlarmsForMetric pMetricName_ pNamespace_ =
 dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
 dafmPeriod = lens _dafmPeriod (\ s a -> s{_dafmPeriod = a}) . mapping _Nat;
 
--- | The list of dimensions associated with the metric.
+-- | The list of dimensions associated with the metric. If the metric has any
+-- associated dimensions, you must specify them in order for the
+-- DescribeAlarmsForMetric to succeed.
 dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
 dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a}) . _Default . _Coerce;
 
@@ -125,6 +125,8 @@ instance AWSRequest DescribeAlarmsForMetric where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAlarmsForMetric
+
 instance ToHeaders DescribeAlarmsForMetric where
         toHeaders = const mempty
 
@@ -144,7 +146,7 @@ instance ToQuery DescribeAlarmsForMetric where
                "MetricName" =: _dafmMetricName,
                "Namespace" =: _dafmNamespace]
 
--- | The output for the DescribeAlarmsForMetric action.
+-- | The output for the < DescribeAlarmsForMetric> action.
 --
 -- /See:/ 'describeAlarmsForMetricResponse' smart constructor.
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'

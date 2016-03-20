@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.RemoveTagsFromStream
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Deletes tags from the specified Amazon Kinesis stream.
 --
 -- If you specify a tag that does not exist, it is ignored.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_RemoveTagsFromStream.html AWS API Reference> for RemoveTagsFromStream.
 module Network.AWS.Kinesis.RemoveTagsFromStream
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest RemoveTagsFromStream where
              RemoveTagsFromStreamResponse
         request = postJSON kinesis
         response = receiveNull RemoveTagsFromStreamResponse'
+
+instance Hashable RemoveTagsFromStream
 
 instance ToHeaders RemoveTagsFromStream where
         toHeaders

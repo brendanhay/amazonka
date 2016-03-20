@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateSnapshotCopyGrant
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- For more information about managing snapshot copy grants, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateSnapshotCopyGrant.html AWS API Reference> for CreateSnapshotCopyGrant.
 module Network.AWS.Redshift.CreateSnapshotCopyGrant
     (
     -- * Creating a Request
@@ -112,6 +110,8 @@ instance AWSRequest CreateSnapshotCopyGrant where
               (\ s h x ->
                  CreateSnapshotCopyGrantResponse' <$>
                    (x .@? "SnapshotCopyGrant") <*> (pure (fromEnum s)))
+
+instance Hashable CreateSnapshotCopyGrant
 
 instance ToHeaders CreateSnapshotCopyGrant where
         toHeaders = const mempty

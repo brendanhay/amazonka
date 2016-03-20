@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.Types
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -182,6 +182,7 @@ support =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
@@ -200,7 +201,7 @@ _AttachmentSetExpired = _ServiceError . hasCode "AttachmentSetExpired"
 _AttachmentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _AttachmentLimitExceeded = _ServiceError . hasCode "AttachmentLimitExceeded"
 
--- | The limit for the number of DescribeAttachment requests in a short
+-- | The limit for the number of < DescribeAttachment> requests in a short
 -- period of time has been exceeded.
 _DescribeAttachmentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DescribeAttachmentLimitExceeded =

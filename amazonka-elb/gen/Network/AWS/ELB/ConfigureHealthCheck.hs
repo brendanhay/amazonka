@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.ConfigureHealthCheck
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-healthchecks.html Configure Health Checks>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ConfigureHealthCheck.html AWS API Reference> for ConfigureHealthCheck.
 module Network.AWS.ELB.ConfigureHealthCheck
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest ConfigureHealthCheck where
               (\ s h x ->
                  ConfigureHealthCheckResponse' <$>
                    (x .@? "HealthCheck") <*> (pure (fromEnum s)))
+
+instance Hashable ConfigureHealthCheck
 
 instance ToHeaders ConfigureHealthCheck where
         toHeaders = const mempty

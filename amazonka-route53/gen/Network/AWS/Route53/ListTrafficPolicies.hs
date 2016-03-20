@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListTrafficPolicies
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,7 @@
 --
 -- Gets information about the latest version for every traffic policy that
 -- is associated with the current AWS account. To get the information, send
--- a 'GET' request to the '2013-04-01\/trafficpolicy' resource.
+-- a 'GET' request to the '\/Route 53 API version\/trafficpolicy' resource.
 --
 -- Amazon Route 53 returns a maximum of 100 items in each response. If you
 -- have a lot of traffic policies, you can use the 'maxitems' parameter to
@@ -32,8 +32,6 @@
 -- -   __IsTruncated__
 -- -   __TrafficPolicyIdMarker__
 -- -   __MaxItems__
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html AWS API Reference> for ListTrafficPolicies.
 module Network.AWS.Route53.ListTrafficPolicies
     (
     -- * Creating a Request
@@ -123,6 +121,8 @@ instance AWSRequest ListTrafficPolicies where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "TrafficPolicyIdMarker")
                      <*> (x .@ "MaxItems"))
+
+instance Hashable ListTrafficPolicies
 
 instance ToHeaders ListTrafficPolicies where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.SetSubscriptionAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Allows a subscription owner to set an attribute of the topic to a new
 -- value.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html AWS API Reference> for SetSubscriptionAttributes.
 module Network.AWS.SNS.SetSubscriptionAttributes
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest SetSubscriptionAttributes where
         request = postQuery sNS
         response
           = receiveNull SetSubscriptionAttributesResponse'
+
+instance Hashable SetSubscriptionAttributes
 
 instance ToHeaders SetSubscriptionAttributes where
         toHeaders = const mempty

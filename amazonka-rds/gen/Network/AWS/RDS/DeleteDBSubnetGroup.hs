@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteDBSubnetGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- The specified database subnet group must not be associated with any DB
 -- instances.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSubnetGroup.html AWS API Reference> for DeleteDBSubnetGroup.
 module Network.AWS.RDS.DeleteDBSubnetGroup
     (
     -- * Creating a Request
@@ -68,11 +66,10 @@ deleteDBSubnetGroup pDBSubnetGroupName_ =
 --
 -- You cannot delete the default subnet group.
 --
--- Constraints:
+-- Constraints: Must contain no more than 255 alphanumeric characters,
+-- periods, underscores, spaces, or hyphens. Must not be default.
 --
--- -   Must be 1 to 255 alphanumeric characters
--- -   First character must be a letter
--- -   Cannot end with a hyphen or contain two consecutive hyphens
+-- Example: 'mySubnetgroup'
 ddbsgDBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
 ddbsgDBSubnetGroupName = lens _ddbsgDBSubnetGroupName (\ s a -> s{_ddbsgDBSubnetGroupName = a});
 
@@ -81,6 +78,8 @@ instance AWSRequest DeleteDBSubnetGroup where
              DeleteDBSubnetGroupResponse
         request = postQuery rDS
         response = receiveNull DeleteDBSubnetGroupResponse'
+
+instance Hashable DeleteDBSubnetGroup
 
 instance ToHeaders DeleteDBSubnetGroup where
         toHeaders = const mempty

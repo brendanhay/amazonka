@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -46,7 +46,7 @@ compliance =
     }
 
 -- | The number of AWS resources or AWS Config rules that cause a result of
--- 'NON_COMPLIANT', up to a maximum of 25.
+-- 'NON_COMPLIANT', up to a maximum number.
 cComplianceContributorCount :: Lens' Compliance (Maybe ComplianceContributorCount)
 cComplianceContributorCount = lens _cComplianceContributorCount (\ s a -> s{_cComplianceContributorCount = a});
 
@@ -59,6 +59,13 @@ cComplianceContributorCount = lens _cComplianceContributorCount (\ s a -> s{_cCo
 -- A rule is compliant if all of the resources that the rule evaluates
 -- comply with it, and it is noncompliant if any of these resources do not
 -- comply.
+--
+-- AWS Config returns the 'INSUFFICIENT_DATA' value when no evaluation
+-- results are available for the AWS resource or Config rule.
+--
+-- For the 'Compliance' data type, AWS Config supports only 'COMPLIANT',
+-- 'NON_COMPLIANT', and 'INSUFFICIENT_DATA' values. AWS Config does not
+-- support the 'NOT_APPLICABLE' value for the 'Compliance' data type.
 cComplianceType :: Lens' Compliance (Maybe ComplianceType)
 cComplianceType = lens _cComplianceType (\ s a -> s{_cComplianceType = a});
 
@@ -69,6 +76,8 @@ instance FromJSON Compliance where
                  Compliance' <$>
                    (x .:? "ComplianceContributorCount") <*>
                      (x .:? "ComplianceType"))
+
+instance Hashable Compliance
 
 -- | Indicates whether an AWS Config rule is compliant. A rule is compliant
 -- if all of the resources that the rule evaluated comply with it, and it
@@ -109,6 +118,8 @@ instance FromJSON ComplianceByConfigRule where
               (\ x ->
                  ComplianceByConfigRule' <$>
                    (x .:? "Compliance") <*> (x .:? "ConfigRuleName"))
+
+instance Hashable ComplianceByConfigRule
 
 -- | Indicates whether an AWS resource that is evaluated according to one or
 -- more AWS Config rules is compliant. A resource is compliant if it
@@ -161,6 +172,8 @@ instance FromJSON ComplianceByResource where
                    (x .:? "ResourceId") <*> (x .:? "ResourceType") <*>
                      (x .:? "Compliance"))
 
+instance Hashable ComplianceByResource
+
 -- | The number of AWS resources or AWS Config rules responsible for the
 -- current compliance of the item, up to a maximum number.
 --
@@ -200,6 +213,8 @@ instance FromJSON ComplianceContributorCount where
               (\ x ->
                  ComplianceContributorCount' <$>
                    (x .:? "CappedCount") <*> (x .:? "CapExceeded"))
+
+instance Hashable ComplianceContributorCount
 
 -- | The number of AWS Config rules or AWS resources that are compliant and
 -- noncompliant, up to a maximum.
@@ -252,6 +267,8 @@ instance FromJSON ComplianceSummary where
                      (x .:? "CompliantResourceCount")
                      <*> (x .:? "NonCompliantResourceCount"))
 
+instance Hashable ComplianceSummary
+
 -- | The number of AWS resources of a specific type that are compliant or
 -- noncompliant, up to a maximum of 100 for each compliance.
 --
@@ -293,6 +310,8 @@ instance FromJSON ComplianceSummaryByResourceType
                  ComplianceSummaryByResourceType' <$>
                    (x .:? "ResourceType") <*>
                      (x .:? "ComplianceSummary"))
+
+instance Hashable ComplianceSummaryByResourceType
 
 -- | A list that contains the status of the delivery of either the snapshot
 -- or the configuration history to the specified Amazon S3 bucket.
@@ -369,12 +388,13 @@ instance FromJSON ConfigExportDeliveryInfo where
                      <*> (x .:? "lastErrorMessage")
                      <*> (x .:? "nextDeliveryTime"))
 
+instance Hashable ConfigExportDeliveryInfo
+
 -- | An AWS Lambda function that evaluates configuration items to assess
 -- whether your AWS resources comply with your desired configurations. This
--- function can run when AWS Config detects a configuration change or
--- delivers a configuration snapshot. This function can evaluate any
--- resource in the recording group. To define which of these are evaluated,
--- specify a value for the 'Scope' key.
+-- function can run when AWS Config detects a configuration change to an
+-- AWS resource, or when it delivers a configuration snapshot of the
+-- resources in the account.
 --
 -- For more information about developing and using AWS Config rules, see
 -- <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html Evaluating AWS Resource Configurations with AWS Config>
@@ -456,12 +476,12 @@ crMaximumExecutionFrequency = lens _crMaximumExecutionFrequency (\ s a -> s{_crM
 crConfigRuleId :: Lens' ConfigRule (Maybe Text)
 crConfigRuleId = lens _crConfigRuleId (\ s a -> s{_crConfigRuleId = a});
 
--- | Defines which resources the AWS Config rule evaluates. The scope can
--- include one or more resource types, a combination of a tag key and
--- value, or a combination of one resource type and one or more resource
--- IDs. Specify a scope to constrain the resources that are evaluated. If
--- you do not specify a scope, the AWS Config Rule evaluates all resources
--- in the recording group.
+-- | Defines which resources can trigger an evaluation for the rule. The
+-- scope can include one or more resource types, a combination of one
+-- resource type and one resource ID, or a combination of a tag key and
+-- value. Specify a scope to constrain the resources that can trigger an
+-- evaluation for the rule. If you do not specify a scope, evaluations are
+-- triggered when any resource in the recording group changes.
 crScope :: Lens' ConfigRule (Maybe Scope)
 crScope = lens _crScope (\ s a -> s{_crScope = a});
 
@@ -506,6 +526,8 @@ instance FromJSON ConfigRule where
                      <*> (x .:? "Description")
                      <*> (x .:? "ConfigRuleArn")
                      <*> (x .: "Source"))
+
+instance Hashable ConfigRule
 
 instance ToJSON ConfigRule where
         toJSON ConfigRule'{..}
@@ -657,6 +679,8 @@ instance FromJSON ConfigRuleEvaluationStatus where
                      <*> (x .:? "LastSuccessfulInvocationTime")
                      <*> (x .:? "ConfigRuleArn"))
 
+instance Hashable ConfigRuleEvaluationStatus
+
 -- | Options for how AWS Config delivers configuration snapshots to the
 -- Amazon S3 bucket in your delivery channel.
 --
@@ -689,6 +713,8 @@ instance FromJSON ConfigSnapshotDeliveryProperties
               (\ x ->
                  ConfigSnapshotDeliveryProperties' <$>
                    (x .:? "deliveryFrequency"))
+
+instance Hashable ConfigSnapshotDeliveryProperties
 
 instance ToJSON ConfigSnapshotDeliveryProperties
          where
@@ -760,6 +786,8 @@ instance FromJSON ConfigStreamDeliveryInfo where
                      (x .:? "lastStatusChangeTime")
                      <*> (x .:? "lastStatus")
                      <*> (x .:? "lastErrorMessage"))
+
+instance Hashable ConfigStreamDeliveryInfo
 
 -- | A list that contains detailed configurations of a specified resource.
 --
@@ -949,6 +977,8 @@ instance FromJSON ConfigurationItem where
                      <*> (x .:? "configurationItemMD5Hash")
                      <*> (x .:? "tags" .!= mempty))
 
+instance Hashable ConfigurationItem
+
 -- | An object that represents the recording of configuration changes of an
 -- AWS resource.
 --
@@ -1000,6 +1030,8 @@ instance FromJSON ConfigurationRecorder where
                  ConfigurationRecorder' <$>
                    (x .:? "name") <*> (x .:? "recordingGroup") <*>
                      (x .:? "roleARN"))
+
+instance Hashable ConfigurationRecorder
 
 instance ToJSON ConfigurationRecorder where
         toJSON ConfigurationRecorder'{..}
@@ -1101,6 +1133,8 @@ instance FromJSON ConfigurationRecorderStatus where
                      <*> (x .:? "name")
                      <*> (x .:? "lastStartTime"))
 
+instance Hashable ConfigurationRecorderStatus
+
 -- | A logical container used for storing the configuration changes of an AWS
 -- resource.
 --
@@ -1170,6 +1204,8 @@ instance FromJSON DeliveryChannel where
                      (x .:? "name")
                      <*> (x .:? "configSnapshotDeliveryProperties")
                      <*> (x .:? "s3BucketName"))
+
+instance Hashable DeliveryChannel
 
 instance ToJSON DeliveryChannel where
         toJSON DeliveryChannel'{..}
@@ -1244,6 +1280,8 @@ instance FromJSON DeliveryChannelStatus where
                      <*> (x .:? "configHistoryDeliveryInfo")
                      <*> (x .:? "name"))
 
+instance Hashable DeliveryChannelStatus
+
 -- | Identifies an AWS resource and indicates whether it complies with the
 -- AWS Config rule that it was evaluated against.
 --
@@ -1299,6 +1337,15 @@ eComplianceResourceId = lens _eComplianceResourceId (\ s a -> s{_eComplianceReso
 
 -- | Indicates whether the AWS resource complies with the AWS Config rule
 -- that it was evaluated against.
+--
+-- For the 'Evaluation' data type, AWS Config supports only the
+-- 'COMPLIANT', 'NON_COMPLIANT', and 'NOT_APPLICABLE' values. AWS Config
+-- does not support the 'INSUFFICIENT_DATA' value for this data type.
+--
+-- Similarly, AWS Config does not accept 'INSUFFICIENT_DATA' as the value
+-- for 'ComplianceType' from a 'PutEvaluations' request. For example, an
+-- AWS Lambda function for a custom Config rule cannot pass an
+-- 'INSUFFICIENT_DATA' value to AWS Config.
 eComplianceType :: Lens' Evaluation ComplianceType
 eComplianceType = lens _eComplianceType (\ s a -> s{_eComplianceType = a});
 
@@ -1320,6 +1367,8 @@ instance FromJSON Evaluation where
                      <*> (x .: "ComplianceResourceId")
                      <*> (x .: "ComplianceType")
                      <*> (x .: "OrderingTimestamp"))
+
+instance Hashable Evaluation
 
 instance ToJSON Evaluation where
         toJSON Evaluation'{..}
@@ -1400,6 +1449,11 @@ erResultToken = lens _erResultToken (\ s a -> s{_erResultToken = a});
 
 -- | Indicates whether the AWS resource complies with the AWS Config rule
 -- that evaluated it.
+--
+-- For the 'EvaluationResult' data type, AWS Config supports only the
+-- 'COMPLIANT', 'NON_COMPLIANT', and 'NOT_APPLICABLE' values. AWS Config
+-- does not support the 'INSUFFICIENT_DATA' value for the
+-- 'EvaluationResult' data type.
 erComplianceType :: Lens' EvaluationResult (Maybe ComplianceType)
 erComplianceType = lens _erComplianceType (\ s a -> s{_erComplianceType = a});
 
@@ -1414,6 +1468,8 @@ instance FromJSON EvaluationResult where
                      <*> (x .:? "ResultRecordedTime")
                      <*> (x .:? "ResultToken")
                      <*> (x .:? "ComplianceType"))
+
+instance Hashable EvaluationResult
 
 -- | Uniquely identifies an evaluation result.
 --
@@ -1458,6 +1514,8 @@ instance FromJSON EvaluationResultIdentifier where
                  EvaluationResultIdentifier' <$>
                    (x .:? "EvaluationResultQualifier") <*>
                      (x .:? "OrderingTimestamp"))
+
+instance Hashable EvaluationResultIdentifier
 
 -- | Identifies an AWS Config rule that evaluated an AWS resource, and
 -- provides the type and ID of the resource that the rule evaluated.
@@ -1507,6 +1565,8 @@ instance FromJSON EvaluationResultQualifier where
                    (x .:? "ResourceId") <*> (x .:? "ResourceType") <*>
                      (x .:? "ConfigRuleName"))
 
+instance Hashable EvaluationResultQualifier
+
 -- | Specifies the types of AWS resource for which AWS Config records
 -- configuration changes.
 --
@@ -1520,8 +1580,8 @@ instance FromJSON EvaluationResultQualifier where
 -- instances and EBS volumes.
 --
 -- You can also have AWS Config record configuration changes for supported
--- types of global resources. Global resources are not tied to an
--- individual region and can be used in all regions.
+-- types of global resources (for example, IAM resources). Global resources
+-- are not tied to an individual region and can be used in all regions.
 --
 -- The configuration details for any global resource are the same in all
 -- regions. If you customize AWS Config in multiple regions to record
@@ -1580,7 +1640,8 @@ rgAllSupported :: Lens' RecordingGroup (Maybe Bool)
 rgAllSupported = lens _rgAllSupported (\ s a -> s{_rgAllSupported = a});
 
 -- | Specifies whether AWS Config includes all supported types of global
--- resources with the resources that it records.
+-- resources (for example, IAM resources) with the resources that it
+-- records.
 --
 -- Before you can set this option to 'true', you must set the
 -- 'allSupported' option to 'true'.
@@ -1588,6 +1649,10 @@ rgAllSupported = lens _rgAllSupported (\ s a -> s{_rgAllSupported = a});
 -- If you set this option to 'true', when AWS Config adds support for a new
 -- type of global resource, it automatically starts recording resources of
 -- that type.
+--
+-- The configuration details for any global resource are the same in all
+-- regions. To prevent duplicate configuration items, you should consider
+-- customizing AWS Config in only one region to record global resources.
 rgIncludeGlobalResourceTypes :: Lens' RecordingGroup (Maybe Bool)
 rgIncludeGlobalResourceTypes = lens _rgIncludeGlobalResourceTypes (\ s a -> s{_rgIncludeGlobalResourceTypes = a});
 
@@ -1616,6 +1681,8 @@ instance FromJSON RecordingGroup where
                    (x .:? "allSupported") <*>
                      (x .:? "includeGlobalResourceTypes")
                      <*> (x .:? "resourceTypes" .!= mempty))
+
+instance Hashable RecordingGroup
 
 instance ToJSON RecordingGroup where
         toJSON RecordingGroup'{..}
@@ -1682,6 +1749,8 @@ instance FromJSON Relationship where
                      (x .:? "resourceName")
                      <*> (x .:? "relationshipName"))
 
+instance Hashable Relationship
+
 -- | The details that identify a resource that is discovered by AWS Config,
 -- including the resource type, ID, and (if available) the custom resource
 -- name.
@@ -1740,12 +1809,14 @@ instance FromJSON ResourceIdentifier where
                      (x .:? "resourceName")
                      <*> (x .:? "resourceDeletionTime"))
 
--- | Defines which resources AWS Config evaluates against a rule. The scope
--- can include one or more resource types, a combination of a tag key and
--- value, or a combination of one resource type and one or more resource
--- IDs. Specify a scope to constrain the resources to be evaluated. If you
--- do not specify a scope, all resources in your recording group are
--- evaluated against the rule.
+instance Hashable ResourceIdentifier
+
+-- | Defines which resources trigger an evaluation for an AWS Config rule.
+-- The scope can include one or more resource types, a combination of a tag
+-- key and value, or a combination of one resource type and one resource
+-- ID. Specify a scope to constrain which resources trigger an evaluation
+-- for a rule. Otherwise, evaluations for the rule are triggered when any
+-- resource in your recording group changes in configuration.
 --
 -- /See:/ 'scope' smart constructor.
 data Scope = Scope'
@@ -1776,26 +1847,26 @@ scope =
     , _sTagKey = Nothing
     }
 
--- | The resource types of only those AWS resources that you want AWS Config
--- to evaluate against the rule. You can specify only one type if you also
--- specify resource IDs for 'ComplianceResourceId'.
+-- | The resource types of only those AWS resources that you want to trigger
+-- an evaluation for the rule. You can only specify one type if you also
+-- specify a resource ID for 'ComplianceResourceId'.
 sComplianceResourceTypes :: Lens' Scope [Text]
 sComplianceResourceTypes = lens _sComplianceResourceTypes (\ s a -> s{_sComplianceResourceTypes = a}) . _Default . _Coerce;
 
--- | The IDs of only those AWS resources that you want AWS Config to evaluate
--- against the rule. If you specify a resource ID, you must specify one
+-- | The IDs of the only AWS resource that you want to trigger an evaluation
+-- for the rule. If you specify a resource ID, you must specify one
 -- resource type for 'ComplianceResourceTypes'.
 sComplianceResourceId :: Lens' Scope (Maybe Text)
 sComplianceResourceId = lens _sComplianceResourceId (\ s a -> s{_sComplianceResourceId = a});
 
--- | The tag value applied to only those AWS resources that you want AWS
--- Config to evaluate against the rule. If you specify a value for
+-- | The tag value applied to only those AWS resources that you want to
+-- trigger an evaluation for the rule. If you specify a value for
 -- 'TagValue', you must also specify a value for 'TagKey'.
 sTagValue :: Lens' Scope (Maybe Text)
 sTagValue = lens _sTagValue (\ s a -> s{_sTagValue = a});
 
 -- | The tag key that is applied to only those AWS resources that you want
--- AWS Config to evaluate against the rule.
+-- you want to trigger an evaluation for the rule.
 sTagKey :: Lens' Scope (Maybe Text)
 sTagKey = lens _sTagKey (\ s a -> s{_sTagKey = a});
 
@@ -1808,6 +1879,8 @@ instance FromJSON Scope where
                      (x .:? "ComplianceResourceId")
                      <*> (x .:? "TagValue")
                      <*> (x .:? "TagKey"))
+
+instance Hashable Scope
 
 instance ToJSON Scope where
         toJSON Scope'{..}
@@ -1876,6 +1949,8 @@ instance FromJSON Source where
                    (x .:? "SourceIdentifier") <*> (x .:? "Owner") <*>
                      (x .:? "SourceDetails" .!= mempty))
 
+instance Hashable Source
+
 instance ToJSON Source where
         toJSON Source'{..}
           = object
@@ -1928,6 +2003,8 @@ instance FromJSON SourceDetail where
               (\ x ->
                  SourceDetail' <$>
                    (x .:? "MessageType") <*> (x .:? "EventSource"))
+
+instance Hashable SourceDetail
 
 instance ToJSON SourceDetail where
         toJSON SourceDetail'{..}

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ListApplications
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Lists the applications registered with the applicable IAM user or AWS
 -- account.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplications.html AWS API Reference> for ListApplications.
 module Network.AWS.CodeDeploy.ListApplications
     (
     -- * Creating a Request
@@ -65,9 +63,8 @@ listApplications =
     { _laNextToken = Nothing
     }
 
--- | An identifier that was returned from the previous list applications
--- call, which can be used to return the next set of applications in the
--- list.
+-- | An identifier returned from the previous list applications call. It can
+-- be used to return the next set of applications in the list.
 laNextToken :: Lens' ListApplications (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
@@ -81,6 +78,8 @@ instance AWSRequest ListApplications where
                    (x .?> "nextToken") <*>
                      (x .?> "applications" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListApplications
 
 instance ToHeaders ListApplications where
         toHeaders
@@ -131,9 +130,9 @@ listApplicationsResponse pResponseStatus_ =
     , _larsResponseStatus = pResponseStatus_
     }
 
--- | If the amount of information that is returned is significantly large, an
--- identifier will also be returned, which can be used in a subsequent list
--- applications call to return the next set of applications in the list.
+-- | If a large amount of information is returned, an identifier is also
+-- returned. It can be used in a subsequent list applications call to
+-- return the next set of applications, will also be returned. in the list.
 larsNextToken :: Lens' ListApplicationsResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 

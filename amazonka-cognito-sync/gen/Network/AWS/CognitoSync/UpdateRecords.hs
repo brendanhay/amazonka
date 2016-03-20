@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.UpdateRecords
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -36,8 +36,6 @@
 --
 -- This API can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UpdateRecords.html AWS API Reference> for UpdateRecords.
 module Network.AWS.CognitoSync.UpdateRecords
     (
     -- * Creating a Request
@@ -159,6 +157,8 @@ instance AWSRequest UpdateRecords where
               (\ s h x ->
                  UpdateRecordsResponse' <$>
                    (x .?> "Records" .!@ mempty) <*> (pure (fromEnum s)))
+
+instance Hashable UpdateRecords
 
 instance ToHeaders UpdateRecords where
         toHeaders UpdateRecords'{..}

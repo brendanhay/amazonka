@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,8 @@
 --
 -- When you make this request, you get a '200 OK' success response
 -- immediately. However, it might take some time for the update to
--- complete. You can call DescribeGatewayInformation to verify the gateway
--- is in the 'STATE_RUNNING' state.
+-- complete. You can call < DescribeGatewayInformation> to verify the
+-- gateway is in the 'STATE_RUNNING' state.
 --
 -- A software update forces a system restart of your gateway. You can
 -- minimize the chance of any disruption to your applications by increasing
@@ -34,8 +34,6 @@
 -- and
 -- <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings>,
 -- respectively.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewaySoftwareNow.html AWS API Reference> for UpdateGatewaySoftwareNow.
 module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     (
     -- * Creating a Request
@@ -92,6 +90,8 @@ instance AWSRequest UpdateGatewaySoftwareNow where
               (\ s h x ->
                  UpdateGatewaySoftwareNowResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+
+instance Hashable UpdateGatewaySoftwareNow
 
 instance ToHeaders UpdateGatewaySoftwareNow where
         toHeaders

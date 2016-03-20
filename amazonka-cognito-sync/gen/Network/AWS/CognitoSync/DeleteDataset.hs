@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.DeleteDataset
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- This API can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DeleteDataset.html AWS API Reference> for DeleteDataset.
 module Network.AWS.CognitoSync.DeleteDataset
     (
     -- * Creating a Request
@@ -107,6 +105,8 @@ instance AWSRequest DeleteDataset where
               (\ s h x ->
                  DeleteDatasetResponse' <$>
                    (x .?> "Dataset") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteDataset
 
 instance ToHeaders DeleteDataset where
         toHeaders

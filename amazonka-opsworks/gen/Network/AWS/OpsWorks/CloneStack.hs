@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CloneStack
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- attached policy that explicitly grants permissions. For more information
 -- on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CloneStack.html AWS API Reference> for CloneStack.
 module Network.AWS.OpsWorks.CloneStack
     (
     -- * Creating a Request
@@ -242,7 +240,7 @@ cChefConfiguration = lens _cChefConfiguration (\ s a -> s{_cChefConfiguration = 
 -- The default setting is 'LATEST'. To specify an agent version, you must
 -- use the complete version number, not the abbreviated number shown on the
 -- console. For a list of available agent version numbers, call
--- DescribeAgentVersions.
+-- < DescribeAgentVersions>.
 --
 -- You can also specify an agent version when you create or update an
 -- instance, which overrides the stack\'s default setting.
@@ -365,9 +363,10 @@ cDefaultSubnetId = lens _cDefaultSubnetId (\ s a -> s{_cDefaultSubnetId = a});
 cRegion :: Lens' CloneStack (Maybe Text)
 cRegion = lens _cRegion (\ s a -> s{_cRegion = a});
 
--- | The configuration manager. When you clone a Linux stack we recommend
--- that you use the configuration manager to specify the Chef version: 0.9,
--- 11.4, or 11.10. The default value is currently 11.10.
+-- | The configuration manager. When you clone a stack we recommend that you
+-- use the configuration manager to specify the Chef version: 12, 11.10, or
+-- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+-- Linux stacks is currently 11.4.
 cConfigurationManager :: Lens' CloneStack (Maybe StackConfigurationManager)
 cConfigurationManager = lens _cConfigurationManager (\ s a -> s{_cConfigurationManager = a});
 
@@ -403,7 +402,7 @@ cSourceStackId = lens _cSourceStackId (\ s a -> s{_cSourceStackId = a});
 -- this parameter to the Amazon Resource Name (ARN) for an existing IAM
 -- role. If you create a stack by using the AWS OpsWorks console, it
 -- creates the role for you. You can obtain an existing stack\'s IAM ARN
--- programmatically by calling DescribePermissions. For more information
+-- programmatically by calling < DescribePermissions>. For more information
 -- about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
 --
@@ -421,6 +420,8 @@ instance AWSRequest CloneStack where
               (\ s h x ->
                  CloneStackResponse' <$>
                    (x .?> "StackId") <*> (pure (fromEnum s)))
+
+instance Hashable CloneStack
 
 instance ToHeaders CloneStack where
         toHeaders

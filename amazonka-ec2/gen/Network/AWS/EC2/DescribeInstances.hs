@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 --
 -- Recently terminated instances might appear in the returned results. This
 -- interval is usually less than one hour.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstances.html AWS API Reference> for DescribeInstances.
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeInstances
@@ -142,8 +140,8 @@ describeInstances =
 --
 -- -   'instance-id' - The ID of the instance.
 --
--- -   'instance-lifecycle' - Indicates whether this is a Spot Instance
---     ('spot').
+-- -   'instance-lifecycle' - Indicates whether this is a Spot Instance or
+--     a Scheduled Instance ('spot' | 'scheduled').
 --
 -- -   'instance-state-code' - The state of the instance, as a 16-bit
 --     unsigned integer. The high byte is an opaque internal value and
@@ -287,7 +285,7 @@ describeInstances =
 -- -   'network-interface.mac-address' - The MAC address of the network
 --     interface.
 --
--- -   'network-interface-private-dns-name' - The private DNS name of the
+-- -   'network-interface.private-dns-name' - The private DNS name of the
 --     network interface.
 --
 -- -   'network-interface.source-dest-check' - Whether the network
@@ -394,6 +392,8 @@ instance AWSRequest DescribeInstances where
                      (x .@? "reservationSet" .!@ mempty >>=
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeInstances
 
 instance ToHeaders DescribeInstances where
         toHeaders = const mempty

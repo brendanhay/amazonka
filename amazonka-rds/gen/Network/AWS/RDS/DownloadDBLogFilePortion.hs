@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DownloadDBLogFilePortion
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Downloads all or a portion of the specified log file, up to 1 MB in
 -- size.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DownloadDBLogFilePortion.html AWS API Reference> for DownloadDBLogFilePortion.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DownloadDBLogFilePortion
@@ -154,6 +152,8 @@ instance AWSRequest DownloadDBLogFilePortion where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DownloadDBLogFilePortion
+
 instance ToHeaders DownloadDBLogFilePortion where
         toHeaders = const mempty
 
@@ -172,7 +172,7 @@ instance ToQuery DownloadDBLogFilePortion where
                "LogFileName" =: _ddlfpLogFileName]
 
 -- | This data type is used as a response element to
--- DownloadDBLogFilePortion.
+-- < DownloadDBLogFilePortion>.
 --
 -- /See:/ 'downloadDBLogFilePortionResponse' smart constructor.
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'

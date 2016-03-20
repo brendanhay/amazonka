@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- After the virtual interface owner calls this function, the specified
 -- virtual interface will be created and made available for handling
 -- traffic.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPublicVirtualInterface.html AWS API Reference> for ConfirmPublicVirtualInterface.
 module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     (
     -- * Creating a Request
@@ -85,6 +83,8 @@ instance AWSRequest ConfirmPublicVirtualInterface
                  ConfirmPublicVirtualInterfaceResponse' <$>
                    (x .?> "virtualInterfaceState") <*>
                      (pure (fromEnum s)))
+
+instance Hashable ConfirmPublicVirtualInterface
 
 instance ToHeaders ConfirmPublicVirtualInterface
          where

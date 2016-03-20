@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineSuggester
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineSuggester.html AWS API Reference> for DefineSuggester.
 module Network.AWS.CloudSearch.DefineSuggester
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest DefineSuggester where
               (\ s h x ->
                  DefineSuggesterResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Suggester"))
+
+instance Hashable DefineSuggester
 
 instance ToHeaders DefineSuggester where
         toHeaders = const mempty

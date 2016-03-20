@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateIntegrationResponse
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents an update integration response.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateIntegrationResponse.html AWS API Reference> for UpdateIntegrationResponse.
 module Network.AWS.APIGateway.UpdateIntegrationResponse
     (
     -- * Creating a Request
@@ -116,8 +114,13 @@ instance AWSRequest UpdateIntegrationResponse where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateIntegrationResponse
+
 instance ToHeaders UpdateIntegrationResponse where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateIntegrationResponse where
         toJSON UpdateIntegrationResponse'{..}

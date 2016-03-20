@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.SetLoadBasedAutoScaling
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetLoadBasedAutoScaling.html AWS API Reference> for SetLoadBasedAutoScaling.
 module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     (
     -- * Creating a Request
@@ -113,6 +111,8 @@ instance AWSRequest SetLoadBasedAutoScaling where
         request = postJSON opsWorks
         response
           = receiveNull SetLoadBasedAutoScalingResponse'
+
+instance Hashable SetLoadBasedAutoScaling
 
 instance ToHeaders SetLoadBasedAutoScaling where
         toHeaders

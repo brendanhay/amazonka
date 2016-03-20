@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,6 +21,44 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.S3.Internal
 import           Network.AWS.S3.Types.Sum
+
+-- | Specifies the days since the initiation of an Incomplete Multipart
+-- Upload that Lifecycle will wait before permanently removing all parts of
+-- the upload.
+--
+-- /See:/ 'abortIncompleteMultipartUpload' smart constructor.
+newtype AbortIncompleteMultipartUpload = AbortIncompleteMultipartUpload'
+    { _aimuDaysAfterInitiation :: Maybe Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AbortIncompleteMultipartUpload' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aimuDaysAfterInitiation'
+abortIncompleteMultipartUpload
+    :: AbortIncompleteMultipartUpload
+abortIncompleteMultipartUpload =
+    AbortIncompleteMultipartUpload'
+    { _aimuDaysAfterInitiation = Nothing
+    }
+
+-- | Indicates the number of days that must pass since initiation for
+-- Lifecycle to abort an Incomplete Multipart Upload.
+aimuDaysAfterInitiation :: Lens' AbortIncompleteMultipartUpload (Maybe Int)
+aimuDaysAfterInitiation = lens _aimuDaysAfterInitiation (\ s a -> s{_aimuDaysAfterInitiation = a});
+
+instance FromXML AbortIncompleteMultipartUpload where
+        parseXML x
+          = AbortIncompleteMultipartUpload' <$>
+              (x .@? "DaysAfterInitiation")
+
+instance Hashable AbortIncompleteMultipartUpload
+
+instance ToXML AbortIncompleteMultipartUpload where
+        toXML AbortIncompleteMultipartUpload'{..}
+          = mconcat
+              ["DaysAfterInitiation" @= _aimuDaysAfterInitiation]
 
 -- | /See:/ 'accessControlPolicy' smart constructor.
 data AccessControlPolicy = AccessControlPolicy'
@@ -50,6 +88,8 @@ acpGrants = lens _acpGrants (\ s a -> s{_acpGrants = a}) . _Default . _Coerce;
 -- | Undocumented member.
 acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
 acpOwner = lens _acpOwner (\ s a -> s{_acpOwner = a});
+
+instance Hashable AccessControlPolicy
 
 instance ToXML AccessControlPolicy where
         toXML AccessControlPolicy'{..}
@@ -93,6 +133,8 @@ instance FromXML Bucket where
         parseXML x
           = Bucket' <$> (x .@ "CreationDate") <*> (x .@ "Name")
 
+instance Hashable Bucket
+
 -- | /See:/ 'bucketLifecycleConfiguration' smart constructor.
 newtype BucketLifecycleConfiguration = BucketLifecycleConfiguration'
     { _blcRules :: [LifecycleRule]
@@ -113,6 +155,8 @@ bucketLifecycleConfiguration =
 -- | Undocumented member.
 blcRules :: Lens' BucketLifecycleConfiguration [LifecycleRule]
 blcRules = lens _blcRules (\ s a -> s{_blcRules = a}) . _Coerce;
+
+instance Hashable BucketLifecycleConfiguration
 
 instance ToXML BucketLifecycleConfiguration where
         toXML BucketLifecycleConfiguration'{..}
@@ -139,6 +183,8 @@ bucketLoggingStatus =
 blsLoggingEnabled :: Lens' BucketLoggingStatus (Maybe LoggingEnabled)
 blsLoggingEnabled = lens _blsLoggingEnabled (\ s a -> s{_blsLoggingEnabled = a});
 
+instance Hashable BucketLoggingStatus
+
 instance ToXML BucketLoggingStatus where
         toXML BucketLoggingStatus'{..}
           = mconcat ["LoggingEnabled" @= _blsLoggingEnabled]
@@ -163,6 +209,8 @@ corsConfiguration =
 -- | Undocumented member.
 ccCORSRules :: Lens' CORSConfiguration [CORSRule]
 ccCORSRules = lens _ccCORSRules (\ s a -> s{_ccCORSRules = a}) . _Coerce;
+
+instance Hashable CORSConfiguration
 
 instance ToXML CORSConfiguration where
         toXML CORSConfiguration'{..}
@@ -235,6 +283,8 @@ instance FromXML CORSRule where
                 <*> (parseXMLList "AllowedMethod" x)
                 <*> (parseXMLList "AllowedOrigin" x)
 
+instance Hashable CORSRule
+
 instance ToXML CORSRule where
         toXML CORSRule'{..}
           = mconcat
@@ -270,6 +320,8 @@ cpPrefix = lens _cpPrefix (\ s a -> s{_cpPrefix = a});
 instance FromXML CommonPrefix where
         parseXML x = CommonPrefix' <$> (x .@? "Prefix")
 
+instance Hashable CommonPrefix
+
 -- | /See:/ 'completedMultipartUpload' smart constructor.
 newtype CompletedMultipartUpload = CompletedMultipartUpload'
     { _cmuParts :: Maybe (List1 CompletedPart)
@@ -290,6 +342,8 @@ completedMultipartUpload =
 -- | Undocumented member.
 cmuParts :: Lens' CompletedMultipartUpload (Maybe (NonEmpty CompletedPart))
 cmuParts = lens _cmuParts (\ s a -> s{_cmuParts = a}) . mapping _List1;
+
+instance Hashable CompletedMultipartUpload
 
 instance ToXML CompletedMultipartUpload where
         toXML CompletedMultipartUpload'{..}
@@ -326,6 +380,8 @@ cpPartNumber = lens _cpPartNumber (\ s a -> s{_cpPartNumber = a});
 -- | Entity tag returned when the part was uploaded.
 cpETag :: Lens' CompletedPart ETag
 cpETag = lens _cpETag (\ s a -> s{_cpETag = a});
+
+instance Hashable CompletedPart
 
 instance ToXML CompletedPart where
         toXML CompletedPart'{..}
@@ -378,6 +434,8 @@ instance FromXML Condition where
               (x .@? "KeyPrefixEquals") <*>
                 (x .@? "HttpErrorCodeReturnedEquals")
 
+instance Hashable Condition
+
 instance ToXML Condition where
         toXML Condition'{..}
           = mconcat
@@ -419,6 +477,8 @@ instance FromXML CopyObjectResult where
           = CopyObjectResult' <$>
               (x .@? "ETag") <*> (x .@? "LastModified")
 
+instance Hashable CopyObjectResult
+
 -- | /See:/ 'copyPartResult' smart constructor.
 data CopyPartResult = CopyPartResult'
     { _cprETag         :: !(Maybe ETag)
@@ -453,6 +513,8 @@ instance FromXML CopyPartResult where
           = CopyPartResult' <$>
               (x .@? "ETag") <*> (x .@? "LastModified")
 
+instance Hashable CopyPartResult
+
 -- | /See:/ 'createBucketConfiguration' smart constructor.
 newtype CreateBucketConfiguration = CreateBucketConfiguration'
     { _cbcLocationConstraint :: Maybe LocationConstraint
@@ -474,6 +536,8 @@ createBucketConfiguration =
 -- specify a region, the bucket will be created in US Standard.
 cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe LocationConstraint)
 cbcLocationConstraint = lens _cbcLocationConstraint (\ s a -> s{_cbcLocationConstraint = a});
+
+instance Hashable CreateBucketConfiguration
 
 instance ToXML CreateBucketConfiguration where
         toXML CreateBucketConfiguration'{..}
@@ -509,6 +573,8 @@ dQuiet = lens _dQuiet (\ s a -> s{_dQuiet = a});
 -- | Undocumented member.
 dObjects :: Lens' Delete [ObjectIdentifier]
 dObjects = lens _dObjects (\ s a -> s{_dObjects = a}) . _Coerce;
+
+instance Hashable Delete
 
 instance ToXML Delete where
         toXML Delete'{..}
@@ -577,6 +643,8 @@ instance FromXML DeleteMarkerEntry where
                 <*> (x .@? "Key")
                 <*> (x .@? "LastModified")
 
+instance Hashable DeleteMarkerEntry
+
 -- | /See:/ 'deletedObject' smart constructor.
 data DeletedObject = DeletedObject'
     { _dVersionId             :: !(Maybe ObjectVersionId)
@@ -629,6 +697,8 @@ instance FromXML DeletedObject where
                 (x .@? "DeleteMarkerVersionId")
                 <*> (x .@? "Key")
 
+instance Hashable DeletedObject
+
 -- | /See:/ 'destination' smart constructor.
 data Destination = Destination'
     { _dStorageClass :: !(Maybe StorageClass)
@@ -665,6 +735,8 @@ instance FromXML Destination where
           = Destination' <$>
               (x .@? "StorageClass") <*> (x .@ "Bucket")
 
+instance Hashable Destination
+
 instance ToXML Destination where
         toXML Destination'{..}
           = mconcat
@@ -695,6 +767,8 @@ edKey = lens _edKey (\ s a -> s{_edKey = a});
 
 instance FromXML ErrorDocument where
         parseXML x = ErrorDocument' <$> (x .@ "Key")
+
+instance Hashable ErrorDocument
 
 instance ToXML ErrorDocument where
         toXML ErrorDocument'{..} = mconcat ["Key" @= _edKey]
@@ -740,6 +814,8 @@ instance FromXML FilterRule where
         parseXML x
           = FilterRule' <$> (x .@? "Value") <*> (x .@? "Name")
 
+instance Hashable FilterRule
+
 instance ToXML FilterRule where
         toXML FilterRule'{..}
           = mconcat ["Value" @= _frValue, "Name" @= _frName]
@@ -777,6 +853,8 @@ instance FromXML Grant where
         parseXML x
           = Grant' <$>
               (x .@? "Permission") <*> (x .@? "Grantee")
+
+instance Hashable Grant
 
 instance ToXML Grant where
         toXML Grant'{..}
@@ -846,6 +924,8 @@ instance FromXML Grantee where
                 <*> (x .@? "ID")
                 <*> (x .@ "xsi:type")
 
+instance Hashable Grantee
+
 instance ToXML Grantee where
         toXML Grantee'{..}
           = mconcat
@@ -881,6 +961,8 @@ idSuffix = lens _idSuffix (\ s a -> s{_idSuffix = a});
 
 instance FromXML IndexDocument where
         parseXML x = IndexDocument' <$> (x .@ "Suffix")
+
+instance Hashable IndexDocument
 
 instance ToXML IndexDocument where
         toXML IndexDocument'{..}
@@ -920,6 +1002,8 @@ instance FromXML Initiator where
         parseXML x
           = Initiator' <$>
               (x .@? "DisplayName") <*> (x .@? "ID")
+
+instance Hashable Initiator
 
 -- | Container for specifying the AWS Lambda notification configuration.
 --
@@ -977,6 +1061,8 @@ instance FromXML LambdaFunctionConfiguration where
                 (x .@ "CloudFunction")
                 <*> (parseXMLList "Event" x)
 
+instance Hashable LambdaFunctionConfiguration
+
 instance ToXML LambdaFunctionConfiguration where
         toXML LambdaFunctionConfiguration'{..}
           = mconcat
@@ -986,8 +1072,9 @@ instance ToXML LambdaFunctionConfiguration where
 
 -- | /See:/ 'lifecycleExpiration' smart constructor.
 data LifecycleExpiration = LifecycleExpiration'
-    { _leDays :: !(Maybe Int)
-    , _leDate :: !(Maybe RFC822)
+    { _leDays                      :: !(Maybe Int)
+    , _leDate                      :: !(Maybe RFC822)
+    , _leExpiredObjectDeleteMarker :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LifecycleExpiration' with the minimum fields required to make a request.
@@ -997,12 +1084,15 @@ data LifecycleExpiration = LifecycleExpiration'
 -- * 'leDays'
 --
 -- * 'leDate'
+--
+-- * 'leExpiredObjectDeleteMarker'
 lifecycleExpiration
     :: LifecycleExpiration
 lifecycleExpiration =
     LifecycleExpiration'
     { _leDays = Nothing
     , _leDate = Nothing
+    , _leExpiredObjectDeleteMarker = Nothing
     }
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
@@ -1015,24 +1105,38 @@ leDays = lens _leDays (\ s a -> s{_leDays = a});
 leDate :: Lens' LifecycleExpiration (Maybe UTCTime)
 leDate = lens _leDate (\ s a -> s{_leDate = a}) . mapping _Time;
 
+-- | Indicates whether Amazon S3 will remove a delete marker with no
+-- noncurrent versions. If set to true, the delete marker will be expired;
+-- if set to false the policy takes no action. This cannot be specified
+-- with Days or Date in a Lifecycle Expiration Policy.
+leExpiredObjectDeleteMarker :: Lens' LifecycleExpiration (Maybe Bool)
+leExpiredObjectDeleteMarker = lens _leExpiredObjectDeleteMarker (\ s a -> s{_leExpiredObjectDeleteMarker = a});
+
 instance FromXML LifecycleExpiration where
         parseXML x
           = LifecycleExpiration' <$>
-              (x .@? "Days") <*> (x .@? "Date")
+              (x .@? "Days") <*> (x .@? "Date") <*>
+                (x .@? "ExpiredObjectDeleteMarker")
+
+instance Hashable LifecycleExpiration
 
 instance ToXML LifecycleExpiration where
         toXML LifecycleExpiration'{..}
-          = mconcat ["Days" @= _leDays, "Date" @= _leDate]
+          = mconcat
+              ["Days" @= _leDays, "Date" @= _leDate,
+               "ExpiredObjectDeleteMarker" @=
+                 _leExpiredObjectDeleteMarker]
 
 -- | /See:/ 'lifecycleRule' smart constructor.
 data LifecycleRule = LifecycleRule'
-    { _lrTransitions                  :: !(Maybe [Transition])
-    , _lrNoncurrentVersionExpiration  :: !(Maybe NoncurrentVersionExpiration)
-    , _lrNoncurrentVersionTransitions :: !(Maybe [NoncurrentVersionTransition])
-    , _lrExpiration                   :: !(Maybe LifecycleExpiration)
-    , _lrId                           :: !(Maybe Text)
-    , _lrPrefix                       :: !Text
-    , _lrStatus                       :: !ExpirationStatus
+    { _lrTransitions                    :: !(Maybe [Transition])
+    , _lrNoncurrentVersionExpiration    :: !(Maybe NoncurrentVersionExpiration)
+    , _lrNoncurrentVersionTransitions   :: !(Maybe [NoncurrentVersionTransition])
+    , _lrExpiration                     :: !(Maybe LifecycleExpiration)
+    , _lrId                             :: !(Maybe Text)
+    , _lrAbortIncompleteMultipartUpload :: !(Maybe AbortIncompleteMultipartUpload)
+    , _lrPrefix                         :: !Text
+    , _lrStatus                         :: !ExpirationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LifecycleRule' with the minimum fields required to make a request.
@@ -1049,6 +1153,8 @@ data LifecycleRule = LifecycleRule'
 --
 -- * 'lrId'
 --
+-- * 'lrAbortIncompleteMultipartUpload'
+--
 -- * 'lrPrefix'
 --
 -- * 'lrStatus'
@@ -1063,6 +1169,7 @@ lifecycleRule pPrefix_ pStatus_ =
     , _lrNoncurrentVersionTransitions = Nothing
     , _lrExpiration = Nothing
     , _lrId = Nothing
+    , _lrAbortIncompleteMultipartUpload = Nothing
     , _lrPrefix = pPrefix_
     , _lrStatus = pStatus_
     }
@@ -1088,6 +1195,10 @@ lrExpiration = lens _lrExpiration (\ s a -> s{_lrExpiration = a});
 lrId :: Lens' LifecycleRule (Maybe Text)
 lrId = lens _lrId (\ s a -> s{_lrId = a});
 
+-- | Undocumented member.
+lrAbortIncompleteMultipartUpload :: Lens' LifecycleRule (Maybe AbortIncompleteMultipartUpload)
+lrAbortIncompleteMultipartUpload = lens _lrAbortIncompleteMultipartUpload (\ s a -> s{_lrAbortIncompleteMultipartUpload = a});
+
 -- | Prefix identifying one or more objects to which the rule applies.
 lrPrefix :: Lens' LifecycleRule Text
 lrPrefix = lens _lrPrefix (\ s a -> s{_lrPrefix = a});
@@ -1106,8 +1217,11 @@ instance FromXML LifecycleRule where
                 (may (parseXMLList "NoncurrentVersionTransition") x)
                 <*> (x .@? "Expiration")
                 <*> (x .@? "ID")
+                <*> (x .@? "AbortIncompleteMultipartUpload")
                 <*> (x .@ "Prefix")
                 <*> (x .@ "Status")
+
+instance Hashable LifecycleRule
 
 instance ToXML LifecycleRule where
         toXML LifecycleRule'{..}
@@ -1119,6 +1233,8 @@ instance ToXML LifecycleRule where
                  (toXMLList "NoncurrentVersionTransition" <$>
                     _lrNoncurrentVersionTransitions),
                "Expiration" @= _lrExpiration, "ID" @= _lrId,
+               "AbortIncompleteMultipartUpload" @=
+                 _lrAbortIncompleteMultipartUpload,
                "Prefix" @= _lrPrefix, "Status" @= _lrStatus]
 
 -- | /See:/ 'loggingEnabled' smart constructor.
@@ -1171,6 +1287,8 @@ instance FromXML LoggingEnabled where
                 (x .@? "TargetGrants" .!@ mempty >>=
                    may (parseXMLList "Grant"))
                 <*> (x .@? "TargetPrefix")
+
+instance Hashable LoggingEnabled
 
 instance ToXML LoggingEnabled where
         toXML LoggingEnabled'{..}
@@ -1250,6 +1368,8 @@ instance FromXML MultipartUpload where
                 <*> (x .@? "StorageClass")
                 <*> (x .@? "UploadId")
 
+instance Hashable MultipartUpload
+
 -- | Specifies when noncurrent object versions expire. Upon expiration,
 -- Amazon S3 permanently deletes the noncurrent object versions. You set
 -- this lifecycle configuration action on a bucket that has versioning
@@ -1286,6 +1406,8 @@ instance FromXML NoncurrentVersionExpiration where
         parseXML x
           = NoncurrentVersionExpiration' <$>
               (x .@ "NoncurrentDays")
+
+instance Hashable NoncurrentVersionExpiration
 
 instance ToXML NoncurrentVersionExpiration where
         toXML NoncurrentVersionExpiration'{..}
@@ -1337,6 +1459,8 @@ instance FromXML NoncurrentVersionTransition where
         parseXML x
           = NoncurrentVersionTransition' <$>
               (x .@ "NoncurrentDays") <*> (x .@ "StorageClass")
+
+instance Hashable NoncurrentVersionTransition
 
 instance ToXML NoncurrentVersionTransition where
         toXML NoncurrentVersionTransition'{..}
@@ -1392,6 +1516,8 @@ instance FromXML NotificationConfiguration where
                 <*>
                 (may (parseXMLList "CloudFunctionConfiguration") x)
 
+instance Hashable NotificationConfiguration
+
 instance ToXML NotificationConfiguration where
         toXML NotificationConfiguration'{..}
           = mconcat
@@ -1436,6 +1562,8 @@ instance FromXML NotificationConfigurationFilter
         parseXML x
           = NotificationConfigurationFilter' <$>
               (x .@? "S3Key")
+
+instance Hashable NotificationConfigurationFilter
 
 instance ToXML NotificationConfigurationFilter where
         toXML NotificationConfigurationFilter'{..}
@@ -1515,6 +1643,8 @@ instance FromXML Object where
                 <*> (x .@ "StorageClass")
                 <*> (x .@ "LastModified")
 
+instance Hashable Object
+
 -- | /See:/ 'objectIdentifier' smart constructor.
 data ObjectIdentifier = ObjectIdentifier'
     { _oiVersionId :: !(Maybe ObjectVersionId)
@@ -1544,6 +1674,8 @@ oiVersionId = lens _oiVersionId (\ s a -> s{_oiVersionId = a});
 -- | Key name of the object to delete.
 oiKey :: Lens' ObjectIdentifier ObjectKey
 oiKey = lens _oiKey (\ s a -> s{_oiKey = a});
+
+instance Hashable ObjectIdentifier
 
 instance ToXML ObjectIdentifier where
         toXML ObjectIdentifier'{..}
@@ -1639,6 +1771,8 @@ instance FromXML ObjectVersion where
                 <*> (x .@? "StorageClass")
                 <*> (x .@? "LastModified")
 
+instance Hashable ObjectVersion
+
 -- | /See:/ 'owner' smart constructor.
 data Owner = Owner'
     { _oDisplayName :: !(Maybe Text)
@@ -1671,6 +1805,8 @@ oId = lens _oId (\ s a -> s{_oId = a});
 instance FromXML Owner where
         parseXML x
           = Owner' <$> (x .@? "DisplayName") <*> (x .@? "ID")
+
+instance Hashable Owner
 
 instance ToXML Owner where
         toXML Owner'{..}
@@ -1730,6 +1866,8 @@ instance FromXML Part where
                 (x .@? "PartNumber")
                 <*> (x .@? "LastModified")
 
+instance Hashable Part
+
 -- | Container for specifying an configuration when you want Amazon S3 to
 -- publish events to an Amazon Simple Queue Service (Amazon SQS) queue.
 --
@@ -1785,6 +1923,8 @@ instance FromXML QueueConfiguration where
           = QueueConfiguration' <$>
               (x .@? "Id") <*> (x .@? "Filter") <*> (x .@ "Queue")
                 <*> (parseXMLList "Event" x)
+
+instance Hashable QueueConfiguration
 
 instance ToXML QueueConfiguration where
         toXML QueueConfiguration'{..}
@@ -1862,6 +2002,8 @@ instance FromXML Redirect where
                 <*> (x .@? "ReplaceKeyWith")
                 <*> (x .@? "ReplaceKeyPrefixWith")
 
+instance Hashable Redirect
+
 instance ToXML Redirect where
         toXML Redirect'{..}
           = mconcat
@@ -1905,6 +2047,8 @@ instance FromXML RedirectAllRequestsTo where
         parseXML x
           = RedirectAllRequestsTo' <$>
               (x .@? "Protocol") <*> (x .@ "HostName")
+
+instance Hashable RedirectAllRequestsTo
 
 instance ToXML RedirectAllRequestsTo where
         toXML RedirectAllRequestsTo'{..}
@@ -1952,6 +2096,8 @@ instance FromXML ReplicationConfiguration where
         parseXML x
           = ReplicationConfiguration' <$>
               (x .@ "Role") <*> (parseXMLList "Rule" x)
+
+instance Hashable ReplicationConfiguration
 
 instance ToXML ReplicationConfiguration where
         toXML ReplicationConfiguration'{..}
@@ -2015,6 +2161,8 @@ instance FromXML ReplicationRule where
               (x .@? "ID") <*> (x .@ "Prefix") <*> (x .@ "Status")
                 <*> (x .@ "Destination")
 
+instance Hashable ReplicationRule
+
 instance ToXML ReplicationRule where
         toXML ReplicationRule'{..}
           = mconcat
@@ -2044,6 +2192,8 @@ requestPaymentConfiguration pPayer_ =
 rpcPayer :: Lens' RequestPaymentConfiguration Payer
 rpcPayer = lens _rpcPayer (\ s a -> s{_rpcPayer = a});
 
+instance Hashable RequestPaymentConfiguration
+
 instance ToXML RequestPaymentConfiguration where
         toXML RequestPaymentConfiguration'{..}
           = mconcat ["Payer" @= _rpcPayer]
@@ -2069,6 +2219,8 @@ restoreRequest pDays_ =
 -- | Lifetime of the active copy in days
 rrDays :: Lens' RestoreRequest Int
 rrDays = lens _rrDays (\ s a -> s{_rrDays = a});
+
+instance Hashable RestoreRequest
 
 instance ToXML RestoreRequest where
         toXML RestoreRequest'{..}
@@ -2115,6 +2267,8 @@ instance FromXML RoutingRule where
           = RoutingRule' <$>
               (x .@? "Condition") <*> (x .@ "Redirect")
 
+instance Hashable RoutingRule
+
 instance ToXML RoutingRule where
         toXML RoutingRule'{..}
           = mconcat
@@ -2148,6 +2302,8 @@ instance FromXML S3KeyFilter where
         parseXML x
           = S3KeyFilter' <$>
               (may (parseXMLList "FilterRule") x)
+
+instance Hashable S3KeyFilter
 
 instance ToXML S3KeyFilter where
         toXML S3KeyFilter'{..}
@@ -2206,6 +2362,8 @@ instance FromXML S3ServiceError where
                 (x .@? "Code")
                 <*> (x .@? "Message")
 
+instance Hashable S3ServiceError
+
 -- | /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagKey   :: !ObjectKey
@@ -2240,6 +2398,8 @@ tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 instance FromXML Tag where
         parseXML x = Tag' <$> (x .@ "Key") <*> (x .@ "Value")
 
+instance Hashable Tag
+
 instance ToXML Tag where
         toXML Tag'{..}
           = mconcat ["Key" @= _tagKey, "Value" @= _tagValue]
@@ -2264,6 +2424,8 @@ tagging =
 -- | Undocumented member.
 tTagSet :: Lens' Tagging [Tag]
 tTagSet = lens _tTagSet (\ s a -> s{_tTagSet = a}) . _Coerce;
+
+instance Hashable Tagging
 
 instance ToXML Tagging where
         toXML Tagging'{..}
@@ -2302,6 +2464,8 @@ instance FromXML TargetGrant where
         parseXML x
           = TargetGrant' <$>
               (x .@? "Permission") <*> (x .@? "Grantee")
+
+instance Hashable TargetGrant
 
 instance ToXML TargetGrant where
         toXML TargetGrant'{..}
@@ -2366,6 +2530,8 @@ instance FromXML TopicConfiguration where
               (x .@? "Id") <*> (x .@? "Filter") <*> (x .@ "Topic")
                 <*> (parseXMLList "Event" x)
 
+instance Hashable TopicConfiguration
+
 instance ToXML TopicConfiguration where
         toXML TopicConfiguration'{..}
           = mconcat
@@ -2417,6 +2583,8 @@ instance FromXML Transition where
               (x .@? "Days") <*> (x .@? "Date") <*>
                 (x .@? "StorageClass")
 
+instance Hashable Transition
+
 instance ToXML Transition where
         toXML Transition'{..}
           = mconcat
@@ -2454,6 +2622,8 @@ vcStatus = lens _vcStatus (\ s a -> s{_vcStatus = a});
 -- this element is not returned.
 vcMFADelete :: Lens' VersioningConfiguration (Maybe MFADelete)
 vcMFADelete = lens _vcMFADelete (\ s a -> s{_vcMFADelete = a});
+
+instance Hashable VersioningConfiguration
 
 instance ToXML VersioningConfiguration where
         toXML VersioningConfiguration'{..}
@@ -2504,6 +2674,8 @@ wcIndexDocument = lens _wcIndexDocument (\ s a -> s{_wcIndexDocument = a});
 -- | Undocumented member.
 wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
 wcRoutingRules = lens _wcRoutingRules (\ s a -> s{_wcRoutingRules = a}) . _Default . _Coerce;
+
+instance Hashable WebsiteConfiguration
 
 instance ToXML WebsiteConfiguration where
         toXML WebsiteConfiguration'{..}

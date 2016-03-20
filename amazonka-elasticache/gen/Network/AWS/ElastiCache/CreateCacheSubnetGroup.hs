@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CreateCacheSubnetGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- Use this parameter only when you are creating a cluster in an Amazon
 -- Virtual Private Cloud (VPC).
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html AWS API Reference> for CreateCacheSubnetGroup.
 module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     (
     -- * Creating a Request
@@ -105,6 +103,8 @@ instance AWSRequest CreateCacheSubnetGroup where
               (\ s h x ->
                  CreateCacheSubnetGroupResponse' <$>
                    (x .@? "CacheSubnetGroup") <*> (pure (fromEnum s)))
+
+instance Hashable CreateCacheSubnetGroup
 
 instance ToHeaders CreateCacheSubnetGroup where
         toHeaders = const mempty

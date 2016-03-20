@@ -3,7 +3,7 @@
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.IO
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -17,6 +17,7 @@ module Gen.IO where
 import           Control.Error
 import           Control.Monad.Except
 import           Control.Monad.State
+import           Data.Bifunctor
 import           Data.ByteString           (ByteString)
 import           Data.Text                 (Text)
 import qualified Data.Text                 as Text
@@ -29,12 +30,13 @@ import           Gen.Formatting
 import           Gen.Types
 import           System.IO
 import qualified Text.EDE                  as EDE
+import           UnexceptionalIO           (fromIO, runUIO)
 
 run :: ExceptT Error IO a -> IO a
 run = runScript . fmapLT LText.unpack
 
 io :: MonadIO m => IO a -> ExceptT Error m a
-io = fmapLT (LText.pack . show) . syncIO
+io = ExceptT . fmap (first (LText.pack . show)) . liftIO . runUIO . fromIO
 
 title :: MonadIO m => Format (ExceptT Error m ()) a -> a
 title m = runFormat m (io . LText.putStrLn . toLazyText)

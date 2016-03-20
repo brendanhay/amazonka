@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ResetDBParameterGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- dynamic parameters are updated immediately and static parameters are set
 -- to 'pending-reboot' to take effect on the next DB instance restart or
 -- 'RebootDBInstance' request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBParameterGroup.html AWS API Reference> for ResetDBParameterGroup.
 module Network.AWS.RDS.ResetDBParameterGroup
     (
     -- * Creating a Request
@@ -131,6 +129,8 @@ instance AWSRequest ResetDBParameterGroup where
         response
           = receiveXMLWrapper "ResetDBParameterGroupResult"
               (\ s h x -> parseXML x)
+
+instance Hashable ResetDBParameterGroup
 
 instance ToHeaders ResetDBParameterGroup where
         toHeaders = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetJob
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a job.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetJob.html AWS API Reference> for GetJob.
 module Network.AWS.DeviceFarm.GetJob
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest GetJob where
               (\ s h x ->
                  GetJobResponse' <$>
                    (x .?> "job") <*> (pure (fromEnum s)))
+
+instance Hashable GetJob
 
 instance ToHeaders GetJob where
         toHeaders

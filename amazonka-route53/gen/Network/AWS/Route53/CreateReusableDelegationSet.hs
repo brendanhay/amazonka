@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.CreateReusableDelegationSet
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,15 +21,13 @@
 -- This action creates a reusable delegationSet.
 --
 -- To create a new reusable delegationSet, send a 'POST' request to the
--- '2013-04-01\/delegationset' resource. The request body must include an
--- XML document with a 'CreateReusableDelegationSetRequest' element. The
--- response returns the 'CreateReusableDelegationSetResponse' element that
--- contains metadata about the delegationSet.
+-- '\/Route 53 API version\/delegationset' resource. The request body must
+-- include a document with a 'CreateReusableDelegationSetRequest' element.
+-- The response returns the 'CreateReusableDelegationSetResponse' element
+-- that contains metadata about the delegationSet.
 --
 -- If the optional parameter HostedZoneId is specified, it marks the
 -- delegationSet associated with that particular hosted zone as reusable.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html AWS API Reference> for CreateReusableDelegationSet.
 module Network.AWS.Route53.CreateReusableDelegationSet
     (
     -- * Creating a Request
@@ -105,6 +103,8 @@ instance AWSRequest CreateReusableDelegationSet where
                  CreateReusableDelegationSetResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "DelegationSet") <*>
                      (h .# "Location"))
+
+instance Hashable CreateReusableDelegationSet
 
 instance ToElement CreateReusableDelegationSet where
         toElement

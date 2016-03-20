@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.DeleteProject
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Deletes an AWS Device Farm project, given the project ARN.
 --
 -- __Note__ Deleting this resource does not stop an in-progress run.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_DeleteProject.html AWS API Reference> for DeleteProject.
 module Network.AWS.DeviceFarm.DeleteProject
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest DeleteProject where
           = receiveEmpty
               (\ s h x ->
                  DeleteProjectResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeleteProject
 
 instance ToHeaders DeleteProject where
         toHeaders

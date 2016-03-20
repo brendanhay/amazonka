@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.AcceptCertificateTransfer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,10 +21,8 @@
 -- Accepts a pending certificate transfer. The default state of the
 -- certificate is INACTIVE.
 --
--- To check for pending certificate transfers, call ListCertificates to
+-- To check for pending certificate transfers, call < ListCertificates> to
 -- enumerate your certificates.
---
--- /See:/ <https://aws.amazon.com/iot#AcceptCertificateTransfer.html AWS API Reference> for AcceptCertificateTransfer.
 module Network.AWS.IoT.AcceptCertificateTransfer
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest AcceptCertificateTransfer where
         request = patchJSON ioT
         response
           = receiveNull AcceptCertificateTransferResponse'
+
+instance Hashable AcceptCertificateTransfer
 
 instance ToHeaders AcceptCertificateTransfer where
         toHeaders = const mempty

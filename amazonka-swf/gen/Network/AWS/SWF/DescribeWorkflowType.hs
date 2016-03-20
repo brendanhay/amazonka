@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeWorkflowType
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -44,8 +44,6 @@
 -- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowType.html AWS API Reference> for DescribeWorkflowType.
 module Network.AWS.SWF.DescribeWorkflowType
     (
     -- * Creating a Request
@@ -113,6 +111,8 @@ instance AWSRequest DescribeWorkflowType where
                    (pure (fromEnum s)) <*> (x .:> "typeInfo") <*>
                      (x .:> "configuration"))
 
+instance Hashable DescribeWorkflowType
+
 instance ToHeaders DescribeWorkflowType where
         toHeaders
           = const
@@ -177,13 +177,14 @@ dwtrsResponseStatus = lens _dwtrsResponseStatus (\ s a -> s{_dwtrsResponseStatus
 --
 -- -   __REGISTERED__: The type is registered and available. Workers
 --     supporting this type should be running.
--- -   __DEPRECATED__: The type was deprecated using DeprecateWorkflowType,
---     but is still in use. You should keep workers supporting this type
---     running. You cannot create new workflow executions of this type.
+-- -   __DEPRECATED__: The type was deprecated using
+--     < DeprecateWorkflowType>, but is still in use. You should keep
+--     workers supporting this type running. You cannot create new workflow
+--     executions of this type.
 dwtrsTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
 dwtrsTypeInfo = lens _dwtrsTypeInfo (\ s a -> s{_dwtrsTypeInfo = a});
 
 -- | Configuration settings of the workflow type registered through
--- RegisterWorkflowType
+-- < RegisterWorkflowType>
 dwtrsConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
 dwtrsConfiguration = lens _dwtrsConfiguration (\ s a -> s{_dwtrsConfiguration = a});

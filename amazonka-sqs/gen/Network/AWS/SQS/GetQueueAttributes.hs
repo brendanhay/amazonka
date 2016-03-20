@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.GetQueueAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -67,8 +67,6 @@
 -- '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.html AWS API Reference> for GetQueueAttributes.
 module Network.AWS.SQS.GetQueueAttributes
     (
     -- * Creating a Request
@@ -133,6 +131,8 @@ instance AWSRequest GetQueueAttributes where
                  GetQueueAttributesResponse' <$>
                    (may (parseXMLMap "Attribute" "Name" "Value") x) <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetQueueAttributes
 
 instance ToHeaders GetQueueAttributes where
         toHeaders = const mempty

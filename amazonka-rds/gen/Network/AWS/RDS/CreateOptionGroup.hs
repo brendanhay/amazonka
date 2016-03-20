@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateOptionGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new option group. You can create up to 20 option groups.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateOptionGroup.html AWS API Reference> for CreateOptionGroup.
 module Network.AWS.RDS.CreateOptionGroup
     (
     -- * Creating a Request
@@ -125,6 +123,8 @@ instance AWSRequest CreateOptionGroup where
               (\ s h x ->
                  CreateOptionGroupResponse' <$>
                    (x .@? "OptionGroup") <*> (pure (fromEnum s)))
+
+instance Hashable CreateOptionGroup
 
 instance ToHeaders CreateOptionGroup where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeCases
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,11 +30,9 @@
 --
 -- The response returns the following in JSON format:
 --
--- 1.  One or more CaseDetails data types.
+-- 1.  One or more < CaseDetails> data types.
 -- 2.  One or more 'NextToken' values, which specify where to paginate the
 --     returned records represented by the 'CaseDetails' objects.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCases.html AWS API Reference> for DescribeCases.
 --
 -- This operation returns paginated results.
 module Network.AWS.Support.DescribeCases
@@ -120,7 +118,7 @@ describeCases =
     }
 
 -- | Specifies whether resolved support cases should be included in the
--- DescribeCases results. The default is /false/.
+-- < DescribeCases> results. The default is /false/.
 dcIncludeResolvedCases :: Lens' DescribeCases (Maybe Bool)
 dcIncludeResolvedCases = lens _dcIncludeResolvedCases (\ s a -> s{_dcIncludeResolvedCases = a});
 
@@ -144,8 +142,8 @@ dcBeforeTime = lens _dcBeforeTime (\ s a -> s{_dcBeforeTime = a});
 dcNextToken :: Lens' DescribeCases (Maybe Text)
 dcNextToken = lens _dcNextToken (\ s a -> s{_dcNextToken = a});
 
--- | Specifies whether communications should be included in the DescribeCases
--- results. The default is /true/.
+-- | Specifies whether communications should be included in the
+-- < DescribeCases> results. The default is /true/.
 dcIncludeCommunications :: Lens' DescribeCases (Maybe Bool)
 dcIncludeCommunications = lens _dcIncludeCommunications (\ s a -> s{_dcIncludeCommunications = a});
 
@@ -181,6 +179,8 @@ instance AWSRequest DescribeCases where
                    (x .?> "cases" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCases
+
 instance ToHeaders DescribeCases where
         toHeaders
           = const
@@ -212,8 +212,8 @@ instance ToPath DescribeCases where
 instance ToQuery DescribeCases where
         toQuery = const mempty
 
--- | Returns an array of CaseDetails objects and a 'NextToken' that defines a
--- point for pagination in the result set.
+-- | Returns an array of < CaseDetails> objects and a 'NextToken' that
+-- defines a point for pagination in the result set.
 --
 -- /See:/ 'describeCasesResponse' smart constructor.
 data DescribeCasesResponse = DescribeCasesResponse'

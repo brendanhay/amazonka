@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -34,8 +34,6 @@
 --
 -- See the CloudTrail User Guide for information about the data that is
 -- included with each AWS API call listed in the log files.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudTrail
     (
     -- * Service Configuration

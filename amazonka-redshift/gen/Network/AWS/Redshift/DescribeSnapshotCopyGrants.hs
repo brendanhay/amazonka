@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeSnapshotCopyGrants
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- For more information about managing snapshot copy grants, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeSnapshotCopyGrants.html AWS API Reference> for DescribeSnapshotCopyGrants.
 module Network.AWS.Redshift.DescribeSnapshotCopyGrants
     (
     -- * Creating a Request
@@ -149,6 +147,8 @@ instance AWSRequest DescribeSnapshotCopyGrants where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeSnapshotCopyGrants
+
 instance ToHeaders DescribeSnapshotCopyGrants where
         toHeaders = const mempty
 
@@ -170,7 +170,7 @@ instance ToQuery DescribeSnapshotCopyGrants where
                "SnapshotCopyGrantName" =:
                  _dscgsSnapshotCopyGrantName]
 
--- | The result of the snapshot copy grant.
+-- |
 --
 -- /See:/ 'describeSnapshotCopyGrantsResponse' smart constructor.
 data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
@@ -198,7 +198,7 @@ describeSnapshotCopyGrantsResponse pResponseStatus_ =
     , _dscgrsResponseStatus = pResponseStatus_
     }
 
--- | The list of snapshot copy grants.
+-- | The list of 'SnapshotCopyGrant' objects.
 dscgrsSnapshotCopyGrants :: Lens' DescribeSnapshotCopyGrantsResponse [SnapshotCopyGrant]
 dscgrsSnapshotCopyGrants = lens _dscgrsSnapshotCopyGrants (\ s a -> s{_dscgrsSnapshotCopyGrants = a}) . _Default . _Coerce;
 

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetRun
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a run.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetRun.html AWS API Reference> for GetRun.
 module Network.AWS.DeviceFarm.GetRun
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest GetRun where
               (\ s h x ->
                  GetRunResponse' <$>
                    (x .?> "run") <*> (pure (fromEnum s)))
+
+instance Hashable GetRun
 
 instance ToHeaders GetRun where
         toHeaders

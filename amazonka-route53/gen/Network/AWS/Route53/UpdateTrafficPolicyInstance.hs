@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.UpdateTrafficPolicyInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -43,11 +43,9 @@
 --     are associated with the root resource record set name.
 --
 -- To update a traffic policy instance, send a 'POST' request to the
--- '\/2013-04-01\/trafficpolicyinstance\/traffic policy ID' resource. The
--- request body must include an XML document with an
+-- '\/Route 53 API version\/trafficpolicyinstance\/traffic policy ID'
+-- resource. The request body must include a document with an
 -- 'UpdateTrafficPolicyInstanceRequest' element.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateTrafficPolicyInstance.html AWS API Reference> for UpdateTrafficPolicyInstance.
 module Network.AWS.Route53.UpdateTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -140,6 +138,8 @@ instance AWSRequest UpdateTrafficPolicyInstance where
                  UpdateTrafficPolicyInstanceResponse' <$>
                    (pure (fromEnum s)) <*>
                      (x .@ "TrafficPolicyInstance"))
+
+instance Hashable UpdateTrafficPolicyInstance
 
 instance ToElement UpdateTrafficPolicyInstance where
         toElement

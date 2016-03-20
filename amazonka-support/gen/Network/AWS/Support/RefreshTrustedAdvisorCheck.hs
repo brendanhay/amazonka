@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.RefreshTrustedAdvisorCheck
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,18 +20,16 @@
 --
 -- Requests a refresh of the Trusted Advisor check that has the specified
 -- check ID. Check IDs can be obtained by calling
--- DescribeTrustedAdvisorChecks.
+-- < DescribeTrustedAdvisorChecks>.
 --
--- The response contains a TrustedAdvisorCheckRefreshStatus object, which
--- contains these fields:
+-- The response contains a < TrustedAdvisorCheckRefreshStatus> object,
+-- which contains these fields:
 --
 -- -   __Status.__ The refresh status of the check: \"none\", \"enqueued\",
 --     \"processing\", \"success\", or \"abandoned\".
 -- -   __MillisUntilNextRefreshable.__ The amount of time, in milliseconds,
 --     until the check is eligible for refresh.
 -- -   __CheckId.__ The unique identifier for the check.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html AWS API Reference> for RefreshTrustedAdvisorCheck.
 module Network.AWS.Support.RefreshTrustedAdvisorCheck
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
               (\ s h x ->
                  RefreshTrustedAdvisorCheckResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "status"))
+
+instance Hashable RefreshTrustedAdvisorCheck
 
 instance ToHeaders RefreshTrustedAdvisorCheck where
         toHeaders

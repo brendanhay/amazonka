@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPCEndpoints
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Deletes one or more specified VPC endpoints. Deleting the endpoint also
 -- deletes the endpoint routes in the route tables that were associated
 -- with the endpoint.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPCEndpoints.html AWS API Reference> for DeleteVPCEndpoints.
 module Network.AWS.EC2.DeleteVPCEndpoints
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest DeleteVPCEndpoints where
                    (x .@? "unsuccessful" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DeleteVPCEndpoints
 
 instance ToHeaders DeleteVPCEndpoints where
         toHeaders = const mempty

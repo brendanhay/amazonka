@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.CreatePlatformApplication
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,6 @@
 -- attribute for the 'CreatePlatformEndpoint' action. For more information,
 -- see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html AWS API Reference> for CreatePlatformApplication.
 module Network.AWS.SNS.CreatePlatformApplication
     (
     -- * Creating a Request
@@ -116,6 +114,8 @@ instance AWSRequest CreatePlatformApplication where
                  CreatePlatformApplicationResponse' <$>
                    (x .@? "PlatformApplicationArn") <*>
                      (pure (fromEnum s)))
+
+instance Hashable CreatePlatformApplication
 
 instance ToHeaders CreatePlatformApplication where
         toHeaders = const mempty

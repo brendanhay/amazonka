@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetGroupPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,15 +22,13 @@
 -- specified group.
 --
 -- A group can also have managed policies attached to it. To retrieve a
--- managed policy document that is attached to a group, use GetPolicy to
--- determine the policy\'s default version, then use GetPolicyVersion to
+-- managed policy document that is attached to a group, use < GetPolicy> to
+-- determine the policy\'s default version, then use < GetPolicyVersion> to
 -- retrieve the policy document.
 --
 -- For more information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html AWS API Reference> for GetGroupPolicy.
 module Network.AWS.IAM.GetGroupPolicy
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest GetGroupPolicy where
                      (x .@ "PolicyName")
                      <*> (x .@ "PolicyDocument"))
 
+instance Hashable GetGroupPolicy
+
 instance ToHeaders GetGroupPolicy where
         toHeaders = const mempty
 
@@ -113,7 +113,7 @@ instance ToQuery GetGroupPolicy where
                "GroupName" =: _ggpGroupName,
                "PolicyName" =: _ggpPolicyName]
 
--- | Contains the response to a successful GetGroupPolicy request.
+-- | Contains the response to a successful < GetGroupPolicy> request.
 --
 -- /See:/ 'getGroupPolicyResponse' smart constructor.
 data GetGroupPolicyResponse = GetGroupPolicyResponse'

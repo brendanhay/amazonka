@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ELB.RemoveTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes one or more tags from the specified load balancer.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_RemoveTags.html AWS API Reference> for RemoveTags.
 module Network.AWS.ELB.RemoveTags
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest RemoveTags where
           = receiveXMLWrapper "RemoveTagsResult"
               (\ s h x ->
                  RemoveTagsResponse' <$> (pure (fromEnum s)))
+
+instance Hashable RemoveTags
 
 instance ToHeaders RemoveTags where
         toHeaders = const mempty

@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteHostedZone
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- This action deletes a hosted zone. To delete a hosted zone, send a
--- 'DELETE' request to the '2013-04-01\/hostedzone\/hosted zone ID'
--- resource.
+-- 'DELETE' request to the
+-- '\/Route 53 API version\/hostedzone\/hosted zone ID' resource.
 --
 -- For more information about deleting a hosted zone, see
 -- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html Deleting a Hosted Zone>
@@ -32,9 +32,7 @@
 -- before you can delete your hosted zone. If you try to delete a hosted
 -- zone that contains other resource record sets, Amazon Route 53 will deny
 -- your request with a 'HostedZoneNotEmpty' error. For information about
--- deleting records from your hosted zone, see ChangeResourceRecordSets.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html AWS API Reference> for DeleteHostedZone.
+-- deleting records from your hosted zone, see < ChangeResourceRecordSets>.
 module Network.AWS.Route53.DeleteHostedZone
     (
     -- * Creating a Request
@@ -91,6 +89,8 @@ instance AWSRequest DeleteHostedZone where
               (\ s h x ->
                  DeleteHostedZoneResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
+
+instance Hashable DeleteHostedZone
 
 instance ToHeaders DeleteHostedZone where
         toHeaders = const mempty

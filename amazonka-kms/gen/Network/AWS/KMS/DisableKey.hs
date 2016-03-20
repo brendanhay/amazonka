@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.DisableKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- affects the use of a master key, go to
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key>
 -- in the /AWS Key Management Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html AWS API Reference> for DisableKey.
 module Network.AWS.KMS.DisableKey
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest DisableKey where
         type Rs DisableKey = DisableKeyResponse
         request = postJSON kMS
         response = receiveNull DisableKeyResponse'
+
+instance Hashable DisableKey
 
 instance ToHeaders DisableKey where
         toHeaders

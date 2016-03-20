@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.UpdateAutoScalingGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,7 +24,7 @@
 -- 'InstanceMonitoring' set to 'False', you must first disable the
 -- collection of group metrics. Otherwise, you will get an error. If you
 -- have previously enabled the collection of group metrics, you can disable
--- it using DisableMetricsCollection.
+-- it using < DisableMetricsCollection>.
 --
 -- The new settings are registered upon the completion of this call. Any
 -- launch configuration settings take effect on any triggers after this
@@ -35,18 +35,16 @@
 --
 -- -   If you specify a new value for 'MinSize' without specifying a value
 --     for 'DesiredCapacity', and the new 'MinSize' is larger than the
---     current size of the group, we implicitly call SetDesiredCapacity to
---     set the size of the group to the new value of 'MinSize'.
+--     current size of the group, we implicitly call < SetDesiredCapacity>
+--     to set the size of the group to the new value of 'MinSize'.
 --
 -- -   If you specify a new value for 'MaxSize' without specifying a value
 --     for 'DesiredCapacity', and the new 'MaxSize' is smaller than the
---     current size of the group, we implicitly call SetDesiredCapacity to
---     set the size of the group to the new value of 'MaxSize'.
+--     current size of the group, we implicitly call < SetDesiredCapacity>
+--     to set the size of the group to the new value of 'MaxSize'.
 --
 -- -   All other optional parameters are left unchanged if not specified.
 --
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html AWS API Reference> for UpdateAutoScalingGroup.
 module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     (
     -- * Creating a Request
@@ -150,7 +148,7 @@ updateAutoScalingGroup pAutoScalingGroupName_ =
 -- order that they are listed.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your Auto Scaling Group>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html Controlling Which Instances Auto Scaling Terminates During Scale In>
 -- in the /Auto Scaling Developer Guide/.
 uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
 uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTerminationPolicies = a}) . _Default . _Coerce;
@@ -160,7 +158,7 @@ uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTermina
 -- default is 300.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks For Auto Scaling Instances>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>
 -- in the /Auto Scaling Developer Guide/.
 uasgHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgHealthCheckGracePeriod = lens _uasgHealthCheckGracePeriod (\ s a -> s{_uasgHealthCheckGracePeriod = a});
@@ -178,7 +176,7 @@ uasgNewInstancesProtectedFromScaleIn = lens _uasgNewInstancesProtectedFromScaleI
 -- 'AvailabilityZones'.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon Virtual Private Cloud>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC>
 -- in the /Auto Scaling Developer Guide/.
 uasgVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgVPCZoneIdentifier = lens _uasgVPCZoneIdentifier (\ s a -> s{_uasgVPCZoneIdentifier = a});
@@ -187,7 +185,7 @@ uasgVPCZoneIdentifier = lens _uasgVPCZoneIdentifier (\ s a -> s{_uasgVPCZoneIden
 -- before another scaling activity can start. The default is 300.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns>
 -- in the /Auto Scaling Developer Guide/.
 uasgDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgDefaultCooldown = lens _uasgDefaultCooldown (\ s a -> s{_uasgDefaultCooldown = a});
@@ -236,6 +234,8 @@ instance AWSRequest UpdateAutoScalingGroup where
         request = postQuery autoScaling
         response
           = receiveNull UpdateAutoScalingGroupResponse'
+
+instance Hashable UpdateAutoScalingGroup
 
 instance ToHeaders UpdateAutoScalingGroup where
         toHeaders = const mempty

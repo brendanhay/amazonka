@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Deletes the specified group. The group must not contain any users or
 -- have any attached policies.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroup.html AWS API Reference> for DeleteGroup.
 module Network.AWS.IAM.DeleteGroup
     (
     -- * Creating a Request
@@ -68,6 +66,8 @@ instance AWSRequest DeleteGroup where
         type Rs DeleteGroup = DeleteGroupResponse
         request = postQuery iAM
         response = receiveNull DeleteGroupResponse'
+
+instance Hashable DeleteGroup
 
 instance ToHeaders DeleteGroup where
         toHeaders = const mempty

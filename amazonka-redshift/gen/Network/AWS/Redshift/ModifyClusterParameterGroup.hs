@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ModifyClusterParameterGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- For more information about parameters and parameter groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterParameterGroup.html AWS API Reference> for ModifyClusterParameterGroup.
 module Network.AWS.Redshift.ModifyClusterParameterGroup
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest ModifyClusterParameterGroup where
           = receiveXMLWrapper
               "ModifyClusterParameterGroupResult"
               (\ s h x -> parseXML x)
+
+instance Hashable ModifyClusterParameterGroup
 
 instance ToHeaders ModifyClusterParameterGroup where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.DeletePipeline
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,10 +24,8 @@
 --
 -- Deleting a pipeline cannot be undone. You cannot query or restore a
 -- deleted pipeline. To temporarily pause a pipeline instead of deleting
--- it, call SetStatus with the status set to 'PAUSE' on individual
--- components. Components that are paused by SetStatus can be resumed.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeletePipeline.html AWS API Reference> for DeletePipeline.
+-- it, call < SetStatus> with the status set to 'PAUSE' on individual
+-- components. Components that are paused by < SetStatus> can be resumed.
 module Network.AWS.DataPipeline.DeletePipeline
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest DeletePipeline where
         type Rs DeletePipeline = DeletePipelineResponse
         request = postJSON dataPipeline
         response = receiveNull DeletePipelineResponse'
+
+instance Hashable DeletePipeline
 
 instance ToHeaders DeletePipeline where
         toHeaders

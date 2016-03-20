@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeContainerInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Describes Amazon EC2 Container Service container instances. Returns
 -- metadata about registered and remaining resources on each container
 -- instance requested.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html AWS API Reference> for DescribeContainerInstances.
 module Network.AWS.ECS.DescribeContainerInstances
     (
     -- * Creating a Request
@@ -91,6 +89,8 @@ instance AWSRequest DescribeContainerInstances where
                    (x .?> "failures" .!@ mempty) <*>
                      (x .?> "containerInstances" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeContainerInstances
 
 instance ToHeaders DescribeContainerInstances where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.CreateElasticsearchDomain
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Creates a new Elasticsearch domain. For more information, see
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains>
 -- in the /Amazon Elasticsearch Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-CreateElasticsearchDomain.html AWS API Reference> for CreateElasticsearchDomain.
 module Network.AWS.ElasticSearch.CreateElasticsearchDomain
     (
     -- * Creating a Request
@@ -132,6 +130,8 @@ instance AWSRequest CreateElasticsearchDomain where
               (\ s h x ->
                  CreateElasticsearchDomainResponse' <$>
                    (x .?> "DomainStatus") <*> (pure (fromEnum s)))
+
+instance Hashable CreateElasticsearchDomain
 
 instance ToHeaders CreateElasticsearchDomain where
         toHeaders = const mempty

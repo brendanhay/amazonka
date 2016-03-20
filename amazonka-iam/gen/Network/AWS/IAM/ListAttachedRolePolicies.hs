@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListAttachedRolePolicies
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,7 +21,7 @@
 -- Lists all managed policies that are attached to the specified role.
 --
 -- A role can also have inline policies embedded with it. To list the
--- inline policies for a role, use the ListRolePolicies API. For
+-- inline policies for a role, use the < ListRolePolicies> API. For
 -- information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
@@ -31,8 +31,6 @@
 -- policies to only those matching the specified path prefix. If there are
 -- no policies attached to the specified role (or none that match the
 -- specified path prefix), the action returns an empty list.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedRolePolicies.html AWS API Reference> for ListAttachedRolePolicies.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListAttachedRolePolicies
@@ -145,6 +143,8 @@ instance AWSRequest ListAttachedRolePolicies where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListAttachedRolePolicies
+
 instance ToHeaders ListAttachedRolePolicies where
         toHeaders = const mempty
 
@@ -161,7 +161,8 @@ instance ToQuery ListAttachedRolePolicies where
                "Marker" =: _larpMarker, "MaxItems" =: _larpMaxItems,
                "RoleName" =: _larpRoleName]
 
--- | Contains the response to a successful ListAttachedRolePolicies request.
+-- | Contains the response to a successful < ListAttachedRolePolicies>
+-- request.
 --
 -- /See:/ 'listAttachedRolePoliciesResponse' smart constructor.
 data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'

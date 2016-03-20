@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogStream
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 --
 -- -   Log stream names can be between 1 and 512 characters long.
 -- -   The \':\' colon character is not allowed.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogStream.html AWS API Reference> for CreateLogStream.
 module Network.AWS.CloudWatchLogs.CreateLogStream
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest CreateLogStream where
         type Rs CreateLogStream = CreateLogStreamResponse
         request = postJSON cloudWatchLogs
         response = receiveNull CreateLogStreamResponse'
+
+instance Hashable CreateLogStream
 
 instance ToHeaders CreateLogStream where
         toHeaders

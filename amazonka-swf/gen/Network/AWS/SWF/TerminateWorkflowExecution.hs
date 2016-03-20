@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.TerminateWorkflowExecution
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,9 +31,9 @@
 -- event is recorded in the history of the current open workflow with the
 -- matching workflowId in the domain.
 --
--- You should consider using RequestCancelWorkflowExecution action instead
--- because it allows the workflow to gracefully close while
--- TerminateWorkflowExecution does not.
+-- You should consider using < RequestCancelWorkflowExecution> action
+-- instead because it allows the workflow to gracefully close while
+-- < TerminateWorkflowExecution> does not.
 --
 -- __Access Control__
 --
@@ -52,8 +52,6 @@
 -- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_TerminateWorkflowExecution.html AWS API Reference> for TerminateWorkflowExecution.
 module Network.AWS.SWF.TerminateWorkflowExecution
     (
     -- * Creating a Request
@@ -166,6 +164,8 @@ instance AWSRequest TerminateWorkflowExecution where
         request = postJSON sWF
         response
           = receiveNull TerminateWorkflowExecutionResponse'
+
+instance Hashable TerminateWorkflowExecution
 
 instance ToHeaders TerminateWorkflowExecution where
         toHeaders

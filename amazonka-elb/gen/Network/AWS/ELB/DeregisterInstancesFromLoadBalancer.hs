@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,14 +22,12 @@
 -- After the instance is deregistered, it no longer receives traffic from
 -- the load balancer.
 --
--- You can use DescribeLoadBalancers to verify that the instance is
+-- You can use < DescribeLoadBalancers> to verify that the instance is
 -- deregistered from the load balancer.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register Amazon EC2 Instances>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeregisterInstancesFromLoadBalancer.html AWS API Reference> for DeregisterInstancesFromLoadBalancer.
 module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest
                    (x .@? "Instances" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DeregisterInstancesFromLoadBalancer
 
 instance ToHeaders
          DeregisterInstancesFromLoadBalancer where

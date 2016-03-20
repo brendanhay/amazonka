@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateStreamingDistribution
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a new streaming distribution.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateStreamingDistribution.html AWS API Reference> for CreateStreamingDistribution.
 module Network.AWS.CloudFront.CreateStreamingDistribution
     (
     -- * Creating a Request
@@ -82,10 +80,12 @@ instance AWSRequest CreateStreamingDistribution where
                      (parseXML x)
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateStreamingDistribution
+
 instance ToElement CreateStreamingDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2015-09-17/}StreamingDistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2016-01-28/}StreamingDistributionConfig"
               .
               _csdStreamingDistributionConfig
 
@@ -93,7 +93,7 @@ instance ToHeaders CreateStreamingDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateStreamingDistribution where
-        toPath = const "/2015-09-17/streaming-distribution"
+        toPath = const "/2016-01-28/streaming-distribution"
 
 instance ToQuery CreateStreamingDistribution where
         toQuery = const mempty

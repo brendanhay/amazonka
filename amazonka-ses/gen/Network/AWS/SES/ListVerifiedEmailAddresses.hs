@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListVerifiedEmailAddresses
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- preferred.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListVerifiedEmailAddresses.html AWS API Reference> for ListVerifiedEmailAddresses.
 module Network.AWS.SES.ListVerifiedEmailAddresses
     (
     -- * Creating a Request
@@ -73,6 +71,8 @@ instance AWSRequest ListVerifiedEmailAddresses where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListVerifiedEmailAddresses
+
 instance ToHeaders ListVerifiedEmailAddresses where
         toHeaders = const mempty
 
@@ -87,10 +87,7 @@ instance ToQuery ListVerifiedEmailAddresses where
                     ("ListVerifiedEmailAddresses" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | Represents a list of all the email addresses verified for the current
--- user.
---
--- /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
+-- | /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
     { _lvearsVerifiedEmailAddresses :: !(Maybe [Text])
     , _lvearsResponseStatus         :: !Int

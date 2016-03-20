@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketLifecycle
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the lifecycle configuration from the bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketLifecycle.html AWS API Reference> for DeleteBucketLifecycle.
 module Network.AWS.S3.DeleteBucketLifecycle
     (
     -- * Creating a Request
@@ -68,6 +66,8 @@ instance AWSRequest DeleteBucketLifecycle where
              DeleteBucketLifecycleResponse
         request = delete s3
         response = receiveNull DeleteBucketLifecycleResponse'
+
+instance Hashable DeleteBucketLifecycle
 
 instance ToHeaders DeleteBucketLifecycle where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteVPC
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- security groups associated with the VPC (except the default one), delete
 -- all route tables associated with the VPC (except the default one), and
 -- so on.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPC.html AWS API Reference> for DeleteVPC.
 module Network.AWS.EC2.DeleteVPC
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest DeleteVPC where
         type Rs DeleteVPC = DeleteVPCResponse
         request = postQuery eC2
         response = receiveNull DeleteVPCResponse'
+
+instance Hashable DeleteVPC
 
 instance ToHeaders DeleteVPC where
         toHeaders = const mempty

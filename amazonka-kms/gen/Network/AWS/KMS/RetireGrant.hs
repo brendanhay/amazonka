@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.RetireGrant
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,6 @@
 -- variable-length base64-encoded string. A grant ID is a 64 character
 -- unique identifier of a grant. Both are returned by the 'CreateGrant'
 -- function.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html AWS API Reference> for RetireGrant.
 module Network.AWS.KMS.RetireGrant
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest RetireGrant where
         type Rs RetireGrant = RetireGrantResponse
         request = postJSON kMS
         response = receiveNull RetireGrantResponse'
+
+instance Hashable RetireGrant
 
 instance ToHeaders RetireGrant where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.ListBuckets
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns a list of all buckets owned by the authenticated sender of the
 -- request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListBuckets.html AWS API Reference> for ListBuckets.
 module Network.AWS.S3.ListBuckets
     (
     -- * Creating a Request
@@ -66,6 +64,8 @@ instance AWSRequest ListBuckets where
                       may (parseXMLList "Bucket"))
                      <*> (x .@? "Owner")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListBuckets
 
 instance ToHeaders ListBuckets where
         toHeaders = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAPIKeys
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the current ApiKeys resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetAPIKeys.html AWS API Reference> for GetAPIKeys.
+-- Gets information about the current < ApiKeys> resource.
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetAPIKeys
@@ -49,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to get information about the current ApiKeys resource.
+-- | A request to get information about the current < ApiKeys> resource.
 --
 -- /See:/ 'getAPIKeys' smart constructor.
 data GetAPIKeys = GetAPIKeys'
@@ -72,11 +70,12 @@ getAPIKeys =
     , _gakPosition = Nothing
     }
 
--- | The maximum number of ApiKeys to get information about.
+-- | The maximum number of < ApiKeys> to get information about.
 gakLimit :: Lens' GetAPIKeys (Maybe Int)
 gakLimit = lens _gakLimit (\ s a -> s{_gakLimit = a});
 
--- | The position of the current ApiKeys resource to get information about.
+-- | The position of the current < ApiKeys> resource to get information
+-- about.
 gakPosition :: Lens' GetAPIKeys (Maybe Text)
 gakPosition = lens _gakPosition (\ s a -> s{_gakPosition = a});
 
@@ -97,8 +96,13 @@ instance AWSRequest GetAPIKeys where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetAPIKeys
+
 instance ToHeaders GetAPIKeys where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetAPIKeys where
         toPath = const "/apikeys"
@@ -108,7 +112,7 @@ instance ToQuery GetAPIKeys where
           = mconcat
               ["limit" =: _gakLimit, "position" =: _gakPosition]
 
--- | Represents a collection of ApiKey resources.
+-- | Represents a collection of < ApiKey> resources.
 --
 -- /See:/ 'getAPIKeysResponse' smart constructor.
 data GetAPIKeysResponse = GetAPIKeysResponse'
@@ -136,8 +140,8 @@ getAPIKeysResponse pResponseStatus_ =
     , _gakrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any ApiKey resources in the collection of ApiKey
--- resources.
+-- | The current page of any < ApiKey> resources in the collection of
+-- < ApiKey> resources.
 gakrsItems :: Lens' GetAPIKeysResponse [APIKey]
 gakrsItems = lens _gakrsItems (\ s a -> s{_gakrsItems = a}) . _Default . _Coerce;
 

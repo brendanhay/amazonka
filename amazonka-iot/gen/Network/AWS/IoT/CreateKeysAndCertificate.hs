@@ -12,19 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateKeysAndCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a 2048 bit RSA key pair and issues an X.509 certificate using
+-- Creates a 2048-bit RSA key pair and issues an X.509 certificate using
 -- the issued public key.
 --
 -- __Note__ This is the only time AWS IoT issues the private key for this
--- certificate. It is important to keep track of the private key.
---
--- /See:/ <https://aws.amazon.com/iot#CreateKeysAndCertificate.html AWS API Reference> for CreateKeysAndCertificate.
+-- certificate, so it is important to keep it in a secure location.
 module Network.AWS.IoT.CreateKeysAndCertificate
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest CreateKeysAndCertificate where
                      (x .?> "certificateArn")
                      <*> (x .?> "certificateId")
                      <*> (pure (fromEnum s)))
+
+instance Hashable CreateKeysAndCertificate
 
 instance ToHeaders CreateKeysAndCertificate where
         toHeaders = const mempty
@@ -149,7 +149,7 @@ ckacrsCertificateARN :: Lens' CreateKeysAndCertificateResponse (Maybe Text)
 ckacrsCertificateARN = lens _ckacrsCertificateARN (\ s a -> s{_ckacrsCertificateARN = a});
 
 -- | The ID of the certificate. AWS IoT issues a default subject name for the
--- certificate (e.g., AWS IoT Certificate).
+-- certificate (for example, AWS IoT Certificate).
 ckacrsCertificateId :: Lens' CreateKeysAndCertificateResponse (Maybe Text)
 ckacrsCertificateId = lens _ckacrsCertificateId (\ s a -> s{_ckacrsCertificateId = a});
 

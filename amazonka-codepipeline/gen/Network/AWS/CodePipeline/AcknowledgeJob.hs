@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.AcknowledgeJob
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns information about a specified job and whether that job has been
 -- received by the job worker. Only used for custom actions.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_AcknowledgeJob.html AWS API Reference> for AcknowledgeJob.
 module Network.AWS.CodePipeline.AcknowledgeJob
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest AcknowledgeJob where
               (\ s h x ->
                  AcknowledgeJobResponse' <$>
                    (x .?> "status") <*> (pure (fromEnum s)))
+
+instance Hashable AcknowledgeJob
 
 instance ToHeaders AcknowledgeJob where
         toHeaders

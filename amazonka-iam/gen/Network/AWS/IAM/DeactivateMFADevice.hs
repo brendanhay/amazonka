@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeactivateMFADevice
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- devices, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device>
 -- in the /Using IAM/ guide.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html AWS API Reference> for DeactivateMFADevice.
 module Network.AWS.IAM.DeactivateMFADevice
     (
     -- * Creating a Request
@@ -85,6 +83,8 @@ instance AWSRequest DeactivateMFADevice where
              DeactivateMFADeviceResponse
         request = postQuery iAM
         response = receiveNull DeactivateMFADeviceResponse'
+
+instance Hashable DeactivateMFADevice
 
 instance ToHeaders DeactivateMFADevice where
         toHeaders = const mempty

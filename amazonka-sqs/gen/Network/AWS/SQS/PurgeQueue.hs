@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.PurgeQueue
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- deleted. While the queue is being purged, messages sent to the queue
 -- before 'PurgeQueue' was called may be received, but will be deleted
 -- within the next minute.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_PurgeQueue.html AWS API Reference> for PurgeQueue.
 module Network.AWS.SQS.PurgeQueue
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest PurgeQueue where
         type Rs PurgeQueue = PurgeQueueResponse
         request = postQuery sQS
         response = receiveNull PurgeQueueResponse'
+
+instance Hashable PurgeQueue
 
 instance ToHeaders PurgeQueue where
         toHeaders = const mempty

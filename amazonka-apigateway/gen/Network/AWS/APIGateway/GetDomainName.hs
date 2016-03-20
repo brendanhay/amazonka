@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDomainName
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Represents a domain name that is contained in a simpler, more intuitive
 -- URL that can be called.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetDomainName.html AWS API Reference> for GetDomainName.
 module Network.AWS.APIGateway.GetDomainName
     (
     -- * Creating a Request
@@ -47,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to get the name of a DomainName resource.
+-- | Request to get the name of a < DomainName> resource.
 --
 -- /See:/ 'getDomainName' smart constructor.
 newtype GetDomainName = GetDomainName'
@@ -67,7 +65,7 @@ getDomainName pDomainName_ =
     { _gdnDomainName = pDomainName_
     }
 
--- | The name of the DomainName resource.
+-- | The name of the < DomainName> resource.
 gdnDomainName :: Lens' GetDomainName Text
 gdnDomainName = lens _gdnDomainName (\ s a -> s{_gdnDomainName = a});
 
@@ -76,8 +74,13 @@ instance AWSRequest GetDomainName where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetDomainName
+
 instance ToHeaders GetDomainName where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetDomainName where
         toPath GetDomainName'{..}

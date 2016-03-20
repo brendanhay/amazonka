@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -46,6 +46,8 @@ azName = lens _azName (\ s a -> s{_azName = a});
 
 instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
+
+instance Hashable AvailabilityZone
 
 -- | Contains all of the attributes of a specific cache cluster.
 --
@@ -338,6 +340,8 @@ instance FromXML CacheCluster where
                 <*> (x .@? "PendingModifiedValues")
                 <*> (x .@? "NumCacheNodes")
 
+instance Hashable CacheCluster
+
 -- | Provides all of the details about a particular cache engine version.
 --
 -- /See:/ 'cacheEngineVersion' smart constructor.
@@ -402,6 +406,8 @@ instance FromXML CacheEngineVersion where
                 <*> (x .@? "CacheEngineDescription")
                 <*> (x .@? "Engine")
                 <*> (x .@? "CacheEngineVersionDescription")
+
+instance Hashable CacheEngineVersion
 
 -- | Represents an individual cache node within a cache cluster. Each cache
 -- node runs its own instance of the cluster\'s protocol-compliant caching
@@ -521,6 +527,8 @@ instance FromXML CacheNode where
                 <*> (x .@? "CacheNodeStatus")
                 <*> (x .@? "Endpoint")
 
+instance Hashable CacheNode
+
 -- | A parameter that has a different value for each cache node type it is
 -- applied to. For example, in a Redis cache cluster, a /cache.m1.large/
 -- cache node type would have a larger /maxmemory/ value than a
@@ -619,6 +627,8 @@ instance FromXML CacheNodeTypeSpecificParameter where
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
 
+instance Hashable CacheNodeTypeSpecificParameter
+
 -- | A value that applies only to a certain cache node type.
 --
 -- /See:/ 'cacheNodeTypeSpecificValue' smart constructor.
@@ -654,6 +664,8 @@ instance FromXML CacheNodeTypeSpecificValue where
         parseXML x
           = CacheNodeTypeSpecificValue' <$>
               (x .@? "CacheNodeType") <*> (x .@? "Value")
+
+instance Hashable CacheNodeTypeSpecificValue
 
 -- | Represents the output of a /CreateCacheParameterGroup/ action.
 --
@@ -702,6 +714,8 @@ instance FromXML CacheParameterGroup where
                 (x .@? "CacheParameterGroupName")
                 <*> (x .@? "Description")
 
+instance Hashable CacheParameterGroup
+
 -- | Represents the output of one of the following actions:
 --
 -- -   /ModifyCacheParameterGroup/
@@ -732,6 +746,8 @@ instance FromXML CacheParameterGroupNameMessage where
         parseXML x
           = CacheParameterGroupNameMessage' <$>
               (x .@? "CacheParameterGroupName")
+
+instance Hashable CacheParameterGroupNameMessage
 
 -- | The status of the cache parameter group.
 --
@@ -781,6 +797,8 @@ instance FromXML CacheParameterGroupStatus where
                 (x .@? "CacheNodeIdsToReboot" .!@ mempty >>=
                    may (parseXMLList "CacheNodeId"))
                 <*> (x .@? "ParameterApplyStatus")
+
+instance Hashable CacheParameterGroupStatus
 
 -- | Represents the output of one of the following actions:
 --
@@ -844,6 +862,8 @@ instance FromXML CacheSecurityGroup where
                    may (parseXMLList "EC2SecurityGroup"))
                 <*> (x .@? "Description")
 
+instance Hashable CacheSecurityGroup
+
 -- | Represents a cache cluster\'s status within a particular cache security
 -- group.
 --
@@ -882,6 +902,8 @@ instance FromXML CacheSecurityGroupMembership where
         parseXML x
           = CacheSecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "CacheSecurityGroupName")
+
+instance Hashable CacheSecurityGroupMembership
 
 -- | Represents the output of one of the following actions:
 --
@@ -943,6 +965,8 @@ instance FromXML CacheSubnetGroup where
                 <*> (x .@? "CacheSubnetGroupName")
                 <*> (x .@? "CacheSubnetGroupDescription")
 
+instance Hashable CacheSubnetGroup
+
 -- | Provides ownership and status information for an Amazon EC2 security
 -- group.
 --
@@ -990,6 +1014,8 @@ instance FromXML EC2SecurityGroup where
                 (x .@? "EC2SecurityGroupOwnerId")
                 <*> (x .@? "EC2SecurityGroupName")
 
+instance Hashable EC2SecurityGroup
+
 -- | Represents the information required for client programs to connect to a
 -- cache node.
 --
@@ -1025,6 +1051,8 @@ ePort = lens _ePort (\ s a -> s{_ePort = a});
 instance FromXML Endpoint where
         parseXML x
           = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
+
+instance Hashable Endpoint
 
 -- | Represents the output of a /DescribeEngineDefaultParameters/ action.
 --
@@ -1087,6 +1115,8 @@ instance FromXML EngineDefaults where
                 (x .@? "Parameters" .!@ mempty >>=
                    may (parseXMLList "Parameter"))
 
+instance Hashable EngineDefaults
+
 -- | Represents a single occurrence of something interesting within the
 -- system. Some examples of events are creating a cache cluster, adding or
 -- removing a cache node, or rebooting a node.
@@ -1146,6 +1176,8 @@ instance FromXML Event where
                 <*> (x .@? "Date")
                 <*> (x .@? "Message")
 
+instance Hashable Event
+
 -- | Represents a collection of cache nodes in a replication group.
 --
 -- /See:/ 'nodeGroup' smart constructor.
@@ -1203,6 +1235,8 @@ instance FromXML NodeGroup where
                 (x .@? "NodeGroupMembers" .!@ mempty >>=
                    may (parseXMLList "NodeGroupMember"))
                 <*> (x .@? "NodeGroupId")
+
+instance Hashable NodeGroup
 
 -- | Represents a single node within a node group.
 --
@@ -1269,6 +1303,8 @@ instance FromXML NodeGroupMember where
                 <*> (x .@? "CurrentRole")
                 <*> (x .@? "ReadEndpoint")
 
+instance Hashable NodeGroupMember
+
 -- | Represents an individual cache node in a snapshot of a cache cluster.
 --
 -- /See:/ 'nodeSnapshot' smart constructor.
@@ -1326,6 +1362,8 @@ instance FromXML NodeSnapshot where
                 <*> (x .@? "SnapshotCreateTime")
                 <*> (x .@? "CacheSize")
 
+instance Hashable NodeSnapshot
+
 -- | Describes a notification topic and its status. Notification topics are
 -- used for publishing ElastiCache events to subscribers using Amazon
 -- Simple Notification Service (SNS).
@@ -1363,6 +1401,8 @@ instance FromXML NotificationConfiguration where
         parseXML x
           = NotificationConfiguration' <$>
               (x .@? "TopicStatus") <*> (x .@? "TopicArn")
+
+instance Hashable NotificationConfiguration
 
 -- | Describes an individual setting that controls some aspect of ElastiCache
 -- behavior.
@@ -1458,6 +1498,8 @@ instance FromXML Parameter where
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
 
+instance Hashable Parameter
+
 -- | Describes a name-value pair that is used to update the value of a
 -- parameter.
 --
@@ -1489,6 +1531,8 @@ pnvParameterValue = lens _pnvParameterValue (\ s a -> s{_pnvParameterValue = a})
 -- | The name of the parameter.
 pnvParameterName :: Lens' ParameterNameValue (Maybe Text)
 pnvParameterName = lens _pnvParameterName (\ s a -> s{_pnvParameterName = a});
+
+instance Hashable ParameterNameValue
 
 instance ToQuery ParameterNameValue where
         toQuery ParameterNameValue'{..}
@@ -1549,6 +1593,8 @@ instance FromXML PendingModifiedValues where
                    may (parseXMLList "CacheNodeId"))
                 <*> (x .@? "NumCacheNodes")
 
+instance Hashable PendingModifiedValues
+
 -- | Contains the specific price and frequency of a recurring charges for a
 -- reserved cache node, or for a reserved cache node offering.
 --
@@ -1586,6 +1632,8 @@ instance FromXML RecurringCharge where
           = RecurringCharge' <$>
               (x .@? "RecurringChargeFrequency") <*>
                 (x .@? "RecurringChargeAmount")
+
+instance Hashable RecurringCharge
 
 -- | Contains all of the attributes of a specific replication group.
 --
@@ -1691,6 +1739,8 @@ instance FromXML ReplicationGroup where
                 <*> (x .@? "PendingModifiedValues")
                 <*> (x .@? "AutomaticFailover")
 
+instance Hashable ReplicationGroup
+
 -- | The settings to be applied to the replication group, either immediately
 -- or during the next maintenance window.
 --
@@ -1736,6 +1786,9 @@ instance FromXML
           = ReplicationGroupPendingModifiedValues' <$>
               (x .@? "PrimaryClusterId") <*>
                 (x .@? "AutomaticFailoverStatus")
+
+instance Hashable
+         ReplicationGroupPendingModifiedValues
 
 -- | Represents the output of a /PurchaseReservedCacheNodesOffering/ action.
 --
@@ -1895,6 +1948,8 @@ instance FromXML ReservedCacheNode where
                 <*> (x .@? "Duration")
                 <*> (x .@? "ReservedCacheNodesOfferingId")
 
+instance Hashable ReservedCacheNode
+
 -- | Describes all of the attributes of a reserved cache node offering.
 --
 -- /See:/ 'reservedCacheNodesOffering' smart constructor.
@@ -2018,6 +2073,8 @@ instance FromXML ReservedCacheNodesOffering where
                 <*> (x .@? "Duration")
                 <*> (x .@? "ReservedCacheNodesOfferingId")
 
+instance Hashable ReservedCacheNodesOffering
+
 -- | Represents a single cache security group and its status.
 --
 -- /See:/ 'securityGroupMembership' smart constructor.
@@ -2055,6 +2112,8 @@ instance FromXML SecurityGroupMembership where
         parseXML x
           = SecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "SecurityGroupId")
+
+instance Hashable SecurityGroupMembership
 
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
@@ -2325,6 +2384,8 @@ instance FromXML Snapshot where
                 <*> (x .@? "Port")
                 <*> (x .@? "SnapshotSource")
 
+instance Hashable Snapshot
+
 -- | Represents the subnet associated with a cache cluster. This parameter
 -- refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC)
 -- and used with ElastiCache.
@@ -2364,6 +2425,8 @@ instance FromXML Subnet where
               (x .@? "SubnetIdentifier") <*>
                 (x .@? "SubnetAvailabilityZone")
 
+instance Hashable Subnet
+
 -- | A cost allocation Tag that can be added to an ElastiCache cluster or
 -- replication group. Tags are composed of a Key\/Value pair. A tag with a
 -- null Value is permitted.
@@ -2401,6 +2464,8 @@ instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
+instance Hashable Tag
+
 instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
@@ -2434,3 +2499,5 @@ instance FromXML TagListMessage where
           = TagListMessage' <$>
               (x .@? "TagList" .!@ mempty >>=
                  may (parseXMLList "Tag"))
+
+instance Hashable TagListMessage

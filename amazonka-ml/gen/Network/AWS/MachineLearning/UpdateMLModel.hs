@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.UpdateMLModel
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,10 +20,8 @@
 --
 -- Updates the 'MLModelName' and the 'ScoreThreshold' of an 'MLModel'.
 --
--- You can use the GetMLModel operation to view the contents of the updated
--- data element.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateMLModel.html AWS API Reference> for UpdateMLModel.
+-- You can use the < GetMLModel> operation to view the contents of the
+-- updated data element.
 module Network.AWS.MachineLearning.UpdateMLModel
     (
     -- * Creating a Request
@@ -102,6 +100,8 @@ instance AWSRequest UpdateMLModel where
                  UpdateMLModelResponse' <$>
                    (x .?> "MLModelId") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateMLModel
+
 instance ToHeaders UpdateMLModel where
         toHeaders
           = const
@@ -125,9 +125,9 @@ instance ToPath UpdateMLModel where
 instance ToQuery UpdateMLModel where
         toQuery = const mempty
 
--- | Represents the output of an UpdateMLModel operation.
+-- | Represents the output of an < UpdateMLModel> operation.
 --
--- You can see the updated content by using the GetMLModel operation.
+-- You can see the updated content by using the < GetMLModel> operation.
 --
 -- /See:/ 'updateMLModelResponse' smart constructor.
 data UpdateMLModelResponse = UpdateMLModelResponse'

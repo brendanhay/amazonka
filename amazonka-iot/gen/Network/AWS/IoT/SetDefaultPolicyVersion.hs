@@ -12,18 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.IoT.SetDefaultPolicyVersion
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the specified version of the specified policy as the policy\'s
--- default (operative) version. This action affects all certificates that
--- the policy is attached to. To list the principals the policy is attached
--- to, use the ListPrincipalPolicy API.
---
--- /See:/ <https://aws.amazon.com/iot#SetDefaultPolicyVersion.html AWS API Reference> for SetDefaultPolicyVersion.
+-- default (operative) version. This action affects all certificates to
+-- which the policy is attached. To list the principals the policy is
+-- attached to, use the ListPrincipalPolicy API.
 module Network.AWS.IoT.SetDefaultPolicyVersion
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest SetDefaultPolicyVersion where
         request = patchJSON ioT
         response
           = receiveNull SetDefaultPolicyVersionResponse'
+
+instance Hashable SetDefaultPolicyVersion
 
 instance ToHeaders SetDefaultPolicyVersion where
         toHeaders = const mempty

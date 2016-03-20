@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.Predict
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- Not all response parameters will be populated. Whether a response
 -- parameter is populated depends on the type of model requested.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_Predict.html AWS API Reference> for Predict.
 module Network.AWS.MachineLearning.Predict
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest Predict where
               (\ s h x ->
                  PredictResponse' <$>
                    (x .?> "Prediction") <*> (pure (fromEnum s)))
+
+instance Hashable Predict
 
 instance ToHeaders Predict where
         toHeaders

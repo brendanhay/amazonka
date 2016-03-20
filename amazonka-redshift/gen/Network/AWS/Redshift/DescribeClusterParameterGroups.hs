@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusterParameterGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -37,8 +37,6 @@
 -- If both tag keys and values are omitted from the request, parameter
 -- groups are returned regardless of whether they have tag keys or values
 -- associated with them.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameterGroups.html AWS API Reference> for DescribeClusterParameterGroups.
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusterParameterGroups
@@ -127,7 +125,7 @@ dcpgTagKeys = lens _dcpgTagKeys (\ s a -> s{_dcpgTagKeys = a}) . _Default . _Coe
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
--- DescribeClusterParameterGroups request exceed the value specified in
+-- < DescribeClusterParameterGroups> request exceed the value specified in
 -- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the 'Marker' parameter and retrying the
@@ -176,6 +174,8 @@ instance AWSRequest DescribeClusterParameterGroups
                         may (parseXMLList "ClusterParameterGroup"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeClusterParameterGroups
+
 instance ToHeaders DescribeClusterParameterGroups
          where
         toHeaders = const mempty
@@ -197,7 +197,7 @@ instance ToQuery DescribeClusterParameterGroups where
                "MaxRecords" =: _dcpgMaxRecords,
                "ParameterGroupName" =: _dcpgParameterGroupName]
 
--- | Contains the output from the DescribeClusterParameterGroups action.
+-- | Contains the output from the < DescribeClusterParameterGroups> action.
 --
 -- /See:/ 'describeClusterParameterGroupsResponse' smart constructor.
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'
@@ -234,8 +234,8 @@ describeClusterParameterGroupsResponse pResponseStatus_ =
 dcpgrsMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
 dcpgrsMarker = lens _dcpgrsMarker (\ s a -> s{_dcpgrsMarker = a});
 
--- | A list of ClusterParameterGroup instances. Each instance describes one
--- cluster parameter group.
+-- | A list of < ClusterParameterGroup> instances. Each instance describes
+-- one cluster parameter group.
 dcpgrsParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
 dcpgrsParameterGroups = lens _dcpgrsParameterGroups (\ s a -> s{_dcpgrsParameterGroups = a}) . _Default . _Coerce;
 

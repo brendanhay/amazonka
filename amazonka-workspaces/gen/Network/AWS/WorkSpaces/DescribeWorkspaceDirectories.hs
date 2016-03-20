@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- request and response parameters. If more results are available, the
 -- 'NextToken' response member contains a token that you pass in the next
 -- call to this operation to retrieve the next set of items.
---
--- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_DescribeWorkspaceDirectories.html AWS API Reference> for DescribeWorkspaceDirectories.
 module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     (
     -- * Creating a Request
@@ -53,7 +51,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the DescribeWorkspaceDirectories operation.
+-- | Contains the inputs for the < DescribeWorkspaceDirectories> operation.
 --
 -- /See:/ 'describeWorkspaceDirectories' smart constructor.
 data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
@@ -99,6 +97,8 @@ instance AWSRequest DescribeWorkspaceDirectories
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeWorkspaceDirectories
+
 instance ToHeaders DescribeWorkspaceDirectories where
         toHeaders
           = const
@@ -122,7 +122,7 @@ instance ToPath DescribeWorkspaceDirectories where
 instance ToQuery DescribeWorkspaceDirectories where
         toQuery = const mempty
 
--- | Contains the results of the DescribeWorkspaceDirectories operation.
+-- | Contains the results of the < DescribeWorkspaceDirectories> operation.
 --
 -- /See:/ 'describeWorkspaceDirectoriesResponse' smart constructor.
 data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'

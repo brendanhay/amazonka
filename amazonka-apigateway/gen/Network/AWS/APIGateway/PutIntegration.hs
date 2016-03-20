@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.PutIntegration
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a put integration.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/PutIntegration.html AWS API Reference> for PutIntegration.
 module Network.AWS.APIGateway.PutIntegration
     (
     -- * Creating a Request
@@ -147,6 +145,7 @@ pRequestParameters :: Lens' PutIntegration (HashMap Text Text)
 pRequestParameters = lens _pRequestParameters (\ s a -> s{_pRequestParameters = a}) . _Default . _Map;
 
 -- | Specifies a put integration input\'s Uniform Resource Identifier (URI).
+-- When the integration type is HTTP or AWS, this field is required.
 pUri :: Lens' PutIntegration (Maybe Text)
 pUri = lens _pUri (\ s a -> s{_pUri = a});
 
@@ -154,7 +153,8 @@ pUri = lens _pUri (\ s a -> s{_pUri = a});
 pCacheNamespace :: Lens' PutIntegration (Maybe Text)
 pCacheNamespace = lens _pCacheNamespace (\ s a -> s{_pCacheNamespace = a});
 
--- | Specifies a put integration HTTP method.
+-- | Specifies a put integration HTTP method. When the integration type is
+-- HTTP or AWS, this field is required.
 pIntegrationHTTPMethod :: Lens' PutIntegration (Maybe Text)
 pIntegrationHTTPMethod = lens _pIntegrationHTTPMethod (\ s a -> s{_pIntegrationHTTPMethod = a});
 
@@ -183,8 +183,13 @@ instance AWSRequest PutIntegration where
         request = putJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable PutIntegration
+
 instance ToHeaders PutIntegration where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON PutIntegration where
         toJSON PutIntegration'{..}

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.UpdateDomainNameservers
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- to track the progress and completion of the action. If the request is
 -- not completed successfully, the domain registrant will be notified by
 -- email.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainNameservers.html AWS API Reference> for UpdateDomainNameservers.
 module Network.AWS.Route53Domains.UpdateDomainNameservers
     (
     -- * Creating a Request
@@ -119,6 +117,8 @@ instance AWSRequest UpdateDomainNameservers where
               (\ s h x ->
                  UpdateDomainNameserversResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
+
+instance Hashable UpdateDomainNameservers
 
 instance ToHeaders UpdateDomainNameservers where
         toHeaders

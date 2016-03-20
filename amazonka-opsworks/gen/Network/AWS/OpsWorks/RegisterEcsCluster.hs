@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterEcsCluster
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterEcsCluster.html AWS API Reference> for RegisterEcsCluster.
 module Network.AWS.OpsWorks.RegisterEcsCluster
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest RegisterEcsCluster where
               (\ s h x ->
                  RegisterEcsClusterResponse' <$>
                    (x .?> "EcsClusterArn") <*> (pure (fromEnum s)))
+
+instance Hashable RegisterEcsCluster
 
 instance ToHeaders RegisterEcsCluster where
         toHeaders

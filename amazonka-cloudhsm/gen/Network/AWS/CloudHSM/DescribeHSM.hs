@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DescribeHSM
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Retrieves information about an HSM. You can identify the HSM by its ARN
 -- or its serial number.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeHSM.html AWS API Reference> for DescribeHSM.
 module Network.AWS.CloudHSM.DescribeHSM
     (
     -- * Creating a Request
@@ -66,7 +64,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DescribeHsm action.
+-- | Contains the inputs for the < DescribeHsm> operation.
 --
 -- /See:/ 'describeHSM' smart constructor.
 data DescribeHSM = DescribeHSM'
@@ -128,6 +126,8 @@ instance AWSRequest DescribeHSM where
                      <*> (x .?> "HsmType")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeHSM
+
 instance ToHeaders DescribeHSM where
         toHeaders
           = const
@@ -151,7 +151,7 @@ instance ToPath DescribeHSM where
 instance ToQuery DescribeHSM where
         toQuery = const mempty
 
--- | Contains the output of the DescribeHsm action.
+-- | Contains the output of the < DescribeHsm> operation.
 --
 -- /See:/ 'describeHSMResponse' smart constructor.
 data DescribeHSMResponse = DescribeHSMResponse'
@@ -272,7 +272,7 @@ desrsEniId = lens _desrsEniId (\ s a -> s{_desrsEniId = a});
 desrsVPCId :: Lens' DescribeHSMResponse (Maybe Text)
 desrsVPCId = lens _desrsVPCId (\ s a -> s{_desrsVPCId = a});
 
--- | The date and time the SSH key was last updated.
+-- | The date and time that the SSH key was last updated.
 desrsSSHKeyLastUpdated :: Lens' DescribeHSMResponse (Maybe Text)
 desrsSSHKeyLastUpdated = lens _desrsSSHKeyLastUpdated (\ s a -> s{_desrsSSHKeyLastUpdated = a});
 
@@ -284,7 +284,7 @@ desrsSubscriptionEndDate = lens _desrsSubscriptionEndDate (\ s a -> s{_desrsSubs
 desrsServerCertURI :: Lens' DescribeHSMResponse (Maybe Text)
 desrsServerCertURI = lens _desrsServerCertURI (\ s a -> s{_desrsServerCertURI = a});
 
--- | The subscription type.
+-- | Undocumented member.
 desrsSubscriptionType :: Lens' DescribeHSMResponse (Maybe SubscriptionType)
 desrsSubscriptionType = lens _desrsSubscriptionType (\ s a -> s{_desrsSubscriptionType = a});
 
@@ -292,7 +292,7 @@ desrsSubscriptionType = lens _desrsSubscriptionType (\ s a -> s{_desrsSubscripti
 desrsSSHPublicKey :: Lens' DescribeHSMResponse (Maybe Text)
 desrsSSHPublicKey = lens _desrsSSHPublicKey (\ s a -> s{_desrsSSHPublicKey = a});
 
--- | The identifier of the subnet the HSM is in.
+-- | The identifier of the subnet that the HSM is in.
 desrsSubnetId :: Lens' DescribeHSMResponse (Maybe Text)
 desrsSubnetId = lens _desrsSubnetId (\ s a -> s{_desrsSubnetId = a});
 
@@ -312,7 +312,7 @@ desrsSubscriptionStartDate = lens _desrsSubscriptionStartDate (\ s a -> s{_desrs
 desrsAvailabilityZone :: Lens' DescribeHSMResponse (Maybe Text)
 desrsAvailabilityZone = lens _desrsAvailabilityZone (\ s a -> s{_desrsAvailabilityZone = a});
 
--- | The date and time the server certificate was last updated.
+-- | The date and time that the server certificate was last updated.
 desrsServerCertLastUpdated :: Lens' DescribeHSMResponse (Maybe Text)
 desrsServerCertLastUpdated = lens _desrsServerCertLastUpdated (\ s a -> s{_desrsServerCertLastUpdated = a});
 

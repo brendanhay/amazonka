@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Retrieve a list of application versions stored in your AWS Elastic
 -- Beanstalk storage bucket.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplicationVersions.html AWS API Reference> for DescribeApplicationVersions.
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     (
     -- * Creating a Request
@@ -91,6 +89,8 @@ instance AWSRequest DescribeApplicationVersions where
                    (x .@? "ApplicationVersions" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeApplicationVersions
 
 instance ToHeaders DescribeApplicationVersions where
         toHeaders = const mempty

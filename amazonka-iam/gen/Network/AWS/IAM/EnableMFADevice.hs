@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.EnableMFADevice
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Enables the specified MFA device and associates it with the specified
 -- user name. When enabled, the MFA device is required for every subsequent
 -- login by the user name associated with the device.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html AWS API Reference> for EnableMFADevice.
 module Network.AWS.IAM.EnableMFADevice
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest EnableMFADevice where
         type Rs EnableMFADevice = EnableMFADeviceResponse
         request = postQuery iAM
         response = receiveNull EnableMFADeviceResponse'
+
+instance Hashable EnableMFADevice
 
 instance ToHeaders EnableMFADevice where
         toHeaders = const mempty

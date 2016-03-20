@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.Data.Base64
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
@@ -19,6 +19,7 @@ import           Data.Aeson.Types
 import qualified Data.Attoparsec.Text        as AText
 import qualified Data.ByteArray.Encoding     as BA
 import           Data.Data                   (Data, Typeable)
+import           Data.Hashable
 import qualified Data.Text.Encoding          as Text
 import           GHC.Generics                (Generic)
 import           Network.AWS.Data.Body
@@ -35,6 +36,8 @@ import           Network.AWS.Lens            (Iso', iso)
 -- respectively.
 newtype Base64 = Base64 { unBase64 :: ByteString }
     deriving (Eq, Read, Ord, Data, Typeable, Generic)
+
+instance Hashable Base64
 
 _Base64 :: Iso' Base64 ByteString
 _Base64 = iso unBase64 Base64

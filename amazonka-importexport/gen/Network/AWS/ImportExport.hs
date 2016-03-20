@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -18,8 +18,6 @@
 -- and bypassing the Internet. For large data sets, AWS Import\/Export is
 -- often faster than Internet transfer and more cost effective than
 -- upgrading your connectivity.
---
--- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/api-reference.html AWS API Reference>
 module Network.AWS.ImportExport
     (
     -- * Service Configuration

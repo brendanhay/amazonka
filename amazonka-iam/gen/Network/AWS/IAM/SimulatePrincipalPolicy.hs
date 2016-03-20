@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.SimulatePrincipalPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,7 +26,7 @@
 --
 -- You can optionally include a list of one or more additional policies
 -- specified as strings to include in the simulation. If you want to
--- simulate only policies specified as strings, use SimulateCustomPolicy
+-- simulate only policies specified as strings, use < SimulateCustomPolicy>
 -- instead.
 --
 -- You can also optionally include one resource-based policy to be
@@ -38,19 +38,17 @@
 --
 -- __Note:__ This API discloses information about the permissions granted
 -- to other users. If you do not want users to see other user\'s
--- permissions, then consider allowing them to use SimulateCustomPolicy
+-- permissions, then consider allowing them to use < SimulateCustomPolicy>
 -- instead.
 --
 -- Context keys are variables maintained by AWS and its services that
 -- provide details about the context of an API query request. You can use
 -- the 'Condition' element of an IAM policy to evaluate context keys. To
 -- get the list of context keys that the policies require for correct
--- simulation, use GetContextKeysForPrincipalPolicy.
+-- simulation, use < GetContextKeysForPrincipalPolicy>.
 --
 -- If the output is long, you can use the 'MaxItems' and 'Marker'
 -- parameters to paginate the results.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html AWS API Reference> for SimulatePrincipalPolicy.
 module Network.AWS.IAM.SimulatePrincipalPolicy
     (
     -- * Creating a Request
@@ -291,6 +289,8 @@ instance AWSRequest SimulatePrincipalPolicy where
         response
           = receiveXMLWrapper "SimulatePrincipalPolicyResult"
               (\ s h x -> parseXML x)
+
+instance Hashable SimulatePrincipalPolicy
 
 instance ToHeaders SimulatePrincipalPolicy where
         toHeaders = const mempty

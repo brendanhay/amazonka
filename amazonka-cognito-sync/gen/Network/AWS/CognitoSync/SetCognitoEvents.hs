@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.SetCognitoEvents
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- This API can only be called with developer credentials. You cannot call
 -- this API with the temporary user credentials provided by Cognito
 -- Identity.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SetCognitoEvents.html AWS API Reference> for SetCognitoEvents.
 module Network.AWS.CognitoSync.SetCognitoEvents
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest SetCognitoEvents where
         type Rs SetCognitoEvents = SetCognitoEventsResponse
         request = postJSON cognitoSync
         response = receiveNull SetCognitoEventsResponse'
+
+instance Hashable SetCognitoEvents
 
 instance ToHeaders SetCognitoEvents where
         toHeaders

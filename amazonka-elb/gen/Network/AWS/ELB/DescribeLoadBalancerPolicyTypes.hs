@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,10 +20,8 @@
 --
 -- Describes the specified load balancer policy types.
 --
--- You can use these policy types with CreateLoadBalancerPolicy to create
--- policy configurations for a load balancer.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicyTypes.html AWS API Reference> for DescribeLoadBalancerPolicyTypes.
+-- You can use these policy types with < CreateLoadBalancerPolicy> to
+-- create policy configurations for a load balancer.
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest DescribeLoadBalancerPolicyTypes
                    (x .@? "PolicyTypeDescriptions" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeLoadBalancerPolicyTypes
 
 instance ToHeaders DescribeLoadBalancerPolicyTypes
          where

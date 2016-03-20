@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBClusterSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- Aurora, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBClusterSnapshot.html AWS API Reference> for CreateDBClusterSnapshot.
 module Network.AWS.RDS.CreateDBClusterSnapshot
     (
     -- * Creating a Request
@@ -117,6 +115,8 @@ instance AWSRequest CreateDBClusterSnapshot where
               (\ s h x ->
                  CreateDBClusterSnapshotResponse' <$>
                    (x .@? "DBClusterSnapshot") <*> (pure (fromEnum s)))
+
+instance Hashable CreateDBClusterSnapshot
 
 instance ToHeaders CreateDBClusterSnapshot where
         toHeaders = const mempty

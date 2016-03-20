@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteNetworkACLEntry
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Deletes the specified ingress or egress entry (rule) from the specified
 -- network ACL.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkACLEntry.html AWS API Reference> for DeleteNetworkACLEntry.
 module Network.AWS.EC2.DeleteNetworkACLEntry
     (
     -- * Creating a Request
@@ -101,6 +99,8 @@ instance AWSRequest DeleteNetworkACLEntry where
              DeleteNetworkACLEntryResponse
         request = postQuery eC2
         response = receiveNull DeleteNetworkACLEntryResponse'
+
+instance Hashable DeleteNetworkACLEntry
 
 instance ToHeaders DeleteNetworkACLEntry where
         toHeaders = const mempty

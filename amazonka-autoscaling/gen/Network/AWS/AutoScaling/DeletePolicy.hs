@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeletePolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- Deleting a policy deletes the underlying alarm action, but does not
 -- delete the alarm, even if it no longer has an associated action.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeletePolicy.html AWS API Reference> for DeletePolicy.
 module Network.AWS.AutoScaling.DeletePolicy
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest DeletePolicy where
         type Rs DeletePolicy = DeletePolicyResponse
         request = postQuery autoScaling
         response = receiveNull DeletePolicyResponse'
+
+instance Hashable DeletePolicy
 
 instance ToHeaders DeletePolicy where
         toHeaders = const mempty

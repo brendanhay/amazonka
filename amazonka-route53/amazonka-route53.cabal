@@ -1,5 +1,5 @@
 name:                  amazonka-route53
-version:               1.3.7
+version:               1.3.8
 synopsis:              Amazon Route 53 SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2015 Brendan Hay
+copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -31,7 +31,7 @@ description:
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.Route53" and the <http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html AWS API Reference>
+    See "Network.AWS.Route53" or <https://aws.amazon.com/documentation/ the AWS Documentation>
     to get started.
 
 source-repository head
@@ -62,7 +62,6 @@ library
         , Network.AWS.Route53.DeleteTrafficPolicyInstance
         , Network.AWS.Route53.DisassociateVPCFromHostedZone
         , Network.AWS.Route53.GetChange
-        , Network.AWS.Route53.GetChangeDetails
         , Network.AWS.Route53.GetCheckerIPRanges
         , Network.AWS.Route53.GetGeoLocation
         , Network.AWS.Route53.GetHealthCheck
@@ -75,8 +74,6 @@ library
         , Network.AWS.Route53.GetTrafficPolicy
         , Network.AWS.Route53.GetTrafficPolicyInstance
         , Network.AWS.Route53.GetTrafficPolicyInstanceCount
-        , Network.AWS.Route53.ListChangeBatchesByHostedZone
-        , Network.AWS.Route53.ListChangeBatchesByRRSet
         , Network.AWS.Route53.ListGeoLocations
         , Network.AWS.Route53.ListHealthChecks
         , Network.AWS.Route53.ListHostedZones
@@ -103,7 +100,7 @@ library
         , Network.AWS.Route53.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.7.*
+          amazonka-core == 1.3.8.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-route53-test
@@ -123,9 +120,9 @@ test-suite amazonka-route53-test
         , Test.AWS.Route53.Internal
 
     build-depends:
-          amazonka-core == 1.3.7.*
-        , amazonka-test == 1.3.7.*
-        , amazonka-route53 == 1.3.7.*
+          amazonka-core == 1.3.8.*
+        , amazonka-test == 1.3.8.*
+        , amazonka-route53 == 1.3.8.*
         , base
         , bytestring
         , tasty

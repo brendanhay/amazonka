@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetReusableDelegationSet
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve the reusable delegation set, send a 'GET' request to the
--- '2013-04-01\/delegationset\/delegation set ID' resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html AWS API Reference> for GetReusableDelegationSet.
+-- '\/Route 53 API version\/delegationset\/delegation set ID' resource.
 module Network.AWS.Route53.GetReusableDelegationSet
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | The input for a GetReusableDelegationSet request.
+-- | The input for a 'GetReusableDelegationSet' request.
 --
 -- /See:/ 'getReusableDelegationSet' smart constructor.
 newtype GetReusableDelegationSet = GetReusableDelegationSet'
@@ -79,6 +77,8 @@ instance AWSRequest GetReusableDelegationSet where
               (\ s h x ->
                  GetReusableDelegationSetResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "DelegationSet"))
+
+instance Hashable GetReusableDelegationSet
 
 instance ToHeaders GetReusableDelegationSet where
         toHeaders = const mempty

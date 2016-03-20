@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.UpdateDataSource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,10 +20,8 @@
 --
 -- Updates the 'DataSourceName' of a 'DataSource'.
 --
--- You can use the GetDataSource operation to view the contents of the
+-- You can use the < GetDataSource> operation to view the contents of the
 -- updated data element.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateDataSource.html AWS API Reference> for UpdateDataSource.
 module Network.AWS.MachineLearning.UpdateDataSource
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest UpdateDataSource where
                  UpdateDataSourceResponse' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateDataSource
+
 instance ToHeaders UpdateDataSource where
         toHeaders
           = const
@@ -111,9 +111,9 @@ instance ToPath UpdateDataSource where
 instance ToQuery UpdateDataSource where
         toQuery = const mempty
 
--- | Represents the output of an UpdateDataSource operation.
+-- | Represents the output of an < UpdateDataSource> operation.
 --
--- You can see the updated content by using the GetBatchPrediction
+-- You can see the updated content by using the < GetBatchPrediction>
 -- operation.
 --
 -- /See:/ 'updateDataSourceResponse' smart constructor.

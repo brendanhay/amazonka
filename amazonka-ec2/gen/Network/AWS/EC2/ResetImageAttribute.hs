@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetImageAttribute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Resets an attribute of an AMI to its default value.
 --
 -- The productCodes attribute can\'t be reset.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetImageAttribute.html AWS API Reference> for ResetImageAttribute.
 module Network.AWS.EC2.ResetImageAttribute
     (
     -- * Creating a Request
@@ -93,6 +91,8 @@ instance AWSRequest ResetImageAttribute where
              ResetImageAttributeResponse
         request = postQuery eC2
         response = receiveNull ResetImageAttributeResponse'
+
+instance Hashable ResetImageAttribute
 
 instance ToHeaders ResetImageAttribute where
         toHeaders = const mempty

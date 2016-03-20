@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,13 +29,11 @@
 -- files for every Amazon EC2 instance into a '.zip' file. Legacy and .NET
 -- containers do not support bundle logs.
 --
--- Use RetrieveEnvironmentInfo to obtain the set of logs.
+-- Use < RetrieveEnvironmentInfo> to obtain the set of logs.
 --
 -- Related Topics
 --
--- -   RetrieveEnvironmentInfo
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RequestEnvironmentInfo.html AWS API Reference> for RequestEnvironmentInfo.
+-- -   < RetrieveEnvironmentInfo>
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     (
     -- * Creating a Request
@@ -118,6 +116,8 @@ instance AWSRequest RequestEnvironmentInfo where
         request = postQuery elasticBeanstalk
         response
           = receiveNull RequestEnvironmentInfoResponse'
+
+instance Hashable RequestEnvironmentInfo
 
 instance ToHeaders RequestEnvironmentInfo where
         toHeaders = const mempty

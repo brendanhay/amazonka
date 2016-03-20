@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.ListIdentities
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- domains) for a specific AWS Account, regardless of verification status.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentities.html AWS API Reference> for ListIdentities.
 --
 -- This operation returns paginated results.
 module Network.AWS.SES.ListIdentities
@@ -53,10 +51,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to list all identities for
--- the AWS Account.
---
--- /See:/ 'listIdentities' smart constructor.
+-- | /See:/ 'listIdentities' smart constructor.
 data ListIdentities = ListIdentities'
     { _liIdentityType :: !(Maybe IdentityType)
     , _liNextToken    :: !(Maybe Text)
@@ -114,6 +109,8 @@ instance AWSRequest ListIdentities where
                      (x .@? "Identities" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListIdentities
+
 instance ToHeaders ListIdentities where
         toHeaders = const mempty
 
@@ -129,9 +126,7 @@ instance ToQuery ListIdentities where
                "NextToken" =: _liNextToken,
                "MaxItems" =: _liMaxItems]
 
--- | Represents a list of all verified identities for the AWS Account.
---
--- /See:/ 'listIdentitiesResponse' smart constructor.
+-- | /See:/ 'listIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
     { _lirsNextToken      :: !(Maybe Text)
     , _lirsResponseStatus :: !Int

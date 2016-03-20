@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ComposeEnvironments
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- manifest named 'env.yaml'. See
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html Compose Environments>
 -- for details.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ComposeEnvironments.html AWS API Reference> for ComposeEnvironments.
 module Network.AWS.ElasticBeanstalk.ComposeEnvironments
     (
     -- * Creating a Request
@@ -107,6 +105,8 @@ instance AWSRequest ComposeEnvironments where
         response
           = receiveXMLWrapper "ComposeEnvironmentsResult"
               (\ s h x -> parseXML x)
+
+instance Hashable ComposeEnvironments
 
 instance ToHeaders ComposeEnvironments where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.VerifyDomainDkim
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -34,8 +34,6 @@
 -- For more information about creating DNS records using DKIM tokens, go to
 -- the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainDkim.html AWS API Reference> for VerifyDomainDkim.
 module Network.AWS.SES.VerifyDomainDkim
     (
     -- * Creating a Request
@@ -59,10 +57,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to begin DKIM verification
--- for a domain.
---
--- /See:/ 'verifyDomainDkim' smart constructor.
+-- | /See:/ 'verifyDomainDkim' smart constructor.
 newtype VerifyDomainDkim = VerifyDomainDkim'
     { _vddDomain :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -95,6 +90,8 @@ instance AWSRequest VerifyDomainDkim where
                      (x .@? "DkimTokens" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable VerifyDomainDkim
+
 instance ToHeaders VerifyDomainDkim where
         toHeaders = const mempty
 
@@ -108,10 +105,7 @@ instance ToQuery VerifyDomainDkim where
                "Version" =: ("2010-12-01" :: ByteString),
                "Domain" =: _vddDomain]
 
--- | Represents the DNS records that must be published in the domain name\'s
--- DNS to complete DKIM setup.
---
--- /See:/ 'verifyDomainDkimResponse' smart constructor.
+-- | /See:/ 'verifyDomainDkimResponse' smart constructor.
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
     { _vddrsResponseStatus :: !Int
     , _vddrsDkimTokens     :: ![Text]

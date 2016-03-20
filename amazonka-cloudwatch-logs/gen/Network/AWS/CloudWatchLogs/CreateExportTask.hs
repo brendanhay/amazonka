@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.CreateExportTask
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,14 +24,13 @@
 -- This is an asynchronous call. If all the required information is
 -- provided, this API will initiate an export task and respond with the
 -- task Id. Once started, 'DescribeExportTasks' can be used to get the
--- status of an export task.
+-- status of an export task. You can only have one active ('RUNNING' or
+-- 'PENDING') export task at a time, per account.
 --
 -- You can export logs from multiple log groups or multiple time ranges to
 -- the same Amazon S3 bucket. To separate out log data for each export
 -- task, you can specify a prefix that will be used as the Amazon S3 key
 -- prefix for all exported objects.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateExportTask.html AWS API Reference> for CreateExportTask.
 module Network.AWS.CloudWatchLogs.CreateExportTask
     (
     -- * Creating a Request
@@ -141,7 +140,7 @@ cetTo = lens _cetTo (\ s a -> s{_cetTo = a}) . _Nat;
 
 -- | Name of Amazon S3 bucket to which the log data will be exported.
 --
--- __NOTE: Only buckets in the same AWS region are supported__
+-- __Note:__ Only buckets in the same AWS region are supported.
 cetDestination :: Lens' CreateExportTask Text
 cetDestination = lens _cetDestination (\ s a -> s{_cetDestination = a});
 
@@ -153,6 +152,8 @@ instance AWSRequest CreateExportTask where
               (\ s h x ->
                  CreateExportTaskResponse' <$>
                    (x .?> "taskId") <*> (pure (fromEnum s)))
+
+instance Hashable CreateExportTask
 
 instance ToHeaders CreateExportTask where
         toHeaders

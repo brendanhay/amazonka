@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyEventSubscription
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,15 +21,13 @@
 -- Modifies an existing RDS event notification subscription. Note that you
 -- cannot modify the source identifiers using this call; to change source
 -- identifiers for a subscription, use the
--- AddSourceIdentifierToSubscription and
--- RemoveSourceIdentifierFromSubscription calls.
+-- < AddSourceIdentifierToSubscription> and
+-- < RemoveSourceIdentifierFromSubscription> calls.
 --
 -- You can see a list of the event categories for a given SourceType in the
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
 -- topic in the Amazon RDS User Guide or by using the
 -- __DescribeEventCategories__ action.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyEventSubscription.html AWS API Reference> for ModifyEventSubscription.
 module Network.AWS.RDS.ModifyEventSubscription
     (
     -- * Creating a Request
@@ -134,6 +132,8 @@ instance AWSRequest ModifyEventSubscription where
               (\ s h x ->
                  ModifyEventSubscriptionResponse' <$>
                    (x .@? "EventSubscription") <*> (pure (fromEnum s)))
+
+instance Hashable ModifyEventSubscription
 
 instance ToHeaders ModifyEventSubscription where
         toHeaders = const mempty

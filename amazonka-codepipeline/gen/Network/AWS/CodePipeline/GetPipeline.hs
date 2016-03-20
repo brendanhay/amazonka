@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.GetPipeline
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,9 +21,7 @@
 -- Returns the metadata, structure, stages, and actions of a pipeline. Can
 -- be used to return the entire structure of a pipeline in JSON format,
 -- which can then be modified and used to update the pipeline structure
--- with UpdatePipeline.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_GetPipeline.html AWS API Reference> for GetPipeline.
+-- with < UpdatePipeline>.
 module Network.AWS.CodePipeline.GetPipeline
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest GetPipeline where
               (\ s h x ->
                  GetPipelineResponse' <$>
                    (x .?> "pipeline") <*> (pure (fromEnum s)))
+
+instance Hashable GetPipeline
 
 instance ToHeaders GetPipeline where
         toHeaders

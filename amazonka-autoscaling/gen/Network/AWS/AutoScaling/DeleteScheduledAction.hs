@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteScheduledAction
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified scheduled action.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteScheduledAction.html AWS API Reference> for DeleteScheduledAction.
 module Network.AWS.AutoScaling.DeleteScheduledAction
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest DeleteScheduledAction where
              DeleteScheduledActionResponse
         request = postQuery autoScaling
         response = receiveNull DeleteScheduledActionResponse'
+
+instance Hashable DeleteScheduledAction
 
 instance ToHeaders DeleteScheduledAction where
         toHeaders = const mempty

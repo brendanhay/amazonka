@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DeletePolicyVersion
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,10 +20,8 @@
 --
 -- Deletes the specified version of the specified policy. You cannot delete
 -- the default version of a policy using this API. To delete the default
--- version of a policy, use DeletePolicy. To find out which version of a
+-- version of a policy, use < DeletePolicy>. To find out which version of a
 -- policy is marked as the default version, use ListPolicyVersions.
---
--- /See:/ <https://aws.amazon.com/iot#DeletePolicyVersion.html AWS API Reference> for DeletePolicyVersion.
 module Network.AWS.IoT.DeletePolicyVersion
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest DeletePolicyVersion where
              DeletePolicyVersionResponse
         request = delete ioT
         response = receiveNull DeletePolicyVersionResponse'
+
+instance Hashable DeletePolicyVersion
 
 instance ToHeaders DeletePolicyVersion where
         toHeaders = const mempty

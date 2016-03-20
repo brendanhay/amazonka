@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetModelTemplate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Generates a sample mapping template that can be used to transform a
 -- payload into the structure of a model.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetModelTemplate.html AWS API Reference> for GetModelTemplate.
 module Network.AWS.APIGateway.GetModelTemplate
     (
     -- * Creating a Request
@@ -72,7 +70,7 @@ getModelTemplate pRestAPIId_ pModelName_ =
     , _gmtModelName = pModelName_
     }
 
--- | The ID of the RestApi under which the model exists.
+-- | The ID of the < RestApi> under which the model exists.
 gmtRestAPIId :: Lens' GetModelTemplate Text
 gmtRestAPIId = lens _gmtRestAPIId (\ s a -> s{_gmtRestAPIId = a});
 
@@ -89,8 +87,13 @@ instance AWSRequest GetModelTemplate where
                  GetModelTemplateResponse' <$>
                    (x .?> "value") <*> (pure (fromEnum s)))
 
+instance Hashable GetModelTemplate
+
 instance ToHeaders GetModelTemplate where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetModelTemplate where
         toPath GetModelTemplate'{..}

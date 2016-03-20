@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.UpdateAvailabilityOptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- about half an hour to become active. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html Configuring Availability Options>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateAvailabilityOptions.html AWS API Reference> for UpdateAvailabilityOptions.
 module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest UpdateAvailabilityOptions where
                  UpdateAvailabilityOptionsResponse' <$>
                    (x .@? "AvailabilityOptions") <*>
                      (pure (fromEnum s)))
+
+instance Hashable UpdateAvailabilityOptions
 
 instance ToHeaders UpdateAvailabilityOptions where
         toHeaders = const mempty

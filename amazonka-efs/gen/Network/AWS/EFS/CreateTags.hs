@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.CreateTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,13 +22,11 @@
 -- key-value pair. If a tag key specified in the request already exists on
 -- the file system, this operation overwrites its value with the value
 -- provided in the request. If you add the \"Name\" tag to your file
--- system, Amazon EFS returns it in the response to the DescribeFileSystems
--- API.
+-- system, Amazon EFS returns it in the response to the
+-- < DescribeFileSystems> API.
 --
 -- This operation requires permission for the
 -- 'elasticfilesystem:CreateTags' action.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateTags.html AWS API Reference> for CreateTags.
 module Network.AWS.EFS.CreateTags
     (
     -- * Creating a Request
@@ -85,6 +83,8 @@ instance AWSRequest CreateTags where
         type Rs CreateTags = CreateTagsResponse
         request = postJSON eFS
         response = receiveNull CreateTagsResponse'
+
+instance Hashable CreateTags
 
 instance ToHeaders CreateTags where
         toHeaders = const mempty

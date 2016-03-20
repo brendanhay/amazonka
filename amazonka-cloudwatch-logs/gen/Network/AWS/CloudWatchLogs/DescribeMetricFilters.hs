@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeMetricFilters
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- value in the response body. You can also limit the number of metric
 -- filters returned in the response by specifying the 'limit' parameter in
 -- the request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html AWS API Reference> for DescribeMetricFilters.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeMetricFilters
@@ -127,6 +125,8 @@ instance AWSRequest DescribeMetricFilters where
                    (x .?> "nextToken") <*>
                      (x .?> "metricFilters" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeMetricFilters
 
 instance ToHeaders DescribeMetricFilters where
         toHeaders

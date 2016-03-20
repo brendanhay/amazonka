@@ -8,7 +8,7 @@
 
 ## Version
 
-`1.3.7`
+`1.3.8`
 
 
 ## Description
@@ -21,7 +21,7 @@ eliminates your need to invest in hardware up front, so you can develop
 and deploy applications faster.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-ec2)
-and the [AWS API Reference](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html).
+and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
 which provides mechanisms for specifying AuthN/AuthZ information and sending requests.

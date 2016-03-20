@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteDocument
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- Before you delete the SSM document, we recommend that you use
 -- DeleteAssociation to disassociate all instances that are associated with
 -- the document.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DeleteDocument.html AWS API Reference> for DeleteDocument.
 module Network.AWS.SSM.DeleteDocument
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest DeleteDocument where
           = receiveEmpty
               (\ s h x ->
                  DeleteDocumentResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeleteDocument
 
 instance ToHeaders DeleteDocument where
         toHeaders

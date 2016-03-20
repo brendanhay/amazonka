@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.PutDeliveryChannel
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- existing value for the parameter that is not changed.
 --
 -- Currently, you can specify only one delivery channel per account.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_PutDeliveryChannel.html AWS API Reference> for PutDeliveryChannel.
 module Network.AWS.Config.PutDeliveryChannel
     (
     -- * Creating a Request
@@ -51,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the PutDeliveryChannel action.
+-- | The input for the < PutDeliveryChannel> action.
 --
 -- /See:/ 'putDeliveryChannel' smart constructor.
 newtype PutDeliveryChannel = PutDeliveryChannel'
@@ -82,6 +80,8 @@ instance AWSRequest PutDeliveryChannel where
              PutDeliveryChannelResponse
         request = postJSON config
         response = receiveNull PutDeliveryChannelResponse'
+
+instance Hashable PutDeliveryChannel
 
 instance ToHeaders PutDeliveryChannel where
         toHeaders

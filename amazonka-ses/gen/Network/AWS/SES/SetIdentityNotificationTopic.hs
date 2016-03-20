@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetIdentityNotificationTopic
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 --
 -- For more information about feedback notification, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityNotificationTopic.html AWS API Reference> for SetIdentityNotificationTopic.
 module Network.AWS.SES.SetIdentityNotificationTopic
     (
     -- * Creating a Request
@@ -57,9 +55,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to set or clear an identity\'s notification topic.
---
--- /See:/ 'setIdentityNotificationTopic' smart constructor.
+-- | /See:/ 'setIdentityNotificationTopic' smart constructor.
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
     { _sintSNSTopic         :: !(Maybe Text)
     , _sintIdentity         :: !Text
@@ -116,6 +112,8 @@ instance AWSRequest SetIdentityNotificationTopic
                  SetIdentityNotificationTopicResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable SetIdentityNotificationTopic
+
 instance ToHeaders SetIdentityNotificationTopic where
         toHeaders = const mempty
 
@@ -132,10 +130,7 @@ instance ToQuery SetIdentityNotificationTopic where
                "Identity" =: _sintIdentity,
                "NotificationType" =: _sintNotificationType]
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
---
--- /See:/ 'setIdentityNotificationTopicResponse' smart constructor.
+-- | /See:/ 'setIdentityNotificationTopicResponse' smart constructor.
 newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
     { _sintrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

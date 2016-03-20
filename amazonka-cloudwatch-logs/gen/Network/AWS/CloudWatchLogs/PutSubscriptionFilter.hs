@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutSubscriptionFilter
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,15 +24,17 @@
 -- and have them delivered to a specific destination. Currently, the
 -- supported destinations are:
 --
--- -   A Amazon Kinesis stream belonging to the same account as the
+-- -   An Amazon Kinesis stream belonging to the same account as the
 --     subscription filter, for same-account delivery.
 -- -   A logical destination (used via an ARN of 'Destination') belonging
 --     to a different account, for cross-account delivery.
+-- -   An Amazon Kinesis Firehose stream belonging to the same account as
+--     the subscription filter, for same-account delivery.
+-- -   An AWS Lambda function belonging to the same account as the
+--     subscription filter, for same-account delivery.
 --
 -- Currently there can only be one subscription filter associated with a
 -- log group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html AWS API Reference> for PutSubscriptionFilter.
 module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     (
     -- * Creating a Request
@@ -94,7 +96,7 @@ putSubscriptionFilter pLogGroupName_ pFilterName_ pFilterPattern_ pDestinationAR
     , _psfDestinationARN = pDestinationARN_
     }
 
--- | The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to
+-- | The ARN of an IAM role that grants CloudWatch Logs permissions to
 -- deliver ingested log events to the destination stream. You don\'t need
 -- to provide the ARN when you are working with a logical destination (used
 -- via an ARN of 'Destination') for cross-account delivery.
@@ -117,10 +119,14 @@ psfFilterPattern = lens _psfFilterPattern (\ s a -> s{_psfFilterPattern = a});
 -- | The ARN of the destination to deliver matching log events to. Currently,
 -- the supported destinations are:
 --
--- -   A Amazon Kinesis stream belonging to the same account as the
+-- -   An Amazon Kinesis stream belonging to the same account as the
 --     subscription filter, for same-account delivery.
 -- -   A logical destination (used via an ARN of 'Destination') belonging
 --     to a different account, for cross-account delivery.
+-- -   An Amazon Kinesis Firehose stream belonging to the same account as
+--     the subscription filter, for same-account delivery.
+-- -   An AWS Lambda function belonging to the same account as the
+--     subscription filter, for same-account delivery.
 psfDestinationARN :: Lens' PutSubscriptionFilter Text
 psfDestinationARN = lens _psfDestinationARN (\ s a -> s{_psfDestinationARN = a});
 
@@ -129,6 +135,8 @@ instance AWSRequest PutSubscriptionFilter where
              PutSubscriptionFilterResponse
         request = postJSON cloudWatchLogs
         response = receiveNull PutSubscriptionFilterResponse'
+
+instance Hashable PutSubscriptionFilter
 
 instance ToHeaders PutSubscriptionFilter where
         toHeaders

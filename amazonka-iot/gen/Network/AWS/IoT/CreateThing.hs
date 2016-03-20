@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.CreateThing
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a thing in the thing registry.
---
--- /See:/ <https://aws.amazon.com/iot#CreateThing.html AWS API Reference> for CreateThing.
+-- Creates a thing in the Thing Registry.
 module Network.AWS.IoT.CreateThing
     (
     -- * Creating a Request
@@ -70,9 +68,9 @@ createThing pThingName_ =
     , _ctThingName = pThingName_
     }
 
--- | The attribute payload. Which consists of up to 3 name\/value pairs in a
--- JSON document. For example:
--- {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}
+-- | The attribute payload, which consists of up to 3 name\/value pairs in a
+-- JSON document (for example,
+-- {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
 ctAttributePayload :: Lens' CreateThing (Maybe AttributePayload)
 ctAttributePayload = lens _ctAttributePayload (\ s a -> s{_ctAttributePayload = a});
 
@@ -89,6 +87,8 @@ instance AWSRequest CreateThing where
                  CreateThingResponse' <$>
                    (x .?> "thingArn") <*> (x .?> "thingName") <*>
                      (pure (fromEnum s)))
+
+instance Hashable CreateThing
 
 instance ToHeaders CreateThing where
         toHeaders = const mempty

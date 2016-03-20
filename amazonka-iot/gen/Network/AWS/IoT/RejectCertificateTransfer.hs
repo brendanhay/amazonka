@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IoT.RejectCertificateTransfer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,14 +22,12 @@
 -- certificate transfer, the certificate status changes from
 -- __PENDING_TRANFER__ to __INACTIVE__.
 --
--- To check for pending certificate transfers, call ListCertificates to
+-- To check for pending certificate transfers, call < ListCertificates> to
 -- enumerate your certificates.
 --
--- This operation can only be called by the transfer destination. Once
--- called, the certificate will be returned to the source\'s account in the
--- INACTIVE state.
---
--- /See:/ <https://aws.amazon.com/iot#RejectCertificateTransfer.html AWS API Reference> for RejectCertificateTransfer.
+-- This operation can only be called by the transfer destination. After it
+-- is called, the certificate will be returned to the source\'s account in
+-- the INACTIVE state.
 module Network.AWS.IoT.RejectCertificateTransfer
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest RejectCertificateTransfer where
         request = patchJSON ioT
         response
           = receiveNull RejectCertificateTransferResponse'
+
+instance Hashable RejectCertificateTransfer
 
 instance ToHeaders RejectCertificateTransfer where
         toHeaders = const mempty

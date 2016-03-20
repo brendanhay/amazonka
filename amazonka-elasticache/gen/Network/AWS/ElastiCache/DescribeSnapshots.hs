@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeSnapshots
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- snapshots. By default, /DescribeSnapshots/ lists all of your snapshots;
 -- it can optionally describe a single snapshot, or just the snapshots
 -- associated with a particular cache cluster.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html AWS API Reference> for DescribeSnapshots.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeSnapshots
@@ -142,6 +140,8 @@ instance AWSRequest DescribeSnapshots where
                       may (parseXMLList "Snapshot"))
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeSnapshots
 
 instance ToHeaders DescribeSnapshots where
         toHeaders = const mempty

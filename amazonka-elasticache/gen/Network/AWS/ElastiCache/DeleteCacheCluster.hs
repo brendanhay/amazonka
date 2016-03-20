@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteCacheCluster
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 --
 -- This API cannot be used to delete a cache cluster that is the last read
 -- replica of a replication group that has Multi-AZ mode enabled.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html AWS API Reference> for DeleteCacheCluster.
 module Network.AWS.ElastiCache.DeleteCacheCluster
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest DeleteCacheCluster where
               (\ s h x ->
                  DeleteCacheClusterResponse' <$>
                    (x .@? "CacheCluster") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteCacheCluster
 
 instance ToHeaders DeleteCacheCluster where
         toHeaders = const mempty

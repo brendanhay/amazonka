@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketLogging
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Set the logging parameters for a bucket and to specify permissions for
 -- who can view and modify the logging parameters. To set the logging
 -- status of a bucket, you must be the bucket owner.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLogging.html AWS API Reference> for PutBucketLogging.
 module Network.AWS.S3.PutBucketLogging
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest PutBucketLogging where
         type Rs PutBucketLogging = PutBucketLoggingResponse
         request = putXML s3
         response = receiveNull PutBucketLoggingResponse'
+
+instance Hashable PutBucketLogging
 
 instance ToElement PutBucketLogging where
         toElement

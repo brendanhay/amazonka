@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.AddTagsToResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- to organize your costs across multiple services. For more information,
 -- see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Tagging.html Using Cost Allocation Tags in Amazon ElastiCache>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html AWS API Reference> for AddTagsToResource.
 module Network.AWS.ElastiCache.AddTagsToResource
     (
     -- * Creating a Request
@@ -95,6 +93,8 @@ instance AWSRequest AddTagsToResource where
         response
           = receiveXMLWrapper "AddTagsToResourceResult"
               (\ s h x -> parseXML x)
+
+instance Hashable AddTagsToResource
 
 instance ToHeaders AddTagsToResource where
         toHeaders = const mempty

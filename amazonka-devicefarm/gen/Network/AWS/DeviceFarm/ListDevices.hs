@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListDevices
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about unique device types.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListDevices.html AWS API Reference> for ListDevices.
 module Network.AWS.DeviceFarm.ListDevices
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest ListDevices where
                  ListDevicesResponse' <$>
                    (x .?> "nextToken") <*> (x .?> "devices" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListDevices
 
 instance ToHeaders ListDevices where
         toHeaders

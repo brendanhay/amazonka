@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteApp
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteApp.html AWS API Reference> for DeleteApp.
 module Network.AWS.OpsWorks.DeleteApp
     (
     -- * Creating a Request
@@ -73,6 +71,8 @@ instance AWSRequest DeleteApp where
         type Rs DeleteApp = DeleteAppResponse
         request = postJSON opsWorks
         response = receiveNull DeleteAppResponse'
+
+instance Hashable DeleteApp
 
 instance ToHeaders DeleteApp where
         toHeaders

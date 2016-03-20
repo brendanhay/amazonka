@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVolume
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -37,8 +37,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html Creating or Restoring an Amazon EBS Volume>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html AWS API Reference> for CreateVolume.
 module Network.AWS.EC2.CreateVolume
     (
     -- * Creating a Request
@@ -188,7 +186,7 @@ creSnapshotId :: Lens' CreateVolume (Maybe Text)
 creSnapshotId = lens _creSnapshotId (\ s a -> s{_creSnapshotId = a});
 
 -- | The Availability Zone in which to create the volume. Use
--- DescribeAvailabilityZones to list the Availability Zones that are
+-- < DescribeAvailabilityZones> to list the Availability Zones that are
 -- currently available to you.
 creAvailabilityZone :: Lens' CreateVolume Text
 creAvailabilityZone = lens _creAvailabilityZone (\ s a -> s{_creAvailabilityZone = a});
@@ -197,6 +195,8 @@ instance AWSRequest CreateVolume where
         type Rs CreateVolume = Volume
         request = postQuery eC2
         response = receiveXML (\ s h x -> parseXML x)
+
+instance Hashable CreateVolume
 
 instance ToHeaders CreateVolume where
         toHeaders = const mempty

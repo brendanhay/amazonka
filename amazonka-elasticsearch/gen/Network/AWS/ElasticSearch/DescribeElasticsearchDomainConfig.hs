@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Provides cluster configuration information about the specified
 -- Elasticsearch domain, such as the state, creation date, update version,
 -- and update date for cluster options.
---
--- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-DescribeElasticsearchDomainConfig.html AWS API Reference> for DescribeElasticsearchDomainConfig.
 module Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest DescribeElasticsearchDomainConfig
               (\ s h x ->
                  DescribeElasticsearchDomainConfigResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "DomainConfig"))
+
+instance Hashable DescribeElasticsearchDomainConfig
 
 instance ToHeaders DescribeElasticsearchDomainConfig
          where

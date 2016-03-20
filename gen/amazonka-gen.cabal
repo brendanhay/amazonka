@@ -1,12 +1,12 @@
 name:                  amazonka-gen
-version:               1.3.7
+version:               1.3.8
 synopsis:              Amazonka Code Generator
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2015 Brendan Hay
+copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
@@ -30,7 +30,6 @@ executable amazonka-gen
         , Gen.AST.Override
         , Gen.AST.Prefix
         , Gen.AST.Subst
-        , Gen.AST.TypeOf
         , Gen.Formatting
         , Gen.IO
         , Gen.Import
@@ -49,10 +48,12 @@ executable amazonka-gen
         , Gen.Types.Notation
         , Gen.Types.Orphans
         , Gen.Types.Pager
-        , Gen.Types.Retry
         , Gen.Types.Pager
+        , Gen.Types.Retry
         , Gen.Types.Service
+        , Gen.Types.TypeOf
         , Gen.Types.URI
+        , Gen.Types.Config
         , Gen.Types.Waiter
 
     ghc-options:       -Wall -threaded
@@ -89,4 +90,5 @@ executable amazonka-gen
         , text-regex-replace
         , time                 >= 1.5
         , transformers
+        , unexceptionalio
         , unordered-containers

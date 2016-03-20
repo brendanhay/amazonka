@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- After the virtual interface owner calls this function, the virtual
 -- interface will be created and attached to the given virtual private
 -- gateway, and will be available for handling traffic.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.html AWS API Reference> for ConfirmPrivateVirtualInterface.
 module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     (
     -- * Creating a Request
@@ -103,6 +101,8 @@ instance AWSRequest ConfirmPrivateVirtualInterface
                  ConfirmPrivateVirtualInterfaceResponse' <$>
                    (x .?> "virtualInterfaceState") <*>
                      (pure (fromEnum s)))
+
+instance Hashable ConfirmPrivateVirtualInterface
 
 instance ToHeaders ConfirmPrivateVirtualInterface
          where

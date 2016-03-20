@@ -7,7 +7,7 @@
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.AST.Subst
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -22,7 +22,7 @@ module Gen.AST.Subst
 
 import           Control.Comonad.Cofree
 import           Control.Error
-import           Control.Lens
+import           Control.Lens           hiding ((:<))
 import           Control.Monad.Except
 import           Control.Monad.State
 import qualified Data.HashMap.Strict    as Map

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.PutNotificationConfiguration
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- in the /Auto Scaling Developer Guide/.
 --
 -- This configuration overwrites an existing configuration.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutNotificationConfiguration.html AWS API Reference> for PutNotificationConfiguration.
 module Network.AWS.AutoScaling.PutNotificationConfiguration
     (
     -- * Creating a Request
@@ -89,7 +87,7 @@ pncTopicARN = lens _pncTopicARN (\ s a -> s{_pncTopicARN = a});
 
 -- | The type of event that will cause the notification to be sent. For
 -- details about notification types supported by Auto Scaling, see
--- DescribeAutoScalingNotificationTypes.
+-- < DescribeAutoScalingNotificationTypes>.
 pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
 pncNotificationTypes = lens _pncNotificationTypes (\ s a -> s{_pncNotificationTypes = a}) . _Coerce;
 
@@ -100,6 +98,8 @@ instance AWSRequest PutNotificationConfiguration
         request = postQuery autoScaling
         response
           = receiveNull PutNotificationConfigurationResponse'
+
+instance Hashable PutNotificationConfiguration
 
 instance ToHeaders PutNotificationConfiguration where
         toHeaders = const mempty

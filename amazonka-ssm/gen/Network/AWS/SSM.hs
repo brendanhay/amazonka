@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -134,8 +134,6 @@
 -- AWS-RunPowerShellScript document on Windows, to trusted administrators
 -- only. You can create SSM documents for specific tasks and delegate
 -- access to non-administrators.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.SSM
     (
     -- * Service Configuration
@@ -222,10 +220,10 @@ module Network.AWS.SSM
     -- ** CreateDocument
     , module Network.AWS.SSM.CreateDocument
 
-    -- ** ListCommandInvocations
+    -- ** ListCommandInvocations (Paginated)
     , module Network.AWS.SSM.ListCommandInvocations
 
-    -- ** ListDocuments
+    -- ** ListDocuments (Paginated)
     , module Network.AWS.SSM.ListDocuments
 
     -- ** GetDocument
@@ -243,7 +241,7 @@ module Network.AWS.SSM
     -- ** DescribeInstanceInformation
     , module Network.AWS.SSM.DescribeInstanceInformation
 
-    -- ** ListAssociations
+    -- ** ListAssociations (Paginated)
     , module Network.AWS.SSM.ListAssociations
 
     -- ** DeleteAssociation
@@ -252,7 +250,7 @@ module Network.AWS.SSM
     -- ** SendCommand
     , module Network.AWS.SSM.SendCommand
 
-    -- ** ListCommands
+    -- ** ListCommands (Paginated)
     , module Network.AWS.SSM.ListCommands
 
     -- ** DeleteDocument

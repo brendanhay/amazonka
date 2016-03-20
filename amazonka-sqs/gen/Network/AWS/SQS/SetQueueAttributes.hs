@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.SetQueueAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- Going forward, new attributes might be added. If you are writing code
 -- that calls this action, we recommend that you structure your code so
 -- that it can handle new attributes gracefully.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SetQueueAttributes.html AWS API Reference> for SetQueueAttributes.
 module Network.AWS.SQS.SetQueueAttributes
     (
     -- * Creating a Request
@@ -114,6 +112,8 @@ instance AWSRequest SetQueueAttributes where
              SetQueueAttributesResponse
         request = postQuery sQS
         response = receiveNull SetQueueAttributesResponse'
+
+instance Hashable SetQueueAttributes
 
 instance ToHeaders SetQueueAttributes where
         toHeaders = const mempty

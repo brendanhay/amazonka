@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeInstances.html AWS API Reference> for DescribeInstances.
 module Network.AWS.OpsWorks.DescribeInstances
     (
     -- * Creating a Request
@@ -104,6 +102,8 @@ instance AWSRequest DescribeInstances where
                  DescribeInstancesResponse' <$>
                    (x .?> "Instances" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeInstances
 
 instance ToHeaders DescribeInstances where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeServiceErrors
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeServiceErrors.html AWS API Reference> for DescribeServiceErrors.
 module Network.AWS.OpsWorks.DescribeServiceErrors
     (
     -- * Creating a Request
@@ -104,6 +102,8 @@ instance AWSRequest DescribeServiceErrors where
                  DescribeServiceErrorsResponse' <$>
                    (x .?> "ServiceErrors" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeServiceErrors
 
 instance ToHeaders DescribeServiceErrors where
         toHeaders

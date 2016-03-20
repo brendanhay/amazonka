@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -13,47 +13,41 @@
 --
 -- Amazon CloudWatch Logs API Reference
 --
--- This is the /Amazon CloudWatch Logs API Reference/. Amazon CloudWatch
--- Logs enables you to monitor, store, and access your system, application,
--- and custom log files. This guide provides detailed information about
--- Amazon CloudWatch Logs actions, data types, parameters, and errors. For
--- detailed information about Amazon CloudWatch Logs features and their
--- associated API calls, go to the
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide Amazon CloudWatch Developer Guide>.
+-- You can use Amazon CloudWatch Logs to monitor, store, and access your
+-- log files from Amazon Elastic Compute Cloud (Amazon EC2) instances,
+-- Amazon CloudTrail, or other sources. You can then retrieve the
+-- associated log data from CloudWatch Logs using the Amazon CloudWatch
+-- console, the CloudWatch Logs commands in the AWS CLI, the CloudWatch
+-- Logs API, or the CloudWatch Logs SDK.
 --
--- Use the following links to get started using the /Amazon CloudWatch Logs
--- API Reference/:
+-- You can use CloudWatch Logs to:
 --
--- -   <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Operations.html Actions>:
---     An alphabetical list of all Amazon CloudWatch Logs actions.
--- -   <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Types.html Data Types>:
---     An alphabetical list of all Amazon CloudWatch Logs data types.
--- -   <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/CommonParameters.html Common Parameters>:
---     Parameters that all Query actions can use.
--- -   <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/CommonErrors.html Common Errors>:
---     Client and server errors that all actions can return.
--- -   <http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html Regions and Endpoints>:
---     Itemized regions and endpoints for all AWS products.
+-- -   __Monitor Logs from Amazon EC2 Instances in Real-time__: You can use
+--     CloudWatch Logs to monitor applications and systems using log data.
+--     For example, CloudWatch Logs can track the number of errors that
+--     occur in your application logs and send you a notification whenever
+--     the rate of errors exceeds a threshold you specify. CloudWatch Logs
+--     uses your log data for monitoring; so, no code changes are required.
+--     For example, you can monitor application logs for specific literal
+--     terms (such as \"NullReferenceException\") or count the number of
+--     occurrences of a literal term at a particular position in log data
+--     (such as \"404\" status codes in an Apache access log). When the
+--     term you are searching for is found, CloudWatch Logs reports the
+--     data to a Amazon CloudWatch metric that you specify.
 --
--- In addition to using the Amazon CloudWatch Logs API, you can also use
--- the following SDKs and third-party libraries to access Amazon CloudWatch
--- Logs programmatically.
+-- -   __Monitor Amazon CloudTrail Logged Events__: You can create alarms
+--     in Amazon CloudWatch and receive notifications of particular API
+--     activity as captured by CloudTrail and use the notification to
+--     perform troubleshooting.
 --
--- -   <http://aws.amazon.com/documentation/sdkforjava/ AWS SDK for Java Documentation>
--- -   <http://aws.amazon.com/documentation/sdkfornet/ AWS SDK for .NET Documentation>
--- -   <http://aws.amazon.com/documentation/sdkforphp/ AWS SDK for PHP Documentation>
--- -   <http://aws.amazon.com/documentation/sdkforruby/ AWS SDK for Ruby Documentation>
+-- -   __Archive Log Data__: You can use CloudWatch Logs to store your log
+--     data in highly durable storage. You can change the log retention
+--     setting so that any log events older than this setting are
+--     automatically deleted. The CloudWatch Logs agent makes it easy to
+--     quickly send both rotated and non-rotated log data off of a host and
+--     into the log service. You can then access the raw log data when you
+--     need it.
 --
--- Developers in the AWS developer community also provide their own
--- libraries, which you can find at the following AWS developer centers:
---
--- -   <http://aws.amazon.com/java/ AWS Java Developer Center>
--- -   <http://aws.amazon.com/php/ AWS PHP Developer Center>
--- -   <http://aws.amazon.com/python/ AWS Python Developer Center>
--- -   <http://aws.amazon.com/ruby/ AWS Ruby Developer Center>
--- -   <http://aws.amazon.com/net/ AWS Windows and .NET Developer Center>
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.CloudWatchLogs
     (
     -- * Service Configuration

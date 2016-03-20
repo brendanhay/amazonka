@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.AttachLoadBalancers
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,14 +21,12 @@
 -- Attaches one or more load balancers to the specified Auto Scaling group.
 --
 -- To describe the load balancers for an Auto Scaling group, use
--- DescribeLoadBalancers. To detach the load balancer from the Auto Scaling
--- group, use DetachLoadBalancers.
+-- < DescribeLoadBalancers>. To detach the load balancer from the Auto
+-- Scaling group, use < DetachLoadBalancers>.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachLoadBalancers.html AWS API Reference> for AttachLoadBalancers.
 module Network.AWS.AutoScaling.AttachLoadBalancers
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest AttachLoadBalancers where
           = receiveXMLWrapper "AttachLoadBalancersResult"
               (\ s h x ->
                  AttachLoadBalancersResponse' <$> (pure (fromEnum s)))
+
+instance Hashable AttachLoadBalancers
 
 instance ToHeaders AttachLoadBalancers where
         toHeaders = const mempty

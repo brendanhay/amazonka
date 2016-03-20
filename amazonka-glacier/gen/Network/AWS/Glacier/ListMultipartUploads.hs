@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListMultipartUploads
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,7 @@
 --
 -- This operation lists in-progress multipart uploads for the specified
 -- vault. An in-progress multipart upload is a multipart upload that has
--- been initiated by an InitiateMultipartUpload request, but has not yet
+-- been initiated by an < InitiateMultipartUpload> request, but has not yet
 -- been completed or aborted. The list returned in the List Multipart
 -- Upload response has no guaranteed order.
 --
@@ -35,7 +35,7 @@
 -- request.
 --
 -- Note the difference between this operation and listing parts
--- (ListParts). The List Multipart Uploads operation lists all multipart
+-- (< ListParts>). The List Multipart Uploads operation lists all multipart
 -- uploads for a vault and does not require a multipart upload ID. The List
 -- Parts operation requires a multipart upload ID since parts are
 -- associated with a single upload.
@@ -51,8 +51,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html List Multipart Uploads>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListMultipartUploads.html AWS API Reference> for ListMultipartUploads.
 --
 -- This operation returns paginated results.
 module Network.AWS.Glacier.ListMultipartUploads
@@ -160,6 +158,8 @@ instance AWSRequest ListMultipartUploads where
                  ListMultipartUploadsResponse' <$>
                    (x .?> "UploadsList" .!@ mempty) <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListMultipartUploads
 
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty

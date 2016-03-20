@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.CancelExportTask
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels an export task if it is in 'PENDING' or 'RUNNING' state.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html AWS API Reference> for CancelExportTask.
 module Network.AWS.CloudWatchLogs.CancelExportTask
     (
     -- * Creating a Request
@@ -67,6 +65,8 @@ instance AWSRequest CancelExportTask where
         type Rs CancelExportTask = CancelExportTaskResponse
         request = postJSON cloudWatchLogs
         response = receiveNull CancelExportTaskResponse'
+
+instance Hashable CancelExportTask
 
 instance ToHeaders CancelExportTask where
         toHeaders

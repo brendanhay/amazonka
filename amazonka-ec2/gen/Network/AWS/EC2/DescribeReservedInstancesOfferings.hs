@@ -12,27 +12,25 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesOfferings
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes Reserved instance offerings that are available for purchase.
--- With Reserved instances, you purchase the right to launch instances for
+-- Describes Reserved Instance offerings that are available for purchase.
+-- With Reserved Instances, you purchase the right to launch instances for
 -- a period of time. During that time period, you do not receive
 -- insufficient capacity errors, and you pay a lower usage rate than the
 -- rate charged for On-Demand instances for the actual time used.
 --
--- If you have listed your own Reserved instances for sale in the Reserved
+-- If you have listed your own Reserved Instances for sale in the Reserved
 -- Instance Marketplace, they will be excluded from these results. This is
--- to ensure that you do not purchase your own Reserved instances.
+-- to ensure that you do not purchase your own Reserved Instances.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesOfferings.html AWS API Reference> for DescribeReservedInstancesOfferings.
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeReservedInstancesOfferings
@@ -149,7 +147,7 @@ describeReservedInstancesOfferings =
 drioMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 drioMaxDuration = lens _drioMaxDuration (\ s a -> s{_drioMaxDuration = a});
 
--- | The Reserved instance product platform description. Instances that
+-- | The Reserved Instance product platform description. Instances that
 -- include '(Amazon VPC)' in the description are for use with Amazon VPC.
 drioProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
 drioProductDescription = lens _drioProductDescription (\ s a -> s{_drioProductDescription = a});
@@ -157,12 +155,12 @@ drioProductDescription = lens _drioProductDescription (\ s a -> s{_drioProductDe
 -- | One or more filters.
 --
 -- -   'availability-zone' - The Availability Zone where the Reserved
---     instance can be used.
+--     Instance can be used.
 --
--- -   'duration' - The duration of the Reserved instance (for example, one
+-- -   'duration' - The duration of the Reserved Instance (for example, one
 --     year or three years), in seconds ('31536000' | '94608000').
 --
--- -   'fixed-price' - The purchase price of the Reserved instance (for
+-- -   'fixed-price' - The purchase price of the Reserved Instance (for
 --     example, 9800.0).
 --
 -- -   'instance-type' - The instance type that is covered by the
@@ -173,7 +171,7 @@ drioProductDescription = lens _drioProductDescription (\ s a -> s{_drioProductDe
 --     default behavior, all offerings from both AWS and the Reserved
 --     Instance Marketplace are listed.
 --
--- -   'product-description' - The Reserved instance product platform
+-- -   'product-description' - The Reserved Instance product platform
 --     description. Instances that include '(Amazon VPC)' in the product
 --     platform description will only be displayed to EC2-Classic account
 --     holders and are for use with Amazon VPC. ('Linux\/UNIX' |
@@ -187,10 +185,10 @@ drioProductDescription = lens _drioProductDescription (\ s a -> s{_drioProductDe
 --     'Windows with SQL Server Enterprise' |
 --     'Windows with SQL Server Enterprise (Amazon VPC)')
 --
--- -   'reserved-instances-offering-id' - The Reserved instances\' offering
+-- -   'reserved-instances-offering-id' - The Reserved Instances offering
 --     ID.
 --
--- -   'usage-price' - The usage price of the Reserved instance, per hour
+-- -   'usage-price' - The usage price of the Reserved Instance, per hour
 --     (for example, 0.84).
 --
 drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
@@ -218,23 +216,23 @@ drioNextToken = lens _drioNextToken (\ s a -> s{_drioNextToken = a});
 drioMinDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 drioMinDuration = lens _drioMinDuration (\ s a -> s{_drioMinDuration = a});
 
--- | The Availability Zone in which the Reserved instance can be used.
+-- | The Availability Zone in which the Reserved Instance can be used.
 drioAvailabilityZone :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
 drioAvailabilityZone = lens _drioAvailabilityZone (\ s a -> s{_drioAvailabilityZone = a});
 
--- | The Reserved instance offering type. If you are using tools that predate
+-- | The Reserved Instance offering type. If you are using tools that predate
 -- the 2011-11-01 API version, you only have access to the
--- 'Medium Utilization' Reserved instance offering type.
+-- 'Medium Utilization' Reserved Instance offering type.
 drioOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
 drioOfferingType = lens _drioOfferingType (\ s a -> s{_drioOfferingType = a});
 
--- | One or more Reserved instances offering IDs.
+-- | One or more Reserved Instances offering IDs.
 drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Text]
 drioReservedInstancesOfferingIds = lens _drioReservedInstancesOfferingIds (\ s a -> s{_drioReservedInstancesOfferingIds = a}) . _Default . _Coerce;
 
 -- | The tenancy of the instances covered by the reservation. A Reserved
--- instance with a tenancy of 'dedicated' is applied to instances that run
--- in a VPC on single-tenant hardware (i.e., Dedicated instances).
+-- Instance with a tenancy of 'dedicated' is applied to instances that run
+-- in a VPC on single-tenant hardware (i.e., Dedicated Instances).
 --
 -- Default: 'default'
 drioInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
@@ -284,6 +282,8 @@ instance AWSRequest
                      (x .@? "reservedInstancesOfferingsSet" .!@ mempty >>=
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeReservedInstancesOfferings
 
 instance ToHeaders DescribeReservedInstancesOfferings
          where
@@ -348,7 +348,7 @@ describeReservedInstancesOfferingsResponse pResponseStatus_ =
 driorsNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
 driorsNextToken = lens _driorsNextToken (\ s a -> s{_driorsNextToken = a});
 
--- | A list of Reserved instances offerings.
+-- | A list of Reserved Instances offerings.
 driorsReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
 driorsReservedInstancesOfferings = lens _driorsReservedInstancesOfferings (\ s a -> s{_driorsReservedInstancesOfferings = a}) . _Default . _Coerce;
 

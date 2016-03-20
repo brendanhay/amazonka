@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateRole
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- you can create, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html AWS API Reference> for CreateRole.
 module Network.AWS.IAM.CreateRole
     (
     -- * Creating a Request
@@ -106,6 +104,8 @@ instance AWSRequest CreateRole where
                  CreateRoleResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Role"))
 
+instance Hashable CreateRole
+
 instance ToHeaders CreateRole where
         toHeaders = const mempty
 
@@ -121,7 +121,7 @@ instance ToQuery CreateRole where
                "AssumeRolePolicyDocument" =:
                  _crAssumeRolePolicyDocument]
 
--- | Contains the response to a successful CreateRole request.
+-- | Contains the response to a successful < CreateRole> request.
 --
 -- /See:/ 'createRoleResponse' smart constructor.
 data CreateRoleResponse = CreateRoleResponse'

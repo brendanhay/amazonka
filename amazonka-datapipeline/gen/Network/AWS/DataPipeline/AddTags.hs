@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.AddTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds or modifies tags for the specified pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_AddTags.html AWS API Reference> for AddTags.
 module Network.AWS.DataPipeline.AddTags
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest AddTags where
         response
           = receiveEmpty
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
+
+instance Hashable AddTags
 
 instance ToHeaders AddTags where
         toHeaders

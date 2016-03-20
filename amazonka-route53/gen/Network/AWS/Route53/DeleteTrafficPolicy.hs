@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteTrafficPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a traffic policy. To delete a traffic policy, send a 'DELETE'
--- request to the '2013-04-01\/trafficpolicy' resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html AWS API Reference> for DeleteTrafficPolicy.
+-- request to the '\/Route 53 API version\/trafficpolicy' resource.
 module Network.AWS.Route53.DeleteTrafficPolicy
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest DeleteTrafficPolicy where
           = receiveEmpty
               (\ s h x ->
                  DeleteTrafficPolicyResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeleteTrafficPolicy
 
 instance ToHeaders DeleteTrafficPolicy where
         toHeaders = const mempty

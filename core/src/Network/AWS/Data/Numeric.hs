@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Data.Numeric
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
@@ -16,6 +16,7 @@ module Network.AWS.Data.Numeric where
 import           Control.Monad
 import           Data.Aeson.Types
 import           Data.Data                   (Data, Typeable)
+import           Data.Hashable
 import           Data.Monoid
 import           Data.Scientific
 import           GHC.Generics                (Generic)
@@ -49,6 +50,9 @@ newtype Nat = Nat { unNat :: Natural }
 
 _Nat :: Iso' Nat Natural
 _Nat = iso unNat Nat
+
+instance Hashable Nat where
+    hashWithSalt salt (Nat n) = hashWithSalt salt (toInteger n)
 
 instance FromJSON Nat where
     parseJSON = parseJSON >=> go

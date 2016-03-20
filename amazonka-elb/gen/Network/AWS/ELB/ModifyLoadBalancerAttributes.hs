@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.ModifyLoadBalancerAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,6 @@
 -- -   <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
 -- -   <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html Access Logs>
 -- -   <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout Idle Connection Timeout>
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ModifyLoadBalancerAttributes.html AWS API Reference> for ModifyLoadBalancerAttributes.
 module Network.AWS.ELB.ModifyLoadBalancerAttributes
     (
     -- * Creating a Request
@@ -104,6 +102,8 @@ instance AWSRequest ModifyLoadBalancerAttributes
                    (x .@? "LoadBalancerName") <*>
                      (x .@? "LoadBalancerAttributes")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ModifyLoadBalancerAttributes
 
 instance ToHeaders ModifyLoadBalancerAttributes where
         toHeaders = const mempty

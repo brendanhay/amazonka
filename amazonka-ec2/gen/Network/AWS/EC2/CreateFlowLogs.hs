@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateFlowLogs
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 --
 -- In your request, you must also specify an IAM role that has permission
 -- to publish logs to CloudWatch Logs.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateFlowLogs.html AWS API Reference> for CreateFlowLogs.
 module Network.AWS.EC2.CreateFlowLogs
     (
     -- * Creating a Request
@@ -142,6 +140,8 @@ instance AWSRequest CreateFlowLogs where
                      (x .@? "flowLogIdSet" .!@ mempty >>=
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable CreateFlowLogs
 
 instance ToHeaders CreateFlowLogs where
         toHeaders = const mempty

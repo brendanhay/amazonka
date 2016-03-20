@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateSnapshotSchedule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- schedule you want to update, and the schedule information, including
 -- when you want the snapshot to begin on a day and the frequency (in
 -- hours) of snapshots.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSnapshotSchedule.html AWS API Reference> for UpdateSnapshotSchedule.
 module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     (
     -- * Creating a Request
@@ -59,10 +57,10 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   UpdateSnapshotScheduleInput$Description
--- -   UpdateSnapshotScheduleInput$RecurrenceInHours
--- -   UpdateSnapshotScheduleInput$StartAt
--- -   UpdateSnapshotScheduleInput$VolumeARN
+-- -   < UpdateSnapshotScheduleInput$Description>
+-- -   < UpdateSnapshotScheduleInput$RecurrenceInHours>
+-- -   < UpdateSnapshotScheduleInput$StartAt>
+-- -   < UpdateSnapshotScheduleInput$VolumeARN>
 --
 -- /See:/ 'updateSnapshotSchedule' smart constructor.
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
@@ -101,7 +99,7 @@ updateSnapshotSchedule pVolumeARN_ pStartAt_ pRecurrenceInHours_ =
 ussDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
 ussDescription = lens _ussDescription (\ s a -> s{_ussDescription = a});
 
--- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
 -- operation to return a list of gateway volumes.
 ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
 ussVolumeARN = lens _ussVolumeARN (\ s a -> s{_ussVolumeARN = a});
@@ -125,6 +123,8 @@ instance AWSRequest UpdateSnapshotSchedule where
               (\ s h x ->
                  UpdateSnapshotScheduleResponse' <$>
                    (x .?> "VolumeARN") <*> (pure (fromEnum s)))
+
+instance Hashable UpdateSnapshotSchedule
 
 instance ToHeaders UpdateSnapshotSchedule where
         toHeaders

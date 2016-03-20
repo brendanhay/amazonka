@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ListJobsByStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- The ListJobsByStatus operation gets a list of jobs that have a specified
 -- status. The response body contains one element for each job that
 -- satisfies the search criteria.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByStatus.html AWS API Reference> for ListJobsByStatus.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListJobsByStatus
@@ -115,6 +113,8 @@ instance AWSRequest ListJobsByStatus where
                  ListJobsByStatusResponse' <$>
                    (x .?> "NextPageToken") <*> (x .?> "Jobs" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListJobsByStatus
 
 instance ToHeaders ListJobsByStatus where
         toHeaders = const mempty

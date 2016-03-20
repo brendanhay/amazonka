@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DeleteOptionGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an existing option group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteOptionGroup.html AWS API Reference> for DeleteOptionGroup.
 module Network.AWS.RDS.DeleteOptionGroup
     (
     -- * Creating a Request
@@ -71,6 +69,8 @@ instance AWSRequest DeleteOptionGroup where
         type Rs DeleteOptionGroup = DeleteOptionGroupResponse
         request = postQuery rDS
         response = receiveNull DeleteOptionGroupResponse'
+
+instance Hashable DeleteOptionGroup
 
 instance ToHeaders DeleteOptionGroup where
         toHeaders = const mempty

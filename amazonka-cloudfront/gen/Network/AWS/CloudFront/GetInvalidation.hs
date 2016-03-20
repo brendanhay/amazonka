@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetInvalidation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the information about an invalidation.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetInvalidation.html AWS API Reference> for GetInvalidation.
 module Network.AWS.CloudFront.GetInvalidation
     (
     -- * Creating a Request
@@ -87,13 +85,15 @@ instance AWSRequest GetInvalidation where
                  GetInvalidationResponse' <$>
                    (parseXML x) <*> (pure (fromEnum s)))
 
+instance Hashable GetInvalidation
+
 instance ToHeaders GetInvalidation where
         toHeaders = const mempty
 
 instance ToPath GetInvalidation where
         toPath GetInvalidation'{..}
           = mconcat
-              ["/2015-09-17/distribution/", toBS _giDistributionId,
+              ["/2016-01-28/distribution/", toBS _giDistributionId,
                "/invalidation/", toBS _giId]
 
 instance ToQuery GetInvalidation where

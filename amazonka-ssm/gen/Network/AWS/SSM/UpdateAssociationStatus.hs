@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateAssociationStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Updates the status of the SSM document associated with the specified
 -- instance.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_UpdateAssociationStatus.html AWS API Reference> for UpdateAssociationStatus.
 module Network.AWS.SSM.UpdateAssociationStatus
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest UpdateAssociationStatus where
                  UpdateAssociationStatusResponse' <$>
                    (x .?> "AssociationDescription") <*>
                      (pure (fromEnum s)))
+
+instance Hashable UpdateAssociationStatus
 
 instance ToHeaders UpdateAssociationStatus where
         toHeaders

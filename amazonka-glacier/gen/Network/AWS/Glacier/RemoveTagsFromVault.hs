@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.RemoveTagsFromVault
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
 -- This operation is idempotent. The operation will be successful, even if
 -- there are no tags attached to the vault.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-RemoveTagsFromVault.html AWS API Reference> for RemoveTagsFromVault.
 module Network.AWS.Glacier.RemoveTagsFromVault
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest RemoveTagsFromVault where
              RemoveTagsFromVaultResponse
         request = postJSON glacier
         response = receiveNull RemoveTagsFromVaultResponse'
+
+instance Hashable RemoveTagsFromVault
 
 instance ToHeaders RemoveTagsFromVault where
         toHeaders = const mempty

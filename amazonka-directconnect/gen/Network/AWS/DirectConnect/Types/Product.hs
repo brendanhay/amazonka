@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -128,6 +128,8 @@ instance FromJSON Connection where
                      <*> (x .:? "region")
                      <*> (x .:? "connectionState"))
 
+instance Hashable Connection
+
 -- | A structure containing a list of connections.
 --
 -- /See:/ 'connections' smart constructor.
@@ -156,6 +158,8 @@ instance FromJSON Connections where
           = withObject "Connections"
               (\ x ->
                  Connections' <$> (x .:? "connections" .!= mempty))
+
+instance Hashable Connections
 
 -- | An interconnect is a connection that can host other connections.
 --
@@ -242,6 +246,8 @@ instance FromJSON Interconnect where
                      <*> (x .:? "interconnectState")
                      <*> (x .:? "region"))
 
+instance Hashable Interconnect
+
 -- | An AWS Direct Connect location where connections and interconnects can
 -- be requested.
 --
@@ -281,6 +287,8 @@ instance FromJSON Location where
               (\ x ->
                  Location' <$>
                    (x .:? "locationName") <*> (x .:? "locationCode"))
+
+instance Hashable Location
 
 -- | A structure containing information about a new private virtual
 -- interface.
@@ -357,6 +365,8 @@ nAsn = lens _nAsn (\ s a -> s{_nAsn = a});
 -- | Undocumented member.
 nVirtualGatewayId :: Lens' NewPrivateVirtualInterface Text
 nVirtualGatewayId = lens _nVirtualGatewayId (\ s a -> s{_nVirtualGatewayId = a});
+
+instance Hashable NewPrivateVirtualInterface
 
 instance ToJSON NewPrivateVirtualInterface where
         toJSON NewPrivateVirtualInterface'{..}
@@ -436,6 +446,9 @@ npviaVlan = lens _npviaVlan (\ s a -> s{_npviaVlan = a});
 -- | Undocumented member.
 npviaAsn :: Lens' NewPrivateVirtualInterfaceAllocation Int
 npviaAsn = lens _npviaAsn (\ s a -> s{_npviaAsn = a});
+
+instance Hashable
+         NewPrivateVirtualInterfaceAllocation
 
 instance ToJSON NewPrivateVirtualInterfaceAllocation
          where
@@ -526,6 +539,8 @@ npviCustomerAddress = lens _npviCustomerAddress (\ s a -> s{_npviCustomerAddress
 -- | Undocumented member.
 npviRouteFilterPrefixes :: Lens' NewPublicVirtualInterface [RouteFilterPrefix]
 npviRouteFilterPrefixes = lens _npviRouteFilterPrefixes (\ s a -> s{_npviRouteFilterPrefixes = a}) . _Coerce;
+
+instance Hashable NewPublicVirtualInterface
 
 instance ToJSON NewPublicVirtualInterface where
         toJSON NewPublicVirtualInterface'{..}
@@ -618,6 +633,8 @@ newCustomerAddress = lens _newCustomerAddress (\ s a -> s{_newCustomerAddress = 
 newRouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation [RouteFilterPrefix]
 newRouteFilterPrefixes = lens _newRouteFilterPrefixes (\ s a -> s{_newRouteFilterPrefixes = a}) . _Coerce;
 
+instance Hashable NewPublicVirtualInterfaceAllocation
+
 instance ToJSON NewPublicVirtualInterfaceAllocation
          where
         toJSON NewPublicVirtualInterfaceAllocation'{..}
@@ -663,6 +680,8 @@ instance FromJSON RouteFilterPrefix where
         parseJSON
           = withObject "RouteFilterPrefix"
               (\ x -> RouteFilterPrefix' <$> (x .:? "cidr"))
+
+instance Hashable RouteFilterPrefix
 
 instance ToJSON RouteFilterPrefix where
         toJSON RouteFilterPrefix'{..}
@@ -711,6 +730,8 @@ instance FromJSON VirtualGateway where
                  VirtualGateway' <$>
                    (x .:? "virtualGatewayId") <*>
                      (x .:? "virtualGatewayState"))
+
+instance Hashable VirtualGateway
 
 -- | A virtual interface (VLAN) transmits the traffic between the AWS Direct
 -- Connect location and the customer.
@@ -868,3 +889,5 @@ instance FromJSON VirtualInterface where
                      <*> (x .:? "ownerAccount")
                      <*> (x .:? "virtualInterfaceName")
                      <*> (x .:? "virtualInterfaceId"))
+
+instance Hashable VirtualInterface

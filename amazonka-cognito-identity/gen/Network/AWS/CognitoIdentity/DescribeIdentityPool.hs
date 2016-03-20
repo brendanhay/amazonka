@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.DescribeIdentityPool
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- ID description, creation date, and current number of users.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DescribeIdentityPool.html AWS API Reference> for DescribeIdentityPool.
 module Network.AWS.CognitoIdentity.DescribeIdentityPool
     (
     -- * Creating a Request
@@ -79,6 +77,8 @@ instance AWSRequest DescribeIdentityPool where
         type Rs DescribeIdentityPool = IdentityPool
         request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable DescribeIdentityPool
 
 instance ToHeaders DescribeIdentityPool where
         toHeaders

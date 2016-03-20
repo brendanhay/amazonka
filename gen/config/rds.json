@@ -1,6 +1,4 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html",
-    "operationUrl": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_",
     "libraryName": "amazonka-rds",
     "typeOverrides": {
         "DescribeEngineDefaultParametersResult": {

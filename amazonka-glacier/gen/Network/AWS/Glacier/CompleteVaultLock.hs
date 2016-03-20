@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.CompleteVaultLock
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,8 @@
 -- This operation completes the vault locking process by transitioning the
 -- vault lock from the 'InProgress' state to the 'Locked' state, which
 -- causes the vault lock policy to become unchangeable. A vault lock is put
--- into the 'InProgress' state by calling InitiateVaultLock. You can obtain
--- the state of the vault lock by calling GetVaultLock. For more
+-- into the 'InProgress' state by calling < InitiateVaultLock>. You can
+-- obtain the state of the vault lock by calling < GetVaultLock>. For more
 -- information about the vault locking process,
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock>.
 --
@@ -35,8 +35,6 @@
 -- error. If an invalid lock ID is passed in the request when the vault
 -- lock is in the 'InProgress' state, the operation throws an
 -- 'InvalidParameter' error.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-CompleteVaultLock.html AWS API Reference> for CompleteVaultLock.
 module Network.AWS.Glacier.CompleteVaultLock
     (
     -- * Creating a Request
@@ -103,7 +101,7 @@ cvlAccountId = lens _cvlAccountId (\ s a -> s{_cvlAccountId = a});
 cvlVaultName :: Lens' CompleteVaultLock Text
 cvlVaultName = lens _cvlVaultName (\ s a -> s{_cvlVaultName = a});
 
--- | The 'lockId' value is the lock ID obtained from a InitiateVaultLock
+-- | The 'lockId' value is the lock ID obtained from a < InitiateVaultLock>
 -- request.
 cvlLockId :: Lens' CompleteVaultLock Text
 cvlLockId = lens _cvlLockId (\ s a -> s{_cvlLockId = a});
@@ -112,6 +110,8 @@ instance AWSRequest CompleteVaultLock where
         type Rs CompleteVaultLock = CompleteVaultLockResponse
         request = postJSON glacier
         response = receiveNull CompleteVaultLockResponse'
+
+instance Hashable CompleteVaultLock
 
 instance ToHeaders CompleteVaultLock where
         toHeaders = const mempty

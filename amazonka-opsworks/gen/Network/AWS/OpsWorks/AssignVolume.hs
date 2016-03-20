@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.AssignVolume
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,9 +20,9 @@
 --
 -- Assigns one of the stack\'s registered Amazon EBS volumes to a specified
 -- instance. The volume must first be registered with the stack by calling
--- RegisterVolume. After you register the volume, you must call
--- UpdateVolume to specify a mount point before calling 'AssignVolume'. For
--- more information, see
+-- < RegisterVolume>. After you register the volume, you must call
+-- < UpdateVolume> to specify a mount point before calling 'AssignVolume'.
+-- For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a
@@ -30,8 +30,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignVolume.html AWS API Reference> for AssignVolume.
 module Network.AWS.OpsWorks.AssignVolume
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest AssignVolume where
         type Rs AssignVolume = AssignVolumeResponse
         request = postJSON opsWorks
         response = receiveNull AssignVolumeResponse'
+
+instance Hashable AssignVolume
 
 instance ToHeaders AssignVolume where
         toHeaders

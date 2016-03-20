@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.STS.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -54,8 +54,8 @@ aruAssumedRoleId :: Lens' AssumedRoleUser Text
 aruAssumedRoleId = lens _aruAssumedRoleId (\ s a -> s{_aruAssumedRoleId = a});
 
 -- | The ARN of the temporary security credentials that are returned from the
--- AssumeRole action. For more information about ARNs and how to use them
--- in policies, see
+-- < AssumeRole> action. For more information about ARNs and how to use
+-- them in policies, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
 -- in /Using IAM/.
 aruARN :: Lens' AssumedRoleUser Text
@@ -65,6 +65,8 @@ instance FromXML AssumedRoleUser where
         parseXML x
           = AssumedRoleUser' <$>
               (x .@ "AssumedRoleId") <*> (x .@ "Arn")
+
+instance Hashable AssumedRoleUser
 
 -- | AWS credentials for API authentication.
 --
@@ -125,6 +127,8 @@ instance FromXML Credentials where
                 (x .@ "SessionToken")
                 <*> (x .@ "Expiration")
 
+instance Hashable Credentials
+
 -- | Identifiers for the federated user that is associated with the
 -- credentials.
 --
@@ -168,3 +172,5 @@ instance FromXML FederatedUser where
         parseXML x
           = FederatedUser' <$>
               (x .@ "FederatedUserId") <*> (x .@ "Arn")
+
+instance Hashable FederatedUser

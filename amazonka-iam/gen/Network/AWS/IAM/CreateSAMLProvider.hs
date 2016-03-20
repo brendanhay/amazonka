@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateSAMLProvider
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -42,8 +42,6 @@
 -- and
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html About SAML 2.0-based Federation>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html AWS API Reference> for CreateSAMLProvider.
 module Network.AWS.IAM.CreateSAMLProvider
     (
     -- * Creating a Request
@@ -118,6 +116,8 @@ instance AWSRequest CreateSAMLProvider where
                  CreateSAMLProviderResponse' <$>
                    (x .@? "SAMLProviderArn") <*> (pure (fromEnum s)))
 
+instance Hashable CreateSAMLProvider
+
 instance ToHeaders CreateSAMLProvider where
         toHeaders = const mempty
 
@@ -133,7 +133,7 @@ instance ToQuery CreateSAMLProvider where
                  _csamlpSAMLMetadataDocument,
                "Name" =: _csamlpName]
 
--- | Contains the response to a successful CreateSAMLProvider request.
+-- | Contains the response to a successful < CreateSAMLProvider> request.
 --
 -- /See:/ 'createSAMLProviderResponse' smart constructor.
 data CreateSAMLProviderResponse = CreateSAMLProviderResponse'

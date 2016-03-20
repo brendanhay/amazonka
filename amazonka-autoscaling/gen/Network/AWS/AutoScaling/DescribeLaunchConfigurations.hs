@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeLaunchConfigurations
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Describes one or more launch configurations. If you omit the list of
 -- names, then the call describes all launch configurations.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html AWS API Reference> for DescribeLaunchConfigurations.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
@@ -110,6 +108,8 @@ instance AWSRequest DescribeLaunchConfigurations
                    (x .@? "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .@? "LaunchConfigurations" .!@ mempty >>=
                         parseXMLList "member"))
+
+instance Hashable DescribeLaunchConfigurations
 
 instance ToHeaders DescribeLaunchConfigurations where
         toHeaders = const mempty

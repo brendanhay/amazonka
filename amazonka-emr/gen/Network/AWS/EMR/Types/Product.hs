@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -97,6 +97,8 @@ instance FromJSON Application where
                      <*> (x .:? "Name")
                      <*> (x .:? "Version"))
 
+instance Hashable Application
+
 instance ToJSON Application where
         toJSON Application'{..}
           = object
@@ -138,6 +140,8 @@ bacName = lens _bacName (\ s a -> s{_bacName = a});
 -- | The script run by the bootstrap action.
 bacScriptBootstrapAction :: Lens' BootstrapActionConfig ScriptBootstrapActionConfig
 bacScriptBootstrapAction = lens _bacScriptBootstrapAction (\ s a -> s{_bacScriptBootstrapAction = a});
+
+instance Hashable BootstrapActionConfig
 
 instance ToJSON BootstrapActionConfig where
         toJSON BootstrapActionConfig'{..}
@@ -286,7 +290,7 @@ cluTerminationProtected = lens _cluTerminationProtected (\ s a -> s{_cluTerminat
 -- all IAM users of that AWS account can view and manage the job flow if
 -- they have the proper policy permissions set. If this value is 'false',
 -- only the IAM user that created the cluster can view and manage it. This
--- value can be changed using the SetVisibleToAllUsers action.
+-- value can be changed using the < SetVisibleToAllUsers> action.
 cluVisibleToAllUsers :: Lens' Cluster (Maybe Bool)
 cluVisibleToAllUsers = lens _cluVisibleToAllUsers (\ s a -> s{_cluVisibleToAllUsers = a});
 
@@ -343,6 +347,8 @@ instance FromJSON Cluster where
                      <*> (x .: "Name")
                      <*> (x .: "Status"))
 
+instance Hashable Cluster
+
 -- | The reason that the cluster changed to its current state.
 --
 -- /See:/ 'clusterStateChangeReason' smart constructor.
@@ -380,6 +386,8 @@ instance FromJSON ClusterStateChangeReason where
               (\ x ->
                  ClusterStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
+
+instance Hashable ClusterStateChangeReason
 
 -- | The detailed status of the cluster.
 --
@@ -428,6 +436,8 @@ instance FromJSON ClusterStatus where
                  ClusterStatus' <$>
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
+
+instance Hashable ClusterStatus
 
 -- | The summary description of the cluster.
 --
@@ -491,6 +501,8 @@ instance FromJSON ClusterSummary where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
+instance Hashable ClusterSummary
+
 -- | Represents the timeline of the cluster\'s lifecycle.
 --
 -- /See:/ 'clusterTimeline' smart constructor.
@@ -539,6 +551,8 @@ instance FromJSON ClusterTimeline where
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
 
+instance Hashable ClusterTimeline
+
 -- | An entity describing an executable that runs on a cluster.
 --
 -- /See:/ 'command' smart constructor.
@@ -585,6 +599,8 @@ instance FromJSON Command where
                  Command' <$>
                    (x .:? "Args" .!= mempty) <*> (x .:? "ScriptPath")
                      <*> (x .:? "Name"))
+
+instance Hashable Command
 
 -- | Amazon EMR releases 4.x or later.
 --
@@ -642,6 +658,8 @@ instance FromJSON Configuration where
                      (x .:? "Classification")
                      <*> (x .:? "Properties" .!= mempty))
 
+instance Hashable Configuration
+
 instance ToJSON Configuration where
         toJSON Configuration'{..}
           = object
@@ -649,6 +667,175 @@ instance ToJSON Configuration where
                  [("Configurations" .=) <$> _cConfigurations,
                   ("Classification" .=) <$> _cClassification,
                   ("Properties" .=) <$> _cProperties])
+
+-- | Configuration of requested EBS block device associated with the instance
+-- group.
+--
+-- /See:/ 'ebsBlockDevice' smart constructor.
+data EBSBlockDevice = EBSBlockDevice'
+    { _ebdDevice              :: !(Maybe Text)
+    , _ebdVolumeSpecification :: !(Maybe VolumeSpecification)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EBSBlockDevice' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ebdDevice'
+--
+-- * 'ebdVolumeSpecification'
+ebsBlockDevice
+    :: EBSBlockDevice
+ebsBlockDevice =
+    EBSBlockDevice'
+    { _ebdDevice = Nothing
+    , _ebdVolumeSpecification = Nothing
+    }
+
+-- | The device name that is exposed to the instance, such as \/dev\/sdh.
+ebdDevice :: Lens' EBSBlockDevice (Maybe Text)
+ebdDevice = lens _ebdDevice (\ s a -> s{_ebdDevice = a});
+
+-- | EBS volume specifications such as volume type, IOPS, and size(GiB) that
+-- will be requested for the EBS volume attached to an EC2 instance in the
+-- cluster.
+ebdVolumeSpecification :: Lens' EBSBlockDevice (Maybe VolumeSpecification)
+ebdVolumeSpecification = lens _ebdVolumeSpecification (\ s a -> s{_ebdVolumeSpecification = a});
+
+instance FromJSON EBSBlockDevice where
+        parseJSON
+          = withObject "EBSBlockDevice"
+              (\ x ->
+                 EBSBlockDevice' <$>
+                   (x .:? "Device") <*> (x .:? "VolumeSpecification"))
+
+instance Hashable EBSBlockDevice
+
+-- | Configuration of requested EBS block device associated with the instance
+-- group with count of volumes that will be associated to every instance.
+--
+-- /See:/ 'ebsBlockDeviceConfig' smart constructor.
+data EBSBlockDeviceConfig = EBSBlockDeviceConfig'
+    { _ebdcVolumesPerInstance  :: !(Maybe Int)
+    , _ebdcVolumeSpecification :: !VolumeSpecification
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EBSBlockDeviceConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ebdcVolumesPerInstance'
+--
+-- * 'ebdcVolumeSpecification'
+ebsBlockDeviceConfig
+    :: VolumeSpecification -- ^ 'ebdcVolumeSpecification'
+    -> EBSBlockDeviceConfig
+ebsBlockDeviceConfig pVolumeSpecification_ =
+    EBSBlockDeviceConfig'
+    { _ebdcVolumesPerInstance = Nothing
+    , _ebdcVolumeSpecification = pVolumeSpecification_
+    }
+
+-- | Number of EBS volumes with specific volume configuration, that will be
+-- associated with every instance in the instance group
+ebdcVolumesPerInstance :: Lens' EBSBlockDeviceConfig (Maybe Int)
+ebdcVolumesPerInstance = lens _ebdcVolumesPerInstance (\ s a -> s{_ebdcVolumesPerInstance = a});
+
+-- | EBS volume specifications such as volume type, IOPS, and size(GiB) that
+-- will be requested for the EBS volume attached to an EC2 instance in the
+-- cluster.
+ebdcVolumeSpecification :: Lens' EBSBlockDeviceConfig VolumeSpecification
+ebdcVolumeSpecification = lens _ebdcVolumeSpecification (\ s a -> s{_ebdcVolumeSpecification = a});
+
+instance Hashable EBSBlockDeviceConfig
+
+instance ToJSON EBSBlockDeviceConfig where
+        toJSON EBSBlockDeviceConfig'{..}
+          = object
+              (catMaybes
+                 [("VolumesPerInstance" .=) <$>
+                    _ebdcVolumesPerInstance,
+                  Just
+                    ("VolumeSpecification" .= _ebdcVolumeSpecification)])
+
+-- | /See:/ 'ebsConfiguration' smart constructor.
+data EBSConfiguration = EBSConfiguration'
+    { _ecEBSOptimized          :: !(Maybe Bool)
+    , _ecEBSBlockDeviceConfigs :: !(Maybe [EBSBlockDeviceConfig])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EBSConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ecEBSOptimized'
+--
+-- * 'ecEBSBlockDeviceConfigs'
+ebsConfiguration
+    :: EBSConfiguration
+ebsConfiguration =
+    EBSConfiguration'
+    { _ecEBSOptimized = Nothing
+    , _ecEBSBlockDeviceConfigs = Nothing
+    }
+
+-- | Undocumented member.
+ecEBSOptimized :: Lens' EBSConfiguration (Maybe Bool)
+ecEBSOptimized = lens _ecEBSOptimized (\ s a -> s{_ecEBSOptimized = a});
+
+-- | Undocumented member.
+ecEBSBlockDeviceConfigs :: Lens' EBSConfiguration [EBSBlockDeviceConfig]
+ecEBSBlockDeviceConfigs = lens _ecEBSBlockDeviceConfigs (\ s a -> s{_ecEBSBlockDeviceConfigs = a}) . _Default . _Coerce;
+
+instance Hashable EBSConfiguration
+
+instance ToJSON EBSConfiguration where
+        toJSON EBSConfiguration'{..}
+          = object
+              (catMaybes
+                 [("EbsOptimized" .=) <$> _ecEBSOptimized,
+                  ("EbsBlockDeviceConfigs" .=) <$>
+                    _ecEBSBlockDeviceConfigs])
+
+-- | EBS block device that\'s attached to an EC2 instance.
+--
+-- /See:/ 'ebsVolume' smart constructor.
+data EBSVolume = EBSVolume'
+    { _evDevice   :: !(Maybe Text)
+    , _evVolumeId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EBSVolume' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'evDevice'
+--
+-- * 'evVolumeId'
+ebsVolume
+    :: EBSVolume
+ebsVolume =
+    EBSVolume'
+    { _evDevice = Nothing
+    , _evVolumeId = Nothing
+    }
+
+-- | The device name that is exposed to the instance, such as \/dev\/sdh.
+evDevice :: Lens' EBSVolume (Maybe Text)
+evDevice = lens _evDevice (\ s a -> s{_evDevice = a});
+
+-- | The volume identifier of the EBS volume.
+evVolumeId :: Lens' EBSVolume (Maybe Text)
+evVolumeId = lens _evVolumeId (\ s a -> s{_evVolumeId = a});
+
+instance FromJSON EBSVolume where
+        parseJSON
+          = withObject "EBSVolume"
+              (\ x ->
+                 EBSVolume' <$>
+                   (x .:? "Device") <*> (x .:? "VolumeId"))
+
+instance Hashable EBSVolume
 
 -- | Provides information about the EC2 instances in a cluster grouped by
 -- category. For example, key name, subnet ID, IAM instance profile, and so
@@ -663,6 +850,7 @@ data EC2InstanceAttributes = EC2InstanceAttributes'
     , _eiaIAMInstanceProfile             :: !(Maybe Text)
     , _eiaEmrManagedMasterSecurityGroup  :: !(Maybe Text)
     , _eiaEC2SubnetId                    :: !(Maybe Text)
+    , _eiaServiceAccessSecurityGroup     :: !(Maybe Text)
     , _eiaEC2AvailabilityZone            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -684,6 +872,8 @@ data EC2InstanceAttributes = EC2InstanceAttributes'
 --
 -- * 'eiaEC2SubnetId'
 --
+-- * 'eiaServiceAccessSecurityGroup'
+--
 -- * 'eiaEC2AvailabilityZone'
 ec2InstanceAttributes
     :: EC2InstanceAttributes
@@ -696,6 +886,7 @@ ec2InstanceAttributes =
     , _eiaIAMInstanceProfile = Nothing
     , _eiaEmrManagedMasterSecurityGroup = Nothing
     , _eiaEC2SubnetId = Nothing
+    , _eiaServiceAccessSecurityGroup = Nothing
     , _eiaEC2AvailabilityZone = Nothing
     }
 
@@ -704,8 +895,7 @@ ec2InstanceAttributes =
 eiaEC2KeyName :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaEC2KeyName = lens _eiaEC2KeyName (\ s a -> s{_eiaEC2KeyName = a});
 
--- | The identifier of the Amazon EC2 security group (managed by Amazon
--- Elastic MapReduce) for the slave nodes.
+-- | The identifier of the Amazon EC2 security group for the slave nodes.
 eiaEmrManagedSlaveSecurityGroup :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaEmrManagedSlaveSecurityGroup = lens _eiaEmrManagedSlaveSecurityGroup (\ s a -> s{_eiaEmrManagedSlaveSecurityGroup = a});
 
@@ -722,8 +912,7 @@ eiaAdditionalMasterSecurityGroups = lens _eiaAdditionalMasterSecurityGroups (\ s
 eiaIAMInstanceProfile :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaIAMInstanceProfile = lens _eiaIAMInstanceProfile (\ s a -> s{_eiaIAMInstanceProfile = a});
 
--- | The identifier of the Amazon EC2 security group (managed by Amazon
--- Elastic MapReduce) for the master node.
+-- | The identifier of the Amazon EC2 security group for the master node.
 eiaEmrManagedMasterSecurityGroup :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaEmrManagedMasterSecurityGroup = lens _eiaEmrManagedMasterSecurityGroup (\ s a -> s{_eiaEmrManagedMasterSecurityGroup = a});
 
@@ -737,6 +926,11 @@ eiaEmrManagedMasterSecurityGroup = lens _eiaEmrManagedMasterSecurityGroup (\ s a
 -- instance type for nodes of a job flow launched in a VPC.
 eiaEC2SubnetId :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaEC2SubnetId = lens _eiaEC2SubnetId (\ s a -> s{_eiaEC2SubnetId = a});
+
+-- | The identifier of the Amazon EC2 security group for the Amazon EMR
+-- service to access clusters in VPC private subnets.
+eiaServiceAccessSecurityGroup :: Lens' EC2InstanceAttributes (Maybe Text)
+eiaServiceAccessSecurityGroup = lens _eiaServiceAccessSecurityGroup (\ s a -> s{_eiaServiceAccessSecurityGroup = a});
 
 -- | The Availability Zone in which the cluster will run.
 eiaEC2AvailabilityZone :: Lens' EC2InstanceAttributes (Maybe Text)
@@ -756,7 +950,10 @@ instance FromJSON EC2InstanceAttributes where
                      <*> (x .:? "IamInstanceProfile")
                      <*> (x .:? "EmrManagedMasterSecurityGroup")
                      <*> (x .:? "Ec2SubnetId")
+                     <*> (x .:? "ServiceAccessSecurityGroup")
                      <*> (x .:? "Ec2AvailabilityZone"))
+
+instance Hashable EC2InstanceAttributes
 
 -- | A job flow step consisting of a JAR file whose main function will be
 -- executed. The main function submits a job for Hadoop to execute and
@@ -810,6 +1007,8 @@ hjscProperties = lens _hjscProperties (\ s a -> s{_hjscProperties = a}) . _Defau
 -- | A path to a JAR file run during the step.
 hjscJAR :: Lens' HadoopJARStepConfig Text
 hjscJAR = lens _hjscJAR (\ s a -> s{_hjscJAR = a});
+
+instance Hashable HadoopJARStepConfig
 
 instance ToJSON HadoopJARStepConfig where
         toJSON HadoopJARStepConfig'{..}
@@ -881,15 +1080,19 @@ instance FromJSON HadoopStepConfig where
                      (x .:? "MainClass")
                      <*> (x .:? "Properties" .!= mempty))
 
+instance Hashable HadoopStepConfig
+
 -- | Represents an EC2 instance provisioned as part of cluster.
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
     { _iStatus           :: !(Maybe InstanceStatus)
     , _iPublicDNSName    :: !(Maybe Text)
+    , _iEBSVolumes       :: !(Maybe [EBSVolume])
     , _iEC2InstanceId    :: !(Maybe Text)
     , _iPrivateIPAddress :: !(Maybe Text)
     , _iId               :: !(Maybe Text)
+    , _iInstanceGroupId  :: !(Maybe Text)
     , _iPrivateDNSName   :: !(Maybe Text)
     , _iPublicIPAddress  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -902,11 +1105,15 @@ data Instance = Instance'
 --
 -- * 'iPublicDNSName'
 --
+-- * 'iEBSVolumes'
+--
 -- * 'iEC2InstanceId'
 --
 -- * 'iPrivateIPAddress'
 --
 -- * 'iId'
+--
+-- * 'iInstanceGroupId'
 --
 -- * 'iPrivateDNSName'
 --
@@ -917,9 +1124,11 @@ instance' =
     Instance'
     { _iStatus = Nothing
     , _iPublicDNSName = Nothing
+    , _iEBSVolumes = Nothing
     , _iEC2InstanceId = Nothing
     , _iPrivateIPAddress = Nothing
     , _iId = Nothing
+    , _iInstanceGroupId = Nothing
     , _iPrivateDNSName = Nothing
     , _iPublicIPAddress = Nothing
     }
@@ -932,6 +1141,10 @@ iStatus = lens _iStatus (\ s a -> s{_iStatus = a});
 iPublicDNSName :: Lens' Instance (Maybe Text)
 iPublicDNSName = lens _iPublicDNSName (\ s a -> s{_iPublicDNSName = a});
 
+-- | The list of EBS volumes that are attached to this instance.
+iEBSVolumes :: Lens' Instance [EBSVolume]
+iEBSVolumes = lens _iEBSVolumes (\ s a -> s{_iEBSVolumes = a}) . _Default . _Coerce;
+
 -- | The unique identifier of the instance in Amazon EC2.
 iEC2InstanceId :: Lens' Instance (Maybe Text)
 iEC2InstanceId = lens _iEC2InstanceId (\ s a -> s{_iEC2InstanceId = a});
@@ -943,6 +1156,10 @@ iPrivateIPAddress = lens _iPrivateIPAddress (\ s a -> s{_iPrivateIPAddress = a})
 -- | The unique identifier for the instance in Amazon EMR.
 iId :: Lens' Instance (Maybe Text)
 iId = lens _iId (\ s a -> s{_iId = a});
+
+-- | The identifier of the instance group to which this instance belongs.
+iInstanceGroupId :: Lens' Instance (Maybe Text)
+iInstanceGroupId = lens _iInstanceGroupId (\ s a -> s{_iInstanceGroupId = a});
 
 -- | The private DNS name of the instance.
 iPrivateDNSName :: Lens' Instance (Maybe Text)
@@ -958,11 +1175,15 @@ instance FromJSON Instance where
               (\ x ->
                  Instance' <$>
                    (x .:? "Status") <*> (x .:? "PublicDnsName") <*>
-                     (x .:? "Ec2InstanceId")
+                     (x .:? "EbsVolumes" .!= mempty)
+                     <*> (x .:? "Ec2InstanceId")
                      <*> (x .:? "PrivateIpAddress")
                      <*> (x .:? "Id")
+                     <*> (x .:? "InstanceGroupId")
                      <*> (x .:? "PrivateDnsName")
                      <*> (x .:? "PublicIpAddress"))
+
+instance Hashable Instance
 
 -- | This entity represents an instance group, which is a group of instances
 -- that have common purpose. For example, CORE instance group is used for
@@ -976,7 +1197,9 @@ data InstanceGroup = InstanceGroup'
     , _igRunningInstanceCount   :: !(Maybe Int)
     , _igConfigurations         :: !(Maybe [Configuration])
     , _igInstanceGroupType      :: !(Maybe InstanceGroupType)
+    , _igEBSBlockDevices        :: !(Maybe [EBSBlockDevice])
     , _igInstanceType           :: !(Maybe Text)
+    , _igEBSOptimized           :: !(Maybe Bool)
     , _igMarket                 :: !(Maybe MarketType)
     , _igName                   :: !(Maybe Text)
     , _igId                     :: !(Maybe Text)
@@ -998,7 +1221,11 @@ data InstanceGroup = InstanceGroup'
 --
 -- * 'igInstanceGroupType'
 --
+-- * 'igEBSBlockDevices'
+--
 -- * 'igInstanceType'
+--
+-- * 'igEBSOptimized'
 --
 -- * 'igMarket'
 --
@@ -1015,7 +1242,9 @@ instanceGroup =
     , _igRunningInstanceCount = Nothing
     , _igConfigurations = Nothing
     , _igInstanceGroupType = Nothing
+    , _igEBSBlockDevices = Nothing
     , _igInstanceType = Nothing
+    , _igEBSOptimized = Nothing
     , _igMarket = Nothing
     , _igName = Nothing
     , _igId = Nothing
@@ -1050,9 +1279,19 @@ igConfigurations = lens _igConfigurations (\ s a -> s{_igConfigurations = a}) . 
 igInstanceGroupType :: Lens' InstanceGroup (Maybe InstanceGroupType)
 igInstanceGroupType = lens _igInstanceGroupType (\ s a -> s{_igInstanceGroupType = a});
 
+-- | The EBS block devices that are mapped to this instance group.
+igEBSBlockDevices :: Lens' InstanceGroup [EBSBlockDevice]
+igEBSBlockDevices = lens _igEBSBlockDevices (\ s a -> s{_igEBSBlockDevices = a}) . _Default . _Coerce;
+
 -- | The EC2 instance type for all instances in the instance group.
 igInstanceType :: Lens' InstanceGroup (Maybe Text)
 igInstanceType = lens _igInstanceType (\ s a -> s{_igInstanceType = a});
+
+-- | If the instance group is EBS-optimized. An Amazon EBS–optimized instance
+-- uses an optimized configuration stack and provides additional, dedicated
+-- capacity for Amazon EBS I\/O.
+igEBSOptimized :: Lens' InstanceGroup (Maybe Bool)
+igEBSOptimized = lens _igEBSOptimized (\ s a -> s{_igEBSOptimized = a});
 
 -- | The marketplace to provision instances for this group. Valid values are
 -- ON_DEMAND or SPOT.
@@ -1077,27 +1316,34 @@ instance FromJSON InstanceGroup where
                      <*> (x .:? "RunningInstanceCount")
                      <*> (x .:? "Configurations" .!= mempty)
                      <*> (x .:? "InstanceGroupType")
+                     <*> (x .:? "EbsBlockDevices" .!= mempty)
                      <*> (x .:? "InstanceType")
+                     <*> (x .:? "EbsOptimized")
                      <*> (x .:? "Market")
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
+
+instance Hashable InstanceGroup
 
 -- | Configuration defining a new instance group.
 --
 -- /See:/ 'instanceGroupConfig' smart constructor.
 data InstanceGroupConfig = InstanceGroupConfig'
-    { _igcBidPrice       :: !(Maybe Text)
-    , _igcConfigurations :: !(Maybe [Configuration])
-    , _igcMarket         :: !(Maybe MarketType)
-    , _igcName           :: !(Maybe Text)
-    , _igcInstanceRole   :: !InstanceRoleType
-    , _igcInstanceType   :: !Text
-    , _igcInstanceCount  :: !Int
+    { _igcEBSConfiguration :: !(Maybe EBSConfiguration)
+    , _igcBidPrice         :: !(Maybe Text)
+    , _igcConfigurations   :: !(Maybe [Configuration])
+    , _igcMarket           :: !(Maybe MarketType)
+    , _igcName             :: !(Maybe Text)
+    , _igcInstanceRole     :: !InstanceRoleType
+    , _igcInstanceType     :: !Text
+    , _igcInstanceCount    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceGroupConfig' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'igcEBSConfiguration'
 --
 -- * 'igcBidPrice'
 --
@@ -1119,7 +1365,8 @@ instanceGroupConfig
     -> InstanceGroupConfig
 instanceGroupConfig pInstanceRole_ pInstanceType_ pInstanceCount_ =
     InstanceGroupConfig'
-    { _igcBidPrice = Nothing
+    { _igcEBSConfiguration = Nothing
+    , _igcBidPrice = Nothing
     , _igcConfigurations = Nothing
     , _igcMarket = Nothing
     , _igcName = Nothing
@@ -1127,6 +1374,11 @@ instanceGroupConfig pInstanceRole_ pInstanceType_ pInstanceCount_ =
     , _igcInstanceType = pInstanceType_
     , _igcInstanceCount = pInstanceCount_
     }
+
+-- | EBS configurations that will be attached to each Amazon EC2 instance in
+-- the instance group.
+igcEBSConfiguration :: Lens' InstanceGroupConfig (Maybe EBSConfiguration)
+igcEBSConfiguration = lens _igcEBSConfiguration (\ s a -> s{_igcEBSConfiguration = a});
 
 -- | Bid price for each Amazon EC2 instance in the instance group when
 -- launching nodes as Spot Instances, expressed in USD.
@@ -1161,11 +1413,14 @@ igcInstanceType = lens _igcInstanceType (\ s a -> s{_igcInstanceType = a});
 igcInstanceCount :: Lens' InstanceGroupConfig Int
 igcInstanceCount = lens _igcInstanceCount (\ s a -> s{_igcInstanceCount = a});
 
+instance Hashable InstanceGroupConfig
+
 instance ToJSON InstanceGroupConfig where
         toJSON InstanceGroupConfig'{..}
           = object
               (catMaybes
-                 [("BidPrice" .=) <$> _igcBidPrice,
+                 [("EbsConfiguration" .=) <$> _igcEBSConfiguration,
+                  ("BidPrice" .=) <$> _igcBidPrice,
                   ("Configurations" .=) <$> _igcConfigurations,
                   ("Market" .=) <$> _igcMarket,
                   ("Name" .=) <$> _igcName,
@@ -1215,6 +1470,8 @@ igmcEC2InstanceIdsToTerminate = lens _igmcEC2InstanceIdsToTerminate (\ s a -> s{
 igmcInstanceGroupId :: Lens' InstanceGroupModifyConfig Text
 igmcInstanceGroupId = lens _igmcInstanceGroupId (\ s a -> s{_igmcInstanceGroupId = a});
 
+instance Hashable InstanceGroupModifyConfig
+
 instance ToJSON InstanceGroupModifyConfig where
         toJSON InstanceGroupModifyConfig'{..}
           = object
@@ -1263,6 +1520,8 @@ instance FromJSON InstanceGroupStateChangeReason
                  InstanceGroupStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
 
+instance Hashable InstanceGroupStateChangeReason
+
 -- | The details of the instance group status.
 --
 -- /See:/ 'instanceGroupStatus' smart constructor.
@@ -1309,6 +1568,8 @@ instance FromJSON InstanceGroupStatus where
                  InstanceGroupStatus' <$>
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
+
+instance Hashable InstanceGroupStatus
 
 -- | The timeline of the instance group lifecycle.
 --
@@ -1358,6 +1619,8 @@ instance FromJSON InstanceGroupTimeline where
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
 
+instance Hashable InstanceGroupTimeline
+
 -- | The details of the status change reason for the instance.
 --
 -- /See:/ 'instanceStateChangeReason' smart constructor.
@@ -1395,6 +1658,8 @@ instance FromJSON InstanceStateChangeReason where
               (\ x ->
                  InstanceStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
+
+instance Hashable InstanceStateChangeReason
 
 -- | The instance status details.
 --
@@ -1442,6 +1707,8 @@ instance FromJSON InstanceStatus where
                  InstanceStatus' <$>
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
+
+instance Hashable InstanceStatus
 
 -- | The timeline of the instance lifecycle.
 --
@@ -1491,6 +1758,8 @@ instance FromJSON InstanceTimeline where
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
 
+instance Hashable InstanceTimeline
+
 -- | A description of the Amazon EC2 instance running the job flow. A valid
 -- JobFlowInstancesConfig must contain at least InstanceGroups, which is
 -- the recommended configuration. However, a valid alternative is to have
@@ -1511,6 +1780,7 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
     , _jficMasterInstanceType             :: !(Maybe Text)
     , _jficInstanceGroups                 :: !(Maybe [InstanceGroupConfig])
     , _jficKeepJobFlowAliveWhenNoSteps    :: !(Maybe Bool)
+    , _jficServiceAccessSecurityGroup     :: !(Maybe Text)
     , _jficTerminationProtected           :: !(Maybe Bool)
     , _jficPlacement                      :: !(Maybe PlacementType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1543,6 +1813,8 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
 --
 -- * 'jficKeepJobFlowAliveWhenNoSteps'
 --
+-- * 'jficServiceAccessSecurityGroup'
+--
 -- * 'jficTerminationProtected'
 --
 -- * 'jficPlacement'
@@ -1562,6 +1834,7 @@ jobFlowInstancesConfig =
     , _jficMasterInstanceType = Nothing
     , _jficInstanceGroups = Nothing
     , _jficKeepJobFlowAliveWhenNoSteps = Nothing
+    , _jficServiceAccessSecurityGroup = Nothing
     , _jficTerminationProtected = Nothing
     , _jficPlacement = Nothing
     }
@@ -1579,8 +1852,7 @@ jficSlaveInstanceType = lens _jficSlaveInstanceType (\ s a -> s{_jficSlaveInstan
 jficInstanceCount :: Lens' JobFlowInstancesConfig (Maybe Int)
 jficInstanceCount = lens _jficInstanceCount (\ s a -> s{_jficInstanceCount = a});
 
--- | The identifier of the Amazon EC2 security group (managed by Amazon
--- ElasticMapReduce) for the slave nodes.
+-- | The identifier of the Amazon EC2 security group for the slave nodes.
 jficEmrManagedSlaveSecurityGroup :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEmrManagedSlaveSecurityGroup = lens _jficEmrManagedSlaveSecurityGroup (\ s a -> s{_jficEmrManagedSlaveSecurityGroup = a});
 
@@ -1601,8 +1873,7 @@ jficHadoopVersion = lens _jficHadoopVersion (\ s a -> s{_jficHadoopVersion = a})
 jficAdditionalMasterSecurityGroups :: Lens' JobFlowInstancesConfig [Text]
 jficAdditionalMasterSecurityGroups = lens _jficAdditionalMasterSecurityGroups (\ s a -> s{_jficAdditionalMasterSecurityGroups = a}) . _Default . _Coerce;
 
--- | The identifier of the Amazon EC2 security group (managed by Amazon
--- ElasticMapReduce) for the master node.
+-- | The identifier of the Amazon EC2 security group for the master node.
 jficEmrManagedMasterSecurityGroup :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEmrManagedMasterSecurityGroup = lens _jficEmrManagedMasterSecurityGroup (\ s a -> s{_jficEmrManagedMasterSecurityGroup = a});
 
@@ -1631,6 +1902,11 @@ jficInstanceGroups = lens _jficInstanceGroups (\ s a -> s{_jficInstanceGroups = 
 jficKeepJobFlowAliveWhenNoSteps :: Lens' JobFlowInstancesConfig (Maybe Bool)
 jficKeepJobFlowAliveWhenNoSteps = lens _jficKeepJobFlowAliveWhenNoSteps (\ s a -> s{_jficKeepJobFlowAliveWhenNoSteps = a});
 
+-- | The identifier of the Amazon EC2 security group for the Amazon EMR
+-- service to access clusters in VPC private subnets.
+jficServiceAccessSecurityGroup :: Lens' JobFlowInstancesConfig (Maybe Text)
+jficServiceAccessSecurityGroup = lens _jficServiceAccessSecurityGroup (\ s a -> s{_jficServiceAccessSecurityGroup = a});
+
 -- | Specifies whether to lock the job flow to prevent the Amazon EC2
 -- instances from being terminated by API call, user intervention, or in
 -- the event of a job flow error.
@@ -1640,6 +1916,8 @@ jficTerminationProtected = lens _jficTerminationProtected (\ s a -> s{_jficTermi
 -- | The Availability Zone the job flow will run in.
 jficPlacement :: Lens' JobFlowInstancesConfig (Maybe PlacementType)
 jficPlacement = lens _jficPlacement (\ s a -> s{_jficPlacement = a});
+
+instance Hashable JobFlowInstancesConfig
 
 instance ToJSON JobFlowInstancesConfig where
         toJSON JobFlowInstancesConfig'{..}
@@ -1663,6 +1941,8 @@ instance ToJSON JobFlowInstancesConfig where
                   ("InstanceGroups" .=) <$> _jficInstanceGroups,
                   ("KeepJobFlowAliveWhenNoSteps" .=) <$>
                     _jficKeepJobFlowAliveWhenNoSteps,
+                  ("ServiceAccessSecurityGroup" .=) <$>
+                    _jficServiceAccessSecurityGroup,
                   ("TerminationProtected" .=) <$>
                     _jficTerminationProtected,
                   ("Placement" .=) <$> _jficPlacement])
@@ -1698,6 +1978,8 @@ kvValue = lens _kvValue (\ s a -> s{_kvValue = a});
 kvKey :: Lens' KeyValue (Maybe Text)
 kvKey = lens _kvKey (\ s a -> s{_kvKey = a});
 
+instance Hashable KeyValue
+
 instance ToJSON KeyValue where
         toJSON KeyValue'{..}
           = object
@@ -1727,6 +2009,8 @@ placementType pAvailabilityZone_ =
 -- | The Amazon EC2 Availability Zone for the job flow.
 ptAvailabilityZone :: Lens' PlacementType Text
 ptAvailabilityZone = lens _ptAvailabilityZone (\ s a -> s{_ptAvailabilityZone = a});
+
+instance Hashable PlacementType
 
 instance ToJSON PlacementType where
         toJSON PlacementType'{..}
@@ -1766,6 +2050,8 @@ sbacArgs = lens _sbacArgs (\ s a -> s{_sbacArgs = a}) . _Default . _Coerce;
 -- location in Amazon S3 or on a local file system.
 sbacPath :: Lens' ScriptBootstrapActionConfig Text
 sbacPath = lens _sbacPath (\ s a -> s{_sbacPath = a});
+
+instance Hashable ScriptBootstrapActionConfig
 
 instance ToJSON ScriptBootstrapActionConfig where
         toJSON ScriptBootstrapActionConfig'{..}
@@ -1840,6 +2126,8 @@ instance FromJSON Step where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
+instance Hashable Step
+
 -- | Specification of a job flow step.
 --
 -- /See:/ 'stepConfig' smart constructor.
@@ -1880,6 +2168,8 @@ scName = lens _scName (\ s a -> s{_scName = a});
 -- | The JAR file used for the job flow step.
 scHadoopJARStep :: Lens' StepConfig HadoopJARStepConfig
 scHadoopJARStep = lens _scHadoopJARStep (\ s a -> s{_scHadoopJARStep = a});
+
+instance Hashable StepConfig
 
 instance ToJSON StepConfig where
         toJSON StepConfig'{..}
@@ -1928,6 +2218,8 @@ instance FromJSON StepStateChangeReason where
                  StepStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
 
+instance Hashable StepStateChangeReason
+
 -- | The execution status details of the cluster step.
 --
 -- /See:/ 'stepStatus' smart constructor.
@@ -1974,6 +2266,8 @@ instance FromJSON StepStatus where
                  StepStatus' <$>
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
+
+instance Hashable StepStatus
 
 -- | The summary of the cluster step.
 --
@@ -2041,6 +2335,8 @@ instance FromJSON StepSummary where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
+instance Hashable StepSummary
+
 -- | The timeline of the cluster step lifecycle.
 --
 -- /See:/ 'stepTimeline' smart constructor.
@@ -2088,6 +2384,8 @@ instance FromJSON StepTimeline where
                    (x .:? "CreationDateTime") <*> (x .:? "EndDateTime")
                      <*> (x .:? "StartDateTime"))
 
+instance Hashable StepTimeline
+
 -- | The list of supported product configurations which allow user-supplied
 -- arguments. EMR accepts these arguments and forwards them to the
 -- corresponding installation script as bootstrap action arguments.
@@ -2120,6 +2418,8 @@ spcArgs = lens _spcArgs (\ s a -> s{_spcArgs = a}) . _Default . _Coerce;
 -- | The name of the product configuration.
 spcName :: Lens' SupportedProductConfig (Maybe Text)
 spcName = lens _spcName (\ s a -> s{_spcName = a});
+
+instance Hashable SupportedProductConfig
 
 instance ToJSON SupportedProductConfig where
         toJSON SupportedProductConfig'{..}
@@ -2171,8 +2471,73 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
+instance Hashable Tag
+
 instance ToJSON Tag where
         toJSON Tag'{..}
           = object
               (catMaybes
                  [("Value" .=) <$> _tagValue, ("Key" .=) <$> _tagKey])
+
+-- | EBS volume specifications such as volume type, IOPS, and size(GiB) that
+-- will be requested for the EBS volume attached to an EC2 instance in the
+-- cluster.
+--
+-- /See:/ 'volumeSpecification' smart constructor.
+data VolumeSpecification = VolumeSpecification'
+    { _vsIOPS       :: !(Maybe Int)
+    , _vsVolumeType :: !Text
+    , _vsSizeInGB   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VolumeSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vsIOPS'
+--
+-- * 'vsVolumeType'
+--
+-- * 'vsSizeInGB'
+volumeSpecification
+    :: Text -- ^ 'vsVolumeType'
+    -> Int -- ^ 'vsSizeInGB'
+    -> VolumeSpecification
+volumeSpecification pVolumeType_ pSizeInGB_ =
+    VolumeSpecification'
+    { _vsIOPS = Nothing
+    , _vsVolumeType = pVolumeType_
+    , _vsSizeInGB = pSizeInGB_
+    }
+
+-- | The number of I\/O operations per second (IOPS) that the volume
+-- supports.
+vsIOPS :: Lens' VolumeSpecification (Maybe Int)
+vsIOPS = lens _vsIOPS (\ s a -> s{_vsIOPS = a});
+
+-- | The volume type. Volume types supported are gp2, io1, standard.
+vsVolumeType :: Lens' VolumeSpecification Text
+vsVolumeType = lens _vsVolumeType (\ s a -> s{_vsVolumeType = a});
+
+-- | The volume size, in gibibytes (GiB). This can be a number from 1 – 1024.
+-- If the volume type is EBS-optimized, the minimum value is 10.
+vsSizeInGB :: Lens' VolumeSpecification Int
+vsSizeInGB = lens _vsSizeInGB (\ s a -> s{_vsSizeInGB = a});
+
+instance FromJSON VolumeSpecification where
+        parseJSON
+          = withObject "VolumeSpecification"
+              (\ x ->
+                 VolumeSpecification' <$>
+                   (x .:? "Iops") <*> (x .: "VolumeType") <*>
+                     (x .: "SizeInGB"))
+
+instance Hashable VolumeSpecification
+
+instance ToJSON VolumeSpecification where
+        toJSON VolumeSpecification'{..}
+          = object
+              (catMaybes
+                 [("Iops" .=) <$> _vsIOPS,
+                  Just ("VolumeType" .= _vsVolumeType),
+                  Just ("SizeInGB" .= _vsSizeInGB)])

@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -71,6 +71,8 @@ instance FromJSON Field where
                    (x .:? "refValue") <*> (x .:? "stringValue") <*>
                      (x .: "key"))
 
+instance Hashable Field
+
 instance ToJSON Field where
         toJSON Field'{..}
           = object
@@ -119,6 +121,8 @@ iiSignature = lens _iiSignature (\ s a -> s{_iiSignature = a});
 -- in the form of a JSON representation of an object.
 iiDocument :: Lens' InstanceIdentity (Maybe Text)
 iiDocument = lens _iiDocument (\ s a -> s{_iiDocument = a});
+
+instance Hashable InstanceIdentity
 
 instance ToJSON InstanceIdentity where
         toJSON InstanceIdentity'{..}
@@ -191,6 +195,8 @@ oValues = lens _oValues (\ s a -> s{_oValues = a}) . _Default . _Coerce;
 oType :: Lens' Operator (Maybe OperatorType)
 oType = lens _oType (\ s a -> s{_oType = a});
 
+instance Hashable Operator
+
 instance ToJSON Operator where
         toJSON Operator'{..}
           = object
@@ -236,6 +242,8 @@ instance FromJSON ParameterAttribute where
               (\ x ->
                  ParameterAttribute' <$>
                    (x .: "key") <*> (x .: "stringValue"))
+
+instance Hashable ParameterAttribute
 
 instance ToJSON ParameterAttribute where
         toJSON ParameterAttribute'{..}
@@ -283,6 +291,8 @@ instance FromJSON ParameterObject where
                  ParameterObject' <$>
                    (x .: "id") <*> (x .:? "attributes" .!= mempty))
 
+instance Hashable ParameterObject
+
 instance ToJSON ParameterObject where
         toJSON ParameterObject'{..}
           = object
@@ -329,6 +339,8 @@ instance FromJSON ParameterValue where
               (\ x ->
                  ParameterValue' <$>
                    (x .: "id") <*> (x .: "stringValue"))
+
+instance Hashable ParameterValue
 
 instance ToJSON ParameterValue where
         toJSON ParameterValue'{..}
@@ -409,6 +421,8 @@ instance FromJSON PipelineDescription where
                      <*> (x .: "name")
                      <*> (x .:? "fields" .!= mempty))
 
+instance Hashable PipelineDescription
+
 -- | Contains the name and identifier of a pipeline.
 --
 -- /See:/ 'pipelineIdName' smart constructor.
@@ -446,6 +460,8 @@ instance FromJSON PipelineIdName where
           = withObject "PipelineIdName"
               (\ x ->
                  PipelineIdName' <$> (x .:? "name") <*> (x .:? "id"))
+
+instance Hashable PipelineIdName
 
 -- | Contains information about a pipeline object. This can be a logical,
 -- physical, or physical attempt pipeline object. The complete set of
@@ -498,6 +514,8 @@ instance FromJSON PipelineObject where
                    (x .: "id") <*> (x .: "name") <*>
                      (x .:? "fields" .!= mempty))
 
+instance Hashable PipelineObject
+
 instance ToJSON PipelineObject where
         toJSON PipelineObject'{..}
           = object
@@ -528,6 +546,8 @@ query =
 -- the selectors to match the query.
 qSelectors :: Lens' Query [Selector]
 qSelectors = lens _qSelectors (\ s a -> s{_qSelectors = a}) . _Default . _Coerce;
+
+instance Hashable Query
 
 instance ToJSON Query where
         toJSON Query'{..}
@@ -568,6 +588,8 @@ sOperator = lens _sOperator (\ s a -> s{_sOperator = a});
 -- field is not set on the object, the condition fails.
 sFieldName :: Lens' Selector (Maybe Text)
 sFieldName = lens _sFieldName (\ s a -> s{_sFieldName = a});
+
+instance Hashable Selector
 
 instance ToJSON Selector where
         toJSON Selector'{..}
@@ -623,6 +645,8 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "key") <*> (x .: "value"))
 
+instance Hashable Tag
+
 instance ToJSON Tag where
         toJSON Tag'{..}
           = object
@@ -672,7 +696,7 @@ toAttemptId :: Lens' TaskObject (Maybe Text)
 toAttemptId = lens _toAttemptId (\ s a -> s{_toAttemptId = a});
 
 -- | An internal identifier for the task. This ID is passed to the
--- SetTaskStatus and ReportTaskProgress actions.
+-- < SetTaskStatus> and < ReportTaskProgress> actions.
 toTaskId :: Lens' TaskObject (Maybe Text)
 toTaskId = lens _toTaskId (\ s a -> s{_toTaskId = a});
 
@@ -689,6 +713,8 @@ instance FromJSON TaskObject where
                    (x .:? "pipelineId") <*> (x .:? "attemptId") <*>
                      (x .:? "taskId")
                      <*> (x .:? "objects" .!= mempty))
+
+instance Hashable TaskObject
 
 -- | Defines a validation error. Validation errors prevent pipeline
 -- activation. The set of validation errors that can be returned are
@@ -730,6 +756,8 @@ instance FromJSON ValidationError where
                  ValidationError' <$>
                    (x .:? "id") <*> (x .:? "errors" .!= mempty))
 
+instance Hashable ValidationError
+
 -- | Defines a validation warning. Validation warnings do not prevent
 -- pipeline activation. The set of validation warnings that can be returned
 -- are defined by AWS Data Pipeline.
@@ -769,3 +797,5 @@ instance FromJSON ValidationWarning where
               (\ x ->
                  ValidationWarning' <$>
                    (x .:? "warnings" .!= mempty) <*> (x .:? "id"))
+
+instance Hashable ValidationWarning

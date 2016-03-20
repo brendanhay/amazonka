@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.KMS.EnableKeyRotation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables rotation of the specified customer master key.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKeyRotation.html AWS API Reference> for EnableKeyRotation.
 module Network.AWS.KMS.EnableKeyRotation
     (
     -- * Creating a Request
@@ -73,6 +71,8 @@ instance AWSRequest EnableKeyRotation where
         type Rs EnableKeyRotation = EnableKeyRotationResponse
         request = postJSON kMS
         response = receiveNull EnableKeyRotationResponse'
+
+instance Hashable EnableKeyRotation
 
 instance ToHeaders EnableKeyRotation where
         toHeaders

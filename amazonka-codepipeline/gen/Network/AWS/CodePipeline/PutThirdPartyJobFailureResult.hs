@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Represents the failure of a third party job as returned to the pipeline
 -- by a job worker. Only used for partner actions.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PutThirdPartyJobFailureResult.html AWS API Reference> for PutThirdPartyJobFailureResult.
 module Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest PutThirdPartyJobFailureResult
         request = postJSON codePipeline
         response
           = receiveNull PutThirdPartyJobFailureResultResponse'
+
+instance Hashable PutThirdPartyJobFailureResult
 
 instance ToHeaders PutThirdPartyJobFailureResult
          where

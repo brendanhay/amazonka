@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.DeleteDistribution
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete a distribution.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteDistribution.html AWS API Reference> for DeleteDistribution.
 module Network.AWS.CloudFront.DeleteDistribution
     (
     -- * Creating a Request
@@ -81,13 +79,15 @@ instance AWSRequest DeleteDistribution where
         request = delete cloudFront
         response = receiveNull DeleteDistributionResponse'
 
+instance Hashable DeleteDistribution
+
 instance ToHeaders DeleteDistribution where
         toHeaders DeleteDistribution'{..}
           = mconcat ["If-Match" =# _ddIfMatch]
 
 instance ToPath DeleteDistribution where
         toPath DeleteDistribution'{..}
-          = mconcat ["/2015-09-17/distribution/", toBS _ddId]
+          = mconcat ["/2016-01-28/distribution/", toBS _ddId]
 
 instance ToQuery DeleteDistribution where
         toQuery = const mempty

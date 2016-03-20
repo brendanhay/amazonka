@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeNetworkInterfaces
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your network interfaces.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeNetworkInterfaces.html AWS API Reference> for DescribeNetworkInterfaces.
 module Network.AWS.EC2.DescribeNetworkInterfaces
     (
     -- * Creating a Request
@@ -209,6 +207,8 @@ instance AWSRequest DescribeNetworkInterfaces where
                    (x .@? "networkInterfaceSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeNetworkInterfaces
 
 instance ToHeaders DescribeNetworkInterfaces where
         toHeaders = const mempty

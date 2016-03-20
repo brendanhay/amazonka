@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketLogging
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns the logging status of a bucket and the permissions users have to
 -- view and modify that status. To use GET, you must be the bucket owner.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLogging.html AWS API Reference> for GetBucketLogging.
 module Network.AWS.S3.GetBucketLogging
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest GetBucketLogging where
               (\ s h x ->
                  GetBucketLoggingResponse' <$>
                    (x .@? "LoggingEnabled") <*> (pure (fromEnum s)))
+
+instance Hashable GetBucketLogging
 
 instance ToHeaders GetBucketLogging where
         toHeaders = const mempty

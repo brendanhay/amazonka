@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateElasticIP
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateElasticIP.html AWS API Reference> for UpdateElasticIP.
 module Network.AWS.OpsWorks.UpdateElasticIP
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest UpdateElasticIP where
         type Rs UpdateElasticIP = UpdateElasticIPResponse
         request = postJSON opsWorks
         response = receiveNull UpdateElasticIPResponse'
+
+instance Hashable UpdateElasticIP
 
 instance ToHeaders UpdateElasticIP where
         toHeaders

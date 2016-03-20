@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- the data on the virtual tape is consistent. If your gateway crashes,
 -- virtual tapes that have recovery points can be recovered to a new
 -- gateway.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeRecoveryPoints.html AWS API Reference> for DescribeTapeRecoveryPoints.
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
@@ -118,6 +116,8 @@ instance AWSRequest DescribeTapeRecoveryPoints where
                      (x .?> "GatewayARN")
                      <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeTapeRecoveryPoints
 
 instance ToHeaders DescribeTapeRecoveryPoints where
         toHeaders

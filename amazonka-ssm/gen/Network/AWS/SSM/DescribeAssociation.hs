@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeAssociation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the associations for the specified SSM document or instance.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeAssociation.html AWS API Reference> for DescribeAssociation.
 module Network.AWS.SSM.DescribeAssociation
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest DescribeAssociation where
                  DescribeAssociationResponse' <$>
                    (x .?> "AssociationDescription") <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeAssociation
 
 instance ToHeaders DescribeAssociation where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SetIdentityDkimEnabled
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -35,8 +35,6 @@
 --
 -- For more information about Easy DKIM signing, go to the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityDkimEnabled.html AWS API Reference> for SetIdentityDkimEnabled.
 module Network.AWS.SES.SetIdentityDkimEnabled
     (
     -- * Creating a Request
@@ -60,10 +58,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to enable or disable DKIM
--- signing for an identity.
---
--- /See:/ 'setIdentityDkimEnabled' smart constructor.
+-- | /See:/ 'setIdentityDkimEnabled' smart constructor.
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
     { _sideIdentity    :: !Text
     , _sideDkimEnabled :: !Bool
@@ -105,6 +100,8 @@ instance AWSRequest SetIdentityDkimEnabled where
                  SetIdentityDkimEnabledResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable SetIdentityDkimEnabled
+
 instance ToHeaders SetIdentityDkimEnabled where
         toHeaders = const mempty
 
@@ -120,10 +117,7 @@ instance ToQuery SetIdentityDkimEnabled where
                "Identity" =: _sideIdentity,
                "DkimEnabled" =: _sideDkimEnabled]
 
--- | An empty element. Receiving this element indicates that the request
--- completed successfully.
---
--- /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
+-- | /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
 newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
     { _sidersResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.RestoreFromSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,11 +25,9 @@
 --
 -- This action returns as soon as the restore operation is initiated. You
 -- can monitor the progress of the restore operation by calling the
--- DescribeDirectories operation with the directory identifier. When the
+-- < DescribeDirectories> operation with the directory identifier. When the
 -- __DirectoryDescription.Stage__ value changes to 'Active', the restore
 -- operation is complete.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_RestoreFromSnapshot.html AWS API Reference> for RestoreFromSnapshot.
 module Network.AWS.DirectoryService.RestoreFromSnapshot
     (
     -- * Creating a Request
@@ -52,7 +50,8 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | An object representing the inputs for the RestoreFromSnapshot operation.
+-- | An object representing the inputs for the < RestoreFromSnapshot>
+-- operation.
 --
 -- /See:/ 'restoreFromSnapshot' smart constructor.
 newtype RestoreFromSnapshot = RestoreFromSnapshot'
@@ -85,6 +84,8 @@ instance AWSRequest RestoreFromSnapshot where
               (\ s h x ->
                  RestoreFromSnapshotResponse' <$> (pure (fromEnum s)))
 
+instance Hashable RestoreFromSnapshot
+
 instance ToHeaders RestoreFromSnapshot where
         toHeaders
           = const
@@ -106,7 +107,7 @@ instance ToPath RestoreFromSnapshot where
 instance ToQuery RestoreFromSnapshot where
         toQuery = const mempty
 
--- | Contains the results of the RestoreFromSnapshot operation.
+-- | Contains the results of the < RestoreFromSnapshot> operation.
 --
 -- /See:/ 'restoreFromSnapshotResponse' smart constructor.
 newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'

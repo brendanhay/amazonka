@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReleaseAddress
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,13 +30,11 @@
 -- [EC2-Classic, default VPC] Releasing an Elastic IP address automatically
 -- disassociates it from any instance that it\'s associated with. To
 -- disassociate an Elastic IP address without releasing it, use
--- DisassociateAddress.
+-- < DisassociateAddress>.
 --
--- [Nondefault VPC] You must use DisassociateAddress to disassociate the
+-- [Nondefault VPC] You must use < DisassociateAddress> to disassociate the
 -- Elastic IP address before you try to release it. Otherwise, Amazon EC2
 -- returns an error ('InvalidIPAddress.InUse').
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReleaseAddress.html AWS API Reference> for ReleaseAddress.
 module Network.AWS.EC2.ReleaseAddress
     (
     -- * Creating a Request
@@ -103,6 +101,8 @@ instance AWSRequest ReleaseAddress where
         type Rs ReleaseAddress = ReleaseAddressResponse
         request = postQuery eC2
         response = receiveNull ReleaseAddressResponse'
+
+instance Hashable ReleaseAddress
 
 instance ToHeaders ReleaseAddress where
         toHeaders = const mempty

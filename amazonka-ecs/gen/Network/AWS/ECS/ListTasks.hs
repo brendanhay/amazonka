@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListTasks
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- results by family name, by a particular container instance, or by the
 -- desired status of the task with the 'family', 'containerInstance', and
 -- 'desiredStatus' parameters.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTasks.html AWS API Reference> for ListTasks.
 --
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListTasks
@@ -177,6 +175,8 @@ instance AWSRequest ListTasks where
                  ListTasksResponse' <$>
                    (x .?> "nextToken") <*> (x .?> "taskArns" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListTasks
 
 instance ToHeaders ListTasks where
         toHeaders

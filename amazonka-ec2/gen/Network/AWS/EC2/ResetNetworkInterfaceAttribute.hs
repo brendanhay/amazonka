@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetNetworkInterfaceAttribute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Resets a network interface attribute. You can specify only one attribute
 -- at a time.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetNetworkInterfaceAttribute.html AWS API Reference> for ResetNetworkInterfaceAttribute.
 module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     (
     -- * Creating a Request
@@ -92,6 +90,8 @@ instance AWSRequest ResetNetworkInterfaceAttribute
         request = postQuery eC2
         response
           = receiveNull ResetNetworkInterfaceAttributeResponse'
+
+instance Hashable ResetNetworkInterfaceAttribute
 
 instance ToHeaders ResetNetworkInterfaceAttribute
          where

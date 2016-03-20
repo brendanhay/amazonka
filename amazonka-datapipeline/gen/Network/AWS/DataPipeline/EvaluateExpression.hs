@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.EvaluateExpression
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Task runners call 'EvaluateExpression' to evaluate a string in the
 -- context of the specified object. For example, a task runner can evaluate
 -- SQL queries stored in Amazon S3.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_EvaluateExpression.html AWS API Reference> for EvaluateExpression.
 module Network.AWS.DataPipeline.EvaluateExpression
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest EvaluateExpression where
                  EvaluateExpressionResponse' <$>
                    (pure (fromEnum s)) <*>
                      (x .:> "evaluatedExpression"))
+
+instance Hashable EvaluateExpression
 
 instance ToHeaders EvaluateExpression where
         toHeaders

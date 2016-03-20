@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketRequestPayment
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the request payment configuration of a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketRequestPayment.html AWS API Reference> for GetBucketRequestPayment.
 module Network.AWS.S3.GetBucketRequestPayment
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest GetBucketRequestPayment where
               (\ s h x ->
                  GetBucketRequestPaymentResponse' <$>
                    (x .@? "Payer") <*> (pure (fromEnum s)))
+
+instance Hashable GetBucketRequestPayment
 
 instance ToHeaders GetBucketRequestPayment where
         toHeaders = const mempty

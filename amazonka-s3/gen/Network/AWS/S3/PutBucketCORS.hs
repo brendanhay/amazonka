@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketCORS
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the cors configuration for a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketCORS.html AWS API Reference> for PutBucketCORS.
 module Network.AWS.S3.PutBucketCORS
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest PutBucketCORS where
         type Rs PutBucketCORS = PutBucketCORSResponse
         request = putXML s3
         response = receiveNull PutBucketCORSResponse'
+
+instance Hashable PutBucketCORS
 
 instance ToElement PutBucketCORS where
         toElement

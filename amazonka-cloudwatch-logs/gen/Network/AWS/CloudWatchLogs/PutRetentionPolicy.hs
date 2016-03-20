@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutRetentionPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Sets the retention of the specified log group. A retention policy allows
 -- you to configure the number of days you want to retain log events in the
 -- specified log group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html AWS API Reference> for PutRetentionPolicy.
 module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest PutRetentionPolicy where
              PutRetentionPolicyResponse
         request = postJSON cloudWatchLogs
         response = receiveNull PutRetentionPolicyResponse'
+
+instance Hashable PutRetentionPolicy
 
 instance ToHeaders PutRetentionPolicy where
         toHeaders

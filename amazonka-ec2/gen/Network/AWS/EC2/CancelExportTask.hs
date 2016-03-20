@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelExportTask
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- export, including any partially-created Amazon S3 objects. If the export
 -- task is complete or is in the process of transferring the final disk
 -- image, the command fails and returns an error.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelExportTask.html AWS API Reference> for CancelExportTask.
 module Network.AWS.EC2.CancelExportTask
     (
     -- * Creating a Request
@@ -71,6 +69,8 @@ instance AWSRequest CancelExportTask where
         type Rs CancelExportTask = CancelExportTaskResponse
         request = postQuery eC2
         response = receiveNull CancelExportTaskResponse'
+
+instance Hashable CancelExportTask
 
 instance ToHeaders CancelExportTask where
         toHeaders = const mempty

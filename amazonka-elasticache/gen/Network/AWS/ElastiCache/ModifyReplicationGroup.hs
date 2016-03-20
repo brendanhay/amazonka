@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ModifyReplicationGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- The /ModifyReplicationGroup/ action modifies the settings for a
 -- replication group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroup.html AWS API Reference> for ModifyReplicationGroup.
 module Network.AWS.ElastiCache.ModifyReplicationGroup
     (
     -- * Creating a Request
@@ -285,6 +283,8 @@ instance AWSRequest ModifyReplicationGroup where
               (\ s h x ->
                  ModifyReplicationGroupResponse' <$>
                    (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
+
+instance Hashable ModifyReplicationGroup
 
 instance ToHeaders ModifyReplicationGroup where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.AddAttachmentsToSet
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- hour after it is created; the 'ExpiryTime' returned in the response
 -- indicates when the set expires. The maximum number of attachments in a
 -- set is 3, and the maximum size of any attachment in the set is 5 MB.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_AddAttachmentsToSet.html AWS API Reference> for AddAttachmentsToSet.
 module Network.AWS.Support.AddAttachmentsToSet
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest AddAttachmentsToSet where
                    (x .?> "expiryTime") <*> (x .?> "attachmentSetId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable AddAttachmentsToSet
+
 instance ToHeaders AddAttachmentsToSet where
         toHeaders
           = const
@@ -124,7 +124,7 @@ instance ToQuery AddAttachmentsToSet where
         toQuery = const mempty
 
 -- | The ID and expiry time of the attachment set returned by the
--- AddAttachmentsToSet operation.
+-- < AddAttachmentsToSet> operation.
 --
 -- /See:/ 'addAttachmentsToSetResponse' smart constructor.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'

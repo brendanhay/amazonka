@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ReleaseHosts
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- then try again.
 --
 -- Released hosts will still appear in a DescribeHosts response.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReleaseHosts.html AWS API Reference> for ReleaseHosts.
 module Network.AWS.EC2.ReleaseHosts
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest ReleaseHosts where
                      (x .@? "successful" .!@ mempty >>=
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable ReleaseHosts
 
 instance ToHeaders ReleaseHosts where
         toHeaders = const mempty

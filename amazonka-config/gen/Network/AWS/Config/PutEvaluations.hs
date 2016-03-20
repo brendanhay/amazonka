@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.PutEvaluations
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Used by an AWS Lambda function to deliver evaluation results to AWS
 -- Config. This action is required in every AWS Lambda function that is
 -- invoked by an AWS Config rule.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_PutEvaluations.html AWS API Reference> for PutEvaluations.
 module Network.AWS.Config.PutEvaluations
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest PutEvaluations where
                  PutEvaluationsResponse' <$>
                    (x .?> "FailedEvaluations" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable PutEvaluations
 
 instance ToHeaders PutEvaluations where
         toHeaders

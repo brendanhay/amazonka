@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketRequestPayment
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- requesting the download will be charged for the download. Documentation
 -- on requester pays buckets can be found at
 -- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/RequesterPaysBuckets.html
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketRequestPayment.html AWS API Reference> for PutBucketRequestPayment.
 module Network.AWS.S3.PutBucketRequestPayment
     (
     -- * Creating a Request
@@ -93,6 +91,8 @@ instance AWSRequest PutBucketRequestPayment where
         request = putXML s3
         response
           = receiveNull PutBucketRequestPaymentResponse'
+
+instance Hashable PutBucketRequestPayment
 
 instance ToElement PutBucketRequestPayment where
         toElement

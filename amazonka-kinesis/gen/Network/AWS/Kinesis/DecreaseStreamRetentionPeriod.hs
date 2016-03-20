@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- This operation may result in lost data. For example, if the stream\'s
 -- retention period is 48 hours and is decreased to 24 hours, any data
 -- already in the stream that is older than 24 hours is inaccessible.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.html AWS API Reference> for DecreaseStreamRetentionPeriod.
 module Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
     (
     -- * Creating a Request
@@ -48,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for DecreaseStreamRetentionPeriod.
+-- | Represents the input for < DecreaseStreamRetentionPeriod>.
 --
 -- /See:/ 'decreaseStreamRetentionPeriod' smart constructor.
 data DecreaseStreamRetentionPeriod = DecreaseStreamRetentionPeriod'
@@ -89,6 +87,8 @@ instance AWSRequest DecreaseStreamRetentionPeriod
         request = postJSON kinesis
         response
           = receiveNull DecreaseStreamRetentionPeriodResponse'
+
+instance Hashable DecreaseStreamRetentionPeriod
 
 instance ToHeaders DecreaseStreamRetentionPeriod
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreateApplicationVersion
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- and key location, you cannot change that Amazon S3 location. If you
 -- change the Amazon S3 location, you receive an exception when you attempt
 -- to launch an environment from the application version.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplicationVersion.html AWS API Reference> for CreateApplicationVersion.
 module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     (
     -- * Creating a Request
@@ -154,6 +152,8 @@ instance AWSRequest CreateApplicationVersion where
         response
           = receiveXMLWrapper "CreateApplicationVersionResult"
               (\ s h x -> parseXML x)
+
+instance Hashable CreateApplicationVersion
 
 instance ToHeaders CreateApplicationVersion where
         toHeaders = const mempty

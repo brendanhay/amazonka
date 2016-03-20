@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -13,12 +13,26 @@
 --
 -- Amazon DynamoDB
 --
--- __Overview__
---
 -- This is the Amazon DynamoDB API Reference. This guide provides
--- descriptions and samples of the low-level DynamoDB API. For information
--- about DynamoDB application development, see the
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ Amazon DynamoDB Developer Guide>.
+-- descriptions of the low-level DynamoDB API.
+--
+-- This guide is intended for use with the following DynamoDB
+-- documentation:
+--
+-- -   <http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/ Amazon DynamoDB Getting Started Guide>
+--     - provides hands-on exercises that help you learn the basics of
+--     working with DynamoDB. /If you are new to DynamoDB, we recommend
+--     that you begin with the Getting Started Guide./
+--
+-- -   <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ Amazon DynamoDB Developer Guide>
+--     - contains detailed information about DynamoDB concepts, usage, and
+--     best practices.
+--
+-- -   <http://docs.aws.amazon.com/dynamodbstreams/latest/APIReference/ Amazon DynamoDB Streams API Reference>
+--     - provides descriptions and samples of the DynamoDB Streams API.
+--     (For more information, see
+--     <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html Capturing Table Activity with DynamoDB Streams>
+--     in the Amazon DynamoDB Developer Guide.)
 --
 -- Instead of making the requests to the low-level DynamoDB API directly
 -- from your application, we recommend that you use the AWS Software
@@ -27,7 +41,7 @@
 -- application. The libraries take care of request authentication,
 -- serialization, and connection management. For more information, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingAWSSDK.html Using the AWS SDKs with DynamoDB>
--- in the /Amazon DynamoDB Developer Guide/.
+-- in the Amazon DynamoDB Developer Guide.
 --
 -- If you decide to code against the low-level DynamoDB API directly, you
 -- will need to write the necessary code to authenticate your requests. For
@@ -41,12 +55,11 @@
 -- __Managing Tables__
 --
 -- -   /CreateTable/ - Creates a table with user-specified provisioned
---     throughput settings. You must designate one attribute as the hash
---     primary key for the table; you can optionally designate a second
---     attribute as the range primary key. DynamoDB creates indexes on
---     these key attributes for fast data access. Optionally, you can
---     create one or more secondary indexes, which provide fast data access
---     using non-key attributes.
+--     throughput settings. You must define a primary key for the table -
+--     either a simple primary key (partition key), or a composite primary
+--     key (partition key and sort key). Optionally, you can create one or
+--     more secondary indexes, which provide fast data access using non-key
+--     attributes.
 --
 -- -   /DescribeTable/ - Returns metadata for a table, such as table size,
 --     status, and index information.
@@ -78,10 +91,11 @@
 --     consistent reads can be used.
 --
 -- -   /Query/ - Returns one or more items from a table or a secondary
---     index. You must provide a specific hash key value. You can narrow
---     the scope of the query using comparison operators against a range
---     key value, or on the index key. /Query/ supports either eventual or
---     strong consistency. A single response has a size limit of 1 MB.
+--     index. You must provide a specific value for the partition key. You
+--     can narrow the scope of the query using comparison operators against
+--     a sort key value, or on the index key. /Query/ supports either
+--     eventual or strong consistency. A single response has a size limit
+--     of 1 MB.
 --
 -- -   /Scan/ - Reads every item in a table; the result set is eventually
 --     consistent. You can limit the number of items returned by filtering
@@ -126,8 +140,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan Operations>
 -- in the /Amazon DynamoDB Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DynamoDB
     (
     -- * Service Configuration
@@ -189,6 +201,9 @@ module Network.AWS.DynamoDB
 
     -- ** DescribeTable
     , module Network.AWS.DynamoDB.DescribeTable
+
+    -- ** DescribeLimits
+    , module Network.AWS.DynamoDB.DescribeLimits
 
     -- ** GetItem
     , module Network.AWS.DynamoDB.GetItem
@@ -455,6 +470,7 @@ import           Network.AWS.DynamoDB.BatchWriteItem
 import           Network.AWS.DynamoDB.CreateTable
 import           Network.AWS.DynamoDB.DeleteItem
 import           Network.AWS.DynamoDB.DeleteTable
+import           Network.AWS.DynamoDB.DescribeLimits
 import           Network.AWS.DynamoDB.DescribeTable
 import           Network.AWS.DynamoDB.GetItem
 import           Network.AWS.DynamoDB.ListTables

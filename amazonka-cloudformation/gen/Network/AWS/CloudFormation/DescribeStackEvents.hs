@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackEvents
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- You can list events for stacks that have failed to create or have been
 -- deleted by specifying the unique stack identifier (stack ID).
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackEvents.html AWS API Reference> for DescribeStackEvents.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.DescribeStackEvents
@@ -55,7 +53,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for DescribeStackEvents action.
+-- | The input for < DescribeStackEvents> action.
 --
 -- /See:/ 'describeStackEvents' smart constructor.
 data DescribeStackEvents = DescribeStackEvents'
@@ -78,10 +76,8 @@ describeStackEvents =
     , _dseStackName = Nothing
     }
 
--- | String that identifies the start of the next list of events, if there is
--- one.
---
--- Default: There is no default value.
+-- | A string that identifies the next page of events that you want to
+-- retrieve.
 dseNextToken :: Lens' DescribeStackEvents (Maybe Text)
 dseNextToken = lens _dseNextToken (\ s a -> s{_dseNextToken = a});
 
@@ -116,6 +112,8 @@ instance AWSRequest DescribeStackEvents where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeStackEvents
+
 instance ToHeaders DescribeStackEvents where
         toHeaders = const mempty
 
@@ -130,7 +128,7 @@ instance ToQuery DescribeStackEvents where
                "NextToken" =: _dseNextToken,
                "StackName" =: _dseStackName]
 
--- | The output for a DescribeStackEvents action.
+-- | The output for a < DescribeStackEvents> action.
 --
 -- /See:/ 'describeStackEventsResponse' smart constructor.
 data DescribeStackEventsResponse = DescribeStackEventsResponse'
@@ -158,8 +156,8 @@ describeStackEventsResponse pResponseStatus_ =
     , _dsersResponseStatus = pResponseStatus_
     }
 
--- | String that identifies the start of the next list of events, if there is
--- one.
+-- | If the output exceeds 1 MB in size, a string that identifies the next
+-- page of events. If no additional page exists, this value is null.
 dsersNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
 dsersNextToken = lens _dsersNextToken (\ s a -> s{_dsersNextToken = a});
 

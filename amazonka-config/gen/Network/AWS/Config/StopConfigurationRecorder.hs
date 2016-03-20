@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.StopConfigurationRecorder
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Stops recording configurations of the AWS resources you have selected to
 -- record in your AWS account.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html AWS API Reference> for StopConfigurationRecorder.
 module Network.AWS.Config.StopConfigurationRecorder
     (
     -- * Creating a Request
@@ -42,7 +40,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the StopConfigurationRecorder action.
+-- | The input for the < StopConfigurationRecorder> action.
 --
 -- /See:/ 'stopConfigurationRecorder' smart constructor.
 newtype StopConfigurationRecorder = StopConfigurationRecorder'
@@ -73,6 +71,8 @@ instance AWSRequest StopConfigurationRecorder where
         request = postJSON config
         response
           = receiveNull StopConfigurationRecorderResponse'
+
+instance Hashable StopConfigurationRecorder
 
 instance ToHeaders StopConfigurationRecorder where
         toHeaders

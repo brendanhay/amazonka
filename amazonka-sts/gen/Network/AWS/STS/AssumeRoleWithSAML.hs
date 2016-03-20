@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.STS.AssumeRoleWithSAML
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -72,8 +72,6 @@
 --     in the /Using IAM/.
 -- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html Creating a Role for SAML 2.0 Federation>
 --     in the /Using IAM/.
---
--- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html AWS API Reference> for AssumeRoleWithSAML.
 module Network.AWS.STS.AssumeRoleWithSAML
     (
     -- * Creating a Request
@@ -210,6 +208,8 @@ instance AWSRequest AssumeRoleWithSAML where
                      <*> (x .@? "Issuer")
                      <*> (pure (fromEnum s)))
 
+instance Hashable AssumeRoleWithSAML
+
 instance ToHeaders AssumeRoleWithSAML where
         toHeaders = const mempty
 
@@ -227,7 +227,7 @@ instance ToQuery AssumeRoleWithSAML where
                "PrincipalArn" =: _arwsamlPrincipalARN,
                "SAMLAssertion" =: _arwsamlSAMLAssertion]
 
--- | Contains the response to a successful AssumeRoleWithSAML request,
+-- | Contains the response to a successful < AssumeRoleWithSAML> request,
 -- including temporary AWS credentials that can be used to make AWS
 -- requests.
 --
@@ -297,7 +297,14 @@ arwsamlrsAudience = lens _arwsamlrsAudience (\ s a -> s{_arwsamlrsAudience = a})
 arwsamlrsPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Natural)
 arwsamlrsPackedPolicySize = lens _arwsamlrsPackedPolicySize (\ s a -> s{_arwsamlrsPackedPolicySize = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The temporary security credentials, which include an access key ID, a
+-- secret access key, and a security (or session) token.
+--
+-- __Note:__ The size of the security token that STS APIs return is not
+-- fixed. We strongly recommend that you make no assumptions about the
+-- maximum size. As of this writing, the typical size is less than 4096
+-- bytes, but that can vary. Also, future updates to AWS might require
+-- larger sizes.
 arwsamlrsCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe Credentials)
 arwsamlrsCredentials = lens _arwsamlrsCredentials (\ s a -> s{_arwsamlrsCredentials = a});
 

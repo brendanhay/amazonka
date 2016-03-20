@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Returns information about the overall health of the specified
 -- environment. The __DescribeEnvironmentHealth__ operation is only
 -- available with AWS Elastic Beanstalk Enhanced Health.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentHealth.html AWS API Reference> for DescribeEnvironmentHealth.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
     (
     -- * Creating a Request
@@ -122,6 +120,8 @@ instance AWSRequest DescribeEnvironmentHealth where
                      <*> (x .@? "InstancesHealth")
                      <*> (x .@? "RefreshedAt")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeEnvironmentHealth
 
 instance ToHeaders DescribeEnvironmentHealth where
         toHeaders = const mempty

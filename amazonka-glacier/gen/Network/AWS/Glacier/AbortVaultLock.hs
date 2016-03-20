@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.AbortVaultLock
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,9 +25,9 @@
 -- removes the vault lock policy from the specified vault.
 --
 -- A vault lock is put into the 'InProgress' state by calling
--- InitiateVaultLock. A vault lock is put into the 'Locked' state by
--- calling CompleteVaultLock. You can get the state of a vault lock by
--- calling GetVaultLock. For more information about the vault locking
+-- < InitiateVaultLock>. A vault lock is put into the 'Locked' state by
+-- calling < CompleteVaultLock>. You can get the state of a vault lock by
+-- calling < GetVaultLock>. For more information about the vault locking
 -- process, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock>.
 -- For more information about vault lock policies, see
@@ -36,8 +36,6 @@
 -- This operation is idempotent. You can successfully invoke this operation
 -- multiple times, if the vault lock is in the 'InProgress' state or if
 -- there is no policy associated with the vault.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AbortVaultLock.html AWS API Reference> for AbortVaultLock.
 module Network.AWS.Glacier.AbortVaultLock
     (
     -- * Creating a Request
@@ -102,6 +100,8 @@ instance AWSRequest AbortVaultLock where
         type Rs AbortVaultLock = AbortVaultLockResponse
         request = delete glacier
         response = receiveNull AbortVaultLockResponse'
+
+instance Hashable AbortVaultLock
 
 instance ToHeaders AbortVaultLock where
         toHeaders = const mempty

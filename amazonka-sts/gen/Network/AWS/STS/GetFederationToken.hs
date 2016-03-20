@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.STS.GetFederationToken
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -89,8 +89,6 @@
 -- For information about using 'GetFederationToken' to create temporary
 -- security credentials, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getfederationtoken GetFederationToken—Federation Through a Custom Identity Broker>.
---
--- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html AWS API Reference> for GetFederationToken.
 module Network.AWS.STS.GetFederationToken
     (
     -- * Creating a Request
@@ -201,6 +199,8 @@ instance AWSRequest GetFederationToken where
                      <*> (x .@? "FederatedUser")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetFederationToken
+
 instance ToHeaders GetFederationToken where
         toHeaders = const mempty
 
@@ -215,7 +215,7 @@ instance ToQuery GetFederationToken where
                "DurationSeconds" =: _gftDurationSeconds,
                "Policy" =: _gftPolicy, "Name" =: _gftName]
 
--- | Contains the response to a successful GetFederationToken request,
+-- | Contains the response to a successful < GetFederationToken> request,
 -- including temporary AWS credentials that can be used to make AWS
 -- requests.
 --
@@ -255,7 +255,14 @@ getFederationTokenResponse pResponseStatus_ =
 gftrsPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Natural)
 gftrsPackedPolicySize = lens _gftrsPackedPolicySize (\ s a -> s{_gftrsPackedPolicySize = a}) . mapping _Nat;
 
--- | Credentials for the service API authentication.
+-- | The temporary security credentials, which include an access key ID, a
+-- secret access key, and a security (or session) token.
+--
+-- __Note:__ The size of the security token that STS APIs return is not
+-- fixed. We strongly recommend that you make no assumptions about the
+-- maximum size. As of this writing, the typical size is less than 4096
+-- bytes, but that can vary. Also, future updates to AWS might require
+-- larger sizes.
 gftrsCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)
 gftrsCredentials = lens _gftrsCredentials (\ s a -> s{_gftrsCredentials = a});
 

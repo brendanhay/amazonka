@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GenerateCredentialReport
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- about the credential report, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html AWS API Reference> for GenerateCredentialReport.
 module Network.AWS.IAM.GenerateCredentialReport
     (
     -- * Creating a Request
@@ -68,6 +66,8 @@ instance AWSRequest GenerateCredentialReport where
                    (x .@? "State") <*> (x .@? "Description") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GenerateCredentialReport
+
 instance ToHeaders GenerateCredentialReport where
         toHeaders = const mempty
 
@@ -82,7 +82,8 @@ instance ToQuery GenerateCredentialReport where
                     ("GenerateCredentialReport" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful GenerateCredentialReport request.
+-- | Contains the response to a successful < GenerateCredentialReport>
+-- request.
 --
 -- /See:/ 'generateCredentialReportResponse' smart constructor.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelSpotFleetRequests
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- Spot fleet request enters the 'cancelled_running' state and the
 -- instances continue to run until they are interrupted or you terminate
 -- them manually.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotFleetRequests.html AWS API Reference> for CancelSpotFleetRequests.
 module Network.AWS.EC2.CancelSpotFleetRequests
     (
     -- * Creating a Request
@@ -113,6 +111,8 @@ instance AWSRequest CancelSpotFleetRequests where
                      (x .@? "unsuccessfulFleetRequestSet" .!@ mempty >>=
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable CancelSpotFleetRequests
 
 instance ToHeaders CancelSpotFleetRequests where
         toHeaders = const mempty

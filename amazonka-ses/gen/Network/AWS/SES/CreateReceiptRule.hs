@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.CreateReceiptRule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html AWS API Reference> for CreateReceiptRule.
 module Network.AWS.SES.CreateReceiptRule
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest CreateReceiptRule where
           = receiveXMLWrapper "CreateReceiptRuleResult"
               (\ s h x ->
                  CreateReceiptRuleResponse' <$> (pure (fromEnum s)))
+
+instance Hashable CreateReceiptRule
 
 instance ToHeaders CreateReceiptRule where
         toHeaders = const mempty

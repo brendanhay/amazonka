@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyInstanceAttribute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html Modifying Attributes of a Stopped Instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyInstanceAttribute.html AWS API Reference> for ModifyInstanceAttribute.
 module Network.AWS.EC2.ModifyInstanceAttribute
     (
     -- * Creating a Request
@@ -242,6 +240,8 @@ instance AWSRequest ModifyInstanceAttribute where
         request = postQuery eC2
         response
           = receiveNull ModifyInstanceAttributeResponse'
+
+instance Hashable ModifyInstanceAttribute
 
 instance ToHeaders ModifyInstanceAttribute where
         toHeaders = const mempty

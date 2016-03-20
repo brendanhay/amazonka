@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketACL
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the permissions on a bucket using access control lists (ACL).
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketACL.html AWS API Reference> for PutBucketACL.
 module Network.AWS.S3.PutBucketACL
     (
     -- * Creating a Request
@@ -141,6 +139,8 @@ instance AWSRequest PutBucketACL where
         type Rs PutBucketACL = PutBucketACLResponse
         request = putXML s3
         response = receiveNull PutBucketACLResponse'
+
+instance Hashable PutBucketACL
 
 instance ToElement PutBucketACL where
         toElement

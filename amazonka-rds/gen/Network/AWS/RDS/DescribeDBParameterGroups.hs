@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBParameterGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Returns a list of 'DBParameterGroup' descriptions. If a
 -- 'DBParameterGroupName' is specified, the list will contain only the
 -- description of the specified DB parameter group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameterGroups.html AWS API Reference> for DescribeDBParameterGroups.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBParameterGroups
@@ -136,6 +134,8 @@ instance AWSRequest DescribeDBParameterGroups where
                         may (parseXMLList "DBParameterGroup"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBParameterGroups
+
 instance ToHeaders DescribeDBParameterGroups where
         toHeaders = const mempty
 
@@ -155,7 +155,7 @@ instance ToQuery DescribeDBParameterGroups where
                "MaxRecords" =: _ddpgMaxRecords]
 
 -- | Contains the result of a successful invocation of the
--- DescribeDBParameterGroups action.
+-- < DescribeDBParameterGroups> action.
 --
 -- /See:/ 'describeDBParameterGroupsResponse' smart constructor.
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
@@ -189,7 +189,7 @@ describeDBParameterGroupsResponse pResponseStatus_ =
 ddpgrsMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
 ddpgrsMarker = lens _ddpgrsMarker (\ s a -> s{_ddpgrsMarker = a});
 
--- | A list of DBParameterGroup instances.
+-- | A list of < DBParameterGroup> instances.
 ddpgrsDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
 ddpgrsDBParameterGroups = lens _ddpgrsDBParameterGroups (\ s a -> s{_ddpgrsDBParameterGroups = a}) . _Default . _Coerce;
 

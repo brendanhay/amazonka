@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateLoginProfile
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,12 +20,10 @@
 --
 -- Changes the password for the specified user.
 --
--- Users can change their own passwords by calling ChangePassword. For more
--- information about modifying passwords, see
+-- Users can change their own passwords by calling < ChangePassword>. For
+-- more information about modifying passwords, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html AWS API Reference> for UpdateLoginProfile.
 module Network.AWS.IAM.UpdateLoginProfile
     (
     -- * Creating a Request
@@ -91,6 +89,8 @@ instance AWSRequest UpdateLoginProfile where
              UpdateLoginProfileResponse
         request = postQuery iAM
         response = receiveNull UpdateLoginProfileResponse'
+
+instance Hashable UpdateLoginProfile
 
 instance ToHeaders UpdateLoginProfile where
         toHeaders = const mempty

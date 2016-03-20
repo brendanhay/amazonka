@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteClusterSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- charged. If other accounts are authorized to access the snapshot, you
 -- must revoke all of the authorizations before you can delete the
 -- snapshot.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSnapshot.html AWS API Reference> for DeleteClusterSnapshot.
 module Network.AWS.Redshift.DeleteClusterSnapshot
     (
     -- * Creating a Request
@@ -103,6 +101,8 @@ instance AWSRequest DeleteClusterSnapshot where
               (\ s h x ->
                  DeleteClusterSnapshotResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteClusterSnapshot
 
 instance ToHeaders DeleteClusterSnapshot where
         toHeaders = const mempty

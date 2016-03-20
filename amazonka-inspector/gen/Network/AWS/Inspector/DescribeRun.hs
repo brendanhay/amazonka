@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeRun
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the assessment run specified by the run ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DescribeRun.html AWS API Reference> for DescribeRun.
 module Network.AWS.Inspector.DescribeRun
     (
     -- * Creating a Request
@@ -74,6 +72,8 @@ instance AWSRequest DescribeRun where
               (\ s h x ->
                  DescribeRunResponse' <$>
                    (x .?> "run") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeRun
 
 instance ToHeaders DescribeRun where
         toHeaders

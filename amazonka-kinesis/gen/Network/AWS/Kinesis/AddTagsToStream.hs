@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.AddTagsToStream
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- If tags have already been assigned to the stream, 'AddTagsToStream'
 -- overwrites any existing tags that correspond to the specified tag keys.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html AWS API Reference> for AddTagsToStream.
 module Network.AWS.Kinesis.AddTagsToStream
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest AddTagsToStream where
         type Rs AddTagsToStream = AddTagsToStreamResponse
         request = postJSON kinesis
         response = receiveNull AddTagsToStreamResponse'
+
+instance Hashable AddTagsToStream
 
 instance ToHeaders AddTagsToStream where
         toHeaders

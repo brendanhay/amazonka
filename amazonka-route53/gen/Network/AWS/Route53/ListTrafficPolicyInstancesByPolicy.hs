@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,13 +24,13 @@
 -- After you submit a 'CreateTrafficPolicyInstance' or an
 -- 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while
 -- Amazon Route 53 creates the resource record sets that are specified in
--- the traffic policy definition. For more information, see the State
+-- the traffic policy definition. For more information, see the < State>
 -- response element.
 --
 -- To get information about the traffic policy instances that you created
 -- by using a specify traffic policy version, send a 'GET' request to the
--- '2013-04-01\/trafficpolicyinstance' resource and include the ID and
--- version of the traffic policy.
+-- '\/Route 53 API version\/trafficpolicyinstance' resource and include the
+-- ID and version of the traffic policy.
 --
 -- Amazon Route 53 returns a maximum of 100 items in each response. If you
 -- have a lot of traffic policy instances, you can use the 'MaxItems'
@@ -66,8 +66,6 @@
 --     If 'IsTruncated' is 'false', all three elements are omitted from the
 --     response.
 --
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyInstancesByPolicy.html AWS API Reference> for ListTrafficPolicyInstancesByPolicy.
 module Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
     (
     -- * Creating a Request
@@ -227,6 +225,8 @@ instance AWSRequest
                         parseXMLList "TrafficPolicyInstance")
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
+
+instance Hashable ListTrafficPolicyInstancesByPolicy
 
 instance ToHeaders ListTrafficPolicyInstancesByPolicy
          where

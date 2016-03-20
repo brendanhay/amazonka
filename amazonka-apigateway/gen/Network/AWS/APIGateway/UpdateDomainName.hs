@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateDomainName
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about the DomainName resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateDomainName.html AWS API Reference> for UpdateDomainName.
+-- Changes information about the < DomainName> resource.
 module Network.AWS.APIGateway.UpdateDomainName
     (
     -- * Creating a Request
@@ -47,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to change information about the DomainName resource.
+-- | A request to change information about the < DomainName> resource.
 --
 -- /See:/ 'updateDomainName' smart constructor.
 data UpdateDomainName = UpdateDomainName'
@@ -76,7 +74,7 @@ updateDomainName pDomainName_ =
 udnPatchOperations :: Lens' UpdateDomainName [PatchOperation]
 udnPatchOperations = lens _udnPatchOperations (\ s a -> s{_udnPatchOperations = a}) . _Default . _Coerce;
 
--- | The name of the DomainName resource to be changed.
+-- | The name of the < DomainName> resource to be changed.
 udnDomainName :: Lens' UpdateDomainName Text
 udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
 
@@ -85,8 +83,13 @@ instance AWSRequest UpdateDomainName where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateDomainName
+
 instance ToHeaders UpdateDomainName where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateDomainName where
         toJSON UpdateDomainName'{..}

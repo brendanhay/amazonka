@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListEntitiesForPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html AWS API Reference> for ListEntitiesForPolicy.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListEntitiesForPolicy
@@ -163,6 +161,8 @@ instance AWSRequest ListEntitiesForPolicy where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListEntitiesForPolicy
+
 instance ToHeaders ListEntitiesForPolicy where
         toHeaders = const mempty
 
@@ -179,7 +179,7 @@ instance ToQuery ListEntitiesForPolicy where
                "Marker" =: _lefpMarker, "MaxItems" =: _lefpMaxItems,
                "PolicyArn" =: _lefpPolicyARN]
 
--- | Contains the response to a successful ListEntitiesForPolicy request.
+-- | Contains the response to a successful < ListEntitiesForPolicy> request.
 --
 -- /See:/ 'listEntitiesForPolicyResponse' smart constructor.
 data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'

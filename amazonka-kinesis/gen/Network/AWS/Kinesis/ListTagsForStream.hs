@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.ListTagsForStream
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the tags for the specified Amazon Kinesis stream.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListTagsForStream.html AWS API Reference> for ListTagsForStream.
 module Network.AWS.Kinesis.ListTagsForStream
     (
     -- * Creating a Request
@@ -101,6 +99,8 @@ instance AWSRequest ListTagsForStream where
                  ListTagsForStreamResponse' <$>
                    (pure (fromEnum s)) <*> (x .?> "Tags" .!@ mempty) <*>
                      (x .:> "HasMoreTags"))
+
+instance Hashable ListTagsForStream
 
 instance ToHeaders ListTagsForStream where
         toHeaders

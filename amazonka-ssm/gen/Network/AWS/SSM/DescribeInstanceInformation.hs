@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeInstanceInformation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- IDs, it returns information for all your instances. If you specify an
 -- instance ID that is not valid or an instance that you do not own, you
 -- receive an error.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeInstanceInformation.html AWS API Reference> for DescribeInstanceInformation.
 module Network.AWS.SSM.DescribeInstanceInformation
     (
     -- * Creating a Request
@@ -105,6 +103,8 @@ instance AWSRequest DescribeInstanceInformation where
                    (x .?> "NextToken") <*>
                      (x .?> "InstanceInformationList" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeInstanceInformation
 
 instance ToHeaders DescribeInstanceInformation where
         toHeaders

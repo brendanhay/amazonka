@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteAPIKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the ApiKey resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteAPIKey.html AWS API Reference> for DeleteAPIKey.
+-- Deletes the < ApiKey> resource.
 module Network.AWS.APIGateway.DeleteAPIKey
     (
     -- * Creating a Request
@@ -41,7 +39,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to delete the ApiKey resource.
+-- | A request to delete the < ApiKey> resource.
 --
 -- /See:/ 'deleteAPIKey' smart constructor.
 newtype DeleteAPIKey = DeleteAPIKey'
@@ -61,7 +59,7 @@ deleteAPIKey pApiKey_ =
     { _dakApiKey = pApiKey_
     }
 
--- | The identifier of the ApiKey resource to be deleted.
+-- | The identifier of the < ApiKey> resource to be deleted.
 dakApiKey :: Lens' DeleteAPIKey Text
 dakApiKey = lens _dakApiKey (\ s a -> s{_dakApiKey = a});
 
@@ -70,8 +68,13 @@ instance AWSRequest DeleteAPIKey where
         request = delete aPIGateway
         response = receiveNull DeleteAPIKeyResponse'
 
+instance Hashable DeleteAPIKey
+
 instance ToHeaders DeleteAPIKey where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteAPIKey where
         toPath DeleteAPIKey'{..}

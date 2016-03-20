@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- a 'nextToken' value in the response body. You can also limit the number
 -- of subscription filters returned in the response by specifying the
 -- 'limit' parameter in the request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html AWS API Reference> for DescribeSubscriptionFilters.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
@@ -124,6 +122,8 @@ instance AWSRequest DescribeSubscriptionFilters where
                    (x .?> "subscriptionFilters" .!@ mempty) <*>
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeSubscriptionFilters
 
 instance ToHeaders DescribeSubscriptionFilters where
         toHeaders

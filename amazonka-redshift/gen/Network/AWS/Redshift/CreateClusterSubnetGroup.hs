@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateClusterSubnetGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- For information about subnet groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html Amazon Redshift Cluster Subnet Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSubnetGroup.html AWS API Reference> for CreateClusterSubnetGroup.
 module Network.AWS.Redshift.CreateClusterSubnetGroup
     (
     -- * Creating a Request
@@ -122,6 +120,8 @@ instance AWSRequest CreateClusterSubnetGroup where
               (\ s h x ->
                  CreateClusterSubnetGroupResponse' <$>
                    (x .@? "ClusterSubnetGroup") <*> (pure (fromEnum s)))
+
+instance Hashable CreateClusterSubnetGroup
 
 instance ToHeaders CreateClusterSubnetGroup where
         toHeaders = const mempty

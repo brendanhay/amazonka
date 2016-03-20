@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.SQS.SendMessageBatch
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Delivers up to ten messages to the specified queue. This is a batch
--- version of SendMessage. The result of the send action on each message is
--- reported individually in the response. The maximum allowed individual
+-- version of < SendMessage>. The result of the send action on each message
+-- is reported individually in the response. The maximum allowed individual
 -- message size is 256 KB (262,144 bytes).
 --
 -- The maximum total payload size (i.e., the sum of all a batch\'s
@@ -49,8 +49,6 @@
 -- '&Attribute.1=this'
 --
 -- '&Attribute.2=that'
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html AWS API Reference> for SendMessageBatch.
 module Network.AWS.SQS.SendMessageBatch
     (
     -- * Creating a Request
@@ -102,7 +100,7 @@ sendMessageBatch pQueueURL_ =
 smbQueueURL :: Lens' SendMessageBatch Text
 smbQueueURL = lens _smbQueueURL (\ s a -> s{_smbQueueURL = a});
 
--- | A list of SendMessageBatchRequestEntry items.
+-- | A list of < SendMessageBatchRequestEntry> items.
 smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
 smbEntries = lens _smbEntries (\ s a -> s{_smbEntries = a}) . _Coerce;
 
@@ -116,6 +114,8 @@ instance AWSRequest SendMessageBatch where
                    (pure (fromEnum s)) <*>
                      (parseXMLList "SendMessageBatchResultEntry" x)
                      <*> (parseXMLList "BatchResultErrorEntry" x))
+
+instance Hashable SendMessageBatch
 
 instance ToHeaders SendMessageBatch where
         toHeaders = const mempty
@@ -133,8 +133,8 @@ instance ToQuery SendMessageBatch where
                  _smbEntries]
 
 -- | For each message in the batch, the response contains a
--- SendMessageBatchResultEntry tag if the message succeeds or a
--- BatchResultErrorEntry tag if the message fails.
+-- < SendMessageBatchResultEntry> tag if the message succeeds or a
+-- < BatchResultErrorEntry> tag if the message fails.
 --
 -- /See:/ 'sendMessageBatchResponse' smart constructor.
 data SendMessageBatchResponse = SendMessageBatchResponse'
@@ -166,11 +166,11 @@ sendMessageBatchResponse pResponseStatus_ =
 smbrsResponseStatus :: Lens' SendMessageBatchResponse Int
 smbrsResponseStatus = lens _smbrsResponseStatus (\ s a -> s{_smbrsResponseStatus = a});
 
--- | A list of SendMessageBatchResultEntry items.
+-- | A list of < SendMessageBatchResultEntry> items.
 smbrsSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 smbrsSuccessful = lens _smbrsSuccessful (\ s a -> s{_smbrsSuccessful = a}) . _Coerce;
 
--- | A list of BatchResultErrorEntry items with the error detail about each
--- message that could not be enqueued.
+-- | A list of < BatchResultErrorEntry> items with the error detail about
+-- each message that could not be enqueued.
 smbrsFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrsFailed = lens _smbrsFailed (\ s a -> s{_smbrsFailed = a}) . _Coerce;

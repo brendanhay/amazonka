@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheck
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve the health check, send a 'GET' request to the
--- '2013-04-01\/healthcheck\/health check ID' resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html AWS API Reference> for GetHealthCheck.
+-- '\/Route 53 API version\/healthcheck\/health check ID' resource.
 module Network.AWS.Route53.GetHealthCheck
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest GetHealthCheck where
               (\ s h x ->
                  GetHealthCheckResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HealthCheck"))
+
+instance Hashable GetHealthCheck
 
 instance ToHeaders GetHealthCheck where
         toHeaders = const mempty

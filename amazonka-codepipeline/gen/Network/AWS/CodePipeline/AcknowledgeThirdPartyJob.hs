@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Confirms a job worker has received the specified job. Only used for
 -- partner actions.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_AcknowledgeThirdPartyJob.html AWS API Reference> for AcknowledgeThirdPartyJob.
 module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
     (
     -- * Creating a Request
@@ -102,6 +100,8 @@ instance AWSRequest AcknowledgeThirdPartyJob where
               (\ s h x ->
                  AcknowledgeThirdPartyJobResponse' <$>
                    (x .?> "status") <*> (pure (fromEnum s)))
+
+instance Hashable AcknowledgeThirdPartyJob
 
 instance ToHeaders AcknowledgeThirdPartyJob where
         toHeaders

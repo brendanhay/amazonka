@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteHSMConfiguration
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified Amazon Redshift HSM configuration.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHSMConfiguration.html AWS API Reference> for DeleteHSMConfiguration.
 module Network.AWS.Redshift.DeleteHSMConfiguration
     (
     -- * Creating a Request
@@ -71,6 +69,8 @@ instance AWSRequest DeleteHSMConfiguration where
         request = postQuery redshift
         response
           = receiveNull DeleteHSMConfigurationResponse'
+
+instance Hashable DeleteHSMConfiguration
 
 instance ToHeaders DeleteHSMConfiguration where
         toHeaders = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteSnapshotCopyGrant
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified snapshot copy grant.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteSnapshotCopyGrant.html AWS API Reference> for DeleteSnapshotCopyGrant.
 module Network.AWS.Redshift.DeleteSnapshotCopyGrant
     (
     -- * Creating a Request
@@ -71,6 +69,8 @@ instance AWSRequest DeleteSnapshotCopyGrant where
         request = postQuery redshift
         response
           = receiveNull DeleteSnapshotCopyGrantResponse'
+
+instance Hashable DeleteSnapshotCopyGrant
 
 instance ToHeaders DeleteSnapshotCopyGrant where
         toHeaders = const mempty

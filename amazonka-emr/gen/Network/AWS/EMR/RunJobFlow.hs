@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.RunJobFlow
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,11 +22,11 @@
 -- run the steps specified. Once the job flow completes, the cluster is
 -- stopped and the HDFS partition is lost. To prevent loss of data,
 -- configure the last step of the job flow to store results in Amazon S3.
--- If the JobFlowInstancesConfig 'KeepJobFlowAliveWhenNoSteps' parameter is
--- set to 'TRUE', the job flow will transition to the WAITING state rather
--- than shutting down once the steps have completed.
+-- If the < JobFlowInstancesConfig> 'KeepJobFlowAliveWhenNoSteps' parameter
+-- is set to 'TRUE', the job flow will transition to the WAITING state
+-- rather than shutting down once the steps have completed.
 --
--- For additional protection, you can set the JobFlowInstancesConfig
+-- For additional protection, you can set the < JobFlowInstancesConfig>
 -- 'TerminationProtected' parameter to 'TRUE' to lock the job flow and
 -- prevent it from being terminated by API call, user intervention, or in
 -- the event of a job flow error.
@@ -44,8 +44,6 @@
 --
 -- For long running job flows, we recommend that you periodically store
 -- your results.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RunJobFlow.html AWS API Reference> for RunJobFlow.
 module Network.AWS.EMR.RunJobFlow
     (
     -- * Creating a Request
@@ -84,7 +82,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the RunJobFlow operation.
+-- | Input to the < RunJobFlow> operation.
 --
 -- /See:/ 'runJobFlow' smart constructor.
 data RunJobFlow = RunJobFlow'
@@ -175,8 +173,8 @@ runJobFlow pName_ pInstances_ =
 --
 -- If the AMI supports multiple versions of Hadoop (for example, AMI 1.0
 -- supports both Hadoop 0.18 and 0.20) you can use the
--- JobFlowInstancesConfig 'HadoopVersion' parameter to modify the version
--- of Hadoop from the defaults shown above.
+-- < JobFlowInstancesConfig> 'HadoopVersion' parameter to modify the
+-- version of Hadoop from the defaults shown above.
 --
 -- For details about the AMI versions currently supported by Amazon Elastic
 -- MapReduce, go to
@@ -200,9 +198,10 @@ rjfConfigurations = lens _rjfConfigurations (\ s a -> s{_rjfConfigurations = a})
 rjfSteps :: Lens' RunJobFlow [StepConfig]
 rjfSteps = lens _rjfSteps (\ s a -> s{_rjfSteps = a}) . _Default . _Coerce;
 
--- | An IAM role for the job flow. The EC2 instances of the job flow assume
--- this role. The default role is 'EMRJobflowDefault'. In order to use the
--- default role, you must have already created it using the CLI.
+-- | Also called instance profile and EC2 role. An IAM role for an EMR
+-- cluster. The EC2 instances of the cluster assume this role. The default
+-- role is 'EMR_EC2_DefaultRole'. In order to use the default role, you
+-- must have already created it using the CLI or console.
 rjfJobFlowRole :: Lens' RunJobFlow (Maybe Text)
 rjfJobFlowRole = lens _rjfJobFlowRole (\ s a -> s{_rjfJobFlowRole = a});
 
@@ -304,6 +303,8 @@ instance AWSRequest RunJobFlow where
                  RunJobFlowResponse' <$>
                    (x .?> "JobFlowId") <*> (pure (fromEnum s)))
 
+instance Hashable RunJobFlow
+
 instance ToHeaders RunJobFlow where
         toHeaders
           = const
@@ -341,7 +342,7 @@ instance ToPath RunJobFlow where
 instance ToQuery RunJobFlow where
         toQuery = const mempty
 
--- | The result of the RunJobFlow operation.
+-- | The result of the < RunJobFlow> operation.
 --
 -- /See:/ 'runJobFlowResponse' smart constructor.
 data RunJobFlowResponse = RunJobFlowResponse'

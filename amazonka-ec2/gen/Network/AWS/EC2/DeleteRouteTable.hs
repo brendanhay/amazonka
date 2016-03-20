@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteRouteTable
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Deletes the specified route table. You must disassociate the route table
 -- from any subnets before you can delete it. You can\'t delete the main
 -- route table.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRouteTable.html AWS API Reference> for DeleteRouteTable.
 module Network.AWS.EC2.DeleteRouteTable
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest DeleteRouteTable where
         type Rs DeleteRouteTable = DeleteRouteTableResponse
         request = postQuery eC2
         response = receiveNull DeleteRouteTableResponse'
+
+instance Hashable DeleteRouteTable
 
 instance ToHeaders DeleteRouteTable where
         toHeaders = const mempty

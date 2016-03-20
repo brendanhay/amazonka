@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.PutPipelineDefinition
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,9 +32,7 @@
 -- 4.  The pipeline is in a FINISHED state.
 --
 -- Pipeline object definitions are passed to the 'PutPipelineDefinition'
--- action and returned by the GetPipelineDefinition action.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutPipelineDefinition.html AWS API Reference> for PutPipelineDefinition.
+-- action and returned by the < GetPipelineDefinition> action.
 module Network.AWS.DataPipeline.PutPipelineDefinition
     (
     -- * Creating a Request
@@ -124,6 +122,8 @@ instance AWSRequest PutPipelineDefinition where
                      (x .?> "validationWarnings" .!@ mempty)
                      <*> (pure (fromEnum s))
                      <*> (x .:> "errored"))
+
+instance Hashable PutPipelineDefinition
 
 instance ToHeaders PutPipelineDefinition where
         toHeaders

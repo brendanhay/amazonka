@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.SetAlarmState
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,11 +20,14 @@
 --
 -- Temporarily sets the state of an alarm. When the updated 'StateValue'
 -- differs from the previous value, the action configured for the
--- appropriate state is invoked. This is not a permanent change. The next
--- periodic alarm check (in about a minute) will set the alarm to its
--- actual state.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_SetAlarmState.html AWS API Reference> for SetAlarmState.
+-- appropriate state is invoked. For example, if your alarm is configured
+-- to send an Amazon SNS message when an alarm is triggered, temporarily
+-- changing the alarm\'s state to __ALARM__ will send an Amazon SNS
+-- message. This is not a permanent change. The next periodic alarm check
+-- (in about a minute) will set the alarm to its actual state. Because the
+-- alarm state change happens very quickly, it is typically only visibile
+-- in the alarm\'s __History__ tab in the Amazon CloudWatch console or
+-- through 'DescribeAlarmHistory'.
 module Network.AWS.CloudWatch.SetAlarmState
     (
     -- * Creating a Request
@@ -103,6 +106,8 @@ instance AWSRequest SetAlarmState where
         type Rs SetAlarmState = SetAlarmStateResponse
         request = postQuery cloudWatch
         response = receiveNull SetAlarmStateResponse'
+
+instance Hashable SetAlarmState
 
 instance ToHeaders SetAlarmState where
         toHeaders = const mempty

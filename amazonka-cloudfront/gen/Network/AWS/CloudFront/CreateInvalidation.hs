@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateInvalidation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a new invalidation.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateInvalidation.html AWS API Reference> for CreateInvalidation.
 module Network.AWS.CloudFront.CreateInvalidation
     (
     -- * Creating a Request
@@ -90,10 +88,12 @@ instance AWSRequest CreateInvalidation where
                    (parseXML x) <*> (h .#? "Location") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateInvalidation
+
 instance ToElement CreateInvalidation where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2015-09-17/}InvalidationBatch"
+              "{http://cloudfront.amazonaws.com/doc/2016-01-28/}InvalidationBatch"
               .
               _ciInvalidationBatch
 
@@ -103,7 +103,7 @@ instance ToHeaders CreateInvalidation where
 instance ToPath CreateInvalidation where
         toPath CreateInvalidation'{..}
           = mconcat
-              ["/2015-09-17/distribution/", toBS _ciDistributionId,
+              ["/2016-01-28/distribution/", toBS _ciDistributionId,
                "/invalidation"]
 
 instance ToQuery CreateInvalidation where

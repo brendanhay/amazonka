@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateEnvironment
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,10 +29,8 @@
 --
 -- When updating the configuration settings to a new template or individual
 -- settings, a draft configuration is created and
--- DescribeConfigurationSettings for this environment returns two setting
--- descriptions with different 'DeploymentStatus' values.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateEnvironment.html AWS API Reference> for UpdateEnvironment.
+-- < DescribeConfigurationSettings> for this environment returns two
+-- setting descriptions with different 'DeploymentStatus' values.
 module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     (
     -- * Creating a Request
@@ -221,6 +219,8 @@ instance AWSRequest UpdateEnvironment where
         response
           = receiveXMLWrapper "UpdateEnvironmentResult"
               (\ s h x -> parseXML x)
+
+instance Hashable UpdateEnvironment
 
 instance ToHeaders UpdateEnvironment where
         toHeaders = const mempty

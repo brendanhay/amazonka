@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetRolePolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,8 @@
 -- specified role.
 --
 -- A role can also have managed policies attached to it. To retrieve a
--- managed policy document that is attached to a role, use GetPolicy to
--- determine the policy\'s default version, then use GetPolicyVersion to
+-- managed policy document that is attached to a role, use < GetPolicy> to
+-- determine the policy\'s default version, then use < GetPolicyVersion> to
 -- retrieve the policy document.
 --
 -- For more information about policies, refer to
@@ -32,8 +32,6 @@
 --
 -- For more information about roles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html AWS API Reference> for GetRolePolicy.
 module Network.AWS.IAM.GetRolePolicy
     (
     -- * Creating a Request
@@ -102,6 +100,8 @@ instance AWSRequest GetRolePolicy where
                      (x .@ "PolicyName")
                      <*> (x .@ "PolicyDocument"))
 
+instance Hashable GetRolePolicy
+
 instance ToHeaders GetRolePolicy where
         toHeaders = const mempty
 
@@ -116,7 +116,7 @@ instance ToQuery GetRolePolicy where
                "RoleName" =: _grpRoleName,
                "PolicyName" =: _grpPolicyName]
 
--- | Contains the response to a successful GetRolePolicy request.
+-- | Contains the response to a successful < GetRolePolicy> request.
 --
 -- /See:/ 'getRolePolicyResponse' smart constructor.
 data GetRolePolicyResponse = GetRolePolicyResponse'

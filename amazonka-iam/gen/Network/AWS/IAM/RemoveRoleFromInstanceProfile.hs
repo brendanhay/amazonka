@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.RemoveRoleFromInstanceProfile
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
 -- For more information about instance profiles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html AWS API Reference> for RemoveRoleFromInstanceProfile.
 module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest RemoveRoleFromInstanceProfile
         request = postQuery iAM
         response
           = receiveNull RemoveRoleFromInstanceProfileResponse'
+
+instance Hashable RemoveRoleFromInstanceProfile
 
 instance ToHeaders RemoveRoleFromInstanceProfile
          where

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IAM.RemoveUserFromGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified user from the specified group.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveUserFromGroup.html AWS API Reference> for RemoveUserFromGroup.
 module Network.AWS.IAM.RemoveUserFromGroup
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest RemoveUserFromGroup where
              RemoveUserFromGroupResponse
         request = postQuery iAM
         response = receiveNull RemoveUserFromGroupResponse'
+
+instance Hashable RemoveUserFromGroup
 
 instance ToHeaders RemoveUserFromGroup where
         toHeaders = const mempty

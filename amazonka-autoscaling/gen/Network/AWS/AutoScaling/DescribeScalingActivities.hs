@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeScalingActivities
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- group. If you omit the 'ActivityIds', the call returns all activities
 -- from the past six weeks. Activities are sorted by the start time.
 -- Activities still in progress appear first on the list.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingActivities.html AWS API Reference> for DescribeScalingActivities.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeScalingActivities
@@ -97,10 +95,10 @@ desMaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
 desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a});
 
 -- | The activity IDs of the desired scaling activities. If this list is
--- omitted, all activities are described. If the 'AutoScalingGroupName'
--- parameter is provided, the results are limited to that group. The list
--- of requested activities cannot contain more than 50 items. If unknown
--- activities are requested, they are ignored with no error.
+-- omitted, all activities are described. If you specify an Auto Scaling
+-- group, the results are limited to that group. The list of requested
+-- activities cannot contain more than 50 items. If unknown activities are
+-- requested, they are ignored with no error.
 desActivityIds :: Lens' DescribeScalingActivities [Text]
 desActivityIds = lens _desActivityIds (\ s a -> s{_desActivityIds = a}) . _Default . _Coerce;
 
@@ -122,6 +120,8 @@ instance AWSRequest DescribeScalingActivities where
                    (x .@? "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .@? "Activities" .!@ mempty >>=
                         parseXMLList "member"))
+
+instance Hashable DescribeScalingActivities
 
 instance ToHeaders DescribeScalingActivities where
         toHeaders = const mempty

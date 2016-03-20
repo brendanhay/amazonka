@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ResetInstanceAttribute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- NAT. For more information, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetInstanceAttribute.html AWS API Reference> for ResetInstanceAttribute.
 module Network.AWS.EC2.ResetInstanceAttribute
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest ResetInstanceAttribute where
         request = postQuery eC2
         response
           = receiveNull ResetInstanceAttributeResponse'
+
+instance Hashable ResetInstanceAttribute
 
 instance ToHeaders ResetInstanceAttribute where
         toHeaders = const mempty

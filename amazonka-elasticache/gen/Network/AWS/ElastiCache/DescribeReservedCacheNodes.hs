@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeReservedCacheNodes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- The /DescribeReservedCacheNodes/ action returns information about
 -- reserved cache nodes for this account, or about a specified reserved
 -- cache node.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodes.html AWS API Reference> for DescribeReservedCacheNodes.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeReservedCacheNodes
@@ -206,6 +204,8 @@ instance AWSRequest DescribeReservedCacheNodes where
                      (x .@? "ReservedCacheNodes" .!@ mempty >>=
                         may (parseXMLList "ReservedCacheNode"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeReservedCacheNodes
 
 instance ToHeaders DescribeReservedCacheNodes where
         toHeaders = const mempty

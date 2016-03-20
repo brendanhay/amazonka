@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DeleteVault
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,8 @@
 -- have been no writes to the vault since the last inventory. If either of
 -- these conditions is not satisfied, the vault deletion fails (that is,
 -- the vault is not removed) and Amazon Glacier returns an error. You can
--- use DescribeVault to return the number of archives in a vault, and you
--- can use
+-- use < DescribeVault> to return the number of archives in a vault, and
+-- you can use
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html Initiate a Job (POST jobs)>
 -- to initiate a new inventory retrieval for a vault. The inventory
 -- contains the archive IDs you use to delete archives using
@@ -43,8 +43,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html Delete Vault>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteVault.html AWS API Reference> for DeleteVault.
 module Network.AWS.Glacier.DeleteVault
     (
     -- * Creating a Request
@@ -107,6 +105,8 @@ instance AWSRequest DeleteVault where
         type Rs DeleteVault = DeleteVaultResponse
         request = delete glacier
         response = receiveNull DeleteVaultResponse'
+
+instance Hashable DeleteVault
 
 instance ToHeaders DeleteVault where
         toHeaders = const mempty

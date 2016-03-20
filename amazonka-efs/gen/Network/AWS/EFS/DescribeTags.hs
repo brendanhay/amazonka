@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DescribeTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- This operation requires permission for the
 -- 'elasticfilesystem:DescribeTags' action.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeTags.html AWS API Reference> for DescribeTags.
 module Network.AWS.EFS.DescribeTags
     (
     -- * Creating a Request
@@ -105,6 +103,8 @@ instance AWSRequest DescribeTags where
                    (x .?> "Marker") <*> (x .?> "NextMarker") <*>
                      (pure (fromEnum s))
                      <*> (x .?> "Tags" .!@ mempty))
+
+instance Hashable DescribeTags
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty

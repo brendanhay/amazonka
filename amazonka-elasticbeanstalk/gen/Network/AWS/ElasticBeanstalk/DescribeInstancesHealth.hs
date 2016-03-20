@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- instances (for example, CPU utilization, load average, and causes). The
 -- __DescribeInstancesHealth__ operation is only available with AWS Elastic
 -- Beanstalk Enhanced Health.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeInstancesHealth.html AWS API Reference> for DescribeInstancesHealth.
 module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
     (
     -- * Creating a Request
@@ -114,6 +112,8 @@ instance AWSRequest DescribeInstancesHealth where
                      <*> (x .@? "NextToken")
                      <*> (x .@? "RefreshedAt")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeInstancesHealth
 
 instance ToHeaders DescribeInstancesHealth where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.CreateGrant
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- For more information about grants, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants>
 -- in the /AWS Key Management Service Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html AWS API Reference> for CreateGrant.
 module Network.AWS.KMS.CreateGrant
     (
     -- * Creating a Request
@@ -100,7 +98,7 @@ createGrant pKeyId_ pGranteePrincipal_ =
     }
 
 -- | The principal that is given permission to retire the grant by using
--- RetireGrant operation.
+-- < RetireGrant> operation.
 --
 -- To specify the principal, use the
 -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
@@ -197,6 +195,8 @@ instance AWSRequest CreateGrant where
                    (x .?> "GrantId") <*> (x .?> "GrantToken") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateGrant
+
 instance ToHeaders CreateGrant where
         toHeaders
           = const
@@ -252,8 +252,8 @@ createGrantResponse pResponseStatus_ =
 
 -- | The unique identifier for the grant.
 --
--- You can use the 'GrantId' in a subsequent RetireGrant or RevokeGrant
--- operation.
+-- You can use the 'GrantId' in a subsequent < RetireGrant> or
+-- < RevokeGrant> operation.
 cgrsGrantId :: Lens' CreateGrantResponse (Maybe Text)
 cgrsGrantId = lens _cgrsGrantId (\ s a -> s{_cgrsGrantId = a});
 

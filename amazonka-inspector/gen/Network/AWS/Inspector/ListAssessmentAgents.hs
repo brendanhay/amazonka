@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListAssessmentAgents
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the agents of the assessment specified by the assessment ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListAssessmentAgents.html AWS API Reference> for ListAssessmentAgents.
 module Network.AWS.Inspector.ListAssessmentAgents
     (
     -- * Creating a Request
@@ -115,6 +113,8 @@ instance AWSRequest ListAssessmentAgents where
                    (x .?> "agentList" .!@ mempty) <*>
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListAssessmentAgents
 
 instance ToHeaders ListAssessmentAgents where
         toHeaders

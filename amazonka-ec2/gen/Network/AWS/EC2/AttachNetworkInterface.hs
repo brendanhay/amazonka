@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachNetworkInterface
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches a network interface to an instance.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachNetworkInterface.html AWS API Reference> for AttachNetworkInterface.
 module Network.AWS.EC2.AttachNetworkInterface
     (
     -- * Creating a Request
@@ -107,6 +105,8 @@ instance AWSRequest AttachNetworkInterface where
               (\ s h x ->
                  AttachNetworkInterfaceResponse' <$>
                    (x .@? "attachmentId") <*> (pure (fromEnum s)))
+
+instance Hashable AttachNetworkInterface
 
 instance ToHeaders AttachNetworkInterface where
         toHeaders = const mempty

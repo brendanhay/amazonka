@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteRestAPI
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified API.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteRestAPI.html AWS API Reference> for DeleteRestAPI.
 module Network.AWS.APIGateway.DeleteRestAPI
     (
     -- * Creating a Request
@@ -61,7 +59,7 @@ deleteRestAPI pRestAPIId_ =
     { _draRestAPIId = pRestAPIId_
     }
 
--- | The ID of the RestApi you want to delete.
+-- | The ID of the < RestApi> you want to delete.
 draRestAPIId :: Lens' DeleteRestAPI Text
 draRestAPIId = lens _draRestAPIId (\ s a -> s{_draRestAPIId = a});
 
@@ -70,8 +68,13 @@ instance AWSRequest DeleteRestAPI where
         request = delete aPIGateway
         response = receiveNull DeleteRestAPIResponse'
 
+instance Hashable DeleteRestAPI
+
 instance ToHeaders DeleteRestAPI where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteRestAPI where
         toPath DeleteRestAPI'{..}

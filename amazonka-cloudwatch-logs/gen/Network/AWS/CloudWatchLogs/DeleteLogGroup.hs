@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteLogGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Deletes the log group with the specified name and permanently deletes
 -- all the archived log events associated with it.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogGroup.html AWS API Reference> for DeleteLogGroup.
 module Network.AWS.CloudWatchLogs.DeleteLogGroup
     (
     -- * Creating a Request
@@ -68,6 +66,8 @@ instance AWSRequest DeleteLogGroup where
         type Rs DeleteLogGroup = DeleteLogGroupResponse
         request = postJSON cloudWatchLogs
         response = receiveNull DeleteLogGroupResponse'
+
+instance Hashable DeleteLogGroup
 
 instance ToHeaders DeleteLogGroup where
         toHeaders

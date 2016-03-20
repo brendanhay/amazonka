@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.CreateAlias
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,9 +30,7 @@
 -- The alias and the key it is mapped to must be in the same AWS account
 -- and the same region.
 --
--- To map an alias to a different key, call UpdateAlias.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html AWS API Reference> for CreateAlias.
+-- To map an alias to a different key, call < UpdateAlias>.
 module Network.AWS.KMS.CreateAlias
     (
     -- * Creating a Request
@@ -98,6 +96,8 @@ instance AWSRequest CreateAlias where
         type Rs CreateAlias = CreateAliasResponse
         request = postJSON kMS
         response = receiveNull CreateAliasResponse'
+
+instance Hashable CreateAlias
 
 instance ToHeaders CreateAlias where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipeline
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- Jobs that you have already submitted and that Elastic Transcoder has not
 -- started to process are affected in addition to jobs that you submit
 -- after you change settings.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipeline.html AWS API Reference> for UpdatePipeline.
 module Network.AWS.ElasticTranscoder.UpdatePipeline
     (
     -- * Creating a Request
@@ -264,6 +262,8 @@ instance AWSRequest UpdatePipeline where
                  UpdatePipelineResponse' <$>
                    (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
                      <*> (pure (fromEnum s)))
+
+instance Hashable UpdatePipeline
 
 instance ToHeaders UpdatePipeline where
         toHeaders = const mempty

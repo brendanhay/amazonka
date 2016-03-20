@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteNatGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- its Elastic IP address, but does not release the address from your
 -- account. Deleting a NAT gateway does not delete any NAT gateway routes
 -- in your route tables.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNatGateway.html AWS API Reference> for DeleteNatGateway.
 module Network.AWS.EC2.DeleteNatGateway
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest DeleteNatGateway where
               (\ s h x ->
                  DeleteNatGatewayResponse' <$>
                    (x .@? "natGatewayId") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteNatGateway
 
 instance ToHeaders DeleteNatGateway where
         toHeaders = const mempty

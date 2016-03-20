@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAccountLimits
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- For information about requesting an increase in these limits, see
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>
 -- in the /Amazon Web Services General Reference/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAccountLimits.html AWS API Reference> for DescribeAccountLimits.
 module Network.AWS.AutoScaling.DescribeAccountLimits
     (
     -- * Creating a Request
@@ -73,6 +71,8 @@ instance AWSRequest DescribeAccountLimits where
                      <*> (x .@? "MaxNumberOfAutoScalingGroups")
                      <*> (x .@? "MaxNumberOfLaunchConfigurations")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeAccountLimits
 
 instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty

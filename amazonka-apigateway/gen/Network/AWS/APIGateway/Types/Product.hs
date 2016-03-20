@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,10 +21,10 @@ import           Network.AWS.APIGateway.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | A resource that can be distributed to callers for executing Method
--- resources that require an API key. API keys can be mapped to any Stage
--- on any RestApi, which indicates that the callers with the API key can
--- make requests to that stage.
+-- | A resource that can be distributed to callers for executing < Method>
+-- resources that require an API key. API keys can be mapped to any
+-- < Stage> on any < RestApi>, which indicates that the callers with the
+-- API key can make requests to that stage.
 --
 -- /See:/ 'apiKey' smart constructor.
 data APIKey = APIKey'
@@ -84,7 +84,8 @@ akName = lens _akName (\ s a -> s{_akName = a});
 akId :: Lens' APIKey (Maybe Text)
 akId = lens _akId (\ s a -> s{_akId = a});
 
--- | A list of Stage resources that are associated with the ApiKey resource.
+-- | A list of < Stage> resources that are associated with the < ApiKey>
+-- resource.
 akStageKeys :: Lens' APIKey [Text]
 akStageKeys = lens _akStageKeys (\ s a -> s{_akStageKeys = a}) . _Default . _Coerce;
 
@@ -107,6 +108,8 @@ instance FromJSON APIKey where
                      <*> (x .:? "stageKeys" .!= mempty)
                      <*> (x .:? "lastUpdatedDate")
                      <*> (x .:? "description"))
+
+instance Hashable APIKey
 
 -- | Represents an AWS account that is associated with Amazon API Gateway.
 --
@@ -132,12 +135,12 @@ account =
     }
 
 -- | Specifies the Amazon resource name (ARN) of an Amazon CloudWatch role
--- for the current Account resource.
+-- for the current < Account> resource.
 aCloudwatchRoleARN :: Lens' Account (Maybe Text)
 aCloudwatchRoleARN = lens _aCloudwatchRoleARN (\ s a -> s{_aCloudwatchRoleARN = a});
 
 -- | Specifies the application programming interface (API) throttle settings
--- for the current Account resource.
+-- for the current < Account> resource.
 aThrottleSettings :: Lens' Account (Maybe ThrottleSettings)
 aThrottleSettings = lens _aThrottleSettings (\ s a -> s{_aThrottleSettings = a});
 
@@ -148,6 +151,127 @@ instance FromJSON Account where
                  Account' <$>
                    (x .:? "cloudwatchRoleArn") <*>
                      (x .:? "throttleSettings"))
+
+instance Hashable Account
+
+-- | Represents an authorization layer for methods. If enabled on a method,
+-- API Gateway will activate the authorizer when a client calls the method.
+--
+-- /See:/ 'authorizer' smart constructor.
+data Authorizer = Authorizer'
+    { _aAuthorizerURI                :: !(Maybe Text)
+    , _aIdentityValidationExpression :: !(Maybe Text)
+    , _aName                         :: !(Maybe Text)
+    , _aId                           :: !(Maybe Text)
+    , _aAuthorizerResultTtlInSeconds :: !(Maybe Int)
+    , _aType                         :: !(Maybe AuthorizerType)
+    , _aIdentitySource               :: !(Maybe Text)
+    , _aAuthorizerCredentials        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Authorizer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aAuthorizerURI'
+--
+-- * 'aIdentityValidationExpression'
+--
+-- * 'aName'
+--
+-- * 'aId'
+--
+-- * 'aAuthorizerResultTtlInSeconds'
+--
+-- * 'aType'
+--
+-- * 'aIdentitySource'
+--
+-- * 'aAuthorizerCredentials'
+authorizer
+    :: Authorizer
+authorizer =
+    Authorizer'
+    { _aAuthorizerURI = Nothing
+    , _aIdentityValidationExpression = Nothing
+    , _aName = Nothing
+    , _aId = Nothing
+    , _aAuthorizerResultTtlInSeconds = Nothing
+    , _aType = Nothing
+    , _aIdentitySource = Nothing
+    , _aAuthorizerCredentials = Nothing
+    }
+
+-- | [Required] Specifies the authorizer\'s Uniform Resource Identifier
+-- (URI). For TOKEN authorizers, this must be a well-formed Lambda function
+-- URI. The URI should be of the form
+-- 'arn:aws:apigateway:{region}:lambda:path\/{service_api}'. 'Region' is
+-- used to determine the right endpoint. In this case, 'path' is used to
+-- indicate that the remaining substring in the URI should be treated as
+-- the path to the resource, including the initial '\/'. For Lambda
+-- functions, this is usually of the form
+-- \/2015-03-31\/functions\/[FunctionARN]\/invocations
+aAuthorizerURI :: Lens' Authorizer (Maybe Text)
+aAuthorizerURI = lens _aAuthorizerURI (\ s a -> s{_aAuthorizerURI = a});
+
+-- | A validation expression for the incoming identity. For TOKEN
+-- authorizers, this value should be a regular expression. The incoming
+-- token from the client is matched against this expression, and will
+-- proceed if the token matches. If the token doesn\'t match, the client
+-- receives a 401 Unauthorized response.
+aIdentityValidationExpression :: Lens' Authorizer (Maybe Text)
+aIdentityValidationExpression = lens _aIdentityValidationExpression (\ s a -> s{_aIdentityValidationExpression = a});
+
+-- | [Required] The name of the authorizer.
+aName :: Lens' Authorizer (Maybe Text)
+aName = lens _aName (\ s a -> s{_aName = a});
+
+-- | The identifier for the authorizer resource.
+aId :: Lens' Authorizer (Maybe Text)
+aId = lens _aId (\ s a -> s{_aId = a});
+
+-- | The TTL in seconds of cached authorizer results. If greater than 0, API
+-- Gateway will cache authorizer responses. If this field is not set, the
+-- default value is 300. The maximum value is 3600, or 1 hour.
+aAuthorizerResultTtlInSeconds :: Lens' Authorizer (Maybe Int)
+aAuthorizerResultTtlInSeconds = lens _aAuthorizerResultTtlInSeconds (\ s a -> s{_aAuthorizerResultTtlInSeconds = a});
+
+-- | [Required] The type of the authorizer. Currently, the only valid type is
+-- TOKEN.
+aType :: Lens' Authorizer (Maybe AuthorizerType)
+aType = lens _aType (\ s a -> s{_aType = a});
+
+-- | [Required] The source of the identity in an incoming request. For TOKEN
+-- authorizers, this value is a mapping expression with the same syntax as
+-- integration parameter mappings. The only valid source for tokens is
+-- \'header\', so the expression should match
+-- \'method.request.header.[headerName]\'. The value of the header
+-- \'[headerName]\' will be interpreted as the incoming token.
+aIdentitySource :: Lens' Authorizer (Maybe Text)
+aIdentitySource = lens _aIdentitySource (\ s a -> s{_aIdentitySource = a});
+
+-- | Specifies the credentials required for the authorizer, if any. Two
+-- options are available. To specify an IAM Role for Amazon API Gateway to
+-- assume, use the role\'s Amazon Resource Name (ARN). To use
+-- resource-based permissions on the Lambda function, specify null.
+aAuthorizerCredentials :: Lens' Authorizer (Maybe Text)
+aAuthorizerCredentials = lens _aAuthorizerCredentials (\ s a -> s{_aAuthorizerCredentials = a});
+
+instance FromJSON Authorizer where
+        parseJSON
+          = withObject "Authorizer"
+              (\ x ->
+                 Authorizer' <$>
+                   (x .:? "authorizerUri") <*>
+                     (x .:? "identityValidationExpression")
+                     <*> (x .:? "name")
+                     <*> (x .:? "id")
+                     <*> (x .:? "authorizerResultTtlInSeconds")
+                     <*> (x .:? "type")
+                     <*> (x .:? "identitySource")
+                     <*> (x .:? "authorizerCredentials"))
+
+instance Hashable Authorizer
 
 -- | Represents the base path that callers of the API that must provide as
 -- part of the URL after the domain name.
@@ -197,6 +321,8 @@ instance FromJSON BasePathMapping where
                  BasePathMapping' <$>
                    (x .:? "stage") <*> (x .:? "basePath") <*>
                      (x .:? "restApiId"))
+
+instance Hashable BasePathMapping
 
 -- | /See:/ 'clientCertificate' smart constructor.
 data ClientCertificate = ClientCertificate'
@@ -262,9 +388,11 @@ instance FromJSON ClientCertificate where
                      <*> (x .:? "expirationDate")
                      <*> (x .:? "description"))
 
--- | An immutable representation of a RestApi resource that can be called by
--- users using Stages. A deployment must be associated with a Stage for it
--- to be callable over the Internet.
+instance Hashable ClientCertificate
+
+-- | An immutable representation of a < RestApi> resource that can be called
+-- by users using < Stages>. A deployment must be associated with a
+-- < Stage> for it to be callable over the Internet.
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
@@ -295,8 +423,8 @@ deployment =
     , _dDescription = Nothing
     }
 
--- | Gets a summary of the RestApi at the date and time that the deployment
--- resource was created.
+-- | Gets a summary of the < RestApi> at the date and time that the
+-- deployment resource was created.
 dApiSummary :: Lens' Deployment (HashMap Text (HashMap Text MethodSnapshot))
 dApiSummary = lens _dApiSummary (\ s a -> s{_dApiSummary = a}) . _Default . _Map;
 
@@ -321,6 +449,8 @@ instance FromJSON Deployment where
                      (x .:? "createdDate")
                      <*> (x .:? "id")
                      <*> (x .:? "description"))
+
+instance Hashable Deployment
 
 -- | Represents a domain name that is contained in a simpler, more intuitive
 -- URL that can be called.
@@ -358,7 +488,7 @@ domainName =
 dnCertificateName :: Lens' DomainName (Maybe Text)
 dnCertificateName = lens _dnCertificateName (\ s a -> s{_dnCertificateName = a});
 
--- | The name of the DomainName resource.
+-- | The name of the < DomainName> resource.
 dnDomainName :: Lens' DomainName (Maybe Text)
 dnDomainName = lens _dnDomainName (\ s a -> s{_dnDomainName = a});
 
@@ -381,6 +511,8 @@ instance FromJSON DomainName where
                    (x .:? "certificateName") <*> (x .:? "domainName")
                      <*> (x .:? "certificateUploadDate")
                      <*> (x .:? "distributionDomainName"))
+
+instance Hashable DomainName
 
 -- | Represents a HTTP, AWS, or Mock integration.
 --
@@ -467,13 +599,13 @@ iRequestParameters = lens _iRequestParameters (\ s a -> s{_iRequestParameters = 
 -- according to the
 -- <https://www.ietf.org/rfc/rfc3986.txt RFC-3986 specification>. For AWS
 -- integrations, the URI should be of the form
--- 'arn:aws:apigateway:{region}:{service}:{path|action}\/{service_api}'.
--- 'Region' and 'service' are used to determine the right endpoint. For AWS
--- services that use the 'Action=' query string parameter, 'service_api'
--- should be a valid action for the desired service. For RESTful AWS
--- service APIs, 'path' is used to indicate that the remaining substring in
--- the URI should be treated as the path to the resource, including the
--- initial '\/'.
+-- 'arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}\/{service_api}'.
+-- 'Region', 'subdomain' and 'service' are used to determine the right
+-- endpoint. For AWS services that use the 'Action=' query string
+-- parameter, 'service_api' should be a valid action for the desired
+-- service. For RESTful AWS service APIs, 'path' is used to indicate that
+-- the remaining substring in the URI should be treated as the path to the
+-- resource, including the initial '\/'.
 iUri :: Lens' Integration (Maybe Text)
 iUri = lens _iUri (\ s a -> s{_iUri = a});
 
@@ -508,8 +640,10 @@ instance FromJSON Integration where
                      <*> (x .:? "type")
                      <*> (x .:? "cacheKeyParameters" .!= mempty))
 
+instance Hashable Integration
+
 -- | Represents an integration response. The status code must map to an
--- existing MethodResponse, and parameters and templates can be used to
+-- existing < MethodResponse>, and parameters and templates can be used to
 -- transform the backend response.
 --
 -- /See:/ 'integrationResponse' smart constructor.
@@ -556,17 +690,18 @@ iSelectionPattern :: Lens' IntegrationResponse (Maybe Text)
 iSelectionPattern = lens _iSelectionPattern (\ s a -> s{_iSelectionPattern = a});
 
 -- | Specifies the status code that is used to map the integration response
--- to an existing MethodResponse.
+-- to an existing < MethodResponse>.
 iStatusCode :: Lens' IntegrationResponse (Maybe Text)
 iStatusCode = lens _iStatusCode (\ s a -> s{_iStatusCode = a});
 
 -- | Represents response parameters that can be read from the backend
 -- response. Response parameters are represented as a key\/value map, with
 -- a destination as the key and a source as the value. A destination must
--- match an existing response parameter in the Method. The source can be a
--- header from the backend response, or a static value. Static values are
--- specified using enclosing single quotes, and backend response headers
--- can be read using the pattern 'integration.response.header.{name}'.
+-- match an existing response parameter in the < MethodResponse>. The
+-- source can be a header from the backend response, or a static value.
+-- Static values are specified using enclosing single quotes, and backend
+-- response headers can be read using the pattern
+-- 'integration.response.header.{name}'.
 iResponseParameters :: Lens' IntegrationResponse (HashMap Text Text)
 iResponseParameters = lens _iResponseParameters (\ s a -> s{_iResponseParameters = a}) . _Default . _Map;
 
@@ -580,6 +715,8 @@ instance FromJSON IntegrationResponse where
                      <*> (x .:? "statusCode")
                      <*> (x .:? "responseParameters" .!= mempty))
 
+instance Hashable IntegrationResponse
+
 -- | Represents a method.
 --
 -- /See:/ 'method' smart constructor.
@@ -588,6 +725,7 @@ data Method = Method'
     , _mHttpMethod        :: !(Maybe Text)
     , _mRequestModels     :: !(Maybe (Map Text Text))
     , _mRequestParameters :: !(Maybe (Map Text Bool))
+    , _mAuthorizerId      :: !(Maybe Text)
     , _mAuthorizationType :: !(Maybe Text)
     , _mApiKeyRequired    :: !(Maybe Bool)
     , _mMethodIntegration :: !(Maybe Integration)
@@ -605,6 +743,8 @@ data Method = Method'
 --
 -- * 'mRequestParameters'
 --
+-- * 'mAuthorizerId'
+--
 -- * 'mAuthorizationType'
 --
 -- * 'mApiKeyRequired'
@@ -618,6 +758,7 @@ method =
     , _mHttpMethod = Nothing
     , _mRequestModels = Nothing
     , _mRequestParameters = Nothing
+    , _mAuthorizerId = Nothing
     , _mAuthorizationType = Nothing
     , _mApiKeyRequired = Nothing
     , _mMethodIntegration = Nothing
@@ -625,8 +766,8 @@ method =
 
 -- | Represents available responses that can be sent to the caller. Method
 -- responses are represented as a key\/value map, with an HTTP status code
--- as the key and a MethodResponse as the value. The status codes are
--- available for the Integration responses to map to.
+-- as the key and a < MethodResponse> as the value. The status codes are
+-- available for the < Integration> responses to map to.
 mMethodResponses :: Lens' Method (HashMap Text MethodResponse)
 mMethodResponses = lens _mMethodResponses (\ s a -> s{_mMethodResponses = a}) . _Default . _Map;
 
@@ -634,9 +775,9 @@ mMethodResponses = lens _mMethodResponses (\ s a -> s{_mMethodResponses = a}) . 
 mHttpMethod :: Lens' Method (Maybe Text)
 mHttpMethod = lens _mHttpMethod (\ s a -> s{_mHttpMethod = a});
 
--- | Specifies the Model resources used for the request\'s content type.
+-- | Specifies the < Model> resources used for the request\'s content type.
 -- Request models are represented as a key\/value map, with a content type
--- as the key and a Model name as the value.
+-- as the key and a < Model> name as the value.
 mRequestModels :: Lens' Method (HashMap Text Text)
 mRequestModels = lens _mRequestModels (\ s a -> s{_mRequestModels = a}) . _Default . _Map;
 
@@ -651,11 +792,16 @@ mRequestModels = lens _mRequestModels (\ s a -> s{_mRequestModels = a}) . _Defau
 mRequestParameters :: Lens' Method (HashMap Text Bool)
 mRequestParameters = lens _mRequestParameters (\ s a -> s{_mRequestParameters = a}) . _Default . _Map;
 
+-- | Specifies the identifier of an < Authorizer> to use on this Method. The
+-- authorizationType must be CUSTOM.
+mAuthorizerId :: Lens' Method (Maybe Text)
+mAuthorizerId = lens _mAuthorizerId (\ s a -> s{_mAuthorizerId = a});
+
 -- | The method\'s authorization type.
 mAuthorizationType :: Lens' Method (Maybe Text)
 mAuthorizationType = lens _mAuthorizationType (\ s a -> s{_mAuthorizationType = a});
 
--- | Specifies whether the method requires a valid ApiKey.
+-- | Specifies whether the method requires a valid < ApiKey>.
 mApiKeyRequired :: Lens' Method (Maybe Bool)
 mApiKeyRequired = lens _mApiKeyRequired (\ s a -> s{_mApiKeyRequired = a});
 
@@ -672,9 +818,12 @@ instance FromJSON Method where
                      (x .:? "httpMethod")
                      <*> (x .:? "requestModels" .!= mempty)
                      <*> (x .:? "requestParameters" .!= mempty)
+                     <*> (x .:? "authorizerId")
                      <*> (x .:? "authorizationType")
                      <*> (x .:? "apiKeyRequired")
                      <*> (x .:? "methodIntegration"))
+
+instance Hashable Method
 
 -- | Represents a method response. Amazon API Gateway sends back the status
 -- code to the caller as the HTTP status code. Parameters and models can be
@@ -705,9 +854,9 @@ methodResponse =
     , _mResponseParameters = Nothing
     }
 
--- | Specifies the Model resources used for the response\'s content-type.
+-- | Specifies the < Model> resources used for the response\'s content-type.
 -- Response models are represented as a key\/value map, with a content-type
--- as the key and a Model name as the value.
+-- as the key and a < Model> name as the value.
 mResponseModels :: Lens' MethodResponse (HashMap Text Text)
 mResponseModels = lens _mResponseModels (\ s a -> s{_mResponseModels = a}) . _Default . _Map;
 
@@ -735,18 +884,22 @@ instance FromJSON MethodResponse where
                      (x .:? "statusCode")
                      <*> (x .:? "responseParameters" .!= mempty))
 
+instance Hashable MethodResponse
+
 -- | Specifies the method setting properties.
 --
 -- /See:/ 'methodSetting' smart constructor.
 data MethodSetting = MethodSetting'
-    { _msCacheTtlInSeconds    :: !(Maybe Int)
-    , _msDataTraceEnabled     :: !(Maybe Bool)
-    , _msThrottlingBurstLimit :: !(Maybe Int)
-    , _msCacheDataEncrypted   :: !(Maybe Bool)
-    , _msLoggingLevel         :: !(Maybe Text)
-    , _msCachingEnabled       :: !(Maybe Bool)
-    , _msMetricsEnabled       :: !(Maybe Bool)
-    , _msThrottlingRateLimit  :: !(Maybe Double)
+    { _msCacheTtlInSeconds                      :: !(Maybe Int)
+    , _msDataTraceEnabled                       :: !(Maybe Bool)
+    , _msThrottlingBurstLimit                   :: !(Maybe Int)
+    , _msCacheDataEncrypted                     :: !(Maybe Bool)
+    , _msLoggingLevel                           :: !(Maybe Text)
+    , _msRequireAuthorizationForCacheControl    :: !(Maybe Bool)
+    , _msCachingEnabled                         :: !(Maybe Bool)
+    , _msMetricsEnabled                         :: !(Maybe Bool)
+    , _msThrottlingRateLimit                    :: !(Maybe Double)
+    , _msUnauthorizedCacheControlHeaderStrategy :: !(Maybe UnauthorizedCacheControlHeaderStrategy)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MethodSetting' with the minimum fields required to make a request.
@@ -763,11 +916,15 @@ data MethodSetting = MethodSetting'
 --
 -- * 'msLoggingLevel'
 --
+-- * 'msRequireAuthorizationForCacheControl'
+--
 -- * 'msCachingEnabled'
 --
 -- * 'msMetricsEnabled'
 --
 -- * 'msThrottlingRateLimit'
+--
+-- * 'msUnauthorizedCacheControlHeaderStrategy'
 methodSetting
     :: MethodSetting
 methodSetting =
@@ -777,9 +934,11 @@ methodSetting =
     , _msThrottlingBurstLimit = Nothing
     , _msCacheDataEncrypted = Nothing
     , _msLoggingLevel = Nothing
+    , _msRequireAuthorizationForCacheControl = Nothing
     , _msCachingEnabled = Nothing
     , _msMetricsEnabled = Nothing
     , _msThrottlingRateLimit = Nothing
+    , _msUnauthorizedCacheControlHeaderStrategy = Nothing
     }
 
 -- | Specifies the time to live (TTL) in seconds, for cached responses. The
@@ -816,6 +975,13 @@ msCacheDataEncrypted = lens _msCacheDataEncrypted (\ s a -> s{_msCacheDataEncryp
 msLoggingLevel :: Lens' MethodSetting (Maybe Text)
 msLoggingLevel = lens _msLoggingLevel (\ s a -> s{_msLoggingLevel = a});
 
+-- | Specifies whether authorization is required for a cache invalidation
+-- request. The PATCH path for this setting is
+-- '\/{method_setting_key}\/caching\/requireAuthorizationForCacheControl',
+-- and the value is a Boolean.
+msRequireAuthorizationForCacheControl :: Lens' MethodSetting (Maybe Bool)
+msRequireAuthorizationForCacheControl = lens _msRequireAuthorizationForCacheControl (\ s a -> s{_msRequireAuthorizationForCacheControl = a});
+
 -- | Specifies whether responses should be cached and returned for requests.
 -- A cache cluster must be enabled on the stage for responses to be cached.
 -- The PATCH path for this setting is
@@ -835,6 +1001,14 @@ msMetricsEnabled = lens _msMetricsEnabled (\ s a -> s{_msMetricsEnabled = a});
 msThrottlingRateLimit :: Lens' MethodSetting (Maybe Double)
 msThrottlingRateLimit = lens _msThrottlingRateLimit (\ s a -> s{_msThrottlingRateLimit = a});
 
+-- | Specifies the strategy on how to handle the unauthorized requests for
+-- cache invalidation. The PATCH path for this setting is
+-- '\/{method_setting_key}\/caching\/unauthorizedCacheControlHeaderStrategy',
+-- and the available values are 'FAIL_WITH_403',
+-- 'SUCCEED_WITH_RESPONSE_HEADER', 'SUCCEED_WITHOUT_RESPONSE_HEADER'.
+msUnauthorizedCacheControlHeaderStrategy :: Lens' MethodSetting (Maybe UnauthorizedCacheControlHeaderStrategy)
+msUnauthorizedCacheControlHeaderStrategy = lens _msUnauthorizedCacheControlHeaderStrategy (\ s a -> s{_msUnauthorizedCacheControlHeaderStrategy = a});
+
 instance FromJSON MethodSetting where
         parseJSON
           = withObject "MethodSetting"
@@ -845,12 +1019,16 @@ instance FromJSON MethodSetting where
                      <*> (x .:? "throttlingBurstLimit")
                      <*> (x .:? "cacheDataEncrypted")
                      <*> (x .:? "loggingLevel")
+                     <*> (x .:? "requireAuthorizationForCacheControl")
                      <*> (x .:? "cachingEnabled")
                      <*> (x .:? "metricsEnabled")
-                     <*> (x .:? "throttlingRateLimit"))
+                     <*> (x .:? "throttlingRateLimit")
+                     <*> (x .:? "unauthorizedCacheControlHeaderStrategy"))
 
--- | Represents a summary of a Method resource, given a particular date and
--- time.
+instance Hashable MethodSetting
+
+-- | Represents a summary of a < Method> resource, given a particular date
+-- and time.
 --
 -- /See:/ 'methodSnapshot' smart constructor.
 data MethodSnapshot = MethodSnapshot'
@@ -877,7 +1055,7 @@ methodSnapshot =
 msAuthorizationType :: Lens' MethodSnapshot (Maybe Text)
 msAuthorizationType = lens _msAuthorizationType (\ s a -> s{_msAuthorizationType = a});
 
--- | Specifies whether the method requires a valid ApiKey.
+-- | Specifies whether the method requires a valid < ApiKey>.
 msApiKeyRequired :: Lens' MethodSnapshot (Maybe Bool)
 msApiKeyRequired = lens _msApiKeyRequired (\ s a -> s{_msApiKeyRequired = a});
 
@@ -888,6 +1066,8 @@ instance FromJSON MethodSnapshot where
                  MethodSnapshot' <$>
                    (x .:? "authorizationType") <*>
                      (x .:? "apiKeyRequired"))
+
+instance Hashable MethodSnapshot
 
 -- | Represents the structure of a request or response payload for a method.
 --
@@ -954,6 +1134,8 @@ instance FromJSON Model where
                      <*> (x .:? "description")
                      <*> (x .:? "contentType"))
 
+instance Hashable Model
+
 -- | A single patch operation to apply to the specified resource. Please
 -- refer to http:\/\/tools.ietf.org\/html\/rfc6902#section-4 for an
 -- explanation of how each operation is used.
@@ -1009,6 +1191,8 @@ poValue = lens _poValue (\ s a -> s{_poValue = a});
 -- references the location in the target document to move the value from.
 poFrom :: Lens' PatchOperation (Maybe Text)
 poFrom = lens _poFrom (\ s a -> s{_poFrom = a});
+
+instance Hashable PatchOperation
 
 instance ToJSON PatchOperation where
         toJSON PatchOperation'{..}
@@ -1083,6 +1267,8 @@ instance FromJSON Resource where
                      <*> (x .:? "resourceMethods" .!= mempty)
                      <*> (x .:? "parentId"))
 
+instance Hashable Resource
+
 -- | Represents a REST API.
 --
 -- /See:/ 'restAPI' smart constructor.
@@ -1141,8 +1327,10 @@ instance FromJSON RestAPI where
                      (x .:? "id")
                      <*> (x .:? "description"))
 
--- | Represents a unique identifier for a version of a deployed RestApi that
--- is callable by users.
+instance Hashable RestAPI
+
+-- | Represents a unique identifier for a version of a deployed < RestApi>
+-- that is callable by users.
 --
 -- /See:/ 'stage' smart constructor.
 data Stage = Stage'
@@ -1201,13 +1389,13 @@ stage =
     , _sDescription = Nothing
     }
 
--- | The identifier of the Deployment that the stage points to.
+-- | The identifier of the < Deployment> that the stage points to.
 sDeploymentId :: Lens' Stage (Maybe Text)
 sDeploymentId = lens _sDeploymentId (\ s a -> s{_sDeploymentId = a});
 
--- | A map that defines the stage variables for a Stage resource. Variable
--- names can have alphabetic characters, and the values must match
--- [A-Za-z0-9-._~:\/?#&=,]+
+-- | A map that defines the stage variables for a < Stage> resource. Variable
+-- names can have alphanumeric characters, and the values must match
+-- '[A-Za-z0-9-._~:\/?#&=,]+'.
 sVariables :: Lens' Stage (HashMap Text Text)
 sVariables = lens _sVariables (\ s a -> s{_sVariables = a}) . _Default . _Map;
 
@@ -1224,7 +1412,7 @@ sCreatedDate = lens _sCreatedDate (\ s a -> s{_sCreatedDate = a}) . mapping _Tim
 sCacheClusterStatus :: Lens' Stage (Maybe CacheClusterStatus)
 sCacheClusterStatus = lens _sCacheClusterStatus (\ s a -> s{_sCacheClusterStatus = a});
 
--- | A map that defines the method settings for a Stage resource. Keys are
+-- | A map that defines the method settings for a < Stage> resource. Keys are
 -- defined as '{resource_path}\/{http_method}' for an individual method
 -- override, or '\\*\/\\*' for the settings applied to all methods in the
 -- stage.
@@ -1270,6 +1458,8 @@ instance FromJSON Stage where
                      <*> (x .:? "stageName")
                      <*> (x .:? "description"))
 
+instance Hashable Stage
+
 -- | A reference to a unique stage identified in the format
 -- '{restApiId}\/{stage}'.
 --
@@ -1294,13 +1484,16 @@ stageKey =
     , _skStageName = Nothing
     }
 
--- | A list of Stage resources that are associated with the ApiKey resource.
+-- | A list of < Stage> resources that are associated with the < ApiKey>
+-- resource.
 skRestAPIId :: Lens' StageKey (Maybe Text)
 skRestAPIId = lens _skRestAPIId (\ s a -> s{_skRestAPIId = a});
 
--- | The stage name in the RestApi that the stage key references.
+-- | The stage name in the < RestApi> that the stage key references.
 skStageName :: Lens' StageKey (Maybe Text)
 skStageName = lens _skStageName (\ s a -> s{_skStageName = a});
+
+instance Hashable StageKey
 
 instance ToJSON StageKey where
         toJSON StageKey'{..}
@@ -1346,3 +1539,5 @@ instance FromJSON ThrottleSettings where
               (\ x ->
                  ThrottleSettings' <$>
                    (x .:? "burstLimit") <*> (x .:? "rateLimit"))
+
+instance Hashable ThrottleSettings

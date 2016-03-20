@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteChapCredentials
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- This operation deletes Challenge-Handshake Authentication Protocol
 -- (CHAP) credentials for a specified iSCSI target and initiator pair.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteChapCredentials.html AWS API Reference> for DeleteChapCredentials.
 module Network.AWS.StorageGateway.DeleteChapCredentials
     (
     -- * Creating a Request
@@ -49,8 +47,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   DeleteChapCredentialsInput$InitiatorName
--- -   DeleteChapCredentialsInput$TargetARN
+-- -   < DeleteChapCredentialsInput$InitiatorName>
+-- -   < DeleteChapCredentialsInput$TargetARN>
 --
 -- /See:/ 'deleteChapCredentials' smart constructor.
 data DeleteChapCredentials = DeleteChapCredentials'
@@ -76,8 +74,8 @@ deleteChapCredentials pTargetARN_ pInitiatorName_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
--- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
--- for specified VolumeARN.
+-- < DescribeStorediSCSIVolumes> operation to return to retrieve the
+-- TargetARN for specified VolumeARN.
 dTargetARN :: Lens' DeleteChapCredentials Text
 dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 
@@ -95,6 +93,8 @@ instance AWSRequest DeleteChapCredentials where
                  DeleteChapCredentialsResponse' <$>
                    (x .?> "TargetARN") <*> (x .?> "InitiatorName") <*>
                      (pure (fromEnum s)))
+
+instance Hashable DeleteChapCredentials
 
 instance ToHeaders DeleteChapCredentials where
         toHeaders

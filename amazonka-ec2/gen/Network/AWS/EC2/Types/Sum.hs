@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.Types.Sum
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -17,6 +17,7 @@
 --
 module Network.AWS.EC2.Types.Sum where
 
+import           Network.AWS.EC2.Internal
 import           Network.AWS.Prelude
 
 data AccountAttributeName
@@ -176,30 +177,33 @@ instance FromXML ArchitectureValues where
     parseXML = parseXMLText "ArchitectureValues"
 
 data AttachmentStatus
-    = Attached
-    | Attaching
-    | Busy
-    | Detached
-    | Detaching
+    = AAttached
+    | AAttaching
+    | AAvailable
+    | ABusy
+    | ADetached
+    | ADetaching
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AttachmentStatus where
     parser = takeLowerText >>= \case
-        "attached" -> pure Attached
-        "attaching" -> pure Attaching
-        "busy" -> pure Busy
-        "detached" -> pure Detached
-        "detaching" -> pure Detaching
+        "attached" -> pure AAttached
+        "attaching" -> pure AAttaching
+        "available" -> pure AAvailable
+        "busy" -> pure ABusy
+        "detached" -> pure ADetached
+        "detaching" -> pure ADetaching
         e -> fromTextError $ "Failure parsing AttachmentStatus from value: '" <> e
-           <> "'. Accepted values: attached, attaching, busy, detached, detaching"
+           <> "'. Accepted values: attached, attaching, available, busy, detached, detaching"
 
 instance ToText AttachmentStatus where
     toText = \case
-        Attached -> "attached"
-        Attaching -> "attaching"
-        Busy -> "busy"
-        Detached -> "detached"
-        Detaching -> "detaching"
+        AAttached -> "attached"
+        AAttaching -> "attaching"
+        AAvailable -> "available"
+        ABusy -> "busy"
+        ADetached -> "detached"
+        ADetaching -> "detaching"
 
 instance Hashable     AttachmentStatus
 instance ToByteString AttachmentStatus
@@ -988,18 +992,21 @@ instance ToByteString InstanceAttributeName
 instance ToQuery      InstanceAttributeName
 instance ToHeader     InstanceAttributeName
 
-data InstanceLifecycleType =
-    Spot
+data InstanceLifecycleType
+    = Scheduled
+    | Spot
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstanceLifecycleType where
     parser = takeLowerText >>= \case
+        "scheduled" -> pure Scheduled
         "spot" -> pure Spot
         e -> fromTextError $ "Failure parsing InstanceLifecycleType from value: '" <> e
-           <> "'. Accepted values: spot"
+           <> "'. Accepted values: scheduled, spot"
 
 instance ToText InstanceLifecycleType where
     toText = \case
+        Scheduled -> "scheduled"
         Spot -> "spot"
 
 instance Hashable     InstanceLifecycleType
@@ -1069,6 +1076,7 @@ data InstanceType
     | D2_8XLarge
     | D2_XLarge
     | G2_2XLarge
+    | G2_8XLarge
     | HI1_4XLarge
     | HS1_8XLarge
     | I2_2XLarge
@@ -1100,6 +1108,7 @@ data InstanceType
     | T2_Large
     | T2_Medium
     | T2_Micro
+    | T2_Nano
     | T2_Small
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
@@ -1126,6 +1135,7 @@ instance FromText InstanceType where
         "d2.8xlarge" -> pure D2_8XLarge
         "d2.xlarge" -> pure D2_XLarge
         "g2.2xlarge" -> pure G2_2XLarge
+        "g2.8xlarge" -> pure G2_8XLarge
         "hi1.4xlarge" -> pure HI1_4XLarge
         "hs1.8xlarge" -> pure HS1_8XLarge
         "i2.2xlarge" -> pure I2_2XLarge
@@ -1157,9 +1167,10 @@ instance FromText InstanceType where
         "t2.large" -> pure T2_Large
         "t2.medium" -> pure T2_Medium
         "t2.micro" -> pure T2_Micro
+        "t2.nano" -> pure T2_Nano
         "t2.small" -> pure T2_Small
         e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
-           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, g2.2xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.large, t2.medium, t2.micro, t2.small"
+           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, g2.2xlarge, g2.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.large, t2.medium, t2.micro, t2.nano, t2.small"
 
 instance ToText InstanceType where
     toText = \case
@@ -1184,6 +1195,7 @@ instance ToText InstanceType where
         D2_8XLarge -> "d2.8xlarge"
         D2_XLarge -> "d2.xlarge"
         G2_2XLarge -> "g2.2xlarge"
+        G2_8XLarge -> "g2.8xlarge"
         HI1_4XLarge -> "hi1.4xlarge"
         HS1_8XLarge -> "hs1.8xlarge"
         I2_2XLarge -> "i2.2xlarge"
@@ -1215,6 +1227,7 @@ instance ToText InstanceType where
         T2_Large -> "t2.large"
         T2_Medium -> "t2.medium"
         T2_Micro -> "t2.micro"
+        T2_Nano -> "t2.nano"
         T2_Small -> "t2.small"
 
 instance Hashable     InstanceType
@@ -2485,30 +2498,30 @@ instance FromXML VirtualizationType where
     parseXML = parseXMLText "VirtualizationType"
 
 data VolumeAttachmentState
-    = VASAttached
-    | VASAttaching
-    | VASBusy
-    | VASDetached
-    | VASDetaching
+    = VAttached
+    | VAttaching
+    | VBusy
+    | VDetached
+    | VDetaching
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VolumeAttachmentState where
     parser = takeLowerText >>= \case
-        "attached" -> pure VASAttached
-        "attaching" -> pure VASAttaching
-        "busy" -> pure VASBusy
-        "detached" -> pure VASDetached
-        "detaching" -> pure VASDetaching
+        "attached" -> pure VAttached
+        "attaching" -> pure VAttaching
+        "busy" -> pure VBusy
+        "detached" -> pure VDetached
+        "detaching" -> pure VDetaching
         e -> fromTextError $ "Failure parsing VolumeAttachmentState from value: '" <> e
            <> "'. Accepted values: attached, attaching, busy, detached, detaching"
 
 instance ToText VolumeAttachmentState where
     toText = \case
-        VASAttached -> "attached"
-        VASAttaching -> "attaching"
-        VASBusy -> "busy"
-        VASDetached -> "detached"
-        VASDetaching -> "detaching"
+        VAttached -> "attached"
+        VAttaching -> "attaching"
+        VBusy -> "busy"
+        VDetached -> "detached"
+        VDetaching -> "detaching"
 
 instance Hashable     VolumeAttachmentState
 instance ToByteString VolumeAttachmentState

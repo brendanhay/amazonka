@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetUpload
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an upload.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetUpload.html AWS API Reference> for GetUpload.
 module Network.AWS.DeviceFarm.GetUpload
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest GetUpload where
               (\ s h x ->
                  GetUploadResponse' <$>
                    (x .?> "upload") <*> (pure (fromEnum s)))
+
+instance Hashable GetUpload
 
 instance ToHeaders GetUpload where
         toHeaders

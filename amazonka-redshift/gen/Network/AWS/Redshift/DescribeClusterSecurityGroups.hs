@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusterSecurityGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -35,8 +35,6 @@
 -- If both tag keys and values are omitted from the request, security
 -- groups are returned regardless of whether they have tag keys or values
 -- associated with them.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html AWS API Reference> for DescribeClusterSecurityGroups.
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusterSecurityGroups
@@ -68,7 +66,7 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | ???
+-- |
 --
 -- /See:/ 'describeClusterSecurityGroups' smart constructor.
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
@@ -131,11 +129,12 @@ dcsgClusterSecurityGroupName :: Lens' DescribeClusterSecurityGroups (Maybe Text)
 dcsgClusterSecurityGroupName = lens _dcsgClusterSecurityGroupName (\ s a -> s{_dcsgClusterSecurityGroupName = a});
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSecurityGroups
--- request exceed the value specified in 'MaxRecords', AWS returns a value
--- in the 'Marker' field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the 'Marker'
--- parameter and retrying the request.
+-- of response records. When the results of a
+-- < DescribeClusterSecurityGroups> request exceed the value specified in
+-- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
+-- You can retrieve the next set of response records by providing the
+-- returned marker value in the 'Marker' parameter and retrying the
+-- request.
 --
 -- Constraints: You can specify either the __ClusterSecurityGroupName__
 -- parameter or the __Marker__ parameter, but not both.
@@ -176,6 +175,8 @@ instance AWSRequest DescribeClusterSecurityGroups
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeClusterSecurityGroups
+
 instance ToHeaders DescribeClusterSecurityGroups
          where
         toHeaders = const mempty
@@ -198,7 +199,7 @@ instance ToQuery DescribeClusterSecurityGroups where
                "Marker" =: _dcsgMarker,
                "MaxRecords" =: _dcsgMaxRecords]
 
--- | Contains the output from the DescribeClusterSecurityGroups action.
+-- |
 --
 -- /See:/ 'describeClusterSecurityGroupsResponse' smart constructor.
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'
@@ -226,7 +227,7 @@ describeClusterSecurityGroupsResponse pResponseStatus_ =
     , _dcsgsrsResponseStatus = pResponseStatus_
     }
 
--- | A list of ClusterSecurityGroup instances.
+-- | A list of < ClusterSecurityGroup> instances.
 dcsgsrsClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
 dcsgsrsClusterSecurityGroups = lens _dcsgsrsClusterSecurityGroups (\ s a -> s{_dcsgsrsClusterSecurityGroups = a}) . _Default . _Coerce;
 

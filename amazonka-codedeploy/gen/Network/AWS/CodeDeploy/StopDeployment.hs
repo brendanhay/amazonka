@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.StopDeployment
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Attempts to stop an ongoing deployment.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_StopDeployment.html AWS API Reference> for StopDeployment.
 module Network.AWS.CodeDeploy.StopDeployment
     (
     -- * Creating a Request
@@ -79,6 +77,8 @@ instance AWSRequest StopDeployment where
                    (x .?> "status") <*> (x .?> "statusMessage") <*>
                      (pure (fromEnum s)))
 
+instance Hashable StopDeployment
+
 instance ToHeaders StopDeployment where
         toHeaders
           = const
@@ -131,7 +131,7 @@ stopDeploymentResponse pResponseStatus_ =
 -- | The status of the stop deployment operation:
 --
 -- -   Pending: The stop operation is pending.
--- -   Succeeded: The stop operation succeeded.
+-- -   Succeeded: The stop operation was successful.
 sdrsStatus :: Lens' StopDeploymentResponse (Maybe StopStatus)
 sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a});
 

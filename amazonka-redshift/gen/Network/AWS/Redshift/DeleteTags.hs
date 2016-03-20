@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Deletes a tag or tags from a resource. You must provide the ARN of the
 -- resource from which you want to delete the tag or tags.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteTags.html AWS API Reference> for DeleteTags.
 module Network.AWS.Redshift.DeleteTags
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse
         request = postQuery redshift
         response = receiveNull DeleteTagsResponse'
+
+instance Hashable DeleteTags
 
 instance ToHeaders DeleteTags where
         toHeaders = const mempty

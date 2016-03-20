@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeOrderableClusterOptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- information about managing clusters, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeOrderableClusterOptions.html AWS API Reference> for DescribeOrderableClusterOptions.
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeOrderableClusterOptions
@@ -93,7 +91,7 @@ describeOrderableClusterOptions =
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
--- DescribeOrderableClusterOptions request exceed the value specified in
+-- < DescribeOrderableClusterOptions> request exceed the value specified in
 -- 'MaxRecords', AWS returns a value in the 'Marker' field of the response.
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the 'Marker' parameter and retrying the
@@ -119,7 +117,7 @@ docoMaxRecords = lens _docoMaxRecords (\ s a -> s{_docoMaxRecords = a});
 -- Default: All versions.
 --
 -- Constraints: Must be one of the version returned from
--- DescribeClusterVersions.
+-- < DescribeClusterVersions>.
 docoClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
 docoClusterVersion = lens _docoClusterVersion (\ s a -> s{_docoClusterVersion = a});
 
@@ -152,6 +150,8 @@ instance AWSRequest DescribeOrderableClusterOptions
                         may (parseXMLList "OrderableClusterOption"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeOrderableClusterOptions
+
 instance ToHeaders DescribeOrderableClusterOptions
          where
         toHeaders = const mempty
@@ -171,7 +171,7 @@ instance ToQuery DescribeOrderableClusterOptions
                "ClusterVersion" =: _docoClusterVersion,
                "NodeType" =: _docoNodeType]
 
--- | Contains the output from the DescribeOrderableClusterOptions action.
+-- | Contains the output from the < DescribeOrderableClusterOptions> action.
 --
 -- /See:/ 'describeOrderableClusterOptionsResponse' smart constructor.
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'
@@ -208,8 +208,8 @@ describeOrderableClusterOptionsResponse pResponseStatus_ =
 docorsMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
 docorsMarker = lens _docorsMarker (\ s a -> s{_docorsMarker = a});
 
--- | An OrderableClusterOption structure containing information about
--- orderable options for the Cluster.
+-- | An 'OrderableClusterOption' structure containing information about
+-- orderable options for the cluster.
 docorsOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
 docorsOrderableClusterOptions = lens _docorsOrderableClusterOptions (\ s a -> s{_docorsOrderableClusterOptions = a}) . _Default . _Coerce;
 

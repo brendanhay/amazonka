@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -46,19 +46,16 @@
 --
 -- __Chef Versions__
 --
--- When you call CreateStack, CloneStack, or UpdateStack we recommend you
--- use the 'ConfigurationManager' parameter to specify the Chef version.
--- The recommended value for Linux stacks, which is also the default value,
--- is currently 11.10. Windows stacks use Chef 12.2. For more information,
--- see
+-- When you call < CreateStack>, < CloneStack>, or < UpdateStack> we
+-- recommend you use the 'ConfigurationManager' parameter to specify the
+-- Chef version. The recommended value for Linux stacks is currently 12
+-- (the default is 11.4). Windows stacks use Chef 12.2. For more
+-- information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html Chef Versions>.
 --
--- You can also specify Chef 11.4 or Chef 0.9 for your Linux stack.
--- However, Chef 0.9 has been deprecated. We do not recommend using Chef
--- 0.9 for new stacks, and we recommend migrating your existing Chef 0.9
--- stacks to Chef 11.10 as soon as possible.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html AWS API Reference>
+-- You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We
+-- recommend migrating your existing Linux stacks to Chef 12 as soon as
+-- possible.
 module Network.AWS.OpsWorks
     (
     -- * Service Configuration
@@ -75,6 +72,21 @@ module Network.AWS.OpsWorks
 
     -- * Waiters
     -- $waiters
+
+    -- ** InstanceTerminated
+    , instanceTerminated
+
+    -- ** DeploymentSuccessful
+    , deploymentSuccessful
+
+    -- ** InstanceStopped
+    , instanceStopped
+
+    -- ** InstanceOnline
+    , instanceOnline
+
+    -- ** AppExists
+    , appExists
 
     -- * Operations
     -- $operations

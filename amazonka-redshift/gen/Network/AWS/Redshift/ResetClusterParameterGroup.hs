@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ResetClusterParameterGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- \"engine-default\". To reset the entire parameter group specify the
 -- /ResetAllParameters/ parameter. For parameter changes to take effect you
 -- must reboot any associated clusters.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ResetClusterParameterGroup.html AWS API Reference> for ResetClusterParameterGroup.
 module Network.AWS.Redshift.ResetClusterParameterGroup
     (
     -- * Creating a Request
@@ -105,6 +103,8 @@ instance AWSRequest ResetClusterParameterGroup where
           = receiveXMLWrapper
               "ResetClusterParameterGroupResult"
               (\ s h x -> parseXML x)
+
+instance Hashable ResetClusterParameterGroup
 
 instance ToHeaders ResetClusterParameterGroup where
         toHeaders = const mempty

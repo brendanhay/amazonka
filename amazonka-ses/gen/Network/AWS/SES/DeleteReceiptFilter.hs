@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteReceiptFilter
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteReceiptFilter.html AWS API Reference> for DeleteReceiptFilter.
 module Network.AWS.SES.DeleteReceiptFilter
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest DeleteReceiptFilter where
           = receiveXMLWrapper "DeleteReceiptFilterResult"
               (\ s h x ->
                  DeleteReceiptFilterResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeleteReceiptFilter
 
 instance ToHeaders DeleteReceiptFilter where
         toHeaders = const mempty

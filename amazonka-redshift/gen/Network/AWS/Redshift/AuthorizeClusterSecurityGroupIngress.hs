@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,14 +20,17 @@
 --
 -- Adds an inbound (ingress) rule to an Amazon Redshift security group.
 -- Depending on whether the application accessing your cluster is running
--- on the Internet or an EC2 instance, you can authorize inbound access to
--- either a Classless Interdomain Routing (CIDR) IP address range or an EC2
--- security group. You can add as many as 20 ingress rules to an Amazon
--- Redshift security group.
+-- on the Internet or an Amazon EC2 instance, you can authorize inbound
+-- access to either a Classless Interdomain Routing (CIDR)\/Internet
+-- Protocol (IP) range or to an Amazon EC2 security group. You can add as
+-- many as 20 ingress rules to an Amazon Redshift security group.
 --
--- The EC2 security group must be defined in the AWS region where the
--- cluster resides.
+-- If you authorize access to an Amazon EC2 security group, specify
+-- /EC2SecurityGroupName/ and /EC2SecurityGroupOwnerId/. The Amazon EC2
+-- security group and Amazon Redshift cluster must be in the same AWS
+-- region.
 --
+-- If you authorize access to a CIDR\/IP address range, specify /CIDRIP/.
 -- For an overview of CIDR blocks, see the Wikipedia article on
 -- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing>.
 --
@@ -37,8 +40,6 @@
 -- groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Working with Security Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeClusterSecurityGroupIngress.html AWS API Reference> for AuthorizeClusterSecurityGroupIngress.
 module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     (
     -- * Creating a Request
@@ -65,7 +66,7 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | ???
+-- |
 --
 -- /See:/ 'authorizeClusterSecurityGroupIngress' smart constructor.
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
@@ -129,6 +130,9 @@ instance AWSRequest
                  AuthorizeClusterSecurityGroupIngressResponse' <$>
                    (x .@? "ClusterSecurityGroup") <*>
                      (pure (fromEnum s)))
+
+instance Hashable
+         AuthorizeClusterSecurityGroupIngress
 
 instance ToHeaders
          AuthorizeClusterSecurityGroupIngress where

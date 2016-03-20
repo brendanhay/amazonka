@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeExpressions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- changes. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeExpressions.html AWS API Reference> for DescribeExpressions.
 module Network.AWS.CloudSearch.DescribeExpressions
     (
     -- * Creating a Request
@@ -109,6 +107,8 @@ instance AWSRequest DescribeExpressions where
                    (pure (fromEnum s)) <*>
                      (x .@? "Expressions" .!@ mempty >>=
                         parseXMLList "member"))
+
+instance Hashable DescribeExpressions
 
 instance ToHeaders DescribeExpressions where
         toHeaders = const mempty

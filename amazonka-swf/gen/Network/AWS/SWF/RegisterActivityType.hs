@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.RegisterActivityType
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -47,8 +47,6 @@
 -- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterActivityType.html AWS API Reference> for RegisterActivityType.
 module Network.AWS.SWF.RegisterActivityType
     (
     -- * Creating a Request
@@ -164,7 +162,7 @@ ratDefaultTaskPriority = lens _ratDefaultTaskPriority (\ s a -> s{_ratDefaultTas
 
 -- | If set, specifies the default maximum time before which a worker
 -- processing a task of this type must report progress by calling
--- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
+-- < RecordActivityTaskHeartbeat>. If the timeout is exceeded, the activity
 -- task is automatically timed out. This default can be overridden when
 -- scheduling an activity task using the 'ScheduleActivityTask' decision.
 -- If the activity worker subsequently attempts to record a heartbeat or
@@ -229,6 +227,8 @@ instance AWSRequest RegisterActivityType where
              RegisterActivityTypeResponse
         request = postJSON sWF
         response = receiveNull RegisterActivityTypeResponse'
+
+instance Hashable RegisterActivityType
 
 instance ToHeaders RegisterActivityType where
         toHeaders

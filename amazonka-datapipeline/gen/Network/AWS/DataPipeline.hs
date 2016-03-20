@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -34,8 +34,6 @@
 -- progress to the web service as it does so. When the task is done, the
 -- task runner reports the final success or failure of the task to the web
 -- service.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.DataPipeline
     (
     -- * Service Configuration

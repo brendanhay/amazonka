@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetUser
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- If you do not specify a user name, IAM determines the user name
 -- implicitly based on the AWS access key ID used to sign the request.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html AWS API Reference> for GetUser.
 module Network.AWS.IAM.GetUser
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest GetUser where
                  GetUserResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "User"))
 
+instance Hashable GetUser
+
 instance ToHeaders GetUser where
         toHeaders = const mempty
 
@@ -94,7 +94,7 @@ instance ToQuery GetUser where
                "Version" =: ("2010-05-08" :: ByteString),
                "UserName" =: _guUserName]
 
--- | Contains the response to a successful GetUser request.
+-- | Contains the response to a successful < GetUser> request.
 --
 -- /See:/ 'getUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'

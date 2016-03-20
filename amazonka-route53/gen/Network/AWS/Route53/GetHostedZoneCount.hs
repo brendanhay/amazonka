@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetHostedZoneCount
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve a count of all your hosted zones, send a 'GET' request to
--- the '2013-04-01\/hostedzonecount' resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html AWS API Reference> for GetHostedZoneCount.
+-- the '\/Route 53 API version\/hostedzonecount' resource.
 module Network.AWS.Route53.GetHostedZoneCount
     (
     -- * Creating a Request
@@ -44,7 +42,7 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | To retrieve a count of all your hosted zones, send a 'GET' request to
--- the '2013-04-01\/hostedzonecount' resource.
+-- the '\/Route 53 API version\/hostedzonecount' resource.
 --
 -- /See:/ 'getHostedZoneCount' smart constructor.
 data GetHostedZoneCount =
@@ -66,6 +64,8 @@ instance AWSRequest GetHostedZoneCount where
               (\ s h x ->
                  GetHostedZoneCountResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HostedZoneCount"))
+
+instance Hashable GetHostedZoneCount
 
 instance ToHeaders GetHostedZoneCount where
         toHeaders = const mempty

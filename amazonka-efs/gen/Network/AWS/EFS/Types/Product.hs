@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -75,9 +75,9 @@ fileSystemDescription pOwnerId_ pCreationToken_ pFileSystemId_ pCreationTime_ pL
     , _fsdSizeInBytes = pSizeInBytes_
     }
 
--- | You can add tags to a file system (see CreateTags) including a \"Name\"
--- tag. If the file system has a \"Name\" tag, Amazon EFS returns the value
--- in this field.
+-- | You can add tags to a file system (see < CreateTags>) including a
+-- \"Name\" tag. If the file system has a \"Name\" tag, Amazon EFS returns
+-- the value in this field.
 fsdName :: Lens' FileSystemDescription (Maybe Text)
 fsdName = lens _fsdName (\ s a -> s{_fsdName = a});
 
@@ -105,7 +105,7 @@ fsdCreationTime = lens _fsdCreationTime (\ s a -> s{_fsdCreationTime = a}) . _Ti
 fsdLifeCycleState :: Lens' FileSystemDescription LifeCycleState
 fsdLifeCycleState = lens _fsdLifeCycleState (\ s a -> s{_fsdLifeCycleState = a});
 
--- | The current number of mount targets (see CreateMountTarget) the file
+-- | The current number of mount targets (see < CreateMountTarget>) the file
 -- system has.
 fsdNumberOfMountTargets :: Lens' FileSystemDescription Natural
 fsdNumberOfMountTargets = lens _fsdNumberOfMountTargets (\ s a -> s{_fsdNumberOfMountTargets = a}) . _Nat;
@@ -135,6 +135,8 @@ instance FromJSON FileSystemDescription where
                      <*> (x .: "LifeCycleState")
                      <*> (x .: "NumberOfMountTargets")
                      <*> (x .: "SizeInBytes"))
+
+instance Hashable FileSystemDescription
 
 -- | This object provides the latest known metered size, in bytes, of data
 -- stored in the file system, in its 'Value' field, and the time at which
@@ -185,6 +187,8 @@ instance FromJSON FileSystemSize where
               (\ x ->
                  FileSystemSize' <$>
                    (x .:? "Timestamp") <*> (x .: "Value"))
+
+instance Hashable FileSystemSize
 
 -- | This object provides description of a mount target.
 --
@@ -275,6 +279,8 @@ instance FromJSON MountTargetDescription where
                      <*> (x .: "SubnetId")
                      <*> (x .: "LifeCycleState"))
 
+instance Hashable MountTargetDescription
+
 -- | A tag is a pair of key and value. The allowed characters in keys and
 -- values are letters, whitespace, and numbers, representable in UTF-8, and
 -- the characters \'+\', \'-\', \'=\', \'.\', \'_\', \':\', and \'\/\'.
@@ -314,6 +320,8 @@ instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
+
+instance Hashable Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}

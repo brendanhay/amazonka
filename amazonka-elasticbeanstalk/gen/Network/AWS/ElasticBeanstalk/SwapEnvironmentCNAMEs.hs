@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Swaps the CNAMEs of two environments.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_SwapEnvironmentCNAMEs.html AWS API Reference> for SwapEnvironmentCNAMEs.
 module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     (
     -- * Creating a Request
@@ -114,6 +112,8 @@ instance AWSRequest SwapEnvironmentCNAMEs where
              SwapEnvironmentCNAMEsResponse
         request = postQuery elasticBeanstalk
         response = receiveNull SwapEnvironmentCNAMEsResponse'
+
+instance Hashable SwapEnvironmentCNAMEs
 
 instance ToHeaders SwapEnvironmentCNAMEs where
         toHeaders = const mempty

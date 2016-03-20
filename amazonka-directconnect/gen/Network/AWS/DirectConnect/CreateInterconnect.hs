@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateInterconnect
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -35,8 +35,6 @@
 -- AllocateConnectionOnInterconnect. The end customer can then connect to
 -- AWS resources by creating a virtual interface on their connection, using
 -- the VLAN assigned to them by the AWS Direct Connect partner.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateInterconnect.html AWS API Reference> for CreateInterconnect.
 module Network.AWS.DirectConnect.CreateInterconnect
     (
     -- * Creating a Request
@@ -126,6 +124,8 @@ instance AWSRequest CreateInterconnect where
         type Rs CreateInterconnect = Interconnect
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable CreateInterconnect
 
 instance ToHeaders CreateInterconnect where
         toHeaders

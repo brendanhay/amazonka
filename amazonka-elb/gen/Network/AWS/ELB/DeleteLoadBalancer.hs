@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DeleteLoadBalancer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 --
 -- If the load balancer does not exist or has already been deleted, the
 -- call to 'DeleteLoadBalancer' still succeeds.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancer.html AWS API Reference> for DeleteLoadBalancer.
 module Network.AWS.ELB.DeleteLoadBalancer
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest DeleteLoadBalancer where
           = receiveXMLWrapper "DeleteLoadBalancerResult"
               (\ s h x ->
                  DeleteLoadBalancerResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeleteLoadBalancer
 
 instance ToHeaders DeleteLoadBalancer where
         toHeaders = const mempty

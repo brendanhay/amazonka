@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ImportExport.ListJobs
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- the date of creation. For example if Job Test1 was created 2009Dec30 and
 -- Test2 was created 2010Feb05, the ListJobs operation would return Test2
 -- followed by Test1.
---
--- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebListJobs.html AWS API Reference> for ListJobs.
 --
 -- This operation returns paginated results.
 module Network.AWS.ImportExport.ListJobs
@@ -113,6 +111,8 @@ instance AWSRequest ListJobs where
                       may (parseXMLList "member"))
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListJobs
 
 instance ToHeaders ListJobs where
         toHeaders = const mempty

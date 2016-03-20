@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBSecurityGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Returns a list of 'DBSecurityGroup' descriptions. If a
 -- 'DBSecurityGroupName' is specified, the list will contain only the
 -- descriptions of the specified DB security group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSecurityGroups.html AWS API Reference> for DescribeDBSecurityGroups.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBSecurityGroups
@@ -130,6 +128,8 @@ instance AWSRequest DescribeDBSecurityGroups where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBSecurityGroups
+
 instance ToHeaders DescribeDBSecurityGroups where
         toHeaders = const mempty
 
@@ -149,7 +149,7 @@ instance ToQuery DescribeDBSecurityGroups where
                "DBSecurityGroupName" =: _ddbsgDBSecurityGroupName]
 
 -- | Contains the result of a successful invocation of the
--- DescribeDBSecurityGroups action.
+-- < DescribeDBSecurityGroups> action.
 --
 -- /See:/ 'describeDBSecurityGroupsResponse' smart constructor.
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
@@ -177,7 +177,7 @@ describeDBSecurityGroupsResponse pResponseStatus_ =
     , _ddbsgrsResponseStatus = pResponseStatus_
     }
 
--- | A list of DBSecurityGroup instances.
+-- | A list of < DBSecurityGroup> instances.
 ddbsgrsDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
 ddbsgrsDBSecurityGroups = lens _ddbsgrsDBSecurityGroups (\ s a -> s{_ddbsgrsDBSecurityGroups = a}) . _Default . _Coerce;
 

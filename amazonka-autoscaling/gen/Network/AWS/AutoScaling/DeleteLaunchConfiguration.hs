@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteLaunchConfiguration
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- The launch configuration must not be attached to an Auto Scaling group.
 -- When this call completes, the launch configuration is no longer
 -- available for use.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLaunchConfiguration.html AWS API Reference> for DeleteLaunchConfiguration.
 module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     (
     -- * Creating a Request
@@ -73,6 +71,8 @@ instance AWSRequest DeleteLaunchConfiguration where
         request = postQuery autoScaling
         response
           = receiveNull DeleteLaunchConfigurationResponse'
+
+instance Hashable DeleteLaunchConfiguration
 
 instance ToHeaders DeleteLaunchConfiguration where
         toHeaders = const mempty

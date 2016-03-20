@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.GetPipelineDefinition
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,9 +20,7 @@
 --
 -- Gets the definition of the specified pipeline. You can call
 -- 'GetPipelineDefinition' to retrieve the pipeline definition that you
--- provided using PutPipelineDefinition.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html AWS API Reference> for GetPipelineDefinition.
+-- provided using < PutPipelineDefinition>.
 module Network.AWS.DataPipeline.GetPipelineDefinition
     (
     -- * Creating a Request
@@ -95,6 +93,8 @@ instance AWSRequest GetPipelineDefinition where
                      (x .?> "parameterObjects" .!@ mempty)
                      <*> (x .?> "parameterValues" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetPipelineDefinition
 
 instance ToHeaders GetPipelineDefinition where
         toHeaders

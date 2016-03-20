@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetResources
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists information about a collection of Resource resources.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetResources.html AWS API Reference> for GetResources.
+-- Lists information about a collection of < Resource> resources.
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetResources
@@ -78,18 +76,18 @@ getResources pRestAPIId_ =
     , _grsRestAPIId = pRestAPIId_
     }
 
--- | The maximum number of Resource resources in the collection to get
+-- | The maximum number of < Resource> resources in the collection to get
 -- information about. The default limit is 25. It should be an integer
 -- between 1 - 500.
 grsLimit :: Lens' GetResources (Maybe Int)
 grsLimit = lens _grsLimit (\ s a -> s{_grsLimit = a});
 
--- | The position of the next set of results in the current Resources
+-- | The position of the next set of results in the current < Resources>
 -- resource to get information about.
 grsPosition :: Lens' GetResources (Maybe Text)
 grsPosition = lens _grsPosition (\ s a -> s{_grsPosition = a});
 
--- | The RestApi identifier for the Resource.
+-- | The < RestApi> identifier for the Resource.
 grsRestAPIId :: Lens' GetResources Text
 grsRestAPIId = lens _grsRestAPIId (\ s a -> s{_grsRestAPIId = a});
 
@@ -110,8 +108,13 @@ instance AWSRequest GetResources where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetResources
+
 instance ToHeaders GetResources where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetResources where
         toPath GetResources'{..}
@@ -123,7 +126,7 @@ instance ToQuery GetResources where
           = mconcat
               ["limit" =: _grsLimit, "position" =: _grsPosition]
 
--- | Represents a collection of Resource resources.
+-- | Represents a collection of < Resource> resources.
 --
 -- /See:/ 'getResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'
@@ -151,7 +154,7 @@ getResourcesResponse pResponseStatus_ =
     , _grrsResponseStatus = pResponseStatus_
     }
 
--- | Gets the current Resource resource in the collection.
+-- | Gets the current < Resource> resource in the collection.
 grrsItems :: Lens' GetResourcesResponse [Resource]
 grrsItems = lens _grrsItems (\ s a -> s{_grrsItems = a}) . _Default . _Coerce;
 

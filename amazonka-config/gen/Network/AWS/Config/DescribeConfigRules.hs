@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeConfigRules
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns details about your AWS Config rules.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigRules.html AWS API Reference> for DescribeConfigRules.
 module Network.AWS.Config.DescribeConfigRules
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest DescribeConfigRules where
                    (x .?> "ConfigRules" .!@ mempty) <*>
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeConfigRules
 
 instance ToHeaders DescribeConfigRules where
         toHeaders

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBEngineVersions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of the available DB engines.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBEngineVersions.html AWS API Reference> for DescribeDBEngineVersions.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBEngineVersions
@@ -172,6 +170,8 @@ instance AWSRequest DescribeDBEngineVersions where
                         may (parseXMLList "DBEngineVersion"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBEngineVersions
+
 instance ToHeaders DescribeDBEngineVersions where
         toHeaders = const mempty
 
@@ -197,7 +197,7 @@ instance ToQuery DescribeDBEngineVersions where
                "MaxRecords" =: _ddevMaxRecords]
 
 -- | Contains the result of a successful invocation of the
--- DescribeDBEngineVersions action.
+-- < DescribeDBEngineVersions> action.
 --
 -- /See:/ 'describeDBEngineVersionsResponse' smart constructor.
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'

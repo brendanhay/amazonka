@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.CreateCluster
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- 'default' cluster when you launch your first container instance.
 -- However, you can create your own cluster with a unique name with the
 -- 'CreateCluster' action.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html AWS API Reference> for CreateCluster.
 module Network.AWS.ECS.CreateCluster
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest CreateCluster where
               (\ s h x ->
                  CreateClusterResponse' <$>
                    (x .?> "cluster") <*> (pure (fromEnum s)))
+
+instance Hashable CreateCluster
 
 instance ToHeaders CreateCluster where
         toHeaders

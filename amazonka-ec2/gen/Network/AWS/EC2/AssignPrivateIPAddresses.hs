@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AssignPrivateIPAddresses
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- AssignPrivateIpAddresses is available only in EC2-VPC.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssignPrivateIPAddresses.html AWS API Reference> for AssignPrivateIPAddresses.
 module Network.AWS.EC2.AssignPrivateIPAddresses
     (
     -- * Creating a Request
@@ -117,6 +115,8 @@ instance AWSRequest AssignPrivateIPAddresses where
         request = postQuery eC2
         response
           = receiveNull AssignPrivateIPAddressesResponse'
+
+instance Hashable AssignPrivateIPAddresses
 
 instance ToHeaders AssignPrivateIPAddresses where
         toHeaders = const mempty

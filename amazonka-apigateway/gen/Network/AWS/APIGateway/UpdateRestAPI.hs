@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateRestAPI
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about the specified API.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateRestAPI.html AWS API Reference> for UpdateRestAPI.
 module Network.AWS.APIGateway.UpdateRestAPI
     (
     -- * Creating a Request
@@ -47,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to update an existing RestApi resource in your collection.
+-- | Request to update an existing < RestApi> resource in your collection.
 --
 -- /See:/ 'updateRestAPI' smart constructor.
 data UpdateRestAPI = UpdateRestAPI'
@@ -76,7 +74,7 @@ updateRestAPI pRestAPIId_ =
 uraPatchOperations :: Lens' UpdateRestAPI [PatchOperation]
 uraPatchOperations = lens _uraPatchOperations (\ s a -> s{_uraPatchOperations = a}) . _Default . _Coerce;
 
--- | The ID of the RestApi you want to update.
+-- | The ID of the < RestApi> you want to update.
 uraRestAPIId :: Lens' UpdateRestAPI Text
 uraRestAPIId = lens _uraRestAPIId (\ s a -> s{_uraRestAPIId = a});
 
@@ -85,8 +83,13 @@ instance AWSRequest UpdateRestAPI where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateRestAPI
+
 instance ToHeaders UpdateRestAPI where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateRestAPI where
         toJSON UpdateRestAPI'{..}

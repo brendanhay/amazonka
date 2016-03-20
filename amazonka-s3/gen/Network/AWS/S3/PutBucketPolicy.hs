@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Replaces a policy on a bucket. If the bucket already has a policy, the
 -- one in this request completely replaces it.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketPolicy.html AWS API Reference> for PutBucketPolicy.
 module Network.AWS.S3.PutBucketPolicy
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest PutBucketPolicy where
         type Rs PutBucketPolicy = PutBucketPolicyResponse
         request = contentMD5 . putBody s3
         response = receiveNull PutBucketPolicyResponse'
+
+instance Hashable PutBucketPolicy
 
 instance ToBody PutBucketPolicy where
         toBody = toBody . _pbpPolicy

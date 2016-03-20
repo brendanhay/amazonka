@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.AddJobFlowSteps
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -43,8 +43,6 @@
 --
 -- You can only add steps to a job flow that is in one of the following
 -- states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddJobFlowSteps.html AWS API Reference> for AddJobFlowSteps.
 module Network.AWS.EMR.AddJobFlowSteps
     (
     -- * Creating a Request
@@ -69,7 +67,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input argument to the AddJobFlowSteps operation.
+-- | The input argument to the < AddJobFlowSteps> operation.
 --
 -- /See:/ 'addJobFlowSteps' smart constructor.
 data AddJobFlowSteps = AddJobFlowSteps'
@@ -94,11 +92,11 @@ addJobFlowSteps pJobFlowId_ =
     }
 
 -- | A string that uniquely identifies the job flow. This identifier is
--- returned by RunJobFlow and can also be obtained from ListClusters.
+-- returned by < RunJobFlow> and can also be obtained from < ListClusters>.
 ajfsJobFlowId :: Lens' AddJobFlowSteps Text
 ajfsJobFlowId = lens _ajfsJobFlowId (\ s a -> s{_ajfsJobFlowId = a});
 
--- | A list of StepConfig to be executed by the job flow.
+-- | A list of < StepConfig> to be executed by the job flow.
 ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
 ajfsSteps = lens _ajfsSteps (\ s a -> s{_ajfsSteps = a}) . _Coerce;
 
@@ -110,6 +108,8 @@ instance AWSRequest AddJobFlowSteps where
               (\ s h x ->
                  AddJobFlowStepsResponse' <$>
                    (x .?> "StepIds" .!@ mempty) <*> (pure (fromEnum s)))
+
+instance Hashable AddJobFlowSteps
 
 instance ToHeaders AddJobFlowSteps where
         toHeaders
@@ -133,7 +133,7 @@ instance ToPath AddJobFlowSteps where
 instance ToQuery AddJobFlowSteps where
         toQuery = const mempty
 
--- | The output for the AddJobFlowSteps operation.
+-- | The output for the < AddJobFlowSteps> operation.
 --
 -- /See:/ 'addJobFlowStepsResponse' smart constructor.
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'

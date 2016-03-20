@@ -8,7 +8,7 @@
 
 ## Version
 
-`1.3.7`
+`1.3.8`
 
 
 ## Description
@@ -34,10 +34,10 @@ For more information about this product, go to the
 Amazon CloudFormation makes use of other AWS products. If you need
 additional technical information about a specific AWS product, you can
 find the product\'s technical documentation at
-<http://aws.amazon.com/documentation/>.
+<http://docs.aws.amazon.com/documentation/>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudformation)
-and the [AWS API Reference](http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html).
+and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
 which provides mechanisms for specifying AuthN/AuthZ information and sending requests.

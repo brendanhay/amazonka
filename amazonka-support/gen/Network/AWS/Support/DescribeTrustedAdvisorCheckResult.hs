@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckResult
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,14 +20,14 @@
 --
 -- Returns the results of the Trusted Advisor check that has the specified
 -- check ID. Check IDs can be obtained by calling
--- DescribeTrustedAdvisorChecks.
+-- < DescribeTrustedAdvisorChecks>.
 --
--- The response contains a TrustedAdvisorCheckResult object, which contains
--- these three objects:
+-- The response contains a < TrustedAdvisorCheckResult> object, which
+-- contains these three objects:
 --
--- -   TrustedAdvisorCategorySpecificSummary
--- -   TrustedAdvisorResourceDetail
--- -   TrustedAdvisorResourcesSummary
+-- -   < TrustedAdvisorCategorySpecificSummary>
+-- -   < TrustedAdvisorResourceDetail>
+-- -   < TrustedAdvisorResourcesSummary>
 --
 -- In addition, the response contains these fields:
 --
@@ -35,8 +35,6 @@
 --     \"warning\" (yellow), \"error\" (red), or \"not_available\".
 -- -   __Timestamp.__ The time of the last refresh of the check.
 -- -   __CheckId.__ The unique identifier for the check.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckResult.html AWS API Reference> for DescribeTrustedAdvisorCheckResult.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     (
     -- * Creating a Request
@@ -105,6 +103,8 @@ instance AWSRequest DescribeTrustedAdvisorCheckResult
                  DescribeTrustedAdvisorCheckResultResponse' <$>
                    (x .?> "result") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTrustedAdvisorCheckResult
+
 instance ToHeaders DescribeTrustedAdvisorCheckResult
          where
         toHeaders
@@ -133,7 +133,7 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
         toQuery = const mempty
 
 -- | The result of the Trusted Advisor check returned by the
--- DescribeTrustedAdvisorCheckResult operation.
+-- < DescribeTrustedAdvisorCheckResult> operation.
 --
 -- /See:/ 'describeTrustedAdvisorCheckResultResponse' smart constructor.
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'

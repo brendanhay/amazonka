@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.ListJobs
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -62,8 +62,6 @@
 --
 -- For the underlying REST API, go to
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html List Jobs>
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-ListJobs.html AWS API Reference> for ListJobs.
 --
 -- This operation returns paginated results.
 module Network.AWS.Glacier.ListJobs
@@ -189,6 +187,8 @@ instance AWSRequest ListJobs where
                  ListJobsResponse' <$>
                    (x .?> "Marker") <*> (x .?> "JobList" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable ListJobs
 
 instance ToHeaders ListJobs where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateGatewayInformation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,9 @@
 -- gateway\'s name and time zone. To specify which gateway to update, use
 -- the Amazon Resource Name (ARN) of the gateway in your request.
 --
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewayInformation.html AWS API Reference> for UpdateGatewayInformation.
+-- For Gateways activated after September 02, 2015, the gateway\'s ARN
+-- contains the gateway id rather than the gateway name. However changing
+-- the name of the gateway has no effect on the gateway\'s ARN.
 module Network.AWS.StorageGateway.UpdateGatewayInformation
     (
     -- * Creating a Request
@@ -98,6 +100,8 @@ instance AWSRequest UpdateGatewayInformation where
                    (x .?> "GatewayARN") <*> (x .?> "GatewayName") <*>
                      (pure (fromEnum s)))
 
+instance Hashable UpdateGatewayInformation
+
 instance ToHeaders UpdateGatewayInformation where
         toHeaders
           = const
@@ -122,7 +126,7 @@ instance ToPath UpdateGatewayInformation where
 instance ToQuery UpdateGatewayInformation where
         toQuery = const mempty
 
--- | A JSON object containing the of the gateway that was updated.
+-- | A JSON object containing the ARN of the gateway that was updated.
 --
 -- /See:/ 'updateGatewayInformationResponse' smart constructor.
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'

@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDBStreams.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -144,6 +144,8 @@ instance FromJSON AttributeValue where
                      <*> (x .:? "S")
                      <*> (x .:? "BOOL"))
 
+instance Hashable AttributeValue
+
 -- | Represents /a single element/ of a key schema. A key schema specifies
 -- the attributes that make up the primary key of a table, or the key
 -- attributes of an index.
@@ -192,6 +194,8 @@ instance FromJSON KeySchemaElement where
               (\ x ->
                  KeySchemaElement' <$>
                    (x .: "AttributeName") <*> (x .: "KeyType"))
+
+instance Hashable KeySchemaElement
 
 -- | A description of a unique event within a stream.
 --
@@ -278,6 +282,8 @@ instance FromJSON Record where
                      <*> (x .:? "eventSource")
                      <*> (x .:? "eventID"))
 
+instance Hashable Record
+
 -- | The beginning and ending sequence numbers for the stream records
 -- contained within a shard.
 --
@@ -317,6 +323,8 @@ instance FromJSON SequenceNumberRange where
                  SequenceNumberRange' <$>
                    (x .:? "StartingSequenceNumber") <*>
                      (x .:? "EndingSequenceNumber"))
+
+instance Hashable SequenceNumberRange
 
 -- | A uniquely identified group of stream records within a stream.
 --
@@ -365,6 +373,8 @@ instance FromJSON Shard where
                    (x .:? "ParentShardId") <*>
                      (x .:? "SequenceNumberRange")
                      <*> (x .:? "ShardId"))
+
+instance Hashable Shard
 
 -- | Represents all of the data describing a particular stream.
 --
@@ -424,6 +434,8 @@ instance FromJSON Stream where
                  Stream' <$>
                    (x .:? "StreamLabel") <*> (x .:? "StreamArn") <*>
                      (x .:? "TableName"))
+
+instance Hashable Stream
 
 -- | Represents all of the data describing a particular stream.
 --
@@ -573,6 +585,8 @@ instance FromJSON StreamDescription where
                      <*> (x .:? "TableName")
                      <*> (x .:? "CreationRequestDateTime"))
 
+instance Hashable StreamDescription
+
 -- | A description of a single data modification that was performed on an
 -- item in a DynamoDB table.
 --
@@ -659,3 +673,5 @@ instance FromJSON StreamRecord where
                      <*> (x .:? "Keys" .!= mempty)
                      <*> (x .:? "OldImage" .!= mempty)
                      <*> (x .:? "NewImage" .!= mempty))
+
+instance Hashable StreamRecord

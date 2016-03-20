@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.WAF.ListIPSets
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of IPSetSummary objects in the response.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListIPSets.html AWS API Reference> for ListIPSets.
+-- Returns an array of < IPSetSummary> objects in the response.
 module Network.AWS.WAF.ListIPSets
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest ListIPSets where
                    (x .?> "NextMarker") <*> (x .?> "IPSets" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListIPSets
+
 instance ToHeaders ListIPSets where
         toHeaders
           = const
@@ -150,7 +150,7 @@ listIPSetsResponse pResponseStatus_ =
 lisrsNextMarker :: Lens' ListIPSetsResponse (Maybe Text)
 lisrsNextMarker = lens _lisrsNextMarker (\ s a -> s{_lisrsNextMarker = a});
 
--- | An array of IPSetSummary objects.
+-- | An array of < IPSetSummary> objects.
 lisrsIPSets :: Lens' ListIPSetsResponse [IPSetSummary]
 lisrsIPSets = lens _lisrsIPSets (\ s a -> s{_lisrsIPSets = a}) . _Default . _Coerce;
 

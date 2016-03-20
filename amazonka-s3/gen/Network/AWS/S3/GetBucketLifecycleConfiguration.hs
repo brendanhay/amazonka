@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketLifecycleConfiguration
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the lifecycle configuration information set on the bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLifecycleConfiguration.html AWS API Reference> for GetBucketLifecycleConfiguration.
 module Network.AWS.S3.GetBucketLifecycleConfiguration
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest GetBucketLifecycleConfiguration
                  GetBucketLifecycleConfigurationResponse' <$>
                    (may (parseXMLList "Rule") x) <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetBucketLifecycleConfiguration
 
 instance ToHeaders GetBucketLifecycleConfiguration
          where

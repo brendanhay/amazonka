@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicies
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- the action returns descriptions of the specified sample policies, or
 -- descriptions of all sample policies. The names of the sample policies
 -- have the 'ELBSample-' prefix.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicies.html AWS API Reference> for DescribeLoadBalancerPolicies.
 module Network.AWS.ELB.DescribeLoadBalancerPolicies
     (
     -- * Creating a Request
@@ -95,6 +93,8 @@ instance AWSRequest DescribeLoadBalancerPolicies
                    (x .@? "PolicyDescriptions" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeLoadBalancerPolicies
 
 instance ToHeaders DescribeLoadBalancerPolicies where
         toHeaders = const mempty

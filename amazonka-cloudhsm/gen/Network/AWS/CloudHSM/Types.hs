@@ -4,7 +4,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.Types
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,12 @@ module Network.AWS.CloudHSM.Types
 
     -- * SubscriptionType
     , SubscriptionType (..)
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
     ) where
 
 import           Network.AWS.CloudHSM.Types.Product
@@ -62,6 +68,7 @@ cloudHSM =
         , _retryCheck = check
         }
     check e
+      | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"

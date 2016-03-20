@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.AbortMultipartUpload
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,7 +25,7 @@
 -- Aborting a completed upload fails. However, aborting an already-aborted
 -- upload will succeed, for a short time. For more information about
 -- uploading a part and completing a multipart upload, see
--- UploadMultipartPart and CompleteMultipartUpload.
+-- < UploadMultipartPart> and < CompleteMultipartUpload>.
 --
 -- This operation is idempotent.
 --
@@ -40,8 +40,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html Abort Multipart Upload>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AbortMultipartUpload.html AWS API Reference> for AbortMultipartUpload.
 module Network.AWS.Glacier.AbortMultipartUpload
     (
     -- * Creating a Request
@@ -121,6 +119,8 @@ instance AWSRequest AbortMultipartUpload where
              AbortMultipartUploadResponse
         request = delete glacier
         response = receiveNull AbortMultipartUploadResponse'
+
+instance Hashable AbortMultipartUpload
 
 instance ToHeaders AbortMultipartUpload where
         toHeaders = const mempty

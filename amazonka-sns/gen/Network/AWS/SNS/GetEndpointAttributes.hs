@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.GetEndpointAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- push notification services, such as GCM and APNS. For more information,
 -- see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html AWS API Reference> for GetEndpointAttributes.
 module Network.AWS.SNS.GetEndpointAttributes
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest GetEndpointAttributes where
                    (x .@? "Attributes" .!@ mempty >>=
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetEndpointAttributes
 
 instance ToHeaders GetEndpointAttributes where
         toHeaders = const mempty

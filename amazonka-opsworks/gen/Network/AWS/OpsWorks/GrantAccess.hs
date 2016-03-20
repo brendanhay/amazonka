@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.GrantAccess
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- This action can be used only with Windows stacks.
 --
 -- Grants RDP access to a Windows instance for a specified time period.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_GrantAccess.html AWS API Reference> for GrantAccess.
 module Network.AWS.OpsWorks.GrantAccess
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest GrantAccess where
                  GrantAccessResponse' <$>
                    (x .?> "TemporaryCredential") <*>
                      (pure (fromEnum s)))
+
+instance Hashable GrantAccess
 
 instance ToHeaders GrantAccess where
         toHeaders

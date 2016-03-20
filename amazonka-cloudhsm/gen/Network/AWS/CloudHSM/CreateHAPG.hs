@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.CreateHAPG
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Creates a high-availability partition group. A high-availability
 -- partition group is a group of partitions that spans multiple physical
 -- HSMs.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateHAPG.html AWS API Reference> for CreateHAPG.
 module Network.AWS.CloudHSM.CreateHAPG
     (
     -- * Creating a Request
@@ -46,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the CreateHapgRequest action.
+-- | Contains the inputs for the < CreateHapgRequest> action.
 --
 -- /See:/ 'createHAPG' smart constructor.
 newtype CreateHAPG = CreateHAPG'
@@ -79,6 +77,8 @@ instance AWSRequest CreateHAPG where
                  CreateHAPGResponse' <$>
                    (x .?> "HapgArn") <*> (pure (fromEnum s)))
 
+instance Hashable CreateHAPG
+
 instance ToHeaders CreateHAPG where
         toHeaders
           = const
@@ -98,7 +98,7 @@ instance ToPath CreateHAPG where
 instance ToQuery CreateHAPG where
         toQuery = const mempty
 
--- | Contains the output of the CreateHAPartitionGroup action.
+-- | Contains the output of the < CreateHAPartitionGroup> action.
 --
 -- /See:/ 'createHAPGResponse' smart constructor.
 data CreateHAPGResponse = CreateHAPGResponse'

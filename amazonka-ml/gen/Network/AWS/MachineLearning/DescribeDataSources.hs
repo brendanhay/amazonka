@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DescribeDataSources
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns a list of 'DataSource' that match the search criteria in the
 -- request.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeDataSources.html AWS API Reference> for DescribeDataSources.
 --
 -- This operation returns paginated results.
 module Network.AWS.MachineLearning.DescribeDataSources
@@ -219,6 +217,8 @@ instance AWSRequest DescribeDataSources where
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDataSources
+
 instance ToHeaders DescribeDataSources where
         toHeaders
           = const
@@ -248,8 +248,8 @@ instance ToPath DescribeDataSources where
 instance ToQuery DescribeDataSources where
         toQuery = const mempty
 
--- | Represents the query results from a DescribeDataSources operation. The
--- content is essentially a list of 'DataSource'.
+-- | Represents the query results from a < DescribeDataSources> operation.
+-- The content is essentially a list of 'DataSource'.
 --
 -- /See:/ 'describeDataSourcesResponse' smart constructor.
 data DescribeDataSourcesResponse = DescribeDataSourcesResponse'

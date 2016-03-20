@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.UpdateTagsForDomain
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- All tag operations are eventually consistent; subsequent operations may
 -- not immediately represent all issued operations.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateTagsForDomain.html AWS API Reference> for UpdateTagsForDomain.
 module Network.AWS.Route53Domains.UpdateTagsForDomain
     (
     -- * Creating a Request
@@ -144,6 +142,8 @@ instance AWSRequest UpdateTagsForDomain where
           = receiveEmpty
               (\ s h x ->
                  UpdateTagsForDomainResponse' <$> (pure (fromEnum s)))
+
+instance Hashable UpdateTagsForDomain
 
 instance ToHeaders UpdateTagsForDomain where
         toHeaders

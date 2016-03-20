@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteNetworkACL
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Deletes the specified network ACL. You can\'t delete the ACL if it\'s
 -- associated with any subnets. You can\'t delete the default network ACL.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkACL.html AWS API Reference> for DeleteNetworkACL.
 module Network.AWS.EC2.DeleteNetworkACL
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DeleteNetworkACL where
         type Rs DeleteNetworkACL = DeleteNetworkACLResponse
         request = postQuery eC2
         response = receiveNull DeleteNetworkACLResponse'
+
+instance Hashable DeleteNetworkACL
 
 instance ToHeaders DeleteNetworkACL where
         toHeaders = const mempty

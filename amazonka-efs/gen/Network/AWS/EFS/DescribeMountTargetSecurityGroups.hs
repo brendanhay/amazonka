@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EFS.DescribeMountTargetSecurityGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 --     mount target\'s file system.
 -- -   'ec2:DescribeNetworkInterfaceAttribute' action on the mount
 --     target\'s network interface.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeMountTargetSecurityGroups.html AWS API Reference> for DescribeMountTargetSecurityGroups.
 module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest DescribeMountTargetSecurityGroups
                  DescribeMountTargetSecurityGroupsResponse' <$>
                    (pure (fromEnum s)) <*>
                      (x .?> "SecurityGroups" .!@ mempty))
+
+instance Hashable DescribeMountTargetSecurityGroups
 
 instance ToHeaders DescribeMountTargetSecurityGroups
          where

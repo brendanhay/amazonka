@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.AddTagsToVault
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- the vault under a specified key, the existing key value will be
 -- overwritten. For more information about tags, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AddTagsToVault.html AWS API Reference> for AddTagsToVault.
 module Network.AWS.Glacier.AddTagsToVault
     (
     -- * Creating a Request
@@ -99,6 +97,8 @@ instance AWSRequest AddTagsToVault where
         type Rs AddTagsToVault = AddTagsToVaultResponse
         request = postJSON glacier
         response = receiveNull AddTagsToVaultResponse'
+
+instance Hashable AddTagsToVault
 
 instance ToHeaders AddTagsToVault where
         toHeaders = const mempty

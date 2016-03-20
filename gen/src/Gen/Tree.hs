@@ -9,7 +9,7 @@
 {-# LANGUAGE ViewPatterns          #-}
 
 -- Module      : Gen.Tree
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -31,7 +31,6 @@ import           Control.Monad.Except
 import           Data.Aeson                hiding (json)
 import           Data.Bifunctor
 import           Data.Functor.Identity
-import qualified Data.HashMap.Strict       as Map
 import           Data.Monoid
 import           Data.Text                 (Text)
 import qualified Data.Text                 as Text
@@ -147,11 +146,10 @@ operation' :: Library
 operation' l t o = module' n is t $ do
     x <- JS.objectErr (show n) o
     y <- JS.objectErr "metadata" (toJSON m)
-    return $! Map.insert "operationUrl" (toJSON u) (y <> x)
+    return $! y <> x
   where
     n  = operationNS (l ^. libraryNS) (o ^. opName)
     m  = l ^. metadata
-    u  = l ^. operationUrl
 
     is = operationImports l o
 

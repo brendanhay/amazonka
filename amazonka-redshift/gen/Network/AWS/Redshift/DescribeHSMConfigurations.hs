@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeHSMConfigurations
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 -- If both tag keys and values are omitted from the request, HSM
 -- connections are returned regardless of whether they have tag keys or
 -- values associated with them.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHSMConfigurations.html AWS API Reference> for DescribeHSMConfigurations.
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeHSMConfigurations
@@ -126,7 +124,7 @@ dhsmcTagKeys :: Lens' DescribeHSMConfigurations [Text]
 dhsmcTagKeys = lens _dhsmcTagKeys (\ s a -> s{_dhsmcTagKeys = a}) . _Default . _Coerce;
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeHsmConfigurations
+-- of response records. When the results of a < DescribeHsmConfigurations>
 -- request exceed the value specified in 'MaxRecords', AWS returns a value
 -- in the 'Marker' field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the 'Marker'
@@ -165,6 +163,8 @@ instance AWSRequest DescribeHSMConfigurations where
                      (x .@? "HsmConfigurations" .!@ mempty >>=
                         may (parseXMLList "HsmConfiguration"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeHSMConfigurations
 
 instance ToHeaders DescribeHSMConfigurations where
         toHeaders = const mempty
@@ -224,7 +224,7 @@ describeHSMConfigurationsResponse pResponseStatus_ =
 dhcrsMarker :: Lens' DescribeHSMConfigurationsResponse (Maybe Text)
 dhcrsMarker = lens _dhcrsMarker (\ s a -> s{_dhcrsMarker = a});
 
--- | A list of Amazon Redshift HSM configurations.
+-- | A list of 'HsmConfiguration' objects.
 dhcrsHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfiguration]
 dhcrsHSMConfigurations = lens _dhcrsHSMConfigurations (\ s a -> s{_dhcrsHSMConfigurations = a}) . _Default . _Coerce;
 

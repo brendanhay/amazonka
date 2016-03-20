@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.DeleteTopic
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- prevent some messages previously sent to the topic from being delivered
 -- to subscribers. This action is idempotent, so deleting a topic that does
 -- not exist does not result in an error.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_DeleteTopic.html AWS API Reference> for DeleteTopic.
 module Network.AWS.SNS.DeleteTopic
     (
     -- * Creating a Request
@@ -70,6 +68,8 @@ instance AWSRequest DeleteTopic where
         type Rs DeleteTopic = DeleteTopicResponse
         request = postQuery sNS
         response = receiveNull DeleteTopicResponse'
+
+instance Hashable DeleteTopic
 
 instance ToHeaders DeleteTopic where
         toHeaders = const mempty

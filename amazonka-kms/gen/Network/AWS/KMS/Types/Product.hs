@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -68,6 +68,8 @@ instance FromJSON AliasListEntry where
                    (x .:? "TargetKeyId") <*> (x .:? "AliasName") <*>
                      (x .:? "AliasArn"))
 
+instance Hashable AliasListEntry
+
 -- | A structure for specifying the conditions under which the operations
 -- permitted by the grant are allowed.
 --
@@ -121,6 +123,8 @@ instance FromJSON GrantConstraints where
                  GrantConstraints' <$>
                    (x .:? "EncryptionContextEquals" .!= mempty) <*>
                      (x .:? "EncryptionContextSubset" .!= mempty))
+
+instance Hashable GrantConstraints
 
 instance ToJSON GrantConstraints where
         toJSON GrantConstraints'{..}
@@ -208,8 +212,8 @@ gleGranteePrincipal :: Lens' GrantListEntry (Maybe Text)
 gleGranteePrincipal = lens _gleGranteePrincipal (\ s a -> s{_gleGranteePrincipal = a});
 
 -- | The friendly name that identifies the grant. If a name was provided in
--- the CreateGrant request, that name is returned. Otherwise this value is
--- null.
+-- the < CreateGrant> request, that name is returned. Otherwise this value
+-- is null.
 gleName :: Lens' GrantListEntry (Maybe Text)
 gleName = lens _gleName (\ s a -> s{_gleName = a});
 
@@ -234,6 +238,8 @@ instance FromJSON GrantListEntry where
                      <*> (x .:? "Name")
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "Operations" .!= mempty))
+
+instance Hashable GrantListEntry
 
 -- | Contains information about each entry in the key list.
 --
@@ -273,10 +279,12 @@ instance FromJSON KeyListEntry where
                  KeyListEntry' <$>
                    (x .:? "KeyId") <*> (x .:? "KeyArn"))
 
+instance Hashable KeyListEntry
+
 -- | Contains metadata about a customer master key (CMK).
 --
--- This data type is used as a response element for the CreateKey and
--- DescribeKey operations.
+-- This data type is used as a response element for the < CreateKey> and
+-- < DescribeKey> operations.
 --
 -- /See:/ 'keyMetadata' smart constructor.
 data KeyMetadata = KeyMetadata'
@@ -353,7 +361,7 @@ kmAWSAccountId = lens _kmAWSAccountId (\ s a -> s{_kmAWSAccountId = a});
 
 -- | The cryptographic operations for which you can use the key. Currently
 -- the only allowed value is 'ENCRYPT_DECRYPT', which means you can use the
--- key for the Encrypt and Decrypt operations.
+-- key for the < Encrypt> and < Decrypt> operations.
 kmKeyUsage :: Lens' KeyMetadata (Maybe KeyUsageType)
 kmKeyUsage = lens _kmKeyUsage (\ s a -> s{_kmKeyUsage = a});
 
@@ -388,6 +396,8 @@ instance FromJSON KeyMetadata where
                      <*> (x .:? "DeletionDate")
                      <*> (x .:? "Description")
                      <*> (x .: "KeyId"))
+
+instance Hashable KeyMetadata
 
 -- | /See:/ 'listGrantsResponse' smart constructor.
 data ListGrantsResponse = ListGrantsResponse'
@@ -436,3 +446,5 @@ instance FromJSON ListGrantsResponse where
                  ListGrantsResponse' <$>
                    (x .:? "Truncated") <*> (x .:? "Grants" .!= mempty)
                      <*> (x .:? "NextMarker"))
+
+instance Hashable ListGrantsResponse

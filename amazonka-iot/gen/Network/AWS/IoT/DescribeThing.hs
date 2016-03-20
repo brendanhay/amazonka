@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DescribeThing
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified thing.
---
--- /See:/ <https://aws.amazon.com/iot#DescribeThing.html AWS API Reference> for DescribeThing.
 module Network.AWS.IoT.DescribeThing
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest DescribeThing where
                      <*> (x .?> "thingName")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeThing
+
 instance ToHeaders DescribeThing where
         toHeaders = const mempty
 
@@ -128,11 +128,10 @@ describeThingResponse pResponseStatus_ =
 dtrsDefaultClientId :: Lens' DescribeThingResponse (Maybe Text)
 dtrsDefaultClientId = lens _dtrsDefaultClientId (\ s a -> s{_dtrsDefaultClientId = a});
 
--- | The attributes which are name\/value pairs in JSON format. For example:
---
+-- | The attributes, which are name\/value pairs in JSON format (for example:
 -- {\\\"attributes\\\":{\\\"some-name1\\\":\\\"some-value1\\\"},
 -- {\\\"some-name2\\\":\\\"some-value2\\\"},
--- {\\\"some-name3\\\":\\\"some-value3\\\"}}
+-- {\\\"some-name3\\\":\\\"some-value3\\\"}})
 dtrsAttributes :: Lens' DescribeThingResponse (HashMap Text Text)
 dtrsAttributes = lens _dtrsAttributes (\ s a -> s{_dtrsAttributes = a}) . _Default . _Map;
 

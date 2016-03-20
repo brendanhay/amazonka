@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteClientCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteClientCertificate.html AWS API Reference> for DeleteClientCertificate.
 module Network.AWS.APIGateway.DeleteClientCertificate
     (
     -- * Creating a Request
@@ -70,8 +68,13 @@ instance AWSRequest DeleteClientCertificate where
         response
           = receiveNull DeleteClientCertificateResponse'
 
+instance Hashable DeleteClientCertificate
+
 instance ToHeaders DeleteClientCertificate where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteClientCertificate where
         toPath DeleteClientCertificate'{..}

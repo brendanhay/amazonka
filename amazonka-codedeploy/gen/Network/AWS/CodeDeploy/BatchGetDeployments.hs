@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetDeployments
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more deployments.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeployments.html AWS API Reference> for BatchGetDeployments.
 module Network.AWS.CodeDeploy.BatchGetDeployments
     (
     -- * Creating a Request
@@ -63,8 +61,7 @@ batchGetDeployments =
     { _bgdDeploymentIds = Nothing
     }
 
--- | A list of deployment IDs, with multiple deployment IDs separated by
--- spaces.
+-- | A list of deployment IDs, separated by spaces.
 bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
 bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a}) . _Default . _Coerce;
 
@@ -78,6 +75,8 @@ instance AWSRequest BatchGetDeployments where
                  BatchGetDeploymentsResponse' <$>
                    (x .?> "deploymentsInfo" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable BatchGetDeployments
 
 instance ToHeaders BatchGetDeployments where
         toHeaders

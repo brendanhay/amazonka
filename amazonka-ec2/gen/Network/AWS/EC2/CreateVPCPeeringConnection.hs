@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateVPCPeeringConnection
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- A 'CreateVpcPeeringConnection' request between VPCs with overlapping
 -- CIDR blocks results in the VPC peering connection having a status of
 -- 'failed'.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPCPeeringConnection.html AWS API Reference> for CreateVPCPeeringConnection.
 module Network.AWS.EC2.CreateVPCPeeringConnection
     (
     -- * Creating a Request
@@ -119,6 +117,8 @@ instance AWSRequest CreateVPCPeeringConnection where
                  CreateVPCPeeringConnectionResponse' <$>
                    (x .@? "vpcPeeringConnection") <*>
                      (pure (fromEnum s)))
+
+instance Hashable CreateVPCPeeringConnection
 
 instance ToHeaders CreateVPCPeeringConnection where
         toHeaders = const mempty

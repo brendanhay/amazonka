@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateLoginProfile
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- information about managing passwords, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>
 -- in the /Using IAM/ guide.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateLoginProfile.html AWS API Reference> for CreateLoginProfile.
 module Network.AWS.IAM.CreateLoginProfile
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest CreateLoginProfile where
                  CreateLoginProfileResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "LoginProfile"))
 
+instance Hashable CreateLoginProfile
+
 instance ToHeaders CreateLoginProfile where
         toHeaders = const mempty
 
@@ -115,7 +115,7 @@ instance ToQuery CreateLoginProfile where
                "UserName" =: _clpUserName,
                "Password" =: _clpPassword]
 
--- | Contains the response to a successful CreateLoginProfile request.
+-- | Contains the response to a successful < CreateLoginProfile> request.
 --
 -- /See:/ 'createLoginProfileResponse' smart constructor.
 data CreateLoginProfileResponse = CreateLoginProfileResponse'

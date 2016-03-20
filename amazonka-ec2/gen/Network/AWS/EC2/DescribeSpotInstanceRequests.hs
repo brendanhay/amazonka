@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeSpotInstanceRequests
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,11 +29,9 @@
 -- You can use 'DescribeSpotInstanceRequests' to find a running Spot
 -- instance by examining the response. If the status of the Spot instance
 -- is 'fulfilled', the instance ID appears in the response and contains the
--- identifier of the instance. Alternatively, you can use DescribeInstances
--- with a filter to look for instances where the instance lifecycle is
--- 'spot'.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotInstanceRequests.html AWS API Reference> for DescribeSpotInstanceRequests.
+-- identifier of the instance. Alternatively, you can use
+-- < DescribeInstances> with a filter to look for instances where the
+-- instance lifecycle is 'spot'.
 module Network.AWS.EC2.DescribeSpotInstanceRequests
     (
     -- * Creating a Request
@@ -231,6 +229,8 @@ instance AWSRequest DescribeSpotInstanceRequests
                    (x .@? "spotInstanceRequestSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeSpotInstanceRequests
 
 instance ToHeaders DescribeSpotInstanceRequests where
         toHeaders = const mempty

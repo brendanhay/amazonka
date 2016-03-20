@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- All Elastic Load Balancing operations are /idempotent/, which means that
 -- they complete at most one time. If you repeat an operation, it succeeds
 -- with a 200 OK response code.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.ELB
     (
     -- * Service Configuration

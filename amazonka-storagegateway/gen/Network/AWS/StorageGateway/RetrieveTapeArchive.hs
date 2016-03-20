@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.RetrieveTapeArchive
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- Once a tape is successfully retrieved to a gateway, it cannot be
 -- retrieved again to another gateway. You must archive the tape again
 -- before you can retrieve it to another gateway.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeArchive.html AWS API Reference> for RetrieveTapeArchive.
 module Network.AWS.StorageGateway.RetrieveTapeArchive
     (
     -- * Creating a Request
@@ -83,7 +81,7 @@ rtaTapeARN :: Lens' RetrieveTapeArchive Text
 rtaTapeARN = lens _rtaTapeARN (\ s a -> s{_rtaTapeARN = a});
 
 -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the
--- virtual tape to. Use the ListGateways operation to return a list of
+-- virtual tape to. Use the < ListGateways> operation to return a list of
 -- gateways for your account and region.
 --
 -- You retrieve archived virtual tapes to only one gateway and the gateway
@@ -100,6 +98,8 @@ instance AWSRequest RetrieveTapeArchive where
               (\ s h x ->
                  RetrieveTapeArchiveResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
+
+instance Hashable RetrieveTapeArchive
 
 instance ToHeaders RetrieveTapeArchive where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketReplication
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Creates a new replication configuration (or replaces an existing one, if
 -- present).
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketReplication.html AWS API Reference> for PutBucketReplication.
 module Network.AWS.S3.PutBucketReplication
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest PutBucketReplication where
              PutBucketReplicationResponse
         request = putXML s3
         response = receiveNull PutBucketReplicationResponse'
+
+instance Hashable PutBucketReplication
 
 instance ToElement PutBucketReplication where
         toElement

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateClientCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateClientCertificate.html AWS API Reference> for UpdateClientCertificate.
 module Network.AWS.APIGateway.UpdateClientCertificate
     (
     -- * Creating a Request
@@ -84,8 +82,13 @@ instance AWSRequest UpdateClientCertificate where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateClientCertificate
+
 instance ToHeaders UpdateClientCertificate where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateClientCertificate where
         toJSON UpdateClientCertificate'{..}

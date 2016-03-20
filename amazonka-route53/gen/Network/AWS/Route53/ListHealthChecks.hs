@@ -12,15 +12,15 @@
 
 -- |
 -- Module      : Network.AWS.Route53.ListHealthChecks
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve a list of your health checks, send a 'GET' request to the
--- '2013-04-01\/healthcheck' resource. The response to this request
--- includes a 'HealthChecks' element with zero, one, or multiple
+-- '\/Route 53 API version\/healthcheck' resource. The response to this
+-- request includes a 'HealthChecks' element with zero, one, or multiple
 -- 'HealthCheck' child elements. By default, the list of health checks is
 -- displayed on a single page. You can control the length of the page that
 -- is displayed by using the 'MaxItems' parameter. You can use the 'Marker'
@@ -28,8 +28,6 @@
 --
 -- Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a
 -- value greater than 100, Amazon Route 53 returns only the first 100.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html AWS API Reference> for ListHealthChecks.
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53.ListHealthChecks
@@ -62,12 +60,12 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | To retrieve a list of your health checks, send a 'GET' request to the
--- '2013-04-01\/healthcheck' resource. The response to this request
--- includes a 'HealthChecks' element with zero or more 'HealthCheck' child
--- elements. By default, the list of health checks is displayed on a single
--- page. You can control the length of the page that is displayed by using
--- the 'MaxItems' parameter. You can use the 'Marker' parameter to control
--- the health check that the list begins with.
+-- '\/Route 53 API version\/healthcheck' resource. The response to this
+-- request includes a 'HealthChecks' element with zero or more
+-- 'HealthCheck' child elements. By default, the list of health checks is
+-- displayed on a single page. You can control the length of the page that
+-- is displayed by using the 'MaxItems' parameter. You can use the 'Marker'
+-- parameter to control the health check that the list begins with.
 --
 -- Amazon Route 53 returns a maximum of 100 items. If you set 'MaxItems' to
 -- a value greater than 100, Amazon Route 53 returns only the first 100.
@@ -125,6 +123,8 @@ instance AWSRequest ListHealthChecks where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
 
+instance Hashable ListHealthChecks
+
 instance ToHeaders ListHealthChecks where
         toHeaders = const mempty
 
@@ -180,9 +180,9 @@ listHealthChecksResponse pResponseStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
     }
 
 -- | Indicates where to continue listing health checks. If
--- ListHealthChecksResponse$IsTruncated is 'true', make another request to
--- 'ListHealthChecks' and include the value of the 'NextMarker' element in
--- the 'Marker' element to get the next page of results.
+-- < ListHealthChecksResponse$IsTruncated> is 'true', make another request
+-- to 'ListHealthChecks' and include the value of the 'NextMarker' element
+-- in the 'Marker' element to get the next page of results.
 lhcrsNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcrsNextMarker = lens _lhcrsNextMarker (\ s a -> s{_lhcrsNextMarker = a});
 
@@ -211,9 +211,10 @@ lhcrsIsTruncated = lens _lhcrsIsTruncated (\ s a -> s{_lhcrsIsTruncated = a});
 
 -- | The maximum number of health checks to be included in the response body.
 -- If the number of health checks associated with this AWS account exceeds
--- 'MaxItems', the value of ListHealthChecksResponse$IsTruncated in the
+-- 'MaxItems', the value of < ListHealthChecksResponse$IsTruncated> in the
 -- response is 'true'. Call 'ListHealthChecks' again and specify the value
--- of ListHealthChecksResponse$NextMarker in the
--- ListHostedZonesRequest$Marker element to get the next page of results.
+-- of < ListHealthChecksResponse$NextMarker> in the
+-- < ListHostedZonesRequest$Marker> element to get the next page of
+-- results.
 lhcrsMaxItems :: Lens' ListHealthChecksResponse Text
 lhcrsMaxItems = lens _lhcrsMaxItems (\ s a -> s{_lhcrsMaxItems = a});

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ListTopicRules
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the rules for the specific topic.
---
--- /See:/ <https://aws.amazon.com/iot#ListTopicRules.html AWS API Reference> for ListTopicRules.
 module Network.AWS.IoT.ListTopicRules
     (
     -- * Creating a Request
@@ -104,6 +102,8 @@ instance AWSRequest ListTopicRules where
                  ListTopicRulesResponse' <$>
                    (x .?> "rules" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListTopicRules
 
 instance ToHeaders ListTopicRules where
         toHeaders = const mempty

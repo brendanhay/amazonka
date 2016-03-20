@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.UpdateItem
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,13 +23,9 @@
 -- You can also perform a conditional update on an existing item (insert a
 -- new attribute name-value pair if it doesn\'t exist, or replace an
 -- existing name-value pair if it has certain expected attribute values).
--- If conditions are specified and the item does not exist, then the
--- operation fails and a new item is not created.
 --
 -- You can also return the item\'s attribute values in the same
 -- /UpdateItem/ operation using the /ReturnValues/ parameter.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html AWS API Reference> for UpdateItem.
 module Network.AWS.DynamoDB.UpdateItem
     (
     -- * Creating a Request
@@ -190,6 +186,11 @@ uiExpressionAttributeNames = lens _uiExpressionAttributeNames (\ s a -> s{_uiExp
 -- -   'UPDATED_NEW' - The new versions of only the updated attributes are
 --     returned.
 --
+-- There is no additional cost associated with requesting a return value
+-- aside from the small network and processing overhead of receiving a
+-- larger response. No Read Capacity Units are consumed.
+--
+-- Values returned are strongly consistent
 uiReturnValues :: Lens' UpdateItem (Maybe ReturnValue)
 uiReturnValues = lens _uiReturnValues (\ s a -> s{_uiReturnValues = a});
 
@@ -315,7 +316,7 @@ uiExpressionAttributeValues = lens _uiExpressionAttributeValues (\ s a -> s{_uiE
 -- and the new value for each. If you are updating an attribute that is an
 -- index key attribute for any indexes on that table, the attribute type
 -- must match the index key type defined in the /AttributesDefinition/ of
--- the table description. You can use /UpdateItem/ to update any nonkey
+-- the table description. You can use /UpdateItem/ to update any non-key
 -- attributes.
 --
 -- Attribute values cannot be null. String and Binary type attributes must
@@ -424,7 +425,8 @@ uiReturnItemCollectionMetrics = lens _uiReturnItemCollectionMetrics (\ s a -> s{
 --
 --     These function names are case-sensitive.
 --
--- -   Comparison operators: ' = | \<> | \< | > | \<= | >= | BETWEEN | IN'
+-- -   Comparison operators:
+--     ' = | &#x3C;&#x3E; | &#x3C; | &#x3E; | &#x3C;= | &#x3E;= | BETWEEN | IN'
 --
 -- -   Logical operators: 'AND | OR | NOT'
 --
@@ -692,9 +694,9 @@ uiTableName = lens _uiTableName (\ s a -> s{_uiTableName = a});
 -- attribute name and a value for that attribute.
 --
 -- For the primary key, you must provide all of the attributes. For
--- example, with a hash type primary key, you only need to provide the hash
--- attribute. For a hash-and-range type primary key, you must provide both
--- the hash attribute and the range attribute.
+-- example, with a simple primary key, you only need to provide a value for
+-- the partition key. For a composite primary key, you must provide values
+-- for both the partition key and the sort key.
 uiKey :: Lens' UpdateItem (HashMap Text AttributeValue)
 uiKey = lens _uiKey (\ s a -> s{_uiKey = a}) . _Map;
 
@@ -709,6 +711,8 @@ instance AWSRequest UpdateItem where
                      (x .?> "ConsumedCapacity")
                      <*> (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable UpdateItem
 
 instance ToHeaders UpdateItem where
         toHeaders

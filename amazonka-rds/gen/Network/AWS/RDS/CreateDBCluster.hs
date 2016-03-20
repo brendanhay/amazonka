@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBCluster
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- Aurora, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html AWS API Reference> for CreateDBCluster.
 module Network.AWS.RDS.CreateDBCluster
     (
     -- * Creating a Request
@@ -173,6 +171,13 @@ cdcStorageEncrypted :: Lens' CreateDBCluster (Maybe Bool)
 cdcStorageEncrypted = lens _cdcStorageEncrypted (\ s a -> s{_cdcStorageEncrypted = a});
 
 -- | A DB subnet group to associate with this DB cluster.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters,
+-- periods, underscores, spaces, or hyphens. Must not be default.
+--
+-- +
+--
+-- Example: 'mySubnetgroup'
 cdcDBSubnetGroupName :: Lens' CreateDBCluster (Maybe Text)
 cdcDBSubnetGroupName = lens _cdcDBSubnetGroupName (\ s a -> s{_cdcDBSubnetGroupName = a});
 
@@ -335,6 +340,8 @@ instance AWSRequest CreateDBCluster where
               (\ s h x ->
                  CreateDBClusterResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
+
+instance Hashable CreateDBCluster
 
 instance ToHeaders CreateDBCluster where
         toHeaders = const mempty

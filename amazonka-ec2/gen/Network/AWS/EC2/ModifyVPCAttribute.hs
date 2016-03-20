@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyVPCAttribute
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the specified attribute of the specified VPC.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVPCAttribute.html AWS API Reference> for ModifyVPCAttribute.
 module Network.AWS.EC2.ModifyVPCAttribute
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest ModifyVPCAttribute where
              ModifyVPCAttributeResponse
         request = postQuery eC2
         response = receiveNull ModifyVPCAttributeResponse'
+
+instance Hashable ModifyVPCAttribute
 
 instance ToHeaders ModifyVPCAttribute where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CancelRetrieval
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to
 -- a gateway after the retrieval process is initiated. The virtual tape is
 -- returned to the VTS.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelRetrieval.html AWS API Reference> for CancelRetrieval.
 module Network.AWS.StorageGateway.CancelRetrieval
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest CancelRetrieval where
               (\ s h x ->
                  CancelRetrievalResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
+
+instance Hashable CancelRetrieval
 
 instance ToHeaders CancelRetrieval where
         toHeaders

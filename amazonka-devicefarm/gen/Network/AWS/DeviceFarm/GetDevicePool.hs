@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetDevicePool
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a device pool.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_GetDevicePool.html AWS API Reference> for GetDevicePool.
 module Network.AWS.DeviceFarm.GetDevicePool
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest GetDevicePool where
               (\ s h x ->
                  GetDevicePoolResponse' <$>
                    (x .?> "devicePool") <*> (pure (fromEnum s)))
+
+instance Hashable GetDevicePool
 
 instance ToHeaders GetDevicePool where
         toHeaders

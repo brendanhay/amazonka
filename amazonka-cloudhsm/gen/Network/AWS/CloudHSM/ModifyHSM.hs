@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.ModifyHSM
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,11 @@
 --
 -- Modifies an HSM.
 --
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyHSM.html AWS API Reference> for ModifyHSM.
+-- This operation can result in the HSM being offline for up to 15 minutes
+-- while the AWS CloudHSM service is reconfigured. If you are modifying a
+-- production HSM, you should ensure that your AWS CloudHSM service is
+-- configured for high availability, and consider executing this operation
+-- during a maintenance window.
 module Network.AWS.CloudHSM.ModifyHSM
     (
     -- * Creating a Request
@@ -49,7 +53,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the ModifyHsm action.
+-- | Contains the inputs for the < ModifyHsm> operation.
 --
 -- /See:/ 'modifyHSM' smart constructor.
 data ModifyHSM = ModifyHSM'
@@ -93,11 +97,13 @@ modifyHSM pHSMARN_ =
 mhIAMRoleARN :: Lens' ModifyHSM (Maybe Text)
 mhIAMRoleARN = lens _mhIAMRoleARN (\ s a -> s{_mhIAMRoleARN = a});
 
--- | The new identifier of the subnet that the HSM is in.
+-- | The new identifier of the subnet that the HSM is in. The new subnet must
+-- be in the same Availability Zone as the current subnet.
 mhSubnetId :: Lens' ModifyHSM (Maybe Text)
 mhSubnetId = lens _mhSubnetId (\ s a -> s{_mhSubnetId = a});
 
--- | The new IP address for the syslog monitoring server.
+-- | The new IP address for the syslog monitoring server. The AWS CloudHSM
+-- service only supports one syslog monitoring server.
 mhSyslogIP :: Lens' ModifyHSM (Maybe Text)
 mhSyslogIP = lens _mhSyslogIP (\ s a -> s{_mhSyslogIP = a});
 
@@ -105,8 +111,12 @@ mhSyslogIP = lens _mhSyslogIP (\ s a -> s{_mhSyslogIP = a});
 mhExternalId :: Lens' ModifyHSM (Maybe Text)
 mhExternalId = lens _mhExternalId (\ s a -> s{_mhExternalId = a});
 
--- | The new IP address for the elastic network interface attached to the
--- HSM.
+-- | The new IP address for the elastic network interface (ENI) attached to
+-- the HSM.
+--
+-- If the HSM is moved to a different subnet, and an IP address is not
+-- specified, an IP address will be randomly chosen from the CIDR range of
+-- the new subnet.
 mhEniIP :: Lens' ModifyHSM (Maybe Text)
 mhEniIP = lens _mhEniIP (\ s a -> s{_mhEniIP = a});
 
@@ -122,6 +132,8 @@ instance AWSRequest ModifyHSM where
               (\ s h x ->
                  ModifyHSMResponse' <$>
                    (x .?> "HsmArn") <*> (pure (fromEnum s)))
+
+instance Hashable ModifyHSM
 
 instance ToHeaders ModifyHSM where
         toHeaders
@@ -149,7 +161,7 @@ instance ToPath ModifyHSM where
 instance ToQuery ModifyHSM where
         toQuery = const mempty
 
--- | Contains the output of the ModifyHsm action.
+-- | Contains the output of the < ModifyHsm> operation.
 --
 -- /See:/ 'modifyHSMResponse' smart constructor.
 data ModifyHSMResponse = ModifyHSMResponse'

@@ -1,12 +1,12 @@
 name:                  amazonka-examples
-version:               1.3.7
+version:               1.3.8
 synopsis:              Basic examples for various amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2015 Brendan Hay
+copyright:             Copyright (c) 2013-2016 Brendan Hay
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
@@ -25,18 +25,19 @@ library
         , Example.SQS
 
     build-depends:
-          amazonka      == 1.3.7.*
+          amazonka      == 1.3.8.*
         , amazonka-core
         , amazonka-dynamodb
         , amazonka-ec2
         , amazonka-s3
         , amazonka-sqs
-        , base          >= 4.7 && < 5
+        , base          >= 4.7
         , bytestring
         , conduit
         , conduit-extra
         , exceptions
         , lens
         , semigroups
-        , transformers
         , text
+        , time
+        , transformers

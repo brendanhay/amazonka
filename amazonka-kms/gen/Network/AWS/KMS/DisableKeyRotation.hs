@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.KMS.DisableKeyRotation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables rotation of the specified key.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKeyRotation.html AWS API Reference> for DisableKeyRotation.
 module Network.AWS.KMS.DisableKeyRotation
     (
     -- * Creating a Request
@@ -74,6 +72,8 @@ instance AWSRequest DisableKeyRotation where
              DisableKeyRotationResponse
         request = postJSON kMS
         response = receiveNull DisableKeyRotationResponse'
+
+instance Hashable DisableKeyRotation
 
 instance ToHeaders DisableKeyRotation where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GenerateDataKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -52,8 +52,6 @@
 -- the encryption context, if any, that you specified when you generated
 -- the key. The encryption context is logged by CloudTrail, and you can use
 -- this log to help track the use of particular data.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html AWS API Reference> for GenerateDataKey.
 module Network.AWS.KMS.GenerateDataKey
     (
     -- * Creating a Request
@@ -168,6 +166,8 @@ instance AWSRequest GenerateDataKey where
                      (x .:> "Plaintext")
                      <*> (x .:> "CiphertextBlob"))
 
+instance Hashable GenerateDataKey
+
 instance ToHeaders GenerateDataKey where
         toHeaders
           = const
@@ -249,8 +249,8 @@ gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . _Sensi
 -- | Ciphertext that contains the encrypted data key. You must store the blob
 -- and enough information to reconstruct the encryption context so that the
 -- data encrypted by using the key can later be decrypted. You must provide
--- both the ciphertext blob and the encryption context to the Decrypt API
--- to recover the plaintext data key and decrypt the object.
+-- both the ciphertext blob and the encryption context to the < Decrypt>
+-- API to recover the plaintext data key and decrypt the object.
 --
 -- If you are using the CLI, the value is Base64 encoded. Otherwise, it is
 -- not encoded.

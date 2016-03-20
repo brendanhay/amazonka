@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,9 +32,7 @@
 -- Amazon CloudFormation makes use of other AWS products. If you need
 -- additional technical information about a specific AWS product, you can
 -- find the product\'s technical documentation at
--- <http://aws.amazon.com/documentation/>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html AWS API Reference>
+-- <http://docs.aws.amazon.com/documentation/>.
 module Network.AWS.CloudFormation
     (
     -- * Service Configuration
@@ -54,6 +52,18 @@ module Network.AWS.CloudFormation
 
     -- * Waiters
     -- $waiters
+
+    -- ** StackCreateComplete
+    , stackCreateComplete
+
+    -- ** StackUpdateComplete
+    , stackUpdateComplete
+
+    -- ** StackExists
+    , stackExists
+
+    -- ** StackDeleteComplete
+    , stackDeleteComplete
 
     -- * Operations
     -- $operations
@@ -75,6 +85,9 @@ module Network.AWS.CloudFormation
 
     -- ** DescribeStacks (Paginated)
     , module Network.AWS.CloudFormation.DescribeStacks
+
+    -- ** ContinueUpdateRollback
+    , module Network.AWS.CloudFormation.ContinueUpdateRollback
 
     -- ** ValidateTemplate
     , module Network.AWS.CloudFormation.ValidateTemplate
@@ -261,6 +274,7 @@ module Network.AWS.CloudFormation
     ) where
 
 import           Network.AWS.CloudFormation.CancelUpdateStack
+import           Network.AWS.CloudFormation.ContinueUpdateRollback
 import           Network.AWS.CloudFormation.CreateStack
 import           Network.AWS.CloudFormation.DeleteStack
 import           Network.AWS.CloudFormation.DescribeAccountLimits

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- For information about the number of groups you can create, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html AWS API Reference> for CreateGroup.
 module Network.AWS.IAM.CreateGroup
     (
     -- * Creating a Request
@@ -93,6 +91,8 @@ instance AWSRequest CreateGroup where
                  CreateGroupResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Group"))
 
+instance Hashable CreateGroup
+
 instance ToHeaders CreateGroup where
         toHeaders = const mempty
 
@@ -106,7 +106,7 @@ instance ToQuery CreateGroup where
                "Version" =: ("2010-05-08" :: ByteString),
                "Path" =: _cgPath, "GroupName" =: _cgGroupName]
 
--- | Contains the response to a successful CreateGroup request.
+-- | Contains the response to a successful < CreateGroup> request.
 --
 -- /See:/ 'createGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'

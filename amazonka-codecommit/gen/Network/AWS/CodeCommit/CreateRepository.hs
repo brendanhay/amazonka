@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.CreateRepository
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new, empty repository.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_CreateRepository.html AWS API Reference> for CreateRepository.
 module Network.AWS.CodeCommit.CreateRepository
     (
     -- * Creating a Request
@@ -70,14 +68,24 @@ createRepository pRepositoryName_ =
     }
 
 -- | A comment or description about the new repository.
+--
+-- The description field for a repository accepts all HTML characters and
+-- all valid Unicode characters. Applications that do not HTML-encode the
+-- description and display it in a web page could expose users to
+-- potentially malicious code. Make sure that you HTML-encode the
+-- description field in any application that uses this API to display the
+-- repository description on a web page.
 crRepositoryDescription :: Lens' CreateRepository (Maybe Text)
 crRepositoryDescription = lens _crRepositoryDescription (\ s a -> s{_crRepositoryDescription = a});
 
 -- | The name of the new repository to be created.
 --
 -- The repository name must be unique across the calling AWS account. In
--- addition, repository names are restricted to alphanumeric characters.
--- The suffix \".git\" is prohibited.
+-- addition, repository names are limited to 100 alphanumeric, dash, and
+-- underscore characters, and cannot include certain characters. For a full
+-- description of the limits on repository names, see
+-- <http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html Limits>
+-- in the AWS CodeCommit User Guide. The suffix \".git\" is prohibited.
 crRepositoryName :: Lens' CreateRepository Text
 crRepositoryName = lens _crRepositoryName (\ s a -> s{_crRepositoryName = a});
 
@@ -89,6 +97,8 @@ instance AWSRequest CreateRepository where
               (\ s h x ->
                  CreateRepositoryResponse' <$>
                    (x .?> "repositoryMetadata") <*> (pure (fromEnum s)))
+
+instance Hashable CreateRepository
 
 instance ToHeaders CreateRepository where
         toHeaders

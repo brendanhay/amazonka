@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a deployment group.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentGroup.html AWS API Reference> for GetDeploymentGroup.
 module Network.AWS.CodeDeploy.GetDeploymentGroup
     (
     -- * Creating a Request
@@ -70,8 +68,8 @@ getDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
     , _gdgDeploymentGroupName = pDeploymentGroupName_
     }
 
--- | The name of an existing AWS CodeDeploy application associated with the
--- applicable IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the applicable
+-- IAM user or AWS account.
 gdgApplicationName :: Lens' GetDeploymentGroup Text
 gdgApplicationName = lens _gdgApplicationName (\ s a -> s{_gdgApplicationName = a});
 
@@ -89,6 +87,8 @@ instance AWSRequest GetDeploymentGroup where
                  GetDeploymentGroupResponse' <$>
                    (x .?> "deploymentGroupInfo") <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetDeploymentGroup
 
 instance ToHeaders GetDeploymentGroup where
         toHeaders

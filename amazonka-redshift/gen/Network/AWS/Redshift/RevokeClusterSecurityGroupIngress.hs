@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,12 +20,10 @@
 --
 -- Revokes an ingress rule in an Amazon Redshift security group for a
 -- previously authorized IP range or Amazon EC2 security group. To add an
--- ingress rule, see AuthorizeClusterSecurityGroupIngress. For information
--- about managing security groups, go to
+-- ingress rule, see < AuthorizeClusterSecurityGroupIngress>. For
+-- information about managing security groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeClusterSecurityGroupIngress.html AWS API Reference> for RevokeClusterSecurityGroupIngress.
 module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     (
     -- * Creating a Request
@@ -52,7 +50,7 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | ???
+-- |
 --
 -- /See:/ 'revokeClusterSecurityGroupIngress' smart constructor.
 data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
@@ -123,6 +121,8 @@ instance AWSRequest RevokeClusterSecurityGroupIngress
                  RevokeClusterSecurityGroupIngressResponse' <$>
                    (x .@? "ClusterSecurityGroup") <*>
                      (pure (fromEnum s)))
+
+instance Hashable RevokeClusterSecurityGroupIngress
 
 instance ToHeaders RevokeClusterSecurityGroupIngress
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.RegisterDomain
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -41,8 +41,6 @@
 -- -   Charges your AWS account an amount based on the top-level domain.
 --     For more information, see
 --     <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-RegisterDomain.html AWS API Reference> for RegisterDomain.
 module Network.AWS.Route53Domains.RegisterDomain
     (
     -- * Creating a Request
@@ -270,6 +268,8 @@ instance AWSRequest RegisterDomain where
               (\ s h x ->
                  RegisterDomainResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
+
+instance Hashable RegisterDomain
 
 instance ToHeaders RegisterDomain where
         toHeaders

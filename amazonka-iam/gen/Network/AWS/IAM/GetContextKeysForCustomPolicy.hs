@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetContextKeysForCustomPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,17 +21,16 @@
 -- Gets a list of all of the context keys referenced in 'Condition'
 -- elements in the input policies. The policies are supplied as a list of
 -- one or more strings. To get the context keys from policies associated
--- with an IAM user, group, or role, use GetContextKeysForPrincipalPolicy.
+-- with an IAM user, group, or role, use
+-- < GetContextKeysForPrincipalPolicy>.
 --
 -- Context keys are variables maintained by AWS and its services that
 -- provide details about the context of an API query request, and can be
 -- evaluated by using the 'Condition' element of an IAM policy. Use
 -- GetContextKeysForCustomPolicy to understand what key names and values
--- you must supply when you call SimulateCustomPolicy. Note that all
+-- you must supply when you call < SimulateCustomPolicy>. Note that all
 -- parameters are shown in unencoded form here for clarity, but must be URL
 -- encoded to be included as a part of a real HTML request.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html AWS API Reference> for GetContextKeysForCustomPolicy.
 module Network.AWS.IAM.GetContextKeysForCustomPolicy
     (
     -- * Creating a Request
@@ -86,6 +85,8 @@ instance AWSRequest GetContextKeysForCustomPolicy
           = receiveXMLWrapper
               "GetContextKeysForCustomPolicyResult"
               (\ s h x -> parseXML x)
+
+instance Hashable GetContextKeysForCustomPolicy
 
 instance ToHeaders GetContextKeysForCustomPolicy
          where

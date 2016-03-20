@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteObjects
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- This operation enables you to delete multiple objects from a bucket
 -- using a single HTTP request. You may specify up to 1000 keys.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObjects.html AWS API Reference> for DeleteObjects.
 module Network.AWS.S3.DeleteObjects
     (
     -- * Creating a Request
@@ -109,6 +107,8 @@ instance AWSRequest DeleteObjects where
                      (may (parseXMLList "Deleted") x)
                      <*> (may (parseXMLList "Error") x)
                      <*> (pure (fromEnum s)))
+
+instance Hashable DeleteObjects
 
 instance ToElement DeleteObjects where
         toElement

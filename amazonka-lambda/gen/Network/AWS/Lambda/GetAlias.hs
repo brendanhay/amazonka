@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetAlias
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,11 +21,9 @@
 -- Returns the specified alias information such as the alias ARN,
 -- description, and function version it is pointing to. For more
 -- information, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html Introduction to AWS Lambda Aliases>
+-- <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
 --
--- This requires permission for the lambda:GetAlias action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetAlias.html AWS API Reference> for GetAlias.
+-- This requires permission for the 'lambda:GetAlias' action.
 module Network.AWS.Lambda.GetAlias
     (
     -- * Creating a Request
@@ -76,7 +74,7 @@ getAlias pFunctionName_ pName_ =
     }
 
 -- | Function name for which the alias is created. An alias is a subresource
--- that exists only in the context of an existing Lambda function. So you
+-- that exists only in the context of an existing Lambda function so you
 -- must specify the function name.
 gaFunctionName :: Lens' GetAlias Text
 gaFunctionName = lens _gaFunctionName (\ s a -> s{_gaFunctionName = a});
@@ -89,6 +87,8 @@ instance AWSRequest GetAlias where
         type Rs GetAlias = AliasConfiguration
         request = get lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable GetAlias
 
 instance ToHeaders GetAlias where
         toHeaders = const mempty

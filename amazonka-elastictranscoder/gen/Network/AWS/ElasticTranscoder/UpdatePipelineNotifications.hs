@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- When you update notifications for a pipeline, Elastic Transcoder returns
 -- the values that you specified in the request.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineNotifications.html AWS API Reference> for UpdatePipelineNotifications.
 module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     (
     -- * Creating a Request
@@ -111,6 +109,8 @@ instance AWSRequest UpdatePipelineNotifications where
               (\ s h x ->
                  UpdatePipelineNotificationsResponse' <$>
                    (x .?> "Pipeline") <*> (pure (fromEnum s)))
+
+instance Hashable UpdatePipelineNotifications
 
 instance ToHeaders UpdatePipelineNotifications where
         toHeaders = const mempty

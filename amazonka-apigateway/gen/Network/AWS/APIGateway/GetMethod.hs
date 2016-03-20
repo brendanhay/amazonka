@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetMethod
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe an existing Method resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetMethod.html AWS API Reference> for GetMethod.
+-- Describe an existing < Method> resource.
 module Network.AWS.APIGateway.GetMethod
     (
     -- * Creating a Request
@@ -39,6 +37,7 @@ module Network.AWS.APIGateway.GetMethod
     , mHttpMethod
     , mRequestModels
     , mRequestParameters
+    , mAuthorizerId
     , mAuthorizationType
     , mApiKeyRequired
     , mMethodIntegration
@@ -51,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to describe an existing Method resource.
+-- | Request to describe an existing < Method> resource.
 --
 -- /See:/ 'getMethod' smart constructor.
 data GetMethod = GetMethod'
@@ -81,11 +80,11 @@ getMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _gmmHttpMethod = pHttpMethod_
     }
 
--- | The RestApi identifier for the Method resource.
+-- | The < RestApi> identifier for the < Method> resource.
 gmmRestAPIId :: Lens' GetMethod Text
 gmmRestAPIId = lens _gmmRestAPIId (\ s a -> s{_gmmRestAPIId = a});
 
--- | The Resource identifier for the Method resource.
+-- | The < Resource> identifier for the < Method> resource.
 gmmResourceId :: Lens' GetMethod Text
 gmmResourceId = lens _gmmResourceId (\ s a -> s{_gmmResourceId = a});
 
@@ -98,8 +97,13 @@ instance AWSRequest GetMethod where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetMethod
+
 instance ToHeaders GetMethod where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetMethod where
         toPath GetMethod'{..}

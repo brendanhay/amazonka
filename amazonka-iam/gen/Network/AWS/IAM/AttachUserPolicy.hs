@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.AttachUserPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,13 +21,11 @@
 -- Attaches the specified managed policy to the specified user.
 --
 -- You use this API to attach a managed policy to a user. To embed an
--- inline policy in a user, use PutUserPolicy.
+-- inline policy in a user, use < PutUserPolicy>.
 --
 -- For more information about policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html AWS API Reference> for AttachUserPolicy.
 module Network.AWS.IAM.AttachUserPolicy
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest AttachUserPolicy where
         type Rs AttachUserPolicy = AttachUserPolicyResponse
         request = postQuery iAM
         response = receiveNull AttachUserPolicyResponse'
+
+instance Hashable AttachUserPolicy
 
 instance ToHeaders AttachUserPolicy where
         toHeaders = const mempty

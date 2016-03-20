@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.DomainMetadata
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Returns information about the domain, including when the domain was
 -- created, the number of items and attributes in the domain, and the size
 -- of the attribute names and values.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DomainMetadata.html AWS API Reference> for DomainMetadata.
 module Network.AWS.SDB.DomainMetadata
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest DomainMetadata where
                      <*> (x .@? "ItemCount")
                      <*> (x .@? "Timestamp")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DomainMetadata
 
 instance ToHeaders DomainMetadata where
         toHeaders = const mempty

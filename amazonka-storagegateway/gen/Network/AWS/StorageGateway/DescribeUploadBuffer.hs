@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeUploadBuffer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- The response includes disk IDs that are configured as upload buffer
 -- space, and it includes the amount of upload buffer space allocated and
 -- used.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeUploadBuffer.html AWS API Reference> for DescribeUploadBuffer.
 module Network.AWS.StorageGateway.DescribeUploadBuffer
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest DescribeUploadBuffer where
                      <*> (x .?> "DiskIds" .!@ mempty)
                      <*> (x .?> "UploadBufferUsedInBytes")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeUploadBuffer
 
 instance ToHeaders DescribeUploadBuffer where
         toHeaders

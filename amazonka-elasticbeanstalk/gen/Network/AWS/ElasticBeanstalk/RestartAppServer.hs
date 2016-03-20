@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.RestartAppServer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Causes the environment to restart the application container server
 -- running on each Amazon EC2 instance.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RestartAppServer.html AWS API Reference> for RestartAppServer.
 module Network.AWS.ElasticBeanstalk.RestartAppServer
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest RestartAppServer where
         type Rs RestartAppServer = RestartAppServerResponse
         request = postQuery elasticBeanstalk
         response = receiveNull RestartAppServerResponse'
+
+instance Hashable RestartAppServer
 
 instance ToHeaders RestartAppServer where
         toHeaders = const mempty

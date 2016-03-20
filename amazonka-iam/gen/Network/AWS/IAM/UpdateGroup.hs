@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 -- Managers and MGRs, or must have permission on all (*). For more
 -- information about permissions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateGroup.html AWS API Reference> for UpdateGroup.
 module Network.AWS.IAM.UpdateGroup
     (
     -- * Creating a Request
@@ -98,6 +96,8 @@ instance AWSRequest UpdateGroup where
         type Rs UpdateGroup = UpdateGroupResponse
         request = postQuery iAM
         response = receiveNull UpdateGroupResponse'
+
+instance Hashable UpdateGroup
 
 instance ToHeaders UpdateGroup where
         toHeaders = const mempty

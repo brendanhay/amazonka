@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.DeleteMessage
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -40,8 +40,6 @@
 -- again on a subsequent receive request. You should create your system to
 -- be idempotent so that receiving a particular message more than once is
 -- not a problem.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessage.html AWS API Reference> for DeleteMessage.
 module Network.AWS.SQS.DeleteMessage
     (
     -- * Creating a Request
@@ -98,6 +96,8 @@ instance AWSRequest DeleteMessage where
         type Rs DeleteMessage = DeleteMessageResponse
         request = postQuery sQS
         response = receiveNull DeleteMessageResponse'
+
+instance Hashable DeleteMessage
 
 instance ToHeaders DeleteMessage where
         toHeaders = const mempty

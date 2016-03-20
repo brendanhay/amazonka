@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.SSM.GetDocument
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the contents of the specified SSM document.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_GetDocument.html AWS API Reference> for GetDocument.
 module Network.AWS.SSM.GetDocument
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest GetDocument where
                  GetDocumentResponse' <$>
                    (x .?> "Content") <*> (x .?> "Name") <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetDocument
 
 instance ToHeaders GetDocument where
         toHeaders

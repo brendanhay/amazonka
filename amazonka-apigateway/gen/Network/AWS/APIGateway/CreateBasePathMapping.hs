@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateBasePathMapping
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new BasePathMapping resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateBasePathMapping.html AWS API Reference> for CreateBasePathMapping.
+-- Creates a new < BasePathMapping> resource.
 module Network.AWS.APIGateway.CreateBasePathMapping
     (
     -- * Creating a Request
@@ -48,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to create a new BasePathMapping resource.
+-- | Requests Amazon API Gateway to create a new < BasePathMapping> resource.
 --
 -- /See:/ 'createBasePathMapping' smart constructor.
 data CreateBasePathMapping = CreateBasePathMapping'
@@ -94,7 +92,7 @@ cbpmStage = lens _cbpmStage (\ s a -> s{_cbpmStage = a});
 cbpmBasePath :: Lens' CreateBasePathMapping (Maybe Text)
 cbpmBasePath = lens _cbpmBasePath (\ s a -> s{_cbpmBasePath = a});
 
--- | The domain name of the BasePathMapping resource to create.
+-- | The domain name of the < BasePathMapping> resource to create.
 cbpmDomainName :: Lens' CreateBasePathMapping Text
 cbpmDomainName = lens _cbpmDomainName (\ s a -> s{_cbpmDomainName = a});
 
@@ -107,8 +105,13 @@ instance AWSRequest CreateBasePathMapping where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateBasePathMapping
+
 instance ToHeaders CreateBasePathMapping where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON CreateBasePathMapping where
         toJSON CreateBasePathMapping'{..}

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.SetInstanceHealth
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_SetInstanceHealth.html AWS API Reference> for SetInstanceHealth.
 module Network.AWS.AutoScaling.SetInstanceHealth
     (
     -- * Creating a Request
@@ -79,12 +77,12 @@ setInstanceHealth pInstanceId_ pHealthStatus_ =
 -- will respect the grace period. Set this to 'False', if you do not want
 -- the call to respect the grace period associated with the group.
 --
--- For more information, see the 'HealthCheckGracePeriod' parameter
--- description for CreateAutoScalingGroup.
+-- For more information, see the description of the health check grace
+-- period for < CreateAutoScalingGroup>.
 sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
 sihShouldRespectGracePeriod = lens _sihShouldRespectGracePeriod (\ s a -> s{_sihShouldRespectGracePeriod = a});
 
--- | The ID of the EC2 instance.
+-- | The ID of the instance.
 sihInstanceId :: Lens' SetInstanceHealth Text
 sihInstanceId = lens _sihInstanceId (\ s a -> s{_sihInstanceId = a});
 
@@ -99,6 +97,8 @@ instance AWSRequest SetInstanceHealth where
         type Rs SetInstanceHealth = SetInstanceHealthResponse
         request = postQuery autoScaling
         response = receiveNull SetInstanceHealthResponse'
+
+instance Hashable SetInstanceHealth
 
 instance ToHeaders SetInstanceHealth where
         toHeaders = const mempty

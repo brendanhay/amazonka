@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketLifecycleConfiguration
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Sets lifecycle configuration for your bucket. If a lifecycle
 -- configuration exists, it replaces it.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLifecycleConfiguration.html AWS API Reference> for PutBucketLifecycleConfiguration.
 module Network.AWS.S3.PutBucketLifecycleConfiguration
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest PutBucketLifecycleConfiguration
         response
           = receiveNull
               PutBucketLifecycleConfigurationResponse'
+
+instance Hashable PutBucketLifecycleConfiguration
 
 instance ToElement PutBucketLifecycleConfiguration
          where

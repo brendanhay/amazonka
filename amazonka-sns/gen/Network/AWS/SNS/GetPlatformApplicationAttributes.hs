@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.GetPlatformApplicationAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- supported push notification services, such as APNS and GCM. For more
 -- information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetPlatformApplicationAttributes.html AWS API Reference> for GetPlatformApplicationAttributes.
 module Network.AWS.SNS.GetPlatformApplicationAttributes
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest GetPlatformApplicationAttributes
                    (x .@? "Attributes" .!@ mempty >>=
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetPlatformApplicationAttributes
 
 instance ToHeaders GetPlatformApplicationAttributes
          where

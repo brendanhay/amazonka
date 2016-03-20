@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DescribeBatchPredictions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns a list of 'BatchPrediction' operations that match the search
 -- criteria in the request.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeBatchPredictions.html AWS API Reference> for DescribeBatchPredictions.
 --
 -- This operation returns paginated results.
 module Network.AWS.MachineLearning.DescribeBatchPredictions
@@ -225,6 +223,8 @@ instance AWSRequest DescribeBatchPredictions where
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeBatchPredictions
+
 instance ToHeaders DescribeBatchPredictions where
         toHeaders
           = const
@@ -254,7 +254,7 @@ instance ToPath DescribeBatchPredictions where
 instance ToQuery DescribeBatchPredictions where
         toQuery = const mempty
 
--- | Represents the output of a DescribeBatchPredictions operation. The
+-- | Represents the output of a < DescribeBatchPredictions> operation. The
 -- content is essentially a list of 'BatchPrediction's.
 --
 -- /See:/ 'describeBatchPredictionsResponse' smart constructor.
@@ -283,7 +283,7 @@ describeBatchPredictionsResponse pResponseStatus_ =
     , _drsResponseStatus = pResponseStatus_
     }
 
--- | A list of BatchPrediction objects that meet the search criteria.
+-- | A list of < BatchPrediction> objects that meet the search criteria.
 drsResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
 drsResults = lens _drsResults (\ s a -> s{_drsResults = a}) . _Default . _Coerce;
 

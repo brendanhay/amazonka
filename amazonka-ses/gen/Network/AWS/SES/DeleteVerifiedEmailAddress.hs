@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteVerifiedEmailAddress
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- preferred.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteVerifiedEmailAddress.html AWS API Reference> for DeleteVerifiedEmailAddress.
 module Network.AWS.SES.DeleteVerifiedEmailAddress
     (
     -- * Creating a Request
@@ -47,10 +45,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to delete an address from
--- the list of verified email addresses.
---
--- /See:/ 'deleteVerifiedEmailAddress' smart constructor.
+-- | /See:/ 'deleteVerifiedEmailAddress' smart constructor.
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
     { _dveaEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -78,6 +73,8 @@ instance AWSRequest DeleteVerifiedEmailAddress where
         request = postQuery sES
         response
           = receiveNull DeleteVerifiedEmailAddressResponse'
+
+instance Hashable DeleteVerifiedEmailAddress
 
 instance ToHeaders DeleteVerifiedEmailAddress where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.DeletePreset
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- You can\'t delete the default presets that are included with Elastic
 -- Transcoder.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePreset.html AWS API Reference> for DeletePreset.
 module Network.AWS.ElasticTranscoder.DeletePreset
     (
     -- * Creating a Request
@@ -79,6 +77,8 @@ instance AWSRequest DeletePreset where
           = receiveEmpty
               (\ s h x ->
                  DeletePresetResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeletePreset
 
 instance ToHeaders DeletePreset where
         toHeaders = const mempty

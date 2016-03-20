@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteConnection
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- data transfer charges. You need to cancel separately with the providers
 -- any services or charges for cross-connects or network circuits that
 -- connect you to the AWS Direct Connect location.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteConnection.html AWS API Reference> for DeleteConnection.
 module Network.AWS.DirectConnect.DeleteConnection
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest DeleteConnection where
         type Rs DeleteConnection = Connection
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable DeleteConnection
 
 instance ToHeaders DeleteConnection where
         toHeaders

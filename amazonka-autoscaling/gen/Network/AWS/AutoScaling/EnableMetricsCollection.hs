@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.EnableMetricsCollection
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- You can only enable metrics collection if 'InstanceMonitoring' in the
 -- launch configuration for the group is set to 'True'.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnableMetricsCollection.html AWS API Reference> for EnableMetricsCollection.
 module Network.AWS.AutoScaling.EnableMetricsCollection
     (
     -- * Creating a Request
@@ -113,6 +111,8 @@ instance AWSRequest EnableMetricsCollection where
         request = postQuery autoScaling
         response
           = receiveNull EnableMetricsCollectionResponse'
+
+instance Hashable EnableMetricsCollection
 
 instance ToHeaders EnableMetricsCollection where
         toHeaders = const mempty

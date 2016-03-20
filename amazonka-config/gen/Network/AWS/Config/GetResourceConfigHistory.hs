@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetResourceConfigHistory
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -32,8 +32,6 @@
 -- likely that the number of records returned is smaller than the specified
 -- 'limit'. In such cases, you can make another call, using the
 -- 'nextToken'.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html AWS API Reference> for GetResourceConfigHistory.
 module Network.AWS.Config.GetResourceConfigHistory
     (
     -- * Creating a Request
@@ -64,7 +62,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the GetResourceConfigHistory action.
+-- | The input for the < GetResourceConfigHistory> action.
 --
 -- /See:/ 'getResourceConfigHistory' smart constructor.
 data GetResourceConfigHistory = GetResourceConfigHistory'
@@ -156,6 +154,8 @@ instance AWSRequest GetResourceConfigHistory where
                      (x .?> "configurationItems" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetResourceConfigHistory
+
 instance ToHeaders GetResourceConfigHistory where
         toHeaders
           = const
@@ -185,7 +185,7 @@ instance ToPath GetResourceConfigHistory where
 instance ToQuery GetResourceConfigHistory where
         toQuery = const mempty
 
--- | The output for the GetResourceConfigHistory action.
+-- | The output for the < GetResourceConfigHistory> action.
 --
 -- /See:/ 'getResourceConfigHistoryResponse' smart constructor.
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'

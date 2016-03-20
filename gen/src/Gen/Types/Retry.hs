@@ -7,7 +7,7 @@
 {-# LANGUAGE TupleSections              #-}
 
 -- Module      : Gen.Types.Retry
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -98,7 +98,9 @@ instance FromJSON (Retry -> Retry) where
     parseJSON = withObject "retry" $ \o -> do
         m <- o .:? "max_attempts"
         d <- o .:? "delay"
-        p <- o .: defKey >>= (.: "policies")
+        -- FIXME: Currently simply ignoring non '__default__' keys.
+        p <-        (o  .: defKey     <|> pure mempty) >>=
+             (\o' -> o' .: "policies" <|> pure mempty)
         return $ \r ->
             Retry' (fromMaybe (r ^. retryAttempts) m)
                    (fromMaybe (r ^. retryDelay)    d)

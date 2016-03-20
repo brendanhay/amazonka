@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.GetMetricStatistics
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,13 +20,14 @@
 --
 -- Gets statistics for the specified metric.
 --
--- The maximum number of data points returned from a single
--- 'GetMetricStatistics' request is 1,440, wereas the maximum number of
--- data points that can be queried is 50,850. If you make a request that
+-- The maximum number of data points that can be queried is 50,850, whereas
+-- the maximum number of data points returned from a single
+-- 'GetMetricStatistics' request is 1,440. If you make a request that
 -- generates more than 1,440 data points, Amazon CloudWatch returns an
 -- error. In such a case, you can alter the request by narrowing the
 -- specified time range or increasing the specified period. Alternatively,
 -- you can make multiple requests across adjacent time ranges.
+-- 'GetMetricStatistics' does not return the data in chronological order.
 --
 -- Amazon CloudWatch aggregates data points based on the length of the
 -- 'period' that you specify. For example, if you request statistics with a
@@ -43,12 +44,10 @@
 -- -   Statistics for up to 2 instances over a span of 2 weeks
 --
 -- For information about the namespace, metric names, and dimensions that
--- other Amazon Web Services products use to send metrics to Cloudwatch, go
+-- other Amazon Web Services products use to send metrics to CloudWatch, go
 -- to
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html Amazon CloudWatch Metrics, Namespaces, and Dimensions Reference>
 -- in the /Amazon CloudWatch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html AWS API Reference> for GetMetricStatistics.
 module Network.AWS.CloudWatch.GetMetricStatistics
     (
     -- * Creating a Request
@@ -149,13 +148,24 @@ gmsMetricName = lens _gmsMetricName (\ s a -> s{_gmsMetricName = a});
 
 -- | The time stamp to use for determining the first datapoint to return. The
 -- value specified is inclusive; results include datapoints with the time
--- stamp specified.
+-- stamp specified. The time stamp must be in ISO 8601 UTC format (e.g.,
+-- 2014-09-03T23:00:00Z).
+--
+-- The specified start time is rounded down to the nearest value.
+-- Datapoints are returned for start times up to two weeks in the past.
+-- Specified start times that are more than two weeks in the past will not
+-- return datapoints for metrics that are older than two weeks.
+--
+-- Data that is timestamped 24 hours or more in the past may take in excess
+-- of 48 hours to become available from submission time using
+-- 'GetMetricStatistics'.
 gmsStartTime :: Lens' GetMetricStatistics UTCTime
 gmsStartTime = lens _gmsStartTime (\ s a -> s{_gmsStartTime = a}) . _Time;
 
 -- | The time stamp to use for determining the last datapoint to return. The
 -- value specified is exclusive; results will include datapoints up to the
--- time stamp specified.
+-- time stamp specified. The time stamp must be in ISO 8601 UTC format
+-- (e.g., 2014-09-03T23:00:00Z).
 gmsEndTime :: Lens' GetMetricStatistics UTCTime
 gmsEndTime = lens _gmsEndTime (\ s a -> s{_gmsEndTime = a}) . _Time;
 
@@ -166,11 +176,9 @@ gmsPeriod :: Lens' GetMetricStatistics Natural
 gmsPeriod = lens _gmsPeriod (\ s a -> s{_gmsPeriod = a}) . _Nat;
 
 -- | The metric statistics to return. For information about specific
--- statistics returned by GetMetricStatistics, go to
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/index.html?CHAP_TerminologyandKeyConcepts.html#Statistic Statistics>
+-- statistics returned by GetMetricStatistics, see
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Statistic Statistics>
 -- in the /Amazon CloudWatch Developer Guide/.
---
--- Valid Values: 'Average | Sum | SampleCount | Maximum | Minimum'
 gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Statistic)
 gmsStatistics = lens _gmsStatistics (\ s a -> s{_gmsStatistics = a}) . _List1;
 
@@ -186,6 +194,8 @@ instance AWSRequest GetMetricStatistics where
                       may (parseXMLList "member"))
                      <*> (x .@? "Label")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetMetricStatistics
 
 instance ToHeaders GetMetricStatistics where
         toHeaders = const mempty
@@ -206,7 +216,7 @@ instance ToQuery GetMetricStatistics where
                "EndTime" =: _gmsEndTime, "Period" =: _gmsPeriod,
                "Statistics" =: toQueryList "member" _gmsStatistics]
 
--- | The output for the GetMetricStatistics action.
+-- | The output for the < GetMetricStatistics> action.
 --
 -- /See:/ 'getMetricStatisticsResponse' smart constructor.
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse'

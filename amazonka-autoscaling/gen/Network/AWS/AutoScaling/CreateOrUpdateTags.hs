@@ -12,20 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.CreateOrUpdateTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates or updates tags for the specified Auto Scaling group.
---
--- A tag is defined by its resource ID, resource type, key, value, and
--- propagate flag. The value and the propagate flag are optional
--- parameters. The only supported resource type is 'auto-scaling-group',
--- and the resource ID must be the name of the group. The
--- 'PropagateAtLaunch' flag determines whether the tag is added to
--- instances launched in the group. Valid values are 'true' or 'false'.
 --
 -- When you specify a tag with a key that already exists, the operation
 -- overwrites the previous tag definition, and you do not get an error
@@ -34,8 +27,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Tagging Auto Scaling Groups and Instances>
 -- in the /Auto Scaling Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateOrUpdateTags.html AWS API Reference> for CreateOrUpdateTags.
 module Network.AWS.AutoScaling.CreateOrUpdateTags
     (
     -- * Creating a Request
@@ -82,6 +73,8 @@ instance AWSRequest CreateOrUpdateTags where
              CreateOrUpdateTagsResponse
         request = postQuery autoScaling
         response = receiveNull CreateOrUpdateTagsResponse'
+
+instance Hashable CreateOrUpdateTags
 
 instance ToHeaders CreateOrUpdateTags where
         toHeaders = const mempty

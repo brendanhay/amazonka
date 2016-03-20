@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the tags associated with the specified load balancers.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeTags.html AWS API Reference> for DescribeTags.
 module Network.AWS.ELB.DescribeTags
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest DescribeTags where
                    (x .@? "TagDescriptions" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeTags
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty

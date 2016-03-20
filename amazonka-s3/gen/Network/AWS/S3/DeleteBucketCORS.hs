@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketCORS
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the cors configuration information set for the bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketCORS.html AWS API Reference> for DeleteBucketCORS.
 module Network.AWS.S3.DeleteBucketCORS
     (
     -- * Creating a Request
@@ -67,6 +65,8 @@ instance AWSRequest DeleteBucketCORS where
         type Rs DeleteBucketCORS = DeleteBucketCORSResponse
         request = delete s3
         response = receiveNull DeleteBucketCORSResponse'
+
+instance Hashable DeleteBucketCORS
 
 instance ToHeaders DeleteBucketCORS where
         toHeaders = const mempty

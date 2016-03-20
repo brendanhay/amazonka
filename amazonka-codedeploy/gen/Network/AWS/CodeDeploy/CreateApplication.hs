@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.CreateApplication
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new application.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateApplication.html AWS API Reference> for CreateApplication.
+-- Creates an application.
 module Network.AWS.CodeDeploy.CreateApplication
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest CreateApplication where
               (\ s h x ->
                  CreateApplicationResponse' <$>
                    (x .?> "applicationId") <*> (pure (fromEnum s)))
+
+instance Hashable CreateApplication
 
 instance ToHeaders CreateApplication where
         toHeaders

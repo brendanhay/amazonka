@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateDomainName
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new domain name.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/CreateDomainName.html AWS API Reference> for CreateDomainName.
 module Network.AWS.APIGateway.CreateDomainName
     (
     -- * Creating a Request
@@ -90,7 +88,7 @@ createDomainName pDomainName_ pCertificateName_ pCertificateBody_ pCertificatePr
     , _cdnCertificateChain = pCertificateChain_
     }
 
--- | The name of the DomainName resource.
+-- | The name of the < DomainName> resource.
 cdnDomainName :: Lens' CreateDomainName Text
 cdnDomainName = lens _cdnDomainName (\ s a -> s{_cdnDomainName = a});
 
@@ -121,8 +119,13 @@ instance AWSRequest CreateDomainName where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateDomainName
+
 instance ToHeaders CreateDomainName where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON CreateDomainName where
         toJSON CreateDomainName'{..}

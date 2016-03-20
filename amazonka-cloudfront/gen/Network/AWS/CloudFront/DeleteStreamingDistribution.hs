@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.DeleteStreamingDistribution
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete a streaming distribution.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteStreamingDistribution.html AWS API Reference> for DeleteStreamingDistribution.
 module Network.AWS.CloudFront.DeleteStreamingDistribution
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest DeleteStreamingDistribution where
         response
           = receiveNull DeleteStreamingDistributionResponse'
 
+instance Hashable DeleteStreamingDistribution
+
 instance ToHeaders DeleteStreamingDistribution where
         toHeaders DeleteStreamingDistribution'{..}
           = mconcat ["If-Match" =# _dsdIfMatch]
@@ -89,7 +89,7 @@ instance ToHeaders DeleteStreamingDistribution where
 instance ToPath DeleteStreamingDistribution where
         toPath DeleteStreamingDistribution'{..}
           = mconcat
-              ["/2015-09-17/streaming-distribution/", toBS _dsdId]
+              ["/2016-01-28/streaming-distribution/", toBS _dsdId]
 
 instance ToQuery DeleteStreamingDistribution where
         toQuery = const mempty

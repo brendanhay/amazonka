@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeCommit.ListBranches
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more branches in a repository.
---
--- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_ListBranches.html AWS API Reference> for ListBranches.
 module Network.AWS.CodeCommit.ListBranches
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest ListBranches where
                  ListBranchesResponse' <$>
                    (x .?> "branches" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListBranches
 
 instance ToHeaders ListBranches where
         toHeaders

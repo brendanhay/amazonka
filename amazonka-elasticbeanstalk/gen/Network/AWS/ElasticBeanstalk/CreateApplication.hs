@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreateApplication
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Creates an application that has one configuration template named
 -- 'default' and no application versions.
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplication.html AWS API Reference> for CreateApplication.
 module Network.AWS.ElasticBeanstalk.CreateApplication
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest CreateApplication where
         response
           = receiveXMLWrapper "CreateApplicationResult"
               (\ s h x -> parseXML x)
+
+instance Hashable CreateApplication
 
 instance ToHeaders CreateApplication where
         toHeaders = const mempty

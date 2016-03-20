@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateInstance.html AWS API Reference> for UpdateInstance.
 module Network.AWS.OpsWorks.UpdateInstance
     (
     -- * Creating a Request
@@ -123,7 +121,7 @@ updateInstance pInstanceId_ =
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is 'true'. To control when updates are
 -- installed, set this value to 'false'. You must then update your
--- instances manually by using CreateDeployment to run the
+-- instances manually by using < CreateDeployment> to run the
 -- 'update_dependencies' stack command or by manually running 'yum' (Amazon
 -- Linux) or 'apt-get' (Ubuntu) on the instances.
 --
@@ -152,7 +150,7 @@ uiSSHKeyName = lens _uiSSHKeyName (\ s a -> s{_uiSSHKeyName = a});
 -- The default setting is 'INHERIT'. To specify an agent version, you must
 -- use the complete version number, not the abbreviated number shown on the
 -- console. For a list of available agent version numbers, call
--- DescribeAgentVersions.
+-- < DescribeAgentVersions>.
 uiAgentVersion :: Lens' UpdateInstance (Maybe Text)
 uiAgentVersion = lens _uiAgentVersion (\ s a -> s{_uiAgentVersion = a});
 
@@ -227,6 +225,8 @@ instance AWSRequest UpdateInstance where
         type Rs UpdateInstance = UpdateInstanceResponse
         request = postJSON opsWorks
         response = receiveNull UpdateInstanceResponse'
+
+instance Hashable UpdateInstance
 
 instance ToHeaders UpdateInstance where
         toHeaders

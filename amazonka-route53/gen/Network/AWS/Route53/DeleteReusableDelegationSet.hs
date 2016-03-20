@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteReusableDelegationSet
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,7 +20,7 @@
 --
 -- This action deletes a reusable delegation set. To delete a reusable
 -- delegation set, send a 'DELETE' request to the
--- '2013-04-01\/delegationset\/delegation set ID' resource.
+-- '\/Route 53 API version\/delegationset\/delegation set ID' resource.
 --
 -- You can delete a reusable delegation set only if there are no associated
 -- hosted zones. If your reusable delegation set contains associated hosted
@@ -28,8 +28,6 @@
 -- delegation set. If you try to delete a reusable delegation set that
 -- contains associated hosted zones, Amazon Route 53 will deny your request
 -- with a 'DelegationSetInUse' error.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteReusableDelegationSet.html AWS API Reference> for DeleteReusableDelegationSet.
 module Network.AWS.Route53.DeleteReusableDelegationSet
     (
     -- * Creating a Request
@@ -85,6 +83,8 @@ instance AWSRequest DeleteReusableDelegationSet where
               (\ s h x ->
                  DeleteReusableDelegationSetResponse' <$>
                    (pure (fromEnum s)))
+
+instance Hashable DeleteReusableDelegationSet
 
 instance ToHeaders DeleteReusableDelegationSet where
         toHeaders = const mempty

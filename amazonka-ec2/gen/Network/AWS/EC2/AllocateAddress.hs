@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AllocateAddress
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- in a VPC. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html AWS API Reference> for AllocateAddress.
 module Network.AWS.EC2.AllocateAddress
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest AllocateAddress where
                    (x .@? "allocationId") <*> (x .@? "domain") <*>
                      (x .@? "publicIp")
                      <*> (pure (fromEnum s)))
+
+instance Hashable AllocateAddress
 
 instance ToHeaders AllocateAddress where
         toHeaders = const mempty

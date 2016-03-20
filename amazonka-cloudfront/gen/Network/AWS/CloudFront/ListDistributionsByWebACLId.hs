@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListDistributionsByWebACLId
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- List the distributions that are associated with a specified AWS WAF web
 -- ACL.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributionsByWebACLId.html AWS API Reference> for ListDistributionsByWebACLId.
 module Network.AWS.CloudFront.ListDistributionsByWebACLId
     (
     -- * Creating a Request
@@ -105,13 +103,15 @@ instance AWSRequest ListDistributionsByWebACLId where
                  ListDistributionsByWebACLIdResponse' <$>
                    (parseXML x) <*> (pure (fromEnum s)))
 
+instance Hashable ListDistributionsByWebACLId
+
 instance ToHeaders ListDistributionsByWebACLId where
         toHeaders = const mempty
 
 instance ToPath ListDistributionsByWebACLId where
         toPath ListDistributionsByWebACLId'{..}
           = mconcat
-              ["/2015-09-17/distributionsByWebACLId/",
+              ["/2016-01-28/distributionsByWebACLId/",
                toBS _ldbwaiWebACLId]
 
 instance ToQuery ListDistributionsByWebACLId where

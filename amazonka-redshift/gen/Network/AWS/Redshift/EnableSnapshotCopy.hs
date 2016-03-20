@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.EnableSnapshotCopy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Enables the automatic copy of snapshots from one region to another
 -- region for a specified cluster.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableSnapshotCopy.html AWS API Reference> for EnableSnapshotCopy.
 module Network.AWS.Redshift.EnableSnapshotCopy
     (
     -- * Creating a Request
@@ -120,6 +118,8 @@ instance AWSRequest EnableSnapshotCopy where
               (\ s h x ->
                  EnableSnapshotCopyResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
+
+instance Hashable EnableSnapshotCopy
 
 instance ToHeaders EnableSnapshotCopy where
         toHeaders = const mempty

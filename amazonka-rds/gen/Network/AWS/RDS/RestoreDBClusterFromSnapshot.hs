@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RestoreDBClusterFromSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- For more information on Amazon Aurora, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterFromSnapshot.html AWS API Reference> for RestoreDBClusterFromSnapshot.
 module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     (
     -- * Creating a Request
@@ -133,6 +131,11 @@ rdcfsEngineVersion :: Lens' RestoreDBClusterFromSnapshot (Maybe Text)
 rdcfsEngineVersion = lens _rdcfsEngineVersion (\ s a -> s{_rdcfsEngineVersion = a});
 
 -- | The name of the DB subnet group to use for the new DB cluster.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters,
+-- periods, underscores, spaces, or hyphens. Must not be default.
+--
+-- Example: 'mySubnetgroup'
 rdcfsDBSubnetGroupName :: Lens' RestoreDBClusterFromSnapshot (Maybe Text)
 rdcfsDBSubnetGroupName = lens _rdcfsDBSubnetGroupName (\ s a -> s{_rdcfsDBSubnetGroupName = a});
 
@@ -231,6 +234,8 @@ instance AWSRequest RestoreDBClusterFromSnapshot
               (\ s h x ->
                  RestoreDBClusterFromSnapshotResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
+
+instance Hashable RestoreDBClusterFromSnapshot
 
 instance ToHeaders RestoreDBClusterFromSnapshot where
         toHeaders = const mempty

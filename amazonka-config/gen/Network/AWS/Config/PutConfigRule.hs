@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.PutConfigRule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -53,8 +53,6 @@
 -- <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html Evaluating AWS Resource Configurations with AWS Config>
 -- in the /AWS Config Developer Guide/.
 --
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html AWS API Reference> for PutConfigRule.
 module Network.AWS.Config.PutConfigRule
     (
     -- * Creating a Request
@@ -101,6 +99,8 @@ instance AWSRequest PutConfigRule where
         type Rs PutConfigRule = PutConfigRuleResponse
         request = postJSON config
         response = receiveNull PutConfigRuleResponse'
+
+instance Hashable PutConfigRule
 
 instance ToHeaders PutConfigRule where
         toHeaders

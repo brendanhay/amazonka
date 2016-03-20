@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a subscription filter associated with the specified log group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteSubscriptionFilter.html AWS API Reference> for DeleteSubscriptionFilter.
 module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DeleteSubscriptionFilter where
         request = postJSON cloudWatchLogs
         response
           = receiveNull DeleteSubscriptionFilterResponse'
+
+instance Hashable DeleteSubscriptionFilter
 
 instance ToHeaders DeleteSubscriptionFilter where
         toHeaders

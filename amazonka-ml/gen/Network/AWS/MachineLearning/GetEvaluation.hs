@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.GetEvaluation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns an 'Evaluation' that includes metadata as well as the current
 -- status of the 'Evaluation'.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetEvaluation.html AWS API Reference> for GetEvaluation.
 module Network.AWS.MachineLearning.GetEvaluation
     (
     -- * Creating a Request
@@ -100,6 +98,8 @@ instance AWSRequest GetEvaluation where
                      <*> (x .?> "EvaluationDataSourceId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetEvaluation
+
 instance ToHeaders GetEvaluation where
         toHeaders
           = const
@@ -121,7 +121,7 @@ instance ToPath GetEvaluation where
 instance ToQuery GetEvaluation where
         toQuery = const mempty
 
--- | Represents the output of a GetEvaluation operation and describes an
+-- | Represents the output of a < GetEvaluation> operation and describes an
 -- 'Evaluation'.
 --
 -- /See:/ 'getEvaluationResponse' smart constructor.
@@ -252,7 +252,8 @@ gersCreatedByIAMUser = lens _gersCreatedByIAMUser (\ s a -> s{_gersCreatedByIAMU
 gersName :: Lens' GetEvaluationResponse (Maybe Text)
 gersName = lens _gersName (\ s a -> s{_gersName = a});
 
--- | A link to the file that contains logs of the CreateEvaluation operation.
+-- | A link to the file that contains logs of the < CreateEvaluation>
+-- operation.
 gersLogURI :: Lens' GetEvaluationResponse (Maybe Text)
 gersLogURI = lens _gersLogURI (\ s a -> s{_gersLogURI = a});
 

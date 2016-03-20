@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListGroupPolicies
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,15 +23,14 @@
 --
 -- A group can also have managed policies attached to it. To list the
 -- managed policies that are attached to a group, use
--- ListAttachedGroupPolicies. For more information about policies, refer to
+-- < ListAttachedGroupPolicies>. For more information about policies, refer
+-- to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters. If there are no inline policies embedded with the specified
 -- group, the action returns an empty list.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html AWS API Reference> for ListGroupPolicies.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListGroupPolicies
@@ -131,6 +130,8 @@ instance AWSRequest ListGroupPolicies where
                      (x .@? "PolicyNames" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListGroupPolicies
+
 instance ToHeaders ListGroupPolicies where
         toHeaders = const mempty
 
@@ -145,7 +146,7 @@ instance ToQuery ListGroupPolicies where
                "Marker" =: _lgpMarker, "MaxItems" =: _lgpMaxItems,
                "GroupName" =: _lgpGroupName]
 
--- | Contains the response to a successful ListGroupPolicies request.
+-- | Contains the response to a successful < ListGroupPolicies> request.
 --
 -- /See:/ 'listGroupPoliciesResponse' smart constructor.
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse'

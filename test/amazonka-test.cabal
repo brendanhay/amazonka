@@ -1,5 +1,5 @@
 name:                  amazonka-test
-version:               1.3.7
+version:               1.3.8
 synopsis:              Common functionality for Amazonka library test-suites.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2015 Brendan Hay
+copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
@@ -37,7 +37,7 @@ library
 
     build-depends:
           aeson                >= 0.8
-        , amazonka-core        == 1.3.7.*
+        , amazonka-core        == 1.3.8.*
         , base                 >= 4.7     && < 5
         , bifunctors           >= 4.1
         , bytestring           >= 0.9

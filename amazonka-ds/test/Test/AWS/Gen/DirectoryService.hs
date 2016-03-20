@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.DirectoryService
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,9 @@ import Test.AWS.DirectoryService.Internal
 --         [ testGetSnapshotLimits $
 --             getSnapshotLimits
 --
+--         , testRegisterEventTopic $
+--             registerEventTopic
+--
 --         , testConnectDirectory $
 --             connectDirectory
 --
@@ -49,8 +52,14 @@ import Test.AWS.DirectoryService.Internal
 --         , testCreateMicrosoftAD $
 --             createMicrosoftAD
 --
+--         , testDeregisterEventTopic $
+--             deregisterEventTopic
+--
 --         , testCreateDirectory $
 --             createDirectory
+--
+--         , testDescribeEventTopics $
+--             describeEventTopics
 --
 --         , testEnableSSO $
 --             enableSSO
@@ -100,6 +109,9 @@ import Test.AWS.DirectoryService.Internal
 --         [ testGetSnapshotLimitsResponse $
 --             getSnapshotLimitsResponse
 --
+--         , testRegisterEventTopicResponse $
+--             registerEventTopicResponse
+--
 --         , testConnectDirectoryResponse $
 --             connectDirectoryResponse
 --
@@ -118,8 +130,14 @@ import Test.AWS.DirectoryService.Internal
 --         , testCreateMicrosoftADResponse $
 --             createMicrosoftADResponse
 --
+--         , testDeregisterEventTopicResponse $
+--             deregisterEventTopicResponse
+--
 --         , testCreateDirectoryResponse $
 --             createDirectoryResponse
+--
+--         , testDescribeEventTopicsResponse $
+--             describeEventTopicsResponse
 --
 --         , testEnableSSOResponse $
 --             enableSSOResponse
@@ -173,6 +191,11 @@ testGetSnapshotLimits = req
     "GetSnapshotLimits"
     "fixture/GetSnapshotLimits.yaml"
 
+testRegisterEventTopic :: RegisterEventTopic -> TestTree
+testRegisterEventTopic = req
+    "RegisterEventTopic"
+    "fixture/RegisterEventTopic.yaml"
+
 testConnectDirectory :: ConnectDirectory -> TestTree
 testConnectDirectory = req
     "ConnectDirectory"
@@ -203,10 +226,20 @@ testCreateMicrosoftAD = req
     "CreateMicrosoftAD"
     "fixture/CreateMicrosoftAD.yaml"
 
+testDeregisterEventTopic :: DeregisterEventTopic -> TestTree
+testDeregisterEventTopic = req
+    "DeregisterEventTopic"
+    "fixture/DeregisterEventTopic.yaml"
+
 testCreateDirectory :: CreateDirectory -> TestTree
 testCreateDirectory = req
     "CreateDirectory"
     "fixture/CreateDirectory.yaml"
+
+testDescribeEventTopics :: DescribeEventTopics -> TestTree
+testDescribeEventTopics = req
+    "DescribeEventTopics"
+    "fixture/DescribeEventTopics.yaml"
 
 testEnableSSO :: EnableSSO -> TestTree
 testEnableSSO = req
@@ -287,6 +320,13 @@ testGetSnapshotLimitsResponse = res
     directoryService
     (Proxy :: Proxy GetSnapshotLimits)
 
+testRegisterEventTopicResponse :: RegisterEventTopicResponse -> TestTree
+testRegisterEventTopicResponse = res
+    "RegisterEventTopicResponse"
+    "fixture/RegisterEventTopicResponse.proto"
+    directoryService
+    (Proxy :: Proxy RegisterEventTopic)
+
 testConnectDirectoryResponse :: ConnectDirectoryResponse -> TestTree
 testConnectDirectoryResponse = res
     "ConnectDirectoryResponse"
@@ -329,12 +369,26 @@ testCreateMicrosoftADResponse = res
     directoryService
     (Proxy :: Proxy CreateMicrosoftAD)
 
+testDeregisterEventTopicResponse :: DeregisterEventTopicResponse -> TestTree
+testDeregisterEventTopicResponse = res
+    "DeregisterEventTopicResponse"
+    "fixture/DeregisterEventTopicResponse.proto"
+    directoryService
+    (Proxy :: Proxy DeregisterEventTopic)
+
 testCreateDirectoryResponse :: CreateDirectoryResponse -> TestTree
 testCreateDirectoryResponse = res
     "CreateDirectoryResponse"
     "fixture/CreateDirectoryResponse.proto"
     directoryService
     (Proxy :: Proxy CreateDirectory)
+
+testDescribeEventTopicsResponse :: DescribeEventTopicsResponse -> TestTree
+testDescribeEventTopicsResponse = res
+    "DescribeEventTopicsResponse"
+    "fixture/DescribeEventTopicsResponse.proto"
+    directoryService
+    (Proxy :: Proxy DescribeEventTopics)
 
 testEnableSSOResponse :: EnableSSOResponse -> TestTree
 testEnableSSOResponse = res

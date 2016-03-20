@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.GetMLModel
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- information as well as the current status of the 'MLModel'.
 --
 -- 'GetMLModel' provides results in normal or verbose format.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetMLModel.html AWS API Reference> for GetMLModel.
 module Network.AWS.MachineLearning.GetMLModel
     (
     -- * Creating a Request
@@ -125,6 +123,8 @@ instance AWSRequest GetMLModel where
                      <*> (x .?> "MLModelType")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetMLModel
+
 instance ToHeaders GetMLModel where
         toHeaders
           = const
@@ -147,8 +147,8 @@ instance ToPath GetMLModel where
 instance ToQuery GetMLModel where
         toQuery = const mempty
 
--- | Represents the output of a GetMLModel operation, and provides detailed
--- information about a 'MLModel'.
+-- | Represents the output of a < GetMLModel> operation, and provides
+-- detailed information about a 'MLModel'.
 --
 -- /See:/ 'getMLModelResponse' smart constructor.
 data GetMLModelResponse = GetMLModelResponse'

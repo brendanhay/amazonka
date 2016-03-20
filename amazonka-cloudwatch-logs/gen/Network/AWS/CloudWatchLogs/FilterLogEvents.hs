@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.FilterLogEvents
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,6 @@
 -- searched completely or require further pagination. The 'limit' parameter
 -- in the request. can be used to specify the maximum number of events to
 -- return in a page.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html AWS API Reference> for FilterLogEvents.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.FilterLogEvents
@@ -180,6 +178,8 @@ instance AWSRequest FilterLogEvents where
                      (x .?> "nextToken")
                      <*> (x .?> "events" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable FilterLogEvents
 
 instance ToHeaders FilterLogEvents where
         toHeaders

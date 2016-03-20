@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.ResetCacheParameterGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- specific parameters by submitting a list of parameter names. To reset
 -- the entire cache parameter group, specify the /ResetAllParameters/ and
 -- /CacheParameterGroupName/ parameters.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ResetCacheParameterGroup.html AWS API Reference> for ResetCacheParameterGroup.
 module Network.AWS.ElastiCache.ResetCacheParameterGroup
     (
     -- * Creating a Request
@@ -101,6 +99,8 @@ instance AWSRequest ResetCacheParameterGroup where
         response
           = receiveXMLWrapper "ResetCacheParameterGroupResult"
               (\ s h x -> parseXML x)
+
+instance Hashable ResetCacheParameterGroup
 
 instance ToHeaders ResetCacheParameterGroup where
         toHeaders = const mempty

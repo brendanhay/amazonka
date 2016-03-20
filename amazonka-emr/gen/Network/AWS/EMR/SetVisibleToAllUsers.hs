@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.SetVisibleToAllUsers
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,11 +21,9 @@
 -- Sets whether all AWS Identity and Access Management (IAM) users under
 -- your account can access the specified job flows. This action works on
 -- running job flows. You can also set the visibility of a job flow when
--- you launch it using the 'VisibleToAllUsers' parameter of RunJobFlow. The
--- SetVisibleToAllUsers action can be called only by an IAM user who
+-- you launch it using the 'VisibleToAllUsers' parameter of < RunJobFlow>.
+-- The SetVisibleToAllUsers action can be called only by an IAM user who
 -- created the job flow or the AWS account that owns the job flow.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_SetVisibleToAllUsers.html AWS API Reference> for SetVisibleToAllUsers.
 module Network.AWS.EMR.SetVisibleToAllUsers
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest SetVisibleToAllUsers where
              SetVisibleToAllUsersResponse
         request = postJSON eMR
         response = receiveNull SetVisibleToAllUsersResponse'
+
+instance Hashable SetVisibleToAllUsers
 
 instance ToHeaders SetVisibleToAllUsers where
         toHeaders

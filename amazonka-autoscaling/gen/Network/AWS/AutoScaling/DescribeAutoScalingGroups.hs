@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Describes one or more Auto Scaling groups. If a list of names is not
 -- provided, the call describes all Auto Scaling groups.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroups.html AWS API Reference> for DescribeAutoScalingGroups.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingGroups
@@ -107,6 +105,8 @@ instance AWSRequest DescribeAutoScalingGroups where
                    (x .@? "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .@? "AutoScalingGroups" .!@ mempty >>=
                         parseXMLList "member"))
+
+instance Hashable DescribeAutoScalingGroups
 
 instance ToHeaders DescribeAutoScalingGroups where
         toHeaders = const mempty

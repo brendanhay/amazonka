@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,11 +20,9 @@
 --
 -- Returns a data key encrypted by a customer master key without the
 -- plaintext copy of that key. Otherwise, this API functions exactly like
--- GenerateDataKey. You can use this API to, for example, satisfy an audit
--- requirement that an encrypted key be made available without exposing the
--- plaintext copy of that key.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html AWS API Reference> for GenerateDataKeyWithoutPlaintext.
+-- < GenerateDataKey>. You can use this API to, for example, satisfy an
+-- audit requirement that an encrypted key be made available without
+-- exposing the plaintext copy of that key.
 module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     (
     -- * Creating a Request
@@ -136,6 +134,8 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext
                  GenerateDataKeyWithoutPlaintextResponse' <$>
                    (x .?> "KeyId") <*> (x .?> "CiphertextBlob") <*>
                      (pure (fromEnum s)))
+
+instance Hashable GenerateDataKeyWithoutPlaintext
 
 instance ToHeaders GenerateDataKeyWithoutPlaintext
          where

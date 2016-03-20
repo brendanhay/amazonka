@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeUserProfiles
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- attached policy that explicitly grants permissions. For more information
 -- on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeUserProfiles.html AWS API Reference> for DescribeUserProfiles.
 module Network.AWS.OpsWorks.DescribeUserProfiles
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DescribeUserProfiles where
                  DescribeUserProfilesResponse' <$>
                    (x .?> "UserProfiles" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeUserProfiles
 
 instance ToHeaders DescribeUserProfiles where
         toHeaders

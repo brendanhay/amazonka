@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- The virtual tape can be retrieved to only one gateway. The retrieved
 -- tape is read-only. The virtual tape can be retrieved to only a
 -- gateway-VTL. There is no charge for retrieving recovery points.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeRecoveryPoint.html AWS API Reference> for RetrieveTapeRecoveryPoint.
 module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     (
     -- * Creating a Request
@@ -96,6 +94,8 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
               (\ s h x ->
                  RetrieveTapeRecoveryPointResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
+
+instance Hashable RetrieveTapeRecoveryPoint
 
 instance ToHeaders RetrieveTapeRecoveryPoint where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.AssociateVPCWithHostedZone
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,15 +21,13 @@
 -- This action associates a VPC with an hosted zone.
 --
 -- To associate a VPC with an hosted zone, send a 'POST' request to the
--- '2013-04-01\/hostedzone\/hosted zone ID\/associatevpc' resource. The
--- request body must include an XML document with a
+-- '\/Route 53 API version\/hostedzone\/hosted zone ID\/associatevpc'
+-- resource. The request body must include a document with a
 -- 'AssociateVPCWithHostedZoneRequest' element. The response returns the
 -- 'AssociateVPCWithHostedZoneResponse' element that contains 'ChangeInfo'
 -- for you to track the progress of the 'AssociateVPCWithHostedZoneRequest'
 -- you made. See 'GetChange' operation for how to track the progress of
 -- your change.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html AWS API Reference> for AssociateVPCWithHostedZone.
 module Network.AWS.Route53.AssociateVPCWithHostedZone
     (
     -- * Creating a Request
@@ -110,6 +108,8 @@ instance AWSRequest AssociateVPCWithHostedZone where
               (\ s h x ->
                  AssociateVPCWithHostedZoneResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
+
+instance Hashable AssociateVPCWithHostedZone
 
 instance ToElement AssociateVPCWithHostedZone where
         toElement

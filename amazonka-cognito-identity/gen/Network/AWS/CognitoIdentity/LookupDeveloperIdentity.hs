@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.LookupDeveloperIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- 'ResourceConflictException' is thrown.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_LookupDeveloperIdentity.html AWS API Reference> for LookupDeveloperIdentity.
 module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     (
     -- * Creating a Request
@@ -135,6 +133,8 @@ instance AWSRequest LookupDeveloperIdentity where
                    (x .?> "NextToken") <*> (x .?> "IdentityId") <*>
                      (x .?> "DeveloperUserIdentifierList" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable LookupDeveloperIdentity
 
 instance ToHeaders LookupDeveloperIdentity where
         toHeaders

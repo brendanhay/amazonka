@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.UpdateDistribution
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Update a distribution.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateDistribution.html AWS API Reference> for UpdateDistribution.
 module Network.AWS.CloudFront.UpdateDistribution
     (
     -- * Creating a Request
@@ -100,10 +98,12 @@ instance AWSRequest UpdateDistribution where
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable UpdateDistribution
+
 instance ToElement UpdateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2015-09-17/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2016-01-28/}DistributionConfig"
               .
               _udDistributionConfig
 
@@ -114,7 +114,7 @@ instance ToHeaders UpdateDistribution where
 instance ToPath UpdateDistribution where
         toPath UpdateDistribution'{..}
           = mconcat
-              ["/2015-09-17/distribution/", toBS _udId, "/config"]
+              ["/2016-01-28/distribution/", toBS _udId, "/config"]
 
 instance ToQuery UpdateDistribution where
         toQuery = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachNetworkInterface
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Detaches a network interface from an instance.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachNetworkInterface.html AWS API Reference> for DetachNetworkInterface.
 module Network.AWS.EC2.DetachNetworkInterface
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest DetachNetworkInterface where
         request = postQuery eC2
         response
           = receiveNull DetachNetworkInterfaceResponse'
+
+instance Hashable DetachNetworkInterface
 
 instance ToHeaders DetachNetworkInterface where
         toHeaders = const mempty

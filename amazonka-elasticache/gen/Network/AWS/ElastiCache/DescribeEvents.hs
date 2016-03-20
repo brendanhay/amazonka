@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeEvents
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- By default, only the events occurring within the last hour are returned;
 -- however, you can retrieve up to 14 days\' worth of events if necessary.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeEvents
@@ -165,6 +163,8 @@ instance AWSRequest DescribeEvents where
                       may (parseXMLList "Event"))
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeEvents
 
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty

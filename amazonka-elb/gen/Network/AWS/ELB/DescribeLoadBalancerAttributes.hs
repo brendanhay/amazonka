@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the attributes for the specified load balancer.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerAttributes.html AWS API Reference> for DescribeLoadBalancerAttributes.
 module Network.AWS.ELB.DescribeLoadBalancerAttributes
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest DescribeLoadBalancerAttributes
                  DescribeLoadBalancerAttributesResponse' <$>
                    (x .@? "LoadBalancerAttributes") <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeLoadBalancerAttributes
 
 instance ToHeaders DescribeLoadBalancerAttributes
          where

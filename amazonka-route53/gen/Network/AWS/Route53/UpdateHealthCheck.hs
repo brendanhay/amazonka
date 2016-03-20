@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.UpdateHealthCheck
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,12 +21,10 @@
 -- This action updates an existing health check.
 --
 -- To update a health check, send a 'POST' request to the
--- '2013-04-01\/healthcheck\/health check ID' resource. The request body
--- must include an XML document with an 'UpdateHealthCheckRequest' element.
--- The response returns an 'UpdateHealthCheckResponse' element, which
--- contains metadata about the health check.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html AWS API Reference> for UpdateHealthCheck.
+-- '\/Route 53 API version\/healthcheck\/health check ID' resource. The
+-- request body must include a document with an 'UpdateHealthCheckRequest'
+-- element. The response returns an 'UpdateHealthCheckResponse' element,
+-- which contains metadata about the health check.
 module Network.AWS.Route53.UpdateHealthCheck
     (
     -- * Creating a Request
@@ -35,6 +33,7 @@ module Network.AWS.Route53.UpdateHealthCheck
     -- * Request Lenses
     , uhcFailureThreshold
     , uhcIPAddress
+    , uhcEnableSNI
     , uhcSearchString
     , uhcHealthThreshold
     , uhcResourcePath
@@ -67,6 +66,7 @@ import           Network.AWS.Route53.Types.Product
 data UpdateHealthCheck = UpdateHealthCheck'
     { _uhcFailureThreshold         :: !(Maybe Nat)
     , _uhcIPAddress                :: !(Maybe Text)
+    , _uhcEnableSNI                :: !(Maybe Bool)
     , _uhcSearchString             :: !(Maybe Text)
     , _uhcHealthThreshold          :: !(Maybe Nat)
     , _uhcResourcePath             :: !(Maybe Text)
@@ -85,6 +85,8 @@ data UpdateHealthCheck = UpdateHealthCheck'
 -- * 'uhcFailureThreshold'
 --
 -- * 'uhcIPAddress'
+--
+-- * 'uhcEnableSNI'
 --
 -- * 'uhcSearchString'
 --
@@ -110,6 +112,7 @@ updateHealthCheck pHealthCheckId_ =
     UpdateHealthCheck'
     { _uhcFailureThreshold = Nothing
     , _uhcIPAddress = Nothing
+    , _uhcEnableSNI = Nothing
     , _uhcSearchString = Nothing
     , _uhcHealthThreshold = Nothing
     , _uhcResourcePath = Nothing
@@ -139,10 +142,22 @@ uhcFailureThreshold = lens _uhcFailureThreshold (\ s a -> s{_uhcFailureThreshold
 uhcIPAddress :: Lens' UpdateHealthCheck (Maybe Text)
 uhcIPAddress = lens _uhcIPAddress (\ s a -> s{_uhcIPAddress = a});
 
+-- | Specify whether you want Amazon Route 53 to send the value of
+-- 'FullyQualifiedDomainName' to the endpoint in the 'client_hello' message
+-- during TLS negotiation. If you don\'t specify a value for 'EnableSNI',
+-- Amazon Route 53 defaults to 'true' when 'Type' is 'HTTPS' or
+-- 'HTTPS_STR_MATCH' and defaults to 'false' when 'Type' is any other
+-- value.
+--
+-- Specify this value only if you want to change it.
+uhcEnableSNI :: Lens' UpdateHealthCheck (Maybe Bool)
+uhcEnableSNI = lens _uhcEnableSNI (\ s a -> s{_uhcEnableSNI = a});
+
 -- | If the value of 'Type' is 'HTTP_STR_MATCH' or 'HTTP_STR_MATCH', the
 -- string that you want Amazon Route 53 to search for in the response body
 -- from the specified resource. If the string appears in the response body,
--- Amazon Route 53 considers the resource healthy.
+-- Amazon Route 53 considers the resource healthy. Amazon Route 53
+-- considers case when searching for 'SearchString' in the response body.
 --
 -- Specify this value only if you want to change it.
 uhcSearchString :: Lens' UpdateHealthCheck (Maybe Text)
@@ -214,6 +229,8 @@ instance AWSRequest UpdateHealthCheck where
                  UpdateHealthCheckResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HealthCheck"))
 
+instance Hashable UpdateHealthCheck
+
 instance ToElement UpdateHealthCheck where
         toElement
           = mkElement
@@ -235,6 +252,7 @@ instance ToXML UpdateHealthCheck where
           = mconcat
               ["FailureThreshold" @= _uhcFailureThreshold,
                "IPAddress" @= _uhcIPAddress,
+               "EnableSNI" @= _uhcEnableSNI,
                "SearchString" @= _uhcSearchString,
                "HealthThreshold" @= _uhcHealthThreshold,
                "ResourcePath" @= _uhcResourcePath,

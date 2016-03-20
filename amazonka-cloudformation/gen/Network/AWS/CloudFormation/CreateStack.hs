@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.CreateStack
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,9 +20,7 @@
 --
 -- Creates a stack as specified in the template. After the call completes
 -- successfully, the stack creation starts. You can check the status of the
--- stack via the DescribeStacks API.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html AWS API Reference> for CreateStack.
+-- stack via the < DescribeStacks> API.
 module Network.AWS.CloudFormation.CreateStack
     (
     -- * Creating a Request
@@ -58,7 +56,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for CreateStack action.
+-- | The input for < CreateStack> action.
 --
 -- /See:/ 'createStack' smart constructor.
 data CreateStack = CreateStack'
@@ -148,7 +146,9 @@ csStackPolicyBody :: Lens' CreateStack (Maybe Text)
 csStackPolicyBody = lens _csStackPolicyBody (\ s a -> s{_csStackPolicyBody = a});
 
 -- | A list of 'Parameter' structures that specify input parameters for the
--- stack.
+-- stack. For more information, see the
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
+-- data type.
 csParameters :: Lens' CreateStack [Parameter]
 csParameters = lens _csParameters (\ s a -> s{_csParameters = a}) . _Default . _Coerce;
 
@@ -228,10 +228,9 @@ csOnFailure = lens _csOnFailure (\ s a -> s{_csOnFailure = a});
 csResourceTypes :: Lens' CreateStack [Text]
 csResourceTypes = lens _csResourceTypes (\ s a -> s{_csResourceTypes = a}) . _Default . _Coerce;
 
--- | A set of user-defined 'Tags' to associate with this stack, represented
--- by key\/value pairs. Tags defined for the stack are propagated to EC2
--- resources that are created as part of the stack. A maximum number of 10
--- tags can be specified.
+-- | Key-value pairs to associate with this stack. AWS CloudFormation also
+-- propagates these tags to the resources created in the stack. A maximum
+-- number of 10 tags can be specified.
 csTags :: Lens' CreateStack [Tag]
 csTags = lens _csTags (\ s a -> s{_csTags = a}) . _Default . _Coerce;
 
@@ -246,7 +245,7 @@ csTimeoutInMinutes = lens _csTimeoutInMinutes (\ s a -> s{_csTimeoutInMinutes = 
 --
 -- A stack name can contain only alphanumeric characters (case sensitive)
 -- and hyphens. It must start with an alphabetic character and cannot be
--- longer than 255 characters.
+-- longer than 128 characters.
 csStackName :: Lens' CreateStack Text
 csStackName = lens _csStackName (\ s a -> s{_csStackName = a});
 
@@ -258,6 +257,8 @@ instance AWSRequest CreateStack where
               (\ s h x ->
                  CreateStackResponse' <$>
                    (x .@? "StackId") <*> (pure (fromEnum s)))
+
+instance Hashable CreateStack
 
 instance ToHeaders CreateStack where
         toHeaders = const mempty
@@ -289,7 +290,7 @@ instance ToQuery CreateStack where
                "TimeoutInMinutes" =: _csTimeoutInMinutes,
                "StackName" =: _csStackName]
 
--- | The output for a CreateStack action.
+-- | The output for a < CreateStack> action.
 --
 -- /See:/ 'createStackResponse' smart constructor.
 data CreateStackResponse = CreateStackResponse'

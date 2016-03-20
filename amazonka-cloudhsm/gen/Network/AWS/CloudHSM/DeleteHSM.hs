@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DeleteHSM
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an HSM. Once complete, this operation cannot be undone and your
--- key material cannot be recovered.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteHSM.html AWS API Reference> for DeleteHSM.
+-- Deletes an HSM. After completion, this operation cannot be undone and
+-- your key material cannot be recovered.
 module Network.AWS.CloudHSM.DeleteHSM
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DeleteHsm action.
+-- | Contains the inputs for the < DeleteHsm> operation.
 --
 -- /See:/ 'deleteHSM' smart constructor.
 newtype DeleteHSM = DeleteHSM'
@@ -78,6 +76,8 @@ instance AWSRequest DeleteHSM where
                  DeleteHSMResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Status"))
 
+instance Hashable DeleteHSM
+
 instance ToHeaders DeleteHSM where
         toHeaders
           = const
@@ -97,7 +97,7 @@ instance ToPath DeleteHSM where
 instance ToQuery DeleteHSM where
         toQuery = const mempty
 
--- | Contains the output of the DeleteHsm action.
+-- | Contains the output of the < DeleteHsm> operation.
 --
 -- /See:/ 'deleteHSMResponse' smart constructor.
 data DeleteHSMResponse = DeleteHSMResponse'
@@ -126,6 +126,6 @@ deleteHSMResponse pResponseStatus_ pStatus_ =
 dhsmrsResponseStatus :: Lens' DeleteHSMResponse Int
 dhsmrsResponseStatus = lens _dhsmrsResponseStatus (\ s a -> s{_dhsmrsResponseStatus = a});
 
--- | The status of the action.
+-- | The status of the operation.
 dhsmrsStatus :: Lens' DeleteHSMResponse Text
 dhsmrsStatus = lens _dhsmrsStatus (\ s a -> s{_dhsmrsStatus = a});

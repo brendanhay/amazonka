@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RestoreDBClusterToPointInTime
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- For more information on Amazon Aurora, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterToPointInTime.html AWS API Reference> for RestoreDBClusterToPointInTime.
 module Network.AWS.RDS.RestoreDBClusterToPointInTime
     (
     -- * Creating a Request
@@ -130,6 +128,11 @@ rdctpitUseLatestRestorableTime :: Lens' RestoreDBClusterToPointInTime (Maybe Boo
 rdctpitUseLatestRestorableTime = lens _rdctpitUseLatestRestorableTime (\ s a -> s{_rdctpitUseLatestRestorableTime = a});
 
 -- | The DB subnet group name to use for the new DB cluster.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters,
+-- periods, underscores, spaces, or hyphens. Must not be default.
+--
+-- Example: 'mySubnetgroup'
 rdctpitDBSubnetGroupName :: Lens' RestoreDBClusterToPointInTime (Maybe Text)
 rdctpitDBSubnetGroupName = lens _rdctpitDBSubnetGroupName (\ s a -> s{_rdctpitDBSubnetGroupName = a});
 
@@ -228,6 +231,8 @@ instance AWSRequest RestoreDBClusterToPointInTime
               (\ s h x ->
                  RestoreDBClusterToPointInTimeResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
+
+instance Hashable RestoreDBClusterToPointInTime
 
 instance ToHeaders RestoreDBClusterToPointInTime
          where

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.QueryObjects
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Queries the specified pipeline for the names of objects that match the
 -- specified set of conditions.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_QueryObjects.html AWS API Reference> for QueryObjects.
 --
 -- This operation returns paginated results.
 module Network.AWS.DataPipeline.QueryObjects
@@ -136,6 +134,8 @@ instance AWSRequest QueryObjects where
                    (x .?> "hasMoreResults") <*> (x .?> "ids" .!@ mempty)
                      <*> (x .?> "marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable QueryObjects
 
 instance ToHeaders QueryObjects where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.MonitorInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- monitoring instances, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MonitorInstances.html AWS API Reference> for MonitorInstances.
 module Network.AWS.EC2.MonitorInstances
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest MonitorInstances where
                    (x .@? "instancesSet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable MonitorInstances
 
 instance ToHeaders MonitorInstances where
         toHeaders = const mempty

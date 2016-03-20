@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeFinding
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the finding specified by the finding ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DescribeFinding.html AWS API Reference> for DescribeFinding.
 module Network.AWS.Inspector.DescribeFinding
     (
     -- * Creating a Request
@@ -74,6 +72,8 @@ instance AWSRequest DescribeFinding where
               (\ s h x ->
                  DescribeFindingResponse' <$>
                    (x .?> "finding") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeFinding
 
 instance ToHeaders DescribeFinding where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.CreateWebACL
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,23 +31,22 @@
 --
 -- 1.  Create and update the 'ByteMatchSet' objects and other predicates
 --     that you want to include in 'Rules'. For more information, see
---     CreateByteMatchSet, UpdateByteMatchSet, CreateIPSet, UpdateIPSet,
---     CreateSqlInjectionMatchSet, and UpdateSqlInjectionMatchSet.
+--     < CreateByteMatchSet>, < UpdateByteMatchSet>, < CreateIPSet>,
+--     < UpdateIPSet>, < CreateSqlInjectionMatchSet>, and
+--     < UpdateSqlInjectionMatchSet>.
 -- 2.  Create and update the 'Rules' that you want to include in the
---     'WebACL'. For more information, see CreateRule and UpdateRule.
--- 3.  Use GetChangeToken to get the change token that you provide in the
---     'ChangeToken' parameter of a 'CreateWebACL' request.
+--     'WebACL'. For more information, see < CreateRule> and < UpdateRule>.
+-- 3.  Use < GetChangeToken> to get the change token that you provide in
+--     the 'ChangeToken' parameter of a 'CreateWebACL' request.
 -- 4.  Submit a 'CreateWebACL' request.
 -- 5.  Use 'GetChangeToken' to get the change token that you provide in the
---     'ChangeToken' parameter of an UpdateWebACL request.
--- 6.  Submit an UpdateWebACL request to specify the 'Rules' that you want
---     to include in the 'WebACL', to specify the default action, and to
---     associate the 'WebACL' with a CloudFront distribution.
+--     'ChangeToken' parameter of an < UpdateWebACL> request.
+-- 6.  Submit an < UpdateWebACL> request to specify the 'Rules' that you
+--     want to include in the 'WebACL', to specify the default action, and
+--     to associate the 'WebACL' with a CloudFront distribution.
 --
 -- For more information about how to use the AWS WAF API, see the
 -- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html AWS API Reference> for CreateWebACL.
 module Network.AWS.WAF.CreateWebACL
     (
     -- * Creating a Request
@@ -108,8 +107,8 @@ createWebACL pName_ pMetricName_ pDefaultAction_ pChangeToken_ =
     , _cwaChangeToken = pChangeToken_
     }
 
--- | A friendly name or description of the WebACL. You can\'t change 'Name'
--- after you create the 'WebACL'.
+-- | A friendly name or description of the < WebACL>. You can\'t change
+-- 'Name' after you create the 'WebACL'.
 cwaName :: Lens' CreateWebACL Text
 cwaName = lens _cwaName (\ s a -> s{_cwaName = a});
 
@@ -126,7 +125,7 @@ cwaMetricName = lens _cwaMetricName (\ s a -> s{_cwaMetricName = a});
 cwaDefaultAction :: Lens' CreateWebACL WafAction
 cwaDefaultAction = lens _cwaDefaultAction (\ s a -> s{_cwaDefaultAction = a});
 
--- | The value returned by the most recent call to GetChangeToken.
+-- | The value returned by the most recent call to < GetChangeToken>.
 cwaChangeToken :: Lens' CreateWebACL Text
 cwaChangeToken = lens _cwaChangeToken (\ s a -> s{_cwaChangeToken = a});
 
@@ -139,6 +138,8 @@ instance AWSRequest CreateWebACL where
                  CreateWebACLResponse' <$>
                    (x .?> "WebACL") <*> (x .?> "ChangeToken") <*>
                      (pure (fromEnum s)))
+
+instance Hashable CreateWebACL
 
 instance ToHeaders CreateWebACL where
         toHeaders
@@ -190,13 +191,13 @@ createWebACLResponse pResponseStatus_ =
     , _cwarsResponseStatus = pResponseStatus_
     }
 
--- | The WebACL returned in the 'CreateWebACL' response.
+-- | The < WebACL> returned in the 'CreateWebACL' response.
 cwarsWebACL :: Lens' CreateWebACLResponse (Maybe WebACL)
 cwarsWebACL = lens _cwarsWebACL (\ s a -> s{_cwarsWebACL = a});
 
 -- | The 'ChangeToken' that you used to submit the 'CreateWebACL' request.
 -- You can also use this value to query the status of the request. For more
--- information, see GetChangeTokenStatus.
+-- information, see < GetChangeTokenStatus>.
 cwarsChangeToken :: Lens' CreateWebACLResponse (Maybe Text)
 cwarsChangeToken = lens _cwarsChangeToken (\ s a -> s{_cwarsChangeToken = a});
 

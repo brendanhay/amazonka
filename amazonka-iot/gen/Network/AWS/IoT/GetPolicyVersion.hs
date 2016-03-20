@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.GetPolicyVersion
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified policy version.
---
--- /See:/ <https://aws.amazon.com/iot#GetPolicyVersion.html AWS API Reference> for GetPolicyVersion.
 module Network.AWS.IoT.GetPolicyVersion
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest GetPolicyVersion where
                      <*> (x .?> "policyArn")
                      <*> (x .?> "isDefaultVersion")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetPolicyVersion
 
 instance ToHeaders GetPolicyVersion where
         toHeaders = const mempty

@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.Types.Sum
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -535,3 +535,46 @@ instance ToJSON TagFilterType where
 
 instance FromJSON TagFilterType where
     parseJSON = parseJSONText "TagFilterType"
+
+data TriggerEventType
+    = DeploymentFailure
+    | DeploymentStart
+    | DeploymentStop
+    | DeploymentSuccess
+    | InstanceFailure
+    | InstanceStart
+    | InstanceSuccess
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TriggerEventType where
+    parser = takeLowerText >>= \case
+        "deploymentfailure" -> pure DeploymentFailure
+        "deploymentstart" -> pure DeploymentStart
+        "deploymentstop" -> pure DeploymentStop
+        "deploymentsuccess" -> pure DeploymentSuccess
+        "instancefailure" -> pure InstanceFailure
+        "instancestart" -> pure InstanceStart
+        "instancesuccess" -> pure InstanceSuccess
+        e -> fromTextError $ "Failure parsing TriggerEventType from value: '" <> e
+           <> "'. Accepted values: DeploymentFailure, DeploymentStart, DeploymentStop, DeploymentSuccess, InstanceFailure, InstanceStart, InstanceSuccess"
+
+instance ToText TriggerEventType where
+    toText = \case
+        DeploymentFailure -> "DeploymentFailure"
+        DeploymentStart -> "DeploymentStart"
+        DeploymentStop -> "DeploymentStop"
+        DeploymentSuccess -> "DeploymentSuccess"
+        InstanceFailure -> "InstanceFailure"
+        InstanceStart -> "InstanceStart"
+        InstanceSuccess -> "InstanceSuccess"
+
+instance Hashable     TriggerEventType
+instance ToByteString TriggerEventType
+instance ToQuery      TriggerEventType
+instance ToHeader     TriggerEventType
+
+instance ToJSON TriggerEventType where
+    toJSON = toJSONText
+
+instance FromJSON TriggerEventType where
+    parseJSON = parseJSONText "TriggerEventType"

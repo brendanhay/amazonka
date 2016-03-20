@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualGateways
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- managed via Amazon Virtual Private Cloud (VPC) console or the
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway>
 -- action.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualGateways.html AWS API Reference> for DescribeVirtualGateways.
 module Network.AWS.DirectConnect.DescribeVirtualGateways
     (
     -- * Creating a Request
@@ -69,6 +67,8 @@ instance AWSRequest DescribeVirtualGateways where
                  DescribeVirtualGatewaysResponse' <$>
                    (x .?> "virtualGateways" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeVirtualGateways
 
 instance ToHeaders DescribeVirtualGateways where
         toHeaders

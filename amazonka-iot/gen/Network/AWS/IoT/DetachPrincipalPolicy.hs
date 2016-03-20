@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.IoT.DetachPrincipalPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified policy from the specified certificate.
---
--- /See:/ <https://aws.amazon.com/iot#DetachPrincipalPolicy.html AWS API Reference> for DetachPrincipalPolicy.
 module Network.AWS.IoT.DetachPrincipalPolicy
     (
     -- * Creating a Request
@@ -71,10 +69,10 @@ detachPrincipalPolicy pPolicyName_ pPrincipal_ =
 dppPolicyName :: Lens' DetachPrincipalPolicy Text
 dppPolicyName = lens _dppPolicyName (\ s a -> s{_dppPolicyName = a});
 
--- | The principal
+-- | The principal.
 --
 -- If the principal is a certificate, specify the certificate ARN. If the
--- principal is a Cognito identity specify the identity ID.
+-- principal is an Amazon Cognito identity, specify the identity ID.
 dppPrincipal :: Lens' DetachPrincipalPolicy Text
 dppPrincipal = lens _dppPrincipal (\ s a -> s{_dppPrincipal = a});
 
@@ -83,6 +81,8 @@ instance AWSRequest DetachPrincipalPolicy where
              DetachPrincipalPolicyResponse
         request = delete ioT
         response = receiveNull DetachPrincipalPolicyResponse'
+
+instance Hashable DetachPrincipalPolicy
 
 instance ToHeaders DetachPrincipalPolicy where
         toHeaders DetachPrincipalPolicy'{..}

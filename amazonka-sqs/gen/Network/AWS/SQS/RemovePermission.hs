@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.RemovePermission
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Revokes any permissions in the queue policy that matches the specified
 -- 'Label' parameter. Only the owner of the queue can remove permissions.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_RemovePermission.html AWS API Reference> for RemovePermission.
 module Network.AWS.SQS.RemovePermission
     (
     -- * Creating a Request
@@ -71,7 +69,7 @@ rpQueueURL :: Lens' RemovePermission Text
 rpQueueURL = lens _rpQueueURL (\ s a -> s{_rpQueueURL = a});
 
 -- | The identification of the permission to remove. This is the label added
--- with the AddPermission action.
+-- with the < AddPermission> action.
 rpLabel :: Lens' RemovePermission Text
 rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a});
 
@@ -79,6 +77,8 @@ instance AWSRequest RemovePermission where
         type Rs RemovePermission = RemovePermissionResponse
         request = postQuery sQS
         response = receiveNull RemovePermissionResponse'
+
+instance Hashable RemovePermission
 
 instance ToHeaders RemovePermission where
         toHeaders = const mempty

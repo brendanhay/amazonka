@@ -1,5 +1,3 @@
 {
-    "referenceUrl": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/Welcome.html",
-    "operationUrl": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_",
     "libraryName": "amazonka-cognito-sync"
 }

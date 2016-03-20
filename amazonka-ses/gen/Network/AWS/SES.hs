@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.SES
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 -- For a list of Amazon SES endpoints to use in service requests, see
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html Regions and Amazon SES>
 -- in the Amazon SES Developer Guide.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.SES
     (
     -- * Service Configuration
@@ -41,6 +39,9 @@ module Network.AWS.SES
 
     -- ** RuleSetDoesNotExistException
     , _RuleSetDoesNotExistException
+
+    -- ** MailFromDomainNotVerifiedException
+    , _MailFromDomainNotVerifiedException
 
     -- ** InvalidLambdaFunctionException
     , _InvalidLambdaFunctionException
@@ -93,8 +94,14 @@ module Network.AWS.SES
     -- ** DescribeReceiptRuleSet
     , module Network.AWS.SES.DescribeReceiptRuleSet
 
+    -- ** GetIdentityMailFromDomainAttributes
+    , module Network.AWS.SES.GetIdentityMailFromDomainAttributes
+
     -- ** CreateReceiptFilter
     , module Network.AWS.SES.CreateReceiptFilter
+
+    -- ** SetIdentityMailFromDomain
+    , module Network.AWS.SES.SetIdentityMailFromDomain
 
     -- ** SetIdentityFeedbackForwardingEnabled
     , module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
@@ -185,8 +192,14 @@ module Network.AWS.SES
 
     -- * Types
 
+    -- ** BehaviorOnMXFailure
+    , BehaviorOnMXFailure (..)
+
     -- ** BounceType
     , BounceType (..)
+
+    -- ** CustomMailFromStatus
+    , CustomMailFromStatus (..)
 
     -- ** DsnAction
     , DsnAction (..)
@@ -202,6 +215,9 @@ module Network.AWS.SES
 
     -- ** ReceiptFilterPolicy
     , ReceiptFilterPolicy (..)
+
+    -- ** SNSActionEncoding
+    , SNSActionEncoding (..)
 
     -- ** StopScope
     , StopScope (..)
@@ -266,6 +282,13 @@ module Network.AWS.SES
     , idaDkimTokens
     , idaDkimEnabled
     , idaDkimVerificationStatus
+
+    -- ** IdentityMailFromDomainAttributes
+    , IdentityMailFromDomainAttributes
+    , identityMailFromDomainAttributes
+    , imfdaMailFromDomain
+    , imfdaMailFromDomainStatus
+    , imfdaBehaviorOnMXFailure
 
     -- ** IdentityNotificationAttributes
     , IdentityNotificationAttributes
@@ -367,6 +390,7 @@ module Network.AWS.SES
     -- ** SNSAction
     , SNSAction
     , snsAction
+    , saEncoding
     , saTopicARN
 
     -- ** SendDataPoint
@@ -405,6 +429,7 @@ import           Network.AWS.SES.DescribeActiveReceiptRuleSet
 import           Network.AWS.SES.DescribeReceiptRule
 import           Network.AWS.SES.DescribeReceiptRuleSet
 import           Network.AWS.SES.GetIdentityDkimAttributes
+import           Network.AWS.SES.GetIdentityMailFromDomainAttributes
 import           Network.AWS.SES.GetIdentityNotificationAttributes
 import           Network.AWS.SES.GetIdentityPolicies
 import           Network.AWS.SES.GetIdentityVerificationAttributes
@@ -423,6 +448,7 @@ import           Network.AWS.SES.SendRawEmail
 import           Network.AWS.SES.SetActiveReceiptRuleSet
 import           Network.AWS.SES.SetIdentityDkimEnabled
 import           Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
+import           Network.AWS.SES.SetIdentityMailFromDomain
 import           Network.AWS.SES.SetIdentityNotificationTopic
 import           Network.AWS.SES.SetReceiptRulePosition
 import           Network.AWS.SES.Types

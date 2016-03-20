@@ -1,5 +1,5 @@
 name:                  amazonka-codedeploy
-version:               1.3.7
+version:               1.3.8
 synopsis:              Amazon CodeDeploy SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2015 Brendan Hay
+copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -15,26 +15,23 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     AWS CodeDeploy __Overview__
 
-    This is the AWS CodeDeploy API Reference. This guide provides
-    descriptions of the AWS CodeDeploy APIs. For additional information, see
-    the
-    <http://docs.aws.amazon.com/codedeploy/latest/userguide AWS CodeDeploy User Guide>.
+    This reference guide provides descriptions of the AWS CodeDeploy APIs.
+    For more information about AWS CodeDeploy, see the
+    <docs.aws.amazon.com/codedeploy/latest/userguide AWS CodeDeploy User Guide>.
 
     __Using the APIs__
 
-    You can use the AWS CodeDeploy APIs to work with the following items:
+    You can use the AWS CodeDeploy APIs to work with the following:
 
-    -   Applications are unique identifiers that AWS CodeDeploy uses to
-        ensure that the correct combinations of revisions, deployment
-        configurations, and deployment groups are being referenced during
-        deployments.
+    -   Applications are unique identifiers used by AWS CodeDeploy to ensure
+        the correct combinations of revisions, deployment configurations,
+        and deployment groups are being referenced during deployments.
 
         You can use the AWS CodeDeploy APIs to create, delete, get, list,
         and update applications.
 
-    -   Deployment configurations are sets of deployment rules and
-        deployment success and failure conditions that AWS CodeDeploy uses
-        during deployments.
+    -   Deployment configurations are sets of deployment rules and success
+        and failure conditions used by AWS CodeDeploy during deployments.
 
         You can use the AWS CodeDeploy APIs to create, delete, get, and list
         deployment configurations.
@@ -50,7 +47,7 @@ description:
         tags or Auto Scaling group names. Instances belong to deployment
         groups.
 
-        You can use the AWS CodeDeploy APIs to get and list instances.
+        You can use the AWS CodeDeploy APIs to get and list instance.
 
     -   Deployments represent the process of deploying revisions to
         instances.
@@ -58,18 +55,18 @@ description:
         You can use the AWS CodeDeploy APIs to create, get, list, and stop
         deployments.
 
-    -   Application revisions are archive files that are stored in Amazon S3
-        buckets or GitHub repositories. These revisions contain source
-        content (such as source code, web pages, executable files, any
-        deployment scripts, and similar) along with an Application
-        Specification file (AppSpec file). (The AppSpec file is unique to
-        AWS CodeDeploy; it defines a series of deployment actions that you
-        want AWS CodeDeploy to execute.) An application revision is uniquely
+    -   Application revisions are archive files stored in Amazon S3 buckets
+        or GitHub repositories. These revisions contain source content (such
+        as source code, web pages, executable files, and deployment scripts)
+        along with an application specification (AppSpec) file. (The AppSpec
+        file is unique to AWS CodeDeploy; it defines the deployment actions
+        you want AWS CodeDeploy to execute.) Ffor application revisions
+        stored in Amazon S3 buckets, an application revision is uniquely
         identified by its Amazon S3 object key and its ETag, version, or
-        both (for application revisions that are stored in Amazon S3
-        buckets) or by its repository name and commit ID (for applications
-        revisions that are stored in GitHub repositories). Application
-        revisions are deployed through deployment groups.
+        both. For application revisions stored in GitHub repositories, an
+        application revision is uniquely identified by its repository name
+        and commit ID. Application revisions are deployed through deployment
+        groups.
 
         You can use the AWS CodeDeploy APIs to get, list, and register
         application revisions.
@@ -85,7 +82,7 @@ description:
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.CodeDeploy" and the <http://docs.aws.amazon.com/codedeploy/latest/APIReference/Welcome.html AWS API Reference>
+    See "Network.AWS.CodeDeploy" or <https://aws.amazon.com/documentation/ the AWS Documentation>
     to get started.
 
 source-repository head
@@ -101,7 +98,10 @@ library
     exposed-modules:
           Network.AWS.CodeDeploy
         , Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
+        , Network.AWS.CodeDeploy.BatchGetApplicationRevisions
         , Network.AWS.CodeDeploy.BatchGetApplications
+        , Network.AWS.CodeDeploy.BatchGetDeploymentGroups
+        , Network.AWS.CodeDeploy.BatchGetDeploymentInstances
         , Network.AWS.CodeDeploy.BatchGetDeployments
         , Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
         , Network.AWS.CodeDeploy.CreateApplication
@@ -140,7 +140,7 @@ library
         , Network.AWS.CodeDeploy.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.7.*
+          amazonka-core == 1.3.8.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-codedeploy-test
@@ -160,9 +160,9 @@ test-suite amazonka-codedeploy-test
         , Test.AWS.CodeDeploy.Internal
 
     build-depends:
-          amazonka-core == 1.3.7.*
-        , amazonka-test == 1.3.7.*
-        , amazonka-codedeploy == 1.3.7.*
+          amazonka-core == 1.3.8.*
+        , amazonka-test == 1.3.8.*
+        , amazonka-codedeploy == 1.3.8.*
         , base
         , bytestring
         , tasty

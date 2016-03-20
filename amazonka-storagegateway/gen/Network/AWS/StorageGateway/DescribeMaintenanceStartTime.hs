@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeMaintenanceStartTime
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- This operation returns your gateway\'s weekly maintenance start time
 -- including the day and time of the week. Note that values are in terms of
 -- the gateway\'s time zone.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeMaintenanceStartTime.html AWS API Reference> for DescribeMaintenanceStartTime.
 module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest DescribeMaintenanceStartTime
                      <*> (x .?> "Timezone")
                      <*> (x .?> "DayOfWeek")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeMaintenanceStartTime
 
 instance ToHeaders DescribeMaintenanceStartTime where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.SetDataRetrievalPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- progress before the policy was enacted. For more information about data
 -- retrieval policies, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetDataRetrievalPolicy.html AWS API Reference> for SetDataRetrievalPolicy.
 module Network.AWS.Glacier.SetDataRetrievalPolicy
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest SetDataRetrievalPolicy where
         request = putJSON glacier
         response
           = receiveNull SetDataRetrievalPolicyResponse'
+
+instance Hashable SetDataRetrievalPolicy
 
 instance ToHeaders SetDataRetrievalPolicy where
         toHeaders = const mempty

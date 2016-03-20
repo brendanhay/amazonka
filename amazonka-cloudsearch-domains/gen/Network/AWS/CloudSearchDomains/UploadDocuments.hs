@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearchDomains.UploadDocuments
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -44,8 +44,6 @@
 -- uploading data for indexing, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html Uploading Data>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UploadDocuments.html AWS API Reference> for UploadDocuments.
 module Network.AWS.CloudSearchDomains.UploadDocuments
     (
     -- * Creating a Request

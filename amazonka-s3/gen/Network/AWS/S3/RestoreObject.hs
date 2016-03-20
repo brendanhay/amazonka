@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.RestoreObject
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Restores an archived copy of an object back into Amazon S3
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/RestoreObject.html AWS API Reference> for RestoreObject.
 module Network.AWS.S3.RestoreObject
     (
     -- * Creating a Request
@@ -112,6 +110,8 @@ instance AWSRequest RestoreObject where
                  RestoreObjectResponse' <$>
                    (h .#? "x-amz-request-charged") <*>
                      (pure (fromEnum s)))
+
+instance Hashable RestoreObject
 
 instance ToElement RestoreObject where
         toElement

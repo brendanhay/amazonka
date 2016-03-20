@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Test.AWS.Gen.CodeCommit
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,6 +31,9 @@ import Test.AWS.CodeCommit.Internal
 --         [ testUpdateRepositoryName $
 --             updateRepositoryName
 --
+--         , testGetCommit $
+--             getCommit
+--
 --         , testGetBranch $
 --             getBranch
 --
@@ -55,6 +58,15 @@ import Test.AWS.CodeCommit.Internal
 --         , testGetRepository $
 --             getRepository
 --
+--         , testGetRepositoryTriggers $
+--             getRepositoryTriggers
+--
+--         , testTestRepositoryTriggers $
+--             testRepositoryTriggers
+--
+--         , testPutRepositoryTriggers $
+--             putRepositoryTriggers
+--
 --         , testDeleteRepository $
 --             deleteRepository
 --
@@ -66,6 +78,9 @@ import Test.AWS.CodeCommit.Internal
 --     , testGroup "response"
 --         [ testUpdateRepositoryNameResponse $
 --             updateRepositoryNameResponse
+--
+--         , testGetCommitResponse $
+--             getCommitResponse
 --
 --         , testGetBranchResponse $
 --             getBranchResponse
@@ -91,6 +106,15 @@ import Test.AWS.CodeCommit.Internal
 --         , testGetRepositoryResponse $
 --             getRepositoryResponse
 --
+--         , testGetRepositoryTriggersResponse $
+--             getRepositoryTriggersResponse
+--
+--         , testTestRepositoryTriggersResponse $
+--             testRepositoryTriggersResponse
+--
+--         , testPutRepositoryTriggersResponse $
+--             putRepositoryTriggersResponse
+--
 --         , testDeleteRepositoryResponse $
 --             deleteRepositoryResponse
 --
@@ -106,6 +130,11 @@ testUpdateRepositoryName :: UpdateRepositoryName -> TestTree
 testUpdateRepositoryName = req
     "UpdateRepositoryName"
     "fixture/UpdateRepositoryName.yaml"
+
+testGetCommit :: GetCommit -> TestTree
+testGetCommit = req
+    "GetCommit"
+    "fixture/GetCommit.yaml"
 
 testGetBranch :: GetBranch -> TestTree
 testGetBranch = req
@@ -147,6 +176,21 @@ testGetRepository = req
     "GetRepository"
     "fixture/GetRepository.yaml"
 
+testGetRepositoryTriggers :: GetRepositoryTriggers -> TestTree
+testGetRepositoryTriggers = req
+    "GetRepositoryTriggers"
+    "fixture/GetRepositoryTriggers.yaml"
+
+testTestRepositoryTriggers :: TestRepositoryTriggers -> TestTree
+testTestRepositoryTriggers = req
+    "TestRepositoryTriggers"
+    "fixture/TestRepositoryTriggers.yaml"
+
+testPutRepositoryTriggers :: PutRepositoryTriggers -> TestTree
+testPutRepositoryTriggers = req
+    "PutRepositoryTriggers"
+    "fixture/PutRepositoryTriggers.yaml"
+
 testDeleteRepository :: DeleteRepository -> TestTree
 testDeleteRepository = req
     "DeleteRepository"
@@ -165,6 +209,13 @@ testUpdateRepositoryNameResponse = res
     "fixture/UpdateRepositoryNameResponse.proto"
     codeCommit
     (Proxy :: Proxy UpdateRepositoryName)
+
+testGetCommitResponse :: GetCommitResponse -> TestTree
+testGetCommitResponse = res
+    "GetCommitResponse"
+    "fixture/GetCommitResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetCommit)
 
 testGetBranchResponse :: GetBranchResponse -> TestTree
 testGetBranchResponse = res
@@ -221,6 +272,27 @@ testGetRepositoryResponse = res
     "fixture/GetRepositoryResponse.proto"
     codeCommit
     (Proxy :: Proxy GetRepository)
+
+testGetRepositoryTriggersResponse :: GetRepositoryTriggersResponse -> TestTree
+testGetRepositoryTriggersResponse = res
+    "GetRepositoryTriggersResponse"
+    "fixture/GetRepositoryTriggersResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetRepositoryTriggers)
+
+testTestRepositoryTriggersResponse :: TestRepositoryTriggersResponse -> TestTree
+testTestRepositoryTriggersResponse = res
+    "TestRepositoryTriggersResponse"
+    "fixture/TestRepositoryTriggersResponse.proto"
+    codeCommit
+    (Proxy :: Proxy TestRepositoryTriggers)
+
+testPutRepositoryTriggersResponse :: PutRepositoryTriggersResponse -> TestTree
+testPutRepositoryTriggersResponse = res
+    "PutRepositoryTriggersResponse"
+    "fixture/PutRepositoryTriggersResponse.proto"
+    codeCommit
+    (Proxy :: Proxy PutRepositoryTriggers)
 
 testDeleteRepositoryResponse :: DeleteRepositoryResponse -> TestTree
 testDeleteRepositoryResponse = res

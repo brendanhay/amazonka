@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.CancelUpdateStack
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- previous stack configuration.
 --
 -- You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html AWS API Reference> for CancelUpdateStack.
 module Network.AWS.CloudFormation.CancelUpdateStack
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the CancelUpdateStack action.
+-- | The input for the < CancelUpdateStack> action.
 --
 -- /See:/ 'cancelUpdateStack' smart constructor.
 newtype CancelUpdateStack = CancelUpdateStack'
@@ -73,6 +71,8 @@ instance AWSRequest CancelUpdateStack where
         type Rs CancelUpdateStack = CancelUpdateStackResponse
         request = postQuery cloudFormation
         response = receiveNull CancelUpdateStackResponse'
+
+instance Hashable CancelUpdateStack
 
 instance ToHeaders CancelUpdateStack where
         toHeaders = const mempty

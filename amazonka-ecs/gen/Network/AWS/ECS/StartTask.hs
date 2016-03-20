@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.StartTask
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- to place your task, use 'RunTask' instead.
 --
 -- The list of container instances to start tasks on is limited to 10.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html AWS API Reference> for StartTask.
 module Network.AWS.ECS.StartTask
     (
     -- * Creating a Request
@@ -110,7 +108,7 @@ sCluster = lens _sCluster (\ s a -> s{_sCluster = a});
 -- automatically trigger a task to run a batch process job, you could apply
 -- a unique identifier for that job to your task with the 'startedBy'
 -- parameter. You can then identify which tasks belong to that job by
--- filtering the results of a ListTasks call with the 'startedBy' value.
+-- filtering the results of a < ListTasks> call with the 'startedBy' value.
 --
 -- If a task is started by an Amazon ECS service, then the 'startedBy'
 -- parameter contains the deployment ID of the service that starts it.
@@ -140,6 +138,8 @@ instance AWSRequest StartTask where
                    (x .?> "failures" .!@ mempty) <*>
                      (x .?> "tasks" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable StartTask
 
 instance ToHeaders StartTask where
         toHeaders

@@ -12,17 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.WAF.UpdateRule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inserts or deletes Predicate objects in a 'Rule'. Each 'Predicate'
--- object identifies a predicate, such as a ByteMatchSet or an IPSet, that
--- specifies the web requests that you want to allow, block, or count. If
--- you add more than one predicate to a 'Rule', a request must match all of
--- the specifications to be allowed, blocked, or counted. For example,
+-- Inserts or deletes < Predicate> objects in a 'Rule'. Each 'Predicate'
+-- object identifies a predicate, such as a < ByteMatchSet> or an < IPSet>,
+-- that specifies the web requests that you want to allow, block, or count.
+-- If you add more than one predicate to a 'Rule', a request must match all
+-- of the specifications to be allowed, blocked, or counted. For example,
 -- suppose you add the following to a 'Rule':
 --
 -- -   A 'ByteMatchSet' that matches the value 'BadBot' in the 'User-Agent'
@@ -38,12 +38,12 @@
 --
 -- 1.  Create and update the predicates that you want to include in the
 --     'Rule'.
--- 2.  Create the 'Rule'. See CreateRule.
+-- 2.  Create the 'Rule'. See < CreateRule>.
 -- 3.  Use 'GetChangeToken' to get the change token that you provide in the
---     'ChangeToken' parameter of an UpdateRule request.
+--     'ChangeToken' parameter of an < UpdateRule> request.
 -- 4.  Submit an 'UpdateRule' request to add predicates to the 'Rule'.
 -- 5.  Create and update a 'WebACL' that contains the 'Rule'. See
---     CreateWebACL.
+--     < CreateWebACL>.
 --
 -- If you want to replace one 'ByteMatchSet' or 'IPSet' with another, you
 -- delete the existing one and add the new one.
@@ -51,8 +51,6 @@
 -- For more information about how to use the AWS WAF API to allow or block
 -- HTTP requests, see the
 -- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateRule.html AWS API Reference> for UpdateRule.
 module Network.AWS.WAF.UpdateRule
     (
     -- * Creating a Request
@@ -106,20 +104,20 @@ updateRule pRuleId_ pChangeToken_ =
     }
 
 -- | The 'RuleId' of the 'Rule' that you want to update. 'RuleId' is returned
--- by 'CreateRule' and by ListRules.
+-- by 'CreateRule' and by < ListRules>.
 urRuleId :: Lens' UpdateRule Text
 urRuleId = lens _urRuleId (\ s a -> s{_urRuleId = a});
 
--- | The value returned by the most recent call to GetChangeToken.
+-- | The value returned by the most recent call to < GetChangeToken>.
 urChangeToken :: Lens' UpdateRule Text
 urChangeToken = lens _urChangeToken (\ s a -> s{_urChangeToken = a});
 
 -- | An array of 'RuleUpdate' objects that you want to insert into or delete
--- from a Rule. For more information, see the applicable data types:
+-- from a < Rule>. For more information, see the applicable data types:
 --
--- -   RuleUpdate: Contains 'Action' and 'Predicate'
--- -   Predicate: Contains 'DataId', 'Negated', and 'Type'
--- -   FieldToMatch: Contains 'Data' and 'Type'
+-- -   < RuleUpdate>: Contains 'Action' and 'Predicate'
+-- -   < Predicate>: Contains 'DataId', 'Negated', and 'Type'
+-- -   < FieldToMatch>: Contains 'Data' and 'Type'
 urUpdates :: Lens' UpdateRule [RuleUpdate]
 urUpdates = lens _urUpdates (\ s a -> s{_urUpdates = a}) . _Coerce;
 
@@ -131,6 +129,8 @@ instance AWSRequest UpdateRule where
               (\ s h x ->
                  UpdateRuleResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
+
+instance Hashable UpdateRule
 
 instance ToHeaders UpdateRule where
         toHeaders
@@ -179,7 +179,7 @@ updateRuleResponse pResponseStatus_ =
 
 -- | The 'ChangeToken' that you used to submit the 'UpdateRule' request. You
 -- can also use this value to query the status of the request. For more
--- information, see GetChangeTokenStatus.
+-- information, see < GetChangeTokenStatus>.
 urrsChangeToken :: Lens' UpdateRuleResponse (Maybe Text)
 urrsChangeToken = lens _urrsChangeToken (\ s a -> s{_urrsChangeToken = a});
 

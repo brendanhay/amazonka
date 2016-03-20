@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.AttachInternetGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- Internet and the VPC. For more information about your VPC and Internet
 -- gateway, see the
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachInternetGateway.html AWS API Reference> for AttachInternetGateway.
 module Network.AWS.EC2.AttachInternetGateway
     (
     -- * Creating a Request
@@ -93,6 +91,8 @@ instance AWSRequest AttachInternetGateway where
              AttachInternetGatewayResponse
         request = postQuery eC2
         response = receiveNull AttachInternetGatewayResponse'
+
+instance Hashable AttachInternetGateway
 
 instance ToHeaders AttachInternetGateway where
         toHeaders = const mempty

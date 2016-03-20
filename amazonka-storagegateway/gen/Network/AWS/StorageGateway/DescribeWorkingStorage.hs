@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeWorkingStorage
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 --
 -- The response includes disk IDs that are configured as working storage,
 -- and it includes the amount of working storage allocated and used.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeWorkingStorage.html AWS API Reference> for DescribeWorkingStorage.
 module Network.AWS.StorageGateway.DescribeWorkingStorage
     (
     -- * Creating a Request
@@ -93,6 +91,8 @@ instance AWSRequest DescribeWorkingStorage where
                      <*> (x .?> "WorkingStorageAllocatedInBytes")
                      <*> (x .?> "WorkingStorageUsedInBytes")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeWorkingStorage
 
 instance ToHeaders DescribeWorkingStorage where
         toHeaders

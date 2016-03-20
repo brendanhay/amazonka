@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteAssociation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- state of an instance after you disassociate a document, you must create
 -- a new document with the desired configuration and associate it with the
 -- instance.
---
--- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DeleteAssociation.html AWS API Reference> for DeleteAssociation.
 module Network.AWS.SSM.DeleteAssociation
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest DeleteAssociation where
           = receiveEmpty
               (\ s h x ->
                  DeleteAssociationResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeleteAssociation
 
 instance ToHeaders DeleteAssociation where
         toHeaders

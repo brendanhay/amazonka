@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -51,7 +51,11 @@ attributeDefinition pAttributeName_ pAttributeType_ =
 adAttributeName :: Lens' AttributeDefinition Text
 adAttributeName = lens _adAttributeName (\ s a -> s{_adAttributeName = a});
 
--- | The data type for the attribute.
+-- | The data type for the attribute, where:
+--
+-- -   'S' - the attribute is of type String
+-- -   'N' - the attribute is of type Number
+-- -   'B' - the attribute is of type Binary
 adAttributeType :: Lens' AttributeDefinition ScalarAttributeType
 adAttributeType = lens _adAttributeType (\ s a -> s{_adAttributeType = a});
 
@@ -61,6 +65,8 @@ instance FromJSON AttributeDefinition where
               (\ x ->
                  AttributeDefinition' <$>
                    (x .: "AttributeName") <*> (x .: "AttributeType"))
+
+instance Hashable AttributeDefinition
 
 instance ToJSON AttributeDefinition where
         toJSON AttributeDefinition'{..}
@@ -192,6 +198,8 @@ instance FromJSON AttributeValue where
                      <*> (x .:? "S")
                      <*> (x .:? "BOOL"))
 
+instance Hashable AttributeValue
+
 instance ToJSON AttributeValue where
         toJSON AttributeValue'{..}
           = object
@@ -314,6 +322,8 @@ avuValue = lens _avuValue (\ s a -> s{_avuValue = a});
 avuAction :: Lens' AttributeValueUpdate (Maybe AttributeAction)
 avuAction = lens _avuAction (\ s a -> s{_avuAction = a});
 
+instance Hashable AttributeValueUpdate
+
 instance ToJSON AttributeValueUpdate where
         toJSON AttributeValueUpdate'{..}
           = object
@@ -349,6 +359,8 @@ instance FromJSON Capacity where
         parseJSON
           = withObject "Capacity"
               (\ x -> Capacity' <$> (x .:? "CapacityUnits"))
+
+instance Hashable Capacity
 
 -- | Represents the selection criteria for a /Query/ or /Scan/ operation:
 --
@@ -558,6 +570,8 @@ cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList
 cComparisonOperator :: Lens' Condition ComparisonOperator
 cComparisonOperator = lens _cComparisonOperator (\ s a -> s{_cComparisonOperator = a});
 
+instance Hashable Condition
+
 instance ToJSON Condition where
         toJSON Condition'{..}
           = object
@@ -639,6 +653,8 @@ instance FromJSON ConsumedCapacity where
                      <*> (x .:? "Table")
                      <*> (x .:? "TableName"))
 
+instance Hashable ConsumedCapacity
+
 -- | Represents a new global secondary index to be added to an existing
 -- table.
 --
@@ -691,6 +707,8 @@ cgsiaProjection = lens _cgsiaProjection (\ s a -> s{_cgsiaProjection = a});
 cgsiaProvisionedThroughput :: Lens' CreateGlobalSecondaryIndexAction ProvisionedThroughput
 cgsiaProvisionedThroughput = lens _cgsiaProvisionedThroughput (\ s a -> s{_cgsiaProvisionedThroughput = a});
 
+instance Hashable CreateGlobalSecondaryIndexAction
+
 instance ToJSON CreateGlobalSecondaryIndexAction
          where
         toJSON CreateGlobalSecondaryIndexAction'{..}
@@ -728,6 +746,8 @@ deleteGlobalSecondaryIndexAction pIndexName_ =
 dgsiaIndexName :: Lens' DeleteGlobalSecondaryIndexAction Text
 dgsiaIndexName = lens _dgsiaIndexName (\ s a -> s{_dgsiaIndexName = a});
 
+instance Hashable DeleteGlobalSecondaryIndexAction
+
 instance ToJSON DeleteGlobalSecondaryIndexAction
          where
         toJSON DeleteGlobalSecondaryIndexAction'{..}
@@ -764,6 +784,8 @@ instance FromJSON DeleteRequest where
         parseJSON
           = withObject "DeleteRequest"
               (\ x -> DeleteRequest' <$> (x .:? "Key" .!= mempty))
+
+instance Hashable DeleteRequest
 
 instance ToJSON DeleteRequest where
         toJSON DeleteRequest'{..}
@@ -1026,6 +1048,8 @@ eavValue = lens _eavValue (\ s a -> s{_eavValue = a});
 eavComparisonOperator :: Lens' ExpectedAttributeValue (Maybe ComparisonOperator)
 eavComparisonOperator = lens _eavComparisonOperator (\ s a -> s{_eavComparisonOperator = a});
 
+instance Hashable ExpectedAttributeValue
+
 instance ToJSON ExpectedAttributeValue where
         toJSON ExpectedAttributeValue'{..}
           = object
@@ -1078,7 +1102,21 @@ gsiIndexName :: Lens' GlobalSecondaryIndex Text
 gsiIndexName = lens _gsiIndexName (\ s a -> s{_gsiIndexName = a});
 
 -- | The complete key schema for a global secondary index, which consists of
--- one or more pairs of attribute names and key types ('HASH' or 'RANGE').
+-- one or more pairs of attribute names and key types:
+--
+-- -   'HASH' - partition key
+--
+-- -   'RANGE' - sort key
+--
+-- The partition key of an item is also known as its /hash attribute/. The
+-- term \"hash attribute\" derives from DynamoDB\' usage of an internal
+-- hash function to evenly distribute data items across partitions, based
+-- on their partition key values.
+--
+-- The sort key of an item is also known as its /range attribute/. The term
+-- \"range attribute\" derives from the way DynamoDB stores items with the
+-- same partition key physically close together, in sorted order by the
+-- sort key value.
 gsiKeySchema :: Lens' GlobalSecondaryIndex (NonEmpty KeySchemaElement)
 gsiKeySchema = lens _gsiKeySchema (\ s a -> s{_gsiKeySchema = a}) . _List1;
 
@@ -1089,6 +1127,8 @@ gsiProjection = lens _gsiProjection (\ s a -> s{_gsiProjection = a});
 -- | Undocumented member.
 gsiProvisionedThroughput :: Lens' GlobalSecondaryIndex ProvisionedThroughput
 gsiProvisionedThroughput = lens _gsiProvisionedThroughput (\ s a -> s{_gsiProvisionedThroughput = a});
+
+instance Hashable GlobalSecondaryIndex
 
 instance ToJSON GlobalSecondaryIndex where
         toJSON GlobalSecondaryIndex'{..}
@@ -1155,7 +1195,7 @@ globalSecondaryIndexDescription =
 -- | Indicates whether the index is currently backfilling. /Backfilling/ is
 -- the process of reading items from the table and determining whether they
 -- can be added to the index. (Not all items will qualify: For example, a
--- hash key attribute cannot have any duplicates.) If an item can be added
+-- partition key cannot have any duplicate values.) If an item can be added
 -- to the index, DynamoDB will do so. After all items have been processed,
 -- the backfilling operation is complete and /Backfilling/ is false.
 --
@@ -1191,8 +1231,22 @@ gsidProvisionedThroughput = lens _gsidProvisionedThroughput (\ s a -> s{_gsidPro
 gsidIndexARN :: Lens' GlobalSecondaryIndexDescription (Maybe Text)
 gsidIndexARN = lens _gsidIndexARN (\ s a -> s{_gsidIndexARN = a});
 
--- | The complete key schema for the global secondary index, consisting of
--- one or more pairs of attribute names and key types ('HASH' or 'RANGE').
+-- | The complete key schema for a global secondary index, which consists of
+-- one or more pairs of attribute names and key types:
+--
+-- -   'HASH' - partition key
+--
+-- -   'RANGE' - sort key
+--
+-- The partition key of an item is also known as its /hash attribute/. The
+-- term \"hash attribute\" derives from DynamoDB\' usage of an internal
+-- hash function to evenly distribute data items across partitions, based
+-- on their partition key values.
+--
+-- The sort key of an item is also known as its /range attribute/. The term
+-- \"range attribute\" derives from the way DynamoDB stores items with the
+-- same partition key physically close together, in sorted order by the
+-- sort key value.
 gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
 gsidKeySchema = lens _gsidKeySchema (\ s a -> s{_gsidKeySchema = a}) . mapping _List1;
 
@@ -1224,6 +1278,8 @@ instance FromJSON GlobalSecondaryIndexDescription
                      <*> (x .:? "Projection")
                      <*> (x .:? "ItemCount")
                      <*> (x .:? "IndexName"))
+
+instance Hashable GlobalSecondaryIndexDescription
 
 -- | Represents one of the following:
 --
@@ -1286,6 +1342,8 @@ gsiuDelete = lens _gsiuDelete (\ s a -> s{_gsiuDelete = a});
 gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndexAction)
 gsiuUpdate = lens _gsiuUpdate (\ s a -> s{_gsiuUpdate = a});
 
+instance Hashable GlobalSecondaryIndexUpdate
+
 instance ToJSON GlobalSecondaryIndexUpdate where
         toJSON GlobalSecondaryIndexUpdate'{..}
           = object
@@ -1320,8 +1378,8 @@ itemCollectionMetrics =
     , _icmSizeEstimateRangeGB = Nothing
     }
 
--- | The hash key value of the item collection. This value is the same as the
--- hash key of the item.
+-- | The partition key value of the item collection. This value is the same
+-- as the partition key value of the item.
 icmItemCollectionKey :: Lens' ItemCollectionMetrics (HashMap Text AttributeValue)
 icmItemCollectionKey = lens _icmItemCollectionKey (\ s a -> s{_icmItemCollectionKey = a}) . _Default . _Map;
 
@@ -1345,15 +1403,21 @@ instance FromJSON ItemCollectionMetrics where
                    (x .:? "ItemCollectionKey" .!= mempty) <*>
                      (x .:? "SizeEstimateRangeGB" .!= mempty))
 
+instance Hashable ItemCollectionMetrics
+
 -- | Represents /a single element/ of a key schema. A key schema specifies
 -- the attributes that make up the primary key of a table, or the key
 -- attributes of an index.
 --
 -- A /KeySchemaElement/ represents exactly one attribute of the primary
--- key. For example, a hash type primary key would be represented by one
--- /KeySchemaElement/. A hash-and-range type primary key would require one
--- /KeySchemaElement/ for the hash attribute, and another
--- /KeySchemaElement/ for the range attribute.
+-- key. For example, a simple primary key would be represented by one
+-- /KeySchemaElement/ (for the partition key). A composite primary key
+-- would require one /KeySchemaElement/ for the partition key, and another
+-- /KeySchemaElement/ for the sort key.
+--
+-- A /KeySchemaElement/ must be a scalar, top-level attribute (not a nested
+-- attribute). The data type must be one of String, Number, or Binary. The
+-- attribute cannot be nested within a List or a Map.
 --
 -- /See:/ 'keySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
@@ -1382,8 +1446,21 @@ keySchemaElement pAttributeName_ pKeyType_ =
 kseAttributeName :: Lens' KeySchemaElement Text
 kseAttributeName = lens _kseAttributeName (\ s a -> s{_kseAttributeName = a});
 
--- | The attribute data, consisting of the data type and the attribute value
--- itself.
+-- | The role that this key attribute will assume:
+--
+-- -   'HASH' - partition key
+--
+-- -   'RANGE' - sort key
+--
+-- The partition key of an item is also known as its /hash attribute/. The
+-- term \"hash attribute\" derives from DynamoDB\' usage of an internal
+-- hash function to evenly distribute data items across partitions, based
+-- on their partition key values.
+--
+-- The sort key of an item is also known as its /range attribute/. The term
+-- \"range attribute\" derives from the way DynamoDB stores items with the
+-- same partition key physically close together, in sorted order by the
+-- sort key value.
 kseKeyType :: Lens' KeySchemaElement KeyType
 kseKeyType = lens _kseKeyType (\ s a -> s{_kseKeyType = a});
 
@@ -1393,6 +1470,8 @@ instance FromJSON KeySchemaElement where
               (\ x ->
                  KeySchemaElement' <$>
                    (x .: "AttributeName") <*> (x .: "KeyType"))
+
+instance Hashable KeySchemaElement
 
 instance ToJSON KeySchemaElement where
         toJSON KeySchemaElement'{..}
@@ -1405,9 +1484,9 @@ instance ToJSON KeySchemaElement where
 -- retrieve from the table.
 --
 -- For each primary key, you must provide /all/ of the key attributes. For
--- example, with a hash type primary key, you only need to provide the hash
--- attribute. For a hash-and-range type primary key, you must provide
--- /both/ the hash attribute and the range attribute.
+-- example, with a simple primary key, you only need to provide the
+-- partition key. For a composite primary key, you must provide /both/ the
+-- partition key and the sort key.
 --
 -- /See:/ 'keysAndAttributes' smart constructor.
 data KeysAndAttributes = KeysAndAttributes'
@@ -1529,6 +1608,8 @@ instance FromJSON KeysAndAttributes where
                      <*> (x .:? "ConsistentRead")
                      <*> (x .: "Keys"))
 
+instance Hashable KeysAndAttributes
+
 instance ToJSON KeysAndAttributes where
         toJSON KeysAndAttributes'{..}
           = object
@@ -1577,13 +1658,29 @@ lsiIndexName :: Lens' LocalSecondaryIndex Text
 lsiIndexName = lens _lsiIndexName (\ s a -> s{_lsiIndexName = a});
 
 -- | The complete key schema for the local secondary index, consisting of one
--- or more pairs of attribute names and key types ('HASH' or 'RANGE').
+-- or more pairs of attribute names and key types:
+--
+-- -   'HASH' - partition key
+--
+-- -   'RANGE' - sort key
+--
+-- The partition key of an item is also known as its /hash attribute/. The
+-- term \"hash attribute\" derives from DynamoDB\' usage of an internal
+-- hash function to evenly distribute data items across partitions, based
+-- on their partition key values.
+--
+-- The sort key of an item is also known as its /range attribute/. The term
+-- \"range attribute\" derives from the way DynamoDB stores items with the
+-- same partition key physically close together, in sorted order by the
+-- sort key value.
 lsiKeySchema :: Lens' LocalSecondaryIndex (NonEmpty KeySchemaElement)
 lsiKeySchema = lens _lsiKeySchema (\ s a -> s{_lsiKeySchema = a}) . _List1;
 
 -- | Undocumented member.
 lsiProjection :: Lens' LocalSecondaryIndex Projection
 lsiProjection = lens _lsiProjection (\ s a -> s{_lsiProjection = a});
+
+instance Hashable LocalSecondaryIndex
 
 instance ToJSON LocalSecondaryIndex where
         toJSON LocalSecondaryIndex'{..}
@@ -1642,8 +1739,22 @@ lsidIndexSizeBytes = lens _lsidIndexSizeBytes (\ s a -> s{_lsidIndexSizeBytes = 
 lsidIndexARN :: Lens' LocalSecondaryIndexDescription (Maybe Text)
 lsidIndexARN = lens _lsidIndexARN (\ s a -> s{_lsidIndexARN = a});
 
--- | The complete index key schema, which consists of one or more pairs of
--- attribute names and key types ('HASH' or 'RANGE').
+-- | The complete key schema for the local secondary index, consisting of one
+-- or more pairs of attribute names and key types:
+--
+-- -   'HASH' - partition key
+--
+-- -   'RANGE' - sort key
+--
+-- The partition key of an item is also known as its /hash attribute/. The
+-- term \"hash attribute\" derives from DynamoDB\' usage of an internal
+-- hash function to evenly distribute data items across partitions, based
+-- on their partition key values.
+--
+-- The sort key of an item is also known as its /range attribute/. The term
+-- \"range attribute\" derives from the way DynamoDB stores items with the
+-- same partition key physically close together, in sorted order by the
+-- sort key value.
 lsidKeySchema :: Lens' LocalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
 lsidKeySchema = lens _lsidKeySchema (\ s a -> s{_lsidKeySchema = a}) . mapping _List1;
 
@@ -1672,6 +1783,8 @@ instance FromJSON LocalSecondaryIndexDescription
                      <*> (x .:? "Projection")
                      <*> (x .:? "ItemCount")
                      <*> (x .:? "IndexName"))
+
+instance Hashable LocalSecondaryIndexDescription
 
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
@@ -1730,6 +1843,8 @@ instance FromJSON Projection where
                    (x .:? "ProjectionType") <*>
                      (x .:? "NonKeyAttributes"))
 
+instance Hashable Projection
+
 instance ToJSON Projection where
         toJSON Projection'{..}
           = object
@@ -1781,6 +1896,8 @@ ptReadCapacityUnits = lens _ptReadCapacityUnits (\ s a -> s{_ptReadCapacityUnits
 -- in the /Amazon DynamoDB Developer Guide/.
 ptWriteCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptWriteCapacityUnits = lens _ptWriteCapacityUnits (\ s a -> s{_ptWriteCapacityUnits = a}) . _Nat;
+
+instance Hashable ProvisionedThroughput
 
 instance ToJSON ProvisionedThroughput where
         toJSON ProvisionedThroughput'{..}
@@ -1870,6 +1987,8 @@ instance FromJSON ProvisionedThroughputDescription
                      <*> (x .:? "NumberOfDecreasesToday")
                      <*> (x .:? "LastIncreaseDateTime"))
 
+instance Hashable ProvisionedThroughputDescription
+
 -- | Represents a request to perform a /PutItem/ operation on an item.
 --
 -- /See:/ 'putRequest' smart constructor.
@@ -1902,6 +2021,8 @@ instance FromJSON PutRequest where
         parseJSON
           = withObject "PutRequest"
               (\ x -> PutRequest' <$> (x .:? "Item" .!= mempty))
+
+instance Hashable PutRequest
 
 instance ToJSON PutRequest where
         toJSON PutRequest'{..}
@@ -1965,6 +2086,8 @@ instance FromJSON StreamSpecification where
               (\ x ->
                  StreamSpecification' <$>
                    (x .:? "StreamViewType") <*> (x .:? "StreamEnabled"))
+
+instance Hashable StreamSpecification
 
 instance ToJSON StreamSpecification where
         toJSON StreamSpecification'{..}
@@ -2094,8 +2217,23 @@ tdTableARN = lens _tdTableARN (\ s a -> s{_tdTableARN = a});
 --
 -- -   /AttributeName/ - The name of the attribute.
 --
--- -   /KeyType/ - The key type for the attribute. Can be either 'HASH' or
---     'RANGE'.
+-- -   /KeyType/ - The role of the attribute:
+--
+--     .
+--
+--     -   'HASH' - partition key
+--
+--     -   'RANGE' - sort key
+--
+--     The partition key of an item is also known as its /hash attribute/.
+--     The term \"hash attribute\" derives from DynamoDB\' usage of an
+--     internal hash function to evenly distribute data items across
+--     partitions, based on their partition key values.
+--
+--     The sort key of an item is also known as its /range attribute/. The
+--     term \"range attribute\" derives from the way DynamoDB stores items
+--     with the same partition key physically close together, in sorted
+--     order by the sort key value.
 --
 -- For more information about primary keys, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key>
@@ -2104,7 +2242,7 @@ tdKeySchema :: Lens' TableDescription (Maybe (NonEmpty KeySchemaElement))
 tdKeySchema = lens _tdKeySchema (\ s a -> s{_tdKeySchema = a}) . mapping _List1;
 
 -- | The global secondary indexes, if any, on the table. Each index is scoped
--- to a given hash key value. Each element is composed of:
+-- to a given partition key value. Each element is composed of:
 --
 -- -   /Backfilling/ - If true, then the index is currently in the
 --     backfilling phase. Backfilling occurs only when a new global
@@ -2135,8 +2273,8 @@ tdKeySchema = lens _tdKeySchema (\ s a -> s{_tdKeySchema = a}) . mapping _List1;
 --
 -- -   /KeySchema/ - Specifies the complete index key schema. The attribute
 --     names in the key schema must be between 1 and 255 characters
---     (inclusive). The key schema must begin with the same hash key
---     attribute as the table.
+--     (inclusive). The key schema must begin with the same partition key
+--     as the table.
 --
 -- -   /Projection/ - Specifies attributes that are copied (projected) from
 --     the table into the index. These are in addition to the primary key
@@ -2188,7 +2326,7 @@ tdLatestStreamLabel :: Lens' TableDescription (Maybe Text)
 tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel = a});
 
 -- | Represents one or more local secondary indexes on the table. Each index
--- is scoped to a given hash key value. Tables with one or more local
+-- is scoped to a given partition key value. Tables with one or more local
 -- secondary indexes are subject to an item collection size limit, where
 -- the amount of data within a given item collection cannot exceed 10 GB.
 -- Each element is composed of:
@@ -2197,8 +2335,8 @@ tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel
 --
 -- -   /KeySchema/ - Specifies the complete index key schema. The attribute
 --     names in the key schema must be between 1 and 255 characters
---     (inclusive). The key schema must begin with the same hash key
---     attribute as the table.
+--     (inclusive). The key schema must begin with the same partition key
+--     as the table.
 --
 -- -   /Projection/ - Specifies attributes that are copied (projected) from
 --     the table into the index. These are in addition to the primary key
@@ -2276,6 +2414,8 @@ instance FromJSON TableDescription where
                      <*> (x .:? "TableName")
                      <*> (x .:? "StreamSpecification"))
 
+instance Hashable TableDescription
+
 -- | Represents the new provisioned throughput settings to be applied to a
 -- global secondary index.
 --
@@ -2309,6 +2449,8 @@ ugsiaIndexName = lens _ugsiaIndexName (\ s a -> s{_ugsiaIndexName = a});
 -- | Undocumented member.
 ugsiaProvisionedThroughput :: Lens' UpdateGlobalSecondaryIndexAction ProvisionedThroughput
 ugsiaProvisionedThroughput = lens _ugsiaProvisionedThroughput (\ s a -> s{_ugsiaProvisionedThroughput = a});
+
+instance Hashable UpdateGlobalSecondaryIndexAction
 
 instance ToJSON UpdateGlobalSecondaryIndexAction
          where
@@ -2360,6 +2502,8 @@ instance FromJSON WriteRequest where
               (\ x ->
                  WriteRequest' <$>
                    (x .:? "DeleteRequest") <*> (x .:? "PutRequest"))
+
+instance Hashable WriteRequest
 
 instance ToJSON WriteRequest where
         toJSON WriteRequest'{..}

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteCacheParameterGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- The /DeleteCacheParameterGroup/ action deletes the specified cache
 -- parameter group. You cannot delete a cache parameter group if it is
 -- associated with any cache clusters.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheParameterGroup.html AWS API Reference> for DeleteCacheParameterGroup.
 module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest DeleteCacheParameterGroup where
         request = postQuery elastiCache
         response
           = receiveNull DeleteCacheParameterGroupResponse'
+
+instance Hashable DeleteCacheParameterGroup
 
 instance ToHeaders DeleteCacheParameterGroup where
         toHeaders = const mempty

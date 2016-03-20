@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeInternetGateways
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your Internet gateways.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInternetGateways.html AWS API Reference> for DescribeInternetGateways.
 module Network.AWS.EC2.DescribeInternetGateways
     (
     -- * Creating a Request
@@ -122,6 +120,8 @@ instance AWSRequest DescribeInternetGateways where
                    (x .@? "internetGatewaySet" .!@ mempty >>=
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeInternetGateways
 
 instance ToHeaders DescribeInternetGateways where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DeleteEvaluation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,13 +21,11 @@
 -- Assigns the 'DELETED' status to an 'Evaluation', rendering it unusable.
 --
 -- After invoking the 'DeleteEvaluation' operation, you can use the
--- GetEvaluation operation to verify that the status of the 'Evaluation'
+-- < GetEvaluation> operation to verify that the status of the 'Evaluation'
 -- changed to 'DELETED'.
 --
 -- __Caution:__ The results of the 'DeleteEvaluation' operation are
 -- irreversible.
---
--- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteEvaluation.html AWS API Reference> for DeleteEvaluation.
 module Network.AWS.MachineLearning.DeleteEvaluation
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest DeleteEvaluation where
                  DeleteEvaluationResponse' <$>
                    (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteEvaluation
+
 instance ToHeaders DeleteEvaluation where
         toHeaders
           = const
@@ -103,10 +103,10 @@ instance ToPath DeleteEvaluation where
 instance ToQuery DeleteEvaluation where
         toQuery = const mempty
 
--- | Represents the output of a DeleteEvaluation operation. The output
+-- | Represents the output of a < DeleteEvaluation> operation. The output
 -- indicates that Amazon Machine Learning (Amazon ML) received the request.
 --
--- You can use the GetEvaluation operation and check the value of the
+-- You can use the < GetEvaluation> operation and check the value of the
 -- 'Status' parameter to see whether an 'Evaluation' is marked as
 -- 'DELETED'.
 --

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualInterfaces
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 -- If a connection ID is provided, only virtual interfaces provisioned on
 -- the specified connection will be returned. If a virtual interface ID is
 -- provided, only this particular virtual interface will be returned.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualInterfaces.html AWS API Reference> for DescribeVirtualInterfaces.
 module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     (
     -- * Creating a Request
@@ -98,6 +96,8 @@ instance AWSRequest DescribeVirtualInterfaces where
                  DescribeVirtualInterfacesResponse' <$>
                    (x .?> "virtualInterfaces" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeVirtualInterfaces
 
 instance ToHeaders DescribeVirtualInterfaces where
         toHeaders

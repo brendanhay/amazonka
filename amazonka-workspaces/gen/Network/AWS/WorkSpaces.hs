@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -16,8 +16,6 @@
 -- This is the /Amazon WorkSpaces API Reference/. This guide provides
 -- detailed information about Amazon WorkSpaces operations, data types,
 -- parameters, and errors.
---
--- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/welcome.html AWS API Reference>
 module Network.AWS.WorkSpaces
     (
     -- * Service Configuration

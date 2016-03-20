@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the information about an origin access identity.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetCloudFrontOriginAccessIdentity.html AWS API Reference> for GetCloudFrontOriginAccessIdentity.
 module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest GetCloudFrontOriginAccessIdentity
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetCloudFrontOriginAccessIdentity
+
 instance ToHeaders GetCloudFrontOriginAccessIdentity
          where
         toHeaders = const mempty
@@ -89,7 +89,7 @@ instance ToPath GetCloudFrontOriginAccessIdentity
          where
         toPath GetCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2015-09-17/origin-access-identity/cloudfront/",
+              ["/2016-01-28/origin-access-identity/cloudfront/",
                toBS _gcfoaiId]
 
 instance ToQuery GetCloudFrontOriginAccessIdentity

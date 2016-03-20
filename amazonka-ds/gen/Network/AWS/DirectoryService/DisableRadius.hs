@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DisableRadius
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Disables multi-factor authentication (MFA) with the Remote
 -- Authentication Dial In User Service (RADIUS) server for an AD Connector
 -- directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableRadius.html AWS API Reference> for DisableRadius.
 module Network.AWS.DirectoryService.DisableRadius
     (
     -- * Creating a Request
@@ -45,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DisableRadius operation.
+-- | Contains the inputs for the < DisableRadius> operation.
 --
 -- /See:/ 'disableRadius' smart constructor.
 newtype DisableRadius = DisableRadius'
@@ -77,6 +75,8 @@ instance AWSRequest DisableRadius where
               (\ s h x ->
                  DisableRadiusResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DisableRadius
+
 instance ToHeaders DisableRadius where
         toHeaders
           = const
@@ -98,7 +98,7 @@ instance ToPath DisableRadius where
 instance ToQuery DisableRadius where
         toQuery = const mempty
 
--- | Contains the results of the DisableRadius operation.
+-- | Contains the results of the < DisableRadius> operation.
 --
 -- /See:/ 'disableRadiusResponse' smart constructor.
 newtype DisableRadiusResponse = DisableRadiusResponse'

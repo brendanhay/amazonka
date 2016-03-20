@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeApplication
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the application specified by the application ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DescribeApplication.html AWS API Reference> for DescribeApplication.
 module Network.AWS.Inspector.DescribeApplication
     (
     -- * Creating a Request
@@ -75,6 +73,8 @@ instance AWSRequest DescribeApplication where
               (\ s h x ->
                  DescribeApplicationResponse' <$>
                    (x .?> "application") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeApplication
 
 instance ToHeaders DescribeApplication where
         toHeaders

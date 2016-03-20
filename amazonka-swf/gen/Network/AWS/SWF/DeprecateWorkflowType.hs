@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.DeprecateWorkflowType
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -49,8 +49,6 @@
 -- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateWorkflowType.html AWS API Reference> for DeprecateWorkflowType.
 module Network.AWS.SWF.DeprecateWorkflowType
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest DeprecateWorkflowType where
              DeprecateWorkflowTypeResponse
         request = postJSON sWF
         response = receiveNull DeprecateWorkflowTypeResponse'
+
+instance Hashable DeprecateWorkflowType
 
 instance ToHeaders DeprecateWorkflowType where
         toHeaders

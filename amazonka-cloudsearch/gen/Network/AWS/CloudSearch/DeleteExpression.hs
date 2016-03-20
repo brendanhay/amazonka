@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DeleteExpression
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteExpression.html AWS API Reference> for DeleteExpression.
 module Network.AWS.CloudSearch.DeleteExpression
     (
     -- * Creating a Request
@@ -91,6 +89,8 @@ instance AWSRequest DeleteExpression where
               (\ s h x ->
                  DeleteExpressionResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Expression"))
+
+instance Hashable DeleteExpression
 
 instance ToHeaders DeleteExpression where
         toHeaders = const mempty

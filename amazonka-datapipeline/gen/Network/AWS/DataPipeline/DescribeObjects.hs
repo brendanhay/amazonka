@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.DescribeObjects
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Gets the object definitions for a set of objects associated with the
 -- pipeline. Object definitions are composed of a set of fields that define
 -- the properties of the object.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribeObjects.html AWS API Reference> for DescribeObjects.
 --
 -- This operation returns paginated results.
 module Network.AWS.DataPipeline.DescribeObjects
@@ -125,6 +123,8 @@ instance AWSRequest DescribeObjects where
                    (x .?> "hasMoreResults") <*> (x .?> "marker") <*>
                      (pure (fromEnum s))
                      <*> (x .?> "pipelineObjects" .!@ mempty))
+
+instance Hashable DescribeObjects
 
 instance ToHeaders DescribeObjects where
         toHeaders

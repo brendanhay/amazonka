@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.ListJobsByPipeline
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- Elastic Transcoder returns all of the jobs currently in the specified
 -- pipeline. The response body contains one element for each job that
 -- satisfies the search criteria.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByPipeline.html AWS API Reference> for ListJobsByPipeline.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListJobsByPipeline
@@ -117,6 +115,8 @@ instance AWSRequest ListJobsByPipeline where
                  ListJobsByPipelineResponse' <$>
                    (x .?> "NextPageToken") <*> (x .?> "Jobs" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListJobsByPipeline
 
 instance ToHeaders ListJobsByPipeline where
         toHeaders = const mempty

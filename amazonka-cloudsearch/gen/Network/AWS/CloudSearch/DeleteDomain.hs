@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DeleteDomain
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- has been deleted, it cannot be recovered. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html Deleting a Search Domain>
 -- in the /Amazon CloudSearch Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteDomain.html AWS API Reference> for DeleteDomain.
 module Network.AWS.CloudSearch.DeleteDomain
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DeleteDomain where
               (\ s h x ->
                  DeleteDomainResponse' <$>
                    (x .@? "DomainStatus") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteDomain
 
 instance ToHeaders DeleteDomain where
         toHeaders = const mempty

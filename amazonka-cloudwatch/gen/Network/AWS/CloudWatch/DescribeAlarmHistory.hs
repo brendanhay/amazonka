@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmHistory
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,8 @@
 -- or item type. If an alarm name is not specified, Amazon CloudWatch
 -- returns histories for all of the owner\'s alarms.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html AWS API Reference> for DescribeAlarmHistory.
+-- Amazon CloudWatch retains the history of an alarm for two weeks, whether
+-- or not you delete the alarm.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarmHistory
@@ -137,6 +138,8 @@ instance AWSRequest DescribeAlarmHistory where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAlarmHistory
+
 instance ToHeaders DescribeAlarmHistory where
         toHeaders = const mempty
 
@@ -155,7 +158,7 @@ instance ToQuery DescribeAlarmHistory where
                "NextToken" =: _dahNextToken,
                "MaxRecords" =: _dahMaxRecords]
 
--- | The output for the DescribeAlarmHistory action.
+-- | The output for the < DescribeAlarmHistory> action.
 --
 -- /See:/ 'describeAlarmHistoryResponse' smart constructor.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'

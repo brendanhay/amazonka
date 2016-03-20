@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SDB.BatchDeleteAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 --
 -- -   1 MB request size
 -- -   25 item limit per BatchDeleteAttributes operation
---
--- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_BatchDeleteAttributes.html AWS API Reference> for BatchDeleteAttributes.
 module Network.AWS.SDB.BatchDeleteAttributes
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest BatchDeleteAttributes where
              BatchDeleteAttributesResponse
         request = postQuery sDB
         response = receiveNull BatchDeleteAttributesResponse'
+
+instance Hashable BatchDeleteAttributes
 
 instance ToHeaders BatchDeleteAttributes where
         toHeaders = const mempty

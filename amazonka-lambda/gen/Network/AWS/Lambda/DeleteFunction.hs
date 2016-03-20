@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.DeleteFunction
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,20 +20,19 @@
 --
 -- Deletes the specified Lambda function code and configuration.
 --
--- If you don\'t specify a function version, AWS Lambda will delete the
--- function, including all its versions, and any aliases pointing to the
--- function versions.
+-- If you are using the versioning feature and you don\'t specify a
+-- function version in your 'DeleteFunction' request, AWS Lambda will
+-- delete the function, including all its versions, and any aliases
+-- pointing to the function versions. To delete a specific function
+-- version, you must provide the function version via the 'Qualifier'
+-- parameter. For information about function versioning, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
 -- When you delete a function the associated resource policy is also
 -- deleted. You will need to delete the event source mappings explicitly.
 --
--- For information about function versioning, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html AWS Lambda Function Versioning and Aliases>.
---
 -- This operation requires permission for the 'lambda:DeleteFunction'
 -- action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteFunction.html AWS API Reference> for DeleteFunction.
 module Network.AWS.Lambda.DeleteFunction
     (
     -- * Creating a Request
@@ -78,32 +77,33 @@ deleteFunction pFunctionName_ =
     }
 
 -- | Using this optional parameter you can specify a function version (but
--- not the $LATEST version) to direct AWS Lambda to delete a specific
+-- not the '$LATEST' version) to direct AWS Lambda to delete a specific
 -- function version. If the function version has one or more aliases
 -- pointing to it, you will get an error because you cannot have aliases
--- pointing to it. You can delete any function version but not the $LATEST,
--- that is, you cannot specify $LATEST as the value of this parameter. The
--- $LATEST version can be deleted only when you want to delete all the
--- function versions and aliases.
+-- pointing to it. You can delete any function version but not the
+-- '$LATEST', that is, you cannot specify '$LATEST' as the value of this
+-- parameter. The '$LATEST' version can be deleted only when you want to
+-- delete all the function versions and aliases.
 --
--- You can only specify a function version and not alias name using this
+-- You can only specify a function version, not an alias name, using this
 -- parameter. You cannot delete a function version using its alias.
 --
 -- If you don\'t specify this parameter, AWS Lambda will delete the
--- function, including all its versions and aliases.
+-- function, including all of its versions and aliases.
 dfQualifier :: Lens' DeleteFunction (Maybe Text)
 dfQualifier = lens _dfQualifier (\ s a -> s{_dfQualifier = a});
 
 -- | The Lambda function to delete.
 --
--- You can specify an unqualified function name (for example,
--- \"Thumbnail\") or you can specify Amazon Resource Name (ARN) of the
--- function (for example,
--- \"arn:aws:lambda:us-west-2:account-id:function:ThumbNail\"). AWS Lambda
--- also allows you to specify only the account ID qualifier (for example,
--- \"account-id:Thumbnail\"). Note that the length constraint applies only
--- to the ARN. If you specify only the function name, it is limited to 64
--- character in length.
+-- You can specify the function name (for example, 'Thumbnail') or you can
+-- specify Amazon Resource Name (ARN) of the function (for example,
+-- 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). If you are
+-- using versioning, you can also provide a qualified function ARN (ARN
+-- that is qualified with function version or alias name as suffix). AWS
+-- Lambda also allows you to specify only the function name with the
+-- account ID qualifier (for example, 'account-id:Thumbnail'). Note that
+-- the length constraint applies only to the ARN. If you specify only the
+-- function name, it is limited to 64 character in length.
 dfFunctionName :: Lens' DeleteFunction Text
 dfFunctionName = lens _dfFunctionName (\ s a -> s{_dfFunctionName = a});
 
@@ -111,6 +111,8 @@ instance AWSRequest DeleteFunction where
         type Rs DeleteFunction = DeleteFunctionResponse
         request = delete lambda
         response = receiveNull DeleteFunctionResponse'
+
+instance Hashable DeleteFunction
 
 instance ToHeaders DeleteFunction where
         toHeaders = const mempty

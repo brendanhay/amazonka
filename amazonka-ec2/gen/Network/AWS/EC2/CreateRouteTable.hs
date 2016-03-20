@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateRouteTable
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- For more information about route tables, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRouteTable.html AWS API Reference> for CreateRouteTable.
 module Network.AWS.EC2.CreateRouteTable
     (
     -- * Creating a Request
@@ -91,6 +89,8 @@ instance AWSRequest CreateRouteTable where
               (\ s h x ->
                  CreateRouteTableResponse' <$>
                    (x .@? "routeTable") <*> (pure (fromEnum s)))
+
+instance Hashable CreateRouteTable
 
 instance ToHeaders CreateRouteTable where
         toHeaders = const mempty

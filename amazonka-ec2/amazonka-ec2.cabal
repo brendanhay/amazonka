@@ -1,5 +1,5 @@
 name:                  amazonka-ec2
-version:               1.3.7
+version:               1.3.8
 synopsis:              Amazon Elastic Compute Cloud SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2015 Brendan Hay
+copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -31,7 +31,7 @@ description:
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.EC2" and the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html AWS API Reference>
+    See "Network.AWS.EC2" or <https://aws.amazon.com/documentation/ the AWS Documentation>
     to get started.
 
 source-repository head
@@ -157,6 +157,8 @@ library
         , Network.AWS.EC2.DescribeReservedInstancesModifications
         , Network.AWS.EC2.DescribeReservedInstancesOfferings
         , Network.AWS.EC2.DescribeRouteTables
+        , Network.AWS.EC2.DescribeScheduledInstanceAvailability
+        , Network.AWS.EC2.DescribeScheduledInstances
         , Network.AWS.EC2.DescribeSecurityGroups
         , Network.AWS.EC2.DescribeSnapshotAttribute
         , Network.AWS.EC2.DescribeSnapshots
@@ -170,6 +172,7 @@ library
         , Network.AWS.EC2.DescribeTags
         , Network.AWS.EC2.DescribeVPCAttribute
         , Network.AWS.EC2.DescribeVPCClassicLink
+        , Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
         , Network.AWS.EC2.DescribeVPCEndpointServices
         , Network.AWS.EC2.DescribeVPCEndpoints
         , Network.AWS.EC2.DescribeVPCPeeringConnections
@@ -186,10 +189,12 @@ library
         , Network.AWS.EC2.DetachVolume
         , Network.AWS.EC2.DisableVGWRoutePropagation
         , Network.AWS.EC2.DisableVPCClassicLink
+        , Network.AWS.EC2.DisableVPCClassicLinkDNSSupport
         , Network.AWS.EC2.DisassociateAddress
         , Network.AWS.EC2.DisassociateRouteTable
         , Network.AWS.EC2.EnableVGWRoutePropagation
         , Network.AWS.EC2.EnableVPCClassicLink
+        , Network.AWS.EC2.EnableVPCClassicLinkDNSSupport
         , Network.AWS.EC2.EnableVolumeIO
         , Network.AWS.EC2.GetConsoleOutput
         , Network.AWS.EC2.GetPasswordData
@@ -214,6 +219,7 @@ library
         , Network.AWS.EC2.MonitorInstances
         , Network.AWS.EC2.MoveAddressToVPC
         , Network.AWS.EC2.PurchaseReservedInstancesOffering
+        , Network.AWS.EC2.PurchaseScheduledInstances
         , Network.AWS.EC2.RebootInstances
         , Network.AWS.EC2.RegisterImage
         , Network.AWS.EC2.RejectVPCPeeringConnection
@@ -234,6 +240,7 @@ library
         , Network.AWS.EC2.RevokeSecurityGroupEgress
         , Network.AWS.EC2.RevokeSecurityGroupIngress
         , Network.AWS.EC2.RunInstances
+        , Network.AWS.EC2.RunScheduledInstances
         , Network.AWS.EC2.StartInstances
         , Network.AWS.EC2.StopInstances
         , Network.AWS.EC2.TerminateInstances
@@ -243,11 +250,12 @@ library
         , Network.AWS.EC2.Waiters
 
     other-modules:
-          Network.AWS.EC2.Types.Product
+          Network.AWS.EC2.Internal
+        , Network.AWS.EC2.Types.Product
         , Network.AWS.EC2.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.7.*
+          amazonka-core == 1.3.8.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ec2-test
@@ -267,9 +275,9 @@ test-suite amazonka-ec2-test
         , Test.AWS.EC2.Internal
 
     build-depends:
-          amazonka-core == 1.3.7.*
-        , amazonka-test == 1.3.7.*
-        , amazonka-ec2 == 1.3.7.*
+          amazonka-core == 1.3.8.*
+        , amazonka-test == 1.3.8.*
+        , amazonka-ec2 == 1.3.8.*
         , base
         , bytestring
         , tasty

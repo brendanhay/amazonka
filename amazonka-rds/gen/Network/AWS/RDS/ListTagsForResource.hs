@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.ListTagsForResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- For an overview on tagging an Amazon RDS resource, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ListTagsForResource.html AWS API Reference> for ListTagsForResource.
 module Network.AWS.RDS.ListTagsForResource
     (
     -- * Creating a Request
@@ -93,6 +91,8 @@ instance AWSRequest ListTagsForResource where
                    (x .@? "TagList" .!@ mempty >>=
                       may (parseXMLList "Tag"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListTagsForResource
 
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatch.PutMetricAlarm
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,7 +27,36 @@
 -- set appropriately. Any actions associated with the 'StateValue' is then
 -- executed.
 --
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html AWS API Reference> for PutMetricAlarm.
+-- When updating an existing alarm, its 'StateValue' is left unchanged.
+--
+-- If you are using an AWS Identity and Access Management (IAM) account to
+-- create or modify an alarm, you must have the following Amazon EC2
+-- permissions:
+--
+-- -   'ec2:DescribeInstanceStatus' and 'ec2:DescribeInstances' for all
+--     alarms on Amazon EC2 instance status metrics.
+-- -   'ec2:StopInstances' for alarms with stop actions.
+-- -   'ec2:TerminateInstances' for alarms with terminate actions.
+-- -   'ec2:DescribeInstanceRecoveryAttribute', and 'ec2:RecoverInstances'
+--     for alarms with recover actions.
+--
+-- If you have read\/write permissions for Amazon CloudWatch but not for
+-- Amazon EC2, you can still create an alarm but the stop or terminate
+-- actions won\'t be performed on the Amazon EC2 instance. However, if you
+-- are later granted permission to use the associated Amazon EC2 APIs, the
+-- alarm actions you created earlier will be performed. For more
+-- information about IAM permissions, see
+-- <http://docs.aws.amazon.com//IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>
+-- in /Using IAM/.
+--
+-- If you are using an IAM role (e.g., an Amazon EC2 instance profile), you
+-- cannot stop or terminate the instance using alarm actions. However, you
+-- can still see the alarm state and perform any other actions such as
+-- Amazon SNS notifications or Auto Scaling policies.
+--
+-- If you are using temporary security credentials granted using the AWS
+-- Security Token Service (AWS STS), you cannot stop or terminate an Amazon
+-- EC2 instance using alarm actions.
 module Network.AWS.CloudWatch.PutMetricAlarm
     (
     -- * Creating a Request
@@ -149,8 +178,23 @@ pmaAlarmDescription = lens _pmaAlarmDescription (\ s a -> s{_pmaAlarmDescription
 
 -- | The list of actions to execute when this alarm transitions into an 'OK'
 -- state from any other state. Each action is specified as an Amazon
--- Resource Number (ARN). Currently the only action supported is publishing
--- to an Amazon SNS topic or an Amazon Auto Scaling policy.
+-- Resource Name (ARN).
+--
+-- Valid Values: arn:aws:automate:/region (e.g., us-east-1)/:ec2:stop |
+-- arn:aws:automate:/region (e.g., us-east-1)/:ec2:terminate |
+-- arn:aws:automate:/region (e.g., us-east-1)/:ec2:recover
+--
+-- Valid Values (for use with IAM roles):
+-- arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0
+-- |
+-- arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0
+-- |
+-- arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0
+--
+-- __Note:__ You must create at least one stop, terminate, or reboot alarm
+-- using the Amazon EC2 or CloudWatch console to create the
+-- __EC2ActionsAccess__ IAM role for the first time. After this IAM role is
+-- created, you can create stop, terminate, or reboot alarms using the CLI.
 pmaOKActions :: Lens' PutMetricAlarm [Text]
 pmaOKActions = lens _pmaOKActions (\ s a -> s{_pmaOKActions = a}) . _Default . _Coerce;
 
@@ -161,8 +205,23 @@ pmaActionsEnabled = lens _pmaActionsEnabled (\ s a -> s{_pmaActionsEnabled = a})
 
 -- | The list of actions to execute when this alarm transitions into an
 -- 'INSUFFICIENT_DATA' state from any other state. Each action is specified
--- as an Amazon Resource Number (ARN). Currently the only action supported
--- is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
+-- as an Amazon Resource Name (ARN).
+--
+-- Valid Values: arn:aws:automate:/region (e.g., us-east-1)/:ec2:stop |
+-- arn:aws:automate:/region (e.g., us-east-1)/:ec2:terminate |
+-- arn:aws:automate:/region (e.g., us-east-1)/:ec2:recover
+--
+-- Valid Values (for use with IAM roles):
+-- arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0
+-- |
+-- arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0
+-- |
+-- arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0
+--
+-- __Note:__ You must create at least one stop, terminate, or reboot alarm
+-- using the Amazon EC2 or CloudWatch console to create the
+-- __EC2ActionsAccess__ IAM role for the first time. After this IAM role is
+-- created, you can create stop, terminate, or reboot alarms using the CLI.
 pmaInsufficientDataActions :: Lens' PutMetricAlarm [Text]
 pmaInsufficientDataActions = lens _pmaInsufficientDataActions (\ s a -> s{_pmaInsufficientDataActions = a}) . _Default . _Coerce;
 
@@ -172,12 +231,36 @@ pmaDimensions = lens _pmaDimensions (\ s a -> s{_pmaDimensions = a}) . _Default 
 
 -- | The list of actions to execute when this alarm transitions into an
 -- 'ALARM' state from any other state. Each action is specified as an
--- Amazon Resource Number (ARN). Currently the only action supported is
--- publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
+-- Amazon Resource Name (ARN).
+--
+-- Valid Values: arn:aws:automate:/region (e.g., us-east-1)/:ec2:stop |
+-- arn:aws:automate:/region (e.g., us-east-1)/:ec2:terminate |
+-- arn:aws:automate:/region (e.g., us-east-1)/:ec2:recover
+--
+-- Valid Values (for use with IAM roles):
+-- arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0
+-- |
+-- arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0
+-- |
+-- arn:aws:swf:us-east-1:{/customer-account/}:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0
+--
+-- __Note:__ You must create at least one stop, terminate, or reboot alarm
+-- using the Amazon EC2 or CloudWatch console to create the
+-- __EC2ActionsAccess__ IAM role for the first time. After this IAM role is
+-- created, you can create stop, terminate, or reboot alarms using the CLI.
 pmaAlarmActions :: Lens' PutMetricAlarm [Text]
 pmaAlarmActions = lens _pmaAlarmActions (\ s a -> s{_pmaAlarmActions = a}) . _Default . _Coerce;
 
--- | The unit for the alarm\'s associated metric.
+-- | The statistic\'s unit of measure. For example, the units for the Amazon
+-- EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of
+-- bytes that an instance receives on all network interfaces. You can also
+-- specify a unit when you create a custom metric. Units help provide
+-- conceptual meaning to your data. Metric data points that specify a unit
+-- of measure, such as Percent, are aggregated separately.
+--
+-- __Note:__ If you specify a unit, you must use a unit that is appropriate
+-- for the metric. Otherwise, this can cause an Amazon CloudWatch alarm to
+-- get stuck in the INSUFFICIENT DATA state.
 pmaUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
 pmaUnit = lens _pmaUnit (\ s a -> s{_pmaUnit = a});
 
@@ -221,6 +304,8 @@ instance AWSRequest PutMetricAlarm where
         type Rs PutMetricAlarm = PutMetricAlarmResponse
         request = postQuery cloudWatch
         response = receiveNull PutMetricAlarmResponse'
+
+instance Hashable PutMetricAlarm
 
 instance ToHeaders PutMetricAlarm where
         toHeaders = const mempty

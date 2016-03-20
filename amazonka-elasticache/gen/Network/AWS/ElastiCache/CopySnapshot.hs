@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.CopySnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- The /CopySnapshot/ action makes a copy of an existing snapshot.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CopySnapshot.html AWS API Reference> for CopySnapshot.
 module Network.AWS.ElastiCache.CopySnapshot
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest CopySnapshot where
               (\ s h x ->
                  CopySnapshotResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
+
+instance Hashable CopySnapshot
 
 instance ToHeaders CopySnapshot where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -40,8 +40,6 @@
 -- If both tag keys and values are omitted from the request, resources are
 -- returned regardless of whether they have tag keys or values associated
 -- with them.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeTags.html AWS API Reference> for DescribeTags.
 module Network.AWS.Redshift.DescribeTags
     (
     -- * Creating a Request
@@ -71,7 +69,7 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the output from the 'DescribeTags' action.
+-- |
 --
 -- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
@@ -183,6 +181,8 @@ instance AWSRequest DescribeTags where
                         may (parseXMLList "TaggedResource"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTags
+
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
 
@@ -202,7 +202,7 @@ instance ToQuery DescribeTags where
                  toQuery (toQueryList "TagKey" <$> _dtTagKeys),
                "Marker" =: _dtMarker, "MaxRecords" =: _dtMaxRecords]
 
--- | Contains the output from the 'DescribeTags' action.
+-- |
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'

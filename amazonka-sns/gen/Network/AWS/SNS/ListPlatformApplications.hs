@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListPlatformApplications
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- string received from the previous call. When there are no more records
 -- to return, NextToken will be null. For more information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html AWS API Reference> for ListPlatformApplications.
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListPlatformApplications
@@ -100,6 +98,8 @@ instance AWSRequest ListPlatformApplications where
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListPlatformApplications
 
 instance ToHeaders ListPlatformApplications where
         toHeaders = const mempty

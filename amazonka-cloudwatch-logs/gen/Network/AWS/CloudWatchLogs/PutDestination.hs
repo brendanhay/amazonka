@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutDestination
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 -- will not be able to call 'PutSubscriptionFilter' against this
 -- destination. To enable that, the destination owner must call
 -- 'PutDestinationPolicy' after PutDestination.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html AWS API Reference> for PutDestination.
 module Network.AWS.CloudWatchLogs.PutDestination
     (
     -- * Creating a Request
@@ -94,8 +92,8 @@ pdDestinationName = lens _pdDestinationName (\ s a -> s{_pdDestinationName = a})
 pdTargetARN :: Lens' PutDestination Text
 pdTargetARN = lens _pdTargetARN (\ s a -> s{_pdTargetARN = a});
 
--- | The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to
--- do Amazon Kinesis PutRecord requests on the desitnation stream.
+-- | The ARN of an IAM role that grants CloudWatch Logs permissions to do
+-- Amazon Kinesis PutRecord requests on the desitnation stream.
 pdRoleARN :: Lens' PutDestination Text
 pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a});
 
@@ -107,6 +105,8 @@ instance AWSRequest PutDestination where
               (\ s h x ->
                  PutDestinationResponse' <$>
                    (x .?> "destination") <*> (pure (fromEnum s)))
+
+instance Hashable PutDestination
 
 instance ToHeaders PutDestination where
         toHeaders

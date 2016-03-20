@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeCommunications
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 -- pagination of the result set. Set 'MaxResults' to the number of cases
 -- you want displayed on each page, and use 'NextToken' to specify the
 -- resumption of pagination.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCommunications.html AWS API Reference> for DescribeCommunications.
 --
 -- This operation returns paginated results.
 module Network.AWS.Support.DescribeCommunications
@@ -142,6 +140,8 @@ instance AWSRequest DescribeCommunications where
                      (x .?> "communications" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCommunications
+
 instance ToHeaders DescribeCommunications where
         toHeaders
           = const
@@ -168,7 +168,7 @@ instance ToPath DescribeCommunications where
 instance ToQuery DescribeCommunications where
         toQuery = const mempty
 
--- | The communications returned by the DescribeCommunications operation.
+-- | The communications returned by the < DescribeCommunications> operation.
 --
 -- /See:/ 'describeCommunicationsResponse' smart constructor.
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'

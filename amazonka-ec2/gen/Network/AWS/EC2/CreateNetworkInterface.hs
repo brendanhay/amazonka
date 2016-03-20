@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateNetworkInterface
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- For more information about network interfaces, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic Network Interfaces>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkInterface.html AWS API Reference> for CreateNetworkInterface.
 module Network.AWS.EC2.CreateNetworkInterface
     (
     -- * Creating a Request
@@ -149,6 +147,8 @@ instance AWSRequest CreateNetworkInterface where
               (\ s h x ->
                  CreateNetworkInterfaceResponse' <$>
                    (x .@? "networkInterface") <*> (pure (fromEnum s)))
+
+instance Hashable CreateNetworkInterface
 
 instance ToHeaders CreateNetworkInterface where
         toHeaders = const mempty

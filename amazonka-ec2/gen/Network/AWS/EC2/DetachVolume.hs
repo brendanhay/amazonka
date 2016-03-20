@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DetachVolume
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html Detaching an Amazon EBS Volume>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVolume.html AWS API Reference> for DetachVolume.
 module Network.AWS.EC2.DetachVolume
     (
     -- * Creating a Request
@@ -133,6 +131,8 @@ instance AWSRequest DetachVolume where
         type Rs DetachVolume = VolumeAttachment
         request = postQuery eC2
         response = receiveXML (\ s h x -> parseXML x)
+
+instance Hashable DetachVolume
 
 instance ToHeaders DetachVolume where
         toHeaders = const mempty

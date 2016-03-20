@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,9 +27,7 @@
 --
 -- Related Topics
 --
--- -   DescribeConfigurationOptions
---
--- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateConfigurationTemplate.html AWS API Reference> for UpdateConfigurationTemplate.
+-- -   < DescribeConfigurationOptions>
 module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     (
     -- * Creating a Request
@@ -140,6 +138,8 @@ instance AWSRequest UpdateConfigurationTemplate where
           = receiveXMLWrapper
               "UpdateConfigurationTemplateResult"
               (\ s h x -> parseXML x)
+
+instance Hashable UpdateConfigurationTemplate
 
 instance ToHeaders UpdateConfigurationTemplate where
         toHeaders = const mempty

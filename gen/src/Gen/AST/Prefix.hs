@@ -7,7 +7,7 @@
 {-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.AST.Prefix
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -22,7 +22,7 @@ module Gen.AST.Prefix
 
 import           Control.Applicative
 import           Control.Comonad.Cofree
-import           Control.Lens
+import           Control.Lens           hiding ((:<))
 import           Control.Monad.Except
 import           Control.Monad.State
 import           Data.CaseInsensitive   (CI)

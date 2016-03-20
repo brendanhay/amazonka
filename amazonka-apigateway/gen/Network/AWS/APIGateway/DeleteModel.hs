@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteModel
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a model.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteModel.html AWS API Reference> for DeleteModel.
 module Network.AWS.APIGateway.DeleteModel
     (
     -- * Creating a Request
@@ -42,7 +40,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to delete an existing model in an existing RestApi resource.
+-- | Request to delete an existing model in an existing < RestApi> resource.
 --
 -- /See:/ 'deleteModel' smart constructor.
 data DeleteModel = DeleteModel'
@@ -67,7 +65,7 @@ deleteModel pRestAPIId_ pModelName_ =
     , _dModelName = pModelName_
     }
 
--- | The RestApi under which the model will be deleted.
+-- | The < RestApi> under which the model will be deleted.
 dRestAPIId :: Lens' DeleteModel Text
 dRestAPIId = lens _dRestAPIId (\ s a -> s{_dRestAPIId = a});
 
@@ -80,8 +78,13 @@ instance AWSRequest DeleteModel where
         request = delete aPIGateway
         response = receiveNull DeleteModelResponse'
 
+instance Hashable DeleteModel
+
 instance ToHeaders DeleteModel where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteModel where
         toPath DeleteModel'{..}

@@ -1,5 +1,5 @@
 name:                  amazonka-storagegateway
-version:               1.3.7
+version:               1.3.8
 synopsis:              Amazon Storage Gateway SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -7,7 +7,7 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2015 Brendan Hay
+copyright:             Copyright (c) 2013-2016 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -40,6 +40,13 @@ description:
     -   <http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html AWS Storage Gateway Regions and Endpoints>:
         Provides a list of each of the regions and endpoints available for
         use with AWS Storage Gateway.
+
+    AWS Storage Gateway resource IDs are in uppercase. When you use these
+    resource IDs with the Amazon EC2 API, EC2 expects resource IDs in
+    lowercase. You must change your resource ID to lowercase to use it with
+    the EC2 API. For example, in Storage Gateway the ID for a volume might
+    be vol-1122AABB. When you use this ID with the EC2 API, you must change
+    it to vol-1122aabb. Otherwise, the EC2 API might not behave as expected.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -52,7 +59,7 @@ description:
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.StorageGateway" and the <http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html AWS API Reference>
+    See "Network.AWS.StorageGateway" or <https://aws.amazon.com/documentation/ the AWS Documentation>
     to get started.
 
 source-repository head
@@ -78,6 +85,7 @@ library
         , Network.AWS.StorageGateway.CreateSnapshot
         , Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
         , Network.AWS.StorageGateway.CreateStorediSCSIVolume
+        , Network.AWS.StorageGateway.CreateTapeWithBarcode
         , Network.AWS.StorageGateway.CreateTapes
         , Network.AWS.StorageGateway.DeleteBandwidthRateLimit
         , Network.AWS.StorageGateway.DeleteChapCredentials
@@ -128,7 +136,7 @@ library
         , Network.AWS.StorageGateway.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.7.*
+          amazonka-core == 1.3.8.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-storagegateway-test
@@ -148,9 +156,9 @@ test-suite amazonka-storagegateway-test
         , Test.AWS.StorageGateway.Internal
 
     build-depends:
-          amazonka-core == 1.3.7.*
-        , amazonka-test == 1.3.7.*
-        , amazonka-storagegateway == 1.3.7.*
+          amazonka-core == 1.3.8.*
+        , amazonka-test == 1.3.8.*
+        , amazonka-storagegateway == 1.3.8.*
         , base
         , bytestring
         , tasty

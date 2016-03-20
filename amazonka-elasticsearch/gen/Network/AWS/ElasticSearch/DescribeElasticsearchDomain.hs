@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchDomain
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Returns domain configuration information about the specified
 -- Elasticsearch domain, including the domain ID, domain endpoint, and
 -- domain ARN.
---
--- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-DescribeElasticsearchDomain.html AWS API Reference> for DescribeElasticsearchDomain.
 module Network.AWS.ElasticSearch.DescribeElasticsearchDomain
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DescribeElasticsearchDomain where
               (\ s h x ->
                  DescribeElasticsearchDomainResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "DomainStatus"))
+
+instance Hashable DescribeElasticsearchDomain
 
 instance ToHeaders DescribeElasticsearchDomain where
         toHeaders = const mempty

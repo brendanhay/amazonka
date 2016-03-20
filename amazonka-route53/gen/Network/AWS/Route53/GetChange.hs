@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetChange
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 --
 -- - 'INSYNC' indicates that the changes have replicated to all Amazon
 -- Route 53 DNS servers.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html AWS API Reference> for GetChange.
 module Network.AWS.Route53.GetChange
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest GetChange where
               (\ s h x ->
                  GetChangeResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
+
+instance Hashable GetChange
 
 instance ToHeaders GetChange where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.RevokeDBSecurityGroupIngress
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- are one of CIDRIP, EC2SecurityGroupId for VPC, or
 -- (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
 -- EC2SecurityGroupId).
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RevokeDBSecurityGroupIngress.html AWS API Reference> for RevokeDBSecurityGroupIngress.
 module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     (
     -- * Creating a Request
@@ -131,6 +129,8 @@ instance AWSRequest RevokeDBSecurityGroupIngress
               (\ s h x ->
                  RevokeDBSecurityGroupIngressResponse' <$>
                    (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
+
+instance Hashable RevokeDBSecurityGroupIngress
 
 instance ToHeaders RevokeDBSecurityGroupIngress where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RevokeSecurityGroupEgress
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -31,8 +31,6 @@
 --
 -- Rule changes are propagated to instances within the security group as
 -- quickly as possible. However, a small delay might occur.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupEgress.html AWS API Reference> for RevokeSecurityGroupEgress.
 module Network.AWS.EC2.RevokeSecurityGroupEgress
     (
     -- * Creating a Request
@@ -167,6 +165,8 @@ instance AWSRequest RevokeSecurityGroupEgress where
         request = postQuery eC2
         response
           = receiveNull RevokeSecurityGroupEgressResponse'
+
+instance Hashable RevokeSecurityGroupEgress
 
 instance ToHeaders RevokeSecurityGroupEgress where
         toHeaders = const mempty

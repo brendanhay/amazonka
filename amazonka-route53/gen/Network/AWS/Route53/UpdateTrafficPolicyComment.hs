@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.UpdateTrafficPolicyComment
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,12 +21,10 @@
 -- Updates the comment for a specified traffic policy version.
 --
 -- To update the comment, send a 'POST' request to the
--- '\/2013-04-01\/trafficpolicy\/' resource.
+-- '\/Route 53 API version\/trafficpolicy\/' resource.
 --
--- The request body must include an XML document with an
+-- The request body must include a document with an
 -- 'UpdateTrafficPolicyCommentRequest' element.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateTrafficPolicyComment.html AWS API Reference> for UpdateTrafficPolicyComment.
 module Network.AWS.Route53.UpdateTrafficPolicyComment
     (
     -- * Creating a Request
@@ -106,6 +104,8 @@ instance AWSRequest UpdateTrafficPolicyComment where
               (\ s h x ->
                  UpdateTrafficPolicyCommentResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "TrafficPolicy"))
+
+instance Hashable UpdateTrafficPolicyComment
 
 instance ToElement UpdateTrafficPolicyComment where
         toElement

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CreateStack
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- attached policy that explicitly grants permissions. For more information
 -- on user permissions, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateStack.html AWS API Reference> for CreateStack.
 module Network.AWS.OpsWorks.CreateStack
     (
     -- * Creating a Request
@@ -214,10 +212,10 @@ csChefConfiguration = lens _csChefConfiguration (\ s a -> s{_csChefConfiguration
 --     and specify a new version. AWS OpsWorks then automatically installs
 --     that version on the stack\'s instances.
 --
--- The default setting is 'LATEST'. To specify an agent version, you must
--- use the complete version number, not the abbreviated number shown on the
--- console. For a list of available agent version numbers, call
--- DescribeAgentVersions.
+-- The default setting is the most recent release of the agent. To specify
+-- an agent version, you must use the complete version number, not the
+-- abbreviated number shown on the console. For a list of available agent
+-- version numbers, call < DescribeAgentVersions>.
 --
 -- You can also specify an agent version when you create or update an
 -- instance, which overrides the stack\'s default setting.
@@ -322,9 +320,10 @@ csUseCustomCookbooks = lens _csUseCustomCookbooks (\ s a -> s{_csUseCustomCookbo
 csDefaultSubnetId :: Lens' CreateStack (Maybe Text)
 csDefaultSubnetId = lens _csDefaultSubnetId (\ s a -> s{_csDefaultSubnetId = a});
 
--- | The configuration manager. When you clone a stack we recommend that you
--- use the configuration manager to specify the Chef version: 0.9, 11.4, or
--- 11.10. The default value is currently 11.4.
+-- | The configuration manager. When you create a stack we recommend that you
+-- use the configuration manager to specify the Chef version: 12, 11.10, or
+-- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+-- Linux stacks is currently 11.4.
 csConfigurationManager :: Lens' CreateStack (Maybe StackConfigurationManager)
 csConfigurationManager = lens _csConfigurationManager (\ s a -> s{_csConfigurationManager = a});
 
@@ -384,6 +383,8 @@ instance AWSRequest CreateStack where
               (\ s h x ->
                  CreateStackResponse' <$>
                    (x .?> "StackId") <*> (pure (fromEnum s)))
+
+instance Hashable CreateStack
 
 instance ToHeaders CreateStack where
         toHeaders

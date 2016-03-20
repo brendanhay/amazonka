@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DeleteVaultNotifications
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -35,8 +35,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html Delete Vault Notification Configuration>
 -- in the Amazon Glacier Developer Guide.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteVaultNotifications.html AWS API Reference> for DeleteVaultNotifications.
 module Network.AWS.Glacier.DeleteVaultNotifications
     (
     -- * Creating a Request
@@ -102,6 +100,8 @@ instance AWSRequest DeleteVaultNotifications where
         request = delete glacier
         response
           = receiveNull DeleteVaultNotificationsResponse'
+
+instance Hashable DeleteVaultNotifications
 
 instance ToHeaders DeleteVaultNotifications where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListServerCertificates
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- manage with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServerCertificates.html AWS API Reference> for ListServerCertificates.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListServerCertificates
@@ -135,6 +133,8 @@ instance AWSRequest ListServerCertificates where
                      (x .@? "ServerCertificateMetadataList" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListServerCertificates
+
 instance ToHeaders ListServerCertificates where
         toHeaders = const mempty
 
@@ -150,7 +150,7 @@ instance ToQuery ListServerCertificates where
                "PathPrefix" =: _lscPathPrefix,
                "Marker" =: _lscMarker, "MaxItems" =: _lscMaxItems]
 
--- | Contains the response to a successful ListServerCertificates request.
+-- | Contains the response to a successful < ListServerCertificates> request.
 --
 -- /See:/ 'listServerCertificatesResponse' smart constructor.
 data ListServerCertificatesResponse = ListServerCertificatesResponse'

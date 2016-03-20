@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketTagging
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the tags for a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketTagging.html AWS API Reference> for PutBucketTagging.
 module Network.AWS.S3.PutBucketTagging
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest PutBucketTagging where
         type Rs PutBucketTagging = PutBucketTaggingResponse
         request = contentMD5 . putXML s3
         response = receiveNull PutBucketTaggingResponse'
+
+instance Hashable PutBucketTagging
 
 instance ToElement PutBucketTagging where
         toElement

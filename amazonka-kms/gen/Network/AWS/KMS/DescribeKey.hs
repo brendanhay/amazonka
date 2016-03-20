@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.KMS.DescribeKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides detailed information about the specified customer master key.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html AWS API Reference> for DescribeKey.
 module Network.AWS.KMS.DescribeKey
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest DescribeKey where
               (\ s h x ->
                  DescribeKeyResponse' <$>
                    (x .?> "KeyMetadata") <*> (pure (fromEnum s)))
+
+instance Hashable DescribeKey
 
 instance ToHeaders DescribeKey where
         toHeaders

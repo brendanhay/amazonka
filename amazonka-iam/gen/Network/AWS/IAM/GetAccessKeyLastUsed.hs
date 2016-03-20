@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetAccessKeyLastUsed
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- The information includes the date and time of last use, along with the
 -- AWS service and region that were specified in the last request made with
 -- that key.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccessKeyLastUsed.html AWS API Reference> for GetAccessKeyLastUsed.
 module Network.AWS.IAM.GetAccessKeyLastUsed
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest GetAccessKeyLastUsed where
                    (x .@? "UserName") <*> (x .@? "AccessKeyLastUsed")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetAccessKeyLastUsed
+
 instance ToHeaders GetAccessKeyLastUsed where
         toHeaders = const mempty
 
@@ -94,9 +94,9 @@ instance ToQuery GetAccessKeyLastUsed where
                "Version" =: ("2010-05-08" :: ByteString),
                "AccessKeyId" =: _gakluAccessKeyId]
 
--- | Contains the response to a successful GetAccessKeyLastUsed request. It
--- is also returned as a member of the AccessKeyMetaData structure returned
--- by the ListAccessKeys action.
+-- | Contains the response to a successful < GetAccessKeyLastUsed> request.
+-- It is also returned as a member of the < AccessKeyMetaData> structure
+-- returned by the < ListAccessKeys> action.
 --
 -- /See:/ 'getAccessKeyLastUsedResponse' smart constructor.
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'

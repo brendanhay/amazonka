@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.DeleteIdentities
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- identities that you want to delete.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DeleteIdentities.html AWS API Reference> for DeleteIdentities.
 module Network.AWS.CognitoIdentity.DeleteIdentities
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DeleteIdentities where
                  DeleteIdentitiesResponse' <$>
                    (x .?> "UnprocessedIdentityIds" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DeleteIdentities
 
 instance ToHeaders DeleteIdentities where
         toHeaders

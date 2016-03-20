@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteClusterParameterGroup
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Deletes a specified Amazon Redshift parameter group.
 -- You cannot delete a parameter group if it is associated with a cluster.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterParameterGroup.html AWS API Reference> for DeleteClusterParameterGroup.
 module Network.AWS.Redshift.DeleteClusterParameterGroup
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest DeleteClusterParameterGroup where
         request = postQuery redshift
         response
           = receiveNull DeleteClusterParameterGroupResponse'
+
+instance Hashable DeleteClusterParameterGroup
 
 instance ToHeaders DeleteClusterParameterGroup where
         toHeaders = const mempty

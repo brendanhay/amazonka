@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- You can also specify multiple filters. The result includes information
 -- for a particular tag only if it matches all the filters. If there\'s no
 -- match, no special message is returned.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTags.html AWS API Reference> for DescribeTags.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeTags
@@ -116,6 +114,8 @@ instance AWSRequest DescribeTags where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTags
+
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
 
@@ -163,7 +163,7 @@ describeTagsResponse pResponseStatus_ =
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 
--- | The tags.
+-- | One or more tags.
 dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteVirtualMFADevice
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,9 +22,7 @@
 --
 -- You must deactivate a user\'s virtual MFA device before you can delete
 -- it. For information about deactivating MFA devices, see
--- DeactivateMFADevice.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteVirtualMFADevice.html AWS API Reference> for DeleteVirtualMFADevice.
+-- < DeactivateMFADevice>.
 module Network.AWS.IAM.DeleteVirtualMFADevice
     (
     -- * Creating a Request
@@ -74,6 +72,8 @@ instance AWSRequest DeleteVirtualMFADevice where
         request = postQuery iAM
         response
           = receiveNull DeleteVirtualMFADeviceResponse'
+
+instance Hashable DeleteVirtualMFADevice
 
 instance ToHeaders DeleteVirtualMFADevice where
         toHeaders = const mempty

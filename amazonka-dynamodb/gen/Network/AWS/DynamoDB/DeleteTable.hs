@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DeleteTable
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,6 @@
 -- the stream is automatically deleted after 24 hours.
 --
 -- Use the /DescribeTable/ API to check the status of the table.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteTable.html AWS API Reference> for DeleteTable.
 module Network.AWS.DynamoDB.DeleteTable
     (
     -- * Creating a Request
@@ -95,6 +93,8 @@ instance AWSRequest DeleteTable where
               (\ s h x ->
                  DeleteTableResponse' <$>
                    (x .?> "TableDescription") <*> (pure (fromEnum s)))
+
+instance Hashable DeleteTable
 
 instance ToHeaders DeleteTable where
         toHeaders

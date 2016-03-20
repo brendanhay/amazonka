@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetAccountAuthorizationDetails
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- You can optionally filter the results using the 'Filter' parameter. You
 -- can paginate the results using the 'MaxItems' and 'Marker' parameters.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html AWS API Reference> for GetAccountAuthorizationDetails.
 module Network.AWS.IAM.GetAccountAuthorizationDetails
     (
     -- * Creating a Request
@@ -131,6 +129,8 @@ instance AWSRequest GetAccountAuthorizationDetails
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetAccountAuthorizationDetails
+
 instance ToHeaders GetAccountAuthorizationDetails
          where
         toHeaders = const mempty
@@ -148,7 +148,7 @@ instance ToQuery GetAccountAuthorizationDetails where
                "Filter" =:
                  toQuery (toQueryList "member" <$> _gaadFilter)]
 
--- | Contains the response to a successful GetAccountAuthorizationDetails
+-- | Contains the response to a successful < GetAccountAuthorizationDetails>
 -- request.
 --
 -- /See:/ 'getAccountAuthorizationDetailsResponse' smart constructor.

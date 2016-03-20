@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeEventSubscriptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 --
 -- If you specify a SubscriptionName, lists the description for that
 -- subscription.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventSubscriptions.html AWS API Reference> for DescribeEventSubscriptions.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEventSubscriptions
@@ -134,6 +132,8 @@ instance AWSRequest DescribeEventSubscriptions where
                       may (parseXMLList "EventSubscription"))
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeEventSubscriptions
 
 instance ToHeaders DescribeEventSubscriptions where
         toHeaders = const mempty

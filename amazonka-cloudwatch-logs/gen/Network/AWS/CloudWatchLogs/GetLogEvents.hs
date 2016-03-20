@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.GetLogEvents
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -28,8 +28,6 @@
 -- requests to paginate through events in either forward or backward
 -- direction. You can also limit the number of log events returned in the
 -- response by specifying the 'limit' parameter in the request.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html AWS API Reference> for GetLogEvents.
 module Network.AWS.CloudWatchLogs.GetLogEvents
     (
     -- * Creating a Request
@@ -149,6 +147,8 @@ instance AWSRequest GetLogEvents where
                      (x .?> "nextForwardToken")
                      <*> (x .?> "events" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetLogEvents
 
 instance ToHeaders GetLogEvents where
         toHeaders

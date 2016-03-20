@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentConfig
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a deployment configuration.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentConfig.html AWS API Reference> for GetDeploymentConfig.
 module Network.AWS.CodeDeploy.GetDeploymentConfig
     (
     -- * Creating a Request
@@ -64,8 +62,8 @@ getDeploymentConfig pDeploymentConfigName_ =
     { _gdcDeploymentConfigName = pDeploymentConfigName_
     }
 
--- | The name of an existing deployment configuration associated with the
--- applicable IAM user or AWS account.
+-- | The name of a deployment configuration associated with the applicable
+-- IAM user or AWS account.
 gdcDeploymentConfigName :: Lens' GetDeploymentConfig Text
 gdcDeploymentConfigName = lens _gdcDeploymentConfigName (\ s a -> s{_gdcDeploymentConfigName = a});
 
@@ -79,6 +77,8 @@ instance AWSRequest GetDeploymentConfig where
                  GetDeploymentConfigResponse' <$>
                    (x .?> "deploymentConfigInfo") <*>
                      (pure (fromEnum s)))
+
+instance Hashable GetDeploymentConfig
 
 instance ToHeaders GetDeploymentConfig where
         toHeaders

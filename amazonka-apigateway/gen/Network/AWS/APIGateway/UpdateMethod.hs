@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateMethod
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing Method resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateMethod.html AWS API Reference> for UpdateMethod.
+-- Updates an existing < Method> resource.
 module Network.AWS.APIGateway.UpdateMethod
     (
     -- * Creating a Request
@@ -40,6 +38,7 @@ module Network.AWS.APIGateway.UpdateMethod
     , mHttpMethod
     , mRequestModels
     , mRequestParameters
+    , mAuthorizerId
     , mAuthorizationType
     , mApiKeyRequired
     , mMethodIntegration
@@ -52,7 +51,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to update an existing Method resource.
+-- | Request to update an existing < Method> resource.
 --
 -- /See:/ 'updateMethod' smart constructor.
 data UpdateMethod = UpdateMethod'
@@ -91,15 +90,15 @@ updateMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
 ummPatchOperations :: Lens' UpdateMethod [PatchOperation]
 ummPatchOperations = lens _ummPatchOperations (\ s a -> s{_ummPatchOperations = a}) . _Default . _Coerce;
 
--- | The RestApi identifier for the Method resource.
+-- | The < RestApi> identifier for the < Method> resource.
 ummRestAPIId :: Lens' UpdateMethod Text
 ummRestAPIId = lens _ummRestAPIId (\ s a -> s{_ummRestAPIId = a});
 
--- | The Resource identifier for the Method resource.
+-- | The < Resource> identifier for the < Method> resource.
 ummResourceId :: Lens' UpdateMethod Text
 ummResourceId = lens _ummResourceId (\ s a -> s{_ummResourceId = a});
 
--- | The HTTP verb that identifies the Method resource.
+-- | The HTTP verb that identifies the < Method> resource.
 ummHttpMethod :: Lens' UpdateMethod Text
 ummHttpMethod = lens _ummHttpMethod (\ s a -> s{_ummHttpMethod = a});
 
@@ -108,8 +107,13 @@ instance AWSRequest UpdateMethod where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateMethod
+
 instance ToHeaders UpdateMethod where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateMethod where
         toJSON UpdateMethod'{..}

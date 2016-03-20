@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeReservedDBInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns information about reserved DB instances for this account, or
 -- about a specified reserved DB instance.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstances.html AWS API Reference> for DescribeReservedDBInstances.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeReservedDBInstances
@@ -194,6 +192,8 @@ instance AWSRequest DescribeReservedDBInstances where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeReservedDBInstances
+
 instance ToHeaders DescribeReservedDBInstances where
         toHeaders = const mempty
 
@@ -220,7 +220,7 @@ instance ToQuery DescribeReservedDBInstances where
                "Duration" =: _drdiDuration]
 
 -- | Contains the result of a successful invocation of the
--- DescribeReservedDBInstances action.
+-- < DescribeReservedDBInstances> action.
 --
 -- /See:/ 'describeReservedDBInstancesResponse' smart constructor.
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'

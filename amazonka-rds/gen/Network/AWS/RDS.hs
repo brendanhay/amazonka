@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -40,8 +40,6 @@
 -- applied immediately, on the next instance reboot, or during the
 -- maintenance window. For a summary of the Amazon RDS interfaces, go to
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces Available RDS Interfaces>.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html AWS API Reference>
 module Network.AWS.RDS
     (
     -- * Service Configuration

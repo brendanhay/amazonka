@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UploadSigningCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -38,8 +38,6 @@
 -- Query API with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/guide.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html AWS API Reference> for UploadSigningCertificate.
 module Network.AWS.IAM.UploadSigningCertificate
     (
     -- * Creating a Request
@@ -104,6 +102,8 @@ instance AWSRequest UploadSigningCertificate where
                  UploadSigningCertificateResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Certificate"))
 
+instance Hashable UploadSigningCertificate
+
 instance ToHeaders UploadSigningCertificate where
         toHeaders = const mempty
 
@@ -119,7 +119,8 @@ instance ToQuery UploadSigningCertificate where
                "UserName" =: _uplUserName,
                "CertificateBody" =: _uplCertificateBody]
 
--- | Contains the response to a successful UploadSigningCertificate request.
+-- | Contains the response to a successful < UploadSigningCertificate>
+-- request.
 --
 -- /See:/ 'uploadSigningCertificateResponse' smart constructor.
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'

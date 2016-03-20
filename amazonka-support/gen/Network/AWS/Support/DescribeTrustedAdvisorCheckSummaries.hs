@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,11 +20,9 @@
 --
 -- Returns the summaries of the results of the Trusted Advisor checks that
 -- have the specified check IDs. Check IDs can be obtained by calling
--- DescribeTrustedAdvisorChecks.
+-- < DescribeTrustedAdvisorChecks>.
 --
--- The response contains an array of TrustedAdvisorCheckSummary objects.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckSummaries.html AWS API Reference> for DescribeTrustedAdvisorCheckSummaries.
+-- The response contains an array of < TrustedAdvisorCheckSummary> objects.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     (
     -- * Creating a Request
@@ -81,6 +79,9 @@ instance AWSRequest
                    (pure (fromEnum s)) <*>
                      (x .?> "summaries" .!@ mempty))
 
+instance Hashable
+         DescribeTrustedAdvisorCheckSummaries
+
 instance ToHeaders
          DescribeTrustedAdvisorCheckSummaries where
         toHeaders
@@ -107,7 +108,7 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
         toQuery = const mempty
 
 -- | The summaries of the Trusted Advisor checks returned by the
--- DescribeTrustedAdvisorCheckSummaries operation.
+-- < DescribeTrustedAdvisorCheckSummaries> operation.
 --
 -- /See:/ 'describeTrustedAdvisorCheckSummariesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'

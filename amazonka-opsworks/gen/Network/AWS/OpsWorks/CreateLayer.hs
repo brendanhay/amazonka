@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorks.CreateLayer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -33,8 +33,6 @@
 -- explicitly grants permissions. For more information on user permissions,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
---
--- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateLayer.html AWS API Reference> for CreateLayer.
 module Network.AWS.OpsWorks.CreateLayer
     (
     -- * Creating a Request
@@ -172,7 +170,7 @@ clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomS
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is 'true'. To control when updates are
 -- installed, set this value to 'false'. You must then update your
--- instances manually by using CreateDeployment to run the
+-- instances manually by using < CreateDeployment> to run the
 -- 'update_dependencies' stack command or by manually running 'yum' (Amazon
 -- Linux) or 'apt-get' (Ubuntu) on the instances.
 --
@@ -195,6 +193,7 @@ clCustomRecipes = lens _clCustomRecipes (\ s a -> s{_clCustomRecipes = a});
 -- deployment attributes to be installed on the layer\'s instances. For
 -- more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
+-- This feature is supported as of version 1.7.42 of the AWS CLI.
 clCustomJSON :: Lens' CreateLayer (Maybe Text)
 clCustomJSON = lens _clCustomJSON (\ s a -> s{_clCustomJSON = a});
 
@@ -269,6 +268,8 @@ instance AWSRequest CreateLayer where
               (\ s h x ->
                  CreateLayerResponse' <$>
                    (x .?> "LayerId") <*> (pure (fromEnum s)))
+
+instance Hashable CreateLayer
 
 instance ToHeaders CreateLayer where
         toHeaders

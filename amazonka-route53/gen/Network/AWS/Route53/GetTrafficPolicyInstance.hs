@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetTrafficPolicyInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,15 +21,13 @@
 -- Gets information about a specified traffic policy instance.
 --
 -- To get information about the traffic policy instance, send a 'GET'
--- request to the '2013-04-01\/trafficpolicyinstance' resource.
+-- request to the '\/Route 53 API version\/trafficpolicyinstance' resource.
 --
 -- After you submit a 'CreateTrafficPolicyInstance' or an
 -- 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while
 -- Amazon Route 53 creates the resource record sets that are specified in
--- the traffic policy definition. For more information, see the State
+-- the traffic policy definition. For more information, see the < State>
 -- response element.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicyInstance.html AWS API Reference> for GetTrafficPolicyInstance.
 module Network.AWS.Route53.GetTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -56,7 +54,7 @@ import           Network.AWS.Route53.Types.Product
 -- | Gets information about a specified traffic policy instance.
 --
 -- To get information about a traffic policy instance, send a 'GET' request
--- to the '2013-04-01\/trafficpolicyinstance\/Id' resource.
+-- to the '\/Route 53 API version\/trafficpolicyinstance\/Id' resource.
 --
 -- /See:/ 'getTrafficPolicyInstance' smart constructor.
 newtype GetTrafficPolicyInstance = GetTrafficPolicyInstance'
@@ -91,6 +89,8 @@ instance AWSRequest GetTrafficPolicyInstance where
                  GetTrafficPolicyInstanceResponse' <$>
                    (pure (fromEnum s)) <*>
                      (x .@ "TrafficPolicyInstance"))
+
+instance Hashable GetTrafficPolicyInstance
 
 instance ToHeaders GetTrafficPolicyInstance where
         toHeaders = const mempty

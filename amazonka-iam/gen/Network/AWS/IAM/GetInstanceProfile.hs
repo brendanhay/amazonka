@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetInstanceProfile
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
 -- For more information about ARNs, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html AWS API Reference> for GetInstanceProfile.
 module Network.AWS.IAM.GetInstanceProfile
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest GetInstanceProfile where
                  GetInstanceProfileResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "InstanceProfile"))
 
+instance Hashable GetInstanceProfile
+
 instance ToHeaders GetInstanceProfile where
         toHeaders = const mempty
 
@@ -94,7 +94,7 @@ instance ToQuery GetInstanceProfile where
                "Version" =: ("2010-05-08" :: ByteString),
                "InstanceProfileName" =: _gipInstanceProfileName]
 
--- | Contains the response to a successful GetInstanceProfile request.
+-- | Contains the response to a successful < GetInstanceProfile> request.
 --
 -- /See:/ 'getInstanceProfileResponse' smart constructor.
 data GetInstanceProfileResponse = GetInstanceProfileResponse'

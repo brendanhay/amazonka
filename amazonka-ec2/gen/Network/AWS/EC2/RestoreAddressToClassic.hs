@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.RestoreAddressToClassic
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,9 @@
 -- platform back to the EC2-Classic platform. You cannot move an Elastic IP
 -- address that was originally allocated for use in EC2-VPC. The Elastic IP
 -- address must not be associated with an instance or network interface.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RestoreAddressToClassic.html AWS API Reference> for RestoreAddressToClassic.
+-- You cannot restore an Elastic IP address that\'s associated with a
+-- reverse DNS record. Contact AWS account and billing support to remove
+-- the reverse DNS record.
 module Network.AWS.EC2.RestoreAddressToClassic
     (
     -- * Creating a Request
@@ -92,6 +93,8 @@ instance AWSRequest RestoreAddressToClassic where
                  RestoreAddressToClassicResponse' <$>
                    (x .@? "status") <*> (x .@? "publicIp") <*>
                      (pure (fromEnum s)))
+
+instance Hashable RestoreAddressToClassic
 
 instance ToHeaders RestoreAddressToClassic where
         toHeaders = const mempty

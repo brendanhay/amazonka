@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.DeleteReceiptRule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteReceiptRule.html AWS API Reference> for DeleteReceiptRule.
 module Network.AWS.SES.DeleteReceiptRule
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest DeleteReceiptRule where
           = receiveXMLWrapper "DeleteReceiptRuleResult"
               (\ s h x ->
                  DeleteReceiptRuleResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeleteReceiptRule
 
 instance ToHeaders DeleteReceiptRule where
         toHeaders = const mempty

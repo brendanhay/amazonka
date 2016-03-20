@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Firehose.DeleteDeliveryStream
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,15 +24,13 @@
 -- state, and not in the 'CREATING' state. While the deletion request is in
 -- process, the delivery stream is in the 'DELETING' state.
 --
--- To check the state of a delivery stream, use DescribeDeliveryStream.
+-- To check the state of a delivery stream, use < DescribeDeliveryStream>.
 --
 -- While the delivery stream is 'DELETING' state, the service may continue
 -- to accept the records, but the service doesn\'t make any guarantees with
 -- respect to delivering the data. Therefore, as a best practice, you
 -- should first stop any applications that are sending records before
 -- deleting a delivery stream.
---
--- /See:/ <http://docs.aws.amazon.com/firehose/latest/APIReference/API_DeleteDeliveryStream.html AWS API Reference> for DeleteDeliveryStream.
 module Network.AWS.Firehose.DeleteDeliveryStream
     (
     -- * Creating a Request
@@ -55,7 +53,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DeleteDeliveryStream.
+-- | Contains the parameters for < DeleteDeliveryStream>.
 --
 -- /See:/ 'deleteDeliveryStream' smart constructor.
 newtype DeleteDeliveryStream = DeleteDeliveryStream'
@@ -89,6 +87,8 @@ instance AWSRequest DeleteDeliveryStream where
                  DeleteDeliveryStreamResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable DeleteDeliveryStream
+
 instance ToHeaders DeleteDeliveryStream where
         toHeaders
           = const
@@ -112,7 +112,7 @@ instance ToPath DeleteDeliveryStream where
 instance ToQuery DeleteDeliveryStream where
         toQuery = const mempty
 
--- | Contains the output of DeleteDeliveryStream.
+-- | Contains the output of < DeleteDeliveryStream>.
 --
 -- /See:/ 'deleteDeliveryStreamResponse' smart constructor.
 newtype DeleteDeliveryStreamResponse = DeleteDeliveryStreamResponse'

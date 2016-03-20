@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListRulesPackages
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all available Inspector rules packages.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListRulesPackages.html AWS API Reference> for ListRulesPackages.
 module Network.AWS.Inspector.ListRulesPackages
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest ListRulesPackages where
                    (x .?> "nextToken") <*>
                      (x .?> "rulesPackageArnList" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListRulesPackages
 
 instance ToHeaders ListRulesPackages where
         toHeaders

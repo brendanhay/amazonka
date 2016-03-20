@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -67,6 +67,9 @@ instance FromJSON
                  ActivityTaskCancelRequestedEventAttributes' <$>
                    (x .: "decisionTaskCompletedEventId") <*>
                      (x .: "activityId"))
+
+instance Hashable
+         ActivityTaskCancelRequestedEventAttributes
 
 -- | Provides details of the 'ActivityTaskCanceled' event.
 --
@@ -136,6 +139,8 @@ instance FromJSON ActivityTaskCanceledEventAttributes
                      <*> (x .: "scheduledEventId")
                      <*> (x .: "startedEventId"))
 
+instance Hashable ActivityTaskCanceledEventAttributes
+
 -- | Provides details of the 'ActivityTaskCompleted' event.
 --
 -- /See:/ 'activityTaskCompletedEventAttributes' smart constructor.
@@ -190,6 +195,9 @@ instance FromJSON
                  ActivityTaskCompletedEventAttributes' <$>
                    (x .:? "result") <*> (x .: "scheduledEventId") <*>
                      (x .: "startedEventId"))
+
+instance Hashable
+         ActivityTaskCompletedEventAttributes
 
 -- | Provides details of the 'ActivityTaskFailed' event.
 --
@@ -254,6 +262,8 @@ instance FromJSON ActivityTaskFailedEventAttributes
                    (x .:? "reason") <*> (x .:? "details") <*>
                      (x .: "scheduledEventId")
                      <*> (x .: "startedEventId"))
+
+instance Hashable ActivityTaskFailedEventAttributes
 
 -- | Provides details of the 'ActivityTaskScheduled' event.
 --
@@ -324,10 +334,10 @@ atseaControl :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaControl = lens _atseaControl (\ s a -> s{_atseaControl = a});
 
 -- | The maximum time before which the worker processing this task must
--- report progress by calling RecordActivityTaskHeartbeat. If the timeout
--- is exceeded, the activity task is automatically timed out. If the worker
--- subsequently attempts to record a heartbeat or return a result, it will
--- be ignored.
+-- report progress by calling < RecordActivityTaskHeartbeat>. If the
+-- timeout is exceeded, the activity task is automatically timed out. If
+-- the worker subsequently attempts to record a heartbeat or return a
+-- result, it will be ignored.
 atseaHeartbeatTimeout :: Lens' ActivityTaskScheduledEventAttributes (Maybe Text)
 atseaHeartbeatTimeout = lens _atseaHeartbeatTimeout (\ s a -> s{_atseaHeartbeatTimeout = a});
 
@@ -399,6 +409,9 @@ instance FromJSON
                      <*> (x .: "taskList")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable
+         ActivityTaskScheduledEventAttributes
+
 -- | Provides details of the 'ActivityTaskStarted' event.
 --
 -- /See:/ 'activityTaskStartedEventAttributes' smart constructor.
@@ -443,6 +456,8 @@ instance FromJSON ActivityTaskStartedEventAttributes
               (\ x ->
                  ActivityTaskStartedEventAttributes' <$>
                    (x .:? "identity") <*> (x .: "scheduledEventId"))
+
+instance Hashable ActivityTaskStartedEventAttributes
 
 -- | Provides details of the 'ActivityTaskTimedOut' event.
 --
@@ -510,6 +525,8 @@ instance FromJSON ActivityTaskTimedOutEventAttributes
                      (x .: "scheduledEventId")
                      <*> (x .: "startedEventId"))
 
+instance Hashable ActivityTaskTimedOutEventAttributes
+
 -- | Represents an activity type.
 --
 -- /See:/ 'activityType' smart constructor.
@@ -554,6 +571,8 @@ instance FromJSON ActivityType where
           = withObject "ActivityType"
               (\ x ->
                  ActivityType' <$> (x .: "name") <*> (x .: "version"))
+
+instance Hashable ActivityType
 
 instance ToJSON ActivityType where
         toJSON ActivityType'{..}
@@ -636,7 +655,7 @@ atcDefaultTaskPriority = lens _atcDefaultTaskPriority (\ s a -> s{_atcDefaultTas
 
 -- | /Optional./ The default maximum time, in seconds, before which a worker
 -- processing a task must report progress by calling
--- RecordActivityTaskHeartbeat.
+-- < RecordActivityTaskHeartbeat>.
 --
 -- You can specify this value only when /registering/ an activity type. The
 -- registered default value can be overridden when you schedule a task
@@ -683,6 +702,8 @@ instance FromJSON ActivityTypeConfiguration where
                      <*> (x .:? "defaultTaskScheduleToCloseTimeout")
                      <*> (x .:? "defaultTaskStartToCloseTimeout"))
 
+instance Hashable ActivityTypeConfiguration
+
 -- | Detailed information about an activity type.
 --
 -- /See:/ 'activityTypeInfo' smart constructor.
@@ -721,15 +742,16 @@ activityTypeInfo pActivityType_ pStatus_ pCreationDate_ =
     , _atiCreationDate = _Time # pCreationDate_
     }
 
--- | If DEPRECATED, the date and time DeprecateActivityType was called.
+-- | If DEPRECATED, the date and time < DeprecateActivityType> was called.
 atiDeprecationDate :: Lens' ActivityTypeInfo (Maybe UTCTime)
 atiDeprecationDate = lens _atiDeprecationDate (\ s a -> s{_atiDeprecationDate = a}) . mapping _Time;
 
--- | The description of the activity type provided in RegisterActivityType.
+-- | The description of the activity type provided in
+-- < RegisterActivityType>.
 atiDescription :: Lens' ActivityTypeInfo (Maybe Text)
 atiDescription = lens _atiDescription (\ s a -> s{_atiDescription = a});
 
--- | The ActivityType type structure representing the activity type.
+-- | The < ActivityType> type structure representing the activity type.
 atiActivityType :: Lens' ActivityTypeInfo ActivityType
 atiActivityType = lens _atiActivityType (\ s a -> s{_atiActivityType = a});
 
@@ -738,7 +760,7 @@ atiStatus :: Lens' ActivityTypeInfo RegistrationStatus
 atiStatus = lens _atiStatus (\ s a -> s{_atiStatus = a});
 
 -- | The date and time this activity type was created through
--- RegisterActivityType.
+-- < RegisterActivityType>.
 atiCreationDate :: Lens' ActivityTypeInfo UTCTime
 atiCreationDate = lens _atiCreationDate (\ s a -> s{_atiCreationDate = a}) . _Time;
 
@@ -751,6 +773,8 @@ instance FromJSON ActivityTypeInfo where
                      <*> (x .: "activityType")
                      <*> (x .: "status")
                      <*> (x .: "creationDate"))
+
+instance Hashable ActivityTypeInfo
 
 -- | Provides details of the 'CancelTimer' decision.
 --
@@ -793,6 +817,8 @@ cancelTimerDecisionAttributes pTimerId_ =
 -- | __Required.__ The unique ID of the timer to cancel.
 ctdaTimerId :: Lens' CancelTimerDecisionAttributes Text
 ctdaTimerId = lens _ctdaTimerId (\ s a -> s{_ctdaTimerId = a});
+
+instance Hashable CancelTimerDecisionAttributes
 
 instance ToJSON CancelTimerDecisionAttributes where
         toJSON CancelTimerDecisionAttributes'{..}
@@ -859,6 +885,8 @@ instance FromJSON CancelTimerFailedEventAttributes
                    (x .: "timerId") <*> (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable CancelTimerFailedEventAttributes
+
 -- | Provides details of the 'CancelWorkflowExecution' decision.
 --
 -- __Access Control__
@@ -899,6 +927,9 @@ cancelWorkflowExecutionDecisionAttributes =
 -- | /Optional./ details of the cancellation.
 cwedaDetails :: Lens' CancelWorkflowExecutionDecisionAttributes (Maybe Text)
 cwedaDetails = lens _cwedaDetails (\ s a -> s{_cwedaDetails = a});
+
+instance Hashable
+         CancelWorkflowExecutionDecisionAttributes
 
 instance ToJSON
          CancelWorkflowExecutionDecisionAttributes where
@@ -958,6 +989,9 @@ instance FromJSON
                  CancelWorkflowExecutionFailedEventAttributes' <$>
                    (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
+
+instance Hashable
+         CancelWorkflowExecutionFailedEventAttributes
 
 -- | Provide details of the 'ChildWorkflowExecutionCanceled' event.
 --
@@ -1036,6 +1070,9 @@ instance FromJSON
                      <*> (x .: "initiatedEventId")
                      <*> (x .: "startedEventId"))
 
+instance Hashable
+         ChildWorkflowExecutionCanceledEventAttributes
+
 -- | Provides details of the 'ChildWorkflowExecutionCompleted' event.
 --
 -- /See:/ 'childWorkflowExecutionCompletedEventAttributes' smart constructor.
@@ -1112,6 +1149,9 @@ instance FromJSON
                      (x .: "workflowType")
                      <*> (x .: "initiatedEventId")
                      <*> (x .: "startedEventId"))
+
+instance Hashable
+         ChildWorkflowExecutionCompletedEventAttributes
 
 -- | Provides details of the 'ChildWorkflowExecutionFailed' event.
 --
@@ -1199,6 +1239,9 @@ instance FromJSON
                      <*> (x .: "initiatedEventId")
                      <*> (x .: "startedEventId"))
 
+instance Hashable
+         ChildWorkflowExecutionFailedEventAttributes
+
 -- | Provides details of the 'ChildWorkflowExecutionStarted' event.
 --
 -- /See:/ 'childWorkflowExecutionStartedEventAttributes' smart constructor.
@@ -1253,6 +1296,9 @@ instance FromJSON
                  ChildWorkflowExecutionStartedEventAttributes' <$>
                    (x .: "workflowExecution") <*> (x .: "workflowType")
                      <*> (x .: "initiatedEventId"))
+
+instance Hashable
+         ChildWorkflowExecutionStartedEventAttributes
 
 -- | Provides details of the 'ChildWorkflowExecutionTerminated' event.
 --
@@ -1321,6 +1367,9 @@ instance FromJSON
                    (x .: "workflowExecution") <*> (x .: "workflowType")
                      <*> (x .: "initiatedEventId")
                      <*> (x .: "startedEventId"))
+
+instance Hashable
+         ChildWorkflowExecutionTerminatedEventAttributes
 
 -- | Provides details of the 'ChildWorkflowExecutionTimedOut' event.
 --
@@ -1401,6 +1450,9 @@ instance FromJSON
                      <*> (x .: "initiatedEventId")
                      <*> (x .: "startedEventId"))
 
+instance Hashable
+         ChildWorkflowExecutionTimedOutEventAttributes
+
 -- | Used to filter the closed workflow executions in visibility APIs by
 -- their close status.
 --
@@ -1426,6 +1478,8 @@ closeStatusFilter pStatus_ =
 -- execution for it to meet the criteria of this filter.
 csfStatus :: Lens' CloseStatusFilter CloseStatus
 csfStatus = lens _csfStatus (\ s a -> s{_csfStatus = a});
+
+instance Hashable CloseStatusFilter
 
 instance ToJSON CloseStatusFilter where
         toJSON CloseStatusFilter'{..}
@@ -1472,6 +1526,9 @@ completeWorkflowExecutionDecisionAttributes =
 -- implementation defined.
 cwedaResult :: Lens' CompleteWorkflowExecutionDecisionAttributes (Maybe Text)
 cwedaResult = lens _cwedaResult (\ s a -> s{_cwedaResult = a});
+
+instance Hashable
+         CompleteWorkflowExecutionDecisionAttributes
 
 instance ToJSON
          CompleteWorkflowExecutionDecisionAttributes where
@@ -1531,6 +1588,9 @@ instance FromJSON
                  CompleteWorkflowExecutionFailedEventAttributes' <$>
                    (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
+
+instance Hashable
+         CompleteWorkflowExecutionFailedEventAttributes
 
 -- | Provides details of the 'ContinueAsNewWorkflowExecution' decision.
 --
@@ -1609,14 +1669,15 @@ continueAsNewWorkflowExecutionDecisionAttributes =
 
 -- | The list of tags to associate with the new workflow execution. A maximum
 -- of 5 tags can be specified. You can list workflow executions with a
--- specific tag by calling ListOpenWorkflowExecutions or
--- ListClosedWorkflowExecutions and specifying a TagFilter.
+-- specific tag by calling < ListOpenWorkflowExecutions> or
+-- < ListClosedWorkflowExecutions> and specifying a < TagFilter>.
 canwedaTagList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes [Text]
 canwedaTagList = lens _canwedaTagList (\ s a -> s{_canwedaTagList = a}) . _Default . _Coerce;
 
 -- | Specifies the maximum duration of decision tasks for the new workflow
 -- execution. This parameter overrides the 'defaultTaskStartToCloseTimout'
--- specified when registering the workflow type using RegisterWorkflowType.
+-- specified when registering the workflow type using
+-- < RegisterWorkflowType>.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -1680,9 +1741,9 @@ canwedaTaskPriority = lens _canwedaTaskPriority (\ s a -> s{_canwedaTaskPriority
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- the new execution if it is terminated by calling the
--- TerminateWorkflowExecution action explicitly or due to an expired
+-- < TerminateWorkflowExecution> action explicitly or due to an expired
 -- timeout. This policy overrides the default child policy specified when
--- registering the workflow type using RegisterWorkflowType.
+-- registering the workflow type using < RegisterWorkflowType>.
 --
 -- The supported child policies are:
 --
@@ -1700,6 +1761,9 @@ canwedaTaskPriority = lens _canwedaTaskPriority (\ s a -> s{_canwedaTaskPriority
 -- registration time then a fault will be returned.
 canwedaChildPolicy :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe ChildPolicy)
 canwedaChildPolicy = lens _canwedaChildPolicy (\ s a -> s{_canwedaChildPolicy = a});
+
+instance Hashable
+         ContinueAsNewWorkflowExecutionDecisionAttributes
 
 instance ToJSON
          ContinueAsNewWorkflowExecutionDecisionAttributes
@@ -1776,6 +1840,9 @@ instance FromJSON
                    (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable
+         ContinueAsNewWorkflowExecutionFailedEventAttributes
+
 -- | Specifies a decision made by the decider. A decision can be one of these
 -- types:
 --
@@ -1800,7 +1867,7 @@ instance FromJSON
 --     not been assigned to a worker, then it will be canceled. If the
 --     activity task was already assigned to a worker, then the worker will
 --     be informed that cancellation has been requested in the response to
---     RecordActivityTaskHeartbeat.
+--     < RecordActivityTaskHeartbeat>.
 -- -   __RequestCancelExternalWorkflowExecution__: requests that a request
 --     be made to cancel the specified external workflow execution and
 --     records a 'RequestCancelExternalWorkflowExecutionInitiated' event in
@@ -1899,7 +1966,7 @@ instance FromJSON
 -- history while the decision task was being performed by the decider.
 -- Unlike the above situations which are logic issues, this fault is always
 -- possible because of race conditions in a distributed system. The right
--- action here is to call RespondDecisionTaskCompleted without any
+-- action here is to call < RespondDecisionTaskCompleted> without any
 -- decisions. This would result in another decision task with these new
 -- events included in the history. The decider should handle the new events
 -- and may decide to close the workflow execution.
@@ -1910,19 +1977,19 @@ instance FromJSON
 -- the above decision values, and then set the corresponding attributes
 -- field shown below:
 --
--- -   ScheduleActivityTaskDecisionAttributes
--- -   ScheduleLambdaFunctionDecisionAttributes
--- -   RequestCancelActivityTaskDecisionAttributes
--- -   CompleteWorkflowExecutionDecisionAttributes
--- -   FailWorkflowExecutionDecisionAttributes
--- -   CancelWorkflowExecutionDecisionAttributes
--- -   ContinueAsNewWorkflowExecutionDecisionAttributes
--- -   RecordMarkerDecisionAttributes
--- -   StartTimerDecisionAttributes
--- -   CancelTimerDecisionAttributes
--- -   SignalExternalWorkflowExecutionDecisionAttributes
--- -   RequestCancelExternalWorkflowExecutionDecisionAttributes
--- -   StartChildWorkflowExecutionDecisionAttributes
+-- -   < ScheduleActivityTaskDecisionAttributes>
+-- -   < ScheduleLambdaFunctionDecisionAttributes>
+-- -   < RequestCancelActivityTaskDecisionAttributes>
+-- -   < CompleteWorkflowExecutionDecisionAttributes>
+-- -   < FailWorkflowExecutionDecisionAttributes>
+-- -   < CancelWorkflowExecutionDecisionAttributes>
+-- -   < ContinueAsNewWorkflowExecutionDecisionAttributes>
+-- -   < RecordMarkerDecisionAttributes>
+-- -   < StartTimerDecisionAttributes>
+-- -   < CancelTimerDecisionAttributes>
+-- -   < SignalExternalWorkflowExecutionDecisionAttributes>
+-- -   < RequestCancelExternalWorkflowExecutionDecisionAttributes>
+-- -   < StartChildWorkflowExecutionDecisionAttributes>
 --
 -- /See:/ 'decision' smart constructor.
 data Decision = Decision'
@@ -2062,6 +2129,8 @@ dContinueAsNewWorkflowExecutionDecisionAttributes = lens _dContinueAsNewWorkflow
 dDecisionType :: Lens' Decision DecisionType
 dDecisionType = lens _dDecisionType (\ s a -> s{_dDecisionType = a});
 
+instance Hashable Decision
+
 instance ToJSON Decision where
         toJSON Decision'{..}
           = object
@@ -2156,6 +2225,9 @@ instance FromJSON
                      (x .: "scheduledEventId")
                      <*> (x .: "startedEventId"))
 
+instance Hashable
+         DecisionTaskCompletedEventAttributes
+
 -- | Provides details about the 'DecisionTaskScheduled' event.
 --
 -- /See:/ 'decisionTaskScheduledEventAttributes' smart constructor.
@@ -2217,6 +2289,9 @@ instance FromJSON
                      (x .:? "startToCloseTimeout")
                      <*> (x .: "taskList"))
 
+instance Hashable
+         DecisionTaskScheduledEventAttributes
+
 -- | Provides details of the 'DecisionTaskStarted' event.
 --
 -- /See:/ 'decisionTaskStartedEventAttributes' smart constructor.
@@ -2260,6 +2335,8 @@ instance FromJSON DecisionTaskStartedEventAttributes
               (\ x ->
                  DecisionTaskStartedEventAttributes' <$>
                    (x .:? "identity") <*> (x .: "scheduledEventId"))
+
+instance Hashable DecisionTaskStartedEventAttributes
 
 -- | Provides details of the 'DecisionTaskTimedOut' event.
 --
@@ -2318,6 +2395,8 @@ instance FromJSON DecisionTaskTimedOutEventAttributes
                    (x .: "timeoutType") <*> (x .: "scheduledEventId")
                      <*> (x .: "startedEventId"))
 
+instance Hashable DecisionTaskTimedOutEventAttributes
+
 -- | Contains the configuration settings of a domain.
 --
 -- /See:/ 'domainConfiguration' smart constructor.
@@ -2349,6 +2428,8 @@ instance FromJSON DomainConfiguration where
                  DomainConfiguration' <$>
                    (x .: "workflowExecutionRetentionPeriodInDays"))
 
+instance Hashable DomainConfiguration
+
 -- | Contains general information about a domain.
 --
 -- /See:/ 'domainInfo' smart constructor.
@@ -2378,7 +2459,7 @@ domainInfo pName_ pStatus_ =
     , _diStatus = pStatus_
     }
 
--- | The description of the domain provided through RegisterDomain.
+-- | The description of the domain provided through < RegisterDomain>.
 diDescription :: Lens' DomainInfo (Maybe Text)
 diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
 
@@ -2391,9 +2472,9 @@ diName = lens _diName (\ s a -> s{_diName = a});
 -- -   __REGISTERED__: The domain is properly registered and available. You
 --     can use this domain for registering types and creating new workflow
 --     executions.
--- -   __DEPRECATED__: The domain was deprecated using DeprecateDomain, but
---     is still in use. You should not create new workflow executions in
---     this domain.
+-- -   __DEPRECATED__: The domain was deprecated using < DeprecateDomain>,
+--     but is still in use. You should not create new workflow executions
+--     in this domain.
 diStatus :: Lens' DomainInfo RegistrationStatus
 diStatus = lens _diStatus (\ s a -> s{_diStatus = a});
 
@@ -2404,6 +2485,8 @@ instance FromJSON DomainInfo where
                  DomainInfo' <$>
                    (x .:? "description") <*> (x .: "name") <*>
                      (x .: "status"))
+
+instance Hashable DomainInfo
 
 -- | Used to filter the workflow executions in visibility APIs by various
 -- time-based rules. Each parameter, if specified, defines a rule that must
@@ -2440,6 +2523,8 @@ etfLatestDate = lens _etfLatestDate (\ s a -> s{_etfLatestDate = a}) . mapping _
 -- | Specifies the oldest start or close date and time to return.
 etfOldestDate :: Lens' ExecutionTimeFilter UTCTime
 etfOldestDate = lens _etfOldestDate (\ s a -> s{_etfOldestDate = a}) . _Time;
+
+instance Hashable ExecutionTimeFilter
 
 instance ToJSON ExecutionTimeFilter where
         toJSON ExecutionTimeFilter'{..}
@@ -2499,6 +2584,9 @@ instance FromJSON
                    (x .: "workflowExecution") <*>
                      (x .: "initiatedEventId"))
 
+instance Hashable
+         ExternalWorkflowExecutionCancelRequestedEventAttributes
+
 -- | Provides details of the 'ExternalWorkflowExecutionSignaled' event.
 --
 -- /See:/ 'externalWorkflowExecutionSignaledEventAttributes' smart constructor.
@@ -2545,6 +2633,9 @@ instance FromJSON
                  ExternalWorkflowExecutionSignaledEventAttributes' <$>
                    (x .: "workflowExecution") <*>
                      (x .: "initiatedEventId"))
+
+instance Hashable
+         ExternalWorkflowExecutionSignaledEventAttributes
 
 -- | Provides details of the 'FailWorkflowExecution' decision.
 --
@@ -2594,6 +2685,9 @@ fwedaReason = lens _fwedaReason (\ s a -> s{_fwedaReason = a});
 -- | /Optional./ Details of the failure.
 fwedaDetails :: Lens' FailWorkflowExecutionDecisionAttributes (Maybe Text)
 fwedaDetails = lens _fwedaDetails (\ s a -> s{_fwedaDetails = a});
+
+instance Hashable
+         FailWorkflowExecutionDecisionAttributes
 
 instance ToJSON
          FailWorkflowExecutionDecisionAttributes where
@@ -2655,6 +2749,9 @@ instance FromJSON
                    (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable
+         FailWorkflowExecutionFailedEventAttributes
+
 -- | Event within a workflow execution. A history event can be one of these
 -- types:
 --
@@ -2679,7 +2776,7 @@ instance FromJSON
 -- -   __DecisionTaskStarted__: The decision task was dispatched to a
 --     decider.
 -- -   __DecisionTaskCompleted__: The decider successfully completed a
---     decision task by calling RespondDecisionTaskCompleted.
+--     decision task by calling < RespondDecisionTaskCompleted>.
 -- -   __DecisionTaskTimedOut__: The decision task timed out.
 -- -   __ActivityTaskScheduled__: An activity task was scheduled for
 --     execution.
@@ -2690,9 +2787,9 @@ instance FromJSON
 -- -   __ActivityTaskStarted__: The scheduled activity task was dispatched
 --     to a worker.
 -- -   __ActivityTaskCompleted__: An activity worker successfully completed
---     an activity task by calling RespondActivityTaskCompleted.
+--     an activity task by calling < RespondActivityTaskCompleted>.
 -- -   __ActivityTaskFailed__: An activity worker failed an activity task
---     by calling RespondActivityTaskFailed.
+--     by calling < RespondActivityTaskFailed>.
 -- -   __ActivityTaskTimedOut__: The activity task timed out.
 -- -   __ActivityTaskCanceled__: The activity task was successfully
 --     canceled.
@@ -3448,6 +3545,8 @@ instance FromJSON HistoryEvent where
                      <*> (x .: "eventType")
                      <*> (x .: "eventId"))
 
+instance Hashable HistoryEvent
+
 -- | Provides details for the 'LambdaFunctionCompleted' event.
 --
 -- /See:/ 'lambdaFunctionCompletedEventAttributes' smart constructor.
@@ -3500,6 +3599,9 @@ instance FromJSON
                  LambdaFunctionCompletedEventAttributes' <$>
                    (x .:? "result") <*> (x .: "scheduledEventId") <*>
                      (x .: "startedEventId"))
+
+instance Hashable
+         LambdaFunctionCompletedEventAttributes
 
 -- | Provides details for the 'LambdaFunctionFailed' event.
 --
@@ -3562,6 +3664,8 @@ instance FromJSON LambdaFunctionFailedEventAttributes
                    (x .:? "reason") <*> (x .:? "details") <*>
                      (x .: "scheduledEventId")
                      <*> (x .: "startedEventId"))
+
+instance Hashable LambdaFunctionFailedEventAttributes
 
 -- | Provides details for the 'LambdaFunctionScheduled' event.
 --
@@ -3636,6 +3740,9 @@ instance FromJSON
                      <*> (x .: "name")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable
+         LambdaFunctionScheduledEventAttributes
+
 -- | Provides details for the 'LambdaFunctionStarted' event.
 --
 -- /See:/ 'lambdaFunctionStartedEventAttributes' smart constructor.
@@ -3670,6 +3777,9 @@ instance FromJSON
               (\ x ->
                  LambdaFunctionStartedEventAttributes' <$>
                    (x .: "scheduledEventId"))
+
+instance Hashable
+         LambdaFunctionStartedEventAttributes
 
 -- | Provides details for the 'LambdaFunctionTimedOut' event.
 --
@@ -3724,6 +3834,9 @@ instance FromJSON
                    (x .:? "timeoutType") <*> (x .: "scheduledEventId")
                      <*> (x .: "startedEventId"))
 
+instance Hashable
+         LambdaFunctionTimedOutEventAttributes
+
 -- | Provides details of the 'MarkerRecorded' event.
 --
 -- /See:/ 'markerRecordedEventAttributes' smart constructor.
@@ -3776,6 +3889,8 @@ instance FromJSON MarkerRecordedEventAttributes where
                    (x .:? "details") <*> (x .: "markerName") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable MarkerRecordedEventAttributes
+
 -- | Contains the count of tasks in a task list.
 --
 -- /See:/ 'pendingTaskCount' smart constructor.
@@ -3816,6 +3931,8 @@ instance FromJSON PendingTaskCount where
               (\ x ->
                  PendingTaskCount' <$>
                    (x .:? "truncated") <*> (x .: "count"))
+
+instance Hashable PendingTaskCount
 
 -- | Provides details of the 'RecordMarker' decision.
 --
@@ -3866,6 +3983,8 @@ rmdaDetails = lens _rmdaDetails (\ s a -> s{_rmdaDetails = a});
 -- | __Required.__ The name of the marker.
 rmdaMarkerName :: Lens' RecordMarkerDecisionAttributes Text
 rmdaMarkerName = lens _rmdaMarkerName (\ s a -> s{_rmdaMarkerName = a});
+
+instance Hashable RecordMarkerDecisionAttributes
 
 instance ToJSON RecordMarkerDecisionAttributes where
         toJSON RecordMarkerDecisionAttributes'{..}
@@ -3934,6 +4053,8 @@ instance FromJSON RecordMarkerFailedEventAttributes
                    (x .: "markerName") <*> (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable RecordMarkerFailedEventAttributes
+
 -- | Provides details of the 'RequestCancelActivityTask' decision.
 --
 -- __Access Control__
@@ -3975,6 +4096,9 @@ requestCancelActivityTaskDecisionAttributes pActivityId_ =
 -- | The 'activityId' of the activity task to be canceled.
 rcatdaActivityId :: Lens' RequestCancelActivityTaskDecisionAttributes Text
 rcatdaActivityId = lens _rcatdaActivityId (\ s a -> s{_rcatdaActivityId = a});
+
+instance Hashable
+         RequestCancelActivityTaskDecisionAttributes
 
 instance ToJSON
          RequestCancelActivityTaskDecisionAttributes where
@@ -4047,6 +4171,9 @@ instance FromJSON
                    (x .: "activityId") <*> (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable
+         RequestCancelActivityTaskFailedEventAttributes
+
 -- | Provides details of the 'RequestCancelExternalWorkflowExecution'
 -- decision.
 --
@@ -4107,6 +4234,9 @@ rcewedaRunId = lens _rcewedaRunId (\ s a -> s{_rcewedaRunId = a});
 -- cancel.
 rcewedaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes Text
 rcewedaWorkflowId = lens _rcewedaWorkflowId (\ s a -> s{_rcewedaWorkflowId = a});
+
+instance Hashable
+         RequestCancelExternalWorkflowExecutionDecisionAttributes
 
 instance ToJSON
          RequestCancelExternalWorkflowExecutionDecisionAttributes
@@ -4217,6 +4347,9 @@ instance FromJSON
                      <*> (x .: "initiatedEventId")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable
+         RequestCancelExternalWorkflowExecutionFailedEventAttributes
+
 -- | Provides details of the
 -- 'RequestCancelExternalWorkflowExecutionInitiated' event.
 --
@@ -4284,6 +4417,9 @@ instance FromJSON
                    (x .:? "control") <*> (x .:? "runId") <*>
                      (x .: "workflowId")
                      <*> (x .: "decisionTaskCompletedEventId"))
+
+instance Hashable
+         RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
 
 -- | Provides details of the 'ScheduleActivityTask' decision.
 --
@@ -4373,11 +4509,11 @@ satdaControl = lens _satdaControl (\ s a -> s{_satdaControl = a});
 
 -- | If set, specifies the maximum time before which a worker processing a
 -- task of this type must report progress by calling
--- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
+-- < RecordActivityTaskHeartbeat>. If the timeout is exceeded, the activity
 -- task is automatically timed out. If the worker subsequently attempts to
 -- record a heartbeat or returns a result, it will be ignored. This
 -- overrides the default heartbeat timeout specified when registering the
--- activity type using RegisterActivityType.
+-- activity type using < RegisterActivityType>.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -4418,10 +4554,10 @@ satdaTaskList = lens _satdaTaskList (\ s a -> s{_satdaTaskList = a});
 
 -- | /Optional./ If set, specifies the priority with which the activity task
 -- is to be assigned to a worker. This overrides the defaultTaskPriority
--- specified when registering the activity type using RegisterActivityType.
--- Valid values are integers that range from Java\'s 'Integer.MIN_VALUE'
--- (-2147483648) to 'Integer.MAX_VALUE' (2147483647). Higher numbers
--- indicate higher priority.
+-- specified when registering the activity type using
+-- < RegisterActivityType>. Valid values are integers that range from
+-- Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE'
+-- (2147483647). Higher numbers indicate higher priority.
 --
 -- For more information about setting task priority, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
@@ -4432,7 +4568,7 @@ satdaTaskPriority = lens _satdaTaskPriority (\ s a -> s{_satdaTaskPriority = a})
 -- | /Optional./ If set, specifies the maximum duration the activity task can
 -- wait to be assigned to a worker. This overrides the default
 -- schedule-to-start timeout specified when registering the activity type
--- using RegisterActivityType.
+-- using < RegisterActivityType>.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -4446,7 +4582,8 @@ satdaScheduleToStartTimeout = lens _satdaScheduleToStartTimeout (\ s a -> s{_sat
 
 -- | If set, specifies the maximum duration a worker may take to process this
 -- activity task. This overrides the default start-to-close timeout
--- specified when registering the activity type using RegisterActivityType.
+-- specified when registering the activity type using
+-- < RegisterActivityType>.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -4470,6 +4607,9 @@ satdaActivityType = lens _satdaActivityType (\ s a -> s{_satdaActivityType = a})
 -- contain the literal string quotarnquot.
 satdaActivityId :: Lens' ScheduleActivityTaskDecisionAttributes Text
 satdaActivityId = lens _satdaActivityId (\ s a -> s{_satdaActivityId = a});
+
+instance Hashable
+         ScheduleActivityTaskDecisionAttributes
 
 instance ToJSON
          ScheduleActivityTaskDecisionAttributes where
@@ -4563,6 +4703,9 @@ instance FromJSON
                      (x .: "cause")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable
+         ScheduleActivityTaskFailedEventAttributes
+
 -- | Provides details of the 'ScheduleLambdaFunction' decision.
 --
 -- __Access Control__
@@ -4640,6 +4783,9 @@ slfdaId = lens _slfdaId (\ s a -> s{_slfdaId = a});
 -- | __Required.__ The name of the AWS Lambda function to invoke.
 slfdaName :: Lens' ScheduleLambdaFunctionDecisionAttributes Text
 slfdaName = lens _slfdaName (\ s a -> s{_slfdaName = a});
+
+instance Hashable
+         ScheduleLambdaFunctionDecisionAttributes
 
 instance ToJSON
          ScheduleLambdaFunctionDecisionAttributes where
@@ -4722,6 +4868,9 @@ instance FromJSON
                    (x .: "id") <*> (x .: "name") <*> (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable
+         ScheduleLambdaFunctionFailedEventAttributes
+
 -- | Provides details of the 'SignalExternalWorkflowExecution' decision.
 --
 -- __Access Control__
@@ -4800,6 +4949,9 @@ sewedaWorkflowId = lens _sewedaWorkflowId (\ s a -> s{_sewedaWorkflowId = a});
 -- use the signal name and input to process the signal.
 sewedaSignalName :: Lens' SignalExternalWorkflowExecutionDecisionAttributes Text
 sewedaSignalName = lens _sewedaSignalName (\ s a -> s{_sewedaSignalName = a});
+
+instance Hashable
+         SignalExternalWorkflowExecutionDecisionAttributes
 
 instance ToJSON
          SignalExternalWorkflowExecutionDecisionAttributes
@@ -4910,6 +5062,9 @@ instance FromJSON
                      <*> (x .: "initiatedEventId")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable
+         SignalExternalWorkflowExecutionFailedEventAttributes
+
 -- | Provides details of the 'SignalExternalWorkflowExecutionInitiated'
 -- event.
 --
@@ -4995,6 +5150,9 @@ instance FromJSON
                      <*> (x .: "workflowId")
                      <*> (x .: "signalName")
                      <*> (x .: "decisionTaskCompletedEventId"))
+
+instance Hashable
+         SignalExternalWorkflowExecutionInitiatedEventAttributes
 
 -- | Provides details of the 'StartChildWorkflowExecution' decision.
 --
@@ -5091,14 +5249,15 @@ scwedaControl = lens _scwedaControl (\ s a -> s{_scwedaControl = a});
 
 -- | The list of tags to associate with the child workflow execution. A
 -- maximum of 5 tags can be specified. You can list workflow executions
--- with a specific tag by calling ListOpenWorkflowExecutions or
--- ListClosedWorkflowExecutions and specifying a TagFilter.
+-- with a specific tag by calling < ListOpenWorkflowExecutions> or
+-- < ListClosedWorkflowExecutions> and specifying a < TagFilter>.
 scwedaTagList :: Lens' StartChildWorkflowExecutionDecisionAttributes [Text]
 scwedaTagList = lens _scwedaTagList (\ s a -> s{_scwedaTagList = a}) . _Default . _Coerce;
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the 'defaultTaskStartToCloseTimout'
--- specified when registering the workflow type using RegisterWorkflowType.
+-- specified when registering the workflow type using
+-- < RegisterWorkflowType>.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -5169,9 +5328,10 @@ scwedaTaskPriority = lens _scwedaTaskPriority (\ s a -> s{_scwedaTaskPriority = 
 
 -- | /Optional./ If set, specifies the policy to use for the child workflow
 -- executions if the workflow execution being started is terminated by
--- calling the TerminateWorkflowExecution action explicitly or due to an
+-- calling the < TerminateWorkflowExecution> action explicitly or due to an
 -- expired timeout. This policy overrides the default child policy
--- specified when registering the workflow type using RegisterWorkflowType.
+-- specified when registering the workflow type using
+-- < RegisterWorkflowType>.
 --
 -- The supported child policies are:
 --
@@ -5202,6 +5362,9 @@ scwedaWorkflowType = lens _scwedaWorkflowType (\ s a -> s{_scwedaWorkflowType = 
 -- contain the literal string quotarnquot.
 scwedaWorkflowId :: Lens' StartChildWorkflowExecutionDecisionAttributes Text
 scwedaWorkflowId = lens _scwedaWorkflowId (\ s a -> s{_scwedaWorkflowId = a});
+
+instance Hashable
+         StartChildWorkflowExecutionDecisionAttributes
 
 instance ToJSON
          StartChildWorkflowExecutionDecisionAttributes where
@@ -5317,6 +5480,9 @@ instance FromJSON
                      <*> (x .: "workflowId")
                      <*> (x .: "initiatedEventId")
                      <*> (x .: "decisionTaskCompletedEventId"))
+
+instance Hashable
+         StartChildWorkflowExecutionFailedEventAttributes
 
 -- | Provides details of the 'StartChildWorkflowExecutionInitiated' event.
 --
@@ -5453,7 +5619,7 @@ scweieaDecisionTaskCompletedEventId :: Lens' StartChildWorkflowExecutionInitiate
 scweieaDecisionTaskCompletedEventId = lens _scweieaDecisionTaskCompletedEventId (\ s a -> s{_scweieaDecisionTaskCompletedEventId = a});
 
 -- | The policy to use for the child workflow executions if this execution
--- gets terminated by explicitly calling the TerminateWorkflowExecution
+-- gets terminated by explicitly calling the < TerminateWorkflowExecution>
 -- action or due to an expired timeout.
 --
 -- The supported child policies are:
@@ -5488,6 +5654,9 @@ instance FromJSON
                      <*> (x .: "taskList")
                      <*> (x .: "decisionTaskCompletedEventId")
                      <*> (x .: "childPolicy"))
+
+instance Hashable
+         StartChildWorkflowExecutionInitiatedEventAttributes
 
 -- | Provides details for the 'StartLambdaFunctionFailed' event.
 --
@@ -5546,6 +5715,9 @@ instance FromJSON
                  StartLambdaFunctionFailedEventAttributes' <$>
                    (x .:? "scheduledEventId") <*> (x .:? "cause") <*>
                      (x .:? "message"))
+
+instance Hashable
+         StartLambdaFunctionFailedEventAttributes
 
 -- | Provides details of the 'StartTimer' decision.
 --
@@ -5614,6 +5786,8 @@ stdaTimerId = lens _stdaTimerId (\ s a -> s{_stdaTimerId = a});
 -- to 0.
 stdaStartToFireTimeout :: Lens' StartTimerDecisionAttributes Text
 stdaStartToFireTimeout = lens _stdaStartToFireTimeout (\ s a -> s{_stdaStartToFireTimeout = a});
+
+instance Hashable StartTimerDecisionAttributes
 
 instance ToJSON StartTimerDecisionAttributes where
         toJSON StartTimerDecisionAttributes'{..}
@@ -5684,6 +5858,8 @@ instance FromJSON StartTimerFailedEventAttributes
                    (x .: "timerId") <*> (x .: "cause") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable StartTimerFailedEventAttributes
+
 -- | Used to filter the workflow executions in visibility APIs based on a
 -- tag.
 --
@@ -5709,6 +5885,8 @@ tagFilter pTag_ =
 -- execution for it to meet the filter criteria.
 tfTag :: Lens' TagFilter Text
 tfTag = lens _tfTag (\ s a -> s{_tfTag = a});
+
+instance Hashable TagFilter
 
 instance ToJSON TagFilter where
         toJSON TagFilter'{..}
@@ -5742,6 +5920,8 @@ instance FromJSON TaskList where
         parseJSON
           = withObject "TaskList"
               (\ x -> TaskList' <$> (x .: "name"))
+
+instance Hashable TaskList
 
 instance ToJSON TaskList where
         toJSON TaskList'{..}
@@ -5802,6 +5982,8 @@ instance FromJSON TimerCanceledEventAttributes where
                    (x .: "timerId") <*> (x .: "startedEventId") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable TimerCanceledEventAttributes
+
 -- | Provides details of the 'TimerFired' event.
 --
 -- /See:/ 'timerFiredEventAttributes' smart constructor.
@@ -5843,6 +6025,8 @@ instance FromJSON TimerFiredEventAttributes where
               (\ x ->
                  TimerFiredEventAttributes' <$>
                    (x .: "timerId") <*> (x .: "startedEventId"))
+
+instance Hashable TimerFiredEventAttributes
 
 -- | Provides details of the 'TimerStarted' event.
 --
@@ -5910,6 +6094,8 @@ instance FromJSON TimerStartedEventAttributes where
                      (x .: "startToFireTimeout")
                      <*> (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable TimerStartedEventAttributes
+
 -- | Represents a workflow execution.
 --
 -- /See:/ 'workflowExecution' smart constructor.
@@ -5949,6 +6135,8 @@ instance FromJSON WorkflowExecution where
               (\ x ->
                  WorkflowExecution' <$>
                    (x .: "workflowId") <*> (x .: "runId"))
+
+instance Hashable WorkflowExecution
 
 instance ToJSON WorkflowExecution where
         toJSON WorkflowExecution'{..}
@@ -6016,6 +6204,9 @@ instance FromJSON
                      (x .:? "externalInitiatedEventId")
                      <*> (x .:? "cause"))
 
+instance Hashable
+         WorkflowExecutionCancelRequestedEventAttributes
+
 -- | Provides details of the 'WorkflowExecutionCanceled' event.
 --
 -- /See:/ 'workflowExecutionCanceledEventAttributes' smart constructor.
@@ -6061,6 +6252,9 @@ instance FromJSON
                  WorkflowExecutionCanceledEventAttributes' <$>
                    (x .:? "details") <*>
                      (x .: "decisionTaskCompletedEventId"))
+
+instance Hashable
+         WorkflowExecutionCanceledEventAttributes
 
 -- | Provides details of the 'WorkflowExecutionCompleted' event.
 --
@@ -6108,6 +6302,9 @@ instance FromJSON
                  WorkflowExecutionCompletedEventAttributes' <$>
                    (x .:? "result") <*>
                      (x .: "decisionTaskCompletedEventId"))
+
+instance Hashable
+         WorkflowExecutionCompletedEventAttributes
 
 -- | The configuration settings for a workflow execution including timeout
 -- values, tasklist etc. These configuration settings are determined from
@@ -6192,7 +6389,7 @@ wecTaskList :: Lens' WorkflowExecutionConfiguration TaskList
 wecTaskList = lens _wecTaskList (\ s a -> s{_wecTaskList = a});
 
 -- | The policy to use for the child workflow executions if this workflow
--- execution is terminated, by calling the TerminateWorkflowExecution
+-- execution is terminated, by calling the < TerminateWorkflowExecution>
 -- action explicitly or due to an expired timeout.
 --
 -- The supported child policies are:
@@ -6218,6 +6415,8 @@ instance FromJSON WorkflowExecutionConfiguration
                      <*> (x .: "executionStartToCloseTimeout")
                      <*> (x .: "taskList")
                      <*> (x .: "childPolicy"))
+
+instance Hashable WorkflowExecutionConfiguration
 
 -- | Provides details of the 'WorkflowExecutionContinuedAsNew' event.
 --
@@ -6331,7 +6530,7 @@ wecaneaTaskList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes TaskList
 wecaneaTaskList = lens _wecaneaTaskList (\ s a -> s{_wecaneaTaskList = a});
 
 -- | The policy to use for the child workflow executions of the new execution
--- if it is terminated by calling the TerminateWorkflowExecution action
+-- if it is terminated by calling the < TerminateWorkflowExecution> action
 -- explicitly or due to an expired timeout.
 --
 -- The supported child policies are:
@@ -6369,8 +6568,11 @@ instance FromJSON
                      <*> (x .: "childPolicy")
                      <*> (x .: "workflowType"))
 
+instance Hashable
+         WorkflowExecutionContinuedAsNewEventAttributes
+
 -- | Contains the count of workflow executions returned from
--- CountOpenWorkflowExecutions or CountClosedWorkflowExecutions
+-- < CountOpenWorkflowExecutions> or < CountClosedWorkflowExecutions>
 --
 -- /See:/ 'workflowExecutionCount' smart constructor.
 data WorkflowExecutionCount = WorkflowExecutionCount'
@@ -6410,6 +6612,8 @@ instance FromJSON WorkflowExecutionCount where
               (\ x ->
                  WorkflowExecutionCount' <$>
                    (x .:? "truncated") <*> (x .: "count"))
+
+instance Hashable WorkflowExecutionCount
 
 -- | Provides details of the 'WorkflowExecutionFailed' event.
 --
@@ -6463,6 +6667,9 @@ instance FromJSON
                    (x .:? "reason") <*> (x .:? "details") <*>
                      (x .: "decisionTaskCompletedEventId"))
 
+instance Hashable
+         WorkflowExecutionFailedEventAttributes
+
 -- | Used to filter the workflow executions in visibility APIs by their
 -- 'workflowId'.
 --
@@ -6487,6 +6694,8 @@ workflowExecutionFilter pWorkflowId_ =
 -- | The workflowId to pass of match the criteria of this filter.
 wefWorkflowId :: Lens' WorkflowExecutionFilter Text
 wefWorkflowId = lens _wefWorkflowId (\ s a -> s{_wefWorkflowId = a});
+
+instance Hashable WorkflowExecutionFilter
 
 instance ToJSON WorkflowExecutionFilter where
         toJSON WorkflowExecutionFilter'{..}
@@ -6615,6 +6824,8 @@ instance FromJSON WorkflowExecutionInfo where
                      <*> (x .: "startTimestamp")
                      <*> (x .: "executionStatus"))
 
+instance Hashable WorkflowExecutionInfo
+
 -- | Contains a paginated list of information about workflow executions.
 --
 -- /See:/ 'workflowExecutionInfos' smart constructor.
@@ -6659,6 +6870,8 @@ instance FromJSON WorkflowExecutionInfos where
                  WorkflowExecutionInfos' <$>
                    (x .:? "nextPageToken") <*>
                      (x .:? "executionInfos" .!= mempty))
+
+instance Hashable WorkflowExecutionInfos
 
 -- | Contains the counts of open tasks, child workflow executions and timers
 -- for a workflow execution.
@@ -6733,6 +6946,8 @@ instance FromJSON WorkflowExecutionOpenCounts where
                      <*> (x .: "openTimers")
                      <*> (x .: "openChildWorkflowExecutions"))
 
+instance Hashable WorkflowExecutionOpenCounts
+
 -- | Provides details of the 'WorkflowExecutionSignaled' event.
 --
 -- /See:/ 'workflowExecutionSignaledEventAttributes' smart constructor.
@@ -6801,6 +7016,9 @@ instance FromJSON
                      (x .:? "externalInitiatedEventId")
                      <*> (x .:? "input")
                      <*> (x .: "signalName"))
+
+instance Hashable
+         WorkflowExecutionSignaledEventAttributes
 
 -- | Provides details of 'WorkflowExecutionStarted' event.
 --
@@ -6923,7 +7141,7 @@ weseaContinuedExecutionRunId :: Lens' WorkflowExecutionStartedEventAttributes (M
 weseaContinuedExecutionRunId = lens _weseaContinuedExecutionRunId (\ s a -> s{_weseaContinuedExecutionRunId = a});
 
 -- | The policy to use for the child workflow executions if this workflow
--- execution is terminated, by calling the TerminateWorkflowExecution
+-- execution is terminated, by calling the < TerminateWorkflowExecution>
 -- action explicitly or due to an expired timeout.
 --
 -- The supported child policies are:
@@ -6966,6 +7184,9 @@ instance FromJSON
                      <*> (x .: "childPolicy")
                      <*> (x .: "taskList")
                      <*> (x .: "workflowType"))
+
+instance Hashable
+         WorkflowExecutionStartedEventAttributes
 
 -- | Provides details of the 'WorkflowExecutionTerminated' event.
 --
@@ -7040,6 +7261,9 @@ instance FromJSON
                      (x .:? "details")
                      <*> (x .: "childPolicy"))
 
+instance Hashable
+         WorkflowExecutionTerminatedEventAttributes
+
 -- | Provides details of the 'WorkflowExecutionTimedOut' event.
 --
 -- /See:/ 'workflowExecutionTimedOutEventAttributes' smart constructor.
@@ -7093,6 +7317,9 @@ instance FromJSON
                  WorkflowExecutionTimedOutEventAttributes' <$>
                    (x .: "timeoutType") <*> (x .: "childPolicy"))
 
+instance Hashable
+         WorkflowExecutionTimedOutEventAttributes
+
 -- | Represents a workflow type.
 --
 -- /See:/ 'workflowType' smart constructor.
@@ -7137,6 +7364,8 @@ instance FromJSON WorkflowType where
           = withObject "WorkflowType"
               (\ x ->
                  WorkflowType' <$> (x .: "name") <*> (x .: "version"))
+
+instance Hashable WorkflowType
 
 instance ToJSON WorkflowType where
         toJSON WorkflowType'{..}
@@ -7191,9 +7420,9 @@ wtcDefaultLambdaRole = lens _wtcDefaultLambdaRole (\ s a -> s{_wtcDefaultLambdaR
 
 -- | /Optional./ The default policy to use for the child workflow executions
 -- when a workflow execution of this type is terminated, by calling the
--- TerminateWorkflowExecution action explicitly or due to an expired
+-- < TerminateWorkflowExecution> action explicitly or due to an expired
 -- timeout. This default can be overridden when starting a workflow
--- execution using the StartWorkflowExecution action or the
+-- execution using the < StartWorkflowExecution> action or the
 -- 'StartChildWorkflowExecution' decision.
 --
 -- The supported child policies are:
@@ -7211,7 +7440,7 @@ wtcDefaultChildPolicy = lens _wtcDefaultChildPolicy (\ s a -> s{_wtcDefaultChild
 -- | /Optional./ The default task list, specified when registering the
 -- workflow type, for decisions tasks scheduled for workflow executions of
 -- this type. This default can be overridden when starting a workflow
--- execution using the StartWorkflowExecution action or the
+-- execution using the < StartWorkflowExecution> action or the
 -- 'StartChildWorkflowExecution' decision.
 wtcDefaultTaskList :: Lens' WorkflowTypeConfiguration (Maybe TaskList)
 wtcDefaultTaskList = lens _wtcDefaultTaskList (\ s a -> s{_wtcDefaultTaskList = a});
@@ -7219,7 +7448,7 @@ wtcDefaultTaskList = lens _wtcDefaultTaskList (\ s a -> s{_wtcDefaultTaskList = 
 -- | /Optional./ The default task priority, specified when registering the
 -- workflow type, for all decision tasks of this workflow type. This
 -- default can be overridden when starting a workflow execution using the
--- StartWorkflowExecution action or the 'StartChildWorkflowExecution'
+-- < StartWorkflowExecution> action or the 'StartChildWorkflowExecution'
 -- decision.
 --
 -- Valid values are integers that range from Java\'s 'Integer.MIN_VALUE'
@@ -7235,7 +7464,7 @@ wtcDefaultTaskPriority = lens _wtcDefaultTaskPriority (\ s a -> s{_wtcDefaultTas
 -- | /Optional./ The default maximum duration, specified when registering the
 -- workflow type, for executions of this workflow type. This default can be
 -- overridden when starting a workflow execution using the
--- StartWorkflowExecution action or the 'StartChildWorkflowExecution'
+-- < StartWorkflowExecution> action or the 'StartChildWorkflowExecution'
 -- decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
@@ -7249,7 +7478,7 @@ wtcDefaultExecutionStartToCloseTimeout = lens _wtcDefaultExecutionStartToCloseTi
 -- close in the specified time then the task is automatically timed out and
 -- rescheduled. If the decider eventually reports a completion or failure,
 -- it is ignored. This default can be overridden when starting a workflow
--- execution using the StartWorkflowExecution action or the
+-- execution using the < StartWorkflowExecution> action or the
 -- 'StartChildWorkflowExecution' decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
@@ -7268,6 +7497,8 @@ instance FromJSON WorkflowTypeConfiguration where
                      <*> (x .:? "defaultTaskPriority")
                      <*> (x .:? "defaultExecutionStartToCloseTimeout")
                      <*> (x .:? "defaultTaskStartToCloseTimeout"))
+
+instance Hashable WorkflowTypeConfiguration
 
 -- | Used to filter workflow execution query results by type. Each parameter,
 -- if specified, defines a rule that must be satisfied by each returned
@@ -7302,6 +7533,8 @@ wtfVersion = lens _wtfVersion (\ s a -> s{_wtfVersion = a});
 -- | __Required.__ Name of the workflow type.
 wtfName :: Lens' WorkflowTypeFilter Text
 wtfName = lens _wtfName (\ s a -> s{_wtfName = a});
+
+instance Hashable WorkflowTypeFilter
 
 instance ToJSON WorkflowTypeFilter where
         toJSON WorkflowTypeFilter'{..}
@@ -7353,7 +7586,7 @@ workflowTypeInfo pWorkflowType_ pStatus_ pCreationDate_ =
 wtiDeprecationDate :: Lens' WorkflowTypeInfo (Maybe UTCTime)
 wtiDeprecationDate = lens _wtiDeprecationDate (\ s a -> s{_wtiDeprecationDate = a}) . mapping _Time;
 
--- | The description of the type registered through RegisterWorkflowType.
+-- | The description of the type registered through < RegisterWorkflowType>.
 wtiDescription :: Lens' WorkflowTypeInfo (Maybe Text)
 wtiDescription = lens _wtiDescription (\ s a -> s{_wtiDescription = a});
 
@@ -7378,3 +7611,5 @@ instance FromJSON WorkflowTypeInfo where
                      <*> (x .: "workflowType")
                      <*> (x .: "status")
                      <*> (x .: "creationDate"))
+
+instance Hashable WorkflowTypeInfo

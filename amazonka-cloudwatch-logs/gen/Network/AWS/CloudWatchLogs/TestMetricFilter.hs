@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.TestMetricFilter
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Tests the filter pattern of a metric filter against a sample of log
 -- event messages. You can use this operation to validate the correctness
 -- of a metric filter pattern.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TestMetricFilter.html AWS API Reference> for TestMetricFilter.
 module Network.AWS.CloudWatchLogs.TestMetricFilter
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest TestMetricFilter where
               (\ s h x ->
                  TestMetricFilterResponse' <$>
                    (x .?> "matches" .!@ mempty) <*> (pure (fromEnum s)))
+
+instance Hashable TestMetricFilter
 
 instance ToHeaders TestMetricFilter where
         toHeaders

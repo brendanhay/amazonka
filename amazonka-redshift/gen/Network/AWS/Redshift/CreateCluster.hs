@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateCluster
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,14 +26,13 @@
 -- managing clusters, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/ .
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateCluster.html AWS API Reference> for CreateCluster.
 module Network.AWS.Redshift.CreateCluster
     (
     -- * Creating a Request
       createCluster
     , CreateCluster
     -- * Request Lenses
+    , ccAdditionalInfo
     , ccPubliclyAccessible
     , ccHSMConfigurationIdentifier
     , ccClusterSecurityGroups
@@ -78,7 +77,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createCluster' smart constructor.
 data CreateCluster = CreateCluster'
-    { _ccPubliclyAccessible               :: !(Maybe Bool)
+    { _ccAdditionalInfo                   :: !(Maybe Text)
+    , _ccPubliclyAccessible               :: !(Maybe Bool)
     , _ccHSMConfigurationIdentifier       :: !(Maybe Text)
     , _ccClusterSecurityGroups            :: !(Maybe [Text])
     , _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
@@ -107,6 +107,8 @@ data CreateCluster = CreateCluster'
 -- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccAdditionalInfo'
 --
 -- * 'ccPubliclyAccessible'
 --
@@ -163,7 +165,8 @@ createCluster
     -> CreateCluster
 createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPassword_ =
     CreateCluster'
-    { _ccPubliclyAccessible = Nothing
+    { _ccAdditionalInfo = Nothing
+    , _ccPubliclyAccessible = Nothing
     , _ccHSMConfigurationIdentifier = Nothing
     , _ccClusterSecurityGroups = Nothing
     , _ccAutomatedSnapshotRetentionPeriod = Nothing
@@ -189,6 +192,10 @@ createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPasswor
     , _ccMasterUserPassword = pMasterUserPassword_
     }
 
+-- | Reserved.
+ccAdditionalInfo :: Lens' CreateCluster (Maybe Text)
+ccAdditionalInfo = lens _ccAdditionalInfo (\ s a -> s{_ccAdditionalInfo = a});
+
 -- | If 'true', the cluster can be accessed from a public network.
 ccPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
 ccPubliclyAccessible = lens _ccPubliclyAccessible (\ s a -> s{_ccPubliclyAccessible = a});
@@ -208,7 +215,7 @@ ccClusterSecurityGroups = lens _ccClusterSecurityGroups (\ s a -> s{_ccClusterSe
 -- | The number of days that automated snapshots are retained. If the value
 -- is 0, automated snapshots are disabled. Even if automated snapshots are
 -- disabled, you can still create manual snapshots when you want with
--- CreateClusterSnapshot.
+-- < CreateClusterSnapshot>.
 --
 -- Default: '1'
 --
@@ -453,6 +460,8 @@ instance AWSRequest CreateCluster where
                  CreateClusterResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
+instance Hashable CreateCluster
+
 instance ToHeaders CreateCluster where
         toHeaders = const mempty
 
@@ -464,6 +473,7 @@ instance ToQuery CreateCluster where
           = mconcat
               ["Action" =: ("CreateCluster" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
+               "AdditionalInfo" =: _ccAdditionalInfo,
                "PubliclyAccessible" =: _ccPubliclyAccessible,
                "HsmConfigurationIdentifier" =:
                  _ccHSMConfigurationIdentifier,

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetIdentityNotificationAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 --
 -- For more information about using notifications with Amazon SES, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityNotificationAttributes.html AWS API Reference> for GetIdentityNotificationAttributes.
 module Network.AWS.SES.GetIdentityNotificationAttributes
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest GetIdentityNotificationAttributes
                      (x .@? "NotificationAttributes" .!@ mempty >>=
                         parseXMLMap "entry" "key" "value"))
 
+instance Hashable GetIdentityNotificationAttributes
+
 instance ToHeaders GetIdentityNotificationAttributes
          where
         toHeaders = const mempty
@@ -106,12 +106,7 @@ instance ToQuery GetIdentityNotificationAttributes
                "Version" =: ("2010-12-01" :: ByteString),
                "Identities" =: toQueryList "member" _ginaIdentities]
 
--- | Describes whether an identity has Amazon Simple Notification Service
--- (Amazon SNS) topics set for bounce, complaint, and\/or delivery
--- notifications, and specifies whether feedback forwarding is enabled for
--- bounce and complaint notifications.
---
--- /See:/ 'getIdentityNotificationAttributesResponse' smart constructor.
+-- | /See:/ 'getIdentityNotificationAttributesResponse' smart constructor.
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
     { _ginarsResponseStatus         :: !Int
     , _ginarsNotificationAttributes :: !(Map Text IdentityNotificationAttributes)

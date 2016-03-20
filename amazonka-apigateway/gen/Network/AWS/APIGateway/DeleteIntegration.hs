@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteIntegration
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a delete integration.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteIntegration.html AWS API Reference> for DeleteIntegration.
 module Network.AWS.APIGateway.DeleteIntegration
     (
     -- * Creating a Request
@@ -91,8 +89,13 @@ instance AWSRequest DeleteIntegration where
         request = delete aPIGateway
         response = receiveNull DeleteIntegrationResponse''
 
+instance Hashable DeleteIntegration
+
 instance ToHeaders DeleteIntegration where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteIntegration where
         toPath DeleteIntegration'{..}

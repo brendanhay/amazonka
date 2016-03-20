@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreatePolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- For more information about managed policies in general, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html AWS API Reference> for CreatePolicy.
 module Network.AWS.IAM.CreatePolicy
     (
     -- * Creating a Request
@@ -126,6 +124,8 @@ instance AWSRequest CreatePolicy where
                  CreatePolicyResponse' <$>
                    (x .@? "Policy") <*> (pure (fromEnum s)))
 
+instance Hashable CreatePolicy
+
 instance ToHeaders CreatePolicy where
         toHeaders = const mempty
 
@@ -141,7 +141,7 @@ instance ToQuery CreatePolicy where
                "PolicyName" =: _cpPolicyName,
                "PolicyDocument" =: _cpPolicyDocument]
 
--- | Contains the response to a successful CreatePolicy request.
+-- | Contains the response to a successful < CreatePolicy> request.
 --
 -- /See:/ 'createPolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'

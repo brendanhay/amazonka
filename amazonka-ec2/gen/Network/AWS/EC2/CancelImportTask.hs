@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelImportTask
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels an in-process import virtual machine or import snapshot task.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelImportTask.html AWS API Reference> for CancelImportTask.
 module Network.AWS.EC2.CancelImportTask
     (
     -- * Creating a Request
@@ -98,6 +96,8 @@ instance AWSRequest CancelImportTask where
                    (x .@? "state") <*> (x .@? "importTaskId") <*>
                      (x .@? "previousState")
                      <*> (pure (fromEnum s)))
+
+instance Hashable CancelImportTask
 
 instance ToHeaders CancelImportTask where
         toHeaders = const mempty

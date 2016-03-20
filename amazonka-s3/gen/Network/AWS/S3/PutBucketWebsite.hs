@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketWebsite
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Set the website configuration for a bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketWebsite.html AWS API Reference> for PutBucketWebsite.
 module Network.AWS.S3.PutBucketWebsite
     (
     -- * Creating a Request
@@ -86,6 +84,8 @@ instance AWSRequest PutBucketWebsite where
         type Rs PutBucketWebsite = PutBucketWebsiteResponse
         request = putXML s3
         response = receiveNull PutBucketWebsiteResponse'
+
+instance Hashable PutBucketWebsite
 
 instance ToElement PutBucketWebsite where
         toElement

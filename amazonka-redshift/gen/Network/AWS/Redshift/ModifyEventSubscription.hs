@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.ModifyEventSubscription
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies an existing Amazon Redshift event notification subscription.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyEventSubscription.html AWS API Reference> for ModifyEventSubscription.
 module Network.AWS.Redshift.ModifyEventSubscription
     (
     -- * Creating a Request
@@ -155,6 +153,8 @@ instance AWSRequest ModifyEventSubscription where
               (\ s h x ->
                  ModifyEventSubscriptionResponse' <$>
                    (x .@? "EventSubscription") <*> (pure (fromEnum s)))
+
+instance Hashable ModifyEventSubscription
 
 instance ToHeaders ModifyEventSubscription where
         toHeaders = const mempty

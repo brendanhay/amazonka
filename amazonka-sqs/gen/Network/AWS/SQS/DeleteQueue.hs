@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.DeleteQueue
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,17 +27,15 @@
 --
 -- When you delete a queue, the deletion process takes up to 60 seconds.
 -- Requests you send involving that queue during the 60 seconds might
--- succeed. For example, a SendMessage request might succeed, but after the
--- 60 seconds, the queue and that message you sent no longer exist. Also,
--- when you delete a queue, you must wait at least 60 seconds before
+-- succeed. For example, a < SendMessage> request might succeed, but after
+-- the 60 seconds, the queue and that message you sent no longer exist.
+-- Also, when you delete a queue, you must wait at least 60 seconds before
 -- creating a queue with the same name.
 --
 -- We reserve the right to delete queues that have had no activity for more
 -- than 30 days. For more information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html How Amazon SQS Queues Work>
 -- in the /Amazon SQS Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html AWS API Reference> for DeleteQueue.
 module Network.AWS.SQS.DeleteQueue
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest DeleteQueue where
         type Rs DeleteQueue = DeleteQueueResponse
         request = postQuery sQS
         response = receiveNull DeleteQueueResponse'
+
+instance Hashable DeleteQueue
 
 instance ToHeaders DeleteQueue where
         toHeaders = const mempty

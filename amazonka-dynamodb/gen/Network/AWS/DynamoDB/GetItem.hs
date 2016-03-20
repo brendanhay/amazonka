@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.GetItem
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -26,8 +26,6 @@
 -- application requires a strongly consistent read, set /ConsistentRead/ to
 -- 'true'. Although a strongly consistent read might take more time than an
 -- eventually consistent read, it always returns the last updated value.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html AWS API Reference> for GetItem.
 module Network.AWS.DynamoDB.GetItem
     (
     -- * Creating a Request
@@ -194,9 +192,9 @@ giTableName = lens _giTableName (\ s a -> s{_giTableName = a});
 -- primary key of the item to retrieve.
 --
 -- For the primary key, you must provide all of the attributes. For
--- example, with a hash type primary key, you only need to provide the hash
--- attribute. For a hash-and-range type primary key, you must provide both
--- the hash attribute and the range attribute.
+-- example, with a simple primary key, you only need to provide a value for
+-- the partition key. For a composite primary key, you must provide values
+-- for both the partition key and the sort key.
 giKey :: Lens' GetItem (HashMap Text AttributeValue)
 giKey = lens _giKey (\ s a -> s{_giKey = a}) . _Map;
 
@@ -210,6 +208,8 @@ instance AWSRequest GetItem where
                    (x .?> "ConsumedCapacity") <*>
                      (x .?> "Item" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetItem
 
 instance ToHeaders GetItem where
         toHeaders

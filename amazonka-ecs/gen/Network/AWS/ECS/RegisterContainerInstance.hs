@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.RegisterContainerInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- Registers an EC2 instance into the specified cluster. This instance
 -- becomes available to place containers on.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterContainerInstance.html AWS API Reference> for RegisterContainerInstance.
 module Network.AWS.ECS.RegisterContainerInstance
     (
     -- * Creating a Request
@@ -142,6 +140,8 @@ instance AWSRequest RegisterContainerInstance where
               (\ s h x ->
                  RegisterContainerInstanceResponse' <$>
                    (x .?> "containerInstance") <*> (pure (fromEnum s)))
+
+instance Hashable RegisterContainerInstance
 
 instance ToHeaders RegisterContainerInstance where
         toHeaders

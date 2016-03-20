@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DataPipeline.DescribePipelines
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,9 +27,7 @@
 -- read permissions.
 --
 -- To retrieve the full pipeline definition instead of metadata about the
--- pipeline, call GetPipelineDefinition.
---
--- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html AWS API Reference> for DescribePipelines.
+-- pipeline, call < GetPipelineDefinition>.
 module Network.AWS.DataPipeline.DescribePipelines
     (
     -- * Creating a Request
@@ -74,7 +72,7 @@ describePipelines =
 
 -- | The IDs of the pipelines to describe. You can pass as many as 25
 -- identifiers in a single call. To obtain pipeline IDs, call
--- ListPipelines.
+-- < ListPipelines>.
 dpPipelineIds :: Lens' DescribePipelines [Text]
 dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a}) . _Coerce;
 
@@ -87,6 +85,8 @@ instance AWSRequest DescribePipelines where
                  DescribePipelinesResponse' <$>
                    (pure (fromEnum s)) <*>
                      (x .?> "pipelineDescriptionList" .!@ mempty))
+
+instance Hashable DescribePipelines
 
 instance ToHeaders DescribePipelines where
         toHeaders

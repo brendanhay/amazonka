@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.WAF.ListWebACLs
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of WebACLSummary objects in the response.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListWebACLs.html AWS API Reference> for ListWebACLs.
+-- Returns an array of < WebACLSummary> objects in the response.
 module Network.AWS.WAF.ListWebACLs
     (
     -- * Creating a Request
@@ -94,6 +92,8 @@ instance AWSRequest ListWebACLs where
                    (x .?> "WebACLs" .!@ mempty) <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListWebACLs
+
 instance ToHeaders ListWebACLs where
         toHeaders
           = const
@@ -142,7 +142,7 @@ listWebACLsResponse pResponseStatus_ =
     , _lwarsResponseStatus = pResponseStatus_
     }
 
--- | An array of WebACLSummary objects.
+-- | An array of < WebACLSummary> objects.
 lwarsWebACLs :: Lens' ListWebACLsResponse [WebACLSummary]
 lwarsWebACLs = lens _lwarsWebACLs (\ s a -> s{_lwarsWebACLs = a}) . _Default . _Coerce;
 

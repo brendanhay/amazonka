@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Kinesis.DescribeStream
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -40,9 +40,7 @@
 -- returned. Specify this ID in the 'ExclusiveStartShardId' parameter in a
 -- subsequent request to 'DescribeStream'.
 --
--- DescribeStream has a limit of 10 transactions per second per account.
---
--- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html AWS API Reference> for DescribeStream.
+-- < DescribeStream> has a limit of 10 transactions per second per account.
 --
 -- This operation returns paginated results.
 module Network.AWS.Kinesis.DescribeStream
@@ -134,6 +132,8 @@ instance AWSRequest DescribeStream where
               (\ s h x ->
                  DescribeStreamResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "StreamDescription"))
+
+instance Hashable DescribeStream
 
 instance ToHeaders DescribeStream where
         toHeaders

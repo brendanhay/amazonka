@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -39,7 +39,12 @@
 --     Provides a list of each of the regions and endpoints available for
 --     use with AWS Storage Gateway.
 --
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html AWS API Reference>
+-- AWS Storage Gateway resource IDs are in uppercase. When you use these
+-- resource IDs with the Amazon EC2 API, EC2 expects resource IDs in
+-- lowercase. You must change your resource ID to lowercase to use it with
+-- the EC2 API. For example, in Storage Gateway the ID for a volume might
+-- be vol-1122AABB. When you use this ID with the EC2 API, you must change
+-- it to vol-1122aabb. Otherwise, the EC2 API might not behave as expected.
 module Network.AWS.StorageGateway
     (
     -- * Service Configuration
@@ -158,6 +163,9 @@ module Network.AWS.StorageGateway
 
     -- ** DescribeSnapshotSchedule
     , module Network.AWS.StorageGateway.DescribeSnapshotSchedule
+
+    -- ** CreateTapeWithBarcode
+    , module Network.AWS.StorageGateway.CreateTapeWithBarcode
 
     -- ** DescribeBandwidthRateLimit
     , module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
@@ -368,6 +376,7 @@ import           Network.AWS.StorageGateway.CreateSnapshot
 import           Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
 import           Network.AWS.StorageGateway.CreateStorediSCSIVolume
 import           Network.AWS.StorageGateway.CreateTapes
+import           Network.AWS.StorageGateway.CreateTapeWithBarcode
 import           Network.AWS.StorageGateway.DeleteBandwidthRateLimit
 import           Network.AWS.StorageGateway.DeleteChapCredentials
 import           Network.AWS.StorageGateway.DeleteGateway

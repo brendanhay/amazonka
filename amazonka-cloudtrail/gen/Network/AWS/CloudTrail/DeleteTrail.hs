@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudTrail.DeleteTrail
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- the trail was created. 'DeleteTrail' cannot be called on the shadow
 -- trails (replicated trails in other regions) of a trail that is enabled
 -- in all regions.
---
--- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteTrail.html AWS API Reference> for DeleteTrail.
 module Network.AWS.CloudTrail.DeleteTrail
     (
     -- * Creating a Request
@@ -46,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The request that specifies the name of a trail to delete.
+-- | < The request that specifies the name of a trail to delete.>
 --
 -- /See:/ 'deleteTrail' smart constructor.
 newtype DeleteTrail = DeleteTrail'
@@ -79,6 +77,8 @@ instance AWSRequest DeleteTrail where
           = receiveEmpty
               (\ s h x ->
                  DeleteTrailResponse' <$> (pure (fromEnum s)))
+
+instance Hashable DeleteTrail
 
 instance ToHeaders DeleteTrail where
         toHeaders

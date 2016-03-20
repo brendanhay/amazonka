@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.ReorderReceiptRuleSet
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,15 +21,13 @@
 -- Reorders the receipt rules within a receipt rule set.
 --
 -- All of the rules in the rule set must be represented in this request.
--- That is, this API will return an error if the reorder request doesn’t
+-- That is, this API will return an error if the reorder request doesn\'t
 -- explicitly position all of the rules.
 --
 -- For information about managing receipt rule sets, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ReorderReceiptRuleSet.html AWS API Reference> for ReorderReceiptRuleSet.
 module Network.AWS.SES.ReorderReceiptRuleSet
     (
     -- * Creating a Request
@@ -93,6 +91,8 @@ instance AWSRequest ReorderReceiptRuleSet where
               (\ s h x ->
                  ReorderReceiptRuleSetResponse' <$>
                    (pure (fromEnum s)))
+
+instance Hashable ReorderReceiptRuleSet
 
 instance ToHeaders ReorderReceiptRuleSet where
         toHeaders = const mempty

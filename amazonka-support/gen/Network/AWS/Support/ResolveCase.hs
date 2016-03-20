@@ -12,16 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.Support.ResolveCase
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Takes a 'CaseId' and returns the initial state of the case along with
--- the state of the case after the call to ResolveCase completed.
---
--- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html AWS API Reference> for ResolveCase.
+-- the state of the case after the call to < ResolveCase> completed.
 module Network.AWS.Support.ResolveCase
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest ResolveCase where
                      (x .?> "finalCaseStatus")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ResolveCase
+
 instance ToHeaders ResolveCase where
         toHeaders
           = const
@@ -99,7 +99,7 @@ instance ToPath ResolveCase where
 instance ToQuery ResolveCase where
         toQuery = const mempty
 
--- | The status of the case returned by the ResolveCase operation.
+-- | The status of the case returned by the < ResolveCase> operation.
 --
 -- /See:/ 'resolveCaseResponse' smart constructor.
 data ResolveCaseResponse = ResolveCaseResponse'
@@ -127,11 +127,11 @@ resolveCaseResponse pResponseStatus_ =
     , _rcrsResponseStatus = pResponseStatus_
     }
 
--- | The status of the case when the ResolveCase request was sent.
+-- | The status of the case when the < ResolveCase> request was sent.
 rcrsInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrsInitialCaseStatus = lens _rcrsInitialCaseStatus (\ s a -> s{_rcrsInitialCaseStatus = a});
 
--- | The status of the case after the ResolveCase request was processed.
+-- | The status of the case after the < ResolveCase> request was processed.
 rcrsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrsFinalCaseStatus = lens _rcrsFinalCaseStatus (\ s a -> s{_rcrsFinalCaseStatus = a});
 

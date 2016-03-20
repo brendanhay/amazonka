@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoSync.GetIdentityPoolConfiguration
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- This API can only be called with developer credentials. You cannot call
 -- this API with the temporary user credentials provided by Cognito
 -- Identity.
---
--- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetIdentityPoolConfiguration.html AWS API Reference> for GetIdentityPoolConfiguration.
 module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest GetIdentityPoolConfiguration
                    (x .?> "IdentityPoolId") <*> (x .?> "CognitoStreams")
                      <*> (x .?> "PushSync")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetIdentityPoolConfiguration
 
 instance ToHeaders GetIdentityPoolConfiguration where
         toHeaders

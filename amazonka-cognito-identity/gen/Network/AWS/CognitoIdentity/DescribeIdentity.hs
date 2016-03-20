@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.DescribeIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- identity was created and any associated linked logins.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DescribeIdentity.html AWS API Reference> for DescribeIdentity.
 module Network.AWS.CognitoIdentity.DescribeIdentity
     (
     -- * Creating a Request
@@ -77,6 +75,8 @@ instance AWSRequest DescribeIdentity where
         type Rs DescribeIdentity = IdentityDescription
         request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable DescribeIdentity
 
 instance ToHeaders DescribeIdentity where
         toHeaders

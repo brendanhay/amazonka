@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAPIKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the current ApiKey resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GetAPIKey.html AWS API Reference> for GetAPIKey.
+-- Gets information about the current < ApiKey> resource.
 module Network.AWS.APIGateway.GetAPIKey
     (
     -- * Creating a Request
@@ -49,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to get information about the current ApiKey resource.
+-- | A request to get information about the current < ApiKey> resource.
 --
 -- /See:/ 'getAPIKey' smart constructor.
 newtype GetAPIKey = GetAPIKey'
@@ -69,7 +67,7 @@ getAPIKey pApiKey_ =
     { _gakApiKey = pApiKey_
     }
 
--- | The identifier of the ApiKey resource.
+-- | The identifier of the < ApiKey> resource.
 gakApiKey :: Lens' GetAPIKey Text
 gakApiKey = lens _gakApiKey (\ s a -> s{_gakApiKey = a});
 
@@ -78,8 +76,13 @@ instance AWSRequest GetAPIKey where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetAPIKey
+
 instance ToHeaders GetAPIKey where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath GetAPIKey where
         toPath GetAPIKey'{..}

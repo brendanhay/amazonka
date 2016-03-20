@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetIdentityPoolRoles
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Gets the roles for an identity pool.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetIdentityPoolRoles.html AWS API Reference> for GetIdentityPoolRoles.
 module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest GetIdentityPoolRoles where
                    (x .?> "Roles" .!@ mempty) <*>
                      (x .?> "IdentityPoolId")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetIdentityPoolRoles
 
 instance ToHeaders GetIdentityPoolRoles where
         toHeaders

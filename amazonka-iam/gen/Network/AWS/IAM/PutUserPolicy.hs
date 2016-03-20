@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.PutUserPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,9 @@
 -- specified user.
 --
 -- A user can also have a managed policy attached to it. To attach a
--- managed policy to a user, use AttachUserPolicy. To create a new managed
--- policy, use CreatePolicy. For information about policies, refer to
+-- managed policy to a user, use < AttachUserPolicy>. To create a new
+-- managed policy, use < CreatePolicy>. For information about policies,
+-- refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
 --
@@ -37,8 +38,6 @@
 -- the Query API with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/ guide.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html AWS API Reference> for PutUserPolicy.
 module Network.AWS.IAM.PutUserPolicy
     (
     -- * Creating a Request
@@ -105,6 +104,8 @@ instance AWSRequest PutUserPolicy where
         type Rs PutUserPolicy = PutUserPolicyResponse
         request = postQuery iAM
         response = receiveNull PutUserPolicyResponse'
+
+instance Hashable PutUserPolicy
 
 instance ToHeaders PutUserPolicy where
         toHeaders = const mempty

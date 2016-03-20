@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SQS.ListDeadLetterSourceQueues
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- For more information about using dead letter queues, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>.
---
--- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.html AWS API Reference> for ListDeadLetterSourceQueues.
 module Network.AWS.SQS.ListDeadLetterSourceQueues
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest ListDeadLetterSourceQueues where
               (\ s h x ->
                  ListDeadLetterSourceQueuesResponse' <$>
                    (pure (fromEnum s)) <*> (parseXMLList "QueueUrl" x))
+
+instance Hashable ListDeadLetterSourceQueues
 
 instance ToHeaders ListDeadLetterSourceQueues where
         toHeaders = const mempty

@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.Types.Product
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -75,6 +75,8 @@ instance FromJSON ArchiveCreationOutput where
                      (x .:? "x-amz-sha256-tree-hash")
                      <*> (x .:? "Location"))
 
+instance Hashable ArchiveCreationOutput
+
 -- | Data retrieval policy.
 --
 -- /See:/ 'dataRetrievalPolicy' smart constructor.
@@ -105,6 +107,8 @@ instance FromJSON DataRetrievalPolicy where
           = withObject "DataRetrievalPolicy"
               (\ x ->
                  DataRetrievalPolicy' <$> (x .:? "Rules" .!= mempty))
+
+instance Hashable DataRetrievalPolicy
 
 instance ToJSON DataRetrievalPolicy where
         toJSON DataRetrievalPolicy'{..}
@@ -153,6 +157,8 @@ instance FromJSON DataRetrievalRule where
               (\ x ->
                  DataRetrievalRule' <$>
                    (x .:? "Strategy") <*> (x .:? "BytesPerHour"))
+
+instance Hashable DataRetrievalRule
 
 instance ToJSON DataRetrievalRule where
         toJSON DataRetrievalRule'{..}
@@ -241,6 +247,8 @@ instance FromJSON DescribeVaultOutput where
                      <*> (x .:? "VaultARN")
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "NumberOfArchives"))
+
+instance Hashable DescribeVaultOutput
 
 -- | Describes an Amazon Glacier job.
 --
@@ -449,6 +457,8 @@ instance FromJSON GlacierJobDescription where
                      <*> (x .:? "ArchiveSizeInBytes")
                      <*> (x .:? "StatusCode"))
 
+instance Hashable GlacierJobDescription
+
 -- | Describes the options for a range inventory retrieval job.
 --
 -- /See:/ 'inventoryRetrievalJobDescription' smart constructor.
@@ -528,6 +538,8 @@ instance FromJSON InventoryRetrievalJobDescription
                      <*> (x .:? "Marker")
                      <*> (x .:? "Limit"))
 
+instance Hashable InventoryRetrievalJobDescription
+
 -- | Provides options for specifying a range inventory retrieval job.
 --
 -- /See:/ 'inventoryRetrievalJobInput' smart constructor.
@@ -583,6 +595,8 @@ irjiMarker = lens _irjiMarker (\ s a -> s{_irjiMarker = a});
 -- 1.
 irjiLimit :: Lens' InventoryRetrievalJobInput (Maybe Text)
 irjiLimit = lens _irjiLimit (\ s a -> s{_irjiLimit = a});
+
+instance Hashable InventoryRetrievalJobInput
 
 instance ToJSON InventoryRetrievalJobInput where
         toJSON InventoryRetrievalJobInput'{..}
@@ -687,6 +701,8 @@ jpType = lens _jpType (\ s a -> s{_jpType = a});
 jpDescription :: Lens' JobParameters (Maybe Text)
 jpDescription = lens _jpDescription (\ s a -> s{_jpDescription = a});
 
+instance Hashable JobParameters
+
 instance ToJSON JobParameters where
         toJSON JobParameters'{..}
           = object
@@ -738,6 +754,8 @@ instance FromJSON PartListElement where
               (\ x ->
                  PartListElement' <$>
                    (x .:? "SHA256TreeHash") <*> (x .:? "RangeInBytes"))
+
+instance Hashable PartListElement
 
 -- | A list of in-progress multipart uploads for a vault.
 --
@@ -808,6 +826,8 @@ instance FromJSON UploadListElement where
                      <*> (x .:? "VaultARN")
                      <*> (x .:? "CreationDate"))
 
+instance Hashable UploadListElement
+
 -- | Contains the vault access policy.
 --
 -- /See:/ 'vaultAccessPolicy' smart constructor.
@@ -836,6 +856,8 @@ instance FromJSON VaultAccessPolicy where
           = withObject "VaultAccessPolicy"
               (\ x -> VaultAccessPolicy' <$> (x .:? "Policy"))
 
+instance Hashable VaultAccessPolicy
+
 instance ToJSON VaultAccessPolicy where
         toJSON VaultAccessPolicy'{..}
           = object (catMaybes [("Policy" .=) <$> _vapPolicy])
@@ -862,6 +884,8 @@ vaultLockPolicy =
 -- | The vault lock policy.
 vlpPolicy :: Lens' VaultLockPolicy (Maybe Text)
 vlpPolicy = lens _vlpPolicy (\ s a -> s{_vlpPolicy = a});
+
+instance Hashable VaultLockPolicy
 
 instance ToJSON VaultLockPolicy where
         toJSON VaultLockPolicy'{..}
@@ -906,6 +930,8 @@ instance FromJSON VaultNotificationConfig where
               (\ x ->
                  VaultNotificationConfig' <$>
                    (x .:? "SNSTopic") <*> (x .:? "Events" .!= mempty))
+
+instance Hashable VaultNotificationConfig
 
 instance ToJSON VaultNotificationConfig where
         toJSON VaultNotificationConfig'{..}

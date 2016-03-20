@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeEventSubscriptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Lists descriptions of all the Amazon Redshift event notifications
 -- subscription for a customer account. If you specify a subscription name,
 -- lists the description for that subscription.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventSubscriptions.html AWS API Reference> for DescribeEventSubscriptions.
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeEventSubscriptions
@@ -85,7 +83,7 @@ dessSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
 dessSubscriptionName = lens _dessSubscriptionName (\ s a -> s{_dessSubscriptionName = a});
 
 -- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEventSubscriptions
+-- of response records. When the results of a < DescribeEventSubscriptions>
 -- request exceed the value specified in 'MaxRecords', AWS returns a value
 -- in the 'Marker' field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the 'Marker'
@@ -125,6 +123,8 @@ instance AWSRequest DescribeEventSubscriptions where
                       may (parseXMLList "EventSubscription"))
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeEventSubscriptions
 
 instance ToHeaders DescribeEventSubscriptions where
         toHeaders = const mempty

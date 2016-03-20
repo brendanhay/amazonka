@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeCrossAccountAccessRole
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Describes the IAM role that enables Inspector to access your AWS
 -- account.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_DescribeCrossAccountAccessRole.html AWS API Reference> for DescribeCrossAccountAccessRole.
 module Network.AWS.Inspector.DescribeCrossAccountAccessRole
     (
     -- * Creating a Request
@@ -66,6 +64,8 @@ instance AWSRequest DescribeCrossAccountAccessRole
                  DescribeCrossAccountAccessRoleResponse' <$>
                    (x .?> "valid") <*> (x .?> "roleArn") <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeCrossAccountAccessRole
 
 instance ToHeaders DescribeCrossAccountAccessRole
          where

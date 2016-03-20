@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.Types.Sum
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -112,6 +112,10 @@ instance ToHeader     HSMStatus
 instance FromJSON HSMStatus where
     parseJSON = parseJSONText "HSMStatus"
 
+-- | Specifies the type of subscription for the HSM.
+--
+-- -   __PRODUCTION__ - The HSM is being used in a production environment.
+-- -   __TRIAL__ - The HSM is being used in a product trial.
 data SubscriptionType =
     Production
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)

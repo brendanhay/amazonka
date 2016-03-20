@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.GetComplianceDetailsByConfigRule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- results indicate which AWS resources were evaluated by the rule, when
 -- each resource was last evaluated, and whether each resource complies
 -- with the rule.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_GetComplianceDetailsByConfigRule.html AWS API Reference> for GetComplianceDetailsByConfigRule.
 module Network.AWS.Config.GetComplianceDetailsByConfigRule
     (
     -- * Creating a Request
@@ -81,8 +79,10 @@ getComplianceDetailsByConfigRule pConfigRuleName_ =
     , _gcdbcrConfigRuleName = pConfigRuleName_
     }
 
--- | Specify to filter the results by compliance. The valid values are
--- 'Compliant', 'NonCompliant', and 'NotApplicable'.
+-- | Filters the results by compliance.
+--
+-- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and
+-- 'NOT_APPLICABLE'.
 gcdbcrComplianceTypes :: Lens' GetComplianceDetailsByConfigRule [ComplianceType]
 gcdbcrComplianceTypes = lens _gcdbcrComplianceTypes (\ s a -> s{_gcdbcrComplianceTypes = a}) . _Default . _Coerce;
 
@@ -114,6 +114,8 @@ instance AWSRequest GetComplianceDetailsByConfigRule
                    (x .?> "EvaluationResults" .!@ mempty) <*>
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetComplianceDetailsByConfigRule
 
 instance ToHeaders GetComplianceDetailsByConfigRule
          where

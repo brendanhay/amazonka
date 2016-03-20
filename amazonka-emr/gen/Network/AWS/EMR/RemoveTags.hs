@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.RemoveTags
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- The following example removes the stack tag with value Prod from a
 -- cluster:
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RemoveTags.html AWS API Reference> for RemoveTags.
 module Network.AWS.EMR.RemoveTags
     (
     -- * Creating a Request
@@ -90,6 +88,8 @@ instance AWSRequest RemoveTags where
           = receiveEmpty
               (\ s h x ->
                  RemoveTagsResponse' <$> (pure (fromEnum s)))
+
+instance Hashable RemoveTags
 
 instance ToHeaders RemoveTags where
         toHeaders

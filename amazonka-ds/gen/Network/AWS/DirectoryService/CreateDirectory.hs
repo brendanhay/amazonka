@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateDirectory
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a Simple AD directory.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html AWS API Reference> for CreateDirectory.
 module Network.AWS.DirectoryService.CreateDirectory
     (
     -- * Creating a Request
@@ -49,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the CreateDirectory operation.
+-- | Contains the inputs for the < CreateDirectory> operation.
 --
 -- /See:/ 'createDirectory' smart constructor.
 data CreateDirectory = CreateDirectory'
@@ -95,8 +93,8 @@ createDirectory pName_ pPassword_ pSize_ =
 cShortName :: Lens' CreateDirectory (Maybe Text)
 cShortName = lens _cShortName (\ s a -> s{_cShortName = a});
 
--- | A DirectoryVpcSettings object that contains additional information for
--- the operation.
+-- | A < DirectoryVpcSettings> object that contains additional information
+-- for the operation.
 cVPCSettings :: Lens' CreateDirectory (Maybe DirectoryVPCSettings)
 cVPCSettings = lens _cVPCSettings (\ s a -> s{_cVPCSettings = a});
 
@@ -127,6 +125,8 @@ instance AWSRequest CreateDirectory where
                  CreateDirectoryResponse' <$>
                    (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDirectory
+
 instance ToHeaders CreateDirectory where
         toHeaders
           = const
@@ -154,7 +154,7 @@ instance ToPath CreateDirectory where
 instance ToQuery CreateDirectory where
         toQuery = const mempty
 
--- | Contains the results of the CreateDirectory operation.
+-- | Contains the results of the < CreateDirectory> operation.
 --
 -- /See:/ 'createDirectoryResponse' smart constructor.
 data CreateDirectoryResponse = CreateDirectoryResponse'

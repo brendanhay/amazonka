@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EMR.AddInstanceGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- AddInstanceGroups adds an instance group to a running cluster.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddInstanceGroups.html AWS API Reference> for AddInstanceGroups.
 module Network.AWS.EMR.AddInstanceGroups
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest AddInstanceGroups where
                    (x .?> "JobFlowId") <*>
                      (x .?> "InstanceGroupIds" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable AddInstanceGroups
 
 instance ToHeaders AddInstanceGroups where
         toHeaders

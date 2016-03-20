@@ -7,7 +7,7 @@
 
 -- |
 -- Module      : Network.AWS.Data.List1
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
@@ -22,6 +22,7 @@ import           Data.Coerce
 import           Data.Data            (Data, Typeable)
 import           Data.Foldable        (Foldable)
 import qualified Data.Foldable        as Fold
+import           Data.Hashable
 import           Data.List.NonEmpty   (NonEmpty (..))
 import qualified Data.List.NonEmpty   as NonEmpty
 import           Data.Semigroup
@@ -69,6 +70,8 @@ instance FromJSON a => FromJSON (List1 a) where
 
 instance ToJSON a => ToJSON (List1 a) where
     toJSON = toJSON . toList
+
+instance Hashable a => Hashable (List1 a)
 
 parseXMLList1 :: FromXML a
               => Text

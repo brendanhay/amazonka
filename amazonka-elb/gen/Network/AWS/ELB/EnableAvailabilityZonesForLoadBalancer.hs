@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,8 +27,6 @@
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html Add Availability Zone>
 -- in the /Elastic Load Balancing Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_EnableAvailabilityZonesForLoadBalancer.html AWS API Reference> for EnableAvailabilityZonesForLoadBalancer.
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     (
     -- * Creating a Request
@@ -97,6 +95,9 @@ instance AWSRequest
                    (x .@? "AvailabilityZones" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable
+         EnableAvailabilityZonesForLoadBalancer
 
 instance ToHeaders
          EnableAvailabilityZonesForLoadBalancer where

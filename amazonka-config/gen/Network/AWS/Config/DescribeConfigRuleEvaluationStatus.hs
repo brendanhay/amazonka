@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeConfigRuleEvaluationStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- The status includes information such as the last time AWS Config invoked
 -- the rule, the last time AWS Config failed to invoke the rule, and the
 -- related error for the last failure.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigRuleEvaluationStatus.html AWS API Reference> for DescribeConfigRuleEvaluationStatus.
 module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest
                  DescribeConfigRuleEvaluationStatusResponse' <$>
                    (x .?> "ConfigRulesEvaluationStatus" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable DescribeConfigRuleEvaluationStatus
 
 instance ToHeaders DescribeConfigRuleEvaluationStatus
          where

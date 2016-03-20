@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.AddAttributesToFindings
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Assigns attributes (key and value pair) to the findings specified by the
 -- findings\' ARNs.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_AddAttributesToFindings.html AWS API Reference> for AddAttributesToFindings.
 module Network.AWS.Inspector.AddAttributesToFindings
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest AddAttributesToFindings where
               (\ s h x ->
                  AddAttributesToFindingsResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
+
+instance Hashable AddAttributesToFindings
 
 instance ToHeaders AddAttributesToFindings where
         toHeaders

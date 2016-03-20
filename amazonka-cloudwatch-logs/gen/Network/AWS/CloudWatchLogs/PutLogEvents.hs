@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutLogEvents
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -36,8 +36,8 @@
 -- -   The log events in the batch must be in chronological ordered by
 --     their 'timestamp'.
 -- -   The maximum number of log events in a batch is 10,000.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html AWS API Reference> for PutLogEvents.
+-- -   A batch of log events in a single PutLogEvents request cannot span
+--     more than 24 hours. Otherwise, the PutLogEvents operation will fail.
 module Network.AWS.CloudWatchLogs.PutLogEvents
     (
     -- * Creating a Request
@@ -124,6 +124,8 @@ instance AWSRequest PutLogEvents where
                    (x .?> "rejectedLogEventsInfo") <*>
                      (x .?> "nextSequenceToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable PutLogEvents
 
 instance ToHeaders PutLogEvents where
         toHeaders

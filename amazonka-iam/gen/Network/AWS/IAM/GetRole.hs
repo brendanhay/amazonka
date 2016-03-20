@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetRole
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs>.
 -- For more information about roles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html AWS API Reference> for GetRole.
 module Network.AWS.IAM.GetRole
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest GetRole where
                  GetRoleResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Role"))
 
+instance Hashable GetRole
+
 instance ToHeaders GetRole where
         toHeaders = const mempty
 
@@ -93,7 +93,7 @@ instance ToQuery GetRole where
                "Version" =: ("2010-05-08" :: ByteString),
                "RoleName" =: _grRoleName]
 
--- | Contains the response to a successful GetRole request.
+-- | Contains the response to a successful < GetRole> request.
 --
 -- /See:/ 'getRoleResponse' smart constructor.
 data GetRoleResponse = GetRoleResponse'

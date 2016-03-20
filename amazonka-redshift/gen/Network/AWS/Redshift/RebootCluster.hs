@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RebootCluster
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,13 +21,11 @@
 -- Reboots a cluster. This action is taken as soon as possible. It results
 -- in a momentary outage to the cluster, during which the cluster status is
 -- set to 'rebooting'. A cluster event is created when the reboot is
--- completed. Any pending cluster modifications (see ModifyCluster) are
+-- completed. Any pending cluster modifications (see < ModifyCluster>) are
 -- applied at this reboot. For more information about managing clusters, go
 -- to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RebootCluster.html AWS API Reference> for RebootCluster.
 module Network.AWS.Redshift.RebootCluster
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest RebootCluster where
               (\ s h x ->
                  RebootClusterResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
+
+instance Hashable RebootCluster
 
 instance ToHeaders RebootCluster where
         toHeaders = const mempty

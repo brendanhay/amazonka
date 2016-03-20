@@ -12,14 +12,14 @@
 
 -- |
 -- Module      : Network.AWS.IAM.CreateVirtualMFADevice
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new virtual MFA device for the AWS account. After creating the
--- virtual MFA, use EnableMFADevice to attach the MFA device to an IAM
+-- virtual MFA, use < EnableMFADevice> to attach the MFA device to an IAM
 -- user. For more information about creating and working with virtual MFA
 -- devices, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device>
@@ -35,8 +35,6 @@
 -- AWS access keys or your passwords. After you provision your virtual
 -- device, you should ensure that the information is destroyed following
 -- secure procedures.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html AWS API Reference> for CreateVirtualMFADevice.
 module Network.AWS.IAM.CreateVirtualMFADevice
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest CreateVirtualMFADevice where
                  CreateVirtualMFADeviceResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "VirtualMFADevice"))
 
+instance Hashable CreateVirtualMFADevice
+
 instance ToHeaders CreateVirtualMFADevice where
         toHeaders = const mempty
 
@@ -123,7 +123,7 @@ instance ToQuery CreateVirtualMFADevice where
                "Path" =: _cvmdPath,
                "VirtualMFADeviceName" =: _cvmdVirtualMFADeviceName]
 
--- | Contains the response to a successful CreateVirtualMFADevice request.
+-- | Contains the response to a successful < CreateVirtualMFADevice> request.
 --
 -- /See:/ 'createVirtualMFADeviceResponse' smart constructor.
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'

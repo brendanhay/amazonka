@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.VerifyDomainIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Verifies a domain.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainIdentity.html AWS API Reference> for VerifyDomainIdentity.
 module Network.AWS.SES.VerifyDomainIdentity
     (
     -- * Creating a Request
@@ -46,10 +44,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to begin domain
--- verification.
---
--- /See:/ 'verifyDomainIdentity' smart constructor.
+-- | /See:/ 'verifyDomainIdentity' smart constructor.
 newtype VerifyDomainIdentity = VerifyDomainIdentity'
     { _vdiDomain :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -81,6 +76,8 @@ instance AWSRequest VerifyDomainIdentity where
                  VerifyDomainIdentityResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "VerificationToken"))
 
+instance Hashable VerifyDomainIdentity
+
 instance ToHeaders VerifyDomainIdentity where
         toHeaders = const mempty
 
@@ -94,9 +91,7 @@ instance ToQuery VerifyDomainIdentity where
                "Version" =: ("2010-12-01" :: ByteString),
                "Domain" =: _vdiDomain]
 
--- | Represents a token used for domain ownership verification.
---
--- /See:/ 'verifyDomainIdentityResponse' smart constructor.
+-- | /See:/ 'verifyDomainIdentityResponse' smart constructor.
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
     { _vdirsResponseStatus    :: !Int
     , _vdirsVerificationToken :: !Text

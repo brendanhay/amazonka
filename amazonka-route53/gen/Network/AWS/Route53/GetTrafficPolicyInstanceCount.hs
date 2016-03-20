@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetTrafficPolicyInstanceCount
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,9 +22,7 @@
 -- current AWS account.
 --
 -- To get the number of traffic policy instances, send a 'GET' request to
--- the '2013-04-01\/trafficpolicyinstancecount' resource.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicyInstanceCount.html AWS API Reference> for GetTrafficPolicyInstanceCount.
+-- the '\/Route 53 API version\/trafficpolicyinstancecount' resource.
 module Network.AWS.Route53.GetTrafficPolicyInstanceCount
     (
     -- * Creating a Request
@@ -47,7 +45,8 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | To retrieve a count of all your traffic policy instances, send a 'GET'
--- request to the '2013-04-01\/trafficpolicyinstancecount' resource.
+-- request to the '\/Route 53 API version\/trafficpolicyinstancecount'
+-- resource.
 --
 -- /See:/ 'getTrafficPolicyInstanceCount' smart constructor.
 data GetTrafficPolicyInstanceCount =
@@ -71,6 +70,8 @@ instance AWSRequest GetTrafficPolicyInstanceCount
                  GetTrafficPolicyInstanceCountResponse' <$>
                    (pure (fromEnum s)) <*>
                      (x .@ "TrafficPolicyInstanceCount"))
+
+instance Hashable GetTrafficPolicyInstanceCount
 
 instance ToHeaders GetTrafficPolicyInstanceCount
          where

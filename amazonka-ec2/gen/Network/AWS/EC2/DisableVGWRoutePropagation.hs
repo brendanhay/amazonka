@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DisableVGWRoutePropagation
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Disables a virtual private gateway (VGW) from propagating routes to a
 -- specified route table of a VPC.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisableVGWRoutePropagation.html AWS API Reference> for DisableVGWRoutePropagation.
 module Network.AWS.EC2.DisableVGWRoutePropagation
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DisableVGWRoutePropagation where
         request = postQuery eC2
         response
           = receiveNull DisableVGWRoutePropagationResponse'
+
+instance Hashable DisableVGWRoutePropagation
 
 instance ToHeaders DisableVGWRoutePropagation where
         toHeaders = const mempty

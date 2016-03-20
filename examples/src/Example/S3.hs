@@ -3,7 +3,7 @@
 
 -- |
 -- Module      : Example.S3
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
@@ -15,6 +15,7 @@ import           Control.Lens
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.AWS
+import           Data.ByteString         (ByteString)
 import           Data.Conduit
 import qualified Data.Conduit.Binary     as CB
 import qualified Data.Conduit.List       as CL
@@ -22,9 +23,21 @@ import qualified Data.Foldable           as Fold
 import           Data.Monoid
 import           Data.Text               (Text)
 import qualified Data.Text.IO            as Text
+import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.S3
 import           System.IO
+
+getPresignedURL :: Region     -- ^ Region to operate in.
+                -> BucketName
+                -> ObjectKey  -- ^ The source object key.
+                -> IO ByteString
+getPresignedURL r b k = do
+    lgr <- newLogger Trace stdout
+    env <- newEnv r Discover <&> envLogger .~ lgr
+    ts  <- getCurrentTime
+    runResourceT . runAWST env $
+        presignURL ts 60 (getObject b k)
 
 listAll :: Region -- ^ Region to operate in.
         -> IO ()

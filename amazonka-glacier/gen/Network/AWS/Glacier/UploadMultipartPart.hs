@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.UploadMultipartPart
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -35,8 +35,8 @@
 --
 -- -   __Part size does not match__The size of each part except the last
 --     must match the size specified in the corresponding
---     InitiateMultipartUpload request. The size of the last part must be
---     the same size as, or smaller than, the specified size.
+--     < InitiateMultipartUpload> request. The size of the last part must
+--     be the same size as, or smaller than, the specified size.
 --
 --     If you upload a part whose size is smaller than the part size you
 --     specified in your initiate multipart upload request and that part is
@@ -66,8 +66,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-upload-part.html Upload Part>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-UploadMultipartPart.html AWS API Reference> for UploadMultipartPart.
 module Network.AWS.Glacier.UploadMultipartPart
     (
     -- * Creating a Request

@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.S3
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -18,8 +18,6 @@
 -- inexpensive data storage infrastructure that Amazon uses to run its own
 -- global network of web sites. The service aims to maximize benefits of
 -- scale and to pass those benefits on to developers.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html AWS API Reference>
 module Network.AWS.S3
     (
     -- * Service Configuration
@@ -27,6 +25,9 @@ module Network.AWS.S3
 
     -- * Errors
     -- $errors
+
+    -- ** BucketAlreadyOwnedByYou
+    , _BucketAlreadyOwnedByYou
 
     -- ** ObjectAlreadyInActiveTierError
     , _ObjectAlreadyInActiveTierError
@@ -297,6 +298,11 @@ module Network.AWS.S3
     -- ** Type
     , Type (..)
 
+    -- ** AbortIncompleteMultipartUpload
+    , AbortIncompleteMultipartUpload
+    , abortIncompleteMultipartUpload
+    , aimuDaysAfterInitiation
+
     -- ** AccessControlPolicy
     , AccessControlPolicy
     , accessControlPolicy
@@ -451,6 +457,7 @@ module Network.AWS.S3
     , lifecycleExpiration
     , leDays
     , leDate
+    , leExpiredObjectDeleteMarker
 
     -- ** LifecycleRule
     , LifecycleRule
@@ -460,6 +467,7 @@ module Network.AWS.S3
     , lrNoncurrentVersionTransitions
     , lrExpiration
     , lrId
+    , lrAbortIncompleteMultipartUpload
     , lrPrefix
     , lrStatus
 

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.SendRawEmail
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -69,8 +69,6 @@
 --     'SourceIdentityArn'. For more information about sending
 --     authorization, see the
 --     <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SendRawEmail.html AWS API Reference> for SendRawEmail.
 module Network.AWS.SES.SendRawEmail
     (
     -- * Creating a Request
@@ -99,14 +97,7 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request instructing the service to send a raw email
--- message.
---
--- This datatype can be used in application code to compose a message
--- consisting of source, destination, and raw message text. This object can
--- then be sent using the 'SendRawEmail' action.
---
--- /See:/ 'sendRawEmail' smart constructor.
+-- | /See:/ 'sendRawEmail' smart constructor.
 data SendRawEmail = SendRawEmail'
     { _sreSourceARN     :: !(Maybe Text)
     , _sreDestinations  :: !(Maybe [Text])
@@ -250,6 +241,8 @@ instance AWSRequest SendRawEmail where
                  SendRawEmailResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "MessageId"))
 
+instance Hashable SendRawEmail
+
 instance ToHeaders SendRawEmail where
         toHeaders = const mempty
 
@@ -268,10 +261,7 @@ instance ToQuery SendRawEmail where
                "Source" =: _sreSource, "FromArn" =: _sreFromARN,
                "RawMessage" =: _sreRawMessage]
 
--- | Represents a unique message ID returned from a successful 'SendRawEmail'
--- request.
---
--- /See:/ 'sendRawEmailResponse' smart constructor.
+-- | /See:/ 'sendRawEmailResponse' smart constructor.
 data SendRawEmailResponse = SendRawEmailResponse'
     { _srersResponseStatus :: !Int
     , _srersMessageId      :: !Text

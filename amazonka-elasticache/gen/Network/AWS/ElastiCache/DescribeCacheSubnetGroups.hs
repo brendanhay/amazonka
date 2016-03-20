@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheSubnetGroups
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- The /DescribeCacheSubnetGroups/ action returns a list of cache subnet
 -- group descriptions. If a subnet group name is specified, the list will
 -- contain only the description of that group.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSubnetGroups.html AWS API Reference> for DescribeCacheSubnetGroups.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
@@ -119,6 +117,8 @@ instance AWSRequest DescribeCacheSubnetGroups where
                      (x .@? "CacheSubnetGroups" .!@ mempty >>=
                         may (parseXMLList "CacheSubnetGroup"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeCacheSubnetGroups
 
 instance ToHeaders DescribeCacheSubnetGroups where
         toHeaders = const mempty

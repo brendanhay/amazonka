@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the termination policies supported by Auto Scaling.
---
--- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTerminationPolicyTypes.html AWS API Reference> for DescribeTerminationPolicyTypes.
 module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     (
     -- * Creating a Request
@@ -66,6 +64,8 @@ instance AWSRequest DescribeTerminationPolicyTypes
                    (x .@? "TerminationPolicyTypes" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeTerminationPolicyTypes
 
 instance ToHeaders DescribeTerminationPolicyTypes
          where

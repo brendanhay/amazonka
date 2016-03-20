@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SWF.GetWorkflowExecutionHistory
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -42,8 +42,6 @@
 -- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_GetWorkflowExecutionHistory.html AWS API Reference> for GetWorkflowExecutionHistory.
 --
 -- This operation returns paginated results.
 module Network.AWS.SWF.GetWorkflowExecutionHistory
@@ -162,6 +160,8 @@ instance AWSRequest GetWorkflowExecutionHistory where
                  GetWorkflowExecutionHistoryResponse' <$>
                    (x .?> "nextPageToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "events" .!@ mempty))
+
+instance Hashable GetWorkflowExecutionHistory
 
 instance ToHeaders GetWorkflowExecutionHistory where
         toHeaders

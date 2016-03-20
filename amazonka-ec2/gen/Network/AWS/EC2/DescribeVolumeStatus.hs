@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeVolumeStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -50,15 +50,13 @@
 -- event. For example, if the status of the volume is 'impaired' and the
 -- volume event shows 'potential-data-inconsistency', then the action shows
 -- 'enable-volume-io'. This means that you may want to enable the I\/O
--- operations for the volume by calling the EnableVolumeIO action and then
--- check the volume for data consistency.
+-- operations for the volume by calling the < EnableVolumeIO> action and
+-- then check the volume for data consistency.
 --
 -- Volume status is based on the volume status checks, and does not reflect
 -- the volume state. Therefore, volume status does not indicate volumes in
 -- the 'error' state (for example, when a volume is incapable of accepting
 -- I\/O.)
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumeStatus.html AWS API Reference> for DescribeVolumeStatus.
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVolumeStatus
@@ -211,6 +209,8 @@ instance AWSRequest DescribeVolumeStatus where
                      (x .@? "volumeStatusSet" .!@ mempty >>=
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribeVolumeStatus
 
 instance ToHeaders DescribeVolumeStatus where
         toHeaders = const mempty

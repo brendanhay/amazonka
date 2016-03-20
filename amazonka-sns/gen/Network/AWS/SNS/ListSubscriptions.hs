@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.ListSubscriptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- limited list of subscriptions, up to 100. If there are more
 -- subscriptions, a 'NextToken' is also returned. Use the 'NextToken'
 -- parameter in a new 'ListSubscriptions' call to get further results.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptions.html AWS API Reference> for ListSubscriptions.
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListSubscriptions
@@ -92,6 +90,8 @@ instance AWSRequest ListSubscriptions where
                      (x .@? "Subscriptions" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListSubscriptions
 
 instance ToHeaders ListSubscriptions where
         toHeaders = const mempty

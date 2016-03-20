@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.ListVirtualMFADevices
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListVirtualMFADevices.html AWS API Reference> for ListVirtualMFADevices.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListVirtualMFADevices
@@ -128,6 +126,8 @@ instance AWSRequest ListVirtualMFADevices where
                      (x .@? "VirtualMFADevices" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListVirtualMFADevices
+
 instance ToHeaders ListVirtualMFADevices where
         toHeaders = const mempty
 
@@ -142,7 +142,7 @@ instance ToQuery ListVirtualMFADevices where
                "AssignmentStatus" =: _lvmdAssignmentStatus,
                "Marker" =: _lvmdMarker, "MaxItems" =: _lvmdMaxItems]
 
--- | Contains the response to a successful ListVirtualMFADevices request.
+-- | Contains the response to a successful < ListVirtualMFADevices> request.
 --
 -- /See:/ 'listVirtualMFADevicesResponse' smart constructor.
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'

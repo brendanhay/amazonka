@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53Domains.TransferDomain
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -44,8 +44,6 @@
 -- you can use to track the progress and completion of the action. If the
 -- transfer doesn\'t complete successfully, the domain registrant will be
 -- notified by email.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-TransferDomain.html AWS API Reference> for TransferDomain.
 module Network.AWS.Route53Domains.TransferDomain
     (
     -- * Creating a Request
@@ -301,6 +299,8 @@ instance AWSRequest TransferDomain where
               (\ s h x ->
                  TransferDomainResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
+
+instance Hashable TransferDomain
 
 instance ToHeaders TransferDomain where
         toHeaders

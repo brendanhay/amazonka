@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListClusters
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of existing clusters.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html AWS API Reference> for ListClusters.
 --
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListClusters
@@ -106,6 +104,8 @@ instance AWSRequest ListClusters where
                    (x .?> "clusterArns" .!@ mempty) <*>
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListClusters
 
 instance ToHeaders ListClusters where
         toHeaders

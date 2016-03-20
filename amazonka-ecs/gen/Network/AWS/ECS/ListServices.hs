@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.ECS.ListServices
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the services that are running in a specified cluster.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html AWS API Reference> for ListServices.
 --
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListServices
@@ -117,6 +115,8 @@ instance AWSRequest ListServices where
                    (x .?> "serviceArns" .!@ mempty) <*>
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListServices
 
 instance ToHeaders ListServices where
         toHeaders

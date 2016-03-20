@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.GetDeployment
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a deployment.
---
--- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeployment.html AWS API Reference> for GetDeployment.
 module Network.AWS.CodeDeploy.GetDeployment
     (
     -- * Creating a Request
@@ -64,8 +62,7 @@ getDeployment pDeploymentId_ =
     { _gdDeploymentId = pDeploymentId_
     }
 
--- | An existing deployment ID associated with the applicable IAM user or AWS
--- account.
+-- | A deployment ID associated with the applicable IAM user or AWS account.
 gdDeploymentId :: Lens' GetDeployment Text
 gdDeploymentId = lens _gdDeploymentId (\ s a -> s{_gdDeploymentId = a});
 
@@ -77,6 +74,8 @@ instance AWSRequest GetDeployment where
               (\ s h x ->
                  GetDeploymentResponse' <$>
                    (x .?> "deploymentInfo") <*> (pure (fromEnum s)))
+
+instance Hashable GetDeployment
 
 instance ToHeaders GetDeployment where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.StartPipelineExecution
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Starts the specified pipeline. Specifically, it begins processing the
 -- latest commit to the source location specified as part of the pipeline.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_StartPipelineExecution.html AWS API Reference> for StartPipelineExecution.
 module Network.AWS.CodePipeline.StartPipelineExecution
     (
     -- * Creating a Request
@@ -79,6 +77,8 @@ instance AWSRequest StartPipelineExecution where
                  StartPipelineExecutionResponse' <$>
                    (x .?> "pipelineExecutionId") <*>
                      (pure (fromEnum s)))
+
+instance Hashable StartPipelineExecution
 
 instance ToHeaders StartPipelineExecution where
         toHeaders

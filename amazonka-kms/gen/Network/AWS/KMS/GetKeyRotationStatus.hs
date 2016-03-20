@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.KMS.GetKeyRotationStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Retrieves a Boolean value that indicates whether key rotation is enabled
 -- for the specified key.
---
--- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html AWS API Reference> for GetKeyRotationStatus.
 module Network.AWS.KMS.GetKeyRotationStatus
     (
     -- * Creating a Request
@@ -82,6 +80,8 @@ instance AWSRequest GetKeyRotationStatus where
               (\ s h x ->
                  GetKeyRotationStatusResponse' <$>
                    (x .?> "KeyRotationEnabled") <*> (pure (fromEnum s)))
+
+instance Hashable GetKeyRotationStatus
 
 instance ToHeaders GetKeyRotationStatus where
         toHeaders

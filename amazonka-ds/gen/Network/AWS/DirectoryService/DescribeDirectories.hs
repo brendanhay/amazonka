@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DescribeDirectories
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -27,13 +27,11 @@
 -- This operation supports pagination with the use of the /NextToken/
 -- request and response parameters. If more results are available, the
 -- /DescribeDirectoriesResult.NextToken/ member contains a token that you
--- pass in the next call to DescribeDirectories to retrieve the next set of
--- items.
+-- pass in the next call to < DescribeDirectories> to retrieve the next set
+-- of items.
 --
 -- You can also specify a maximum number of return results with the /Limit/
 -- parameter.
---
--- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeDirectories.html AWS API Reference> for DescribeDirectories.
 module Network.AWS.DirectoryService.DescribeDirectories
     (
     -- * Creating a Request
@@ -60,7 +58,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DescribeDirectories operation.
+-- | Contains the inputs for the < DescribeDirectories> operation.
 --
 -- /See:/ 'describeDirectories' smart constructor.
 data DescribeDirectories = DescribeDirectories'
@@ -88,7 +86,7 @@ describeDirectories =
     }
 
 -- | The /DescribeDirectoriesResult.NextToken/ value from a previous call to
--- DescribeDirectories. Pass null if this is the first call.
+-- < DescribeDirectories>. Pass null if this is the first call.
 ddNextToken :: Lens' DescribeDirectories (Maybe Text)
 ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
 
@@ -118,6 +116,8 @@ instance AWSRequest DescribeDirectories where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDirectories
+
 instance ToHeaders DescribeDirectories where
         toHeaders
           = const
@@ -142,7 +142,7 @@ instance ToPath DescribeDirectories where
 instance ToQuery DescribeDirectories where
         toQuery = const mempty
 
--- | Contains the results of the DescribeDirectories operation.
+-- | Contains the results of the < DescribeDirectories> operation.
 --
 -- /See:/ 'describeDirectoriesResponse' smart constructor.
 data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
@@ -170,7 +170,7 @@ describeDirectoriesResponse pResponseStatus_ =
     , _ddrsResponseStatus = pResponseStatus_
     }
 
--- | The list of DirectoryDescription objects that were retrieved.
+-- | The list of < DirectoryDescription> objects that were retrieved.
 --
 -- It is possible that this list contains less than the number of items
 -- specified in the /Limit/ member of the request. This occurs if there are
@@ -180,7 +180,7 @@ ddrsDirectoryDescriptions :: Lens' DescribeDirectoriesResponse [DirectoryDescrip
 ddrsDirectoryDescriptions = lens _ddrsDirectoryDescriptions (\ s a -> s{_ddrsDirectoryDescriptions = a}) . _Default . _Coerce;
 
 -- | If not null, more results are available. Pass this value for the
--- /NextToken/ parameter in a subsequent call to DescribeDirectories to
+-- /NextToken/ parameter in a subsequent call to < DescribeDirectories> to
 -- retrieve the next set of items.
 ddrsNextToken :: Lens' DescribeDirectoriesResponse (Maybe Text)
 ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});

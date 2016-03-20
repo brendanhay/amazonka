@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteVirtualInterface
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a virtual interface.
---
--- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteVirtualInterface.html AWS API Reference> for DeleteVirtualInterface.
 module Network.AWS.DirectConnect.DeleteVirtualInterface
     (
     -- * Creating a Request
@@ -78,6 +76,8 @@ instance AWSRequest DeleteVirtualInterface where
                  DeleteVirtualInterfaceResponse' <$>
                    (x .?> "virtualInterfaceState") <*>
                      (pure (fromEnum s)))
+
+instance Hashable DeleteVirtualInterface
 
 instance ToHeaders DeleteVirtualInterface where
         toHeaders

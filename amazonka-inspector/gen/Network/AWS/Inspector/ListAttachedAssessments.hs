@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Inspector.ListAttachedAssessments
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Lists the assessments attached to the rules package specified by the
 -- rules package ARN.
---
--- /See:/ <http://docs.aws.amazon.com/inspector/latest/APIReference/API_ListAttachedAssessments.html AWS API Reference> for ListAttachedAssessments.
 module Network.AWS.Inspector.ListAttachedAssessments
     (
     -- * Creating a Request
@@ -116,6 +114,8 @@ instance AWSRequest ListAttachedAssessments where
                    (x .?> "assessmentArnList" .!@ mempty) <*>
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListAttachedAssessments
 
 instance ToHeaders ListAttachedAssessments where
         toHeaders

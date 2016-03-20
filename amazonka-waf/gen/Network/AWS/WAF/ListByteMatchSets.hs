@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.WAF.ListByteMatchSets
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of ByteMatchSetSummary objects.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_ListByteMatchSets.html AWS API Reference> for ListByteMatchSets.
+-- Returns an array of < ByteMatchSetSummary> objects.
 module Network.AWS.WAF.ListByteMatchSets
     (
     -- * Creating a Request
@@ -95,6 +93,8 @@ instance AWSRequest ListByteMatchSets where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListByteMatchSets
+
 instance ToHeaders ListByteMatchSets where
         toHeaders
           = const
@@ -143,7 +143,7 @@ listByteMatchSetsResponse pResponseStatus_ =
     , _lbmsrsResponseStatus = pResponseStatus_
     }
 
--- | An array of ByteMatchSetSummary objects.
+-- | An array of < ByteMatchSetSummary> objects.
 lbmsrsByteMatchSets :: Lens' ListByteMatchSetsResponse [ByteMatchSetSummary]
 lbmsrsByteMatchSets = lens _lbmsrsByteMatchSets (\ s a -> s{_lbmsrsByteMatchSets = a}) . _Default . _Coerce;
 

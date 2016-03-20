@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.ListDomainNames
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Returns the name of all Elasticsearch domains owned by the current
 -- user\'s account.
---
--- /See:/ <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-api.html#es-configuration-api-actions-ListDomainNames.html AWS API Reference> for ListDomainNames.
 module Network.AWS.ElasticSearch.ListDomainNames
     (
     -- * Creating a Request
@@ -63,6 +61,8 @@ instance AWSRequest ListDomainNames where
                  ListDomainNamesResponse' <$>
                    (x .?> "DomainNames" .!@ mempty) <*>
                      (pure (fromEnum s)))
+
+instance Hashable ListDomainNames
 
 instance ToHeaders ListDomainNames where
         toHeaders = const mempty

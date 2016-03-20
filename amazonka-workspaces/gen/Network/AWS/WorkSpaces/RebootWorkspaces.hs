@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.RebootWorkspaces
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 --
 -- This operation is asynchronous and will return before the WorkSpaces
 -- have rebooted.
---
--- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_RebootWorkspaces.html AWS API Reference> for RebootWorkspaces.
 module Network.AWS.WorkSpaces.RebootWorkspaces
     (
     -- * Creating a Request
@@ -50,7 +48,7 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the RebootWorkspaces operation.
+-- | Contains the inputs for the < RebootWorkspaces> operation.
 --
 -- /See:/ 'rebootWorkspaces' smart constructor.
 newtype RebootWorkspaces = RebootWorkspaces'
@@ -84,6 +82,8 @@ instance AWSRequest RebootWorkspaces where
                    (x .?> "FailedRequests" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable RebootWorkspaces
+
 instance ToHeaders RebootWorkspaces where
         toHeaders
           = const
@@ -107,7 +107,7 @@ instance ToPath RebootWorkspaces where
 instance ToQuery RebootWorkspaces where
         toQuery = const mempty
 
--- | Contains the results of the RebootWorkspaces operation.
+-- | Contains the results of the < RebootWorkspaces> operation.
 --
 -- /See:/ 'rebootWorkspacesResponse' smart constructor.
 data RebootWorkspacesResponse = RebootWorkspacesResponse'

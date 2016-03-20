@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.Publish
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- EndpointArn. The EndpointArn is returned when making a call with the
 -- 'CreatePlatformEndpoint' action. The second example below shows a
 -- request and response for publishing to a mobile endpoint.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_Publish.html AWS API Reference> for Publish.
 module Network.AWS.SNS.Publish
     (
     -- * Creating a Request
@@ -185,6 +183,8 @@ instance AWSRequest Publish where
               (\ s h x ->
                  PublishResponse' <$>
                    (x .@? "MessageId") <*> (pure (fromEnum s)))
+
+instance Hashable Publish
 
 instance ToHeaders Publish where
         toHeaders = const mempty

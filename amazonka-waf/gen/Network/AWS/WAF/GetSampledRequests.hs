@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF.GetSampledRequests
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -30,8 +30,6 @@
 -- time range elapsed, 'GetSampledRequests' returns an updated time range.
 -- This new time range indicates the actual period during which AWS WAF
 -- selected the requests in the sample.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/API_GetSampledRequests.html AWS API Reference> for GetSampledRequests.
 module Network.AWS.WAF.GetSampledRequests
     (
     -- * Creating a Request
@@ -134,6 +132,8 @@ instance AWSRequest GetSampledRequests where
                      (x .?> "PopulationSize")
                      <*> (x .?> "TimeWindow")
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetSampledRequests
 
 instance ToHeaders GetSampledRequests where
         toHeaders

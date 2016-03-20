@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- identity becomes inaccessible.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UnlinkDeveloperIdentity.html AWS API Reference> for UnlinkDeveloperIdentity.
 module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest UnlinkDeveloperIdentity where
         request = postJSON cognitoIdentity
         response
           = receiveNull UnlinkDeveloperIdentityResponse'
+
+instance Hashable UnlinkDeveloperIdentity
 
 instance ToHeaders UnlinkDeveloperIdentity where
         toHeaders

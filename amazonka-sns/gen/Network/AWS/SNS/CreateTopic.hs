@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SNS.CreateTopic
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- is idempotent, so if the requester already owns a topic with the
 -- specified name, that topic\'s ARN is returned without creating a new
 -- topic.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html AWS API Reference> for CreateTopic.
 module Network.AWS.SNS.CreateTopic
     (
     -- * Creating a Request
@@ -85,6 +83,8 @@ instance AWSRequest CreateTopic where
               (\ s h x ->
                  CreateTopicResponse' <$>
                    (x .@? "TopicArn") <*> (pure (fromEnum s)))
+
+instance Hashable CreateTopic
 
 instance ToHeaders CreateTopic where
         toHeaders = const mempty

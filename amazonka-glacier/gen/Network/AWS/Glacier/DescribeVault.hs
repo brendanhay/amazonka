@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.DescribeVault
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,9 @@
 -- inventory generation. This means that if you add or remove an archive
 -- from a vault, and then immediately use Describe Vault, the change in
 -- contents will not be immediately reflected. If you want to retrieve the
--- latest inventory of the vault, use InitiateJob. Amazon Glacier generates
--- vault inventories approximately daily. For more information, see
+-- latest inventory of the vault, use < InitiateJob>. Amazon Glacier
+-- generates vault inventories approximately daily. For more information,
+-- see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html Downloading a Vault Inventory in Amazon Glacier>.
 --
 -- An AWS account has full permission to perform all operations (actions).
@@ -40,8 +41,6 @@
 -- and
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html Describe Vault>
 -- in the /Amazon Glacier Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DescribeVault.html AWS API Reference> for DescribeVault.
 module Network.AWS.Glacier.DescribeVault
     (
     -- * Creating a Request
@@ -112,6 +111,8 @@ instance AWSRequest DescribeVault where
         type Rs DescribeVault = DescribeVaultOutput
         request = get glacier
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable DescribeVault
 
 instance ToHeaders DescribeVault where
         toHeaders = const mempty

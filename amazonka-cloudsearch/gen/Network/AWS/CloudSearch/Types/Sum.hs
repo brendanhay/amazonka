@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudSearch.Types.Sum
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -235,7 +235,7 @@ instance FromXML IndexFieldType where
 -- | The state of processing a change to an option. One of:
 --
 -- -   RequiresIndexDocuments: The option\'s latest value will not be
---     deployed until IndexDocuments has been called and indexing is
+--     deployed until < IndexDocuments> has been called and indexing is
 --     complete.
 -- -   Processing: The option\'s latest value is in the process of being
 --     activated.

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetStreamingDistributionConfig
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the configuration information about a streaming distribution.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetStreamingDistributionConfig.html AWS API Reference> for GetStreamingDistributionConfig.
 module Network.AWS.CloudFront.GetStreamingDistributionConfig
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest GetStreamingDistributionConfig
                    (parseXML x) <*> (h .#? "ETag") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetStreamingDistributionConfig
+
 instance ToHeaders GetStreamingDistributionConfig
          where
         toHeaders = const mempty
@@ -88,7 +88,7 @@ instance ToHeaders GetStreamingDistributionConfig
 instance ToPath GetStreamingDistributionConfig where
         toPath GetStreamingDistributionConfig'{..}
           = mconcat
-              ["/2015-09-17/streaming-distribution/", toBS _gsdcId,
+              ["/2016-01-28/streaming-distribution/", toBS _gsdcId,
                "/config"]
 
 instance ToQuery GetStreamingDistributionConfig where

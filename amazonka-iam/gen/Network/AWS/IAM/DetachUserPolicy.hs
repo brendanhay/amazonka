@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.DetachUserPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,12 +21,10 @@
 -- Removes the specified managed policy from the specified user.
 --
 -- A user can also have inline policies embedded with it. To delete an
--- inline policy, use the DeleteUserPolicy API. For information about
+-- inline policy, use the < DeleteUserPolicy> API. For information about
 -- policies, refer to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /IAM User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachUserPolicy.html AWS API Reference> for DetachUserPolicy.
 module Network.AWS.IAM.DetachUserPolicy
     (
     -- * Creating a Request
@@ -83,6 +81,8 @@ instance AWSRequest DetachUserPolicy where
         type Rs DetachUserPolicy = DetachUserPolicyResponse
         request = postQuery iAM
         response = receiveNull DetachUserPolicyResponse'
+
+instance Hashable DetachUserPolicy
 
 instance ToHeaders DetachUserPolicy where
         toHeaders = const mempty

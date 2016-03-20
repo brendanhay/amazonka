@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.UpdateIdentityPool
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Updates a user pool.
 --
 -- You must use AWS Developer credentials to call this API.
---
--- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UpdateIdentityPool.html AWS API Reference> for UpdateIdentityPool.
 module Network.AWS.CognitoIdentity.UpdateIdentityPool
     (
     -- * Creating a Request
@@ -125,6 +123,8 @@ instance AWSRequest UpdateIdentityPool where
         type Rs UpdateIdentityPool = IdentityPool
         request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable UpdateIdentityPool
 
 instance ToHeaders UpdateIdentityPool where
         toHeaders

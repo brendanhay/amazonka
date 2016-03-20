@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteTrafficPolicyInstance
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,13 +22,12 @@
 -- that Amazon Route 53 created when you created the instance.
 --
 -- To delete a traffic policy instance, send a 'DELETE' request to the
--- '2013-04-01\/trafficpolicy\/traffic policy instance ID' resource.
+-- '\/Route 53 API version\/trafficpolicy\/traffic policy instance ID'
+-- resource.
 --
 -- When you delete a traffic policy instance, Amazon Route 53 also deletes
 -- all of the resource record sets that were created when you created the
 -- traffic policy instance.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicyInstance.html AWS API Reference> for DeleteTrafficPolicyInstance.
 module Network.AWS.Route53.DeleteTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -89,6 +88,8 @@ instance AWSRequest DeleteTrafficPolicyInstance where
               (\ s h x ->
                  DeleteTrafficPolicyInstanceResponse' <$>
                    (pure (fromEnum s)))
+
+instance Hashable DeleteTrafficPolicyInstance
 
 instance ToHeaders DeleteTrafficPolicyInstance where
         toHeaders = const mempty

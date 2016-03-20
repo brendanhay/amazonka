@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.GenerateClientCertificate
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/GenerateClientCertificate.html AWS API Reference> for GenerateClientCertificate.
 module Network.AWS.APIGateway.GenerateClientCertificate
     (
     -- * Creating a Request
@@ -73,8 +71,13 @@ instance AWSRequest GenerateClientCertificate where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GenerateClientCertificate
+
 instance ToHeaders GenerateClientCertificate where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON GenerateClientCertificate where
         toJSON GenerateClientCertificate'{..}

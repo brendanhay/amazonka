@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.GetSAMLProvider
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 --
 -- This operation requires
 -- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html AWS API Reference> for GetSAMLProvider.
 module Network.AWS.IAM.GetSAMLProvider
     (
     -- * Creating a Request
@@ -84,6 +82,8 @@ instance AWSRequest GetSAMLProvider where
                      (x .@? "SAMLMetadataDocument")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetSAMLProvider
+
 instance ToHeaders GetSAMLProvider where
         toHeaders = const mempty
 
@@ -97,7 +97,7 @@ instance ToQuery GetSAMLProvider where
                "Version" =: ("2010-05-08" :: ByteString),
                "SAMLProviderArn" =: _gsamlpSAMLProviderARN]
 
--- | Contains the response to a successful GetSAMLProvider request.
+-- | Contains the response to a successful < GetSAMLProvider> request.
 --
 -- /See:/ 'getSAMLProviderResponse' smart constructor.
 data GetSAMLProviderResponse = GetSAMLProviderResponse'

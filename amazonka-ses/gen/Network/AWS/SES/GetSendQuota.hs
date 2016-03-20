@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.SES.GetSendQuota
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Returns the user\'s current sending limits.
 --
 -- This action is throttled at one request per second.
---
--- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendQuota.html AWS API Reference> for GetSendQuota.
 module Network.AWS.SES.GetSendQuota
     (
     -- * Creating a Request
@@ -68,6 +66,8 @@ instance AWSRequest GetSendQuota where
                      <*> (x .@? "Max24HourSend")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetSendQuota
+
 instance ToHeaders GetSendQuota where
         toHeaders = const mempty
 
@@ -81,10 +81,7 @@ instance ToQuery GetSendQuota where
                  ["Action" =: ("GetSendQuota" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | Represents the user\'s current activity limits returned from a
--- successful 'GetSendQuota' request.
---
--- /See:/ 'getSendQuotaResponse' smart constructor.
+-- | /See:/ 'getSendQuotaResponse' smart constructor.
 data GetSendQuotaResponse = GetSendQuotaResponse'
     { _gsqrsMaxSendRate     :: !(Maybe Double)
     , _gsqrsSentLast24Hours :: !(Maybe Double)

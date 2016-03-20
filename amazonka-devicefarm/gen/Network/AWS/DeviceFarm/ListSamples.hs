@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListSamples
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about samples.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ListSamples.html AWS API Reference> for ListSamples.
 module Network.AWS.DeviceFarm.ListSamples
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest ListSamples where
                  ListSamplesResponse' <$>
                    (x .?> "nextToken") <*> (x .?> "samples" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListSamples
 
 instance ToHeaders ListSamples where
         toHeaders

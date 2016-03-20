@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EMR.ListInstances
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- this operation indicates when the EC2 instances reach the Ready state,
 -- when instances become available to Amazon EMR to use for jobs, and the
 -- IP addresses for cluster instances, etc.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstances.html AWS API Reference> for ListInstances.
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListInstances
@@ -119,6 +117,8 @@ instance AWSRequest ListInstances where
                  ListInstancesResponse' <$>
                    (x .?> "Marker") <*> (x .?> "Instances" .!@ mempty)
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListInstances
 
 instance ToHeaders ListInstances where
         toHeaders

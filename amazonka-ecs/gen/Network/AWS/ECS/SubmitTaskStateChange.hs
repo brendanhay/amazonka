@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ECS.SubmitTaskStateChange
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 -- it is not intended for use outside of the agent.
 --
 -- Sent to acknowledge that a task changed states.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_SubmitTaskStateChange.html AWS API Reference> for SubmitTaskStateChange.
 module Network.AWS.ECS.SubmitTaskStateChange
     (
     -- * Creating a Request
@@ -106,6 +104,8 @@ instance AWSRequest SubmitTaskStateChange where
               (\ s h x ->
                  SubmitTaskStateChangeResponse' <$>
                    (x .?> "acknowledgment") <*> (pure (fromEnum s)))
+
+instance Hashable SubmitTaskStateChange
 
 instance ToHeaders SubmitTaskStateChange where
         toHeaders

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.ListParts
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the parts that have been uploaded for a specific multipart upload.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListParts.html AWS API Reference> for ListParts.
 --
 -- This operation returns paginated results.
 module Network.AWS.S3.ListParts
@@ -45,7 +43,9 @@ module Network.AWS.S3.ListParts
     , lprsMaxParts
     , lprsInitiator
     , lprsBucket
+    , lprsAbortDate
     , lprsNextPartNumberMarker
+    , lprsAbortRuleId
     , lprsOwner
     , lprsKey
     , lprsStorageClass
@@ -149,7 +149,9 @@ instance AWSRequest ListParts where
                      <*> (x .@? "MaxParts")
                      <*> (x .@? "Initiator")
                      <*> (x .@? "Bucket")
+                     <*> (h .#? "x-amz-abort-date")
                      <*> (x .@? "NextPartNumberMarker")
+                     <*> (h .#? "x-amz-abort-rule-id")
                      <*> (x .@? "Owner")
                      <*> (x .@? "Key")
                      <*> (x .@? "StorageClass")
@@ -157,6 +159,8 @@ instance AWSRequest ListParts where
                      <*> (x .@? "PartNumberMarker")
                      <*> (x .@? "UploadId")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ListParts
 
 instance ToHeaders ListParts where
         toHeaders ListParts'{..}
@@ -180,7 +184,9 @@ data ListPartsResponse = ListPartsResponse'
     , _lprsMaxParts             :: !(Maybe Int)
     , _lprsInitiator            :: !(Maybe Initiator)
     , _lprsBucket               :: !(Maybe BucketName)
+    , _lprsAbortDate            :: !(Maybe RFC822)
     , _lprsNextPartNumberMarker :: !(Maybe Int)
+    , _lprsAbortRuleId          :: !(Maybe Text)
     , _lprsOwner                :: !(Maybe Owner)
     , _lprsKey                  :: !(Maybe ObjectKey)
     , _lprsStorageClass         :: !(Maybe StorageClass)
@@ -204,7 +210,11 @@ data ListPartsResponse = ListPartsResponse'
 --
 -- * 'lprsBucket'
 --
+-- * 'lprsAbortDate'
+--
 -- * 'lprsNextPartNumberMarker'
+--
+-- * 'lprsAbortRuleId'
 --
 -- * 'lprsOwner'
 --
@@ -229,7 +239,9 @@ listPartsResponse pResponseStatus_ =
     , _lprsMaxParts = Nothing
     , _lprsInitiator = Nothing
     , _lprsBucket = Nothing
+    , _lprsAbortDate = Nothing
     , _lprsNextPartNumberMarker = Nothing
+    , _lprsAbortRuleId = Nothing
     , _lprsOwner = Nothing
     , _lprsKey = Nothing
     , _lprsStorageClass = Nothing
@@ -259,11 +271,21 @@ lprsInitiator = lens _lprsInitiator (\ s a -> s{_lprsInitiator = a});
 lprsBucket :: Lens' ListPartsResponse (Maybe BucketName)
 lprsBucket = lens _lprsBucket (\ s a -> s{_lprsBucket = a});
 
+-- | Date when multipart upload will become eligible for abort operation by
+-- lifecycle.
+lprsAbortDate :: Lens' ListPartsResponse (Maybe UTCTime)
+lprsAbortDate = lens _lprsAbortDate (\ s a -> s{_lprsAbortDate = a}) . mapping _Time;
+
 -- | When a list is truncated, this element specifies the last part in the
 -- list, as well as the value to use for the part-number-marker request
 -- parameter in a subsequent request.
 lprsNextPartNumberMarker :: Lens' ListPartsResponse (Maybe Int)
 lprsNextPartNumberMarker = lens _lprsNextPartNumberMarker (\ s a -> s{_lprsNextPartNumberMarker = a});
+
+-- | Id of the lifecycle rule that makes a multipart upload eligible for
+-- abort operation.
+lprsAbortRuleId :: Lens' ListPartsResponse (Maybe Text)
+lprsAbortRuleId = lens _lprsAbortRuleId (\ s a -> s{_lprsAbortRuleId = a});
 
 -- | Undocumented member.
 lprsOwner :: Lens' ListPartsResponse (Maybe Owner)

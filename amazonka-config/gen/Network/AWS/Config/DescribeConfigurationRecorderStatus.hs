@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Config.DescribeConfigurationRecorderStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- of all configuration recorder associated with the account.
 --
 -- Currently, you can specify only one configuration recorder per account.
---
--- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html AWS API Reference> for DescribeConfigurationRecorderStatus.
 module Network.AWS.Config.DescribeConfigurationRecorderStatus
     (
     -- * Creating a Request
@@ -48,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the DescribeConfigurationRecorderStatus action.
+-- | The input for the < DescribeConfigurationRecorderStatus> action.
 --
 -- /See:/ 'describeConfigurationRecorderStatus' smart constructor.
 newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'
@@ -85,6 +83,8 @@ instance AWSRequest
                    (x .?> "ConfigurationRecordersStatus" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeConfigurationRecorderStatus
+
 instance ToHeaders
          DescribeConfigurationRecorderStatus where
         toHeaders
@@ -112,7 +112,7 @@ instance ToQuery DescribeConfigurationRecorderStatus
          where
         toQuery = const mempty
 
--- | The output for the DescribeConfigurationRecorderStatus action in JSON
+-- | The output for the < DescribeConfigurationRecorderStatus> action in JSON
 -- format.
 --
 -- /See:/ 'describeConfigurationRecorderStatusResponse' smart constructor.

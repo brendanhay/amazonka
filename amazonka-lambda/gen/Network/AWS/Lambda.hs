@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.Lambda
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- and for information about how the service works, go to
 -- <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>
 -- in the /AWS Lambda Developer Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html AWS API Reference>
 module Network.AWS.Lambda
     (
     -- * Service Configuration
@@ -31,14 +29,26 @@ module Network.AWS.Lambda
     -- * Errors
     -- $errors
 
+    -- ** EC2ThrottledException
+    , _EC2ThrottledException
+
     -- ** PolicyLengthExceededException
     , _PolicyLengthExceededException
+
+    -- ** EC2AccessDeniedException
+    , _EC2AccessDeniedException
+
+    -- ** InvalidSubnetIdException
+    , _InvalidSubnetIdException
 
     -- ** UnsupportedMediaTypeException
     , _UnsupportedMediaTypeException
 
     -- ** InvalidRequestContentException
     , _InvalidRequestContentException
+
+    -- ** ENILimitReachedException
+    , _ENILimitReachedException
 
     -- ** InvalidParameterValueException
     , _InvalidParameterValueException
@@ -49,6 +59,12 @@ module Network.AWS.Lambda
     -- ** TooManyRequestsException
     , _TooManyRequestsException
 
+    -- ** InvalidSecurityGroupIdException
+    , _InvalidSecurityGroupIdException
+
+    -- ** SubnetIPAddressLimitReachedException
+    , _SubnetIPAddressLimitReachedException
+
     -- ** ServiceException
     , _ServiceException
 
@@ -57,6 +73,9 @@ module Network.AWS.Lambda
 
     -- ** ResourceConflictException
     , _ResourceConflictException
+
+    -- ** EC2UnexpectedException
+    , _EC2UnexpectedException
 
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
@@ -191,6 +210,7 @@ module Network.AWS.Lambda
     , fcRuntime
     , fcFunctionARN
     , fcRole
+    , fcVPCConfig
     , fcVersion
     , fcFunctionName
     , fcCodeSize
@@ -199,6 +219,19 @@ module Network.AWS.Lambda
     , fcLastModified
     , fcCodeSha256
     , fcDescription
+
+    -- ** VPCConfig
+    , VPCConfig
+    , vpcConfig
+    , vpccSecurityGroupIds
+    , vpccSubnetIds
+
+    -- ** VPCConfigResponse
+    , VPCConfigResponse
+    , vpcConfigResponse
+    , vcSecurityGroupIds
+    , vcSubnetIds
+    , vcVPCId
     ) where
 
 import           Network.AWS.Lambda.AddPermission

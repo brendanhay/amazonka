@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateUser
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,7 +22,9 @@
 --
 -- You should understand the implications of changing a user\'s path or
 -- name. For more information, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups>
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming Renaming an IAM User>
+-- and
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html Renaming an IAM Group>
 -- in the /IAM User Guide/.
 --
 -- To change a user name the requester must have appropriate permissions on
@@ -31,8 +33,6 @@
 -- Robert, or must have permission on all (*). For more information about
 -- permissions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateUser.html AWS API Reference> for UpdateUser.
 module Network.AWS.IAM.UpdateUser
     (
     -- * Creating a Request
@@ -100,6 +100,8 @@ instance AWSRequest UpdateUser where
         type Rs UpdateUser = UpdateUserResponse
         request = postQuery iAM
         response = receiveNull UpdateUserResponse'
+
+instance Hashable UpdateUser
 
 instance ToHeaders UpdateUser where
         toHeaders = const mempty

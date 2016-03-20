@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.DynamoDB.CreateTable
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -36,8 +36,6 @@
 -- given time.
 --
 -- You can use the /DescribeTable/ API to check the table status.
---
--- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html AWS API Reference> for CreateTable.
 module Network.AWS.DynamoDB.CreateTable
     (
     -- * Creating a Request
@@ -155,9 +153,9 @@ ctGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
 ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalSecondaryIndexes = a}) . _Default . _Coerce;
 
 -- | One or more local secondary indexes (the maximum is five) to be created
--- on the table. Each index is scoped to a given hash key value. There is a
--- 10 GB size limit per hash key; otherwise, the size of a local secondary
--- index is unconstrained.
+-- on the table. Each index is scoped to a given partition key value. There
+-- is a 10 GB size limit per partition key value; otherwise, the size of a
+-- local secondary index is unconstrained.
 --
 -- Each local secondary index in the array includes the following:
 --
@@ -165,8 +163,8 @@ ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalS
 --     only for this table.
 --
 -- -   /KeySchema/ - Specifies the key schema for the local secondary
---     index. The key schema must begin with the same hash key attribute as
---     the table.
+--     index. The key schema must begin with the same partition key as the
+--     table.
 --
 -- -   /Projection/ - Specifies attributes that are copied (projected) from
 --     the table into the index. These are in addition to the primary key
@@ -239,13 +237,26 @@ ctTableName = lens _ctTableName (\ s a -> s{_ctTableName = a});
 --
 -- -   /AttributeName/ - The name of this key attribute.
 --
--- -   /KeyType/ - Determines whether the key attribute is 'HASH' or
---     'RANGE'.
+-- -   /KeyType/ - The role that the key attribute will assume:
 --
--- For a primary key that consists of a hash attribute, you must provide
--- exactly one element with a /KeyType/ of 'HASH'.
+--     -   'HASH' - partition key
 --
--- For a primary key that consists of hash and range attributes, you must
+--     -   'RANGE' - sort key
+--
+-- The partition key of an item is also known as its /hash attribute/. The
+-- term \"hash attribute\" derives from DynamoDB\' usage of an internal
+-- hash function to evenly distribute data items across partitions, based
+-- on their partition key values.
+--
+-- The sort key of an item is also known as its /range attribute/. The term
+-- \"range attribute\" derives from the way DynamoDB stores items with the
+-- same partition key physically close together, in sorted order by the
+-- sort key value.
+--
+-- For a simple primary key (partition key), you must provide exactly one
+-- element with a /KeyType/ of 'HASH'.
+--
+-- For a composite primary key (partition key and sort key), you must
 -- provide exactly two elements, in this order: The first element must have
 -- a /KeyType/ of 'HASH', and the second element must have a /KeyType/ of
 -- 'RANGE'.
@@ -268,6 +279,8 @@ instance AWSRequest CreateTable where
               (\ s h x ->
                  CreateTableResponse' <$>
                    (x .?> "TableDescription") <*> (pure (fromEnum s)))
+
+instance Hashable CreateTable
 
 instance ToHeaders CreateTable where
         toHeaders

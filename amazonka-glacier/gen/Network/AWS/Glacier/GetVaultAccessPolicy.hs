@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Glacier.GetVaultAccessPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,8 +25,6 @@
 -- '404 Not found' error. For more information about vault access policies,
 -- see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
---
--- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultAccessPolicy.html AWS API Reference> for GetVaultAccessPolicy.
 module Network.AWS.Glacier.GetVaultAccessPolicy
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest GetVaultAccessPolicy where
               (\ s h x ->
                  GetVaultAccessPolicyResponse' <$>
                    (eitherParseJSON x) <*> (pure (fromEnum s)))
+
+instance Hashable GetVaultAccessPolicy
 
 instance ToHeaders GetVaultAccessPolicy where
         toHeaders = const mempty

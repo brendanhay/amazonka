@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DescribePrefixLists
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -23,8 +23,6 @@
 -- address range for the service. A prefix list ID is required for creating
 -- an outbound security group rule that allows traffic from a VPC to access
 -- an AWS service through a VPC endpoint.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePrefixLists.html AWS API Reference> for DescribePrefixLists.
 module Network.AWS.EC2.DescribePrefixLists
     (
     -- * Creating a Request
@@ -132,6 +130,8 @@ instance AWSRequest DescribePrefixLists where
                      (x .@? "prefixListSet" .!@ mempty >>=
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable DescribePrefixLists
 
 instance ToHeaders DescribePrefixLists where
         toHeaders = const mempty

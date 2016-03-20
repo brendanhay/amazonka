@@ -12,27 +12,25 @@
 
 -- |
 -- Module      : Network.AWS.StorageGateway.StartGateway
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation starts a gateway that you previously shut down (see
--- ShutdownGateway). After the gateway starts, you can then make other API
--- calls, your applications can read from or write to the gateway\'s
+-- < ShutdownGateway>). After the gateway starts, you can then make other
+-- API calls, your applications can read from or write to the gateway\'s
 -- storage volumes and you will be able to take snapshot backups.
 --
 -- When you make a request, you will get a 200 OK success response
 -- immediately. However, it might take some time for the gateway to be
--- ready. You should call DescribeGatewayInformation and check the status
--- before making any additional API calls. For more information, see
--- ActivateGateway.
+-- ready. You should call < DescribeGatewayInformation> and check the
+-- status before making any additional API calls. For more information, see
+-- < ActivateGateway>.
 --
 -- To specify which gateway to start, use the Amazon Resource Name (ARN) of
 -- the gateway in your request.
---
--- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_StartGateway.html AWS API Reference> for StartGateway.
 module Network.AWS.StorageGateway.StartGateway
     (
     -- * Creating a Request
@@ -88,6 +86,8 @@ instance AWSRequest StartGateway where
               (\ s h x ->
                  StartGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+
+instance Hashable StartGateway
 
 instance ToHeaders StartGateway where
         toHeaders

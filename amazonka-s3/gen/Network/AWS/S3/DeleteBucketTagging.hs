@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.S3.DeleteBucketTagging
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the tags from the bucket.
---
--- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketTagging.html AWS API Reference> for DeleteBucketTagging.
 module Network.AWS.S3.DeleteBucketTagging
     (
     -- * Creating a Request
@@ -68,6 +66,8 @@ instance AWSRequest DeleteBucketTagging where
              DeleteBucketTaggingResponse
         request = delete s3
         response = receiveNull DeleteBucketTaggingResponse'
+
+instance Hashable DeleteBucketTagging
 
 instance ToHeaders DeleteBucketTagging where
         toHeaders = const mempty

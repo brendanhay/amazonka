@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.RotateEncryptionKey
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Rotates the encryption keys for a cluster.
---
--- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RotateEncryptionKey.html AWS API Reference> for RotateEncryptionKey.
 module Network.AWS.Redshift.RotateEncryptionKey
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest RotateEncryptionKey where
               (\ s h x ->
                  RotateEncryptionKeyResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
+
+instance Hashable RotateEncryptionKey
 
 instance ToHeaders RotateEncryptionKey where
         toHeaders = const mempty

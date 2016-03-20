@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.TestInvokeMethod
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/TestInvokeMethod.html AWS API Reference> for TestInvokeMethod.
 module Network.AWS.APIGateway.TestInvokeMethod
     (
     -- * Creating a Request
@@ -147,8 +145,13 @@ instance AWSRequest TestInvokeMethod where
                      <*> (x .?> "headers" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable TestInvokeMethod
+
 instance ToHeaders TestInvokeMethod where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON TestInvokeMethod where
         toJSON TestInvokeMethod'{..}

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudHSM.DescribeHAPG
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about a high-availability partition group.
---
--- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeHAPG.html AWS API Reference> for DescribeHAPG.
 module Network.AWS.CloudHSM.DescribeHAPG
     (
     -- * Creating a Request
@@ -52,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the DescribeHapg action.
+-- | Contains the inputs for the < DescribeHapg> action.
 --
 -- /See:/ 'describeHAPG' smart constructor.
 newtype DescribeHAPG = DescribeHAPG'
@@ -93,6 +91,8 @@ instance AWSRequest DescribeHAPG where
                      <*> (x .?> "Label")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeHAPG
+
 instance ToHeaders DescribeHAPG where
         toHeaders
           = const
@@ -114,7 +114,7 @@ instance ToPath DescribeHAPG where
 instance ToQuery DescribeHAPG where
         toQuery = const mempty
 
--- | Contains the output of the DescribeHapg action.
+-- | Contains the output of the < DescribeHapg> action.
 --
 -- /See:/ 'describeHAPGResponse' smart constructor.
 data DescribeHAPGResponse = DescribeHAPGResponse'

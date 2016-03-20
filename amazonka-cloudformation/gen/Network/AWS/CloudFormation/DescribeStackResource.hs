@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackResource
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -22,8 +22,6 @@
 --
 -- For deleted stacks, DescribeStackResource returns resource information
 -- for up to 90 days after the stack has been deleted.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html AWS API Reference> for DescribeStackResource.
 module Network.AWS.CloudFormation.DescribeStackResource
     (
     -- * Creating a Request
@@ -48,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for DescribeStackResource action.
+-- | The input for < DescribeStackResource> action.
 --
 -- /See:/ 'describeStackResource' smart constructor.
 data DescribeStackResource = DescribeStackResource'
@@ -101,6 +99,8 @@ instance AWSRequest DescribeStackResource where
                    (x .@? "StackResourceDetail") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeStackResource
+
 instance ToHeaders DescribeStackResource where
         toHeaders = const mempty
 
@@ -115,7 +115,7 @@ instance ToQuery DescribeStackResource where
                "StackName" =: _desStackName,
                "LogicalResourceId" =: _desLogicalResourceId]
 
--- | The output for a DescribeStackResource action.
+-- | The output for a < DescribeStackResource> action.
 --
 -- /See:/ 'describeStackResourceResponse' smart constructor.
 data DescribeStackResourceResponse = DescribeStackResourceResponse'

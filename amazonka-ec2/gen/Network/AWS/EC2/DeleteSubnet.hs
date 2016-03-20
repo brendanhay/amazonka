@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteSubnet
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Deletes the specified subnet. You must terminate all running instances
 -- in the subnet before you can delete the subnet.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSubnet.html AWS API Reference> for DeleteSubnet.
 module Network.AWS.EC2.DeleteSubnet
     (
     -- * Creating a Request
@@ -80,6 +78,8 @@ instance AWSRequest DeleteSubnet where
         type Rs DeleteSubnet = DeleteSubnetResponse
         request = postQuery eC2
         response = receiveNull DeleteSubnetResponse'
+
+instance Hashable DeleteSubnet
 
 instance ToHeaders DeleteSubnet where
         toHeaders = const mempty

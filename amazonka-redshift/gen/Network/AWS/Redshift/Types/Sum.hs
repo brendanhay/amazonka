@@ -9,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.Redshift.Types.Sum
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -74,3 +74,37 @@ instance ToHeader     SourceType
 
 instance FromXML SourceType where
     parseXML = parseXMLText "SourceType"
+
+data TableRestoreStatusType
+    = Canceled
+    | Failed
+    | InProgress
+    | Pending
+    | Succeeded
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TableRestoreStatusType where
+    parser = takeLowerText >>= \case
+        "canceled" -> pure Canceled
+        "failed" -> pure Failed
+        "in_progress" -> pure InProgress
+        "pending" -> pure Pending
+        "succeeded" -> pure Succeeded
+        e -> fromTextError $ "Failure parsing TableRestoreStatusType from value: '" <> e
+           <> "'. Accepted values: CANCELED, FAILED, IN_PROGRESS, PENDING, SUCCEEDED"
+
+instance ToText TableRestoreStatusType where
+    toText = \case
+        Canceled -> "CANCELED"
+        Failed -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+        Pending -> "PENDING"
+        Succeeded -> "SUCCEEDED"
+
+instance Hashable     TableRestoreStatusType
+instance ToByteString TableRestoreStatusType
+instance ToQuery      TableRestoreStatusType
+instance ToHeader     TableRestoreStatusType
+
+instance FromXML TableRestoreStatusType where
+    parseXML = parseXMLText "TableRestoreStatusType"

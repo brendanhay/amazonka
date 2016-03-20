@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.CreateProject
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new project.
---
--- /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateProject.html AWS API Reference> for CreateProject.
 module Network.AWS.DeviceFarm.CreateProject
     (
     -- * Creating a Request
@@ -76,6 +74,8 @@ instance AWSRequest CreateProject where
               (\ s h x ->
                  CreateProjectResponse' <$>
                    (x .?> "project") <*> (pure (fromEnum s)))
+
+instance Hashable CreateProject
 
 instance ToHeaders CreateProject where
         toHeaders

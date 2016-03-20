@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportVolume
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,7 +25,9 @@
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportVolume.html AWS API Reference> for ImportVolume.
+-- For information about the import manifest referenced by this API action,
+-- see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 module Network.AWS.EC2.ImportVolume
     (
     -- * Creating a Request
@@ -120,6 +122,8 @@ instance AWSRequest ImportVolume where
               (\ s h x ->
                  ImportVolumeResponse' <$>
                    (x .@? "conversionTask") <*> (pure (fromEnum s)))
+
+instance Hashable ImportVolume
 
 instance ToHeaders ImportVolume where
         toHeaders = const mempty

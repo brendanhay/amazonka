@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.WAF
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -15,9 +15,7 @@
 -- need detailed information about the AWS WAF API actions, data types, and
 -- errors. For detailed information about AWS WAF features and an overview
 -- of how to use the AWS WAF API, see the
--- <http://docs.aws.amazon.com/waf/latest/dev/ AWS WAF Developer Guide>.
---
--- /See:/ <http://docs.aws.amazon.com/waf/latest/APIReference/Welcome.html AWS API Reference>
+-- <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
 module Network.AWS.WAF
     (
     -- * Service Configuration
@@ -65,6 +63,9 @@ module Network.AWS.WAF
     -- * Operations
     -- $operations
 
+    -- ** GetSizeConstraintSet
+    , module Network.AWS.WAF.GetSizeConstraintSet
+
     -- ** UpdateRule
     , module Network.AWS.WAF.UpdateRule
 
@@ -110,6 +111,9 @@ module Network.AWS.WAF
     -- ** GetChangeToken
     , module Network.AWS.WAF.GetChangeToken
 
+    -- ** ListSizeConstraintSets
+    , module Network.AWS.WAF.ListSizeConstraintSets
+
     -- ** GetSampledRequests
     , module Network.AWS.WAF.GetSampledRequests
 
@@ -140,6 +144,15 @@ module Network.AWS.WAF
     -- ** GetByteMatchSet
     , module Network.AWS.WAF.GetByteMatchSet
 
+    -- ** DeleteSizeConstraintSet
+    , module Network.AWS.WAF.DeleteSizeConstraintSet
+
+    -- ** UpdateSizeConstraintSet
+    , module Network.AWS.WAF.UpdateSizeConstraintSet
+
+    -- ** CreateSizeConstraintSet
+    , module Network.AWS.WAF.CreateSizeConstraintSet
+
     -- ** ListSqlInjectionMatchSets
     , module Network.AWS.WAF.ListSqlInjectionMatchSets
 
@@ -156,6 +169,9 @@ module Network.AWS.WAF
 
     -- ** ChangeTokenStatus
     , ChangeTokenStatus (..)
+
+    -- ** ComparisonOperator
+    , ComparisonOperator (..)
 
     -- ** IPSetDescriptorType
     , IPSetDescriptorType (..)
@@ -291,6 +307,33 @@ module Network.AWS.WAF
     , shttprRequest
     , shttprWeight
 
+    -- ** SizeConstraint
+    , SizeConstraint
+    , sizeConstraint
+    , scFieldToMatch
+    , scTextTransformation
+    , scComparisonOperator
+    , scSize
+
+    -- ** SizeConstraintSet
+    , SizeConstraintSet
+    , sizeConstraintSet
+    , scsName
+    , scsSizeConstraintSetId
+    , scsSizeConstraints
+
+    -- ** SizeConstraintSetSummary
+    , SizeConstraintSetSummary
+    , sizeConstraintSetSummary
+    , scssSizeConstraintSetId
+    , scssName
+
+    -- ** SizeConstraintSetUpdate
+    , SizeConstraintSetUpdate
+    , sizeConstraintSetUpdate
+    , scsuAction
+    , scsuSizeConstraint
+
     -- ** SqlInjectionMatchSet
     , SqlInjectionMatchSet
     , sqlInjectionMatchSet
@@ -352,11 +395,13 @@ module Network.AWS.WAF
 import           Network.AWS.WAF.CreateByteMatchSet
 import           Network.AWS.WAF.CreateIPSet
 import           Network.AWS.WAF.CreateRule
+import           Network.AWS.WAF.CreateSizeConstraintSet
 import           Network.AWS.WAF.CreateSqlInjectionMatchSet
 import           Network.AWS.WAF.CreateWebACL
 import           Network.AWS.WAF.DeleteByteMatchSet
 import           Network.AWS.WAF.DeleteIPSet
 import           Network.AWS.WAF.DeleteRule
+import           Network.AWS.WAF.DeleteSizeConstraintSet
 import           Network.AWS.WAF.DeleteSqlInjectionMatchSet
 import           Network.AWS.WAF.DeleteWebACL
 import           Network.AWS.WAF.GetByteMatchSet
@@ -365,17 +410,20 @@ import           Network.AWS.WAF.GetChangeTokenStatus
 import           Network.AWS.WAF.GetIPSet
 import           Network.AWS.WAF.GetRule
 import           Network.AWS.WAF.GetSampledRequests
+import           Network.AWS.WAF.GetSizeConstraintSet
 import           Network.AWS.WAF.GetSqlInjectionMatchSet
 import           Network.AWS.WAF.GetWebACL
 import           Network.AWS.WAF.ListByteMatchSets
 import           Network.AWS.WAF.ListIPSets
 import           Network.AWS.WAF.ListRules
+import           Network.AWS.WAF.ListSizeConstraintSets
 import           Network.AWS.WAF.ListSqlInjectionMatchSets
 import           Network.AWS.WAF.ListWebACLs
 import           Network.AWS.WAF.Types
 import           Network.AWS.WAF.UpdateByteMatchSet
 import           Network.AWS.WAF.UpdateIPSet
 import           Network.AWS.WAF.UpdateRule
+import           Network.AWS.WAF.UpdateSizeConstraintSet
 import           Network.AWS.WAF.UpdateSqlInjectionMatchSet
 import           Network.AWS.WAF.UpdateWebACL
 import           Network.AWS.WAF.Waiters

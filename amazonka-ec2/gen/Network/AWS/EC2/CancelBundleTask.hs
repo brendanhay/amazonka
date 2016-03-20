@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CancelBundleTask
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Cancels a bundling operation for an instance store-backed Windows
 -- instance.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelBundleTask.html AWS API Reference> for CancelBundleTask.
 module Network.AWS.EC2.CancelBundleTask
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest CancelBundleTask where
               (\ s h x ->
                  CancelBundleTaskResponse' <$>
                    (x .@? "bundleInstanceTask") <*> (pure (fromEnum s)))
+
+instance Hashable CancelBundleTask
 
 instance ToHeaders CancelBundleTask where
         toHeaders = const mempty

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineStatus
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -25,9 +25,7 @@
 -- jobs. You can\'t cancel jobs after Elastic Transcoder has started
 -- processing them; if you pause the pipeline to which you submitted the
 -- jobs, you have more time to get the job IDs for the jobs that you want
--- to cancel, and to send a CancelJob request.
---
--- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineStatus.html AWS API Reference> for UpdatePipelineStatus.
+-- to cancel, and to send a < CancelJob> request.
 module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     (
     -- * Creating a Request
@@ -97,6 +95,8 @@ instance AWSRequest UpdatePipelineStatus where
               (\ s h x ->
                  UpdatePipelineStatusResponse' <$>
                    (x .?> "Pipeline") <*> (pure (fromEnum s)))
+
+instance Hashable UpdatePipelineStatus
 
 instance ToHeaders UpdatePipelineStatus where
         toHeaders = const mempty

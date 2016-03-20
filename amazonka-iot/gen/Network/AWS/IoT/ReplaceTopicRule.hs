@@ -12,16 +12,16 @@
 
 -- |
 -- Module      : Network.AWS.IoT.ReplaceTopicRule
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Replaces the specified rule. You must specify all parameters for the new
+-- rule. Creating rules is an administrator-level action. Any user who has
+-- permission to create rules will be able to access data processed by the
 -- rule.
---
--- /See:/ <https://aws.amazon.com/iot#ReplaceTopicRule.html AWS API Reference> for ReplaceTopicRule.
 module Network.AWS.IoT.ReplaceTopicRule
     (
     -- * Creating a Request
@@ -80,6 +80,8 @@ instance AWSRequest ReplaceTopicRule where
         type Rs ReplaceTopicRule = ReplaceTopicRuleResponse
         request = patchJSON ioT
         response = receiveNull ReplaceTopicRuleResponse'
+
+instance Hashable ReplaceTopicRule
 
 instance ToHeaders ReplaceTopicRule where
         toHeaders = const mempty

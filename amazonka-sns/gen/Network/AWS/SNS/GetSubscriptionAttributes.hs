@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.SNS.GetSubscriptionAttributes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns all of the properties of a subscription.
---
--- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html AWS API Reference> for GetSubscriptionAttributes.
 module Network.AWS.SNS.GetSubscriptionAttributes
     (
     -- * Creating a Request
@@ -79,6 +77,8 @@ instance AWSRequest GetSubscriptionAttributes where
                    (x .@? "Attributes" .!@ mempty >>=
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
+
+instance Hashable GetSubscriptionAttributes
 
 instance ToHeaders GetSubscriptionAttributes where
         toHeaders = const mempty

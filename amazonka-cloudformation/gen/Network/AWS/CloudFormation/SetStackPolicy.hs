@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.SetStackPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets a stack policy for a specified stack.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetStackPolicy.html AWS API Reference> for SetStackPolicy.
 module Network.AWS.CloudFormation.SetStackPolicy
     (
     -- * Creating a Request
@@ -43,7 +41,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the SetStackPolicy action.
+-- | The input for the < SetStackPolicy> action.
 --
 -- /See:/ 'setStackPolicy' smart constructor.
 data SetStackPolicy = SetStackPolicy'
@@ -93,6 +91,8 @@ instance AWSRequest SetStackPolicy where
         type Rs SetStackPolicy = SetStackPolicyResponse
         request = postQuery cloudFormation
         response = receiveNull SetStackPolicyResponse'
+
+instance Hashable SetStackPolicy
 
 instance ToHeaders SetStackPolicy where
         toHeaders = const mempty

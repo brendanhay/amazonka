@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CodePipeline.ListActionTypes
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Gets a summary of all AWS CodePipeline action types associated with your
 -- account.
---
--- /See:/ <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_ListActionTypes.html AWS API Reference> for ListActionTypes.
 module Network.AWS.CodePipeline.ListActionTypes
     (
     -- * Creating a Request
@@ -89,6 +87,8 @@ instance AWSRequest ListActionTypes where
                  ListActionTypesResponse' <$>
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "actionTypes" .!@ mempty))
+
+instance Hashable ListActionTypes
 
 instance ToHeaders ListActionTypes where
         toHeaders

@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.DeleteLoadBalancerPolicy
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,8 +20,6 @@
 --
 -- Deletes the specified policy from the specified load balancer. This
 -- policy must not be enabled for any listeners.
---
--- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerPolicy.html AWS API Reference> for DeleteLoadBalancerPolicy.
 module Network.AWS.ELB.DeleteLoadBalancerPolicy
     (
     -- * Creating a Request
@@ -87,6 +85,8 @@ instance AWSRequest DeleteLoadBalancerPolicy where
               (\ s h x ->
                  DeleteLoadBalancerPolicyResponse' <$>
                    (pure (fromEnum s)))
+
+instance Hashable DeleteLoadBalancerPolicy
 
 instance ToHeaders DeleteLoadBalancerPolicy where
         toHeaders = const mempty

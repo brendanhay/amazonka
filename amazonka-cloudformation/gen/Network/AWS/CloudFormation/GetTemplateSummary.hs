@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.GetTemplateSummary
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -29,8 +29,6 @@
 -- For deleted stacks, 'GetTemplateSummary' returns the template
 -- information for up to 90 days after the stack has been deleted. If the
 -- template does not exist, a 'ValidationError' is returned.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplateSummary.html AWS API Reference> for GetTemplateSummary.
 module Network.AWS.CloudFormation.GetTemplateSummary
     (
     -- * Creating a Request
@@ -62,7 +60,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the GetTemplateSummary action.
+-- | The input for the < GetTemplateSummary> action.
 --
 -- /See:/ 'getTemplateSummary' smart constructor.
 data GetTemplateSummary = GetTemplateSummary'
@@ -143,6 +141,8 @@ instance AWSRequest GetTemplateSummary where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetTemplateSummary
+
 instance ToHeaders GetTemplateSummary where
         toHeaders = const mempty
 
@@ -158,7 +158,7 @@ instance ToQuery GetTemplateSummary where
                "TemplateURL" =: _gtsTemplateURL,
                "StackName" =: _gtsStackName]
 
--- | The output for the GetTemplateSummary action.
+-- | The output for the < GetTemplateSummary> action.
 --
 -- /See:/ 'getTemplateSummaryResponse' smart constructor.
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
@@ -232,20 +232,15 @@ gtsrsDescription = lens _gtsrsDescription (\ s a -> s{_gtsrsDescription = a});
 -- | The capabilities found within the template. Currently, AWS
 -- CloudFormation supports only the CAPABILITY_IAM capability. If your
 -- template contains IAM resources, you must specify the CAPABILITY_IAM
--- value for this parameter when you use the CreateStack or UpdateStack
--- actions with your template; otherwise, those actions return an
--- InsufficientCapabilities error.
+-- value for this parameter when you use the < CreateStack> or
+-- < UpdateStack> actions with your template; otherwise, those actions
+-- return an InsufficientCapabilities error.
 gtsrsCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
 gtsrsCapabilities = lens _gtsrsCapabilities (\ s a -> s{_gtsrsCapabilities = a}) . _Default . _Coerce;
 
 -- | A list of all the template resource types that are defined in the
 -- template, such as 'AWS::EC2::Instance', 'AWS::Dynamo::Table', and
--- 'Custom::MyCustomInstance'. Use the following syntax to describe
--- template resource types: 'AWS::*' (for all AWS resources), 'Custom::*'
--- (for all custom resources), 'Custom::logical_ID' (for a specific custom
--- resource), 'AWS::service_name::*' (for all resources of a particular AWS
--- service), and 'AWS::service_name::resource_logical_ID' (for a specific
--- AWS resource).
+-- 'Custom::MyCustomInstance'.
 gtsrsResourceTypes :: Lens' GetTemplateSummaryResponse [Text]
 gtsrsResourceTypes = lens _gtsrsResourceTypes (\ s a -> s{_gtsrsResourceTypes = a}) . _Default . _Coerce;
 

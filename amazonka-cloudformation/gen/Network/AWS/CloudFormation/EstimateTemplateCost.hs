@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.CloudFormation.EstimateTemplateCost
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -21,8 +21,6 @@
 -- Returns the estimated monthly cost of a template. The return value is an
 -- AWS Simple Monthly Calculator URL with a query string that describes the
 -- resources required to run the template.
---
--- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_EstimateTemplateCost.html AWS API Reference> for EstimateTemplateCost.
 module Network.AWS.CloudFormation.EstimateTemplateCost
     (
     -- * Creating a Request
@@ -108,6 +106,8 @@ instance AWSRequest EstimateTemplateCost where
                  EstimateTemplateCostResponse' <$>
                    (x .@? "Url") <*> (pure (fromEnum s)))
 
+instance Hashable EstimateTemplateCost
+
 instance ToHeaders EstimateTemplateCost where
         toHeaders = const mempty
 
@@ -124,7 +124,7 @@ instance ToQuery EstimateTemplateCost where
                "TemplateBody" =: _etcTemplateBody,
                "TemplateURL" =: _etcTemplateURL]
 
--- | The output for a EstimateTemplateCost action.
+-- | The output for a < EstimateTemplateCost> action.
 --
 -- /See:/ 'estimateTemplateCostResponse' smart constructor.
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'

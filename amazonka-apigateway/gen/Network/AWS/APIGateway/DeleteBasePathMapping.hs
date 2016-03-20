@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteBasePathMapping
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the BasePathMapping resource.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/DeleteBasePathMapping.html AWS API Reference> for DeleteBasePathMapping.
+-- Deletes the < BasePathMapping> resource.
 module Network.AWS.APIGateway.DeleteBasePathMapping
     (
     -- * Creating a Request
@@ -42,7 +40,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to delete the BasePathMapping resource.
+-- | A request to delete the < BasePathMapping> resource.
 --
 -- /See:/ 'deleteBasePathMapping' smart constructor.
 data DeleteBasePathMapping = DeleteBasePathMapping'
@@ -67,11 +65,11 @@ deleteBasePathMapping pDomainName_ pBasePath_ =
     , _dbpmBasePath = pBasePath_
     }
 
--- | The domain name of the BasePathMapping resource to delete.
+-- | The domain name of the < BasePathMapping> resource to delete.
 dbpmDomainName :: Lens' DeleteBasePathMapping Text
 dbpmDomainName = lens _dbpmDomainName (\ s a -> s{_dbpmDomainName = a});
 
--- | The base path name of the BasePathMapping resource to delete.
+-- | The base path name of the < BasePathMapping> resource to delete.
 dbpmBasePath :: Lens' DeleteBasePathMapping Text
 dbpmBasePath = lens _dbpmBasePath (\ s a -> s{_dbpmBasePath = a});
 
@@ -81,8 +79,13 @@ instance AWSRequest DeleteBasePathMapping where
         request = delete aPIGateway
         response = receiveNull DeleteBasePathMappingResponse'
 
+instance Hashable DeleteBasePathMapping
+
 instance ToHeaders DeleteBasePathMapping where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToPath DeleteBasePathMapping where
         toPath DeleteBasePathMapping'{..}

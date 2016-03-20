@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.CreateDHCPOptions
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -57,8 +57,6 @@
 -- information about DHCP options, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateDHCPOptions.html AWS API Reference> for CreateDHCPOptions.
 module Network.AWS.EC2.CreateDHCPOptions
     (
     -- * Creating a Request
@@ -123,6 +121,8 @@ instance AWSRequest CreateDHCPOptions where
               (\ s h x ->
                  CreateDHCPOptionsResponse' <$>
                    (x .@? "dhcpOptions") <*> (pure (fromEnum s)))
+
+instance Hashable CreateDHCPOptions
 
 instance ToHeaders CreateDHCPOptions where
         toHeaders = const mempty

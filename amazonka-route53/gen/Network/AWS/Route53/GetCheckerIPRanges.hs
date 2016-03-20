@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.Route53.GetCheckerIPRanges
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -20,11 +20,9 @@
 --
 -- To retrieve a list of the IP ranges used by Amazon Route 53 health
 -- checkers to check the health of your resources, send a 'GET' request to
--- the '2013-04-01\/checkeripranges' resource. You can use these IP
--- addresses to configure router and firewall rules to allow health
--- checkers to check the health of your resources.
---
--- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetCheckerIPRanges.html AWS API Reference> for GetCheckerIPRanges.
+-- the '\/Route 53 API version\/checkeripranges' resource. You can use
+-- these IP addresses to configure router and firewall rules to allow
+-- health checkers to check the health of your resources.
 module Network.AWS.Route53.GetCheckerIPRanges
     (
     -- * Creating a Request
@@ -70,6 +68,8 @@ instance AWSRequest GetCheckerIPRanges where
                    (pure (fromEnum s)) <*>
                      (x .@? "CheckerIpRanges" .!@ mempty >>=
                         parseXMLList "member"))
+
+instance Hashable GetCheckerIPRanges
 
 instance ToHeaders GetCheckerIPRanges where
         toHeaders = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateModel
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about a model.
---
--- /See:/ <http://docs.aws.amazon.com/apigateway/api-reference/resource/UpdateModel.html AWS API Reference> for UpdateModel.
 module Network.AWS.APIGateway.UpdateModel
     (
     -- * Creating a Request
@@ -49,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to update an existing model in an existing RestApi resource.
+-- | Request to update an existing model in an existing < RestApi> resource.
 --
 -- /See:/ 'updateModel' smart constructor.
 data UpdateModel = UpdateModel'
@@ -83,7 +81,7 @@ updateModel pRestAPIId_ pModelName_ =
 uPatchOperations :: Lens' UpdateModel [PatchOperation]
 uPatchOperations = lens _uPatchOperations (\ s a -> s{_uPatchOperations = a}) . _Default . _Coerce;
 
--- | The RestApi identifier under which the model exists.
+-- | The < RestApi> identifier under which the model exists.
 uRestAPIId :: Lens' UpdateModel Text
 uRestAPIId = lens _uRestAPIId (\ s a -> s{_uRestAPIId = a});
 
@@ -96,8 +94,13 @@ instance AWSRequest UpdateModel where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateModel
+
 instance ToHeaders UpdateModel where
-        toHeaders = const mempty
+        toHeaders
+          = const
+              (mconcat
+                 ["Accept" =# ("application/json" :: ByteString)])
 
 instance ToJSON UpdateModel where
         toJSON UpdateModel'{..}

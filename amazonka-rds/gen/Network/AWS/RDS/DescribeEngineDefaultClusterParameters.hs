@@ -12,7 +12,7 @@
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeEngineDefaultClusterParameters
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
@@ -24,8 +24,6 @@
 -- For more information on Amazon Aurora, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
 -- in the /Amazon RDS User Guide./
---
--- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEngineDefaultClusterParameters.html AWS API Reference> for DescribeEngineDefaultClusterParameters.
 module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
     (
     -- * Creating a Request
@@ -122,6 +120,9 @@ instance AWSRequest
               (\ s h x ->
                  DescribeEngineDefaultClusterParametersResponse' <$>
                    (x .@? "EngineDefaults") <*> (pure (fromEnum s)))
+
+instance Hashable
+         DescribeEngineDefaultClusterParameters
 
 instance ToHeaders
          DescribeEngineDefaultClusterParameters where

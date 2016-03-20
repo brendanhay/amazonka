@@ -12,19 +12,17 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.GetEventSourceMapping
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns configuration information for the specified event source mapping
--- (see CreateEventSourceMapping).
+-- (see < CreateEventSourceMapping>).
 --
 -- This operation requires permission for the
 -- 'lambda:GetEventSourceMapping' action.
---
--- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSourceMapping.html AWS API Reference> for GetEventSourceMapping.
 module Network.AWS.Lambda.GetEventSourceMapping
     (
     -- * Creating a Request
@@ -81,6 +79,8 @@ instance AWSRequest GetEventSourceMapping where
              EventSourceMappingConfiguration
         request = get lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance Hashable GetEventSourceMapping
 
 instance ToHeaders GetEventSourceMapping where
         toHeaders = const mempty

@@ -12,15 +12,13 @@
 
 -- |
 -- Module      : Network.AWS.EC2.ImportSnapshot
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Imports a disk into an EBS snapshot.
---
--- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportSnapshot.html AWS API Reference> for ImportSnapshot.
 module Network.AWS.EC2.ImportSnapshot
     (
     -- * Creating a Request
@@ -127,6 +125,8 @@ instance AWSRequest ImportSnapshot where
                      (x .@? "importTaskId")
                      <*> (x .@? "description")
                      <*> (pure (fromEnum s)))
+
+instance Hashable ImportSnapshot
 
 instance ToHeaders ImportSnapshot where
         toHeaders = const mempty

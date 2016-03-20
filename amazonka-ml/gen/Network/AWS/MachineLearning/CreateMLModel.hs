@@ -197,6 +197,8 @@ instance AWSRequest CreateMLModel where
                  CreateMLModelResponse' <$>
                    (x .?> "MLModelId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateMLModel
+
 instance ToHeaders CreateMLModel where
         toHeaders
           = const

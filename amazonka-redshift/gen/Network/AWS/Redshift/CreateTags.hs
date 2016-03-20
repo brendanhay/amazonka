@@ -90,6 +90,8 @@ instance AWSRequest CreateTags where
         request = postQuery redshift
         response = receiveNull CreateTagsResponse'
 
+instance Hashable CreateTags
+
 instance ToHeaders CreateTags where
         toHeaders = const mempty
 

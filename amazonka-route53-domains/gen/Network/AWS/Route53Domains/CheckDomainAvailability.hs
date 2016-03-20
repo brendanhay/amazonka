@@ -98,6 +98,8 @@ instance AWSRequest CheckDomainAvailability where
                  CheckDomainAvailabilityResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Availability"))
 
+instance Hashable CheckDomainAvailability
+
 instance ToHeaders CheckDomainAvailability where
         toHeaders
           = const

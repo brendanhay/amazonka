@@ -102,6 +102,8 @@ instance AWSRequest CreatePublicVirtualInterface
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreatePublicVirtualInterface
+
 instance ToHeaders CreatePublicVirtualInterface where
         toHeaders
           = const

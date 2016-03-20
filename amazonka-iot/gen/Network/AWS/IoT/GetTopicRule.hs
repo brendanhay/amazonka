@@ -77,6 +77,8 @@ instance AWSRequest GetTopicRule where
                    (x .?> "rule") <*> (x .?> "ruleArn") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetTopicRule
+
 instance ToHeaders GetTopicRule where
         toHeaders = const mempty
 

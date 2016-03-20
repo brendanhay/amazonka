@@ -138,6 +138,8 @@ instance AWSRequest CreateBucket where
                  CreateBucketResponse' <$>
                    (h .#? "Location") <*> (pure (fromEnum s)))
 
+instance Hashable CreateBucket
+
 instance ToElement CreateBucket where
         toElement
           = mkElement

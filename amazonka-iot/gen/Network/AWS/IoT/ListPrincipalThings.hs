@@ -96,6 +96,8 @@ instance AWSRequest ListPrincipalThings where
                    (x .?> "nextToken") <*> (x .?> "things" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListPrincipalThings
+
 instance ToHeaders ListPrincipalThings where
         toHeaders ListPrincipalThings'{..}
           = mconcat ["x-amzn-principal" =# _lptPrincipal]

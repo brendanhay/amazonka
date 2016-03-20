@@ -94,6 +94,8 @@ instance AWSRequest DeleteTable where
                  DeleteTableResponse' <$>
                    (x .?> "TableDescription") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteTable
+
 instance ToHeaders DeleteTable where
         toHeaders
           = const

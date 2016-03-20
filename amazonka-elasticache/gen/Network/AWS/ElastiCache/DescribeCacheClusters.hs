@@ -150,6 +150,8 @@ instance AWSRequest DescribeCacheClusters where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCacheClusters
+
 instance ToHeaders DescribeCacheClusters where
         toHeaders = const mempty
 

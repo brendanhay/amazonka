@@ -100,6 +100,8 @@ instance AWSRequest PutConfigRule where
         request = postJSON config
         response = receiveNull PutConfigRuleResponse'
 
+instance Hashable PutConfigRule
+
 instance ToHeaders PutConfigRule where
         toHeaders
           = const

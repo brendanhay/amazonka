@@ -79,6 +79,8 @@ instance AWSRequest DeleteDomain where
                  DeleteDomainResponse' <$>
                    (x .@? "DomainStatus") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteDomain
+
 instance ToHeaders DeleteDomain where
         toHeaders = const mempty
 

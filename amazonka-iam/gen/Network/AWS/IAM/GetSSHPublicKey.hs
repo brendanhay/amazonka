@@ -103,6 +103,8 @@ instance AWSRequest GetSSHPublicKey where
                  GetSSHPublicKeyResponse' <$>
                    (x .@? "SSHPublicKey") <*> (pure (fromEnum s)))
 
+instance Hashable GetSSHPublicKey
+
 instance ToHeaders GetSSHPublicKey where
         toHeaders = const mempty
 

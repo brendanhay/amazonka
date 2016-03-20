@@ -115,6 +115,8 @@ instance AWSRequest CreateFileSystem where
         request = postJSON eFS
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateFileSystem
+
 instance ToHeaders CreateFileSystem where
         toHeaders = const mempty
 

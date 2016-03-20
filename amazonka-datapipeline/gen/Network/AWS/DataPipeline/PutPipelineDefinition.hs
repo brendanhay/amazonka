@@ -123,6 +123,8 @@ instance AWSRequest PutPipelineDefinition where
                      <*> (pure (fromEnum s))
                      <*> (x .:> "errored"))
 
+instance Hashable PutPipelineDefinition
+
 instance ToHeaders PutPipelineDefinition where
         toHeaders
           = const

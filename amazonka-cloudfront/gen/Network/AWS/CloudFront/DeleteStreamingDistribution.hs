@@ -80,6 +80,8 @@ instance AWSRequest DeleteStreamingDistribution where
         response
           = receiveNull DeleteStreamingDistributionResponse'
 
+instance Hashable DeleteStreamingDistribution
+
 instance ToHeaders DeleteStreamingDistribution where
         toHeaders DeleteStreamingDistribution'{..}
           = mconcat ["If-Match" =# _dsdIfMatch]

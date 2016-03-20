@@ -159,6 +159,8 @@ instance AWSRequest ModifyEndpoint where
                  ModifyEndpointResponse' <$>
                    (x .?> "Endpoint") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyEndpoint
+
 instance ToHeaders ModifyEndpoint where
         toHeaders
           = const

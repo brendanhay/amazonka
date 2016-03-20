@@ -210,6 +210,8 @@ instance AWSRequest DescribeVolumeStatus where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVolumeStatus
+
 instance ToHeaders DescribeVolumeStatus where
         toHeaders = const mempty
 

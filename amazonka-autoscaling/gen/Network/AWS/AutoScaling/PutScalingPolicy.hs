@@ -210,6 +210,8 @@ instance AWSRequest PutScalingPolicy where
                  PutScalingPolicyResponse' <$>
                    (x .@? "PolicyARN") <*> (pure (fromEnum s)))
 
+instance Hashable PutScalingPolicy
+
 instance ToHeaders PutScalingPolicy where
         toHeaders = const mempty
 

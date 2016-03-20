@@ -79,6 +79,8 @@ instance AWSRequest DeleteSubscriptionFilter where
         response
           = receiveNull DeleteSubscriptionFilterResponse'
 
+instance Hashable DeleteSubscriptionFilter
+
 instance ToHeaders DeleteSubscriptionFilter where
         toHeaders
           = const

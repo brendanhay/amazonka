@@ -108,6 +108,8 @@ instance AWSRequest ListRetirableGrants where
         request = postJSON kMS
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable ListRetirableGrants
+
 instance ToHeaders ListRetirableGrants where
         toHeaders
           = const

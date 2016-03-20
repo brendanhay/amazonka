@@ -98,6 +98,8 @@ instance AWSRequest GetRestAPIs where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetRestAPIs
+
 instance ToHeaders GetRestAPIs where
         toHeaders
           = const

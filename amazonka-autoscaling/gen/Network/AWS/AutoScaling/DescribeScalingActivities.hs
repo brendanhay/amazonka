@@ -121,6 +121,8 @@ instance AWSRequest DescribeScalingActivities where
                      (x .@? "Activities" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable DescribeScalingActivities
+
 instance ToHeaders DescribeScalingActivities where
         toHeaders = const mempty
 

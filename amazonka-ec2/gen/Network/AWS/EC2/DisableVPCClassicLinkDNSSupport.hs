@@ -79,6 +79,8 @@ instance AWSRequest DisableVPCClassicLinkDNSSupport
                  DisableVPCClassicLinkDNSSupportResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
+instance Hashable DisableVPCClassicLinkDNSSupport
+
 instance ToHeaders DisableVPCClassicLinkDNSSupport
          where
         toHeaders = const mempty

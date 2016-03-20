@@ -75,6 +75,8 @@ instance AWSRequest DeregisterElasticIP where
         request = postJSON opsWorks
         response = receiveNull DeregisterElasticIPResponse'
 
+instance Hashable DeregisterElasticIP
+
 instance ToHeaders DeregisterElasticIP where
         toHeaders
           = const

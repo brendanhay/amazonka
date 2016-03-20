@@ -72,6 +72,8 @@ instance AWSRequest DeleteIdentityPool where
         request = postJSON cognitoIdentity
         response = receiveNull DeleteIdentityPoolResponse'
 
+instance Hashable DeleteIdentityPool
+
 instance ToHeaders DeleteIdentityPool where
         toHeaders
           = const

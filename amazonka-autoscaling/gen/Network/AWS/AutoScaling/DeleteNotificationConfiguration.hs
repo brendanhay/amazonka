@@ -81,6 +81,8 @@ instance AWSRequest DeleteNotificationConfiguration
           = receiveNull
               DeleteNotificationConfigurationResponse'
 
+instance Hashable DeleteNotificationConfiguration
+
 instance ToHeaders DeleteNotificationConfiguration
          where
         toHeaders = const mempty

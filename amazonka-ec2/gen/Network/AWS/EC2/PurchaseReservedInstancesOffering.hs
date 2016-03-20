@@ -123,6 +123,8 @@ instance AWSRequest PurchaseReservedInstancesOffering
                    (x .@? "reservedInstancesId") <*>
                      (pure (fromEnum s)))
 
+instance Hashable PurchaseReservedInstancesOffering
+
 instance ToHeaders PurchaseReservedInstancesOffering
          where
         toHeaders = const mempty

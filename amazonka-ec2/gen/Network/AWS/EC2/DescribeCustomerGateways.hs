@@ -131,6 +131,8 @@ instance AWSRequest DescribeCustomerGateways where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCustomerGateways
+
 instance ToHeaders DescribeCustomerGateways where
         toHeaders = const mempty
 

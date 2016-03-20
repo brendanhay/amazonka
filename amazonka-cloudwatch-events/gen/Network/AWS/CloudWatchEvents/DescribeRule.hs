@@ -87,6 +87,8 @@ instance AWSRequest DescribeRule where
                      <*> (x .?> "RoleArn")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeRule
+
 instance ToHeaders DescribeRule where
         toHeaders
           = const

@@ -67,6 +67,8 @@ instance FromXML AccountQuota where
               (x .@? "Max") <*> (x .@? "Used") <*>
                 (x .@? "AccountQuotaName")
 
+instance Hashable AccountQuota
+
 -- | Contains Availability Zone information.
 --
 -- This data type is used as an element in the following data type:
@@ -96,6 +98,8 @@ azName = lens _azName (\ s a -> s{_azName = a});
 
 instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
+
+instance Hashable AvailabilityZone
 
 -- | A CA certificate for an AWS account.
 --
@@ -160,6 +164,8 @@ instance FromXML Certificate where
                 <*> (x .@? "Thumbprint")
                 <*> (x .@? "ValidFrom")
 
+instance Hashable Certificate
+
 -- | This data type is used as a response element in the action
 -- < DescribeDBEngineVersions>.
 --
@@ -197,6 +203,8 @@ instance FromXML CharacterSet where
           = CharacterSet' <$>
               (x .@? "CharacterSetName") <*>
                 (x .@? "CharacterSetDescription")
+
+instance Hashable CharacterSet
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -485,6 +493,8 @@ instance FromXML DBCluster where
                 (x .@? "DBClusterOptionGroupMemberships" .!@ mempty
                    >>= may (parseXMLList "DBClusterOptionGroup"))
 
+instance Hashable DBCluster
+
 -- | Contains information about an instance that is part of a DB cluster.
 --
 -- /See:/ 'dbClusterMember' smart constructor.
@@ -533,6 +543,8 @@ instance FromXML DBClusterMember where
                 (x .@? "IsClusterWriter")
                 <*> (x .@? "DBClusterParameterGroupStatus")
 
+instance Hashable DBClusterMember
+
 -- | Contains status information for a DB cluster option group.
 --
 -- /See:/ 'dbClusterOptionGroupStatus' smart constructor.
@@ -569,6 +581,8 @@ instance FromXML DBClusterOptionGroupStatus where
           = DBClusterOptionGroupStatus' <$>
               (x .@? "Status") <*>
                 (x .@? "DBClusterOptionGroupName")
+
+instance Hashable DBClusterOptionGroupStatus
 
 -- | Contains the result of a successful invocation of the
 -- < CreateDBClusterParameterGroup> action.
@@ -623,6 +637,8 @@ instance FromXML DBClusterParameterGroup where
                 (x .@? "DBClusterParameterGroupName")
                 <*> (x .@? "Description")
 
+instance Hashable DBClusterParameterGroup
+
 -- |
 --
 -- /See:/ 'dbClusterParameterGroupNameMessage' smart constructor.
@@ -659,6 +675,8 @@ instance FromXML DBClusterParameterGroupNameMessage
         parseXML x
           = DBClusterParameterGroupNameMessage' <$>
               (x .@? "DBClusterParameterGroupName")
+
+instance Hashable DBClusterParameterGroupNameMessage
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -847,6 +865,8 @@ instance FromXML DBClusterSnapshot where
                 <*> (x .@? "PercentProgress")
                 <*> (x .@? "Port")
 
+instance Hashable DBClusterSnapshot
+
 -- | This data type is used as a response element in the action
 -- < DescribeDBEngineVersions>.
 --
@@ -946,6 +966,8 @@ instance FromXML DBEngineVersion where
                 <*>
                 (x .@? "ValidUpgradeTarget" .!@ mempty >>=
                    may (parseXMLList "UpgradeTarget"))
+
+instance Hashable DBEngineVersion
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -1437,6 +1459,8 @@ instance FromXML DBInstance where
                    may (parseXMLList "DBInstanceStatusInfo"))
                 <*> (x .@? "DBName")
 
+instance Hashable DBInstance
+
 -- | Provides a list of status information for a DB instance.
 --
 -- /See:/ 'dbInstanceStatusInfo' smart constructor.
@@ -1494,6 +1518,8 @@ instance FromXML DBInstanceStatusInfo where
                 (x .@? "StatusType")
                 <*> (x .@? "Message")
 
+instance Hashable DBInstanceStatusInfo
+
 -- | Contains the result of a successful invocation of the
 -- < CreateDBParameterGroup> action.
 --
@@ -1546,6 +1572,8 @@ instance FromXML DBParameterGroup where
                 (x .@? "DBParameterGroupName")
                 <*> (x .@? "Description")
 
+instance Hashable DBParameterGroup
+
 -- | Contains the result of a successful invocation of the
 -- < ModifyDBParameterGroup> or < ResetDBParameterGroup> action.
 --
@@ -1574,6 +1602,8 @@ instance FromXML DBParameterGroupNameMessage where
         parseXML x
           = DBParameterGroupNameMessage' <$>
               (x .@? "DBParameterGroupName")
+
+instance Hashable DBParameterGroupNameMessage
 
 -- | The status of the DB parameter group.
 --
@@ -1620,6 +1650,8 @@ instance FromXML DBParameterGroupStatus where
           = DBParameterGroupStatus' <$>
               (x .@? "DBParameterGroupName") <*>
                 (x .@? "ParameterApplyStatus")
+
+instance Hashable DBParameterGroupStatus
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -1704,6 +1736,8 @@ instance FromXML DBSecurityGroup where
                    may (parseXMLList "EC2SecurityGroup"))
                 <*> (x .@? "DBSecurityGroupDescription")
 
+instance Hashable DBSecurityGroup
+
 -- | This data type is used as a response element in the following actions:
 --
 -- -   < ModifyDBInstance>
@@ -1744,6 +1778,8 @@ instance FromXML DBSecurityGroupMembership where
         parseXML x
           = DBSecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "DBSecurityGroupName")
+
+instance Hashable DBSecurityGroupMembership
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -1985,6 +2021,8 @@ instance FromXML DBSnapshot where
                 <*> (x .@? "Port")
                 <*> (x .@? "StorageType")
 
+instance Hashable DBSnapshot
+
 -- | Contains the name and values of a manual DB snapshot attribute
 --
 -- Manual DB snapshot attributes are used to authorize other AWS accounts
@@ -2036,6 +2074,8 @@ instance FromXML DBSnapshotAttribute where
                  may (parseXMLList "AttributeValue"))
                 <*> (x .@? "AttributeName")
 
+instance Hashable DBSnapshotAttribute
+
 -- | Contains the results of a successful call to the
 -- < DescribeDBSnapshotAttributes> API.
 --
@@ -2078,6 +2118,8 @@ instance FromXML DBSnapshotAttributesResult where
               (x .@? "DBSnapshotIdentifier") <*>
                 (x .@? "DBSnapshotAttributes" .!@ mempty >>=
                    may (parseXMLList "DBSnapshotAttribute"))
+
+instance Hashable DBSnapshotAttributesResult
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -2151,6 +2193,8 @@ instance FromXML DBSubnetGroup where
                 <*> (x .@? "DBSubnetGroupDescription")
                 <*> (x .@? "SubnetGroupStatus")
 
+instance Hashable DBSubnetGroup
+
 -- | This data type is used as a response element to < DescribeDBLogFiles>.
 --
 -- /See:/ 'describeDBLogFilesDetails' smart constructor.
@@ -2195,6 +2239,8 @@ instance FromXML DescribeDBLogFilesDetails where
           = DescribeDBLogFilesDetails' <$>
               (x .@? "LastWritten") <*> (x .@? "Size") <*>
                 (x .@? "LogFileName")
+
+instance Hashable DescribeDBLogFilesDetails
 
 -- | This data type is used as a response element in the following actions:
 --
@@ -2257,6 +2303,8 @@ instance FromXML EC2SecurityGroup where
                 <*> (x .@? "EC2SecurityGroupName")
                 <*> (x .@? "EC2SecurityGroupId")
 
+instance Hashable EC2SecurityGroup
+
 -- | This data type is used as a response element in the following actions:
 --
 -- -   < CreateDBInstance>
@@ -2306,6 +2354,8 @@ instance FromXML Endpoint where
           = Endpoint' <$>
               (x .@? "HostedZoneId") <*> (x .@? "Address") <*>
                 (x .@? "Port")
+
+instance Hashable Endpoint
 
 -- | Contains the result of a successful invocation of the
 -- < DescribeEngineDefaultParameters> action.
@@ -2357,6 +2407,8 @@ instance FromXML EngineDefaults where
                 <*>
                 (x .@? "Parameters" .!@ mempty >>=
                    may (parseXMLList "Parameter"))
+
+instance Hashable EngineDefaults
 
 -- | This data type is used as a response element in the < DescribeEvents>
 -- action.
@@ -2424,6 +2476,8 @@ instance FromXML Event where
                    may (parseXMLList "EventCategory"))
                 <*> (x .@? "Message")
 
+instance Hashable Event
+
 -- | Contains the results of a successful invocation of the
 -- < DescribeEventCategories> action.
 --
@@ -2462,6 +2516,8 @@ instance FromXML EventCategoriesMap where
               (x .@? "SourceType") <*>
                 (x .@? "EventCategories" .!@ mempty >>=
                    may (parseXMLList "EventCategory"))
+
+instance Hashable EventCategoriesMap
 
 -- | Contains the results of a successful invocation of the
 -- < DescribeEventSubscriptions> action.
@@ -2578,6 +2634,8 @@ instance FromXML EventSubscription where
                 (x .@? "SourceIdsList" .!@ mempty >>=
                    may (parseXMLList "SourceId"))
 
+instance Hashable EventSubscription
+
 -- | /See:/ 'filter'' smart constructor.
 data Filter = Filter'
     { _fName   :: !Text
@@ -2607,6 +2665,8 @@ fName = lens _fName (\ s a -> s{_fName = a});
 -- | This parameter is not currently supported.
 fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Coerce;
+
+instance Hashable Filter
 
 instance ToQuery Filter where
         toQuery Filter'{..}
@@ -2650,6 +2710,8 @@ irCIdRIP = lens _irCIdRIP (\ s a -> s{_irCIdRIP = a});
 instance FromXML IPRange where
         parseXML x
           = IPRange' <$> (x .@? "Status") <*> (x .@? "CIDRIP")
+
+instance Hashable IPRange
 
 -- | Option details.
 --
@@ -2749,6 +2811,8 @@ instance FromXML Option where
                    may (parseXMLList "DBSecurityGroup"))
                 <*> (x .@? "Port")
 
+instance Hashable Option
+
 -- | A list of all available options
 --
 -- /See:/ 'optionConfiguration' smart constructor.
@@ -2804,6 +2868,8 @@ ocPort = lens _ocPort (\ s a -> s{_ocPort = a});
 -- | The configuration of options to include in a group.
 ocOptionName :: Lens' OptionConfiguration Text
 ocOptionName = lens _ocOptionName (\ s a -> s{_ocOptionName = a});
+
+instance Hashable OptionConfiguration
 
 instance ToQuery OptionConfiguration where
         toQuery OptionConfiguration'{..}
@@ -2912,6 +2978,8 @@ instance FromXML OptionGroup where
                    may (parseXMLList "Option"))
                 <*> (x .@? "OptionGroupName")
 
+instance Hashable OptionGroup
+
 -- | Provides information on the option groups the DB instance is a member
 -- of.
 --
@@ -2951,6 +3019,8 @@ instance FromXML OptionGroupMembership where
         parseXML x
           = OptionGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "OptionGroupName")
+
+instance Hashable OptionGroupMembership
 
 -- | Available option.
 --
@@ -3081,6 +3151,8 @@ instance FromXML OptionGroupOption where
                 (x .@? "OptionsDependedOn" .!@ mempty >>=
                    may (parseXMLList "OptionName"))
 
+instance Hashable OptionGroupOption
+
 -- | Option group option settings are used to display settings available for
 -- each option with their default values and other information. These
 -- values are used with the DescribeOptionGroupOptions action.
@@ -3155,6 +3227,8 @@ instance FromXML OptionGroupOptionSetting where
                 <*> (x .@? "IsModifiable")
                 <*> (x .@? "SettingDescription")
                 <*> (x .@? "AllowedValues")
+
+instance Hashable OptionGroupOptionSetting
 
 -- | Option settings are the actual settings being applied or configured for
 -- that option. It is used when you modify an option group or describe
@@ -3259,6 +3333,8 @@ instance FromXML OptionSetting where
                 <*> (x .@? "DataType")
                 <*> (x .@? "AllowedValues")
                 <*> (x .@? "Description")
+
+instance Hashable OptionSetting
 
 instance ToQuery OptionSetting where
         toQuery OptionSetting'{..}
@@ -3403,6 +3479,8 @@ instance FromXML OrderableDBInstanceOption where
                 <*> (x .@? "SupportsEnhancedMonitoring")
                 <*> (x .@? "StorageType")
 
+instance Hashable OrderableDBInstanceOption
+
 -- | This data type is used as a request parameter in the
 -- < ModifyDBParameterGroup> and < ResetDBParameterGroup> actions.
 --
@@ -3517,6 +3595,8 @@ instance FromXML Parameter where
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
 
+instance Hashable Parameter
+
 instance ToQuery Parameter where
         toQuery Parameter'{..}
           = mconcat
@@ -3615,6 +3695,8 @@ instance FromXML PendingMaintenanceAction where
                 <*> (x .@? "Description")
                 <*> (x .@? "ForcedApplyDate")
                 <*> (x .@? "CurrentApplyDate")
+
+instance Hashable PendingMaintenanceAction
 
 -- | This data type is used as a response element in the < ModifyDBInstance>
 -- action.
@@ -3742,6 +3824,8 @@ instance FromXML PendingModifiedValues where
                 <*> (x .@? "Port")
                 <*> (x .@? "StorageType")
 
+instance Hashable PendingModifiedValues
+
 -- | This data type is used as a response element in the
 -- < DescribeReservedDBInstances> and
 -- < DescribeReservedDBInstancesOfferings> actions.
@@ -3780,6 +3864,8 @@ instance FromXML RecurringCharge where
           = RecurringCharge' <$>
               (x .@? "RecurringChargeFrequency") <*>
                 (x .@? "RecurringChargeAmount")
+
+instance Hashable RecurringCharge
 
 -- | This data type is used as a response element in the
 -- < DescribeReservedDBInstances> and
@@ -3929,6 +4015,8 @@ instance FromXML ReservedDBInstance where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
+instance Hashable ReservedDBInstance
+
 -- | This data type is used as a response element in the
 -- < DescribeReservedDBInstancesOfferings> action.
 --
@@ -4041,6 +4129,8 @@ instance FromXML ReservedDBInstancesOffering where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
+instance Hashable ReservedDBInstancesOffering
+
 -- | Describes the pending maintenance actions for a resource.
 --
 -- /See:/ 'resourcePendingMaintenanceActions' smart constructor.
@@ -4080,6 +4170,8 @@ instance FromXML ResourcePendingMaintenanceActions
               (x .@? "PendingMaintenanceActionDetails" .!@ mempty
                  >>= may (parseXMLList "PendingMaintenanceAction"))
                 <*> (x .@? "ResourceIdentifier")
+
+instance Hashable ResourcePendingMaintenanceActions
 
 -- | This data type is used as a response element in the
 -- < DescribeDBSubnetGroups> action.
@@ -4127,6 +4219,8 @@ instance FromXML Subnet where
               (x .@? "SubnetStatus") <*> (x .@? "SubnetIdentifier")
                 <*> (x .@? "SubnetAvailabilityZone")
 
+instance Hashable Subnet
+
 -- | Metadata assigned to an Amazon RDS resource consisting of a key-value
 -- pair.
 --
@@ -4170,6 +4264,8 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
+
+instance Hashable Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -4243,6 +4339,8 @@ instance FromXML UpgradeTarget where
                 <*> (x .@? "AutoUpgrade")
                 <*> (x .@? "Description")
 
+instance Hashable UpgradeTarget
+
 -- | This data type is used as a response element for queries on VPC security
 -- group membership.
 --
@@ -4279,3 +4377,5 @@ instance FromXML VPCSecurityGroupMembership where
         parseXML x
           = VPCSecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "VpcSecurityGroupId")
+
+instance Hashable VPCSecurityGroupMembership

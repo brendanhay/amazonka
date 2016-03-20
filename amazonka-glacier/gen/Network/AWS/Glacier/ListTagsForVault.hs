@@ -92,6 +92,8 @@ instance AWSRequest ListTagsForVault where
                  ListTagsForVaultResponse' <$>
                    (x .?> "Tags" .!@ mempty) <*> (pure (fromEnum s)))
 
+instance Hashable ListTagsForVault
+
 instance ToHeaders ListTagsForVault where
         toHeaders = const mempty
 

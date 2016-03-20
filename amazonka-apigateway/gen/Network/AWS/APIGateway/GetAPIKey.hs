@@ -76,6 +76,8 @@ instance AWSRequest GetAPIKey where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetAPIKey
+
 instance ToHeaders GetAPIKey where
         toHeaders
           = const

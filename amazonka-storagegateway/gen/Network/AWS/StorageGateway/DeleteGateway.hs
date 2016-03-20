@@ -92,6 +92,8 @@ instance AWSRequest DeleteGateway where
                  DeleteGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteGateway
+
 instance ToHeaders DeleteGateway where
         toHeaders
           = const

@@ -83,6 +83,8 @@ instance AWSRequest UpdateElasticIP where
         request = postJSON opsWorks
         response = receiveNull UpdateElasticIPResponse'
 
+instance Hashable UpdateElasticIP
+
 instance ToHeaders UpdateElasticIP where
         toHeaders
           = const

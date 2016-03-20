@@ -115,6 +115,8 @@ instance AWSRequest ListImages where
                    (x .?> "imageIds") <*> (x .?> "nextToken") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ListImages
+
 instance ToHeaders ListImages where
         toHeaders
           = const

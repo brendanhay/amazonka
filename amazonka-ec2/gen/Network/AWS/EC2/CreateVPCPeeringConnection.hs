@@ -118,6 +118,8 @@ instance AWSRequest CreateVPCPeeringConnection where
                    (x .@? "vpcPeeringConnection") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateVPCPeeringConnection
+
 instance ToHeaders CreateVPCPeeringConnection where
         toHeaders = const mempty
 

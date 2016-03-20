@@ -110,6 +110,8 @@ instance AWSRequest SubscribeToDataset where
               (\ s h x ->
                  SubscribeToDatasetResponse' <$> (pure (fromEnum s)))
 
+instance Hashable SubscribeToDataset
+
 instance ToHeaders SubscribeToDataset where
         toHeaders
           = const

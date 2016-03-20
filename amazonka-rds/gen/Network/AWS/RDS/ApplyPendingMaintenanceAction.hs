@@ -112,6 +112,8 @@ instance AWSRequest ApplyPendingMaintenanceAction
                    (x .@? "ResourcePendingMaintenanceActions") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ApplyPendingMaintenanceAction
+
 instance ToHeaders ApplyPendingMaintenanceAction
          where
         toHeaders = const mempty

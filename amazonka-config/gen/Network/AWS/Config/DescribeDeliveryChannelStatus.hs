@@ -81,6 +81,8 @@ instance AWSRequest DescribeDeliveryChannelStatus
                    (x .?> "DeliveryChannelsStatus" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeDeliveryChannelStatus
+
 instance ToHeaders DescribeDeliveryChannelStatus
          where
         toHeaders

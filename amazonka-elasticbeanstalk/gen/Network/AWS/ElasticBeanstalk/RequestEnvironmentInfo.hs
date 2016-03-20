@@ -117,6 +117,8 @@ instance AWSRequest RequestEnvironmentInfo where
         response
           = receiveNull RequestEnvironmentInfoResponse'
 
+instance Hashable RequestEnvironmentInfo
+
 instance ToHeaders RequestEnvironmentInfo where
         toHeaders = const mempty
 

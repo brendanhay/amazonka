@@ -147,6 +147,8 @@ instance AWSRequest DescribeSnapshotCopyGrants where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeSnapshotCopyGrants
+
 instance ToHeaders DescribeSnapshotCopyGrants where
         toHeaders = const mempty
 

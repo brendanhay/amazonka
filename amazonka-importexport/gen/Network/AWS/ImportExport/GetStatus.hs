@@ -119,6 +119,8 @@ instance AWSRequest GetStatus where
                      <*> (x .@? "ProgressMessage")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetStatus
+
 instance ToHeaders GetStatus where
         toHeaders = const mempty
 

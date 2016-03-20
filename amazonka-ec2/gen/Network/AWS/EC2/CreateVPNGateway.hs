@@ -100,6 +100,8 @@ instance AWSRequest CreateVPNGateway where
                  CreateVPNGatewayResponse' <$>
                    (x .@? "vpnGateway") <*> (pure (fromEnum s)))
 
+instance Hashable CreateVPNGateway
+
 instance ToHeaders CreateVPNGateway where
         toHeaders = const mempty
 

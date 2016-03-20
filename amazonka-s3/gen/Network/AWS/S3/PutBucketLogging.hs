@@ -87,6 +87,8 @@ instance AWSRequest PutBucketLogging where
         request = putXML s3
         response = receiveNull PutBucketLoggingResponse'
 
+instance Hashable PutBucketLogging
+
 instance ToElement PutBucketLogging where
         toElement
           = mkElement

@@ -74,6 +74,8 @@ instance AWSRequest GetBucketReplication where
                  GetBucketReplicationResponse' <$>
                    (parseXML x) <*> (pure (fromEnum s)))
 
+instance Hashable GetBucketReplication
+
 instance ToHeaders GetBucketReplication where
         toHeaders = const mempty
 

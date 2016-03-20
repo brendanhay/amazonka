@@ -124,6 +124,8 @@ instance AWSRequest UpdateSnapshotSchedule where
                  UpdateSnapshotScheduleResponse' <$>
                    (x .?> "VolumeARN") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateSnapshotSchedule
+
 instance ToHeaders UpdateSnapshotSchedule where
         toHeaders
           = const

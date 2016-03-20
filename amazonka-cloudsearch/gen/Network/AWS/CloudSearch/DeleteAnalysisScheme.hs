@@ -90,6 +90,8 @@ instance AWSRequest DeleteAnalysisScheme where
                  DeleteAnalysisSchemeResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "AnalysisScheme"))
 
+instance Hashable DeleteAnalysisScheme
+
 instance ToHeaders DeleteAnalysisScheme where
         toHeaders = const mempty
 

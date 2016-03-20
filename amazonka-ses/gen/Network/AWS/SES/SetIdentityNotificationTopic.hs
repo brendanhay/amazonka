@@ -112,6 +112,8 @@ instance AWSRequest SetIdentityNotificationTopic
                  SetIdentityNotificationTopicResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable SetIdentityNotificationTopic
+
 instance ToHeaders SetIdentityNotificationTopic where
         toHeaders = const mempty
 

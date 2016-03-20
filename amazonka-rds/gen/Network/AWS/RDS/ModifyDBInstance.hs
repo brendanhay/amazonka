@@ -672,6 +672,8 @@ instance AWSRequest ModifyDBInstance where
                  ModifyDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyDBInstance
+
 instance ToHeaders ModifyDBInstance where
         toHeaders = const mempty
 

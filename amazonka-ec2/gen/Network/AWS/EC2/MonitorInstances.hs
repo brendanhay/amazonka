@@ -89,6 +89,8 @@ instance AWSRequest MonitorInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable MonitorInstances
+
 instance ToHeaders MonitorInstances where
         toHeaders = const mempty
 

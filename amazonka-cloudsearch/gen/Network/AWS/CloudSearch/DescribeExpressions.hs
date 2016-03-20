@@ -108,6 +108,8 @@ instance AWSRequest DescribeExpressions where
                      (x .@? "Expressions" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable DescribeExpressions
+
 instance ToHeaders DescribeExpressions where
         toHeaders = const mempty
 

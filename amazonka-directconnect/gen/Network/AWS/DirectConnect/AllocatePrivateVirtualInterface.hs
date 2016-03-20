@@ -123,6 +123,8 @@ instance AWSRequest AllocatePrivateVirtualInterface
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable AllocatePrivateVirtualInterface
+
 instance ToHeaders AllocatePrivateVirtualInterface
          where
         toHeaders

@@ -90,6 +90,8 @@ instance AWSRequest CreateLoadBalancerListeners where
                  CreateLoadBalancerListenersResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable CreateLoadBalancerListeners
+
 instance ToHeaders CreateLoadBalancerListeners where
         toHeaders = const mempty
 

@@ -97,6 +97,8 @@ instance AWSRequest UpdateSigningCertificate where
         response
           = receiveNull UpdateSigningCertificateResponse'
 
+instance Hashable UpdateSigningCertificate
+
 instance ToHeaders UpdateSigningCertificate where
         toHeaders = const mempty
 

@@ -99,6 +99,8 @@ instance AWSRequest CreateHSMClientCertificate where
                    (x .@? "HsmClientCertificate") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateHSMClientCertificate
+
 instance ToHeaders CreateHSMClientCertificate where
         toHeaders = const mempty
 

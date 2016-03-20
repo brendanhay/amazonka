@@ -85,6 +85,8 @@ instance AWSRequest TestMetricFilter where
                  TestMetricFilterResponse' <$>
                    (x .?> "matches" .!@ mempty) <*> (pure (fromEnum s)))
 
+instance Hashable TestMetricFilter
+
 instance ToHeaders TestMetricFilter where
         toHeaders
           = const

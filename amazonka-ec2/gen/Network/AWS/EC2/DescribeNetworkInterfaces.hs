@@ -208,6 +208,8 @@ instance AWSRequest DescribeNetworkInterfaces where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeNetworkInterfaces
+
 instance ToHeaders DescribeNetworkInterfaces where
         toHeaders = const mempty
 

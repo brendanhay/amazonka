@@ -101,6 +101,8 @@ instance AWSRequest DeleteVaultNotifications where
         response
           = receiveNull DeleteVaultNotificationsResponse'
 
+instance Hashable DeleteVaultNotifications
+
 instance ToHeaders DeleteVaultNotifications where
         toHeaders = const mempty
 

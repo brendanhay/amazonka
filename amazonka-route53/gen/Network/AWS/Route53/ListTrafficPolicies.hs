@@ -122,6 +122,8 @@ instance AWSRequest ListTrafficPolicies where
                      <*> (x .@ "TrafficPolicyIdMarker")
                      <*> (x .@ "MaxItems"))
 
+instance Hashable ListTrafficPolicies
+
 instance ToHeaders ListTrafficPolicies where
         toHeaders = const mempty
 

@@ -76,6 +76,8 @@ instance AWSRequest DeregisterVolume where
         request = postJSON opsWorks
         response = receiveNull DeregisterVolumeResponse'
 
+instance Hashable DeregisterVolume
+
 instance ToHeaders DeregisterVolume where
         toHeaders
           = const

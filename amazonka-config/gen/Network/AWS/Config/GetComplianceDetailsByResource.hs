@@ -113,6 +113,8 @@ instance AWSRequest GetComplianceDetailsByResource
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetComplianceDetailsByResource
+
 instance ToHeaders GetComplianceDetailsByResource
          where
         toHeaders

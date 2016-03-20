@@ -120,6 +120,8 @@ instance AWSRequest ListSSHPublicKeys where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListSSHPublicKeys
+
 instance ToHeaders ListSSHPublicKeys where
         toHeaders = const mempty
 

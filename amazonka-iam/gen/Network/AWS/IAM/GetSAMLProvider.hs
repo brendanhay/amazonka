@@ -82,6 +82,8 @@ instance AWSRequest GetSAMLProvider where
                      (x .@? "SAMLMetadataDocument")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetSAMLProvider
+
 instance ToHeaders GetSAMLProvider where
         toHeaders = const mempty
 

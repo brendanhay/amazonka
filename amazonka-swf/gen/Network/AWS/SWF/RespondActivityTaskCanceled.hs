@@ -116,6 +116,8 @@ instance AWSRequest RespondActivityTaskCanceled where
         response
           = receiveNull RespondActivityTaskCanceledResponse'
 
+instance Hashable RespondActivityTaskCanceled
+
 instance ToHeaders RespondActivityTaskCanceled where
         toHeaders
           = const

@@ -63,6 +63,8 @@ instance AWSRequest GetAccountPasswordPolicy where
                  GetAccountPasswordPolicyResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "PasswordPolicy"))
 
+instance Hashable GetAccountPasswordPolicy
+
 instance ToHeaders GetAccountPasswordPolicy where
         toHeaders = const mempty
 

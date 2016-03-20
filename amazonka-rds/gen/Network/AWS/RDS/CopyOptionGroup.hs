@@ -125,6 +125,8 @@ instance AWSRequest CopyOptionGroup where
                  CopyOptionGroupResponse' <$>
                    (x .@? "OptionGroup") <*> (pure (fromEnum s)))
 
+instance Hashable CopyOptionGroup
+
 instance ToHeaders CopyOptionGroup where
         toHeaders = const mempty
 

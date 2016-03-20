@@ -144,6 +144,8 @@ instance AWSRequest DescribeDBParameters where
                         may (parseXMLList "Parameter"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBParameters
+
 instance ToHeaders DescribeDBParameters where
         toHeaders = const mempty
 

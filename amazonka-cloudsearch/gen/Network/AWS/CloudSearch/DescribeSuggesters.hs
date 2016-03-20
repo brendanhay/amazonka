@@ -108,6 +108,8 @@ instance AWSRequest DescribeSuggesters where
                      (x .@? "Suggesters" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable DescribeSuggesters
+
 instance ToHeaders DescribeSuggesters where
         toHeaders = const mempty
 

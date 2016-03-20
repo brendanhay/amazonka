@@ -88,6 +88,8 @@ instance AWSRequest DomainMetadata where
                      <*> (x .@? "Timestamp")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DomainMetadata
+
 instance ToHeaders DomainMetadata where
         toHeaders = const mempty
 

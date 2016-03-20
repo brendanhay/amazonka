@@ -285,6 +285,8 @@ instance AWSRequest CreateInstance where
                  CreateInstanceResponse' <$>
                    (x .?> "InstanceId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateInstance
+
 instance ToHeaders CreateInstance where
         toHeaders
           = const

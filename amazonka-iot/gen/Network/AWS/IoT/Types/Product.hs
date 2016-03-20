@@ -141,6 +141,8 @@ instance FromJSON Action where
                      <*> (x .:? "republish")
                      <*> (x .:? "sqs"))
 
+instance Hashable Action
+
 instance ToJSON Action where
         toJSON Action'{..}
           = object
@@ -180,6 +182,8 @@ attributePayload =
 -- example, {\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}).
 apAttributes :: Lens' AttributePayload (HashMap Text Text)
 apAttributes = lens _apAttributes (\ s a -> s{_apAttributes = a}) . _Default . _Map;
+
+instance Hashable AttributePayload
 
 instance ToJSON AttributePayload where
         toJSON AttributePayload'{..}
@@ -241,6 +245,8 @@ instance FromJSON Certificate where
                    (x .:? "status") <*> (x .:? "certificateArn") <*>
                      (x .:? "certificateId")
                      <*> (x .:? "creationDate"))
+
+instance Hashable Certificate
 
 -- | Describes a certificate.
 --
@@ -325,6 +331,8 @@ instance FromJSON CertificateDescription where
                      <*> (x .:? "certificateId")
                      <*> (x .:? "creationDate"))
 
+instance Hashable CertificateDescription
+
 -- | Describes an action that updates a CloudWatch alarm.
 --
 -- /See:/ 'cloudwatchAlarmAction' smart constructor.
@@ -385,6 +393,8 @@ instance FromJSON CloudwatchAlarmAction where
                    (x .: "roleArn") <*> (x .: "alarmName") <*>
                      (x .: "stateReason")
                      <*> (x .: "stateValue"))
+
+instance Hashable CloudwatchAlarmAction
 
 instance ToJSON CloudwatchAlarmAction where
         toJSON CloudwatchAlarmAction'{..}
@@ -476,6 +486,8 @@ instance FromJSON CloudwatchMetricAction where
                      <*> (x .: "metricName")
                      <*> (x .: "metricValue")
                      <*> (x .: "metricUnit"))
+
+instance Hashable CloudwatchMetricAction
 
 instance ToJSON CloudwatchMetricAction where
         toJSON CloudwatchMetricAction'{..}
@@ -594,6 +606,8 @@ instance FromJSON DynamoDBAction where
                      <*> (x .: "rangeKeyField")
                      <*> (x .: "rangeKeyValue"))
 
+instance Hashable DynamoDBAction
+
 instance ToJSON DynamoDBAction where
         toJSON DynamoDBAction'{..}
           = object
@@ -677,6 +691,8 @@ instance FromJSON ElasticsearchAction where
                      <*> (x .: "type")
                      <*> (x .: "id"))
 
+instance Hashable ElasticsearchAction
+
 instance ToJSON ElasticsearchAction where
         toJSON ElasticsearchAction'{..}
           = object
@@ -727,6 +743,8 @@ instance FromJSON FirehoseAction where
                  FirehoseAction' <$>
                    (x .: "roleArn") <*> (x .: "deliveryStreamName"))
 
+instance Hashable FirehoseAction
+
 instance ToJSON FirehoseAction where
         toJSON FirehoseAction'{..}
           = object
@@ -772,6 +790,8 @@ instance FromJSON KeyPair where
               (\ x ->
                  KeyPair' <$>
                    (x .:? "PrivateKey") <*> (x .:? "PublicKey"))
+
+instance Hashable KeyPair
 
 -- | Describes an action to write data to an Amazon Kinesis stream.
 --
@@ -822,6 +842,8 @@ instance FromJSON KinesisAction where
                    (x .:? "partitionKey") <*> (x .: "roleArn") <*>
                      (x .: "streamName"))
 
+instance Hashable KinesisAction
+
 instance ToJSON KinesisAction where
         toJSON KinesisAction'{..}
           = object
@@ -859,6 +881,8 @@ instance FromJSON LambdaAction where
           = withObject "LambdaAction"
               (\ x -> LambdaAction' <$> (x .: "functionArn"))
 
+instance Hashable LambdaAction
+
 instance ToJSON LambdaAction where
         toJSON LambdaAction'{..}
           = object
@@ -895,6 +919,8 @@ lopLogLevel = lens _lopLogLevel (\ s a -> s{_lopLogLevel = a});
 -- | The ARN of the IAM role that grants access.
 lopRoleARN :: Lens' LoggingOptionsPayload Text
 lopRoleARN = lens _lopRoleARN (\ s a -> s{_lopRoleARN = a});
+
+instance Hashable LoggingOptionsPayload
 
 instance ToJSON LoggingOptionsPayload where
         toJSON LoggingOptionsPayload'{..}
@@ -940,6 +966,8 @@ instance FromJSON Policy where
               (\ x ->
                  Policy' <$>
                    (x .:? "policyName") <*> (x .:? "policyArn"))
+
+instance Hashable Policy
 
 -- | Describes a policy version.
 --
@@ -988,6 +1016,8 @@ instance FromJSON PolicyVersion where
                    (x .:? "versionId") <*> (x .:? "createDate") <*>
                      (x .:? "isDefaultVersion"))
 
+instance Hashable PolicyVersion
+
 -- | Describes an action to republish to another topic.
 --
 -- /See:/ 'republishAction' smart constructor.
@@ -1027,6 +1057,8 @@ instance FromJSON RepublishAction where
               (\ x ->
                  RepublishAction' <$>
                    (x .: "roleArn") <*> (x .: "topic"))
+
+instance Hashable RepublishAction
 
 instance ToJSON RepublishAction where
         toJSON RepublishAction'{..}
@@ -1084,6 +1116,8 @@ instance FromJSON S3Action where
                  S3Action' <$>
                    (x .: "roleArn") <*> (x .: "bucketName") <*>
                      (x .: "key"))
+
+instance Hashable S3Action
 
 instance ToJSON S3Action where
         toJSON S3Action'{..}
@@ -1148,6 +1182,8 @@ instance FromJSON SNSAction where
                    (x .:? "messageFormat") <*> (x .: "targetArn") <*>
                      (x .: "roleArn"))
 
+instance Hashable SNSAction
+
 instance ToJSON SNSAction where
         toJSON SNSAction'{..}
           = object
@@ -1205,6 +1241,8 @@ instance FromJSON SqsAction where
                    (x .:? "useBase64") <*> (x .: "roleArn") <*>
                      (x .: "queueUrl"))
 
+instance Hashable SqsAction
+
 instance ToJSON SqsAction where
         toJSON SqsAction'{..}
           = object
@@ -1251,6 +1289,8 @@ instance FromJSON ThingAttribute where
                  ThingAttribute' <$>
                    (x .:? "attributes" .!= mempty) <*>
                      (x .:? "thingName"))
+
+instance Hashable ThingAttribute
 
 -- | Describes a rule.
 --
@@ -1327,6 +1367,8 @@ instance FromJSON TopicRule where
                      <*> (x .:? "sql")
                      <*> (x .:? "description"))
 
+instance Hashable TopicRule
+
 -- | Describes a rule.
 --
 -- /See:/ 'topicRuleListItem' smart constructor.
@@ -1392,6 +1434,8 @@ instance FromJSON TopicRuleListItem where
                      <*> (x .:? "ruleArn")
                      <*> (x .:? "topicPattern"))
 
+instance Hashable TopicRuleListItem
+
 -- | Describes a rule.
 --
 -- /See:/ 'topicRulePayload' smart constructor.
@@ -1441,6 +1485,8 @@ trpSql = lens _trpSql (\ s a -> s{_trpSql = a});
 -- | The actions associated with the rule.
 trpActions :: Lens' TopicRulePayload [Action]
 trpActions = lens _trpActions (\ s a -> s{_trpActions = a}) . _Coerce;
+
+instance Hashable TopicRulePayload
 
 instance ToJSON TopicRulePayload where
         toJSON TopicRulePayload'{..}

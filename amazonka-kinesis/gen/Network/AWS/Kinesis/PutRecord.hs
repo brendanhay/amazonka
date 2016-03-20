@@ -181,6 +181,8 @@ instance AWSRequest PutRecord where
                    (pure (fromEnum s)) <*> (x .:> "ShardId") <*>
                      (x .:> "SequenceNumber"))
 
+instance Hashable PutRecord
+
 instance ToHeaders PutRecord where
         toHeaders
           = const

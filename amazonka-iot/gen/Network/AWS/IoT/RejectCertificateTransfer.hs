@@ -79,6 +79,8 @@ instance AWSRequest RejectCertificateTransfer where
         response
           = receiveNull RejectCertificateTransferResponse'
 
+instance Hashable RejectCertificateTransfer
+
 instance ToHeaders RejectCertificateTransfer where
         toHeaders = const mempty
 

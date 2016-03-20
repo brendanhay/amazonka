@@ -112,6 +112,8 @@ instance AWSRequest ListJobs where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListJobs
+
 instance ToHeaders ListJobs where
         toHeaders = const mempty
 

@@ -97,6 +97,8 @@ instance AWSRequest AttachVPNGateway where
                  AttachVPNGatewayResponse' <$>
                    (x .@? "attachment") <*> (pure (fromEnum s)))
 
+instance Hashable AttachVPNGateway
+
 instance ToHeaders AttachVPNGateway where
         toHeaders = const mempty
 

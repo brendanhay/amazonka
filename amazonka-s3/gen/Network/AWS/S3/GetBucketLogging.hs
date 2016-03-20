@@ -74,6 +74,8 @@ instance AWSRequest GetBucketLogging where
                  GetBucketLoggingResponse' <$>
                    (x .@? "LoggingEnabled") <*> (pure (fromEnum s)))
 
+instance Hashable GetBucketLogging
+
 instance ToHeaders GetBucketLogging where
         toHeaders = const mempty
 

@@ -96,6 +96,8 @@ instance AWSRequest DetachVPNGateway where
         request = postQuery eC2
         response = receiveNull DetachVPNGatewayResponse'
 
+instance Hashable DetachVPNGateway
+
 instance ToHeaders DetachVPNGateway where
         toHeaders = const mempty
 

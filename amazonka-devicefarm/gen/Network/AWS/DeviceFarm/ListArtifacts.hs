@@ -105,6 +105,8 @@ instance AWSRequest ListArtifacts where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListArtifacts
+
 instance ToHeaders ListArtifacts where
         toHeaders
           = const

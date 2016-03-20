@@ -109,6 +109,8 @@ instance AWSRequest AddJobFlowSteps where
                  AddJobFlowStepsResponse' <$>
                    (x .?> "StepIds" .!@ mempty) <*> (pure (fromEnum s)))
 
+instance Hashable AddJobFlowSteps
+
 instance ToHeaders AddJobFlowSteps where
         toHeaders
           = const

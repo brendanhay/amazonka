@@ -143,6 +143,8 @@ instance AWSRequest SplitShard where
         request = postJSON kinesis
         response = receiveNull SplitShardResponse'
 
+instance Hashable SplitShard
+
 instance ToHeaders SplitShard where
         toHeaders
           = const

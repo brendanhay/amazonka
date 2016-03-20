@@ -83,6 +83,8 @@ instance AWSRequest DetachGroupPolicy where
         request = postQuery iAM
         response = receiveNull DetachGroupPolicyResponse'
 
+instance Hashable DetachGroupPolicy
+
 instance ToHeaders DetachGroupPolicy where
         toHeaders = const mempty
 

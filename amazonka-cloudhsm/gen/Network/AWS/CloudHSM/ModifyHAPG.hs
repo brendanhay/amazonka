@@ -92,6 +92,8 @@ instance AWSRequest ModifyHAPG where
                  ModifyHAPGResponse' <$>
                    (x .?> "HapgArn") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyHAPG
+
 instance ToHeaders ModifyHAPG where
         toHeaders
           = const

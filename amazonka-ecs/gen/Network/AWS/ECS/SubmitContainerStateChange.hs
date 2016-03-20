@@ -132,6 +132,8 @@ instance AWSRequest SubmitContainerStateChange where
                  SubmitContainerStateChangeResponse' <$>
                    (x .?> "acknowledgment") <*> (pure (fromEnum s)))
 
+instance Hashable SubmitContainerStateChange
+
 instance ToHeaders SubmitContainerStateChange where
         toHeaders
           = const

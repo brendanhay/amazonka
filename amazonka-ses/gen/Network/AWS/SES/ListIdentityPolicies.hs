@@ -95,6 +95,8 @@ instance AWSRequest ListIdentityPolicies where
                      (x .@? "PolicyNames" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListIdentityPolicies
+
 instance ToHeaders ListIdentityPolicies where
         toHeaders = const mempty
 

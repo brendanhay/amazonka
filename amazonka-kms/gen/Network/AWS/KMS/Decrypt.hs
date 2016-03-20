@@ -120,6 +120,8 @@ instance AWSRequest Decrypt where
                    (x .?> "KeyId") <*> (x .?> "Plaintext") <*>
                      (pure (fromEnum s)))
 
+instance Hashable Decrypt
+
 instance ToHeaders Decrypt where
         toHeaders
           = const

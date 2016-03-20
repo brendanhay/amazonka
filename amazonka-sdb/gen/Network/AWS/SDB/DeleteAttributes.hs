@@ -108,6 +108,8 @@ instance AWSRequest DeleteAttributes where
         request = postQuery sDB
         response = receiveNull DeleteAttributesResponse'
 
+instance Hashable DeleteAttributes
+
 instance ToHeaders DeleteAttributes where
         toHeaders = const mempty
 

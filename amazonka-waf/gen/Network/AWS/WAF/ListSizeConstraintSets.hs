@@ -96,6 +96,8 @@ instance AWSRequest ListSizeConstraintSets where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListSizeConstraintSets
+
 instance ToHeaders ListSizeConstraintSets where
         toHeaders
           = const

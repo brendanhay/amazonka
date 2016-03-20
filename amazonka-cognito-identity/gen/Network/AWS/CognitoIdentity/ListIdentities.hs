@@ -111,6 +111,8 @@ instance AWSRequest ListIdentities where
                      (x .?> "Identities" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListIdentities
+
 instance ToHeaders ListIdentities where
         toHeaders
           = const

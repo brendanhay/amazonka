@@ -139,6 +139,8 @@ instance AWSRequest CreateWebACL where
                    (x .?> "WebACL") <*> (x .?> "ChangeToken") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateWebACL
+
 instance ToHeaders CreateWebACL where
         toHeaders
           = const

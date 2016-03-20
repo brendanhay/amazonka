@@ -116,6 +116,8 @@ instance AWSRequest ListJobsByPipeline where
                    (x .?> "NextPageToken") <*> (x .?> "Jobs" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListJobsByPipeline
+
 instance ToHeaders ListJobsByPipeline where
         toHeaders = const mempty
 

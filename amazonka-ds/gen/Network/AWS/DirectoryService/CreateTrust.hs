@@ -135,6 +135,8 @@ instance AWSRequest CreateTrust where
                  CreateTrustResponse' <$>
                    (x .?> "TrustId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateTrust
+
 instance ToHeaders CreateTrust where
         toHeaders
           = const

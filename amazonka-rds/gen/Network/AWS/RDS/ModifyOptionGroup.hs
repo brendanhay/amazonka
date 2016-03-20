@@ -111,6 +111,8 @@ instance AWSRequest ModifyOptionGroup where
                  ModifyOptionGroupResponse' <$>
                    (x .@? "OptionGroup") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyOptionGroup
+
 instance ToHeaders ModifyOptionGroup where
         toHeaders = const mempty
 

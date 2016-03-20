@@ -77,6 +77,8 @@ instance AWSRequest CreateCluster where
                  CreateClusterResponse' <$>
                    (x .?> "cluster") <*> (pure (fromEnum s)))
 
+instance Hashable CreateCluster
+
 instance ToHeaders CreateCluster where
         toHeaders
           = const

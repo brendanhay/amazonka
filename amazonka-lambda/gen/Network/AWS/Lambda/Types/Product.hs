@@ -81,6 +81,8 @@ instance FromJSON AliasConfiguration where
                      (x .:? "AliasArn")
                      <*> (x .:? "Description"))
 
+instance Hashable AliasConfiguration
+
 -- | Describes mapping between an Amazon Kinesis stream and a Lambda
 -- function.
 --
@@ -182,6 +184,8 @@ instance FromJSON EventSourceMappingConfiguration
                      <*> (x .:? "StateTransitionReason")
                      <*> (x .:? "LastModified"))
 
+instance Hashable EventSourceMappingConfiguration
+
 -- | The code for the Lambda function.
 --
 -- /See:/ 'functionCode' smart constructor.
@@ -244,6 +248,8 @@ fcZipFile = lens _fcZipFile (\ s a -> s{_fcZipFile = a}) . mapping _Base64;
 fcS3Bucket :: Lens' FunctionCode (Maybe Text)
 fcS3Bucket = lens _fcS3Bucket (\ s a -> s{_fcS3Bucket = a});
 
+instance Hashable FunctionCode
+
 instance ToJSON FunctionCode where
         toJSON FunctionCode'{..}
           = object
@@ -291,6 +297,8 @@ instance FromJSON FunctionCodeLocation where
               (\ x ->
                  FunctionCodeLocation' <$>
                    (x .:? "Location") <*> (x .:? "RepositoryType"))
+
+instance Hashable FunctionCodeLocation
 
 -- | A complex type that describes function metadata.
 --
@@ -435,6 +443,8 @@ instance FromJSON FunctionConfiguration where
                      <*> (x .:? "CodeSha256")
                      <*> (x .:? "Description"))
 
+instance Hashable FunctionConfiguration
+
 -- | If your Lambda function accesses resources in a VPC, you provide this
 -- parameter identifying the list of security group IDs and subnet IDs.
 -- These must belong to the same VPC. You must provide at least one
@@ -468,6 +478,8 @@ vpccSecurityGroupIds = lens _vpccSecurityGroupIds (\ s a -> s{_vpccSecurityGroup
 -- | A list of one or more subnet IDs in your VPC.
 vpccSubnetIds :: Lens' VPCConfig [Text]
 vpccSubnetIds = lens _vpccSubnetIds (\ s a -> s{_vpccSubnetIds = a}) . _Default . _Coerce;
+
+instance Hashable VPCConfig
 
 instance ToJSON VPCConfig where
         toJSON VPCConfig'{..}
@@ -523,3 +535,5 @@ instance FromJSON VPCConfigResponse where
                    (x .:? "SecurityGroupIds" .!= mempty) <*>
                      (x .:? "SubnetIds" .!= mempty)
                      <*> (x .:? "VpcId"))
+
+instance Hashable VPCConfigResponse

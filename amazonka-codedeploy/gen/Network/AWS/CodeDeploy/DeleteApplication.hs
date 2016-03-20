@@ -69,6 +69,8 @@ instance AWSRequest DeleteApplication where
         request = postJSON codeDeploy
         response = receiveNull DeleteApplicationResponse'
 
+instance Hashable DeleteApplication
+
 instance ToHeaders DeleteApplication where
         toHeaders
           = const

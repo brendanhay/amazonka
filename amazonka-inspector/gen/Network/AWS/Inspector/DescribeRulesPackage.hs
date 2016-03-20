@@ -74,6 +74,8 @@ instance AWSRequest DescribeRulesPackage where
                  DescribeRulesPackageResponse' <$>
                    (x .?> "rulesPackage") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeRulesPackage
+
 instance ToHeaders DescribeRulesPackage where
         toHeaders
           = const

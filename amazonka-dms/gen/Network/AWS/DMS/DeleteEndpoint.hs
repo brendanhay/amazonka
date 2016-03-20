@@ -78,6 +78,8 @@ instance AWSRequest DeleteEndpoint where
                  DeleteEndpointResponse' <$>
                    (x .?> "Endpoint") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteEndpoint
+
 instance ToHeaders DeleteEndpoint where
         toHeaders
           = const

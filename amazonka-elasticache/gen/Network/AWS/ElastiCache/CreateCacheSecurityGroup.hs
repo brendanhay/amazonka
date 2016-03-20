@@ -100,6 +100,8 @@ instance AWSRequest CreateCacheSecurityGroup where
                  CreateCacheSecurityGroupResponse' <$>
                    (x .@? "CacheSecurityGroup") <*> (pure (fromEnum s)))
 
+instance Hashable CreateCacheSecurityGroup
+
 instance ToHeaders CreateCacheSecurityGroup where
         toHeaders = const mempty
 

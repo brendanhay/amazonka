@@ -114,6 +114,8 @@ instance AWSRequest ListSteps where
                    (x .?> "Steps" .!@ mempty) <*> (x .?> "Marker") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ListSteps
+
 instance ToHeaders ListSteps where
         toHeaders
           = const

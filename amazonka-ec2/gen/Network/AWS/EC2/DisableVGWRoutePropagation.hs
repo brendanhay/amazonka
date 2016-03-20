@@ -79,6 +79,8 @@ instance AWSRequest DisableVGWRoutePropagation where
         response
           = receiveNull DisableVGWRoutePropagationResponse'
 
+instance Hashable DisableVGWRoutePropagation
+
 instance ToHeaders DisableVGWRoutePropagation where
         toHeaders = const mempty
 

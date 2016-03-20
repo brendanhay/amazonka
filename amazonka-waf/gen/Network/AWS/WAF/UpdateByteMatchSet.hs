@@ -137,6 +137,8 @@ instance AWSRequest UpdateByteMatchSet where
                  UpdateByteMatchSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateByteMatchSet
+
 instance ToHeaders UpdateByteMatchSet where
         toHeaders
           = const

@@ -86,6 +86,8 @@ instance AWSRequest PutRepositoryTriggers where
                  PutRepositoryTriggersResponse' <$>
                    (x .?> "configurationId") <*> (pure (fromEnum s)))
 
+instance Hashable PutRepositoryTriggers
+
 instance ToHeaders PutRepositoryTriggers where
         toHeaders
           = const

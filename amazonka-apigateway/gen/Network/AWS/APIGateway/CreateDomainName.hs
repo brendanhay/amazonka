@@ -119,6 +119,8 @@ instance AWSRequest CreateDomainName where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateDomainName
+
 instance ToHeaders CreateDomainName where
         toHeaders
           = const

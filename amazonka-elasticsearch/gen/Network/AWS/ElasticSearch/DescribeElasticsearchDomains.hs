@@ -81,6 +81,8 @@ instance AWSRequest DescribeElasticsearchDomains
                    (pure (fromEnum s)) <*>
                      (x .?> "DomainStatusList" .!@ mempty))
 
+instance Hashable DescribeElasticsearchDomains
+
 instance ToHeaders DescribeElasticsearchDomains where
         toHeaders = const mempty
 

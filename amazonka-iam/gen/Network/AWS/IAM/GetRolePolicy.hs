@@ -100,6 +100,8 @@ instance AWSRequest GetRolePolicy where
                      (x .@ "PolicyName")
                      <*> (x .@ "PolicyDocument"))
 
+instance Hashable GetRolePolicy
+
 instance ToHeaders GetRolePolicy where
         toHeaders = const mempty
 

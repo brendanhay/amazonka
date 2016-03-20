@@ -341,6 +341,8 @@ instance AWSRequest CreateDBCluster where
                  CreateDBClusterResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDBCluster
+
 instance ToHeaders CreateDBCluster where
         toHeaders = const mempty
 

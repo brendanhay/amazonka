@@ -137,6 +137,8 @@ instance AWSRequest ModifySnapshotAttribute where
         response
           = receiveNull ModifySnapshotAttributeResponse'
 
+instance Hashable ModifySnapshotAttribute
+
 instance ToHeaders ModifySnapshotAttribute where
         toHeaders = const mempty
 

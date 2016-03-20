@@ -350,6 +350,8 @@ instance AWSRequest RestoreFromClusterSnapshot where
                  RestoreFromClusterSnapshotResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
+instance Hashable RestoreFromClusterSnapshot
+
 instance ToHeaders RestoreFromClusterSnapshot where
         toHeaders = const mempty
 

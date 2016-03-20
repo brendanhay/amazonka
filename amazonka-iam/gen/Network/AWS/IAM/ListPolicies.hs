@@ -162,6 +162,8 @@ instance AWSRequest ListPolicies where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListPolicies
+
 instance ToHeaders ListPolicies where
         toHeaders = const mempty
 

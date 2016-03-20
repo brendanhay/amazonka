@@ -160,6 +160,8 @@ instance AWSRequest AssociateAddress where
                  AssociateAddressResponse' <$>
                    (x .@? "associationId") <*> (pure (fromEnum s)))
 
+instance Hashable AssociateAddress
+
 instance ToHeaders AssociateAddress where
         toHeaders = const mempty
 

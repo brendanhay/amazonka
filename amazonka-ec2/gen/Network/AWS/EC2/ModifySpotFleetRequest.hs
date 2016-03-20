@@ -117,6 +117,8 @@ instance AWSRequest ModifySpotFleetRequest where
                  ModifySpotFleetRequestResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
+instance Hashable ModifySpotFleetRequest
+
 instance ToHeaders ModifySpotFleetRequest where
         toHeaders = const mempty
 

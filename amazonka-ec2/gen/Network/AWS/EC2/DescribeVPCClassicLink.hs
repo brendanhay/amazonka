@@ -114,6 +114,8 @@ instance AWSRequest DescribeVPCClassicLink where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVPCClassicLink
+
 instance ToHeaders DescribeVPCClassicLink where
         toHeaders = const mempty
 

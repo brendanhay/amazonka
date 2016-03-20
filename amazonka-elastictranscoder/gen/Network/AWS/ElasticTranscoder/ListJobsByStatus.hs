@@ -114,6 +114,8 @@ instance AWSRequest ListJobsByStatus where
                    (x .?> "NextPageToken") <*> (x .?> "Jobs" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListJobsByStatus
+
 instance ToHeaders ListJobsByStatus where
         toHeaders = const mempty
 

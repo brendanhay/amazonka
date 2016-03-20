@@ -144,6 +144,8 @@ instance AWSRequest AllocateConnectionOnInterconnect
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable AllocateConnectionOnInterconnect
+
 instance ToHeaders AllocateConnectionOnInterconnect
          where
         toHeaders

@@ -98,6 +98,8 @@ instance AWSRequest DeleteRule where
                  DeleteRuleResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteRule
+
 instance ToHeaders DeleteRule where
         toHeaders
           = const

@@ -93,6 +93,8 @@ instance AWSRequest ModifyIdFormat where
         request = postQuery eC2
         response = receiveNull ModifyIdFormatResponse'
 
+instance Hashable ModifyIdFormat
+
 instance ToHeaders ModifyIdFormat where
         toHeaders = const mempty
 

@@ -74,6 +74,8 @@ instance AWSRequest DeleteConfigRule where
         request = postJSON config
         response = receiveNull DeleteConfigRuleResponse'
 
+instance Hashable DeleteConfigRule
+
 instance ToHeaders DeleteConfigRule where
         toHeaders
           = const

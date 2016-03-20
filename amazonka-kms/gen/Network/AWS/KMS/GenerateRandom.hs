@@ -73,6 +73,8 @@ instance AWSRequest GenerateRandom where
                  GenerateRandomResponse' <$>
                    (x .?> "Plaintext") <*> (pure (fromEnum s)))
 
+instance Hashable GenerateRandom
+
 instance ToHeaders GenerateRandom where
         toHeaders
           = const

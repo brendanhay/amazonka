@@ -104,6 +104,8 @@ instance AWSRequest CreateRole where
                  CreateRoleResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Role"))
 
+instance Hashable CreateRole
+
 instance ToHeaders CreateRole where
         toHeaders = const mempty
 

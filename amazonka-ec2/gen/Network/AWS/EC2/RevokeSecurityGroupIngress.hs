@@ -178,6 +178,8 @@ instance AWSRequest RevokeSecurityGroupIngress where
         response
           = receiveNull RevokeSecurityGroupIngressResponse'
 
+instance Hashable RevokeSecurityGroupIngress
+
 instance ToHeaders RevokeSecurityGroupIngress where
         toHeaders = const mempty
 

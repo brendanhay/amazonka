@@ -84,6 +84,8 @@ instance AWSRequest DeleteGroupPolicy where
         request = postQuery iAM
         response = receiveNull DeleteGroupPolicyResponse'
 
+instance Hashable DeleteGroupPolicy
+
 instance ToHeaders DeleteGroupPolicy where
         toHeaders = const mempty
 

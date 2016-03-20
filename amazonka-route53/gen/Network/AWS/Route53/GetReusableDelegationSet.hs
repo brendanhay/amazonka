@@ -78,6 +78,8 @@ instance AWSRequest GetReusableDelegationSet where
                  GetReusableDelegationSetResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "DelegationSet"))
 
+instance Hashable GetReusableDelegationSet
+
 instance ToHeaders GetReusableDelegationSet where
         toHeaders = const mempty
 

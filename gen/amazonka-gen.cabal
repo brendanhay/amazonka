@@ -30,7 +30,6 @@ executable amazonka-gen
         , Gen.AST.Override
         , Gen.AST.Prefix
         , Gen.AST.Subst
-        , Gen.AST.TypeOf
         , Gen.Formatting
         , Gen.IO
         , Gen.Import
@@ -49,10 +48,12 @@ executable amazonka-gen
         , Gen.Types.Notation
         , Gen.Types.Orphans
         , Gen.Types.Pager
-        , Gen.Types.Retry
         , Gen.Types.Pager
+        , Gen.Types.Retry
         , Gen.Types.Service
+        , Gen.Types.TypeOf
         , Gen.Types.URI
+        , Gen.Types.Config
         , Gen.Types.Waiter
 
     ghc-options:       -Wall -threaded

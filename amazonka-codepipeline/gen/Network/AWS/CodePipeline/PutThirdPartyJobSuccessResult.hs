@@ -113,6 +113,8 @@ instance AWSRequest PutThirdPartyJobSuccessResult
         response
           = receiveNull PutThirdPartyJobSuccessResultResponse'
 
+instance Hashable PutThirdPartyJobSuccessResult
+
 instance ToHeaders PutThirdPartyJobSuccessResult
          where
         toHeaders

@@ -378,6 +378,8 @@ instance AWSRequest ModifyCacheCluster where
                  ModifyCacheClusterResponse' <$>
                    (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyCacheCluster
+
 instance ToHeaders ModifyCacheCluster where
         toHeaders = const mempty
 

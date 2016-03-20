@@ -97,6 +97,8 @@ instance AWSRequest DescribeServiceAccessPolicies
                  DescribeServiceAccessPoliciesResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "AccessPolicies"))
 
+instance Hashable DescribeServiceAccessPolicies
+
 instance ToHeaders DescribeServiceAccessPolicies
          where
         toHeaders = const mempty

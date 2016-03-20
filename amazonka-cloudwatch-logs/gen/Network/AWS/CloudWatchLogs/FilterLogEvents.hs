@@ -179,6 +179,8 @@ instance AWSRequest FilterLogEvents where
                      <*> (x .?> "events" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable FilterLogEvents
+
 instance ToHeaders FilterLogEvents where
         toHeaders
           = const

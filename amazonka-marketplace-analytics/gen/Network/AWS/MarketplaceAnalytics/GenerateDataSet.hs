@@ -201,6 +201,8 @@ instance AWSRequest GenerateDataSet where
                  GenerateDataSetResponse' <$>
                    (x .?> "dataSetRequestId") <*> (pure (fromEnum s)))
 
+instance Hashable GenerateDataSet
+
 instance ToHeaders GenerateDataSet where
         toHeaders
           = const

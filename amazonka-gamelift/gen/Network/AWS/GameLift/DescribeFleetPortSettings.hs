@@ -81,6 +81,8 @@ instance AWSRequest DescribeFleetPortSettings where
                    (x .?> "InboundPermissions" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeFleetPortSettings
+
 instance ToHeaders DescribeFleetPortSettings where
         toHeaders
           = const

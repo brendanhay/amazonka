@@ -65,6 +65,8 @@ instance AWSRequest DescribeCrossAccountAccessRole
                    (x .?> "valid") <*> (x .?> "roleArn") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeCrossAccountAccessRole
+
 instance ToHeaders DescribeCrossAccountAccessRole
          where
         toHeaders

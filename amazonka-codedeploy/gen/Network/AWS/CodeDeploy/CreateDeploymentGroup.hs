@@ -204,6 +204,8 @@ instance AWSRequest CreateDeploymentGroup where
                  CreateDeploymentGroupResponse' <$>
                    (x .?> "deploymentGroupId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDeploymentGroup
+
 instance ToHeaders CreateDeploymentGroup where
         toHeaders
           = const

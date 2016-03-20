@@ -98,6 +98,8 @@ instance AWSRequest AddAttachmentsToSet where
                    (x .?> "expiryTime") <*> (x .?> "attachmentSetId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable AddAttachmentsToSet
+
 instance ToHeaders AddAttachmentsToSet where
         toHeaders
           = const

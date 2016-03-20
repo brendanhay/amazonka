@@ -211,6 +211,8 @@ instance AWSRequest DescribeInstanceStatus where
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeInstanceStatus
+
 instance ToHeaders DescribeInstanceStatus where
         toHeaders = const mempty
 

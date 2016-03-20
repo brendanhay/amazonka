@@ -130,6 +130,8 @@ instance AWSRequest CreateRule where
                    (x .?> "Rule") <*> (x .?> "ChangeToken") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateRule
+
 instance ToHeaders CreateRule where
         toHeaders
           = const

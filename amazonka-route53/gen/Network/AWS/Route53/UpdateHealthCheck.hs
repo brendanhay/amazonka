@@ -229,6 +229,8 @@ instance AWSRequest UpdateHealthCheck where
                  UpdateHealthCheckResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HealthCheck"))
 
+instance Hashable UpdateHealthCheck
+
 instance ToElement UpdateHealthCheck where
         toElement
           = mkElement

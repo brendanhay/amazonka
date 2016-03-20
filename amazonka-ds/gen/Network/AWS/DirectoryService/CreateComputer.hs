@@ -117,6 +117,8 @@ instance AWSRequest CreateComputer where
                  CreateComputerResponse' <$>
                    (x .?> "Computer") <*> (pure (fromEnum s)))
 
+instance Hashable CreateComputer
+
 instance ToHeaders CreateComputer where
         toHeaders
           = const

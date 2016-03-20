@@ -80,6 +80,8 @@ instance AWSRequest DescribeThing where
                      <*> (x .?> "thingName")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeThing
+
 instance ToHeaders DescribeThing where
         toHeaders = const mempty
 

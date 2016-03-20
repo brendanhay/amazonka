@@ -89,6 +89,8 @@ instance AWSRequest AcknowledgeJob where
                  AcknowledgeJobResponse' <$>
                    (x .?> "status") <*> (pure (fromEnum s)))
 
+instance Hashable AcknowledgeJob
+
 instance ToHeaders AcknowledgeJob where
         toHeaders
           = const

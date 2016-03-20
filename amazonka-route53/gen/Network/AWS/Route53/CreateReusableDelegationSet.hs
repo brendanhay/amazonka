@@ -104,6 +104,8 @@ instance AWSRequest CreateReusableDelegationSet where
                    (pure (fromEnum s)) <*> (x .@ "DelegationSet") <*>
                      (h .# "Location"))
 
+instance Hashable CreateReusableDelegationSet
+
 instance ToElement CreateReusableDelegationSet where
         toElement
           = mkElement

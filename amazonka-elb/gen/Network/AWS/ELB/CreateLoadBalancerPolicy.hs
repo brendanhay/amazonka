@@ -109,6 +109,8 @@ instance AWSRequest CreateLoadBalancerPolicy where
                  CreateLoadBalancerPolicyResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable CreateLoadBalancerPolicy
+
 instance ToHeaders CreateLoadBalancerPolicy where
         toHeaders = const mempty
 

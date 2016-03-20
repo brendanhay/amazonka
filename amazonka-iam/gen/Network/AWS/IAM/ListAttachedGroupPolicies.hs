@@ -143,6 +143,8 @@ instance AWSRequest ListAttachedGroupPolicies where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListAttachedGroupPolicies
+
 instance ToHeaders ListAttachedGroupPolicies where
         toHeaders = const mempty
 

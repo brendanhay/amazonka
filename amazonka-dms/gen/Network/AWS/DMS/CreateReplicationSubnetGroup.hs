@@ -112,6 +112,8 @@ instance AWSRequest CreateReplicationSubnetGroup
                    (x .?> "ReplicationSubnetGroup") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateReplicationSubnetGroup
+
 instance ToHeaders CreateReplicationSubnetGroup where
         toHeaders
           = const

@@ -118,6 +118,8 @@ instance AWSRequest RespondActivityTaskCompleted
         response
           = receiveNull RespondActivityTaskCompletedResponse'
 
+instance Hashable RespondActivityTaskCompleted
+
 instance ToHeaders RespondActivityTaskCompleted where
         toHeaders
           = const

@@ -87,6 +87,8 @@ instance AWSRequest RebootInstances where
         request = postQuery eC2
         response = receiveNull RebootInstancesResponse'
 
+instance Hashable RebootInstances
+
 instance ToHeaders RebootInstances where
         toHeaders = const mempty
 

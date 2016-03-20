@@ -67,6 +67,8 @@ instance AWSRequest DeleteBucketTagging where
         request = delete s3
         response = receiveNull DeleteBucketTaggingResponse'
 
+instance Hashable DeleteBucketTagging
+
 instance ToHeaders DeleteBucketTagging where
         toHeaders = const mempty
 

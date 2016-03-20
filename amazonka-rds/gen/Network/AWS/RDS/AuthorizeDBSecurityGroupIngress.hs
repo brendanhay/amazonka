@@ -138,6 +138,8 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress
                  AuthorizeDBSecurityGroupIngressResponse' <$>
                    (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
 
+instance Hashable AuthorizeDBSecurityGroupIngress
+
 instance ToHeaders AuthorizeDBSecurityGroupIngress
          where
         toHeaders = const mempty

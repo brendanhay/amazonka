@@ -169,6 +169,8 @@ instance AWSRequest DescribeReservedInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeReservedInstances
+
 instance ToHeaders DescribeReservedInstances where
         toHeaders = const mempty
 

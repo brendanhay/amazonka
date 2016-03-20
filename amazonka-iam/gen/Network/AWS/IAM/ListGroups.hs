@@ -125,6 +125,8 @@ instance AWSRequest ListGroups where
                      (x .@? "Groups" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListGroups
+
 instance ToHeaders ListGroups where
         toHeaders = const mempty
 

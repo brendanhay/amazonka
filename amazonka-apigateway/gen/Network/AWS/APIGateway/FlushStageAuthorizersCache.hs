@@ -80,6 +80,8 @@ instance AWSRequest FlushStageAuthorizersCache where
         response
           = receiveNull FlushStageAuthorizersCacheResponse'
 
+instance Hashable FlushStageAuthorizersCache
+
 instance ToHeaders FlushStageAuthorizersCache where
         toHeaders
           = const

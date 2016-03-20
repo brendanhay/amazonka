@@ -137,6 +137,8 @@ instance AWSRequest PutIntegrationResponse where
         request = putJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable PutIntegrationResponse
+
 instance ToHeaders PutIntegrationResponse where
         toHeaders
           = const

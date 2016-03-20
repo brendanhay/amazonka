@@ -137,6 +137,8 @@ instance AWSRequest CreateQueue where
                  CreateQueueResponse' <$>
                    (x .@? "QueueUrl") <*> (pure (fromEnum s)))
 
+instance Hashable CreateQueue
+
 instance ToHeaders CreateQueue where
         toHeaders = const mempty
 

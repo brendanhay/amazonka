@@ -142,6 +142,8 @@ instance AWSRequest GetSessionToken where
                  GetSessionTokenResponse' <$>
                    (x .@? "Credentials") <*> (pure (fromEnum s)))
 
+instance Hashable GetSessionToken
+
 instance ToHeaders GetSessionToken where
         toHeaders = const mempty
 

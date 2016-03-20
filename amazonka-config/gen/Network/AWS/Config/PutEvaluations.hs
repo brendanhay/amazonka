@@ -88,6 +88,8 @@ instance AWSRequest PutEvaluations where
                    (x .?> "FailedEvaluations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable PutEvaluations
+
 instance ToHeaders PutEvaluations where
         toHeaders
           = const

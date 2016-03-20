@@ -118,6 +118,8 @@ instance AWSRequest DescribeRepositories where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeRepositories
+
 instance ToHeaders DescribeRepositories where
         toHeaders
           = const

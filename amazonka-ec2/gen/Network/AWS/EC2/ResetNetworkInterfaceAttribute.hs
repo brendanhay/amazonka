@@ -91,6 +91,8 @@ instance AWSRequest ResetNetworkInterfaceAttribute
         response
           = receiveNull ResetNetworkInterfaceAttributeResponse'
 
+instance Hashable ResetNetworkInterfaceAttribute
+
 instance ToHeaders ResetNetworkInterfaceAttribute
          where
         toHeaders = const mempty

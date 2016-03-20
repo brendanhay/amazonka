@@ -113,6 +113,8 @@ instance AWSRequest DescribeActivityType where
                    (pure (fromEnum s)) <*> (x .:> "typeInfo") <*>
                      (x .:> "configuration"))
 
+instance Hashable DescribeActivityType
+
 instance ToHeaders DescribeActivityType where
         toHeaders
           = const

@@ -102,6 +102,8 @@ instance AWSRequest AssociateDHCPOptions where
         request = postQuery eC2
         response = receiveNull AssociateDHCPOptionsResponse'
 
+instance Hashable AssociateDHCPOptions
+
 instance ToHeaders AssociateDHCPOptions where
         toHeaders = const mempty
 

@@ -102,6 +102,8 @@ instance AWSRequest BatchDeleteImage where
                    (x .?> "failures" .!@ mempty) <*> (x .?> "imageIds")
                      <*> (pure (fromEnum s)))
 
+instance Hashable BatchDeleteImage
+
 instance ToHeaders BatchDeleteImage where
         toHeaders
           = const

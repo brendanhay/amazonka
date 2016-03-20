@@ -95,6 +95,8 @@ instance AWSRequest PutKeyPolicy where
         request = postJSON kMS
         response = receiveNull PutKeyPolicyResponse'
 
+instance Hashable PutKeyPolicy
+
 instance ToHeaders PutKeyPolicy where
         toHeaders
           = const

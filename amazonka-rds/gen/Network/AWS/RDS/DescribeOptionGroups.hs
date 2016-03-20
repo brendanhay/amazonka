@@ -147,6 +147,8 @@ instance AWSRequest DescribeOptionGroups where
                         may (parseXMLList "OptionGroup"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeOptionGroups
+
 instance ToHeaders DescribeOptionGroups where
         toHeaders = const mempty
 

@@ -82,6 +82,8 @@ instance AWSRequest GetRepository where
                  GetRepositoryResponse' <$>
                    (x .?> "repositoryMetadata") <*> (pure (fromEnum s)))
 
+instance Hashable GetRepository
+
 instance ToHeaders GetRepository where
         toHeaders
           = const

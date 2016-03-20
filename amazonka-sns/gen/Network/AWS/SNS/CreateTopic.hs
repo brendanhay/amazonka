@@ -84,6 +84,8 @@ instance AWSRequest CreateTopic where
                  CreateTopicResponse' <$>
                    (x .@? "TopicArn") <*> (pure (fromEnum s)))
 
+instance Hashable CreateTopic
+
 instance ToHeaders CreateTopic where
         toHeaders = const mempty
 

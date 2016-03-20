@@ -89,6 +89,8 @@ instance AWSRequest DeleteVPNConnection where
         request = postQuery eC2
         response = receiveNull DeleteVPNConnectionResponse'
 
+instance Hashable DeleteVPNConnection
+
 instance ToHeaders DeleteVPNConnection where
         toHeaders = const mempty
 

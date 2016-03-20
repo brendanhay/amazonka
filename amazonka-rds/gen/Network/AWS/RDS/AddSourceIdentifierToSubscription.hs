@@ -103,6 +103,8 @@ instance AWSRequest AddSourceIdentifierToSubscription
                  AddSourceIdentifierToSubscriptionResponse' <$>
                    (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
+instance Hashable AddSourceIdentifierToSubscription
+
 instance ToHeaders AddSourceIdentifierToSubscription
          where
         toHeaders = const mempty

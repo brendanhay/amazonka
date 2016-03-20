@@ -74,6 +74,8 @@ instance AWSRequest GetBucketCORS where
                    (may (parseXMLList "CORSRule") x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetBucketCORS
+
 instance ToHeaders GetBucketCORS where
         toHeaders = const mempty
 

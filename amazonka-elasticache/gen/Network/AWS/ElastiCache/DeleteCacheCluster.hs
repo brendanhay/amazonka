@@ -95,6 +95,8 @@ instance AWSRequest DeleteCacheCluster where
                  DeleteCacheClusterResponse' <$>
                    (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteCacheCluster
+
 instance ToHeaders DeleteCacheCluster where
         toHeaders = const mempty
 

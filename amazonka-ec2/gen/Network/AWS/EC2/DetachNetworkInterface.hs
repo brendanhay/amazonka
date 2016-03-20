@@ -89,6 +89,8 @@ instance AWSRequest DetachNetworkInterface where
         response
           = receiveNull DetachNetworkInterfaceResponse'
 
+instance Hashable DetachNetworkInterface
+
 instance ToHeaders DetachNetworkInterface where
         toHeaders = const mempty
 

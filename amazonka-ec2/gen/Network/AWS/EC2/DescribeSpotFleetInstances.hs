@@ -115,6 +115,8 @@ instance AWSRequest DescribeSpotFleetInstances where
                      (x .@? "activeInstanceSet" .!@ mempty >>=
                         parseXMLList "item"))
 
+instance Hashable DescribeSpotFleetInstances
+
 instance ToHeaders DescribeSpotFleetInstances where
         toHeaders = const mempty
 

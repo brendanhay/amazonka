@@ -80,6 +80,8 @@ instance AWSRequest DeleteReplicationInstance where
                    (x .?> "ReplicationInstance") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DeleteReplicationInstance
+
 instance ToHeaders DeleteReplicationInstance where
         toHeaders
           = const

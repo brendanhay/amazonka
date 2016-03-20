@@ -130,6 +130,8 @@ instance AWSRequest ResetDBParameterGroup where
           = receiveXMLWrapper "ResetDBParameterGroupResult"
               (\ s h x -> parseXML x)
 
+instance Hashable ResetDBParameterGroup
+
 instance ToHeaders ResetDBParameterGroup where
         toHeaders = const mempty
 

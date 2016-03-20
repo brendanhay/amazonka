@@ -115,6 +115,8 @@ instance AWSRequest ListOperations where
                    (x .?> "NextPageMarker") <*> (pure (fromEnum s)) <*>
                      (x .?> "Operations" .!@ mempty))
 
+instance Hashable ListOperations
+
 instance ToHeaders ListOperations where
         toHeaders
           = const

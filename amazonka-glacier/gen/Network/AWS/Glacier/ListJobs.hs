@@ -188,6 +188,8 @@ instance AWSRequest ListJobs where
                    (x .?> "Marker") <*> (x .?> "JobList" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable ListJobs
+
 instance ToHeaders ListJobs where
         toHeaders = const mempty
 

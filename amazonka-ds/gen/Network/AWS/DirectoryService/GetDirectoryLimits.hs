@@ -63,6 +63,8 @@ instance AWSRequest GetDirectoryLimits where
                  GetDirectoryLimitsResponse' <$>
                    (x .?> "DirectoryLimits") <*> (pure (fromEnum s)))
 
+instance Hashable GetDirectoryLimits
+
 instance ToHeaders GetDirectoryLimits where
         toHeaders
           = const

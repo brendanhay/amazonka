@@ -103,6 +103,8 @@ instance AWSRequest ListTables where
                      (x .?> "TableNames" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListTables
+
 instance ToHeaders ListTables where
         toHeaders
           = const

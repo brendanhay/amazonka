@@ -136,6 +136,8 @@ instance FromXML Activity where
                 <*> (x .@ "StartTime")
                 <*> (x .@ "StatusCode")
 
+instance Hashable Activity
+
 -- | Describes a policy adjustment type.
 --
 -- For more information, see
@@ -167,6 +169,8 @@ atAdjustmentType = lens _atAdjustmentType (\ s a -> s{_atAdjustmentType = a});
 instance FromXML AdjustmentType where
         parseXML x
           = AdjustmentType' <$> (x .@? "AdjustmentType")
+
+instance Hashable AdjustmentType
 
 -- | Describes an alarm.
 --
@@ -203,6 +207,8 @@ instance FromXML Alarm where
         parseXML x
           = Alarm' <$>
               (x .@? "AlarmName") <*> (x .@? "AlarmARN")
+
+instance Hashable Alarm
 
 -- | Describes an Auto Scaling group.
 --
@@ -445,6 +451,8 @@ instance FromXML AutoScalingGroup where
                 <*> (x .@ "HealthCheckType")
                 <*> (x .@ "CreatedTime")
 
+instance Hashable AutoScalingGroup
+
 -- | Describes an EC2 instance associated with an Auto Scaling group.
 --
 -- /See:/ 'autoScalingInstanceDetails' smart constructor.
@@ -538,6 +546,8 @@ instance FromXML AutoScalingInstanceDetails where
                 <*> (x .@ "LaunchConfigurationName")
                 <*> (x .@ "ProtectedFromScaleIn")
 
+instance Hashable AutoScalingInstanceDetails
+
 -- | Describes a block device mapping.
 --
 -- /See:/ 'blockDeviceMapping' smart constructor.
@@ -597,6 +607,8 @@ instance FromXML BlockDeviceMapping where
               (x .@? "VirtualName") <*> (x .@? "NoDevice") <*>
                 (x .@? "Ebs")
                 <*> (x .@ "DeviceName")
+
+instance Hashable BlockDeviceMapping
 
 instance ToQuery BlockDeviceMapping where
         toQuery BlockDeviceMapping'{..}
@@ -702,6 +714,8 @@ instance FromXML EBS where
                 <*> (x .@? "VolumeType")
                 <*> (x .@? "SnapshotId")
 
+instance Hashable EBS
+
 instance ToQuery EBS where
         toQuery EBS'{..}
           = mconcat
@@ -764,6 +778,8 @@ instance FromXML EnabledMetric where
           = EnabledMetric' <$>
               (x .@? "Granularity") <*> (x .@? "Metric")
 
+instance Hashable EnabledMetric
+
 -- | Describes a filter.
 --
 -- /See:/ 'filter'' smart constructor.
@@ -796,6 +812,8 @@ fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Default . _Coerce;
 -- '\"key\"', '\"value\"', and '\"propagate-at-launch\"'.
 fName :: Lens' Filter Text
 fName = lens _fName (\ s a -> s{_fName = a});
+
+instance Hashable Filter
 
 instance ToQuery Filter where
         toQuery Filter'{..}
@@ -886,6 +904,8 @@ instance FromXML Instance where
                 <*> (x .@ "HealthStatus")
                 <*> (x .@ "ProtectedFromScaleIn")
 
+instance Hashable Instance
+
 -- | Describes whether instance monitoring is enabled.
 --
 -- /See:/ 'instanceMonitoring' smart constructor.
@@ -912,6 +932,8 @@ imEnabled = lens _imEnabled (\ s a -> s{_imEnabled = a});
 instance FromXML InstanceMonitoring where
         parseXML x
           = InstanceMonitoring' <$> (x .@? "Enabled")
+
+instance Hashable InstanceMonitoring
 
 instance ToQuery InstanceMonitoring where
         toQuery InstanceMonitoring'{..}
@@ -1132,6 +1154,8 @@ instance FromXML LaunchConfiguration where
                 <*> (x .@ "InstanceType")
                 <*> (x .@ "CreatedTime")
 
+instance Hashable LaunchConfiguration
+
 -- | Describes a lifecycle hook, which tells Auto Scaling that you want to
 -- perform an action when an instance launches or terminates. When you have
 -- a lifecycle hook in place, the Auto Scaling group will either:
@@ -1266,6 +1290,8 @@ instance FromXML LifecycleHook where
                 <*> (x .@? "LifecycleTransition")
                 <*> (x .@? "RoleARN")
 
+instance Hashable LifecycleHook
+
 -- | Describes the state of a load balancer.
 --
 -- /See:/ 'loadBalancerState' smart constructor.
@@ -1317,6 +1343,8 @@ instance FromXML LoadBalancerState where
           = LoadBalancerState' <$>
               (x .@? "State") <*> (x .@? "LoadBalancerName")
 
+instance Hashable LoadBalancerState
+
 -- | Describes a metric.
 --
 -- /See:/ 'metricCollectionType' smart constructor.
@@ -1361,6 +1389,8 @@ instance FromXML MetricCollectionType where
         parseXML x
           = MetricCollectionType' <$> (x .@? "Metric")
 
+instance Hashable MetricCollectionType
+
 -- | Describes a granularity of a metric.
 --
 -- /See:/ 'metricGranularityType' smart constructor.
@@ -1387,6 +1417,8 @@ mgtGranularity = lens _mgtGranularity (\ s a -> s{_mgtGranularity = a});
 instance FromXML MetricGranularityType where
         parseXML x
           = MetricGranularityType' <$> (x .@? "Granularity")
+
+instance Hashable MetricGranularityType
 
 -- | Describes a notification.
 --
@@ -1445,6 +1477,8 @@ instance FromXML NotificationConfiguration where
               (x .@? "TopicARN") <*> (x .@? "AutoScalingGroupName")
                 <*> (x .@? "NotificationType")
 
+instance Hashable NotificationConfiguration
+
 -- | Describes a process type.
 --
 -- For more information, see
@@ -1492,6 +1526,8 @@ ptProcessName = lens _ptProcessName (\ s a -> s{_ptProcessName = a});
 
 instance FromXML ProcessType where
         parseXML x = ProcessType' <$> (x .@ "ProcessName")
+
+instance Hashable ProcessType
 
 -- | Describes a scaling policy.
 --
@@ -1645,6 +1681,8 @@ instance FromXML ScalingPolicy where
                 <*> (x .@? "MetricAggregationType")
                 <*> (x .@? "MinAdjustmentMagnitude")
 
+instance Hashable ScalingPolicy
+
 -- | /See:/ 'scalingProcessQuery' smart constructor.
 data ScalingProcessQuery = ScalingProcessQuery'
     { _spqScalingProcesses     :: !(Maybe [Text])
@@ -1691,6 +1729,8 @@ spqScalingProcesses = lens _spqScalingProcesses (\ s a -> s{_spqScalingProcesses
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 spqAutoScalingGroupName :: Lens' ScalingProcessQuery Text
 spqAutoScalingGroupName = lens _spqAutoScalingGroupName (\ s a -> s{_spqAutoScalingGroupName = a});
+
+instance Hashable ScalingProcessQuery
 
 instance ToQuery ScalingProcessQuery where
         toQuery ScalingProcessQuery'{..}
@@ -1813,6 +1853,8 @@ instance FromXML ScheduledUpdateGroupAction where
                 <*> (x .@? "AutoScalingGroupName")
                 <*> (x .@? "EndTime")
 
+instance Hashable ScheduledUpdateGroupAction
+
 -- | Describes an adjustment based on the difference between the value of the
 -- aggregated CloudWatch metric and the breach threshold that you\'ve
 -- defined for the alarm.
@@ -1903,6 +1945,8 @@ instance FromXML StepAdjustment where
                 (x .@? "MetricIntervalUpperBound")
                 <*> (x .@ "ScalingAdjustment")
 
+instance Hashable StepAdjustment
+
 instance ToQuery StepAdjustment where
         toQuery StepAdjustment'{..}
           = mconcat
@@ -1948,6 +1992,8 @@ instance FromXML SuspendedProcess where
         parseXML x
           = SuspendedProcess' <$>
               (x .@? "ProcessName") <*> (x .@? "SuspensionReason")
+
+instance Hashable SuspendedProcess
 
 -- | Describes a tag for an Auto Scaling group.
 --
@@ -2009,6 +2055,8 @@ tagPropagateAtLaunch = lens _tagPropagateAtLaunch (\ s a -> s{_tagPropagateAtLau
 -- | The tag value.
 tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
+instance Hashable Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -2086,3 +2134,5 @@ instance FromXML TagDescription where
                 (x .@ "Key")
                 <*> (x .@ "PropagateAtLaunch")
                 <*> (x .@ "Value")
+
+instance Hashable TagDescription

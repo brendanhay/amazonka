@@ -89,6 +89,8 @@ instance AWSRequest CreateAccessKey where
                  CreateAccessKeyResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "AccessKey"))
 
+instance Hashable CreateAccessKey
+
 instance ToHeaders CreateAccessKey where
         toHeaders = const mempty
 

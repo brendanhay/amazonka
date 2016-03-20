@@ -135,6 +135,8 @@ instance AWSRequest ModifyDBSnapshotAttribute where
                    (x .@? "DBSnapshotAttributesResult") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ModifyDBSnapshotAttribute
+
 instance ToHeaders ModifyDBSnapshotAttribute where
         toHeaders = const mempty
 

@@ -68,6 +68,8 @@ instance AWSRequest DeleteDomain where
         request = postQuery sDB
         response = receiveNull DeleteDomainResponse'
 
+instance Hashable DeleteDomain
+
 instance ToHeaders DeleteDomain where
         toHeaders = const mempty
 

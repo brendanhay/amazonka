@@ -75,6 +75,8 @@ instance AWSRequest DeleteCacheParameterGroup where
         response
           = receiveNull DeleteCacheParameterGroupResponse'
 
+instance Hashable DeleteCacheParameterGroup
+
 instance ToHeaders DeleteCacheParameterGroup where
         toHeaders = const mempty
 

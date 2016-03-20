@@ -133,6 +133,8 @@ instance AWSRequest GetSampledRequests where
                      <*> (x .?> "TimeWindow")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetSampledRequests
+
 instance ToHeaders GetSampledRequests where
         toHeaders
           = const

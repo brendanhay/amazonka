@@ -70,6 +70,8 @@ instance AWSRequest DeleteHSMConfiguration where
         response
           = receiveNull DeleteHSMConfigurationResponse'
 
+instance Hashable DeleteHSMConfiguration
+
 instance ToHeaders DeleteHSMConfiguration where
         toHeaders = const mempty
 

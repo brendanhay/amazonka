@@ -88,6 +88,8 @@ instance AWSRequest GetDeploymentGroup where
                    (x .?> "deploymentGroupInfo") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetDeploymentGroup
+
 instance ToHeaders GetDeploymentGroup where
         toHeaders
           = const

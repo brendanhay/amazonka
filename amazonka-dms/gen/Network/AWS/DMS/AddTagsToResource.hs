@@ -83,6 +83,8 @@ instance AWSRequest AddTagsToResource where
               (\ s h x ->
                  AddTagsToResourceResponse' <$> (pure (fromEnum s)))
 
+instance Hashable AddTagsToResource
+
 instance ToHeaders AddTagsToResource where
         toHeaders
           = const

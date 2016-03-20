@@ -73,6 +73,8 @@ instance AWSRequest DescribeActiveReceiptRuleSet
                      <*> (x .@? "Metadata")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeActiveReceiptRuleSet
+
 instance ToHeaders DescribeActiveReceiptRuleSet where
         toHeaders = const mempty
 

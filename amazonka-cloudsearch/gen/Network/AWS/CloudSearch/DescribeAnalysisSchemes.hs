@@ -108,6 +108,8 @@ instance AWSRequest DescribeAnalysisSchemes where
                      (x .@? "AnalysisSchemes" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable DescribeAnalysisSchemes
+
 instance ToHeaders DescribeAnalysisSchemes where
         toHeaders = const mempty
 

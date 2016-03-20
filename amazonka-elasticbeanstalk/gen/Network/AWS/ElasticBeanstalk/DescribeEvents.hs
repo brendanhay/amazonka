@@ -193,6 +193,8 @@ instance AWSRequest DescribeEvents where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeEvents
+
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty
 

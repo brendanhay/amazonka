@@ -104,6 +104,8 @@ instance AWSRequest CreateCacheSubnetGroup where
                  CreateCacheSubnetGroupResponse' <$>
                    (x .@? "CacheSubnetGroup") <*> (pure (fromEnum s)))
 
+instance Hashable CreateCacheSubnetGroup
+
 instance ToHeaders CreateCacheSubnetGroup where
         toHeaders = const mempty
 

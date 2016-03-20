@@ -162,6 +162,8 @@ instance AWSRequest ListApplicationRevisions where
                      (x .?> "revisions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListApplicationRevisions
+
 instance ToHeaders ListApplicationRevisions where
         toHeaders
           = const

@@ -86,6 +86,8 @@ instance AWSRequest UpdateRadius where
               (\ s h x ->
                  UpdateRadiusResponse' <$> (pure (fromEnum s)))
 
+instance Hashable UpdateRadius
+
 instance ToHeaders UpdateRadius where
         toHeaders
           = const

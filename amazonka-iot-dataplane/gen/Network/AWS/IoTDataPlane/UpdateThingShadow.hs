@@ -89,6 +89,8 @@ instance AWSRequest UpdateThingShadow where
                  UpdateThingShadowResponse' <$>
                    (pure (Just x)) <*> (pure (fromEnum s)))
 
+instance Hashable UpdateThingShadow
+
 instance ToBody UpdateThingShadow where
         toBody = toBody . _utsPayload
 

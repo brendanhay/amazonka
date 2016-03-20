@@ -106,6 +106,8 @@ instance AWSRequest DescribeKeyPairs where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeKeyPairs
+
 instance ToHeaders DescribeKeyPairs where
         toHeaders = const mempty
 

@@ -97,6 +97,8 @@ instance AWSRequest SetLoadBalancerPoliciesOfListener
                  SetLoadBalancerPoliciesOfListenerResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable SetLoadBalancerPoliciesOfListener
+
 instance ToHeaders SetLoadBalancerPoliciesOfListener
          where
         toHeaders = const mempty

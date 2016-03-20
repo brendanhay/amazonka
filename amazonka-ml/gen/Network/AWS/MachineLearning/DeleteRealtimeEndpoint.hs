@@ -77,6 +77,8 @@ instance AWSRequest DeleteRealtimeEndpoint where
                      (x .?> "MLModelId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DeleteRealtimeEndpoint
+
 instance ToHeaders DeleteRealtimeEndpoint where
         toHeaders
           = const

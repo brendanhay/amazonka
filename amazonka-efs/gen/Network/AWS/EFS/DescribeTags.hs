@@ -104,6 +104,8 @@ instance AWSRequest DescribeTags where
                      (pure (fromEnum s))
                      <*> (x .?> "Tags" .!@ mempty))
 
+instance Hashable DescribeTags
+
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
 

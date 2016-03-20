@@ -105,6 +105,8 @@ instance AWSRequest AssociateRouteTable where
                  AssociateRouteTableResponse' <$>
                    (x .@? "associationId") <*> (pure (fromEnum s)))
 
+instance Hashable AssociateRouteTable
+
 instance ToHeaders AssociateRouteTable where
         toHeaders = const mempty
 

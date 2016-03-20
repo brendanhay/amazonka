@@ -81,6 +81,8 @@ instance AWSRequest
                      (x .@? "MailFromDomainAttributes" .!@ mempty >>=
                         parseXMLMap "entry" "key" "value"))
 
+instance Hashable GetIdentityMailFromDomainAttributes
+
 instance ToHeaders
          GetIdentityMailFromDomainAttributes where
         toHeaders = const mempty

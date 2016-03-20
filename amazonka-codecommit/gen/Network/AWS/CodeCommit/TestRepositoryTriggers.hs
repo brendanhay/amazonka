@@ -90,6 +90,8 @@ instance AWSRequest TestRepositoryTriggers where
                      (x .?> "successfulExecutions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable TestRepositoryTriggers
+
 instance ToHeaders TestRepositoryTriggers where
         toHeaders
           = const

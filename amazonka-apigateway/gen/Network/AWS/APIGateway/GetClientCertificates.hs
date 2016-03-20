@@ -94,6 +94,8 @@ instance AWSRequest GetClientCertificates where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetClientCertificates
+
 instance ToHeaders GetClientCertificates where
         toHeaders
           = const

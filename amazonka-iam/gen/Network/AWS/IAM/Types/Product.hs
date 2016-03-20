@@ -97,6 +97,8 @@ instance FromXML AccessKey where
                 <*> (x .@ "Status")
                 <*> (x .@ "SecretAccessKey")
 
+instance Hashable AccessKey
+
 -- | Contains information about the last time an AWS access key was used.
 --
 -- This data type is used as a response element in the
@@ -179,6 +181,8 @@ instance FromXML AccessKeyLastUsed where
               (x .@ "LastUsedDate") <*> (x .@ "ServiceName") <*>
                 (x .@ "Region")
 
+instance Hashable AccessKeyLastUsed
+
 -- | Contains information about an AWS access key, without its secret key.
 --
 -- This data type is used as a response element in the < ListAccessKeys>
@@ -237,6 +241,8 @@ instance FromXML AccessKeyMetadata where
                 (x .@? "UserName")
                 <*> (x .@? "AccessKeyId")
 
+instance Hashable AccessKeyMetadata
+
 -- | Contains information about an attached policy.
 --
 -- An attached policy is a managed policy that has been attached to a user,
@@ -282,6 +288,8 @@ instance FromXML AttachedPolicy where
         parseXML x
           = AttachedPolicy' <$>
               (x .@? "PolicyName") <*> (x .@? "PolicyArn")
+
+instance Hashable AttachedPolicy
 
 -- | Contains information about a condition context key. It includes the name
 -- of the key and specifies the value (or values, if the context key
@@ -330,6 +338,8 @@ ceContextKeyName = lens _ceContextKeyName (\ s a -> s{_ceContextKeyName = a});
 -- 'ContextKeyValues' parameter.
 ceContextKeyType :: Lens' ContextEntry (Maybe ContextKeyTypeEnum)
 ceContextKeyType = lens _ceContextKeyType (\ s a -> s{_ceContextKeyType = a});
+
+instance Hashable ContextEntry
 
 instance ToQuery ContextEntry where
         toQuery ContextEntry'{..}
@@ -456,6 +466,8 @@ instance FromXML EvaluationResult where
                 <*> (x .@ "EvalActionName")
                 <*> (x .@ "EvalDecision")
 
+instance Hashable EvaluationResult
+
 -- | Contains the response to a successful
 -- < GetContextKeysForPrincipalPolicy> or < GetContextKeysForCustomPolicy>
 -- request.
@@ -488,6 +500,8 @@ instance FromXML GetContextKeysForPolicyResponse
           = GetContextKeysForPolicyResponse' <$>
               (x .@? "ContextKeyNames" .!@ mempty >>=
                  may (parseXMLList "member"))
+
+instance Hashable GetContextKeysForPolicyResponse
 
 -- | Contains information about an IAM group entity.
 --
@@ -572,6 +586,8 @@ instance FromXML Group where
                 (x .@ "GroupId")
                 <*> (x .@ "Arn")
                 <*> (x .@ "CreateDate")
+
+instance Hashable Group
 
 -- | Contains information about an IAM group, including all of the group\'s
 -- policies.
@@ -668,6 +684,8 @@ instance FromXML GroupDetail where
                 <*>
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
                    may (parseXMLList "member"))
+
+instance Hashable GroupDetail
 
 -- | Contains information about an instance profile.
 --
@@ -766,6 +784,8 @@ instance FromXML InstanceProfile where
                 <*>
                 (x .@? "Roles" .!@ mempty >>= parseXMLList "member")
 
+instance Hashable InstanceProfile
+
 -- | Contains the user name and password create date for a user.
 --
 -- This data type is used as a response element in the
@@ -818,6 +838,8 @@ instance FromXML LoginProfile where
               (x .@? "PasswordResetRequired") <*> (x .@ "UserName")
                 <*> (x .@ "CreateDate")
 
+instance Hashable LoginProfile
+
 -- | Contains information about an MFA device.
 --
 -- This data type is used as a response element in the < ListMFADevices>
@@ -869,6 +891,8 @@ instance FromXML MFADevice where
           = MFADevice' <$>
               (x .@ "UserName") <*> (x .@ "SerialNumber") <*>
                 (x .@ "EnableDate")
+
+instance Hashable MFADevice
 
 -- | Contains information about a managed policy, including the policy\'s
 -- ARN, versions, and the number of principal entities (users, groups, and
@@ -1022,6 +1046,8 @@ instance FromXML ManagedPolicyDetail where
                 <*> (x .@? "AttachmentCount")
                 <*> (x .@? "Description")
 
+instance Hashable ManagedPolicyDetail
+
 -- | Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect
 -- provider.
 --
@@ -1049,6 +1075,8 @@ oicpleARN = lens _oicpleARN (\ s a -> s{_oicpleARN = a});
 instance FromXML OpenIdConnectProviderListEntry where
         parseXML x
           = OpenIdConnectProviderListEntry' <$> (x .@? "Arn")
+
+instance Hashable OpenIdConnectProviderListEntry
 
 -- | Contains information about the account password policy.
 --
@@ -1167,6 +1195,8 @@ instance FromXML PasswordPolicy where
                 <*> (x .@? "RequireSymbols")
                 <*> (x .@? "RequireUppercaseCharacters")
                 <*> (x .@? "AllowUsersToChangePassword")
+
+instance Hashable PasswordPolicy
 
 -- | Contains information about a managed policy.
 --
@@ -1306,6 +1336,8 @@ instance FromXML Policy where
                 <*> (x .@? "AttachmentCount")
                 <*> (x .@? "Description")
 
+instance Hashable Policy
+
 -- | Contains information about an IAM policy, including the policy document.
 --
 -- This data type is used as a response element in the
@@ -1344,6 +1376,8 @@ instance FromXML PolicyDetail where
         parseXML x
           = PolicyDetail' <$>
               (x .@? "PolicyDocument") <*> (x .@? "PolicyName")
+
+instance Hashable PolicyDetail
 
 -- | Contains information about a group that a managed policy is attached to.
 --
@@ -1391,6 +1425,8 @@ instance FromXML PolicyGroup where
           = PolicyGroup' <$>
               (x .@? "GroupId") <*> (x .@? "GroupName")
 
+instance Hashable PolicyGroup
+
 -- | Contains information about a role that a managed policy is attached to.
 --
 -- This data type is used as a response element in the
@@ -1437,6 +1473,8 @@ instance FromXML PolicyRole where
           = PolicyRole' <$>
               (x .@? "RoleName") <*> (x .@? "RoleId")
 
+instance Hashable PolicyRole
+
 -- | Contains information about a user that a managed policy is attached to.
 --
 -- This data type is used as a response element in the
@@ -1482,6 +1520,8 @@ instance FromXML PolicyUser where
         parseXML x
           = PolicyUser' <$>
               (x .@? "UserName") <*> (x .@? "UserId")
+
+instance Hashable PolicyUser
 
 -- | Contains information about a version of a managed policy.
 --
@@ -1556,6 +1596,8 @@ instance FromXML PolicyVersion where
                 (x .@? "Document")
                 <*> (x .@? "IsDefaultVersion")
 
+instance Hashable PolicyVersion
+
 -- | Contains the row and column of a location of a 'Statement' element in a
 -- policy document.
 --
@@ -1594,6 +1636,8 @@ pColumn = lens _pColumn (\ s a -> s{_pColumn = a});
 instance FromXML Position where
         parseXML x
           = Position' <$> (x .@? "Line") <*> (x .@? "Column")
+
+instance Hashable Position
 
 -- | Contains the result of the simulation of a single API action call on a
 -- single resource.
@@ -1686,6 +1730,8 @@ instance FromXML ResourceSpecificResult where
                    may (parseXMLList "member"))
                 <*> (x .@ "EvalResourceName")
                 <*> (x .@ "EvalResourceDecision")
+
+instance Hashable ResourceSpecificResult
 
 -- | Contains information about an IAM role.
 --
@@ -1782,6 +1828,8 @@ instance FromXML Role where
                 <*> (x .@ "RoleId")
                 <*> (x .@ "Arn")
                 <*> (x .@ "CreateDate")
+
+instance Hashable Role
 
 -- | Contains information about an IAM role, including all of the role\'s
 -- policies.
@@ -1901,6 +1949,8 @@ instance FromXML RoleDetail where
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
                    may (parseXMLList "member"))
 
+instance Hashable RoleDetail
+
 -- | Contains the list of SAML providers for this account.
 --
 -- /See:/ 'sAMLProviderListEntry' smart constructor.
@@ -1945,6 +1995,8 @@ instance FromXML SAMLProviderListEntry where
           = SAMLProviderListEntry' <$>
               (x .@? "Arn") <*> (x .@? "CreateDate") <*>
                 (x .@? "ValidUntil")
+
+instance Hashable SAMLProviderListEntry
 
 -- | Contains information about an SSH public key.
 --
@@ -2030,6 +2082,8 @@ instance FromXML SSHPublicKey where
                 <*> (x .@ "SSHPublicKeyBody")
                 <*> (x .@ "Status")
 
+instance Hashable SSHPublicKey
+
 -- | Contains information about an SSH public key, without the key\'s body or
 -- fingerprint.
 --
@@ -2096,6 +2150,8 @@ instance FromXML SSHPublicKeyMetadata where
                 (x .@ "Status")
                 <*> (x .@ "UploadDate")
 
+instance Hashable SSHPublicKeyMetadata
+
 -- | Contains information about a server certificate.
 --
 -- This data type is used as a response element in the
@@ -2147,6 +2203,8 @@ instance FromXML ServerCertificate where
               (x .@? "CertificateChain") <*>
                 (x .@ "ServerCertificateMetadata")
                 <*> (x .@ "CertificateBody")
+
+instance Hashable ServerCertificate
 
 -- | Contains information about a server certificate without its certificate
 -- body, certificate chain, and private key.
@@ -2237,6 +2295,8 @@ instance FromXML ServerCertificateMetadata where
                 <*> (x .@ "ServerCertificateId")
                 <*> (x .@ "Arn")
 
+instance Hashable ServerCertificateMetadata
+
 -- | Contains information about an X.509 signing certificate.
 --
 -- This data type is used as a response element in the
@@ -2308,6 +2368,8 @@ instance FromXML SigningCertificate where
                 <*> (x .@ "CertificateBody")
                 <*> (x .@ "Status")
 
+instance Hashable SigningCertificate
+
 -- | Contains the response to a successful < SimulatePrincipalPolicy> or
 -- < SimulateCustomPolicy> request.
 --
@@ -2363,6 +2425,8 @@ instance FromXML SimulatePolicyResponse where
                  may (parseXMLList "member"))
                 <*> (x .@? "Marker")
                 <*> (x .@? "IsTruncated")
+
+instance Hashable SimulatePolicyResponse
 
 -- | Contains a reference to a 'Statement' element in a policy document that
 -- determines the result of the simulation.
@@ -2422,6 +2486,8 @@ instance FromXML Statement where
                 (x .@? "SourcePolicyId")
                 <*> (x .@? "EndPosition")
                 <*> (x .@? "StartPosition")
+
+instance Hashable Statement
 
 -- | Contains information about an IAM user entity.
 --
@@ -2535,6 +2601,8 @@ instance FromXML User where
                 <*> (x .@ "Arn")
                 <*> (x .@ "CreateDate")
 
+instance Hashable User
+
 -- | Contains information about an IAM user, including all the user\'s
 -- policies and all the IAM groups the user is in.
 --
@@ -2642,6 +2710,8 @@ instance FromXML UserDetail where
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
                    may (parseXMLList "member"))
 
+instance Hashable UserDetail
+
 -- | Contains information about a virtual MFA device.
 --
 -- /See:/ 'virtualMFADevice' smart constructor.
@@ -2724,3 +2794,5 @@ instance FromXML VirtualMFADevice where
                 <*> (x .@? "User")
                 <*> (x .@? "EnableDate")
                 <*> (x .@ "SerialNumber")
+
+instance Hashable VirtualMFADevice

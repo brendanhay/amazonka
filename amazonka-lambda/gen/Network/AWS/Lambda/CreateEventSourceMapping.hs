@@ -166,6 +166,8 @@ instance AWSRequest CreateEventSourceMapping where
         request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateEventSourceMapping
+
 instance ToHeaders CreateEventSourceMapping where
         toHeaders = const mempty
 

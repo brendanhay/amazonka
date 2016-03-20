@@ -712,6 +712,8 @@ instance AWSRequest UpdateItem where
                      <*> (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable UpdateItem
+
 instance ToHeaders UpdateItem where
         toHeaders
           = const

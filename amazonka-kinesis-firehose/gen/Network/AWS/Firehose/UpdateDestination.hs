@@ -149,6 +149,8 @@ instance AWSRequest UpdateDestination where
               (\ s h x ->
                  UpdateDestinationResponse' <$> (pure (fromEnum s)))
 
+instance Hashable UpdateDestination
+
 instance ToHeaders UpdateDestination where
         toHeaders
           = const

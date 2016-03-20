@@ -83,6 +83,8 @@ instance AWSRequest DescribeIdentityPoolUsage where
                  DescribeIdentityPoolUsageResponse' <$>
                    (x .?> "IdentityPoolUsage") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeIdentityPoolUsage
+
 instance ToHeaders DescribeIdentityPoolUsage where
         toHeaders
           = const

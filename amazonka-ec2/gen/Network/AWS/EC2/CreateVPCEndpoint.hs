@@ -137,6 +137,8 @@ instance AWSRequest CreateVPCEndpoint where
                    (x .@? "clientToken") <*> (x .@? "vpcEndpoint") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateVPCEndpoint
+
 instance ToHeaders CreateVPCEndpoint where
         toHeaders = const mempty
 

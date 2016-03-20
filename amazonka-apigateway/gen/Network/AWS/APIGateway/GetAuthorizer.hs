@@ -87,6 +87,8 @@ instance AWSRequest GetAuthorizer where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetAuthorizer
+
 instance ToHeaders GetAuthorizer where
         toHeaders
           = const

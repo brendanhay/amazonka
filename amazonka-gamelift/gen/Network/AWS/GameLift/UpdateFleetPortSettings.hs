@@ -99,6 +99,8 @@ instance AWSRequest UpdateFleetPortSettings where
                  UpdateFleetPortSettingsResponse' <$>
                    (x .?> "FleetId") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateFleetPortSettings
+
 instance ToHeaders UpdateFleetPortSettings where
         toHeaders
           = const

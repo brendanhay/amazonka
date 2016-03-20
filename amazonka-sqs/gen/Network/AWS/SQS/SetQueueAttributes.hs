@@ -113,6 +113,8 @@ instance AWSRequest SetQueueAttributes where
         request = postQuery sQS
         response = receiveNull SetQueueAttributesResponse'
 
+instance Hashable SetQueueAttributes
+
 instance ToHeaders SetQueueAttributes where
         toHeaders = const mempty
 

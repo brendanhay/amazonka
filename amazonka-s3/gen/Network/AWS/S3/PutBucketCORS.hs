@@ -85,6 +85,8 @@ instance AWSRequest PutBucketCORS where
         request = putXML s3
         response = receiveNull PutBucketCORSResponse'
 
+instance Hashable PutBucketCORS
+
 instance ToElement PutBucketCORS where
         toElement
           = mkElement

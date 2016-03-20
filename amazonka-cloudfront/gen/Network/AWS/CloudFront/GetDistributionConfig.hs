@@ -78,6 +78,8 @@ instance AWSRequest GetDistributionConfig where
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetDistributionConfig
+
 instance ToHeaders GetDistributionConfig where
         toHeaders = const mempty
 

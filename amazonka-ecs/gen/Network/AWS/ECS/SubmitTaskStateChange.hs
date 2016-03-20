@@ -105,6 +105,8 @@ instance AWSRequest SubmitTaskStateChange where
                  SubmitTaskStateChangeResponse' <$>
                    (x .?> "acknowledgment") <*> (pure (fromEnum s)))
 
+instance Hashable SubmitTaskStateChange
+
 instance ToHeaders SubmitTaskStateChange where
         toHeaders
           = const

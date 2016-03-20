@@ -328,6 +328,8 @@ instance AWSRequest CreateLaunchConfiguration where
         response
           = receiveNull CreateLaunchConfigurationResponse'
 
+instance Hashable CreateLaunchConfiguration
+
 instance ToHeaders CreateLaunchConfiguration where
         toHeaders = const mempty
 

@@ -197,6 +197,8 @@ instance AWSRequest ReceiveMessage where
                    (may (parseXMLList "Message") x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable ReceiveMessage
+
 instance ToHeaders ReceiveMessage where
         toHeaders = const mempty
 

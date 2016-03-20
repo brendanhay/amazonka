@@ -100,6 +100,8 @@ instance AWSRequest DeleteIdentityPolicy where
                  DeleteIdentityPolicyResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable DeleteIdentityPolicy
+
 instance ToHeaders DeleteIdentityPolicy where
         toHeaders = const mempty
 

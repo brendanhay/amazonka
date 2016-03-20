@@ -88,6 +88,8 @@ instance AWSRequest ListTests where
                    (x .?> "tests" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListTests
+
 instance ToHeaders ListTests where
         toHeaders
           = const

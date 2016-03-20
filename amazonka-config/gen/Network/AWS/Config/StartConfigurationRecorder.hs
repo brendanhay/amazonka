@@ -75,6 +75,8 @@ instance AWSRequest StartConfigurationRecorder where
         response
           = receiveNull StartConfigurationRecorderResponse'
 
+instance Hashable StartConfigurationRecorder
+
 instance ToHeaders StartConfigurationRecorder where
         toHeaders
           = const

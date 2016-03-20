@@ -99,6 +99,8 @@ instance AWSRequest EnableMFADevice where
         request = postQuery iAM
         response = receiveNull EnableMFADeviceResponse'
 
+instance Hashable EnableMFADevice
+
 instance ToHeaders EnableMFADevice where
         toHeaders = const mempty
 

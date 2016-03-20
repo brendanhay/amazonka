@@ -79,6 +79,8 @@ instance AWSRequest DeleteThingShadow where
                  DeleteThingShadowResponse' <$>
                    (pure (fromEnum s)) <*> (pure x))
 
+instance Hashable DeleteThingShadow
+
 instance ToHeaders DeleteThingShadow where
         toHeaders = const mempty
 

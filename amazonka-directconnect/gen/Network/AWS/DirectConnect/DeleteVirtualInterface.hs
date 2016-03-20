@@ -77,6 +77,8 @@ instance AWSRequest DeleteVirtualInterface where
                    (x .?> "virtualInterfaceState") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DeleteVirtualInterface
+
 instance ToHeaders DeleteVirtualInterface where
         toHeaders
           = const

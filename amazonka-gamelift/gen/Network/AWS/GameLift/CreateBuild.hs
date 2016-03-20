@@ -116,6 +116,8 @@ instance AWSRequest CreateBuild where
                      <*> (x .?> "Build")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateBuild
+
 instance ToHeaders CreateBuild where
         toHeaders
           = const

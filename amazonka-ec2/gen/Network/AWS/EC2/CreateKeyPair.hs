@@ -105,6 +105,8 @@ instance AWSRequest CreateKeyPair where
                      (x .@ "keyFingerprint")
                      <*> (x .@ "keyMaterial"))
 
+instance Hashable CreateKeyPair
+
 instance ToHeaders CreateKeyPair where
         toHeaders = const mempty
 

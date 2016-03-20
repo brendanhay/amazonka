@@ -75,6 +75,8 @@ instance AWSRequest GetSnapshotLimits where
                  GetSnapshotLimitsResponse' <$>
                    (x .?> "SnapshotLimits") <*> (pure (fromEnum s)))
 
+instance Hashable GetSnapshotLimits
+
 instance ToHeaders GetSnapshotLimits where
         toHeaders
           = const

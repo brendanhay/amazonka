@@ -75,6 +75,8 @@ instance AWSRequest GetDocument where
                    (x .?> "Content") <*> (x .?> "Name") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetDocument
+
 instance ToHeaders GetDocument where
         toHeaders
           = const

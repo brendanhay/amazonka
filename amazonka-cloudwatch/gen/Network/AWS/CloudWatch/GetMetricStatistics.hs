@@ -195,6 +195,8 @@ instance AWSRequest GetMetricStatistics where
                      <*> (x .@? "Label")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetMetricStatistics
+
 instance ToHeaders GetMetricStatistics where
         toHeaders = const mempty
 

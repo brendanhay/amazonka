@@ -173,6 +173,8 @@ instance AWSRequest CreateLoadBalancer where
                  CreateLoadBalancerResponse' <$>
                    (x .@? "DNSName") <*> (pure (fromEnum s)))
 
+instance Hashable CreateLoadBalancer
+
 instance ToHeaders CreateLoadBalancer where
         toHeaders = const mempty
 

@@ -96,6 +96,8 @@ instance AWSRequest CreatePlayerSessions where
                    (x .?> "PlayerSessions" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreatePlayerSessions
+
 instance ToHeaders CreatePlayerSessions where
         toHeaders
           = const

@@ -92,6 +92,8 @@ instance AWSRequest DescribeApps where
                  DescribeAppsResponse' <$>
                    (x .?> "Apps" .!@ mempty) <*> (pure (fromEnum s)))
 
+instance Hashable DescribeApps
+
 instance ToHeaders DescribeApps where
         toHeaders
           = const

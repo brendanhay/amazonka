@@ -131,6 +131,8 @@ instance AWSRequest UpdateElasticsearchDomainConfig
                  UpdateElasticsearchDomainConfigResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "DomainConfig"))
 
+instance Hashable UpdateElasticsearchDomainConfig
+
 instance ToHeaders UpdateElasticsearchDomainConfig
          where
         toHeaders = const mempty

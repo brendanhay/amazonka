@@ -84,6 +84,8 @@ instance AWSRequest
                      (x .?> "Parameters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeStackProvisioningParameters
+
 instance ToHeaders
          DescribeStackProvisioningParameters where
         toHeaders

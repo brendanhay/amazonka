@@ -117,6 +117,8 @@ instance AWSRequest DescribeSnapshots where
                      (x .?> "Snapshots" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeSnapshots
+
 instance ToHeaders DescribeSnapshots where
         toHeaders
           = const

@@ -107,6 +107,8 @@ instance AWSRequest DescribeNetworkInterfaceAttribute
                      <*> (x .@? "description")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeNetworkInterfaceAttribute
+
 instance ToHeaders DescribeNetworkInterfaceAttribute
          where
         toHeaders = const mempty

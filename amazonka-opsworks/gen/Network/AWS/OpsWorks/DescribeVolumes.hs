@@ -112,6 +112,8 @@ instance AWSRequest DescribeVolumes where
                  DescribeVolumesResponse' <$>
                    (x .?> "Volumes" .!@ mempty) <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVolumes
+
 instance ToHeaders DescribeVolumes where
         toHeaders
           = const

@@ -122,6 +122,8 @@ instance AWSRequest ScheduleRun where
                  ScheduleRunResponse' <$>
                    (x .?> "run") <*> (pure (fromEnum s)))
 
+instance Hashable ScheduleRun
+
 instance ToHeaders ScheduleRun where
         toHeaders
           = const

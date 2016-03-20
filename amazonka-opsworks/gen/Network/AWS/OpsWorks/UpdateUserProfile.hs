@@ -104,6 +104,8 @@ instance AWSRequest UpdateUserProfile where
         request = postJSON opsWorks
         response = receiveNull UpdateUserProfileResponse'
 
+instance Hashable UpdateUserProfile
+
 instance ToHeaders UpdateUserProfile where
         toHeaders
           = const

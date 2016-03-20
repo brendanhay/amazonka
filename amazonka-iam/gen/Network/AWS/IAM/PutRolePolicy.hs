@@ -112,6 +112,8 @@ instance AWSRequest PutRolePolicy where
         request = postQuery iAM
         response = receiveNull PutRolePolicyResponse'
 
+instance Hashable PutRolePolicy
+
 instance ToHeaders PutRolePolicy where
         toHeaders = const mempty
 

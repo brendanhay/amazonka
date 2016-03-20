@@ -79,6 +79,8 @@ instance AWSRequest DeleteSubnet where
         request = postQuery eC2
         response = receiveNull DeleteSubnetResponse'
 
+instance Hashable DeleteSubnet
+
 instance ToHeaders DeleteSubnet where
         toHeaders = const mempty
 

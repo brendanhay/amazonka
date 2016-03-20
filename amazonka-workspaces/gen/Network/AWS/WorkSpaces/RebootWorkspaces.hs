@@ -82,6 +82,8 @@ instance AWSRequest RebootWorkspaces where
                    (x .?> "FailedRequests" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable RebootWorkspaces
+
 instance ToHeaders RebootWorkspaces where
         toHeaders
           = const

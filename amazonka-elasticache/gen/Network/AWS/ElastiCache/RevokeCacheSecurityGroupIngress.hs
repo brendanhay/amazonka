@@ -102,6 +102,8 @@ instance AWSRequest RevokeCacheSecurityGroupIngress
                  RevokeCacheSecurityGroupIngressResponse' <$>
                    (x .@? "CacheSecurityGroup") <*> (pure (fromEnum s)))
 
+instance Hashable RevokeCacheSecurityGroupIngress
+
 instance ToHeaders RevokeCacheSecurityGroupIngress
          where
         toHeaders = const mempty

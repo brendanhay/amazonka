@@ -73,6 +73,8 @@ instance AWSRequest DeleteCertificate where
         request = delete ioT
         response = receiveNull DeleteCertificateResponse'
 
+instance Hashable DeleteCertificate
+
 instance ToHeaders DeleteCertificate where
         toHeaders = const mempty
 

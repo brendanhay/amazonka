@@ -83,6 +83,8 @@ instance AWSRequest BatchDeleteAttributes where
         request = postQuery sDB
         response = receiveNull BatchDeleteAttributesResponse'
 
+instance Hashable BatchDeleteAttributes
+
 instance ToHeaders BatchDeleteAttributes where
         toHeaders = const mempty
 

@@ -67,6 +67,8 @@ instance AWSRequest GetAccountSummary where
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetAccountSummary
+
 instance ToHeaders GetAccountSummary where
         toHeaders = const mempty
 

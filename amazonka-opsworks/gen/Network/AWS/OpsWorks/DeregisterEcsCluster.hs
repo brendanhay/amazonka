@@ -75,6 +75,8 @@ instance AWSRequest DeregisterEcsCluster where
         request = postJSON opsWorks
         response = receiveNull DeregisterEcsClusterResponse'
 
+instance Hashable DeregisterEcsCluster
+
 instance ToHeaders DeregisterEcsCluster where
         toHeaders
           = const

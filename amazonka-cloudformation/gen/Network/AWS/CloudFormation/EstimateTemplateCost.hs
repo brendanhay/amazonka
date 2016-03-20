@@ -106,6 +106,8 @@ instance AWSRequest EstimateTemplateCost where
                  EstimateTemplateCostResponse' <$>
                    (x .@? "Url") <*> (pure (fromEnum s)))
 
+instance Hashable EstimateTemplateCost
+
 instance ToHeaders EstimateTemplateCost where
         toHeaders = const mempty
 

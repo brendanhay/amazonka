@@ -117,6 +117,8 @@ instance AWSRequest ListCertificates where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListCertificates
+
 instance ToHeaders ListCertificates where
         toHeaders
           = const

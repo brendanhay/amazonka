@@ -74,6 +74,8 @@ instance AWSRequest GetBucketTagging where
                    (pure (fromEnum s)) <*>
                      (x .@? "TagSet" .!@ mempty >>= parseXMLList "Tag"))
 
+instance Hashable GetBucketTagging
+
 instance ToHeaders GetBucketTagging where
         toHeaders = const mempty
 

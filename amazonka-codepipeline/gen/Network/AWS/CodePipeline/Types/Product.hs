@@ -74,6 +74,8 @@ instance FromJSON AWSSessionCredentials where
                    (x .: "accessKeyId") <*> (x .: "secretAccessKey") <*>
                      (x .: "sessionToken"))
 
+instance Hashable AWSSessionCredentials
+
 -- | Represents information about an action configuration.
 --
 -- /See:/ 'actionConfiguration' smart constructor.
@@ -103,6 +105,8 @@ instance FromJSON ActionConfiguration where
               (\ x ->
                  ActionConfiguration' <$>
                    (x .:? "configuration" .!= mempty))
+
+instance Hashable ActionConfiguration
 
 -- | Represents information about an action configuration property.
 --
@@ -206,6 +210,8 @@ instance FromJSON ActionConfigurationProperty where
                      <*> (x .: "key")
                      <*> (x .: "secret"))
 
+instance Hashable ActionConfigurationProperty
+
 instance ToJSON ActionConfigurationProperty where
         toJSON ActionConfigurationProperty'{..}
           = object
@@ -246,6 +252,8 @@ instance FromJSON ActionContext where
         parseJSON
           = withObject "ActionContext"
               (\ x -> ActionContext' <$> (x .:? "name"))
+
+instance Hashable ActionContext
 
 -- | Represents information about an action declaration.
 --
@@ -335,6 +343,8 @@ instance FromJSON ActionDeclaration where
                      <*> (x .:? "roleArn")
                      <*> (x .: "name")
                      <*> (x .: "actionTypeId"))
+
+instance Hashable ActionDeclaration
 
 instance ToJSON ActionDeclaration where
         toJSON ActionDeclaration'{..}
@@ -433,6 +443,8 @@ instance FromJSON ActionExecution where
                      <*> (x .:? "errorDetails")
                      <*> (x .:? "percentComplete"))
 
+instance Hashable ActionExecution
+
 -- | Represents information about the version (or revision) of an action.
 --
 -- /See:/ 'actionRevision' smart constructor.
@@ -484,6 +496,8 @@ instance FromJSON ActionRevision where
                  ActionRevision' <$>
                    (x .:? "revisionChangeId") <*> (x .: "revisionId")
                      <*> (x .: "created"))
+
+instance Hashable ActionRevision
 
 instance ToJSON ActionRevision where
         toJSON ActionRevision'{..}
@@ -560,6 +574,8 @@ instance FromJSON ActionState where
                      <*> (x .:? "currentRevision")
                      <*> (x .:? "latestExecution"))
 
+instance Hashable ActionState
+
 -- | Returns information about the details of an action type.
 --
 -- /See:/ 'actionType' smart constructor.
@@ -629,6 +645,8 @@ instance FromJSON ActionType where
                      <*> (x .: "inputArtifactDetails")
                      <*> (x .: "outputArtifactDetails"))
 
+instance Hashable ActionType
+
 -- | Represents information about an action type.
 --
 -- /See:/ 'actionTypeId' smart constructor.
@@ -693,6 +711,8 @@ instance FromJSON ActionTypeId where
                    (x .: "category") <*> (x .: "owner") <*>
                      (x .: "provider")
                      <*> (x .: "version"))
+
+instance Hashable ActionTypeId
 
 instance ToJSON ActionTypeId where
         toJSON ActionTypeId'{..}
@@ -771,6 +791,8 @@ instance FromJSON ActionTypeSettings where
                      <*> (x .:? "revisionUrlTemplate")
                      <*> (x .:? "entityUrlTemplate"))
 
+instance Hashable ActionTypeSettings
+
 instance ToJSON ActionTypeSettings where
         toJSON ActionTypeSettings'{..}
           = object
@@ -832,6 +854,8 @@ instance FromJSON Artifact where
                    (x .:? "location") <*> (x .:? "name") <*>
                      (x .:? "revision"))
 
+instance Hashable Artifact
+
 -- | Returns information about the details of an artifact.
 --
 -- /See:/ 'artifactDetails' smart constructor.
@@ -871,6 +895,8 @@ instance FromJSON ArtifactDetails where
               (\ x ->
                  ArtifactDetails' <$>
                    (x .: "minimumCount") <*> (x .: "maximumCount"))
+
+instance Hashable ArtifactDetails
 
 instance ToJSON ArtifactDetails where
         toJSON ArtifactDetails'{..}
@@ -916,6 +942,8 @@ instance FromJSON ArtifactLocation where
               (\ x ->
                  ArtifactLocation' <$>
                    (x .:? "s3Location") <*> (x .:? "type"))
+
+instance Hashable ArtifactLocation
 
 -- | The Amazon S3 location where artifacts are stored for the pipeline. If
 -- this Amazon S3 bucket is created manually, it must meet the requirements
@@ -971,6 +999,8 @@ instance FromJSON ArtifactStore where
                    (x .:? "encryptionKey") <*> (x .: "type") <*>
                      (x .: "location"))
 
+instance Hashable ArtifactStore
+
 instance ToJSON ArtifactStore where
         toJSON ArtifactStore'{..}
           = object
@@ -1019,6 +1049,8 @@ instance FromJSON BlockerDeclaration where
                  BlockerDeclaration' <$>
                    (x .: "name") <*> (x .: "type"))
 
+instance Hashable BlockerDeclaration
+
 instance ToJSON BlockerDeclaration where
         toJSON BlockerDeclaration'{..}
           = object
@@ -1057,6 +1089,8 @@ crRevision = lens _crRevision (\ s a -> s{_crRevision = a});
 -- | The change identifier for the current revision.
 crChangeIdentifier :: Lens' CurrentRevision Text
 crChangeIdentifier = lens _crChangeIdentifier (\ s a -> s{_crChangeIdentifier = a});
+
+instance Hashable CurrentRevision
 
 instance ToJSON CurrentRevision where
         toJSON CurrentRevision'{..}
@@ -1105,6 +1139,8 @@ instance FromJSON EncryptionKey where
               (\ x ->
                  EncryptionKey' <$> (x .: "id") <*> (x .: "type"))
 
+instance Hashable EncryptionKey
+
 instance ToJSON EncryptionKey where
         toJSON EncryptionKey'{..}
           = object
@@ -1149,6 +1185,8 @@ instance FromJSON ErrorDetails where
                  ErrorDetails' <$>
                    (x .:? "code") <*> (x .:? "message"))
 
+instance Hashable ErrorDetails
+
 -- | The details of the actions taken and results produced on an artifact as
 -- it passes through stages in the pipeline.
 --
@@ -1190,6 +1228,8 @@ edExternalExecutionId = lens _edExternalExecutionId (\ s a -> s{_edExternalExecu
 -- of zero to one hundred percent.
 edPercentComplete :: Lens' ExecutionDetails (Maybe Natural)
 edPercentComplete = lens _edPercentComplete (\ s a -> s{_edPercentComplete = a}) . mapping _Nat;
+
+instance Hashable ExecutionDetails
 
 instance ToJSON ExecutionDetails where
         toJSON ExecutionDetails'{..}
@@ -1241,6 +1281,8 @@ fdType = lens _fdType (\ s a -> s{_fdType = a});
 fdMessage :: Lens' FailureDetails Text
 fdMessage = lens _fdMessage (\ s a -> s{_fdMessage = a});
 
+instance Hashable FailureDetails
+
 instance ToJSON FailureDetails where
         toJSON FailureDetails'{..}
           = object
@@ -1285,6 +1327,8 @@ instance FromJSON InputArtifact where
         parseJSON
           = withObject "InputArtifact"
               (\ x -> InputArtifact' <$> (x .: "name"))
+
+instance Hashable InputArtifact
 
 instance ToJSON InputArtifact where
         toJSON InputArtifact'{..}
@@ -1347,6 +1391,8 @@ instance FromJSON Job where
                    (x .:? "data") <*> (x .:? "accountId") <*>
                      (x .:? "id")
                      <*> (x .:? "nonce"))
+
+instance Hashable Job
 
 -- | Represents additional information about a job required for a job worker
 -- to complete the job.
@@ -1443,6 +1489,8 @@ instance FromJSON JobData where
                      <*> (x .:? "inputArtifacts" .!= mempty)
                      <*> (x .:? "actionConfiguration"))
 
+instance Hashable JobData
+
 -- | Represents information about the details of a job.
 --
 -- /See:/ 'jobDetails' smart constructor.
@@ -1490,6 +1538,8 @@ instance FromJSON JobDetails where
                    (x .:? "data") <*> (x .:? "accountId") <*>
                      (x .:? "id"))
 
+instance Hashable JobDetails
+
 -- | Represents information about the output of an action.
 --
 -- /See:/ 'outputArtifact' smart constructor.
@@ -1526,6 +1576,8 @@ instance FromJSON OutputArtifact where
         parseJSON
           = withObject "OutputArtifact"
               (\ x -> OutputArtifact' <$> (x .: "name"))
+
+instance Hashable OutputArtifact
 
 instance ToJSON OutputArtifact where
         toJSON OutputArtifact'{..}
@@ -1579,6 +1631,8 @@ instance FromJSON PipelineContext where
                  PipelineContext' <$>
                    (x .:? "stage") <*> (x .:? "pipelineName") <*>
                      (x .:? "action"))
+
+instance Hashable PipelineContext
 
 -- | Represents the structure of actions and stages to be performed in the
 -- pipeline.
@@ -1653,6 +1707,8 @@ instance FromJSON PipelineDeclaration where
                      <*> (x .: "artifactStore")
                      <*> (x .:? "stages" .!= mempty))
 
+instance Hashable PipelineDeclaration
+
 instance ToJSON PipelineDeclaration where
         toJSON PipelineDeclaration'{..}
           = object
@@ -1720,6 +1776,8 @@ instance FromJSON PipelineSummary where
                      (x .:? "version")
                      <*> (x .:? "updated"))
 
+instance Hashable PipelineSummary
+
 -- | The location of the Amazon S3 bucket that contains a revision.
 --
 -- /See:/ 's3ArtifactLocation' smart constructor.
@@ -1761,6 +1819,8 @@ instance FromJSON S3ArtifactLocation where
                  S3ArtifactLocation' <$>
                    (x .: "bucketName") <*> (x .: "objectKey"))
 
+instance Hashable S3ArtifactLocation
+
 -- | Represents information about a stage to a job worker.
 --
 -- /See:/ 'stageContext' smart constructor.
@@ -1788,6 +1848,8 @@ instance FromJSON StageContext where
         parseJSON
           = withObject "StageContext"
               (\ x -> StageContext' <$> (x .:? "name"))
+
+instance Hashable StageContext
 
 -- | Represents information about a stage and its definition.
 --
@@ -1836,6 +1898,8 @@ instance FromJSON StageDeclaration where
                  StageDeclaration' <$>
                    (x .:? "blockers" .!= mempty) <*> (x .: "name") <*>
                      (x .:? "actions" .!= mempty))
+
+instance Hashable StageDeclaration
 
 instance ToJSON StageDeclaration where
         toJSON StageDeclaration'{..}
@@ -1894,6 +1958,8 @@ instance FromJSON StageState where
                      (x .:? "actionStates" .!= mempty)
                      <*> (x .:? "stageName"))
 
+instance Hashable StageState
+
 -- | A response to a PollForThirdPartyJobs request returned by AWS
 -- CodePipeline when there is a job to be worked upon by a partner action.
 --
@@ -1934,6 +2000,8 @@ instance FromJSON ThirdPartyJob where
               (\ x ->
                  ThirdPartyJob' <$>
                    (x .:? "clientId") <*> (x .:? "jobId"))
+
+instance Hashable ThirdPartyJob
 
 -- | Represents information about the job data for a partner action.
 --
@@ -2036,6 +2104,8 @@ instance FromJSON ThirdPartyJobData where
                      <*> (x .:? "inputArtifacts" .!= mempty)
                      <*> (x .:? "actionConfiguration"))
 
+instance Hashable ThirdPartyJobData
+
 -- | The details of a job sent in response to a GetThirdPartyJobDetails
 -- request.
 --
@@ -2084,6 +2154,8 @@ instance FromJSON ThirdPartyJobDetails where
               (\ x ->
                  ThirdPartyJobDetails' <$>
                    (x .:? "data") <*> (x .:? "id") <*> (x .:? "nonce"))
+
+instance Hashable ThirdPartyJobDetails
 
 -- | Represents information about the state of transitions between one stage
 -- and another stage.
@@ -2143,3 +2215,5 @@ instance FromJSON TransitionState where
                    (x .:? "enabled") <*> (x .:? "disabledReason") <*>
                      (x .:? "lastChangedAt")
                      <*> (x .:? "lastChangedBy"))
+
+instance Hashable TransitionState

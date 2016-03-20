@@ -94,6 +94,8 @@ instance AWSRequest DeleteRepository where
                  DeleteRepositoryResponse' <$>
                    (x .?> "repository") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteRepository
+
 instance ToHeaders DeleteRepository where
         toHeaders
           = const

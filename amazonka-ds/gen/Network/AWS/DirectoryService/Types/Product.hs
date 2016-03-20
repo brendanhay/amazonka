@@ -58,6 +58,8 @@ instance FromJSON Attribute where
               (\ x ->
                  Attribute' <$> (x .:? "Value") <*> (x .:? "Name"))
 
+instance Hashable Attribute
+
 instance ToJSON Attribute where
         toJSON Attribute'{..}
           = object
@@ -112,6 +114,8 @@ instance FromJSON Computer where
                    (x .:? "ComputerId") <*>
                      (x .:? "ComputerAttributes" .!= mempty)
                      <*> (x .:? "ComputerName"))
+
+instance Hashable Computer
 
 -- | Contains information for the < ConnectDirectory> operation when an AD
 -- Connector directory is being created.
@@ -170,6 +174,8 @@ dcsCustomerDNSIPs = lens _dcsCustomerDNSIPs (\ s a -> s{_dcsCustomerDNSIPs = a})
 -- -   Join computers to the domain
 dcsCustomerUserName :: Lens' DirectoryConnectSettings Text
 dcsCustomerUserName = lens _dcsCustomerUserName (\ s a -> s{_dcsCustomerUserName = a});
+
+instance Hashable DirectoryConnectSettings
 
 instance ToJSON DirectoryConnectSettings where
         toJSON DirectoryConnectSettings'{..}
@@ -255,6 +261,8 @@ instance FromJSON DirectoryConnectSettingsDescription
                      <*> (x .:? "SecurityGroupId")
                      <*> (x .:? "ConnectIps" .!= mempty)
                      <*> (x .:? "AvailabilityZones" .!= mempty))
+
+instance Hashable DirectoryConnectSettingsDescription
 
 -- | Contains information about an AWS Directory Service directory.
 --
@@ -453,6 +461,8 @@ instance FromJSON DirectoryDescription where
                      <*> (x .:? "ConnectSettings")
                      <*> (x .:? "Description"))
 
+instance Hashable DirectoryDescription
+
 -- | Contains directory limit information for a region.
 --
 -- /See:/ 'directoryLimits' smart constructor.
@@ -555,6 +565,8 @@ instance FromJSON DirectoryLimits where
                      <*> (x .:? "CloudOnlyDirectoriesLimitReached")
                      <*> (x .:? "CloudOnlyMicrosoftADCurrentCount"))
 
+instance Hashable DirectoryLimits
+
 -- | Contains VPC information for the < CreateDirectory> or
 -- < CreateMicrosoftAD> operation.
 --
@@ -589,6 +601,8 @@ dvsVPCId = lens _dvsVPCId (\ s a -> s{_dvsVPCId = a});
 -- creates a directory server and a DNS server in each of these subnets.
 dvsSubnetIds :: Lens' DirectoryVPCSettings [Text]
 dvsSubnetIds = lens _dvsSubnetIds (\ s a -> s{_dvsSubnetIds = a}) . _Coerce;
+
+instance Hashable DirectoryVPCSettings
 
 instance ToJSON DirectoryVPCSettings where
         toJSON DirectoryVPCSettings'{..}
@@ -656,6 +670,8 @@ instance FromJSON DirectoryVPCSettingsDescription
                    (x .:? "SubnetIds" .!= mempty) <*> (x .:? "VpcId")
                      <*> (x .:? "SecurityGroupId")
                      <*> (x .:? "AvailabilityZones" .!= mempty))
+
+instance Hashable DirectoryVPCSettingsDescription
 
 -- | Information about SNS topic and AWS Directory Service directory
 -- associations.
@@ -725,6 +741,8 @@ instance FromJSON EventTopic where
                      (x .:? "TopicName")
                      <*> (x .:? "TopicArn")
                      <*> (x .:? "CreatedDateTime"))
+
+instance Hashable EventTopic
 
 -- | Contains information about a Remote Authentication Dial In User Service
 -- (RADIUS) server.
@@ -825,6 +843,8 @@ instance FromJSON RadiusSettings where
                      <*> (x .:? "RadiusTimeout")
                      <*> (x .:? "RadiusPort"))
 
+instance Hashable RadiusSettings
+
 instance ToJSON RadiusSettings where
         toJSON RadiusSettings'{..}
           = object
@@ -913,6 +933,8 @@ instance FromJSON Snapshot where
                      <*> (x .:? "Type")
                      <*> (x .:? "SnapshotId"))
 
+instance Hashable Snapshot
+
 -- | Contains manual snapshot limit information for a directory.
 --
 -- /See:/ 'snapshotLimits' smart constructor.
@@ -960,6 +982,8 @@ instance FromJSON SnapshotLimits where
                    (x .:? "ManualSnapshotsLimitReached") <*>
                      (x .:? "ManualSnapshotsCurrentCount")
                      <*> (x .:? "ManualSnapshotsLimit"))
+
+instance Hashable SnapshotLimits
 
 -- | Describes a trust relationship between an Microsoft AD in the AWS cloud
 -- and an external domain.
@@ -1064,3 +1088,5 @@ instance FromJSON Trust where
                      <*> (x .:? "RemoteDomainName")
                      <*> (x .:? "TrustId")
                      <*> (x .:? "CreatedDateTime"))
+
+instance Hashable Trust

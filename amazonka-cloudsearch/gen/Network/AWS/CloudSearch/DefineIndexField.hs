@@ -95,6 +95,8 @@ instance AWSRequest DefineIndexField where
                  DefineIndexFieldResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "IndexField"))
 
+instance Hashable DefineIndexField
+
 instance ToHeaders DefineIndexField where
         toHeaders = const mempty
 

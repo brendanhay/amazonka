@@ -119,6 +119,8 @@ instance AWSRequest EnableSnapshotCopy where
                  EnableSnapshotCopyResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
+instance Hashable EnableSnapshotCopy
+
 instance ToHeaders EnableSnapshotCopy where
         toHeaders = const mempty
 

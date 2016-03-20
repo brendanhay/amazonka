@@ -91,6 +91,8 @@ instance AWSRequest UpdateRDSDBInstance where
         request = postJSON opsWorks
         response = receiveNull UpdateRDSDBInstanceResponse'
 
+instance Hashable UpdateRDSDBInstance
+
 instance ToHeaders UpdateRDSDBInstance where
         toHeaders
           = const

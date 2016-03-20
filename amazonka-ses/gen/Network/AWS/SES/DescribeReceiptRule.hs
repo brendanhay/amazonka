@@ -89,6 +89,8 @@ instance AWSRequest DescribeReceiptRule where
                  DescribeReceiptRuleResponse' <$>
                    (x .@? "Rule") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeReceiptRule
+
 instance ToHeaders DescribeReceiptRule where
         toHeaders = const mempty
 

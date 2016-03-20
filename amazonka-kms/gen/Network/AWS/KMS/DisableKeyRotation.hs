@@ -73,6 +73,8 @@ instance AWSRequest DisableKeyRotation where
         request = postJSON kMS
         response = receiveNull DisableKeyRotationResponse'
 
+instance Hashable DisableKeyRotation
+
 instance ToHeaders DisableKeyRotation where
         toHeaders
           = const

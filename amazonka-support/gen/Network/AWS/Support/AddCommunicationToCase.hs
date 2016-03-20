@@ -116,6 +116,8 @@ instance AWSRequest AddCommunicationToCase where
                  AddCommunicationToCaseResponse' <$>
                    (x .?> "result") <*> (pure (fromEnum s)))
 
+instance Hashable AddCommunicationToCase
+
 instance ToHeaders AddCommunicationToCase where
         toHeaders
           = const

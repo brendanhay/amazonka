@@ -122,6 +122,8 @@ instance AWSRequest CreateDHCPOptions where
                  CreateDHCPOptionsResponse' <$>
                    (x .@? "dhcpOptions") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDHCPOptions
+
 instance ToHeaders CreateDHCPOptions where
         toHeaders = const mempty
 

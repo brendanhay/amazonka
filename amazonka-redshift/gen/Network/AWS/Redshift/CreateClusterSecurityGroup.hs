@@ -112,6 +112,8 @@ instance AWSRequest CreateClusterSecurityGroup where
                    (x .@? "ClusterSecurityGroup") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateClusterSecurityGroup
+
 instance ToHeaders CreateClusterSecurityGroup where
         toHeaders = const mempty
 

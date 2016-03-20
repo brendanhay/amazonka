@@ -79,6 +79,8 @@ instance AWSRequest DeleteDistribution where
         request = delete cloudFront
         response = receiveNull DeleteDistributionResponse'
 
+instance Hashable DeleteDistribution
+
 instance ToHeaders DeleteDistribution where
         toHeaders DeleteDistribution'{..}
           = mconcat ["If-Match" =# _ddIfMatch]

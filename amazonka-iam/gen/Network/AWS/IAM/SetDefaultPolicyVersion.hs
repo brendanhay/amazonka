@@ -91,6 +91,8 @@ instance AWSRequest SetDefaultPolicyVersion where
         response
           = receiveNull SetDefaultPolicyVersionResponse'
 
+instance Hashable SetDefaultPolicyVersion
+
 instance ToHeaders SetDefaultPolicyVersion where
         toHeaders = const mempty
 

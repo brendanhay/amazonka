@@ -104,6 +104,8 @@ instance AWSRequest ListRuleNamesByTarget where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListRuleNamesByTarget
+
 instance ToHeaders ListRuleNamesByTarget where
         toHeaders
           = const

@@ -125,6 +125,8 @@ instance AWSRequest DescribeTapes where
                    (x .?> "Marker") <*> (x .?> "Tapes" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeTapes
+
 instance ToHeaders DescribeTapes where
         toHeaders
           = const

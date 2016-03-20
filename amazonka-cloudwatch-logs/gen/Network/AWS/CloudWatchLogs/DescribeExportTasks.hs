@@ -116,6 +116,8 @@ instance AWSRequest DescribeExportTasks where
                      (x .?> "exportTasks" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeExportTasks
+
 instance ToHeaders DescribeExportTasks where
         toHeaders
           = const

@@ -94,6 +94,8 @@ instance AWSRequest ListTagsForResources where
                      (x .@? "ResourceTagSets" .!@ mempty >>=
                         parseXMLList "ResourceTagSet"))
 
+instance Hashable ListTagsForResources
+
 instance ToElement ListTagsForResources where
         toElement
           = mkElement

@@ -116,6 +116,8 @@ instance AWSRequest EnableLogging where
           = receiveXMLWrapper "EnableLoggingResult"
               (\ s h x -> parseXML x)
 
+instance Hashable EnableLogging
+
 instance ToHeaders EnableLogging where
         toHeaders = const mempty
 

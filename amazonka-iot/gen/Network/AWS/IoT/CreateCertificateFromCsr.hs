@@ -133,6 +133,8 @@ instance AWSRequest CreateCertificateFromCsr where
                      <*> (x .?> "certificateId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateCertificateFromCsr
+
 instance ToHeaders CreateCertificateFromCsr where
         toHeaders = const mempty
 

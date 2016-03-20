@@ -90,6 +90,8 @@ instance AWSRequest UpdateCertificate where
         request = putJSON ioT
         response = receiveNull UpdateCertificateResponse'
 
+instance Hashable UpdateCertificate
+
 instance ToHeaders UpdateCertificate where
         toHeaders = const mempty
 

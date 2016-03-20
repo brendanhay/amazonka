@@ -69,6 +69,8 @@ instance AWSRequest DeleteTopic where
         request = postQuery sNS
         response = receiveNull DeleteTopicResponse'
 
+instance Hashable DeleteTopic
+
 instance ToHeaders DeleteTopic where
         toHeaders = const mempty
 

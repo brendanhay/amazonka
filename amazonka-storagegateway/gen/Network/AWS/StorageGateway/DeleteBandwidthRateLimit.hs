@@ -88,6 +88,8 @@ instance AWSRequest DeleteBandwidthRateLimit where
                  DeleteBandwidthRateLimitResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteBandwidthRateLimit
+
 instance ToHeaders DeleteBandwidthRateLimit where
         toHeaders
           = const

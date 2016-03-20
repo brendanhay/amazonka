@@ -82,6 +82,8 @@ instance AWSRequest DetachPrincipalPolicy where
         request = delete ioT
         response = receiveNull DetachPrincipalPolicyResponse'
 
+instance Hashable DetachPrincipalPolicy
+
 instance ToHeaders DetachPrincipalPolicy where
         toHeaders DetachPrincipalPolicy'{..}
           = mconcat ["x-amzn-iot-principal" =# _dppPrincipal]

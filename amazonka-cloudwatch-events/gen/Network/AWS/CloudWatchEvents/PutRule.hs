@@ -140,6 +140,8 @@ instance AWSRequest PutRule where
                  PutRuleResponse' <$>
                    (x .?> "RuleArn") <*> (pure (fromEnum s)))
 
+instance Hashable PutRule
+
 instance ToHeaders PutRule where
         toHeaders
           = const

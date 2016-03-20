@@ -95,6 +95,8 @@ instance AWSRequest ModifyHosts where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ModifyHosts
+
 instance ToHeaders ModifyHosts where
         toHeaders = const mempty
 

@@ -119,6 +119,8 @@ instance AWSRequest DescribeTableRestoreStatus where
                         may (parseXMLList "TableRestoreStatus"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTableRestoreStatus
+
 instance ToHeaders DescribeTableRestoreStatus where
         toHeaders = const mempty
 

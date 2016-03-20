@@ -98,6 +98,8 @@ instance AWSRequest AddTagsToVault where
         request = postJSON glacier
         response = receiveNull AddTagsToVaultResponse'
 
+instance Hashable AddTagsToVault
+
 instance ToHeaders AddTagsToVault where
         toHeaders = const mempty
 

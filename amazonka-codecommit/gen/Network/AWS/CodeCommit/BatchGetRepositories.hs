@@ -85,6 +85,8 @@ instance AWSRequest BatchGetRepositories where
                      (x .?> "repositoriesNotFound" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable BatchGetRepositories
+
 instance ToHeaders BatchGetRepositories where
         toHeaders
           = const

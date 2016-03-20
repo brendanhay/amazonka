@@ -109,6 +109,8 @@ instance AWSRequest DisassociateVPCFromHostedZone
                  DisassociateVPCFromHostedZoneResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
+instance Hashable DisassociateVPCFromHostedZone
+
 instance ToElement DisassociateVPCFromHostedZone
          where
         toElement

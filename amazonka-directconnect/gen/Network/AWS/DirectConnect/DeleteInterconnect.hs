@@ -76,6 +76,8 @@ instance AWSRequest DeleteInterconnect where
                  DeleteInterconnectResponse' <$>
                    (x .?> "interconnectState") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteInterconnect
+
 instance ToHeaders DeleteInterconnect where
         toHeaders
           = const

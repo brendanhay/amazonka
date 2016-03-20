@@ -86,6 +86,8 @@ instance AWSRequest DescribePipelines where
                    (pure (fromEnum s)) <*>
                      (x .?> "pipelineDescriptionList" .!@ mempty))
 
+instance Hashable DescribePipelines
+
 instance ToHeaders DescribePipelines where
         toHeaders
           = const

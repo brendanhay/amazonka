@@ -125,6 +125,8 @@ instance AWSRequest PutLogEvents where
                      (x .?> "nextSequenceToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable PutLogEvents
+
 instance ToHeaders PutLogEvents where
         toHeaders
           = const

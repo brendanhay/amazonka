@@ -95,6 +95,8 @@ instance AWSRequest PutThirdPartyJobFailureResult
         response
           = receiveNull PutThirdPartyJobFailureResultResponse'
 
+instance Hashable PutThirdPartyJobFailureResult
+
 instance ToHeaders PutThirdPartyJobFailureResult
          where
         toHeaders

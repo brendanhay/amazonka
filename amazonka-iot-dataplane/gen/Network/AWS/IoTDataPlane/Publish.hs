@@ -90,6 +90,8 @@ instance AWSRequest Publish where
         request = postBody ioTDataPlane
         response = receiveNull PublishResponse'
 
+instance Hashable Publish
+
 instance ToBody Publish where
         toBody = toBody . _pPayload
 

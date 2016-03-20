@@ -99,6 +99,8 @@ instance AWSRequest PurchaseReservedNodeOffering
                  PurchaseReservedNodeOfferingResponse' <$>
                    (x .@? "ReservedNode") <*> (pure (fromEnum s)))
 
+instance Hashable PurchaseReservedNodeOffering
+
 instance ToHeaders PurchaseReservedNodeOffering where
         toHeaders = const mempty
 

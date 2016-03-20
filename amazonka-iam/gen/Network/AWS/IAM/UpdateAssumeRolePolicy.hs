@@ -80,6 +80,8 @@ instance AWSRequest UpdateAssumeRolePolicy where
         response
           = receiveNull UpdateAssumeRolePolicyResponse'
 
+instance Hashable UpdateAssumeRolePolicy
+
 instance ToHeaders UpdateAssumeRolePolicy where
         toHeaders = const mempty
 

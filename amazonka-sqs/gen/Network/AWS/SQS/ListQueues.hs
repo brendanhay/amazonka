@@ -77,6 +77,8 @@ instance AWSRequest ListQueues where
                    (may (parseXMLList "QueueUrl") x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable ListQueues
+
 instance ToHeaders ListQueues where
         toHeaders = const mempty
 

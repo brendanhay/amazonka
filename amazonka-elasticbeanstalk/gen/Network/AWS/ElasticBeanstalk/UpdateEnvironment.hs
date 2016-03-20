@@ -220,6 +220,8 @@ instance AWSRequest UpdateEnvironment where
           = receiveXMLWrapper "UpdateEnvironmentResult"
               (\ s h x -> parseXML x)
 
+instance Hashable UpdateEnvironment
+
 instance ToHeaders UpdateEnvironment where
         toHeaders = const mempty
 

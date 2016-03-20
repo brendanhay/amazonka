@@ -103,6 +103,8 @@ instance AWSRequest ListFleets where
                    (x .?> "NextToken") <*> (x .?> "FleetIds") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ListFleets
+
 instance ToHeaders ListFleets where
         toHeaders
           = const

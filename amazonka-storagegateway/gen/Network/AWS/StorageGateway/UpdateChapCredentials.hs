@@ -128,6 +128,8 @@ instance AWSRequest UpdateChapCredentials where
                    (x .?> "TargetARN") <*> (x .?> "InitiatorName") <*>
                      (pure (fromEnum s)))
 
+instance Hashable UpdateChapCredentials
+
 instance ToHeaders UpdateChapCredentials where
         toHeaders
           = const

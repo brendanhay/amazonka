@@ -84,6 +84,8 @@ instance AWSRequest DescribeEventCategories where
                       may (parseXMLList "EventCategoriesMap"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeEventCategories
+
 instance ToHeaders DescribeEventCategories where
         toHeaders = const mempty
 

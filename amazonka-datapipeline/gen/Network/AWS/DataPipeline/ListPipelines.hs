@@ -92,6 +92,8 @@ instance AWSRequest ListPipelines where
                      (pure (fromEnum s))
                      <*> (x .?> "pipelineIdList" .!@ mempty))
 
+instance Hashable ListPipelines
+
 instance ToHeaders ListPipelines where
         toHeaders
           = const

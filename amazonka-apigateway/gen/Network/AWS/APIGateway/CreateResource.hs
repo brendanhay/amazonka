@@ -94,6 +94,8 @@ instance AWSRequest CreateResource where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateResource
+
 instance ToHeaders CreateResource where
         toHeaders
           = const

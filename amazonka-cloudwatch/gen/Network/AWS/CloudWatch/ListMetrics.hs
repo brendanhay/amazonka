@@ -125,6 +125,8 @@ instance AWSRequest ListMetrics where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListMetrics
+
 instance ToHeaders ListMetrics where
         toHeaders = const mempty
 

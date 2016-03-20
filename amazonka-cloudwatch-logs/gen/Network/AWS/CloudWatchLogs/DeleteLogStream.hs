@@ -77,6 +77,8 @@ instance AWSRequest DeleteLogStream where
         request = postJSON cloudWatchLogs
         response = receiveNull DeleteLogStreamResponse'
 
+instance Hashable DeleteLogStream
+
 instance ToHeaders DeleteLogStream where
         toHeaders
           = const

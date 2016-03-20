@@ -74,6 +74,8 @@ instance AWSRequest DescribeAssessment where
                  DescribeAssessmentResponse' <$>
                    (x .?> "assessment") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAssessment
+
 instance ToHeaders DescribeAssessment where
         toHeaders
           = const

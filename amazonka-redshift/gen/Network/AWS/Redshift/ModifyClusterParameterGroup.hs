@@ -96,6 +96,8 @@ instance AWSRequest ModifyClusterParameterGroup where
               "ModifyClusterParameterGroupResult"
               (\ s h x -> parseXML x)
 
+instance Hashable ModifyClusterParameterGroup
+
 instance ToHeaders ModifyClusterParameterGroup where
         toHeaders = const mempty
 

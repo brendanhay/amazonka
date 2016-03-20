@@ -97,6 +97,8 @@ instance AWSRequest SetInstanceProtection where
                  SetInstanceProtectionResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable SetInstanceProtection
+
 instance ToHeaders SetInstanceProtection where
         toHeaders = const mempty
 

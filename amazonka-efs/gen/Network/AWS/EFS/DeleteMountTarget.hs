@@ -91,6 +91,8 @@ instance AWSRequest DeleteMountTarget where
         request = delete eFS
         response = receiveNull DeleteMountTargetResponse'
 
+instance Hashable DeleteMountTarget
+
 instance ToHeaders DeleteMountTarget where
         toHeaders = const mempty
 

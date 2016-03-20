@@ -94,6 +94,8 @@ instance AWSRequest DescribeDomain where
                    (pure (fromEnum s)) <*> (x .:> "domainInfo") <*>
                      (x .:> "configuration"))
 
+instance Hashable DescribeDomain
+
 instance ToHeaders DescribeDomain where
         toHeaders
           = const

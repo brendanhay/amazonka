@@ -102,6 +102,8 @@ instance AWSRequest ConfirmPrivateVirtualInterface
                    (x .?> "virtualInterfaceState") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ConfirmPrivateVirtualInterface
+
 instance ToHeaders ConfirmPrivateVirtualInterface
          where
         toHeaders

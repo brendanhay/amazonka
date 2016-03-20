@@ -75,6 +75,8 @@ instance AWSRequest DescribeTags where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTags
+
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
 

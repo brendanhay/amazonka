@@ -68,6 +68,8 @@ instance AWSRequest DeleteAPIKey where
         request = delete aPIGateway
         response = receiveNull DeleteAPIKeyResponse'
 
+instance Hashable DeleteAPIKey
+
 instance ToHeaders DeleteAPIKey where
         toHeaders
           = const

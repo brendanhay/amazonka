@@ -92,6 +92,8 @@ instance AWSRequest ListWebACLs where
                    (x .?> "WebACLs" .!@ mempty) <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListWebACLs
+
 instance ToHeaders ListWebACLs where
         toHeaders
           = const

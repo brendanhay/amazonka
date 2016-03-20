@@ -85,6 +85,8 @@ instance AWSRequest PutBucketTagging where
         request = contentMD5 . putXML s3
         response = receiveNull PutBucketTaggingResponse'
 
+instance Hashable PutBucketTagging
+
 instance ToElement PutBucketTagging where
         toElement
           = mkElement

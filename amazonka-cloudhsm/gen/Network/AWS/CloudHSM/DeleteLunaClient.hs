@@ -73,6 +73,8 @@ instance AWSRequest DeleteLunaClient where
                  DeleteLunaClientResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Status"))
 
+instance Hashable DeleteLunaClient
+
 instance ToHeaders DeleteLunaClient where
         toHeaders
           = const

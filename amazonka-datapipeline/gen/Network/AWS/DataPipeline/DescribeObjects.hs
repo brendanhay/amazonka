@@ -124,6 +124,8 @@ instance AWSRequest DescribeObjects where
                      (pure (fromEnum s))
                      <*> (x .?> "pipelineObjects" .!@ mempty))
 
+instance Hashable DescribeObjects
+
 instance ToHeaders DescribeObjects where
         toHeaders
           = const

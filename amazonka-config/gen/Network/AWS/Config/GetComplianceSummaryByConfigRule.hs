@@ -63,6 +63,8 @@ instance AWSRequest GetComplianceSummaryByConfigRule
                  GetComplianceSummaryByConfigRuleResponse' <$>
                    (x .?> "ComplianceSummary") <*> (pure (fromEnum s)))
 
+instance Hashable GetComplianceSummaryByConfigRule
+
 instance ToHeaders GetComplianceSummaryByConfigRule
          where
         toHeaders

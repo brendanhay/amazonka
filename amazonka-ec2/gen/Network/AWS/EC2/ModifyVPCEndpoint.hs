@@ -125,6 +125,8 @@ instance AWSRequest ModifyVPCEndpoint where
                  ModifyVPCEndpointResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyVPCEndpoint
+
 instance ToHeaders ModifyVPCEndpoint where
         toHeaders = const mempty
 

@@ -86,6 +86,8 @@ instance AWSRequest ListLocalDisks where
                    (x .?> "GatewayARN") <*> (x .?> "Disks" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListLocalDisks
+
 instance ToHeaders ListLocalDisks where
         toHeaders
           = const

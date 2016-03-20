@@ -78,6 +78,8 @@ instance AWSRequest StartPipelineExecution where
                    (x .?> "pipelineExecutionId") <*>
                      (pure (fromEnum s)))
 
+instance Hashable StartPipelineExecution
+
 instance ToHeaders StartPipelineExecution where
         toHeaders
           = const

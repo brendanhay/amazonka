@@ -166,6 +166,8 @@ instance AWSRequest ListWorkflowTypes where
                    (x .?> "nextPageToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "typeInfos" .!@ mempty))
 
+instance Hashable ListWorkflowTypes
+
 instance ToHeaders ListWorkflowTypes where
         toHeaders
           = const

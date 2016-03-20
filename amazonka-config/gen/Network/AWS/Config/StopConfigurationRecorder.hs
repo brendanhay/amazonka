@@ -72,6 +72,8 @@ instance AWSRequest StopConfigurationRecorder where
         response
           = receiveNull StopConfigurationRecorderResponse'
 
+instance Hashable StopConfigurationRecorder
+
 instance ToHeaders StopConfigurationRecorder where
         toHeaders
           = const

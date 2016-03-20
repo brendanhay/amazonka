@@ -137,6 +137,8 @@ instance AWSRequest SignalWorkflowExecution where
         response
           = receiveNull SignalWorkflowExecutionResponse'
 
+instance Hashable SignalWorkflowExecution
+
 instance ToHeaders SignalWorkflowExecution where
         toHeaders
           = const

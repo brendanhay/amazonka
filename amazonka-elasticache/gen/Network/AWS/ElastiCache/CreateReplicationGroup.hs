@@ -414,6 +414,8 @@ instance AWSRequest CreateReplicationGroup where
                  CreateReplicationGroupResponse' <$>
                    (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
 
+instance Hashable CreateReplicationGroup
+
 instance ToHeaders CreateReplicationGroup where
         toHeaders = const mempty
 

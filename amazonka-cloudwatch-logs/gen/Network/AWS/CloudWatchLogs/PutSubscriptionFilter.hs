@@ -136,6 +136,8 @@ instance AWSRequest PutSubscriptionFilter where
         request = postJSON cloudWatchLogs
         response = receiveNull PutSubscriptionFilterResponse'
 
+instance Hashable PutSubscriptionFilter
+
 instance ToHeaders PutSubscriptionFilter where
         toHeaders
           = const

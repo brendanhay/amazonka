@@ -80,6 +80,8 @@ instance AWSRequest DescribeDeliveryChannels where
                    (x .?> "DeliveryChannels" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeDeliveryChannels
+
 instance ToHeaders DescribeDeliveryChannels where
         toHeaders
           = const

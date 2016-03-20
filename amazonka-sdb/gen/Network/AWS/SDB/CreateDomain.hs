@@ -76,6 +76,8 @@ instance AWSRequest CreateDomain where
         request = postQuery sDB
         response = receiveNull CreateDomainResponse'
 
+instance Hashable CreateDomain
+
 instance ToHeaders CreateDomain where
         toHeaders = const mempty
 

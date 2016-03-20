@@ -90,6 +90,8 @@ instance AWSRequest ListTags where
                      (x .?> "ResourceTagList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListTags
+
 instance ToHeaders ListTags where
         toHeaders
           = const

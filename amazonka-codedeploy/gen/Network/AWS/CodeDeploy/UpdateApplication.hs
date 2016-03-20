@@ -76,6 +76,8 @@ instance AWSRequest UpdateApplication where
         request = postJSON codeDeploy
         response = receiveNull UpdateApplicationResponse'
 
+instance Hashable UpdateApplication
+
 instance ToHeaders UpdateApplication where
         toHeaders
           = const

@@ -93,6 +93,8 @@ instance AWSRequest DetachLoadBalancerFromSubnets
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DetachLoadBalancerFromSubnets
+
 instance ToHeaders DetachLoadBalancerFromSubnets
          where
         toHeaders = const mempty

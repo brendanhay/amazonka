@@ -85,6 +85,8 @@ instance AWSRequest UpdateThing where
               (\ s h x ->
                  UpdateThingResponse' <$> (pure (fromEnum s)))
 
+instance Hashable UpdateThing
+
 instance ToHeaders UpdateThing where
         toHeaders = const mempty
 

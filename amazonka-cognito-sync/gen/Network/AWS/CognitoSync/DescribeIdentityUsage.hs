@@ -94,6 +94,8 @@ instance AWSRequest DescribeIdentityUsage where
                  DescribeIdentityUsageResponse' <$>
                    (x .?> "IdentityUsage") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeIdentityUsage
+
 instance ToHeaders DescribeIdentityUsage where
         toHeaders
           = const

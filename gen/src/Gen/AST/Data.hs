@@ -42,7 +42,6 @@ import qualified Data.Text.Lazy.Builder       as Build
 import           Gen.AST.Data.Field
 import           Gen.AST.Data.Instance
 import           Gen.AST.Data.Syntax
-import           Gen.AST.TypeOf
 import           Gen.Formatting
 import           Gen.Types
 import           HIndent
@@ -61,7 +60,7 @@ operationData cfg m o = do
     (xd, xs) <- prodData m xa x
     (yd, ys) <- prodData m ya y
 
-    is       <- requestInsts m (_opName o) h xr xs
+    is       <- instances xa <$> requestInsts m (_opName o) h xr xs
 
     cls      <- pp Print $ requestD cfg m h (xr, is) (yr, ys)
 
@@ -72,8 +71,8 @@ operationData cfg m o = do
         <$> renderInsts p xn is
 
     return $! o
-        { _opInput  = Identity $ Prod False (isEQ xa) xd is'
-        , _opOutput = Identity $ Prod (isShared ya) (isEQ ya) yd mempty
+        { _opInput  = Identity $ Prod (xa & relShared .~ 0) xd is'
+        , _opOutput = Identity $ Prod ya yd mempty
         }
   where
     struct (a :< Struct s) = Right (a, s)
@@ -83,10 +82,14 @@ operationData cfg m o = do
 
     p  = m ^. protocol
     h  = o ^. opHTTP
-
+      --
     xr = o ^. opInput  . _Identity
     yr = o ^. opOutput . _Identity
     xn = identifier xr
+
+    instances s is
+        | isHashable s = IsHashable : is
+        | otherwise    = is
 
 shapeData :: HasMetadata a Identity
           => a
@@ -97,11 +100,16 @@ shapeData m (a :< s) = case s of
     Enum   i vs            -> Just <$> sumData p a i vs
     Struct st              -> do
         (d, fs) <- prodData m a st
-        is      <- renderInsts p (a ^. annId) (shapeInsts p (a ^. relMode) fs)
-        return $! Just $ Prod (isShared a) (isEQ a) d is
+        is      <- renderInsts p (a ^. annId) (instances fs)
+        return $! Just $ Prod a d is
     _                -> return Nothing
   where
     p = m ^. protocol
+    r = a ^. relMode
+
+    instances fs
+        | isHashable a = IsHashable : shapeInsts p r fs
+        | otherwise    = shapeInsts p r fs
 
 errorData :: Solved -> Info -> Either Error SData
 errorData s i = Fun <$> mk
@@ -126,7 +134,7 @@ sumData :: Protocol
         -> Info
         -> Map Id Text
         -> Either Error SData
-sumData p s i vs = Sum (isShared s) <$> mk <*> (Map.keys <$> insts)
+sumData p s i vs = Sum s <$> mk <*> (Map.keys <$> insts)
   where
     mk = Sum' (typeId n) (i ^. infoDocumentation)
         <$> pp Indent decl

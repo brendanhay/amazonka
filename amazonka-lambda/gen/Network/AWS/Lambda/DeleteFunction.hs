@@ -112,6 +112,8 @@ instance AWSRequest DeleteFunction where
         request = delete lambda
         response = receiveNull DeleteFunctionResponse'
 
+instance Hashable DeleteFunction
+
 instance ToHeaders DeleteFunction where
         toHeaders = const mempty
 

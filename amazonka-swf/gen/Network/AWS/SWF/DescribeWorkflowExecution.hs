@@ -115,6 +115,8 @@ instance AWSRequest DescribeWorkflowExecution where
                      <*> (x .:> "executionConfiguration")
                      <*> (x .:> "openCounts"))
 
+instance Hashable DescribeWorkflowExecution
+
 instance ToHeaders DescribeWorkflowExecution where
         toHeaders
           = const

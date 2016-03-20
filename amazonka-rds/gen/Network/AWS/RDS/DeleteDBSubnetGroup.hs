@@ -79,6 +79,8 @@ instance AWSRequest DeleteDBSubnetGroup where
         request = postQuery rDS
         response = receiveNull DeleteDBSubnetGroupResponse'
 
+instance Hashable DeleteDBSubnetGroup
+
 instance ToHeaders DeleteDBSubnetGroup where
         toHeaders = const mempty
 

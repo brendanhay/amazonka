@@ -81,6 +81,8 @@ instance AWSRequest GetKeyRotationStatus where
                  GetKeyRotationStatusResponse' <$>
                    (x .?> "KeyRotationEnabled") <*> (pure (fromEnum s)))
 
+instance Hashable GetKeyRotationStatus
+
 instance ToHeaders GetKeyRotationStatus where
         toHeaders
           = const

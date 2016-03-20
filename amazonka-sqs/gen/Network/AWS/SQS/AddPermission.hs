@@ -134,6 +134,8 @@ instance AWSRequest AddPermission where
         request = postQuery sQS
         response = receiveNull AddPermissionResponse'
 
+instance Hashable AddPermission
+
 instance ToHeaders AddPermission where
         toHeaders = const mempty
 

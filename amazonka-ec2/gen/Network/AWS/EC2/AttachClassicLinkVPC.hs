@@ -119,6 +119,8 @@ instance AWSRequest AttachClassicLinkVPC where
                  AttachClassicLinkVPCResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
+instance Hashable AttachClassicLinkVPC
+
 instance ToHeaders AttachClassicLinkVPC where
         toHeaders = const mempty
 

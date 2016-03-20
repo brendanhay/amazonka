@@ -88,6 +88,8 @@ instance AWSRequest RegisterEventTopic where
               (\ s h x ->
                  RegisterEventTopicResponse' <$> (pure (fromEnum s)))
 
+instance Hashable RegisterEventTopic
+
 instance ToHeaders RegisterEventTopic where
         toHeaders
           = const

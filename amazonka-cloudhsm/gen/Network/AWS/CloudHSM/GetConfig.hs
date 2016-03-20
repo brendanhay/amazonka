@@ -98,6 +98,8 @@ instance AWSRequest GetConfig where
                      (x .?> "ConfigType")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetConfig
+
 instance ToHeaders GetConfig where
         toHeaders
           = const

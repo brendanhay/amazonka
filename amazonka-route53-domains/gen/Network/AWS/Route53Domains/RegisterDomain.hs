@@ -269,6 +269,8 @@ instance AWSRequest RegisterDomain where
                  RegisterDomainResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
+instance Hashable RegisterDomain
+
 instance ToHeaders RegisterDomain where
         toHeaders
           = const

@@ -75,6 +75,8 @@ instance AWSRequest GetByteMatchSet where
                  GetByteMatchSetResponse' <$>
                    (x .?> "ByteMatchSet") <*> (pure (fromEnum s)))
 
+instance Hashable GetByteMatchSet
+
 instance ToHeaders GetByteMatchSet where
         toHeaders
           = const

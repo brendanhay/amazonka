@@ -70,6 +70,8 @@ instance AWSRequest DeleteRetentionPolicy where
         request = postJSON cloudWatchLogs
         response = receiveNull DeleteRetentionPolicyResponse'
 
+instance Hashable DeleteRetentionPolicy
+
 instance ToHeaders DeleteRetentionPolicy where
         toHeaders
           = const

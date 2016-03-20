@@ -49,6 +49,8 @@ instance FromXML AccountWithRestoreAccess where
         parseXML x
           = AccountWithRestoreAccess' <$> (x .@? "AccountId")
 
+instance Hashable AccountWithRestoreAccess
+
 -- | Describes an availability zone.
 --
 -- /See:/ 'availabilityZone' smart constructor.
@@ -74,6 +76,8 @@ azName = lens _azName (\ s a -> s{_azName = a});
 
 instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
+
+instance Hashable AvailabilityZone
 
 -- | Describes a cluster.
 --
@@ -425,6 +429,8 @@ instance FromXML Cluster where
                    may (parseXMLList "member"))
                 <*> (x .@? "DBName")
 
+instance Hashable Cluster
+
 -- | The identifier of a node in a cluster.
 --
 -- /See:/ 'clusterNode' smart constructor.
@@ -469,6 +475,8 @@ instance FromXML ClusterNode where
           = ClusterNode' <$>
               (x .@? "NodeRole") <*> (x .@? "PrivateIPAddress") <*>
                 (x .@? "PublicIPAddress")
+
+instance Hashable ClusterNode
 
 -- | Describes a parameter group.
 --
@@ -528,6 +536,8 @@ instance FromXML ClusterParameterGroup where
                    may (parseXMLList "Tag"))
                 <*> (x .@? "ParameterGroupName")
 
+instance Hashable ClusterParameterGroup
+
 -- |
 --
 -- /See:/ 'clusterParameterGroupNameMessage' smart constructor.
@@ -567,6 +577,8 @@ instance FromXML ClusterParameterGroupNameMessage
           = ClusterParameterGroupNameMessage' <$>
               (x .@? "ParameterGroupStatus") <*>
                 (x .@? "ParameterGroupName")
+
+instance Hashable ClusterParameterGroupNameMessage
 
 -- | Describes the status of a parameter group.
 --
@@ -618,6 +630,8 @@ instance FromXML ClusterParameterGroupStatus where
                  may (parseXMLList "member"))
                 <*> (x .@? "ParameterApplyStatus")
                 <*> (x .@? "ParameterGroupName")
+
+instance Hashable ClusterParameterGroupStatus
 
 -- | Describes the status of a parameter group.
 --
@@ -682,6 +696,8 @@ instance FromXML ClusterParameterStatus where
               (x .@? "ParameterApplyErrorDescription") <*>
                 (x .@? "ParameterName")
                 <*> (x .@? "ParameterApplyStatus")
+
+instance Hashable ClusterParameterStatus
 
 -- | Describes a security group.
 --
@@ -755,6 +771,8 @@ instance FromXML ClusterSecurityGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
+instance Hashable ClusterSecurityGroup
+
 -- | Describes a cluster security group.
 --
 -- /See:/ 'clusterSecurityGroupMembership' smart constructor.
@@ -791,6 +809,8 @@ instance FromXML ClusterSecurityGroupMembership where
           = ClusterSecurityGroupMembership' <$>
               (x .@? "Status") <*>
                 (x .@? "ClusterSecurityGroupName")
+
+instance Hashable ClusterSecurityGroupMembership
 
 -- | Returns the destination region and retention period that are configured
 -- for cross-region snapshot copy.
@@ -840,6 +860,8 @@ instance FromXML ClusterSnapshotCopyStatus where
               (x .@? "RetentionPeriod") <*>
                 (x .@? "DestinationRegion")
                 <*> (x .@? "SnapshotCopyGrantName")
+
+instance Hashable ClusterSnapshotCopyStatus
 
 -- | Describes a subnet group.
 --
@@ -918,6 +940,8 @@ instance FromXML ClusterSubnetGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
+instance Hashable ClusterSubnetGroup
+
 -- | Describes a cluster version, including the parameter group family and
 -- description of the version.
 --
@@ -964,6 +988,8 @@ instance FromXML ClusterVersion where
               (x .@? "ClusterParameterGroupFamily") <*>
                 (x .@? "ClusterVersion")
                 <*> (x .@? "Description")
+
+instance Hashable ClusterVersion
 
 -- | Describes the default cluster parameters for a parameter group family.
 --
@@ -1017,6 +1043,8 @@ instance FromXML DefaultClusterParameters where
                 (x .@? "Parameters" .!@ mempty >>=
                    may (parseXMLList "Parameter"))
                 <*> (x .@? "ParameterGroupFamily")
+
+instance Hashable DefaultClusterParameters
 
 -- | Describes an Amazon EC2 security group.
 --
@@ -1076,6 +1104,8 @@ instance FromXML EC2SecurityGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
+instance Hashable EC2SecurityGroup
+
 -- | Describes the status of the elastic IP (EIP) address.
 --
 -- /See:/ 'elasticIPStatus' smart constructor.
@@ -1112,6 +1142,8 @@ instance FromXML ElasticIPStatus where
           = ElasticIPStatus' <$>
               (x .@? "Status") <*> (x .@? "ElasticIp")
 
+instance Hashable ElasticIPStatus
+
 -- | Describes a connection endpoint.
 --
 -- /See:/ 'endpoint' smart constructor.
@@ -1146,6 +1178,8 @@ ePort = lens _ePort (\ s a -> s{_ePort = a});
 instance FromXML Endpoint where
         parseXML x
           = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
+
+instance Hashable Endpoint
 
 -- | Describes an event.
 --
@@ -1234,6 +1268,8 @@ instance FromXML Event where
                 <*> (x .@? "Message")
                 <*> (x .@? "EventId")
 
+instance Hashable Event
+
 -- | Describes event categories.
 --
 -- /See:/ 'eventCategoriesMap' smart constructor.
@@ -1272,6 +1308,8 @@ instance FromXML EventCategoriesMap where
               (x .@? "SourceType") <*>
                 (x .@? "Events" .!@ mempty >>=
                    may (parseXMLList "EventInfoMap"))
+
+instance Hashable EventCategoriesMap
 
 -- | Describes event information.
 --
@@ -1329,6 +1367,8 @@ instance FromXML EventInfoMap where
                 (x .@? "EventCategories" .!@ mempty >>=
                    may (parseXMLList "EventCategory"))
                 <*> (x .@? "EventId")
+
+instance Hashable EventInfoMap
 
 -- | Describes event subscriptions.
 --
@@ -1474,6 +1514,8 @@ instance FromXML EventSubscription where
                 (x .@? "SourceIdsList" .!@ mempty >>=
                    may (parseXMLList "SourceId"))
 
+instance Hashable EventSubscription
+
 -- | Returns information about an HSM client certificate. The certificate is
 -- stored in a secure Hardware Storage Module (HSM), and used by the Amazon
 -- Redshift cluster to encrypt data files.
@@ -1524,6 +1566,8 @@ instance FromXML HSMClientCertificate where
                 <*>
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
+
+instance Hashable HSMClientCertificate
 
 -- | Returns information about an HSM configuration, which is an object that
 -- describes to Amazon Redshift clusters the information they require to
@@ -1595,6 +1639,8 @@ instance FromXML HSMConfiguration where
                    may (parseXMLList "Tag"))
                 <*> (x .@? "HsmIpAddress")
 
+instance Hashable HSMConfiguration
+
 -- | Describes the status of changes to HSM settings.
 --
 -- /See:/ 'hsmStatus' smart constructor.
@@ -1647,6 +1693,8 @@ instance FromXML HSMStatus where
                 (x .@? "HsmConfigurationIdentifier")
                 <*> (x .@? "HsmClientCertificateIdentifier")
 
+instance Hashable HSMStatus
+
 -- | Describes an IP range used in a security group.
 --
 -- /See:/ 'ipRange' smart constructor.
@@ -1692,6 +1740,8 @@ instance FromXML IPRange where
               (x .@? "Status") <*> (x .@? "CIDRIP") <*>
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
+
+instance Hashable IPRange
 
 -- | Describes the status of logging for a cluster.
 --
@@ -1766,6 +1816,8 @@ instance FromXML LoggingStatus where
                 <*> (x .@? "LoggingEnabled")
                 <*> (x .@? "LastFailureMessage")
 
+instance Hashable LoggingStatus
+
 -- | Describes an orderable cluster option.
 --
 -- /See:/ 'orderableClusterOption' smart constructor.
@@ -1821,6 +1873,8 @@ instance FromXML OrderableClusterOption where
                 <*> (x .@? "ClusterType")
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
+
+instance Hashable OrderableClusterOption
 
 -- | Describes a parameter in a cluster parameter group.
 --
@@ -1928,6 +1982,8 @@ instance FromXML Parameter where
                 <*> (x .@? "AllowedValues")
                 <*> (x .@? "ParameterName")
                 <*> (x .@? "Description")
+
+instance Hashable Parameter
 
 instance ToQuery Parameter where
         toQuery Parameter'{..}
@@ -2038,6 +2094,8 @@ instance FromXML PendingModifiedValues where
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
 
+instance Hashable PendingModifiedValues
+
 -- | Describes a recurring charge.
 --
 -- /See:/ 'recurringCharge' smart constructor.
@@ -2075,6 +2133,8 @@ instance FromXML RecurringCharge where
           = RecurringCharge' <$>
               (x .@? "RecurringChargeFrequency") <*>
                 (x .@? "RecurringChargeAmount")
+
+instance Hashable RecurringCharge
 
 -- | Describes a reserved node. You can call the
 -- < DescribeReservedNodeOfferings> API to obtain the available reserved
@@ -2216,6 +2276,8 @@ instance FromXML ReservedNode where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
+instance Hashable ReservedNode
+
 -- | Describes a reserved node offering.
 --
 -- /See:/ 'reservedNodeOffering' smart constructor.
@@ -2314,6 +2376,8 @@ instance FromXML ReservedNodeOffering where
                 <*> (x .@? "FixedPrice")
                 <*> (x .@? "Duration")
 
+instance Hashable ReservedNodeOffering
+
 -- | Describes the status of a cluster restore action. Returns null if the
 -- cluster was not created by restoring a snapshot.
 --
@@ -2392,6 +2456,8 @@ instance FromXML RestoreStatus where
                 <*> (x .@? "ProgressInMegaBytes")
                 <*> (x .@? "ElapsedTimeInSeconds")
                 <*> (x .@? "SnapshotSizeInMegaBytes")
+
+instance Hashable RestoreStatus
 
 -- | Describes a snapshot.
 --
@@ -2695,6 +2761,8 @@ instance FromXML Snapshot where
                 <*> (x .@? "TotalBackupSizeInMegaBytes")
                 <*> (x .@? "DBName")
 
+instance Hashable Snapshot
+
 -- | The snapshot copy grant that grants Amazon Redshift permission to
 -- encrypt copied snapshots with the specified customer master key (CMK)
 -- from AWS KMS in the destination region.
@@ -2750,6 +2818,8 @@ instance FromXML SnapshotCopyGrant where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "Tag"))
 
+instance Hashable SnapshotCopyGrant
+
 -- | Describes a subnet.
 --
 -- /See:/ 'subnet' smart constructor.
@@ -2794,6 +2864,8 @@ instance FromXML Subnet where
           = Subnet' <$>
               (x .@? "SubnetStatus") <*> (x .@? "SubnetIdentifier")
                 <*> (x .@? "SubnetAvailabilityZone")
+
+instance Hashable Subnet
 
 -- | Describes the status of a < RestoreTableFromClusterSnapshot> operation.
 --
@@ -2946,6 +3018,8 @@ instance FromXML TableRestoreStatus where
                 <*> (x .@? "ProgressInMegaBytes")
                 <*> (x .@? "Message")
 
+instance Hashable TableRestoreStatus
+
 -- | A tag consisting of a name\/value pair for a resource.
 --
 -- /See:/ 'tag' smart constructor.
@@ -2980,6 +3054,8 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
+
+instance Hashable Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -3047,6 +3123,8 @@ instance FromXML TaggedResource where
               (x .@? "Tag") <*> (x .@? "ResourceType") <*>
                 (x .@? "ResourceName")
 
+instance Hashable TaggedResource
+
 -- | Describes the members of a VPC security group.
 --
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
@@ -3082,3 +3160,5 @@ instance FromXML VPCSecurityGroupMembership where
         parseXML x
           = VPCSecurityGroupMembership' <$>
               (x .@? "Status") <*> (x .@? "VpcSecurityGroupId")
+
+instance Hashable VPCSecurityGroupMembership

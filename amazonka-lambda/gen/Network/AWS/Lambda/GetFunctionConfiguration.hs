@@ -120,6 +120,8 @@ instance AWSRequest GetFunctionConfiguration where
         request = get lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetFunctionConfiguration
+
 instance ToHeaders GetFunctionConfiguration where
         toHeaders = const mempty
 

@@ -88,6 +88,8 @@ instance AWSRequest AttachLoadBalancers where
               (\ s h x ->
                  AttachLoadBalancersResponse' <$> (pure (fromEnum s)))
 
+instance Hashable AttachLoadBalancers
+
 instance ToHeaders AttachLoadBalancers where
         toHeaders = const mempty
 

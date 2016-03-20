@@ -111,6 +111,8 @@ instance AWSRequest DescribeAutoScalingInstances
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAutoScalingInstances
+
 instance ToHeaders DescribeAutoScalingInstances where
         toHeaders = const mempty
 

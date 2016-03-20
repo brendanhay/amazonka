@@ -90,6 +90,8 @@ instance AWSRequest VerifyDomainDkim where
                      (x .@? "DkimTokens" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable VerifyDomainDkim
+
 instance ToHeaders VerifyDomainDkim where
         toHeaders = const mempty
 

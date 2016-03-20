@@ -98,6 +98,8 @@ instance AWSRequest DeleteCustomActionType where
         response
           = receiveNull DeleteCustomActionTypeResponse'
 
+instance Hashable DeleteCustomActionType
+
 instance ToHeaders DeleteCustomActionType where
         toHeaders
           = const

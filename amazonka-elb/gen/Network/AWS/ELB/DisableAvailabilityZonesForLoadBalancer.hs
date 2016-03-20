@@ -99,6 +99,9 @@ instance AWSRequest
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable
+         DisableAvailabilityZonesForLoadBalancer
+
 instance ToHeaders
          DisableAvailabilityZonesForLoadBalancer where
         toHeaders = const mempty

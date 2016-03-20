@@ -85,6 +85,8 @@ instance AWSRequest DeleteVolume where
         request = postQuery eC2
         response = receiveNull DeleteVolumeResponse'
 
+instance Hashable DeleteVolume
+
 instance ToHeaders DeleteVolume where
         toHeaders = const mempty
 

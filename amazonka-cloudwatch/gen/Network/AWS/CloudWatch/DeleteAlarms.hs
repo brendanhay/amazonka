@@ -66,6 +66,8 @@ instance AWSRequest DeleteAlarms where
         request = postQuery cloudWatch
         response = receiveNull DeleteAlarmsResponse'
 
+instance Hashable DeleteAlarms
+
 instance ToHeaders DeleteAlarms where
         toHeaders = const mempty
 

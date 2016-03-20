@@ -59,6 +59,8 @@ instance FromJSON AgentVersion where
                  AgentVersion' <$>
                    (x .:? "Version") <*> (x .:? "ConfigurationManager"))
 
+instance Hashable AgentVersion
+
 -- | A description of the app.
 --
 -- /See:/ 'app' smart constructor.
@@ -218,6 +220,8 @@ instance FromJSON App where
                      <*> (x .:? "Domains" .!= mempty)
                      <*> (x .:? "Description"))
 
+instance Hashable App
+
 -- | Describes a load-based auto scaling upscaling or downscaling threshold
 -- configuration, which specifies when AWS OpsWorks starts or stops
 -- load-based instances.
@@ -325,6 +329,8 @@ instance FromJSON AutoScalingThresholds where
                      <*> (x .:? "MemoryThreshold")
                      <*> (x .:? "CpuThreshold"))
 
+instance Hashable AutoScalingThresholds
+
 instance ToJSON AutoScalingThresholds where
         toJSON AutoScalingThresholds'{..}
           = object
@@ -402,6 +408,8 @@ instance FromJSON BlockDeviceMapping where
                      (x .:? "Ebs")
                      <*> (x .:? "DeviceName"))
 
+instance Hashable BlockDeviceMapping
+
 instance ToJSON BlockDeviceMapping where
         toJSON BlockDeviceMapping'{..}
           = object
@@ -449,6 +457,8 @@ instance FromJSON ChefConfiguration where
                  ChefConfiguration' <$>
                    (x .:? "BerkshelfVersion") <*>
                      (x .:? "ManageBerkshelf"))
+
+instance Hashable ChefConfiguration
 
 instance ToJSON ChefConfiguration where
         toJSON ChefConfiguration'{..}
@@ -583,6 +593,8 @@ instance FromJSON Command where
                      <*> (x .:? "CompletedAt")
                      <*> (x .:? "AcknowledgedAt"))
 
+instance Hashable Command
+
 -- | Describes an app\'s data source.
 --
 -- /See:/ 'dataSource' smart constructor.
@@ -630,6 +642,8 @@ instance FromJSON DataSource where
                  DataSource' <$>
                    (x .:? "Arn") <*> (x .:? "DatabaseName") <*>
                      (x .:? "Type"))
+
+instance Hashable DataSource
 
 instance ToJSON DataSource where
         toJSON DataSource'{..}
@@ -779,6 +793,8 @@ instance FromJSON Deployment where
                      <*> (x .:? "Comment")
                      <*> (x .:? "Duration"))
 
+instance Hashable Deployment
+
 -- | Used to specify a stack or deployment command.
 --
 -- /See:/ 'deploymentCommand' smart constructor.
@@ -866,6 +882,8 @@ instance FromJSON DeploymentCommand where
                  DeploymentCommand' <$>
                    (x .:? "Args" .!= mempty) <*> (x .: "Name"))
 
+instance Hashable DeploymentCommand
+
 instance ToJSON DeploymentCommand where
         toJSON DeploymentCommand'{..}
           = object
@@ -945,6 +963,8 @@ instance FromJSON EBSBlockDevice where
                      <*> (x .:? "VolumeType")
                      <*> (x .:? "SnapshotId"))
 
+instance Hashable EBSBlockDevice
+
 instance ToJSON EBSBlockDevice where
         toJSON EBSBlockDevice'{..}
           = object
@@ -1012,6 +1032,8 @@ instance FromJSON EcsCluster where
                      <*> (x .:? "RegisteredAt")
                      <*> (x .:? "StackId"))
 
+instance Hashable EcsCluster
+
 -- | Describes an Elastic IP address.
 --
 -- /See:/ 'elasticIP' smart constructor.
@@ -1077,6 +1099,8 @@ instance FromJSON ElasticIP where
                      (x .:? "Ip")
                      <*> (x .:? "Name")
                      <*> (x .:? "Region"))
+
+instance Hashable ElasticIP
 
 -- | Describes an Elastic Load Balancing instance.
 --
@@ -1180,6 +1204,8 @@ instance FromJSON ElasticLoadBalancer where
                      <*> (x .:? "LayerId")
                      <*> (x .:? "DnsName"))
 
+instance Hashable ElasticLoadBalancer
+
 -- | Represents an app\'s environment variable.
 --
 -- /See:/ 'environmentVariable' smart constructor.
@@ -1235,6 +1261,8 @@ instance FromJSON EnvironmentVariable where
               (\ x ->
                  EnvironmentVariable' <$>
                    (x .:? "Secure") <*> (x .: "Key") <*> (x .: "Value"))
+
+instance Hashable EnvironmentVariable
 
 instance ToJSON EnvironmentVariable where
         toJSON EnvironmentVariable'{..}
@@ -1651,6 +1679,8 @@ instance FromJSON Instance where
                      <*> (x .:? "EcsContainerInstanceArn")
                      <*> (x .:? "BlockDeviceMappings" .!= mempty))
 
+instance Hashable Instance
+
 -- | Contains a description of an Amazon EC2 instance from the Amazon EC2
 -- metadata service. For more information, see
 -- <http://docs.aws.amazon.com/sdkfornet/latest/apidocs/Index.html Instance Metadata and User Data>.
@@ -1684,6 +1714,8 @@ iiSignature = lens _iiSignature (\ s a -> s{_iiSignature = a});
 -- | A JSON document that contains the metadata.
 iiDocument :: Lens' InstanceIdentity (Maybe Text)
 iiDocument = lens _iiDocument (\ s a -> s{_iiDocument = a});
+
+instance Hashable InstanceIdentity
 
 instance ToJSON InstanceIdentity where
         toJSON InstanceIdentity'{..}
@@ -1882,6 +1914,8 @@ instance FromJSON InstancesCount where
                      <*> (x .:? "Registered")
                      <*> (x .:? "StartFailed")
                      <*> (x .:? "Registering"))
+
+instance Hashable InstancesCount
 
 -- | Describes a layer.
 --
@@ -2119,6 +2153,8 @@ instance FromJSON Layer where
                      <*> (x .:? "DefaultSecurityGroupNames" .!= mempty)
                      <*> (x .:? "AutoAssignElasticIps"))
 
+instance Hashable Layer
+
 -- | Specifies the lifecycle event configuration
 --
 -- /See:/ 'lifecycleEventConfiguration' smart constructor.
@@ -2148,6 +2184,8 @@ instance FromJSON LifecycleEventConfiguration where
           = withObject "LifecycleEventConfiguration"
               (\ x ->
                  LifecycleEventConfiguration' <$> (x .:? "Shutdown"))
+
+instance Hashable LifecycleEventConfiguration
 
 instance ToJSON LifecycleEventConfiguration where
         toJSON LifecycleEventConfiguration'{..}
@@ -2214,6 +2252,8 @@ instance FromJSON LoadBasedAutoScalingConfiguration
                    (x .:? "UpScaling") <*> (x .:? "Enable") <*>
                      (x .:? "DownScaling")
                      <*> (x .:? "LayerId"))
+
+instance Hashable LoadBasedAutoScalingConfiguration
 
 -- | Describes stack or user permissions.
 --
@@ -2291,6 +2331,8 @@ instance FromJSON Permission where
                      (x .:? "StackId")
                      <*> (x .:? "Level")
                      <*> (x .:? "AllowSsh"))
+
+instance Hashable Permission
 
 -- | Describes an instance\'s RAID array.
 --
@@ -2430,6 +2472,8 @@ instance FromJSON RAIdArray where
                      <*> (x .:? "StackId")
                      <*> (x .:? "MountPoint"))
 
+instance Hashable RAIdArray
+
 -- | Describes an Amazon RDS instance.
 --
 -- /See:/ 'rdsDBInstance' smart constructor.
@@ -2534,6 +2578,8 @@ instance FromJSON RDSDBInstance where
                      <*> (x .:? "StackId")
                      <*> (x .:? "DbPassword"))
 
+instance Hashable RDSDBInstance
+
 -- | AWS OpsWorks supports five lifecycle events: __setup__,
 -- __configuration__, __deploy__, __undeploy__, and __shutdown__. For each
 -- layer, AWS OpsWorks runs a set of standard recipes for each event. In
@@ -2612,6 +2658,8 @@ instance FromJSON Recipes where
                      <*> (x .:? "Configure" .!= mempty)
                      <*> (x .:? "Deploy" .!= mempty))
 
+instance Hashable Recipes
+
 instance ToJSON Recipes where
         toJSON Recipes'{..}
           = object
@@ -2669,6 +2717,8 @@ instance FromJSON ReportedOS where
                    (x .:? "Family") <*> (x .:? "Name") <*>
                      (x .:? "Version"))
 
+instance Hashable ReportedOS
+
 -- | Describes an app\'s SSL configuration.
 --
 -- /See:/ 'sslConfiguration' smart constructor.
@@ -2718,6 +2768,8 @@ instance FromJSON SSLConfiguration where
                  SSLConfiguration' <$>
                    (x .:? "Chain") <*> (x .: "Certificate") <*>
                      (x .: "PrivateKey"))
+
+instance Hashable SSLConfiguration
 
 instance ToJSON SSLConfiguration where
         toJSON SSLConfiguration'{..}
@@ -2782,6 +2834,8 @@ instance FromJSON SelfUserProfile where
                    (x .:? "SshPublicKey") <*> (x .:? "SshUsername") <*>
                      (x .:? "IamUserArn")
                      <*> (x .:? "Name"))
+
+instance Hashable SelfUserProfile
 
 -- | Describes an AWS OpsWorks service error.
 --
@@ -2857,6 +2911,8 @@ instance FromJSON ServiceError' where
                      <*> (x .:? "StackId")
                      <*> (x .:? "Message"))
 
+instance Hashable ServiceError'
+
 -- | The Shutdown event configuration.
 --
 -- /See:/ 'shutdownEventConfiguration' smart constructor.
@@ -2898,6 +2954,8 @@ instance FromJSON ShutdownEventConfiguration where
                  ShutdownEventConfiguration' <$>
                    (x .:? "ExecutionTimeout") <*>
                      (x .:? "DelayUntilElbConnectionsDrained"))
+
+instance Hashable ShutdownEventConfiguration
 
 instance ToJSON ShutdownEventConfiguration where
         toJSON ShutdownEventConfiguration'{..}
@@ -3007,6 +3065,8 @@ instance FromJSON Source where
                      <*> (x .:? "Password")
                      <*> (x .:? "Type")
                      <*> (x .:? "Revision"))
+
+instance Hashable Source
 
 instance ToJSON Source where
         toJSON Source'{..}
@@ -3260,6 +3320,8 @@ instance FromJSON Stack where
                      <*> (x .:? "StackId")
                      <*> (x .:? "HostnameTheme"))
 
+instance Hashable Stack
+
 -- | Describes the configuration manager.
 --
 -- /See:/ 'stackConfigurationManager' smart constructor.
@@ -3299,6 +3361,8 @@ instance FromJSON StackConfigurationManager where
               (\ x ->
                  StackConfigurationManager' <$>
                    (x .:? "Name") <*> (x .:? "Version"))
+
+instance Hashable StackConfigurationManager
 
 instance ToJSON StackConfigurationManager where
         toJSON StackConfigurationManager'{..}
@@ -3381,6 +3445,8 @@ instance FromJSON StackSummary where
                      <*> (x .:? "LayersCount")
                      <*> (x .:? "InstancesCount"))
 
+instance Hashable StackSummary
+
 -- | Contains the data needed by RDP clients such as the Microsoft Remote
 -- Desktop Connection to log in to the instance.
 --
@@ -3441,6 +3507,8 @@ instance FromJSON TemporaryCredential where
                      (x .:? "Password")
                      <*> (x .:? "ValidForInMinutes"))
 
+instance Hashable TemporaryCredential
+
 -- | Describes an instance\'s time-based auto scaling configuration.
 --
 -- /See:/ 'timeBasedAutoScalingConfiguration' smart constructor.
@@ -3480,6 +3548,8 @@ instance FromJSON TimeBasedAutoScalingConfiguration
                  TimeBasedAutoScalingConfiguration' <$>
                    (x .:? "InstanceId") <*>
                      (x .:? "AutoScalingSchedule"))
+
+instance Hashable TimeBasedAutoScalingConfiguration
 
 -- | Describes a user\'s SSH information.
 --
@@ -3548,6 +3618,8 @@ instance FromJSON UserProfile where
                      <*> (x .:? "SshUsername")
                      <*> (x .:? "IamUserArn")
                      <*> (x .:? "Name"))
+
+instance Hashable UserProfile
 
 -- | Describes an instance\'s Amazon EBS volume.
 --
@@ -3689,6 +3761,8 @@ instance FromJSON Volume where
                      <*> (x .:? "Ec2VolumeId")
                      <*> (x .:? "MountPoint"))
 
+instance Hashable Volume
+
 -- | Describes an Amazon EBS volume configuration.
 --
 -- /See:/ 'volumeConfiguration' smart constructor.
@@ -3770,6 +3844,8 @@ instance FromJSON VolumeConfiguration where
                      <*> (x .: "MountPoint")
                      <*> (x .: "NumberOfDisks")
                      <*> (x .: "Size"))
+
+instance Hashable VolumeConfiguration
 
 instance ToJSON VolumeConfiguration where
         toJSON VolumeConfiguration'{..}
@@ -3882,6 +3958,8 @@ instance FromJSON WeeklyAutoScalingSchedule where
                      <*> (x .:? "Friday" .!= mempty)
                      <*> (x .:? "Sunday" .!= mempty)
                      <*> (x .:? "Tuesday" .!= mempty))
+
+instance Hashable WeeklyAutoScalingSchedule
 
 instance ToJSON WeeklyAutoScalingSchedule where
         toJSON WeeklyAutoScalingSchedule'{..}

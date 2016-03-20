@@ -139,6 +139,8 @@ instance AWSRequest ListEventSourceMappings where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListEventSourceMappings
+
 instance ToHeaders ListEventSourceMappings where
         toHeaders = const mempty
 

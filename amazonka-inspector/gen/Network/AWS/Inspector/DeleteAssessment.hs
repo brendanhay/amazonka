@@ -73,6 +73,8 @@ instance AWSRequest DeleteAssessment where
                  DeleteAssessmentResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteAssessment
+
 instance ToHeaders DeleteAssessment where
         toHeaders
           = const

@@ -88,6 +88,8 @@ instance AWSRequest ListSamples where
                    (x .?> "nextToken") <*> (x .?> "samples" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListSamples
+
 instance ToHeaders ListSamples where
         toHeaders
           = const

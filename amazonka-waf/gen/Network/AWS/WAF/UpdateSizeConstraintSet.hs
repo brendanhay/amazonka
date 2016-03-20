@@ -141,6 +141,8 @@ instance AWSRequest UpdateSizeConstraintSet where
                  UpdateSizeConstraintSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateSizeConstraintSet
+
 instance ToHeaders UpdateSizeConstraintSet where
         toHeaders
           = const

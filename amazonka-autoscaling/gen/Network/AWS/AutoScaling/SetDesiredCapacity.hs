@@ -95,6 +95,8 @@ instance AWSRequest SetDesiredCapacity where
         request = postQuery autoScaling
         response = receiveNull SetDesiredCapacityResponse'
 
+instance Hashable SetDesiredCapacity
+
 instance ToHeaders SetDesiredCapacity where
         toHeaders = const mempty
 

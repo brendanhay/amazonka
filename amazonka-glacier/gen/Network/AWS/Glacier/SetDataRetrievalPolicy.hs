@@ -93,6 +93,8 @@ instance AWSRequest SetDataRetrievalPolicy where
         response
           = receiveNull SetDataRetrievalPolicyResponse'
 
+instance Hashable SetDataRetrievalPolicy
+
 instance ToHeaders SetDataRetrievalPolicy where
         toHeaders = const mempty
 

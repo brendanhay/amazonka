@@ -108,6 +108,8 @@ instance AWSRequest GetResources where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetResources
+
 instance ToHeaders GetResources where
         toHeaders
           = const

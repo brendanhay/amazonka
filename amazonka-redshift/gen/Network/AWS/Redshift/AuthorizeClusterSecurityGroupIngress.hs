@@ -131,6 +131,9 @@ instance AWSRequest
                    (x .@? "ClusterSecurityGroup") <*>
                      (pure (fromEnum s)))
 
+instance Hashable
+         AuthorizeClusterSecurityGroupIngress
+
 instance ToHeaders
          AuthorizeClusterSecurityGroupIngress where
         toHeaders = const mempty

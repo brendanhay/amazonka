@@ -75,6 +75,8 @@ instance AWSRequest GetTest where
                  GetTestResponse' <$>
                    (x .?> "test") <*> (pure (fromEnum s)))
 
+instance Hashable GetTest
+
 instance ToHeaders GetTest where
         toHeaders
           = const

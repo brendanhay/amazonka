@@ -134,6 +134,8 @@ instance AWSRequest CreateReservedInstancesListing
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateReservedInstancesListing
+
 instance ToHeaders CreateReservedInstancesListing
          where
         toHeaders = const mempty

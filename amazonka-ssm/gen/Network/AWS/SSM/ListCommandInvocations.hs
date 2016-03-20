@@ -141,6 +141,8 @@ instance AWSRequest ListCommandInvocations where
                      (x .?> "CommandInvocations" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListCommandInvocations
+
 instance ToHeaders ListCommandInvocations where
         toHeaders
           = const

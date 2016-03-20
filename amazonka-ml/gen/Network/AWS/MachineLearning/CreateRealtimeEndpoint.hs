@@ -79,6 +79,8 @@ instance AWSRequest CreateRealtimeEndpoint where
                      (x .?> "MLModelId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateRealtimeEndpoint
+
 instance ToHeaders CreateRealtimeEndpoint where
         toHeaders
           = const

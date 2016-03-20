@@ -168,6 +168,8 @@ instance AWSRequest GetJobOutput where
                      <*> (pure (fromEnum s))
                      <*> (pure x))
 
+instance Hashable GetJobOutput
+
 instance ToHeaders GetJobOutput where
         toHeaders GetJobOutput'{..}
           = mconcat ["Range" =# _gjoRange]

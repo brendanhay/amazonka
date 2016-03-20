@@ -117,6 +117,8 @@ instance AWSRequest ListDatasets where
                      (x .?> "Datasets" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListDatasets
+
 instance ToHeaders ListDatasets where
         toHeaders
           = const

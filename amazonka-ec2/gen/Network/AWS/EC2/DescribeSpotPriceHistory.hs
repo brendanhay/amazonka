@@ -200,6 +200,8 @@ instance AWSRequest DescribeSpotPriceHistory where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeSpotPriceHistory
+
 instance ToHeaders DescribeSpotPriceHistory where
         toHeaders = const mempty
 

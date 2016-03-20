@@ -161,6 +161,8 @@ instance AWSRequest PutScheduledUpdateGroupAction
         response
           = receiveNull PutScheduledUpdateGroupActionResponse'
 
+instance Hashable PutScheduledUpdateGroupAction
+
 instance ToHeaders PutScheduledUpdateGroupAction
          where
         toHeaders = const mempty

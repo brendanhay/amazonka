@@ -112,6 +112,8 @@ instance AWSRequest DescribeVault where
         request = get glacier
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable DescribeVault
+
 instance ToHeaders DescribeVault where
         toHeaders = const mempty
 

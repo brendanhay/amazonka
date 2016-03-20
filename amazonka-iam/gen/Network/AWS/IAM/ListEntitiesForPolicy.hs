@@ -161,6 +161,8 @@ instance AWSRequest ListEntitiesForPolicy where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListEntitiesForPolicy
+
 instance ToHeaders ListEntitiesForPolicy where
         toHeaders = const mempty
 

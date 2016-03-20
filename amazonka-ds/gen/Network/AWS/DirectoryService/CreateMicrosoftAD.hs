@@ -119,6 +119,8 @@ instance AWSRequest CreateMicrosoftAD where
                  CreateMicrosoftADResponse' <$>
                    (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateMicrosoftAD
+
 instance ToHeaders CreateMicrosoftAD where
         toHeaders
           = const

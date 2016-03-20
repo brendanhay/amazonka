@@ -85,6 +85,8 @@ instance AWSRequest DescribeAssociation where
                    (x .?> "AssociationDescription") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeAssociation
+
 instance ToHeaders DescribeAssociation where
         toHeaders
           = const

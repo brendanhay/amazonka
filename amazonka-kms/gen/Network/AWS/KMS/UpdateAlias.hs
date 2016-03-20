@@ -101,6 +101,8 @@ instance AWSRequest UpdateAlias where
         request = postJSON kMS
         response = receiveNull UpdateAliasResponse'
 
+instance Hashable UpdateAlias
+
 instance ToHeaders UpdateAlias where
         toHeaders
           = const

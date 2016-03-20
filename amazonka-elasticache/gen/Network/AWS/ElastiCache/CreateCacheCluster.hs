@@ -425,6 +425,8 @@ instance AWSRequest CreateCacheCluster where
                  CreateCacheClusterResponse' <$>
                    (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
+instance Hashable CreateCacheCluster
+
 instance ToHeaders CreateCacheCluster where
         toHeaders = const mempty
 

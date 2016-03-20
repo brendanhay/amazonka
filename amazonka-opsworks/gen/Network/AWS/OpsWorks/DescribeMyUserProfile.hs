@@ -66,6 +66,8 @@ instance AWSRequest DescribeMyUserProfile where
                  DescribeMyUserProfileResponse' <$>
                    (x .?> "UserProfile") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeMyUserProfile
+
 instance ToHeaders DescribeMyUserProfile where
         toHeaders
           = const

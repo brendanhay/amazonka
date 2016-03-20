@@ -66,6 +66,8 @@ instance AWSRequest EnableAlarmActions where
         request = postQuery cloudWatch
         response = receiveNull EnableAlarmActionsResponse'
 
+instance Hashable EnableAlarmActions
+
 instance ToHeaders EnableAlarmActions where
         toHeaders = const mempty
 

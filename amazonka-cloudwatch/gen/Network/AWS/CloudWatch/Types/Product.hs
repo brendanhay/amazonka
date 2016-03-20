@@ -87,6 +87,8 @@ instance FromXML AlarmHistoryItem where
                 <*> (x .@? "HistorySummary")
                 <*> (x .@? "Timestamp")
 
+instance Hashable AlarmHistoryItem
+
 -- | The 'Datapoint' data type encapsulates the statistical data that Amazon
 -- CloudWatch computes from metric data.
 --
@@ -170,6 +172,8 @@ instance FromXML Datapoint where
                 <*> (x .@? "Unit")
                 <*> (x .@? "Timestamp")
 
+instance Hashable Datapoint
+
 -- | The 'Dimension' data type further expands on the identity of a metric
 -- using a Name, Value pair.
 --
@@ -210,6 +214,8 @@ instance FromXML Dimension where
         parseXML x
           = Dimension' <$> (x .@ "Name") <*> (x .@ "Value")
 
+instance Hashable Dimension
+
 instance ToQuery Dimension where
         toQuery Dimension'{..}
           = mconcat ["Name" =: _dName, "Value" =: _dValue]
@@ -249,6 +255,8 @@ dfValue = lens _dfValue (\ s a -> s{_dfValue = a});
 -- | The dimension name to be matched.
 dfName :: Lens' DimensionFilter Text
 dfName = lens _dfName (\ s a -> s{_dfName = a});
+
+instance Hashable DimensionFilter
 
 instance ToQuery DimensionFilter where
         toQuery DimensionFilter'{..}
@@ -305,6 +313,8 @@ instance FromXML Metric where
               (x .@? "MetricName") <*> (x .@? "Namespace") <*>
                 (x .@? "Dimensions" .!@ mempty >>=
                    may (parseXMLList "member"))
+
+instance Hashable Metric
 
 -- | The < MetricAlarm> data type represents an alarm. You can use
 -- < PutMetricAlarm> to create or update an alarm.
@@ -535,6 +545,8 @@ instance FromXML MetricAlarm where
                 <*> (x .@? "Unit")
                 <*> (x .@? "Statistic")
 
+instance Hashable MetricAlarm
+
 -- | The 'MetricDatum' data type encapsulates the information sent with
 -- < PutMetricData> to either create a new metric or add new values to be
 -- aggregated into an existing metric.
@@ -611,6 +623,8 @@ mdStatisticValues = lens _mdStatisticValues (\ s a -> s{_mdStatisticValues = a})
 mdMetricName :: Lens' MetricDatum Text
 mdMetricName = lens _mdMetricName (\ s a -> s{_mdMetricName = a});
 
+instance Hashable MetricDatum
+
 instance ToQuery MetricDatum where
         toQuery MetricDatum'{..}
           = mconcat
@@ -673,6 +687,8 @@ ssMinimum = lens _ssMinimum (\ s a -> s{_ssMinimum = a});
 -- | The maximum value of the sample set.
 ssMaximum :: Lens' StatisticSet Double
 ssMaximum = lens _ssMaximum (\ s a -> s{_ssMaximum = a});
+
+instance Hashable StatisticSet
 
 instance ToQuery StatisticSet where
         toQuery StatisticSet'{..}

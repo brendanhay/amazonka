@@ -73,6 +73,8 @@ instance AWSRequest GetBucketLocation where
                  GetBucketLocationResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
 
+instance Hashable GetBucketLocation
+
 instance ToHeaders GetBucketLocation where
         toHeaders = const mempty
 

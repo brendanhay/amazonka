@@ -77,6 +77,8 @@ instance AWSRequest DeleteOpenIdConnectProvider where
         response
           = receiveNull DeleteOpenIdConnectProviderResponse'
 
+instance Hashable DeleteOpenIdConnectProvider
+
 instance ToHeaders DeleteOpenIdConnectProvider where
         toHeaders = const mempty
 

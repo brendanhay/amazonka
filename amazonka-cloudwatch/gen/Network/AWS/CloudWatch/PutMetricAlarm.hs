@@ -305,6 +305,8 @@ instance AWSRequest PutMetricAlarm where
         request = postQuery cloudWatch
         response = receiveNull PutMetricAlarmResponse'
 
+instance Hashable PutMetricAlarm
+
 instance ToHeaders PutMetricAlarm where
         toHeaders = const mempty
 

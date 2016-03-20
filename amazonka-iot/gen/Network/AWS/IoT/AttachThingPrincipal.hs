@@ -85,6 +85,8 @@ instance AWSRequest AttachThingPrincipal where
                  AttachThingPrincipalResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable AttachThingPrincipal
+
 instance ToHeaders AttachThingPrincipal where
         toHeaders AttachThingPrincipal'{..}
           = mconcat ["x-amzn-principal" =# _atpPrincipal]

@@ -75,6 +75,8 @@ instance AWSRequest DisableRadius where
               (\ s h x ->
                  DisableRadiusResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DisableRadius
+
 instance ToHeaders DisableRadius where
         toHeaders
           = const

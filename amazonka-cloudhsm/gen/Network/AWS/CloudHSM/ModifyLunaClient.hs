@@ -86,6 +86,8 @@ instance AWSRequest ModifyLunaClient where
                  ModifyLunaClientResponse' <$>
                    (x .?> "ClientArn") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyLunaClient
+
 instance ToHeaders ModifyLunaClient where
         toHeaders
           = const

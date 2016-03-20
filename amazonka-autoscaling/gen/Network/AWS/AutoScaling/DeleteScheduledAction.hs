@@ -76,6 +76,8 @@ instance AWSRequest DeleteScheduledAction where
         request = postQuery autoScaling
         response = receiveNull DeleteScheduledActionResponse'
 
+instance Hashable DeleteScheduledAction
+
 instance ToHeaders DeleteScheduledAction where
         toHeaders = const mempty
 

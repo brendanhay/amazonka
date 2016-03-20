@@ -99,6 +99,8 @@ instance AWSRequest UpdateAccessKey where
         request = postQuery iAM
         response = receiveNull UpdateAccessKeyResponse'
 
+instance Hashable UpdateAccessKey
+
 instance ToHeaders UpdateAccessKey where
         toHeaders = const mempty
 

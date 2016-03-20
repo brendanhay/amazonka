@@ -87,6 +87,8 @@ instance AWSRequest ListDevices where
                    (x .?> "nextToken") <*> (x .?> "devices" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListDevices
+
 instance ToHeaders ListDevices where
         toHeaders
           = const

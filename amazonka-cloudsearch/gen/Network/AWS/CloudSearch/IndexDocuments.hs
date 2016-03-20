@@ -80,6 +80,8 @@ instance AWSRequest IndexDocuments where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable IndexDocuments
+
 instance ToHeaders IndexDocuments where
         toHeaders = const mempty
 

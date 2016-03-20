@@ -99,6 +99,8 @@ instance AWSRequest DetachClassicLinkVPC where
                  DetachClassicLinkVPCResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
+instance Hashable DetachClassicLinkVPC
+
 instance ToHeaders DetachClassicLinkVPC where
         toHeaders = const mempty
 

@@ -80,6 +80,8 @@ instance AWSRequest DeleteInternetGateway where
         request = postQuery eC2
         response = receiveNull DeleteInternetGatewayResponse'
 
+instance Hashable DeleteInternetGateway
+
 instance ToHeaders DeleteInternetGateway where
         toHeaders = const mempty
 

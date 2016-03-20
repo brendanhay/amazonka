@@ -66,6 +66,8 @@ instance AWSRequest DeleteBucketCORS where
         request = delete s3
         response = receiveNull DeleteBucketCORSResponse'
 
+instance Hashable DeleteBucketCORS
+
 instance ToHeaders DeleteBucketCORS where
         toHeaders = const mempty
 

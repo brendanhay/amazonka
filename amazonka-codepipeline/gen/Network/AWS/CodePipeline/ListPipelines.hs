@@ -78,6 +78,8 @@ instance AWSRequest ListPipelines where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListPipelines
+
 instance ToHeaders ListPipelines where
         toHeaders
           = const

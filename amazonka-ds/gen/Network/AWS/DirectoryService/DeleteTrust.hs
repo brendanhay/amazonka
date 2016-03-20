@@ -77,6 +77,8 @@ instance AWSRequest DeleteTrust where
                  DeleteTrustResponse' <$>
                    (x .?> "TrustId") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteTrust
+
 instance ToHeaders DeleteTrust where
         toHeaders
           = const

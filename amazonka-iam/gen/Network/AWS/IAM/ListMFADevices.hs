@@ -123,6 +123,8 @@ instance AWSRequest ListMFADevices where
                      (x .@? "MFADevices" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListMFADevices
+
 instance ToHeaders ListMFADevices where
         toHeaders = const mempty
 

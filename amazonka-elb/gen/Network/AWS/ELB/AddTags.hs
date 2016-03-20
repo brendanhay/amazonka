@@ -88,6 +88,8 @@ instance AWSRequest AddTags where
           = receiveXMLWrapper "AddTagsResult"
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
 
+instance Hashable AddTags
+
 instance ToHeaders AddTags where
         toHeaders = const mempty
 

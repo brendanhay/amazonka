@@ -116,6 +116,8 @@ instance AWSRequest ListReusableDelegationSets where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
 
+instance Hashable ListReusableDelegationSets
+
 instance ToHeaders ListReusableDelegationSets where
         toHeaders = const mempty
 

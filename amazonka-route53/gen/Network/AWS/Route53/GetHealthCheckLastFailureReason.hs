@@ -85,6 +85,8 @@ instance AWSRequest GetHealthCheckLastFailureReason
                      (x .@? "HealthCheckObservations" .!@ mempty >>=
                         parseXMLList "HealthCheckObservation"))
 
+instance Hashable GetHealthCheckLastFailureReason
+
 instance ToHeaders GetHealthCheckLastFailureReason
          where
         toHeaders = const mempty

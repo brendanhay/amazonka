@@ -87,6 +87,8 @@ instance AWSRequest DeleteTape where
                  DeleteTapeResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteTape
+
 instance ToHeaders DeleteTape where
         toHeaders
           = const

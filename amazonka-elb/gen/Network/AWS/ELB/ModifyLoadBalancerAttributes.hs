@@ -103,6 +103,8 @@ instance AWSRequest ModifyLoadBalancerAttributes
                      (x .@? "LoadBalancerAttributes")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ModifyLoadBalancerAttributes
+
 instance ToHeaders ModifyLoadBalancerAttributes where
         toHeaders = const mempty
 

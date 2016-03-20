@@ -101,6 +101,8 @@ instance AWSRequest DescribeDeliveryStream where
                    (pure (fromEnum s)) <*>
                      (x .:> "DeliveryStreamDescription"))
 
+instance Hashable DescribeDeliveryStream
+
 instance ToHeaders DescribeDeliveryStream where
         toHeaders
           = const

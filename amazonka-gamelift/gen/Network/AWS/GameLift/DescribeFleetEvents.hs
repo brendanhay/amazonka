@@ -126,6 +126,8 @@ instance AWSRequest DescribeFleetEvents where
                    (x .?> "NextToken") <*> (x .?> "Events" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeFleetEvents
+
 instance ToHeaders DescribeFleetEvents where
         toHeaders
           = const

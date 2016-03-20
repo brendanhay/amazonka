@@ -120,6 +120,8 @@ instance AWSRequest Select where
                    (may (parseXMLList "Item") x) <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable Select
+
 instance ToHeaders Select where
         toHeaders = const mempty
 

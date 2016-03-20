@@ -111,6 +111,8 @@ instance AWSRequest SignalResource where
         request = postQuery cloudFormation
         response = receiveNull SignalResourceResponse'
 
+instance Hashable SignalResource
+
 instance ToHeaders SignalResource where
         toHeaders = const mempty
 

@@ -87,6 +87,8 @@ instance AWSRequest DescribeMaintenanceStartTime
                      <*> (x .?> "DayOfWeek")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeMaintenanceStartTime
+
 instance ToHeaders DescribeMaintenanceStartTime where
         toHeaders
           = const

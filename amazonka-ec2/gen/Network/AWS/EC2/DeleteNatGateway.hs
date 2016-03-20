@@ -76,6 +76,8 @@ instance AWSRequest DeleteNatGateway where
                  DeleteNatGatewayResponse' <$>
                    (x .@? "natGatewayId") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteNatGateway
+
 instance ToHeaders DeleteNatGateway where
         toHeaders = const mempty
 

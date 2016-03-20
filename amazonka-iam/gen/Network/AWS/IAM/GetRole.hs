@@ -78,6 +78,8 @@ instance AWSRequest GetRole where
                  GetRoleResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Role"))
 
+instance Hashable GetRole
+
 instance ToHeaders GetRole where
         toHeaders = const mempty
 

@@ -137,6 +137,8 @@ instance AWSRequest AttachVolume where
         request = postQuery eC2
         response = receiveXML (\ s h x -> parseXML x)
 
+instance Hashable AttachVolume
+
 instance ToHeaders AttachVolume where
         toHeaders = const mempty
 

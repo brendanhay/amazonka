@@ -107,6 +107,8 @@ instance AWSRequest ListPublicKeys where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListPublicKeys
+
 instance ToHeaders ListPublicKeys where
         toHeaders
           = const

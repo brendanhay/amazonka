@@ -124,6 +124,8 @@ instance AWSRequest ListCommands where
                    (x .?> "Commands" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListCommands
+
 instance ToHeaders ListCommands where
         toHeaders
           = const

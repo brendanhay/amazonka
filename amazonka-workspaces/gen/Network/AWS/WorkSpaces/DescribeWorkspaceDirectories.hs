@@ -97,6 +97,8 @@ instance AWSRequest DescribeWorkspaceDirectories
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeWorkspaceDirectories
+
 instance ToHeaders DescribeWorkspaceDirectories where
         toHeaders
           = const

@@ -81,6 +81,8 @@ instance AWSRequest AbortEnvironmentUpdate where
         response
           = receiveNull AbortEnvironmentUpdateResponse'
 
+instance Hashable AbortEnvironmentUpdate
+
 instance ToHeaders AbortEnvironmentUpdate where
         toHeaders = const mempty
 

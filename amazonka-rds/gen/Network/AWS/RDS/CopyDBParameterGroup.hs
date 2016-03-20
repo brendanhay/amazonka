@@ -126,6 +126,8 @@ instance AWSRequest CopyDBParameterGroup where
                  CopyDBParameterGroupResponse' <$>
                    (x .@? "DBParameterGroup") <*> (pure (fromEnum s)))
 
+instance Hashable CopyDBParameterGroup
+
 instance ToHeaders CopyDBParameterGroup where
         toHeaders = const mempty
 

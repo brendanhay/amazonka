@@ -68,6 +68,8 @@ instance AWSRequest ListReceiptFilters where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListReceiptFilters
+
 instance ToHeaders ListReceiptFilters where
         toHeaders = const mempty
 

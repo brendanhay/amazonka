@@ -84,6 +84,8 @@ instance AWSRequest DeleteSSHPublicKey where
         request = postQuery iAM
         response = receiveNull DeleteSSHPublicKeyResponse'
 
+instance Hashable DeleteSSHPublicKey
+
 instance ToHeaders DeleteSSHPublicKey where
         toHeaders = const mempty
 

@@ -60,6 +60,8 @@ instance FromJSON AccountSettings where
                    (x .:? "awsAccountNumber") <*>
                      (x .:? "unmeteredDevices" .!= mempty))
 
+instance Hashable AccountSettings
+
 -- | Represents the output of a test. Examples of artifacts include logs and
 -- screenshots.
 --
@@ -177,6 +179,8 @@ instance FromJSON Artifact where
                      <*> (x .:? "name")
                      <*> (x .:? "type"))
 
+instance Hashable Artifact
+
 -- | Represents the amount of CPU that an app is using on a physical device.
 --
 -- Note that this does not represent system-wide CPU usage.
@@ -226,6 +230,8 @@ instance FromJSON CPU where
                  CPU' <$>
                    (x .:? "frequency") <*> (x .:? "clock") <*>
                      (x .:? "architecture"))
+
+instance Hashable CPU
 
 -- | Represents entity counters.
 --
@@ -309,6 +315,8 @@ instance FromJSON Counters where
                      <*> (x .:? "total")
                      <*> (x .:? "failed")
                      <*> (x .:? "errored"))
+
+instance Hashable Counters
 
 -- | Represents a device type that an app is tested against.
 --
@@ -470,6 +478,8 @@ instance FromJSON Device where
                      <*> (x .:? "cpu")
                      <*> (x .:? "heapSize"))
 
+instance Hashable Device
+
 -- | Represents the total (metered or unmetered) minutes used by the resource
 -- to run tests. Contains the sum of minutes consumed by all children.
 --
@@ -520,6 +530,8 @@ instance FromJSON DeviceMinutes where
                  DeviceMinutes' <$>
                    (x .:? "metered") <*> (x .:? "total") <*>
                      (x .:? "unmetered"))
+
+instance Hashable DeviceMinutes
 
 -- | Represents a collection of device types.
 --
@@ -595,6 +607,8 @@ instance FromJSON DevicePool where
                      <*> (x .:? "type")
                      <*> (x .:? "description"))
 
+instance Hashable DevicePool
+
 -- | Represents a device pool compatibility result.
 --
 -- /See:/ 'devicePoolCompatibilityResult' smart constructor.
@@ -641,6 +655,8 @@ instance FromJSON DevicePoolCompatibilityResult where
                  DevicePoolCompatibilityResult' <$>
                    (x .:? "device") <*> (x .:? "compatible") <*>
                      (x .:? "incompatibilityMessages" .!= mempty))
+
+instance Hashable DevicePoolCompatibilityResult
 
 -- | Represents information about incompatibility.
 --
@@ -690,6 +706,8 @@ instance FromJSON IncompatibilityMessage where
               (\ x ->
                  IncompatibilityMessage' <$>
                    (x .:? "type") <*> (x .:? "message"))
+
+instance Hashable IncompatibilityMessage
 
 -- | Represents a device.
 --
@@ -882,6 +900,8 @@ instance FromJSON Job where
                      <*> (x .:? "message")
                      <*> (x .:? "started"))
 
+instance Hashable Job
+
 -- | Represents a latitude and longitude pair, expressed in geographic
 -- coordinate system degrees (for example 47.6204, -122.3491).
 --
@@ -917,6 +937,8 @@ lLatitude = lens _lLatitude (\ s a -> s{_lLatitude = a});
 -- | The longitude.
 lLongitude :: Lens' Location Double
 lLongitude = lens _lLongitude (\ s a -> s{_lLongitude = a});
+
+instance Hashable Location
 
 instance ToJSON Location where
         toJSON Location'{..}
@@ -1025,6 +1047,8 @@ instance FromJSON Problem where
                      <*> (x .:? "message")
                      <*> (x .:? "suite"))
 
+instance Hashable Problem
+
 -- | Information about a problem detail.
 --
 -- /See:/ 'problemDetail' smart constructor.
@@ -1061,6 +1085,8 @@ instance FromJSON ProblemDetail where
           = withObject "ProblemDetail"
               (\ x ->
                  ProblemDetail' <$> (x .:? "arn") <*> (x .:? "name"))
+
+instance Hashable ProblemDetail
 
 -- | Represents an operating-system neutral workspace for running and
 -- managing tests.
@@ -1109,6 +1135,8 @@ instance FromJSON Project where
                  Project' <$>
                    (x .:? "arn") <*> (x .:? "created") <*>
                      (x .:? "name"))
+
+instance Hashable Project
 
 -- | Represents the set of radios and their states on a device. Examples of
 -- radios include Wi-Fi, GPS, Bluetooth, and NFC.
@@ -1159,6 +1187,8 @@ rBluetooth = lens _rBluetooth (\ s a -> s{_rBluetooth = a});
 rWifi :: Lens' Radios (Maybe Bool)
 rWifi = lens _rWifi (\ s a -> s{_rWifi = a});
 
+instance Hashable Radios
+
 instance ToJSON Radios where
         toJSON Radios'{..}
           = object
@@ -1204,6 +1234,8 @@ instance FromJSON Resolution where
           = withObject "Resolution"
               (\ x ->
                  Resolution' <$> (x .:? "height") <*> (x .:? "width"))
+
+instance Hashable Resolution
 
 -- | Represents a condition for a device pool.
 --
@@ -1273,6 +1305,8 @@ instance FromJSON Rule where
                  Rule' <$>
                    (x .:? "attribute") <*> (x .:? "operator") <*>
                      (x .:? "value"))
+
+instance Hashable Rule
 
 instance ToJSON Rule where
         toJSON Rule'{..}
@@ -1510,6 +1544,8 @@ instance FromJSON Run where
                      <*> (x .:? "totalJobs")
                      <*> (x .:? "started"))
 
+instance Hashable Run
+
 -- | Represents a sample of performance data.
 --
 -- /See:/ 'sample' smart constructor.
@@ -1600,6 +1636,8 @@ instance FromJSON Sample where
                  Sample' <$>
                    (x .:? "arn") <*> (x .:? "url") <*> (x .:? "type"))
 
+instance Hashable Sample
+
 -- | Represents the settings for a run. Includes things like location, radio
 -- states, auxiliary apps, and network profiles.
 --
@@ -1674,6 +1712,8 @@ srcExtraDataPackageARN = lens _srcExtraDataPackageARN (\ s a -> s{_srcExtraDataP
 -- | A list of auxiliary apps for the run.
 srcAuxiliaryApps :: Lens' ScheduleRunConfiguration [Text]
 srcAuxiliaryApps = lens _srcAuxiliaryApps (\ s a -> s{_srcAuxiliaryApps = a}) . _Default . _Coerce;
+
+instance Hashable ScheduleRunConfiguration
 
 instance ToJSON ScheduleRunConfiguration where
         toJSON ScheduleRunConfiguration'{..}
@@ -1769,6 +1809,8 @@ srtFilter = lens _srtFilter (\ s a -> s{_srtFilter = a});
 --
 srtType :: Lens' ScheduleRunTest TestType
 srtType = lens _srtType (\ s a -> s{_srtType = a});
+
+instance Hashable ScheduleRunTest
 
 instance ToJSON ScheduleRunTest where
         toJSON ScheduleRunTest'{..}
@@ -1962,6 +2004,8 @@ instance FromJSON Suite where
                      <*> (x .:? "message")
                      <*> (x .:? "started"))
 
+instance Hashable Suite
+
 -- | Represents a condition that is evaluated.
 --
 -- /See:/ 'test' smart constructor.
@@ -2144,6 +2188,8 @@ instance FromJSON Test where
                      <*> (x .:? "message")
                      <*> (x .:? "started"))
 
+instance Hashable Test
+
 -- | A collection of one or more problems, grouped by their result.
 --
 -- /See:/ 'uniqueProblem' smart constructor.
@@ -2181,6 +2227,8 @@ instance FromJSON UniqueProblem where
               (\ x ->
                  UniqueProblem' <$>
                    (x .:? "problems" .!= mempty) <*> (x .:? "message"))
+
+instance Hashable UniqueProblem
 
 -- | An app or a set of one or more tests to upload or that have been
 -- uploaded.
@@ -2337,3 +2385,5 @@ instance FromJSON Upload where
                      <*> (x .:? "type")
                      <*> (x .:? "message")
                      <*> (x .:? "contentType"))
+
+instance Hashable Upload

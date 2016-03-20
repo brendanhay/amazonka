@@ -94,6 +94,8 @@ instance AWSRequest CloneReceiptRuleSet where
               (\ s h x ->
                  CloneReceiptRuleSetResponse' <$> (pure (fromEnum s)))
 
+instance Hashable CloneReceiptRuleSet
+
 instance ToHeaders CloneReceiptRuleSet where
         toHeaders = const mempty
 

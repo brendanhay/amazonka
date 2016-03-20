@@ -97,6 +97,8 @@ instance AWSRequest GetGroupPolicy where
                      (x .@ "PolicyName")
                      <*> (x .@ "PolicyDocument"))
 
+instance Hashable GetGroupPolicy
+
 instance ToHeaders GetGroupPolicy where
         toHeaders = const mempty
 

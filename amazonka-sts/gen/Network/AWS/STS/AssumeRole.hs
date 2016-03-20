@@ -256,6 +256,8 @@ instance AWSRequest AssumeRole where
                      <*> (x .@? "AssumedRoleUser")
                      <*> (pure (fromEnum s)))
 
+instance Hashable AssumeRole
+
 instance ToHeaders AssumeRole where
         toHeaders = const mempty
 

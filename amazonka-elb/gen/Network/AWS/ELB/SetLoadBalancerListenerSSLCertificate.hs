@@ -101,6 +101,9 @@ instance AWSRequest
                  SetLoadBalancerListenerSSLCertificateResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable
+         SetLoadBalancerListenerSSLCertificate
+
 instance ToHeaders
          SetLoadBalancerListenerSSLCertificate where
         toHeaders = const mempty

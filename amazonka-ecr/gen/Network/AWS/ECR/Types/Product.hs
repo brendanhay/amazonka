@@ -75,6 +75,8 @@ instance FromJSON AuthorizationData where
                    (x .:? "expiresAt") <*> (x .:? "proxyEndpoint") <*>
                      (x .:? "authorizationToken"))
 
+instance Hashable AuthorizationData
+
 -- | Object representing an image.
 --
 -- /See:/ 'image' smart constructor.
@@ -132,6 +134,8 @@ instance FromJSON Image where
                      (x .:? "repositoryName")
                      <*> (x .:? "imageManifest"))
 
+instance Hashable Image
+
 -- | /See:/ 'imageFailure' smart constructor.
 data ImageFailure = ImageFailure'
     { _ifFailureReason :: !(Maybe Text)
@@ -177,6 +181,8 @@ instance FromJSON ImageFailure where
                    (x .:? "failureReason") <*> (x .:? "failureCode") <*>
                      (x .:? "imageId"))
 
+instance Hashable ImageFailure
+
 -- | /See:/ 'imageIdentifier' smart constructor.
 data ImageIdentifier = ImageIdentifier'
     { _iiImageDigest :: !(Maybe Text)
@@ -212,6 +218,8 @@ instance FromJSON ImageIdentifier where
               (\ x ->
                  ImageIdentifier' <$>
                    (x .:? "imageDigest") <*> (x .:? "imageTag"))
+
+instance Hashable ImageIdentifier
 
 instance ToJSON ImageIdentifier where
         toJSON ImageIdentifier'{..}
@@ -266,6 +274,8 @@ instance FromJSON Layer where
                    (x .:? "layerDigest") <*> (x .:? "layerSize") <*>
                      (x .:? "layerAvailability"))
 
+instance Hashable Layer
+
 -- | /See:/ 'layerFailure' smart constructor.
 data LayerFailure = LayerFailure'
     { _lfFailureReason :: !(Maybe Text)
@@ -310,6 +320,8 @@ instance FromJSON LayerFailure where
                  LayerFailure' <$>
                    (x .:? "failureReason") <*> (x .:? "failureCode") <*>
                      (x .:? "layerDigest"))
+
+instance Hashable LayerFailure
 
 -- | Object representing a repository.
 --
@@ -362,3 +374,5 @@ instance FromJSON Repository where
                  Repository' <$>
                    (x .:? "repositoryArn") <*> (x .:? "registryId") <*>
                      (x .:? "repositoryName"))
+
+instance Hashable Repository

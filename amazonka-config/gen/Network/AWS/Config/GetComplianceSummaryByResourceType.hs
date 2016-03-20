@@ -85,6 +85,8 @@ instance AWSRequest
                       mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetComplianceSummaryByResourceType
+
 instance ToHeaders GetComplianceSummaryByResourceType
          where
         toHeaders

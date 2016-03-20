@@ -85,6 +85,8 @@ instance AWSRequest UpdateRepositoryName where
         request = postJSON codeCommit
         response = receiveNull UpdateRepositoryNameResponse'
 
+instance Hashable UpdateRepositoryName
+
 instance ToHeaders UpdateRepositoryName where
         toHeaders
           = const

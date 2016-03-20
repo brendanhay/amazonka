@@ -68,6 +68,8 @@ instance AWSRequest DisableTopicRule where
         request = postJSON ioT
         response = receiveNull DisableTopicRuleResponse'
 
+instance Hashable DisableTopicRule
+
 instance ToHeaders DisableTopicRule where
         toHeaders = const mempty
 

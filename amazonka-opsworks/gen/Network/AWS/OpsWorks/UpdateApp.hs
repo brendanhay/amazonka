@@ -179,6 +179,8 @@ instance AWSRequest UpdateApp where
         request = postJSON opsWorks
         response = receiveNull UpdateAppResponse'
 
+instance Hashable UpdateApp
+
 instance ToHeaders UpdateApp where
         toHeaders
           = const

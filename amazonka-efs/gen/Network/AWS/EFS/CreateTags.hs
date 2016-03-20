@@ -84,6 +84,8 @@ instance AWSRequest CreateTags where
         request = postJSON eFS
         response = receiveNull CreateTagsResponse'
 
+instance Hashable CreateTags
+
 instance ToHeaders CreateTags where
         toHeaders = const mempty
 

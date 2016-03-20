@@ -106,6 +106,8 @@ instance AWSRequest PutDestination where
                  PutDestinationResponse' <$>
                    (x .?> "destination") <*> (pure (fromEnum s)))
 
+instance Hashable PutDestination
+
 instance ToHeaders PutDestination where
         toHeaders
           = const

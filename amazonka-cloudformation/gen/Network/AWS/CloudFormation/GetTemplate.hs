@@ -88,6 +88,8 @@ instance AWSRequest GetTemplate where
                  GetTemplateResponse' <$>
                    (x .@? "TemplateBody") <*> (pure (fromEnum s)))
 
+instance Hashable GetTemplate
+
 instance ToHeaders GetTemplate where
         toHeaders = const mempty
 

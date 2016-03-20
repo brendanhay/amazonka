@@ -91,6 +91,8 @@ instance AWSRequest PollForThirdPartyJobs where
                  PollForThirdPartyJobsResponse' <$>
                    (x .?> "jobs" .!@ mempty) <*> (pure (fromEnum s)))
 
+instance Hashable PollForThirdPartyJobs
+
 instance ToHeaders PollForThirdPartyJobs where
         toHeaders
           = const

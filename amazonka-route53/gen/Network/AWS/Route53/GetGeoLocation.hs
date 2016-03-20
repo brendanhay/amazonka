@@ -110,6 +110,8 @@ instance AWSRequest GetGeoLocation where
                  GetGeoLocationResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "GeoLocationDetails"))
 
+instance Hashable GetGeoLocation
+
 instance ToHeaders GetGeoLocation where
         toHeaders = const mempty
 

@@ -64,6 +64,8 @@ instance AWSRequest DescribeEndpoint where
                  DescribeEndpointResponse' <$>
                    (x .?> "endpointAddress") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeEndpoint
+
 instance ToHeaders DescribeEndpoint where
         toHeaders = const mempty
 

@@ -99,6 +99,8 @@ instance AWSRequest RetrieveTapeArchive where
                  RetrieveTapeArchiveResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
+instance Hashable RetrieveTapeArchive
+
 instance ToHeaders RetrieveTapeArchive where
         toHeaders
           = const

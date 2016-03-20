@@ -89,6 +89,8 @@ instance AWSRequest DeleteRoute where
         request = postQuery eC2
         response = receiveNull DeleteRouteResponse'
 
+instance Hashable DeleteRoute
+
 instance ToHeaders DeleteRoute where
         toHeaders = const mempty
 

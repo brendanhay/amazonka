@@ -89,6 +89,8 @@ instance AWSRequest CreateDocument where
                    (x .?> "DocumentDescription") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateDocument
+
 instance ToHeaders CreateDocument where
         toHeaders
           = const

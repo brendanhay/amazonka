@@ -92,6 +92,8 @@ instance AWSRequest PutBucketRequestPayment where
         response
           = receiveNull PutBucketRequestPaymentResponse'
 
+instance Hashable PutBucketRequestPayment
+
 instance ToElement PutBucketRequestPayment where
         toElement
           = mkElement

@@ -85,6 +85,8 @@ instance AWSRequest GetBranch where
                  GetBranchResponse' <$>
                    (x .?> "branch") <*> (pure (fromEnum s)))
 
+instance Hashable GetBranch
+
 instance ToHeaders GetBranch where
         toHeaders
           = const

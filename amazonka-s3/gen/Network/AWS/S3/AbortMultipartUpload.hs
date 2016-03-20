@@ -108,6 +108,8 @@ instance AWSRequest AbortMultipartUpload where
                    (h .#? "x-amz-request-charged") <*>
                      (pure (fromEnum s)))
 
+instance Hashable AbortMultipartUpload
+
 instance ToHeaders AbortMultipartUpload where
         toHeaders AbortMultipartUpload'{..}
           = mconcat ["x-amz-request-payer" =# _amuRequestPayer]

@@ -99,6 +99,8 @@ instance AWSRequest UpdateSSHPublicKey where
         request = postQuery iAM
         response = receiveNull UpdateSSHPublicKeyResponse'
 
+instance Hashable UpdateSSHPublicKey
+
 instance ToHeaders UpdateSSHPublicKey where
         toHeaders = const mempty
 

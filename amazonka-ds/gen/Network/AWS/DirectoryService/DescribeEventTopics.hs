@@ -92,6 +92,8 @@ instance AWSRequest DescribeEventTopics where
                    (x .?> "EventTopics" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeEventTopics
+
 instance ToHeaders DescribeEventTopics where
         toHeaders
           = const

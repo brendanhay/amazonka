@@ -102,6 +102,8 @@ instance AWSRequest ListAliases where
                      <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListAliases
+
 instance ToHeaders ListAliases where
         toHeaders
           = const

@@ -92,6 +92,8 @@ instance AWSRequest UpdateSAMLProvider where
                  UpdateSAMLProviderResponse' <$>
                    (x .@? "SAMLProviderArn") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateSAMLProvider
+
 instance ToHeaders UpdateSAMLProvider where
         toHeaders = const mempty
 

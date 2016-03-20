@@ -92,6 +92,8 @@ instance AWSRequest UpdateBasePathMapping where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateBasePathMapping
+
 instance ToHeaders UpdateBasePathMapping where
         toHeaders
           = const

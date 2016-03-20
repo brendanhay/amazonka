@@ -110,6 +110,8 @@ instance AWSRequest DescribePlacementGroups where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribePlacementGroups
+
 instance ToHeaders DescribePlacementGroups where
         toHeaders = const mempty
 

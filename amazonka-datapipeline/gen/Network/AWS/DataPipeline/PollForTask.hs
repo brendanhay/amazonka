@@ -119,6 +119,8 @@ instance AWSRequest PollForTask where
                  PollForTaskResponse' <$>
                    (x .?> "taskObject") <*> (pure (fromEnum s)))
 
+instance Hashable PollForTask
+
 instance ToHeaders PollForTask where
         toHeaders
           = const

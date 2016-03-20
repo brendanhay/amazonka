@@ -85,6 +85,8 @@ instance AWSRequest GetChange where
                  GetChangeResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
+instance Hashable GetChange
+
 instance ToHeaders GetChange where
         toHeaders = const mempty
 

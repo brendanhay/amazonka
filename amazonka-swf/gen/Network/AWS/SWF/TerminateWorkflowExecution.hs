@@ -165,6 +165,8 @@ instance AWSRequest TerminateWorkflowExecution where
         response
           = receiveNull TerminateWorkflowExecutionResponse'
 
+instance Hashable TerminateWorkflowExecution
+
 instance ToHeaders TerminateWorkflowExecution where
         toHeaders
           = const

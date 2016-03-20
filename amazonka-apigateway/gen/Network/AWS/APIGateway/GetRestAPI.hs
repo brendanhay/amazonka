@@ -73,6 +73,8 @@ instance AWSRequest GetRestAPI where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetRestAPI
+
 instance ToHeaders GetRestAPI where
         toHeaders
           = const

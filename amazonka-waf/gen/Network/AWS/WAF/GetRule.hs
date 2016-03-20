@@ -75,6 +75,8 @@ instance AWSRequest GetRule where
                  GetRuleResponse' <$>
                    (x .?> "Rule") <*> (pure (fromEnum s)))
 
+instance Hashable GetRule
+
 instance ToHeaders GetRule where
         toHeaders
           = const

@@ -109,6 +109,8 @@ instance AWSRequest ListIdentities where
                      (x .@? "Identities" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListIdentities
+
 instance ToHeaders ListIdentities where
         toHeaders = const mempty
 

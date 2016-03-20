@@ -80,6 +80,8 @@ instance AWSRequest DeleteAlias where
         request = delete lambda
         response = receiveNull DeleteAliasResponse'
 
+instance Hashable DeleteAlias
+
 instance ToHeaders DeleteAlias where
         toHeaders = const mempty
 

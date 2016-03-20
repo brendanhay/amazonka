@@ -78,6 +78,8 @@ instance AWSRequest DescribeConnectionsOnInterconnect
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable DescribeConnectionsOnInterconnect
+
 instance ToHeaders DescribeConnectionsOnInterconnect
          where
         toHeaders

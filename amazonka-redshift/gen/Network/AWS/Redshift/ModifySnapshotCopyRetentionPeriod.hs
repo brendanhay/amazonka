@@ -102,6 +102,8 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod
                  ModifySnapshotCopyRetentionPeriodResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
+instance Hashable ModifySnapshotCopyRetentionPeriod
+
 instance ToHeaders ModifySnapshotCopyRetentionPeriod
          where
         toHeaders = const mempty

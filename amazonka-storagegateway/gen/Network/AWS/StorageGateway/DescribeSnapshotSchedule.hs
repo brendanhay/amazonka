@@ -88,6 +88,8 @@ instance AWSRequest DescribeSnapshotSchedule where
                      <*> (x .?> "Description")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeSnapshotSchedule
+
 instance ToHeaders DescribeSnapshotSchedule where
         toHeaders
           = const

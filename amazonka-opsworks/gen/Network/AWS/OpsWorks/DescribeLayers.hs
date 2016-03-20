@@ -91,6 +91,8 @@ instance AWSRequest DescribeLayers where
                  DescribeLayersResponse' <$>
                    (x .?> "Layers" .!@ mempty) <*> (pure (fromEnum s)))
 
+instance Hashable DescribeLayers
+
 instance ToHeaders DescribeLayers where
         toHeaders
           = const

@@ -66,6 +66,8 @@ instance AWSRequest GenerateCredentialReport where
                    (x .@? "State") <*> (x .@? "Description") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GenerateCredentialReport
+
 instance ToHeaders GenerateCredentialReport where
         toHeaders = const mempty
 

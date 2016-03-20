@@ -83,6 +83,8 @@ instance AWSRequest CreateLogStream where
         request = postJSON cloudWatchLogs
         response = receiveNull CreateLogStreamResponse'
 
+instance Hashable CreateLogStream
+
 instance ToHeaders CreateLogStream where
         toHeaders
           = const

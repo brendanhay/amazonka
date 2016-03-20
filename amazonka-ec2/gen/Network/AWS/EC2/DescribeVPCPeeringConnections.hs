@@ -141,6 +141,8 @@ instance AWSRequest DescribeVPCPeeringConnections
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVPCPeeringConnections
+
 instance ToHeaders DescribeVPCPeeringConnections
          where
         toHeaders = const mempty

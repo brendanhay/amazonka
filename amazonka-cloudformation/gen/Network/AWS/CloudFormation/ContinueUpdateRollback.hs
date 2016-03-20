@@ -90,6 +90,8 @@ instance AWSRequest ContinueUpdateRollback where
                  ContinueUpdateRollbackResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable ContinueUpdateRollback
+
 instance ToHeaders ContinueUpdateRollback where
         toHeaders = const mempty
 

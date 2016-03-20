@@ -109,6 +109,8 @@ instance AWSRequest UpdateServerCertificate where
         response
           = receiveNull UpdateServerCertificateResponse'
 
+instance Hashable UpdateServerCertificate
+
 instance ToHeaders UpdateServerCertificate where
         toHeaders = const mempty
 

@@ -86,6 +86,8 @@ instance AWSRequest UpdateAPIKey where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateAPIKey
+
 instance ToHeaders UpdateAPIKey where
         toHeaders
           = const

@@ -76,6 +76,8 @@ instance AWSRequest AddUserToGroup where
         request = postQuery iAM
         response = receiveNull AddUserToGroupResponse'
 
+instance Hashable AddUserToGroup
+
 instance ToHeaders AddUserToGroup where
         toHeaders = const mempty
 

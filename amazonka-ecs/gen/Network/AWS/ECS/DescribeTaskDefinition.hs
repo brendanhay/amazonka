@@ -81,6 +81,8 @@ instance AWSRequest DescribeTaskDefinition where
                  DescribeTaskDefinitionResponse' <$>
                    (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTaskDefinition
+
 instance ToHeaders DescribeTaskDefinition where
         toHeaders
           = const

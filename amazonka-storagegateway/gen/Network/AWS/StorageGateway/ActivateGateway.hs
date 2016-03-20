@@ -176,6 +176,8 @@ instance AWSRequest ActivateGateway where
                  ActivateGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable ActivateGateway
+
 instance ToHeaders ActivateGateway where
         toHeaders
           = const

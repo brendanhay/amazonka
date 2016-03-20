@@ -99,6 +99,9 @@ instance AWSRequest
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable
+         UpdateCloudFrontOriginAccessIdentity
+
 instance ToElement
          UpdateCloudFrontOriginAccessIdentity where
         toElement

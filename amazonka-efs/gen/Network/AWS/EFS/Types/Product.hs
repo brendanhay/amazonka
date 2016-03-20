@@ -136,6 +136,8 @@ instance FromJSON FileSystemDescription where
                      <*> (x .: "NumberOfMountTargets")
                      <*> (x .: "SizeInBytes"))
 
+instance Hashable FileSystemDescription
+
 -- | This object provides the latest known metered size, in bytes, of data
 -- stored in the file system, in its 'Value' field, and the time at which
 -- that size was determined in its 'Timestamp' field. Note that the value
@@ -185,6 +187,8 @@ instance FromJSON FileSystemSize where
               (\ x ->
                  FileSystemSize' <$>
                    (x .:? "Timestamp") <*> (x .: "Value"))
+
+instance Hashable FileSystemSize
 
 -- | This object provides description of a mount target.
 --
@@ -275,6 +279,8 @@ instance FromJSON MountTargetDescription where
                      <*> (x .: "SubnetId")
                      <*> (x .: "LifeCycleState"))
 
+instance Hashable MountTargetDescription
+
 -- | A tag is a pair of key and value. The allowed characters in keys and
 -- values are letters, whitespace, and numbers, representable in UTF-8, and
 -- the characters \'+\', \'-\', \'=\', \'.\', \'_\', \':\', and \'\/\'.
@@ -314,6 +320,8 @@ instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
+
+instance Hashable Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}

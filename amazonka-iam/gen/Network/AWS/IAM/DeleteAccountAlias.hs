@@ -70,6 +70,8 @@ instance AWSRequest DeleteAccountAlias where
         request = postQuery iAM
         response = receiveNull DeleteAccountAliasResponse'
 
+instance Hashable DeleteAccountAlias
+
 instance ToHeaders DeleteAccountAlias where
         toHeaders = const mempty
 

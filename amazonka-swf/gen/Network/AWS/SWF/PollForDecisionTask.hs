@@ -217,6 +217,8 @@ instance AWSRequest PollForDecisionTask where
                      <*> (x .:> "workflowType")
                      <*> (x .?> "events" .!@ mempty))
 
+instance Hashable PollForDecisionTask
+
 instance ToHeaders PollForDecisionTask where
         toHeaders
           = const

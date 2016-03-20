@@ -85,6 +85,8 @@ instance AWSRequest AddTagsToResource where
         request = postQuery rDS
         response = receiveNull AddTagsToResourceResponse'
 
+instance Hashable AddTagsToResource
+
 instance ToHeaders AddTagsToResource where
         toHeaders = const mempty
 

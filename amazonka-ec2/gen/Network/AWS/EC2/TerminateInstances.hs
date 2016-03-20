@@ -110,6 +110,8 @@ instance AWSRequest TerminateInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable TerminateInstances
+
 instance ToHeaders TerminateInstances where
         toHeaders = const mempty
 

@@ -85,6 +85,8 @@ instance AWSRequest DescribeTimeBasedAutoScaling
                       mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTimeBasedAutoScaling
+
 instance ToHeaders DescribeTimeBasedAutoScaling where
         toHeaders
           = const

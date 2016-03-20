@@ -96,6 +96,8 @@ instance AWSRequest DisableMetricsCollection where
         response
           = receiveNull DisableMetricsCollectionResponse'
 
+instance Hashable DisableMetricsCollection
+
 instance ToHeaders DisableMetricsCollection where
         toHeaders = const mempty
 

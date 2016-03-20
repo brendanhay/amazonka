@@ -101,6 +101,8 @@ instance AWSRequest ConfirmProductInstance where
                    (x .@? "return") <*> (x .@? "ownerId") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ConfirmProductInstance
+
 instance ToHeaders ConfirmProductInstance where
         toHeaders = const mempty
 

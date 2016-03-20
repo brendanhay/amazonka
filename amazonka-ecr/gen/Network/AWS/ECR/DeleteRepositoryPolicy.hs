@@ -90,6 +90,8 @@ instance AWSRequest DeleteRepositoryPolicy where
                      (x .?> "policyText")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DeleteRepositoryPolicy
+
 instance ToHeaders DeleteRepositoryPolicy where
         toHeaders
           = const

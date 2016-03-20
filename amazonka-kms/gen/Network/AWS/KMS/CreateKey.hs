@@ -99,6 +99,8 @@ instance AWSRequest CreateKey where
                  CreateKeyResponse' <$>
                    (x .?> "KeyMetadata") <*> (pure (fromEnum s)))
 
+instance Hashable CreateKey
+
 instance ToHeaders CreateKey where
         toHeaders
           = const

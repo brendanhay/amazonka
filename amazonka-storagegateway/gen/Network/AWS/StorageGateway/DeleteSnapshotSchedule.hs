@@ -84,6 +84,8 @@ instance AWSRequest DeleteSnapshotSchedule where
                  DeleteSnapshotScheduleResponse' <$>
                    (x .?> "VolumeARN") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteSnapshotSchedule
+
 instance ToHeaders DeleteSnapshotSchedule where
         toHeaders
           = const

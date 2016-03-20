@@ -162,6 +162,8 @@ instance AWSRequest DescribeSecurityGroups where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeSecurityGroups
+
 instance ToHeaders DescribeSecurityGroups where
         toHeaders = const mempty
 

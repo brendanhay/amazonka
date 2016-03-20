@@ -103,6 +103,8 @@ instance AWSRequest DescribeRAIdArrays where
                    (x .?> "RaidArrays" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeRAIdArrays
+
 instance ToHeaders DescribeRAIdArrays where
         toHeaders
           = const

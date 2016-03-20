@@ -234,6 +234,8 @@ instance AWSRequest BatchGetItem where
                      <*> (x .?> "ConsumedCapacity" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable BatchGetItem
+
 instance ToHeaders BatchGetItem where
         toHeaders
           = const

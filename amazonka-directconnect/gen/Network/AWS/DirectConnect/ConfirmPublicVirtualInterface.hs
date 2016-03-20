@@ -84,6 +84,8 @@ instance AWSRequest ConfirmPublicVirtualInterface
                    (x .?> "virtualInterfaceState") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ConfirmPublicVirtualInterface
+
 instance ToHeaders ConfirmPublicVirtualInterface
          where
         toHeaders

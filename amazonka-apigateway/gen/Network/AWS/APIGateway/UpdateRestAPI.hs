@@ -83,6 +83,8 @@ instance AWSRequest UpdateRestAPI where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateRestAPI
+
 instance ToHeaders UpdateRestAPI where
         toHeaders
           = const

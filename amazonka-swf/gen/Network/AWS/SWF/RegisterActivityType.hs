@@ -228,6 +228,8 @@ instance AWSRequest RegisterActivityType where
         request = postJSON sWF
         response = receiveNull RegisterActivityTypeResponse'
 
+instance Hashable RegisterActivityType
+
 instance ToHeaders RegisterActivityType where
         toHeaders
           = const

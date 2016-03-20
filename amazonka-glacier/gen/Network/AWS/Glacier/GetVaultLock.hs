@@ -118,6 +118,8 @@ instance AWSRequest GetVaultLock where
                      <*> (x .?> "Policy")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetVaultLock
+
 instance ToHeaders GetVaultLock where
         toHeaders = const mempty
 

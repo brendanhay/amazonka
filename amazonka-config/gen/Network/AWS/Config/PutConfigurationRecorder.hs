@@ -82,6 +82,8 @@ instance AWSRequest PutConfigurationRecorder where
         response
           = receiveNull PutConfigurationRecorderResponse'
 
+instance Hashable PutConfigurationRecorder
+
 instance ToHeaders PutConfigurationRecorder where
         toHeaders
           = const

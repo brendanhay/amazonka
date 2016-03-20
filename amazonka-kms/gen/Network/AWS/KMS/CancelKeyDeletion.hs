@@ -91,6 +91,8 @@ instance AWSRequest CancelKeyDeletion where
                  CancelKeyDeletionResponse' <$>
                    (x .?> "KeyId") <*> (pure (fromEnum s)))
 
+instance Hashable CancelKeyDeletion
+
 instance ToHeaders CancelKeyDeletion where
         toHeaders
           = const

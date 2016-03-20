@@ -174,6 +174,8 @@ instance AWSRequest GetShippingLabel where
                    (x .@? "ShippingLabelURL") <*> (x .@? "Warning") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetShippingLabel
+
 instance ToHeaders GetShippingLabel where
         toHeaders = const mempty
 

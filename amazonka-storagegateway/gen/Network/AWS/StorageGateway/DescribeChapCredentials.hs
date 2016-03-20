@@ -82,6 +82,8 @@ instance AWSRequest DescribeChapCredentials where
                    (x .?> "ChapCredentials" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeChapCredentials
+
 instance ToHeaders DescribeChapCredentials where
         toHeaders
           = const

@@ -82,6 +82,8 @@ instance AWSRequest DeleteApplication where
         request = postQuery elasticBeanstalk
         response = receiveNull DeleteApplicationResponse'
 
+instance Hashable DeleteApplication
+
 instance ToHeaders DeleteApplication where
         toHeaders = const mempty
 

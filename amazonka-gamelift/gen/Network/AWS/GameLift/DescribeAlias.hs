@@ -77,6 +77,8 @@ instance AWSRequest DescribeAlias where
                  DescribeAliasResponse' <$>
                    (x .?> "Alias") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAlias
+
 instance ToHeaders DescribeAlias where
         toHeaders
           = const

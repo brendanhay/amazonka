@@ -76,6 +76,8 @@ instance AWSRequest TerminateJobFlows where
         request = postJSON eMR
         response = receiveNull TerminateJobFlowsResponse'
 
+instance Hashable TerminateJobFlows
+
 instance ToHeaders TerminateJobFlows where
         toHeaders
           = const

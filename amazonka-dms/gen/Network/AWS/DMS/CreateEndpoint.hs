@@ -177,6 +177,8 @@ instance AWSRequest CreateEndpoint where
                  CreateEndpointResponse' <$>
                    (x .?> "Endpoint") <*> (pure (fromEnum s)))
 
+instance Hashable CreateEndpoint
+
 instance ToHeaders CreateEndpoint where
         toHeaders
           = const

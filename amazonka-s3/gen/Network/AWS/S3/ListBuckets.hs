@@ -65,6 +65,8 @@ instance AWSRequest ListBuckets where
                      <*> (x .@? "Owner")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListBuckets
+
 instance ToHeaders ListBuckets where
         toHeaders = const mempty
 

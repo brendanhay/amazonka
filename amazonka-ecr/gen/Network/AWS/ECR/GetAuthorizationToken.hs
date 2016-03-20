@@ -84,6 +84,8 @@ instance AWSRequest GetAuthorizationToken where
                    (x .?> "authorizationData" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetAuthorizationToken
+
 instance ToHeaders GetAuthorizationToken where
         toHeaders
           = const

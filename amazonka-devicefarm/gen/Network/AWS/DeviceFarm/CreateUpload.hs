@@ -146,6 +146,8 @@ instance AWSRequest CreateUpload where
                  CreateUploadResponse' <$>
                    (x .?> "upload") <*> (pure (fromEnum s)))
 
+instance Hashable CreateUpload
+
 instance ToHeaders CreateUpload where
         toHeaders
           = const

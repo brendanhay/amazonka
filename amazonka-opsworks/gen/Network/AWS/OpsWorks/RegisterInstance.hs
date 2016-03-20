@@ -143,6 +143,8 @@ instance AWSRequest RegisterInstance where
                  RegisterInstanceResponse' <$>
                    (x .?> "InstanceId") <*> (pure (fromEnum s)))
 
+instance Hashable RegisterInstance
+
 instance ToHeaders RegisterInstance where
         toHeaders
           = const

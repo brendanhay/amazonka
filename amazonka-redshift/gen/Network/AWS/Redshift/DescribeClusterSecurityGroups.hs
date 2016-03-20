@@ -175,6 +175,8 @@ instance AWSRequest DescribeClusterSecurityGroups
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeClusterSecurityGroups
+
 instance ToHeaders DescribeClusterSecurityGroups
          where
         toHeaders = const mempty

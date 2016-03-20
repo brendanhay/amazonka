@@ -79,6 +79,8 @@ instance AWSRequest StartLogging where
               (\ s h x ->
                  StartLoggingResponse' <$> (pure (fromEnum s)))
 
+instance Hashable StartLogging
+
 instance ToHeaders StartLogging where
         toHeaders
           = const

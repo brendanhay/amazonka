@@ -76,6 +76,8 @@ instance AWSRequest GetBucketLifecycleConfiguration
                    (may (parseXMLList "Rule") x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetBucketLifecycleConfiguration
+
 instance ToHeaders GetBucketLifecycleConfiguration
          where
         toHeaders = const mempty

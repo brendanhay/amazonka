@@ -135,6 +135,8 @@ instance AWSRequest RecordActivityTaskHeartbeat where
                  RecordActivityTaskHeartbeatResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "cancelRequested"))
 
+instance Hashable RecordActivityTaskHeartbeat
+
 instance ToHeaders RecordActivityTaskHeartbeat where
         toHeaders
           = const

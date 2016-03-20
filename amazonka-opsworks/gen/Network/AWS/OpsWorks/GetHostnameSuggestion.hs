@@ -83,6 +83,8 @@ instance AWSRequest GetHostnameSuggestion where
                    (x .?> "Hostname") <*> (x .?> "LayerId") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetHostnameSuggestion
+
 instance ToHeaders GetHostnameSuggestion where
         toHeaders
           = const

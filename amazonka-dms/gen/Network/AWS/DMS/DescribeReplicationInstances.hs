@@ -109,6 +109,8 @@ instance AWSRequest DescribeReplicationInstances
                      (x .?> "ReplicationInstances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeReplicationInstances
+
 instance ToHeaders DescribeReplicationInstances where
         toHeaders
           = const

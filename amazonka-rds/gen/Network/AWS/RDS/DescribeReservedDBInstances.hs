@@ -192,6 +192,8 @@ instance AWSRequest DescribeReservedDBInstances where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeReservedDBInstances
+
 instance ToHeaders DescribeReservedDBInstances where
         toHeaders = const mempty
 

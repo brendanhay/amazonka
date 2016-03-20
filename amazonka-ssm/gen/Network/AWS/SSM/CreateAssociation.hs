@@ -101,6 +101,8 @@ instance AWSRequest CreateAssociation where
                    (x .?> "AssociationDescription") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateAssociation
+
 instance ToHeaders CreateAssociation where
         toHeaders
           = const

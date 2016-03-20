@@ -79,6 +79,8 @@ instance AWSRequest DeleteKeyPair where
         request = postQuery eC2
         response = receiveNull DeleteKeyPairResponse'
 
+instance Hashable DeleteKeyPair
+
 instance ToHeaders DeleteKeyPair where
         toHeaders = const mempty
 

@@ -84,6 +84,8 @@ instance AWSRequest AttachInstances where
         request = postQuery autoScaling
         response = receiveNull AttachInstancesResponse'
 
+instance Hashable AttachInstances
+
 instance ToHeaders AttachInstances where
         toHeaders = const mempty
 

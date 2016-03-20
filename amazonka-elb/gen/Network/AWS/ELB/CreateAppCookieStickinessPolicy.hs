@@ -113,6 +113,8 @@ instance AWSRequest CreateAppCookieStickinessPolicy
                  CreateAppCookieStickinessPolicyResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable CreateAppCookieStickinessPolicy
+
 instance ToHeaders CreateAppCookieStickinessPolicy
          where
         toHeaders = const mempty

@@ -91,6 +91,8 @@ instance AWSRequest GetKeyPolicy where
                  GetKeyPolicyResponse' <$>
                    (x .?> "Policy") <*> (pure (fromEnum s)))
 
+instance Hashable GetKeyPolicy
+
 instance ToHeaders GetKeyPolicy where
         toHeaders
           = const

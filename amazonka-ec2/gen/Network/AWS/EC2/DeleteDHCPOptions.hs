@@ -81,6 +81,8 @@ instance AWSRequest DeleteDHCPOptions where
         request = postQuery eC2
         response = receiveNull DeleteDHCPOptionsResponse'
 
+instance Hashable DeleteDHCPOptions
+
 instance ToHeaders DeleteDHCPOptions where
         toHeaders = const mempty
 

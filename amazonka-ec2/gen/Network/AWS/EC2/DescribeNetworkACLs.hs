@@ -157,6 +157,8 @@ instance AWSRequest DescribeNetworkACLs where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeNetworkACLs
+
 instance ToHeaders DescribeNetworkACLs where
         toHeaders = const mempty
 

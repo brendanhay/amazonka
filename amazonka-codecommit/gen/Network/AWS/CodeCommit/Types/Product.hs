@@ -59,6 +59,8 @@ instance FromJSON BranchInfo where
                  BranchInfo' <$>
                    (x .:? "commitId") <*> (x .:? "branchName"))
 
+instance Hashable BranchInfo
+
 -- | Returns information about a specific commit.
 --
 -- /See:/ 'commit' smart constructor.
@@ -136,6 +138,8 @@ instance FromJSON Commit where
                      <*> (x .:? "parents" .!= mempty)
                      <*> (x .:? "author")
                      <*> (x .:? "message"))
+
+instance Hashable Commit
 
 -- | Information about a repository.
 --
@@ -248,6 +252,8 @@ instance FromJSON RepositoryMetadata where
                      <*> (x .:? "creationDate")
                      <*> (x .:? "cloneUrlSsh"))
 
+instance Hashable RepositoryMetadata
+
 -- | Information about a repository name and ID.
 --
 -- /See:/ 'repositoryNameIdPair' smart constructor.
@@ -285,6 +291,8 @@ instance FromJSON RepositoryNameIdPair where
               (\ x ->
                  RepositoryNameIdPair' <$>
                    (x .:? "repositoryId") <*> (x .:? "repositoryName"))
+
+instance Hashable RepositoryNameIdPair
 
 -- | Information about a trigger for a repository.
 --
@@ -358,6 +366,8 @@ instance FromJSON RepositoryTrigger where
                      <*> (x .:? "name")
                      <*> (x .:? "events" .!= mempty))
 
+instance Hashable RepositoryTrigger
+
 instance ToJSON RepositoryTrigger where
         toJSON RepositoryTrigger'{..}
           = object
@@ -407,6 +417,8 @@ instance FromJSON RepositoryTriggerExecutionFailure
                  RepositoryTriggerExecutionFailure' <$>
                    (x .:? "failureMessage") <*> (x .:? "trigger"))
 
+instance Hashable RepositoryTriggerExecutionFailure
+
 -- | Information about the user who made a specified commit.
 --
 -- /See:/ 'userInfo' smart constructor.
@@ -453,3 +465,5 @@ instance FromJSON UserInfo where
                  UserInfo' <$>
                    (x .:? "email") <*> (x .:? "date") <*>
                      (x .:? "name"))
+
+instance Hashable UserInfo

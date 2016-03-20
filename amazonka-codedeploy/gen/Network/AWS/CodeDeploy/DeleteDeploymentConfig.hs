@@ -74,6 +74,8 @@ instance AWSRequest DeleteDeploymentConfig where
         response
           = receiveNull DeleteDeploymentConfigResponse'
 
+instance Hashable DeleteDeploymentConfig
+
 instance ToHeaders DeleteDeploymentConfig where
         toHeaders
           = const

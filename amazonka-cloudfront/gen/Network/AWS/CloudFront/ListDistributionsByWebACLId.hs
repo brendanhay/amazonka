@@ -103,6 +103,8 @@ instance AWSRequest ListDistributionsByWebACLId where
                  ListDistributionsByWebACLIdResponse' <$>
                    (parseXML x) <*> (pure (fromEnum s)))
 
+instance Hashable ListDistributionsByWebACLId
+
 instance ToHeaders ListDistributionsByWebACLId where
         toHeaders = const mempty
 

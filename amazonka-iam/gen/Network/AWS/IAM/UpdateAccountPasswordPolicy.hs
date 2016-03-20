@@ -179,6 +179,8 @@ instance AWSRequest UpdateAccountPasswordPolicy where
         response
           = receiveNull UpdateAccountPasswordPolicyResponse'
 
+instance Hashable UpdateAccountPasswordPolicy
+
 instance ToHeaders UpdateAccountPasswordPolicy where
         toHeaders = const mempty
 

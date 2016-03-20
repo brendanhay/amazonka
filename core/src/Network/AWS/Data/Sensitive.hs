@@ -13,6 +13,7 @@
 module Network.AWS.Data.Sensitive where
 
 import           Data.Data                   (Data, Typeable)
+import           Data.Hashable
 import           Data.Monoid
 import           Data.String
 import           GHC.Generics                (Generic)
@@ -46,6 +47,8 @@ newtype Sensitive a = Sensitive { desensitise :: a }
 
 instance Show (Sensitive a) where
     show = const "******"
+
+instance Hashable a => Hashable (Sensitive a)
 
 _Sensitive :: Iso' (Sensitive a) a
 _Sensitive = iso desensitise Sensitive

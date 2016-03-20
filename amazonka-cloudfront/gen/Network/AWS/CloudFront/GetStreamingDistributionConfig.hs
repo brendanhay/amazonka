@@ -79,6 +79,8 @@ instance AWSRequest GetStreamingDistributionConfig
                    (parseXML x) <*> (h .#? "ETag") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetStreamingDistributionConfig
+
 instance ToHeaders GetStreamingDistributionConfig
          where
         toHeaders = const mempty

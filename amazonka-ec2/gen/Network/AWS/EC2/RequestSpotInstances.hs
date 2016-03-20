@@ -229,6 +229,8 @@ instance AWSRequest RequestSpotInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable RequestSpotInstances
+
 instance ToHeaders RequestSpotInstances where
         toHeaders = const mempty
 

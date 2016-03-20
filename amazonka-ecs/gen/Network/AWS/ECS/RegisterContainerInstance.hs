@@ -141,6 +141,8 @@ instance AWSRequest RegisterContainerInstance where
                  RegisterContainerInstanceResponse' <$>
                    (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
+instance Hashable RegisterContainerInstance
+
 instance ToHeaders RegisterContainerInstance where
         toHeaders
           = const

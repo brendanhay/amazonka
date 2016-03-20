@@ -93,6 +93,8 @@ instance AWSRequest GetPolicyVersion where
                      <*> (x .?> "isDefaultVersion")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetPolicyVersion
+
 instance ToHeaders GetPolicyVersion where
         toHeaders = const mempty
 

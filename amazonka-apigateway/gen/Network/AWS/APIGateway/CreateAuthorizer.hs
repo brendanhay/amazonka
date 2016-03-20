@@ -143,6 +143,8 @@ instance AWSRequest CreateAuthorizer where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateAuthorizer
+
 instance ToHeaders CreateAuthorizer where
         toHeaders
           = const

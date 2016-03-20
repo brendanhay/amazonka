@@ -83,6 +83,8 @@ instance AWSRequest AddTagsToOnPremisesInstances
         response
           = receiveNull AddTagsToOnPremisesInstancesResponse'
 
+instance Hashable AddTagsToOnPremisesInstances
+
 instance ToHeaders AddTagsToOnPremisesInstances where
         toHeaders
           = const

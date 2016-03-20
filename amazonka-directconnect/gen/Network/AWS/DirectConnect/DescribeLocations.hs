@@ -63,6 +63,8 @@ instance AWSRequest DescribeLocations where
                    (x .?> "locations" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeLocations
+
 instance ToHeaders DescribeLocations where
         toHeaders
           = const

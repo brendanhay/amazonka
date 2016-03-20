@@ -86,6 +86,8 @@ instance AWSRequest DeleteLifecycleHook where
               (\ s h x ->
                  DeleteLifecycleHookResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteLifecycleHook
+
 instance ToHeaders DeleteLifecycleHook where
         toHeaders = const mempty
 

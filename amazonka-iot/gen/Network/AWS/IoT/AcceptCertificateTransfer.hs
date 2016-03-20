@@ -83,6 +83,8 @@ instance AWSRequest AcceptCertificateTransfer where
         response
           = receiveNull AcceptCertificateTransferResponse'
 
+instance Hashable AcceptCertificateTransfer
+
 instance ToHeaders AcceptCertificateTransfer where
         toHeaders = const mempty
 

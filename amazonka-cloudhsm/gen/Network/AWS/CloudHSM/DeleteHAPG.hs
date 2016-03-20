@@ -75,6 +75,8 @@ instance AWSRequest DeleteHAPG where
                  DeleteHAPGResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Status"))
 
+instance Hashable DeleteHAPG
+
 instance ToHeaders DeleteHAPG where
         toHeaders
           = const

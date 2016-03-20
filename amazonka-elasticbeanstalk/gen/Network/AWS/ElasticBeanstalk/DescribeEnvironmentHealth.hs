@@ -121,6 +121,8 @@ instance AWSRequest DescribeEnvironmentHealth where
                      <*> (x .@? "RefreshedAt")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeEnvironmentHealth
+
 instance ToHeaders DescribeEnvironmentHealth where
         toHeaders = const mempty
 

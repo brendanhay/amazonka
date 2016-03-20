@@ -150,6 +150,8 @@ instance AWSRequest PutRecordBatch where
                    (pure (fromEnum s)) <*> (x .:> "FailedPutCount") <*>
                      (x .:> "RequestResponses"))
 
+instance Hashable PutRecordBatch
+
 instance ToHeaders PutRecordBatch where
         toHeaders
           = const

@@ -102,6 +102,8 @@ instance AWSRequest DescribeTrails where
                    (x .?> "trailList" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeTrails
+
 instance ToHeaders DescribeTrails where
         toHeaders
           = const

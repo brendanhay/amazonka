@@ -80,6 +80,8 @@ instance AWSRequest GetEventSourceMapping where
         request = get lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetEventSourceMapping
+
 instance ToHeaders GetEventSourceMapping where
         toHeaders = const mempty
 

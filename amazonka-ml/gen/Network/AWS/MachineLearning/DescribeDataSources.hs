@@ -217,6 +217,8 @@ instance AWSRequest DescribeDataSources where
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDataSources
+
 instance ToHeaders DescribeDataSources where
         toHeaders
           = const

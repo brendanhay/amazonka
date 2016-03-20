@@ -317,6 +317,8 @@ instance FromJSON ContactDetail where
                      <*> (x .:? "CountryCode")
                      <*> (x .:? "ContactType"))
 
+instance Hashable ContactDetail
+
 instance ToJSON ContactDetail where
         toJSON ContactDetail'{..}
           = object
@@ -403,6 +405,8 @@ instance FromJSON DomainSummary where
                      (x .:? "AutoRenew")
                      <*> (x .: "DomainName"))
 
+instance Hashable DomainSummary
+
 -- | ExtraParam includes the following elements.
 --
 -- /See:/ 'extraParam' smart constructor.
@@ -468,6 +472,8 @@ instance FromJSON ExtraParam where
               (\ x ->
                  ExtraParam' <$> (x .: "Name") <*> (x .: "Value"))
 
+instance Hashable ExtraParam
+
 instance ToJSON ExtraParam where
         toJSON ExtraParam'{..}
           = object
@@ -529,6 +535,8 @@ instance FromJSON Nameserver where
               (\ x ->
                  Nameserver' <$>
                    (x .:? "GlueIps" .!= mempty) <*> (x .: "Name"))
+
+instance Hashable Nameserver
 
 instance ToJSON Nameserver where
         toJSON Nameserver'{..}
@@ -607,6 +615,8 @@ instance FromJSON OperationSummary where
                      (x .: "Type")
                      <*> (x .: "SubmittedDate"))
 
+instance Hashable OperationSummary
+
 -- | Each tag includes the following elements.
 --
 -- /See:/ 'tag' smart constructor.
@@ -662,6 +672,8 @@ instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
+
+instance Hashable Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}

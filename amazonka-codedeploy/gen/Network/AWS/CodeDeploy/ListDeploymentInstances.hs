@@ -109,6 +109,8 @@ instance AWSRequest ListDeploymentInstances where
                      (x .?> "instancesList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListDeploymentInstances
+
 instance ToHeaders ListDeploymentInstances where
         toHeaders
           = const

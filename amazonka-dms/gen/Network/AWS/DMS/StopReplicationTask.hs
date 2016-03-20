@@ -75,6 +75,8 @@ instance AWSRequest StopReplicationTask where
                  StopReplicationTaskResponse' <$>
                    (x .?> "ReplicationTask") <*> (pure (fromEnum s)))
 
+instance Hashable StopReplicationTask
+
 instance ToHeaders StopReplicationTask where
         toHeaders
           = const

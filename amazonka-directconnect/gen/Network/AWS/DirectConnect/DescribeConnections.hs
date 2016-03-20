@@ -72,6 +72,8 @@ instance AWSRequest DescribeConnections where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable DescribeConnections
+
 instance ToHeaders DescribeConnections where
         toHeaders
           = const

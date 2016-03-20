@@ -115,6 +115,8 @@ instance AWSRequest ScheduleKeyDeletion where
                    (x .?> "KeyId") <*> (x .?> "DeletionDate") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ScheduleKeyDeletion
+
 instance ToHeaders ScheduleKeyDeletion where
         toHeaders
           = const

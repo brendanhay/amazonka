@@ -75,6 +75,8 @@ instance AWSRequest UnassignInstance where
         request = postJSON opsWorks
         response = receiveNull UnassignInstanceResponse'
 
+instance Hashable UnassignInstance
+
 instance ToHeaders UnassignInstance where
         toHeaders
           = const

@@ -58,6 +58,8 @@ instance FromXML Artifact where
           = Artifact' <$>
               (x .@? "URL") <*> (x .@? "Description")
 
+instance Hashable Artifact
+
 -- | Representation of a job returned by the ListJobs operation.
 --
 -- /See:/ 'job' smart constructor.
@@ -115,3 +117,5 @@ instance FromXML Job where
               (x .@ "JobType") <*> (x .@ "JobId") <*>
                 (x .@ "IsCanceled")
                 <*> (x .@ "CreationDate")
+
+instance Hashable Job

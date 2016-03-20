@@ -86,6 +86,8 @@ instance AWSRequest DescribeDomains where
                      (x .@? "DomainStatusList" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable DescribeDomains
+
 instance ToHeaders DescribeDomains where
         toHeaders = const mempty
 

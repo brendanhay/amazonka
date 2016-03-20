@@ -89,6 +89,8 @@ instance AWSRequest BatchGetDeploymentGroups where
                      (x .?> "errorMessage")
                      <*> (pure (fromEnum s)))
 
+instance Hashable BatchGetDeploymentGroups
+
 instance ToHeaders BatchGetDeploymentGroups where
         toHeaders
           = const

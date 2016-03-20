@@ -107,6 +107,8 @@ instance AWSRequest ListDevicePools where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListDevicePools
+
 instance ToHeaders ListDevicePools where
         toHeaders
           = const

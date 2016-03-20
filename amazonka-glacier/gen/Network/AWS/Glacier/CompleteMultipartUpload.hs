@@ -176,6 +176,8 @@ instance AWSRequest CompleteMultipartUpload where
                      (h .#? "x-amz-sha256-tree-hash")
                      <*> (h .#? "Location"))
 
+instance Hashable CompleteMultipartUpload
+
 instance ToHeaders CompleteMultipartUpload where
         toHeaders CompleteMultipartUpload'{..}
           = mconcat

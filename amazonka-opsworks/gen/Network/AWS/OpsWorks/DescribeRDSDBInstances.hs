@@ -91,6 +91,8 @@ instance AWSRequest DescribeRDSDBInstances where
                    (x .?> "RdsDbInstances" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeRDSDBInstances
+
 instance ToHeaders DescribeRDSDBInstances where
         toHeaders
           = const

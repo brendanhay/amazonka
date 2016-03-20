@@ -88,6 +88,8 @@ instance AWSRequest DescribeDBSnapshotAttributes
                    (x .@? "DBSnapshotAttributesResult") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeDBSnapshotAttributes
+
 instance ToHeaders DescribeDBSnapshotAttributes where
         toHeaders = const mempty
 

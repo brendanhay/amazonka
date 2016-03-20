@@ -74,6 +74,8 @@ instance AWSRequest GetIPSet where
                  GetIPSetResponse' <$>
                    (x .?> "IPSet") <*> (pure (fromEnum s)))
 
+instance Hashable GetIPSet
+
 instance ToHeaders GetIPSet where
         toHeaders
           = const

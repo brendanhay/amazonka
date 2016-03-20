@@ -92,6 +92,8 @@ instance AWSRequest DeprecateDomain where
         request = postJSON sWF
         response = receiveNull DeprecateDomainResponse'
 
+instance Hashable DeprecateDomain
+
 instance ToHeaders DeprecateDomain where
         toHeaders
           = const

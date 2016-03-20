@@ -86,6 +86,8 @@ instance AWSRequest ListBranches where
                    (x .?> "branches" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListBranches
+
 instance ToHeaders ListBranches where
         toHeaders
           = const

@@ -94,6 +94,8 @@ instance AWSRequest DescribeElasticLoadBalancers
                    (x .?> "ElasticLoadBalancers" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeElasticLoadBalancers
+
 instance ToHeaders DescribeElasticLoadBalancers where
         toHeaders
           = const

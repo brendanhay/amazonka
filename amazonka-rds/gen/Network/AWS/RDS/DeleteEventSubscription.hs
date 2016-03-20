@@ -76,6 +76,8 @@ instance AWSRequest DeleteEventSubscription where
                  DeleteEventSubscriptionResponse' <$>
                    (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteEventSubscription
+
 instance ToHeaders DeleteEventSubscription where
         toHeaders = const mempty
 

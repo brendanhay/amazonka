@@ -134,6 +134,8 @@ instance AWSRequest SendCommand where
                  SendCommandResponse' <$>
                    (x .?> "Command") <*> (pure (fromEnum s)))
 
+instance Hashable SendCommand
+
 instance ToHeaders SendCommand where
         toHeaders
           = const

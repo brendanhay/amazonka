@@ -113,6 +113,8 @@ instance AWSRequest SwapEnvironmentCNAMEs where
         request = postQuery elasticBeanstalk
         response = receiveNull SwapEnvironmentCNAMEsResponse'
 
+instance Hashable SwapEnvironmentCNAMEs
+
 instance ToHeaders SwapEnvironmentCNAMEs where
         toHeaders = const mempty
 

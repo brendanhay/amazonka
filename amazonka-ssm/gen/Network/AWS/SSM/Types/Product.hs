@@ -59,6 +59,8 @@ instance FromJSON Association where
                  Association' <$>
                    (x .:? "InstanceId") <*> (x .:? "Name"))
 
+instance Hashable Association
+
 -- | Describes the parameters for a document.
 --
 -- /See:/ 'associationDescription' smart constructor.
@@ -124,6 +126,8 @@ instance FromJSON AssociationDescription where
                      <*> (x .:? "Name")
                      <*> (x .:? "Parameters" .!= mempty))
 
+instance Hashable AssociationDescription
+
 -- | Describes a filter.
 --
 -- /See:/ 'associationFilter' smart constructor.
@@ -156,6 +160,8 @@ afKey = lens _afKey (\ s a -> s{_afKey = a});
 -- | The filter value.
 afValue :: Lens' AssociationFilter Text
 afValue = lens _afValue (\ s a -> s{_afValue = a});
+
+instance Hashable AssociationFilter
 
 instance ToJSON AssociationFilter where
         toJSON AssociationFilter'{..}
@@ -221,6 +227,8 @@ instance FromJSON AssociationStatus where
                    (x .:? "AdditionalInfo") <*> (x .: "Date") <*>
                      (x .: "Name")
                      <*> (x .: "Message"))
+
+instance Hashable AssociationStatus
 
 instance ToJSON AssociationStatus where
         toJSON AssociationStatus'{..}
@@ -347,6 +355,8 @@ instance FromJSON Command where
                      <*> (x .:? "OutputS3BucketName")
                      <*> (x .:? "RequestedDateTime"))
 
+instance Hashable Command
+
 -- | Describes a command filter.
 --
 -- /See:/ 'commandFilter' smart constructor.
@@ -379,6 +389,8 @@ cfKey = lens _cfKey (\ s a -> s{_cfKey = a});
 -- | The filter value. For example: June 30, 2015.
 cfValue :: Lens' CommandFilter Text
 cfValue = lens _cfValue (\ s a -> s{_cfValue = a});
+
+instance Hashable CommandFilter
 
 instance ToJSON CommandFilter where
         toJSON CommandFilter'{..}
@@ -484,6 +496,8 @@ instance FromJSON CommandInvocation where
                      <*> (x .:? "TraceOutput")
                      <*> (x .:? "RequestedDateTime"))
 
+instance Hashable CommandInvocation
+
 -- | Describes plugin details.
 --
 -- /See:/ 'commandPlugin' smart constructor.
@@ -583,6 +597,8 @@ instance FromJSON CommandPlugin where
                      <*> (x .:? "OutputS3BucketName")
                      <*> (x .:? "ResponseFinishDateTime"))
 
+instance Hashable CommandPlugin
+
 -- | Describes the association of an SSM document and an instance.
 --
 -- /See:/ 'createAssociationBatchRequestEntry' smart constructor.
@@ -630,6 +646,8 @@ instance FromJSON CreateAssociationBatchRequestEntry
                  CreateAssociationBatchRequestEntry' <$>
                    (x .:? "InstanceId") <*> (x .:? "Name") <*>
                      (x .:? "Parameters" .!= mempty))
+
+instance Hashable CreateAssociationBatchRequestEntry
 
 instance ToJSON CreateAssociationBatchRequestEntry
          where
@@ -724,6 +742,8 @@ instance FromJSON DocumentDescription where
                      <*> (x .:? "Parameters" .!= mempty)
                      <*> (x .:? "Description"))
 
+instance Hashable DocumentDescription
+
 -- | Describes a filter.
 --
 -- /See:/ 'documentFilter' smart constructor.
@@ -756,6 +776,8 @@ dfKey = lens _dfKey (\ s a -> s{_dfKey = a});
 -- | The value of the filter.
 dfValue :: Lens' DocumentFilter Text
 dfValue = lens _dfValue (\ s a -> s{_dfValue = a});
+
+instance Hashable DocumentFilter
 
 instance ToJSON DocumentFilter where
         toJSON DocumentFilter'{..}
@@ -801,6 +823,8 @@ instance FromJSON DocumentIdentifier where
                  DocumentIdentifier' <$>
                    (x .:? "PlatformTypes" .!= mempty) <*>
                      (x .:? "Name"))
+
+instance Hashable DocumentIdentifier
 
 -- | /See:/ 'documentParameter' smart constructor.
 data DocumentParameter = DocumentParameter'
@@ -859,6 +883,8 @@ instance FromJSON DocumentParameter where
                      (x .:? "Type")
                      <*> (x .:? "Description"))
 
+instance Hashable DocumentParameter
+
 -- | Describes a failed association.
 --
 -- /See:/ 'failedCreateAssociation' smart constructor.
@@ -905,6 +931,8 @@ instance FromJSON FailedCreateAssociation where
                  FailedCreateAssociation' <$>
                    (x .:? "Entry") <*> (x .:? "Fault") <*>
                      (x .:? "Message"))
+
+instance Hashable FailedCreateAssociation
 
 -- | Describes a filter for a specific list of instances.
 --
@@ -999,6 +1027,8 @@ instance FromJSON InstanceInformation where
                      <*> (x .:? "PlatformType")
                      <*> (x .:? "PlatformName"))
 
+instance Hashable InstanceInformation
+
 -- | Describes a filter for a specific list of instances.
 --
 -- /See:/ 'instanceInformationFilter' smart constructor.
@@ -1031,6 +1061,8 @@ iifKey = lens _iifKey (\ s a -> s{_iifKey = a});
 -- | The filter values.
 iifValueSet :: Lens' InstanceInformationFilter (NonEmpty Text)
 iifValueSet = lens _iifValueSet (\ s a -> s{_iifValueSet = a}) . _List1;
+
+instance Hashable InstanceInformationFilter
 
 instance ToJSON InstanceInformationFilter where
         toJSON InstanceInformationFilter'{..}

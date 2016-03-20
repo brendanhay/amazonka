@@ -124,6 +124,8 @@ instance AWSRequest DescribeEventSubscriptions where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeEventSubscriptions
+
 instance ToHeaders DescribeEventSubscriptions where
         toHeaders = const mempty
 

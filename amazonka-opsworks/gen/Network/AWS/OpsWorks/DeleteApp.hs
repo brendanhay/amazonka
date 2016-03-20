@@ -72,6 +72,8 @@ instance AWSRequest DeleteApp where
         request = postJSON opsWorks
         response = receiveNull DeleteAppResponse'
 
+instance Hashable DeleteApp
+
 instance ToHeaders DeleteApp where
         toHeaders
           = const

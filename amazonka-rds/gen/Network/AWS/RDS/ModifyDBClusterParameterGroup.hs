@@ -108,6 +108,8 @@ instance AWSRequest ModifyDBClusterParameterGroup
               "ModifyDBClusterParameterGroupResult"
               (\ s h x -> parseXML x)
 
+instance Hashable ModifyDBClusterParameterGroup
+
 instance ToHeaders ModifyDBClusterParameterGroup
          where
         toHeaders = const mempty

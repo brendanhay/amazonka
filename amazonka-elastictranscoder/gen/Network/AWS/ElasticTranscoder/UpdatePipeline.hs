@@ -263,6 +263,8 @@ instance AWSRequest UpdatePipeline where
                    (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
                      <*> (pure (fromEnum s)))
 
+instance Hashable UpdatePipeline
+
 instance ToHeaders UpdatePipeline where
         toHeaders = const mempty
 

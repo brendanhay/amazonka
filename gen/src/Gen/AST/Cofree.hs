@@ -23,7 +23,7 @@ import           Control.Lens           hiding ((:<))
 import           Control.Monad.Except
 import           Control.Monad.State
 import qualified Data.HashMap.Strict    as Map
-import           Gen.AST.TypeOf
+import           Gen.Types.TypeOf
 import           Gen.Formatting
 import           Gen.Types
 

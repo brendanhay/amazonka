@@ -81,6 +81,8 @@ instance AWSRequest DeleteLoadBalancer where
               (\ s h x ->
                  DeleteLoadBalancerResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteLoadBalancer
+
 instance ToHeaders DeleteLoadBalancer where
         toHeaders = const mempty
 

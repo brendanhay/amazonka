@@ -127,6 +127,8 @@ instance AWSRequest DescribePolicies where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribePolicies
+
 instance ToHeaders DescribePolicies where
         toHeaders = const mempty
 

@@ -95,6 +95,8 @@ instance AWSRequest DeleteTags where
         request = postQuery eC2
         response = receiveNull DeleteTagsResponse'
 
+instance Hashable DeleteTags
+
 instance ToHeaders DeleteTags where
         toHeaders = const mempty
 

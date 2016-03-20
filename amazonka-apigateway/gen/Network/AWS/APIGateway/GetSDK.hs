@@ -106,6 +106,8 @@ instance AWSRequest GetSDK where
                      (h .#? "Content-Type")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetSDK
+
 instance ToHeaders GetSDK where
         toHeaders
           = const

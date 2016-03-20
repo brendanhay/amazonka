@@ -120,6 +120,8 @@ instance AWSRequest DescribeReservedNodes where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeReservedNodes
+
 instance ToHeaders DescribeReservedNodes where
         toHeaders = const mempty
 

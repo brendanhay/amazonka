@@ -119,6 +119,8 @@ instance AWSRequest CompleteLayerUpload where
                      <*> (x .?> "uploadId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CompleteLayerUpload
+
 instance ToHeaders CompleteLayerUpload where
         toHeaders
           = const

@@ -99,6 +99,8 @@ instance AWSRequest EvaluateExpression where
                    (pure (fromEnum s)) <*>
                      (x .:> "evaluatedExpression"))
 
+instance Hashable EvaluateExpression
+
 instance ToHeaders EvaluateExpression where
         toHeaders
           = const

@@ -76,6 +76,8 @@ instance AWSRequest GetApplication where
                  GetApplicationResponse' <$>
                    (x .?> "application") <*> (pure (fromEnum s)))
 
+instance Hashable GetApplication
+
 instance ToHeaders GetApplication where
         toHeaders
           = const

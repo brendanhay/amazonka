@@ -300,6 +300,8 @@ instance AWSRequest TransferDomain where
                  TransferDomainResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
+instance Hashable TransferDomain
+
 instance ToHeaders TransferDomain where
         toHeaders
           = const

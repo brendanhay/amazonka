@@ -78,6 +78,8 @@ instance AWSRequest GetSubscriptionAttributes where
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetSubscriptionAttributes
+
 instance ToHeaders GetSubscriptionAttributes where
         toHeaders = const mempty
 

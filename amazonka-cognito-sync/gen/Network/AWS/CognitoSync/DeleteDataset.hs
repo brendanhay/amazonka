@@ -106,6 +106,8 @@ instance AWSRequest DeleteDataset where
                  DeleteDatasetResponse' <$>
                    (x .?> "Dataset") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteDataset
+
 instance ToHeaders DeleteDataset where
         toHeaders
           = const

@@ -152,6 +152,8 @@ instance AWSRequest DownloadDBLogFilePortion where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DownloadDBLogFilePortion
+
 instance ToHeaders DownloadDBLogFilePortion where
         toHeaders = const mempty
 

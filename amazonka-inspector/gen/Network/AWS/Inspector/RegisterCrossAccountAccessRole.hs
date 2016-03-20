@@ -77,6 +77,8 @@ instance AWSRequest RegisterCrossAccountAccessRole
                  RegisterCrossAccountAccessRoleResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
 
+instance Hashable RegisterCrossAccountAccessRole
+
 instance ToHeaders RegisterCrossAccountAccessRole
          where
         toHeaders

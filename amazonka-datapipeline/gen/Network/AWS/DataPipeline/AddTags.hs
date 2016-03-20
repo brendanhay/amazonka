@@ -81,6 +81,8 @@ instance AWSRequest AddTags where
           = receiveEmpty
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
 
+instance Hashable AddTags
+
 instance ToHeaders AddTags where
         toHeaders
           = const

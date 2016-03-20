@@ -123,6 +123,8 @@ instance AWSRequest BatchPutAttributes where
         request = postQuery sDB
         response = receiveNull BatchPutAttributesResponse'
 
+instance Hashable BatchPutAttributes
+
 instance ToHeaders BatchPutAttributes where
         toHeaders = const mempty
 

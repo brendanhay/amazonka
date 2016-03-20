@@ -109,6 +109,8 @@ instance AWSRequest DescribeLaunchConfigurations
                      (x .@? "LaunchConfigurations" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable DescribeLaunchConfigurations
+
 instance ToHeaders DescribeLaunchConfigurations where
         toHeaders = const mempty
 

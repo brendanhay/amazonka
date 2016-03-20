@@ -115,6 +115,8 @@ instance AWSRequest DescribeTrusts where
                    (x .?> "NextToken") <*> (x .?> "Trusts" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTrusts
+
 instance ToHeaders DescribeTrusts where
         toHeaders
           = const

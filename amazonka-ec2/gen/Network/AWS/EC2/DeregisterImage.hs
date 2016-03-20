@@ -81,6 +81,8 @@ instance AWSRequest DeregisterImage where
         request = postQuery eC2
         response = receiveNull DeregisterImageResponse'
 
+instance Hashable DeregisterImage
+
 instance ToHeaders DeregisterImage where
         toHeaders = const mempty
 

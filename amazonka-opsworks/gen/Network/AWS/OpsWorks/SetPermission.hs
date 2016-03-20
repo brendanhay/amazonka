@@ -121,6 +121,8 @@ instance AWSRequest SetPermission where
         request = postJSON opsWorks
         response = receiveNull SetPermissionResponse'
 
+instance Hashable SetPermission
+
 instance ToHeaders SetPermission where
         toHeaders
           = const

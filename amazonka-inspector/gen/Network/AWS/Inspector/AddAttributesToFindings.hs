@@ -83,6 +83,8 @@ instance AWSRequest AddAttributesToFindings where
                  AddAttributesToFindingsResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
 
+instance Hashable AddAttributesToFindings
+
 instance ToHeaders AddAttributesToFindings where
         toHeaders
           = const

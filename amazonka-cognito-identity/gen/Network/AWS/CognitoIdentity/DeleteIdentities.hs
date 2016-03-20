@@ -79,6 +79,8 @@ instance AWSRequest DeleteIdentities where
                    (x .?> "UnprocessedIdentityIds" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DeleteIdentities
+
 instance ToHeaders DeleteIdentities where
         toHeaders
           = const

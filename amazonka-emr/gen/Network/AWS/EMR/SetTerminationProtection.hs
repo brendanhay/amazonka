@@ -102,6 +102,8 @@ instance AWSRequest SetTerminationProtection where
         response
           = receiveNull SetTerminationProtectionResponse'
 
+instance Hashable SetTerminationProtection
+
 instance ToHeaders SetTerminationProtection where
         toHeaders
           = const

@@ -68,6 +68,8 @@ instance AWSRequest DeleteDestination where
         request = postJSON cloudWatchLogs
         response = receiveNull DeleteDestinationResponse'
 
+instance Hashable DeleteDestination
+
 instance ToHeaders DeleteDestination where
         toHeaders
           = const

@@ -101,6 +101,8 @@ instance AWSRequest UpdateUser where
         request = postQuery iAM
         response = receiveNull UpdateUserResponse'
 
+instance Hashable UpdateUser
+
 instance ToHeaders UpdateUser where
         toHeaders = const mempty
 

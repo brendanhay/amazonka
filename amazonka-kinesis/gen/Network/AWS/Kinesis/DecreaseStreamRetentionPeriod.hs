@@ -88,6 +88,8 @@ instance AWSRequest DecreaseStreamRetentionPeriod
         response
           = receiveNull DecreaseStreamRetentionPeriodResponse'
 
+instance Hashable DecreaseStreamRetentionPeriod
+
 instance ToHeaders DecreaseStreamRetentionPeriod
          where
         toHeaders

@@ -176,6 +176,9 @@ instance AWSRequest
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable
+         DescribeScheduledInstanceAvailability
+
 instance ToHeaders
          DescribeScheduledInstanceAvailability where
         toHeaders = const mempty

@@ -148,6 +148,8 @@ instance AWSRequest CountOpenWorkflowExecutions where
         request = postJSON sWF
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CountOpenWorkflowExecutions
+
 instance ToHeaders CountOpenWorkflowExecutions where
         toHeaders
           = const

@@ -62,6 +62,8 @@ instance FromJSON HashKeyRange where
                  HashKeyRange' <$>
                    (x .: "StartingHashKey") <*> (x .: "EndingHashKey"))
 
+instance Hashable HashKeyRange
+
 -- | Represents the output for 'PutRecords'.
 --
 -- /See:/ 'putRecordsRequestEntry' smart constructor.
@@ -120,6 +122,8 @@ prreData = lens _prreData (\ s a -> s{_prreData = a}) . _Base64;
 -- stream.
 prrePartitionKey :: Lens' PutRecordsRequestEntry Text
 prrePartitionKey = lens _prrePartitionKey (\ s a -> s{_prrePartitionKey = a});
+
+instance Hashable PutRecordsRequestEntry
 
 instance ToJSON PutRecordsRequestEntry where
         toJSON PutRecordsRequestEntry'{..}
@@ -194,6 +198,8 @@ instance FromJSON PutRecordsResultEntry where
                      (x .:? "ErrorMessage")
                      <*> (x .:? "ShardId"))
 
+instance Hashable PutRecordsResultEntry
+
 -- | The unit of data of the Amazon Kinesis stream, which is composed of a
 -- sequence number, a partition key, and a data blob.
 --
@@ -265,6 +271,8 @@ instance FromJSON Record where
                      <*> (x .: "Data")
                      <*> (x .: "PartitionKey"))
 
+instance Hashable Record
+
 -- | The range of possible sequence numbers for the shard.
 --
 -- /See:/ 'sequenceNumberRange' smart constructor.
@@ -305,6 +313,8 @@ instance FromJSON SequenceNumberRange where
                  SequenceNumberRange' <$>
                    (x .:? "EndingSequenceNumber") <*>
                      (x .: "StartingSequenceNumber"))
+
+instance Hashable SequenceNumberRange
 
 -- | A uniquely identified group of data records in an Amazon Kinesis stream.
 --
@@ -375,6 +385,8 @@ instance FromJSON Shard where
                      <*> (x .: "ShardId")
                      <*> (x .: "HashKeyRange")
                      <*> (x .: "SequenceNumberRange"))
+
+instance Hashable Shard
 
 -- | Represents the output for < DescribeStream>.
 --
@@ -468,6 +480,8 @@ instance FromJSON StreamDescription where
                      <*> (x .: "HasMoreShards")
                      <*> (x .: "RetentionPeriodHours"))
 
+instance Hashable StreamDescription
+
 -- | Metadata assigned to the stream, consisting of a key-value pair.
 --
 -- /See:/ 'tag' smart constructor.
@@ -507,3 +521,5 @@ instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
+
+instance Hashable Tag

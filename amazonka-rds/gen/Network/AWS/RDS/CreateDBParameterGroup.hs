@@ -138,6 +138,8 @@ instance AWSRequest CreateDBParameterGroup where
                  CreateDBParameterGroupResponse' <$>
                    (x .@? "DBParameterGroup") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDBParameterGroup
+
 instance ToHeaders CreateDBParameterGroup where
         toHeaders = const mempty
 

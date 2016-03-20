@@ -139,6 +139,8 @@ instance AWSRequest DescribeFileSystems where
                      <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeFileSystems
+
 instance ToHeaders DescribeFileSystems where
         toHeaders = const mempty
 

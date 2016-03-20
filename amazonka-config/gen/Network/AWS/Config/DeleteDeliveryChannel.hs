@@ -75,6 +75,8 @@ instance AWSRequest DeleteDeliveryChannel where
         request = postJSON config
         response = receiveNull DeleteDeliveryChannelResponse'
 
+instance Hashable DeleteDeliveryChannel
+
 instance ToHeaders DeleteDeliveryChannel where
         toHeaders
           = const

@@ -68,6 +68,8 @@ instance AWSRequest DeleteDomainName where
         request = delete aPIGateway
         response = receiveNull DeleteDomainNameResponse'
 
+instance Hashable DeleteDomainName
+
 instance ToHeaders DeleteDomainName where
         toHeaders
           = const

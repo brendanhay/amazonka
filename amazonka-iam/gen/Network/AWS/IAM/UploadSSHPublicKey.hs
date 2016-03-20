@@ -92,6 +92,8 @@ instance AWSRequest UploadSSHPublicKey where
                  UploadSSHPublicKeyResponse' <$>
                    (x .@? "SSHPublicKey") <*> (pure (fromEnum s)))
 
+instance Hashable UploadSSHPublicKey
+
 instance ToHeaders UploadSSHPublicKey where
         toHeaders = const mempty
 

@@ -72,6 +72,8 @@ instance AWSRequest DeletePlatformApplication where
         response
           = receiveNull DeletePlatformApplicationResponse'
 
+instance Hashable DeletePlatformApplication
+
 instance ToHeaders DeletePlatformApplication where
         toHeaders = const mempty
 

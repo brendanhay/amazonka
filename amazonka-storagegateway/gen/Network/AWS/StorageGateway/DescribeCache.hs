@@ -89,6 +89,8 @@ instance AWSRequest DescribeCache where
                      <*> (x .?> "CacheDirtyPercentage")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCache
+
 instance ToHeaders DescribeCache where
         toHeaders
           = const

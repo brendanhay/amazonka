@@ -276,6 +276,8 @@ instance AWSRequest CreateAutoScalingGroup where
         response
           = receiveNull CreateAutoScalingGroupResponse'
 
+instance Hashable CreateAutoScalingGroup
+
 instance ToHeaders CreateAutoScalingGroup where
         toHeaders = const mempty
 

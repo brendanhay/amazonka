@@ -114,6 +114,8 @@ instance AWSRequest
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListEndpointsByPlatformApplication
+
 instance ToHeaders ListEndpointsByPlatformApplication
          where
         toHeaders = const mempty

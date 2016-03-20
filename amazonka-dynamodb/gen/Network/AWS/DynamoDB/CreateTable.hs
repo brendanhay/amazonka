@@ -280,6 +280,8 @@ instance AWSRequest CreateTable where
                  CreateTableResponse' <$>
                    (x .?> "TableDescription") <*> (pure (fromEnum s)))
 
+instance Hashable CreateTable
+
 instance ToHeaders CreateTable where
         toHeaders
           = const

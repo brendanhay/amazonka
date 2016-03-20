@@ -96,6 +96,8 @@ instance AWSRequest PutMetricData where
         request = postQuery cloudWatch
         response = receiveNull PutMetricDataResponse'
 
+instance Hashable PutMetricData
+
 instance ToHeaders PutMetricData where
         toHeaders = const mempty
 

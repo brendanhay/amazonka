@@ -93,6 +93,8 @@ instance AWSRequest AttachLoadBalancerToSubnets where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable AttachLoadBalancerToSubnets
+
 instance ToHeaders AttachLoadBalancerToSubnets where
         toHeaders = const mempty
 

@@ -67,6 +67,8 @@ instance AWSRequest DeleteBucketLifecycle where
         request = delete s3
         response = receiveNull DeleteBucketLifecycleResponse'
 
+instance Hashable DeleteBucketLifecycle
+
 instance ToHeaders DeleteBucketLifecycle where
         toHeaders = const mempty
 

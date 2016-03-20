@@ -91,6 +91,8 @@ instance AWSRequest DefineExpression where
                  DefineExpressionResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Expression"))
 
+instance Hashable DefineExpression
+
 instance ToHeaders DefineExpression where
         toHeaders = const mempty
 

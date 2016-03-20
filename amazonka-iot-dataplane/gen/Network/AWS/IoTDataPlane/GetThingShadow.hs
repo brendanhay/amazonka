@@ -79,6 +79,8 @@ instance AWSRequest GetThingShadow where
                  GetThingShadowResponse' <$>
                    (pure (Just x)) <*> (pure (fromEnum s)))
 
+instance Hashable GetThingShadow
+
 instance ToHeaders GetThingShadow where
         toHeaders = const mempty
 

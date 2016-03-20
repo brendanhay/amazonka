@@ -115,6 +115,8 @@ instance AWSRequest CreatePlatformApplication where
                    (x .@? "PlatformApplicationArn") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreatePlatformApplication
+
 instance ToHeaders CreatePlatformApplication where
         toHeaders = const mempty
 

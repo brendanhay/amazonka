@@ -232,6 +232,8 @@ instance AWSRequest UpdateTrail where
                      <*> (x .?> "IsMultiRegionTrail")
                      <*> (pure (fromEnum s)))
 
+instance Hashable UpdateTrail
+
 instance ToHeaders UpdateTrail where
         toHeaders
           = const

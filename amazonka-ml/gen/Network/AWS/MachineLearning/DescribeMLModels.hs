@@ -222,6 +222,8 @@ instance AWSRequest DescribeMLModels where
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeMLModels
+
 instance ToHeaders DescribeMLModels where
         toHeaders
           = const

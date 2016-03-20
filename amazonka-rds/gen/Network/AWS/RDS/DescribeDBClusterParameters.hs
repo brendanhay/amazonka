@@ -140,6 +140,8 @@ instance AWSRequest DescribeDBClusterParameters where
                         may (parseXMLList "Parameter"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBClusterParameters
+
 instance ToHeaders DescribeDBClusterParameters where
         toHeaders = const mempty
 

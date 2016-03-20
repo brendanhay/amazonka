@@ -148,6 +148,8 @@ instance AWSRequest ListTaskDefinitions where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListTaskDefinitions
+
 instance ToHeaders ListTaskDefinitions where
         toHeaders
           = const

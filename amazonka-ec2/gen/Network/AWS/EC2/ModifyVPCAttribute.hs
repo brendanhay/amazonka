@@ -99,6 +99,8 @@ instance AWSRequest ModifyVPCAttribute where
         request = postQuery eC2
         response = receiveNull ModifyVPCAttributeResponse'
 
+instance Hashable ModifyVPCAttribute
+
 instance ToHeaders ModifyVPCAttribute where
         toHeaders = const mempty
 

@@ -83,6 +83,8 @@ instance AWSRequest SetIdentityPoolRoles where
         request = postJSON cognitoIdentity
         response = receiveNull SetIdentityPoolRolesResponse'
 
+instance Hashable SetIdentityPoolRoles
+
 instance ToHeaders SetIdentityPoolRoles where
         toHeaders
           = const

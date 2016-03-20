@@ -98,6 +98,8 @@ instance AWSRequest UpdateAvailabilityOptions where
                    (x .@? "AvailabilityOptions") <*>
                      (pure (fromEnum s)))
 
+instance Hashable UpdateAvailabilityOptions
+
 instance ToHeaders UpdateAvailabilityOptions where
         toHeaders = const mempty
 

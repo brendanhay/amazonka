@@ -84,6 +84,8 @@ instance AWSRequest CancelCommand where
               (\ s h x ->
                  CancelCommandResponse' <$> (pure (fromEnum s)))
 
+instance Hashable CancelCommand
+
 instance ToHeaders CancelCommand where
         toHeaders
           = const

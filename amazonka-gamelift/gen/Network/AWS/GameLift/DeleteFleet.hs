@@ -72,6 +72,8 @@ instance AWSRequest DeleteFleet where
         request = postJSON gameLift
         response = receiveNull DeleteFleetResponse'
 
+instance Hashable DeleteFleet
+
 instance ToHeaders DeleteFleet where
         toHeaders
           = const

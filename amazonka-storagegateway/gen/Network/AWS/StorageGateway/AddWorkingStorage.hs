@@ -99,6 +99,8 @@ instance AWSRequest AddWorkingStorage where
                  AddWorkingStorageResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable AddWorkingStorage
+
 instance ToHeaders AddWorkingStorage where
         toHeaders
           = const

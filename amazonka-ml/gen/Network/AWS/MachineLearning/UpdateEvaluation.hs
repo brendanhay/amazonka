@@ -87,6 +87,8 @@ instance AWSRequest UpdateEvaluation where
                  UpdateEvaluationResponse' <$>
                    (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateEvaluation
+
 instance ToHeaders UpdateEvaluation where
         toHeaders
           = const

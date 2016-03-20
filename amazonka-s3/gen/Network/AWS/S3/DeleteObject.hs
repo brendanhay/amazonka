@@ -118,6 +118,8 @@ instance AWSRequest DeleteObject where
                      <*> (h .#? "x-amz-delete-marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DeleteObject
+
 instance ToHeaders DeleteObject where
         toHeaders DeleteObject'{..}
           = mconcat

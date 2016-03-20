@@ -77,6 +77,8 @@ instance AWSRequest ListThingPrincipals where
                    (x .?> "principals" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable ListThingPrincipals
+
 instance ToHeaders ListThingPrincipals where
         toHeaders = const mempty
 

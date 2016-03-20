@@ -83,6 +83,8 @@ instance AWSRequest AttachUserPolicy where
         request = postQuery iAM
         response = receiveNull AttachUserPolicyResponse'
 
+instance Hashable AttachUserPolicy
+
 instance ToHeaders AttachUserPolicy where
         toHeaders = const mempty
 

@@ -91,6 +91,8 @@ instance AWSRequest SetTopicAttributes where
         request = postQuery sNS
         response = receiveNull SetTopicAttributesResponse'
 
+instance Hashable SetTopicAttributes
+
 instance ToHeaders SetTopicAttributes where
         toHeaders = const mempty
 

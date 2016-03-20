@@ -30,7 +30,6 @@ import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Gen.AST.Data.Field
 import           Gen.AST.Data.Instance
-import           Gen.AST.TypeOf
 import           Gen.Protocol                 (Names (..))
 import qualified Gen.Protocol                 as Proto
 import           Gen.Types
@@ -149,7 +148,7 @@ dataD n fs cs = DataDecl noLoc arity [] (ident (typeId n)) [] fs ds
         [QualConDecl _ _ _ (RecDecl _ [_])] -> NewType
         _                                   -> DataType
 
-    ds = map ((,[]) . UnQual . Ident . drop 1 . show) cs
+    ds = map ((,[]) . UnQual . Ident) (mapMaybe derivingName cs)
 
 recordD :: HasMetadata a Identity => a -> Id -> [Field] -> QualConDecl
 recordD m n = conD . \case
@@ -366,6 +365,10 @@ instanceD p n = \case
     ToPath    es   -> toPathD      n es
     ToQuery   es   -> toQueryD   p n es
     ToBody    f    -> toBodyD      n f
+    IsHashable     -> hashableD    n
+
+hashableD :: Id -> Decl
+hashableD n = instD "Hashable" n []
 
 -- FIXME: merge D + E constructors where possible
 fromXMLD :: Protocol -> Id -> [Field] -> Decl

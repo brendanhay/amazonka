@@ -71,6 +71,8 @@ instance AWSRequest ModifyInstanceGroups where
         request = postJSON eMR
         response = receiveNull ModifyInstanceGroupsResponse'
 
+instance Hashable ModifyInstanceGroups
+
 instance ToHeaders ModifyInstanceGroups where
         toHeaders
           = const

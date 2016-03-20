@@ -85,6 +85,8 @@ instance AWSRequest GetHostedZone where
                      <*> (pure (fromEnum s))
                      <*> (x .@ "HostedZone"))
 
+instance Hashable GetHostedZone
+
 instance ToHeaders GetHostedZone where
         toHeaders = const mempty
 

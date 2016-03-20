@@ -118,6 +118,8 @@ instance AWSRequest DescribeCacheSubnetGroups where
                         may (parseXMLList "CacheSubnetGroup"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCacheSubnetGroups
+
 instance ToHeaders DescribeCacheSubnetGroups where
         toHeaders = const mempty
 

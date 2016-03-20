@@ -114,6 +114,8 @@ instance AWSRequest PublishVersion where
         request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable PublishVersion
+
 instance ToHeaders PublishVersion where
         toHeaders = const mempty
 

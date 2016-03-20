@@ -106,6 +106,8 @@ instance AWSRequest PurchaseScheduledInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable PurchaseScheduledInstances
+
 instance ToHeaders PurchaseScheduledInstances where
         toHeaders = const mempty
 

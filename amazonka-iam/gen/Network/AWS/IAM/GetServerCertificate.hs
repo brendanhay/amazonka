@@ -81,6 +81,8 @@ instance AWSRequest GetServerCertificate where
                  GetServerCertificateResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ServerCertificate"))
 
+instance Hashable GetServerCertificate
+
 instance ToHeaders GetServerCertificate where
         toHeaders = const mempty
 

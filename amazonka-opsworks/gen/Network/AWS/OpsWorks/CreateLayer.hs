@@ -269,6 +269,8 @@ instance AWSRequest CreateLayer where
                  CreateLayerResponse' <$>
                    (x .?> "LayerId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateLayer
+
 instance ToHeaders CreateLayer where
         toHeaders
           = const

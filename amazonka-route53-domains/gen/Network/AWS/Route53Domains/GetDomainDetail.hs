@@ -126,6 +126,8 @@ instance AWSRequest GetDomainDetail where
                      <*> (x .:> "RegistrantContact")
                      <*> (x .:> "TechContact"))
 
+instance Hashable GetDomainDetail
+
 instance ToHeaders GetDomainDetail where
         toHeaders
           = const

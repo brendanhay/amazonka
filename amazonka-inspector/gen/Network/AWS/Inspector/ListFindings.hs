@@ -114,6 +114,8 @@ instance AWSRequest ListFindings where
                      (x .?> "findingArnList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListFindings
+
 instance ToHeaders ListFindings where
         toHeaders
           = const

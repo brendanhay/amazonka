@@ -169,6 +169,8 @@ instance AWSRequest ListActivityTypes where
                    (x .?> "nextPageToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "typeInfos" .!@ mempty))
 
+instance Hashable ListActivityTypes
+
 instance ToHeaders ListActivityTypes where
         toHeaders
           = const

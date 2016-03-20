@@ -107,6 +107,8 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
                  ReportTaskRunnerHeartbeatResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "terminate"))
 
+instance Hashable ReportTaskRunnerHeartbeat
+
 instance ToHeaders ReportTaskRunnerHeartbeat where
         toHeaders
           = const

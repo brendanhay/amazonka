@@ -121,6 +121,9 @@ instance AWSRequest
                  DescribeEngineDefaultClusterParametersResponse' <$>
                    (x .@? "EngineDefaults") <*> (pure (fromEnum s)))
 
+instance Hashable
+         DescribeEngineDefaultClusterParameters
+
 instance ToHeaders
          DescribeEngineDefaultClusterParameters where
         toHeaders = const mempty

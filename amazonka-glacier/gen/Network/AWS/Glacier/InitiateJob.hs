@@ -227,6 +227,8 @@ instance AWSRequest InitiateJob where
                    (h .#? "x-amz-job-id") <*> (h .#? "Location") <*>
                      (pure (fromEnum s)))
 
+instance Hashable InitiateJob
+
 instance ToHeaders InitiateJob where
         toHeaders = const mempty
 

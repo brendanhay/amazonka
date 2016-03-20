@@ -148,6 +148,8 @@ instance AWSRequest CreateNetworkInterface where
                  CreateNetworkInterfaceResponse' <$>
                    (x .@? "networkInterface") <*> (pure (fromEnum s)))
 
+instance Hashable CreateNetworkInterface
+
 instance ToHeaders CreateNetworkInterface where
         toHeaders = const mempty
 

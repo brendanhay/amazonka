@@ -80,6 +80,8 @@ instance AWSRequest CreateStreamingDistribution where
                      (parseXML x)
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateStreamingDistribution
+
 instance ToElement CreateStreamingDistribution where
         toElement
           = mkElement

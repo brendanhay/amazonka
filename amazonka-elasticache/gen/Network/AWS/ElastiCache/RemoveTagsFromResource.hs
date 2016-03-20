@@ -87,6 +87,8 @@ instance AWSRequest RemoveTagsFromResource where
           = receiveXMLWrapper "RemoveTagsFromResourceResult"
               (\ s h x -> parseXML x)
 
+instance Hashable RemoveTagsFromResource
+
 instance ToHeaders RemoveTagsFromResource where
         toHeaders = const mempty
 

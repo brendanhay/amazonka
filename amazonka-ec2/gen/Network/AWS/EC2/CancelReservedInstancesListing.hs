@@ -82,6 +82,8 @@ instance AWSRequest CancelReservedInstancesListing
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable CancelReservedInstancesListing
+
 instance ToHeaders CancelReservedInstancesListing
          where
         toHeaders = const mempty

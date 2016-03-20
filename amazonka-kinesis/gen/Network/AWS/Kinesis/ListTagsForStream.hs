@@ -100,6 +100,8 @@ instance AWSRequest ListTagsForStream where
                    (pure (fromEnum s)) <*> (x .?> "Tags" .!@ mempty) <*>
                      (x .:> "HasMoreTags"))
 
+instance Hashable ListTagsForStream
+
 instance ToHeaders ListTagsForStream where
         toHeaders
           = const

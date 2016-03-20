@@ -68,6 +68,8 @@ instance AWSRequest DeleteRestAPI where
         request = delete aPIGateway
         response = receiveNull DeleteRestAPIResponse'
 
+instance Hashable DeleteRestAPI
+
 instance ToHeaders DeleteRestAPI where
         toHeaders
           = const

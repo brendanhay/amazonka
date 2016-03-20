@@ -67,6 +67,8 @@ instance AWSRequest HeadBucket where
         request = head' s3
         response = receiveNull HeadBucketResponse'
 
+instance Hashable HeadBucket
+
 instance ToHeaders HeadBucket where
         toHeaders = const mempty
 

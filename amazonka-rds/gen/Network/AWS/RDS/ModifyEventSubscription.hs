@@ -133,6 +133,8 @@ instance AWSRequest ModifyEventSubscription where
                  ModifyEventSubscriptionResponse' <$>
                    (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyEventSubscription
+
 instance ToHeaders ModifyEventSubscription where
         toHeaders = const mempty
 

@@ -85,6 +85,8 @@ instance AWSRequest LocalizeText where
                    (x .?> "results" .!@ mempty) <*> (x .?> "message")
                      <*> (pure (fromEnum s)))
 
+instance Hashable LocalizeText
+
 instance ToHeaders LocalizeText where
         toHeaders
           = const

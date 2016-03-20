@@ -90,6 +90,8 @@ instance AWSRequest AcceptVPCPeeringConnection where
                    (x .@? "vpcPeeringConnection") <*>
                      (pure (fromEnum s)))
 
+instance Hashable AcceptVPCPeeringConnection
+
 instance ToHeaders AcceptVPCPeeringConnection where
         toHeaders = const mempty
 

@@ -97,6 +97,8 @@ instance FromJSON Application where
                      <*> (x .:? "Name")
                      <*> (x .:? "Version"))
 
+instance Hashable Application
+
 instance ToJSON Application where
         toJSON Application'{..}
           = object
@@ -138,6 +140,8 @@ bacName = lens _bacName (\ s a -> s{_bacName = a});
 -- | The script run by the bootstrap action.
 bacScriptBootstrapAction :: Lens' BootstrapActionConfig ScriptBootstrapActionConfig
 bacScriptBootstrapAction = lens _bacScriptBootstrapAction (\ s a -> s{_bacScriptBootstrapAction = a});
+
+instance Hashable BootstrapActionConfig
 
 instance ToJSON BootstrapActionConfig where
         toJSON BootstrapActionConfig'{..}
@@ -343,6 +347,8 @@ instance FromJSON Cluster where
                      <*> (x .: "Name")
                      <*> (x .: "Status"))
 
+instance Hashable Cluster
+
 -- | The reason that the cluster changed to its current state.
 --
 -- /See:/ 'clusterStateChangeReason' smart constructor.
@@ -380,6 +386,8 @@ instance FromJSON ClusterStateChangeReason where
               (\ x ->
                  ClusterStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
+
+instance Hashable ClusterStateChangeReason
 
 -- | The detailed status of the cluster.
 --
@@ -428,6 +436,8 @@ instance FromJSON ClusterStatus where
                  ClusterStatus' <$>
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
+
+instance Hashable ClusterStatus
 
 -- | The summary description of the cluster.
 --
@@ -491,6 +501,8 @@ instance FromJSON ClusterSummary where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
+instance Hashable ClusterSummary
+
 -- | Represents the timeline of the cluster\'s lifecycle.
 --
 -- /See:/ 'clusterTimeline' smart constructor.
@@ -539,6 +551,8 @@ instance FromJSON ClusterTimeline where
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
 
+instance Hashable ClusterTimeline
+
 -- | An entity describing an executable that runs on a cluster.
 --
 -- /See:/ 'command' smart constructor.
@@ -585,6 +599,8 @@ instance FromJSON Command where
                  Command' <$>
                    (x .:? "Args" .!= mempty) <*> (x .:? "ScriptPath")
                      <*> (x .:? "Name"))
+
+instance Hashable Command
 
 -- | Amazon EMR releases 4.x or later.
 --
@@ -642,6 +658,8 @@ instance FromJSON Configuration where
                      (x .:? "Classification")
                      <*> (x .:? "Properties" .!= mempty))
 
+instance Hashable Configuration
+
 instance ToJSON Configuration where
         toJSON Configuration'{..}
           = object
@@ -691,6 +709,8 @@ instance FromJSON EBSBlockDevice where
                  EBSBlockDevice' <$>
                    (x .:? "Device") <*> (x .:? "VolumeSpecification"))
 
+instance Hashable EBSBlockDevice
+
 -- | Configuration of requested EBS block device associated with the instance
 -- group with count of volumes that will be associated to every instance.
 --
@@ -726,6 +746,8 @@ ebdcVolumesPerInstance = lens _ebdcVolumesPerInstance (\ s a -> s{_ebdcVolumesPe
 -- cluster.
 ebdcVolumeSpecification :: Lens' EBSBlockDeviceConfig VolumeSpecification
 ebdcVolumeSpecification = lens _ebdcVolumeSpecification (\ s a -> s{_ebdcVolumeSpecification = a});
+
+instance Hashable EBSBlockDeviceConfig
 
 instance ToJSON EBSBlockDeviceConfig where
         toJSON EBSBlockDeviceConfig'{..}
@@ -764,6 +786,8 @@ ecEBSOptimized = lens _ecEBSOptimized (\ s a -> s{_ecEBSOptimized = a});
 -- | Undocumented member.
 ecEBSBlockDeviceConfigs :: Lens' EBSConfiguration [EBSBlockDeviceConfig]
 ecEBSBlockDeviceConfigs = lens _ecEBSBlockDeviceConfigs (\ s a -> s{_ecEBSBlockDeviceConfigs = a}) . _Default . _Coerce;
+
+instance Hashable EBSConfiguration
 
 instance ToJSON EBSConfiguration where
         toJSON EBSConfiguration'{..}
@@ -810,6 +834,8 @@ instance FromJSON EBSVolume where
               (\ x ->
                  EBSVolume' <$>
                    (x .:? "Device") <*> (x .:? "VolumeId"))
+
+instance Hashable EBSVolume
 
 -- | Provides information about the EC2 instances in a cluster grouped by
 -- category. For example, key name, subnet ID, IAM instance profile, and so
@@ -927,6 +953,8 @@ instance FromJSON EC2InstanceAttributes where
                      <*> (x .:? "ServiceAccessSecurityGroup")
                      <*> (x .:? "Ec2AvailabilityZone"))
 
+instance Hashable EC2InstanceAttributes
+
 -- | A job flow step consisting of a JAR file whose main function will be
 -- executed. The main function submits a job for Hadoop to execute and
 -- waits for the job to finish or fail.
@@ -979,6 +1007,8 @@ hjscProperties = lens _hjscProperties (\ s a -> s{_hjscProperties = a}) . _Defau
 -- | A path to a JAR file run during the step.
 hjscJAR :: Lens' HadoopJARStepConfig Text
 hjscJAR = lens _hjscJAR (\ s a -> s{_hjscJAR = a});
+
+instance Hashable HadoopJARStepConfig
 
 instance ToJSON HadoopJARStepConfig where
         toJSON HadoopJARStepConfig'{..}
@@ -1049,6 +1079,8 @@ instance FromJSON HadoopStepConfig where
                    (x .:? "Args" .!= mempty) <*> (x .:? "Jar") <*>
                      (x .:? "MainClass")
                      <*> (x .:? "Properties" .!= mempty))
+
+instance Hashable HadoopStepConfig
 
 -- | Represents an EC2 instance provisioned as part of cluster.
 --
@@ -1150,6 +1182,8 @@ instance FromJSON Instance where
                      <*> (x .:? "InstanceGroupId")
                      <*> (x .:? "PrivateDnsName")
                      <*> (x .:? "PublicIpAddress"))
+
+instance Hashable Instance
 
 -- | This entity represents an instance group, which is a group of instances
 -- that have common purpose. For example, CORE instance group is used for
@@ -1289,6 +1323,8 @@ instance FromJSON InstanceGroup where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
+instance Hashable InstanceGroup
+
 -- | Configuration defining a new instance group.
 --
 -- /See:/ 'instanceGroupConfig' smart constructor.
@@ -1377,6 +1413,8 @@ igcInstanceType = lens _igcInstanceType (\ s a -> s{_igcInstanceType = a});
 igcInstanceCount :: Lens' InstanceGroupConfig Int
 igcInstanceCount = lens _igcInstanceCount (\ s a -> s{_igcInstanceCount = a});
 
+instance Hashable InstanceGroupConfig
+
 instance ToJSON InstanceGroupConfig where
         toJSON InstanceGroupConfig'{..}
           = object
@@ -1432,6 +1470,8 @@ igmcEC2InstanceIdsToTerminate = lens _igmcEC2InstanceIdsToTerminate (\ s a -> s{
 igmcInstanceGroupId :: Lens' InstanceGroupModifyConfig Text
 igmcInstanceGroupId = lens _igmcInstanceGroupId (\ s a -> s{_igmcInstanceGroupId = a});
 
+instance Hashable InstanceGroupModifyConfig
+
 instance ToJSON InstanceGroupModifyConfig where
         toJSON InstanceGroupModifyConfig'{..}
           = object
@@ -1480,6 +1520,8 @@ instance FromJSON InstanceGroupStateChangeReason
                  InstanceGroupStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
 
+instance Hashable InstanceGroupStateChangeReason
+
 -- | The details of the instance group status.
 --
 -- /See:/ 'instanceGroupStatus' smart constructor.
@@ -1526,6 +1568,8 @@ instance FromJSON InstanceGroupStatus where
                  InstanceGroupStatus' <$>
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
+
+instance Hashable InstanceGroupStatus
 
 -- | The timeline of the instance group lifecycle.
 --
@@ -1575,6 +1619,8 @@ instance FromJSON InstanceGroupTimeline where
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
 
+instance Hashable InstanceGroupTimeline
+
 -- | The details of the status change reason for the instance.
 --
 -- /See:/ 'instanceStateChangeReason' smart constructor.
@@ -1612,6 +1658,8 @@ instance FromJSON InstanceStateChangeReason where
               (\ x ->
                  InstanceStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
+
+instance Hashable InstanceStateChangeReason
 
 -- | The instance status details.
 --
@@ -1660,6 +1708,8 @@ instance FromJSON InstanceStatus where
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
 
+instance Hashable InstanceStatus
+
 -- | The timeline of the instance lifecycle.
 --
 -- /See:/ 'instanceTimeline' smart constructor.
@@ -1707,6 +1757,8 @@ instance FromJSON InstanceTimeline where
                    (x .:? "ReadyDateTime") <*>
                      (x .:? "CreationDateTime")
                      <*> (x .:? "EndDateTime"))
+
+instance Hashable InstanceTimeline
 
 -- | A description of the Amazon EC2 instance running the job flow. A valid
 -- JobFlowInstancesConfig must contain at least InstanceGroups, which is
@@ -1865,6 +1917,8 @@ jficTerminationProtected = lens _jficTerminationProtected (\ s a -> s{_jficTermi
 jficPlacement :: Lens' JobFlowInstancesConfig (Maybe PlacementType)
 jficPlacement = lens _jficPlacement (\ s a -> s{_jficPlacement = a});
 
+instance Hashable JobFlowInstancesConfig
+
 instance ToJSON JobFlowInstancesConfig where
         toJSON JobFlowInstancesConfig'{..}
           = object
@@ -1924,6 +1978,8 @@ kvValue = lens _kvValue (\ s a -> s{_kvValue = a});
 kvKey :: Lens' KeyValue (Maybe Text)
 kvKey = lens _kvKey (\ s a -> s{_kvKey = a});
 
+instance Hashable KeyValue
+
 instance ToJSON KeyValue where
         toJSON KeyValue'{..}
           = object
@@ -1953,6 +2009,8 @@ placementType pAvailabilityZone_ =
 -- | The Amazon EC2 Availability Zone for the job flow.
 ptAvailabilityZone :: Lens' PlacementType Text
 ptAvailabilityZone = lens _ptAvailabilityZone (\ s a -> s{_ptAvailabilityZone = a});
+
+instance Hashable PlacementType
 
 instance ToJSON PlacementType where
         toJSON PlacementType'{..}
@@ -1992,6 +2050,8 @@ sbacArgs = lens _sbacArgs (\ s a -> s{_sbacArgs = a}) . _Default . _Coerce;
 -- location in Amazon S3 or on a local file system.
 sbacPath :: Lens' ScriptBootstrapActionConfig Text
 sbacPath = lens _sbacPath (\ s a -> s{_sbacPath = a});
+
+instance Hashable ScriptBootstrapActionConfig
 
 instance ToJSON ScriptBootstrapActionConfig where
         toJSON ScriptBootstrapActionConfig'{..}
@@ -2066,6 +2126,8 @@ instance FromJSON Step where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
+instance Hashable Step
+
 -- | Specification of a job flow step.
 --
 -- /See:/ 'stepConfig' smart constructor.
@@ -2106,6 +2168,8 @@ scName = lens _scName (\ s a -> s{_scName = a});
 -- | The JAR file used for the job flow step.
 scHadoopJARStep :: Lens' StepConfig HadoopJARStepConfig
 scHadoopJARStep = lens _scHadoopJARStep (\ s a -> s{_scHadoopJARStep = a});
+
+instance Hashable StepConfig
 
 instance ToJSON StepConfig where
         toJSON StepConfig'{..}
@@ -2154,6 +2218,8 @@ instance FromJSON StepStateChangeReason where
                  StepStateChangeReason' <$>
                    (x .:? "Code") <*> (x .:? "Message"))
 
+instance Hashable StepStateChangeReason
+
 -- | The execution status details of the cluster step.
 --
 -- /See:/ 'stepStatus' smart constructor.
@@ -2200,6 +2266,8 @@ instance FromJSON StepStatus where
                  StepStatus' <$>
                    (x .:? "State") <*> (x .:? "StateChangeReason") <*>
                      (x .:? "Timeline"))
+
+instance Hashable StepStatus
 
 -- | The summary of the cluster step.
 --
@@ -2267,6 +2335,8 @@ instance FromJSON StepSummary where
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
 
+instance Hashable StepSummary
+
 -- | The timeline of the cluster step lifecycle.
 --
 -- /See:/ 'stepTimeline' smart constructor.
@@ -2314,6 +2384,8 @@ instance FromJSON StepTimeline where
                    (x .:? "CreationDateTime") <*> (x .:? "EndDateTime")
                      <*> (x .:? "StartDateTime"))
 
+instance Hashable StepTimeline
+
 -- | The list of supported product configurations which allow user-supplied
 -- arguments. EMR accepts these arguments and forwards them to the
 -- corresponding installation script as bootstrap action arguments.
@@ -2346,6 +2418,8 @@ spcArgs = lens _spcArgs (\ s a -> s{_spcArgs = a}) . _Default . _Coerce;
 -- | The name of the product configuration.
 spcName :: Lens' SupportedProductConfig (Maybe Text)
 spcName = lens _spcName (\ s a -> s{_spcName = a});
+
+instance Hashable SupportedProductConfig
 
 instance ToJSON SupportedProductConfig where
         toJSON SupportedProductConfig'{..}
@@ -2396,6 +2470,8 @@ instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
+
+instance Hashable Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -2455,6 +2531,8 @@ instance FromJSON VolumeSpecification where
                  VolumeSpecification' <$>
                    (x .:? "Iops") <*> (x .: "VolumeType") <*>
                      (x .: "SizeInGB"))
+
+instance Hashable VolumeSpecification
 
 instance ToJSON VolumeSpecification where
         toJSON VolumeSpecification'{..}

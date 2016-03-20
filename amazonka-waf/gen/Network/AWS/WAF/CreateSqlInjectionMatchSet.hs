@@ -111,6 +111,8 @@ instance AWSRequest CreateSqlInjectionMatchSet where
                      (x .?> "ChangeToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateSqlInjectionMatchSet
+
 instance ToHeaders CreateSqlInjectionMatchSet where
         toHeaders
           = const

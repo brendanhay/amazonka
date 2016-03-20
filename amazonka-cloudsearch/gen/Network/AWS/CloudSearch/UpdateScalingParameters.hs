@@ -96,6 +96,8 @@ instance AWSRequest UpdateScalingParameters where
                  UpdateScalingParametersResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ScalingParameters"))
 
+instance Hashable UpdateScalingParameters
+
 instance ToHeaders UpdateScalingParameters where
         toHeaders = const mempty
 

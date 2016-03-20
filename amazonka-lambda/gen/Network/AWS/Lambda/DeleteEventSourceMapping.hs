@@ -80,6 +80,8 @@ instance AWSRequest DeleteEventSourceMapping where
         request = delete lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable DeleteEventSourceMapping
+
 instance ToHeaders DeleteEventSourceMapping where
         toHeaders = const mempty
 

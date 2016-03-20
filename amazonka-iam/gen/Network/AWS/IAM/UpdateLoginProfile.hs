@@ -90,6 +90,8 @@ instance AWSRequest UpdateLoginProfile where
         request = postQuery iAM
         response = receiveNull UpdateLoginProfileResponse'
 
+instance Hashable UpdateLoginProfile
+
 instance ToHeaders UpdateLoginProfile where
         toHeaders = const mempty
 

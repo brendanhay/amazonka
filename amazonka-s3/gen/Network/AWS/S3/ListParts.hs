@@ -160,6 +160,8 @@ instance AWSRequest ListParts where
                      <*> (x .@? "UploadId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListParts
+
 instance ToHeaders ListParts where
         toHeaders ListParts'{..}
           = mconcat ["x-amz-request-payer" =# _lpRequestPayer]

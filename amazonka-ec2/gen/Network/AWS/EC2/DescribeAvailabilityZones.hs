@@ -116,6 +116,8 @@ instance AWSRequest DescribeAvailabilityZones where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAvailabilityZones
+
 instance ToHeaders DescribeAvailabilityZones where
         toHeaders = const mempty
 

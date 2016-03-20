@@ -89,6 +89,8 @@ instance AWSRequest ReleaseHosts where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ReleaseHosts
+
 instance ToHeaders ReleaseHosts where
         toHeaders = const mempty
 

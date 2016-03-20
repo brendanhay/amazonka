@@ -92,6 +92,8 @@ instance AWSRequest ListIPSets where
                    (x .?> "NextMarker") <*> (x .?> "IPSets" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListIPSets
+
 instance ToHeaders ListIPSets where
         toHeaders
           = const

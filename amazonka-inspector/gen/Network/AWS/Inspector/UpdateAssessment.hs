@@ -95,6 +95,8 @@ instance AWSRequest UpdateAssessment where
                  UpdateAssessmentResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateAssessment
+
 instance ToHeaders UpdateAssessment where
         toHeaders
           = const

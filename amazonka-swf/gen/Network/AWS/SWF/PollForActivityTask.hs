@@ -143,6 +143,8 @@ instance AWSRequest PollForActivityTask where
                      <*> (x .:> "workflowExecution")
                      <*> (x .:> "activityType"))
 
+instance Hashable PollForActivityTask
+
 instance ToHeaders PollForActivityTask where
         toHeaders
           = const

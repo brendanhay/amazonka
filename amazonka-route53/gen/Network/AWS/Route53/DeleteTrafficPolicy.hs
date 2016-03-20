@@ -85,6 +85,8 @@ instance AWSRequest DeleteTrafficPolicy where
               (\ s h x ->
                  DeleteTrafficPolicyResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteTrafficPolicy
+
 instance ToHeaders DeleteTrafficPolicy where
         toHeaders = const mempty
 

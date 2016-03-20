@@ -86,6 +86,8 @@ instance AWSRequest AssignVolume where
         request = postJSON opsWorks
         response = receiveNull AssignVolumeResponse'
 
+instance Hashable AssignVolume
+
 instance ToHeaders AssignVolume where
         toHeaders
           = const

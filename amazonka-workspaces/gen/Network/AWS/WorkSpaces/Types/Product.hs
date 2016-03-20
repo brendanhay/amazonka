@@ -49,6 +49,8 @@ instance FromJSON ComputeType where
           = withObject "ComputeType"
               (\ x -> ComputeType' <$> (x .:? "Name"))
 
+instance Hashable ComputeType
+
 -- | Contains default WorkSpace creation information.
 --
 -- /See:/ 'defaultWorkspaceCreationProperties' smart constructor.
@@ -119,6 +121,8 @@ instance FromJSON DefaultWorkspaceCreationProperties
                      <*> (x .:? "EnableInternetAccess")
                      <*> (x .:? "DefaultOu"))
 
+instance Hashable DefaultWorkspaceCreationProperties
+
 -- | Contains information about a WorkSpace that could not be created.
 --
 -- /See:/ 'failedCreateWorkspaceRequest' smart constructor.
@@ -166,6 +170,8 @@ instance FromJSON FailedCreateWorkspaceRequest where
                  FailedCreateWorkspaceRequest' <$>
                    (x .:? "WorkspaceRequest") <*> (x .:? "ErrorCode")
                      <*> (x .:? "ErrorMessage"))
+
+instance Hashable FailedCreateWorkspaceRequest
 
 -- | Contains information about a WorkSpace that could not be rebooted
 -- (< RebootWorkspaces>), rebuilt (< RebuildWorkspaces>), or terminated
@@ -216,6 +222,8 @@ instance FromJSON FailedWorkspaceChangeRequest where
                    (x .:? "ErrorCode") <*> (x .:? "WorkspaceId") <*>
                      (x .:? "ErrorMessage"))
 
+instance Hashable FailedWorkspaceChangeRequest
+
 -- | Contains information used with the < RebootWorkspaces> operation to
 -- reboot a WorkSpace.
 --
@@ -240,6 +248,8 @@ rebootRequest pWorkspaceId_ =
 -- | The identifier of the WorkSpace to reboot.
 rWorkspaceId :: Lens' RebootRequest Text
 rWorkspaceId = lens _rWorkspaceId (\ s a -> s{_rWorkspaceId = a});
+
+instance Hashable RebootRequest
 
 instance ToJSON RebootRequest where
         toJSON RebootRequest'{..}
@@ -271,6 +281,8 @@ rebuildRequest pWorkspaceId_ =
 rrWorkspaceId :: Lens' RebuildRequest Text
 rrWorkspaceId = lens _rrWorkspaceId (\ s a -> s{_rrWorkspaceId = a});
 
+instance Hashable RebuildRequest
+
 instance ToJSON RebuildRequest where
         toJSON RebuildRequest'{..}
           = object
@@ -300,6 +312,8 @@ terminateRequest pWorkspaceId_ =
 -- | The identifier of the WorkSpace to terminate.
 trWorkspaceId :: Lens' TerminateRequest Text
 trWorkspaceId = lens _trWorkspaceId (\ s a -> s{_trWorkspaceId = a});
+
+instance Hashable TerminateRequest
 
 instance ToJSON TerminateRequest where
         toJSON TerminateRequest'{..}
@@ -333,6 +347,8 @@ instance FromJSON UserStorage where
         parseJSON
           = withObject "UserStorage"
               (\ x -> UserStorage' <$> (x .:? "Capacity"))
+
+instance Hashable UserStorage
 
 -- | Contains information about a WorkSpace.
 --
@@ -475,6 +491,8 @@ instance FromJSON Workspace where
                      <*> (x .:? "UserVolumeEncryptionEnabled")
                      <*> (x .:? "ErrorMessage"))
 
+instance Hashable Workspace
+
 -- | Contains information about a WorkSpace bundle.
 --
 -- /See:/ 'workspaceBundle' smart constructor.
@@ -550,6 +568,8 @@ instance FromJSON WorkspaceBundle where
                      <*> (x .:? "ComputeType")
                      <*> (x .:? "UserStorage")
                      <*> (x .:? "Description"))
+
+instance Hashable WorkspaceBundle
 
 -- | Contains information about an AWS Directory Service directory for use
 -- with Amazon WorkSpaces.
@@ -687,6 +707,8 @@ instance FromJSON WorkspaceDirectory where
                      <*> (x .:? "DnsIpAddresses" .!= mempty)
                      <*> (x .:? "DirectoryName"))
 
+instance Hashable WorkspaceDirectory
+
 -- | Contains information about a WorkSpace creation request.
 --
 -- /See:/ 'workspaceRequest' smart constructor.
@@ -772,6 +794,8 @@ instance FromJSON WorkspaceRequest where
                      <*> (x .: "DirectoryId")
                      <*> (x .: "UserName")
                      <*> (x .: "BundleId"))
+
+instance Hashable WorkspaceRequest
 
 instance ToJSON WorkspaceRequest where
         toJSON WorkspaceRequest'{..}

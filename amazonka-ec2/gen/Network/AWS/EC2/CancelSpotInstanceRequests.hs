@@ -98,6 +98,8 @@ instance AWSRequest CancelSpotInstanceRequests where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable CancelSpotInstanceRequests
+
 instance ToHeaders CancelSpotInstanceRequests where
         toHeaders = const mempty
 

@@ -89,6 +89,8 @@ instance AWSRequest DeleteVPCPeeringConnection where
                  DeleteVPCPeeringConnectionResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteVPCPeeringConnection
+
 instance ToHeaders DeleteVPCPeeringConnection where
         toHeaders = const mempty
 

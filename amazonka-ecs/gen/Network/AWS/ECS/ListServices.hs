@@ -116,6 +116,8 @@ instance AWSRequest ListServices where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListServices
+
 instance ToHeaders ListServices where
         toHeaders
           = const

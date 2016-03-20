@@ -98,6 +98,8 @@ instance AWSRequest SetInstanceHealth where
         request = postQuery autoScaling
         response = receiveNull SetInstanceHealthResponse'
 
+instance Hashable SetInstanceHealth
+
 instance ToHeaders SetInstanceHealth where
         toHeaders = const mempty
 

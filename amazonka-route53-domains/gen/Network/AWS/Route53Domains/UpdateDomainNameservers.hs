@@ -118,6 +118,8 @@ instance AWSRequest UpdateDomainNameservers where
                  UpdateDomainNameserversResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
+instance Hashable UpdateDomainNameservers
+
 instance ToHeaders UpdateDomainNameservers where
         toHeaders
           = const

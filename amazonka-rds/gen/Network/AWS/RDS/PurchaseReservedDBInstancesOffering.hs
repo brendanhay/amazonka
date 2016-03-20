@@ -111,6 +111,8 @@ instance AWSRequest
                  PurchaseReservedDBInstancesOfferingResponse' <$>
                    (x .@? "ReservedDBInstance") <*> (pure (fromEnum s)))
 
+instance Hashable PurchaseReservedDBInstancesOffering
+
 instance ToHeaders
          PurchaseReservedDBInstancesOffering where
         toHeaders = const mempty

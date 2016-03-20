@@ -119,6 +119,8 @@ instance AWSRequest RespondActivityTaskFailed where
         response
           = receiveNull RespondActivityTaskFailedResponse'
 
+instance Hashable RespondActivityTaskFailed
+
 instance ToHeaders RespondActivityTaskFailed where
         toHeaders
           = const

@@ -120,6 +120,8 @@ instance AWSRequest UpdateFleetCapacity where
                  UpdateFleetCapacityResponse' <$>
                    (x .?> "FleetId") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateFleetCapacity
+
 instance ToHeaders UpdateFleetCapacity where
         toHeaders
           = const

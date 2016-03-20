@@ -92,6 +92,8 @@ instance AWSRequest GetQueueURL where
                  GetQueueURLResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "QueueUrl"))
 
+instance Hashable GetQueueURL
+
 instance ToHeaders GetQueueURL where
         toHeaders = const mempty
 

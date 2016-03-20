@@ -110,6 +110,8 @@ instance AWSRequest
                      (x .@? "NotificationConfigurations" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable DescribeNotificationConfigurations
+
 instance ToHeaders DescribeNotificationConfigurations
          where
         toHeaders = const mempty

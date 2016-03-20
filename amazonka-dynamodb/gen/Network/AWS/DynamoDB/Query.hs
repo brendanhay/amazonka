@@ -722,6 +722,8 @@ instance AWSRequest Query where
                      <*> (x .?> "ConsumedCapacity")
                      <*> (pure (fromEnum s)))
 
+instance Hashable Query
+
 instance ToHeaders Query where
         toHeaders
           = const

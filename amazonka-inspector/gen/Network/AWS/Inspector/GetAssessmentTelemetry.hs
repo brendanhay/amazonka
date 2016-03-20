@@ -77,6 +77,8 @@ instance AWSRequest GetAssessmentTelemetry where
                    (x .?> "telemetry" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetAssessmentTelemetry
+
 instance ToHeaders GetAssessmentTelemetry where
         toHeaders
           = const

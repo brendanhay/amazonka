@@ -114,6 +114,8 @@ instance AWSRequest DescribeResize where
                      <*> (x .@? "ElapsedTimeInSeconds")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeResize
+
 instance ToHeaders DescribeResize where
         toHeaders = const mempty
 

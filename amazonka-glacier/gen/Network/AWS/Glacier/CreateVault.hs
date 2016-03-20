@@ -115,6 +115,8 @@ instance AWSRequest CreateVault where
                  CreateVaultResponse' <$>
                    (h .#? "Location") <*> (pure (fromEnum s)))
 
+instance Hashable CreateVault
+
 instance ToHeaders CreateVault where
         toHeaders = const mempty
 

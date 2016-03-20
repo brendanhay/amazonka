@@ -158,6 +158,8 @@ instance AWSRequest ListObjects where
                      <*> (x .@? "Delimiter")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListObjects
+
 instance ToHeaders ListObjects where
         toHeaders = const mempty
 

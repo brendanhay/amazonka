@@ -91,6 +91,8 @@ instance AWSRequest UpdateGatewaySoftwareNow where
                  UpdateGatewaySoftwareNowResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateGatewaySoftwareNow
+
 instance ToHeaders UpdateGatewaySoftwareNow where
         toHeaders
           = const

@@ -113,6 +113,8 @@ instance AWSRequest ImportKeyPair where
                    (x .@? "keyFingerprint") <*> (x .@? "keyName") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ImportKeyPair
+
 instance ToHeaders ImportKeyPair where
         toHeaders = const mempty
 

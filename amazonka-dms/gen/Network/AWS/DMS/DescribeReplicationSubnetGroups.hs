@@ -105,6 +105,8 @@ instance AWSRequest DescribeReplicationSubnetGroups
                      (x .?> "ReplicationSubnetGroups" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeReplicationSubnetGroups
+
 instance ToHeaders DescribeReplicationSubnetGroups
          where
         toHeaders

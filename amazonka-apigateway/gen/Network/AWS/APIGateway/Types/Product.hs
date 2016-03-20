@@ -109,6 +109,8 @@ instance FromJSON APIKey where
                      <*> (x .:? "lastUpdatedDate")
                      <*> (x .:? "description"))
 
+instance Hashable APIKey
+
 -- | Represents an AWS account that is associated with Amazon API Gateway.
 --
 -- /See:/ 'account' smart constructor.
@@ -149,6 +151,8 @@ instance FromJSON Account where
                  Account' <$>
                    (x .:? "cloudwatchRoleArn") <*>
                      (x .:? "throttleSettings"))
+
+instance Hashable Account
 
 -- | Represents an authorization layer for methods. If enabled on a method,
 -- API Gateway will activate the authorizer when a client calls the method.
@@ -267,6 +271,8 @@ instance FromJSON Authorizer where
                      <*> (x .:? "identitySource")
                      <*> (x .:? "authorizerCredentials"))
 
+instance Hashable Authorizer
+
 -- | Represents the base path that callers of the API that must provide as
 -- part of the URL after the domain name.
 --
@@ -315,6 +321,8 @@ instance FromJSON BasePathMapping where
                  BasePathMapping' <$>
                    (x .:? "stage") <*> (x .:? "basePath") <*>
                      (x .:? "restApiId"))
+
+instance Hashable BasePathMapping
 
 -- | /See:/ 'clientCertificate' smart constructor.
 data ClientCertificate = ClientCertificate'
@@ -380,6 +388,8 @@ instance FromJSON ClientCertificate where
                      <*> (x .:? "expirationDate")
                      <*> (x .:? "description"))
 
+instance Hashable ClientCertificate
+
 -- | An immutable representation of a < RestApi> resource that can be called
 -- by users using < Stages>. A deployment must be associated with a
 -- < Stage> for it to be callable over the Internet.
@@ -440,6 +450,8 @@ instance FromJSON Deployment where
                      <*> (x .:? "id")
                      <*> (x .:? "description"))
 
+instance Hashable Deployment
+
 -- | Represents a domain name that is contained in a simpler, more intuitive
 -- URL that can be called.
 --
@@ -499,6 +511,8 @@ instance FromJSON DomainName where
                    (x .:? "certificateName") <*> (x .:? "domainName")
                      <*> (x .:? "certificateUploadDate")
                      <*> (x .:? "distributionDomainName"))
+
+instance Hashable DomainName
 
 -- | Represents a HTTP, AWS, or Mock integration.
 --
@@ -626,6 +640,8 @@ instance FromJSON Integration where
                      <*> (x .:? "type")
                      <*> (x .:? "cacheKeyParameters" .!= mempty))
 
+instance Hashable Integration
+
 -- | Represents an integration response. The status code must map to an
 -- existing < MethodResponse>, and parameters and templates can be used to
 -- transform the backend response.
@@ -698,6 +714,8 @@ instance FromJSON IntegrationResponse where
                      (x .:? "selectionPattern")
                      <*> (x .:? "statusCode")
                      <*> (x .:? "responseParameters" .!= mempty))
+
+instance Hashable IntegrationResponse
 
 -- | Represents a method.
 --
@@ -805,6 +823,8 @@ instance FromJSON Method where
                      <*> (x .:? "apiKeyRequired")
                      <*> (x .:? "methodIntegration"))
 
+instance Hashable Method
+
 -- | Represents a method response. Amazon API Gateway sends back the status
 -- code to the caller as the HTTP status code. Parameters and models can be
 -- used to transform the response from the method\'s integration.
@@ -863,6 +883,8 @@ instance FromJSON MethodResponse where
                    (x .:? "responseModels" .!= mempty) <*>
                      (x .:? "statusCode")
                      <*> (x .:? "responseParameters" .!= mempty))
+
+instance Hashable MethodResponse
 
 -- | Specifies the method setting properties.
 --
@@ -1003,6 +1025,8 @@ instance FromJSON MethodSetting where
                      <*> (x .:? "throttlingRateLimit")
                      <*> (x .:? "unauthorizedCacheControlHeaderStrategy"))
 
+instance Hashable MethodSetting
+
 -- | Represents a summary of a < Method> resource, given a particular date
 -- and time.
 --
@@ -1042,6 +1066,8 @@ instance FromJSON MethodSnapshot where
                  MethodSnapshot' <$>
                    (x .:? "authorizationType") <*>
                      (x .:? "apiKeyRequired"))
+
+instance Hashable MethodSnapshot
 
 -- | Represents the structure of a request or response payload for a method.
 --
@@ -1108,6 +1134,8 @@ instance FromJSON Model where
                      <*> (x .:? "description")
                      <*> (x .:? "contentType"))
 
+instance Hashable Model
+
 -- | A single patch operation to apply to the specified resource. Please
 -- refer to http:\/\/tools.ietf.org\/html\/rfc6902#section-4 for an
 -- explanation of how each operation is used.
@@ -1163,6 +1191,8 @@ poValue = lens _poValue (\ s a -> s{_poValue = a});
 -- references the location in the target document to move the value from.
 poFrom :: Lens' PatchOperation (Maybe Text)
 poFrom = lens _poFrom (\ s a -> s{_poFrom = a});
+
+instance Hashable PatchOperation
 
 instance ToJSON PatchOperation where
         toJSON PatchOperation'{..}
@@ -1237,6 +1267,8 @@ instance FromJSON Resource where
                      <*> (x .:? "resourceMethods" .!= mempty)
                      <*> (x .:? "parentId"))
 
+instance Hashable Resource
+
 -- | Represents a REST API.
 --
 -- /See:/ 'restAPI' smart constructor.
@@ -1294,6 +1326,8 @@ instance FromJSON RestAPI where
                    (x .:? "createdDate") <*> (x .:? "name") <*>
                      (x .:? "id")
                      <*> (x .:? "description"))
+
+instance Hashable RestAPI
 
 -- | Represents a unique identifier for a version of a deployed < RestApi>
 -- that is callable by users.
@@ -1424,6 +1458,8 @@ instance FromJSON Stage where
                      <*> (x .:? "stageName")
                      <*> (x .:? "description"))
 
+instance Hashable Stage
+
 -- | A reference to a unique stage identified in the format
 -- '{restApiId}\/{stage}'.
 --
@@ -1456,6 +1492,8 @@ skRestAPIId = lens _skRestAPIId (\ s a -> s{_skRestAPIId = a});
 -- | The stage name in the < RestApi> that the stage key references.
 skStageName :: Lens' StageKey (Maybe Text)
 skStageName = lens _skStageName (\ s a -> s{_skStageName = a});
+
+instance Hashable StageKey
 
 instance ToJSON StageKey where
         toJSON StageKey'{..}
@@ -1501,3 +1539,5 @@ instance FromJSON ThrottleSettings where
               (\ x ->
                  ThrottleSettings' <$>
                    (x .:? "burstLimit") <*> (x .:? "rateLimit"))
+
+instance Hashable ThrottleSettings

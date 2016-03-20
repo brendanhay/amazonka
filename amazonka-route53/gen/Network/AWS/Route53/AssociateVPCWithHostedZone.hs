@@ -109,6 +109,8 @@ instance AWSRequest AssociateVPCWithHostedZone where
                  AssociateVPCWithHostedZoneResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
+instance Hashable AssociateVPCWithHostedZone
+
 instance ToElement AssociateVPCWithHostedZone where
         toElement
           = mkElement

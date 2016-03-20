@@ -81,6 +81,8 @@ instance AWSRequest GetIdentityPoolRoles where
                      (x .?> "IdentityPoolId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetIdentityPoolRoles
+
 instance ToHeaders GetIdentityPoolRoles where
         toHeaders
           = const

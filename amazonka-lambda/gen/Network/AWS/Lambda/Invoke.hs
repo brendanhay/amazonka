@@ -167,6 +167,8 @@ instance AWSRequest Invoke where
                      <*> (pure (Just x))
                      <*> (pure (fromEnum s)))
 
+instance Hashable Invoke
+
 instance ToBody Invoke where
         toBody = toBody . _iPayload
 

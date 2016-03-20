@@ -108,6 +108,8 @@ instance AWSRequest DescribeIndexFields where
                      (x .@? "IndexFields" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable DescribeIndexFields
+
 instance ToHeaders DescribeIndexFields where
         toHeaders = const mempty
 

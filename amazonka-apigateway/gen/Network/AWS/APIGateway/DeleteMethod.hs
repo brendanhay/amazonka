@@ -88,6 +88,8 @@ instance AWSRequest DeleteMethod where
         request = delete aPIGateway
         response = receiveNull DeleteMethodResponse''
 
+instance Hashable DeleteMethod
+
 instance ToHeaders DeleteMethod where
         toHeaders
           = const

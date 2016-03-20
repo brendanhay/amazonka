@@ -116,6 +116,8 @@ instance AWSRequest DescribeDirectories where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDirectories
+
 instance ToHeaders DescribeDirectories where
         toHeaders
           = const

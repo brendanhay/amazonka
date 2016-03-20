@@ -133,6 +133,8 @@ instance AWSRequest DescribeStream where
                  DescribeStreamResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "StreamDescription"))
 
+instance Hashable DescribeStream
+
 instance ToHeaders DescribeStream where
         toHeaders
           = const

@@ -144,6 +144,8 @@ instance AWSRequest DescribeScheduledActions where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeScheduledActions
+
 instance ToHeaders DescribeScheduledActions where
         toHeaders = const mempty
 

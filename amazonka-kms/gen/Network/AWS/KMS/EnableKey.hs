@@ -72,6 +72,8 @@ instance AWSRequest EnableKey where
         request = postJSON kMS
         response = receiveNull EnableKeyResponse'
 
+instance Hashable EnableKey
+
 instance ToHeaders EnableKey where
         toHeaders
           = const

@@ -96,6 +96,8 @@ instance AWSRequest GetOpenIdToken where
                    (x .?> "Token") <*> (x .?> "IdentityId") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetOpenIdToken
+
 instance ToHeaders GetOpenIdToken where
         toHeaders
           = const

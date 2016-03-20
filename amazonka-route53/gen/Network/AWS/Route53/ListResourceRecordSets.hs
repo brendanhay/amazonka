@@ -201,6 +201,8 @@ instance AWSRequest ListResourceRecordSets where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
 
+instance Hashable ListResourceRecordSets
+
 instance ToHeaders ListResourceRecordSets where
         toHeaders = const mempty
 

@@ -108,6 +108,8 @@ instance AWSRequest DeleteObjects where
                      <*> (may (parseXMLList "Error") x)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DeleteObjects
+
 instance ToElement DeleteObjects where
         toElement
           = mkElement

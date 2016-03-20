@@ -79,6 +79,8 @@ instance AWSRequest EnableVGWRoutePropagation where
         response
           = receiveNull EnableVGWRoutePropagationResponse'
 
+instance Hashable EnableVGWRoutePropagation
+
 instance ToHeaders EnableVGWRoutePropagation where
         toHeaders = const mempty
 

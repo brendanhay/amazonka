@@ -117,6 +117,8 @@ instance AWSRequest TestRole where
                    (x .?> "Success") <*> (x .?> "Messages" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable TestRole
+
 instance ToHeaders TestRole where
         toHeaders = const mempty
 

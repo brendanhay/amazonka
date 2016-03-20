@@ -135,6 +135,8 @@ instance AWSRequest CreateSubnet where
                  CreateSubnetResponse' <$>
                    (x .@? "subnet") <*> (pure (fromEnum s)))
 
+instance Hashable CreateSubnet
+
 instance ToHeaders CreateSubnet where
         toHeaders = const mempty
 

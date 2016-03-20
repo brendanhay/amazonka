@@ -85,6 +85,8 @@ instance AWSRequest EnableRadius where
               (\ s h x ->
                  EnableRadiusResponse' <$> (pure (fromEnum s)))
 
+instance Hashable EnableRadius
+
 instance ToHeaders EnableRadius where
         toHeaders
           = const

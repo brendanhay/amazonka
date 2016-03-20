@@ -202,6 +202,8 @@ instance AWSRequest CreateApp where
                  CreateAppResponse' <$>
                    (x .?> "AppId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateApp
+
 instance ToHeaders CreateApp where
         toHeaders
           = const

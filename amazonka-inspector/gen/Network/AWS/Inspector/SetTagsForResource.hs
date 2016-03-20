@@ -85,6 +85,8 @@ instance AWSRequest SetTagsForResource where
                  SetTagsForResourceResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
 
+instance Hashable SetTagsForResource
+
 instance ToHeaders SetTagsForResource where
         toHeaders
           = const

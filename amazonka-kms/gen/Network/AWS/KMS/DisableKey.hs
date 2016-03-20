@@ -76,6 +76,8 @@ instance AWSRequest DisableKey where
         request = postJSON kMS
         response = receiveNull DisableKeyResponse'
 
+instance Hashable DisableKey
+
 instance ToHeaders DisableKey where
         toHeaders
           = const

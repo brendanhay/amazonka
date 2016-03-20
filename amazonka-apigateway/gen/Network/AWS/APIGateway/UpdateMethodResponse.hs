@@ -112,6 +112,8 @@ instance AWSRequest UpdateMethodResponse where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateMethodResponse
+
 instance ToHeaders UpdateMethodResponse where
         toHeaders
           = const

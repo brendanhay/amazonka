@@ -130,6 +130,8 @@ instance AWSRequest RunScheduledInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable RunScheduledInstances
+
 instance ToHeaders RunScheduledInstances where
         toHeaders = const mempty
 

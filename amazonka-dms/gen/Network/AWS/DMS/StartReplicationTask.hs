@@ -94,6 +94,8 @@ instance AWSRequest StartReplicationTask where
                  StartReplicationTaskResponse' <$>
                    (x .?> "ReplicationTask") <*> (pure (fromEnum s)))
 
+instance Hashable StartReplicationTask
+
 instance ToHeaders StartReplicationTask where
         toHeaders
           = const

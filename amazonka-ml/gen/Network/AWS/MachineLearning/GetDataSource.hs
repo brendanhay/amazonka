@@ -124,6 +124,8 @@ instance AWSRequest GetDataSource where
                      <*> (x .?> "RoleARN")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetDataSource
+
 instance ToHeaders GetDataSource where
         toHeaders
           = const

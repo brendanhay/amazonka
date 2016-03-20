@@ -97,6 +97,8 @@ instance AWSRequest UpdateGroup where
         request = postQuery iAM
         response = receiveNull UpdateGroupResponse'
 
+instance Hashable UpdateGroup
+
 instance ToHeaders UpdateGroup where
         toHeaders = const mempty
 

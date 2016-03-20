@@ -76,6 +76,8 @@ instance AWSRequest BatchGetDeployments where
                    (x .?> "deploymentsInfo" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable BatchGetDeployments
+
 instance ToHeaders BatchGetDeployments where
         toHeaders
           = const

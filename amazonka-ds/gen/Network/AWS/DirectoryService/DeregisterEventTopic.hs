@@ -89,6 +89,8 @@ instance AWSRequest DeregisterEventTopic where
                  DeregisterEventTopicResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable DeregisterEventTopic
+
 instance ToHeaders DeregisterEventTopic where
         toHeaders
           = const

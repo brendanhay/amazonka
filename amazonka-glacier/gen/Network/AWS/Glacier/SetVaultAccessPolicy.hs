@@ -98,6 +98,8 @@ instance AWSRequest SetVaultAccessPolicy where
         request = putJSON glacier
         response = receiveNull SetVaultAccessPolicyResponse'
 
+instance Hashable SetVaultAccessPolicy
+
 instance ToHeaders SetVaultAccessPolicy where
         toHeaders = const mempty
 

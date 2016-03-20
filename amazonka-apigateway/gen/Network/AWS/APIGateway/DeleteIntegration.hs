@@ -89,6 +89,8 @@ instance AWSRequest DeleteIntegration where
         request = delete aPIGateway
         response = receiveNull DeleteIntegrationResponse''
 
+instance Hashable DeleteIntegration
+
 instance ToHeaders DeleteIntegration where
         toHeaders
           = const

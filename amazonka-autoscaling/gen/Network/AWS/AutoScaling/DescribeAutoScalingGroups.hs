@@ -106,6 +106,8 @@ instance AWSRequest DescribeAutoScalingGroups where
                      (x .@? "AutoScalingGroups" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable DescribeAutoScalingGroups
+
 instance ToHeaders DescribeAutoScalingGroups where
         toHeaders = const mempty
 

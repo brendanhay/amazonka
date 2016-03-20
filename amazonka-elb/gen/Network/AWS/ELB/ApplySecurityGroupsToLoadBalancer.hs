@@ -94,6 +94,8 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ApplySecurityGroupsToLoadBalancer
+
 instance ToHeaders ApplySecurityGroupsToLoadBalancer
          where
         toHeaders = const mempty

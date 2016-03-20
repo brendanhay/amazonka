@@ -126,6 +126,8 @@ instance AWSRequest PutRecord where
                  PutRecordResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "RecordId"))
 
+instance Hashable PutRecord
+
 instance ToHeaders PutRecord where
         toHeaders
           = const

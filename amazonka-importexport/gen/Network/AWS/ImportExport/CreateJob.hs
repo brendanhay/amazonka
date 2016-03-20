@@ -130,6 +130,8 @@ instance AWSRequest CreateJob where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateJob
+
 instance ToHeaders CreateJob where
         toHeaders = const mempty
 

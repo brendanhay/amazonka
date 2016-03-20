@@ -82,6 +82,8 @@ instance AWSRequest DeleteDBSecurityGroup where
         request = postQuery rDS
         response = receiveNull DeleteDBSecurityGroupResponse'
 
+instance Hashable DeleteDBSecurityGroup
+
 instance ToHeaders DeleteDBSecurityGroup where
         toHeaders = const mempty
 

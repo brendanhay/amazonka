@@ -111,6 +111,8 @@ instance AWSRequest CreateDBSnapshot where
                  CreateDBSnapshotResponse' <$>
                    (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDBSnapshot
+
 instance ToHeaders CreateDBSnapshot where
         toHeaders = const mempty
 

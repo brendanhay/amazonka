@@ -87,6 +87,8 @@ instance AWSRequest DeletePolicy where
         request = postQuery iAM
         response = receiveNull DeletePolicyResponse'
 
+instance Hashable DeletePolicy
+
 instance ToHeaders DeletePolicy where
         toHeaders = const mempty
 

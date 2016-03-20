@@ -164,6 +164,8 @@ instance AWSRequest DescribeClusterSubnetGroups where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeClusterSubnetGroups
+
 instance ToHeaders DescribeClusterSubnetGroups where
         toHeaders = const mempty
 

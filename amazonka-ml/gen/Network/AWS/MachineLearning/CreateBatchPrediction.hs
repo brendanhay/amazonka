@@ -137,6 +137,8 @@ instance AWSRequest CreateBatchPrediction where
                  CreateBatchPredictionResponse' <$>
                    (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateBatchPrediction
+
 instance ToHeaders CreateBatchPrediction where
         toHeaders
           = const

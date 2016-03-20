@@ -79,6 +79,8 @@ instance AWSRequest ListApplications where
                      (x .?> "applications" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListApplications
+
 instance ToHeaders ListApplications where
         toHeaders
           = const

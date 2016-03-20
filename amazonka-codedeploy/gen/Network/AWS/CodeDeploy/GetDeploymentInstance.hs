@@ -86,6 +86,8 @@ instance AWSRequest GetDeploymentInstance where
                  GetDeploymentInstanceResponse' <$>
                    (x .?> "instanceSummary") <*> (pure (fromEnum s)))
 
+instance Hashable GetDeploymentInstance
+
 instance ToHeaders GetDeploymentInstance where
         toHeaders
           = const

@@ -243,6 +243,8 @@ instance AWSRequest RegisterWorkflowType where
         request = postJSON sWF
         response = receiveNull RegisterWorkflowTypeResponse'
 
+instance Hashable RegisterWorkflowType
+
 instance ToHeaders RegisterWorkflowType where
         toHeaders
           = const

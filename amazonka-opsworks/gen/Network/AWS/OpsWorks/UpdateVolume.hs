@@ -92,6 +92,8 @@ instance AWSRequest UpdateVolume where
         request = postJSON opsWorks
         response = receiveNull UpdateVolumeResponse'
 
+instance Hashable UpdateVolume
+
 instance ToHeaders UpdateVolume where
         toHeaders
           = const

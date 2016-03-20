@@ -100,6 +100,8 @@ instance AWSRequest UpdateGatewayInformation where
                    (x .?> "GatewayARN") <*> (x .?> "GatewayName") <*>
                      (pure (fromEnum s)))
 
+instance Hashable UpdateGatewayInformation
+
 instance ToHeaders UpdateGatewayInformation where
         toHeaders
           = const

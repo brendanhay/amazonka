@@ -77,6 +77,8 @@ instance AWSRequest ReadPipeline where
                    (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ReadPipeline
+
 instance ToHeaders ReadPipeline where
         toHeaders = const mempty
 

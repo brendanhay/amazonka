@@ -125,6 +125,8 @@ instance AWSRequest CreateInterconnect where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateInterconnect
+
 instance ToHeaders CreateInterconnect where
         toHeaders
           = const

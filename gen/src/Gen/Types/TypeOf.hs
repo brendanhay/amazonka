@@ -5,7 +5,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Gen.AST.TypeOf
+-- Module      : Gen.Types.TypeOf
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -15,20 +15,24 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
-module Gen.AST.TypeOf
+module Gen.Types.TypeOf
     ( TypeOf (..)
     , derivingOf
+    , derivingBase
     , pointerTo
-    , isEQ
+    , isEq
+    , isHashable
     , typeDefault
     ) where
 
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding ((:<), List, enum, mapping, (??))
 import           Data.Foldable          (foldr')
-import           Data.List              (intersect)
+import           Data.List              (intersect, nub, sort)
 import           Data.Monoid
-import           Gen.Types
+import           Gen.Types.Ann
+import           Gen.Types.Id
+import           Gen.Types.Service
 
 class TypeOf a where
     typeOf :: a -> TType
@@ -39,10 +43,6 @@ instance TypeOf TType where
 instance TypeOf Solved where
     typeOf = _annType
 
-instance TypeOf Replace where
-    typeOf Replace{..} =
-        TType (typeId _replaceName) (uniq (_replaceDeriving <> base))
-
 instance HasId a => TypeOf (Shape a) where
     typeOf (x :< s) = sensitive s (shape s)
       where
@@ -51,7 +51,7 @@ instance HasId a => TypeOf (Shape a) where
         shape = \case
             Ptr _ t              -> t
             Struct st            -> TType  (typeId n) (struct st)
-            Enum   {}            -> TType  (typeId n) (enum <> base)
+            Enum   {}            -> TType  (typeId n) (enum <> derivingBase)
             List (ListF i e)
                 | nonEmpty i     -> TList1 (typeOf e)
                 | otherwise      -> TList  (typeOf e)
@@ -67,15 +67,18 @@ instance HasId a => TypeOf (Shape a) where
         struct st
             | isStreaming st = stream
             | otherwise      = uniq $
-                foldr' (intersect . derivingOf) base (st ^.. references)
+                foldr' (intersect . derivingOf) derivingBase (st ^.. references)
 
 instance HasId a => TypeOf (RefF (Shape a)) where
     typeOf r
         | isStreaming r = TStream
         | otherwise     = typeOf (r ^. refAnn)
 
-isEQ :: TypeOf a => a -> Bool
-isEQ = elem DEq . derivingOf
+isEq :: TypeOf a => a -> Bool
+isEq = elem DEq . derivingOf
+
+isHashable :: TypeOf a => a -> Bool
+isHashable = elem DHashable . derivingOf
 
 -- FIXME: this whole concept of pointers and limiting the recursion stack
 -- when calculating types is broken - there are plenty of more robust/sane
@@ -88,7 +91,7 @@ pointerTo n = \case
     Map (MapF _ k v)     -> TMap   (t (_refShape k)) (t (_refShape v))
     _                    -> t n
   where
-    t x = TType (typeId x) base
+    t x = TType (typeId x) derivingBase
 
 derivingOf :: TypeOf a => a -> [Derive]
 derivingOf = uniq . typ . typeOf
@@ -96,32 +99,34 @@ derivingOf = uniq . typ . typeOf
     typ = \case
         TType      _ ds -> ds
         TLit       l    -> lit l
-        TNatural        -> base <> num
+        TNatural        -> derivingBase <> num
         TStream         -> stream
         TMaybe     t    -> typ t
         TSensitive t    -> DShow : typ t
-        TList      e    -> monoid <> intersect base (typ e)
-        TList1     e    -> DSemigroup : intersect base (typ e)
+        TList      e    -> monoid <> intersect derivingBase (typ e)
+        TList1     e    -> DSemigroup : intersect derivingBase (typ e)
         TMap       k v  -> monoid <> intersect (typ k) (typ v)
 
     lit = \case
-        Int    -> base <> num
-        Long   -> base <> num
-        Double -> base <> frac
-        Text   -> base <> string
-        Blob   -> base
-        Time   -> DOrd : base
-        Bool   -> enum <> base
-        Json   -> [DEq, DShow, DData, DTypeable, DGeneric]
+        Int    -> derivingBase <> num
+        Long   -> derivingBase <> num
+        Double -> derivingBase <> frac
+        Text   -> derivingBase <> string
+        Blob   -> derivingBase
+        Time   -> DOrd : derivingBase
+        Bool   -> derivingBase <> enum
+        Json   -> [DEq, DShow, DData, DTypeable, DGeneric, DHashable]
 
-stream, string, num, frac, monoid, enum, base :: [Derive]
+stream, string, num, frac, monoid, enum :: [Derive]
 stream = [DShow, DGeneric]
 string = [DOrd, DIsString]
 num    = DNum : DIntegral : DReal : enum
 frac   = [DOrd, DRealFrac, DRealFloat]
 monoid = [DMonoid, DSemigroup]
 enum   = [DOrd, DEnum, DBounded]
-base   = [DEq, DRead, DShow, DData, DTypeable, DGeneric]
+
+derivingBase :: [Derive]
+derivingBase = [DEq, DRead, DShow, DData, DTypeable, DGeneric, DHashable]
 
 typeDefault :: TType -> Bool
 typeDefault = \case
@@ -141,3 +146,6 @@ sensitive :: HasInfo a => a -> TType -> TType
 sensitive x
     | x ^. infoSensitive = TSensitive
     | otherwise          = id
+
+uniq :: Ord a => [a] -> [a]
+uniq = sort . nub

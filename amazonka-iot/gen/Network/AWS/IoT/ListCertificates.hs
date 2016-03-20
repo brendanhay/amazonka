@@ -99,6 +99,8 @@ instance AWSRequest ListCertificates where
                      (x .?> "nextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListCertificates
+
 instance ToHeaders ListCertificates where
         toHeaders = const mempty
 

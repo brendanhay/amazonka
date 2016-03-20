@@ -88,6 +88,8 @@ instance AWSRequest RefreshSchemas where
                    (x .?> "RefreshSchemasStatus") <*>
                      (pure (fromEnum s)))
 
+instance Hashable RefreshSchemas
+
 instance ToHeaders RefreshSchemas where
         toHeaders
           = const

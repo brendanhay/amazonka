@@ -104,6 +104,8 @@ instance AWSRequest ResetClusterParameterGroup where
               "ResetClusterParameterGroupResult"
               (\ s h x -> parseXML x)
 
+instance Hashable ResetClusterParameterGroup
+
 instance ToHeaders ResetClusterParameterGroup where
         toHeaders = const mempty
 

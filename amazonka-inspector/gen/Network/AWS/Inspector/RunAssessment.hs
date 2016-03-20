@@ -84,6 +84,8 @@ instance AWSRequest RunAssessment where
                  RunAssessmentResponse' <$>
                    (x .?> "runArn") <*> (pure (fromEnum s)))
 
+instance Hashable RunAssessment
+
 instance ToHeaders RunAssessment where
         toHeaders
           = const

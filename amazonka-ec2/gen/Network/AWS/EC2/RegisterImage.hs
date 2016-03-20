@@ -216,6 +216,8 @@ instance AWSRequest RegisterImage where
                  RegisterImageResponse' <$>
                    (x .@? "imageId") <*> (pure (fromEnum s)))
 
+instance Hashable RegisterImage
+
 instance ToHeaders RegisterImage where
         toHeaders = const mempty
 

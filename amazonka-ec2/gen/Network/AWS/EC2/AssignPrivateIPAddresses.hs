@@ -116,6 +116,8 @@ instance AWSRequest AssignPrivateIPAddresses where
         response
           = receiveNull AssignPrivateIPAddressesResponse'
 
+instance Hashable AssignPrivateIPAddresses
+
 instance ToHeaders AssignPrivateIPAddresses where
         toHeaders = const mempty
 

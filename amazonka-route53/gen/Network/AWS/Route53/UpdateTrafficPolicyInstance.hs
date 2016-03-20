@@ -139,6 +139,8 @@ instance AWSRequest UpdateTrafficPolicyInstance where
                    (pure (fromEnum s)) <*>
                      (x .@ "TrafficPolicyInstance"))
 
+instance Hashable UpdateTrafficPolicyInstance
+
 instance ToElement UpdateTrafficPolicyInstance where
         toElement
           = mkElement

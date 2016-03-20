@@ -28,7 +28,7 @@ import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import           Data.List              ((\\))
 import           Data.Monoid
-import           Gen.AST.TypeOf
+import           Gen.Types.TypeOf
 import           Gen.Types
 
 data Env = Env

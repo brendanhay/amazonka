@@ -91,6 +91,8 @@ instance AWSRequest DeleteVolume where
                  DeleteVolumeResponse' <$>
                    (x .?> "VolumeARN") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteVolume
+
 instance ToHeaders DeleteVolume where
         toHeaders
           = const

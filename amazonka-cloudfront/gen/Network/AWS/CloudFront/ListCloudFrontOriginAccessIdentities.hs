@@ -113,6 +113,9 @@ instance AWSRequest
                  ListCloudFrontOriginAccessIdentitiesResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
 
+instance Hashable
+         ListCloudFrontOriginAccessIdentities
+
 instance ToHeaders
          ListCloudFrontOriginAccessIdentities where
         toHeaders = const mempty

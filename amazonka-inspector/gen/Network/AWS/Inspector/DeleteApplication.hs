@@ -73,6 +73,8 @@ instance AWSRequest DeleteApplication where
                  DeleteApplicationResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteApplication
+
 instance ToHeaders DeleteApplication where
         toHeaders
           = const

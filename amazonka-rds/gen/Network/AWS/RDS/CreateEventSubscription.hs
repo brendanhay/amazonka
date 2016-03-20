@@ -182,6 +182,8 @@ instance AWSRequest CreateEventSubscription where
                  CreateEventSubscriptionResponse' <$>
                    (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
+instance Hashable CreateEventSubscription
+
 instance ToHeaders CreateEventSubscription where
         toHeaders = const mempty
 

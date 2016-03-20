@@ -115,6 +115,8 @@ instance AWSRequest ListInvalidations where
                  ListInvalidationsResponse' <$>
                    (pure (fromEnum s)) <*> (parseXML x))
 
+instance Hashable ListInvalidations
+
 instance ToHeaders ListInvalidations where
         toHeaders = const mempty
 

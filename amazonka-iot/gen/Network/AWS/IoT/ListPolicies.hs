@@ -96,6 +96,8 @@ instance AWSRequest ListPolicies where
                      (x .?> "policies" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListPolicies
+
 instance ToHeaders ListPolicies where
         toHeaders = const mempty
 

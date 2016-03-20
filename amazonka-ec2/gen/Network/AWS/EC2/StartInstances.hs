@@ -115,6 +115,8 @@ instance AWSRequest StartInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable StartInstances
+
 instance ToHeaders StartInstances where
         toHeaders = const mempty
 

@@ -83,6 +83,8 @@ instance AWSRequest
                    (x .?> "ConfigurationRecordersStatus" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeConfigurationRecorderStatus
+
 instance ToHeaders
          DescribeConfigurationRecorderStatus where
         toHeaders

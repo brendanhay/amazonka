@@ -89,6 +89,8 @@ instance AWSRequest AddCache where
                  AddCacheResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable AddCache
+
 instance ToHeaders AddCache where
         toHeaders
           = const

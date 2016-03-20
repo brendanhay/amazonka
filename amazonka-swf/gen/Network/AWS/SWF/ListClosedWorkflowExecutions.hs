@@ -236,6 +236,8 @@ instance AWSRequest ListClosedWorkflowExecutions
         request = postJSON sWF
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable ListClosedWorkflowExecutions
+
 instance ToHeaders ListClosedWorkflowExecutions where
         toHeaders
           = const

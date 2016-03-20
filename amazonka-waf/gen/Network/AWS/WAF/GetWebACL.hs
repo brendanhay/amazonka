@@ -74,6 +74,8 @@ instance AWSRequest GetWebACL where
                  GetWebACLResponse' <$>
                    (x .?> "WebACL") <*> (pure (fromEnum s)))
 
+instance Hashable GetWebACL
+
 instance ToHeaders GetWebACL where
         toHeaders
           = const

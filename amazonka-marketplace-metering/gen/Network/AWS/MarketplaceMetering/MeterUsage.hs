@@ -120,6 +120,8 @@ instance AWSRequest MeterUsage where
                  MeterUsageResponse' <$>
                    (x .?> "MeteringRecordId") <*> (pure (fromEnum s)))
 
+instance Hashable MeterUsage
+
 instance ToHeaders MeterUsage where
         toHeaders
           = const

@@ -76,6 +76,8 @@ instance AWSRequest GetSizeConstraintSet where
                  GetSizeConstraintSetResponse' <$>
                    (x .?> "SizeConstraintSet") <*> (pure (fromEnum s)))
 
+instance Hashable GetSizeConstraintSet
+
 instance ToHeaders GetSizeConstraintSet where
         toHeaders
           = const

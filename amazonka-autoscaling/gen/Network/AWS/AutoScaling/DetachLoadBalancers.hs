@@ -86,6 +86,8 @@ instance AWSRequest DetachLoadBalancers where
               (\ s h x ->
                  DetachLoadBalancersResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DetachLoadBalancers
+
 instance ToHeaders DetachLoadBalancers where
         toHeaders = const mempty
 

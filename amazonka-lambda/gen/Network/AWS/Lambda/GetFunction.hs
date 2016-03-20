@@ -112,6 +112,8 @@ instance AWSRequest GetFunction where
                    (x .?> "Code") <*> (x .?> "Configuration") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetFunction
+
 instance ToHeaders GetFunction where
         toHeaders = const mempty
 

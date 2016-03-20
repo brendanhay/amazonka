@@ -84,6 +84,8 @@ instance AWSRequest CreateAssociationBatch where
                      (x .?> "Failed" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateAssociationBatch
+
 instance ToHeaders CreateAssociationBatch where
         toHeaders
           = const

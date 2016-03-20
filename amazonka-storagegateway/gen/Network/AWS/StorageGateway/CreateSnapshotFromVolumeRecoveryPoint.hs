@@ -109,6 +109,9 @@ instance AWSRequest
                      <*> (x .?> "SnapshotId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable
+         CreateSnapshotFromVolumeRecoveryPoint
+
 instance ToHeaders
          CreateSnapshotFromVolumeRecoveryPoint where
         toHeaders

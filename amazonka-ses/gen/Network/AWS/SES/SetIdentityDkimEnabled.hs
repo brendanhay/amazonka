@@ -100,6 +100,8 @@ instance AWSRequest SetIdentityDkimEnabled where
                  SetIdentityDkimEnabledResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable SetIdentityDkimEnabled
+
 instance ToHeaders SetIdentityDkimEnabled where
         toHeaders = const mempty
 

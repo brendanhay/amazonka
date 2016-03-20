@@ -75,6 +75,8 @@ instance AWSRequest StopDataCollection where
                  StopDataCollectionResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
 
+instance Hashable StopDataCollection
+
 instance ToHeaders StopDataCollection where
         toHeaders
           = const

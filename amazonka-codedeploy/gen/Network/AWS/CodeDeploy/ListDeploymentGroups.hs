@@ -92,6 +92,8 @@ instance AWSRequest ListDeploymentGroups where
                      (x .?> "deploymentGroups" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListDeploymentGroups
+
 instance ToHeaders ListDeploymentGroups where
         toHeaders
           = const

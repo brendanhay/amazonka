@@ -103,6 +103,8 @@ instance AWSRequest ListSubscriptionsByTopic where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListSubscriptionsByTopic
+
 instance ToHeaders ListSubscriptionsByTopic where
         toHeaders = const mempty
 

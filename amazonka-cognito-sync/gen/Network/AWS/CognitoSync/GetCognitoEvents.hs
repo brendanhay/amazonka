@@ -80,6 +80,8 @@ instance AWSRequest GetCognitoEvents where
                  GetCognitoEventsResponse' <$>
                    (x .?> "Events" .!@ mempty) <*> (pure (fromEnum s)))
 
+instance Hashable GetCognitoEvents
+
 instance ToHeaders GetCognitoEvents where
         toHeaders
           = const

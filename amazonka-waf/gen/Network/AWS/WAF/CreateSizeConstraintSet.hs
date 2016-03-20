@@ -108,6 +108,8 @@ instance AWSRequest CreateSizeConstraintSet where
                    (x .?> "SizeConstraintSet") <*> (x .?> "ChangeToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateSizeConstraintSet
+
 instance ToHeaders CreateSizeConstraintSet where
         toHeaders
           = const

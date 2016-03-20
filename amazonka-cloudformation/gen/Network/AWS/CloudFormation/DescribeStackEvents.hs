@@ -112,6 +112,8 @@ instance AWSRequest DescribeStackEvents where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeStackEvents
+
 instance ToHeaders DescribeStackEvents where
         toHeaders = const mempty
 

@@ -392,6 +392,8 @@ instance AWSRequest CopyObject where
                      <*> (parseXML x)
                      <*> (pure (fromEnum s)))
 
+instance Hashable CopyObject
+
 instance ToHeaders CopyObject where
         toHeaders CopyObject'{..}
           = mconcat

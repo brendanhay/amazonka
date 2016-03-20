@@ -111,6 +111,8 @@ instance AWSRequest UnsubscribeFromDataset where
                  UnsubscribeFromDatasetResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable UnsubscribeFromDataset
+
 instance ToHeaders UnsubscribeFromDataset where
         toHeaders
           = const

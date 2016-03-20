@@ -98,6 +98,8 @@ instance AWSRequest CreateRepository where
                  CreateRepositoryResponse' <$>
                    (x .?> "repositoryMetadata") <*> (pure (fromEnum s)))
 
+instance Hashable CreateRepository
+
 instance ToHeaders CreateRepository where
         toHeaders
           = const

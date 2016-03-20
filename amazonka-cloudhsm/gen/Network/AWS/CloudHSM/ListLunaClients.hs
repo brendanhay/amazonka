@@ -80,6 +80,8 @@ instance AWSRequest ListLunaClients where
                    (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "ClientList" .!@ mempty))
 
+instance Hashable ListLunaClients
+
 instance ToHeaders ListLunaClients where
         toHeaders
           = const

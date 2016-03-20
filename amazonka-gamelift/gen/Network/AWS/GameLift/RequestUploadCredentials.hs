@@ -91,6 +91,8 @@ instance AWSRequest RequestUploadCredentials where
                      (x .?> "UploadCredentials")
                      <*> (pure (fromEnum s)))
 
+instance Hashable RequestUploadCredentials
+
 instance ToHeaders RequestUploadCredentials where
         toHeaders
           = const

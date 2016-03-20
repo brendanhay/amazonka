@@ -86,6 +86,8 @@ instance AWSRequest DescribeMountTargetSecurityGroups
                    (pure (fromEnum s)) <*>
                      (x .?> "SecurityGroups" .!@ mempty))
 
+instance Hashable DescribeMountTargetSecurityGroups
+
 instance ToHeaders DescribeMountTargetSecurityGroups
          where
         toHeaders = const mempty

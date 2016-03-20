@@ -93,6 +93,8 @@ instance AWSRequest DeleteSecurityGroup where
         request = postQuery eC2
         response = receiveNull DeleteSecurityGroupResponse'
 
+instance Hashable DeleteSecurityGroup
+
 instance ToHeaders DeleteSecurityGroup where
         toHeaders = const mempty
 

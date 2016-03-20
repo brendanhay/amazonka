@@ -81,6 +81,9 @@ instance AWSRequest
                      (parseXML x)
                      <*> (pure (fromEnum s)))
 
+instance Hashable
+         CreateCloudFrontOriginAccessIdentity
+
 instance ToElement
          CreateCloudFrontOriginAccessIdentity where
         toElement

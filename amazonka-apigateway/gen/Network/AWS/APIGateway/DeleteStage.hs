@@ -79,6 +79,8 @@ instance AWSRequest DeleteStage where
         request = delete aPIGateway
         response = receiveNull DeleteStageResponse'
 
+instance Hashable DeleteStage
+
 instance ToHeaders DeleteStage where
         toHeaders
           = const

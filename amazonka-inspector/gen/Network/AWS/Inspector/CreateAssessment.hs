@@ -109,6 +109,8 @@ instance AWSRequest CreateAssessment where
                  CreateAssessmentResponse' <$>
                    (x .?> "assessmentArn") <*> (pure (fromEnum s)))
 
+instance Hashable CreateAssessment
+
 instance ToHeaders CreateAssessment where
         toHeaders
           = const

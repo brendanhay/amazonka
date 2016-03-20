@@ -74,6 +74,8 @@ instance AWSRequest UnassignVolume where
         request = postJSON opsWorks
         response = receiveNull UnassignVolumeResponse'
 
+instance Hashable UnassignVolume
+
 instance ToHeaders UnassignVolume where
         toHeaders
           = const

@@ -73,6 +73,8 @@ instance AWSRequest DeleteThing where
               (\ s h x ->
                  DeleteThingResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteThing
+
 instance ToHeaders DeleteThing where
         toHeaders = const mempty
 

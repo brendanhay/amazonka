@@ -107,6 +107,8 @@ instance AWSRequest ListDocuments where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListDocuments
+
 instance ToHeaders ListDocuments where
         toHeaders
           = const

@@ -128,6 +128,8 @@ instance AWSRequest DescribeDBSecurityGroups where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBSecurityGroups
+
 instance ToHeaders DescribeDBSecurityGroups where
         toHeaders = const mempty
 

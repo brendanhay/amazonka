@@ -88,6 +88,8 @@ instance AWSRequest ListActionTypes where
                    (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "actionTypes" .!@ mempty))
 
+instance Hashable ListActionTypes
+
 instance ToHeaders ListActionTypes where
         toHeaders
           = const

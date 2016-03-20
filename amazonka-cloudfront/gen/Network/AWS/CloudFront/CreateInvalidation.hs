@@ -88,6 +88,8 @@ instance AWSRequest CreateInvalidation where
                    (parseXML x) <*> (h .#? "Location") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateInvalidation
+
 instance ToElement CreateInvalidation where
         toElement
           = mkElement

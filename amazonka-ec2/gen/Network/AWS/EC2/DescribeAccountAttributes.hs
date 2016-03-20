@@ -107,6 +107,8 @@ instance AWSRequest DescribeAccountAttributes where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAccountAttributes
+
 instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty
 

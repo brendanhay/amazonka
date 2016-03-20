@@ -103,6 +103,8 @@ instance AWSRequest GetPasswordData where
                      (x .@ "passwordData")
                      <*> (x .@ "timestamp"))
 
+instance Hashable GetPasswordData
+
 instance ToHeaders GetPasswordData where
         toHeaders = const mempty
 

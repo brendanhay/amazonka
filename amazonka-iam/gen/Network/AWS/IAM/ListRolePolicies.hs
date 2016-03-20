@@ -130,6 +130,8 @@ instance AWSRequest ListRolePolicies where
                      (x .@? "PolicyNames" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListRolePolicies
+
 instance ToHeaders ListRolePolicies where
         toHeaders = const mempty
 

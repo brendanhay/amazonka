@@ -95,6 +95,8 @@ instance AWSRequest SetStatus where
         request = postJSON dataPipeline
         response = receiveNull SetStatusResponse'
 
+instance Hashable SetStatus
+
 instance ToHeaders SetStatus where
         toHeaders
           = const

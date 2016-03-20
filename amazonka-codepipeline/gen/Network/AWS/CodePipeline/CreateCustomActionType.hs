@@ -140,6 +140,8 @@ instance AWSRequest CreateCustomActionType where
                  CreateCustomActionTypeResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "actionType"))
 
+instance Hashable CreateCustomActionType
+
 instance ToHeaders CreateCustomActionType where
         toHeaders
           = const

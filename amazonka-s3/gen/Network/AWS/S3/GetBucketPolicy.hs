@@ -73,6 +73,8 @@ instance AWSRequest GetBucketPolicy where
                  GetBucketPolicyResponse' <$>
                    (pure (fromEnum s)) <*> (pure x))
 
+instance Hashable GetBucketPolicy
+
 instance ToHeaders GetBucketPolicy where
         toHeaders = const mempty
 

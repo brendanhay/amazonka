@@ -95,6 +95,8 @@ instance AWSRequest GetOperationDetail where
                      <*> (x .?> "Message")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetOperationDetail
+
 instance ToHeaders GetOperationDetail where
         toHeaders
           = const

@@ -160,6 +160,8 @@ instance AWSRequest ModifyImageAttribute where
         request = postQuery eC2
         response = receiveNull ModifyImageAttributeResponse'
 
+instance Hashable ModifyImageAttribute
+
 instance ToHeaders ModifyImageAttribute where
         toHeaders = const mempty
 

@@ -157,6 +157,8 @@ instance AWSRequest UpdateDomainContactPrivacy where
                  UpdateDomainContactPrivacyResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
+instance Hashable UpdateDomainContactPrivacy
+
 instance ToHeaders UpdateDomainContactPrivacy where
         toHeaders
           = const

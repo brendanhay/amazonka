@@ -96,6 +96,8 @@ instance AWSRequest CreateAlias where
                    (x .?> "DirectoryId") <*> (x .?> "Alias") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateAlias
+
 instance ToHeaders CreateAlias where
         toHeaders
           = const

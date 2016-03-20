@@ -125,6 +125,8 @@ instance AWSRequest UpdateGameSession where
                  UpdateGameSessionResponse' <$>
                    (x .?> "GameSession") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateGameSession
+
 instance ToHeaders UpdateGameSession where
         toHeaders
           = const

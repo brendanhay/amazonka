@@ -59,6 +59,8 @@ instance FromXML Endpoint where
                  may (parseXMLMap "entry" "key" "value"))
                 <*> (x .@? "EndpointArn")
 
+instance Hashable Endpoint
+
 -- | The user-specified message attribute value. For string data types, the
 -- value attribute has the same restrictions on the content as the message
 -- body. For more information, see
@@ -120,6 +122,8 @@ mavStringValue = lens _mavStringValue (\ s a -> s{_mavStringValue = a});
 mavDataType :: Lens' MessageAttributeValue Text
 mavDataType = lens _mavDataType (\ s a -> s{_mavDataType = a});
 
+instance Hashable MessageAttributeValue
+
 instance ToQuery MessageAttributeValue where
         toQuery MessageAttributeValue'{..}
           = mconcat
@@ -164,6 +168,8 @@ instance FromXML PlatformApplication where
               (x .@? "PlatformApplicationArn") <*>
                 (x .@? "Attributes" .!@ mempty >>=
                    may (parseXMLMap "entry" "key" "value"))
+
+instance Hashable PlatformApplication
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
 --
@@ -228,6 +234,8 @@ instance FromXML Subscription where
                 <*> (x .@? "Endpoint")
                 <*> (x .@? "SubscriptionArn")
 
+instance Hashable Subscription
+
 -- | A wrapper type for the topic\'s Amazon Resource Name (ARN). To retrieve
 -- a topic\'s attributes, use 'GetTopicAttributes'.
 --
@@ -254,3 +262,5 @@ tTopicARN = lens _tTopicARN (\ s a -> s{_tTopicARN = a});
 
 instance FromXML Topic where
         parseXML x = Topic' <$> (x .@? "TopicArn")
+
+instance Hashable Topic

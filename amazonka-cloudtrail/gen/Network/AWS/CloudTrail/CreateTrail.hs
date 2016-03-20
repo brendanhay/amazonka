@@ -222,6 +222,8 @@ instance AWSRequest CreateTrail where
                      <*> (x .?> "IsMultiRegionTrail")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateTrail
+
 instance ToHeaders CreateTrail where
         toHeaders
           = const

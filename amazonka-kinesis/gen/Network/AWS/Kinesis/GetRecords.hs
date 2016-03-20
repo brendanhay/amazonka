@@ -147,6 +147,8 @@ instance AWSRequest GetRecords where
                      <*> (pure (fromEnum s))
                      <*> (x .?> "Records" .!@ mempty))
 
+instance Hashable GetRecords
+
 instance ToHeaders GetRecords where
         toHeaders
           = const

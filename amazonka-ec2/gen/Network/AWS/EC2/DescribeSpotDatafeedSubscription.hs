@@ -82,6 +82,8 @@ instance AWSRequest DescribeSpotDatafeedSubscription
                    (x .@? "spotDatafeedSubscription") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeSpotDatafeedSubscription
+
 instance ToHeaders DescribeSpotDatafeedSubscription
          where
         toHeaders = const mempty

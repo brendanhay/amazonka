@@ -91,6 +91,8 @@ instance AWSRequest RejectVPCPeeringConnection where
                  RejectVPCPeeringConnectionResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
+instance Hashable RejectVPCPeeringConnection
+
 instance ToHeaders RejectVPCPeeringConnection where
         toHeaders = const mempty
 

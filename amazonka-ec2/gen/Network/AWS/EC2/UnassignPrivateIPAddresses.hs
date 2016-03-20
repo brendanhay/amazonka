@@ -80,6 +80,8 @@ instance AWSRequest UnassignPrivateIPAddresses where
         response
           = receiveNull UnassignPrivateIPAddressesResponse'
 
+instance Hashable UnassignPrivateIPAddresses
+
 instance ToHeaders UnassignPrivateIPAddresses where
         toHeaders = const mempty
 

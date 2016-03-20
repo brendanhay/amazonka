@@ -83,6 +83,8 @@ instance AWSRequest DeleteQueue where
         request = postQuery sQS
         response = receiveNull DeleteQueueResponse'
 
+instance Hashable DeleteQueue
+
 instance ToHeaders DeleteQueue where
         toHeaders = const mempty
 

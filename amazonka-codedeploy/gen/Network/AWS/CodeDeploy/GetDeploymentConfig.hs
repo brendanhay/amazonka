@@ -78,6 +78,8 @@ instance AWSRequest GetDeploymentConfig where
                    (x .?> "deploymentConfigInfo") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetDeploymentConfig
+
 instance ToHeaders GetDeploymentConfig where
         toHeaders
           = const

@@ -490,6 +490,8 @@ instance AWSRequest Scan where
                      <*> (x .?> "ConsumedCapacity")
                      <*> (pure (fromEnum s)))
 
+instance Hashable Scan
+
 instance ToHeaders Scan where
         toHeaders
           = const

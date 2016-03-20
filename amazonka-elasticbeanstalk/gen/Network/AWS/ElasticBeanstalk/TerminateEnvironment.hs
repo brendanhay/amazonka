@@ -138,6 +138,8 @@ instance AWSRequest TerminateEnvironment where
           = receiveXMLWrapper "TerminateEnvironmentResult"
               (\ s h x -> parseXML x)
 
+instance Hashable TerminateEnvironment
+
 instance ToHeaders TerminateEnvironment where
         toHeaders = const mempty
 

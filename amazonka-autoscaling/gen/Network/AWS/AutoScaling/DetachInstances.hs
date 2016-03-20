@@ -105,6 +105,8 @@ instance AWSRequest DetachInstances where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DetachInstances
+
 instance ToHeaders DetachInstances where
         toHeaders = const mempty
 

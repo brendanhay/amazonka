@@ -115,6 +115,8 @@ instance AWSRequest GetExport where
                      (h .#? "Content-Type")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetExport
+
 instance ToHeaders GetExport where
         toHeaders GetExport'{..}
           = mconcat

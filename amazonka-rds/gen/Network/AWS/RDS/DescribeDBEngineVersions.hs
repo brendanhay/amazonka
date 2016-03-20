@@ -170,6 +170,8 @@ instance AWSRequest DescribeDBEngineVersions where
                         may (parseXMLList "DBEngineVersion"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBEngineVersions
+
 instance ToHeaders DescribeDBEngineVersions where
         toHeaders = const mempty
 

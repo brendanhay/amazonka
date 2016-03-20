@@ -124,6 +124,8 @@ instance AWSRequest CreatePolicy where
                  CreatePolicyResponse' <$>
                    (x .@? "Policy") <*> (pure (fromEnum s)))
 
+instance Hashable CreatePolicy
+
 instance ToHeaders CreatePolicy where
         toHeaders = const mempty
 

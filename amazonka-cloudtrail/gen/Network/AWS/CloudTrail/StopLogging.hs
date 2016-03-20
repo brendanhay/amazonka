@@ -83,6 +83,8 @@ instance AWSRequest StopLogging where
               (\ s h x ->
                  StopLoggingResponse' <$> (pure (fromEnum s)))
 
+instance Hashable StopLogging
+
 instance ToHeaders StopLogging where
         toHeaders
           = const

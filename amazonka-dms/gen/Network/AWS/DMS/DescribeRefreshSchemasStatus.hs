@@ -78,6 +78,8 @@ instance AWSRequest DescribeRefreshSchemasStatus
                    (x .?> "RefreshSchemasStatus") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeRefreshSchemasStatus
+
 instance ToHeaders DescribeRefreshSchemasStatus where
         toHeaders
           = const

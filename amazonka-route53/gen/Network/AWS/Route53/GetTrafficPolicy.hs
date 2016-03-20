@@ -91,6 +91,8 @@ instance AWSRequest GetTrafficPolicy where
                  GetTrafficPolicyResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "TrafficPolicy"))
 
+instance Hashable GetTrafficPolicy
+
 instance ToHeaders GetTrafficPolicy where
         toHeaders = const mempty
 

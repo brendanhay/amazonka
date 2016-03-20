@@ -107,6 +107,8 @@ instance AWSRequest CreateDBSecurityGroup where
                  CreateDBSecurityGroupResponse' <$>
                    (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDBSecurityGroup
+
 instance ToHeaders CreateDBSecurityGroup where
         toHeaders = const mempty
 

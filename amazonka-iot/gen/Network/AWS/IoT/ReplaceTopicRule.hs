@@ -81,6 +81,8 @@ instance AWSRequest ReplaceTopicRule where
         request = patchJSON ioT
         response = receiveNull ReplaceTopicRuleResponse'
 
+instance Hashable ReplaceTopicRule
+
 instance ToHeaders ReplaceTopicRule where
         toHeaders = const mempty
 

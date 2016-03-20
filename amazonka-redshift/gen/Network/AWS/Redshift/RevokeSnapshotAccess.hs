@@ -105,6 +105,8 @@ instance AWSRequest RevokeSnapshotAccess where
                  RevokeSnapshotAccessResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
+instance Hashable RevokeSnapshotAccess
+
 instance ToHeaders RevokeSnapshotAccess where
         toHeaders = const mempty
 

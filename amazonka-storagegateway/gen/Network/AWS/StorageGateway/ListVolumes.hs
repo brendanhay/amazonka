@@ -123,6 +123,8 @@ instance AWSRequest ListVolumes where
                      (x .?> "VolumeInfos" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListVolumes
+
 instance ToHeaders ListVolumes where
         toHeaders
           = const

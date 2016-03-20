@@ -79,6 +79,8 @@ instance AWSRequest DisableDomainAutoRenew where
                  DisableDomainAutoRenewResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable DisableDomainAutoRenew
+
 instance ToHeaders DisableDomainAutoRenew where
         toHeaders
           = const

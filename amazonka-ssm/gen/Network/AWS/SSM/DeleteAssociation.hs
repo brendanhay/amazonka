@@ -87,6 +87,8 @@ instance AWSRequest DeleteAssociation where
               (\ s h x ->
                  DeleteAssociationResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteAssociation
+
 instance ToHeaders DeleteAssociation where
         toHeaders
           = const

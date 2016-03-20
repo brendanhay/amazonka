@@ -82,6 +82,8 @@ instance AWSRequest PutDestinationPolicy where
         request = postJSON cloudWatchLogs
         response = receiveNull PutDestinationPolicyResponse'
 
+instance Hashable PutDestinationPolicy
+
 instance ToHeaders PutDestinationPolicy where
         toHeaders
           = const

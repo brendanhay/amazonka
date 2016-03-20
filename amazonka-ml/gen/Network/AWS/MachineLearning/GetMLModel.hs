@@ -123,6 +123,8 @@ instance AWSRequest GetMLModel where
                      <*> (x .?> "MLModelType")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetMLModel
+
 instance ToHeaders GetMLModel where
         toHeaders
           = const

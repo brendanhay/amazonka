@@ -393,6 +393,8 @@ instance AWSRequest DescribeInstances where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeInstances
+
 instance ToHeaders DescribeInstances where
         toHeaders = const mempty
 

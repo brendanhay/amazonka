@@ -96,6 +96,8 @@ instance AWSRequest FailoverDBCluster where
                  FailoverDBClusterResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
 
+instance Hashable FailoverDBCluster
+
 instance ToHeaders FailoverDBCluster where
         toHeaders = const mempty
 

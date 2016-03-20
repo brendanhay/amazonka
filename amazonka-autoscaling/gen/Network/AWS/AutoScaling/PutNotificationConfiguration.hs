@@ -99,6 +99,8 @@ instance AWSRequest PutNotificationConfiguration
         response
           = receiveNull PutNotificationConfigurationResponse'
 
+instance Hashable PutNotificationConfiguration
+
 instance ToHeaders PutNotificationConfiguration where
         toHeaders = const mempty
 

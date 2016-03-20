@@ -194,6 +194,8 @@ instance AWSRequest AddPermission where
                  AddPermissionResponse' <$>
                    (x .?> "Statement") <*> (pure (fromEnum s)))
 
+instance Hashable AddPermission
+
 instance ToHeaders AddPermission where
         toHeaders = const mempty
 

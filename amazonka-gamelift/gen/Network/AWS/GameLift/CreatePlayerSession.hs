@@ -94,6 +94,8 @@ instance AWSRequest CreatePlayerSession where
                  CreatePlayerSessionResponse' <$>
                    (x .?> "PlayerSession") <*> (pure (fromEnum s)))
 
+instance Hashable CreatePlayerSession
+
 instance ToHeaders CreatePlayerSession where
         toHeaders
           = const

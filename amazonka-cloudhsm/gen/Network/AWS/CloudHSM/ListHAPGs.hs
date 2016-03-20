@@ -80,6 +80,8 @@ instance AWSRequest ListHAPGs where
                    (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "HapgList" .!@ mempty))
 
+instance Hashable ListHAPGs
+
 instance ToHeaders ListHAPGs where
         toHeaders
           = const

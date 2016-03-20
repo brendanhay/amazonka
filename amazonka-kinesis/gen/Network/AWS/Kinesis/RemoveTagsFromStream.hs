@@ -81,6 +81,8 @@ instance AWSRequest RemoveTagsFromStream where
         request = postJSON kinesis
         response = receiveNull RemoveTagsFromStreamResponse'
 
+instance Hashable RemoveTagsFromStream
+
 instance ToHeaders RemoveTagsFromStream where
         toHeaders
           = const

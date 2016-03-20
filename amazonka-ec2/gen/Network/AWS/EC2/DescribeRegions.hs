@@ -104,6 +104,8 @@ instance AWSRequest DescribeRegions where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeRegions
+
 instance ToHeaders DescribeRegions where
         toHeaders = const mempty
 

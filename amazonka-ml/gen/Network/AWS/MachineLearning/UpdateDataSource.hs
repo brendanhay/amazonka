@@ -87,6 +87,8 @@ instance AWSRequest UpdateDataSource where
                  UpdateDataSourceResponse' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateDataSource
+
 instance ToHeaders UpdateDataSource where
         toHeaders
           = const

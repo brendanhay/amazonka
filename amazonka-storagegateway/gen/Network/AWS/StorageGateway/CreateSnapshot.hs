@@ -114,6 +114,8 @@ instance AWSRequest CreateSnapshot where
                    (x .?> "VolumeARN") <*> (x .?> "SnapshotId") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateSnapshot
+
 instance ToHeaders CreateSnapshot where
         toHeaders
           = const

@@ -92,6 +92,8 @@ instance AWSRequest ResetImageAttribute where
         request = postQuery eC2
         response = receiveNull ResetImageAttributeResponse'
 
+instance Hashable ResetImageAttribute
+
 instance ToHeaders ResetImageAttribute where
         toHeaders = const mempty
 

@@ -92,6 +92,8 @@ instance AWSRequest RegisterVolume where
                  RegisterVolumeResponse' <$>
                    (x .?> "VolumeId") <*> (pure (fromEnum s)))
 
+instance Hashable RegisterVolume
+
 instance ToHeaders RegisterVolume where
         toHeaders
           = const

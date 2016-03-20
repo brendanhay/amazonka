@@ -102,6 +102,8 @@ instance AWSRequest ListPresets where
                      (x .?> "Presets" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListPresets
+
 instance ToHeaders ListPresets where
         toHeaders = const mempty
 

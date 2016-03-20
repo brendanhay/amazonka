@@ -107,6 +107,8 @@ instance AWSRequest GetModels where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetModels
+
 instance ToHeaders GetModels where
         toHeaders
           = const

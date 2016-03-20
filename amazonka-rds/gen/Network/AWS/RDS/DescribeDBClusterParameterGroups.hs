@@ -131,6 +131,8 @@ instance AWSRequest DescribeDBClusterParameterGroups
                         may (parseXMLList "DBClusterParameterGroup"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBClusterParameterGroups
+
 instance ToHeaders DescribeDBClusterParameterGroups
          where
         toHeaders = const mempty

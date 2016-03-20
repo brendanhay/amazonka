@@ -107,6 +107,8 @@ instance AWSRequest CreateByteMatchSet where
                    (x .?> "ByteMatchSet") <*> (x .?> "ChangeToken") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateByteMatchSet
+
 instance ToHeaders CreateByteMatchSet where
         toHeaders
           = const

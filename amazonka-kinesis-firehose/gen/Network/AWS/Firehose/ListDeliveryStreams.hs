@@ -96,6 +96,8 @@ instance AWSRequest ListDeliveryStreams where
                      (x .?> "DeliveryStreamNames" .!@ mempty)
                      <*> (x .:> "HasMoreDeliveryStreams"))
 
+instance Hashable ListDeliveryStreams
+
 instance ToHeaders ListDeliveryStreams where
         toHeaders
           = const

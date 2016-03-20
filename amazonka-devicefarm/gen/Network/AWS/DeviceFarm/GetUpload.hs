@@ -75,6 +75,8 @@ instance AWSRequest GetUpload where
                  GetUploadResponse' <$>
                    (x .?> "upload") <*> (pure (fromEnum s)))
 
+instance Hashable GetUpload
+
 instance ToHeaders GetUpload where
         toHeaders
           = const

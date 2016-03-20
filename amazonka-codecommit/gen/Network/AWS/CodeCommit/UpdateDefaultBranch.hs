@@ -83,6 +83,8 @@ instance AWSRequest UpdateDefaultBranch where
         request = postJSON codeCommit
         response = receiveNull UpdateDefaultBranchResponse'
 
+instance Hashable UpdateDefaultBranch
+
 instance ToHeaders UpdateDefaultBranch where
         toHeaders
           = const

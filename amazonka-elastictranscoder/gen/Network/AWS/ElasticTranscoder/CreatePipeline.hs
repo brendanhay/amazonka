@@ -307,6 +307,8 @@ instance AWSRequest CreatePipeline where
                    (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreatePipeline
+
 instance ToHeaders CreatePipeline where
         toHeaders = const mempty
 

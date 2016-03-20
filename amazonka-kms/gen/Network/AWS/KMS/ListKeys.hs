@@ -102,6 +102,8 @@ instance AWSRequest ListKeys where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListKeys
+
 instance ToHeaders ListKeys where
         toHeaders
           = const

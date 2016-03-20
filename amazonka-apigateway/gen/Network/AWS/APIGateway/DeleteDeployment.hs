@@ -80,6 +80,8 @@ instance AWSRequest DeleteDeployment where
         request = delete aPIGateway
         response = receiveNull DeleteDeploymentResponse'
 
+instance Hashable DeleteDeployment
+
 instance ToHeaders DeleteDeployment where
         toHeaders
           = const

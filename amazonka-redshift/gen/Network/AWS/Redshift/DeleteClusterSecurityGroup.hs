@@ -77,6 +77,8 @@ instance AWSRequest DeleteClusterSecurityGroup where
         response
           = receiveNull DeleteClusterSecurityGroupResponse'
 
+instance Hashable DeleteClusterSecurityGroup
+
 instance ToHeaders DeleteClusterSecurityGroup where
         toHeaders = const mempty
 

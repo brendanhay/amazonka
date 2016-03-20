@@ -112,6 +112,8 @@ instance FromJSON CachediSCSIVolume where
                      <*> (x .:? "VolumeId")
                      <*> (x .:? "VolumeType"))
 
+instance Hashable CachediSCSIVolume
+
 -- | Describes Challenge-Handshake Authentication Protocol (CHAP) information
 -- that supports authentication between your gateway and iSCSI initiators.
 --
@@ -175,6 +177,8 @@ instance FromJSON ChapInfo where
                      <*> (x .:? "InitiatorName")
                      <*> (x .:? "SecretToAuthenticateTarget"))
 
+instance Hashable ChapInfo
+
 -- | Lists iSCSI information about a VTL device.
 --
 -- /See:/ 'deviceiSCSIAttributes' smart constructor.
@@ -231,6 +235,8 @@ instance FromJSON DeviceiSCSIAttributes where
                    (x .:? "TargetARN") <*> (x .:? "ChapEnabled") <*>
                      (x .:? "NetworkInterfaceId")
                      <*> (x .:? "NetworkInterfacePort"))
+
+instance Hashable DeviceiSCSIAttributes
 
 -- | /See:/ 'disk' smart constructor.
 data Disk = Disk'
@@ -314,6 +320,8 @@ instance FromJSON Disk where
                      <*> (x .:? "DiskStatus")
                      <*> (x .:? "DiskId"))
 
+instance Hashable Disk
+
 -- | /See:/ 'gatewayInfo' smart constructor.
 data GatewayInfo = GatewayInfo'
     { _giGatewayARN              :: !(Maybe Text)
@@ -369,6 +377,8 @@ instance FromJSON GatewayInfo where
                      <*> (x .:? "GatewayName")
                      <*> (x .:? "GatewayType"))
 
+instance Hashable GatewayInfo
+
 -- | Describes a gateway\'s network interface.
 --
 -- /See:/ 'networkInterface' smart constructor.
@@ -418,6 +428,8 @@ instance FromJSON NetworkInterface where
                  NetworkInterface' <$>
                    (x .:? "Ipv6Address") <*> (x .:? "MacAddress") <*>
                      (x .:? "Ipv4Address"))
+
+instance Hashable NetworkInterface
 
 -- | /See:/ 'storediSCSIVolume' smart constructor.
 data StorediSCSIVolume = StorediSCSIVolume'
@@ -528,6 +540,8 @@ instance FromJSON StorediSCSIVolume where
                      <*> (x .:? "VolumeDiskId")
                      <*> (x .:? "VolumeType"))
 
+instance Hashable StorediSCSIVolume
+
 -- | /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagKey   :: !Text
@@ -563,6 +577,8 @@ instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
+
+instance Hashable Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -649,6 +665,8 @@ instance FromJSON Tape where
                      <*> (x .:? "TapeSizeInBytes")
                      <*> (x .:? "VTLDevice"))
 
+instance Hashable Tape
+
 -- | Represents a virtual tape that is archived in the virtual tape shelf
 -- (VTS).
 --
@@ -730,6 +748,8 @@ instance FromJSON TapeArchive where
                      <*> (x .:? "CompletionTime")
                      <*> (x .:? "RetrievedTo"))
 
+instance Hashable TapeArchive
+
 -- | Describes a recovery point.
 --
 -- /See:/ 'tapeRecoveryPointInfo' smart constructor.
@@ -790,6 +810,8 @@ instance FromJSON TapeRecoveryPointInfo where
                      (x .:? "TapeRecoveryPointTime")
                      <*> (x .:? "TapeARN")
                      <*> (x .:? "TapeSizeInBytes"))
+
+instance Hashable TapeRecoveryPointInfo
 
 -- | Represents a device object associated with a gateway-VTL.
 --
@@ -858,6 +880,8 @@ instance FromJSON VTLDevice where
                      <*> (x .:? "VTLDeviceType")
                      <*> (x .:? "VTLDeviceProductIdentifier"))
 
+instance Hashable VTLDevice
+
 -- | /See:/ 'volumeInfo' smart constructor.
 data VolumeInfo = VolumeInfo'
     { _viVolumeARN  :: !(Maybe Text)
@@ -893,6 +917,8 @@ instance FromJSON VolumeInfo where
               (\ x ->
                  VolumeInfo' <$>
                    (x .:? "VolumeARN") <*> (x .:? "VolumeType"))
+
+instance Hashable VolumeInfo
 
 -- | /See:/ 'volumeRecoveryPointInfo' smart constructor.
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
@@ -948,6 +974,8 @@ instance FromJSON VolumeRecoveryPointInfo where
                      (x .:? "VolumeARN")
                      <*> (x .:? "VolumeSizeInBytes")
                      <*> (x .:? "VolumeUsageInBytes"))
+
+instance Hashable VolumeRecoveryPointInfo
 
 -- | Lists iSCSI information about a volume.
 --
@@ -1013,3 +1041,5 @@ instance FromJSON VolumeiSCSIAttributes where
                      (x .:? "ChapEnabled")
                      <*> (x .:? "NetworkInterfaceId")
                      <*> (x .:? "NetworkInterfacePort"))
+
+instance Hashable VolumeiSCSIAttributes

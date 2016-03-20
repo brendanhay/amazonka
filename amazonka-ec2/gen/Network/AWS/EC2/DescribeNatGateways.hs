@@ -119,6 +119,8 @@ instance AWSRequest DescribeNatGateways where
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeNatGateways
+
 instance ToHeaders DescribeNatGateways where
         toHeaders = const mempty
 

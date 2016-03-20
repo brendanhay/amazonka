@@ -65,6 +65,8 @@ instance AWSRequest DescribeTerminationPolicyTypes
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTerminationPolicyTypes
+
 instance ToHeaders DescribeTerminationPolicyTypes
          where
         toHeaders = const mempty

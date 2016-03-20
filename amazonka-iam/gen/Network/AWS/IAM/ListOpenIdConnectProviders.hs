@@ -64,6 +64,8 @@ instance AWSRequest ListOpenIdConnectProviders where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListOpenIdConnectProviders
+
 instance ToHeaders ListOpenIdConnectProviders where
         toHeaders = const mempty
 

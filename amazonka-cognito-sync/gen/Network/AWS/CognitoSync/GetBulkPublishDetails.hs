@@ -91,6 +91,8 @@ instance AWSRequest GetBulkPublishDetails where
                      <*> (x .?> "BulkPublishStatus")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetBulkPublishDetails
+
 instance ToHeaders GetBulkPublishDetails where
         toHeaders
           = const

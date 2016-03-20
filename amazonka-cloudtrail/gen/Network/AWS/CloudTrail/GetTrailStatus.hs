@@ -115,6 +115,8 @@ instance AWSRequest GetTrailStatus where
                      <*> (x .?> "StopLoggingTime")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetTrailStatus
+
 instance ToHeaders GetTrailStatus where
         toHeaders
           = const

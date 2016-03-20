@@ -87,6 +87,8 @@ instance AWSRequest DisassociateRouteTable where
         response
           = receiveNull DisassociateRouteTableResponse'
 
+instance Hashable DisassociateRouteTable
+
 instance ToHeaders DisassociateRouteTable where
         toHeaders = const mempty
 

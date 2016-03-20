@@ -108,6 +108,8 @@ instance AWSRequest DescribeDataset where
                  DescribeDatasetResponse' <$>
                    (x .?> "Dataset") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDataset
+
 instance ToHeaders DescribeDataset where
         toHeaders
           = const

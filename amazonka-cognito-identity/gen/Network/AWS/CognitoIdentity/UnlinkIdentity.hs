@@ -91,6 +91,8 @@ instance AWSRequest UnlinkIdentity where
         request = postJSON cognitoIdentity
         response = receiveNull UnlinkIdentityResponse'
 
+instance Hashable UnlinkIdentity
+
 instance ToHeaders UnlinkIdentity where
         toHeaders
           = const

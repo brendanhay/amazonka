@@ -179,6 +179,8 @@ instance AWSRequest DescribeCases where
                    (x .?> "cases" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCases
+
 instance ToHeaders DescribeCases where
         toHeaders
           = const

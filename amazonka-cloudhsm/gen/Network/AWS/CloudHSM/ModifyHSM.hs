@@ -133,6 +133,8 @@ instance AWSRequest ModifyHSM where
                  ModifyHSMResponse' <$>
                    (x .?> "HsmArn") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyHSM
+
 instance ToHeaders ModifyHSM where
         toHeaders
           = const

@@ -72,6 +72,8 @@ instance AWSRequest DeleteLaunchConfiguration where
         response
           = receiveNull DeleteLaunchConfigurationResponse'
 
+instance Hashable DeleteLaunchConfiguration
+
 instance ToHeaders DeleteLaunchConfiguration where
         toHeaders = const mempty
 

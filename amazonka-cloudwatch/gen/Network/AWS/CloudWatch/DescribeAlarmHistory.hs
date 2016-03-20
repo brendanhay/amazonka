@@ -138,6 +138,8 @@ instance AWSRequest DescribeAlarmHistory where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAlarmHistory
+
 instance ToHeaders DescribeAlarmHistory where
         toHeaders = const mempty
 

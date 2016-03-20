@@ -75,6 +75,8 @@ instance AWSRequest DeleteReplicationTask where
                  DeleteReplicationTaskResponse' <$>
                    (x .?> "ReplicationTask") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteReplicationTask
+
 instance ToHeaders DeleteReplicationTask where
         toHeaders
           = const

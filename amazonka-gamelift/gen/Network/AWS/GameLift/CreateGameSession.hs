@@ -128,6 +128,8 @@ instance AWSRequest CreateGameSession where
                  CreateGameSessionResponse' <$>
                    (x .?> "GameSession") <*> (pure (fromEnum s)))
 
+instance Hashable CreateGameSession
+
 instance ToHeaders CreateGameSession where
         toHeaders
           = const

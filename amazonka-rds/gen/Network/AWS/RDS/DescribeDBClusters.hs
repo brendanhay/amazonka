@@ -129,6 +129,8 @@ instance AWSRequest DescribeDBClusters where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBClusters
+
 instance ToHeaders DescribeDBClusters where
         toHeaders = const mempty
 

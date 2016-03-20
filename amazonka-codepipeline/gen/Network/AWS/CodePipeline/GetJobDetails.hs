@@ -81,6 +81,8 @@ instance AWSRequest GetJobDetails where
                  GetJobDetailsResponse' <$>
                    (x .?> "jobDetails") <*> (pure (fromEnum s)))
 
+instance Hashable GetJobDetails
+
 instance ToHeaders GetJobDetails where
         toHeaders
           = const

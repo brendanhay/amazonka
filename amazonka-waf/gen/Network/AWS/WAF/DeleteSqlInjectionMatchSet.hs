@@ -103,6 +103,8 @@ instance AWSRequest DeleteSqlInjectionMatchSet where
                  DeleteSqlInjectionMatchSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteSqlInjectionMatchSet
+
 instance ToHeaders DeleteSqlInjectionMatchSet where
         toHeaders
           = const

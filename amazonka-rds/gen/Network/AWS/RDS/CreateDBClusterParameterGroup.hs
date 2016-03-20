@@ -150,6 +150,8 @@ instance AWSRequest CreateDBClusterParameterGroup
                    (x .@? "DBClusterParameterGroup") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateDBClusterParameterGroup
+
 instance ToHeaders CreateDBClusterParameterGroup
          where
         toHeaders = const mempty

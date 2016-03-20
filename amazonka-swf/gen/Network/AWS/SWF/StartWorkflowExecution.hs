@@ -283,6 +283,8 @@ instance AWSRequest StartWorkflowExecution where
                  StartWorkflowExecutionResponse' <$>
                    (x .?> "runId") <*> (pure (fromEnum s)))
 
+instance Hashable StartWorkflowExecution
+
 instance ToHeaders StartWorkflowExecution where
         toHeaders
           = const

@@ -113,6 +113,8 @@ instance AWSRequest BundleInstance where
                  BundleInstanceResponse' <$>
                    (x .@? "bundleInstanceTask") <*> (pure (fromEnum s)))
 
+instance Hashable BundleInstance
+
 instance ToHeaders BundleInstance where
         toHeaders = const mempty
 

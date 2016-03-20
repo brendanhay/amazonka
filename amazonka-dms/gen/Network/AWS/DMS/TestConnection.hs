@@ -85,6 +85,8 @@ instance AWSRequest TestConnection where
                  TestConnectionResponse' <$>
                    (x .?> "Connection") <*> (pure (fromEnum s)))
 
+instance Hashable TestConnection
+
 instance ToHeaders TestConnection where
         toHeaders
           = const

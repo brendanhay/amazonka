@@ -74,6 +74,8 @@ instance AWSRequest VerifyEmailAddress where
         request = postQuery sES
         response = receiveNull VerifyEmailAddressResponse'
 
+instance Hashable VerifyEmailAddress
+
 instance ToHeaders VerifyEmailAddress where
         toHeaders = const mempty
 

@@ -85,6 +85,8 @@ instance AWSRequest GetDataRetrievalPolicy where
                  GetDataRetrievalPolicyResponse' <$>
                    (x .?> "Policy") <*> (pure (fromEnum s)))
 
+instance Hashable GetDataRetrievalPolicy
+
 instance ToHeaders GetDataRetrievalPolicy where
         toHeaders = const mempty
 

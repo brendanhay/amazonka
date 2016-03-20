@@ -81,6 +81,8 @@ instance AWSRequest PutJobFailureResult where
         request = postJSON codePipeline
         response = receiveNull PutJobFailureResultResponse'
 
+instance Hashable PutJobFailureResult
+
 instance ToHeaders PutJobFailureResult where
         toHeaders
           = const

@@ -75,6 +75,8 @@ instance AWSRequest DeleteRun where
               (\ s h x ->
                  DeleteRunResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteRun
+
 instance ToHeaders DeleteRun where
         toHeaders
           = const

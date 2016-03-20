@@ -86,6 +86,8 @@ instance AWSRequest CancelBundleTask where
                  CancelBundleTaskResponse' <$>
                    (x .@? "bundleInstanceTask") <*> (pure (fromEnum s)))
 
+instance Hashable CancelBundleTask
+
 instance ToHeaders CancelBundleTask where
         toHeaders = const mempty
 

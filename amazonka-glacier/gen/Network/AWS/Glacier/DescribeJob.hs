@@ -132,6 +132,8 @@ instance AWSRequest DescribeJob where
         request = get glacier
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable DescribeJob
+
 instance ToHeaders DescribeJob where
         toHeaders = const mempty
 

@@ -87,6 +87,8 @@ instance AWSRequest RemoveAttributesFromFindings
                  RemoveAttributesFromFindingsResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
 
+instance Hashable RemoveAttributesFromFindings
+
 instance ToHeaders RemoveAttributesFromFindings where
         toHeaders
           = const

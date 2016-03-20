@@ -90,6 +90,8 @@ instance AWSRequest UnmonitorInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable UnmonitorInstances
+
 instance ToHeaders UnmonitorInstances where
         toHeaders = const mempty
 

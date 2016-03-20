@@ -93,6 +93,8 @@ instance AWSRequest DiscoverPollEndpoint where
                    (x .?> "telemetryEndpoint") <*> (x .?> "endpoint")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DiscoverPollEndpoint
+
 instance ToHeaders DiscoverPollEndpoint where
         toHeaders
           = const

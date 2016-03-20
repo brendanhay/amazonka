@@ -134,6 +134,8 @@ instance AWSRequest DescribeVPNGateways where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVPNGateways
+
 instance ToHeaders DescribeVPNGateways where
         toHeaders = const mempty
 

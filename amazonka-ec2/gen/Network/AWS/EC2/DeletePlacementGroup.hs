@@ -83,6 +83,8 @@ instance AWSRequest DeletePlacementGroup where
         request = postQuery eC2
         response = receiveNull DeletePlacementGroupResponse'
 
+instance Hashable DeletePlacementGroup
+
 instance ToHeaders DeletePlacementGroup where
         toHeaders = const mempty
 

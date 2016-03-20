@@ -123,6 +123,8 @@ instance AWSRequest DescribeSubscriptionFilters where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeSubscriptionFilters
+
 instance ToHeaders DescribeSubscriptionFilters where
         toHeaders
           = const

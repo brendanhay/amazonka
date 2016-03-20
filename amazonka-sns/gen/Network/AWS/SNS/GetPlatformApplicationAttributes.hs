@@ -83,6 +83,8 @@ instance AWSRequest GetPlatformApplicationAttributes
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetPlatformApplicationAttributes
+
 instance ToHeaders GetPlatformApplicationAttributes
          where
         toHeaders = const mempty

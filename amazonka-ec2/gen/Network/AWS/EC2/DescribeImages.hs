@@ -206,6 +206,8 @@ instance AWSRequest DescribeImages where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeImages
+
 instance ToHeaders DescribeImages where
         toHeaders = const mempty
 

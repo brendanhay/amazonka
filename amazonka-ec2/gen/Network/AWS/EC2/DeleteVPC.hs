@@ -83,6 +83,8 @@ instance AWSRequest DeleteVPC where
         request = postQuery eC2
         response = receiveNull DeleteVPCResponse'
 
+instance Hashable DeleteVPC
+
 instance ToHeaders DeleteVPC where
         toHeaders = const mempty
 

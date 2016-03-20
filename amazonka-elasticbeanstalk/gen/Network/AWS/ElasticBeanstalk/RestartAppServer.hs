@@ -85,6 +85,8 @@ instance AWSRequest RestartAppServer where
         request = postQuery elasticBeanstalk
         response = receiveNull RestartAppServerResponse'
 
+instance Hashable RestartAppServer
+
 instance ToHeaders RestartAppServer where
         toHeaders = const mempty
 

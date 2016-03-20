@@ -95,6 +95,8 @@ instance AWSRequest AllocateAddress where
                      (x .@? "publicIp")
                      <*> (pure (fromEnum s)))
 
+instance Hashable AllocateAddress
+
 instance ToHeaders AllocateAddress where
         toHeaders = const mempty
 

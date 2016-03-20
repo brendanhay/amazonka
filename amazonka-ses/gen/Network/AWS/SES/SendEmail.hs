@@ -203,6 +203,8 @@ instance AWSRequest SendEmail where
                  SendEmailResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "MessageId"))
 
+instance Hashable SendEmail
+
 instance ToHeaders SendEmail where
         toHeaders = const mempty
 

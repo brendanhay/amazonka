@@ -105,6 +105,8 @@ instance AWSRequest ListClusters where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListClusters
+
 instance ToHeaders ListClusters where
         toHeaders
           = const

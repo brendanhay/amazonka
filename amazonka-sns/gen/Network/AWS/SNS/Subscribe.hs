@@ -120,6 +120,8 @@ instance AWSRequest Subscribe where
                  SubscribeResponse' <$>
                    (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
 
+instance Hashable Subscribe
+
 instance ToHeaders Subscribe where
         toHeaders = const mempty
 

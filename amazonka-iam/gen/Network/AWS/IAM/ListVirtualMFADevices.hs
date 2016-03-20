@@ -126,6 +126,8 @@ instance AWSRequest ListVirtualMFADevices where
                      (x .@? "VirtualMFADevices" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListVirtualMFADevices
+
 instance ToHeaders ListVirtualMFADevices where
         toHeaders = const mempty
 

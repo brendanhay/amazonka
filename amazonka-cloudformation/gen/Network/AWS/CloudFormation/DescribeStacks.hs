@@ -106,6 +106,8 @@ instance AWSRequest DescribeStacks where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeStacks
+
 instance ToHeaders DescribeStacks where
         toHeaders = const mempty
 

@@ -164,6 +164,8 @@ instance AWSRequest CreateRoute where
                  CreateRouteResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
+instance Hashable CreateRoute
+
 instance ToHeaders CreateRoute where
         toHeaders = const mempty
 

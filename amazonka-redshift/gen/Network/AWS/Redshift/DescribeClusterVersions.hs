@@ -143,6 +143,8 @@ instance AWSRequest DescribeClusterVersions where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeClusterVersions
+
 instance ToHeaders DescribeClusterVersions where
         toHeaders = const mempty
 

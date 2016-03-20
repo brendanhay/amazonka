@@ -70,6 +70,8 @@ instance AWSRequest DeleteOptionGroup where
         request = postQuery rDS
         response = receiveNull DeleteOptionGroupResponse'
 
+instance Hashable DeleteOptionGroup
+
 instance ToHeaders DeleteOptionGroup where
         toHeaders = const mempty
 

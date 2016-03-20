@@ -102,6 +102,8 @@ instance AWSRequest ListStreams where
                      (x .?> "Streams" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListStreams
+
 instance ToHeaders ListStreams where
         toHeaders
           = const

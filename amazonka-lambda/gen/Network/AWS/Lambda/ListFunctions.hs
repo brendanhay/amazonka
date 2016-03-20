@@ -107,6 +107,8 @@ instance AWSRequest ListFunctions where
                      (x .?> "Functions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListFunctions
+
 instance ToHeaders ListFunctions where
         toHeaders = const mempty
 

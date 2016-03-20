@@ -126,6 +126,8 @@ instance AWSRequest ImportSnapshot where
                      <*> (x .@? "description")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ImportSnapshot
+
 instance ToHeaders ImportSnapshot where
         toHeaders = const mempty
 

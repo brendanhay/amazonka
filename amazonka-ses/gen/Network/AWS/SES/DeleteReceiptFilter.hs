@@ -77,6 +77,8 @@ instance AWSRequest DeleteReceiptFilter where
               (\ s h x ->
                  DeleteReceiptFilterResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteReceiptFilter
+
 instance ToHeaders DeleteReceiptFilter where
         toHeaders = const mempty
 

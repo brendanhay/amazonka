@@ -421,6 +421,8 @@ instance AWSRequest CloneStack where
                  CloneStackResponse' <$>
                    (x .?> "StackId") <*> (pure (fromEnum s)))
 
+instance Hashable CloneStack
+
 instance ToHeaders CloneStack where
         toHeaders
           = const

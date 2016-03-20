@@ -90,6 +90,8 @@ instance AWSRequest DescribeApplicationVersions where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeApplicationVersions
+
 instance ToHeaders DescribeApplicationVersions where
         toHeaders = const mempty
 

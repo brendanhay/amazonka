@@ -102,6 +102,8 @@ instance AWSRequest SuspendProcesses where
         request = postQuery autoScaling
         response = receiveNull SuspendProcessesResponse'
 
+instance Hashable SuspendProcesses
+
 instance ToHeaders SuspendProcesses where
         toHeaders = const mempty
 

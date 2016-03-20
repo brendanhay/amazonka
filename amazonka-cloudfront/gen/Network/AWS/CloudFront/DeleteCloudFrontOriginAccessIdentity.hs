@@ -82,6 +82,9 @@ instance AWSRequest
           = receiveNull
               DeleteCloudFrontOriginAccessIdentityResponse'
 
+instance Hashable
+         DeleteCloudFrontOriginAccessIdentity
+
 instance ToHeaders
          DeleteCloudFrontOriginAccessIdentity where
         toHeaders DeleteCloudFrontOriginAccessIdentity'{..}

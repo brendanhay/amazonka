@@ -165,6 +165,8 @@ instance FromJSON BatchPrediction where
                      <*> (x .:? "Message")
                      <*> (x .:? "OutputUri"))
 
+instance Hashable BatchPrediction
+
 -- | Represents the output of the < GetDataSource> operation.
 --
 -- The content consists of the detailed metadata and data file information
@@ -341,6 +343,8 @@ instance FromJSON DataSource where
                      <*> (x .:? "DataRearrangement")
                      <*> (x .:? "RoleARN"))
 
+instance Hashable DataSource
+
 -- | Represents the output of < GetEvaluation> operation.
 --
 -- The content consists of the detailed metadata and data file information
@@ -492,6 +496,8 @@ instance FromJSON Evaluation where
                      <*> (x .:? "EvaluationId")
                      <*> (x .:? "Message")
                      <*> (x .:? "EvaluationDataSourceId"))
+
+instance Hashable Evaluation
 
 -- | Represents the output of a < GetMLModel> operation.
 --
@@ -723,6 +729,8 @@ instance FromJSON MLModel where
                      <*> (x .:? "Message")
                      <*> (x .:? "MLModelType"))
 
+instance Hashable MLModel
+
 -- | Measurements of how well the 'MLModel' performed on known observations.
 -- One of the following metrics is returned, based on the type of the
 -- 'MLModel':
@@ -768,6 +776,8 @@ instance FromJSON PerformanceMetrics where
               (\ x ->
                  PerformanceMetrics' <$>
                    (x .:? "Properties" .!= mempty))
+
+instance Hashable PerformanceMetrics
 
 -- | The output from a 'Predict' operation:
 --
@@ -837,6 +847,8 @@ instance FromJSON Prediction where
                    (x .:? "predictedValue") <*> (x .:? "predictedLabel")
                      <*> (x .:? "predictedScores" .!= mempty)
                      <*> (x .:? "details" .!= mempty))
+
+instance Hashable Prediction
 
 -- | The data specification of an Amazon Relational Database Service (Amazon
 -- RDS) 'DataSource'.
@@ -1002,6 +1014,8 @@ rdsdsSubnetId = lens _rdsdsSubnetId (\ s a -> s{_rdsdsSubnetId = a});
 rdsdsSecurityGroupIds :: Lens' RDSDataSpec [Text]
 rdsdsSecurityGroupIds = lens _rdsdsSecurityGroupIds (\ s a -> s{_rdsdsSecurityGroupIds = a}) . _Coerce;
 
+instance Hashable RDSDataSpec
+
 instance ToJSON RDSDataSpec where
         toJSON RDSDataSpec'{..}
           = object
@@ -1062,6 +1076,8 @@ instance FromJSON RDSDatabase where
                    (x .: "InstanceIdentifier") <*>
                      (x .: "DatabaseName"))
 
+instance Hashable RDSDatabase
+
 instance ToJSON RDSDatabase where
         toJSON RDSDatabase'{..}
           = object
@@ -1102,6 +1118,8 @@ rdsdcUsername = lens _rdsdcUsername (\ s a -> s{_rdsdcUsername = a});
 -- | Undocumented member.
 rdsdcPassword :: Lens' RDSDatabaseCredentials Text
 rdsdcPassword = lens _rdsdcPassword (\ s a -> s{_rdsdcPassword = a});
+
+instance Hashable RDSDatabaseCredentials
 
 instance ToJSON RDSDatabaseCredentials where
         toJSON RDSDatabaseCredentials'{..}
@@ -1195,6 +1213,8 @@ instance FromJSON RDSMetadata where
                      <*> (x .:? "ResourceRole")
                      <*> (x .:? "ServiceRole"))
 
+instance Hashable RDSMetadata
+
 -- | Describes the real-time endpoint information for an 'MLModel'.
 --
 -- /See:/ 'realtimeEndpointInfo' smart constructor.
@@ -1263,6 +1283,8 @@ instance FromJSON RealtimeEndpointInfo where
                    (x .:? "CreatedAt") <*> (x .:? "EndpointUrl") <*>
                      (x .:? "EndpointStatus")
                      <*> (x .:? "PeakRequestsPerSecond"))
+
+instance Hashable RealtimeEndpointInfo
 
 -- | Describes the data specification of an Amazon Redshift 'DataSource'.
 --
@@ -1375,6 +1397,8 @@ rDatabaseCredentials = lens _rDatabaseCredentials (\ s a -> s{_rDatabaseCredenti
 rS3StagingLocation :: Lens' RedshiftDataSpec Text
 rS3StagingLocation = lens _rS3StagingLocation (\ s a -> s{_rS3StagingLocation = a});
 
+instance Hashable RedshiftDataSpec
+
 instance ToJSON RedshiftDataSpec where
         toJSON RedshiftDataSpec'{..}
           = object
@@ -1430,6 +1454,8 @@ instance FromJSON RedshiftDatabase where
                  RedshiftDatabase' <$>
                    (x .: "DatabaseName") <*> (x .: "ClusterIdentifier"))
 
+instance Hashable RedshiftDatabase
+
 instance ToJSON RedshiftDatabase where
         toJSON RedshiftDatabase'{..}
           = object
@@ -1470,6 +1496,8 @@ rdcUsername = lens _rdcUsername (\ s a -> s{_rdcUsername = a});
 -- | Undocumented member.
 rdcPassword :: Lens' RedshiftDatabaseCredentials Text
 rdcPassword = lens _rdcPassword (\ s a -> s{_rdcPassword = a});
+
+instance Hashable RedshiftDatabaseCredentials
 
 instance ToJSON RedshiftDatabaseCredentials where
         toJSON RedshiftDatabaseCredentials'{..}
@@ -1526,6 +1554,8 @@ instance FromJSON RedshiftMetadata where
                    (x .:? "SelectSqlQuery") <*>
                      (x .:? "RedshiftDatabase")
                      <*> (x .:? "DatabaseUserName"))
+
+instance Hashable RedshiftMetadata
 
 -- | Describes the data specification of a 'DataSource'.
 --
@@ -1606,6 +1636,8 @@ sdsDataRearrangement = lens _sdsDataRearrangement (\ s a -> s{_sdsDataRearrangem
 -- directory or bucket containing data files.
 sdsDataLocationS3 :: Lens' S3DataSpec Text
 sdsDataLocationS3 = lens _sdsDataLocationS3 (\ s a -> s{_sdsDataLocationS3 = a});
+
+instance Hashable S3DataSpec
 
 instance ToJSON S3DataSpec where
         toJSON S3DataSpec'{..}

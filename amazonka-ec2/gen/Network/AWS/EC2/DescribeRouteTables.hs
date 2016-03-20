@@ -168,6 +168,8 @@ instance AWSRequest DescribeRouteTables where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeRouteTables
+
 instance ToHeaders DescribeRouteTables where
         toHeaders = const mempty
 

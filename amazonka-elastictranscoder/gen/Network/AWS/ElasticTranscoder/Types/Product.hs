@@ -154,6 +154,8 @@ instance FromJSON Artwork where
                      <*> (x .:? "Encryption")
                      <*> (x .:? "MaxWidth"))
 
+instance Hashable Artwork
+
 instance ToJSON Artwork where
         toJSON Artwork'{..}
           = object
@@ -261,6 +263,8 @@ instance FromJSON AudioCodecOptions where
                    (x .:? "Signed") <*> (x .:? "BitDepth") <*>
                      (x .:? "Profile")
                      <*> (x .:? "BitOrder"))
+
+instance Hashable AudioCodecOptions
 
 instance ToJSON AudioCodecOptions where
         toJSON AudioCodecOptions'{..}
@@ -470,6 +474,8 @@ instance FromJSON AudioParameters where
                      <*> (x .:? "BitRate")
                      <*> (x .:? "CodecOptions"))
 
+instance Hashable AudioParameters
+
 instance ToJSON AudioParameters where
         toJSON AudioParameters'{..}
           = object
@@ -572,6 +578,8 @@ instance FromJSON CaptionFormat where
                    (x .:? "Pattern") <*> (x .:? "Format") <*>
                      (x .:? "Encryption"))
 
+instance Hashable CaptionFormat
+
 instance ToJSON CaptionFormat where
         toJSON CaptionFormat'{..}
           = object
@@ -662,6 +670,8 @@ instance FromJSON CaptionSource where
                      <*> (x .:? "Language")
                      <*> (x .:? "Label"))
 
+instance Hashable CaptionSource
+
 instance ToJSON CaptionSource where
         toJSON CaptionSource'{..}
           = object
@@ -741,6 +751,8 @@ instance FromJSON Captions where
                      (x .:? "CaptionSources" .!= mempty)
                      <*> (x .:? "CaptionFormats" .!= mempty))
 
+instance Hashable Captions
+
 instance ToJSON Captions where
         toJSON Captions'{..}
           = object
@@ -777,6 +789,8 @@ instance FromJSON Clip where
         parseJSON
           = withObject "Clip"
               (\ x -> Clip' <$> (x .:? "TimeSpan"))
+
+instance Hashable Clip
 
 instance ToJSON Clip where
         toJSON Clip'{..}
@@ -1009,6 +1023,8 @@ cjoThumbnailEncryption = lens _cjoThumbnailEncryption (\ s a -> s{_cjoThumbnailE
 cjoRotate :: Lens' CreateJobOutput (Maybe Text)
 cjoRotate = lens _cjoRotate (\ s a -> s{_cjoRotate = a});
 
+instance Hashable CreateJobOutput
+
 instance ToJSON CreateJobOutput where
         toJSON CreateJobOutput'{..}
           = object
@@ -1132,6 +1148,8 @@ cjpName = lens _cjpName (\ s a -> s{_cjpName = a});
 cjpHlsContentProtection :: Lens' CreateJobPlaylist (Maybe HlsContentProtection)
 cjpHlsContentProtection = lens _cjpHlsContentProtection (\ s a -> s{_cjpHlsContentProtection = a});
 
+instance Hashable CreateJobPlaylist
+
 instance ToJSON CreateJobPlaylist where
         toJSON CreateJobPlaylist'{..}
           = object
@@ -1208,6 +1226,8 @@ instance FromJSON DetectedProperties where
                      (x .:? "FileSize")
                      <*> (x .:? "Width")
                      <*> (x .:? "DurationMillis"))
+
+instance Hashable DetectedProperties
 
 instance ToJSON DetectedProperties where
         toJSON DetectedProperties'{..}
@@ -1329,6 +1349,8 @@ instance FromJSON Encryption where
                    (x .:? "Mode") <*> (x .:? "KeyMd5") <*> (x .:? "Key")
                      <*> (x .:? "InitializationVector"))
 
+instance Hashable Encryption
+
 instance ToJSON Encryption where
         toJSON Encryption'{..}
           = object
@@ -1442,6 +1464,8 @@ instance FromJSON HlsContentProtection where
                      <*> (x .:? "Method")
                      <*> (x .:? "InitializationVector")
                      <*> (x .:? "LicenseAcquisitionUrl"))
+
+instance Hashable HlsContentProtection
 
 instance ToJSON HlsContentProtection where
         toJSON HlsContentProtection'{..}
@@ -1624,6 +1648,8 @@ instance FromJSON Job' where
                      <*> (x .:? "OutputKeyPrefix")
                      <*> (x .:? "Timing"))
 
+instance Hashable Job'
+
 -- | The .jpg or .png file associated with an audio file.
 --
 -- /See:/ 'jobAlbumArt' smart constructor.
@@ -1676,6 +1702,8 @@ instance FromJSON JobAlbumArt where
                  JobAlbumArt' <$>
                    (x .:? "MergePolicy") <*>
                      (x .:? "Artwork" .!= mempty))
+
+instance Hashable JobAlbumArt
 
 instance ToJSON JobAlbumArt where
         toJSON JobAlbumArt'{..}
@@ -1815,6 +1843,8 @@ instance FromJSON JobInput where
                      <*> (x .:? "DetectedProperties")
                      <*> (x .:? "Container")
                      <*> (x .:? "Interlaced"))
+
+instance Hashable JobInput
 
 instance ToJSON JobInput where
         toJSON JobInput'{..}
@@ -2201,6 +2231,8 @@ instance FromJSON JobOutput where
                      <*> (x .:? "Duration")
                      <*> (x .:? "Rotate"))
 
+instance Hashable JobOutput
+
 -- | Watermarks can be in .png or .jpg format. If you want to display a
 -- watermark that is not rectangular, use the .png format, which supports
 -- transparency.
@@ -2260,6 +2292,8 @@ instance FromJSON JobWatermark where
                  JobWatermark' <$>
                    (x .:? "PresetWatermarkId") <*> (x .:? "InputKey")
                      <*> (x .:? "Encryption"))
+
+instance Hashable JobWatermark
 
 instance ToJSON JobWatermark where
         toJSON JobWatermark'{..}
@@ -2332,6 +2366,8 @@ instance FromJSON Notifications where
                    (x .:? "Error") <*> (x .:? "Warning") <*>
                      (x .:? "Progressing")
                      <*> (x .:? "Completed"))
+
+instance Hashable Notifications
 
 instance ToJSON Notifications where
         toJSON Notifications'{..}
@@ -2410,6 +2446,8 @@ instance FromJSON Permission where
                  Permission' <$>
                    (x .:? "Access" .!= mempty) <*> (x .:? "GranteeType")
                      <*> (x .:? "Grantee"))
+
+instance Hashable Permission
 
 instance ToJSON Permission where
         toJSON Permission'{..}
@@ -2644,6 +2682,8 @@ instance FromJSON Pipeline where
                      <*> (x .:? "Notifications")
                      <*> (x .:? "ThumbnailConfig"))
 
+instance Hashable Pipeline
+
 -- | The 'PipelineOutputConfig' structure.
 --
 -- /See:/ 'pipelineOutputConfig' smart constructor.
@@ -2721,6 +2761,8 @@ instance FromJSON PipelineOutputConfig where
                  PipelineOutputConfig' <$>
                    (x .:? "Bucket") <*> (x .:? "StorageClass") <*>
                      (x .:? "Permissions" .!= mempty))
+
+instance Hashable PipelineOutputConfig
 
 instance ToJSON PipelineOutputConfig where
         toJSON PipelineOutputConfig'{..}
@@ -2836,6 +2878,8 @@ instance FromJSON PlayReadyDrm where
                      <*> (x .:? "Key")
                      <*> (x .:? "InitializationVector")
                      <*> (x .:? "LicenseAcquisitionUrl"))
+
+instance Hashable PlayReadyDrm
 
 instance ToJSON PlayReadyDrm where
         toJSON PlayReadyDrm'{..}
@@ -2988,6 +3032,8 @@ instance FromJSON Playlist where
                      <*> (x .:? "StatusDetail")
                      <*> (x .:? "HlsContentProtection"))
 
+instance Hashable Playlist
+
 -- | Presets are templates that contain most of the settings for transcoding
 -- media files from one format to another. Elastic Transcoder includes some
 -- default presets for common formats, for example, several iPod and iPhone
@@ -3100,6 +3146,8 @@ instance FromJSON Preset where
                      <*> (x .:? "Type")
                      <*> (x .:? "Description")
                      <*> (x .:? "Audio"))
+
+instance Hashable Preset
 
 -- | Settings for the size, location, and opacity of graphics that you want
 -- Elastic Transcoder to overlay over videos that are transcoded using this
@@ -3336,6 +3384,8 @@ instance FromJSON PresetWatermark where
                      <*> (x .:? "HorizontalAlign")
                      <*> (x .:? "Target"))
 
+instance Hashable PresetWatermark
+
 instance ToJSON PresetWatermark where
         toJSON PresetWatermark'{..}
           = object
@@ -3500,6 +3550,8 @@ instance FromJSON Thumbnails where
                      <*> (x .:? "Interval")
                      <*> (x .:? "MaxWidth"))
 
+instance Hashable Thumbnails
+
 instance ToJSON Thumbnails where
         toJSON Thumbnails'{..}
           = object
@@ -3561,6 +3613,8 @@ instance FromJSON TimeSpan where
                  TimeSpan' <$>
                    (x .:? "StartTime") <*> (x .:? "Duration"))
 
+instance Hashable TimeSpan
+
 instance ToJSON TimeSpan where
         toJSON TimeSpan'{..}
           = object
@@ -3616,6 +3670,8 @@ instance FromJSON Timing where
                    (x .:? "SubmitTimeMillis") <*>
                      (x .:? "FinishTimeMillis")
                      <*> (x .:? "StartTimeMillis"))
+
+instance Hashable Timing
 
 -- | The 'VideoParameters' structure.
 --
@@ -4107,6 +4163,8 @@ instance FromJSON VideoParameters where
                      <*> (x .:? "FixedGOP")
                      <*> (x .:? "CodecOptions" .!= mempty))
 
+instance Hashable VideoParameters
+
 instance ToJSON VideoParameters where
         toJSON VideoParameters'{..}
           = object
@@ -4171,3 +4229,5 @@ instance FromJSON Warning where
           = withObject "Warning"
               (\ x ->
                  Warning' <$> (x .:? "Code") <*> (x .:? "Message"))
+
+instance Hashable Warning

@@ -140,6 +140,8 @@ instance AWSRequest CreateStage where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateStage
+
 instance ToHeaders CreateStage where
         toHeaders
           = const

@@ -141,6 +141,8 @@ instance AWSRequest DescribeScheduledInstances where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeScheduledInstances
+
 instance ToHeaders DescribeScheduledInstances where
         toHeaders = const mempty
 

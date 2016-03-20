@@ -105,6 +105,8 @@ instance AWSRequest ListThings where
                    (x .?> "nextToken") <*> (x .?> "things" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListThings
+
 instance ToHeaders ListThings where
         toHeaders = const mempty
 

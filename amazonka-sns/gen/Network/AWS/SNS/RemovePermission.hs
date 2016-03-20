@@ -78,6 +78,8 @@ instance AWSRequest RemovePermission where
         request = postQuery sNS
         response = receiveNull RemovePermissionResponse'
 
+instance Hashable RemovePermission
+
 instance ToHeaders RemovePermission where
         toHeaders = const mempty
 

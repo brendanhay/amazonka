@@ -138,6 +138,8 @@ instance AWSRequest DescribeOptionGroupOptions where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeOptionGroupOptions
+
 instance ToHeaders DescribeOptionGroupOptions where
         toHeaders = const mempty
 

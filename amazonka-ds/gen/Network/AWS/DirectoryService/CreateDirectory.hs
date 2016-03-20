@@ -125,6 +125,8 @@ instance AWSRequest CreateDirectory where
                  CreateDirectoryResponse' <$>
                    (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDirectory
+
 instance ToHeaders CreateDirectory where
         toHeaders
           = const

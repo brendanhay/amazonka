@@ -89,6 +89,8 @@ instance AWSRequest DeleteSuggester where
                  DeleteSuggesterResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Suggester"))
 
+instance Hashable DeleteSuggester
+
 instance ToHeaders DeleteSuggester where
         toHeaders = const mempty
 

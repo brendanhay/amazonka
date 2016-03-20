@@ -91,6 +91,8 @@ instance AWSRequest RegisterApplicationRevision where
         response
           = receiveNull RegisterApplicationRevisionResponse'
 
+instance Hashable RegisterApplicationRevision
+
 instance ToHeaders RegisterApplicationRevision where
         toHeaders
           = const

@@ -94,7 +94,7 @@ library
         , text                 >= 1.1
         , transformers         >= 0.2
         , transformers-compat  >= 0.3
-        , unordered-containers >= 0.2.5
+        , unordered-containers >= 0.2.7
         , xml-conduit          >= 1.2
         , xml-types            >= 0.3.4
 

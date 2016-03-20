@@ -117,6 +117,8 @@ instance AWSRequest CreateLBCookieStickinessPolicy
                  CreateLBCookieStickinessPolicyResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable CreateLBCookieStickinessPolicy
+
 instance ToHeaders CreateLBCookieStickinessPolicy
          where
         toHeaders = const mempty

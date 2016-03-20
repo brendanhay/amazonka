@@ -96,6 +96,8 @@ instance AWSRequest GetAPIKeys where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetAPIKeys
+
 instance ToHeaders GetAPIKeys where
         toHeaders
           = const

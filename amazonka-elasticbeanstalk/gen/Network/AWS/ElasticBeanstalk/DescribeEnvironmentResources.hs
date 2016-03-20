@@ -95,6 +95,8 @@ instance AWSRequest DescribeEnvironmentResources
                    (x .@? "EnvironmentResources") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeEnvironmentResources
+
 instance ToHeaders DescribeEnvironmentResources where
         toHeaders = const mempty
 

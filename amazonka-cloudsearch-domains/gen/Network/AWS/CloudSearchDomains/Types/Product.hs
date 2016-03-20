@@ -59,6 +59,8 @@ instance FromJSON Bucket where
               (\ x ->
                  Bucket' <$> (x .:? "value") <*> (x .:? "count"))
 
+instance Hashable Bucket
+
 -- | A container for the calculated facet values and counts.
 --
 -- /See:/ 'bucketInfo' smart constructor.
@@ -86,6 +88,8 @@ instance FromJSON BucketInfo where
         parseJSON
           = withObject "BucketInfo"
               (\ x -> BucketInfo' <$> (x .:? "buckets" .!= mempty))
+
+instance Hashable BucketInfo
 
 -- | A warning returned by the document service when an issue is discovered
 -- while processing an upload request.
@@ -116,6 +120,8 @@ instance FromJSON DocumentServiceWarning where
           = withObject "DocumentServiceWarning"
               (\ x ->
                  DocumentServiceWarning' <$> (x .:? "message"))
+
+instance Hashable DocumentServiceWarning
 
 -- | The statistics for a field calculated in the request.
 --
@@ -234,6 +240,8 @@ instance FromJSON FieldStats where
                      <*> (x .:? "sumOfSquares")
                      <*> (x .:? "sum"))
 
+instance Hashable FieldStats
+
 -- | Information about a document that matches the search request.
 --
 -- /See:/ 'hit' smart constructor.
@@ -290,6 +298,8 @@ instance FromJSON Hit where
                    (x .:? "exprs" .!= mempty) <*> (x .:? "id") <*>
                      (x .:? "highlights" .!= mempty)
                      <*> (x .:? "fields" .!= mempty))
+
+instance Hashable Hit
 
 -- | The collection of documents that match the search request.
 --
@@ -348,6 +358,8 @@ instance FromJSON Hits where
                      (x .:? "start")
                      <*> (x .:? "found"))
 
+instance Hashable Hits
+
 -- | Contains the resource id ('rid') and the time it took to process the
 -- request ('timems').
 --
@@ -385,6 +397,8 @@ instance FromJSON SearchStatus where
           = withObject "SearchStatus"
               (\ x ->
                  SearchStatus' <$> (x .:? "rid") <*> (x .:? "timems"))
+
+instance Hashable SearchStatus
 
 -- | Container for the suggestion information returned in a
 -- 'SuggestResponse'.
@@ -434,6 +448,8 @@ instance FromJSON SuggestModel where
                    (x .:? "found") <*> (x .:? "suggestions" .!= mempty)
                      <*> (x .:? "query"))
 
+instance Hashable SuggestModel
+
 -- | Contains the resource id ('rid') and the time it took to process the
 -- request ('timems').
 --
@@ -472,6 +488,8 @@ instance FromJSON SuggestStatus where
               (\ x ->
                  SuggestStatus' <$>
                    (x .:? "rid") <*> (x .:? "timems"))
+
+instance Hashable SuggestStatus
 
 -- | An autocomplete suggestion that matches the query string specified in a
 -- 'SuggestRequest'.
@@ -521,3 +539,5 @@ instance FromJSON SuggestionMatch where
                  SuggestionMatch' <$>
                    (x .:? "suggestion") <*> (x .:? "score") <*>
                      (x .:? "id"))
+
+instance Hashable SuggestionMatch

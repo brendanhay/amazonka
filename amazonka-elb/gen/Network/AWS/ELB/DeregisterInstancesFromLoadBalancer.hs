@@ -96,6 +96,8 @@ instance AWSRequest
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DeregisterInstancesFromLoadBalancer
+
 instance ToHeaders
          DeregisterInstancesFromLoadBalancer where
         toHeaders = const mempty

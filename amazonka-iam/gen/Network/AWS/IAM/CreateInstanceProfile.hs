@@ -95,6 +95,8 @@ instance AWSRequest CreateInstanceProfile where
                  CreateInstanceProfileResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "InstanceProfile"))
 
+instance Hashable CreateInstanceProfile
+
 instance ToHeaders CreateInstanceProfile where
         toHeaders = const mempty
 

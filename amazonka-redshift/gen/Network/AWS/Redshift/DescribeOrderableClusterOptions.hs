@@ -150,6 +150,8 @@ instance AWSRequest DescribeOrderableClusterOptions
                         may (parseXMLList "OrderableClusterOption"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeOrderableClusterOptions
+
 instance ToHeaders DescribeOrderableClusterOptions
          where
         toHeaders = const mempty

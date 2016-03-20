@@ -125,6 +125,8 @@ instance AWSRequest DescribeVPCs where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVPCs
+
 instance ToHeaders DescribeVPCs where
         toHeaders = const mempty
 

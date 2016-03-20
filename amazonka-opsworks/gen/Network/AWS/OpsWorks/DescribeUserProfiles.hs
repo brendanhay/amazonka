@@ -79,6 +79,8 @@ instance AWSRequest DescribeUserProfiles where
                    (x .?> "UserProfiles" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeUserProfiles
+
 instance ToHeaders DescribeUserProfiles where
         toHeaders
           = const

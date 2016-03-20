@@ -123,6 +123,8 @@ instance AWSRequest UpdateJob where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable UpdateJob
+
 instance ToHeaders UpdateJob where
         toHeaders = const mempty
 

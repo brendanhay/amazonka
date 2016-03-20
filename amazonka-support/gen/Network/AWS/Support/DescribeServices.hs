@@ -98,6 +98,8 @@ instance AWSRequest DescribeServices where
                    (x .?> "services" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeServices
+
 instance ToHeaders DescribeServices where
         toHeaders
           = const

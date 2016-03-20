@@ -82,6 +82,8 @@ instance AWSRequest DetachRolePolicy where
         request = postQuery iAM
         response = receiveNull DetachRolePolicyResponse'
 
+instance Hashable DetachRolePolicy
+
 instance ToHeaders DetachRolePolicy where
         toHeaders = const mempty
 

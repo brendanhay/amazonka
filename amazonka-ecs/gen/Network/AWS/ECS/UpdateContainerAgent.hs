@@ -98,6 +98,8 @@ instance AWSRequest UpdateContainerAgent where
                  UpdateContainerAgentResponse' <$>
                    (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateContainerAgent
+
 instance ToHeaders UpdateContainerAgent where
         toHeaders
           = const

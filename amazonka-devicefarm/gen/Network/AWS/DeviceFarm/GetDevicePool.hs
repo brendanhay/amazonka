@@ -75,6 +75,8 @@ instance AWSRequest GetDevicePool where
                  GetDevicePoolResponse' <$>
                    (x .?> "devicePool") <*> (pure (fromEnum s)))
 
+instance Hashable GetDevicePool
+
 instance ToHeaders GetDevicePool where
         toHeaders
           = const

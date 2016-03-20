@@ -141,6 +141,8 @@ instance AWSRequest GetTemplateSummary where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetTemplateSummary
+
 instance ToHeaders GetTemplateSummary where
         toHeaders = const mempty
 

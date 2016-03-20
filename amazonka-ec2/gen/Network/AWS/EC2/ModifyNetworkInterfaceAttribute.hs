@@ -129,6 +129,8 @@ instance AWSRequest ModifyNetworkInterfaceAttribute
           = receiveNull
               ModifyNetworkInterfaceAttributeResponse'
 
+instance Hashable ModifyNetworkInterfaceAttribute
+
 instance ToHeaders ModifyNetworkInterfaceAttribute
          where
         toHeaders = const mempty

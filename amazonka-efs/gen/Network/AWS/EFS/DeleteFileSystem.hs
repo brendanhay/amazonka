@@ -82,6 +82,8 @@ instance AWSRequest DeleteFileSystem where
         request = delete eFS
         response = receiveNull DeleteFileSystemResponse'
 
+instance Hashable DeleteFileSystem
+
 instance ToHeaders DeleteFileSystem where
         toHeaders = const mempty
 

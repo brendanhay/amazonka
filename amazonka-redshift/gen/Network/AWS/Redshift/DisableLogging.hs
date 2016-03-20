@@ -80,6 +80,8 @@ instance AWSRequest DisableLogging where
           = receiveXMLWrapper "DisableLoggingResult"
               (\ s h x -> parseXML x)
 
+instance Hashable DisableLogging
+
 instance ToHeaders DisableLogging where
         toHeaders = const mempty
 

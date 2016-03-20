@@ -84,6 +84,8 @@ instance AWSRequest RestoreFromSnapshot where
               (\ s h x ->
                  RestoreFromSnapshotResponse' <$> (pure (fromEnum s)))
 
+instance Hashable RestoreFromSnapshot
+
 instance ToHeaders RestoreFromSnapshot where
         toHeaders
           = const

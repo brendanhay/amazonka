@@ -77,6 +77,8 @@ instance AWSRequest GetHealthCheck where
                  GetHealthCheckResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HealthCheck"))
 
+instance Hashable GetHealthCheck
+
 instance ToHeaders GetHealthCheck where
         toHeaders = const mempty
 

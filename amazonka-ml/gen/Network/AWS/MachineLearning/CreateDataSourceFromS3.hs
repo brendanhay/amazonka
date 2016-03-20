@@ -154,6 +154,8 @@ instance AWSRequest CreateDataSourceFromS3 where
                  CreateDataSourceFromS3Response' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDataSourceFromS3
+
 instance ToHeaders CreateDataSourceFromS3 where
         toHeaders
           = const

@@ -90,6 +90,8 @@ instance AWSRequest DescribeInstanceHealth where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeInstanceHealth
+
 instance ToHeaders DescribeInstanceHealth where
         toHeaders = const mempty
 

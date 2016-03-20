@@ -92,6 +92,8 @@ instance AWSRequest DisableDomainTransferLock where
                  DisableDomainTransferLockResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
+instance Hashable DisableDomainTransferLock
+
 instance ToHeaders DisableDomainTransferLock where
         toHeaders
           = const

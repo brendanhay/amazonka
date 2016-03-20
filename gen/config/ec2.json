@@ -4,6 +4,9 @@
         "ConsoleOutputAvailable",
         "KeyPairExists"
     ],
+    "typeModules": [
+        "Network.AWS.EC2.Internal"
+    ],
     "typeOverrides": {
         "Status": {
             "renamedTo": "AddressStatus"
@@ -218,6 +221,12 @@
         },
         "VolumeAttachmentState": {
             "enumPrefix": "V"
+        },
+        "DeleteTag": {
+            "replacedBy": {
+                "name": "DeleteTag",
+                "deriving": []
+            }
         }
     }
 }

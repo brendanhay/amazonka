@@ -17,6 +17,7 @@
 --
 module Network.AWS.EC2.Types.Product where
 
+import           Network.AWS.EC2.Internal
 import           Network.AWS.EC2.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude

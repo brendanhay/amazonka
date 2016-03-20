@@ -236,6 +236,8 @@ instance FromJSON CertificateDetail where
                      <*> (x .:? "Issuer")
                      <*> (x .:? "NotAfter"))
 
+instance Hashable CertificateDetail
+
 -- | This structure is returned in the response object of < ListCertificates>
 -- action.
 --
@@ -280,6 +282,8 @@ instance FromJSON CertificateSummary where
               (\ x ->
                  CertificateSummary' <$>
                    (x .:? "CertificateArn") <*> (x .:? "DomainName"))
+
+instance Hashable CertificateSummary
 
 -- | Structure that contains the domain name, the base validation domain to
 -- which validation email is sent, and the email addresses used to validate
@@ -334,6 +338,8 @@ instance FromJSON DomainValidation where
                      (x .:? "ValidationDomain")
                      <*> (x .: "DomainName"))
 
+instance Hashable DomainValidation
+
 -- | This structure is used in the request object of the
 -- < RequestCertificate> action.
 --
@@ -380,6 +386,8 @@ dvoDomainName = lens _dvoDomainName (\ s a -> s{_dvoDomainName = a});
 -- -   webmaster\'subdomain.example.com
 dvoValidationDomain :: Lens' DomainValidationOption Text
 dvoValidationDomain = lens _dvoValidationDomain (\ s a -> s{_dvoValidationDomain = a});
+
+instance Hashable DomainValidationOption
 
 instance ToJSON DomainValidationOption where
         toJSON DomainValidationOption'{..}

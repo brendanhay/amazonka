@@ -81,6 +81,8 @@ pereSource = lens _pereSource (\ s a -> s{_pereSource = a});
 pereDetail :: Lens' PutEventsRequestEntry (Maybe Text)
 pereDetail = lens _pereDetail (\ s a -> s{_pereDetail = a});
 
+instance Hashable PutEventsRequestEntry
+
 instance ToJSON PutEventsRequestEntry where
         toJSON PutEventsRequestEntry'{..}
           = object
@@ -140,6 +142,8 @@ instance FromJSON PutEventsResultEntry where
                    (x .:? "ErrorCode") <*> (x .:? "ErrorMessage") <*>
                      (x .:? "EventId"))
 
+instance Hashable PutEventsResultEntry
+
 -- | A PutTargetsResult contains a list of PutTargetsResultEntry.
 --
 -- /See:/ 'putTargetsResultEntry' smart constructor.
@@ -188,6 +192,8 @@ instance FromJSON PutTargetsResultEntry where
                  PutTargetsResultEntry' <$>
                    (x .:? "TargetId") <*> (x .:? "ErrorCode") <*>
                      (x .:? "ErrorMessage"))
+
+instance Hashable PutTargetsResultEntry
 
 -- | The ID of the target requested to be removed from the rule by Amazon
 -- CloudWatch Events.
@@ -238,6 +244,8 @@ instance FromJSON RemoveTargetsResultEntry where
                  RemoveTargetsResultEntry' <$>
                    (x .:? "TargetId") <*> (x .:? "ErrorCode") <*>
                      (x .:? "ErrorMessage"))
+
+instance Hashable RemoveTargetsResultEntry
 
 -- | Contains information about a rule in Amazon CloudWatch Events. A
 -- ListRulesResult contains a list of Rules.
@@ -325,6 +333,8 @@ instance FromJSON Rule where
                      <*> (x .:? "Description")
                      <*> (x .:? "RoleArn"))
 
+instance Hashable Rule
+
 -- | Targets are the resources that can be invoked when a rule is triggered.
 -- For example, AWS Lambda functions, Amazon Kinesis streams, and built-in
 -- targets.
@@ -401,6 +411,8 @@ instance FromJSON Target where
                    (x .:? "Input") <*> (x .:? "InputPath") <*>
                      (x .: "Id")
                      <*> (x .: "Arn"))
+
+instance Hashable Target
 
 instance ToJSON Target where
         toJSON Target'{..}

@@ -60,6 +60,8 @@ instance FromXML AccessPoliciesStatus where
           = AccessPoliciesStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
+instance Hashable AccessPoliciesStatus
+
 -- | Synonyms, stopwords, and stemming options for an analysis scheme.
 -- Includes tokenization dictionary for Japanese.
 --
@@ -150,6 +152,8 @@ instance FromXML AnalysisOptions where
                 <*> (x .@? "Synonyms")
                 <*> (x .@? "StemmingDictionary")
 
+instance Hashable AnalysisOptions
+
 instance ToQuery AnalysisOptions where
         toQuery AnalysisOptions'{..}
           = mconcat
@@ -212,6 +216,8 @@ instance FromXML AnalysisScheme where
                 (x .@ "AnalysisSchemeName")
                 <*> (x .@ "AnalysisSchemeLanguage")
 
+instance Hashable AnalysisScheme
+
 instance ToQuery AnalysisScheme where
         toQuery AnalysisScheme'{..}
           = mconcat
@@ -258,6 +264,8 @@ instance FromXML AnalysisSchemeStatus where
           = AnalysisSchemeStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
+instance Hashable AnalysisSchemeStatus
+
 -- | The status and configuration of the domain\'s availability options.
 --
 -- /See:/ 'availabilityOptionsStatus' smart constructor.
@@ -295,6 +303,8 @@ instance FromXML AvailabilityOptionsStatus where
         parseXML x
           = AvailabilityOptionsStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
+
+instance Hashable AvailabilityOptionsStatus
 
 -- | Options for a field that contains an array of dates. Present if
 -- 'IndexFieldType' specifies the field is of type 'date-array'. All
@@ -361,6 +371,8 @@ instance FromXML DateArrayOptions where
                 <*> (x .@? "FacetEnabled")
                 <*> (x .@? "SearchEnabled")
                 <*> (x .@? "DefaultValue")
+
+instance Hashable DateArrayOptions
 
 instance ToQuery DateArrayOptions where
         toQuery DateArrayOptions'{..}
@@ -447,6 +459,8 @@ instance FromXML DateOptions where
                 <*> (x .@? "SortEnabled")
                 <*> (x .@? "DefaultValue")
 
+instance Hashable DateOptions
+
 instance ToQuery DateOptions where
         toQuery DateOptions'{..}
           = mconcat
@@ -513,6 +527,8 @@ instance FromXML DocumentSuggesterOptions where
           = DocumentSuggesterOptions' <$>
               (x .@? "SortExpression") <*> (x .@? "FuzzyMatching")
                 <*> (x .@ "SourceField")
+
+instance Hashable DocumentSuggesterOptions
 
 instance ToQuery DocumentSuggesterOptions where
         toQuery DocumentSuggesterOptions'{..}
@@ -670,6 +686,8 @@ instance FromXML DomainStatus where
                 <*> (x .@ "DomainName")
                 <*> (x .@ "RequiresIndexDocuments")
 
+instance Hashable DomainStatus
+
 -- | Options for a field that contains an array of double-precision 64-bit
 -- floating point values. Present if 'IndexFieldType' specifies the field
 -- is of type 'double-array'. All options are enabled by default.
@@ -735,6 +753,8 @@ instance FromXML DoubleArrayOptions where
                 <*> (x .@? "FacetEnabled")
                 <*> (x .@? "SearchEnabled")
                 <*> (x .@? "DefaultValue")
+
+instance Hashable DoubleArrayOptions
 
 instance ToQuery DoubleArrayOptions where
         toQuery DoubleArrayOptions'{..}
@@ -821,6 +841,8 @@ instance FromXML DoubleOptions where
                 <*> (x .@? "SortEnabled")
                 <*> (x .@? "DefaultValue")
 
+instance Hashable DoubleOptions
+
 instance ToQuery DoubleOptions where
         toQuery DoubleOptions'{..}
           = mconcat
@@ -871,6 +893,8 @@ instance FromXML Expression where
           = Expression' <$>
               (x .@ "ExpressionName") <*> (x .@ "ExpressionValue")
 
+instance Hashable Expression
+
 instance ToQuery Expression where
         toQuery Expression'{..}
           = mconcat
@@ -915,6 +939,8 @@ instance FromXML ExpressionStatus where
         parseXML x
           = ExpressionStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
+
+instance Hashable ExpressionStatus
 
 -- | Configuration information for a field in the index, including its name,
 -- type, and options. The supported options depend on the 'IndexFieldType'.
@@ -1069,6 +1095,8 @@ instance FromXML IndexField where
                 <*> (x .@ "IndexFieldName")
                 <*> (x .@ "IndexFieldType")
 
+instance Hashable IndexField
+
 instance ToQuery IndexField where
         toQuery IndexField'{..}
           = mconcat
@@ -1123,6 +1151,8 @@ instance FromXML IndexFieldStatus where
         parseXML x
           = IndexFieldStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
+
+instance Hashable IndexFieldStatus
 
 -- | Options for a field that contains an array of 64-bit signed integers.
 -- Present if 'IndexFieldType' specifies the field is of type 'int-array'.
@@ -1189,6 +1219,8 @@ instance FromXML IntArrayOptions where
                 <*> (x .@? "FacetEnabled")
                 <*> (x .@? "SearchEnabled")
                 <*> (x .@? "DefaultValue")
+
+instance Hashable IntArrayOptions
 
 instance ToQuery IntArrayOptions where
         toQuery IntArrayOptions'{..}
@@ -1274,6 +1306,8 @@ instance FromXML IntOptions where
                 <*> (x .@? "SearchEnabled")
                 <*> (x .@? "SortEnabled")
                 <*> (x .@? "DefaultValue")
+
+instance Hashable IntOptions
 
 instance ToQuery IntOptions where
         toQuery IntOptions'{..}
@@ -1361,6 +1395,8 @@ instance FromXML LatLonOptions where
                 <*> (x .@? "SortEnabled")
                 <*> (x .@? "DefaultValue")
 
+instance Hashable LatLonOptions
+
 instance ToQuery LatLonOptions where
         toQuery LatLonOptions'{..}
           = mconcat
@@ -1407,6 +1443,8 @@ instance FromXML Limits where
           = Limits' <$>
               (x .@ "MaximumReplicationCount") <*>
                 (x .@ "MaximumPartitionCount")
+
+instance Hashable Limits
 
 -- | Options for a field that contains an array of literal strings. Present
 -- if 'IndexFieldType' specifies the field is of type 'literal-array'. All
@@ -1473,6 +1511,8 @@ instance FromXML LiteralArrayOptions where
                 <*> (x .@? "FacetEnabled")
                 <*> (x .@? "SearchEnabled")
                 <*> (x .@? "DefaultValue")
+
+instance Hashable LiteralArrayOptions
 
 instance ToQuery LiteralArrayOptions where
         toQuery LiteralArrayOptions'{..}
@@ -1556,6 +1596,8 @@ instance FromXML LiteralOptions where
                 <*> (x .@? "SearchEnabled")
                 <*> (x .@? "SortEnabled")
                 <*> (x .@? "DefaultValue")
+
+instance Hashable LiteralOptions
 
 instance ToQuery LiteralOptions where
         toQuery LiteralOptions'{..}
@@ -1644,6 +1686,8 @@ instance FromXML OptionStatus where
                 <*> (x .@ "UpdateDate")
                 <*> (x .@ "State")
 
+instance Hashable OptionStatus
+
 -- | The desired instance type and desired number of replicas of each index
 -- partition.
 --
@@ -1694,6 +1738,8 @@ instance FromXML ScalingParameters where
                 (x .@? "DesiredReplicationCount")
                 <*> (x .@? "DesiredPartitionCount")
 
+instance Hashable ScalingParameters
+
 instance ToQuery ScalingParameters where
         toQuery ScalingParameters'{..}
           = mconcat
@@ -1740,6 +1786,8 @@ instance FromXML ScalingParametersStatus where
           = ScalingParametersStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
 
+instance Hashable ScalingParametersStatus
+
 -- | The endpoint to which service requests can be submitted.
 --
 -- /See:/ 'serviceEndpoint' smart constructor.
@@ -1765,6 +1813,8 @@ seEndpoint = lens _seEndpoint (\ s a -> s{_seEndpoint = a});
 
 instance FromXML ServiceEndpoint where
         parseXML x = ServiceEndpoint' <$> (x .@? "Endpoint")
+
+instance Hashable ServiceEndpoint
 
 -- | Configuration information for a search suggester. Each suggester has a
 -- unique name and specifies the text field you want to use for
@@ -1807,6 +1857,8 @@ instance FromXML Suggester where
           = Suggester' <$>
               (x .@ "SuggesterName") <*>
                 (x .@ "DocumentSuggesterOptions")
+
+instance Hashable Suggester
 
 instance ToQuery Suggester where
         toQuery Suggester'{..}
@@ -1852,6 +1904,8 @@ instance FromXML SuggesterStatus where
         parseXML x
           = SuggesterStatus' <$>
               (x .@ "Options") <*> (x .@ "Status")
+
+instance Hashable SuggesterStatus
 
 -- | Options for a field that contains an array of text strings. Present if
 -- 'IndexFieldType' specifies the field is of type 'text-array'. A
@@ -1919,6 +1973,8 @@ instance FromXML TextArrayOptions where
                 <*> (x .@? "AnalysisScheme")
                 <*> (x .@? "HighlightEnabled")
                 <*> (x .@? "DefaultValue")
+
+instance Hashable TextArrayOptions
 
 instance ToQuery TextArrayOptions where
         toQuery TextArrayOptions'{..}
@@ -2003,6 +2059,8 @@ instance FromXML TextOptions where
                 <*> (x .@? "HighlightEnabled")
                 <*> (x .@? "SortEnabled")
                 <*> (x .@? "DefaultValue")
+
+instance Hashable TextOptions
 
 instance ToQuery TextOptions where
         toQuery TextOptions'{..}

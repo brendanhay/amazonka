@@ -118,6 +118,8 @@ instance FromJSON Agent where
                      <*> (x .:? "agentHealthDetails")
                      <*> (x .:? "agentHealth"))
 
+instance Hashable Agent
+
 -- | This data type is used as a response element in the
 -- < PreviewAgentsForResourceGroup> action.
 --
@@ -157,6 +159,8 @@ instance FromJSON AgentPreview where
                  AgentPreview' <$>
                    (x .:? "autoScalingGroup") <*> (x .:? "agentId"))
 
+instance Hashable AgentPreview
+
 -- | This data type is used as a response element in the
 -- < ListAssessmentAgents> action.
 --
@@ -182,6 +186,8 @@ agentsFilter =
 -- property of the < Agent> data type.
 afAgentHealthList :: Lens' AgentsFilter [Text]
 afAgentHealthList = lens _afAgentHealthList (\ s a -> s{_afAgentHealthList = a}) . _Default . _Coerce;
+
+instance Hashable AgentsFilter
 
 instance ToJSON AgentsFilter where
         toJSON AgentsFilter'{..}
@@ -241,6 +247,8 @@ instance FromJSON Application where
                      (x .:? "resourceGroupArn")
                      <*> (x .:? "applicationName"))
 
+instance Hashable Application
+
 -- | This data type is used as the request parameter in the
 -- < ListApplications> action.
 --
@@ -266,6 +274,8 @@ applicationsFilter =
 -- the __applicationName__ property of the < Application> data type.
 afApplicationNamePatterns :: Lens' ApplicationsFilter [Text]
 afApplicationNamePatterns = lens _afApplicationNamePatterns (\ s a -> s{_afApplicationNamePatterns = a}) . _Default . _Coerce;
+
+instance Hashable ApplicationsFilter
 
 instance ToJSON ApplicationsFilter where
         toJSON ApplicationsFilter'{..}
@@ -391,6 +401,8 @@ instance FromJSON Assessment where
                      <*> (x .:? "durationInSeconds")
                      <*> (x .:? "assessmentName"))
 
+instance Hashable Assessment
+
 -- | This data type is used as the request parameter in the
 -- < ListAssessments> and < ListAttachedAssessments> actions.
 --
@@ -470,6 +482,8 @@ afEndTimeRange = lens _afEndTimeRange (\ s a -> s{_afEndTimeRange = a});
 afDurationRange :: Lens' AssessmentsFilter (Maybe DurationRange)
 afDurationRange = lens _afDurationRange (\ s a -> s{_afDurationRange = a});
 
+instance Hashable AssessmentsFilter
+
 instance ToJSON AssessmentsFilter where
         toJSON AssessmentsFilter'{..}
           = object
@@ -521,6 +535,8 @@ instance FromJSON Attribute where
               (\ x ->
                  Attribute' <$> (x .:? "value") <*> (x .:? "key"))
 
+instance Hashable Attribute
+
 instance ToJSON Attribute where
         toJSON Attribute'{..}
           = object
@@ -558,6 +574,8 @@ drMaximum = lens _drMaximum (\ s a -> s{_drMaximum = a});
 -- | The minimum value of the duration range. Must be greater than zero.
 drMinimum :: Lens' DurationRange (Maybe Int)
 drMinimum = lens _drMinimum (\ s a -> s{_drMinimum = a});
+
+instance Hashable DurationRange
 
 instance ToJSON DurationRange where
         toJSON DurationRange'{..}
@@ -700,6 +718,8 @@ instance FromJSON Finding where
                      <*> (x .:? "description")
                      <*> (x .:? "recommendation"))
 
+instance Hashable Finding
+
 -- | This data type is used as a request parameter in the < ListFindings>
 -- action.
 --
@@ -766,6 +786,8 @@ ffAttributes = lens _ffAttributes (\ s a -> s{_ffAttributes = a}) . _Default . _
 ffSeverities :: Lens' FindingsFilter [Text]
 ffSeverities = lens _ffSeverities (\ s a -> s{_ffSeverities = a}) . _Default . _Coerce;
 
+instance Hashable FindingsFilter
+
 instance ToJSON FindingsFilter where
         toJSON FindingsFilter'{..}
           = object
@@ -816,6 +838,8 @@ instance FromJSON LocalizedText where
                  LocalizedText' <$>
                    (x .:? "key") <*> (x .:? "parameters" .!= mempty))
 
+instance Hashable LocalizedText
+
 instance ToJSON LocalizedText where
         toJSON LocalizedText'{..}
           = object
@@ -860,6 +884,8 @@ instance FromJSON LocalizedTextKey where
               (\ x ->
                  LocalizedTextKey' <$>
                    (x .:? "facility") <*> (x .:? "id"))
+
+instance Hashable LocalizedTextKey
 
 instance ToJSON LocalizedTextKey where
         toJSON LocalizedTextKey'{..}
@@ -921,6 +947,8 @@ instance FromJSON MessageTypeTelemetry where
                    (x .:? "dataSize") <*> (x .:? "messageType") <*>
                      (x .:? "count"))
 
+instance Hashable MessageTypeTelemetry
+
 -- | This data type is used in the < LocalizedText> data type.
 --
 -- /See:/ 'parameter' smart constructor.
@@ -957,6 +985,8 @@ instance FromJSON Parameter where
           = withObject "Parameter"
               (\ x ->
                  Parameter' <$> (x .:? "value") <*> (x .:? "name"))
+
+instance Hashable Parameter
 
 instance ToJSON Parameter where
         toJSON Parameter'{..}
@@ -1014,6 +1044,8 @@ instance FromJSON ResourceGroup where
                  ResourceGroup' <$>
                    (x .:? "resourceGroupTags") <*>
                      (x .:? "resourceGroupArn"))
+
+instance Hashable ResourceGroup
 
 -- | Contains information about an Inspector rules package.
 --
@@ -1082,6 +1114,8 @@ instance FromJSON RulesPackage where
                      (x .:? "rulesPackageName")
                      <*> (x .:? "description")
                      <*> (x .:? "provider"))
+
+instance Hashable RulesPackage
 
 -- | A snapshot of an Inspector assessment that contains the assessment\'s
 -- findings.
@@ -1175,6 +1209,8 @@ instance FromJSON Run where
                      <*> (x .:? "completionTime")
                      <*> (x .:? "runArn"))
 
+instance Hashable Run
+
 -- | This data type is used as the request parameter in the < ListRuns>
 -- action.
 --
@@ -1243,6 +1279,8 @@ rfRunNamePatterns = lens _rfRunNamePatterns (\ s a -> s{_rfRunNamePatterns = a})
 rfCompletionTime :: Lens' RunsFilter (Maybe TimestampRange)
 rfCompletionTime = lens _rfCompletionTime (\ s a -> s{_rfCompletionTime = a});
 
+instance Hashable RunsFilter
+
 instance ToJSON RunsFilter where
         toJSON RunsFilter'{..}
           = object
@@ -1292,6 +1330,8 @@ instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
+
+instance Hashable Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -1343,6 +1383,8 @@ instance FromJSON Telemetry where
                    (x .:? "status") <*>
                      (x .:? "messageTypeTelemetries" .!= mempty))
 
+instance Hashable Telemetry
+
 -- | This data type is used in the < AssessmentsFilter> and < RunsFilter>
 -- data types.
 --
@@ -1374,6 +1416,8 @@ trMaximum = lens _trMaximum (\ s a -> s{_trMaximum = a}) . mapping _Time;
 -- | The minimum value of the timestamp range.
 trMinimum :: Lens' TimestampRange (Maybe UTCTime)
 trMinimum = lens _trMinimum (\ s a -> s{_trMinimum = a}) . mapping _Time;
+
+instance Hashable TimestampRange
 
 instance ToJSON TimestampRange where
         toJSON TimestampRange'{..}

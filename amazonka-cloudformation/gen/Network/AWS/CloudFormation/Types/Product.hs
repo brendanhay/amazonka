@@ -58,6 +58,8 @@ instance FromXML AccountLimit where
           = AccountLimit' <$>
               (x .@? "Value") <*> (x .@? "Name")
 
+instance Hashable AccountLimit
+
 -- | The Output data type.
 --
 -- /See:/ 'output' smart constructor.
@@ -102,6 +104,8 @@ instance FromXML Output where
           = Output' <$>
               (x .@? "OutputValue") <*> (x .@? "OutputKey") <*>
                 (x .@? "Description")
+
+instance Hashable Output
 
 -- | The Parameter data type.
 --
@@ -152,6 +156,8 @@ instance FromXML Parameter where
               (x .@? "ParameterValue") <*> (x .@? "ParameterKey")
                 <*> (x .@? "UsePreviousValue")
 
+instance Hashable Parameter
+
 instance ToQuery Parameter where
         toQuery Parameter'{..}
           = mconcat
@@ -189,6 +195,8 @@ instance FromXML ParameterConstraints where
           = ParameterConstraints' <$>
               (x .@? "AllowedValues" .!@ mempty >>=
                  may (parseXMLList "member"))
+
+instance Hashable ParameterConstraints
 
 -- | The ParameterDeclaration data type.
 --
@@ -262,6 +270,8 @@ instance FromXML ParameterDeclaration where
                 <*> (x .@? "DefaultValue")
                 <*> (x .@? "NoEcho")
                 <*> (x .@? "Description")
+
+instance Hashable ParameterDeclaration
 
 -- | The Stack data type.
 --
@@ -425,6 +435,8 @@ instance FromXML Stack where
                 <*> (x .@ "CreationTime")
                 <*> (x .@ "StackStatus")
 
+instance Hashable Stack
+
 -- | The StackEvent data type.
 --
 -- /See:/ 'stackEvent' smart constructor.
@@ -541,6 +553,8 @@ instance FromXML StackEvent where
                 <*> (x .@ "StackName")
                 <*> (x .@ "Timestamp")
 
+instance Hashable StackEvent
+
 -- | The StackResource data type.
 --
 -- /See:/ 'stackResource' smart constructor.
@@ -647,6 +661,8 @@ instance FromXML StackResource where
                 <*> (x .@ "ResourceType")
                 <*> (x .@ "Timestamp")
                 <*> (x .@ "ResourceStatus")
+
+instance Hashable StackResource
 
 -- | Contains detailed information about the specified stack resource.
 --
@@ -767,6 +783,8 @@ instance FromXML StackResourceDetail where
                 <*> (x .@ "LastUpdatedTimestamp")
                 <*> (x .@ "ResourceStatus")
 
+instance Hashable StackResourceDetail
+
 -- | Contains high-level information about the specified stack resource.
 --
 -- /See:/ 'stackResourceSummary' smart constructor.
@@ -846,6 +864,8 @@ instance FromXML StackResourceSummary where
                 <*> (x .@ "ResourceType")
                 <*> (x .@ "LastUpdatedTimestamp")
                 <*> (x .@ "ResourceStatus")
+
+instance Hashable StackResourceSummary
 
 -- | The StackSummary Data Type
 --
@@ -942,6 +962,8 @@ instance FromXML StackSummary where
                 <*> (x .@ "CreationTime")
                 <*> (x .@ "StackStatus")
 
+instance Hashable StackSummary
+
 -- | The Tag type is used by 'CreateStack' in the 'Tags' parameter. It allows
 -- you to specify a key-value pair that can be used to store information
 -- related to cost allocation for an AWS CloudFormation stack.
@@ -981,6 +1003,8 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
+
+instance Hashable Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -1040,3 +1064,5 @@ instance FromXML TemplateParameter where
               (x .@? "ParameterKey") <*> (x .@? "DefaultValue") <*>
                 (x .@? "NoEcho")
                 <*> (x .@? "Description")
+
+instance Hashable TemplateParameter

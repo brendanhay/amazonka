@@ -66,6 +66,8 @@ instance FromJSON AttributeDefinition where
                  AttributeDefinition' <$>
                    (x .: "AttributeName") <*> (x .: "AttributeType"))
 
+instance Hashable AttributeDefinition
+
 instance ToJSON AttributeDefinition where
         toJSON AttributeDefinition'{..}
           = object
@@ -196,6 +198,8 @@ instance FromJSON AttributeValue where
                      <*> (x .:? "S")
                      <*> (x .:? "BOOL"))
 
+instance Hashable AttributeValue
+
 instance ToJSON AttributeValue where
         toJSON AttributeValue'{..}
           = object
@@ -318,6 +322,8 @@ avuValue = lens _avuValue (\ s a -> s{_avuValue = a});
 avuAction :: Lens' AttributeValueUpdate (Maybe AttributeAction)
 avuAction = lens _avuAction (\ s a -> s{_avuAction = a});
 
+instance Hashable AttributeValueUpdate
+
 instance ToJSON AttributeValueUpdate where
         toJSON AttributeValueUpdate'{..}
           = object
@@ -353,6 +359,8 @@ instance FromJSON Capacity where
         parseJSON
           = withObject "Capacity"
               (\ x -> Capacity' <$> (x .:? "CapacityUnits"))
+
+instance Hashable Capacity
 
 -- | Represents the selection criteria for a /Query/ or /Scan/ operation:
 --
@@ -562,6 +570,8 @@ cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList
 cComparisonOperator :: Lens' Condition ComparisonOperator
 cComparisonOperator = lens _cComparisonOperator (\ s a -> s{_cComparisonOperator = a});
 
+instance Hashable Condition
+
 instance ToJSON Condition where
         toJSON Condition'{..}
           = object
@@ -643,6 +653,8 @@ instance FromJSON ConsumedCapacity where
                      <*> (x .:? "Table")
                      <*> (x .:? "TableName"))
 
+instance Hashable ConsumedCapacity
+
 -- | Represents a new global secondary index to be added to an existing
 -- table.
 --
@@ -695,6 +707,8 @@ cgsiaProjection = lens _cgsiaProjection (\ s a -> s{_cgsiaProjection = a});
 cgsiaProvisionedThroughput :: Lens' CreateGlobalSecondaryIndexAction ProvisionedThroughput
 cgsiaProvisionedThroughput = lens _cgsiaProvisionedThroughput (\ s a -> s{_cgsiaProvisionedThroughput = a});
 
+instance Hashable CreateGlobalSecondaryIndexAction
+
 instance ToJSON CreateGlobalSecondaryIndexAction
          where
         toJSON CreateGlobalSecondaryIndexAction'{..}
@@ -732,6 +746,8 @@ deleteGlobalSecondaryIndexAction pIndexName_ =
 dgsiaIndexName :: Lens' DeleteGlobalSecondaryIndexAction Text
 dgsiaIndexName = lens _dgsiaIndexName (\ s a -> s{_dgsiaIndexName = a});
 
+instance Hashable DeleteGlobalSecondaryIndexAction
+
 instance ToJSON DeleteGlobalSecondaryIndexAction
          where
         toJSON DeleteGlobalSecondaryIndexAction'{..}
@@ -768,6 +784,8 @@ instance FromJSON DeleteRequest where
         parseJSON
           = withObject "DeleteRequest"
               (\ x -> DeleteRequest' <$> (x .:? "Key" .!= mempty))
+
+instance Hashable DeleteRequest
 
 instance ToJSON DeleteRequest where
         toJSON DeleteRequest'{..}
@@ -1030,6 +1048,8 @@ eavValue = lens _eavValue (\ s a -> s{_eavValue = a});
 eavComparisonOperator :: Lens' ExpectedAttributeValue (Maybe ComparisonOperator)
 eavComparisonOperator = lens _eavComparisonOperator (\ s a -> s{_eavComparisonOperator = a});
 
+instance Hashable ExpectedAttributeValue
+
 instance ToJSON ExpectedAttributeValue where
         toJSON ExpectedAttributeValue'{..}
           = object
@@ -1107,6 +1127,8 @@ gsiProjection = lens _gsiProjection (\ s a -> s{_gsiProjection = a});
 -- | Undocumented member.
 gsiProvisionedThroughput :: Lens' GlobalSecondaryIndex ProvisionedThroughput
 gsiProvisionedThroughput = lens _gsiProvisionedThroughput (\ s a -> s{_gsiProvisionedThroughput = a});
+
+instance Hashable GlobalSecondaryIndex
 
 instance ToJSON GlobalSecondaryIndex where
         toJSON GlobalSecondaryIndex'{..}
@@ -1257,6 +1279,8 @@ instance FromJSON GlobalSecondaryIndexDescription
                      <*> (x .:? "ItemCount")
                      <*> (x .:? "IndexName"))
 
+instance Hashable GlobalSecondaryIndexDescription
+
 -- | Represents one of the following:
 --
 -- -   A new global secondary index to be added to an existing table.
@@ -1318,6 +1342,8 @@ gsiuDelete = lens _gsiuDelete (\ s a -> s{_gsiuDelete = a});
 gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndexAction)
 gsiuUpdate = lens _gsiuUpdate (\ s a -> s{_gsiuUpdate = a});
 
+instance Hashable GlobalSecondaryIndexUpdate
+
 instance ToJSON GlobalSecondaryIndexUpdate where
         toJSON GlobalSecondaryIndexUpdate'{..}
           = object
@@ -1376,6 +1402,8 @@ instance FromJSON ItemCollectionMetrics where
                  ItemCollectionMetrics' <$>
                    (x .:? "ItemCollectionKey" .!= mempty) <*>
                      (x .:? "SizeEstimateRangeGB" .!= mempty))
+
+instance Hashable ItemCollectionMetrics
 
 -- | Represents /a single element/ of a key schema. A key schema specifies
 -- the attributes that make up the primary key of a table, or the key
@@ -1442,6 +1470,8 @@ instance FromJSON KeySchemaElement where
               (\ x ->
                  KeySchemaElement' <$>
                    (x .: "AttributeName") <*> (x .: "KeyType"))
+
+instance Hashable KeySchemaElement
 
 instance ToJSON KeySchemaElement where
         toJSON KeySchemaElement'{..}
@@ -1578,6 +1608,8 @@ instance FromJSON KeysAndAttributes where
                      <*> (x .:? "ConsistentRead")
                      <*> (x .: "Keys"))
 
+instance Hashable KeysAndAttributes
+
 instance ToJSON KeysAndAttributes where
         toJSON KeysAndAttributes'{..}
           = object
@@ -1647,6 +1679,8 @@ lsiKeySchema = lens _lsiKeySchema (\ s a -> s{_lsiKeySchema = a}) . _List1;
 -- | Undocumented member.
 lsiProjection :: Lens' LocalSecondaryIndex Projection
 lsiProjection = lens _lsiProjection (\ s a -> s{_lsiProjection = a});
+
+instance Hashable LocalSecondaryIndex
 
 instance ToJSON LocalSecondaryIndex where
         toJSON LocalSecondaryIndex'{..}
@@ -1750,6 +1784,8 @@ instance FromJSON LocalSecondaryIndexDescription
                      <*> (x .:? "ItemCount")
                      <*> (x .:? "IndexName"))
 
+instance Hashable LocalSecondaryIndexDescription
+
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
 -- attributes, which are automatically projected.
@@ -1807,6 +1843,8 @@ instance FromJSON Projection where
                    (x .:? "ProjectionType") <*>
                      (x .:? "NonKeyAttributes"))
 
+instance Hashable Projection
+
 instance ToJSON Projection where
         toJSON Projection'{..}
           = object
@@ -1858,6 +1896,8 @@ ptReadCapacityUnits = lens _ptReadCapacityUnits (\ s a -> s{_ptReadCapacityUnits
 -- in the /Amazon DynamoDB Developer Guide/.
 ptWriteCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptWriteCapacityUnits = lens _ptWriteCapacityUnits (\ s a -> s{_ptWriteCapacityUnits = a}) . _Nat;
+
+instance Hashable ProvisionedThroughput
 
 instance ToJSON ProvisionedThroughput where
         toJSON ProvisionedThroughput'{..}
@@ -1947,6 +1987,8 @@ instance FromJSON ProvisionedThroughputDescription
                      <*> (x .:? "NumberOfDecreasesToday")
                      <*> (x .:? "LastIncreaseDateTime"))
 
+instance Hashable ProvisionedThroughputDescription
+
 -- | Represents a request to perform a /PutItem/ operation on an item.
 --
 -- /See:/ 'putRequest' smart constructor.
@@ -1979,6 +2021,8 @@ instance FromJSON PutRequest where
         parseJSON
           = withObject "PutRequest"
               (\ x -> PutRequest' <$> (x .:? "Item" .!= mempty))
+
+instance Hashable PutRequest
 
 instance ToJSON PutRequest where
         toJSON PutRequest'{..}
@@ -2042,6 +2086,8 @@ instance FromJSON StreamSpecification where
               (\ x ->
                  StreamSpecification' <$>
                    (x .:? "StreamViewType") <*> (x .:? "StreamEnabled"))
+
+instance Hashable StreamSpecification
 
 instance ToJSON StreamSpecification where
         toJSON StreamSpecification'{..}
@@ -2368,6 +2414,8 @@ instance FromJSON TableDescription where
                      <*> (x .:? "TableName")
                      <*> (x .:? "StreamSpecification"))
 
+instance Hashable TableDescription
+
 -- | Represents the new provisioned throughput settings to be applied to a
 -- global secondary index.
 --
@@ -2401,6 +2449,8 @@ ugsiaIndexName = lens _ugsiaIndexName (\ s a -> s{_ugsiaIndexName = a});
 -- | Undocumented member.
 ugsiaProvisionedThroughput :: Lens' UpdateGlobalSecondaryIndexAction ProvisionedThroughput
 ugsiaProvisionedThroughput = lens _ugsiaProvisionedThroughput (\ s a -> s{_ugsiaProvisionedThroughput = a});
+
+instance Hashable UpdateGlobalSecondaryIndexAction
 
 instance ToJSON UpdateGlobalSecondaryIndexAction
          where
@@ -2452,6 +2502,8 @@ instance FromJSON WriteRequest where
               (\ x ->
                  WriteRequest' <$>
                    (x .:? "DeleteRequest") <*> (x .:? "PutRequest"))
+
+instance Hashable WriteRequest
 
 instance ToJSON WriteRequest where
         toJSON WriteRequest'{..}

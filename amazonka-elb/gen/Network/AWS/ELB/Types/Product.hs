@@ -81,6 +81,8 @@ instance FromXML AccessLog where
                 <*> (x .@? "S3BucketName")
                 <*> (x .@ "Enabled")
 
+instance Hashable AccessLog
+
 instance ToQuery AccessLog where
         toQuery AccessLog'{..}
           = mconcat
@@ -125,6 +127,8 @@ instance FromXML AdditionalAttribute where
           = AdditionalAttribute' <$>
               (x .@? "Value") <*> (x .@? "Key")
 
+instance Hashable AdditionalAttribute
+
 instance ToQuery AdditionalAttribute where
         toQuery AdditionalAttribute'{..}
           = mconcat ["Value" =: _aaValue, "Key" =: _aaKey]
@@ -167,6 +171,8 @@ instance FromXML AppCookieStickinessPolicy where
           = AppCookieStickinessPolicy' <$>
               (x .@? "PolicyName") <*> (x .@? "CookieName")
 
+instance Hashable AppCookieStickinessPolicy
+
 -- | Information about the configuration of a back-end server.
 --
 -- /See:/ 'backendServerDescription' smart constructor.
@@ -204,6 +210,8 @@ instance FromXML BackendServerDescription where
               (x .@? "PolicyNames" .!@ mempty >>=
                  may (parseXMLList "member"))
                 <*> (x .@? "InstancePort")
+
+instance Hashable BackendServerDescription
 
 -- | Information about the 'ConnectionDraining' attribute.
 --
@@ -243,6 +251,8 @@ instance FromXML ConnectionDraining where
           = ConnectionDraining' <$>
               (x .@? "Timeout") <*> (x .@ "Enabled")
 
+instance Hashable ConnectionDraining
+
 instance ToQuery ConnectionDraining where
         toQuery ConnectionDraining'{..}
           = mconcat
@@ -278,6 +288,8 @@ instance FromXML ConnectionSettings where
         parseXML x
           = ConnectionSettings' <$> (x .@ "IdleTimeout")
 
+instance Hashable ConnectionSettings
+
 instance ToQuery ConnectionSettings where
         toQuery ConnectionSettings'{..}
           = mconcat ["IdleTimeout" =: _csIdleTimeout]
@@ -310,6 +322,8 @@ czlbEnabled = lens _czlbEnabled (\ s a -> s{_czlbEnabled = a});
 instance FromXML CrossZoneLoadBalancing where
         parseXML x
           = CrossZoneLoadBalancing' <$> (x .@ "Enabled")
+
+instance Hashable CrossZoneLoadBalancing
 
 instance ToQuery CrossZoneLoadBalancing where
         toQuery CrossZoneLoadBalancing'{..}
@@ -406,6 +420,8 @@ instance FromXML HealthCheck where
                 <*> (x .@ "UnhealthyThreshold")
                 <*> (x .@ "HealthyThreshold")
 
+instance Hashable HealthCheck
+
 instance ToQuery HealthCheck where
         toQuery HealthCheck'{..}
           = mconcat
@@ -439,6 +455,8 @@ iInstanceId = lens _iInstanceId (\ s a -> s{_iInstanceId = a});
 
 instance FromXML Instance where
         parseXML x = Instance' <$> (x .@? "InstanceId")
+
+instance Hashable Instance
 
 instance ToQuery Instance where
         toQuery Instance'{..}
@@ -529,6 +547,8 @@ instance FromXML InstanceState where
                 (x .@? "ReasonCode")
                 <*> (x .@? "Description")
 
+instance Hashable InstanceState
+
 -- | Information about a policy for duration-based session stickiness.
 --
 -- /See:/ 'lBCookieStickinessPolicy' smart constructor.
@@ -568,6 +588,8 @@ instance FromXML LBCookieStickinessPolicy where
           = LBCookieStickinessPolicy' <$>
               (x .@? "PolicyName") <*>
                 (x .@? "CookieExpirationPeriod")
+
+instance Hashable LBCookieStickinessPolicy
 
 -- | Information about a listener.
 --
@@ -656,6 +678,8 @@ instance FromXML Listener where
                 <*> (x .@ "LoadBalancerPort")
                 <*> (x .@ "InstancePort")
 
+instance Hashable Listener
+
 instance ToQuery Listener where
         toQuery Listener'{..}
           = mconcat
@@ -702,6 +726,8 @@ instance FromXML ListenerDescription where
               (x .@? "PolicyNames" .!@ mempty >>=
                  may (parseXMLList "member"))
                 <*> (x .@? "Listener")
+
+instance Hashable ListenerDescription
 
 -- | The attributes for a load balancer.
 --
@@ -792,6 +818,8 @@ instance FromXML LoadBalancerAttributes where
                    may (parseXMLList "member"))
                 <*> (x .@? "ConnectionSettings")
                 <*> (x .@? "ConnectionDraining")
+
+instance Hashable LoadBalancerAttributes
 
 instance ToQuery LoadBalancerAttributes where
         toQuery LoadBalancerAttributes'{..}
@@ -996,6 +1024,8 @@ instance FromXML LoadBalancerDescription where
                 <*> (x .@? "DNSName")
                 <*> (x .@? "Policies")
 
+instance Hashable LoadBalancerDescription
+
 -- | The policies for a load balancer.
 --
 -- /See:/ 'policies' smart constructor.
@@ -1048,6 +1078,8 @@ instance FromXML Policies where
                 (x .@? "AppCookieStickinessPolicies" .!@ mempty >>=
                    may (parseXMLList "member"))
 
+instance Hashable Policies
+
 -- | Information about a policy attribute.
 --
 -- /See:/ 'policyAttribute' smart constructor.
@@ -1078,6 +1110,8 @@ paAttributeValue = lens _paAttributeValue (\ s a -> s{_paAttributeValue = a});
 -- | The name of the attribute.
 paAttributeName :: Lens' PolicyAttribute (Maybe Text)
 paAttributeName = lens _paAttributeName (\ s a -> s{_paAttributeName = a});
+
+instance Hashable PolicyAttribute
 
 instance ToQuery PolicyAttribute where
         toQuery PolicyAttribute'{..}
@@ -1120,6 +1154,8 @@ instance FromXML PolicyAttributeDescription where
         parseXML x
           = PolicyAttributeDescription' <$>
               (x .@? "AttributeValue") <*> (x .@? "AttributeName")
+
+instance Hashable PolicyAttributeDescription
 
 -- | Information about a policy attribute type.
 --
@@ -1191,6 +1227,8 @@ instance FromXML PolicyAttributeTypeDescription where
                 <*> (x .@? "AttributeName")
                 <*> (x .@? "Description")
 
+instance Hashable PolicyAttributeTypeDescription
+
 -- | Information about a policy.
 --
 -- /See:/ 'policyDescription' smart constructor.
@@ -1237,6 +1275,8 @@ instance FromXML PolicyDescription where
                 (x .@? "PolicyAttributeDescriptions" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*> (x .@? "PolicyTypeName")
+
+instance Hashable PolicyDescription
 
 -- | Information about a policy type.
 --
@@ -1286,6 +1326,8 @@ instance FromXML PolicyTypeDescription where
                 (x .@? "PolicyAttributeTypeDescriptions" .!@ mempty
                    >>= may (parseXMLList "member"))
 
+instance Hashable PolicyTypeDescription
+
 -- | Information about a source security group.
 --
 -- /See:/ 'sourceSecurityGroup' smart constructor.
@@ -1322,6 +1364,8 @@ instance FromXML SourceSecurityGroup where
           = SourceSecurityGroup' <$>
               (x .@? "OwnerAlias") <*> (x .@? "GroupName")
 
+instance Hashable SourceSecurityGroup
+
 -- | Information about a tag.
 --
 -- /See:/ 'tag' smart constructor.
@@ -1357,6 +1401,8 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@ "Key")
+
+instance Hashable Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -1400,6 +1446,8 @@ instance FromXML TagDescription where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList1 "member"))
 
+instance Hashable TagDescription
+
 -- | The key of a tag.
 --
 -- /See:/ 'tagKeyOnly' smart constructor.
@@ -1422,6 +1470,8 @@ tagKeyOnly =
 -- | The name of the key.
 tkoKey :: Lens' TagKeyOnly (Maybe Text)
 tkoKey = lens _tkoKey (\ s a -> s{_tkoKey = a});
+
+instance Hashable TagKeyOnly
 
 instance ToQuery TagKeyOnly where
         toQuery TagKeyOnly'{..} = mconcat ["Key" =: _tkoKey]

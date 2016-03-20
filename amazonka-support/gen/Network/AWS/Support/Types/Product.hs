@@ -66,6 +66,8 @@ instance FromJSON Attachment where
                  Attachment' <$>
                    (x .:? "data") <*> (x .:? "fileName"))
 
+instance Hashable Attachment
+
 instance ToJSON Attachment where
         toJSON Attachment'{..}
           = object
@@ -112,6 +114,8 @@ instance FromJSON AttachmentDetails where
               (\ x ->
                  AttachmentDetails' <$>
                    (x .:? "attachmentId") <*> (x .:? "fileName"))
+
+instance Hashable AttachmentDetails
 
 -- | A JSON-formatted object that contains the metadata for a support case.
 -- It is contained the response from a < DescribeCases> request.
@@ -280,6 +284,8 @@ instance FromJSON CaseDetails where
                      <*> (x .:? "categoryCode")
                      <*> (x .:? "serviceCode"))
 
+instance Hashable CaseDetails
+
 -- | A JSON-formatted name\/value pair that represents the category name and
 -- category code of the problem, selected from the < DescribeServices>
 -- response for each AWS service.
@@ -318,6 +324,8 @@ instance FromJSON Category where
           = withObject "Category"
               (\ x ->
                  Category' <$> (x .:? "name") <*> (x .:? "code"))
+
+instance Hashable Category
 
 -- | A communication associated with an AWS Support case. The communication
 -- consists of the case ID, the message body, attachment information, the
@@ -388,6 +396,8 @@ instance FromJSON Communication where
                      <*> (x .:? "timeCreated")
                      <*> (x .:? "attachmentSet" .!= mempty))
 
+instance Hashable Communication
+
 -- | The five most recent communications associated with the case.
 --
 -- /See:/ 'recentCaseCommunications' smart constructor.
@@ -426,6 +436,8 @@ instance FromJSON RecentCaseCommunications where
                  RecentCaseCommunications' <$>
                    (x .:? "nextToken") <*>
                      (x .:? "communications" .!= mempty))
+
+instance Hashable RecentCaseCommunications
 
 -- | A code and name pair that represent a severity level that can be applied
 -- to a support case.
@@ -467,6 +479,8 @@ instance FromJSON SeverityLevel where
           = withObject "SeverityLevel"
               (\ x ->
                  SeverityLevel' <$> (x .:? "name") <*> (x .:? "code"))
+
+instance Hashable SeverityLevel
 
 -- | Information about an AWS service returned by the < DescribeServices>
 -- operation.
@@ -521,6 +535,8 @@ instance FromJSON SupportService where
                    (x .:? "categories" .!= mempty) <*> (x .:? "name")
                      <*> (x .:? "code"))
 
+instance Hashable SupportService
+
 -- | The container for summary information that relates to the category of
 -- the Trusted Advisor check.
 --
@@ -553,6 +569,9 @@ instance FromJSON
               (\ x ->
                  TrustedAdvisorCategorySpecificSummary' <$>
                    (x .:? "costOptimizing"))
+
+instance Hashable
+         TrustedAdvisorCategorySpecificSummary
 
 -- | The description and metadata for a Trusted Advisor check.
 --
@@ -629,6 +648,8 @@ instance FromJSON TrustedAdvisorCheckDescription
                      <*> (x .: "category")
                      <*> (x .:? "metadata" .!= mempty))
 
+instance Hashable TrustedAdvisorCheckDescription
+
 -- | The refresh status of a Trusted Advisor check.
 --
 -- /See:/ 'trustedAdvisorCheckRefreshStatus' smart constructor.
@@ -682,6 +703,8 @@ instance FromJSON TrustedAdvisorCheckRefreshStatus
                  TrustedAdvisorCheckRefreshStatus' <$>
                    (x .: "checkId") <*> (x .: "status") <*>
                      (x .: "millisUntilNextRefreshable"))
+
+instance Hashable TrustedAdvisorCheckRefreshStatus
 
 -- | The results of a Trusted Advisor check returned by
 -- < DescribeTrustedAdvisorCheckResult>.
@@ -765,6 +788,8 @@ instance FromJSON TrustedAdvisorCheckResult where
                      <*> (x .: "categorySpecificSummary")
                      <*> (x .:? "flaggedResources" .!= mempty))
 
+instance Hashable TrustedAdvisorCheckResult
+
 -- | A summary of a Trusted Advisor check result, including the alert status,
 -- last refresh, and number of resources examined.
 --
@@ -847,6 +872,8 @@ instance FromJSON TrustedAdvisorCheckSummary where
                      <*> (x .: "resourcesSummary")
                      <*> (x .: "categorySpecificSummary"))
 
+instance Hashable TrustedAdvisorCheckSummary
+
 -- | The estimated cost savings that might be realized if the recommended
 -- actions are taken.
 --
@@ -891,6 +918,8 @@ instance FromJSON TrustedAdvisorCostOptimizingSummary
                  TrustedAdvisorCostOptimizingSummary' <$>
                    (x .: "estimatedMonthlySavings") <*>
                      (x .: "estimatedPercentMonthlySavings"))
+
+instance Hashable TrustedAdvisorCostOptimizingSummary
 
 -- | Contains information about a resource identified by a Trusted Advisor
 -- check.
@@ -968,6 +997,8 @@ instance FromJSON TrustedAdvisorResourceDetail where
                      <*> (x .: "resourceId")
                      <*> (x .:? "metadata" .!= mempty))
 
+instance Hashable TrustedAdvisorResourceDetail
+
 -- | Details about AWS resources that were analyzed in a call to Trusted
 -- Advisor < DescribeTrustedAdvisorCheckSummaries>.
 --
@@ -1034,3 +1065,5 @@ instance FromJSON TrustedAdvisorResourcesSummary
                      (x .: "resourcesFlagged")
                      <*> (x .: "resourcesIgnored")
                      <*> (x .: "resourcesSuppressed"))
+
+instance Hashable TrustedAdvisorResourcesSummary

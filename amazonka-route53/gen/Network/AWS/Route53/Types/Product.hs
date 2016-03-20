@@ -211,6 +211,8 @@ instance FromXML AliasTarget where
               (x .@ "HostedZoneId") <*> (x .@ "DNSName") <*>
                 (x .@ "EvaluateTargetHealth")
 
+instance Hashable AliasTarget
+
 instance ToXML AliasTarget where
         toXML AliasTarget'{..}
           = mconcat
@@ -266,6 +268,8 @@ cAction = lens _cAction (\ s a -> s{_cAction = a});
 cResourceRecordSet :: Lens' Change ResourceRecordSet
 cResourceRecordSet = lens _cResourceRecordSet (\ s a -> s{_cResourceRecordSet = a});
 
+instance Hashable Change
+
 instance ToXML Change where
         toXML Change'{..}
           = mconcat
@@ -306,6 +310,8 @@ cbComment = lens _cbComment (\ s a -> s{_cbComment = a});
 -- record set that you want to create or delete.
 cbChanges :: Lens' ChangeBatch (NonEmpty Change)
 cbChanges = lens _cbChanges (\ s a -> s{_cbChanges = a}) . _List1;
+
+instance Hashable ChangeBatch
 
 instance ToXML ChangeBatch where
         toXML ChangeBatch'{..}
@@ -384,6 +390,8 @@ instance FromXML ChangeInfo where
               (x .@? "Comment") <*> (x .@ "Id") <*> (x .@ "Status")
                 <*> (x .@ "SubmittedAt")
 
+instance Hashable ChangeInfo
+
 -- | A complex type that contains name server information.
 --
 -- /See:/ 'delegationSet' smart constructor.
@@ -433,6 +441,8 @@ instance FromXML DelegationSet where
               (x .@? "Id") <*> (x .@? "CallerReference") <*>
                 (x .@? "NameServers" .!@ mempty >>=
                    parseXMLList1 "NameServer")
+
+instance Hashable DelegationSet
 
 -- | A complex type that contains information about a geo location.
 --
@@ -493,6 +503,8 @@ instance FromXML GeoLocation where
           = GeoLocation' <$>
               (x .@? "SubdivisionCode") <*> (x .@? "CountryCode")
                 <*> (x .@? "ContinentCode")
+
+instance Hashable GeoLocation
 
 instance ToXML GeoLocation where
         toXML GeoLocation'{..}
@@ -584,6 +596,8 @@ instance FromXML GeoLocationDetails where
                 <*> (x .@? "ContinentCode")
                 <*> (x .@? "ContinentName")
 
+instance Hashable GeoLocationDetails
+
 -- | A complex type that contains identifying information about the health
 -- check.
 --
@@ -644,6 +658,8 @@ instance FromXML HealthCheck where
               (x .@ "Id") <*> (x .@ "CallerReference") <*>
                 (x .@ "HealthCheckConfig")
                 <*> (x .@ "HealthCheckVersion")
+
+instance Hashable HealthCheck
 
 -- | A complex type that contains the health check configuration.
 --
@@ -815,6 +831,8 @@ instance FromXML HealthCheckConfig where
                 <*> (x .@? "Port")
                 <*> (x .@ "Type")
 
+instance Hashable HealthCheckConfig
+
 instance ToXML HealthCheckConfig where
         toXML HealthCheckConfig'{..}
           = mconcat
@@ -873,6 +891,8 @@ instance FromXML HealthCheckObservation where
         parseXML x
           = HealthCheckObservation' <$>
               (x .@? "IPAddress") <*> (x .@? "StatusReport")
+
+instance Hashable HealthCheckObservation
 
 -- | A complex type that contain information about the specified hosted zone.
 --
@@ -948,6 +968,8 @@ instance FromXML HostedZone where
                 <*> (x .@ "Name")
                 <*> (x .@ "CallerReference")
 
+instance Hashable HostedZone
+
 -- | A complex type that contains an optional comment about your hosted zone.
 -- If you don\'t want to specify a comment, you can omit the
 -- 'HostedZoneConfig' and 'Comment' elements from the XML document.
@@ -987,6 +1009,8 @@ instance FromXML HostedZoneConfig where
         parseXML x
           = HostedZoneConfig' <$>
               (x .@? "PrivateZone") <*> (x .@? "Comment")
+
+instance Hashable HostedZoneConfig
 
 instance ToXML HostedZoneConfig where
         toXML HostedZoneConfig'{..}
@@ -1029,6 +1053,8 @@ rrValue = lens _rrValue (\ s a -> s{_rrValue = a});
 
 instance FromXML ResourceRecord where
         parseXML x = ResourceRecord' <$> (x .@ "Value")
+
+instance Hashable ResourceRecord
 
 instance ToXML ResourceRecord where
         toXML ResourceRecord'{..}
@@ -1379,6 +1405,8 @@ instance FromXML ResourceRecordSet where
                 <*> (x .@ "Name")
                 <*> (x .@ "Type")
 
+instance Hashable ResourceRecordSet
+
 instance ToXML ResourceRecordSet where
         toXML ResourceRecordSet'{..}
           = mconcat
@@ -1447,6 +1475,8 @@ instance FromXML ResourceTagSet where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList1 "Tag"))
 
+instance Hashable ResourceTagSet
+
 -- | A complex type that contains information about the health check status
 -- for the current observation.
 --
@@ -1487,6 +1517,8 @@ instance FromXML StatusReport where
           = StatusReport' <$>
               (x .@? "Status") <*> (x .@? "CheckedTime")
 
+instance Hashable StatusReport
+
 -- | A single tag containing a key and value.
 --
 -- /See:/ 'tag' smart constructor.
@@ -1521,6 +1553,8 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 instance FromXML Tag where
         parseXML x
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
+
+instance Hashable Tag
 
 instance ToXML Tag where
         toXML Tag'{..}
@@ -1600,6 +1634,8 @@ instance FromXML TrafficPolicy where
                 <*> (x .@ "Name")
                 <*> (x .@ "Type")
                 <*> (x .@ "Document")
+
+instance Hashable TrafficPolicy
 
 -- | /See:/ 'trafficPolicyInstance' smart constructor.
 data TrafficPolicyInstance = TrafficPolicyInstance'
@@ -1707,6 +1743,8 @@ instance FromXML TrafficPolicyInstance where
                 <*> (x .@ "TrafficPolicyVersion")
                 <*> (x .@ "TrafficPolicyType")
 
+instance Hashable TrafficPolicyInstance
+
 -- | /See:/ 'trafficPolicySummary' smart constructor.
 data TrafficPolicySummary = TrafficPolicySummary'
     { _tpsId                 :: !Text
@@ -1772,6 +1810,8 @@ instance FromXML TrafficPolicySummary where
                 (x .@ "LatestVersion")
                 <*> (x .@ "TrafficPolicyCount")
 
+instance Hashable TrafficPolicySummary
+
 -- | /See:/ 'vpc' smart constructor.
 data VPC = VPC'
     { _vpcVPCRegion :: !(Maybe VPCRegion)
@@ -1804,6 +1844,8 @@ vpcVPCId = lens _vpcVPCId (\ s a -> s{_vpcVPCId = a});
 instance FromXML VPC where
         parseXML x
           = VPC' <$> (x .@? "VPCRegion") <*> (x .@? "VPCId")
+
+instance Hashable VPC
 
 instance ToXML VPC where
         toXML VPC'{..}

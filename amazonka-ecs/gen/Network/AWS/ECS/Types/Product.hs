@@ -61,6 +61,8 @@ instance FromJSON Attribute where
               (\ x ->
                  Attribute' <$> (x .:? "value") <*> (x .: "name"))
 
+instance Hashable Attribute
+
 instance ToJSON Attribute where
         toJSON Attribute'{..}
           = object
@@ -161,6 +163,8 @@ instance FromJSON Cluster where
                      <*> (x .:? "clusterName")
                      <*> (x .:? "activeServicesCount"))
 
+instance Hashable Cluster
+
 -- | A Docker container that is part of a task.
 --
 -- /See:/ 'container' smart constructor.
@@ -245,6 +249,8 @@ instance FromJSON Container where
                      <*> (x .:? "reason")
                      <*> (x .:? "name")
                      <*> (x .:? "exitCode"))
+
+instance Hashable Container
 
 -- | Container definitions are used in task definitions to describe the
 -- different containers that are launched as part of a task.
@@ -755,6 +761,8 @@ instance FromJSON ContainerDefinition where
                      <*> (x .:? "essential")
                      <*> (x .:? "cpu"))
 
+instance Hashable ContainerDefinition
+
 instance ToJSON ContainerDefinition where
         toJSON ContainerDefinition'{..}
           = object
@@ -923,6 +931,8 @@ instance FromJSON ContainerInstance where
                      <*> (x .:? "pendingTasksCount")
                      <*> (x .:? "registeredResources" .!= mempty))
 
+instance Hashable ContainerInstance
+
 -- | The overrides that should be sent to a container.
 --
 -- /See:/ 'containerOverride' smart constructor.
@@ -974,6 +984,8 @@ instance FromJSON ContainerOverride where
                    (x .:? "command" .!= mempty) <*>
                      (x .:? "environment" .!= mempty)
                      <*> (x .:? "name"))
+
+instance Hashable ContainerOverride
 
 instance ToJSON ContainerOverride where
         toJSON ContainerOverride'{..}
@@ -1140,6 +1152,8 @@ instance FromJSON ContainerService where
                      <*> (x .:? "roleArn")
                      <*> (x .:? "deploymentConfiguration"))
 
+instance Hashable ContainerService
+
 -- | The details of an Amazon ECS service deployment.
 --
 -- /See:/ 'deployment' smart constructor.
@@ -1238,6 +1252,8 @@ instance FromJSON Deployment where
                      <*> (x .:? "updatedAt")
                      <*> (x .:? "taskDefinition"))
 
+instance Hashable Deployment
+
 -- | Optional deployment parameters that control how many tasks run during
 -- the deployment and the ordering of stopping and starting tasks.
 --
@@ -1286,6 +1302,8 @@ instance FromJSON DeploymentConfiguration where
                    (x .:? "minimumHealthyPercent") <*>
                      (x .:? "maximumPercent"))
 
+instance Hashable DeploymentConfiguration
+
 instance ToJSON DeploymentConfiguration where
         toJSON DeploymentConfiguration'{..}
           = object
@@ -1331,6 +1349,8 @@ instance FromJSON Failure where
               (\ x ->
                  Failure' <$> (x .:? "arn") <*> (x .:? "reason"))
 
+instance Hashable Failure
+
 -- | Hostnames and IP address entries that are added to the '\/etc\/hosts'
 -- file of a container via the 'extraHosts' parameter of its
 -- < ContainerDefinition>.
@@ -1372,6 +1392,8 @@ instance FromJSON HostEntry where
               (\ x ->
                  HostEntry' <$>
                    (x .: "hostname") <*> (x .: "ipAddress"))
+
+instance Hashable HostEntry
 
 instance ToJSON HostEntry where
         toJSON HostEntry'{..}
@@ -1416,6 +1438,8 @@ instance FromJSON HostVolumeProperties where
               (\ x ->
                  HostVolumeProperties' <$> (x .:? "sourcePath"))
 
+instance Hashable HostVolumeProperties
+
 instance ToJSON HostVolumeProperties where
         toJSON HostVolumeProperties'{..}
           = object
@@ -1459,6 +1483,8 @@ instance FromJSON KeyValuePair where
           = withObject "KeyValuePair"
               (\ x ->
                  KeyValuePair' <$> (x .:? "value") <*> (x .:? "name"))
+
+instance Hashable KeyValuePair
 
 instance ToJSON KeyValuePair where
         toJSON KeyValuePair'{..}
@@ -1519,6 +1545,8 @@ instance FromJSON LoadBalancer where
                      (x .:? "containerName")
                      <*> (x .:? "containerPort"))
 
+instance Hashable LoadBalancer
+
 instance ToJSON LoadBalancer where
         toJSON LoadBalancer'{..}
           = object
@@ -1575,6 +1603,8 @@ instance FromJSON LogConfiguration where
                  LogConfiguration' <$>
                    (x .:? "options" .!= mempty) <*> (x .: "logDriver"))
 
+instance Hashable LogConfiguration
+
 instance ToJSON LogConfiguration where
         toJSON LogConfiguration'{..}
           = object
@@ -1630,6 +1660,8 @@ instance FromJSON MountPoint where
                  MountPoint' <$>
                    (x .:? "containerPath") <*> (x .:? "sourceVolume")
                      <*> (x .:? "readOnly"))
+
+instance Hashable MountPoint
 
 instance ToJSON MountPoint where
         toJSON MountPoint'{..}
@@ -1698,6 +1730,8 @@ instance FromJSON NetworkBinding where
                    (x .:? "bindIP") <*> (x .:? "protocol") <*>
                      (x .:? "hostPort")
                      <*> (x .:? "containerPort"))
+
+instance Hashable NetworkBinding
 
 instance ToJSON NetworkBinding where
         toJSON NetworkBinding'{..}
@@ -1785,6 +1819,8 @@ instance FromJSON PortMapping where
                  PortMapping' <$>
                    (x .:? "protocol") <*> (x .:? "hostPort") <*>
                      (x .:? "containerPort"))
+
+instance Hashable PortMapping
 
 instance ToJSON PortMapping where
         toJSON PortMapping'{..}
@@ -1875,6 +1911,8 @@ instance FromJSON Resource where
                      <*> (x .:? "name")
                      <*> (x .:? "type"))
 
+instance Hashable Resource
+
 instance ToJSON Resource where
         toJSON Resource'{..}
           = object
@@ -1931,6 +1969,8 @@ instance FromJSON ServiceEvent where
                  ServiceEvent' <$>
                    (x .:? "createdAt") <*> (x .:? "id") <*>
                      (x .:? "message"))
+
+instance Hashable ServiceEvent
 
 -- | Details on a task in a cluster.
 --
@@ -2077,6 +2117,8 @@ instance FromJSON Task where
                      <*> (x .:? "stoppedReason")
                      <*> (x .:? "taskDefinitionArn"))
 
+instance Hashable Task
+
 -- | Details of a task definition.
 --
 -- /See:/ 'taskDefinition' smart constructor.
@@ -2172,6 +2214,8 @@ instance FromJSON TaskDefinition where
                      <*> (x .:? "volumes" .!= mempty)
                      <*> (x .:? "requiresAttributes" .!= mempty))
 
+instance Hashable TaskDefinition
+
 -- | The overrides associated with a task.
 --
 -- /See:/ 'taskOverride' smart constructor.
@@ -2201,6 +2245,8 @@ instance FromJSON TaskOverride where
               (\ x ->
                  TaskOverride' <$>
                    (x .:? "containerOverrides" .!= mempty))
+
+instance Hashable TaskOverride
 
 instance ToJSON TaskOverride where
         toJSON TaskOverride'{..}
@@ -2258,6 +2304,8 @@ instance FromJSON Ulimit where
                  Ulimit' <$>
                    (x .: "name") <*> (x .: "softLimit") <*>
                      (x .: "hardLimit"))
+
+instance Hashable Ulimit
 
 instance ToJSON Ulimit where
         toJSON Ulimit'{..}
@@ -2317,6 +2365,8 @@ instance FromJSON VersionInfo where
                    (x .:? "agentHash") <*> (x .:? "agentVersion") <*>
                      (x .:? "dockerVersion"))
 
+instance Hashable VersionInfo
+
 instance ToJSON VersionInfo where
         toJSON VersionInfo'{..}
           = object
@@ -2368,6 +2418,8 @@ instance FromJSON Volume where
               (\ x ->
                  Volume' <$> (x .:? "name") <*> (x .:? "host"))
 
+instance Hashable Volume
+
 instance ToJSON Volume where
         toJSON Volume'{..}
           = object
@@ -2413,6 +2465,8 @@ instance FromJSON VolumeFrom where
               (\ x ->
                  VolumeFrom' <$>
                    (x .:? "sourceContainer") <*> (x .:? "readOnly"))
+
+instance Hashable VolumeFrom
 
 instance ToJSON VolumeFrom where
         toJSON VolumeFrom'{..}

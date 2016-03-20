@@ -66,6 +66,8 @@ instance FromXML AssumedRoleUser where
           = AssumedRoleUser' <$>
               (x .@ "AssumedRoleId") <*> (x .@ "Arn")
 
+instance Hashable AssumedRoleUser
+
 -- | AWS credentials for API authentication.
 --
 -- /See:/ 'credentials' smart constructor.
@@ -125,6 +127,8 @@ instance FromXML Credentials where
                 (x .@ "SessionToken")
                 <*> (x .@ "Expiration")
 
+instance Hashable Credentials
+
 -- | Identifiers for the federated user that is associated with the
 -- credentials.
 --
@@ -168,3 +172,5 @@ instance FromXML FederatedUser where
         parseXML x
           = FederatedUser' <$>
               (x .@ "FederatedUserId") <*> (x .@ "Arn")
+
+instance Hashable FederatedUser

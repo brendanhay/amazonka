@@ -66,6 +66,8 @@ instance FromXML AddHeaderAction where
           = AddHeaderAction' <$>
               (x .@ "HeaderName") <*> (x .@ "HeaderValue")
 
+instance Hashable AddHeaderAction
+
 instance ToQuery AddHeaderAction where
         toQuery AddHeaderAction'{..}
           = mconcat
@@ -108,6 +110,8 @@ bText = lens _bText (\ s a -> s{_bText = a});
 -- and much more in an HTML message.
 bHTML :: Lens' Body (Maybe Content)
 bHTML = lens _bHTML (\ s a -> s{_bHTML = a});
+
+instance Hashable Body
 
 instance ToQuery Body where
         toQuery Body'{..}
@@ -192,6 +196,8 @@ instance FromXML BounceAction where
                 <*> (x .@ "Message")
                 <*> (x .@ "Sender")
 
+instance Hashable BounceAction
+
 instance ToQuery BounceAction where
         toQuery BounceAction'{..}
           = mconcat
@@ -260,6 +266,8 @@ briRecipientARN = lens _briRecipientARN (\ s a -> s{_briRecipientARN = a});
 briRecipient :: Lens' BouncedRecipientInfo Text
 briRecipient = lens _briRecipient (\ s a -> s{_briRecipient = a});
 
+instance Hashable BouncedRecipientInfo
+
 instance ToQuery BouncedRecipientInfo where
         toQuery BouncedRecipientInfo'{..}
           = mconcat
@@ -304,6 +312,8 @@ cCharset = lens _cCharset (\ s a -> s{_cCharset = a});
 -- | The textual data of the content.
 cData :: Lens' Content Text
 cData = lens _cData (\ s a -> s{_cData = a});
+
+instance Hashable Content
 
 instance ToQuery Content where
         toQuery Content'{..}
@@ -355,6 +365,8 @@ dCCAddresses = lens _dCCAddresses (\ s a -> s{_dCCAddresses = a}) . _Default . _
 dToAddresses :: Lens' Destination [Text]
 dToAddresses = lens _dToAddresses (\ s a -> s{_dToAddresses = a}) . _Default . _Coerce;
 
+instance Hashable Destination
+
 instance ToQuery Destination where
         toQuery Destination'{..}
           = mconcat
@@ -404,6 +416,8 @@ efName = lens _efName (\ s a -> s{_efName = a});
 -- must not contain newline characters (\"\\r\" or \"\\n\").
 efValue :: Lens' ExtensionField Text
 efValue = lens _efValue (\ s a -> s{_efValue = a});
+
+instance Hashable ExtensionField
 
 instance ToQuery ExtensionField where
         toQuery ExtensionField'{..}
@@ -471,6 +485,8 @@ instance FromXML IdentityDkimAttributes where
                 <*> (x .@ "DkimEnabled")
                 <*> (x .@ "DkimVerificationStatus")
 
+instance Hashable IdentityDkimAttributes
+
 -- | Represents the custom MAIL FROM domain attributes of a verified identity
 -- (email address or domain).
 --
@@ -534,6 +550,8 @@ instance FromXML IdentityMailFromDomainAttributes
               (x .@ "MailFromDomain") <*>
                 (x .@ "MailFromDomainStatus")
                 <*> (x .@ "BehaviorOnMXFailure")
+
+instance Hashable IdentityMailFromDomainAttributes
 
 -- | Represents the notification attributes of an identity, including whether
 -- an identity has Amazon Simple Notification Service (Amazon SNS) topics
@@ -603,6 +621,8 @@ instance FromXML IdentityNotificationAttributes where
                 (x .@ "DeliveryTopic")
                 <*> (x .@ "ForwardingEnabled")
 
+instance Hashable IdentityNotificationAttributes
+
 -- | Represents the verification attributes of a single identity.
 --
 -- /See:/ 'identityVerificationAttributes' smart constructor.
@@ -642,6 +662,8 @@ instance FromXML IdentityVerificationAttributes where
           = IdentityVerificationAttributes' <$>
               (x .@? "VerificationToken") <*>
                 (x .@ "VerificationStatus")
+
+instance Hashable IdentityVerificationAttributes
 
 -- | When included in a receipt rule, this action calls an AWS Lambda
 -- function and, optionally, publishes a notification to Amazon Simple
@@ -718,6 +740,8 @@ instance FromXML LambdaAction where
               (x .@? "InvocationType") <*> (x .@? "TopicArn") <*>
                 (x .@ "FunctionArn")
 
+instance Hashable LambdaAction
+
 instance ToQuery LambdaAction where
         toQuery LambdaAction'{..}
           = mconcat
@@ -758,6 +782,8 @@ mSubject = lens _mSubject (\ s a -> s{_mSubject = a});
 -- | The message body.
 mBody :: Lens' Message Body
 mBody = lens _mBody (\ s a -> s{_mBody = a});
+
+instance Hashable Message
 
 instance ToQuery Message where
         toQuery Message'{..}
@@ -813,6 +839,8 @@ mdExtensionFields = lens _mdExtensionFields (\ s a -> s{_mdExtensionFields = a})
 mdReportingMta :: Lens' MessageDsn Text
 mdReportingMta = lens _mdReportingMta (\ s a -> s{_mdReportingMta = a});
 
+instance Hashable MessageDsn
+
 instance ToQuery MessageDsn where
         toQuery MessageDsn'{..}
           = mconcat
@@ -867,6 +895,8 @@ rawMessage pData_ =
 -- This 'Lens' accepts and returns only raw unencoded data.
 rmData :: Lens' RawMessage ByteString
 rmData = lens _rmData (\ s a -> s{_rmData = a}) . _Base64;
+
+instance Hashable RawMessage
 
 instance ToQuery RawMessage where
         toQuery RawMessage'{..} = mconcat ["Data" =: _rmData]
@@ -963,6 +993,8 @@ instance FromXML ReceiptAction where
                 <*> (x .@? "StopAction")
                 <*> (x .@? "S3Action")
 
+instance Hashable ReceiptAction
+
 instance ToQuery ReceiptAction where
         toQuery ReceiptAction'{..}
           = mconcat
@@ -1022,6 +1054,8 @@ instance FromXML ReceiptFilter where
           = ReceiptFilter' <$>
               (x .@ "Name") <*> (x .@ "IpFilter")
 
+instance Hashable ReceiptFilter
+
 instance ToQuery ReceiptFilter where
         toQuery ReceiptFilter'{..}
           = mconcat
@@ -1073,6 +1107,8 @@ instance FromXML ReceiptIPFilter where
         parseXML x
           = ReceiptIPFilter' <$>
               (x .@ "Policy") <*> (x .@ "Cidr")
+
+instance Hashable ReceiptIPFilter
 
 instance ToQuery ReceiptIPFilter where
         toQuery ReceiptIPFilter'{..}
@@ -1178,6 +1214,8 @@ instance FromXML ReceiptRule where
                 <*> (x .@? "TlsPolicy")
                 <*> (x .@ "Name")
 
+instance Hashable ReceiptRule
+
 instance ToQuery ReceiptRule where
         toQuery ReceiptRule'{..}
           = mconcat
@@ -1236,6 +1274,8 @@ instance FromXML ReceiptRuleSetMetadata where
         parseXML x
           = ReceiptRuleSetMetadata' <$>
               (x .@? "Name") <*> (x .@? "CreatedTimestamp")
+
+instance Hashable ReceiptRuleSetMetadata
 
 -- | Recipient-related information to include in the Delivery Status
 -- Notification (DSN) when an email that Amazon SES receives on your behalf
@@ -1331,6 +1371,8 @@ rdfAction = lens _rdfAction (\ s a -> s{_rdfAction = a});
 -- <https://tools.ietf.org/html/rfc3464 RFC 3464>.
 rdfStatus :: Lens' RecipientDsnFields Text
 rdfStatus = lens _rdfStatus (\ s a -> s{_rdfStatus = a});
+
+instance Hashable RecipientDsnFields
 
 instance ToQuery RecipientDsnFields where
         toQuery RecipientDsnFields'{..}
@@ -1455,6 +1497,8 @@ instance FromXML S3Action where
                 (x .@? "ObjectKeyPrefix")
                 <*> (x .@ "BucketName")
 
+instance Hashable S3Action
+
 instance ToQuery S3Action where
         toQuery S3Action'{..}
           = mconcat
@@ -1527,6 +1571,8 @@ instance FromXML SNSAction where
           = SNSAction' <$>
               (x .@? "Encoding") <*> (x .@ "TopicArn")
 
+instance Hashable SNSAction
+
 instance ToQuery SNSAction where
         toQuery SNSAction'{..}
           = mconcat
@@ -1597,6 +1643,8 @@ instance FromXML SendDataPoint where
                 <*> (x .@? "Bounces")
                 <*> (x .@? "Timestamp")
 
+instance Hashable SendDataPoint
+
 -- | When included in a receipt rule, this action terminates the evaluation
 -- of the receipt rule set and, optionally, publishes a notification to
 -- Amazon Simple Notification Service (Amazon SNS).
@@ -1643,6 +1691,8 @@ instance FromXML StopAction where
         parseXML x
           = StopAction' <$>
               (x .@? "TopicArn") <*> (x .@ "Scope")
+
+instance Hashable StopAction
 
 instance ToQuery StopAction where
         toQuery StopAction'{..}
@@ -1700,6 +1750,8 @@ instance FromXML WorkmailAction where
         parseXML x
           = WorkmailAction' <$>
               (x .@? "TopicArn") <*> (x .@ "OrganizationArn")
+
+instance Hashable WorkmailAction
 
 instance ToQuery WorkmailAction where
         toQuery WorkmailAction'{..}

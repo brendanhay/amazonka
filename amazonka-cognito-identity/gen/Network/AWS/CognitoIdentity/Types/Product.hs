@@ -77,6 +77,8 @@ instance FromJSON Credentials where
                      (x .:? "SecretKey")
                      <*> (x .:? "AccessKeyId"))
 
+instance Hashable Credentials
+
 -- | A description of the identity.
 --
 -- /See:/ 'identityDescription' smart constructor.
@@ -133,6 +135,8 @@ instance FromJSON IdentityDescription where
                    (x .:? "LastModifiedDate") <*> (x .:? "CreationDate")
                      <*> (x .:? "Logins" .!= mempty)
                      <*> (x .:? "IdentityId"))
+
+instance Hashable IdentityDescription
 
 -- | An object representing a Cognito identity pool.
 --
@@ -212,6 +216,8 @@ instance FromJSON IdentityPool where
                      <*> (x .: "IdentityPoolName")
                      <*> (x .: "AllowUnauthenticatedIdentities"))
 
+instance Hashable IdentityPool
+
 instance ToJSON IdentityPool where
         toJSON IdentityPool'{..}
           = object
@@ -267,6 +273,8 @@ instance FromJSON IdentityPoolShortDescription where
                    (x .:? "IdentityPoolId") <*>
                      (x .:? "IdentityPoolName"))
 
+instance Hashable IdentityPoolShortDescription
+
 -- | An array of UnprocessedIdentityId objects, each of which contains an
 -- ErrorCode and IdentityId.
 --
@@ -305,3 +313,5 @@ instance FromJSON UnprocessedIdentityId where
               (\ x ->
                  UnprocessedIdentityId' <$>
                    (x .:? "ErrorCode") <*> (x .:? "IdentityId"))
+
+instance Hashable UnprocessedIdentityId

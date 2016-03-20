@@ -99,6 +99,8 @@ instance FromJSON Destination where
                      <*> (x .:? "destinationName")
                      <*> (x .:? "roleArn"))
 
+instance Hashable Destination
+
 -- | Represents an export task.
 --
 -- /See:/ 'exportTask' smart constructor.
@@ -205,6 +207,8 @@ instance FromJSON ExportTask where
                      <*> (x .:? "logGroupName")
                      <*> (x .:? "executionInfo"))
 
+instance Hashable ExportTask
+
 -- | Represents the status of an export task.
 --
 -- /See:/ 'exportTaskExecutionInfo' smart constructor.
@@ -243,6 +247,8 @@ instance FromJSON ExportTaskExecutionInfo where
                  ExportTaskExecutionInfo' <$>
                    (x .:? "creationTime") <*> (x .:? "completionTime"))
 
+instance Hashable ExportTaskExecutionInfo
+
 -- | Represents the status of an export task.
 --
 -- /See:/ 'exportTaskStatus' smart constructor.
@@ -280,6 +286,8 @@ instance FromJSON ExportTaskStatus where
               (\ x ->
                  ExportTaskStatus' <$>
                    (x .:? "code") <*> (x .:? "message"))
+
+instance Hashable ExportTaskStatus
 
 -- | Represents a matched event from a 'FilterLogEvents' request.
 --
@@ -346,6 +354,8 @@ instance FromJSON FilteredLogEvent where
                      <*> (x .:? "timestamp")
                      <*> (x .:? "eventId"))
 
+instance Hashable FilteredLogEvent
+
 -- | A log event is a record of some activity that was recorded by the
 -- application or resource being monitored. The log event record that
 -- CloudWatch Logs understands contains two properties: the timestamp of
@@ -381,6 +391,8 @@ ileTimestamp = lens _ileTimestamp (\ s a -> s{_ileTimestamp = a}) . _Nat;
 -- | Undocumented member.
 ileMessage :: Lens' InputLogEvent Text
 ileMessage = lens _ileMessage (\ s a -> s{_ileMessage = a});
+
+instance Hashable InputLogEvent
 
 instance ToJSON InputLogEvent where
         toJSON InputLogEvent'{..}
@@ -461,6 +473,8 @@ instance FromJSON LogGroup where
                      <*> (x .:? "logGroupName")
                      <*> (x .:? "retentionInDays")
                      <*> (x .:? "storedBytes"))
+
+instance Hashable LogGroup
 
 -- | A log stream is sequence of log events from a single emitter of logs.
 --
@@ -555,6 +569,8 @@ instance FromJSON LogStream where
                      <*> (x .:? "lastIngestionTime")
                      <*> (x .:? "lastEventTimestamp"))
 
+instance Hashable LogStream
+
 -- | Metric filters can be used to express how CloudWatch Logs would extract
 -- metric observations from ingested log events and transform them to
 -- metric data in a CloudWatch metric.
@@ -613,6 +629,8 @@ instance FromJSON MetricFilter where
                      (x .:? "filterPattern")
                      <*> (x .:? "metricTransformations"))
 
+instance Hashable MetricFilter
+
 -- | /See:/ 'metricFilterMatchRecord' smart constructor.
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
     { _mfmrExtractedValues :: !(Maybe (Map Text Text))
@@ -658,6 +676,8 @@ instance FromJSON MetricFilterMatchRecord where
                    (x .:? "extractedValues" .!= mempty) <*>
                      (x .:? "eventNumber")
                      <*> (x .:? "eventMessage"))
+
+instance Hashable MetricFilterMatchRecord
 
 -- | /See:/ 'metricTransformation' smart constructor.
 data MetricTransformation = MetricTransformation'
@@ -706,6 +726,8 @@ instance FromJSON MetricTransformation where
                  MetricTransformation' <$>
                    (x .: "metricName") <*> (x .: "metricNamespace") <*>
                      (x .: "metricValue"))
+
+instance Hashable MetricTransformation
 
 instance ToJSON MetricTransformation where
         toJSON MetricTransformation'{..}
@@ -760,6 +782,8 @@ instance FromJSON OutputLogEvent where
                    (x .:? "ingestionTime") <*> (x .:? "message") <*>
                      (x .:? "timestamp"))
 
+instance Hashable OutputLogEvent
+
 -- | /See:/ 'rejectedLogEventsInfo' smart constructor.
 data RejectedLogEventsInfo = RejectedLogEventsInfo'
     { _rleiTooOldLogEventEndIndex   :: !(Maybe Int)
@@ -806,6 +830,8 @@ instance FromJSON RejectedLogEventsInfo where
                      (x .:? "tooNewLogEventStartIndex")
                      <*> (x .:? "expiredLogEventEndIndex"))
 
+instance Hashable RejectedLogEventsInfo
+
 -- | An object indicating the search status of a log stream in a
 -- 'FilterLogEvents' request.
 --
@@ -846,6 +872,8 @@ instance FromJSON SearchedLogStream where
                  SearchedLogStream' <$>
                    (x .:? "logStreamName") <*>
                      (x .:? "searchedCompletely"))
+
+instance Hashable SearchedLogStream
 
 -- | /See:/ 'subscriptionFilter' smart constructor.
 data SubscriptionFilter = SubscriptionFilter'
@@ -918,3 +946,5 @@ instance FromJSON SubscriptionFilter where
                      <*> (x .:? "logGroupName")
                      <*> (x .:? "filterPattern")
                      <*> (x .:? "roleArn"))
+
+instance Hashable SubscriptionFilter

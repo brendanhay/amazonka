@@ -68,6 +68,8 @@ instance FromJSON AliasListEntry where
                    (x .:? "TargetKeyId") <*> (x .:? "AliasName") <*>
                      (x .:? "AliasArn"))
 
+instance Hashable AliasListEntry
+
 -- | A structure for specifying the conditions under which the operations
 -- permitted by the grant are allowed.
 --
@@ -121,6 +123,8 @@ instance FromJSON GrantConstraints where
                  GrantConstraints' <$>
                    (x .:? "EncryptionContextEquals" .!= mempty) <*>
                      (x .:? "EncryptionContextSubset" .!= mempty))
+
+instance Hashable GrantConstraints
 
 instance ToJSON GrantConstraints where
         toJSON GrantConstraints'{..}
@@ -235,6 +239,8 @@ instance FromJSON GrantListEntry where
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "Operations" .!= mempty))
 
+instance Hashable GrantListEntry
+
 -- | Contains information about each entry in the key list.
 --
 -- /See:/ 'keyListEntry' smart constructor.
@@ -272,6 +278,8 @@ instance FromJSON KeyListEntry where
               (\ x ->
                  KeyListEntry' <$>
                    (x .:? "KeyId") <*> (x .:? "KeyArn"))
+
+instance Hashable KeyListEntry
 
 -- | Contains metadata about a customer master key (CMK).
 --
@@ -389,6 +397,8 @@ instance FromJSON KeyMetadata where
                      <*> (x .:? "Description")
                      <*> (x .: "KeyId"))
 
+instance Hashable KeyMetadata
+
 -- | /See:/ 'listGrantsResponse' smart constructor.
 data ListGrantsResponse = ListGrantsResponse'
     { _lgTruncated  :: !(Maybe Bool)
@@ -436,3 +446,5 @@ instance FromJSON ListGrantsResponse where
                  ListGrantsResponse' <$>
                    (x .:? "Truncated") <*> (x .:? "Grants" .!= mempty)
                      <*> (x .:? "NextMarker"))
+
+instance Hashable ListGrantsResponse

@@ -59,6 +59,8 @@ instance FromJSON Tag where
           = withObject "Tag"
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
+instance Hashable Tag
+
 instance ToJSON Tag where
         toJSON Tag'{..}
           = object

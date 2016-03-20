@@ -79,6 +79,8 @@ instance FromXML ActiveTrustedSigners where
                 <*> (x .@ "Enabled")
                 <*> (x .@ "Quantity")
 
+instance Hashable ActiveTrustedSigners
+
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this distribution.
 --
@@ -119,6 +121,8 @@ instance FromXML Aliases where
               (x .@? "Items" .!@ mempty >>=
                  may (parseXMLList "CNAME"))
                 <*> (x .@ "Quantity")
+
+instance Hashable Aliases
 
 instance ToXML Aliases where
         toXML Aliases'{..}
@@ -183,6 +187,8 @@ instance FromXML AllowedMethods where
           = AllowedMethods' <$>
               (x .@? "CachedMethods") <*> (x .@ "Quantity") <*>
                 (x .@? "Items" .!@ mempty >>= parseXMLList "Method")
+
+instance Hashable AllowedMethods
 
 instance ToXML AllowedMethods where
         toXML AllowedMethods'{..}
@@ -390,6 +396,8 @@ instance FromXML CacheBehavior where
                 <*> (x .@ "ViewerProtocolPolicy")
                 <*> (x .@ "MinTTL")
 
+instance Hashable CacheBehavior
+
 instance ToXML CacheBehavior where
         toXML CacheBehavior'{..}
           = mconcat
@@ -443,6 +451,8 @@ instance FromXML CacheBehaviors where
               (x .@? "Items" .!@ mempty >>=
                  may (parseXMLList "CacheBehavior"))
                 <*> (x .@ "Quantity")
+
+instance Hashable CacheBehaviors
 
 instance ToXML CacheBehaviors where
         toXML CacheBehaviors'{..}
@@ -498,6 +508,8 @@ instance FromXML CachedMethods where
           = CachedMethods' <$>
               (x .@ "Quantity") <*>
                 (x .@? "Items" .!@ mempty >>= parseXMLList "Method")
+
+instance Hashable CachedMethods
 
 instance ToXML CachedMethods where
         toXML CachedMethods'{..}
@@ -555,6 +567,8 @@ instance FromXML CloudFrontOriginAccessIdentity where
                 (x .@ "Id")
                 <*> (x .@ "S3CanonicalUserId")
 
+instance Hashable CloudFrontOriginAccessIdentity
+
 -- | Origin access identity configuration.
 --
 -- /See:/ 'cloudFrontOriginAccessIdentityConfig' smart constructor.
@@ -604,6 +618,9 @@ instance FromXML CloudFrontOriginAccessIdentityConfig
         parseXML x
           = CloudFrontOriginAccessIdentityConfig' <$>
               (x .@ "CallerReference") <*> (x .@ "Comment")
+
+instance Hashable
+         CloudFrontOriginAccessIdentityConfig
 
 instance ToXML CloudFrontOriginAccessIdentityConfig
          where
@@ -701,6 +718,8 @@ instance FromXML CloudFrontOriginAccessIdentityList
                 <*> (x .@ "IsTruncated")
                 <*> (x .@ "Quantity")
 
+instance Hashable CloudFrontOriginAccessIdentityList
+
 -- | Summary of the information about a CloudFront origin access identity.
 --
 -- /See:/ 'cloudFrontOriginAccessIdentitySummary' smart constructor.
@@ -753,6 +772,9 @@ instance FromXML
               (x .@ "Id") <*> (x .@ "S3CanonicalUserId") <*>
                 (x .@ "Comment")
 
+instance Hashable
+         CloudFrontOriginAccessIdentitySummary
+
 -- | A complex type that specifies the whitelisted cookies, if any, that you
 -- want CloudFront to forward to your origin that is associated with this
 -- cache behavior.
@@ -794,6 +816,8 @@ instance FromXML CookieNames where
               (x .@? "Items" .!@ mempty >>=
                  may (parseXMLList "Name"))
                 <*> (x .@ "Quantity")
+
+instance Hashable CookieNames
 
 instance ToXML CookieNames where
         toXML CookieNames'{..}
@@ -843,6 +867,8 @@ instance FromXML CookiePreference where
         parseXML x
           = CookiePreference' <$>
               (x .@? "WhitelistedNames") <*> (x .@ "Forward")
+
+instance Hashable CookiePreference
 
 instance ToXML CookiePreference where
         toXML CookiePreference'{..}
@@ -928,6 +954,8 @@ instance FromXML CustomErrorResponse where
                 <*> (x .@? "ErrorCachingMinTTL")
                 <*> (x .@ "ErrorCode")
 
+instance Hashable CustomErrorResponse
+
 instance ToXML CustomErrorResponse where
         toXML CustomErrorResponse'{..}
           = mconcat
@@ -976,6 +1004,8 @@ instance FromXML CustomErrorResponses where
                  may (parseXMLList "CustomErrorResponse"))
                 <*> (x .@ "Quantity")
 
+instance Hashable CustomErrorResponses
+
 instance ToXML CustomErrorResponses where
         toXML CustomErrorResponses'{..}
           = mconcat
@@ -1022,6 +1052,8 @@ instance FromXML CustomHeaders where
               (x .@? "Items" .!@ mempty >>=
                  may (parseXMLList "OriginCustomHeader"))
                 <*> (x .@ "Quantity")
+
+instance Hashable CustomHeaders
 
 instance ToXML CustomHeaders where
         toXML CustomHeaders'{..}
@@ -1087,6 +1119,8 @@ instance FromXML CustomOriginConfig where
               (x .@? "OriginSslProtocols") <*> (x .@ "HTTPPort")
                 <*> (x .@ "HTTPSPort")
                 <*> (x .@ "OriginProtocolPolicy")
+
+instance Hashable CustomOriginConfig
 
 instance ToXML CustomOriginConfig where
         toXML CustomOriginConfig'{..}
@@ -1266,6 +1300,8 @@ instance FromXML DefaultCacheBehavior where
                 <*> (x .@ "ViewerProtocolPolicy")
                 <*> (x .@ "MinTTL")
 
+instance Hashable DefaultCacheBehavior
+
 instance ToXML DefaultCacheBehavior where
         toXML DefaultCacheBehavior'{..}
           = mconcat
@@ -1377,6 +1413,8 @@ instance FromXML Distribution where
                 <*> (x .@ "DomainName")
                 <*> (x .@ "ActiveTrustedSigners")
                 <*> (x .@ "DistributionConfig")
+
+instance Hashable Distribution
 
 -- | A distribution Configuration.
 --
@@ -1555,6 +1593,8 @@ instance FromXML DistributionConfig where
                 <*> (x .@ "Comment")
                 <*> (x .@ "Enabled")
 
+instance Hashable DistributionConfig
+
 instance ToXML DistributionConfig where
         toXML DistributionConfig'{..}
           = mconcat
@@ -1656,6 +1696,8 @@ instance FromXML DistributionList where
                 <*> (x .@ "MaxItems")
                 <*> (x .@ "IsTruncated")
                 <*> (x .@ "Quantity")
+
+instance Hashable DistributionList
 
 -- | A summary of the information for an Amazon CloudFront distribution.
 --
@@ -1834,6 +1876,8 @@ instance FromXML DistributionSummary where
                 <*> (x .@ "Restrictions")
                 <*> (x .@ "WebACLId")
 
+instance Hashable DistributionSummary
+
 -- | A complex type that specifies how CloudFront handles query strings,
 -- cookies and headers.
 --
@@ -1884,6 +1928,8 @@ instance FromXML ForwardedValues where
           = ForwardedValues' <$>
               (x .@? "Headers") <*> (x .@ "QueryString") <*>
                 (x .@ "Cookies")
+
+instance Hashable ForwardedValues
 
 instance ToXML ForwardedValues where
         toXML ForwardedValues'{..}
@@ -1963,6 +2009,8 @@ instance FromXML GeoRestriction where
                 <*> (x .@ "RestrictionType")
                 <*> (x .@ "Quantity")
 
+instance Hashable GeoRestriction
+
 instance ToXML GeoRestriction where
         toXML GeoRestriction'{..}
           = mconcat
@@ -2025,6 +2073,8 @@ instance FromXML Headers where
               (x .@? "Items" .!@ mempty >>=
                  may (parseXMLList "Name"))
                 <*> (x .@ "Quantity")
+
+instance Hashable Headers
 
 instance ToXML Headers where
         toXML Headers'{..}
@@ -2092,6 +2142,8 @@ instance FromXML Invalidation where
                 (x .@ "CreateTime")
                 <*> (x .@ "InvalidationBatch")
 
+instance Hashable Invalidation
+
 -- | An invalidation batch.
 --
 -- /See:/ 'invalidationBatch' smart constructor.
@@ -2144,6 +2196,8 @@ instance FromXML InvalidationBatch where
         parseXML x
           = InvalidationBatch' <$>
               (x .@ "Paths") <*> (x .@ "CallerReference")
+
+instance Hashable InvalidationBatch
 
 instance ToXML InvalidationBatch where
         toXML InvalidationBatch'{..}
@@ -2236,6 +2290,8 @@ instance FromXML InvalidationList where
                 <*> (x .@ "IsTruncated")
                 <*> (x .@ "Quantity")
 
+instance Hashable InvalidationList
+
 -- | Summary of an invalidation request.
 --
 -- /See:/ 'invalidationSummary' smart constructor.
@@ -2284,6 +2340,8 @@ instance FromXML InvalidationSummary where
               (x .@ "Id") <*> (x .@ "CreateTime") <*>
                 (x .@ "Status")
 
+instance Hashable InvalidationSummary
+
 -- | A complex type that lists the active CloudFront key pairs, if any, that
 -- are associated with AwsAccountNumber.
 --
@@ -2324,6 +2382,8 @@ instance FromXML KeyPairIds where
               (x .@? "Items" .!@ mempty >>=
                  may (parseXMLList "KeyPairId"))
                 <*> (x .@ "Quantity")
+
+instance Hashable KeyPairIds
 
 -- | A complex type that controls whether access logs are written for the
 -- distribution.
@@ -2398,6 +2458,8 @@ instance FromXML LoggingConfig where
               (x .@ "Enabled") <*> (x .@ "IncludeCookies") <*>
                 (x .@ "Bucket")
                 <*> (x .@ "Prefix")
+
+instance Hashable LoggingConfig
 
 instance ToXML LoggingConfig where
         toXML LoggingConfig'{..}
@@ -2498,6 +2560,8 @@ instance FromXML Origin where
                 <*> (x .@ "Id")
                 <*> (x .@ "DomainName")
 
+instance Hashable Origin
+
 instance ToXML Origin where
         toXML Origin'{..}
           = mconcat
@@ -2544,6 +2608,8 @@ instance FromXML OriginCustomHeader where
         parseXML x
           = OriginCustomHeader' <$>
               (x .@ "HeaderName") <*> (x .@ "HeaderValue")
+
+instance Hashable OriginCustomHeader
 
 instance ToXML OriginCustomHeader where
         toXML OriginCustomHeader'{..}
@@ -2594,6 +2660,8 @@ instance FromXML OriginSSLProtocols where
                 (x .@? "Items" .!@ mempty >>=
                    parseXMLList "SslProtocol")
 
+instance Hashable OriginSSLProtocols
+
 instance ToXML OriginSSLProtocols where
         toXML OriginSSLProtocols'{..}
           = mconcat
@@ -2639,6 +2707,8 @@ instance FromXML Origins where
               (x .@? "Items" .!@ mempty >>=
                  may (parseXMLList1 "Origin"))
                 <*> (x .@ "Quantity")
+
+instance Hashable Origins
 
 instance ToXML Origins where
         toXML Origins'{..}
@@ -2687,6 +2757,8 @@ instance FromXML Paths where
                  may (parseXMLList "Path"))
                 <*> (x .@ "Quantity")
 
+instance Hashable Paths
+
 instance ToXML Paths where
         toXML Paths'{..}
           = mconcat
@@ -2721,6 +2793,8 @@ rGeoRestriction = lens _rGeoRestriction (\ s a -> s{_rGeoRestriction = a});
 instance FromXML Restrictions where
         parseXML x
           = Restrictions' <$> (x .@ "GeoRestriction")
+
+instance Hashable Restrictions
 
 instance ToXML Restrictions where
         toXML Restrictions'{..}
@@ -2764,6 +2838,8 @@ instance FromXML S3Origin where
         parseXML x
           = S3Origin' <$>
               (x .@ "DomainName") <*> (x .@ "OriginAccessIdentity")
+
+instance Hashable S3Origin
 
 instance ToXML S3Origin where
         toXML S3Origin'{..}
@@ -2812,6 +2888,8 @@ instance FromXML S3OriginConfig where
         parseXML x
           = S3OriginConfig' <$> (x .@ "OriginAccessIdentity")
 
+instance Hashable S3OriginConfig
+
 instance ToXML S3OriginConfig where
         toXML S3OriginConfig'{..}
           = mconcat
@@ -2858,6 +2936,8 @@ instance FromXML Signer where
         parseXML x
           = Signer' <$>
               (x .@? "AwsAccountNumber") <*> (x .@? "KeyPairIds")
+
+instance Hashable Signer
 
 -- | A streaming distribution.
 --
@@ -2947,6 +3027,8 @@ instance FromXML StreamingDistribution where
                 <*> (x .@ "DomainName")
                 <*> (x .@ "ActiveTrustedSigners")
                 <*> (x .@ "StreamingDistributionConfig")
+
+instance Hashable StreamingDistribution
 
 -- | The configuration for the streaming distribution.
 --
@@ -3069,6 +3151,8 @@ instance FromXML StreamingDistributionConfig where
                 <*> (x .@ "TrustedSigners")
                 <*> (x .@ "Enabled")
 
+instance Hashable StreamingDistributionConfig
+
 instance ToXML StreamingDistributionConfig where
         toXML StreamingDistributionConfig'{..}
           = mconcat
@@ -3164,6 +3248,8 @@ instance FromXML StreamingDistributionList where
                 <*> (x .@ "MaxItems")
                 <*> (x .@ "IsTruncated")
                 <*> (x .@ "Quantity")
+
+instance Hashable StreamingDistributionList
 
 -- | A summary of the information for an Amazon CloudFront streaming
 -- distribution.
@@ -3301,6 +3387,8 @@ instance FromXML StreamingDistributionSummary where
                 <*> (x .@ "PriceClass")
                 <*> (x .@ "Enabled")
 
+instance Hashable StreamingDistributionSummary
+
 -- | A complex type that controls whether access logs are written for this
 -- streaming distribution.
 --
@@ -3359,6 +3447,8 @@ instance FromXML StreamingLoggingConfig where
           = StreamingLoggingConfig' <$>
               (x .@ "Enabled") <*> (x .@ "Bucket") <*>
                 (x .@ "Prefix")
+
+instance Hashable StreamingLoggingConfig
 
 instance ToXML StreamingLoggingConfig where
         toXML StreamingLoggingConfig'{..}
@@ -3427,6 +3517,8 @@ instance FromXML TrustedSigners where
                  may (parseXMLList "AwsAccountNumber"))
                 <*> (x .@ "Enabled")
                 <*> (x .@ "Quantity")
+
+instance Hashable TrustedSigners
 
 instance ToXML TrustedSigners where
         toXML TrustedSigners'{..}
@@ -3551,6 +3643,8 @@ instance FromXML ViewerCertificate where
                 <*> (x .@? "Certificate")
                 <*> (x .@? "IAMCertificateId")
                 <*> (x .@? "CloudFrontDefaultCertificate")
+
+instance Hashable ViewerCertificate
 
 instance ToXML ViewerCertificate where
         toXML ViewerCertificate'{..}

@@ -69,6 +69,8 @@ instance FromJSON AccountQuota where
                    (x .:? "Max") <*> (x .:? "Used") <*>
                      (x .:? "AccountQuotaName"))
 
+instance Hashable AccountQuota
+
 -- | /See:/ 'availabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
     { _azName :: Maybe Text
@@ -94,6 +96,8 @@ instance FromJSON AvailabilityZone where
         parseJSON
           = withObject "AvailabilityZone"
               (\ x -> AvailabilityZone' <$> (x .:? "Name"))
+
+instance Hashable AvailabilityZone
 
 -- | /See:/ 'connection' smart constructor.
 data Connection = Connection'
@@ -170,6 +174,8 @@ instance FromJSON Connection where
                      <*> (x .:? "ReplicationInstanceIdentifier")
                      <*> (x .:? "EndpointArn")
                      <*> (x .:? "LastFailureMessage"))
+
+instance Hashable Connection
 
 -- | /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
@@ -295,6 +301,8 @@ instance FromJSON Endpoint where
                      <*> (x .:? "EndpointArn")
                      <*> (x .:? "Port"))
 
+instance Hashable Endpoint
+
 -- | /See:/ 'filter'' smart constructor.
 data Filter = Filter'
     { _fName   :: !Text
@@ -324,6 +332,8 @@ fName = lens _fName (\ s a -> s{_fName = a});
 -- | The filter value.
 fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Coerce;
+
+instance Hashable Filter
 
 instance ToJSON Filter where
         toJSON Filter'{..}
@@ -421,6 +431,8 @@ instance FromJSON OrderableReplicationInstance where
                      <*> (x .:? "DefaultAllocatedStorage")
                      <*> (x .:? "StorageType"))
 
+instance Hashable OrderableReplicationInstance
+
 -- | /See:/ 'refreshSchemasStatus' smart constructor.
 data RefreshSchemasStatus = RefreshSchemasStatus'
     { _rssStatus                 :: !(Maybe RefreshSchemasStatusTypeValue)
@@ -484,6 +496,8 @@ instance FromJSON RefreshSchemasStatus where
                      (x .:? "ReplicationInstanceArn")
                      <*> (x .:? "EndpointArn")
                      <*> (x .:? "LastFailureMessage"))
+
+instance Hashable RefreshSchemasStatus
 
 -- | /See:/ 'replicationInstance' smart constructor.
 data ReplicationInstance = ReplicationInstance'
@@ -669,6 +683,8 @@ instance FromJSON ReplicationInstance where
                      <*> (x .:? "ReplicationInstanceIdentifier")
                      <*> (x .:? "PendingModifiedValues"))
 
+instance Hashable ReplicationInstance
+
 -- | /See:/ 'replicationPendingModifiedValues' smart constructor.
 data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
     { _rpmvEngineVersion            :: !(Maybe Text)
@@ -719,6 +735,8 @@ instance FromJSON ReplicationPendingModifiedValues
                    (x .:? "EngineVersion") <*>
                      (x .:? "AllocatedStorage")
                      <*> (x .:? "ReplicationInstanceClass"))
+
+instance Hashable ReplicationPendingModifiedValues
 
 -- | /See:/ 'replicationSubnetGroup' smart constructor.
 data ReplicationSubnetGroup = ReplicationSubnetGroup'
@@ -782,6 +800,8 @@ instance FromJSON ReplicationSubnetGroup where
                      (x .:? "ReplicationSubnetGroupIdentifier")
                      <*> (x .:? "SubnetGroupStatus")
                      <*> (x .:? "ReplicationSubnetGroupDescription"))
+
+instance Hashable ReplicationSubnetGroup
 
 -- | /See:/ 'replicationTask' smart constructor.
 data ReplicationTask = ReplicationTask'
@@ -928,6 +948,8 @@ instance FromJSON ReplicationTask where
                      <*> (x .:? "ReplicationInstanceArn")
                      <*> (x .:? "LastFailureMessage"))
 
+instance Hashable ReplicationTask
+
 -- | /See:/ 'replicationTaskStats' smart constructor.
 data ReplicationTaskStats = ReplicationTaskStats'
     { _rtsFullLoadProgressPercent :: !(Maybe Int)
@@ -1001,6 +1023,8 @@ instance FromJSON ReplicationTaskStats where
                      <*> (x .:? "TablesQueued")
                      <*> (x .:? "TablesLoading"))
 
+instance Hashable ReplicationTaskStats
+
 -- | /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
     { _sSubnetStatus           :: !(Maybe Text)
@@ -1046,6 +1070,8 @@ instance FromJSON Subnet where
                    (x .:? "SubnetStatus") <*> (x .:? "SubnetIdentifier")
                      <*> (x .:? "SubnetAvailabilityZone"))
 
+instance Hashable Subnet
+
 -- | /See:/ 'supportedEndpointType' smart constructor.
 data SupportedEndpointType = SupportedEndpointType'
     { _setEndpointType :: !(Maybe ReplicationEndpointTypeValue)
@@ -1090,6 +1116,8 @@ instance FromJSON SupportedEndpointType where
                  SupportedEndpointType' <$>
                    (x .:? "EndpointType") <*> (x .:? "EngineName") <*>
                      (x .:? "SupportsCDC"))
+
+instance Hashable SupportedEndpointType
 
 -- | /See:/ 'tableStatistics' smart constructor.
 data TableStatistics = TableStatistics'
@@ -1191,6 +1219,8 @@ instance FromJSON TableStatistics where
                      <*> (x .:? "LastUpdateTime")
                      <*> (x .:? "TableName"))
 
+instance Hashable TableStatistics
+
 -- | /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
@@ -1232,6 +1262,8 @@ instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
+
+instance Hashable Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}

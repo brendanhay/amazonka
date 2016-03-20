@@ -77,6 +77,8 @@ instance FromJSON Compliance where
                    (x .:? "ComplianceContributorCount") <*>
                      (x .:? "ComplianceType"))
 
+instance Hashable Compliance
+
 -- | Indicates whether an AWS Config rule is compliant. A rule is compliant
 -- if all of the resources that the rule evaluated comply with it, and it
 -- is noncompliant if any of these resources do not comply.
@@ -116,6 +118,8 @@ instance FromJSON ComplianceByConfigRule where
               (\ x ->
                  ComplianceByConfigRule' <$>
                    (x .:? "Compliance") <*> (x .:? "ConfigRuleName"))
+
+instance Hashable ComplianceByConfigRule
 
 -- | Indicates whether an AWS resource that is evaluated according to one or
 -- more AWS Config rules is compliant. A resource is compliant if it
@@ -168,6 +172,8 @@ instance FromJSON ComplianceByResource where
                    (x .:? "ResourceId") <*> (x .:? "ResourceType") <*>
                      (x .:? "Compliance"))
 
+instance Hashable ComplianceByResource
+
 -- | The number of AWS resources or AWS Config rules responsible for the
 -- current compliance of the item, up to a maximum number.
 --
@@ -207,6 +213,8 @@ instance FromJSON ComplianceContributorCount where
               (\ x ->
                  ComplianceContributorCount' <$>
                    (x .:? "CappedCount") <*> (x .:? "CapExceeded"))
+
+instance Hashable ComplianceContributorCount
 
 -- | The number of AWS Config rules or AWS resources that are compliant and
 -- noncompliant, up to a maximum.
@@ -259,6 +267,8 @@ instance FromJSON ComplianceSummary where
                      (x .:? "CompliantResourceCount")
                      <*> (x .:? "NonCompliantResourceCount"))
 
+instance Hashable ComplianceSummary
+
 -- | The number of AWS resources of a specific type that are compliant or
 -- noncompliant, up to a maximum of 100 for each compliance.
 --
@@ -300,6 +310,8 @@ instance FromJSON ComplianceSummaryByResourceType
                  ComplianceSummaryByResourceType' <$>
                    (x .:? "ResourceType") <*>
                      (x .:? "ComplianceSummary"))
+
+instance Hashable ComplianceSummaryByResourceType
 
 -- | A list that contains the status of the delivery of either the snapshot
 -- or the configuration history to the specified Amazon S3 bucket.
@@ -375,6 +387,8 @@ instance FromJSON ConfigExportDeliveryInfo where
                      <*> (x .:? "lastStatus")
                      <*> (x .:? "lastErrorMessage")
                      <*> (x .:? "nextDeliveryTime"))
+
+instance Hashable ConfigExportDeliveryInfo
 
 -- | An AWS Lambda function that evaluates configuration items to assess
 -- whether your AWS resources comply with your desired configurations. This
@@ -512,6 +526,8 @@ instance FromJSON ConfigRule where
                      <*> (x .:? "Description")
                      <*> (x .:? "ConfigRuleArn")
                      <*> (x .: "Source"))
+
+instance Hashable ConfigRule
 
 instance ToJSON ConfigRule where
         toJSON ConfigRule'{..}
@@ -663,6 +679,8 @@ instance FromJSON ConfigRuleEvaluationStatus where
                      <*> (x .:? "LastSuccessfulInvocationTime")
                      <*> (x .:? "ConfigRuleArn"))
 
+instance Hashable ConfigRuleEvaluationStatus
+
 -- | Options for how AWS Config delivers configuration snapshots to the
 -- Amazon S3 bucket in your delivery channel.
 --
@@ -695,6 +713,8 @@ instance FromJSON ConfigSnapshotDeliveryProperties
               (\ x ->
                  ConfigSnapshotDeliveryProperties' <$>
                    (x .:? "deliveryFrequency"))
+
+instance Hashable ConfigSnapshotDeliveryProperties
 
 instance ToJSON ConfigSnapshotDeliveryProperties
          where
@@ -766,6 +786,8 @@ instance FromJSON ConfigStreamDeliveryInfo where
                      (x .:? "lastStatusChangeTime")
                      <*> (x .:? "lastStatus")
                      <*> (x .:? "lastErrorMessage"))
+
+instance Hashable ConfigStreamDeliveryInfo
 
 -- | A list that contains detailed configurations of a specified resource.
 --
@@ -955,6 +977,8 @@ instance FromJSON ConfigurationItem where
                      <*> (x .:? "configurationItemMD5Hash")
                      <*> (x .:? "tags" .!= mempty))
 
+instance Hashable ConfigurationItem
+
 -- | An object that represents the recording of configuration changes of an
 -- AWS resource.
 --
@@ -1006,6 +1030,8 @@ instance FromJSON ConfigurationRecorder where
                  ConfigurationRecorder' <$>
                    (x .:? "name") <*> (x .:? "recordingGroup") <*>
                      (x .:? "roleARN"))
+
+instance Hashable ConfigurationRecorder
 
 instance ToJSON ConfigurationRecorder where
         toJSON ConfigurationRecorder'{..}
@@ -1107,6 +1133,8 @@ instance FromJSON ConfigurationRecorderStatus where
                      <*> (x .:? "name")
                      <*> (x .:? "lastStartTime"))
 
+instance Hashable ConfigurationRecorderStatus
+
 -- | A logical container used for storing the configuration changes of an AWS
 -- resource.
 --
@@ -1176,6 +1204,8 @@ instance FromJSON DeliveryChannel where
                      (x .:? "name")
                      <*> (x .:? "configSnapshotDeliveryProperties")
                      <*> (x .:? "s3BucketName"))
+
+instance Hashable DeliveryChannel
 
 instance ToJSON DeliveryChannel where
         toJSON DeliveryChannel'{..}
@@ -1249,6 +1279,8 @@ instance FromJSON DeliveryChannelStatus where
                      (x .:? "configStreamDeliveryInfo")
                      <*> (x .:? "configHistoryDeliveryInfo")
                      <*> (x .:? "name"))
+
+instance Hashable DeliveryChannelStatus
 
 -- | Identifies an AWS resource and indicates whether it complies with the
 -- AWS Config rule that it was evaluated against.
@@ -1335,6 +1367,8 @@ instance FromJSON Evaluation where
                      <*> (x .: "ComplianceResourceId")
                      <*> (x .: "ComplianceType")
                      <*> (x .: "OrderingTimestamp"))
+
+instance Hashable Evaluation
 
 instance ToJSON Evaluation where
         toJSON Evaluation'{..}
@@ -1435,6 +1469,8 @@ instance FromJSON EvaluationResult where
                      <*> (x .:? "ResultToken")
                      <*> (x .:? "ComplianceType"))
 
+instance Hashable EvaluationResult
+
 -- | Uniquely identifies an evaluation result.
 --
 -- /See:/ 'evaluationResultIdentifier' smart constructor.
@@ -1478,6 +1514,8 @@ instance FromJSON EvaluationResultIdentifier where
                  EvaluationResultIdentifier' <$>
                    (x .:? "EvaluationResultQualifier") <*>
                      (x .:? "OrderingTimestamp"))
+
+instance Hashable EvaluationResultIdentifier
 
 -- | Identifies an AWS Config rule that evaluated an AWS resource, and
 -- provides the type and ID of the resource that the rule evaluated.
@@ -1526,6 +1564,8 @@ instance FromJSON EvaluationResultQualifier where
                  EvaluationResultQualifier' <$>
                    (x .:? "ResourceId") <*> (x .:? "ResourceType") <*>
                      (x .:? "ConfigRuleName"))
+
+instance Hashable EvaluationResultQualifier
 
 -- | Specifies the types of AWS resource for which AWS Config records
 -- configuration changes.
@@ -1642,6 +1682,8 @@ instance FromJSON RecordingGroup where
                      (x .:? "includeGlobalResourceTypes")
                      <*> (x .:? "resourceTypes" .!= mempty))
 
+instance Hashable RecordingGroup
+
 instance ToJSON RecordingGroup where
         toJSON RecordingGroup'{..}
           = object
@@ -1707,6 +1749,8 @@ instance FromJSON Relationship where
                      (x .:? "resourceName")
                      <*> (x .:? "relationshipName"))
 
+instance Hashable Relationship
+
 -- | The details that identify a resource that is discovered by AWS Config,
 -- including the resource type, ID, and (if available) the custom resource
 -- name.
@@ -1764,6 +1808,8 @@ instance FromJSON ResourceIdentifier where
                    (x .:? "resourceId") <*> (x .:? "resourceType") <*>
                      (x .:? "resourceName")
                      <*> (x .:? "resourceDeletionTime"))
+
+instance Hashable ResourceIdentifier
 
 -- | Defines which resources trigger an evaluation for an AWS Config rule.
 -- The scope can include one or more resource types, a combination of a tag
@@ -1834,6 +1880,8 @@ instance FromJSON Scope where
                      <*> (x .:? "TagValue")
                      <*> (x .:? "TagKey"))
 
+instance Hashable Scope
+
 instance ToJSON Scope where
         toJSON Scope'{..}
           = object
@@ -1901,6 +1949,8 @@ instance FromJSON Source where
                    (x .:? "SourceIdentifier") <*> (x .:? "Owner") <*>
                      (x .:? "SourceDetails" .!= mempty))
 
+instance Hashable Source
+
 instance ToJSON Source where
         toJSON Source'{..}
           = object
@@ -1953,6 +2003,8 @@ instance FromJSON SourceDetail where
               (\ x ->
                  SourceDetail' <$>
                    (x .:? "MessageType") <*> (x .:? "EventSource"))
+
+instance Hashable SourceDetail
 
 instance ToJSON SourceDetail where
         toJSON SourceDetail'{..}

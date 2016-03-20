@@ -78,6 +78,8 @@ instance FromJSON ApplicationInfo where
                      <*> (x .:? "applicationName")
                      <*> (x .:? "createTime"))
 
+instance Hashable ApplicationInfo
+
 -- | Information about an Auto Scaling group.
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
@@ -115,6 +117,8 @@ instance FromJSON AutoScalingGroup where
               (\ x ->
                  AutoScalingGroup' <$>
                    (x .:? "hook") <*> (x .:? "name"))
+
+instance Hashable AutoScalingGroup
 
 -- | Information about a deployment configuration.
 --
@@ -172,6 +176,8 @@ instance FromJSON DeploymentConfigInfo where
                      (x .:? "minimumHealthyHosts")
                      <*> (x .:? "deploymentConfigId")
                      <*> (x .:? "createTime"))
+
+instance Hashable DeploymentConfigInfo
 
 -- | Information about a deployment group.
 --
@@ -284,6 +290,8 @@ instance FromJSON DeploymentGroupInfo where
                      <*> (x .:? "deploymentGroupId")
                      <*> (x .:? "autoScalingGroups" .!= mempty)
                      <*> (x .:? "deploymentGroupName"))
+
+instance Hashable DeploymentGroupInfo
 
 -- | Information about a deployment.
 --
@@ -448,6 +456,8 @@ instance FromJSON DeploymentInfo where
                      <*> (x .:? "deploymentGroupName")
                      <*> (x .:? "ignoreApplicationStopFailures"))
 
+instance Hashable DeploymentInfo
+
 -- | Information about the deployment status of the instances in the
 -- deployment.
 --
@@ -514,6 +524,8 @@ instance FromJSON DeploymentOverview where
                      (x .:? "InProgress")
                      <*> (x .:? "Succeeded")
                      <*> (x .:? "Failed"))
+
+instance Hashable DeploymentOverview
 
 -- | Diagnostic information about executable scripts that are part of a
 -- deployment.
@@ -586,6 +598,8 @@ instance FromJSON Diagnostics where
                      (x .:? "scriptName")
                      <*> (x .:? "message"))
 
+instance Hashable Diagnostics
+
 -- | Information about a tag filter.
 --
 -- /See:/ 'ec2TagFilter' smart constructor.
@@ -635,6 +649,8 @@ instance FromJSON EC2TagFilter where
               (\ x ->
                  EC2TagFilter' <$>
                    (x .:? "Value") <*> (x .:? "Key") <*> (x .:? "Type"))
+
+instance Hashable EC2TagFilter
 
 instance ToJSON EC2TagFilter where
         toJSON EC2TagFilter'{..}
@@ -708,6 +724,8 @@ instance FromJSON ErrorInformation where
                  ErrorInformation' <$>
                    (x .:? "code") <*> (x .:? "message"))
 
+instance Hashable ErrorInformation
+
 -- | Information about an application revision.
 --
 -- /See:/ 'genericRevisionInfo' smart constructor.
@@ -773,6 +791,8 @@ instance FromJSON GenericRevisionInfo where
                      <*> (x .:? "lastUsedTime")
                      <*> (x .:? "description"))
 
+instance Hashable GenericRevisionInfo
+
 -- | Information about the location of application artifacts stored in
 -- GitHub.
 --
@@ -816,6 +836,8 @@ instance FromJSON GitHubLocation where
               (\ x ->
                  GitHubLocation' <$>
                    (x .:? "commitId") <*> (x .:? "repository"))
+
+instance Hashable GitHubLocation
 
 instance ToJSON GitHubLocation where
         toJSON GitHubLocation'{..}
@@ -899,6 +921,8 @@ instance FromJSON InstanceInfo where
                      <*> (x .:? "instanceName")
                      <*> (x .:? "tags" .!= mempty))
 
+instance Hashable InstanceInfo
+
 -- | Information about an instance in a deployment.
 --
 -- /See:/ 'instanceSummary' smart constructor.
@@ -970,6 +994,8 @@ instance FromJSON InstanceSummary where
                      (x .:? "deploymentId")
                      <*> (x .:? "lastUpdatedAt")
                      <*> (x .:? "lifecycleEvents" .!= mempty))
+
+instance Hashable InstanceSummary
 
 -- | Information about a deployment lifecycle event.
 --
@@ -1044,6 +1070,8 @@ instance FromJSON LifecycleEvent where
                      <*> (x .:? "diagnostics")
                      <*> (x .:? "endTime"))
 
+instance Hashable LifecycleEvent
+
 -- | Information about minimum healthy instance.
 --
 -- /See:/ 'minimumHealthyHosts' smart constructor.
@@ -1106,6 +1134,8 @@ instance FromJSON MinimumHealthyHosts where
                  MinimumHealthyHosts' <$>
                    (x .:? "value") <*> (x .:? "type"))
 
+instance Hashable MinimumHealthyHosts
+
 instance ToJSON MinimumHealthyHosts where
         toJSON MinimumHealthyHosts'{..}
           = object
@@ -1151,6 +1181,8 @@ instance FromJSON RevisionInfo where
                  RevisionInfo' <$>
                    (x .:? "genericRevisionInfo") <*>
                      (x .:? "revisionLocation"))
+
+instance Hashable RevisionInfo
 
 -- | Information about the location of an application revision.
 --
@@ -1201,6 +1233,8 @@ instance FromJSON RevisionLocation where
                  RevisionLocation' <$>
                    (x .:? "revisionType") <*> (x .:? "s3Location") <*>
                      (x .:? "gitHubLocation"))
+
+instance Hashable RevisionLocation
 
 instance ToJSON RevisionLocation where
         toJSON RevisionLocation'{..}
@@ -1290,6 +1324,8 @@ instance FromJSON S3Location where
                      <*> (x .:? "key")
                      <*> (x .:? "version"))
 
+instance Hashable S3Location
+
 instance ToJSON S3Location where
         toJSON S3Location'{..}
           = object
@@ -1334,6 +1370,8 @@ instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
+
+instance Hashable Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -1391,6 +1429,8 @@ instance FromJSON TagFilter where
                  TagFilter' <$>
                    (x .:? "Value") <*> (x .:? "Key") <*> (x .:? "Type"))
 
+instance Hashable TagFilter
+
 instance ToJSON TagFilter where
         toJSON TagFilter'{..}
           = object
@@ -1432,6 +1472,8 @@ trStart = lens _trStart (\ s a -> s{_trStart = a}) . mapping _Time;
 -- Specify null to leave the end time open-ended.
 trEnd :: Lens' TimeRange (Maybe UTCTime)
 trEnd = lens _trEnd (\ s a -> s{_trEnd = a}) . mapping _Time;
+
+instance Hashable TimeRange
 
 instance ToJSON TimeRange where
         toJSON TimeRange'{..}
@@ -1497,6 +1539,8 @@ instance FromJSON TriggerConfig where
                    (x .:? "triggerName") <*>
                      (x .:? "triggerEvents" .!= mempty)
                      <*> (x .:? "triggerTargetArn"))
+
+instance Hashable TriggerConfig
 
 instance ToJSON TriggerConfig where
         toJSON TriggerConfig'{..}

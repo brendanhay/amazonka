@@ -59,6 +59,8 @@ instance FromXML AccountAttribute where
                  may (parseXMLList "item"))
                 <*> (x .@? "attributeName")
 
+instance Hashable AccountAttribute
+
 -- | Describes a value of an account attribute.
 --
 -- /See:/ 'accountAttributeValue' smart constructor.
@@ -85,6 +87,8 @@ aavAttributeValue = lens _aavAttributeValue (\ s a -> s{_aavAttributeValue = a})
 instance FromXML AccountAttributeValue where
         parseXML x
           = AccountAttributeValue' <$> (x .@? "attributeValue")
+
+instance Hashable AccountAttributeValue
 
 -- | Describes a running instance in a Spot fleet.
 --
@@ -130,6 +134,8 @@ instance FromXML ActiveInstance where
           = ActiveInstance' <$>
               (x .@? "instanceId") <*> (x .@? "instanceType") <*>
                 (x .@? "spotInstanceRequestId")
+
+instance Hashable ActiveInstance
 
 -- | Describes an Elastic IP address.
 --
@@ -223,6 +229,8 @@ instance FromXML Address where
                 <*> (x .@? "privateIpAddress")
                 <*> (x .@? "publicIp")
 
+instance Hashable Address
+
 -- | The value to use when a resource attribute accepts a Boolean value.
 --
 -- /See:/ 'attributeBooleanValue' smart constructor.
@@ -249,6 +257,8 @@ abvValue = lens _abvValue (\ s a -> s{_abvValue = a});
 instance FromXML AttributeBooleanValue where
         parseXML x
           = AttributeBooleanValue' <$> (x .@? "value")
+
+instance Hashable AttributeBooleanValue
 
 instance ToQuery AttributeBooleanValue where
         toQuery AttributeBooleanValue'{..}
@@ -279,6 +289,8 @@ avValue = lens _avValue (\ s a -> s{_avValue = a});
 
 instance FromXML AttributeValue where
         parseXML x = AttributeValue' <$> (x .@? "value")
+
+instance Hashable AttributeValue
 
 instance ToQuery AttributeValue where
         toQuery AttributeValue'{..}
@@ -340,6 +352,8 @@ instance FromXML AvailabilityZone where
                 (x .@? "messageSet" .!@ mempty >>=
                    may (parseXMLList "item"))
 
+instance Hashable AvailabilityZone
+
 -- | Describes a message about an Availability Zone.
 --
 -- /See:/ 'availabilityZoneMessage' smart constructor.
@@ -366,6 +380,8 @@ azmMessage = lens _azmMessage (\ s a -> s{_azmMessage = a});
 instance FromXML AvailabilityZoneMessage where
         parseXML x
           = AvailabilityZoneMessage' <$> (x .@? "message")
+
+instance Hashable AvailabilityZoneMessage
 
 -- | The capacity information for instances launched onto the Dedicated host.
 --
@@ -405,6 +421,8 @@ instance FromXML AvailableCapacity where
                  may (parseXMLList "item"))
                 <*> (x .@? "availableVCpus")
 
+instance Hashable AvailableCapacity
+
 -- | /See:/ 'blobAttributeValue' smart constructor.
 newtype BlobAttributeValue = BlobAttributeValue'
     { _bavValue :: Maybe Base64
@@ -431,6 +449,8 @@ blobAttributeValue =
 -- This 'Lens' accepts and returns only raw unencoded data.
 bavValue :: Lens' BlobAttributeValue (Maybe ByteString)
 bavValue = lens _bavValue (\ s a -> s{_bavValue = a}) . mapping _Base64;
+
+instance Hashable BlobAttributeValue
 
 instance ToQuery BlobAttributeValue where
         toQuery BlobAttributeValue'{..}
@@ -502,6 +522,8 @@ instance FromXML BlockDeviceMapping where
               (x .@? "virtualName") <*> (x .@? "noDevice") <*>
                 (x .@? "ebs")
                 <*> (x .@ "deviceName")
+
+instance Hashable BlockDeviceMapping
 
 instance ToQuery BlockDeviceMapping where
         toQuery BlockDeviceMapping'{..}
@@ -607,6 +629,8 @@ instance FromXML BundleTask where
                 <*> (x .@ "storage")
                 <*> (x .@ "updateTime")
 
+instance Hashable BundleTask
+
 -- | Describes an error for < BundleInstance>.
 --
 -- /See:/ 'bundleTaskError' smart constructor.
@@ -642,6 +666,8 @@ instance FromXML BundleTaskError where
         parseXML x
           = BundleTaskError' <$>
               (x .@? "code") <*> (x .@? "message")
+
+instance Hashable BundleTaskError
 
 -- | Describes a Spot fleet error.
 --
@@ -681,6 +707,8 @@ instance FromXML CancelSpotFleetRequestsError where
           = CancelSpotFleetRequestsError' <$>
               (x .@ "code") <*> (x .@ "message")
 
+instance Hashable CancelSpotFleetRequestsError
+
 -- | Describes a Spot fleet request that was not successfully canceled.
 --
 -- /See:/ 'cancelSpotFleetRequestsErrorItem' smart constructor.
@@ -719,6 +747,8 @@ instance FromXML CancelSpotFleetRequestsErrorItem
         parseXML x
           = CancelSpotFleetRequestsErrorItem' <$>
               (x .@ "spotFleetRequestId") <*> (x .@ "error")
+
+instance Hashable CancelSpotFleetRequestsErrorItem
 
 -- | Describes a Spot fleet request that was successfully canceled.
 --
@@ -770,6 +800,8 @@ instance FromXML CancelSpotFleetRequestsSuccessItem
                 (x .@ "currentSpotFleetRequestState")
                 <*> (x .@ "previousSpotFleetRequestState")
 
+instance Hashable CancelSpotFleetRequestsSuccessItem
+
 -- | Describes a request to cancel a Spot instance.
 --
 -- /See:/ 'cancelledSpotInstanceRequest' smart constructor.
@@ -806,6 +838,8 @@ instance FromXML CancelledSpotInstanceRequest where
           = CancelledSpotInstanceRequest' <$>
               (x .@? "state") <*> (x .@? "spotInstanceRequestId")
 
+instance Hashable CancelledSpotInstanceRequest
+
 -- | Describes the ClassicLink DNS support status of a VPC.
 --
 -- /See:/ 'classicLinkDNSSupport' smart constructor.
@@ -841,6 +875,8 @@ instance FromXML ClassicLinkDNSSupport where
         parseXML x
           = ClassicLinkDNSSupport' <$>
               (x .@? "vpcId") <*> (x .@? "classicLinkDnsSupported")
+
+instance Hashable ClassicLinkDNSSupport
 
 -- | Describes a linked EC2-Classic instance.
 --
@@ -900,6 +936,8 @@ instance FromXML ClassicLinkInstance where
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
 
+instance Hashable ClassicLinkInstance
+
 -- | Describes the client-specific data.
 --
 -- /See:/ 'clientData' smart constructor.
@@ -946,6 +984,8 @@ cdUploadEnd = lens _cdUploadEnd (\ s a -> s{_cdUploadEnd = a}) . mapping _Time;
 -- | A user-defined comment about the disk upload.
 cdComment :: Lens' ClientData (Maybe Text)
 cdComment = lens _cdComment (\ s a -> s{_cdComment = a});
+
+instance Hashable ClientData
 
 instance ToQuery ClientData where
         toQuery ClientData'{..}
@@ -1042,6 +1082,8 @@ instance FromXML ConversionTask where
                 <*> (x .@ "conversionTaskId")
                 <*> (x .@ "state")
 
+instance Hashable ConversionTask
+
 -- | Describes the user or group to be added or removed from the permissions
 -- for a volume.
 --
@@ -1081,6 +1123,8 @@ instance FromXML CreateVolumePermission where
           = CreateVolumePermission' <$>
               (x .@? "group") <*> (x .@? "userId")
 
+instance Hashable CreateVolumePermission
+
 instance ToQuery CreateVolumePermission where
         toQuery CreateVolumePermission'{..}
           = mconcat
@@ -1118,6 +1162,8 @@ cvpmRemove = lens _cvpmRemove (\ s a -> s{_cvpmRemove = a}) . _Default . _Coerce
 -- volume permissions.
 cvpmAdd :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
 cvpmAdd = lens _cvpmAdd (\ s a -> s{_cvpmAdd = a}) . _Default . _Coerce;
+
+instance Hashable CreateVolumePermissionModifications
 
 instance ToQuery CreateVolumePermissionModifications
          where
@@ -1208,6 +1254,8 @@ instance FromXML CustomerGateway where
                 <*> (x .@ "state")
                 <*> (x .@ "type")
 
+instance Hashable CustomerGateway
+
 -- | Describes a DHCP configuration option.
 --
 -- /See:/ 'dhcpConfiguration' smart constructor.
@@ -1245,6 +1293,8 @@ instance FromXML DHCPConfiguration where
               (x .@? "valueSet" .!@ mempty >>=
                  may (parseXMLList "item"))
                 <*> (x .@? "key")
+
+instance Hashable DHCPConfiguration
 
 -- | Describes a set of DHCP options.
 --
@@ -1295,6 +1345,8 @@ instance FromXML DHCPOptions where
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
 
+instance Hashable DHCPOptions
+
 -- | Describes a disk image.
 --
 -- /See:/ 'diskImage' smart constructor.
@@ -1333,6 +1385,8 @@ diVolume = lens _diVolume (\ s a -> s{_diVolume = a});
 -- | A description of the disk image.
 diDescription :: Lens' DiskImage (Maybe Text)
 diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
+
+instance Hashable DiskImage
 
 instance ToQuery DiskImage where
         toQuery DiskImage'{..}
@@ -1405,6 +1459,8 @@ instance FromXML DiskImageDescription where
                 (x .@ "size")
                 <*> (x .@ "importManifestUrl")
 
+instance Hashable DiskImageDescription
+
 -- | Describes a disk image.
 --
 -- /See:/ 'diskImageDetail' smart constructor.
@@ -1456,6 +1512,8 @@ didBytes = lens _didBytes (\ s a -> s{_didBytes = a});
 didImportManifestURL :: Lens' DiskImageDetail Text
 didImportManifestURL = lens _didImportManifestURL (\ s a -> s{_didImportManifestURL = a});
 
+instance Hashable DiskImageDetail
+
 instance ToQuery DiskImageDetail where
         toQuery DiskImageDetail'{..}
           = mconcat
@@ -1498,6 +1556,8 @@ instance FromXML DiskImageVolumeDescription where
         parseXML x
           = DiskImageVolumeDescription' <$>
               (x .@? "size") <*> (x .@ "id")
+
+instance Hashable DiskImageVolumeDescription
 
 -- | Describes a block device for an EBS volume.
 --
@@ -1599,6 +1659,8 @@ instance FromXML EBSBlockDevice where
                 <*> (x .@? "volumeType")
                 <*> (x .@? "snapshotId")
 
+instance Hashable EBSBlockDevice
+
 instance ToQuery EBSBlockDevice where
         toQuery EBSBlockDevice'{..}
           = mconcat
@@ -1663,6 +1725,8 @@ instance FromXML EBSInstanceBlockDevice where
                 <*> (x .@? "volumeId")
                 <*> (x .@? "attachTime")
 
+instance Hashable EBSInstanceBlockDevice
+
 -- | /See:/ 'ebsInstanceBlockDeviceSpecification' smart constructor.
 data EBSInstanceBlockDeviceSpecification = EBSInstanceBlockDeviceSpecification'
     { _eibdsDeleteOnTermination :: !(Maybe Bool)
@@ -1691,6 +1755,8 @@ eibdsDeleteOnTermination = lens _eibdsDeleteOnTermination (\ s a -> s{_eibdsDele
 -- | The ID of the EBS volume.
 eibdsVolumeId :: Lens' EBSInstanceBlockDeviceSpecification (Maybe Text)
 eibdsVolumeId = lens _eibdsVolumeId (\ s a -> s{_eibdsVolumeId = a});
+
+instance Hashable EBSInstanceBlockDeviceSpecification
 
 instance ToQuery EBSInstanceBlockDeviceSpecification
          where
@@ -1798,6 +1864,8 @@ instance FromXML EventInformation where
               (x .@? "instanceId") <*> (x .@? "eventDescription")
                 <*> (x .@? "eventSubType")
 
+instance Hashable EventInformation
+
 -- | Describes an instance export task.
 --
 -- /See:/ 'exportTask' smart constructor.
@@ -1876,6 +1944,8 @@ instance FromXML ExportTask where
                 <*> (x .@ "state")
                 <*> (x .@ "statusMessage")
 
+instance Hashable ExportTask
+
 -- | Describes the format and location for an instance export task.
 --
 -- /See:/ 'exportToS3Task' smart constructor.
@@ -1933,6 +2003,8 @@ instance FromXML ExportToS3Task where
                 (x .@? "s3Bucket")
                 <*> (x .@? "diskImageFormat")
 
+instance Hashable ExportToS3Task
+
 -- | Describes an instance export task.
 --
 -- /See:/ 'exportToS3TaskSpecification' smart constructor.
@@ -1984,6 +2056,8 @@ etstsS3Bucket = lens _etstsS3Bucket (\ s a -> s{_etstsS3Bucket = a});
 etstsDiskImageFormat :: Lens' ExportToS3TaskSpecification (Maybe DiskImageFormat)
 etstsDiskImageFormat = lens _etstsDiskImageFormat (\ s a -> s{_etstsDiskImageFormat = a});
 
+instance Hashable ExportToS3TaskSpecification
+
 instance ToQuery ExportToS3TaskSpecification where
         toQuery ExportToS3TaskSpecification'{..}
           = mconcat
@@ -2025,6 +2099,8 @@ fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Default . _Coerce;
 -- | The name of the filter. Filter names are case-sensitive.
 fName :: Lens' Filter Text
 fName = lens _fName (\ s a -> s{_fName = a});
+
+instance Hashable Filter
 
 instance ToQuery Filter where
         toQuery Filter'{..}
@@ -2137,6 +2213,8 @@ instance FromXML FlowLog where
                 <*> (x .@? "deliverLogsPermissionArn")
                 <*> (x .@? "flowLogId")
 
+instance Hashable FlowLog
+
 -- | Describes a security group.
 --
 -- /See:/ 'groupIdentifier' smart constructor.
@@ -2172,6 +2250,8 @@ instance FromXML GroupIdentifier where
         parseXML x
           = GroupIdentifier' <$>
               (x .@? "groupId") <*> (x .@? "groupName")
+
+instance Hashable GroupIdentifier
 
 instance ToQuery GroupIdentifier where
         toQuery GroupIdentifier'{..}
@@ -2236,6 +2316,8 @@ instance FromXML HistoryRecord where
           = HistoryRecord' <$>
               (x .@ "timestamp") <*> (x .@ "eventType") <*>
                 (x .@ "eventInformation")
+
+instance Hashable HistoryRecord
 
 -- | Describes the properties of the Dedicated host.
 --
@@ -2344,6 +2426,8 @@ instance FromXML Host where
                    may (parseXMLList "item"))
                 <*> (x .@? "autoPlacement")
 
+instance Hashable Host
+
 -- | /See:/ 'hostInstance' smart constructor.
 data HostInstance = HostInstance'
     { _hiInstanceId   :: !(Maybe Text)
@@ -2377,6 +2461,8 @@ instance FromXML HostInstance where
         parseXML x
           = HostInstance' <$>
               (x .@? "instanceId") <*> (x .@? "instanceType")
+
+instance Hashable HostInstance
 
 -- | /See:/ 'hostProperties' smart constructor.
 data HostProperties = HostProperties'
@@ -2431,6 +2517,8 @@ instance FromXML HostProperties where
                 (x .@? "cores")
                 <*> (x .@? "sockets")
 
+instance Hashable HostProperties
+
 -- | Describes an IAM instance profile.
 --
 -- /See:/ 'iamInstanceProfile' smart constructor.
@@ -2466,6 +2554,8 @@ instance FromXML IAMInstanceProfile where
         parseXML x
           = IAMInstanceProfile' <$>
               (x .@? "arn") <*> (x .@? "id")
+
+instance Hashable IAMInstanceProfile
 
 -- | Describes an IAM instance profile.
 --
@@ -2503,6 +2593,8 @@ instance FromXML IAMInstanceProfileSpecification
         parseXML x
           = IAMInstanceProfileSpecification' <$>
               (x .@? "arn") <*> (x .@? "name")
+
+instance Hashable IAMInstanceProfileSpecification
 
 instance ToQuery IAMInstanceProfileSpecification
          where
@@ -2544,6 +2636,8 @@ itcType = lens _itcType (\ s a -> s{_itcType = a});
 instance FromXML ICMPTypeCode where
         parseXML x
           = ICMPTypeCode' <$> (x .@? "code") <*> (x .@? "type")
+
+instance Hashable ICMPTypeCode
 
 instance ToQuery ICMPTypeCode where
         toQuery ICMPTypeCode'{..}
@@ -2638,6 +2732,8 @@ instance FromXML IPPermission where
                    may (parseXMLList "item"))
                 <*> (x .@ "ipProtocol")
 
+instance Hashable IPPermission
+
 instance ToQuery IPPermission where
         toQuery IPPermission'{..}
           = mconcat
@@ -2677,6 +2773,8 @@ irCIdRIP = lens _irCIdRIP (\ s a -> s{_irCIdRIP = a});
 
 instance FromXML IPRange where
         parseXML x = IPRange' <$> (x .@ "cidrIp")
+
+instance Hashable IPRange
 
 instance ToQuery IPRange where
         toQuery IPRange'{..}
@@ -2729,6 +2827,8 @@ instance FromXML IdFormat where
           = IdFormat' <$>
               (x .@? "useLongIds") <*> (x .@? "deadline") <*>
                 (x .@? "resource")
+
+instance Hashable IdFormat
 
 -- | Describes an image.
 --
@@ -2979,6 +3079,8 @@ instance FromXML Image where
                 <*> (x .@ "virtualizationType")
                 <*> (x .@ "hypervisor")
 
+instance Hashable Image
+
 -- | Describes the disk container object for an import image task.
 --
 -- /See:/ 'imageDiskContainer' smart constructor.
@@ -3044,6 +3146,8 @@ idcDescription = lens _idcDescription (\ s a -> s{_idcDescription = a});
 -- | The ID of the EBS snapshot to be used for importing the snapshot.
 idcSnapshotId :: Lens' ImageDiskContainer (Maybe Text)
 idcSnapshotId = lens _idcSnapshotId (\ s a -> s{_idcSnapshotId = a});
+
+instance Hashable ImageDiskContainer
 
 instance ToQuery ImageDiskContainer where
         toQuery ImageDiskContainer'{..}
@@ -3178,6 +3282,8 @@ instance FromXML ImportImageTask where
                 <*> (x .@? "architecture")
                 <*> (x .@? "description")
 
+instance Hashable ImportImageTask
+
 -- | Describes the launch specification for VM import.
 --
 -- /See:/ 'importInstanceLaunchSpecification' smart constructor.
@@ -3287,6 +3393,8 @@ iilsArchitecture = lens _iilsArchitecture (\ s a -> s{_iilsArchitecture = a});
 iilsPlacement :: Lens' ImportInstanceLaunchSpecification (Maybe Placement)
 iilsPlacement = lens _iilsPlacement (\ s a -> s{_iilsPlacement = a});
 
+instance Hashable ImportInstanceLaunchSpecification
+
 instance ToQuery ImportInstanceLaunchSpecification
          where
         toQuery ImportInstanceLaunchSpecification'{..}
@@ -3359,6 +3467,8 @@ instance FromXML ImportInstanceTaskDetails where
                 (x .@? "description")
                 <*>
                 (x .@? "volumes" .!@ mempty >>= parseXMLList "item")
+
+instance Hashable ImportInstanceTaskDetails
 
 -- | Describes an import volume task.
 --
@@ -3446,6 +3556,8 @@ instance FromXML ImportInstanceVolumeDetailItem where
                 <*> (x .@ "volume")
                 <*> (x .@ "status")
 
+instance Hashable ImportInstanceVolumeDetailItem
+
 -- | Describes an import snapshot task.
 --
 -- /See:/ 'importSnapshotTask' smart constructor.
@@ -3491,6 +3603,8 @@ instance FromXML ImportSnapshotTask where
               (x .@? "snapshotTaskDetail") <*>
                 (x .@? "importTaskId")
                 <*> (x .@? "description")
+
+instance Hashable ImportSnapshotTask
 
 -- | Describes an import volume task.
 --
@@ -3558,6 +3672,8 @@ instance FromXML ImportVolumeTaskDetails where
                 (x .@ "availabilityZone")
                 <*> (x .@ "image")
                 <*> (x .@ "volume")
+
+instance Hashable ImportVolumeTaskDetails
 
 -- | Describes an instance.
 --
@@ -3951,6 +4067,8 @@ instance FromXML Instance where
                 <*> (x .@ "hypervisor")
                 <*> (x .@ "instanceState")
 
+instance Hashable Instance
+
 -- | Describes a block device mapping.
 --
 -- /See:/ 'instanceBlockDeviceMapping' smart constructor.
@@ -3988,6 +4106,8 @@ instance FromXML InstanceBlockDeviceMapping where
         parseXML x
           = InstanceBlockDeviceMapping' <$>
               (x .@? "ebs") <*> (x .@? "deviceName")
+
+instance Hashable InstanceBlockDeviceMapping
 
 -- | Describes a block device mapping entry.
 --
@@ -4037,6 +4157,9 @@ ibdmsEBS = lens _ibdmsEBS (\ s a -> s{_ibdmsEBS = a});
 -- 'xvdh').
 ibdmsDeviceName :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
 ibdmsDeviceName = lens _ibdmsDeviceName (\ s a -> s{_ibdmsDeviceName = a});
+
+instance Hashable
+         InstanceBlockDeviceMappingSpecification
 
 instance ToQuery
          InstanceBlockDeviceMappingSpecification where
@@ -4094,6 +4217,8 @@ instance FromXML InstanceCapacity where
                 (x .@? "instanceType")
                 <*> (x .@? "totalCapacity")
 
+instance Hashable InstanceCapacity
+
 -- | Describes a Reserved Instance listing state.
 --
 -- /See:/ 'instanceCount' smart constructor.
@@ -4131,6 +4256,8 @@ instance FromXML InstanceCount where
           = InstanceCount' <$>
               (x .@? "state") <*> (x .@? "instanceCount")
 
+instance Hashable InstanceCount
+
 -- | Describes an instance to export.
 --
 -- /See:/ 'instanceExportDetails' smart constructor.
@@ -4167,6 +4294,8 @@ instance FromXML InstanceExportDetails where
           = InstanceExportDetails' <$>
               (x .@? "targetEnvironment") <*> (x .@? "instanceId")
 
+instance Hashable InstanceExportDetails
+
 -- | Describes the monitoring information of the instance.
 --
 -- /See:/ 'instanceMonitoring' smart constructor.
@@ -4202,6 +4331,8 @@ instance FromXML InstanceMonitoring where
         parseXML x
           = InstanceMonitoring' <$>
               (x .@? "instanceId") <*> (x .@? "monitoring")
+
+instance Hashable InstanceMonitoring
 
 -- | Describes a network interface.
 --
@@ -4353,6 +4484,8 @@ instance FromXML InstanceNetworkInterface where
                 <*> (x .@? "description")
                 <*> (x .@? "association")
 
+instance Hashable InstanceNetworkInterface
+
 -- | Describes association information for an Elastic IP address.
 --
 -- /See:/ 'instanceNetworkInterfaceAssociation' smart constructor.
@@ -4399,6 +4532,8 @@ instance FromXML InstanceNetworkInterfaceAssociation
           = InstanceNetworkInterfaceAssociation' <$>
               (x .@? "publicDnsName") <*> (x .@? "ipOwnerId") <*>
                 (x .@? "publicIp")
+
+instance Hashable InstanceNetworkInterfaceAssociation
 
 -- | Describes a network interface attachment.
 --
@@ -4465,6 +4600,8 @@ instance FromXML InstanceNetworkInterfaceAttachment
                 <*> (x .@? "attachmentId")
                 <*> (x .@? "attachTime")
                 <*> (x .@? "deviceIndex")
+
+instance Hashable InstanceNetworkInterfaceAttachment
 
 -- | Describes a network interface.
 --
@@ -4595,6 +4732,9 @@ instance FromXML
                 <*> (x .@? "description")
                 <*> (x .@? "deviceIndex")
 
+instance Hashable
+         InstanceNetworkInterfaceSpecification
+
 instance ToQuery
          InstanceNetworkInterfaceSpecification where
         toQuery InstanceNetworkInterfaceSpecification'{..}
@@ -4671,6 +4811,8 @@ instance FromXML InstancePrivateIPAddress where
                 (x .@? "privateDnsName")
                 <*> (x .@? "association")
 
+instance Hashable InstancePrivateIPAddress
+
 -- | Describes the current state of the instance.
 --
 -- /See:/ 'instanceState' smart constructor.
@@ -4722,6 +4864,8 @@ instance FromXML InstanceState where
         parseXML x
           = InstanceState' <$> (x .@ "name") <*> (x .@ "code")
 
+instance Hashable InstanceState
+
 -- | Describes an instance state change.
 --
 -- /See:/ 'instanceStateChange' smart constructor.
@@ -4766,6 +4910,8 @@ instance FromXML InstanceStateChange where
           = InstanceStateChange' <$>
               (x .@? "instanceId") <*> (x .@? "currentState") <*>
                 (x .@? "previousState")
+
+instance Hashable InstanceStateChange
 
 -- | Describes the status of an instance.
 --
@@ -4844,6 +4990,8 @@ instance FromXML InstanceStatus where
                 <*> (x .@? "instanceStatus")
                 <*> (x .@? "instanceState")
 
+instance Hashable InstanceStatus
+
 -- | Describes the instance status.
 --
 -- /See:/ 'instanceStatusDetails' smart constructor.
@@ -4889,6 +5037,8 @@ instance FromXML InstanceStatusDetails where
           = InstanceStatusDetails' <$>
               (x .@? "status") <*> (x .@? "impairedSince") <*>
                 (x .@? "name")
+
+instance Hashable InstanceStatusDetails
 
 -- | Describes a scheduled event for an instance.
 --
@@ -4948,6 +5098,8 @@ instance FromXML InstanceStatusEvent where
                 (x .@? "description")
                 <*> (x .@? "notAfter")
 
+instance Hashable InstanceStatusEvent
+
 -- | Describes the status of an instance.
 --
 -- /See:/ 'instanceStatusSummary' smart constructor.
@@ -4986,6 +5138,8 @@ instance FromXML InstanceStatusSummary where
               (x .@? "details" .!@ mempty >>=
                  may (parseXMLList "item"))
                 <*> (x .@ "status")
+
+instance Hashable InstanceStatusSummary
 
 -- | Describes an Internet gateway.
 --
@@ -5037,6 +5191,8 @@ instance FromXML InternetGateway where
                    may (parseXMLList "item"))
                 <*> (x .@ "internetGatewayId")
 
+instance Hashable InternetGateway
+
 -- | Describes the attachment of a VPC to an Internet gateway.
 --
 -- /See:/ 'internetGatewayAttachment' smart constructor.
@@ -5074,6 +5230,8 @@ instance FromXML InternetGatewayAttachment where
         parseXML x
           = InternetGatewayAttachment' <$>
               (x .@ "state") <*> (x .@ "vpcId")
+
+instance Hashable InternetGatewayAttachment
 
 -- | Describes a key pair.
 --
@@ -5114,6 +5272,8 @@ instance FromXML KeyPairInfo where
           = KeyPairInfo' <$>
               (x .@? "keyFingerprint") <*> (x .@? "keyName")
 
+instance Hashable KeyPairInfo
+
 -- | Describes a launch permission.
 --
 -- /See:/ 'launchPermission' smart constructor.
@@ -5149,6 +5309,8 @@ instance FromXML LaunchPermission where
         parseXML x
           = LaunchPermission' <$>
               (x .@? "group") <*> (x .@? "userId")
+
+instance Hashable LaunchPermission
 
 instance ToQuery LaunchPermission where
         toQuery LaunchPermission'{..}
@@ -5186,6 +5348,8 @@ lpmRemove = lens _lpmRemove (\ s a -> s{_lpmRemove = a}) . _Default . _Coerce;
 -- | The AWS account ID to add to the list of launch permissions for the AMI.
 lpmAdd :: Lens' LaunchPermissionModifications [LaunchPermission]
 lpmAdd = lens _lpmAdd (\ s a -> s{_lpmAdd = a}) . _Default . _Coerce;
+
+instance Hashable LaunchPermissionModifications
 
 instance ToQuery LaunchPermissionModifications where
         toQuery LaunchPermissionModifications'{..}
@@ -5361,6 +5525,8 @@ instance FromXML LaunchSpecification where
                    may (parseXMLList "item"))
                 <*> (x .@? "placement")
 
+instance Hashable LaunchSpecification
+
 -- | Describes the monitoring for the instance.
 --
 -- /See:/ 'monitoring' smart constructor.
@@ -5386,6 +5552,8 @@ mState = lens _mState (\ s a -> s{_mState = a});
 
 instance FromXML Monitoring where
         parseXML x = Monitoring' <$> (x .@? "state")
+
+instance Hashable Monitoring
 
 -- | Describes the status of a moving Elastic IP address.
 --
@@ -5423,6 +5591,8 @@ instance FromXML MovingAddressStatus where
         parseXML x
           = MovingAddressStatus' <$>
               (x .@? "moveStatus") <*> (x .@? "publicIp")
+
+instance Hashable MovingAddressStatus
 
 -- | Describes a NAT gateway.
 --
@@ -5544,6 +5714,8 @@ instance FromXML NatGateway where
                    may (parseXMLList "item"))
                 <*> (x .@? "createTime")
 
+instance Hashable NatGateway
+
 -- | Describes the IP addresses and network interface associated with a NAT
 -- gateway.
 --
@@ -5599,6 +5771,8 @@ instance FromXML NatGatewayAddress where
               (x .@? "privateIp") <*> (x .@? "allocationId") <*>
                 (x .@? "networkInterfaceId")
                 <*> (x .@? "publicIp")
+
+instance Hashable NatGatewayAddress
 
 -- | Describes a network ACL.
 --
@@ -5678,6 +5852,8 @@ instance FromXML NetworkACL where
                    may (parseXMLList "item"))
                 <*> (x .@? "default")
 
+instance Hashable NetworkACL
+
 -- | Describes an association between a network ACL and a subnet.
 --
 -- /See:/ 'networkACLAssociation' smart constructor.
@@ -5722,6 +5898,8 @@ instance FromXML NetworkACLAssociation where
           = NetworkACLAssociation' <$>
               (x .@? "networkAclId") <*> (x .@? "subnetId") <*>
                 (x .@? "networkAclAssociationId")
+
+instance Hashable NetworkACLAssociation
 
 -- | Describes an entry in a network ACL.
 --
@@ -5805,6 +5983,8 @@ instance FromXML NetworkACLEntry where
                 <*> (x .@? "portRange")
                 <*> (x .@? "cidrBlock")
                 <*> (x .@? "egress")
+
+instance Hashable NetworkACLEntry
 
 -- | Describes a network interface.
 --
@@ -6003,6 +6183,8 @@ instance FromXML NetworkInterface where
                 <*> (x .@? "description")
                 <*> (x .@? "association")
 
+instance Hashable NetworkInterface
+
 -- | Describes association information for an Elastic IP address.
 --
 -- /See:/ 'networkInterfaceAssociation' smart constructor.
@@ -6065,6 +6247,8 @@ instance FromXML NetworkInterfaceAssociation where
                 <*> (x .@? "allocationId")
                 <*> (x .@? "ipOwnerId")
                 <*> (x .@? "publicIp")
+
+instance Hashable NetworkInterfaceAssociation
 
 -- | Describes a network interface attachment.
 --
@@ -6148,6 +6332,8 @@ instance FromXML NetworkInterfaceAttachment where
                 <*> (x .@? "attachTime")
                 <*> (x .@? "deviceIndex")
 
+instance Hashable NetworkInterfaceAttachment
+
 -- | Describes an attachment change.
 --
 -- /See:/ 'networkInterfaceAttachmentChanges' smart constructor.
@@ -6179,6 +6365,8 @@ niacDeleteOnTermination = lens _niacDeleteOnTermination (\ s a -> s{_niacDeleteO
 -- | The ID of the network interface attachment.
 niacAttachmentId :: Lens' NetworkInterfaceAttachmentChanges (Maybe Text)
 niacAttachmentId = lens _niacAttachmentId (\ s a -> s{_niacAttachmentId = a});
+
+instance Hashable NetworkInterfaceAttachmentChanges
 
 instance ToQuery NetworkInterfaceAttachmentChanges
          where
@@ -6244,6 +6432,8 @@ instance FromXML NetworkInterfacePrivateIPAddress
                 (x .@? "privateDnsName")
                 <*> (x .@? "association")
 
+instance Hashable NetworkInterfacePrivateIPAddress
+
 -- | /See:/ 'newDHCPConfiguration' smart constructor.
 data NewDHCPConfiguration = NewDHCPConfiguration'
     { _ndcValues :: !(Maybe [Text])
@@ -6272,6 +6462,8 @@ ndcValues = lens _ndcValues (\ s a -> s{_ndcValues = a}) . _Default . _Coerce;
 -- | Undocumented member.
 ndcKey :: Lens' NewDHCPConfiguration (Maybe Text)
 ndcKey = lens _ndcKey (\ s a -> s{_ndcKey = a});
+
+instance Hashable NewDHCPConfiguration
 
 instance ToQuery NewDHCPConfiguration where
         toQuery NewDHCPConfiguration'{..}
@@ -6347,6 +6539,8 @@ instance FromXML Placement where
                 <*> (x .@? "tenancy")
                 <*> (x .@? "groupName")
 
+instance Hashable Placement
+
 instance ToQuery Placement where
         toQuery Placement'{..}
           = mconcat
@@ -6399,6 +6593,8 @@ instance FromXML PlacementGroup where
               (x .@? "state") <*> (x .@? "strategy") <*>
                 (x .@? "groupName")
 
+instance Hashable PlacementGroup
+
 -- | Describes a range of ports.
 --
 -- /See:/ 'portRange' smart constructor.
@@ -6433,6 +6629,8 @@ prFrom = lens _prFrom (\ s a -> s{_prFrom = a});
 instance FromXML PortRange where
         parseXML x
           = PortRange' <$> (x .@? "to") <*> (x .@? "from")
+
+instance Hashable PortRange
 
 instance ToQuery PortRange where
         toQuery PortRange'{..}
@@ -6485,6 +6683,8 @@ instance FromXML PrefixList where
                 <*> (x .@? "prefixListId")
                 <*> (x .@? "prefixListName")
 
+instance Hashable PrefixList
+
 -- | The ID of the prefix.
 --
 -- /See:/ 'prefixListId' smart constructor.
@@ -6510,6 +6710,8 @@ pliPrefixListId = lens _pliPrefixListId (\ s a -> s{_pliPrefixListId = a});
 
 instance FromXML PrefixListId where
         parseXML x = PrefixListId' <$> (x .@? "prefixListId")
+
+instance Hashable PrefixListId
 
 instance ToQuery PrefixListId where
         toQuery PrefixListId'{..}
@@ -6580,6 +6782,8 @@ instance FromXML PriceSchedule where
                 (x .@? "active")
                 <*> (x .@? "price")
 
+instance Hashable PriceSchedule
+
 -- | Describes the price for a Reserved Instance.
 --
 -- /See:/ 'priceScheduleSpecification' smart constructor.
@@ -6620,6 +6824,8 @@ pssTerm = lens _pssTerm (\ s a -> s{_pssTerm = a});
 -- | The fixed price for the term.
 pssPrice :: Lens' PriceScheduleSpecification (Maybe Double)
 pssPrice = lens _pssPrice (\ s a -> s{_pssPrice = a});
+
+instance Hashable PriceScheduleSpecification
 
 instance ToQuery PriceScheduleSpecification where
         toQuery PriceScheduleSpecification'{..}
@@ -6663,6 +6869,8 @@ instance FromXML PricingDetail where
           = PricingDetail' <$>
               (x .@? "count") <*> (x .@? "price")
 
+instance Hashable PricingDetail
+
 -- | Describes a secondary private IP address for a network interface.
 --
 -- /See:/ 'privateIPAddressSpecification' smart constructor.
@@ -6700,6 +6908,8 @@ instance FromXML PrivateIPAddressSpecification where
         parseXML x
           = PrivateIPAddressSpecification' <$>
               (x .@? "primary") <*> (x .@ "privateIpAddress")
+
+instance Hashable PrivateIPAddressSpecification
 
 instance ToQuery PrivateIPAddressSpecification where
         toQuery PrivateIPAddressSpecification'{..}
@@ -6743,6 +6953,8 @@ instance FromXML ProductCode where
           = ProductCode' <$>
               (x .@? "type") <*> (x .@? "productCode")
 
+instance Hashable ProductCode
+
 -- | Describes a virtual private gateway propagating route.
 --
 -- /See:/ 'propagatingVGW' smart constructor.
@@ -6768,6 +6980,8 @@ pvGatewayId = lens _pvGatewayId (\ s a -> s{_pvGatewayId = a});
 
 instance FromXML PropagatingVGW where
         parseXML x = PropagatingVGW' <$> (x .@? "gatewayId")
+
+instance Hashable PropagatingVGW
 
 -- | Describes a request to purchase Scheduled Instances.
 --
@@ -6801,6 +7015,8 @@ prPurchaseToken = lens _prPurchaseToken (\ s a -> s{_prPurchaseToken = a});
 -- | The number of instances.
 prInstanceCount :: Lens' PurchaseRequest Int
 prInstanceCount = lens _prInstanceCount (\ s a -> s{_prInstanceCount = a});
+
+instance Hashable PurchaseRequest
 
 instance ToQuery PurchaseRequest where
         toQuery PurchaseRequest'{..}
@@ -6844,6 +7060,8 @@ instance FromXML RecurringCharge where
           = RecurringCharge' <$>
               (x .@? "amount") <*> (x .@? "frequency")
 
+instance Hashable RecurringCharge
+
 -- | Describes a region.
 --
 -- /See:/ 'regionInfo' smart constructor.
@@ -6879,6 +7097,8 @@ instance FromXML RegionInfo where
         parseXML x
           = RegionInfo' <$>
               (x .@? "regionName") <*> (x .@? "regionEndpoint")
+
+instance Hashable RegionInfo
 
 -- | Describes the launch specification for an instance.
 --
@@ -7029,6 +7249,8 @@ rslsBlockDeviceMappings = lens _rslsBlockDeviceMappings (\ s a -> s{_rslsBlockDe
 rslsPlacement :: Lens' RequestSpotLaunchSpecification (Maybe SpotPlacement)
 rslsPlacement = lens _rslsPlacement (\ s a -> s{_rslsPlacement = a});
 
+instance Hashable RequestSpotLaunchSpecification
+
 instance ToQuery RequestSpotLaunchSpecification where
         toQuery RequestSpotLaunchSpecification'{..}
           = mconcat
@@ -7127,6 +7349,8 @@ instance FromXML Reservation where
                 <*> (x .@ "reservationId")
                 <*> (x .@ "ownerId")
 
+instance Hashable Reservation
+
 -- | Describes the limit price of a Reserved Instance offering.
 --
 -- /See:/ 'reservedInstanceLimitPrice' smart constructor.
@@ -7159,6 +7383,8 @@ rilpAmount = lens _rilpAmount (\ s a -> s{_rilpAmount = a});
 -- time, the only supported currency is 'USD'.
 rilpCurrencyCode :: Lens' ReservedInstanceLimitPrice (Maybe CurrencyCodeValues)
 rilpCurrencyCode = lens _rilpCurrencyCode (\ s a -> s{_rilpCurrencyCode = a});
+
+instance Hashable ReservedInstanceLimitPrice
 
 instance ToQuery ReservedInstanceLimitPrice where
         toQuery ReservedInstanceLimitPrice'{..}
@@ -7334,6 +7560,8 @@ instance FromXML ReservedInstances where
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
 
+instance Hashable ReservedInstances
+
 -- | Describes the configuration settings for the modified Reserved
 -- Instances.
 --
@@ -7390,6 +7618,8 @@ instance FromXML ReservedInstancesConfiguration where
                 (x .@? "instanceType")
                 <*> (x .@? "availabilityZone")
 
+instance Hashable ReservedInstancesConfiguration
+
 instance ToQuery ReservedInstancesConfiguration where
         toQuery ReservedInstancesConfiguration'{..}
           = mconcat
@@ -7425,6 +7655,8 @@ instance FromXML ReservedInstancesId where
         parseXML x
           = ReservedInstancesId' <$>
               (x .@? "reservedInstancesId")
+
+instance Hashable ReservedInstancesId
 
 -- | Describes a Reserved Instance listing.
 --
@@ -7543,6 +7775,8 @@ instance FromXML ReservedInstancesListing where
                    may (parseXMLList "item"))
                 <*> (x .@? "reservedInstancesListingId")
 
+instance Hashable ReservedInstancesListing
+
 -- | Describes a Reserved Instance modification.
 --
 -- /See:/ 'reservedInstancesModification' smart constructor.
@@ -7649,6 +7883,8 @@ instance FromXML ReservedInstancesModification where
                 (x .@? "reservedInstancesSet" .!@ mempty >>=
                    may (parseXMLList "item"))
 
+instance Hashable ReservedInstancesModification
+
 -- | /See:/ 'reservedInstancesModificationResult' smart constructor.
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult'
     { _rimrReservedInstancesId :: !(Maybe Text)
@@ -7687,6 +7923,8 @@ instance FromXML ReservedInstancesModificationResult
           = ReservedInstancesModificationResult' <$>
               (x .@? "reservedInstancesId") <*>
                 (x .@? "targetConfiguration")
+
+instance Hashable ReservedInstancesModificationResult
 
 -- | Describes a Reserved Instance offering.
 --
@@ -7831,6 +8069,8 @@ instance FromXML ReservedInstancesOffering where
                 <*> (x .@? "reservedInstancesOfferingId")
                 <*> (x .@? "duration")
 
+instance Hashable ReservedInstancesOffering
+
 -- | Describes a route in a route table.
 --
 -- /See:/ 'route' smart constructor.
@@ -7950,6 +8190,8 @@ instance FromXML Route where
                 <*> (x .@? "destinationPrefixListId")
                 <*> (x .@? "destinationCidrBlock")
 
+instance Hashable Route
+
 -- | Describes a route table.
 --
 -- /See:/ 'routeTable' smart constructor.
@@ -8030,6 +8272,8 @@ instance FromXML RouteTable where
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
 
+instance Hashable RouteTable
+
 -- | Describes an association between a route table and a subnet.
 --
 -- /See:/ 'routeTableAssociation' smart constructor.
@@ -8086,6 +8330,8 @@ instance FromXML RouteTableAssociation where
                 <*> (x .@? "main")
                 <*> (x .@? "subnetId")
 
+instance Hashable RouteTableAssociation
+
 -- | Describes the monitoring for the instance.
 --
 -- /See:/ 'runInstancesMonitoringEnabled' smart constructor.
@@ -8113,6 +8359,8 @@ rimeEnabled = lens _rimeEnabled (\ s a -> s{_rimeEnabled = a});
 instance FromXML RunInstancesMonitoringEnabled where
         parseXML x
           = RunInstancesMonitoringEnabled' <$> (x .@ "enabled")
+
+instance Hashable RunInstancesMonitoringEnabled
 
 instance ToQuery RunInstancesMonitoringEnabled where
         toQuery RunInstancesMonitoringEnabled'{..}
@@ -8193,6 +8441,8 @@ instance FromXML S3Storage where
                 (x .@? "bucket")
                 <*> (x .@? "uploadPolicySignature")
                 <*> (x .@? "AWSAccessKeyId")
+
+instance Hashable S3Storage
 
 instance ToQuery S3Storage where
         toQuery S3Storage'{..}
@@ -8356,6 +8606,8 @@ instance FromXML ScheduledInstance where
                 <*> (x .@? "nextSlotStartTime")
                 <*> (x .@? "networkPlatform")
 
+instance Hashable ScheduledInstance
+
 -- | Describes a schedule that is available for your Scheduled Instances.
 --
 -- /See:/ 'scheduledInstanceAvailability' smart constructor.
@@ -8493,6 +8745,8 @@ instance FromXML ScheduledInstanceAvailability where
                 <*> (x .@? "firstSlotStartTime")
                 <*> (x .@? "networkPlatform")
 
+instance Hashable ScheduledInstanceAvailability
+
 -- | Describes the recurring schedule for a Scheduled Instance.
 --
 -- /See:/ 'scheduledInstanceRecurrence' smart constructor.
@@ -8563,6 +8817,8 @@ instance FromXML ScheduledInstanceRecurrence where
                 (x .@? "occurrenceDaySet" .!@ mempty >>=
                    may (parseXMLList "item"))
 
+instance Hashable ScheduledInstanceRecurrence
+
 -- | Describes the recurring schedule for a Scheduled Instance.
 --
 -- /See:/ 'scheduledInstanceRecurrenceRequest' smart constructor.
@@ -8625,6 +8881,8 @@ sirrOccurrenceUnit = lens _sirrOccurrenceUnit (\ s a -> s{_sirrOccurrenceUnit = 
 -- 'Frequency'. For example, every 2 weeks or every 2 months.
 sirrInterval :: Lens' ScheduledInstanceRecurrenceRequest (Maybe Int)
 sirrInterval = lens _sirrInterval (\ s a -> s{_sirrInterval = a});
+
+instance Hashable ScheduledInstanceRecurrenceRequest
 
 instance ToQuery ScheduledInstanceRecurrenceRequest
          where
@@ -8697,6 +8955,9 @@ sibdmEBS = lens _sibdmEBS (\ s a -> s{_sibdmEBS = a});
 -- 'xvdh').
 sibdmDeviceName :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe Text)
 sibdmDeviceName = lens _sibdmDeviceName (\ s a -> s{_sibdmDeviceName = a});
+
+instance Hashable
+         ScheduledInstancesBlockDeviceMapping
 
 instance ToQuery ScheduledInstancesBlockDeviceMapping
          where
@@ -8791,6 +9052,8 @@ sieVolumeType = lens _sieVolumeType (\ s a -> s{_sieVolumeType = a});
 sieSnapshotId :: Lens' ScheduledInstancesEBS (Maybe Text)
 sieSnapshotId = lens _sieSnapshotId (\ s a -> s{_sieSnapshotId = a});
 
+instance Hashable ScheduledInstancesEBS
+
 instance ToQuery ScheduledInstancesEBS where
         toQuery ScheduledInstancesEBS'{..}
           = mconcat
@@ -8830,6 +9093,9 @@ siiapARN = lens _siiapARN (\ s a -> s{_siiapARN = a});
 -- | The name.
 siiapName :: Lens' ScheduledInstancesIAMInstanceProfile (Maybe Text)
 siiapName = lens _siiapName (\ s a -> s{_siiapName = a});
+
+instance Hashable
+         ScheduledInstancesIAMInstanceProfile
 
 instance ToQuery ScheduledInstancesIAMInstanceProfile
          where
@@ -8974,6 +9240,9 @@ silsPlacement = lens _silsPlacement (\ s a -> s{_silsPlacement = a});
 silsImageId :: Lens' ScheduledInstancesLaunchSpecification Text
 silsImageId = lens _silsImageId (\ s a -> s{_silsImageId = a});
 
+instance Hashable
+         ScheduledInstancesLaunchSpecification
+
 instance ToQuery
          ScheduledInstancesLaunchSpecification where
         toQuery ScheduledInstancesLaunchSpecification'{..}
@@ -9021,6 +9290,8 @@ scheduledInstancesMonitoring =
 -- | Indicates whether monitoring is enabled.
 simEnabled :: Lens' ScheduledInstancesMonitoring (Maybe Bool)
 simEnabled = lens _simEnabled (\ s a -> s{_simEnabled = a});
+
+instance Hashable ScheduledInstancesMonitoring
 
 instance ToQuery ScheduledInstancesMonitoring where
         toQuery ScheduledInstancesMonitoring'{..}
@@ -9127,6 +9398,8 @@ siniDescription = lens _siniDescription (\ s a -> s{_siniDescription = a});
 siniDeviceIndex :: Lens' ScheduledInstancesNetworkInterface (Maybe Int)
 siniDeviceIndex = lens _siniDeviceIndex (\ s a -> s{_siniDeviceIndex = a});
 
+instance Hashable ScheduledInstancesNetworkInterface
+
 instance ToQuery ScheduledInstancesNetworkInterface
          where
         toQuery ScheduledInstancesNetworkInterface'{..}
@@ -9177,6 +9450,8 @@ sipAvailabilityZone = lens _sipAvailabilityZone (\ s a -> s{_sipAvailabilityZone
 sipGroupName :: Lens' ScheduledInstancesPlacement (Maybe Text)
 sipGroupName = lens _sipGroupName (\ s a -> s{_sipGroupName = a});
 
+instance Hashable ScheduledInstancesPlacement
+
 instance ToQuery ScheduledInstancesPlacement where
         toQuery ScheduledInstancesPlacement'{..}
           = mconcat
@@ -9214,6 +9489,9 @@ sipiacPrimary = lens _sipiacPrimary (\ s a -> s{_sipiacPrimary = a});
 -- | The IP address.
 sipiacPrivateIPAddress :: Lens' ScheduledInstancesPrivateIPAddressConfig (Maybe Text)
 sipiacPrivateIPAddress = lens _sipiacPrivateIPAddress (\ s a -> s{_sipiacPrivateIPAddress = a});
+
+instance Hashable
+         ScheduledInstancesPrivateIPAddressConfig
 
 instance ToQuery
          ScheduledInstancesPrivateIPAddressConfig where
@@ -9322,6 +9600,8 @@ instance FromXML SecurityGroup where
                 <*> (x .@ "groupName")
                 <*> (x .@ "groupDescription")
 
+instance Hashable SecurityGroup
+
 -- | Describes the time period for a Scheduled Instance to start its first
 -- schedule. The time period must span less than one day.
 --
@@ -9357,6 +9637,8 @@ sdtrrEarliestTime = lens _sdtrrEarliestTime (\ s a -> s{_sdtrrEarliestTime = a})
 -- three months in the future.
 sdtrrLatestTime :: Lens' SlotDateTimeRangeRequest UTCTime
 sdtrrLatestTime = lens _sdtrrLatestTime (\ s a -> s{_sdtrrLatestTime = a}) . _Time;
+
+instance Hashable SlotDateTimeRangeRequest
 
 instance ToQuery SlotDateTimeRangeRequest where
         toQuery SlotDateTimeRangeRequest'{..}
@@ -9395,6 +9677,8 @@ sstrrLatestTime = lens _sstrrLatestTime (\ s a -> s{_sstrrLatestTime = a}) . map
 -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
 sstrrEarliestTime :: Lens' SlotStartTimeRangeRequest (Maybe UTCTime)
 sstrrEarliestTime = lens _sstrrEarliestTime (\ s a -> s{_sstrrEarliestTime = a}) . mapping _Time;
+
+instance Hashable SlotStartTimeRangeRequest
 
 instance ToQuery SlotStartTimeRangeRequest where
         toQuery SlotStartTimeRangeRequest'{..}
@@ -9571,6 +9855,8 @@ instance FromXML Snapshot where
                 <*> (x .@ "status")
                 <*> (x .@ "encrypted")
 
+instance Hashable Snapshot
+
 -- | Describes the snapshot created from the imported disk.
 --
 -- /See:/ 'snapshotDetail' smart constructor.
@@ -9679,6 +9965,8 @@ instance FromXML SnapshotDetail where
                 <*> (x .@? "description")
                 <*> (x .@? "snapshotId")
 
+instance Hashable SnapshotDetail
+
 -- | The disk container object for the import snapshot request.
 --
 -- /See:/ 'snapshotDiskContainer' smart constructor.
@@ -9728,6 +10016,8 @@ sdcUserBucket = lens _sdcUserBucket (\ s a -> s{_sdcUserBucket = a});
 -- | The description of the disk image being imported.
 sdcDescription :: Lens' SnapshotDiskContainer (Maybe Text)
 sdcDescription = lens _sdcDescription (\ s a -> s{_sdcDescription = a});
+
+instance Hashable SnapshotDiskContainer
 
 instance ToQuery SnapshotDiskContainer where
         toQuery SnapshotDiskContainer'{..}
@@ -9835,6 +10125,8 @@ instance FromXML SnapshotTaskDetail where
                 <*> (x .@? "description")
                 <*> (x .@? "snapshotId")
 
+instance Hashable SnapshotTaskDetail
+
 -- | Describes the data feed for a Spot instance.
 --
 -- /See:/ 'spotDatafeedSubscription' smart constructor.
@@ -9897,6 +10189,8 @@ instance FromXML SpotDatafeedSubscription where
                 (x .@? "bucket")
                 <*> (x .@? "ownerId")
                 <*> (x .@? "fault")
+
+instance Hashable SpotDatafeedSubscription
 
 -- | Describes the launch specification for one or more Spot instances.
 --
@@ -10096,6 +10390,8 @@ instance FromXML SpotFleetLaunchSpecification where
                    may (parseXMLList "item"))
                 <*> (x .@? "placement")
 
+instance Hashable SpotFleetLaunchSpecification
+
 instance ToQuery SpotFleetLaunchSpecification where
         toQuery SpotFleetLaunchSpecification'{..}
           = mconcat
@@ -10150,6 +10446,8 @@ sfmEnabled = lens _sfmEnabled (\ s a -> s{_sfmEnabled = a});
 instance FromXML SpotFleetMonitoring where
         parseXML x
           = SpotFleetMonitoring' <$> (x .@? "enabled")
+
+instance Hashable SpotFleetMonitoring
 
 instance ToQuery SpotFleetMonitoring where
         toQuery SpotFleetMonitoring'{..}
@@ -10213,6 +10511,8 @@ instance FromXML SpotFleetRequestConfig where
                 (x .@ "spotFleetRequestState")
                 <*> (x .@ "spotFleetRequestConfig")
                 <*> (x .@ "createTime")
+
+instance Hashable SpotFleetRequestConfig
 
 -- | Describes the configuration of a Spot fleet request.
 --
@@ -10344,6 +10644,8 @@ instance FromXML SpotFleetRequestConfigData where
                 <*>
                 (x .@? "launchSpecifications" .!@ mempty >>=
                    parseXMLList1 "item")
+
+instance Hashable SpotFleetRequestConfigData
 
 instance ToQuery SpotFleetRequestConfigData where
         toQuery SpotFleetRequestConfigData'{..}
@@ -10561,6 +10863,8 @@ instance FromXML SpotInstanceRequest where
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
 
+instance Hashable SpotInstanceRequest
+
 -- | Describes a Spot instance state change.
 --
 -- /See:/ 'spotInstanceStateFault' smart constructor.
@@ -10596,6 +10900,8 @@ instance FromXML SpotInstanceStateFault where
         parseXML x
           = SpotInstanceStateFault' <$>
               (x .@? "code") <*> (x .@? "message")
+
+instance Hashable SpotInstanceStateFault
 
 -- | Describes the status of a Spot instance request.
 --
@@ -10645,6 +10951,8 @@ instance FromXML SpotInstanceStatus where
               (x .@? "updateTime") <*> (x .@? "code") <*>
                 (x .@? "message")
 
+instance Hashable SpotInstanceStatus
+
 -- | Describes Spot instance placement.
 --
 -- /See:/ 'spotPlacement' smart constructor.
@@ -10683,6 +10991,8 @@ instance FromXML SpotPlacement where
         parseXML x
           = SpotPlacement' <$>
               (x .@? "availabilityZone") <*> (x .@? "groupName")
+
+instance Hashable SpotPlacement
 
 instance ToQuery SpotPlacement where
         toQuery SpotPlacement'{..}
@@ -10755,6 +11065,8 @@ instance FromXML SpotPrice where
                 <*> (x .@? "availabilityZone")
                 <*> (x .@? "timestamp")
 
+instance Hashable SpotPrice
+
 -- | Describes a state change.
 --
 -- /See:/ 'stateReason' smart constructor.
@@ -10817,6 +11129,8 @@ instance FromXML StateReason where
           = StateReason' <$>
               (x .@? "code") <*> (x .@? "message")
 
+instance Hashable StateReason
+
 -- | Describes the storage location for an instance store-backed AMI.
 --
 -- /See:/ 'storage' smart constructor.
@@ -10842,6 +11156,8 @@ sS3 = lens _sS3 (\ s a -> s{_sS3 = a});
 
 instance FromXML Storage where
         parseXML x = Storage' <$> (x .@? "S3")
+
+instance Hashable Storage
 
 instance ToQuery Storage where
         toQuery Storage'{..} = mconcat ["S3" =: _sS3]
@@ -10956,6 +11272,8 @@ instance FromXML Subnet where
                 <*> (x .@ "subnetId")
                 <*> (x .@ "vpcId")
 
+instance Hashable Subnet
+
 -- | Describes a tag.
 --
 -- /See:/ 'tag' smart constructor.
@@ -10997,6 +11315,8 @@ tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
 instance FromXML Tag where
         parseXML x = Tag' <$> (x .@ "key") <*> (x .@ "value")
+
+instance Hashable Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -11060,6 +11380,8 @@ instance FromXML TagDescription where
                 (x .@ "key")
                 <*> (x .@ "value")
 
+instance Hashable TagDescription
+
 -- | Information about items that were not successfully processed in a batch
 -- call.
 --
@@ -11097,6 +11419,8 @@ instance FromXML UnsuccessfulItem where
         parseXML x
           = UnsuccessfulItem' <$>
               (x .@? "resourceId") <*> (x .@ "error")
+
+instance Hashable UnsuccessfulItem
 
 -- | Information about the error that occurred. For more information about
 -- errors, see
@@ -11138,6 +11462,8 @@ instance FromXML UnsuccessfulItemError where
           = UnsuccessfulItemError' <$>
               (x .@ "code") <*> (x .@ "message")
 
+instance Hashable UnsuccessfulItemError
+
 -- | Describes the S3 bucket for the disk image.
 --
 -- /See:/ 'userBucket' smart constructor.
@@ -11168,6 +11494,8 @@ ubS3Key = lens _ubS3Key (\ s a -> s{_ubS3Key = a});
 -- | The name of the S3 bucket where the disk image is located.
 ubS3Bucket :: Lens' UserBucket (Maybe Text)
 ubS3Bucket = lens _ubS3Bucket (\ s a -> s{_ubS3Bucket = a});
+
+instance Hashable UserBucket
 
 instance ToQuery UserBucket where
         toQuery UserBucket'{..}
@@ -11210,6 +11538,8 @@ instance FromXML UserBucketDetails where
           = UserBucketDetails' <$>
               (x .@? "s3Key") <*> (x .@? "s3Bucket")
 
+instance Hashable UserBucketDetails
+
 -- | Describes the user data to be made available to an instance.
 --
 -- /See:/ 'userData' smart constructor.
@@ -11232,6 +11562,8 @@ userData =
 -- | The Base64-encoded MIME user data for the instance.
 udData :: Lens' UserData (Maybe Text)
 udData = lens _udData (\ s a -> s{_udData = a});
+
+instance Hashable UserData
 
 instance ToQuery UserData where
         toQuery UserData'{..} = mconcat ["Data" =: _udData]
@@ -11310,6 +11642,8 @@ instance FromXML UserIdGroupPair where
                 <*> (x .@? "groupName")
                 <*> (x .@? "peeringStatus")
 
+instance Hashable UserIdGroupPair
+
 instance ToQuery UserIdGroupPair where
         toQuery UserIdGroupPair'{..}
           = mconcat
@@ -11383,6 +11717,8 @@ instance FromXML VGWTelemetry where
                 (x .@? "lastStatusChange")
                 <*> (x .@? "acceptedRouteCount")
                 <*> (x .@? "statusMessage")
+
+instance Hashable VGWTelemetry
 
 -- | Describes a VPC.
 --
@@ -11473,6 +11809,8 @@ instance FromXML VPC where
                 <*> (x .@ "state")
                 <*> (x .@ "vpcId")
 
+instance Hashable VPC
+
 -- | Describes an attachment between a virtual private gateway and a VPC.
 --
 -- /See:/ 'vpcAttachment' smart constructor.
@@ -11508,6 +11846,8 @@ instance FromXML VPCAttachment where
         parseXML x
           = VPCAttachment' <$>
               (x .@? "state") <*> (x .@? "vpcId")
+
+instance Hashable VPCAttachment
 
 -- | Describes whether a VPC is enabled for ClassicLink.
 --
@@ -11555,6 +11895,8 @@ instance FromXML VPCClassicLink where
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "classicLinkEnabled")
+
+instance Hashable VPCClassicLink
 
 -- | Describes a VPC endpoint.
 --
@@ -11639,6 +11981,8 @@ instance FromXML VPCEndpoint where
                 (x .@? "routeTableIdSet" .!@ mempty >>=
                    may (parseXMLList "item"))
 
+instance Hashable VPCEndpoint
+
 -- | Describes a VPC peering connection.
 --
 -- /See:/ 'vpcPeeringConnection' smart constructor.
@@ -11713,6 +12057,8 @@ instance FromXML VPCPeeringConnection where
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
 
+instance Hashable VPCPeeringConnection
+
 -- | Describes the status of a VPC peering connection.
 --
 -- /See:/ 'vpcPeeringConnectionStateReason' smart constructor.
@@ -11750,6 +12096,8 @@ instance FromXML VPCPeeringConnectionStateReason
         parseXML x
           = VPCPeeringConnectionStateReason' <$>
               (x .@? "code") <*> (x .@? "message")
+
+instance Hashable VPCPeeringConnectionStateReason
 
 -- | Describes a VPC in a VPC peering connection.
 --
@@ -11795,6 +12143,8 @@ instance FromXML VPCPeeringConnectionVPCInfo where
           = VPCPeeringConnectionVPCInfo' <$>
               (x .@? "vpcId") <*> (x .@? "ownerId") <*>
                 (x .@? "cidrBlock")
+
+instance Hashable VPCPeeringConnectionVPCInfo
 
 -- | Describes a VPN connection.
 --
@@ -11919,6 +12269,8 @@ instance FromXML VPNConnection where
                 <*> (x .@ "state")
                 <*> (x .@ "type")
 
+instance Hashable VPNConnection
+
 -- | Describes VPN connection options.
 --
 -- /See:/ 'vpnConnectionOptions' smart constructor.
@@ -11948,6 +12300,8 @@ instance FromXML VPNConnectionOptions where
           = VPNConnectionOptions' <$>
               (x .@? "staticRoutesOnly")
 
+instance Hashable VPNConnectionOptions
+
 -- | Describes VPN connection options.
 --
 -- /See:/ 'vpnConnectionOptionsSpecification' smart constructor.
@@ -11971,6 +12325,8 @@ vpnConnectionOptionsSpecification =
 -- routes must be used for devices that don\'t support BGP.
 vcosStaticRoutesOnly :: Lens' VPNConnectionOptionsSpecification (Maybe Bool)
 vcosStaticRoutesOnly = lens _vcosStaticRoutesOnly (\ s a -> s{_vcosStaticRoutesOnly = a});
+
+instance Hashable VPNConnectionOptionsSpecification
 
 instance ToQuery VPNConnectionOptionsSpecification
          where
@@ -12055,6 +12411,8 @@ instance FromXML VPNGateway where
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
 
+instance Hashable VPNGateway
+
 -- | Describes a static route for a VPN connection.
 --
 -- /See:/ 'vpnStaticRoute' smart constructor.
@@ -12100,6 +12458,8 @@ instance FromXML VPNStaticRoute where
           = VPNStaticRoute' <$>
               (x .@? "state") <*> (x .@? "source") <*>
                 (x .@? "destinationCidrBlock")
+
+instance Hashable VPNStaticRoute
 
 -- | Describes a volume.
 --
@@ -12258,6 +12618,8 @@ instance FromXML Volume where
                 <*> (x .@ "volumeId")
                 <*> (x .@ "volumeType")
 
+instance Hashable Volume
+
 -- | Describes volume attachment details.
 --
 -- /See:/ 'volumeAttachment' smart constructor.
@@ -12331,6 +12693,8 @@ instance FromXML VolumeAttachment where
                 <*> (x .@? "volumeId")
                 <*> (x .@? "attachTime")
 
+instance Hashable VolumeAttachment
+
 -- | Describes an EBS volume.
 --
 -- /See:/ 'volumeDetail' smart constructor.
@@ -12354,6 +12718,8 @@ volumeDetail pSize_ =
 -- | The size of the volume, in GiB.
 vdSize :: Lens' VolumeDetail Integer
 vdSize = lens _vdSize (\ s a -> s{_vdSize = a});
+
+instance Hashable VolumeDetail
 
 instance ToQuery VolumeDetail where
         toQuery VolumeDetail'{..}
@@ -12413,6 +12779,8 @@ instance FromXML VolumeStatusAction where
                 (x .@? "description")
                 <*> (x .@? "eventId")
 
+instance Hashable VolumeStatusAction
+
 -- | Describes a volume status.
 --
 -- /See:/ 'volumeStatusDetails' smart constructor.
@@ -12448,6 +12816,8 @@ instance FromXML VolumeStatusDetails where
         parseXML x
           = VolumeStatusDetails' <$>
               (x .@? "status") <*> (x .@? "name")
+
+instance Hashable VolumeStatusDetails
 
 -- | Describes a volume status event.
 --
@@ -12512,6 +12882,8 @@ instance FromXML VolumeStatusEvent where
                 <*> (x .@? "notAfter")
                 <*> (x .@? "eventId")
 
+instance Hashable VolumeStatusEvent
+
 -- | Describes the status of a volume.
 --
 -- /See:/ 'volumeStatusInfo' smart constructor.
@@ -12549,6 +12921,8 @@ instance FromXML VolumeStatusInfo where
               (x .@? "status") <*>
                 (x .@? "details" .!@ mempty >>=
                    may (parseXMLList "item"))
+
+instance Hashable VolumeStatusInfo
 
 -- | Describes the volume status.
 --
@@ -12616,3 +12990,5 @@ instance FromXML VolumeStatusItem where
                    may (parseXMLList "item"))
                 <*> (x .@? "availabilityZone")
                 <*> (x .@? "volumeId")
+
+instance Hashable VolumeStatusItem

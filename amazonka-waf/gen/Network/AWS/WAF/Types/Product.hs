@@ -95,6 +95,8 @@ instance FromJSON ActivatedRule where
                    (x .: "Priority") <*> (x .: "RuleId") <*>
                      (x .: "Action"))
 
+instance Hashable ActivatedRule
+
 instance ToJSON ActivatedRule where
         toJSON ActivatedRule'{..}
           = object
@@ -170,6 +172,8 @@ instance FromJSON ByteMatchSet where
                    (x .:? "Name") <*> (x .: "ByteMatchSetId") <*>
                      (x .:? "ByteMatchTuples" .!= mempty))
 
+instance Hashable ByteMatchSet
+
 -- | Returned by < ListByteMatchSets>. Each 'ByteMatchSetSummary' object
 -- includes the 'Name' and 'ByteMatchSetId' for one < ByteMatchSet>.
 --
@@ -218,6 +222,8 @@ instance FromJSON ByteMatchSetSummary where
                  ByteMatchSetSummary' <$>
                    (x .: "ByteMatchSetId") <*> (x .: "Name"))
 
+instance Hashable ByteMatchSetSummary
+
 -- | In an < UpdateByteMatchSet> request, 'ByteMatchSetUpdate' specifies
 -- whether to insert or delete a < ByteMatchTuple> and includes the
 -- settings for the 'ByteMatchTuple'.
@@ -256,6 +262,8 @@ bmsuAction = lens _bmsuAction (\ s a -> s{_bmsuAction = a});
 -- delete from the 'ByteMatchSet'.
 bmsuByteMatchTuple :: Lens' ByteMatchSetUpdate ByteMatchTuple
 bmsuByteMatchTuple = lens _bmsuByteMatchTuple (\ s a -> s{_bmsuByteMatchTuple = a});
+
+instance Hashable ByteMatchSetUpdate
 
 instance ToJSON ByteMatchSetUpdate where
         toJSON ByteMatchSetUpdate'{..}
@@ -475,6 +483,8 @@ instance FromJSON ByteMatchTuple where
                      (x .: "TextTransformation")
                      <*> (x .: "PositionalConstraint"))
 
+instance Hashable ByteMatchTuple
+
 instance ToJSON ByteMatchTuple where
         toJSON ByteMatchTuple'{..}
           = object
@@ -551,6 +561,8 @@ instance FromJSON FieldToMatch where
               (\ x ->
                  FieldToMatch' <$> (x .:? "Data") <*> (x .: "Type"))
 
+instance Hashable FieldToMatch
+
 instance ToJSON FieldToMatch where
         toJSON FieldToMatch'{..}
           = object
@@ -598,6 +610,8 @@ instance FromJSON HTTPHeader where
           = withObject "HTTPHeader"
               (\ x ->
                  HTTPHeader' <$> (x .:? "Value") <*> (x .:? "Name"))
+
+instance Hashable HTTPHeader
 
 -- | The response from a < GetSampledRequests> request includes an
 -- 'HTTPRequest' complex type that appears as 'Request' in the response
@@ -690,6 +704,8 @@ instance FromJSON HTTPRequest where
                      <*> (x .:? "Method")
                      <*> (x .:? "ClientIP"))
 
+instance Hashable HTTPRequest
+
 -- | Contains one or more IP addresses or blocks of IP addresses specified in
 -- Classless Inter-Domain Routing (CIDR) notation. To specify an individual
 -- IP address, you specify the four-part IP address followed by a '\/32',
@@ -757,6 +773,8 @@ instance FromJSON IPSet where
                    (x .:? "Name") <*> (x .: "IPSetId") <*>
                      (x .:? "IPSetDescriptors" .!= mempty))
 
+instance Hashable IPSet
+
 -- | Specifies the IP address type ('IPV4') and the IP address range (in CIDR
 -- format) that web requests originate from.
 --
@@ -809,6 +827,8 @@ instance FromJSON IPSetDescriptor where
                  IPSetDescriptor' <$>
                    (x .: "Type") <*> (x .: "Value"))
 
+instance Hashable IPSetDescriptor
+
 instance ToJSON IPSetDescriptor where
         toJSON IPSetDescriptor'{..}
           = object
@@ -857,6 +877,8 @@ instance FromJSON IPSetSummary where
               (\ x ->
                  IPSetSummary' <$> (x .: "IPSetId") <*> (x .: "Name"))
 
+instance Hashable IPSetSummary
+
 -- | Specifies the type of update to perform to an < IPSet> with
 -- < UpdateIPSet>.
 --
@@ -891,6 +913,8 @@ isuAction = lens _isuAction (\ s a -> s{_isuAction = a});
 -- that web requests originate from.
 isuIPSetDescriptor :: Lens' IPSetUpdate IPSetDescriptor
 isuIPSetDescriptor = lens _isuIPSetDescriptor (\ s a -> s{_isuIPSetDescriptor = a});
+
+instance Hashable IPSetUpdate
 
 instance ToJSON IPSetUpdate where
         toJSON IPSetUpdate'{..}
@@ -963,6 +987,8 @@ instance FromJSON Predicate where
                  Predicate' <$>
                    (x .: "Negated") <*> (x .: "Type") <*>
                      (x .: "DataId"))
+
+instance Hashable Predicate
 
 instance ToJSON Predicate where
         toJSON Predicate'{..}
@@ -1050,6 +1076,8 @@ instance FromJSON Rule where
                      (x .: "RuleId")
                      <*> (x .:? "Predicates" .!= mempty))
 
+instance Hashable Rule
+
 -- | Contains the identifier and the friendly name or description of the
 -- 'Rule'.
 --
@@ -1097,6 +1125,8 @@ instance FromJSON RuleSummary where
               (\ x ->
                  RuleSummary' <$> (x .: "RuleId") <*> (x .: "Name"))
 
+instance Hashable RuleSummary
+
 -- | Specifies a 'Predicate' (such as an 'IPSet') and indicates whether you
 -- want to add it to a 'Rule' or delete it from a 'Rule'.
 --
@@ -1132,6 +1162,8 @@ ruAction = lens _ruAction (\ s a -> s{_ruAction = a});
 -- 'Rule'.
 ruPredicate :: Lens' RuleUpdate Predicate
 ruPredicate = lens _ruPredicate (\ s a -> s{_ruPredicate = a});
+
+instance Hashable RuleUpdate
 
 instance ToJSON RuleUpdate where
         toJSON RuleUpdate'{..}
@@ -1206,6 +1238,8 @@ instance FromJSON SampledHTTPRequest where
                    (x .:? "Action") <*> (x .:? "Timestamp") <*>
                      (x .: "Request")
                      <*> (x .: "Weight"))
+
+instance Hashable SampledHTTPRequest
 
 -- | Specifies a constraint on the size of a part of the web request. AWS WAF
 -- uses the 'Size', 'ComparisonOperator', and 'FieldToMatch' to build an
@@ -1363,6 +1397,8 @@ instance FromJSON SizeConstraint where
                      <*> (x .: "ComparisonOperator")
                      <*> (x .: "Size"))
 
+instance Hashable SizeConstraint
+
 instance ToJSON SizeConstraint where
         toJSON SizeConstraint'{..}
           = object
@@ -1432,6 +1468,8 @@ instance FromJSON SizeConstraintSet where
                    (x .:? "Name") <*> (x .: "SizeConstraintSetId") <*>
                      (x .:? "SizeConstraints" .!= mempty))
 
+instance Hashable SizeConstraintSet
+
 -- | The 'Id' and 'Name' of a 'SizeConstraintSet'.
 --
 -- /See:/ 'sizeConstraintSetSummary' smart constructor.
@@ -1480,6 +1518,8 @@ instance FromJSON SizeConstraintSetSummary where
                  SizeConstraintSetSummary' <$>
                    (x .: "SizeConstraintSetId") <*> (x .: "Name"))
 
+instance Hashable SizeConstraintSetSummary
+
 -- | Specifies the part of a web request that you want to inspect the size of
 -- and indicates whether you want to add the specification to a
 -- < SizeConstraintSet> or delete it from a 'SizeConstraintSet'.
@@ -1520,6 +1560,8 @@ scsuAction = lens _scsuAction (\ s a -> s{_scsuAction = a});
 -- considered to match.
 scsuSizeConstraint :: Lens' SizeConstraintSetUpdate SizeConstraint
 scsuSizeConstraint = lens _scsuSizeConstraint (\ s a -> s{_scsuSizeConstraint = a});
+
+instance Hashable SizeConstraintSetUpdate
 
 instance ToJSON SizeConstraintSetUpdate where
         toJSON SizeConstraintSetUpdate'{..}
@@ -1592,6 +1634,8 @@ instance FromJSON SqlInjectionMatchSet where
                    (x .:? "Name") <*> (x .: "SqlInjectionMatchSetId")
                      <*> (x .:? "SqlInjectionMatchTuples" .!= mempty))
 
+instance Hashable SqlInjectionMatchSet
+
 -- | The 'Id' and 'Name' of a 'SqlInjectionMatchSet'.
 --
 -- /See:/ 'sqlInjectionMatchSetSummary' smart constructor.
@@ -1641,6 +1685,8 @@ instance FromJSON SqlInjectionMatchSetSummary where
                  SqlInjectionMatchSetSummary' <$>
                    (x .: "SqlInjectionMatchSetId") <*> (x .: "Name"))
 
+instance Hashable SqlInjectionMatchSetSummary
+
 -- | Specifies the part of a web request that you want to inspect for
 -- snippets of malicious SQL code and indicates whether you want to add the
 -- specification to a < SqlInjectionMatchSet> or delete it from a
@@ -1680,6 +1726,8 @@ simsuAction = lens _simsuAction (\ s a -> s{_simsuAction = a});
 -- header, the name of the header.
 simsuSqlInjectionMatchTuple :: Lens' SqlInjectionMatchSetUpdate SqlInjectionMatchTuple
 simsuSqlInjectionMatchTuple = lens _simsuSqlInjectionMatchTuple (\ s a -> s{_simsuSqlInjectionMatchTuple = a});
+
+instance Hashable SqlInjectionMatchSetUpdate
 
 instance ToJSON SqlInjectionMatchSetUpdate where
         toJSON SqlInjectionMatchSetUpdate'{..}
@@ -1789,6 +1837,8 @@ instance FromJSON SqlInjectionMatchTuple where
                    (x .: "FieldToMatch") <*>
                      (x .: "TextTransformation"))
 
+instance Hashable SqlInjectionMatchTuple
+
 instance ToJSON SqlInjectionMatchTuple where
         toJSON SqlInjectionMatchTuple'{..}
           = object
@@ -1852,6 +1902,8 @@ instance FromJSON TimeWindow where
                  TimeWindow' <$>
                    (x .: "StartTime") <*> (x .: "EndTime"))
 
+instance Hashable TimeWindow
+
 instance ToJSON TimeWindow where
         toJSON TimeWindow'{..}
           = object
@@ -1899,6 +1951,8 @@ instance FromJSON WafAction where
         parseJSON
           = withObject "WafAction"
               (\ x -> WafAction' <$> (x .: "Type"))
+
+instance Hashable WafAction
 
 instance ToJSON WafAction where
         toJSON WafAction'{..}
@@ -1987,6 +2041,8 @@ instance FromJSON WebACL where
                      <*> (x .: "DefaultAction")
                      <*> (x .:? "Rules" .!= mempty))
 
+instance Hashable WebACL
+
 -- | Contains the identifier and the name or description of the < WebACL>.
 --
 -- /See:/ 'webACLSummary' smart constructor.
@@ -2033,6 +2089,8 @@ instance FromJSON WebACLSummary where
                  WebACLSummary' <$>
                    (x .: "WebACLId") <*> (x .: "Name"))
 
+instance Hashable WebACLSummary
+
 -- | Specifies whether to insert a 'Rule' into or delete a 'Rule' from a
 -- 'WebACL'.
 --
@@ -2067,6 +2125,8 @@ wauAction = lens _wauAction (\ s a -> s{_wauAction = a});
 -- | Undocumented member.
 wauActivatedRule :: Lens' WebACLUpdate ActivatedRule
 wauActivatedRule = lens _wauActivatedRule (\ s a -> s{_wauActivatedRule = a});
+
+instance Hashable WebACLUpdate
 
 instance ToJSON WebACLUpdate where
         toJSON WebACLUpdate'{..}

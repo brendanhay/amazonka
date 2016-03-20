@@ -79,6 +79,8 @@ instance FromXML BatchResultErrorEntry where
                 (x .@ "SenderFault")
                 <*> (x .@ "Code")
 
+instance Hashable BatchResultErrorEntry
+
 -- | Encloses a receipt handle and an entry id for each message in
 -- < ChangeMessageVisibilityBatch>.
 --
@@ -134,6 +136,9 @@ cId = lens _cId (\ s a -> s{_cId = a});
 cReceiptHandle :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
 cReceiptHandle = lens _cReceiptHandle (\ s a -> s{_cReceiptHandle = a});
 
+instance Hashable
+         ChangeMessageVisibilityBatchRequestEntry
+
 instance ToQuery
          ChangeMessageVisibilityBatchRequestEntry where
         toQuery ChangeMessageVisibilityBatchRequestEntry'{..}
@@ -172,6 +177,9 @@ instance FromXML
           = ChangeMessageVisibilityBatchResultEntry' <$>
               (x .@ "Id")
 
+instance Hashable
+         ChangeMessageVisibilityBatchResultEntry
+
 -- | Encloses a receipt handle and an identifier for it.
 --
 -- /See:/ 'deleteMessageBatchRequestEntry' smart constructor.
@@ -207,6 +215,8 @@ dmbreId = lens _dmbreId (\ s a -> s{_dmbreId = a});
 dmbreReceiptHandle :: Lens' DeleteMessageBatchRequestEntry Text
 dmbreReceiptHandle = lens _dmbreReceiptHandle (\ s a -> s{_dmbreReceiptHandle = a});
 
+instance Hashable DeleteMessageBatchRequestEntry
+
 instance ToQuery DeleteMessageBatchRequestEntry where
         toQuery DeleteMessageBatchRequestEntry'{..}
           = mconcat
@@ -240,6 +250,8 @@ dId = lens _dId (\ s a -> s{_dId = a});
 instance FromXML DeleteMessageBatchResultEntry where
         parseXML x
           = DeleteMessageBatchResultEntry' <$> (x .@ "Id")
+
+instance Hashable DeleteMessageBatchResultEntry
 
 -- | An Amazon SQS message.
 --
@@ -337,6 +349,8 @@ instance FromXML Message where
                 <*> (x .@? "MessageId")
                 <*> (x .@? "MD5OfMessageAttributes")
 
+instance Hashable Message
+
 -- | The user-specified message attribute value. For string data types, the
 -- value attribute has the same restrictions on the content as the message
 -- body. For more information, see
@@ -425,6 +439,8 @@ instance FromXML MessageAttributeValue where
                    may (parseXMLList "BinaryListValue"))
                 <*> (x .@ "DataType")
 
+instance Hashable MessageAttributeValue
+
 instance ToQuery MessageAttributeValue where
         toQuery MessageAttributeValue'{..}
           = mconcat
@@ -492,6 +508,8 @@ sId = lens _sId (\ s a -> s{_sId = a});
 -- | Body of the message.
 sMessageBody :: Lens' SendMessageBatchRequestEntry Text
 sMessageBody = lens _sMessageBody (\ s a -> s{_sMessageBody = a});
+
+instance Hashable SendMessageBatchRequestEntry
 
 instance ToQuery SendMessageBatchRequestEntry where
         toQuery SendMessageBatchRequestEntry'{..}
@@ -566,3 +584,5 @@ instance FromXML SendMessageBatchResultEntry where
               (x .@? "MD5OfMessageAttributes") <*> (x .@ "Id") <*>
                 (x .@ "MessageId")
                 <*> (x .@ "MD5OfMessageBody")
+
+instance Hashable SendMessageBatchResultEntry

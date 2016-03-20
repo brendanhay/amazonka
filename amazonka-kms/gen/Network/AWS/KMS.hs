@@ -87,7 +87,7 @@
 module Network.AWS.KMS
     (
     -- * Service Configuration
-      kMS
+      kms
 
     -- * Errors
     -- $errors

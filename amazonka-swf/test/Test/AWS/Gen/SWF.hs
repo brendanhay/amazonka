@@ -383,215 +383,215 @@ testListOpenWorkflowExecutionsResponse :: WorkflowExecutionInfos -> TestTree
 testListOpenWorkflowExecutionsResponse = res
     "ListOpenWorkflowExecutionsResponse"
     "fixture/ListOpenWorkflowExecutionsResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy ListOpenWorkflowExecutions)
 
 testRegisterActivityTypeResponse :: RegisterActivityTypeResponse -> TestTree
 testRegisterActivityTypeResponse = res
     "RegisterActivityTypeResponse"
     "fixture/RegisterActivityTypeResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy RegisterActivityType)
 
 testListActivityTypesResponse :: ListActivityTypesResponse -> TestTree
 testListActivityTypesResponse = res
     "ListActivityTypesResponse"
     "fixture/ListActivityTypesResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy ListActivityTypes)
 
 testCountPendingActivityTasksResponse :: PendingTaskCount -> TestTree
 testCountPendingActivityTasksResponse = res
     "CountPendingActivityTasksResponse"
     "fixture/CountPendingActivityTasksResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy CountPendingActivityTasks)
 
 testRegisterWorkflowTypeResponse :: RegisterWorkflowTypeResponse -> TestTree
 testRegisterWorkflowTypeResponse = res
     "RegisterWorkflowTypeResponse"
     "fixture/RegisterWorkflowTypeResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy RegisterWorkflowType)
 
 testListWorkflowTypesResponse :: ListWorkflowTypesResponse -> TestTree
 testListWorkflowTypesResponse = res
     "ListWorkflowTypesResponse"
     "fixture/ListWorkflowTypesResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy ListWorkflowTypes)
 
 testRespondActivityTaskFailedResponse :: RespondActivityTaskFailedResponse -> TestTree
 testRespondActivityTaskFailedResponse = res
     "RespondActivityTaskFailedResponse"
     "fixture/RespondActivityTaskFailedResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy RespondActivityTaskFailed)
 
 testCountOpenWorkflowExecutionsResponse :: WorkflowExecutionCount -> TestTree
 testCountOpenWorkflowExecutionsResponse = res
     "CountOpenWorkflowExecutionsResponse"
     "fixture/CountOpenWorkflowExecutionsResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy CountOpenWorkflowExecutions)
 
 testDescribeWorkflowTypeResponse :: DescribeWorkflowTypeResponse -> TestTree
 testDescribeWorkflowTypeResponse = res
     "DescribeWorkflowTypeResponse"
     "fixture/DescribeWorkflowTypeResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy DescribeWorkflowType)
 
 testDeprecateWorkflowTypeResponse :: DeprecateWorkflowTypeResponse -> TestTree
 testDeprecateWorkflowTypeResponse = res
     "DeprecateWorkflowTypeResponse"
     "fixture/DeprecateWorkflowTypeResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy DeprecateWorkflowType)
 
 testRequestCancelWorkflowExecutionResponse :: RequestCancelWorkflowExecutionResponse -> TestTree
 testRequestCancelWorkflowExecutionResponse = res
     "RequestCancelWorkflowExecutionResponse"
     "fixture/RequestCancelWorkflowExecutionResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy RequestCancelWorkflowExecution)
 
 testRegisterDomainResponse :: RegisterDomainResponse -> TestTree
 testRegisterDomainResponse = res
     "RegisterDomainResponse"
     "fixture/RegisterDomainResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy RegisterDomain)
 
 testRespondDecisionTaskCompletedResponse :: RespondDecisionTaskCompletedResponse -> TestTree
 testRespondDecisionTaskCompletedResponse = res
     "RespondDecisionTaskCompletedResponse"
     "fixture/RespondDecisionTaskCompletedResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy RespondDecisionTaskCompleted)
 
 testPollForActivityTaskResponse :: PollForActivityTaskResponse -> TestTree
 testPollForActivityTaskResponse = res
     "PollForActivityTaskResponse"
     "fixture/PollForActivityTaskResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy PollForActivityTask)
 
 testRespondActivityTaskCompletedResponse :: RespondActivityTaskCompletedResponse -> TestTree
 testRespondActivityTaskCompletedResponse = res
     "RespondActivityTaskCompletedResponse"
     "fixture/RespondActivityTaskCompletedResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy RespondActivityTaskCompleted)
 
 testDescribeWorkflowExecutionResponse :: DescribeWorkflowExecutionResponse -> TestTree
 testDescribeWorkflowExecutionResponse = res
     "DescribeWorkflowExecutionResponse"
     "fixture/DescribeWorkflowExecutionResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy DescribeWorkflowExecution)
 
 testSignalWorkflowExecutionResponse :: SignalWorkflowExecutionResponse -> TestTree
 testSignalWorkflowExecutionResponse = res
     "SignalWorkflowExecutionResponse"
     "fixture/SignalWorkflowExecutionResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy SignalWorkflowExecution)
 
 testCountPendingDecisionTasksResponse :: PendingTaskCount -> TestTree
 testCountPendingDecisionTasksResponse = res
     "CountPendingDecisionTasksResponse"
     "fixture/CountPendingDecisionTasksResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy CountPendingDecisionTasks)
 
 testListClosedWorkflowExecutionsResponse :: WorkflowExecutionInfos -> TestTree
 testListClosedWorkflowExecutionsResponse = res
     "ListClosedWorkflowExecutionsResponse"
     "fixture/ListClosedWorkflowExecutionsResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy ListClosedWorkflowExecutions)
 
 testRecordActivityTaskHeartbeatResponse :: RecordActivityTaskHeartbeatResponse -> TestTree
 testRecordActivityTaskHeartbeatResponse = res
     "RecordActivityTaskHeartbeatResponse"
     "fixture/RecordActivityTaskHeartbeatResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy RecordActivityTaskHeartbeat)
 
 testDescribeDomainResponse :: DescribeDomainResponse -> TestTree
 testDescribeDomainResponse = res
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy DescribeDomain)
 
 testGetWorkflowExecutionHistoryResponse :: GetWorkflowExecutionHistoryResponse -> TestTree
 testGetWorkflowExecutionHistoryResponse = res
     "GetWorkflowExecutionHistoryResponse"
     "fixture/GetWorkflowExecutionHistoryResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy GetWorkflowExecutionHistory)
 
 testDeprecateDomainResponse :: DeprecateDomainResponse -> TestTree
 testDeprecateDomainResponse = res
     "DeprecateDomainResponse"
     "fixture/DeprecateDomainResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy DeprecateDomain)
 
 testTerminateWorkflowExecutionResponse :: TerminateWorkflowExecutionResponse -> TestTree
 testTerminateWorkflowExecutionResponse = res
     "TerminateWorkflowExecutionResponse"
     "fixture/TerminateWorkflowExecutionResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy TerminateWorkflowExecution)
 
 testDescribeActivityTypeResponse :: DescribeActivityTypeResponse -> TestTree
 testDescribeActivityTypeResponse = res
     "DescribeActivityTypeResponse"
     "fixture/DescribeActivityTypeResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy DescribeActivityType)
 
 testDeprecateActivityTypeResponse :: DeprecateActivityTypeResponse -> TestTree
 testDeprecateActivityTypeResponse = res
     "DeprecateActivityTypeResponse"
     "fixture/DeprecateActivityTypeResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy DeprecateActivityType)
 
 testCountClosedWorkflowExecutionsResponse :: WorkflowExecutionCount -> TestTree
 testCountClosedWorkflowExecutionsResponse = res
     "CountClosedWorkflowExecutionsResponse"
     "fixture/CountClosedWorkflowExecutionsResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy CountClosedWorkflowExecutions)
 
 testRespondActivityTaskCanceledResponse :: RespondActivityTaskCanceledResponse -> TestTree
 testRespondActivityTaskCanceledResponse = res
     "RespondActivityTaskCanceledResponse"
     "fixture/RespondActivityTaskCanceledResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy RespondActivityTaskCanceled)
 
 testStartWorkflowExecutionResponse :: StartWorkflowExecutionResponse -> TestTree
 testStartWorkflowExecutionResponse = res
     "StartWorkflowExecutionResponse"
     "fixture/StartWorkflowExecutionResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy StartWorkflowExecution)
 
 testPollForDecisionTaskResponse :: PollForDecisionTaskResponse -> TestTree
 testPollForDecisionTaskResponse = res
     "PollForDecisionTaskResponse"
     "fixture/PollForDecisionTaskResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy PollForDecisionTask)
 
 testListDomainsResponse :: ListDomainsResponse -> TestTree
 testListDomainsResponse = res
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
-    sWF
+    swf
     (Proxy :: Proxy ListDomains)

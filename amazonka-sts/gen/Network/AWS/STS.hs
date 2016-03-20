@@ -70,7 +70,7 @@
 module Network.AWS.STS
     (
     -- * Service Configuration
-      sTS
+      sts
 
     -- * Errors
     -- $errors

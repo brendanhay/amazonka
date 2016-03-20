@@ -20,7 +20,7 @@
 module Network.AWS.EC2
     (
     -- * Service Configuration
-      eC2
+      ec2
 
     -- * Errors
     -- $errors

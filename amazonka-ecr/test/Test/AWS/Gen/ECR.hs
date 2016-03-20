@@ -218,110 +218,110 @@ testGetRepositoryPolicyResponse :: GetRepositoryPolicyResponse -> TestTree
 testGetRepositoryPolicyResponse = res
     "GetRepositoryPolicyResponse"
     "fixture/GetRepositoryPolicyResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy GetRepositoryPolicy)
 
 testBatchDeleteImageResponse :: BatchDeleteImageResponse -> TestTree
 testBatchDeleteImageResponse = res
     "BatchDeleteImageResponse"
     "fixture/BatchDeleteImageResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy BatchDeleteImage)
 
 testBatchCheckLayerAvailabilityResponse :: BatchCheckLayerAvailabilityResponse -> TestTree
 testBatchCheckLayerAvailabilityResponse = res
     "BatchCheckLayerAvailabilityResponse"
     "fixture/BatchCheckLayerAvailabilityResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy BatchCheckLayerAvailability)
 
 testDeleteRepositoryPolicyResponse :: DeleteRepositoryPolicyResponse -> TestTree
 testDeleteRepositoryPolicyResponse = res
     "DeleteRepositoryPolicyResponse"
     "fixture/DeleteRepositoryPolicyResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy DeleteRepositoryPolicy)
 
 testCreateRepositoryResponse :: CreateRepositoryResponse -> TestTree
 testCreateRepositoryResponse = res
     "CreateRepositoryResponse"
     "fixture/CreateRepositoryResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy CreateRepository)
 
 testCompleteLayerUploadResponse :: CompleteLayerUploadResponse -> TestTree
 testCompleteLayerUploadResponse = res
     "CompleteLayerUploadResponse"
     "fixture/CompleteLayerUploadResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy CompleteLayerUpload)
 
 testDescribeRepositoriesResponse :: DescribeRepositoriesResponse -> TestTree
 testDescribeRepositoriesResponse = res
     "DescribeRepositoriesResponse"
     "fixture/DescribeRepositoriesResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy DescribeRepositories)
 
 testUploadLayerPartResponse :: UploadLayerPartResponse -> TestTree
 testUploadLayerPartResponse = res
     "UploadLayerPartResponse"
     "fixture/UploadLayerPartResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy UploadLayerPart)
 
 testBatchGetImageResponse :: BatchGetImageResponse -> TestTree
 testBatchGetImageResponse = res
     "BatchGetImageResponse"
     "fixture/BatchGetImageResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy BatchGetImage)
 
 testSetRepositoryPolicyResponse :: SetRepositoryPolicyResponse -> TestTree
 testSetRepositoryPolicyResponse = res
     "SetRepositoryPolicyResponse"
     "fixture/SetRepositoryPolicyResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy SetRepositoryPolicy)
 
 testInitiateLayerUploadResponse :: InitiateLayerUploadResponse -> TestTree
 testInitiateLayerUploadResponse = res
     "InitiateLayerUploadResponse"
     "fixture/InitiateLayerUploadResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy InitiateLayerUpload)
 
 testDeleteRepositoryResponse :: DeleteRepositoryResponse -> TestTree
 testDeleteRepositoryResponse = res
     "DeleteRepositoryResponse"
     "fixture/DeleteRepositoryResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy DeleteRepository)
 
 testPutImageResponse :: PutImageResponse -> TestTree
 testPutImageResponse = res
     "PutImageResponse"
     "fixture/PutImageResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy PutImage)
 
 testListImagesResponse :: ListImagesResponse -> TestTree
 testListImagesResponse = res
     "ListImagesResponse"
     "fixture/ListImagesResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy ListImages)
 
 testGetAuthorizationTokenResponse :: GetAuthorizationTokenResponse -> TestTree
 testGetAuthorizationTokenResponse = res
     "GetAuthorizationTokenResponse"
     "fixture/GetAuthorizationTokenResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy GetAuthorizationToken)
 
 testGetDownloadURLForLayerResponse :: GetDownloadURLForLayerResponse -> TestTree
 testGetDownloadURLForLayerResponse = res
     "GetDownloadURLForLayerResponse"
     "fixture/GetDownloadURLForLayerResponse.proto"
-    eCR
+    ecr
     (Proxy :: Proxy GetDownloadURLForLayer)

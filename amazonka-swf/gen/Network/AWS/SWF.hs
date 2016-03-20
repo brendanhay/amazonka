@@ -31,7 +31,7 @@
 module Network.AWS.SWF
     (
     -- * Service Configuration
-      sWF
+      swf
 
     -- * Errors
     -- $errors

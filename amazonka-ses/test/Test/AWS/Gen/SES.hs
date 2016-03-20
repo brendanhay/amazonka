@@ -493,285 +493,285 @@ testCreateReceiptRuleSetResponse :: CreateReceiptRuleSetResponse -> TestTree
 testCreateReceiptRuleSetResponse = res
     "CreateReceiptRuleSetResponse"
     "fixture/CreateReceiptRuleSetResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy CreateReceiptRuleSet)
 
 testGetSendQuotaResponse :: GetSendQuotaResponse -> TestTree
 testGetSendQuotaResponse = res
     "GetSendQuotaResponse"
     "fixture/GetSendQuotaResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy GetSendQuota)
 
 testPutIdentityPolicyResponse :: PutIdentityPolicyResponse -> TestTree
 testPutIdentityPolicyResponse = res
     "PutIdentityPolicyResponse"
     "fixture/PutIdentityPolicyResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy PutIdentityPolicy)
 
 testDeleteIdentityPolicyResponse :: DeleteIdentityPolicyResponse -> TestTree
 testDeleteIdentityPolicyResponse = res
     "DeleteIdentityPolicyResponse"
     "fixture/DeleteIdentityPolicyResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy DeleteIdentityPolicy)
 
 testGetIdentityNotificationAttributesResponse :: GetIdentityNotificationAttributesResponse -> TestTree
 testGetIdentityNotificationAttributesResponse = res
     "GetIdentityNotificationAttributesResponse"
     "fixture/GetIdentityNotificationAttributesResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy GetIdentityNotificationAttributes)
 
 testListIdentityPoliciesResponse :: ListIdentityPoliciesResponse -> TestTree
 testListIdentityPoliciesResponse = res
     "ListIdentityPoliciesResponse"
     "fixture/ListIdentityPoliciesResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy ListIdentityPolicies)
 
 testSetIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse -> TestTree
 testSetIdentityDkimEnabledResponse = res
     "SetIdentityDkimEnabledResponse"
     "fixture/SetIdentityDkimEnabledResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy SetIdentityDkimEnabled)
 
 testListReceiptFiltersResponse :: ListReceiptFiltersResponse -> TestTree
 testListReceiptFiltersResponse = res
     "ListReceiptFiltersResponse"
     "fixture/ListReceiptFiltersResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy ListReceiptFilters)
 
 testDescribeReceiptRuleSetResponse :: DescribeReceiptRuleSetResponse -> TestTree
 testDescribeReceiptRuleSetResponse = res
     "DescribeReceiptRuleSetResponse"
     "fixture/DescribeReceiptRuleSetResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy DescribeReceiptRuleSet)
 
 testGetIdentityMailFromDomainAttributesResponse :: GetIdentityMailFromDomainAttributesResponse -> TestTree
 testGetIdentityMailFromDomainAttributesResponse = res
     "GetIdentityMailFromDomainAttributesResponse"
     "fixture/GetIdentityMailFromDomainAttributesResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy GetIdentityMailFromDomainAttributes)
 
 testCreateReceiptFilterResponse :: CreateReceiptFilterResponse -> TestTree
 testCreateReceiptFilterResponse = res
     "CreateReceiptFilterResponse"
     "fixture/CreateReceiptFilterResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy CreateReceiptFilter)
 
 testSetIdentityMailFromDomainResponse :: SetIdentityMailFromDomainResponse -> TestTree
 testSetIdentityMailFromDomainResponse = res
     "SetIdentityMailFromDomainResponse"
     "fixture/SetIdentityMailFromDomainResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy SetIdentityMailFromDomain)
 
 testSetIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
 testSetIdentityFeedbackForwardingEnabledResponse = res
     "SetIdentityFeedbackForwardingEnabledResponse"
     "fixture/SetIdentityFeedbackForwardingEnabledResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy SetIdentityFeedbackForwardingEnabled)
 
 testGetIdentityVerificationAttributesResponse :: GetIdentityVerificationAttributesResponse -> TestTree
 testGetIdentityVerificationAttributesResponse = res
     "GetIdentityVerificationAttributesResponse"
     "fixture/GetIdentityVerificationAttributesResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy GetIdentityVerificationAttributes)
 
 testGetIdentityPoliciesResponse :: GetIdentityPoliciesResponse -> TestTree
 testGetIdentityPoliciesResponse = res
     "GetIdentityPoliciesResponse"
     "fixture/GetIdentityPoliciesResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy GetIdentityPolicies)
 
 testVerifyDomainIdentityResponse :: VerifyDomainIdentityResponse -> TestTree
 testVerifyDomainIdentityResponse = res
     "VerifyDomainIdentityResponse"
     "fixture/VerifyDomainIdentityResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy VerifyDomainIdentity)
 
 testReorderReceiptRuleSetResponse :: ReorderReceiptRuleSetResponse -> TestTree
 testReorderReceiptRuleSetResponse = res
     "ReorderReceiptRuleSetResponse"
     "fixture/ReorderReceiptRuleSetResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy ReorderReceiptRuleSet)
 
 testListReceiptRuleSetsResponse :: ListReceiptRuleSetsResponse -> TestTree
 testListReceiptRuleSetsResponse = res
     "ListReceiptRuleSetsResponse"
     "fixture/ListReceiptRuleSetsResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy ListReceiptRuleSets)
 
 testDeleteReceiptRuleSetResponse :: DeleteReceiptRuleSetResponse -> TestTree
 testDeleteReceiptRuleSetResponse = res
     "DeleteReceiptRuleSetResponse"
     "fixture/DeleteReceiptRuleSetResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy DeleteReceiptRuleSet)
 
 testSetReceiptRulePositionResponse :: SetReceiptRulePositionResponse -> TestTree
 testSetReceiptRulePositionResponse = res
     "SetReceiptRulePositionResponse"
     "fixture/SetReceiptRulePositionResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy SetReceiptRulePosition)
 
 testSendBounceResponse :: SendBounceResponse -> TestTree
 testSendBounceResponse = res
     "SendBounceResponse"
     "fixture/SendBounceResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy SendBounce)
 
 testGetIdentityDkimAttributesResponse :: GetIdentityDkimAttributesResponse -> TestTree
 testGetIdentityDkimAttributesResponse = res
     "GetIdentityDkimAttributesResponse"
     "fixture/GetIdentityDkimAttributesResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy GetIdentityDkimAttributes)
 
 testVerifyDomainDkimResponse :: VerifyDomainDkimResponse -> TestTree
 testVerifyDomainDkimResponse = res
     "VerifyDomainDkimResponse"
     "fixture/VerifyDomainDkimResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy VerifyDomainDkim)
 
 testSendRawEmailResponse :: SendRawEmailResponse -> TestTree
 testSendRawEmailResponse = res
     "SendRawEmailResponse"
     "fixture/SendRawEmailResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy SendRawEmail)
 
 testGetSendStatisticsResponse :: GetSendStatisticsResponse -> TestTree
 testGetSendStatisticsResponse = res
     "GetSendStatisticsResponse"
     "fixture/GetSendStatisticsResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy GetSendStatistics)
 
 testDeleteIdentityResponse :: DeleteIdentityResponse -> TestTree
 testDeleteIdentityResponse = res
     "DeleteIdentityResponse"
     "fixture/DeleteIdentityResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy DeleteIdentity)
 
 testDescribeReceiptRuleResponse :: DescribeReceiptRuleResponse -> TestTree
 testDescribeReceiptRuleResponse = res
     "DescribeReceiptRuleResponse"
     "fixture/DescribeReceiptRuleResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy DescribeReceiptRule)
 
 testListIdentitiesResponse :: ListIdentitiesResponse -> TestTree
 testListIdentitiesResponse = res
     "ListIdentitiesResponse"
     "fixture/ListIdentitiesResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy ListIdentities)
 
 testVerifyEmailIdentityResponse :: VerifyEmailIdentityResponse -> TestTree
 testVerifyEmailIdentityResponse = res
     "VerifyEmailIdentityResponse"
     "fixture/VerifyEmailIdentityResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy VerifyEmailIdentity)
 
 testVerifyEmailAddressResponse :: VerifyEmailAddressResponse -> TestTree
 testVerifyEmailAddressResponse = res
     "VerifyEmailAddressResponse"
     "fixture/VerifyEmailAddressResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy VerifyEmailAddress)
 
 testDeleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse -> TestTree
 testDeleteVerifiedEmailAddressResponse = res
     "DeleteVerifiedEmailAddressResponse"
     "fixture/DeleteVerifiedEmailAddressResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy DeleteVerifiedEmailAddress)
 
 testDeleteReceiptFilterResponse :: DeleteReceiptFilterResponse -> TestTree
 testDeleteReceiptFilterResponse = res
     "DeleteReceiptFilterResponse"
     "fixture/DeleteReceiptFilterResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy DeleteReceiptFilter)
 
 testListVerifiedEmailAddressesResponse :: ListVerifiedEmailAddressesResponse -> TestTree
 testListVerifiedEmailAddressesResponse = res
     "ListVerifiedEmailAddressesResponse"
     "fixture/ListVerifiedEmailAddressesResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy ListVerifiedEmailAddresses)
 
 testSetIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse -> TestTree
 testSetIdentityNotificationTopicResponse = res
     "SetIdentityNotificationTopicResponse"
     "fixture/SetIdentityNotificationTopicResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy SetIdentityNotificationTopic)
 
 testSendEmailResponse :: SendEmailResponse -> TestTree
 testSendEmailResponse = res
     "SendEmailResponse"
     "fixture/SendEmailResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy SendEmail)
 
 testDeleteReceiptRuleResponse :: DeleteReceiptRuleResponse -> TestTree
 testDeleteReceiptRuleResponse = res
     "DeleteReceiptRuleResponse"
     "fixture/DeleteReceiptRuleResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy DeleteReceiptRule)
 
 testUpdateReceiptRuleResponse :: UpdateReceiptRuleResponse -> TestTree
 testUpdateReceiptRuleResponse = res
     "UpdateReceiptRuleResponse"
     "fixture/UpdateReceiptRuleResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy UpdateReceiptRule)
 
 testCloneReceiptRuleSetResponse :: CloneReceiptRuleSetResponse -> TestTree
 testCloneReceiptRuleSetResponse = res
     "CloneReceiptRuleSetResponse"
     "fixture/CloneReceiptRuleSetResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy CloneReceiptRuleSet)
 
 testCreateReceiptRuleResponse :: CreateReceiptRuleResponse -> TestTree
 testCreateReceiptRuleResponse = res
     "CreateReceiptRuleResponse"
     "fixture/CreateReceiptRuleResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy CreateReceiptRule)
 
 testSetActiveReceiptRuleSetResponse :: SetActiveReceiptRuleSetResponse -> TestTree
 testSetActiveReceiptRuleSetResponse = res
     "SetActiveReceiptRuleSetResponse"
     "fixture/SetActiveReceiptRuleSetResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy SetActiveReceiptRuleSet)
 
 testDescribeActiveReceiptRuleSetResponse :: DescribeActiveReceiptRuleSetResponse -> TestTree
 testDescribeActiveReceiptRuleSetResponse = res
     "DescribeActiveReceiptRuleSetResponse"
     "fixture/DescribeActiveReceiptRuleSetResponse.proto"
-    sES
+    ses
     (Proxy :: Proxy DescribeActiveReceiptRuleSet)

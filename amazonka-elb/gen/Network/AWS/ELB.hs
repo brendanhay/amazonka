@@ -31,7 +31,7 @@
 module Network.AWS.ELB
     (
     -- * Service Configuration
-      eLB
+      elb
 
     -- * Errors
     -- $errors

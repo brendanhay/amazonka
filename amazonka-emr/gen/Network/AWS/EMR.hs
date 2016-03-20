@@ -19,7 +19,7 @@
 module Network.AWS.EMR
     (
     -- * Service Configuration
-      eMR
+      emr
 
     -- * Errors
     -- $errors

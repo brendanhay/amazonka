@@ -229,117 +229,117 @@ testGetQueueURLResponse :: GetQueueURLResponse -> TestTree
 testGetQueueURLResponse = res
     "GetQueueURLResponse"
     "fixture/GetQueueURLResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy GetQueueURL)
 
 testPurgeQueueResponse :: PurgeQueueResponse -> TestTree
 testPurgeQueueResponse = res
     "PurgeQueueResponse"
     "fixture/PurgeQueueResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy PurgeQueue)
 
 testChangeMessageVisibilityBatchResponse :: ChangeMessageVisibilityBatchResponse -> TestTree
 testChangeMessageVisibilityBatchResponse = res
     "ChangeMessageVisibilityBatchResponse"
     "fixture/ChangeMessageVisibilityBatchResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy ChangeMessageVisibilityBatch)
 
 testSendMessageResponse :: SendMessageResponse -> TestTree
 testSendMessageResponse = res
     "SendMessageResponse"
     "fixture/SendMessageResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy SendMessage)
 
 testRemovePermissionResponse :: RemovePermissionResponse -> TestTree
 testRemovePermissionResponse = res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy RemovePermission)
 
 testGetQueueAttributesResponse :: GetQueueAttributesResponse -> TestTree
 testGetQueueAttributesResponse = res
     "GetQueueAttributesResponse"
     "fixture/GetQueueAttributesResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy GetQueueAttributes)
 
 testListQueuesResponse :: ListQueuesResponse -> TestTree
 testListQueuesResponse = res
     "ListQueuesResponse"
     "fixture/ListQueuesResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy ListQueues)
 
 testReceiveMessageResponse :: ReceiveMessageResponse -> TestTree
 testReceiveMessageResponse = res
     "ReceiveMessageResponse"
     "fixture/ReceiveMessageResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy ReceiveMessage)
 
 testDeleteQueueResponse :: DeleteQueueResponse -> TestTree
 testDeleteQueueResponse = res
     "DeleteQueueResponse"
     "fixture/DeleteQueueResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy DeleteQueue)
 
 testDeleteMessageBatchResponse :: DeleteMessageBatchResponse -> TestTree
 testDeleteMessageBatchResponse = res
     "DeleteMessageBatchResponse"
     "fixture/DeleteMessageBatchResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy DeleteMessageBatch)
 
 testSetQueueAttributesResponse :: SetQueueAttributesResponse -> TestTree
 testSetQueueAttributesResponse = res
     "SetQueueAttributesResponse"
     "fixture/SetQueueAttributesResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy SetQueueAttributes)
 
 testListDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResponse -> TestTree
 testListDeadLetterSourceQueuesResponse = res
     "ListDeadLetterSourceQueuesResponse"
     "fixture/ListDeadLetterSourceQueuesResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy ListDeadLetterSourceQueues)
 
 testAddPermissionResponse :: AddPermissionResponse -> TestTree
 testAddPermissionResponse = res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy AddPermission)
 
 testDeleteMessageResponse :: DeleteMessageResponse -> TestTree
 testDeleteMessageResponse = res
     "DeleteMessageResponse"
     "fixture/DeleteMessageResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy DeleteMessage)
 
 testCreateQueueResponse :: CreateQueueResponse -> TestTree
 testCreateQueueResponse = res
     "CreateQueueResponse"
     "fixture/CreateQueueResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy CreateQueue)
 
 testSendMessageBatchResponse :: SendMessageBatchResponse -> TestTree
 testSendMessageBatchResponse = res
     "SendMessageBatchResponse"
     "fixture/SendMessageBatchResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy SendMessageBatch)
 
 testChangeMessageVisibilityResponse :: ChangeMessageVisibilityResponse -> TestTree
 testChangeMessageVisibilityResponse = res
     "ChangeMessageVisibilityResponse"
     "fixture/ChangeMessageVisibilityResponse.proto"
-    sQS
+    sqs
     (Proxy :: Proxy ChangeMessageVisibility)

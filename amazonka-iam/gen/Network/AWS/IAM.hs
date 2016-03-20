@@ -72,7 +72,7 @@
 module Network.AWS.IAM
     (
     -- * Service Configuration
-      iAM
+      iam
 
     -- * Errors
     -- $errors

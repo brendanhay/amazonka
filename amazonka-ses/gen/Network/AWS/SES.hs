@@ -23,7 +23,7 @@
 module Network.AWS.SES
     (
     -- * Service Configuration
-      sES
+      ses
 
     -- * Errors
     -- $errors

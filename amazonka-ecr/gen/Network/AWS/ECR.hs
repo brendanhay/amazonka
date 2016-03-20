@@ -21,7 +21,7 @@
 module Network.AWS.ECR
     (
     -- * Service Configuration
-      eCR
+      ecr
 
     -- * Errors
     -- $errors

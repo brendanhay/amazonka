@@ -212,6 +212,12 @@
             "requiredFields": [
                 "Status"
             ]
+        },
+        "AttachmentStatus": {
+            "enumPrefix": "A"
+        },
+        "VolumeAttachmentState": {
+            "enumPrefix": "V"
         }
     }
 }

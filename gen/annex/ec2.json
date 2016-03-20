@@ -9,7 +9,8 @@
                 "attached",
                 "detaching",
                 "detached",
-                "busy"
+                "busy",
+                "available"
             ]
         },
         "VolumeAttachmentState": {

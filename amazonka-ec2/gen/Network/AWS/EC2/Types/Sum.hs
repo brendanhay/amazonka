@@ -176,30 +176,33 @@ instance FromXML ArchitectureValues where
     parseXML = parseXMLText "ArchitectureValues"
 
 data AttachmentStatus
-    = Attached
-    | Attaching
-    | Busy
-    | Detached
-    | Detaching
+    = AAttached
+    | AAttaching
+    | AAvailable
+    | ABusy
+    | ADetached
+    | ADetaching
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AttachmentStatus where
     parser = takeLowerText >>= \case
-        "attached" -> pure Attached
-        "attaching" -> pure Attaching
-        "busy" -> pure Busy
-        "detached" -> pure Detached
-        "detaching" -> pure Detaching
+        "attached" -> pure AAttached
+        "attaching" -> pure AAttaching
+        "available" -> pure AAvailable
+        "busy" -> pure ABusy
+        "detached" -> pure ADetached
+        "detaching" -> pure ADetaching
         e -> fromTextError $ "Failure parsing AttachmentStatus from value: '" <> e
-           <> "'. Accepted values: attached, attaching, busy, detached, detaching"
+           <> "'. Accepted values: attached, attaching, available, busy, detached, detaching"
 
 instance ToText AttachmentStatus where
     toText = \case
-        Attached -> "attached"
-        Attaching -> "attaching"
-        Busy -> "busy"
-        Detached -> "detached"
-        Detaching -> "detaching"
+        AAttached -> "attached"
+        AAttaching -> "attaching"
+        AAvailable -> "available"
+        ABusy -> "busy"
+        ADetached -> "detached"
+        ADetaching -> "detaching"
 
 instance Hashable     AttachmentStatus
 instance ToByteString AttachmentStatus
@@ -2494,30 +2497,30 @@ instance FromXML VirtualizationType where
     parseXML = parseXMLText "VirtualizationType"
 
 data VolumeAttachmentState
-    = VASAttached
-    | VASAttaching
-    | VASBusy
-    | VASDetached
-    | VASDetaching
+    = VAttached
+    | VAttaching
+    | VBusy
+    | VDetached
+    | VDetaching
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VolumeAttachmentState where
     parser = takeLowerText >>= \case
-        "attached" -> pure VASAttached
-        "attaching" -> pure VASAttaching
-        "busy" -> pure VASBusy
-        "detached" -> pure VASDetached
-        "detaching" -> pure VASDetaching
+        "attached" -> pure VAttached
+        "attaching" -> pure VAttaching
+        "busy" -> pure VBusy
+        "detached" -> pure VDetached
+        "detaching" -> pure VDetaching
         e -> fromTextError $ "Failure parsing VolumeAttachmentState from value: '" <> e
            <> "'. Accepted values: attached, attaching, busy, detached, detaching"
 
 instance ToText VolumeAttachmentState where
     toText = \case
-        VASAttached -> "attached"
-        VASAttaching -> "attaching"
-        VASBusy -> "busy"
-        VASDetached -> "detached"
-        VASDetaching -> "detaching"
+        VAttached -> "attached"
+        VAttaching -> "attaching"
+        VBusy -> "busy"
+        VDetached -> "detached"
+        VDetaching -> "detaching"
 
 instance Hashable     VolumeAttachmentState
 instance ToByteString VolumeAttachmentState

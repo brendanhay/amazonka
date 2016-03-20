@@ -206,7 +206,7 @@ serviceData :: HasMetadata a Identity
             => a
             -> Retry
             -> Either Error Fun
-serviceData m r = Fun' (serviceFunction m) (Raw h)
+serviceData m r = Fun' (m ^. serviceConfig) (Raw h)
     <$> pp None   (serviceS m)
     <*> pp Indent (serviceD m r)
   where

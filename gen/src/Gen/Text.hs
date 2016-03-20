@@ -58,6 +58,14 @@ renameOperation t
     f x = x == '_'
        || isDigit x
 
+serviceFunction :: Text -> Text
+serviceFunction n
+    | Text.all f n = Text.toLower n
+    | otherwise    = lowerHead (lowerFirstAcronym n)
+  where
+    f c = isUpper c
+       || isDigit c
+
 renameService :: Text -> Text
 renameService =
       mappend "Amazon "

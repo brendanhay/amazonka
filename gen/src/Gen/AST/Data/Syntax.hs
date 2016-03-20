@@ -164,7 +164,7 @@ conD :: ConDecl -> QualConDecl
 conD = QualConDecl noLoc [] []
 
 serviceS :: HasMetadata a Identity => a -> Decl
-serviceS m = TypeSig noLoc [ident (serviceFunction m)] (tycon "Service")
+serviceS m = TypeSig noLoc [ident (m ^. serviceConfig)] (tycon "Service")
 
 serviceD :: HasMetadata a Identity => a -> Retry -> Decl
 serviceD m r = patBindWhere noLoc (pvar n) rhs bs
@@ -197,7 +197,7 @@ serviceD m r = patBindWhere noLoc (pvar n) rhs bs
       where
         policy (k, v) = (`guardE` app justE (str k)) <$> policyE v
 
-    n      = serviceFunction m
+    n      = m ^. serviceConfig
     abbrev = m ^. serviceAbbrev
     sig    = m ^. signatureVersion . to sigToText
 
@@ -661,9 +661,9 @@ requestF c meta h r is = maybe e (foldr' plugin e) ps
           , m == POST -> Just "Query"
         _             -> Nothing
 
-    m = h ^. method
+    m = h    ^. method
     p = meta ^. protocol
-    n = serviceFunction meta
+    n = meta ^. serviceConfig
 
 -- FIXME: take method into account for responses, such as HEAD etc, particuarly
 -- when the body might be totally empty.

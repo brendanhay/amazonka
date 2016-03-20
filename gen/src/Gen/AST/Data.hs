@@ -44,7 +44,6 @@ import           Gen.AST.Data.Instance
 import           Gen.AST.Data.Syntax
 import           Gen.Formatting
 import           Gen.Types
-import           Gen.Types.TypeOf
 import           HIndent
 import           Language.Haskell.Exts.Pretty
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
@@ -61,7 +60,7 @@ operationData cfg m o = do
     (xd, xs) <- prodData m xa x
     (yd, ys) <- prodData m ya y
 
-    is       <- requestInsts m (_opName o) h xr xs
+    is       <- instances xa <$> requestInsts m (_opName o) h xr xs
 
     cls      <- pp Print $ requestD cfg m h (xr, is) (yr, ys)
 
@@ -87,6 +86,10 @@ operationData cfg m o = do
     xr = o ^. opInput  . _Identity
     yr = o ^. opOutput . _Identity
     xn = identifier xr
+
+    instances s is
+        | isHashable s = IsHashable : is
+        | otherwise    = is
 
 shapeData :: HasMetadata a Identity
           => a

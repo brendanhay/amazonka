@@ -40,11 +40,12 @@ import           Data.Attoparsec.Text        (Parser)
 import qualified Data.Attoparsec.Text        as AText
 import qualified Data.ByteString.Char8       as BS
 import           Data.Data                   (Data, Typeable)
+import           Data.Hashable
 import           Data.Monoid
 import           Data.Scientific
 import           Data.Tagged
 import qualified Data.Text                   as Text
-import           Data.Time                   (UTCTime)
+import           Data.Time                   (Day (..), UTCTime (..))
 import           Data.Time.Clock.POSIX
 import           Data.Time.Format            (formatTime)
 import           GHC.Generics                (Generic)
@@ -79,6 +80,11 @@ deriving instance Eq   (Time a)
 deriving instance Ord  (Time a)
 deriving instance Read (Time a)
 deriving instance Show (Time a)
+
+instance Hashable (Time a) where
+    hashWithSalt salt (Time (UTCTime (ModifiedJulianDay d) t)) =
+        salt `hashWithSalt` d
+             `hashWithSalt` toRational t
 
 _Time :: Iso' (Time a) UTCTime
 _Time = iso (\(Time t) -> t) Time

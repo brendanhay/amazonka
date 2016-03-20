@@ -29,7 +29,7 @@ import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Data.Text.Manipulate
-import           Gen.AST.TypeOf
+import           Gen.Types.TypeOf
 import           Gen.Types
 import           Language.Haskell.Exts.Syntax (Name (..))
 

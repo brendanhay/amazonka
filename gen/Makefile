@@ -14,7 +14,7 @@ CLIENT_VERSION = $(call version,$(TOP)/gen/amazonka-gen.cabal)
 
 MODELS ?= $(sort $(dir $(wildcard $(MODEL_DIR)/*/*)))
 
-.PHONY: gen format
+.PHONY: gen format $(BIN)/amazonka-gen
 
 release: gen format
 

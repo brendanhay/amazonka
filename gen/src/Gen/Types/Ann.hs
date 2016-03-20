@@ -97,12 +97,17 @@ data Derive
     | DData
     | DTypeable
     | DGeneric
+    | DHashable
       deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Derive
 
 instance FromJSON Derive where
     parseJSON = gParseJSON' (spinal & ctor %~ (. Text.drop 1))
+
+derivingName :: Derive -> Maybe String
+derivingName DHashable = Nothing
+derivingName d         = Just $ drop 1 (show d)
 
 data Lit
     = Int
@@ -113,7 +118,7 @@ data Lit
     | Time
     | Bool
     | Json
-      deriving (Show)
+      deriving (Eq, Show)
 
 data TType
     = TType      Text [Derive]
@@ -125,12 +130,12 @@ data TType
     | TList      TType
     | TList1     TType
     | TMap       TType TType
-      deriving (Show)
+      deriving (Eq, Show)
 
 data Related = Related
     { _annId       :: Id
     , _annRelation :: Relation
-    } deriving (Show)
+    } deriving (Eq, Show)
 
 makeClassy ''Related
 
@@ -146,7 +151,7 @@ instance HasRelation Related where
 data Prefixed = Prefixed
     { _annRelated :: Related
     , _annPrefix  :: Maybe Text
-    } deriving (Show)
+    } deriving (Eq, Show)
 
 makeClassy ''Prefixed
 
@@ -165,7 +170,7 @@ instance HasId Prefixed where
 data Solved = Solved
     { _annPrefixed :: Prefixed
     , _annType     :: TType
-    } deriving (Show)
+    } deriving (Eq, Show)
 
 makeClassy ''Solved
 

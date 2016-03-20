@@ -16,6 +16,7 @@ module Network.AWS.Data.Numeric where
 import           Control.Monad
 import           Data.Aeson.Types
 import           Data.Data                   (Data, Typeable)
+import           Data.Hashable
 import           Data.Monoid
 import           Data.Scientific
 import           GHC.Generics                (Generic)
@@ -49,6 +50,9 @@ newtype Nat = Nat { unNat :: Natural }
 
 _Nat :: Iso' Nat Natural
 _Nat = iso unNat Nat
+
+instance Hashable Nat where
+    hashWithSalt salt (Nat n) = hashWithSalt salt (toInteger n)
 
 instance FromJSON Nat where
     parseJSON = parseJSON >=> go

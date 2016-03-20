@@ -38,21 +38,23 @@ data Inst
     | ToQuery   [Either (Text, Maybe Text) Field]
     | ToPath    [Either Text Field]
     | ToBody    Field
+    | IsHashable
 
 instance ToJSON Inst where
     toJSON = toJSON . instToText
 
 instToText :: Inst -> Text
 instToText = \case
-    FromJSON  {} -> "FromJSON"
-    FromXML   {} -> "FromXML"
-    ToJSON    {} -> "ToJSON"
-    ToXML     {} -> "ToXML"
-    ToElement {} -> "ToElement"
-    ToHeaders {} -> "ToHeaders"
-    ToQuery   {} -> "ToQuery"
-    ToPath    {} -> "ToPath"
-    ToBody    {} -> "ToBody"
+    FromJSON   {} -> "FromJSON"
+    FromXML    {} -> "FromXML"
+    ToJSON     {} -> "ToJSON"
+    ToXML      {} -> "ToXML"
+    ToElement  {} -> "ToElement"
+    ToHeaders  {} -> "ToHeaders"
+    ToQuery    {} -> "ToQuery"
+    ToPath     {} -> "ToPath"
+    ToBody     {} -> "ToBody"
+    IsHashable    -> "Hashable"
 
 shapeInsts :: Protocol -> Mode -> [Field] -> [Inst]
 shapeInsts p m fs = go m

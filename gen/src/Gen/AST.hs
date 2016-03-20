@@ -29,7 +29,7 @@ import           Gen.AST.Data
 import           Gen.AST.Override
 import           Gen.AST.Prefix
 import           Gen.AST.Subst
-import           Gen.AST.TypeOf
+import           Gen.Types.TypeOf
 import           Gen.Formatting
 import           Gen.Types
 

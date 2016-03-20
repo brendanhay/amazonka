@@ -108,7 +108,7 @@ simfdIdentity = lens _simfdIdentity (\ s a -> s{_simfdIdentity = a});
 instance AWSRequest SetIdentityMailFromDomain where
         type Rs SetIdentityMailFromDomain =
              SetIdentityMailFromDomainResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "SetIdentityMailFromDomainResult"
               (\ s h x ->

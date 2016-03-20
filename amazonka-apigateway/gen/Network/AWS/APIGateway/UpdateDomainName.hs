@@ -80,7 +80,7 @@ udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
 
 instance AWSRequest UpdateDomainName where
         type Rs UpdateDomainName = DomainName
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateDomainName

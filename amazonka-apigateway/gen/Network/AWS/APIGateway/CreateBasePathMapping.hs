@@ -102,7 +102,7 @@ cbpmRestAPIId = lens _cbpmRestAPIId (\ s a -> s{_cbpmRestAPIId = a});
 
 instance AWSRequest CreateBasePathMapping where
         type Rs CreateBasePathMapping = BasePathMapping
-        request = postJSON aPIGateway
+        request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CreateBasePathMapping

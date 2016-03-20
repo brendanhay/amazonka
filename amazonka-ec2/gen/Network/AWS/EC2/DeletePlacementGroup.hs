@@ -80,7 +80,7 @@ dpgGroupName = lens _dpgGroupName (\ s a -> s{_dpgGroupName = a});
 instance AWSRequest DeletePlacementGroup where
         type Rs DeletePlacementGroup =
              DeletePlacementGroupResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeletePlacementGroupResponse'
 
 instance Hashable DeletePlacementGroup

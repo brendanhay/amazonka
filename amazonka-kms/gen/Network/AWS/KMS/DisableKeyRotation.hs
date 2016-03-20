@@ -70,7 +70,7 @@ dkrKeyId = lens _dkrKeyId (\ s a -> s{_dkrKeyId = a});
 instance AWSRequest DisableKeyRotation where
         type Rs DisableKeyRotation =
              DisableKeyRotationResponse
-        request = postJSON kMS
+        request = postJSON kms
         response = receiveNull DisableKeyRotationResponse'
 
 instance Hashable DisableKeyRotation

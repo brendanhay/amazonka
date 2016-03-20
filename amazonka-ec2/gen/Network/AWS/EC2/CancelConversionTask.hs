@@ -93,7 +93,7 @@ cctConversionTaskId = lens _cctConversionTaskId (\ s a -> s{_cctConversionTaskId
 instance AWSRequest CancelConversionTask where
         type Rs CancelConversionTask =
              CancelConversionTaskResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull CancelConversionTaskResponse'
 
 instance Hashable CancelConversionTask

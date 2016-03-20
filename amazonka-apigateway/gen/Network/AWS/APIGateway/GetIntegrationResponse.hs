@@ -100,7 +100,7 @@ getStatusCode = lens _getStatusCode (\ s a -> s{_getStatusCode = a});
 
 instance AWSRequest GetIntegrationResponse where
         type Rs GetIntegrationResponse = IntegrationResponse
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetIntegrationResponse

@@ -82,7 +82,7 @@ cakUserName = lens _cakUserName (\ s a -> s{_cakUserName = a});
 
 instance AWSRequest CreateAccessKey where
         type Rs CreateAccessKey = CreateAccessKeyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "CreateAccessKeyResult"
               (\ s h x ->

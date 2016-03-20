@@ -84,7 +84,7 @@ dpPolicyARN = lens _dpPolicyARN (\ s a -> s{_dpPolicyARN = a});
 
 instance AWSRequest DeletePolicy where
         type Rs DeletePolicy = DeletePolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull DeletePolicyResponse'
 
 instance Hashable DeletePolicy

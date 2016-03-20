@@ -68,7 +68,7 @@ drtReplicationTaskARN = lens _drtReplicationTaskARN (\ s a -> s{_drtReplicationT
 instance AWSRequest DeleteReplicationTask where
         type Rs DeleteReplicationTask =
              DeleteReplicationTaskResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

@@ -80,7 +80,7 @@ dqQueueURL = lens _dqQueueURL (\ s a -> s{_dqQueueURL = a});
 
 instance AWSRequest DeleteQueue where
         type Rs DeleteQueue = DeleteQueueResponse
-        request = postQuery sQS
+        request = postQuery sqs
         response = receiveNull DeleteQueueResponse'
 
 instance Hashable DeleteQueue

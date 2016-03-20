@@ -70,7 +70,7 @@ graRestAPIId = lens _graRestAPIId (\ s a -> s{_graRestAPIId = a});
 
 instance AWSRequest GetRestAPI where
         type Rs GetRestAPI = RestAPI
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetRestAPI

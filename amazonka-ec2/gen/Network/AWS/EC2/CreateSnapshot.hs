@@ -129,7 +129,7 @@ ccVolumeId = lens _ccVolumeId (\ s a -> s{_ccVolumeId = a});
 
 instance AWSRequest CreateSnapshot where
         type Rs CreateSnapshot = Snapshot
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveXML (\ s h x -> parseXML x)
 
 instance Hashable CreateSnapshot

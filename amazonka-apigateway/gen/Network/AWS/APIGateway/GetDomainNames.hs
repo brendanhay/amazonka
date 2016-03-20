@@ -89,7 +89,7 @@ instance AWSPager GetDomainNames where
 
 instance AWSRequest GetDomainNames where
         type Rs GetDomainNames = GetDomainNamesResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

@@ -62,7 +62,7 @@ instance AWSRequest DescribeActiveReceiptRuleSet
          where
         type Rs DescribeActiveReceiptRuleSet =
              DescribeActiveReceiptRuleSetResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper
               "DescribeActiveReceiptRuleSetResult"

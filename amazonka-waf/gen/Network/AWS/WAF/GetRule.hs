@@ -68,7 +68,7 @@ grRuleId = lens _grRuleId (\ s a -> s{_grRuleId = a});
 
 instance AWSRequest GetRule where
         type Rs GetRule = GetRuleResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

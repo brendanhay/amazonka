@@ -73,7 +73,7 @@ instance AWSRequest GetPlatformApplicationAttributes
          where
         type Rs GetPlatformApplicationAttributes =
              GetPlatformApplicationAttributesResponse
-        request = postQuery sNS
+        request = postQuery sns
         response
           = receiveXMLWrapper
               "GetPlatformApplicationAttributesResult"

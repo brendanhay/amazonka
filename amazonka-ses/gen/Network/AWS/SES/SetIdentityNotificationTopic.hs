@@ -104,7 +104,7 @@ instance AWSRequest SetIdentityNotificationTopic
          where
         type Rs SetIdentityNotificationTopic =
              SetIdentityNotificationTopicResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper
               "SetIdentityNotificationTopicResult"

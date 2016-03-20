@@ -84,7 +84,7 @@ instance AWSRequest
          RemoveSourceIdentifierFromSubscription where
         type Rs RemoveSourceIdentifierFromSubscription =
              RemoveSourceIdentifierFromSubscriptionResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "RemoveSourceIdentifierFromSubscriptionResult"

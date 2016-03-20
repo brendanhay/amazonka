@@ -105,7 +105,7 @@ daItemName = lens _daItemName (\ s a -> s{_daItemName = a});
 
 instance AWSRequest DeleteAttributes where
         type Rs DeleteAttributes = DeleteAttributesResponse
-        request = postQuery sDB
+        request = postQuery sdb
         response = receiveNull DeleteAttributesResponse'
 
 instance Hashable DeleteAttributes

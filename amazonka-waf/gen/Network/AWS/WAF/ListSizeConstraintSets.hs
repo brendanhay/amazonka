@@ -87,7 +87,7 @@ lscsLimit = lens _lscsLimit (\ s a -> s{_lscsLimit = a}) . _Nat;
 instance AWSRequest ListSizeConstraintSets where
         type Rs ListSizeConstraintSets =
              ListSizeConstraintSetsResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

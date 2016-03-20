@@ -166,7 +166,7 @@ instance AWSRequest
          DescribeScheduledInstanceAvailability where
         type Rs DescribeScheduledInstanceAvailability =
              DescribeScheduledInstanceAvailabilityResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

@@ -135,7 +135,7 @@ dvpncDryRun = lens _dvpncDryRun (\ s a -> s{_dvpncDryRun = a});
 instance AWSRequest DescribeVPNConnections where
         type Rs DescribeVPNConnections =
              DescribeVPNConnectionsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

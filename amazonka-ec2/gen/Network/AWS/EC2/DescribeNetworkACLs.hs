@@ -148,7 +148,7 @@ dnaclDryRun = lens _dnaclDryRun (\ s a -> s{_dnaclDryRun = a});
 instance AWSRequest DescribeNetworkACLs where
         type Rs DescribeNetworkACLs =
              DescribeNetworkACLsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

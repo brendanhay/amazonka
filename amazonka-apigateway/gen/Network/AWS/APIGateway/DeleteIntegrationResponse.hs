@@ -96,7 +96,7 @@ diStatusCode = lens _diStatusCode (\ s a -> s{_diStatusCode = a});
 instance AWSRequest DeleteIntegrationResponse where
         type Rs DeleteIntegrationResponse =
              DeleteIntegrationResponseResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response
           = receiveNull DeleteIntegrationResponseResponse'
 

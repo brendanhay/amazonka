@@ -99,7 +99,7 @@ cpatTaskList = lens _cpatTaskList (\ s a -> s{_cpatTaskList = a});
 
 instance AWSRequest CountPendingActivityTasks where
         type Rs CountPendingActivityTasks = PendingTaskCount
-        request = postJSON sWF
+        request = postJSON swf
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CountPendingActivityTasks

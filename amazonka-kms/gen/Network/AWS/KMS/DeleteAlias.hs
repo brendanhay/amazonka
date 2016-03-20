@@ -66,7 +66,7 @@ daAliasName = lens _daAliasName (\ s a -> s{_daAliasName = a});
 
 instance AWSRequest DeleteAlias where
         type Rs DeleteAlias = DeleteAliasResponse
-        request = postJSON kMS
+        request = postJSON kms
         response = receiveNull DeleteAliasResponse'
 
 instance Hashable DeleteAlias

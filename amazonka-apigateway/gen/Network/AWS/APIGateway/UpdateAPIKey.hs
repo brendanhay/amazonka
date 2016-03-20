@@ -83,7 +83,7 @@ uakApiKey = lens _uakApiKey (\ s a -> s{_uakApiKey = a});
 
 instance AWSRequest UpdateAPIKey where
         type Rs UpdateAPIKey = APIKey
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateAPIKey

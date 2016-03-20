@@ -68,7 +68,7 @@ migInstanceGroups = lens _migInstanceGroups (\ s a -> s{_migInstanceGroups = a})
 instance AWSRequest ModifyInstanceGroups where
         type Rs ModifyInstanceGroups =
              ModifyInstanceGroupsResponse
-        request = postJSON eMR
+        request = postJSON emr
         response = receiveNull ModifyInstanceGroupsResponse'
 
 instance Hashable ModifyInstanceGroups

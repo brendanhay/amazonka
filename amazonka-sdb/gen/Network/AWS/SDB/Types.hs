@@ -13,7 +13,7 @@
 module Network.AWS.SDB.Types
     (
     -- * Service Configuration
-      sDB
+      sdb
 
     -- * Errors
     , _InvalidNumberValueTests
@@ -83,14 +83,14 @@ import           Network.AWS.SDB.Types.Sum
 import           Network.AWS.Sign.V2
 
 -- | API version '2009-04-15' of the Amazon SimpleDB SDK configuration.
-sDB :: Service
-sDB =
+sdb :: Service
+sdb =
     Service
     { _svcAbbrev = "SDB"
     , _svcSigner = v2
     , _svcPrefix = "sdb"
     , _svcVersion = "2009-04-15"
-    , _svcEndpoint = defaultEndpoint sDB
+    , _svcEndpoint = defaultEndpoint sdb
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseXMLError

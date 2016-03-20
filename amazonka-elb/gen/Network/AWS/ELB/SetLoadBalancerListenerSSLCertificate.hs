@@ -93,7 +93,7 @@ instance AWSRequest
          SetLoadBalancerListenerSSLCertificate where
         type Rs SetLoadBalancerListenerSSLCertificate =
              SetLoadBalancerListenerSSLCertificateResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper
               "SetLoadBalancerListenerSSLCertificateResult"

@@ -85,7 +85,7 @@ dpeContainerInstance = lens _dpeContainerInstance (\ s a -> s{_dpeContainerInsta
 instance AWSRequest DiscoverPollEndpoint where
         type Rs DiscoverPollEndpoint =
              DiscoverPollEndpointResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

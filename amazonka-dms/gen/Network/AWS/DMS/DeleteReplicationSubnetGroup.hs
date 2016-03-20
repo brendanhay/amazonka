@@ -68,7 +68,7 @@ instance AWSRequest DeleteReplicationSubnetGroup
          where
         type Rs DeleteReplicationSubnetGroup =
              DeleteReplicationSubnetGroupResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveEmpty
               (\ s h x ->

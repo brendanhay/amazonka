@@ -176,7 +176,7 @@ instance AWSRequest CountClosedWorkflowExecutions
          where
         type Rs CountClosedWorkflowExecutions =
              WorkflowExecutionCount
-        request = postJSON sWF
+        request = postJSON swf
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CountClosedWorkflowExecutions

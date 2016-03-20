@@ -127,7 +127,7 @@ instance AWSPager DescribeOptionGroupOptions where
 instance AWSRequest DescribeOptionGroupOptions where
         type Rs DescribeOptionGroupOptions =
              DescribeOptionGroupOptionsResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "DescribeOptionGroupOptionsResult"

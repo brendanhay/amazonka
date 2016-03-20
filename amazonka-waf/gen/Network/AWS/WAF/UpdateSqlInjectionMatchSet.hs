@@ -131,7 +131,7 @@ usimsUpdates = lens _usimsUpdates (\ s a -> s{_usimsUpdates = a}) . _Coerce;
 instance AWSRequest UpdateSqlInjectionMatchSet where
         type Rs UpdateSqlInjectionMatchSet =
              UpdateSqlInjectionMatchSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

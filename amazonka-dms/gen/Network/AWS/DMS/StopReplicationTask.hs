@@ -68,7 +68,7 @@ sReplicationTaskARN = lens _sReplicationTaskARN (\ s a -> s{_sReplicationTaskARN
 instance AWSRequest StopReplicationTask where
         type Rs StopReplicationTask =
              StopReplicationTaskResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

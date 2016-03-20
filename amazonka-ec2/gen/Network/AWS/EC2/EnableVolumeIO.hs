@@ -76,7 +76,7 @@ evioVolumeId = lens _evioVolumeId (\ s a -> s{_evioVolumeId = a});
 
 instance AWSRequest EnableVolumeIO where
         type Rs EnableVolumeIO = EnableVolumeIOResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull EnableVolumeIOResponse'
 
 instance Hashable EnableVolumeIO

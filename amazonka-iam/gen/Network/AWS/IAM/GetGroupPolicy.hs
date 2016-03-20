@@ -88,7 +88,7 @@ ggpPolicyName = lens _ggpPolicyName (\ s a -> s{_ggpPolicyName = a});
 
 instance AWSRequest GetGroupPolicy where
         type Rs GetGroupPolicy = GetGroupPolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "GetGroupPolicyResult"
               (\ s h x ->

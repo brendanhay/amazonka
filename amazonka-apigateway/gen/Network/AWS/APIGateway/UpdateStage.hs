@@ -99,7 +99,7 @@ usStageName = lens _usStageName (\ s a -> s{_usStageName = a});
 
 instance AWSRequest UpdateStage where
         type Rs UpdateStage = Stage
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateStage

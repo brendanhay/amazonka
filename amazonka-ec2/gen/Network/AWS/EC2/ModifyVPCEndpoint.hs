@@ -118,7 +118,7 @@ mveVPCEndpointId = lens _mveVPCEndpointId (\ s a -> s{_mveVPCEndpointId = a});
 
 instance AWSRequest ModifyVPCEndpoint where
         type Rs ModifyVPCEndpoint = ModifyVPCEndpointResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

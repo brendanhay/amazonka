@@ -71,7 +71,7 @@ ldlsqQueueURL = lens _ldlsqQueueURL (\ s a -> s{_ldlsqQueueURL = a});
 instance AWSRequest ListDeadLetterSourceQueues where
         type Rs ListDeadLetterSourceQueues =
              ListDeadLetterSourceQueuesResponse
-        request = postQuery sQS
+        request = postQuery sqs
         response
           = receiveXMLWrapper
               "ListDeadLetterSourceQueuesResult"

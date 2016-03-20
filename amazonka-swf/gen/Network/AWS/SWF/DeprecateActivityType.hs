@@ -103,7 +103,7 @@ depActivityType = lens _depActivityType (\ s a -> s{_depActivityType = a});
 instance AWSRequest DeprecateActivityType where
         type Rs DeprecateActivityType =
              DeprecateActivityTypeResponse
-        request = postJSON sWF
+        request = postJSON swf
         response = receiveNull DeprecateActivityTypeResponse'
 
 instance Hashable DeprecateActivityType

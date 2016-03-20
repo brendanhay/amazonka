@@ -117,7 +117,7 @@ cogOptionGroupDescription = lens _cogOptionGroupDescription (\ s a -> s{_cogOpti
 
 instance AWSRequest CreateOptionGroup where
         type Rs CreateOptionGroup = CreateOptionGroupResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "CreateOptionGroupResult"
               (\ s h x ->

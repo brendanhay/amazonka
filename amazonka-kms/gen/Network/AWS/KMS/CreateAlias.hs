@@ -94,7 +94,7 @@ caTargetKeyId = lens _caTargetKeyId (\ s a -> s{_caTargetKeyId = a});
 
 instance AWSRequest CreateAlias where
         type Rs CreateAlias = CreateAliasResponse
-        request = postJSON kMS
+        request = postJSON kms
         response = receiveNull CreateAliasResponse'
 
 instance Hashable CreateAlias

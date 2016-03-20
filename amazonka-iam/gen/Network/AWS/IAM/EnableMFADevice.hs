@@ -96,7 +96,7 @@ emdAuthenticationCode2 = lens _emdAuthenticationCode2 (\ s a -> s{_emdAuthentica
 
 instance AWSRequest EnableMFADevice where
         type Rs EnableMFADevice = EnableMFADeviceResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull EnableMFADeviceResponse'
 
 instance Hashable EnableMFADevice

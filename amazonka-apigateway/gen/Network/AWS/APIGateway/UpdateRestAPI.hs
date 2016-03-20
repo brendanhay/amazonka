@@ -80,7 +80,7 @@ uraRestAPIId = lens _uraRestAPIId (\ s a -> s{_uraRestAPIId = a});
 
 instance AWSRequest UpdateRestAPI where
         type Rs UpdateRestAPI = RestAPI
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateRestAPI

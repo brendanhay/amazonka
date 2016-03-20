@@ -59,7 +59,7 @@ getCredentialReport = GetCredentialReport'
 instance AWSRequest GetCredentialReport where
         type Rs GetCredentialReport =
              GetCredentialReportResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "GetCredentialReportResult"
               (\ s h x ->

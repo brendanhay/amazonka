@@ -75,7 +75,7 @@ daAuthorizerId = lens _daAuthorizerId (\ s a -> s{_daAuthorizerId = a});
 
 instance AWSRequest DeleteAuthorizer where
         type Rs DeleteAuthorizer = DeleteAuthorizerResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull DeleteAuthorizerResponse'
 
 instance Hashable DeleteAuthorizer

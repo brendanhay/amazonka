@@ -66,7 +66,7 @@ detExportTaskIds = lens _detExportTaskIds (\ s a -> s{_detExportTaskIds = a}) . 
 instance AWSRequest DescribeExportTasks where
         type Rs DescribeExportTasks =
              DescribeExportTasksResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

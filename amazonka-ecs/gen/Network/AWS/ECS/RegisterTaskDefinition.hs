@@ -95,7 +95,7 @@ rtdContainerDefinitions = lens _rtdContainerDefinitions (\ s a -> s{_rtdContaine
 instance AWSRequest RegisterTaskDefinition where
         type Rs RegisterTaskDefinition =
              RegisterTaskDefinitionResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

@@ -67,7 +67,7 @@ dOptionGroupName = lens _dOptionGroupName (\ s a -> s{_dOptionGroupName = a});
 
 instance AWSRequest DeleteOptionGroup where
         type Rs DeleteOptionGroup = DeleteOptionGroupResponse
-        request = postQuery rDS
+        request = postQuery rds
         response = receiveNull DeleteOptionGroupResponse'
 
 instance Hashable DeleteOptionGroup

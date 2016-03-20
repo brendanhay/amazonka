@@ -69,7 +69,7 @@ gsaSubscriptionARN = lens _gsaSubscriptionARN (\ s a -> s{_gsaSubscriptionARN = 
 instance AWSRequest GetSubscriptionAttributes where
         type Rs GetSubscriptionAttributes =
              GetSubscriptionAttributesResponse
-        request = postQuery sNS
+        request = postQuery sns
         response
           = receiveXMLWrapper "GetSubscriptionAttributesResult"
               (\ s h x ->

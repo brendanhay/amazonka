@@ -116,7 +116,7 @@ instance AWSPager ListCommands where
 
 instance AWSRequest ListCommands where
         type Rs ListCommands = ListCommandsResponse
-        request = postJSON sSM
+        request = postJSON ssm
         response
           = receiveJSON
               (\ s h x ->

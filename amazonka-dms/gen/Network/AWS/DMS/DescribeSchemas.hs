@@ -96,7 +96,7 @@ dsEndpointARN = lens _dsEndpointARN (\ s a -> s{_dsEndpointARN = a});
 
 instance AWSRequest DescribeSchemas where
         type Rs DescribeSchemas = DescribeSchemasResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

@@ -95,7 +95,7 @@ bclaLayerDigests = lens _bclaLayerDigests (\ s a -> s{_bclaLayerDigests = a}) . 
 instance AWSRequest BatchCheckLayerAvailability where
         type Rs BatchCheckLayerAvailability =
              BatchCheckLayerAvailabilityResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

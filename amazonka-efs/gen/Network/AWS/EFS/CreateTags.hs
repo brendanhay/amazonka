@@ -81,7 +81,7 @@ ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
 
 instance AWSRequest CreateTags where
         type Rs CreateTags = CreateTagsResponse
-        request = postJSON eFS
+        request = postJSON efs
         response = receiveNull CreateTagsResponse'
 
 instance Hashable CreateTags

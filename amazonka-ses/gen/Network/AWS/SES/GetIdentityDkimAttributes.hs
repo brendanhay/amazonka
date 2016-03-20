@@ -87,7 +87,7 @@ gidaIdentities = lens _gidaIdentities (\ s a -> s{_gidaIdentities = a}) . _Coerc
 instance AWSRequest GetIdentityDkimAttributes where
         type Rs GetIdentityDkimAttributes =
              GetIdentityDkimAttributesResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "GetIdentityDkimAttributesResult"
               (\ s h x ->

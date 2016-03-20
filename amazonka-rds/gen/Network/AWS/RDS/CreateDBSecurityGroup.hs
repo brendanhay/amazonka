@@ -100,7 +100,7 @@ cdsgDBSecurityGroupDescription = lens _cdsgDBSecurityGroupDescription (\ s a -> 
 instance AWSRequest CreateDBSecurityGroup where
         type Rs CreateDBSecurityGroup =
              CreateDBSecurityGroupResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "CreateDBSecurityGroupResult"
               (\ s h x ->

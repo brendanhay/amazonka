@@ -83,7 +83,7 @@ drtAssociationId = lens _drtAssociationId (\ s a -> s{_drtAssociationId = a});
 instance AWSRequest DisassociateRouteTable where
         type Rs DisassociateRouteTable =
              DisassociateRouteTableResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull DisassociateRouteTableResponse'
 

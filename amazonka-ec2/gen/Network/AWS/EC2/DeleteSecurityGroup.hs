@@ -90,7 +90,7 @@ dsgDryRun = lens _dsgDryRun (\ s a -> s{_dsgDryRun = a});
 instance AWSRequest DeleteSecurityGroup where
         type Rs DeleteSecurityGroup =
              DeleteSecurityGroupResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeleteSecurityGroupResponse'
 
 instance Hashable DeleteSecurityGroup

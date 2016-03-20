@@ -13,7 +13,7 @@
 module Network.AWS.WAF.Types
     (
     -- * Service Configuration
-      wAF
+      waf
 
     -- * Errors
     , _WAFInvalidAccountException
@@ -263,14 +263,14 @@ import           Network.AWS.WAF.Types.Product
 import           Network.AWS.WAF.Types.Sum
 
 -- | API version '2015-08-24' of the Amazon WAF SDK configuration.
-wAF :: Service
-wAF =
+waf :: Service
+waf =
     Service
     { _svcAbbrev = "WAF"
     , _svcSigner = v4
     , _svcPrefix = "waf"
     , _svcVersion = "2015-08-24"
-    , _svcEndpoint = defaultEndpoint wAF
+    , _svcEndpoint = defaultEndpoint waf
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseJSONError

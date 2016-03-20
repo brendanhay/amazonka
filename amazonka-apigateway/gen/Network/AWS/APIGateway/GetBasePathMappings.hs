@@ -102,7 +102,7 @@ instance AWSPager GetBasePathMappings where
 instance AWSRequest GetBasePathMappings where
         type Rs GetBasePathMappings =
              GetBasePathMappingsResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

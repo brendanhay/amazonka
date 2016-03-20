@@ -221,7 +221,7 @@ instance AWSRequest DescribeSpotInstanceRequests
          where
         type Rs DescribeSpotInstanceRequests =
              DescribeSpotInstanceRequestsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

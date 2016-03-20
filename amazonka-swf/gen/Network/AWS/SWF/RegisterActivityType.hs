@@ -225,7 +225,7 @@ ratVersion = lens _ratVersion (\ s a -> s{_ratVersion = a});
 instance AWSRequest RegisterActivityType where
         type Rs RegisterActivityType =
              RegisterActivityTypeResponse
-        request = postJSON sWF
+        request = postJSON swf
         response = receiveNull RegisterActivityTypeResponse'
 
 instance Hashable RegisterActivityType

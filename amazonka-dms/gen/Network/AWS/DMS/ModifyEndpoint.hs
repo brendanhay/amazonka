@@ -152,7 +152,7 @@ meEndpointARN = lens _meEndpointARN (\ s a -> s{_meEndpointARN = a});
 
 instance AWSRequest ModifyEndpoint where
         type Rs ModifyEndpoint = ModifyEndpointResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

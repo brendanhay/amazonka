@@ -81,7 +81,7 @@ rGrantId = lens _rGrantId (\ s a -> s{_rGrantId = a});
 
 instance AWSRequest RevokeGrant where
         type Rs RevokeGrant = RevokeGrantResponse
-        request = postJSON kMS
+        request = postJSON kms
         response = receiveNull RevokeGrantResponse'
 
 instance Hashable RevokeGrant

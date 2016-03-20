@@ -80,7 +80,7 @@ derTaskDefinition = lens _derTaskDefinition (\ s a -> s{_derTaskDefinition = a})
 instance AWSRequest DeregisterTaskDefinition where
         type Rs DeregisterTaskDefinition =
              DeregisterTaskDefinitionResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

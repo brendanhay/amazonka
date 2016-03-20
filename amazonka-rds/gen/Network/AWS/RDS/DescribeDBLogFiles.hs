@@ -149,7 +149,7 @@ instance AWSPager DescribeDBLogFiles where
 instance AWSRequest DescribeDBLogFiles where
         type Rs DescribeDBLogFiles =
              DescribeDBLogFilesResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DescribeDBLogFilesResult"
               (\ s h x ->

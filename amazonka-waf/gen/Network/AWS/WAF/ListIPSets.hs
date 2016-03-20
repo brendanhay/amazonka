@@ -84,7 +84,7 @@ lisLimit = lens _lisLimit (\ s a -> s{_lisLimit = a}) . _Nat;
 
 instance AWSRequest ListIPSets where
         type Rs ListIPSets = ListIPSetsResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

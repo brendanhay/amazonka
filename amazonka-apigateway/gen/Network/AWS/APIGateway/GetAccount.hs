@@ -56,7 +56,7 @@ getAccount = GetAccount'
 
 instance AWSRequest GetAccount where
         type Rs GetAccount = Account
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetAccount

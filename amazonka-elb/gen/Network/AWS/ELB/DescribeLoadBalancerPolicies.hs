@@ -84,7 +84,7 @@ instance AWSRequest DescribeLoadBalancerPolicies
          where
         type Rs DescribeLoadBalancerPolicies =
              DescribeLoadBalancerPoliciesResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper
               "DescribeLoadBalancerPoliciesResult"

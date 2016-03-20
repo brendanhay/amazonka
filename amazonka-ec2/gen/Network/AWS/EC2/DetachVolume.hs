@@ -129,7 +129,7 @@ dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a});
 
 instance AWSRequest DetachVolume where
         type Rs DetachVolume = VolumeAttachment
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveXML (\ s h x -> parseXML x)
 
 instance Hashable DetachVolume

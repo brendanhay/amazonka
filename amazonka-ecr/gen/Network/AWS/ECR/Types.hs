@@ -13,7 +13,7 @@
 module Network.AWS.ECR.Types
     (
     -- * Service Configuration
-      eCR
+      ecr
 
     -- * Errors
     , _LayersNotFoundException
@@ -99,14 +99,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
 -- | API version '2015-09-21' of the Amazon EC2 Container Registry SDK configuration.
-eCR :: Service
-eCR =
+ecr :: Service
+ecr =
     Service
     { _svcAbbrev = "ECR"
     , _svcSigner = v4
     , _svcPrefix = "ecr"
     , _svcVersion = "2015-09-21"
-    , _svcEndpoint = defaultEndpoint eCR
+    , _svcEndpoint = defaultEndpoint ecr
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseJSONError

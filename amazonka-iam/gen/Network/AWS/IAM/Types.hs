@@ -13,7 +13,7 @@
 module Network.AWS.IAM.Types
     (
     -- * Service Configuration
-      iAM
+      iam
 
     -- * Errors
     , _CredentialReportNotPresentException
@@ -392,14 +392,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
 -- | API version '2010-05-08' of the Amazon Identity and Access Management SDK configuration.
-iAM :: Service
-iAM =
+iam :: Service
+iam =
     Service
     { _svcAbbrev = "IAM"
     , _svcSigner = v4
     , _svcPrefix = "iam"
     , _svcVersion = "2010-05-08"
-    , _svcEndpoint = defaultEndpoint iAM
+    , _svcEndpoint = defaultEndpoint iam
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseXMLError

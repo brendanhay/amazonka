@@ -109,7 +109,7 @@ drMaxResults = lens _drMaxResults (\ s a -> s{_drMaxResults = a}) . mapping _Nat
 instance AWSRequest DescribeRepositories where
         type Rs DescribeRepositories =
              DescribeRepositoriesResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

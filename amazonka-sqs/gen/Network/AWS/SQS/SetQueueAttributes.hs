@@ -110,7 +110,7 @@ sqaAttributes = lens _sqaAttributes (\ s a -> s{_sqaAttributes = a}) . _Map;
 instance AWSRequest SetQueueAttributes where
         type Rs SetQueueAttributes =
              SetQueueAttributesResponse
-        request = postQuery sQS
+        request = postQuery sqs
         response = receiveNull SetQueueAttributesResponse'
 
 instance Hashable SetQueueAttributes

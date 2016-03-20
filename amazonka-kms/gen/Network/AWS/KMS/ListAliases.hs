@@ -93,7 +93,7 @@ instance AWSPager ListAliases where
 
 instance AWSRequest ListAliases where
         type Rs ListAliases = ListAliasesResponse
-        request = postJSON kMS
+        request = postJSON kms
         response
           = receiveJSON
               (\ s h x ->

@@ -91,7 +91,7 @@ deleSnapshotId = lens _deleSnapshotId (\ s a -> s{_deleSnapshotId = a});
 
 instance AWSRequest DeleteSnapshot where
         type Rs DeleteSnapshot = DeleteSnapshotResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeleteSnapshotResponse'
 
 instance Hashable DeleteSnapshot

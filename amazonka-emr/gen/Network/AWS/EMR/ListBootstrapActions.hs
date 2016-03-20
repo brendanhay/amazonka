@@ -91,7 +91,7 @@ instance AWSPager ListBootstrapActions where
 instance AWSRequest ListBootstrapActions where
         type Rs ListBootstrapActions =
              ListBootstrapActionsResponse
-        request = postJSON eMR
+        request = postJSON emr
         response
           = receiveJSON
               (\ s h x ->

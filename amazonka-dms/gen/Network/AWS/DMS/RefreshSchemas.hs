@@ -80,7 +80,7 @@ rsReplicationInstanceARN = lens _rsReplicationInstanceARN (\ s a -> s{_rsReplica
 
 instance AWSRequest RefreshSchemas where
         type Rs RefreshSchemas = RefreshSchemasResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

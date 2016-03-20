@@ -233,7 +233,7 @@ instance AWSRequest ListClosedWorkflowExecutions
          where
         type Rs ListClosedWorkflowExecutions =
              WorkflowExecutionInfos
-        request = postJSON sWF
+        request = postJSON swf
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable ListClosedWorkflowExecutions

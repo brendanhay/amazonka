@@ -95,7 +95,7 @@ giHttpMethod = lens _giHttpMethod (\ s a -> s{_giHttpMethod = a});
 
 instance AWSRequest GetIntegration where
         type Rs GetIntegration = Integration
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetIntegration

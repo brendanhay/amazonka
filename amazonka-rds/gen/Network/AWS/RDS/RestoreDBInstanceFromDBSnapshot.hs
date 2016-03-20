@@ -355,7 +355,7 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot
          where
         type Rs RestoreDBInstanceFromDBSnapshot =
              RestoreDBInstanceFromDBSnapshotResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "RestoreDBInstanceFromDBSnapshotResult"

@@ -106,7 +106,7 @@ instance AWSRequest ResetDBClusterParameterGroup
          where
         type Rs ResetDBClusterParameterGroup =
              DBClusterParameterGroupNameMessage
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "ResetDBClusterParameterGroupResult"

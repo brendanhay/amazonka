@@ -69,7 +69,7 @@ instance AWSRequest DeleteSpotDatafeedSubscription
          where
         type Rs DeleteSpotDatafeedSubscription =
              DeleteSpotDatafeedSubscriptionResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull DeleteSpotDatafeedSubscriptionResponse'
 

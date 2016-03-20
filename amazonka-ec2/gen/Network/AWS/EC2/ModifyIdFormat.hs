@@ -90,7 +90,7 @@ mifUseLongIds = lens _mifUseLongIds (\ s a -> s{_mifUseLongIds = a});
 
 instance AWSRequest ModifyIdFormat where
         type Rs ModifyIdFormat = ModifyIdFormatResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull ModifyIdFormatResponse'
 
 instance Hashable ModifyIdFormat

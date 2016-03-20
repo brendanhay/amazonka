@@ -13,7 +13,7 @@
 module Network.AWS.DMS.Types
     (
     -- * Service Configuration
-      dMS
+      dms
 
     -- * Errors
     , _InvalidSubnet
@@ -208,14 +208,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
 -- | API version '2016-01-01' of the Amazon Database Migration Service SDK configuration.
-dMS :: Service
-dMS =
+dms :: Service
+dms =
     Service
     { _svcAbbrev = "DMS"
     , _svcSigner = v4
     , _svcPrefix = "dms"
     , _svcVersion = "2016-01-01"
-    , _svcEndpoint = defaultEndpoint dMS
+    , _svcEndpoint = defaultEndpoint dms
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseJSONError

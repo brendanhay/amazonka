@@ -133,7 +133,7 @@ sbBouncedRecipientInfoList = lens _sbBouncedRecipientInfoList (\ s a -> s{_sbBou
 
 instance AWSRequest SendBounce where
         type Rs SendBounce = SendBounceResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "SendBounceResult"
               (\ s h x ->

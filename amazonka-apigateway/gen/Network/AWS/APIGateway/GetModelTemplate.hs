@@ -80,7 +80,7 @@ gmtModelName = lens _gmtModelName (\ s a -> s{_gmtModelName = a});
 
 instance AWSRequest GetModelTemplate where
         type Rs GetModelTemplate = GetModelTemplateResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

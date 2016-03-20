@@ -100,7 +100,7 @@ instance AWSPager GetResources where
 
 instance AWSRequest GetResources where
         type Rs GetResources = GetResourcesResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

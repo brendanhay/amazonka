@@ -334,7 +334,7 @@ cdcMasterUserPassword = lens _cdcMasterUserPassword (\ s a -> s{_cdcMasterUserPa
 
 instance AWSRequest CreateDBCluster where
         type Rs CreateDBCluster = CreateDBClusterResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "CreateDBClusterResult"
               (\ s h x ->

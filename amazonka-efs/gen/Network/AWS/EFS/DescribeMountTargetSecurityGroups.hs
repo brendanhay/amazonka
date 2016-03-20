@@ -78,7 +78,7 @@ instance AWSRequest DescribeMountTargetSecurityGroups
          where
         type Rs DescribeMountTargetSecurityGroups =
              DescribeMountTargetSecurityGroupsResponse
-        request = get eFS
+        request = get efs
         response
           = receiveJSON
               (\ s h x ->

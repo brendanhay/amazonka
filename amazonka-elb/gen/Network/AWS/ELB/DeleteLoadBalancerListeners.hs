@@ -75,7 +75,7 @@ dlblLoadBalancerPorts = lens _dlblLoadBalancerPorts (\ s a -> s{_dlblLoadBalance
 instance AWSRequest DeleteLoadBalancerListeners where
         type Rs DeleteLoadBalancerListeners =
              DeleteLoadBalancerListenersResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper
               "DeleteLoadBalancerListenersResult"

@@ -247,7 +247,7 @@ arRoleSessionName = lens _arRoleSessionName (\ s a -> s{_arRoleSessionName = a})
 
 instance AWSRequest AssumeRole where
         type Rs AssumeRole = AssumeRoleResponse
-        request = postQuery sTS
+        request = postQuery sts
         response
           = receiveXMLWrapper "AssumeRoleResult"
               (\ s h x ->

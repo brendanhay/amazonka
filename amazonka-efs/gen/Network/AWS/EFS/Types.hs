@@ -13,7 +13,7 @@
 module Network.AWS.EFS.Types
     (
     -- * Service Configuration
-      eFS
+      efs
 
     -- * Errors
     , _MountTargetNotFound
@@ -81,14 +81,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
 -- | API version '2015-02-01' of the Amazon Elastic File System SDK configuration.
-eFS :: Service
-eFS =
+efs :: Service
+efs =
     Service
     { _svcAbbrev = "EFS"
     , _svcSigner = v4
     , _svcPrefix = "elasticfilesystem"
     , _svcVersion = "2015-02-01"
-    , _svcEndpoint = defaultEndpoint eFS
+    , _svcEndpoint = defaultEndpoint efs
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseJSONError

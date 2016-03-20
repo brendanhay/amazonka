@@ -87,7 +87,7 @@ ulpUserName = lens _ulpUserName (\ s a -> s{_ulpUserName = a});
 instance AWSRequest UpdateLoginProfile where
         type Rs UpdateLoginProfile =
              UpdateLoginProfileResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull UpdateLoginProfileResponse'
 
 instance Hashable UpdateLoginProfile

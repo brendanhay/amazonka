@@ -77,7 +77,7 @@ attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
 
 instance AWSRequest AddTagsToResource where
         type Rs AddTagsToResource = AddTagsToResourceResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveEmpty
               (\ s h x ->

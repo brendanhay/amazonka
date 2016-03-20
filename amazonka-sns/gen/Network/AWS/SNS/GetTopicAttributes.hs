@@ -70,7 +70,7 @@ gtaTopicARN = lens _gtaTopicARN (\ s a -> s{_gtaTopicARN = a});
 instance AWSRequest GetTopicAttributes where
         type Rs GetTopicAttributes =
              GetTopicAttributesResponse
-        request = postQuery sNS
+        request = postQuery sns
         response
           = receiveXMLWrapper "GetTopicAttributesResult"
               (\ s h x ->

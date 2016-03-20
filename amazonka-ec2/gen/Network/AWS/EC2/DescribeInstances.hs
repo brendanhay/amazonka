@@ -383,7 +383,7 @@ instance AWSPager DescribeInstances where
 
 instance AWSRequest DescribeInstances where
         type Rs DescribeInstances = DescribeInstancesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

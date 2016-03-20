@@ -114,7 +114,7 @@ instance AWSRequest RespondActivityTaskCompleted
          where
         type Rs RespondActivityTaskCompleted =
              RespondActivityTaskCompletedResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveNull RespondActivityTaskCompletedResponse'
 

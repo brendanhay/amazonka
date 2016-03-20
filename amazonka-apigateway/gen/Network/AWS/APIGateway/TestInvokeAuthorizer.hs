@@ -127,7 +127,7 @@ tiaAuthorizerId = lens _tiaAuthorizerId (\ s a -> s{_tiaAuthorizerId = a});
 instance AWSRequest TestInvokeAuthorizer where
         type Rs TestInvokeAuthorizer =
              TestInvokeAuthorizerResponse
-        request = postJSON aPIGateway
+        request = postJSON apiGateway
         response
           = receiveJSON
               (\ s h x ->

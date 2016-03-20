@@ -65,7 +65,7 @@ ddnDomainName = lens _ddnDomainName (\ s a -> s{_ddnDomainName = a});
 
 instance AWSRequest DeleteDomainName where
         type Rs DeleteDomainName = DeleteDomainNameResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull DeleteDomainNameResponse'
 
 instance Hashable DeleteDomainName

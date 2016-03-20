@@ -119,7 +119,7 @@ cdpgTargetDBParameterGroupDescription = lens _cdpgTargetDBParameterGroupDescript
 instance AWSRequest CopyDBParameterGroup where
         type Rs CopyDBParameterGroup =
              CopyDBParameterGroupResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "CopyDBParameterGroupResult"
               (\ s h x ->

@@ -131,7 +131,7 @@ pfatTaskList = lens _pfatTaskList (\ s a -> s{_pfatTaskList = a});
 instance AWSRequest PollForActivityTask where
         type Rs PollForActivityTask =
              PollForActivityTaskResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveJSON
               (\ s h x ->

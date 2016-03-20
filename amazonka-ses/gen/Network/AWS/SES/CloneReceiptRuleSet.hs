@@ -88,7 +88,7 @@ cOriginalRuleSetName = lens _cOriginalRuleSetName (\ s a -> s{_cOriginalRuleSetN
 instance AWSRequest CloneReceiptRuleSet where
         type Rs CloneReceiptRuleSet =
              CloneReceiptRuleSetResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "CloneReceiptRuleSetResult"
               (\ s h x ->

@@ -78,7 +78,7 @@ tcEndpointARN = lens _tcEndpointARN (\ s a -> s{_tcEndpointARN = a});
 
 instance AWSRequest TestConnection where
         type Rs TestConnection = TestConnectionResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

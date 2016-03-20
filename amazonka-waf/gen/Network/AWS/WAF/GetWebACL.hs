@@ -67,7 +67,7 @@ gwaWebACLId = lens _gwaWebACLId (\ s a -> s{_gwaWebACLId = a});
 
 instance AWSRequest GetWebACL where
         type Rs GetWebACL = GetWebACLResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

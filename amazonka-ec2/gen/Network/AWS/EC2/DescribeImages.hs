@@ -197,7 +197,7 @@ deseDryRun = lens _deseDryRun (\ s a -> s{_deseDryRun = a});
 
 instance AWSRequest DescribeImages where
         type Rs DescribeImages = DescribeImagesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

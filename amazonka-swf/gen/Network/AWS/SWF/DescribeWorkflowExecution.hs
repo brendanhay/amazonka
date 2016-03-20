@@ -103,7 +103,7 @@ dweExecution = lens _dweExecution (\ s a -> s{_dweExecution = a});
 instance AWSRequest DescribeWorkflowExecution where
         type Rs DescribeWorkflowExecution =
              DescribeWorkflowExecutionResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveJSON
               (\ s h x ->

@@ -13,7 +13,7 @@
 module Network.AWS.SSM.Types
     (
     -- * Service Configuration
-      sSM
+      ssm
 
     -- * Errors
     , _UnsupportedPlatformType
@@ -221,14 +221,14 @@ import           Network.AWS.SSM.Types.Product
 import           Network.AWS.SSM.Types.Sum
 
 -- | API version '2014-11-06' of the Amazon Simple Systems Management Service SDK configuration.
-sSM :: Service
-sSM =
+ssm :: Service
+ssm =
     Service
     { _svcAbbrev = "SSM"
     , _svcSigner = v4
     , _svcPrefix = "ssm"
     , _svcVersion = "2014-11-06"
-    , _svcEndpoint = defaultEndpoint sSM
+    , _svcEndpoint = defaultEndpoint ssm
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseJSONError

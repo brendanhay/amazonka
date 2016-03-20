@@ -120,7 +120,7 @@ bpaItems = lens _bpaItems (\ s a -> s{_bpaItems = a}) . _Coerce;
 instance AWSRequest BatchPutAttributes where
         type Rs BatchPutAttributes =
              BatchPutAttributesResponse
-        request = postQuery sDB
+        request = postQuery sdb
         response = receiveNull BatchPutAttributesResponse'
 
 instance Hashable BatchPutAttributes

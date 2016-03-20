@@ -109,7 +109,7 @@ instance AWSPager GetGroup where
 
 instance AWSRequest GetGroup where
         type Rs GetGroup = GetGroupResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "GetGroupResult"
               (\ s h x ->

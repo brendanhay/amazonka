@@ -102,7 +102,7 @@ csimsChangeToken = lens _csimsChangeToken (\ s a -> s{_csimsChangeToken = a});
 instance AWSRequest CreateSqlInjectionMatchSet where
         type Rs CreateSqlInjectionMatchSet =
              CreateSqlInjectionMatchSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

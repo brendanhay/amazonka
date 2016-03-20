@@ -121,7 +121,7 @@ dplMaxResults = lens _dplMaxResults (\ s a -> s{_dplMaxResults = a});
 instance AWSRequest DescribePrefixLists where
         type Rs DescribePrefixLists =
              DescribePrefixListsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

@@ -76,7 +76,7 @@ lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 instance AWSRequest ListReceiptRuleSets where
         type Rs ListReceiptRuleSets =
              ListReceiptRuleSetsResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "ListReceiptRuleSetsResult"
               (\ s h x ->

@@ -118,7 +118,7 @@ instance AWSPager DescribeDBSecurityGroups where
 instance AWSRequest DescribeDBSecurityGroups where
         type Rs DescribeDBSecurityGroups =
              DescribeDBSecurityGroupsResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DescribeDBSecurityGroupsResult"
               (\ s h x ->

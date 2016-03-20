@@ -106,7 +106,7 @@ geExportType = lens _geExportType (\ s a -> s{_geExportType = a});
 
 instance AWSRequest GetExport where
         type Rs GetExport = GetExportResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

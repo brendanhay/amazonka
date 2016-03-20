@@ -122,7 +122,7 @@ instance AWSRequest RevokeDBSecurityGroupIngress
          where
         type Rs RevokeDBSecurityGroupIngress =
              RevokeDBSecurityGroupIngressResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "RevokeDBSecurityGroupIngressResult"

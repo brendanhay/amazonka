@@ -104,7 +104,7 @@ instance AWSRequest CreateReplicationSubnetGroup
          where
         type Rs CreateReplicationSubnetGroup =
              CreateReplicationSubnetGroupResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

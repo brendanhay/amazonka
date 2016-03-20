@@ -96,7 +96,7 @@ gspkEncoding = lens _gspkEncoding (\ s a -> s{_gspkEncoding = a});
 
 instance AWSRequest GetSSHPublicKey where
         type Rs GetSSHPublicKey = GetSSHPublicKeyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "GetSSHPublicKeyResult"
               (\ s h x ->

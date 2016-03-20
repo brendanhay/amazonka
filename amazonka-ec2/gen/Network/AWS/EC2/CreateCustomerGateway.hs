@@ -128,7 +128,7 @@ ccgBGPASN = lens _ccgBGPASN (\ s a -> s{_ccgBGPASN = a});
 instance AWSRequest CreateCustomerGateway where
         type Rs CreateCustomerGateway =
              CreateCustomerGatewayResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

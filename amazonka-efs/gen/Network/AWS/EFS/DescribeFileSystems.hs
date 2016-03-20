@@ -130,7 +130,7 @@ dfsMaxItems = lens _dfsMaxItems (\ s a -> s{_dfsMaxItems = a}) . mapping _Nat;
 instance AWSRequest DescribeFileSystems where
         type Rs DescribeFileSystems =
              DescribeFileSystemsResponse
-        request = get eFS
+        request = get efs
         response
           = receiveJSON
               (\ s h x ->

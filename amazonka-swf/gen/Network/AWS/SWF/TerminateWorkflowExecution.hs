@@ -161,7 +161,7 @@ tweWorkflowId = lens _tweWorkflowId (\ s a -> s{_tweWorkflowId = a});
 instance AWSRequest TerminateWorkflowExecution where
         type Rs TerminateWorkflowExecution =
              TerminateWorkflowExecutionResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveNull TerminateWorkflowExecutionResponse'
 

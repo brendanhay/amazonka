@@ -133,7 +133,7 @@ sweSignalName = lens _sweSignalName (\ s a -> s{_sweSignalName = a});
 instance AWSRequest SignalWorkflowExecution where
         type Rs SignalWorkflowExecution =
              SignalWorkflowExecutionResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveNull SignalWorkflowExecutionResponse'
 

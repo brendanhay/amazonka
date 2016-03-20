@@ -85,7 +85,7 @@ usshpkSSHPublicKeyBody = lens _usshpkSSHPublicKeyBody (\ s a -> s{_usshpkSSHPubl
 instance AWSRequest UploadSSHPublicKey where
         type Rs UploadSSHPublicKey =
              UploadSSHPublicKeyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "UploadSSHPublicKeyResult"
               (\ s h x ->

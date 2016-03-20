@@ -69,7 +69,7 @@ gccClientCertificateId = lens _gccClientCertificateId (\ s a -> s{_gccClientCert
 
 instance AWSRequest GetClientCertificate where
         type Rs GetClientCertificate = ClientCertificate
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetClientCertificate

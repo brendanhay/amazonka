@@ -79,7 +79,7 @@ dakAccessKeyId = lens _dakAccessKeyId (\ s a -> s{_dakAccessKeyId = a});
 
 instance AWSRequest DeleteAccessKey where
         type Rs DeleteAccessKey = DeleteAccessKeyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull DeleteAccessKeyResponse'
 
 instance Hashable DeleteAccessKey

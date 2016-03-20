@@ -89,7 +89,7 @@ gssStageName = lens _gssStageName (\ s a -> s{_gssStageName = a});
 
 instance AWSRequest GetStage where
         type Rs GetStage = Stage
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetStage

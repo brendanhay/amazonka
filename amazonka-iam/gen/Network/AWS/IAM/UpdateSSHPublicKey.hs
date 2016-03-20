@@ -96,7 +96,7 @@ uspkStatus = lens _uspkStatus (\ s a -> s{_uspkStatus = a});
 instance AWSRequest UpdateSSHPublicKey where
         type Rs UpdateSSHPublicKey =
              UpdateSSHPublicKeyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull UpdateSSHPublicKeyResponse'
 
 instance Hashable UpdateSSHPublicKey

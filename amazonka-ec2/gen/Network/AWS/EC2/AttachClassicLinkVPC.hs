@@ -112,7 +112,7 @@ aclvGroups = lens _aclvGroups (\ s a -> s{_aclvGroups = a}) . _Coerce;
 instance AWSRequest AttachClassicLinkVPC where
         type Rs AttachClassicLinkVPC =
              AttachClassicLinkVPCResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

@@ -91,7 +91,7 @@ seaAttributes = lens _seaAttributes (\ s a -> s{_seaAttributes = a}) . _Map;
 instance AWSRequest SetEndpointAttributes where
         type Rs SetEndpointAttributes =
              SetEndpointAttributesResponse
-        request = postQuery sNS
+        request = postQuery sns
         response = receiveNull SetEndpointAttributesResponse'
 
 instance Hashable SetEndpointAttributes

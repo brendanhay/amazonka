@@ -107,7 +107,7 @@ liRepositoryName = lens _liRepositoryName (\ s a -> s{_liRepositoryName = a});
 
 instance AWSRequest ListImages where
         type Rs ListImages = ListImagesResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

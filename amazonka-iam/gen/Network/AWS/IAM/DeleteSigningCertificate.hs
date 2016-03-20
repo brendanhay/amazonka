@@ -80,7 +80,7 @@ dscCertificateId = lens _dscCertificateId (\ s a -> s{_dscCertificateId = a});
 instance AWSRequest DeleteSigningCertificate where
         type Rs DeleteSigningCertificate =
              DeleteSigningCertificateResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveNull DeleteSigningCertificateResponse'
 

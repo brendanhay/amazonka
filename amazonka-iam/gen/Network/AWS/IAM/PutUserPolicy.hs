@@ -102,7 +102,7 @@ pupPolicyDocument = lens _pupPolicyDocument (\ s a -> s{_pupPolicyDocument = a})
 
 instance AWSRequest PutUserPolicy where
         type Rs PutUserPolicy = PutUserPolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull PutUserPolicyResponse'
 
 instance Hashable PutUserPolicy

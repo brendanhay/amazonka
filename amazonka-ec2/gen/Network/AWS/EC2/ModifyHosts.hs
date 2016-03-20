@@ -83,7 +83,7 @@ mhAutoPlacement = lens _mhAutoPlacement (\ s a -> s{_mhAutoPlacement = a});
 
 instance AWSRequest ModifyHosts where
         type Rs ModifyHosts = ModifyHostsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

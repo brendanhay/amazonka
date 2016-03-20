@@ -129,7 +129,7 @@ paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . _Coerce;
 
 instance AWSRequest PutAttributes where
         type Rs PutAttributes = PutAttributesResponse
-        request = postQuery sDB
+        request = postQuery sdb
         response = receiveNull PutAttributesResponse'
 
 instance Hashable PutAttributes

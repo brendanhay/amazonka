@@ -81,7 +81,7 @@ delInstanceId = lens _delInstanceId (\ s a -> s{_delInstanceId = a});
 
 instance AWSRequest DeleteAssociation where
         type Rs DeleteAssociation = DeleteAssociationResponse
-        request = postJSON sSM
+        request = postJSON ssm
         response
           = receiveEmpty
               (\ s h x ->

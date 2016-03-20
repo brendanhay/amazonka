@@ -134,7 +134,7 @@ uscsUpdates = lens _uscsUpdates (\ s a -> s{_uscsUpdates = a}) . _Coerce;
 instance AWSRequest UpdateSizeConstraintSet where
         type Rs UpdateSizeConstraintSet =
              UpdateSizeConstraintSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

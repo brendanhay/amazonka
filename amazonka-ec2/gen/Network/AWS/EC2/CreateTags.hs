@@ -96,7 +96,7 @@ cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Coerce;
 
 instance AWSRequest CreateTags where
         type Rs CreateTags = CreateTagsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull CreateTagsResponse'
 
 instance Hashable CreateTags

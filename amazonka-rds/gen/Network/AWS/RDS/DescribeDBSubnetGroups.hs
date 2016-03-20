@@ -121,7 +121,7 @@ instance AWSPager DescribeDBSubnetGroups where
 instance AWSRequest DescribeDBSubnetGroups where
         type Rs DescribeDBSubnetGroups =
              DescribeDBSubnetGroupsResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DescribeDBSubnetGroupsResult"
               (\ s h x ->

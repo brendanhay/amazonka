@@ -104,7 +104,7 @@ ummHttpMethod = lens _ummHttpMethod (\ s a -> s{_ummHttpMethod = a});
 
 instance AWSRequest UpdateMethod where
         type Rs UpdateMethod = Method
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateMethod

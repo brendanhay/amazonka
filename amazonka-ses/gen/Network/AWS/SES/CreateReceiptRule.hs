@@ -92,7 +92,7 @@ crrRule = lens _crrRule (\ s a -> s{_crrRule = a});
 
 instance AWSRequest CreateReceiptRule where
         type Rs CreateReceiptRule = CreateReceiptRuleResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "CreateReceiptRuleResult"
               (\ s h x ->

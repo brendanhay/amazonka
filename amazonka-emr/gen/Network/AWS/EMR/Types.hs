@@ -13,7 +13,7 @@
 module Network.AWS.EMR.Types
     (
     -- * Service Configuration
-      eMR
+      emr
 
     -- * Errors
     , _InvalidRequestException
@@ -382,14 +382,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
 -- | API version '2009-03-31' of the Amazon Elastic MapReduce SDK configuration.
-eMR :: Service
-eMR =
+emr :: Service
+emr =
     Service
     { _svcAbbrev = "EMR"
     , _svcSigner = v4
     , _svcPrefix = "elasticmapreduce"
     , _svcVersion = "2009-03-31"
-    , _svcEndpoint = defaultEndpoint eMR
+    , _svcEndpoint = defaultEndpoint emr
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseJSONError

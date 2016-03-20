@@ -125,7 +125,7 @@ dvgsDryRun = lens _dvgsDryRun (\ s a -> s{_dvgsDryRun = a});
 instance AWSRequest DescribeVPNGateways where
         type Rs DescribeVPNGateways =
              DescribeVPNGatewaysResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

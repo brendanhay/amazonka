@@ -169,7 +169,7 @@ instance AWSRequest AuthorizeSecurityGroupEgress
          where
         type Rs AuthorizeSecurityGroupEgress =
              AuthorizeSecurityGroupEgressResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull AuthorizeSecurityGroupEgressResponse'
 

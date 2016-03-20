@@ -190,7 +190,7 @@ gftName = lens _gftName (\ s a -> s{_gftName = a});
 instance AWSRequest GetFederationToken where
         type Rs GetFederationToken =
              GetFederationTokenResponse
-        request = postQuery sTS
+        request = postQuery sts
         response
           = receiveXMLWrapper "GetFederationTokenResult"
               (\ s h x ->

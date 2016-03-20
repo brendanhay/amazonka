@@ -61,7 +61,7 @@ describeAccountAttributes = DescribeAccountAttributes'
 instance AWSRequest DescribeAccountAttributes where
         type Rs DescribeAccountAttributes =
              DescribeAccountAttributesResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

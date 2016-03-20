@@ -93,7 +93,7 @@ instance AWSPager ListSubscriptionsByTopic where
 instance AWSRequest ListSubscriptionsByTopic where
         type Rs ListSubscriptionsByTopic =
              ListSubscriptionsByTopicResponse
-        request = postQuery sNS
+        request = postQuery sns
         response
           = receiveXMLWrapper "ListSubscriptionsByTopicResult"
               (\ s h x ->

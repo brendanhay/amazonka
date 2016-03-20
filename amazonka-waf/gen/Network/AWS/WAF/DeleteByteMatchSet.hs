@@ -92,7 +92,7 @@ dbmsChangeToken = lens _dbmsChangeToken (\ s a -> s{_dbmsChangeToken = a});
 instance AWSRequest DeleteByteMatchSet where
         type Rs DeleteByteMatchSet =
              DeleteByteMatchSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

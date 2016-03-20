@@ -123,7 +123,7 @@ gsrMaxItems = lens _gsrMaxItems (\ s a -> s{_gsrMaxItems = a}) . _Nat;
 instance AWSRequest GetSampledRequests where
         type Rs GetSampledRequests =
              GetSampledRequestsResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

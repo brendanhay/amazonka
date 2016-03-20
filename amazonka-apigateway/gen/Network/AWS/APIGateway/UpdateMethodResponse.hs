@@ -109,7 +109,7 @@ umStatusCode = lens _umStatusCode (\ s a -> s{_umStatusCode = a});
 
 instance AWSRequest UpdateMethodResponse where
         type Rs UpdateMethodResponse = MethodResponse
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateMethodResponse

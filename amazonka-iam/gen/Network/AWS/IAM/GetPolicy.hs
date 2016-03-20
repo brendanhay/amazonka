@@ -81,7 +81,7 @@ gpPolicyARN = lens _gpPolicyARN (\ s a -> s{_gpPolicyARN = a});
 
 instance AWSRequest GetPolicy where
         type Rs GetPolicy = GetPolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "GetPolicyResult"
               (\ s h x ->

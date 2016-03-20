@@ -81,7 +81,7 @@ dspkSSHPublicKeyId = lens _dspkSSHPublicKeyId (\ s a -> s{_dspkSSHPublicKeyId = 
 instance AWSRequest DeleteSSHPublicKey where
         type Rs DeleteSSHPublicKey =
              DeleteSSHPublicKeyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull DeleteSSHPublicKeyResponse'
 
 instance Hashable DeleteSSHPublicKey

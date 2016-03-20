@@ -126,7 +126,7 @@ mesSubscriptionName = lens _mesSubscriptionName (\ s a -> s{_mesSubscriptionName
 instance AWSRequest ModifyEventSubscription where
         type Rs ModifyEventSubscription =
              ModifyEventSubscriptionResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "ModifyEventSubscriptionResult"
               (\ s h x ->

@@ -132,7 +132,7 @@ instance AWSPager ListAttachedRolePolicies where
 instance AWSRequest ListAttachedRolePolicies where
         type Rs ListAttachedRolePolicies =
              ListAttachedRolePoliciesResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListAttachedRolePoliciesResult"
               (\ s h x ->

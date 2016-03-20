@@ -96,7 +96,7 @@ dsaAttribute = lens _dsaAttribute (\ s a -> s{_dsaAttribute = a});
 instance AWSRequest DescribeSnapshotAttribute where
         type Rs DescribeSnapshotAttribute =
              DescribeSnapshotAttributeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

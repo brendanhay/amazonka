@@ -131,7 +131,7 @@ dsiMaxResults = lens _dsiMaxResults (\ s a -> s{_dsiMaxResults = a});
 instance AWSRequest DescribeScheduledInstances where
         type Rs DescribeScheduledInstances =
              DescribeScheduledInstancesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

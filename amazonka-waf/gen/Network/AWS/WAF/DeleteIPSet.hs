@@ -89,7 +89,7 @@ disChangeToken = lens _disChangeToken (\ s a -> s{_disChangeToken = a});
 
 instance AWSRequest DeleteIPSet where
         type Rs DeleteIPSet = DeleteIPSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

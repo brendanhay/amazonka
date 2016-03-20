@@ -105,7 +105,7 @@ ikpPublicKeyMaterial = lens _ikpPublicKeyMaterial (\ s a -> s{_ikpPublicKeyMater
 
 instance AWSRequest ImportKeyPair where
         type Rs ImportKeyPair = ImportKeyPairResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

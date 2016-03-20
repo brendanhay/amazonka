@@ -196,7 +196,7 @@ seMessage = lens _seMessage (\ s a -> s{_seMessage = a});
 
 instance AWSRequest SendEmail where
         type Rs SendEmail = SendEmailResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "SendEmailResult"
               (\ s h x ->

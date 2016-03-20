@@ -126,7 +126,7 @@ pmStatusCode = lens _pmStatusCode (\ s a -> s{_pmStatusCode = a});
 
 instance AWSRequest PutMethodResponse where
         type Rs PutMethodResponse = MethodResponse
-        request = putJSON aPIGateway
+        request = putJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable PutMethodResponse

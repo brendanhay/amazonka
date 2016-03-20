@@ -119,7 +119,7 @@ ddbcDBClusterIdentifier = lens _ddbcDBClusterIdentifier (\ s a -> s{_ddbcDBClust
 
 instance AWSRequest DeleteDBCluster where
         type Rs DeleteDBCluster = DeleteDBClusterResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DeleteDBClusterResult"
               (\ s h x ->

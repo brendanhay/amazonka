@@ -88,7 +88,7 @@ staAttributeName = lens _staAttributeName (\ s a -> s{_staAttributeName = a});
 instance AWSRequest SetTopicAttributes where
         type Rs SetTopicAttributes =
              SetTopicAttributesResponse
-        request = postQuery sNS
+        request = postQuery sns
         response = receiveNull SetTopicAttributesResponse'
 
 instance Hashable SetTopicAttributes

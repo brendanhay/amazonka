@@ -89,7 +89,7 @@ csirSpotInstanceRequestIds = lens _csirSpotInstanceRequestIds (\ s a -> s{_csirS
 instance AWSRequest CancelSpotInstanceRequests where
         type Rs CancelSpotInstanceRequests =
              CancelSpotInstanceRequestsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

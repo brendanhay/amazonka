@@ -118,7 +118,7 @@ instance AWSPager ListInstanceProfiles where
 instance AWSRequest ListInstanceProfiles where
         type Rs ListInstanceProfiles =
              ListInstanceProfilesResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListInstanceProfilesResult"
               (\ s h x ->

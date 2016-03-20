@@ -71,7 +71,7 @@ instance AWSRequest
          GetIdentityMailFromDomainAttributes where
         type Rs GetIdentityMailFromDomainAttributes =
              GetIdentityMailFromDomainAttributesResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper
               "GetIdentityMailFromDomainAttributesResult"

@@ -176,7 +176,7 @@ instance AWSRequest
          DescribeReservedDBInstancesOfferings where
         type Rs DescribeReservedDBInstancesOfferings =
              DescribeReservedDBInstancesOfferingsResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "DescribeReservedDBInstancesOfferingsResult"

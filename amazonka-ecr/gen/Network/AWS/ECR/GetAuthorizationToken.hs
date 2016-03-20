@@ -76,7 +76,7 @@ gatRegistryIds = lens _gatRegistryIds (\ s a -> s{_gatRegistryIds = a}) . mappin
 instance AWSRequest GetAuthorizationToken where
         type Rs GetAuthorizationToken =
              GetAuthorizationTokenResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

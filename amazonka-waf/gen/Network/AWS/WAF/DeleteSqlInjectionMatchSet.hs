@@ -96,7 +96,7 @@ dsimsChangeToken = lens _dsimsChangeToken (\ s a -> s{_dsimsChangeToken = a});
 instance AWSRequest DeleteSqlInjectionMatchSet where
         type Rs DeleteSqlInjectionMatchSet =
              DeleteSqlInjectionMatchSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

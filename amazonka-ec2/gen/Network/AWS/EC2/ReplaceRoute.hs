@@ -138,7 +138,7 @@ rrDestinationCIdRBlock = lens _rrDestinationCIdRBlock (\ s a -> s{_rrDestination
 
 instance AWSRequest ReplaceRoute where
         type Rs ReplaceRoute = ReplaceRouteResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull ReplaceRouteResponse'
 
 instance Hashable ReplaceRoute

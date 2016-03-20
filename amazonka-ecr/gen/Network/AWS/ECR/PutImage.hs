@@ -91,7 +91,7 @@ piImageManifest = lens _piImageManifest (\ s a -> s{_piImageManifest = a});
 
 instance AWSRequest PutImage where
         type Rs PutImage = PutImageResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

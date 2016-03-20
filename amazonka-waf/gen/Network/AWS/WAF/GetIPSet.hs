@@ -67,7 +67,7 @@ gisIPSetId = lens _gisIPSetId (\ s a -> s{_gisIPSetId = a});
 
 instance AWSRequest GetIPSet where
         type Rs GetIPSet = GetIPSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

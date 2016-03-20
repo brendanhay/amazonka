@@ -190,7 +190,7 @@ instance AWSPager DescribeSpotPriceHistory where
 instance AWSRequest DescribeSpotPriceHistory where
         type Rs DescribeSpotPriceHistory =
              DescribeSpotPriceHistoryResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

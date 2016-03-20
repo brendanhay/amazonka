@@ -72,7 +72,7 @@ driReplicationInstanceARN = lens _driReplicationInstanceARN (\ s a -> s{_driRepl
 instance AWSRequest DeleteReplicationInstance where
         type Rs DeleteReplicationInstance =
              DeleteReplicationInstanceResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

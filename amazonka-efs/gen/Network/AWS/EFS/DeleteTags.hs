@@ -80,7 +80,7 @@ dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce;
 
 instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse
-        request = postJSON eFS
+        request = postJSON efs
         response = receiveNull DeleteTagsResponse'
 
 instance Hashable DeleteTags

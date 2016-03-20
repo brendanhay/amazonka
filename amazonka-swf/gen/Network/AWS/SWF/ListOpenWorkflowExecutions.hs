@@ -199,7 +199,7 @@ instance AWSPager ListOpenWorkflowExecutions where
 instance AWSRequest ListOpenWorkflowExecutions where
         type Rs ListOpenWorkflowExecutions =
              WorkflowExecutionInfos
-        request = postJSON sWF
+        request = postJSON swf
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable ListOpenWorkflowExecutions

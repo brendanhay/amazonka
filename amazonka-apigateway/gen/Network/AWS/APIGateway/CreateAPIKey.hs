@@ -97,7 +97,7 @@ cakDescription = lens _cakDescription (\ s a -> s{_cakDescription = a});
 
 instance AWSRequest CreateAPIKey where
         type Rs CreateAPIKey = APIKey
-        request = postJSON aPIGateway
+        request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CreateAPIKey

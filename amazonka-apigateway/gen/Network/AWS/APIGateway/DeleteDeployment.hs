@@ -77,7 +77,7 @@ ddDeploymentId = lens _ddDeploymentId (\ s a -> s{_ddDeploymentId = a});
 
 instance AWSRequest DeleteDeployment where
         type Rs DeleteDeployment = DeleteDeploymentResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull DeleteDeploymentResponse'
 
 instance Hashable DeleteDeployment

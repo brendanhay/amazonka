@@ -80,7 +80,7 @@ dveVPCEndpointIds = lens _dveVPCEndpointIds (\ s a -> s{_dveVPCEndpointIds = a})
 instance AWSRequest DeleteVPCEndpoints where
         type Rs DeleteVPCEndpoints =
              DeleteVPCEndpointsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

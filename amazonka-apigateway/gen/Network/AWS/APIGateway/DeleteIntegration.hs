@@ -86,7 +86,7 @@ delHttpMethod = lens _delHttpMethod (\ s a -> s{_delHttpMethod = a});
 instance AWSRequest DeleteIntegration where
         type Rs DeleteIntegration =
              DeleteIntegrationResponse'
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull DeleteIntegrationResponse''
 
 instance Hashable DeleteIntegration

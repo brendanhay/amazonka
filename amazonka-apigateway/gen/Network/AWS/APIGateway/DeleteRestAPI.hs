@@ -65,7 +65,7 @@ draRestAPIId = lens _draRestAPIId (\ s a -> s{_draRestAPIId = a});
 
 instance AWSRequest DeleteRestAPI where
         type Rs DeleteRestAPI = DeleteRestAPIResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull DeleteRestAPIResponse'
 
 instance Hashable DeleteRestAPI

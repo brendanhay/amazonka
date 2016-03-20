@@ -94,7 +94,7 @@ instance AWSRequest DescribeNetworkInterfaceAttribute
          where
         type Rs DescribeNetworkInterfaceAttribute =
              DescribeNetworkInterfaceAttributeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

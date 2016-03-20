@@ -92,7 +92,7 @@ ggModelName = lens _ggModelName (\ s a -> s{_ggModelName = a});
 
 instance AWSRequest GetModel where
         type Rs GetModel = Model
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetModel

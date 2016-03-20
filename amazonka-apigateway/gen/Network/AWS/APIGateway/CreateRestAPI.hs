@@ -88,7 +88,7 @@ craName = lens _craName (\ s a -> s{_craName = a});
 
 instance AWSRequest CreateRestAPI where
         type Rs CreateRestAPI = RestAPI
-        request = postJSON aPIGateway
+        request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CreateRestAPI

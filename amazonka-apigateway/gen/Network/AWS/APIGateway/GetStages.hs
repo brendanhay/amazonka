@@ -78,7 +78,7 @@ gsRestAPIId = lens _gsRestAPIId (\ s a -> s{_gsRestAPIId = a});
 
 instance AWSRequest GetStages where
         type Rs GetStages = GetStagesResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

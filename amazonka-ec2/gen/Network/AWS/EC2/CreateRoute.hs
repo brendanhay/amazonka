@@ -157,7 +157,7 @@ crDestinationCIdRBlock = lens _crDestinationCIdRBlock (\ s a -> s{_crDestination
 
 instance AWSRequest CreateRoute where
         type Rs CreateRoute = CreateRouteResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

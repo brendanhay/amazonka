@@ -96,7 +96,7 @@ uakStatus = lens _uakStatus (\ s a -> s{_uakStatus = a});
 
 instance AWSRequest UpdateAccessKey where
         type Rs UpdateAccessKey = UpdateAccessKeyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull UpdateAccessKeyResponse'
 
 instance Hashable UpdateAccessKey

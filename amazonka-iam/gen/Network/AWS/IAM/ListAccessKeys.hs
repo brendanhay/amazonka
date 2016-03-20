@@ -119,7 +119,7 @@ instance AWSPager ListAccessKeys where
 
 instance AWSRequest ListAccessKeys where
         type Rs ListAccessKeys = ListAccessKeysResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListAccessKeysResult"
               (\ s h x ->

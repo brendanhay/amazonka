@@ -128,7 +128,7 @@ cvcVPNGatewayId = lens _cvcVPNGatewayId (\ s a -> s{_cvcVPNGatewayId = a});
 instance AWSRequest CreateVPNConnection where
         type Rs CreateVPNConnection =
              CreateVPNConnectionResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

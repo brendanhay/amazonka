@@ -99,7 +99,7 @@ dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
 instance AWSRequest DescribeConnections where
         type Rs DescribeConnections =
              DescribeConnectionsResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

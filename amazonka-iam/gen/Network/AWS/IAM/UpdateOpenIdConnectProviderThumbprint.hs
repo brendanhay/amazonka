@@ -94,7 +94,7 @@ instance AWSRequest
          UpdateOpenIdConnectProviderThumbprint where
         type Rs UpdateOpenIdConnectProviderThumbprint =
              UpdateOpenIdConnectProviderThumbprintResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveNull
               UpdateOpenIdConnectProviderThumbprintResponse'

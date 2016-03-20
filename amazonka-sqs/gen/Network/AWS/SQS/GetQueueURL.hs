@@ -85,7 +85,7 @@ gquQueueName = lens _gquQueueName (\ s a -> s{_gquQueueName = a});
 
 instance AWSRequest GetQueueURL where
         type Rs GetQueueURL = GetQueueURLResponse
-        request = postQuery sQS
+        request = postQuery sqs
         response
           = receiveXMLWrapper "GetQueueUrlResult"
               (\ s h x ->

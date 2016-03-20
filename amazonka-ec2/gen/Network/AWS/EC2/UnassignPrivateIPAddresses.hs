@@ -76,7 +76,7 @@ upiaPrivateIPAddresses = lens _upiaPrivateIPAddresses (\ s a -> s{_upiaPrivateIP
 instance AWSRequest UnassignPrivateIPAddresses where
         type Rs UnassignPrivateIPAddresses =
              UnassignPrivateIPAddressesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull UnassignPrivateIPAddressesResponse'
 

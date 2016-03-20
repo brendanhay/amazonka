@@ -130,7 +130,7 @@ ubmsUpdates = lens _ubmsUpdates (\ s a -> s{_ubmsUpdates = a}) . _Coerce;
 instance AWSRequest UpdateByteMatchSet where
         type Rs UpdateByteMatchSet =
              UpdateByteMatchSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

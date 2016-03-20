@@ -74,7 +74,7 @@ sarrsRuleSetName = lens _sarrsRuleSetName (\ s a -> s{_sarrsRuleSetName = a});
 instance AWSRequest SetActiveReceiptRuleSet where
         type Rs SetActiveReceiptRuleSet =
              SetActiveReceiptRuleSetResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "SetActiveReceiptRuleSetResult"
               (\ s h x ->

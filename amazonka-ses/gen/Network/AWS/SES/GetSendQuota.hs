@@ -57,7 +57,7 @@ getSendQuota = GetSendQuota'
 
 instance AWSRequest GetSendQuota where
         type Rs GetSendQuota = GetSendQuotaResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "GetSendQuotaResult"
               (\ s h x ->

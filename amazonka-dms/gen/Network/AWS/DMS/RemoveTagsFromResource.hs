@@ -77,7 +77,7 @@ rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
 instance AWSRequest RemoveTagsFromResource where
         type Rs RemoveTagsFromResource =
              RemoveTagsFromResourceResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveEmpty
               (\ s h x ->

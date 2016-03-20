@@ -112,7 +112,7 @@ cfsCreationToken = lens _cfsCreationToken (\ s a -> s{_cfsCreationToken = a});
 
 instance AWSRequest CreateFileSystem where
         type Rs CreateFileSystem = FileSystemDescription
-        request = postJSON eFS
+        request = postJSON efs
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CreateFileSystem

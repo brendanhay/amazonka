@@ -102,7 +102,7 @@ instance AWSRequest ModifyDBClusterParameterGroup
          where
         type Rs ModifyDBClusterParameterGroup =
              DBClusterParameterGroupNameMessage
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "ModifyDBClusterParameterGroupResult"

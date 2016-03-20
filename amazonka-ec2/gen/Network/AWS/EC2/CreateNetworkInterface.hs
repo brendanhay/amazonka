@@ -141,7 +141,7 @@ cniSubnetId = lens _cniSubnetId (\ s a -> s{_cniSubnetId = a});
 instance AWSRequest CreateNetworkInterface where
         type Rs CreateNetworkInterface =
              CreateNetworkInterfaceResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

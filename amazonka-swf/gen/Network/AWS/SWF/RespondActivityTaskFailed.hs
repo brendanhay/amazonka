@@ -115,7 +115,7 @@ ratfTaskToken = lens _ratfTaskToken (\ s a -> s{_ratfTaskToken = a});
 instance AWSRequest RespondActivityTaskFailed where
         type Rs RespondActivityTaskFailed =
              RespondActivityTaskFailedResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveNull RespondActivityTaskFailedResponse'
 

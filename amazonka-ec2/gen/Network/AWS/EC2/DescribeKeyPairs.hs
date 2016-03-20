@@ -97,7 +97,7 @@ dkpsDryRun = lens _dkpsDryRun (\ s a -> s{_dkpsDryRun = a});
 
 instance AWSRequest DescribeKeyPairs where
         type Rs DescribeKeyPairs = DescribeKeyPairsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

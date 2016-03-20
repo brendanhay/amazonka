@@ -125,7 +125,7 @@ rdpgDBParameterGroupName = lens _rdpgDBParameterGroupName (\ s a -> s{_rdpgDBPar
 instance AWSRequest ResetDBParameterGroup where
         type Rs ResetDBParameterGroup =
              DBParameterGroupNameMessage
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "ResetDBParameterGroupResult"
               (\ s h x -> parseXML x)

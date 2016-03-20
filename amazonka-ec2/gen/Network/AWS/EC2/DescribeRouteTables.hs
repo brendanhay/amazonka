@@ -159,7 +159,7 @@ drtsRouteTableIds = lens _drtsRouteTableIds (\ s a -> s{_drtsRouteTableIds = a})
 instance AWSRequest DescribeRouteTables where
         type Rs DescribeRouteTables =
              DescribeRouteTablesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

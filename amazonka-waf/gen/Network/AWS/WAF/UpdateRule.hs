@@ -123,7 +123,7 @@ urUpdates = lens _urUpdates (\ s a -> s{_urUpdates = a}) . _Coerce;
 
 instance AWSRequest UpdateRule where
         type Rs UpdateRule = UpdateRuleResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

@@ -80,7 +80,7 @@ instance AWSRequest GetContextKeysForCustomPolicy
          where
         type Rs GetContextKeysForCustomPolicy =
              GetContextKeysForPolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper
               "GetContextKeysForCustomPolicyResult"

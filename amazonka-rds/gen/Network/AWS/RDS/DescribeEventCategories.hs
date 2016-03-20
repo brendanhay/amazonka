@@ -84,7 +84,7 @@ decFilters = lens _decFilters (\ s a -> s{_decFilters = a}) . _Default . _Coerce
 instance AWSRequest DescribeEventCategories where
         type Rs DescribeEventCategories =
              DescribeEventCategoriesResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DescribeEventCategoriesResult"
               (\ s h x ->

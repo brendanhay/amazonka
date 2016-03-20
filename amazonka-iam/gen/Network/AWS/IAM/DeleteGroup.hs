@@ -64,7 +64,7 @@ dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a});
 
 instance AWSRequest DeleteGroup where
         type Rs DeleteGroup = DeleteGroupResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull DeleteGroupResponse'
 
 instance Hashable DeleteGroup

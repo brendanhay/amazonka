@@ -89,7 +89,7 @@ instance AWSPager ListPlatformApplications where
 instance AWSRequest ListPlatformApplications where
         type Rs ListPlatformApplications =
              ListPlatformApplicationsResponse
-        request = postQuery sNS
+        request = postQuery sns
         response
           = receiveXMLWrapper "ListPlatformApplicationsResult"
               (\ s h x ->

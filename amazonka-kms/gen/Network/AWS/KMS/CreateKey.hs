@@ -92,7 +92,7 @@ ckDescription = lens _ckDescription (\ s a -> s{_ckDescription = a});
 
 instance AWSRequest CreateKey where
         type Rs CreateKey = CreateKeyResponse
-        request = postJSON kMS
+        request = postJSON kms
         response
           = receiveJSON
               (\ s h x ->

@@ -108,7 +108,7 @@ instance AWSRequest GetAccountAuthorizationDetails
          where
         type Rs GetAccountAuthorizationDetails =
              GetAccountAuthorizationDetailsResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper
               "GetAccountAuthorizationDetailsResult"

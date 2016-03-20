@@ -122,7 +122,7 @@ instance AWSPager ListServerCertificates where
 instance AWSRequest ListServerCertificates where
         type Rs ListServerCertificates =
              ListServerCertificatesResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListServerCertificatesResult"
               (\ s h x ->

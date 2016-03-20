@@ -107,7 +107,7 @@ cpvPolicyDocument = lens _cpvPolicyDocument (\ s a -> s{_cpvPolicyDocument = a})
 instance AWSRequest CreatePolicyVersion where
         type Rs CreatePolicyVersion =
              CreatePolicyVersionResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "CreatePolicyVersionResult"
               (\ s h x ->

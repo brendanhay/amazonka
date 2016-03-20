@@ -79,7 +79,7 @@ ddsgDBSecurityGroupName = lens _ddsgDBSecurityGroupName (\ s a -> s{_ddsgDBSecur
 instance AWSRequest DeleteDBSecurityGroup where
         type Rs DeleteDBSecurityGroup =
              DeleteDBSecurityGroupResponse
-        request = postQuery rDS
+        request = postQuery rds
         response = receiveNull DeleteDBSecurityGroupResponse'
 
 instance Hashable DeleteDBSecurityGroup

@@ -128,7 +128,7 @@ cflDeliverLogsPermissionARN = lens _cflDeliverLogsPermissionARN (\ s a -> s{_cfl
 
 instance AWSRequest CreateFlowLogs where
         type Rs CreateFlowLogs = CreateFlowLogsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

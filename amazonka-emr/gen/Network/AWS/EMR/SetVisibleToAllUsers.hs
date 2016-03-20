@@ -84,7 +84,7 @@ svtauVisibleToAllUsers = lens _svtauVisibleToAllUsers (\ s a -> s{_svtauVisibleT
 instance AWSRequest SetVisibleToAllUsers where
         type Rs SetVisibleToAllUsers =
              SetVisibleToAllUsersResponse
-        request = postJSON eMR
+        request = postJSON emr
         response = receiveNull SetVisibleToAllUsersResponse'
 
 instance Hashable SetVisibleToAllUsers

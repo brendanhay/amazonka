@@ -81,7 +81,7 @@ uiInstanceIds = lens _uiInstanceIds (\ s a -> s{_uiInstanceIds = a}) . _Coerce;
 instance AWSRequest UnmonitorInstances where
         type Rs UnmonitorInstances =
              UnmonitorInstancesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

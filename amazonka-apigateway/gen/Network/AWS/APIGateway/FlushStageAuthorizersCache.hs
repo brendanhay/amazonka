@@ -76,7 +76,7 @@ fsacStageName = lens _fsacStageName (\ s a -> s{_fsacStageName = a});
 instance AWSRequest FlushStageAuthorizersCache where
         type Rs FlushStageAuthorizersCache =
              FlushStageAuthorizersCacheResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response
           = receiveNull FlushStageAuthorizersCacheResponse'
 

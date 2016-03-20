@@ -69,7 +69,7 @@ gscsSizeConstraintSetId = lens _gscsSizeConstraintSetId (\ s a -> s{_gscsSizeCon
 instance AWSRequest GetSizeConstraintSet where
         type Rs GetSizeConstraintSet =
              GetSizeConstraintSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

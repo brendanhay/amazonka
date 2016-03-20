@@ -122,7 +122,7 @@ crChangeToken = lens _crChangeToken (\ s a -> s{_crChangeToken = a});
 
 instance AWSRequest CreateRule where
         type Rs CreateRule = CreateRuleResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

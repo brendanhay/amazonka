@@ -85,7 +85,7 @@ dniAttachmentId = lens _dniAttachmentId (\ s a -> s{_dniAttachmentId = a});
 instance AWSRequest DetachNetworkInterface where
         type Rs DetachNetworkInterface =
              DetachNetworkInterfaceResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull DetachNetworkInterfaceResponse'
 

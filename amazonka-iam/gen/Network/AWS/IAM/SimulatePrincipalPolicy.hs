@@ -285,7 +285,7 @@ sppActionNames = lens _sppActionNames (\ s a -> s{_sppActionNames = a}) . _Coerc
 instance AWSRequest SimulatePrincipalPolicy where
         type Rs SimulatePrincipalPolicy =
              SimulatePolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "SimulatePrincipalPolicyResult"
               (\ s h x -> parseXML x)

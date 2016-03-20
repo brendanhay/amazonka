@@ -98,7 +98,7 @@ uuUserName = lens _uuUserName (\ s a -> s{_uuUserName = a});
 
 instance AWSRequest UpdateUser where
         type Rs UpdateUser = UpdateUserResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull UpdateUserResponse'
 
 instance Hashable UpdateUser

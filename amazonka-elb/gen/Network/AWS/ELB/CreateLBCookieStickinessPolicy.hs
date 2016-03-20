@@ -109,7 +109,7 @@ instance AWSRequest CreateLBCookieStickinessPolicy
          where
         type Rs CreateLBCookieStickinessPolicy =
              CreateLBCookieStickinessPolicyResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper
               "CreateLBCookieStickinessPolicyResult"

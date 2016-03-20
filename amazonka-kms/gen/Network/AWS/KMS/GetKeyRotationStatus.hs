@@ -74,7 +74,7 @@ gkrsKeyId = lens _gkrsKeyId (\ s a -> s{_gkrsKeyId = a});
 instance AWSRequest GetKeyRotationStatus where
         type Rs GetKeyRotationStatus =
              GetKeyRotationStatusResponse
-        request = postJSON kMS
+        request = postJSON kms
         response
           = receiveJSON
               (\ s h x ->

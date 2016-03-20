@@ -96,7 +96,7 @@ apActionName = lens _apActionName (\ s a -> s{_apActionName = a}) . _Coerce;
 
 instance AWSRequest AddPermission where
         type Rs AddPermission = AddPermissionResponse
-        request = postQuery sNS
+        request = postQuery sns
         response = receiveNull AddPermissionResponse'
 
 instance Hashable AddPermission

@@ -99,7 +99,7 @@ adoVPCId = lens _adoVPCId (\ s a -> s{_adoVPCId = a});
 instance AWSRequest AssociateDHCPOptions where
         type Rs AssociateDHCPOptions =
              AssociateDHCPOptionsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull AssociateDHCPOptionsResponse'
 
 instance Hashable AssociateDHCPOptions

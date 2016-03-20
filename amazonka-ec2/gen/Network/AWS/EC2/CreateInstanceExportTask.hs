@@ -100,7 +100,7 @@ cietInstanceId = lens _cietInstanceId (\ s a -> s{_cietInstanceId = a});
 instance AWSRequest CreateInstanceExportTask where
         type Rs CreateInstanceExportTask =
              CreateInstanceExportTaskResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

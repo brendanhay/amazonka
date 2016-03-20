@@ -90,7 +90,7 @@ avgVPCId = lens _avgVPCId (\ s a -> s{_avgVPCId = a});
 
 instance AWSRequest AttachVPNGateway where
         type Rs AttachVPNGateway = AttachVPNGatewayResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

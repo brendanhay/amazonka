@@ -75,7 +75,7 @@ rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a});
 
 instance AWSRequest RemovePermission where
         type Rs RemovePermission = RemovePermissionResponse
-        request = postQuery sQS
+        request = postQuery sqs
         response = receiveNull RemovePermissionResponse'
 
 instance Hashable RemovePermission

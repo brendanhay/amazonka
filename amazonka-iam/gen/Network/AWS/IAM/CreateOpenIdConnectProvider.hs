@@ -143,7 +143,7 @@ coicpThumbprintList = lens _coicpThumbprintList (\ s a -> s{_coicpThumbprintList
 instance AWSRequest CreateOpenIdConnectProvider where
         type Rs CreateOpenIdConnectProvider =
              CreateOpenIdConnectProviderResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper
               "CreateOpenIDConnectProviderResult"

@@ -144,7 +144,7 @@ instance AWSPager ListEntitiesForPolicy where
 instance AWSRequest ListEntitiesForPolicy where
         type Rs ListEntitiesForPolicy =
              ListEntitiesForPolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListEntitiesForPolicyResult"
               (\ s h x ->

@@ -200,7 +200,7 @@ instance AWSPager DescribeVolumeStatus where
 instance AWSRequest DescribeVolumeStatus where
         type Rs DescribeVolumeStatus =
              DescribeVolumeStatusResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

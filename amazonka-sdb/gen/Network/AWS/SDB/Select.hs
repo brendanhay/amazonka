@@ -112,7 +112,7 @@ instance AWSPager Select where
 
 instance AWSRequest Select where
         type Rs Select = SelectResponse
-        request = postQuery sDB
+        request = postQuery sdb
         response
           = receiveXMLWrapper "SelectResult"
               (\ s h x ->

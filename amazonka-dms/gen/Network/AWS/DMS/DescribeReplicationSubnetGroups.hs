@@ -96,7 +96,7 @@ instance AWSRequest DescribeReplicationSubnetGroups
          where
         type Rs DescribeReplicationSubnetGroups =
              DescribeReplicationSubnetGroupsResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

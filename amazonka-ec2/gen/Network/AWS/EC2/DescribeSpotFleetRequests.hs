@@ -102,7 +102,7 @@ dsfrMaxResults = lens _dsfrMaxResults (\ s a -> s{_dsfrMaxResults = a});
 instance AWSRequest DescribeSpotFleetRequests where
         type Rs DescribeSpotFleetRequests =
              DescribeSpotFleetRequestsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

@@ -73,7 +73,7 @@ drrsRuleSetName = lens _drrsRuleSetName (\ s a -> s{_drrsRuleSetName = a});
 instance AWSRequest DescribeReceiptRuleSet where
         type Rs DescribeReceiptRuleSet =
              DescribeReceiptRuleSetResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "DescribeReceiptRuleSetResult"
               (\ s h x ->

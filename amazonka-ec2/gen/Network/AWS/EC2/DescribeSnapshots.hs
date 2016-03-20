@@ -231,7 +231,7 @@ instance AWSPager DescribeSnapshots where
 
 instance AWSRequest DescribeSnapshots where
         type Rs DescribeSnapshots = DescribeSnapshotsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

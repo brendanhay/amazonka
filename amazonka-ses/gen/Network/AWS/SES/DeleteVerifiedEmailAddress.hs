@@ -70,7 +70,7 @@ dveaEmailAddress = lens _dveaEmailAddress (\ s a -> s{_dveaEmailAddress = a});
 instance AWSRequest DeleteVerifiedEmailAddress where
         type Rs DeleteVerifiedEmailAddress =
              DeleteVerifiedEmailAddressResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveNull DeleteVerifiedEmailAddressResponse'
 

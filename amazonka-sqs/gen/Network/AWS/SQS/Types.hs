@@ -13,7 +13,7 @@
 module Network.AWS.SQS.Types
     (
     -- * Service Configuration
-      sQS
+      sqs
 
     -- * Errors
     , _InvalidBatchEntryId
@@ -114,14 +114,14 @@ import           Network.AWS.SQS.Types.Product
 import           Network.AWS.SQS.Types.Sum
 
 -- | API version '2012-11-05' of the Amazon Simple Queue Service SDK configuration.
-sQS :: Service
-sQS =
+sqs :: Service
+sqs =
     Service
     { _svcAbbrev = "SQS"
     , _svcSigner = v4
     , _svcPrefix = "sqs"
     , _svcVersion = "2012-11-05"
-    , _svcEndpoint = defaultEndpoint sQS
+    , _svcEndpoint = defaultEndpoint sqs
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseXMLError

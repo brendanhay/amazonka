@@ -13,7 +13,7 @@
 module Network.AWS.ECS.Types
     (
     -- * Service Configuration
-      eCS
+      ecs
 
     -- * Errors
     , _InvalidParameterException
@@ -305,14 +305,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
 -- | API version '2014-11-13' of the Amazon EC2 Container Service SDK configuration.
-eCS :: Service
-eCS =
+ecs :: Service
+ecs =
     Service
     { _svcAbbrev = "ECS"
     , _svcSigner = v4
     , _svcPrefix = "ecs"
     , _svcVersion = "2014-11-13"
-    , _svcEndpoint = defaultEndpoint eCS
+    , _svcEndpoint = defaultEndpoint ecs
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseJSONError

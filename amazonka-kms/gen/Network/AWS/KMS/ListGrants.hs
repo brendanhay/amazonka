@@ -108,7 +108,7 @@ instance AWSPager ListGrants where
 
 instance AWSRequest ListGrants where
         type Rs ListGrants = ListGrantsResponse
-        request = postJSON kMS
+        request = postJSON kms
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable ListGrants

@@ -95,7 +95,7 @@ mvaVolumeId = lens _mvaVolumeId (\ s a -> s{_mvaVolumeId = a});
 instance AWSRequest ModifyVolumeAttribute where
         type Rs ModifyVolumeAttribute =
              ModifyVolumeAttributeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull ModifyVolumeAttributeResponse'
 
 instance Hashable ModifyVolumeAttribute

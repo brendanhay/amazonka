@@ -76,7 +76,7 @@ crrsRuleSetName = lens _crrsRuleSetName (\ s a -> s{_crrsRuleSetName = a});
 instance AWSRequest CreateReceiptRuleSet where
         type Rs CreateReceiptRuleSet =
              CreateReceiptRuleSetResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "CreateReceiptRuleSetResult"
               (\ s h x ->

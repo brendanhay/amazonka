@@ -84,7 +84,7 @@ lwaLimit = lens _lwaLimit (\ s a -> s{_lwaLimit = a}) . _Nat;
 
 instance AWSRequest ListWebACLs where
         type Rs ListWebACLs = ListWebACLsResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

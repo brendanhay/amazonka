@@ -101,7 +101,7 @@ dpgsDryRun = lens _dpgsDryRun (\ s a -> s{_dpgsDryRun = a});
 instance AWSRequest DescribePlacementGroups where
         type Rs DescribePlacementGroups =
              DescribePlacementGroupsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

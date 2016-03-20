@@ -141,7 +141,7 @@ instance AWSRequest CreateDBClusterParameterGroup
          where
         type Rs CreateDBClusterParameterGroup =
              CreateDBClusterParameterGroupResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "CreateDBClusterParameterGroupResult"

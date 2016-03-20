@@ -92,7 +92,7 @@ srrpRuleName = lens _srrpRuleName (\ s a -> s{_srrpRuleName = a});
 instance AWSRequest SetReceiptRulePosition where
         type Rs SetReceiptRulePosition =
              SetReceiptRulePositionResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "SetReceiptRulePositionResult"
               (\ s h x ->

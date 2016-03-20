@@ -111,7 +111,7 @@ uiStatusCode = lens _uiStatusCode (\ s a -> s{_uiStatusCode = a});
 instance AWSRequest UpdateIntegrationResponse where
         type Rs UpdateIntegrationResponse =
              IntegrationResponse
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateIntegrationResponse

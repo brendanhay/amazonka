@@ -74,7 +74,7 @@ msaSubnetId = lens _msaSubnetId (\ s a -> s{_msaSubnetId = a});
 instance AWSRequest ModifySubnetAttribute where
         type Rs ModifySubnetAttribute =
              ModifySubnetAttributeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull ModifySubnetAttributeResponse'
 
 instance Hashable ModifySubnetAttribute

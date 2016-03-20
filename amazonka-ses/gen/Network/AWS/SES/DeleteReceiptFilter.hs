@@ -71,7 +71,7 @@ drfFilterName = lens _drfFilterName (\ s a -> s{_drfFilterName = a});
 instance AWSRequest DeleteReceiptFilter where
         type Rs DeleteReceiptFilter =
              DeleteReceiptFilterResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "DeleteReceiptFilterResult"
               (\ s h x ->

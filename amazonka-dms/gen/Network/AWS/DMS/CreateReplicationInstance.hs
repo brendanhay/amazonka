@@ -201,7 +201,7 @@ criReplicationInstanceClass = lens _criReplicationInstanceClass (\ s a -> s{_cri
 instance AWSRequest CreateReplicationInstance where
         type Rs CreateReplicationInstance =
              CreateReplicationInstanceResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

@@ -69,7 +69,7 @@ ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
 instance AWSRequest ListTagsForResource where
         type Rs ListTagsForResource =
              ListTagsForResourceResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

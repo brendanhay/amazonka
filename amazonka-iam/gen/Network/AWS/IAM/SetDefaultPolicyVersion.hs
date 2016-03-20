@@ -87,7 +87,7 @@ sdpvVersionId = lens _sdpvVersionId (\ s a -> s{_sdpvVersionId = a});
 instance AWSRequest SetDefaultPolicyVersion where
         type Rs SetDefaultPolicyVersion =
              SetDefaultPolicyVersionResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveNull SetDefaultPolicyVersionResponse'
 

@@ -79,7 +79,7 @@ instance AWSRequest DescribeDBSnapshotAttributes
          where
         type Rs DescribeDBSnapshotAttributes =
              DescribeDBSnapshotAttributesResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "DescribeDBSnapshotAttributesResult"

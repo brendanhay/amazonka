@@ -98,7 +98,7 @@ instance AWSPager ListDocuments where
 
 instance AWSRequest ListDocuments where
         type Rs ListDocuments = ListDocumentsResponse
-        request = postJSON sSM
+        request = postJSON ssm
         response
           = receiveJSON
               (\ s h x ->

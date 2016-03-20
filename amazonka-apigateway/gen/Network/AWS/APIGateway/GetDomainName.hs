@@ -71,7 +71,7 @@ gdnDomainName = lens _gdnDomainName (\ s a -> s{_gdnDomainName = a});
 
 instance AWSRequest GetDomainName where
         type Rs GetDomainName = DomainName
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetDomainName

@@ -88,7 +88,7 @@ digVPCId = lens _digVPCId (\ s a -> s{_digVPCId = a});
 instance AWSRequest DetachInternetGateway where
         type Rs DetachInternetGateway =
              DetachInternetGatewayResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DetachInternetGatewayResponse'
 
 instance Hashable DetachInternetGateway

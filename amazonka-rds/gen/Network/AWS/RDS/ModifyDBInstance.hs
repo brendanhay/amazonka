@@ -665,7 +665,7 @@ mdiDBInstanceIdentifier = lens _mdiDBInstanceIdentifier (\ s a -> s{_mdiDBInstan
 
 instance AWSRequest ModifyDBInstance where
         type Rs ModifyDBInstance = ModifyDBInstanceResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "ModifyDBInstanceResult"
               (\ s h x ->

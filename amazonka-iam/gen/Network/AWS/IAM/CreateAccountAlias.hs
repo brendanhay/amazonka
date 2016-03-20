@@ -67,7 +67,7 @@ caaAccountAlias = lens _caaAccountAlias (\ s a -> s{_caaAccountAlias = a});
 instance AWSRequest CreateAccountAlias where
         type Rs CreateAccountAlias =
              CreateAccountAliasResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull CreateAccountAliasResponse'
 
 instance Hashable CreateAccountAlias

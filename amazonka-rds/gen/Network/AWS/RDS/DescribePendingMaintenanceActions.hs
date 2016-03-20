@@ -116,7 +116,7 @@ instance AWSRequest DescribePendingMaintenanceActions
          where
         type Rs DescribePendingMaintenanceActions =
              DescribePendingMaintenanceActionsResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "DescribePendingMaintenanceActionsResult"

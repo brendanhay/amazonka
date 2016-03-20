@@ -116,7 +116,7 @@ isClientData = lens _isClientData (\ s a -> s{_isClientData = a});
 
 instance AWSRequest ImportSnapshot where
         type Rs ImportSnapshot = ImportSnapshotResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

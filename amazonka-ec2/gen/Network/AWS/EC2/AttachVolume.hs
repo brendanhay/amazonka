@@ -134,7 +134,7 @@ avDevice = lens _avDevice (\ s a -> s{_avDevice = a});
 
 instance AWSRequest AttachVolume where
         type Rs AttachVolume = VolumeAttachment
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveXML (\ s h x -> parseXML x)
 
 instance Hashable AttachVolume

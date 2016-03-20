@@ -96,7 +96,7 @@ ckpKeyName = lens _ckpKeyName (\ s a -> s{_ckpKeyName = a});
 
 instance AWSRequest CreateKeyPair where
         type Rs CreateKeyPair = CreateKeyPairResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

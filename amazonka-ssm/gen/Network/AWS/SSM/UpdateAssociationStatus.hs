@@ -88,7 +88,7 @@ uasAssociationStatus = lens _uasAssociationStatus (\ s a -> s{_uasAssociationSta
 instance AWSRequest UpdateAssociationStatus where
         type Rs UpdateAssociationStatus =
              UpdateAssociationStatusResponse
-        request = postJSON sSM
+        request = postJSON ssm
         response
           = receiveJSON
               (\ s h x ->

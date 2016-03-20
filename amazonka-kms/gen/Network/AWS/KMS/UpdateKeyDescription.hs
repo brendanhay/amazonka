@@ -80,7 +80,7 @@ ukdDescription = lens _ukdDescription (\ s a -> s{_ukdDescription = a});
 instance AWSRequest UpdateKeyDescription where
         type Rs UpdateKeyDescription =
              UpdateKeyDescriptionResponse
-        request = postJSON kMS
+        request = postJSON kms
         response = receiveNull UpdateKeyDescriptionResponse'
 
 instance Hashable UpdateKeyDescription

@@ -189,7 +189,7 @@ instance AWSPager DescribeVolumes where
 
 instance AWSRequest DescribeVolumes where
         type Rs DescribeVolumes = DescribeVolumesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

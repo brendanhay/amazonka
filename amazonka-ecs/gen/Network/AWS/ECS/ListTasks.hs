@@ -168,7 +168,7 @@ instance AWSPager ListTasks where
 
 instance AWSRequest ListTasks where
         type Rs ListTasks = ListTasksResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

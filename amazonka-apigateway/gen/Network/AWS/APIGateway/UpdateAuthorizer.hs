@@ -94,7 +94,7 @@ uaaAuthorizerId = lens _uaaAuthorizerId (\ s a -> s{_uaaAuthorizerId = a});
 
 instance AWSRequest UpdateAuthorizer where
         type Rs UpdateAuthorizer = Authorizer
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateAuthorizer

@@ -94,7 +94,7 @@ gpdInstanceId = lens _gpdInstanceId (\ s a -> s{_gpdInstanceId = a});
 
 instance AWSRequest GetPasswordData where
         type Rs GetPasswordData = GetPasswordDataResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

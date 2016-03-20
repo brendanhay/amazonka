@@ -124,7 +124,7 @@ siInstanceIds = lens _siInstanceIds (\ s a -> s{_siInstanceIds = a}) . _Coerce;
 
 instance AWSRequest StopInstances where
         type Rs StopInstances = StopInstancesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

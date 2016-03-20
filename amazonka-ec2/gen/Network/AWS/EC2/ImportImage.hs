@@ -176,7 +176,7 @@ impDiskContainers = lens _impDiskContainers (\ s a -> s{_impDiskContainers = a})
 
 instance AWSRequest ImportImage where
         type Rs ImportImage = ImportImageResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

@@ -85,7 +85,7 @@ rrrsRuleNames = lens _rrrsRuleNames (\ s a -> s{_rrrsRuleNames = a}) . _Coerce;
 instance AWSRequest ReorderReceiptRuleSet where
         type Rs ReorderReceiptRuleSet =
              ReorderReceiptRuleSetResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "ReorderReceiptRuleSetResult"
               (\ s h x ->

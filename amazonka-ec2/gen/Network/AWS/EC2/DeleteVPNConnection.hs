@@ -86,7 +86,7 @@ dvcVPNConnectionId = lens _dvcVPNConnectionId (\ s a -> s{_dvcVPNConnectionId = 
 instance AWSRequest DeleteVPNConnection where
         type Rs DeleteVPNConnection =
              DeleteVPNConnectionResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeleteVPNConnectionResponse'
 
 instance Hashable DeleteVPNConnection

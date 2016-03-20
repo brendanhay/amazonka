@@ -156,7 +156,7 @@ risReasonCodes = lens _risReasonCodes (\ s a -> s{_risReasonCodes = a}) . _Coerc
 instance AWSRequest ReportInstanceStatus where
         type Rs ReportInstanceStatus =
              ReportInstanceStatusResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull ReportInstanceStatusResponse'
 
 instance Hashable ReportInstanceStatus

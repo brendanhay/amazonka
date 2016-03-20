@@ -89,7 +89,7 @@ dName = lens _dName (\ s a -> s{_dName = a});
 
 instance AWSRequest DeprecateDomain where
         type Rs DeprecateDomain = DeprecateDomainResponse
-        request = postJSON sWF
+        request = postJSON swf
         response = receiveNull DeprecateDomainResponse'
 
 instance Hashable DeprecateDomain

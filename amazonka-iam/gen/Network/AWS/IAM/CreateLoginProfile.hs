@@ -91,7 +91,7 @@ clpPassword = lens _clpPassword (\ s a -> s{_clpPassword = a}) . _Sensitive;
 instance AWSRequest CreateLoginProfile where
         type Rs CreateLoginProfile =
              CreateLoginProfileResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "CreateLoginProfileResult"
               (\ s h x ->

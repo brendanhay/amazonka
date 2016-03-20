@@ -131,7 +131,7 @@ ulpLayerPartBlob = lens _ulpLayerPartBlob (\ s a -> s{_ulpLayerPartBlob = a}) . 
 
 instance AWSRequest UploadLayerPart where
         type Rs UploadLayerPart = UploadLayerPartResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

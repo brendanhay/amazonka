@@ -80,7 +80,7 @@ difResource = lens _difResource (\ s a -> s{_difResource = a});
 
 instance AWSRequest DescribeIdFormat where
         type Rs DescribeIdFormat = DescribeIdFormatResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

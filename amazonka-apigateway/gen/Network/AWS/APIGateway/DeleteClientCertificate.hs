@@ -64,7 +64,7 @@ dccClientCertificateId = lens _dccClientCertificateId (\ s a -> s{_dccClientCert
 instance AWSRequest DeleteClientCertificate where
         type Rs DeleteClientCertificate =
              DeleteClientCertificateResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response
           = receiveNull DeleteClientCertificateResponse'
 

@@ -92,7 +92,7 @@ dclvVPCId = lens _dclvVPCId (\ s a -> s{_dclvVPCId = a});
 instance AWSRequest DetachClassicLinkVPC where
         type Rs DetachClassicLinkVPC =
              DetachClassicLinkVPCResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

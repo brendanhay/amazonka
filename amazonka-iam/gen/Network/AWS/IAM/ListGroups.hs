@@ -114,7 +114,7 @@ instance AWSPager ListGroups where
 
 instance AWSRequest ListGroups where
         type Rs ListGroups = ListGroupsResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListGroupsResult"
               (\ s h x ->

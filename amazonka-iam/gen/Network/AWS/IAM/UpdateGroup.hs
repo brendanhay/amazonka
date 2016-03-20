@@ -94,7 +94,7 @@ ugGroupName = lens _ugGroupName (\ s a -> s{_ugGroupName = a});
 
 instance AWSRequest UpdateGroup where
         type Rs UpdateGroup = UpdateGroupResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull UpdateGroupResponse'
 
 instance Hashable UpdateGroup

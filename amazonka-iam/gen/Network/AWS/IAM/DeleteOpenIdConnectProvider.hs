@@ -73,7 +73,7 @@ doicpOpenIdConnectProviderARN = lens _doicpOpenIdConnectProviderARN (\ s a -> s{
 instance AWSRequest DeleteOpenIdConnectProvider where
         type Rs DeleteOpenIdConnectProvider =
              DeleteOpenIdConnectProviderResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveNull DeleteOpenIdConnectProviderResponse'
 

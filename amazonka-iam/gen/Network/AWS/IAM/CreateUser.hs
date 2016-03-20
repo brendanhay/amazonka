@@ -85,7 +85,7 @@ cuUserName = lens _cuUserName (\ s a -> s{_cuUserName = a});
 
 instance AWSRequest CreateUser where
         type Rs CreateUser = CreateUserResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "CreateUserResult"
               (\ s h x ->

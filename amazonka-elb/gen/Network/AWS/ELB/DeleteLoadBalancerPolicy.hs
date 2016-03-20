@@ -79,7 +79,7 @@ dPolicyName = lens _dPolicyName (\ s a -> s{_dPolicyName = a});
 instance AWSRequest DeleteLoadBalancerPolicy where
         type Rs DeleteLoadBalancerPolicy =
              DeleteLoadBalancerPolicyResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper "DeleteLoadBalancerPolicyResult"
               (\ s h x ->

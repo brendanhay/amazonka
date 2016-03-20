@@ -110,7 +110,7 @@ instance AWSPager ListGroupsForUser where
 
 instance AWSRequest ListGroupsForUser where
         type Rs ListGroupsForUser = ListGroupsForUserResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListGroupsForUserResult"
               (\ s h x ->

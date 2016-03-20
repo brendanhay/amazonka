@@ -124,7 +124,7 @@ instance AWSRequest DescribeEngineDefaultParameters
          where
         type Rs DescribeEngineDefaultParameters =
              DescribeEngineDefaultParametersResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "DescribeEngineDefaultParametersResult"

@@ -87,7 +87,7 @@ dpvVersionId = lens _dpvVersionId (\ s a -> s{_dpvVersionId = a});
 instance AWSRequest DeletePolicyVersion where
         type Rs DeletePolicyVersion =
              DeletePolicyVersionResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull DeletePolicyVersionResponse'
 
 instance Hashable DeletePolicyVersion

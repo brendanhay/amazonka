@@ -119,7 +119,7 @@ ddcMaxRecords = lens _ddcMaxRecords (\ s a -> s{_ddcMaxRecords = a});
 instance AWSRequest DescribeDBClusters where
         type Rs DescribeDBClusters =
              DescribeDBClustersResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DescribeDBClustersResult"
               (\ s h x ->

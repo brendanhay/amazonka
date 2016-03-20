@@ -142,7 +142,7 @@ instance AWSPager DownloadDBLogFilePortion where
 instance AWSRequest DownloadDBLogFilePortion where
         type Rs DownloadDBLogFilePortion =
              DownloadDBLogFilePortionResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DownloadDBLogFilePortionResult"
               (\ s h x ->

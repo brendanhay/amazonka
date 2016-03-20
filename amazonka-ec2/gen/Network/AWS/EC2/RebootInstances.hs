@@ -84,7 +84,7 @@ rebInstanceIds = lens _rebInstanceIds (\ s a -> s{_rebInstanceIds = a}) . _Coerc
 
 instance AWSRequest RebootInstances where
         type Rs RebootInstances = RebootInstancesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull RebootInstancesResponse'
 
 instance Hashable RebootInstances

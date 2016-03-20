@@ -86,7 +86,7 @@ ddName = lens _ddName (\ s a -> s{_ddName = a});
 
 instance AWSRequest DescribeDomain where
         type Rs DescribeDomain = DescribeDomainResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveJSON
               (\ s h x ->

@@ -100,6 +100,8 @@ instance AWSRequest UpdateMLModel where
                  UpdateMLModelResponse' <$>
                    (x .?> "MLModelId") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateMLModel
+
 instance ToHeaders UpdateMLModel where
         toHeaders
           = const

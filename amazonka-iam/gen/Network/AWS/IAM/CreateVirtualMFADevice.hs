@@ -106,6 +106,8 @@ instance AWSRequest CreateVirtualMFADevice where
                  CreateVirtualMFADeviceResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "VirtualMFADevice"))
 
+instance Hashable CreateVirtualMFADevice
+
 instance ToHeaders CreateVirtualMFADevice where
         toHeaders = const mempty
 

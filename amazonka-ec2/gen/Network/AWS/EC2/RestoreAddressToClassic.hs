@@ -94,6 +94,8 @@ instance AWSRequest RestoreAddressToClassic where
                    (x .@? "status") <*> (x .@? "publicIp") <*>
                      (pure (fromEnum s)))
 
+instance Hashable RestoreAddressToClassic
+
 instance ToHeaders RestoreAddressToClassic where
         toHeaders = const mempty
 

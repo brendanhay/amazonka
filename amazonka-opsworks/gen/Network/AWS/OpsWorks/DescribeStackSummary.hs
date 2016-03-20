@@ -81,6 +81,8 @@ instance AWSRequest DescribeStackSummary where
                  DescribeStackSummaryResponse' <$>
                    (x .?> "StackSummary") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeStackSummary
+
 instance ToHeaders DescribeStackSummary where
         toHeaders
           = const

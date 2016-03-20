@@ -311,6 +311,8 @@ instance AWSRequest CreateDBInstanceReadReplica where
                  CreateDBInstanceReadReplicaResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDBInstanceReadReplica
+
 instance ToHeaders CreateDBInstanceReadReplica where
         toHeaders = const mempty
 

@@ -85,6 +85,8 @@ instance AWSRequest CreateKeysAndCertificate where
                      <*> (x .?> "certificateId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateKeysAndCertificate
+
 instance ToHeaders CreateKeysAndCertificate where
         toHeaders = const mempty
 

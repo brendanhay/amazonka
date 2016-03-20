@@ -97,6 +97,8 @@ instance AWSRequest ModifyClusterSubnetGroup where
                  ModifyClusterSubnetGroupResponse' <$>
                    (x .@? "ClusterSubnetGroup") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyClusterSubnetGroup
+
 instance ToHeaders ModifyClusterSubnetGroup where
         toHeaders = const mempty
 

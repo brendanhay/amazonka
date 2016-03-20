@@ -83,6 +83,8 @@ instance AWSRequest DeleteScalingPolicy where
         request = postJSON gameLift
         response = receiveNull DeleteScalingPolicyResponse'
 
+instance Hashable DeleteScalingPolicy
+
 instance ToHeaders DeleteScalingPolicy where
         toHeaders
           = const

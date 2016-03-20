@@ -107,6 +107,8 @@ instance AWSRequest RetireGrant where
         request = postJSON kMS
         response = receiveNull RetireGrantResponse'
 
+instance Hashable RetireGrant
+
 instance ToHeaders RetireGrant where
         toHeaders
           = const

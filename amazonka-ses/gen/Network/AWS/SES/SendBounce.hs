@@ -140,6 +140,8 @@ instance AWSRequest SendBounce where
                  SendBounceResponse' <$>
                    (x .@? "MessageId") <*> (pure (fromEnum s)))
 
+instance Hashable SendBounce
+
 instance ToHeaders SendBounce where
         toHeaders = const mempty
 

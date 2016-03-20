@@ -106,6 +106,8 @@ instance AWSRequest DeprecateActivityType where
         request = postJSON sWF
         response = receiveNull DeprecateActivityTypeResponse'
 
+instance Hashable DeprecateActivityType
+
 instance ToHeaders DeprecateActivityType where
         toHeaders
           = const

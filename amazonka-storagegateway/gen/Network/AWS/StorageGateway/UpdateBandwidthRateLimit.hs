@@ -108,6 +108,8 @@ instance AWSRequest UpdateBandwidthRateLimit where
                  UpdateBandwidthRateLimitResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateBandwidthRateLimit
+
 instance ToHeaders UpdateBandwidthRateLimit where
         toHeaders
           = const

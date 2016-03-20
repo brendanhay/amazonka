@@ -79,6 +79,8 @@ instance AWSRequest DeleteBasePathMapping where
         request = delete aPIGateway
         response = receiveNull DeleteBasePathMappingResponse'
 
+instance Hashable DeleteBasePathMapping
+
 instance ToHeaders DeleteBasePathMapping where
         toHeaders
           = const

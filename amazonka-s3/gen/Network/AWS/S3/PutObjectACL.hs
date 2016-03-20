@@ -168,6 +168,8 @@ instance AWSRequest PutObjectACL where
                    (h .#? "x-amz-request-charged") <*>
                      (pure (fromEnum s)))
 
+instance Hashable PutObjectACL
+
 instance ToElement PutObjectACL where
         toElement
           = mkElement

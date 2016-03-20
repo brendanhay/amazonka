@@ -109,6 +109,8 @@ instance AWSRequest ListPrincipalPolicies where
                      (x .?> "policies" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListPrincipalPolicies
+
 instance ToHeaders ListPrincipalPolicies where
         toHeaders ListPrincipalPolicies'{..}
           = mconcat ["x-amzn-iot-principal" =# _lppPrincipal]

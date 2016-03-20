@@ -161,6 +161,8 @@ instance AWSRequest DescribeDBClusterSnapshots where
                         may (parseXMLList "DBClusterSnapshot"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBClusterSnapshots
+
 instance ToHeaders DescribeDBClusterSnapshots where
         toHeaders = const mempty
 

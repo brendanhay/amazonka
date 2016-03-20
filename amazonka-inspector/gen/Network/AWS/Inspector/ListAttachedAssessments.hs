@@ -115,6 +115,8 @@ instance AWSRequest ListAttachedAssessments where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListAttachedAssessments
+
 instance ToHeaders ListAttachedAssessments where
         toHeaders
           = const

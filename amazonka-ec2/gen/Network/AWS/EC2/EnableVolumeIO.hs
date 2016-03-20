@@ -79,6 +79,8 @@ instance AWSRequest EnableVolumeIO where
         request = postQuery eC2
         response = receiveNull EnableVolumeIOResponse'
 
+instance Hashable EnableVolumeIO
+
 instance ToHeaders EnableVolumeIO where
         toHeaders = const mempty
 

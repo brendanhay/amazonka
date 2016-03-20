@@ -68,6 +68,8 @@ instance AWSRequest DeleteTopicRule where
         request = delete ioT
         response = receiveNull DeleteTopicRuleResponse'
 
+instance Hashable DeleteTopicRule
+
 instance ToHeaders DeleteTopicRule where
         toHeaders = const mempty
 

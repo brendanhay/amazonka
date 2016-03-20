@@ -111,6 +111,8 @@ instance AWSRequest RespondDecisionTaskCompleted
         response
           = receiveNull RespondDecisionTaskCompletedResponse'
 
+instance Hashable RespondDecisionTaskCompleted
+
 instance ToHeaders RespondDecisionTaskCompleted where
         toHeaders
           = const

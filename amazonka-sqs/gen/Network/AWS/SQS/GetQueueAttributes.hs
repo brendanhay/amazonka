@@ -132,6 +132,8 @@ instance AWSRequest GetQueueAttributes where
                    (may (parseXMLMap "Attribute" "Name" "Value") x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetQueueAttributes
+
 instance ToHeaders GetQueueAttributes where
         toHeaders = const mempty
 

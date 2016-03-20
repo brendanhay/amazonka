@@ -91,6 +91,8 @@ instance AWSRequest CreateGroup where
                  CreateGroupResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Group"))
 
+instance Hashable CreateGroup
+
 instance ToHeaders CreateGroup where
         toHeaders = const mempty
 

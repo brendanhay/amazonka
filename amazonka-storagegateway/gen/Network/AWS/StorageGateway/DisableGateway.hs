@@ -82,6 +82,8 @@ instance AWSRequest DisableGateway where
                  DisableGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable DisableGateway
+
 instance ToHeaders DisableGateway where
         toHeaders
           = const

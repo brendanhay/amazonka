@@ -74,6 +74,8 @@ instance AWSRequest DescribeResourceGroup where
                  DescribeResourceGroupResponse' <$>
                    (x .?> "resourceGroup") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeResourceGroup
+
 instance ToHeaders DescribeResourceGroup where
         toHeaders
           = const

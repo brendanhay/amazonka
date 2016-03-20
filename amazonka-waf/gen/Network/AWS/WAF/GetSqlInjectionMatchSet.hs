@@ -80,6 +80,8 @@ instance AWSRequest GetSqlInjectionMatchSet where
                    (x .?> "SqlInjectionMatchSet") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetSqlInjectionMatchSet
+
 instance ToHeaders GetSqlInjectionMatchSet where
         toHeaders
           = const

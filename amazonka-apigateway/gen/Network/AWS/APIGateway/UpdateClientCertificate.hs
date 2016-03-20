@@ -82,6 +82,8 @@ instance AWSRequest UpdateClientCertificate where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateClientCertificate
+
 instance ToHeaders UpdateClientCertificate where
         toHeaders
           = const

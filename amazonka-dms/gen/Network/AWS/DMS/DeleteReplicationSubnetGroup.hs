@@ -75,6 +75,8 @@ instance AWSRequest DeleteReplicationSubnetGroup
                  DeleteReplicationSubnetGroupResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable DeleteReplicationSubnetGroup
+
 instance ToHeaders DeleteReplicationSubnetGroup where
         toHeaders
           = const

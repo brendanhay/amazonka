@@ -107,6 +107,8 @@ instance AWSRequest GetPolicy where
                  GetPolicyResponse' <$>
                    (x .?> "Policy") <*> (pure (fromEnum s)))
 
+instance Hashable GetPolicy
+
 instance ToHeaders GetPolicy where
         toHeaders = const mempty
 

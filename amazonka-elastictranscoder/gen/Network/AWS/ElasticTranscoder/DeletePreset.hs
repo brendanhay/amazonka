@@ -78,6 +78,8 @@ instance AWSRequest DeletePreset where
               (\ s h x ->
                  DeletePresetResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeletePreset
+
 instance ToHeaders DeletePreset where
         toHeaders = const mempty
 

@@ -95,6 +95,8 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
                  RetrieveTapeRecoveryPointResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
+instance Hashable RetrieveTapeRecoveryPoint
+
 instance ToHeaders RetrieveTapeRecoveryPoint where
         toHeaders
           = const

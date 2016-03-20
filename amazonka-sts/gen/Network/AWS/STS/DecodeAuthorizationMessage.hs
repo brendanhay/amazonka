@@ -103,6 +103,8 @@ instance AWSRequest DecodeAuthorizationMessage where
                  DecodeAuthorizationMessageResponse' <$>
                    (x .@? "DecodedMessage") <*> (pure (fromEnum s)))
 
+instance Hashable DecodeAuthorizationMessage
+
 instance ToHeaders DecodeAuthorizationMessage where
         toHeaders = const mempty
 

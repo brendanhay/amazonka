@@ -81,6 +81,8 @@ instance AWSRequest RemoveTagsFromOnPremisesInstances
           = receiveNull
               RemoveTagsFromOnPremisesInstancesResponse'
 
+instance Hashable RemoveTagsFromOnPremisesInstances
+
 instance ToHeaders RemoveTagsFromOnPremisesInstances
          where
         toHeaders

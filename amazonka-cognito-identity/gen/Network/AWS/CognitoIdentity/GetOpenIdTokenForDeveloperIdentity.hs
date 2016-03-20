@@ -139,6 +139,8 @@ instance AWSRequest
                    (x .?> "Token") <*> (x .?> "IdentityId") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetOpenIdTokenForDeveloperIdentity
+
 instance ToHeaders GetOpenIdTokenForDeveloperIdentity
          where
         toHeaders

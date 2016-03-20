@@ -78,6 +78,8 @@ instance AWSRequest UpdatePipeline where
                  UpdatePipelineResponse' <$>
                    (x .?> "pipeline") <*> (pure (fromEnum s)))
 
+instance Hashable UpdatePipeline
+
 instance ToHeaders UpdatePipeline where
         toHeaders
           = const

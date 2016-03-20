@@ -123,6 +123,8 @@ instance AWSRequest DescribeEcsClusters where
                      (x .?> "EcsClusters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeEcsClusters
+
 instance ToHeaders DescribeEcsClusters where
         toHeaders
           = const

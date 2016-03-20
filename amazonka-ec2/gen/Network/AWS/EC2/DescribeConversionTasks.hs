@@ -103,6 +103,8 @@ instance AWSRequest DescribeConversionTasks where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeConversionTasks
+
 instance ToHeaders DescribeConversionTasks where
         toHeaders = const mempty
 

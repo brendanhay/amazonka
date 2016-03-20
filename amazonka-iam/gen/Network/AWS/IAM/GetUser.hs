@@ -79,6 +79,8 @@ instance AWSRequest GetUser where
                  GetUserResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "User"))
 
+instance Hashable GetUser
+
 instance ToHeaders GetUser where
         toHeaders = const mempty
 

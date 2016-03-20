@@ -67,6 +67,8 @@ instance AWSRequest DeleteUser where
         request = postQuery iAM
         response = receiveNull DeleteUserResponse'
 
+instance Hashable DeleteUser
+
 instance ToHeaders DeleteUser where
         toHeaders = const mempty
 

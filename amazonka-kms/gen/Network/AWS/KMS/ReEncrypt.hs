@@ -148,6 +148,8 @@ instance AWSRequest ReEncrypt where
                      (x .?> "CiphertextBlob")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ReEncrypt
+
 instance ToHeaders ReEncrypt where
         toHeaders
           = const

@@ -114,6 +114,8 @@ instance AWSRequest ListStreams where
                      (x .?> "StreamNames" .!@ mempty)
                      <*> (x .:> "HasMoreStreams"))
 
+instance Hashable ListStreams
+
 instance ToHeaders ListStreams where
         toHeaders
           = const

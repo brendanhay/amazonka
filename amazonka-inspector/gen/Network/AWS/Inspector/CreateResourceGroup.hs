@@ -80,6 +80,8 @@ instance AWSRequest CreateResourceGroup where
                  CreateResourceGroupResponse' <$>
                    (x .?> "resourceGroupArn") <*> (pure (fromEnum s)))
 
+instance Hashable CreateResourceGroup
+
 instance ToHeaders CreateResourceGroup where
         toHeaders
           = const

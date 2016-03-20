@@ -80,6 +80,8 @@ instance AWSRequest
                    (x .?> "ConfigRulesEvaluationStatus" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeConfigRuleEvaluationStatus
+
 instance ToHeaders DescribeConfigRuleEvaluationStatus
          where
         toHeaders

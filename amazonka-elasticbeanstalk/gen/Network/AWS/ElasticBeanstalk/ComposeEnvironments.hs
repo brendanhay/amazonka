@@ -106,6 +106,8 @@ instance AWSRequest ComposeEnvironments where
           = receiveXMLWrapper "ComposeEnvironmentsResult"
               (\ s h x -> parseXML x)
 
+instance Hashable ComposeEnvironments
+
 instance ToHeaders ComposeEnvironments where
         toHeaders = const mempty
 

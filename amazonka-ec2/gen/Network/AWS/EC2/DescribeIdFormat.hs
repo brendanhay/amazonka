@@ -89,6 +89,8 @@ instance AWSRequest DescribeIdFormat where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeIdFormat
+
 instance ToHeaders DescribeIdFormat where
         toHeaders = const mempty
 

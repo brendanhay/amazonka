@@ -96,6 +96,8 @@ instance AWSRequest DeleteAutoScalingGroup where
         response
           = receiveNull DeleteAutoScalingGroupResponse'
 
+instance Hashable DeleteAutoScalingGroup
+
 instance ToHeaders DeleteAutoScalingGroup where
         toHeaders = const mempty
 

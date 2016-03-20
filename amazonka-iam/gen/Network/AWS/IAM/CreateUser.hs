@@ -92,6 +92,8 @@ instance AWSRequest CreateUser where
                  CreateUserResponse' <$>
                    (x .@? "User") <*> (pure (fromEnum s)))
 
+instance Hashable CreateUser
+
 instance ToHeaders CreateUser where
         toHeaders = const mempty
 

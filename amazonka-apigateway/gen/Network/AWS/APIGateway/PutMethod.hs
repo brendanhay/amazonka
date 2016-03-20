@@ -154,6 +154,8 @@ instance AWSRequest PutMethod where
         request = putJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable PutMethod
+
 instance ToHeaders PutMethod where
         toHeaders
           = const

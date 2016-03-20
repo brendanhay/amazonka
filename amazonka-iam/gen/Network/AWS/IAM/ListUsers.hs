@@ -126,6 +126,8 @@ instance AWSRequest ListUsers where
                      <*>
                      (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
 
+instance Hashable ListUsers
+
 instance ToHeaders ListUsers where
         toHeaders = const mempty
 

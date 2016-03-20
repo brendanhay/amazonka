@@ -88,6 +88,8 @@ instance AWSRequest GrantAccess where
                    (x .?> "TemporaryCredential") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GrantAccess
+
 instance ToHeaders GrantAccess where
         toHeaders
           = const

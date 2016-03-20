@@ -107,6 +107,8 @@ instance AWSRequest CreateAlias where
                  CreateAliasResponse' <$>
                    (x .?> "Alias") <*> (pure (fromEnum s)))
 
+instance Hashable CreateAlias
+
 instance ToHeaders CreateAlias where
         toHeaders
           = const

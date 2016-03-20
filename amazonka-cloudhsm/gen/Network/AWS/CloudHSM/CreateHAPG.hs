@@ -77,6 +77,8 @@ instance AWSRequest CreateHAPG where
                  CreateHAPGResponse' <$>
                    (x .?> "HapgArn") <*> (pure (fromEnum s)))
 
+instance Hashable CreateHAPG
+
 instance ToHeaders CreateHAPG where
         toHeaders
           = const

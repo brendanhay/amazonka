@@ -98,6 +98,8 @@ instance AWSRequest PutImage where
                  PutImageResponse' <$>
                    (x .?> "image") <*> (pure (fromEnum s)))
 
+instance Hashable PutImage
+
 instance ToHeaders PutImage where
         toHeaders
           = const

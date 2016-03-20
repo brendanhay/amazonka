@@ -115,6 +115,8 @@ instance AWSRequest SetIdentityMailFromDomain where
                  SetIdentityMailFromDomainResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable SetIdentityMailFromDomain
+
 instance ToHeaders SetIdentityMailFromDomain where
         toHeaders = const mempty
 

@@ -127,6 +127,8 @@ instance AWSRequest CreateStream where
         request = postJSON kinesis
         response = receiveNull CreateStreamResponse'
 
+instance Hashable CreateStream
+
 instance ToHeaders CreateStream where
         toHeaders
           = const

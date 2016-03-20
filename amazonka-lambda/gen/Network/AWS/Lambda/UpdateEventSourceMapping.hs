@@ -137,6 +137,8 @@ instance AWSRequest UpdateEventSourceMapping where
         request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateEventSourceMapping
+
 instance ToHeaders UpdateEventSourceMapping where
         toHeaders = const mempty
 

@@ -534,6 +534,8 @@ instance AWSRequest PutItem where
                      <*> (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable PutItem
+
 instance ToHeaders PutItem where
         toHeaders
           = const

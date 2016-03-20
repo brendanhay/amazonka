@@ -111,6 +111,8 @@ instance AWSRequest CreateSnapshotCopyGrant where
                  CreateSnapshotCopyGrantResponse' <$>
                    (x .@? "SnapshotCopyGrant") <*> (pure (fromEnum s)))
 
+instance Hashable CreateSnapshotCopyGrant
+
 instance ToHeaders CreateSnapshotCopyGrant where
         toHeaders = const mempty
 

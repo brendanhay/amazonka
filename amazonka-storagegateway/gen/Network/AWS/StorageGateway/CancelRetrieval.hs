@@ -88,6 +88,8 @@ instance AWSRequest CancelRetrieval where
                  CancelRetrievalResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
+instance Hashable CancelRetrieval
+
 instance ToHeaders CancelRetrieval where
         toHeaders
           = const

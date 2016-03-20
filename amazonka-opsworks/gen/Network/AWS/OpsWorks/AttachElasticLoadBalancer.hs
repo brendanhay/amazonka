@@ -92,6 +92,8 @@ instance AWSRequest AttachElasticLoadBalancer where
         response
           = receiveNull AttachElasticLoadBalancerResponse'
 
+instance Hashable AttachElasticLoadBalancer
+
 instance ToHeaders AttachElasticLoadBalancer where
         toHeaders
           = const

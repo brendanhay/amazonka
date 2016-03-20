@@ -130,6 +130,8 @@ instance AWSRequest UpdateRule where
                  UpdateRuleResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateRule
+
 instance ToHeaders UpdateRule where
         toHeaders
           = const

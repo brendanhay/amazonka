@@ -209,6 +209,8 @@ instance AWSRequest GetItem where
                      (x .?> "Item" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetItem
+
 instance ToHeaders GetItem where
         toHeaders
           = const

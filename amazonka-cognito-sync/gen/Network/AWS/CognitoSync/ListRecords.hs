@@ -160,6 +160,8 @@ instance AWSRequest ListRecords where
                      <*> (x .?> "DatasetSyncCount")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListRecords
+
 instance ToHeaders ListRecords where
         toHeaders
           = const

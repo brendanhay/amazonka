@@ -161,6 +161,8 @@ instance AWSRequest GetWorkflowExecutionHistory where
                    (x .?> "nextPageToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "events" .!@ mempty))
 
+instance Hashable GetWorkflowExecutionHistory
+
 instance ToHeaders GetWorkflowExecutionHistory where
         toHeaders
           = const

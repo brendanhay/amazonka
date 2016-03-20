@@ -68,6 +68,8 @@ instance AWSRequest DeleteClientCertificate where
         response
           = receiveNull DeleteClientCertificateResponse'
 
+instance Hashable DeleteClientCertificate
+
 instance ToHeaders DeleteClientCertificate where
         toHeaders
           = const

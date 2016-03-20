@@ -74,6 +74,8 @@ instance AWSRequest GetDomainName where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetDomainName
+
 instance ToHeaders GetDomainName where
         toHeaders
           = const

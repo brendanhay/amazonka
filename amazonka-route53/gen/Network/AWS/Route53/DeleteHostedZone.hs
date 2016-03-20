@@ -90,6 +90,8 @@ instance AWSRequest DeleteHostedZone where
                  DeleteHostedZoneResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
+instance Hashable DeleteHostedZone
+
 instance ToHeaders DeleteHostedZone where
         toHeaders = const mempty
 

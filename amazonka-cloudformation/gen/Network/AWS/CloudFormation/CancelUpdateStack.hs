@@ -72,6 +72,8 @@ instance AWSRequest CancelUpdateStack where
         request = postQuery cloudFormation
         response = receiveNull CancelUpdateStackResponse'
 
+instance Hashable CancelUpdateStack
+
 instance ToHeaders CancelUpdateStack where
         toHeaders = const mempty
 

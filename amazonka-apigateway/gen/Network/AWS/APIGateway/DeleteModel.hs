@@ -78,6 +78,8 @@ instance AWSRequest DeleteModel where
         request = delete aPIGateway
         response = receiveNull DeleteModelResponse'
 
+instance Hashable DeleteModel
+
 instance ToHeaders DeleteModel where
         toHeaders
           = const

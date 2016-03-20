@@ -76,6 +76,8 @@ instance AWSRequest BatchGetOnPremisesInstances where
                    (x .?> "instanceInfos" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable BatchGetOnPremisesInstances
+
 instance ToHeaders BatchGetOnPremisesInstances where
         toHeaders
           = const

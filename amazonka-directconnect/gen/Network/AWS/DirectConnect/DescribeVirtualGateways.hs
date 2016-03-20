@@ -68,6 +68,8 @@ instance AWSRequest DescribeVirtualGateways where
                    (x .?> "virtualGateways" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeVirtualGateways
+
 instance ToHeaders DescribeVirtualGateways where
         toHeaders
           = const

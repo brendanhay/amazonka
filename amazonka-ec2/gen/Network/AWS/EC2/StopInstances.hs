@@ -133,6 +133,8 @@ instance AWSRequest StopInstances where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable StopInstances
+
 instance ToHeaders StopInstances where
         toHeaders = const mempty
 

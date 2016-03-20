@@ -90,6 +90,8 @@ instance AWSRequest DescribePermissions where
                    (x .?> "Permissions" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribePermissions
+
 instance ToHeaders DescribePermissions where
         toHeaders
           = const

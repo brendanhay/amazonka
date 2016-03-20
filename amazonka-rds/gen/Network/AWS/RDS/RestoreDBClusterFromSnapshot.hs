@@ -235,6 +235,8 @@ instance AWSRequest RestoreDBClusterFromSnapshot
                  RestoreDBClusterFromSnapshotResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
 
+instance Hashable RestoreDBClusterFromSnapshot
+
 instance ToHeaders RestoreDBClusterFromSnapshot where
         toHeaders = const mempty
 

@@ -272,6 +272,8 @@ instance AWSRequest UpdateStack where
                  UpdateStackResponse' <$>
                    (x .@? "StackId") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateStack
+
 instance ToHeaders UpdateStack where
         toHeaders = const mempty
 

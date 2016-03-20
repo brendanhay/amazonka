@@ -136,6 +136,8 @@ instance AWSRequest CreateDeployment where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateDeployment
+
 instance ToHeaders CreateDeployment where
         toHeaders
           = const

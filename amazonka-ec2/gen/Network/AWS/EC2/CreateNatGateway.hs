@@ -106,6 +106,8 @@ instance AWSRequest CreateNatGateway where
                    (x .@? "clientToken") <*> (x .@? "natGateway") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateNatGateway
+
 instance ToHeaders CreateNatGateway where
         toHeaders = const mempty
 

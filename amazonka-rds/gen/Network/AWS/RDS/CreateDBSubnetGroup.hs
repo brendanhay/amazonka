@@ -111,6 +111,8 @@ instance AWSRequest CreateDBSubnetGroup where
                  CreateDBSubnetGroupResponse' <$>
                    (x .@? "DBSubnetGroup") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDBSubnetGroup
+
 instance ToHeaders CreateDBSubnetGroup where
         toHeaders = const mempty
 

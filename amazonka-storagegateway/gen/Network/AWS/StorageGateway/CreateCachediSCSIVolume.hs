@@ -138,6 +138,8 @@ instance AWSRequest CreateCachediSCSIVolume where
                    (x .?> "TargetARN") <*> (x .?> "VolumeARN") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateCachediSCSIVolume
+
 instance ToHeaders CreateCachediSCSIVolume where
         toHeaders
           = const

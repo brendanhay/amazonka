@@ -152,6 +152,8 @@ instance AWSRequest CreateDeliveryStream where
                  CreateDeliveryStreamResponse' <$>
                    (x .?> "DeliveryStreamARN") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDeliveryStream
+
 instance ToHeaders CreateDeliveryStream where
         toHeaders
           = const

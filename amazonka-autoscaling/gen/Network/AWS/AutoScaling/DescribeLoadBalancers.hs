@@ -97,6 +97,8 @@ instance AWSRequest DescribeLoadBalancers where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeLoadBalancers
+
 instance ToHeaders DescribeLoadBalancers where
         toHeaders = const mempty
 

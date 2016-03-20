@@ -101,6 +101,8 @@ instance AWSRequest PutJobSuccessResult where
         request = postJSON codePipeline
         response = receiveNull PutJobSuccessResultResponse'
 
+instance Hashable PutJobSuccessResult
+
 instance ToHeaders PutJobSuccessResult where
         toHeaders
           = const

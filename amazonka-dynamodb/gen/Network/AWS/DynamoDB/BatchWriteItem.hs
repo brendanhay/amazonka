@@ -204,6 +204,8 @@ instance AWSRequest BatchWriteItem where
                      <*> (x .?> "UnprocessedItems" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable BatchWriteItem
+
 instance ToHeaders BatchWriteItem where
         toHeaders
           = const

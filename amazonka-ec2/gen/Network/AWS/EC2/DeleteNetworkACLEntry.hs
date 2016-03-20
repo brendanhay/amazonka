@@ -100,6 +100,8 @@ instance AWSRequest DeleteNetworkACLEntry where
         request = postQuery eC2
         response = receiveNull DeleteNetworkACLEntryResponse'
 
+instance Hashable DeleteNetworkACLEntry
+
 instance ToHeaders DeleteNetworkACLEntry where
         toHeaders = const mempty
 

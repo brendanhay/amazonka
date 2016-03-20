@@ -68,6 +68,8 @@ instance AWSRequest ListAvailableSolutionStacks where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListAvailableSolutionStacks
+
 instance ToHeaders ListAvailableSolutionStacks where
         toHeaders = const mempty
 

@@ -106,6 +106,9 @@ instance AWSRequest
                  SetLoadBalancerPoliciesForBackendServerResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable
+         SetLoadBalancerPoliciesForBackendServer
+
 instance ToHeaders
          SetLoadBalancerPoliciesForBackendServer where
         toHeaders = const mempty

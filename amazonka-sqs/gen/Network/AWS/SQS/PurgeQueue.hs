@@ -77,6 +77,8 @@ instance AWSRequest PurgeQueue where
         request = postQuery sQS
         response = receiveNull PurgeQueueResponse'
 
+instance Hashable PurgeQueue
+
 instance ToHeaders PurgeQueue where
         toHeaders = const mempty
 

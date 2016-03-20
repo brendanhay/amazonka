@@ -84,6 +84,8 @@ instance AWSRequest DeactivateMFADevice where
         request = postQuery iAM
         response = receiveNull DeactivateMFADeviceResponse'
 
+instance Hashable DeactivateMFADevice
+
 instance ToHeaders DeactivateMFADevice where
         toHeaders = const mempty
 

@@ -123,6 +123,8 @@ instance AWSRequest DescribeEngineDefaultParameters
                  DescribeEngineDefaultParametersResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "EngineDefaults"))
 
+instance Hashable DescribeEngineDefaultParameters
+
 instance ToHeaders DescribeEngineDefaultParameters
          where
         toHeaders = const mempty

@@ -81,6 +81,8 @@ instance AWSRequest GetEndpointAttributes where
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetEndpointAttributes
+
 instance ToHeaders GetEndpointAttributes where
         toHeaders = const mempty
 

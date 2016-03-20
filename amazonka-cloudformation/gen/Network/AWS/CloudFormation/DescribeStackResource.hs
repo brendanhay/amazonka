@@ -99,6 +99,8 @@ instance AWSRequest DescribeStackResource where
                    (x .@? "StackResourceDetail") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeStackResource
+
 instance ToHeaders DescribeStackResource where
         toHeaders = const mempty
 

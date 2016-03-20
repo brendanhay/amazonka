@@ -145,6 +145,8 @@ instance AWSRequest DescribeWorkspaces where
                      (x .?> "Workspaces" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeWorkspaces
+
 instance ToHeaders DescribeWorkspaces where
         toHeaders
           = const

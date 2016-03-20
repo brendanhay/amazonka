@@ -77,6 +77,8 @@ instance AWSRequest DeletePipeline where
               (\ s h x ->
                  DeletePipelineResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeletePipeline
+
 instance ToHeaders DeletePipeline where
         toHeaders = const mempty
 

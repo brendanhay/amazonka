@@ -82,6 +82,8 @@ instance AWSRequest DetachUserPolicy where
         request = postQuery iAM
         response = receiveNull DetachUserPolicyResponse'
 
+instance Hashable DetachUserPolicy
+
 instance ToHeaders DetachUserPolicy where
         toHeaders = const mempty
 

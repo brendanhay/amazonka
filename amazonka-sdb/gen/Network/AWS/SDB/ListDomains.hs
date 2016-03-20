@@ -102,6 +102,8 @@ instance AWSRequest ListDomains where
                      (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListDomains
+
 instance ToHeaders ListDomains where
         toHeaders = const mempty
 

@@ -140,6 +140,8 @@ instance AWSRequest DeleteDBInstance where
                  DeleteDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteDBInstance
+
 instance ToHeaders DeleteDBInstance where
         toHeaders = const mempty
 

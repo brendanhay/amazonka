@@ -104,6 +104,8 @@ instance AWSRequest UpdateAlias where
         request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateAlias
+
 instance ToHeaders UpdateAlias where
         toHeaders = const mempty
 

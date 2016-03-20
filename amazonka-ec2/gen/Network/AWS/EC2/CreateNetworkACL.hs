@@ -91,6 +91,8 @@ instance AWSRequest CreateNetworkACL where
                  CreateNetworkACLResponse' <$>
                    (x .@? "networkAcl") <*> (pure (fromEnum s)))
 
+instance Hashable CreateNetworkACL
+
 instance ToHeaders CreateNetworkACL where
         toHeaders = const mempty
 

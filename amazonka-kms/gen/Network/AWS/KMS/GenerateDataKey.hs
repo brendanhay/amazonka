@@ -166,6 +166,8 @@ instance AWSRequest GenerateDataKey where
                      (x .:> "Plaintext")
                      <*> (x .:> "CiphertextBlob"))
 
+instance Hashable GenerateDataKey
+
 instance ToHeaders GenerateDataKey where
         toHeaders
           = const

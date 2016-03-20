@@ -101,6 +101,8 @@ instance AWSRequest ModifyCacheSubnetGroup where
                  ModifyCacheSubnetGroupResponse' <$>
                    (x .@? "CacheSubnetGroup") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyCacheSubnetGroup
+
 instance ToHeaders ModifyCacheSubnetGroup where
         toHeaders = const mempty
 

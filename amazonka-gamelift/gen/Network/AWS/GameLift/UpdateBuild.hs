@@ -98,6 +98,8 @@ instance AWSRequest UpdateBuild where
                  UpdateBuildResponse' <$>
                    (x .?> "Build") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateBuild
+
 instance ToHeaders UpdateBuild where
         toHeaders
           = const

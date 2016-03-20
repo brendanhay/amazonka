@@ -125,6 +125,8 @@ instance AWSRequest ConnectDirectory where
                  ConnectDirectoryResponse' <$>
                    (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
+instance Hashable ConnectDirectory
+
 instance ToHeaders ConnectDirectory where
         toHeaders
           = const

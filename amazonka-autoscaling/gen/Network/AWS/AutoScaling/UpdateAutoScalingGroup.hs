@@ -235,6 +235,8 @@ instance AWSRequest UpdateAutoScalingGroup where
         response
           = receiveNull UpdateAutoScalingGroupResponse'
 
+instance Hashable UpdateAutoScalingGroup
+
 instance ToHeaders UpdateAutoScalingGroup where
         toHeaders = const mempty
 

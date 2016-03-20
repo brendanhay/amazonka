@@ -159,6 +159,8 @@ instance AWSRequest DescribeDBLogFiles where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBLogFiles
+
 instance ToHeaders DescribeDBLogFiles where
         toHeaders = const mempty
 

@@ -82,6 +82,8 @@ instance AWSRequest RebootCluster where
                  RebootClusterResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
+instance Hashable RebootCluster
+
 instance ToHeaders RebootCluster where
         toHeaders = const mempty
 

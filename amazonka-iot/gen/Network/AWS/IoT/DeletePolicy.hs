@@ -79,6 +79,8 @@ instance AWSRequest DeletePolicy where
         request = delete ioT
         response = receiveNull DeletePolicyResponse'
 
+instance Hashable DeletePolicy
+
 instance ToHeaders DeletePolicy where
         toHeaders = const mempty
 

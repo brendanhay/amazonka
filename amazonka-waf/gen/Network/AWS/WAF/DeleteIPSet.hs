@@ -96,6 +96,8 @@ instance AWSRequest DeleteIPSet where
                  DeleteIPSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteIPSet
+
 instance ToHeaders DeleteIPSet where
         toHeaders
           = const

@@ -79,6 +79,8 @@ instance AWSRequest DescribeInterconnects where
                    (x .?> "interconnects" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeInterconnects
+
 instance ToHeaders DescribeInterconnects where
         toHeaders
           = const

@@ -506,6 +506,8 @@ instance AWSRequest DeleteItem where
                      <*> (x .?> "Attributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DeleteItem
+
 instance ToHeaders DeleteItem where
         toHeaders
           = const

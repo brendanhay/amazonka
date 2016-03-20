@@ -73,6 +73,8 @@ instance AWSRequest StartInstance where
         request = postJSON opsWorks
         response = receiveNull StartInstanceResponse'
 
+instance Hashable StartInstance
+
 instance ToHeaders StartInstance where
         toHeaders
           = const

@@ -91,6 +91,8 @@ instance AWSRequest DescribeLunaClient where
                      <*> (x .?> "Label")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeLunaClient
+
 instance ToHeaders DescribeLunaClient where
         toHeaders
           = const

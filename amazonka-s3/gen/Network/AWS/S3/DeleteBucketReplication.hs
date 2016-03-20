@@ -68,6 +68,8 @@ instance AWSRequest DeleteBucketReplication where
         response
           = receiveNull DeleteBucketReplicationResponse'
 
+instance Hashable DeleteBucketReplication
+
 instance ToHeaders DeleteBucketReplication where
         toHeaders = const mempty
 

@@ -80,6 +80,8 @@ instance AWSRequest ListTagsForResource where
           = receiveXMLWrapper "ListTagsForResourceResult"
               (\ s h x -> parseXML x)
 
+instance Hashable ListTagsForResource
+
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
 

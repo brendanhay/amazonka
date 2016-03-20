@@ -106,6 +106,8 @@ instance AWSRequest DescribeEndpoints where
                    (x .?> "Marker") <*> (x .?> "Endpoints" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeEndpoints
+
 instance ToHeaders DescribeEndpoints where
         toHeaders
           = const

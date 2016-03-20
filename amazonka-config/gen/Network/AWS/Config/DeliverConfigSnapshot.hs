@@ -86,6 +86,8 @@ instance AWSRequest DeliverConfigSnapshot where
                  DeliverConfigSnapshotResponse' <$>
                    (x .?> "configSnapshotId") <*> (pure (fromEnum s)))
 
+instance Hashable DeliverConfigSnapshot
+
 instance ToHeaders DeliverConfigSnapshot where
         toHeaders
           = const

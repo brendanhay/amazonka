@@ -125,6 +125,8 @@ instance AWSRequest DescribeAlarmsForMetric where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAlarmsForMetric
+
 instance ToHeaders DescribeAlarmsForMetric where
         toHeaders = const mempty
 

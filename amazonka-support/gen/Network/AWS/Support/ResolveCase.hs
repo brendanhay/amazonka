@@ -78,6 +78,8 @@ instance AWSRequest ResolveCase where
                      (x .?> "finalCaseStatus")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ResolveCase
+
 instance ToHeaders ResolveCase where
         toHeaders
           = const

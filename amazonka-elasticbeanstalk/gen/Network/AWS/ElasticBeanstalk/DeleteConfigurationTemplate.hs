@@ -85,6 +85,8 @@ instance AWSRequest DeleteConfigurationTemplate where
         response
           = receiveNull DeleteConfigurationTemplateResponse'
 
+instance Hashable DeleteConfigurationTemplate
+
 instance ToHeaders DeleteConfigurationTemplate where
         toHeaders = const mempty
 

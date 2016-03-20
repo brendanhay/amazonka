@@ -87,6 +87,8 @@ instance AWSRequest CancelArchival where
                  CancelArchivalResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
+instance Hashable CancelArchival
+
 instance ToHeaders CancelArchival where
         toHeaders
           = const

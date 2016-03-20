@@ -88,6 +88,9 @@ instance AWSRequest
           = receiveNull
               RemoveClientIdFromOpenIdConnectProviderResponse'
 
+instance Hashable
+         RemoveClientIdFromOpenIdConnectProvider
+
 instance ToHeaders
          RemoveClientIdFromOpenIdConnectProvider where
         toHeaders = const mempty

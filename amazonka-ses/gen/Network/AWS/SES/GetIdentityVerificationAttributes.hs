@@ -82,6 +82,8 @@ instance AWSRequest GetIdentityVerificationAttributes
                      (x .@? "VerificationAttributes" .!@ mempty >>=
                         parseXMLMap "entry" "key" "value"))
 
+instance Hashable GetIdentityVerificationAttributes
+
 instance ToHeaders GetIdentityVerificationAttributes
          where
         toHeaders = const mempty

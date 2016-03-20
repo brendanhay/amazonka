@@ -130,6 +130,8 @@ instance AWSRequest CreateIdentityPool where
         request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateIdentityPool
+
 instance ToHeaders CreateIdentityPool where
         toHeaders
           = const

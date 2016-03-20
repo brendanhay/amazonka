@@ -75,6 +75,8 @@ instance AWSRequest DeleteSnapshot where
                  DeleteSnapshotResponse' <$>
                    (x .?> "SnapshotId") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteSnapshot
+
 instance ToHeaders DeleteSnapshot where
         toHeaders
           = const

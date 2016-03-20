@@ -93,6 +93,8 @@ instance AWSRequest BatchGetApplicationRevisions
                      <*> (x .?> "errorMessage")
                      <*> (pure (fromEnum s)))
 
+instance Hashable BatchGetApplicationRevisions
+
 instance ToHeaders BatchGetApplicationRevisions where
         toHeaders
           = const

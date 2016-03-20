@@ -70,6 +70,8 @@ instance AWSRequest DeleteEndpoint where
         request = postQuery sNS
         response = receiveNull DeleteEndpointResponse'
 
+instance Hashable DeleteEndpoint
+
 instance ToHeaders DeleteEndpoint where
         toHeaders = const mempty
 

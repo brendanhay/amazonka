@@ -129,6 +129,8 @@ instance AWSRequest DescribeVTLDevices where
                      <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVTLDevices
+
 instance ToHeaders DescribeVTLDevices where
         toHeaders
           = const

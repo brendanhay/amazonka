@@ -101,6 +101,8 @@ instance AWSRequest ModifyReservedInstances where
                    (x .@? "reservedInstancesModificationId") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ModifyReservedInstances
+
 instance ToHeaders ModifyReservedInstances where
         toHeaders = const mempty
 

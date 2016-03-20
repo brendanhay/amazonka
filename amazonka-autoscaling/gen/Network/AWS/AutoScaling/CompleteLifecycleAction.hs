@@ -137,6 +137,8 @@ instance AWSRequest CompleteLifecycleAction where
                  CompleteLifecycleActionResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable CompleteLifecycleAction
+
 instance ToHeaders CompleteLifecycleAction where
         toHeaders = const mempty
 

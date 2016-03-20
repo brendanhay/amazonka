@@ -69,6 +69,8 @@ instance AWSRequest DescribeAccountAttributes where
                    (x .?> "AccountQuotas" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeAccountAttributes
+
 instance ToHeaders DescribeAccountAttributes where
         toHeaders
           = const

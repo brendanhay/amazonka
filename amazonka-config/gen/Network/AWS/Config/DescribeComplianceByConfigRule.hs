@@ -122,6 +122,8 @@ instance AWSRequest DescribeComplianceByConfigRule
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeComplianceByConfigRule
+
 instance ToHeaders DescribeComplianceByConfigRule
          where
         toHeaders

@@ -76,6 +76,8 @@ instance AWSRequest DeleteClusterParameterGroup where
         response
           = receiveNull DeleteClusterParameterGroupResponse'
 
+instance Hashable DeleteClusterParameterGroup
+
 instance ToHeaders DeleteClusterParameterGroup where
         toHeaders = const mempty
 

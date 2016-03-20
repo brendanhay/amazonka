@@ -181,6 +181,8 @@ instance AWSRequest CreateConfigurationTemplate where
               "CreateConfigurationTemplateResult"
               (\ s h x -> parseXML x)
 
+instance Hashable CreateConfigurationTemplate
+
 instance ToHeaders CreateConfigurationTemplate where
         toHeaders = const mempty
 

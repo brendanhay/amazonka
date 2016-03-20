@@ -85,6 +85,8 @@ instance AWSRequest GetBasePathMapping where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetBasePathMapping
+
 instance ToHeaders GetBasePathMapping where
         toHeaders
           = const

@@ -78,6 +78,8 @@ instance AWSRequest GetStreamingDistribution where
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetStreamingDistribution
+
 instance ToHeaders GetStreamingDistribution where
         toHeaders = const mempty
 

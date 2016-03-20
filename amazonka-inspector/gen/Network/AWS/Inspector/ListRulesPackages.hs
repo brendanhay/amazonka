@@ -89,6 +89,8 @@ instance AWSRequest ListRulesPackages where
                      (x .?> "rulesPackageArnList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListRulesPackages
+
 instance ToHeaders ListRulesPackages where
         toHeaders
           = const

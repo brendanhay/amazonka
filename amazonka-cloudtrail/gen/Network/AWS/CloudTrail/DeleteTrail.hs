@@ -78,6 +78,8 @@ instance AWSRequest DeleteTrail where
               (\ s h x ->
                  DeleteTrailResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteTrail
+
 instance ToHeaders DeleteTrail where
         toHeaders
           = const

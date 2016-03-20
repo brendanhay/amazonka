@@ -86,6 +86,8 @@ instance AWSRequest DescribeAgentVersions where
                    (x .?> "AgentVersions" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeAgentVersions
+
 instance ToHeaders DescribeAgentVersions where
         toHeaders
           = const

@@ -152,6 +152,8 @@ instance AWSRequest ListDomains where
                    (x .?> "nextPageToken") <*> (pure (fromEnum s)) <*>
                      (x .?> "domainInfos" .!@ mempty))
 
+instance Hashable ListDomains
+
 instance ToHeaders ListDomains where
         toHeaders
           = const

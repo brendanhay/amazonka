@@ -115,6 +115,8 @@ instance AWSRequest DescribeLogGroups where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeLogGroups
+
 instance ToHeaders DescribeLogGroups where
         toHeaders
           = const

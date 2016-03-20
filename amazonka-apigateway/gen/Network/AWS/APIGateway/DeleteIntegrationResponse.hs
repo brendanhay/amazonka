@@ -100,6 +100,8 @@ instance AWSRequest DeleteIntegrationResponse where
         response
           = receiveNull DeleteIntegrationResponseResponse'
 
+instance Hashable DeleteIntegrationResponse
+
 instance ToHeaders DeleteIntegrationResponse where
         toHeaders
           = const

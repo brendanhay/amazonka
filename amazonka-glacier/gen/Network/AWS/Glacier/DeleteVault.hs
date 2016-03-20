@@ -106,6 +106,8 @@ instance AWSRequest DeleteVault where
         request = delete glacier
         response = receiveNull DeleteVaultResponse'
 
+instance Hashable DeleteVault
+
 instance ToHeaders DeleteVault where
         toHeaders = const mempty
 

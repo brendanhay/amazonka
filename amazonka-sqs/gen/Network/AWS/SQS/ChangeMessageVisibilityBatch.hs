@@ -107,6 +107,8 @@ instance AWSRequest ChangeMessageVisibilityBatch
                         x)
                      <*> (parseXMLList "BatchResultErrorEntry" x))
 
+instance Hashable ChangeMessageVisibilityBatch
+
 instance ToHeaders ChangeMessageVisibilityBatch where
         toHeaders = const mempty
 

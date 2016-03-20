@@ -195,6 +195,8 @@ instance AWSRequest CreateGrant where
                    (x .?> "GrantId") <*> (x .?> "GrantToken") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateGrant
+
 instance ToHeaders CreateGrant where
         toHeaders
           = const

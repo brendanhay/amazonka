@@ -105,6 +105,8 @@ instance AWSRequest StopTask where
                  StopTaskResponse' <$>
                    (x .?> "task") <*> (pure (fromEnum s)))
 
+instance Hashable StopTask
+
 instance ToHeaders StopTask where
         toHeaders
           = const

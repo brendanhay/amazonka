@@ -134,6 +134,8 @@ instance AWSRequest DescribeCacheParameters where
                         may (parseXMLList "Parameter"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCacheParameters
+
 instance ToHeaders DescribeCacheParameters where
         toHeaders = const mempty
 

@@ -97,6 +97,8 @@ instance AWSRequest CreatePlacementGroup where
         request = postQuery eC2
         response = receiveNull CreatePlacementGroupResponse'
 
+instance Hashable CreatePlacementGroup
+
 instance ToHeaders CreatePlacementGroup where
         toHeaders = const mempty
 

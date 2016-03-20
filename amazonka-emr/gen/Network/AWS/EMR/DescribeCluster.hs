@@ -77,6 +77,8 @@ instance AWSRequest DescribeCluster where
                  DescribeClusterResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Cluster"))
 
+instance Hashable DescribeCluster
+
 instance ToHeaders DescribeCluster where
         toHeaders
           = const

@@ -87,6 +87,8 @@ instance AWSRequest PutBucketReplication where
         request = putXML s3
         response = receiveNull PutBucketReplicationResponse'
 
+instance Hashable PutBucketReplication
+
 instance ToElement PutBucketReplication where
         toElement
           = mkElement

@@ -148,6 +148,8 @@ instance AWSRequest GetLogEvents where
                      <*> (x .?> "events" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetLogEvents
+
 instance ToHeaders GetLogEvents where
         toHeaders
           = const

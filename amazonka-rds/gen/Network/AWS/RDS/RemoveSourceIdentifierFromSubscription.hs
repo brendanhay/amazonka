@@ -92,6 +92,9 @@ instance AWSRequest
                  RemoveSourceIdentifierFromSubscriptionResponse' <$>
                    (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
+instance Hashable
+         RemoveSourceIdentifierFromSubscription
+
 instance ToHeaders
          RemoveSourceIdentifierFromSubscription where
         toHeaders = const mempty

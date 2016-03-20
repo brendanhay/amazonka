@@ -99,6 +99,8 @@ instance AWSRequest ActivatePipeline where
               (\ s h x ->
                  ActivatePipelineResponse' <$> (pure (fromEnum s)))
 
+instance Hashable ActivatePipeline
+
 instance ToHeaders ActivatePipeline where
         toHeaders
           = const

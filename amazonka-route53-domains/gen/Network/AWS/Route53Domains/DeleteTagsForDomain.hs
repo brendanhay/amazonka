@@ -108,6 +108,8 @@ instance AWSRequest DeleteTagsForDomain where
               (\ s h x ->
                  DeleteTagsForDomainResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteTagsForDomain
+
 instance ToHeaders DeleteTagsForDomain where
         toHeaders
           = const

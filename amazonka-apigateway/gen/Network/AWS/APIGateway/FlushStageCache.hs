@@ -78,6 +78,8 @@ instance AWSRequest FlushStageCache where
         request = delete aPIGateway
         response = receiveNull FlushStageCacheResponse'
 
+instance Hashable FlushStageCache
+
 instance ToHeaders FlushStageCache where
         toHeaders
           = const

@@ -128,6 +128,8 @@ instance AWSRequest MergeShards where
         request = postJSON kinesis
         response = receiveNull MergeShardsResponse'
 
+instance Hashable MergeShards
+
 instance ToHeaders MergeShards where
         toHeaders
           = const

@@ -112,6 +112,8 @@ instance AWSRequest GetAttributes where
                    (may (parseXMLList "Attribute") x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetAttributes
+
 instance ToHeaders GetAttributes where
         toHeaders = const mempty
 

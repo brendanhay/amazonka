@@ -89,6 +89,8 @@ instance AWSRequest UpdateApplication where
           = receiveXMLWrapper "UpdateApplicationResult"
               (\ s h x -> parseXML x)
 
+instance Hashable UpdateApplication
+
 instance ToHeaders UpdateApplication where
         toHeaders = const mempty
 

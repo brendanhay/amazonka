@@ -67,6 +67,8 @@ instance AWSRequest DeleteLogGroup where
         request = postJSON cloudWatchLogs
         response = receiveNull DeleteLogGroupResponse'
 
+instance Hashable DeleteLogGroup
+
 instance ToHeaders DeleteLogGroup where
         toHeaders
           = const

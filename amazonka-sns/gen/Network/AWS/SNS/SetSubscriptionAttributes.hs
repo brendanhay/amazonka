@@ -93,6 +93,8 @@ instance AWSRequest SetSubscriptionAttributes where
         response
           = receiveNull SetSubscriptionAttributesResponse'
 
+instance Hashable SetSubscriptionAttributes
+
 instance ToHeaders SetSubscriptionAttributes where
         toHeaders = const mempty
 

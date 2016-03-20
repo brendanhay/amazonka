@@ -62,6 +62,8 @@ instance AWSRequest ListDomainNames where
                    (x .?> "DomainNames" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable ListDomainNames
+
 instance ToHeaders ListDomainNames where
         toHeaders = const mempty
 

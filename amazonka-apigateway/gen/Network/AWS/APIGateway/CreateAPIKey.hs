@@ -100,6 +100,8 @@ instance AWSRequest CreateAPIKey where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateAPIKey
+
 instance ToHeaders CreateAPIKey where
         toHeaders
           = const

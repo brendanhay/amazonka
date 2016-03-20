@@ -127,6 +127,8 @@ instance AWSRequest SetVaultNotifications where
         request = putJSON glacier
         response = receiveNull SetVaultNotificationsResponse'
 
+instance Hashable SetVaultNotifications
+
 instance ToHeaders SetVaultNotifications where
         toHeaders = const mempty
 

@@ -79,6 +79,8 @@ instance AWSRequest GetTopicAttributes where
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetTopicAttributes
+
 instance ToHeaders GetTopicAttributes where
         toHeaders = const mempty
 

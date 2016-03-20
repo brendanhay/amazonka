@@ -87,6 +87,8 @@ instance AWSRequest SetVisibleToAllUsers where
         request = postJSON eMR
         response = receiveNull SetVisibleToAllUsersResponse'
 
+instance Hashable SetVisibleToAllUsers
+
 instance ToHeaders SetVisibleToAllUsers where
         toHeaders
           = const

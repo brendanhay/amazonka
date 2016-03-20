@@ -74,6 +74,8 @@ instance AWSRequest DeleteStack where
         request = postJSON opsWorks
         response = receiveNull DeleteStackResponse'
 
+instance Hashable DeleteStack
+
 instance ToHeaders DeleteStack where
         toHeaders
           = const

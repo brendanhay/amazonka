@@ -85,6 +85,8 @@ instance AWSRequest CreateVPNConnectionRoute where
         response
           = receiveNull CreateVPNConnectionRouteResponse'
 
+instance Hashable CreateVPNConnectionRoute
+
 instance ToHeaders CreateVPNConnectionRoute where
         toHeaders = const mempty
 

@@ -118,6 +118,8 @@ instance AWSRequest ListDomains where
                    (x .?> "NextPageMarker") <*> (pure (fromEnum s)) <*>
                      (x .?> "Domains" .!@ mempty))
 
+instance Hashable ListDomains
+
 instance ToHeaders ListDomains where
         toHeaders
           = const

@@ -104,6 +104,8 @@ instance AWSRequest AuthorizeSnapshotAccess where
                  AuthorizeSnapshotAccessResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
+instance Hashable AuthorizeSnapshotAccess
+
 instance ToHeaders AuthorizeSnapshotAccess where
         toHeaders = const mempty
 

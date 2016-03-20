@@ -95,6 +95,8 @@ instance AWSRequest ModifyReplicationSubnetGroup
                    (x .?> "ReplicationSubnetGroup") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ModifyReplicationSubnetGroup
+
 instance ToHeaders ModifyReplicationSubnetGroup where
         toHeaders
           = const

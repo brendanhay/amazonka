@@ -128,6 +128,8 @@ instance AWSRequest DescribeScalingPolicies where
                      (x .?> "ScalingPolicies" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeScalingPolicies
+
 instance ToHeaders DescribeScalingPolicies where
         toHeaders
           = const

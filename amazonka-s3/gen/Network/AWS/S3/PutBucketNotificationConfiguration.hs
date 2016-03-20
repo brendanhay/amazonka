@@ -80,6 +80,8 @@ instance AWSRequest
           = receiveNull
               PutBucketNotificationConfigurationResponse'
 
+instance Hashable PutBucketNotificationConfiguration
+
 instance ToElement PutBucketNotificationConfiguration
          where
         toElement

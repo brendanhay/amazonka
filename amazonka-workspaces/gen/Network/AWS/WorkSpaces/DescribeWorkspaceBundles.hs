@@ -114,6 +114,8 @@ instance AWSRequest DescribeWorkspaceBundles where
                    (x .?> "Bundles" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeWorkspaceBundles
+
 instance ToHeaders DescribeWorkspaceBundles where
         toHeaders
           = const

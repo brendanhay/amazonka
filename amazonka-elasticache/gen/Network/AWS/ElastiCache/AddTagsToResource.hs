@@ -94,6 +94,8 @@ instance AWSRequest AddTagsToResource where
           = receiveXMLWrapper "AddTagsToResourceResult"
               (\ s h x -> parseXML x)
 
+instance Hashable AddTagsToResource
+
 instance ToHeaders AddTagsToResource where
         toHeaders = const mempty
 

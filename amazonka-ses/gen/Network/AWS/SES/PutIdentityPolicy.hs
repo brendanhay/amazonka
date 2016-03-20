@@ -114,6 +114,8 @@ instance AWSRequest PutIdentityPolicy where
               (\ s h x ->
                  PutIdentityPolicyResponse' <$> (pure (fromEnum s)))
 
+instance Hashable PutIdentityPolicy
+
 instance ToHeaders PutIdentityPolicy where
         toHeaders = const mempty
 

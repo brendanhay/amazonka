@@ -124,6 +124,8 @@ instance AWSRequest CreateOptionGroup where
                  CreateOptionGroupResponse' <$>
                    (x .@? "OptionGroup") <*> (pure (fromEnum s)))
 
+instance Hashable CreateOptionGroup
+
 instance ToHeaders CreateOptionGroup where
         toHeaders = const mempty
 

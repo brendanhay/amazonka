@@ -151,6 +151,8 @@ instance AWSRequest DescribeClassicLinkInstances
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeClassicLinkInstances
+
 instance ToHeaders DescribeClassicLinkInstances where
         toHeaders = const mempty
 

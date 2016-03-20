@@ -108,6 +108,8 @@ instance AWSRequest DescribeReplicationTasks where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeReplicationTasks
+
 instance ToHeaders DescribeReplicationTasks where
         toHeaders
           = const

@@ -121,6 +121,8 @@ instance AWSRequest ListTaskDefinitionFamilies where
                    (x .?> "families" .!@ mempty) <*> (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListTaskDefinitionFamilies
+
 instance ToHeaders ListTaskDefinitionFamilies where
         toHeaders
           = const

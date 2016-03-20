@@ -77,6 +77,8 @@ instance AWSRequest GetBucketACL where
                      <*> (x .@? "Owner")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetBucketACL
+
 instance ToHeaders GetBucketACL where
         toHeaders = const mempty
 

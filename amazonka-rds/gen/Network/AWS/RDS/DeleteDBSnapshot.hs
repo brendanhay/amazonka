@@ -81,6 +81,8 @@ instance AWSRequest DeleteDBSnapshot where
                  DeleteDBSnapshotResponse' <$>
                    (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteDBSnapshot
+
 instance ToHeaders DeleteDBSnapshot where
         toHeaders = const mempty
 

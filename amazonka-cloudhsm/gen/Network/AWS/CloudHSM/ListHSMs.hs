@@ -81,6 +81,8 @@ instance AWSRequest ListHSMs where
                    (x .?> "NextToken") <*> (x .?> "HsmList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListHSMs
+
 instance ToHeaders ListHSMs where
         toHeaders
           = const

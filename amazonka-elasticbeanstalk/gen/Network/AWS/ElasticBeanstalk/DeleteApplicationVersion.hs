@@ -99,6 +99,8 @@ instance AWSRequest DeleteApplicationVersion where
         response
           = receiveNull DeleteApplicationVersionResponse'
 
+instance Hashable DeleteApplicationVersion
+
 instance ToHeaders DeleteApplicationVersion where
         toHeaders = const mempty
 

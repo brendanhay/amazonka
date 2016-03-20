@@ -240,6 +240,8 @@ instance AWSRequest HeadObject where
                      <*> (h .#? "Content-Type")
                      <*> (pure (fromEnum s)))
 
+instance Hashable HeadObject
+
 instance ToHeaders HeadObject where
         toHeaders HeadObject'{..}
           = mconcat

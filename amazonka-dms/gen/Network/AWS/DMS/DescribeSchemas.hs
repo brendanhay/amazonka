@@ -104,6 +104,8 @@ instance AWSRequest DescribeSchemas where
                    (x .?> "Schemas" .!@ mempty) <*> (x .?> "Marker") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeSchemas
+
 instance ToHeaders DescribeSchemas where
         toHeaders
           = const

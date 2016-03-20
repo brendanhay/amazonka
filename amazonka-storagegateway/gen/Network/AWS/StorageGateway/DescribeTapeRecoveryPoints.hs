@@ -117,6 +117,8 @@ instance AWSRequest DescribeTapeRecoveryPoints where
                      <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTapeRecoveryPoints
+
 instance ToHeaders DescribeTapeRecoveryPoints where
         toHeaders
           = const

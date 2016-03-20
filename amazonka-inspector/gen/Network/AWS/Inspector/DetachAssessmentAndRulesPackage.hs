@@ -88,6 +88,8 @@ instance AWSRequest DetachAssessmentAndRulesPackage
                  DetachAssessmentAndRulesPackageResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
 
+instance Hashable DetachAssessmentAndRulesPackage
+
 instance ToHeaders DetachAssessmentAndRulesPackage
          where
         toHeaders

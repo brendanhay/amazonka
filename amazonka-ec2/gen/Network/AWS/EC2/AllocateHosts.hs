@@ -125,6 +125,8 @@ instance AWSRequest AllocateHosts where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable AllocateHosts
+
 instance ToHeaders AllocateHosts where
         toHeaders = const mempty
 

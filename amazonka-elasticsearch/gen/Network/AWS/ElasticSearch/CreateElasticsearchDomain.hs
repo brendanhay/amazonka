@@ -131,6 +131,8 @@ instance AWSRequest CreateElasticsearchDomain where
                  CreateElasticsearchDomainResponse' <$>
                    (x .?> "DomainStatus") <*> (pure (fromEnum s)))
 
+instance Hashable CreateElasticsearchDomain
+
 instance ToHeaders CreateElasticsearchDomain where
         toHeaders = const mempty
 

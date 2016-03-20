@@ -98,6 +98,8 @@ instance AWSRequest ShutdownGateway where
                  ShutdownGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable ShutdownGateway
+
 instance ToHeaders ShutdownGateway where
         toHeaders
           = const

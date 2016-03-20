@@ -83,6 +83,8 @@ instance AWSRequest GetChangeTokenStatus where
                  GetChangeTokenStatusResponse' <$>
                    (x .?> "ChangeTokenStatus") <*> (pure (fromEnum s)))
 
+instance Hashable GetChangeTokenStatus
+
 instance ToHeaders GetChangeTokenStatus where
         toHeaders
           = const

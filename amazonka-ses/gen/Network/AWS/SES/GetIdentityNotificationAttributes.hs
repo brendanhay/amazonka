@@ -87,6 +87,8 @@ instance AWSRequest GetIdentityNotificationAttributes
                      (x .@? "NotificationAttributes" .!@ mempty >>=
                         parseXMLMap "entry" "key" "value"))
 
+instance Hashable GetIdentityNotificationAttributes
+
 instance ToHeaders GetIdentityNotificationAttributes
          where
         toHeaders = const mempty

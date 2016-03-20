@@ -105,6 +105,8 @@ instance AWSRequest DescribeVPCEndpointServices where
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVPCEndpointServices
+
 instance ToHeaders DescribeVPCEndpointServices where
         toHeaders = const mempty
 

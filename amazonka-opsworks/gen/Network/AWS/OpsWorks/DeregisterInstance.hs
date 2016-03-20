@@ -76,6 +76,8 @@ instance AWSRequest DeregisterInstance where
         request = postJSON opsWorks
         response = receiveNull DeregisterInstanceResponse'
 
+instance Hashable DeregisterInstance
+
 instance ToHeaders DeregisterInstance where
         toHeaders
           = const

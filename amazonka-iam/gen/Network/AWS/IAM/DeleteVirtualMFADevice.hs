@@ -73,6 +73,8 @@ instance AWSRequest DeleteVirtualMFADevice where
         response
           = receiveNull DeleteVirtualMFADeviceResponse'
 
+instance Hashable DeleteVirtualMFADevice
+
 instance ToHeaders DeleteVirtualMFADevice where
         toHeaders = const mempty
 

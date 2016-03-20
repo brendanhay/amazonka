@@ -113,6 +113,8 @@ instance AWSRequest ListRuns where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListRuns
+
 instance ToHeaders ListRuns where
         toHeaders
           = const

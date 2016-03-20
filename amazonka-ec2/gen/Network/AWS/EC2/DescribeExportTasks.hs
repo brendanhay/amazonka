@@ -75,6 +75,8 @@ instance AWSRequest DescribeExportTasks where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeExportTasks
+
 instance ToHeaders DescribeExportTasks where
         toHeaders = const mempty
 

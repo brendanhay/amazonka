@@ -79,6 +79,9 @@ instance AWSRequest
                    (pure (fromEnum s)) <*>
                      (x .?> "summaries" .!@ mempty))
 
+instance Hashable
+         DescribeTrustedAdvisorCheckSummaries
+
 instance ToHeaders
          DescribeTrustedAdvisorCheckSummaries where
         toHeaders

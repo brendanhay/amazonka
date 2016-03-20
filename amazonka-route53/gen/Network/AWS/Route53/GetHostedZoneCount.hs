@@ -65,6 +65,8 @@ instance AWSRequest GetHostedZoneCount where
                  GetHostedZoneCountResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HostedZoneCount"))
 
+instance Hashable GetHostedZoneCount
+
 instance ToHeaders GetHostedZoneCount where
         toHeaders = const mempty
 

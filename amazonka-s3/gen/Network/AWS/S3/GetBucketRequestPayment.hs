@@ -74,6 +74,8 @@ instance AWSRequest GetBucketRequestPayment where
                  GetBucketRequestPaymentResponse' <$>
                    (x .@? "Payer") <*> (pure (fromEnum s)))
 
+instance Hashable GetBucketRequestPayment
+
 instance ToHeaders GetBucketRequestPayment where
         toHeaders = const mempty
 

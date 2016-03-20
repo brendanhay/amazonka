@@ -89,6 +89,8 @@ instance AWSRequest RemoveRoleFromInstanceProfile
         response
           = receiveNull RemoveRoleFromInstanceProfileResponse'
 
+instance Hashable RemoveRoleFromInstanceProfile
+
 instance ToHeaders RemoveRoleFromInstanceProfile
          where
         toHeaders = const mempty

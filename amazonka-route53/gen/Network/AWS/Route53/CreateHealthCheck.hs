@@ -103,6 +103,8 @@ instance AWSRequest CreateHealthCheck where
                    (pure (fromEnum s)) <*> (x .@ "HealthCheck") <*>
                      (h .# "Location"))
 
+instance Hashable CreateHealthCheck
+
 instance ToElement CreateHealthCheck where
         toElement
           = mkElement

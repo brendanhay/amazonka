@@ -87,6 +87,8 @@ instance AWSRequest StartGateway where
                  StartGatewayResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable StartGateway
+
 instance ToHeaders StartGateway where
         toHeaders
           = const

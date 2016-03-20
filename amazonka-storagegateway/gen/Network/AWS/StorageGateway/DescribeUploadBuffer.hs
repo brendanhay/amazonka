@@ -87,6 +87,8 @@ instance AWSRequest DescribeUploadBuffer where
                      <*> (x .?> "UploadBufferUsedInBytes")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeUploadBuffer
+
 instance ToHeaders DescribeUploadBuffer where
         toHeaders
           = const

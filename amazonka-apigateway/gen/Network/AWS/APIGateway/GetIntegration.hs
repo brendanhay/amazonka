@@ -98,6 +98,8 @@ instance AWSRequest GetIntegration where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetIntegration
+
 instance ToHeaders GetIntegration where
         toHeaders
           = const

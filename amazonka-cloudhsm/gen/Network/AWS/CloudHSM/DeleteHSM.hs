@@ -76,6 +76,8 @@ instance AWSRequest DeleteHSM where
                  DeleteHSMResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Status"))
 
+instance Hashable DeleteHSM
+
 instance ToHeaders DeleteHSM where
         toHeaders
           = const

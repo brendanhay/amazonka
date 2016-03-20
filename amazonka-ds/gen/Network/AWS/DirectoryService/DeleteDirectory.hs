@@ -75,6 +75,8 @@ instance AWSRequest DeleteDirectory where
                  DeleteDirectoryResponse' <$>
                    (x .?> "DirectoryId") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteDirectory
+
 instance ToHeaders DeleteDirectory where
         toHeaders
           = const

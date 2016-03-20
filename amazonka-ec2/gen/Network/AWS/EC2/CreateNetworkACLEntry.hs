@@ -171,6 +171,8 @@ instance AWSRequest CreateNetworkACLEntry where
         request = postQuery eC2
         response = receiveNull CreateNetworkACLEntryResponse'
 
+instance Hashable CreateNetworkACLEntry
+
 instance ToHeaders CreateNetworkACLEntry where
         toHeaders = const mempty
 

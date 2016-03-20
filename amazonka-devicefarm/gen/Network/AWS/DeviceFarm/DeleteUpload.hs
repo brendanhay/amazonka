@@ -74,6 +74,8 @@ instance AWSRequest DeleteUpload where
               (\ s h x ->
                  DeleteUploadResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteUpload
+
 instance ToHeaders DeleteUpload where
         toHeaders
           = const

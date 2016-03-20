@@ -123,6 +123,8 @@ instance AWSRequest DescribeDHCPOptions where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDHCPOptions
+
 instance ToHeaders DescribeDHCPOptions where
         toHeaders = const mempty
 

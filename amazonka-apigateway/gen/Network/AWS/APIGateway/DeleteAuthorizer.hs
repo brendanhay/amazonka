@@ -78,6 +78,8 @@ instance AWSRequest DeleteAuthorizer where
         request = delete aPIGateway
         response = receiveNull DeleteAuthorizerResponse'
 
+instance Hashable DeleteAuthorizer
+
 instance ToHeaders DeleteAuthorizer where
         toHeaders
           = const

@@ -75,6 +75,8 @@ instance AWSRequest DeleteDocument where
               (\ s h x ->
                  DeleteDocumentResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteDocument
+
 instance ToHeaders DeleteDocument where
         toHeaders
           = const

@@ -92,6 +92,8 @@ instance AWSRequest IncreaseStreamRetentionPeriod
         response
           = receiveNull IncreaseStreamRetentionPeriodResponse'
 
+instance Hashable IncreaseStreamRetentionPeriod
+
 instance ToHeaders IncreaseStreamRetentionPeriod
          where
         toHeaders

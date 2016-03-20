@@ -75,6 +75,8 @@ instance AWSRequest CreateProject where
                  CreateProjectResponse' <$>
                    (x .?> "project") <*> (pure (fromEnum s)))
 
+instance Hashable CreateProject
+
 instance ToHeaders CreateProject where
         toHeaders
           = const

@@ -149,6 +149,8 @@ instance AWSRequest UploadServerCertificate where
                    (x .@? "ServerCertificateMetadata") <*>
                      (pure (fromEnum s)))
 
+instance Hashable UploadServerCertificate
+
 instance ToHeaders UploadServerCertificate where
         toHeaders = const mempty
 

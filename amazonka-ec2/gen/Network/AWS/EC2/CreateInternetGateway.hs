@@ -80,6 +80,8 @@ instance AWSRequest CreateInternetGateway where
                  CreateInternetGatewayResponse' <$>
                    (x .@? "internetGateway") <*> (pure (fromEnum s)))
 
+instance Hashable CreateInternetGateway
+
 instance ToHeaders CreateInternetGateway where
         toHeaders = const mempty
 

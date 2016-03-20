@@ -85,6 +85,8 @@ instance AWSRequest GetGameSessionLogURL where
                  GetGameSessionLogURLResponse' <$>
                    (x .?> "PreSignedUrl") <*> (pure (fromEnum s)))
 
+instance Hashable GetGameSessionLogURL
+
 instance ToHeaders GetGameSessionLogURL where
         toHeaders
           = const

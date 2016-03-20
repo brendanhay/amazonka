@@ -87,6 +87,8 @@ instance AWSRequest DescribeTasks where
                      (x .?> "tasks" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTasks
+
 instance ToHeaders DescribeTasks where
         toHeaders
           = const

@@ -75,6 +75,8 @@ instance AWSRequest VerifyEmailIdentity where
               (\ s h x ->
                  VerifyEmailIdentityResponse' <$> (pure (fromEnum s)))
 
+instance Hashable VerifyEmailIdentity
+
 instance ToHeaders VerifyEmailIdentity where
         toHeaders = const mempty
 

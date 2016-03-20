@@ -143,6 +143,8 @@ instance AWSRequest ListGeoLocations where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
 
+instance Hashable ListGeoLocations
+
 instance ToHeaders ListGeoLocations where
         toHeaders = const mempty
 

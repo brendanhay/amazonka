@@ -105,6 +105,8 @@ instance AWSRequest UpdateTrafficPolicyComment where
                  UpdateTrafficPolicyCommentResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "TrafficPolicy"))
 
+instance Hashable UpdateTrafficPolicyComment
+
 instance ToElement UpdateTrafficPolicyComment where
         toElement
           = mkElement

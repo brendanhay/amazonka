@@ -96,6 +96,8 @@ instance AWSRequest ListTargetsByRule where
                    (x .?> "NextToken") <*> (x .?> "Targets" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListTargetsByRule
+
 instance ToHeaders ListTargetsByRule where
         toHeaders
           = const

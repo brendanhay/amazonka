@@ -65,6 +65,8 @@ instance AWSRequest ListSAMLProviders where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListSAMLProviders
+
 instance ToHeaders ListSAMLProviders where
         toHeaders = const mempty
 

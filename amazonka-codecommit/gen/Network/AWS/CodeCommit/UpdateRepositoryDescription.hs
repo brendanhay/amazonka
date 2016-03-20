@@ -88,6 +88,8 @@ instance AWSRequest UpdateRepositoryDescription where
         response
           = receiveNull UpdateRepositoryDescriptionResponse'
 
+instance Hashable UpdateRepositoryDescription
+
 instance ToHeaders UpdateRepositoryDescription where
         toHeaders
           = const

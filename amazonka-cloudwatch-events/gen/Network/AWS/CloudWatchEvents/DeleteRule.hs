@@ -73,6 +73,8 @@ instance AWSRequest DeleteRule where
         request = postJSON cloudWatchEvents
         response = receiveNull DeleteRuleResponse'
 
+instance Hashable DeleteRule
+
 instance ToHeaders DeleteRule where
         toHeaders
           = const

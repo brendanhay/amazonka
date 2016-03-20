@@ -241,6 +241,8 @@ instance AWSRequest ModifyInstanceAttribute where
         response
           = receiveNull ModifyInstanceAttributeResponse'
 
+instance Hashable ModifyInstanceAttribute
+
 instance ToHeaders ModifyInstanceAttribute where
         toHeaders = const mempty
 

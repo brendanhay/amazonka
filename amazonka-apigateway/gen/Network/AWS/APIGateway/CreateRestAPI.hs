@@ -91,6 +91,8 @@ instance AWSRequest CreateRestAPI where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateRestAPI
+
 instance ToHeaders CreateRestAPI where
         toHeaders
           = const

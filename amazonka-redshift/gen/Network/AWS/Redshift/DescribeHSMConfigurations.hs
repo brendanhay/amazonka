@@ -164,6 +164,8 @@ instance AWSRequest DescribeHSMConfigurations where
                         may (parseXMLList "HsmConfiguration"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeHSMConfigurations
+
 instance ToHeaders DescribeHSMConfigurations where
         toHeaders = const mempty
 

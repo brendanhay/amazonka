@@ -91,6 +91,8 @@ instance AWSRequest DescribeHAPG where
                      <*> (x .?> "Label")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeHAPG
+
 instance ToHeaders DescribeHAPG where
         toHeaders
           = const

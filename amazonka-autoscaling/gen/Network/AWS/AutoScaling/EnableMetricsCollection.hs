@@ -112,6 +112,8 @@ instance AWSRequest EnableMetricsCollection where
         response
           = receiveNull EnableMetricsCollectionResponse'
 
+instance Hashable EnableMetricsCollection
+
 instance ToHeaders EnableMetricsCollection where
         toHeaders = const mempty
 

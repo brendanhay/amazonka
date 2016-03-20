@@ -836,6 +836,8 @@ instance AWSRequest CreateDBInstance where
                  CreateDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDBInstance
+
 instance ToHeaders CreateDBInstance where
         toHeaders = const mempty
 

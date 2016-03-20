@@ -111,6 +111,8 @@ instance AWSRequest DescribeWorkflowType where
                    (pure (fromEnum s)) <*> (x .:> "typeInfo") <*>
                      (x .:> "configuration"))
 
+instance Hashable DescribeWorkflowType
+
 instance ToHeaders DescribeWorkflowType where
         toHeaders
           = const

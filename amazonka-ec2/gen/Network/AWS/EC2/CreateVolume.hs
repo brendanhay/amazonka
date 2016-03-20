@@ -196,6 +196,8 @@ instance AWSRequest CreateVolume where
         request = postQuery eC2
         response = receiveXML (\ s h x -> parseXML x)
 
+instance Hashable CreateVolume
+
 instance ToHeaders CreateVolume where
         toHeaders = const mempty
 

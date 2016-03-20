@@ -107,6 +107,8 @@ instance AWSRequest DeleteReplicationGroup where
                  DeleteReplicationGroupResponse' <$>
                    (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteReplicationGroup
+
 instance ToHeaders DeleteReplicationGroup where
         toHeaders = const mempty
 

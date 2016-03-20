@@ -102,6 +102,8 @@ instance AWSRequest ConfirmSubscription where
                  ConfirmSubscriptionResponse' <$>
                    (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
 
+instance Hashable ConfirmSubscription
+
 instance ToHeaders ConfirmSubscription where
         toHeaders = const mempty
 

@@ -106,6 +106,8 @@ instance AWSRequest DescribeVPCClassicLinkDNSSupport
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVPCClassicLinkDNSSupport
+
 instance ToHeaders DescribeVPCClassicLinkDNSSupport
          where
         toHeaders = const mempty

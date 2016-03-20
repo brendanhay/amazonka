@@ -269,6 +269,8 @@ instance AWSRequest SimulateCustomPolicy where
           = receiveXMLWrapper "SimulateCustomPolicyResult"
               (\ s h x -> parseXML x)
 
+instance Hashable SimulateCustomPolicy
+
 instance ToHeaders SimulateCustomPolicy where
         toHeaders = const mempty
 

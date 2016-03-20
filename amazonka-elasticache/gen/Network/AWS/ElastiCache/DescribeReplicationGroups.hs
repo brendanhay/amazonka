@@ -123,6 +123,8 @@ instance AWSRequest DescribeReplicationGroups where
                         may (parseXMLList "ReplicationGroup"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeReplicationGroups
+
 instance ToHeaders DescribeReplicationGroups where
         toHeaders = const mempty
 

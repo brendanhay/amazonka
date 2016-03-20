@@ -73,6 +73,8 @@ instance AWSRequest DeleteBuild where
         request = postJSON gameLift
         response = receiveNull DeleteBuildResponse'
 
+instance Hashable DeleteBuild
+
 instance ToHeaders DeleteBuild where
         toHeaders
           = const

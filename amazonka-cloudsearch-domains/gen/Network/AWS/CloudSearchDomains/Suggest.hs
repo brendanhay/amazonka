@@ -114,6 +114,8 @@ instance AWSRequest Suggest where
                    (x .?> "suggest") <*> (x .?> "status") <*>
                      (pure (fromEnum s)))
 
+instance Hashable Suggest
+
 instance ToHeaders Suggest where
         toHeaders
           = const

@@ -120,6 +120,8 @@ instance AWSRequest ModifyInstancePlacement where
                  ModifyInstancePlacementResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyInstancePlacement
+
 instance ToHeaders ModifyInstancePlacement where
         toHeaders = const mempty
 

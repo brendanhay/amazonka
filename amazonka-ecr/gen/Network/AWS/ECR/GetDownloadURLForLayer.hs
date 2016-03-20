@@ -104,6 +104,8 @@ instance AWSRequest GetDownloadURLForLayer where
                    (x .?> "layerDigest") <*> (x .?> "downloadUrl") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetDownloadURLForLayer
+
 instance ToHeaders GetDownloadURLForLayer where
         toHeaders
           = const

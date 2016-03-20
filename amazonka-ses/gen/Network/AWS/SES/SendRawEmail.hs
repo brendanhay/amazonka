@@ -241,6 +241,8 @@ instance AWSRequest SendRawEmail where
                  SendRawEmailResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "MessageId"))
 
+instance Hashable SendRawEmail
+
 instance ToHeaders SendRawEmail where
         toHeaders = const mempty
 

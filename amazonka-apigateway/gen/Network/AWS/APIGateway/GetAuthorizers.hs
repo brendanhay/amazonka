@@ -95,6 +95,8 @@ instance AWSRequest GetAuthorizers where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetAuthorizers
+
 instance ToHeaders GetAuthorizers where
         toHeaders
           = const

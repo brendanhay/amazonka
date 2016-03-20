@@ -106,6 +106,8 @@ instance AWSRequest ValidateTemplate where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ValidateTemplate
+
 instance ToHeaders ValidateTemplate where
         toHeaders = const mempty
 

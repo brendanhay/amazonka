@@ -118,6 +118,8 @@ instance AWSRequest RequestCancelWorkflowExecution
         response
           = receiveNull RequestCancelWorkflowExecutionResponse'
 
+instance Hashable RequestCancelWorkflowExecution
+
 instance ToHeaders RequestCancelWorkflowExecution
          where
         toHeaders

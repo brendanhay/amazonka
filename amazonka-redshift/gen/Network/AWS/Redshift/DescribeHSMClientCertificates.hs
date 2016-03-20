@@ -168,6 +168,8 @@ instance AWSRequest DescribeHSMClientCertificates
                         may (parseXMLList "HsmClientCertificate"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeHSMClientCertificates
+
 instance ToHeaders DescribeHSMClientCertificates
          where
         toHeaders = const mempty

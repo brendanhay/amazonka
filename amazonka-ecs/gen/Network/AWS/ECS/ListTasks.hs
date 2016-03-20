@@ -176,6 +176,8 @@ instance AWSRequest ListTasks where
                    (x .?> "nextToken") <*> (x .?> "taskArns" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListTasks
+
 instance ToHeaders ListTasks where
         toHeaders
           = const

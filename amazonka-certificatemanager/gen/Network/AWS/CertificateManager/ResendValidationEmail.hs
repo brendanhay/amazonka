@@ -117,6 +117,8 @@ instance AWSRequest ResendValidationEmail where
         request = postJSON certificateManager
         response = receiveNull ResendValidationEmailResponse'
 
+instance Hashable ResendValidationEmail
+
 instance ToHeaders ResendValidationEmail where
         toHeaders
           = const

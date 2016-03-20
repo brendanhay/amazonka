@@ -77,6 +77,8 @@ instance AWSRequest ModifySubnetAttribute where
         request = postQuery eC2
         response = receiveNull ModifySubnetAttributeResponse'
 
+instance Hashable ModifySubnetAttribute
+
 instance ToHeaders ModifySubnetAttribute where
         toHeaders = const mempty
 

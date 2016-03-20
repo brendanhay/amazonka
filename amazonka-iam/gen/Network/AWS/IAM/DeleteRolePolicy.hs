@@ -84,6 +84,8 @@ instance AWSRequest DeleteRolePolicy where
         request = postQuery iAM
         response = receiveNull DeleteRolePolicyResponse'
 
+instance Hashable DeleteRolePolicy
+
 instance ToHeaders DeleteRolePolicy where
         toHeaders = const mempty
 

@@ -94,6 +94,8 @@ instance AWSRequest GetPipelineDefinition where
                      <*> (x .?> "parameterValues" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetPipelineDefinition
+
 instance ToHeaders GetPipelineDefinition where
         toHeaders
           = const

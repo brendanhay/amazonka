@@ -81,6 +81,8 @@ instance AWSRequest EnableVPCClassicLinkDNSSupport
                  EnableVPCClassicLinkDNSSupportResponse' <$>
                    (x .@? "return") <*> (pure (fromEnum s)))
 
+instance Hashable EnableVPCClassicLinkDNSSupport
+
 instance ToHeaders EnableVPCClassicLinkDNSSupport
          where
         toHeaders = const mempty

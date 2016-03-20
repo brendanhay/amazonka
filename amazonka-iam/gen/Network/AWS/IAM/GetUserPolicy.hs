@@ -97,6 +97,8 @@ instance AWSRequest GetUserPolicy where
                      (x .@ "PolicyName")
                      <*> (x .@ "PolicyDocument"))
 
+instance Hashable GetUserPolicy
+
 instance ToHeaders GetUserPolicy where
         toHeaders = const mempty
 

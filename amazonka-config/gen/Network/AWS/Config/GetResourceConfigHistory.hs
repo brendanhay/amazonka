@@ -154,6 +154,8 @@ instance AWSRequest GetResourceConfigHistory where
                      (x .?> "configurationItems" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetResourceConfigHistory
+
 instance ToHeaders GetResourceConfigHistory where
         toHeaders
           = const

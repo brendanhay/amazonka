@@ -166,6 +166,8 @@ instance AWSRequest UpdateFunctionConfiguration where
         request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateFunctionConfiguration
+
 instance ToHeaders UpdateFunctionConfiguration where
         toHeaders = const mempty
 

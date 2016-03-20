@@ -87,6 +87,8 @@ instance AWSRequest CreateSnapshot where
                  CreateSnapshotResponse' <$>
                    (x .?> "SnapshotId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateSnapshot
+
 instance ToHeaders CreateSnapshot where
         toHeaders
           = const

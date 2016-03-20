@@ -116,6 +116,8 @@ instance AWSRequest ChangeResourceRecordSets where
                  ChangeResourceRecordSetsResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
+instance Hashable ChangeResourceRecordSets
+
 instance ToElement ChangeResourceRecordSets where
         toElement
           = mkElement

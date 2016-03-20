@@ -96,6 +96,8 @@ instance AWSRequest DescribeAvailabilityOptions where
                    (x .@? "AvailabilityOptions") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeAvailabilityOptions
+
 instance ToHeaders DescribeAvailabilityOptions where
         toHeaders = const mempty
 

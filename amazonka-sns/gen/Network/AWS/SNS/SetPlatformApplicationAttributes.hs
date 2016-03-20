@@ -103,6 +103,8 @@ instance AWSRequest SetPlatformApplicationAttributes
           = receiveNull
               SetPlatformApplicationAttributesResponse'
 
+instance Hashable SetPlatformApplicationAttributes
+
 instance ToHeaders SetPlatformApplicationAttributes
          where
         toHeaders = const mempty

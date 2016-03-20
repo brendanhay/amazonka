@@ -133,6 +133,8 @@ instance AWSRequest ListServerCertificates where
                      (x .@? "ServerCertificateMetadataList" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListServerCertificates
+
 instance ToHeaders ListServerCertificates where
         toHeaders = const mempty
 

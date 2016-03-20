@@ -96,6 +96,8 @@ instance AWSRequest CancelConversionTask where
         request = postQuery eC2
         response = receiveNull CancelConversionTaskResponse'
 
+instance Hashable CancelConversionTask
+
 instance ToHeaders CancelConversionTask where
         toHeaders = const mempty
 

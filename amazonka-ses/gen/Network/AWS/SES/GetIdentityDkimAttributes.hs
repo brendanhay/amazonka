@@ -96,6 +96,8 @@ instance AWSRequest GetIdentityDkimAttributes where
                      (x .@? "DkimAttributes" .!@ mempty >>=
                         parseXMLMap "entry" "key" "value"))
 
+instance Hashable GetIdentityDkimAttributes
+
 instance ToHeaders GetIdentityDkimAttributes where
         toHeaders = const mempty
 

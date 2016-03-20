@@ -118,6 +118,8 @@ instance AWSRequest ModifyDBParameterGroup where
           = receiveXMLWrapper "ModifyDBParameterGroupResult"
               (\ s h x -> parseXML x)
 
+instance Hashable ModifyDBParameterGroup
+
 instance ToHeaders ModifyDBParameterGroup where
         toHeaders = const mempty
 

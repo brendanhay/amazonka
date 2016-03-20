@@ -101,6 +101,8 @@ instance AWSRequest BatchGetImage where
                      (x .?> "failures" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable BatchGetImage
+
 instance ToHeaders BatchGetImage where
         toHeaders
           = const

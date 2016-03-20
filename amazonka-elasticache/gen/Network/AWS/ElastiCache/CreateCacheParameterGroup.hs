@@ -102,6 +102,8 @@ instance AWSRequest CreateCacheParameterGroup where
                    (x .@? "CacheParameterGroup") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateCacheParameterGroup
+
 instance ToHeaders CreateCacheParameterGroup where
         toHeaders = const mempty
 

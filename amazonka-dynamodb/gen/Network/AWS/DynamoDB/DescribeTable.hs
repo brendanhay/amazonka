@@ -83,6 +83,8 @@ instance AWSRequest DescribeTable where
                  DescribeTableResponse' <$>
                    (x .?> "Table") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTable
+
 instance ToHeaders DescribeTable where
         toHeaders
           = const

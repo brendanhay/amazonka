@@ -71,6 +71,8 @@ instance AWSRequest GetTrafficPolicyInstanceCount
                    (pure (fromEnum s)) <*>
                      (x .@ "TrafficPolicyInstanceCount"))
 
+instance Hashable GetTrafficPolicyInstanceCount
+
 instance ToHeaders GetTrafficPolicyInstanceCount
          where
         toHeaders = const mempty

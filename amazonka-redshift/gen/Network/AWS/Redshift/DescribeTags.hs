@@ -181,6 +181,8 @@ instance AWSRequest DescribeTags where
                         may (parseXMLList "TaggedResource"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTags
+
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
 

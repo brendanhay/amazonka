@@ -79,6 +79,8 @@ instance AWSRequest CreateReceiptFilter where
               (\ s h x ->
                  CreateReceiptFilterResponse' <$> (pure (fromEnum s)))
 
+instance Hashable CreateReceiptFilter
+
 instance ToHeaders CreateReceiptFilter where
         toHeaders = const mempty
 

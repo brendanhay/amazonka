@@ -83,6 +83,8 @@ instance AWSRequest DeleteConnection where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable DeleteConnection
+
 instance ToHeaders DeleteConnection where
         toHeaders
           = const

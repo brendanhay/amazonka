@@ -122,6 +122,8 @@ instance AWSRequest MergeDeveloperIdentities where
                  MergeDeveloperIdentitiesResponse' <$>
                    (x .?> "IdentityId") <*> (pure (fromEnum s)))
 
+instance Hashable MergeDeveloperIdentities
+
 instance ToHeaders MergeDeveloperIdentities where
         toHeaders
           = const

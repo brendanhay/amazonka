@@ -82,6 +82,8 @@ instance AWSRequest DeleteDBClusterParameterGroup
         response
           = receiveNull DeleteDBClusterParameterGroupResponse'
 
+instance Hashable DeleteDBClusterParameterGroup
+
 instance ToHeaders DeleteDBClusterParameterGroup
          where
         toHeaders = const mempty

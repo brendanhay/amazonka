@@ -88,6 +88,8 @@ instance AWSRequest ListJobs where
                    (x .?> "jobs" .!@ mempty) <*> (x .?> "nextToken") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ListJobs
+
 instance ToHeaders ListJobs where
         toHeaders
           = const

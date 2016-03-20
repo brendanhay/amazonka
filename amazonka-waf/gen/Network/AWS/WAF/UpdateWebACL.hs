@@ -151,6 +151,8 @@ instance AWSRequest UpdateWebACL where
                  UpdateWebACLResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateWebACL
+
 instance ToHeaders UpdateWebACL where
         toHeaders
           = const

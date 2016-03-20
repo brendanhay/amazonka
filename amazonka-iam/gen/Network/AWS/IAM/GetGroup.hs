@@ -120,6 +120,8 @@ instance AWSRequest GetGroup where
                      <*>
                      (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
 
+instance Hashable GetGroup
+
 instance ToHeaders GetGroup where
         toHeaders = const mempty
 

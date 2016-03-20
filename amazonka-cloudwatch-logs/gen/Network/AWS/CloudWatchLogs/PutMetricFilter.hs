@@ -103,6 +103,8 @@ instance AWSRequest PutMetricFilter where
         request = postJSON cloudWatchLogs
         response = receiveNull PutMetricFilterResponse'
 
+instance Hashable PutMetricFilter
+
 instance ToHeaders PutMetricFilter where
         toHeaders
           = const

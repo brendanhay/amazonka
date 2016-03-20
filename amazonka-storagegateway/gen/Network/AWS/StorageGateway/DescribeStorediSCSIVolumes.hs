@@ -83,6 +83,8 @@ instance AWSRequest DescribeStorediSCSIVolumes where
                    (x .?> "StorediSCSIVolumes" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeStorediSCSIVolumes
+
 instance ToHeaders DescribeStorediSCSIVolumes where
         toHeaders
           = const

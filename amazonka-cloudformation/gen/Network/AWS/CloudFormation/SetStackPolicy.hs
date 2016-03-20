@@ -92,6 +92,8 @@ instance AWSRequest SetStackPolicy where
         request = postQuery cloudFormation
         response = receiveNull SetStackPolicyResponse'
 
+instance Hashable SetStackPolicy
+
 instance ToHeaders SetStackPolicy where
         toHeaders = const mempty
 

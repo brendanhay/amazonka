@@ -76,6 +76,8 @@ instance AWSRequest StopInstance where
         request = postJSON opsWorks
         response = receiveNull StopInstanceResponse'
 
+instance Hashable StopInstance
+
 instance ToHeaders StopInstance where
         toHeaders
           = const

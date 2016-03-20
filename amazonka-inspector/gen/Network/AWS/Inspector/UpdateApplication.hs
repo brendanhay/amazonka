@@ -93,6 +93,8 @@ instance AWSRequest UpdateApplication where
                  UpdateApplicationResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateApplication
+
 instance ToHeaders UpdateApplication where
         toHeaders
           = const

@@ -72,6 +72,8 @@ instance AWSRequest DescribeAccountLimits where
                      <*> (x .@? "MaxNumberOfLaunchConfigurations")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAccountLimits
+
 instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty
 

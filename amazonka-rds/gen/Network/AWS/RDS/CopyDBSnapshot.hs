@@ -158,6 +158,8 @@ instance AWSRequest CopyDBSnapshot where
                  CopyDBSnapshotResponse' <$>
                    (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
+instance Hashable CopyDBSnapshot
+
 instance ToHeaders CopyDBSnapshot where
         toHeaders = const mempty
 

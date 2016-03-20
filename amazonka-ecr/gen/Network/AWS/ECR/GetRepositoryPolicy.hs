@@ -89,6 +89,8 @@ instance AWSRequest GetRepositoryPolicy where
                      (x .?> "policyText")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetRepositoryPolicy
+
 instance ToHeaders GetRepositoryPolicy where
         toHeaders
           = const

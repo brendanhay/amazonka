@@ -77,6 +77,8 @@ instance AWSRequest RemoveUserFromGroup where
         request = postQuery iAM
         response = receiveNull RemoveUserFromGroupResponse'
 
+instance Hashable RemoveUserFromGroup
+
 instance ToHeaders RemoveUserFromGroup where
         toHeaders = const mempty
 

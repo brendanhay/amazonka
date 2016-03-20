@@ -123,6 +123,8 @@ instance AWSRequest CreateEvaluation where
                  CreateEvaluationResponse' <$>
                    (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateEvaluation
+
 instance ToHeaders CreateEvaluation where
         toHeaders
           = const

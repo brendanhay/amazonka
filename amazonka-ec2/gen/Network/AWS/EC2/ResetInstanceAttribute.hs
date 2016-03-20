@@ -99,6 +99,8 @@ instance AWSRequest ResetInstanceAttribute where
         response
           = receiveNull ResetInstanceAttributeResponse'
 
+instance Hashable ResetInstanceAttribute
+
 instance ToHeaders ResetInstanceAttribute where
         toHeaders = const mempty
 

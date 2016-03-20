@@ -86,6 +86,8 @@ instance AWSRequest GetCommit where
                  GetCommitResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "commit"))
 
+instance Hashable GetCommit
+
 instance ToHeaders GetCommit where
         toHeaders
           = const

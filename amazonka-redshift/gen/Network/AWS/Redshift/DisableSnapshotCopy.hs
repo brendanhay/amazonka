@@ -86,6 +86,8 @@ instance AWSRequest DisableSnapshotCopy where
                  DisableSnapshotCopyResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
+instance Hashable DisableSnapshotCopy
+
 instance ToHeaders DisableSnapshotCopy where
         toHeaders = const mempty
 

@@ -101,6 +101,8 @@ instance AWSRequest AbortVaultLock where
         request = delete glacier
         response = receiveNull AbortVaultLockResponse'
 
+instance Hashable AbortVaultLock
+
 instance ToHeaders AbortVaultLock where
         toHeaders = const mempty
 

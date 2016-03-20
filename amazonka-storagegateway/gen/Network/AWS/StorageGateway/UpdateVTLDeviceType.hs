@@ -91,6 +91,8 @@ instance AWSRequest UpdateVTLDeviceType where
                  UpdateVTLDeviceTypeResponse' <$>
                    (x .?> "VTLDeviceARN") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateVTLDeviceType
+
 instance ToHeaders UpdateVTLDeviceType where
         toHeaders
           = const

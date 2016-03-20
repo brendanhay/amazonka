@@ -212,6 +212,8 @@ instance AWSRequest CreateFleet where
                  CreateFleetResponse' <$>
                    (x .?> "FleetAttributes") <*> (pure (fromEnum s)))
 
+instance Hashable CreateFleet
+
 instance ToHeaders CreateFleet where
         toHeaders
           = const

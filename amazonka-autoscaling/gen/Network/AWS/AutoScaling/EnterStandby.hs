@@ -102,6 +102,8 @@ instance AWSRequest EnterStandby where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable EnterStandby
+
 instance ToHeaders EnterStandby where
         toHeaders = const mempty
 

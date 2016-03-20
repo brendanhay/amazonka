@@ -227,6 +227,8 @@ instance AWSRequest DescribeClusterSnapshots where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeClusterSnapshots
+
 instance ToHeaders DescribeClusterSnapshots where
         toHeaders = const mempty
 

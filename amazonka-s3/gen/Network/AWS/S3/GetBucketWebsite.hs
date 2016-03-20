@@ -82,6 +82,8 @@ instance AWSRequest GetBucketWebsite where
                         may (parseXMLList "RoutingRule"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetBucketWebsite
+
 instance ToHeaders GetBucketWebsite where
         toHeaders = const mempty
 

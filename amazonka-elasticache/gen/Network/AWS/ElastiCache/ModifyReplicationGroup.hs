@@ -284,6 +284,8 @@ instance AWSRequest ModifyReplicationGroup where
                  ModifyReplicationGroupResponse' <$>
                    (x .@? "ReplicationGroup") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyReplicationGroup
+
 instance ToHeaders ModifyReplicationGroup where
         toHeaders = const mempty
 

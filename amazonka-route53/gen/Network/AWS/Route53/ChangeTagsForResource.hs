@@ -112,6 +112,8 @@ instance AWSRequest ChangeTagsForResource where
                  ChangeTagsForResourceResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable ChangeTagsForResource
+
 instance ToElement ChangeTagsForResource where
         toElement
           = mkElement

@@ -98,6 +98,8 @@ instance AWSRequest ReportTaskProgress where
                  ReportTaskProgressResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "canceled"))
 
+instance Hashable ReportTaskProgress
+
 instance ToHeaders ReportTaskProgress where
         toHeaders
           = const

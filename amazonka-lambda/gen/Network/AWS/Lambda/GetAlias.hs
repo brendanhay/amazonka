@@ -88,6 +88,8 @@ instance AWSRequest GetAlias where
         request = get lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetAlias
+
 instance ToHeaders GetAlias where
         toHeaders = const mempty
 

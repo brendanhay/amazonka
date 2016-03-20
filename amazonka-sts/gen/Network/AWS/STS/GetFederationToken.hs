@@ -199,6 +199,8 @@ instance AWSRequest GetFederationToken where
                      <*> (x .@? "FederatedUser")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetFederationToken
+
 instance ToHeaders GetFederationToken where
         toHeaders = const mempty
 

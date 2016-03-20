@@ -106,6 +106,8 @@ instance AWSRequest GetIdentityPolicies where
                      (x .@? "Policies" .!@ mempty >>=
                         parseXMLMap "entry" "key" "value"))
 
+instance Hashable GetIdentityPolicies
+
 instance ToHeaders GetIdentityPolicies where
         toHeaders = const mempty
 

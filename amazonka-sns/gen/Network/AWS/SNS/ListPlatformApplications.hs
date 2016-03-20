@@ -99,6 +99,8 @@ instance AWSRequest ListPlatformApplications where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListPlatformApplications
+
 instance ToHeaders ListPlatformApplications where
         toHeaders = const mempty
 

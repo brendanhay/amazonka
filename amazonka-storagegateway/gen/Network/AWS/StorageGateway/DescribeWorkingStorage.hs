@@ -92,6 +92,8 @@ instance AWSRequest DescribeWorkingStorage where
                      <*> (x .?> "WorkingStorageUsedInBytes")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeWorkingStorage
+
 instance ToHeaders DescribeWorkingStorage where
         toHeaders
           = const

@@ -76,6 +76,8 @@ instance AWSRequest GetBucketVersioning where
                    (x .@? "Status") <*> (x .@? "MfaDelete") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetBucketVersioning
+
 instance ToHeaders GetBucketVersioning where
         toHeaders = const mempty
 

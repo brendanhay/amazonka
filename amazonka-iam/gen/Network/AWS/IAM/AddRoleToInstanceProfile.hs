@@ -82,6 +82,8 @@ instance AWSRequest AddRoleToInstanceProfile where
         response
           = receiveNull AddRoleToInstanceProfileResponse'
 
+instance Hashable AddRoleToInstanceProfile
+
 instance ToHeaders AddRoleToInstanceProfile where
         toHeaders = const mempty
 

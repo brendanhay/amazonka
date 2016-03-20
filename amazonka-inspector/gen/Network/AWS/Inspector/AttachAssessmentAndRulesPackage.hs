@@ -88,6 +88,8 @@ instance AWSRequest AttachAssessmentAndRulesPackage
                  AttachAssessmentAndRulesPackageResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
 
+instance Hashable AttachAssessmentAndRulesPackage
+
 instance ToHeaders AttachAssessmentAndRulesPackage
          where
         toHeaders

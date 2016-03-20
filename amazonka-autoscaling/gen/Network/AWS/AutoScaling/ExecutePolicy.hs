@@ -123,6 +123,8 @@ instance AWSRequest ExecutePolicy where
         request = postQuery autoScaling
         response = receiveNull ExecutePolicyResponse'
 
+instance Hashable ExecutePolicy
+
 instance ToHeaders ExecutePolicy where
         toHeaders = const mempty
 

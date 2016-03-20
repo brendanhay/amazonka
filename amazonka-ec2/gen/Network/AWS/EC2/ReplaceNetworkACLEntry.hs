@@ -155,6 +155,8 @@ instance AWSRequest ReplaceNetworkACLEntry where
         response
           = receiveNull ReplaceNetworkACLEntryResponse'
 
+instance Hashable ReplaceNetworkACLEntry
+
 instance ToHeaders ReplaceNetworkACLEntry where
         toHeaders = const mempty
 

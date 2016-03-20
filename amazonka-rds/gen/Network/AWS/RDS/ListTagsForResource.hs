@@ -92,6 +92,8 @@ instance AWSRequest ListTagsForResource where
                       may (parseXMLList "Tag"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListTagsForResource
+
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
 

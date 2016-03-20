@@ -85,6 +85,8 @@ instance AWSRequest DeleteHealthCheck where
               (\ s h x ->
                  DeleteHealthCheckResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteHealthCheck
+
 instance ToHeaders DeleteHealthCheck where
         toHeaders = const mempty
 

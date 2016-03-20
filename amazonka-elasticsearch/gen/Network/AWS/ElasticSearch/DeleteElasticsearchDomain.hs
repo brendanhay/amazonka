@@ -80,6 +80,8 @@ instance AWSRequest DeleteElasticsearchDomain where
                  DeleteElasticsearchDomainResponse' <$>
                    (x .?> "DomainStatus") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteElasticsearchDomain
+
 instance ToHeaders DeleteElasticsearchDomain where
         toHeaders = const mempty
 

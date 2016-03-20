@@ -103,6 +103,8 @@ instance AWSRequest DescribeTrustedAdvisorCheckResult
                  DescribeTrustedAdvisorCheckResultResponse' <$>
                    (x .?> "result") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTrustedAdvisorCheckResult
+
 instance ToHeaders DescribeTrustedAdvisorCheckResult
          where
         toHeaders

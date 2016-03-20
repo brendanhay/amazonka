@@ -85,6 +85,8 @@ instance AWSRequest GetStages where
                  GetStagesResponse' <$>
                    (x .?> "item" .!@ mempty) <*> (pure (fromEnum s)))
 
+instance Hashable GetStages
+
 instance ToHeaders GetStages where
         toHeaders
           = const

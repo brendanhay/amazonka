@@ -247,6 +247,8 @@ instance AWSRequest ModifyDBCluster where
                  ModifyDBClusterResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyDBCluster
+
 instance ToHeaders ModifyDBCluster where
         toHeaders = const mempty
 

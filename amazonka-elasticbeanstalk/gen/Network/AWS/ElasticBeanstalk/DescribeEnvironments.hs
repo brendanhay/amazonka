@@ -127,6 +127,8 @@ instance AWSRequest DescribeEnvironments where
           = receiveXMLWrapper "DescribeEnvironmentsResult"
               (\ s h x -> parseXML x)
 
+instance Hashable DescribeEnvironments
+
 instance ToHeaders DescribeEnvironments where
         toHeaders = const mempty
 

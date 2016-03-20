@@ -111,6 +111,8 @@ instance AWSRequest ListGrants where
         request = postJSON kMS
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable ListGrants
+
 instance ToHeaders ListGrants where
         toHeaders
           = const

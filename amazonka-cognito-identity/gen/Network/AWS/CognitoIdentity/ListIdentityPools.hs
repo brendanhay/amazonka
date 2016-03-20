@@ -89,6 +89,8 @@ instance AWSRequest ListIdentityPools where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListIdentityPools
+
 instance ToHeaders ListIdentityPools where
         toHeaders
           = const

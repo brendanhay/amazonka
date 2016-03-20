@@ -128,6 +128,8 @@ instance AWSRequest DescribePendingMaintenanceActions
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribePendingMaintenanceActions
+
 instance ToHeaders DescribePendingMaintenanceActions
          where
         toHeaders = const mempty

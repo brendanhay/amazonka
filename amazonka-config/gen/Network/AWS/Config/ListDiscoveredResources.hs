@@ -145,6 +145,8 @@ instance AWSRequest ListDiscoveredResources where
                      (x .?> "resourceIdentifiers" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListDiscoveredResources
+
 instance ToHeaders ListDiscoveredResources where
         toHeaders
           = const

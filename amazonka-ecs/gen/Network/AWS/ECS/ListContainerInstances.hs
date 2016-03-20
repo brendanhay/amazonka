@@ -118,6 +118,8 @@ instance AWSRequest ListContainerInstances where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListContainerInstances
+
 instance ToHeaders ListContainerInstances where
         toHeaders
           = const

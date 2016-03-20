@@ -72,6 +72,8 @@ instance AWSRequest EnableRule where
         request = postJSON cloudWatchEvents
         response = receiveNull EnableRuleResponse'
 
+instance Hashable EnableRule
+
 instance ToHeaders EnableRule where
         toHeaders
           = const

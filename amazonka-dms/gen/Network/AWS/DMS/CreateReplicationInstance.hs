@@ -209,6 +209,8 @@ instance AWSRequest CreateReplicationInstance where
                    (x .?> "ReplicationInstance") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateReplicationInstance
+
 instance ToHeaders CreateReplicationInstance where
         toHeaders
           = const

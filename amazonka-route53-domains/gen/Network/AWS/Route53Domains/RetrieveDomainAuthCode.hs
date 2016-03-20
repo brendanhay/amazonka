@@ -87,6 +87,8 @@ instance AWSRequest RetrieveDomainAuthCode where
                  RetrieveDomainAuthCodeResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "AuthCode"))
 
+instance Hashable RetrieveDomainAuthCode
+
 instance ToHeaders RetrieveDomainAuthCode where
         toHeaders
           = const

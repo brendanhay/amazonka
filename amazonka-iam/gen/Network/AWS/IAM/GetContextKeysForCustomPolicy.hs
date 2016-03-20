@@ -86,6 +86,8 @@ instance AWSRequest GetContextKeysForCustomPolicy
               "GetContextKeysForCustomPolicyResult"
               (\ s h x -> parseXML x)
 
+instance Hashable GetContextKeysForCustomPolicy
+
 instance ToHeaders GetContextKeysForCustomPolicy
          where
         toHeaders = const mempty

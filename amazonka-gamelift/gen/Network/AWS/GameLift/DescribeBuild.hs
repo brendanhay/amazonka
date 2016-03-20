@@ -77,6 +77,8 @@ instance AWSRequest DescribeBuild where
                  DescribeBuildResponse' <$>
                    (x .?> "Build") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeBuild
+
 instance ToHeaders DescribeBuild where
         toHeaders
           = const

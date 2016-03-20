@@ -95,6 +95,8 @@ instance AWSRequest ResetSnapshotAttribute where
         response
           = receiveNull ResetSnapshotAttributeResponse'
 
+instance Hashable ResetSnapshotAttribute
+
 instance ToHeaders ResetSnapshotAttribute where
         toHeaders = const mempty
 

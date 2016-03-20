@@ -96,6 +96,8 @@ instance AWSRequest GetVaultAccessPolicy where
                  GetVaultAccessPolicyResponse' <$>
                    (eitherParseJSON x) <*> (pure (fromEnum s)))
 
+instance Hashable GetVaultAccessPolicy
+
 instance ToHeaders GetVaultAccessPolicy where
         toHeaders = const mempty
 

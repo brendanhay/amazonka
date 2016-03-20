@@ -232,6 +232,8 @@ instance AWSRequest RestoreDBClusterToPointInTime
                  RestoreDBClusterToPointInTimeResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
 
+instance Hashable RestoreDBClusterToPointInTime
+
 instance ToHeaders RestoreDBClusterToPointInTime
          where
         toHeaders = const mempty

@@ -83,6 +83,8 @@ instance AWSRequest UpdateKeyDescription where
         request = postJSON kMS
         response = receiveNull UpdateKeyDescriptionResponse'
 
+instance Hashable UpdateKeyDescription
+
 instance ToHeaders UpdateKeyDescription where
         toHeaders
           = const

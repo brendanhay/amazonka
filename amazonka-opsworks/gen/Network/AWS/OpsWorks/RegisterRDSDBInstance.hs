@@ -103,6 +103,8 @@ instance AWSRequest RegisterRDSDBInstance where
         request = postJSON opsWorks
         response = receiveNull RegisterRDSDBInstanceResponse'
 
+instance Hashable RegisterRDSDBInstance
+
 instance ToHeaders RegisterRDSDBInstance where
         toHeaders
           = const

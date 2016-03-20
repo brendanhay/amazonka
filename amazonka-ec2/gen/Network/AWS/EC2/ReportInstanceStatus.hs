@@ -159,6 +159,8 @@ instance AWSRequest ReportInstanceStatus where
         request = postQuery eC2
         response = receiveNull ReportInstanceStatusResponse'
 
+instance Hashable ReportInstanceStatus
+
 instance ToHeaders ReportInstanceStatus where
         toHeaders = const mempty
 

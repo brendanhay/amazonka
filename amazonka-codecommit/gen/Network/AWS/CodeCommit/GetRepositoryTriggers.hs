@@ -78,6 +78,8 @@ instance AWSRequest GetRepositoryTriggers where
                      (x .?> "triggers" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetRepositoryTriggers
+
 instance ToHeaders GetRepositoryTriggers where
         toHeaders
           = const

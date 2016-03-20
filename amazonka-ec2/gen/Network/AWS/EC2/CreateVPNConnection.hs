@@ -135,6 +135,8 @@ instance AWSRequest CreateVPNConnection where
                  CreateVPNConnectionResponse' <$>
                    (x .@? "vpnConnection") <*> (pure (fromEnum s)))
 
+instance Hashable CreateVPNConnection
+
 instance ToHeaders CreateVPNConnection where
         toHeaders = const mempty
 

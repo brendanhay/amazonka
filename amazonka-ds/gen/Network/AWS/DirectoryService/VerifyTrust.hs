@@ -80,6 +80,8 @@ instance AWSRequest VerifyTrust where
                  VerifyTrustResponse' <$>
                    (x .?> "TrustId") <*> (pure (fromEnum s)))
 
+instance Hashable VerifyTrust
+
 instance ToHeaders VerifyTrust where
         toHeaders
           = const

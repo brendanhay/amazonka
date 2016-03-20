@@ -91,6 +91,8 @@ instance AWSRequest DetachInternetGateway where
         request = postQuery eC2
         response = receiveNull DetachInternetGatewayResponse'
 
+instance Hashable DetachInternetGateway
+
 instance ToHeaders DetachInternetGateway where
         toHeaders = const mempty
 

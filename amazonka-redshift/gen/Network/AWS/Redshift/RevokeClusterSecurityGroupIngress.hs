@@ -122,6 +122,8 @@ instance AWSRequest RevokeClusterSecurityGroupIngress
                    (x .@? "ClusterSecurityGroup") <*>
                      (pure (fromEnum s)))
 
+instance Hashable RevokeClusterSecurityGroupIngress
+
 instance ToHeaders RevokeClusterSecurityGroupIngress
          where
         toHeaders = const mempty

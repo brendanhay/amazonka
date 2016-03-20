@@ -75,6 +75,8 @@ instance AWSRequest GetDevice where
                  GetDeviceResponse' <$>
                    (x .?> "device") <*> (pure (fromEnum s)))
 
+instance Hashable GetDevice
+
 instance ToHeaders GetDevice where
         toHeaders
           = const

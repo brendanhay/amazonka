@@ -76,6 +76,8 @@ instance AWSRequest VerifyDomainIdentity where
                  VerifyDomainIdentityResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "VerificationToken"))
 
+instance Hashable VerifyDomainIdentity
+
 instance ToHeaders VerifyDomainIdentity where
         toHeaders = const mempty
 

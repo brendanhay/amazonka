@@ -80,6 +80,8 @@ instance AWSRequest RegisterOnPremisesInstance where
         response
           = receiveNull RegisterOnPremisesInstanceResponse'
 
+instance Hashable RegisterOnPremisesInstance
+
 instance ToHeaders RegisterOnPremisesInstance where
         toHeaders
           = const

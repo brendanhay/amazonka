@@ -110,6 +110,8 @@ instance AWSRequest GetVaultNotifications where
                  GetVaultNotificationsResponse' <$>
                    (eitherParseJSON x) <*> (pure (fromEnum s)))
 
+instance Hashable GetVaultNotifications
+
 instance ToHeaders GetVaultNotifications where
         toHeaders = const mempty
 

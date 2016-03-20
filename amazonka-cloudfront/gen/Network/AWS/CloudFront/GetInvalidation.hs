@@ -85,6 +85,8 @@ instance AWSRequest GetInvalidation where
                  GetInvalidationResponse' <$>
                    (parseXML x) <*> (pure (fromEnum s)))
 
+instance Hashable GetInvalidation
+
 instance ToHeaders GetInvalidation where
         toHeaders = const mempty
 

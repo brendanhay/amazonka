@@ -77,6 +77,8 @@ instance AWSRequest StopDeployment where
                    (x .?> "status") <*> (x .?> "statusMessage") <*>
                      (pure (fromEnum s)))
 
+instance Hashable StopDeployment
+
 instance ToHeaders StopDeployment where
         toHeaders
           = const

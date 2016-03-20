@@ -84,6 +84,8 @@ instance AWSRequest DescribeCertificate where
                  DescribeCertificateResponse' <$>
                    (x .?> "Certificate") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCertificate
+
 instance ToHeaders DescribeCertificate where
         toHeaders
           = const

@@ -102,6 +102,8 @@ instance AWSRequest UpdateApplicationVersion where
           = receiveXMLWrapper "UpdateApplicationVersionResult"
               (\ s h x -> parseXML x)
 
+instance Hashable UpdateApplicationVersion
+
 instance ToHeaders UpdateApplicationVersion where
         toHeaders = const mempty
 

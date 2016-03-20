@@ -78,6 +78,8 @@ instance AWSRequest DeleteMetricFilter where
         request = postJSON cloudWatchLogs
         response = receiveNull DeleteMetricFilterResponse'
 
+instance Hashable DeleteMetricFilter
+
 instance ToHeaders DeleteMetricFilter where
         toHeaders
           = const

@@ -202,6 +202,8 @@ instance AWSRequest CreateCase where
                  CreateCaseResponse' <$>
                    (x .?> "caseId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateCase
+
 instance ToHeaders CreateCase where
         toHeaders
           = const

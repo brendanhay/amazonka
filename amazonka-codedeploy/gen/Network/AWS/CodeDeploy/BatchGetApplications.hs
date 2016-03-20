@@ -76,6 +76,8 @@ instance AWSRequest BatchGetApplications where
                    (x .?> "applicationsInfo" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable BatchGetApplications
+
 instance ToHeaders BatchGetApplications where
         toHeaders
           = const

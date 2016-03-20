@@ -105,6 +105,8 @@ instance AWSRequest CreateBasePathMapping where
         request = postJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateBasePathMapping
+
 instance ToHeaders CreateBasePathMapping where
         toHeaders
           = const

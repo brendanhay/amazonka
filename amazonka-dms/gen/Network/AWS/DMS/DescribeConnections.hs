@@ -107,6 +107,8 @@ instance AWSRequest DescribeConnections where
                    (x .?> "Connections" .!@ mempty) <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeConnections
+
 instance ToHeaders DescribeConnections where
         toHeaders
           = const

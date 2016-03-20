@@ -100,6 +100,8 @@ instance AWSRequest GetRecords where
                      (x .?> "NextShardIterator")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetRecords
+
 instance ToHeaders GetRecords where
         toHeaders
           = const

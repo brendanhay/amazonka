@@ -88,6 +88,8 @@ instance AWSRequest AttachRolePolicy where
         request = postQuery iAM
         response = receiveNull AttachRolePolicyResponse'
 
+instance Hashable AttachRolePolicy
+
 instance ToHeaders AttachRolePolicy where
         toHeaders = const mempty
 

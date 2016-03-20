@@ -159,6 +159,8 @@ instance AWSRequest ListMultipartUploads where
                    (x .?> "UploadsList" .!@ mempty) <*> (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListMultipartUploads
+
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty
 

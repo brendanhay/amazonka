@@ -126,6 +126,8 @@ instance AWSRequest DeleteDBCluster where
                  DeleteDBClusterResponse' <$>
                    (x .@? "DBCluster") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteDBCluster
+
 instance ToHeaders DeleteDBCluster where
         toHeaders = const mempty
 

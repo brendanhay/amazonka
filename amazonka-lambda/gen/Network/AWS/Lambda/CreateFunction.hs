@@ -199,6 +199,8 @@ instance AWSRequest CreateFunction where
         request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateFunction
+
 instance ToHeaders CreateFunction where
         toHeaders = const mempty
 

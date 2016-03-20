@@ -106,6 +106,8 @@ instance AWSRequest CreateAlias where
         request = postJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateAlias
+
 instance ToHeaders CreateAlias where
         toHeaders = const mempty
 

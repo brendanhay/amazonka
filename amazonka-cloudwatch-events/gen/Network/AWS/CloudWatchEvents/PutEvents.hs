@@ -81,6 +81,8 @@ instance AWSRequest PutEvents where
                      (x .?> "Entries" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable PutEvents
+
 instance ToHeaders PutEvents where
         toHeaders
           = const

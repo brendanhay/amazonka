@@ -73,6 +73,8 @@ instance AWSRequest DescribeDocument where
                  DescribeDocumentResponse' <$>
                    (x .?> "Document") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDocument
+
 instance ToHeaders DescribeDocument where
         toHeaders
           = const

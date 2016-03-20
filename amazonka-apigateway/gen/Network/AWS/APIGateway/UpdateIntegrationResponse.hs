@@ -114,6 +114,8 @@ instance AWSRequest UpdateIntegrationResponse where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateIntegrationResponse
+
 instance ToHeaders UpdateIntegrationResponse where
         toHeaders
           = const

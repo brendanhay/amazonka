@@ -84,6 +84,8 @@ instance AWSRequest GetPipelineState where
                      <*> (x .?> "updated")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetPipelineState
+
 instance ToHeaders GetPipelineState where
         toHeaders
           = const

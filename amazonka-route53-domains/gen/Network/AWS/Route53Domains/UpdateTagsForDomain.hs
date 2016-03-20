@@ -143,6 +143,8 @@ instance AWSRequest UpdateTagsForDomain where
               (\ s h x ->
                  UpdateTagsForDomainResponse' <$> (pure (fromEnum s)))
 
+instance Hashable UpdateTagsForDomain
+
 instance ToHeaders UpdateTagsForDomain where
         toHeaders
           = const

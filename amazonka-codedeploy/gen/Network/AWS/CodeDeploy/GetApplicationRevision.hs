@@ -91,6 +91,8 @@ instance AWSRequest GetApplicationRevision where
                      <*> (x .?> "revision")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetApplicationRevision
+
 instance ToHeaders GetApplicationRevision where
         toHeaders
           = const

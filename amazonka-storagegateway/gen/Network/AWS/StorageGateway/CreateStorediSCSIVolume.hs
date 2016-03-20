@@ -167,6 +167,8 @@ instance AWSRequest CreateStorediSCSIVolume where
                      (x .?> "VolumeSizeInBytes")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateStorediSCSIVolume
+
 instance ToHeaders CreateStorediSCSIVolume where
         toHeaders
           = const

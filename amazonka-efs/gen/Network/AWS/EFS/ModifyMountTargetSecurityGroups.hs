@@ -94,6 +94,8 @@ instance AWSRequest ModifyMountTargetSecurityGroups
           = receiveNull
               ModifyMountTargetSecurityGroupsResponse'
 
+instance Hashable ModifyMountTargetSecurityGroups
+
 instance ToHeaders ModifyMountTargetSecurityGroups
          where
         toHeaders = const mempty

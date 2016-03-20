@@ -96,6 +96,8 @@ instance AWSRequest UpdatePipelineStatus where
                  UpdatePipelineStatusResponse' <$>
                    (x .?> "Pipeline") <*> (pure (fromEnum s)))
 
+instance Hashable UpdatePipelineStatus
+
 instance ToHeaders UpdatePipelineStatus where
         toHeaders = const mempty
 

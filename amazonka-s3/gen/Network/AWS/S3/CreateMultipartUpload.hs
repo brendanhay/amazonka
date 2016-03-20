@@ -310,6 +310,8 @@ instance AWSRequest CreateMultipartUpload where
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateMultipartUpload
+
 instance ToHeaders CreateMultipartUpload where
         toHeaders CreateMultipartUpload'{..}
           = mconcat

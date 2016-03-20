@@ -63,6 +63,8 @@ instance AWSRequest DescribeAdjustmentTypes where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAdjustmentTypes
+
 instance ToHeaders DescribeAdjustmentTypes where
         toHeaders = const mempty
 

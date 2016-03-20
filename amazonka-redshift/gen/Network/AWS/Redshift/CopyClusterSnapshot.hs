@@ -128,6 +128,8 @@ instance AWSRequest CopyClusterSnapshot where
                  CopyClusterSnapshotResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
+instance Hashable CopyClusterSnapshot
+
 instance ToHeaders CopyClusterSnapshot where
         toHeaders = const mempty
 

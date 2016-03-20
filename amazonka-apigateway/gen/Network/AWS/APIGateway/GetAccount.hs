@@ -59,6 +59,8 @@ instance AWSRequest GetAccount where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetAccount
+
 instance ToHeaders GetAccount where
         toHeaders
           = const

@@ -106,6 +106,8 @@ instance AWSRequest DescribeVolumeAttribute where
                      <*> (x .@? "autoEnableIO")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVolumeAttribute
+
 instance ToHeaders DescribeVolumeAttribute where
         toHeaders = const mempty
 

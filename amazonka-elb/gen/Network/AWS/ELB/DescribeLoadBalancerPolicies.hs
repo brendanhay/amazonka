@@ -94,6 +94,8 @@ instance AWSRequest DescribeLoadBalancerPolicies
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeLoadBalancerPolicies
+
 instance ToHeaders DescribeLoadBalancerPolicies where
         toHeaders = const mempty
 

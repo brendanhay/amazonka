@@ -133,6 +133,8 @@ instance AWSRequest InitiateVaultLock where
                  InitiateVaultLockResponse' <$>
                    (h .#? "x-amz-lock-id") <*> (pure (fromEnum s)))
 
+instance Hashable InitiateVaultLock
+
 instance ToHeaders InitiateVaultLock where
         toHeaders = const mempty
 

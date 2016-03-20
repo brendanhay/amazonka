@@ -84,6 +84,8 @@ instance AWSRequest DeleteReusableDelegationSet where
                  DeleteReusableDelegationSetResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable DeleteReusableDelegationSet
+
 instance ToHeaders DeleteReusableDelegationSet where
         toHeaders = const mempty
 

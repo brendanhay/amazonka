@@ -100,6 +100,8 @@ instance AWSRequest ListRules where
                    (x .?> "Rules" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListRules
+
 instance ToHeaders ListRules where
         toHeaders
           = const

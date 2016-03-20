@@ -143,6 +143,8 @@ instance AWSRequest ListAttachedRolePolicies where
                      <*> (x .@? "IsTruncated")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListAttachedRolePolicies
+
 instance ToHeaders ListAttachedRolePolicies where
         toHeaders = const mempty
 

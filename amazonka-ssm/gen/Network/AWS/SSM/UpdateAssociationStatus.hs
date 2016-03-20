@@ -96,6 +96,8 @@ instance AWSRequest UpdateAssociationStatus where
                    (x .?> "AssociationDescription") <*>
                      (pure (fromEnum s)))
 
+instance Hashable UpdateAssociationStatus
+
 instance ToHeaders UpdateAssociationStatus where
         toHeaders
           = const

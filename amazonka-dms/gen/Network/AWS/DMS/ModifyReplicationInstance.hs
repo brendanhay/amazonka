@@ -183,6 +183,8 @@ instance AWSRequest ModifyReplicationInstance where
                    (x .?> "ReplicationInstance") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ModifyReplicationInstance
+
 instance ToHeaders ModifyReplicationInstance where
         toHeaders
           = const

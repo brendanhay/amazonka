@@ -151,6 +151,8 @@ instance AWSRequest DescribeLogStreams where
                      (x .?> "logStreams" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeLogStreams
+
 instance ToHeaders DescribeLogStreams where
         toHeaders
           = const

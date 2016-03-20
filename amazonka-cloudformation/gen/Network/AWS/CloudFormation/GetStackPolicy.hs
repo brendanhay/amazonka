@@ -77,6 +77,8 @@ instance AWSRequest GetStackPolicy where
                  GetStackPolicyResponse' <$>
                    (x .@? "StackPolicyBody") <*> (pure (fromEnum s)))
 
+instance Hashable GetStackPolicy
+
 instance ToHeaders GetStackPolicy where
         toHeaders = const mempty
 

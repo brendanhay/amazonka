@@ -73,6 +73,8 @@ instance AWSRequest RebootInstance where
         request = postJSON opsWorks
         response = receiveNull RebootInstanceResponse'
 
+instance Hashable RebootInstance
+
 instance ToHeaders RebootInstance where
         toHeaders
           = const

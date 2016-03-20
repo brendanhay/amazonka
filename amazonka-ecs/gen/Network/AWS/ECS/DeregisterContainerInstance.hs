@@ -121,6 +121,8 @@ instance AWSRequest DeregisterContainerInstance where
                  DeregisterContainerInstanceResponse' <$>
                    (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
+instance Hashable DeregisterContainerInstance
+
 instance ToHeaders DeregisterContainerInstance where
         toHeaders
           = const

@@ -89,6 +89,8 @@ instance AWSRequest ListTopics where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListTopics
+
 instance ToHeaders ListTopics where
         toHeaders = const mempty
 

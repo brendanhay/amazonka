@@ -82,6 +82,8 @@ instance AWSRequest DeleteVPNGateway where
         request = postQuery eC2
         response = receiveNull DeleteVPNGatewayResponse'
 
+instance Hashable DeleteVPNGateway
+
 instance ToHeaders DeleteVPNGateway where
         toHeaders = const mempty
 

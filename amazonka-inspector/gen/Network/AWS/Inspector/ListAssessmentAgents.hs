@@ -114,6 +114,8 @@ instance AWSRequest ListAssessmentAgents where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListAssessmentAgents
+
 instance ToHeaders ListAssessmentAgents where
         toHeaders
           = const

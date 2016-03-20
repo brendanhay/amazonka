@@ -176,6 +176,8 @@ instance AWSRequest UpdateService where
                  UpdateServiceResponse' <$>
                    (x .?> "service") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateService
+
 instance ToHeaders UpdateService where
         toHeaders
           = const

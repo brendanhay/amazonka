@@ -290,6 +290,8 @@ instance AWSRequest SimulatePrincipalPolicy where
           = receiveXMLWrapper "SimulatePrincipalPolicyResult"
               (\ s h x -> parseXML x)
 
+instance Hashable SimulatePrincipalPolicy
+
 instance ToHeaders SimulatePrincipalPolicy where
         toHeaders = const mempty
 

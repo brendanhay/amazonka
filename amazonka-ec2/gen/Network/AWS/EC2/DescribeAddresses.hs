@@ -134,6 +134,8 @@ instance AWSRequest DescribeAddresses where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAddresses
+
 instance ToHeaders DescribeAddresses where
         toHeaders = const mempty
 

@@ -98,6 +98,8 @@ instance AWSRequest UpdateDistribution where
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable UpdateDistribution
+
 instance ToElement UpdateDistribution where
         toElement
           = mkElement

@@ -80,6 +80,8 @@ instance AWSRequest DescribeLoggingStatus where
           = receiveXMLWrapper "DescribeLoggingStatusResult"
               (\ s h x -> parseXML x)
 
+instance Hashable DescribeLoggingStatus
+
 instance ToHeaders DescribeLoggingStatus where
         toHeaders = const mempty
 

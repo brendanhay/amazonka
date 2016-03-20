@@ -208,6 +208,8 @@ instance AWSRequest AssumeRoleWithSAML where
                      <*> (x .@? "Issuer")
                      <*> (pure (fromEnum s)))
 
+instance Hashable AssumeRoleWithSAML
+
 instance ToHeaders AssumeRoleWithSAML where
         toHeaders = const mempty
 

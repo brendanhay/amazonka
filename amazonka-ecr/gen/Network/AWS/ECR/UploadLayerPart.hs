@@ -141,6 +141,8 @@ instance AWSRequest UploadLayerPart where
                      <*> (x .?> "uploadId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable UploadLayerPart
+
 instance ToHeaders UploadLayerPart where
         toHeaders
           = const

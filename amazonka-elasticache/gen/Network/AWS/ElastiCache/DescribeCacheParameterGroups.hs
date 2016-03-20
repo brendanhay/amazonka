@@ -120,6 +120,8 @@ instance AWSRequest DescribeCacheParameterGroups
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCacheParameterGroups
+
 instance ToHeaders DescribeCacheParameterGroups where
         toHeaders = const mempty
 

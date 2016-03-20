@@ -88,6 +88,8 @@ instance AWSRequest DeleteDeploymentGroup where
                    (x .?> "hooksNotCleanedUp" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DeleteDeploymentGroup
+
 instance ToHeaders DeleteDeploymentGroup where
         toHeaders
           = const

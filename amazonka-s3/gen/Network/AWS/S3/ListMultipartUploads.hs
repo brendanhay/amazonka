@@ -169,6 +169,8 @@ instance AWSRequest ListMultipartUploads where
                      <*> (x .@? "Delimiter")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListMultipartUploads
+
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty
 

@@ -111,6 +111,8 @@ instance AWSRequest PutActionRevision where
                      (x .?> "pipelineExecutionId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable PutActionRevision
+
 instance ToHeaders PutActionRevision where
         toHeaders
           = const

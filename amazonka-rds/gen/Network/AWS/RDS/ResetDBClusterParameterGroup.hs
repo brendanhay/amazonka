@@ -112,6 +112,8 @@ instance AWSRequest ResetDBClusterParameterGroup
               "ResetDBClusterParameterGroupResult"
               (\ s h x -> parseXML x)
 
+instance Hashable ResetDBClusterParameterGroup
+
 instance ToHeaders ResetDBClusterParameterGroup where
         toHeaders = const mempty
 

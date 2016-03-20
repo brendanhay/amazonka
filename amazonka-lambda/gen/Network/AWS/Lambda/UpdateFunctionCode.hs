@@ -154,6 +154,8 @@ instance AWSRequest UpdateFunctionCode where
         request = putJSON lambda
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateFunctionCode
+
 instance ToHeaders UpdateFunctionCode where
         toHeaders = const mempty
 

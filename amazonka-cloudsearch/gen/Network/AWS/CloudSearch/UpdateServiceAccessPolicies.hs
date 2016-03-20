@@ -92,6 +92,8 @@ instance AWSRequest UpdateServiceAccessPolicies where
                  UpdateServiceAccessPoliciesResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "AccessPolicies"))
 
+instance Hashable UpdateServiceAccessPolicies
+
 instance ToHeaders UpdateServiceAccessPolicies where
         toHeaders = const mempty
 

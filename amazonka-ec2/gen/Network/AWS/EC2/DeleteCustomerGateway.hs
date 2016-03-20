@@ -80,6 +80,8 @@ instance AWSRequest DeleteCustomerGateway where
         request = postQuery eC2
         response = receiveNull DeleteCustomerGatewayResponse'
 
+instance Hashable DeleteCustomerGateway
+
 instance ToHeaders DeleteCustomerGateway where
         toHeaders = const mempty
 

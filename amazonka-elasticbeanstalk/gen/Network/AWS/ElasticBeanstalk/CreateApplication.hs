@@ -87,6 +87,8 @@ instance AWSRequest CreateApplication where
           = receiveXMLWrapper "CreateApplicationResult"
               (\ s h x -> parseXML x)
 
+instance Hashable CreateApplication
+
 instance ToHeaders CreateApplication where
         toHeaders = const mempty
 

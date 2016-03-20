@@ -65,6 +65,8 @@ instance AWSRequest DeleteTags where
         request = postQuery autoScaling
         response = receiveNull DeleteTagsResponse'
 
+instance Hashable DeleteTags
+
 instance ToHeaders DeleteTags where
         toHeaders = const mempty
 

@@ -96,6 +96,8 @@ instance AWSRequest RebuildWorkspaces where
                    (x .?> "FailedRequests" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable RebuildWorkspaces
+
 instance ToHeaders RebuildWorkspaces where
         toHeaders
           = const

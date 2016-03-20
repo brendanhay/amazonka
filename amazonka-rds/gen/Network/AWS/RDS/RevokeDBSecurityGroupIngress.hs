@@ -130,6 +130,8 @@ instance AWSRequest RevokeDBSecurityGroupIngress
                  RevokeDBSecurityGroupIngressResponse' <$>
                    (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
 
+instance Hashable RevokeDBSecurityGroupIngress
+
 instance ToHeaders RevokeDBSecurityGroupIngress where
         toHeaders = const mempty
 

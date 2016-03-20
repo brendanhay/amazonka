@@ -90,6 +90,8 @@ instance AWSRequest DescribeContainerInstances where
                      (x .?> "containerInstances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeContainerInstances
+
 instance ToHeaders DescribeContainerInstances where
         toHeaders
           = const

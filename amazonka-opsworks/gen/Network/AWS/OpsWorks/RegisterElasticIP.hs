@@ -93,6 +93,8 @@ instance AWSRequest RegisterElasticIP where
                  RegisterElasticIPResponse' <$>
                    (x .?> "ElasticIp") <*> (pure (fromEnum s)))
 
+instance Hashable RegisterElasticIP
+
 instance ToHeaders RegisterElasticIP where
         toHeaders
           = const

@@ -85,6 +85,8 @@ instance AWSRequest DeleteStack where
         request = postQuery cloudFormation
         response = receiveNull DeleteStackResponse'
 
+instance Hashable DeleteStack
+
 instance ToHeaders DeleteStack where
         toHeaders = const mempty
 

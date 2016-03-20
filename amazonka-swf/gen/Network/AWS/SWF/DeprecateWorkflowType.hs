@@ -107,6 +107,8 @@ instance AWSRequest DeprecateWorkflowType where
         request = postJSON sWF
         response = receiveNull DeprecateWorkflowTypeResponse'
 
+instance Hashable DeprecateWorkflowType
+
 instance ToHeaders DeprecateWorkflowType where
         toHeaders
           = const

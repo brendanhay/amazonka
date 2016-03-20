@@ -93,6 +93,8 @@ instance AWSRequest DeleteVaultAccessPolicy where
         response
           = receiveNull DeleteVaultAccessPolicyResponse'
 
+instance Hashable DeleteVaultAccessPolicy
+
 instance ToHeaders DeleteVaultAccessPolicy where
         toHeaders = const mempty
 

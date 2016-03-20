@@ -87,6 +87,8 @@ instance AWSRequest DeleteStream where
         request = postJSON kinesis
         response = receiveNull DeleteStreamResponse'
 
+instance Hashable DeleteStream
+
 instance ToHeaders DeleteStream where
         toHeaders
           = const

@@ -138,6 +138,8 @@ instance AWSRequest UpdateSqlInjectionMatchSet where
                  UpdateSqlInjectionMatchSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateSqlInjectionMatchSet
+
 instance ToHeaders UpdateSqlInjectionMatchSet where
         toHeaders
           = const

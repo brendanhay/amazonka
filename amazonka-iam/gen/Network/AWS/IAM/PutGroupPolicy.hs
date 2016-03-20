@@ -105,6 +105,8 @@ instance AWSRequest PutGroupPolicy where
         request = postQuery iAM
         response = receiveNull PutGroupPolicyResponse'
 
+instance Hashable PutGroupPolicy
+
 instance ToHeaders PutGroupPolicy where
         toHeaders = const mempty
 

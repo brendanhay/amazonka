@@ -98,6 +98,8 @@ instance AWSRequest ListRepositories where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListRepositories
+
 instance ToHeaders ListRepositories where
         toHeaders
           = const

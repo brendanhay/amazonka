@@ -144,6 +144,8 @@ instance AWSRequest CreatePreset where
                    (x .?> "Warning") <*> (x .?> "Preset") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreatePreset
+
 instance ToHeaders CreatePreset where
         toHeaders = const mempty
 

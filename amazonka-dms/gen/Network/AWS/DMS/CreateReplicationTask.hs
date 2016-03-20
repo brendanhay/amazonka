@@ -160,6 +160,8 @@ instance AWSRequest CreateReplicationTask where
                  CreateReplicationTaskResponse' <$>
                    (x .?> "ReplicationTask") <*> (pure (fromEnum s)))
 
+instance Hashable CreateReplicationTask
+
 instance ToHeaders CreateReplicationTask where
         toHeaders
           = const

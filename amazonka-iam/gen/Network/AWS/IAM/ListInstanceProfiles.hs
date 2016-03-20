@@ -129,6 +129,8 @@ instance AWSRequest ListInstanceProfiles where
                      (x .@? "InstanceProfiles" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListInstanceProfiles
+
 instance ToHeaders ListInstanceProfiles where
         toHeaders = const mempty
 

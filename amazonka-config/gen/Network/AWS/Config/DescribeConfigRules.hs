@@ -87,6 +87,8 @@ instance AWSRequest DescribeConfigRules where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeConfigRules
+
 instance ToHeaders DescribeConfigRules where
         toHeaders
           = const

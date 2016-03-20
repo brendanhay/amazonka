@@ -75,6 +75,8 @@ instance AWSRequest DeleteCacheSecurityGroup where
         response
           = receiveNull DeleteCacheSecurityGroupResponse'
 
+instance Hashable DeleteCacheSecurityGroup
+
 instance ToHeaders DeleteCacheSecurityGroup where
         toHeaders = const mempty
 

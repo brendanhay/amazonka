@@ -66,6 +66,8 @@ instance AWSRequest GetSendQuota where
                      <*> (x .@? "Max24HourSend")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetSendQuota
+
 instance ToHeaders GetSendQuota where
         toHeaders = const mempty
 

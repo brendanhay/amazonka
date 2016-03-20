@@ -203,6 +203,8 @@ instance AWSRequest CreateService where
                  CreateServiceResponse' <$>
                    (x .?> "service") <*> (pure (fromEnum s)))
 
+instance Hashable CreateService
+
 instance ToHeaders CreateService where
         toHeaders
           = const

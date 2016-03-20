@@ -144,6 +144,8 @@ instance AWSRequest UpdateDomainContact where
                  UpdateDomainContactResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
+instance Hashable UpdateDomainContact
+
 instance ToHeaders UpdateDomainContact where
         toHeaders
           = const

@@ -117,6 +117,8 @@ instance AWSRequest PutTargets where
                      (x .?> "FailedEntries" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable PutTargets
+
 instance ToHeaders PutTargets where
         toHeaders
           = const

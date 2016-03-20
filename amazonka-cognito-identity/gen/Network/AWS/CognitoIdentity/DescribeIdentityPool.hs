@@ -78,6 +78,8 @@ instance AWSRequest DescribeIdentityPool where
         request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable DescribeIdentityPool
+
 instance ToHeaders DescribeIdentityPool where
         toHeaders
           = const

@@ -80,6 +80,8 @@ instance AWSRequest DeleteDataSource where
                  DeleteDataSourceResponse' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteDataSource
+
 instance ToHeaders DeleteDataSource where
         toHeaders
           = const

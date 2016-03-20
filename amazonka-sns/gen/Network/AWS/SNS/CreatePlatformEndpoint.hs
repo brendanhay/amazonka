@@ -127,6 +127,8 @@ instance AWSRequest CreatePlatformEndpoint where
                  CreatePlatformEndpointResponse' <$>
                    (x .@? "EndpointArn") <*> (pure (fromEnum s)))
 
+instance Hashable CreatePlatformEndpoint
+
 instance ToHeaders CreatePlatformEndpoint where
         toHeaders = const mempty
 

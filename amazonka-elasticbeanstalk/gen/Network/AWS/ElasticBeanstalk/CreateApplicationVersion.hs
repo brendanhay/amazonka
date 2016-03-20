@@ -153,6 +153,8 @@ instance AWSRequest CreateApplicationVersion where
           = receiveXMLWrapper "CreateApplicationVersionResult"
               (\ s h x -> parseXML x)
 
+instance Hashable CreateApplicationVersion
+
 instance ToHeaders CreateApplicationVersion where
         toHeaders = const mempty
 

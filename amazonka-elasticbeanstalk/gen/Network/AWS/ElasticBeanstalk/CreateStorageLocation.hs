@@ -63,6 +63,8 @@ instance AWSRequest CreateStorageLocation where
                  CreateStorageLocationResponse' <$>
                    (x .@? "S3Bucket") <*> (pure (fromEnum s)))
 
+instance Hashable CreateStorageLocation
+
 instance ToHeaders CreateStorageLocation where
         toHeaders = const mempty
 

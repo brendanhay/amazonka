@@ -63,6 +63,8 @@ instance AWSRequest ListAvailableZones where
                  ListAvailableZonesResponse' <$>
                    (x .?> "AZList" .!@ mempty) <*> (pure (fromEnum s)))
 
+instance Hashable ListAvailableZones
+
 instance ToHeaders ListAvailableZones where
         toHeaders
           = const

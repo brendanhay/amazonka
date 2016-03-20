@@ -97,6 +97,8 @@ instance AWSRequest DescribeVirtualInterfaces where
                    (x .?> "virtualInterfaces" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeVirtualInterfaces
+
 instance ToHeaders DescribeVirtualInterfaces where
         toHeaders
           = const

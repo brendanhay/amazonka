@@ -154,6 +154,8 @@ instance AWSRequest InitiateMultipartUpload where
                      (h .#? "x-amz-multipart-upload-id")
                      <*> (pure (fromEnum s)))
 
+instance Hashable InitiateMultipartUpload
+
 instance ToHeaders InitiateMultipartUpload where
         toHeaders InitiateMultipartUpload'{..}
           = mconcat

@@ -97,6 +97,8 @@ instance AWSRequest GetMethod where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetMethod
+
 instance ToHeaders GetMethod where
         toHeaders
           = const

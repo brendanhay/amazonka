@@ -401,6 +401,8 @@ instance AWSRequest RunInstances where
         request = postQuery eC2
         response = receiveXML (\ s h x -> parseXML x)
 
+instance Hashable RunInstances
+
 instance ToHeaders RunInstances where
         toHeaders = const mempty
 

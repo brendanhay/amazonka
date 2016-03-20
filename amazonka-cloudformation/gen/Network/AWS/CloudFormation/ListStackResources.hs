@@ -110,6 +110,8 @@ instance AWSRequest ListStackResources where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListStackResources
+
 instance ToHeaders ListStackResources where
         toHeaders = const mempty
 

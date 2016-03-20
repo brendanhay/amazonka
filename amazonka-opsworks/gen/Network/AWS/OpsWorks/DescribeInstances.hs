@@ -103,6 +103,8 @@ instance AWSRequest DescribeInstances where
                    (x .?> "Instances" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeInstances
+
 instance ToHeaders DescribeInstances where
         toHeaders
           = const

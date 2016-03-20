@@ -130,6 +130,8 @@ instance AWSRequest ListAccessKeys where
                      (x .@? "AccessKeyMetadata" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListAccessKeys
+
 instance ToHeaders ListAccessKeys where
         toHeaders = const mempty
 

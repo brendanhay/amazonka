@@ -139,6 +139,8 @@ instance AWSRequest UpdateConfigurationTemplate where
               "UpdateConfigurationTemplateResult"
               (\ s h x -> parseXML x)
 
+instance Hashable UpdateConfigurationTemplate
+
 instance ToHeaders UpdateConfigurationTemplate where
         toHeaders = const mempty
 

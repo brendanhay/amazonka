@@ -126,6 +126,8 @@ instance AWSRequest DescribeHSM where
                      <*> (x .?> "HsmType")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeHSM
+
 instance ToHeaders DescribeHSM where
         toHeaders
           = const

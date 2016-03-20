@@ -62,6 +62,8 @@ instance AWSRequest GetAccountSettings where
                  GetAccountSettingsResponse' <$>
                    (x .?> "accountSettings") <*> (pure (fromEnum s)))
 
+instance Hashable GetAccountSettings
+
 instance ToHeaders GetAccountSettings where
         toHeaders
           = const

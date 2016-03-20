@@ -127,6 +127,8 @@ instance AWSRequest DescribeConfigurationOptions
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeConfigurationOptions
+
 instance ToHeaders DescribeConfigurationOptions where
         toHeaders = const mempty
 

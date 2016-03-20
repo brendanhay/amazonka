@@ -95,6 +95,8 @@ instance AWSRequest ListIdentityPoolUsage where
                      <*> (x .?> "MaxResults")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListIdentityPoolUsage
+
 instance ToHeaders ListIdentityPoolUsage where
         toHeaders
           = const

@@ -100,6 +100,8 @@ instance AWSRequest ResetCacheParameterGroup where
           = receiveXMLWrapper "ResetCacheParameterGroupResult"
               (\ s h x -> parseXML x)
 
+instance Hashable ResetCacheParameterGroup
+
 instance ToHeaders ResetCacheParameterGroup where
         toHeaders = const mempty
 

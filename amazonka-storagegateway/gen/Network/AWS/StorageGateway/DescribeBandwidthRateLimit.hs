@@ -89,6 +89,8 @@ instance AWSRequest DescribeBandwidthRateLimit where
                      <*> (x .?> "AverageDownloadRateLimitInBitsPerSec")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeBandwidthRateLimit
+
 instance ToHeaders DescribeBandwidthRateLimit where
         toHeaders
           = const

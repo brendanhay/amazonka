@@ -85,6 +85,8 @@ instance AWSRequest SetTimeBasedAutoScaling where
         response
           = receiveNull SetTimeBasedAutoScalingResponse'
 
+instance Hashable SetTimeBasedAutoScaling
+
 instance ToHeaders SetTimeBasedAutoScaling where
         toHeaders
           = const

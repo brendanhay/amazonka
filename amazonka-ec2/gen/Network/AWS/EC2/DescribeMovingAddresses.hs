@@ -129,6 +129,8 @@ instance AWSRequest DescribeMovingAddresses where
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeMovingAddresses
+
 instance ToHeaders DescribeMovingAddresses where
         toHeaders = const mempty
 

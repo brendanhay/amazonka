@@ -70,6 +70,8 @@ instance AWSRequest DescribeAccountAttributes where
                       may (parseXMLList "AccountQuota"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAccountAttributes
+
 instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty
 

@@ -235,6 +235,8 @@ instance AWSRequest CreateEnvironment where
           = receiveXMLWrapper "CreateEnvironmentResult"
               (\ s h x -> parseXML x)
 
+instance Hashable CreateEnvironment
+
 instance ToHeaders CreateEnvironment where
         toHeaders = const mempty
 

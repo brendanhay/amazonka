@@ -74,6 +74,8 @@ instance AWSRequest CreateLogGroup where
         request = postJSON cloudWatchLogs
         response = receiveNull CreateLogGroupResponse'
 
+instance Hashable CreateLogGroup
+
 instance ToHeaders CreateLogGroup where
         toHeaders
           = const

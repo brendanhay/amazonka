@@ -78,6 +78,8 @@ instance AWSRequest DeleteResource where
         request = delete aPIGateway
         response = receiveNull DeleteResourceResponse'
 
+instance Hashable DeleteResource
+
 instance ToHeaders DeleteResource where
         toHeaders
           = const

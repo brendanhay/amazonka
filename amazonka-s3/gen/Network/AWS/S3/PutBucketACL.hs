@@ -140,6 +140,8 @@ instance AWSRequest PutBucketACL where
         request = putXML s3
         response = receiveNull PutBucketACLResponse'
 
+instance Hashable PutBucketACL
+
 instance ToElement PutBucketACL where
         toElement
           = mkElement

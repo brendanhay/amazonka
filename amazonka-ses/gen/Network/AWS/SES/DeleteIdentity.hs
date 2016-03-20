@@ -75,6 +75,8 @@ instance AWSRequest DeleteIdentity where
               (\ s h x ->
                  DeleteIdentityResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteIdentity
+
 instance ToHeaders DeleteIdentity where
         toHeaders = const mempty
 

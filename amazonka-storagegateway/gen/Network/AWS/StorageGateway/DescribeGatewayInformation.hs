@@ -95,6 +95,8 @@ instance AWSRequest DescribeGatewayInformation where
                      <*> (x .?> "GatewayTimezone")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeGatewayInformation
+
 instance ToHeaders DescribeGatewayInformation where
         toHeaders
           = const

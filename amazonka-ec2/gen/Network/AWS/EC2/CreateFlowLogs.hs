@@ -141,6 +141,8 @@ instance AWSRequest CreateFlowLogs where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateFlowLogs
+
 instance ToHeaders CreateFlowLogs where
         toHeaders = const mempty
 

@@ -108,6 +108,8 @@ instance AWSRequest CreateConnection where
         request = postJSON directConnect
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateConnection
+
 instance ToHeaders CreateConnection where
         toHeaders
           = const

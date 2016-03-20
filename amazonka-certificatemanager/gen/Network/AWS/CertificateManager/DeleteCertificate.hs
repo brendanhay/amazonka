@@ -80,6 +80,8 @@ instance AWSRequest DeleteCertificate where
         request = postJSON certificateManager
         response = receiveNull DeleteCertificateResponse'
 
+instance Hashable DeleteCertificate
+
 instance ToHeaders DeleteCertificate where
         toHeaders
           = const

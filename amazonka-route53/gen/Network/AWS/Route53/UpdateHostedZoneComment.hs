@@ -92,6 +92,8 @@ instance AWSRequest UpdateHostedZoneComment where
                  UpdateHostedZoneCommentResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "HostedZone"))
 
+instance Hashable UpdateHostedZoneComment
+
 instance ToElement UpdateHostedZoneComment where
         toElement
           = mkElement

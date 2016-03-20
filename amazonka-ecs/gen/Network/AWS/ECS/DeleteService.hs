@@ -97,6 +97,8 @@ instance AWSRequest DeleteService where
                  DeleteServiceResponse' <$>
                    (x .?> "service") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteService
+
 instance ToHeaders DeleteService where
         toHeaders
           = const

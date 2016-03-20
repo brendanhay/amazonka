@@ -93,6 +93,8 @@ instance AWSRequest DefineSuggester where
                  DefineSuggesterResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Suggester"))
 
+instance Hashable DefineSuggester
+
 instance ToHeaders DefineSuggester where
         toHeaders = const mempty
 

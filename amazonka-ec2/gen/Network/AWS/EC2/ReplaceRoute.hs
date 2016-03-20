@@ -141,6 +141,8 @@ instance AWSRequest ReplaceRoute where
         request = postQuery eC2
         response = receiveNull ReplaceRouteResponse'
 
+instance Hashable ReplaceRoute
+
 instance ToHeaders ReplaceRoute where
         toHeaders = const mempty
 

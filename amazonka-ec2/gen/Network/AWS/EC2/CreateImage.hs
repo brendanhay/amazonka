@@ -142,6 +142,8 @@ instance AWSRequest CreateImage where
                  CreateImageResponse' <$>
                    (x .@? "imageId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateImage
+
 instance ToHeaders CreateImage where
         toHeaders = const mempty
 

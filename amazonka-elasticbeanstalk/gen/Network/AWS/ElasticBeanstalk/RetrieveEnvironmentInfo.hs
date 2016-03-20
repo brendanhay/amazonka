@@ -115,6 +115,8 @@ instance AWSRequest RetrieveEnvironmentInfo where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable RetrieveEnvironmentInfo
+
 instance ToHeaders RetrieveEnvironmentInfo where
         toHeaders = const mempty
 

@@ -81,6 +81,8 @@ instance AWSRequest RemoveTags where
               (\ s h x ->
                  RemoveTagsResponse' <$> (pure (fromEnum s)))
 
+instance Hashable RemoveTags
+
 instance ToHeaders RemoveTags where
         toHeaders = const mempty
 

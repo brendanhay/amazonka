@@ -117,6 +117,8 @@ instance AWSRequest CreateVPC where
                  CreateVPCResponse' <$>
                    (x .@? "vpc") <*> (pure (fromEnum s)))
 
+instance Hashable CreateVPC
+
 instance ToHeaders CreateVPC where
         toHeaders = const mempty
 

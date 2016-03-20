@@ -116,6 +116,8 @@ instance AWSRequest CreateSAMLProvider where
                  CreateSAMLProviderResponse' <$>
                    (x .@? "SAMLProviderArn") <*> (pure (fromEnum s)))
 
+instance Hashable CreateSAMLProvider
+
 instance ToHeaders CreateSAMLProvider where
         toHeaders = const mempty
 

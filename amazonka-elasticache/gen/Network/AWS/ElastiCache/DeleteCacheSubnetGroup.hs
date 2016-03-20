@@ -76,6 +76,8 @@ instance AWSRequest DeleteCacheSubnetGroup where
         response
           = receiveNull DeleteCacheSubnetGroupResponse'
 
+instance Hashable DeleteCacheSubnetGroup
+
 instance ToHeaders DeleteCacheSubnetGroup where
         toHeaders = const mempty
 

@@ -85,6 +85,8 @@ instance AWSRequest GetDeployment where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetDeployment
+
 instance ToHeaders GetDeployment where
         toHeaders
           = const

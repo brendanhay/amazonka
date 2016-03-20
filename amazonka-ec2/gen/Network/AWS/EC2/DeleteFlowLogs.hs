@@ -74,6 +74,8 @@ instance AWSRequest DeleteFlowLogs where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DeleteFlowLogs
+
 instance ToHeaders DeleteFlowLogs where
         toHeaders = const mempty
 

@@ -109,6 +109,8 @@ instance AWSRequest DescribeSnapshotAttribute where
                      <*> (x .@? "snapshotId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeSnapshotAttribute
+
 instance ToHeaders DescribeSnapshotAttribute where
         toHeaders = const mempty
 

@@ -81,6 +81,8 @@ instance AWSRequest AttachPrincipalPolicy where
         request = putJSON ioT
         response = receiveNull AttachPrincipalPolicyResponse'
 
+instance Hashable AttachPrincipalPolicy
+
 instance ToHeaders AttachPrincipalPolicy where
         toHeaders AttachPrincipalPolicy'{..}
           = mconcat ["x-amzn-iot-principal" =# _appPrincipal]

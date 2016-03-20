@@ -112,6 +112,8 @@ instance AWSRequest SetRepositoryPolicy where
                      (x .?> "policyText")
                      <*> (pure (fromEnum s)))
 
+instance Hashable SetRepositoryPolicy
+
 instance ToHeaders SetRepositoryPolicy where
         toHeaders
           = const

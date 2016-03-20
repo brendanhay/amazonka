@@ -82,6 +82,8 @@ instance AWSRequest DeleteAccessKey where
         request = postQuery iAM
         response = receiveNull DeleteAccessKeyResponse'
 
+instance Hashable DeleteAccessKey
+
 instance ToHeaders DeleteAccessKey where
         toHeaders = const mempty
 

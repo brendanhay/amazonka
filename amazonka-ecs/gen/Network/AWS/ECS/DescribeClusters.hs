@@ -77,6 +77,8 @@ instance AWSRequest DescribeClusters where
                      (x .?> "clusters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeClusters
+
 instance ToHeaders DescribeClusters where
         toHeaders
           = const

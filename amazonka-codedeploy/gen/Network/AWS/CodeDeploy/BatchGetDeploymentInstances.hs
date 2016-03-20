@@ -89,6 +89,8 @@ instance AWSRequest BatchGetDeploymentInstances where
                      (x .?> "errorMessage")
                      <*> (pure (fromEnum s)))
 
+instance Hashable BatchGetDeploymentInstances
+
 instance ToHeaders BatchGetDeploymentInstances where
         toHeaders
           = const

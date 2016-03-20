@@ -122,6 +122,8 @@ instance AWSRequest RegisterDomain where
         request = postJSON sWF
         response = receiveNull RegisterDomainResponse'
 
+instance Hashable RegisterDomain
+
 instance ToHeaders RegisterDomain where
         toHeaders
           = const

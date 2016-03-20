@@ -97,6 +97,8 @@ instance AWSRequest CreateAlias where
         request = postJSON kMS
         response = receiveNull CreateAliasResponse'
 
+instance Hashable CreateAlias
+
 instance ToHeaders CreateAlias where
         toHeaders
           = const

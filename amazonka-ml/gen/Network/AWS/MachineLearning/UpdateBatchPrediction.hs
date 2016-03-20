@@ -87,6 +87,8 @@ instance AWSRequest UpdateBatchPrediction where
                  UpdateBatchPredictionResponse' <$>
                    (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateBatchPrediction
+
 instance ToHeaders UpdateBatchPrediction where
         toHeaders
           = const

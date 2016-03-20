@@ -82,6 +82,8 @@ instance AWSRequest RemoveTags where
         request = postJSON elasticSearch
         response = receiveNull RemoveTagsResponse'
 
+instance Hashable RemoveTags
+
 instance ToHeaders RemoveTags where
         toHeaders = const mempty
 

@@ -110,6 +110,8 @@ instance AWSRequest ValidatePipelineDefinition where
                      <*> (pure (fromEnum s))
                      <*> (x .:> "errored"))
 
+instance Hashable ValidatePipelineDefinition
+
 instance ToHeaders ValidatePipelineDefinition where
         toHeaders
           = const

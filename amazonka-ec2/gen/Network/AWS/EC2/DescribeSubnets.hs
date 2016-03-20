@@ -137,6 +137,8 @@ instance AWSRequest DescribeSubnets where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeSubnets
+
 instance ToHeaders DescribeSubnets where
         toHeaders = const mempty
 

@@ -110,6 +110,8 @@ instance AWSRequest GetDeployments where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetDeployments
+
 instance ToHeaders GetDeployments where
         toHeaders
           = const

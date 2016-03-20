@@ -303,6 +303,8 @@ instance AWSRequest RunJobFlow where
                  RunJobFlowResponse' <$>
                    (x .?> "JobFlowId") <*> (pure (fromEnum s)))
 
+instance Hashable RunJobFlow
+
 instance ToHeaders RunJobFlow where
         toHeaders
           = const

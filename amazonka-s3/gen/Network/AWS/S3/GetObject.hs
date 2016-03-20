@@ -295,6 +295,8 @@ instance AWSRequest GetObject where
                      <*> (pure (fromEnum s))
                      <*> (pure x))
 
+instance Hashable GetObject
+
 instance ToHeaders GetObject where
         toHeaders GetObject'{..}
           = mconcat

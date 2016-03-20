@@ -75,6 +75,8 @@ instance AWSRequest GetSuite where
                  GetSuiteResponse' <$>
                    (x .?> "suite") <*> (pure (fromEnum s)))
 
+instance Hashable GetSuite
+
 instance ToHeaders GetSuite where
         toHeaders
           = const

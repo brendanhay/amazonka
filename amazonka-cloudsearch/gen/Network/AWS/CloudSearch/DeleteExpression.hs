@@ -90,6 +90,8 @@ instance AWSRequest DeleteExpression where
                  DeleteExpressionResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Expression"))
 
+instance Hashable DeleteExpression
+
 instance ToHeaders DeleteExpression where
         toHeaders = const mempty
 

@@ -92,6 +92,8 @@ instance AWSRequest ReorderReceiptRuleSet where
                  ReorderReceiptRuleSetResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable ReorderReceiptRuleSet
+
 instance ToHeaders ReorderReceiptRuleSet where
         toHeaders = const mempty
 

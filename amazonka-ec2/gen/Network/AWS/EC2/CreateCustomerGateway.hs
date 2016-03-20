@@ -135,6 +135,8 @@ instance AWSRequest CreateCustomerGateway where
                  CreateCustomerGatewayResponse' <$>
                    (x .@? "customerGateway") <*> (pure (fromEnum s)))
 
+instance Hashable CreateCustomerGateway
+
 instance ToHeaders CreateCustomerGateway where
         toHeaders = const mempty
 

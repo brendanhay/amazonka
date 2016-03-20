@@ -76,6 +76,8 @@ instance AWSRequest DeleteInstanceProfile where
         request = postQuery iAM
         response = receiveNull DeleteInstanceProfileResponse'
 
+instance Hashable DeleteInstanceProfile
+
 instance ToHeaders DeleteInstanceProfile where
         toHeaders = const mempty
 

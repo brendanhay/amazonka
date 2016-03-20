@@ -72,6 +72,8 @@ instance AWSRequest UpdateAccount where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateAccount
+
 instance ToHeaders UpdateAccount where
         toHeaders
           = const

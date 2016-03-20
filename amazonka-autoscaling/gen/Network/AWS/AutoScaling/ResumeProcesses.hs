@@ -97,6 +97,8 @@ instance AWSRequest ResumeProcesses where
         request = postQuery autoScaling
         response = receiveNull ResumeProcessesResponse'
 
+instance Hashable ResumeProcesses
+
 instance ToHeaders ResumeProcesses where
         toHeaders = const mempty
 

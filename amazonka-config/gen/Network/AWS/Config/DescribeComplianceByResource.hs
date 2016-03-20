@@ -147,6 +147,8 @@ instance AWSRequest DescribeComplianceByResource
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeComplianceByResource
+
 instance ToHeaders DescribeComplianceByResource where
         toHeaders
           = const

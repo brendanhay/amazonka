@@ -79,6 +79,8 @@ instance AWSRequest DeleteTags where
         request = postQuery redshift
         response = receiveNull DeleteTagsResponse'
 
+instance Hashable DeleteTags
+
 instance ToHeaders DeleteTags where
         toHeaders = const mempty
 

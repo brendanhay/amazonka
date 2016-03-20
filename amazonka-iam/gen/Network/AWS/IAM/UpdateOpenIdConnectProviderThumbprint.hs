@@ -99,6 +99,9 @@ instance AWSRequest
           = receiveNull
               UpdateOpenIdConnectProviderThumbprintResponse'
 
+instance Hashable
+         UpdateOpenIdConnectProviderThumbprint
+
 instance ToHeaders
          UpdateOpenIdConnectProviderThumbprint where
         toHeaders = const mempty

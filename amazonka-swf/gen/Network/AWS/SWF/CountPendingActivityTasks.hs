@@ -102,6 +102,8 @@ instance AWSRequest CountPendingActivityTasks where
         request = postJSON sWF
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CountPendingActivityTasks
+
 instance ToHeaders CountPendingActivityTasks where
         toHeaders
           = const

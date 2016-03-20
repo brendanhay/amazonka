@@ -87,6 +87,8 @@ instance AWSRequest ListProjects where
                    (x .?> "nextToken") <*> (x .?> "projects" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListProjects
+
 instance ToHeaders ListProjects where
         toHeaders
           = const

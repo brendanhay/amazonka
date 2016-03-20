@@ -132,6 +132,8 @@ instance AWSRequest DetachVolume where
         request = postQuery eC2
         response = receiveXML (\ s h x -> parseXML x)
 
+instance Hashable DetachVolume
+
 instance ToHeaders DetachVolume where
         toHeaders = const mempty
 

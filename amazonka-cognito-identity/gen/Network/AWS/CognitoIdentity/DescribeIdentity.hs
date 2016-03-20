@@ -76,6 +76,8 @@ instance AWSRequest DescribeIdentity where
         request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable DescribeIdentity
+
 instance ToHeaders DescribeIdentity where
         toHeaders
           = const

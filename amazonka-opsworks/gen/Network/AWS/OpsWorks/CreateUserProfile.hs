@@ -111,6 +111,8 @@ instance AWSRequest CreateUserProfile where
                  CreateUserProfileResponse' <$>
                    (x .?> "IamUserArn") <*> (pure (fromEnum s)))
 
+instance Hashable CreateUserProfile
+
 instance ToHeaders CreateUserProfile where
         toHeaders
           = const

@@ -55,6 +55,8 @@ instance AWSRequest DeleteAccountPasswordPolicy where
         response
           = receiveNull DeleteAccountPasswordPolicyResponse'
 
+instance Hashable DeleteAccountPasswordPolicy
+
 instance ToHeaders DeleteAccountPasswordPolicy where
         toHeaders = const mempty
 

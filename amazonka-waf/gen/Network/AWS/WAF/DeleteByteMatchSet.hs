@@ -99,6 +99,8 @@ instance AWSRequest DeleteByteMatchSet where
                  DeleteByteMatchSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteByteMatchSet
+
 instance ToHeaders DeleteByteMatchSet where
         toHeaders
           = const

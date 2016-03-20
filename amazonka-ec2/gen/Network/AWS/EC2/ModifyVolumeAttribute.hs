@@ -98,6 +98,8 @@ instance AWSRequest ModifyVolumeAttribute where
         request = postQuery eC2
         response = receiveNull ModifyVolumeAttributeResponse'
 
+instance Hashable ModifyVolumeAttribute
+
 instance ToHeaders ModifyVolumeAttribute where
         toHeaders = const mempty
 

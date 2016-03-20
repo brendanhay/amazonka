@@ -64,6 +64,8 @@ instance AWSRequest DescribeLifecycleHookTypes where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeLifecycleHookTypes
+
 instance ToHeaders DescribeLifecycleHookTypes where
         toHeaders = const mempty
 

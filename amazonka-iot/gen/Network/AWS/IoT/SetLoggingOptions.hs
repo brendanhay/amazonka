@@ -68,6 +68,8 @@ instance AWSRequest SetLoggingOptions where
         request = postJSON ioT
         response = receiveNull SetLoggingOptionsResponse'
 
+instance Hashable SetLoggingOptions
+
 instance ToHeaders SetLoggingOptions where
         toHeaders = const mempty
 

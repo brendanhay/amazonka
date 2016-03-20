@@ -82,6 +82,8 @@ instance AWSRequest DeletePolicyVersion where
         request = delete ioT
         response = receiveNull DeletePolicyVersionResponse'
 
+instance Hashable DeletePolicyVersion
+
 instance ToHeaders DeletePolicyVersion where
         toHeaders = const mempty
 

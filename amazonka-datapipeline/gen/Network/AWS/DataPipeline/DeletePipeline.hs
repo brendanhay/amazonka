@@ -75,6 +75,8 @@ instance AWSRequest DeletePipeline where
         request = postJSON dataPipeline
         response = receiveNull DeletePipelineResponse'
 
+instance Hashable DeletePipeline
+
 instance ToHeaders DeletePipeline where
         toHeaders
           = const

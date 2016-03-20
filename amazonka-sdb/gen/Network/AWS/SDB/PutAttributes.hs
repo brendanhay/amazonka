@@ -132,6 +132,8 @@ instance AWSRequest PutAttributes where
         request = postQuery sDB
         response = receiveNull PutAttributesResponse'
 
+instance Hashable PutAttributes
+
 instance ToHeaders PutAttributes where
         toHeaders = const mempty
 

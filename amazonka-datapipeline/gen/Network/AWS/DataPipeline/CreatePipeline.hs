@@ -120,6 +120,8 @@ instance AWSRequest CreatePipeline where
                  CreatePipelineResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "pipelineId"))
 
+instance Hashable CreatePipeline
+
 instance ToHeaders CreatePipeline where
         toHeaders
           = const

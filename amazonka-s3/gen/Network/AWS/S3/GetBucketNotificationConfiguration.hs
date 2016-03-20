@@ -72,6 +72,8 @@ instance AWSRequest
         request = get s3
         response = receiveXML (\ s h x -> parseXML x)
 
+instance Hashable GetBucketNotificationConfiguration
+
 instance ToHeaders GetBucketNotificationConfiguration
          where
         toHeaders = const mempty

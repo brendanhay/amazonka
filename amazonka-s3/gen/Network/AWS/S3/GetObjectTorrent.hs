@@ -95,6 +95,8 @@ instance AWSRequest GetObjectTorrent where
                      (pure (fromEnum s))
                      <*> (pure x))
 
+instance Hashable GetObjectTorrent
+
 instance ToHeaders GetObjectTorrent where
         toHeaders GetObjectTorrent'{..}
           = mconcat ["x-amz-request-payer" =# _gotRequestPayer]

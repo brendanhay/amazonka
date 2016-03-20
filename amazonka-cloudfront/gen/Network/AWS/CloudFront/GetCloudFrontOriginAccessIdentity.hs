@@ -79,6 +79,8 @@ instance AWSRequest GetCloudFrontOriginAccessIdentity
                    (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetCloudFrontOriginAccessIdentity
+
 instance ToHeaders GetCloudFrontOriginAccessIdentity
          where
         toHeaders = const mempty

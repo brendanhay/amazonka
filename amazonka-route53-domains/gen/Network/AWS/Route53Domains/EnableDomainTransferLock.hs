@@ -90,6 +90,8 @@ instance AWSRequest EnableDomainTransferLock where
                  EnableDomainTransferLockResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
+instance Hashable EnableDomainTransferLock
+
 instance ToHeaders EnableDomainTransferLock where
         toHeaders
           = const

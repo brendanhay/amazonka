@@ -85,6 +85,8 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
                  RefreshTrustedAdvisorCheckResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "status"))
 
+instance Hashable RefreshTrustedAdvisorCheck
+
 instance ToHeaders RefreshTrustedAdvisorCheck where
         toHeaders
           = const

@@ -106,6 +106,8 @@ instance AWSRequest DescribeEndpointTypes where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeEndpointTypes
+
 instance ToHeaders DescribeEndpointTypes where
         toHeaders
           = const

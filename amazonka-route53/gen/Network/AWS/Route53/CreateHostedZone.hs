@@ -163,6 +163,8 @@ instance AWSRequest CreateHostedZone where
                      <*> (x .@ "DelegationSet")
                      <*> (h .# "Location"))
 
+instance Hashable CreateHostedZone
+
 instance ToElement CreateHostedZone where
         toElement
           = mkElement

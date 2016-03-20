@@ -75,6 +75,8 @@ instance AWSRequest GetLoginProfile where
                  GetLoginProfileResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "LoginProfile"))
 
+instance Hashable GetLoginProfile
+
 instance ToHeaders GetLoginProfile where
         toHeaders = const mempty
 

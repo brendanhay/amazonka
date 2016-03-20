@@ -84,6 +84,8 @@ instance AWSRequest DeleteSigningCertificate where
         response
           = receiveNull DeleteSigningCertificateResponse'
 
+instance Hashable DeleteSigningCertificate
+
 instance ToHeaders DeleteSigningCertificate where
         toHeaders = const mempty
 

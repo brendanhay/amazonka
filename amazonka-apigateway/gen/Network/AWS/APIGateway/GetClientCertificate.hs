@@ -72,6 +72,8 @@ instance AWSRequest GetClientCertificate where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetClientCertificate
+
 instance ToHeaders GetClientCertificate where
         toHeaders
           = const

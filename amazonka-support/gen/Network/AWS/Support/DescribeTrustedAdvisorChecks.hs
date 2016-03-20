@@ -82,6 +82,8 @@ instance AWSRequest DescribeTrustedAdvisorChecks
                  DescribeTrustedAdvisorChecksResponse' <$>
                    (pure (fromEnum s)) <*> (x .?> "checks" .!@ mempty))
 
+instance Hashable DescribeTrustedAdvisorChecks
+
 instance ToHeaders DescribeTrustedAdvisorChecks where
         toHeaders
           = const

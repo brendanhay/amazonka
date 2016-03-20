@@ -67,6 +67,8 @@ instance AWSRequest DeleteGroup where
         request = postQuery iAM
         response = receiveNull DeleteGroupResponse'
 
+instance Hashable DeleteGroup
+
 instance ToHeaders DeleteGroup where
         toHeaders = const mempty
 

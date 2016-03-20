@@ -105,6 +105,8 @@ instance AWSRequest CreateTapeWithBarcode where
                  CreateTapeWithBarcodeResponse' <$>
                    (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
+instance Hashable CreateTapeWithBarcode
+
 instance ToHeaders CreateTapeWithBarcode where
         toHeaders
           = const

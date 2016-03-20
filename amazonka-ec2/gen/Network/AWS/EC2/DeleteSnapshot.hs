@@ -94,6 +94,8 @@ instance AWSRequest DeleteSnapshot where
         request = postQuery eC2
         response = receiveNull DeleteSnapshotResponse'
 
+instance Hashable DeleteSnapshot
+
 instance ToHeaders DeleteSnapshot where
         toHeaders = const mempty
 

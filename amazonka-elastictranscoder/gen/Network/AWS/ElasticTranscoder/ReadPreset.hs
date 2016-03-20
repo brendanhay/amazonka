@@ -76,6 +76,8 @@ instance AWSRequest ReadPreset where
                  ReadPresetResponse' <$>
                    (x .?> "Preset") <*> (pure (fromEnum s)))
 
+instance Hashable ReadPreset
+
 instance ToHeaders ReadPreset where
         toHeaders = const mempty
 

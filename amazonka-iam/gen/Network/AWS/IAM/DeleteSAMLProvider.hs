@@ -74,6 +74,8 @@ instance AWSRequest DeleteSAMLProvider where
         request = postQuery iAM
         response = receiveNull DeleteSAMLProviderResponse'
 
+instance Hashable DeleteSAMLProvider
+
 instance ToHeaders DeleteSAMLProvider where
         toHeaders = const mempty
 

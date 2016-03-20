@@ -108,6 +108,8 @@ instance AWSRequest DescribeElasticIPs where
                    (x .?> "ElasticIps" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeElasticIPs
+
 instance ToHeaders DescribeElasticIPs where
         toHeaders
           = const

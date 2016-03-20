@@ -117,6 +117,8 @@ instance AWSRequest DeleteArchive where
         request = delete glacier
         response = receiveNull DeleteArchiveResponse'
 
+instance Hashable DeleteArchive
+
 instance ToHeaders DeleteArchive where
         toHeaders = const mempty
 

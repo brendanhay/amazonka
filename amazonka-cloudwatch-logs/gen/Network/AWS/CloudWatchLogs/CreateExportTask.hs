@@ -153,6 +153,8 @@ instance AWSRequest CreateExportTask where
                  CreateExportTaskResponse' <$>
                    (x .?> "taskId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateExportTask
+
 instance ToHeaders CreateExportTask where
         toHeaders
           = const

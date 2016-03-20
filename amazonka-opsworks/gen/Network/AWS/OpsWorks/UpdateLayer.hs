@@ -236,6 +236,8 @@ instance AWSRequest UpdateLayer where
         request = postJSON opsWorks
         response = receiveNull UpdateLayerResponse'
 
+instance Hashable UpdateLayer
+
 instance ToHeaders UpdateLayer where
         toHeaders
           = const

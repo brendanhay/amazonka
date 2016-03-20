@@ -100,6 +100,8 @@ instance AWSRequest ListBootstrapActions where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListBootstrapActions
+
 instance ToHeaders ListBootstrapActions where
         toHeaders
           = const

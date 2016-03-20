@@ -111,6 +111,8 @@ instance AWSRequest RebootDBInstance where
                  RebootDBInstanceResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
+instance Hashable RebootDBInstance
+
 instance ToHeaders RebootDBInstance where
         toHeaders = const mempty
 

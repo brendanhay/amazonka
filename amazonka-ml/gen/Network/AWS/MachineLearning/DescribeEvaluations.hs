@@ -222,6 +222,8 @@ instance AWSRequest DescribeEvaluations where
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeEvaluations
+
 instance ToHeaders DescribeEvaluations where
         toHeaders
           = const

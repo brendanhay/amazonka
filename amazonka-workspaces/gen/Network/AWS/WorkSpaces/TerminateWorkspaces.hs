@@ -87,6 +87,8 @@ instance AWSRequest TerminateWorkspaces where
                    (x .?> "FailedRequests" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable TerminateWorkspaces
+
 instance ToHeaders TerminateWorkspaces where
         toHeaders
           = const

@@ -102,6 +102,8 @@ instance AWSRequest ReleaseAddress where
         request = postQuery eC2
         response = receiveNull ReleaseAddressResponse'
 
+instance Hashable ReleaseAddress
+
 instance ToHeaders ReleaseAddress where
         toHeaders = const mempty
 

@@ -128,6 +128,8 @@ instance AWSRequest RecordLifecycleActionHeartbeat
                  RecordLifecycleActionHeartbeatResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable RecordLifecycleActionHeartbeat
+
 instance ToHeaders RecordLifecycleActionHeartbeat
          where
         toHeaders = const mempty

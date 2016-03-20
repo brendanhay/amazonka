@@ -102,6 +102,8 @@ instance AWSRequest UploadSigningCertificate where
                  UploadSigningCertificateResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "Certificate"))
 
+instance Hashable UploadSigningCertificate
+
 instance ToHeaders UploadSigningCertificate where
         toHeaders = const mempty
 

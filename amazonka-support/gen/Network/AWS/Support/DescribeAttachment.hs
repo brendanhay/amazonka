@@ -79,6 +79,8 @@ instance AWSRequest DescribeAttachment where
                  DescribeAttachmentResponse' <$>
                    (x .?> "attachment") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAttachment
+
 instance ToHeaders DescribeAttachment where
         toHeaders
           = const

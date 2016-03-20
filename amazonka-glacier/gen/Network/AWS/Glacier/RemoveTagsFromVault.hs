@@ -96,6 +96,8 @@ instance AWSRequest RemoveTagsFromVault where
         request = postJSON glacier
         response = receiveNull RemoveTagsFromVaultResponse'
 
+instance Hashable RemoveTagsFromVault
+
 instance ToHeaders RemoveTagsFromVault where
         toHeaders = const mempty
 

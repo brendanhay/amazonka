@@ -92,6 +92,8 @@ instance AWSRequest GetStage where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetStage
+
 instance ToHeaders GetStage where
         toHeaders
           = const

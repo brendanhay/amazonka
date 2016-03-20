@@ -91,6 +91,8 @@ instance AWSRequest CreateBranch where
         request = postJSON codeCommit
         response = receiveNull CreateBranchResponse'
 
+instance Hashable CreateBranch
+
 instance ToHeaders CreateBranch where
         toHeaders
           = const

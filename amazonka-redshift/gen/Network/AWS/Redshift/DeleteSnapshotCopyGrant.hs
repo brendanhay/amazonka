@@ -70,6 +70,8 @@ instance AWSRequest DeleteSnapshotCopyGrant where
         response
           = receiveNull DeleteSnapshotCopyGrantResponse'
 
+instance Hashable DeleteSnapshotCopyGrant
+
 instance ToHeaders DeleteSnapshotCopyGrant where
         toHeaders = const mempty
 

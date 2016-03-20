@@ -88,6 +88,8 @@ instance AWSRequest GetCertificate where
                    (x .?> "Certificate") <*> (x .?> "CertificateChain")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetCertificate
+
 instance ToHeaders GetCertificate where
         toHeaders
           = const

@@ -73,6 +73,8 @@ instance AWSRequest DescribeFinding where
                  DescribeFindingResponse' <$>
                    (x .?> "finding") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeFinding
+
 instance ToHeaders DescribeFinding where
         toHeaders
           = const

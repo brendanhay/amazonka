@@ -86,6 +86,8 @@ instance AWSRequest PutBucketPolicy where
         request = contentMD5 . putBody s3
         response = receiveNull PutBucketPolicyResponse'
 
+instance Hashable PutBucketPolicy
+
 instance ToBody PutBucketPolicy where
         toBody = toBody . _pbpPolicy
 

@@ -111,6 +111,8 @@ instance AWSRequest CompleteVaultLock where
         request = postJSON glacier
         response = receiveNull CompleteVaultLockResponse'
 
+instance Hashable CompleteVaultLock
+
 instance ToHeaders CompleteVaultLock where
         toHeaders = const mempty
 

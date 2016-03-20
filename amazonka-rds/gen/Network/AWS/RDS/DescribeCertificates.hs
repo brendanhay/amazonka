@@ -125,6 +125,8 @@ instance AWSRequest DescribeCertificates where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCertificates
+
 instance ToHeaders DescribeCertificates where
         toHeaders = const mempty
 

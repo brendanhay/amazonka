@@ -89,6 +89,8 @@ instance AWSRequest DeleteVPCEndpoints where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DeleteVPCEndpoints
+
 instance ToHeaders DeleteVPCEndpoints where
         toHeaders = const mempty
 

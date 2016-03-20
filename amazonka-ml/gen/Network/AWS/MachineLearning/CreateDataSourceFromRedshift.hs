@@ -187,6 +187,8 @@ instance AWSRequest CreateDataSourceFromRedshift
                  CreateDataSourceFromRedshiftResponse' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDataSourceFromRedshift
+
 instance ToHeaders CreateDataSourceFromRedshift where
         toHeaders
           = const

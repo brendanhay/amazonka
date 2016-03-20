@@ -120,6 +120,8 @@ instance AWSRequest AbortMultipartUpload where
         request = delete glacier
         response = receiveNull AbortMultipartUploadResponse'
 
+instance Hashable AbortMultipartUpload
+
 instance ToHeaders AbortMultipartUpload where
         toHeaders = const mempty
 

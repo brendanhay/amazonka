@@ -84,6 +84,8 @@ instance AWSRequest ListVolumeRecoveryPoints where
                      (x .?> "GatewayARN")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListVolumeRecoveryPoints
+
 instance ToHeaders ListVolumeRecoveryPoints where
         toHeaders
           = const

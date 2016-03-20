@@ -139,6 +139,8 @@ instance AWSRequest StartTask where
                      (x .?> "tasks" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable StartTask
+
 instance ToHeaders StartTask where
         toHeaders
           = const

@@ -184,6 +184,8 @@ instance AWSRequest Publish where
                  PublishResponse' <$>
                    (x .@? "MessageId") <*> (pure (fromEnum s)))
 
+instance Hashable Publish
+
 instance ToHeaders Publish where
         toHeaders = const mempty
 

@@ -136,6 +136,8 @@ instance AWSRequest ListHostedZones where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
 
+instance Hashable ListHostedZones
+
 instance ToHeaders ListHostedZones where
         toHeaders = const mempty
 

@@ -97,6 +97,8 @@ instance AWSRequest CancelImportTask where
                      (x .@? "previousState")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CancelImportTask
+
 instance ToHeaders CancelImportTask where
         toHeaders = const mempty
 

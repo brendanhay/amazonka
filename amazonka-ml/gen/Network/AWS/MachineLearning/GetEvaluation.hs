@@ -98,6 +98,8 @@ instance AWSRequest GetEvaluation where
                      <*> (x .?> "EvaluationDataSourceId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetEvaluation
+
 instance ToHeaders GetEvaluation where
         toHeaders
           = const

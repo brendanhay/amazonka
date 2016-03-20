@@ -118,6 +118,8 @@ instance AWSRequest ListClusters where
                    (x .?> "Marker") <*> (x .?> "Clusters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListClusters
+
 instance ToHeaders ListClusters where
         toHeaders
           = const

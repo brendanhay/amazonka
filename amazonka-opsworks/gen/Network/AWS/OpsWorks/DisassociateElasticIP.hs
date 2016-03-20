@@ -75,6 +75,8 @@ instance AWSRequest DisassociateElasticIP where
         request = postJSON opsWorks
         response = receiveNull DisassociateElasticIPResponse'
 
+instance Hashable DisassociateElasticIP
+
 instance ToHeaders DisassociateElasticIP where
         toHeaders
           = const

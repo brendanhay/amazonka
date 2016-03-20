@@ -123,6 +123,8 @@ instance AWSRequest ImportVolume where
                  ImportVolumeResponse' <$>
                    (x .@? "conversionTask") <*> (pure (fromEnum s)))
 
+instance Hashable ImportVolume
+
 instance ToHeaders ImportVolume where
         toHeaders = const mempty
 

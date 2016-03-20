@@ -76,6 +76,8 @@ instance AWSRequest ReadJob where
                  ReadJobResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "Job"))
 
+instance Hashable ReadJob
+
 instance ToHeaders ReadJob where
         toHeaders = const mempty
 

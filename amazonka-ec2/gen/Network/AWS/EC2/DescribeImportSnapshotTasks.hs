@@ -116,6 +116,8 @@ instance AWSRequest DescribeImportSnapshotTasks where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeImportSnapshotTasks
+
 instance ToHeaders DescribeImportSnapshotTasks where
         toHeaders = const mempty
 

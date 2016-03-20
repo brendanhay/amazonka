@@ -79,6 +79,8 @@ instance AWSRequest GetAccessKeyLastUsed where
                    (x .@? "UserName") <*> (x .@? "AccessKeyLastUsed")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetAccessKeyLastUsed
+
 instance ToHeaders GetAccessKeyLastUsed where
         toHeaders = const mempty
 

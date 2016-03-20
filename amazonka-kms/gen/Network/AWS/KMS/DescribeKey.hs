@@ -96,6 +96,8 @@ instance AWSRequest DescribeKey where
                  DescribeKeyResponse' <$>
                    (x .?> "KeyMetadata") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeKey
+
 instance ToHeaders DescribeKey where
         toHeaders
           = const

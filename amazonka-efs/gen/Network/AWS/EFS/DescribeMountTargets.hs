@@ -120,6 +120,8 @@ instance AWSRequest DescribeMountTargets where
                      <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeMountTargets
+
 instance ToHeaders DescribeMountTargets where
         toHeaders = const mempty
 

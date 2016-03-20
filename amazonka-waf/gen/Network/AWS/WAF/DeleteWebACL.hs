@@ -93,6 +93,8 @@ instance AWSRequest DeleteWebACL where
                  DeleteWebACLResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteWebACL
+
 instance ToHeaders DeleteWebACL where
         toHeaders
           = const

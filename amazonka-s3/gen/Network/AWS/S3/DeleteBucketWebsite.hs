@@ -67,6 +67,8 @@ instance AWSRequest DeleteBucketWebsite where
         request = delete s3
         response = receiveNull DeleteBucketWebsiteResponse'
 
+instance Hashable DeleteBucketWebsite
+
 instance ToHeaders DeleteBucketWebsite where
         toHeaders = const mempty
 

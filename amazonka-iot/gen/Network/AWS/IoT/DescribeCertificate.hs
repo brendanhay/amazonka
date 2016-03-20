@@ -77,6 +77,8 @@ instance AWSRequest DescribeCertificate where
                    (x .?> "certificateDescription") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeCertificate
+
 instance ToHeaders DescribeCertificate where
         toHeaders = const mempty
 

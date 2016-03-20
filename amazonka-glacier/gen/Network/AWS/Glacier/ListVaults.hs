@@ -136,6 +136,8 @@ instance AWSRequest ListVaults where
                    (x .?> "Marker") <*> (x .?> "VaultList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListVaults
+
 instance ToHeaders ListVaults where
         toHeaders = const mempty
 

@@ -243,6 +243,8 @@ instance AWSRequest AssumeRoleWithWebIdentity where
                      <*> (x .@? "Provider")
                      <*> (pure (fromEnum s)))
 
+instance Hashable AssumeRoleWithWebIdentity
+
 instance ToHeaders AssumeRoleWithWebIdentity where
         toHeaders = const mempty
 

@@ -79,6 +79,8 @@ instance AWSRequest PutRetentionPolicy where
         request = postJSON cloudWatchLogs
         response = receiveNull PutRetentionPolicyResponse'
 
+instance Hashable PutRetentionPolicy
+
 instance ToHeaders PutRetentionPolicy where
         toHeaders
           = const

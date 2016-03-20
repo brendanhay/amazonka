@@ -79,6 +79,8 @@ instance AWSRequest DescribeSeverityLevels where
                    (x .?> "severityLevels" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeSeverityLevels
+
 instance ToHeaders DescribeSeverityLevels where
         toHeaders
           = const

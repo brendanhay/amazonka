@@ -379,6 +379,8 @@ instance AWSRequest RestoreDBInstanceToPointInTime
                  RestoreDBInstanceToPointInTimeResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
+instance Hashable RestoreDBInstanceToPointInTime
+
 instance ToHeaders RestoreDBInstanceToPointInTime
          where
         toHeaders = const mempty

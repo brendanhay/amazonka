@@ -77,6 +77,8 @@ instance AWSRequest DescribeLoadBalancerAttributes
                    (x .@? "LoadBalancerAttributes") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeLoadBalancerAttributes
+
 instance ToHeaders DescribeLoadBalancerAttributes
          where
         toHeaders = const mempty

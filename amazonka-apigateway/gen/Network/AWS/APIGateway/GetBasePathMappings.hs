@@ -110,6 +110,8 @@ instance AWSRequest GetBasePathMappings where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetBasePathMappings
+
 instance ToHeaders GetBasePathMappings where
         toHeaders
           = const

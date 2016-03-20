@@ -107,6 +107,8 @@ instance AWSRequest
                  AuthorizeCacheSecurityGroupIngressResponse' <$>
                    (x .@? "CacheSecurityGroup") <*> (pure (fromEnum s)))
 
+instance Hashable AuthorizeCacheSecurityGroupIngress
+
 instance ToHeaders AuthorizeCacheSecurityGroupIngress
          where
         toHeaders = const mempty

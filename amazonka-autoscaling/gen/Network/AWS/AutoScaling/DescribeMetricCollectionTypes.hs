@@ -73,6 +73,8 @@ instance AWSRequest DescribeMetricCollectionTypes
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeMetricCollectionTypes
+
 instance ToHeaders DescribeMetricCollectionTypes
          where
         toHeaders = const mempty

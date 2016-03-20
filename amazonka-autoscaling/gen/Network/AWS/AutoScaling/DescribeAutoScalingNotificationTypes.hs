@@ -65,6 +65,9 @@ instance AWSRequest
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable
+         DescribeAutoScalingNotificationTypes
+
 instance ToHeaders
          DescribeAutoScalingNotificationTypes where
         toHeaders = const mempty

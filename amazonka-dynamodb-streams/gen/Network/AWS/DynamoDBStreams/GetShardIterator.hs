@@ -130,6 +130,8 @@ instance AWSRequest GetShardIterator where
                  GetShardIteratorResponse' <$>
                    (x .?> "ShardIterator") <*> (pure (fromEnum s)))
 
+instance Hashable GetShardIterator
+
 instance ToHeaders GetShardIterator where
         toHeaders
           = const

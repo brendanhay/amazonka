@@ -105,6 +105,8 @@ instance AWSRequest GetId where
                  GetIdResponse' <$>
                    (x .?> "IdentityId") <*> (pure (fromEnum s)))
 
+instance Hashable GetId
+
 instance ToHeaders GetId where
         toHeaders
           = const

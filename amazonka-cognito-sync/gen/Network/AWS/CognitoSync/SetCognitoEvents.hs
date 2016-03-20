@@ -86,6 +86,8 @@ instance AWSRequest SetCognitoEvents where
         request = postJSON cognitoSync
         response = receiveNull SetCognitoEventsResponse'
 
+instance Hashable SetCognitoEvents
+
 instance ToHeaders SetCognitoEvents where
         toHeaders
           = const

@@ -92,6 +92,8 @@ instance AWSRequest DefineAnalysisScheme where
                  DefineAnalysisSchemeResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "AnalysisScheme"))
 
+instance Hashable DefineAnalysisScheme
+
 instance ToHeaders DefineAnalysisScheme where
         toHeaders = const mempty
 

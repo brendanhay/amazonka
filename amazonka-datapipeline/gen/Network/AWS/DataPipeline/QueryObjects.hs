@@ -135,6 +135,8 @@ instance AWSRequest QueryObjects where
                      <*> (x .?> "marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable QueryObjects
+
 instance ToHeaders QueryObjects where
         toHeaders
           = const

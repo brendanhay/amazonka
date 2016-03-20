@@ -365,6 +365,8 @@ instance AWSRequest ModifyCluster where
                  ModifyClusterResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
+instance Hashable ModifyCluster
+
 instance ToHeaders ModifyCluster where
         toHeaders = const mempty
 

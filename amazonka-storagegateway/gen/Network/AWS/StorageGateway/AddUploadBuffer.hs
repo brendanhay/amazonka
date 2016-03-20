@@ -88,6 +88,8 @@ instance AWSRequest AddUploadBuffer where
                  AddUploadBufferResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable AddUploadBuffer
+
 instance ToHeaders AddUploadBuffer where
         toHeaders
           = const

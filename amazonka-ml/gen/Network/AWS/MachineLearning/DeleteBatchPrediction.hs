@@ -82,6 +82,8 @@ instance AWSRequest DeleteBatchPrediction where
                  DeleteBatchPredictionResponse' <$>
                    (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteBatchPrediction
+
 instance ToHeaders DeleteBatchPrediction where
         toHeaders
           = const

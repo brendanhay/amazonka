@@ -94,6 +94,8 @@ instance AWSRequest SetEndpointAttributes where
         request = postQuery sNS
         response = receiveNull SetEndpointAttributesResponse'
 
+instance Hashable SetEndpointAttributes
+
 instance ToHeaders SetEndpointAttributes where
         toHeaders = const mempty
 

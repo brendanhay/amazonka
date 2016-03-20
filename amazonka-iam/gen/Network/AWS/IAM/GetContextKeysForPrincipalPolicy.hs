@@ -109,6 +109,8 @@ instance AWSRequest GetContextKeysForPrincipalPolicy
               "GetContextKeysForPrincipalPolicyResult"
               (\ s h x -> parseXML x)
 
+instance Hashable GetContextKeysForPrincipalPolicy
+
 instance ToHeaders GetContextKeysForPrincipalPolicy
          where
         toHeaders = const mempty

@@ -75,6 +75,8 @@ instance AWSRequest DeleteDevicePool where
               (\ s h x ->
                  DeleteDevicePoolResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteDevicePool
+
 instance ToHeaders DeleteDevicePool where
         toHeaders
           = const

@@ -81,6 +81,8 @@ instance AWSRequest AddTags where
         request = postJSON elasticSearch
         response = receiveNull AddTagsResponse'
 
+instance Hashable AddTags
+
 instance ToHeaders AddTags where
         toHeaders = const mempty
 

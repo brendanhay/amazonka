@@ -125,6 +125,8 @@ instance AWSRequest DescribeLimits where
                      <*> (x .?> "AccountMaxReadCapacityUnits")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeLimits
+
 instance ToHeaders DescribeLimits where
         toHeaders
           = const

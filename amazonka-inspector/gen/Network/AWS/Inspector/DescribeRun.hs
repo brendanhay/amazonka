@@ -73,6 +73,8 @@ instance AWSRequest DescribeRun where
                  DescribeRunResponse' <$>
                    (x .?> "run") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeRun
+
 instance ToHeaders DescribeRun where
         toHeaders
           = const

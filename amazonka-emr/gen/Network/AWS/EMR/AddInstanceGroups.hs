@@ -87,6 +87,8 @@ instance AWSRequest AddInstanceGroups where
                      (x .?> "InstanceGroupIds" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable AddInstanceGroups
+
 instance ToHeaders AddInstanceGroups where
         toHeaders
           = const

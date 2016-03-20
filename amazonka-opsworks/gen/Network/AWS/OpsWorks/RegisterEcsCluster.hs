@@ -93,6 +93,8 @@ instance AWSRequest RegisterEcsCluster where
                  RegisterEcsClusterResponse' <$>
                    (x .?> "EcsClusterArn") <*> (pure (fromEnum s)))
 
+instance Hashable RegisterEcsCluster
+
 instance ToHeaders RegisterEcsCluster where
         toHeaders
           = const

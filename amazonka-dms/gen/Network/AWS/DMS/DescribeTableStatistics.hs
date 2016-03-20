@@ -107,6 +107,8 @@ instance AWSRequest DescribeTableStatistics where
                      (x .?> "TableStatistics" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTableStatistics
+
 instance ToHeaders DescribeTableStatistics where
         toHeaders
           = const

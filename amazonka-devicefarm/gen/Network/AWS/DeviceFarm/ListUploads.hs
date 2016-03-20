@@ -88,6 +88,8 @@ instance AWSRequest ListUploads where
                    (x .?> "nextToken") <*> (x .?> "uploads" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListUploads
+
 instance ToHeaders ListUploads where
         toHeaders
           = const

@@ -90,6 +90,8 @@ instance AWSRequest DeactivatePipeline where
               (\ s h x ->
                  DeactivatePipelineResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeactivatePipeline
+
 instance ToHeaders DeactivatePipeline where
         toHeaders
           = const

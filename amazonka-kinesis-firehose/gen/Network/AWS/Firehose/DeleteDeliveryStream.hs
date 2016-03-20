@@ -87,6 +87,8 @@ instance AWSRequest DeleteDeliveryStream where
                  DeleteDeliveryStreamResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable DeleteDeliveryStream
+
 instance ToHeaders DeleteDeliveryStream where
         toHeaders
           = const

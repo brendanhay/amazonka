@@ -159,6 +159,8 @@ instance AWSRequest UpdateDeploymentGroup where
                    (x .?> "hooksNotCleanedUp" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable UpdateDeploymentGroup
+
 instance ToHeaders UpdateDeploymentGroup where
         toHeaders
           = const

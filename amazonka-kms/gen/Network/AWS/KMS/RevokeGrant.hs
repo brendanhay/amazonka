@@ -84,6 +84,8 @@ instance AWSRequest RevokeGrant where
         request = postJSON kMS
         response = receiveNull RevokeGrantResponse'
 
+instance Hashable RevokeGrant
+
 instance ToHeaders RevokeGrant where
         toHeaders
           = const

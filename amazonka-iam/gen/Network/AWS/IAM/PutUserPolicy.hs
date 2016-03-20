@@ -105,6 +105,8 @@ instance AWSRequest PutUserPolicy where
         request = postQuery iAM
         response = receiveNull PutUserPolicyResponse'
 
+instance Hashable PutUserPolicy
+
 instance ToHeaders PutUserPolicy where
         toHeaders = const mempty
 

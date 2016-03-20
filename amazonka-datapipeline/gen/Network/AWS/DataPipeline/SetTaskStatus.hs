@@ -125,6 +125,8 @@ instance AWSRequest SetTaskStatus where
               (\ s h x ->
                  SetTaskStatusResponse' <$> (pure (fromEnum s)))
 
+instance Hashable SetTaskStatus
+
 instance ToHeaders SetTaskStatus where
         toHeaders
           = const

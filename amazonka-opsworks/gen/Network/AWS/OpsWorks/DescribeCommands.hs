@@ -105,6 +105,8 @@ instance AWSRequest DescribeCommands where
                    (x .?> "Commands" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeCommands
+
 instance ToHeaders DescribeCommands where
         toHeaders
           = const

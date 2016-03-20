@@ -223,6 +223,8 @@ instance AWSRequest DescribeBatchPredictions where
                    (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeBatchPredictions
+
 instance ToHeaders DescribeBatchPredictions where
         toHeaders
           = const

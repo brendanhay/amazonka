@@ -173,6 +173,8 @@ instance AWSRequest ListParts where
                      <*> (x .?> "CreationDate")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListParts
+
 instance ToHeaders ListParts where
         toHeaders = const mempty
 

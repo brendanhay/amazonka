@@ -88,6 +88,8 @@ instance AWSRequest CreateThing where
                    (x .?> "thingArn") <*> (x .?> "thingName") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateThing
+
 instance ToHeaders CreateThing where
         toHeaders = const mempty
 

@@ -91,6 +91,8 @@ instance AWSRequest
                  TerminateInstanceInAutoScalingGroupResponse' <$>
                    (x .@? "Activity") <*> (pure (fromEnum s)))
 
+instance Hashable TerminateInstanceInAutoScalingGroup
+
 instance ToHeaders
          TerminateInstanceInAutoScalingGroup where
         toHeaders = const mempty

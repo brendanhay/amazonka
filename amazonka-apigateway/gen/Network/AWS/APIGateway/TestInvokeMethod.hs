@@ -145,6 +145,8 @@ instance AWSRequest TestInvokeMethod where
                      <*> (x .?> "headers" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable TestInvokeMethod
+
 instance ToHeaders TestInvokeMethod where
         toHeaders
           = const

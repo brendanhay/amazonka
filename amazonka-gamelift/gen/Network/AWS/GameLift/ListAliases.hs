@@ -120,6 +120,8 @@ instance AWSRequest ListAliases where
                    (x .?> "Aliases" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListAliases
+
 instance ToHeaders ListAliases where
         toHeaders
           = const

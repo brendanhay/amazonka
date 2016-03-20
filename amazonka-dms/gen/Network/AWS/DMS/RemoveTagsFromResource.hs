@@ -84,6 +84,8 @@ instance AWSRequest RemoveTagsFromResource where
                  RemoveTagsFromResourceResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable RemoveTagsFromResource
+
 instance ToHeaders RemoveTagsFromResource where
         toHeaders
           = const

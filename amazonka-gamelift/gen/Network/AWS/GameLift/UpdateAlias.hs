@@ -107,6 +107,8 @@ instance AWSRequest UpdateAlias where
                  UpdateAliasResponse' <$>
                    (x .?> "Alias") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateAlias
+
 instance ToHeaders UpdateAlias where
         toHeaders
           = const

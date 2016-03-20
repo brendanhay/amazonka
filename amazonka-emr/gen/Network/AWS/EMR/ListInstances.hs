@@ -118,6 +118,8 @@ instance AWSRequest ListInstances where
                    (x .?> "Marker") <*> (x .?> "Instances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListInstances
+
 instance ToHeaders ListInstances where
         toHeaders
           = const

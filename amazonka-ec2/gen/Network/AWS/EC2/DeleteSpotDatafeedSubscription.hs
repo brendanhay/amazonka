@@ -73,6 +73,8 @@ instance AWSRequest DeleteSpotDatafeedSubscription
         response
           = receiveNull DeleteSpotDatafeedSubscriptionResponse'
 
+instance Hashable DeleteSpotDatafeedSubscription
+
 instance ToHeaders DeleteSpotDatafeedSubscription
          where
         toHeaders = const mempty

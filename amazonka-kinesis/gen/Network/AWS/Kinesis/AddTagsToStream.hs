@@ -81,6 +81,8 @@ instance AWSRequest AddTagsToStream where
         request = postJSON kinesis
         response = receiveNull AddTagsToStreamResponse'
 
+instance Hashable AddTagsToStream
+
 instance ToHeaders AddTagsToStream where
         toHeaders
           = const

@@ -363,6 +363,8 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot
                  RestoreDBInstanceFromDBSnapshotResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
+instance Hashable RestoreDBInstanceFromDBSnapshot
+
 instance ToHeaders RestoreDBInstanceFromDBSnapshot
          where
         toHeaders = const mempty

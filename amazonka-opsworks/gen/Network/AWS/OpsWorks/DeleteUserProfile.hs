@@ -71,6 +71,8 @@ instance AWSRequest DeleteUserProfile where
         request = postJSON opsWorks
         response = receiveNull DeleteUserProfileResponse'
 
+instance Hashable DeleteUserProfile
+
 instance ToHeaders DeleteUserProfile where
         toHeaders
           = const

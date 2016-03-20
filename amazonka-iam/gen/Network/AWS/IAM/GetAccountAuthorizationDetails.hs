@@ -129,6 +129,8 @@ instance AWSRequest GetAccountAuthorizationDetails
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetAccountAuthorizationDetails
+
 instance ToHeaders GetAccountAuthorizationDetails
          where
         toHeaders = const mempty

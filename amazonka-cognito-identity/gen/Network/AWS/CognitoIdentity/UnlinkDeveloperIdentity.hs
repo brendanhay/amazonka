@@ -107,6 +107,8 @@ instance AWSRequest UnlinkDeveloperIdentity where
         response
           = receiveNull UnlinkDeveloperIdentityResponse'
 
+instance Hashable UnlinkDeveloperIdentity
+
 instance ToHeaders UnlinkDeveloperIdentity where
         toHeaders
           = const

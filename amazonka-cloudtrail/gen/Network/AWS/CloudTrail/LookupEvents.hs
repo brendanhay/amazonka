@@ -138,6 +138,8 @@ instance AWSRequest LookupEvents where
                    (x .?> "NextToken") <*> (x .?> "Events" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable LookupEvents
+
 instance ToHeaders LookupEvents where
         toHeaders
           = const

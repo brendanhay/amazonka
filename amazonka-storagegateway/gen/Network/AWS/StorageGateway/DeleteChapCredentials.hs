@@ -94,6 +94,8 @@ instance AWSRequest DeleteChapCredentials where
                    (x .?> "TargetARN") <*> (x .?> "InitiatorName") <*>
                      (pure (fromEnum s)))
 
+instance Hashable DeleteChapCredentials
+
 instance ToHeaders DeleteChapCredentials where
         toHeaders
           = const

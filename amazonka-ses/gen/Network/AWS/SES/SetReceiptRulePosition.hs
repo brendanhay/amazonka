@@ -99,6 +99,8 @@ instance AWSRequest SetReceiptRulePosition where
                  SetReceiptRulePositionResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable SetReceiptRulePosition
+
 instance ToHeaders SetReceiptRulePosition where
         toHeaders = const mempty
 

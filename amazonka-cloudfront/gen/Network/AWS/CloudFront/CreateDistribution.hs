@@ -80,6 +80,8 @@ instance AWSRequest CreateDistribution where
                      (h .#? "Location")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateDistribution
+
 instance ToElement CreateDistribution where
         toElement
           = mkElement

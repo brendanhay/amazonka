@@ -152,6 +152,8 @@ instance AWSRequest CreateOpenIdConnectProvider where
                    (x .@? "OpenIDConnectProviderArn") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateOpenIdConnectProvider
+
 instance ToHeaders CreateOpenIdConnectProvider where
         toHeaders = const mempty
 

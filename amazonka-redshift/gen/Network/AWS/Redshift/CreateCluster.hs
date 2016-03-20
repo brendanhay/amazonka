@@ -460,6 +460,8 @@ instance AWSRequest CreateCluster where
                  CreateClusterResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
+instance Hashable CreateCluster
+
 instance ToHeaders CreateCluster where
         toHeaders = const mempty
 

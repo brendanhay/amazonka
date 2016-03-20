@@ -102,6 +102,8 @@ instance AWSRequest DescribeVPCAttribute where
                      <*> (x .@? "vpcId")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVPCAttribute
+
 instance ToHeaders DescribeVPCAttribute where
         toHeaders = const mempty
 

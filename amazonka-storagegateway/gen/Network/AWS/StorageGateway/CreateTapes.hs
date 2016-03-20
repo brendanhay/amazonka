@@ -133,6 +133,8 @@ instance AWSRequest CreateTapes where
                    (x .?> "TapeARNs" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateTapes
+
 instance ToHeaders CreateTapes where
         toHeaders
           = const

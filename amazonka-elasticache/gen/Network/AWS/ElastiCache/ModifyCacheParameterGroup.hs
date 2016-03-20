@@ -86,6 +86,8 @@ instance AWSRequest ModifyCacheParameterGroup where
           = receiveXMLWrapper "ModifyCacheParameterGroupResult"
               (\ s h x -> parseXML x)
 
+instance Hashable ModifyCacheParameterGroup
+
 instance ToHeaders ModifyCacheParameterGroup where
         toHeaders = const mempty
 

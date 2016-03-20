@@ -142,6 +142,8 @@ instance AWSRequest GetHealthCheckStatus where
                      (x .@? "HealthCheckObservations" .!@ mempty >>=
                         parseXMLList "HealthCheckObservation"))
 
+instance Hashable GetHealthCheckStatus
+
 instance ToHeaders GetHealthCheckStatus where
         toHeaders = const mempty
 

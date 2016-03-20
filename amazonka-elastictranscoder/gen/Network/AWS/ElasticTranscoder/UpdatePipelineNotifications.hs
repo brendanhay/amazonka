@@ -110,6 +110,8 @@ instance AWSRequest UpdatePipelineNotifications where
                  UpdatePipelineNotificationsResponse' <$>
                    (x .?> "Pipeline") <*> (pure (fromEnum s)))
 
+instance Hashable UpdatePipelineNotifications
+
 instance ToHeaders UpdatePipelineNotifications where
         toHeaders = const mempty
 

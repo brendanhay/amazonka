@@ -95,6 +95,8 @@ instance AWSRequest EnableStageTransition where
         request = postJSON codePipeline
         response = receiveNull EnableStageTransitionResponse'
 
+instance Hashable EnableStageTransition
+
 instance ToHeaders EnableStageTransition where
         toHeaders
           = const

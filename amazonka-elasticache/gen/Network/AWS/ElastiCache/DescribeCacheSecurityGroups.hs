@@ -119,6 +119,8 @@ instance AWSRequest DescribeCacheSecurityGroups where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCacheSecurityGroups
+
 instance ToHeaders DescribeCacheSecurityGroups where
         toHeaders = const mempty
 

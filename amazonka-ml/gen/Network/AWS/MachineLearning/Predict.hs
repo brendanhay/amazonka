@@ -98,6 +98,8 @@ instance AWSRequest Predict where
                  PredictResponse' <$>
                    (x .?> "Prediction") <*> (pure (fromEnum s)))
 
+instance Hashable Predict
+
 instance ToHeaders Predict where
         toHeaders
           = const

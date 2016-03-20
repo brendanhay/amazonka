@@ -97,6 +97,9 @@ instance AWSRequest
                      (x .?> "OrderableReplicationInstances" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable
+         DescribeOrderableReplicationInstances
+
 instance ToHeaders
          DescribeOrderableReplicationInstances where
         toHeaders

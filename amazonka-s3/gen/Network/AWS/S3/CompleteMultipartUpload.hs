@@ -129,6 +129,8 @@ instance AWSRequest CompleteMultipartUpload where
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CompleteMultipartUpload
+
 instance ToElement CompleteMultipartUpload where
         toElement
           = mkElement

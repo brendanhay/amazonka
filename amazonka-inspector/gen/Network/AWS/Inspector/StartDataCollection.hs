@@ -77,6 +77,8 @@ instance AWSRequest StartDataCollection where
                  StartDataCollectionResponse' <$>
                    (x .?> "message") <*> (pure (fromEnum s)))
 
+instance Hashable StartDataCollection
+
 instance ToHeaders StartDataCollection where
         toHeaders
           = const

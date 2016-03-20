@@ -88,6 +88,8 @@ instance AWSRequest ListRuns where
                    (x .?> "runs" .!@ mempty) <*> (x .?> "nextToken") <*>
                      (pure (fromEnum s)))
 
+instance Hashable ListRuns
+
 instance ToHeaders ListRuns where
         toHeaders
           = const

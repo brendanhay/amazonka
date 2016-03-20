@@ -104,6 +104,8 @@ instance AWSRequest BatchCheckLayerAvailability where
                      (x .?> "layers" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable BatchCheckLayerAvailability
+
 instance ToHeaders BatchCheckLayerAvailability where
         toHeaders
           = const

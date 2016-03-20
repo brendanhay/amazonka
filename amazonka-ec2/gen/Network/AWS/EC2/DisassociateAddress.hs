@@ -96,6 +96,8 @@ instance AWSRequest DisassociateAddress where
         request = postQuery eC2
         response = receiveNull DisassociateAddressResponse'
 
+instance Hashable DisassociateAddress
+
 instance ToHeaders DisassociateAddress where
         toHeaders = const mempty
 

@@ -84,6 +84,8 @@ instance AWSRequest RemoveTagsFromResource where
         response
           = receiveNull RemoveTagsFromResourceResponse'
 
+instance Hashable RemoveTagsFromResource
+
 instance ToHeaders RemoveTagsFromResource where
         toHeaders = const mempty
 

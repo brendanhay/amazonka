@@ -123,6 +123,8 @@ instance AWSRequest SendMessage where
                      <*> (x .@? "MD5OfMessageAttributes")
                      <*> (pure (fromEnum s)))
 
+instance Hashable SendMessage
+
 instance ToHeaders SendMessage where
         toHeaders = const mempty
 

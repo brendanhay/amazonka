@@ -100,6 +100,8 @@ instance AWSRequest DeleteMessageBatch where
                      (parseXMLList "DeleteMessageBatchResultEntry" x)
                      <*> (parseXMLList "BatchResultErrorEntry" x))
 
+instance Hashable DeleteMessageBatch
+
 instance ToHeaders DeleteMessageBatch where
         toHeaders = const mempty
 

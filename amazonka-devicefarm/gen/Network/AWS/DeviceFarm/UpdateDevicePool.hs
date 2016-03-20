@@ -107,6 +107,8 @@ instance AWSRequest UpdateDevicePool where
                  UpdateDevicePoolResponse' <$>
                    (x .?> "devicePool") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateDevicePool
+
 instance ToHeaders UpdateDevicePool where
         toHeaders
           = const

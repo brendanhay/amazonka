@@ -102,6 +102,8 @@ instance AWSRequest CreateDeploymentConfig where
                  CreateDeploymentConfigResponse' <$>
                    (x .?> "deploymentConfigId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDeploymentConfig
+
 instance ToHeaders CreateDeploymentConfig where
         toHeaders
           = const

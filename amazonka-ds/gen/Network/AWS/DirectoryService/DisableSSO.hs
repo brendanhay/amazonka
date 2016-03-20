@@ -101,6 +101,8 @@ instance AWSRequest DisableSSO where
               (\ s h x ->
                  DisableSSOResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DisableSSO
+
 instance ToHeaders DisableSSO where
         toHeaders
           = const

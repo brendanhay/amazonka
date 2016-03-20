@@ -88,6 +88,8 @@ instance AWSRequest DescribeEC2InstanceLimits where
                    (x .?> "EC2InstanceLimits" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeEC2InstanceLimits
+
 instance ToHeaders DescribeEC2InstanceLimits where
         toHeaders
           = const

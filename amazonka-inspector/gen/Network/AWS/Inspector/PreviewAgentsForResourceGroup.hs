@@ -102,6 +102,8 @@ instance AWSRequest PreviewAgentsForResourceGroup
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable PreviewAgentsForResourceGroup
+
 instance ToHeaders PreviewAgentsForResourceGroup
          where
         toHeaders

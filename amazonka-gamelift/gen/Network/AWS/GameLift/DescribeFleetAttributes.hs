@@ -114,6 +114,8 @@ instance AWSRequest DescribeFleetAttributes where
                      (x .?> "FleetAttributes" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeFleetAttributes
+
 instance ToHeaders DescribeFleetAttributes where
         toHeaders
           = const

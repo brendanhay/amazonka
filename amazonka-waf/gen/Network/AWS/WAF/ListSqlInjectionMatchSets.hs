@@ -99,6 +99,8 @@ instance AWSRequest ListSqlInjectionMatchSets where
                      (x .?> "SqlInjectionMatchSets" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListSqlInjectionMatchSets
+
 instance ToHeaders ListSqlInjectionMatchSets where
         toHeaders
           = const

@@ -182,6 +182,8 @@ instance AWSRequest CreateDataSourceFromRDS where
                  CreateDataSourceFromRDSResponse' <$>
                    (x .?> "DataSourceId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDataSourceFromRDS
+
 instance ToHeaders CreateDataSourceFromRDS where
         toHeaders
           = const

@@ -226,6 +226,8 @@ instance AWSRequest UpdateInstance where
         request = postJSON opsWorks
         response = receiveNull UpdateInstanceResponse'
 
+instance Hashable UpdateInstance
+
 instance ToHeaders UpdateInstance where
         toHeaders
           = const

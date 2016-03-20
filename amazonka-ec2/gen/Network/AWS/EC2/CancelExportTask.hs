@@ -70,6 +70,8 @@ instance AWSRequest CancelExportTask where
         request = postQuery eC2
         response = receiveNull CancelExportTaskResponse'
 
+instance Hashable CancelExportTask
+
 instance ToHeaders CancelExportTask where
         toHeaders = const mempty
 

@@ -83,6 +83,8 @@ instance AWSRequest UpdateDomainName where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateDomainName
+
 instance ToHeaders UpdateDomainName where
         toHeaders
           = const

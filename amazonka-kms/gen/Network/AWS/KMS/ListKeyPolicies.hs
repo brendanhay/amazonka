@@ -125,6 +125,8 @@ instance AWSRequest ListKeyPolicies where
                      <*> (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListKeyPolicies
+
 instance ToHeaders ListKeyPolicies where
         toHeaders
           = const

@@ -134,6 +134,8 @@ instance AWSRequest UpdateIPSet where
                  UpdateIPSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateIPSet
+
 instance ToHeaders UpdateIPSet where
         toHeaders
           = const

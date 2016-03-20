@@ -98,6 +98,8 @@ instance AWSRequest CreateReceiptRule where
               (\ s h x ->
                  CreateReceiptRuleResponse' <$> (pure (fromEnum s)))
 
+instance Hashable CreateReceiptRule
+
 instance ToHeaders CreateReceiptRule where
         toHeaders = const mempty
 

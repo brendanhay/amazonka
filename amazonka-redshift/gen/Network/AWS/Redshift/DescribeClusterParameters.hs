@@ -146,6 +146,8 @@ instance AWSRequest DescribeClusterParameters where
                         may (parseXMLList "Parameter"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeClusterParameters
+
 instance ToHeaders DescribeClusterParameters where
         toHeaders = const mempty
 

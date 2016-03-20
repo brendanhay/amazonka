@@ -139,6 +139,8 @@ instance AWSRequest CreateTrafficPolicyInstance where
                      (x .@ "TrafficPolicyInstance")
                      <*> (h .# "Location"))
 
+instance Hashable CreateTrafficPolicyInstance
+
 instance ToElement CreateTrafficPolicyInstance where
         toElement
           = mkElement

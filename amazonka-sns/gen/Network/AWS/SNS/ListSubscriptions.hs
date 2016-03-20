@@ -91,6 +91,8 @@ instance AWSRequest ListSubscriptions where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListSubscriptions
+
 instance ToHeaders ListSubscriptions where
         toHeaders = const mempty
 

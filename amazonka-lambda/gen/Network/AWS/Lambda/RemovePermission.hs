@@ -110,6 +110,8 @@ instance AWSRequest RemovePermission where
         request = delete lambda
         response = receiveNull RemovePermissionResponse'
 
+instance Hashable RemovePermission
+
 instance ToHeaders RemovePermission where
         toHeaders = const mempty
 

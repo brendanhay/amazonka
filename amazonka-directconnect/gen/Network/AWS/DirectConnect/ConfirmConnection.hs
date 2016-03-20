@@ -79,6 +79,8 @@ instance AWSRequest ConfirmConnection where
                  ConfirmConnectionResponse' <$>
                    (x .?> "connectionState") <*> (pure (fromEnum s)))
 
+instance Hashable ConfirmConnection
+
 instance ToHeaders ConfirmConnection where
         toHeaders
           = const

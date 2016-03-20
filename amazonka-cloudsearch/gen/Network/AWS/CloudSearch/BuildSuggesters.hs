@@ -80,6 +80,8 @@ instance AWSRequest BuildSuggesters where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable BuildSuggesters
+
 instance ToHeaders BuildSuggesters where
         toHeaders = const mempty
 

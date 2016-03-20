@@ -105,6 +105,8 @@ instance AWSRequest ListApplications where
                      (x .?> "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListApplications
+
 instance ToHeaders ListApplications where
         toHeaders
           = const

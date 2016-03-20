@@ -127,6 +127,8 @@ instance AWSRequest ListRoles where
                      <*>
                      (x .@? "Roles" .!@ mempty >>= parseXMLList "member"))
 
+instance Hashable ListRoles
+
 instance ToHeaders ListRoles where
         toHeaders = const mempty
 

@@ -80,6 +80,8 @@ instance AWSRequest PutBucketLifecycleConfiguration
           = receiveNull
               PutBucketLifecycleConfigurationResponse'
 
+instance Hashable PutBucketLifecycleConfiguration
+
 instance ToElement PutBucketLifecycleConfiguration
          where
         toElement

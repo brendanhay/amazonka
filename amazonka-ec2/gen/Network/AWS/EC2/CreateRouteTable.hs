@@ -90,6 +90,8 @@ instance AWSRequest CreateRouteTable where
                  CreateRouteTableResponse' <$>
                    (x .@? "routeTable") <*> (pure (fromEnum s)))
 
+instance Hashable CreateRouteTable
+
 instance ToHeaders CreateRouteTable where
         toHeaders = const mempty
 

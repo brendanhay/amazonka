@@ -67,6 +67,8 @@ instance AWSRequest DeleteBucketPolicy where
         request = delete s3
         response = receiveNull DeleteBucketPolicyResponse'
 
+instance Hashable DeleteBucketPolicy
+
 instance ToHeaders DeleteBucketPolicy where
         toHeaders = const mempty
 

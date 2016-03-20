@@ -72,6 +72,8 @@ instance AWSRequest DeleteAlias where
         request = postJSON gameLift
         response = receiveNull DeleteAliasResponse'
 
+instance Hashable DeleteAlias
+
 instance ToHeaders DeleteAlias where
         toHeaders
           = const

@@ -88,6 +88,8 @@ instance AWSRequest ExitStandby where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ExitStandby
+
 instance ToHeaders ExitStandby where
         toHeaders = const mempty
 

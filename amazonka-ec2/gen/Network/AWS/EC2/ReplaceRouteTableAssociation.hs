@@ -107,6 +107,8 @@ instance AWSRequest ReplaceRouteTableAssociation
                  ReplaceRouteTableAssociationResponse' <$>
                    (x .@? "newAssociationId") <*> (pure (fromEnum s)))
 
+instance Hashable ReplaceRouteTableAssociation
+
 instance ToHeaders ReplaceRouteTableAssociation where
         toHeaders = const mempty
 

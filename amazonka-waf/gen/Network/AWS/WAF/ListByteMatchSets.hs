@@ -93,6 +93,8 @@ instance AWSRequest ListByteMatchSets where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListByteMatchSets
+
 instance ToHeaders ListByteMatchSets where
         toHeaders
           = const

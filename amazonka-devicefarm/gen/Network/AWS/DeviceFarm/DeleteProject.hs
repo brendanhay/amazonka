@@ -76,6 +76,8 @@ instance AWSRequest DeleteProject where
               (\ s h x ->
                  DeleteProjectResponse' <$> (pure (fromEnum s)))
 
+instance Hashable DeleteProject
+
 instance ToHeaders DeleteProject where
         toHeaders
           = const

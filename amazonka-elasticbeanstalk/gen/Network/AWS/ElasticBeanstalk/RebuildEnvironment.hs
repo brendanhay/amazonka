@@ -87,6 +87,8 @@ instance AWSRequest RebuildEnvironment where
         request = postQuery elasticBeanstalk
         response = receiveNull RebuildEnvironmentResponse'
 
+instance Hashable RebuildEnvironment
+
 instance ToHeaders RebuildEnvironment where
         toHeaders = const mempty
 

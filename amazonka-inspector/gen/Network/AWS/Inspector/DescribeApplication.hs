@@ -74,6 +74,8 @@ instance AWSRequest DescribeApplication where
                  DescribeApplicationResponse' <$>
                    (x .?> "application") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeApplication
+
 instance ToHeaders DescribeApplication where
         toHeaders
           = const

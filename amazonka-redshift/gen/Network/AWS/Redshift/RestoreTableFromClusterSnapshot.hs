@@ -158,6 +158,8 @@ instance AWSRequest RestoreTableFromClusterSnapshot
                  RestoreTableFromClusterSnapshotResponse' <$>
                    (x .@? "TableRestoreStatus") <*> (pure (fromEnum s)))
 
+instance Hashable RestoreTableFromClusterSnapshot
+
 instance ToHeaders RestoreTableFromClusterSnapshot
          where
         toHeaders = const mempty

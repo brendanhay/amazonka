@@ -116,6 +116,8 @@ instance AWSRequest UpdateMaintenanceStartTime where
                  UpdateMaintenanceStartTimeResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateMaintenanceStartTime
+
 instance ToHeaders UpdateMaintenanceStartTime where
         toHeaders
           = const

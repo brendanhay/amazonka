@@ -86,6 +86,8 @@ instance AWSRequest ListReceiptRuleSets where
                      <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListReceiptRuleSets
+
 instance ToHeaders ListReceiptRuleSets where
         toHeaders = const mempty
 

@@ -115,6 +115,8 @@ instance AWSRequest SendMessageBatch where
                      (parseXMLList "SendMessageBatchResultEntry" x)
                      <*> (parseXMLList "BatchResultErrorEntry" x))
 
+instance Hashable SendMessageBatch
+
 instance ToHeaders SendMessageBatch where
         toHeaders = const mempty
 

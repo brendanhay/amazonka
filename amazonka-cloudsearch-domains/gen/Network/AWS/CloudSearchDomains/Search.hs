@@ -512,6 +512,8 @@ instance AWSRequest Search where
                      <*> (x .?> "hits")
                      <*> (pure (fromEnum s)))
 
+instance Hashable Search
+
 instance ToHeaders Search where
         toHeaders
           = const

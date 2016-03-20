@@ -84,6 +84,8 @@ instance AWSRequest DeleteUserPolicy where
         request = postQuery iAM
         response = receiveNull DeleteUserPolicyResponse'
 
+instance Hashable DeleteUserPolicy
+
 instance ToHeaders DeleteUserPolicy where
         toHeaders = const mempty
 

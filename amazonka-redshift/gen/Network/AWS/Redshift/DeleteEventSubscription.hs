@@ -71,6 +71,8 @@ instance AWSRequest DeleteEventSubscription where
         response
           = receiveNull DeleteEventSubscriptionResponse'
 
+instance Hashable DeleteEventSubscription
+
 instance ToHeaders DeleteEventSubscription where
         toHeaders = const mempty
 

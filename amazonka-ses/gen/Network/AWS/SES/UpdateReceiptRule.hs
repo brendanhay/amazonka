@@ -86,6 +86,8 @@ instance AWSRequest UpdateReceiptRule where
               (\ s h x ->
                  UpdateReceiptRuleResponse' <$> (pure (fromEnum s)))
 
+instance Hashable UpdateReceiptRule
+
 instance ToHeaders UpdateReceiptRule where
         toHeaders = const mempty
 

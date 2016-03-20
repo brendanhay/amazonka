@@ -205,6 +205,8 @@ instance AWSRequest PutLifecycleHook where
               (\ s h x ->
                  PutLifecycleHookResponse' <$> (pure (fromEnum s)))
 
+instance Hashable PutLifecycleHook
+
 instance ToHeaders PutLifecycleHook where
         toHeaders = const mempty
 

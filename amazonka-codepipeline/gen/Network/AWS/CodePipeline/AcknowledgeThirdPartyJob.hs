@@ -101,6 +101,8 @@ instance AWSRequest AcknowledgeThirdPartyJob where
                  AcknowledgeThirdPartyJobResponse' <$>
                    (x .?> "status") <*> (pure (fromEnum s)))
 
+instance Hashable AcknowledgeThirdPartyJob
+
 instance ToHeaders AcknowledgeThirdPartyJob where
         toHeaders
           = const

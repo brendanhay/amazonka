@@ -123,6 +123,8 @@ instance AWSRequest ListHealthChecks where
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
 
+instance Hashable ListHealthChecks
+
 instance ToHeaders ListHealthChecks where
         toHeaders = const mempty
 

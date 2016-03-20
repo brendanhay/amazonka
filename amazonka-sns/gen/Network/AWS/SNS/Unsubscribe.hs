@@ -74,6 +74,8 @@ instance AWSRequest Unsubscribe where
         request = postQuery sNS
         response = receiveNull UnsubscribeResponse'
 
+instance Hashable Unsubscribe
+
 instance ToHeaders Unsubscribe where
         toHeaders = const mempty
 

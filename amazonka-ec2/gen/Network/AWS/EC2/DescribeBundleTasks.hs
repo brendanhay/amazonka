@@ -127,6 +127,8 @@ instance AWSRequest DescribeBundleTasks where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeBundleTasks
+
 instance ToHeaders DescribeBundleTasks where
         toHeaders = const mempty
 

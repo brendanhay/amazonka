@@ -88,6 +88,8 @@ instance AWSRequest AssignInstance where
         request = postJSON opsWorks
         response = receiveNull AssignInstanceResponse'
 
+instance Hashable AssignInstance
+
 instance ToHeaders AssignInstance where
         toHeaders
           = const

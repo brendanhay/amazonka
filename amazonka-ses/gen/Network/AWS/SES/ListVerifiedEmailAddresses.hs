@@ -71,6 +71,8 @@ instance AWSRequest ListVerifiedEmailAddresses where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListVerifiedEmailAddresses
+
 instance ToHeaders ListVerifiedEmailAddresses where
         toHeaders = const mempty
 

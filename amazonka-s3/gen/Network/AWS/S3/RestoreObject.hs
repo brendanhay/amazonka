@@ -111,6 +111,8 @@ instance AWSRequest RestoreObject where
                    (h .#? "x-amz-request-charged") <*>
                      (pure (fromEnum s)))
 
+instance Hashable RestoreObject
+
 instance ToElement RestoreObject where
         toElement
           = mkElement

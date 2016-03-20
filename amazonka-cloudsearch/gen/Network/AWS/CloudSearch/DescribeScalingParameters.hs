@@ -81,6 +81,8 @@ instance AWSRequest DescribeScalingParameters where
                  DescribeScalingParametersResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "ScalingParameters"))
 
+instance Hashable DescribeScalingParameters
+
 instance ToHeaders DescribeScalingParameters where
         toHeaders = const mempty
 

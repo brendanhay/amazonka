@@ -93,6 +93,8 @@ instance AWSRequest GetCredentialsForIdentity where
                    (x .?> "Credentials") <*> (x .?> "IdentityId") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetCredentialsForIdentity
+
 instance ToHeaders GetCredentialsForIdentity where
         toHeaders
           = const

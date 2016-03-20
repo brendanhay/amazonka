@@ -102,6 +102,8 @@ instance AWSRequest ReplaceNetworkACLAssociation
                  ReplaceNetworkACLAssociationResponse' <$>
                    (x .@? "newAssociationId") <*> (pure (fromEnum s)))
 
+instance Hashable ReplaceNetworkACLAssociation
+
 instance ToHeaders ReplaceNetworkACLAssociation where
         toHeaders = const mempty
 

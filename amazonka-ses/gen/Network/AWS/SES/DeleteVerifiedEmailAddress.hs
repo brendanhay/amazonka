@@ -74,6 +74,8 @@ instance AWSRequest DeleteVerifiedEmailAddress where
         response
           = receiveNull DeleteVerifiedEmailAddressResponse'
 
+instance Hashable DeleteVerifiedEmailAddress
+
 instance ToHeaders DeleteVerifiedEmailAddress where
         toHeaders = const mempty
 

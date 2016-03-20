@@ -133,6 +133,8 @@ instance AWSRequest DescribeHosts where
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeHosts
+
 instance ToHeaders DescribeHosts where
         toHeaders = const mempty
 

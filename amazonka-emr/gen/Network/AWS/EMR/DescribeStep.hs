@@ -85,6 +85,8 @@ instance AWSRequest DescribeStep where
                  DescribeStepResponse' <$>
                    (x .?> "Step") <*> (pure (fromEnum s)))
 
+instance Hashable DescribeStep
+
 instance ToHeaders DescribeStep where
         toHeaders
           = const

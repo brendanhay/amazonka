@@ -91,6 +91,8 @@ instance AWSRequest InitiateLayerUpload where
                    (x .?> "partSize") <*> (x .?> "uploadId") <*>
                      (pure (fromEnum s)))
 
+instance Hashable InitiateLayerUpload
+
 instance ToHeaders InitiateLayerUpload where
         toHeaders
           = const

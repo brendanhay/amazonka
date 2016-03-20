@@ -80,6 +80,8 @@ instance AWSRequest CancelCertificateTransfer where
         response
           = receiveNull CancelCertificateTransferResponse'
 
+instance Hashable CancelCertificateTransfer
+
 instance ToHeaders CancelCertificateTransfer where
         toHeaders = const mempty
 

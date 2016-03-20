@@ -107,6 +107,8 @@ instance AWSRequest GetObjectACL where
                      <*> (x .@? "Owner")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetObjectACL
+
 instance ToHeaders GetObjectACL where
         toHeaders GetObjectACL'{..}
           = mconcat ["x-amz-request-payer" =# _goaRequestPayer]

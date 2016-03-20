@@ -117,6 +117,8 @@ instance AWSRequest ValidateConfigurationSettings
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ValidateConfigurationSettings
+
 instance ToHeaders ValidateConfigurationSettings
          where
         toHeaders = const mempty

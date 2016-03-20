@@ -172,6 +172,8 @@ instance AWSRequest
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeOrderableDBInstanceOptions
+
 instance ToHeaders DescribeOrderableDBInstanceOptions
          where
         toHeaders = const mempty

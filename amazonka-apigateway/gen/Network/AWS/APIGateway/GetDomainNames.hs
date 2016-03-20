@@ -97,6 +97,8 @@ instance AWSRequest GetDomainNames where
                    (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetDomainNames
+
 instance ToHeaders GetDomainNames where
         toHeaders
           = const

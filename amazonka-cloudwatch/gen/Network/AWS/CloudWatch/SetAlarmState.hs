@@ -107,6 +107,8 @@ instance AWSRequest SetAlarmState where
         request = postQuery cloudWatch
         response = receiveNull SetAlarmStateResponse'
 
+instance Hashable SetAlarmState
+
 instance ToHeaders SetAlarmState where
         toHeaders = const mempty
 

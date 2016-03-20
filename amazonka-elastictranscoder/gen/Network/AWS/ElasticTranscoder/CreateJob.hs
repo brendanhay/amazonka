@@ -154,6 +154,8 @@ instance AWSRequest CreateJob where
                  CreateJobResponse' <$>
                    (x .?> "Job") <*> (pure (fromEnum s)))
 
+instance Hashable CreateJob
+
 instance ToHeaders CreateJob where
         toHeaders = const mempty
 

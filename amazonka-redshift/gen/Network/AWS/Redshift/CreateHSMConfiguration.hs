@@ -148,6 +148,8 @@ instance AWSRequest CreateHSMConfiguration where
                  CreateHSMConfigurationResponse' <$>
                    (x .@? "HsmConfiguration") <*> (pure (fromEnum s)))
 
+instance Hashable CreateHSMConfiguration
+
 instance ToHeaders CreateHSMConfiguration where
         toHeaders = const mempty
 

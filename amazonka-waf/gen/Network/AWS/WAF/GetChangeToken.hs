@@ -74,6 +74,8 @@ instance AWSRequest GetChangeToken where
                  GetChangeTokenResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable GetChangeToken
+
 instance ToHeaders GetChangeToken where
         toHeaders
           = const

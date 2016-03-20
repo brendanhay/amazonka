@@ -79,6 +79,8 @@ instance AWSRequest ListDeadLetterSourceQueues where
                  ListDeadLetterSourceQueuesResponse' <$>
                    (pure (fromEnum s)) <*> (parseXMLList "QueueUrl" x))
 
+instance Hashable ListDeadLetterSourceQueues
+
 instance ToHeaders ListDeadLetterSourceQueues where
         toHeaders = const mempty
 

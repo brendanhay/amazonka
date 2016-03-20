@@ -65,6 +65,8 @@ instance AWSRequest DescribeScalingProcessTypes where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeScalingProcessTypes
+
 instance ToHeaders DescribeScalingProcessTypes where
         toHeaders = const mempty
 

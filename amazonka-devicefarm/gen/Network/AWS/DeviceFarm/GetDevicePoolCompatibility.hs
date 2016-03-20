@@ -130,6 +130,8 @@ instance AWSRequest GetDevicePoolCompatibility where
                      (x .?> "compatibleDevices" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetDevicePoolCompatibility
+
 instance ToHeaders GetDevicePoolCompatibility where
         toHeaders
           = const

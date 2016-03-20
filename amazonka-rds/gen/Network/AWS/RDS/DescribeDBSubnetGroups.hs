@@ -131,6 +131,8 @@ instance AWSRequest DescribeDBSubnetGroups where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDBSubnetGroups
+
 instance ToHeaders DescribeDBSubnetGroups where
         toHeaders = const mempty
 

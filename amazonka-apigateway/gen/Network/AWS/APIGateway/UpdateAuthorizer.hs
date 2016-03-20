@@ -97,6 +97,8 @@ instance AWSRequest UpdateAuthorizer where
         request = patchJSON aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateAuthorizer
+
 instance ToHeaders UpdateAuthorizer where
         toHeaders
           = const

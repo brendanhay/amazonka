@@ -165,6 +165,8 @@ instance AWSRequest CopyImage where
                  CopyImageResponse' <$>
                    (x .@? "imageId") <*> (pure (fromEnum s)))
 
+instance Hashable CopyImage
+
 instance ToHeaders CopyImage where
         toHeaders = const mempty
 

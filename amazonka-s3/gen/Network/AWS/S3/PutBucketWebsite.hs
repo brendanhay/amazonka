@@ -85,6 +85,8 @@ instance AWSRequest PutBucketWebsite where
         request = putXML s3
         response = receiveNull PutBucketWebsiteResponse'
 
+instance Hashable PutBucketWebsite
+
 instance ToElement PutBucketWebsite where
         toElement
           = mkElement

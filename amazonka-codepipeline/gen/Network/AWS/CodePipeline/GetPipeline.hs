@@ -89,6 +89,8 @@ instance AWSRequest GetPipeline where
                  GetPipelineResponse' <$>
                    (x .?> "pipeline") <*> (pure (fromEnum s)))
 
+instance Hashable GetPipeline
+
 instance ToHeaders GetPipeline where
         toHeaders
           = const

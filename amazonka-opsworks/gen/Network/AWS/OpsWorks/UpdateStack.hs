@@ -333,6 +333,8 @@ instance AWSRequest UpdateStack where
         request = postJSON opsWorks
         response = receiveNull UpdateStackResponse'
 
+instance Hashable UpdateStack
+
 instance ToHeaders UpdateStack where
         toHeaders
           = const

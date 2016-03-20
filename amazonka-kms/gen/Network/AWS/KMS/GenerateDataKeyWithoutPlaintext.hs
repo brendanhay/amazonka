@@ -135,6 +135,8 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext
                    (x .?> "KeyId") <*> (x .?> "CiphertextBlob") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GenerateDataKeyWithoutPlaintext
+
 instance ToHeaders GenerateDataKeyWithoutPlaintext
          where
         toHeaders

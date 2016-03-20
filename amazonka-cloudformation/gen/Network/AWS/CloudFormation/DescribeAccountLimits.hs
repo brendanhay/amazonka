@@ -81,6 +81,8 @@ instance AWSRequest DescribeAccountLimits where
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeAccountLimits
+
 instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty
 

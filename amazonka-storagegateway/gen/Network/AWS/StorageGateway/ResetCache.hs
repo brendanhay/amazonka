@@ -85,6 +85,8 @@ instance AWSRequest ResetCache where
                  ResetCacheResponse' <$>
                    (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
+instance Hashable ResetCache
+
 instance ToHeaders ResetCache where
         toHeaders
           = const

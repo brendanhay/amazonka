@@ -145,6 +145,8 @@ instance AWSRequest DescribeSpotFleetRequestHistory
                      (x .@? "historyRecordSet" .!@ mempty >>=
                         parseXMLList "item"))
 
+instance Hashable DescribeSpotFleetRequestHistory
+
 instance ToHeaders DescribeSpotFleetRequestHistory
          where
         toHeaders = const mempty

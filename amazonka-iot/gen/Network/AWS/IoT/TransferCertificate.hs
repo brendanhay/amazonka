@@ -98,6 +98,8 @@ instance AWSRequest TransferCertificate where
                    (x .?> "transferredCertificateArn") <*>
                      (pure (fromEnum s)))
 
+instance Hashable TransferCertificate
+
 instance ToHeaders TransferCertificate where
         toHeaders = const mempty
 

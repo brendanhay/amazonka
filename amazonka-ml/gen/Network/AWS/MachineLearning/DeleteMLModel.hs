@@ -79,6 +79,8 @@ instance AWSRequest DeleteMLModel where
                  DeleteMLModelResponse' <$>
                    (x .?> "MLModelId") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteMLModel
+
 instance ToHeaders DeleteMLModel where
         toHeaders
           = const

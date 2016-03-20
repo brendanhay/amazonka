@@ -202,6 +202,8 @@ instance AWSRequest CreateMountTarget where
         request = postJSON eFS
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CreateMountTarget
+
 instance ToHeaders CreateMountTarget where
         toHeaders = const mempty
 

@@ -74,6 +74,8 @@ instance AWSRequest DeregisterRDSDBInstance where
         response
           = receiveNull DeregisterRDSDBInstanceResponse'
 
+instance Hashable DeregisterRDSDBInstance
+
 instance ToHeaders DeregisterRDSDBInstance where
         toHeaders
           = const

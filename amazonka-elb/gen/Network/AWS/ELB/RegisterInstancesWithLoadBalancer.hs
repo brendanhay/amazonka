@@ -117,6 +117,8 @@ instance AWSRequest RegisterInstancesWithLoadBalancer
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable RegisterInstancesWithLoadBalancer
+
 instance ToHeaders RegisterInstancesWithLoadBalancer
          where
         toHeaders = const mempty

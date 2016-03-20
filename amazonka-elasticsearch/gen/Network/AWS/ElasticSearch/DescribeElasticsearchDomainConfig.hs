@@ -81,6 +81,8 @@ instance AWSRequest DescribeElasticsearchDomainConfig
                  DescribeElasticsearchDomainConfigResponse' <$>
                    (pure (fromEnum s)) <*> (x .:> "DomainConfig"))
 
+instance Hashable DescribeElasticsearchDomainConfig
+
 instance ToHeaders DescribeElasticsearchDomainConfig
          where
         toHeaders = const mempty

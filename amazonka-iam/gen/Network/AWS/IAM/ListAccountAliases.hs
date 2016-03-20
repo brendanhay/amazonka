@@ -112,6 +112,8 @@ instance AWSRequest ListAccountAliases where
                      (x .@? "AccountAliases" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable ListAccountAliases
+
 instance ToHeaders ListAccountAliases where
         toHeaders = const mempty
 

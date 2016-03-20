@@ -78,6 +78,8 @@ instance AWSRequest CheckDNSAvailability where
                    (x .@? "FullyQualifiedCNAME") <*> (x .@? "Available")
                      <*> (pure (fromEnum s)))
 
+instance Hashable CheckDNSAvailability
+
 instance ToHeaders CheckDNSAvailability where
         toHeaders = const mempty
 

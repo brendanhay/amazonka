@@ -97,6 +97,8 @@ instance AWSRequest GetBatchPrediction where
                      <*> (x .?> "OutputUri")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetBatchPrediction
+
 instance ToHeaders GetBatchPrediction where
         toHeaders
           = const

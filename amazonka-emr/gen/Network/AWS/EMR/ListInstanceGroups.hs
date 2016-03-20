@@ -98,6 +98,8 @@ instance AWSRequest ListInstanceGroups where
                      (x .?> "InstanceGroups" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListInstanceGroups
+
 instance ToHeaders ListInstanceGroups where
         toHeaders
           = const

@@ -85,6 +85,8 @@ instance AWSRequest CreateLunaClient where
                  CreateLunaClientResponse' <$>
                    (x .?> "ClientArn") <*> (pure (fromEnum s)))
 
+instance Hashable CreateLunaClient
+
 instance ToHeaders CreateLunaClient where
         toHeaders
           = const

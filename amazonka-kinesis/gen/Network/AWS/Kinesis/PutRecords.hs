@@ -152,6 +152,8 @@ instance AWSRequest PutRecords where
                    (x .?> "FailedRecordCount") <*> (pure (fromEnum s))
                      <*> (x .:> "Records"))
 
+instance Hashable PutRecords
+
 instance ToHeaders PutRecords where
         toHeaders
           = const

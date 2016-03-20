@@ -104,6 +104,9 @@ instance AWSRequest
                  SetIdentityFeedbackForwardingEnabledResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable
+         SetIdentityFeedbackForwardingEnabled
+
 instance ToHeaders
          SetIdentityFeedbackForwardingEnabled where
         toHeaders = const mempty

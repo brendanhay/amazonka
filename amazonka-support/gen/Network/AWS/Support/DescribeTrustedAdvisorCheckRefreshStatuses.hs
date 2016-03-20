@@ -78,6 +78,9 @@ instance AWSRequest
                    (pure (fromEnum s)) <*>
                      (x .?> "statuses" .!@ mempty))
 
+instance Hashable
+         DescribeTrustedAdvisorCheckRefreshStatuses
+
 instance ToHeaders
          DescribeTrustedAdvisorCheckRefreshStatuses where
         toHeaders

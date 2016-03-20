@@ -66,6 +66,8 @@ instance AWSRequest CancelExportTask where
         request = postJSON cloudWatchLogs
         response = receiveNull CancelExportTaskResponse'
 
+instance Hashable CancelExportTask
+
 instance ToHeaders CancelExportTask where
         toHeaders
           = const

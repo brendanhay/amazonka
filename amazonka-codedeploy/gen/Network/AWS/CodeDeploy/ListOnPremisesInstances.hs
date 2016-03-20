@@ -110,6 +110,8 @@ instance AWSRequest ListOnPremisesInstances where
                      (x .?> "instanceNames" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListOnPremisesInstances
+
 instance ToHeaders ListOnPremisesInstances where
         toHeaders
           = const

@@ -85,6 +85,8 @@ instance AWSRequest AssociateElasticIP where
         request = postJSON opsWorks
         response = receiveNull AssociateElasticIPResponse'
 
+instance Hashable AssociateElasticIP
+
 instance ToHeaders AssociateElasticIP where
         toHeaders
           = const

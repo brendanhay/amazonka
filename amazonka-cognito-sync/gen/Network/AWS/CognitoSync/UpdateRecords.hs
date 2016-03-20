@@ -158,6 +158,8 @@ instance AWSRequest UpdateRecords where
                  UpdateRecordsResponse' <$>
                    (x .?> "Records" .!@ mempty) <*> (pure (fromEnum s)))
 
+instance Hashable UpdateRecords
+
 instance ToHeaders UpdateRecords where
         toHeaders UpdateRecords'{..}
           = mconcat

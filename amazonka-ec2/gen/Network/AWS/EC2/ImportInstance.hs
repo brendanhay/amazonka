@@ -122,6 +122,8 @@ instance AWSRequest ImportInstance where
                  ImportInstanceResponse' <$>
                    (x .@? "conversionTask") <*> (pure (fromEnum s)))
 
+instance Hashable ImportInstance
+
 instance ToHeaders ImportInstance where
         toHeaders = const mempty
 

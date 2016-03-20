@@ -94,6 +94,8 @@ instance AWSRequest DeleteInstance where
         request = postJSON opsWorks
         response = receiveNull DeleteInstanceResponse'
 
+instance Hashable DeleteInstance
+
 instance ToHeaders DeleteInstance where
         toHeaders
           = const

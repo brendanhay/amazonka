@@ -70,6 +70,8 @@ instance AWSRequest DeleteClusterSubnetGroup where
         response
           = receiveNull DeleteClusterSubnetGroupResponse'
 
+instance Hashable DeleteClusterSubnetGroup
+
 instance ToHeaders DeleteClusterSubnetGroup where
         toHeaders = const mempty
 

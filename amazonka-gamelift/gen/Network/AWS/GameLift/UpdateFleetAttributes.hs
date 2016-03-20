@@ -115,6 +115,8 @@ instance AWSRequest UpdateFleetAttributes where
                  UpdateFleetAttributesResponse' <$>
                    (x .?> "FleetId") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateFleetAttributes
+
 instance ToHeaders UpdateFleetAttributes where
         toHeaders
           = const

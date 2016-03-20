@@ -75,6 +75,8 @@ instance AWSRequest DeleteLayer where
         request = postJSON opsWorks
         response = receiveNull DeleteLayerResponse'
 
+instance Hashable DeleteLayer
+
 instance ToHeaders DeleteLayer where
         toHeaders
           = const

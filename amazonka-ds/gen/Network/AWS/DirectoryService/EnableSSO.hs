@@ -101,6 +101,8 @@ instance AWSRequest EnableSSO where
               (\ s h x ->
                  EnableSSOResponse' <$> (pure (fromEnum s)))
 
+instance Hashable EnableSSO
+
 instance ToHeaders EnableSSO where
         toHeaders
           = const

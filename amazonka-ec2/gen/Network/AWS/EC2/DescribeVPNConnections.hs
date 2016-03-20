@@ -144,6 +144,8 @@ instance AWSRequest DescribeVPNConnections where
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVPNConnections
+
 instance ToHeaders DescribeVPNConnections where
         toHeaders = const mempty
 

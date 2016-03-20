@@ -80,6 +80,8 @@ instance AWSRequest RotateEncryptionKey where
                  RotateEncryptionKeyResponse' <$>
                    (x .@? "Cluster") <*> (pure (fromEnum s)))
 
+instance Hashable RotateEncryptionKey
+
 instance ToHeaders RotateEncryptionKey where
         toHeaders = const mempty
 

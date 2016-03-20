@@ -96,6 +96,8 @@ instance AWSRequest MoveAddressToVPC where
                    (x .@? "status") <*> (x .@? "allocationId") <*>
                      (pure (fromEnum s)))
 
+instance Hashable MoveAddressToVPC
+
 instance ToHeaders MoveAddressToVPC where
         toHeaders = const mempty
 

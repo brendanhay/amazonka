@@ -87,6 +87,8 @@ instance AWSRequest
           = receiveNull
               AddClientIdToOpenIdConnectProviderResponse'
 
+instance Hashable AddClientIdToOpenIdConnectProvider
+
 instance ToHeaders AddClientIdToOpenIdConnectProvider
          where
         toHeaders = const mempty

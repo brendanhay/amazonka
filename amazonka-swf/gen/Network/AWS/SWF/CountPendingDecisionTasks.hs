@@ -102,6 +102,8 @@ instance AWSRequest CountPendingDecisionTasks where
         request = postJSON sWF
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable CountPendingDecisionTasks
+
 instance ToHeaders CountPendingDecisionTasks where
         toHeaders
           = const

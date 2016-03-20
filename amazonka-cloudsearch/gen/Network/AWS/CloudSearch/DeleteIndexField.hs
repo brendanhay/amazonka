@@ -91,6 +91,8 @@ instance AWSRequest DeleteIndexField where
                  DeleteIndexFieldResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "IndexField"))
 
+instance Hashable DeleteIndexField
+
 instance ToHeaders DeleteIndexField where
         toHeaders = const mempty
 

@@ -114,6 +114,8 @@ instance AWSRequest DescribeTapeArchives where
                      (x .?> "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeTapeArchives
+
 instance ToHeaders DescribeTapeArchives where
         toHeaders
           = const

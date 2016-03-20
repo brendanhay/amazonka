@@ -190,6 +190,8 @@ instance AWSRequest AuthorizeSecurityGroupIngress
         response
           = receiveNull AuthorizeSecurityGroupIngressResponse'
 
+instance Hashable AuthorizeSecurityGroupIngress
+
 instance ToHeaders AuthorizeSecurityGroupIngress
          where
         toHeaders = const mempty

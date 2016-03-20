@@ -68,6 +68,8 @@ instance AWSRequest GetSendStatistics where
                       may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetSendStatistics
+
 instance ToHeaders GetSendStatistics where
         toHeaders = const mempty
 

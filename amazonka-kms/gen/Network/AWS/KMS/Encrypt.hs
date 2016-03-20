@@ -147,6 +147,8 @@ instance AWSRequest Encrypt where
                    (x .?> "KeyId") <*> (x .?> "CiphertextBlob") <*>
                      (pure (fromEnum s)))
 
+instance Hashable Encrypt
+
 instance ToHeaders Encrypt where
         toHeaders
           = const

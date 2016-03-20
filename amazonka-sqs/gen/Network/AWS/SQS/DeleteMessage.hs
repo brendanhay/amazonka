@@ -97,6 +97,8 @@ instance AWSRequest DeleteMessage where
         request = postQuery sQS
         response = receiveNull DeleteMessageResponse'
 
+instance Hashable DeleteMessage
+
 instance ToHeaders DeleteMessage where
         toHeaders = const mempty
 

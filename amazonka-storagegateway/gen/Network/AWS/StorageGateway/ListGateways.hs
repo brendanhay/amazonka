@@ -111,6 +111,8 @@ instance AWSRequest ListGateways where
                    (x .?> "Marker") <*> (x .?> "Gateways" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListGateways
+
 instance ToHeaders ListGateways where
         toHeaders
           = const

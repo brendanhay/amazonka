@@ -112,6 +112,8 @@ instance AWSRequest SetLoadBasedAutoScaling where
         response
           = receiveNull SetLoadBasedAutoScalingResponse'
 
+instance Hashable SetLoadBasedAutoScaling
+
 instance ToHeaders SetLoadBasedAutoScaling where
         toHeaders
           = const

@@ -85,6 +85,8 @@ instance AWSRequest DetachThingPrincipal where
                  DetachThingPrincipalResponse' <$>
                    (pure (fromEnum s)))
 
+instance Hashable DetachThingPrincipal
+
 instance ToHeaders DetachThingPrincipal where
         toHeaders DetachThingPrincipal'{..}
           = mconcat ["x-amzn-principal" =# _dtpPrincipal]

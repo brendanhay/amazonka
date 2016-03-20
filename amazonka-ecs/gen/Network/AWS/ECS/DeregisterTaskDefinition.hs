@@ -87,6 +87,8 @@ instance AWSRequest DeregisterTaskDefinition where
                  DeregisterTaskDefinitionResponse' <$>
                    (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
+instance Hashable DeregisterTaskDefinition
+
 instance ToHeaders DeregisterTaskDefinition where
         toHeaders
           = const

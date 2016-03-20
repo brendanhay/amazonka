@@ -75,6 +75,8 @@ instance AWSRequest GetRun where
                  GetRunResponse' <$>
                    (x .?> "run") <*> (pure (fromEnum s)))
 
+instance Hashable GetRun
+
 instance ToHeaders GetRun where
         toHeaders
           = const

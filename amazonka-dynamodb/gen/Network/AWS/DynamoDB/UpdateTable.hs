@@ -148,6 +148,8 @@ instance AWSRequest UpdateTable where
                  UpdateTableResponse' <$>
                    (x .?> "TableDescription") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateTable
+
 instance ToHeaders UpdateTable where
         toHeaders
           = const

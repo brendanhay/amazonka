@@ -92,6 +92,8 @@ instance AWSRequest AttachInternetGateway where
         request = postQuery eC2
         response = receiveNull AttachInternetGatewayResponse'
 
+instance Hashable AttachInternetGateway
+
 instance ToHeaders AttachInternetGateway where
         toHeaders = const mempty
 

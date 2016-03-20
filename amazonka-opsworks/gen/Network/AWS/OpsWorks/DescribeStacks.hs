@@ -80,6 +80,8 @@ instance AWSRequest DescribeStacks where
                  DescribeStacksResponse' <$>
                    (x .?> "Stacks" .!@ mempty) <*> (pure (fromEnum s)))
 
+instance Hashable DescribeStacks
+
 instance ToHeaders DescribeStacks where
         toHeaders
           = const

@@ -83,6 +83,8 @@ instance AWSRequest AttachGroupPolicy where
         request = postQuery iAM
         response = receiveNull AttachGroupPolicyResponse'
 
+instance Hashable AttachGroupPolicy
+
 instance ToHeaders AttachGroupPolicy where
         toHeaders = const mempty
 

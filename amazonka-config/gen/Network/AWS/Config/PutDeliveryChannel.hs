@@ -81,6 +81,8 @@ instance AWSRequest PutDeliveryChannel where
         request = postJSON config
         response = receiveNull PutDeliveryChannelResponse'
 
+instance Hashable PutDeliveryChannel
+
 instance ToHeaders PutDeliveryChannel where
         toHeaders
           = const

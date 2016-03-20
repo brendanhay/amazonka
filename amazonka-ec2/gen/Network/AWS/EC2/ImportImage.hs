@@ -195,6 +195,8 @@ instance AWSRequest ImportImage where
                      <*> (x .@? "description")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ImportImage
+
 instance ToHeaders ImportImage where
         toHeaders = const mempty
 

@@ -258,6 +258,8 @@ instance AWSRequest UploadPartCopy where
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (pure (fromEnum s)))
 
+instance Hashable UploadPartCopy
+
 instance ToHeaders UploadPartCopy where
         toHeaders UploadPartCopy'{..}
           = mconcat

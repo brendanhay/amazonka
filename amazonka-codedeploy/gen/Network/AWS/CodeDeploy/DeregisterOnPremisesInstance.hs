@@ -71,6 +71,8 @@ instance AWSRequest DeregisterOnPremisesInstance
         response
           = receiveNull DeregisterOnPremisesInstanceResponse'
 
+instance Hashable DeregisterOnPremisesInstance
+
 instance ToHeaders DeregisterOnPremisesInstance where
         toHeaders
           = const

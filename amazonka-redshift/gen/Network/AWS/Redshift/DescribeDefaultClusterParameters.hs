@@ -136,6 +136,8 @@ instance AWSRequest DescribeDefaultClusterParameters
                    (pure (fromEnum s)) <*>
                      (x .@ "DefaultClusterParameters"))
 
+instance Hashable DescribeDefaultClusterParameters
+
 instance ToHeaders DescribeDefaultClusterParameters
          where
         toHeaders = const mempty

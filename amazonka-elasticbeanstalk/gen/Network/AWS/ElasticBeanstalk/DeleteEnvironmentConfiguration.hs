@@ -88,6 +88,8 @@ instance AWSRequest DeleteEnvironmentConfiguration
         response
           = receiveNull DeleteEnvironmentConfigurationResponse'
 
+instance Hashable DeleteEnvironmentConfiguration
+
 instance ToHeaders DeleteEnvironmentConfiguration
          where
         toHeaders = const mempty

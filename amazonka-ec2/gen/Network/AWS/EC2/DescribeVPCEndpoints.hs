@@ -132,6 +132,8 @@ instance AWSRequest DescribeVPCEndpoints where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeVPCEndpoints
+
 instance ToHeaders DescribeVPCEndpoints where
         toHeaders = const mempty
 

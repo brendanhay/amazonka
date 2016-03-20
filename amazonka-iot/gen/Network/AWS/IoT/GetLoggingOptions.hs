@@ -64,6 +64,8 @@ instance AWSRequest GetLoggingOptions where
                    (x .?> "logLevel") <*> (x .?> "roleArn") <*>
                      (pure (fromEnum s)))
 
+instance Hashable GetLoggingOptions
+
 instance ToHeaders GetLoggingOptions where
         toHeaders = const mempty
 

@@ -84,6 +84,8 @@ instance AWSRequest GetResource where
         request = get aPIGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable GetResource
+
 instance ToHeaders GetResource where
         toHeaders
           = const

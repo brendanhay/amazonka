@@ -77,6 +77,8 @@ instance AWSRequest DeleteDBParameterGroup where
         response
           = receiveNull DeleteDBParameterGroupResponse'
 
+instance Hashable DeleteDBParameterGroup
+
 instance ToHeaders DeleteDBParameterGroup where
         toHeaders = const mempty
 

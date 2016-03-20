@@ -90,6 +90,8 @@ instance AWSRequest ListUniqueProblems where
                      (x .?> "uniqueProblems" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListUniqueProblems
+
 instance ToHeaders ListUniqueProblems where
         toHeaders
           = const

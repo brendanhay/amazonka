@@ -80,6 +80,8 @@ instance AWSRequest DeleteEvaluation where
                  DeleteEvaluationResponse' <$>
                    (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteEvaluation
+
 instance ToHeaders DeleteEvaluation where
         toHeaders
           = const

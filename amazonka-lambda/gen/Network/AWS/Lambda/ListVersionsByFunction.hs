@@ -108,6 +108,8 @@ instance AWSRequest ListVersionsByFunction where
                      (x .?> "NextMarker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListVersionsByFunction
+
 instance ToHeaders ListVersionsByFunction where
         toHeaders = const mempty
 

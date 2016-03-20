@@ -112,6 +112,8 @@ instance AWSRequest ListBuilds where
                    (x .?> "Builds" .!@ mempty) <*> (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListBuilds
+
 instance ToHeaders ListBuilds where
         toHeaders
           = const

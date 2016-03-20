@@ -110,6 +110,8 @@ instance AWSRequest RegisterDevice where
                  RegisterDeviceResponse' <$>
                    (x .?> "DeviceId") <*> (pure (fromEnum s)))
 
+instance Hashable RegisterDevice
+
 instance ToHeaders RegisterDevice where
         toHeaders
           = const

@@ -62,6 +62,8 @@ instance AWSRequest ListDomainNames where
                       may (parseXMLMap "entry" "key" "value"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListDomainNames
+
 instance ToHeaders ListDomainNames where
         toHeaders = const mempty
 

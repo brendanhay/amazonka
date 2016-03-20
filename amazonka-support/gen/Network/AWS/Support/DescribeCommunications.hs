@@ -140,6 +140,8 @@ instance AWSRequest DescribeCommunications where
                      (x .?> "communications" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCommunications
+
 instance ToHeaders DescribeCommunications where
         toHeaders
           = const

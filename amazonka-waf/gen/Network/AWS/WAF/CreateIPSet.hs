@@ -106,6 +106,8 @@ instance AWSRequest CreateIPSet where
                    (x .?> "ChangeToken") <*> (x .?> "IPSet") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateIPSet
+
 instance ToHeaders CreateIPSet where
         toHeaders
           = const

@@ -70,6 +70,8 @@ instance AWSRequest CreateAccountAlias where
         request = postQuery iAM
         response = receiveNull CreateAccountAliasResponse'
 
+instance Hashable CreateAccountAlias
+
 instance ToHeaders CreateAccountAlias where
         toHeaders = const mempty
 

@@ -126,6 +126,8 @@ instance AWSRequest ChangeMessageVisibility where
         response
           = receiveNull ChangeMessageVisibilityResponse'
 
+instance Hashable ChangeMessageVisibility
+
 instance ToHeaders ChangeMessageVisibility where
         toHeaders = const mempty
 

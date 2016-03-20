@@ -99,6 +99,8 @@ instance AWSRequest CreateTags where
         request = postQuery eC2
         response = receiveNull CreateTagsResponse'
 
+instance Hashable CreateTags
+
 instance ToHeaders CreateTags where
         toHeaders = const mempty
 

@@ -74,6 +74,8 @@ instance AWSRequest CreateOrUpdateTags where
         request = postQuery autoScaling
         response = receiveNull CreateOrUpdateTagsResponse'
 
+instance Hashable CreateOrUpdateTags
+
 instance ToHeaders CreateOrUpdateTags where
         toHeaders = const mempty
 

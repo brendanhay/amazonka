@@ -85,6 +85,8 @@ instance AWSRequest BulkPublish where
                  BulkPublishResponse' <$>
                    (x .?> "IdentityPoolId") <*> (pure (fromEnum s)))
 
+instance Hashable BulkPublish
+
 instance ToHeaders BulkPublish where
         toHeaders
           = const

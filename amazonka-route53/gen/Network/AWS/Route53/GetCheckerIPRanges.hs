@@ -69,6 +69,8 @@ instance AWSRequest GetCheckerIPRanges where
                      (x .@? "CheckerIpRanges" .!@ mempty >>=
                         parseXMLList "member"))
 
+instance Hashable GetCheckerIPRanges
+
 instance ToHeaders GetCheckerIPRanges where
         toHeaders = const mempty
 

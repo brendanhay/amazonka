@@ -136,6 +136,8 @@ instance AWSRequest CreateClusterParameterGroup where
                    (x .@? "ClusterParameterGroup") <*>
                      (pure (fromEnum s)))
 
+instance Hashable CreateClusterParameterGroup
+
 instance ToHeaders CreateClusterParameterGroup where
         toHeaders = const mempty
 

@@ -91,6 +91,8 @@ instance AWSRequest TestEventPattern where
                  TestEventPatternResponse' <$>
                    (x .?> "Result") <*> (pure (fromEnum s)))
 
+instance Hashable TestEventPattern
+
 instance ToHeaders TestEventPattern where
         toHeaders
           = const

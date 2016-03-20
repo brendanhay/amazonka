@@ -93,6 +93,8 @@ instance AWSRequest RemoveTargets where
                      (x .?> "FailedEntries" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable RemoveTargets
+
 instance ToHeaders RemoveTargets where
         toHeaders
           = const

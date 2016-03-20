@@ -97,6 +97,8 @@ instance AWSRequest PutBucketVersioning where
         request = putXML s3
         response = receiveNull PutBucketVersioningResponse'
 
+instance Hashable PutBucketVersioning
+
 instance ToElement PutBucketVersioning where
         toElement
           = mkElement

@@ -131,6 +131,8 @@ instance AWSRequest DescribePrefixLists where
                         may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribePrefixLists
+
 instance ToHeaders DescribePrefixLists where
         toHeaders = const mempty
 

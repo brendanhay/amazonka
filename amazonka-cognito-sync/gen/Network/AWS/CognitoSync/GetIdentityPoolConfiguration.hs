@@ -87,6 +87,8 @@ instance AWSRequest GetIdentityPoolConfiguration
                      <*> (x .?> "PushSync")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetIdentityPoolConfiguration
+
 instance ToHeaders GetIdentityPoolConfiguration where
         toHeaders
           = const

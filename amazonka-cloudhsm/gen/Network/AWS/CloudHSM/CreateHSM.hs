@@ -158,6 +158,8 @@ instance AWSRequest CreateHSM where
                  CreateHSMResponse' <$>
                    (x .?> "HsmArn") <*> (pure (fromEnum s)))
 
+instance Hashable CreateHSM
+
 instance ToHeaders CreateHSM where
         toHeaders
           = const

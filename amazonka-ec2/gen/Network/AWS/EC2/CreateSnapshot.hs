@@ -132,6 +132,8 @@ instance AWSRequest CreateSnapshot where
         request = postQuery eC2
         response = receiveXML (\ s h x -> parseXML x)
 
+instance Hashable CreateSnapshot
+
 instance ToHeaders CreateSnapshot where
         toHeaders = const mempty
 

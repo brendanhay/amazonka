@@ -230,6 +230,8 @@ instance AWSRequest DescribeSpotInstanceRequests
                       may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeSpotInstanceRequests
+
 instance ToHeaders DescribeSpotInstanceRequests where
         toHeaders = const mempty
 

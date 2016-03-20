@@ -106,6 +106,8 @@ instance AWSRequest AttachNetworkInterface where
                  AttachNetworkInterfaceResponse' <$>
                    (x .@? "attachmentId") <*> (pure (fromEnum s)))
 
+instance Hashable AttachNetworkInterface
+
 instance ToHeaders AttachNetworkInterface where
         toHeaders = const mempty
 

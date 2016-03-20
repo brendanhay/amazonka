@@ -75,6 +75,8 @@ instance AWSRequest ResolveAlias where
                  ResolveAliasResponse' <$>
                    (x .?> "FleetId") <*> (pure (fromEnum s)))
 
+instance Hashable ResolveAlias
+
 instance ToHeaders ResolveAlias where
         toHeaders
           = const

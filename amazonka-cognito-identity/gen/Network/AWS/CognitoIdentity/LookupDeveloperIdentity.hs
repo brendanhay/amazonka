@@ -134,6 +134,8 @@ instance AWSRequest LookupDeveloperIdentity where
                      (x .?> "DeveloperUserIdentifierList" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable LookupDeveloperIdentity
+
 instance ToHeaders LookupDeveloperIdentity where
         toHeaders
           = const

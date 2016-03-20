@@ -124,6 +124,8 @@ instance AWSRequest UpdateIdentityPool where
         request = postJSON cognitoIdentity
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
+instance Hashable UpdateIdentityPool
+
 instance ToHeaders UpdateIdentityPool where
         toHeaders
           = const

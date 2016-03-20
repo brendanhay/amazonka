@@ -107,6 +107,8 @@ instance AWSRequest CreateInstanceExportTask where
                  CreateInstanceExportTaskResponse' <$>
                    (x .@? "exportTask") <*> (pure (fromEnum s)))
 
+instance Hashable CreateInstanceExportTask
+
 instance ToHeaders CreateInstanceExportTask where
         toHeaders = const mempty
 

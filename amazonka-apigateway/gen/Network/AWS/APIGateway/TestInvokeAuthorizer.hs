@@ -139,6 +139,8 @@ instance AWSRequest TestInvokeAuthorizer where
                      <*> (x .?> "policy")
                      <*> (pure (fromEnum s)))
 
+instance Hashable TestInvokeAuthorizer
+
 instance ToHeaders TestInvokeAuthorizer where
         toHeaders
           = const

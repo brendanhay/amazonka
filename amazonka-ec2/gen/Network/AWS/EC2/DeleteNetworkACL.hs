@@ -79,6 +79,8 @@ instance AWSRequest DeleteNetworkACL where
         request = postQuery eC2
         response = receiveNull DeleteNetworkACLResponse'
 
+instance Hashable DeleteNetworkACL
+
 instance ToHeaders DeleteNetworkACL where
         toHeaders = const mempty
 

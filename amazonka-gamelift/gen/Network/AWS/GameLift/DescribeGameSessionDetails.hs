@@ -141,6 +141,8 @@ instance AWSRequest DescribeGameSessionDetails where
                      (x .?> "NextToken")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeGameSessionDetails
+
 instance ToHeaders DescribeGameSessionDetails where
         toHeaders
           = const

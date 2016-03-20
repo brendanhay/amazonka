@@ -126,6 +126,8 @@ instance AWSRequest DescribeMetricFilters where
                      (x .?> "metricFilters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeMetricFilters
+
 instance ToHeaders DescribeMetricFilters where
         toHeaders
           = const

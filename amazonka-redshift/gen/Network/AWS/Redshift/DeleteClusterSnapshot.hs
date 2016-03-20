@@ -102,6 +102,8 @@ instance AWSRequest DeleteClusterSnapshot where
                  DeleteClusterSnapshotResponse' <$>
                    (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteClusterSnapshot
+
 instance ToHeaders DeleteClusterSnapshot where
         toHeaders = const mempty
 

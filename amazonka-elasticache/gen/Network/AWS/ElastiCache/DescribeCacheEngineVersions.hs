@@ -155,6 +155,8 @@ instance AWSRequest DescribeCacheEngineVersions where
                      <*> (x .@? "Marker")
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeCacheEngineVersions
+
 instance ToHeaders DescribeCacheEngineVersions where
         toHeaders = const mempty
 

@@ -103,6 +103,8 @@ instance AWSRequest DescribeServiceErrors where
                    (x .?> "ServiceErrors" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable DescribeServiceErrors
+
 instance ToHeaders DescribeServiceErrors where
         toHeaders
           = const

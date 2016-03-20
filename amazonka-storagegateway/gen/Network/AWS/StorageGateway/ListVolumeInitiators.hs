@@ -80,6 +80,8 @@ instance AWSRequest ListVolumeInitiators where
                    (x .?> "Initiators" .!@ mempty) <*>
                      (pure (fromEnum s)))
 
+instance Hashable ListVolumeInitiators
+
 instance ToHeaders ListVolumeInitiators where
         toHeaders
           = const

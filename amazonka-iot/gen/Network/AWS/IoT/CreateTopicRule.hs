@@ -80,6 +80,8 @@ instance AWSRequest CreateTopicRule where
         request = postJSON ioT
         response = receiveNull CreateTopicRuleResponse'
 
+instance Hashable CreateTopicRule
+
 instance ToHeaders CreateTopicRule where
         toHeaders = const mempty
 

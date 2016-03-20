@@ -100,6 +100,8 @@ instance AWSRequest DeleteSizeConstraintSet where
                  DeleteSizeConstraintSetResponse' <$>
                    (x .?> "ChangeToken") <*> (pure (fromEnum s)))
 
+instance Hashable DeleteSizeConstraintSet
+
 instance ToHeaders DeleteSizeConstraintSet where
         toHeaders
           = const

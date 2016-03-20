@@ -81,6 +81,8 @@ instance AWSRequest CreateDomain where
                  CreateDomainResponse' <$>
                    (x .@? "DomainStatus") <*> (pure (fromEnum s)))
 
+instance Hashable CreateDomain
+
 instance ToHeaders CreateDomain where
         toHeaders = const mempty
 

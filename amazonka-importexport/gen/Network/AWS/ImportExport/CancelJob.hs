@@ -85,6 +85,8 @@ instance AWSRequest CancelJob where
                  CancelJobResponse' <$>
                    (x .@? "Success") <*> (pure (fromEnum s)))
 
+instance Hashable CancelJob
+
 instance ToHeaders CancelJob where
         toHeaders = const mempty
 

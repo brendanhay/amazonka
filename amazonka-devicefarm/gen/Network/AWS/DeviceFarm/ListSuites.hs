@@ -88,6 +88,8 @@ instance AWSRequest ListSuites where
                    (x .?> "nextToken") <*> (x .?> "suites" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListSuites
+
 instance ToHeaders ListSuites where
         toHeaders
           = const

@@ -101,6 +101,8 @@ instance AWSRequest ResyncMFADevice where
         request = postQuery iAM
         response = receiveNull ResyncMFADeviceResponse'
 
+instance Hashable ResyncMFADevice
+
 instance ToHeaders ResyncMFADevice where
         toHeaders = const mempty
 

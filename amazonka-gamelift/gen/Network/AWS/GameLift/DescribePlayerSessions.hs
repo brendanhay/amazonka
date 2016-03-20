@@ -151,6 +151,8 @@ instance AWSRequest DescribePlayerSessions where
                      (x .?> "PlayerSessions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribePlayerSessions
+
 instance ToHeaders DescribePlayerSessions where
         toHeaders
           = const

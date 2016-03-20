@@ -108,6 +108,8 @@ instance AWSRequest GetConsoleOutput where
                      (x .@? "timestamp")
                      <*> (pure (fromEnum s)))
 
+instance Hashable GetConsoleOutput
+
 instance ToHeaders GetConsoleOutput where
         toHeaders = const mempty
 

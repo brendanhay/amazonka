@@ -87,6 +87,8 @@ instance AWSRequest GetModelTemplate where
                  GetModelTemplateResponse' <$>
                    (x .?> "value") <*> (pure (fromEnum s)))
 
+instance Hashable GetModelTemplate
+
 instance ToHeaders GetModelTemplate where
         toHeaders
           = const

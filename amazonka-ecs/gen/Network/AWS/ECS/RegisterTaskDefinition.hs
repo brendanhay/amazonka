@@ -102,6 +102,8 @@ instance AWSRequest RegisterTaskDefinition where
                  RegisterTaskDefinitionResponse' <$>
                    (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
+instance Hashable RegisterTaskDefinition
+
 instance ToHeaders RegisterTaskDefinition where
         toHeaders
           = const

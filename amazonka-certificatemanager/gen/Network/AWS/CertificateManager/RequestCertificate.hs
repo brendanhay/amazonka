@@ -133,6 +133,8 @@ instance AWSRequest RequestCertificate where
                  RequestCertificateResponse' <$>
                    (x .?> "CertificateArn") <*> (pure (fromEnum s)))
 
+instance Hashable RequestCertificate
+
 instance ToHeaders RequestCertificate where
         toHeaders
           = const

@@ -384,6 +384,8 @@ instance AWSRequest CreateStack where
                  CreateStackResponse' <$>
                    (x .?> "StackId") <*> (pure (fromEnum s)))
 
+instance Hashable CreateStack
+
 instance ToHeaders CreateStack where
         toHeaders
           = const

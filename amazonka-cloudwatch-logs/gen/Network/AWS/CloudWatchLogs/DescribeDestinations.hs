@@ -114,6 +114,8 @@ instance AWSRequest DescribeDestinations where
                      (x .?> "destinations" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable DescribeDestinations
+
 instance ToHeaders DescribeDestinations where
         toHeaders
           = const

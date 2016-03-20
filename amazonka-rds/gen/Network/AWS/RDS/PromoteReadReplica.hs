@@ -130,6 +130,8 @@ instance AWSRequest PromoteReadReplica where
                  PromoteReadReplicaResponse' <$>
                    (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
+instance Hashable PromoteReadReplica
+
 instance ToHeaders PromoteReadReplica where
         toHeaders = const mempty
 

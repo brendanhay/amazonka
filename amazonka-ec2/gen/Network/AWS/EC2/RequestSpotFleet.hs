@@ -105,6 +105,8 @@ instance AWSRequest RequestSpotFleet where
                  RequestSpotFleetResponse' <$>
                    (pure (fromEnum s)) <*> (x .@ "spotFleetRequestId"))
 
+instance Hashable RequestSpotFleet
+
 instance ToHeaders RequestSpotFleet where
         toHeaders = const mempty
 

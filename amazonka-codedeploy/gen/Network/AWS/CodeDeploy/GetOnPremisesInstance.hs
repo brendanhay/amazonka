@@ -76,6 +76,8 @@ instance AWSRequest GetOnPremisesInstance where
                  GetOnPremisesInstanceResponse' <$>
                    (x .?> "instanceInfo") <*> (pure (fromEnum s)))
 
+instance Hashable GetOnPremisesInstance
+
 instance ToHeaders GetOnPremisesInstance where
         toHeaders
           = const

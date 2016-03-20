@@ -108,6 +108,8 @@ instance AWSRequest DisableStageTransition where
         response
           = receiveNull DisableStageTransitionResponse'
 
+instance Hashable DisableStageTransition
+
 instance ToHeaders DisableStageTransition where
         toHeaders
           = const

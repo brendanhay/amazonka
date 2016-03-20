@@ -108,6 +108,8 @@ instance AWSRequest ListAssociations where
                      (x .?> "Associations" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable ListAssociations
+
 instance ToHeaders ListAssociations where
         toHeaders
           = const

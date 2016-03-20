@@ -86,6 +86,8 @@ instance AWSRequest UpdateProject where
                  UpdateProjectResponse' <$>
                    (x .?> "project") <*> (pure (fromEnum s)))
 
+instance Hashable UpdateProject
+
 instance ToHeaders UpdateProject where
         toHeaders
           = const

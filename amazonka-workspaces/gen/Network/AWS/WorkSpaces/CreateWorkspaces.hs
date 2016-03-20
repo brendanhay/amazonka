@@ -81,6 +81,8 @@ instance AWSRequest CreateWorkspaces where
                      (x .?> "PendingRequests" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
+instance Hashable CreateWorkspaces
+
 instance ToHeaders CreateWorkspaces where
         toHeaders
           = const

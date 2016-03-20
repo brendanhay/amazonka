@@ -85,6 +85,8 @@ instance AWSRequest DetachElasticLoadBalancer where
         response
           = receiveNull DetachElasticLoadBalancerResponse'
 
+instance Hashable DetachElasticLoadBalancer
+
 instance ToHeaders DetachElasticLoadBalancer where
         toHeaders
           = const

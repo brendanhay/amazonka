@@ -83,6 +83,8 @@ instance AWSRequest ChangePassword where
         request = postQuery iAM
         response = receiveNull ChangePasswordResponse'
 
+instance Hashable ChangePassword
+
 instance ToHeaders ChangePassword where
         toHeaders = const mempty
 

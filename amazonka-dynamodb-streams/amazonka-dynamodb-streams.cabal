@@ -1,5 +1,5 @@
 name:                  amazonka-dynamodb-streams
-version:               1.3.7
+version:               1.3.8
 synopsis:              Amazon DynamoDB Streams SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -80,7 +80,7 @@ library
         , Network.AWS.DynamoDBStreams.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.7.*
+          amazonka-core == 1.3.8.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-dynamodb-streams-test
@@ -100,9 +100,9 @@ test-suite amazonka-dynamodb-streams-test
         , Test.AWS.DynamoDBStreams.Internal
 
     build-depends:
-          amazonka-core == 1.3.7.*
-        , amazonka-test == 1.3.7.*
-        , amazonka-dynamodb-streams == 1.3.7.*
+          amazonka-core == 1.3.8.*
+        , amazonka-test == 1.3.8.*
+        , amazonka-dynamodb-streams == 1.3.8.*
         , base
         , bytestring
         , tasty

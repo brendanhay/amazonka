@@ -43,7 +43,7 @@
 module Network.AWS.SQS
     (
     -- * Service Configuration
-      sQS
+      sqs
 
     -- * Errors
     -- $errors

@@ -137,7 +137,7 @@
 module Network.AWS.SSM
     (
     -- * Service Configuration
-      sSM
+      ssm
 
     -- * Errors
     -- $errors

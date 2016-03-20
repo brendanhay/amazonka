@@ -43,7 +43,7 @@
 module Network.AWS.RDS
     (
     -- * Service Configuration
-      rDS
+      rds
 
     -- * Errors
     -- $errors

@@ -15,7 +15,7 @@
 module Network.AWS.EFS
     (
     -- * Service Configuration
-      eFS
+      efs
 
     -- * Errors
     -- $errors

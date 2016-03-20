@@ -31,7 +31,7 @@
 module Network.AWS.SDB
     (
     -- * Service Configuration
-      sDB
+      sdb
 
     -- * Errors
     -- $errors

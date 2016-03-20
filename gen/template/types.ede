@@ -7,7 +7,7 @@
 module {{ moduleName }}
     (
     -- * Service Configuration
-      {{ serviceAbbrev | lowerHead }}
+      {{ serviceConfig }}
   {% for shape in shapes %}
     {% if shape.first %}
 

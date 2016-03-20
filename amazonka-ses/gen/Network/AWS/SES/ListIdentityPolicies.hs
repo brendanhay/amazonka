@@ -86,7 +86,7 @@ lipIdentity = lens _lipIdentity (\ s a -> s{_lipIdentity = a});
 instance AWSRequest ListIdentityPolicies where
         type Rs ListIdentityPolicies =
              ListIdentityPoliciesResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "ListIdentityPoliciesResult"
               (\ s h x ->

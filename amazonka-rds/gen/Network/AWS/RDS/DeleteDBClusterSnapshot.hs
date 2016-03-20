@@ -79,7 +79,7 @@ ddcsDBClusterSnapshotIdentifier = lens _ddcsDBClusterSnapshotIdentifier (\ s a -
 instance AWSRequest DeleteDBClusterSnapshot where
         type Rs DeleteDBClusterSnapshot =
              DeleteDBClusterSnapshotResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DeleteDBClusterSnapshotResult"
               (\ s h x ->

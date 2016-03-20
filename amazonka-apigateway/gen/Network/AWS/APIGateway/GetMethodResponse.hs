@@ -99,7 +99,7 @@ gmStatusCode = lens _gmStatusCode (\ s a -> s{_gmStatusCode = a});
 
 instance AWSRequest GetMethodResponse where
         type Rs GetMethodResponse = MethodResponse
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetMethodResponse

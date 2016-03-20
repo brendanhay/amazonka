@@ -76,7 +76,7 @@ ddSubnetId = lens _ddSubnetId (\ s a -> s{_ddSubnetId = a});
 
 instance AWSRequest DeleteSubnet where
         type Rs DeleteSubnet = DeleteSubnetResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeleteSubnetResponse'
 
 instance Hashable DeleteSubnet

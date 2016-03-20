@@ -87,7 +87,7 @@ srtStartReplicationTaskType = lens _srtStartReplicationTaskType (\ s a -> s{_srt
 instance AWSRequest StartReplicationTask where
         type Rs StartReplicationTask =
              StartReplicationTaskResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

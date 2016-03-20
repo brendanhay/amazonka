@@ -99,7 +99,7 @@ gcoInstanceId = lens _gcoInstanceId (\ s a -> s{_gcoInstanceId = a});
 
 instance AWSRequest GetConsoleOutput where
         type Rs GetConsoleOutput = GetConsoleOutputResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

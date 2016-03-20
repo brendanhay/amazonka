@@ -89,7 +89,7 @@ instance AWSRequest SetLoadBalancerPoliciesOfListener
          where
         type Rs SetLoadBalancerPoliciesOfListener =
              SetLoadBalancerPoliciesOfListenerResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper
               "SetLoadBalancerPoliciesOfListenerResult"

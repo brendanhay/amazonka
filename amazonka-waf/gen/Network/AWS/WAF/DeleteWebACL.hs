@@ -86,7 +86,7 @@ dwaChangeToken = lens _dwaChangeToken (\ s a -> s{_dwaChangeToken = a});
 
 instance AWSRequest DeleteWebACL where
         type Rs DeleteWebACL = DeleteWebACLResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

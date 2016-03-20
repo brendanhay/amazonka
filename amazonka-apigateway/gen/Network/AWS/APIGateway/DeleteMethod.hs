@@ -85,7 +85,7 @@ dmmHttpMethod = lens _dmmHttpMethod (\ s a -> s{_dmmHttpMethod = a});
 
 instance AWSRequest DeleteMethod where
         type Rs DeleteMethod = DeleteMethodResponse'
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull DeleteMethodResponse''
 
 instance Hashable DeleteMethod

@@ -93,7 +93,7 @@ dasDryRun = lens _dasDryRun (\ s a -> s{_dasDryRun = a});
 instance AWSRequest DisassociateAddress where
         type Rs DisassociateAddress =
              DisassociateAddressResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DisassociateAddressResponse'
 
 instance Hashable DisassociateAddress

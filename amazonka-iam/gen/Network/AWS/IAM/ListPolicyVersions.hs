@@ -113,7 +113,7 @@ instance AWSPager ListPolicyVersions where
 instance AWSRequest ListPolicyVersions where
         type Rs ListPolicyVersions =
              ListPolicyVersionsResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListPolicyVersionsResult"
               (\ s h x ->

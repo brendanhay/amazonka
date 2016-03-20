@@ -77,7 +77,7 @@ digiInternetGatewayId = lens _digiInternetGatewayId (\ s a -> s{_digiInternetGat
 instance AWSRequest DeleteInternetGateway where
         type Rs DeleteInternetGateway =
              DeleteInternetGatewayResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeleteInternetGatewayResponse'
 
 instance Hashable DeleteInternetGateway

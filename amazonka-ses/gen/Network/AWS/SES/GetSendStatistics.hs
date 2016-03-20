@@ -59,7 +59,7 @@ getSendStatistics = GetSendStatistics'
 
 instance AWSRequest GetSendStatistics where
         type Rs GetSendStatistics = GetSendStatisticsResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "GetSendStatisticsResult"
               (\ s h x ->

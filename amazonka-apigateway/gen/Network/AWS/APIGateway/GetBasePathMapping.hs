@@ -82,7 +82,7 @@ gbpmBasePath = lens _gbpmBasePath (\ s a -> s{_gbpmBasePath = a});
 
 instance AWSRequest GetBasePathMapping where
         type Rs GetBasePathMapping = BasePathMapping
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetBasePathMapping

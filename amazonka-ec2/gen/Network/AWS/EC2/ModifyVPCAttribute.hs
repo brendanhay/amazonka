@@ -96,7 +96,7 @@ mvaVPCId = lens _mvaVPCId (\ s a -> s{_mvaVPCId = a});
 instance AWSRequest ModifyVPCAttribute where
         type Rs ModifyVPCAttribute =
              ModifyVPCAttributeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull ModifyVPCAttributeResponse'
 
 instance Hashable ModifyVPCAttribute

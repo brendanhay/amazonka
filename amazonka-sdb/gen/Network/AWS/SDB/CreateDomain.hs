@@ -73,7 +73,7 @@ cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
 
 instance AWSRequest CreateDomain where
         type Rs CreateDomain = CreateDomainResponse
-        request = postQuery sDB
+        request = postQuery sdb
         response = receiveNull CreateDomainResponse'
 
 instance Hashable CreateDomain

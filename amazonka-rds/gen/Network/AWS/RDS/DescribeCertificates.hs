@@ -115,7 +115,7 @@ dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
 instance AWSRequest DescribeCertificates where
         type Rs DescribeCertificates =
              DescribeCertificatesResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DescribeCertificatesResult"
               (\ s h x ->

@@ -98,7 +98,7 @@ rsfSpotFleetRequestConfig = lens _rsfSpotFleetRequestConfig (\ s a -> s{_rsfSpot
 
 instance AWSRequest RequestSpotFleet where
         type Rs RequestSpotFleet = RequestSpotFleetResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

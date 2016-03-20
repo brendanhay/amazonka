@@ -127,7 +127,7 @@ uisUpdates = lens _uisUpdates (\ s a -> s{_uisUpdates = a}) . _Coerce;
 
 instance AWSRequest UpdateIPSet where
         type Rs UpdateIPSet = UpdateIPSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

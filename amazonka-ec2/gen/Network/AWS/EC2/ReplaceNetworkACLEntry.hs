@@ -151,7 +151,7 @@ rnaeCIdRBlock = lens _rnaeCIdRBlock (\ s a -> s{_rnaeCIdRBlock = a});
 instance AWSRequest ReplaceNetworkACLEntry where
         type Rs ReplaceNetworkACLEntry =
              ReplaceNetworkACLEntryResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull ReplaceNetworkACLEntryResponse'
 

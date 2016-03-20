@@ -104,7 +104,7 @@ rgGrantToken = lens _rgGrantToken (\ s a -> s{_rgGrantToken = a});
 
 instance AWSRequest RetireGrant where
         type Rs RetireGrant = RetireGrantResponse
-        request = postJSON kMS
+        request = postJSON kms
         response = receiveNull RetireGrantResponse'
 
 instance Hashable RetireGrant

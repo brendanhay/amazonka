@@ -102,7 +102,7 @@ instance AWSPager GetDeployments where
 
 instance AWSRequest GetDeployments where
         type Rs GetDeployments = GetDeploymentsResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

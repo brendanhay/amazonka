@@ -139,7 +139,7 @@ reDestinationKeyId = lens _reDestinationKeyId (\ s a -> s{_reDestinationKeyId = 
 
 instance AWSRequest ReEncrypt where
         type Rs ReEncrypt = ReEncryptResponse
-        request = postJSON kMS
+        request = postJSON kms
         response
           = receiveJSON
               (\ s h x ->

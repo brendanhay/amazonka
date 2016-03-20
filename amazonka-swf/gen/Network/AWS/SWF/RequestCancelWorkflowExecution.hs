@@ -114,7 +114,7 @@ instance AWSRequest RequestCancelWorkflowExecution
          where
         type Rs RequestCancelWorkflowExecution =
              RequestCancelWorkflowExecutionResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveNull RequestCancelWorkflowExecutionResponse'
 

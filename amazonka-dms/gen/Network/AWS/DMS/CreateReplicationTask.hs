@@ -153,7 +153,7 @@ crtTableMappings = lens _crtTableMappings (\ s a -> s{_crtTableMappings = a});
 instance AWSRequest CreateReplicationTask where
         type Rs CreateReplicationTask =
              CreateReplicationTaskResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

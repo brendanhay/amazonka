@@ -83,7 +83,7 @@ rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce;
 
 instance AWSRequest RemoveTags where
         type Rs RemoveTags = RemoveTagsResponse
-        request = postJSON eMR
+        request = postJSON emr
         response
           = receiveEmpty
               (\ s h x ->

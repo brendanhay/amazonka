@@ -96,7 +96,7 @@ gduflLayerDigest = lens _gduflLayerDigest (\ s a -> s{_gduflLayerDigest = a});
 instance AWSRequest GetDownloadURLForLayer where
         type Rs GetDownloadURLForLayer =
              GetDownloadURLForLayerResponse
-        request = postJSON eCR
+        request = postJSON ecr
         response
           = receiveJSON
               (\ s h x ->

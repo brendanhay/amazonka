@@ -71,7 +71,7 @@ dsamlpSAMLProviderARN = lens _dsamlpSAMLProviderARN (\ s a -> s{_dsamlpSAMLProvi
 instance AWSRequest DeleteSAMLProvider where
         type Rs DeleteSAMLProvider =
              DeleteSAMLProviderResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull DeleteSAMLProviderResponse'
 
 instance Hashable DeleteSAMLProvider

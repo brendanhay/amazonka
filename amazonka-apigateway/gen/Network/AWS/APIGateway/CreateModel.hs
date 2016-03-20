@@ -110,7 +110,7 @@ cmContentType = lens _cmContentType (\ s a -> s{_cmContentType = a});
 
 instance AWSRequest CreateModel where
         type Rs CreateModel = Model
-        request = postJSON aPIGateway
+        request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CreateModel

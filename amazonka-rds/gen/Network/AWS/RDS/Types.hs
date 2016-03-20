@@ -13,7 +13,7 @@
 module Network.AWS.RDS.Types
     (
     -- * Service Configuration
-      rDS
+      rds
 
     -- * Errors
     , _PointInTimeRestoreNotEnabledFault
@@ -626,14 +626,14 @@ import           Network.AWS.RDS.Types.Sum
 import           Network.AWS.Sign.V4
 
 -- | API version '2014-10-31' of the Amazon Relational Database Service SDK configuration.
-rDS :: Service
-rDS =
+rds :: Service
+rds =
     Service
     { _svcAbbrev = "RDS"
     , _svcSigner = v4
     , _svcPrefix = "rds"
     , _svcVersion = "2014-10-31"
-    , _svcEndpoint = defaultEndpoint rDS
+    , _svcEndpoint = defaultEndpoint rds
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseXMLError

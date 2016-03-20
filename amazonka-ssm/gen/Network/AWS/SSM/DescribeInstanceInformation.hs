@@ -95,7 +95,7 @@ diiMaxResults = lens _diiMaxResults (\ s a -> s{_diiMaxResults = a}) . mapping _
 instance AWSRequest DescribeInstanceInformation where
         type Rs DescribeInstanceInformation =
              DescribeInstanceInformationResponse
-        request = postJSON sSM
+        request = postJSON ssm
         response
           = receiveJSON
               (\ s h x ->

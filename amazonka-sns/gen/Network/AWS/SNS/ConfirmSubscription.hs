@@ -95,7 +95,7 @@ csToken = lens _csToken (\ s a -> s{_csToken = a});
 instance AWSRequest ConfirmSubscription where
         type Rs ConfirmSubscription =
              ConfirmSubscriptionResponse
-        request = postQuery sNS
+        request = postQuery sns
         response
           = receiveXMLWrapper "ConfirmSubscriptionResult"
               (\ s h x ->

@@ -84,7 +84,7 @@ ckdKeyId = lens _ckdKeyId (\ s a -> s{_ckdKeyId = a});
 
 instance AWSRequest CancelKeyDeletion where
         type Rs CancelKeyDeletion = CancelKeyDeletionResponse
-        request = postJSON kMS
+        request = postJSON kms
         response
           = receiveJSON
               (\ s h x ->

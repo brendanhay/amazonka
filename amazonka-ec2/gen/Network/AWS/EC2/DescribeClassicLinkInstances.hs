@@ -141,7 +141,7 @@ instance AWSRequest DescribeClassicLinkInstances
          where
         type Rs DescribeClassicLinkInstances =
              DescribeClassicLinkInstancesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

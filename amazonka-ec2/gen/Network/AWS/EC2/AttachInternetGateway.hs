@@ -89,7 +89,7 @@ aigVPCId = lens _aigVPCId (\ s a -> s{_aigVPCId = a});
 instance AWSRequest AttachInternetGateway where
         type Rs AttachInternetGateway =
              AttachInternetGatewayResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull AttachInternetGatewayResponse'
 
 instance Hashable AttachInternetGateway

@@ -124,7 +124,7 @@ gqaQueueURL = lens _gqaQueueURL (\ s a -> s{_gqaQueueURL = a});
 instance AWSRequest GetQueueAttributes where
         type Rs GetQueueAttributes =
              GetQueueAttributesResponse
-        request = postQuery sQS
+        request = postQuery sqs
         response
           = receiveXMLWrapper "GetQueueAttributesResult"
               (\ s h x ->

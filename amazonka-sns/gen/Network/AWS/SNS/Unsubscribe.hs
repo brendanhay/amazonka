@@ -71,7 +71,7 @@ uSubscriptionARN = lens _uSubscriptionARN (\ s a -> s{_uSubscriptionARN = a});
 
 instance AWSRequest Unsubscribe where
         type Rs Unsubscribe = UnsubscribeResponse
-        request = postQuery sNS
+        request = postQuery sns
         response = receiveNull UnsubscribeResponse'
 
 instance Hashable Unsubscribe

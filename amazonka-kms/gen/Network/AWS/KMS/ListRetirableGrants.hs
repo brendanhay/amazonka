@@ -105,7 +105,7 @@ lrgRetiringPrincipal = lens _lrgRetiringPrincipal (\ s a -> s{_lrgRetiringPrinci
 
 instance AWSRequest ListRetirableGrants where
         type Rs ListRetirableGrants = ListGrantsResponse
-        request = postJSON kMS
+        request = postJSON kms
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable ListRetirableGrants

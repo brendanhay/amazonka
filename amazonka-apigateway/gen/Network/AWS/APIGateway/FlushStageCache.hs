@@ -75,7 +75,7 @@ fscStageName = lens _fscStageName (\ s a -> s{_fscStageName = a});
 
 instance AWSRequest FlushStageCache where
         type Rs FlushStageCache = FlushStageCacheResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull FlushStageCacheResponse'
 
 instance Hashable FlushStageCache

@@ -108,7 +108,7 @@ pipPolicy = lens _pipPolicy (\ s a -> s{_pipPolicy = a});
 
 instance AWSRequest PutIdentityPolicy where
         type Rs PutIdentityPolicy = PutIdentityPolicyResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "PutIdentityPolicyResult"
               (\ s h x ->

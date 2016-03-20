@@ -89,7 +89,7 @@ resAttribute = lens _resAttribute (\ s a -> s{_resAttribute = a});
 instance AWSRequest ResetImageAttribute where
         type Rs ResetImageAttribute =
              ResetImageAttributeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull ResetImageAttributeResponse'
 
 instance Hashable ResetImageAttribute

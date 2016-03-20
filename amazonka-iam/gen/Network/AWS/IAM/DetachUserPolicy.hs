@@ -79,7 +79,7 @@ dPolicyARN = lens _dPolicyARN (\ s a -> s{_dPolicyARN = a});
 
 instance AWSRequest DetachUserPolicy where
         type Rs DetachUserPolicy = DetachUserPolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull DetachUserPolicyResponse'
 
 instance Hashable DetachUserPolicy

@@ -88,7 +88,7 @@ instance AWSRequest
          DescribeOrderableReplicationInstances where
         type Rs DescribeOrderableReplicationInstances =
              DescribeOrderableReplicationInstancesResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

@@ -112,7 +112,7 @@ apiaNetworkInterfaceId = lens _apiaNetworkInterfaceId (\ s a -> s{_apiaNetworkIn
 instance AWSRequest AssignPrivateIPAddresses where
         type Rs AssignPrivateIPAddresses =
              AssignPrivateIPAddressesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull AssignPrivateIPAddressesResponse'
 

@@ -107,7 +107,7 @@ dazDryRun = lens _dazDryRun (\ s a -> s{_dazDryRun = a});
 instance AWSRequest DescribeAvailabilityZones where
         type Rs DescribeAvailabilityZones =
              DescribeAvailabilityZonesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

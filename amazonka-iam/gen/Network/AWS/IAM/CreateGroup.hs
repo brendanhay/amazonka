@@ -84,7 +84,7 @@ cgGroupName = lens _cgGroupName (\ s a -> s{_cgGroupName = a});
 
 instance AWSRequest CreateGroup where
         type Rs CreateGroup = CreateGroupResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "CreateGroupResult"
               (\ s h x ->

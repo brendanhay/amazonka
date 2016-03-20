@@ -189,7 +189,7 @@ rmQueueURL = lens _rmQueueURL (\ s a -> s{_rmQueueURL = a});
 
 instance AWSRequest ReceiveMessage where
         type Rs ReceiveMessage = ReceiveMessageResponse
-        request = postQuery sQS
+        request = postQuery sqs
         response
           = receiveXMLWrapper "ReceiveMessageResult"
               (\ s h x ->

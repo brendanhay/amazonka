@@ -69,7 +69,7 @@ dngNatGatewayId = lens _dngNatGatewayId (\ s a -> s{_dngNatGatewayId = a});
 
 instance AWSRequest DeleteNatGateway where
         type Rs DeleteNatGateway = DeleteNatGatewayResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

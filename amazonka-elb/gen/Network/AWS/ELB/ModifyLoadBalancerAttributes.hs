@@ -93,7 +93,7 @@ instance AWSRequest ModifyLoadBalancerAttributes
          where
         type Rs ModifyLoadBalancerAttributes =
              ModifyLoadBalancerAttributesResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper
               "ModifyLoadBalancerAttributesResult"

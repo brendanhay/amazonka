@@ -105,7 +105,7 @@ instance AWSRequest CreateAppCookieStickinessPolicy
          where
         type Rs CreateAppCookieStickinessPolicy =
              CreateAppCookieStickinessPolicyResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper
               "CreateAppCookieStickinessPolicyResult"

@@ -101,7 +101,7 @@ instance AWSPager ListAccountAliases where
 instance AWSRequest ListAccountAliases where
         type Rs ListAccountAliases =
              ListAccountAliasesResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListAccountAliasesResult"
               (\ s h x ->

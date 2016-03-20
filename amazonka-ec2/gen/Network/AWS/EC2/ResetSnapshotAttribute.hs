@@ -91,7 +91,7 @@ rsaAttribute = lens _rsaAttribute (\ s a -> s{_rsaAttribute = a});
 instance AWSRequest ResetSnapshotAttribute where
         type Rs ResetSnapshotAttribute =
              ResetSnapshotAttributeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull ResetSnapshotAttributeResponse'
 

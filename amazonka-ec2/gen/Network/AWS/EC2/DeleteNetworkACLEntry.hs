@@ -97,7 +97,7 @@ dnaeEgress = lens _dnaeEgress (\ s a -> s{_dnaeEgress = a});
 instance AWSRequest DeleteNetworkACLEntry where
         type Rs DeleteNetworkACLEntry =
              DeleteNetworkACLEntryResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeleteNetworkACLEntryResponse'
 
 instance Hashable DeleteNetworkACLEntry

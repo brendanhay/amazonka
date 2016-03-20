@@ -73,7 +73,7 @@ gakApiKey = lens _gakApiKey (\ s a -> s{_gakApiKey = a});
 
 instance AWSRequest GetAPIKey where
         type Rs GetAPIKey = APIKey
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetAPIKey

@@ -13,7 +13,7 @@
 module Network.AWS.APIGateway.Types
     (
     -- * Service Configuration
-      aPIGateway
+      apiGateway
 
     -- * Errors
     , _ConflictException
@@ -232,14 +232,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
 -- | API version '2015-07-09' of the Amazon API Gateway SDK configuration.
-aPIGateway :: Service
-aPIGateway =
+apiGateway :: Service
+apiGateway =
     Service
     { _svcAbbrev = "APIGateway"
     , _svcSigner = v4
     , _svcPrefix = "apigateway"
     , _svcVersion = "2015-07-09"
-    , _svcEndpoint = defaultEndpoint aPIGateway
+    , _svcEndpoint = defaultEndpoint apiGateway
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseJSONError

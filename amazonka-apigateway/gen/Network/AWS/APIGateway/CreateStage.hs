@@ -137,7 +137,7 @@ csDeploymentId = lens _csDeploymentId (\ s a -> s{_csDeploymentId = a});
 
 instance AWSRequest CreateStage where
         type Rs CreateStage = Stage
-        request = postJSON aPIGateway
+        request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CreateStage

@@ -161,7 +161,7 @@ instance AWSRequest
          DescribeOrderableDBInstanceOptions where
         type Rs DescribeOrderableDBInstanceOptions =
              DescribeOrderableDBInstanceOptionsResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "DescribeOrderableDBInstanceOptionsResult"

@@ -91,7 +91,7 @@ drChangeToken = lens _drChangeToken (\ s a -> s{_drChangeToken = a});
 
 instance AWSRequest DeleteRule where
         type Rs DeleteRule = DeleteRuleResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

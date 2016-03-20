@@ -82,7 +82,7 @@ gDeploymentId = lens _gDeploymentId (\ s a -> s{_gDeploymentId = a});
 
 instance AWSRequest GetDeployment where
         type Rs GetDeployment = Deployment
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetDeployment

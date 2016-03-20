@@ -104,7 +104,7 @@ rdiDBInstanceIdentifier = lens _rdiDBInstanceIdentifier (\ s a -> s{_rdiDBInstan
 
 instance AWSRequest RebootDBInstance where
         type Rs RebootDBInstance = RebootDBInstanceResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "RebootDBInstanceResult"
               (\ s h x ->

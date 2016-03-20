@@ -123,7 +123,7 @@ dhMaxResults = lens _dhMaxResults (\ s a -> s{_dhMaxResults = a});
 
 instance AWSRequest DescribeHosts where
         type Rs DescribeHosts = DescribeHostsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

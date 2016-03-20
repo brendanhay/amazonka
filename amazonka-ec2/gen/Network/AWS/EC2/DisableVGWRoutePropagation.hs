@@ -75,7 +75,7 @@ dvrpGatewayId = lens _dvrpGatewayId (\ s a -> s{_dvrpGatewayId = a});
 instance AWSRequest DisableVGWRoutePropagation where
         type Rs DisableVGWRoutePropagation =
              DisableVGWRoutePropagationResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull DisableVGWRoutePropagationResponse'
 

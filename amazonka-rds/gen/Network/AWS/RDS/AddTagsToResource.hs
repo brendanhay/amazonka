@@ -82,7 +82,7 @@ attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
 
 instance AWSRequest AddTagsToResource where
         type Rs AddTagsToResource = AddTagsToResourceResponse
-        request = postQuery rDS
+        request = postQuery rds
         response = receiveNull AddTagsToResourceResponse'
 
 instance Hashable AddTagsToResource

@@ -84,7 +84,7 @@ gkpPolicyName = lens _gkpPolicyName (\ s a -> s{_gkpPolicyName = a});
 
 instance AWSRequest GetKeyPolicy where
         type Rs GetKeyPolicy = GetKeyPolicyResponse
-        request = postJSON kMS
+        request = postJSON kms
         response
           = receiveJSON
               (\ s h x ->

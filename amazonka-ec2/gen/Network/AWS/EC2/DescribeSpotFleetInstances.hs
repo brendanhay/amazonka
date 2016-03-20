@@ -104,7 +104,7 @@ dsfiSpotFleetRequestId = lens _dsfiSpotFleetRequestId (\ s a -> s{_dsfiSpotFleet
 instance AWSRequest DescribeSpotFleetInstances where
         type Rs DescribeSpotFleetInstances =
              DescribeSpotFleetInstancesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

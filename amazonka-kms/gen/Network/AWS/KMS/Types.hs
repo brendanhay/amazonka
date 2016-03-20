@@ -13,7 +13,7 @@
 module Network.AWS.KMS.Types
     (
     -- * Service Configuration
-      kMS
+      kms
 
     -- * Errors
     , _InvalidMarkerException
@@ -106,14 +106,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
 -- | API version '2014-11-01' of the Amazon Key Management Service SDK configuration.
-kMS :: Service
-kMS =
+kms :: Service
+kms =
     Service
     { _svcAbbrev = "KMS"
     , _svcSigner = v4
     , _svcPrefix = "kms"
     , _svcVersion = "2014-11-01"
-    , _svcEndpoint = defaultEndpoint kMS
+    , _svcEndpoint = defaultEndpoint kms
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseJSONError

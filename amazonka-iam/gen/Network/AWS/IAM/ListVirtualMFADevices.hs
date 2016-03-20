@@ -115,7 +115,7 @@ instance AWSPager ListVirtualMFADevices where
 instance AWSRequest ListVirtualMFADevices where
         type Rs ListVirtualMFADevices =
              ListVirtualMFADevicesResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListVirtualMFADevicesResult"
               (\ s h x ->

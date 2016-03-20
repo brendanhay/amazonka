@@ -77,7 +77,7 @@ dvcrDestinationCIdRBlock = lens _dvcrDestinationCIdRBlock (\ s a -> s{_dvcrDesti
 instance AWSRequest DeleteVPNConnectionRoute where
         type Rs DeleteVPNConnectionRoute =
              DeleteVPNConnectionRouteResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull DeleteVPNConnectionRouteResponse'
 

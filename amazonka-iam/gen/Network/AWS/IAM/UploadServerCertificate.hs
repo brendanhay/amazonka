@@ -141,7 +141,7 @@ uscPrivateKey = lens _uscPrivateKey (\ s a -> s{_uscPrivateKey = a}) . _Sensitiv
 instance AWSRequest UploadServerCertificate where
         type Rs UploadServerCertificate =
              UploadServerCertificateResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "UploadServerCertificateResult"
               (\ s h x ->

@@ -67,7 +67,7 @@ cetExportTaskId = lens _cetExportTaskId (\ s a -> s{_cetExportTaskId = a});
 
 instance AWSRequest CancelExportTask where
         type Rs CancelExportTask = CancelExportTaskResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull CancelExportTaskResponse'
 
 instance Hashable CancelExportTask

@@ -102,7 +102,7 @@ clbpPolicyTypeName = lens _clbpPolicyTypeName (\ s a -> s{_clbpPolicyTypeName = 
 instance AWSRequest CreateLoadBalancerPolicy where
         type Rs CreateLoadBalancerPolicy =
              CreateLoadBalancerPolicyResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper "CreateLoadBalancerPolicyResult"
               (\ s h x ->

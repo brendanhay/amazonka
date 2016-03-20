@@ -72,7 +72,7 @@ instance AWSRequest DisableVPCClassicLinkDNSSupport
          where
         type Rs DisableVPCClassicLinkDNSSupport =
              DisableVPCClassicLinkDNSSupportResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

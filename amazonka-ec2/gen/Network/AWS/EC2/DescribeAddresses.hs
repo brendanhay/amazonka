@@ -125,7 +125,7 @@ daDryRun = lens _daDryRun (\ s a -> s{_daDryRun = a});
 
 instance AWSRequest DescribeAddresses where
         type Rs DescribeAddresses = DescribeAddressesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

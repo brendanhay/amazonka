@@ -70,7 +70,7 @@ drRoleName = lens _drRoleName (\ s a -> s{_drRoleName = a});
 
 instance AWSRequest DeleteRole where
         type Rs DeleteRole = DeleteRoleResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull DeleteRoleResponse'
 
 instance Hashable DeleteRole

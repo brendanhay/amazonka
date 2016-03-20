@@ -107,7 +107,7 @@ cpaAttributes = lens _cpaAttributes (\ s a -> s{_cpaAttributes = a}) . _Map;
 instance AWSRequest CreatePlatformApplication where
         type Rs CreatePlatformApplication =
              CreatePlatformApplicationResponse
-        request = postQuery sNS
+        request = postQuery sns
         response
           = receiveXMLWrapper "CreatePlatformApplicationResult"
               (\ s h x ->

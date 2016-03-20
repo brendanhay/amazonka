@@ -200,7 +200,7 @@ instance AWSPager DescribeDBSnapshots where
 instance AWSRequest DescribeDBSnapshots where
         type Rs DescribeDBSnapshots =
              DescribeDBSnapshotsResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DescribeDBSnapshotsResult"
               (\ s h x ->

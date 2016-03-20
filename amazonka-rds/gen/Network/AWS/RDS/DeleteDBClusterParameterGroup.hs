@@ -78,7 +78,7 @@ instance AWSRequest DeleteDBClusterParameterGroup
          where
         type Rs DeleteDBClusterParameterGroup =
              DeleteDBClusterParameterGroupResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveNull DeleteDBClusterParameterGroupResponse'
 

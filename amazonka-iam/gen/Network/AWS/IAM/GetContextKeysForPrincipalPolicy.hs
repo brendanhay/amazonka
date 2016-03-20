@@ -103,7 +103,7 @@ instance AWSRequest GetContextKeysForPrincipalPolicy
          where
         type Rs GetContextKeysForPrincipalPolicy =
              GetContextKeysForPolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper
               "GetContextKeysForPrincipalPolicyResult"

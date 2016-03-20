@@ -13,7 +13,7 @@
 module Network.AWS.SNS.Types
     (
     -- * Service Configuration
-      sNS
+      sns
 
     -- * Errors
     , _EndpointDisabledException
@@ -67,14 +67,14 @@ import           Network.AWS.SNS.Types.Product
 import           Network.AWS.SNS.Types.Sum
 
 -- | API version '2010-03-31' of the Amazon Simple Notification Service SDK configuration.
-sNS :: Service
-sNS =
+sns :: Service
+sns =
     Service
     { _svcAbbrev = "SNS"
     , _svcSigner = v4
     , _svcPrefix = "sns"
     , _svcVersion = "2010-03-31"
-    , _svcEndpoint = defaultEndpoint sNS
+    , _svcEndpoint = defaultEndpoint sns
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseXMLError

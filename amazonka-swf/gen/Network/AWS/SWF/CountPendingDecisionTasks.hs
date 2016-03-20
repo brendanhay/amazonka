@@ -99,7 +99,7 @@ cpdtTaskList = lens _cpdtTaskList (\ s a -> s{_cpdtTaskList = a});
 
 instance AWSRequest CountPendingDecisionTasks where
         type Rs CountPendingDecisionTasks = PendingTaskCount
-        request = postJSON sWF
+        request = postJSON swf
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CountPendingDecisionTasks

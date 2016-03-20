@@ -72,7 +72,7 @@ dlpUserName = lens _dlpUserName (\ s a -> s{_dlpUserName = a});
 instance AWSRequest DeleteLoginProfile where
         type Rs DeleteLoginProfile =
              DeleteLoginProfileResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull DeleteLoginProfileResponse'
 
 instance Hashable DeleteLoginProfile

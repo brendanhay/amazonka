@@ -66,7 +66,7 @@ ddName = lens _ddName (\ s a -> s{_ddName = a});
 
 instance AWSRequest DescribeDocument where
         type Rs DescribeDocument = DescribeDocumentResponse
-        request = postJSON sSM
+        request = postJSON ssm
         response
           = receiveJSON
               (\ s h x ->

@@ -109,7 +109,7 @@ dngMaxResults = lens _dngMaxResults (\ s a -> s{_dngMaxResults = a});
 instance AWSRequest DescribeNatGateways where
         type Rs DescribeNatGateways =
              DescribeNatGatewaysResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

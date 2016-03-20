@@ -61,7 +61,7 @@ listVerifiedEmailAddresses = ListVerifiedEmailAddresses'
 instance AWSRequest ListVerifiedEmailAddresses where
         type Rs ListVerifiedEmailAddresses =
              ListVerifiedEmailAddressesResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper
               "ListVerifiedEmailAddressesResult"

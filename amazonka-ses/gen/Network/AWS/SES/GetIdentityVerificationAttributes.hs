@@ -72,7 +72,7 @@ instance AWSRequest GetIdentityVerificationAttributes
          where
         type Rs GetIdentityVerificationAttributes =
              GetIdentityVerificationAttributesResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper
               "GetIdentityVerificationAttributesResult"

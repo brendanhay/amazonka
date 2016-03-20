@@ -69,7 +69,7 @@ lqQueueNamePrefix = lens _lqQueueNamePrefix (\ s a -> s{_lqQueueNamePrefix = a})
 
 instance AWSRequest ListQueues where
         type Rs ListQueues = ListQueuesResponse
-        request = postQuery sQS
+        request = postQuery sqs
         response
           = receiveXMLWrapper "ListQueuesResult"
               (\ s h x ->

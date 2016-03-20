@@ -71,7 +71,7 @@ deEndpointARN = lens _deEndpointARN (\ s a -> s{_deEndpointARN = a});
 
 instance AWSRequest DeleteEndpoint where
         type Rs DeleteEndpoint = DeleteEndpointResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

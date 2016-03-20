@@ -107,7 +107,7 @@ diitMaxResults = lens _diitMaxResults (\ s a -> s{_diitMaxResults = a});
 instance AWSRequest DescribeImportImageTasks where
         type Rs DescribeImportImageTasks =
              DescribeImportImageTasksResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

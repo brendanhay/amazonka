@@ -83,7 +83,7 @@ crtVPCId = lens _crtVPCId (\ s a -> s{_crtVPCId = a});
 
 instance AWSRequest CreateRouteTable where
         type Rs CreateRouteTable = CreateRouteTableResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

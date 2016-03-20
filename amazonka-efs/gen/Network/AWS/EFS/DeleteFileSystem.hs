@@ -79,7 +79,7 @@ delFileSystemId = lens _delFileSystemId (\ s a -> s{_delFileSystemId = a});
 
 instance AWSRequest DeleteFileSystem where
         type Rs DeleteFileSystem = DeleteFileSystemResponse
-        request = delete eFS
+        request = delete efs
         response = receiveNull DeleteFileSystemResponse'
 
 instance Hashable DeleteFileSystem

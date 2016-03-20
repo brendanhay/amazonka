@@ -103,7 +103,7 @@ instance AWSRequest
          PurchaseReservedDBInstancesOffering where
         type Rs PurchaseReservedDBInstancesOffering =
              PurchaseReservedDBInstancesOfferingResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "PurchaseReservedDBInstancesOfferingResult"

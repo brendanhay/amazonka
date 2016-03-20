@@ -80,7 +80,7 @@ urrRule = lens _urrRule (\ s a -> s{_urrRule = a});
 
 instance AWSRequest UpdateReceiptRule where
         type Rs UpdateReceiptRule = UpdateReceiptRuleResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "UpdateReceiptRuleResult"
               (\ s h x ->

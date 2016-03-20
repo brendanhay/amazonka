@@ -97,7 +97,7 @@ crAssumeRolePolicyDocument = lens _crAssumeRolePolicyDocument (\ s a -> s{_crAss
 
 instance AWSRequest CreateRole where
         type Rs CreateRole = CreateRoleResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "CreateRoleResult"
               (\ s h x ->

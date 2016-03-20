@@ -94,7 +94,7 @@ mdsgSubnetIds = lens _mdsgSubnetIds (\ s a -> s{_mdsgSubnetIds = a}) . _Coerce;
 instance AWSRequest ModifyDBSubnetGroup where
         type Rs ModifyDBSubnetGroup =
              ModifyDBSubnetGroupResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "ModifyDBSubnetGroupResult"
               (\ s h x ->

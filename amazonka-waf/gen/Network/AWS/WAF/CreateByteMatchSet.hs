@@ -99,7 +99,7 @@ cbmsChangeToken = lens _cbmsChangeToken (\ s a -> s{_cbmsChangeToken = a});
 instance AWSRequest CreateByteMatchSet where
         type Rs CreateByteMatchSet =
              CreateByteMatchSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

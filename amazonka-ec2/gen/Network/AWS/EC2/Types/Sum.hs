@@ -178,6 +178,7 @@ instance FromXML ArchitectureValues where
 data AttachmentStatus
     = Attached
     | Attaching
+    | Available
     | Busy
     | Detached
     | Detaching
@@ -187,16 +188,18 @@ instance FromText AttachmentStatus where
     parser = takeLowerText >>= \case
         "attached" -> pure Attached
         "attaching" -> pure Attaching
+        "available" -> pure Available
         "busy" -> pure Busy
         "detached" -> pure Detached
         "detaching" -> pure Detaching
         e -> fromTextError $ "Failure parsing AttachmentStatus from value: '" <> e
-           <> "'. Accepted values: attached, attaching, busy, detached, detaching"
+           <> "'. Accepted values: attached, attaching, available, busy, detached, detaching"
 
 instance ToText AttachmentStatus where
     toText = \case
         Attached -> "attached"
         Attaching -> "attaching"
+        Available -> "available"
         Busy -> "busy"
         Detached -> "detached"
         Detaching -> "detaching"
@@ -623,24 +626,24 @@ instance FromXML EventCode where
     parseXML = parseXMLText "EventCode"
 
 data EventType
-    = Error'
-    | FleetRequestChange
-    | InstanceChange
+    = ETError'
+    | ETFleetRequestChange
+    | ETInstanceChange
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EventType where
     parser = takeLowerText >>= \case
-        "error" -> pure Error'
-        "fleetrequestchange" -> pure FleetRequestChange
-        "instancechange" -> pure InstanceChange
+        "error" -> pure ETError'
+        "fleetrequestchange" -> pure ETFleetRequestChange
+        "instancechange" -> pure ETInstanceChange
         e -> fromTextError $ "Failure parsing EventType from value: '" <> e
            <> "'. Accepted values: error, fleetRequestChange, instanceChange"
 
 instance ToText EventType where
     toText = \case
-        Error' -> "error"
-        FleetRequestChange -> "fleetRequestChange"
-        InstanceChange -> "instanceChange"
+        ETError' -> "error"
+        ETFleetRequestChange -> "fleetRequestChange"
+        ETInstanceChange -> "instanceChange"
 
 instance Hashable     EventType
 instance ToByteString EventType
@@ -1552,27 +1555,27 @@ instance FromXML PermissionGroup where
     parseXML = parseXMLText "PermissionGroup"
 
 data PlacementGroupState
-    = Available
-    | Deleted
-    | Deleting
-    | Pending
+    = PGSAvailable
+    | PGSDeleted
+    | PGSDeleting
+    | PGSPending
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PlacementGroupState where
     parser = takeLowerText >>= \case
-        "available" -> pure Available
-        "deleted" -> pure Deleted
-        "deleting" -> pure Deleting
-        "pending" -> pure Pending
+        "available" -> pure PGSAvailable
+        "deleted" -> pure PGSDeleted
+        "deleting" -> pure PGSDeleting
+        "pending" -> pure PGSPending
         e -> fromTextError $ "Failure parsing PlacementGroupState from value: '" <> e
            <> "'. Accepted values: available, deleted, deleting, pending"
 
 instance ToText PlacementGroupState where
     toText = \case
-        Available -> "available"
-        Deleted -> "deleted"
-        Deleting -> "deleting"
-        Pending -> "pending"
+        PGSAvailable -> "available"
+        PGSDeleted -> "deleted"
+        PGSDeleting -> "deleting"
+        PGSPending -> "pending"
 
 instance Hashable     PlacementGroupState
 instance ToByteString PlacementGroupState
@@ -2012,24 +2015,24 @@ instance ToQuery      SnapshotAttributeName
 instance ToHeader     SnapshotAttributeName
 
 data SnapshotState
-    = SSCompleted
-    | SSError'
-    | SSPending
+    = Completed
+    | Error'
+    | Pending
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SnapshotState where
     parser = takeLowerText >>= \case
-        "completed" -> pure SSCompleted
-        "error" -> pure SSError'
-        "pending" -> pure SSPending
+        "completed" -> pure Completed
+        "error" -> pure Error'
+        "pending" -> pure Pending
         e -> fromTextError $ "Failure parsing SnapshotState from value: '" <> e
            <> "'. Accepted values: completed, error, pending"
 
 instance ToText SnapshotState where
     toText = \case
-        SSCompleted -> "completed"
-        SSError' -> "error"
-        SSPending -> "pending"
+        Completed -> "completed"
+        Error' -> "error"
+        Pending -> "pending"
 
 instance Hashable     SnapshotState
 instance ToByteString SnapshotState
@@ -2183,21 +2186,21 @@ instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
 data SubnetState
-    = SubAvailable
-    | SubPending
+    = SSAvailable
+    | SSPending
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SubnetState where
     parser = takeLowerText >>= \case
-        "available" -> pure SubAvailable
-        "pending" -> pure SubPending
+        "available" -> pure SSAvailable
+        "pending" -> pure SSPending
         e -> fromTextError $ "Failure parsing SubnetState from value: '" <> e
            <> "'. Accepted values: available, pending"
 
 instance ToText SubnetState where
     toText = \case
-        SubAvailable -> "available"
-        SubPending -> "pending"
+        SSAvailable -> "available"
+        SSPending -> "pending"
 
 instance Hashable     SubnetState
 instance ToByteString SubnetState

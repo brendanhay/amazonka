@@ -1,6 +1,7 @@
 resolver:   lts-5.4
 flags:      {}
-extra-deps: []
+extra-deps:
+  - unordered-containers-0.2.7.0
 packages:
   - core
   - test

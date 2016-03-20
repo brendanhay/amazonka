@@ -250,7 +250,8 @@ library
         , Network.AWS.EC2.Waiters
 
     other-modules:
-          Network.AWS.EC2.Types.Product
+          Network.AWS.EC2.Internal
+        , Network.AWS.EC2.Types.Product
         , Network.AWS.EC2.Types.Sum
 
     build-depends:

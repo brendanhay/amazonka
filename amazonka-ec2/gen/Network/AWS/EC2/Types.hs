@@ -17,6 +17,9 @@ module Network.AWS.EC2.Types
 
     -- * Errors
 
+    -- * Re-exported Types
+    , module Network.AWS.EC2.Internal
+
     -- * AccountAttributeName
     , AccountAttributeName (..)
 
@@ -1917,6 +1920,7 @@ module Network.AWS.EC2.Types
     , vsiVolumeId
     ) where
 
+import           Network.AWS.EC2.Internal
 import           Network.AWS.EC2.Types.Product
 import           Network.AWS.EC2.Types.Sum
 import           Network.AWS.Lens

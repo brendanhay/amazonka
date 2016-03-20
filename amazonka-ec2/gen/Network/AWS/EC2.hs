@@ -714,6 +714,9 @@ module Network.AWS.EC2
 
     -- * Types
 
+    -- ** Re-exported Types
+    , module Network.AWS.EC2.Internal
+
     -- ** AccountAttributeName
     , AccountAttributeName (..)
 
@@ -2771,6 +2774,7 @@ import           Network.AWS.EC2.ImportInstance
 import           Network.AWS.EC2.ImportKeyPair
 import           Network.AWS.EC2.ImportSnapshot
 import           Network.AWS.EC2.ImportVolume
+import           Network.AWS.EC2.Internal
 import           Network.AWS.EC2.ModifyHosts
 import           Network.AWS.EC2.ModifyIdFormat
 import           Network.AWS.EC2.ModifyImageAttribute

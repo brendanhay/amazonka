@@ -17,6 +17,7 @@
 --
 module Network.AWS.EC2.Types.Sum where
 
+import           Network.AWS.EC2.Internal
 import           Network.AWS.Prelude
 
 data AccountAttributeName

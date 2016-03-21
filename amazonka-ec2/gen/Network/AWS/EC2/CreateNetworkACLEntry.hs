@@ -168,7 +168,7 @@ cnaeCIdRBlock = lens _cnaeCIdRBlock (\ s a -> s{_cnaeCIdRBlock = a});
 instance AWSRequest CreateNetworkACLEntry where
         type Rs CreateNetworkACLEntry =
              CreateNetworkACLEntryResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull CreateNetworkACLEntryResponse'
 
 instance Hashable CreateNetworkACLEntry

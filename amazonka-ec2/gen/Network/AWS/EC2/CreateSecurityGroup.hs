@@ -140,7 +140,7 @@ csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a});
 instance AWSRequest CreateSecurityGroup where
         type Rs CreateSecurityGroup =
              CreateSecurityGroupResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

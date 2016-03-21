@@ -69,7 +69,7 @@ diIdentity = lens _diIdentity (\ s a -> s{_diIdentity = a});
 
 instance AWSRequest DeleteIdentity where
         type Rs DeleteIdentity = DeleteIdentityResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "DeleteIdentityResult"
               (\ s h x ->

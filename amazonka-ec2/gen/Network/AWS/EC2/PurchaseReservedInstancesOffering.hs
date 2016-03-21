@@ -115,7 +115,7 @@ instance AWSRequest PurchaseReservedInstancesOffering
          where
         type Rs PurchaseReservedInstancesOffering =
              PurchaseReservedInstancesOfferingResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

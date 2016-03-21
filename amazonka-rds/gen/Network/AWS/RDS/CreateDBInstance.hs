@@ -829,7 +829,7 @@ cdiEngine = lens _cdiEngine (\ s a -> s{_cdiEngine = a});
 
 instance AWSRequest CreateDBInstance where
         type Rs CreateDBInstance = CreateDBInstanceResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "CreateDBInstanceResult"
               (\ s h x ->

@@ -78,7 +78,7 @@ ccCommandId = lens _ccCommandId (\ s a -> s{_ccCommandId = a});
 
 instance AWSRequest CancelCommand where
         type Rs CancelCommand = CancelCommandResponse
-        request = postJSON sSM
+        request = postJSON ssm
         response
           = receiveEmpty
               (\ s h x ->

@@ -105,7 +105,7 @@ updHttpMethod = lens _updHttpMethod (\ s a -> s{_updHttpMethod = a});
 
 instance AWSRequest UpdateIntegration where
         type Rs UpdateIntegration = Integration
-        request = patchJSON aPIGateway
+        request = patchJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateIntegration

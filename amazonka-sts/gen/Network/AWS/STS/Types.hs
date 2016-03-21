@@ -13,7 +13,7 @@
 module Network.AWS.STS.Types
     (
     -- * Service Configuration
-      sTS
+      sts
 
     -- * Errors
     , _MalformedPolicyDocumentException
@@ -53,14 +53,14 @@ import           Network.AWS.STS.Types.Product
 import           Network.AWS.STS.Types.Sum
 
 -- | API version '2011-06-15' of the Amazon Security Token Service SDK configuration.
-sTS :: Service
-sTS =
+sts :: Service
+sts =
     Service
     { _svcAbbrev = "STS"
     , _svcSigner = v4
     , _svcPrefix = "sts"
     , _svcVersion = "2011-06-15"
-    , _svcEndpoint = defaultEndpoint sTS
+    , _svcEndpoint = defaultEndpoint sts
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseXMLError

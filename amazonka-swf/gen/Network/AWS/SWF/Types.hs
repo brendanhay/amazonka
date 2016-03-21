@@ -13,7 +13,7 @@
 module Network.AWS.SWF.Types
     (
     -- * Service Configuration
-      sWF
+      swf
 
     -- * Errors
     , _DomainAlreadyExistsFault
@@ -877,14 +877,14 @@ import           Network.AWS.SWF.Types.Product
 import           Network.AWS.SWF.Types.Sum
 
 -- | API version '2012-01-25' of the Amazon Simple Workflow Service SDK configuration.
-sWF :: Service
-sWF =
+swf :: Service
+swf =
     Service
     { _svcAbbrev = "SWF"
     , _svcSigner = v4
     , _svcPrefix = "swf"
     , _svcVersion = "2012-01-25"
-    , _svcEndpoint = defaultEndpoint sWF
+    , _svcEndpoint = defaultEndpoint swf
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseJSONError

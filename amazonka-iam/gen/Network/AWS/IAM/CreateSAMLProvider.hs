@@ -109,7 +109,7 @@ csamlpName = lens _csamlpName (\ s a -> s{_csamlpName = a});
 instance AWSRequest CreateSAMLProvider where
         type Rs CreateSAMLProvider =
              CreateSAMLProviderResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "CreateSAMLProviderResult"
               (\ s h x ->

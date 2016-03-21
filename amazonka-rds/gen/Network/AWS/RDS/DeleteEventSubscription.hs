@@ -69,7 +69,7 @@ desSubscriptionName = lens _desSubscriptionName (\ s a -> s{_desSubscriptionName
 instance AWSRequest DeleteEventSubscription where
         type Rs DeleteEventSubscription =
              DeleteEventSubscriptionResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DeleteEventSubscriptionResult"
               (\ s h x ->

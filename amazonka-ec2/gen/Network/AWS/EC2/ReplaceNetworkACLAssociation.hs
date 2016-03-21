@@ -95,7 +95,7 @@ instance AWSRequest ReplaceNetworkACLAssociation
          where
         type Rs ReplaceNetworkACLAssociation =
              ReplaceNetworkACLAssociationResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

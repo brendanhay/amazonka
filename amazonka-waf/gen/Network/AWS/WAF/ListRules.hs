@@ -83,7 +83,7 @@ lrLimit = lens _lrLimit (\ s a -> s{_lrLimit = a}) . _Nat;
 
 instance AWSRequest ListRules where
         type Rs ListRules = ListRulesResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

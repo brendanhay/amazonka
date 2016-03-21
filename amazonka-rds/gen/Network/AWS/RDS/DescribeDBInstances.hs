@@ -125,7 +125,7 @@ instance AWSPager DescribeDBInstances where
 instance AWSRequest DescribeDBInstances where
         type Rs DescribeDBInstances =
              DescribeDBInstancesResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "DescribeDBInstancesResult"
               (\ s h x ->

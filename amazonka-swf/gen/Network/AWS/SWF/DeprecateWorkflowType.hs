@@ -104,7 +104,7 @@ dWorkflowType = lens _dWorkflowType (\ s a -> s{_dWorkflowType = a});
 instance AWSRequest DeprecateWorkflowType where
         type Rs DeprecateWorkflowType =
              DeprecateWorkflowTypeResponse
-        request = postJSON sWF
+        request = postJSON swf
         response = receiveNull DeprecateWorkflowTypeResponse'
 
 instance Hashable DeprecateWorkflowType

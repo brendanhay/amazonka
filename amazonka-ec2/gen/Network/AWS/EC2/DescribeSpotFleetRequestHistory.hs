@@ -132,7 +132,7 @@ instance AWSRequest DescribeSpotFleetRequestHistory
          where
         type Rs DescribeSpotFleetRequestHistory =
              DescribeSpotFleetRequestHistoryResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

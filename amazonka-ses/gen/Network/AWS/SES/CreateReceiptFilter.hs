@@ -73,7 +73,7 @@ crfFilter = lens _crfFilter (\ s a -> s{_crfFilter = a});
 instance AWSRequest CreateReceiptFilter where
         type Rs CreateReceiptFilter =
              CreateReceiptFilterResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "CreateReceiptFilterResult"
               (\ s h x ->

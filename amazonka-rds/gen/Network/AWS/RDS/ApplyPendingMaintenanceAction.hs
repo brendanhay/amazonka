@@ -103,7 +103,7 @@ instance AWSRequest ApplyPendingMaintenanceAction
          where
         type Rs ApplyPendingMaintenanceAction =
              ApplyPendingMaintenanceActionResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "ApplyPendingMaintenanceActionResult"

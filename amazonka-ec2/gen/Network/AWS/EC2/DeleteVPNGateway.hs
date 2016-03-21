@@ -79,7 +79,7 @@ dvgVPNGatewayId = lens _dvgVPNGatewayId (\ s a -> s{_dvgVPNGatewayId = a});
 
 instance AWSRequest DeleteVPNGateway where
         type Rs DeleteVPNGateway = DeleteVPNGatewayResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeleteVPNGatewayResponse'
 
 instance Hashable DeleteVPNGateway

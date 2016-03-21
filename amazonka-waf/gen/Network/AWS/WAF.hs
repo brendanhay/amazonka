@@ -19,7 +19,7 @@
 module Network.AWS.WAF
     (
     -- * Service Configuration
-      wAF
+      waf
 
     -- * Errors
     -- $errors

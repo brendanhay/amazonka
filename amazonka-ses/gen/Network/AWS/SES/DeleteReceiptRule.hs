@@ -81,7 +81,7 @@ delRuleName = lens _delRuleName (\ s a -> s{_delRuleName = a});
 
 instance AWSRequest DeleteReceiptRule where
         type Rs DeleteReceiptRule = DeleteReceiptRuleResponse
-        request = postQuery sES
+        request = postQuery ses
         response
           = receiveXMLWrapper "DeleteReceiptRuleResult"
               (\ s h x ->

@@ -83,7 +83,7 @@ albtsSubnets = lens _albtsSubnets (\ s a -> s{_albtsSubnets = a}) . _Coerce;
 instance AWSRequest AttachLoadBalancerToSubnets where
         type Rs AttachLoadBalancerToSubnets =
              AttachLoadBalancerToSubnetsResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper
               "AttachLoadBalancerToSubnetsResult"

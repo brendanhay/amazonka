@@ -93,7 +93,7 @@ mriTargetConfigurations = lens _mriTargetConfigurations (\ s a -> s{_mriTargetCo
 instance AWSRequest ModifyReservedInstances where
         type Rs ModifyReservedInstances =
              ModifyReservedInstancesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

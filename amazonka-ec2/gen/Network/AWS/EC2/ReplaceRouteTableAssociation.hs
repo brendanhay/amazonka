@@ -100,7 +100,7 @@ instance AWSRequest ReplaceRouteTableAssociation
          where
         type Rs ReplaceRouteTableAssociation =
              ReplaceRouteTableAssociationResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

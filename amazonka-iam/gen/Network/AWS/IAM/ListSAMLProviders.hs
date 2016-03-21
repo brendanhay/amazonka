@@ -56,7 +56,7 @@ listSAMLProviders = ListSAMLProviders'
 
 instance AWSRequest ListSAMLProviders where
         type Rs ListSAMLProviders = ListSAMLProvidersResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "ListSAMLProvidersResult"
               (\ s h x ->

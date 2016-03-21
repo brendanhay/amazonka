@@ -91,7 +91,7 @@ crPathPart = lens _crPathPart (\ s a -> s{_crPathPart = a});
 
 instance AWSRequest CreateResource where
         type Rs CreateResource = Resource
-        request = postJSON aPIGateway
+        request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CreateResource

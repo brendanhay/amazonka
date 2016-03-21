@@ -95,7 +95,7 @@ riaAttribute = lens _riaAttribute (\ s a -> s{_riaAttribute = a});
 instance AWSRequest ResetInstanceAttribute where
         type Rs ResetInstanceAttribute =
              ResetInstanceAttributeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull ResetInstanceAttributeResponse'
 

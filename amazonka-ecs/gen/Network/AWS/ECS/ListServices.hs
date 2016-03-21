@@ -107,7 +107,7 @@ instance AWSPager ListServices where
 
 instance AWSRequest ListServices where
         type Rs ListServices = ListServicesResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

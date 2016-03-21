@@ -93,7 +93,7 @@ caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a});
 
 instance AWSRequest CreateAssociation where
         type Rs CreateAssociation = CreateAssociationResponse
-        request = postJSON sSM
+        request = postJSON ssm
         response
           = receiveJSON
               (\ s h x ->

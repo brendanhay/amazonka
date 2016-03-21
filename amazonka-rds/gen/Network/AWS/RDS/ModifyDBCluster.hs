@@ -240,7 +240,7 @@ mdcDBClusterIdentifier = lens _mdcDBClusterIdentifier (\ s a -> s{_mdcDBClusterI
 
 instance AWSRequest ModifyDBCluster where
         type Rs ModifyDBCluster = ModifyDBClusterResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper "ModifyDBClusterResult"
               (\ s h x ->

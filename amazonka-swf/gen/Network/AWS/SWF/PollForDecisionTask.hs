@@ -203,7 +203,7 @@ instance AWSPager PollForDecisionTask where
 instance AWSRequest PollForDecisionTask where
         type Rs PollForDecisionTask =
              PollForDecisionTaskResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveJSON
               (\ s h x ->

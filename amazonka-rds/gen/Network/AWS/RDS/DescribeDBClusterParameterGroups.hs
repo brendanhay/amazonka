@@ -120,7 +120,7 @@ instance AWSRequest DescribeDBClusterParameterGroups
          where
         type Rs DescribeDBClusterParameterGroups =
              DescribeDBClusterParameterGroupsResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "DescribeDBClusterParameterGroupsResult"

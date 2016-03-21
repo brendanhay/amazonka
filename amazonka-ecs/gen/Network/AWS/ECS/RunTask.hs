@@ -130,7 +130,7 @@ rtTaskDefinition = lens _rtTaskDefinition (\ s a -> s{_rtTaskDefinition = a});
 
 instance AWSRequest RunTask where
         type Rs RunTask = RunTaskResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

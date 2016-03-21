@@ -84,7 +84,7 @@ lbmsLimit = lens _lbmsLimit (\ s a -> s{_lbmsLimit = a}) . _Nat;
 
 instance AWSRequest ListByteMatchSets where
         type Rs ListByteMatchSets = ListByteMatchSetsResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

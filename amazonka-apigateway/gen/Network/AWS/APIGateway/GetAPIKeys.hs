@@ -88,7 +88,7 @@ instance AWSPager GetAPIKeys where
 
 instance AWSRequest GetAPIKeys where
         type Rs GetAPIKeys = GetAPIKeysResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

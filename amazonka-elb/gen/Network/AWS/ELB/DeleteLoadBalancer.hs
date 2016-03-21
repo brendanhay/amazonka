@@ -75,7 +75,7 @@ dlbLoadBalancerName = lens _dlbLoadBalancerName (\ s a -> s{_dlbLoadBalancerName
 instance AWSRequest DeleteLoadBalancer where
         type Rs DeleteLoadBalancer =
              DeleteLoadBalancerResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper "DeleteLoadBalancerResult"
               (\ s h x ->

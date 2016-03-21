@@ -70,7 +70,7 @@ instance AWSRequest DescribeRefreshSchemasStatus
          where
         type Rs DescribeRefreshSchemasStatus =
              DescribeRefreshSchemasStatusResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

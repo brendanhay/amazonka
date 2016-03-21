@@ -1,5 +1,5 @@
 name:                  amazonka-dms
-version:               1.3.8
+version:               1.4.0
 synopsis:              Amazon Database Migration Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -85,7 +85,7 @@ library
         , Network.AWS.DMS.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.8.*
+          amazonka-core == 1.4.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-dms-test
@@ -105,9 +105,9 @@ test-suite amazonka-dms-test
         , Test.AWS.DMS.Internal
 
     build-depends:
-          amazonka-core == 1.3.8.*
-        , amazonka-test == 1.3.8.*
-        , amazonka-dms == 1.3.8.*
+          amazonka-core == 1.4.0.*
+        , amazonka-test == 1.4.0.*
+        , amazonka-dms == 1.4.0.*
         , base
         , bytestring
         , tasty

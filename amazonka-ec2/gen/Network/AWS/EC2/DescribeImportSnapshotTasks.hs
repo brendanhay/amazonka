@@ -106,7 +106,7 @@ distMaxResults = lens _distMaxResults (\ s a -> s{_distMaxResults = a});
 instance AWSRequest DescribeImportSnapshotTasks where
         type Rs DescribeImportSnapshotTasks =
              DescribeImportSnapshotTasksResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

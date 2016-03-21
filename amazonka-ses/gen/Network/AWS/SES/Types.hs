@@ -13,7 +13,7 @@
 module Network.AWS.SES.Types
     (
     -- * Service Configuration
-      sES
+      ses
 
     -- * Errors
     , _CannotDeleteException
@@ -258,14 +258,14 @@ import           Network.AWS.SES.Types.Sum
 import           Network.AWS.Sign.V4
 
 -- | API version '2010-12-01' of the Amazon Simple Email Service SDK configuration.
-sES :: Service
-sES =
+ses :: Service
+ses =
     Service
     { _svcAbbrev = "SES"
     , _svcSigner = v4
     , _svcPrefix = "email"
     , _svcVersion = "2010-12-01"
-    , _svcEndpoint = defaultEndpoint sES
+    , _svcEndpoint = defaultEndpoint ses
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseXMLError

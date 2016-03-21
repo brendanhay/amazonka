@@ -100,7 +100,7 @@ csfrTerminateInstances = lens _csfrTerminateInstances (\ s a -> s{_csfrTerminate
 instance AWSRequest CancelSpotFleetRequests where
         type Rs CancelSpotFleetRequests =
              CancelSpotFleetRequestsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

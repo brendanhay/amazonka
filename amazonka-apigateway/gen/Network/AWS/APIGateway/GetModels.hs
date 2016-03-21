@@ -99,7 +99,7 @@ instance AWSPager GetModels where
 
 instance AWSRequest GetModels where
         type Rs GetModels = GetModelsResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

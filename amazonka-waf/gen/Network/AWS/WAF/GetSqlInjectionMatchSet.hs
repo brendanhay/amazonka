@@ -72,7 +72,7 @@ gsimsSqlInjectionMatchSetId = lens _gsimsSqlInjectionMatchSetId (\ s a -> s{_gsi
 instance AWSRequest GetSqlInjectionMatchSet where
         type Rs GetSqlInjectionMatchSet =
              GetSqlInjectionMatchSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

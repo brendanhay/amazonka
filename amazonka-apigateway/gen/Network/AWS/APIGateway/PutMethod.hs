@@ -151,7 +151,7 @@ putAuthorizationType = lens _putAuthorizationType (\ s a -> s{_putAuthorizationT
 
 instance AWSRequest PutMethod where
         type Rs PutMethod = Method
-        request = putJSON aPIGateway
+        request = putJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable PutMethod

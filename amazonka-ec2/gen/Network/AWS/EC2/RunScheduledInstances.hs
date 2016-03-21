@@ -121,7 +121,7 @@ rsiLaunchSpecification = lens _rsiLaunchSpecification (\ s a -> s{_rsiLaunchSpec
 instance AWSRequest RunScheduledInstances where
         type Rs RunScheduledInstances =
              RunScheduledInstancesResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

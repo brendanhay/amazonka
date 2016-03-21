@@ -81,7 +81,7 @@ cvcrDestinationCIdRBlock = lens _cvcrDestinationCIdRBlock (\ s a -> s{_cvcrDesti
 instance AWSRequest CreateVPNConnectionRoute where
         type Rs CreateVPNConnectionRoute =
              CreateVPNConnectionRouteResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveNull CreateVPNConnectionRouteResponse'
 

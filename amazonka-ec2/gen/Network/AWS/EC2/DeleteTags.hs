@@ -92,7 +92,7 @@ dtsResources = lens _dtsResources (\ s a -> s{_dtsResources = a}) . _Coerce;
 
 instance AWSRequest DeleteTags where
         type Rs DeleteTags = DeleteTagsResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeleteTagsResponse'
 
 instance Hashable DeleteTags

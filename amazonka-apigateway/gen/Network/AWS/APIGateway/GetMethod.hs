@@ -94,7 +94,7 @@ gmmHttpMethod = lens _gmmHttpMethod (\ s a -> s{_gmmHttpMethod = a});
 
 instance AWSRequest GetMethod where
         type Rs GetMethod = Method
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetMethod

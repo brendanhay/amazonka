@@ -114,7 +114,7 @@ smMessageBody = lens _smMessageBody (\ s a -> s{_smMessageBody = a});
 
 instance AWSRequest SendMessage where
         type Rs SendMessage = SendMessageResponse
-        request = postQuery sQS
+        request = postQuery sqs
         response
           = receiveXMLWrapper "SendMessageResult"
               (\ s h x ->

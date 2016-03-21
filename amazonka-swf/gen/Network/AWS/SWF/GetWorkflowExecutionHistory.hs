@@ -153,7 +153,7 @@ instance AWSPager GetWorkflowExecutionHistory where
 instance AWSRequest GetWorkflowExecutionHistory where
         type Rs GetWorkflowExecutionHistory =
              GetWorkflowExecutionHistoryResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveJSON
               (\ s h x ->

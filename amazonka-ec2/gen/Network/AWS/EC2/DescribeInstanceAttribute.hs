@@ -107,7 +107,7 @@ diaAttribute = lens _diaAttribute (\ s a -> s{_diaAttribute = a});
 instance AWSRequest DescribeInstanceAttribute where
         type Rs DescribeInstanceAttribute =
              DescribeInstanceAttributeResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

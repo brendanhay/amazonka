@@ -224,7 +224,7 @@ instance AWSRequest RestoreDBClusterToPointInTime
          where
         type Rs RestoreDBClusterToPointInTime =
              RestoreDBClusterToPointInTimeResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "RestoreDBClusterToPointInTimeResult"

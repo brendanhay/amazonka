@@ -96,7 +96,7 @@ instance AWSPager ListClusters where
 
 instance AWSRequest ListClusters where
         type Rs ListClusters = ListClustersResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

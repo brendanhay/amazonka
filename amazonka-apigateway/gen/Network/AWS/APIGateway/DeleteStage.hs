@@ -76,7 +76,7 @@ dsStageName = lens _dsStageName (\ s a -> s{_dsStageName = a});
 
 instance AWSRequest DeleteStage where
         type Rs DeleteStage = DeleteStageResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull DeleteStageResponse'
 
 instance Hashable DeleteStage

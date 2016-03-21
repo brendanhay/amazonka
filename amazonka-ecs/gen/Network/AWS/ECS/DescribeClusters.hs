@@ -68,7 +68,7 @@ dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default . _Coerce
 
 instance AWSRequest DescribeClusters where
         type Rs DescribeClusters = DescribeClustersResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

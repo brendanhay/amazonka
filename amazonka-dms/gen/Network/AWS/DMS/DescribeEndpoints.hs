@@ -98,7 +98,7 @@ deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 
 instance AWSRequest DescribeEndpoints where
         type Rs DescribeEndpoints = DescribeEndpointsResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

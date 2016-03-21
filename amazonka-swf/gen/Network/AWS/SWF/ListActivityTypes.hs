@@ -161,7 +161,7 @@ instance AWSPager ListActivityTypes where
 
 instance AWSRequest ListActivityTypes where
         type Rs ListActivityTypes = ListActivityTypesResponse
-        request = postJSON sWF
+        request = postJSON swf
         response
           = receiveJSON
               (\ s h x ->

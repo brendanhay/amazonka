@@ -97,7 +97,7 @@ gsdkSdkType = lens _gsdkSdkType (\ s a -> s{_gsdkSdkType = a});
 
 instance AWSRequest GetSDK where
         type Rs GetSDK = GetSDKResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

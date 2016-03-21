@@ -76,7 +76,7 @@ dbpmBasePath = lens _dbpmBasePath (\ s a -> s{_dbpmBasePath = a});
 instance AWSRequest DeleteBasePathMapping where
         type Rs DeleteBasePathMapping =
              DeleteBasePathMappingResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull DeleteBasePathMappingResponse'
 
 instance Hashable DeleteBasePathMapping

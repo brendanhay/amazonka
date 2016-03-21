@@ -68,7 +68,7 @@ dpaPlatformApplicationARN = lens _dpaPlatformApplicationARN (\ s a -> s{_dpaPlat
 instance AWSRequest DeletePlatformApplication where
         type Rs DeletePlatformApplication =
              DeletePlatformApplicationResponse
-        request = postQuery sNS
+        request = postQuery sns
         response
           = receiveNull DeletePlatformApplicationResponse'
 

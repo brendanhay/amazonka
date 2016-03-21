@@ -175,7 +175,7 @@ mriReplicationInstanceARN = lens _mriReplicationInstanceARN (\ s a -> s{_mriRepl
 instance AWSRequest ModifyReplicationInstance where
         type Rs ModifyReplicationInstance =
              ModifyReplicationInstanceResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

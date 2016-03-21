@@ -2242,1398 +2242,1398 @@ testImportInstanceResponse :: ImportInstanceResponse -> TestTree
 testImportInstanceResponse = res
     "ImportInstanceResponse"
     "fixture/ImportInstanceResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ImportInstance)
 
 testRevokeSecurityGroupEgressResponse :: RevokeSecurityGroupEgressResponse -> TestTree
 testRevokeSecurityGroupEgressResponse = res
     "RevokeSecurityGroupEgressResponse"
     "fixture/RevokeSecurityGroupEgressResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy RevokeSecurityGroupEgress)
 
 testCreateVPNGatewayResponse :: CreateVPNGatewayResponse -> TestTree
 testCreateVPNGatewayResponse = res
     "CreateVPNGatewayResponse"
     "fixture/CreateVPNGatewayResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateVPNGateway)
 
 testCreateNetworkACLResponse :: CreateNetworkACLResponse -> TestTree
 testCreateNetworkACLResponse = res
     "CreateNetworkACLResponse"
     "fixture/CreateNetworkACLResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateNetworkACL)
 
 testDeleteKeyPairResponse :: DeleteKeyPairResponse -> TestTree
 testDeleteKeyPairResponse = res
     "DeleteKeyPairResponse"
     "fixture/DeleteKeyPairResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteKeyPair)
 
 testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
 testDescribeTagsResponse = res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeTags)
 
 testDetachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse -> TestTree
 testDetachNetworkInterfaceResponse = res
     "DetachNetworkInterfaceResponse"
     "fixture/DetachNetworkInterfaceResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DetachNetworkInterface)
 
 testDetachInternetGatewayResponse :: DetachInternetGatewayResponse -> TestTree
 testDetachInternetGatewayResponse = res
     "DetachInternetGatewayResponse"
     "fixture/DetachInternetGatewayResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DetachInternetGateway)
 
 testDeleteVPCEndpointsResponse :: DeleteVPCEndpointsResponse -> TestTree
 testDeleteVPCEndpointsResponse = res
     "DeleteVPCEndpointsResponse"
     "fixture/DeleteVPCEndpointsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteVPCEndpoints)
 
 testDeleteFlowLogsResponse :: DeleteFlowLogsResponse -> TestTree
 testDeleteFlowLogsResponse = res
     "DeleteFlowLogsResponse"
     "fixture/DeleteFlowLogsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteFlowLogs)
 
 testDescribeVPCClassicLinkResponse :: DescribeVPCClassicLinkResponse -> TestTree
 testDescribeVPCClassicLinkResponse = res
     "DescribeVPCClassicLinkResponse"
     "fixture/DescribeVPCClassicLinkResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeVPCClassicLink)
 
 testModifySubnetAttributeResponse :: ModifySubnetAttributeResponse -> TestTree
 testModifySubnetAttributeResponse = res
     "ModifySubnetAttributeResponse"
     "fixture/ModifySubnetAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifySubnetAttribute)
 
 testDetachVolumeResponse :: VolumeAttachment -> TestTree
 testDetachVolumeResponse = res
     "DetachVolumeResponse"
     "fixture/DetachVolumeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DetachVolume)
 
 testCancelBundleTaskResponse :: CancelBundleTaskResponse -> TestTree
 testCancelBundleTaskResponse = res
     "CancelBundleTaskResponse"
     "fixture/CancelBundleTaskResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CancelBundleTask)
 
 testReleaseAddressResponse :: ReleaseAddressResponse -> TestTree
 testReleaseAddressResponse = res
     "ReleaseAddressResponse"
     "fixture/ReleaseAddressResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ReleaseAddress)
 
 testCreateInternetGatewayResponse :: CreateInternetGatewayResponse -> TestTree
 testCreateInternetGatewayResponse = res
     "CreateInternetGatewayResponse"
     "fixture/CreateInternetGatewayResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateInternetGateway)
 
 testDeleteVPNConnectionResponse :: DeleteVPNConnectionResponse -> TestTree
 testDeleteVPNConnectionResponse = res
     "DeleteVPNConnectionResponse"
     "fixture/DeleteVPNConnectionResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteVPNConnection)
 
 testDescribeBundleTasksResponse :: DescribeBundleTasksResponse -> TestTree
 testDescribeBundleTasksResponse = res
     "DescribeBundleTasksResponse"
     "fixture/DescribeBundleTasksResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeBundleTasks)
 
 testAuthorizeSecurityGroupEgressResponse :: AuthorizeSecurityGroupEgressResponse -> TestTree
 testAuthorizeSecurityGroupEgressResponse = res
     "AuthorizeSecurityGroupEgressResponse"
     "fixture/AuthorizeSecurityGroupEgressResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AuthorizeSecurityGroupEgress)
 
 testDeregisterImageResponse :: DeregisterImageResponse -> TestTree
 testDeregisterImageResponse = res
     "DeregisterImageResponse"
     "fixture/DeregisterImageResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeregisterImage)
 
 testModifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse -> TestTree
 testModifyNetworkInterfaceAttributeResponse = res
     "ModifyNetworkInterfaceAttributeResponse"
     "fixture/ModifyNetworkInterfaceAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifyNetworkInterfaceAttribute)
 
 testCancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse -> TestTree
 testCancelReservedInstancesListingResponse = res
     "CancelReservedInstancesListingResponse"
     "fixture/CancelReservedInstancesListingResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CancelReservedInstancesListing)
 
 testAttachClassicLinkVPCResponse :: AttachClassicLinkVPCResponse -> TestTree
 testAttachClassicLinkVPCResponse = res
     "AttachClassicLinkVPCResponse"
     "fixture/AttachClassicLinkVPCResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AttachClassicLinkVPC)
 
 testDescribeVPCClassicLinkDNSSupportResponse :: DescribeVPCClassicLinkDNSSupportResponse -> TestTree
 testDescribeVPCClassicLinkDNSSupportResponse = res
     "DescribeVPCClassicLinkDNSSupportResponse"
     "fixture/DescribeVPCClassicLinkDNSSupportResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeVPCClassicLinkDNSSupport)
 
 testRunScheduledInstancesResponse :: RunScheduledInstancesResponse -> TestTree
 testRunScheduledInstancesResponse = res
     "RunScheduledInstancesResponse"
     "fixture/RunScheduledInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy RunScheduledInstances)
 
 testCancelSpotFleetRequestsResponse :: CancelSpotFleetRequestsResponse -> TestTree
 testCancelSpotFleetRequestsResponse = res
     "CancelSpotFleetRequestsResponse"
     "fixture/CancelSpotFleetRequestsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CancelSpotFleetRequests)
 
 testDescribeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResponse -> TestTree
 testDescribeSpotPriceHistoryResponse = res
     "DescribeSpotPriceHistoryResponse"
     "fixture/DescribeSpotPriceHistoryResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeSpotPriceHistory)
 
 testDescribeDHCPOptionsResponse :: DescribeDHCPOptionsResponse -> TestTree
 testDescribeDHCPOptionsResponse = res
     "DescribeDHCPOptionsResponse"
     "fixture/DescribeDHCPOptionsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeDHCPOptions)
 
 testImportImageResponse :: ImportImageResponse -> TestTree
 testImportImageResponse = res
     "ImportImageResponse"
     "fixture/ImportImageResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ImportImage)
 
 testStopInstancesResponse :: StopInstancesResponse -> TestTree
 testStopInstancesResponse = res
     "StopInstancesResponse"
     "fixture/StopInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy StopInstances)
 
 testDescribeInternetGatewaysResponse :: DescribeInternetGatewaysResponse -> TestTree
 testDescribeInternetGatewaysResponse = res
     "DescribeInternetGatewaysResponse"
     "fixture/DescribeInternetGatewaysResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeInternetGateways)
 
 testDisableVPCClassicLinkResponse :: DisableVPCClassicLinkResponse -> TestTree
 testDisableVPCClassicLinkResponse = res
     "DisableVPCClassicLinkResponse"
     "fixture/DisableVPCClassicLinkResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DisableVPCClassicLink)
 
 testBundleInstanceResponse :: BundleInstanceResponse -> TestTree
 testBundleInstanceResponse = res
     "BundleInstanceResponse"
     "fixture/BundleInstanceResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy BundleInstance)
 
 testDescribeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse -> TestTree
 testDescribeNetworkInterfacesResponse = res
     "DescribeNetworkInterfacesResponse"
     "fixture/DescribeNetworkInterfacesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeNetworkInterfaces)
 
 testReplaceNetworkACLAssociationResponse :: ReplaceNetworkACLAssociationResponse -> TestTree
 testReplaceNetworkACLAssociationResponse = res
     "ReplaceNetworkACLAssociationResponse"
     "fixture/ReplaceNetworkACLAssociationResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ReplaceNetworkACLAssociation)
 
 testDescribeNatGatewaysResponse :: DescribeNatGatewaysResponse -> TestTree
 testDescribeNatGatewaysResponse = res
     "DescribeNatGatewaysResponse"
     "fixture/DescribeNatGatewaysResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeNatGateways)
 
 testDescribeAddressesResponse :: DescribeAddressesResponse -> TestTree
 testDescribeAddressesResponse = res
     "DescribeAddressesResponse"
     "fixture/DescribeAddressesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeAddresses)
 
 testDescribeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse -> TestTree
 testDescribeSnapshotAttributeResponse = res
     "DescribeSnapshotAttributeResponse"
     "fixture/DescribeSnapshotAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeSnapshotAttribute)
 
 testReplaceRouteResponse :: ReplaceRouteResponse -> TestTree
 testReplaceRouteResponse = res
     "ReplaceRouteResponse"
     "fixture/ReplaceRouteResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ReplaceRoute)
 
 testDescribeVPCEndpointServicesResponse :: DescribeVPCEndpointServicesResponse -> TestTree
 testDescribeVPCEndpointServicesResponse = res
     "DescribeVPCEndpointServicesResponse"
     "fixture/DescribeVPCEndpointServicesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeVPCEndpointServices)
 
 testAuthorizeSecurityGroupIngressResponse :: AuthorizeSecurityGroupIngressResponse -> TestTree
 testAuthorizeSecurityGroupIngressResponse = res
     "AuthorizeSecurityGroupIngressResponse"
     "fixture/AuthorizeSecurityGroupIngressResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AuthorizeSecurityGroupIngress)
 
 testCreateVPCPeeringConnectionResponse :: CreateVPCPeeringConnectionResponse -> TestTree
 testCreateVPCPeeringConnectionResponse = res
     "CreateVPCPeeringConnectionResponse"
     "fixture/CreateVPCPeeringConnectionResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateVPCPeeringConnection)
 
 testDescribeSubnetsResponse :: DescribeSubnetsResponse -> TestTree
 testDescribeSubnetsResponse = res
     "DescribeSubnetsResponse"
     "fixture/DescribeSubnetsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeSubnets)
 
 testCreateTagsResponse :: CreateTagsResponse -> TestTree
 testCreateTagsResponse = res
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateTags)
 
 testPurchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResponse -> TestTree
 testPurchaseReservedInstancesOfferingResponse = res
     "PurchaseReservedInstancesOfferingResponse"
     "fixture/PurchaseReservedInstancesOfferingResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy PurchaseReservedInstancesOffering)
 
 testDeleteNetworkACLEntryResponse :: DeleteNetworkACLEntryResponse -> TestTree
 testDeleteNetworkACLEntryResponse = res
     "DeleteNetworkACLEntryResponse"
     "fixture/DeleteNetworkACLEntryResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteNetworkACLEntry)
 
 testResetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse -> TestTree
 testResetSnapshotAttributeResponse = res
     "ResetSnapshotAttributeResponse"
     "fixture/ResetSnapshotAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ResetSnapshotAttribute)
 
 testDescribeVPNConnectionsResponse :: DescribeVPNConnectionsResponse -> TestTree
 testDescribeVPNConnectionsResponse = res
     "DescribeVPNConnectionsResponse"
     "fixture/DescribeVPNConnectionsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeVPNConnections)
 
 testDeleteRouteResponse :: DeleteRouteResponse -> TestTree
 testDeleteRouteResponse = res
     "DeleteRouteResponse"
     "fixture/DeleteRouteResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteRoute)
 
 testReplaceNetworkACLEntryResponse :: ReplaceNetworkACLEntryResponse -> TestTree
 testReplaceNetworkACLEntryResponse = res
     "ReplaceNetworkACLEntryResponse"
     "fixture/ReplaceNetworkACLEntryResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ReplaceNetworkACLEntry)
 
 testDescribeVPCEndpointsResponse :: DescribeVPCEndpointsResponse -> TestTree
 testDescribeVPCEndpointsResponse = res
     "DescribeVPCEndpointsResponse"
     "fixture/DescribeVPCEndpointsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeVPCEndpoints)
 
 testResetInstanceAttributeResponse :: ResetInstanceAttributeResponse -> TestTree
 testResetInstanceAttributeResponse = res
     "ResetInstanceAttributeResponse"
     "fixture/ResetInstanceAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ResetInstanceAttribute)
 
 testAttachNetworkInterfaceResponse :: AttachNetworkInterfaceResponse -> TestTree
 testAttachNetworkInterfaceResponse = res
     "AttachNetworkInterfaceResponse"
     "fixture/AttachNetworkInterfaceResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AttachNetworkInterface)
 
 testDescribeInstanceStatusResponse :: DescribeInstanceStatusResponse -> TestTree
 testDescribeInstanceStatusResponse = res
     "DescribeInstanceStatusResponse"
     "fixture/DescribeInstanceStatusResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeInstanceStatus)
 
 testImportKeyPairResponse :: ImportKeyPairResponse -> TestTree
 testImportKeyPairResponse = res
     "ImportKeyPairResponse"
     "fixture/ImportKeyPairResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ImportKeyPair)
 
 testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
 testDeleteTagsResponse = res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteTags)
 
 testConfirmProductInstanceResponse :: ConfirmProductInstanceResponse -> TestTree
 testConfirmProductInstanceResponse = res
     "ConfirmProductInstanceResponse"
     "fixture/ConfirmProductInstanceResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ConfirmProductInstance)
 
 testDescribeInstanceAttributeResponse :: DescribeInstanceAttributeResponse -> TestTree
 testDescribeInstanceAttributeResponse = res
     "DescribeInstanceAttributeResponse"
     "fixture/DescribeInstanceAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeInstanceAttribute)
 
 testDescribeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse -> TestTree
 testDescribeReservedInstancesOfferingsResponse = res
     "DescribeReservedInstancesOfferingsResponse"
     "fixture/DescribeReservedInstancesOfferingsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeReservedInstancesOfferings)
 
 testCreateCustomerGatewayResponse :: CreateCustomerGatewayResponse -> TestTree
 testCreateCustomerGatewayResponse = res
     "CreateCustomerGatewayResponse"
     "fixture/CreateCustomerGatewayResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateCustomerGateway)
 
 testDeleteSecurityGroupResponse :: DeleteSecurityGroupResponse -> TestTree
 testDeleteSecurityGroupResponse = res
     "DeleteSecurityGroupResponse"
     "fixture/DeleteSecurityGroupResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteSecurityGroup)
 
 testDeleteVPCPeeringConnectionResponse :: DeleteVPCPeeringConnectionResponse -> TestTree
 testDeleteVPCPeeringConnectionResponse = res
     "DeleteVPCPeeringConnectionResponse"
     "fixture/DeleteVPCPeeringConnectionResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteVPCPeeringConnection)
 
 testAttachInternetGatewayResponse :: AttachInternetGatewayResponse -> TestTree
 testAttachInternetGatewayResponse = res
     "AttachInternetGatewayResponse"
     "fixture/AttachInternetGatewayResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AttachInternetGateway)
 
 testModifyInstancePlacementResponse :: ModifyInstancePlacementResponse -> TestTree
 testModifyInstancePlacementResponse = res
     "ModifyInstancePlacementResponse"
     "fixture/ModifyInstancePlacementResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifyInstancePlacement)
 
 testDescribeFlowLogsResponse :: DescribeFlowLogsResponse -> TestTree
 testDescribeFlowLogsResponse = res
     "DescribeFlowLogsResponse"
     "fixture/DescribeFlowLogsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeFlowLogs)
 
 testRunInstancesResponse :: Reservation -> TestTree
 testRunInstancesResponse = res
     "RunInstancesResponse"
     "fixture/RunInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy RunInstances)
 
 testAssociateDHCPOptionsResponse :: AssociateDHCPOptionsResponse -> TestTree
 testAssociateDHCPOptionsResponse = res
     "AssociateDHCPOptionsResponse"
     "fixture/AssociateDHCPOptionsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AssociateDHCPOptions)
 
 testDescribeReservedInstancesResponse :: DescribeReservedInstancesResponse -> TestTree
 testDescribeReservedInstancesResponse = res
     "DescribeReservedInstancesResponse"
     "fixture/DescribeReservedInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeReservedInstances)
 
 testDescribeIdFormatResponse :: DescribeIdFormatResponse -> TestTree
 testDescribeIdFormatResponse = res
     "DescribeIdFormatResponse"
     "fixture/DescribeIdFormatResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeIdFormat)
 
 testDescribeVPCsResponse :: DescribeVPCsResponse -> TestTree
 testDescribeVPCsResponse = res
     "DescribeVPCsResponse"
     "fixture/DescribeVPCsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeVPCs)
 
 testDescribeConversionTasksResponse :: DescribeConversionTasksResponse -> TestTree
 testDescribeConversionTasksResponse = res
     "DescribeConversionTasksResponse"
     "fixture/DescribeConversionTasksResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeConversionTasks)
 
 testDisableVPCClassicLinkDNSSupportResponse :: DisableVPCClassicLinkDNSSupportResponse -> TestTree
 testDisableVPCClassicLinkDNSSupportResponse = res
     "DisableVPCClassicLinkDNSSupportResponse"
     "fixture/DisableVPCClassicLinkDNSSupportResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DisableVPCClassicLinkDNSSupport)
 
 testAllocateAddressResponse :: AllocateAddressResponse -> TestTree
 testAllocateAddressResponse = res
     "AllocateAddressResponse"
     "fixture/AllocateAddressResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AllocateAddress)
 
 testCancelConversionTaskResponse :: CancelConversionTaskResponse -> TestTree
 testCancelConversionTaskResponse = res
     "CancelConversionTaskResponse"
     "fixture/CancelConversionTaskResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CancelConversionTask)
 
 testModifyImageAttributeResponse :: ModifyImageAttributeResponse -> TestTree
 testModifyImageAttributeResponse = res
     "ModifyImageAttributeResponse"
     "fixture/ModifyImageAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifyImageAttribute)
 
 testCreateRouteTableResponse :: CreateRouteTableResponse -> TestTree
 testCreateRouteTableResponse = res
     "CreateRouteTableResponse"
     "fixture/CreateRouteTableResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateRouteTable)
 
 testReportInstanceStatusResponse :: ReportInstanceStatusResponse -> TestTree
 testReportInstanceStatusResponse = res
     "ReportInstanceStatusResponse"
     "fixture/ReportInstanceStatusResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ReportInstanceStatus)
 
 testAttachVolumeResponse :: VolumeAttachment -> TestTree
 testAttachVolumeResponse = res
     "AttachVolumeResponse"
     "fixture/AttachVolumeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AttachVolume)
 
 testRequestSpotInstancesResponse :: RequestSpotInstancesResponse -> TestTree
 testRequestSpotInstancesResponse = res
     "RequestSpotInstancesResponse"
     "fixture/RequestSpotInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy RequestSpotInstances)
 
 testDescribeVolumesResponse :: DescribeVolumesResponse -> TestTree
 testDescribeVolumesResponse = res
     "DescribeVolumesResponse"
     "fixture/DescribeVolumesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeVolumes)
 
 testRejectVPCPeeringConnectionResponse :: RejectVPCPeeringConnectionResponse -> TestTree
 testRejectVPCPeeringConnectionResponse = res
     "RejectVPCPeeringConnectionResponse"
     "fixture/RejectVPCPeeringConnectionResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy RejectVPCPeeringConnection)
 
 testDeleteVPNConnectionRouteResponse :: DeleteVPNConnectionRouteResponse -> TestTree
 testDeleteVPNConnectionRouteResponse = res
     "DeleteVPNConnectionRouteResponse"
     "fixture/DeleteVPNConnectionRouteResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteVPNConnectionRoute)
 
 testModifyVPCEndpointResponse :: ModifyVPCEndpointResponse -> TestTree
 testModifyVPCEndpointResponse = res
     "ModifyVPCEndpointResponse"
     "fixture/ModifyVPCEndpointResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifyVPCEndpoint)
 
 testAllocateHostsResponse :: AllocateHostsResponse -> TestTree
 testAllocateHostsResponse = res
     "AllocateHostsResponse"
     "fixture/AllocateHostsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AllocateHosts)
 
 testRegisterImageResponse :: RegisterImageResponse -> TestTree
 testRegisterImageResponse = res
     "RegisterImageResponse"
     "fixture/RegisterImageResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy RegisterImage)
 
 testRevokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse -> TestTree
 testRevokeSecurityGroupIngressResponse = res
     "RevokeSecurityGroupIngressResponse"
     "fixture/RevokeSecurityGroupIngressResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy RevokeSecurityGroupIngress)
 
 testEnableVPCClassicLinkDNSSupportResponse :: EnableVPCClassicLinkDNSSupportResponse -> TestTree
 testEnableVPCClassicLinkDNSSupportResponse = res
     "EnableVPCClassicLinkDNSSupportResponse"
     "fixture/EnableVPCClassicLinkDNSSupportResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy EnableVPCClassicLinkDNSSupport)
 
 testModifyReservedInstancesResponse :: ModifyReservedInstancesResponse -> TestTree
 testModifyReservedInstancesResponse = res
     "ModifyReservedInstancesResponse"
     "fixture/ModifyReservedInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifyReservedInstances)
 
 testDescribeScheduledInstancesResponse :: DescribeScheduledInstancesResponse -> TestTree
 testDescribeScheduledInstancesResponse = res
     "DescribeScheduledInstancesResponse"
     "fixture/DescribeScheduledInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeScheduledInstances)
 
 testCreateFlowLogsResponse :: CreateFlowLogsResponse -> TestTree
 testCreateFlowLogsResponse = res
     "CreateFlowLogsResponse"
     "fixture/CreateFlowLogsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateFlowLogs)
 
 testDescribeSpotFleetRequestsResponse :: DescribeSpotFleetRequestsResponse -> TestTree
 testDescribeSpotFleetRequestsResponse = res
     "DescribeSpotFleetRequestsResponse"
     "fixture/DescribeSpotFleetRequestsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeSpotFleetRequests)
 
 testMoveAddressToVPCResponse :: MoveAddressToVPCResponse -> TestTree
 testMoveAddressToVPCResponse = res
     "MoveAddressToVPCResponse"
     "fixture/MoveAddressToVPCResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy MoveAddressToVPC)
 
 testDeleteNetworkACLResponse :: DeleteNetworkACLResponse -> TestTree
 testDeleteNetworkACLResponse = res
     "DeleteNetworkACLResponse"
     "fixture/DeleteNetworkACLResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteNetworkACL)
 
 testDeleteVPNGatewayResponse :: DeleteVPNGatewayResponse -> TestTree
 testDeleteVPNGatewayResponse = res
     "DeleteVPNGatewayResponse"
     "fixture/DeleteVPNGatewayResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteVPNGateway)
 
 testDescribeImportImageTasksResponse :: DescribeImportImageTasksResponse -> TestTree
 testDescribeImportImageTasksResponse = res
     "DescribeImportImageTasksResponse"
     "fixture/DescribeImportImageTasksResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeImportImageTasks)
 
 testDescribeVolumeAttributeResponse :: DescribeVolumeAttributeResponse -> TestTree
 testDescribeVolumeAttributeResponse = res
     "DescribeVolumeAttributeResponse"
     "fixture/DescribeVolumeAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeVolumeAttribute)
 
 testDescribeMovingAddressesResponse :: DescribeMovingAddressesResponse -> TestTree
 testDescribeMovingAddressesResponse = res
     "DescribeMovingAddressesResponse"
     "fixture/DescribeMovingAddressesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeMovingAddresses)
 
 testGetPasswordDataResponse :: GetPasswordDataResponse -> TestTree
 testGetPasswordDataResponse = res
     "GetPasswordDataResponse"
     "fixture/GetPasswordDataResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy GetPasswordData)
 
 testCreateVPCResponse :: CreateVPCResponse -> TestTree
 testCreateVPCResponse = res
     "CreateVPCResponse"
     "fixture/CreateVPCResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateVPC)
 
 testCopySnapshotResponse :: CopySnapshotResponse -> TestTree
 testCopySnapshotResponse = res
     "CopySnapshotResponse"
     "fixture/CopySnapshotResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CopySnapshot)
 
 testDisassociateAddressResponse :: DisassociateAddressResponse -> TestTree
 testDisassociateAddressResponse = res
     "DisassociateAddressResponse"
     "fixture/DisassociateAddressResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DisassociateAddress)
 
 testDeleteVPCResponse :: DeleteVPCResponse -> TestTree
 testDeleteVPCResponse = res
     "DeleteVPCResponse"
     "fixture/DeleteVPCResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteVPC)
 
 testCreateInstanceExportTaskResponse :: CreateInstanceExportTaskResponse -> TestTree
 testCreateInstanceExportTaskResponse = res
     "CreateInstanceExportTaskResponse"
     "fixture/CreateInstanceExportTaskResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateInstanceExportTask)
 
 testDescribeVPCAttributeResponse :: DescribeVPCAttributeResponse -> TestTree
 testDescribeVPCAttributeResponse = res
     "DescribeVPCAttributeResponse"
     "fixture/DescribeVPCAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeVPCAttribute)
 
 testCreateVolumeResponse :: Volume -> TestTree
 testCreateVolumeResponse = res
     "CreateVolumeResponse"
     "fixture/CreateVolumeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateVolume)
 
 testDescribeScheduledInstanceAvailabilityResponse :: DescribeScheduledInstanceAvailabilityResponse -> TestTree
 testDescribeScheduledInstanceAvailabilityResponse = res
     "DescribeScheduledInstanceAvailabilityResponse"
     "fixture/DescribeScheduledInstanceAvailabilityResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeScheduledInstanceAvailability)
 
 testModifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse -> TestTree
 testModifyVolumeAttributeResponse = res
     "ModifyVolumeAttributeResponse"
     "fixture/ModifyVolumeAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifyVolumeAttribute)
 
 testDescribeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResponse -> TestTree
 testDescribeSpotDatafeedSubscriptionResponse = res
     "DescribeSpotDatafeedSubscriptionResponse"
     "fixture/DescribeSpotDatafeedSubscriptionResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeSpotDatafeedSubscription)
 
 testDescribePrefixListsResponse :: DescribePrefixListsResponse -> TestTree
 testDescribePrefixListsResponse = res
     "DescribePrefixListsResponse"
     "fixture/DescribePrefixListsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribePrefixLists)
 
 testDeletePlacementGroupResponse :: DeletePlacementGroupResponse -> TestTree
 testDeletePlacementGroupResponse = res
     "DeletePlacementGroupResponse"
     "fixture/DeletePlacementGroupResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeletePlacementGroup)
 
 testRequestSpotFleetResponse :: RequestSpotFleetResponse -> TestTree
 testRequestSpotFleetResponse = res
     "RequestSpotFleetResponse"
     "fixture/RequestSpotFleetResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy RequestSpotFleet)
 
 testCreateSubnetResponse :: CreateSubnetResponse -> TestTree
 testCreateSubnetResponse = res
     "CreateSubnetResponse"
     "fixture/CreateSubnetResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateSubnet)
 
 testCreateNetworkInterfaceResponse :: CreateNetworkInterfaceResponse -> TestTree
 testCreateNetworkInterfaceResponse = res
     "CreateNetworkInterfaceResponse"
     "fixture/CreateNetworkInterfaceResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateNetworkInterface)
 
 testDescribeSecurityGroupsResponse :: DescribeSecurityGroupsResponse -> TestTree
 testDescribeSecurityGroupsResponse = res
     "DescribeSecurityGroupsResponse"
     "fixture/DescribeSecurityGroupsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeSecurityGroups)
 
 testDescribeExportTasksResponse :: DescribeExportTasksResponse -> TestTree
 testDescribeExportTasksResponse = res
     "DescribeExportTasksResponse"
     "fixture/DescribeExportTasksResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeExportTasks)
 
 testModifySpotFleetRequestResponse :: ModifySpotFleetRequestResponse -> TestTree
 testModifySpotFleetRequestResponse = res
     "ModifySpotFleetRequestResponse"
     "fixture/ModifySpotFleetRequestResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifySpotFleetRequest)
 
 testDetachVPNGatewayResponse :: DetachVPNGatewayResponse -> TestTree
 testDetachVPNGatewayResponse = res
     "DetachVPNGatewayResponse"
     "fixture/DetachVPNGatewayResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DetachVPNGateway)
 
 testEnableVolumeIOResponse :: EnableVolumeIOResponse -> TestTree
 testEnableVolumeIOResponse = res
     "EnableVolumeIOResponse"
     "fixture/EnableVolumeIOResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy EnableVolumeIO)
 
 testDescribeInstancesResponse :: DescribeInstancesResponse -> TestTree
 testDescribeInstancesResponse = res
     "DescribeInstancesResponse"
     "fixture/DescribeInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeInstances)
 
 testCreateNatGatewayResponse :: CreateNatGatewayResponse -> TestTree
 testCreateNatGatewayResponse = res
     "CreateNatGatewayResponse"
     "fixture/CreateNatGatewayResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateNatGateway)
 
 testDescribeVPCPeeringConnectionsResponse :: DescribeVPCPeeringConnectionsResponse -> TestTree
 testDescribeVPCPeeringConnectionsResponse = res
     "DescribeVPCPeeringConnectionsResponse"
     "fixture/DescribeVPCPeeringConnectionsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeVPCPeeringConnections)
 
 testCancelExportTaskResponse :: CancelExportTaskResponse -> TestTree
 testCancelExportTaskResponse = res
     "CancelExportTaskResponse"
     "fixture/CancelExportTaskResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CancelExportTask)
 
 testDeleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse -> TestTree
 testDeleteNetworkInterfaceResponse = res
     "DeleteNetworkInterfaceResponse"
     "fixture/DeleteNetworkInterfaceResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteNetworkInterface)
 
 testReplaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResponse -> TestTree
 testReplaceRouteTableAssociationResponse = res
     "ReplaceRouteTableAssociationResponse"
     "fixture/ReplaceRouteTableAssociationResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ReplaceRouteTableAssociation)
 
 testStartInstancesResponse :: StartInstancesResponse -> TestTree
 testStartInstancesResponse = res
     "StartInstancesResponse"
     "fixture/StartInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy StartInstances)
 
 testCreatePlacementGroupResponse :: CreatePlacementGroupResponse -> TestTree
 testCreatePlacementGroupResponse = res
     "CreatePlacementGroupResponse"
     "fixture/CreatePlacementGroupResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreatePlacementGroup)
 
 testDescribeSnapshotsResponse :: DescribeSnapshotsResponse -> TestTree
 testDescribeSnapshotsResponse = res
     "DescribeSnapshotsResponse"
     "fixture/DescribeSnapshotsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeSnapshots)
 
 testAssociateAddressResponse :: AssociateAddressResponse -> TestTree
 testAssociateAddressResponse = res
     "AssociateAddressResponse"
     "fixture/AssociateAddressResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AssociateAddress)
 
 testDescribeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse -> TestTree
 testDescribeNetworkInterfaceAttributeResponse = res
     "DescribeNetworkInterfaceAttributeResponse"
     "fixture/DescribeNetworkInterfaceAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeNetworkInterfaceAttribute)
 
 testReleaseHostsResponse :: ReleaseHostsResponse -> TestTree
 testReleaseHostsResponse = res
     "ReleaseHostsResponse"
     "fixture/ReleaseHostsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ReleaseHosts)
 
 testResetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse -> TestTree
 testResetNetworkInterfaceAttributeResponse = res
     "ResetNetworkInterfaceAttributeResponse"
     "fixture/ResetNetworkInterfaceAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ResetNetworkInterfaceAttribute)
 
 testDeleteInternetGatewayResponse :: DeleteInternetGatewayResponse -> TestTree
 testDeleteInternetGatewayResponse = res
     "DeleteInternetGatewayResponse"
     "fixture/DeleteInternetGatewayResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteInternetGateway)
 
 testDescribeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse -> TestTree
 testDescribeReservedInstancesListingsResponse = res
     "DescribeReservedInstancesListingsResponse"
     "fixture/DescribeReservedInstancesListingsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeReservedInstancesListings)
 
 testCreateVPNConnectionResponse :: CreateVPNConnectionResponse -> TestTree
 testCreateVPNConnectionResponse = res
     "CreateVPNConnectionResponse"
     "fixture/CreateVPNConnectionResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateVPNConnection)
 
 testDeleteNatGatewayResponse :: DeleteNatGatewayResponse -> TestTree
 testDeleteNatGatewayResponse = res
     "DeleteNatGatewayResponse"
     "fixture/DeleteNatGatewayResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteNatGateway)
 
 testDescribeImportSnapshotTasksResponse :: DescribeImportSnapshotTasksResponse -> TestTree
 testDescribeImportSnapshotTasksResponse = res
     "DescribeImportSnapshotTasksResponse"
     "fixture/DescribeImportSnapshotTasksResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeImportSnapshotTasks)
 
 testDescribeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse -> TestTree
 testDescribeCustomerGatewaysResponse = res
     "DescribeCustomerGatewaysResponse"
     "fixture/DescribeCustomerGatewaysResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeCustomerGateways)
 
 testDeleteSubnetResponse :: DeleteSubnetResponse -> TestTree
 testDeleteSubnetResponse = res
     "DeleteSubnetResponse"
     "fixture/DeleteSubnetResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteSubnet)
 
 testCopyImageResponse :: CopyImageResponse -> TestTree
 testCopyImageResponse = res
     "CopyImageResponse"
     "fixture/CopyImageResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CopyImage)
 
 testCreateVPCEndpointResponse :: CreateVPCEndpointResponse -> TestTree
 testCreateVPCEndpointResponse = res
     "CreateVPCEndpointResponse"
     "fixture/CreateVPCEndpointResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateVPCEndpoint)
 
 testUnmonitorInstancesResponse :: UnmonitorInstancesResponse -> TestTree
 testUnmonitorInstancesResponse = res
     "UnmonitorInstancesResponse"
     "fixture/UnmonitorInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy UnmonitorInstances)
 
 testCreateSecurityGroupResponse :: CreateSecurityGroupResponse -> TestTree
 testCreateSecurityGroupResponse = res
     "CreateSecurityGroupResponse"
     "fixture/CreateSecurityGroupResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateSecurityGroup)
 
 testImportVolumeResponse :: ImportVolumeResponse -> TestTree
 testImportVolumeResponse = res
     "ImportVolumeResponse"
     "fixture/ImportVolumeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ImportVolume)
 
 testDisableVGWRoutePropagationResponse :: DisableVGWRoutePropagationResponse -> TestTree
 testDisableVGWRoutePropagationResponse = res
     "DisableVGWRoutePropagationResponse"
     "fixture/DisableVGWRoutePropagationResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DisableVGWRoutePropagation)
 
 testCreateSpotDatafeedSubscriptionResponse :: CreateSpotDatafeedSubscriptionResponse -> TestTree
 testCreateSpotDatafeedSubscriptionResponse = res
     "CreateSpotDatafeedSubscriptionResponse"
     "fixture/CreateSpotDatafeedSubscriptionResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateSpotDatafeedSubscription)
 
 testCancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse -> TestTree
 testCancelSpotInstanceRequestsResponse = res
     "CancelSpotInstanceRequestsResponse"
     "fixture/CancelSpotInstanceRequestsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CancelSpotInstanceRequests)
 
 testCreateRouteResponse :: CreateRouteResponse -> TestTree
 testCreateRouteResponse = res
     "CreateRouteResponse"
     "fixture/CreateRouteResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateRoute)
 
 testDeleteSnapshotResponse :: DeleteSnapshotResponse -> TestTree
 testDeleteSnapshotResponse = res
     "DeleteSnapshotResponse"
     "fixture/DeleteSnapshotResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteSnapshot)
 
 testAssignPrivateIPAddressesResponse :: AssignPrivateIPAddressesResponse -> TestTree
 testAssignPrivateIPAddressesResponse = res
     "AssignPrivateIPAddressesResponse"
     "fixture/AssignPrivateIPAddressesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AssignPrivateIPAddresses)
 
 testModifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse -> TestTree
 testModifyInstanceAttributeResponse = res
     "ModifyInstanceAttributeResponse"
     "fixture/ModifyInstanceAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifyInstanceAttribute)
 
 testDeleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse -> TestTree
 testDeleteCustomerGatewayResponse = res
     "DeleteCustomerGatewayResponse"
     "fixture/DeleteCustomerGatewayResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteCustomerGateway)
 
 testDisassociateRouteTableResponse :: DisassociateRouteTableResponse -> TestTree
 testDisassociateRouteTableResponse = res
     "DisassociateRouteTableResponse"
     "fixture/DisassociateRouteTableResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DisassociateRouteTable)
 
 testDeleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse -> TestTree
 testDeleteSpotDatafeedSubscriptionResponse = res
     "DeleteSpotDatafeedSubscriptionResponse"
     "fixture/DeleteSpotDatafeedSubscriptionResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteSpotDatafeedSubscription)
 
 testEnableVPCClassicLinkResponse :: EnableVPCClassicLinkResponse -> TestTree
 testEnableVPCClassicLinkResponse = res
     "EnableVPCClassicLinkResponse"
     "fixture/EnableVPCClassicLinkResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy EnableVPCClassicLink)
 
 testDescribePlacementGroupsResponse :: DescribePlacementGroupsResponse -> TestTree
 testDescribePlacementGroupsResponse = res
     "DescribePlacementGroupsResponse"
     "fixture/DescribePlacementGroupsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribePlacementGroups)
 
 testPurchaseScheduledInstancesResponse :: PurchaseScheduledInstancesResponse -> TestTree
 testPurchaseScheduledInstancesResponse = res
     "PurchaseScheduledInstancesResponse"
     "fixture/PurchaseScheduledInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy PurchaseScheduledInstances)
 
 testEnableVGWRoutePropagationResponse :: EnableVGWRoutePropagationResponse -> TestTree
 testEnableVGWRoutePropagationResponse = res
     "EnableVGWRoutePropagationResponse"
     "fixture/EnableVGWRoutePropagationResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy EnableVGWRoutePropagation)
 
 testDescribeSpotFleetRequestHistoryResponse :: DescribeSpotFleetRequestHistoryResponse -> TestTree
 testDescribeSpotFleetRequestHistoryResponse = res
     "DescribeSpotFleetRequestHistoryResponse"
     "fixture/DescribeSpotFleetRequestHistoryResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeSpotFleetRequestHistory)
 
 testModifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse -> TestTree
 testModifySnapshotAttributeResponse = res
     "ModifySnapshotAttributeResponse"
     "fixture/ModifySnapshotAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifySnapshotAttribute)
 
 testCreateSnapshotResponse :: Snapshot -> TestTree
 testCreateSnapshotResponse = res
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateSnapshot)
 
 testCreateNetworkACLEntryResponse :: CreateNetworkACLEntryResponse -> TestTree
 testCreateNetworkACLEntryResponse = res
     "CreateNetworkACLEntryResponse"
     "fixture/CreateNetworkACLEntryResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateNetworkACLEntry)
 
 testCreateReservedInstancesListingResponse :: CreateReservedInstancesListingResponse -> TestTree
 testCreateReservedInstancesListingResponse = res
     "CreateReservedInstancesListingResponse"
     "fixture/CreateReservedInstancesListingResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateReservedInstancesListing)
 
 testAttachVPNGatewayResponse :: AttachVPNGatewayResponse -> TestTree
 testAttachVPNGatewayResponse = res
     "AttachVPNGatewayResponse"
     "fixture/AttachVPNGatewayResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AttachVPNGateway)
 
 testCreateDHCPOptionsResponse :: CreateDHCPOptionsResponse -> TestTree
 testCreateDHCPOptionsResponse = res
     "CreateDHCPOptionsResponse"
     "fixture/CreateDHCPOptionsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateDHCPOptions)
 
 testDescribeAccountAttributesResponse :: DescribeAccountAttributesResponse -> TestTree
 testDescribeAccountAttributesResponse = res
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeAccountAttributes)
 
 testModifyHostsResponse :: ModifyHostsResponse -> TestTree
 testModifyHostsResponse = res
     "ModifyHostsResponse"
     "fixture/ModifyHostsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifyHosts)
 
 testRebootInstancesResponse :: RebootInstancesResponse -> TestTree
 testRebootInstancesResponse = res
     "RebootInstancesResponse"
     "fixture/RebootInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy RebootInstances)
 
 testCreateImageResponse :: CreateImageResponse -> TestTree
 testCreateImageResponse = res
     "CreateImageResponse"
     "fixture/CreateImageResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateImage)
 
 testDescribeClassicLinkInstancesResponse :: DescribeClassicLinkInstancesResponse -> TestTree
 testDescribeClassicLinkInstancesResponse = res
     "DescribeClassicLinkInstancesResponse"
     "fixture/DescribeClassicLinkInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeClassicLinkInstances)
 
 testTerminateInstancesResponse :: TerminateInstancesResponse -> TestTree
 testTerminateInstancesResponse = res
     "TerminateInstancesResponse"
     "fixture/TerminateInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy TerminateInstances)
 
 testDescribeKeyPairsResponse :: DescribeKeyPairsResponse -> TestTree
 testDescribeKeyPairsResponse = res
     "DescribeKeyPairsResponse"
     "fixture/DescribeKeyPairsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeKeyPairs)
 
 testCreateVPNConnectionRouteResponse :: CreateVPNConnectionRouteResponse -> TestTree
 testCreateVPNConnectionRouteResponse = res
     "CreateVPNConnectionRouteResponse"
     "fixture/CreateVPNConnectionRouteResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateVPNConnectionRoute)
 
 testAssociateRouteTableResponse :: AssociateRouteTableResponse -> TestTree
 testAssociateRouteTableResponse = res
     "AssociateRouteTableResponse"
     "fixture/AssociateRouteTableResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AssociateRouteTable)
 
 testDescribeVPNGatewaysResponse :: DescribeVPNGatewaysResponse -> TestTree
 testDescribeVPNGatewaysResponse = res
     "DescribeVPNGatewaysResponse"
     "fixture/DescribeVPNGatewaysResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeVPNGateways)
 
 testGetConsoleOutputResponse :: GetConsoleOutputResponse -> TestTree
 testGetConsoleOutputResponse = res
     "GetConsoleOutputResponse"
     "fixture/GetConsoleOutputResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy GetConsoleOutput)
 
 testDescribeHostsResponse :: DescribeHostsResponse -> TestTree
 testDescribeHostsResponse = res
     "DescribeHostsResponse"
     "fixture/DescribeHostsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeHosts)
 
 testDescribeImageAttributeResponse :: DescribeImageAttributeResponse -> TestTree
 testDescribeImageAttributeResponse = res
     "DescribeImageAttributeResponse"
     "fixture/DescribeImageAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeImageAttribute)
 
 testModifyIdFormatResponse :: ModifyIdFormatResponse -> TestTree
 testModifyIdFormatResponse = res
     "ModifyIdFormatResponse"
     "fixture/ModifyIdFormatResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifyIdFormat)
 
 testDeleteRouteTableResponse :: DeleteRouteTableResponse -> TestTree
 testDeleteRouteTableResponse = res
     "DeleteRouteTableResponse"
     "fixture/DeleteRouteTableResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteRouteTable)
 
 testResetImageAttributeResponse :: ResetImageAttributeResponse -> TestTree
 testResetImageAttributeResponse = res
     "ResetImageAttributeResponse"
     "fixture/ResetImageAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ResetImageAttribute)
 
 testDescribeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse -> TestTree
 testDescribeReservedInstancesModificationsResponse = res
     "DescribeReservedInstancesModificationsResponse"
     "fixture/DescribeReservedInstancesModificationsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeReservedInstancesModifications)
 
 testDescribeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResponse -> TestTree
 testDescribeSpotInstanceRequestsResponse = res
     "DescribeSpotInstanceRequestsResponse"
     "fixture/DescribeSpotInstanceRequestsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeSpotInstanceRequests)
 
 testUnassignPrivateIPAddressesResponse :: UnassignPrivateIPAddressesResponse -> TestTree
 testUnassignPrivateIPAddressesResponse = res
     "UnassignPrivateIPAddressesResponse"
     "fixture/UnassignPrivateIPAddressesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy UnassignPrivateIPAddresses)
 
 testDeleteDHCPOptionsResponse :: DeleteDHCPOptionsResponse -> TestTree
 testDeleteDHCPOptionsResponse = res
     "DeleteDHCPOptionsResponse"
     "fixture/DeleteDHCPOptionsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteDHCPOptions)
 
 testDescribeNetworkACLsResponse :: DescribeNetworkACLsResponse -> TestTree
 testDescribeNetworkACLsResponse = res
     "DescribeNetworkACLsResponse"
     "fixture/DescribeNetworkACLsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeNetworkACLs)
 
 testCancelImportTaskResponse :: CancelImportTaskResponse -> TestTree
 testCancelImportTaskResponse = res
     "CancelImportTaskResponse"
     "fixture/CancelImportTaskResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CancelImportTask)
 
 testDetachClassicLinkVPCResponse :: DetachClassicLinkVPCResponse -> TestTree
 testDetachClassicLinkVPCResponse = res
     "DetachClassicLinkVPCResponse"
     "fixture/DetachClassicLinkVPCResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DetachClassicLinkVPC)
 
 testDescribeRegionsResponse :: DescribeRegionsResponse -> TestTree
 testDescribeRegionsResponse = res
     "DescribeRegionsResponse"
     "fixture/DescribeRegionsResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeRegions)
 
 testMonitorInstancesResponse :: MonitorInstancesResponse -> TestTree
 testMonitorInstancesResponse = res
     "MonitorInstancesResponse"
     "fixture/MonitorInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy MonitorInstances)
 
 testAcceptVPCPeeringConnectionResponse :: AcceptVPCPeeringConnectionResponse -> TestTree
 testAcceptVPCPeeringConnectionResponse = res
     "AcceptVPCPeeringConnectionResponse"
     "fixture/AcceptVPCPeeringConnectionResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy AcceptVPCPeeringConnection)
 
 testImportSnapshotResponse :: ImportSnapshotResponse -> TestTree
 testImportSnapshotResponse = res
     "ImportSnapshotResponse"
     "fixture/ImportSnapshotResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ImportSnapshot)
 
 testDescribeVolumeStatusResponse :: DescribeVolumeStatusResponse -> TestTree
 testDescribeVolumeStatusResponse = res
     "DescribeVolumeStatusResponse"
     "fixture/DescribeVolumeStatusResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeVolumeStatus)
 
 testDescribeRouteTablesResponse :: DescribeRouteTablesResponse -> TestTree
 testDescribeRouteTablesResponse = res
     "DescribeRouteTablesResponse"
     "fixture/DescribeRouteTablesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeRouteTables)
 
 testDescribeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse -> TestTree
 testDescribeAvailabilityZonesResponse = res
     "DescribeAvailabilityZonesResponse"
     "fixture/DescribeAvailabilityZonesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeAvailabilityZones)
 
 testModifyVPCAttributeResponse :: ModifyVPCAttributeResponse -> TestTree
 testModifyVPCAttributeResponse = res
     "ModifyVPCAttributeResponse"
     "fixture/ModifyVPCAttributeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy ModifyVPCAttribute)
 
 testDescribeImagesResponse :: DescribeImagesResponse -> TestTree
 testDescribeImagesResponse = res
     "DescribeImagesResponse"
     "fixture/DescribeImagesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeImages)
 
 testRestoreAddressToClassicResponse :: RestoreAddressToClassicResponse -> TestTree
 testRestoreAddressToClassicResponse = res
     "RestoreAddressToClassicResponse"
     "fixture/RestoreAddressToClassicResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy RestoreAddressToClassic)
 
 testCreateKeyPairResponse :: CreateKeyPairResponse -> TestTree
 testCreateKeyPairResponse = res
     "CreateKeyPairResponse"
     "fixture/CreateKeyPairResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy CreateKeyPair)
 
 testDeleteVolumeResponse :: DeleteVolumeResponse -> TestTree
 testDeleteVolumeResponse = res
     "DeleteVolumeResponse"
     "fixture/DeleteVolumeResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DeleteVolume)
 
 testDescribeSpotFleetInstancesResponse :: DescribeSpotFleetInstancesResponse -> TestTree
 testDescribeSpotFleetInstancesResponse = res
     "DescribeSpotFleetInstancesResponse"
     "fixture/DescribeSpotFleetInstancesResponse.proto"
-    eC2
+    ec2
     (Proxy :: Proxy DescribeSpotFleetInstances)

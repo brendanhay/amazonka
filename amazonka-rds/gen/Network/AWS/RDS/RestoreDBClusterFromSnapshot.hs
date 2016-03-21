@@ -227,7 +227,7 @@ instance AWSRequest RestoreDBClusterFromSnapshot
          where
         type Rs RestoreDBClusterFromSnapshot =
              RestoreDBClusterFromSnapshotResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "RestoreDBClusterFromSnapshotResult"

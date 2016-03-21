@@ -117,7 +117,7 @@ cpPolicyDocument = lens _cpPolicyDocument (\ s a -> s{_cpPolicyDocument = a});
 
 instance AWSRequest CreatePolicy where
         type Rs CreatePolicy = CreatePolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "CreatePolicyResult"
               (\ s h x ->

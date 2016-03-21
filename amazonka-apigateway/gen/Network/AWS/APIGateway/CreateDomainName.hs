@@ -116,7 +116,7 @@ cdnCertificateChain = lens _cdnCertificateChain (\ s a -> s{_cdnCertificateChain
 
 instance AWSRequest CreateDomainName where
         type Rs CreateDomainName = DomainName
-        request = postJSON aPIGateway
+        request = postJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CreateDomainName

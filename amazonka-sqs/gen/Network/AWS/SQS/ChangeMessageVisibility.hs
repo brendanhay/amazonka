@@ -122,7 +122,7 @@ cmvVisibilityTimeout = lens _cmvVisibilityTimeout (\ s a -> s{_cmvVisibilityTime
 instance AWSRequest ChangeMessageVisibility where
         type Rs ChangeMessageVisibility =
              ChangeMessageVisibilityResponse
-        request = postQuery sQS
+        request = postQuery sqs
         response
           = receiveNull ChangeMessageVisibilityResponse'
 

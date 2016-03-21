@@ -99,7 +99,7 @@ raDryRun = lens _raDryRun (\ s a -> s{_raDryRun = a});
 
 instance AWSRequest ReleaseAddress where
         type Rs ReleaseAddress = ReleaseAddressResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull ReleaseAddressResponse'
 
 instance Hashable ReleaseAddress

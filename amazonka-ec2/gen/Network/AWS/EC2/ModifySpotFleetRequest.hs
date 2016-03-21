@@ -110,7 +110,7 @@ msfrSpotFleetRequestId = lens _msfrSpotFleetRequestId (\ s a -> s{_msfrSpotFleet
 instance AWSRequest ModifySpotFleetRequest where
         type Rs ModifySpotFleetRequest =
              ModifySpotFleetRequestResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

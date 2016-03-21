@@ -180,7 +180,7 @@ pType = lens _pType (\ s a -> s{_pType = a});
 
 instance AWSRequest PutIntegration where
         type Rs PutIntegration = Integration
-        request = putJSON aPIGateway
+        request = putJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable PutIntegration

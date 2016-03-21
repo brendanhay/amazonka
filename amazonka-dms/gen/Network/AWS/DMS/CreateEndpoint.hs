@@ -170,7 +170,7 @@ cePort = lens _cePort (\ s a -> s{_cePort = a});
 
 instance AWSRequest CreateEndpoint where
         type Rs CreateEndpoint = CreateEndpointResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

@@ -134,7 +134,7 @@ piStatusCode = lens _piStatusCode (\ s a -> s{_piStatusCode = a});
 
 instance AWSRequest PutIntegrationResponse where
         type Rs PutIntegrationResponse = IntegrationResponse
-        request = putJSON aPIGateway
+        request = putJSON apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable PutIntegrationResponse

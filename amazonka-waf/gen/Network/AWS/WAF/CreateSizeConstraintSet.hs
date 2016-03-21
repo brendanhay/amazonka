@@ -100,7 +100,7 @@ cscsChangeToken = lens _cscsChangeToken (\ s a -> s{_cscsChangeToken = a});
 instance AWSRequest CreateSizeConstraintSet where
         type Rs CreateSizeConstraintSet =
              CreateSizeConstraintSetResponse
-        request = postJSON wAF
+        request = postJSON waf
         response
           = receiveJSON
               (\ s h x ->

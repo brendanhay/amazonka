@@ -96,7 +96,7 @@ dmStatusCode = lens _dmStatusCode (\ s a -> s{_dmStatusCode = a});
 instance AWSRequest DeleteMethodResponse where
         type Rs DeleteMethodResponse =
              DeleteMethodResponseResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull DeleteMethodResponseResponse'
 
 instance Hashable DeleteMethodResponse

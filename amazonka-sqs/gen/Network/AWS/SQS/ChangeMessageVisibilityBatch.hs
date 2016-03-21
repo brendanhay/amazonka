@@ -95,7 +95,7 @@ instance AWSRequest ChangeMessageVisibilityBatch
          where
         type Rs ChangeMessageVisibilityBatch =
              ChangeMessageVisibilityBatchResponse
-        request = postQuery sQS
+        request = postQuery sqs
         response
           = receiveXMLWrapper
               "ChangeMessageVisibilityBatchResult"

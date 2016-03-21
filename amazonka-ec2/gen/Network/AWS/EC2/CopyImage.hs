@@ -158,7 +158,7 @@ ciName = lens _ciName (\ s a -> s{_ciName = a});
 
 instance AWSRequest CopyImage where
         type Rs CopyImage = CopyImageResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

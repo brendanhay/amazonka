@@ -169,7 +169,7 @@ usService = lens _usService (\ s a -> s{_usService = a});
 
 instance AWSRequest UpdateService where
         type Rs UpdateService = UpdateServiceResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

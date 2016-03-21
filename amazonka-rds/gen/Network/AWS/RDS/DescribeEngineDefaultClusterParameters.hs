@@ -113,7 +113,7 @@ instance AWSRequest
          DescribeEngineDefaultClusterParameters where
         type Rs DescribeEngineDefaultClusterParameters =
              DescribeEngineDefaultClusterParametersResponse
-        request = postQuery rDS
+        request = postQuery rds
         response
           = receiveXMLWrapper
               "DescribeEngineDefaultClusterParametersResult"

@@ -76,7 +76,7 @@ dkpKeyName = lens _dkpKeyName (\ s a -> s{_dkpKeyName = a});
 
 instance AWSRequest DeleteKeyPair where
         type Rs DeleteKeyPair = DeleteKeyPairResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response = receiveNull DeleteKeyPairResponse'
 
 instance Hashable DeleteKeyPair

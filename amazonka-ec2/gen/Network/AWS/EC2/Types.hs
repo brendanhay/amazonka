@@ -13,7 +13,7 @@
 module Network.AWS.EC2.Types
     (
     -- * Service Configuration
-      eC2
+      ec2
 
     -- * Errors
 
@@ -1928,14 +1928,14 @@ import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
 -- | API version '2015-10-01' of the Amazon Elastic Compute Cloud SDK configuration.
-eC2 :: Service
-eC2 =
+ec2 :: Service
+ec2 =
     Service
     { _svcAbbrev = "EC2"
     , _svcSigner = v4
     , _svcPrefix = "ec2"
     , _svcVersion = "2015-10-01"
-    , _svcEndpoint = defaultEndpoint eC2
+    , _svcEndpoint = defaultEndpoint ec2
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
     , _svcError = parseXMLError

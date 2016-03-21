@@ -22,7 +22,7 @@
 module Network.AWS.DMS
     (
     -- * Service Configuration
-      dMS
+      dms
 
     -- * Errors
     -- $errors

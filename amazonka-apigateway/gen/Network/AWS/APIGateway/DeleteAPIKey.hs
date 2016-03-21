@@ -65,7 +65,7 @@ dakApiKey = lens _dakApiKey (\ s a -> s{_dakApiKey = a});
 
 instance AWSRequest DeleteAPIKey where
         type Rs DeleteAPIKey = DeleteAPIKeyResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull DeleteAPIKeyResponse'
 
 instance Hashable DeleteAPIKey

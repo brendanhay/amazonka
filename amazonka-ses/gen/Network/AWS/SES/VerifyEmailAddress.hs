@@ -71,7 +71,7 @@ veaEmailAddress = lens _veaEmailAddress (\ s a -> s{_veaEmailAddress = a});
 instance AWSRequest VerifyEmailAddress where
         type Rs VerifyEmailAddress =
              VerifyEmailAddressResponse
-        request = postQuery sES
+        request = postQuery ses
         response = receiveNull VerifyEmailAddressResponse'
 
 instance Hashable VerifyEmailAddress

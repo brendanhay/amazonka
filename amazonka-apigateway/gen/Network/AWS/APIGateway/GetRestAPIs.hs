@@ -90,7 +90,7 @@ instance AWSPager GetRestAPIs where
 
 instance AWSRequest GetRestAPIs where
         type Rs GetRestAPIs = GetRestAPIsResponse
-        request = get aPIGateway
+        request = get apiGateway
         response
           = receiveJSON
               (\ s h x ->

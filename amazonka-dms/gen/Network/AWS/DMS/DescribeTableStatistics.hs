@@ -98,7 +98,7 @@ dtsReplicationTaskARN = lens _dtsReplicationTaskARN (\ s a -> s{_dtsReplicationT
 instance AWSRequest DescribeTableStatistics where
         type Rs DescribeTableStatistics =
              DescribeTableStatisticsResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

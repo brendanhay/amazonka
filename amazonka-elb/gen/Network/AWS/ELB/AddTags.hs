@@ -83,7 +83,7 @@ atTags = lens _atTags (\ s a -> s{_atTags = a}) . _List1;
 
 instance AWSRequest AddTags where
         type Rs AddTags = AddTagsResponse
-        request = postQuery eLB
+        request = postQuery elb
         response
           = receiveXMLWrapper "AddTagsResult"
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))

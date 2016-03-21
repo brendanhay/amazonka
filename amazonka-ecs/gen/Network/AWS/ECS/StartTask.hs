@@ -130,7 +130,7 @@ sContainerInstances = lens _sContainerInstances (\ s a -> s{_sContainerInstances
 
 instance AWSRequest StartTask where
         type Rs StartTask = StartTaskResponse
-        request = postJSON eCS
+        request = postJSON ecs
         response
           = receiveJSON
               (\ s h x ->

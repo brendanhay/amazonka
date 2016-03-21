@@ -129,7 +129,7 @@ cveServiceName = lens _cveServiceName (\ s a -> s{_cveServiceName = a});
 
 instance AWSRequest CreateVPCEndpoint where
         type Rs CreateVPCEndpoint = CreateVPCEndpointResponse
-        request = postQuery eC2
+        request = postQuery ec2
         response
           = receiveXML
               (\ s h x ->

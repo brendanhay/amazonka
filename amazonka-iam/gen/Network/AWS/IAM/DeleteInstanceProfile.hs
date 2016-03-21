@@ -73,7 +73,7 @@ dipInstanceProfileName = lens _dipInstanceProfileName (\ s a -> s{_dipInstancePr
 instance AWSRequest DeleteInstanceProfile where
         type Rs DeleteInstanceProfile =
              DeleteInstanceProfileResponse
-        request = postQuery iAM
+        request = postQuery iam
         response = receiveNull DeleteInstanceProfileResponse'
 
 instance Hashable DeleteInstanceProfile

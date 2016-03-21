@@ -100,7 +100,7 @@ instance AWSRequest DescribeReplicationInstances
          where
         type Rs DescribeReplicationInstances =
              DescribeReplicationInstancesResponse
-        request = postJSON dMS
+        request = postJSON dms
         response
           = receiveJSON
               (\ s h x ->

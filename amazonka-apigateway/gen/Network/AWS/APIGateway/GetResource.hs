@@ -81,7 +81,7 @@ grResourceId = lens _grResourceId (\ s a -> s{_grResourceId = a});
 
 instance AWSRequest GetResource where
         type Rs GetResource = Resource
-        request = get aPIGateway
+        request = get apiGateway
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetResource

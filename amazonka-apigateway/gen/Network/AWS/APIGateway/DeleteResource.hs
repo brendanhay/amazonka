@@ -75,7 +75,7 @@ drResourceId = lens _drResourceId (\ s a -> s{_drResourceId = a});
 
 instance AWSRequest DeleteResource where
         type Rs DeleteResource = DeleteResourceResponse
-        request = delete aPIGateway
+        request = delete apiGateway
         response = receiveNull DeleteResourceResponse'
 
 instance Hashable DeleteResource

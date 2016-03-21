@@ -264,7 +264,7 @@ scpActionNames = lens _scpActionNames (\ s a -> s{_scpActionNames = a}) . _Coerc
 
 instance AWSRequest SimulateCustomPolicy where
         type Rs SimulateCustomPolicy = SimulatePolicyResponse
-        request = postQuery iAM
+        request = postQuery iam
         response
           = receiveXMLWrapper "SimulateCustomPolicyResult"
               (\ s h x -> parseXML x)

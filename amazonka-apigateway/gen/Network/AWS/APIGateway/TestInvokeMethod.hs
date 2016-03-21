@@ -135,7 +135,7 @@ timHttpMethod = lens _timHttpMethod (\ s a -> s{_timHttpMethod = a});
 
 instance AWSRequest TestInvokeMethod where
         type Rs TestInvokeMethod = TestInvokeMethodResponse
-        request = postJSON aPIGateway
+        request = postJSON apiGateway
         response
           = receiveJSON
               (\ s h x ->

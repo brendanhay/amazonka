@@ -28,7 +28,7 @@
 module Network.AWS.ECS
     (
     -- * Service Configuration
-      eCS
+      ecs
 
     -- * Errors
     -- $errors

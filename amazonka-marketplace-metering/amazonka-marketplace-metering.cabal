@@ -1,5 +1,5 @@
 name:                  amazonka-marketplace-metering
-version:               1.3.8
+version:               1.4.0
 synopsis:              Amazon Marketplace Metering SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -60,7 +60,7 @@ library
         , Network.AWS.MarketplaceMetering.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.8.*
+          amazonka-core == 1.4.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-marketplace-metering-test
@@ -80,9 +80,9 @@ test-suite amazonka-marketplace-metering-test
         , Test.AWS.MarketplaceMetering.Internal
 
     build-depends:
-          amazonka-core == 1.3.8.*
-        , amazonka-test == 1.3.8.*
-        , amazonka-marketplace-metering == 1.3.8.*
+          amazonka-core == 1.4.0.*
+        , amazonka-test == 1.4.0.*
+        , amazonka-marketplace-metering == 1.4.0.*
         , base
         , bytestring
         , tasty

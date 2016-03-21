@@ -1,7 +1,7 @@
 # Change Log
 
-## [1.3.8](https://github.com/brendanhay/amazonka/tree/1.3.8)
-Released: **20 March, 2016**, Compare: [1.3.8](https://github.com/brendanhay/amazonka/compare/1.3.7...1.3.8)
+## [1.4.0](https://github.com/brendanhay/amazonka/tree/1.4.0)
+Released: **21 March, 2016**, Compare: [1.4.0](https://github.com/brendanhay/amazonka/compare/1.3.7...1.4.0)
 
 ### Fixed
 

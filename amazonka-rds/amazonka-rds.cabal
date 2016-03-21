@@ -1,5 +1,5 @@
 name:                  amazonka-rds
-version:               1.3.8
+version:               1.4.0
 synopsis:              Amazon Relational Database Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -155,7 +155,7 @@ library
         , Network.AWS.RDS.Types.Sum
 
     build-depends:
-          amazonka-core == 1.3.8.*
+          amazonka-core == 1.4.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-rds-test
@@ -175,9 +175,9 @@ test-suite amazonka-rds-test
         , Test.AWS.RDS.Internal
 
     build-depends:
-          amazonka-core == 1.3.8.*
-        , amazonka-test == 1.3.8.*
-        , amazonka-rds == 1.3.8.*
+          amazonka-core == 1.4.0.*
+        , amazonka-test == 1.4.0.*
+        , amazonka-rds == 1.4.0.*
         , base
         , bytestring
         , tasty

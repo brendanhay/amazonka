@@ -457,18 +457,20 @@ instance Hashable AutoScalingGroup
 --
 -- /See:/ 'autoScalingInstanceDetails' smart constructor.
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
-    { _asidInstanceId              :: !Text
+    { _asidLaunchConfigurationName :: !(Maybe Text)
+    , _asidInstanceId              :: !Text
     , _asidAutoScalingGroupName    :: !Text
     , _asidAvailabilityZone        :: !Text
     , _asidLifecycleState          :: !Text
     , _asidHealthStatus            :: !Text
-    , _asidLaunchConfigurationName :: !Text
     , _asidProtectedFromScaleIn    :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AutoScalingInstanceDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asidLaunchConfigurationName'
 --
 -- * 'asidInstanceId'
 --
@@ -480,8 +482,6 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
 --
 -- * 'asidHealthStatus'
 --
--- * 'asidLaunchConfigurationName'
---
 -- * 'asidProtectedFromScaleIn'
 autoScalingInstanceDetails
     :: Text -- ^ 'asidInstanceId'
@@ -489,19 +489,22 @@ autoScalingInstanceDetails
     -> Text -- ^ 'asidAvailabilityZone'
     -> Text -- ^ 'asidLifecycleState'
     -> Text -- ^ 'asidHealthStatus'
-    -> Text -- ^ 'asidLaunchConfigurationName'
     -> Bool -- ^ 'asidProtectedFromScaleIn'
     -> AutoScalingInstanceDetails
-autoScalingInstanceDetails pInstanceId_ pAutoScalingGroupName_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pLaunchConfigurationName_ pProtectedFromScaleIn_ =
+autoScalingInstanceDetails pInstanceId_ pAutoScalingGroupName_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pProtectedFromScaleIn_ =
     AutoScalingInstanceDetails'
-    { _asidInstanceId = pInstanceId_
+    { _asidLaunchConfigurationName = Nothing
+    , _asidInstanceId = pInstanceId_
     , _asidAutoScalingGroupName = pAutoScalingGroupName_
     , _asidAvailabilityZone = pAvailabilityZone_
     , _asidLifecycleState = pLifecycleState_
     , _asidHealthStatus = pHealthStatus_
-    , _asidLaunchConfigurationName = pLaunchConfigurationName_
     , _asidProtectedFromScaleIn = pProtectedFromScaleIn_
     }
+
+-- | The launch configuration associated with the instance.
+asidLaunchConfigurationName :: Lens' AutoScalingInstanceDetails (Maybe Text)
+asidLaunchConfigurationName = lens _asidLaunchConfigurationName (\ s a -> s{_asidLaunchConfigurationName = a});
 
 -- | The ID of the instance.
 asidInstanceId :: Lens' AutoScalingInstanceDetails Text
@@ -527,10 +530,6 @@ asidLifecycleState = lens _asidLifecycleState (\ s a -> s{_asidLifecycleState = 
 asidHealthStatus :: Lens' AutoScalingInstanceDetails Text
 asidHealthStatus = lens _asidHealthStatus (\ s a -> s{_asidHealthStatus = a});
 
--- | The launch configuration associated with the instance.
-asidLaunchConfigurationName :: Lens' AutoScalingInstanceDetails Text
-asidLaunchConfigurationName = lens _asidLaunchConfigurationName (\ s a -> s{_asidLaunchConfigurationName = a});
-
 -- | Indicates whether the instance is protected from termination by Auto
 -- Scaling when scaling in.
 asidProtectedFromScaleIn :: Lens' AutoScalingInstanceDetails Bool
@@ -539,11 +538,12 @@ asidProtectedFromScaleIn = lens _asidProtectedFromScaleIn (\ s a -> s{_asidProte
 instance FromXML AutoScalingInstanceDetails where
         parseXML x
           = AutoScalingInstanceDetails' <$>
-              (x .@ "InstanceId") <*> (x .@ "AutoScalingGroupName")
+              (x .@? "LaunchConfigurationName") <*>
+                (x .@ "InstanceId")
+                <*> (x .@ "AutoScalingGroupName")
                 <*> (x .@ "AvailabilityZone")
                 <*> (x .@ "LifecycleState")
                 <*> (x .@ "HealthStatus")
-                <*> (x .@ "LaunchConfigurationName")
                 <*> (x .@ "ProtectedFromScaleIn")
 
 instance Hashable AutoScalingInstanceDetails

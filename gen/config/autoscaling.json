@@ -6,6 +6,11 @@
                 "LaunchConfigurationName"
             ]
         },
+        "AutoScalingInstanceDetails": {
+            "optionalFields": [
+                "LaunchConfigurationName"
+            ]
+        },
         "Instance": {
             "optionalFields": [
                 "LaunchConfigurationName"

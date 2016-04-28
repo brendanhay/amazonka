@@ -367,6 +367,8 @@ instance AWSRequest ModifyCluster where
 
 instance Hashable ModifyCluster
 
+instance NFData ModifyCluster
+
 instance ToHeaders ModifyCluster where
         toHeaders = const mempty
 

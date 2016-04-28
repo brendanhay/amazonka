@@ -133,6 +133,8 @@ instance AWSRequest CreateElasticsearchDomain where
 
 instance Hashable CreateElasticsearchDomain
 
+instance NFData CreateElasticsearchDomain
+
 instance ToHeaders CreateElasticsearchDomain where
         toHeaders = const mempty
 

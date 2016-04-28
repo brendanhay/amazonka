@@ -97,6 +97,8 @@ instance AWSRequest ListIdentityPolicies where
 
 instance Hashable ListIdentityPolicies
 
+instance NFData ListIdentityPolicies
+
 instance ToHeaders ListIdentityPolicies where
         toHeaders = const mempty
 

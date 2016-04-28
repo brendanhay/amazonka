@@ -111,6 +111,8 @@ instance AWSRequest ListIdentities where
 
 instance Hashable ListIdentities
 
+instance NFData ListIdentities
+
 instance ToHeaders ListIdentities where
         toHeaders = const mempty
 

@@ -87,6 +87,8 @@ instance AWSRequest DescribeLifecycleHooks where
 
 instance Hashable DescribeLifecycleHooks
 
+instance NFData DescribeLifecycleHooks
+
 instance ToHeaders DescribeLifecycleHooks where
         toHeaders = const mempty
 

@@ -104,6 +104,8 @@ instance AWSRequest CreateDeploymentConfig where
 
 instance Hashable CreateDeploymentConfig
 
+instance NFData CreateDeploymentConfig
+
 instance ToHeaders CreateDeploymentConfig where
         toHeaders
           = const

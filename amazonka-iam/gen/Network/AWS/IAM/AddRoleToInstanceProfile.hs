@@ -84,6 +84,8 @@ instance AWSRequest AddRoleToInstanceProfile where
 
 instance Hashable AddRoleToInstanceProfile
 
+instance NFData AddRoleToInstanceProfile
+
 instance ToHeaders AddRoleToInstanceProfile where
         toHeaders = const mempty
 

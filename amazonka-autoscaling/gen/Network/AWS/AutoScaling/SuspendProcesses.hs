@@ -104,6 +104,8 @@ instance AWSRequest SuspendProcesses where
 
 instance Hashable SuspendProcesses
 
+instance NFData SuspendProcesses
+
 instance ToHeaders SuspendProcesses where
         toHeaders = const mempty
 

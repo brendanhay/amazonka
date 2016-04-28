@@ -112,6 +112,8 @@ instance AWSRequest GetVaultNotifications where
 
 instance Hashable GetVaultNotifications
 
+instance NFData GetVaultNotifications
+
 instance ToHeaders GetVaultNotifications where
         toHeaders = const mempty
 

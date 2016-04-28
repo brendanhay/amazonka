@@ -83,6 +83,8 @@ instance AWSRequest ListHSMs where
 
 instance Hashable ListHSMs
 
+instance NFData ListHSMs
+
 instance ToHeaders ListHSMs where
         toHeaders
           = const

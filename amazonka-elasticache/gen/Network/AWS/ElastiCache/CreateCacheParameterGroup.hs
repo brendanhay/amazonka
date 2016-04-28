@@ -104,6 +104,8 @@ instance AWSRequest CreateCacheParameterGroup where
 
 instance Hashable CreateCacheParameterGroup
 
+instance NFData CreateCacheParameterGroup
+
 instance ToHeaders CreateCacheParameterGroup where
         toHeaders = const mempty
 

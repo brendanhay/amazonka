@@ -100,6 +100,8 @@ instance AWSRequest TransferCertificate where
 
 instance Hashable TransferCertificate
 
+instance NFData TransferCertificate
+
 instance ToHeaders TransferCertificate where
         toHeaders = const mempty
 

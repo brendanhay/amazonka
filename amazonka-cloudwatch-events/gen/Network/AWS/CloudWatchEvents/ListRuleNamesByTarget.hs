@@ -106,6 +106,8 @@ instance AWSRequest ListRuleNamesByTarget where
 
 instance Hashable ListRuleNamesByTarget
 
+instance NFData ListRuleNamesByTarget
+
 instance ToHeaders ListRuleNamesByTarget where
         toHeaders
           = const

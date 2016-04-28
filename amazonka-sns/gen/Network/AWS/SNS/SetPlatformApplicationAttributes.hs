@@ -105,6 +105,8 @@ instance AWSRequest SetPlatformApplicationAttributes
 
 instance Hashable SetPlatformApplicationAttributes
 
+instance NFData SetPlatformApplicationAttributes
+
 instance ToHeaders SetPlatformApplicationAttributes
          where
         toHeaders = const mempty

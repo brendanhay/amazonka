@@ -714,6 +714,8 @@ instance AWSRequest UpdateItem where
 
 instance Hashable UpdateItem
 
+instance NFData UpdateItem
+
 instance ToHeaders UpdateItem where
         toHeaders
           = const

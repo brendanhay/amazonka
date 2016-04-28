@@ -85,6 +85,8 @@ instance AWSRequest AddTagsToOnPremisesInstances
 
 instance Hashable AddTagsToOnPremisesInstances
 
+instance NFData AddTagsToOnPremisesInstances
+
 instance ToHeaders AddTagsToOnPremisesInstances where
         toHeaders
           = const

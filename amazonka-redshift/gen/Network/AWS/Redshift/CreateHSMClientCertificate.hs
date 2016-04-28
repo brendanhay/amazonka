@@ -101,6 +101,8 @@ instance AWSRequest CreateHSMClientCertificate where
 
 instance Hashable CreateHSMClientCertificate
 
+instance NFData CreateHSMClientCertificate
+
 instance ToHeaders CreateHSMClientCertificate where
         toHeaders = const mempty
 

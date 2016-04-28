@@ -70,6 +70,8 @@ instance AWSRequest DeleteDomainName where
 
 instance Hashable DeleteDomainName
 
+instance NFData DeleteDomainName
+
 instance ToHeaders DeleteDomainName where
         toHeaders
           = const

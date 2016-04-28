@@ -117,6 +117,8 @@ instance AWSRequest ListImages where
 
 instance Hashable ListImages
 
+instance NFData ListImages
+
 instance ToHeaders ListImages where
         toHeaders
           = const

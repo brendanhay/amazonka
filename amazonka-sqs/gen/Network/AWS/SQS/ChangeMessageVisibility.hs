@@ -128,6 +128,8 @@ instance AWSRequest ChangeMessageVisibility where
 
 instance Hashable ChangeMessageVisibility
 
+instance NFData ChangeMessageVisibility
+
 instance ToHeaders ChangeMessageVisibility where
         toHeaders = const mempty
 

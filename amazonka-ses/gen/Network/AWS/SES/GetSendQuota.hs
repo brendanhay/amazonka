@@ -68,6 +68,8 @@ instance AWSRequest GetSendQuota where
 
 instance Hashable GetSendQuota
 
+instance NFData GetSendQuota
+
 instance ToHeaders GetSendQuota where
         toHeaders = const mempty
 

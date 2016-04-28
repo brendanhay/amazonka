@@ -83,6 +83,8 @@ instance AWSRequest GetJobDetails where
 
 instance Hashable GetJobDetails
 
+instance NFData GetJobDetails
+
 instance ToHeaders GetJobDetails where
         toHeaders
           = const

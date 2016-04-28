@@ -100,6 +100,8 @@ instance AWSRequest CreateReceiptRule where
 
 instance Hashable CreateReceiptRule
 
+instance NFData CreateReceiptRule
+
 instance ToHeaders CreateReceiptRule where
         toHeaders = const mempty
 

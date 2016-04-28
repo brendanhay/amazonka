@@ -66,6 +66,8 @@ instance AWSRequest DescribeLifecycleHookTypes where
 
 instance Hashable DescribeLifecycleHookTypes
 
+instance NFData DescribeLifecycleHookTypes
+
 instance ToHeaders DescribeLifecycleHookTypes where
         toHeaders = const mempty
 

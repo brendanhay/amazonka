@@ -89,6 +89,8 @@ instance AWSRequest DeregisterTaskDefinition where
 
 instance Hashable DeregisterTaskDefinition
 
+instance NFData DeregisterTaskDefinition
+
 instance ToHeaders DeregisterTaskDefinition where
         toHeaders
           = const

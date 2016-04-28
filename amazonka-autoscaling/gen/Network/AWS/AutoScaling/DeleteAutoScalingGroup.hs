@@ -98,6 +98,8 @@ instance AWSRequest DeleteAutoScalingGroup where
 
 instance Hashable DeleteAutoScalingGroup
 
+instance NFData DeleteAutoScalingGroup
+
 instance ToHeaders DeleteAutoScalingGroup where
         toHeaders = const mempty
 

@@ -102,6 +102,8 @@ instance AWSRequest CreateAPIKey where
 
 instance Hashable CreateAPIKey
 
+instance NFData CreateAPIKey
+
 instance ToHeaders CreateAPIKey where
         toHeaders
           = const

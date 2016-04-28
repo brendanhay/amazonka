@@ -83,6 +83,8 @@ instance AWSRequest GetIdentityPoolRoles where
 
 instance Hashable GetIdentityPoolRoles
 
+instance NFData GetIdentityPoolRoles
+
 instance ToHeaders GetIdentityPoolRoles where
         toHeaders
           = const

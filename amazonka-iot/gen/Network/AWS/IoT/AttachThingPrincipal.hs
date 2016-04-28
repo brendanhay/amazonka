@@ -87,6 +87,8 @@ instance AWSRequest AttachThingPrincipal where
 
 instance Hashable AttachThingPrincipal
 
+instance NFData AttachThingPrincipal
+
 instance ToHeaders AttachThingPrincipal where
         toHeaders AttachThingPrincipal'{..}
           = mconcat ["x-amzn-principal" =# _atpPrincipal]

@@ -365,6 +365,8 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot
 
 instance Hashable RestoreDBInstanceFromDBSnapshot
 
+instance NFData RestoreDBInstanceFromDBSnapshot
+
 instance ToHeaders RestoreDBInstanceFromDBSnapshot
          where
         toHeaders = const mempty

@@ -87,6 +87,8 @@ instance AWSRequest BatchGetRepositories where
 
 instance Hashable BatchGetRepositories
 
+instance NFData BatchGetRepositories
+
 instance ToHeaders BatchGetRepositories where
         toHeaders
           = const

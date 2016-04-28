@@ -98,6 +98,8 @@ instance AWSRequest CreateAlias where
 
 instance Hashable CreateAlias
 
+instance NFData CreateAlias
+
 instance ToHeaders CreateAlias where
         toHeaders
           = const

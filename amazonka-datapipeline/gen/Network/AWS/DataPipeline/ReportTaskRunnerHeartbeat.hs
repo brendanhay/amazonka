@@ -109,6 +109,8 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
 
 instance Hashable ReportTaskRunnerHeartbeat
 
+instance NFData ReportTaskRunnerHeartbeat
+
 instance ToHeaders ReportTaskRunnerHeartbeat where
         toHeaders
           = const

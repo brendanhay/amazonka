@@ -76,6 +76,8 @@ instance AWSRequest UnassignVolume where
 
 instance Hashable UnassignVolume
 
+instance NFData UnassignVolume
+
 instance ToHeaders UnassignVolume where
         toHeaders
           = const

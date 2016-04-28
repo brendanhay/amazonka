@@ -90,6 +90,8 @@ instance AWSRequest GrantAccess where
 
 instance Hashable GrantAccess
 
+instance NFData GrantAccess
+
 instance ToHeaders GrantAccess where
         toHeaders
           = const

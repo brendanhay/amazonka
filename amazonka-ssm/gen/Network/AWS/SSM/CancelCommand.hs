@@ -86,6 +86,8 @@ instance AWSRequest CancelCommand where
 
 instance Hashable CancelCommand
 
+instance NFData CancelCommand
+
 instance ToHeaders CancelCommand where
         toHeaders
           = const

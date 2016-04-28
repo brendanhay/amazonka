@@ -46,6 +46,7 @@ instance ToText LookupAttributeKey where
         Username -> "Username"
 
 instance Hashable     LookupAttributeKey
+instance NFData       LookupAttributeKey
 instance ToByteString LookupAttributeKey
 instance ToQuery      LookupAttributeKey
 instance ToHeader     LookupAttributeKey

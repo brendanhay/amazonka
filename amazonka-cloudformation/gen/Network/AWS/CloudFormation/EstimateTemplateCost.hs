@@ -108,6 +108,8 @@ instance AWSRequest EstimateTemplateCost where
 
 instance Hashable EstimateTemplateCost
 
+instance NFData EstimateTemplateCost
+
 instance ToHeaders EstimateTemplateCost where
         toHeaders = const mempty
 

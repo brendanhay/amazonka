@@ -380,6 +380,8 @@ instance AWSRequest ModifyCacheCluster where
 
 instance Hashable ModifyCacheCluster
 
+instance NFData ModifyCacheCluster
+
 instance ToHeaders ModifyCacheCluster where
         toHeaders = const mempty
 

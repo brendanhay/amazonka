@@ -105,6 +105,8 @@ instance AWSRequest DescribeTrustedAdvisorCheckResult
 
 instance Hashable DescribeTrustedAdvisorCheckResult
 
+instance NFData DescribeTrustedAdvisorCheckResult
+
 instance ToHeaders DescribeTrustedAdvisorCheckResult
          where
         toHeaders

@@ -107,6 +107,8 @@ instance AWSRequest DetachInstances where
 
 instance Hashable DetachInstances
 
+instance NFData DetachInstances
+
 instance ToHeaders DetachInstances where
         toHeaders = const mempty
 

@@ -125,6 +125,8 @@ instance AWSRequest DescribeEcsClusters where
 
 instance Hashable DescribeEcsClusters
 
+instance NFData DescribeEcsClusters
+
 instance ToHeaders DescribeEcsClusters where
         toHeaders
           = const

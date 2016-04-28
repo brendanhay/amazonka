@@ -78,6 +78,8 @@ instance AWSRequest DeleteClusterParameterGroup where
 
 instance Hashable DeleteClusterParameterGroup
 
+instance NFData DeleteClusterParameterGroup
+
 instance ToHeaders DeleteClusterParameterGroup where
         toHeaders = const mempty
 

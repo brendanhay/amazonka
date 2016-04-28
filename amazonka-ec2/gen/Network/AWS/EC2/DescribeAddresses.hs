@@ -136,6 +136,8 @@ instance AWSRequest DescribeAddresses where
 
 instance Hashable DescribeAddresses
 
+instance NFData DescribeAddresses
+
 instance ToHeaders DescribeAddresses where
         toHeaders = const mempty
 

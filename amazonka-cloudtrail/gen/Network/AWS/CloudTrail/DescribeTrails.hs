@@ -104,6 +104,8 @@ instance AWSRequest DescribeTrails where
 
 instance Hashable DescribeTrails
 
+instance NFData DescribeTrails
+
 instance ToHeaders DescribeTrails where
         toHeaders
           = const

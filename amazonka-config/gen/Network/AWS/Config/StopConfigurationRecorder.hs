@@ -74,6 +74,8 @@ instance AWSRequest StopConfigurationRecorder where
 
 instance Hashable StopConfigurationRecorder
 
+instance NFData StopConfigurationRecorder
+
 instance ToHeaders StopConfigurationRecorder where
         toHeaders
           = const

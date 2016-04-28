@@ -127,6 +127,8 @@ instance AWSRequest PutLogEvents where
 
 instance Hashable PutLogEvents
 
+instance NFData PutLogEvents
+
 instance ToHeaders PutLogEvents where
         toHeaders
           = const

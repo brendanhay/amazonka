@@ -78,6 +78,8 @@ instance AWSRequest BatchGetOnPremisesInstances where
 
 instance Hashable BatchGetOnPremisesInstances
 
+instance NFData BatchGetOnPremisesInstances
+
 instance ToHeaders BatchGetOnPremisesInstances where
         toHeaders
           = const

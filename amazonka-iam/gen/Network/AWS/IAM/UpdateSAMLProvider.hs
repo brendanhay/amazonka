@@ -94,6 +94,8 @@ instance AWSRequest UpdateSAMLProvider where
 
 instance Hashable UpdateSAMLProvider
 
+instance NFData UpdateSAMLProvider
+
 instance ToHeaders UpdateSAMLProvider where
         toHeaders = const mempty
 

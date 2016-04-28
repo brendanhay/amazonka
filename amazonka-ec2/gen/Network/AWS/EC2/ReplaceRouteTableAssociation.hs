@@ -109,6 +109,8 @@ instance AWSRequest ReplaceRouteTableAssociation
 
 instance Hashable ReplaceRouteTableAssociation
 
+instance NFData ReplaceRouteTableAssociation
+
 instance ToHeaders ReplaceRouteTableAssociation where
         toHeaders = const mempty
 

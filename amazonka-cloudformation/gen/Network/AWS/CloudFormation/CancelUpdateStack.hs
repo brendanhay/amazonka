@@ -74,6 +74,8 @@ instance AWSRequest CancelUpdateStack where
 
 instance Hashable CancelUpdateStack
 
+instance NFData CancelUpdateStack
+
 instance ToHeaders CancelUpdateStack where
         toHeaders = const mempty
 

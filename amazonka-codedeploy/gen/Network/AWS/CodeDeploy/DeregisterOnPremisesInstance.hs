@@ -73,6 +73,8 @@ instance AWSRequest DeregisterOnPremisesInstance
 
 instance Hashable DeregisterOnPremisesInstance
 
+instance NFData DeregisterOnPremisesInstance
+
 instance ToHeaders DeregisterOnPremisesInstance where
         toHeaders
           = const

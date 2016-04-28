@@ -87,6 +87,8 @@ instance AWSRequest GetBranch where
 
 instance Hashable GetBranch
 
+instance NFData GetBranch
+
 instance ToHeaders GetBranch where
         toHeaders
           = const

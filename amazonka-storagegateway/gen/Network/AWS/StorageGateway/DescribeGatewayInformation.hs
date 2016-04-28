@@ -97,6 +97,8 @@ instance AWSRequest DescribeGatewayInformation where
 
 instance Hashable DescribeGatewayInformation
 
+instance NFData DescribeGatewayInformation
+
 instance ToHeaders DescribeGatewayInformation where
         toHeaders
           = const

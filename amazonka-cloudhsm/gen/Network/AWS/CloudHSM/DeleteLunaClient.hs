@@ -75,6 +75,8 @@ instance AWSRequest DeleteLunaClient where
 
 instance Hashable DeleteLunaClient
 
+instance NFData DeleteLunaClient
+
 instance ToHeaders DeleteLunaClient where
         toHeaders
           = const

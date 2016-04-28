@@ -98,6 +98,8 @@ instance AWSRequest ModifyClusterParameterGroup where
 
 instance Hashable ModifyClusterParameterGroup
 
+instance NFData ModifyClusterParameterGroup
+
 instance ToHeaders ModifyClusterParameterGroup where
         toHeaders = const mempty
 

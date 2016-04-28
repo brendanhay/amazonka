@@ -79,6 +79,8 @@ instance AWSRequest DeleteTrust where
 
 instance Hashable DeleteTrust
 
+instance NFData DeleteTrust
+
 instance ToHeaders DeleteTrust where
         toHeaders
           = const

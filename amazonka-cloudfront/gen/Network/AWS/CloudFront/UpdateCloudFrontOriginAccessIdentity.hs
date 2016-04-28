@@ -102,6 +102,8 @@ instance AWSRequest
 instance Hashable
          UpdateCloudFrontOriginAccessIdentity
 
+instance NFData UpdateCloudFrontOriginAccessIdentity
+
 instance ToElement
          UpdateCloudFrontOriginAccessIdentity where
         toElement

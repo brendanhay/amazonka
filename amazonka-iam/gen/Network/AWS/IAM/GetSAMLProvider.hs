@@ -84,6 +84,8 @@ instance AWSRequest GetSAMLProvider where
 
 instance Hashable GetSAMLProvider
 
+instance NFData GetSAMLProvider
+
 instance ToHeaders GetSAMLProvider where
         toHeaders = const mempty
 

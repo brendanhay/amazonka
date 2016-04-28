@@ -81,6 +81,8 @@ instance AWSRequest ListTagsForDomain where
 
 instance Hashable ListTagsForDomain
 
+instance NFData ListTagsForDomain
+
 instance ToHeaders ListTagsForDomain where
         toHeaders
           = const

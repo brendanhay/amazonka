@@ -104,6 +104,8 @@ instance AWSRequest ConfirmPrivateVirtualInterface
 
 instance Hashable ConfirmPrivateVirtualInterface
 
+instance NFData ConfirmPrivateVirtualInterface
+
 instance ToHeaders ConfirmPrivateVirtualInterface
          where
         toHeaders

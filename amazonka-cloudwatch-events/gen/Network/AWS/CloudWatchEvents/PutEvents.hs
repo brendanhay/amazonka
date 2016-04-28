@@ -83,6 +83,8 @@ instance AWSRequest PutEvents where
 
 instance Hashable PutEvents
 
+instance NFData PutEvents
+
 instance ToHeaders PutEvents where
         toHeaders
           = const

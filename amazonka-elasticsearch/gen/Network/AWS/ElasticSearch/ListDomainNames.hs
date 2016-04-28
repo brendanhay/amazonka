@@ -64,6 +64,8 @@ instance AWSRequest ListDomainNames where
 
 instance Hashable ListDomainNames
 
+instance NFData ListDomainNames
+
 instance ToHeaders ListDomainNames where
         toHeaders = const mempty
 

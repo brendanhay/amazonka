@@ -91,6 +91,8 @@ instance AWSRequest DeleteSuggester where
 
 instance Hashable DeleteSuggester
 
+instance NFData DeleteSuggester
+
 instance ToHeaders DeleteSuggester where
         toHeaders = const mempty
 

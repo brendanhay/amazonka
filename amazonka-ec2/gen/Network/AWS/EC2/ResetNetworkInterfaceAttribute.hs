@@ -93,6 +93,8 @@ instance AWSRequest ResetNetworkInterfaceAttribute
 
 instance Hashable ResetNetworkInterfaceAttribute
 
+instance NFData ResetNetworkInterfaceAttribute
+
 instance ToHeaders ResetNetworkInterfaceAttribute
          where
         toHeaders = const mempty

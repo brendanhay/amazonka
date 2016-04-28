@@ -245,6 +245,8 @@ instance AWSRequest RegisterWorkflowType where
 
 instance Hashable RegisterWorkflowType
 
+instance NFData RegisterWorkflowType
+
 instance ToHeaders RegisterWorkflowType where
         toHeaders
           = const

@@ -104,6 +104,8 @@ instance AWSRequest BatchDeleteImage where
 
 instance Hashable BatchDeleteImage
 
+instance NFData BatchDeleteImage
+
 instance ToHeaders BatchDeleteImage where
         toHeaders
           = const

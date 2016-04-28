@@ -514,6 +514,8 @@ instance AWSRequest Search where
 
 instance Hashable Search
 
+instance NFData Search
+
 instance ToHeaders Search where
         toHeaders
           = const

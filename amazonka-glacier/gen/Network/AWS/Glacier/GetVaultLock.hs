@@ -120,6 +120,8 @@ instance AWSRequest GetVaultLock where
 
 instance Hashable GetVaultLock
 
+instance NFData GetVaultLock
+
 instance ToHeaders GetVaultLock where
         toHeaders = const mempty
 

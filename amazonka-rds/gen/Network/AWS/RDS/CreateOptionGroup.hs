@@ -126,6 +126,8 @@ instance AWSRequest CreateOptionGroup where
 
 instance Hashable CreateOptionGroup
 
+instance NFData CreateOptionGroup
+
 instance ToHeaders CreateOptionGroup where
         toHeaders = const mempty
 

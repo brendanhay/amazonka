@@ -130,6 +130,8 @@ instance AWSRequest MergeShards where
 
 instance Hashable MergeShards
 
+instance NFData MergeShards
+
 instance ToHeaders MergeShards where
         toHeaders
           = const

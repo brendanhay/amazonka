@@ -271,6 +271,8 @@ instance AWSRequest CreateLayer where
 
 instance Hashable CreateLayer
 
+instance NFData CreateLayer
+
 instance ToHeaders CreateLayer where
         toHeaders
           = const

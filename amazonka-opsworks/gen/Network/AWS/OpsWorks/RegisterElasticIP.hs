@@ -95,6 +95,8 @@ instance AWSRequest RegisterElasticIP where
 
 instance Hashable RegisterElasticIP
 
+instance NFData RegisterElasticIP
+
 instance ToHeaders RegisterElasticIP where
         toHeaders
           = const

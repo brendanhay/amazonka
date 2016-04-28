@@ -82,6 +82,8 @@ instance AWSRequest DeleteRepository where
 
 instance Hashable DeleteRepository
 
+instance NFData DeleteRepository
+
 instance ToHeaders DeleteRepository where
         toHeaders
           = const

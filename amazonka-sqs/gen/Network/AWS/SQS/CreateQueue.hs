@@ -139,6 +139,8 @@ instance AWSRequest CreateQueue where
 
 instance Hashable CreateQueue
 
+instance NFData CreateQueue
+
 instance ToHeaders CreateQueue where
         toHeaders = const mempty
 

@@ -126,6 +126,8 @@ instance AWSRequest ListCommands where
 
 instance Hashable ListCommands
 
+instance NFData ListCommands
+
 instance ToHeaders ListCommands where
         toHeaders
           = const

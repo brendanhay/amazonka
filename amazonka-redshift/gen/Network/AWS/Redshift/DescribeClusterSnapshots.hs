@@ -229,6 +229,8 @@ instance AWSRequest DescribeClusterSnapshots where
 
 instance Hashable DescribeClusterSnapshots
 
+instance NFData DescribeClusterSnapshots
+
 instance ToHeaders DescribeClusterSnapshots where
         toHeaders = const mempty
 

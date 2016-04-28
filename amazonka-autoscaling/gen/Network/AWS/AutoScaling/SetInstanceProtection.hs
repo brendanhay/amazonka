@@ -99,6 +99,8 @@ instance AWSRequest SetInstanceProtection where
 
 instance Hashable SetInstanceProtection
 
+instance NFData SetInstanceProtection
+
 instance ToHeaders SetInstanceProtection where
         toHeaders = const mempty
 

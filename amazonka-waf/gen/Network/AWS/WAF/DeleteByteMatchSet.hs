@@ -101,6 +101,8 @@ instance AWSRequest DeleteByteMatchSet where
 
 instance Hashable DeleteByteMatchSet
 
+instance NFData DeleteByteMatchSet
+
 instance ToHeaders DeleteByteMatchSet where
         toHeaders
           = const

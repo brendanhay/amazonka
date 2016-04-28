@@ -125,6 +125,8 @@ instance AWSRequest CreateEvaluation where
 
 instance Hashable CreateEvaluation
 
+instance NFData CreateEvaluation
+
 instance ToHeaders CreateEvaluation where
         toHeaders
           = const

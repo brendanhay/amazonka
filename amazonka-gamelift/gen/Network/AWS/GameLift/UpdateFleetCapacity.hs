@@ -122,6 +122,8 @@ instance AWSRequest UpdateFleetCapacity where
 
 instance Hashable UpdateFleetCapacity
 
+instance NFData UpdateFleetCapacity
+
 instance ToHeaders UpdateFleetCapacity where
         toHeaders
           = const

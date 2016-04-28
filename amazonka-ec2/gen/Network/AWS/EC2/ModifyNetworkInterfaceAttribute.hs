@@ -131,6 +131,8 @@ instance AWSRequest ModifyNetworkInterfaceAttribute
 
 instance Hashable ModifyNetworkInterfaceAttribute
 
+instance NFData ModifyNetworkInterfaceAttribute
+
 instance ToHeaders ModifyNetworkInterfaceAttribute
          where
         toHeaders = const mempty

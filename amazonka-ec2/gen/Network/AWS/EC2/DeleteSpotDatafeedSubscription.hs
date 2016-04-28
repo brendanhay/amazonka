@@ -75,6 +75,8 @@ instance AWSRequest DeleteSpotDatafeedSubscription
 
 instance Hashable DeleteSpotDatafeedSubscription
 
+instance NFData DeleteSpotDatafeedSubscription
+
 instance ToHeaders DeleteSpotDatafeedSubscription
          where
         toHeaders = const mempty

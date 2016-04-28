@@ -107,6 +107,8 @@ instance AWSRequest SetIdentityPoolConfiguration
 
 instance Hashable SetIdentityPoolConfiguration
 
+instance NFData SetIdentityPoolConfiguration
+
 instance ToHeaders SetIdentityPoolConfiguration where
         toHeaders
           = const

@@ -206,6 +206,8 @@ instance AWSRequest BatchWriteItem where
 
 instance Hashable BatchWriteItem
 
+instance NFData BatchWriteItem
+
 instance ToHeaders BatchWriteItem where
         toHeaders
           = const

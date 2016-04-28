@@ -77,6 +77,8 @@ instance AWSRequest DeleteReplicationTask where
 
 instance Hashable DeleteReplicationTask
 
+instance NFData DeleteReplicationTask
+
 instance ToHeaders DeleteReplicationTask where
         toHeaders
           = const

@@ -97,6 +97,8 @@ instance AWSRequest DeleteTags where
 
 instance Hashable DeleteTags
 
+instance NFData DeleteTags
+
 instance ToHeaders DeleteTags where
         toHeaders = const mempty
 

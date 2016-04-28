@@ -81,6 +81,8 @@ instance FromXML BatchResultErrorEntry where
 
 instance Hashable BatchResultErrorEntry
 
+instance NFData BatchResultErrorEntry
+
 -- | Encloses a receipt handle and an entry id for each message in
 -- < ChangeMessageVisibilityBatch>.
 --
@@ -139,6 +141,9 @@ cReceiptHandle = lens _cReceiptHandle (\ s a -> s{_cReceiptHandle = a});
 instance Hashable
          ChangeMessageVisibilityBatchRequestEntry
 
+instance NFData
+         ChangeMessageVisibilityBatchRequestEntry
+
 instance ToQuery
          ChangeMessageVisibilityBatchRequestEntry where
         toQuery ChangeMessageVisibilityBatchRequestEntry'{..}
@@ -180,6 +185,9 @@ instance FromXML
 instance Hashable
          ChangeMessageVisibilityBatchResultEntry
 
+instance NFData
+         ChangeMessageVisibilityBatchResultEntry
+
 -- | Encloses a receipt handle and an identifier for it.
 --
 -- /See:/ 'deleteMessageBatchRequestEntry' smart constructor.
@@ -217,6 +225,8 @@ dmbreReceiptHandle = lens _dmbreReceiptHandle (\ s a -> s{_dmbreReceiptHandle = 
 
 instance Hashable DeleteMessageBatchRequestEntry
 
+instance NFData DeleteMessageBatchRequestEntry
+
 instance ToQuery DeleteMessageBatchRequestEntry where
         toQuery DeleteMessageBatchRequestEntry'{..}
           = mconcat
@@ -252,6 +262,8 @@ instance FromXML DeleteMessageBatchResultEntry where
           = DeleteMessageBatchResultEntry' <$> (x .@ "Id")
 
 instance Hashable DeleteMessageBatchResultEntry
+
+instance NFData DeleteMessageBatchResultEntry
 
 -- | An Amazon SQS message.
 --
@@ -351,6 +363,8 @@ instance FromXML Message where
 
 instance Hashable Message
 
+instance NFData Message
+
 -- | The user-specified message attribute value. For string data types, the
 -- value attribute has the same restrictions on the content as the message
 -- body. For more information, see
@@ -441,6 +455,8 @@ instance FromXML MessageAttributeValue where
 
 instance Hashable MessageAttributeValue
 
+instance NFData MessageAttributeValue
+
 instance ToQuery MessageAttributeValue where
         toQuery MessageAttributeValue'{..}
           = mconcat
@@ -510,6 +526,8 @@ sMessageBody :: Lens' SendMessageBatchRequestEntry Text
 sMessageBody = lens _sMessageBody (\ s a -> s{_sMessageBody = a});
 
 instance Hashable SendMessageBatchRequestEntry
+
+instance NFData SendMessageBatchRequestEntry
 
 instance ToQuery SendMessageBatchRequestEntry where
         toQuery SendMessageBatchRequestEntry'{..}
@@ -586,3 +604,5 @@ instance FromXML SendMessageBatchResultEntry where
                 <*> (x .@ "MD5OfMessageBody")
 
 instance Hashable SendMessageBatchResultEntry
+
+instance NFData SendMessageBatchResultEntry

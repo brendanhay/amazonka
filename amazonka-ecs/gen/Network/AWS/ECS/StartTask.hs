@@ -141,6 +141,8 @@ instance AWSRequest StartTask where
 
 instance Hashable StartTask
 
+instance NFData StartTask
+
 instance ToHeaders StartTask where
         toHeaders
           = const

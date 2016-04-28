@@ -196,6 +196,8 @@ instance AWSRequest CreateEventSubscription where
 
 instance Hashable CreateEventSubscription
 
+instance NFData CreateEventSubscription
+
 instance ToHeaders CreateEventSubscription where
         toHeaders = const mempty
 

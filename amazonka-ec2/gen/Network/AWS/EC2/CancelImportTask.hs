@@ -99,6 +99,8 @@ instance AWSRequest CancelImportTask where
 
 instance Hashable CancelImportTask
 
+instance NFData CancelImportTask
+
 instance ToHeaders CancelImportTask where
         toHeaders = const mempty
 

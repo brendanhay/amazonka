@@ -102,6 +102,8 @@ instance AWSRequest ListBootstrapActions where
 
 instance Hashable ListBootstrapActions
 
+instance NFData ListBootstrapActions
+
 instance ToHeaders ListBootstrapActions where
         toHeaders
           = const

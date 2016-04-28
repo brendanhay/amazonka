@@ -394,6 +394,8 @@ instance AWSRequest CopyObject where
 
 instance Hashable CopyObject
 
+instance NFData CopyObject
+
 instance ToHeaders CopyObject where
         toHeaders CopyObject'{..}
           = mconcat

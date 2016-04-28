@@ -106,6 +106,8 @@ instance AWSRequest DescribeRegions where
 
 instance Hashable DescribeRegions
 
+instance NFData DescribeRegions
+
 instance ToHeaders DescribeRegions where
         toHeaders = const mempty
 

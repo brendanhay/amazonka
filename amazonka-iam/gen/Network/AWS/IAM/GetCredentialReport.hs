@@ -70,6 +70,8 @@ instance AWSRequest GetCredentialReport where
 
 instance Hashable GetCredentialReport
 
+instance NFData GetCredentialReport
+
 instance ToHeaders GetCredentialReport where
         toHeaders = const mempty
 

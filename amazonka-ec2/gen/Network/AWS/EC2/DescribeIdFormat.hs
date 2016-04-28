@@ -91,6 +91,8 @@ instance AWSRequest DescribeIdFormat where
 
 instance Hashable DescribeIdFormat
 
+instance NFData DescribeIdFormat
+
 instance ToHeaders DescribeIdFormat where
         toHeaders = const mempty
 

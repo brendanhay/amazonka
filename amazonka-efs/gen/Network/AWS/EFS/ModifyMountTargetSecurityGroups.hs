@@ -96,6 +96,8 @@ instance AWSRequest ModifyMountTargetSecurityGroups
 
 instance Hashable ModifyMountTargetSecurityGroups
 
+instance NFData ModifyMountTargetSecurityGroups
+
 instance ToHeaders ModifyMountTargetSecurityGroups
          where
         toHeaders = const mempty

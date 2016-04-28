@@ -150,6 +150,8 @@ instance AWSRequest ReEncrypt where
 
 instance Hashable ReEncrypt
 
+instance NFData ReEncrypt
+
 instance ToHeaders ReEncrypt where
         toHeaders
           = const

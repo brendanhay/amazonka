@@ -89,6 +89,8 @@ instance AWSRequest RebootInstances where
 
 instance Hashable RebootInstances
 
+instance NFData RebootInstances
+
 instance ToHeaders RebootInstances where
         toHeaders = const mempty
 

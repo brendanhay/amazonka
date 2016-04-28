@@ -79,6 +79,8 @@ instance AWSRequest GetDistribution where
 
 instance Hashable GetDistribution
 
+instance NFData GetDistribution
+
 instance ToHeaders GetDistribution where
         toHeaders = const mempty
 

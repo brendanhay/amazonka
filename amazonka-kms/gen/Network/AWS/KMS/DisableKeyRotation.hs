@@ -75,6 +75,8 @@ instance AWSRequest DisableKeyRotation where
 
 instance Hashable DisableKeyRotation
 
+instance NFData DisableKeyRotation
+
 instance ToHeaders DisableKeyRotation where
         toHeaders
           = const

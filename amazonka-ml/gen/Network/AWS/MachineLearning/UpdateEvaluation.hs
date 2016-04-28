@@ -89,6 +89,8 @@ instance AWSRequest UpdateEvaluation where
 
 instance Hashable UpdateEvaluation
 
+instance NFData UpdateEvaluation
+
 instance ToHeaders UpdateEvaluation where
         toHeaders
           = const

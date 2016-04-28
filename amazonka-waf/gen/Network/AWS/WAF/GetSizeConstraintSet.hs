@@ -78,6 +78,8 @@ instance AWSRequest GetSizeConstraintSet where
 
 instance Hashable GetSizeConstraintSet
 
+instance NFData GetSizeConstraintSet
+
 instance ToHeaders GetSizeConstraintSet where
         toHeaders
           = const

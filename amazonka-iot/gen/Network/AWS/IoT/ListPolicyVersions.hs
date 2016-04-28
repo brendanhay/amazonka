@@ -80,6 +80,8 @@ instance AWSRequest ListPolicyVersions where
 
 instance Hashable ListPolicyVersions
 
+instance NFData ListPolicyVersions
+
 instance ToHeaders ListPolicyVersions where
         toHeaders = const mempty
 

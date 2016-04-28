@@ -84,6 +84,8 @@ instance AWSRequest GetIdentityVerificationAttributes
 
 instance Hashable GetIdentityVerificationAttributes
 
+instance NFData GetIdentityVerificationAttributes
+
 instance ToHeaders GetIdentityVerificationAttributes
          where
         toHeaders = const mempty

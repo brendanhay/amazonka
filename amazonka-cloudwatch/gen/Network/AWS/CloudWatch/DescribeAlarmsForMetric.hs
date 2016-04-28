@@ -127,6 +127,8 @@ instance AWSRequest DescribeAlarmsForMetric where
 
 instance Hashable DescribeAlarmsForMetric
 
+instance NFData DescribeAlarmsForMetric
+
 instance ToHeaders DescribeAlarmsForMetric where
         toHeaders = const mempty
 

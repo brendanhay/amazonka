@@ -119,6 +119,8 @@ instance AWSRequest TestRole where
 
 instance Hashable TestRole
 
+instance NFData TestRole
+
 instance ToHeaders TestRole where
         toHeaders = const mempty
 

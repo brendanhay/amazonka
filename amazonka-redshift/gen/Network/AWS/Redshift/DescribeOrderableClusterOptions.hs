@@ -152,6 +152,8 @@ instance AWSRequest DescribeOrderableClusterOptions
 
 instance Hashable DescribeOrderableClusterOptions
 
+instance NFData DescribeOrderableClusterOptions
+
 instance ToHeaders DescribeOrderableClusterOptions
          where
         toHeaders = const mempty

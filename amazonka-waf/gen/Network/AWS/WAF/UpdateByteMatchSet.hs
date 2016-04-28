@@ -139,6 +139,8 @@ instance AWSRequest UpdateByteMatchSet where
 
 instance Hashable UpdateByteMatchSet
 
+instance NFData UpdateByteMatchSet
+
 instance ToHeaders UpdateByteMatchSet where
         toHeaders
           = const

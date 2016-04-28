@@ -67,6 +67,8 @@ instance AWSRequest DescribeTerminationPolicyTypes
 
 instance Hashable DescribeTerminationPolicyTypes
 
+instance NFData DescribeTerminationPolicyTypes
+
 instance ToHeaders DescribeTerminationPolicyTypes
          where
         toHeaders = const mempty

@@ -107,6 +107,8 @@ instance AWSRequest
 instance Hashable
          SetIdentityFeedbackForwardingEnabled
 
+instance NFData SetIdentityFeedbackForwardingEnabled
+
 instance ToHeaders
          SetIdentityFeedbackForwardingEnabled where
         toHeaders = const mempty

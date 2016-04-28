@@ -80,6 +80,8 @@ instance AWSRequest GetReusableDelegationSet where
 
 instance Hashable GetReusableDelegationSet
 
+instance NFData GetReusableDelegationSet
+
 instance ToHeaders GetReusableDelegationSet where
         toHeaders = const mempty
 

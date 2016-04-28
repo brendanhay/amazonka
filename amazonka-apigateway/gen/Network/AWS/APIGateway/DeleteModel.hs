@@ -80,6 +80,8 @@ instance AWSRequest DeleteModel where
 
 instance Hashable DeleteModel
 
+instance NFData DeleteModel
+
 instance ToHeaders DeleteModel where
         toHeaders
           = const

@@ -93,6 +93,8 @@ instance AWSRequest
 
 instance Hashable TerminateInstanceInAutoScalingGroup
 
+instance NFData TerminateInstanceInAutoScalingGroup
+
 instance ToHeaders
          TerminateInstanceInAutoScalingGroup where
         toHeaders = const mempty

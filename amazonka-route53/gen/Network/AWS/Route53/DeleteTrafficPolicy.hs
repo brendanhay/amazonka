@@ -87,6 +87,8 @@ instance AWSRequest DeleteTrafficPolicy where
 
 instance Hashable DeleteTrafficPolicy
 
+instance NFData DeleteTrafficPolicy
+
 instance ToHeaders DeleteTrafficPolicy where
         toHeaders = const mempty
 

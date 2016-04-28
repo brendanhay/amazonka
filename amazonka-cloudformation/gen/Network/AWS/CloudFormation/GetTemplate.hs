@@ -90,6 +90,8 @@ instance AWSRequest GetTemplate where
 
 instance Hashable GetTemplate
 
+instance NFData GetTemplate
+
 instance ToHeaders GetTemplate where
         toHeaders = const mempty
 

@@ -80,6 +80,8 @@ instance AWSRequest DescribeIdentityPool where
 
 instance Hashable DescribeIdentityPool
 
+instance NFData DescribeIdentityPool
+
 instance ToHeaders DescribeIdentityPool where
         toHeaders
           = const

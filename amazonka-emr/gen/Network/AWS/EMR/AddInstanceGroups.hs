@@ -89,6 +89,8 @@ instance AWSRequest AddInstanceGroups where
 
 instance Hashable AddInstanceGroups
 
+instance NFData AddInstanceGroups
+
 instance ToHeaders AddInstanceGroups where
         toHeaders
           = const

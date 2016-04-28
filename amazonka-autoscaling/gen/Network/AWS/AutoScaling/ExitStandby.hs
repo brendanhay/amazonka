@@ -90,6 +90,8 @@ instance AWSRequest ExitStandby where
 
 instance Hashable ExitStandby
 
+instance NFData ExitStandby
+
 instance ToHeaders ExitStandby where
         toHeaders = const mempty
 

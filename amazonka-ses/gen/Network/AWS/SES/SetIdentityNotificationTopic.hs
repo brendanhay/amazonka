@@ -114,6 +114,8 @@ instance AWSRequest SetIdentityNotificationTopic
 
 instance Hashable SetIdentityNotificationTopic
 
+instance NFData SetIdentityNotificationTopic
+
 instance ToHeaders SetIdentityNotificationTopic where
         toHeaders = const mempty
 

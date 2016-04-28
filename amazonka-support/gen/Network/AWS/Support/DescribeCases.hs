@@ -181,6 +181,8 @@ instance AWSRequest DescribeCases where
 
 instance Hashable DescribeCases
 
+instance NFData DescribeCases
+
 instance ToHeaders DescribeCases where
         toHeaders
           = const

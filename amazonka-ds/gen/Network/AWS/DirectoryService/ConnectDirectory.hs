@@ -127,6 +127,8 @@ instance AWSRequest ConnectDirectory where
 
 instance Hashable ConnectDirectory
 
+instance NFData ConnectDirectory
+
 instance ToHeaders ConnectDirectory where
         toHeaders
           = const

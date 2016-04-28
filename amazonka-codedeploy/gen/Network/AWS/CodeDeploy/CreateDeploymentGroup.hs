@@ -206,6 +206,8 @@ instance AWSRequest CreateDeploymentGroup where
 
 instance Hashable CreateDeploymentGroup
 
+instance NFData CreateDeploymentGroup
+
 instance ToHeaders CreateDeploymentGroup where
         toHeaders
           = const

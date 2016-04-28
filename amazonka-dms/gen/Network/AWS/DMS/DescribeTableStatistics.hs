@@ -109,6 +109,8 @@ instance AWSRequest DescribeTableStatistics where
 
 instance Hashable DescribeTableStatistics
 
+instance NFData DescribeTableStatistics
+
 instance ToHeaders DescribeTableStatistics where
         toHeaders
           = const

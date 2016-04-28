@@ -79,6 +79,8 @@ instance AWSRequest DeleteCluster where
 
 instance Hashable DeleteCluster
 
+instance NFData DeleteCluster
+
 instance ToHeaders DeleteCluster where
         toHeaders
           = const

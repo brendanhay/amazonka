@@ -128,6 +128,8 @@ instance AWSRequest DescribeFleetEvents where
 
 instance Hashable DescribeFleetEvents
 
+instance NFData DescribeFleetEvents
+
 instance ToHeaders DescribeFleetEvents where
         toHeaders
           = const

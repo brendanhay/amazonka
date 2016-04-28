@@ -86,6 +86,8 @@ instance AWSRequest
 
 instance Hashable DescribeStackProvisioningParameters
 
+instance NFData DescribeStackProvisioningParameters
+
 instance ToHeaders
          DescribeStackProvisioningParameters where
         toHeaders

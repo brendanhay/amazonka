@@ -132,6 +132,8 @@ instance AWSRequest UpdateRule where
 
 instance Hashable UpdateRule
 
+instance NFData UpdateRule
+
 instance ToHeaders UpdateRule where
         toHeaders
           = const

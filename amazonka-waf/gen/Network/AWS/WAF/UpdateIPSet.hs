@@ -136,6 +136,8 @@ instance AWSRequest UpdateIPSet where
 
 instance Hashable UpdateIPSet
 
+instance NFData UpdateIPSet
+
 instance ToHeaders UpdateIPSet where
         toHeaders
           = const

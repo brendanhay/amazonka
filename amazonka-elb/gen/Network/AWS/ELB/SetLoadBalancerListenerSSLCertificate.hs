@@ -104,6 +104,8 @@ instance AWSRequest
 instance Hashable
          SetLoadBalancerListenerSSLCertificate
 
+instance NFData SetLoadBalancerListenerSSLCertificate
+
 instance ToHeaders
          SetLoadBalancerListenerSSLCertificate where
         toHeaders = const mempty

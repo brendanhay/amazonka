@@ -108,6 +108,8 @@ instance AWSRequest CreateTrafficPolicy where
 
 instance Hashable CreateTrafficPolicy
 
+instance NFData CreateTrafficPolicy
+
 instance ToElement CreateTrafficPolicy where
         toElement
           = mkElement

@@ -87,6 +87,8 @@ instance AWSRequest CreateVPNConnectionRoute where
 
 instance Hashable CreateVPNConnectionRoute
 
+instance NFData CreateVPNConnectionRoute
+
 instance ToHeaders CreateVPNConnectionRoute where
         toHeaders = const mempty
 

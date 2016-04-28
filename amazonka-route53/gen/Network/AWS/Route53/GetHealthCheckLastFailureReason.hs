@@ -87,6 +87,8 @@ instance AWSRequest GetHealthCheckLastFailureReason
 
 instance Hashable GetHealthCheckLastFailureReason
 
+instance NFData GetHealthCheckLastFailureReason
+
 instance ToHeaders GetHealthCheckLastFailureReason
          where
         toHeaders = const mempty

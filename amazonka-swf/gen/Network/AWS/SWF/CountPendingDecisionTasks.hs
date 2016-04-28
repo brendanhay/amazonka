@@ -104,6 +104,8 @@ instance AWSRequest CountPendingDecisionTasks where
 
 instance Hashable CountPendingDecisionTasks
 
+instance NFData CountPendingDecisionTasks
+
 instance ToHeaders CountPendingDecisionTasks where
         toHeaders
           = const

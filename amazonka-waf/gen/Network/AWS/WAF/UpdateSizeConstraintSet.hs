@@ -143,6 +143,8 @@ instance AWSRequest UpdateSizeConstraintSet where
 
 instance Hashable UpdateSizeConstraintSet
 
+instance NFData UpdateSizeConstraintSet
+
 instance ToHeaders UpdateSizeConstraintSet where
         toHeaders
           = const

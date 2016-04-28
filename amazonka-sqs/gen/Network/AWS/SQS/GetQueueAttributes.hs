@@ -134,6 +134,8 @@ instance AWSRequest GetQueueAttributes where
 
 instance Hashable GetQueueAttributes
 
+instance NFData GetQueueAttributes
+
 instance ToHeaders GetQueueAttributes where
         toHeaders = const mempty
 

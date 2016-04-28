@@ -141,6 +141,8 @@ instance AWSRequest ListEventSourceMappings where
 
 instance Hashable ListEventSourceMappings
 
+instance NFData ListEventSourceMappings
+
 instance ToHeaders ListEventSourceMappings where
         toHeaders = const mempty
 

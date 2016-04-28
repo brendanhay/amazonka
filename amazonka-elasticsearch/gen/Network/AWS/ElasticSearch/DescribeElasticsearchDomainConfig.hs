@@ -83,6 +83,8 @@ instance AWSRequest DescribeElasticsearchDomainConfig
 
 instance Hashable DescribeElasticsearchDomainConfig
 
+instance NFData DescribeElasticsearchDomainConfig
+
 instance ToHeaders DescribeElasticsearchDomainConfig
          where
         toHeaders = const mempty

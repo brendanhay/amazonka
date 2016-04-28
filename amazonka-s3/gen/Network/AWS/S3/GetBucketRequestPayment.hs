@@ -76,6 +76,8 @@ instance AWSRequest GetBucketRequestPayment where
 
 instance Hashable GetBucketRequestPayment
 
+instance NFData GetBucketRequestPayment
+
 instance ToHeaders GetBucketRequestPayment where
         toHeaders = const mempty
 

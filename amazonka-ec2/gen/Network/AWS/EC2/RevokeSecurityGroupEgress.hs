@@ -168,6 +168,8 @@ instance AWSRequest RevokeSecurityGroupEgress where
 
 instance Hashable RevokeSecurityGroupEgress
 
+instance NFData RevokeSecurityGroupEgress
+
 instance ToHeaders RevokeSecurityGroupEgress where
         toHeaders = const mempty
 

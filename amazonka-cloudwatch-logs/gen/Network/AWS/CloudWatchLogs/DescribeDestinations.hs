@@ -116,6 +116,8 @@ instance AWSRequest DescribeDestinations where
 
 instance Hashable DescribeDestinations
 
+instance NFData DescribeDestinations
+
 instance ToHeaders DescribeDestinations where
         toHeaders
           = const

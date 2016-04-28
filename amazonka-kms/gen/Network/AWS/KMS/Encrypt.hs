@@ -149,6 +149,8 @@ instance AWSRequest Encrypt where
 
 instance Hashable Encrypt
 
+instance NFData Encrypt
+
 instance ToHeaders Encrypt where
         toHeaders
           = const

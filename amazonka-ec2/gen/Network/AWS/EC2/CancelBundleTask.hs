@@ -88,6 +88,8 @@ instance AWSRequest CancelBundleTask where
 
 instance Hashable CancelBundleTask
 
+instance NFData CancelBundleTask
+
 instance ToHeaders CancelBundleTask where
         toHeaders = const mempty
 

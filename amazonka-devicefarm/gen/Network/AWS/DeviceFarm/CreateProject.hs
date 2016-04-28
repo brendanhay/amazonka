@@ -77,6 +77,8 @@ instance AWSRequest CreateProject where
 
 instance Hashable CreateProject
 
+instance NFData CreateProject
+
 instance ToHeaders CreateProject where
         toHeaders
           = const

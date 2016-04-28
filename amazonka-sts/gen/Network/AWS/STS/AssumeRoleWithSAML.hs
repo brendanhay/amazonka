@@ -210,6 +210,8 @@ instance AWSRequest AssumeRoleWithSAML where
 
 instance Hashable AssumeRoleWithSAML
 
+instance NFData AssumeRoleWithSAML
+
 instance ToHeaders AssumeRoleWithSAML where
         toHeaders = const mempty
 

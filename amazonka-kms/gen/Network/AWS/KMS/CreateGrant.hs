@@ -197,6 +197,8 @@ instance AWSRequest CreateGrant where
 
 instance Hashable CreateGrant
 
+instance NFData CreateGrant
+
 instance ToHeaders CreateGrant where
         toHeaders
           = const

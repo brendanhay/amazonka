@@ -90,6 +90,8 @@ instance AWSRequest AddUploadBuffer where
 
 instance Hashable AddUploadBuffer
 
+instance NFData AddUploadBuffer
+
 instance ToHeaders AddUploadBuffer where
         toHeaders
           = const

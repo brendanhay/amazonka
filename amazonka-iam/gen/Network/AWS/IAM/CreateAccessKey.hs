@@ -91,6 +91,8 @@ instance AWSRequest CreateAccessKey where
 
 instance Hashable CreateAccessKey
 
+instance NFData CreateAccessKey
+
 instance ToHeaders CreateAccessKey where
         toHeaders = const mempty
 

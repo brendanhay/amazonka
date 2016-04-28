@@ -132,6 +132,8 @@ instance AWSRequest GetDevicePoolCompatibility where
 
 instance Hashable GetDevicePoolCompatibility
 
+instance NFData GetDevicePoolCompatibility
+
 instance ToHeaders GetDevicePoolCompatibility where
         toHeaders
           = const

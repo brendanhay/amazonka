@@ -274,6 +274,8 @@ instance AWSRequest UpdateStack where
 
 instance Hashable UpdateStack
 
+instance NFData UpdateStack
+
 instance ToHeaders UpdateStack where
         toHeaders = const mempty
 

@@ -139,6 +139,8 @@ instance AWSRequest CreateVPCEndpoint where
 
 instance Hashable CreateVPCEndpoint
 
+instance NFData CreateVPCEndpoint
+
 instance ToHeaders CreateVPCEndpoint where
         toHeaders = const mempty
 

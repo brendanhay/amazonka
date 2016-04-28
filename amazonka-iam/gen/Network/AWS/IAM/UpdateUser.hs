@@ -103,6 +103,8 @@ instance AWSRequest UpdateUser where
 
 instance Hashable UpdateUser
 
+instance NFData UpdateUser
+
 instance ToHeaders UpdateUser where
         toHeaders = const mempty
 

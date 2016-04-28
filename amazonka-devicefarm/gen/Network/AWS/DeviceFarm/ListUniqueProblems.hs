@@ -92,6 +92,8 @@ instance AWSRequest ListUniqueProblems where
 
 instance Hashable ListUniqueProblems
 
+instance NFData ListUniqueProblems
+
 instance ToHeaders ListUniqueProblems where
         toHeaders
           = const

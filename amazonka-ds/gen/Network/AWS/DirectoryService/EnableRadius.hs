@@ -87,6 +87,8 @@ instance AWSRequest EnableRadius where
 
 instance Hashable EnableRadius
 
+instance NFData EnableRadius
+
 instance ToHeaders EnableRadius where
         toHeaders
           = const

@@ -87,6 +87,8 @@ instance AWSRequest GetChange where
 
 instance Hashable GetChange
 
+instance NFData GetChange
+
 instance ToHeaders GetChange where
         toHeaders = const mempty
 

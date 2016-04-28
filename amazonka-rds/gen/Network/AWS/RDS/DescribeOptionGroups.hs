@@ -149,6 +149,8 @@ instance AWSRequest DescribeOptionGroups where
 
 instance Hashable DescribeOptionGroups
 
+instance NFData DescribeOptionGroups
+
 instance ToHeaders DescribeOptionGroups where
         toHeaders = const mempty
 

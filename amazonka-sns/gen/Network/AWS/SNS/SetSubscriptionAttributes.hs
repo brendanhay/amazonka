@@ -95,6 +95,8 @@ instance AWSRequest SetSubscriptionAttributes where
 
 instance Hashable SetSubscriptionAttributes
 
+instance NFData SetSubscriptionAttributes
+
 instance ToHeaders SetSubscriptionAttributes where
         toHeaders = const mempty
 

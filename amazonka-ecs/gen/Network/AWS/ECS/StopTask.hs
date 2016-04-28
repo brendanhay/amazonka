@@ -107,6 +107,8 @@ instance AWSRequest StopTask where
 
 instance Hashable StopTask
 
+instance NFData StopTask
+
 instance ToHeaders StopTask where
         toHeaders
           = const

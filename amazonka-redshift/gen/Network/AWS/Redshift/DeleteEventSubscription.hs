@@ -73,6 +73,8 @@ instance AWSRequest DeleteEventSubscription where
 
 instance Hashable DeleteEventSubscription
 
+instance NFData DeleteEventSubscription
+
 instance ToHeaders DeleteEventSubscription where
         toHeaders = const mempty
 

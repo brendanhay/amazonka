@@ -113,6 +113,8 @@ instance AWSRequest RestoreObject where
 
 instance Hashable RestoreObject
 
+instance NFData RestoreObject
+
 instance ToElement RestoreObject where
         toElement
           = mkElement

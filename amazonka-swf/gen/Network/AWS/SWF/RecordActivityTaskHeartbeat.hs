@@ -137,6 +137,8 @@ instance AWSRequest RecordActivityTaskHeartbeat where
 
 instance Hashable RecordActivityTaskHeartbeat
 
+instance NFData RecordActivityTaskHeartbeat
+
 instance ToHeaders RecordActivityTaskHeartbeat where
         toHeaders
           = const

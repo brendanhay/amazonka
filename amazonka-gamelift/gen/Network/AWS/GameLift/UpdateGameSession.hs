@@ -127,6 +127,8 @@ instance AWSRequest UpdateGameSession where
 
 instance Hashable UpdateGameSession
 
+instance NFData UpdateGameSession
+
 instance ToHeaders UpdateGameSession where
         toHeaders
           = const

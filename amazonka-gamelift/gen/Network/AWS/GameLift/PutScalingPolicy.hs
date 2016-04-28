@@ -203,6 +203,8 @@ instance AWSRequest PutScalingPolicy where
 
 instance Hashable PutScalingPolicy
 
+instance NFData PutScalingPolicy
+
 instance ToHeaders PutScalingPolicy where
         toHeaders
           = const

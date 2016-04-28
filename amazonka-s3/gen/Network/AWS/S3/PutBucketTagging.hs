@@ -87,6 +87,8 @@ instance AWSRequest PutBucketTagging where
 
 instance Hashable PutBucketTagging
 
+instance NFData PutBucketTagging
+
 instance ToElement PutBucketTagging where
         toElement
           = mkElement

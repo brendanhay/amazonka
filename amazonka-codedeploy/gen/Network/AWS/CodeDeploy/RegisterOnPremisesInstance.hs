@@ -82,6 +82,8 @@ instance AWSRequest RegisterOnPremisesInstance where
 
 instance Hashable RegisterOnPremisesInstance
 
+instance NFData RegisterOnPremisesInstance
+
 instance ToHeaders RegisterOnPremisesInstance where
         toHeaders
           = const

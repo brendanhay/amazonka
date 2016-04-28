@@ -105,6 +105,8 @@ instance AWSRequest DescribeRAIdArrays where
 
 instance Hashable DescribeRAIdArrays
 
+instance NFData DescribeRAIdArrays
+
 instance ToHeaders DescribeRAIdArrays where
         toHeaders
           = const

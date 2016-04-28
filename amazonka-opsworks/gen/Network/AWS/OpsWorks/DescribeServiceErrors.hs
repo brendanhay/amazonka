@@ -105,6 +105,8 @@ instance AWSRequest DescribeServiceErrors where
 
 instance Hashable DescribeServiceErrors
 
+instance NFData DescribeServiceErrors
+
 instance ToHeaders DescribeServiceErrors where
         toHeaders
           = const

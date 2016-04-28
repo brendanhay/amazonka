@@ -117,6 +117,8 @@ instance AWSRequest CreatePlatformApplication where
 
 instance Hashable CreatePlatformApplication
 
+instance NFData CreatePlatformApplication
+
 instance ToHeaders CreatePlatformApplication where
         toHeaders = const mempty
 

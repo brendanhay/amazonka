@@ -101,6 +101,8 @@ instance AWSRequest ListSqlInjectionMatchSets where
 
 instance Hashable ListSqlInjectionMatchSets
 
+instance NFData ListSqlInjectionMatchSets
+
 instance ToHeaders ListSqlInjectionMatchSets where
         toHeaders
           = const

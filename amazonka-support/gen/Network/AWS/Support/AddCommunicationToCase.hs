@@ -118,6 +118,8 @@ instance AWSRequest AddCommunicationToCase where
 
 instance Hashable AddCommunicationToCase
 
+instance NFData AddCommunicationToCase
+
 instance ToHeaders AddCommunicationToCase where
         toHeaders
           = const

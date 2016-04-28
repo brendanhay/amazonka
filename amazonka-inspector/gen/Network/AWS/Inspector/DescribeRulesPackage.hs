@@ -76,6 +76,8 @@ instance AWSRequest DescribeRulesPackage where
 
 instance Hashable DescribeRulesPackage
 
+instance NFData DescribeRulesPackage
+
 instance ToHeaders DescribeRulesPackage where
         toHeaders
           = const

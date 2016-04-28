@@ -101,6 +101,8 @@ instance AWSRequest DescribeStackResource where
 
 instance Hashable DescribeStackResource
 
+instance NFData DescribeStackResource
+
 instance ToHeaders DescribeStackResource where
         toHeaders = const mempty
 

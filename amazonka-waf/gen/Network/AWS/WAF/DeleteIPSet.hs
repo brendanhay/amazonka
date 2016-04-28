@@ -98,6 +98,8 @@ instance AWSRequest DeleteIPSet where
 
 instance Hashable DeleteIPSet
 
+instance NFData DeleteIPSet
+
 instance ToHeaders DeleteIPSet where
         toHeaders
           = const

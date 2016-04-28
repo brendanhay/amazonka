@@ -111,6 +111,8 @@ instance AWSRequest ListPrincipalPolicies where
 
 instance Hashable ListPrincipalPolicies
 
+instance NFData ListPrincipalPolicies
+
 instance ToHeaders ListPrincipalPolicies where
         toHeaders ListPrincipalPolicies'{..}
           = mconcat ["x-amzn-iot-principal" =# _lppPrincipal]

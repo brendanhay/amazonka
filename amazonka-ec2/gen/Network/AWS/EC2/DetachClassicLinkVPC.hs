@@ -101,6 +101,8 @@ instance AWSRequest DetachClassicLinkVPC where
 
 instance Hashable DetachClassicLinkVPC
 
+instance NFData DetachClassicLinkVPC
+
 instance ToHeaders DetachClassicLinkVPC where
         toHeaders = const mempty
 

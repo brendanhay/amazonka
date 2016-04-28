@@ -116,6 +116,8 @@ instance AWSRequest Suggest where
 
 instance Hashable Suggest
 
+instance NFData Suggest
+
 instance ToHeaders Suggest where
         toHeaders
           = const

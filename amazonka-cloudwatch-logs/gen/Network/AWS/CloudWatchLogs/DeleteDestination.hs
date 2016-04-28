@@ -70,6 +70,8 @@ instance AWSRequest DeleteDestination where
 
 instance Hashable DeleteDestination
 
+instance NFData DeleteDestination
+
 instance ToHeaders DeleteDestination where
         toHeaders
           = const

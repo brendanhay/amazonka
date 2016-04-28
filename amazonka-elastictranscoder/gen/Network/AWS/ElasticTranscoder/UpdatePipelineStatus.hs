@@ -98,6 +98,8 @@ instance AWSRequest UpdatePipelineStatus where
 
 instance Hashable UpdatePipelineStatus
 
+instance NFData UpdatePipelineStatus
+
 instance ToHeaders UpdatePipelineStatus where
         toHeaders = const mempty
 

@@ -119,6 +119,8 @@ instance AWSRequest CreateVPC where
 
 instance Hashable CreateVPC
 
+instance NFData CreateVPC
+
 instance ToHeaders CreateVPC where
         toHeaders = const mempty
 

@@ -117,6 +117,8 @@ instance AWSRequest DescribeSpotFleetInstances where
 
 instance Hashable DescribeSpotFleetInstances
 
+instance NFData DescribeSpotFleetInstances
+
 instance ToHeaders DescribeSpotFleetInstances where
         toHeaders = const mempty
 

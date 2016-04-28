@@ -113,6 +113,8 @@ instance AWSRequest CreateSnapshotCopyGrant where
 
 instance Hashable CreateSnapshotCopyGrant
 
+instance NFData CreateSnapshotCopyGrant
+
 instance ToHeaders CreateSnapshotCopyGrant where
         toHeaders = const mempty
 

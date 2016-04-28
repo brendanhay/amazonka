@@ -99,6 +99,8 @@ instance AWSRequest DescribeVirtualInterfaces where
 
 instance Hashable DescribeVirtualInterfaces
 
+instance NFData DescribeVirtualInterfaces
+
 instance ToHeaders DescribeVirtualInterfaces where
         toHeaders
           = const

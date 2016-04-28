@@ -94,6 +94,8 @@ instance AWSRequest CreateUser where
 
 instance Hashable CreateUser
 
+instance NFData CreateUser
+
 instance ToHeaders CreateUser where
         toHeaders = const mempty
 

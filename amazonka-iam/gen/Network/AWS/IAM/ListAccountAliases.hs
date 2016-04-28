@@ -114,6 +114,8 @@ instance AWSRequest ListAccountAliases where
 
 instance Hashable ListAccountAliases
 
+instance NFData ListAccountAliases
+
 instance ToHeaders ListAccountAliases where
         toHeaders = const mempty
 

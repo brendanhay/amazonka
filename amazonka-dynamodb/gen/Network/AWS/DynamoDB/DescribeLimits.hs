@@ -127,6 +127,8 @@ instance AWSRequest DescribeLimits where
 
 instance Hashable DescribeLimits
 
+instance NFData DescribeLimits
+
 instance ToHeaders DescribeLimits where
         toHeaders
           = const

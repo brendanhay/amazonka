@@ -76,6 +76,8 @@ instance AWSRequest GetBucketTagging where
 
 instance Hashable GetBucketTagging
 
+instance NFData GetBucketTagging
+
 instance ToHeaders GetBucketTagging where
         toHeaders = const mempty
 

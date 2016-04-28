@@ -99,6 +99,8 @@ instance AWSRequest ModifyClusterSubnetGroup where
 
 instance Hashable ModifyClusterSubnetGroup
 
+instance NFData ModifyClusterSubnetGroup
+
 instance ToHeaders ModifyClusterSubnetGroup where
         toHeaders = const mempty
 

@@ -156,6 +156,8 @@ instance AWSRequest InitiateMultipartUpload where
 
 instance Hashable InitiateMultipartUpload
 
+instance NFData InitiateMultipartUpload
+
 instance ToHeaders InitiateMultipartUpload where
         toHeaders InitiateMultipartUpload'{..}
           = mconcat

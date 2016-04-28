@@ -99,6 +99,8 @@ instance AWSRequest SetLoadBalancerPoliciesOfListener
 
 instance Hashable SetLoadBalancerPoliciesOfListener
 
+instance NFData SetLoadBalancerPoliciesOfListener
+
 instance ToHeaders SetLoadBalancerPoliciesOfListener
          where
         toHeaders = const mempty

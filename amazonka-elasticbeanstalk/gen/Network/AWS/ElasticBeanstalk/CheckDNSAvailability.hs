@@ -80,6 +80,8 @@ instance AWSRequest CheckDNSAvailability where
 
 instance Hashable CheckDNSAvailability
 
+instance NFData CheckDNSAvailability
+
 instance ToHeaders CheckDNSAvailability where
         toHeaders = const mempty
 

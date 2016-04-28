@@ -139,6 +139,8 @@ instance AWSRequest CompleteLifecycleAction where
 
 instance Hashable CompleteLifecycleAction
 
+instance NFData CompleteLifecycleAction
+
 instance ToHeaders CompleteLifecycleAction where
         toHeaders = const mempty
 

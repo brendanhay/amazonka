@@ -74,6 +74,8 @@ instance AWSRequest EnableRule where
 
 instance Hashable EnableRule
 
+instance NFData EnableRule
+
 instance ToHeaders EnableRule where
         toHeaders
           = const

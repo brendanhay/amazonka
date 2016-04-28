@@ -237,6 +237,8 @@ instance AWSRequest CreateEnvironment where
 
 instance Hashable CreateEnvironment
 
+instance NFData CreateEnvironment
+
 instance ToHeaders CreateEnvironment where
         toHeaders = const mempty
 

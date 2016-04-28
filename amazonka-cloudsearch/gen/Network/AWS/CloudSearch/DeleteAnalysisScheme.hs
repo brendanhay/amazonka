@@ -92,6 +92,8 @@ instance AWSRequest DeleteAnalysisScheme where
 
 instance Hashable DeleteAnalysisScheme
 
+instance NFData DeleteAnalysisScheme
+
 instance ToHeaders DeleteAnalysisScheme where
         toHeaders = const mempty
 

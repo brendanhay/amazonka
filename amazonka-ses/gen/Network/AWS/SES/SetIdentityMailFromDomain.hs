@@ -117,6 +117,8 @@ instance AWSRequest SetIdentityMailFromDomain where
 
 instance Hashable SetIdentityMailFromDomain
 
+instance NFData SetIdentityMailFromDomain
+
 instance ToHeaders SetIdentityMailFromDomain where
         toHeaders = const mempty
 

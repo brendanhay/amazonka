@@ -116,6 +116,8 @@ instance AWSRequest ListStreams where
 
 instance Hashable ListStreams
 
+instance NFData ListStreams
+
 instance ToHeaders ListStreams where
         toHeaders
           = const

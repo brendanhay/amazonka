@@ -132,6 +132,8 @@ instance AWSRequest ListAccessKeys where
 
 instance Hashable ListAccessKeys
 
+instance NFData ListAccessKeys
+
 instance ToHeaders ListAccessKeys where
         toHeaders = const mempty
 

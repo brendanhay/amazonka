@@ -116,6 +116,8 @@ instance AWSRequest PutIdentityPolicy where
 
 instance Hashable PutIdentityPolicy
 
+instance NFData PutIdentityPolicy
+
 instance ToHeaders PutIdentityPolicy where
         toHeaders = const mempty
 

@@ -119,6 +119,8 @@ instance AWSRequest ListDatasets where
 
 instance Hashable ListDatasets
 
+instance NFData ListDatasets
+
 instance ToHeaders ListDatasets where
         toHeaders
           = const

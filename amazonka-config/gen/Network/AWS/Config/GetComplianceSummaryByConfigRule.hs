@@ -65,6 +65,8 @@ instance AWSRequest GetComplianceSummaryByConfigRule
 
 instance Hashable GetComplianceSummaryByConfigRule
 
+instance NFData GetComplianceSummaryByConfigRule
+
 instance ToHeaders GetComplianceSummaryByConfigRule
          where
         toHeaders

@@ -98,6 +98,8 @@ instance AWSRequest GetOpenIdToken where
 
 instance Hashable GetOpenIdToken
 
+instance NFData GetOpenIdToken
+
 instance ToHeaders GetOpenIdToken where
         toHeaders
           = const

@@ -381,6 +381,8 @@ instance AWSRequest RestoreDBInstanceToPointInTime
 
 instance Hashable RestoreDBInstanceToPointInTime
 
+instance NFData RestoreDBInstanceToPointInTime
+
 instance ToHeaders RestoreDBInstanceToPointInTime
          where
         toHeaders = const mempty

@@ -121,6 +121,8 @@ instance AWSRequest DescribeNatGateways where
 
 instance Hashable DescribeNatGateways
 
+instance NFData DescribeNatGateways
+
 instance ToHeaders DescribeNatGateways where
         toHeaders = const mempty
 

@@ -119,6 +119,8 @@ instance AWSRequest PutTargets where
 
 instance Hashable PutTargets
 
+instance NFData PutTargets
+
 instance ToHeaders PutTargets where
         toHeaders
           = const

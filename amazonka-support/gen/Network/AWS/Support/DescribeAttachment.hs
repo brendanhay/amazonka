@@ -81,6 +81,8 @@ instance AWSRequest DescribeAttachment where
 
 instance Hashable DescribeAttachment
 
+instance NFData DescribeAttachment
+
 instance ToHeaders DescribeAttachment where
         toHeaders
           = const

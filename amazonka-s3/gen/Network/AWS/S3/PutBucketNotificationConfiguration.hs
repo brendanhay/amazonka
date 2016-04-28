@@ -82,6 +82,8 @@ instance AWSRequest
 
 instance Hashable PutBucketNotificationConfiguration
 
+instance NFData PutBucketNotificationConfiguration
+
 instance ToElement PutBucketNotificationConfiguration
          where
         toElement

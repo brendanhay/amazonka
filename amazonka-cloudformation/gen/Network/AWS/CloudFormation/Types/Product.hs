@@ -60,6 +60,8 @@ instance FromXML AccountLimit where
 
 instance Hashable AccountLimit
 
+instance NFData AccountLimit
+
 -- | The Output data type.
 --
 -- /See:/ 'output' smart constructor.
@@ -106,6 +108,8 @@ instance FromXML Output where
                 (x .@? "Description")
 
 instance Hashable Output
+
+instance NFData Output
 
 -- | The Parameter data type.
 --
@@ -158,6 +162,8 @@ instance FromXML Parameter where
 
 instance Hashable Parameter
 
+instance NFData Parameter
+
 instance ToQuery Parameter where
         toQuery Parameter'{..}
           = mconcat
@@ -197,6 +203,8 @@ instance FromXML ParameterConstraints where
                  may (parseXMLList "member"))
 
 instance Hashable ParameterConstraints
+
+instance NFData ParameterConstraints
 
 -- | The ParameterDeclaration data type.
 --
@@ -272,6 +280,8 @@ instance FromXML ParameterDeclaration where
                 <*> (x .@? "Description")
 
 instance Hashable ParameterDeclaration
+
+instance NFData ParameterDeclaration
 
 -- | The Stack data type.
 --
@@ -437,6 +447,8 @@ instance FromXML Stack where
 
 instance Hashable Stack
 
+instance NFData Stack
+
 -- | The StackEvent data type.
 --
 -- /See:/ 'stackEvent' smart constructor.
@@ -555,6 +567,8 @@ instance FromXML StackEvent where
 
 instance Hashable StackEvent
 
+instance NFData StackEvent
+
 -- | The StackResource data type.
 --
 -- /See:/ 'stackResource' smart constructor.
@@ -663,6 +677,8 @@ instance FromXML StackResource where
                 <*> (x .@ "ResourceStatus")
 
 instance Hashable StackResource
+
+instance NFData StackResource
 
 -- | Contains detailed information about the specified stack resource.
 --
@@ -785,6 +801,8 @@ instance FromXML StackResourceDetail where
 
 instance Hashable StackResourceDetail
 
+instance NFData StackResourceDetail
+
 -- | Contains high-level information about the specified stack resource.
 --
 -- /See:/ 'stackResourceSummary' smart constructor.
@@ -866,6 +884,8 @@ instance FromXML StackResourceSummary where
                 <*> (x .@ "ResourceStatus")
 
 instance Hashable StackResourceSummary
+
+instance NFData StackResourceSummary
 
 -- | The StackSummary Data Type
 --
@@ -964,6 +984,8 @@ instance FromXML StackSummary where
 
 instance Hashable StackSummary
 
+instance NFData StackSummary
+
 -- | The Tag type is used by 'CreateStack' in the 'Tags' parameter. It allows
 -- you to specify a key-value pair that can be used to store information
 -- related to cost allocation for an AWS CloudFormation stack.
@@ -1005,6 +1027,8 @@ instance FromXML Tag where
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -1066,3 +1090,5 @@ instance FromXML TemplateParameter where
                 <*> (x .@? "Description")
 
 instance Hashable TemplateParameter
+
+instance NFData TemplateParameter

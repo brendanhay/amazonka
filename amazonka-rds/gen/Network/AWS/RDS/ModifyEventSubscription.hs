@@ -135,6 +135,8 @@ instance AWSRequest ModifyEventSubscription where
 
 instance Hashable ModifyEventSubscription
 
+instance NFData ModifyEventSubscription
+
 instance ToHeaders ModifyEventSubscription where
         toHeaders = const mempty
 

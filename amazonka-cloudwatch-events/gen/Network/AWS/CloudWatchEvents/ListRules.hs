@@ -102,6 +102,8 @@ instance AWSRequest ListRules where
 
 instance Hashable ListRules
 
+instance NFData ListRules
+
 instance ToHeaders ListRules where
         toHeaders
           = const

@@ -110,6 +110,8 @@ instance AWSRequest ListRetirableGrants where
 
 instance Hashable ListRetirableGrants
 
+instance NFData ListRetirableGrants
+
 instance ToHeaders ListRetirableGrants where
         toHeaders
           = const

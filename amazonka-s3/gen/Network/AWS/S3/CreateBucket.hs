@@ -140,6 +140,8 @@ instance AWSRequest CreateBucket where
 
 instance Hashable CreateBucket
 
+instance NFData CreateBucket
+
 instance ToElement CreateBucket where
         toElement
           = mkElement

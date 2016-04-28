@@ -79,6 +79,8 @@ instance AWSRequest ListQueues where
 
 instance Hashable ListQueues
 
+instance NFData ListQueues
+
 instance ToHeaders ListQueues where
         toHeaders = const mempty
 

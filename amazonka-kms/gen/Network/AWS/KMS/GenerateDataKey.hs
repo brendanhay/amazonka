@@ -168,6 +168,8 @@ instance AWSRequest GenerateDataKey where
 
 instance Hashable GenerateDataKey
 
+instance NFData GenerateDataKey
+
 instance ToHeaders GenerateDataKey where
         toHeaders
           = const

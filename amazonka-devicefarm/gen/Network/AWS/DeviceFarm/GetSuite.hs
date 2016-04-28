@@ -77,6 +77,8 @@ instance AWSRequest GetSuite where
 
 instance Hashable GetSuite
 
+instance NFData GetSuite
+
 instance ToHeaders GetSuite where
         toHeaders
           = const

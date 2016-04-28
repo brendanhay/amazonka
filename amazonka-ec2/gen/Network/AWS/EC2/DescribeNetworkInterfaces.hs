@@ -210,6 +210,8 @@ instance AWSRequest DescribeNetworkInterfaces where
 
 instance Hashable DescribeNetworkInterfaces
 
+instance NFData DescribeNetworkInterfaces
+
 instance ToHeaders DescribeNetworkInterfaces where
         toHeaders = const mempty
 

@@ -218,6 +218,8 @@ instance AWSRequest RegisterImage where
 
 instance Hashable RegisterImage
 
+instance NFData RegisterImage
+
 instance ToHeaders RegisterImage where
         toHeaders = const mempty
 

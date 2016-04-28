@@ -82,6 +82,8 @@ instance AWSRequest DeleteReplicationInstance where
 
 instance Hashable DeleteReplicationInstance
 
+instance NFData DeleteReplicationInstance
+
 instance ToHeaders DeleteReplicationInstance where
         toHeaders
           = const

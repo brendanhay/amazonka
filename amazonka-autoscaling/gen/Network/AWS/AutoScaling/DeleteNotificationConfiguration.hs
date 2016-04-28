@@ -83,6 +83,8 @@ instance AWSRequest DeleteNotificationConfiguration
 
 instance Hashable DeleteNotificationConfiguration
 
+instance NFData DeleteNotificationConfiguration
+
 instance ToHeaders DeleteNotificationConfiguration
          where
         toHeaders = const mempty

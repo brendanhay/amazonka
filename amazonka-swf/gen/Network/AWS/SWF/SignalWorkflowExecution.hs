@@ -139,6 +139,8 @@ instance AWSRequest SignalWorkflowExecution where
 
 instance Hashable SignalWorkflowExecution
 
+instance NFData SignalWorkflowExecution
+
 instance ToHeaders SignalWorkflowExecution where
         toHeaders
           = const

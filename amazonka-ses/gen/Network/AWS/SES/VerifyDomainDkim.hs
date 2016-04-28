@@ -92,6 +92,8 @@ instance AWSRequest VerifyDomainDkim where
 
 instance Hashable VerifyDomainDkim
 
+instance NFData VerifyDomainDkim
+
 instance ToHeaders VerifyDomainDkim where
         toHeaders = const mempty
 

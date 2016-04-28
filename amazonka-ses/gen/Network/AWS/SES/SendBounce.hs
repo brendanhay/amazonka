@@ -142,6 +142,8 @@ instance AWSRequest SendBounce where
 
 instance Hashable SendBounce
 
+instance NFData SendBounce
+
 instance ToHeaders SendBounce where
         toHeaders = const mempty
 

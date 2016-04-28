@@ -105,6 +105,8 @@ instance AWSRequest CreateHealthCheck where
 
 instance Hashable CreateHealthCheck
 
+instance NFData CreateHealthCheck
+
 instance ToElement CreateHealthCheck where
         toElement
           = mkElement

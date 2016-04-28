@@ -174,6 +174,8 @@ instance AWSRequest
 
 instance Hashable DescribeOrderableDBInstanceOptions
 
+instance NFData DescribeOrderableDBInstanceOptions
+
 instance ToHeaders DescribeOrderableDBInstanceOptions
          where
         toHeaders = const mempty

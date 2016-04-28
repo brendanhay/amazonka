@@ -75,6 +75,8 @@ instance AWSRequest RebootInstance where
 
 instance Hashable RebootInstance
 
+instance NFData RebootInstance
+
 instance ToHeaders RebootInstance where
         toHeaders
           = const

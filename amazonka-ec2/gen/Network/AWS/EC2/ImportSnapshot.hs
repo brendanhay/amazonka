@@ -128,6 +128,8 @@ instance AWSRequest ImportSnapshot where
 
 instance Hashable ImportSnapshot
 
+instance NFData ImportSnapshot
+
 instance ToHeaders ImportSnapshot where
         toHeaders = const mempty
 

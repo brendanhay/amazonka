@@ -97,6 +97,8 @@ instance FromJSON ActivatedRule where
 
 instance Hashable ActivatedRule
 
+instance NFData ActivatedRule
+
 instance ToJSON ActivatedRule where
         toJSON ActivatedRule'{..}
           = object
@@ -174,6 +176,8 @@ instance FromJSON ByteMatchSet where
 
 instance Hashable ByteMatchSet
 
+instance NFData ByteMatchSet
+
 -- | Returned by < ListByteMatchSets>. Each 'ByteMatchSetSummary' object
 -- includes the 'Name' and 'ByteMatchSetId' for one < ByteMatchSet>.
 --
@@ -224,6 +228,8 @@ instance FromJSON ByteMatchSetSummary where
 
 instance Hashable ByteMatchSetSummary
 
+instance NFData ByteMatchSetSummary
+
 -- | In an < UpdateByteMatchSet> request, 'ByteMatchSetUpdate' specifies
 -- whether to insert or delete a < ByteMatchTuple> and includes the
 -- settings for the 'ByteMatchTuple'.
@@ -264,6 +270,8 @@ bmsuByteMatchTuple :: Lens' ByteMatchSetUpdate ByteMatchTuple
 bmsuByteMatchTuple = lens _bmsuByteMatchTuple (\ s a -> s{_bmsuByteMatchTuple = a});
 
 instance Hashable ByteMatchSetUpdate
+
+instance NFData ByteMatchSetUpdate
 
 instance ToJSON ByteMatchSetUpdate where
         toJSON ByteMatchSetUpdate'{..}
@@ -485,6 +493,8 @@ instance FromJSON ByteMatchTuple where
 
 instance Hashable ByteMatchTuple
 
+instance NFData ByteMatchTuple
+
 instance ToJSON ByteMatchTuple where
         toJSON ByteMatchTuple'{..}
           = object
@@ -563,6 +573,8 @@ instance FromJSON FieldToMatch where
 
 instance Hashable FieldToMatch
 
+instance NFData FieldToMatch
+
 instance ToJSON FieldToMatch where
         toJSON FieldToMatch'{..}
           = object
@@ -612,6 +624,8 @@ instance FromJSON HTTPHeader where
                  HTTPHeader' <$> (x .:? "Value") <*> (x .:? "Name"))
 
 instance Hashable HTTPHeader
+
+instance NFData HTTPHeader
 
 -- | The response from a < GetSampledRequests> request includes an
 -- 'HTTPRequest' complex type that appears as 'Request' in the response
@@ -706,6 +720,8 @@ instance FromJSON HTTPRequest where
 
 instance Hashable HTTPRequest
 
+instance NFData HTTPRequest
+
 -- | Contains one or more IP addresses or blocks of IP addresses specified in
 -- Classless Inter-Domain Routing (CIDR) notation. To specify an individual
 -- IP address, you specify the four-part IP address followed by a '\/32',
@@ -775,6 +791,8 @@ instance FromJSON IPSet where
 
 instance Hashable IPSet
 
+instance NFData IPSet
+
 -- | Specifies the IP address type ('IPV4') and the IP address range (in CIDR
 -- format) that web requests originate from.
 --
@@ -829,6 +847,8 @@ instance FromJSON IPSetDescriptor where
 
 instance Hashable IPSetDescriptor
 
+instance NFData IPSetDescriptor
+
 instance ToJSON IPSetDescriptor where
         toJSON IPSetDescriptor'{..}
           = object
@@ -879,6 +899,8 @@ instance FromJSON IPSetSummary where
 
 instance Hashable IPSetSummary
 
+instance NFData IPSetSummary
+
 -- | Specifies the type of update to perform to an < IPSet> with
 -- < UpdateIPSet>.
 --
@@ -915,6 +937,8 @@ isuIPSetDescriptor :: Lens' IPSetUpdate IPSetDescriptor
 isuIPSetDescriptor = lens _isuIPSetDescriptor (\ s a -> s{_isuIPSetDescriptor = a});
 
 instance Hashable IPSetUpdate
+
+instance NFData IPSetUpdate
 
 instance ToJSON IPSetUpdate where
         toJSON IPSetUpdate'{..}
@@ -989,6 +1013,8 @@ instance FromJSON Predicate where
                      (x .: "DataId"))
 
 instance Hashable Predicate
+
+instance NFData Predicate
 
 instance ToJSON Predicate where
         toJSON Predicate'{..}
@@ -1078,6 +1104,8 @@ instance FromJSON Rule where
 
 instance Hashable Rule
 
+instance NFData Rule
+
 -- | Contains the identifier and the friendly name or description of the
 -- 'Rule'.
 --
@@ -1127,6 +1155,8 @@ instance FromJSON RuleSummary where
 
 instance Hashable RuleSummary
 
+instance NFData RuleSummary
+
 -- | Specifies a 'Predicate' (such as an 'IPSet') and indicates whether you
 -- want to add it to a 'Rule' or delete it from a 'Rule'.
 --
@@ -1164,6 +1194,8 @@ ruPredicate :: Lens' RuleUpdate Predicate
 ruPredicate = lens _ruPredicate (\ s a -> s{_ruPredicate = a});
 
 instance Hashable RuleUpdate
+
+instance NFData RuleUpdate
 
 instance ToJSON RuleUpdate where
         toJSON RuleUpdate'{..}
@@ -1240,6 +1272,8 @@ instance FromJSON SampledHTTPRequest where
                      <*> (x .: "Weight"))
 
 instance Hashable SampledHTTPRequest
+
+instance NFData SampledHTTPRequest
 
 -- | Specifies a constraint on the size of a part of the web request. AWS WAF
 -- uses the 'Size', 'ComparisonOperator', and 'FieldToMatch' to build an
@@ -1399,6 +1433,8 @@ instance FromJSON SizeConstraint where
 
 instance Hashable SizeConstraint
 
+instance NFData SizeConstraint
+
 instance ToJSON SizeConstraint where
         toJSON SizeConstraint'{..}
           = object
@@ -1470,6 +1506,8 @@ instance FromJSON SizeConstraintSet where
 
 instance Hashable SizeConstraintSet
 
+instance NFData SizeConstraintSet
+
 -- | The 'Id' and 'Name' of a 'SizeConstraintSet'.
 --
 -- /See:/ 'sizeConstraintSetSummary' smart constructor.
@@ -1520,6 +1558,8 @@ instance FromJSON SizeConstraintSetSummary where
 
 instance Hashable SizeConstraintSetSummary
 
+instance NFData SizeConstraintSetSummary
+
 -- | Specifies the part of a web request that you want to inspect the size of
 -- and indicates whether you want to add the specification to a
 -- < SizeConstraintSet> or delete it from a 'SizeConstraintSet'.
@@ -1562,6 +1602,8 @@ scsuSizeConstraint :: Lens' SizeConstraintSetUpdate SizeConstraint
 scsuSizeConstraint = lens _scsuSizeConstraint (\ s a -> s{_scsuSizeConstraint = a});
 
 instance Hashable SizeConstraintSetUpdate
+
+instance NFData SizeConstraintSetUpdate
 
 instance ToJSON SizeConstraintSetUpdate where
         toJSON SizeConstraintSetUpdate'{..}
@@ -1636,6 +1678,8 @@ instance FromJSON SqlInjectionMatchSet where
 
 instance Hashable SqlInjectionMatchSet
 
+instance NFData SqlInjectionMatchSet
+
 -- | The 'Id' and 'Name' of a 'SqlInjectionMatchSet'.
 --
 -- /See:/ 'sqlInjectionMatchSetSummary' smart constructor.
@@ -1687,6 +1731,8 @@ instance FromJSON SqlInjectionMatchSetSummary where
 
 instance Hashable SqlInjectionMatchSetSummary
 
+instance NFData SqlInjectionMatchSetSummary
+
 -- | Specifies the part of a web request that you want to inspect for
 -- snippets of malicious SQL code and indicates whether you want to add the
 -- specification to a < SqlInjectionMatchSet> or delete it from a
@@ -1728,6 +1774,8 @@ simsuSqlInjectionMatchTuple :: Lens' SqlInjectionMatchSetUpdate SqlInjectionMatc
 simsuSqlInjectionMatchTuple = lens _simsuSqlInjectionMatchTuple (\ s a -> s{_simsuSqlInjectionMatchTuple = a});
 
 instance Hashable SqlInjectionMatchSetUpdate
+
+instance NFData SqlInjectionMatchSetUpdate
 
 instance ToJSON SqlInjectionMatchSetUpdate where
         toJSON SqlInjectionMatchSetUpdate'{..}
@@ -1839,6 +1887,8 @@ instance FromJSON SqlInjectionMatchTuple where
 
 instance Hashable SqlInjectionMatchTuple
 
+instance NFData SqlInjectionMatchTuple
+
 instance ToJSON SqlInjectionMatchTuple where
         toJSON SqlInjectionMatchTuple'{..}
           = object
@@ -1904,6 +1954,8 @@ instance FromJSON TimeWindow where
 
 instance Hashable TimeWindow
 
+instance NFData TimeWindow
+
 instance ToJSON TimeWindow where
         toJSON TimeWindow'{..}
           = object
@@ -1953,6 +2005,8 @@ instance FromJSON WafAction where
               (\ x -> WafAction' <$> (x .: "Type"))
 
 instance Hashable WafAction
+
+instance NFData WafAction
 
 instance ToJSON WafAction where
         toJSON WafAction'{..}
@@ -2043,6 +2097,8 @@ instance FromJSON WebACL where
 
 instance Hashable WebACL
 
+instance NFData WebACL
+
 -- | Contains the identifier and the name or description of the < WebACL>.
 --
 -- /See:/ 'webACLSummary' smart constructor.
@@ -2091,6 +2147,8 @@ instance FromJSON WebACLSummary where
 
 instance Hashable WebACLSummary
 
+instance NFData WebACLSummary
+
 -- | Specifies whether to insert a 'Rule' into or delete a 'Rule' from a
 -- 'WebACL'.
 --
@@ -2127,6 +2185,8 @@ wauActivatedRule :: Lens' WebACLUpdate ActivatedRule
 wauActivatedRule = lens _wauActivatedRule (\ s a -> s{_wauActivatedRule = a});
 
 instance Hashable WebACLUpdate
+
+instance NFData WebACLUpdate
 
 instance ToJSON WebACLUpdate where
         toJSON WebACLUpdate'{..}

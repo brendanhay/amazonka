@@ -177,6 +177,8 @@ instance AWSRequest DescribeClusterSecurityGroups
 
 instance Hashable DescribeClusterSecurityGroups
 
+instance NFData DescribeClusterSecurityGroups
+
 instance ToHeaders DescribeClusterSecurityGroups
          where
         toHeaders = const mempty

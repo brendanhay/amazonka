@@ -75,6 +75,8 @@ instance AWSRequest GenerateRandom where
 
 instance Hashable GenerateRandom
 
+instance NFData GenerateRandom
+
 instance ToHeaders GenerateRandom where
         toHeaders
           = const

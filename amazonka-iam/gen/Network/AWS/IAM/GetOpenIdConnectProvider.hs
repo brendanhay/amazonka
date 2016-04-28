@@ -87,6 +87,8 @@ instance AWSRequest GetOpenIdConnectProvider where
 
 instance Hashable GetOpenIdConnectProvider
 
+instance NFData GetOpenIdConnectProvider
+
 instance ToHeaders GetOpenIdConnectProvider where
         toHeaders = const mempty
 

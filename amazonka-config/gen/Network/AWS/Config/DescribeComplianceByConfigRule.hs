@@ -124,6 +124,8 @@ instance AWSRequest DescribeComplianceByConfigRule
 
 instance Hashable DescribeComplianceByConfigRule
 
+instance NFData DescribeComplianceByConfigRule
+
 instance ToHeaders DescribeComplianceByConfigRule
          where
         toHeaders

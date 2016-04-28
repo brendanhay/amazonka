@@ -128,6 +128,8 @@ instance AWSRequest PutRecord where
 
 instance Hashable PutRecord
 
+instance NFData PutRecord
+
 instance ToHeaders PutRecord where
         toHeaders
           = const

@@ -90,6 +90,8 @@ instance AWSRequest GetDeploymentGroup where
 
 instance Hashable GetDeploymentGroup
 
+instance NFData GetDeploymentGroup
+
 instance ToHeaders GetDeploymentGroup where
         toHeaders
           = const

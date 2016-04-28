@@ -65,6 +65,8 @@ instance AWSRequest DescribeAdjustmentTypes where
 
 instance Hashable DescribeAdjustmentTypes
 
+instance NFData DescribeAdjustmentTypes
+
 instance ToHeaders DescribeAdjustmentTypes where
         toHeaders = const mempty
 

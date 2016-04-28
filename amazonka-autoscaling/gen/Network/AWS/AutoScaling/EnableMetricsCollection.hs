@@ -114,6 +114,8 @@ instance AWSRequest EnableMetricsCollection where
 
 instance Hashable EnableMetricsCollection
 
+instance NFData EnableMetricsCollection
+
 instance ToHeaders EnableMetricsCollection where
         toHeaders = const mempty
 

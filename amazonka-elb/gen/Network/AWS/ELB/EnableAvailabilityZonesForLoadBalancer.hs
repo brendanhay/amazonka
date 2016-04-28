@@ -99,6 +99,9 @@ instance AWSRequest
 instance Hashable
          EnableAvailabilityZonesForLoadBalancer
 
+instance NFData
+         EnableAvailabilityZonesForLoadBalancer
+
 instance ToHeaders
          EnableAvailabilityZonesForLoadBalancer where
         toHeaders = const mempty

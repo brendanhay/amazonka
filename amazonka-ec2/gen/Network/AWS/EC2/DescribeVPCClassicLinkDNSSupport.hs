@@ -108,6 +108,8 @@ instance AWSRequest DescribeVPCClassicLinkDNSSupport
 
 instance Hashable DescribeVPCClassicLinkDNSSupport
 
+instance NFData DescribeVPCClassicLinkDNSSupport
+
 instance ToHeaders DescribeVPCClassicLinkDNSSupport
          where
         toHeaders = const mempty

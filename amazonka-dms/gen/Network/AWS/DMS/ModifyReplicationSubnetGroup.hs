@@ -97,6 +97,8 @@ instance AWSRequest ModifyReplicationSubnetGroup
 
 instance Hashable ModifyReplicationSubnetGroup
 
+instance NFData ModifyReplicationSubnetGroup
+
 instance ToHeaders ModifyReplicationSubnetGroup where
         toHeaders
           = const

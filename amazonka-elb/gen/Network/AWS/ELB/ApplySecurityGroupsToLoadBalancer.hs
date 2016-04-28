@@ -96,6 +96,8 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer
 
 instance Hashable ApplySecurityGroupsToLoadBalancer
 
+instance NFData ApplySecurityGroupsToLoadBalancer
+
 instance ToHeaders ApplySecurityGroupsToLoadBalancer
          where
         toHeaders = const mempty

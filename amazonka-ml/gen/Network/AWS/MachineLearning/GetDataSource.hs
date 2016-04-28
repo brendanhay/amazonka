@@ -126,6 +126,8 @@ instance AWSRequest GetDataSource where
 
 instance Hashable GetDataSource
 
+instance NFData GetDataSource
+
 instance ToHeaders GetDataSource where
         toHeaders
           = const

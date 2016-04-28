@@ -76,6 +76,8 @@ instance AWSRequest GetIPSet where
 
 instance Hashable GetIPSet
 
+instance NFData GetIPSet
+
 instance ToHeaders GetIPSet where
         toHeaders
           = const

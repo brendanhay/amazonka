@@ -116,6 +116,8 @@ instance AWSRequest ListSteps where
 
 instance Hashable ListSteps
 
+instance NFData ListSteps
+
 instance ToHeaders ListSteps where
         toHeaders
           = const

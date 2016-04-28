@@ -122,6 +122,8 @@ instance AWSRequest ListAliases where
 
 instance Hashable ListAliases
 
+instance NFData ListAliases
+
 instance ToHeaders ListAliases where
         toHeaders
           = const

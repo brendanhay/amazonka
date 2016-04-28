@@ -108,6 +108,8 @@ instance AWSRequest DescribeAutoScalingGroups where
 
 instance Hashable DescribeAutoScalingGroups
 
+instance NFData DescribeAutoScalingGroups
+
 instance ToHeaders DescribeAutoScalingGroups where
         toHeaders = const mempty
 

@@ -132,6 +132,8 @@ instance AWSRequest CreateRule where
 
 instance Hashable CreateRule
 
+instance NFData CreateRule
+
 instance ToHeaders CreateRule where
         toHeaders
           = const

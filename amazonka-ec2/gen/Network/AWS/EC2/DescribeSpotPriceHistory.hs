@@ -202,6 +202,8 @@ instance AWSRequest DescribeSpotPriceHistory where
 
 instance Hashable DescribeSpotPriceHistory
 
+instance NFData DescribeSpotPriceHistory
+
 instance ToHeaders DescribeSpotPriceHistory where
         toHeaders = const mempty
 

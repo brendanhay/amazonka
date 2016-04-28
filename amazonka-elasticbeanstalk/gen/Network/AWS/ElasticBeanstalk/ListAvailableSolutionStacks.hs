@@ -70,6 +70,8 @@ instance AWSRequest ListAvailableSolutionStacks where
 
 instance Hashable ListAvailableSolutionStacks
 
+instance NFData ListAvailableSolutionStacks
+
 instance ToHeaders ListAvailableSolutionStacks where
         toHeaders = const mempty
 

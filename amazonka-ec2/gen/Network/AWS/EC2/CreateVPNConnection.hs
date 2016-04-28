@@ -137,6 +137,8 @@ instance AWSRequest CreateVPNConnection where
 
 instance Hashable CreateVPNConnection
 
+instance NFData CreateVPNConnection
+
 instance ToHeaders CreateVPNConnection where
         toHeaders = const mempty
 

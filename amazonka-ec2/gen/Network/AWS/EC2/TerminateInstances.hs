@@ -112,6 +112,8 @@ instance AWSRequest TerminateInstances where
 
 instance Hashable TerminateInstances
 
+instance NFData TerminateInstances
+
 instance ToHeaders TerminateInstances where
         toHeaders = const mempty
 

@@ -97,6 +97,8 @@ instance AWSRequest ModifyHosts where
 
 instance Hashable ModifyHosts
 
+instance NFData ModifyHosts
+
 instance ToHeaders ModifyHosts where
         toHeaders = const mempty
 

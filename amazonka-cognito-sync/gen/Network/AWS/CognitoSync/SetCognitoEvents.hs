@@ -88,6 +88,8 @@ instance AWSRequest SetCognitoEvents where
 
 instance Hashable SetCognitoEvents
 
+instance NFData SetCognitoEvents
+
 instance ToHeaders SetCognitoEvents where
         toHeaders
           = const

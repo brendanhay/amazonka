@@ -149,6 +149,8 @@ instance AWSRequest DescribeComplianceByResource
 
 instance Hashable DescribeComplianceByResource
 
+instance NFData DescribeComplianceByResource
+
 instance ToHeaders DescribeComplianceByResource where
         toHeaders
           = const

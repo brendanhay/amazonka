@@ -91,6 +91,8 @@ instance AWSRequest AcknowledgeJob where
 
 instance Hashable AcknowledgeJob
 
+instance NFData AcknowledgeJob
+
 instance ToHeaders AcknowledgeJob where
         toHeaders
           = const

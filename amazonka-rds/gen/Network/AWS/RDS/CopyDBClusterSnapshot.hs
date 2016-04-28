@@ -118,6 +118,8 @@ instance AWSRequest CopyDBClusterSnapshot where
 
 instance Hashable CopyDBClusterSnapshot
 
+instance NFData CopyDBClusterSnapshot
+
 instance ToHeaders CopyDBClusterSnapshot where
         toHeaders = const mempty
 

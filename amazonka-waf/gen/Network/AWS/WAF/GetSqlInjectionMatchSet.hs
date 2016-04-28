@@ -82,6 +82,8 @@ instance AWSRequest GetSqlInjectionMatchSet where
 
 instance Hashable GetSqlInjectionMatchSet
 
+instance NFData GetSqlInjectionMatchSet
+
 instance ToHeaders GetSqlInjectionMatchSet where
         toHeaders
           = const

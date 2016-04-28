@@ -75,6 +75,8 @@ instance AWSRequest DeleteCertificate where
 
 instance Hashable DeleteCertificate
 
+instance NFData DeleteCertificate
+
 instance ToHeaders DeleteCertificate where
         toHeaders = const mempty
 

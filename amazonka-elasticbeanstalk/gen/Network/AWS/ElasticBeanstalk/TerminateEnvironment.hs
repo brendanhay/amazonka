@@ -140,6 +140,8 @@ instance AWSRequest TerminateEnvironment where
 
 instance Hashable TerminateEnvironment
 
+instance NFData TerminateEnvironment
+
 instance ToHeaders TerminateEnvironment where
         toHeaders = const mempty
 

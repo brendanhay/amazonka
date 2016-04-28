@@ -90,6 +90,8 @@ instance AWSRequest CreateInvalidation where
 
 instance Hashable CreateInvalidation
 
+instance NFData CreateInvalidation
+
 instance ToElement CreateInvalidation where
         toElement
           = mkElement

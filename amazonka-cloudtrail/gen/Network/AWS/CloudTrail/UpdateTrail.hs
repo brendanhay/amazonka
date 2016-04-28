@@ -234,6 +234,8 @@ instance AWSRequest UpdateTrail where
 
 instance Hashable UpdateTrail
 
+instance NFData UpdateTrail
+
 instance ToHeaders UpdateTrail where
         toHeaders
           = const

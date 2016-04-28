@@ -97,6 +97,8 @@ instance AWSRequest GetPolicyVersion where
 
 instance Hashable GetPolicyVersion
 
+instance NFData GetPolicyVersion
+
 instance ToHeaders GetPolicyVersion where
         toHeaders = const mempty
 

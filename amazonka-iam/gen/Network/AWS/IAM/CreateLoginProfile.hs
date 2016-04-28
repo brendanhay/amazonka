@@ -100,6 +100,8 @@ instance AWSRequest CreateLoginProfile where
 
 instance Hashable CreateLoginProfile
 
+instance NFData CreateLoginProfile
+
 instance ToHeaders CreateLoginProfile where
         toHeaders = const mempty
 

@@ -82,6 +82,8 @@ instance AWSRequest CreateDistribution where
 
 instance Hashable CreateDistribution
 
+instance NFData CreateDistribution
+
 instance ToElement CreateDistribution where
         toElement
           = mkElement

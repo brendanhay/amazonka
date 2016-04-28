@@ -115,6 +115,8 @@ instance AWSRequest GetComplianceDetailsByResource
 
 instance Hashable GetComplianceDetailsByResource
 
+instance NFData GetComplianceDetailsByResource
+
 instance ToHeaders GetComplianceDetailsByResource
          where
         toHeaders

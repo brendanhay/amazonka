@@ -85,6 +85,8 @@ instance AWSRequest StopLogging where
 
 instance Hashable StopLogging
 
+instance NFData StopLogging
+
 instance ToHeaders StopLogging where
         toHeaders
           = const

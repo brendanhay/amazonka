@@ -231,6 +231,8 @@ instance AWSRequest RequestSpotInstances where
 
 instance Hashable RequestSpotInstances
 
+instance NFData RequestSpotInstances
+
 instance ToHeaders RequestSpotInstances where
         toHeaders = const mempty
 

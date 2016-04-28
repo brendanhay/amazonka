@@ -105,6 +105,8 @@ instance AWSRequest GetSSHPublicKey where
 
 instance Hashable GetSSHPublicKey
 
+instance NFData GetSSHPublicKey
+
 instance ToHeaders GetSSHPublicKey where
         toHeaders = const mempty
 

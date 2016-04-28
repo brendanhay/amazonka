@@ -119,6 +119,8 @@ instance AWSRequest DeleteArchive where
 
 instance Hashable DeleteArchive
 
+instance NFData DeleteArchive
+
 instance ToHeaders DeleteArchive where
         toHeaders = const mempty
 

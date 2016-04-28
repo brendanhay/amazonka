@@ -134,6 +134,8 @@ instance AWSRequest DetachVolume where
 
 instance Hashable DetachVolume
 
+instance NFData DetachVolume
+
 instance ToHeaders DetachVolume where
         toHeaders = const mempty
 

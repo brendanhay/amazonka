@@ -107,6 +107,8 @@ instance AWSRequest DescribeReplicationSubnetGroups
 
 instance Hashable DescribeReplicationSubnetGroups
 
+instance NFData DescribeReplicationSubnetGroups
+
 instance ToHeaders DescribeReplicationSubnetGroups
          where
         toHeaders

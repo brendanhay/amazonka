@@ -127,6 +127,8 @@ instance AWSRequest ListMetrics where
 
 instance Hashable ListMetrics
 
+instance NFData ListMetrics
+
 instance ToHeaders ListMetrics where
         toHeaders = const mempty
 

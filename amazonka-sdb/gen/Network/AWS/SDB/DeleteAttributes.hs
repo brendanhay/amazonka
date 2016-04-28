@@ -110,6 +110,8 @@ instance AWSRequest DeleteAttributes where
 
 instance Hashable DeleteAttributes
 
+instance NFData DeleteAttributes
+
 instance ToHeaders DeleteAttributes where
         toHeaders = const mempty
 

@@ -91,6 +91,8 @@ instance AWSRequest UpdateThingShadow where
 
 instance Hashable UpdateThingShadow
 
+instance NFData UpdateThingShadow
+
 instance ToBody UpdateThingShadow where
         toBody = toBody . _utsPayload
 

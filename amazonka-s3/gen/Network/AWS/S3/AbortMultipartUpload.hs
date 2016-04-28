@@ -110,6 +110,8 @@ instance AWSRequest AbortMultipartUpload where
 
 instance Hashable AbortMultipartUpload
 
+instance NFData AbortMultipartUpload
+
 instance ToHeaders AbortMultipartUpload where
         toHeaders AbortMultipartUpload'{..}
           = mconcat ["x-amz-request-payer" =# _amuRequestPayer]

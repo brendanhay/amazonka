@@ -111,6 +111,8 @@ instance AWSRequest CreateAssessment where
 
 instance Hashable CreateAssessment
 
+instance NFData CreateAssessment
+
 instance ToHeaders CreateAssessment where
         toHeaders
           = const

@@ -114,6 +114,8 @@ instance AWSRequest SetRepositoryPolicy where
 
 instance Hashable SetRepositoryPolicy
 
+instance NFData SetRepositoryPolicy
+
 instance ToHeaders SetRepositoryPolicy where
         toHeaders
           = const

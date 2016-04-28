@@ -108,6 +108,8 @@ instance AWSRequest PutDestination where
 
 instance Hashable PutDestination
 
+instance NFData PutDestination
+
 instance ToHeaders PutDestination where
         toHeaders
           = const

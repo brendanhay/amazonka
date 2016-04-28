@@ -199,6 +199,8 @@ instance AWSRequest CreateMLModel where
 
 instance Hashable CreateMLModel
 
+instance NFData CreateMLModel
+
 instance ToHeaders CreateMLModel where
         toHeaders
           = const

@@ -73,6 +73,8 @@ instance FromJSON Field where
 
 instance Hashable Field
 
+instance NFData Field
+
 instance ToJSON Field where
         toJSON Field'{..}
           = object
@@ -123,6 +125,8 @@ iiDocument :: Lens' InstanceIdentity (Maybe Text)
 iiDocument = lens _iiDocument (\ s a -> s{_iiDocument = a});
 
 instance Hashable InstanceIdentity
+
+instance NFData InstanceIdentity
 
 instance ToJSON InstanceIdentity where
         toJSON InstanceIdentity'{..}
@@ -197,6 +201,8 @@ oType = lens _oType (\ s a -> s{_oType = a});
 
 instance Hashable Operator
 
+instance NFData Operator
+
 instance ToJSON Operator where
         toJSON Operator'{..}
           = object
@@ -244,6 +250,8 @@ instance FromJSON ParameterAttribute where
                    (x .: "key") <*> (x .: "stringValue"))
 
 instance Hashable ParameterAttribute
+
+instance NFData ParameterAttribute
 
 instance ToJSON ParameterAttribute where
         toJSON ParameterAttribute'{..}
@@ -293,6 +301,8 @@ instance FromJSON ParameterObject where
 
 instance Hashable ParameterObject
 
+instance NFData ParameterObject
+
 instance ToJSON ParameterObject where
         toJSON ParameterObject'{..}
           = object
@@ -341,6 +351,8 @@ instance FromJSON ParameterValue where
                    (x .: "id") <*> (x .: "stringValue"))
 
 instance Hashable ParameterValue
+
+instance NFData ParameterValue
 
 instance ToJSON ParameterValue where
         toJSON ParameterValue'{..}
@@ -423,6 +435,8 @@ instance FromJSON PipelineDescription where
 
 instance Hashable PipelineDescription
 
+instance NFData PipelineDescription
+
 -- | Contains the name and identifier of a pipeline.
 --
 -- /See:/ 'pipelineIdName' smart constructor.
@@ -462,6 +476,8 @@ instance FromJSON PipelineIdName where
                  PipelineIdName' <$> (x .:? "name") <*> (x .:? "id"))
 
 instance Hashable PipelineIdName
+
+instance NFData PipelineIdName
 
 -- | Contains information about a pipeline object. This can be a logical,
 -- physical, or physical attempt pipeline object. The complete set of
@@ -516,6 +532,8 @@ instance FromJSON PipelineObject where
 
 instance Hashable PipelineObject
 
+instance NFData PipelineObject
+
 instance ToJSON PipelineObject where
         toJSON PipelineObject'{..}
           = object
@@ -548,6 +566,8 @@ qSelectors :: Lens' Query [Selector]
 qSelectors = lens _qSelectors (\ s a -> s{_qSelectors = a}) . _Default . _Coerce;
 
 instance Hashable Query
+
+instance NFData Query
 
 instance ToJSON Query where
         toJSON Query'{..}
@@ -590,6 +610,8 @@ sFieldName :: Lens' Selector (Maybe Text)
 sFieldName = lens _sFieldName (\ s a -> s{_sFieldName = a});
 
 instance Hashable Selector
+
+instance NFData Selector
 
 instance ToJSON Selector where
         toJSON Selector'{..}
@@ -646,6 +668,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .: "key") <*> (x .: "value"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -716,6 +740,8 @@ instance FromJSON TaskObject where
 
 instance Hashable TaskObject
 
+instance NFData TaskObject
+
 -- | Defines a validation error. Validation errors prevent pipeline
 -- activation. The set of validation errors that can be returned are
 -- defined by AWS Data Pipeline.
@@ -758,6 +784,8 @@ instance FromJSON ValidationError where
 
 instance Hashable ValidationError
 
+instance NFData ValidationError
+
 -- | Defines a validation warning. Validation warnings do not prevent
 -- pipeline activation. The set of validation warnings that can be returned
 -- are defined by AWS Data Pipeline.
@@ -799,3 +827,5 @@ instance FromJSON ValidationWarning where
                    (x .:? "warnings" .!= mempty) <*> (x .:? "id"))
 
 instance Hashable ValidationWarning
+
+instance NFData ValidationWarning

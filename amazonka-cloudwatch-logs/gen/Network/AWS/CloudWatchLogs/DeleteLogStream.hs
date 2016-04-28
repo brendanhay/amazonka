@@ -79,6 +79,8 @@ instance AWSRequest DeleteLogStream where
 
 instance Hashable DeleteLogStream
 
+instance NFData DeleteLogStream
+
 instance ToHeaders DeleteLogStream where
         toHeaders
           = const

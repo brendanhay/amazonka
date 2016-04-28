@@ -127,6 +127,8 @@ instance AWSRequest CreateDirectory where
 
 instance Hashable CreateDirectory
 
+instance NFData CreateDirectory
+
 instance ToHeaders CreateDirectory where
         toHeaders
           = const

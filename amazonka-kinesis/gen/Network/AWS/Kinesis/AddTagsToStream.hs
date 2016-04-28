@@ -83,6 +83,8 @@ instance AWSRequest AddTagsToStream where
 
 instance Hashable AddTagsToStream
 
+instance NFData AddTagsToStream
+
 instance ToHeaders AddTagsToStream where
         toHeaders
           = const

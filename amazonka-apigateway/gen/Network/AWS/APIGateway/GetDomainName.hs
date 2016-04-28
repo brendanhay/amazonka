@@ -76,6 +76,8 @@ instance AWSRequest GetDomainName where
 
 instance Hashable GetDomainName
 
+instance NFData GetDomainName
+
 instance ToHeaders GetDomainName where
         toHeaders
           = const

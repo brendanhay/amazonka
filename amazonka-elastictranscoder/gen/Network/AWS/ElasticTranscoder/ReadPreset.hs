@@ -78,6 +78,8 @@ instance AWSRequest ReadPreset where
 
 instance Hashable ReadPreset
 
+instance NFData ReadPreset
+
 instance ToHeaders ReadPreset where
         toHeaders = const mempty
 

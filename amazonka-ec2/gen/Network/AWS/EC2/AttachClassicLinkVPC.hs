@@ -121,6 +121,8 @@ instance AWSRequest AttachClassicLinkVPC where
 
 instance Hashable AttachClassicLinkVPC
 
+instance NFData AttachClassicLinkVPC
+
 instance ToHeaders AttachClassicLinkVPC where
         toHeaders = const mempty
 

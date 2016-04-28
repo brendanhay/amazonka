@@ -140,6 +140,8 @@ instance AWSRequest UpdateSqlInjectionMatchSet where
 
 instance Hashable UpdateSqlInjectionMatchSet
 
+instance NFData UpdateSqlInjectionMatchSet
+
 instance ToHeaders UpdateSqlInjectionMatchSet where
         toHeaders
           = const

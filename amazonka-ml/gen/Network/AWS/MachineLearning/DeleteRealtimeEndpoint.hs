@@ -79,6 +79,8 @@ instance AWSRequest DeleteRealtimeEndpoint where
 
 instance Hashable DeleteRealtimeEndpoint
 
+instance NFData DeleteRealtimeEndpoint
+
 instance ToHeaders DeleteRealtimeEndpoint where
         toHeaders
           = const

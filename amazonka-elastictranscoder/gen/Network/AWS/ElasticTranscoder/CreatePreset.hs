@@ -146,6 +146,8 @@ instance AWSRequest CreatePreset where
 
 instance Hashable CreatePreset
 
+instance NFData CreatePreset
+
 instance ToHeaders CreatePreset where
         toHeaders = const mempty
 

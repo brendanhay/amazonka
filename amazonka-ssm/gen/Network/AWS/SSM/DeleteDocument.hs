@@ -77,6 +77,8 @@ instance AWSRequest DeleteDocument where
 
 instance Hashable DeleteDocument
 
+instance NFData DeleteDocument
+
 instance ToHeaders DeleteDocument where
         toHeaders
           = const

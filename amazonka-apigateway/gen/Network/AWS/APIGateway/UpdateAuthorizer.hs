@@ -99,6 +99,8 @@ instance AWSRequest UpdateAuthorizer where
 
 instance Hashable UpdateAuthorizer
 
+instance NFData UpdateAuthorizer
+
 instance ToHeaders UpdateAuthorizer where
         toHeaders
           = const

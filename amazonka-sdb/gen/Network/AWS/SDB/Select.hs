@@ -122,6 +122,8 @@ instance AWSRequest Select where
 
 instance Hashable Select
 
+instance NFData Select
+
 instance ToHeaders Select where
         toHeaders = const mempty
 

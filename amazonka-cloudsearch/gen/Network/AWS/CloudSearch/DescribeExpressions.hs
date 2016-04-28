@@ -110,6 +110,8 @@ instance AWSRequest DescribeExpressions where
 
 instance Hashable DescribeExpressions
 
+instance NFData DescribeExpressions
+
 instance ToHeaders DescribeExpressions where
         toHeaders = const mempty
 

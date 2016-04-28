@@ -170,6 +170,8 @@ instance AWSRequest GetJobOutput where
 
 instance Hashable GetJobOutput
 
+instance NFData GetJobOutput
+
 instance ToHeaders GetJobOutput where
         toHeaders GetJobOutput'{..}
           = mconcat ["Range" =# _gjoRange]

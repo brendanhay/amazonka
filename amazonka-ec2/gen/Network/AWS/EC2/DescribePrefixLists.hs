@@ -133,6 +133,8 @@ instance AWSRequest DescribePrefixLists where
 
 instance Hashable DescribePrefixLists
 
+instance NFData DescribePrefixLists
+
 instance ToHeaders DescribePrefixLists where
         toHeaders = const mempty
 

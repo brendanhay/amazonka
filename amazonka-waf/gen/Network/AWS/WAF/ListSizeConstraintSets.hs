@@ -98,6 +98,8 @@ instance AWSRequest ListSizeConstraintSets where
 
 instance Hashable ListSizeConstraintSets
 
+instance NFData ListSizeConstraintSets
+
 instance ToHeaders ListSizeConstraintSets where
         toHeaders
           = const

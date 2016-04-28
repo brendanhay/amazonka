@@ -83,6 +83,8 @@ instance AWSRequest GetEndpointAttributes where
 
 instance Hashable GetEndpointAttributes
 
+instance NFData GetEndpointAttributes
+
 instance ToHeaders GetEndpointAttributes where
         toHeaders = const mempty
 

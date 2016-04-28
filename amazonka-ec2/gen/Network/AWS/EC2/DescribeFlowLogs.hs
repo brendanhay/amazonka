@@ -124,6 +124,8 @@ instance AWSRequest DescribeFlowLogs where
 
 instance Hashable DescribeFlowLogs
 
+instance NFData DescribeFlowLogs
+
 instance ToHeaders DescribeFlowLogs where
         toHeaders = const mempty
 

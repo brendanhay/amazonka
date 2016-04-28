@@ -88,6 +88,8 @@ instance AWSRequest GetCommit where
 
 instance Hashable GetCommit
 
+instance NFData GetCommit
+
 instance ToHeaders GetCommit where
         toHeaders
           = const

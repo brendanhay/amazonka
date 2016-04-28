@@ -85,6 +85,8 @@ instance AWSRequest AcceptCertificateTransfer where
 
 instance Hashable AcceptCertificateTransfer
 
+instance NFData AcceptCertificateTransfer
+
 instance ToHeaders AcceptCertificateTransfer where
         toHeaders = const mempty
 

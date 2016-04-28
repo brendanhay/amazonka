@@ -95,6 +95,8 @@ instance AWSRequest RegisterEcsCluster where
 
 instance Hashable RegisterEcsCluster
 
+instance NFData RegisterEcsCluster
+
 instance ToHeaders RegisterEcsCluster where
         toHeaders
           = const

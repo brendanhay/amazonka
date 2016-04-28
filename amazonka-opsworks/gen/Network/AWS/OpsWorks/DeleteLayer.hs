@@ -77,6 +77,8 @@ instance AWSRequest DeleteLayer where
 
 instance Hashable DeleteLayer
 
+instance NFData DeleteLayer
+
 instance ToHeaders DeleteLayer where
         toHeaders
           = const

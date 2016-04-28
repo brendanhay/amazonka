@@ -98,6 +98,8 @@ instance AWSRequest MoveAddressToVPC where
 
 instance Hashable MoveAddressToVPC
 
+instance NFData MoveAddressToVPC
+
 instance ToHeaders MoveAddressToVPC where
         toHeaders = const mempty
 

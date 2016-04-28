@@ -89,6 +89,8 @@ instance AWSRequest DescribeRule where
 
 instance Hashable DescribeRule
 
+instance NFData DescribeRule
+
 instance ToHeaders DescribeRule where
         toHeaders
           = const

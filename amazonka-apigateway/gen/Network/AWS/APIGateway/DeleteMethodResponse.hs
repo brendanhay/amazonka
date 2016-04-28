@@ -101,6 +101,8 @@ instance AWSRequest DeleteMethodResponse where
 
 instance Hashable DeleteMethodResponse
 
+instance NFData DeleteMethodResponse
+
 instance ToHeaders DeleteMethodResponse where
         toHeaders
           = const

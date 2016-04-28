@@ -137,6 +137,8 @@ instance AWSRequest DescribeDBInstances where
 
 instance Hashable DescribeDBInstances
 
+instance NFData DescribeDBInstances
+
 instance ToHeaders DescribeDBInstances where
         toHeaders = const mempty
 

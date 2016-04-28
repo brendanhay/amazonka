@@ -91,6 +91,8 @@ instance AWSRequest DescribeCache where
 
 instance Hashable DescribeCache
 
+instance NFData DescribeCache
+
 instance ToHeaders DescribeCache where
         toHeaders
           = const

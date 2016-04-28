@@ -103,6 +103,8 @@ instance AWSRequest CreatePrivateVirtualInterface
 
 instance Hashable CreatePrivateVirtualInterface
 
+instance NFData CreatePrivateVirtualInterface
+
 instance ToHeaders CreatePrivateVirtualInterface
          where
         toHeaders

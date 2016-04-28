@@ -79,6 +79,8 @@ instance AWSRequest DescribeCertificate where
 
 instance Hashable DescribeCertificate
 
+instance NFData DescribeCertificate
+
 instance ToHeaders DescribeCertificate where
         toHeaders = const mempty
 

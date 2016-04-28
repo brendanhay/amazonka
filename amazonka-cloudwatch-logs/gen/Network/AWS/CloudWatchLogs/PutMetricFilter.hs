@@ -105,6 +105,8 @@ instance AWSRequest PutMetricFilter where
 
 instance Hashable PutMetricFilter
 
+instance NFData PutMetricFilter
+
 instance ToHeaders PutMetricFilter where
         toHeaders
           = const

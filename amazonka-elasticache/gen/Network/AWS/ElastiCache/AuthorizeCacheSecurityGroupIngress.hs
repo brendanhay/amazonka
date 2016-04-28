@@ -109,6 +109,8 @@ instance AWSRequest
 
 instance Hashable AuthorizeCacheSecurityGroupIngress
 
+instance NFData AuthorizeCacheSecurityGroupIngress
+
 instance ToHeaders AuthorizeCacheSecurityGroupIngress
          where
         toHeaders = const mempty

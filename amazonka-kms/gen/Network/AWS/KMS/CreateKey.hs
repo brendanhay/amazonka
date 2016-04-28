@@ -101,6 +101,8 @@ instance AWSRequest CreateKey where
 
 instance Hashable CreateKey
 
+instance NFData CreateKey
+
 instance ToHeaders CreateKey where
         toHeaders
           = const

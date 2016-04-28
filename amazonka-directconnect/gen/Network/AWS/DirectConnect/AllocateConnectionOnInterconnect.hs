@@ -146,6 +146,8 @@ instance AWSRequest AllocateConnectionOnInterconnect
 
 instance Hashable AllocateConnectionOnInterconnect
 
+instance NFData AllocateConnectionOnInterconnect
+
 instance ToHeaders AllocateConnectionOnInterconnect
          where
         toHeaders

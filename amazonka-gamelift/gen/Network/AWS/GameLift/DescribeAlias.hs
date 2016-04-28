@@ -79,6 +79,8 @@ instance AWSRequest DescribeAlias where
 
 instance Hashable DescribeAlias
 
+instance NFData DescribeAlias
+
 instance ToHeaders DescribeAlias where
         toHeaders
           = const

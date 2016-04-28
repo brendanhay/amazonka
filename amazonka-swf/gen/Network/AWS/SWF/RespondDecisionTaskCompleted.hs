@@ -113,6 +113,8 @@ instance AWSRequest RespondDecisionTaskCompleted
 
 instance Hashable RespondDecisionTaskCompleted
 
+instance NFData RespondDecisionTaskCompleted
+
 instance ToHeaders RespondDecisionTaskCompleted where
         toHeaders
           = const

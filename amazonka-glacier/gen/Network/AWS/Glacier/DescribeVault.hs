@@ -114,6 +114,8 @@ instance AWSRequest DescribeVault where
 
 instance Hashable DescribeVault
 
+instance NFData DescribeVault
+
 instance ToHeaders DescribeVault where
         toHeaders = const mempty
 

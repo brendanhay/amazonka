@@ -132,6 +132,8 @@ instance AWSRequest ListGroupPolicies where
 
 instance Hashable ListGroupPolicies
 
+instance NFData ListGroupPolicies
+
 instance ToHeaders ListGroupPolicies where
         toHeaders = const mempty
 

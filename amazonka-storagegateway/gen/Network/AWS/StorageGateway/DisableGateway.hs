@@ -84,6 +84,8 @@ instance AWSRequest DisableGateway where
 
 instance Hashable DisableGateway
 
+instance NFData DisableGateway
+
 instance ToHeaders DisableGateway where
         toHeaders
           = const

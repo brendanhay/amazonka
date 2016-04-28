@@ -93,6 +93,8 @@ instance AWSRequest RegisterApplicationRevision where
 
 instance Hashable RegisterApplicationRevision
 
+instance NFData RegisterApplicationRevision
+
 instance ToHeaders RegisterApplicationRevision where
         toHeaders
           = const

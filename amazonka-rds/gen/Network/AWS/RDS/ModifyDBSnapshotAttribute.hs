@@ -137,6 +137,8 @@ instance AWSRequest ModifyDBSnapshotAttribute where
 
 instance Hashable ModifyDBSnapshotAttribute
 
+instance NFData ModifyDBSnapshotAttribute
+
 instance ToHeaders ModifyDBSnapshotAttribute where
         toHeaders = const mempty
 

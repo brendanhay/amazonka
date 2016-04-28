@@ -90,6 +90,8 @@ instance AWSRequest DeleteBandwidthRateLimit where
 
 instance Hashable DeleteBandwidthRateLimit
 
+instance NFData DeleteBandwidthRateLimit
+
 instance ToHeaders DeleteBandwidthRateLimit where
         toHeaders
           = const

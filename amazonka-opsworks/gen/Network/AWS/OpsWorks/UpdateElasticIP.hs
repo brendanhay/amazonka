@@ -85,6 +85,8 @@ instance AWSRequest UpdateElasticIP where
 
 instance Hashable UpdateElasticIP
 
+instance NFData UpdateElasticIP
+
 instance ToHeaders UpdateElasticIP where
         toHeaders
           = const

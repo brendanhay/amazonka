@@ -106,6 +106,8 @@ instance AWSRequest DescribeSchemas where
 
 instance Hashable DescribeSchemas
 
+instance NFData DescribeSchemas
+
 instance ToHeaders DescribeSchemas where
         toHeaders
           = const

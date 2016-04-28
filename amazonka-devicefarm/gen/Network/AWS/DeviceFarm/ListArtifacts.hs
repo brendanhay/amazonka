@@ -107,6 +107,8 @@ instance AWSRequest ListArtifacts where
 
 instance Hashable ListArtifacts
 
+instance NFData ListArtifacts
+
 instance ToHeaders ListArtifacts where
         toHeaders
           = const

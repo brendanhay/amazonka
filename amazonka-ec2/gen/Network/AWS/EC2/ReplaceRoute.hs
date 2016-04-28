@@ -143,6 +143,8 @@ instance AWSRequest ReplaceRoute where
 
 instance Hashable ReplaceRoute
 
+instance NFData ReplaceRoute
+
 instance ToHeaders ReplaceRoute where
         toHeaders = const mempty
 

@@ -87,6 +87,8 @@ instance AWSRequest GetInvalidation where
 
 instance Hashable GetInvalidation
 
+instance NFData GetInvalidation
+
 instance ToHeaders GetInvalidation where
         toHeaders = const mempty
 

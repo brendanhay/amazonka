@@ -77,6 +77,8 @@ instance AWSRequest UnassignInstance where
 
 instance Hashable UnassignInstance
 
+instance NFData UnassignInstance
+
 instance ToHeaders UnassignInstance where
         toHeaders
           = const

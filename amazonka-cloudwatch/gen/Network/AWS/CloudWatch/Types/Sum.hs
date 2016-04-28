@@ -43,6 +43,7 @@ instance ToText ComparisonOperator where
         LessThanThreshold -> "LessThanThreshold"
 
 instance Hashable     ComparisonOperator
+instance NFData       ComparisonOperator
 instance ToByteString ComparisonOperator
 instance ToQuery      ComparisonOperator
 instance ToHeader     ComparisonOperator
@@ -71,6 +72,7 @@ instance ToText HistoryItemType where
         StateUpdate -> "StateUpdate"
 
 instance Hashable     HistoryItemType
+instance NFData       HistoryItemType
 instance ToByteString HistoryItemType
 instance ToQuery      HistoryItemType
 instance ToHeader     HistoryItemType
@@ -171,6 +173,7 @@ instance ToText StandardUnit where
         TerabytesSecond -> "Terabytes/Second"
 
 instance Hashable     StandardUnit
+instance NFData       StandardUnit
 instance ToByteString StandardUnit
 instance ToQuery      StandardUnit
 instance ToHeader     StandardUnit
@@ -199,6 +202,7 @@ instance ToText StateValue where
         OK -> "OK"
 
 instance Hashable     StateValue
+instance NFData       StateValue
 instance ToByteString StateValue
 instance ToQuery      StateValue
 instance ToHeader     StateValue
@@ -233,6 +237,7 @@ instance ToText Statistic where
         Sum -> "Sum"
 
 instance Hashable     Statistic
+instance NFData       Statistic
 instance ToByteString Statistic
 instance ToQuery      Statistic
 instance ToHeader     Statistic

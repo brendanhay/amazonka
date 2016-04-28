@@ -76,6 +76,8 @@ instance AWSRequest GetChangeToken where
 
 instance Hashable GetChangeToken
 
+instance NFData GetChangeToken
+
 instance ToHeaders GetChangeToken where
         toHeaders
           = const

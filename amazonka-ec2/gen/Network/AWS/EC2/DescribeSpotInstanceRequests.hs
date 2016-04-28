@@ -232,6 +232,8 @@ instance AWSRequest DescribeSpotInstanceRequests
 
 instance Hashable DescribeSpotInstanceRequests
 
+instance NFData DescribeSpotInstanceRequests
+
 instance ToHeaders DescribeSpotInstanceRequests where
         toHeaders = const mempty
 

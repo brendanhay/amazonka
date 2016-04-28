@@ -76,6 +76,8 @@ instance AWSRequest DescribeResourceGroup where
 
 instance Hashable DescribeResourceGroup
 
+instance NFData DescribeResourceGroup
+
 instance ToHeaders DescribeResourceGroup where
         toHeaders
           = const

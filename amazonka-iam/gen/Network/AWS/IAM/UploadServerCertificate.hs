@@ -151,6 +151,8 @@ instance AWSRequest UploadServerCertificate where
 
 instance Hashable UploadServerCertificate
 
+instance NFData UploadServerCertificate
+
 instance ToHeaders UploadServerCertificate where
         toHeaders = const mempty
 

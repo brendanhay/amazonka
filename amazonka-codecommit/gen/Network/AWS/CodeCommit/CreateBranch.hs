@@ -93,6 +93,8 @@ instance AWSRequest CreateBranch where
 
 instance Hashable CreateBranch
 
+instance NFData CreateBranch
+
 instance ToHeaders CreateBranch where
         toHeaders
           = const

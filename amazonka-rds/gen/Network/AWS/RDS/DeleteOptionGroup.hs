@@ -72,6 +72,8 @@ instance AWSRequest DeleteOptionGroup where
 
 instance Hashable DeleteOptionGroup
 
+instance NFData DeleteOptionGroup
+
 instance ToHeaders DeleteOptionGroup where
         toHeaders = const mempty
 

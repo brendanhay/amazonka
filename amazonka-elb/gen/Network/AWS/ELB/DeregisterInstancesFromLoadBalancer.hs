@@ -98,6 +98,8 @@ instance AWSRequest
 
 instance Hashable DeregisterInstancesFromLoadBalancer
 
+instance NFData DeregisterInstancesFromLoadBalancer
+
 instance ToHeaders
          DeregisterInstancesFromLoadBalancer where
         toHeaders = const mempty

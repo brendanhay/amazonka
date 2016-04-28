@@ -78,6 +78,8 @@ instance AWSRequest DeleteHSM where
 
 instance Hashable DeleteHSM
 
+instance NFData DeleteHSM
+
 instance ToHeaders DeleteHSM where
         toHeaders
           = const

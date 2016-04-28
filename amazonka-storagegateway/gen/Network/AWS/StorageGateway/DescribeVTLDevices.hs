@@ -131,6 +131,8 @@ instance AWSRequest DescribeVTLDevices where
 
 instance Hashable DescribeVTLDevices
 
+instance NFData DescribeVTLDevices
+
 instance ToHeaders DescribeVTLDevices where
         toHeaders
           = const

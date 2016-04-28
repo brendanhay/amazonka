@@ -43,6 +43,7 @@ instance ToText CertificateStatus where
         Revoked -> "REVOKED"
 
 instance Hashable     CertificateStatus
+instance NFData       CertificateStatus
 instance ToByteString CertificateStatus
 instance ToQuery      CertificateStatus
 instance ToHeader     CertificateStatus
@@ -80,6 +81,7 @@ instance ToText LogLevel where
         Warn -> "WARN"
 
 instance Hashable     LogLevel
+instance NFData       LogLevel
 instance ToByteString LogLevel
 instance ToQuery      LogLevel
 instance ToHeader     LogLevel
@@ -108,6 +110,7 @@ instance ToText MessageFormat where
         Raw -> "RAW"
 
 instance Hashable     MessageFormat
+instance NFData       MessageFormat
 instance ToByteString MessageFormat
 instance ToQuery      MessageFormat
 instance ToHeader     MessageFormat

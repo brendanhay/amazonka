@@ -143,6 +143,8 @@ instance FromJSON Action where
 
 instance Hashable Action
 
+instance NFData Action
+
 instance ToJSON Action where
         toJSON Action'{..}
           = object
@@ -184,6 +186,8 @@ apAttributes :: Lens' AttributePayload (HashMap Text Text)
 apAttributes = lens _apAttributes (\ s a -> s{_apAttributes = a}) . _Default . _Map;
 
 instance Hashable AttributePayload
+
+instance NFData AttributePayload
 
 instance ToJSON AttributePayload where
         toJSON AttributePayload'{..}
@@ -247,6 +251,8 @@ instance FromJSON Certificate where
                      <*> (x .:? "creationDate"))
 
 instance Hashable Certificate
+
+instance NFData Certificate
 
 -- | Describes a certificate.
 --
@@ -333,6 +339,8 @@ instance FromJSON CertificateDescription where
 
 instance Hashable CertificateDescription
 
+instance NFData CertificateDescription
+
 -- | Describes an action that updates a CloudWatch alarm.
 --
 -- /See:/ 'cloudwatchAlarmAction' smart constructor.
@@ -395,6 +403,8 @@ instance FromJSON CloudwatchAlarmAction where
                      <*> (x .: "stateValue"))
 
 instance Hashable CloudwatchAlarmAction
+
+instance NFData CloudwatchAlarmAction
 
 instance ToJSON CloudwatchAlarmAction where
         toJSON CloudwatchAlarmAction'{..}
@@ -488,6 +498,8 @@ instance FromJSON CloudwatchMetricAction where
                      <*> (x .: "metricUnit"))
 
 instance Hashable CloudwatchMetricAction
+
+instance NFData CloudwatchMetricAction
 
 instance ToJSON CloudwatchMetricAction where
         toJSON CloudwatchMetricAction'{..}
@@ -608,6 +620,8 @@ instance FromJSON DynamoDBAction where
 
 instance Hashable DynamoDBAction
 
+instance NFData DynamoDBAction
+
 instance ToJSON DynamoDBAction where
         toJSON DynamoDBAction'{..}
           = object
@@ -693,6 +707,8 @@ instance FromJSON ElasticsearchAction where
 
 instance Hashable ElasticsearchAction
 
+instance NFData ElasticsearchAction
+
 instance ToJSON ElasticsearchAction where
         toJSON ElasticsearchAction'{..}
           = object
@@ -745,6 +761,8 @@ instance FromJSON FirehoseAction where
 
 instance Hashable FirehoseAction
 
+instance NFData FirehoseAction
+
 instance ToJSON FirehoseAction where
         toJSON FirehoseAction'{..}
           = object
@@ -792,6 +810,8 @@ instance FromJSON KeyPair where
                    (x .:? "PrivateKey") <*> (x .:? "PublicKey"))
 
 instance Hashable KeyPair
+
+instance NFData KeyPair
 
 -- | Describes an action to write data to an Amazon Kinesis stream.
 --
@@ -844,6 +864,8 @@ instance FromJSON KinesisAction where
 
 instance Hashable KinesisAction
 
+instance NFData KinesisAction
+
 instance ToJSON KinesisAction where
         toJSON KinesisAction'{..}
           = object
@@ -883,6 +905,8 @@ instance FromJSON LambdaAction where
 
 instance Hashable LambdaAction
 
+instance NFData LambdaAction
+
 instance ToJSON LambdaAction where
         toJSON LambdaAction'{..}
           = object
@@ -921,6 +945,8 @@ lopRoleARN :: Lens' LoggingOptionsPayload Text
 lopRoleARN = lens _lopRoleARN (\ s a -> s{_lopRoleARN = a});
 
 instance Hashable LoggingOptionsPayload
+
+instance NFData LoggingOptionsPayload
 
 instance ToJSON LoggingOptionsPayload where
         toJSON LoggingOptionsPayload'{..}
@@ -968,6 +994,8 @@ instance FromJSON Policy where
                    (x .:? "policyName") <*> (x .:? "policyArn"))
 
 instance Hashable Policy
+
+instance NFData Policy
 
 -- | Describes a policy version.
 --
@@ -1018,6 +1046,8 @@ instance FromJSON PolicyVersion where
 
 instance Hashable PolicyVersion
 
+instance NFData PolicyVersion
+
 -- | Describes an action to republish to another topic.
 --
 -- /See:/ 'republishAction' smart constructor.
@@ -1059,6 +1089,8 @@ instance FromJSON RepublishAction where
                    (x .: "roleArn") <*> (x .: "topic"))
 
 instance Hashable RepublishAction
+
+instance NFData RepublishAction
 
 instance ToJSON RepublishAction where
         toJSON RepublishAction'{..}
@@ -1118,6 +1150,8 @@ instance FromJSON S3Action where
                      (x .: "key"))
 
 instance Hashable S3Action
+
+instance NFData S3Action
 
 instance ToJSON S3Action where
         toJSON S3Action'{..}
@@ -1184,6 +1218,8 @@ instance FromJSON SNSAction where
 
 instance Hashable SNSAction
 
+instance NFData SNSAction
+
 instance ToJSON SNSAction where
         toJSON SNSAction'{..}
           = object
@@ -1243,6 +1279,8 @@ instance FromJSON SqsAction where
 
 instance Hashable SqsAction
 
+instance NFData SqsAction
+
 instance ToJSON SqsAction where
         toJSON SqsAction'{..}
           = object
@@ -1291,6 +1329,8 @@ instance FromJSON ThingAttribute where
                      (x .:? "thingName"))
 
 instance Hashable ThingAttribute
+
+instance NFData ThingAttribute
 
 -- | Describes a rule.
 --
@@ -1369,6 +1409,8 @@ instance FromJSON TopicRule where
 
 instance Hashable TopicRule
 
+instance NFData TopicRule
+
 -- | Describes a rule.
 --
 -- /See:/ 'topicRuleListItem' smart constructor.
@@ -1436,6 +1478,8 @@ instance FromJSON TopicRuleListItem where
 
 instance Hashable TopicRuleListItem
 
+instance NFData TopicRuleListItem
+
 -- | Describes a rule.
 --
 -- /See:/ 'topicRulePayload' smart constructor.
@@ -1487,6 +1531,8 @@ trpActions :: Lens' TopicRulePayload [Action]
 trpActions = lens _trpActions (\ s a -> s{_trpActions = a}) . _Coerce;
 
 instance Hashable TopicRulePayload
+
+instance NFData TopicRulePayload
 
 instance ToJSON TopicRulePayload where
         toJSON TopicRulePayload'{..}

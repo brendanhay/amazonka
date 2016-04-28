@@ -119,6 +119,8 @@ instance AWSRequest DescribeImportImageTasks where
 
 instance Hashable DescribeImportImageTasks
 
+instance NFData DescribeImportImageTasks
+
 instance ToHeaders DescribeImportImageTasks where
         toHeaders = const mempty
 

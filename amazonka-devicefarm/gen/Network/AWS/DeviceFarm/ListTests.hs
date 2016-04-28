@@ -90,6 +90,8 @@ instance AWSRequest ListTests where
 
 instance Hashable ListTests
 
+instance NFData ListTests
+
 instance ToHeaders ListTests where
         toHeaders
           = const

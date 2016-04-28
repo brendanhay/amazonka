@@ -175,6 +175,8 @@ instance AWSRequest ListParts where
 
 instance Hashable ListParts
 
+instance NFData ListParts
+
 instance ToHeaders ListParts where
         toHeaders = const mempty
 

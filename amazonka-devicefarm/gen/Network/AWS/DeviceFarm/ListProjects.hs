@@ -89,6 +89,8 @@ instance AWSRequest ListProjects where
 
 instance Hashable ListProjects
 
+instance NFData ListProjects
+
 instance ToHeaders ListProjects where
         toHeaders
           = const

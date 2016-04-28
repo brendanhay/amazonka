@@ -116,6 +116,8 @@ instance AWSRequest ListAssessments where
 
 instance Hashable ListAssessments
 
+instance NFData ListAssessments
+
 instance ToHeaders ListAssessments where
         toHeaders
           = const

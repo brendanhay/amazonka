@@ -145,6 +145,8 @@ instance AWSRequest ListGeoLocations where
 
 instance Hashable ListGeoLocations
 
+instance NFData ListGeoLocations
+
 instance ToHeaders ListGeoLocations where
         toHeaders = const mempty
 

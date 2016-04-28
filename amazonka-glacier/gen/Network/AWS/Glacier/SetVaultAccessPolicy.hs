@@ -100,6 +100,8 @@ instance AWSRequest SetVaultAccessPolicy where
 
 instance Hashable SetVaultAccessPolicy
 
+instance NFData SetVaultAccessPolicy
+
 instance ToHeaders SetVaultAccessPolicy where
         toHeaders = const mempty
 

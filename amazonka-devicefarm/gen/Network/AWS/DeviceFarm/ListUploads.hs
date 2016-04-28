@@ -90,6 +90,8 @@ instance AWSRequest ListUploads where
 
 instance Hashable ListUploads
 
+instance NFData ListUploads
+
 instance ToHeaders ListUploads where
         toHeaders
           = const

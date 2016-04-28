@@ -162,6 +162,8 @@ instance AWSRequest ListRecords where
 
 instance Hashable ListRecords
 
+instance NFData ListRecords
+
 instance ToHeaders ListRecords where
         toHeaders
           = const

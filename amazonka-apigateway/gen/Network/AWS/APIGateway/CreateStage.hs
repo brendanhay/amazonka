@@ -142,6 +142,8 @@ instance AWSRequest CreateStage where
 
 instance Hashable CreateStage
 
+instance NFData CreateStage
+
 instance ToHeaders CreateStage where
         toHeaders
           = const

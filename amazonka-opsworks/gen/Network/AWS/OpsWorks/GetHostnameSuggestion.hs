@@ -85,6 +85,8 @@ instance AWSRequest GetHostnameSuggestion where
 
 instance Hashable GetHostnameSuggestion
 
+instance NFData GetHostnameSuggestion
+
 instance ToHeaders GetHostnameSuggestion where
         toHeaders
           = const

@@ -100,6 +100,8 @@ instance AWSRequest UpdateBuild where
 
 instance Hashable UpdateBuild
 
+instance NFData UpdateBuild
+
 instance ToHeaders UpdateBuild where
         toHeaders
           = const

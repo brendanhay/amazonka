@@ -115,6 +115,8 @@ instance AWSRequest SetQueueAttributes where
 
 instance Hashable SetQueueAttributes
 
+instance NFData SetQueueAttributes
+
 instance ToHeaders SetQueueAttributes where
         toHeaders = const mempty
 

@@ -84,6 +84,8 @@ instance AWSRequest DeleteFileSystem where
 
 instance Hashable DeleteFileSystem
 
+instance NFData DeleteFileSystem
+
 instance ToHeaders DeleteFileSystem where
         toHeaders = const mempty
 

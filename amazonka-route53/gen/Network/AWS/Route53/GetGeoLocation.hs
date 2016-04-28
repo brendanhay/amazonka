@@ -112,6 +112,8 @@ instance AWSRequest GetGeoLocation where
 
 instance Hashable GetGeoLocation
 
+instance NFData GetGeoLocation
+
 instance ToHeaders GetGeoLocation where
         toHeaders = const mempty
 

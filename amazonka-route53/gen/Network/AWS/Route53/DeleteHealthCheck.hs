@@ -87,6 +87,8 @@ instance AWSRequest DeleteHealthCheck where
 
 instance Hashable DeleteHealthCheck
 
+instance NFData DeleteHealthCheck
+
 instance ToHeaders DeleteHealthCheck where
         toHeaders = const mempty
 

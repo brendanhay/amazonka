@@ -95,6 +95,8 @@ instance AWSRequest AttachLoadBalancerToSubnets where
 
 instance Hashable AttachLoadBalancerToSubnets
 
+instance NFData AttachLoadBalancerToSubnets
+
 instance ToHeaders AttachLoadBalancerToSubnets where
         toHeaders = const mempty
 

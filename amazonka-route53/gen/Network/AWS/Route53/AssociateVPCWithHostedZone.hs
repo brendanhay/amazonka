@@ -111,6 +111,8 @@ instance AWSRequest AssociateVPCWithHostedZone where
 
 instance Hashable AssociateVPCWithHostedZone
 
+instance NFData AssociateVPCWithHostedZone
+
 instance ToElement AssociateVPCWithHostedZone where
         toElement
           = mkElement

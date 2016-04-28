@@ -88,6 +88,8 @@ instance AWSRequest DescribePipelines where
 
 instance Hashable DescribePipelines
 
+instance NFData DescribePipelines
+
 instance ToHeaders DescribePipelines where
         toHeaders
           = const

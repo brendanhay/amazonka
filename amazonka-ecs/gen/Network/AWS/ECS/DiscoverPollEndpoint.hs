@@ -95,6 +95,8 @@ instance AWSRequest DiscoverPollEndpoint where
 
 instance Hashable DiscoverPollEndpoint
 
+instance NFData DiscoverPollEndpoint
+
 instance ToHeaders DiscoverPollEndpoint where
         toHeaders
           = const

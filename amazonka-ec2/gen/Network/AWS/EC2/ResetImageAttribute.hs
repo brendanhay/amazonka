@@ -94,6 +94,8 @@ instance AWSRequest ResetImageAttribute where
 
 instance Hashable ResetImageAttribute
 
+instance NFData ResetImageAttribute
+
 instance ToHeaders ResetImageAttribute where
         toHeaders = const mempty
 

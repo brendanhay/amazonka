@@ -92,6 +92,8 @@ instance AWSRequest DeleteRepositoryPolicy where
 
 instance Hashable DeleteRepositoryPolicy
 
+instance NFData DeleteRepositoryPolicy
+
 instance ToHeaders DeleteRepositoryPolicy where
         toHeaders
           = const

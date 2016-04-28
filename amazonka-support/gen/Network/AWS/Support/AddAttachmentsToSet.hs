@@ -100,6 +100,8 @@ instance AWSRequest AddAttachmentsToSet where
 
 instance Hashable AddAttachmentsToSet
 
+instance NFData AddAttachmentsToSet
+
 instance ToHeaders AddAttachmentsToSet where
         toHeaders
           = const

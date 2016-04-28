@@ -83,6 +83,8 @@ instance AWSRequest DescribeFleetPortSettings where
 
 instance Hashable DescribeFleetPortSettings
 
+instance NFData DescribeFleetPortSettings
+
 instance ToHeaders DescribeFleetPortSettings where
         toHeaders
           = const

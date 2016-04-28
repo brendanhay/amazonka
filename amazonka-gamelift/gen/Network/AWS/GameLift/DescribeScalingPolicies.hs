@@ -130,6 +130,8 @@ instance AWSRequest DescribeScalingPolicies where
 
 instance Hashable DescribeScalingPolicies
 
+instance NFData DescribeScalingPolicies
+
 instance ToHeaders DescribeScalingPolicies where
         toHeaders
           = const

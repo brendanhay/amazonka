@@ -136,6 +136,8 @@ instance AWSRequest DescribeVPNGateways where
 
 instance Hashable DescribeVPNGateways
 
+instance NFData DescribeVPNGateways
+
 instance ToHeaders DescribeVPNGateways where
         toHeaders = const mempty
 

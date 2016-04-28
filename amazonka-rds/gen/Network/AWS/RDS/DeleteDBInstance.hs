@@ -142,6 +142,8 @@ instance AWSRequest DeleteDBInstance where
 
 instance Hashable DeleteDBInstance
 
+instance NFData DeleteDBInstance
+
 instance ToHeaders DeleteDBInstance where
         toHeaders = const mempty
 

@@ -116,6 +116,8 @@ instance AWSRequest
 
 instance Hashable ListEndpointsByPlatformApplication
 
+instance NFData ListEndpointsByPlatformApplication
+
 instance ToHeaders ListEndpointsByPlatformApplication
          where
         toHeaders = const mempty

@@ -147,6 +147,8 @@ instance AWSRequest TestInvokeMethod where
 
 instance Hashable TestInvokeMethod
 
+instance NFData TestInvokeMethod
+
 instance ToHeaders TestInvokeMethod where
         toHeaders
           = const

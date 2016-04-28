@@ -84,6 +84,8 @@ instance AWSRequest PutDestinationPolicy where
 
 instance Hashable PutDestinationPolicy
 
+instance NFData PutDestinationPolicy
+
 instance ToHeaders PutDestinationPolicy where
         toHeaders
           = const

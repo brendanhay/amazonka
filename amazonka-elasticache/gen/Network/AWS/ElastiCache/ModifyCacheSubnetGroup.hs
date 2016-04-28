@@ -103,6 +103,8 @@ instance AWSRequest ModifyCacheSubnetGroup where
 
 instance Hashable ModifyCacheSubnetGroup
 
+instance NFData ModifyCacheSubnetGroup
+
 instance ToHeaders ModifyCacheSubnetGroup where
         toHeaders = const mempty
 

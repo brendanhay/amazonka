@@ -108,6 +108,8 @@ instance AWSRequest ComposeEnvironments where
 
 instance Hashable ComposeEnvironments
 
+instance NFData ComposeEnvironments
+
 instance ToHeaders ComposeEnvironments where
         toHeaders = const mempty
 

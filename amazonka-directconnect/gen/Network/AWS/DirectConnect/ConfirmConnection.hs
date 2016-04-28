@@ -81,6 +81,8 @@ instance AWSRequest ConfirmConnection where
 
 instance Hashable ConfirmConnection
 
+instance NFData ConfirmConnection
+
 instance ToHeaders ConfirmConnection where
         toHeaders
           = const

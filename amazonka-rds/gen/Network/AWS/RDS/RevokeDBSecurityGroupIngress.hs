@@ -132,6 +132,8 @@ instance AWSRequest RevokeDBSecurityGroupIngress
 
 instance Hashable RevokeDBSecurityGroupIngress
 
+instance NFData RevokeDBSecurityGroupIngress
+
 instance ToHeaders RevokeDBSecurityGroupIngress where
         toHeaders = const mempty
 

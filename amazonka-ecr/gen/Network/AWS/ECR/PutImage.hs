@@ -100,6 +100,8 @@ instance AWSRequest PutImage where
 
 instance Hashable PutImage
 
+instance NFData PutImage
+
 instance ToHeaders PutImage where
         toHeaders
           = const

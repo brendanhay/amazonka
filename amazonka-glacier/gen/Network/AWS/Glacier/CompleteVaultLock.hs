@@ -113,6 +113,8 @@ instance AWSRequest CompleteVaultLock where
 
 instance Hashable CompleteVaultLock
 
+instance NFData CompleteVaultLock
+
 instance ToHeaders CompleteVaultLock where
         toHeaders = const mempty
 

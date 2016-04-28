@@ -116,6 +116,8 @@ instance AWSRequest UpdateIntegrationResponse where
 
 instance Hashable UpdateIntegrationResponse
 
+instance NFData UpdateIntegrationResponse
+
 instance ToHeaders UpdateIntegrationResponse where
         toHeaders
           = const

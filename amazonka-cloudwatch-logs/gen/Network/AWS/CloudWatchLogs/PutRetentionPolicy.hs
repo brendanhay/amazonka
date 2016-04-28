@@ -81,6 +81,8 @@ instance AWSRequest PutRetentionPolicy where
 
 instance Hashable PutRetentionPolicy
 
+instance NFData PutRetentionPolicy
+
 instance ToHeaders PutRetentionPolicy where
         toHeaders
           = const

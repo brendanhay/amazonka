@@ -112,6 +112,8 @@ instance AWSRequest DescribePlacementGroups where
 
 instance Hashable DescribePlacementGroups
 
+instance NFData DescribePlacementGroups
+
 instance ToHeaders DescribePlacementGroups where
         toHeaders = const mempty
 

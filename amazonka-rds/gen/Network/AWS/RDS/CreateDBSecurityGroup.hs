@@ -109,6 +109,8 @@ instance AWSRequest CreateDBSecurityGroup where
 
 instance Hashable CreateDBSecurityGroup
 
+instance NFData CreateDBSecurityGroup
+
 instance ToHeaders CreateDBSecurityGroup where
         toHeaders = const mempty
 

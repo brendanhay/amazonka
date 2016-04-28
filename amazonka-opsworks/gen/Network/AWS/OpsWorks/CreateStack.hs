@@ -386,6 +386,8 @@ instance AWSRequest CreateStack where
 
 instance Hashable CreateStack
 
+instance NFData CreateStack
+
 instance ToHeaders CreateStack where
         toHeaders
           = const

@@ -152,6 +152,8 @@ instance AWSRequest DescribeCacheClusters where
 
 instance Hashable DescribeCacheClusters
 
+instance NFData DescribeCacheClusters
+
 instance ToHeaders DescribeCacheClusters where
         toHeaders = const mempty
 

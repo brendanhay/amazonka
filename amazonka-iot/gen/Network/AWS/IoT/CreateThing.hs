@@ -90,6 +90,8 @@ instance AWSRequest CreateThing where
 
 instance Hashable CreateThing
 
+instance NFData CreateThing
+
 instance ToHeaders CreateThing where
         toHeaders = const mempty
 

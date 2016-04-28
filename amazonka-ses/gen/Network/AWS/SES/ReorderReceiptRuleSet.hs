@@ -94,6 +94,8 @@ instance AWSRequest ReorderReceiptRuleSet where
 
 instance Hashable ReorderReceiptRuleSet
 
+instance NFData ReorderReceiptRuleSet
+
 instance ToHeaders ReorderReceiptRuleSet where
         toHeaders = const mempty
 

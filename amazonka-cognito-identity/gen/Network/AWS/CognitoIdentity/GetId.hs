@@ -107,6 +107,8 @@ instance AWSRequest GetId where
 
 instance Hashable GetId
 
+instance NFData GetId
+
 instance ToHeaders GetId where
         toHeaders
           = const

@@ -95,6 +95,9 @@ instance AWSRequest
 instance Hashable
          RemoveSourceIdentifierFromSubscription
 
+instance NFData
+         RemoveSourceIdentifierFromSubscription
+
 instance ToHeaders
          RemoveSourceIdentifierFromSubscription where
         toHeaders = const mempty

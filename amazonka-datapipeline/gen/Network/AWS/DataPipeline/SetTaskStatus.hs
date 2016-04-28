@@ -127,6 +127,8 @@ instance AWSRequest SetTaskStatus where
 
 instance Hashable SetTaskStatus
 
+instance NFData SetTaskStatus
+
 instance ToHeaders SetTaskStatus where
         toHeaders
           = const

@@ -120,6 +120,8 @@ instance AWSRequest UpdateDomainNameservers where
 
 instance Hashable UpdateDomainNameservers
 
+instance NFData UpdateDomainNameservers
+
 instance ToHeaders UpdateDomainNameservers where
         toHeaders
           = const

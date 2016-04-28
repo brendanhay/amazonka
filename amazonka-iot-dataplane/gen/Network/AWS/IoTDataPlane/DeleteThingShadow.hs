@@ -81,6 +81,8 @@ instance AWSRequest DeleteThingShadow where
 
 instance Hashable DeleteThingShadow
 
+instance NFData DeleteThingShadow
+
 instance ToHeaders DeleteThingShadow where
         toHeaders = const mempty
 

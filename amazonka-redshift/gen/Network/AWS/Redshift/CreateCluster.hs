@@ -462,6 +462,8 @@ instance AWSRequest CreateCluster where
 
 instance Hashable CreateCluster
 
+instance NFData CreateCluster
+
 instance ToHeaders CreateCluster where
         toHeaders = const mempty
 

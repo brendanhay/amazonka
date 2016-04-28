@@ -85,6 +85,8 @@ instance AWSRequest DescribeReceiptRuleSet where
 
 instance Hashable DescribeReceiptRuleSet
 
+instance NFData DescribeReceiptRuleSet
+
 instance ToHeaders DescribeReceiptRuleSet where
         toHeaders = const mempty
 

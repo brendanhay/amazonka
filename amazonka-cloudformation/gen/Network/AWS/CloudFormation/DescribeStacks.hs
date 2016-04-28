@@ -108,6 +108,8 @@ instance AWSRequest DescribeStacks where
 
 instance Hashable DescribeStacks
 
+instance NFData DescribeStacks
+
 instance ToHeaders DescribeStacks where
         toHeaders = const mempty
 

@@ -94,6 +94,8 @@ instance AWSRequest GetQueueURL where
 
 instance Hashable GetQueueURL
 
+instance NFData GetQueueURL
+
 instance ToHeaders GetQueueURL where
         toHeaders = const mempty
 

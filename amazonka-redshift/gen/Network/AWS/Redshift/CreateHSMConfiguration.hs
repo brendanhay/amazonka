@@ -150,6 +150,8 @@ instance AWSRequest CreateHSMConfiguration where
 
 instance Hashable CreateHSMConfiguration
 
+instance NFData CreateHSMConfiguration
+
 instance ToHeaders CreateHSMConfiguration where
         toHeaders = const mempty
 

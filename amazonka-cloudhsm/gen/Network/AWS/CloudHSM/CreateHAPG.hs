@@ -79,6 +79,8 @@ instance AWSRequest CreateHAPG where
 
 instance Hashable CreateHAPG
 
+instance NFData CreateHAPG
+
 instance ToHeaders CreateHAPG where
         toHeaders
           = const

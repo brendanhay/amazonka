@@ -99,6 +99,8 @@ instance FromJSON Application where
 
 instance Hashable Application
 
+instance NFData Application
+
 instance ToJSON Application where
         toJSON Application'{..}
           = object
@@ -142,6 +144,8 @@ bacScriptBootstrapAction :: Lens' BootstrapActionConfig ScriptBootstrapActionCon
 bacScriptBootstrapAction = lens _bacScriptBootstrapAction (\ s a -> s{_bacScriptBootstrapAction = a});
 
 instance Hashable BootstrapActionConfig
+
+instance NFData BootstrapActionConfig
 
 instance ToJSON BootstrapActionConfig where
         toJSON BootstrapActionConfig'{..}
@@ -349,6 +353,8 @@ instance FromJSON Cluster where
 
 instance Hashable Cluster
 
+instance NFData Cluster
+
 -- | The reason that the cluster changed to its current state.
 --
 -- /See:/ 'clusterStateChangeReason' smart constructor.
@@ -388,6 +394,8 @@ instance FromJSON ClusterStateChangeReason where
                    (x .:? "Code") <*> (x .:? "Message"))
 
 instance Hashable ClusterStateChangeReason
+
+instance NFData ClusterStateChangeReason
 
 -- | The detailed status of the cluster.
 --
@@ -438,6 +446,8 @@ instance FromJSON ClusterStatus where
                      (x .:? "Timeline"))
 
 instance Hashable ClusterStatus
+
+instance NFData ClusterStatus
 
 -- | The summary description of the cluster.
 --
@@ -503,6 +513,8 @@ instance FromJSON ClusterSummary where
 
 instance Hashable ClusterSummary
 
+instance NFData ClusterSummary
+
 -- | Represents the timeline of the cluster\'s lifecycle.
 --
 -- /See:/ 'clusterTimeline' smart constructor.
@@ -553,6 +565,8 @@ instance FromJSON ClusterTimeline where
 
 instance Hashable ClusterTimeline
 
+instance NFData ClusterTimeline
+
 -- | An entity describing an executable that runs on a cluster.
 --
 -- /See:/ 'command' smart constructor.
@@ -601,6 +615,8 @@ instance FromJSON Command where
                      <*> (x .:? "Name"))
 
 instance Hashable Command
+
+instance NFData Command
 
 -- | Amazon EMR releases 4.x or later.
 --
@@ -660,6 +676,8 @@ instance FromJSON Configuration where
 
 instance Hashable Configuration
 
+instance NFData Configuration
+
 instance ToJSON Configuration where
         toJSON Configuration'{..}
           = object
@@ -711,6 +729,8 @@ instance FromJSON EBSBlockDevice where
 
 instance Hashable EBSBlockDevice
 
+instance NFData EBSBlockDevice
+
 -- | Configuration of requested EBS block device associated with the instance
 -- group with count of volumes that will be associated to every instance.
 --
@@ -748,6 +768,8 @@ ebdcVolumeSpecification :: Lens' EBSBlockDeviceConfig VolumeSpecification
 ebdcVolumeSpecification = lens _ebdcVolumeSpecification (\ s a -> s{_ebdcVolumeSpecification = a});
 
 instance Hashable EBSBlockDeviceConfig
+
+instance NFData EBSBlockDeviceConfig
 
 instance ToJSON EBSBlockDeviceConfig where
         toJSON EBSBlockDeviceConfig'{..}
@@ -788,6 +810,8 @@ ecEBSBlockDeviceConfigs :: Lens' EBSConfiguration [EBSBlockDeviceConfig]
 ecEBSBlockDeviceConfigs = lens _ecEBSBlockDeviceConfigs (\ s a -> s{_ecEBSBlockDeviceConfigs = a}) . _Default . _Coerce;
 
 instance Hashable EBSConfiguration
+
+instance NFData EBSConfiguration
 
 instance ToJSON EBSConfiguration where
         toJSON EBSConfiguration'{..}
@@ -836,6 +860,8 @@ instance FromJSON EBSVolume where
                    (x .:? "Device") <*> (x .:? "VolumeId"))
 
 instance Hashable EBSVolume
+
+instance NFData EBSVolume
 
 -- | Provides information about the EC2 instances in a cluster grouped by
 -- category. For example, key name, subnet ID, IAM instance profile, and so
@@ -955,6 +981,8 @@ instance FromJSON EC2InstanceAttributes where
 
 instance Hashable EC2InstanceAttributes
 
+instance NFData EC2InstanceAttributes
+
 -- | A job flow step consisting of a JAR file whose main function will be
 -- executed. The main function submits a job for Hadoop to execute and
 -- waits for the job to finish or fail.
@@ -1009,6 +1037,8 @@ hjscJAR :: Lens' HadoopJARStepConfig Text
 hjscJAR = lens _hjscJAR (\ s a -> s{_hjscJAR = a});
 
 instance Hashable HadoopJARStepConfig
+
+instance NFData HadoopJARStepConfig
 
 instance ToJSON HadoopJARStepConfig where
         toJSON HadoopJARStepConfig'{..}
@@ -1081,6 +1111,8 @@ instance FromJSON HadoopStepConfig where
                      <*> (x .:? "Properties" .!= mempty))
 
 instance Hashable HadoopStepConfig
+
+instance NFData HadoopStepConfig
 
 -- | Represents an EC2 instance provisioned as part of cluster.
 --
@@ -1184,6 +1216,8 @@ instance FromJSON Instance where
                      <*> (x .:? "PublicIpAddress"))
 
 instance Hashable Instance
+
+instance NFData Instance
 
 -- | This entity represents an instance group, which is a group of instances
 -- that have common purpose. For example, CORE instance group is used for
@@ -1325,6 +1359,8 @@ instance FromJSON InstanceGroup where
 
 instance Hashable InstanceGroup
 
+instance NFData InstanceGroup
+
 -- | Configuration defining a new instance group.
 --
 -- /See:/ 'instanceGroupConfig' smart constructor.
@@ -1415,6 +1451,8 @@ igcInstanceCount = lens _igcInstanceCount (\ s a -> s{_igcInstanceCount = a});
 
 instance Hashable InstanceGroupConfig
 
+instance NFData InstanceGroupConfig
+
 instance ToJSON InstanceGroupConfig where
         toJSON InstanceGroupConfig'{..}
           = object
@@ -1472,6 +1510,8 @@ igmcInstanceGroupId = lens _igmcInstanceGroupId (\ s a -> s{_igmcInstanceGroupId
 
 instance Hashable InstanceGroupModifyConfig
 
+instance NFData InstanceGroupModifyConfig
+
 instance ToJSON InstanceGroupModifyConfig where
         toJSON InstanceGroupModifyConfig'{..}
           = object
@@ -1522,6 +1562,8 @@ instance FromJSON InstanceGroupStateChangeReason
 
 instance Hashable InstanceGroupStateChangeReason
 
+instance NFData InstanceGroupStateChangeReason
+
 -- | The details of the instance group status.
 --
 -- /See:/ 'instanceGroupStatus' smart constructor.
@@ -1570,6 +1612,8 @@ instance FromJSON InstanceGroupStatus where
                      (x .:? "Timeline"))
 
 instance Hashable InstanceGroupStatus
+
+instance NFData InstanceGroupStatus
 
 -- | The timeline of the instance group lifecycle.
 --
@@ -1621,6 +1665,8 @@ instance FromJSON InstanceGroupTimeline where
 
 instance Hashable InstanceGroupTimeline
 
+instance NFData InstanceGroupTimeline
+
 -- | The details of the status change reason for the instance.
 --
 -- /See:/ 'instanceStateChangeReason' smart constructor.
@@ -1660,6 +1706,8 @@ instance FromJSON InstanceStateChangeReason where
                    (x .:? "Code") <*> (x .:? "Message"))
 
 instance Hashable InstanceStateChangeReason
+
+instance NFData InstanceStateChangeReason
 
 -- | The instance status details.
 --
@@ -1710,6 +1758,8 @@ instance FromJSON InstanceStatus where
 
 instance Hashable InstanceStatus
 
+instance NFData InstanceStatus
+
 -- | The timeline of the instance lifecycle.
 --
 -- /See:/ 'instanceTimeline' smart constructor.
@@ -1759,6 +1809,8 @@ instance FromJSON InstanceTimeline where
                      <*> (x .:? "EndDateTime"))
 
 instance Hashable InstanceTimeline
+
+instance NFData InstanceTimeline
 
 -- | A description of the Amazon EC2 instance running the job flow. A valid
 -- JobFlowInstancesConfig must contain at least InstanceGroups, which is
@@ -1919,6 +1971,8 @@ jficPlacement = lens _jficPlacement (\ s a -> s{_jficPlacement = a});
 
 instance Hashable JobFlowInstancesConfig
 
+instance NFData JobFlowInstancesConfig
+
 instance ToJSON JobFlowInstancesConfig where
         toJSON JobFlowInstancesConfig'{..}
           = object
@@ -1980,6 +2034,8 @@ kvKey = lens _kvKey (\ s a -> s{_kvKey = a});
 
 instance Hashable KeyValue
 
+instance NFData KeyValue
+
 instance ToJSON KeyValue where
         toJSON KeyValue'{..}
           = object
@@ -2011,6 +2067,8 @@ ptAvailabilityZone :: Lens' PlacementType Text
 ptAvailabilityZone = lens _ptAvailabilityZone (\ s a -> s{_ptAvailabilityZone = a});
 
 instance Hashable PlacementType
+
+instance NFData PlacementType
 
 instance ToJSON PlacementType where
         toJSON PlacementType'{..}
@@ -2052,6 +2110,8 @@ sbacPath :: Lens' ScriptBootstrapActionConfig Text
 sbacPath = lens _sbacPath (\ s a -> s{_sbacPath = a});
 
 instance Hashable ScriptBootstrapActionConfig
+
+instance NFData ScriptBootstrapActionConfig
 
 instance ToJSON ScriptBootstrapActionConfig where
         toJSON ScriptBootstrapActionConfig'{..}
@@ -2128,6 +2188,8 @@ instance FromJSON Step where
 
 instance Hashable Step
 
+instance NFData Step
+
 -- | Specification of a job flow step.
 --
 -- /See:/ 'stepConfig' smart constructor.
@@ -2170,6 +2232,8 @@ scHadoopJARStep :: Lens' StepConfig HadoopJARStepConfig
 scHadoopJARStep = lens _scHadoopJARStep (\ s a -> s{_scHadoopJARStep = a});
 
 instance Hashable StepConfig
+
+instance NFData StepConfig
 
 instance ToJSON StepConfig where
         toJSON StepConfig'{..}
@@ -2220,6 +2284,8 @@ instance FromJSON StepStateChangeReason where
 
 instance Hashable StepStateChangeReason
 
+instance NFData StepStateChangeReason
+
 -- | The execution status details of the cluster step.
 --
 -- /See:/ 'stepStatus' smart constructor.
@@ -2268,6 +2334,8 @@ instance FromJSON StepStatus where
                      (x .:? "Timeline"))
 
 instance Hashable StepStatus
+
+instance NFData StepStatus
 
 -- | The summary of the cluster step.
 --
@@ -2337,6 +2405,8 @@ instance FromJSON StepSummary where
 
 instance Hashable StepSummary
 
+instance NFData StepSummary
+
 -- | The timeline of the cluster step lifecycle.
 --
 -- /See:/ 'stepTimeline' smart constructor.
@@ -2386,6 +2456,8 @@ instance FromJSON StepTimeline where
 
 instance Hashable StepTimeline
 
+instance NFData StepTimeline
+
 -- | The list of supported product configurations which allow user-supplied
 -- arguments. EMR accepts these arguments and forwards them to the
 -- corresponding installation script as bootstrap action arguments.
@@ -2420,6 +2492,8 @@ spcName :: Lens' SupportedProductConfig (Maybe Text)
 spcName = lens _spcName (\ s a -> s{_spcName = a});
 
 instance Hashable SupportedProductConfig
+
+instance NFData SupportedProductConfig
 
 instance ToJSON SupportedProductConfig where
         toJSON SupportedProductConfig'{..}
@@ -2472,6 +2546,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -2533,6 +2609,8 @@ instance FromJSON VolumeSpecification where
                      (x .: "SizeInGB"))
 
 instance Hashable VolumeSpecification
+
+instance NFData VolumeSpecification
 
 instance ToJSON VolumeSpecification where
         toJSON VolumeSpecification'{..}

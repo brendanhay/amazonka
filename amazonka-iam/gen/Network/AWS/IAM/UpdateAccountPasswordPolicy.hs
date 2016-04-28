@@ -181,6 +181,8 @@ instance AWSRequest UpdateAccountPasswordPolicy where
 
 instance Hashable UpdateAccountPasswordPolicy
 
+instance NFData UpdateAccountPasswordPolicy
+
 instance ToHeaders UpdateAccountPasswordPolicy where
         toHeaders = const mempty
 

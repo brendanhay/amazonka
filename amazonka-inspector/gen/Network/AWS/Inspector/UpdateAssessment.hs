@@ -97,6 +97,8 @@ instance AWSRequest UpdateAssessment where
 
 instance Hashable UpdateAssessment
 
+instance NFData UpdateAssessment
+
 instance ToHeaders UpdateAssessment where
         toHeaders
           = const

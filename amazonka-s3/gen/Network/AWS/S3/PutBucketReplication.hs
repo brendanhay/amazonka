@@ -89,6 +89,8 @@ instance AWSRequest PutBucketReplication where
 
 instance Hashable PutBucketReplication
 
+instance NFData PutBucketReplication
+
 instance ToElement PutBucketReplication where
         toElement
           = mkElement

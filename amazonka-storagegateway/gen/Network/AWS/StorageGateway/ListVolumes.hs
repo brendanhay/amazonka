@@ -125,6 +125,8 @@ instance AWSRequest ListVolumes where
 
 instance Hashable ListVolumes
 
+instance NFData ListVolumes
+
 instance ToHeaders ListVolumes where
         toHeaders
           = const

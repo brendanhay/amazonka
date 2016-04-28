@@ -77,6 +77,8 @@ instance AWSRequest DeleteHAPG where
 
 instance Hashable DeleteHAPG
 
+instance NFData DeleteHAPG
+
 instance ToHeaders DeleteHAPG where
         toHeaders
           = const

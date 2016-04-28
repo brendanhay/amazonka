@@ -109,6 +109,8 @@ instance AWSRequest SetAlarmState where
 
 instance Hashable SetAlarmState
 
+instance NFData SetAlarmState
+
 instance ToHeaders SetAlarmState where
         toHeaders = const mempty
 

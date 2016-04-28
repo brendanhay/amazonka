@@ -105,6 +105,8 @@ instance AWSRequest ListDistributionsByWebACLId where
 
 instance Hashable ListDistributionsByWebACLId
 
+instance NFData ListDistributionsByWebACLId
+
 instance ToHeaders ListDistributionsByWebACLId where
         toHeaders = const mempty
 

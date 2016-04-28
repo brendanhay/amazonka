@@ -91,6 +91,8 @@ instance AWSRequest DetachNetworkInterface where
 
 instance Hashable DetachNetworkInterface
 
+instance NFData DetachNetworkInterface
+
 instance ToHeaders DetachNetworkInterface where
         toHeaders = const mempty
 

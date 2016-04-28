@@ -100,6 +100,8 @@ instance AWSRequest DescribeServices where
 
 instance Hashable DescribeServices
 
+instance NFData DescribeServices
+
 instance ToHeaders DescribeServices where
         toHeaders
           = const

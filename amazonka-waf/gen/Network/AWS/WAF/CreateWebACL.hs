@@ -141,6 +141,8 @@ instance AWSRequest CreateWebACL where
 
 instance Hashable CreateWebACL
 
+instance NFData CreateWebACL
+
 instance ToHeaders CreateWebACL where
         toHeaders
           = const

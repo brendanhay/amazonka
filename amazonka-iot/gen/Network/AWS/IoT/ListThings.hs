@@ -107,6 +107,8 @@ instance AWSRequest ListThings where
 
 instance Hashable ListThings
 
+instance NFData ListThings
+
 instance ToHeaders ListThings where
         toHeaders = const mempty
 

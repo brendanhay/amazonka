@@ -94,6 +94,8 @@ instance AWSRequest DescribeApps where
 
 instance Hashable DescribeApps
 
+instance NFData DescribeApps
+
 instance ToHeaders DescribeApps where
         toHeaders
           = const

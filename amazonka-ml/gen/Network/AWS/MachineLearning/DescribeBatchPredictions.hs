@@ -225,6 +225,8 @@ instance AWSRequest DescribeBatchPredictions where
 
 instance Hashable DescribeBatchPredictions
 
+instance NFData DescribeBatchPredictions
+
 instance ToHeaders DescribeBatchPredictions where
         toHeaders
           = const

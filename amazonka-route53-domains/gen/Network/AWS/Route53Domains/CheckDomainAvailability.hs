@@ -100,6 +100,8 @@ instance AWSRequest CheckDomainAvailability where
 
 instance Hashable CheckDomainAvailability
 
+instance NFData CheckDomainAvailability
+
 instance ToHeaders CheckDomainAvailability where
         toHeaders
           = const

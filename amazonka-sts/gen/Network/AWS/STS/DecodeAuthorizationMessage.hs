@@ -105,6 +105,8 @@ instance AWSRequest DecodeAuthorizationMessage where
 
 instance Hashable DecodeAuthorizationMessage
 
+instance NFData DecodeAuthorizationMessage
+
 instance ToHeaders DecodeAuthorizationMessage where
         toHeaders = const mempty
 

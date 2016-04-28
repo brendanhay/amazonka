@@ -77,6 +77,8 @@ instance AWSRequest GetDocument where
 
 instance Hashable GetDocument
 
+instance NFData GetDocument
+
 instance ToHeaders GetDocument where
         toHeaders
           = const

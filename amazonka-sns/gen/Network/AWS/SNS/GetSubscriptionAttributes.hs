@@ -80,6 +80,8 @@ instance AWSRequest GetSubscriptionAttributes where
 
 instance Hashable GetSubscriptionAttributes
 
+instance NFData GetSubscriptionAttributes
+
 instance ToHeaders GetSubscriptionAttributes where
         toHeaders = const mempty
 

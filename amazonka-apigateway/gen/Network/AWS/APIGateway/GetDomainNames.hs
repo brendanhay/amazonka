@@ -99,6 +99,8 @@ instance AWSRequest GetDomainNames where
 
 instance Hashable GetDomainNames
 
+instance NFData GetDomainNames
+
 instance ToHeaders GetDomainNames where
         toHeaders
           = const

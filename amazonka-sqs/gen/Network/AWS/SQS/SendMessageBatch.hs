@@ -117,6 +117,8 @@ instance AWSRequest SendMessageBatch where
 
 instance Hashable SendMessageBatch
 
+instance NFData SendMessageBatch
+
 instance ToHeaders SendMessageBatch where
         toHeaders = const mempty
 

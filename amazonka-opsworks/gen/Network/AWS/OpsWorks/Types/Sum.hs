@@ -43,6 +43,7 @@ instance ToText AppAttributesKeys where
         RailsEnv -> "RailsEnv"
 
 instance Hashable     AppAttributesKeys
+instance NFData       AppAttributesKeys
 instance ToByteString AppAttributesKeys
 instance ToQuery      AppAttributesKeys
 instance ToHeader     AppAttributesKeys
@@ -86,6 +87,7 @@ instance ToText AppType where
         ATStatic -> "static"
 
 instance Hashable     AppType
+instance NFData       AppType
 instance ToByteString AppType
 instance ToQuery      AppType
 instance ToHeader     AppType
@@ -114,6 +116,7 @@ instance ToText Architecture where
         X86_64 -> "x86_64"
 
 instance Hashable     Architecture
+instance NFData       Architecture
 instance ToByteString Architecture
 instance ToQuery      Architecture
 instance ToHeader     Architecture
@@ -142,6 +145,7 @@ instance ToText AutoScalingType where
         Timer -> "timer"
 
 instance Hashable     AutoScalingType
+instance NFData       AutoScalingType
 instance ToByteString AutoScalingType
 instance ToQuery      AutoScalingType
 instance ToHeader     AutoScalingType
@@ -200,6 +204,7 @@ instance ToText DeploymentCommandName where
         UpdateDependencies -> "update_dependencies"
 
 instance Hashable     DeploymentCommandName
+instance NFData       DeploymentCommandName
 instance ToByteString DeploymentCommandName
 instance ToQuery      DeploymentCommandName
 instance ToHeader     DeploymentCommandName
@@ -297,6 +302,7 @@ instance ToText LayerAttributesKeys where
         RubygemsVersion -> "RubygemsVersion"
 
 instance Hashable     LayerAttributesKeys
+instance NFData       LayerAttributesKeys
 instance ToByteString LayerAttributesKeys
 instance ToQuery      LayerAttributesKeys
 instance ToHeader     LayerAttributesKeys
@@ -355,6 +361,7 @@ instance ToText LayerType where
         Web -> "web"
 
 instance Hashable     LayerType
+instance NFData       LayerType
 instance ToByteString LayerType
 instance ToQuery      LayerType
 instance ToHeader     LayerType
@@ -383,6 +390,7 @@ instance ToText RootDeviceType where
         InstanceStore -> "instance-store"
 
 instance Hashable     RootDeviceType
+instance NFData       RootDeviceType
 instance ToByteString RootDeviceType
 instance ToQuery      RootDeviceType
 instance ToHeader     RootDeviceType
@@ -417,6 +425,7 @@ instance ToText SourceType where
         SVN -> "svn"
 
 instance Hashable     SourceType
+instance NFData       SourceType
 instance ToByteString SourceType
 instance ToQuery      SourceType
 instance ToHeader     SourceType
@@ -442,6 +451,7 @@ instance ToText StackAttributesKeys where
         Color -> "Color"
 
 instance Hashable     StackAttributesKeys
+instance NFData       StackAttributesKeys
 instance ToByteString StackAttributesKeys
 instance ToQuery      StackAttributesKeys
 instance ToHeader     StackAttributesKeys
@@ -470,6 +480,7 @@ instance ToText VirtualizationType where
         Paravirtual -> "paravirtual"
 
 instance Hashable     VirtualizationType
+instance NFData       VirtualizationType
 instance ToByteString VirtualizationType
 instance ToQuery      VirtualizationType
 instance ToHeader     VirtualizationType
@@ -498,6 +509,7 @@ instance ToText VolumeType where
         Standard -> "standard"
 
 instance Hashable     VolumeType
+instance NFData       VolumeType
 instance ToByteString VolumeType
 instance ToQuery      VolumeType
 instance ToHeader     VolumeType

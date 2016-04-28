@@ -90,6 +90,8 @@ instance AWSRequest ListJobs where
 
 instance Hashable ListJobs
 
+instance NFData ListJobs
+
 instance ToHeaders ListJobs where
         toHeaders
           = const

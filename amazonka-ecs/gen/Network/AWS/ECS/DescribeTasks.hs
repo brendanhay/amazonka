@@ -89,6 +89,8 @@ instance AWSRequest DescribeTasks where
 
 instance Hashable DescribeTasks
 
+instance NFData DescribeTasks
+
 instance ToHeaders DescribeTasks where
         toHeaders
           = const

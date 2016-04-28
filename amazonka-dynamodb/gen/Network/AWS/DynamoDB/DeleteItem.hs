@@ -508,6 +508,8 @@ instance AWSRequest DeleteItem where
 
 instance Hashable DeleteItem
 
+instance NFData DeleteItem
+
 instance ToHeaders DeleteItem where
         toHeaders
           = const

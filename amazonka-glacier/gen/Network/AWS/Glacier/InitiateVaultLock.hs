@@ -135,6 +135,8 @@ instance AWSRequest InitiateVaultLock where
 
 instance Hashable InitiateVaultLock
 
+instance NFData InitiateVaultLock
+
 instance ToHeaders InitiateVaultLock where
         toHeaders = const mempty
 

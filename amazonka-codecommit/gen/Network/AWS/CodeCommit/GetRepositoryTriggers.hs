@@ -80,6 +80,8 @@ instance AWSRequest GetRepositoryTriggers where
 
 instance Hashable GetRepositoryTriggers
 
+instance NFData GetRepositoryTriggers
+
 instance ToHeaders GetRepositoryTriggers where
         toHeaders
           = const

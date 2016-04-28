@@ -423,6 +423,8 @@ instance AWSRequest CloneStack where
 
 instance Hashable CloneStack
 
+instance NFData CloneStack
+
 instance ToHeaders CloneStack where
         toHeaders
           = const

@@ -98,6 +98,8 @@ instance AWSRequest FailoverDBCluster where
 
 instance Hashable FailoverDBCluster
 
+instance NFData FailoverDBCluster
+
 instance ToHeaders FailoverDBCluster where
         toHeaders = const mempty
 

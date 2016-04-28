@@ -110,6 +110,8 @@ instance AWSRequest DescribeReplicationTasks where
 
 instance Hashable DescribeReplicationTasks
 
+instance NFData DescribeReplicationTasks
+
 instance ToHeaders DescribeReplicationTasks where
         toHeaders
           = const

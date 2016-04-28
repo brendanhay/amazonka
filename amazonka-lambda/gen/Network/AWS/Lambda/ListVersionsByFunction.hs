@@ -110,6 +110,8 @@ instance AWSRequest ListVersionsByFunction where
 
 instance Hashable ListVersionsByFunction
 
+instance NFData ListVersionsByFunction
+
 instance ToHeaders ListVersionsByFunction where
         toHeaders = const mempty
 

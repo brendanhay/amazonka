@@ -107,6 +107,8 @@ instance AWSRequest SubmitTaskStateChange where
 
 instance Hashable SubmitTaskStateChange
 
+instance NFData SubmitTaskStateChange
+
 instance ToHeaders SubmitTaskStateChange where
         toHeaders
           = const

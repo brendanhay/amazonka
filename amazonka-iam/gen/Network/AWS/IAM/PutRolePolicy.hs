@@ -114,6 +114,8 @@ instance AWSRequest PutRolePolicy where
 
 instance Hashable PutRolePolicy
 
+instance NFData PutRolePolicy
+
 instance ToHeaders PutRolePolicy where
         toHeaders = const mempty
 

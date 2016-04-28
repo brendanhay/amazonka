@@ -109,6 +109,8 @@ instance AWSRequest GetPolicy where
 
 instance Hashable GetPolicy
 
+instance NFData GetPolicy
+
 instance ToHeaders GetPolicy where
         toHeaders = const mempty
 

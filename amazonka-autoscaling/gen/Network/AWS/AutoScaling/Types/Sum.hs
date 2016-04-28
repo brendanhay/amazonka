@@ -70,6 +70,7 @@ instance ToText LifecycleState where
         TerminatingWait -> "Terminating:Wait"
 
 instance Hashable     LifecycleState
+instance NFData       LifecycleState
 instance ToByteString LifecycleState
 instance ToQuery      LifecycleState
 instance ToHeader     LifecycleState
@@ -125,6 +126,7 @@ instance ToText ScalingActivityStatusCode where
         WaitingForSpotInstanceRequestId -> "WaitingForSpotInstanceRequestId"
 
 instance Hashable     ScalingActivityStatusCode
+instance NFData       ScalingActivityStatusCode
 instance ToByteString ScalingActivityStatusCode
 instance ToQuery      ScalingActivityStatusCode
 instance ToHeader     ScalingActivityStatusCode

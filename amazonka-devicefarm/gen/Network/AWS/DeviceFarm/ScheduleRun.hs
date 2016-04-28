@@ -124,6 +124,8 @@ instance AWSRequest ScheduleRun where
 
 instance Hashable ScheduleRun
 
+instance NFData ScheduleRun
+
 instance ToHeaders ScheduleRun where
         toHeaders
           = const

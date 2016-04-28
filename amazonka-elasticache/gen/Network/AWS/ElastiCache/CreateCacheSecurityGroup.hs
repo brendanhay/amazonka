@@ -102,6 +102,8 @@ instance AWSRequest CreateCacheSecurityGroup where
 
 instance Hashable CreateCacheSecurityGroup
 
+instance NFData CreateCacheSecurityGroup
+
 instance ToHeaders CreateCacheSecurityGroup where
         toHeaders = const mempty
 

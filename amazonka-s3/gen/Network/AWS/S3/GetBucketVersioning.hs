@@ -78,6 +78,8 @@ instance AWSRequest GetBucketVersioning where
 
 instance Hashable GetBucketVersioning
 
+instance NFData GetBucketVersioning
+
 instance ToHeaders GetBucketVersioning where
         toHeaders = const mempty
 

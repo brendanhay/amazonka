@@ -84,6 +84,8 @@ instance AWSRequest GetBucketWebsite where
 
 instance Hashable GetBucketWebsite
 
+instance NFData GetBucketWebsite
+
 instance ToHeaders GetBucketWebsite where
         toHeaders = const mempty
 

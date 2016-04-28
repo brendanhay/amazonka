@@ -104,6 +104,8 @@ instance AWSRequest UploadSigningCertificate where
 
 instance Hashable UploadSigningCertificate
 
+instance NFData UploadSigningCertificate
+
 instance ToHeaders UploadSigningCertificate where
         toHeaders = const mempty
 

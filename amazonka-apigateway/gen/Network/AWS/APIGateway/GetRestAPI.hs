@@ -75,6 +75,8 @@ instance AWSRequest GetRestAPI where
 
 instance Hashable GetRestAPI
 
+instance NFData GetRestAPI
+
 instance ToHeaders GetRestAPI where
         toHeaders
           = const

@@ -90,6 +90,8 @@ instance AWSRequest AttachLoadBalancers where
 
 instance Hashable AttachLoadBalancers
 
+instance NFData AttachLoadBalancers
+
 instance ToHeaders AttachLoadBalancers where
         toHeaders = const mempty
 

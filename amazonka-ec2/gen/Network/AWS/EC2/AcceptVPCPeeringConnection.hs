@@ -92,6 +92,8 @@ instance AWSRequest AcceptVPCPeeringConnection where
 
 instance Hashable AcceptVPCPeeringConnection
 
+instance NFData AcceptVPCPeeringConnection
+
 instance ToHeaders AcceptVPCPeeringConnection where
         toHeaders = const mempty
 

@@ -89,6 +89,8 @@ instance AWSRequest UpdateDataSource where
 
 instance Hashable UpdateDataSource
 
+instance NFData UpdateDataSource
+
 instance ToHeaders UpdateDataSource where
         toHeaders
           = const

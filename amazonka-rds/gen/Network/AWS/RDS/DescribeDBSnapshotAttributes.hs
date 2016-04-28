@@ -90,6 +90,8 @@ instance AWSRequest DescribeDBSnapshotAttributes
 
 instance Hashable DescribeDBSnapshotAttributes
 
+instance NFData DescribeDBSnapshotAttributes
+
 instance ToHeaders DescribeDBSnapshotAttributes where
         toHeaders = const mempty
 

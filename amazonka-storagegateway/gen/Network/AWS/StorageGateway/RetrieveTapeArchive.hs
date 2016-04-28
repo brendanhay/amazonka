@@ -101,6 +101,8 @@ instance AWSRequest RetrieveTapeArchive where
 
 instance Hashable RetrieveTapeArchive
 
+instance NFData RetrieveTapeArchive
+
 instance ToHeaders RetrieveTapeArchive where
         toHeaders
           = const

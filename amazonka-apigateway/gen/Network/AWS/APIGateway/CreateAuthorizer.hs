@@ -145,6 +145,8 @@ instance AWSRequest CreateAuthorizer where
 
 instance Hashable CreateAuthorizer
 
+instance NFData CreateAuthorizer
+
 instance ToHeaders CreateAuthorizer where
         toHeaders
           = const

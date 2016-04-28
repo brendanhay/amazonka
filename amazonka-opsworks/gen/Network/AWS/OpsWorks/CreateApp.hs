@@ -204,6 +204,8 @@ instance AWSRequest CreateApp where
 
 instance Hashable CreateApp
 
+instance NFData CreateApp
+
 instance ToHeaders CreateApp where
         toHeaders
           = const

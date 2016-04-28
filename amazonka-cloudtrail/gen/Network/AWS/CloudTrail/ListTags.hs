@@ -92,6 +92,8 @@ instance AWSRequest ListTags where
 
 instance Hashable ListTags
 
+instance NFData ListTags
+
 instance ToHeaders ListTags where
         toHeaders
           = const

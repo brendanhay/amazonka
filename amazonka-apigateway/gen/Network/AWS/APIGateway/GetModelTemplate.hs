@@ -89,6 +89,8 @@ instance AWSRequest GetModelTemplate where
 
 instance Hashable GetModelTemplate
 
+instance NFData GetModelTemplate
+
 instance ToHeaders GetModelTemplate where
         toHeaders
           = const

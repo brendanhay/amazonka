@@ -79,6 +79,8 @@ instance AWSRequest PurgeQueue where
 
 instance Hashable PurgeQueue
 
+instance NFData PurgeQueue
+
 instance ToHeaders PurgeQueue where
         toHeaders = const mempty
 

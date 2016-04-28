@@ -185,6 +185,8 @@ instance AWSRequest ModifyReplicationInstance where
 
 instance Hashable ModifyReplicationInstance
 
+instance NFData ModifyReplicationInstance
+
 instance ToHeaders ModifyReplicationInstance where
         toHeaders
           = const

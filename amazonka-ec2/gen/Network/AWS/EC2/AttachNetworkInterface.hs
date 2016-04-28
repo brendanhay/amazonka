@@ -108,6 +108,8 @@ instance AWSRequest AttachNetworkInterface where
 
 instance Hashable AttachNetworkInterface
 
+instance NFData AttachNetworkInterface
+
 instance ToHeaders AttachNetworkInterface where
         toHeaders = const mempty
 

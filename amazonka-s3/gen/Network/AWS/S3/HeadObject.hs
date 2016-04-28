@@ -242,6 +242,8 @@ instance AWSRequest HeadObject where
 
 instance Hashable HeadObject
 
+instance NFData HeadObject
+
 instance ToHeaders HeadObject where
         toHeaders HeadObject'{..}
           = mconcat

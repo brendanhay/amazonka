@@ -96,6 +96,8 @@ instance AWSRequest StartReplicationTask where
 
 instance Hashable StartReplicationTask
 
+instance NFData StartReplicationTask
+
 instance ToHeaders StartReplicationTask where
         toHeaders
           = const

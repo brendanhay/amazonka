@@ -100,6 +100,8 @@ instance AWSRequest GetEvaluation where
 
 instance Hashable GetEvaluation
 
+instance NFData GetEvaluation
+
 instance ToHeaders GetEvaluation where
         toHeaders
           = const

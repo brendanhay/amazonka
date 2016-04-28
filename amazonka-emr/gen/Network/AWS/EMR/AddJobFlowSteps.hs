@@ -111,6 +111,8 @@ instance AWSRequest AddJobFlowSteps where
 
 instance Hashable AddJobFlowSteps
 
+instance NFData AddJobFlowSteps
+
 instance ToHeaders AddJobFlowSteps where
         toHeaders
           = const

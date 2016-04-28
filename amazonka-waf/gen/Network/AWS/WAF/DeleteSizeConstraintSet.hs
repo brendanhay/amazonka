@@ -102,6 +102,8 @@ instance AWSRequest DeleteSizeConstraintSet where
 
 instance Hashable DeleteSizeConstraintSet
 
+instance NFData DeleteSizeConstraintSet
+
 instance ToHeaders DeleteSizeConstraintSet where
         toHeaders
           = const

@@ -82,6 +82,8 @@ instance AWSRequest BuildSuggesters where
 
 instance Hashable BuildSuggesters
 
+instance NFData BuildSuggesters
+
 instance ToHeaders BuildSuggesters where
         toHeaders = const mempty
 

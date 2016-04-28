@@ -68,6 +68,8 @@ instance FromXML AssumedRoleUser where
 
 instance Hashable AssumedRoleUser
 
+instance NFData AssumedRoleUser
+
 -- | AWS credentials for API authentication.
 --
 -- /See:/ 'credentials' smart constructor.
@@ -129,6 +131,8 @@ instance FromXML Credentials where
 
 instance Hashable Credentials
 
+instance NFData Credentials
+
 -- | Identifiers for the federated user that is associated with the
 -- credentials.
 --
@@ -174,3 +178,5 @@ instance FromXML FederatedUser where
               (x .@ "FederatedUserId") <*> (x .@ "Arn")
 
 instance Hashable FederatedUser
+
+instance NFData FederatedUser

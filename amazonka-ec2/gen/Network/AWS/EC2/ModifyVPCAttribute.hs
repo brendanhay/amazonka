@@ -101,6 +101,8 @@ instance AWSRequest ModifyVPCAttribute where
 
 instance Hashable ModifyVPCAttribute
 
+instance NFData ModifyVPCAttribute
+
 instance ToHeaders ModifyVPCAttribute where
         toHeaders = const mempty
 

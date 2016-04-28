@@ -91,6 +91,8 @@ instance AWSRequest ListTopics where
 
 instance Hashable ListTopics
 
+instance NFData ListTopics
+
 instance ToHeaders ListTopics where
         toHeaders = const mempty
 

@@ -88,6 +88,8 @@ instance AWSRequest DetachLoadBalancers where
 
 instance Hashable DetachLoadBalancers
 
+instance NFData DetachLoadBalancers
+
 instance ToHeaders DetachLoadBalancers where
         toHeaders = const mempty
 

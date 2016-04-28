@@ -97,6 +97,8 @@ instance AWSRequest PutKeyPolicy where
 
 instance Hashable PutKeyPolicy
 
+instance NFData PutKeyPolicy
+
 instance ToHeaders PutKeyPolicy where
         toHeaders
           = const

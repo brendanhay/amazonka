@@ -80,6 +80,8 @@ instance AWSRequest FlushStageCache where
 
 instance Hashable FlushStageCache
 
+instance NFData FlushStageCache
+
 instance ToHeaders FlushStageCache where
         toHeaders
           = const

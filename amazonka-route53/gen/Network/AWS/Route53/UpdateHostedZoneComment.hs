@@ -94,6 +94,8 @@ instance AWSRequest UpdateHostedZoneComment where
 
 instance Hashable UpdateHostedZoneComment
 
+instance NFData UpdateHostedZoneComment
+
 instance ToElement UpdateHostedZoneComment where
         toElement
           = mkElement

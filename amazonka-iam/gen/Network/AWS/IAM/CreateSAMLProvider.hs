@@ -118,6 +118,8 @@ instance AWSRequest CreateSAMLProvider where
 
 instance Hashable CreateSAMLProvider
 
+instance NFData CreateSAMLProvider
+
 instance ToHeaders CreateSAMLProvider where
         toHeaders = const mempty
 

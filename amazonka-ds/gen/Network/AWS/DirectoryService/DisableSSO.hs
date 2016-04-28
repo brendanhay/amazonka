@@ -103,6 +103,8 @@ instance AWSRequest DisableSSO where
 
 instance Hashable DisableSSO
 
+instance NFData DisableSSO
+
 instance ToHeaders DisableSSO where
         toHeaders
           = const

@@ -140,6 +140,8 @@ instance AWSRequest CreateCachediSCSIVolume where
 
 instance Hashable CreateCachediSCSIVolume
 
+instance NFData CreateCachediSCSIVolume
+
 instance ToHeaders CreateCachediSCSIVolume where
         toHeaders
           = const

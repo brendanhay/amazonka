@@ -88,6 +88,8 @@ instance AWSRequest DeleteLoadBalancerPolicy where
 
 instance Hashable DeleteLoadBalancerPolicy
 
+instance NFData DeleteLoadBalancerPolicy
+
 instance ToHeaders DeleteLoadBalancerPolicy where
         toHeaders = const mempty
 

@@ -142,6 +142,8 @@ instance AWSRequest PutRule where
 
 instance Hashable PutRule
 
+instance NFData PutRule
+
 instance ToHeaders PutRule where
         toHeaders
           = const

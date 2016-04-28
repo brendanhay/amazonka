@@ -160,6 +160,8 @@ instance AWSRequest ListObjects where
 
 instance Hashable ListObjects
 
+instance NFData ListObjects
+
 instance ToHeaders ListObjects where
         toHeaders = const mempty
 

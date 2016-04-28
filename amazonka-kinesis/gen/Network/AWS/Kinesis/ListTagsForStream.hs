@@ -102,6 +102,8 @@ instance AWSRequest ListTagsForStream where
 
 instance Hashable ListTagsForStream
 
+instance NFData ListTagsForStream
+
 instance ToHeaders ListTagsForStream where
         toHeaders
           = const

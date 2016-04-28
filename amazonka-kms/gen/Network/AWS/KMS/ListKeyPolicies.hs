@@ -127,6 +127,8 @@ instance AWSRequest ListKeyPolicies where
 
 instance Hashable ListKeyPolicies
 
+instance NFData ListKeyPolicies
+
 instance ToHeaders ListKeyPolicies where
         toHeaders
           = const

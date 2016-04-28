@@ -83,6 +83,8 @@ instance FromJSON AliasConfiguration where
 
 instance Hashable AliasConfiguration
 
+instance NFData AliasConfiguration
+
 -- | Describes mapping between an Amazon Kinesis stream and a Lambda
 -- function.
 --
@@ -186,6 +188,8 @@ instance FromJSON EventSourceMappingConfiguration
 
 instance Hashable EventSourceMappingConfiguration
 
+instance NFData EventSourceMappingConfiguration
+
 -- | The code for the Lambda function.
 --
 -- /See:/ 'functionCode' smart constructor.
@@ -250,6 +254,8 @@ fcS3Bucket = lens _fcS3Bucket (\ s a -> s{_fcS3Bucket = a});
 
 instance Hashable FunctionCode
 
+instance NFData FunctionCode
+
 instance ToJSON FunctionCode where
         toJSON FunctionCode'{..}
           = object
@@ -299,6 +305,8 @@ instance FromJSON FunctionCodeLocation where
                    (x .:? "Location") <*> (x .:? "RepositoryType"))
 
 instance Hashable FunctionCodeLocation
+
+instance NFData FunctionCodeLocation
 
 -- | A complex type that describes function metadata.
 --
@@ -445,6 +453,8 @@ instance FromJSON FunctionConfiguration where
 
 instance Hashable FunctionConfiguration
 
+instance NFData FunctionConfiguration
+
 -- | If your Lambda function accesses resources in a VPC, you provide this
 -- parameter identifying the list of security group IDs and subnet IDs.
 -- These must belong to the same VPC. You must provide at least one
@@ -480,6 +490,8 @@ vpccSubnetIds :: Lens' VPCConfig [Text]
 vpccSubnetIds = lens _vpccSubnetIds (\ s a -> s{_vpccSubnetIds = a}) . _Default . _Coerce;
 
 instance Hashable VPCConfig
+
+instance NFData VPCConfig
 
 instance ToJSON VPCConfig where
         toJSON VPCConfig'{..}
@@ -537,3 +549,5 @@ instance FromJSON VPCConfigResponse where
                      <*> (x .:? "VpcId"))
 
 instance Hashable VPCConfigResponse
+
+instance NFData VPCConfigResponse

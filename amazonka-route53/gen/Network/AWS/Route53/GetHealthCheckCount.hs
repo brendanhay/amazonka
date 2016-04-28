@@ -67,6 +67,8 @@ instance AWSRequest GetHealthCheckCount where
 
 instance Hashable GetHealthCheckCount
 
+instance NFData GetHealthCheckCount
+
 instance ToHeaders GetHealthCheckCount where
         toHeaders = const mempty
 

@@ -205,6 +205,8 @@ instance AWSRequest CreateService where
 
 instance Hashable CreateService
 
+instance NFData CreateService
+
 instance ToHeaders CreateService where
         toHeaders
           = const

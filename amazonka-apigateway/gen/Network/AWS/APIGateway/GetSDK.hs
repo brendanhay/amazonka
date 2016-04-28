@@ -108,6 +108,8 @@ instance AWSRequest GetSDK where
 
 instance Hashable GetSDK
 
+instance NFData GetSDK
+
 instance ToHeaders GetSDK where
         toHeaders
           = const

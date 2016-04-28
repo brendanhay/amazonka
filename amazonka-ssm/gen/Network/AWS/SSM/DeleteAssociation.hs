@@ -89,6 +89,8 @@ instance AWSRequest DeleteAssociation where
 
 instance Hashable DeleteAssociation
 
+instance NFData DeleteAssociation
+
 instance ToHeaders DeleteAssociation where
         toHeaders
           = const

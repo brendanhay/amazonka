@@ -89,6 +89,8 @@ instance AWSRequest RetrieveDomainAuthCode where
 
 instance Hashable RetrieveDomainAuthCode
 
+instance NFData RetrieveDomainAuthCode
+
 instance ToHeaders RetrieveDomainAuthCode where
         toHeaders
           = const

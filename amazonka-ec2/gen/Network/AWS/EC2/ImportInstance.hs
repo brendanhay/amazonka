@@ -124,6 +124,8 @@ instance AWSRequest ImportInstance where
 
 instance Hashable ImportInstance
 
+instance NFData ImportInstance
+
 instance ToHeaders ImportInstance where
         toHeaders = const mempty
 

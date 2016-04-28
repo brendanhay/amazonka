@@ -77,6 +77,8 @@ instance AWSRequest StopDataCollection where
 
 instance Hashable StopDataCollection
 
+instance NFData StopDataCollection
+
 instance ToHeaders StopDataCollection where
         toHeaders
           = const

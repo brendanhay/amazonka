@@ -78,6 +78,8 @@ instance AWSRequest BatchGetDeployments where
 
 instance Hashable BatchGetDeployments
 
+instance NFData BatchGetDeployments
+
 instance ToHeaders BatchGetDeployments where
         toHeaders
           = const

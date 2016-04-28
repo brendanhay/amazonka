@@ -94,6 +94,8 @@ instance AWSRequest ListWebACLs where
 
 instance Hashable ListWebACLs
 
+instance NFData ListWebACLs
+
 instance ToHeaders ListWebACLs where
         toHeaders
           = const

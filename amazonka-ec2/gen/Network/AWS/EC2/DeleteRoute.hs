@@ -91,6 +91,8 @@ instance AWSRequest DeleteRoute where
 
 instance Hashable DeleteRoute
 
+instance NFData DeleteRoute
+
 instance ToHeaders DeleteRoute where
         toHeaders = const mempty
 

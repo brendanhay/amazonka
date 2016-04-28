@@ -154,6 +154,8 @@ instance AWSRequest DownloadDBLogFilePortion where
 
 instance Hashable DownloadDBLogFilePortion
 
+instance NFData DownloadDBLogFilePortion
+
 instance ToHeaders DownloadDBLogFilePortion where
         toHeaders = const mempty
 

@@ -76,6 +76,8 @@ instance FromJSON AWSSessionCredentials where
 
 instance Hashable AWSSessionCredentials
 
+instance NFData AWSSessionCredentials
+
 -- | Represents information about an action configuration.
 --
 -- /See:/ 'actionConfiguration' smart constructor.
@@ -107,6 +109,8 @@ instance FromJSON ActionConfiguration where
                    (x .:? "configuration" .!= mempty))
 
 instance Hashable ActionConfiguration
+
+instance NFData ActionConfiguration
 
 -- | Represents information about an action configuration property.
 --
@@ -212,6 +216,8 @@ instance FromJSON ActionConfigurationProperty where
 
 instance Hashable ActionConfigurationProperty
 
+instance NFData ActionConfigurationProperty
+
 instance ToJSON ActionConfigurationProperty where
         toJSON ActionConfigurationProperty'{..}
           = object
@@ -254,6 +260,8 @@ instance FromJSON ActionContext where
               (\ x -> ActionContext' <$> (x .:? "name"))
 
 instance Hashable ActionContext
+
+instance NFData ActionContext
 
 -- | Represents information about an action declaration.
 --
@@ -345,6 +353,8 @@ instance FromJSON ActionDeclaration where
                      <*> (x .: "actionTypeId"))
 
 instance Hashable ActionDeclaration
+
+instance NFData ActionDeclaration
 
 instance ToJSON ActionDeclaration where
         toJSON ActionDeclaration'{..}
@@ -445,6 +455,8 @@ instance FromJSON ActionExecution where
 
 instance Hashable ActionExecution
 
+instance NFData ActionExecution
+
 -- | Represents information about the version (or revision) of an action.
 --
 -- /See:/ 'actionRevision' smart constructor.
@@ -498,6 +510,8 @@ instance FromJSON ActionRevision where
                      <*> (x .: "created"))
 
 instance Hashable ActionRevision
+
+instance NFData ActionRevision
 
 instance ToJSON ActionRevision where
         toJSON ActionRevision'{..}
@@ -576,6 +590,8 @@ instance FromJSON ActionState where
 
 instance Hashable ActionState
 
+instance NFData ActionState
+
 -- | Returns information about the details of an action type.
 --
 -- /See:/ 'actionType' smart constructor.
@@ -647,6 +663,8 @@ instance FromJSON ActionType where
 
 instance Hashable ActionType
 
+instance NFData ActionType
+
 -- | Represents information about an action type.
 --
 -- /See:/ 'actionTypeId' smart constructor.
@@ -713,6 +731,8 @@ instance FromJSON ActionTypeId where
                      <*> (x .: "version"))
 
 instance Hashable ActionTypeId
+
+instance NFData ActionTypeId
 
 instance ToJSON ActionTypeId where
         toJSON ActionTypeId'{..}
@@ -793,6 +813,8 @@ instance FromJSON ActionTypeSettings where
 
 instance Hashable ActionTypeSettings
 
+instance NFData ActionTypeSettings
+
 instance ToJSON ActionTypeSettings where
         toJSON ActionTypeSettings'{..}
           = object
@@ -856,6 +878,8 @@ instance FromJSON Artifact where
 
 instance Hashable Artifact
 
+instance NFData Artifact
+
 -- | Returns information about the details of an artifact.
 --
 -- /See:/ 'artifactDetails' smart constructor.
@@ -897,6 +921,8 @@ instance FromJSON ArtifactDetails where
                    (x .: "minimumCount") <*> (x .: "maximumCount"))
 
 instance Hashable ArtifactDetails
+
+instance NFData ArtifactDetails
 
 instance ToJSON ArtifactDetails where
         toJSON ArtifactDetails'{..}
@@ -944,6 +970,8 @@ instance FromJSON ArtifactLocation where
                    (x .:? "s3Location") <*> (x .:? "type"))
 
 instance Hashable ArtifactLocation
+
+instance NFData ArtifactLocation
 
 -- | The Amazon S3 location where artifacts are stored for the pipeline. If
 -- this Amazon S3 bucket is created manually, it must meet the requirements
@@ -1001,6 +1029,8 @@ instance FromJSON ArtifactStore where
 
 instance Hashable ArtifactStore
 
+instance NFData ArtifactStore
+
 instance ToJSON ArtifactStore where
         toJSON ArtifactStore'{..}
           = object
@@ -1051,6 +1081,8 @@ instance FromJSON BlockerDeclaration where
 
 instance Hashable BlockerDeclaration
 
+instance NFData BlockerDeclaration
+
 instance ToJSON BlockerDeclaration where
         toJSON BlockerDeclaration'{..}
           = object
@@ -1091,6 +1123,8 @@ crChangeIdentifier :: Lens' CurrentRevision Text
 crChangeIdentifier = lens _crChangeIdentifier (\ s a -> s{_crChangeIdentifier = a});
 
 instance Hashable CurrentRevision
+
+instance NFData CurrentRevision
 
 instance ToJSON CurrentRevision where
         toJSON CurrentRevision'{..}
@@ -1141,6 +1175,8 @@ instance FromJSON EncryptionKey where
 
 instance Hashable EncryptionKey
 
+instance NFData EncryptionKey
+
 instance ToJSON EncryptionKey where
         toJSON EncryptionKey'{..}
           = object
@@ -1187,6 +1223,8 @@ instance FromJSON ErrorDetails where
 
 instance Hashable ErrorDetails
 
+instance NFData ErrorDetails
+
 -- | The details of the actions taken and results produced on an artifact as
 -- it passes through stages in the pipeline.
 --
@@ -1230,6 +1268,8 @@ edPercentComplete :: Lens' ExecutionDetails (Maybe Natural)
 edPercentComplete = lens _edPercentComplete (\ s a -> s{_edPercentComplete = a}) . mapping _Nat;
 
 instance Hashable ExecutionDetails
+
+instance NFData ExecutionDetails
 
 instance ToJSON ExecutionDetails where
         toJSON ExecutionDetails'{..}
@@ -1283,6 +1323,8 @@ fdMessage = lens _fdMessage (\ s a -> s{_fdMessage = a});
 
 instance Hashable FailureDetails
 
+instance NFData FailureDetails
+
 instance ToJSON FailureDetails where
         toJSON FailureDetails'{..}
           = object
@@ -1329,6 +1371,8 @@ instance FromJSON InputArtifact where
               (\ x -> InputArtifact' <$> (x .: "name"))
 
 instance Hashable InputArtifact
+
+instance NFData InputArtifact
 
 instance ToJSON InputArtifact where
         toJSON InputArtifact'{..}
@@ -1393,6 +1437,8 @@ instance FromJSON Job where
                      <*> (x .:? "nonce"))
 
 instance Hashable Job
+
+instance NFData Job
 
 -- | Represents additional information about a job required for a job worker
 -- to complete the job.
@@ -1491,6 +1537,8 @@ instance FromJSON JobData where
 
 instance Hashable JobData
 
+instance NFData JobData
+
 -- | Represents information about the details of a job.
 --
 -- /See:/ 'jobDetails' smart constructor.
@@ -1540,6 +1588,8 @@ instance FromJSON JobDetails where
 
 instance Hashable JobDetails
 
+instance NFData JobDetails
+
 -- | Represents information about the output of an action.
 --
 -- /See:/ 'outputArtifact' smart constructor.
@@ -1578,6 +1628,8 @@ instance FromJSON OutputArtifact where
               (\ x -> OutputArtifact' <$> (x .: "name"))
 
 instance Hashable OutputArtifact
+
+instance NFData OutputArtifact
 
 instance ToJSON OutputArtifact where
         toJSON OutputArtifact'{..}
@@ -1633,6 +1685,8 @@ instance FromJSON PipelineContext where
                      (x .:? "action"))
 
 instance Hashable PipelineContext
+
+instance NFData PipelineContext
 
 -- | Represents the structure of actions and stages to be performed in the
 -- pipeline.
@@ -1709,6 +1763,8 @@ instance FromJSON PipelineDeclaration where
 
 instance Hashable PipelineDeclaration
 
+instance NFData PipelineDeclaration
+
 instance ToJSON PipelineDeclaration where
         toJSON PipelineDeclaration'{..}
           = object
@@ -1778,6 +1834,8 @@ instance FromJSON PipelineSummary where
 
 instance Hashable PipelineSummary
 
+instance NFData PipelineSummary
+
 -- | The location of the Amazon S3 bucket that contains a revision.
 --
 -- /See:/ 's3ArtifactLocation' smart constructor.
@@ -1821,6 +1879,8 @@ instance FromJSON S3ArtifactLocation where
 
 instance Hashable S3ArtifactLocation
 
+instance NFData S3ArtifactLocation
+
 -- | Represents information about a stage to a job worker.
 --
 -- /See:/ 'stageContext' smart constructor.
@@ -1850,6 +1910,8 @@ instance FromJSON StageContext where
               (\ x -> StageContext' <$> (x .:? "name"))
 
 instance Hashable StageContext
+
+instance NFData StageContext
 
 -- | Represents information about a stage and its definition.
 --
@@ -1900,6 +1962,8 @@ instance FromJSON StageDeclaration where
                      (x .:? "actions" .!= mempty))
 
 instance Hashable StageDeclaration
+
+instance NFData StageDeclaration
 
 instance ToJSON StageDeclaration where
         toJSON StageDeclaration'{..}
@@ -1960,6 +2024,8 @@ instance FromJSON StageState where
 
 instance Hashable StageState
 
+instance NFData StageState
+
 -- | A response to a PollForThirdPartyJobs request returned by AWS
 -- CodePipeline when there is a job to be worked upon by a partner action.
 --
@@ -2002,6 +2068,8 @@ instance FromJSON ThirdPartyJob where
                    (x .:? "clientId") <*> (x .:? "jobId"))
 
 instance Hashable ThirdPartyJob
+
+instance NFData ThirdPartyJob
 
 -- | Represents information about the job data for a partner action.
 --
@@ -2106,6 +2174,8 @@ instance FromJSON ThirdPartyJobData where
 
 instance Hashable ThirdPartyJobData
 
+instance NFData ThirdPartyJobData
+
 -- | The details of a job sent in response to a GetThirdPartyJobDetails
 -- request.
 --
@@ -2156,6 +2226,8 @@ instance FromJSON ThirdPartyJobDetails where
                    (x .:? "data") <*> (x .:? "id") <*> (x .:? "nonce"))
 
 instance Hashable ThirdPartyJobDetails
+
+instance NFData ThirdPartyJobDetails
 
 -- | Represents information about the state of transitions between one stage
 -- and another stage.
@@ -2217,3 +2289,5 @@ instance FromJSON TransitionState where
                      <*> (x .:? "lastChangedBy"))
 
 instance Hashable TransitionState
+
+instance NFData TransitionState

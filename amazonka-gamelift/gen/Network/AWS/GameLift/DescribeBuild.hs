@@ -79,6 +79,8 @@ instance AWSRequest DescribeBuild where
 
 instance Hashable DescribeBuild
 
+instance NFData DescribeBuild
+
 instance ToHeaders DescribeBuild where
         toHeaders
           = const

@@ -147,6 +147,8 @@ instance AWSRequest DescribeSpotFleetRequestHistory
 
 instance Hashable DescribeSpotFleetRequestHistory
 
+instance NFData DescribeSpotFleetRequestHistory
+
 instance ToHeaders DescribeSpotFleetRequestHistory
          where
         toHeaders = const mempty

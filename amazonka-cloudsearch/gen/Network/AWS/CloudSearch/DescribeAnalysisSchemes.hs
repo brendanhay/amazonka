@@ -110,6 +110,8 @@ instance AWSRequest DescribeAnalysisSchemes where
 
 instance Hashable DescribeAnalysisSchemes
 
+instance NFData DescribeAnalysisSchemes
+
 instance ToHeaders DescribeAnalysisSchemes where
         toHeaders = const mempty
 

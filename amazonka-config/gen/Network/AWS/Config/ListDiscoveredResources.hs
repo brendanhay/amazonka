@@ -147,6 +147,8 @@ instance AWSRequest ListDiscoveredResources where
 
 instance Hashable ListDiscoveredResources
 
+instance NFData ListDiscoveredResources
+
 instance ToHeaders ListDiscoveredResources where
         toHeaders
           = const

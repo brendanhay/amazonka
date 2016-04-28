@@ -122,6 +122,8 @@ instance AWSRequest Decrypt where
 
 instance Hashable Decrypt
 
+instance NFData Decrypt
+
 instance ToHeaders Decrypt where
         toHeaders
           = const

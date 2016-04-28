@@ -96,6 +96,8 @@ instance AWSRequest ListTagsForResources where
 
 instance Hashable ListTagsForResources
 
+instance NFData ListTagsForResources
+
 instance ToElement ListTagsForResources where
         toElement
           = mkElement

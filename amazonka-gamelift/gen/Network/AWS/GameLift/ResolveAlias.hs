@@ -77,6 +77,8 @@ instance AWSRequest ResolveAlias where
 
 instance Hashable ResolveAlias
 
+instance NFData ResolveAlias
+
 instance ToHeaders ResolveAlias where
         toHeaders
           = const

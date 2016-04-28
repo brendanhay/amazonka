@@ -95,6 +95,8 @@ instance AWSRequest BatchGetApplicationRevisions
 
 instance Hashable BatchGetApplicationRevisions
 
+instance NFData BatchGetApplicationRevisions
+
 instance ToHeaders BatchGetApplicationRevisions where
         toHeaders
           = const

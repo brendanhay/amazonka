@@ -99,6 +99,8 @@ instance AWSRequest AttachVPNGateway where
 
 instance Hashable AttachVPNGateway
 
+instance NFData AttachVPNGateway
+
 instance ToHeaders AttachVPNGateway where
         toHeaders = const mempty
 

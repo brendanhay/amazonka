@@ -224,6 +224,8 @@ instance AWSRequest DescribeEvaluations where
 
 instance Hashable DescribeEvaluations
 
+instance NFData DescribeEvaluations
+
 instance ToHeaders DescribeEvaluations where
         toHeaders
           = const

@@ -126,6 +126,8 @@ instance AWSRequest UpdateSnapshotSchedule where
 
 instance Hashable UpdateSnapshotSchedule
 
+instance NFData UpdateSnapshotSchedule
+
 instance ToHeaders UpdateSnapshotSchedule where
         toHeaders
           = const

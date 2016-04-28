@@ -74,6 +74,8 @@ instance AWSRequest DeletePlatformApplication where
 
 instance Hashable DeletePlatformApplication
 
+instance NFData DeletePlatformApplication
+
 instance ToHeaders DeletePlatformApplication where
         toHeaders = const mempty
 

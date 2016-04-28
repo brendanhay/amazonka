@@ -109,6 +109,8 @@ instance AWSRequest UpdateMethod where
 
 instance Hashable UpdateMethod
 
+instance NFData UpdateMethod
+
 instance ToHeaders UpdateMethod where
         toHeaders
           = const

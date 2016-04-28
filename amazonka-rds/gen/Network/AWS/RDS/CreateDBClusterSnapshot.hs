@@ -118,6 +118,8 @@ instance AWSRequest CreateDBClusterSnapshot where
 
 instance Hashable CreateDBClusterSnapshot
 
+instance NFData CreateDBClusterSnapshot
+
 instance ToHeaders CreateDBClusterSnapshot where
         toHeaders = const mempty
 

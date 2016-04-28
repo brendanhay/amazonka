@@ -85,6 +85,8 @@ instance AWSRequest DeleteQueue where
 
 instance Hashable DeleteQueue
 
+instance NFData DeleteQueue
+
 instance ToHeaders DeleteQueue where
         toHeaders = const mempty
 

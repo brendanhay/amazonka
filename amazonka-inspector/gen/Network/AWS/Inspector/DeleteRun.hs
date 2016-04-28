@@ -75,6 +75,8 @@ instance AWSRequest DeleteRun where
 
 instance Hashable DeleteRun
 
+instance NFData DeleteRun
+
 instance ToHeaders DeleteRun where
         toHeaders
           = const

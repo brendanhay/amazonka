@@ -125,6 +125,8 @@ instance AWSRequest ListHealthChecks where
 
 instance Hashable ListHealthChecks
 
+instance NFData ListHealthChecks
+
 instance ToHeaders ListHealthChecks where
         toHeaders = const mempty
 

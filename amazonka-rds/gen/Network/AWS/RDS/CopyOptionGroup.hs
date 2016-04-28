@@ -127,6 +127,8 @@ instance AWSRequest CopyOptionGroup where
 
 instance Hashable CopyOptionGroup
 
+instance NFData CopyOptionGroup
+
 instance ToHeaders CopyOptionGroup where
         toHeaders = const mempty
 

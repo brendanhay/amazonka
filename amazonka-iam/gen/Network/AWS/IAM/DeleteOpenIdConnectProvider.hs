@@ -79,6 +79,8 @@ instance AWSRequest DeleteOpenIdConnectProvider where
 
 instance Hashable DeleteOpenIdConnectProvider
 
+instance NFData DeleteOpenIdConnectProvider
+
 instance ToHeaders DeleteOpenIdConnectProvider where
         toHeaders = const mempty
 

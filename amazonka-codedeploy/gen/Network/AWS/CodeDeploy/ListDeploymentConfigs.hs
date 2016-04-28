@@ -83,6 +83,8 @@ instance AWSRequest ListDeploymentConfigs where
 
 instance Hashable ListDeploymentConfigs
 
+instance NFData ListDeploymentConfigs
+
 instance ToHeaders ListDeploymentConfigs where
         toHeaders
           = const

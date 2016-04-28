@@ -76,6 +76,8 @@ instance AWSRequest CreateLogGroup where
 
 instance Hashable CreateLogGroup
 
+instance NFData CreateLogGroup
+
 instance ToHeaders CreateLogGroup where
         toHeaders
           = const

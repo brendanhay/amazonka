@@ -109,6 +109,8 @@ instance AWSRequest RetireGrant where
 
 instance Hashable RetireGrant
 
+instance NFData RetireGrant
+
 instance ToHeaders RetireGrant where
         toHeaders
           = const

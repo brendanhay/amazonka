@@ -123,6 +123,8 @@ instance AWSRequest CreateClusterSubnetGroup where
 
 instance Hashable CreateClusterSubnetGroup
 
+instance NFData CreateClusterSubnetGroup
+
 instance ToHeaders CreateClusterSubnetGroup where
         toHeaders = const mempty
 

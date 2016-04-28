@@ -85,6 +85,8 @@ instance AWSRequest UpdateDefaultBranch where
 
 instance Hashable UpdateDefaultBranch
 
+instance NFData UpdateDefaultBranch
+
 instance ToHeaders UpdateDefaultBranch where
         toHeaders
           = const

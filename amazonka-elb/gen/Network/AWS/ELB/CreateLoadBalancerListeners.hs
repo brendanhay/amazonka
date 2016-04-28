@@ -92,6 +92,8 @@ instance AWSRequest CreateLoadBalancerListeners where
 
 instance Hashable CreateLoadBalancerListeners
 
+instance NFData CreateLoadBalancerListeners
+
 instance ToHeaders CreateLoadBalancerListeners where
         toHeaders = const mempty
 

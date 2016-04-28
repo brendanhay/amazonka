@@ -98,6 +98,8 @@ instance AWSRequest DisableMetricsCollection where
 
 instance Hashable DisableMetricsCollection
 
+instance NFData DisableMetricsCollection
+
 instance ToHeaders DisableMetricsCollection where
         toHeaders = const mempty
 

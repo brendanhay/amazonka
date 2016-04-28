@@ -111,6 +111,8 @@ instance AWSRequest DisassociateVPCFromHostedZone
 
 instance Hashable DisassociateVPCFromHostedZone
 
+instance NFData DisassociateVPCFromHostedZone
+
 instance ToElement DisassociateVPCFromHostedZone
          where
         toElement

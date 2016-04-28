@@ -169,6 +169,8 @@ instance AWSRequest ListObjectVersions where
 
 instance Hashable ListObjectVersions
 
+instance NFData ListObjectVersions
+
 instance ToHeaders ListObjectVersions where
         toHeaders = const mempty
 

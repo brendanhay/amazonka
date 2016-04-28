@@ -104,6 +104,8 @@ instance AWSRequest SetTerminationProtection where
 
 instance Hashable SetTerminationProtection
 
+instance NFData SetTerminationProtection
+
 instance ToHeaders SetTerminationProtection where
         toHeaders
           = const

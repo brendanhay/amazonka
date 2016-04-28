@@ -98,6 +98,8 @@ instance AWSRequest ListDeliveryStreams where
 
 instance Hashable ListDeliveryStreams
 
+instance NFData ListDeliveryStreams
+
 instance ToHeaders ListDeliveryStreams where
         toHeaders
           = const

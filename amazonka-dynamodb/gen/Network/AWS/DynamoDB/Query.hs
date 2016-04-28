@@ -724,6 +724,8 @@ instance AWSRequest Query where
 
 instance Hashable Query
 
+instance NFData Query
+
 instance ToHeaders Query where
         toHeaders
           = const

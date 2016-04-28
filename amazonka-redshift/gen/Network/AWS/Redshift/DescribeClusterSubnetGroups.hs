@@ -166,6 +166,8 @@ instance AWSRequest DescribeClusterSubnetGroups where
 
 instance Hashable DescribeClusterSubnetGroups
 
+instance NFData DescribeClusterSubnetGroups
+
 instance ToHeaders DescribeClusterSubnetGroups where
         toHeaders = const mempty
 

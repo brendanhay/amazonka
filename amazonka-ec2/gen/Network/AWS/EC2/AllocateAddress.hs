@@ -97,6 +97,8 @@ instance AWSRequest AllocateAddress where
 
 instance Hashable AllocateAddress
 
+instance NFData AllocateAddress
+
 instance ToHeaders AllocateAddress where
         toHeaders = const mempty
 

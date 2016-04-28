@@ -37,6 +37,7 @@ instance ToText ChronologicalOrder where
         Reverse -> "Reverse"
 
 instance Hashable     ChronologicalOrder
+instance NFData       ChronologicalOrder
 instance ToByteString ChronologicalOrder
 instance ToQuery      ChronologicalOrder
 instance ToHeader     ChronologicalOrder
@@ -68,6 +69,7 @@ instance ToText ComplianceType where
         NotApplicable -> "NOT_APPLICABLE"
 
 instance Hashable     ComplianceType
+instance NFData       ComplianceType
 instance ToByteString ComplianceType
 instance ToQuery      ComplianceType
 instance ToHeader     ComplianceType
@@ -96,6 +98,7 @@ instance ToText ConfigRuleState where
         Deleting -> "DELETING"
 
 instance Hashable     ConfigRuleState
+instance NFData       ConfigRuleState
 instance ToByteString ConfigRuleState
 instance ToQuery      ConfigRuleState
 instance ToHeader     ConfigRuleState
@@ -130,6 +133,7 @@ instance ToText ConfigurationItemStatus where
         OK -> "Ok"
 
 instance Hashable     ConfigurationItemStatus
+instance NFData       ConfigurationItemStatus
 instance ToByteString ConfigurationItemStatus
 instance ToQuery      ConfigurationItemStatus
 instance ToHeader     ConfigurationItemStatus
@@ -158,6 +162,7 @@ instance ToText DeliveryStatus where
         DSSuccess -> "Success"
 
 instance Hashable     DeliveryStatus
+instance NFData       DeliveryStatus
 instance ToByteString DeliveryStatus
 instance ToQuery      DeliveryStatus
 instance ToHeader     DeliveryStatus
@@ -180,6 +185,7 @@ instance ToText EventSource where
         AWS_Config -> "aws.config"
 
 instance Hashable     EventSource
+instance NFData       EventSource
 instance ToByteString EventSource
 instance ToQuery      EventSource
 instance ToHeader     EventSource
@@ -217,6 +223,7 @@ instance ToText MaximumExecutionFrequency where
         TwentyFourHours -> "TwentyFour_Hours"
 
 instance Hashable     MaximumExecutionFrequency
+instance NFData       MaximumExecutionFrequency
 instance ToByteString MaximumExecutionFrequency
 instance ToQuery      MaximumExecutionFrequency
 instance ToHeader     MaximumExecutionFrequency
@@ -245,6 +252,7 @@ instance ToText MessageType where
         ConfigurationSnapshotDeliveryCompleted -> "ConfigurationSnapshotDeliveryCompleted"
 
 instance Hashable     MessageType
+instance NFData       MessageType
 instance ToByteString MessageType
 instance ToQuery      MessageType
 instance ToHeader     MessageType
@@ -273,6 +281,7 @@ instance ToText Owner where
         CustomLambda -> "CUSTOM_LAMBDA"
 
 instance Hashable     Owner
+instance NFData       Owner
 instance ToByteString Owner
 instance ToQuery      Owner
 instance ToHeader     Owner
@@ -304,6 +313,7 @@ instance ToText RecorderStatus where
         Success -> "Success"
 
 instance Hashable     RecorderStatus
+instance NFData       RecorderStatus
 instance ToByteString RecorderStatus
 instance ToQuery      RecorderStatus
 instance ToHeader     RecorderStatus
@@ -380,6 +390,7 @@ instance ToText ResourceType where
         AWSIAMUser -> "AWS::IAM::User"
 
 instance Hashable     ResourceType
+instance NFData       ResourceType
 instance ToByteString ResourceType
 instance ToQuery      ResourceType
 instance ToHeader     ResourceType

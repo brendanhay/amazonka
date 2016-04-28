@@ -88,6 +88,8 @@ instance AWSRequest UpdateReceiptRule where
 
 instance Hashable UpdateReceiptRule
 
+instance NFData UpdateReceiptRule
+
 instance ToHeaders UpdateReceiptRule where
         toHeaders = const mempty
 

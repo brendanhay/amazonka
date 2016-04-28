@@ -98,6 +98,8 @@ instance AWSRequest DescribeKey where
 
 instance Hashable DescribeKey
 
+instance NFData DescribeKey
+
 instance ToHeaders DescribeKey where
         toHeaders
           = const

@@ -78,6 +78,8 @@ instance AWSRequest GetOnPremisesInstance where
 
 instance Hashable GetOnPremisesInstance
 
+instance NFData GetOnPremisesInstance
+
 instance ToHeaders GetOnPremisesInstance where
         toHeaders
           = const

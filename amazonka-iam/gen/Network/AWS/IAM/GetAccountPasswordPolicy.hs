@@ -65,6 +65,8 @@ instance AWSRequest GetAccountPasswordPolicy where
 
 instance Hashable GetAccountPasswordPolicy
 
+instance NFData GetAccountPasswordPolicy
+
 instance ToHeaders GetAccountPasswordPolicy where
         toHeaders = const mempty
 

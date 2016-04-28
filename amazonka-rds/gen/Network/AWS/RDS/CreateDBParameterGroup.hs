@@ -140,6 +140,8 @@ instance AWSRequest CreateDBParameterGroup where
 
 instance Hashable CreateDBParameterGroup
 
+instance NFData CreateDBParameterGroup
+
 instance ToHeaders CreateDBParameterGroup where
         toHeaders = const mempty
 

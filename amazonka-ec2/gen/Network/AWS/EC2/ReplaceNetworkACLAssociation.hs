@@ -104,6 +104,8 @@ instance AWSRequest ReplaceNetworkACLAssociation
 
 instance Hashable ReplaceNetworkACLAssociation
 
+instance NFData ReplaceNetworkACLAssociation
+
 instance ToHeaders ReplaceNetworkACLAssociation where
         toHeaders = const mempty
 

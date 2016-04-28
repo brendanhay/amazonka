@@ -89,6 +89,8 @@ instance AWSRequest ListDevices where
 
 instance Hashable ListDevices
 
+instance NFData ListDevices
+
 instance ToHeaders ListDevices where
         toHeaders
           = const

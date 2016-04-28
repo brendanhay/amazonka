@@ -81,6 +81,8 @@ instance AWSRequest DeleteMLModel where
 
 instance Hashable DeleteMLModel
 
+instance NFData DeleteMLModel
+
 instance ToHeaders DeleteMLModel where
         toHeaders
           = const

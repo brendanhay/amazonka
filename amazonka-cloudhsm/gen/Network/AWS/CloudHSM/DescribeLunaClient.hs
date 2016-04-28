@@ -93,6 +93,8 @@ instance AWSRequest DescribeLunaClient where
 
 instance Hashable DescribeLunaClient
 
+instance NFData DescribeLunaClient
+
 instance ToHeaders DescribeLunaClient where
         toHeaders
           = const

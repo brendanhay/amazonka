@@ -96,6 +96,8 @@ instance AWSRequest CreateResource where
 
 instance Hashable CreateResource
 
+instance NFData CreateResource
+
 instance ToHeaders CreateResource where
         toHeaders
           = const

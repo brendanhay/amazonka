@@ -286,6 +286,8 @@ instance AWSRequest ModifyReplicationGroup where
 
 instance Hashable ModifyReplicationGroup
 
+instance NFData ModifyReplicationGroup
+
 instance ToHeaders ModifyReplicationGroup where
         toHeaders = const mempty
 

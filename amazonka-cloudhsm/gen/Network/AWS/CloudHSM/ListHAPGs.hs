@@ -82,6 +82,8 @@ instance AWSRequest ListHAPGs where
 
 instance Hashable ListHAPGs
 
+instance NFData ListHAPGs
+
 instance ToHeaders ListHAPGs where
         toHeaders
           = const

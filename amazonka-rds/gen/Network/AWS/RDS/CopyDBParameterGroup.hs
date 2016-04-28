@@ -128,6 +128,8 @@ instance AWSRequest CopyDBParameterGroup where
 
 instance Hashable CopyDBParameterGroup
 
+instance NFData CopyDBParameterGroup
+
 instance ToHeaders CopyDBParameterGroup where
         toHeaders = const mempty
 

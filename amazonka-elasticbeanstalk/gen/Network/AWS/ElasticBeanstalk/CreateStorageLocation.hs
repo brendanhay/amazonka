@@ -65,6 +65,8 @@ instance AWSRequest CreateStorageLocation where
 
 instance Hashable CreateStorageLocation
 
+instance NFData CreateStorageLocation
+
 instance ToHeaders CreateStorageLocation where
         toHeaders = const mempty
 

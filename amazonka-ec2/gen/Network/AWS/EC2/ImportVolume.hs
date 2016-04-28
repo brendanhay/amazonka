@@ -125,6 +125,8 @@ instance AWSRequest ImportVolume where
 
 instance Hashable ImportVolume
 
+instance NFData ImportVolume
+
 instance ToHeaders ImportVolume where
         toHeaders = const mempty
 

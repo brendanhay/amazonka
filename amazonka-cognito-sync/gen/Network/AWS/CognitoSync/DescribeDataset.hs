@@ -110,6 +110,8 @@ instance AWSRequest DescribeDataset where
 
 instance Hashable DescribeDataset
 
+instance NFData DescribeDataset
+
 instance ToHeaders DescribeDataset where
         toHeaders
           = const

@@ -85,6 +85,8 @@ instance AWSRequest DescribeTable where
 
 instance Hashable DescribeTable
 
+instance NFData DescribeTable
+
 instance ToHeaders DescribeTable where
         toHeaders
           = const

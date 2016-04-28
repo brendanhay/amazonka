@@ -137,6 +137,8 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext
 
 instance Hashable GenerateDataKeyWithoutPlaintext
 
+instance NFData GenerateDataKeyWithoutPlaintext
+
 instance ToHeaders GenerateDataKeyWithoutPlaintext
          where
         toHeaders

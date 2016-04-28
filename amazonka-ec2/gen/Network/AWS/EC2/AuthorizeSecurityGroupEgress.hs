@@ -175,6 +175,8 @@ instance AWSRequest AuthorizeSecurityGroupEgress
 
 instance Hashable AuthorizeSecurityGroupEgress
 
+instance NFData AuthorizeSecurityGroupEgress
+
 instance ToHeaders AuthorizeSecurityGroupEgress where
         toHeaders = const mempty
 

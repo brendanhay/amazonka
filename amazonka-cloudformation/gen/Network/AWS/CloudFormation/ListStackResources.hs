@@ -112,6 +112,8 @@ instance AWSRequest ListStackResources where
 
 instance Hashable ListStackResources
 
+instance NFData ListStackResources
+
 instance ToHeaders ListStackResources where
         toHeaders = const mempty
 

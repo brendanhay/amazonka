@@ -159,6 +159,8 @@ instance AWSRequest DescribeNetworkACLs where
 
 instance Hashable DescribeNetworkACLs
 
+instance NFData DescribeNetworkACLs
+
 instance ToHeaders DescribeNetworkACLs where
         toHeaders = const mempty
 

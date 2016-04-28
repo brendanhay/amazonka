@@ -162,6 +162,8 @@ instance AWSRequest CreateReplicationTask where
 
 instance Hashable CreateReplicationTask
 
+instance NFData CreateReplicationTask
+
 instance ToHeaders CreateReplicationTask where
         toHeaders
           = const

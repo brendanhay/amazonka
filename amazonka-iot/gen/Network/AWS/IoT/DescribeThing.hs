@@ -82,6 +82,8 @@ instance AWSRequest DescribeThing where
 
 instance Hashable DescribeThing
 
+instance NFData DescribeThing
+
 instance ToHeaders DescribeThing where
         toHeaders = const mempty
 

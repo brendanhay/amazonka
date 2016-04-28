@@ -238,6 +238,8 @@ instance AWSRequest ListClosedWorkflowExecutions
 
 instance Hashable ListClosedWorkflowExecutions
 
+instance NFData ListClosedWorkflowExecutions
+
 instance ToHeaders ListClosedWorkflowExecutions where
         toHeaders
           = const

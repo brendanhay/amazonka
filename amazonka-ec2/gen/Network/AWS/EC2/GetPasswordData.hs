@@ -105,6 +105,8 @@ instance AWSRequest GetPasswordData where
 
 instance Hashable GetPasswordData
 
+instance NFData GetPasswordData
+
 instance ToHeaders GetPasswordData where
         toHeaders = const mempty
 

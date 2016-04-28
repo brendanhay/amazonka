@@ -101,6 +101,8 @@ instance AWSRequest EvaluateExpression where
 
 instance Hashable EvaluateExpression
 
+instance NFData EvaluateExpression
+
 instance ToHeaders EvaluateExpression where
         toHeaders
           = const

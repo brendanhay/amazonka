@@ -74,6 +74,8 @@ instance AWSRequest
 
 instance Hashable GetBucketNotificationConfiguration
 
+instance NFData GetBucketNotificationConfiguration
+
 instance ToHeaders GetBucketNotificationConfiguration
          where
         toHeaders = const mempty

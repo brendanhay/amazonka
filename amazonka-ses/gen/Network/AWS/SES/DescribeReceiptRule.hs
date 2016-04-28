@@ -91,6 +91,8 @@ instance AWSRequest DescribeReceiptRule where
 
 instance Hashable DescribeReceiptRule
 
+instance NFData DescribeReceiptRule
+
 instance ToHeaders DescribeReceiptRule where
         toHeaders = const mempty
 

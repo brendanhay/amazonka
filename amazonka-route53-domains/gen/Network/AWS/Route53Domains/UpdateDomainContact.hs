@@ -146,6 +146,8 @@ instance AWSRequest UpdateDomainContact where
 
 instance Hashable UpdateDomainContact
 
+instance NFData UpdateDomainContact
+
 instance ToHeaders UpdateDomainContact where
         toHeaders
           = const

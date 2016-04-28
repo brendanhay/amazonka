@@ -78,6 +78,8 @@ instance AWSRequest ReadJob where
 
 instance Hashable ReadJob
 
+instance NFData ReadJob
+
 instance ToHeaders ReadJob where
         toHeaders = const mempty
 

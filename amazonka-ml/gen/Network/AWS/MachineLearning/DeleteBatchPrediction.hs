@@ -84,6 +84,8 @@ instance AWSRequest DeleteBatchPrediction where
 
 instance Hashable DeleteBatchPrediction
 
+instance NFData DeleteBatchPrediction
+
 instance ToHeaders DeleteBatchPrediction where
         toHeaders
           = const

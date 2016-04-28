@@ -92,6 +92,8 @@ instance AWSRequest CreateRouteTable where
 
 instance Hashable CreateRouteTable
 
+instance NFData CreateRouteTable
+
 instance ToHeaders CreateRouteTable where
         toHeaders = const mempty
 

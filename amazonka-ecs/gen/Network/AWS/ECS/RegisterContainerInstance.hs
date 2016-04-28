@@ -143,6 +143,8 @@ instance AWSRequest RegisterContainerInstance where
 
 instance Hashable RegisterContainerInstance
 
+instance NFData RegisterContainerInstance
+
 instance ToHeaders RegisterContainerInstance where
         toHeaders
           = const

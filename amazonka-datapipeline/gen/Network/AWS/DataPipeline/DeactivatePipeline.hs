@@ -92,6 +92,8 @@ instance AWSRequest DeactivatePipeline where
 
 instance Hashable DeactivatePipeline
 
+instance NFData DeactivatePipeline
+
 instance ToHeaders DeactivatePipeline where
         toHeaders
           = const

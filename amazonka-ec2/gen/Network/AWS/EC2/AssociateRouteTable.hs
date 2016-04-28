@@ -107,6 +107,8 @@ instance AWSRequest AssociateRouteTable where
 
 instance Hashable AssociateRouteTable
 
+instance NFData AssociateRouteTable
+
 instance ToHeaders AssociateRouteTable where
         toHeaders = const mempty
 

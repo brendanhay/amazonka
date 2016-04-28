@@ -114,6 +114,8 @@ instance AWSRequest ResetDBClusterParameterGroup
 
 instance Hashable ResetDBClusterParameterGroup
 
+instance NFData ResetDBClusterParameterGroup
+
 instance ToHeaders ResetDBClusterParameterGroup where
         toHeaders = const mempty
 

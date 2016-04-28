@@ -79,6 +79,8 @@ instance AWSRequest DescribeCluster where
 
 instance Hashable DescribeCluster
 
+instance NFData DescribeCluster
+
 instance ToHeaders DescribeCluster where
         toHeaders
           = const

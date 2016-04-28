@@ -77,6 +77,8 @@ instance AWSRequest GetUpload where
 
 instance Hashable GetUpload
 
+instance NFData GetUpload
+
 instance ToHeaders GetUpload where
         toHeaders
           = const

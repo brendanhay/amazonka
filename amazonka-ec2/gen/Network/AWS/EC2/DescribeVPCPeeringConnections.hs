@@ -143,6 +143,8 @@ instance AWSRequest DescribeVPCPeeringConnections
 
 instance Hashable DescribeVPCPeeringConnections
 
+instance NFData DescribeVPCPeeringConnections
+
 instance ToHeaders DescribeVPCPeeringConnections
          where
         toHeaders = const mempty

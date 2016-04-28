@@ -104,6 +104,8 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod
 
 instance Hashable ModifySnapshotCopyRetentionPeriod
 
+instance NFData ModifySnapshotCopyRetentionPeriod
+
 instance ToHeaders ModifySnapshotCopyRetentionPeriod
          where
         toHeaders = const mempty

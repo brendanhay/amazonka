@@ -157,6 +157,8 @@ instance AWSRequest ReplaceNetworkACLEntry where
 
 instance Hashable ReplaceNetworkACLEntry
 
+instance NFData ReplaceNetworkACLEntry
+
 instance ToHeaders ReplaceNetworkACLEntry where
         toHeaders = const mempty
 

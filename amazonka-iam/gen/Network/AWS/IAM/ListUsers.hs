@@ -128,6 +128,8 @@ instance AWSRequest ListUsers where
 
 instance Hashable ListUsers
 
+instance NFData ListUsers
+
 instance ToHeaders ListUsers where
         toHeaders = const mempty
 

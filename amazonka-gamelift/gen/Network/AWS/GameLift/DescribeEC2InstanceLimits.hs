@@ -90,6 +90,8 @@ instance AWSRequest DescribeEC2InstanceLimits where
 
 instance Hashable DescribeEC2InstanceLimits
 
+instance NFData DescribeEC2InstanceLimits
+
 instance ToHeaders DescribeEC2InstanceLimits where
         toHeaders
           = const

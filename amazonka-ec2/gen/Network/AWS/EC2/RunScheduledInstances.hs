@@ -132,6 +132,8 @@ instance AWSRequest RunScheduledInstances where
 
 instance Hashable RunScheduledInstances
 
+instance NFData RunScheduledInstances
+
 instance ToHeaders RunScheduledInstances where
         toHeaders = const mempty
 

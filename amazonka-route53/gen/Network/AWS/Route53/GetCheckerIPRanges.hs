@@ -71,6 +71,8 @@ instance AWSRequest GetCheckerIPRanges where
 
 instance Hashable GetCheckerIPRanges
 
+instance NFData GetCheckerIPRanges
+
 instance ToHeaders GetCheckerIPRanges where
         toHeaders = const mempty
 

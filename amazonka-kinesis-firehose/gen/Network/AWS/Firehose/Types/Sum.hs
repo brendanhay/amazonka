@@ -43,6 +43,7 @@ instance ToText CompressionFormat where
         Zip -> "ZIP"
 
 instance Hashable     CompressionFormat
+instance NFData       CompressionFormat
 instance ToByteString CompressionFormat
 instance ToQuery      CompressionFormat
 instance ToHeader     CompressionFormat
@@ -74,6 +75,7 @@ instance ToText DeliveryStreamStatus where
         Deleting -> "DELETING"
 
 instance Hashable     DeliveryStreamStatus
+instance NFData       DeliveryStreamStatus
 instance ToByteString DeliveryStreamStatus
 instance ToQuery      DeliveryStreamStatus
 instance ToHeader     DeliveryStreamStatus
@@ -96,6 +98,7 @@ instance ToText NoEncryptionConfig where
         NoEncryption -> "NoEncryption"
 
 instance Hashable     NoEncryptionConfig
+instance NFData       NoEncryptionConfig
 instance ToByteString NoEncryptionConfig
 instance ToQuery      NoEncryptionConfig
 instance ToHeader     NoEncryptionConfig

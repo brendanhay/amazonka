@@ -83,6 +83,8 @@ instance AWSRequest CreateWorkspaces where
 
 instance Hashable CreateWorkspaces
 
+instance NFData CreateWorkspaces
+
 instance ToHeaders CreateWorkspaces where
         toHeaders
           = const

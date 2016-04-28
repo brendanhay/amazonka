@@ -135,6 +135,8 @@ instance AWSRequest CreateCertificateFromCsr where
 
 instance Hashable CreateCertificateFromCsr
 
+instance NFData CreateCertificateFromCsr
+
 instance ToHeaders CreateCertificateFromCsr where
         toHeaders = const mempty
 

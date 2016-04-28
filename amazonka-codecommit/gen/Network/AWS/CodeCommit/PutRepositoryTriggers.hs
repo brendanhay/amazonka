@@ -88,6 +88,8 @@ instance AWSRequest PutRepositoryTriggers where
 
 instance Hashable PutRepositoryTriggers
 
+instance NFData PutRepositoryTriggers
+
 instance ToHeaders PutRepositoryTriggers where
         toHeaders
           = const

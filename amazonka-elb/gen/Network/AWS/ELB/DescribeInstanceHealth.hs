@@ -92,6 +92,8 @@ instance AWSRequest DescribeInstanceHealth where
 
 instance Hashable DescribeInstanceHealth
 
+instance NFData DescribeInstanceHealth
+
 instance ToHeaders DescribeInstanceHealth where
         toHeaders = const mempty
 

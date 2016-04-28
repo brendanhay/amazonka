@@ -159,6 +159,8 @@ instance AWSRequest GetShardIterator where
 
 instance Hashable GetShardIterator
 
+instance NFData GetShardIterator
+
 instance ToHeaders GetShardIterator where
         toHeaders
           = const

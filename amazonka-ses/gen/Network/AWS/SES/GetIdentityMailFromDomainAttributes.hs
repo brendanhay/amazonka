@@ -83,6 +83,8 @@ instance AWSRequest
 
 instance Hashable GetIdentityMailFromDomainAttributes
 
+instance NFData GetIdentityMailFromDomainAttributes
+
 instance ToHeaders
          GetIdentityMailFromDomainAttributes where
         toHeaders = const mempty

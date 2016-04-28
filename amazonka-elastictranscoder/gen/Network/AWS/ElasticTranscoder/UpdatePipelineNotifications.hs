@@ -112,6 +112,8 @@ instance AWSRequest UpdatePipelineNotifications where
 
 instance Hashable UpdatePipelineNotifications
 
+instance NFData UpdatePipelineNotifications
+
 instance ToHeaders UpdatePipelineNotifications where
         toHeaders = const mempty
 

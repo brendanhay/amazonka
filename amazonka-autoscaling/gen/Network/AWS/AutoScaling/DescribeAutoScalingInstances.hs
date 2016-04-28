@@ -113,6 +113,8 @@ instance AWSRequest DescribeAutoScalingInstances
 
 instance Hashable DescribeAutoScalingInstances
 
+instance NFData DescribeAutoScalingInstances
+
 instance ToHeaders DescribeAutoScalingInstances where
         toHeaders = const mempty
 

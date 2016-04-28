@@ -153,6 +153,8 @@ instance AWSRequest UpdateWebACL where
 
 instance Hashable UpdateWebACL
 
+instance NFData UpdateWebACL
+
 instance ToHeaders UpdateWebACL where
         toHeaders
           = const

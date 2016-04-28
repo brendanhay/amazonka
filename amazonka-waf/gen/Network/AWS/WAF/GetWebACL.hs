@@ -76,6 +76,8 @@ instance AWSRequest GetWebACL where
 
 instance Hashable GetWebACL
 
+instance NFData GetWebACL
+
 instance ToHeaders GetWebACL where
         toHeaders
           = const

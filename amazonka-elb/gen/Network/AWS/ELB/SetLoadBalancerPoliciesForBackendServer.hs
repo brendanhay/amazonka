@@ -109,6 +109,9 @@ instance AWSRequest
 instance Hashable
          SetLoadBalancerPoliciesForBackendServer
 
+instance NFData
+         SetLoadBalancerPoliciesForBackendServer
+
 instance ToHeaders
          SetLoadBalancerPoliciesForBackendServer where
         toHeaders = const mempty

@@ -68,6 +68,8 @@ instance FromXML AddHeaderAction where
 
 instance Hashable AddHeaderAction
 
+instance NFData AddHeaderAction
+
 instance ToQuery AddHeaderAction where
         toQuery AddHeaderAction'{..}
           = mconcat
@@ -112,6 +114,8 @@ bHTML :: Lens' Body (Maybe Content)
 bHTML = lens _bHTML (\ s a -> s{_bHTML = a});
 
 instance Hashable Body
+
+instance NFData Body
 
 instance ToQuery Body where
         toQuery Body'{..}
@@ -198,6 +202,8 @@ instance FromXML BounceAction where
 
 instance Hashable BounceAction
 
+instance NFData BounceAction
+
 instance ToQuery BounceAction where
         toQuery BounceAction'{..}
           = mconcat
@@ -268,6 +274,8 @@ briRecipient = lens _briRecipient (\ s a -> s{_briRecipient = a});
 
 instance Hashable BouncedRecipientInfo
 
+instance NFData BouncedRecipientInfo
+
 instance ToQuery BouncedRecipientInfo where
         toQuery BouncedRecipientInfo'{..}
           = mconcat
@@ -314,6 +322,8 @@ cData :: Lens' Content Text
 cData = lens _cData (\ s a -> s{_cData = a});
 
 instance Hashable Content
+
+instance NFData Content
 
 instance ToQuery Content where
         toQuery Content'{..}
@@ -367,6 +377,8 @@ dToAddresses = lens _dToAddresses (\ s a -> s{_dToAddresses = a}) . _Default . _
 
 instance Hashable Destination
 
+instance NFData Destination
+
 instance ToQuery Destination where
         toQuery Destination'{..}
           = mconcat
@@ -418,6 +430,8 @@ efValue :: Lens' ExtensionField Text
 efValue = lens _efValue (\ s a -> s{_efValue = a});
 
 instance Hashable ExtensionField
+
+instance NFData ExtensionField
 
 instance ToQuery ExtensionField where
         toQuery ExtensionField'{..}
@@ -487,6 +501,8 @@ instance FromXML IdentityDkimAttributes where
 
 instance Hashable IdentityDkimAttributes
 
+instance NFData IdentityDkimAttributes
+
 -- | Represents the custom MAIL FROM domain attributes of a verified identity
 -- (email address or domain).
 --
@@ -552,6 +568,8 @@ instance FromXML IdentityMailFromDomainAttributes
                 <*> (x .@ "BehaviorOnMXFailure")
 
 instance Hashable IdentityMailFromDomainAttributes
+
+instance NFData IdentityMailFromDomainAttributes
 
 -- | Represents the notification attributes of an identity, including whether
 -- an identity has Amazon Simple Notification Service (Amazon SNS) topics
@@ -623,6 +641,8 @@ instance FromXML IdentityNotificationAttributes where
 
 instance Hashable IdentityNotificationAttributes
 
+instance NFData IdentityNotificationAttributes
+
 -- | Represents the verification attributes of a single identity.
 --
 -- /See:/ 'identityVerificationAttributes' smart constructor.
@@ -664,6 +684,8 @@ instance FromXML IdentityVerificationAttributes where
                 (x .@ "VerificationStatus")
 
 instance Hashable IdentityVerificationAttributes
+
+instance NFData IdentityVerificationAttributes
 
 -- | When included in a receipt rule, this action calls an AWS Lambda
 -- function and, optionally, publishes a notification to Amazon Simple
@@ -742,6 +764,8 @@ instance FromXML LambdaAction where
 
 instance Hashable LambdaAction
 
+instance NFData LambdaAction
+
 instance ToQuery LambdaAction where
         toQuery LambdaAction'{..}
           = mconcat
@@ -784,6 +808,8 @@ mBody :: Lens' Message Body
 mBody = lens _mBody (\ s a -> s{_mBody = a});
 
 instance Hashable Message
+
+instance NFData Message
 
 instance ToQuery Message where
         toQuery Message'{..}
@@ -841,6 +867,8 @@ mdReportingMta = lens _mdReportingMta (\ s a -> s{_mdReportingMta = a});
 
 instance Hashable MessageDsn
 
+instance NFData MessageDsn
+
 instance ToQuery MessageDsn where
         toQuery MessageDsn'{..}
           = mconcat
@@ -897,6 +925,8 @@ rmData :: Lens' RawMessage ByteString
 rmData = lens _rmData (\ s a -> s{_rmData = a}) . _Base64;
 
 instance Hashable RawMessage
+
+instance NFData RawMessage
 
 instance ToQuery RawMessage where
         toQuery RawMessage'{..} = mconcat ["Data" =: _rmData]
@@ -995,6 +1025,8 @@ instance FromXML ReceiptAction where
 
 instance Hashable ReceiptAction
 
+instance NFData ReceiptAction
+
 instance ToQuery ReceiptAction where
         toQuery ReceiptAction'{..}
           = mconcat
@@ -1056,6 +1088,8 @@ instance FromXML ReceiptFilter where
 
 instance Hashable ReceiptFilter
 
+instance NFData ReceiptFilter
+
 instance ToQuery ReceiptFilter where
         toQuery ReceiptFilter'{..}
           = mconcat
@@ -1109,6 +1143,8 @@ instance FromXML ReceiptIPFilter where
               (x .@ "Policy") <*> (x .@ "Cidr")
 
 instance Hashable ReceiptIPFilter
+
+instance NFData ReceiptIPFilter
 
 instance ToQuery ReceiptIPFilter where
         toQuery ReceiptIPFilter'{..}
@@ -1216,6 +1252,8 @@ instance FromXML ReceiptRule where
 
 instance Hashable ReceiptRule
 
+instance NFData ReceiptRule
+
 instance ToQuery ReceiptRule where
         toQuery ReceiptRule'{..}
           = mconcat
@@ -1276,6 +1314,8 @@ instance FromXML ReceiptRuleSetMetadata where
               (x .@? "Name") <*> (x .@? "CreatedTimestamp")
 
 instance Hashable ReceiptRuleSetMetadata
+
+instance NFData ReceiptRuleSetMetadata
 
 -- | Recipient-related information to include in the Delivery Status
 -- Notification (DSN) when an email that Amazon SES receives on your behalf
@@ -1373,6 +1413,8 @@ rdfStatus :: Lens' RecipientDsnFields Text
 rdfStatus = lens _rdfStatus (\ s a -> s{_rdfStatus = a});
 
 instance Hashable RecipientDsnFields
+
+instance NFData RecipientDsnFields
 
 instance ToQuery RecipientDsnFields where
         toQuery RecipientDsnFields'{..}
@@ -1499,6 +1541,8 @@ instance FromXML S3Action where
 
 instance Hashable S3Action
 
+instance NFData S3Action
+
 instance ToQuery S3Action where
         toQuery S3Action'{..}
           = mconcat
@@ -1573,6 +1617,8 @@ instance FromXML SNSAction where
 
 instance Hashable SNSAction
 
+instance NFData SNSAction
+
 instance ToQuery SNSAction where
         toQuery SNSAction'{..}
           = mconcat
@@ -1645,6 +1691,8 @@ instance FromXML SendDataPoint where
 
 instance Hashable SendDataPoint
 
+instance NFData SendDataPoint
+
 -- | When included in a receipt rule, this action terminates the evaluation
 -- of the receipt rule set and, optionally, publishes a notification to
 -- Amazon Simple Notification Service (Amazon SNS).
@@ -1693,6 +1741,8 @@ instance FromXML StopAction where
               (x .@? "TopicArn") <*> (x .@ "Scope")
 
 instance Hashable StopAction
+
+instance NFData StopAction
 
 instance ToQuery StopAction where
         toQuery StopAction'{..}
@@ -1752,6 +1802,8 @@ instance FromXML WorkmailAction where
               (x .@? "TopicArn") <*> (x .@ "OrganizationArn")
 
 instance Hashable WorkmailAction
+
+instance NFData WorkmailAction
 
 instance ToQuery WorkmailAction where
         toQuery WorkmailAction'{..}

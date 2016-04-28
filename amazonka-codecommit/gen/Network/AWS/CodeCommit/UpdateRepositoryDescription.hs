@@ -90,6 +90,8 @@ instance AWSRequest UpdateRepositoryDescription where
 
 instance Hashable UpdateRepositoryDescription
 
+instance NFData UpdateRepositoryDescription
+
 instance ToHeaders UpdateRepositoryDescription where
         toHeaders
           = const

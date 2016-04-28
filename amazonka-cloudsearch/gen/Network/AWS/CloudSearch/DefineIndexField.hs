@@ -97,6 +97,8 @@ instance AWSRequest DefineIndexField where
 
 instance Hashable DefineIndexField
 
+instance NFData DefineIndexField
+
 instance ToHeaders DefineIndexField where
         toHeaders = const mempty
 

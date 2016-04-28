@@ -120,6 +120,8 @@ instance AWSRequest RespondActivityTaskCompleted
 
 instance Hashable RespondActivityTaskCompleted
 
+instance NFData RespondActivityTaskCompleted
+
 instance ToHeaders RespondActivityTaskCompleted where
         toHeaders
           = const

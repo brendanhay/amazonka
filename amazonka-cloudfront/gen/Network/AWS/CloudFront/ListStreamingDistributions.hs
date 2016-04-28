@@ -112,6 +112,8 @@ instance AWSRequest ListStreamingDistributions where
 
 instance Hashable ListStreamingDistributions
 
+instance NFData ListStreamingDistributions
+
 instance ToHeaders ListStreamingDistributions where
         toHeaders = const mempty
 

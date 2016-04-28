@@ -83,6 +83,8 @@ instance AWSRequest DescribeConfigurationRecorders
 
 instance Hashable DescribeConfigurationRecorders
 
+instance NFData DescribeConfigurationRecorders
+
 instance ToHeaders DescribeConfigurationRecorders
          where
         toHeaders

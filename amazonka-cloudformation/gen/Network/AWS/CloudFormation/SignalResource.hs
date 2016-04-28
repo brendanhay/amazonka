@@ -113,6 +113,8 @@ instance AWSRequest SignalResource where
 
 instance Hashable SignalResource
 
+instance NFData SignalResource
+
 instance ToHeaders SignalResource where
         toHeaders = const mempty
 

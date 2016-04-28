@@ -83,6 +83,8 @@ instance AWSRequest DeleteDHCPOptions where
 
 instance Hashable DeleteDHCPOptions
 
+instance NFData DeleteDHCPOptions
+
 instance ToHeaders DeleteDHCPOptions where
         toHeaders = const mempty
 

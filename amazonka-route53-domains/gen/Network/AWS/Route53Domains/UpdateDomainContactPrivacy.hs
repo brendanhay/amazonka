@@ -159,6 +159,8 @@ instance AWSRequest UpdateDomainContactPrivacy where
 
 instance Hashable UpdateDomainContactPrivacy
 
+instance NFData UpdateDomainContactPrivacy
+
 instance ToHeaders UpdateDomainContactPrivacy where
         toHeaders
           = const

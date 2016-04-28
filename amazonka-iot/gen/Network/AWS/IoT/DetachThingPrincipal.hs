@@ -87,6 +87,8 @@ instance AWSRequest DetachThingPrincipal where
 
 instance Hashable DetachThingPrincipal
 
+instance NFData DetachThingPrincipal
+
 instance ToHeaders DetachThingPrincipal where
         toHeaders DetachThingPrincipal'{..}
           = mconcat ["x-amzn-principal" =# _dtpPrincipal]

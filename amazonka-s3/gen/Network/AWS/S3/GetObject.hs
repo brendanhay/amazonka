@@ -297,6 +297,8 @@ instance AWSRequest GetObject where
 
 instance Hashable GetObject
 
+instance NFData GetObject
+
 instance ToHeaders GetObject where
         toHeaders GetObject'{..}
           = mconcat

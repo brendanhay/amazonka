@@ -83,6 +83,8 @@ instance AWSRequest EnableVPCClassicLinkDNSSupport
 
 instance Hashable EnableVPCClassicLinkDNSSupport
 
+instance NFData EnableVPCClassicLinkDNSSupport
+
 instance ToHeaders EnableVPCClassicLinkDNSSupport
          where
         toHeaders = const mempty

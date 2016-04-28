@@ -108,6 +108,8 @@ instance AWSRequest GetIdentityPolicies where
 
 instance Hashable GetIdentityPolicies
 
+instance NFData GetIdentityPolicies
+
 instance ToHeaders GetIdentityPolicies where
         toHeaders = const mempty
 

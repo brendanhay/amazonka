@@ -75,6 +75,8 @@ instance AWSRequest DescribeRun where
 
 instance Hashable DescribeRun
 
+instance NFData DescribeRun
+
 instance ToHeaders DescribeRun where
         toHeaders
           = const

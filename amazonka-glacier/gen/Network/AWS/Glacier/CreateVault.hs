@@ -117,6 +117,8 @@ instance AWSRequest CreateVault where
 
 instance Hashable CreateVault
 
+instance NFData CreateVault
+
 instance ToHeaders CreateVault where
         toHeaders = const mempty
 

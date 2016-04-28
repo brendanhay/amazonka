@@ -136,6 +136,8 @@ instance AWSRequest CreateReservedInstancesListing
 
 instance Hashable CreateReservedInstancesListing
 
+instance NFData CreateReservedInstancesListing
+
 instance ToHeaders CreateReservedInstancesListing
          where
         toHeaders = const mempty

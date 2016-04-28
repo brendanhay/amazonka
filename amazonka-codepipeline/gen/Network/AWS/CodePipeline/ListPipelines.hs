@@ -80,6 +80,8 @@ instance AWSRequest ListPipelines where
 
 instance Hashable ListPipelines
 
+instance NFData ListPipelines
+
 instance ToHeaders ListPipelines where
         toHeaders
           = const

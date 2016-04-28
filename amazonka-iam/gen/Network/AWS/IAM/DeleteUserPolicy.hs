@@ -86,6 +86,8 @@ instance AWSRequest DeleteUserPolicy where
 
 instance Hashable DeleteUserPolicy
 
+instance NFData DeleteUserPolicy
+
 instance ToHeaders DeleteUserPolicy where
         toHeaders = const mempty
 

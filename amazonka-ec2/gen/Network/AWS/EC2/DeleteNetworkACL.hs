@@ -81,6 +81,8 @@ instance AWSRequest DeleteNetworkACL where
 
 instance Hashable DeleteNetworkACL
 
+instance NFData DeleteNetworkACL
+
 instance ToHeaders DeleteNetworkACL where
         toHeaders = const mempty
 

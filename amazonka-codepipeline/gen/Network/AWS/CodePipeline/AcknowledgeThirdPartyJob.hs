@@ -103,6 +103,8 @@ instance AWSRequest AcknowledgeThirdPartyJob where
 
 instance Hashable AcknowledgeThirdPartyJob
 
+instance NFData AcknowledgeThirdPartyJob
+
 instance ToHeaders AcknowledgeThirdPartyJob where
         toHeaders
           = const

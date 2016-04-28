@@ -90,6 +90,8 @@ instance AWSRequest ListSuites where
 
 instance Hashable ListSuites
 
+instance NFData ListSuites
+
 instance ToHeaders ListSuites where
         toHeaders
           = const

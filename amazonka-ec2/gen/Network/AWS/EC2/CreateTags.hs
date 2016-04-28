@@ -101,6 +101,8 @@ instance AWSRequest CreateTags where
 
 instance Hashable CreateTags
 
+instance NFData CreateTags
+
 instance ToHeaders CreateTags where
         toHeaders = const mempty
 

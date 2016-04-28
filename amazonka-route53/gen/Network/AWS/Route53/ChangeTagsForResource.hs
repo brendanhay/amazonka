@@ -114,6 +114,8 @@ instance AWSRequest ChangeTagsForResource where
 
 instance Hashable ChangeTagsForResource
 
+instance NFData ChangeTagsForResource
+
 instance ToElement ChangeTagsForResource where
         toElement
           = mkElement

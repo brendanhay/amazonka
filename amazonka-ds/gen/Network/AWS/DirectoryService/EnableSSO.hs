@@ -103,6 +103,8 @@ instance AWSRequest EnableSSO where
 
 instance Hashable EnableSSO
 
+instance NFData EnableSSO
+
 instance ToHeaders EnableSSO where
         toHeaders
           = const

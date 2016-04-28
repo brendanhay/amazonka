@@ -126,6 +126,8 @@ instance AWSRequest DescribeEventSubscriptions where
 
 instance Hashable DescribeEventSubscriptions
 
+instance NFData DescribeEventSubscriptions
+
 instance ToHeaders DescribeEventSubscriptions where
         toHeaders = const mempty
 

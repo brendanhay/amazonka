@@ -122,6 +122,8 @@ instance AWSRequest Subscribe where
 
 instance Hashable Subscribe
 
+instance NFData Subscribe
+
 instance ToHeaders Subscribe where
         toHeaders = const mempty
 

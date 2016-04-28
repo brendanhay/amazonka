@@ -352,6 +352,8 @@ instance AWSRequest RestoreFromClusterSnapshot where
 
 instance Hashable RestoreFromClusterSnapshot
 
+instance NFData RestoreFromClusterSnapshot
+
 instance ToHeaders RestoreFromClusterSnapshot where
         toHeaders = const mempty
 

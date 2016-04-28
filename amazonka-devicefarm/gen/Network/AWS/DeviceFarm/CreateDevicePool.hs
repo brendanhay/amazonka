@@ -105,6 +105,8 @@ instance AWSRequest CreateDevicePool where
 
 instance Hashable CreateDevicePool
 
+instance NFData CreateDevicePool
+
 instance ToHeaders CreateDevicePool where
         toHeaders
           = const

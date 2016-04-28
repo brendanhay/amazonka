@@ -105,6 +105,8 @@ instance AWSRequest ListSubscriptionsByTopic where
 
 instance Hashable ListSubscriptionsByTopic
 
+instance NFData ListSubscriptionsByTopic
+
 instance ToHeaders ListSubscriptionsByTopic where
         toHeaders = const mempty
 

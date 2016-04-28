@@ -46,6 +46,7 @@ instance ToText OperatorType where
         OperatorRefEQ -> "REF_EQ"
 
 instance Hashable     OperatorType
+instance NFData       OperatorType
 instance ToByteString OperatorType
 instance ToQuery      OperatorType
 instance ToHeader     OperatorType
@@ -74,6 +75,7 @@ instance ToText TaskStatus where
         Finished -> "FINISHED"
 
 instance Hashable     TaskStatus
+instance NFData       TaskStatus
 instance ToByteString TaskStatus
 instance ToQuery      TaskStatus
 instance ToHeader     TaskStatus

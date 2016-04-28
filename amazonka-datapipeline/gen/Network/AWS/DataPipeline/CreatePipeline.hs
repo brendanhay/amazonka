@@ -122,6 +122,8 @@ instance AWSRequest CreatePipeline where
 
 instance Hashable CreatePipeline
 
+instance NFData CreatePipeline
+
 instance ToHeaders CreatePipeline where
         toHeaders
           = const

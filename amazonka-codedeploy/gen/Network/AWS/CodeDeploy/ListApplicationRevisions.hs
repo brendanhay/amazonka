@@ -164,6 +164,8 @@ instance AWSRequest ListApplicationRevisions where
 
 instance Hashable ListApplicationRevisions
 
+instance NFData ListApplicationRevisions
+
 instance ToHeaders ListApplicationRevisions where
         toHeaders
           = const

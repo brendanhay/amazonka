@@ -81,6 +81,9 @@ instance AWSRequest
 instance Hashable
          DescribeTrustedAdvisorCheckRefreshStatuses
 
+instance NFData
+         DescribeTrustedAdvisorCheckRefreshStatuses
+
 instance ToHeaders
          DescribeTrustedAdvisorCheckRefreshStatuses where
         toHeaders

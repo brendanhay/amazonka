@@ -80,6 +80,8 @@ instance AWSRequest DescribeRefreshSchemasStatus
 
 instance Hashable DescribeRefreshSchemasStatus
 
+instance NFData DescribeRefreshSchemasStatus
+
 instance ToHeaders DescribeRefreshSchemasStatus where
         toHeaders
           = const

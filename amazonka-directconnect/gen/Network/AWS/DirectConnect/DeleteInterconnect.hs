@@ -78,6 +78,8 @@ instance AWSRequest DeleteInterconnect where
 
 instance Hashable DeleteInterconnect
 
+instance NFData DeleteInterconnect
+
 instance ToHeaders DeleteInterconnect where
         toHeaders
           = const

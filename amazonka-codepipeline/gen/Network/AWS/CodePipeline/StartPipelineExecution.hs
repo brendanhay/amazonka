@@ -80,6 +80,8 @@ instance AWSRequest StartPipelineExecution where
 
 instance Hashable StartPipelineExecution
 
+instance NFData StartPipelineExecution
+
 instance ToHeaders StartPipelineExecution where
         toHeaders
           = const

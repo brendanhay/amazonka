@@ -171,6 +171,8 @@ instance AWSRequest DescribeReservedInstances where
 
 instance Hashable DescribeReservedInstances
 
+instance NFData DescribeReservedInstances
+
 instance ToHeaders DescribeReservedInstances where
         toHeaders = const mempty
 

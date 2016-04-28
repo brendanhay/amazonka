@@ -96,6 +96,8 @@ instance AWSRequest DescribeIdentityUsage where
 
 instance Hashable DescribeIdentityUsage
 
+instance NFData DescribeIdentityUsage
+
 instance ToHeaders DescribeIdentityUsage where
         toHeaders
           = const

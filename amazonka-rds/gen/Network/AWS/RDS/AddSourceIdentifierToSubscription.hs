@@ -105,6 +105,8 @@ instance AWSRequest AddSourceIdentifierToSubscription
 
 instance Hashable AddSourceIdentifierToSubscription
 
+instance NFData AddSourceIdentifierToSubscription
+
 instance ToHeaders AddSourceIdentifierToSubscription
          where
         toHeaders = const mempty

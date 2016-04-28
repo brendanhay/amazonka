@@ -131,6 +131,8 @@ instance AWSRequest CompleteMultipartUpload where
 
 instance Hashable CompleteMultipartUpload
 
+instance NFData CompleteMultipartUpload
+
 instance ToElement CompleteMultipartUpload where
         toElement
           = mkElement

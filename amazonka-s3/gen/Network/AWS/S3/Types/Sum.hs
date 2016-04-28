@@ -44,6 +44,7 @@ instance ToText BucketCannedACL where
         BPublicReadWrite -> "public-read-write"
 
 instance Hashable     BucketCannedACL
+instance NFData       BucketCannedACL
 instance ToByteString BucketCannedACL
 instance ToQuery      BucketCannedACL
 instance ToHeader     BucketCannedACL
@@ -72,6 +73,7 @@ instance ToText BucketLogsPermission where
         Write -> "WRITE"
 
 instance Hashable     BucketLogsPermission
+instance NFData       BucketLogsPermission
 instance ToByteString BucketLogsPermission
 instance ToQuery      BucketLogsPermission
 instance ToHeader     BucketLogsPermission
@@ -100,6 +102,7 @@ instance ToText BucketVersioningStatus where
         BVSSuspended -> "Suspended"
 
 instance Hashable     BucketVersioningStatus
+instance NFData       BucketVersioningStatus
 instance ToByteString BucketVersioningStatus
 instance ToQuery      BucketVersioningStatus
 instance ToHeader     BucketVersioningStatus
@@ -131,6 +134,7 @@ instance ToText EncodingType where
         URL -> "url"
 
 instance Hashable     EncodingType
+instance NFData       EncodingType
 instance ToByteString EncodingType
 instance ToQuery      EncodingType
 instance ToHeader     EncodingType
@@ -181,6 +185,7 @@ instance ToText Event where
         S3ReducedRedundancyLostObject -> "s3:ReducedRedundancyLostObject"
 
 instance Hashable     Event
+instance NFData       Event
 instance ToByteString Event
 instance ToQuery      Event
 instance ToHeader     Event
@@ -209,6 +214,7 @@ instance ToText ExpirationStatus where
         ESEnabled -> "Enabled"
 
 instance Hashable     ExpirationStatus
+instance NFData       ExpirationStatus
 instance ToByteString ExpirationStatus
 instance ToQuery      ExpirationStatus
 instance ToHeader     ExpirationStatus
@@ -237,6 +243,7 @@ instance ToText FilterRuleName where
         Suffix -> "suffix"
 
 instance Hashable     FilterRuleName
+instance NFData       FilterRuleName
 instance ToByteString FilterRuleName
 instance ToQuery      FilterRuleName
 instance ToHeader     FilterRuleName
@@ -265,6 +272,7 @@ instance ToText MFADelete where
         MDEnabled -> "Enabled"
 
 instance Hashable     MFADelete
+instance NFData       MFADelete
 instance ToByteString MFADelete
 instance ToQuery      MFADelete
 instance ToHeader     MFADelete
@@ -290,6 +298,7 @@ instance ToText MFADeleteStatus where
         MDSEnabled -> "Enabled"
 
 instance Hashable     MFADeleteStatus
+instance NFData       MFADeleteStatus
 instance ToByteString MFADeleteStatus
 instance ToQuery      MFADeleteStatus
 instance ToHeader     MFADeleteStatus
@@ -315,6 +324,7 @@ instance ToText MetadataDirective where
         Replace -> "REPLACE"
 
 instance Hashable     MetadataDirective
+instance NFData       MetadataDirective
 instance ToByteString MetadataDirective
 instance ToQuery      MetadataDirective
 instance ToHeader     MetadataDirective
@@ -355,6 +365,7 @@ instance ToText ObjectCannedACL where
         OPublicReadWrite -> "public-read-write"
 
 instance Hashable     ObjectCannedACL
+instance NFData       ObjectCannedACL
 instance ToByteString ObjectCannedACL
 instance ToQuery      ObjectCannedACL
 instance ToHeader     ObjectCannedACL
@@ -386,6 +397,7 @@ instance ToText ObjectStorageClass where
         OSCStandardIA -> "STANDARD_IA"
 
 instance Hashable     ObjectStorageClass
+instance NFData       ObjectStorageClass
 instance ToByteString ObjectStorageClass
 instance ToQuery      ObjectStorageClass
 instance ToHeader     ObjectStorageClass
@@ -408,6 +420,7 @@ instance ToText ObjectVersionStorageClass where
         OVSCStandard -> "STANDARD"
 
 instance Hashable     ObjectVersionStorageClass
+instance NFData       ObjectVersionStorageClass
 instance ToByteString ObjectVersionStorageClass
 instance ToQuery      ObjectVersionStorageClass
 instance ToHeader     ObjectVersionStorageClass
@@ -433,6 +446,7 @@ instance ToText Payer where
         Requester -> "Requester"
 
 instance Hashable     Payer
+instance NFData       Payer
 instance ToByteString Payer
 instance ToQuery      Payer
 instance ToHeader     Payer
@@ -470,6 +484,7 @@ instance ToText Permission where
         PWriteAcp -> "WRITE_ACP"
 
 instance Hashable     Permission
+instance NFData       Permission
 instance ToByteString Permission
 instance ToQuery      Permission
 instance ToHeader     Permission
@@ -498,6 +513,7 @@ instance ToText Protocol where
         HTTPS -> "https"
 
 instance Hashable     Protocol
+instance NFData       Protocol
 instance ToByteString Protocol
 instance ToQuery      Protocol
 instance ToHeader     Protocol
@@ -526,6 +542,7 @@ instance ToText ReplicationRuleStatus where
         Enabled -> "Enabled"
 
 instance Hashable     ReplicationRuleStatus
+instance NFData       ReplicationRuleStatus
 instance ToByteString ReplicationRuleStatus
 instance ToQuery      ReplicationRuleStatus
 instance ToHeader     ReplicationRuleStatus
@@ -560,6 +577,7 @@ instance ToText ReplicationStatus where
         Replica -> "REPLICA"
 
 instance Hashable     ReplicationStatus
+instance NFData       ReplicationStatus
 instance ToByteString ReplicationStatus
 instance ToQuery      ReplicationStatus
 instance ToHeader     ReplicationStatus
@@ -584,6 +602,7 @@ instance ToText RequestCharged where
         RCRequester -> "requester"
 
 instance Hashable     RequestCharged
+instance NFData       RequestCharged
 instance ToByteString RequestCharged
 instance ToQuery      RequestCharged
 instance ToHeader     RequestCharged
@@ -611,6 +630,7 @@ instance ToText RequestPayer where
         RPRequester -> "requester"
 
 instance Hashable     RequestPayer
+instance NFData       RequestPayer
 instance ToByteString RequestPayer
 instance ToQuery      RequestPayer
 instance ToHeader     RequestPayer
@@ -636,6 +656,7 @@ instance ToText ServerSideEncryption where
         AWSKMS -> "aws:kms"
 
 instance Hashable     ServerSideEncryption
+instance NFData       ServerSideEncryption
 instance ToByteString ServerSideEncryption
 instance ToQuery      ServerSideEncryption
 instance ToHeader     ServerSideEncryption
@@ -667,6 +688,7 @@ instance ToText StorageClass where
         StandardIA -> "STANDARD_IA"
 
 instance Hashable     StorageClass
+instance NFData       StorageClass
 instance ToByteString StorageClass
 instance ToQuery      StorageClass
 instance ToHeader     StorageClass
@@ -695,6 +717,7 @@ instance ToText TransitionStorageClass where
         TSCStandardIA -> "STANDARD_IA"
 
 instance Hashable     TransitionStorageClass
+instance NFData       TransitionStorageClass
 instance ToByteString TransitionStorageClass
 instance ToQuery      TransitionStorageClass
 instance ToHeader     TransitionStorageClass
@@ -726,6 +749,7 @@ instance ToText Type where
         Group -> "Group"
 
 instance Hashable     Type
+instance NFData       Type
 instance ToByteString Type
 instance ToQuery      Type
 instance ToHeader     Type

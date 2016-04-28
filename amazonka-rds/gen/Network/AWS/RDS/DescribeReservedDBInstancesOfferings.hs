@@ -190,6 +190,8 @@ instance AWSRequest
 instance Hashable
          DescribeReservedDBInstancesOfferings
 
+instance NFData DescribeReservedDBInstancesOfferings
+
 instance ToHeaders
          DescribeReservedDBInstancesOfferings where
         toHeaders = const mempty

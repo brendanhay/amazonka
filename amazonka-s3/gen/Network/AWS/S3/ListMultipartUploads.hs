@@ -171,6 +171,8 @@ instance AWSRequest ListMultipartUploads where
 
 instance Hashable ListMultipartUploads
 
+instance NFData ListMultipartUploads
+
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty
 

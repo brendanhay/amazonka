@@ -121,6 +121,8 @@ instance AWSRequest EnableSnapshotCopy where
 
 instance Hashable EnableSnapshotCopy
 
+instance NFData EnableSnapshotCopy
+
 instance ToHeaders EnableSnapshotCopy where
         toHeaders = const mempty
 

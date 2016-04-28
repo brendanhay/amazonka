@@ -145,6 +145,8 @@ instance AWSRequest DescribeClusterVersions where
 
 instance Hashable DescribeClusterVersions
 
+instance NFData DescribeClusterVersions
+
 instance ToHeaders DescribeClusterVersions where
         toHeaders = const mempty
 

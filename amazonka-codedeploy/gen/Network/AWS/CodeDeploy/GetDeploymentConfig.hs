@@ -80,6 +80,8 @@ instance AWSRequest GetDeploymentConfig where
 
 instance Hashable GetDeploymentConfig
 
+instance NFData GetDeploymentConfig
+
 instance ToHeaders GetDeploymentConfig where
         toHeaders
           = const

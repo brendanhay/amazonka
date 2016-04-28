@@ -94,6 +94,8 @@ instance AWSRequest DefineAnalysisScheme where
 
 instance Hashable DefineAnalysisScheme
 
+instance NFData DefineAnalysisScheme
+
 instance ToHeaders DefineAnalysisScheme where
         toHeaders = const mempty
 

@@ -100,6 +100,8 @@ instance AWSRequest RebootCacheCluster where
 
 instance Hashable RebootCacheCluster
 
+instance NFData RebootCacheCluster
+
 instance ToHeaders RebootCacheCluster where
         toHeaders = const mempty
 

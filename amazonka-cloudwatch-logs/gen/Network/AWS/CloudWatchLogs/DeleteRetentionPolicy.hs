@@ -72,6 +72,8 @@ instance AWSRequest DeleteRetentionPolicy where
 
 instance Hashable DeleteRetentionPolicy
 
+instance NFData DeleteRetentionPolicy
+
 instance ToHeaders DeleteRetentionPolicy where
         toHeaders
           = const

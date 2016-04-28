@@ -85,6 +85,8 @@ instance AWSRequest DeletePlacementGroup where
 
 instance Hashable DeletePlacementGroup
 
+instance NFData DeletePlacementGroup
+
 instance ToHeaders DeletePlacementGroup where
         toHeaders = const mempty
 

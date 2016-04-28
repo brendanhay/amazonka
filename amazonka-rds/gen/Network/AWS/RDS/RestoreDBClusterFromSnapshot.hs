@@ -237,6 +237,8 @@ instance AWSRequest RestoreDBClusterFromSnapshot
 
 instance Hashable RestoreDBClusterFromSnapshot
 
+instance NFData RestoreDBClusterFromSnapshot
+
 instance ToHeaders RestoreDBClusterFromSnapshot where
         toHeaders = const mempty
 

@@ -40,6 +40,7 @@ instance ToText ArtifactCategory where
         ACScreenshot -> "SCREENSHOT"
 
 instance Hashable     ArtifactCategory
+instance NFData       ArtifactCategory
 instance ToByteString ArtifactCategory
 instance ToQuery      ArtifactCategory
 instance ToHeader     ArtifactCategory
@@ -128,6 +129,7 @@ instance ToText ArtifactType where
         XctestLog -> "XCTEST_LOG"
 
 instance Hashable     ArtifactType
+instance NFData       ArtifactType
 instance ToByteString ArtifactType
 instance ToQuery      ArtifactType
 instance ToHeader     ArtifactType
@@ -153,6 +155,7 @@ instance ToText BillingMethod where
         Unmetered -> "UNMETERED"
 
 instance Hashable     BillingMethod
+instance NFData       BillingMethod
 instance ToByteString BillingMethod
 instance ToQuery      BillingMethod
 instance ToHeader     BillingMethod
@@ -187,6 +190,7 @@ instance ToText DeviceAttribute where
         Platform -> "PLATFORM"
 
 instance Hashable     DeviceAttribute
+instance NFData       DeviceAttribute
 instance ToByteString DeviceAttribute
 instance ToQuery      DeviceAttribute
 instance ToHeader     DeviceAttribute
@@ -215,6 +219,7 @@ instance ToText DeviceFormFactor where
         Tablet -> "TABLET"
 
 instance Hashable     DeviceFormFactor
+instance NFData       DeviceFormFactor
 instance ToByteString DeviceFormFactor
 instance ToQuery      DeviceFormFactor
 instance ToHeader     DeviceFormFactor
@@ -240,6 +245,7 @@ instance ToText DevicePlatform where
         Ios -> "IOS"
 
 instance Hashable     DevicePlatform
+instance NFData       DevicePlatform
 instance ToByteString DevicePlatform
 instance ToQuery      DevicePlatform
 instance ToHeader     DevicePlatform
@@ -265,6 +271,7 @@ instance ToText DevicePoolType where
         Private -> "PRIVATE"
 
 instance Hashable     DevicePoolType
+instance NFData       DevicePoolType
 instance ToByteString DevicePoolType
 instance ToQuery      DevicePoolType
 instance ToHeader     DevicePoolType
@@ -308,6 +315,7 @@ instance ToText ExecutionResult where
         ERWarned -> "WARNED"
 
 instance Hashable     ExecutionResult
+instance NFData       ExecutionResult
 instance ToByteString ExecutionResult
 instance ToQuery      ExecutionResult
 instance ToHeader     ExecutionResult
@@ -342,6 +350,7 @@ instance ToText ExecutionStatus where
         Scheduling -> "SCHEDULING"
 
 instance Hashable     ExecutionStatus
+instance NFData       ExecutionStatus
 instance ToByteString ExecutionStatus
 instance ToQuery      ExecutionStatus
 instance ToHeader     ExecutionStatus
@@ -376,6 +385,7 @@ instance ToText RuleOperator where
         NotIn -> "NOT_IN"
 
 instance Hashable     RuleOperator
+instance NFData       RuleOperator
 instance ToByteString RuleOperator
 instance ToQuery      RuleOperator
 instance ToHeader     RuleOperator
@@ -449,6 +459,7 @@ instance ToText SampleType where
         TxRate -> "TX_RATE"
 
 instance Hashable     SampleType
+instance NFData       SampleType
 instance ToByteString SampleType
 instance ToQuery      SampleType
 instance ToHeader     SampleType
@@ -510,6 +521,7 @@ instance ToText TestType where
         XctestUi -> "XCTEST_UI"
 
 instance Hashable     TestType
+instance NFData       TestType
 instance ToByteString TestType
 instance ToQuery      TestType
 instance ToHeader     TestType
@@ -544,6 +556,7 @@ instance ToText UploadStatus where
         USSucceeded -> "SUCCEEDED"
 
 instance Hashable     UploadStatus
+instance NFData       UploadStatus
 instance ToByteString UploadStatus
 instance ToQuery      UploadStatus
 instance ToHeader     UploadStatus
@@ -611,6 +624,7 @@ instance ToText UploadType where
         XctestUiTestPackage -> "XCTEST_UI_TEST_PACKAGE"
 
 instance Hashable     UploadType
+instance NFData       UploadType
 instance ToByteString UploadType
 instance ToQuery      UploadType
 instance ToHeader     UploadType

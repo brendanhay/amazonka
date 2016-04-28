@@ -93,6 +93,8 @@ instance AWSRequest DefineExpression where
 
 instance Hashable DefineExpression
 
+instance NFData DefineExpression
+
 instance ToHeaders DefineExpression where
         toHeaders = const mempty
 

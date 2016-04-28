@@ -77,6 +77,8 @@ instance AWSRequest GetSnapshotLimits where
 
 instance Hashable GetSnapshotLimits
 
+instance NFData GetSnapshotLimits
+
 instance ToHeaders GetSnapshotLimits where
         toHeaders
           = const

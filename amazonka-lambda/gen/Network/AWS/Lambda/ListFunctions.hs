@@ -109,6 +109,8 @@ instance AWSRequest ListFunctions where
 
 instance Hashable ListFunctions
 
+instance NFData ListFunctions
+
 instance ToHeaders ListFunctions where
         toHeaders = const mempty
 

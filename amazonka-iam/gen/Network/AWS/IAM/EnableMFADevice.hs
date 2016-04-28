@@ -101,6 +101,8 @@ instance AWSRequest EnableMFADevice where
 
 instance Hashable EnableMFADevice
 
+instance NFData EnableMFADevice
+
 instance ToHeaders EnableMFADevice where
         toHeaders = const mempty
 

@@ -137,6 +137,8 @@ instance AWSRequest CreateTrust where
 
 instance Hashable CreateTrust
 
+instance NFData CreateTrust
+
 instance ToHeaders CreateTrust where
         toHeaders
           = const

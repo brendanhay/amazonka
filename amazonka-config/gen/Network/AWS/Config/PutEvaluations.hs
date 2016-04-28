@@ -90,6 +90,8 @@ instance AWSRequest PutEvaluations where
 
 instance Hashable PutEvaluations
 
+instance NFData PutEvaluations
+
 instance ToHeaders PutEvaluations where
         toHeaders
           = const

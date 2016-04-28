@@ -88,6 +88,8 @@ instance AWSRequest UpdateRadius where
 
 instance Hashable UpdateRadius
 
+instance NFData UpdateRadius
+
 instance ToHeaders UpdateRadius where
         toHeaders
           = const

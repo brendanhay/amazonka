@@ -75,6 +75,8 @@ instance AWSRequest DescribeDocument where
 
 instance Hashable DescribeDocument
 
+instance NFData DescribeDocument
+
 instance ToHeaders DescribeDocument where
         toHeaders
           = const

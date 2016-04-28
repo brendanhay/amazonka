@@ -208,6 +208,8 @@ instance AWSRequest DescribeImages where
 
 instance Hashable DescribeImages
 
+instance NFData DescribeImages
+
 instance ToHeaders DescribeImages where
         toHeaders = const mempty
 

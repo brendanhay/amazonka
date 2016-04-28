@@ -135,6 +135,8 @@ instance AWSRequest CreateTapes where
 
 instance Hashable CreateTapes
 
+instance NFData CreateTapes
+
 instance ToHeaders CreateTapes where
         toHeaders
           = const

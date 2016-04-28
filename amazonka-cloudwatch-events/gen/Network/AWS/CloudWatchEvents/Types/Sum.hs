@@ -37,6 +37,7 @@ instance ToText RuleState where
         Enabled -> "ENABLED"
 
 instance Hashable     RuleState
+instance NFData       RuleState
 instance ToByteString RuleState
 instance ToQuery      RuleState
 instance ToHeader     RuleState

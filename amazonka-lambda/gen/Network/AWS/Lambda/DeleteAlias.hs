@@ -82,6 +82,8 @@ instance AWSRequest DeleteAlias where
 
 instance Hashable DeleteAlias
 
+instance NFData DeleteAlias
+
 instance ToHeaders DeleteAlias where
         toHeaders = const mempty
 

@@ -81,6 +81,8 @@ instance AWSRequest EnableVolumeIO where
 
 instance Hashable EnableVolumeIO
 
+instance NFData EnableVolumeIO
+
 instance ToHeaders EnableVolumeIO where
         toHeaders = const mempty
 

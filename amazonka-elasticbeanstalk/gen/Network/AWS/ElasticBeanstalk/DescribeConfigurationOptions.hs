@@ -129,6 +129,8 @@ instance AWSRequest DescribeConfigurationOptions
 
 instance Hashable DescribeConfigurationOptions
 
+instance NFData DescribeConfigurationOptions
+
 instance ToHeaders DescribeConfigurationOptions where
         toHeaders = const mempty
 

@@ -82,6 +82,8 @@ instance AWSRequest RotateEncryptionKey where
 
 instance Hashable RotateEncryptionKey
 
+instance NFData RotateEncryptionKey
+
 instance ToHeaders RotateEncryptionKey where
         toHeaders = const mempty
 

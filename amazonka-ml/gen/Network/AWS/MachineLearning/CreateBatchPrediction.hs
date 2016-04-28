@@ -139,6 +139,8 @@ instance AWSRequest CreateBatchPrediction where
 
 instance Hashable CreateBatchPrediction
 
+instance NFData CreateBatchPrediction
+
 instance ToHeaders CreateBatchPrediction where
         toHeaders
           = const

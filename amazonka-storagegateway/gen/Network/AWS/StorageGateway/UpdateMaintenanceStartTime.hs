@@ -118,6 +118,8 @@ instance AWSRequest UpdateMaintenanceStartTime where
 
 instance Hashable UpdateMaintenanceStartTime
 
+instance NFData UpdateMaintenanceStartTime
+
 instance ToHeaders UpdateMaintenanceStartTime where
         toHeaders
           = const

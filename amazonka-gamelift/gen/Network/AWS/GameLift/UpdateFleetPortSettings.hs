@@ -101,6 +101,8 @@ instance AWSRequest UpdateFleetPortSettings where
 
 instance Hashable UpdateFleetPortSettings
 
+instance NFData UpdateFleetPortSettings
+
 instance ToHeaders UpdateFleetPortSettings where
         toHeaders
           = const

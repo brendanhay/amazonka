@@ -80,6 +80,8 @@ instance AWSRequest GetStreamingDistribution where
 
 instance Hashable GetStreamingDistribution
 
+instance NFData GetStreamingDistribution
+
 instance ToHeaders GetStreamingDistribution where
         toHeaders = const mempty
 

@@ -157,6 +157,8 @@ instance AWSRequest DescribeCacheEngineVersions where
 
 instance Hashable DescribeCacheEngineVersions
 
+instance NFData DescribeCacheEngineVersions
+
 instance ToHeaders DescribeCacheEngineVersions where
         toHeaders = const mempty
 

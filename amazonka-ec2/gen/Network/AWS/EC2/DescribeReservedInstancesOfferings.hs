@@ -285,6 +285,8 @@ instance AWSRequest
 
 instance Hashable DescribeReservedInstancesOfferings
 
+instance NFData DescribeReservedInstancesOfferings
+
 instance ToHeaders DescribeReservedInstancesOfferings
          where
         toHeaders = const mempty

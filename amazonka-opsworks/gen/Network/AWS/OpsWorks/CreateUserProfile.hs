@@ -113,6 +113,8 @@ instance AWSRequest CreateUserProfile where
 
 instance Hashable CreateUserProfile
 
+instance NFData CreateUserProfile
+
 instance ToHeaders CreateUserProfile where
         toHeaders
           = const

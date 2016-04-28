@@ -117,6 +117,8 @@ instance AWSRequest CreateFileSystem where
 
 instance Hashable CreateFileSystem
 
+instance NFData CreateFileSystem
+
 instance ToHeaders CreateFileSystem where
         toHeaders = const mempty
 

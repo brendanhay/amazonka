@@ -156,6 +156,8 @@ instance AWSRequest CreateDataSourceFromS3 where
 
 instance Hashable CreateDataSourceFromS3
 
+instance NFData CreateDataSourceFromS3
+
 instance ToHeaders CreateDataSourceFromS3 where
         toHeaders
           = const

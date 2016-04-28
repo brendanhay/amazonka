@@ -112,6 +112,8 @@ instance AWSRequest
 
 instance Hashable DescribeNotificationConfigurations
 
+instance NFData DescribeNotificationConfigurations
+
 instance ToHeaders DescribeNotificationConfigurations
          where
         toHeaders = const mempty

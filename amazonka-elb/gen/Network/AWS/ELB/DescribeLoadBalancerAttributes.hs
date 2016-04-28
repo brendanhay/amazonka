@@ -79,6 +79,8 @@ instance AWSRequest DescribeLoadBalancerAttributes
 
 instance Hashable DescribeLoadBalancerAttributes
 
+instance NFData DescribeLoadBalancerAttributes
+
 instance ToHeaders DescribeLoadBalancerAttributes
          where
         toHeaders = const mempty

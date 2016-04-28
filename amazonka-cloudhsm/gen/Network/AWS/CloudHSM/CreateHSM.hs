@@ -160,6 +160,8 @@ instance AWSRequest CreateHSM where
 
 instance Hashable CreateHSM
 
+instance NFData CreateHSM
+
 instance ToHeaders CreateHSM where
         toHeaders
           = const

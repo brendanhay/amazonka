@@ -104,6 +104,8 @@ instance AWSRequest DeleteClusterSnapshot where
 
 instance Hashable DeleteClusterSnapshot
 
+instance NFData DeleteClusterSnapshot
+
 instance ToHeaders DeleteClusterSnapshot where
         toHeaders = const mempty
 

@@ -86,6 +86,8 @@ instance AWSRequest DeleteRolePolicy where
 
 instance Hashable DeleteRolePolicy
 
+instance NFData DeleteRolePolicy
+
 instance ToHeaders DeleteRolePolicy where
         toHeaders = const mempty
 

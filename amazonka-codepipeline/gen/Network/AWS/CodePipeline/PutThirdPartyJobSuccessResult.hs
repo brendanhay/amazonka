@@ -115,6 +115,8 @@ instance AWSRequest PutThirdPartyJobSuccessResult
 
 instance Hashable PutThirdPartyJobSuccessResult
 
+instance NFData PutThirdPartyJobSuccessResult
+
 instance ToHeaders PutThirdPartyJobSuccessResult
          where
         toHeaders

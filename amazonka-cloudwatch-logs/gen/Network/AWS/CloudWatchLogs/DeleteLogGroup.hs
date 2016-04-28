@@ -69,6 +69,8 @@ instance AWSRequest DeleteLogGroup where
 
 instance Hashable DeleteLogGroup
 
+instance NFData DeleteLogGroup
+
 instance ToHeaders DeleteLogGroup where
         toHeaders
           = const

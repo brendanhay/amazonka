@@ -124,6 +124,8 @@ instance AWSRequest ListTrafficPolicies where
 
 instance Hashable ListTrafficPolicies
 
+instance NFData ListTrafficPolicies
+
 instance ToHeaders ListTrafficPolicies where
         toHeaders = const mempty
 

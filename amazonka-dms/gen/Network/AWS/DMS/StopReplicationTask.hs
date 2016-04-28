@@ -77,6 +77,8 @@ instance AWSRequest StopReplicationTask where
 
 instance Hashable StopReplicationTask
 
+instance NFData StopReplicationTask
+
 instance ToHeaders StopReplicationTask where
         toHeaders
           = const

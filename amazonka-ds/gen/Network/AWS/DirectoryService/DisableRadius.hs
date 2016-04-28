@@ -77,6 +77,8 @@ instance AWSRequest DisableRadius where
 
 instance Hashable DisableRadius
 
+instance NFData DisableRadius
+
 instance ToHeaders DisableRadius where
         toHeaders
           = const

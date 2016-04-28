@@ -90,6 +90,8 @@ instance AWSRequest CancelRetrieval where
 
 instance Hashable CancelRetrieval
 
+instance NFData CancelRetrieval
+
 instance ToHeaders CancelRetrieval where
         toHeaders
           = const

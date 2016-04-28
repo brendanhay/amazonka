@@ -260,6 +260,8 @@ instance AWSRequest UploadPartCopy where
 
 instance Hashable UploadPartCopy
 
+instance NFData UploadPartCopy
+
 instance ToHeaders UploadPartCopy where
         toHeaders UploadPartCopy'{..}
           = mconcat

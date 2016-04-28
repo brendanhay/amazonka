@@ -166,6 +166,8 @@ instance AWSRequest DescribeHSMConfigurations where
 
 instance Hashable DescribeHSMConfigurations
 
+instance NFData DescribeHSMConfigurations
+
 instance ToHeaders DescribeHSMConfigurations where
         toHeaders = const mempty
 

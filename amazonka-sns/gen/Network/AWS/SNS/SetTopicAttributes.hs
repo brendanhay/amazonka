@@ -93,6 +93,8 @@ instance AWSRequest SetTopicAttributes where
 
 instance Hashable SetTopicAttributes
 
+instance NFData SetTopicAttributes
+
 instance ToHeaders SetTopicAttributes where
         toHeaders = const mempty
 

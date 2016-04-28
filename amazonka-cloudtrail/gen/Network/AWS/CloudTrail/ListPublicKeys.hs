@@ -109,6 +109,8 @@ instance AWSRequest ListPublicKeys where
 
 instance Hashable ListPublicKeys
 
+instance NFData ListPublicKeys
+
 instance ToHeaders ListPublicKeys where
         toHeaders
           = const

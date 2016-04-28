@@ -117,6 +117,8 @@ instance AWSRequest RetrieveEnvironmentInfo where
 
 instance Hashable RetrieveEnvironmentInfo
 
+instance NFData RetrieveEnvironmentInfo
+
 instance ToHeaders RetrieveEnvironmentInfo where
         toHeaders = const mempty
 

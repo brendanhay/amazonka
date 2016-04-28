@@ -117,6 +117,8 @@ instance AWSRequest DescribeLogGroups where
 
 instance Hashable DescribeLogGroups
 
+instance NFData DescribeLogGroups
+
 instance ToHeaders DescribeLogGroups where
         toHeaders
           = const

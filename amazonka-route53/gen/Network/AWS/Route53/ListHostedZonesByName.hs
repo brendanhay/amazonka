@@ -142,6 +142,8 @@ instance AWSRequest ListHostedZonesByName where
 
 instance Hashable ListHostedZonesByName
 
+instance NFData ListHostedZonesByName
+
 instance ToHeaders ListHostedZonesByName where
         toHeaders = const mempty
 

@@ -102,6 +102,8 @@ instance AWSRequest GetRolePolicy where
 
 instance Hashable GetRolePolicy
 
+instance NFData GetRolePolicy
+
 instance ToHeaders GetRolePolicy where
         toHeaders = const mempty
 

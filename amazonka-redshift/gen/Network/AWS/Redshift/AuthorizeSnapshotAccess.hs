@@ -106,6 +106,8 @@ instance AWSRequest AuthorizeSnapshotAccess where
 
 instance Hashable AuthorizeSnapshotAccess
 
+instance NFData AuthorizeSnapshotAccess
+
 instance ToHeaders AuthorizeSnapshotAccess where
         toHeaders = const mempty
 

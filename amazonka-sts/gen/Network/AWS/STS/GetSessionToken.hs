@@ -144,6 +144,8 @@ instance AWSRequest GetSessionToken where
 
 instance Hashable GetSessionToken
 
+instance NFData GetSessionToken
+
 instance ToHeaders GetSessionToken where
         toHeaders = const mempty
 

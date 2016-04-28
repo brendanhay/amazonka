@@ -84,6 +84,8 @@ instance AWSRequest GetRepository where
 
 instance Hashable GetRepository
 
+instance NFData GetRepository
+
 instance ToHeaders GetRepository where
         toHeaders
           = const

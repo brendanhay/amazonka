@@ -78,6 +78,8 @@ instance AWSRequest DeleteNatGateway where
 
 instance Hashable DeleteNatGateway
 
+instance NFData DeleteNatGateway
+
 instance ToHeaders DeleteNatGateway where
         toHeaders = const mempty
 

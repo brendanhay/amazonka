@@ -87,6 +87,8 @@ instance AWSRequest TestConnection where
 
 instance Hashable TestConnection
 
+instance NFData TestConnection
+
 instance ToHeaders TestConnection where
         toHeaders
           = const

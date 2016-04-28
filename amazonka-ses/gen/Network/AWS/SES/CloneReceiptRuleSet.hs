@@ -96,6 +96,8 @@ instance AWSRequest CloneReceiptRuleSet where
 
 instance Hashable CloneReceiptRuleSet
 
+instance NFData CloneReceiptRuleSet
+
 instance ToHeaders CloneReceiptRuleSet where
         toHeaders = const mempty
 

@@ -87,6 +87,8 @@ instance AWSRequest GetGameSessionLogURL where
 
 instance Hashable GetGameSessionLogURL
 
+instance NFData GetGameSessionLogURL
+
 instance ToHeaders GetGameSessionLogURL where
         toHeaders
           = const

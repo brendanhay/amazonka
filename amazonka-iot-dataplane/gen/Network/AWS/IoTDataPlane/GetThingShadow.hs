@@ -81,6 +81,8 @@ instance AWSRequest GetThingShadow where
 
 instance Hashable GetThingShadow
 
+instance NFData GetThingShadow
+
 instance ToHeaders GetThingShadow where
         toHeaders = const mempty
 

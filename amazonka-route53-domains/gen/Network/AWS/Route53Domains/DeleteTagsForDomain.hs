@@ -110,6 +110,8 @@ instance AWSRequest DeleteTagsForDomain where
 
 instance Hashable DeleteTagsForDomain
 
+instance NFData DeleteTagsForDomain
+
 instance ToHeaders DeleteTagsForDomain where
         toHeaders
           = const

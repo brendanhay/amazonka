@@ -101,6 +101,8 @@ instance AWSRequest PutNotificationConfiguration
 
 instance Hashable PutNotificationConfiguration
 
+instance NFData PutNotificationConfiguration
+
 instance ToHeaders PutNotificationConfiguration where
         toHeaders = const mempty
 

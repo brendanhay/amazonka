@@ -65,6 +65,8 @@ instance AWSRequest ListAvailableZones where
 
 instance Hashable ListAvailableZones
 
+instance NFData ListAvailableZones
+
 instance ToHeaders ListAvailableZones where
         toHeaders
           = const

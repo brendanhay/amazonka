@@ -89,6 +89,8 @@ instance AWSRequest CancelArchival where
 
 instance Hashable CancelArchival
 
+instance NFData CancelArchival
+
 instance ToHeaders CancelArchival where
         toHeaders
           = const

@@ -265,6 +265,8 @@ instance AWSRequest UpdatePipeline where
 
 instance Hashable UpdatePipeline
 
+instance NFData UpdatePipeline
+
 instance ToHeaders UpdatePipeline where
         toHeaders = const mempty
 

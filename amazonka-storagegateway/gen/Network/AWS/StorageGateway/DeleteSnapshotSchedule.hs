@@ -86,6 +86,8 @@ instance AWSRequest DeleteSnapshotSchedule where
 
 instance Hashable DeleteSnapshotSchedule
 
+instance NFData DeleteSnapshotSchedule
+
 instance ToHeaders DeleteSnapshotSchedule where
         toHeaders
           = const

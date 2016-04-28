@@ -89,6 +89,8 @@ instance AWSRequest GetIdentityNotificationAttributes
 
 instance Hashable GetIdentityNotificationAttributes
 
+instance NFData GetIdentityNotificationAttributes
+
 instance ToHeaders GetIdentityNotificationAttributes
          where
         toHeaders = const mempty

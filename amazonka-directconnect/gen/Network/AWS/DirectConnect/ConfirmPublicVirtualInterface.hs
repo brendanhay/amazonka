@@ -86,6 +86,8 @@ instance AWSRequest ConfirmPublicVirtualInterface
 
 instance Hashable ConfirmPublicVirtualInterface
 
+instance NFData ConfirmPublicVirtualInterface
+
 instance ToHeaders ConfirmPublicVirtualInterface
          where
         toHeaders

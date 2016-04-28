@@ -90,6 +90,8 @@ instance AWSRequest GetCertificate where
 
 instance Hashable GetCertificate
 
+instance NFData GetCertificate
+
 instance ToHeaders GetCertificate where
         toHeaders
           = const

@@ -125,6 +125,8 @@ instance AWSRequest SendMessage where
 
 instance Hashable SendMessage
 
+instance NFData SendMessage
+
 instance ToHeaders SendMessage where
         toHeaders = const mempty
 

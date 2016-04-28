@@ -141,6 +141,8 @@ instance AWSRequest DescribeFileSystems where
 
 instance Hashable DescribeFileSystems
 
+instance NFData DescribeFileSystems
+
 instance ToHeaders DescribeFileSystems where
         toHeaders = const mempty
 

@@ -163,6 +163,8 @@ instance AWSRequest GetWorkflowExecutionHistory where
 
 instance Hashable GetWorkflowExecutionHistory
 
+instance NFData GetWorkflowExecutionHistory
+
 instance ToHeaders GetWorkflowExecutionHistory where
         toHeaders
           = const

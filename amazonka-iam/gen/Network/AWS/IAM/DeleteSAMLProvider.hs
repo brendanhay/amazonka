@@ -76,6 +76,8 @@ instance AWSRequest DeleteSAMLProvider where
 
 instance Hashable DeleteSAMLProvider
 
+instance NFData DeleteSAMLProvider
+
 instance ToHeaders DeleteSAMLProvider where
         toHeaders = const mempty
 

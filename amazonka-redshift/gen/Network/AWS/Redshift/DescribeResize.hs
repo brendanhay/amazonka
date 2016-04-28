@@ -116,6 +116,8 @@ instance AWSRequest DescribeResize where
 
 instance Hashable DescribeResize
 
+instance NFData DescribeResize
+
 instance ToHeaders DescribeResize where
         toHeaders = const mempty
 

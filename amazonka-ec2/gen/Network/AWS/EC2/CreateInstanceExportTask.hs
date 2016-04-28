@@ -109,6 +109,8 @@ instance AWSRequest CreateInstanceExportTask where
 
 instance Hashable CreateInstanceExportTask
 
+instance NFData CreateInstanceExportTask
+
 instance ToHeaders CreateInstanceExportTask where
         toHeaders = const mempty
 

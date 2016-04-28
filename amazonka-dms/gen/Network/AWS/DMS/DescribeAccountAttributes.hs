@@ -71,6 +71,8 @@ instance AWSRequest DescribeAccountAttributes where
 
 instance Hashable DescribeAccountAttributes
 
+instance NFData DescribeAccountAttributes
+
 instance ToHeaders DescribeAccountAttributes where
         toHeaders
           = const

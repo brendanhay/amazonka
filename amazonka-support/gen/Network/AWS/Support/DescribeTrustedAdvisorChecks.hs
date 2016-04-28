@@ -84,6 +84,8 @@ instance AWSRequest DescribeTrustedAdvisorChecks
 
 instance Hashable DescribeTrustedAdvisorChecks
 
+instance NFData DescribeTrustedAdvisorChecks
+
 instance ToHeaders DescribeTrustedAdvisorChecks where
         toHeaders
           = const

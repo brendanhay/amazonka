@@ -70,6 +70,8 @@ instance AWSRequest GetSendStatistics where
 
 instance Hashable GetSendStatistics
 
+instance NFData GetSendStatistics
+
 instance ToHeaders GetSendStatistics where
         toHeaders = const mempty
 

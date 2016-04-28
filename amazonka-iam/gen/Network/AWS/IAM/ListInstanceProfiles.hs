@@ -131,6 +131,8 @@ instance AWSRequest ListInstanceProfiles where
 
 instance Hashable ListInstanceProfiles
 
+instance NFData ListInstanceProfiles
+
 instance ToHeaders ListInstanceProfiles where
         toHeaders = const mempty
 

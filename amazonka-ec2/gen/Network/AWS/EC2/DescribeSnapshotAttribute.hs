@@ -111,6 +111,8 @@ instance AWSRequest DescribeSnapshotAttribute where
 
 instance Hashable DescribeSnapshotAttribute
 
+instance NFData DescribeSnapshotAttribute
+
 instance ToHeaders DescribeSnapshotAttribute where
         toHeaders = const mempty
 

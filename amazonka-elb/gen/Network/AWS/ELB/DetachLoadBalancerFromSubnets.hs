@@ -95,6 +95,8 @@ instance AWSRequest DetachLoadBalancerFromSubnets
 
 instance Hashable DetachLoadBalancerFromSubnets
 
+instance NFData DetachLoadBalancerFromSubnets
+
 instance ToHeaders DetachLoadBalancerFromSubnets
          where
         toHeaders = const mempty

@@ -122,6 +122,8 @@ instance AWSRequest GetGroup where
 
 instance Hashable GetGroup
 
+instance NFData GetGroup
+
 instance ToHeaders GetGroup where
         toHeaders = const mempty
 

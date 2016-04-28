@@ -156,6 +156,8 @@ instance AWSRequest CreateJob where
 
 instance Hashable CreateJob
 
+instance NFData CreateJob
+
 instance ToHeaders CreateJob where
         toHeaders = const mempty
 

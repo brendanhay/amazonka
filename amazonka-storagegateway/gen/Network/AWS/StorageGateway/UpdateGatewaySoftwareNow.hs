@@ -93,6 +93,8 @@ instance AWSRequest UpdateGatewaySoftwareNow where
 
 instance Hashable UpdateGatewaySoftwareNow
 
+instance NFData UpdateGatewaySoftwareNow
+
 instance ToHeaders UpdateGatewaySoftwareNow where
         toHeaders
           = const

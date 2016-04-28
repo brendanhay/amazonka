@@ -120,6 +120,8 @@ instance FromJSON Agent where
 
 instance Hashable Agent
 
+instance NFData Agent
+
 -- | This data type is used as a response element in the
 -- < PreviewAgentsForResourceGroup> action.
 --
@@ -161,6 +163,8 @@ instance FromJSON AgentPreview where
 
 instance Hashable AgentPreview
 
+instance NFData AgentPreview
+
 -- | This data type is used as a response element in the
 -- < ListAssessmentAgents> action.
 --
@@ -188,6 +192,8 @@ afAgentHealthList :: Lens' AgentsFilter [Text]
 afAgentHealthList = lens _afAgentHealthList (\ s a -> s{_afAgentHealthList = a}) . _Default . _Coerce;
 
 instance Hashable AgentsFilter
+
+instance NFData AgentsFilter
 
 instance ToJSON AgentsFilter where
         toJSON AgentsFilter'{..}
@@ -249,6 +255,8 @@ instance FromJSON Application where
 
 instance Hashable Application
 
+instance NFData Application
+
 -- | This data type is used as the request parameter in the
 -- < ListApplications> action.
 --
@@ -276,6 +284,8 @@ afApplicationNamePatterns :: Lens' ApplicationsFilter [Text]
 afApplicationNamePatterns = lens _afApplicationNamePatterns (\ s a -> s{_afApplicationNamePatterns = a}) . _Default . _Coerce;
 
 instance Hashable ApplicationsFilter
+
+instance NFData ApplicationsFilter
 
 instance ToJSON ApplicationsFilter where
         toJSON ApplicationsFilter'{..}
@@ -403,6 +413,8 @@ instance FromJSON Assessment where
 
 instance Hashable Assessment
 
+instance NFData Assessment
+
 -- | This data type is used as the request parameter in the
 -- < ListAssessments> and < ListAttachedAssessments> actions.
 --
@@ -484,6 +496,8 @@ afDurationRange = lens _afDurationRange (\ s a -> s{_afDurationRange = a});
 
 instance Hashable AssessmentsFilter
 
+instance NFData AssessmentsFilter
+
 instance ToJSON AssessmentsFilter where
         toJSON AssessmentsFilter'{..}
           = object
@@ -537,6 +551,8 @@ instance FromJSON Attribute where
 
 instance Hashable Attribute
 
+instance NFData Attribute
+
 instance ToJSON Attribute where
         toJSON Attribute'{..}
           = object
@@ -576,6 +592,8 @@ drMinimum :: Lens' DurationRange (Maybe Int)
 drMinimum = lens _drMinimum (\ s a -> s{_drMinimum = a});
 
 instance Hashable DurationRange
+
+instance NFData DurationRange
 
 instance ToJSON DurationRange where
         toJSON DurationRange'{..}
@@ -720,6 +738,8 @@ instance FromJSON Finding where
 
 instance Hashable Finding
 
+instance NFData Finding
+
 -- | This data type is used as a request parameter in the < ListFindings>
 -- action.
 --
@@ -788,6 +808,8 @@ ffSeverities = lens _ffSeverities (\ s a -> s{_ffSeverities = a}) . _Default . _
 
 instance Hashable FindingsFilter
 
+instance NFData FindingsFilter
+
 instance ToJSON FindingsFilter where
         toJSON FindingsFilter'{..}
           = object
@@ -840,6 +862,8 @@ instance FromJSON LocalizedText where
 
 instance Hashable LocalizedText
 
+instance NFData LocalizedText
+
 instance ToJSON LocalizedText where
         toJSON LocalizedText'{..}
           = object
@@ -886,6 +910,8 @@ instance FromJSON LocalizedTextKey where
                    (x .:? "facility") <*> (x .:? "id"))
 
 instance Hashable LocalizedTextKey
+
+instance NFData LocalizedTextKey
 
 instance ToJSON LocalizedTextKey where
         toJSON LocalizedTextKey'{..}
@@ -949,6 +975,8 @@ instance FromJSON MessageTypeTelemetry where
 
 instance Hashable MessageTypeTelemetry
 
+instance NFData MessageTypeTelemetry
+
 -- | This data type is used in the < LocalizedText> data type.
 --
 -- /See:/ 'parameter' smart constructor.
@@ -987,6 +1015,8 @@ instance FromJSON Parameter where
                  Parameter' <$> (x .:? "value") <*> (x .:? "name"))
 
 instance Hashable Parameter
+
+instance NFData Parameter
 
 instance ToJSON Parameter where
         toJSON Parameter'{..}
@@ -1046,6 +1076,8 @@ instance FromJSON ResourceGroup where
                      (x .:? "resourceGroupArn"))
 
 instance Hashable ResourceGroup
+
+instance NFData ResourceGroup
 
 -- | Contains information about an Inspector rules package.
 --
@@ -1116,6 +1148,8 @@ instance FromJSON RulesPackage where
                      <*> (x .:? "provider"))
 
 instance Hashable RulesPackage
+
+instance NFData RulesPackage
 
 -- | A snapshot of an Inspector assessment that contains the assessment\'s
 -- findings.
@@ -1211,6 +1245,8 @@ instance FromJSON Run where
 
 instance Hashable Run
 
+instance NFData Run
+
 -- | This data type is used as the request parameter in the < ListRuns>
 -- action.
 --
@@ -1281,6 +1317,8 @@ rfCompletionTime = lens _rfCompletionTime (\ s a -> s{_rfCompletionTime = a});
 
 instance Hashable RunsFilter
 
+instance NFData RunsFilter
+
 instance ToJSON RunsFilter where
         toJSON RunsFilter'{..}
           = object
@@ -1332,6 +1370,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -1385,6 +1425,8 @@ instance FromJSON Telemetry where
 
 instance Hashable Telemetry
 
+instance NFData Telemetry
+
 -- | This data type is used in the < AssessmentsFilter> and < RunsFilter>
 -- data types.
 --
@@ -1418,6 +1460,8 @@ trMinimum :: Lens' TimestampRange (Maybe UTCTime)
 trMinimum = lens _trMinimum (\ s a -> s{_trMinimum = a}) . mapping _Time;
 
 instance Hashable TimestampRange
+
+instance NFData TimestampRange
 
 instance ToJSON TimestampRange where
         toJSON TimestampRange'{..}

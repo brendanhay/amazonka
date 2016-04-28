@@ -83,6 +83,8 @@ instance AWSRequest DeleteDBSnapshot where
 
 instance Hashable DeleteDBSnapshot
 
+instance NFData DeleteDBSnapshot
+
 instance ToHeaders DeleteDBSnapshot where
         toHeaders = const mempty
 

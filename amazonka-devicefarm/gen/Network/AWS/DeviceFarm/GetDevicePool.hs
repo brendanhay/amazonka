@@ -77,6 +77,8 @@ instance AWSRequest GetDevicePool where
 
 instance Hashable GetDevicePool
 
+instance NFData GetDevicePool
+
 instance ToHeaders GetDevicePool where
         toHeaders
           = const

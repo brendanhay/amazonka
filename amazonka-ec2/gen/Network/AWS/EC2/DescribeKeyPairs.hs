@@ -108,6 +108,8 @@ instance AWSRequest DescribeKeyPairs where
 
 instance Hashable DescribeKeyPairs
 
+instance NFData DescribeKeyPairs
+
 instance ToHeaders DescribeKeyPairs where
         toHeaders = const mempty
 

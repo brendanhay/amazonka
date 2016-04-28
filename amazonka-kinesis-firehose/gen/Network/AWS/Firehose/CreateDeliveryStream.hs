@@ -154,6 +154,8 @@ instance AWSRequest CreateDeliveryStream where
 
 instance Hashable CreateDeliveryStream
 
+instance NFData CreateDeliveryStream
+
 instance ToHeaders CreateDeliveryStream where
         toHeaders
           = const

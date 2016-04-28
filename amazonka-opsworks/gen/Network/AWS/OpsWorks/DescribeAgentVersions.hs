@@ -88,6 +88,8 @@ instance AWSRequest DescribeAgentVersions where
 
 instance Hashable DescribeAgentVersions
 
+instance NFData DescribeAgentVersions
+
 instance ToHeaders DescribeAgentVersions where
         toHeaders
           = const

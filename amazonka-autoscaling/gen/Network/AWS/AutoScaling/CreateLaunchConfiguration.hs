@@ -330,6 +330,8 @@ instance AWSRequest CreateLaunchConfiguration where
 
 instance Hashable CreateLaunchConfiguration
 
+instance NFData CreateLaunchConfiguration
+
 instance ToHeaders CreateLaunchConfiguration where
         toHeaders = const mempty
 

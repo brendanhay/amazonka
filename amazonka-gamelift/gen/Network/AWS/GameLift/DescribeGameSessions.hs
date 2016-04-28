@@ -143,6 +143,8 @@ instance AWSRequest DescribeGameSessions where
 
 instance Hashable DescribeGameSessions
 
+instance NFData DescribeGameSessions
+
 instance ToHeaders DescribeGameSessions where
         toHeaders
           = const

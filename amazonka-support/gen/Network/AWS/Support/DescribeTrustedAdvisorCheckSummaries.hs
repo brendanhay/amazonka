@@ -82,6 +82,8 @@ instance AWSRequest
 instance Hashable
          DescribeTrustedAdvisorCheckSummaries
 
+instance NFData DescribeTrustedAdvisorCheckSummaries
+
 instance ToHeaders
          DescribeTrustedAdvisorCheckSummaries where
         toHeaders

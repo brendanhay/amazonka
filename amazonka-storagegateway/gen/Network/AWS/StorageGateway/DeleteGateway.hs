@@ -94,6 +94,8 @@ instance AWSRequest DeleteGateway where
 
 instance Hashable DeleteGateway
 
+instance NFData DeleteGateway
+
 instance ToHeaders DeleteGateway where
         toHeaders
           = const

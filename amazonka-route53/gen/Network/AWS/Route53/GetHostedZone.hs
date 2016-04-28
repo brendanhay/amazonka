@@ -87,6 +87,8 @@ instance AWSRequest GetHostedZone where
 
 instance Hashable GetHostedZone
 
+instance NFData GetHostedZone
+
 instance ToHeaders GetHostedZone where
         toHeaders = const mempty
 

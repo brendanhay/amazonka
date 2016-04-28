@@ -163,6 +163,8 @@ instance AWSRequest PutScheduledUpdateGroupAction
 
 instance Hashable PutScheduledUpdateGroupAction
 
+instance NFData PutScheduledUpdateGroupAction
+
 instance ToHeaders PutScheduledUpdateGroupAction
          where
         toHeaders = const mempty

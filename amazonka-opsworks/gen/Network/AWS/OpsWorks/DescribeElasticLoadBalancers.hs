@@ -96,6 +96,8 @@ instance AWSRequest DescribeElasticLoadBalancers
 
 instance Hashable DescribeElasticLoadBalancers
 
+instance NFData DescribeElasticLoadBalancers
+
 instance ToHeaders DescribeElasticLoadBalancers where
         toHeaders
           = const

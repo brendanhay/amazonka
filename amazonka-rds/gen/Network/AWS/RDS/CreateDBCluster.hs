@@ -343,6 +343,8 @@ instance AWSRequest CreateDBCluster where
 
 instance Hashable CreateDBCluster
 
+instance NFData CreateDBCluster
+
 instance ToHeaders CreateDBCluster where
         toHeaders = const mempty
 

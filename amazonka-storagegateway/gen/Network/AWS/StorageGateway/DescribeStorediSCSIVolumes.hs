@@ -85,6 +85,8 @@ instance AWSRequest DescribeStorediSCSIVolumes where
 
 instance Hashable DescribeStorediSCSIVolumes
 
+instance NFData DescribeStorediSCSIVolumes
+
 instance ToHeaders DescribeStorediSCSIVolumes where
         toHeaders
           = const

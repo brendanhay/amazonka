@@ -87,6 +87,8 @@ instance AWSRequest DescribeAssociation where
 
 instance Hashable DescribeAssociation
 
+instance NFData DescribeAssociation
+
 instance ToHeaders DescribeAssociation where
         toHeaders
           = const

@@ -70,6 +70,8 @@ instance AWSRequest DescribeVirtualGateways where
 
 instance Hashable DescribeVirtualGateways
 
+instance NFData DescribeVirtualGateways
+
 instance ToHeaders DescribeVirtualGateways where
         toHeaders
           = const

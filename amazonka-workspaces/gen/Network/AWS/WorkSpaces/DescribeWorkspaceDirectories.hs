@@ -99,6 +99,8 @@ instance AWSRequest DescribeWorkspaceDirectories
 
 instance Hashable DescribeWorkspaceDirectories
 
+instance NFData DescribeWorkspaceDirectories
+
 instance ToHeaders DescribeWorkspaceDirectories where
         toHeaders
           = const

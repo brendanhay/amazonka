@@ -674,6 +674,8 @@ instance AWSRequest ModifyDBInstance where
 
 instance Hashable ModifyDBInstance
 
+instance NFData ModifyDBInstance
+
 instance ToHeaders ModifyDBInstance where
         toHeaders = const mempty
 

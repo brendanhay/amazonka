@@ -103,6 +103,8 @@ instance AWSRequest DeleteVaultNotifications where
 
 instance Hashable DeleteVaultNotifications
 
+instance NFData DeleteVaultNotifications
+
 instance ToHeaders DeleteVaultNotifications where
         toHeaders = const mempty
 

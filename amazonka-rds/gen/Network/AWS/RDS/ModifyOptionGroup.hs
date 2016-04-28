@@ -113,6 +113,8 @@ instance AWSRequest ModifyOptionGroup where
 
 instance Hashable ModifyOptionGroup
 
+instance NFData ModifyOptionGroup
+
 instance ToHeaders ModifyOptionGroup where
         toHeaders = const mempty
 

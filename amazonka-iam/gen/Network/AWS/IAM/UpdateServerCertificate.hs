@@ -111,6 +111,8 @@ instance AWSRequest UpdateServerCertificate where
 
 instance Hashable UpdateServerCertificate
 
+instance NFData UpdateServerCertificate
+
 instance ToHeaders UpdateServerCertificate where
         toHeaders = const mempty
 

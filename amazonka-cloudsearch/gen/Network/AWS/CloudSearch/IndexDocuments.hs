@@ -82,6 +82,8 @@ instance AWSRequest IndexDocuments where
 
 instance Hashable IndexDocuments
 
+instance NFData IndexDocuments
+
 instance ToHeaders IndexDocuments where
         toHeaders = const mempty
 

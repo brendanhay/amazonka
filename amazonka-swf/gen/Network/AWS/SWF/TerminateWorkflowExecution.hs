@@ -167,6 +167,8 @@ instance AWSRequest TerminateWorkflowExecution where
 
 instance Hashable TerminateWorkflowExecution
 
+instance NFData TerminateWorkflowExecution
+
 instance ToHeaders TerminateWorkflowExecution where
         toHeaders
           = const

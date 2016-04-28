@@ -119,6 +119,8 @@ instance AWSRequest ModifySpotFleetRequest where
 
 instance Hashable ModifySpotFleetRequest
 
+instance NFData ModifySpotFleetRequest
+
 instance ToHeaders ModifySpotFleetRequest where
         toHeaders = const mempty
 

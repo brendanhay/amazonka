@@ -95,6 +95,8 @@ instance AWSRequest ModifyIdFormat where
 
 instance Hashable ModifyIdFormat
 
+instance NFData ModifyIdFormat
+
 instance ToHeaders ModifyIdFormat where
         toHeaders = const mempty
 

@@ -66,6 +66,8 @@ instance AWSRequest ListOpenIdConnectProviders where
 
 instance Hashable ListOpenIdConnectProviders
 
+instance NFData ListOpenIdConnectProviders
+
 instance ToHeaders ListOpenIdConnectProviders where
         toHeaders = const mempty
 

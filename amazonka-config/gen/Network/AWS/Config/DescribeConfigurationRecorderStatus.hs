@@ -85,6 +85,8 @@ instance AWSRequest
 
 instance Hashable DescribeConfigurationRecorderStatus
 
+instance NFData DescribeConfigurationRecorderStatus
+
 instance ToHeaders
          DescribeConfigurationRecorderStatus where
         toHeaders

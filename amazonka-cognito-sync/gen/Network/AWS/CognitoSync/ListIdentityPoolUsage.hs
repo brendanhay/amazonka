@@ -97,6 +97,8 @@ instance AWSRequest ListIdentityPoolUsage where
 
 instance Hashable ListIdentityPoolUsage
 
+instance NFData ListIdentityPoolUsage
+
 instance ToHeaders ListIdentityPoolUsage where
         toHeaders
           = const

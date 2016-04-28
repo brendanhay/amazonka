@@ -128,6 +128,8 @@ instance AWSRequest DescribeMetricFilters where
 
 instance Hashable DescribeMetricFilters
 
+instance NFData DescribeMetricFilters
+
 instance ToHeaders DescribeMetricFilters where
         toHeaders
           = const

@@ -93,6 +93,8 @@ instance AWSRequest GetApplicationRevision where
 
 instance Hashable GetApplicationRevision
 
+instance NFData GetApplicationRevision
+
 instance ToHeaders GetApplicationRevision where
         toHeaders
           = const

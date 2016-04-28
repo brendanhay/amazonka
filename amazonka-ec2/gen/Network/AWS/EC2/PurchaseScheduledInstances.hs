@@ -108,6 +108,8 @@ instance AWSRequest PurchaseScheduledInstances where
 
 instance Hashable PurchaseScheduledInstances
 
+instance NFData PurchaseScheduledInstances
+
 instance ToHeaders PurchaseScheduledInstances where
         toHeaders = const mempty
 

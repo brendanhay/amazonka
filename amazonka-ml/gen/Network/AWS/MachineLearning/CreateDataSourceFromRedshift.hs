@@ -189,6 +189,8 @@ instance AWSRequest CreateDataSourceFromRedshift
 
 instance Hashable CreateDataSourceFromRedshift
 
+instance NFData CreateDataSourceFromRedshift
+
 instance ToHeaders CreateDataSourceFromRedshift where
         toHeaders
           = const

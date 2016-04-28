@@ -146,6 +146,8 @@ instance AWSRequest DescribeScheduledActions where
 
 instance Hashable DescribeScheduledActions
 
+instance NFData DescribeScheduledActions
+
 instance ToHeaders DescribeScheduledActions where
         toHeaders = const mempty
 

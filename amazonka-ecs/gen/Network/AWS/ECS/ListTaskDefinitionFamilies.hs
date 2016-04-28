@@ -123,6 +123,8 @@ instance AWSRequest ListTaskDefinitionFamilies where
 
 instance Hashable ListTaskDefinitionFamilies
 
+instance NFData ListTaskDefinitionFamilies
+
 instance ToHeaders ListTaskDefinitionFamilies where
         toHeaders
           = const

@@ -90,6 +90,8 @@ instance AWSRequest ListRuns where
 
 instance Hashable ListRuns
 
+instance NFData ListRuns
+
 instance ToHeaders ListRuns where
         toHeaders
           = const

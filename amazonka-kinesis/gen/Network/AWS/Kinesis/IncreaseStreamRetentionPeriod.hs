@@ -94,6 +94,8 @@ instance AWSRequest IncreaseStreamRetentionPeriod
 
 instance Hashable IncreaseStreamRetentionPeriod
 
+instance NFData IncreaseStreamRetentionPeriod
+
 instance ToHeaders IncreaseStreamRetentionPeriod
          where
         toHeaders

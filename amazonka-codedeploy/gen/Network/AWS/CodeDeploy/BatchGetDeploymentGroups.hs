@@ -91,6 +91,8 @@ instance AWSRequest BatchGetDeploymentGroups where
 
 instance Hashable BatchGetDeploymentGroups
 
+instance NFData BatchGetDeploymentGroups
+
 instance ToHeaders BatchGetDeploymentGroups where
         toHeaders
           = const

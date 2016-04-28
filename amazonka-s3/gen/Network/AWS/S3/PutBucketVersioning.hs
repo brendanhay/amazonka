@@ -99,6 +99,8 @@ instance AWSRequest PutBucketVersioning where
 
 instance Hashable PutBucketVersioning
 
+instance NFData PutBucketVersioning
+
 instance ToElement PutBucketVersioning where
         toElement
           = mkElement

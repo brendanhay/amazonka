@@ -78,6 +78,8 @@ instance AWSRequest VerifyDomainIdentity where
 
 instance Hashable VerifyDomainIdentity
 
+instance NFData VerifyDomainIdentity
+
 instance ToHeaders VerifyDomainIdentity where
         toHeaders = const mempty
 

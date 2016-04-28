@@ -109,6 +109,8 @@ instance AWSRequest ChangeMessageVisibilityBatch
 
 instance Hashable ChangeMessageVisibilityBatch
 
+instance NFData ChangeMessageVisibilityBatch
+
 instance ToHeaders ChangeMessageVisibilityBatch where
         toHeaders = const mempty
 

@@ -82,6 +82,8 @@ instance AWSRequest CreateStreamingDistribution where
 
 instance Hashable CreateStreamingDistribution
 
+instance NFData CreateStreamingDistribution
+
 instance ToElement CreateStreamingDistribution where
         toElement
           = mkElement

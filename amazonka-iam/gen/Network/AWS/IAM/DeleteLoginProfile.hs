@@ -77,6 +77,8 @@ instance AWSRequest DeleteLoginProfile where
 
 instance Hashable DeleteLoginProfile
 
+instance NFData DeleteLoginProfile
+
 instance ToHeaders DeleteLoginProfile where
         toHeaders = const mempty
 

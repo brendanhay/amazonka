@@ -105,6 +105,8 @@ instance AWSRequest ListTables where
 
 instance Hashable ListTables
 
+instance NFData ListTables
+
 instance ToHeaders ListTables where
         toHeaders
           = const

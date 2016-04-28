@@ -117,6 +117,8 @@ instance AWSRequest ScheduleKeyDeletion where
 
 instance Hashable ScheduleKeyDeletion
 
+instance NFData ScheduleKeyDeletion
+
 instance ToHeaders ScheduleKeyDeletion where
         toHeaders
           = const

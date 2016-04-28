@@ -258,6 +258,8 @@ instance AWSRequest AssumeRole where
 
 instance Hashable AssumeRole
 
+instance NFData AssumeRole
+
 instance ToHeaders AssumeRole where
         toHeaders = const mempty
 

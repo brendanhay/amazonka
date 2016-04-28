@@ -141,6 +141,8 @@ instance AWSRequest
 
 instance Hashable GetOpenIdTokenForDeveloperIdentity
 
+instance NFData GetOpenIdTokenForDeveloperIdentity
+
 instance ToHeaders GetOpenIdTokenForDeveloperIdentity
          where
         toHeaders

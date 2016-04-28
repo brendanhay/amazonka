@@ -197,6 +197,8 @@ instance AWSRequest ImportImage where
 
 instance Hashable ImportImage
 
+instance NFData ImportImage
+
 instance ToHeaders ImportImage where
         toHeaders = const mempty
 

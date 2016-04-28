@@ -79,6 +79,8 @@ instance AWSRequest ListThingPrincipals where
 
 instance Hashable ListThingPrincipals
 
+instance NFData ListThingPrincipals
+
 instance ToHeaders ListThingPrincipals where
         toHeaders = const mempty
 

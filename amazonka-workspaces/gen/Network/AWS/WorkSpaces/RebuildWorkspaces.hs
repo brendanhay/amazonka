@@ -98,6 +98,8 @@ instance AWSRequest RebuildWorkspaces where
 
 instance Hashable RebuildWorkspaces
 
+instance NFData RebuildWorkspaces
+
 instance ToHeaders RebuildWorkspaces where
         toHeaders
           = const

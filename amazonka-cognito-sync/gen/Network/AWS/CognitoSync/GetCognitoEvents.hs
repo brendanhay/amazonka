@@ -82,6 +82,8 @@ instance AWSRequest GetCognitoEvents where
 
 instance Hashable GetCognitoEvents
 
+instance NFData GetCognitoEvents
+
 instance ToHeaders GetCognitoEvents where
         toHeaders
           = const

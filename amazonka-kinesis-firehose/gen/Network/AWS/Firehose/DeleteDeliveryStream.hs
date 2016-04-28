@@ -89,6 +89,8 @@ instance AWSRequest DeleteDeliveryStream where
 
 instance Hashable DeleteDeliveryStream
 
+instance NFData DeleteDeliveryStream
+
 instance ToHeaders DeleteDeliveryStream where
         toHeaders
           = const

@@ -117,6 +117,8 @@ instance AWSRequest DescribeTrusts where
 
 instance Hashable DescribeTrusts
 
+instance NFData DescribeTrusts
+
 instance ToHeaders DescribeTrusts where
         toHeaders
           = const

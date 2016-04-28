@@ -121,6 +121,8 @@ instance AWSRequest GetStatus where
 
 instance Hashable GetStatus
 
+instance NFData GetStatus
+
 instance ToHeaders GetStatus where
         toHeaders = const mempty
 

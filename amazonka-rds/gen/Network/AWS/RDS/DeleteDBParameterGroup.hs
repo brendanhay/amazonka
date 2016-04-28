@@ -79,6 +79,8 @@ instance AWSRequest DeleteDBParameterGroup where
 
 instance Hashable DeleteDBParameterGroup
 
+instance NFData DeleteDBParameterGroup
+
 instance ToHeaders DeleteDBParameterGroup where
         toHeaders = const mempty
 

@@ -98,6 +98,8 @@ instance AWSRequest ListPrincipalThings where
 
 instance Hashable ListPrincipalThings
 
+instance NFData ListPrincipalThings
+
 instance ToHeaders ListPrincipalThings where
         toHeaders ListPrincipalThings'{..}
           = mconcat ["x-amzn-principal" =# _lptPrincipal]

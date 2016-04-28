@@ -219,6 +219,8 @@ instance AWSRequest DescribeDataSources where
 
 instance Hashable DescribeDataSources
 
+instance NFData DescribeDataSources
+
 instance ToHeaders DescribeDataSources where
         toHeaders
           = const

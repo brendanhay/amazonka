@@ -139,6 +139,8 @@ instance AWSRequest UpdateEventSourceMapping where
 
 instance Hashable UpdateEventSourceMapping
 
+instance NFData UpdateEventSourceMapping
+
 instance ToHeaders UpdateEventSourceMapping where
         toHeaders = const mempty
 

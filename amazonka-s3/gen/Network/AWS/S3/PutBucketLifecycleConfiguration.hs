@@ -82,6 +82,8 @@ instance AWSRequest PutBucketLifecycleConfiguration
 
 instance Hashable PutBucketLifecycleConfiguration
 
+instance NFData PutBucketLifecycleConfiguration
+
 instance ToElement PutBucketLifecycleConfiguration
          where
         toElement

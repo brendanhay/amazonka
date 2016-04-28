@@ -120,6 +120,8 @@ instance AWSRequest ListInstances where
 
 instance Hashable ListInstances
 
+instance NFData ListInstances
+
 instance ToHeaders ListInstances where
         toHeaders
           = const

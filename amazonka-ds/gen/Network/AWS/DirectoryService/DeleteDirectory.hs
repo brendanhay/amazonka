@@ -77,6 +77,8 @@ instance AWSRequest DeleteDirectory where
 
 instance Hashable DeleteDirectory
 
+instance NFData DeleteDirectory
+
 instance ToHeaders DeleteDirectory where
         toHeaders
           = const

@@ -76,6 +76,8 @@ instance AWSRequest DeleteUpload where
 
 instance Hashable DeleteUpload
 
+instance NFData DeleteUpload
+
 instance ToHeaders DeleteUpload where
         toHeaders
           = const

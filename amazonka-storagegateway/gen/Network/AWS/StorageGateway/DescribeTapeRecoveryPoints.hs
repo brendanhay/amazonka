@@ -119,6 +119,8 @@ instance AWSRequest DescribeTapeRecoveryPoints where
 
 instance Hashable DescribeTapeRecoveryPoints
 
+instance NFData DescribeTapeRecoveryPoints
+
 instance ToHeaders DescribeTapeRecoveryPoints where
         toHeaders
           = const

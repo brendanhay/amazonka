@@ -67,6 +67,8 @@ instance AWSRequest ListBuckets where
 
 instance Hashable ListBuckets
 
+instance NFData ListBuckets
+
 instance ToHeaders ListBuckets where
         toHeaders = const mempty
 

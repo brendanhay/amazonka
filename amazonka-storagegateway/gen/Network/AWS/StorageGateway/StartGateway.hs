@@ -89,6 +89,8 @@ instance AWSRequest StartGateway where
 
 instance Hashable StartGateway
 
+instance NFData StartGateway
+
 instance ToHeaders StartGateway where
         toHeaders
           = const

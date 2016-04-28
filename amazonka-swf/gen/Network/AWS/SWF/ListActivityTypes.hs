@@ -171,6 +171,8 @@ instance AWSRequest ListActivityTypes where
 
 instance Hashable ListActivityTypes
 
+instance NFData ListActivityTypes
+
 instance ToHeaders ListActivityTypes where
         toHeaders
           = const

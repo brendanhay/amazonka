@@ -100,6 +100,8 @@ instance AWSRequest GetIntegration where
 
 instance Hashable GetIntegration
 
+instance NFData GetIntegration
+
 instance ToHeaders GetIntegration where
         toHeaders
           = const

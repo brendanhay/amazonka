@@ -118,6 +118,8 @@ instance AWSRequest ListReusableDelegationSets where
 
 instance Hashable ListReusableDelegationSets
 
+instance NFData ListReusableDelegationSets
+
 instance ToHeaders ListReusableDelegationSets where
         toHeaders = const mempty
 

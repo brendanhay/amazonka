@@ -129,6 +129,8 @@ instance AWSRequest CreatePlatformEndpoint where
 
 instance Hashable CreatePlatformEndpoint
 
+instance NFData CreatePlatformEndpoint
+
 instance ToHeaders CreatePlatformEndpoint where
         toHeaders = const mempty
 

@@ -51,6 +51,8 @@ instance FromXML AccountWithRestoreAccess where
 
 instance Hashable AccountWithRestoreAccess
 
+instance NFData AccountWithRestoreAccess
+
 -- | Describes an availability zone.
 --
 -- /See:/ 'availabilityZone' smart constructor.
@@ -78,6 +80,8 @@ instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
 
 instance Hashable AvailabilityZone
+
+instance NFData AvailabilityZone
 
 -- | Describes a cluster.
 --
@@ -431,6 +435,8 @@ instance FromXML Cluster where
 
 instance Hashable Cluster
 
+instance NFData Cluster
+
 -- | The identifier of a node in a cluster.
 --
 -- /See:/ 'clusterNode' smart constructor.
@@ -477,6 +483,8 @@ instance FromXML ClusterNode where
                 (x .@? "PublicIPAddress")
 
 instance Hashable ClusterNode
+
+instance NFData ClusterNode
 
 -- | Describes a parameter group.
 --
@@ -538,6 +546,8 @@ instance FromXML ClusterParameterGroup where
 
 instance Hashable ClusterParameterGroup
 
+instance NFData ClusterParameterGroup
+
 -- |
 --
 -- /See:/ 'clusterParameterGroupNameMessage' smart constructor.
@@ -579,6 +589,8 @@ instance FromXML ClusterParameterGroupNameMessage
                 (x .@? "ParameterGroupName")
 
 instance Hashable ClusterParameterGroupNameMessage
+
+instance NFData ClusterParameterGroupNameMessage
 
 -- | Describes the status of a parameter group.
 --
@@ -632,6 +644,8 @@ instance FromXML ClusterParameterGroupStatus where
                 <*> (x .@? "ParameterGroupName")
 
 instance Hashable ClusterParameterGroupStatus
+
+instance NFData ClusterParameterGroupStatus
 
 -- | Describes the status of a parameter group.
 --
@@ -698,6 +712,8 @@ instance FromXML ClusterParameterStatus where
                 <*> (x .@? "ParameterApplyStatus")
 
 instance Hashable ClusterParameterStatus
+
+instance NFData ClusterParameterStatus
 
 -- | Describes a security group.
 --
@@ -773,6 +789,8 @@ instance FromXML ClusterSecurityGroup where
 
 instance Hashable ClusterSecurityGroup
 
+instance NFData ClusterSecurityGroup
+
 -- | Describes a cluster security group.
 --
 -- /See:/ 'clusterSecurityGroupMembership' smart constructor.
@@ -811,6 +829,8 @@ instance FromXML ClusterSecurityGroupMembership where
                 (x .@? "ClusterSecurityGroupName")
 
 instance Hashable ClusterSecurityGroupMembership
+
+instance NFData ClusterSecurityGroupMembership
 
 -- | Returns the destination region and retention period that are configured
 -- for cross-region snapshot copy.
@@ -862,6 +882,8 @@ instance FromXML ClusterSnapshotCopyStatus where
                 <*> (x .@? "SnapshotCopyGrantName")
 
 instance Hashable ClusterSnapshotCopyStatus
+
+instance NFData ClusterSnapshotCopyStatus
 
 -- | Describes a subnet group.
 --
@@ -942,6 +964,8 @@ instance FromXML ClusterSubnetGroup where
 
 instance Hashable ClusterSubnetGroup
 
+instance NFData ClusterSubnetGroup
+
 -- | Describes a cluster version, including the parameter group family and
 -- description of the version.
 --
@@ -990,6 +1014,8 @@ instance FromXML ClusterVersion where
                 <*> (x .@? "Description")
 
 instance Hashable ClusterVersion
+
+instance NFData ClusterVersion
 
 -- | Describes the default cluster parameters for a parameter group family.
 --
@@ -1045,6 +1071,8 @@ instance FromXML DefaultClusterParameters where
                 <*> (x .@? "ParameterGroupFamily")
 
 instance Hashable DefaultClusterParameters
+
+instance NFData DefaultClusterParameters
 
 -- | Describes an Amazon EC2 security group.
 --
@@ -1106,6 +1134,8 @@ instance FromXML EC2SecurityGroup where
 
 instance Hashable EC2SecurityGroup
 
+instance NFData EC2SecurityGroup
+
 -- | Describes the status of the elastic IP (EIP) address.
 --
 -- /See:/ 'elasticIPStatus' smart constructor.
@@ -1144,6 +1174,8 @@ instance FromXML ElasticIPStatus where
 
 instance Hashable ElasticIPStatus
 
+instance NFData ElasticIPStatus
+
 -- | Describes a connection endpoint.
 --
 -- /See:/ 'endpoint' smart constructor.
@@ -1180,6 +1212,8 @@ instance FromXML Endpoint where
           = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
 
 instance Hashable Endpoint
+
+instance NFData Endpoint
 
 -- | Describes an event.
 --
@@ -1270,6 +1304,8 @@ instance FromXML Event where
 
 instance Hashable Event
 
+instance NFData Event
+
 -- | Describes event categories.
 --
 -- /See:/ 'eventCategoriesMap' smart constructor.
@@ -1310,6 +1346,8 @@ instance FromXML EventCategoriesMap where
                    may (parseXMLList "EventInfoMap"))
 
 instance Hashable EventCategoriesMap
+
+instance NFData EventCategoriesMap
 
 -- | Describes event information.
 --
@@ -1369,6 +1407,8 @@ instance FromXML EventInfoMap where
                 <*> (x .@? "EventId")
 
 instance Hashable EventInfoMap
+
+instance NFData EventInfoMap
 
 -- | Describes event subscriptions.
 --
@@ -1516,6 +1556,8 @@ instance FromXML EventSubscription where
 
 instance Hashable EventSubscription
 
+instance NFData EventSubscription
+
 -- | Returns information about an HSM client certificate. The certificate is
 -- stored in a secure Hardware Storage Module (HSM), and used by the Amazon
 -- Redshift cluster to encrypt data files.
@@ -1568,6 +1610,8 @@ instance FromXML HSMClientCertificate where
                    may (parseXMLList "Tag"))
 
 instance Hashable HSMClientCertificate
+
+instance NFData HSMClientCertificate
 
 -- | Returns information about an HSM configuration, which is an object that
 -- describes to Amazon Redshift clusters the information they require to
@@ -1641,6 +1685,8 @@ instance FromXML HSMConfiguration where
 
 instance Hashable HSMConfiguration
 
+instance NFData HSMConfiguration
+
 -- | Describes the status of changes to HSM settings.
 --
 -- /See:/ 'hsmStatus' smart constructor.
@@ -1695,6 +1741,8 @@ instance FromXML HSMStatus where
 
 instance Hashable HSMStatus
 
+instance NFData HSMStatus
+
 -- | Describes an IP range used in a security group.
 --
 -- /See:/ 'ipRange' smart constructor.
@@ -1742,6 +1790,8 @@ instance FromXML IPRange where
                    may (parseXMLList "Tag"))
 
 instance Hashable IPRange
+
+instance NFData IPRange
 
 -- | Describes the status of logging for a cluster.
 --
@@ -1818,6 +1868,8 @@ instance FromXML LoggingStatus where
 
 instance Hashable LoggingStatus
 
+instance NFData LoggingStatus
+
 -- | Describes an orderable cluster option.
 --
 -- /See:/ 'orderableClusterOption' smart constructor.
@@ -1875,6 +1927,8 @@ instance FromXML OrderableClusterOption where
                 <*> (x .@? "NodeType")
 
 instance Hashable OrderableClusterOption
+
+instance NFData OrderableClusterOption
 
 -- | Describes a parameter in a cluster parameter group.
 --
@@ -1984,6 +2038,8 @@ instance FromXML Parameter where
                 <*> (x .@? "Description")
 
 instance Hashable Parameter
+
+instance NFData Parameter
 
 instance ToQuery Parameter where
         toQuery Parameter'{..}
@@ -2096,6 +2152,8 @@ instance FromXML PendingModifiedValues where
 
 instance Hashable PendingModifiedValues
 
+instance NFData PendingModifiedValues
+
 -- | Describes a recurring charge.
 --
 -- /See:/ 'recurringCharge' smart constructor.
@@ -2135,6 +2193,8 @@ instance FromXML RecurringCharge where
                 (x .@? "RecurringChargeAmount")
 
 instance Hashable RecurringCharge
+
+instance NFData RecurringCharge
 
 -- | Describes a reserved node. You can call the
 -- < DescribeReservedNodeOfferings> API to obtain the available reserved
@@ -2278,6 +2338,8 @@ instance FromXML ReservedNode where
 
 instance Hashable ReservedNode
 
+instance NFData ReservedNode
+
 -- | Describes a reserved node offering.
 --
 -- /See:/ 'reservedNodeOffering' smart constructor.
@@ -2378,6 +2440,8 @@ instance FromXML ReservedNodeOffering where
 
 instance Hashable ReservedNodeOffering
 
+instance NFData ReservedNodeOffering
+
 -- | Describes the status of a cluster restore action. Returns null if the
 -- cluster was not created by restoring a snapshot.
 --
@@ -2458,6 +2522,8 @@ instance FromXML RestoreStatus where
                 <*> (x .@? "SnapshotSizeInMegaBytes")
 
 instance Hashable RestoreStatus
+
+instance NFData RestoreStatus
 
 -- | Describes a snapshot.
 --
@@ -2763,6 +2829,8 @@ instance FromXML Snapshot where
 
 instance Hashable Snapshot
 
+instance NFData Snapshot
+
 -- | The snapshot copy grant that grants Amazon Redshift permission to
 -- encrypt copied snapshots with the specified customer master key (CMK)
 -- from AWS KMS in the destination region.
@@ -2820,6 +2888,8 @@ instance FromXML SnapshotCopyGrant where
 
 instance Hashable SnapshotCopyGrant
 
+instance NFData SnapshotCopyGrant
+
 -- | Describes a subnet.
 --
 -- /See:/ 'subnet' smart constructor.
@@ -2866,6 +2936,8 @@ instance FromXML Subnet where
                 <*> (x .@? "SubnetAvailabilityZone")
 
 instance Hashable Subnet
+
+instance NFData Subnet
 
 -- | Describes the status of a < RestoreTableFromClusterSnapshot> operation.
 --
@@ -3020,6 +3092,8 @@ instance FromXML TableRestoreStatus where
 
 instance Hashable TableRestoreStatus
 
+instance NFData TableRestoreStatus
+
 -- | A tag consisting of a name\/value pair for a resource.
 --
 -- /See:/ 'tag' smart constructor.
@@ -3056,6 +3130,8 @@ instance FromXML Tag where
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -3125,6 +3201,8 @@ instance FromXML TaggedResource where
 
 instance Hashable TaggedResource
 
+instance NFData TaggedResource
+
 -- | Describes the members of a VPC security group.
 --
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
@@ -3162,3 +3240,5 @@ instance FromXML VPCSecurityGroupMembership where
               (x .@? "Status") <*> (x .@? "VpcSecurityGroupId")
 
 instance Hashable VPCSecurityGroupMembership
+
+instance NFData VPCSecurityGroupMembership

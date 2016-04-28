@@ -416,6 +416,8 @@ instance AWSRequest CreateReplicationGroup where
 
 instance Hashable CreateReplicationGroup
 
+instance NFData CreateReplicationGroup
+
 instance ToHeaders CreateReplicationGroup where
         toHeaders = const mempty
 

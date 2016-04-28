@@ -89,6 +89,8 @@ instance AWSRequest PutBucketLogging where
 
 instance Hashable PutBucketLogging
 
+instance NFData PutBucketLogging
+
 instance ToElement PutBucketLogging where
         toElement
           = mkElement

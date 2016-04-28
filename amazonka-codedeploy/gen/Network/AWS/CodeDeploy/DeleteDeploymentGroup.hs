@@ -90,6 +90,8 @@ instance AWSRequest DeleteDeploymentGroup where
 
 instance Hashable DeleteDeploymentGroup
 
+instance NFData DeleteDeploymentGroup
+
 instance ToHeaders DeleteDeploymentGroup where
         toHeaders
           = const

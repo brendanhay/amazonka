@@ -121,6 +121,8 @@ instance AWSRequest CompleteLayerUpload where
 
 instance Hashable CompleteLayerUpload
 
+instance NFData CompleteLayerUpload
+
 instance ToHeaders CompleteLayerUpload where
         toHeaders
           = const

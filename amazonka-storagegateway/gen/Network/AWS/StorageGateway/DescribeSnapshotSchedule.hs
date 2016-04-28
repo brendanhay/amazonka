@@ -90,6 +90,8 @@ instance AWSRequest DescribeSnapshotSchedule where
 
 instance Hashable DescribeSnapshotSchedule
 
+instance NFData DescribeSnapshotSchedule
+
 instance ToHeaders DescribeSnapshotSchedule where
         toHeaders
           = const

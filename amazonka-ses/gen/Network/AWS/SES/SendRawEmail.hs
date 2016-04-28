@@ -243,6 +243,8 @@ instance AWSRequest SendRawEmail where
 
 instance Hashable SendRawEmail
 
+instance NFData SendRawEmail
+
 instance ToHeaders SendRawEmail where
         toHeaders = const mempty
 

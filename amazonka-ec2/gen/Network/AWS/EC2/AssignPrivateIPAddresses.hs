@@ -118,6 +118,8 @@ instance AWSRequest AssignPrivateIPAddresses where
 
 instance Hashable AssignPrivateIPAddresses
 
+instance NFData AssignPrivateIPAddresses
+
 instance ToHeaders AssignPrivateIPAddresses where
         toHeaders = const mempty
 

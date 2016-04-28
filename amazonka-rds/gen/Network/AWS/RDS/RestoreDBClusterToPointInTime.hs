@@ -234,6 +234,8 @@ instance AWSRequest RestoreDBClusterToPointInTime
 
 instance Hashable RestoreDBClusterToPointInTime
 
+instance NFData RestoreDBClusterToPointInTime
+
 instance ToHeaders RestoreDBClusterToPointInTime
          where
         toHeaders = const mempty

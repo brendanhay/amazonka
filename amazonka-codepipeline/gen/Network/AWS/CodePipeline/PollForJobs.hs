@@ -105,6 +105,8 @@ instance AWSRequest PollForJobs where
 
 instance Hashable PollForJobs
 
+instance NFData PollForJobs
+
 instance ToHeaders PollForJobs where
         toHeaders
           = const

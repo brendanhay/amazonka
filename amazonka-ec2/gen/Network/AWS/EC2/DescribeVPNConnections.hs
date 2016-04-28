@@ -146,6 +146,8 @@ instance AWSRequest DescribeVPNConnections where
 
 instance Hashable DescribeVPNConnections
 
+instance NFData DescribeVPNConnections
+
 instance ToHeaders DescribeVPNConnections where
         toHeaders = const mempty
 

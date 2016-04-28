@@ -114,6 +114,8 @@ instance AWSRequest DescribeVolumes where
 
 instance Hashable DescribeVolumes
 
+instance NFData DescribeVolumes
+
 instance ToHeaders DescribeVolumes where
         toHeaders
           = const

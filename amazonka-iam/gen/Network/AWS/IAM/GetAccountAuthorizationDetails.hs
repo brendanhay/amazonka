@@ -131,6 +131,8 @@ instance AWSRequest GetAccountAuthorizationDetails
 
 instance Hashable GetAccountAuthorizationDetails
 
+instance NFData GetAccountAuthorizationDetails
+
 instance ToHeaders GetAccountAuthorizationDetails
          where
         toHeaders = const mempty

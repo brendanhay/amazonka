@@ -82,6 +82,8 @@ instance AWSRequest DescribeDeliveryChannels where
 
 instance Hashable DescribeDeliveryChannels
 
+instance NFData DescribeDeliveryChannels
+
 instance ToHeaders DescribeDeliveryChannels where
         toHeaders
           = const

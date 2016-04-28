@@ -128,6 +128,8 @@ instance AWSRequest DescribeHSM where
 
 instance Hashable DescribeHSM
 
+instance NFData DescribeHSM
+
 instance ToHeaders DescribeHSM where
         toHeaders
           = const

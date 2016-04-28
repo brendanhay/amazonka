@@ -40,6 +40,7 @@ instance ToText MigrationTypeValue where
         FullLoadAndCdc -> "full-load-and-cdc"
 
 instance Hashable     MigrationTypeValue
+instance NFData       MigrationTypeValue
 instance ToByteString MigrationTypeValue
 instance ToQuery      MigrationTypeValue
 instance ToHeader     MigrationTypeValue
@@ -71,6 +72,7 @@ instance ToText RefreshSchemasStatusTypeValue where
         Successful -> "successful"
 
 instance Hashable     RefreshSchemasStatusTypeValue
+instance NFData       RefreshSchemasStatusTypeValue
 instance ToByteString RefreshSchemasStatusTypeValue
 instance ToQuery      RefreshSchemasStatusTypeValue
 instance ToHeader     RefreshSchemasStatusTypeValue
@@ -96,6 +98,7 @@ instance ToText ReplicationEndpointTypeValue where
         Target -> "target"
 
 instance Hashable     ReplicationEndpointTypeValue
+instance NFData       ReplicationEndpointTypeValue
 instance ToByteString ReplicationEndpointTypeValue
 instance ToQuery      ReplicationEndpointTypeValue
 instance ToHeader     ReplicationEndpointTypeValue
@@ -127,6 +130,7 @@ instance ToText StartReplicationTaskTypeValue where
         StartReplication -> "start-replication"
 
 instance Hashable     StartReplicationTaskTypeValue
+instance NFData       StartReplicationTaskTypeValue
 instance ToByteString StartReplicationTaskTypeValue
 instance ToQuery      StartReplicationTaskTypeValue
 instance ToHeader     StartReplicationTaskTypeValue

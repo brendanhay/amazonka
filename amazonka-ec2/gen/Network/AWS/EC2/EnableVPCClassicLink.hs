@@ -96,6 +96,8 @@ instance AWSRequest EnableVPCClassicLink where
 
 instance Hashable EnableVPCClassicLink
 
+instance NFData EnableVPCClassicLink
+
 instance ToHeaders EnableVPCClassicLink where
         toHeaders = const mempty
 

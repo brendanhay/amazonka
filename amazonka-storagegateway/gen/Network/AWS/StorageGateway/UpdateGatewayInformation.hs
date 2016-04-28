@@ -102,6 +102,8 @@ instance AWSRequest UpdateGatewayInformation where
 
 instance Hashable UpdateGatewayInformation
 
+instance NFData UpdateGatewayInformation
+
 instance ToHeaders UpdateGatewayInformation where
         toHeaders
           = const

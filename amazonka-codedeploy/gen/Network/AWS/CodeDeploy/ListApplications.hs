@@ -81,6 +81,8 @@ instance AWSRequest ListApplications where
 
 instance Hashable ListApplications
 
+instance NFData ListApplications
+
 instance ToHeaders ListApplications where
         toHeaders
           = const

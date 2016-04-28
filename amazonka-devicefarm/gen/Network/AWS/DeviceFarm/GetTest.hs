@@ -77,6 +77,8 @@ instance AWSRequest GetTest where
 
 instance Hashable GetTest
 
+instance NFData GetTest
+
 instance ToHeaders GetTest where
         toHeaders
           = const

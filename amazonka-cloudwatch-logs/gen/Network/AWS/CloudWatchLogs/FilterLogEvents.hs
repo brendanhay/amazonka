@@ -181,6 +181,8 @@ instance AWSRequest FilterLogEvents where
 
 instance Hashable FilterLogEvents
 
+instance NFData FilterLogEvents
+
 instance ToHeaders FilterLogEvents where
         toHeaders
           = const

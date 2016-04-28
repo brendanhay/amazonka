@@ -103,6 +103,8 @@ instance AWSRequest ModifyReservedInstances where
 
 instance Hashable ModifyReservedInstances
 
+instance NFData ModifyReservedInstances
+
 instance ToHeaders ModifyReservedInstances where
         toHeaders = const mempty
 

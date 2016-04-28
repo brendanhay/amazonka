@@ -79,6 +79,8 @@ instance AWSRequest GetBucketACL where
 
 instance Hashable GetBucketACL
 
+instance NFData GetBucketACL
+
 instance ToHeaders GetBucketACL where
         toHeaders = const mempty
 

@@ -108,6 +108,8 @@ instance AWSRequest CreateIPSet where
 
 instance Hashable CreateIPSet
 
+instance NFData CreateIPSet
+
 instance ToHeaders CreateIPSet where
         toHeaders
           = const

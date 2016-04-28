@@ -76,6 +76,8 @@ instance AWSRequest GetBucketReplication where
 
 instance Hashable GetBucketReplication
 
+instance NFData GetBucketReplication
+
 instance ToHeaders GetBucketReplication where
         toHeaders = const mempty
 

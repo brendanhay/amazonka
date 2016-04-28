@@ -536,6 +536,8 @@ instance AWSRequest PutItem where
 
 instance Hashable PutItem
 
+instance NFData PutItem
+
 instance ToHeaders PutItem where
         toHeaders
           = const

@@ -129,6 +129,8 @@ instance AWSRequest DescribeBundleTasks where
 
 instance Hashable DescribeBundleTasks
 
+instance NFData DescribeBundleTasks
+
 instance ToHeaders DescribeBundleTasks where
         toHeaders = const mempty
 

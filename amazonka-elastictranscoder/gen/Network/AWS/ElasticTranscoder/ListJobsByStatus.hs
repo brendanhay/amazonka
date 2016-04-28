@@ -116,6 +116,8 @@ instance AWSRequest ListJobsByStatus where
 
 instance Hashable ListJobsByStatus
 
+instance NFData ListJobsByStatus
+
 instance ToHeaders ListJobsByStatus where
         toHeaders = const mempty
 

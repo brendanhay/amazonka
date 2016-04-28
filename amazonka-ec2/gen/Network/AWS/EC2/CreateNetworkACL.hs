@@ -93,6 +93,8 @@ instance AWSRequest CreateNetworkACL where
 
 instance Hashable CreateNetworkACL
 
+instance NFData CreateNetworkACL
+
 instance ToHeaders CreateNetworkACL where
         toHeaders = const mempty
 

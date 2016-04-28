@@ -91,6 +91,8 @@ instance AWSRequest DeleteVPCEndpoints where
 
 instance Hashable DeleteVPCEndpoints
 
+instance NFData DeleteVPCEndpoints
+
 instance ToHeaders DeleteVPCEndpoints where
         toHeaders = const mempty
 

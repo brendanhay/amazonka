@@ -109,6 +109,8 @@ instance AWSRequest ListDocuments where
 
 instance Hashable ListDocuments
 
+instance NFData ListDocuments
+
 instance ToHeaders ListDocuments where
         toHeaders
           = const

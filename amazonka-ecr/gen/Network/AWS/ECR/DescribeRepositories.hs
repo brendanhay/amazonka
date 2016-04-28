@@ -120,6 +120,8 @@ instance AWSRequest DescribeRepositories where
 
 instance Hashable DescribeRepositories
 
+instance NFData DescribeRepositories
+
 instance ToHeaders DescribeRepositories where
         toHeaders
           = const

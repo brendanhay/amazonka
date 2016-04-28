@@ -93,6 +93,8 @@ instance AWSRequest UpdateRDSDBInstance where
 
 instance Hashable UpdateRDSDBInstance
 
+instance NFData UpdateRDSDBInstance
+
 instance ToHeaders UpdateRDSDBInstance where
         toHeaders
           = const

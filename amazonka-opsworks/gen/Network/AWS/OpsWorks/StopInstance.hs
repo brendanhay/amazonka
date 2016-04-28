@@ -78,6 +78,8 @@ instance AWSRequest StopInstance where
 
 instance Hashable StopInstance
 
+instance NFData StopInstance
+
 instance ToHeaders StopInstance where
         toHeaders
           = const

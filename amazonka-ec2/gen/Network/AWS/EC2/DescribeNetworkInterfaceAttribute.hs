@@ -109,6 +109,8 @@ instance AWSRequest DescribeNetworkInterfaceAttribute
 
 instance Hashable DescribeNetworkInterfaceAttribute
 
+instance NFData DescribeNetworkInterfaceAttribute
+
 instance ToHeaders DescribeNetworkInterfaceAttribute
          where
         toHeaders = const mempty

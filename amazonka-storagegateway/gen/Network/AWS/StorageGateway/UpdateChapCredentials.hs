@@ -130,6 +130,8 @@ instance AWSRequest UpdateChapCredentials where
 
 instance Hashable UpdateChapCredentials
 
+instance NFData UpdateChapCredentials
+
 instance ToHeaders UpdateChapCredentials where
         toHeaders
           = const

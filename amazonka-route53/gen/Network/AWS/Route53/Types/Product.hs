@@ -213,6 +213,8 @@ instance FromXML AliasTarget where
 
 instance Hashable AliasTarget
 
+instance NFData AliasTarget
+
 instance ToXML AliasTarget where
         toXML AliasTarget'{..}
           = mconcat
@@ -270,6 +272,8 @@ cResourceRecordSet = lens _cResourceRecordSet (\ s a -> s{_cResourceRecordSet = 
 
 instance Hashable Change
 
+instance NFData Change
+
 instance ToXML Change where
         toXML Change'{..}
           = mconcat
@@ -312,6 +316,8 @@ cbChanges :: Lens' ChangeBatch (NonEmpty Change)
 cbChanges = lens _cbChanges (\ s a -> s{_cbChanges = a}) . _List1;
 
 instance Hashable ChangeBatch
+
+instance NFData ChangeBatch
 
 instance ToXML ChangeBatch where
         toXML ChangeBatch'{..}
@@ -392,6 +398,8 @@ instance FromXML ChangeInfo where
 
 instance Hashable ChangeInfo
 
+instance NFData ChangeInfo
+
 -- | A complex type that contains name server information.
 --
 -- /See:/ 'delegationSet' smart constructor.
@@ -443,6 +451,8 @@ instance FromXML DelegationSet where
                    parseXMLList1 "NameServer")
 
 instance Hashable DelegationSet
+
+instance NFData DelegationSet
 
 -- | A complex type that contains information about a geo location.
 --
@@ -505,6 +515,8 @@ instance FromXML GeoLocation where
                 <*> (x .@? "ContinentCode")
 
 instance Hashable GeoLocation
+
+instance NFData GeoLocation
 
 instance ToXML GeoLocation where
         toXML GeoLocation'{..}
@@ -598,6 +610,8 @@ instance FromXML GeoLocationDetails where
 
 instance Hashable GeoLocationDetails
 
+instance NFData GeoLocationDetails
+
 -- | A complex type that contains identifying information about the health
 -- check.
 --
@@ -660,6 +674,8 @@ instance FromXML HealthCheck where
                 <*> (x .@ "HealthCheckVersion")
 
 instance Hashable HealthCheck
+
+instance NFData HealthCheck
 
 -- | A complex type that contains the health check configuration.
 --
@@ -833,6 +849,8 @@ instance FromXML HealthCheckConfig where
 
 instance Hashable HealthCheckConfig
 
+instance NFData HealthCheckConfig
+
 instance ToXML HealthCheckConfig where
         toXML HealthCheckConfig'{..}
           = mconcat
@@ -893,6 +911,8 @@ instance FromXML HealthCheckObservation where
               (x .@? "IPAddress") <*> (x .@? "StatusReport")
 
 instance Hashable HealthCheckObservation
+
+instance NFData HealthCheckObservation
 
 -- | A complex type that contain information about the specified hosted zone.
 --
@@ -970,6 +990,8 @@ instance FromXML HostedZone where
 
 instance Hashable HostedZone
 
+instance NFData HostedZone
+
 -- | A complex type that contains an optional comment about your hosted zone.
 -- If you don\'t want to specify a comment, you can omit the
 -- 'HostedZoneConfig' and 'Comment' elements from the XML document.
@@ -1011,6 +1033,8 @@ instance FromXML HostedZoneConfig where
               (x .@? "PrivateZone") <*> (x .@? "Comment")
 
 instance Hashable HostedZoneConfig
+
+instance NFData HostedZoneConfig
 
 instance ToXML HostedZoneConfig where
         toXML HostedZoneConfig'{..}
@@ -1055,6 +1079,8 @@ instance FromXML ResourceRecord where
         parseXML x = ResourceRecord' <$> (x .@ "Value")
 
 instance Hashable ResourceRecord
+
+instance NFData ResourceRecord
 
 instance ToXML ResourceRecord where
         toXML ResourceRecord'{..}
@@ -1407,6 +1433,8 @@ instance FromXML ResourceRecordSet where
 
 instance Hashable ResourceRecordSet
 
+instance NFData ResourceRecordSet
+
 instance ToXML ResourceRecordSet where
         toXML ResourceRecordSet'{..}
           = mconcat
@@ -1477,6 +1505,8 @@ instance FromXML ResourceTagSet where
 
 instance Hashable ResourceTagSet
 
+instance NFData ResourceTagSet
+
 -- | A complex type that contains information about the health check status
 -- for the current observation.
 --
@@ -1519,6 +1549,8 @@ instance FromXML StatusReport where
 
 instance Hashable StatusReport
 
+instance NFData StatusReport
+
 -- | A single tag containing a key and value.
 --
 -- /See:/ 'tag' smart constructor.
@@ -1555,6 +1587,8 @@ instance FromXML Tag where
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToXML Tag where
         toXML Tag'{..}
@@ -1636,6 +1670,8 @@ instance FromXML TrafficPolicy where
                 <*> (x .@ "Document")
 
 instance Hashable TrafficPolicy
+
+instance NFData TrafficPolicy
 
 -- | /See:/ 'trafficPolicyInstance' smart constructor.
 data TrafficPolicyInstance = TrafficPolicyInstance'
@@ -1745,6 +1781,8 @@ instance FromXML TrafficPolicyInstance where
 
 instance Hashable TrafficPolicyInstance
 
+instance NFData TrafficPolicyInstance
+
 -- | /See:/ 'trafficPolicySummary' smart constructor.
 data TrafficPolicySummary = TrafficPolicySummary'
     { _tpsId                 :: !Text
@@ -1812,6 +1850,8 @@ instance FromXML TrafficPolicySummary where
 
 instance Hashable TrafficPolicySummary
 
+instance NFData TrafficPolicySummary
+
 -- | /See:/ 'vpc' smart constructor.
 data VPC = VPC'
     { _vpcVPCRegion :: !(Maybe VPCRegion)
@@ -1846,6 +1886,8 @@ instance FromXML VPC where
           = VPC' <$> (x .@? "VPCRegion") <*> (x .@? "VPCId")
 
 instance Hashable VPC
+
+instance NFData VPC
 
 instance ToXML VPC where
         toXML VPC'{..}

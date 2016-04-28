@@ -112,6 +112,8 @@ instance AWSRequest
 instance Hashable
          CreateSnapshotFromVolumeRecoveryPoint
 
+instance NFData CreateSnapshotFromVolumeRecoveryPoint
+
 instance ToHeaders
          CreateSnapshotFromVolumeRecoveryPoint where
         toHeaders

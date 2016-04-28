@@ -128,6 +128,8 @@ instance AWSRequest ListVirtualMFADevices where
 
 instance Hashable ListVirtualMFADevices
 
+instance NFData ListVirtualMFADevices
+
 instance ToHeaders ListVirtualMFADevices where
         toHeaders = const mempty
 

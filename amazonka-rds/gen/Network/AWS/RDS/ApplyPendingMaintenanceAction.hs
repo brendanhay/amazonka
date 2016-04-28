@@ -114,6 +114,8 @@ instance AWSRequest ApplyPendingMaintenanceAction
 
 instance Hashable ApplyPendingMaintenanceAction
 
+instance NFData ApplyPendingMaintenanceAction
+
 instance ToHeaders ApplyPendingMaintenanceAction
          where
         toHeaders = const mempty

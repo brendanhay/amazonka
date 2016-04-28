@@ -71,6 +71,8 @@ instance AWSRequest DeleteTopic where
 
 instance Hashable DeleteTopic
 
+instance NFData DeleteTopic
+
 instance ToHeaders DeleteTopic where
         toHeaders = const mempty
 

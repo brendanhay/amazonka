@@ -93,6 +93,8 @@ instance AWSRequest CancelKeyDeletion where
 
 instance Hashable CancelKeyDeletion
 
+instance NFData CancelKeyDeletion
+
 instance ToHeaders CancelKeyDeletion where
         toHeaders
           = const

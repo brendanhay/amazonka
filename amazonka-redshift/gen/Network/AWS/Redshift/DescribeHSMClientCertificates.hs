@@ -170,6 +170,8 @@ instance AWSRequest DescribeHSMClientCertificates
 
 instance Hashable DescribeHSMClientCertificates
 
+instance NFData DescribeHSMClientCertificates
+
 instance ToHeaders DescribeHSMClientCertificates
          where
         toHeaders = const mempty

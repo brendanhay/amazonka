@@ -77,6 +77,8 @@ instance AWSRequest DeleteReplicationSubnetGroup
 
 instance Hashable DeleteReplicationSubnetGroup
 
+instance NFData DeleteReplicationSubnetGroup
+
 instance ToHeaders DeleteReplicationSubnetGroup where
         toHeaders
           = const

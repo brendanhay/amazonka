@@ -127,6 +127,8 @@ instance AWSRequest ListGroups where
 
 instance Hashable ListGroups
 
+instance NFData ListGroups
+
 instance ToHeaders ListGroups where
         toHeaders = const mempty
 

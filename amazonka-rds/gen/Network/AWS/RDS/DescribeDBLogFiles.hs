@@ -161,6 +161,8 @@ instance AWSRequest DescribeDBLogFiles where
 
 instance Hashable DescribeDBLogFiles
 
+instance NFData DescribeDBLogFiles
+
 instance ToHeaders DescribeDBLogFiles where
         toHeaders = const mempty
 

@@ -116,6 +116,8 @@ instance AWSRequest DescribeWorkspaceBundles where
 
 instance Hashable DescribeWorkspaceBundles
 
+instance NFData DescribeWorkspaceBundles
+
 instance ToHeaders DescribeWorkspaceBundles where
         toHeaders
           = const

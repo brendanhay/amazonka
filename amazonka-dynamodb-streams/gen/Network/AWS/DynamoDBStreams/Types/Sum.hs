@@ -37,6 +37,7 @@ instance ToText KeyType where
         Range -> "RANGE"
 
 instance Hashable     KeyType
+instance NFData       KeyType
 instance ToByteString KeyType
 instance ToQuery      KeyType
 instance ToHeader     KeyType
@@ -65,6 +66,7 @@ instance ToText OperationType where
         Remove -> "REMOVE"
 
 instance Hashable     OperationType
+instance NFData       OperationType
 instance ToByteString OperationType
 instance ToQuery      OperationType
 instance ToHeader     OperationType
@@ -96,6 +98,7 @@ instance ToText ShardIteratorType where
         TrimHorizon -> "TRIM_HORIZON"
 
 instance Hashable     ShardIteratorType
+instance NFData       ShardIteratorType
 instance ToByteString ShardIteratorType
 instance ToQuery      ShardIteratorType
 instance ToHeader     ShardIteratorType
@@ -127,6 +130,7 @@ instance ToText StreamStatus where
         Enabling -> "ENABLING"
 
 instance Hashable     StreamStatus
+instance NFData       StreamStatus
 instance ToByteString StreamStatus
 instance ToQuery      StreamStatus
 instance ToHeader     StreamStatus
@@ -158,6 +162,7 @@ instance ToText StreamViewType where
         OldImage -> "OLD_IMAGE"
 
 instance Hashable     StreamViewType
+instance NFData       StreamViewType
 instance ToByteString StreamViewType
 instance ToQuery      StreamViewType
 instance ToHeader     StreamViewType

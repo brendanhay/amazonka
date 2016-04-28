@@ -115,6 +115,8 @@ instance AWSRequest BundleInstance where
 
 instance Hashable BundleInstance
 
+instance NFData BundleInstance
+
 instance ToHeaders BundleInstance where
         toHeaders = const mempty
 

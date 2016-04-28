@@ -109,6 +109,8 @@ instance AWSRequest GetObjectACL where
 
 instance Hashable GetObjectACL
 
+instance NFData GetObjectACL
+
 instance ToHeaders GetObjectACL where
         toHeaders GetObjectACL'{..}
           = mconcat ["x-amz-request-payer" =# _goaRequestPayer]

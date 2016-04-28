@@ -98,6 +98,8 @@ instance AWSRequest RemoveTagsFromVault where
 
 instance Hashable RemoveTagsFromVault
 
+instance NFData RemoveTagsFromVault
+
 instance ToHeaders RemoveTagsFromVault where
         toHeaders = const mempty
 

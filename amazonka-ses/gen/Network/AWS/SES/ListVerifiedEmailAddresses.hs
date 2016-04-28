@@ -73,6 +73,8 @@ instance AWSRequest ListVerifiedEmailAddresses where
 
 instance Hashable ListVerifiedEmailAddresses
 
+instance NFData ListVerifiedEmailAddresses
+
 instance ToHeaders ListVerifiedEmailAddresses where
         toHeaders = const mempty
 

@@ -109,6 +109,8 @@ instance AWSRequest ListDevicePools where
 
 instance Hashable ListDevicePools
 
+instance NFData ListDevicePools
+
 instance ToHeaders ListDevicePools where
         toHeaders
           = const

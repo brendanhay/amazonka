@@ -87,6 +87,8 @@ instance AWSRequest CopySnapshot where
 
 instance Hashable CopySnapshot
 
+instance NFData CopySnapshot
+
 instance ToHeaders CopySnapshot where
         toHeaders = const mempty
 

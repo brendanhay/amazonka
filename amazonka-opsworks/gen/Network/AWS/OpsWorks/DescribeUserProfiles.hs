@@ -81,6 +81,8 @@ instance AWSRequest DescribeUserProfiles where
 
 instance Hashable DescribeUserProfiles
 
+instance NFData DescribeUserProfiles
+
 instance ToHeaders DescribeUserProfiles where
         toHeaders
           = const

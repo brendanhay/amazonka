@@ -83,6 +83,8 @@ instance AWSRequest CancelJob where
 
 instance Hashable CancelJob
 
+instance NFData CancelJob
+
 instance ToHeaders CancelJob where
         toHeaders = const mempty
 

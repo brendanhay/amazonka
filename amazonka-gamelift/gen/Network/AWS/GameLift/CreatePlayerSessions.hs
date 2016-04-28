@@ -98,6 +98,8 @@ instance AWSRequest CreatePlayerSessions where
 
 instance Hashable CreatePlayerSessions
 
+instance NFData CreatePlayerSessions
+
 instance ToHeaders CreatePlayerSessions where
         toHeaders
           = const

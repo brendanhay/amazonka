@@ -43,6 +43,7 @@ instance ToText ApplicationVersionStatus where
         Unprocessed -> "Unprocessed"
 
 instance Hashable     ApplicationVersionStatus
+instance NFData       ApplicationVersionStatus
 instance ToByteString ApplicationVersionStatus
 instance ToQuery      ApplicationVersionStatus
 instance ToHeader     ApplicationVersionStatus
@@ -71,6 +72,7 @@ instance ToText ConfigurationDeploymentStatus where
         CDSPending -> "pending"
 
 instance Hashable     ConfigurationDeploymentStatus
+instance NFData       ConfigurationDeploymentStatus
 instance ToByteString ConfigurationDeploymentStatus
 instance ToQuery      ConfigurationDeploymentStatus
 instance ToHeader     ConfigurationDeploymentStatus
@@ -96,6 +98,7 @@ instance ToText ConfigurationOptionValueType where
         Scalar -> "Scalar"
 
 instance Hashable     ConfigurationOptionValueType
+instance NFData       ConfigurationOptionValueType
 instance ToByteString ConfigurationOptionValueType
 instance ToQuery      ConfigurationOptionValueType
 instance ToHeader     ConfigurationOptionValueType
@@ -127,6 +130,7 @@ instance ToText EnvironmentHealth where
         Yellow -> "Yellow"
 
 instance Hashable     EnvironmentHealth
+instance NFData       EnvironmentHealth
 instance ToByteString EnvironmentHealth
 instance ToQuery      EnvironmentHealth
 instance ToHeader     EnvironmentHealth
@@ -170,6 +174,7 @@ instance ToText EnvironmentHealthAttribute where
         EHAStatus -> "Status"
 
 instance Hashable     EnvironmentHealthAttribute
+instance NFData       EnvironmentHealthAttribute
 instance ToByteString EnvironmentHealthAttribute
 instance ToQuery      EnvironmentHealthAttribute
 instance ToHeader     EnvironmentHealthAttribute
@@ -210,6 +215,7 @@ instance ToText EnvironmentHealthStatus where
         Warning -> "Warning"
 
 instance Hashable     EnvironmentHealthStatus
+instance NFData       EnvironmentHealthStatus
 instance ToByteString EnvironmentHealthStatus
 instance ToQuery      EnvironmentHealthStatus
 instance ToHeader     EnvironmentHealthStatus
@@ -235,6 +241,7 @@ instance ToText EnvironmentInfoType where
         Tail -> "tail"
 
 instance Hashable     EnvironmentInfoType
+instance NFData       EnvironmentInfoType
 instance ToByteString EnvironmentInfoType
 instance ToQuery      EnvironmentInfoType
 instance ToHeader     EnvironmentInfoType
@@ -269,6 +276,7 @@ instance ToText EnvironmentStatus where
         Updating -> "Updating"
 
 instance Hashable     EnvironmentStatus
+instance NFData       EnvironmentStatus
 instance ToByteString EnvironmentStatus
 instance ToQuery      EnvironmentStatus
 instance ToHeader     EnvironmentStatus
@@ -306,6 +314,7 @@ instance ToText EventSeverity where
         LevelWarn -> "WARN"
 
 instance Hashable     EventSeverity
+instance NFData       EventSeverity
 instance ToByteString EventSeverity
 instance ToQuery      EventSeverity
 instance ToHeader     EventSeverity
@@ -349,6 +358,7 @@ instance ToText InstancesHealthAttribute where
         System -> "System"
 
 instance Hashable     InstancesHealthAttribute
+instance NFData       InstancesHealthAttribute
 instance ToByteString InstancesHealthAttribute
 instance ToQuery      InstancesHealthAttribute
 instance ToHeader     InstancesHealthAttribute
@@ -371,6 +381,7 @@ instance ToText ValidationSeverity where
         VSWarning -> "warning"
 
 instance Hashable     ValidationSeverity
+instance NFData       ValidationSeverity
 instance ToByteString ValidationSeverity
 instance ToQuery      ValidationSeverity
 instance ToHeader     ValidationSeverity

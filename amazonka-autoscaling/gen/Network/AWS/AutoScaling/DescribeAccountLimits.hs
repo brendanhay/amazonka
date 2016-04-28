@@ -74,6 +74,8 @@ instance AWSRequest DescribeAccountLimits where
 
 instance Hashable DescribeAccountLimits
 
+instance NFData DescribeAccountLimits
+
 instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty
 

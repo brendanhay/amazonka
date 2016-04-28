@@ -100,6 +100,8 @@ instance AWSRequest GetConfig where
 
 instance Hashable GetConfig
 
+instance NFData GetConfig
+
 instance ToHeaders GetConfig where
         toHeaders
           = const

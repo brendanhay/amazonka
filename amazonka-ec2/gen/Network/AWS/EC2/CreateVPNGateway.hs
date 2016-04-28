@@ -102,6 +102,8 @@ instance AWSRequest CreateVPNGateway where
 
 instance Hashable CreateVPNGateway
 
+instance NFData CreateVPNGateway
+
 instance ToHeaders CreateVPNGateway where
         toHeaders = const mempty
 

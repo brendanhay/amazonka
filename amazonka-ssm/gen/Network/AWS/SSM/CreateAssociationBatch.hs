@@ -86,6 +86,8 @@ instance AWSRequest CreateAssociationBatch where
 
 instance Hashable CreateAssociationBatch
 
+instance NFData CreateAssociationBatch
+
 instance ToHeaders CreateAssociationBatch where
         toHeaders
           = const

@@ -96,6 +96,8 @@ instance AWSRequest UpdateResource where
 
 instance Hashable UpdateResource
 
+instance NFData UpdateResource
+
 instance ToHeaders UpdateResource where
         toHeaders
           = const

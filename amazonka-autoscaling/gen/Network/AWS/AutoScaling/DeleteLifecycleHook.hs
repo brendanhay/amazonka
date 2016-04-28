@@ -88,6 +88,8 @@ instance AWSRequest DeleteLifecycleHook where
 
 instance Hashable DeleteLifecycleHook
 
+instance NFData DeleteLifecycleHook
+
 instance ToHeaders DeleteLifecycleHook where
         toHeaders = const mempty
 

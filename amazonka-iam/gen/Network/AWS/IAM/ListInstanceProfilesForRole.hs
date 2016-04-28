@@ -128,6 +128,8 @@ instance AWSRequest ListInstanceProfilesForRole where
 
 instance Hashable ListInstanceProfilesForRole
 
+instance NFData ListInstanceProfilesForRole
+
 instance ToHeaders ListInstanceProfilesForRole where
         toHeaders = const mempty
 

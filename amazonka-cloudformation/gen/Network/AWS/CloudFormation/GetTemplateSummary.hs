@@ -143,6 +143,8 @@ instance AWSRequest GetTemplateSummary where
 
 instance Hashable GetTemplateSummary
 
+instance NFData GetTemplateSummary
+
 instance ToHeaders GetTemplateSummary where
         toHeaders = const mempty
 

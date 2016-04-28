@@ -112,6 +112,8 @@ instance AWSRequest GetDeployments where
 
 instance Hashable GetDeployments
 
+instance NFData GetDeployments
+
 instance ToHeaders GetDeployments where
         toHeaders
           = const

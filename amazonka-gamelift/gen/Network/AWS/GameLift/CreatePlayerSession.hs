@@ -96,6 +96,8 @@ instance AWSRequest CreatePlayerSession where
 
 instance Hashable CreatePlayerSession
 
+instance NFData CreatePlayerSession
+
 instance ToHeaders CreatePlayerSession where
         toHeaders
           = const

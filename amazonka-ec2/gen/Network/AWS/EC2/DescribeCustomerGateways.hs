@@ -133,6 +133,8 @@ instance AWSRequest DescribeCustomerGateways where
 
 instance Hashable DescribeCustomerGateways
 
+instance NFData DescribeCustomerGateways
+
 instance ToHeaders DescribeCustomerGateways where
         toHeaders = const mempty
 

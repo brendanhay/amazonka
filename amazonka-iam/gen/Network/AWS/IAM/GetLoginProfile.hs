@@ -77,6 +77,8 @@ instance AWSRequest GetLoginProfile where
 
 instance Hashable GetLoginProfile
 
+instance NFData GetLoginProfile
+
 instance ToHeaders GetLoginProfile where
         toHeaders = const mempty
 

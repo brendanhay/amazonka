@@ -139,6 +139,8 @@ instance AWSRequest DescribeSubnets where
 
 instance Hashable DescribeSubnets
 
+instance NFData DescribeSubnets
+
 instance ToHeaders DescribeSubnets where
         toHeaders = const mempty
 

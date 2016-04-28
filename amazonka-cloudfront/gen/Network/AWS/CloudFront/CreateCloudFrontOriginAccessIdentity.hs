@@ -84,6 +84,8 @@ instance AWSRequest
 instance Hashable
          CreateCloudFrontOriginAccessIdentity
 
+instance NFData CreateCloudFrontOriginAccessIdentity
+
 instance ToElement
          CreateCloudFrontOriginAccessIdentity where
         toElement

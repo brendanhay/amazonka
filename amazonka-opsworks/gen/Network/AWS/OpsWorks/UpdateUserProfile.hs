@@ -106,6 +106,8 @@ instance AWSRequest UpdateUserProfile where
 
 instance Hashable UpdateUserProfile
 
+instance NFData UpdateUserProfile
+
 instance ToHeaders UpdateUserProfile where
         toHeaders
           = const

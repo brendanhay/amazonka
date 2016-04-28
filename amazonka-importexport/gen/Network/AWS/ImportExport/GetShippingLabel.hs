@@ -176,6 +176,8 @@ instance AWSRequest GetShippingLabel where
 
 instance Hashable GetShippingLabel
 
+instance NFData GetShippingLabel
+
 instance ToHeaders GetShippingLabel where
         toHeaders = const mempty
 

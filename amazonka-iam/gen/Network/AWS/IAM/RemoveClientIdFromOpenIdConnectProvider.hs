@@ -91,6 +91,9 @@ instance AWSRequest
 instance Hashable
          RemoveClientIdFromOpenIdConnectProvider
 
+instance NFData
+         RemoveClientIdFromOpenIdConnectProvider
+
 instance ToHeaders
          RemoveClientIdFromOpenIdConnectProvider where
         toHeaders = const mempty

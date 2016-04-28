@@ -154,6 +154,8 @@ instance AWSRequest ListDomains where
 
 instance Hashable ListDomains
 
+instance NFData ListDomains
+
 instance ToHeaders ListDomains where
         toHeaders
           = const

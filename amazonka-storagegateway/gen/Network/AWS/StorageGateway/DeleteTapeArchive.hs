@@ -78,6 +78,8 @@ instance AWSRequest DeleteTapeArchive where
 
 instance Hashable DeleteTapeArchive
 
+instance NFData DeleteTapeArchive
+
 instance ToHeaders DeleteTapeArchive where
         toHeaders
           = const

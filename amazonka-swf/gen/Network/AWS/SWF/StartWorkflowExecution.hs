@@ -285,6 +285,8 @@ instance AWSRequest StartWorkflowExecution where
 
 instance Hashable StartWorkflowExecution
 
+instance NFData StartWorkflowExecution
+
 instance ToHeaders StartWorkflowExecution where
         toHeaders
           = const

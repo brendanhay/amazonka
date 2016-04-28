@@ -76,6 +76,8 @@ instance AWSRequest DeleteFlowLogs where
 
 instance Hashable DeleteFlowLogs
 
+instance NFData DeleteFlowLogs
+
 instance ToHeaders DeleteFlowLogs where
         toHeaders = const mempty
 

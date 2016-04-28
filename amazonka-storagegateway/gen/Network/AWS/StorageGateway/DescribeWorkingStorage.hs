@@ -94,6 +94,8 @@ instance AWSRequest DescribeWorkingStorage where
 
 instance Hashable DescribeWorkingStorage
 
+instance NFData DescribeWorkingStorage
+
 instance ToHeaders DescribeWorkingStorage where
         toHeaders
           = const

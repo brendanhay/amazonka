@@ -134,6 +134,8 @@ instance AWSRequest SubmitContainerStateChange where
 
 instance Hashable SubmitContainerStateChange
 
+instance NFData SubmitContainerStateChange
+
 instance ToHeaders SubmitContainerStateChange where
         toHeaders
           = const

@@ -89,6 +89,8 @@ instance AWSRequest GetIdentityPoolConfiguration
 
 instance Hashable GetIdentityPoolConfiguration
 
+instance NFData GetIdentityPoolConfiguration
+
 instance ToHeaders GetIdentityPoolConfiguration where
         toHeaders
           = const

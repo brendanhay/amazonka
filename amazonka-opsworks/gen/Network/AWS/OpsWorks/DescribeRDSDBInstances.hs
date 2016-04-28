@@ -93,6 +93,8 @@ instance AWSRequest DescribeRDSDBInstances where
 
 instance Hashable DescribeRDSDBInstances
 
+instance NFData DescribeRDSDBInstances
+
 instance ToHeaders DescribeRDSDBInstances where
         toHeaders
           = const

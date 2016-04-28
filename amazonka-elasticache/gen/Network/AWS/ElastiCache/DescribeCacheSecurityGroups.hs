@@ -121,6 +121,8 @@ instance AWSRequest DescribeCacheSecurityGroups where
 
 instance Hashable DescribeCacheSecurityGroups
 
+instance NFData DescribeCacheSecurityGroups
+
 instance ToHeaders DescribeCacheSecurityGroups where
         toHeaders = const mempty
 

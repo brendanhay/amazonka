@@ -80,6 +80,8 @@ instance AWSRequest GetRole where
 
 instance Hashable GetRole
 
+instance NFData GetRole
+
 instance ToHeaders GetRole where
         toHeaders = const mempty
 

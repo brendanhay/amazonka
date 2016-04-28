@@ -168,6 +168,8 @@ instance AWSRequest CreateEventSourceMapping where
 
 instance Hashable CreateEventSourceMapping
 
+instance NFData CreateEventSourceMapping
+
 instance ToHeaders CreateEventSourceMapping where
         toHeaders = const mempty
 

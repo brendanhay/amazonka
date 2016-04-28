@@ -105,6 +105,8 @@ instance AWSRequest ModifyLoadBalancerAttributes
 
 instance Hashable ModifyLoadBalancerAttributes
 
+instance NFData ModifyLoadBalancerAttributes
+
 instance ToHeaders ModifyLoadBalancerAttributes where
         toHeaders = const mempty
 

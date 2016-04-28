@@ -161,6 +161,8 @@ instance AWSRequest ModifyEndpoint where
 
 instance Hashable ModifyEndpoint
 
+instance NFData ModifyEndpoint
+
 instance ToHeaders ModifyEndpoint where
         toHeaders
           = const

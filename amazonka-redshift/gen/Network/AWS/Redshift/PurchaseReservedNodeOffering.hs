@@ -101,6 +101,8 @@ instance AWSRequest PurchaseReservedNodeOffering
 
 instance Hashable PurchaseReservedNodeOffering
 
+instance NFData PurchaseReservedNodeOffering
+
 instance ToHeaders PurchaseReservedNodeOffering where
         toHeaders = const mempty
 

@@ -117,6 +117,8 @@ instance AWSRequest ListInvalidations where
 
 instance Hashable ListInvalidations
 
+instance NFData ListInvalidations
+
 instance ToHeaders ListInvalidations where
         toHeaders = const mempty
 

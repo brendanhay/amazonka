@@ -150,6 +150,8 @@ instance AWSRequest ListTaskDefinitions where
 
 instance Hashable ListTaskDefinitions
 
+instance NFData ListTaskDefinitions
+
 instance ToHeaders ListTaskDefinitions where
         toHeaders
           = const

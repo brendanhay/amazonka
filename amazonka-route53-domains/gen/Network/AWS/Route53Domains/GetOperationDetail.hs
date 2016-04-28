@@ -97,6 +97,8 @@ instance AWSRequest GetOperationDetail where
 
 instance Hashable GetOperationDetail
 
+instance NFData GetOperationDetail
+
 instance ToHeaders GetOperationDetail where
         toHeaders
           = const

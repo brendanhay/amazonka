@@ -80,6 +80,8 @@ instance AWSRequest GetDistributionConfig where
 
 instance Hashable GetDistributionConfig
 
+instance NFData GetDistributionConfig
+
 instance ToHeaders GetDistributionConfig where
         toHeaders = const mempty
 

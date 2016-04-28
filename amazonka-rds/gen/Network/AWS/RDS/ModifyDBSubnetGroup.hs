@@ -103,6 +103,8 @@ instance AWSRequest ModifyDBSubnetGroup where
 
 instance Hashable ModifyDBSubnetGroup
 
+instance NFData ModifyDBSubnetGroup
+
 instance ToHeaders ModifyDBSubnetGroup where
         toHeaders = const mempty
 

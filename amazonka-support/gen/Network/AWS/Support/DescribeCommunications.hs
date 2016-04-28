@@ -142,6 +142,8 @@ instance AWSRequest DescribeCommunications where
 
 instance Hashable DescribeCommunications
 
+instance NFData DescribeCommunications
+
 instance ToHeaders DescribeCommunications where
         toHeaders
           = const

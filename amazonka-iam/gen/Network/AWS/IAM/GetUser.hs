@@ -81,6 +81,8 @@ instance AWSRequest GetUser where
 
 instance Hashable GetUser
 
+instance NFData GetUser
+
 instance ToHeaders GetUser where
         toHeaders = const mempty
 

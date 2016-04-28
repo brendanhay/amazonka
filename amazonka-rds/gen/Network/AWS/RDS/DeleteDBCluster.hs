@@ -128,6 +128,8 @@ instance AWSRequest DeleteDBCluster where
 
 instance Hashable DeleteDBCluster
 
+instance NFData DeleteDBCluster
+
 instance ToHeaders DeleteDBCluster where
         toHeaders = const mempty
 

@@ -125,6 +125,8 @@ instance AWSRequest GetMLModel where
 
 instance Hashable GetMLModel
 
+instance NFData GetMLModel
+
 instance ToHeaders GetMLModel where
         toHeaders
           = const

@@ -104,6 +104,8 @@ instance AWSRequest RevokeCacheSecurityGroupIngress
 
 instance Hashable RevokeCacheSecurityGroupIngress
 
+instance NFData RevokeCacheSecurityGroupIngress
+
 instance ToHeaders RevokeCacheSecurityGroupIngress
          where
         toHeaders = const mempty

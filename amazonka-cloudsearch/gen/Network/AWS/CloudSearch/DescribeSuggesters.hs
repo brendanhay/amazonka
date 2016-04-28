@@ -110,6 +110,8 @@ instance AWSRequest DescribeSuggesters where
 
 instance Hashable DescribeSuggesters
 
+instance NFData DescribeSuggesters
+
 instance ToHeaders DescribeSuggesters where
         toHeaders = const mempty
 

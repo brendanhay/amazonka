@@ -114,6 +114,8 @@ instance AWSRequest CreateReplicationSubnetGroup
 
 instance Hashable CreateReplicationSubnetGroup
 
+instance NFData CreateReplicationSubnetGroup
+
 instance ToHeaders CreateReplicationSubnetGroup where
         toHeaders
           = const

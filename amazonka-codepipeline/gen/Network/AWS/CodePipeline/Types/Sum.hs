@@ -46,6 +46,7 @@ instance ToText ActionCategory where
         Test -> "Test"
 
 instance Hashable     ActionCategory
+instance NFData       ActionCategory
 instance ToByteString ActionCategory
 instance ToQuery      ActionCategory
 instance ToHeader     ActionCategory
@@ -77,6 +78,7 @@ instance ToText ActionConfigurationPropertyType where
         String -> "String"
 
 instance Hashable     ActionConfigurationPropertyType
+instance NFData       ActionConfigurationPropertyType
 instance ToByteString ActionConfigurationPropertyType
 instance ToQuery      ActionConfigurationPropertyType
 instance ToHeader     ActionConfigurationPropertyType
@@ -108,6 +110,7 @@ instance ToText ActionExecutionStatus where
         Succeeded -> "Succeeded"
 
 instance Hashable     ActionExecutionStatus
+instance NFData       ActionExecutionStatus
 instance ToByteString ActionExecutionStatus
 instance ToQuery      ActionExecutionStatus
 instance ToHeader     ActionExecutionStatus
@@ -136,6 +139,7 @@ instance ToText ActionOwner where
         ThirdParty -> "ThirdParty"
 
 instance Hashable     ActionOwner
+instance NFData       ActionOwner
 instance ToByteString ActionOwner
 instance ToQuery      ActionOwner
 instance ToHeader     ActionOwner
@@ -161,6 +165,7 @@ instance ToText ArtifactLocationType where
         ALTS3 -> "S3"
 
 instance Hashable     ArtifactLocationType
+instance NFData       ArtifactLocationType
 instance ToByteString ArtifactLocationType
 instance ToQuery      ArtifactLocationType
 instance ToHeader     ArtifactLocationType
@@ -183,6 +188,7 @@ instance ToText ArtifactStoreType where
         S3 -> "S3"
 
 instance Hashable     ArtifactStoreType
+instance NFData       ArtifactStoreType
 instance ToByteString ArtifactStoreType
 instance ToQuery      ArtifactStoreType
 instance ToHeader     ArtifactStoreType
@@ -208,6 +214,7 @@ instance ToText BlockerType where
         Schedule -> "Schedule"
 
 instance Hashable     BlockerType
+instance NFData       BlockerType
 instance ToByteString BlockerType
 instance ToQuery      BlockerType
 instance ToHeader     BlockerType
@@ -233,6 +240,7 @@ instance ToText EncryptionKeyType where
         KMS -> "KMS"
 
 instance Hashable     EncryptionKeyType
+instance NFData       EncryptionKeyType
 instance ToByteString EncryptionKeyType
 instance ToQuery      EncryptionKeyType
 instance ToHeader     EncryptionKeyType
@@ -273,6 +281,7 @@ instance ToText FailureType where
         SystemUnavailable -> "SystemUnavailable"
 
 instance Hashable     FailureType
+instance NFData       FailureType
 instance ToByteString FailureType
 instance ToQuery      FailureType
 instance ToHeader     FailureType
@@ -313,6 +322,7 @@ instance ToText JobStatus where
         JSTimedOut -> "TimedOut"
 
 instance Hashable     JobStatus
+instance NFData       JobStatus
 instance ToByteString JobStatus
 instance ToQuery      JobStatus
 instance ToHeader     JobStatus
@@ -338,6 +348,7 @@ instance ToText StageTransitionType where
         Outbound -> "Outbound"
 
 instance Hashable     StageTransitionType
+instance NFData       StageTransitionType
 instance ToByteString StageTransitionType
 instance ToQuery      StageTransitionType
 instance ToHeader     StageTransitionType

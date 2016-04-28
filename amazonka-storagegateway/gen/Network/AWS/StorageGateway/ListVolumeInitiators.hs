@@ -82,6 +82,8 @@ instance AWSRequest ListVolumeInitiators where
 
 instance Hashable ListVolumeInitiators
 
+instance NFData ListVolumeInitiators
+
 instance ToHeaders ListVolumeInitiators where
         toHeaders
           = const

@@ -83,6 +83,8 @@ instance AWSRequest GetServerCertificate where
 
 instance Hashable GetServerCertificate
 
+instance NFData GetServerCertificate
+
 instance ToHeaders GetServerCertificate where
         toHeaders = const mempty
 

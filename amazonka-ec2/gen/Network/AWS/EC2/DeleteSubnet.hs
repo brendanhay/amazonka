@@ -81,6 +81,8 @@ instance AWSRequest DeleteSubnet where
 
 instance Hashable DeleteSubnet
 
+instance NFData DeleteSubnet
+
 instance ToHeaders DeleteSubnet where
         toHeaders = const mempty
 

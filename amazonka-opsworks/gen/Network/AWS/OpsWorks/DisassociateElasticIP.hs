@@ -77,6 +77,8 @@ instance AWSRequest DisassociateElasticIP where
 
 instance Hashable DisassociateElasticIP
 
+instance NFData DisassociateElasticIP
+
 instance ToHeaders DisassociateElasticIP where
         toHeaders
           = const

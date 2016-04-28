@@ -95,6 +95,8 @@ instance AWSRequest RemoveTargets where
 
 instance Hashable RemoveTargets
 
+instance NFData RemoveTargets
+
 instance ToHeaders RemoveTargets where
         toHeaders
           = const

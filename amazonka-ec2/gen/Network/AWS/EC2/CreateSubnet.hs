@@ -137,6 +137,8 @@ instance AWSRequest CreateSubnet where
 
 instance Hashable CreateSubnet
 
+instance NFData CreateSubnet
+
 instance ToHeaders CreateSubnet where
         toHeaders = const mempty
 

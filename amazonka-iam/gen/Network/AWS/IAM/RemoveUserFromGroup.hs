@@ -79,6 +79,8 @@ instance AWSRequest RemoveUserFromGroup where
 
 instance Hashable RemoveUserFromGroup
 
+instance NFData RemoveUserFromGroup
+
 instance ToHeaders RemoveUserFromGroup where
         toHeaders = const mempty
 

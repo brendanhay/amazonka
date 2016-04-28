@@ -92,6 +92,8 @@ instance AWSRequest DescribeApplicationVersions where
 
 instance Hashable DescribeApplicationVersions
 
+instance NFData DescribeApplicationVersions
+
 instance ToHeaders DescribeApplicationVersions where
         toHeaders = const mempty
 

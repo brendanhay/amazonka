@@ -169,6 +169,8 @@ instance AWSRequest Invoke where
 
 instance Hashable Invoke
 
+instance NFData Invoke
+
 instance ToBody Invoke where
         toBody = toBody . _iPayload
 

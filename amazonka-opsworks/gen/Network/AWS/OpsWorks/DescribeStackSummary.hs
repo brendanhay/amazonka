@@ -83,6 +83,8 @@ instance AWSRequest DescribeStackSummary where
 
 instance Hashable DescribeStackSummary
 
+instance NFData DescribeStackSummary
+
 instance ToHeaders DescribeStackSummary where
         toHeaders
           = const

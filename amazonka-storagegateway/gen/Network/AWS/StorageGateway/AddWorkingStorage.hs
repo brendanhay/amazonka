@@ -101,6 +101,8 @@ instance AWSRequest AddWorkingStorage where
 
 instance Hashable AddWorkingStorage
 
+instance NFData AddWorkingStorage
+
 instance ToHeaders AddWorkingStorage where
         toHeaders
           = const

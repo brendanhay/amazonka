@@ -124,6 +124,8 @@ instance AWSRequest MergeDeveloperIdentities where
 
 instance Hashable MergeDeveloperIdentities
 
+instance NFData MergeDeveloperIdentities
+
 instance ToHeaders MergeDeveloperIdentities where
         toHeaders
           = const

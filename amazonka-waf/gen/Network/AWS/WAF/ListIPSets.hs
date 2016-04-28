@@ -94,6 +94,8 @@ instance AWSRequest ListIPSets where
 
 instance Hashable ListIPSets
 
+instance NFData ListIPSets
+
 instance ToHeaders ListIPSets where
         toHeaders
           = const

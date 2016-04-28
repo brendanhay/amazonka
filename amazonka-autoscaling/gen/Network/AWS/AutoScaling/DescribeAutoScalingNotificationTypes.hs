@@ -68,6 +68,8 @@ instance AWSRequest
 instance Hashable
          DescribeAutoScalingNotificationTypes
 
+instance NFData DescribeAutoScalingNotificationTypes
+
 instance ToHeaders
          DescribeAutoScalingNotificationTypes where
         toHeaders = const mempty

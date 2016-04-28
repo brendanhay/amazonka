@@ -105,6 +105,8 @@ instance AWSRequest ListDistributions where
 
 instance Hashable ListDistributions
 
+instance NFData ListDistributions
+
 instance ToHeaders ListDistributions where
         toHeaders = const mempty
 

@@ -125,6 +125,8 @@ instance AWSRequest BatchPutAttributes where
 
 instance Hashable BatchPutAttributes
 
+instance NFData BatchPutAttributes
+
 instance ToHeaders BatchPutAttributes where
         toHeaders = const mempty
 

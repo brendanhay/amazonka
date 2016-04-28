@@ -163,6 +163,8 @@ instance AWSRequest ListEntitiesForPolicy where
 
 instance Hashable ListEntitiesForPolicy
 
+instance NFData ListEntitiesForPolicy
+
 instance ToHeaders ListEntitiesForPolicy where
         toHeaders = const mempty
 

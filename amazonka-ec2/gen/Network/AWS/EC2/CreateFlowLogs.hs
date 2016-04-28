@@ -143,6 +143,8 @@ instance AWSRequest CreateFlowLogs where
 
 instance Hashable CreateFlowLogs
 
+instance NFData CreateFlowLogs
+
 instance ToHeaders CreateFlowLogs where
         toHeaders = const mempty
 

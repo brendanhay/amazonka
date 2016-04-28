@@ -85,6 +85,8 @@ instance AWSRequest DeleteScalingPolicy where
 
 instance Hashable DeleteScalingPolicy
 
+instance NFData DeleteScalingPolicy
+
 instance ToHeaders DeleteScalingPolicy where
         toHeaders
           = const

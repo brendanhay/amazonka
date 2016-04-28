@@ -112,6 +112,8 @@ instance AWSRequest CreateClusterSnapshot where
 
 instance Hashable CreateClusterSnapshot
 
+instance NFData CreateClusterSnapshot
+
 instance ToHeaders CreateClusterSnapshot where
         toHeaders = const mempty
 

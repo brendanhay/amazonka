@@ -75,6 +75,8 @@ instance AWSRequest GetBucketLocation where
 
 instance Hashable GetBucketLocation
 
+instance NFData GetBucketLocation
+
 instance ToHeaders GetBucketLocation where
         toHeaders = const mempty
 

@@ -148,6 +148,8 @@ instance AWSRequest CreateUpload where
 
 instance Hashable CreateUpload
 
+instance NFData CreateUpload
+
 instance ToHeaders CreateUpload where
         toHeaders
           = const

@@ -90,6 +90,8 @@ instance AWSRequest RefreshSchemas where
 
 instance Hashable RefreshSchemas
 
+instance NFData RefreshSchemas
+
 instance ToHeaders RefreshSchemas where
         toHeaders
           = const

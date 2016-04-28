@@ -105,6 +105,8 @@ instance AWSRequest CreateSpotDatafeedSubscription
 
 instance Hashable CreateSpotDatafeedSubscription
 
+instance NFData CreateSpotDatafeedSubscription
+
 instance ToHeaders CreateSpotDatafeedSubscription
          where
         toHeaders = const mempty

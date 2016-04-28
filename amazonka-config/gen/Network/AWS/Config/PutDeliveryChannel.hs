@@ -83,6 +83,8 @@ instance AWSRequest PutDeliveryChannel where
 
 instance Hashable PutDeliveryChannel
 
+instance NFData PutDeliveryChannel
+
 instance ToHeaders PutDeliveryChannel where
         toHeaders
           = const

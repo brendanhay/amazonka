@@ -112,6 +112,8 @@ instance AWSRequest ValidatePipelineDefinition where
 
 instance Hashable ValidatePipelineDefinition
 
+instance NFData ValidatePipelineDefinition
+
 instance ToHeaders ValidatePipelineDefinition where
         toHeaders
           = const

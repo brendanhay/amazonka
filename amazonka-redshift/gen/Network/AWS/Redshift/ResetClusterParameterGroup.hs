@@ -106,6 +106,8 @@ instance AWSRequest ResetClusterParameterGroup where
 
 instance Hashable ResetClusterParameterGroup
 
+instance NFData ResetClusterParameterGroup
+
 instance ToHeaders ResetClusterParameterGroup where
         toHeaders = const mempty
 

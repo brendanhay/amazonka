@@ -77,6 +77,8 @@ instance AWSRequest DeleteIdentity where
 
 instance Hashable DeleteIdentity
 
+instance NFData DeleteIdentity
+
 instance ToHeaders DeleteIdentity where
         toHeaders = const mempty
 

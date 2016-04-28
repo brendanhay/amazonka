@@ -100,6 +100,8 @@ instance AWSRequest DeleteCustomActionType where
 
 instance Hashable DeleteCustomActionType
 
+instance NFData DeleteCustomActionType
+
 instance ToHeaders DeleteCustomActionType where
         toHeaders
           = const

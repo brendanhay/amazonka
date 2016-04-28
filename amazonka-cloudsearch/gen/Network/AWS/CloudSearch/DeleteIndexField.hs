@@ -93,6 +93,8 @@ instance AWSRequest DeleteIndexField where
 
 instance Hashable DeleteIndexField
 
+instance NFData DeleteIndexField
+
 instance ToHeaders DeleteIndexField where
         toHeaders = const mempty
 

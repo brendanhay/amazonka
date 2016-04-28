@@ -75,6 +75,8 @@ instance AWSRequest DescribeMetricCollectionTypes
 
 instance Hashable DescribeMetricCollectionTypes
 
+instance NFData DescribeMetricCollectionTypes
+
 instance ToHeaders DescribeMetricCollectionTypes
          where
         toHeaders = const mempty

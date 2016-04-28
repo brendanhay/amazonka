@@ -144,6 +144,8 @@ instance AWSRequest CreateImage where
 
 instance Hashable CreateImage
 
+instance NFData CreateImage
+
 instance ToHeaders CreateImage where
         toHeaders = const mempty
 

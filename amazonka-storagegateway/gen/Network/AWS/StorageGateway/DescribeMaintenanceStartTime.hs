@@ -89,6 +89,8 @@ instance AWSRequest DescribeMaintenanceStartTime
 
 instance Hashable DescribeMaintenanceStartTime
 
+instance NFData DescribeMaintenanceStartTime
+
 instance ToHeaders DescribeMaintenanceStartTime where
         toHeaders
           = const

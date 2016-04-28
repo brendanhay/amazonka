@@ -110,6 +110,8 @@ instance AWSRequest DescribeIndexFields where
 
 instance Hashable DescribeIndexFields
 
+instance NFData DescribeIndexFields
+
 instance ToHeaders DescribeIndexFields where
         toHeaders = const mempty
 

@@ -403,6 +403,8 @@ instance AWSRequest RunInstances where
 
 instance Hashable RunInstances
 
+instance NFData RunInstances
+
 instance ToHeaders RunInstances where
         toHeaders = const mempty
 

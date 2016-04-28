@@ -93,6 +93,8 @@ instance AWSRequest GetBulkPublishDetails where
 
 instance Hashable GetBulkPublishDetails
 
+instance NFData GetBulkPublishDetails
+
 instance ToHeaders GetBulkPublishDetails where
         toHeaders
           = const

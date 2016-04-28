@@ -104,6 +104,8 @@ instance AWSRequest ListPresets where
 
 instance Hashable ListPresets
 
+instance NFData ListPresets
+
 instance ToHeaders ListPresets where
         toHeaders = const mempty
 

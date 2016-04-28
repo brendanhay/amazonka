@@ -213,6 +213,8 @@ instance AWSRequest DescribeInstanceStatus where
 
 instance Hashable DescribeInstanceStatus
 
+instance NFData DescribeInstanceStatus
+
 instance ToHeaders DescribeInstanceStatus where
         toHeaders = const mempty
 

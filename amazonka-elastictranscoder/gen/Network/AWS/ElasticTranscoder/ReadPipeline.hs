@@ -79,6 +79,8 @@ instance AWSRequest ReadPipeline where
 
 instance Hashable ReadPipeline
 
+instance NFData ReadPipeline
+
 instance ToHeaders ReadPipeline where
         toHeaders = const mempty
 

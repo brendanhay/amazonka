@@ -103,6 +103,8 @@ instance AWSRequest BatchGetImage where
 
 instance Hashable BatchGetImage
 
+instance NFData BatchGetImage
+
 instance ToHeaders BatchGetImage where
         toHeaders
           = const

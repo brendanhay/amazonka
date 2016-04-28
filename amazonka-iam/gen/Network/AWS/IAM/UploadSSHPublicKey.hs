@@ -94,6 +94,8 @@ instance AWSRequest UploadSSHPublicKey where
 
 instance Hashable UploadSSHPublicKey
 
+instance NFData UploadSSHPublicKey
+
 instance ToHeaders UploadSSHPublicKey where
         toHeaders = const mempty
 

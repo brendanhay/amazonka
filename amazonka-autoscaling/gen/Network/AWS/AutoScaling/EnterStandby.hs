@@ -104,6 +104,8 @@ instance AWSRequest EnterStandby where
 
 instance Hashable EnterStandby
 
+instance NFData EnterStandby
+
 instance ToHeaders EnterStandby where
         toHeaders = const mempty
 

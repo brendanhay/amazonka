@@ -37,6 +37,7 @@ instance ToText ContentType where
         ApplicationXML -> "application/xml"
 
 instance Hashable     ContentType
+instance NFData       ContentType
 instance ToByteString ContentType
 instance ToQuery      ContentType
 instance ToHeader     ContentType
@@ -68,6 +69,7 @@ instance ToText QueryParser where
         Structured -> "structured"
 
 instance Hashable     QueryParser
+instance NFData       QueryParser
 instance ToByteString QueryParser
 instance ToQuery      QueryParser
 instance ToHeader     QueryParser

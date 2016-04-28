@@ -123,6 +123,8 @@ instance AWSRequest ListGroupsForUser where
 
 instance Hashable ListGroupsForUser
 
+instance NFData ListGroupsForUser
+
 instance ToHeaders ListGroupsForUser where
         toHeaders = const mempty
 

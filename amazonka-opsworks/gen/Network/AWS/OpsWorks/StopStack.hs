@@ -74,6 +74,8 @@ instance AWSRequest StopStack where
 
 instance Hashable StopStack
 
+instance NFData StopStack
+
 instance ToHeaders StopStack where
         toHeaders
           = const

@@ -107,6 +107,8 @@ instance AWSRequest CreateKeyPair where
 
 instance Hashable CreateKeyPair
 
+instance NFData CreateKeyPair
+
 instance ToHeaders CreateKeyPair where
         toHeaders = const mempty
 

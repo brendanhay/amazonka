@@ -113,6 +113,8 @@ instance AWSRequest UnsubscribeFromDataset where
 
 instance Hashable UnsubscribeFromDataset
 
+instance NFData UnsubscribeFromDataset
+
 instance ToHeaders UnsubscribeFromDataset where
         toHeaders
           = const

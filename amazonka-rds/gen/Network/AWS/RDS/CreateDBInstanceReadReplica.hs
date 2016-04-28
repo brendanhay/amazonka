@@ -313,6 +313,8 @@ instance AWSRequest CreateDBInstanceReadReplica where
 
 instance Hashable CreateDBInstanceReadReplica
 
+instance NFData CreateDBInstanceReadReplica
+
 instance ToHeaders CreateDBInstanceReadReplica where
         toHeaders = const mempty
 

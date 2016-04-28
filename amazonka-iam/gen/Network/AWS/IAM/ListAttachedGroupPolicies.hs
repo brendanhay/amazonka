@@ -145,6 +145,8 @@ instance AWSRequest ListAttachedGroupPolicies where
 
 instance Hashable ListAttachedGroupPolicies
 
+instance NFData ListAttachedGroupPolicies
+
 instance ToHeaders ListAttachedGroupPolicies where
         toHeaders = const mempty
 

@@ -116,6 +116,8 @@ instance AWSRequest
 instance Hashable
          ListCloudFrontOriginAccessIdentities
 
+instance NFData ListCloudFrontOriginAccessIdentities
+
 instance ToHeaders
          ListCloudFrontOriginAccessIdentities where
         toHeaders = const mempty

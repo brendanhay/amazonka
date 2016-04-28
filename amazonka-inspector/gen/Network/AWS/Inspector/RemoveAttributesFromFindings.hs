@@ -89,6 +89,8 @@ instance AWSRequest RemoveAttributesFromFindings
 
 instance Hashable RemoveAttributesFromFindings
 
+instance NFData RemoveAttributesFromFindings
+
 instance ToHeaders RemoveAttributesFromFindings where
         toHeaders
           = const

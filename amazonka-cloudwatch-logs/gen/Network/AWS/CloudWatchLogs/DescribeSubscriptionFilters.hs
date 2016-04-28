@@ -125,6 +125,8 @@ instance AWSRequest DescribeSubscriptionFilters where
 
 instance Hashable DescribeSubscriptionFilters
 
+instance NFData DescribeSubscriptionFilters
+
 instance ToHeaders DescribeSubscriptionFilters where
         toHeaders
           = const

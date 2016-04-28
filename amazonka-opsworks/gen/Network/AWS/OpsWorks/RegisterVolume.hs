@@ -94,6 +94,8 @@ instance AWSRequest RegisterVolume where
 
 instance Hashable RegisterVolume
 
+instance NFData RegisterVolume
+
 instance ToHeaders RegisterVolume where
         toHeaders
           = const

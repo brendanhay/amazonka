@@ -122,6 +122,8 @@ instance AWSRequest AbortMultipartUpload where
 
 instance Hashable AbortMultipartUpload
 
+instance NFData AbortMultipartUpload
+
 instance ToHeaders AbortMultipartUpload where
         toHeaders = const mempty
 

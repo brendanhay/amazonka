@@ -112,6 +112,8 @@ instance AWSRequest ListOnPremisesInstances where
 
 instance Hashable ListOnPremisesInstances
 
+instance NFData ListOnPremisesInstances
+
 instance ToHeaders ListOnPremisesInstances where
         toHeaders
           = const

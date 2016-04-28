@@ -136,6 +136,8 @@ instance AWSRequest DescribeCacheParameters where
 
 instance Hashable DescribeCacheParameters
 
+instance NFData DescribeCacheParameters
+
 instance ToHeaders DescribeCacheParameters where
         toHeaders = const mempty
 

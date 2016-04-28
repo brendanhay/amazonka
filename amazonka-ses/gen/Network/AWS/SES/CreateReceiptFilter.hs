@@ -81,6 +81,8 @@ instance AWSRequest CreateReceiptFilter where
 
 instance Hashable CreateReceiptFilter
 
+instance NFData CreateReceiptFilter
+
 instance ToHeaders CreateReceiptFilter where
         toHeaders = const mempty
 

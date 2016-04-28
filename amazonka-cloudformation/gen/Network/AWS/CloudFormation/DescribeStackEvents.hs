@@ -114,6 +114,8 @@ instance AWSRequest DescribeStackEvents where
 
 instance Hashable DescribeStackEvents
 
+instance NFData DescribeStackEvents
+
 instance ToHeaders DescribeStackEvents where
         toHeaders = const mempty
 

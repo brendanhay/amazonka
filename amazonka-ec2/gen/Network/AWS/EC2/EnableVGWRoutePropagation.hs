@@ -81,6 +81,8 @@ instance AWSRequest EnableVGWRoutePropagation where
 
 instance Hashable EnableVGWRoutePropagation
 
+instance NFData EnableVGWRoutePropagation
+
 instance ToHeaders EnableVGWRoutePropagation where
         toHeaders = const mempty
 

@@ -98,6 +98,8 @@ instance AWSRequest GetIdentityDkimAttributes where
 
 instance Hashable GetIdentityDkimAttributes
 
+instance NFData GetIdentityDkimAttributes
+
 instance ToHeaders GetIdentityDkimAttributes where
         toHeaders = const mempty
 

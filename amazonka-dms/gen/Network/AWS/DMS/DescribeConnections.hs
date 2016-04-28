@@ -109,6 +109,8 @@ instance AWSRequest DescribeConnections where
 
 instance Hashable DescribeConnections
 
+instance NFData DescribeConnections
+
 instance ToHeaders DescribeConnections where
         toHeaders
           = const

@@ -307,6 +307,8 @@ instance AWSRequest PutMetricAlarm where
 
 instance Hashable PutMetricAlarm
 
+instance NFData PutMetricAlarm
+
 instance ToHeaders PutMetricAlarm where
         toHeaders = const mempty
 

@@ -116,6 +116,8 @@ instance AWSRequest DescribeVPCClassicLink where
 
 instance Hashable DescribeVPCClassicLink
 
+instance NFData DescribeVPCClassicLink
+
 instance ToHeaders DescribeVPCClassicLink where
         toHeaders = const mempty
 

@@ -100,6 +100,8 @@ instance AWSRequest ListRepositories where
 
 instance Hashable ListRepositories
 
+instance NFData ListRepositories
+
 instance ToHeaders ListRepositories where
         toHeaders
           = const

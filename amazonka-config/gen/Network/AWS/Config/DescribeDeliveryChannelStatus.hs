@@ -83,6 +83,8 @@ instance AWSRequest DescribeDeliveryChannelStatus
 
 instance Hashable DescribeDeliveryChannelStatus
 
+instance NFData DescribeDeliveryChannelStatus
+
 instance ToHeaders DescribeDeliveryChannelStatus
          where
         toHeaders

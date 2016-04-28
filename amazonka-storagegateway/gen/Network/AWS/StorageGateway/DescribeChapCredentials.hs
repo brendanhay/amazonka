@@ -84,6 +84,8 @@ instance AWSRequest DescribeChapCredentials where
 
 instance Hashable DescribeChapCredentials
 
+instance NFData DescribeChapCredentials
+
 instance ToHeaders DescribeChapCredentials where
         toHeaders
           = const

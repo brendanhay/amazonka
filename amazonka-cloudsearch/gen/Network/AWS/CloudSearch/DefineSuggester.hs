@@ -95,6 +95,8 @@ instance AWSRequest DefineSuggester where
 
 instance Hashable DefineSuggester
 
+instance NFData DefineSuggester
+
 instance ToHeaders DefineSuggester where
         toHeaders = const mempty
 

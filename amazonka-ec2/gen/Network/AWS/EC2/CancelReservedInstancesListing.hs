@@ -84,6 +84,8 @@ instance AWSRequest CancelReservedInstancesListing
 
 instance Hashable CancelReservedInstancesListing
 
+instance NFData CancelReservedInstancesListing
+
 instance ToHeaders CancelReservedInstancesListing
          where
         toHeaders = const mempty

@@ -136,6 +136,8 @@ instance AWSRequest LookupDeveloperIdentity where
 
 instance Hashable LookupDeveloperIdentity
 
+instance NFData LookupDeveloperIdentity
+
 instance ToHeaders LookupDeveloperIdentity where
         toHeaders
           = const

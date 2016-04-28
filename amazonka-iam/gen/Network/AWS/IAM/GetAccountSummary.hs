@@ -69,6 +69,8 @@ instance AWSRequest GetAccountSummary where
 
 instance Hashable GetAccountSummary
 
+instance NFData GetAccountSummary
+
 instance ToHeaders GetAccountSummary where
         toHeaders = const mempty
 

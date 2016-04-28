@@ -90,6 +90,8 @@ instance AWSRequest DomainMetadata where
 
 instance Hashable DomainMetadata
 
+instance NFData DomainMetadata
+
 instance ToHeaders DomainMetadata where
         toHeaders = const mempty
 

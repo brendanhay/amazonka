@@ -75,6 +75,8 @@ instance AWSRequest DeleteAssessment where
 
 instance Hashable DeleteAssessment
 
+instance NFData DeleteAssessment
+
 instance ToHeaders DeleteAssessment where
         toHeaders
           = const

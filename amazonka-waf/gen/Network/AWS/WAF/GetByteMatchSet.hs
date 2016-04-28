@@ -77,6 +77,8 @@ instance AWSRequest GetByteMatchSet where
 
 instance Hashable GetByteMatchSet
 
+instance NFData GetByteMatchSet
+
 instance ToHeaders GetByteMatchSet where
         toHeaders
           = const

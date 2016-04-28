@@ -86,6 +86,8 @@ instance AWSRequest DeleteReusableDelegationSet where
 
 instance Hashable DeleteReusableDelegationSet
 
+instance NFData DeleteReusableDelegationSet
+
 instance ToHeaders DeleteReusableDelegationSet where
         toHeaders = const mempty
 

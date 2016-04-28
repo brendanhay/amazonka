@@ -108,6 +108,8 @@ instance AWSRequest CreateVirtualMFADevice where
 
 instance Hashable CreateVirtualMFADevice
 
+instance NFData CreateVirtualMFADevice
+
 instance ToHeaders CreateVirtualMFADevice where
         toHeaders = const mempty
 

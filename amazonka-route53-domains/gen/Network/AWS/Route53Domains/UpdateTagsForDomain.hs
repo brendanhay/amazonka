@@ -145,6 +145,8 @@ instance AWSRequest UpdateTagsForDomain where
 
 instance Hashable UpdateTagsForDomain
 
+instance NFData UpdateTagsForDomain
+
 instance ToHeaders UpdateTagsForDomain where
         toHeaders
           = const

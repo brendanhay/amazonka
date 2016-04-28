@@ -86,6 +86,8 @@ instance AWSRequest RemoveTagsFromResource where
 
 instance Hashable RemoveTagsFromResource
 
+instance NFData RemoveTagsFromResource
+
 instance ToHeaders RemoveTagsFromResource where
         toHeaders
           = const

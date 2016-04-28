@@ -103,6 +103,8 @@ instance AWSRequest ConfirmProductInstance where
 
 instance Hashable ConfirmProductInstance
 
+instance NFData ConfirmProductInstance
+
 instance ToHeaders ConfirmProductInstance where
         toHeaders = const mempty
 

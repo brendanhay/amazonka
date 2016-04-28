@@ -133,6 +133,8 @@ instance AWSRequest DescribeDBClusterParameterGroups
 
 instance Hashable DescribeDBClusterParameterGroups
 
+instance NFData DescribeDBClusterParameterGroups
+
 instance ToHeaders DescribeDBClusterParameterGroups
          where
         toHeaders = const mempty

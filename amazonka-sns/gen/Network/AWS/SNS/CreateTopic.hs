@@ -86,6 +86,8 @@ instance AWSRequest CreateTopic where
 
 instance Hashable CreateTopic
 
+instance NFData CreateTopic
+
 instance ToHeaders CreateTopic where
         toHeaders = const mempty
 

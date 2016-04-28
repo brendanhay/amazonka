@@ -77,6 +77,8 @@ instance AWSRequest GetRun where
 
 instance Hashable GetRun
 
+instance NFData GetRun
+
 instance ToHeaders GetRun where
         toHeaders
           = const

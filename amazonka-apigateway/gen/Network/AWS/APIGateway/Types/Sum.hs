@@ -34,6 +34,7 @@ instance ToText AuthorizerType where
         Token -> "TOKEN"
 
 instance Hashable     AuthorizerType
+instance NFData       AuthorizerType
 instance ToByteString AuthorizerType
 instance ToQuery      AuthorizerType
 instance ToHeader     AuthorizerType
@@ -81,6 +82,7 @@ instance ToText CacheClusterSize where
         D6_1 -> "6.1"
 
 instance Hashable     CacheClusterSize
+instance NFData       CacheClusterSize
 instance ToByteString CacheClusterSize
 instance ToQuery      CacheClusterSize
 instance ToHeader     CacheClusterSize
@@ -119,6 +121,7 @@ instance ToText CacheClusterStatus where
         NotAvailable -> "NOT_AVAILABLE"
 
 instance Hashable     CacheClusterStatus
+instance NFData       CacheClusterStatus
 instance ToByteString CacheClusterStatus
 instance ToQuery      CacheClusterStatus
 instance ToHeader     CacheClusterStatus
@@ -148,6 +151,7 @@ instance ToText IntegrationType where
         Mock -> "MOCK"
 
 instance Hashable     IntegrationType
+instance NFData       IntegrationType
 instance ToByteString IntegrationType
 instance ToQuery      IntegrationType
 instance ToHeader     IntegrationType
@@ -188,6 +192,7 @@ instance ToText Op where
         Test -> "test"
 
 instance Hashable     Op
+instance NFData       Op
 instance ToByteString Op
 instance ToQuery      Op
 instance ToHeader     Op
@@ -216,6 +221,7 @@ instance ToText UnauthorizedCacheControlHeaderStrategy where
         SucceedWithoutResponseHeader -> "SUCCEED_WITHOUT_RESPONSE_HEADER"
 
 instance Hashable     UnauthorizedCacheControlHeaderStrategy
+instance NFData       UnauthorizedCacheControlHeaderStrategy
 instance ToByteString UnauthorizedCacheControlHeaderStrategy
 instance ToQuery      UnauthorizedCacheControlHeaderStrategy
 instance ToHeader     UnauthorizedCacheControlHeaderStrategy

@@ -82,6 +82,8 @@ instance AWSRequest DeleteElasticsearchDomain where
 
 instance Hashable DeleteElasticsearchDomain
 
+instance NFData DeleteElasticsearchDomain
+
 instance ToHeaders DeleteElasticsearchDomain where
         toHeaders = const mempty
 

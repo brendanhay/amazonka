@@ -81,6 +81,8 @@ instance AWSRequest DeleteIdentities where
 
 instance Hashable DeleteIdentities
 
+instance NFData DeleteIdentities
+
 instance ToHeaders DeleteIdentities where
         toHeaders
           = const

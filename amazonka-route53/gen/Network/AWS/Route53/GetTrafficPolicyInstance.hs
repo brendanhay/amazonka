@@ -92,6 +92,8 @@ instance AWSRequest GetTrafficPolicyInstance where
 
 instance Hashable GetTrafficPolicyInstance
 
+instance NFData GetTrafficPolicyInstance
+
 instance ToHeaders GetTrafficPolicyInstance where
         toHeaders = const mempty
 

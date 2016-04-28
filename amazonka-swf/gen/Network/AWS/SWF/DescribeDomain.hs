@@ -96,6 +96,8 @@ instance AWSRequest DescribeDomain where
 
 instance Hashable DescribeDomain
 
+instance NFData DescribeDomain
+
 instance ToHeaders DescribeDomain where
         toHeaders
           = const

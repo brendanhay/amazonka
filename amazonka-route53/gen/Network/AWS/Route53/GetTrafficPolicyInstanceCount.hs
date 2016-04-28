@@ -73,6 +73,8 @@ instance AWSRequest GetTrafficPolicyInstanceCount
 
 instance Hashable GetTrafficPolicyInstanceCount
 
+instance NFData GetTrafficPolicyInstanceCount
+
 instance ToHeaders GetTrafficPolicyInstanceCount
          where
         toHeaders = const mempty

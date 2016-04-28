@@ -183,6 +183,8 @@ instance AWSRequest DescribeTags where
 
 instance Hashable DescribeTags
 
+instance NFData DescribeTags
+
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
 

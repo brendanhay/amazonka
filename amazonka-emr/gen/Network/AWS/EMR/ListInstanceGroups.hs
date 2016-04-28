@@ -100,6 +100,8 @@ instance AWSRequest ListInstanceGroups where
 
 instance Hashable ListInstanceGroups
 
+instance NFData ListInstanceGroups
+
 instance ToHeaders ListInstanceGroups where
         toHeaders
           = const

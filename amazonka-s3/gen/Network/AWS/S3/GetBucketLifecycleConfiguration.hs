@@ -78,6 +78,8 @@ instance AWSRequest GetBucketLifecycleConfiguration
 
 instance Hashable GetBucketLifecycleConfiguration
 
+instance NFData GetBucketLifecycleConfiguration
+
 instance ToHeaders GetBucketLifecycleConfiguration
          where
         toHeaders = const mempty

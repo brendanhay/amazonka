@@ -119,6 +119,8 @@ instance AWSRequest CreateLBCookieStickinessPolicy
 
 instance Hashable CreateLBCookieStickinessPolicy
 
+instance NFData CreateLBCookieStickinessPolicy
+
 instance ToHeaders CreateLBCookieStickinessPolicy
          where
         toHeaders = const mempty

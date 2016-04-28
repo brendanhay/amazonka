@@ -118,6 +118,8 @@ instance AWSRequest ListJobsByPipeline where
 
 instance Hashable ListJobsByPipeline
 
+instance NFData ListJobsByPipeline
+
 instance ToHeaders ListJobsByPipeline where
         toHeaders = const mempty
 

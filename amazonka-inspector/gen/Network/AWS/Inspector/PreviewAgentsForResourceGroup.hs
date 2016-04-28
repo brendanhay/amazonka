@@ -104,6 +104,8 @@ instance AWSRequest PreviewAgentsForResourceGroup
 
 instance Hashable PreviewAgentsForResourceGroup
 
+instance NFData PreviewAgentsForResourceGroup
+
 instance ToHeaders PreviewAgentsForResourceGroup
          where
         toHeaders

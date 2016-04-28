@@ -138,6 +138,8 @@ instance AWSRequest DescribeAlarms where
 
 instance Hashable DescribeAlarms
 
+instance NFData DescribeAlarms
+
 instance ToHeaders DescribeAlarms where
         toHeaders = const mempty
 

@@ -134,6 +134,8 @@ instance AWSRequest PutAttributes where
 
 instance Hashable PutAttributes
 
+instance NFData PutAttributes
+
 instance ToHeaders PutAttributes where
         toHeaders = const mempty
 

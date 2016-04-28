@@ -106,6 +106,8 @@ instance AWSRequest CreateRole where
 
 instance Hashable CreateRole
 
+instance NFData CreateRole
+
 instance ToHeaders CreateRole where
         toHeaders = const mempty
 

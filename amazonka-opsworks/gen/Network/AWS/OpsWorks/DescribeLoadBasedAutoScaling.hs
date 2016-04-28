@@ -86,6 +86,8 @@ instance AWSRequest DescribeLoadBasedAutoScaling
 
 instance Hashable DescribeLoadBasedAutoScaling
 
+instance NFData DescribeLoadBasedAutoScaling
+
 instance ToHeaders DescribeLoadBasedAutoScaling where
         toHeaders
           = const

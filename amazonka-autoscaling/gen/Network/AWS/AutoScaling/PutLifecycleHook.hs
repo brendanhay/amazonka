@@ -207,6 +207,8 @@ instance AWSRequest PutLifecycleHook where
 
 instance Hashable PutLifecycleHook
 
+instance NFData PutLifecycleHook
+
 instance ToHeaders PutLifecycleHook where
         toHeaders = const mempty
 

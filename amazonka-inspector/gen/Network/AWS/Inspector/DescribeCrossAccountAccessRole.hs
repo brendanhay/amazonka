@@ -67,6 +67,8 @@ instance AWSRequest DescribeCrossAccountAccessRole
 
 instance Hashable DescribeCrossAccountAccessRole
 
+instance NFData DescribeCrossAccountAccessRole
+
 instance ToHeaders DescribeCrossAccountAccessRole
          where
         toHeaders

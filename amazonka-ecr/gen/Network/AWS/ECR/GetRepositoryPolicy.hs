@@ -91,6 +91,8 @@ instance AWSRequest GetRepositoryPolicy where
 
 instance Hashable GetRepositoryPolicy
 
+instance NFData GetRepositoryPolicy
+
 instance ToHeaders GetRepositoryPolicy where
         toHeaders
           = const

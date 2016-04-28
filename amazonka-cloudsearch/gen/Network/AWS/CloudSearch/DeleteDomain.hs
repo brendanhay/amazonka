@@ -81,6 +81,8 @@ instance AWSRequest DeleteDomain where
 
 instance Hashable DeleteDomain
 
+instance NFData DeleteDomain
+
 instance ToHeaders DeleteDomain where
         toHeaders = const mempty
 

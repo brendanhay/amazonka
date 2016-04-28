@@ -118,6 +118,8 @@ instance AWSRequest DescribeExportTasks where
 
 instance Hashable DescribeExportTasks
 
+instance NFData DescribeExportTasks
+
 instance ToHeaders DescribeExportTasks where
         toHeaders
           = const

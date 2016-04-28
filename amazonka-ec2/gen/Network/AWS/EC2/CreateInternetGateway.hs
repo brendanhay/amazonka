@@ -82,6 +82,8 @@ instance AWSRequest CreateInternetGateway where
 
 instance Hashable CreateInternetGateway
 
+instance NFData CreateInternetGateway
+
 instance ToHeaders CreateInternetGateway where
         toHeaders = const mempty
 

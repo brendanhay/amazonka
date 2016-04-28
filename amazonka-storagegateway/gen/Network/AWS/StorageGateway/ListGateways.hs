@@ -113,6 +113,8 @@ instance AWSRequest ListGateways where
 
 instance Hashable ListGateways
 
+instance NFData ListGateways
+
 instance ToHeaders ListGateways where
         toHeaders
           = const

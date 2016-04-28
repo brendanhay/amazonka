@@ -110,6 +110,8 @@ instance AWSRequest ModifyDBClusterParameterGroup
 
 instance Hashable ModifyDBClusterParameterGroup
 
+instance NFData ModifyDBClusterParameterGroup
+
 instance ToHeaders ModifyDBClusterParameterGroup
          where
         toHeaders = const mempty

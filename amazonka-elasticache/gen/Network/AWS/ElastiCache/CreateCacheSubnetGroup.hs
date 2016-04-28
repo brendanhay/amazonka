@@ -106,6 +106,8 @@ instance AWSRequest CreateCacheSubnetGroup where
 
 instance Hashable CreateCacheSubnetGroup
 
+instance NFData CreateCacheSubnetGroup
+
 instance ToHeaders CreateCacheSubnetGroup where
         toHeaders = const mempty
 

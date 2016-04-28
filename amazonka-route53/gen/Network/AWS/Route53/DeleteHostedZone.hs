@@ -92,6 +92,8 @@ instance AWSRequest DeleteHostedZone where
 
 instance Hashable DeleteHostedZone
 
+instance NFData DeleteHostedZone
+
 instance ToHeaders DeleteHostedZone where
         toHeaders = const mempty
 

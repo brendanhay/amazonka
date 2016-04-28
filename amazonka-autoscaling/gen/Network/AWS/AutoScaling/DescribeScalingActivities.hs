@@ -123,6 +123,8 @@ instance AWSRequest DescribeScalingActivities where
 
 instance Hashable DescribeScalingActivities
 
+instance NFData DescribeScalingActivities
+
 instance ToHeaders DescribeScalingActivities where
         toHeaders = const mempty
 

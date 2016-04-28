@@ -138,6 +138,8 @@ instance AWSRequest CreateClusterParameterGroup where
 
 instance Hashable CreateClusterParameterGroup
 
+instance NFData CreateClusterParameterGroup
+
 instance ToHeaders CreateClusterParameterGroup where
         toHeaders = const mempty
 

@@ -123,6 +123,8 @@ instance AWSRequest DeregisterContainerInstance where
 
 instance Hashable DeregisterContainerInstance
 
+instance NFData DeregisterContainerInstance
+
 instance ToHeaders DeregisterContainerInstance where
         toHeaders
           = const

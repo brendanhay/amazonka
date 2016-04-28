@@ -104,6 +104,8 @@ instance AWSRequest ListKeys where
 
 instance Hashable ListKeys
 
+instance NFData ListKeys
+
 instance ToHeaders ListKeys where
         toHeaders
           = const

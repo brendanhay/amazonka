@@ -70,6 +70,8 @@ instance AWSRequest EnableTopicRule where
 
 instance Hashable EnableTopicRule
 
+instance NFData EnableTopicRule
+
 instance ToHeaders EnableTopicRule where
         toHeaders = const mempty
 

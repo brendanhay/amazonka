@@ -130,6 +130,8 @@ instance AWSRequest RecordLifecycleActionHeartbeat
 
 instance Hashable RecordLifecycleActionHeartbeat
 
+instance NFData RecordLifecycleActionHeartbeat
+
 instance ToHeaders RecordLifecycleActionHeartbeat
          where
         toHeaders = const mempty

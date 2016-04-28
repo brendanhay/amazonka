@@ -84,6 +84,8 @@ instance AWSRequest DetachUserPolicy where
 
 instance Hashable DetachUserPolicy
 
+instance NFData DetachUserPolicy
+
 instance ToHeaders DetachUserPolicy where
         toHeaders = const mempty
 

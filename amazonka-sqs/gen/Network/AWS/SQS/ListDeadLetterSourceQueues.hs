@@ -81,6 +81,8 @@ instance AWSRequest ListDeadLetterSourceQueues where
 
 instance Hashable ListDeadLetterSourceQueues
 
+instance NFData ListDeadLetterSourceQueues
+
 instance ToHeaders ListDeadLetterSourceQueues where
         toHeaders = const mempty
 

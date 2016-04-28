@@ -91,6 +91,8 @@ instance AWSRequest CreateDocument where
 
 instance Hashable CreateDocument
 
+instance NFData CreateDocument
+
 instance ToHeaders CreateDocument where
         toHeaders
           = const

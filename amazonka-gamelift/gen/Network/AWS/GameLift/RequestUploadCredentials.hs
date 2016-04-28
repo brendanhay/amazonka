@@ -93,6 +93,8 @@ instance AWSRequest RequestUploadCredentials where
 
 instance Hashable RequestUploadCredentials
 
+instance NFData RequestUploadCredentials
+
 instance ToHeaders RequestUploadCredentials where
         toHeaders
           = const

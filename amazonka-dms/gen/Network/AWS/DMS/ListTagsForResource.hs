@@ -78,6 +78,8 @@ instance AWSRequest ListTagsForResource where
 
 instance Hashable ListTagsForResource
 
+instance NFData ListTagsForResource
+
 instance ToHeaders ListTagsForResource where
         toHeaders
           = const

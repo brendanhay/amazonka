@@ -117,6 +117,8 @@ instance AWSRequest StartInstances where
 
 instance Hashable StartInstances
 
+instance NFData StartInstances
+
 instance ToHeaders StartInstances where
         toHeaders = const mempty
 

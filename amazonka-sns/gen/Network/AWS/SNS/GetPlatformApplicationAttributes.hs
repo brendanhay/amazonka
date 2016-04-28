@@ -85,6 +85,8 @@ instance AWSRequest GetPlatformApplicationAttributes
 
 instance Hashable GetPlatformApplicationAttributes
 
+instance NFData GetPlatformApplicationAttributes
+
 instance ToHeaders GetPlatformApplicationAttributes
          where
         toHeaders = const mempty

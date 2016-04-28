@@ -80,6 +80,8 @@ instance AWSRequest DescribeApplications where
 
 instance Hashable DescribeApplications
 
+instance NFData DescribeApplications
+
 instance ToHeaders DescribeApplications where
         toHeaders = const mempty
 

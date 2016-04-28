@@ -82,6 +82,8 @@ instance AWSRequest FlushStageAuthorizersCache where
 
 instance Hashable FlushStageAuthorizersCache
 
+instance NFData FlushStageAuthorizersCache
+
 instance ToHeaders FlushStageAuthorizersCache where
         toHeaders
           = const

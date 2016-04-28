@@ -66,6 +66,8 @@ instance AWSRequest GetLoggingOptions where
 
 instance Hashable GetLoggingOptions
 
+instance NFData GetLoggingOptions
+
 instance ToHeaders GetLoggingOptions where
         toHeaders = const mempty
 

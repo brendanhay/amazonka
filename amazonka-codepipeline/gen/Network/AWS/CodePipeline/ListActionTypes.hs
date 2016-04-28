@@ -90,6 +90,8 @@ instance AWSRequest ListActionTypes where
 
 instance Hashable ListActionTypes
 
+instance NFData ListActionTypes
+
 instance ToHeaders ListActionTypes where
         toHeaders
           = const

@@ -104,6 +104,8 @@ instance AWSRequest ReleaseAddress where
 
 instance Hashable ReleaseAddress
 
+instance NFData ReleaseAddress
+
 instance ToHeaders ReleaseAddress where
         toHeaders = const mempty
 

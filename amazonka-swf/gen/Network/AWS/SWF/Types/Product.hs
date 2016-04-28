@@ -71,6 +71,9 @@ instance FromJSON
 instance Hashable
          ActivityTaskCancelRequestedEventAttributes
 
+instance NFData
+         ActivityTaskCancelRequestedEventAttributes
+
 -- | Provides details of the 'ActivityTaskCanceled' event.
 --
 -- /See:/ 'activityTaskCanceledEventAttributes' smart constructor.
@@ -141,6 +144,8 @@ instance FromJSON ActivityTaskCanceledEventAttributes
 
 instance Hashable ActivityTaskCanceledEventAttributes
 
+instance NFData ActivityTaskCanceledEventAttributes
+
 -- | Provides details of the 'ActivityTaskCompleted' event.
 --
 -- /See:/ 'activityTaskCompletedEventAttributes' smart constructor.
@@ -198,6 +203,8 @@ instance FromJSON
 
 instance Hashable
          ActivityTaskCompletedEventAttributes
+
+instance NFData ActivityTaskCompletedEventAttributes
 
 -- | Provides details of the 'ActivityTaskFailed' event.
 --
@@ -264,6 +271,8 @@ instance FromJSON ActivityTaskFailedEventAttributes
                      <*> (x .: "startedEventId"))
 
 instance Hashable ActivityTaskFailedEventAttributes
+
+instance NFData ActivityTaskFailedEventAttributes
 
 -- | Provides details of the 'ActivityTaskScheduled' event.
 --
@@ -412,6 +421,8 @@ instance FromJSON
 instance Hashable
          ActivityTaskScheduledEventAttributes
 
+instance NFData ActivityTaskScheduledEventAttributes
+
 -- | Provides details of the 'ActivityTaskStarted' event.
 --
 -- /See:/ 'activityTaskStartedEventAttributes' smart constructor.
@@ -458,6 +469,8 @@ instance FromJSON ActivityTaskStartedEventAttributes
                    (x .:? "identity") <*> (x .: "scheduledEventId"))
 
 instance Hashable ActivityTaskStartedEventAttributes
+
+instance NFData ActivityTaskStartedEventAttributes
 
 -- | Provides details of the 'ActivityTaskTimedOut' event.
 --
@@ -527,6 +540,8 @@ instance FromJSON ActivityTaskTimedOutEventAttributes
 
 instance Hashable ActivityTaskTimedOutEventAttributes
 
+instance NFData ActivityTaskTimedOutEventAttributes
+
 -- | Represents an activity type.
 --
 -- /See:/ 'activityType' smart constructor.
@@ -573,6 +588,8 @@ instance FromJSON ActivityType where
                  ActivityType' <$> (x .: "name") <*> (x .: "version"))
 
 instance Hashable ActivityType
+
+instance NFData ActivityType
 
 instance ToJSON ActivityType where
         toJSON ActivityType'{..}
@@ -704,6 +721,8 @@ instance FromJSON ActivityTypeConfiguration where
 
 instance Hashable ActivityTypeConfiguration
 
+instance NFData ActivityTypeConfiguration
+
 -- | Detailed information about an activity type.
 --
 -- /See:/ 'activityTypeInfo' smart constructor.
@@ -776,6 +795,8 @@ instance FromJSON ActivityTypeInfo where
 
 instance Hashable ActivityTypeInfo
 
+instance NFData ActivityTypeInfo
+
 -- | Provides details of the 'CancelTimer' decision.
 --
 -- __Access Control__
@@ -819,6 +840,8 @@ ctdaTimerId :: Lens' CancelTimerDecisionAttributes Text
 ctdaTimerId = lens _ctdaTimerId (\ s a -> s{_ctdaTimerId = a});
 
 instance Hashable CancelTimerDecisionAttributes
+
+instance NFData CancelTimerDecisionAttributes
 
 instance ToJSON CancelTimerDecisionAttributes where
         toJSON CancelTimerDecisionAttributes'{..}
@@ -887,6 +910,8 @@ instance FromJSON CancelTimerFailedEventAttributes
 
 instance Hashable CancelTimerFailedEventAttributes
 
+instance NFData CancelTimerFailedEventAttributes
+
 -- | Provides details of the 'CancelWorkflowExecution' decision.
 --
 -- __Access Control__
@@ -929,6 +954,9 @@ cwedaDetails :: Lens' CancelWorkflowExecutionDecisionAttributes (Maybe Text)
 cwedaDetails = lens _cwedaDetails (\ s a -> s{_cwedaDetails = a});
 
 instance Hashable
+         CancelWorkflowExecutionDecisionAttributes
+
+instance NFData
          CancelWorkflowExecutionDecisionAttributes
 
 instance ToJSON
@@ -991,6 +1019,9 @@ instance FromJSON
                      (x .: "decisionTaskCompletedEventId"))
 
 instance Hashable
+         CancelWorkflowExecutionFailedEventAttributes
+
+instance NFData
          CancelWorkflowExecutionFailedEventAttributes
 
 -- | Provide details of the 'ChildWorkflowExecutionCanceled' event.
@@ -1073,6 +1104,9 @@ instance FromJSON
 instance Hashable
          ChildWorkflowExecutionCanceledEventAttributes
 
+instance NFData
+         ChildWorkflowExecutionCanceledEventAttributes
+
 -- | Provides details of the 'ChildWorkflowExecutionCompleted' event.
 --
 -- /See:/ 'childWorkflowExecutionCompletedEventAttributes' smart constructor.
@@ -1151,6 +1185,9 @@ instance FromJSON
                      <*> (x .: "startedEventId"))
 
 instance Hashable
+         ChildWorkflowExecutionCompletedEventAttributes
+
+instance NFData
          ChildWorkflowExecutionCompletedEventAttributes
 
 -- | Provides details of the 'ChildWorkflowExecutionFailed' event.
@@ -1242,6 +1279,9 @@ instance FromJSON
 instance Hashable
          ChildWorkflowExecutionFailedEventAttributes
 
+instance NFData
+         ChildWorkflowExecutionFailedEventAttributes
+
 -- | Provides details of the 'ChildWorkflowExecutionStarted' event.
 --
 -- /See:/ 'childWorkflowExecutionStartedEventAttributes' smart constructor.
@@ -1298,6 +1338,9 @@ instance FromJSON
                      <*> (x .: "initiatedEventId"))
 
 instance Hashable
+         ChildWorkflowExecutionStartedEventAttributes
+
+instance NFData
          ChildWorkflowExecutionStartedEventAttributes
 
 -- | Provides details of the 'ChildWorkflowExecutionTerminated' event.
@@ -1369,6 +1412,9 @@ instance FromJSON
                      <*> (x .: "startedEventId"))
 
 instance Hashable
+         ChildWorkflowExecutionTerminatedEventAttributes
+
+instance NFData
          ChildWorkflowExecutionTerminatedEventAttributes
 
 -- | Provides details of the 'ChildWorkflowExecutionTimedOut' event.
@@ -1453,6 +1499,9 @@ instance FromJSON
 instance Hashable
          ChildWorkflowExecutionTimedOutEventAttributes
 
+instance NFData
+         ChildWorkflowExecutionTimedOutEventAttributes
+
 -- | Used to filter the closed workflow executions in visibility APIs by
 -- their close status.
 --
@@ -1480,6 +1529,8 @@ csfStatus :: Lens' CloseStatusFilter CloseStatus
 csfStatus = lens _csfStatus (\ s a -> s{_csfStatus = a});
 
 instance Hashable CloseStatusFilter
+
+instance NFData CloseStatusFilter
 
 instance ToJSON CloseStatusFilter where
         toJSON CloseStatusFilter'{..}
@@ -1528,6 +1579,9 @@ cwedaResult :: Lens' CompleteWorkflowExecutionDecisionAttributes (Maybe Text)
 cwedaResult = lens _cwedaResult (\ s a -> s{_cwedaResult = a});
 
 instance Hashable
+         CompleteWorkflowExecutionDecisionAttributes
+
+instance NFData
          CompleteWorkflowExecutionDecisionAttributes
 
 instance ToJSON
@@ -1590,6 +1644,9 @@ instance FromJSON
                      (x .: "decisionTaskCompletedEventId"))
 
 instance Hashable
+         CompleteWorkflowExecutionFailedEventAttributes
+
+instance NFData
          CompleteWorkflowExecutionFailedEventAttributes
 
 -- | Provides details of the 'ContinueAsNewWorkflowExecution' decision.
@@ -1765,6 +1822,9 @@ canwedaChildPolicy = lens _canwedaChildPolicy (\ s a -> s{_canwedaChildPolicy = 
 instance Hashable
          ContinueAsNewWorkflowExecutionDecisionAttributes
 
+instance NFData
+         ContinueAsNewWorkflowExecutionDecisionAttributes
+
 instance ToJSON
          ContinueAsNewWorkflowExecutionDecisionAttributes
          where
@@ -1841,6 +1901,9 @@ instance FromJSON
                      (x .: "decisionTaskCompletedEventId"))
 
 instance Hashable
+         ContinueAsNewWorkflowExecutionFailedEventAttributes
+
+instance NFData
          ContinueAsNewWorkflowExecutionFailedEventAttributes
 
 -- | Specifies a decision made by the decider. A decision can be one of these
@@ -2131,6 +2194,8 @@ dDecisionType = lens _dDecisionType (\ s a -> s{_dDecisionType = a});
 
 instance Hashable Decision
 
+instance NFData Decision
+
 instance ToJSON Decision where
         toJSON Decision'{..}
           = object
@@ -2228,6 +2293,8 @@ instance FromJSON
 instance Hashable
          DecisionTaskCompletedEventAttributes
 
+instance NFData DecisionTaskCompletedEventAttributes
+
 -- | Provides details about the 'DecisionTaskScheduled' event.
 --
 -- /See:/ 'decisionTaskScheduledEventAttributes' smart constructor.
@@ -2292,6 +2359,8 @@ instance FromJSON
 instance Hashable
          DecisionTaskScheduledEventAttributes
 
+instance NFData DecisionTaskScheduledEventAttributes
+
 -- | Provides details of the 'DecisionTaskStarted' event.
 --
 -- /See:/ 'decisionTaskStartedEventAttributes' smart constructor.
@@ -2337,6 +2406,8 @@ instance FromJSON DecisionTaskStartedEventAttributes
                    (x .:? "identity") <*> (x .: "scheduledEventId"))
 
 instance Hashable DecisionTaskStartedEventAttributes
+
+instance NFData DecisionTaskStartedEventAttributes
 
 -- | Provides details of the 'DecisionTaskTimedOut' event.
 --
@@ -2397,6 +2468,8 @@ instance FromJSON DecisionTaskTimedOutEventAttributes
 
 instance Hashable DecisionTaskTimedOutEventAttributes
 
+instance NFData DecisionTaskTimedOutEventAttributes
+
 -- | Contains the configuration settings of a domain.
 --
 -- /See:/ 'domainConfiguration' smart constructor.
@@ -2429,6 +2502,8 @@ instance FromJSON DomainConfiguration where
                    (x .: "workflowExecutionRetentionPeriodInDays"))
 
 instance Hashable DomainConfiguration
+
+instance NFData DomainConfiguration
 
 -- | Contains general information about a domain.
 --
@@ -2488,6 +2563,8 @@ instance FromJSON DomainInfo where
 
 instance Hashable DomainInfo
 
+instance NFData DomainInfo
+
 -- | Used to filter the workflow executions in visibility APIs by various
 -- time-based rules. Each parameter, if specified, defines a rule that must
 -- be satisfied by each returned query result. The parameter values are in
@@ -2525,6 +2602,8 @@ etfOldestDate :: Lens' ExecutionTimeFilter UTCTime
 etfOldestDate = lens _etfOldestDate (\ s a -> s{_etfOldestDate = a}) . _Time;
 
 instance Hashable ExecutionTimeFilter
+
+instance NFData ExecutionTimeFilter
 
 instance ToJSON ExecutionTimeFilter where
         toJSON ExecutionTimeFilter'{..}
@@ -2587,6 +2666,9 @@ instance FromJSON
 instance Hashable
          ExternalWorkflowExecutionCancelRequestedEventAttributes
 
+instance NFData
+         ExternalWorkflowExecutionCancelRequestedEventAttributes
+
 -- | Provides details of the 'ExternalWorkflowExecutionSignaled' event.
 --
 -- /See:/ 'externalWorkflowExecutionSignaledEventAttributes' smart constructor.
@@ -2635,6 +2717,9 @@ instance FromJSON
                      (x .: "initiatedEventId"))
 
 instance Hashable
+         ExternalWorkflowExecutionSignaledEventAttributes
+
+instance NFData
          ExternalWorkflowExecutionSignaledEventAttributes
 
 -- | Provides details of the 'FailWorkflowExecution' decision.
@@ -2687,6 +2772,9 @@ fwedaDetails :: Lens' FailWorkflowExecutionDecisionAttributes (Maybe Text)
 fwedaDetails = lens _fwedaDetails (\ s a -> s{_fwedaDetails = a});
 
 instance Hashable
+         FailWorkflowExecutionDecisionAttributes
+
+instance NFData
          FailWorkflowExecutionDecisionAttributes
 
 instance ToJSON
@@ -2750,6 +2838,9 @@ instance FromJSON
                      (x .: "decisionTaskCompletedEventId"))
 
 instance Hashable
+         FailWorkflowExecutionFailedEventAttributes
+
+instance NFData
          FailWorkflowExecutionFailedEventAttributes
 
 -- | Event within a workflow execution. A history event can be one of these
@@ -3547,6 +3638,8 @@ instance FromJSON HistoryEvent where
 
 instance Hashable HistoryEvent
 
+instance NFData HistoryEvent
+
 -- | Provides details for the 'LambdaFunctionCompleted' event.
 --
 -- /See:/ 'lambdaFunctionCompletedEventAttributes' smart constructor.
@@ -3601,6 +3694,9 @@ instance FromJSON
                      (x .: "startedEventId"))
 
 instance Hashable
+         LambdaFunctionCompletedEventAttributes
+
+instance NFData
          LambdaFunctionCompletedEventAttributes
 
 -- | Provides details for the 'LambdaFunctionFailed' event.
@@ -3666,6 +3762,8 @@ instance FromJSON LambdaFunctionFailedEventAttributes
                      <*> (x .: "startedEventId"))
 
 instance Hashable LambdaFunctionFailedEventAttributes
+
+instance NFData LambdaFunctionFailedEventAttributes
 
 -- | Provides details for the 'LambdaFunctionScheduled' event.
 --
@@ -3743,6 +3841,9 @@ instance FromJSON
 instance Hashable
          LambdaFunctionScheduledEventAttributes
 
+instance NFData
+         LambdaFunctionScheduledEventAttributes
+
 -- | Provides details for the 'LambdaFunctionStarted' event.
 --
 -- /See:/ 'lambdaFunctionStartedEventAttributes' smart constructor.
@@ -3780,6 +3881,8 @@ instance FromJSON
 
 instance Hashable
          LambdaFunctionStartedEventAttributes
+
+instance NFData LambdaFunctionStartedEventAttributes
 
 -- | Provides details for the 'LambdaFunctionTimedOut' event.
 --
@@ -3837,6 +3940,8 @@ instance FromJSON
 instance Hashable
          LambdaFunctionTimedOutEventAttributes
 
+instance NFData LambdaFunctionTimedOutEventAttributes
+
 -- | Provides details of the 'MarkerRecorded' event.
 --
 -- /See:/ 'markerRecordedEventAttributes' smart constructor.
@@ -3891,6 +3996,8 @@ instance FromJSON MarkerRecordedEventAttributes where
 
 instance Hashable MarkerRecordedEventAttributes
 
+instance NFData MarkerRecordedEventAttributes
+
 -- | Contains the count of tasks in a task list.
 --
 -- /See:/ 'pendingTaskCount' smart constructor.
@@ -3933,6 +4040,8 @@ instance FromJSON PendingTaskCount where
                    (x .:? "truncated") <*> (x .: "count"))
 
 instance Hashable PendingTaskCount
+
+instance NFData PendingTaskCount
 
 -- | Provides details of the 'RecordMarker' decision.
 --
@@ -3985,6 +4094,8 @@ rmdaMarkerName :: Lens' RecordMarkerDecisionAttributes Text
 rmdaMarkerName = lens _rmdaMarkerName (\ s a -> s{_rmdaMarkerName = a});
 
 instance Hashable RecordMarkerDecisionAttributes
+
+instance NFData RecordMarkerDecisionAttributes
 
 instance ToJSON RecordMarkerDecisionAttributes where
         toJSON RecordMarkerDecisionAttributes'{..}
@@ -4055,6 +4166,8 @@ instance FromJSON RecordMarkerFailedEventAttributes
 
 instance Hashable RecordMarkerFailedEventAttributes
 
+instance NFData RecordMarkerFailedEventAttributes
+
 -- | Provides details of the 'RequestCancelActivityTask' decision.
 --
 -- __Access Control__
@@ -4098,6 +4211,9 @@ rcatdaActivityId :: Lens' RequestCancelActivityTaskDecisionAttributes Text
 rcatdaActivityId = lens _rcatdaActivityId (\ s a -> s{_rcatdaActivityId = a});
 
 instance Hashable
+         RequestCancelActivityTaskDecisionAttributes
+
+instance NFData
          RequestCancelActivityTaskDecisionAttributes
 
 instance ToJSON
@@ -4174,6 +4290,9 @@ instance FromJSON
 instance Hashable
          RequestCancelActivityTaskFailedEventAttributes
 
+instance NFData
+         RequestCancelActivityTaskFailedEventAttributes
+
 -- | Provides details of the 'RequestCancelExternalWorkflowExecution'
 -- decision.
 --
@@ -4236,6 +4355,9 @@ rcewedaWorkflowId :: Lens' RequestCancelExternalWorkflowExecutionDecisionAttribu
 rcewedaWorkflowId = lens _rcewedaWorkflowId (\ s a -> s{_rcewedaWorkflowId = a});
 
 instance Hashable
+         RequestCancelExternalWorkflowExecutionDecisionAttributes
+
+instance NFData
          RequestCancelExternalWorkflowExecutionDecisionAttributes
 
 instance ToJSON
@@ -4350,6 +4472,9 @@ instance FromJSON
 instance Hashable
          RequestCancelExternalWorkflowExecutionFailedEventAttributes
 
+instance NFData
+         RequestCancelExternalWorkflowExecutionFailedEventAttributes
+
 -- | Provides details of the
 -- 'RequestCancelExternalWorkflowExecutionInitiated' event.
 --
@@ -4419,6 +4544,9 @@ instance FromJSON
                      <*> (x .: "decisionTaskCompletedEventId"))
 
 instance Hashable
+         RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+
+instance NFData
          RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
 
 -- | Provides details of the 'ScheduleActivityTask' decision.
@@ -4611,6 +4739,9 @@ satdaActivityId = lens _satdaActivityId (\ s a -> s{_satdaActivityId = a});
 instance Hashable
          ScheduleActivityTaskDecisionAttributes
 
+instance NFData
+         ScheduleActivityTaskDecisionAttributes
+
 instance ToJSON
          ScheduleActivityTaskDecisionAttributes where
         toJSON ScheduleActivityTaskDecisionAttributes'{..}
@@ -4706,6 +4837,9 @@ instance FromJSON
 instance Hashable
          ScheduleActivityTaskFailedEventAttributes
 
+instance NFData
+         ScheduleActivityTaskFailedEventAttributes
+
 -- | Provides details of the 'ScheduleLambdaFunction' decision.
 --
 -- __Access Control__
@@ -4785,6 +4919,9 @@ slfdaName :: Lens' ScheduleLambdaFunctionDecisionAttributes Text
 slfdaName = lens _slfdaName (\ s a -> s{_slfdaName = a});
 
 instance Hashable
+         ScheduleLambdaFunctionDecisionAttributes
+
+instance NFData
          ScheduleLambdaFunctionDecisionAttributes
 
 instance ToJSON
@@ -4871,6 +5008,9 @@ instance FromJSON
 instance Hashable
          ScheduleLambdaFunctionFailedEventAttributes
 
+instance NFData
+         ScheduleLambdaFunctionFailedEventAttributes
+
 -- | Provides details of the 'SignalExternalWorkflowExecution' decision.
 --
 -- __Access Control__
@@ -4951,6 +5091,9 @@ sewedaSignalName :: Lens' SignalExternalWorkflowExecutionDecisionAttributes Text
 sewedaSignalName = lens _sewedaSignalName (\ s a -> s{_sewedaSignalName = a});
 
 instance Hashable
+         SignalExternalWorkflowExecutionDecisionAttributes
+
+instance NFData
          SignalExternalWorkflowExecutionDecisionAttributes
 
 instance ToJSON
@@ -5065,6 +5208,9 @@ instance FromJSON
 instance Hashable
          SignalExternalWorkflowExecutionFailedEventAttributes
 
+instance NFData
+         SignalExternalWorkflowExecutionFailedEventAttributes
+
 -- | Provides details of the 'SignalExternalWorkflowExecutionInitiated'
 -- event.
 --
@@ -5152,6 +5298,9 @@ instance FromJSON
                      <*> (x .: "decisionTaskCompletedEventId"))
 
 instance Hashable
+         SignalExternalWorkflowExecutionInitiatedEventAttributes
+
+instance NFData
          SignalExternalWorkflowExecutionInitiatedEventAttributes
 
 -- | Provides details of the 'StartChildWorkflowExecution' decision.
@@ -5366,6 +5515,9 @@ scwedaWorkflowId = lens _scwedaWorkflowId (\ s a -> s{_scwedaWorkflowId = a});
 instance Hashable
          StartChildWorkflowExecutionDecisionAttributes
 
+instance NFData
+         StartChildWorkflowExecutionDecisionAttributes
+
 instance ToJSON
          StartChildWorkflowExecutionDecisionAttributes where
         toJSON
@@ -5482,6 +5634,9 @@ instance FromJSON
                      <*> (x .: "decisionTaskCompletedEventId"))
 
 instance Hashable
+         StartChildWorkflowExecutionFailedEventAttributes
+
+instance NFData
          StartChildWorkflowExecutionFailedEventAttributes
 
 -- | Provides details of the 'StartChildWorkflowExecutionInitiated' event.
@@ -5658,6 +5813,9 @@ instance FromJSON
 instance Hashable
          StartChildWorkflowExecutionInitiatedEventAttributes
 
+instance NFData
+         StartChildWorkflowExecutionInitiatedEventAttributes
+
 -- | Provides details for the 'StartLambdaFunctionFailed' event.
 --
 -- /See:/ 'startLambdaFunctionFailedEventAttributes' smart constructor.
@@ -5717,6 +5875,9 @@ instance FromJSON
                      (x .:? "message"))
 
 instance Hashable
+         StartLambdaFunctionFailedEventAttributes
+
+instance NFData
          StartLambdaFunctionFailedEventAttributes
 
 -- | Provides details of the 'StartTimer' decision.
@@ -5789,6 +5950,8 @@ stdaStartToFireTimeout = lens _stdaStartToFireTimeout (\ s a -> s{_stdaStartToFi
 
 instance Hashable StartTimerDecisionAttributes
 
+instance NFData StartTimerDecisionAttributes
+
 instance ToJSON StartTimerDecisionAttributes where
         toJSON StartTimerDecisionAttributes'{..}
           = object
@@ -5860,6 +6023,8 @@ instance FromJSON StartTimerFailedEventAttributes
 
 instance Hashable StartTimerFailedEventAttributes
 
+instance NFData StartTimerFailedEventAttributes
+
 -- | Used to filter the workflow executions in visibility APIs based on a
 -- tag.
 --
@@ -5887,6 +6052,8 @@ tfTag :: Lens' TagFilter Text
 tfTag = lens _tfTag (\ s a -> s{_tfTag = a});
 
 instance Hashable TagFilter
+
+instance NFData TagFilter
 
 instance ToJSON TagFilter where
         toJSON TagFilter'{..}
@@ -5922,6 +6089,8 @@ instance FromJSON TaskList where
               (\ x -> TaskList' <$> (x .: "name"))
 
 instance Hashable TaskList
+
+instance NFData TaskList
 
 instance ToJSON TaskList where
         toJSON TaskList'{..}
@@ -5984,6 +6153,8 @@ instance FromJSON TimerCanceledEventAttributes where
 
 instance Hashable TimerCanceledEventAttributes
 
+instance NFData TimerCanceledEventAttributes
+
 -- | Provides details of the 'TimerFired' event.
 --
 -- /See:/ 'timerFiredEventAttributes' smart constructor.
@@ -6027,6 +6198,8 @@ instance FromJSON TimerFiredEventAttributes where
                    (x .: "timerId") <*> (x .: "startedEventId"))
 
 instance Hashable TimerFiredEventAttributes
+
+instance NFData TimerFiredEventAttributes
 
 -- | Provides details of the 'TimerStarted' event.
 --
@@ -6096,6 +6269,8 @@ instance FromJSON TimerStartedEventAttributes where
 
 instance Hashable TimerStartedEventAttributes
 
+instance NFData TimerStartedEventAttributes
+
 -- | Represents a workflow execution.
 --
 -- /See:/ 'workflowExecution' smart constructor.
@@ -6137,6 +6312,8 @@ instance FromJSON WorkflowExecution where
                    (x .: "workflowId") <*> (x .: "runId"))
 
 instance Hashable WorkflowExecution
+
+instance NFData WorkflowExecution
 
 instance ToJSON WorkflowExecution where
         toJSON WorkflowExecution'{..}
@@ -6207,6 +6384,9 @@ instance FromJSON
 instance Hashable
          WorkflowExecutionCancelRequestedEventAttributes
 
+instance NFData
+         WorkflowExecutionCancelRequestedEventAttributes
+
 -- | Provides details of the 'WorkflowExecutionCanceled' event.
 --
 -- /See:/ 'workflowExecutionCanceledEventAttributes' smart constructor.
@@ -6254,6 +6434,9 @@ instance FromJSON
                      (x .: "decisionTaskCompletedEventId"))
 
 instance Hashable
+         WorkflowExecutionCanceledEventAttributes
+
+instance NFData
          WorkflowExecutionCanceledEventAttributes
 
 -- | Provides details of the 'WorkflowExecutionCompleted' event.
@@ -6304,6 +6487,9 @@ instance FromJSON
                      (x .: "decisionTaskCompletedEventId"))
 
 instance Hashable
+         WorkflowExecutionCompletedEventAttributes
+
+instance NFData
          WorkflowExecutionCompletedEventAttributes
 
 -- | The configuration settings for a workflow execution including timeout
@@ -6417,6 +6603,8 @@ instance FromJSON WorkflowExecutionConfiguration
                      <*> (x .: "childPolicy"))
 
 instance Hashable WorkflowExecutionConfiguration
+
+instance NFData WorkflowExecutionConfiguration
 
 -- | Provides details of the 'WorkflowExecutionContinuedAsNew' event.
 --
@@ -6571,6 +6759,9 @@ instance FromJSON
 instance Hashable
          WorkflowExecutionContinuedAsNewEventAttributes
 
+instance NFData
+         WorkflowExecutionContinuedAsNewEventAttributes
+
 -- | Contains the count of workflow executions returned from
 -- < CountOpenWorkflowExecutions> or < CountClosedWorkflowExecutions>
 --
@@ -6614,6 +6805,8 @@ instance FromJSON WorkflowExecutionCount where
                    (x .:? "truncated") <*> (x .: "count"))
 
 instance Hashable WorkflowExecutionCount
+
+instance NFData WorkflowExecutionCount
 
 -- | Provides details of the 'WorkflowExecutionFailed' event.
 --
@@ -6670,6 +6863,9 @@ instance FromJSON
 instance Hashable
          WorkflowExecutionFailedEventAttributes
 
+instance NFData
+         WorkflowExecutionFailedEventAttributes
+
 -- | Used to filter the workflow executions in visibility APIs by their
 -- 'workflowId'.
 --
@@ -6696,6 +6892,8 @@ wefWorkflowId :: Lens' WorkflowExecutionFilter Text
 wefWorkflowId = lens _wefWorkflowId (\ s a -> s{_wefWorkflowId = a});
 
 instance Hashable WorkflowExecutionFilter
+
+instance NFData WorkflowExecutionFilter
 
 instance ToJSON WorkflowExecutionFilter where
         toJSON WorkflowExecutionFilter'{..}
@@ -6826,6 +7024,8 @@ instance FromJSON WorkflowExecutionInfo where
 
 instance Hashable WorkflowExecutionInfo
 
+instance NFData WorkflowExecutionInfo
+
 -- | Contains a paginated list of information about workflow executions.
 --
 -- /See:/ 'workflowExecutionInfos' smart constructor.
@@ -6872,6 +7072,8 @@ instance FromJSON WorkflowExecutionInfos where
                      (x .:? "executionInfos" .!= mempty))
 
 instance Hashable WorkflowExecutionInfos
+
+instance NFData WorkflowExecutionInfos
 
 -- | Contains the counts of open tasks, child workflow executions and timers
 -- for a workflow execution.
@@ -6948,6 +7150,8 @@ instance FromJSON WorkflowExecutionOpenCounts where
 
 instance Hashable WorkflowExecutionOpenCounts
 
+instance NFData WorkflowExecutionOpenCounts
+
 -- | Provides details of the 'WorkflowExecutionSignaled' event.
 --
 -- /See:/ 'workflowExecutionSignaledEventAttributes' smart constructor.
@@ -7018,6 +7222,9 @@ instance FromJSON
                      <*> (x .: "signalName"))
 
 instance Hashable
+         WorkflowExecutionSignaledEventAttributes
+
+instance NFData
          WorkflowExecutionSignaledEventAttributes
 
 -- | Provides details of 'WorkflowExecutionStarted' event.
@@ -7188,6 +7395,9 @@ instance FromJSON
 instance Hashable
          WorkflowExecutionStartedEventAttributes
 
+instance NFData
+         WorkflowExecutionStartedEventAttributes
+
 -- | Provides details of the 'WorkflowExecutionTerminated' event.
 --
 -- /See:/ 'workflowExecutionTerminatedEventAttributes' smart constructor.
@@ -7264,6 +7474,9 @@ instance FromJSON
 instance Hashable
          WorkflowExecutionTerminatedEventAttributes
 
+instance NFData
+         WorkflowExecutionTerminatedEventAttributes
+
 -- | Provides details of the 'WorkflowExecutionTimedOut' event.
 --
 -- /See:/ 'workflowExecutionTimedOutEventAttributes' smart constructor.
@@ -7320,6 +7533,9 @@ instance FromJSON
 instance Hashable
          WorkflowExecutionTimedOutEventAttributes
 
+instance NFData
+         WorkflowExecutionTimedOutEventAttributes
+
 -- | Represents a workflow type.
 --
 -- /See:/ 'workflowType' smart constructor.
@@ -7366,6 +7582,8 @@ instance FromJSON WorkflowType where
                  WorkflowType' <$> (x .: "name") <*> (x .: "version"))
 
 instance Hashable WorkflowType
+
+instance NFData WorkflowType
 
 instance ToJSON WorkflowType where
         toJSON WorkflowType'{..}
@@ -7500,6 +7718,8 @@ instance FromJSON WorkflowTypeConfiguration where
 
 instance Hashable WorkflowTypeConfiguration
 
+instance NFData WorkflowTypeConfiguration
+
 -- | Used to filter workflow execution query results by type. Each parameter,
 -- if specified, defines a rule that must be satisfied by each returned
 -- result.
@@ -7535,6 +7755,8 @@ wtfName :: Lens' WorkflowTypeFilter Text
 wtfName = lens _wtfName (\ s a -> s{_wtfName = a});
 
 instance Hashable WorkflowTypeFilter
+
+instance NFData WorkflowTypeFilter
 
 instance ToJSON WorkflowTypeFilter where
         toJSON WorkflowTypeFilter'{..}
@@ -7613,3 +7835,5 @@ instance FromJSON WorkflowTypeInfo where
                      <*> (x .: "creationDate"))
 
 instance Hashable WorkflowTypeInfo
+
+instance NFData WorkflowTypeInfo

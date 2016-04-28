@@ -83,6 +83,8 @@ instance AWSRequest DeleteReceiptRuleSet where
 
 instance Hashable DeleteReceiptRuleSet
 
+instance NFData DeleteReceiptRuleSet
+
 instance ToHeaders DeleteReceiptRuleSet where
         toHeaders = const mempty
 

@@ -101,6 +101,8 @@ instance AWSRequest ActivatePipeline where
 
 instance Hashable ActivatePipeline
 
+instance NFData ActivatePipeline
+
 instance ToHeaders ActivatePipeline where
         toHeaders
           = const

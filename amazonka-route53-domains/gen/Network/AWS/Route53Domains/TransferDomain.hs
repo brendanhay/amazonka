@@ -302,6 +302,8 @@ instance AWSRequest TransferDomain where
 
 instance Hashable TransferDomain
 
+instance NFData TransferDomain
+
 instance ToHeaders TransferDomain where
         toHeaders
           = const

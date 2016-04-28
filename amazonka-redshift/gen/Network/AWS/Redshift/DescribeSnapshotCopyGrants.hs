@@ -149,6 +149,8 @@ instance AWSRequest DescribeSnapshotCopyGrants where
 
 instance Hashable DescribeSnapshotCopyGrants
 
+instance NFData DescribeSnapshotCopyGrants
+
 instance ToHeaders DescribeSnapshotCopyGrants where
         toHeaders = const mempty
 

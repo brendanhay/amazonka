@@ -124,6 +124,8 @@ instance AWSRequest AllocatePublicVirtualInterface
 
 instance Hashable AllocatePublicVirtualInterface
 
+instance NFData AllocatePublicVirtualInterface
+
 instance ToHeaders AllocatePublicVirtualInterface
          where
         toHeaders

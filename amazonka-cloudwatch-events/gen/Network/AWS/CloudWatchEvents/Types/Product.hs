@@ -83,6 +83,8 @@ pereDetail = lens _pereDetail (\ s a -> s{_pereDetail = a});
 
 instance Hashable PutEventsRequestEntry
 
+instance NFData PutEventsRequestEntry
+
 instance ToJSON PutEventsRequestEntry where
         toJSON PutEventsRequestEntry'{..}
           = object
@@ -144,6 +146,8 @@ instance FromJSON PutEventsResultEntry where
 
 instance Hashable PutEventsResultEntry
 
+instance NFData PutEventsResultEntry
+
 -- | A PutTargetsResult contains a list of PutTargetsResultEntry.
 --
 -- /See:/ 'putTargetsResultEntry' smart constructor.
@@ -194,6 +198,8 @@ instance FromJSON PutTargetsResultEntry where
                      (x .:? "ErrorMessage"))
 
 instance Hashable PutTargetsResultEntry
+
+instance NFData PutTargetsResultEntry
 
 -- | The ID of the target requested to be removed from the rule by Amazon
 -- CloudWatch Events.
@@ -246,6 +252,8 @@ instance FromJSON RemoveTargetsResultEntry where
                      (x .:? "ErrorMessage"))
 
 instance Hashable RemoveTargetsResultEntry
+
+instance NFData RemoveTargetsResultEntry
 
 -- | Contains information about a rule in Amazon CloudWatch Events. A
 -- ListRulesResult contains a list of Rules.
@@ -335,6 +343,8 @@ instance FromJSON Rule where
 
 instance Hashable Rule
 
+instance NFData Rule
+
 -- | Targets are the resources that can be invoked when a rule is triggered.
 -- For example, AWS Lambda functions, Amazon Kinesis streams, and built-in
 -- targets.
@@ -413,6 +423,8 @@ instance FromJSON Target where
                      <*> (x .: "Arn"))
 
 instance Hashable Target
+
+instance NFData Target
 
 instance ToJSON Target where
         toJSON Target'{..}

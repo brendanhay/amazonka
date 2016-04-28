@@ -84,6 +84,8 @@ instance AWSRequest EnableDomainAutoRenew where
 
 instance Hashable EnableDomainAutoRenew
 
+instance NFData EnableDomainAutoRenew
+
 instance ToHeaders EnableDomainAutoRenew where
         toHeaders
           = const

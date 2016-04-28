@@ -93,6 +93,8 @@ instance AWSRequest TestEventPattern where
 
 instance Hashable TestEventPattern
 
+instance NFData TestEventPattern
+
 instance ToHeaders TestEventPattern where
         toHeaders
           = const

@@ -153,6 +153,8 @@ instance AWSRequest DescribeLogStreams where
 
 instance Hashable DescribeLogStreams
 
+instance NFData DescribeLogStreams
+
 instance ToHeaders DescribeLogStreams where
         toHeaders
           = const

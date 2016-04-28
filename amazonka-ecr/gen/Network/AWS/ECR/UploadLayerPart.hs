@@ -143,6 +143,8 @@ instance AWSRequest UploadLayerPart where
 
 instance Hashable UploadLayerPart
 
+instance NFData UploadLayerPart
+
 instance ToHeaders UploadLayerPart where
         toHeaders
           = const

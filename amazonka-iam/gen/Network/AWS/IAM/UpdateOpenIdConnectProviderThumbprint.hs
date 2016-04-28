@@ -102,6 +102,8 @@ instance AWSRequest
 instance Hashable
          UpdateOpenIdConnectProviderThumbprint
 
+instance NFData UpdateOpenIdConnectProviderThumbprint
+
 instance ToHeaders
          UpdateOpenIdConnectProviderThumbprint where
         toHeaders = const mempty

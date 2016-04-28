@@ -120,6 +120,8 @@ instance AWSRequest ListClusters where
 
 instance Hashable ListClusters
 
+instance NFData ListClusters
+
 instance ToHeaders ListClusters where
         toHeaders
           = const

@@ -108,6 +108,8 @@ instance AWSRequest CreateNatGateway where
 
 instance Hashable CreateNatGateway
 
+instance NFData CreateNatGateway
+
 instance ToHeaders CreateNatGateway where
         toHeaders = const mempty
 

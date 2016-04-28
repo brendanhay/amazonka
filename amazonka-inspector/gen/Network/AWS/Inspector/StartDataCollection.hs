@@ -79,6 +79,8 @@ instance AWSRequest StartDataCollection where
 
 instance Hashable StartDataCollection
 
+instance NFData StartDataCollection
+
 instance ToHeaders StartDataCollection where
         toHeaders
           = const

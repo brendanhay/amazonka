@@ -85,6 +85,8 @@ instance AWSRequest
 instance Hashable
          DeleteCloudFrontOriginAccessIdentity
 
+instance NFData DeleteCloudFrontOriginAccessIdentity
+
 instance ToHeaders
          DeleteCloudFrontOriginAccessIdentity where
         toHeaders DeleteCloudFrontOriginAccessIdentity'{..}

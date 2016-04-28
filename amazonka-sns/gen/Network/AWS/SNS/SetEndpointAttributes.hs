@@ -96,6 +96,8 @@ instance AWSRequest SetEndpointAttributes where
 
 instance Hashable SetEndpointAttributes
 
+instance NFData SetEndpointAttributes
+
 instance ToHeaders SetEndpointAttributes where
         toHeaders = const mempty
 

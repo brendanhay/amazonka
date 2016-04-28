@@ -106,6 +106,8 @@ instance AWSRequest BatchCheckLayerAvailability where
 
 instance Hashable BatchCheckLayerAvailability
 
+instance NFData BatchCheckLayerAvailability
+
 instance ToHeaders BatchCheckLayerAvailability where
         toHeaders
           = const

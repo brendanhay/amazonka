@@ -119,6 +119,8 @@ instance AWSRequest RegisterInstancesWithLoadBalancer
 
 instance Hashable RegisterInstancesWithLoadBalancer
 
+instance NFData RegisterInstancesWithLoadBalancer
+
 instance ToHeaders RegisterInstancesWithLoadBalancer
          where
         toHeaders = const mempty

@@ -66,6 +66,8 @@ instance AWSRequest DescribeEndpoint where
 
 instance Hashable DescribeEndpoint
 
+instance NFData DescribeEndpoint
+
 instance ToHeaders DescribeEndpoint where
         toHeaders = const mempty
 

@@ -147,6 +147,8 @@ instance AWSRequest DescribeWorkspaces where
 
 instance Hashable DescribeWorkspaces
 
+instance NFData DescribeWorkspaces
+
 instance ToHeaders DescribeWorkspaces where
         toHeaders
           = const

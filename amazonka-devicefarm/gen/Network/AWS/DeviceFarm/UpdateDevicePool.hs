@@ -109,6 +109,8 @@ instance AWSRequest UpdateDevicePool where
 
 instance Hashable UpdateDevicePool
 
+instance NFData UpdateDevicePool
+
 instance ToHeaders UpdateDevicePool where
         toHeaders
           = const

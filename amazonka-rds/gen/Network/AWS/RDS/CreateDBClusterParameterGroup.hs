@@ -152,6 +152,8 @@ instance AWSRequest CreateDBClusterParameterGroup
 
 instance Hashable CreateDBClusterParameterGroup
 
+instance NFData CreateDBClusterParameterGroup
+
 instance ToHeaders CreateDBClusterParameterGroup
          where
         toHeaders = const mempty

@@ -79,6 +79,8 @@ instance AWSRequest RegisterCrossAccountAccessRole
 
 instance Hashable RegisterCrossAccountAccessRole
 
+instance NFData RegisterCrossAccountAccessRole
+
 instance ToHeaders RegisterCrossAccountAccessRole
          where
         toHeaders

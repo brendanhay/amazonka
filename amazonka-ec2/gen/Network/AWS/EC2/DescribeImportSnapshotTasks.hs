@@ -118,6 +118,8 @@ instance AWSRequest DescribeImportSnapshotTasks where
 
 instance Hashable DescribeImportSnapshotTasks
 
+instance NFData DescribeImportSnapshotTasks
+
 instance ToHeaders DescribeImportSnapshotTasks where
         toHeaders = const mempty
 

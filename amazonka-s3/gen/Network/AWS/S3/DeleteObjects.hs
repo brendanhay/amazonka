@@ -110,6 +110,8 @@ instance AWSRequest DeleteObjects where
 
 instance Hashable DeleteObjects
 
+instance NFData DeleteObjects
+
 instance ToElement DeleteObjects where
         toElement
           = mkElement

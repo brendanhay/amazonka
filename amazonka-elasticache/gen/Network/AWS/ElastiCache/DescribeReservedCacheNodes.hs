@@ -207,6 +207,8 @@ instance AWSRequest DescribeReservedCacheNodes where
 
 instance Hashable DescribeReservedCacheNodes
 
+instance NFData DescribeReservedCacheNodes
+
 instance ToHeaders DescribeReservedCacheNodes where
         toHeaders = const mempty
 

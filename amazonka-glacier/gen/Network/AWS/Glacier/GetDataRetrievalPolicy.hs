@@ -87,6 +87,8 @@ instance AWSRequest GetDataRetrievalPolicy where
 
 instance Hashable GetDataRetrievalPolicy
 
+instance NFData GetDataRetrievalPolicy
+
 instance ToHeaders GetDataRetrievalPolicy where
         toHeaders = const mempty
 

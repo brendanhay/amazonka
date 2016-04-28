@@ -82,6 +82,8 @@ instance AWSRequest
 
 instance Hashable DescribeConfigRuleEvaluationStatus
 
+instance NFData DescribeConfigRuleEvaluationStatus
+
 instance ToHeaders DescribeConfigRuleEvaluationStatus
          where
         toHeaders

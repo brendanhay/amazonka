@@ -125,6 +125,8 @@ instance AWSRequest DescribeEngineDefaultParameters
 
 instance Hashable DescribeEngineDefaultParameters
 
+instance NFData DescribeEngineDefaultParameters
+
 instance ToHeaders DescribeEngineDefaultParameters
          where
         toHeaders = const mempty

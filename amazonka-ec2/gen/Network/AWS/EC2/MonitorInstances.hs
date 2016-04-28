@@ -91,6 +91,8 @@ instance AWSRequest MonitorInstances where
 
 instance Hashable MonitorInstances
 
+instance NFData MonitorInstances
+
 instance ToHeaders MonitorInstances where
         toHeaders = const mempty
 

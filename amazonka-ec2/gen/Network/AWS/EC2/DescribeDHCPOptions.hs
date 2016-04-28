@@ -125,6 +125,8 @@ instance AWSRequest DescribeDHCPOptions where
 
 instance Hashable DescribeDHCPOptions
 
+instance NFData DescribeDHCPOptions
+
 instance ToHeaders DescribeDHCPOptions where
         toHeaders = const mempty
 

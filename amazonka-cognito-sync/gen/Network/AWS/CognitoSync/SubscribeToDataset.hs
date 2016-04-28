@@ -112,6 +112,8 @@ instance AWSRequest SubscribeToDataset where
 
 instance Hashable SubscribeToDataset
 
+instance NFData SubscribeToDataset
+
 instance ToHeaders SubscribeToDataset where
         toHeaders
           = const

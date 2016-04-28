@@ -94,6 +94,8 @@ instance AWSRequest DescribeEventTopics where
 
 instance Hashable DescribeEventTopics
 
+instance NFData DescribeEventTopics
+
 instance ToHeaders DescribeEventTopics where
         toHeaders
           = const

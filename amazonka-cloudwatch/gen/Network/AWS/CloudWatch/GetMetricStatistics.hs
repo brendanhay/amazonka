@@ -197,6 +197,8 @@ instance AWSRequest GetMetricStatistics where
 
 instance Hashable GetMetricStatistics
 
+instance NFData GetMetricStatistics
+
 instance ToHeaders GetMetricStatistics where
         toHeaders = const mempty
 

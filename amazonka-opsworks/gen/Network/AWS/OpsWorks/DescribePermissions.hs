@@ -92,6 +92,8 @@ instance AWSRequest DescribePermissions where
 
 instance Hashable DescribePermissions
 
+instance NFData DescribePermissions
+
 instance ToHeaders DescribePermissions where
         toHeaders
           = const

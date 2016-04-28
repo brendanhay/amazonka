@@ -130,6 +130,8 @@ instance AWSRequest DescribeReservedInstancesListings
 
 instance Hashable DescribeReservedInstancesListings
 
+instance NFData DescribeReservedInstancesListings
+
 instance ToHeaders DescribeReservedInstancesListings
          where
         toHeaders = const mempty

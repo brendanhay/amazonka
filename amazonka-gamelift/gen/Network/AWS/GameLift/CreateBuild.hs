@@ -118,6 +118,8 @@ instance AWSRequest CreateBuild where
 
 instance Hashable CreateBuild
 
+instance NFData CreateBuild
+
 instance ToHeaders CreateBuild where
         toHeaders
           = const

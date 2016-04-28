@@ -121,6 +121,8 @@ instance AWSRequest RespondActivityTaskFailed where
 
 instance Hashable RespondActivityTaskFailed
 
+instance NFData RespondActivityTaskFailed
+
 instance ToHeaders RespondActivityTaskFailed where
         toHeaders
           = const

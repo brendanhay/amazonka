@@ -151,6 +151,8 @@ instance AWSRequest UpdateDestination where
 
 instance Hashable UpdateDestination
 
+instance NFData UpdateDestination
+
 instance ToHeaders UpdateDestination where
         toHeaders
           = const

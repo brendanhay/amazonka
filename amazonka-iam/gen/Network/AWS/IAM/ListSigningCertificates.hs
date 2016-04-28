@@ -130,6 +130,8 @@ instance AWSRequest ListSigningCertificates where
 
 instance Hashable ListSigningCertificates
 
+instance NFData ListSigningCertificates
+
 instance ToHeaders ListSigningCertificates where
         toHeaders = const mempty
 

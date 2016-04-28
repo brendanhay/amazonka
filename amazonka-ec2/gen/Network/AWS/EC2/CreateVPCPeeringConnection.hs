@@ -120,6 +120,8 @@ instance AWSRequest CreateVPCPeeringConnection where
 
 instance Hashable CreateVPCPeeringConnection
 
+instance NFData CreateVPCPeeringConnection
+
 instance ToHeaders CreateVPCPeeringConnection where
         toHeaders = const mempty
 

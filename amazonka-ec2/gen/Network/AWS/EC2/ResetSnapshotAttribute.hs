@@ -97,6 +97,8 @@ instance AWSRequest ResetSnapshotAttribute where
 
 instance Hashable ResetSnapshotAttribute
 
+instance NFData ResetSnapshotAttribute
+
 instance ToHeaders ResetSnapshotAttribute where
         toHeaders = const mempty
 

@@ -106,6 +106,8 @@ instance AWSRequest GetDownloadURLForLayer where
 
 instance Hashable GetDownloadURLForLayer
 
+instance NFData GetDownloadURLForLayer
+
 instance ToHeaders GetDownloadURLForLayer where
         toHeaders
           = const

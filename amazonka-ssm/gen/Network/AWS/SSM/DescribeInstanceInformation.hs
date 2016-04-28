@@ -106,6 +106,8 @@ instance AWSRequest DescribeInstanceInformation where
 
 instance Hashable DescribeInstanceInformation
 
+instance NFData DescribeInstanceInformation
+
 instance ToHeaders DescribeInstanceInformation where
         toHeaders
           = const

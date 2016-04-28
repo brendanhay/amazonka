@@ -125,6 +125,8 @@ instance AWSRequest ListMFADevices where
 
 instance Hashable ListMFADevices
 
+instance NFData ListMFADevices
+
 instance ToHeaders ListMFADevices where
         toHeaders = const mempty
 

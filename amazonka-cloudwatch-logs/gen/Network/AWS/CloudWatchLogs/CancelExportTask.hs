@@ -68,6 +68,8 @@ instance AWSRequest CancelExportTask where
 
 instance Hashable CancelExportTask
 
+instance NFData CancelExportTask
+
 instance ToHeaders CancelExportTask where
         toHeaders
           = const

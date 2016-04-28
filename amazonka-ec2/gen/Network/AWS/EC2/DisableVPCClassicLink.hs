@@ -89,6 +89,8 @@ instance AWSRequest DisableVPCClassicLink where
 
 instance Hashable DisableVPCClassicLink
 
+instance NFData DisableVPCClassicLink
+
 instance ToHeaders DisableVPCClassicLink where
         toHeaders = const mempty
 

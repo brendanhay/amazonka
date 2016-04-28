@@ -82,6 +82,8 @@ instance AWSRequest DisableLogging where
 
 instance Hashable DisableLogging
 
+instance NFData DisableLogging
+
 instance ToHeaders DisableLogging where
         toHeaders = const mempty
 

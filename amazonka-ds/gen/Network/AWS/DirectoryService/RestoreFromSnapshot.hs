@@ -86,6 +86,8 @@ instance AWSRequest RestoreFromSnapshot where
 
 instance Hashable RestoreFromSnapshot
 
+instance NFData RestoreFromSnapshot
+
 instance ToHeaders RestoreFromSnapshot where
         toHeaders
           = const

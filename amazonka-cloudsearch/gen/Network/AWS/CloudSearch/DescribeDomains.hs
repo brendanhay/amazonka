@@ -88,6 +88,8 @@ instance AWSRequest DescribeDomains where
 
 instance Hashable DescribeDomains
 
+instance NFData DescribeDomains
+
 instance ToHeaders DescribeDomains where
         toHeaders = const mempty
 

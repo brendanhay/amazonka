@@ -78,6 +78,8 @@ instance AWSRequest DeleteScheduledAction where
 
 instance Hashable DeleteScheduledAction
 
+instance NFData DeleteScheduledAction
+
 instance ToHeaders DeleteScheduledAction where
         toHeaders = const mempty
 

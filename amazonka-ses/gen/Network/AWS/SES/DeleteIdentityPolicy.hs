@@ -102,6 +102,8 @@ instance AWSRequest DeleteIdentityPolicy where
 
 instance Hashable DeleteIdentityPolicy
 
+instance NFData DeleteIdentityPolicy
+
 instance ToHeaders DeleteIdentityPolicy where
         toHeaders = const mempty
 

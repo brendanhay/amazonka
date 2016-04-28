@@ -162,6 +162,8 @@ instance AWSRequest AssociateAddress where
 
 instance Hashable AssociateAddress
 
+instance NFData AssociateAddress
+
 instance ToHeaders AssociateAddress where
         toHeaders = const mempty
 

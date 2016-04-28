@@ -88,6 +88,8 @@ instance AWSRequest DisableSnapshotCopy where
 
 instance Hashable DisableSnapshotCopy
 
+instance NFData DisableSnapshotCopy
+
 instance ToHeaders DisableSnapshotCopy where
         toHeaders = const mempty
 

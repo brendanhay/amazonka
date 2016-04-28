@@ -211,6 +211,8 @@ instance AWSRequest GetItem where
 
 instance Hashable GetItem
 
+instance NFData GetItem
+
 instance ToHeaders GetItem where
         toHeaders
           = const

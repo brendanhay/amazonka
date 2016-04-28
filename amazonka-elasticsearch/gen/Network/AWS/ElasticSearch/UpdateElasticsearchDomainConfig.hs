@@ -133,6 +133,8 @@ instance AWSRequest UpdateElasticsearchDomainConfig
 
 instance Hashable UpdateElasticsearchDomainConfig
 
+instance NFData UpdateElasticsearchDomainConfig
+
 instance ToHeaders UpdateElasticsearchDomainConfig
          where
         toHeaders = const mempty

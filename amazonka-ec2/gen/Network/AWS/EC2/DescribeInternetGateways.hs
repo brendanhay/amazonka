@@ -123,6 +123,8 @@ instance AWSRequest DescribeInternetGateways where
 
 instance Hashable DescribeInternetGateways
 
+instance NFData DescribeInternetGateways
+
 instance ToHeaders DescribeInternetGateways where
         toHeaders = const mempty
 

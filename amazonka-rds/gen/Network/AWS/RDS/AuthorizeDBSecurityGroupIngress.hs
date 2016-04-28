@@ -140,6 +140,8 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress
 
 instance Hashable AuthorizeDBSecurityGroupIngress
 
+instance NFData AuthorizeDBSecurityGroupIngress
+
 instance ToHeaders AuthorizeDBSecurityGroupIngress
          where
         toHeaders = const mempty

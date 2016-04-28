@@ -122,6 +122,8 @@ instance AWSRequest GetFunctionConfiguration where
 
 instance Hashable GetFunctionConfiguration
 
+instance NFData GetFunctionConfiguration
+
 instance ToHeaders GetFunctionConfiguration where
         toHeaders = const mempty
 

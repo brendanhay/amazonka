@@ -105,6 +105,8 @@ instance AWSRequest ListFleets where
 
 instance Hashable ListFleets
 
+instance NFData ListFleets
+
 instance ToHeaders ListFleets where
         toHeaders
           = const

@@ -81,6 +81,8 @@ instance AWSRequest GetInstanceProfile where
 
 instance Hashable GetInstanceProfile
 
+instance NFData GetInstanceProfile
+
 instance ToHeaders GetInstanceProfile where
         toHeaders = const mempty
 

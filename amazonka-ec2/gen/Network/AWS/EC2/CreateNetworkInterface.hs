@@ -150,6 +150,8 @@ instance AWSRequest CreateNetworkInterface where
 
 instance Hashable CreateNetworkInterface
 
+instance NFData CreateNetworkInterface
+
 instance ToHeaders CreateNetworkInterface where
         toHeaders = const mempty
 

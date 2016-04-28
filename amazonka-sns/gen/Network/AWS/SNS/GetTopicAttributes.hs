@@ -81,6 +81,8 @@ instance AWSRequest GetTopicAttributes where
 
 instance Hashable GetTopicAttributes
 
+instance NFData GetTopicAttributes
+
 instance ToHeaders GetTopicAttributes where
         toHeaders = const mempty
 

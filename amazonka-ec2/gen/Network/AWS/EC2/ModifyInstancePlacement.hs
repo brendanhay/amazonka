@@ -122,6 +122,8 @@ instance AWSRequest ModifyInstancePlacement where
 
 instance Hashable ModifyInstancePlacement
 
+instance NFData ModifyInstancePlacement
+
 instance ToHeaders ModifyInstancePlacement where
         toHeaders = const mempty
 

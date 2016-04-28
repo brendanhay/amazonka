@@ -203,6 +203,8 @@ instance AWSRequest ListResourceRecordSets where
 
 instance Hashable ListResourceRecordSets
 
+instance NFData ListResourceRecordSets
+
 instance ToHeaders ListResourceRecordSets where
         toHeaders = const mempty
 

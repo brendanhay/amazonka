@@ -88,6 +88,8 @@ instance AWSRequest DeliverConfigSnapshot where
 
 instance Hashable DeliverConfigSnapshot
 
+instance NFData DeliverConfigSnapshot
+
 instance ToHeaders DeliverConfigSnapshot where
         toHeaders
           = const

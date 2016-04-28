@@ -86,6 +86,8 @@ instance AWSRequest AttachInstances where
 
 instance Hashable AttachInstances
 
+instance NFData AttachInstances
+
 instance ToHeaders AttachInstances where
         toHeaders = const mempty
 

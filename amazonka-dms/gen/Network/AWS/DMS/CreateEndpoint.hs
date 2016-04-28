@@ -179,6 +179,8 @@ instance AWSRequest CreateEndpoint where
 
 instance Hashable CreateEndpoint
 
+instance NFData CreateEndpoint
+
 instance ToHeaders CreateEndpoint where
         toHeaders
           = const

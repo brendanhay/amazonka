@@ -137,6 +137,8 @@ instance AWSRequest QueryObjects where
 
 instance Hashable QueryObjects
 
+instance NFData QueryObjects
+
 instance ToHeaders QueryObjects where
         toHeaders
           = const

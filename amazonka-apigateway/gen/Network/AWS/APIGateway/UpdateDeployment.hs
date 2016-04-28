@@ -98,6 +98,8 @@ instance AWSRequest UpdateDeployment where
 
 instance Hashable UpdateDeployment
 
+instance NFData UpdateDeployment
+
 instance ToHeaders UpdateDeployment where
         toHeaders
           = const

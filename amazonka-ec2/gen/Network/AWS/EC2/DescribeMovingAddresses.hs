@@ -131,6 +131,8 @@ instance AWSRequest DescribeMovingAddresses where
 
 instance Hashable DescribeMovingAddresses
 
+instance NFData DescribeMovingAddresses
+
 instance ToHeaders DescribeMovingAddresses where
         toHeaders = const mempty
 

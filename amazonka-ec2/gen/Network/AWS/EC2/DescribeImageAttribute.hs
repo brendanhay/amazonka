@@ -124,6 +124,8 @@ instance AWSRequest DescribeImageAttribute where
 
 instance Hashable DescribeImageAttribute
 
+instance NFData DescribeImageAttribute
+
 instance ToHeaders DescribeImageAttribute where
         toHeaders = const mempty
 

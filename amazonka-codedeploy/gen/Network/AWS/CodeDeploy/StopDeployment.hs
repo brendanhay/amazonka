@@ -79,6 +79,8 @@ instance AWSRequest StopDeployment where
 
 instance Hashable StopDeployment
 
+instance NFData StopDeployment
+
 instance ToHeaders StopDeployment where
         toHeaders
           = const

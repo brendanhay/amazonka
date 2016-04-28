@@ -127,6 +127,8 @@ instance AWSRequest ModifyVPCEndpoint where
 
 instance Hashable ModifyVPCEndpoint
 
+instance NFData ModifyVPCEndpoint
+
 instance ToHeaders ModifyVPCEndpoint where
         toHeaders = const mempty
 

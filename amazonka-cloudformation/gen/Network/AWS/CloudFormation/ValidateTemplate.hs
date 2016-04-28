@@ -108,6 +108,8 @@ instance AWSRequest ValidateTemplate where
 
 instance Hashable ValidateTemplate
 
+instance NFData ValidateTemplate
+
 instance ToHeaders ValidateTemplate where
         toHeaders = const mempty
 

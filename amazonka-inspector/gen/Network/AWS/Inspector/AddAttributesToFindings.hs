@@ -85,6 +85,8 @@ instance AWSRequest AddAttributesToFindings where
 
 instance Hashable AddAttributesToFindings
 
+instance NFData AddAttributesToFindings
+
 instance ToHeaders AddAttributesToFindings where
         toHeaders
           = const

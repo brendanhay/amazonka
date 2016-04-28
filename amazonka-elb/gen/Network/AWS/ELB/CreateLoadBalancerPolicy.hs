@@ -111,6 +111,8 @@ instance AWSRequest CreateLoadBalancerPolicy where
 
 instance Hashable CreateLoadBalancerPolicy
 
+instance NFData CreateLoadBalancerPolicy
+
 instance ToHeaders CreateLoadBalancerPolicy where
         toHeaders = const mempty
 

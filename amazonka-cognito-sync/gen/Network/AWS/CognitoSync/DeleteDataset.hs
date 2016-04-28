@@ -108,6 +108,8 @@ instance AWSRequest DeleteDataset where
 
 instance Hashable DeleteDataset
 
+instance NFData DeleteDataset
+
 instance ToHeaders DeleteDataset where
         toHeaders
           = const

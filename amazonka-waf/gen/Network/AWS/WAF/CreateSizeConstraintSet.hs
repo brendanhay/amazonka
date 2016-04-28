@@ -110,6 +110,8 @@ instance AWSRequest CreateSizeConstraintSet where
 
 instance Hashable CreateSizeConstraintSet
 
+instance NFData CreateSizeConstraintSet
+
 instance ToHeaders CreateSizeConstraintSet where
         toHeaders
           = const

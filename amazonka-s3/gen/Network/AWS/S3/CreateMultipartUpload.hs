@@ -312,6 +312,8 @@ instance AWSRequest CreateMultipartUpload where
 
 instance Hashable CreateMultipartUpload
 
+instance NFData CreateMultipartUpload
+
 instance ToHeaders CreateMultipartUpload where
         toHeaders CreateMultipartUpload'{..}
           = mconcat

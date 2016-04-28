@@ -98,6 +98,8 @@ instance AWSRequest GetVaultAccessPolicy where
 
 instance Hashable GetVaultAccessPolicy
 
+instance NFData GetVaultAccessPolicy
+
 instance ToHeaders GetVaultAccessPolicy where
         toHeaders = const mempty
 

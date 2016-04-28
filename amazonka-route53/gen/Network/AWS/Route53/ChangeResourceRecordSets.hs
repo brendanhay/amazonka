@@ -118,6 +118,8 @@ instance AWSRequest ChangeResourceRecordSets where
 
 instance Hashable ChangeResourceRecordSets
 
+instance NFData ChangeResourceRecordSets
+
 instance ToElement ChangeResourceRecordSets where
         toElement
           = mkElement

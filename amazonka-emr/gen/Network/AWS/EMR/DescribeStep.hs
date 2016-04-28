@@ -87,6 +87,8 @@ instance AWSRequest DescribeStep where
 
 instance Hashable DescribeStep
 
+instance NFData DescribeStep
+
 instance ToHeaders DescribeStep where
         toHeaders
           = const

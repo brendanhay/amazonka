@@ -91,6 +91,8 @@ instance AWSRequest GetPipeline where
 
 instance Hashable GetPipeline
 
+instance NFData GetPipeline
+
 instance ToHeaders GetPipeline where
         toHeaders
           = const

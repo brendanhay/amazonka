@@ -101,6 +101,8 @@ instance AWSRequest AddPermission where
 
 instance Hashable AddPermission
 
+instance NFData AddPermission
+
 instance ToHeaders AddPermission where
         toHeaders = const mempty
 

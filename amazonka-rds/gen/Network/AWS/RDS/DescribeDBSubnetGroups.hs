@@ -133,6 +133,8 @@ instance AWSRequest DescribeDBSubnetGroups where
 
 instance Hashable DescribeDBSubnetGroups
 
+instance NFData DescribeDBSubnetGroups
+
 instance ToHeaders DescribeDBSubnetGroups where
         toHeaders = const mempty
 

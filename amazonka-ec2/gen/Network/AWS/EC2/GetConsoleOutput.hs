@@ -110,6 +110,8 @@ instance AWSRequest GetConsoleOutput where
 
 instance Hashable GetConsoleOutput
 
+instance NFData GetConsoleOutput
+
 instance ToHeaders GetConsoleOutput where
         toHeaders = const mempty
 

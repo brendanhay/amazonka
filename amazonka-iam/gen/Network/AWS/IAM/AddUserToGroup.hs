@@ -78,6 +78,8 @@ instance AWSRequest AddUserToGroup where
 
 instance Hashable AddUserToGroup
 
+instance NFData AddUserToGroup
+
 instance ToHeaders AddUserToGroup where
         toHeaders = const mempty
 

@@ -178,6 +178,8 @@ instance AWSRequest ActivateGateway where
 
 instance Hashable ActivateGateway
 
+instance NFData ActivateGateway
+
 instance ToHeaders ActivateGateway where
         toHeaders
           = const

@@ -245,6 +245,8 @@ instance AWSRequest AssumeRoleWithWebIdentity where
 
 instance Hashable AssumeRoleWithWebIdentity
 
+instance NFData AssumeRoleWithWebIdentity
+
 instance ToHeaders AssumeRoleWithWebIdentity where
         toHeaders = const mempty
 

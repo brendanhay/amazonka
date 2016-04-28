@@ -119,6 +119,8 @@ instance AWSRequest CreateComputer where
 
 instance Hashable CreateComputer
 
+instance NFData CreateComputer
+
 instance ToHeaders CreateComputer where
         toHeaders
           = const

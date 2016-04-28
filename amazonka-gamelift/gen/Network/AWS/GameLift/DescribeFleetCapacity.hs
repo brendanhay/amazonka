@@ -117,6 +117,8 @@ instance AWSRequest DescribeFleetCapacity where
 
 instance Hashable DescribeFleetCapacity
 
+instance NFData DescribeFleetCapacity
+
 instance ToHeaders DescribeFleetCapacity where
         toHeaders
           = const

@@ -79,6 +79,8 @@ instance AWSRequest GetHealthCheck where
 
 instance Hashable GetHealthCheck
 
+instance NFData GetHealthCheck
+
 instance ToHeaders GetHealthCheck where
         toHeaders = const mempty
 

@@ -65,6 +65,8 @@ instance AWSRequest GetDirectoryLimits where
 
 instance Hashable GetDirectoryLimits
 
+instance NFData GetDirectoryLimits
+
 instance ToHeaders GetDirectoryLimits where
         toHeaders
           = const

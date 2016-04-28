@@ -129,6 +129,8 @@ instance AWSRequest DescribePolicies where
 
 instance Hashable DescribePolicies
 
+instance NFData DescribePolicies
+
 instance ToHeaders DescribePolicies where
         toHeaders = const mempty
 

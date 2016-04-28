@@ -81,6 +81,8 @@ instance AWSRequest DeleteStage where
 
 instance Hashable DeleteStage
 
+instance NFData DeleteStage
+
 instance ToHeaders DeleteStage where
         toHeaders
           = const

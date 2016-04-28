@@ -101,6 +101,8 @@ instance AWSRequest SetReceiptRulePosition where
 
 instance Hashable SetReceiptRulePosition
 
+instance NFData SetReceiptRulePosition
+
 instance ToHeaders SetReceiptRulePosition where
         toHeaders = const mempty
 

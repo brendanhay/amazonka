@@ -102,6 +102,8 @@ instance AWSRequest UpdateMLModel where
 
 instance Hashable UpdateMLModel
 
+instance NFData UpdateMLModel
+
 instance ToHeaders UpdateMLModel where
         toHeaders
           = const

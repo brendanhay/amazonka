@@ -98,6 +98,8 @@ instance AWSRequest DescribeAvailabilityOptions where
 
 instance Hashable DescribeAvailabilityOptions
 
+instance NFData DescribeAvailabilityOptions
+
 instance ToHeaders DescribeAvailabilityOptions where
         toHeaders = const mempty
 

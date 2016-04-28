@@ -113,6 +113,8 @@ instance AWSRequest PutActionRevision where
 
 instance Hashable PutActionRevision
 
+instance NFData PutActionRevision
+
 instance ToHeaders PutActionRevision where
         toHeaders
           = const

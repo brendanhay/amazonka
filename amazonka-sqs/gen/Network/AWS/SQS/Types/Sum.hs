@@ -46,6 +46,7 @@ instance ToText MessageAttribute where
         SentTimestamp -> "SentTimestamp"
 
 instance Hashable     MessageAttribute
+instance NFData       MessageAttribute
 instance ToByteString MessageAttribute
 instance ToQuery      MessageAttribute
 instance ToHeader     MessageAttribute
@@ -104,6 +105,7 @@ instance ToText QueueAttributeName where
         VisibilityTimeout -> "VisibilityTimeout"
 
 instance Hashable     QueueAttributeName
+instance NFData       QueueAttributeName
 instance ToByteString QueueAttributeName
 instance ToQuery      QueueAttributeName
 instance ToHeader     QueueAttributeName

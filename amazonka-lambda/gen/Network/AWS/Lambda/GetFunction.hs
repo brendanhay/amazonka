@@ -114,6 +114,8 @@ instance AWSRequest GetFunction where
 
 instance Hashable GetFunction
 
+instance NFData GetFunction
+
 instance ToHeaders GetFunction where
         toHeaders = const mempty
 

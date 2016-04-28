@@ -78,6 +78,8 @@ instance AWSRequest BatchGetApplications where
 
 instance Hashable BatchGetApplications
 
+instance NFData BatchGetApplications
+
 instance ToHeaders BatchGetApplications where
         toHeaders
           = const

@@ -107,6 +107,8 @@ instance AWSRequest CreateTapeWithBarcode where
 
 instance Hashable CreateTapeWithBarcode
 
+instance NFData CreateTapeWithBarcode
+
 instance ToHeaders CreateTapeWithBarcode where
         toHeaders
           = const

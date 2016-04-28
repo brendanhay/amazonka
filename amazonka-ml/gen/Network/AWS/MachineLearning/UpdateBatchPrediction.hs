@@ -89,6 +89,8 @@ instance AWSRequest UpdateBatchPrediction where
 
 instance Hashable UpdateBatchPrediction
 
+instance NFData UpdateBatchPrediction
+
 instance ToHeaders UpdateBatchPrediction where
         toHeaders
           = const

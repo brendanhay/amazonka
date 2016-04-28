@@ -124,6 +124,9 @@ instance AWSRequest
 instance Hashable
          DescribeEngineDefaultClusterParameters
 
+instance NFData
+         DescribeEngineDefaultClusterParameters
+
 instance ToHeaders
          DescribeEngineDefaultClusterParameters where
         toHeaders = const mempty

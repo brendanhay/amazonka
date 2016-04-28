@@ -81,6 +81,8 @@ instance AWSRequest CreateRealtimeEndpoint where
 
 instance Hashable CreateRealtimeEndpoint
 
+instance NFData CreateRealtimeEndpoint
+
 instance ToHeaders CreateRealtimeEndpoint where
         toHeaders
           = const

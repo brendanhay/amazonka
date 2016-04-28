@@ -82,6 +82,8 @@ instance AWSRequest DeleteDataSource where
 
 instance Hashable DeleteDataSource
 
+instance NFData DeleteDataSource
+
 instance ToHeaders DeleteDataSource where
         toHeaders
           = const

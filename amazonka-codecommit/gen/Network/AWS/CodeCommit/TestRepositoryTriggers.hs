@@ -92,6 +92,8 @@ instance AWSRequest TestRepositoryTriggers where
 
 instance Hashable TestRepositoryTriggers
 
+instance NFData TestRepositoryTriggers
+
 instance ToHeaders TestRepositoryTriggers where
         toHeaders
           = const

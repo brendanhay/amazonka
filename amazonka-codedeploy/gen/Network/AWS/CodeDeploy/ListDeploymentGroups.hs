@@ -94,6 +94,8 @@ instance AWSRequest ListDeploymentGroups where
 
 instance Hashable ListDeploymentGroups
 
+instance NFData ListDeploymentGroups
+
 instance ToHeaders ListDeploymentGroups where
         toHeaders
           = const

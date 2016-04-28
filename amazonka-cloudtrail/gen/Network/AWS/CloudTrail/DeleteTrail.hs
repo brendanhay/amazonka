@@ -80,6 +80,8 @@ instance AWSRequest DeleteTrail where
 
 instance Hashable DeleteTrail
 
+instance NFData DeleteTrail
+
 instance ToHeaders DeleteTrail where
         toHeaders
           = const

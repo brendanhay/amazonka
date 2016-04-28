@@ -125,6 +125,8 @@ instance AWSRequest PutPipelineDefinition where
 
 instance Hashable PutPipelineDefinition
 
+instance NFData PutPipelineDefinition
+
 instance ToHeaders PutPipelineDefinition where
         toHeaders
           = const

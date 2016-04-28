@@ -201,6 +201,8 @@ instance AWSRequest GetFederationToken where
 
 instance Hashable GetFederationToken
 
+instance NFData GetFederationToken
+
 instance ToHeaders GetFederationToken where
         toHeaders = const mempty
 

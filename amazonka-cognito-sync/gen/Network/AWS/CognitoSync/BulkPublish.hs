@@ -87,6 +87,8 @@ instance AWSRequest BulkPublish where
 
 instance Hashable BulkPublish
 
+instance NFData BulkPublish
+
 instance ToHeaders BulkPublish where
         toHeaders
           = const

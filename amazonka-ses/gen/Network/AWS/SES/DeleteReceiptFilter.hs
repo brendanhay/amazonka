@@ -79,6 +79,8 @@ instance AWSRequest DeleteReceiptFilter where
 
 instance Hashable DeleteReceiptFilter
 
+instance NFData DeleteReceiptFilter
+
 instance ToHeaders DeleteReceiptFilter where
         toHeaders = const mempty
 

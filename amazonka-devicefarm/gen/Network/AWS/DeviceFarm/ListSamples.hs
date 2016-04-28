@@ -90,6 +90,8 @@ instance AWSRequest ListSamples where
 
 instance Hashable ListSamples
 
+instance NFData ListSamples
+
 instance ToHeaders ListSamples where
         toHeaders
           = const

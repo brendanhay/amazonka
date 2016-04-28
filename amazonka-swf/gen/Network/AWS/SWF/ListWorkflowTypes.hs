@@ -168,6 +168,8 @@ instance AWSRequest ListWorkflowTypes where
 
 instance Hashable ListWorkflowTypes
 
+instance NFData ListWorkflowTypes
+
 instance ToHeaders ListWorkflowTypes where
         toHeaders
           = const

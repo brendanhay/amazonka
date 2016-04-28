@@ -103,6 +103,8 @@ instance AWSRequest ListAttachedRulesPackages where
 
 instance Hashable ListAttachedRulesPackages
 
+instance NFData ListAttachedRulesPackages
+
 instance ToHeaders ListAttachedRulesPackages where
         toHeaders
           = const

@@ -98,6 +98,8 @@ instance AWSRequest PutMetricData where
 
 instance Hashable PutMetricData
 
+instance NFData PutMetricData
+
 instance ToHeaders PutMetricData where
         toHeaders = const mempty
 

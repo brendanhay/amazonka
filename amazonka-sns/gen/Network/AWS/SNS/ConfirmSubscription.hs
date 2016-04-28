@@ -104,6 +104,8 @@ instance AWSRequest ConfirmSubscription where
 
 instance Hashable ConfirmSubscription
 
+instance NFData ConfirmSubscription
+
 instance ToHeaders ConfirmSubscription where
         toHeaders = const mempty
 

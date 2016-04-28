@@ -119,6 +119,8 @@ instance AWSRequest ValidateConfigurationSettings
 
 instance Hashable ValidateConfigurationSettings
 
+instance NFData ValidateConfigurationSettings
+
 instance ToHeaders ValidateConfigurationSettings
          where
         toHeaders = const mempty

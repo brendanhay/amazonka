@@ -116,6 +116,8 @@ instance AWSRequest DescribeFleetAttributes where
 
 instance Hashable DescribeFleetAttributes
 
+instance NFData DescribeFleetAttributes
+
 instance ToHeaders DescribeFleetAttributes where
         toHeaders
           = const

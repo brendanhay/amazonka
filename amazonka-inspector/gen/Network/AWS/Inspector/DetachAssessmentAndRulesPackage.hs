@@ -90,6 +90,8 @@ instance AWSRequest DetachAssessmentAndRulesPackage
 
 instance Hashable DetachAssessmentAndRulesPackage
 
+instance NFData DetachAssessmentAndRulesPackage
+
 instance ToHeaders DetachAssessmentAndRulesPackage
          where
         toHeaders

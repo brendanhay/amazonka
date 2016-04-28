@@ -93,6 +93,8 @@ instance AWSRequest UpdateVTLDeviceType where
 
 instance Hashable UpdateVTLDeviceType
 
+instance NFData UpdateVTLDeviceType
+
 instance ToHeaders UpdateVTLDeviceType where
         toHeaders
           = const

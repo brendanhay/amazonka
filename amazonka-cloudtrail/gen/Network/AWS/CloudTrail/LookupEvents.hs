@@ -140,6 +140,8 @@ instance AWSRequest LookupEvents where
 
 instance Hashable LookupEvents
 
+instance NFData LookupEvents
+
 instance ToHeaders LookupEvents where
         toHeaders
           = const

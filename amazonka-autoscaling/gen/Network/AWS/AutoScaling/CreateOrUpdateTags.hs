@@ -76,6 +76,8 @@ instance AWSRequest CreateOrUpdateTags where
 
 instance Hashable CreateOrUpdateTags
 
+instance NFData CreateOrUpdateTags
+
 instance ToHeaders CreateOrUpdateTags where
         toHeaders = const mempty
 

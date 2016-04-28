@@ -84,6 +84,8 @@ instance AWSRequest RebootCluster where
 
 instance Hashable RebootCluster
 
+instance NFData RebootCluster
+
 instance ToHeaders RebootCluster where
         toHeaders = const mempty
 

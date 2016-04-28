@@ -135,6 +135,8 @@ instance AWSRequest RequestCertificate where
 
 instance Hashable RequestCertificate
 
+instance NFData RequestCertificate
+
 instance ToHeaders RequestCertificate where
         toHeaders
           = const

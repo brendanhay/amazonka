@@ -65,6 +65,8 @@ instance AWSRequest DescribeLocations where
 
 instance Hashable DescribeLocations
 
+instance NFData DescribeLocations
+
 instance ToHeaders DescribeLocations where
         toHeaders
           = const

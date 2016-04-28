@@ -83,6 +83,8 @@ instance AWSRequest DescribeScalingParameters where
 
 instance Hashable DescribeScalingParameters
 
+instance NFData DescribeScalingParameters
+
 instance ToHeaders DescribeScalingParameters where
         toHeaders = const mempty
 

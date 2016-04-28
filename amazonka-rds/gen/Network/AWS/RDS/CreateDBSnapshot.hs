@@ -113,6 +113,8 @@ instance AWSRequest CreateDBSnapshot where
 
 instance Hashable CreateDBSnapshot
 
+instance NFData CreateDBSnapshot
+
 instance ToHeaders CreateDBSnapshot where
         toHeaders = const mempty
 

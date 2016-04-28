@@ -121,6 +121,8 @@ instance AWSRequest CreateDomainName where
 
 instance Hashable CreateDomainName
 
+instance NFData CreateDomainName
+
 instance ToHeaders CreateDomainName where
         toHeaders
           = const

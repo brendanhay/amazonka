@@ -178,6 +178,8 @@ instance AWSRequest UpdateService where
 
 instance Hashable UpdateService
 
+instance NFData UpdateService
+
 instance ToHeaders UpdateService where
         toHeaders
           = const

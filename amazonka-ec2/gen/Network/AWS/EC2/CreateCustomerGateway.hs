@@ -137,6 +137,8 @@ instance AWSRequest CreateCustomerGateway where
 
 instance Hashable CreateCustomerGateway
 
+instance NFData CreateCustomerGateway
+
 instance ToHeaders CreateCustomerGateway where
         toHeaders = const mempty
 

@@ -74,6 +74,8 @@ instance AWSRequest DeleteIdentityPool where
 
 instance Hashable DeleteIdentityPool
 
+instance NFData DeleteIdentityPool
+
 instance ToHeaders DeleteIdentityPool where
         toHeaders
           = const

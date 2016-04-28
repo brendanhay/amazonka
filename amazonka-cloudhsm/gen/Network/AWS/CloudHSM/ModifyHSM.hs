@@ -135,6 +135,8 @@ instance AWSRequest ModifyHSM where
 
 instance Hashable ModifyHSM
 
+instance NFData ModifyHSM
+
 instance ToHeaders ModifyHSM where
         toHeaders
           = const

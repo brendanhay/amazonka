@@ -79,6 +79,8 @@ instance AWSRequest GetAssessmentTelemetry where
 
 instance Hashable GetAssessmentTelemetry
 
+instance NFData GetAssessmentTelemetry
+
 instance ToHeaders GetAssessmentTelemetry where
         toHeaders
           = const

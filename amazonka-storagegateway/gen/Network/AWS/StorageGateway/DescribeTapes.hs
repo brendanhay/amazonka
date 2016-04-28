@@ -127,6 +127,8 @@ instance AWSRequest DescribeTapes where
 
 instance Hashable DescribeTapes
 
+instance NFData DescribeTapes
+
 instance ToHeaders DescribeTapes where
         toHeaders
           = const

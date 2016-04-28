@@ -100,6 +100,8 @@ instance AWSRequest UpdateContainerAgent where
 
 instance Hashable UpdateContainerAgent
 
+instance NFData UpdateContainerAgent
+
 instance ToHeaders UpdateContainerAgent where
         toHeaders
           = const

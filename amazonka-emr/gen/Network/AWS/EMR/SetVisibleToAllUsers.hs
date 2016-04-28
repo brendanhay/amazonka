@@ -89,6 +89,8 @@ instance AWSRequest SetVisibleToAllUsers where
 
 instance Hashable SetVisibleToAllUsers
 
+instance NFData SetVisibleToAllUsers
+
 instance ToHeaders SetVisibleToAllUsers where
         toHeaders
           = const

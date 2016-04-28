@@ -100,6 +100,8 @@ instance AWSRequest CancelSpotInstanceRequests where
 
 instance Hashable CancelSpotInstanceRequests
 
+instance NFData CancelSpotInstanceRequests
+
 instance ToHeaders CancelSpotInstanceRequests where
         toHeaders = const mempty
 

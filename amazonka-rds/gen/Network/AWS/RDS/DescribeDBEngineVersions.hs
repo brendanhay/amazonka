@@ -172,6 +172,8 @@ instance AWSRequest DescribeDBEngineVersions where
 
 instance Hashable DescribeDBEngineVersions
 
+instance NFData DescribeDBEngineVersions
+
 instance ToHeaders DescribeDBEngineVersions where
         toHeaders = const mempty
 

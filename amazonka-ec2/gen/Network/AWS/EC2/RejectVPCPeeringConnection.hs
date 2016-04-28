@@ -93,6 +93,8 @@ instance AWSRequest RejectVPCPeeringConnection where
 
 instance Hashable RejectVPCPeeringConnection
 
+instance NFData RejectVPCPeeringConnection
+
 instance ToHeaders RejectVPCPeeringConnection where
         toHeaders = const mempty
 

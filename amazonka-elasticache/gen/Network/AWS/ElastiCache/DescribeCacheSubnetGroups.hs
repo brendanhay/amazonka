@@ -120,6 +120,8 @@ instance AWSRequest DescribeCacheSubnetGroups where
 
 instance Hashable DescribeCacheSubnetGroups
 
+instance NFData DescribeCacheSubnetGroups
+
 instance ToHeaders DescribeCacheSubnetGroups where
         toHeaders = const mempty
 

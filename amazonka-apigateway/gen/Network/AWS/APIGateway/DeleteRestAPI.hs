@@ -70,6 +70,8 @@ instance AWSRequest DeleteRestAPI where
 
 instance Hashable DeleteRestAPI
 
+instance NFData DeleteRestAPI
+
 instance ToHeaders DeleteRestAPI where
         toHeaders
           = const

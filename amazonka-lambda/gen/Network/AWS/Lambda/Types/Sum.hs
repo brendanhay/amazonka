@@ -37,6 +37,7 @@ instance ToText EventSourcePosition where
         TrimHorizon -> "TRIM_HORIZON"
 
 instance Hashable     EventSourcePosition
+instance NFData       EventSourcePosition
 instance ToByteString EventSourcePosition
 instance ToQuery      EventSourcePosition
 instance ToHeader     EventSourcePosition
@@ -65,6 +66,7 @@ instance ToText InvocationType where
         RequestResponse -> "RequestResponse"
 
 instance Hashable     InvocationType
+instance NFData       InvocationType
 instance ToByteString InvocationType
 instance ToQuery      InvocationType
 instance ToHeader     InvocationType
@@ -90,6 +92,7 @@ instance ToText LogType where
         Tail -> "Tail"
 
 instance Hashable     LogType
+instance NFData       LogType
 instance ToByteString LogType
 instance ToQuery      LogType
 instance ToHeader     LogType
@@ -118,6 +121,7 @@ instance ToText Runtime where
         PYTHON2_7 -> "python2.7"
 
 instance Hashable     Runtime
+instance NFData       Runtime
 instance ToByteString Runtime
 instance ToQuery      Runtime
 instance ToHeader     Runtime

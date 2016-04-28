@@ -145,6 +145,8 @@ instance AWSRequest RegisterInstance where
 
 instance Hashable RegisterInstance
 
+instance NFData RegisterInstance
+
 instance ToHeaders RegisterInstance where
         toHeaders
           = const

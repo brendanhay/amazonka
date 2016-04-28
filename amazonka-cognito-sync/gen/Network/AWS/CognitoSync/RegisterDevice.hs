@@ -112,6 +112,8 @@ instance AWSRequest RegisterDevice where
 
 instance Hashable RegisterDevice
 
+instance NFData RegisterDevice
+
 instance ToHeaders RegisterDevice where
         toHeaders
           = const

@@ -81,6 +81,8 @@ instance AWSRequest GetAccessKeyLastUsed where
 
 instance Hashable GetAccessKeyLastUsed
 
+instance NFData GetAccessKeyLastUsed
+
 instance ToHeaders GetAccessKeyLastUsed where
         toHeaders = const mempty
 

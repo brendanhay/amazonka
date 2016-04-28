@@ -78,6 +78,8 @@ instance AWSRequest CreateRepository where
 
 instance Hashable CreateRepository
 
+instance NFData CreateRepository
+
 instance ToHeaders CreateRepository where
         toHeaders
           = const

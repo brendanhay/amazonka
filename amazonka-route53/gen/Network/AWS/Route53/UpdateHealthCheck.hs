@@ -231,6 +231,8 @@ instance AWSRequest UpdateHealthCheck where
 
 instance Hashable UpdateHealthCheck
 
+instance NFData UpdateHealthCheck
+
 instance ToElement UpdateHealthCheck where
         toElement
           = mkElement

@@ -94,6 +94,8 @@ instance AWSRequest UpdateServiceAccessPolicies where
 
 instance Hashable UpdateServiceAccessPolicies
 
+instance NFData UpdateServiceAccessPolicies
+
 instance ToHeaders UpdateServiceAccessPolicies where
         toHeaders = const mempty
 

@@ -76,6 +76,8 @@ instance AWSRequest DescribeAssessment where
 
 instance Hashable DescribeAssessment
 
+instance NFData DescribeAssessment
+
 instance ToHeaders DescribeAssessment where
         toHeaders
           = const

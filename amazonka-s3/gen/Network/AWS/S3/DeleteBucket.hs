@@ -70,6 +70,8 @@ instance AWSRequest DeleteBucket where
 
 instance Hashable DeleteBucket
 
+instance NFData DeleteBucket
+
 instance ToHeaders DeleteBucket where
         toHeaders = const mempty
 

@@ -87,6 +87,8 @@ instance AWSRequest TestMetricFilter where
 
 instance Hashable TestMetricFilter
 
+instance NFData TestMetricFilter
+
 instance ToHeaders TestMetricFilter where
         toHeaders
           = const

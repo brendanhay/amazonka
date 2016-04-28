@@ -145,6 +145,8 @@ instance AWSRequest SplitShard where
 
 instance Hashable SplitShard
 
+instance NFData SplitShard
+
 instance ToHeaders SplitShard where
         toHeaders
           = const

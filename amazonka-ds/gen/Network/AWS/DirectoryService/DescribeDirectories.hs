@@ -118,6 +118,8 @@ instance AWSRequest DescribeDirectories where
 
 instance Hashable DescribeDirectories
 
+instance NFData DescribeDirectories
+
 instance ToHeaders DescribeDirectories where
         toHeaders
           = const

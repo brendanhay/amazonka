@@ -204,6 +204,8 @@ instance AWSRequest ListOpenWorkflowExecutions where
 
 instance Hashable ListOpenWorkflowExecutions
 
+instance NFData ListOpenWorkflowExecutions
+
 instance ToHeaders ListOpenWorkflowExecutions where
         toHeaders
           = const

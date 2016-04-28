@@ -100,6 +100,8 @@ instance AWSRequest UpdateAvailabilityOptions where
 
 instance Hashable UpdateAvailabilityOptions
 
+instance NFData UpdateAvailabilityOptions
+
 instance ToHeaders UpdateAvailabilityOptions where
         toHeaders = const mempty
 

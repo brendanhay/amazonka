@@ -82,6 +82,9 @@ instance AWSRequest
 instance Hashable
          GetCloudFrontOriginAccessIdentityConfig
 
+instance NFData
+         GetCloudFrontOriginAccessIdentityConfig
+
 instance ToHeaders
          GetCloudFrontOriginAccessIdentityConfig where
         toHeaders = const mempty

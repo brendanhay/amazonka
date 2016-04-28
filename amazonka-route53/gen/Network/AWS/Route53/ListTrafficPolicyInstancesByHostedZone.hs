@@ -170,6 +170,9 @@ instance AWSRequest
 instance Hashable
          ListTrafficPolicyInstancesByHostedZone
 
+instance NFData
+         ListTrafficPolicyInstancesByHostedZone
+
 instance ToHeaders
          ListTrafficPolicyInstancesByHostedZone where
         toHeaders = const mempty

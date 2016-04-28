@@ -91,6 +91,8 @@ instance AWSRequest DeregisterEventTopic where
 
 instance Hashable DeregisterEventTopic
 
+instance NFData DeregisterEventTopic
+
 instance ToHeaders DeregisterEventTopic where
         toHeaders
           = const

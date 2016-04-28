@@ -135,6 +135,8 @@ instance AWSRequest ListServerCertificates where
 
 instance Hashable ListServerCertificates
 
+instance NFData ListServerCertificates
+
 instance ToHeaders ListServerCertificates where
         toHeaders = const mempty
 

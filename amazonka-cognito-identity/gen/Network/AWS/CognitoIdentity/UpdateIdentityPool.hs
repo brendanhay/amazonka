@@ -126,6 +126,8 @@ instance AWSRequest UpdateIdentityPool where
 
 instance Hashable UpdateIdentityPool
 
+instance NFData UpdateIdentityPool
+
 instance ToHeaders UpdateIdentityPool where
         toHeaders
           = const

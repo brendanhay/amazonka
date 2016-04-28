@@ -95,6 +95,8 @@ instance AWSRequest GetCredentialsForIdentity where
 
 instance Hashable GetCredentialsForIdentity
 
+instance NFData GetCredentialsForIdentity
+
 instance ToHeaders GetCredentialsForIdentity where
         toHeaders
           = const

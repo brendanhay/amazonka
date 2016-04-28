@@ -125,6 +125,8 @@ instance AWSRequest DescribeReplicationGroups where
 
 instance Hashable DescribeReplicationGroups
 
+instance NFData DescribeReplicationGroups
+
 instance ToHeaders DescribeReplicationGroups where
         toHeaders = const mempty
 

@@ -114,6 +114,8 @@ instance AWSRequest CancelSpotFleetRequests where
 
 instance Hashable CancelSpotFleetRequests
 
+instance NFData CancelSpotFleetRequests
+
 instance ToHeaders CancelSpotFleetRequests where
         toHeaders = const mempty
 

@@ -87,6 +87,8 @@ instance AWSRequest UpdateThing where
 
 instance Hashable UpdateThing
 
+instance NFData UpdateThing
+
 instance ToHeaders UpdateThing where
         toHeaders = const mempty
 

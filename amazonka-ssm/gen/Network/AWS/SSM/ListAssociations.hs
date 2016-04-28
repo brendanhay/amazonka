@@ -110,6 +110,8 @@ instance AWSRequest ListAssociations where
 
 instance Hashable ListAssociations
 
+instance NFData ListAssociations
+
 instance ToHeaders ListAssociations where
         toHeaders
           = const

@@ -81,6 +81,8 @@ instance AWSRequest StartLogging where
 
 instance Hashable StartLogging
 
+instance NFData StartLogging
+
 instance ToHeaders StartLogging where
         toHeaders
           = const

@@ -114,6 +114,8 @@ instance AWSRequest GetAttributes where
 
 instance Hashable GetAttributes
 
+instance NFData GetAttributes
+
 instance ToHeaders GetAttributes where
         toHeaders = const mempty
 

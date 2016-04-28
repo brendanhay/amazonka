@@ -107,6 +107,8 @@ instance AWSRequest PutGroupPolicy where
 
 instance Hashable PutGroupPolicy
 
+instance NFData PutGroupPolicy
+
 instance ToHeaders PutGroupPolicy where
         toHeaders = const mempty
 

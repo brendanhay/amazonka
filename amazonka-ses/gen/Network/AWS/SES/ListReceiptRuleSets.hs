@@ -88,6 +88,8 @@ instance AWSRequest ListReceiptRuleSets where
 
 instance Hashable ListReceiptRuleSets
 
+instance NFData ListReceiptRuleSets
+
 instance ToHeaders ListReceiptRuleSets where
         toHeaders = const mempty
 

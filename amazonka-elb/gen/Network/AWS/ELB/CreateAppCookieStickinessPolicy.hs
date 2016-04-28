@@ -115,6 +115,8 @@ instance AWSRequest CreateAppCookieStickinessPolicy
 
 instance Hashable CreateAppCookieStickinessPolicy
 
+instance NFData CreateAppCookieStickinessPolicy
+
 instance ToHeaders CreateAppCookieStickinessPolicy
          where
         toHeaders = const mempty

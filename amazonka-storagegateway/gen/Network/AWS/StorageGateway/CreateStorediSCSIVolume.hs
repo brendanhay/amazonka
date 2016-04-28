@@ -169,6 +169,8 @@ instance AWSRequest CreateStorediSCSIVolume where
 
 instance Hashable CreateStorediSCSIVolume
 
+instance NFData CreateStorediSCSIVolume
+
 instance ToHeaders CreateStorediSCSIVolume where
         toHeaders
           = const

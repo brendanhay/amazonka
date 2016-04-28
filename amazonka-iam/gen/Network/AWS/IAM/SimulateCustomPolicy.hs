@@ -271,6 +271,8 @@ instance AWSRequest SimulateCustomPolicy where
 
 instance Hashable SimulateCustomPolicy
 
+instance NFData SimulateCustomPolicy
+
 instance ToHeaders SimulateCustomPolicy where
         toHeaders = const mempty
 

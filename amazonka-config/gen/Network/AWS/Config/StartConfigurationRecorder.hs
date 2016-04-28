@@ -77,6 +77,8 @@ instance AWSRequest StartConfigurationRecorder where
 
 instance Hashable StartConfigurationRecorder
 
+instance NFData StartConfigurationRecorder
+
 instance ToHeaders StartConfigurationRecorder where
         toHeaders
           = const

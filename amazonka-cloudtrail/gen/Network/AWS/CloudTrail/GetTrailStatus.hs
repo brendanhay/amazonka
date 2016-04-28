@@ -117,6 +117,8 @@ instance AWSRequest GetTrailStatus where
 
 instance Hashable GetTrailStatus
 
+instance NFData GetTrailStatus
+
 instance ToHeaders GetTrailStatus where
         toHeaders
           = const

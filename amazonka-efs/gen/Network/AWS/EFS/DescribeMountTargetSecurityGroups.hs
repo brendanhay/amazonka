@@ -88,6 +88,8 @@ instance AWSRequest DescribeMountTargetSecurityGroups
 
 instance Hashable DescribeMountTargetSecurityGroups
 
+instance NFData DescribeMountTargetSecurityGroups
+
 instance ToHeaders DescribeMountTargetSecurityGroups
          where
         toHeaders = const mempty

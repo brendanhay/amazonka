@@ -109,6 +109,8 @@ instance AWSRequest DeleteReplicationGroup where
 
 instance Hashable DeleteReplicationGroup
 
+instance NFData DeleteReplicationGroup
+
 instance ToHeaders DeleteReplicationGroup where
         toHeaders = const mempty
 

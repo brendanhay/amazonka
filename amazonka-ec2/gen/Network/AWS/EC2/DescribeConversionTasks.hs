@@ -105,6 +105,8 @@ instance AWSRequest DescribeConversionTasks where
 
 instance Hashable DescribeConversionTasks
 
+instance NFData DescribeConversionTasks
+
 instance ToHeaders DescribeConversionTasks where
         toHeaders = const mempty
 

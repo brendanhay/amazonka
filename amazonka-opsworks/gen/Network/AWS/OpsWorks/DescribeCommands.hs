@@ -107,6 +107,8 @@ instance AWSRequest DescribeCommands where
 
 instance Hashable DescribeCommands
 
+instance NFData DescribeCommands
+
 instance ToHeaders DescribeCommands where
         toHeaders
           = const

@@ -155,6 +155,8 @@ instance AWSRequest CreateExportTask where
 
 instance Hashable CreateExportTask
 
+instance NFData CreateExportTask
+
 instance ToHeaders CreateExportTask where
         toHeaders
           = const

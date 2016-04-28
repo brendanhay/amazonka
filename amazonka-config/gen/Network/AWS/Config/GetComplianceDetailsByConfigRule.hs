@@ -117,6 +117,8 @@ instance AWSRequest GetComplianceDetailsByConfigRule
 
 instance Hashable GetComplianceDetailsByConfigRule
 
+instance NFData GetComplianceDetailsByConfigRule
+
 instance ToHeaders GetComplianceDetailsByConfigRule
          where
         toHeaders

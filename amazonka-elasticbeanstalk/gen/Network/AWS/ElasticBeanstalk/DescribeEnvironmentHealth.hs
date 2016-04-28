@@ -123,6 +123,8 @@ instance AWSRequest DescribeEnvironmentHealth where
 
 instance Hashable DescribeEnvironmentHealth
 
+instance NFData DescribeEnvironmentHealth
+
 instance ToHeaders DescribeEnvironmentHealth where
         toHeaders = const mempty
 

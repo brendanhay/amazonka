@@ -129,6 +129,8 @@ instance AWSRequest ListRoles where
 
 instance Hashable ListRoles
 
+instance NFData ListRoles
+
 instance ToHeaders ListRoles where
         toHeaders = const mempty
 

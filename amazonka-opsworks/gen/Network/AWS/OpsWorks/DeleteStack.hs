@@ -76,6 +76,8 @@ instance AWSRequest DeleteStack where
 
 instance Hashable DeleteStack
 
+instance NFData DeleteStack
+
 instance ToHeaders DeleteStack where
         toHeaders
           = const

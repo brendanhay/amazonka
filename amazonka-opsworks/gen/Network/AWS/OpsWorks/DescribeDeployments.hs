@@ -107,6 +107,8 @@ instance AWSRequest DescribeDeployments where
 
 instance Hashable DescribeDeployments
 
+instance NFData DescribeDeployments
+
 instance ToHeaders DescribeDeployments where
         toHeaders
           = const

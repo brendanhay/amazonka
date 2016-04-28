@@ -117,6 +117,8 @@ instance AWSRequest GetExport where
 
 instance Hashable GetExport
 
+instance NFData GetExport
+
 instance ToHeaders GetExport where
         toHeaders GetExport'{..}
           = mconcat

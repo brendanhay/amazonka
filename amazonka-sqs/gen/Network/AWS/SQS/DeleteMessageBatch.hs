@@ -102,6 +102,8 @@ instance AWSRequest DeleteMessageBatch where
 
 instance Hashable DeleteMessageBatch
 
+instance NFData DeleteMessageBatch
+
 instance ToHeaders DeleteMessageBatch where
         toHeaders = const mempty
 

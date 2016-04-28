@@ -134,6 +134,8 @@ instance AWSRequest DescribeVPCEndpoints where
 
 instance Hashable DescribeVPCEndpoints
 
+instance NFData DescribeVPCEndpoints
+
 instance ToHeaders DescribeVPCEndpoints where
         toHeaders = const mempty
 

@@ -68,6 +68,8 @@ instance AWSRequest DeleteAlarms where
 
 instance Hashable DeleteAlarms
 
+instance NFData DeleteAlarms
+
 instance ToHeaders DeleteAlarms where
         toHeaders = const mempty
 

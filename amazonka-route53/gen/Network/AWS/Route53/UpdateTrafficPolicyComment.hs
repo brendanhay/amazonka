@@ -107,6 +107,8 @@ instance AWSRequest UpdateTrafficPolicyComment where
 
 instance Hashable UpdateTrafficPolicyComment
 
+instance NFData UpdateTrafficPolicyComment
+
 instance ToElement UpdateTrafficPolicyComment where
         toElement
           = mkElement

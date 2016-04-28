@@ -282,6 +282,8 @@ instance AWSRequest CreateTable where
 
 instance Hashable CreateTable
 
+instance NFData CreateTable
+
 instance ToHeaders CreateTable where
         toHeaders
           = const

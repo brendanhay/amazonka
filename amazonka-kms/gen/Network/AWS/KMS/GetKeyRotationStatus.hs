@@ -83,6 +83,8 @@ instance AWSRequest GetKeyRotationStatus where
 
 instance Hashable GetKeyRotationStatus
 
+instance NFData GetKeyRotationStatus
+
 instance ToHeaders GetKeyRotationStatus where
         toHeaders
           = const

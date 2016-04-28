@@ -87,6 +87,8 @@ instance AWSRequest ResetCache where
 
 instance Hashable ResetCache
 
+instance NFData ResetCache
+
 instance ToHeaders ResetCache where
         toHeaders
           = const

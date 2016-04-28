@@ -82,6 +82,8 @@ instance AWSRequest UnassignPrivateIPAddresses where
 
 instance Hashable UnassignPrivateIPAddresses
 
+instance NFData UnassignPrivateIPAddresses
+
 instance ToHeaders UnassignPrivateIPAddresses where
         toHeaders = const mempty
 

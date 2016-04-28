@@ -102,6 +102,8 @@ instance AWSRequest SetIdentityDkimEnabled where
 
 instance Hashable SetIdentityDkimEnabled
 
+instance NFData SetIdentityDkimEnabled
+
 instance ToHeaders SetIdentityDkimEnabled where
         toHeaders = const mempty
 

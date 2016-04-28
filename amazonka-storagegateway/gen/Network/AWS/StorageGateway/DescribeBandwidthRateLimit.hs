@@ -91,6 +91,8 @@ instance AWSRequest DescribeBandwidthRateLimit where
 
 instance Hashable DescribeBandwidthRateLimit
 
+instance NFData DescribeBandwidthRateLimit
+
 instance ToHeaders DescribeBandwidthRateLimit where
         toHeaders
           = const

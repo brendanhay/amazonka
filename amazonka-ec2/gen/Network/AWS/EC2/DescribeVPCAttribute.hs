@@ -104,6 +104,8 @@ instance AWSRequest DescribeVPCAttribute where
 
 instance Hashable DescribeVPCAttribute
 
+instance NFData DescribeVPCAttribute
+
 instance ToHeaders DescribeVPCAttribute where
         toHeaders = const mempty
 

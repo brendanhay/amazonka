@@ -88,6 +88,8 @@ instance AWSRequest UpdateProject where
 
 instance Hashable UpdateProject
 
+instance NFData UpdateProject
+
 instance ToHeaders UpdateProject where
         toHeaders
           = const

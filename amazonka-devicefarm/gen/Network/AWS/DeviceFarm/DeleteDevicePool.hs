@@ -77,6 +77,8 @@ instance AWSRequest DeleteDevicePool where
 
 instance Hashable DeleteDevicePool
 
+instance NFData DeleteDevicePool
+
 instance ToHeaders DeleteDevicePool where
         toHeaders
           = const

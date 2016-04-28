@@ -79,6 +79,8 @@ instance AWSRequest ModifySubnetAttribute where
 
 instance Hashable ModifySubnetAttribute
 
+instance NFData ModifySubnetAttribute
+
 instance ToHeaders ModifySubnetAttribute where
         toHeaders = const mempty
 

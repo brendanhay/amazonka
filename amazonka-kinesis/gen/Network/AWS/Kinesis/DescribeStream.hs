@@ -135,6 +135,8 @@ instance AWSRequest DescribeStream where
 
 instance Hashable DescribeStream
 
+instance NFData DescribeStream
+
 instance ToHeaders DescribeStream where
         toHeaders
           = const

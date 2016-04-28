@@ -109,6 +109,8 @@ instance AWSRequest CreateByteMatchSet where
 
 instance Hashable CreateByteMatchSet
 
+instance NFData CreateByteMatchSet
+
 instance ToHeaders CreateByteMatchSet where
         toHeaders
           = const

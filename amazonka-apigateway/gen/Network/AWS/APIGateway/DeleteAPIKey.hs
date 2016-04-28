@@ -70,6 +70,8 @@ instance AWSRequest DeleteAPIKey where
 
 instance Hashable DeleteAPIKey
 
+instance NFData DeleteAPIKey
+
 instance ToHeaders DeleteAPIKey where
         toHeaders
           = const

@@ -86,6 +86,8 @@ instance AWSRequest RunAssessment where
 
 instance Hashable RunAssessment
 
+instance NFData RunAssessment
+
 instance ToHeaders RunAssessment where
         toHeaders
           = const

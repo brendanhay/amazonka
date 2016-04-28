@@ -116,6 +116,8 @@ instance AWSRequest ListFindings where
 
 instance Hashable ListFindings
 
+instance NFData ListFindings
+
 instance ToHeaders ListFindings where
         toHeaders
           = const

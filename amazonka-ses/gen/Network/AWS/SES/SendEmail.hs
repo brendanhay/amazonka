@@ -205,6 +205,8 @@ instance AWSRequest SendEmail where
 
 instance Hashable SendEmail
 
+instance NFData SendEmail
+
 instance ToHeaders SendEmail where
         toHeaders = const mempty
 

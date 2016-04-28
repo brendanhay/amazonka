@@ -110,6 +110,8 @@ instance AWSRequest DescribeElasticIPs where
 
 instance Hashable DescribeElasticIPs
 
+instance NFData DescribeElasticIPs
+
 instance ToHeaders DescribeElasticIPs where
         toHeaders
           = const

@@ -87,6 +87,8 @@ instance AWSRequest SetTagsForResource where
 
 instance Hashable SetTagsForResource
 
+instance NFData SetTagsForResource
+
 instance ToHeaders SetTagsForResource where
         toHeaders
           = const

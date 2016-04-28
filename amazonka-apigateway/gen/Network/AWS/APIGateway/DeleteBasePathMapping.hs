@@ -81,6 +81,8 @@ instance AWSRequest DeleteBasePathMapping where
 
 instance Hashable DeleteBasePathMapping
 
+instance NFData DeleteBasePathMapping
+
 instance ToHeaders DeleteBasePathMapping where
         toHeaders
           = const

@@ -203,6 +203,8 @@ instance AWSRequest GenerateDataSet where
 
 instance Hashable GenerateDataSet
 
+instance NFData GenerateDataSet
+
 instance ToHeaders GenerateDataSet where
         toHeaders
           = const

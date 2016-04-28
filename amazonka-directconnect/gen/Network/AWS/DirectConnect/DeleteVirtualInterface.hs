@@ -79,6 +79,8 @@ instance AWSRequest DeleteVirtualInterface where
 
 instance Hashable DeleteVirtualInterface
 
+instance NFData DeleteVirtualInterface
+
 instance ToHeaders DeleteVirtualInterface where
         toHeaders
           = const

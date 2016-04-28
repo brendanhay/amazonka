@@ -87,6 +87,8 @@ instance AWSRequest DeleteVolume where
 
 instance Hashable DeleteVolume
 
+instance NFData DeleteVolume
+
 instance ToHeaders DeleteVolume where
         toHeaders = const mempty
 

@@ -115,6 +115,8 @@ instance AWSRequest SwapEnvironmentCNAMEs where
 
 instance Hashable SwapEnvironmentCNAMEs
 
+instance NFData SwapEnvironmentCNAMEs
+
 instance ToHeaders SwapEnvironmentCNAMEs where
         toHeaders = const mempty
 

@@ -102,6 +102,8 @@ instance AWSRequest PutConfigRule where
 
 instance Hashable PutConfigRule
 
+instance NFData PutConfigRule
+
 instance ToHeaders PutConfigRule where
         toHeaders
           = const

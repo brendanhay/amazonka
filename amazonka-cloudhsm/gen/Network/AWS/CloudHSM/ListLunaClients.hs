@@ -82,6 +82,8 @@ instance AWSRequest ListLunaClients where
 
 instance Hashable ListLunaClients
 
+instance NFData ListLunaClients
+
 instance ToHeaders ListLunaClients where
         toHeaders
           = const

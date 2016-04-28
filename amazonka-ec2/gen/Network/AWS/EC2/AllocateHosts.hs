@@ -127,6 +127,8 @@ instance AWSRequest AllocateHosts where
 
 instance Hashable AllocateHosts
 
+instance NFData AllocateHosts
+
 instance ToHeaders AllocateHosts where
         toHeaders = const mempty
 

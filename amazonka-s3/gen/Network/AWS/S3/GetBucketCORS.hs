@@ -76,6 +76,8 @@ instance AWSRequest GetBucketCORS where
 
 instance Hashable GetBucketCORS
 
+instance NFData GetBucketCORS
+
 instance ToHeaders GetBucketCORS where
         toHeaders = const mempty
 

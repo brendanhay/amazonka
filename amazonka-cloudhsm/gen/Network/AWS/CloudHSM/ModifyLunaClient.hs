@@ -88,6 +88,8 @@ instance AWSRequest ModifyLunaClient where
 
 instance Hashable ModifyLunaClient
 
+instance NFData ModifyLunaClient
+
 instance ToHeaders ModifyLunaClient where
         toHeaders
           = const

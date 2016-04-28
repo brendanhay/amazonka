@@ -167,6 +167,8 @@ instance AWSRequest CopyImage where
 
 instance Hashable CopyImage
 
+instance NFData CopyImage
+
 instance ToHeaders CopyImage where
         toHeaders = const mempty
 

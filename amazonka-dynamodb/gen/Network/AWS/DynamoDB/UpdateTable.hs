@@ -150,6 +150,8 @@ instance AWSRequest UpdateTable where
 
 instance Hashable UpdateTable
 
+instance NFData UpdateTable
+
 instance ToHeaders UpdateTable where
         toHeaders
           = const

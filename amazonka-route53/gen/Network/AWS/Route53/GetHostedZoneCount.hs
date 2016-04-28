@@ -67,6 +67,8 @@ instance AWSRequest GetHostedZoneCount where
 
 instance Hashable GetHostedZoneCount
 
+instance NFData GetHostedZoneCount
+
 instance ToHeaders GetHostedZoneCount where
         toHeaders = const mempty
 

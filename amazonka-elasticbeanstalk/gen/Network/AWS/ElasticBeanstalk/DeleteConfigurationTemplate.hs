@@ -87,6 +87,8 @@ instance AWSRequest DeleteConfigurationTemplate where
 
 instance Hashable DeleteConfigurationTemplate
 
+instance NFData DeleteConfigurationTemplate
+
 instance ToHeaders DeleteConfigurationTemplate where
         toHeaders = const mempty
 

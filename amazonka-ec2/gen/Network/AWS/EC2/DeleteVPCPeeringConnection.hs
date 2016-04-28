@@ -91,6 +91,8 @@ instance AWSRequest DeleteVPCPeeringConnection where
 
 instance Hashable DeleteVPCPeeringConnection
 
+instance NFData DeleteVPCPeeringConnection
+
 instance ToHeaders DeleteVPCPeeringConnection where
         toHeaders = const mempty
 

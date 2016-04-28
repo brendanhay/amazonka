@@ -88,6 +88,8 @@ instance AWSRequest PutBucketPolicy where
 
 instance Hashable PutBucketPolicy
 
+instance NFData PutBucketPolicy
+
 instance ToBody PutBucketPolicy where
         toBody = toBody . _pbpPolicy
 

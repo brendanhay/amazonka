@@ -96,6 +96,8 @@ instance AWSRequest DeleteChapCredentials where
 
 instance Hashable DeleteChapCredentials
 
+instance NFData DeleteChapCredentials
+
 instance ToHeaders DeleteChapCredentials where
         toHeaders
           = const

@@ -67,6 +67,8 @@ instance AWSRequest DescribeScalingProcessTypes where
 
 instance Hashable DescribeScalingProcessTypes
 
+instance NFData DescribeScalingProcessTypes
+
 instance ToHeaders DescribeScalingProcessTypes where
         toHeaders = const mempty
 

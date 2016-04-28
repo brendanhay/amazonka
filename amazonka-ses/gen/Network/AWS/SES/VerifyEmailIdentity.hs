@@ -77,6 +77,8 @@ instance AWSRequest VerifyEmailIdentity where
 
 instance Hashable VerifyEmailIdentity
 
+instance NFData VerifyEmailIdentity
+
 instance ToHeaders VerifyEmailIdentity where
         toHeaders = const mempty
 

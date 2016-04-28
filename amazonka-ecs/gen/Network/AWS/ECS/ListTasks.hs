@@ -178,6 +178,8 @@ instance AWSRequest ListTasks where
 
 instance Hashable ListTasks
 
+instance NFData ListTasks
+
 instance ToHeaders ListTasks where
         toHeaders
           = const

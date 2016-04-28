@@ -91,6 +91,8 @@ instance AWSRequest ReleaseHosts where
 
 instance Hashable ReleaseHosts
 
+instance NFData ReleaseHosts
+
 instance ToHeaders ReleaseHosts where
         toHeaders = const mempty
 

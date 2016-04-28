@@ -87,6 +87,8 @@ instance AWSRequest RestartAppServer where
 
 instance Hashable RestartAppServer
 
+instance NFData RestartAppServer
+
 instance ToHeaders RestartAppServer where
         toHeaders = const mempty
 

@@ -82,6 +82,8 @@ instance AWSRequest DeleteCustomerGateway where
 
 instance Hashable DeleteCustomerGateway
 
+instance NFData DeleteCustomerGateway
+
 instance ToHeaders DeleteCustomerGateway where
         toHeaders = const mempty
 

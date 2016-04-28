@@ -86,6 +86,8 @@ instance AWSRequest ListVolumeRecoveryPoints where
 
 instance Hashable ListVolumeRecoveryPoints
 
+instance NFData ListVolumeRecoveryPoints
+
 instance ToHeaders ListVolumeRecoveryPoints where
         toHeaders
           = const

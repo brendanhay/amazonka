@@ -492,6 +492,8 @@ instance AWSRequest Scan where
 
 instance Hashable Scan
 
+instance NFData Scan
+
 instance ToHeaders Scan where
         toHeaders
           = const

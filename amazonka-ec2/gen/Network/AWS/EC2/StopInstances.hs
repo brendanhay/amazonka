@@ -135,6 +135,8 @@ instance AWSRequest StopInstances where
 
 instance Hashable StopInstances
 
+instance NFData StopInstances
+
 instance ToHeaders StopInstances where
         toHeaders = const mempty
 

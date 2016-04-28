@@ -92,6 +92,8 @@ instance AWSRequest EnableDomainTransferLock where
 
 instance Hashable EnableDomainTransferLock
 
+instance NFData EnableDomainTransferLock
+
 instance ToHeaders EnableDomainTransferLock where
         toHeaders
           = const

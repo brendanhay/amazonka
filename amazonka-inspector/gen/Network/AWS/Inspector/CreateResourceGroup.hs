@@ -82,6 +82,8 @@ instance AWSRequest CreateResourceGroup where
 
 instance Hashable CreateResourceGroup
 
+instance NFData CreateResourceGroup
+
 instance ToHeaders CreateResourceGroup where
         toHeaders
           = const

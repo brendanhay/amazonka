@@ -103,6 +103,8 @@ instance AWSRequest CreateAssociation where
 
 instance Hashable CreateAssociation
 
+instance NFData CreateAssociation
+
 instance ToHeaders CreateAssociation where
         toHeaders
           = const

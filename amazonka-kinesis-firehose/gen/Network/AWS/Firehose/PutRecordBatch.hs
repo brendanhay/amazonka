@@ -152,6 +152,8 @@ instance AWSRequest PutRecordBatch where
 
 instance Hashable PutRecordBatch
 
+instance NFData PutRecordBatch
+
 instance ToHeaders PutRecordBatch where
         toHeaders
           = const

@@ -97,6 +97,8 @@ instance AWSRequest GetThirdPartyJobDetails where
 
 instance Hashable GetThirdPartyJobDetails
 
+instance NFData GetThirdPartyJobDetails
+
 instance ToHeaders GetThirdPartyJobDetails where
         toHeaders
           = const

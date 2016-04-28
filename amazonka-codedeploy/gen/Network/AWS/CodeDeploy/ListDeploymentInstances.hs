@@ -111,6 +111,8 @@ instance AWSRequest ListDeploymentInstances where
 
 instance Hashable ListDeploymentInstances
 
+instance NFData ListDeploymentInstances
+
 instance ToHeaders ListDeploymentInstances where
         toHeaders
           = const

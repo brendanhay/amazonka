@@ -114,6 +114,8 @@ instance AWSRequest ListBuilds where
 
 instance Hashable ListBuilds
 
+instance NFData ListBuilds
+
 instance ToHeaders ListBuilds where
         toHeaders
           = const

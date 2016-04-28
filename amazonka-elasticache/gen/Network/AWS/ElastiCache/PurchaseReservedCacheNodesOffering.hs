@@ -105,6 +105,8 @@ instance AWSRequest
 
 instance Hashable PurchaseReservedCacheNodesOffering
 
+instance NFData PurchaseReservedCacheNodesOffering
+
 instance ToHeaders PurchaseReservedCacheNodesOffering
          where
         toHeaders = const mempty

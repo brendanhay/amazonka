@@ -108,6 +108,8 @@ instance AWSRequest DescribeVolumeAttribute where
 
 instance Hashable DescribeVolumeAttribute
 
+instance NFData DescribeVolumeAttribute
+
 instance ToHeaders DescribeVolumeAttribute where
         toHeaders = const mempty
 

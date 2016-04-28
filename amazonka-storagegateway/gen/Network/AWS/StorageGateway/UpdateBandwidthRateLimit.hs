@@ -110,6 +110,8 @@ instance AWSRequest UpdateBandwidthRateLimit where
 
 instance Hashable UpdateBandwidthRateLimit
 
+instance NFData UpdateBandwidthRateLimit
+
 instance ToHeaders UpdateBandwidthRateLimit where
         toHeaders
           = const

@@ -87,6 +87,8 @@ instance AWSRequest DescribeTimeBasedAutoScaling
 
 instance Hashable DescribeTimeBasedAutoScaling
 
+instance NFData DescribeTimeBasedAutoScaling
+
 instance ToHeaders DescribeTimeBasedAutoScaling where
         toHeaders
           = const

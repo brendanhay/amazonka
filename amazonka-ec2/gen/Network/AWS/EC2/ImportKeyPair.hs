@@ -115,6 +115,8 @@ instance AWSRequest ImportKeyPair where
 
 instance Hashable ImportKeyPair
 
+instance NFData ImportKeyPair
+
 instance ToHeaders ImportKeyPair where
         toHeaders = const mempty
 

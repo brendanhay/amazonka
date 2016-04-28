@@ -144,6 +144,8 @@ instance AWSRequest GetHealthCheckStatus where
 
 instance Hashable GetHealthCheckStatus
 
+instance NFData GetHealthCheckStatus
+
 instance ToHeaders GetHealthCheckStatus where
         toHeaders = const mempty
 

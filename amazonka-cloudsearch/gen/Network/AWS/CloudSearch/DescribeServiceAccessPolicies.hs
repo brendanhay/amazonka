@@ -99,6 +99,8 @@ instance AWSRequest DescribeServiceAccessPolicies
 
 instance Hashable DescribeServiceAccessPolicies
 
+instance NFData DescribeServiceAccessPolicies
+
 instance ToHeaders DescribeServiceAccessPolicies
          where
         toHeaders = const mempty

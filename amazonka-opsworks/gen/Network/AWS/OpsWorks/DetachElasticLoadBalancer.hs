@@ -87,6 +87,8 @@ instance AWSRequest DetachElasticLoadBalancer where
 
 instance Hashable DetachElasticLoadBalancer
 
+instance NFData DetachElasticLoadBalancer
+
 instance ToHeaders DetachElasticLoadBalancer where
         toHeaders
           = const

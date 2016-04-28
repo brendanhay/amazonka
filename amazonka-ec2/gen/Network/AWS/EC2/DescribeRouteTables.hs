@@ -170,6 +170,8 @@ instance AWSRequest DescribeRouteTables where
 
 instance Hashable DescribeRouteTables
 
+instance NFData DescribeRouteTables
+
 instance ToHeaders DescribeRouteTables where
         toHeaders = const mempty
 

@@ -76,6 +76,8 @@ instance AWSRequest DescribeApplication where
 
 instance Hashable DescribeApplication
 
+instance NFData DescribeApplication
+
 instance ToHeaders DescribeApplication where
         toHeaders
           = const

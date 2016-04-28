@@ -39,6 +39,7 @@ instance ToText Algorithm where
         SGD -> "sgd"
 
 instance Hashable     Algorithm
+instance NFData       Algorithm
 instance ToByteString Algorithm
 instance ToQuery      Algorithm
 instance ToHeader     Algorithm
@@ -99,6 +100,7 @@ instance ToText BatchPredictionFilterVariable where
         BatchStatus -> "Status"
 
 instance Hashable     BatchPredictionFilterVariable
+instance NFData       BatchPredictionFilterVariable
 instance ToByteString BatchPredictionFilterVariable
 instance ToQuery      BatchPredictionFilterVariable
 instance ToHeader     BatchPredictionFilterVariable
@@ -152,6 +154,7 @@ instance ToText DataSourceFilterVariable where
         DataStatus -> "Status"
 
 instance Hashable     DataSourceFilterVariable
+instance NFData       DataSourceFilterVariable
 instance ToByteString DataSourceFilterVariable
 instance ToQuery      DataSourceFilterVariable
 instance ToHeader     DataSourceFilterVariable
@@ -180,6 +183,7 @@ instance ToText DetailsAttributes where
         PredictiveModelType -> "PredictiveModelType"
 
 instance Hashable     DetailsAttributes
+instance NFData       DetailsAttributes
 instance ToByteString DetailsAttributes
 instance ToQuery      DetailsAttributes
 instance ToHeader     DetailsAttributes
@@ -221,6 +225,7 @@ instance ToText EntityStatus where
         ESPending -> "PENDING"
 
 instance Hashable     EntityStatus
+instance NFData       EntityStatus
 instance ToByteString EntityStatus
 instance ToQuery      EntityStatus
 instance ToHeader     EntityStatus
@@ -280,6 +285,7 @@ instance ToText EvaluationFilterVariable where
         EvalStatus -> "Status"
 
 instance Hashable     EvaluationFilterVariable
+instance NFData       EvaluationFilterVariable
 instance ToByteString EvaluationFilterVariable
 instance ToQuery      EvaluationFilterVariable
 instance ToHeader     EvaluationFilterVariable
@@ -329,6 +335,7 @@ instance ToText MLModelFilterVariable where
         MLMFVTrainingDataURI -> "TrainingDataURI"
 
 instance Hashable     MLModelFilterVariable
+instance NFData       MLModelFilterVariable
 instance ToByteString MLModelFilterVariable
 instance ToQuery      MLModelFilterVariable
 instance ToHeader     MLModelFilterVariable
@@ -357,6 +364,7 @@ instance ToText MLModelType where
         Regression -> "REGRESSION"
 
 instance Hashable     MLModelType
+instance NFData       MLModelType
 instance ToByteString MLModelType
 instance ToQuery      MLModelType
 instance ToHeader     MLModelType
@@ -391,6 +399,7 @@ instance ToText RealtimeEndpointStatus where
         Updating -> "UPDATING"
 
 instance Hashable     RealtimeEndpointStatus
+instance NFData       RealtimeEndpointStatus
 instance ToByteString RealtimeEndpointStatus
 instance ToQuery      RealtimeEndpointStatus
 instance ToHeader     RealtimeEndpointStatus
@@ -421,6 +430,7 @@ instance ToText SortOrder where
         Dsc -> "dsc"
 
 instance Hashable     SortOrder
+instance NFData       SortOrder
 instance ToByteString SortOrder
 instance ToQuery      SortOrder
 instance ToHeader     SortOrder

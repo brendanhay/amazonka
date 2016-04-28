@@ -96,6 +96,8 @@ instance AWSRequest RestoreAddressToClassic where
 
 instance Hashable RestoreAddressToClassic
 
+instance NFData RestoreAddressToClassic
+
 instance ToHeaders RestoreAddressToClassic where
         toHeaders = const mempty
 

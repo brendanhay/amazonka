@@ -140,6 +140,8 @@ instance AWSRequest DescribeAlarmHistory where
 
 instance Hashable DescribeAlarmHistory
 
+instance NFData DescribeAlarmHistory
+
 instance ToHeaders DescribeAlarmHistory where
         toHeaders = const mempty
 

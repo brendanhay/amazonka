@@ -214,6 +214,8 @@ instance AWSRequest CreateFleet where
 
 instance Hashable CreateFleet
 
+instance NFData CreateFleet
+
 instance ToHeaders CreateFleet where
         toHeaders
           = const

@@ -112,6 +112,8 @@ instance AWSRequest RemovePermission where
 
 instance Hashable RemovePermission
 
+instance NFData RemovePermission
+
 instance ToHeaders RemovePermission where
         toHeaders = const mempty
 

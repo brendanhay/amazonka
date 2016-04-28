@@ -68,6 +68,8 @@ instance AWSRequest EnableAlarmActions where
 
 instance Hashable EnableAlarmActions
 
+instance NFData EnableAlarmActions
+
 instance ToHeaders EnableAlarmActions where
         toHeaders = const mempty
 

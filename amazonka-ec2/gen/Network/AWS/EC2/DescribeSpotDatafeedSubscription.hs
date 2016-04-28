@@ -84,6 +84,8 @@ instance AWSRequest DescribeSpotDatafeedSubscription
 
 instance Hashable DescribeSpotDatafeedSubscription
 
+instance NFData DescribeSpotDatafeedSubscription
+
 instance ToHeaders DescribeSpotDatafeedSubscription
          where
         toHeaders = const mempty

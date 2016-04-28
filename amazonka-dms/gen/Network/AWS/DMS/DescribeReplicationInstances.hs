@@ -111,6 +111,8 @@ instance AWSRequest DescribeReplicationInstances
 
 instance Hashable DescribeReplicationInstances
 
+instance NFData DescribeReplicationInstances
+
 instance ToHeaders DescribeReplicationInstances where
         toHeaders
           = const

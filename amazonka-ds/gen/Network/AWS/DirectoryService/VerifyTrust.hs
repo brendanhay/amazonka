@@ -82,6 +82,8 @@ instance AWSRequest VerifyTrust where
 
 instance Hashable VerifyTrust
 
+instance NFData VerifyTrust
+
 instance ToHeaders VerifyTrust where
         toHeaders
           = const

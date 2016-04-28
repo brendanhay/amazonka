@@ -93,6 +93,8 @@ instance AWSRequest UnlinkIdentity where
 
 instance Hashable UnlinkIdentity
 
+instance NFData UnlinkIdentity
+
 instance ToHeaders UnlinkIdentity where
         toHeaders
           = const

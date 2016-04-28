@@ -74,6 +74,8 @@ instance AWSRequest EnableKey where
 
 instance Hashable EnableKey
 
+instance NFData EnableKey
+
 instance ToHeaders EnableKey where
         toHeaders
           = const

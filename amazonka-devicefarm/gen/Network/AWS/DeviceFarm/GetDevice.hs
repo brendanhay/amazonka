@@ -77,6 +77,8 @@ instance AWSRequest GetDevice where
 
 instance Hashable GetDevice
 
+instance NFData GetDevice
+
 instance ToHeaders GetDevice where
         toHeaders
           = const

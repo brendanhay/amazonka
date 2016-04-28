@@ -94,6 +94,8 @@ instance AWSRequest DeprecateDomain where
 
 instance Hashable DeprecateDomain
 
+instance NFData DeprecateDomain
+
 instance ToHeaders DeprecateDomain where
         toHeaders
           = const

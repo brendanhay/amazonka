@@ -136,6 +136,8 @@ instance AWSRequest SendCommand where
 
 instance Hashable SendCommand
 
+instance NFData SendCommand
+
 instance ToHeaders SendCommand where
         toHeaders
           = const

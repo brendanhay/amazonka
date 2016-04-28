@@ -238,6 +238,8 @@ instance AWSRequest UpdateLayer where
 
 instance Hashable UpdateLayer
 
+instance NFData UpdateLayer
+
 instance ToHeaders UpdateLayer where
         toHeaders
           = const

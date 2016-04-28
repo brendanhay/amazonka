@@ -37,6 +37,7 @@ instance ToText DirectorySize where
         Small -> "Small"
 
 instance Hashable     DirectorySize
+instance NFData       DirectorySize
 instance ToByteString DirectorySize
 instance ToQuery      DirectorySize
 instance ToHeader     DirectorySize
@@ -92,6 +93,7 @@ instance ToText DirectoryStage where
         DSRestoring -> "Restoring"
 
 instance Hashable     DirectoryStage
+instance NFData       DirectoryStage
 instance ToByteString DirectoryStage
 instance ToQuery      DirectoryStage
 instance ToHeader     DirectoryStage
@@ -120,6 +122,7 @@ instance ToText DirectoryType where
         SimpleAD -> "SimpleAD"
 
 instance Hashable     DirectoryType
+instance NFData       DirectoryType
 instance ToByteString DirectoryType
 instance ToQuery      DirectoryType
 instance ToHeader     DirectoryType
@@ -151,6 +154,7 @@ instance ToText RadiusAuthenticationProtocol where
         Pap -> "PAP"
 
 instance Hashable     RadiusAuthenticationProtocol
+instance NFData       RadiusAuthenticationProtocol
 instance ToByteString RadiusAuthenticationProtocol
 instance ToQuery      RadiusAuthenticationProtocol
 instance ToHeader     RadiusAuthenticationProtocol
@@ -182,6 +186,7 @@ instance ToText RadiusStatus where
         Failed -> "Failed"
 
 instance Hashable     RadiusStatus
+instance NFData       RadiusStatus
 instance ToByteString RadiusStatus
 instance ToQuery      RadiusStatus
 instance ToHeader     RadiusStatus
@@ -210,6 +215,7 @@ instance ToText SnapshotStatus where
         SSFailed -> "Failed"
 
 instance Hashable     SnapshotStatus
+instance NFData       SnapshotStatus
 instance ToByteString SnapshotStatus
 instance ToQuery      SnapshotStatus
 instance ToHeader     SnapshotStatus
@@ -235,6 +241,7 @@ instance ToText SnapshotType where
         Manual -> "Manual"
 
 instance Hashable     SnapshotType
+instance NFData       SnapshotType
 instance ToByteString SnapshotType
 instance ToQuery      SnapshotType
 instance ToHeader     SnapshotType
@@ -266,6 +273,7 @@ instance ToText TopicStatus where
         TTopicNotFound -> "Topic not found"
 
 instance Hashable     TopicStatus
+instance NFData       TopicStatus
 instance ToByteString TopicStatus
 instance ToQuery      TopicStatus
 instance ToHeader     TopicStatus
@@ -294,6 +302,7 @@ instance ToText TrustDirection where
         TwoWay -> "Two-Way"
 
 instance Hashable     TrustDirection
+instance NFData       TrustDirection
 instance ToByteString TrustDirection
 instance ToQuery      TrustDirection
 instance ToHeader     TrustDirection
@@ -340,6 +349,7 @@ instance ToText TrustState where
         TSVerifying -> "Verifying"
 
 instance Hashable     TrustState
+instance NFData       TrustState
 instance ToByteString TrustState
 instance ToQuery      TrustState
 instance ToHeader     TrustState
@@ -362,6 +372,7 @@ instance ToText TrustType where
         Forest -> "Forest"
 
 instance Hashable     TrustType
+instance NFData       TrustType
 instance ToByteString TrustType
 instance ToQuery      TrustType
 instance ToHeader     TrustType

@@ -107,6 +107,8 @@ instance AWSRequest RequestSpotFleet where
 
 instance Hashable RequestSpotFleet
 
+instance NFData RequestSpotFleet
+
 instance ToHeaders RequestSpotFleet where
         toHeaders = const mempty
 

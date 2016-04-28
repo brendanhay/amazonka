@@ -102,6 +102,8 @@ instance AWSRequest DeleteIntegrationResponse where
 
 instance Hashable DeleteIntegrationResponse
 
+instance NFData DeleteIntegrationResponse
+
 instance ToHeaders DeleteIntegrationResponse where
         toHeaders
           = const

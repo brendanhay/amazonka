@@ -89,6 +89,8 @@ instance AWSRequest TerminateWorkspaces where
 
 instance Hashable TerminateWorkspaces
 
+instance NFData TerminateWorkspaces
+
 instance ToHeaders TerminateWorkspaces where
         toHeaders
           = const

@@ -108,6 +108,8 @@ instance AWSRequest DescribeEndpoints where
 
 instance Hashable DescribeEndpoints
 
+instance NFData DescribeEndpoints
+
 instance ToHeaders DescribeEndpoints where
         toHeaders
           = const

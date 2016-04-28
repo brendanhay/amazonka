@@ -100,6 +100,8 @@ instance AWSRequest Predict where
 
 instance Hashable Predict
 
+instance NFData Predict
+
 instance ToHeaders Predict where
         toHeaders
           = const

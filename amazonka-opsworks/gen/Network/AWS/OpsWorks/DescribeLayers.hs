@@ -93,6 +93,8 @@ instance AWSRequest DescribeLayers where
 
 instance Hashable DescribeLayers
 
+instance NFData DescribeLayers
+
 instance ToHeaders DescribeLayers where
         toHeaders
           = const

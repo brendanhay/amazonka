@@ -118,6 +118,8 @@ instance AWSRequest DescribeAvailabilityZones where
 
 instance Hashable DescribeAvailabilityZones
 
+instance NFData DescribeAvailabilityZones
+
 instance ToHeaders DescribeAvailabilityZones where
         toHeaders = const mempty
 

@@ -125,6 +125,8 @@ instance AWSRequest UpdateJob where
 
 instance Hashable UpdateJob
 
+instance NFData UpdateJob
+
 instance ToHeaders UpdateJob where
         toHeaders = const mempty
 

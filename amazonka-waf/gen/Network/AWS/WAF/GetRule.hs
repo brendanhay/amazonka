@@ -77,6 +77,8 @@ instance AWSRequest GetRule where
 
 instance Hashable GetRule
 
+instance NFData GetRule
+
 instance ToHeaders GetRule where
         toHeaders
           = const

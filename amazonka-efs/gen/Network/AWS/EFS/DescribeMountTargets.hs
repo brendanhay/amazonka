@@ -122,6 +122,8 @@ instance AWSRequest DescribeMountTargets where
 
 instance Hashable DescribeMountTargets
 
+instance NFData DescribeMountTargets
+
 instance ToHeaders DescribeMountTargets where
         toHeaders = const mempty
 

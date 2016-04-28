@@ -69,6 +69,8 @@ instance AWSRequest DeleteBucketPolicy where
 
 instance Hashable DeleteBucketPolicy
 
+instance NFData DeleteBucketPolicy
+
 instance ToHeaders DeleteBucketPolicy where
         toHeaders = const mempty
 

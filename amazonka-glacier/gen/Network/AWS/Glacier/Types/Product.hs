@@ -77,6 +77,8 @@ instance FromJSON ArchiveCreationOutput where
 
 instance Hashable ArchiveCreationOutput
 
+instance NFData ArchiveCreationOutput
+
 -- | Data retrieval policy.
 --
 -- /See:/ 'dataRetrievalPolicy' smart constructor.
@@ -109,6 +111,8 @@ instance FromJSON DataRetrievalPolicy where
                  DataRetrievalPolicy' <$> (x .:? "Rules" .!= mempty))
 
 instance Hashable DataRetrievalPolicy
+
+instance NFData DataRetrievalPolicy
 
 instance ToJSON DataRetrievalPolicy where
         toJSON DataRetrievalPolicy'{..}
@@ -159,6 +163,8 @@ instance FromJSON DataRetrievalRule where
                    (x .:? "Strategy") <*> (x .:? "BytesPerHour"))
 
 instance Hashable DataRetrievalRule
+
+instance NFData DataRetrievalRule
 
 instance ToJSON DataRetrievalRule where
         toJSON DataRetrievalRule'{..}
@@ -249,6 +255,8 @@ instance FromJSON DescribeVaultOutput where
                      <*> (x .:? "NumberOfArchives"))
 
 instance Hashable DescribeVaultOutput
+
+instance NFData DescribeVaultOutput
 
 -- | Describes an Amazon Glacier job.
 --
@@ -459,6 +467,8 @@ instance FromJSON GlacierJobDescription where
 
 instance Hashable GlacierJobDescription
 
+instance NFData GlacierJobDescription
+
 -- | Describes the options for a range inventory retrieval job.
 --
 -- /See:/ 'inventoryRetrievalJobDescription' smart constructor.
@@ -540,6 +550,8 @@ instance FromJSON InventoryRetrievalJobDescription
 
 instance Hashable InventoryRetrievalJobDescription
 
+instance NFData InventoryRetrievalJobDescription
+
 -- | Provides options for specifying a range inventory retrieval job.
 --
 -- /See:/ 'inventoryRetrievalJobInput' smart constructor.
@@ -597,6 +609,8 @@ irjiLimit :: Lens' InventoryRetrievalJobInput (Maybe Text)
 irjiLimit = lens _irjiLimit (\ s a -> s{_irjiLimit = a});
 
 instance Hashable InventoryRetrievalJobInput
+
+instance NFData InventoryRetrievalJobInput
 
 instance ToJSON InventoryRetrievalJobInput where
         toJSON InventoryRetrievalJobInput'{..}
@@ -703,6 +717,8 @@ jpDescription = lens _jpDescription (\ s a -> s{_jpDescription = a});
 
 instance Hashable JobParameters
 
+instance NFData JobParameters
+
 instance ToJSON JobParameters where
         toJSON JobParameters'{..}
           = object
@@ -756,6 +772,8 @@ instance FromJSON PartListElement where
                    (x .:? "SHA256TreeHash") <*> (x .:? "RangeInBytes"))
 
 instance Hashable PartListElement
+
+instance NFData PartListElement
 
 -- | A list of in-progress multipart uploads for a vault.
 --
@@ -828,6 +846,8 @@ instance FromJSON UploadListElement where
 
 instance Hashable UploadListElement
 
+instance NFData UploadListElement
+
 -- | Contains the vault access policy.
 --
 -- /See:/ 'vaultAccessPolicy' smart constructor.
@@ -858,6 +878,8 @@ instance FromJSON VaultAccessPolicy where
 
 instance Hashable VaultAccessPolicy
 
+instance NFData VaultAccessPolicy
+
 instance ToJSON VaultAccessPolicy where
         toJSON VaultAccessPolicy'{..}
           = object (catMaybes [("Policy" .=) <$> _vapPolicy])
@@ -886,6 +908,8 @@ vlpPolicy :: Lens' VaultLockPolicy (Maybe Text)
 vlpPolicy = lens _vlpPolicy (\ s a -> s{_vlpPolicy = a});
 
 instance Hashable VaultLockPolicy
+
+instance NFData VaultLockPolicy
 
 instance ToJSON VaultLockPolicy where
         toJSON VaultLockPolicy'{..}
@@ -932,6 +956,8 @@ instance FromJSON VaultNotificationConfig where
                    (x .:? "SNSTopic") <*> (x .:? "Events" .!= mempty))
 
 instance Hashable VaultNotificationConfig
+
+instance NFData VaultNotificationConfig
 
 instance ToJSON VaultNotificationConfig where
         toJSON VaultNotificationConfig'{..}

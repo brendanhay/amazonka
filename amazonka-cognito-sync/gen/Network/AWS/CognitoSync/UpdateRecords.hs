@@ -160,6 +160,8 @@ instance AWSRequest UpdateRecords where
 
 instance Hashable UpdateRecords
 
+instance NFData UpdateRecords
+
 instance ToHeaders UpdateRecords where
         toHeaders UpdateRecords'{..}
           = mconcat

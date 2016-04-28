@@ -135,6 +135,8 @@ instance AWSRequest GetSampledRequests where
 
 instance Hashable GetSampledRequests
 
+instance NFData GetSampledRequests
+
 instance ToHeaders GetSampledRequests where
         toHeaders
           = const

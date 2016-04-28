@@ -184,6 +184,8 @@ instance AWSRequest CreateDataSourceFromRDS where
 
 instance Hashable CreateDataSourceFromRDS
 
+instance NFData CreateDataSourceFromRDS
+
 instance ToHeaders CreateDataSourceFromRDS where
         toHeaders
           = const

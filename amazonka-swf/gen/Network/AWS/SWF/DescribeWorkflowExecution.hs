@@ -117,6 +117,8 @@ instance AWSRequest DescribeWorkflowExecution where
 
 instance Hashable DescribeWorkflowExecution
 
+instance NFData DescribeWorkflowExecution
+
 instance ToHeaders DescribeWorkflowExecution where
         toHeaders
           = const

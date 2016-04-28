@@ -93,6 +93,8 @@ instance AWSRequest DescribeHAPG where
 
 instance Hashable DescribeHAPG
 
+instance NFData DescribeHAPG
+
 instance ToHeaders DescribeHAPG where
         toHeaders
           = const

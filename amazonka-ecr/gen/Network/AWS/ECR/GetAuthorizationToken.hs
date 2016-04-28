@@ -86,6 +86,8 @@ instance AWSRequest GetAuthorizationToken where
 
 instance Hashable GetAuthorizationToken
 
+instance NFData GetAuthorizationToken
+
 instance ToHeaders GetAuthorizationToken where
         toHeaders
           = const

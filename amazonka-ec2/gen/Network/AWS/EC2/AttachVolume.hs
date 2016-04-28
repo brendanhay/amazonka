@@ -139,6 +139,8 @@ instance AWSRequest AttachVolume where
 
 instance Hashable AttachVolume
 
+instance NFData AttachVolume
+
 instance ToHeaders AttachVolume where
         toHeaders = const mempty
 

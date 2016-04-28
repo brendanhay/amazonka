@@ -224,6 +224,8 @@ instance AWSRequest CreateTrail where
 
 instance Hashable CreateTrail
 
+instance NFData CreateTrail
+
 instance ToHeaders CreateTrail where
         toHeaders
           = const

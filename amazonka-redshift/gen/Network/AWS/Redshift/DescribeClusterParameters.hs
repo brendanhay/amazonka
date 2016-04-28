@@ -148,6 +148,8 @@ instance AWSRequest DescribeClusterParameters where
 
 instance Hashable DescribeClusterParameters
 
+instance NFData DescribeClusterParameters
+
 instance ToHeaders DescribeClusterParameters where
         toHeaders = const mempty
 

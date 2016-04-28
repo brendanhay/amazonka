@@ -85,6 +85,8 @@ instance AWSRequest BatchDeleteAttributes where
 
 instance Hashable BatchDeleteAttributes
 
+instance NFData BatchDeleteAttributes
+
 instance ToHeaders BatchDeleteAttributes where
         toHeaders = const mempty
 

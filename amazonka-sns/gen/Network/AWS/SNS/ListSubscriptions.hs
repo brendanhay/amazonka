@@ -93,6 +93,8 @@ instance AWSRequest ListSubscriptions where
 
 instance Hashable ListSubscriptions
 
+instance NFData ListSubscriptions
+
 instance ToHeaders ListSubscriptions where
         toHeaders = const mempty
 

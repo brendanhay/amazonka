@@ -100,6 +100,8 @@ instance AWSRequest AddTagsToVault where
 
 instance Hashable AddTagsToVault
 
+instance NFData AddTagsToVault
+
 instance ToHeaders AddTagsToVault where
         toHeaders = const mempty
 

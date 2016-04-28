@@ -87,6 +87,8 @@ instance AWSRequest LocalizeText where
 
 instance Hashable LocalizeText
 
+instance NFData LocalizeText
+
 instance ToHeaders LocalizeText where
         toHeaders
           = const

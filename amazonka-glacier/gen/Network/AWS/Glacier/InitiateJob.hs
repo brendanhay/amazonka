@@ -229,6 +229,8 @@ instance AWSRequest InitiateJob where
 
 instance Hashable InitiateJob
 
+instance NFData InitiateJob
+
 instance ToHeaders InitiateJob where
         toHeaders = const mempty
 

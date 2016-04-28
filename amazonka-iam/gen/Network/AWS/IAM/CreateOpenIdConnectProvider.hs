@@ -154,6 +154,8 @@ instance AWSRequest CreateOpenIdConnectProvider where
 
 instance Hashable CreateOpenIdConnectProvider
 
+instance NFData CreateOpenIdConnectProvider
+
 instance ToHeaders CreateOpenIdConnectProvider where
         toHeaders = const mempty
 

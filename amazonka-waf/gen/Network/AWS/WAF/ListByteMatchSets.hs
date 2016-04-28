@@ -95,6 +95,8 @@ instance AWSRequest ListByteMatchSets where
 
 instance Hashable ListByteMatchSets
 
+instance NFData ListByteMatchSets
+
 instance ToHeaders ListByteMatchSets where
         toHeaders
           = const

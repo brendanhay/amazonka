@@ -100,6 +100,8 @@ instance AWSRequest UpdateDistribution where
 
 instance Hashable UpdateDistribution
 
+instance NFData UpdateDistribution
+
 instance ToElement UpdateDistribution where
         toElement
           = mkElement

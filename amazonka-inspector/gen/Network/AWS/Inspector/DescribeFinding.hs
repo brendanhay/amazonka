@@ -75,6 +75,8 @@ instance AWSRequest DescribeFinding where
 
 instance Hashable DescribeFinding
 
+instance NFData DescribeFinding
+
 instance ToHeaders DescribeFinding where
         toHeaders
           = const

@@ -114,6 +114,8 @@ instance FromJSON CachediSCSIVolume where
 
 instance Hashable CachediSCSIVolume
 
+instance NFData CachediSCSIVolume
+
 -- | Describes Challenge-Handshake Authentication Protocol (CHAP) information
 -- that supports authentication between your gateway and iSCSI initiators.
 --
@@ -179,6 +181,8 @@ instance FromJSON ChapInfo where
 
 instance Hashable ChapInfo
 
+instance NFData ChapInfo
+
 -- | Lists iSCSI information about a VTL device.
 --
 -- /See:/ 'deviceiSCSIAttributes' smart constructor.
@@ -237,6 +241,8 @@ instance FromJSON DeviceiSCSIAttributes where
                      <*> (x .:? "NetworkInterfacePort"))
 
 instance Hashable DeviceiSCSIAttributes
+
+instance NFData DeviceiSCSIAttributes
 
 -- | /See:/ 'disk' smart constructor.
 data Disk = Disk'
@@ -322,6 +328,8 @@ instance FromJSON Disk where
 
 instance Hashable Disk
 
+instance NFData Disk
+
 -- | /See:/ 'gatewayInfo' smart constructor.
 data GatewayInfo = GatewayInfo'
     { _giGatewayARN              :: !(Maybe Text)
@@ -379,6 +387,8 @@ instance FromJSON GatewayInfo where
 
 instance Hashable GatewayInfo
 
+instance NFData GatewayInfo
+
 -- | Describes a gateway\'s network interface.
 --
 -- /See:/ 'networkInterface' smart constructor.
@@ -430,6 +440,8 @@ instance FromJSON NetworkInterface where
                      (x .:? "Ipv4Address"))
 
 instance Hashable NetworkInterface
+
+instance NFData NetworkInterface
 
 -- | /See:/ 'storediSCSIVolume' smart constructor.
 data StorediSCSIVolume = StorediSCSIVolume'
@@ -542,6 +554,8 @@ instance FromJSON StorediSCSIVolume where
 
 instance Hashable StorediSCSIVolume
 
+instance NFData StorediSCSIVolume
+
 -- | /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagKey   :: !Text
@@ -579,6 +593,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -667,6 +683,8 @@ instance FromJSON Tape where
 
 instance Hashable Tape
 
+instance NFData Tape
+
 -- | Represents a virtual tape that is archived in the virtual tape shelf
 -- (VTS).
 --
@@ -750,6 +768,8 @@ instance FromJSON TapeArchive where
 
 instance Hashable TapeArchive
 
+instance NFData TapeArchive
+
 -- | Describes a recovery point.
 --
 -- /See:/ 'tapeRecoveryPointInfo' smart constructor.
@@ -812,6 +832,8 @@ instance FromJSON TapeRecoveryPointInfo where
                      <*> (x .:? "TapeSizeInBytes"))
 
 instance Hashable TapeRecoveryPointInfo
+
+instance NFData TapeRecoveryPointInfo
 
 -- | Represents a device object associated with a gateway-VTL.
 --
@@ -882,6 +904,8 @@ instance FromJSON VTLDevice where
 
 instance Hashable VTLDevice
 
+instance NFData VTLDevice
+
 -- | /See:/ 'volumeInfo' smart constructor.
 data VolumeInfo = VolumeInfo'
     { _viVolumeARN  :: !(Maybe Text)
@@ -919,6 +943,8 @@ instance FromJSON VolumeInfo where
                    (x .:? "VolumeARN") <*> (x .:? "VolumeType"))
 
 instance Hashable VolumeInfo
+
+instance NFData VolumeInfo
 
 -- | /See:/ 'volumeRecoveryPointInfo' smart constructor.
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
@@ -976,6 +1002,8 @@ instance FromJSON VolumeRecoveryPointInfo where
                      <*> (x .:? "VolumeUsageInBytes"))
 
 instance Hashable VolumeRecoveryPointInfo
+
+instance NFData VolumeRecoveryPointInfo
 
 -- | Lists iSCSI information about a volume.
 --
@@ -1043,3 +1071,5 @@ instance FromJSON VolumeiSCSIAttributes where
                      <*> (x .:? "NetworkInterfacePort"))
 
 instance Hashable VolumeiSCSIAttributes
+
+instance NFData VolumeiSCSIAttributes

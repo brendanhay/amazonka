@@ -78,6 +78,8 @@ instance AWSRequest CreateApplication where
 
 instance Hashable CreateApplication
 
+instance NFData CreateApplication
+
 instance ToHeaders CreateApplication where
         toHeaders
           = const

@@ -92,6 +92,8 @@ instance AWSRequest ContinueUpdateRollback where
 
 instance Hashable ContinueUpdateRollback
 
+instance NFData ContinueUpdateRollback
+
 instance ToHeaders ContinueUpdateRollback where
         toHeaders = const mempty
 

@@ -162,6 +162,8 @@ instance AWSRequest ModifyImageAttribute where
 
 instance Hashable ModifyImageAttribute
 
+instance NFData ModifyImageAttribute
+
 instance ToHeaders ModifyImageAttribute where
         toHeaders = const mempty
 

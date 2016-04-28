@@ -305,6 +305,8 @@ instance AWSRequest RunJobFlow where
 
 instance Hashable RunJobFlow
 
+instance NFData RunJobFlow
+
 instance ToHeaders RunJobFlow where
         toHeaders
           = const

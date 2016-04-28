@@ -102,6 +102,8 @@ instance AWSRequest GetRecords where
 
 instance Hashable GetRecords
 
+instance NFData GetRecords
+
 instance ToHeaders GetRecords where
         toHeaders
           = const

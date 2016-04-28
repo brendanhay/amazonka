@@ -93,6 +93,8 @@ instance AWSRequest InitiateLayerUpload where
 
 instance Hashable InitiateLayerUpload
 
+instance NFData InitiateLayerUpload
+
 instance ToHeaders InitiateLayerUpload where
         toHeaders
           = const

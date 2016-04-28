@@ -69,6 +69,8 @@ instance AWSRequest DeleteBucketWebsite where
 
 instance Hashable DeleteBucketWebsite
 
+instance NFData DeleteBucketWebsite
+
 instance ToHeaders DeleteBucketWebsite where
         toHeaders = const mempty
 

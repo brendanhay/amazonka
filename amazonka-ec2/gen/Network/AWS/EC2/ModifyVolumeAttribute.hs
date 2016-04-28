@@ -100,6 +100,8 @@ instance AWSRequest ModifyVolumeAttribute where
 
 instance Hashable ModifyVolumeAttribute
 
+instance NFData ModifyVolumeAttribute
+
 instance ToHeaders ModifyVolumeAttribute where
         toHeaders = const mempty
 

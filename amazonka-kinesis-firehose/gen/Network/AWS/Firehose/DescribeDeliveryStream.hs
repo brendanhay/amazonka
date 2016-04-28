@@ -103,6 +103,8 @@ instance AWSRequest DescribeDeliveryStream where
 
 instance Hashable DescribeDeliveryStream
 
+instance NFData DescribeDeliveryStream
+
 instance ToHeaders DescribeDeliveryStream where
         toHeaders
           = const

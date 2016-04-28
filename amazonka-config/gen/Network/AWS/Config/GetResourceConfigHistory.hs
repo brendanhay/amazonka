@@ -156,6 +156,8 @@ instance AWSRequest GetResourceConfigHistory where
 
 instance Hashable GetResourceConfigHistory
 
+instance NFData GetResourceConfigHistory
+
 instance ToHeaders GetResourceConfigHistory where
         toHeaders
           = const

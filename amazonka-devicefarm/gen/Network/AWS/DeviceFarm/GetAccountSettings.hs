@@ -64,6 +64,8 @@ instance AWSRequest GetAccountSettings where
 
 instance Hashable GetAccountSettings
 
+instance NFData GetAccountSettings
+
 instance ToHeaders GetAccountSettings where
         toHeaders
           = const

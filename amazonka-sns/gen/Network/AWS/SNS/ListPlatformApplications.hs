@@ -101,6 +101,8 @@ instance AWSRequest ListPlatformApplications where
 
 instance Hashable ListPlatformApplications
 
+instance NFData ListPlatformApplications
+
 instance ToHeaders ListPlatformApplications where
         toHeaders = const mempty
 

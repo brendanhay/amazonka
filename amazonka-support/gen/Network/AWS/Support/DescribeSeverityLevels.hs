@@ -81,6 +81,8 @@ instance AWSRequest DescribeSeverityLevels where
 
 instance Hashable DescribeSeverityLevels
 
+instance NFData DescribeSeverityLevels
+
 instance ToHeaders DescribeSeverityLevels where
         toHeaders
           = const

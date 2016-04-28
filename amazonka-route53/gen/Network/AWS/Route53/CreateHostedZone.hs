@@ -165,6 +165,8 @@ instance AWSRequest CreateHostedZone where
 
 instance Hashable CreateHostedZone
 
+instance NFData CreateHostedZone
+
 instance ToElement CreateHostedZone where
         toElement
           = mkElement

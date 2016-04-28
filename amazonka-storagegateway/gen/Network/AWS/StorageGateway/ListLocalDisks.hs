@@ -88,6 +88,8 @@ instance AWSRequest ListLocalDisks where
 
 instance Hashable ListLocalDisks
 
+instance NFData ListLocalDisks
+
 instance ToHeaders ListLocalDisks where
         toHeaders
           = const

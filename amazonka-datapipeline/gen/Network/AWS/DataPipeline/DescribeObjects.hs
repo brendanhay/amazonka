@@ -126,6 +126,8 @@ instance AWSRequest DescribeObjects where
 
 instance Hashable DescribeObjects
 
+instance NFData DescribeObjects
+
 instance ToHeaders DescribeObjects where
         toHeaders
           = const

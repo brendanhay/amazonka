@@ -96,6 +96,8 @@ instance AWSRequest DescribeLoadBalancerPolicies
 
 instance Hashable DescribeLoadBalancerPolicies
 
+instance NFData DescribeLoadBalancerPolicies
+
 instance ToHeaders DescribeLoadBalancerPolicies where
         toHeaders = const mempty
 

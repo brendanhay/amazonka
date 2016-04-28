@@ -115,6 +115,8 @@ instance AWSRequest DescribeActivityType where
 
 instance Hashable DescribeActivityType
 
+instance NFData DescribeActivityType
+
 instance ToHeaders DescribeActivityType where
         toHeaders
           = const

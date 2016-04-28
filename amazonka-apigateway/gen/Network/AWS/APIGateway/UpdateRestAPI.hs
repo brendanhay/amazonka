@@ -85,6 +85,8 @@ instance AWSRequest UpdateRestAPI where
 
 instance Hashable UpdateRestAPI
 
+instance NFData UpdateRestAPI
+
 instance ToHeaders UpdateRestAPI where
         toHeaders
           = const

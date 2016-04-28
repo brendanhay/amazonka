@@ -124,6 +124,8 @@ instance AWSRequest RevokeClusterSecurityGroupIngress
 
 instance Hashable RevokeClusterSecurityGroupIngress
 
+instance NFData RevokeClusterSecurityGroupIngress
+
 instance ToHeaders RevokeClusterSecurityGroupIngress
          where
         toHeaders = const mempty

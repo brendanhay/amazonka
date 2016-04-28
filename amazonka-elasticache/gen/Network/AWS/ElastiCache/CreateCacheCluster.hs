@@ -427,6 +427,8 @@ instance AWSRequest CreateCacheCluster where
 
 instance Hashable CreateCacheCluster
 
+instance NFData CreateCacheCluster
+
 instance ToHeaders CreateCacheCluster where
         toHeaders = const mempty
 

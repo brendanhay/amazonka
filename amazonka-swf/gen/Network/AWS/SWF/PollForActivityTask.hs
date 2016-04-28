@@ -145,6 +145,8 @@ instance AWSRequest PollForActivityTask where
 
 instance Hashable PollForActivityTask
 
+instance NFData PollForActivityTask
+
 instance ToHeaders PollForActivityTask where
         toHeaders
           = const

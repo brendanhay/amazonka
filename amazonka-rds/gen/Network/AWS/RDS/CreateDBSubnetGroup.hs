@@ -113,6 +113,8 @@ instance AWSRequest CreateDBSubnetGroup where
 
 instance Hashable CreateDBSubnetGroup
 
+instance NFData CreateDBSubnetGroup
+
 instance ToHeaders CreateDBSubnetGroup where
         toHeaders = const mempty
 

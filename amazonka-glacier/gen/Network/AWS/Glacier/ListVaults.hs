@@ -138,6 +138,8 @@ instance AWSRequest ListVaults where
 
 instance Hashable ListVaults
 
+instance NFData ListVaults
+
 instance ToHeaders ListVaults where
         toHeaders = const mempty
 

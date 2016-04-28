@@ -105,6 +105,8 @@ instance AWSRequest DeleteSqlInjectionMatchSet where
 
 instance Hashable DeleteSqlInjectionMatchSet
 
+instance NFData DeleteSqlInjectionMatchSet
+
 instance ToHeaders DeleteSqlInjectionMatchSet where
         toHeaders
           = const

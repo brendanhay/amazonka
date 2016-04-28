@@ -204,6 +204,8 @@ instance AWSRequest CreateCase where
 
 instance Hashable CreateCase
 
+instance NFData CreateCase
+
 instance ToHeaders CreateCase where
         toHeaders
           = const

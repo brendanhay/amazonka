@@ -81,6 +81,8 @@ instance AWSRequest DescribeInterconnects where
 
 instance Hashable DescribeInterconnects
 
+instance NFData DescribeInterconnects
+
 instance ToHeaders DescribeInterconnects where
         toHeaders
           = const

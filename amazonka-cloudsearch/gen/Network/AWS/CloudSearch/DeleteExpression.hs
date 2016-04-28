@@ -92,6 +92,8 @@ instance AWSRequest DeleteExpression where
 
 instance Hashable DeleteExpression
 
+instance NFData DeleteExpression
+
 instance ToHeaders DeleteExpression where
         toHeaders = const mempty
 

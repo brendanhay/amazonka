@@ -87,6 +87,8 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
 
 instance Hashable RefreshTrustedAdvisorCheck
 
+instance NFData RefreshTrustedAdvisorCheck
+
 instance ToHeaders RefreshTrustedAdvisorCheck where
         toHeaders
           = const

@@ -97,6 +97,8 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
 
 instance Hashable RetrieveTapeRecoveryPoint
 
+instance NFData RetrieveTapeRecoveryPoint
+
 instance ToHeaders RetrieveTapeRecoveryPoint where
         toHeaders
           = const

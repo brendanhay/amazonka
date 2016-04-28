@@ -87,6 +87,8 @@ instance AWSRequest GetBasePathMapping where
 
 instance Hashable GetBasePathMapping
 
+instance NFData GetBasePathMapping
+
 instance ToHeaders GetBasePathMapping where
         toHeaders
           = const

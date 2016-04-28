@@ -132,6 +132,8 @@ instance AWSRequest PromoteReadReplica where
 
 instance Hashable PromoteReadReplica
 
+instance NFData PromoteReadReplica
+
 instance ToHeaders PromoteReadReplica where
         toHeaders = const mempty
 

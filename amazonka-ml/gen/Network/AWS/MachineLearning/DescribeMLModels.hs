@@ -224,6 +224,8 @@ instance AWSRequest DescribeMLModels where
 
 instance Hashable DescribeMLModels
 
+instance NFData DescribeMLModels
+
 instance ToHeaders DescribeMLModels where
         toHeaders
           = const

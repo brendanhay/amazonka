@@ -249,6 +249,8 @@ instance AWSRequest ModifyDBCluster where
 
 instance Hashable ModifyDBCluster
 
+instance NFData ModifyDBCluster
+
 instance ToHeaders ModifyDBCluster where
         toHeaders = const mempty
 

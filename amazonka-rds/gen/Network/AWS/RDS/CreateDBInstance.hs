@@ -838,6 +838,8 @@ instance AWSRequest CreateDBInstance where
 
 instance Hashable CreateDBInstance
 
+instance NFData CreateDBInstance
+
 instance ToHeaders CreateDBInstance where
         toHeaders = const mempty
 

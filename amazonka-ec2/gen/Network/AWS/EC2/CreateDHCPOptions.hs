@@ -124,6 +124,8 @@ instance AWSRequest CreateDHCPOptions where
 
 instance Hashable CreateDHCPOptions
 
+instance NFData CreateDHCPOptions
+
 instance ToHeaders CreateDHCPOptions where
         toHeaders = const mempty
 

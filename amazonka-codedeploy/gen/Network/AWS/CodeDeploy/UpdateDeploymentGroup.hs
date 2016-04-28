@@ -161,6 +161,8 @@ instance AWSRequest UpdateDeploymentGroup where
 
 instance Hashable UpdateDeploymentGroup
 
+instance NFData UpdateDeploymentGroup
+
 instance ToHeaders UpdateDeploymentGroup where
         toHeaders
           = const

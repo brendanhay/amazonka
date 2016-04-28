@@ -160,6 +160,8 @@ instance AWSRequest CopyDBSnapshot where
 
 instance Hashable CopyDBSnapshot
 
+instance NFData CopyDBSnapshot
+
 instance ToHeaders CopyDBSnapshot where
         toHeaders = const mempty
 

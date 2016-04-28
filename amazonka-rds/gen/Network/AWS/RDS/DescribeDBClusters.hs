@@ -131,6 +131,8 @@ instance AWSRequest DescribeDBClusters where
 
 instance Hashable DescribeDBClusters
 
+instance NFData DescribeDBClusters
+
 instance ToHeaders DescribeDBClusters where
         toHeaders = const mempty
 

@@ -97,6 +97,8 @@ instance AWSRequest GetAuthorizers where
 
 instance Hashable GetAuthorizers
 
+instance NFData GetAuthorizers
+
 instance ToHeaders GetAuthorizers where
         toHeaders
           = const

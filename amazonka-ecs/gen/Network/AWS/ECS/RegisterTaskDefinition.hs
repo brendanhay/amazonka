@@ -104,6 +104,8 @@ instance AWSRequest RegisterTaskDefinition where
 
 instance Hashable RegisterTaskDefinition
 
+instance NFData RegisterTaskDefinition
+
 instance ToHeaders RegisterTaskDefinition where
         toHeaders
           = const

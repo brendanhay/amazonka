@@ -153,6 +153,8 @@ instance AWSRequest DescribeClassicLinkInstances
 
 instance Hashable DescribeClassicLinkInstances
 
+instance NFData DescribeClassicLinkInstances
+
 instance ToHeaders DescribeClassicLinkInstances where
         toHeaders = const mempty
 

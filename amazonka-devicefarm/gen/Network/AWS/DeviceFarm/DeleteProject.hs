@@ -78,6 +78,8 @@ instance AWSRequest DeleteProject where
 
 instance Hashable DeleteProject
 
+instance NFData DeleteProject
+
 instance ToHeaders DeleteProject where
         toHeaders
           = const

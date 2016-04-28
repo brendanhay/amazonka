@@ -141,6 +141,8 @@ instance AWSRequest TestInvokeAuthorizer where
 
 instance Hashable TestInvokeAuthorizer
 
+instance NFData TestInvokeAuthorizer
+
 instance ToHeaders TestInvokeAuthorizer where
         toHeaders
           = const

@@ -95,6 +95,8 @@ instance AWSRequest DeleteWebACL where
 
 instance Hashable DeleteWebACL
 
+instance NFData DeleteWebACL
+
 instance ToHeaders DeleteWebACL where
         toHeaders
           = const

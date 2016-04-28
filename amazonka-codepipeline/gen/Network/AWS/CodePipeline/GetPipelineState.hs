@@ -86,6 +86,8 @@ instance AWSRequest GetPipelineState where
 
 instance Hashable GetPipelineState
 
+instance NFData GetPipelineState
+
 instance ToHeaders GetPipelineState where
         toHeaders
           = const

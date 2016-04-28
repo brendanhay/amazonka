@@ -76,6 +76,8 @@ instance AWSRequest GetBucketLogging where
 
 instance Hashable GetBucketLogging
 
+instance NFData GetBucketLogging
+
 instance ToHeaders GetBucketLogging where
         toHeaders = const mempty
 

@@ -107,6 +107,8 @@ instance AWSRequest RevokeSnapshotAccess where
 
 instance Hashable RevokeSnapshotAccess
 
+instance NFData RevokeSnapshotAccess
+
 instance ToHeaders RevokeSnapshotAccess where
         toHeaders = const mempty
 

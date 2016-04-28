@@ -85,6 +85,8 @@ instance AWSRequest GetChangeTokenStatus where
 
 instance Hashable GetChangeTokenStatus
 
+instance NFData GetChangeTokenStatus
+
 instance ToHeaders GetChangeTokenStatus where
         toHeaders
           = const

@@ -117,6 +117,8 @@ instance AWSRequest UpdateFleetAttributes where
 
 instance Hashable UpdateFleetAttributes
 
+instance NFData UpdateFleetAttributes
+
 instance ToHeaders UpdateFleetAttributes where
         toHeaders
           = const

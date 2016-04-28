@@ -181,6 +181,8 @@ instance AWSRequest UpdateApp where
 
 instance Hashable UpdateApp
 
+instance NFData UpdateApp
+
 instance ToHeaders UpdateApp where
         toHeaders
           = const

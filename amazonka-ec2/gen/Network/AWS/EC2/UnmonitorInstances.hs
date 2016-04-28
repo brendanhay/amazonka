@@ -92,6 +92,8 @@ instance AWSRequest UnmonitorInstances where
 
 instance Hashable UnmonitorInstances
 
+instance NFData UnmonitorInstances
+
 instance ToHeaders UnmonitorInstances where
         toHeaders = const mempty
 

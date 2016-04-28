@@ -87,6 +87,8 @@ instance AWSRequest
 
 instance Hashable GetComplianceSummaryByResourceType
 
+instance NFData GetComplianceSummaryByResourceType
+
 instance ToHeaders GetComplianceSummaryByResourceType
          where
         toHeaders

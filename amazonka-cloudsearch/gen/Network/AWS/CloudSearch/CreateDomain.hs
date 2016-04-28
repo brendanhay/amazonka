@@ -83,6 +83,8 @@ instance AWSRequest CreateDomain where
 
 instance Hashable CreateDomain
 
+instance NFData CreateDomain
+
 instance ToHeaders CreateDomain where
         toHeaders = const mempty
 

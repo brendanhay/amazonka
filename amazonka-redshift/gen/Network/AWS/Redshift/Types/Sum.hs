@@ -37,6 +37,7 @@ instance ToText ParameterApplyType where
         Static -> "static"
 
 instance Hashable     ParameterApplyType
+instance NFData       ParameterApplyType
 instance ToByteString ParameterApplyType
 instance ToQuery      ParameterApplyType
 instance ToHeader     ParameterApplyType
@@ -68,6 +69,7 @@ instance ToText SourceType where
         ClusterSnapshot -> "cluster-snapshot"
 
 instance Hashable     SourceType
+instance NFData       SourceType
 instance ToByteString SourceType
 instance ToQuery      SourceType
 instance ToHeader     SourceType
@@ -102,6 +104,7 @@ instance ToText TableRestoreStatusType where
         Succeeded -> "SUCCEEDED"
 
 instance Hashable     TableRestoreStatusType
+instance NFData       TableRestoreStatusType
 instance ToByteString TableRestoreStatusType
 instance ToQuery      TableRestoreStatusType
 instance ToHeader     TableRestoreStatusType

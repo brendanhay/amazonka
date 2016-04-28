@@ -84,6 +84,8 @@ instance AWSRequest DeleteDBSecurityGroup where
 
 instance Hashable DeleteDBSecurityGroup
 
+instance NFData DeleteDBSecurityGroup
+
 instance ToHeaders DeleteDBSecurityGroup where
         toHeaders = const mempty
 

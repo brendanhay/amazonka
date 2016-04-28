@@ -80,6 +80,8 @@ instance AWSRequest DeletePreset where
 
 instance Hashable DeletePreset
 
+instance NFData DeletePreset
+
 instance ToHeaders DeletePreset where
         toHeaders = const mempty
 

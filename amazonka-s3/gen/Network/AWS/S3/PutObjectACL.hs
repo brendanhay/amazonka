@@ -170,6 +170,8 @@ instance AWSRequest PutObjectACL where
 
 instance Hashable PutObjectACL
 
+instance NFData PutObjectACL
+
 instance ToElement PutObjectACL where
         toElement
           = mkElement

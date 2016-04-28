@@ -120,6 +120,8 @@ instance AWSRequest DeleteObject where
 
 instance Hashable DeleteObject
 
+instance NFData DeleteObject
+
 instance ToHeaders DeleteObject where
         toHeaders DeleteObject'{..}
           = mconcat

@@ -100,6 +100,8 @@ instance AWSRequest ShutdownGateway where
 
 instance Hashable ShutdownGateway
 
+instance NFData ShutdownGateway
+
 instance ToHeaders ShutdownGateway where
         toHeaders
           = const

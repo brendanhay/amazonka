@@ -199,6 +199,8 @@ instance AWSRequest ReceiveMessage where
 
 instance Hashable ReceiveMessage
 
+instance NFData ReceiveMessage
+
 instance ToHeaders ReceiveMessage where
         toHeaders = const mempty
 

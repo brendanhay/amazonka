@@ -111,6 +111,8 @@ instance AWSRequest DescribeLaunchConfigurations
 
 instance Hashable DescribeLaunchConfigurations
 
+instance NFData DescribeLaunchConfigurations
+
 instance ToHeaders DescribeLaunchConfigurations where
         toHeaders = const mempty
 

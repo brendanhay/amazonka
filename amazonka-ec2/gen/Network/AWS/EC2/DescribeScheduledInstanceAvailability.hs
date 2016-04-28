@@ -179,6 +179,8 @@ instance AWSRequest
 instance Hashable
          DescribeScheduledInstanceAvailability
 
+instance NFData DescribeScheduledInstanceAvailability
+
 instance ToHeaders
          DescribeScheduledInstanceAvailability where
         toHeaders = const mempty

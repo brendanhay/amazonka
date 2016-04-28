@@ -150,6 +150,8 @@ instance AWSRequest GetLogEvents where
 
 instance Hashable GetLogEvents
 
+instance NFData GetLogEvents
+
 instance ToHeaders GetLogEvents where
         toHeaders
           = const

@@ -37,6 +37,7 @@ instance ToText BehaviorOnMXFailure where
         UseDefaultValue -> "UseDefaultValue"
 
 instance Hashable     BehaviorOnMXFailure
+instance NFData       BehaviorOnMXFailure
 instance ToByteString BehaviorOnMXFailure
 instance ToQuery      BehaviorOnMXFailure
 instance ToHeader     BehaviorOnMXFailure
@@ -74,6 +75,7 @@ instance ToText BounceType where
         BTUndefined -> "Undefined"
 
 instance Hashable     BounceType
+instance NFData       BounceType
 instance ToByteString BounceType
 instance ToQuery      BounceType
 instance ToHeader     BounceType
@@ -102,6 +104,7 @@ instance ToText CustomMailFromStatus where
         CMFSTemporaryFailure -> "TemporaryFailure"
 
 instance Hashable     CustomMailFromStatus
+instance NFData       CustomMailFromStatus
 instance ToByteString CustomMailFromStatus
 instance ToQuery      CustomMailFromStatus
 instance ToHeader     CustomMailFromStatus
@@ -136,6 +139,7 @@ instance ToText DsnAction where
         DARelayed -> "relayed"
 
 instance Hashable     DsnAction
+instance NFData       DsnAction
 instance ToByteString DsnAction
 instance ToQuery      DsnAction
 instance ToHeader     DsnAction
@@ -158,6 +162,7 @@ instance ToText IdentityType where
         EmailAddress -> "EmailAddress"
 
 instance Hashable     IdentityType
+instance NFData       IdentityType
 instance ToByteString IdentityType
 instance ToQuery      IdentityType
 instance ToHeader     IdentityType
@@ -180,6 +185,7 @@ instance ToText InvocationType where
         RequestResponse -> "RequestResponse"
 
 instance Hashable     InvocationType
+instance NFData       InvocationType
 instance ToByteString InvocationType
 instance ToQuery      InvocationType
 instance ToHeader     InvocationType
@@ -208,6 +214,7 @@ instance ToText NotificationType where
         Delivery -> "Delivery"
 
 instance Hashable     NotificationType
+instance NFData       NotificationType
 instance ToByteString NotificationType
 instance ToQuery      NotificationType
 instance ToHeader     NotificationType
@@ -230,6 +237,7 @@ instance ToText ReceiptFilterPolicy where
         Block -> "Block"
 
 instance Hashable     ReceiptFilterPolicy
+instance NFData       ReceiptFilterPolicy
 instance ToByteString ReceiptFilterPolicy
 instance ToQuery      ReceiptFilterPolicy
 instance ToHeader     ReceiptFilterPolicy
@@ -255,6 +263,7 @@ instance ToText SNSActionEncoding where
         Utf8 -> "UTF-8"
 
 instance Hashable     SNSActionEncoding
+instance NFData       SNSActionEncoding
 instance ToByteString SNSActionEncoding
 instance ToQuery      SNSActionEncoding
 instance ToHeader     SNSActionEncoding
@@ -277,6 +286,7 @@ instance ToText StopScope where
         RuleSet -> "RuleSet"
 
 instance Hashable     StopScope
+instance NFData       StopScope
 instance ToByteString StopScope
 instance ToQuery      StopScope
 instance ToHeader     StopScope
@@ -302,6 +312,7 @@ instance ToText TLSPolicy where
         Require -> "Require"
 
 instance Hashable     TLSPolicy
+instance NFData       TLSPolicy
 instance ToByteString TLSPolicy
 instance ToQuery      TLSPolicy
 instance ToHeader     TLSPolicy
@@ -336,6 +347,7 @@ instance ToText VerificationStatus where
         TemporaryFailure -> "TemporaryFailure"
 
 instance Hashable     VerificationStatus
+instance NFData       VerificationStatus
 instance ToByteString VerificationStatus
 instance ToQuery      VerificationStatus
 instance ToHeader     VerificationStatus

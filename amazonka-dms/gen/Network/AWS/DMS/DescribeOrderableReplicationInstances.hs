@@ -100,6 +100,8 @@ instance AWSRequest
 instance Hashable
          DescribeOrderableReplicationInstances
 
+instance NFData DescribeOrderableReplicationInstances
+
 instance ToHeaders
          DescribeOrderableReplicationInstances where
         toHeaders

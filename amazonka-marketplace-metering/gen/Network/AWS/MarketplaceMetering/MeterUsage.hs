@@ -122,6 +122,8 @@ instance AWSRequest MeterUsage where
 
 instance Hashable MeterUsage
 
+instance NFData MeterUsage
+
 instance ToHeaders MeterUsage where
         toHeaders
           = const

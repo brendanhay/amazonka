@@ -122,6 +122,8 @@ instance AWSRequest DescribeReservedNodes where
 
 instance Hashable DescribeReservedNodes
 
+instance NFData DescribeReservedNodes
+
 instance ToHeaders DescribeReservedNodes where
         toHeaders = const mempty
 

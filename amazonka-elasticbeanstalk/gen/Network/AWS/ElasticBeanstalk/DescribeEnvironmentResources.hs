@@ -97,6 +97,8 @@ instance AWSRequest DescribeEnvironmentResources
 
 instance Hashable DescribeEnvironmentResources
 
+instance NFData DescribeEnvironmentResources
+
 instance ToHeaders DescribeEnvironmentResources where
         toHeaders = const mempty
 

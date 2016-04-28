@@ -91,6 +91,8 @@ instance AWSRequest AddCache where
 
 instance Hashable AddCache
 
+instance NFData AddCache
+
 instance ToHeaders AddCache where
         toHeaders
           = const

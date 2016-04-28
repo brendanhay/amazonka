@@ -94,6 +94,8 @@ instance AWSRequest ModifyHAPG where
 
 instance Hashable ModifyHAPG
 
+instance NFData ModifyHAPG
+
 instance ToHeaders ModifyHAPG where
         toHeaders
           = const

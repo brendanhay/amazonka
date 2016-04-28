@@ -46,6 +46,7 @@ instance ToText ImageFailureCode where
         MissingDigestAndTag -> "MissingDigestAndTag"
 
 instance Hashable     ImageFailureCode
+instance NFData       ImageFailureCode
 instance ToByteString ImageFailureCode
 instance ToQuery      ImageFailureCode
 instance ToHeader     ImageFailureCode
@@ -71,6 +72,7 @@ instance ToText LayerAvailability where
         Unavailable -> "UNAVAILABLE"
 
 instance Hashable     LayerAvailability
+instance NFData       LayerAvailability
 instance ToByteString LayerAvailability
 instance ToQuery      LayerAvailability
 instance ToHeader     LayerAvailability
@@ -96,6 +98,7 @@ instance ToText LayerFailureCode where
         MissingLayerDigest -> "MissingLayerDigest"
 
 instance Hashable     LayerFailureCode
+instance NFData       LayerFailureCode
 instance ToByteString LayerFailureCode
 instance ToQuery      LayerFailureCode
 instance ToHeader     LayerFailureCode

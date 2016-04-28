@@ -93,6 +93,8 @@ instance AWSRequest CreateGroup where
 
 instance Hashable CreateGroup
 
+instance NFData CreateGroup
+
 instance ToHeaders CreateGroup where
         toHeaders = const mempty
 

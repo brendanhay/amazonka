@@ -138,6 +138,8 @@ instance AWSRequest PutSubscriptionFilter where
 
 instance Hashable PutSubscriptionFilter
 
+instance NFData PutSubscriptionFilter
+
 instance ToHeaders PutSubscriptionFilter where
         toHeaders
           = const

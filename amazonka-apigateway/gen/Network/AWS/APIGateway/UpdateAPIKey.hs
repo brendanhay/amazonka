@@ -88,6 +88,8 @@ instance AWSRequest UpdateAPIKey where
 
 instance Hashable UpdateAPIKey
 
+instance NFData UpdateAPIKey
+
 instance ToHeaders UpdateAPIKey where
         toHeaders
           = const

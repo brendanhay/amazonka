@@ -121,6 +121,8 @@ instance AWSRequest DescribeTableRestoreStatus where
 
 instance Hashable DescribeTableRestoreStatus
 
+instance NFData DescribeTableRestoreStatus
+
 instance ToHeaders DescribeTableRestoreStatus where
         toHeaders = const mempty
 

@@ -130,6 +130,8 @@ instance AWSRequest CopyClusterSnapshot where
 
 instance Hashable CopyClusterSnapshot
 
+instance NFData CopyClusterSnapshot
+
 instance ToHeaders CopyClusterSnapshot where
         toHeaders = const mempty
 

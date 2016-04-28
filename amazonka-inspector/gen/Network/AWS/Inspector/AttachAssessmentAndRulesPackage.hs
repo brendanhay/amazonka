@@ -90,6 +90,8 @@ instance AWSRequest AttachAssessmentAndRulesPackage
 
 instance Hashable AttachAssessmentAndRulesPackage
 
+instance NFData AttachAssessmentAndRulesPackage
+
 instance ToHeaders AttachAssessmentAndRulesPackage
          where
         toHeaders

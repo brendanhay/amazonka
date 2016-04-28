@@ -87,6 +87,8 @@ instance AWSRequest CreateKeysAndCertificate where
 
 instance Hashable CreateKeysAndCertificate
 
+instance NFData CreateKeysAndCertificate
+
 instance ToHeaders CreateKeysAndCertificate where
         toHeaders = const mempty
 

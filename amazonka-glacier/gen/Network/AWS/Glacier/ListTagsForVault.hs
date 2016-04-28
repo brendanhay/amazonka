@@ -94,6 +94,8 @@ instance AWSRequest ListTagsForVault where
 
 instance Hashable ListTagsForVault
 
+instance NFData ListTagsForVault
+
 instance ToHeaders ListTagsForVault where
         toHeaders = const mempty
 

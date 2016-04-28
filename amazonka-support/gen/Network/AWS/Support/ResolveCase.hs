@@ -80,6 +80,8 @@ instance AWSRequest ResolveCase where
 
 instance Hashable ResolveCase
 
+instance NFData ResolveCase
+
 instance ToHeaders ResolveCase where
         toHeaders
           = const

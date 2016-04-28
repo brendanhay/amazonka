@@ -186,6 +186,8 @@ instance AWSRequest Publish where
 
 instance Hashable Publish
 
+instance NFData Publish
+
 instance ToHeaders Publish where
         toHeaders = const mempty
 

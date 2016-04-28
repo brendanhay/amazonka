@@ -117,6 +117,8 @@ instance AWSRequest ListAttachedAssessments where
 
 instance Hashable ListAttachedAssessments
 
+instance NFData ListAttachedAssessments
+
 instance ToHeaders ListAttachedAssessments where
         toHeaders
           = const

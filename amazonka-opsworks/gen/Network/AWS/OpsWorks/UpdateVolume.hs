@@ -94,6 +94,8 @@ instance AWSRequest UpdateVolume where
 
 instance Hashable UpdateVolume
 
+instance NFData UpdateVolume
+
 instance ToHeaders UpdateVolume where
         toHeaders
           = const

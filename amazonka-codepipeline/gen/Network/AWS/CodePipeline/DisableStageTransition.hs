@@ -110,6 +110,8 @@ instance AWSRequest DisableStageTransition where
 
 instance Hashable DisableStageTransition
 
+instance NFData DisableStageTransition
+
 instance ToHeaders DisableStageTransition where
         toHeaders
           = const

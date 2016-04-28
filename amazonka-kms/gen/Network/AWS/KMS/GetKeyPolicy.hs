@@ -93,6 +93,8 @@ instance AWSRequest GetKeyPolicy where
 
 instance Hashable GetKeyPolicy
 
+instance NFData GetKeyPolicy
+
 instance ToHeaders GetKeyPolicy where
         toHeaders
           = const

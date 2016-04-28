@@ -130,6 +130,8 @@ instance AWSRequest DescribePendingMaintenanceActions
 
 instance Hashable DescribePendingMaintenanceActions
 
+instance NFData DescribePendingMaintenanceActions
+
 instance ToHeaders DescribePendingMaintenanceActions
          where
         toHeaders = const mempty

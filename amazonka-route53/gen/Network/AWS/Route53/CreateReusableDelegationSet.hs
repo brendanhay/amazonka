@@ -106,6 +106,8 @@ instance AWSRequest CreateReusableDelegationSet where
 
 instance Hashable CreateReusableDelegationSet
 
+instance NFData CreateReusableDelegationSet
+
 instance ToElement CreateReusableDelegationSet where
         toElement
           = mkElement

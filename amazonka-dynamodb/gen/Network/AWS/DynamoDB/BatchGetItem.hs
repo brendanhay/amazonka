@@ -236,6 +236,8 @@ instance AWSRequest BatchGetItem where
 
 instance Hashable BatchGetItem
 
+instance NFData BatchGetItem
+
 instance ToHeaders BatchGetItem where
         toHeaders
           = const

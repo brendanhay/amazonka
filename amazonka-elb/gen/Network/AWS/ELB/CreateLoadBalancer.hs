@@ -175,6 +175,8 @@ instance AWSRequest CreateLoadBalancer where
 
 instance Hashable CreateLoadBalancer
 
+instance NFData CreateLoadBalancer
+
 instance ToHeaders CreateLoadBalancer where
         toHeaders = const mempty
 

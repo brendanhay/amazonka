@@ -127,6 +127,8 @@ instance AWSRequest DescribeVPCs where
 
 instance Hashable DescribeVPCs
 
+instance NFData DescribeVPCs
+
 instance ToHeaders DescribeVPCs where
         toHeaders = const mempty
 

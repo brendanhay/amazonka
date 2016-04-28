@@ -100,6 +100,8 @@ instance AWSRequest ReportTaskProgress where
 
 instance Hashable ReportTaskProgress
 
+instance NFData ReportTaskProgress
+
 instance ToHeaders ReportTaskProgress where
         toHeaders
           = const

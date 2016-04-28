@@ -122,6 +122,8 @@ instance AWSRequest ListSSHPublicKeys where
 
 instance Hashable ListSSHPublicKeys
 
+instance NFData ListSSHPublicKeys
+
 instance ToHeaders ListSSHPublicKeys where
         toHeaders = const mempty
 

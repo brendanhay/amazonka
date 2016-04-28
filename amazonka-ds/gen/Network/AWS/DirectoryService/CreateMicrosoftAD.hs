@@ -121,6 +121,8 @@ instance AWSRequest CreateMicrosoftAD where
 
 instance Hashable CreateMicrosoftAD
 
+instance NFData CreateMicrosoftAD
+
 instance ToHeaders CreateMicrosoftAD where
         toHeaders
           = const

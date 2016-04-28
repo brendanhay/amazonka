@@ -98,6 +98,8 @@ instance AWSRequest UpdateScalingParameters where
 
 instance Hashable UpdateScalingParameters
 
+instance NFData UpdateScalingParameters
+
 instance ToHeaders UpdateScalingParameters where
         toHeaders = const mempty
 

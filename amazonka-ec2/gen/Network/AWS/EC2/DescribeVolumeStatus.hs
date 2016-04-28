@@ -212,6 +212,8 @@ instance AWSRequest DescribeVolumeStatus where
 
 instance Hashable DescribeVolumeStatus
 
+instance NFData DescribeVolumeStatus
+
 instance ToHeaders DescribeVolumeStatus where
         toHeaders = const mempty
 

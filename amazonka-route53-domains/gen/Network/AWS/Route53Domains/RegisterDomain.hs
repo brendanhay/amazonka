@@ -271,6 +271,8 @@ instance AWSRequest RegisterDomain where
 
 instance Hashable RegisterDomain
 
+instance NFData RegisterDomain
+
 instance ToHeaders RegisterDomain where
         toHeaders
           = const

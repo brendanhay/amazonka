@@ -97,6 +97,8 @@ instance AWSRequest CreateInstanceProfile where
 
 instance Hashable CreateInstanceProfile
 
+instance NFData CreateInstanceProfile
+
 instance ToHeaders CreateInstanceProfile where
         toHeaders = const mempty
 

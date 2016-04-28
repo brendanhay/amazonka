@@ -75,6 +75,8 @@ instance AWSRequest DeleteApplication where
 
 instance Hashable DeleteApplication
 
+instance NFData DeleteApplication
+
 instance ToHeaders DeleteApplication where
         toHeaders
           = const

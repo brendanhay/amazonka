@@ -88,6 +88,8 @@ instance AWSRequest ListBranches where
 
 instance Hashable ListBranches
 
+instance NFData ListBranches
+
 instance ToHeaders ListBranches where
         toHeaders
           = const

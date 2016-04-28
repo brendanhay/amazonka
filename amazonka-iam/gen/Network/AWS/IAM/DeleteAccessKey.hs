@@ -84,6 +84,8 @@ instance AWSRequest DeleteAccessKey where
 
 instance Hashable DeleteAccessKey
 
+instance NFData DeleteAccessKey
+
 instance ToHeaders DeleteAccessKey where
         toHeaders = const mempty
 

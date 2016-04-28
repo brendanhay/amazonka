@@ -76,6 +76,8 @@ instance AWSRequest DeleteDeploymentConfig where
 
 instance Hashable DeleteDeploymentConfig
 
+instance NFData DeleteDeploymentConfig
+
 instance ToHeaders DeleteDeploymentConfig where
         toHeaders
           = const

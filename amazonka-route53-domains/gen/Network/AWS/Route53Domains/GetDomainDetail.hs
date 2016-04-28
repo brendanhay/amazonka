@@ -128,6 +128,8 @@ instance AWSRequest GetDomainDetail where
 
 instance Hashable GetDomainDetail
 
+instance NFData GetDomainDetail
+
 instance ToHeaders GetDomainDetail where
         toHeaders
           = const

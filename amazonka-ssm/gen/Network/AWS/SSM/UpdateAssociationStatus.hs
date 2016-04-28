@@ -98,6 +98,8 @@ instance AWSRequest UpdateAssociationStatus where
 
 instance Hashable UpdateAssociationStatus
 
+instance NFData UpdateAssociationStatus
+
 instance ToHeaders UpdateAssociationStatus where
         toHeaders
           = const

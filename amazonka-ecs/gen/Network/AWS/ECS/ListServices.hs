@@ -118,6 +118,8 @@ instance AWSRequest ListServices where
 
 instance Hashable ListServices
 
+instance NFData ListServices
+
 instance ToHeaders ListServices where
         toHeaders
           = const

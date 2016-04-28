@@ -130,6 +130,8 @@ instance AWSRequest DescribeDBSecurityGroups where
 
 instance Hashable DescribeDBSecurityGroups
 
+instance NFData DescribeDBSecurityGroups
+
 instance ToHeaders DescribeDBSecurityGroups where
         toHeaders = const mempty
 

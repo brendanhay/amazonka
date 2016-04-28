@@ -84,6 +84,8 @@ instance AWSRequest RebootWorkspaces where
 
 instance Hashable RebootWorkspaces
 
+instance NFData RebootWorkspaces
+
 instance ToHeaders RebootWorkspaces where
         toHeaders
           = const

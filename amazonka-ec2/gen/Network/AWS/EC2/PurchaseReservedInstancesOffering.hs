@@ -125,6 +125,8 @@ instance AWSRequest PurchaseReservedInstancesOffering
 
 instance Hashable PurchaseReservedInstancesOffering
 
+instance NFData PurchaseReservedInstancesOffering
+
 instance ToHeaders PurchaseReservedInstancesOffering
          where
         toHeaders = const mempty

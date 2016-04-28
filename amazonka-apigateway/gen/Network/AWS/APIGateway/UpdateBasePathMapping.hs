@@ -94,6 +94,8 @@ instance AWSRequest UpdateBasePathMapping where
 
 instance Hashable UpdateBasePathMapping
 
+instance NFData UpdateBasePathMapping
+
 instance ToHeaders UpdateBasePathMapping where
         toHeaders
           = const

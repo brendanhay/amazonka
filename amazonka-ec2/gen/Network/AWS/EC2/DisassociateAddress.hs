@@ -98,6 +98,8 @@ instance AWSRequest DisassociateAddress where
 
 instance Hashable DisassociateAddress
 
+instance NFData DisassociateAddress
+
 instance ToHeaders DisassociateAddress where
         toHeaders = const mempty
 

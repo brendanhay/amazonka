@@ -142,6 +142,8 @@ instance AWSRequest CreateCustomActionType where
 
 instance Hashable CreateCustomActionType
 
+instance NFData CreateCustomActionType
+
 instance ToHeaders CreateCustomActionType where
         toHeaders
           = const

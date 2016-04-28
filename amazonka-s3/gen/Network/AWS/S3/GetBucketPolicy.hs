@@ -75,6 +75,8 @@ instance AWSRequest GetBucketPolicy where
 
 instance Hashable GetBucketPolicy
 
+instance NFData GetBucketPolicy
+
 instance ToHeaders GetBucketPolicy where
         toHeaders = const mempty
 

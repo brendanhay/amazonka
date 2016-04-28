@@ -99,6 +99,8 @@ instance AWSRequest GetGroupPolicy where
 
 instance Hashable GetGroupPolicy
 
+instance NFData GetGroupPolicy
+
 instance ToHeaders GetGroupPolicy where
         toHeaders = const mempty
 

@@ -70,6 +70,8 @@ instance AWSRequest ListReceiptFilters where
 
 instance Hashable ListReceiptFilters
 
+instance NFData ListReceiptFilters
+
 instance ToHeaders ListReceiptFilters where
         toHeaders = const mempty
 

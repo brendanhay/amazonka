@@ -85,6 +85,8 @@ instance AWSRequest ChangePassword where
 
 instance Hashable ChangePassword
 
+instance NFData ChangePassword
+
 instance ToHeaders ChangePassword where
         toHeaders = const mempty
 

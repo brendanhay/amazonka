@@ -134,6 +134,8 @@ instance AWSRequest
 instance Hashable
          AuthorizeClusterSecurityGroupIngress
 
+instance NFData AuthorizeClusterSecurityGroupIngress
+
 instance ToHeaders
          AuthorizeClusterSecurityGroupIngress where
         toHeaders = const mempty

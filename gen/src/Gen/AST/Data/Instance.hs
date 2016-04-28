@@ -39,6 +39,7 @@ data Inst
     | ToPath    [Either Text Field]
     | ToBody    Field
     | IsHashable
+    | IsNFData
 
 instance ToJSON Inst where
     toJSON = toJSON . instToText
@@ -55,6 +56,7 @@ instToText = \case
     ToPath     {} -> "ToPath"
     ToBody     {} -> "ToBody"
     IsHashable    -> "Hashable"
+    IsNFData      -> "NFData"
 
 shapeInsts :: Protocol -> Mode -> [Field] -> [Inst]
 shapeInsts p m fs = go m

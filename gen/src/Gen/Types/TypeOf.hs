@@ -22,6 +22,7 @@ module Gen.Types.TypeOf
     , pointerTo
     , isEq
     , isHashable
+    , isNFData
     , typeDefault
     ) where
 
@@ -74,11 +75,10 @@ instance HasId a => TypeOf (RefF (Shape a)) where
         | isStreaming r = TStream
         | otherwise     = typeOf (r ^. refAnn)
 
-isEq :: TypeOf a => a -> Bool
-isEq = elem DEq . derivingOf
-
-isHashable :: TypeOf a => a -> Bool
+isEq, isHashable, isNFData :: TypeOf a => a -> Bool
+isEq       = elem DEq       . derivingOf
 isHashable = elem DHashable . derivingOf
+isNFData   = elem DNFData   . derivingOf
 
 -- FIXME: this whole concept of pointers and limiting the recursion stack
 -- when calculating types is broken - there are plenty of more robust/sane
@@ -115,7 +115,7 @@ derivingOf = uniq . typ . typeOf
         Blob   -> derivingBase
         Time   -> DOrd : derivingBase
         Bool   -> derivingBase <> enum
-        Json   -> [DEq, DShow, DData, DTypeable, DGeneric, DHashable]
+        Json   -> [DEq, DShow, DData, DTypeable, DGeneric, DHashable, DNFData]
 
 stream, string, num, frac, monoid, enum :: [Derive]
 stream = [DShow, DGeneric]
@@ -126,7 +126,7 @@ monoid = [DMonoid, DSemigroup]
 enum   = [DOrd, DEnum, DBounded]
 
 derivingBase :: [Derive]
-derivingBase = [DEq, DRead, DShow, DData, DTypeable, DGeneric, DHashable]
+derivingBase = [DEq, DRead, DShow, DData, DTypeable, DGeneric, DHashable, DNFData]
 
 typeDefault :: TType -> Bool
 typeDefault = \case

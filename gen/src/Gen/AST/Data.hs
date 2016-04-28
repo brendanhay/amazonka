@@ -60,7 +60,7 @@ operationData cfg m o = do
     (xd, xs) <- prodData m xa x
     (yd, ys) <- prodData m ya y
 
-    is       <- instances xa <$> requestInsts m (_opName o) h xr xs
+    is       <- addInstances xa <$> requestInsts m (_opName o) h xr xs
 
     cls      <- pp Print $ requestD cfg m h (xr, is) (yr, ys)
 
@@ -87,10 +87,6 @@ operationData cfg m o = do
     yr = o ^. opOutput . _Identity
     xn = identifier xr
 
-    instances s is
-        | isHashable s = IsHashable : is
-        | otherwise    = is
-
 shapeData :: HasMetadata a Identity
           => a
           -> Shape Solved
@@ -100,16 +96,18 @@ shapeData m (a :< s) = case s of
     Enum   i vs            -> Just <$> sumData p a i vs
     Struct st              -> do
         (d, fs) <- prodData m a st
-        is      <- renderInsts p (a ^. annId) (instances fs)
+        is      <- renderInsts p (a ^. annId) (addInstances a (shapeInsts p r fs))
         return $! Just $ Prod a d is
     _                -> return Nothing
   where
     p = m ^. protocol
     r = a ^. relMode
 
-    instances fs
-        | isHashable a = IsHashable : shapeInsts p r fs
-        | otherwise    = shapeInsts p r fs
+addInstances :: TypeOf a => a -> [Inst] -> [Inst]
+addInstances s = f isHashable IsHashable . f isNFData IsNFData
+  where
+    f g x | g s       = (x :)
+          | otherwise = id
 
 errorData :: Solved -> Info -> Either Error SData
 errorData s i = Fun <$> mk

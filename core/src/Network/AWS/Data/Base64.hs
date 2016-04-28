@@ -15,6 +15,7 @@ module Network.AWS.Data.Base64
     , _Base64
     ) where
 
+import           Control.DeepSeq
 import           Data.Aeson.Types
 import qualified Data.Attoparsec.Text        as AText
 import qualified Data.ByteArray.Encoding     as BA
@@ -38,6 +39,7 @@ newtype Base64 = Base64 { unBase64 :: ByteString }
     deriving (Eq, Read, Ord, Data, Typeable, Generic)
 
 instance Hashable Base64
+instance NFData   Base64
 
 _Base64 :: Iso' Base64 ByteString
 _Base64 = iso unBase64 Base64

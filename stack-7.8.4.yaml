@@ -1,4 +1,5 @@
-resolver:   lts-2.21
+resolver:    lts-2.21
+allow-newer: true
 flags:
   amazonka-core:
     old-locale: true

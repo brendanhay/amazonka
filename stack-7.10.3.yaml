@@ -1,4 +1,4 @@
-resolver:   lts-5.8
+resolver:   lts-5.15
 flags:      {}
 extra-deps:
   - unordered-containers-0.2.7.0

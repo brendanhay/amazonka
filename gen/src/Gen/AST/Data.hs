@@ -60,19 +60,20 @@ operationData cfg m o = do
     (xd, xs) <- prodData m xa x
     (yd, ys) <- prodData m ya y
 
-    is       <- addInstances xa <$> requestInsts m (_opName o) h xr xs
+    xis      <- addInstances xa <$> requestInsts m (_opName o) h xr xs
 
-    cls      <- pp Print $ requestD cfg m h (xr, is) (yr, ys)
-
+    cls      <- pp Print $ requestD cfg m h (xr, xis) (yr, ys)
     mpage    <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 
-    is' <- maybe id (Map.insert "AWSPager") mpage
+    yis'     <- renderInsts p yn (responseInsts ys)
+    xis'     <-
+           maybe id (Map.insert "AWSPager") mpage
          . Map.insert "AWSRequest" cls
-        <$> renderInsts p xn is
+        <$> renderInsts p xn xis
 
     return $! o
-        { _opInput  = Identity $ Prod (xa & relShared .~ 0) xd is'
-        , _opOutput = Identity $ Prod ya yd mempty
+        { _opInput  = Identity $ Prod (xa & relShared .~ 0) xd xis'
+        , _opOutput = Identity $ Prod ya                    yd yis'
         }
   where
     struct (a :< Struct s) = Right (a, s)
@@ -82,10 +83,12 @@ operationData cfg m o = do
 
     p  = m ^. protocol
     h  = o ^. opHTTP
-      --
+
     xr = o ^. opInput  . _Identity
     yr = o ^. opOutput . _Identity
+
     xn = identifier xr
+    yn = identifier yr
 
 shapeData :: HasMetadata a Identity
           => a

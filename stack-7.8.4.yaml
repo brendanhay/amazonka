@@ -11,6 +11,10 @@ extra-deps:
   - unordered-containers-0.2.7.0
   - deepseq-1.4.1.1
 packages:
+  # Fix for GHC 7.8.4 builds to due restrictive Control.Applicative imports:
+  - location:
+      git: https://github.com/chrisdone/ini.git
+      commit: 03d73a4ceecda53ecdc2b8373485a51fafa58051
   - core
   - test
   - examples
@@ -64,7 +68,6 @@ packages:
   - amazonka-route53
   - amazonka-route53-domains
   - amazonka-s3
-  - amazonka-s3-encryption
   - amazonka-sdb
   - amazonka-ses
   - amazonka-sns

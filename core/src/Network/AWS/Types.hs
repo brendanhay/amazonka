@@ -122,6 +122,7 @@ module Network.AWS.Types
 
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
+import           Control.DeepSeq
 import           Control.Exception
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
@@ -572,6 +573,7 @@ data Region
       deriving (Eq, Ord, Read, Show, Data, Typeable, Generic)
 
 instance Hashable Region
+instance NFData   Region
 
 instance FromText Region where
     parser = takeLowerText >>= \case
@@ -631,6 +633,9 @@ newtype Seconds = Seconds Int
         , ToByteString
         , ToText
         )
+
+instance Hashable Seconds
+instance NFData   Seconds
 
 instance ToLog Seconds where
     build s = build (seconds s) <> "s"

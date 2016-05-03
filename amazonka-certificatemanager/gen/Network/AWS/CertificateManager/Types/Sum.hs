@@ -52,6 +52,7 @@ instance ToText CertificateStatus where
         ValidationTimedOut -> "VALIDATION_TIMED_OUT"
 
 instance Hashable     CertificateStatus
+instance NFData       CertificateStatus
 instance ToByteString CertificateStatus
 instance ToQuery      CertificateStatus
 instance ToHeader     CertificateStatus
@@ -80,6 +81,7 @@ instance ToText KeyAlgorithm where
         Rsa2048 -> "RSA_2048"
 
 instance Hashable     KeyAlgorithm
+instance NFData       KeyAlgorithm
 instance ToByteString KeyAlgorithm
 instance ToQuery      KeyAlgorithm
 instance ToHeader     KeyAlgorithm
@@ -129,6 +131,7 @@ instance ToText RevocationReason where
         Unspecified -> "UNSPECIFIED"
 
 instance Hashable     RevocationReason
+instance NFData       RevocationReason
 instance ToByteString RevocationReason
 instance ToQuery      RevocationReason
 instance ToHeader     RevocationReason

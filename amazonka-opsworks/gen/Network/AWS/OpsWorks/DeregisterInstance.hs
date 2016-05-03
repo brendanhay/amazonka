@@ -78,6 +78,8 @@ instance AWSRequest DeregisterInstance where
 
 instance Hashable DeregisterInstance
 
+instance NFData DeregisterInstance
+
 instance ToHeaders DeregisterInstance where
         toHeaders
           = const
@@ -109,3 +111,5 @@ data DeregisterInstanceResponse =
 deregisterInstanceResponse
     :: DeregisterInstanceResponse
 deregisterInstanceResponse = DeregisterInstanceResponse'
+
+instance NFData DeregisterInstanceResponse

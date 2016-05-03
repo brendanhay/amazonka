@@ -90,6 +90,8 @@ instance AWSRequest DetachAssessmentAndRulesPackage
 
 instance Hashable DetachAssessmentAndRulesPackage
 
+instance NFData DetachAssessmentAndRulesPackage
+
 instance ToHeaders DetachAssessmentAndRulesPackage
          where
         toHeaders
@@ -144,3 +146,6 @@ daarprsMessage = lens _daarprsMessage (\ s a -> s{_daarprsMessage = a});
 -- | The response status code.
 daarprsResponseStatus :: Lens' DetachAssessmentAndRulesPackageResponse Int
 daarprsResponseStatus = lens _daarprsResponseStatus (\ s a -> s{_daarprsResponseStatus = a});
+
+instance NFData
+         DetachAssessmentAndRulesPackageResponse

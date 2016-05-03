@@ -81,6 +81,8 @@ instance AWSRequest DeleteKeyPair where
 
 instance Hashable DeleteKeyPair
 
+instance NFData DeleteKeyPair
+
 instance ToHeaders DeleteKeyPair where
         toHeaders = const mempty
 
@@ -104,3 +106,5 @@ data DeleteKeyPairResponse =
 deleteKeyPairResponse
     :: DeleteKeyPairResponse
 deleteKeyPairResponse = DeleteKeyPairResponse'
+
+instance NFData DeleteKeyPairResponse

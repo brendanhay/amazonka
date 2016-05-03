@@ -196,6 +196,8 @@ instance AWSRequest AddPermission where
 
 instance Hashable AddPermission
 
+instance NFData AddPermission
+
 instance ToHeaders AddPermission where
         toHeaders = const mempty
 
@@ -250,3 +252,5 @@ aprsStatement = lens _aprsStatement (\ s a -> s{_aprsStatement = a});
 -- | The response status code.
 aprsResponseStatus :: Lens' AddPermissionResponse Int
 aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a});
+
+instance NFData AddPermissionResponse

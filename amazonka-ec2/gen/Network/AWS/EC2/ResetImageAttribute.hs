@@ -94,6 +94,8 @@ instance AWSRequest ResetImageAttribute where
 
 instance Hashable ResetImageAttribute
 
+instance NFData ResetImageAttribute
+
 instance ToHeaders ResetImageAttribute where
         toHeaders = const mempty
 
@@ -118,3 +120,5 @@ data ResetImageAttributeResponse =
 resetImageAttributeResponse
     :: ResetImageAttributeResponse
 resetImageAttributeResponse = ResetImageAttributeResponse'
+
+instance NFData ResetImageAttributeResponse

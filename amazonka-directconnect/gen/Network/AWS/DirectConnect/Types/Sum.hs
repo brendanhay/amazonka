@@ -73,6 +73,7 @@ instance ToText ConnectionState where
         CSRequested -> "requested"
 
 instance Hashable     ConnectionState
+instance NFData       ConnectionState
 instance ToByteString ConnectionState
 instance ToQuery      ConnectionState
 instance ToHeader     ConnectionState
@@ -122,6 +123,7 @@ instance ToText InterconnectState where
         ISRequested -> "requested"
 
 instance Hashable     InterconnectState
+instance NFData       InterconnectState
 instance ToByteString InterconnectState
 instance ToQuery      InterconnectState
 instance ToHeader     InterconnectState
@@ -185,6 +187,7 @@ instance ToText VirtualInterfaceState where
         Verifying -> "verifying"
 
 instance Hashable     VirtualInterfaceState
+instance NFData       VirtualInterfaceState
 instance ToByteString VirtualInterfaceState
 instance ToQuery      VirtualInterfaceState
 instance ToHeader     VirtualInterfaceState

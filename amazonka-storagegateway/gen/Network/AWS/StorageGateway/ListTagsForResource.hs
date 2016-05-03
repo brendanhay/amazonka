@@ -104,6 +104,8 @@ instance AWSRequest ListTagsForResource where
 
 instance Hashable ListTagsForResource
 
+instance NFData ListTagsForResource
+
 instance ToHeaders ListTagsForResource where
         toHeaders
           = const
@@ -177,3 +179,5 @@ ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Default . _Coerce
 -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
+
+instance NFData ListTagsForResourceResponse

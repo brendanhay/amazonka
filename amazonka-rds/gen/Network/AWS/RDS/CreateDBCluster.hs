@@ -343,6 +343,8 @@ instance AWSRequest CreateDBCluster where
 
 instance Hashable CreateDBCluster
 
+instance NFData CreateDBCluster
+
 instance ToHeaders CreateDBCluster where
         toHeaders = const mempty
 
@@ -411,3 +413,5 @@ cdcrsDBCluster = lens _cdcrsDBCluster (\ s a -> s{_cdcrsDBCluster = a});
 -- | The response status code.
 cdcrsResponseStatus :: Lens' CreateDBClusterResponse Int
 cdcrsResponseStatus = lens _cdcrsResponseStatus (\ s a -> s{_cdcrsResponseStatus = a});
+
+instance NFData CreateDBClusterResponse

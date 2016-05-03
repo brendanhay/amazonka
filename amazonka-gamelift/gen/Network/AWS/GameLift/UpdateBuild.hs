@@ -100,6 +100,8 @@ instance AWSRequest UpdateBuild where
 
 instance Hashable UpdateBuild
 
+instance NFData UpdateBuild
+
 instance ToHeaders UpdateBuild where
         toHeaders
           = const
@@ -154,3 +156,5 @@ ubrsBuild = lens _ubrsBuild (\ s a -> s{_ubrsBuild = a});
 -- | The response status code.
 ubrsResponseStatus :: Lens' UpdateBuildResponse Int
 ubrsResponseStatus = lens _ubrsResponseStatus (\ s a -> s{_ubrsResponseStatus = a});
+
+instance NFData UpdateBuildResponse

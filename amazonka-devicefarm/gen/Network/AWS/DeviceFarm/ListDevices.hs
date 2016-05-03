@@ -89,6 +89,8 @@ instance AWSRequest ListDevices where
 
 instance Hashable ListDevices
 
+instance NFData ListDevices
+
 instance ToHeaders ListDevices where
         toHeaders
           = const
@@ -152,3 +154,5 @@ ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coe
 -- | The response status code.
 ldrsResponseStatus :: Lens' ListDevicesResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+
+instance NFData ListDevicesResponse

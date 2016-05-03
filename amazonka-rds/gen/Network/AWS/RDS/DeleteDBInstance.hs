@@ -142,6 +142,8 @@ instance AWSRequest DeleteDBInstance where
 
 instance Hashable DeleteDBInstance
 
+instance NFData DeleteDBInstance
+
 instance ToHeaders DeleteDBInstance where
         toHeaders = const mempty
 
@@ -187,3 +189,5 @@ ddirsDBInstance = lens _ddirsDBInstance (\ s a -> s{_ddirsDBInstance = a});
 -- | The response status code.
 ddirsResponseStatus :: Lens' DeleteDBInstanceResponse Int
 ddirsResponseStatus = lens _ddirsResponseStatus (\ s a -> s{_ddirsResponseStatus = a});
+
+instance NFData DeleteDBInstanceResponse

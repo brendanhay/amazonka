@@ -110,6 +110,8 @@ instance AWSRequest DescribeElasticIPs where
 
 instance Hashable DescribeElasticIPs
 
+instance NFData DescribeElasticIPs
+
 instance ToHeaders DescribeElasticIPs where
         toHeaders
           = const
@@ -166,3 +168,5 @@ deirsElasticIPs = lens _deirsElasticIPs (\ s a -> s{_deirsElasticIPs = a}) . _De
 -- | The response status code.
 deirsResponseStatus :: Lens' DescribeElasticIPsResponse Int
 deirsResponseStatus = lens _deirsResponseStatus (\ s a -> s{_deirsResponseStatus = a});
+
+instance NFData DescribeElasticIPsResponse

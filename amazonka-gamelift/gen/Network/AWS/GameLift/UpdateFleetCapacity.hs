@@ -122,6 +122,8 @@ instance AWSRequest UpdateFleetCapacity where
 
 instance Hashable UpdateFleetCapacity
 
+instance NFData UpdateFleetCapacity
+
 instance ToHeaders UpdateFleetCapacity where
         toHeaders
           = const
@@ -177,3 +179,5 @@ ufcrsFleetId = lens _ufcrsFleetId (\ s a -> s{_ufcrsFleetId = a});
 -- | The response status code.
 ufcrsResponseStatus :: Lens' UpdateFleetCapacityResponse Int
 ufcrsResponseStatus = lens _ufcrsResponseStatus (\ s a -> s{_ufcrsResponseStatus = a});
+
+instance NFData UpdateFleetCapacityResponse

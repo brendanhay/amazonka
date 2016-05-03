@@ -213,6 +213,8 @@ instance AWSRequest DescribeInstanceStatus where
 
 instance Hashable DescribeInstanceStatus
 
+instance NFData DescribeInstanceStatus
+
 instance ToHeaders DescribeInstanceStatus where
         toHeaders = const mempty
 
@@ -271,3 +273,5 @@ disrsNextToken = lens _disrsNextToken (\ s a -> s{_disrsNextToken = a});
 -- | The response status code.
 disrsResponseStatus :: Lens' DescribeInstanceStatusResponse Int
 disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
+
+instance NFData DescribeInstanceStatusResponse

@@ -127,6 +127,8 @@ instance AWSRequest ModifyVPCEndpoint where
 
 instance Hashable ModifyVPCEndpoint
 
+instance NFData ModifyVPCEndpoint
+
 instance ToHeaders ModifyVPCEndpoint where
         toHeaders = const mempty
 
@@ -178,3 +180,5 @@ mversReturn = lens _mversReturn (\ s a -> s{_mversReturn = a});
 -- | The response status code.
 mversResponseStatus :: Lens' ModifyVPCEndpointResponse Int
 mversResponseStatus = lens _mversResponseStatus (\ s a -> s{_mversResponseStatus = a});
+
+instance NFData ModifyVPCEndpointResponse

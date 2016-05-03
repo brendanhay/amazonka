@@ -88,6 +88,8 @@ instance AWSRequest DeleteLifecycleHook where
 
 instance Hashable DeleteLifecycleHook
 
+instance NFData DeleteLifecycleHook
+
 instance ToHeaders DeleteLifecycleHook where
         toHeaders = const mempty
 
@@ -123,3 +125,5 @@ deleteLifecycleHookResponse pResponseStatus_ =
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteLifecycleHookResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteLifecycleHookResponse

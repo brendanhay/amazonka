@@ -78,6 +78,8 @@ instance AWSRequest DeleteInstanceProfile where
 
 instance Hashable DeleteInstanceProfile
 
+instance NFData DeleteInstanceProfile
+
 instance ToHeaders DeleteInstanceProfile where
         toHeaders = const mempty
 
@@ -101,3 +103,5 @@ data DeleteInstanceProfileResponse =
 deleteInstanceProfileResponse
     :: DeleteInstanceProfileResponse
 deleteInstanceProfileResponse = DeleteInstanceProfileResponse'
+
+instance NFData DeleteInstanceProfileResponse

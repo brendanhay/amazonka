@@ -102,6 +102,8 @@ instance AWSRequest GetRecords where
 
 instance Hashable GetRecords
 
+instance NFData GetRecords
+
 instance ToHeaders GetRecords where
         toHeaders
           = const
@@ -167,3 +169,5 @@ grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIt
 -- | The response status code.
 grrsResponseStatus :: Lens' GetRecordsResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+
+instance NFData GetRecordsResponse

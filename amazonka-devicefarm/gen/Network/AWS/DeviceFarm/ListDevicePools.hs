@@ -109,6 +109,8 @@ instance AWSRequest ListDevicePools where
 
 instance Hashable ListDevicePools
 
+instance NFData ListDevicePools
+
 instance ToHeaders ListDevicePools where
         toHeaders
           = const
@@ -173,3 +175,5 @@ ldprsNextToken = lens _ldprsNextToken (\ s a -> s{_ldprsNextToken = a});
 -- | The response status code.
 ldprsResponseStatus :: Lens' ListDevicePoolsResponse Int
 ldprsResponseStatus = lens _ldprsResponseStatus (\ s a -> s{_ldprsResponseStatus = a});
+
+instance NFData ListDevicePoolsResponse

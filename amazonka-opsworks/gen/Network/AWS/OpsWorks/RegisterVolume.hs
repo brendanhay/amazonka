@@ -94,6 +94,8 @@ instance AWSRequest RegisterVolume where
 
 instance Hashable RegisterVolume
 
+instance NFData RegisterVolume
+
 instance ToHeaders RegisterVolume where
         toHeaders
           = const
@@ -147,3 +149,5 @@ rvrsVolumeId = lens _rvrsVolumeId (\ s a -> s{_rvrsVolumeId = a});
 -- | The response status code.
 rvrsResponseStatus :: Lens' RegisterVolumeResponse Int
 rvrsResponseStatus = lens _rvrsResponseStatus (\ s a -> s{_rvrsResponseStatus = a});
+
+instance NFData RegisterVolumeResponse

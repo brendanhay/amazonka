@@ -108,6 +108,8 @@ instance AWSRequest CreateVirtualMFADevice where
 
 instance Hashable CreateVirtualMFADevice
 
+instance NFData CreateVirtualMFADevice
+
 instance ToHeaders CreateVirtualMFADevice where
         toHeaders = const mempty
 
@@ -155,3 +157,5 @@ cvmdrsResponseStatus = lens _cvmdrsResponseStatus (\ s a -> s{_cvmdrsResponseSta
 -- | A newly created virtual MFA device.
 cvmdrsVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
 cvmdrsVirtualMFADevice = lens _cvmdrsVirtualMFADevice (\ s a -> s{_cvmdrsVirtualMFADevice = a});
+
+instance NFData CreateVirtualMFADeviceResponse

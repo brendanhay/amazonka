@@ -93,6 +93,8 @@ instance AWSRequest InitiateLayerUpload where
 
 instance Hashable InitiateLayerUpload
 
+instance NFData InitiateLayerUpload
+
 instance ToHeaders InitiateLayerUpload where
         toHeaders
           = const
@@ -155,3 +157,5 @@ ilursUploadId = lens _ilursUploadId (\ s a -> s{_ilursUploadId = a});
 -- | The response status code.
 ilursResponseStatus :: Lens' InitiateLayerUploadResponse Int
 ilursResponseStatus = lens _ilursResponseStatus (\ s a -> s{_ilursResponseStatus = a});
+
+instance NFData InitiateLayerUploadResponse

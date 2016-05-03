@@ -69,6 +69,8 @@ instance FromJSON BufferingHints where
 
 instance Hashable BufferingHints
 
+instance NFData BufferingHints
+
 instance ToJSON BufferingHints where
         toJSON BufferingHints'{..}
           = object
@@ -148,6 +150,8 @@ instance FromJSON CopyCommand where
                      <*> (x .: "DataTableName"))
 
 instance Hashable CopyCommand
+
+instance NFData CopyCommand
 
 instance ToJSON CopyCommand where
         toJSON CopyCommand'{..}
@@ -261,6 +265,8 @@ instance FromJSON DeliveryStreamDescription where
 
 instance Hashable DeliveryStreamDescription
 
+instance NFData DeliveryStreamDescription
+
 -- | Describes the destination for a delivery stream.
 --
 -- /See:/ 'destinationDescription' smart constructor.
@@ -312,6 +318,8 @@ instance FromJSON DestinationDescription where
 
 instance Hashable DestinationDescription
 
+instance NFData DestinationDescription
+
 -- | Describes the encryption for a destination in Amazon S3.
 --
 -- /See:/ 'encryptionConfiguration' smart constructor.
@@ -354,6 +362,8 @@ instance FromJSON EncryptionConfiguration where
 
 instance Hashable EncryptionConfiguration
 
+instance NFData EncryptionConfiguration
+
 instance ToJSON EncryptionConfiguration where
         toJSON EncryptionConfiguration'{..}
           = object
@@ -394,6 +404,8 @@ instance FromJSON KMSEncryptionConfig where
                  KMSEncryptionConfig' <$> (x .: "AWSKMSKeyARN"))
 
 instance Hashable KMSEncryptionConfig
+
+instance NFData KMSEncryptionConfig
 
 instance ToJSON KMSEncryptionConfig where
         toJSON KMSEncryptionConfig'{..}
@@ -453,6 +465,8 @@ instance FromJSON PutRecordBatchResponseEntry where
 
 instance Hashable PutRecordBatchResponseEntry
 
+instance NFData PutRecordBatchResponseEntry
+
 -- | The unit of data in a delivery stream.
 --
 -- /See:/ 'record' smart constructor.
@@ -485,6 +499,8 @@ rData :: Lens' Record ByteString
 rData = lens _rData (\ s a -> s{_rData = a}) . _Base64;
 
 instance Hashable Record
+
+instance NFData Record
 
 instance ToJSON Record where
         toJSON Record'{..}
@@ -567,6 +583,8 @@ rdcS3Configuration :: Lens' RedshiftDestinationConfiguration S3DestinationConfig
 rdcS3Configuration = lens _rdcS3Configuration (\ s a -> s{_rdcS3Configuration = a});
 
 instance Hashable RedshiftDestinationConfiguration
+
+instance NFData RedshiftDestinationConfiguration
 
 instance ToJSON RedshiftDestinationConfiguration
          where
@@ -653,6 +671,8 @@ instance FromJSON RedshiftDestinationDescription
 
 instance Hashable RedshiftDestinationDescription
 
+instance NFData RedshiftDestinationDescription
+
 -- | Describes an update for a destination in Amazon Redshift.
 --
 -- /See:/ 'redshiftDestinationUpdate' smart constructor.
@@ -722,6 +742,8 @@ rduRoleARN :: Lens' RedshiftDestinationUpdate (Maybe Text)
 rduRoleARN = lens _rduRoleARN (\ s a -> s{_rduRoleARN = a});
 
 instance Hashable RedshiftDestinationUpdate
+
+instance NFData RedshiftDestinationUpdate
 
 instance ToJSON RedshiftDestinationUpdate where
         toJSON RedshiftDestinationUpdate'{..}
@@ -812,6 +834,8 @@ sdcBucketARN :: Lens' S3DestinationConfiguration Text
 sdcBucketARN = lens _sdcBucketARN (\ s a -> s{_sdcBucketARN = a});
 
 instance Hashable S3DestinationConfiguration
+
+instance NFData S3DestinationConfiguration
 
 instance ToJSON S3DestinationConfiguration where
         toJSON S3DestinationConfiguration'{..}
@@ -914,6 +938,8 @@ instance FromJSON S3DestinationDescription where
 
 instance Hashable S3DestinationDescription
 
+instance NFData S3DestinationDescription
+
 -- | Describes an update for a destination in Amazon S3.
 --
 -- /See:/ 's3DestinationUpdate' smart constructor.
@@ -990,6 +1016,8 @@ sduRoleARN :: Lens' S3DestinationUpdate (Maybe Text)
 sduRoleARN = lens _sduRoleARN (\ s a -> s{_sduRoleARN = a});
 
 instance Hashable S3DestinationUpdate
+
+instance NFData S3DestinationUpdate
 
 instance ToJSON S3DestinationUpdate where
         toJSON S3DestinationUpdate'{..}

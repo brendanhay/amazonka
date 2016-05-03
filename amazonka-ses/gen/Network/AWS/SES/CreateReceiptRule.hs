@@ -100,6 +100,8 @@ instance AWSRequest CreateReceiptRule where
 
 instance Hashable CreateReceiptRule
 
+instance NFData CreateReceiptRule
+
 instance ToHeaders CreateReceiptRule where
         toHeaders = const mempty
 
@@ -135,3 +137,5 @@ createReceiptRuleResponse pResponseStatus_ =
 -- | The response status code.
 crrrsResponseStatus :: Lens' CreateReceiptRuleResponse Int
 crrrsResponseStatus = lens _crrrsResponseStatus (\ s a -> s{_crrrsResponseStatus = a});
+
+instance NFData CreateReceiptRuleResponse

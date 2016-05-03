@@ -101,6 +101,8 @@ instance AWSRequest AddWorkingStorage where
 
 instance Hashable AddWorkingStorage
 
+instance NFData AddWorkingStorage
+
 instance ToHeaders AddWorkingStorage where
         toHeaders
           = const
@@ -156,3 +158,5 @@ awsrsGatewayARN = lens _awsrsGatewayARN (\ s a -> s{_awsrsGatewayARN = a});
 -- | The response status code.
 awsrsResponseStatus :: Lens' AddWorkingStorageResponse Int
 awsrsResponseStatus = lens _awsrsResponseStatus (\ s a -> s{_awsrsResponseStatus = a});
+
+instance NFData AddWorkingStorageResponse

@@ -92,6 +92,8 @@ instance AWSRequest UpdateLoginProfile where
 
 instance Hashable UpdateLoginProfile
 
+instance NFData UpdateLoginProfile
+
 instance ToHeaders UpdateLoginProfile where
         toHeaders = const mempty
 
@@ -117,3 +119,5 @@ data UpdateLoginProfileResponse =
 updateLoginProfileResponse
     :: UpdateLoginProfileResponse
 updateLoginProfileResponse = UpdateLoginProfileResponse'
+
+instance NFData UpdateLoginProfileResponse

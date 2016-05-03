@@ -94,6 +94,8 @@ instance AWSRequest DescribeEventTopics where
 
 instance Hashable DescribeEventTopics
 
+instance NFData DescribeEventTopics
+
 instance ToHeaders DescribeEventTopics where
         toHeaders
           = const
@@ -147,3 +149,5 @@ detrsEventTopics = lens _detrsEventTopics (\ s a -> s{_detrsEventTopics = a}) . 
 -- | The response status code.
 detrsResponseStatus :: Lens' DescribeEventTopicsResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
+
+instance NFData DescribeEventTopicsResponse

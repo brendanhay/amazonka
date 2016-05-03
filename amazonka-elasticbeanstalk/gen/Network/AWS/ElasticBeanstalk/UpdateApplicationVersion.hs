@@ -104,6 +104,8 @@ instance AWSRequest UpdateApplicationVersion where
 
 instance Hashable UpdateApplicationVersion
 
+instance NFData UpdateApplicationVersion
+
 instance ToHeaders UpdateApplicationVersion where
         toHeaders = const mempty
 

@@ -136,6 +136,8 @@ instance AWSRequest DescribeAddresses where
 
 instance Hashable DescribeAddresses
 
+instance NFData DescribeAddresses
+
 instance ToHeaders DescribeAddresses where
         toHeaders = const mempty
 
@@ -182,3 +184,5 @@ darsAddresses = lens _darsAddresses (\ s a -> s{_darsAddresses = a}) . _Default 
 -- | The response status code.
 darsResponseStatus :: Lens' DescribeAddressesResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+
+instance NFData DescribeAddressesResponse

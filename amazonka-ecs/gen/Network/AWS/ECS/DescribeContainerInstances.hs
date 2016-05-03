@@ -92,6 +92,8 @@ instance AWSRequest DescribeContainerInstances where
 
 instance Hashable DescribeContainerInstances
 
+instance NFData DescribeContainerInstances
+
 instance ToHeaders DescribeContainerInstances where
         toHeaders
           = const
@@ -153,3 +155,5 @@ dcisrsContainerInstances = lens _dcisrsContainerInstances (\ s a -> s{_dcisrsCon
 -- | The response status code.
 dcisrsResponseStatus :: Lens' DescribeContainerInstancesResponse Int
 dcisrsResponseStatus = lens _dcisrsResponseStatus (\ s a -> s{_dcisrsResponseStatus = a});
+
+instance NFData DescribeContainerInstancesResponse

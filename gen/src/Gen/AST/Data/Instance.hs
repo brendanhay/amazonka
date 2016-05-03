@@ -39,6 +39,7 @@ data Inst
     | ToPath    [Either Text Field]
     | ToBody    Field
     | IsHashable
+    | IsNFData
 
 instance ToJSON Inst where
     toJSON = toJSON . instToText
@@ -55,6 +56,7 @@ instToText = \case
     ToPath     {} -> "ToPath"
     ToBody     {} -> "ToBody"
     IsHashable    -> "Hashable"
+    IsNFData      -> "NFData"
 
 shapeInsts :: Protocol -> Mode -> [Field] -> [Inst]
 shapeInsts p m fs = go m
@@ -82,6 +84,13 @@ shapeInsts p m fs = go m
         Query      -> FromXML
         EC2        -> FromXML
         APIGateway -> FromJSON
+
+responseInsts :: [Field] -> [Inst]
+responseInsts fs
+    | stream    = mempty
+    | otherwise = [IsNFData]
+  where
+    (not . null -> stream, _) = partition fieldStream (notLocated fs)
 
 requestInsts :: HasMetadata a f
              => a
@@ -178,12 +187,9 @@ requestInsts m oname h r fs = do
         idem = (h ^. method) `elem` [HEAD, GET, DELETE]
         body = isJust toBody
 
-    (listToMaybe -> stream, fields) = partition fieldStream notLocated
+    (listToMaybe -> stream, fields) = partition fieldStream (notLocated fs)
 
     pay = find fieldLitPayload fields
-
-    notLocated :: [Field]
-    notLocated = satisfy (\l -> isNothing l || Just Body == l) fs
 
     protocolHeaders :: [(Text, Text)]
     protocolHeaders = case p of
@@ -213,6 +219,9 @@ requestInsts m oname h r fs = do
 
     p = m ^. protocol
     n = identifier r
+
+notLocated :: [Field] -> [Field]
+notLocated = satisfy (\l -> isNothing l || Just Body == l)
 
 uriFields :: (Foldable f, Traversable t)
           => Id

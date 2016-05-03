@@ -91,6 +91,8 @@ instance AWSRequest RemoveRoleFromInstanceProfile
 
 instance Hashable RemoveRoleFromInstanceProfile
 
+instance NFData RemoveRoleFromInstanceProfile
+
 instance ToHeaders RemoveRoleFromInstanceProfile
          where
         toHeaders = const mempty
@@ -117,3 +119,5 @@ data RemoveRoleFromInstanceProfileResponse =
 removeRoleFromInstanceProfileResponse
     :: RemoveRoleFromInstanceProfileResponse
 removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse'
+
+instance NFData RemoveRoleFromInstanceProfileResponse

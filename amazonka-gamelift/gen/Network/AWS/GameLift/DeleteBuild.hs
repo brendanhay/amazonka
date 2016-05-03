@@ -75,6 +75,8 @@ instance AWSRequest DeleteBuild where
 
 instance Hashable DeleteBuild
 
+instance NFData DeleteBuild
+
 instance ToHeaders DeleteBuild where
         toHeaders
           = const
@@ -104,3 +106,5 @@ data DeleteBuildResponse =
 deleteBuildResponse
     :: DeleteBuildResponse
 deleteBuildResponse = DeleteBuildResponse'
+
+instance NFData DeleteBuildResponse

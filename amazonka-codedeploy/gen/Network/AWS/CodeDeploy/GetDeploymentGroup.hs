@@ -90,6 +90,8 @@ instance AWSRequest GetDeploymentGroup where
 
 instance Hashable GetDeploymentGroup
 
+instance NFData GetDeploymentGroup
+
 instance ToHeaders GetDeploymentGroup where
         toHeaders
           = const
@@ -145,3 +147,5 @@ gdgrsDeploymentGroupInfo = lens _gdgrsDeploymentGroupInfo (\ s a -> s{_gdgrsDepl
 -- | The response status code.
 gdgrsResponseStatus :: Lens' GetDeploymentGroupResponse Int
 gdgrsResponseStatus = lens _gdgrsResponseStatus (\ s a -> s{_gdgrsResponseStatus = a});
+
+instance NFData GetDeploymentGroupResponse

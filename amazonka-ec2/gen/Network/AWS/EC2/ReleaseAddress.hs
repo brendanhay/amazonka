@@ -104,6 +104,8 @@ instance AWSRequest ReleaseAddress where
 
 instance Hashable ReleaseAddress
 
+instance NFData ReleaseAddress
+
 instance ToHeaders ReleaseAddress where
         toHeaders = const mempty
 
@@ -128,3 +130,5 @@ data ReleaseAddressResponse =
 releaseAddressResponse
     :: ReleaseAddressResponse
 releaseAddressResponse = ReleaseAddressResponse'
+
+instance NFData ReleaseAddressResponse

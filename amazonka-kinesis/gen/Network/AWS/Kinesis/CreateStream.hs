@@ -129,6 +129,8 @@ instance AWSRequest CreateStream where
 
 instance Hashable CreateStream
 
+instance NFData CreateStream
+
 instance ToHeaders CreateStream where
         toHeaders
           = const
@@ -161,3 +163,5 @@ data CreateStreamResponse =
 createStreamResponse
     :: CreateStreamResponse
 createStreamResponse = CreateStreamResponse'
+
+instance NFData CreateStreamResponse

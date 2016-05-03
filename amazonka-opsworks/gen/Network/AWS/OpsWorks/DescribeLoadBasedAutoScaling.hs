@@ -86,6 +86,8 @@ instance AWSRequest DescribeLoadBasedAutoScaling
 
 instance Hashable DescribeLoadBasedAutoScaling
 
+instance NFData DescribeLoadBasedAutoScaling
+
 instance ToHeaders DescribeLoadBasedAutoScaling where
         toHeaders
           = const
@@ -139,3 +141,5 @@ dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingCon
 -- | The response status code.
 dlbasrsResponseStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
 dlbasrsResponseStatus = lens _dlbasrsResponseStatus (\ s a -> s{_dlbasrsResponseStatus = a});
+
+instance NFData DescribeLoadBasedAutoScalingResponse

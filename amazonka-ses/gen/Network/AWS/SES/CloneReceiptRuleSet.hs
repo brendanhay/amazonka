@@ -96,6 +96,8 @@ instance AWSRequest CloneReceiptRuleSet where
 
 instance Hashable CloneReceiptRuleSet
 
+instance NFData CloneReceiptRuleSet
+
 instance ToHeaders CloneReceiptRuleSet where
         toHeaders = const mempty
 
@@ -131,3 +133,5 @@ cloneReceiptRuleSetResponse pResponseStatus_ =
 -- | The response status code.
 crsResponseStatus :: Lens' CloneReceiptRuleSetResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CloneReceiptRuleSetResponse

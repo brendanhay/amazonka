@@ -104,6 +104,8 @@ instance AWSRequest DescribeVPCAttribute where
 
 instance Hashable DescribeVPCAttribute
 
+instance NFData DescribeVPCAttribute
+
 instance ToHeaders DescribeVPCAttribute where
         toHeaders = const mempty
 
@@ -168,3 +170,5 @@ dvpcarsVPCId = lens _dvpcarsVPCId (\ s a -> s{_dvpcarsVPCId = a});
 -- | The response status code.
 dvpcarsResponseStatus :: Lens' DescribeVPCAttributeResponse Int
 dvpcarsResponseStatus = lens _dvpcarsResponseStatus (\ s a -> s{_dvpcarsResponseStatus = a});
+
+instance NFData DescribeVPCAttributeResponse

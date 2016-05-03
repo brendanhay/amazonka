@@ -105,6 +105,8 @@ instance AWSRequest ListDistributions where
 
 instance Hashable ListDistributions
 
+instance NFData ListDistributions
+
 instance ToHeaders ListDistributions where
         toHeaders = const mempty
 
@@ -148,3 +150,5 @@ ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = 
 -- | The DistributionList type.
 ldrsDistributionList :: Lens' ListDistributionsResponse DistributionList
 ldrsDistributionList = lens _ldrsDistributionList (\ s a -> s{_ldrsDistributionList = a});
+
+instance NFData ListDistributionsResponse

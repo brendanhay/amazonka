@@ -86,6 +86,8 @@ instance AWSRequest RestoreFromSnapshot where
 
 instance Hashable RestoreFromSnapshot
 
+instance NFData RestoreFromSnapshot
+
 instance ToHeaders RestoreFromSnapshot where
         toHeaders
           = const
@@ -130,3 +132,5 @@ restoreFromSnapshotResponse pResponseStatus_ =
 -- | The response status code.
 rfsrsResponseStatus :: Lens' RestoreFromSnapshotResponse Int
 rfsrsResponseStatus = lens _rfsrsResponseStatus (\ s a -> s{_rfsrsResponseStatus = a});
+
+instance NFData RestoreFromSnapshotResponse

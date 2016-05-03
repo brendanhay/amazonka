@@ -143,6 +143,8 @@ instance AWSRequest ReplaceRoute where
 
 instance Hashable ReplaceRoute
 
+instance NFData ReplaceRoute
+
 instance ToHeaders ReplaceRoute where
         toHeaders = const mempty
 
@@ -173,3 +175,5 @@ data ReplaceRouteResponse =
 replaceRouteResponse
     :: ReplaceRouteResponse
 replaceRouteResponse = ReplaceRouteResponse'
+
+instance NFData ReplaceRouteResponse

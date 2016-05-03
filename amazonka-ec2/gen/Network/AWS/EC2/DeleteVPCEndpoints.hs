@@ -91,6 +91,8 @@ instance AWSRequest DeleteVPCEndpoints where
 
 instance Hashable DeleteVPCEndpoints
 
+instance NFData DeleteVPCEndpoints
+
 instance ToHeaders DeleteVPCEndpoints where
         toHeaders = const mempty
 
@@ -134,3 +136,5 @@ dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a})
 -- | The response status code.
 dversResponseStatus :: Lens' DeleteVPCEndpointsResponse Int
 dversResponseStatus = lens _dversResponseStatus (\ s a -> s{_dversResponseStatus = a});
+
+instance NFData DeleteVPCEndpointsResponse

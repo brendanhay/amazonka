@@ -89,6 +89,8 @@ instance AWSRequest RemoveAttributesFromFindings
 
 instance Hashable RemoveAttributesFromFindings
 
+instance NFData RemoveAttributesFromFindings
+
 instance ToHeaders RemoveAttributesFromFindings where
         toHeaders
           = const
@@ -141,3 +143,5 @@ raffrsMessage = lens _raffrsMessage (\ s a -> s{_raffrsMessage = a});
 -- | The response status code.
 raffrsResponseStatus :: Lens' RemoveAttributesFromFindingsResponse Int
 raffrsResponseStatus = lens _raffrsResponseStatus (\ s a -> s{_raffrsResponseStatus = a});
+
+instance NFData RemoveAttributesFromFindingsResponse

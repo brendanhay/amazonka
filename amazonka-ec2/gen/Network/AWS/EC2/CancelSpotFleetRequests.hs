@@ -114,6 +114,8 @@ instance AWSRequest CancelSpotFleetRequests where
 
 instance Hashable CancelSpotFleetRequests
 
+instance NFData CancelSpotFleetRequests
+
 instance ToHeaders CancelSpotFleetRequests where
         toHeaders = const mempty
 
@@ -172,3 +174,5 @@ csfrrsUnsuccessfulFleetRequests = lens _csfrrsUnsuccessfulFleetRequests (\ s a -
 -- | The response status code.
 csfrrsResponseStatus :: Lens' CancelSpotFleetRequestsResponse Int
 csfrrsResponseStatus = lens _csfrrsResponseStatus (\ s a -> s{_csfrrsResponseStatus = a});
+
+instance NFData CancelSpotFleetRequestsResponse

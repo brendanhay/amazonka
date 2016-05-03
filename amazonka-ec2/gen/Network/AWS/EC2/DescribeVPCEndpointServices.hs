@@ -107,6 +107,8 @@ instance AWSRequest DescribeVPCEndpointServices where
 
 instance Hashable DescribeVPCEndpointServices
 
+instance NFData DescribeVPCEndpointServices
+
 instance ToHeaders DescribeVPCEndpointServices where
         toHeaders = const mempty
 
@@ -161,3 +163,5 @@ dvesrsNextToken = lens _dvesrsNextToken (\ s a -> s{_dvesrsNextToken = a});
 -- | The response status code.
 dvesrsResponseStatus :: Lens' DescribeVPCEndpointServicesResponse Int
 dvesrsResponseStatus = lens _dvesrsResponseStatus (\ s a -> s{_dvesrsResponseStatus = a});
+
+instance NFData DescribeVPCEndpointServicesResponse

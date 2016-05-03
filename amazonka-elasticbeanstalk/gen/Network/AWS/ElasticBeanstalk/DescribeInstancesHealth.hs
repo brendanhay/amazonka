@@ -115,6 +115,8 @@ instance AWSRequest DescribeInstancesHealth where
 
 instance Hashable DescribeInstancesHealth
 
+instance NFData DescribeInstancesHealth
+
 instance ToHeaders DescribeInstancesHealth where
         toHeaders = const mempty
 
@@ -182,3 +184,5 @@ dihrsRefreshedAt = lens _dihrsRefreshedAt (\ s a -> s{_dihrsRefreshedAt = a}) . 
 -- | The response status code.
 dihrsResponseStatus :: Lens' DescribeInstancesHealthResponse Int
 dihrsResponseStatus = lens _dihrsResponseStatus (\ s a -> s{_dihrsResponseStatus = a});
+
+instance NFData DescribeInstancesHealthResponse

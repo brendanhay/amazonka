@@ -144,6 +144,8 @@ instance AWSRequest GetSessionToken where
 
 instance Hashable GetSessionToken
 
+instance NFData GetSessionToken
+
 instance ToHeaders GetSessionToken where
         toHeaders = const mempty
 
@@ -199,3 +201,5 @@ gstrsCredentials = lens _gstrsCredentials (\ s a -> s{_gstrsCredentials = a});
 -- | The response status code.
 gstrsResponseStatus :: Lens' GetSessionTokenResponse Int
 gstrsResponseStatus = lens _gstrsResponseStatus (\ s a -> s{_gstrsResponseStatus = a});
+
+instance NFData GetSessionTokenResponse

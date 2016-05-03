@@ -109,6 +109,8 @@ instance AWSRequest CreateAlias where
 
 instance Hashable CreateAlias
 
+instance NFData CreateAlias
+
 instance ToHeaders CreateAlias where
         toHeaders
           = const
@@ -163,3 +165,5 @@ carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a});
 -- | The response status code.
 carsResponseStatus :: Lens' CreateAliasResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+
+instance NFData CreateAliasResponse

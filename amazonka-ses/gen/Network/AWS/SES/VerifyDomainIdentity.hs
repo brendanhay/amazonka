@@ -78,6 +78,8 @@ instance AWSRequest VerifyDomainIdentity where
 
 instance Hashable VerifyDomainIdentity
 
+instance NFData VerifyDomainIdentity
+
 instance ToHeaders VerifyDomainIdentity where
         toHeaders = const mempty
 
@@ -122,3 +124,5 @@ vdirsResponseStatus = lens _vdirsResponseStatus (\ s a -> s{_vdirsResponseStatus
 -- order to complete domain verification.
 vdirsVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirsVerificationToken = lens _vdirsVerificationToken (\ s a -> s{_vdirsVerificationToken = a});
+
+instance NFData VerifyDomainIdentityResponse

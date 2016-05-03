@@ -89,6 +89,8 @@ instance AWSRequest DisassociateRouteTable where
 
 instance Hashable DisassociateRouteTable
 
+instance NFData DisassociateRouteTable
+
 instance ToHeaders DisassociateRouteTable where
         toHeaders = const mempty
 
@@ -114,3 +116,5 @@ data DisassociateRouteTableResponse =
 disassociateRouteTableResponse
     :: DisassociateRouteTableResponse
 disassociateRouteTableResponse = DisassociateRouteTableResponse'
+
+instance NFData DisassociateRouteTableResponse

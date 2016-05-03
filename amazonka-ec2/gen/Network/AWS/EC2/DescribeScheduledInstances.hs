@@ -143,6 +143,8 @@ instance AWSRequest DescribeScheduledInstances where
 
 instance Hashable DescribeScheduledInstances
 
+instance NFData DescribeScheduledInstances
+
 instance ToHeaders DescribeScheduledInstances where
         toHeaders = const mempty
 
@@ -204,3 +206,5 @@ dsirsScheduledInstanceSet = lens _dsirsScheduledInstanceSet (\ s a -> s{_dsirsSc
 -- | The response status code.
 dsirsResponseStatus :: Lens' DescribeScheduledInstancesResponse Int
 dsirsResponseStatus = lens _dsirsResponseStatus (\ s a -> s{_dsirsResponseStatus = a});
+
+instance NFData DescribeScheduledInstancesResponse

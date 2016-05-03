@@ -271,6 +271,8 @@ instance AWSRequest CreateLayer where
 
 instance Hashable CreateLayer
 
+instance NFData CreateLayer
+
 instance ToHeaders CreateLayer where
         toHeaders
           = const
@@ -346,3 +348,5 @@ clrsLayerId = lens _clrsLayerId (\ s a -> s{_clrsLayerId = a});
 -- | The response status code.
 clrsResponseStatus :: Lens' CreateLayerResponse Int
 clrsResponseStatus = lens _clrsResponseStatus (\ s a -> s{_clrsResponseStatus = a});
+
+instance NFData CreateLayerResponse

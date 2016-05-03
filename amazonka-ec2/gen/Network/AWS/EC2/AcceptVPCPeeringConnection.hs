@@ -92,6 +92,8 @@ instance AWSRequest AcceptVPCPeeringConnection where
 
 instance Hashable AcceptVPCPeeringConnection
 
+instance NFData AcceptVPCPeeringConnection
+
 instance ToHeaders AcceptVPCPeeringConnection where
         toHeaders = const mempty
 
@@ -137,3 +139,5 @@ avpcrsVPCPeeringConnection = lens _avpcrsVPCPeeringConnection (\ s a -> s{_avpcr
 -- | The response status code.
 avpcrsResponseStatus :: Lens' AcceptVPCPeeringConnectionResponse Int
 avpcrsResponseStatus = lens _avpcrsResponseStatus (\ s a -> s{_avpcrsResponseStatus = a});
+
+instance NFData AcceptVPCPeeringConnectionResponse

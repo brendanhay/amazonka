@@ -90,6 +90,8 @@ instance AWSRequest AttachRolePolicy where
 
 instance Hashable AttachRolePolicy
 
+instance NFData AttachRolePolicy
+
 instance ToHeaders AttachRolePolicy where
         toHeaders = const mempty
 
@@ -114,3 +116,5 @@ data AttachRolePolicyResponse =
 attachRolePolicyResponse
     :: AttachRolePolicyResponse
 attachRolePolicyResponse = AttachRolePolicyResponse'
+
+instance NFData AttachRolePolicyResponse

@@ -86,6 +86,8 @@ instance AWSRequest CreateTopic where
 
 instance Hashable CreateTopic
 
+instance NFData CreateTopic
+
 instance ToHeaders CreateTopic where
         toHeaders = const mempty
 
@@ -130,3 +132,5 @@ ctrsTopicARN = lens _ctrsTopicARN (\ s a -> s{_ctrsTopicARN = a});
 -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTopicResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+
+instance NFData CreateTopicResponse

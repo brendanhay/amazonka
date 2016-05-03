@@ -214,6 +214,8 @@ instance AWSRequest CreateFleet where
 
 instance Hashable CreateFleet
 
+instance NFData CreateFleet
+
 instance ToHeaders CreateFleet where
         toHeaders
           = const
@@ -277,3 +279,5 @@ cfrsFleetAttributes = lens _cfrsFleetAttributes (\ s a -> s{_cfrsFleetAttributes
 -- | The response status code.
 cfrsResponseStatus :: Lens' CreateFleetResponse Int
 cfrsResponseStatus = lens _cfrsResponseStatus (\ s a -> s{_cfrsResponseStatus = a});
+
+instance NFData CreateFleetResponse

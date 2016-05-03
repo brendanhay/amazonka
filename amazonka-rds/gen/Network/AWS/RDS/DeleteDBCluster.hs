@@ -128,6 +128,8 @@ instance AWSRequest DeleteDBCluster where
 
 instance Hashable DeleteDBCluster
 
+instance NFData DeleteDBCluster
+
 instance ToHeaders DeleteDBCluster where
         toHeaders = const mempty
 
@@ -173,3 +175,5 @@ ddbcrsDBCluster = lens _ddbcrsDBCluster (\ s a -> s{_ddbcrsDBCluster = a});
 -- | The response status code.
 ddbcrsResponseStatus :: Lens' DeleteDBClusterResponse Int
 ddbcrsResponseStatus = lens _ddbcrsResponseStatus (\ s a -> s{_ddbcrsResponseStatus = a});
+
+instance NFData DeleteDBClusterResponse

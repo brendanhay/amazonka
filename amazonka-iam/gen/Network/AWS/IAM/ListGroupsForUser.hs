@@ -123,6 +123,8 @@ instance AWSRequest ListGroupsForUser where
 
 instance Hashable ListGroupsForUser
 
+instance NFData ListGroupsForUser
+
 instance ToHeaders ListGroupsForUser where
         toHeaders = const mempty
 
@@ -192,3 +194,5 @@ lgfursResponseStatus = lens _lgfursResponseStatus (\ s a -> s{_lgfursResponseSta
 -- | A list of groups.
 lgfursGroups :: Lens' ListGroupsForUserResponse [Group]
 lgfursGroups = lens _lgfursGroups (\ s a -> s{_lgfursGroups = a}) . _Coerce;
+
+instance NFData ListGroupsForUserResponse

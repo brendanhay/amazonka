@@ -67,6 +67,8 @@ instance AWSRequest DescribeCrossAccountAccessRole
 
 instance Hashable DescribeCrossAccountAccessRole
 
+instance NFData DescribeCrossAccountAccessRole
+
 instance ToHeaders DescribeCrossAccountAccessRole
          where
         toHeaders
@@ -126,3 +128,6 @@ dcaarrsRoleARN = lens _dcaarrsRoleARN (\ s a -> s{_dcaarrsRoleARN = a});
 -- | The response status code.
 dcaarrsResponseStatus :: Lens' DescribeCrossAccountAccessRoleResponse Int
 dcaarrsResponseStatus = lens _dcaarrsResponseStatus (\ s a -> s{_dcaarrsResponseStatus = a});
+
+instance NFData
+         DescribeCrossAccountAccessRoleResponse

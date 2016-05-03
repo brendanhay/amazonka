@@ -119,6 +119,8 @@ instance AWSRequest PutTargets where
 
 instance Hashable PutTargets
 
+instance NFData PutTargets
+
 instance ToHeaders PutTargets where
         toHeaders
           = const
@@ -180,3 +182,5 @@ ptrsFailedEntries = lens _ptrsFailedEntries (\ s a -> s{_ptrsFailedEntries = a})
 -- | The response status code.
 ptrsResponseStatus :: Lens' PutTargetsResponse Int
 ptrsResponseStatus = lens _ptrsResponseStatus (\ s a -> s{_ptrsResponseStatus = a});
+
+instance NFData PutTargetsResponse

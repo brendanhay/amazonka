@@ -134,6 +134,8 @@ instance AWSRequest PutAttributes where
 
 instance Hashable PutAttributes
 
+instance NFData PutAttributes
+
 instance ToHeaders PutAttributes where
         toHeaders = const mempty
 
@@ -160,3 +162,5 @@ data PutAttributesResponse =
 putAttributesResponse
     :: PutAttributesResponse
 putAttributesResponse = PutAttributesResponse'
+
+instance NFData PutAttributesResponse

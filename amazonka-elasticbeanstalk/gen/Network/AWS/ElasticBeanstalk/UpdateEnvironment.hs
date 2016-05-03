@@ -222,6 +222,8 @@ instance AWSRequest UpdateEnvironment where
 
 instance Hashable UpdateEnvironment
 
+instance NFData UpdateEnvironment
+
 instance ToHeaders UpdateEnvironment where
         toHeaders = const mempty
 

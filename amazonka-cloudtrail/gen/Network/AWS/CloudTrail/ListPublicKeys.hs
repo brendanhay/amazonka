@@ -109,6 +109,8 @@ instance AWSRequest ListPublicKeys where
 
 instance Hashable ListPublicKeys
 
+instance NFData ListPublicKeys
+
 instance ToHeaders ListPublicKeys where
         toHeaders
           = const
@@ -175,3 +177,5 @@ lpkrsNextToken = lens _lpkrsNextToken (\ s a -> s{_lpkrsNextToken = a});
 -- | The response status code.
 lpkrsResponseStatus :: Lens' ListPublicKeysResponse Int
 lpkrsResponseStatus = lens _lpkrsResponseStatus (\ s a -> s{_lpkrsResponseStatus = a});
+
+instance NFData ListPublicKeysResponse

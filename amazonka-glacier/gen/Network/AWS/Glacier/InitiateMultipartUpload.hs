@@ -156,6 +156,8 @@ instance AWSRequest InitiateMultipartUpload where
 
 instance Hashable InitiateMultipartUpload
 
+instance NFData InitiateMultipartUpload
+
 instance ToHeaders InitiateMultipartUpload where
         toHeaders InitiateMultipartUpload'{..}
           = mconcat
@@ -215,3 +217,5 @@ imursUploadId = lens _imursUploadId (\ s a -> s{_imursUploadId = a});
 -- | The response status code.
 imursResponseStatus :: Lens' InitiateMultipartUploadResponse Int
 imursResponseStatus = lens _imursResponseStatus (\ s a -> s{_imursResponseStatus = a});
+
+instance NFData InitiateMultipartUploadResponse

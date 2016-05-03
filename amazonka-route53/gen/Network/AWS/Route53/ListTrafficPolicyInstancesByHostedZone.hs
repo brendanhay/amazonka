@@ -170,6 +170,9 @@ instance AWSRequest
 instance Hashable
          ListTrafficPolicyInstancesByHostedZone
 
+instance NFData
+         ListTrafficPolicyInstancesByHostedZone
+
 instance ToHeaders
          ListTrafficPolicyInstancesByHostedZone where
         toHeaders = const mempty
@@ -272,3 +275,6 @@ ltpibhzrsIsTruncated = lens _ltpibhzrsIsTruncated (\ s a -> s{_ltpibhzrsIsTrunca
 -- response.
 ltpibhzrsMaxItems :: Lens' ListTrafficPolicyInstancesByHostedZoneResponse Text
 ltpibhzrsMaxItems = lens _ltpibhzrsMaxItems (\ s a -> s{_ltpibhzrsMaxItems = a});
+
+instance NFData
+         ListTrafficPolicyInstancesByHostedZoneResponse

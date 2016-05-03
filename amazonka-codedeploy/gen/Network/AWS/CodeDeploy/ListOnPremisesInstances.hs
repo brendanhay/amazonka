@@ -112,6 +112,8 @@ instance AWSRequest ListOnPremisesInstances where
 
 instance Hashable ListOnPremisesInstances
 
+instance NFData ListOnPremisesInstances
+
 instance ToHeaders ListOnPremisesInstances where
         toHeaders
           = const
@@ -178,3 +180,5 @@ lopirsInstanceNames = lens _lopirsInstanceNames (\ s a -> s{_lopirsInstanceNames
 -- | The response status code.
 lopirsResponseStatus :: Lens' ListOnPremisesInstancesResponse Int
 lopirsResponseStatus = lens _lopirsResponseStatus (\ s a -> s{_lopirsResponseStatus = a});
+
+instance NFData ListOnPremisesInstancesResponse

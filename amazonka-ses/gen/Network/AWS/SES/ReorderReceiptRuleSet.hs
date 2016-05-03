@@ -94,6 +94,8 @@ instance AWSRequest ReorderReceiptRuleSet where
 
 instance Hashable ReorderReceiptRuleSet
 
+instance NFData ReorderReceiptRuleSet
+
 instance ToHeaders ReorderReceiptRuleSet where
         toHeaders = const mempty
 
@@ -129,3 +131,5 @@ reorderReceiptRuleSetResponse pResponseStatus_ =
 -- | The response status code.
 rrrsrsResponseStatus :: Lens' ReorderReceiptRuleSetResponse Int
 rrrsrsResponseStatus = lens _rrrsrsResponseStatus (\ s a -> s{_rrrsrsResponseStatus = a});
+
+instance NFData ReorderReceiptRuleSetResponse

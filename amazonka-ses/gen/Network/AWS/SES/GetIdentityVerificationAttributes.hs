@@ -84,6 +84,8 @@ instance AWSRequest GetIdentityVerificationAttributes
 
 instance Hashable GetIdentityVerificationAttributes
 
+instance NFData GetIdentityVerificationAttributes
+
 instance ToHeaders GetIdentityVerificationAttributes
          where
         toHeaders = const mempty
@@ -130,3 +132,6 @@ givarsResponseStatus = lens _givarsResponseStatus (\ s a -> s{_givarsResponseSta
 -- | A map of Identities to IdentityVerificationAttributes objects.
 givarsVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (HashMap Text IdentityVerificationAttributes)
 givarsVerificationAttributes = lens _givarsVerificationAttributes (\ s a -> s{_givarsVerificationAttributes = a}) . _Map;
+
+instance NFData
+         GetIdentityVerificationAttributesResponse

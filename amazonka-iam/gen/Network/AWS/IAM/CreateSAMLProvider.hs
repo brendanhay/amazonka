@@ -118,6 +118,8 @@ instance AWSRequest CreateSAMLProvider where
 
 instance Hashable CreateSAMLProvider
 
+instance NFData CreateSAMLProvider
+
 instance ToHeaders CreateSAMLProvider where
         toHeaders = const mempty
 
@@ -164,3 +166,5 @@ csamlprsSAMLProviderARN = lens _csamlprsSAMLProviderARN (\ s a -> s{_csamlprsSAM
 -- | The response status code.
 csamlprsResponseStatus :: Lens' CreateSAMLProviderResponse Int
 csamlprsResponseStatus = lens _csamlprsResponseStatus (\ s a -> s{_csamlprsResponseStatus = a});
+
+instance NFData CreateSAMLProviderResponse

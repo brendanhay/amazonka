@@ -65,6 +65,8 @@ instance AWSRequest DescribeLocations where
 
 instance Hashable DescribeLocations
 
+instance NFData DescribeLocations
+
 instance ToHeaders DescribeLocations where
         toHeaders
           = const
@@ -119,3 +121,5 @@ dlrsLocations = lens _dlrsLocations (\ s a -> s{_dlrsLocations = a}) . _Default 
 -- | The response status code.
 dlrsResponseStatus :: Lens' DescribeLocationsResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+
+instance NFData DescribeLocationsResponse

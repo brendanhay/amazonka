@@ -129,6 +129,8 @@ instance AWSRequest DescribeEnvironments where
 
 instance Hashable DescribeEnvironments
 
+instance NFData DescribeEnvironments
+
 instance ToHeaders DescribeEnvironments where
         toHeaders = const mempty
 

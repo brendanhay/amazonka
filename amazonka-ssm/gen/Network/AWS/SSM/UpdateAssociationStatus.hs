@@ -98,6 +98,8 @@ instance AWSRequest UpdateAssociationStatus where
 
 instance Hashable UpdateAssociationStatus
 
+instance NFData UpdateAssociationStatus
+
 instance ToHeaders UpdateAssociationStatus where
         toHeaders
           = const
@@ -150,3 +152,5 @@ uasrsAssociationDescription = lens _uasrsAssociationDescription (\ s a -> s{_uas
 -- | The response status code.
 uasrsResponseStatus :: Lens' UpdateAssociationStatusResponse Int
 uasrsResponseStatus = lens _uasrsResponseStatus (\ s a -> s{_uasrsResponseStatus = a});
+
+instance NFData UpdateAssociationStatusResponse

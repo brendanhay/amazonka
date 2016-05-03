@@ -73,6 +73,8 @@ instance AWSRequest GenerateClientCertificate where
 
 instance Hashable GenerateClientCertificate
 
+instance NFData GenerateClientCertificate
+
 instance ToHeaders GenerateClientCertificate where
         toHeaders
           = const

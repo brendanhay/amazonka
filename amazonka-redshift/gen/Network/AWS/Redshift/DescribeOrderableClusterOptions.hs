@@ -152,6 +152,8 @@ instance AWSRequest DescribeOrderableClusterOptions
 
 instance Hashable DescribeOrderableClusterOptions
 
+instance NFData DescribeOrderableClusterOptions
+
 instance ToHeaders DescribeOrderableClusterOptions
          where
         toHeaders = const mempty
@@ -216,3 +218,6 @@ docorsOrderableClusterOptions = lens _docorsOrderableClusterOptions (\ s a -> s{
 -- | The response status code.
 docorsResponseStatus :: Lens' DescribeOrderableClusterOptionsResponse Int
 docorsResponseStatus = lens _docorsResponseStatus (\ s a -> s{_docorsResponseStatus = a});
+
+instance NFData
+         DescribeOrderableClusterOptionsResponse

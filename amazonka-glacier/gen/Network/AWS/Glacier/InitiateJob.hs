@@ -229,6 +229,8 @@ instance AWSRequest InitiateJob where
 
 instance Hashable InitiateJob
 
+instance NFData InitiateJob
+
 instance ToHeaders InitiateJob where
         toHeaders = const mempty
 
@@ -286,3 +288,5 @@ ijrsLocation = lens _ijrsLocation (\ s a -> s{_ijrsLocation = a});
 -- | The response status code.
 ijrsResponseStatus :: Lens' InitiateJobResponse Int
 ijrsResponseStatus = lens _ijrsResponseStatus (\ s a -> s{_ijrsResponseStatus = a});
+
+instance NFData InitiateJobResponse

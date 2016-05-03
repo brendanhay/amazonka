@@ -154,6 +154,8 @@ instance AWSRequest CreateDeliveryStream where
 
 instance Hashable CreateDeliveryStream
 
+instance NFData CreateDeliveryStream
+
 instance ToHeaders CreateDeliveryStream where
         toHeaders
           = const
@@ -212,3 +214,5 @@ cdsrsDeliveryStreamARN = lens _cdsrsDeliveryStreamARN (\ s a -> s{_cdsrsDelivery
 -- | The response status code.
 cdsrsResponseStatus :: Lens' CreateDeliveryStreamResponse Int
 cdsrsResponseStatus = lens _cdsrsResponseStatus (\ s a -> s{_cdsrsResponseStatus = a});
+
+instance NFData CreateDeliveryStreamResponse

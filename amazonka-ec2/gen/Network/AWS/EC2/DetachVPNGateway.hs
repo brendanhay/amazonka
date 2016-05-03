@@ -98,6 +98,8 @@ instance AWSRequest DetachVPNGateway where
 
 instance Hashable DetachVPNGateway
 
+instance NFData DetachVPNGateway
+
 instance ToHeaders DetachVPNGateway where
         toHeaders = const mempty
 
@@ -123,3 +125,5 @@ data DetachVPNGatewayResponse =
 detachVPNGatewayResponse
     :: DetachVPNGatewayResponse
 detachVPNGatewayResponse = DetachVPNGatewayResponse'
+
+instance NFData DetachVPNGatewayResponse

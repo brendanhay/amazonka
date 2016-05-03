@@ -125,6 +125,8 @@ instance AWSRequest DescribeDHCPOptions where
 
 instance Hashable DescribeDHCPOptions
 
+instance NFData DescribeDHCPOptions
+
 instance ToHeaders DescribeDHCPOptions where
         toHeaders = const mempty
 
@@ -170,3 +172,5 @@ ddorsDHCPOptions = lens _ddorsDHCPOptions (\ s a -> s{_ddorsDHCPOptions = a}) . 
 -- | The response status code.
 ddorsResponseStatus :: Lens' DescribeDHCPOptionsResponse Int
 ddorsResponseStatus = lens _ddorsResponseStatus (\ s a -> s{_ddorsResponseStatus = a});
+
+instance NFData DescribeDHCPOptionsResponse

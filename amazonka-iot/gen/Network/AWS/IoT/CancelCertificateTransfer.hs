@@ -82,6 +82,8 @@ instance AWSRequest CancelCertificateTransfer where
 
 instance Hashable CancelCertificateTransfer
 
+instance NFData CancelCertificateTransfer
+
 instance ToHeaders CancelCertificateTransfer where
         toHeaders = const mempty
 
@@ -107,3 +109,5 @@ data CancelCertificateTransferResponse =
 cancelCertificateTransferResponse
     :: CancelCertificateTransferResponse
 cancelCertificateTransferResponse = CancelCertificateTransferResponse'
+
+instance NFData CancelCertificateTransferResponse

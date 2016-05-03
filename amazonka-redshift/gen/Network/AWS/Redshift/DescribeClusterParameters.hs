@@ -148,6 +148,8 @@ instance AWSRequest DescribeClusterParameters where
 
 instance Hashable DescribeClusterParameters
 
+instance NFData DescribeClusterParameters
+
 instance ToHeaders DescribeClusterParameters where
         toHeaders = const mempty
 
@@ -210,3 +212,5 @@ dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _De
 -- | The response status code.
 dcprsResponseStatus :: Lens' DescribeClusterParametersResponse Int
 dcprsResponseStatus = lens _dcprsResponseStatus (\ s a -> s{_dcprsResponseStatus = a});
+
+instance NFData DescribeClusterParametersResponse

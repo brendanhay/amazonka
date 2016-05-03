@@ -73,6 +73,8 @@ instance AWSRequest UpdateMyUserProfile where
 
 instance Hashable UpdateMyUserProfile
 
+instance NFData UpdateMyUserProfile
+
 instance ToHeaders UpdateMyUserProfile where
         toHeaders
           = const
@@ -105,3 +107,5 @@ data UpdateMyUserProfileResponse =
 updateMyUserProfileResponse
     :: UpdateMyUserProfileResponse
 updateMyUserProfileResponse = UpdateMyUserProfileResponse'
+
+instance NFData UpdateMyUserProfileResponse

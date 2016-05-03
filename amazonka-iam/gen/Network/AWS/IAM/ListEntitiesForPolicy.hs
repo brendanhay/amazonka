@@ -163,6 +163,8 @@ instance AWSRequest ListEntitiesForPolicy where
 
 instance Hashable ListEntitiesForPolicy
 
+instance NFData ListEntitiesForPolicy
+
 instance ToHeaders ListEntitiesForPolicy where
         toHeaders = const mempty
 
@@ -250,3 +252,5 @@ lefprsIsTruncated = lens _lefprsIsTruncated (\ s a -> s{_lefprsIsTruncated = a})
 -- | The response status code.
 lefprsResponseStatus :: Lens' ListEntitiesForPolicyResponse Int
 lefprsResponseStatus = lens _lefprsResponseStatus (\ s a -> s{_lefprsResponseStatus = a});
+
+instance NFData ListEntitiesForPolicyResponse

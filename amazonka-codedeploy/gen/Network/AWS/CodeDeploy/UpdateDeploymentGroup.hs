@@ -161,6 +161,8 @@ instance AWSRequest UpdateDeploymentGroup where
 
 instance Hashable UpdateDeploymentGroup
 
+instance NFData UpdateDeploymentGroup
+
 instance ToHeaders UpdateDeploymentGroup where
         toHeaders
           = const
@@ -232,3 +234,5 @@ udgrsHooksNotCleanedUp = lens _udgrsHooksNotCleanedUp (\ s a -> s{_udgrsHooksNot
 -- | The response status code.
 udgrsResponseStatus :: Lens' UpdateDeploymentGroupResponse Int
 udgrsResponseStatus = lens _udgrsResponseStatus (\ s a -> s{_udgrsResponseStatus = a});
+
+instance NFData UpdateDeploymentGroupResponse

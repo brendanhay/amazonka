@@ -170,6 +170,8 @@ instance AWSRequest DescribeClusters where
 
 instance Hashable DescribeClusters
 
+instance NFData DescribeClusters
+
 instance ToHeaders DescribeClusters where
         toHeaders = const mempty
 
@@ -232,3 +234,5 @@ dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _
 -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeClustersResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+
+instance NFData DescribeClustersResponse

@@ -100,6 +100,8 @@ instance AWSRequest SetInstanceHealth where
 
 instance Hashable SetInstanceHealth
 
+instance NFData SetInstanceHealth
+
 instance ToHeaders SetInstanceHealth where
         toHeaders = const mempty
 
@@ -126,3 +128,5 @@ data SetInstanceHealthResponse =
 setInstanceHealthResponse
     :: SetInstanceHealthResponse
 setInstanceHealthResponse = SetInstanceHealthResponse'
+
+instance NFData SetInstanceHealthResponse

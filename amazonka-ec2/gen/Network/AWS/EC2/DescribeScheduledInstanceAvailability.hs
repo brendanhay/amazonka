@@ -179,6 +179,8 @@ instance AWSRequest
 instance Hashable
          DescribeScheduledInstanceAvailability
 
+instance NFData DescribeScheduledInstanceAvailability
+
 instance ToHeaders
          DescribeScheduledInstanceAvailability where
         toHeaders = const mempty
@@ -247,3 +249,6 @@ dsiarsNextToken = lens _dsiarsNextToken (\ s a -> s{_dsiarsNextToken = a});
 -- | The response status code.
 dsiarsResponseStatus :: Lens' DescribeScheduledInstanceAvailabilityResponse Int
 dsiarsResponseStatus = lens _dsiarsResponseStatus (\ s a -> s{_dsiarsResponseStatus = a});
+
+instance NFData
+         DescribeScheduledInstanceAvailabilityResponse

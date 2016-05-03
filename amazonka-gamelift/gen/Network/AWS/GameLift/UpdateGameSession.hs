@@ -127,6 +127,8 @@ instance AWSRequest UpdateGameSession where
 
 instance Hashable UpdateGameSession
 
+instance NFData UpdateGameSession
+
 instance ToHeaders UpdateGameSession where
         toHeaders
           = const
@@ -185,3 +187,5 @@ ugsrsGameSession = lens _ugsrsGameSession (\ s a -> s{_ugsrsGameSession = a});
 -- | The response status code.
 ugsrsResponseStatus :: Lens' UpdateGameSessionResponse Int
 ugsrsResponseStatus = lens _ugsrsResponseStatus (\ s a -> s{_ugsrsResponseStatus = a});
+
+instance NFData UpdateGameSessionResponse

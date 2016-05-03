@@ -201,6 +201,8 @@ instance AWSRequest GetFederationToken where
 
 instance Hashable GetFederationToken
 
+instance NFData GetFederationToken
+
 instance ToHeaders GetFederationToken where
         toHeaders = const mempty
 
@@ -276,3 +278,5 @@ gftrsFederatedUser = lens _gftrsFederatedUser (\ s a -> s{_gftrsFederatedUser = 
 -- | The response status code.
 gftrsResponseStatus :: Lens' GetFederationTokenResponse Int
 gftrsResponseStatus = lens _gftrsResponseStatus (\ s a -> s{_gftrsResponseStatus = a});
+
+instance NFData GetFederationTokenResponse

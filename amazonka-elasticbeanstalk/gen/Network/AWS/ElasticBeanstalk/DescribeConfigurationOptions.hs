@@ -129,6 +129,8 @@ instance AWSRequest DescribeConfigurationOptions
 
 instance Hashable DescribeConfigurationOptions
 
+instance NFData DescribeConfigurationOptions
+
 instance ToHeaders DescribeConfigurationOptions where
         toHeaders = const mempty
 
@@ -187,3 +189,5 @@ dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default . _
 -- | The response status code.
 dcorsResponseStatus :: Lens' DescribeConfigurationOptionsResponse Int
 dcorsResponseStatus = lens _dcorsResponseStatus (\ s a -> s{_dcorsResponseStatus = a});
+
+instance NFData DescribeConfigurationOptionsResponse

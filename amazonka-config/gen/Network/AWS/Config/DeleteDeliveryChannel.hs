@@ -77,6 +77,8 @@ instance AWSRequest DeleteDeliveryChannel where
 
 instance Hashable DeleteDeliveryChannel
 
+instance NFData DeleteDeliveryChannel
+
 instance ToHeaders DeleteDeliveryChannel where
         toHeaders
           = const
@@ -110,3 +112,5 @@ data DeleteDeliveryChannelResponse =
 deleteDeliveryChannelResponse
     :: DeleteDeliveryChannelResponse
 deleteDeliveryChannelResponse = DeleteDeliveryChannelResponse'
+
+instance NFData DeleteDeliveryChannelResponse

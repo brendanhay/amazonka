@@ -121,6 +121,8 @@ instance AWSRequest PollForTask where
 
 instance Hashable PollForTask
 
+instance NFData PollForTask
+
 instance ToHeaders PollForTask where
         toHeaders
           = const
@@ -179,3 +181,5 @@ pftrsTaskObject = lens _pftrsTaskObject (\ s a -> s{_pftrsTaskObject = a});
 -- | The response status code.
 pftrsResponseStatus :: Lens' PollForTaskResponse Int
 pftrsResponseStatus = lens _pftrsResponseStatus (\ s a -> s{_pftrsResponseStatus = a});
+
+instance NFData PollForTaskResponse

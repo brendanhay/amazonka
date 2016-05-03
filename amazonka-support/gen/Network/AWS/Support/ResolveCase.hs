@@ -80,6 +80,8 @@ instance AWSRequest ResolveCase where
 
 instance Hashable ResolveCase
 
+instance NFData ResolveCase
+
 instance ToHeaders ResolveCase where
         toHeaders
           = const
@@ -138,3 +140,5 @@ rcrsFinalCaseStatus = lens _rcrsFinalCaseStatus (\ s a -> s{_rcrsFinalCaseStatus
 -- | The response status code.
 rcrsResponseStatus :: Lens' ResolveCaseResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
+
+instance NFData ResolveCaseResponse

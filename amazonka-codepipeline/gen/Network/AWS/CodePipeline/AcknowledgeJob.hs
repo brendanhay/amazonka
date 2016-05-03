@@ -91,6 +91,8 @@ instance AWSRequest AcknowledgeJob where
 
 instance Hashable AcknowledgeJob
 
+instance NFData AcknowledgeJob
+
 instance ToHeaders AcknowledgeJob where
         toHeaders
           = const
@@ -145,3 +147,5 @@ ajrsStatus = lens _ajrsStatus (\ s a -> s{_ajrsStatus = a});
 -- | The response status code.
 ajrsResponseStatus :: Lens' AcknowledgeJobResponse Int
 ajrsResponseStatus = lens _ajrsResponseStatus (\ s a -> s{_ajrsResponseStatus = a});
+
+instance NFData AcknowledgeJobResponse

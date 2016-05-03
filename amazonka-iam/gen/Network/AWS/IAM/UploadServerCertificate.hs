@@ -151,6 +151,8 @@ instance AWSRequest UploadServerCertificate where
 
 instance Hashable UploadServerCertificate
 
+instance NFData UploadServerCertificate
+
 instance ToHeaders UploadServerCertificate where
         toHeaders = const mempty
 
@@ -202,3 +204,5 @@ ursServerCertificateMetadata = lens _ursServerCertificateMetadata (\ s a -> s{_u
 -- | The response status code.
 ursResponseStatus :: Lens' UploadServerCertificateResponse Int
 ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a});
+
+instance NFData UploadServerCertificateResponse

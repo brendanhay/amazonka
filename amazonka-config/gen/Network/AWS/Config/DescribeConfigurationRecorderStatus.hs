@@ -85,6 +85,8 @@ instance AWSRequest
 
 instance Hashable DescribeConfigurationRecorderStatus
 
+instance NFData DescribeConfigurationRecorderStatus
+
 instance ToHeaders
          DescribeConfigurationRecorderStatus where
         toHeaders
@@ -144,3 +146,6 @@ dcrsrsConfigurationRecordersStatus = lens _dcrsrsConfigurationRecordersStatus (\
 -- | The response status code.
 dcrsrsResponseStatus :: Lens' DescribeConfigurationRecorderStatusResponse Int
 dcrsrsResponseStatus = lens _dcrsrsResponseStatus (\ s a -> s{_dcrsrsResponseStatus = a});
+
+instance NFData
+         DescribeConfigurationRecorderStatusResponse

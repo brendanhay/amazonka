@@ -100,6 +100,8 @@ instance AWSRequest GetConfig where
 
 instance Hashable GetConfig
 
+instance NFData GetConfig
+
 instance ToHeaders GetConfig where
         toHeaders
           = const
@@ -168,3 +170,5 @@ gcrsConfigType = lens _gcrsConfigType (\ s a -> s{_gcrsConfigType = a});
 -- | The response status code.
 gcrsResponseStatus :: Lens' GetConfigResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
+
+instance NFData GetConfigResponse

@@ -137,6 +137,8 @@ instance AWSRequest CreateCustomerGateway where
 
 instance Hashable CreateCustomerGateway
 
+instance NFData CreateCustomerGateway
+
 instance ToHeaders CreateCustomerGateway where
         toHeaders = const mempty
 
@@ -180,3 +182,5 @@ ccgrsCustomerGateway = lens _ccgrsCustomerGateway (\ s a -> s{_ccgrsCustomerGate
 -- | The response status code.
 ccgrsResponseStatus :: Lens' CreateCustomerGatewayResponse Int
 ccgrsResponseStatus = lens _ccgrsResponseStatus (\ s a -> s{_ccgrsResponseStatus = a});
+
+instance NFData CreateCustomerGatewayResponse

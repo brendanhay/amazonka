@@ -83,6 +83,8 @@ instance AWSRequest AttachPrincipalPolicy where
 
 instance Hashable AttachPrincipalPolicy
 
+instance NFData AttachPrincipalPolicy
+
 instance ToHeaders AttachPrincipalPolicy where
         toHeaders AttachPrincipalPolicy'{..}
           = mconcat ["x-amzn-iot-principal" =# _appPrincipal]
@@ -108,3 +110,5 @@ data AttachPrincipalPolicyResponse =
 attachPrincipalPolicyResponse
     :: AttachPrincipalPolicyResponse
 attachPrincipalPolicyResponse = AttachPrincipalPolicyResponse'
+
+instance NFData AttachPrincipalPolicyResponse

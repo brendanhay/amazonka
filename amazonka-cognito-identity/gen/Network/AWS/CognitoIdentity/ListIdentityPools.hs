@@ -91,6 +91,8 @@ instance AWSRequest ListIdentityPools where
 
 instance Hashable ListIdentityPools
 
+instance NFData ListIdentityPools
+
 instance ToHeaders ListIdentityPools where
         toHeaders
           = const
@@ -153,3 +155,5 @@ liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a});
 -- | The response status code.
 liprsResponseStatus :: Lens' ListIdentityPoolsResponse Int
 liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});
+
+instance NFData ListIdentityPoolsResponse

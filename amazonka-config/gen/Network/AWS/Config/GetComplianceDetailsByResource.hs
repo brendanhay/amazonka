@@ -115,6 +115,8 @@ instance AWSRequest GetComplianceDetailsByResource
 
 instance Hashable GetComplianceDetailsByResource
 
+instance NFData GetComplianceDetailsByResource
+
 instance ToHeaders GetComplianceDetailsByResource
          where
         toHeaders
@@ -180,3 +182,6 @@ gcdbrrsNextToken = lens _gcdbrrsNextToken (\ s a -> s{_gcdbrrsNextToken = a});
 -- | The response status code.
 gcdbrrsResponseStatus :: Lens' GetComplianceDetailsByResourceResponse Int
 gcdbrrsResponseStatus = lens _gcdbrrsResponseStatus (\ s a -> s{_gcdbrrsResponseStatus = a});
+
+instance NFData
+         GetComplianceDetailsByResourceResponse

@@ -90,6 +90,8 @@ instance AWSRequest AttachAssessmentAndRulesPackage
 
 instance Hashable AttachAssessmentAndRulesPackage
 
+instance NFData AttachAssessmentAndRulesPackage
+
 instance ToHeaders AttachAssessmentAndRulesPackage
          where
         toHeaders
@@ -144,3 +146,6 @@ aaarprsMessage = lens _aaarprsMessage (\ s a -> s{_aaarprsMessage = a});
 -- | The response status code.
 aaarprsResponseStatus :: Lens' AttachAssessmentAndRulesPackageResponse Int
 aaarprsResponseStatus = lens _aaarprsResponseStatus (\ s a -> s{_aaarprsResponseStatus = a});
+
+instance NFData
+         AttachAssessmentAndRulesPackageResponse

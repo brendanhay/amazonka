@@ -80,6 +80,8 @@ instance AWSRequest FlushStageCache where
 
 instance Hashable FlushStageCache
 
+instance NFData FlushStageCache
+
 instance ToHeaders FlushStageCache where
         toHeaders
           = const
@@ -105,3 +107,5 @@ data FlushStageCacheResponse =
 flushStageCacheResponse
     :: FlushStageCacheResponse
 flushStageCacheResponse = FlushStageCacheResponse'
+
+instance NFData FlushStageCacheResponse

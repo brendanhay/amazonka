@@ -135,6 +135,8 @@ instance AWSRequest DescribeInstanceAttribute where
 
 instance Hashable DescribeInstanceAttribute
 
+instance NFData DescribeInstanceAttribute
+
 instance ToHeaders DescribeInstanceAttribute where
         toHeaders = const mempty
 
@@ -292,3 +294,5 @@ drsBlockDeviceMappings = lens _drsBlockDeviceMappings (\ s a -> s{_drsBlockDevic
 -- | The response status code.
 drsResponseStatus :: Lens' DescribeInstanceAttributeResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DescribeInstanceAttributeResponse

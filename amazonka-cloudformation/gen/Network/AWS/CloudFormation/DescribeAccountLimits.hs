@@ -83,6 +83,8 @@ instance AWSRequest DescribeAccountLimits where
 
 instance Hashable DescribeAccountLimits
 
+instance NFData DescribeAccountLimits
+
 instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty
 
@@ -137,3 +139,5 @@ dalrsAccountLimits = lens _dalrsAccountLimits (\ s a -> s{_dalrsAccountLimits = 
 -- | The response status code.
 dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
 dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a});
+
+instance NFData DescribeAccountLimitsResponse

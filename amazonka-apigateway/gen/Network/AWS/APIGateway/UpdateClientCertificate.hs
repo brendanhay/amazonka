@@ -84,6 +84,8 @@ instance AWSRequest UpdateClientCertificate where
 
 instance Hashable UpdateClientCertificate
 
+instance NFData UpdateClientCertificate
+
 instance ToHeaders UpdateClientCertificate where
         toHeaders
           = const

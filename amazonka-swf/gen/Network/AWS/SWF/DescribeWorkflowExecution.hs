@@ -117,6 +117,8 @@ instance AWSRequest DescribeWorkflowExecution where
 
 instance Hashable DescribeWorkflowExecution
 
+instance NFData DescribeWorkflowExecution
+
 instance ToHeaders DescribeWorkflowExecution where
         toHeaders
           = const
@@ -214,3 +216,5 @@ dwersExecutionConfiguration = lens _dwersExecutionConfiguration (\ s a -> s{_dwe
 -- closed tasks of all types.
 dwersOpenCounts :: Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenCounts
 dwersOpenCounts = lens _dwersOpenCounts (\ s a -> s{_dwersOpenCounts = a});
+
+instance NFData DescribeWorkflowExecutionResponse

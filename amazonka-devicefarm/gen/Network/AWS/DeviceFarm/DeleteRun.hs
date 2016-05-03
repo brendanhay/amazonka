@@ -77,6 +77,8 @@ instance AWSRequest DeleteRun where
 
 instance Hashable DeleteRun
 
+instance NFData DeleteRun
+
 instance ToHeaders DeleteRun where
         toHeaders
           = const
@@ -119,3 +121,5 @@ deleteRunResponse pResponseStatus_ =
 -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRunResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+
+instance NFData DeleteRunResponse

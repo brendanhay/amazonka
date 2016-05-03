@@ -124,6 +124,8 @@ instance AWSRequest ListTrafficPolicies where
 
 instance Hashable ListTrafficPolicies
 
+instance NFData ListTrafficPolicies
+
 instance ToHeaders ListTrafficPolicies where
         toHeaders = const mempty
 
@@ -204,3 +206,5 @@ ltprsTrafficPolicyIdMarker = lens _ltprsTrafficPolicyIdMarker (\ s a -> s{_ltprs
 -- 'ListTrafficPolicies' that produced the current response.
 ltprsMaxItems :: Lens' ListTrafficPoliciesResponse Text
 ltprsMaxItems = lens _ltprsMaxItems (\ s a -> s{_ltprsMaxItems = a});
+
+instance NFData ListTrafficPoliciesResponse

@@ -132,6 +132,8 @@ instance AWSRequest CreateIdentityPool where
 
 instance Hashable CreateIdentityPool
 
+instance NFData CreateIdentityPool
+
 instance ToHeaders CreateIdentityPool where
         toHeaders
           = const

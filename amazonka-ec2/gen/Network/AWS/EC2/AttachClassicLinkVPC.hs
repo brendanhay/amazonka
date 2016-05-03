@@ -121,6 +121,8 @@ instance AWSRequest AttachClassicLinkVPC where
 
 instance Hashable AttachClassicLinkVPC
 
+instance NFData AttachClassicLinkVPC
+
 instance ToHeaders AttachClassicLinkVPC where
         toHeaders = const mempty
 
@@ -166,3 +168,5 @@ aclvrsReturn = lens _aclvrsReturn (\ s a -> s{_aclvrsReturn = a});
 -- | The response status code.
 aclvrsResponseStatus :: Lens' AttachClassicLinkVPCResponse Int
 aclvrsResponseStatus = lens _aclvrsResponseStatus (\ s a -> s{_aclvrsResponseStatus = a});
+
+instance NFData AttachClassicLinkVPCResponse

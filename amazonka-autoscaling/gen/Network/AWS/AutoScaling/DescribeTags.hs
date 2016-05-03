@@ -116,6 +116,8 @@ instance AWSRequest DescribeTags where
 
 instance Hashable DescribeTags
 
+instance NFData DescribeTags
+
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
 
@@ -170,3 +172,5 @@ dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+
+instance NFData DescribeTagsResponse

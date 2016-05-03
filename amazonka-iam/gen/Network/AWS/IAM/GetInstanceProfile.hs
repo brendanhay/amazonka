@@ -81,6 +81,8 @@ instance AWSRequest GetInstanceProfile where
 
 instance Hashable GetInstanceProfile
 
+instance NFData GetInstanceProfile
+
 instance ToHeaders GetInstanceProfile where
         toHeaders = const mempty
 
@@ -126,3 +128,5 @@ giprsResponseStatus = lens _giprsResponseStatus (\ s a -> s{_giprsResponseStatus
 -- | Information about the instance profile.
 giprsInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
 giprsInstanceProfile = lens _giprsInstanceProfile (\ s a -> s{_giprsInstanceProfile = a});
+
+instance NFData GetInstanceProfileResponse

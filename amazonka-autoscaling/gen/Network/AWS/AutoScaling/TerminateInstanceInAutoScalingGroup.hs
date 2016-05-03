@@ -93,6 +93,8 @@ instance AWSRequest
 
 instance Hashable TerminateInstanceInAutoScalingGroup
 
+instance NFData TerminateInstanceInAutoScalingGroup
+
 instance ToHeaders
          TerminateInstanceInAutoScalingGroup where
         toHeaders = const mempty
@@ -142,3 +144,6 @@ tiiasgrsActivity = lens _tiiasgrsActivity (\ s a -> s{_tiiasgrsActivity = a});
 -- | The response status code.
 tiiasgrsResponseStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
 tiiasgrsResponseStatus = lens _tiiasgrsResponseStatus (\ s a -> s{_tiiasgrsResponseStatus = a});
+
+instance NFData
+         TerminateInstanceInAutoScalingGroupResponse

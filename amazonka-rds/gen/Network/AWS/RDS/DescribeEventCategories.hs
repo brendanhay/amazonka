@@ -95,6 +95,8 @@ instance AWSRequest DescribeEventCategories where
 
 instance Hashable DescribeEventCategories
 
+instance NFData DescribeEventCategories
+
 instance ToHeaders DescribeEventCategories where
         toHeaders = const mempty
 
@@ -142,3 +144,5 @@ decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_dec
 -- | The response status code.
 decrsResponseStatus :: Lens' DescribeEventCategoriesResponse Int
 decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
+
+instance NFData DescribeEventCategoriesResponse

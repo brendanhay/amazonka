@@ -164,6 +164,8 @@ instance AWSRequest DescribeSecurityGroups where
 
 instance Hashable DescribeSecurityGroups
 
+instance NFData DescribeSecurityGroups
+
 instance ToHeaders DescribeSecurityGroups where
         toHeaders = const mempty
 
@@ -211,3 +213,5 @@ dsgrsSecurityGroups = lens _dsgrsSecurityGroups (\ s a -> s{_dsgrsSecurityGroups
 -- | The response status code.
 dsgrsResponseStatus :: Lens' DescribeSecurityGroupsResponse Int
 dsgrsResponseStatus = lens _dsgrsResponseStatus (\ s a -> s{_dsgrsResponseStatus = a});
+
+instance NFData DescribeSecurityGroupsResponse

@@ -74,6 +74,8 @@ instance AWSRequest StopStack where
 
 instance Hashable StopStack
 
+instance NFData StopStack
+
 instance ToHeaders StopStack where
         toHeaders
           = const
@@ -104,3 +106,5 @@ data StopStackResponse =
 stopStackResponse
     :: StopStackResponse
 stopStackResponse = StopStackResponse'
+
+instance NFData StopStackResponse

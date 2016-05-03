@@ -119,6 +119,8 @@ instance AWSRequest TestRole where
 
 instance Hashable TestRole
 
+instance NFData TestRole
+
 instance ToHeaders TestRole where
         toHeaders = const mempty
 
@@ -178,3 +180,5 @@ trrsMessages = lens _trrsMessages (\ s a -> s{_trrsMessages = a}) . _Default . _
 -- | The response status code.
 trrsResponseStatus :: Lens' TestRoleResponse Int
 trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});
+
+instance NFData TestRoleResponse

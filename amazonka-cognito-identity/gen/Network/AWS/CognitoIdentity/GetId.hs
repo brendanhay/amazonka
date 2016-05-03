@@ -107,6 +107,8 @@ instance AWSRequest GetId where
 
 instance Hashable GetId
 
+instance NFData GetId
+
 instance ToHeaders GetId where
         toHeaders
           = const
@@ -161,3 +163,5 @@ girsIdentityId = lens _girsIdentityId (\ s a -> s{_girsIdentityId = a});
 -- | The response status code.
 girsResponseStatus :: Lens' GetIdResponse Int
 girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
+
+instance NFData GetIdResponse

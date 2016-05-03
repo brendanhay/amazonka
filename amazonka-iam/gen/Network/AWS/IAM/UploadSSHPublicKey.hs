@@ -94,6 +94,8 @@ instance AWSRequest UploadSSHPublicKey where
 
 instance Hashable UploadSSHPublicKey
 
+instance NFData UploadSSHPublicKey
+
 instance ToHeaders UploadSSHPublicKey where
         toHeaders = const mempty
 
@@ -139,3 +141,5 @@ uspkrsSSHPublicKey = lens _uspkrsSSHPublicKey (\ s a -> s{_uspkrsSSHPublicKey = 
 -- | The response status code.
 uspkrsResponseStatus :: Lens' UploadSSHPublicKeyResponse Int
 uspkrsResponseStatus = lens _uspkrsResponseStatus (\ s a -> s{_uspkrsResponseStatus = a});
+
+instance NFData UploadSSHPublicKeyResponse

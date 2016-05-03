@@ -41,6 +41,7 @@ instance ToText ChangeAction where
         Upsert -> "UPSERT"
 
 instance Hashable     ChangeAction
+instance NFData       ChangeAction
 instance ToByteString ChangeAction
 instance ToQuery      ChangeAction
 instance ToHeader     ChangeAction
@@ -66,6 +67,7 @@ instance ToText ChangeStatus where
         Pending -> "PENDING"
 
 instance Hashable     ChangeStatus
+instance NFData       ChangeStatus
 instance ToByteString ChangeStatus
 instance ToQuery      ChangeStatus
 instance ToHeader     ChangeStatus
@@ -91,6 +93,7 @@ instance ToText Failover where
         Secondary -> "SECONDARY"
 
 instance Hashable     Failover
+instance NFData       Failover
 instance ToByteString Failover
 instance ToQuery      Failover
 instance ToHeader     Failover
@@ -131,6 +134,7 @@ instance ToText HealthCheckType where
         TCP -> "TCP"
 
 instance Hashable     HealthCheckType
+instance NFData       HealthCheckType
 instance ToByteString HealthCheckType
 instance ToQuery      HealthCheckType
 instance ToHeader     HealthCheckType
@@ -183,6 +187,7 @@ instance ToText RecordType where
         Txt -> "TXT"
 
 instance Hashable     RecordType
+instance NFData       RecordType
 instance ToByteString RecordType
 instance ToQuery      RecordType
 instance ToHeader     RecordType
@@ -211,6 +216,7 @@ instance ToText TagResourceType where
         Hostedzone -> "hostedzone"
 
 instance Hashable     TagResourceType
+instance NFData       TagResourceType
 instance ToByteString TagResourceType
 instance ToQuery      TagResourceType
 instance ToHeader     TagResourceType
@@ -266,6 +272,7 @@ instance ToText VPCRegion where
         UsWest2 -> "us-west-2"
 
 instance Hashable     VPCRegion
+instance NFData       VPCRegion
 instance ToByteString VPCRegion
 instance ToQuery      VPCRegion
 instance ToHeader     VPCRegion

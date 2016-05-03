@@ -91,6 +91,8 @@ instance AWSRequest DescribeReceiptRule where
 
 instance Hashable DescribeReceiptRule
 
+instance NFData DescribeReceiptRule
+
 instance ToHeaders DescribeReceiptRule where
         toHeaders = const mempty
 
@@ -136,3 +138,5 @@ drrrsRule = lens _drrrsRule (\ s a -> s{_drrrsRule = a});
 -- | The response status code.
 drrrsResponseStatus :: Lens' DescribeReceiptRuleResponse Int
 drrrsResponseStatus = lens _drrrsResponseStatus (\ s a -> s{_drrrsResponseStatus = a});
+
+instance NFData DescribeReceiptRuleResponse

@@ -113,6 +113,8 @@ instance AWSRequest
 
 instance Hashable PurchaseReservedDBInstancesOffering
 
+instance NFData PurchaseReservedDBInstancesOffering
+
 instance ToHeaders
          PurchaseReservedDBInstancesOffering where
         toHeaders = const mempty
@@ -164,3 +166,6 @@ prdiorsReservedDBInstance = lens _prdiorsReservedDBInstance (\ s a -> s{_prdiors
 -- | The response status code.
 prdiorsResponseStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
 prdiorsResponseStatus = lens _prdiorsResponseStatus (\ s a -> s{_prdiorsResponseStatus = a});
+
+instance NFData
+         PurchaseReservedDBInstancesOfferingResponse

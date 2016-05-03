@@ -110,6 +110,8 @@ instance AWSRequest DescribeIndexFields where
 
 instance Hashable DescribeIndexFields
 
+instance NFData DescribeIndexFields
+
 instance ToHeaders DescribeIndexFields where
         toHeaders = const mempty
 
@@ -158,3 +160,5 @@ difsrsResponseStatus = lens _difsrsResponseStatus (\ s a -> s{_difsrsResponseSta
 -- | The index fields configured for the domain.
 difsrsIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
 difsrsIndexFields = lens _difsrsIndexFields (\ s a -> s{_difsrsIndexFields = a}) . _Coerce;
+
+instance NFData DescribeIndexFieldsResponse

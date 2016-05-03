@@ -87,6 +87,8 @@ instance AWSRequest GetBranch where
 
 instance Hashable GetBranch
 
+instance NFData GetBranch
+
 instance ToHeaders GetBranch where
         toHeaders
           = const
@@ -140,3 +142,5 @@ gbrsBranch = lens _gbrsBranch (\ s a -> s{_gbrsBranch = a});
 -- | The response status code.
 gbrsResponseStatus :: Lens' GetBranchResponse Int
 gbrsResponseStatus = lens _gbrsResponseStatus (\ s a -> s{_gbrsResponseStatus = a});
+
+instance NFData GetBranchResponse

@@ -86,6 +86,8 @@ instance AWSRequest ListVolumeRecoveryPoints where
 
 instance Hashable ListVolumeRecoveryPoints
 
+instance NFData ListVolumeRecoveryPoints
+
 instance ToHeaders ListVolumeRecoveryPoints where
         toHeaders
           = const
@@ -144,3 +146,5 @@ lvrprsGatewayARN = lens _lvrprsGatewayARN (\ s a -> s{_lvrprsGatewayARN = a});
 -- | The response status code.
 lvrprsResponseStatus :: Lens' ListVolumeRecoveryPointsResponse Int
 lvrprsResponseStatus = lens _lvrprsResponseStatus (\ s a -> s{_lvrprsResponseStatus = a});
+
+instance NFData ListVolumeRecoveryPointsResponse

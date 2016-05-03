@@ -73,6 +73,8 @@ instance AWSRequest DeleteUserProfile where
 
 instance Hashable DeleteUserProfile
 
+instance NFData DeleteUserProfile
+
 instance ToHeaders DeleteUserProfile where
         toHeaders
           = const
@@ -104,3 +106,5 @@ data DeleteUserProfileResponse =
 deleteUserProfileResponse
     :: DeleteUserProfileResponse
 deleteUserProfileResponse = DeleteUserProfileResponse'
+
+instance NFData DeleteUserProfileResponse

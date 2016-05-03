@@ -98,6 +98,8 @@ instance AWSRequest FailoverDBCluster where
 
 instance Hashable FailoverDBCluster
 
+instance NFData FailoverDBCluster
+
 instance ToHeaders FailoverDBCluster where
         toHeaders = const mempty
 
@@ -140,3 +142,5 @@ fdcrsDBCluster = lens _fdcrsDBCluster (\ s a -> s{_fdcrsDBCluster = a});
 -- | The response status code.
 fdcrsResponseStatus :: Lens' FailoverDBClusterResponse Int
 fdcrsResponseStatus = lens _fdcrsResponseStatus (\ s a -> s{_fdcrsResponseStatus = a});
+
+instance NFData FailoverDBClusterResponse

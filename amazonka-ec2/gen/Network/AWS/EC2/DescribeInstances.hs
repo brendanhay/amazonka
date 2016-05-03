@@ -395,6 +395,8 @@ instance AWSRequest DescribeInstances where
 
 instance Hashable DescribeInstances
 
+instance NFData DescribeInstances
+
 instance ToHeaders DescribeInstances where
         toHeaders = const mempty
 
@@ -451,3 +453,5 @@ dirsReservations = lens _dirsReservations (\ s a -> s{_dirsReservations = a}) . 
 -- | The response status code.
 dirsResponseStatus :: Lens' DescribeInstancesResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+
+instance NFData DescribeInstancesResponse

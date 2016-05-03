@@ -93,6 +93,8 @@ instance AWSRequest DeleteIndexField where
 
 instance Hashable DeleteIndexField
 
+instance NFData DeleteIndexField
+
 instance ToHeaders DeleteIndexField where
         toHeaders = const mempty
 
@@ -139,3 +141,5 @@ difrsResponseStatus = lens _difrsResponseStatus (\ s a -> s{_difrsResponseStatus
 -- | The status of the index field being deleted.
 difrsIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
 difrsIndexField = lens _difrsIndexField (\ s a -> s{_difrsIndexField = a});
+
+instance NFData DeleteIndexFieldResponse

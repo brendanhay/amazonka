@@ -99,6 +99,8 @@ instance AWSRequest CreateAlias where
 
 instance Hashable CreateAlias
 
+instance NFData CreateAlias
+
 instance ToHeaders CreateAlias where
         toHeaders
           = const
@@ -131,3 +133,5 @@ data CreateAliasResponse =
 createAliasResponse
     :: CreateAliasResponse
 createAliasResponse = CreateAliasResponse'
+
+instance NFData CreateAliasResponse

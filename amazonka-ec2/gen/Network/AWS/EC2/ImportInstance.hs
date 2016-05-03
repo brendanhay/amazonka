@@ -124,6 +124,8 @@ instance AWSRequest ImportInstance where
 
 instance Hashable ImportInstance
 
+instance NFData ImportInstance
+
 instance ToHeaders ImportInstance where
         toHeaders = const mempty
 
@@ -169,3 +171,5 @@ iirsConversionTask = lens _iirsConversionTask (\ s a -> s{_iirsConversionTask = 
 -- | The response status code.
 iirsResponseStatus :: Lens' ImportInstanceResponse Int
 iirsResponseStatus = lens _iirsResponseStatus (\ s a -> s{_iirsResponseStatus = a});
+
+instance NFData ImportInstanceResponse

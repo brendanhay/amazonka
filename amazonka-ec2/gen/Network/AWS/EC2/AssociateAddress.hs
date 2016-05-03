@@ -162,6 +162,8 @@ instance AWSRequest AssociateAddress where
 
 instance Hashable AssociateAddress
 
+instance NFData AssociateAddress
+
 instance ToHeaders AssociateAddress where
         toHeaders = const mempty
 
@@ -210,3 +212,5 @@ arsAssociationId = lens _arsAssociationId (\ s a -> s{_arsAssociationId = a});
 -- | The response status code.
 arsResponseStatus :: Lens' AssociateAddressResponse Int
 arsResponseStatus = lens _arsResponseStatus (\ s a -> s{_arsResponseStatus = a});
+
+instance NFData AssociateAddressResponse

@@ -104,6 +104,8 @@ instance AWSRequest GetMethodResponse where
 
 instance Hashable GetMethodResponse
 
+instance NFData GetMethodResponse
+
 instance ToHeaders GetMethodResponse where
         toHeaders
           = const

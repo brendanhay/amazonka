@@ -79,6 +79,8 @@ instance FromJSON Credentials where
 
 instance Hashable Credentials
 
+instance NFData Credentials
+
 -- | A description of the identity.
 --
 -- /See:/ 'identityDescription' smart constructor.
@@ -137,6 +139,8 @@ instance FromJSON IdentityDescription where
                      <*> (x .:? "IdentityId"))
 
 instance Hashable IdentityDescription
+
+instance NFData IdentityDescription
 
 -- | An object representing a Cognito identity pool.
 --
@@ -218,6 +222,8 @@ instance FromJSON IdentityPool where
 
 instance Hashable IdentityPool
 
+instance NFData IdentityPool
+
 instance ToJSON IdentityPool where
         toJSON IdentityPool'{..}
           = object
@@ -275,6 +281,8 @@ instance FromJSON IdentityPoolShortDescription where
 
 instance Hashable IdentityPoolShortDescription
 
+instance NFData IdentityPoolShortDescription
+
 -- | An array of UnprocessedIdentityId objects, each of which contains an
 -- ErrorCode and IdentityId.
 --
@@ -315,3 +323,5 @@ instance FromJSON UnprocessedIdentityId where
                    (x .:? "ErrorCode") <*> (x .:? "IdentityId"))
 
 instance Hashable UnprocessedIdentityId
+
+instance NFData UnprocessedIdentityId

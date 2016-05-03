@@ -120,6 +120,8 @@ instance AWSRequest ListClusters where
 
 instance Hashable ListClusters
 
+instance NFData ListClusters
+
 instance ToHeaders ListClusters where
         toHeaders
           = const
@@ -184,3 +186,5 @@ lcrsClusters = lens _lcrsClusters (\ s a -> s{_lcrsClusters = a}) . _Default . _
 -- | The response status code.
 lcrsResponseStatus :: Lens' ListClustersResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
+
+instance NFData ListClustersResponse

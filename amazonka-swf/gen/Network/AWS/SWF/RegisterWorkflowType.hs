@@ -245,6 +245,8 @@ instance AWSRequest RegisterWorkflowType where
 
 instance Hashable RegisterWorkflowType
 
+instance NFData RegisterWorkflowType
+
 instance ToHeaders RegisterWorkflowType where
         toHeaders
           = const
@@ -289,3 +291,5 @@ data RegisterWorkflowTypeResponse =
 registerWorkflowTypeResponse
     :: RegisterWorkflowTypeResponse
 registerWorkflowTypeResponse = RegisterWorkflowTypeResponse'
+
+instance NFData RegisterWorkflowTypeResponse

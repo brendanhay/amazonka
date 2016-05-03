@@ -90,6 +90,8 @@ instance AWSRequest CreateThing where
 
 instance Hashable CreateThing
 
+instance NFData CreateThing
+
 instance ToHeaders CreateThing where
         toHeaders = const mempty
 
@@ -145,3 +147,5 @@ ctrsThingName = lens _ctrsThingName (\ s a -> s{_ctrsThingName = a});
 -- | The response status code.
 ctrsResponseStatus :: Lens' CreateThingResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+
+instance NFData CreateThingResponse

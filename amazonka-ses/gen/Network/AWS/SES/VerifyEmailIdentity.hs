@@ -77,6 +77,8 @@ instance AWSRequest VerifyEmailIdentity where
 
 instance Hashable VerifyEmailIdentity
 
+instance NFData VerifyEmailIdentity
+
 instance ToHeaders VerifyEmailIdentity where
         toHeaders = const mempty
 
@@ -111,3 +113,5 @@ verifyEmailIdentityResponse pResponseStatus_ =
 -- | The response status code.
 veirsResponseStatus :: Lens' VerifyEmailIdentityResponse Int
 veirsResponseStatus = lens _veirsResponseStatus (\ s a -> s{_veirsResponseStatus = a});
+
+instance NFData VerifyEmailIdentityResponse

@@ -87,6 +87,8 @@ instance AWSRequest DescribeServices where
 
 instance Hashable DescribeServices
 
+instance NFData DescribeServices
+
 instance ToHeaders DescribeServices where
         toHeaders
           = const
@@ -147,3 +149,5 @@ dssrsServices = lens _dssrsServices (\ s a -> s{_dssrsServices = a}) . _Default 
 -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeServicesResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+
+instance NFData DescribeServicesResponse

@@ -80,6 +80,7 @@ library
         , conduit              >= 1.1
         , conduit-extra        >= 1.1
         , cryptonite           >= 0.4
+        , deepseq              >= 1.4
         , exceptions           >= 0.6
         , hashable             >= 1.2
         , http-conduit         >= 2.1.4

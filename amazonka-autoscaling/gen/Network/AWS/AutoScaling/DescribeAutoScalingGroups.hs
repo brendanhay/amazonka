@@ -108,6 +108,8 @@ instance AWSRequest DescribeAutoScalingGroups where
 
 instance Hashable DescribeAutoScalingGroups
 
+instance NFData DescribeAutoScalingGroups
+
 instance ToHeaders DescribeAutoScalingGroups where
         toHeaders = const mempty
 
@@ -165,3 +167,5 @@ dasgrsResponseStatus = lens _dasgrsResponseStatus (\ s a -> s{_dasgrsResponseSta
 -- | The groups.
 dasgrsAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
 dasgrsAutoScalingGroups = lens _dasgrsAutoScalingGroups (\ s a -> s{_dasgrsAutoScalingGroups = a}) . _Coerce;
+
+instance NFData DescribeAutoScalingGroupsResponse

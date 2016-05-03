@@ -138,6 +138,8 @@ instance FromJSON FileSystemDescription where
 
 instance Hashable FileSystemDescription
 
+instance NFData FileSystemDescription
+
 -- | This object provides the latest known metered size, in bytes, of data
 -- stored in the file system, in its 'Value' field, and the time at which
 -- that size was determined in its 'Timestamp' field. Note that the value
@@ -189,6 +191,8 @@ instance FromJSON FileSystemSize where
                    (x .:? "Timestamp") <*> (x .: "Value"))
 
 instance Hashable FileSystemSize
+
+instance NFData FileSystemSize
 
 -- | This object provides description of a mount target.
 --
@@ -281,6 +285,8 @@ instance FromJSON MountTargetDescription where
 
 instance Hashable MountTargetDescription
 
+instance NFData MountTargetDescription
+
 -- | A tag is a pair of key and value. The allowed characters in keys and
 -- values are letters, whitespace, and numbers, representable in UTF-8, and
 -- the characters \'+\', \'-\', \'=\', \'.\', \'_\', \':\', and \'\/\'.
@@ -322,6 +328,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}

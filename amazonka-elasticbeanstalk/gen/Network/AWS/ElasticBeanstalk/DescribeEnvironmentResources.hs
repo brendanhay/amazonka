@@ -97,6 +97,8 @@ instance AWSRequest DescribeEnvironmentResources
 
 instance Hashable DescribeEnvironmentResources
 
+instance NFData DescribeEnvironmentResources
+
 instance ToHeaders DescribeEnvironmentResources where
         toHeaders = const mempty
 
@@ -143,3 +145,5 @@ derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEn
 -- | The response status code.
 derrsResponseStatus :: Lens' DescribeEnvironmentResourcesResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
+
+instance NFData DescribeEnvironmentResourcesResponse

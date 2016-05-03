@@ -114,6 +114,8 @@ instance AWSRequest DeleteFunction where
 
 instance Hashable DeleteFunction
 
+instance NFData DeleteFunction
+
 instance ToHeaders DeleteFunction where
         toHeaders = const mempty
 
@@ -136,3 +138,5 @@ data DeleteFunctionResponse =
 deleteFunctionResponse
     :: DeleteFunctionResponse
 deleteFunctionResponse = DeleteFunctionResponse'
+
+instance NFData DeleteFunctionResponse

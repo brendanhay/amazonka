@@ -82,6 +82,8 @@ instance AWSRequest UpdateAssumeRolePolicy where
 
 instance Hashable UpdateAssumeRolePolicy
 
+instance NFData UpdateAssumeRolePolicy
+
 instance ToHeaders UpdateAssumeRolePolicy where
         toHeaders = const mempty
 
@@ -107,3 +109,5 @@ data UpdateAssumeRolePolicyResponse =
 updateAssumeRolePolicyResponse
     :: UpdateAssumeRolePolicyResponse
 updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse'
+
+instance NFData UpdateAssumeRolePolicyResponse

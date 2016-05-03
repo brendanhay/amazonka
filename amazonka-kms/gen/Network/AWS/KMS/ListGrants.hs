@@ -113,6 +113,8 @@ instance AWSRequest ListGrants where
 
 instance Hashable ListGrants
 
+instance NFData ListGrants
+
 instance ToHeaders ListGrants where
         toHeaders
           = const

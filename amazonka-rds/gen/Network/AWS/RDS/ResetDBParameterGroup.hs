@@ -132,6 +132,8 @@ instance AWSRequest ResetDBParameterGroup where
 
 instance Hashable ResetDBParameterGroup
 
+instance NFData ResetDBParameterGroup
+
 instance ToHeaders ResetDBParameterGroup where
         toHeaders = const mempty
 

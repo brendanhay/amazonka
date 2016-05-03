@@ -177,6 +177,8 @@ instance AWSRequest DescribeClusterSecurityGroups
 
 instance Hashable DescribeClusterSecurityGroups
 
+instance NFData DescribeClusterSecurityGroups
+
 instance ToHeaders DescribeClusterSecurityGroups
          where
         toHeaders = const mempty
@@ -243,3 +245,5 @@ dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
 -- | The response status code.
 dcsgsrsResponseStatus :: Lens' DescribeClusterSecurityGroupsResponse Int
 dcsgsrsResponseStatus = lens _dcsgsrsResponseStatus (\ s a -> s{_dcsgsrsResponseStatus = a});
+
+instance NFData DescribeClusterSecurityGroupsResponse

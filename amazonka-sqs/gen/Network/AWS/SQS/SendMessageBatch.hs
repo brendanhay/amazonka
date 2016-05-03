@@ -117,6 +117,8 @@ instance AWSRequest SendMessageBatch where
 
 instance Hashable SendMessageBatch
 
+instance NFData SendMessageBatch
+
 instance ToHeaders SendMessageBatch where
         toHeaders = const mempty
 
@@ -174,3 +176,5 @@ smbrsSuccessful = lens _smbrsSuccessful (\ s a -> s{_smbrsSuccessful = a}) . _Co
 -- each message that could not be enqueued.
 smbrsFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrsFailed = lens _smbrsFailed (\ s a -> s{_smbrsFailed = a}) . _Coerce;
+
+instance NFData SendMessageBatchResponse

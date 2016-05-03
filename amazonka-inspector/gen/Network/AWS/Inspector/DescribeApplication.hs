@@ -76,6 +76,8 @@ instance AWSRequest DescribeApplication where
 
 instance Hashable DescribeApplication
 
+instance NFData DescribeApplication
+
 instance ToHeaders DescribeApplication where
         toHeaders
           = const
@@ -127,3 +129,5 @@ darsApplication = lens _darsApplication (\ s a -> s{_darsApplication = a});
 -- | The response status code.
 darsResponseStatus :: Lens' DescribeApplicationResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+
+instance NFData DescribeApplicationResponse

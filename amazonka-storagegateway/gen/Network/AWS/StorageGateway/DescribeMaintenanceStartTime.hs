@@ -89,6 +89,8 @@ instance AWSRequest DescribeMaintenanceStartTime
 
 instance Hashable DescribeMaintenanceStartTime
 
+instance NFData DescribeMaintenanceStartTime
+
 instance ToHeaders DescribeMaintenanceStartTime where
         toHeaders
           = const
@@ -171,3 +173,5 @@ dmstrsDayOfWeek = lens _dmstrsDayOfWeek (\ s a -> s{_dmstrsDayOfWeek = a}) . map
 -- | The response status code.
 dmstrsResponseStatus :: Lens' DescribeMaintenanceStartTimeResponse Int
 dmstrsResponseStatus = lens _dmstrsResponseStatus (\ s a -> s{_dmstrsResponseStatus = a});
+
+instance NFData DescribeMaintenanceStartTimeResponse

@@ -143,6 +143,8 @@ instance AWSRequest ListCommandInvocations where
 
 instance Hashable ListCommandInvocations
 
+instance NFData ListCommandInvocations
+
 instance ToHeaders ListCommandInvocations where
         toHeaders
           = const
@@ -207,3 +209,5 @@ lcirsCommandInvocations = lens _lcirsCommandInvocations (\ s a -> s{_lcirsComman
 -- | The response status code.
 lcirsResponseStatus :: Lens' ListCommandInvocationsResponse Int
 lcirsResponseStatus = lens _lcirsResponseStatus (\ s a -> s{_lcirsResponseStatus = a});
+
+instance NFData ListCommandInvocationsResponse

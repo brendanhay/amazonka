@@ -184,6 +184,8 @@ instance AWSRequest CreateDataSourceFromRDS where
 
 instance Hashable CreateDataSourceFromRDS
 
+instance NFData CreateDataSourceFromRDS
+
 instance ToHeaders CreateDataSourceFromRDS where
         toHeaders
           = const
@@ -251,3 +253,5 @@ cdsfrdsrsDataSourceId = lens _cdsfrdsrsDataSourceId (\ s a -> s{_cdsfrdsrsDataSo
 -- | The response status code.
 cdsfrdsrsResponseStatus :: Lens' CreateDataSourceFromRDSResponse Int
 cdsfrdsrsResponseStatus = lens _cdsfrdsrsResponseStatus (\ s a -> s{_cdsfrdsrsResponseStatus = a});
+
+instance NFData CreateDataSourceFromRDSResponse

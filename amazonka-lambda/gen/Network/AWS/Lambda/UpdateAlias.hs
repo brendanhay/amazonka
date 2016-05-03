@@ -106,6 +106,8 @@ instance AWSRequest UpdateAlias where
 
 instance Hashable UpdateAlias
 
+instance NFData UpdateAlias
+
 instance ToHeaders UpdateAlias where
         toHeaders = const mempty
 

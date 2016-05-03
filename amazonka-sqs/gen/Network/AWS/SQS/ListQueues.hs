@@ -79,6 +79,8 @@ instance AWSRequest ListQueues where
 
 instance Hashable ListQueues
 
+instance NFData ListQueues
+
 instance ToHeaders ListQueues where
         toHeaders = const mempty
 
@@ -123,3 +125,5 @@ lqrsQueueURLs = lens _lqrsQueueURLs (\ s a -> s{_lqrsQueueURLs = a}) . _Default 
 -- | The response status code.
 lqrsResponseStatus :: Lens' ListQueuesResponse Int
 lqrsResponseStatus = lens _lqrsResponseStatus (\ s a -> s{_lqrsResponseStatus = a});
+
+instance NFData ListQueuesResponse

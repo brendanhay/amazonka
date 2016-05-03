@@ -103,6 +103,8 @@ instance AWSRequest ModifyDBSubnetGroup where
 
 instance Hashable ModifyDBSubnetGroup
 
+instance NFData ModifyDBSubnetGroup
+
 instance ToHeaders ModifyDBSubnetGroup where
         toHeaders = const mempty
 
@@ -149,3 +151,5 @@ mdsgrsDBSubnetGroup = lens _mdsgrsDBSubnetGroup (\ s a -> s{_mdsgrsDBSubnetGroup
 -- | The response status code.
 mdsgrsResponseStatus :: Lens' ModifyDBSubnetGroupResponse Int
 mdsgrsResponseStatus = lens _mdsgrsResponseStatus (\ s a -> s{_mdsgrsResponseStatus = a});
+
+instance NFData ModifyDBSubnetGroupResponse

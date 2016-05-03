@@ -89,6 +89,8 @@ instance AWSRequest DescribeUploadBuffer where
 
 instance Hashable DescribeUploadBuffer
 
+instance NFData DescribeUploadBuffer
+
 instance ToHeaders DescribeUploadBuffer where
         toHeaders
           = const
@@ -163,3 +165,5 @@ dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\ s a -> s{_d
 -- | The response status code.
 dubrsResponseStatus :: Lens' DescribeUploadBufferResponse Int
 dubrsResponseStatus = lens _dubrsResponseStatus (\ s a -> s{_dubrsResponseStatus = a});
+
+instance NFData DescribeUploadBufferResponse

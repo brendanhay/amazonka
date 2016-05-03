@@ -112,6 +112,8 @@ instance AWSRequest GetBasePathMappings where
 
 instance Hashable GetBasePathMappings
 
+instance NFData GetBasePathMappings
+
 instance ToHeaders GetBasePathMappings where
         toHeaders
           = const
@@ -169,3 +171,5 @@ gbpmrsPosition = lens _gbpmrsPosition (\ s a -> s{_gbpmrsPosition = a});
 -- | The response status code.
 gbpmrsResponseStatus :: Lens' GetBasePathMappingsResponse Int
 gbpmrsResponseStatus = lens _gbpmrsResponseStatus (\ s a -> s{_gbpmrsResponseStatus = a});
+
+instance NFData GetBasePathMappingsResponse

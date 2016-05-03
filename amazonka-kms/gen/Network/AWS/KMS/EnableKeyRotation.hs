@@ -74,6 +74,8 @@ instance AWSRequest EnableKeyRotation where
 
 instance Hashable EnableKeyRotation
 
+instance NFData EnableKeyRotation
+
 instance ToHeaders EnableKeyRotation where
         toHeaders
           = const
@@ -103,3 +105,5 @@ data EnableKeyRotationResponse =
 enableKeyRotationResponse
     :: EnableKeyRotationResponse
 enableKeyRotationResponse = EnableKeyRotationResponse'
+
+instance NFData EnableKeyRotationResponse

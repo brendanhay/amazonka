@@ -108,6 +108,8 @@ instance AWSRequest DescribeVPCClassicLinkDNSSupport
 
 instance Hashable DescribeVPCClassicLinkDNSSupport
 
+instance NFData DescribeVPCClassicLinkDNSSupport
+
 instance ToHeaders DescribeVPCClassicLinkDNSSupport
          where
         toHeaders = const mempty
@@ -164,3 +166,6 @@ dvpccldnssrsNextToken = lens _dvpccldnssrsNextToken (\ s a -> s{_dvpccldnssrsNex
 -- | The response status code.
 dvpccldnssrsResponseStatus :: Lens' DescribeVPCClassicLinkDNSSupportResponse Int
 dvpccldnssrsResponseStatus = lens _dvpccldnssrsResponseStatus (\ s a -> s{_dvpccldnssrsResponseStatus = a});
+
+instance NFData
+         DescribeVPCClassicLinkDNSSupportResponse

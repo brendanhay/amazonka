@@ -97,6 +97,8 @@ instance AWSRequest DeleteCacheCluster where
 
 instance Hashable DeleteCacheCluster
 
+instance NFData DeleteCacheCluster
+
 instance ToHeaders DeleteCacheCluster where
         toHeaders = const mempty
 
@@ -141,3 +143,5 @@ dccrsCacheCluster = lens _dccrsCacheCluster (\ s a -> s{_dccrsCacheCluster = a})
 -- | The response status code.
 dccrsResponseStatus :: Lens' DeleteCacheClusterResponse Int
 dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
+
+instance NFData DeleteCacheClusterResponse

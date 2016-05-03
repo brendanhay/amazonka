@@ -87,6 +87,8 @@ instance AWSRequest CreateLunaClient where
 
 instance Hashable CreateLunaClient
 
+instance NFData CreateLunaClient
+
 instance ToHeaders CreateLunaClient where
         toHeaders
           = const
@@ -141,3 +143,5 @@ clcrsClientARN = lens _clcrsClientARN (\ s a -> s{_clcrsClientARN = a});
 -- | The response status code.
 clcrsResponseStatus :: Lens' CreateLunaClientResponse Int
 clcrsResponseStatus = lens _clcrsResponseStatus (\ s a -> s{_clcrsResponseStatus = a});
+
+instance NFData CreateLunaClientResponse

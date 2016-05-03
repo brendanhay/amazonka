@@ -84,6 +84,8 @@ instance AWSRequest RebootCluster where
 
 instance Hashable RebootCluster
 
+instance NFData RebootCluster
+
 instance ToHeaders RebootCluster where
         toHeaders = const mempty
 
@@ -126,3 +128,5 @@ rcrsCluster = lens _rcrsCluster (\ s a -> s{_rcrsCluster = a});
 -- | The response status code.
 rcrsResponseStatus :: Lens' RebootClusterResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
+
+instance NFData RebootClusterResponse

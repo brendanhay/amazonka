@@ -96,6 +96,8 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer
 
 instance Hashable ApplySecurityGroupsToLoadBalancer
 
+instance NFData ApplySecurityGroupsToLoadBalancer
+
 instance ToHeaders ApplySecurityGroupsToLoadBalancer
          where
         toHeaders = const mempty
@@ -144,3 +146,6 @@ asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecur
 -- | The response status code.
 asgtlbrsResponseStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
 asgtlbrsResponseStatus = lens _asgtlbrsResponseStatus (\ s a -> s{_asgtlbrsResponseStatus = a});
+
+instance NFData
+         ApplySecurityGroupsToLoadBalancerResponse

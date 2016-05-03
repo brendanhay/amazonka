@@ -169,6 +169,8 @@ instance AWSRequest CreateStorediSCSIVolume where
 
 instance Hashable CreateStorediSCSIVolume
 
+instance NFData CreateStorediSCSIVolume
+
 instance ToHeaders CreateStorediSCSIVolume where
         toHeaders
           = const
@@ -248,3 +250,5 @@ csscsivrsVolumeSizeInBytes = lens _csscsivrsVolumeSizeInBytes (\ s a -> s{_csscs
 -- | The response status code.
 csscsivrsResponseStatus :: Lens' CreateStorediSCSIVolumeResponse Int
 csscsivrsResponseStatus = lens _csscsivrsResponseStatus (\ s a -> s{_csscsivrsResponseStatus = a});
+
+instance NFData CreateStorediSCSIVolumeResponse

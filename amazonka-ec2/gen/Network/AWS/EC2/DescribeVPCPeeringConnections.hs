@@ -143,6 +143,8 @@ instance AWSRequest DescribeVPCPeeringConnections
 
 instance Hashable DescribeVPCPeeringConnections
 
+instance NFData DescribeVPCPeeringConnections
+
 instance ToHeaders DescribeVPCPeeringConnections
          where
         toHeaders = const mempty
@@ -191,3 +193,5 @@ dvpcpcrsVPCPeeringConnections = lens _dvpcpcrsVPCPeeringConnections (\ s a -> s{
 -- | The response status code.
 dvpcpcrsResponseStatus :: Lens' DescribeVPCPeeringConnectionsResponse Int
 dvpcpcrsResponseStatus = lens _dvpcpcrsResponseStatus (\ s a -> s{_dvpcpcrsResponseStatus = a});
+
+instance NFData DescribeVPCPeeringConnectionsResponse

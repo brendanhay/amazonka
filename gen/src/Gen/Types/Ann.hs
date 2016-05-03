@@ -98,6 +98,7 @@ data Derive
     | DTypeable
     | DGeneric
     | DHashable
+    | DNFData
       deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Derive
@@ -107,6 +108,7 @@ instance FromJSON Derive where
 
 derivingName :: Derive -> Maybe String
 derivingName DHashable = Nothing
+derivingName DNFData   = Nothing
 derivingName d         = Just $ drop 1 (show d)
 
 data Lit

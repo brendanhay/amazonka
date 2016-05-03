@@ -151,6 +151,8 @@ instance AWSRequest UpdateDestination where
 
 instance Hashable UpdateDestination
 
+instance NFData UpdateDestination
+
 instance ToHeaders UpdateDestination where
         toHeaders
           = const
@@ -204,3 +206,5 @@ updateDestinationResponse pResponseStatus_ =
 -- | The response status code.
 udrsResponseStatus :: Lens' UpdateDestinationResponse Int
 udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
+
+instance NFData UpdateDestinationResponse

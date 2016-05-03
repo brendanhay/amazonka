@@ -90,6 +90,8 @@ instance AWSRequest DeleteEnvironmentConfiguration
 
 instance Hashable DeleteEnvironmentConfiguration
 
+instance NFData DeleteEnvironmentConfiguration
+
 instance ToHeaders DeleteEnvironmentConfiguration
          where
         toHeaders = const mempty
@@ -117,3 +119,6 @@ deleteEnvironmentConfigurationResponse
     :: DeleteEnvironmentConfigurationResponse
 deleteEnvironmentConfigurationResponse =
     DeleteEnvironmentConfigurationResponse'
+
+instance NFData
+         DeleteEnvironmentConfigurationResponse

@@ -76,6 +76,8 @@ instance AWSRequest UnassignVolume where
 
 instance Hashable UnassignVolume
 
+instance NFData UnassignVolume
+
 instance ToHeaders UnassignVolume where
         toHeaders
           = const
@@ -106,3 +108,5 @@ data UnassignVolumeResponse =
 unassignVolumeResponse
     :: UnassignVolumeResponse
 unassignVolumeResponse = UnassignVolumeResponse'
+
+instance NFData UnassignVolumeResponse

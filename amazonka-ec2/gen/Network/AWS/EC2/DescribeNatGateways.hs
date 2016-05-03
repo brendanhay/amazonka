@@ -121,6 +121,8 @@ instance AWSRequest DescribeNatGateways where
 
 instance Hashable DescribeNatGateways
 
+instance NFData DescribeNatGateways
+
 instance ToHeaders DescribeNatGateways where
         toHeaders = const mempty
 
@@ -176,3 +178,5 @@ dngrsNextToken = lens _dngrsNextToken (\ s a -> s{_dngrsNextToken = a});
 -- | The response status code.
 dngrsResponseStatus :: Lens' DescribeNatGatewaysResponse Int
 dngrsResponseStatus = lens _dngrsResponseStatus (\ s a -> s{_dngrsResponseStatus = a});
+
+instance NFData DescribeNatGatewaysResponse

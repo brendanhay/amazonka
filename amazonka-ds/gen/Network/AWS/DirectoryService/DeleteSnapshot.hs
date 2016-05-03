@@ -77,6 +77,8 @@ instance AWSRequest DeleteSnapshot where
 
 instance Hashable DeleteSnapshot
 
+instance NFData DeleteSnapshot
+
 instance ToHeaders DeleteSnapshot where
         toHeaders
           = const
@@ -129,3 +131,5 @@ dsrsSnapshotId = lens _dsrsSnapshotId (\ s a -> s{_dsrsSnapshotId = a});
 -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteSnapshotResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+
+instance NFData DeleteSnapshotResponse

@@ -68,6 +68,8 @@ instance FromJSON Attachment where
 
 instance Hashable Attachment
 
+instance NFData Attachment
+
 instance ToJSON Attachment where
         toJSON Attachment'{..}
           = object
@@ -116,6 +118,8 @@ instance FromJSON AttachmentDetails where
                    (x .:? "attachmentId") <*> (x .:? "fileName"))
 
 instance Hashable AttachmentDetails
+
+instance NFData AttachmentDetails
 
 -- | A JSON-formatted object that contains the metadata for a support case.
 -- It is contained the response from a < DescribeCases> request.
@@ -286,6 +290,8 @@ instance FromJSON CaseDetails where
 
 instance Hashable CaseDetails
 
+instance NFData CaseDetails
+
 -- | A JSON-formatted name\/value pair that represents the category name and
 -- category code of the problem, selected from the < DescribeServices>
 -- response for each AWS service.
@@ -326,6 +332,8 @@ instance FromJSON Category where
                  Category' <$> (x .:? "name") <*> (x .:? "code"))
 
 instance Hashable Category
+
+instance NFData Category
 
 -- | A communication associated with an AWS Support case. The communication
 -- consists of the case ID, the message body, attachment information, the
@@ -398,6 +406,8 @@ instance FromJSON Communication where
 
 instance Hashable Communication
 
+instance NFData Communication
+
 -- | The five most recent communications associated with the case.
 --
 -- /See:/ 'recentCaseCommunications' smart constructor.
@@ -438,6 +448,8 @@ instance FromJSON RecentCaseCommunications where
                      (x .:? "communications" .!= mempty))
 
 instance Hashable RecentCaseCommunications
+
+instance NFData RecentCaseCommunications
 
 -- | A code and name pair that represent a severity level that can be applied
 -- to a support case.
@@ -481,6 +493,8 @@ instance FromJSON SeverityLevel where
                  SeverityLevel' <$> (x .:? "name") <*> (x .:? "code"))
 
 instance Hashable SeverityLevel
+
+instance NFData SeverityLevel
 
 -- | Information about an AWS service returned by the < DescribeServices>
 -- operation.
@@ -537,6 +551,8 @@ instance FromJSON SupportService where
 
 instance Hashable SupportService
 
+instance NFData SupportService
+
 -- | The container for summary information that relates to the category of
 -- the Trusted Advisor check.
 --
@@ -572,6 +588,8 @@ instance FromJSON
 
 instance Hashable
          TrustedAdvisorCategorySpecificSummary
+
+instance NFData TrustedAdvisorCategorySpecificSummary
 
 -- | The description and metadata for a Trusted Advisor check.
 --
@@ -650,6 +668,8 @@ instance FromJSON TrustedAdvisorCheckDescription
 
 instance Hashable TrustedAdvisorCheckDescription
 
+instance NFData TrustedAdvisorCheckDescription
+
 -- | The refresh status of a Trusted Advisor check.
 --
 -- /See:/ 'trustedAdvisorCheckRefreshStatus' smart constructor.
@@ -705,6 +725,8 @@ instance FromJSON TrustedAdvisorCheckRefreshStatus
                      (x .: "millisUntilNextRefreshable"))
 
 instance Hashable TrustedAdvisorCheckRefreshStatus
+
+instance NFData TrustedAdvisorCheckRefreshStatus
 
 -- | The results of a Trusted Advisor check returned by
 -- < DescribeTrustedAdvisorCheckResult>.
@@ -790,6 +812,8 @@ instance FromJSON TrustedAdvisorCheckResult where
 
 instance Hashable TrustedAdvisorCheckResult
 
+instance NFData TrustedAdvisorCheckResult
+
 -- | A summary of a Trusted Advisor check result, including the alert status,
 -- last refresh, and number of resources examined.
 --
@@ -874,6 +898,8 @@ instance FromJSON TrustedAdvisorCheckSummary where
 
 instance Hashable TrustedAdvisorCheckSummary
 
+instance NFData TrustedAdvisorCheckSummary
+
 -- | The estimated cost savings that might be realized if the recommended
 -- actions are taken.
 --
@@ -920,6 +946,8 @@ instance FromJSON TrustedAdvisorCostOptimizingSummary
                      (x .: "estimatedPercentMonthlySavings"))
 
 instance Hashable TrustedAdvisorCostOptimizingSummary
+
+instance NFData TrustedAdvisorCostOptimizingSummary
 
 -- | Contains information about a resource identified by a Trusted Advisor
 -- check.
@@ -999,6 +1027,8 @@ instance FromJSON TrustedAdvisorResourceDetail where
 
 instance Hashable TrustedAdvisorResourceDetail
 
+instance NFData TrustedAdvisorResourceDetail
+
 -- | Details about AWS resources that were analyzed in a call to Trusted
 -- Advisor < DescribeTrustedAdvisorCheckSummaries>.
 --
@@ -1067,3 +1097,5 @@ instance FromJSON TrustedAdvisorResourcesSummary
                      <*> (x .: "resourcesSuppressed"))
 
 instance Hashable TrustedAdvisorResourcesSummary
+
+instance NFData TrustedAdvisorResourcesSummary

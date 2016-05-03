@@ -61,6 +61,8 @@ instance AWSRequest GetAccount where
 
 instance Hashable GetAccount
 
+instance NFData GetAccount
+
 instance ToHeaders GetAccount where
         toHeaders
           = const

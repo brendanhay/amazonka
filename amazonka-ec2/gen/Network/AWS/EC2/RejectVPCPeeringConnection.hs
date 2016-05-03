@@ -93,6 +93,8 @@ instance AWSRequest RejectVPCPeeringConnection where
 
 instance Hashable RejectVPCPeeringConnection
 
+instance NFData RejectVPCPeeringConnection
+
 instance ToHeaders RejectVPCPeeringConnection where
         toHeaders = const mempty
 
@@ -138,3 +140,5 @@ rvpcrsReturn = lens _rvpcrsReturn (\ s a -> s{_rvpcrsReturn = a});
 -- | The response status code.
 rvpcrsResponseStatus :: Lens' RejectVPCPeeringConnectionResponse Int
 rvpcrsResponseStatus = lens _rvpcrsResponseStatus (\ s a -> s{_rvpcrsResponseStatus = a});
+
+instance NFData RejectVPCPeeringConnectionResponse

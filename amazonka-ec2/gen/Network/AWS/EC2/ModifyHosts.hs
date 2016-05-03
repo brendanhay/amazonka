@@ -97,6 +97,8 @@ instance AWSRequest ModifyHosts where
 
 instance Hashable ModifyHosts
 
+instance NFData ModifyHosts
+
 instance ToHeaders ModifyHosts where
         toHeaders = const mempty
 
@@ -149,3 +151,5 @@ mhrsSuccessful = lens _mhrsSuccessful (\ s a -> s{_mhrsSuccessful = a}) . _Defau
 -- | The response status code.
 mhrsResponseStatus :: Lens' ModifyHostsResponse Int
 mhrsResponseStatus = lens _mhrsResponseStatus (\ s a -> s{_mhrsResponseStatus = a});
+
+instance NFData ModifyHostsResponse

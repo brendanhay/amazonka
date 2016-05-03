@@ -114,6 +114,8 @@ instance AWSRequest SetRepositoryPolicy where
 
 instance Hashable SetRepositoryPolicy
 
+instance NFData SetRepositoryPolicy
+
 instance ToHeaders SetRepositoryPolicy where
         toHeaders
           = const
@@ -184,3 +186,5 @@ srprsPolicyText = lens _srprsPolicyText (\ s a -> s{_srprsPolicyText = a});
 -- | The response status code.
 srprsResponseStatus :: Lens' SetRepositoryPolicyResponse Int
 srprsResponseStatus = lens _srprsResponseStatus (\ s a -> s{_srprsResponseStatus = a});
+
+instance NFData SetRepositoryPolicyResponse

@@ -111,6 +111,8 @@ instance AWSRequest AssociateVPCWithHostedZone where
 
 instance Hashable AssociateVPCWithHostedZone
 
+instance NFData AssociateVPCWithHostedZone
+
 instance ToElement AssociateVPCWithHostedZone where
         toElement
           = mkElement
@@ -166,3 +168,5 @@ avwhzrsResponseStatus = lens _avwhzrsResponseStatus (\ s a -> s{_avwhzrsResponse
 -- of your 'AssociateVPCWithHostedZoneRequest'.
 avwhzrsChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
 avwhzrsChangeInfo = lens _avwhzrsChangeInfo (\ s a -> s{_avwhzrsChangeInfo = a});
+
+instance NFData AssociateVPCWithHostedZoneResponse

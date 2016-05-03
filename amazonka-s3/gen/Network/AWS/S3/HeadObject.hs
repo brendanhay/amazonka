@@ -242,6 +242,8 @@ instance AWSRequest HeadObject where
 
 instance Hashable HeadObject
 
+instance NFData HeadObject
+
 instance ToHeaders HeadObject where
         toHeaders HeadObject'{..}
           = mconcat
@@ -500,3 +502,5 @@ horsContentType = lens _horsContentType (\ s a -> s{_horsContentType = a});
 -- | The response status code.
 horsResponseStatus :: Lens' HeadObjectResponse Int
 horsResponseStatus = lens _horsResponseStatus (\ s a -> s{_horsResponseStatus = a});
+
+instance NFData HeadObjectResponse

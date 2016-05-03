@@ -118,6 +118,8 @@ instance AWSRequest CreateDBClusterSnapshot where
 
 instance Hashable CreateDBClusterSnapshot
 
+instance NFData CreateDBClusterSnapshot
+
 instance ToHeaders CreateDBClusterSnapshot where
         toHeaders = const mempty
 
@@ -164,3 +166,5 @@ cdbcsrsDBClusterSnapshot = lens _cdbcsrsDBClusterSnapshot (\ s a -> s{_cdbcsrsDB
 -- | The response status code.
 cdbcsrsResponseStatus :: Lens' CreateDBClusterSnapshotResponse Int
 cdbcsrsResponseStatus = lens _cdbcsrsResponseStatus (\ s a -> s{_cdbcsrsResponseStatus = a});
+
+instance NFData CreateDBClusterSnapshotResponse

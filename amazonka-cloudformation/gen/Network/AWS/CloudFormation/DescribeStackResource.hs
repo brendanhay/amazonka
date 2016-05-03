@@ -101,6 +101,8 @@ instance AWSRequest DescribeStackResource where
 
 instance Hashable DescribeStackResource
 
+instance NFData DescribeStackResource
+
 instance ToHeaders DescribeStackResource where
         toHeaders = const mempty
 
@@ -147,3 +149,5 @@ dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\ s a -> s{_dsrrsStac
 -- | The response status code.
 dsrrsResponseStatus :: Lens' DescribeStackResourceResponse Int
 dsrrsResponseStatus = lens _dsrrsResponseStatus (\ s a -> s{_dsrrsResponseStatus = a});
+
+instance NFData DescribeStackResourceResponse

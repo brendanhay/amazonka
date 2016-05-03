@@ -81,6 +81,8 @@ instance AWSRequest GetAccessKeyLastUsed where
 
 instance Hashable GetAccessKeyLastUsed
 
+instance NFData GetAccessKeyLastUsed
+
 instance ToHeaders GetAccessKeyLastUsed where
         toHeaders = const mempty
 
@@ -135,3 +137,5 @@ gaklursAccessKeyLastUsed = lens _gaklursAccessKeyLastUsed (\ s a -> s{_gaklursAc
 -- | The response status code.
 gaklursResponseStatus :: Lens' GetAccessKeyLastUsedResponse Int
 gaklursResponseStatus = lens _gaklursResponseStatus (\ s a -> s{_gaklursResponseStatus = a});
+
+instance NFData GetAccessKeyLastUsedResponse

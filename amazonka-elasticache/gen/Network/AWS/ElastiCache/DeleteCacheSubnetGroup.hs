@@ -78,6 +78,8 @@ instance AWSRequest DeleteCacheSubnetGroup where
 
 instance Hashable DeleteCacheSubnetGroup
 
+instance NFData DeleteCacheSubnetGroup
+
 instance ToHeaders DeleteCacheSubnetGroup where
         toHeaders = const mempty
 
@@ -102,3 +104,5 @@ data DeleteCacheSubnetGroupResponse =
 deleteCacheSubnetGroupResponse
     :: DeleteCacheSubnetGroupResponse
 deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse'
+
+instance NFData DeleteCacheSubnetGroupResponse

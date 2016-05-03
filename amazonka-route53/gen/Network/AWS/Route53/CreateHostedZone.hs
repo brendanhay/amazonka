@@ -165,6 +165,8 @@ instance AWSRequest CreateHostedZone where
 
 instance Hashable CreateHostedZone
 
+instance NFData CreateHostedZone
+
 instance ToElement CreateHostedZone where
         toElement
           = mkElement
@@ -259,3 +261,5 @@ chzrsDelegationSet = lens _chzrsDelegationSet (\ s a -> s{_chzrsDelegationSet = 
 -- | The unique URL representing the new hosted zone.
 chzrsLocation :: Lens' CreateHostedZoneResponse Text
 chzrsLocation = lens _chzrsLocation (\ s a -> s{_chzrsLocation = a});
+
+instance NFData CreateHostedZoneResponse

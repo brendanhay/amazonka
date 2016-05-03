@@ -160,6 +160,8 @@ instance AWSRequest RestoreTableFromClusterSnapshot
 
 instance Hashable RestoreTableFromClusterSnapshot
 
+instance NFData RestoreTableFromClusterSnapshot
+
 instance ToHeaders RestoreTableFromClusterSnapshot
          where
         toHeaders = const mempty
@@ -212,3 +214,6 @@ rtfcsrsTableRestoreStatus = lens _rtfcsrsTableRestoreStatus (\ s a -> s{_rtfcsrs
 -- | The response status code.
 rtfcsrsResponseStatus :: Lens' RestoreTableFromClusterSnapshotResponse Int
 rtfcsrsResponseStatus = lens _rtfcsrsResponseStatus (\ s a -> s{_rtfcsrsResponseStatus = a});
+
+instance NFData
+         RestoreTableFromClusterSnapshotResponse

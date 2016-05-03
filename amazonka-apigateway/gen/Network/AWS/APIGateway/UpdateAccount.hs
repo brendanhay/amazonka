@@ -74,6 +74,8 @@ instance AWSRequest UpdateAccount where
 
 instance Hashable UpdateAccount
 
+instance NFData UpdateAccount
+
 instance ToHeaders UpdateAccount where
         toHeaders
           = const

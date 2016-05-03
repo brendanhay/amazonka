@@ -161,6 +161,8 @@ instance AWSRequest DescribeDBLogFiles where
 
 instance Hashable DescribeDBLogFiles
 
+instance NFData DescribeDBLogFiles
+
 instance ToHeaders DescribeDBLogFiles where
         toHeaders = const mempty
 
@@ -221,3 +223,5 @@ ddlfrsMarker = lens _ddlfrsMarker (\ s a -> s{_ddlfrsMarker = a});
 -- | The response status code.
 ddlfrsResponseStatus :: Lens' DescribeDBLogFilesResponse Int
 ddlfrsResponseStatus = lens _ddlfrsResponseStatus (\ s a -> s{_ddlfrsResponseStatus = a});
+
+instance NFData DescribeDBLogFilesResponse

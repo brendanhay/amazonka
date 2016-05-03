@@ -108,6 +108,8 @@ instance AWSRequest DescribeEndpoints where
 
 instance Hashable DescribeEndpoints
 
+instance NFData DescribeEndpoints
+
 instance ToHeaders DescribeEndpoints where
         toHeaders
           = const
@@ -171,3 +173,5 @@ dersEndpoints = lens _dersEndpoints (\ s a -> s{_dersEndpoints = a}) . _Default 
 -- | The response status code.
 dersResponseStatus :: Lens' DescribeEndpointsResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
+
+instance NFData DescribeEndpointsResponse

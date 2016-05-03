@@ -135,6 +135,8 @@ instance AWSRequest DescribeHosts where
 
 instance Hashable DescribeHosts
 
+instance NFData DescribeHosts
+
 instance ToHeaders DescribeHosts where
         toHeaders = const mempty
 
@@ -189,3 +191,5 @@ dhrsNextToken = lens _dhrsNextToken (\ s a -> s{_dhrsNextToken = a});
 -- | The response status code.
 dhrsResponseStatus :: Lens' DescribeHostsResponse Int
 dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
+
+instance NFData DescribeHostsResponse

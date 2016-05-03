@@ -202,6 +202,8 @@ instance AWSRequest DescribeSpotPriceHistory where
 
 instance Hashable DescribeSpotPriceHistory
 
+instance NFData DescribeSpotPriceHistory
+
 instance ToHeaders DescribeSpotPriceHistory where
         toHeaders = const mempty
 
@@ -267,3 +269,5 @@ dsphrsSpotPriceHistory = lens _dsphrsSpotPriceHistory (\ s a -> s{_dsphrsSpotPri
 -- | The response status code.
 dsphrsResponseStatus :: Lens' DescribeSpotPriceHistoryResponse Int
 dsphrsResponseStatus = lens _dsphrsResponseStatus (\ s a -> s{_dsphrsResponseStatus = a});
+
+instance NFData DescribeSpotPriceHistoryResponse

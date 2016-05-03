@@ -85,6 +85,8 @@ instance AWSRequest UpdateDomainName where
 
 instance Hashable UpdateDomainName
 
+instance NFData UpdateDomainName
+
 instance ToHeaders UpdateDomainName where
         toHeaders
           = const

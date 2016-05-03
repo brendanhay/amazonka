@@ -100,6 +100,8 @@ instance AWSRequest PutImage where
 
 instance Hashable PutImage
 
+instance NFData PutImage
+
 instance ToHeaders PutImage where
         toHeaders
           = const
@@ -153,3 +155,5 @@ pirsImage = lens _pirsImage (\ s a -> s{_pirsImage = a});
 -- | The response status code.
 pirsResponseStatus :: Lens' PutImageResponse Int
 pirsResponseStatus = lens _pirsResponseStatus (\ s a -> s{_pirsResponseStatus = a});
+
+instance NFData PutImageResponse

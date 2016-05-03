@@ -75,6 +75,8 @@ instance AWSRequest GenerateRandom where
 
 instance Hashable GenerateRandom
 
+instance NFData GenerateRandom
+
 instance ToHeaders GenerateRandom where
         toHeaders
           = const
@@ -131,3 +133,5 @@ grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping (
 -- | The response status code.
 grrsResponseStatus :: Lens' GenerateRandomResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+
+instance NFData GenerateRandomResponse

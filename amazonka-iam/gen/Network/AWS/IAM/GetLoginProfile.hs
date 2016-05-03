@@ -77,6 +77,8 @@ instance AWSRequest GetLoginProfile where
 
 instance Hashable GetLoginProfile
 
+instance NFData GetLoginProfile
+
 instance ToHeaders GetLoginProfile where
         toHeaders = const mempty
 
@@ -122,3 +124,5 @@ glprsResponseStatus = lens _glprsResponseStatus (\ s a -> s{_glprsResponseStatus
 -- | The user name and password create date for the user.
 glprsLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
 glprsLoginProfile = lens _glprsLoginProfile (\ s a -> s{_glprsLoginProfile = a});
+
+instance NFData GetLoginProfileResponse

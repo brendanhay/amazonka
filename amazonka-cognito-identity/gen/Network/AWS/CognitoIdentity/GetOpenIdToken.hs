@@ -98,6 +98,8 @@ instance AWSRequest GetOpenIdToken where
 
 instance Hashable GetOpenIdToken
 
+instance NFData GetOpenIdToken
+
 instance ToHeaders GetOpenIdToken where
         toHeaders
           = const
@@ -161,3 +163,5 @@ goitrsIdentityId = lens _goitrsIdentityId (\ s a -> s{_goitrsIdentityId = a});
 -- | The response status code.
 goitrsResponseStatus :: Lens' GetOpenIdTokenResponse Int
 goitrsResponseStatus = lens _goitrsResponseStatus (\ s a -> s{_goitrsResponseStatus = a});
+
+instance NFData GetOpenIdTokenResponse

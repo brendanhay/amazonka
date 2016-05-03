@@ -82,6 +82,8 @@ instance AWSRequest RotateEncryptionKey where
 
 instance Hashable RotateEncryptionKey
 
+instance NFData RotateEncryptionKey
+
 instance ToHeaders RotateEncryptionKey where
         toHeaders = const mempty
 
@@ -124,3 +126,5 @@ rekrsCluster = lens _rekrsCluster (\ s a -> s{_rekrsCluster = a});
 -- | The response status code.
 rekrsResponseStatus :: Lens' RotateEncryptionKeyResponse Int
 rekrsResponseStatus = lens _rekrsResponseStatus (\ s a -> s{_rekrsResponseStatus = a});
+
+instance NFData RotateEncryptionKeyResponse

@@ -149,6 +149,8 @@ instance AWSRequest DescribeComplianceByResource
 
 instance Hashable DescribeComplianceByResource
 
+instance NFData DescribeComplianceByResource
+
 instance ToHeaders DescribeComplianceByResource where
         toHeaders
           = const
@@ -214,3 +216,5 @@ dcbrrsNextToken = lens _dcbrrsNextToken (\ s a -> s{_dcbrrsNextToken = a});
 -- | The response status code.
 dcbrrsResponseStatus :: Lens' DescribeComplianceByResourceResponse Int
 dcbrrsResponseStatus = lens _dcbrrsResponseStatus (\ s a -> s{_dcbrrsResponseStatus = a});
+
+instance NFData DescribeComplianceByResourceResponse

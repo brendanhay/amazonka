@@ -161,6 +161,8 @@ instance AWSRequest ModifyEndpoint where
 
 instance Hashable ModifyEndpoint
 
+instance NFData ModifyEndpoint
+
 instance ToHeaders ModifyEndpoint where
         toHeaders
           = const
@@ -221,3 +223,5 @@ mersEndpoint = lens _mersEndpoint (\ s a -> s{_mersEndpoint = a});
 -- | The response status code.
 mersResponseStatus :: Lens' ModifyEndpointResponse Int
 mersResponseStatus = lens _mersResponseStatus (\ s a -> s{_mersResponseStatus = a});
+
+instance NFData ModifyEndpointResponse

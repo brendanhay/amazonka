@@ -120,6 +120,8 @@ instance AWSRequest RequestCancelWorkflowExecution
 
 instance Hashable RequestCancelWorkflowExecution
 
+instance NFData RequestCancelWorkflowExecution
+
 instance ToHeaders RequestCancelWorkflowExecution
          where
         toHeaders
@@ -156,3 +158,6 @@ requestCancelWorkflowExecutionResponse
     :: RequestCancelWorkflowExecutionResponse
 requestCancelWorkflowExecutionResponse =
     RequestCancelWorkflowExecutionResponse'
+
+instance NFData
+         RequestCancelWorkflowExecutionResponse

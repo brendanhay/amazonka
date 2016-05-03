@@ -34,6 +34,7 @@ instance ToText Capability where
         CapabilityIAM -> "CAPABILITY_IAM"
 
 instance Hashable     Capability
+instance NFData       Capability
 instance ToByteString Capability
 instance ToQuery      Capability
 instance ToHeader     Capability
@@ -62,6 +63,7 @@ instance ToText OnFailure where
         Rollback -> "ROLLBACK"
 
 instance Hashable     OnFailure
+instance NFData       OnFailure
 instance ToByteString OnFailure
 instance ToQuery      OnFailure
 instance ToHeader     OnFailure
@@ -84,6 +86,7 @@ instance ToText ResourceSignalStatus where
         Success -> "SUCCESS"
 
 instance Hashable     ResourceSignalStatus
+instance NFData       ResourceSignalStatus
 instance ToByteString ResourceSignalStatus
 instance ToQuery      ResourceSignalStatus
 instance ToHeader     ResourceSignalStatus
@@ -130,6 +133,7 @@ instance ToText ResourceStatus where
         UpdateInProgress -> "UPDATE_IN_PROGRESS"
 
 instance Hashable     ResourceStatus
+instance NFData       ResourceStatus
 instance ToByteString ResourceStatus
 instance ToQuery      ResourceStatus
 instance ToHeader     ResourceStatus
@@ -197,6 +201,7 @@ instance ToText StackStatus where
         SSUpdateRollbackInProgress -> "UPDATE_ROLLBACK_IN_PROGRESS"
 
 instance Hashable     StackStatus
+instance NFData       StackStatus
 instance ToByteString StackStatus
 instance ToQuery      StackStatus
 instance ToHeader     StackStatus

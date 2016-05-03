@@ -61,6 +61,8 @@ instance FromJSON BranchInfo where
 
 instance Hashable BranchInfo
 
+instance NFData BranchInfo
+
 -- | Returns information about a specific commit.
 --
 -- /See:/ 'commit' smart constructor.
@@ -140,6 +142,8 @@ instance FromJSON Commit where
                      <*> (x .:? "message"))
 
 instance Hashable Commit
+
+instance NFData Commit
 
 -- | Information about a repository.
 --
@@ -254,6 +258,8 @@ instance FromJSON RepositoryMetadata where
 
 instance Hashable RepositoryMetadata
 
+instance NFData RepositoryMetadata
+
 -- | Information about a repository name and ID.
 --
 -- /See:/ 'repositoryNameIdPair' smart constructor.
@@ -293,6 +299,8 @@ instance FromJSON RepositoryNameIdPair where
                    (x .:? "repositoryId") <*> (x .:? "repositoryName"))
 
 instance Hashable RepositoryNameIdPair
+
+instance NFData RepositoryNameIdPair
 
 -- | Information about a trigger for a repository.
 --
@@ -368,6 +376,8 @@ instance FromJSON RepositoryTrigger where
 
 instance Hashable RepositoryTrigger
 
+instance NFData RepositoryTrigger
+
 instance ToJSON RepositoryTrigger where
         toJSON RepositoryTrigger'{..}
           = object
@@ -419,6 +429,8 @@ instance FromJSON RepositoryTriggerExecutionFailure
 
 instance Hashable RepositoryTriggerExecutionFailure
 
+instance NFData RepositoryTriggerExecutionFailure
+
 -- | Information about the user who made a specified commit.
 --
 -- /See:/ 'userInfo' smart constructor.
@@ -467,3 +479,5 @@ instance FromJSON UserInfo where
                      (x .:? "name"))
 
 instance Hashable UserInfo
+
+instance NFData UserInfo

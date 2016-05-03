@@ -89,6 +89,8 @@ instance AWSRequest DeleteDeliveryStream where
 
 instance Hashable DeleteDeliveryStream
 
+instance NFData DeleteDeliveryStream
+
 instance ToHeaders DeleteDeliveryStream where
         toHeaders
           = const
@@ -135,3 +137,5 @@ deleteDeliveryStreamResponse pResponseStatus_ =
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteDeliveryStreamResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteDeliveryStreamResponse

@@ -64,6 +64,8 @@ instance FromJSON HashKeyRange where
 
 instance Hashable HashKeyRange
 
+instance NFData HashKeyRange
+
 -- | Represents the output for 'PutRecords'.
 --
 -- /See:/ 'putRecordsRequestEntry' smart constructor.
@@ -124,6 +126,8 @@ prrePartitionKey :: Lens' PutRecordsRequestEntry Text
 prrePartitionKey = lens _prrePartitionKey (\ s a -> s{_prrePartitionKey = a});
 
 instance Hashable PutRecordsRequestEntry
+
+instance NFData PutRecordsRequestEntry
 
 instance ToJSON PutRecordsRequestEntry where
         toJSON PutRecordsRequestEntry'{..}
@@ -200,6 +204,8 @@ instance FromJSON PutRecordsResultEntry where
 
 instance Hashable PutRecordsResultEntry
 
+instance NFData PutRecordsResultEntry
+
 -- | The unit of data of the Amazon Kinesis stream, which is composed of a
 -- sequence number, a partition key, and a data blob.
 --
@@ -273,6 +279,8 @@ instance FromJSON Record where
 
 instance Hashable Record
 
+instance NFData Record
+
 -- | The range of possible sequence numbers for the shard.
 --
 -- /See:/ 'sequenceNumberRange' smart constructor.
@@ -315,6 +323,8 @@ instance FromJSON SequenceNumberRange where
                      (x .: "StartingSequenceNumber"))
 
 instance Hashable SequenceNumberRange
+
+instance NFData SequenceNumberRange
 
 -- | A uniquely identified group of data records in an Amazon Kinesis stream.
 --
@@ -387,6 +397,8 @@ instance FromJSON Shard where
                      <*> (x .: "SequenceNumberRange"))
 
 instance Hashable Shard
+
+instance NFData Shard
 
 -- | Represents the output for < DescribeStream>.
 --
@@ -482,6 +494,8 @@ instance FromJSON StreamDescription where
 
 instance Hashable StreamDescription
 
+instance NFData StreamDescription
+
 -- | Metadata assigned to the stream, consisting of a key-value pair.
 --
 -- /See:/ 'tag' smart constructor.
@@ -523,3 +537,5 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
 
 instance Hashable Tag
+
+instance NFData Tag

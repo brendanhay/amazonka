@@ -77,6 +77,8 @@ instance AWSRequest GetUpload where
 
 instance Hashable GetUpload
 
+instance NFData GetUpload
+
 instance ToHeaders GetUpload where
         toHeaders
           = const
@@ -127,3 +129,5 @@ gursUpload = lens _gursUpload (\ s a -> s{_gursUpload = a});
 -- | The response status code.
 gursResponseStatus :: Lens' GetUploadResponse Int
 gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a});
+
+instance NFData GetUploadResponse

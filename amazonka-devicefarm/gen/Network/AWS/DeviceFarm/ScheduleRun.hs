@@ -124,6 +124,8 @@ instance AWSRequest ScheduleRun where
 
 instance Hashable ScheduleRun
 
+instance NFData ScheduleRun
+
 instance ToHeaders ScheduleRun where
         toHeaders
           = const
@@ -181,3 +183,5 @@ srrsRun = lens _srrsRun (\ s a -> s{_srrsRun = a});
 -- | The response status code.
 srrsResponseStatus :: Lens' ScheduleRunResponse Int
 srrsResponseStatus = lens _srrsResponseStatus (\ s a -> s{_srrsResponseStatus = a});
+
+instance NFData ScheduleRunResponse

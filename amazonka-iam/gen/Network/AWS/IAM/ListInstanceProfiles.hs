@@ -131,6 +131,8 @@ instance AWSRequest ListInstanceProfiles where
 
 instance Hashable ListInstanceProfiles
 
+instance NFData ListInstanceProfiles
+
 instance ToHeaders ListInstanceProfiles where
         toHeaders = const mempty
 
@@ -200,3 +202,5 @@ liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus
 -- | A list of instance profiles.
 liprsInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
 liprsInstanceProfiles = lens _liprsInstanceProfiles (\ s a -> s{_liprsInstanceProfiles = a}) . _Coerce;
+
+instance NFData ListInstanceProfilesResponse

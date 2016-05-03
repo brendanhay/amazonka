@@ -219,6 +219,8 @@ instance AWSRequest PollForDecisionTask where
 
 instance Hashable PollForDecisionTask
 
+instance NFData PollForDecisionTask
+
 instance ToHeaders PollForDecisionTask where
         toHeaders
           = const
@@ -342,3 +344,5 @@ pfdtrsWorkflowType = lens _pfdtrsWorkflowType (\ s a -> s{_pfdtrsWorkflowType = 
 -- decider uses this during the processing of the decision task.
 pfdtrsEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
 pfdtrsEvents = lens _pfdtrsEvents (\ s a -> s{_pfdtrsEvents = a}) . _Coerce;
+
+instance NFData PollForDecisionTaskResponse

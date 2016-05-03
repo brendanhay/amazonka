@@ -102,6 +102,8 @@ instance AWSRequest CreateVPNGateway where
 
 instance Hashable CreateVPNGateway
 
+instance NFData CreateVPNGateway
+
 instance ToHeaders CreateVPNGateway where
         toHeaders = const mempty
 
@@ -145,3 +147,5 @@ cvgrsVPNGateway = lens _cvgrsVPNGateway (\ s a -> s{_cvgrsVPNGateway = a});
 -- | The response status code.
 cvgrsResponseStatus :: Lens' CreateVPNGatewayResponse Int
 cvgrsResponseStatus = lens _cvgrsResponseStatus (\ s a -> s{_cvgrsResponseStatus = a});
+
+instance NFData CreateVPNGatewayResponse

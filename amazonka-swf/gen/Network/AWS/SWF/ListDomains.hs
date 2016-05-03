@@ -154,6 +154,8 @@ instance AWSRequest ListDomains where
 
 instance Hashable ListDomains
 
+instance NFData ListDomains
+
 instance ToHeaders ListDomains where
         toHeaders
           = const
@@ -224,3 +226,5 @@ ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = 
 -- | A list of DomainInfo structures.
 ldrsDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
 ldrsDomainInfos = lens _ldrsDomainInfos (\ s a -> s{_ldrsDomainInfos = a}) . _Coerce;
+
+instance NFData ListDomainsResponse

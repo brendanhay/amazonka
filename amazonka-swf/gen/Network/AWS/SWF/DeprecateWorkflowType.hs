@@ -109,6 +109,8 @@ instance AWSRequest DeprecateWorkflowType where
 
 instance Hashable DeprecateWorkflowType
 
+instance NFData DeprecateWorkflowType
+
 instance ToHeaders DeprecateWorkflowType where
         toHeaders
           = const
@@ -142,3 +144,5 @@ data DeprecateWorkflowTypeResponse =
 deprecateWorkflowTypeResponse
     :: DeprecateWorkflowTypeResponse
 deprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse'
+
+instance NFData DeprecateWorkflowTypeResponse

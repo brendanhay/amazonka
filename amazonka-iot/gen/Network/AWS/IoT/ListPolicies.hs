@@ -98,6 +98,8 @@ instance AWSRequest ListPolicies where
 
 instance Hashable ListPolicies
 
+instance NFData ListPolicies
+
 instance ToHeaders ListPolicies where
         toHeaders = const mempty
 
@@ -151,3 +153,5 @@ lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _
 -- | The response status code.
 lprsResponseStatus :: Lens' ListPoliciesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+
+instance NFData ListPoliciesResponse

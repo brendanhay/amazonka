@@ -119,6 +119,8 @@ instance AWSRequest DescribeImportImageTasks where
 
 instance Hashable DescribeImportImageTasks
 
+instance NFData DescribeImportImageTasks
+
 instance ToHeaders DescribeImportImageTasks where
         toHeaders = const mempty
 
@@ -177,3 +179,5 @@ diitrsImportImageTasks = lens _diitrsImportImageTasks (\ s a -> s{_diitrsImportI
 -- | The response status code.
 diitrsResponseStatus :: Lens' DescribeImportImageTasksResponse Int
 diitrsResponseStatus = lens _diitrsResponseStatus (\ s a -> s{_diitrsResponseStatus = a});
+
+instance NFData DescribeImportImageTasksResponse

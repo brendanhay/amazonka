@@ -89,6 +89,8 @@ instance AWSRequest PutBucketReplication where
 
 instance Hashable PutBucketReplication
 
+instance NFData PutBucketReplication
+
 instance ToElement PutBucketReplication where
         toElement
           = mkElement
@@ -117,3 +119,5 @@ data PutBucketReplicationResponse =
 putBucketReplicationResponse
     :: PutBucketReplicationResponse
 putBucketReplicationResponse = PutBucketReplicationResponse'
+
+instance NFData PutBucketReplicationResponse

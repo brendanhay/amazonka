@@ -105,6 +105,8 @@ instance AWSRequest ListTopicRules where
 
 instance Hashable ListTopicRules
 
+instance NFData ListTopicRules
+
 instance ToHeaders ListTopicRules where
         toHeaders = const mempty
 
@@ -157,3 +159,5 @@ ltrrsNextToken = lens _ltrrsNextToken (\ s a -> s{_ltrrsNextToken = a});
 -- | The response status code.
 ltrrsResponseStatus :: Lens' ListTopicRulesResponse Int
 ltrrsResponseStatus = lens _ltrrsResponseStatus (\ s a -> s{_ltrrsResponseStatus = a});
+
+instance NFData ListTopicRulesResponse

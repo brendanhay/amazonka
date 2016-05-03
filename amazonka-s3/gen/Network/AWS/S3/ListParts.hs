@@ -162,6 +162,8 @@ instance AWSRequest ListParts where
 
 instance Hashable ListParts
 
+instance NFData ListParts
+
 instance ToHeaders ListParts where
         toHeaders ListParts'{..}
           = mconcat ["x-amz-request-payer" =# _lpRequestPayer]
@@ -314,3 +316,5 @@ lprsUploadId = lens _lprsUploadId (\ s a -> s{_lprsUploadId = a});
 -- | The response status code.
 lprsResponseStatus :: Lens' ListPartsResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+
+instance NFData ListPartsResponse

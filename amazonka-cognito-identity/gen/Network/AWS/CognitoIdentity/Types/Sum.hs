@@ -37,6 +37,7 @@ instance ToText CognitoErrorCode where
         InternalServerError -> "InternalServerError"
 
 instance Hashable     CognitoErrorCode
+instance NFData       CognitoErrorCode
 instance ToByteString CognitoErrorCode
 instance ToQuery      CognitoErrorCode
 instance ToHeader     CognitoErrorCode

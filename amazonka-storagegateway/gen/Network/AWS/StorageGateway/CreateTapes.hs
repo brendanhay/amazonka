@@ -135,6 +135,8 @@ instance AWSRequest CreateTapes where
 
 instance Hashable CreateTapes
 
+instance NFData CreateTapes
+
 instance ToHeaders CreateTapes where
         toHeaders
           = const
@@ -193,3 +195,5 @@ ctrsTapeARNs = lens _ctrsTapeARNs (\ s a -> s{_ctrsTapeARNs = a}) . _Default . _
 -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTapesResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+
+instance NFData CreateTapesResponse

@@ -130,6 +130,8 @@ instance AWSRequest ListSigningCertificates where
 
 instance Hashable ListSigningCertificates
 
+instance NFData ListSigningCertificates
+
 instance ToHeaders ListSigningCertificates where
         toHeaders = const mempty
 
@@ -201,3 +203,5 @@ lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a})
 -- | A list of the user\'s signing certificate information.
 lrsCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
 lrsCertificates = lens _lrsCertificates (\ s a -> s{_lrsCertificates = a}) . _Coerce;
+
+instance NFData ListSigningCertificatesResponse

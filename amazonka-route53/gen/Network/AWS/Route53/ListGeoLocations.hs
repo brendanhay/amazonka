@@ -145,6 +145,8 @@ instance AWSRequest ListGeoLocations where
 
 instance Hashable ListGeoLocations
 
+instance NFData ListGeoLocations
+
 instance ToHeaders ListGeoLocations where
         toHeaders = const mempty
 
@@ -251,3 +253,5 @@ lglrsIsTruncated = lens _lglrsIsTruncated (\ s a -> s{_lglrsIsTruncated = a});
 -- 'MaxItems' is 100.
 lglrsMaxItems :: Lens' ListGeoLocationsResponse Text
 lglrsMaxItems = lens _lglrsMaxItems (\ s a -> s{_lglrsMaxItems = a});
+
+instance NFData ListGeoLocationsResponse

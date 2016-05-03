@@ -130,6 +130,8 @@ instance AWSRequest MergeShards where
 
 instance Hashable MergeShards
 
+instance NFData MergeShards
+
 instance ToHeaders MergeShards where
         toHeaders
           = const
@@ -164,3 +166,5 @@ data MergeShardsResponse =
 mergeShardsResponse
     :: MergeShardsResponse
 mergeShardsResponse = MergeShardsResponse'
+
+instance NFData MergeShardsResponse

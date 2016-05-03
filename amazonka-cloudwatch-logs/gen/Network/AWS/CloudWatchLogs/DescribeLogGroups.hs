@@ -117,6 +117,8 @@ instance AWSRequest DescribeLogGroups where
 
 instance Hashable DescribeLogGroups
 
+instance NFData DescribeLogGroups
+
 instance ToHeaders DescribeLogGroups where
         toHeaders
           = const
@@ -178,3 +180,5 @@ dlgrsNextToken = lens _dlgrsNextToken (\ s a -> s{_dlgrsNextToken = a});
 -- | The response status code.
 dlgrsResponseStatus :: Lens' DescribeLogGroupsResponse Int
 dlgrsResponseStatus = lens _dlgrsResponseStatus (\ s a -> s{_dlgrsResponseStatus = a});
+
+instance NFData DescribeLogGroupsResponse

@@ -121,6 +121,8 @@ instance AWSRequest RespondActivityTaskFailed where
 
 instance Hashable RespondActivityTaskFailed
 
+instance NFData RespondActivityTaskFailed
+
 instance ToHeaders RespondActivityTaskFailed where
         toHeaders
           = const
@@ -155,3 +157,5 @@ data RespondActivityTaskFailedResponse =
 respondActivityTaskFailedResponse
     :: RespondActivityTaskFailedResponse
 respondActivityTaskFailedResponse = RespondActivityTaskFailedResponse'
+
+instance NFData RespondActivityTaskFailedResponse

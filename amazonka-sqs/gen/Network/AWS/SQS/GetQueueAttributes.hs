@@ -134,6 +134,8 @@ instance AWSRequest GetQueueAttributes where
 
 instance Hashable GetQueueAttributes
 
+instance NFData GetQueueAttributes
+
 instance ToHeaders GetQueueAttributes where
         toHeaders = const mempty
 
@@ -180,3 +182,5 @@ gqarsAttributes = lens _gqarsAttributes (\ s a -> s{_gqarsAttributes = a}) . _De
 -- | The response status code.
 gqarsResponseStatus :: Lens' GetQueueAttributesResponse Int
 gqarsResponseStatus = lens _gqarsResponseStatus (\ s a -> s{_gqarsResponseStatus = a});
+
+instance NFData GetQueueAttributesResponse

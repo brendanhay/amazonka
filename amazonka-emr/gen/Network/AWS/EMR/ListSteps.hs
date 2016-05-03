@@ -116,6 +116,8 @@ instance AWSRequest ListSteps where
 
 instance Hashable ListSteps
 
+instance NFData ListSteps
+
 instance ToHeaders ListSteps where
         toHeaders
           = const
@@ -179,3 +181,5 @@ lsrsMarker = lens _lsrsMarker (\ s a -> s{_lsrsMarker = a});
 -- | The response status code.
 lsrsResponseStatus :: Lens' ListStepsResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
+
+instance NFData ListStepsResponse

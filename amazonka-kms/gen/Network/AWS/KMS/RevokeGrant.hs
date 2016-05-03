@@ -86,6 +86,8 @@ instance AWSRequest RevokeGrant where
 
 instance Hashable RevokeGrant
 
+instance NFData RevokeGrant
+
 instance ToHeaders RevokeGrant where
         toHeaders
           = const
@@ -118,3 +120,5 @@ data RevokeGrantResponse =
 revokeGrantResponse
     :: RevokeGrantResponse
 revokeGrantResponse = RevokeGrantResponse'
+
+instance NFData RevokeGrantResponse

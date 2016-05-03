@@ -86,6 +86,8 @@ instance AWSRequest GetResource where
 
 instance Hashable GetResource
 
+instance NFData GetResource
+
 instance ToHeaders GetResource where
         toHeaders
           = const

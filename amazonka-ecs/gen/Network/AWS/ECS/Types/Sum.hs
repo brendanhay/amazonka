@@ -49,6 +49,7 @@ instance ToText AgentUpdateStatus where
         AUSUpdating -> "UPDATING"
 
 instance Hashable     AgentUpdateStatus
+instance NFData       AgentUpdateStatus
 instance ToByteString AgentUpdateStatus
 instance ToQuery      AgentUpdateStatus
 instance ToHeader     AgentUpdateStatus
@@ -77,6 +78,7 @@ instance ToText DesiredStatus where
         Stopped -> "STOPPED"
 
 instance Hashable     DesiredStatus
+instance NFData       DesiredStatus
 instance ToByteString DesiredStatus
 instance ToQuery      DesiredStatus
 instance ToHeader     DesiredStatus
@@ -111,6 +113,7 @@ instance ToText LogDriver where
         Syslog -> "syslog"
 
 instance Hashable     LogDriver
+instance NFData       LogDriver
 instance ToByteString LogDriver
 instance ToQuery      LogDriver
 instance ToHeader     LogDriver
@@ -139,6 +142,7 @@ instance ToText SortOrder where
         Desc -> "DESC"
 
 instance Hashable     SortOrder
+instance NFData       SortOrder
 instance ToByteString SortOrder
 instance ToQuery      SortOrder
 instance ToHeader     SortOrder
@@ -164,6 +168,7 @@ instance ToText TaskDefinitionStatus where
         Inactive -> "INACTIVE"
 
 instance Hashable     TaskDefinitionStatus
+instance NFData       TaskDefinitionStatus
 instance ToByteString TaskDefinitionStatus
 instance ToQuery      TaskDefinitionStatus
 instance ToHeader     TaskDefinitionStatus
@@ -192,6 +197,7 @@ instance ToText TransportProtocol where
         Udp -> "udp"
 
 instance Hashable     TransportProtocol
+instance NFData       TransportProtocol
 instance ToByteString TransportProtocol
 instance ToQuery      TransportProtocol
 instance ToHeader     TransportProtocol
@@ -259,6 +265,7 @@ instance ToText UlimitName where
         Stack -> "stack"
 
 instance Hashable     UlimitName
+instance NFData       UlimitName
 instance ToByteString UlimitName
 instance ToQuery      UlimitName
 instance ToHeader     UlimitName

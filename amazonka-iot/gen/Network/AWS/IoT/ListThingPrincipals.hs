@@ -79,6 +79,8 @@ instance AWSRequest ListThingPrincipals where
 
 instance Hashable ListThingPrincipals
 
+instance NFData ListThingPrincipals
+
 instance ToHeaders ListThingPrincipals where
         toHeaders = const mempty
 
@@ -121,3 +123,5 @@ ltprsPrincipals = lens _ltprsPrincipals (\ s a -> s{_ltprsPrincipals = a}) . _De
 -- | The response status code.
 ltprsResponseStatus :: Lens' ListThingPrincipalsResponse Int
 ltprsResponseStatus = lens _ltprsResponseStatus (\ s a -> s{_ltprsResponseStatus = a});
+
+instance NFData ListThingPrincipalsResponse

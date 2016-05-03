@@ -40,6 +40,7 @@ instance ToText AttributeAction where
         Put -> "PUT"
 
 instance Hashable     AttributeAction
+instance NFData       AttributeAction
 instance ToByteString AttributeAction
 instance ToQuery      AttributeAction
 instance ToHeader     AttributeAction
@@ -98,6 +99,7 @@ instance ToText ComparisonOperator where
         Null -> "NULL"
 
 instance Hashable     ComparisonOperator
+instance NFData       ComparisonOperator
 instance ToByteString ComparisonOperator
 instance ToQuery      ComparisonOperator
 instance ToHeader     ComparisonOperator
@@ -123,6 +125,7 @@ instance ToText ConditionalOperator where
         OR -> "OR"
 
 instance Hashable     ConditionalOperator
+instance NFData       ConditionalOperator
 instance ToByteString ConditionalOperator
 instance ToQuery      ConditionalOperator
 instance ToHeader     ConditionalOperator
@@ -154,6 +157,7 @@ instance ToText IndexStatus where
         ISUpdating -> "UPDATING"
 
 instance Hashable     IndexStatus
+instance NFData       IndexStatus
 instance ToByteString IndexStatus
 instance ToQuery      IndexStatus
 instance ToHeader     IndexStatus
@@ -179,6 +183,7 @@ instance ToText KeyType where
         Range -> "RANGE"
 
 instance Hashable     KeyType
+instance NFData       KeyType
 instance ToByteString KeyType
 instance ToQuery      KeyType
 instance ToHeader     KeyType
@@ -210,6 +215,7 @@ instance ToText ProjectionType where
         KeysOnly -> "KEYS_ONLY"
 
 instance Hashable     ProjectionType
+instance NFData       ProjectionType
 instance ToByteString ProjectionType
 instance ToQuery      ProjectionType
 instance ToHeader     ProjectionType
@@ -257,6 +263,7 @@ instance ToText ReturnConsumedCapacity where
         RCCTotal -> "TOTAL"
 
 instance Hashable     ReturnConsumedCapacity
+instance NFData       ReturnConsumedCapacity
 instance ToByteString ReturnConsumedCapacity
 instance ToQuery      ReturnConsumedCapacity
 instance ToHeader     ReturnConsumedCapacity
@@ -282,6 +289,7 @@ instance ToText ReturnItemCollectionMetrics where
         RICMSize -> "SIZE"
 
 instance Hashable     ReturnItemCollectionMetrics
+instance NFData       ReturnItemCollectionMetrics
 instance ToByteString ReturnItemCollectionMetrics
 instance ToQuery      ReturnItemCollectionMetrics
 instance ToHeader     ReturnItemCollectionMetrics
@@ -316,6 +324,7 @@ instance ToText ReturnValue where
         UpdatedOld -> "UPDATED_OLD"
 
 instance Hashable     ReturnValue
+instance NFData       ReturnValue
 instance ToByteString ReturnValue
 instance ToQuery      ReturnValue
 instance ToHeader     ReturnValue
@@ -344,6 +353,7 @@ instance ToText ScalarAttributeType where
         S -> "S"
 
 instance Hashable     ScalarAttributeType
+instance NFData       ScalarAttributeType
 instance ToByteString ScalarAttributeType
 instance ToQuery      ScalarAttributeType
 instance ToHeader     ScalarAttributeType
@@ -378,6 +388,7 @@ instance ToText Select where
         SpecificAttributes -> "SPECIFIC_ATTRIBUTES"
 
 instance Hashable     Select
+instance NFData       Select
 instance ToByteString Select
 instance ToQuery      Select
 instance ToHeader     Select
@@ -409,6 +420,7 @@ instance ToText StreamViewType where
         SVTOldImage -> "OLD_IMAGE"
 
 instance Hashable     StreamViewType
+instance NFData       StreamViewType
 instance ToByteString StreamViewType
 instance ToQuery      StreamViewType
 instance ToHeader     StreamViewType
@@ -443,6 +455,7 @@ instance ToText TableStatus where
         Updating -> "UPDATING"
 
 instance Hashable     TableStatus
+instance NFData       TableStatus
 instance ToByteString TableStatus
 instance ToQuery      TableStatus
 instance ToHeader     TableStatus

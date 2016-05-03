@@ -231,6 +231,8 @@ instance AWSRequest UpdateHealthCheck where
 
 instance Hashable UpdateHealthCheck
 
+instance NFData UpdateHealthCheck
+
 instance ToElement UpdateHealthCheck where
         toElement
           = mkElement
@@ -296,3 +298,5 @@ uhcrsResponseStatus = lens _uhcrsResponseStatus (\ s a -> s{_uhcrsResponseStatus
 -- | Undocumented member.
 uhcrsHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
 uhcrsHealthCheck = lens _uhcrsHealthCheck (\ s a -> s{_uhcrsHealthCheck = a});
+
+instance NFData UpdateHealthCheckResponse

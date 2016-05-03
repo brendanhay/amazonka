@@ -127,6 +127,8 @@ instance AWSRequest ListKeyPolicies where
 
 instance Hashable ListKeyPolicies
 
+instance NFData ListKeyPolicies
+
 instance ToHeaders ListKeyPolicies where
         toHeaders
           = const
@@ -199,3 +201,5 @@ lkprsNextMarker = lens _lkprsNextMarker (\ s a -> s{_lkprsNextMarker = a});
 -- | The response status code.
 lkprsResponseStatus :: Lens' ListKeyPoliciesResponse Int
 lkprsResponseStatus = lens _lkprsResponseStatus (\ s a -> s{_lkprsResponseStatus = a});
+
+instance NFData ListKeyPoliciesResponse

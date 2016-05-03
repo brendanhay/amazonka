@@ -77,6 +77,8 @@ instance AWSRequest DeleteLayer where
 
 instance Hashable DeleteLayer
 
+instance NFData DeleteLayer
+
 instance ToHeaders DeleteLayer where
         toHeaders
           = const
@@ -106,3 +108,5 @@ data DeleteLayerResponse =
 deleteLayerResponse
     :: DeleteLayerResponse
 deleteLayerResponse = DeleteLayerResponse'
+
+instance NFData DeleteLayerResponse

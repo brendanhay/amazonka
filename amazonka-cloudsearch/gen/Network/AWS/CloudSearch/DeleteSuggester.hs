@@ -91,6 +91,8 @@ instance AWSRequest DeleteSuggester where
 
 instance Hashable DeleteSuggester
 
+instance NFData DeleteSuggester
+
 instance ToHeaders DeleteSuggester where
         toHeaders = const mempty
 
@@ -138,3 +140,5 @@ delersResponseStatus = lens _delersResponseStatus (\ s a -> s{_delersResponseSta
 -- | The status of the suggester being deleted.
 delersSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
 delersSuggester = lens _delersSuggester (\ s a -> s{_delersSuggester = a});
+
+instance NFData DeleteSuggesterResponse

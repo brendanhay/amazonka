@@ -100,6 +100,8 @@ instance AWSRequest
 instance Hashable
          DescribeOrderableReplicationInstances
 
+instance NFData DescribeOrderableReplicationInstances
+
 instance ToHeaders
          DescribeOrderableReplicationInstances where
         toHeaders
@@ -166,3 +168,6 @@ dorirsOrderableReplicationInstances = lens _dorirsOrderableReplicationInstances 
 -- | The response status code.
 dorirsResponseStatus :: Lens' DescribeOrderableReplicationInstancesResponse Int
 dorirsResponseStatus = lens _dorirsResponseStatus (\ s a -> s{_dorirsResponseStatus = a});
+
+instance NFData
+         DescribeOrderableReplicationInstancesResponse

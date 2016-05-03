@@ -65,6 +65,8 @@ instance AWSRequest DescribeAdjustmentTypes where
 
 instance Hashable DescribeAdjustmentTypes
 
+instance NFData DescribeAdjustmentTypes
+
 instance ToHeaders DescribeAdjustmentTypes where
         toHeaders = const mempty
 
@@ -108,3 +110,5 @@ datrsAdjustmentTypes = lens _datrsAdjustmentTypes (\ s a -> s{_datrsAdjustmentTy
 -- | The response status code.
 datrsResponseStatus :: Lens' DescribeAdjustmentTypesResponse Int
 datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus = a});
+
+instance NFData DescribeAdjustmentTypesResponse

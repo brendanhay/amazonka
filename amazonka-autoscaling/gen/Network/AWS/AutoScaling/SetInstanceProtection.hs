@@ -99,6 +99,8 @@ instance AWSRequest SetInstanceProtection where
 
 instance Hashable SetInstanceProtection
 
+instance NFData SetInstanceProtection
+
 instance ToHeaders SetInstanceProtection where
         toHeaders = const mempty
 
@@ -136,3 +138,5 @@ setInstanceProtectionResponse pResponseStatus_ =
 -- | The response status code.
 siprsResponseStatus :: Lens' SetInstanceProtectionResponse Int
 siprsResponseStatus = lens _siprsResponseStatus (\ s a -> s{_siprsResponseStatus = a});
+
+instance NFData SetInstanceProtectionResponse

@@ -161,6 +161,8 @@ instance AWSRequest ReportInstanceStatus where
 
 instance Hashable ReportInstanceStatus
 
+instance NFData ReportInstanceStatus
+
 instance ToHeaders ReportInstanceStatus where
         toHeaders = const mempty
 
@@ -190,3 +192,5 @@ data ReportInstanceStatusResponse =
 reportInstanceStatusResponse
     :: ReportInstanceStatusResponse
 reportInstanceStatusResponse = ReportInstanceStatusResponse'
+
+instance NFData ReportInstanceStatusResponse

@@ -134,6 +134,8 @@ instance AWSRequest DescribeJob where
 
 instance Hashable DescribeJob
 
+instance NFData DescribeJob
+
 instance ToHeaders DescribeJob where
         toHeaders = const mempty
 

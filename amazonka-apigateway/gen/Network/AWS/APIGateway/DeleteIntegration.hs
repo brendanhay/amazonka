@@ -91,6 +91,8 @@ instance AWSRequest DeleteIntegration where
 
 instance Hashable DeleteIntegration
 
+instance NFData DeleteIntegration
+
 instance ToHeaders DeleteIntegration where
         toHeaders
           = const
@@ -117,3 +119,5 @@ data DeleteIntegrationResponse' =
 deleteIntegrationResponse'
     :: DeleteIntegrationResponse'
 deleteIntegrationResponse' = DeleteIntegrationResponse''
+
+instance NFData DeleteIntegrationResponse'

@@ -81,6 +81,8 @@ instance AWSRequest DisableVGWRoutePropagation where
 
 instance Hashable DisableVGWRoutePropagation
 
+instance NFData DisableVGWRoutePropagation
+
 instance ToHeaders DisableVGWRoutePropagation where
         toHeaders = const mempty
 
@@ -106,3 +108,5 @@ data DisableVGWRoutePropagationResponse =
 disableVGWRoutePropagationResponse
     :: DisableVGWRoutePropagationResponse
 disableVGWRoutePropagationResponse = DisableVGWRoutePropagationResponse'
+
+instance NFData DisableVGWRoutePropagationResponse

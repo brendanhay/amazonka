@@ -64,6 +64,7 @@ newtype BucketName = BucketName Text
         )
 
 instance Hashable BucketName
+instance NFData   BucketName
 
 -- FIXME: Add the difference between weak + strong ETags and their respective
 -- equalities if necessary, see: https://github.com/brendanhay/amazonka/issues/76
@@ -87,6 +88,7 @@ newtype ETag = ETag ByteString
         )
 
 instance Hashable ETag
+instance NFData   ETag
 
 newtype ObjectVersionId = ObjectVersionId Text
     deriving
@@ -108,6 +110,7 @@ newtype ObjectVersionId = ObjectVersionId Text
         )
 
 instance Hashable ObjectVersionId
+instance NFData   ObjectVersionId
 
 newtype LocationConstraint = LocationConstraint { constraintRegion :: Region }
     deriving
@@ -127,6 +130,7 @@ _LocationConstraint :: Iso' LocationConstraint Region
 _LocationConstraint = iso constraintRegion LocationConstraint
 
 instance Hashable LocationConstraint
+instance NFData   LocationConstraint
 
 instance FromText LocationConstraint where
     parser = LocationConstraint <$> (parser <|> go)
@@ -168,6 +172,7 @@ newtype ObjectKey = ObjectKey Text
         )
 
 instance Hashable ObjectKey
+instance NFData   ObjectKey
 
 type Delimiter = Char
 

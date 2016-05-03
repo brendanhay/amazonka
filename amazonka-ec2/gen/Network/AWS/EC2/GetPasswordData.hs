@@ -105,6 +105,8 @@ instance AWSRequest GetPasswordData where
 
 instance Hashable GetPasswordData
 
+instance NFData GetPasswordData
+
 instance ToHeaders GetPasswordData where
         toHeaders = const mempty
 
@@ -167,3 +169,5 @@ gpdrsPasswordData = lens _gpdrsPasswordData (\ s a -> s{_gpdrsPasswordData = a})
 -- | The time the data was last updated.
 gpdrsTimestamp :: Lens' GetPasswordDataResponse UTCTime
 gpdrsTimestamp = lens _gpdrsTimestamp (\ s a -> s{_gpdrsTimestamp = a}) . _Time;
+
+instance NFData GetPasswordDataResponse

@@ -85,6 +85,8 @@ instance AWSRequest BatchDeleteAttributes where
 
 instance Hashable BatchDeleteAttributes
 
+instance NFData BatchDeleteAttributes
+
 instance ToHeaders BatchDeleteAttributes where
         toHeaders = const mempty
 
@@ -109,3 +111,5 @@ data BatchDeleteAttributesResponse =
 batchDeleteAttributesResponse
     :: BatchDeleteAttributesResponse
 batchDeleteAttributesResponse = BatchDeleteAttributesResponse'
+
+instance NFData BatchDeleteAttributesResponse

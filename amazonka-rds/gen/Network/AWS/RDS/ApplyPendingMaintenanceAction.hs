@@ -114,6 +114,8 @@ instance AWSRequest ApplyPendingMaintenanceAction
 
 instance Hashable ApplyPendingMaintenanceAction
 
+instance NFData ApplyPendingMaintenanceAction
+
 instance ToHeaders ApplyPendingMaintenanceAction
          where
         toHeaders = const mempty
@@ -160,3 +162,5 @@ apmarsResourcePendingMaintenanceActions = lens _apmarsResourcePendingMaintenance
 -- | The response status code.
 apmarsResponseStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
 apmarsResponseStatus = lens _apmarsResponseStatus (\ s a -> s{_apmarsResponseStatus = a});
+
+instance NFData ApplyPendingMaintenanceActionResponse

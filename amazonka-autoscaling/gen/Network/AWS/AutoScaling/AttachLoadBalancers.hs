@@ -90,6 +90,8 @@ instance AWSRequest AttachLoadBalancers where
 
 instance Hashable AttachLoadBalancers
 
+instance NFData AttachLoadBalancers
+
 instance ToHeaders AttachLoadBalancers where
         toHeaders = const mempty
 
@@ -127,3 +129,5 @@ attachLoadBalancersResponse pResponseStatus_ =
 -- | The response status code.
 albrsResponseStatus :: Lens' AttachLoadBalancersResponse Int
 albrsResponseStatus = lens _albrsResponseStatus (\ s a -> s{_albrsResponseStatus = a});
+
+instance NFData AttachLoadBalancersResponse

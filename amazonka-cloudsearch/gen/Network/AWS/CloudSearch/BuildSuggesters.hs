@@ -82,6 +82,8 @@ instance AWSRequest BuildSuggesters where
 
 instance Hashable BuildSuggesters
 
+instance NFData BuildSuggesters
+
 instance ToHeaders BuildSuggesters where
         toHeaders = const mempty
 
@@ -127,3 +129,5 @@ bsrsFieldNames = lens _bsrsFieldNames (\ s a -> s{_bsrsFieldNames = a}) . _Defau
 -- | The response status code.
 bsrsResponseStatus :: Lens' BuildSuggestersResponse Int
 bsrsResponseStatus = lens _bsrsResponseStatus (\ s a -> s{_bsrsResponseStatus = a});
+
+instance NFData BuildSuggestersResponse

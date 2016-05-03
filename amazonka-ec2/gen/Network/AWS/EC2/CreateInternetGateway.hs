@@ -82,6 +82,8 @@ instance AWSRequest CreateInternetGateway where
 
 instance Hashable CreateInternetGateway
 
+instance NFData CreateInternetGateway
+
 instance ToHeaders CreateInternetGateway where
         toHeaders = const mempty
 
@@ -124,3 +126,5 @@ cigrsInternetGateway = lens _cigrsInternetGateway (\ s a -> s{_cigrsInternetGate
 -- | The response status code.
 cigrsResponseStatus :: Lens' CreateInternetGatewayResponse Int
 cigrsResponseStatus = lens _cigrsResponseStatus (\ s a -> s{_cigrsResponseStatus = a});
+
+instance NFData CreateInternetGatewayResponse

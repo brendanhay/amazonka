@@ -120,6 +120,8 @@ instance AWSRequest ListInstances where
 
 instance Hashable ListInstances
 
+instance NFData ListInstances
+
 instance ToHeaders ListInstances where
         toHeaders
           = const
@@ -183,3 +185,5 @@ lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default 
 -- | The response status code.
 lirsResponseStatus :: Lens' ListInstancesResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
+
+instance NFData ListInstancesResponse

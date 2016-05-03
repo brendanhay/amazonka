@@ -67,6 +67,8 @@ instance AWSRequest DescribeTerminationPolicyTypes
 
 instance Hashable DescribeTerminationPolicyTypes
 
+instance NFData DescribeTerminationPolicyTypes
+
 instance ToHeaders DescribeTerminationPolicyTypes
          where
         toHeaders = const mempty
@@ -113,3 +115,6 @@ dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_d
 -- | The response status code.
 dtptrsResponseStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
 dtptrsResponseStatus = lens _dtptrsResponseStatus (\ s a -> s{_dtptrsResponseStatus = a});
+
+instance NFData
+         DescribeTerminationPolicyTypesResponse

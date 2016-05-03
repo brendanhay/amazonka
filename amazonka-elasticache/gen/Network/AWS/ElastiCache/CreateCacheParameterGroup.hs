@@ -104,6 +104,8 @@ instance AWSRequest CreateCacheParameterGroup where
 
 instance Hashable CreateCacheParameterGroup
 
+instance NFData CreateCacheParameterGroup
+
 instance ToHeaders CreateCacheParameterGroup where
         toHeaders = const mempty
 
@@ -151,3 +153,5 @@ ccpgrsCacheParameterGroup = lens _ccpgrsCacheParameterGroup (\ s a -> s{_ccpgrsC
 -- | The response status code.
 ccpgrsResponseStatus :: Lens' CreateCacheParameterGroupResponse Int
 ccpgrsResponseStatus = lens _ccpgrsResponseStatus (\ s a -> s{_ccpgrsResponseStatus = a});
+
+instance NFData CreateCacheParameterGroupResponse

@@ -83,6 +83,8 @@ instance AWSRequest GetEndpointAttributes where
 
 instance Hashable GetEndpointAttributes
 
+instance NFData GetEndpointAttributes
+
 instance ToHeaders GetEndpointAttributes where
         toHeaders = const mempty
 
@@ -139,3 +141,5 @@ gearsAttributes = lens _gearsAttributes (\ s a -> s{_gearsAttributes = a}) . _De
 -- | The response status code.
 gearsResponseStatus :: Lens' GetEndpointAttributesResponse Int
 gearsResponseStatus = lens _gearsResponseStatus (\ s a -> s{_gearsResponseStatus = a});
+
+instance NFData GetEndpointAttributesResponse

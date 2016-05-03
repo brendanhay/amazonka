@@ -75,6 +75,8 @@ instance AWSRequest DescribeRun where
 
 instance Hashable DescribeRun
 
+instance NFData DescribeRun
+
 instance ToHeaders DescribeRun where
         toHeaders
           = const
@@ -123,3 +125,5 @@ drrsRun = lens _drrsRun (\ s a -> s{_drrsRun = a});
 -- | The response status code.
 drrsResponseStatus :: Lens' DescribeRunResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+
+instance NFData DescribeRunResponse

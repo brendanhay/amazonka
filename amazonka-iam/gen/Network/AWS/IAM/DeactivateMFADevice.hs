@@ -86,6 +86,8 @@ instance AWSRequest DeactivateMFADevice where
 
 instance Hashable DeactivateMFADevice
 
+instance NFData DeactivateMFADevice
+
 instance ToHeaders DeactivateMFADevice where
         toHeaders = const mempty
 
@@ -110,3 +112,5 @@ data DeactivateMFADeviceResponse =
 deactivateMFADeviceResponse
     :: DeactivateMFADeviceResponse
 deactivateMFADeviceResponse = DeactivateMFADeviceResponse'
+
+instance NFData DeactivateMFADeviceResponse

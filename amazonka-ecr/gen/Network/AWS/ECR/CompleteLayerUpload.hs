@@ -121,6 +121,8 @@ instance AWSRequest CompleteLayerUpload where
 
 instance Hashable CompleteLayerUpload
 
+instance NFData CompleteLayerUpload
+
 instance ToHeaders CompleteLayerUpload where
         toHeaders
           = const
@@ -199,3 +201,5 @@ clursUploadId = lens _clursUploadId (\ s a -> s{_clursUploadId = a});
 -- | The response status code.
 clursResponseStatus :: Lens' CompleteLayerUploadResponse Int
 clursResponseStatus = lens _clursResponseStatus (\ s a -> s{_clursResponseStatus = a});
+
+instance NFData CompleteLayerUploadResponse

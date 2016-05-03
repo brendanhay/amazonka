@@ -92,6 +92,8 @@ instance AWSRequest ListUniqueProblems where
 
 instance Hashable ListUniqueProblems
 
+instance NFData ListUniqueProblems
+
 instance ToHeaders ListUniqueProblems where
         toHeaders
           = const
@@ -173,3 +175,5 @@ luprsUniqueProblems = lens _luprsUniqueProblems (\ s a -> s{_luprsUniqueProblems
 -- | The response status code.
 luprsResponseStatus :: Lens' ListUniqueProblemsResponse Int
 luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus = a});
+
+instance NFData ListUniqueProblemsResponse

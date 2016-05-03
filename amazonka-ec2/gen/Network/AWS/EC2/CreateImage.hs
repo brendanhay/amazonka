@@ -144,6 +144,8 @@ instance AWSRequest CreateImage where
 
 instance Hashable CreateImage
 
+instance NFData CreateImage
+
 instance ToHeaders CreateImage where
         toHeaders = const mempty
 
@@ -192,3 +194,5 @@ cirsImageId = lens _cirsImageId (\ s a -> s{_cirsImageId = a});
 -- | The response status code.
 cirsResponseStatus :: Lens' CreateImageResponse Int
 cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
+
+instance NFData CreateImageResponse

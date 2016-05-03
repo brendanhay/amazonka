@@ -181,6 +181,8 @@ instance AWSRequest CountClosedWorkflowExecutions
 
 instance Hashable CountClosedWorkflowExecutions
 
+instance NFData CountClosedWorkflowExecutions
+
 instance ToHeaders CountClosedWorkflowExecutions
          where
         toHeaders

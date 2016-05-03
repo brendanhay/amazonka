@@ -81,6 +81,8 @@ instance AWSRequest DescribeUserProfiles where
 
 instance Hashable DescribeUserProfiles
 
+instance NFData DescribeUserProfiles
+
 instance ToHeaders DescribeUserProfiles where
         toHeaders
           = const
@@ -133,3 +135,5 @@ duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a})
 -- | The response status code.
 duprsResponseStatus :: Lens' DescribeUserProfilesResponse Int
 duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a});
+
+instance NFData DescribeUserProfilesResponse

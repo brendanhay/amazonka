@@ -111,6 +111,8 @@ instance AWSRequest ListIdentities where
 
 instance Hashable ListIdentities
 
+instance NFData ListIdentities
+
 instance ToHeaders ListIdentities where
         toHeaders = const mempty
 
@@ -163,3 +165,5 @@ lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = 
 -- | A list of identities.
 lirsIdentities :: Lens' ListIdentitiesResponse [Text]
 lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Coerce;
+
+instance NFData ListIdentitiesResponse

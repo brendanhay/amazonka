@@ -79,6 +79,8 @@ instance AWSRequest DeleteClusterSecurityGroup where
 
 instance Hashable DeleteClusterSecurityGroup
 
+instance NFData DeleteClusterSecurityGroup
+
 instance ToHeaders DeleteClusterSecurityGroup where
         toHeaders = const mempty
 
@@ -104,3 +106,5 @@ data DeleteClusterSecurityGroupResponse =
 deleteClusterSecurityGroupResponse
     :: DeleteClusterSecurityGroupResponse
 deleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse'
+
+instance NFData DeleteClusterSecurityGroupResponse

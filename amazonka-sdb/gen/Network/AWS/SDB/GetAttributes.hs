@@ -114,6 +114,8 @@ instance AWSRequest GetAttributes where
 
 instance Hashable GetAttributes
 
+instance NFData GetAttributes
+
 instance ToHeaders GetAttributes where
         toHeaders = const mempty
 
@@ -160,3 +162,5 @@ garsAttributes = lens _garsAttributes (\ s a -> s{_garsAttributes = a}) . _Defau
 -- | The response status code.
 garsResponseStatus :: Lens' GetAttributesResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+
+instance NFData GetAttributesResponse

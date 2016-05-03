@@ -60,6 +60,8 @@ instance FromJSON Attribute where
 
 instance Hashable Attribute
 
+instance NFData Attribute
+
 instance ToJSON Attribute where
         toJSON Attribute'{..}
           = object
@@ -116,6 +118,8 @@ instance FromJSON Computer where
                      <*> (x .:? "ComputerName"))
 
 instance Hashable Computer
+
+instance NFData Computer
 
 -- | Contains information for the < ConnectDirectory> operation when an AD
 -- Connector directory is being created.
@@ -176,6 +180,8 @@ dcsCustomerUserName :: Lens' DirectoryConnectSettings Text
 dcsCustomerUserName = lens _dcsCustomerUserName (\ s a -> s{_dcsCustomerUserName = a});
 
 instance Hashable DirectoryConnectSettings
+
+instance NFData DirectoryConnectSettings
 
 instance ToJSON DirectoryConnectSettings where
         toJSON DirectoryConnectSettings'{..}
@@ -263,6 +269,8 @@ instance FromJSON DirectoryConnectSettingsDescription
                      <*> (x .:? "AvailabilityZones" .!= mempty))
 
 instance Hashable DirectoryConnectSettingsDescription
+
+instance NFData DirectoryConnectSettingsDescription
 
 -- | Contains information about an AWS Directory Service directory.
 --
@@ -463,6 +471,8 @@ instance FromJSON DirectoryDescription where
 
 instance Hashable DirectoryDescription
 
+instance NFData DirectoryDescription
+
 -- | Contains directory limit information for a region.
 --
 -- /See:/ 'directoryLimits' smart constructor.
@@ -567,6 +577,8 @@ instance FromJSON DirectoryLimits where
 
 instance Hashable DirectoryLimits
 
+instance NFData DirectoryLimits
+
 -- | Contains VPC information for the < CreateDirectory> or
 -- < CreateMicrosoftAD> operation.
 --
@@ -603,6 +615,8 @@ dvsSubnetIds :: Lens' DirectoryVPCSettings [Text]
 dvsSubnetIds = lens _dvsSubnetIds (\ s a -> s{_dvsSubnetIds = a}) . _Coerce;
 
 instance Hashable DirectoryVPCSettings
+
+instance NFData DirectoryVPCSettings
 
 instance ToJSON DirectoryVPCSettings where
         toJSON DirectoryVPCSettings'{..}
@@ -672,6 +686,8 @@ instance FromJSON DirectoryVPCSettingsDescription
                      <*> (x .:? "AvailabilityZones" .!= mempty))
 
 instance Hashable DirectoryVPCSettingsDescription
+
+instance NFData DirectoryVPCSettingsDescription
 
 -- | Information about SNS topic and AWS Directory Service directory
 -- associations.
@@ -743,6 +759,8 @@ instance FromJSON EventTopic where
                      <*> (x .:? "CreatedDateTime"))
 
 instance Hashable EventTopic
+
+instance NFData EventTopic
 
 -- | Contains information about a Remote Authentication Dial In User Service
 -- (RADIUS) server.
@@ -845,6 +863,8 @@ instance FromJSON RadiusSettings where
 
 instance Hashable RadiusSettings
 
+instance NFData RadiusSettings
+
 instance ToJSON RadiusSettings where
         toJSON RadiusSettings'{..}
           = object
@@ -935,6 +955,8 @@ instance FromJSON Snapshot where
 
 instance Hashable Snapshot
 
+instance NFData Snapshot
+
 -- | Contains manual snapshot limit information for a directory.
 --
 -- /See:/ 'snapshotLimits' smart constructor.
@@ -984,6 +1006,8 @@ instance FromJSON SnapshotLimits where
                      <*> (x .:? "ManualSnapshotsLimit"))
 
 instance Hashable SnapshotLimits
+
+instance NFData SnapshotLimits
 
 -- | Describes a trust relationship between an Microsoft AD in the AWS cloud
 -- and an external domain.
@@ -1090,3 +1114,5 @@ instance FromJSON Trust where
                      <*> (x .:? "CreatedDateTime"))
 
 instance Hashable Trust
+
+instance NFData Trust

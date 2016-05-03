@@ -82,6 +82,8 @@ instance AWSRequest FlushStageAuthorizersCache where
 
 instance Hashable FlushStageAuthorizersCache
 
+instance NFData FlushStageAuthorizersCache
+
 instance ToHeaders FlushStageAuthorizersCache where
         toHeaders
           = const
@@ -107,3 +109,5 @@ data FlushStageAuthorizersCacheResponse =
 flushStageAuthorizersCacheResponse
     :: FlushStageAuthorizersCacheResponse
 flushStageAuthorizersCacheResponse = FlushStageAuthorizersCacheResponse'
+
+instance NFData FlushStageAuthorizersCacheResponse

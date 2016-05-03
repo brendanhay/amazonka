@@ -136,6 +136,8 @@ instance AWSRequest CreateReservedInstancesListing
 
 instance Hashable CreateReservedInstancesListing
 
+instance NFData CreateReservedInstancesListing
+
 instance ToHeaders CreateReservedInstancesListing
          where
         toHeaders = const mempty
@@ -183,3 +185,6 @@ crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> 
 -- | The response status code.
 crersResponseStatus :: Lens' CreateReservedInstancesListingResponse Int
 crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+
+instance NFData
+         CreateReservedInstancesListingResponse

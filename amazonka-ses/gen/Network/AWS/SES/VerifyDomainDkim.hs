@@ -92,6 +92,8 @@ instance AWSRequest VerifyDomainDkim where
 
 instance Hashable VerifyDomainDkim
 
+instance NFData VerifyDomainDkim
+
 instance ToHeaders VerifyDomainDkim where
         toHeaders = const mempty
 
@@ -146,3 +148,5 @@ vddrsResponseStatus = lens _vddrsResponseStatus (\ s a -> s{_vddrsResponseStatus
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
 vddrsDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
 vddrsDkimTokens = lens _vddrsDkimTokens (\ s a -> s{_vddrsDkimTokens = a}) . _Coerce;
+
+instance NFData VerifyDomainDkimResponse

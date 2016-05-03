@@ -124,6 +124,8 @@ instance AWSRequest DescribeFlowLogs where
 
 instance Hashable DescribeFlowLogs
 
+instance NFData DescribeFlowLogs
+
 instance ToHeaders DescribeFlowLogs where
         toHeaders = const mempty
 
@@ -178,3 +180,5 @@ dflsrsFlowLogs = lens _dflsrsFlowLogs (\ s a -> s{_dflsrsFlowLogs = a}) . _Defau
 -- | The response status code.
 dflsrsResponseStatus :: Lens' DescribeFlowLogsResponse Int
 dflsrsResponseStatus = lens _dflsrsResponseStatus (\ s a -> s{_dflsrsResponseStatus = a});
+
+instance NFData DescribeFlowLogsResponse

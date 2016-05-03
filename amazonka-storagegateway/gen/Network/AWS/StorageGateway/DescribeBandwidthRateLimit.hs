@@ -91,6 +91,8 @@ instance AWSRequest DescribeBandwidthRateLimit where
 
 instance Hashable DescribeBandwidthRateLimit
 
+instance NFData DescribeBandwidthRateLimit
+
 instance ToHeaders DescribeBandwidthRateLimit where
         toHeaders
           = const
@@ -161,3 +163,5 @@ dbrlrsAverageDownloadRateLimitInBitsPerSec = lens _dbrlrsAverageDownloadRateLimi
 -- | The response status code.
 dbrlrsResponseStatus :: Lens' DescribeBandwidthRateLimitResponse Int
 dbrlrsResponseStatus = lens _dbrlrsResponseStatus (\ s a -> s{_dbrlrsResponseStatus = a});
+
+instance NFData DescribeBandwidthRateLimitResponse

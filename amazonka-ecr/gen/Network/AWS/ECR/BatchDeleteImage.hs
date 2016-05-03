@@ -104,6 +104,8 @@ instance AWSRequest BatchDeleteImage where
 
 instance Hashable BatchDeleteImage
 
+instance NFData BatchDeleteImage
+
 instance ToHeaders BatchDeleteImage where
         toHeaders
           = const
@@ -165,3 +167,5 @@ bdirsImageIds = lens _bdirsImageIds (\ s a -> s{_bdirsImageIds = a}) . mapping _
 -- | The response status code.
 bdirsResponseStatus :: Lens' BatchDeleteImageResponse Int
 bdirsResponseStatus = lens _bdirsResponseStatus (\ s a -> s{_bdirsResponseStatus = a});
+
+instance NFData BatchDeleteImageResponse

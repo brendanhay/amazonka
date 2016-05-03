@@ -82,6 +82,8 @@ instance AWSRequest CreateDistribution where
 
 instance Hashable CreateDistribution
 
+instance NFData CreateDistribution
+
 instance ToElement CreateDistribution where
         toElement
           = mkElement
@@ -147,3 +149,5 @@ cdrsLocation = lens _cdrsLocation (\ s a -> s{_cdrsLocation = a});
 -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDistributionResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+
+instance NFData CreateDistributionResponse

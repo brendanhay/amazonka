@@ -91,6 +91,8 @@ instance AWSRequest DeregisterEventTopic where
 
 instance Hashable DeregisterEventTopic
 
+instance NFData DeregisterEventTopic
+
 instance ToHeaders DeregisterEventTopic where
         toHeaders
           = const
@@ -135,3 +137,5 @@ deregisterEventTopicResponse pResponseStatus_ =
 -- | The response status code.
 derrsResponseStatus :: Lens' DeregisterEventTopicResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
+
+instance NFData DeregisterEventTopicResponse

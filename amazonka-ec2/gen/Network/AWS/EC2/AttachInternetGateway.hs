@@ -94,6 +94,8 @@ instance AWSRequest AttachInternetGateway where
 
 instance Hashable AttachInternetGateway
 
+instance NFData AttachInternetGateway
+
 instance ToHeaders AttachInternetGateway where
         toHeaders = const mempty
 
@@ -119,3 +121,5 @@ data AttachInternetGatewayResponse =
 attachInternetGatewayResponse
     :: AttachInternetGatewayResponse
 attachInternetGatewayResponse = AttachInternetGatewayResponse'
+
+instance NFData AttachInternetGatewayResponse

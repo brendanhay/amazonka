@@ -93,6 +93,8 @@ instance AWSRequest CreateNetworkACL where
 
 instance Hashable CreateNetworkACL
 
+instance NFData CreateNetworkACL
+
 instance ToHeaders CreateNetworkACL where
         toHeaders = const mempty
 
@@ -135,3 +137,5 @@ cnarsNetworkACL = lens _cnarsNetworkACL (\ s a -> s{_cnarsNetworkACL = a});
 -- | The response status code.
 cnarsResponseStatus :: Lens' CreateNetworkACLResponse Int
 cnarsResponseStatus = lens _cnarsResponseStatus (\ s a -> s{_cnarsResponseStatus = a});
+
+instance NFData CreateNetworkACLResponse

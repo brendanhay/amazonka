@@ -120,6 +120,8 @@ instance AWSRequest DescribeCacheSubnetGroups where
 
 instance Hashable DescribeCacheSubnetGroups
 
+instance NFData DescribeCacheSubnetGroups
+
 instance ToHeaders DescribeCacheSubnetGroups where
         toHeaders = const mempty
 
@@ -176,3 +178,5 @@ dcsgrsCacheSubnetGroups = lens _dcsgrsCacheSubnetGroups (\ s a -> s{_dcsgrsCache
 -- | The response status code.
 dcsgrsResponseStatus :: Lens' DescribeCacheSubnetGroupsResponse Int
 dcsgrsResponseStatus = lens _dcsgrsResponseStatus (\ s a -> s{_dcsgrsResponseStatus = a});
+
+instance NFData DescribeCacheSubnetGroupsResponse

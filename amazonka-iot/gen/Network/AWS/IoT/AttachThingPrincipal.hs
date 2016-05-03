@@ -87,6 +87,8 @@ instance AWSRequest AttachThingPrincipal where
 
 instance Hashable AttachThingPrincipal
 
+instance NFData AttachThingPrincipal
+
 instance ToHeaders AttachThingPrincipal where
         toHeaders AttachThingPrincipal'{..}
           = mconcat ["x-amzn-principal" =# _atpPrincipal]
@@ -125,3 +127,5 @@ attachThingPrincipalResponse pResponseStatus_ =
 -- | The response status code.
 atprsResponseStatus :: Lens' AttachThingPrincipalResponse Int
 atprsResponseStatus = lens _atprsResponseStatus (\ s a -> s{_atprsResponseStatus = a});
+
+instance NFData AttachThingPrincipalResponse

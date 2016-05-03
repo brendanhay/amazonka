@@ -201,6 +201,8 @@ instance AWSRequest DescribeVolumes where
 
 instance Hashable DescribeVolumes
 
+instance NFData DescribeVolumes
+
 instance ToHeaders DescribeVolumes where
         toHeaders = const mempty
 
@@ -257,3 +259,5 @@ dvvrsVolumes = lens _dvvrsVolumes (\ s a -> s{_dvvrsVolumes = a}) . _Default . _
 -- | The response status code.
 dvvrsResponseStatus :: Lens' DescribeVolumesResponse Int
 dvvrsResponseStatus = lens _dvvrsResponseStatus (\ s a -> s{_dvvrsResponseStatus = a});
+
+instance NFData DescribeVolumesResponse

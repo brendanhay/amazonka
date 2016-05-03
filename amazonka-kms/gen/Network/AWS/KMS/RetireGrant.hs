@@ -109,6 +109,8 @@ instance AWSRequest RetireGrant where
 
 instance Hashable RetireGrant
 
+instance NFData RetireGrant
+
 instance ToHeaders RetireGrant where
         toHeaders
           = const
@@ -142,3 +144,5 @@ data RetireGrantResponse =
 retireGrantResponse
     :: RetireGrantResponse
 retireGrantResponse = RetireGrantResponse'
+
+instance NFData RetireGrantResponse

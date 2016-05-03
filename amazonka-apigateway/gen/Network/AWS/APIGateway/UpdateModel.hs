@@ -96,6 +96,8 @@ instance AWSRequest UpdateModel where
 
 instance Hashable UpdateModel
 
+instance NFData UpdateModel
+
 instance ToHeaders UpdateModel where
         toHeaders
           = const

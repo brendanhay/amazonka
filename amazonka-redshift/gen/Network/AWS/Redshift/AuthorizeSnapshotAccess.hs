@@ -106,6 +106,8 @@ instance AWSRequest AuthorizeSnapshotAccess where
 
 instance Hashable AuthorizeSnapshotAccess
 
+instance NFData AuthorizeSnapshotAccess
+
 instance ToHeaders AuthorizeSnapshotAccess where
         toHeaders = const mempty
 
@@ -153,3 +155,5 @@ asarsSnapshot = lens _asarsSnapshot (\ s a -> s{_asarsSnapshot = a});
 -- | The response status code.
 asarsResponseStatus :: Lens' AuthorizeSnapshotAccessResponse Int
 asarsResponseStatus = lens _asarsResponseStatus (\ s a -> s{_asarsResponseStatus = a});
+
+instance NFData AuthorizeSnapshotAccessResponse

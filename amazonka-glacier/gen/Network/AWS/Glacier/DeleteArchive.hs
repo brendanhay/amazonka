@@ -119,6 +119,8 @@ instance AWSRequest DeleteArchive where
 
 instance Hashable DeleteArchive
 
+instance NFData DeleteArchive
+
 instance ToHeaders DeleteArchive where
         toHeaders = const mempty
 
@@ -141,3 +143,5 @@ data DeleteArchiveResponse =
 deleteArchiveResponse
     :: DeleteArchiveResponse
 deleteArchiveResponse = DeleteArchiveResponse'
+
+instance NFData DeleteArchiveResponse

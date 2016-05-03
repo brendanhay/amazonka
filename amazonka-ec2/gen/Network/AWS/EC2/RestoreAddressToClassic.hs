@@ -96,6 +96,8 @@ instance AWSRequest RestoreAddressToClassic where
 
 instance Hashable RestoreAddressToClassic
 
+instance NFData RestoreAddressToClassic
+
 instance ToHeaders RestoreAddressToClassic where
         toHeaders = const mempty
 
@@ -147,3 +149,5 @@ ratcrsPublicIP = lens _ratcrsPublicIP (\ s a -> s{_ratcrsPublicIP = a});
 -- | The response status code.
 ratcrsResponseStatus :: Lens' RestoreAddressToClassicResponse Int
 ratcrsResponseStatus = lens _ratcrsResponseStatus (\ s a -> s{_ratcrsResponseStatus = a});
+
+instance NFData RestoreAddressToClassicResponse

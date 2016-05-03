@@ -85,6 +85,8 @@ instance AWSRequest DeleteConnection where
 
 instance Hashable DeleteConnection
 
+instance NFData DeleteConnection
+
 instance ToHeaders DeleteConnection where
         toHeaders
           = const

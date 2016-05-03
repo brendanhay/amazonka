@@ -416,6 +416,8 @@ instance AWSRequest CreateReplicationGroup where
 
 instance Hashable CreateReplicationGroup
 
+instance NFData CreateReplicationGroup
+
 instance ToHeaders CreateReplicationGroup where
         toHeaders = const mempty
 
@@ -497,3 +499,5 @@ crgrsReplicationGroup = lens _crgrsReplicationGroup (\ s a -> s{_crgrsReplicatio
 -- | The response status code.
 crgrsResponseStatus :: Lens' CreateReplicationGroupResponse Int
 crgrsResponseStatus = lens _crgrsResponseStatus (\ s a -> s{_crgrsResponseStatus = a});
+
+instance NFData CreateReplicationGroupResponse

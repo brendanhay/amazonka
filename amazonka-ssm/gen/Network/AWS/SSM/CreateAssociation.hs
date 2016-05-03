@@ -103,6 +103,8 @@ instance AWSRequest CreateAssociation where
 
 instance Hashable CreateAssociation
 
+instance NFData CreateAssociation
+
 instance ToHeaders CreateAssociation where
         toHeaders
           = const
@@ -155,3 +157,5 @@ carsAssociationDescription = lens _carsAssociationDescription (\ s a -> s{_carsA
 -- | The response status code.
 carsResponseStatus :: Lens' CreateAssociationResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+
+instance NFData CreateAssociationResponse

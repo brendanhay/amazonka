@@ -106,6 +106,8 @@ instance AWSRequest GetDownloadURLForLayer where
 
 instance Hashable GetDownloadURLForLayer
 
+instance NFData GetDownloadURLForLayer
+
 instance ToHeaders GetDownloadURLForLayer where
         toHeaders
           = const
@@ -167,3 +169,5 @@ gduflrsDownloadURL = lens _gduflrsDownloadURL (\ s a -> s{_gduflrsDownloadURL = 
 -- | The response status code.
 gduflrsResponseStatus :: Lens' GetDownloadURLForLayerResponse Int
 gduflrsResponseStatus = lens _gduflrsResponseStatus (\ s a -> s{_gduflrsResponseStatus = a});
+
+instance NFData GetDownloadURLForLayerResponse

@@ -102,6 +102,8 @@ instance AWSRequest DeleteIdentityPolicy where
 
 instance Hashable DeleteIdentityPolicy
 
+instance NFData DeleteIdentityPolicy
+
 instance ToHeaders DeleteIdentityPolicy where
         toHeaders = const mempty
 
@@ -137,3 +139,5 @@ deleteIdentityPolicyResponse pResponseStatus_ =
 -- | The response status code.
 diprsResponseStatus :: Lens' DeleteIdentityPolicyResponse Int
 diprsResponseStatus = lens _diprsResponseStatus (\ s a -> s{_diprsResponseStatus = a});
+
+instance NFData DeleteIdentityPolicyResponse

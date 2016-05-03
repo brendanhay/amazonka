@@ -102,6 +102,8 @@ instance AWSRequest UpdateGatewayInformation where
 
 instance Hashable UpdateGatewayInformation
 
+instance NFData UpdateGatewayInformation
+
 instance ToHeaders UpdateGatewayInformation where
         toHeaders
           = const
@@ -165,3 +167,5 @@ ugirsGatewayName = lens _ugirsGatewayName (\ s a -> s{_ugirsGatewayName = a});
 -- | The response status code.
 ugirsResponseStatus :: Lens' UpdateGatewayInformationResponse Int
 ugirsResponseStatus = lens _ugirsResponseStatus (\ s a -> s{_ugirsResponseStatus = a});
+
+instance NFData UpdateGatewayInformationResponse

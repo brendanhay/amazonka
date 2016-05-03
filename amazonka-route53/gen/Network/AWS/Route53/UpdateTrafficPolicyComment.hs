@@ -107,6 +107,8 @@ instance AWSRequest UpdateTrafficPolicyComment where
 
 instance Hashable UpdateTrafficPolicyComment
 
+instance NFData UpdateTrafficPolicyComment
+
 instance ToElement UpdateTrafficPolicyComment where
         toElement
           = mkElement
@@ -161,3 +163,5 @@ utpcrsResponseStatus = lens _utpcrsResponseStatus (\ s a -> s{_utpcrsResponseSta
 -- | A complex type that contains settings for the specified traffic policy.
 utpcrsTrafficPolicy :: Lens' UpdateTrafficPolicyCommentResponse TrafficPolicy
 utpcrsTrafficPolicy = lens _utpcrsTrafficPolicy (\ s a -> s{_utpcrsTrafficPolicy = a});
+
+instance NFData UpdateTrafficPolicyCommentResponse

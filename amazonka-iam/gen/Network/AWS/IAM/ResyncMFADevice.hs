@@ -103,6 +103,8 @@ instance AWSRequest ResyncMFADevice where
 
 instance Hashable ResyncMFADevice
 
+instance NFData ResyncMFADevice
+
 instance ToHeaders ResyncMFADevice where
         toHeaders = const mempty
 
@@ -129,3 +131,5 @@ data ResyncMFADeviceResponse =
 resyncMFADeviceResponse
     :: ResyncMFADeviceResponse
 resyncMFADeviceResponse = ResyncMFADeviceResponse'
+
+instance NFData ResyncMFADeviceResponse

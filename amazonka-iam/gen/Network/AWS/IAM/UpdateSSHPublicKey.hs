@@ -101,6 +101,8 @@ instance AWSRequest UpdateSSHPublicKey where
 
 instance Hashable UpdateSSHPublicKey
 
+instance NFData UpdateSSHPublicKey
+
 instance ToHeaders UpdateSSHPublicKey where
         toHeaders = const mempty
 
@@ -126,3 +128,5 @@ data UpdateSSHPublicKeyResponse =
 updateSSHPublicKeyResponse
     :: UpdateSSHPublicKeyResponse
 updateSSHPublicKeyResponse = UpdateSSHPublicKeyResponse'
+
+instance NFData UpdateSSHPublicKeyResponse

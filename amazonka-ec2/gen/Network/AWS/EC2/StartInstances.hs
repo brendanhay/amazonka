@@ -117,6 +117,8 @@ instance AWSRequest StartInstances where
 
 instance Hashable StartInstances
 
+instance NFData StartInstances
+
 instance ToHeaders StartInstances where
         toHeaders = const mempty
 
@@ -161,3 +163,5 @@ srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstan
 -- | The response status code.
 srsResponseStatus :: Lens' StartInstancesResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+
+instance NFData StartInstancesResponse

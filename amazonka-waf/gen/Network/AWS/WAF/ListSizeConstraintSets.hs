@@ -98,6 +98,8 @@ instance AWSRequest ListSizeConstraintSets where
 
 instance Hashable ListSizeConstraintSets
 
+instance NFData ListSizeConstraintSets
+
 instance ToHeaders ListSizeConstraintSets where
         toHeaders
           = const
@@ -162,3 +164,5 @@ lscsrsNextMarker = lens _lscsrsNextMarker (\ s a -> s{_lscsrsNextMarker = a});
 -- | The response status code.
 lscsrsResponseStatus :: Lens' ListSizeConstraintSetsResponse Int
 lscsrsResponseStatus = lens _lscsrsResponseStatus (\ s a -> s{_lscsrsResponseStatus = a});
+
+instance NFData ListSizeConstraintSetsResponse

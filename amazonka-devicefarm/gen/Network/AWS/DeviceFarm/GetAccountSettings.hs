@@ -64,6 +64,8 @@ instance AWSRequest GetAccountSettings where
 
 instance Hashable GetAccountSettings
 
+instance NFData GetAccountSettings
+
 instance ToHeaders GetAccountSettings where
         toHeaders
           = const
@@ -112,3 +114,5 @@ gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSetti
 -- | The response status code.
 gasrsResponseStatus :: Lens' GetAccountSettingsResponse Int
 gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
+
+instance NFData GetAccountSettingsResponse

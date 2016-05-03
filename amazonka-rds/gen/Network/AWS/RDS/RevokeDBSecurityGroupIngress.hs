@@ -132,6 +132,8 @@ instance AWSRequest RevokeDBSecurityGroupIngress
 
 instance Hashable RevokeDBSecurityGroupIngress
 
+instance NFData RevokeDBSecurityGroupIngress
+
 instance ToHeaders RevokeDBSecurityGroupIngress where
         toHeaders = const mempty
 
@@ -180,3 +182,5 @@ rdsgirsDBSecurityGroup = lens _rdsgirsDBSecurityGroup (\ s a -> s{_rdsgirsDBSecu
 -- | The response status code.
 rdsgirsResponseStatus :: Lens' RevokeDBSecurityGroupIngressResponse Int
 rdsgirsResponseStatus = lens _rdsgirsResponseStatus (\ s a -> s{_rdsgirsResponseStatus = a});
+
+instance NFData RevokeDBSecurityGroupIngressResponse

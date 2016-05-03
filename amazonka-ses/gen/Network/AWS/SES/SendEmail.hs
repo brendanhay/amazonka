@@ -205,6 +205,8 @@ instance AWSRequest SendEmail where
 
 instance Hashable SendEmail
 
+instance NFData SendEmail
+
 instance ToHeaders SendEmail where
         toHeaders = const mempty
 
@@ -256,3 +258,5 @@ sersResponseStatus = lens _sersResponseStatus (\ s a -> s{_sersResponseStatus = 
 -- | The unique message identifier returned from the 'SendEmail' action.
 sersMessageId :: Lens' SendEmailResponse Text
 sersMessageId = lens _sersMessageId (\ s a -> s{_sersMessageId = a});
+
+instance NFData SendEmailResponse

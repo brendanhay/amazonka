@@ -82,6 +82,8 @@ instance AWSRequest DeleteInternetGateway where
 
 instance Hashable DeleteInternetGateway
 
+instance NFData DeleteInternetGateway
+
 instance ToHeaders DeleteInternetGateway where
         toHeaders = const mempty
 
@@ -106,3 +108,5 @@ data DeleteInternetGatewayResponse =
 deleteInternetGatewayResponse
     :: DeleteInternetGatewayResponse
 deleteInternetGatewayResponse = DeleteInternetGatewayResponse'
+
+instance NFData DeleteInternetGatewayResponse

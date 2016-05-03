@@ -125,6 +125,8 @@ instance AWSRequest ImportVolume where
 
 instance Hashable ImportVolume
 
+instance NFData ImportVolume
+
 instance ToHeaders ImportVolume where
         toHeaders = const mempty
 
@@ -170,3 +172,5 @@ ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = 
 -- | The response status code.
 ivrsResponseStatus :: Lens' ImportVolumeResponse Int
 ivrsResponseStatus = lens _ivrsResponseStatus (\ s a -> s{_ivrsResponseStatus = a});
+
+instance NFData ImportVolumeResponse

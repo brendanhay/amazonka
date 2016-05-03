@@ -170,6 +170,8 @@ instance AWSRequest PutObjectACL where
 
 instance Hashable PutObjectACL
 
+instance NFData PutObjectACL
+
 instance ToElement PutObjectACL where
         toElement
           = mkElement
@@ -225,3 +227,5 @@ poarsRequestCharged = lens _poarsRequestCharged (\ s a -> s{_poarsRequestCharged
 -- | The response status code.
 poarsResponseStatus :: Lens' PutObjectACLResponse Int
 poarsResponseStatus = lens _poarsResponseStatus (\ s a -> s{_poarsResponseStatus = a});
+
+instance NFData PutObjectACLResponse

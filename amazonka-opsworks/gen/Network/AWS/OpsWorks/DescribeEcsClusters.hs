@@ -125,6 +125,8 @@ instance AWSRequest DescribeEcsClusters where
 
 instance Hashable DescribeEcsClusters
 
+instance NFData DescribeEcsClusters
+
 instance ToHeaders DescribeEcsClusters where
         toHeaders
           = const
@@ -193,3 +195,5 @@ decrsEcsClusters = lens _decrsEcsClusters (\ s a -> s{_decrsEcsClusters = a}) . 
 -- | The response status code.
 decrsResponseStatus :: Lens' DescribeEcsClustersResponse Int
 decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
+
+instance NFData DescribeEcsClustersResponse

@@ -100,6 +100,8 @@ instance AWSRequest ListInstanceGroups where
 
 instance Hashable ListInstanceGroups
 
+instance NFData ListInstanceGroups
+
 instance ToHeaders ListInstanceGroups where
         toHeaders
           = const
@@ -162,3 +164,5 @@ ligrsInstanceGroups = lens _ligrsInstanceGroups (\ s a -> s{_ligrsInstanceGroups
 -- | The response status code.
 ligrsResponseStatus :: Lens' ListInstanceGroupsResponse Int
 ligrsResponseStatus = lens _ligrsResponseStatus (\ s a -> s{_ligrsResponseStatus = a});
+
+instance NFData ListInstanceGroupsResponse

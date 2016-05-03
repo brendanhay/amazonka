@@ -90,6 +90,8 @@ instance AWSRequest ListJobs where
 
 instance Hashable ListJobs
 
+instance NFData ListJobs
+
 instance ToHeaders ListJobs where
         toHeaders
           = const
@@ -153,3 +155,5 @@ ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a});
 -- | The response status code.
 ljrsResponseStatus :: Lens' ListJobsResponse Int
 ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
+
+instance NFData ListJobsResponse

@@ -85,6 +85,8 @@ instance AWSRequest GetHostnameSuggestion where
 
 instance Hashable GetHostnameSuggestion
 
+instance NFData GetHostnameSuggestion
+
 instance ToHeaders GetHostnameSuggestion where
         toHeaders
           = const
@@ -145,3 +147,5 @@ ghsrsLayerId = lens _ghsrsLayerId (\ s a -> s{_ghsrsLayerId = a});
 -- | The response status code.
 ghsrsResponseStatus :: Lens' GetHostnameSuggestionResponse Int
 ghsrsResponseStatus = lens _ghsrsResponseStatus (\ s a -> s{_ghsrsResponseStatus = a});
+
+instance NFData GetHostnameSuggestionResponse

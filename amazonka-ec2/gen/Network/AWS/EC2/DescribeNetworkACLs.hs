@@ -159,6 +159,8 @@ instance AWSRequest DescribeNetworkACLs where
 
 instance Hashable DescribeNetworkACLs
 
+instance NFData DescribeNetworkACLs
+
 instance ToHeaders DescribeNetworkACLs where
         toHeaders = const mempty
 
@@ -204,3 +206,5 @@ dnarsNetworkACLs = lens _dnarsNetworkACLs (\ s a -> s{_dnarsNetworkACLs = a}) . 
 -- | The response status code.
 dnarsResponseStatus :: Lens' DescribeNetworkACLsResponse Int
 dnarsResponseStatus = lens _dnarsResponseStatus (\ s a -> s{_dnarsResponseStatus = a});
+
+instance NFData DescribeNetworkACLsResponse

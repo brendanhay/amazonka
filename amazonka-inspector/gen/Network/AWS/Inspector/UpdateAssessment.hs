@@ -97,6 +97,8 @@ instance AWSRequest UpdateAssessment where
 
 instance Hashable UpdateAssessment
 
+instance NFData UpdateAssessment
+
 instance ToHeaders UpdateAssessment where
         toHeaders
           = const
@@ -149,3 +151,5 @@ ursMessage = lens _ursMessage (\ s a -> s{_ursMessage = a});
 -- | The response status code.
 ursResponseStatus :: Lens' UpdateAssessmentResponse Int
 ursResponseStatus = lens _ursResponseStatus (\ s a -> s{_ursResponseStatus = a});
+
+instance NFData UpdateAssessmentResponse

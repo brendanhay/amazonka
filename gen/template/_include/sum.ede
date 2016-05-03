@@ -18,6 +18,7 @@ instance ToText {{ shape.name }} where
       {% endfor %}
 
 instance Hashable     {{ shape.name }}
+instance NFData       {{ shape.name }}
 instance ToByteString {{ shape.name }}
 instance ToQuery      {{ shape.name }}
 instance ToHeader     {{ shape.name }}

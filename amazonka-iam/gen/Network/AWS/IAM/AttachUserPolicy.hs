@@ -85,6 +85,8 @@ instance AWSRequest AttachUserPolicy where
 
 instance Hashable AttachUserPolicy
 
+instance NFData AttachUserPolicy
+
 instance ToHeaders AttachUserPolicy where
         toHeaders = const mempty
 
@@ -109,3 +111,5 @@ data AttachUserPolicyResponse =
 attachUserPolicyResponse
     :: AttachUserPolicyResponse
 attachUserPolicyResponse = AttachUserPolicyResponse'
+
+instance NFData AttachUserPolicyResponse

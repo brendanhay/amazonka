@@ -103,6 +103,8 @@ instance AWSRequest ModifyCacheSubnetGroup where
 
 instance Hashable ModifyCacheSubnetGroup
 
+instance NFData ModifyCacheSubnetGroup
+
 instance ToHeaders ModifyCacheSubnetGroup where
         toHeaders = const mempty
 
@@ -151,3 +153,5 @@ mcsgrsCacheSubnetGroup = lens _mcsgrsCacheSubnetGroup (\ s a -> s{_mcsgrsCacheSu
 -- | The response status code.
 mcsgrsResponseStatus :: Lens' ModifyCacheSubnetGroupResponse Int
 mcsgrsResponseStatus = lens _mcsgrsResponseStatus (\ s a -> s{_mcsgrsResponseStatus = a});
+
+instance NFData ModifyCacheSubnetGroupResponse

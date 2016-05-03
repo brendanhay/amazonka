@@ -62,6 +62,8 @@ instance FromJSON AccountSettings where
 
 instance Hashable AccountSettings
 
+instance NFData AccountSettings
+
 -- | Represents the output of a test. Examples of artifacts include logs and
 -- screenshots.
 --
@@ -181,6 +183,8 @@ instance FromJSON Artifact where
 
 instance Hashable Artifact
 
+instance NFData Artifact
+
 -- | Represents the amount of CPU that an app is using on a physical device.
 --
 -- Note that this does not represent system-wide CPU usage.
@@ -232,6 +236,8 @@ instance FromJSON CPU where
                      (x .:? "architecture"))
 
 instance Hashable CPU
+
+instance NFData CPU
 
 -- | Represents entity counters.
 --
@@ -317,6 +323,8 @@ instance FromJSON Counters where
                      <*> (x .:? "errored"))
 
 instance Hashable Counters
+
+instance NFData Counters
 
 -- | Represents a device type that an app is tested against.
 --
@@ -480,6 +488,8 @@ instance FromJSON Device where
 
 instance Hashable Device
 
+instance NFData Device
+
 -- | Represents the total (metered or unmetered) minutes used by the resource
 -- to run tests. Contains the sum of minutes consumed by all children.
 --
@@ -532,6 +542,8 @@ instance FromJSON DeviceMinutes where
                      (x .:? "unmetered"))
 
 instance Hashable DeviceMinutes
+
+instance NFData DeviceMinutes
 
 -- | Represents a collection of device types.
 --
@@ -609,6 +621,8 @@ instance FromJSON DevicePool where
 
 instance Hashable DevicePool
 
+instance NFData DevicePool
+
 -- | Represents a device pool compatibility result.
 --
 -- /See:/ 'devicePoolCompatibilityResult' smart constructor.
@@ -657,6 +671,8 @@ instance FromJSON DevicePoolCompatibilityResult where
                      (x .:? "incompatibilityMessages" .!= mempty))
 
 instance Hashable DevicePoolCompatibilityResult
+
+instance NFData DevicePoolCompatibilityResult
 
 -- | Represents information about incompatibility.
 --
@@ -708,6 +724,8 @@ instance FromJSON IncompatibilityMessage where
                    (x .:? "type") <*> (x .:? "message"))
 
 instance Hashable IncompatibilityMessage
+
+instance NFData IncompatibilityMessage
 
 -- | Represents a device.
 --
@@ -902,6 +920,8 @@ instance FromJSON Job where
 
 instance Hashable Job
 
+instance NFData Job
+
 -- | Represents a latitude and longitude pair, expressed in geographic
 -- coordinate system degrees (for example 47.6204, -122.3491).
 --
@@ -939,6 +959,8 @@ lLongitude :: Lens' Location Double
 lLongitude = lens _lLongitude (\ s a -> s{_lLongitude = a});
 
 instance Hashable Location
+
+instance NFData Location
 
 instance ToJSON Location where
         toJSON Location'{..}
@@ -1049,6 +1071,8 @@ instance FromJSON Problem where
 
 instance Hashable Problem
 
+instance NFData Problem
+
 -- | Information about a problem detail.
 --
 -- /See:/ 'problemDetail' smart constructor.
@@ -1087,6 +1111,8 @@ instance FromJSON ProblemDetail where
                  ProblemDetail' <$> (x .:? "arn") <*> (x .:? "name"))
 
 instance Hashable ProblemDetail
+
+instance NFData ProblemDetail
 
 -- | Represents an operating-system neutral workspace for running and
 -- managing tests.
@@ -1137,6 +1163,8 @@ instance FromJSON Project where
                      (x .:? "name"))
 
 instance Hashable Project
+
+instance NFData Project
 
 -- | Represents the set of radios and their states on a device. Examples of
 -- radios include Wi-Fi, GPS, Bluetooth, and NFC.
@@ -1189,6 +1217,8 @@ rWifi = lens _rWifi (\ s a -> s{_rWifi = a});
 
 instance Hashable Radios
 
+instance NFData Radios
+
 instance ToJSON Radios where
         toJSON Radios'{..}
           = object
@@ -1236,6 +1266,8 @@ instance FromJSON Resolution where
                  Resolution' <$> (x .:? "height") <*> (x .:? "width"))
 
 instance Hashable Resolution
+
+instance NFData Resolution
 
 -- | Represents a condition for a device pool.
 --
@@ -1307,6 +1339,8 @@ instance FromJSON Rule where
                      (x .:? "value"))
 
 instance Hashable Rule
+
+instance NFData Rule
 
 instance ToJSON Rule where
         toJSON Rule'{..}
@@ -1546,6 +1580,8 @@ instance FromJSON Run where
 
 instance Hashable Run
 
+instance NFData Run
+
 -- | Represents a sample of performance data.
 --
 -- /See:/ 'sample' smart constructor.
@@ -1638,6 +1674,8 @@ instance FromJSON Sample where
 
 instance Hashable Sample
 
+instance NFData Sample
+
 -- | Represents the settings for a run. Includes things like location, radio
 -- states, auxiliary apps, and network profiles.
 --
@@ -1714,6 +1752,8 @@ srcAuxiliaryApps :: Lens' ScheduleRunConfiguration [Text]
 srcAuxiliaryApps = lens _srcAuxiliaryApps (\ s a -> s{_srcAuxiliaryApps = a}) . _Default . _Coerce;
 
 instance Hashable ScheduleRunConfiguration
+
+instance NFData ScheduleRunConfiguration
 
 instance ToJSON ScheduleRunConfiguration where
         toJSON ScheduleRunConfiguration'{..}
@@ -1811,6 +1851,8 @@ srtType :: Lens' ScheduleRunTest TestType
 srtType = lens _srtType (\ s a -> s{_srtType = a});
 
 instance Hashable ScheduleRunTest
+
+instance NFData ScheduleRunTest
 
 instance ToJSON ScheduleRunTest where
         toJSON ScheduleRunTest'{..}
@@ -2006,6 +2048,8 @@ instance FromJSON Suite where
 
 instance Hashable Suite
 
+instance NFData Suite
+
 -- | Represents a condition that is evaluated.
 --
 -- /See:/ 'test' smart constructor.
@@ -2190,6 +2234,8 @@ instance FromJSON Test where
 
 instance Hashable Test
 
+instance NFData Test
+
 -- | A collection of one or more problems, grouped by their result.
 --
 -- /See:/ 'uniqueProblem' smart constructor.
@@ -2229,6 +2275,8 @@ instance FromJSON UniqueProblem where
                    (x .:? "problems" .!= mempty) <*> (x .:? "message"))
 
 instance Hashable UniqueProblem
+
+instance NFData UniqueProblem
 
 -- | An app or a set of one or more tests to upload or that have been
 -- uploaded.
@@ -2387,3 +2435,5 @@ instance FromJSON Upload where
                      <*> (x .:? "contentType"))
 
 instance Hashable Upload
+
+instance NFData Upload

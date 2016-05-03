@@ -83,6 +83,8 @@ instance AWSRequest DeregisterImage where
 
 instance Hashable DeregisterImage
 
+instance NFData DeregisterImage
+
 instance ToHeaders DeregisterImage where
         toHeaders = const mempty
 
@@ -106,3 +108,5 @@ data DeregisterImageResponse =
 deregisterImageResponse
     :: DeregisterImageResponse
 deregisterImageResponse = DeregisterImageResponse'
+
+instance NFData DeregisterImageResponse

@@ -16,6 +16,7 @@
 module Network.AWS.Data.List1 where
 
 import           Control.Applicative
+import           Control.DeepSeq
 import           Control.Monad
 import           Data.Aeson
 import           Data.Coerce
@@ -50,6 +51,8 @@ newtype List1 a = List1 { toNonEmpty :: NonEmpty a }
         , Typeable
         , Generic
         )
+
+instance NFData a => NFData (List1 a)
 
 _List1 :: (Coercible a b, Coercible b a) => Iso' (List1 a) (NonEmpty b)
 _List1 = iso (coerce . toNonEmpty) (List1 . coerce)

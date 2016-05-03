@@ -185,6 +185,8 @@ instance AWSRequest PutIntegration where
 
 instance Hashable PutIntegration
 
+instance NFData PutIntegration
+
 instance ToHeaders PutIntegration where
         toHeaders
           = const

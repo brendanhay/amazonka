@@ -90,6 +90,8 @@ instance AWSRequest DecreaseStreamRetentionPeriod
 
 instance Hashable DecreaseStreamRetentionPeriod
 
+instance NFData DecreaseStreamRetentionPeriod
+
 instance ToHeaders DecreaseStreamRetentionPeriod
          where
         toHeaders
@@ -126,3 +128,5 @@ data DecreaseStreamRetentionPeriodResponse =
 decreaseStreamRetentionPeriodResponse
     :: DecreaseStreamRetentionPeriodResponse
 decreaseStreamRetentionPeriodResponse = DecreaseStreamRetentionPeriodResponse'
+
+instance NFData DecreaseStreamRetentionPeriodResponse

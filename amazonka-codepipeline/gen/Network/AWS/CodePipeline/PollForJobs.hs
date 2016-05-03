@@ -105,6 +105,8 @@ instance AWSRequest PollForJobs where
 
 instance Hashable PollForJobs
 
+instance NFData PollForJobs
+
 instance ToHeaders PollForJobs where
         toHeaders
           = const
@@ -159,3 +161,5 @@ pfjrsJobs = lens _pfjrsJobs (\ s a -> s{_pfjrsJobs = a}) . _Default . _Coerce;
 -- | The response status code.
 pfjrsResponseStatus :: Lens' PollForJobsResponse Int
 pfjrsResponseStatus = lens _pfjrsResponseStatus (\ s a -> s{_pfjrsResponseStatus = a});
+
+instance NFData PollForJobsResponse

@@ -43,6 +43,7 @@ instance ToText ShardIteratorType where
         TrimHorizon -> "TRIM_HORIZON"
 
 instance Hashable     ShardIteratorType
+instance NFData       ShardIteratorType
 instance ToByteString ShardIteratorType
 instance ToQuery      ShardIteratorType
 instance ToHeader     ShardIteratorType
@@ -74,6 +75,7 @@ instance ToText StreamStatus where
         Updating -> "UPDATING"
 
 instance Hashable     StreamStatus
+instance NFData       StreamStatus
 instance ToByteString StreamStatus
 instance ToQuery      StreamStatus
 instance ToHeader     StreamStatus

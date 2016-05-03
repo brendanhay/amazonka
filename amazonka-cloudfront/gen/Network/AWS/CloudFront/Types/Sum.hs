@@ -40,6 +40,7 @@ instance ToText CertificateSource where
         IAM -> "iam"
 
 instance Hashable     CertificateSource
+instance NFData       CertificateSource
 instance ToByteString CertificateSource
 instance ToQuery      CertificateSource
 instance ToHeader     CertificateSource
@@ -71,6 +72,7 @@ instance ToText GeoRestrictionType where
         Whitelist -> "whitelist"
 
 instance Hashable     GeoRestrictionType
+instance NFData       GeoRestrictionType
 instance ToByteString GeoRestrictionType
 instance ToQuery      GeoRestrictionType
 instance ToHeader     GeoRestrictionType
@@ -102,6 +104,7 @@ instance ToText ItemSelection where
         ISWhitelist -> "whitelist"
 
 instance Hashable     ItemSelection
+instance NFData       ItemSelection
 instance ToByteString ItemSelection
 instance ToQuery      ItemSelection
 instance ToHeader     ItemSelection
@@ -145,6 +148,7 @@ instance ToText Method where
         Put -> "PUT"
 
 instance Hashable     Method
+instance NFData       Method
 instance ToByteString Method
 instance ToQuery      Method
 instance ToHeader     Method
@@ -173,6 +177,7 @@ instance ToText MinimumProtocolVersion where
         MPVTLSV1 -> "TLSv1"
 
 instance Hashable     MinimumProtocolVersion
+instance NFData       MinimumProtocolVersion
 instance ToByteString MinimumProtocolVersion
 instance ToQuery      MinimumProtocolVersion
 instance ToHeader     MinimumProtocolVersion
@@ -204,6 +209,7 @@ instance ToText OriginProtocolPolicy where
         MatchViewer -> "match-viewer"
 
 instance Hashable     OriginProtocolPolicy
+instance NFData       OriginProtocolPolicy
 instance ToByteString OriginProtocolPolicy
 instance ToQuery      OriginProtocolPolicy
 instance ToHeader     OriginProtocolPolicy
@@ -235,6 +241,7 @@ instance ToText PriceClass where
         PriceClassAll -> "PriceClass_All"
 
 instance Hashable     PriceClass
+instance NFData       PriceClass
 instance ToByteString PriceClass
 instance ToQuery      PriceClass
 instance ToHeader     PriceClass
@@ -269,6 +276,7 @@ instance ToText SSLProtocol where
         TLSV1_2 -> "TLSv1.2"
 
 instance Hashable     SSLProtocol
+instance NFData       SSLProtocol
 instance ToByteString SSLProtocol
 instance ToQuery      SSLProtocol
 instance ToHeader     SSLProtocol
@@ -297,6 +305,7 @@ instance ToText SSLSupportMethod where
         VIP -> "vip"
 
 instance Hashable     SSLSupportMethod
+instance NFData       SSLSupportMethod
 instance ToByteString SSLSupportMethod
 instance ToQuery      SSLSupportMethod
 instance ToHeader     SSLSupportMethod
@@ -328,6 +337,7 @@ instance ToText ViewerProtocolPolicy where
         VPPRedirectToHTTPS -> "redirect-to-https"
 
 instance Hashable     ViewerProtocolPolicy
+instance NFData       ViewerProtocolPolicy
 instance ToByteString ViewerProtocolPolicy
 instance ToQuery      ViewerProtocolPolicy
 instance ToHeader     ViewerProtocolPolicy

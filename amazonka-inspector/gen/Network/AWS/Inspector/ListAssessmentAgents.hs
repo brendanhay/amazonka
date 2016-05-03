@@ -116,6 +116,8 @@ instance AWSRequest ListAssessmentAgents where
 
 instance Hashable ListAssessmentAgents
 
+instance NFData ListAssessmentAgents
+
 instance ToHeaders ListAssessmentAgents where
         toHeaders
           = const
@@ -181,3 +183,5 @@ laarsNextToken = lens _laarsNextToken (\ s a -> s{_laarsNextToken = a});
 -- | The response status code.
 laarsResponseStatus :: Lens' ListAssessmentAgentsResponse Int
 laarsResponseStatus = lens _laarsResponseStatus (\ s a -> s{_laarsResponseStatus = a});
+
+instance NFData ListAssessmentAgentsResponse

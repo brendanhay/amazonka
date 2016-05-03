@@ -93,6 +93,8 @@ instance AWSRequest PollForThirdPartyJobs where
 
 instance Hashable PollForThirdPartyJobs
 
+instance NFData PollForThirdPartyJobs
+
 instance ToHeaders PollForThirdPartyJobs where
         toHeaders
           = const
@@ -147,3 +149,5 @@ pftpjrsJobs = lens _pftpjrsJobs (\ s a -> s{_pftpjrsJobs = a}) . _Default . _Coe
 -- | The response status code.
 pftpjrsResponseStatus :: Lens' PollForThirdPartyJobsResponse Int
 pftpjrsResponseStatus = lens _pftpjrsResponseStatus (\ s a -> s{_pftpjrsResponseStatus = a});
+
+instance NFData PollForThirdPartyJobsResponse

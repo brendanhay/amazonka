@@ -37,6 +37,7 @@ instance ToText ApplyMethod where
         PendingReboot -> "pending-reboot"
 
 instance Hashable     ApplyMethod
+instance NFData       ApplyMethod
 instance ToByteString ApplyMethod
 instance ToQuery      ApplyMethod
 instance ToHeader     ApplyMethod
@@ -74,6 +75,7 @@ instance ToText SourceType where
         DBSnapshot -> "db-snapshot"
 
 instance Hashable     SourceType
+instance NFData       SourceType
 instance ToByteString SourceType
 instance ToQuery      SourceType
 instance ToHeader     SourceType

@@ -141,6 +141,8 @@ instance AWSRequest UpdateConfigurationTemplate where
 
 instance Hashable UpdateConfigurationTemplate
 
+instance NFData UpdateConfigurationTemplate
+
 instance ToHeaders UpdateConfigurationTemplate where
         toHeaders = const mempty
 

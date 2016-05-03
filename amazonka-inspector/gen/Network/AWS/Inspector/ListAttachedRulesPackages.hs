@@ -103,6 +103,8 @@ instance AWSRequest ListAttachedRulesPackages where
 
 instance Hashable ListAttachedRulesPackages
 
+instance NFData ListAttachedRulesPackages
+
 instance ToHeaders ListAttachedRulesPackages where
         toHeaders
           = const
@@ -167,3 +169,5 @@ larprsRulesPackageARNList = lens _larprsRulesPackageARNList (\ s a -> s{_larprsR
 -- | The response status code.
 larprsResponseStatus :: Lens' ListAttachedRulesPackagesResponse Int
 larprsResponseStatus = lens _larprsResponseStatus (\ s a -> s{_larprsResponseStatus = a});
+
+instance NFData ListAttachedRulesPackagesResponse

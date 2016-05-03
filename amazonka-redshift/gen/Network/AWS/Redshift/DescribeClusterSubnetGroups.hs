@@ -166,6 +166,8 @@ instance AWSRequest DescribeClusterSubnetGroups where
 
 instance Hashable DescribeClusterSubnetGroups
 
+instance NFData DescribeClusterSubnetGroups
+
 instance ToHeaders DescribeClusterSubnetGroups where
         toHeaders = const mempty
 
@@ -231,3 +233,5 @@ dcsgrsMarker = lens _dcsgrsMarker (\ s a -> s{_dcsgrsMarker = a});
 -- | The response status code.
 dcsgrsResponseStatus :: Lens' DescribeClusterSubnetGroupsResponse Int
 dcsgrsResponseStatus = lens _dcsgrsResponseStatus (\ s a -> s{_dcsgrsResponseStatus = a});
+
+instance NFData DescribeClusterSubnetGroupsResponse

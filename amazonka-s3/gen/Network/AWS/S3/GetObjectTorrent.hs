@@ -97,6 +97,8 @@ instance AWSRequest GetObjectTorrent where
 
 instance Hashable GetObjectTorrent
 
+instance NFData GetObjectTorrent
+
 instance ToHeaders GetObjectTorrent where
         toHeaders GetObjectTorrent'{..}
           = mconcat ["x-amz-request-payer" =# _gotRequestPayer]

@@ -155,6 +155,9 @@ instance AWSRequest
 instance Hashable
          DescribeReservedInstancesModifications
 
+instance NFData
+         DescribeReservedInstancesModifications
+
 instance ToHeaders
          DescribeReservedInstancesModifications where
         toHeaders = const mempty
@@ -215,3 +218,6 @@ drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModification
 -- | The response status code.
 drimrsResponseStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
 drimrsResponseStatus = lens _drimrsResponseStatus (\ s a -> s{_drimrsResponseStatus = a});
+
+instance NFData
+         DescribeReservedInstancesModificationsResponse

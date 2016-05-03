@@ -80,6 +80,8 @@ instance AWSRequest DescribeConnectionsOnInterconnect
 
 instance Hashable DescribeConnectionsOnInterconnect
 
+instance NFData DescribeConnectionsOnInterconnect
+
 instance ToHeaders DescribeConnectionsOnInterconnect
          where
         toHeaders

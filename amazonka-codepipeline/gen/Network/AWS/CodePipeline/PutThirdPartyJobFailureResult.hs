@@ -97,6 +97,8 @@ instance AWSRequest PutThirdPartyJobFailureResult
 
 instance Hashable PutThirdPartyJobFailureResult
 
+instance NFData PutThirdPartyJobFailureResult
+
 instance ToHeaders PutThirdPartyJobFailureResult
          where
         toHeaders
@@ -132,3 +134,5 @@ data PutThirdPartyJobFailureResultResponse =
 putThirdPartyJobFailureResultResponse
     :: PutThirdPartyJobFailureResultResponse
 putThirdPartyJobFailureResultResponse = PutThirdPartyJobFailureResultResponse'
+
+instance NFData PutThirdPartyJobFailureResultResponse

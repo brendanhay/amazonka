@@ -112,6 +112,8 @@ instance AWSRequest GetVaultNotifications where
 
 instance Hashable GetVaultNotifications
 
+instance NFData GetVaultNotifications
+
 instance ToHeaders GetVaultNotifications where
         toHeaders = const mempty
 
@@ -155,3 +157,5 @@ gvnrsVaultNotificationConfig = lens _gvnrsVaultNotificationConfig (\ s a -> s{_g
 -- | The response status code.
 gvnrsResponseStatus :: Lens' GetVaultNotificationsResponse Int
 gvnrsResponseStatus = lens _gvnrsResponseStatus (\ s a -> s{_gvnrsResponseStatus = a});
+
+instance NFData GetVaultNotificationsResponse

@@ -116,6 +116,8 @@ instance AWSRequest CreatePolicyVersion where
 
 instance Hashable CreatePolicyVersion
 
+instance NFData CreatePolicyVersion
+
 instance ToHeaders CreatePolicyVersion where
         toHeaders = const mempty
 
@@ -162,3 +164,5 @@ cpvrsPolicyVersion = lens _cpvrsPolicyVersion (\ s a -> s{_cpvrsPolicyVersion = 
 -- | The response status code.
 cpvrsResponseStatus :: Lens' CreatePolicyVersionResponse Int
 cpvrsResponseStatus = lens _cpvrsResponseStatus (\ s a -> s{_cpvrsResponseStatus = a});
+
+instance NFData CreatePolicyVersionResponse

@@ -243,6 +243,8 @@ instance AWSRequest SendRawEmail where
 
 instance Hashable SendRawEmail
 
+instance NFData SendRawEmail
+
 instance ToHeaders SendRawEmail where
         toHeaders = const mempty
 
@@ -291,3 +293,5 @@ srersResponseStatus = lens _srersResponseStatus (\ s a -> s{_srersResponseStatus
 -- | The unique message identifier returned from the 'SendRawEmail' action.
 srersMessageId :: Lens' SendRawEmailResponse Text
 srersMessageId = lens _srersMessageId (\ s a -> s{_srersMessageId = a});
+
+instance NFData SendRawEmailResponse

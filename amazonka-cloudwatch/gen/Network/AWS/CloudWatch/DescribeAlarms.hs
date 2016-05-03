@@ -138,6 +138,8 @@ instance AWSRequest DescribeAlarms where
 
 instance Hashable DescribeAlarms
 
+instance NFData DescribeAlarms
+
 instance ToHeaders DescribeAlarms where
         toHeaders = const mempty
 
@@ -196,3 +198,5 @@ darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
 -- | The response status code.
 darsResponseStatus :: Lens' DescribeAlarmsResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+
+instance NFData DescribeAlarmsResponse

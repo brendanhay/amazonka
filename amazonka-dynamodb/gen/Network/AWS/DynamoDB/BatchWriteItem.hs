@@ -206,6 +206,8 @@ instance AWSRequest BatchWriteItem where
 
 instance Hashable BatchWriteItem
 
+instance NFData BatchWriteItem
+
 instance ToHeaders BatchWriteItem where
         toHeaders
           = const
@@ -336,3 +338,5 @@ bwirsUnprocessedItems = lens _bwirsUnprocessedItems (\ s a -> s{_bwirsUnprocesse
 -- | The response status code.
 bwirsResponseStatus :: Lens' BatchWriteItemResponse Int
 bwirsResponseStatus = lens _bwirsResponseStatus (\ s a -> s{_bwirsResponseStatus = a});
+
+instance NFData BatchWriteItemResponse

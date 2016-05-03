@@ -40,6 +40,7 @@ instance ToText AssignmentStatusType where
         Unassigned -> "Unassigned"
 
 instance Hashable     AssignmentStatusType
+instance NFData       AssignmentStatusType
 instance ToByteString AssignmentStatusType
 instance ToQuery      AssignmentStatusType
 instance ToHeader     AssignmentStatusType
@@ -92,6 +93,7 @@ instance ToText ContextKeyTypeEnum where
         StringList -> "stringList"
 
 instance Hashable     ContextKeyTypeEnum
+instance NFData       ContextKeyTypeEnum
 instance ToByteString ContextKeyTypeEnum
 instance ToQuery      ContextKeyTypeEnum
 instance ToHeader     ContextKeyTypeEnum
@@ -114,6 +116,7 @@ instance ToText EncodingType where
         SSH -> "SSH"
 
 instance Hashable     EncodingType
+instance NFData       EncodingType
 instance ToByteString EncodingType
 instance ToQuery      EncodingType
 instance ToHeader     EncodingType
@@ -145,6 +148,7 @@ instance ToText EntityType where
         ETUser -> "User"
 
 instance Hashable     EntityType
+instance NFData       EntityType
 instance ToByteString EntityType
 instance ToQuery      EntityType
 instance ToHeader     EntityType
@@ -170,6 +174,7 @@ instance ToText PolicyEvaluationDecisionType where
         ImplicitDeny -> "implicitDeny"
 
 instance Hashable     PolicyEvaluationDecisionType
+instance NFData       PolicyEvaluationDecisionType
 instance ToByteString PolicyEvaluationDecisionType
 instance ToQuery      PolicyEvaluationDecisionType
 instance ToHeader     PolicyEvaluationDecisionType
@@ -198,6 +203,7 @@ instance ToText PolicyScopeType where
         Local -> "Local"
 
 instance Hashable     PolicyScopeType
+instance NFData       PolicyScopeType
 instance ToByteString PolicyScopeType
 instance ToQuery      PolicyScopeType
 instance ToHeader     PolicyScopeType
@@ -235,6 +241,7 @@ instance ToText PolicySourceType where
         UserManaged -> "user-managed"
 
 instance Hashable     PolicySourceType
+instance NFData       PolicySourceType
 instance ToByteString PolicySourceType
 instance ToQuery      PolicySourceType
 instance ToHeader     PolicySourceType
@@ -257,6 +264,7 @@ instance ToText ReportFormatType where
         TextCSV -> "text/csv"
 
 instance Hashable     ReportFormatType
+instance NFData       ReportFormatType
 instance ToByteString ReportFormatType
 instance ToQuery      ReportFormatType
 instance ToHeader     ReportFormatType
@@ -285,6 +293,7 @@ instance ToText ReportStateType where
         Started -> "STARTED"
 
 instance Hashable     ReportStateType
+instance NFData       ReportStateType
 instance ToByteString ReportStateType
 instance ToQuery      ReportStateType
 instance ToHeader     ReportStateType
@@ -310,6 +319,7 @@ instance ToText StatusType where
         Inactive -> "Inactive"
 
 instance Hashable     StatusType
+instance NFData       StatusType
 instance ToByteString StatusType
 instance ToQuery      StatusType
 instance ToHeader     StatusType
@@ -404,6 +414,7 @@ instance ToText SummaryKeyType where
         VersionsPerPolicyQuota -> "VersionsPerPolicyQuota"
 
 instance Hashable     SummaryKeyType
+instance NFData       SummaryKeyType
 instance ToByteString SummaryKeyType
 instance ToQuery      SummaryKeyType
 instance ToHeader     SummaryKeyType

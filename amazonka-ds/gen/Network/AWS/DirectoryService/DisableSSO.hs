@@ -103,6 +103,8 @@ instance AWSRequest DisableSSO where
 
 instance Hashable DisableSSO
 
+instance NFData DisableSSO
+
 instance ToHeaders DisableSSO where
         toHeaders
           = const
@@ -150,3 +152,5 @@ disableSSOResponse pResponseStatus_ =
 -- | The response status code.
 dssorsResponseStatus :: Lens' DisableSSOResponse Int
 dssorsResponseStatus = lens _dssorsResponseStatus (\ s a -> s{_dssorsResponseStatus = a});
+
+instance NFData DisableSSOResponse

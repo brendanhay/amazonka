@@ -90,6 +90,8 @@ instance AWSRequest ListActionTypes where
 
 instance Hashable ListActionTypes
 
+instance NFData ListActionTypes
+
 instance ToHeaders ListActionTypes where
         toHeaders
           = const
@@ -154,3 +156,5 @@ latrsResponseStatus = lens _latrsResponseStatus (\ s a -> s{_latrsResponseStatus
 -- | Provides details of the action types.
 latrsActionTypes :: Lens' ListActionTypesResponse [ActionType]
 latrsActionTypes = lens _latrsActionTypes (\ s a -> s{_latrsActionTypes = a}) . _Coerce;
+
+instance NFData ListActionTypesResponse

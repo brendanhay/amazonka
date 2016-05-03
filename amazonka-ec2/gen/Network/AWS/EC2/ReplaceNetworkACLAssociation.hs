@@ -104,6 +104,8 @@ instance AWSRequest ReplaceNetworkACLAssociation
 
 instance Hashable ReplaceNetworkACLAssociation
 
+instance NFData ReplaceNetworkACLAssociation
+
 instance ToHeaders ReplaceNetworkACLAssociation where
         toHeaders = const mempty
 
@@ -149,3 +151,5 @@ rnaarsNewAssociationId = lens _rnaarsNewAssociationId (\ s a -> s{_rnaarsNewAsso
 -- | The response status code.
 rnaarsResponseStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
 rnaarsResponseStatus = lens _rnaarsResponseStatus (\ s a -> s{_rnaarsResponseStatus = a});
+
+instance NFData ReplaceNetworkACLAssociationResponse

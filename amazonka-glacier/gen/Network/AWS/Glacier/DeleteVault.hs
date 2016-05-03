@@ -108,6 +108,8 @@ instance AWSRequest DeleteVault where
 
 instance Hashable DeleteVault
 
+instance NFData DeleteVault
+
 instance ToHeaders DeleteVault where
         toHeaders = const mempty
 
@@ -129,3 +131,5 @@ data DeleteVaultResponse =
 deleteVaultResponse
     :: DeleteVaultResponse
 deleteVaultResponse = DeleteVaultResponse'
+
+instance NFData DeleteVaultResponse

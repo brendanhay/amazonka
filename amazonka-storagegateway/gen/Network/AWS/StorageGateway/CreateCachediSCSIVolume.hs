@@ -140,6 +140,8 @@ instance AWSRequest CreateCachediSCSIVolume where
 
 instance Hashable CreateCachediSCSIVolume
 
+instance NFData CreateCachediSCSIVolume
+
 instance ToHeaders CreateCachediSCSIVolume where
         toHeaders
           = const
@@ -206,3 +208,5 @@ ccscsivrsVolumeARN = lens _ccscsivrsVolumeARN (\ s a -> s{_ccscsivrsVolumeARN = 
 -- | The response status code.
 ccscsivrsResponseStatus :: Lens' CreateCachediSCSIVolumeResponse Int
 ccscsivrsResponseStatus = lens _ccscsivrsResponseStatus (\ s a -> s{_ccscsivrsResponseStatus = a});
+
+instance NFData CreateCachediSCSIVolumeResponse

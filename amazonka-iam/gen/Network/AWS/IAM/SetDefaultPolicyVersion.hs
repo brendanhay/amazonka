@@ -93,6 +93,8 @@ instance AWSRequest SetDefaultPolicyVersion where
 
 instance Hashable SetDefaultPolicyVersion
 
+instance NFData SetDefaultPolicyVersion
+
 instance ToHeaders SetDefaultPolicyVersion where
         toHeaders = const mempty
 
@@ -118,3 +120,5 @@ data SetDefaultPolicyVersionResponse =
 setDefaultPolicyVersionResponse
     :: SetDefaultPolicyVersionResponse
 setDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'
+
+instance NFData SetDefaultPolicyVersionResponse

@@ -171,6 +171,8 @@ instance AWSRequest ListMultipartUploads where
 
 instance Hashable ListMultipartUploads
 
+instance NFData ListMultipartUploads
+
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty
 
@@ -314,3 +316,5 @@ lmursDelimiter = lens _lmursDelimiter (\ s a -> s{_lmursDelimiter = a});
 -- | The response status code.
 lmursResponseStatus :: Lens' ListMultipartUploadsResponse Int
 lmursResponseStatus = lens _lmursResponseStatus (\ s a -> s{_lmursResponseStatus = a});
+
+instance NFData ListMultipartUploadsResponse

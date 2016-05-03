@@ -76,6 +76,8 @@ instance AWSRequest Unsubscribe where
 
 instance Hashable Unsubscribe
 
+instance NFData Unsubscribe
+
 instance ToHeaders Unsubscribe where
         toHeaders = const mempty
 
@@ -99,3 +101,5 @@ data UnsubscribeResponse =
 unsubscribeResponse
     :: UnsubscribeResponse
 unsubscribeResponse = UnsubscribeResponse'
+
+instance NFData UnsubscribeResponse

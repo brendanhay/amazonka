@@ -81,6 +81,8 @@ instance AWSRequest PutRetentionPolicy where
 
 instance Hashable PutRetentionPolicy
 
+instance NFData PutRetentionPolicy
+
 instance ToHeaders PutRetentionPolicy where
         toHeaders
           = const
@@ -113,3 +115,5 @@ data PutRetentionPolicyResponse =
 putRetentionPolicyResponse
     :: PutRetentionPolicyResponse
 putRetentionPolicyResponse = PutRetentionPolicyResponse'
+
+instance NFData PutRetentionPolicyResponse

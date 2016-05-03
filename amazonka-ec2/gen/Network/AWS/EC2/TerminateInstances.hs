@@ -112,6 +112,8 @@ instance AWSRequest TerminateInstances where
 
 instance Hashable TerminateInstances
 
+instance NFData TerminateInstances
+
 instance ToHeaders TerminateInstances where
         toHeaders = const mempty
 
@@ -155,3 +157,5 @@ tirsTerminatingInstances = lens _tirsTerminatingInstances (\ s a -> s{_tirsTermi
 -- | The response status code.
 tirsResponseStatus :: Lens' TerminateInstancesResponse Int
 tirsResponseStatus = lens _tirsResponseStatus (\ s a -> s{_tirsResponseStatus = a});
+
+instance NFData TerminateInstancesResponse

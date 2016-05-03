@@ -83,6 +83,8 @@ instance AWSRequest PutJobFailureResult where
 
 instance Hashable PutJobFailureResult
 
+instance NFData PutJobFailureResult
+
 instance ToHeaders PutJobFailureResult where
         toHeaders
           = const
@@ -116,3 +118,5 @@ data PutJobFailureResultResponse =
 putJobFailureResultResponse
     :: PutJobFailureResultResponse
 putJobFailureResultResponse = PutJobFailureResultResponse'
+
+instance NFData PutJobFailureResultResponse

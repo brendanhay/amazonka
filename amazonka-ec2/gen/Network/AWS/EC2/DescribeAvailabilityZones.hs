@@ -118,6 +118,8 @@ instance AWSRequest DescribeAvailabilityZones where
 
 instance Hashable DescribeAvailabilityZones
 
+instance NFData DescribeAvailabilityZones
+
 instance ToHeaders DescribeAvailabilityZones where
         toHeaders = const mempty
 
@@ -163,3 +165,5 @@ dazrsAvailabilityZones = lens _dazrsAvailabilityZones (\ s a -> s{_dazrsAvailabi
 -- | The response status code.
 dazrsResponseStatus :: Lens' DescribeAvailabilityZonesResponse Int
 dazrsResponseStatus = lens _dazrsResponseStatus (\ s a -> s{_dazrsResponseStatus = a});
+
+instance NFData DescribeAvailabilityZonesResponse

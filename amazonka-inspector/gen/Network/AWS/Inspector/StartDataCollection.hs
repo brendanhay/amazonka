@@ -79,6 +79,8 @@ instance AWSRequest StartDataCollection where
 
 instance Hashable StartDataCollection
 
+instance NFData StartDataCollection
+
 instance ToHeaders StartDataCollection where
         toHeaders
           = const
@@ -130,3 +132,5 @@ srsMessage = lens _srsMessage (\ s a -> s{_srsMessage = a});
 -- | The response status code.
 srsResponseStatus :: Lens' StartDataCollectionResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+
+instance NFData StartDataCollectionResponse

@@ -157,6 +157,8 @@ instance AWSRequest ReplaceNetworkACLEntry where
 
 instance Hashable ReplaceNetworkACLEntry
 
+instance NFData ReplaceNetworkACLEntry
+
 instance ToHeaders ReplaceNetworkACLEntry where
         toHeaders = const mempty
 
@@ -189,3 +191,5 @@ data ReplaceNetworkACLEntryResponse =
 replaceNetworkACLEntryResponse
     :: ReplaceNetworkACLEntryResponse
 replaceNetworkACLEntryResponse = ReplaceNetworkACLEntryResponse'
+
+instance NFData ReplaceNetworkACLEntryResponse

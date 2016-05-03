@@ -138,6 +138,8 @@ instance AWSRequest ListHostedZones where
 
 instance Hashable ListHostedZones
 
+instance NFData ListHostedZones
+
 instance ToHeaders ListHostedZones where
         toHeaders = const mempty
 
@@ -231,3 +233,5 @@ lhzrsIsTruncated = lens _lhzrsIsTruncated (\ s a -> s{_lhzrsIsTruncated = a});
 -- results.
 lhzrsMaxItems :: Lens' ListHostedZonesResponse Text
 lhzrsMaxItems = lens _lhzrsMaxItems (\ s a -> s{_lhzrsMaxItems = a});
+
+instance NFData ListHostedZonesResponse

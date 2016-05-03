@@ -78,6 +78,8 @@ instance AWSRequest TerminateJobFlows where
 
 instance Hashable TerminateJobFlows
 
+instance NFData TerminateJobFlows
+
 instance ToHeaders TerminateJobFlows where
         toHeaders
           = const
@@ -108,3 +110,5 @@ data TerminateJobFlowsResponse =
 terminateJobFlowsResponse
     :: TerminateJobFlowsResponse
 terminateJobFlowsResponse = TerminateJobFlowsResponse'
+
+instance NFData TerminateJobFlowsResponse

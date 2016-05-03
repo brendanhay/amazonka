@@ -168,6 +168,8 @@ instance AWSRequest ListWorkflowTypes where
 
 instance Hashable ListWorkflowTypes
 
+instance NFData ListWorkflowTypes
+
 instance ToHeaders ListWorkflowTypes where
         toHeaders
           = const
@@ -242,3 +244,5 @@ lwtrsResponseStatus = lens _lwtrsResponseStatus (\ s a -> s{_lwtrsResponseStatus
 -- | The list of workflow type information.
 lwtrsTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
 lwtrsTypeInfos = lens _lwtrsTypeInfos (\ s a -> s{_lwtrsTypeInfos = a}) . _Coerce;
+
+instance NFData ListWorkflowTypesResponse

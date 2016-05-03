@@ -75,6 +75,8 @@ instance AWSRequest DescribeFinding where
 
 instance Hashable DescribeFinding
 
+instance NFData DescribeFinding
+
 instance ToHeaders DescribeFinding where
         toHeaders
           = const
@@ -124,3 +126,5 @@ dfrsFinding = lens _dfrsFinding (\ s a -> s{_dfrsFinding = a});
 -- | The response status code.
 dfrsResponseStatus :: Lens' DescribeFindingResponse Int
 dfrsResponseStatus = lens _dfrsResponseStatus (\ s a -> s{_dfrsResponseStatus = a});
+
+instance NFData DescribeFindingResponse

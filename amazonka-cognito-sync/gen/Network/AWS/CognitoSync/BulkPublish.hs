@@ -87,6 +87,8 @@ instance AWSRequest BulkPublish where
 
 instance Hashable BulkPublish
 
+instance NFData BulkPublish
+
 instance ToHeaders BulkPublish where
         toHeaders
           = const
@@ -139,3 +141,5 @@ bprsIdentityPoolId = lens _bprsIdentityPoolId (\ s a -> s{_bprsIdentityPoolId = 
 -- | The response status code.
 bprsResponseStatus :: Lens' BulkPublishResponse Int
 bprsResponseStatus = lens _bprsResponseStatus (\ s a -> s{_bprsResponseStatus = a});
+
+instance NFData BulkPublishResponse

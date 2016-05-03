@@ -212,6 +212,8 @@ instance AWSRequest PutScalingPolicy where
 
 instance Hashable PutScalingPolicy
 
+instance NFData PutScalingPolicy
+
 instance ToHeaders PutScalingPolicy where
         toHeaders = const mempty
 
@@ -268,3 +270,5 @@ psprsPolicyARN = lens _psprsPolicyARN (\ s a -> s{_psprsPolicyARN = a});
 -- | The response status code.
 psprsResponseStatus :: Lens' PutScalingPolicyResponse Int
 psprsResponseStatus = lens _psprsResponseStatus (\ s a -> s{_psprsResponseStatus = a});
+
+instance NFData PutScalingPolicyResponse

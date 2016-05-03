@@ -104,6 +104,8 @@ instance AWSRequest UpdateStage where
 
 instance Hashable UpdateStage
 
+instance NFData UpdateStage
+
 instance ToHeaders UpdateStage where
         toHeaders
           = const

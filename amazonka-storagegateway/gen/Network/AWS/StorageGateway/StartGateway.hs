@@ -89,6 +89,8 @@ instance AWSRequest StartGateway where
 
 instance Hashable StartGateway
 
+instance NFData StartGateway
+
 instance ToHeaders StartGateway where
         toHeaders
           = const
@@ -141,3 +143,5 @@ sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a});
 -- | The response status code.
 sgrsResponseStatus :: Lens' StartGatewayResponse Int
 sgrsResponseStatus = lens _sgrsResponseStatus (\ s a -> s{_sgrsResponseStatus = a});
+
+instance NFData StartGatewayResponse

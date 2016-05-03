@@ -168,6 +168,8 @@ instance AWSRequest UpdateFunctionConfiguration where
 
 instance Hashable UpdateFunctionConfiguration
 
+instance NFData UpdateFunctionConfiguration
+
 instance ToHeaders UpdateFunctionConfiguration where
         toHeaders = const mempty
 

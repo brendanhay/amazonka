@@ -149,6 +149,8 @@ instance AWSRequest DescribeSnapshotCopyGrants where
 
 instance Hashable DescribeSnapshotCopyGrants
 
+instance NFData DescribeSnapshotCopyGrants
+
 instance ToHeaders DescribeSnapshotCopyGrants where
         toHeaders = const mempty
 
@@ -217,3 +219,5 @@ dscgrsMarker = lens _dscgrsMarker (\ s a -> s{_dscgrsMarker = a});
 -- | The response status code.
 dscgrsResponseStatus :: Lens' DescribeSnapshotCopyGrantsResponse Int
 dscgrsResponseStatus = lens _dscgrsResponseStatus (\ s a -> s{_dscgrsResponseStatus = a});
+
+instance NFData DescribeSnapshotCopyGrantsResponse

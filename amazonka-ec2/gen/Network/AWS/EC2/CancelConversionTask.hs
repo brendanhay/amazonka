@@ -98,6 +98,8 @@ instance AWSRequest CancelConversionTask where
 
 instance Hashable CancelConversionTask
 
+instance NFData CancelConversionTask
+
 instance ToHeaders CancelConversionTask where
         toHeaders = const mempty
 
@@ -123,3 +125,5 @@ data CancelConversionTaskResponse =
 cancelConversionTaskResponse
     :: CancelConversionTaskResponse
 cancelConversionTaskResponse = CancelConversionTaskResponse'
+
+instance NFData CancelConversionTaskResponse

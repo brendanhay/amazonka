@@ -81,6 +81,8 @@ instance AWSRequest DeleteMLModel where
 
 instance Hashable DeleteMLModel
 
+instance NFData DeleteMLModel
+
 instance ToHeaders DeleteMLModel where
         toHeaders
           = const
@@ -136,3 +138,5 @@ dmlmrsMLModelId = lens _dmlmrsMLModelId (\ s a -> s{_dmlmrsMLModelId = a});
 -- | The response status code.
 dmlmrsResponseStatus :: Lens' DeleteMLModelResponse Int
 dmlmrsResponseStatus = lens _dmlmrsResponseStatus (\ s a -> s{_dmlmrsResponseStatus = a});
+
+instance NFData DeleteMLModelResponse

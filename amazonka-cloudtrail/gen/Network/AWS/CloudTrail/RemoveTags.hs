@@ -86,6 +86,8 @@ instance AWSRequest RemoveTags where
 
 instance Hashable RemoveTags
 
+instance NFData RemoveTags
+
 instance ToHeaders RemoveTags where
         toHeaders
           = const
@@ -133,3 +135,5 @@ removeTagsResponse pResponseStatus_ =
 -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTagsResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
+
+instance NFData RemoveTagsResponse

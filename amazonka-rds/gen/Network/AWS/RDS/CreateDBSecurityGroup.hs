@@ -109,6 +109,8 @@ instance AWSRequest CreateDBSecurityGroup where
 
 instance Hashable CreateDBSecurityGroup
 
+instance NFData CreateDBSecurityGroup
+
 instance ToHeaders CreateDBSecurityGroup where
         toHeaders = const mempty
 
@@ -154,3 +156,5 @@ cdbsgrsDBSecurityGroup = lens _cdbsgrsDBSecurityGroup (\ s a -> s{_cdbsgrsDBSecu
 -- | The response status code.
 cdbsgrsResponseStatus :: Lens' CreateDBSecurityGroupResponse Int
 cdbsgrsResponseStatus = lens _cdbsgrsResponseStatus (\ s a -> s{_cdbsgrsResponseStatus = a});
+
+instance NFData CreateDBSecurityGroupResponse

@@ -178,6 +178,8 @@ instance AWSRequest ActivateGateway where
 
 instance Hashable ActivateGateway
 
+instance NFData ActivateGateway
+
 instance ToHeaders ActivateGateway where
         toHeaders
           = const
@@ -244,3 +246,5 @@ agrsGatewayARN = lens _agrsGatewayARN (\ s a -> s{_agrsGatewayARN = a});
 -- | The response status code.
 agrsResponseStatus :: Lens' ActivateGatewayResponse Int
 agrsResponseStatus = lens _agrsResponseStatus (\ s a -> s{_agrsResponseStatus = a});
+
+instance NFData ActivateGatewayResponse

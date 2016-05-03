@@ -178,6 +178,8 @@ instance AWSRequest CompleteMultipartUpload where
 
 instance Hashable CompleteMultipartUpload
 
+instance NFData CompleteMultipartUpload
+
 instance ToHeaders CompleteMultipartUpload where
         toHeaders CompleteMultipartUpload'{..}
           = mconcat

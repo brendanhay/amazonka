@@ -109,6 +109,8 @@ instance AWSRequest CreateInstanceExportTask where
 
 instance Hashable CreateInstanceExportTask
 
+instance NFData CreateInstanceExportTask
+
 instance ToHeaders CreateInstanceExportTask where
         toHeaders = const mempty
 
@@ -155,3 +157,5 @@ cietrsExportTask = lens _cietrsExportTask (\ s a -> s{_cietrsExportTask = a});
 -- | The response status code.
 cietrsResponseStatus :: Lens' CreateInstanceExportTaskResponse Int
 cietrsResponseStatus = lens _cietrsResponseStatus (\ s a -> s{_cietrsResponseStatus = a});
+
+instance NFData CreateInstanceExportTaskResponse

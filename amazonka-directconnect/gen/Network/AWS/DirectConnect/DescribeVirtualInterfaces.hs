@@ -99,6 +99,8 @@ instance AWSRequest DescribeVirtualInterfaces where
 
 instance Hashable DescribeVirtualInterfaces
 
+instance NFData DescribeVirtualInterfaces
+
 instance ToHeaders DescribeVirtualInterfaces where
         toHeaders
           = const
@@ -154,3 +156,5 @@ dvisrsVirtualInterfaces = lens _dvisrsVirtualInterfaces (\ s a -> s{_dvisrsVirtu
 -- | The response status code.
 dvisrsResponseStatus :: Lens' DescribeVirtualInterfacesResponse Int
 dvisrsResponseStatus = lens _dvisrsResponseStatus (\ s a -> s{_dvisrsResponseStatus = a});
+
+instance NFData DescribeVirtualInterfacesResponse

@@ -76,6 +76,8 @@ instance AWSRequest DeregisterRDSDBInstance where
 
 instance Hashable DeregisterRDSDBInstance
 
+instance NFData DeregisterRDSDBInstance
+
 instance ToHeaders DeregisterRDSDBInstance where
         toHeaders
           = const
@@ -108,3 +110,5 @@ data DeregisterRDSDBInstanceResponse =
 deregisterRDSDBInstanceResponse
     :: DeregisterRDSDBInstanceResponse
 deregisterRDSDBInstanceResponse = DeregisterRDSDBInstanceResponse'
+
+instance NFData DeregisterRDSDBInstanceResponse

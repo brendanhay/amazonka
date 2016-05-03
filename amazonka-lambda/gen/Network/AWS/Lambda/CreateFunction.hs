@@ -201,6 +201,8 @@ instance AWSRequest CreateFunction where
 
 instance Hashable CreateFunction
 
+instance NFData CreateFunction
+
 instance ToHeaders CreateFunction where
         toHeaders = const mempty
 

@@ -119,6 +119,8 @@ instance AWSRequest ResendValidationEmail where
 
 instance Hashable ResendValidationEmail
 
+instance NFData ResendValidationEmail
+
 instance ToHeaders ResendValidationEmail where
         toHeaders
           = const
@@ -153,3 +155,5 @@ data ResendValidationEmailResponse =
 resendValidationEmailResponse
     :: ResendValidationEmailResponse
 resendValidationEmailResponse = ResendValidationEmailResponse'
+
+instance NFData ResendValidationEmailResponse

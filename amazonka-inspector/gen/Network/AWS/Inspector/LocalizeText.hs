@@ -87,6 +87,8 @@ instance AWSRequest LocalizeText where
 
 instance Hashable LocalizeText
 
+instance NFData LocalizeText
+
 instance ToHeaders LocalizeText where
         toHeaders
           = const
@@ -146,3 +148,5 @@ ltrsMessage = lens _ltrsMessage (\ s a -> s{_ltrsMessage = a});
 -- | The response status code.
 ltrsResponseStatus :: Lens' LocalizeTextResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+
+instance NFData LocalizeTextResponse

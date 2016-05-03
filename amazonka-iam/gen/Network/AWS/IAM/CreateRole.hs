@@ -106,6 +106,8 @@ instance AWSRequest CreateRole where
 
 instance Hashable CreateRole
 
+instance NFData CreateRole
+
 instance ToHeaders CreateRole where
         toHeaders = const mempty
 
@@ -153,3 +155,5 @@ crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = 
 -- | Information about the role.
 crrsRole :: Lens' CreateRoleResponse Role
 crrsRole = lens _crrsRole (\ s a -> s{_crrsRole = a});
+
+instance NFData CreateRoleResponse

@@ -85,6 +85,8 @@ instance AWSRequest CreateLogStream where
 
 instance Hashable CreateLogStream
 
+instance NFData CreateLogStream
+
 instance ToHeaders CreateLogStream where
         toHeaders
           = const
@@ -117,3 +119,5 @@ data CreateLogStreamResponse =
 createLogStreamResponse
     :: CreateLogStreamResponse
 createLogStreamResponse = CreateLogStreamResponse'
+
+instance NFData CreateLogStreamResponse

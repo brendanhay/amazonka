@@ -73,6 +73,8 @@ instance AWSRequest GetTrafficPolicyInstanceCount
 
 instance Hashable GetTrafficPolicyInstanceCount
 
+instance NFData GetTrafficPolicyInstanceCount
+
 instance ToHeaders GetTrafficPolicyInstanceCount
          where
         toHeaders = const mempty
@@ -118,3 +120,5 @@ gtpicrsResponseStatus = lens _gtpicrsResponseStatus (\ s a -> s{_gtpicrsResponse
 -- current AWS account.
 gtpicrsTrafficPolicyInstanceCount :: Lens' GetTrafficPolicyInstanceCountResponse Int
 gtpicrsTrafficPolicyInstanceCount = lens _gtpicrsTrafficPolicyInstanceCount (\ s a -> s{_gtpicrsTrafficPolicyInstanceCount = a});
+
+instance NFData GetTrafficPolicyInstanceCountResponse

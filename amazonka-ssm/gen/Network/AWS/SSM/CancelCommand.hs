@@ -86,6 +86,8 @@ instance AWSRequest CancelCommand where
 
 instance Hashable CancelCommand
 
+instance NFData CancelCommand
+
 instance ToHeaders CancelCommand where
         toHeaders
           = const
@@ -132,3 +134,5 @@ cancelCommandResponse pResponseStatus_ =
 -- | The response status code.
 ccrsResponseStatus :: Lens' CancelCommandResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+
+instance NFData CancelCommandResponse

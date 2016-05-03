@@ -108,6 +108,8 @@ instance AWSRequest CreateNatGateway where
 
 instance Hashable CreateNatGateway
 
+instance NFData CreateNatGateway
+
 instance ToHeaders CreateNatGateway where
         toHeaders = const mempty
 
@@ -161,3 +163,5 @@ cngrsNatGateway = lens _cngrsNatGateway (\ s a -> s{_cngrsNatGateway = a});
 -- | The response status code.
 cngrsResponseStatus :: Lens' CreateNatGatewayResponse Int
 cngrsResponseStatus = lens _cngrsResponseStatus (\ s a -> s{_cngrsResponseStatus = a});
+
+instance NFData CreateNatGatewayResponse

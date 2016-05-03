@@ -126,6 +126,8 @@ instance AWSRequest GetDataSource where
 
 instance Hashable GetDataSource
 
+instance NFData GetDataSource
+
 instance ToHeaders GetDataSource where
         toHeaders
           = const
@@ -331,3 +333,5 @@ gdsrsRoleARN = lens _gdsrsRoleARN (\ s a -> s{_gdsrsRoleARN = a});
 -- | The response status code.
 gdsrsResponseStatus :: Lens' GetDataSourceResponse Int
 gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
+
+instance NFData GetDataSourceResponse

@@ -87,6 +87,8 @@ instance AWSRequest GetHealthCheckLastFailureReason
 
 instance Hashable GetHealthCheckLastFailureReason
 
+instance NFData GetHealthCheckLastFailureReason
+
 instance ToHeaders GetHealthCheckLastFailureReason
          where
         toHeaders = const mempty
@@ -134,3 +136,6 @@ ghclfrrsResponseStatus = lens _ghclfrrsResponseStatus (\ s a -> s{_ghclfrrsRespo
 -- Amazon Route 53 health checker.
 ghclfrrsHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
 ghclfrrsHealthCheckObservations = lens _ghclfrrsHealthCheckObservations (\ s a -> s{_ghclfrrsHealthCheckObservations = a}) . _Coerce;
+
+instance NFData
+         GetHealthCheckLastFailureReasonResponse

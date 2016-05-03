@@ -167,6 +167,8 @@ instance FromJSON BatchPrediction where
 
 instance Hashable BatchPrediction
 
+instance NFData BatchPrediction
+
 -- | Represents the output of the < GetDataSource> operation.
 --
 -- The content consists of the detailed metadata and data file information
@@ -345,6 +347,8 @@ instance FromJSON DataSource where
 
 instance Hashable DataSource
 
+instance NFData DataSource
+
 -- | Represents the output of < GetEvaluation> operation.
 --
 -- The content consists of the detailed metadata and data file information
@@ -498,6 +502,8 @@ instance FromJSON Evaluation where
                      <*> (x .:? "EvaluationDataSourceId"))
 
 instance Hashable Evaluation
+
+instance NFData Evaluation
 
 -- | Represents the output of a < GetMLModel> operation.
 --
@@ -731,6 +737,8 @@ instance FromJSON MLModel where
 
 instance Hashable MLModel
 
+instance NFData MLModel
+
 -- | Measurements of how well the 'MLModel' performed on known observations.
 -- One of the following metrics is returned, based on the type of the
 -- 'MLModel':
@@ -778,6 +786,8 @@ instance FromJSON PerformanceMetrics where
                    (x .:? "Properties" .!= mempty))
 
 instance Hashable PerformanceMetrics
+
+instance NFData PerformanceMetrics
 
 -- | The output from a 'Predict' operation:
 --
@@ -849,6 +859,8 @@ instance FromJSON Prediction where
                      <*> (x .:? "details" .!= mempty))
 
 instance Hashable Prediction
+
+instance NFData Prediction
 
 -- | The data specification of an Amazon Relational Database Service (Amazon
 -- RDS) 'DataSource'.
@@ -1016,6 +1028,8 @@ rdsdsSecurityGroupIds = lens _rdsdsSecurityGroupIds (\ s a -> s{_rdsdsSecurityGr
 
 instance Hashable RDSDataSpec
 
+instance NFData RDSDataSpec
+
 instance ToJSON RDSDataSpec where
         toJSON RDSDataSpec'{..}
           = object
@@ -1078,6 +1092,8 @@ instance FromJSON RDSDatabase where
 
 instance Hashable RDSDatabase
 
+instance NFData RDSDatabase
+
 instance ToJSON RDSDatabase where
         toJSON RDSDatabase'{..}
           = object
@@ -1120,6 +1136,8 @@ rdsdcPassword :: Lens' RDSDatabaseCredentials Text
 rdsdcPassword = lens _rdsdcPassword (\ s a -> s{_rdsdcPassword = a});
 
 instance Hashable RDSDatabaseCredentials
+
+instance NFData RDSDatabaseCredentials
 
 instance ToJSON RDSDatabaseCredentials where
         toJSON RDSDatabaseCredentials'{..}
@@ -1215,6 +1233,8 @@ instance FromJSON RDSMetadata where
 
 instance Hashable RDSMetadata
 
+instance NFData RDSMetadata
+
 -- | Describes the real-time endpoint information for an 'MLModel'.
 --
 -- /See:/ 'realtimeEndpointInfo' smart constructor.
@@ -1285,6 +1305,8 @@ instance FromJSON RealtimeEndpointInfo where
                      <*> (x .:? "PeakRequestsPerSecond"))
 
 instance Hashable RealtimeEndpointInfo
+
+instance NFData RealtimeEndpointInfo
 
 -- | Describes the data specification of an Amazon Redshift 'DataSource'.
 --
@@ -1399,6 +1421,8 @@ rS3StagingLocation = lens _rS3StagingLocation (\ s a -> s{_rS3StagingLocation = 
 
 instance Hashable RedshiftDataSpec
 
+instance NFData RedshiftDataSpec
+
 instance ToJSON RedshiftDataSpec where
         toJSON RedshiftDataSpec'{..}
           = object
@@ -1456,6 +1480,8 @@ instance FromJSON RedshiftDatabase where
 
 instance Hashable RedshiftDatabase
 
+instance NFData RedshiftDatabase
+
 instance ToJSON RedshiftDatabase where
         toJSON RedshiftDatabase'{..}
           = object
@@ -1498,6 +1524,8 @@ rdcPassword :: Lens' RedshiftDatabaseCredentials Text
 rdcPassword = lens _rdcPassword (\ s a -> s{_rdcPassword = a});
 
 instance Hashable RedshiftDatabaseCredentials
+
+instance NFData RedshiftDatabaseCredentials
 
 instance ToJSON RedshiftDatabaseCredentials where
         toJSON RedshiftDatabaseCredentials'{..}
@@ -1556,6 +1584,8 @@ instance FromJSON RedshiftMetadata where
                      <*> (x .:? "DatabaseUserName"))
 
 instance Hashable RedshiftMetadata
+
+instance NFData RedshiftMetadata
 
 -- | Describes the data specification of a 'DataSource'.
 --
@@ -1638,6 +1668,8 @@ sdsDataLocationS3 :: Lens' S3DataSpec Text
 sdsDataLocationS3 = lens _sdsDataLocationS3 (\ s a -> s{_sdsDataLocationS3 = a});
 
 instance Hashable S3DataSpec
+
+instance NFData S3DataSpec
 
 instance ToJSON S3DataSpec where
         toJSON S3DataSpec'{..}

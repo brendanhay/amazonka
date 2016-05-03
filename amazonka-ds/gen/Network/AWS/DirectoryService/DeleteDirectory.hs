@@ -77,6 +77,8 @@ instance AWSRequest DeleteDirectory where
 
 instance Hashable DeleteDirectory
 
+instance NFData DeleteDirectory
+
 instance ToHeaders DeleteDirectory where
         toHeaders
           = const
@@ -129,3 +131,5 @@ drsDirectoryId = lens _drsDirectoryId (\ s a -> s{_drsDirectoryId = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteDirectoryResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteDirectoryResponse

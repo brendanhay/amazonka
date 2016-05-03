@@ -89,6 +89,8 @@ instance AWSRequest DeleteTape where
 
 instance Hashable DeleteTape
 
+instance NFData DeleteTape
+
 instance ToHeaders DeleteTape where
         toHeaders
           = const
@@ -142,3 +144,5 @@ dtrsTapeARN = lens _dtrsTapeARN (\ s a -> s{_dtrsTapeARN = a});
 -- | The response status code.
 dtrsResponseStatus :: Lens' DeleteTapeResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+
+instance NFData DeleteTapeResponse

@@ -91,6 +91,8 @@ instance AWSRequest ReleaseHosts where
 
 instance Hashable ReleaseHosts
 
+instance NFData ReleaseHosts
+
 instance ToHeaders ReleaseHosts where
         toHeaders = const mempty
 
@@ -142,3 +144,5 @@ rhrsSuccessful = lens _rhrsSuccessful (\ s a -> s{_rhrsSuccessful = a}) . _Defau
 -- | The response status code.
 rhrsResponseStatus :: Lens' ReleaseHostsResponse Int
 rhrsResponseStatus = lens _rhrsResponseStatus (\ s a -> s{_rhrsResponseStatus = a});
+
+instance NFData ReleaseHostsResponse

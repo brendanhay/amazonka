@@ -77,6 +77,8 @@ instance AWSRequest CreateProject where
 
 instance Hashable CreateProject
 
+instance NFData CreateProject
+
 instance ToHeaders CreateProject where
         toHeaders
           = const
@@ -127,3 +129,5 @@ cprsProject = lens _cprsProject (\ s a -> s{_cprsProject = a});
 -- | The response status code.
 cprsResponseStatus :: Lens' CreateProjectResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+
+instance NFData CreateProjectResponse

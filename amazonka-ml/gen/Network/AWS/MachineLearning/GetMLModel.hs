@@ -125,6 +125,8 @@ instance AWSRequest GetMLModel where
 
 instance Hashable GetMLModel
 
+instance NFData GetMLModel
+
 instance ToHeaders GetMLModel where
         toHeaders
           = const
@@ -389,3 +391,5 @@ gmlmrsMLModelType = lens _gmlmrsMLModelType (\ s a -> s{_gmlmrsMLModelType = a})
 -- | The response status code.
 gmlmrsResponseStatus :: Lens' GetMLModelResponse Int
 gmlmrsResponseStatus = lens _gmlmrsResponseStatus (\ s a -> s{_gmlmrsResponseStatus = a});
+
+instance NFData GetMLModelResponse

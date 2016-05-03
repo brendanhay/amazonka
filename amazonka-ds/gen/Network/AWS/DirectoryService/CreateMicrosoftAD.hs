@@ -121,6 +121,8 @@ instance AWSRequest CreateMicrosoftAD where
 
 instance Hashable CreateMicrosoftAD
 
+instance NFData CreateMicrosoftAD
+
 instance ToHeaders CreateMicrosoftAD where
         toHeaders
           = const
@@ -176,3 +178,5 @@ cmadrsDirectoryId = lens _cmadrsDirectoryId (\ s a -> s{_cmadrsDirectoryId = a})
 -- | The response status code.
 cmadrsResponseStatus :: Lens' CreateMicrosoftADResponse Int
 cmadrsResponseStatus = lens _cmadrsResponseStatus (\ s a -> s{_cmadrsResponseStatus = a});
+
+instance NFData CreateMicrosoftADResponse

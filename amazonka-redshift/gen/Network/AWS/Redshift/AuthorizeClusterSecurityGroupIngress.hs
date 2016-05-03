@@ -134,6 +134,8 @@ instance AWSRequest
 instance Hashable
          AuthorizeClusterSecurityGroupIngress
 
+instance NFData AuthorizeClusterSecurityGroupIngress
+
 instance ToHeaders
          AuthorizeClusterSecurityGroupIngress where
         toHeaders = const mempty
@@ -186,3 +188,6 @@ acsgirsClusterSecurityGroup = lens _acsgirsClusterSecurityGroup (\ s a -> s{_acs
 -- | The response status code.
 acsgirsResponseStatus :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
 acsgirsResponseStatus = lens _acsgirsResponseStatus (\ s a -> s{_acsgirsResponseStatus = a});
+
+instance NFData
+         AuthorizeClusterSecurityGroupIngressResponse

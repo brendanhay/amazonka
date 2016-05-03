@@ -77,6 +77,8 @@ instance AWSRequest UnassignInstance where
 
 instance Hashable UnassignInstance
 
+instance NFData UnassignInstance
+
 instance ToHeaders UnassignInstance where
         toHeaders
           = const
@@ -107,3 +109,5 @@ data UnassignInstanceResponse =
 unassignInstanceResponse
     :: UnassignInstanceResponse
 unassignInstanceResponse = UnassignInstanceResponse'
+
+instance NFData UnassignInstanceResponse

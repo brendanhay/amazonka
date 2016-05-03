@@ -91,6 +91,8 @@ instance AWSRequest ListRulesPackages where
 
 instance Hashable ListRulesPackages
 
+instance NFData ListRulesPackages
+
 instance ToHeaders ListRulesPackages where
         toHeaders
           = const
@@ -153,3 +155,5 @@ lrprsRulesPackageARNList = lens _lrprsRulesPackageARNList (\ s a -> s{_lrprsRule
 -- | The response status code.
 lrprsResponseStatus :: Lens' ListRulesPackagesResponse Int
 lrprsResponseStatus = lens _lrprsResponseStatus (\ s a -> s{_lrprsResponseStatus = a});
+
+instance NFData ListRulesPackagesResponse

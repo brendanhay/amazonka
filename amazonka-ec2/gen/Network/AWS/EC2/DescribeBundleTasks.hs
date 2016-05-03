@@ -129,6 +129,8 @@ instance AWSRequest DescribeBundleTasks where
 
 instance Hashable DescribeBundleTasks
 
+instance NFData DescribeBundleTasks
+
 instance ToHeaders DescribeBundleTasks where
         toHeaders = const mempty
 
@@ -173,3 +175,5 @@ dbtrsBundleTasks = lens _dbtrsBundleTasks (\ s a -> s{_dbtrsBundleTasks = a}) . 
 -- | The response status code.
 dbtrsResponseStatus :: Lens' DescribeBundleTasksResponse Int
 dbtrsResponseStatus = lens _dbtrsResponseStatus (\ s a -> s{_dbtrsResponseStatus = a});
+
+instance NFData DescribeBundleTasksResponse

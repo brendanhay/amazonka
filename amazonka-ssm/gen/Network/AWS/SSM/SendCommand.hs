@@ -136,6 +136,8 @@ instance AWSRequest SendCommand where
 
 instance Hashable SendCommand
 
+instance NFData SendCommand
+
 instance ToHeaders SendCommand where
         toHeaders
           = const
@@ -193,3 +195,5 @@ scrsCommand = lens _scrsCommand (\ s a -> s{_scrsCommand = a});
 -- | The response status code.
 scrsResponseStatus :: Lens' SendCommandResponse Int
 scrsResponseStatus = lens _scrsResponseStatus (\ s a -> s{_scrsResponseStatus = a});
+
+instance NFData SendCommandResponse

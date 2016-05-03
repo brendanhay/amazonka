@@ -60,6 +60,8 @@ instance FromXML Artifact where
 
 instance Hashable Artifact
 
+instance NFData Artifact
+
 -- | Representation of a job returned by the ListJobs operation.
 --
 -- /See:/ 'job' smart constructor.
@@ -119,3 +121,5 @@ instance FromXML Job where
                 <*> (x .@ "CreationDate")
 
 instance Hashable Job
+
+instance NFData Job

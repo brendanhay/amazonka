@@ -93,6 +93,8 @@ instance AWSRequest UpdateVTLDeviceType where
 
 instance Hashable UpdateVTLDeviceType
 
+instance NFData UpdateVTLDeviceType
+
 instance ToHeaders UpdateVTLDeviceType where
         toHeaders
           = const
@@ -147,3 +149,5 @@ uvtldtrsVTLDeviceARN = lens _uvtldtrsVTLDeviceARN (\ s a -> s{_uvtldtrsVTLDevice
 -- | The response status code.
 uvtldtrsResponseStatus :: Lens' UpdateVTLDeviceTypeResponse Int
 uvtldtrsResponseStatus = lens _uvtldtrsResponseStatus (\ s a -> s{_uvtldtrsResponseStatus = a});
+
+instance NFData UpdateVTLDeviceTypeResponse

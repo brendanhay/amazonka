@@ -86,6 +86,8 @@ instance AWSRequest DeleteSSHPublicKey where
 
 instance Hashable DeleteSSHPublicKey
 
+instance NFData DeleteSSHPublicKey
+
 instance ToHeaders DeleteSSHPublicKey where
         toHeaders = const mempty
 
@@ -110,3 +112,5 @@ data DeleteSSHPublicKeyResponse =
 deleteSSHPublicKeyResponse
     :: DeleteSSHPublicKeyResponse
 deleteSSHPublicKeyResponse = DeleteSSHPublicKeyResponse'
+
+instance NFData DeleteSSHPublicKeyResponse

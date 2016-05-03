@@ -87,6 +87,8 @@ instance AWSRequest AssociateElasticIP where
 
 instance Hashable AssociateElasticIP
 
+instance NFData AssociateElasticIP
+
 instance ToHeaders AssociateElasticIP where
         toHeaders
           = const
@@ -120,3 +122,5 @@ data AssociateElasticIPResponse =
 associateElasticIPResponse
     :: AssociateElasticIPResponse
 associateElasticIPResponse = AssociateElasticIPResponse'
+
+instance NFData AssociateElasticIPResponse

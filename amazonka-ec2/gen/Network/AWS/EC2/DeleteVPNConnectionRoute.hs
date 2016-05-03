@@ -83,6 +83,8 @@ instance AWSRequest DeleteVPNConnectionRoute where
 
 instance Hashable DeleteVPNConnectionRoute
 
+instance NFData DeleteVPNConnectionRoute
+
 instance ToHeaders DeleteVPNConnectionRoute where
         toHeaders = const mempty
 
@@ -108,3 +110,5 @@ data DeleteVPNConnectionRouteResponse =
 deleteVPNConnectionRouteResponse
     :: DeleteVPNConnectionRouteResponse
 deleteVPNConnectionRouteResponse = DeleteVPNConnectionRouteResponse'
+
+instance NFData DeleteVPNConnectionRouteResponse

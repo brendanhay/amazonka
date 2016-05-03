@@ -61,6 +61,8 @@ instance FromJSON Association where
 
 instance Hashable Association
 
+instance NFData Association
+
 -- | Describes the parameters for a document.
 --
 -- /See:/ 'associationDescription' smart constructor.
@@ -128,6 +130,8 @@ instance FromJSON AssociationDescription where
 
 instance Hashable AssociationDescription
 
+instance NFData AssociationDescription
+
 -- | Describes a filter.
 --
 -- /See:/ 'associationFilter' smart constructor.
@@ -162,6 +166,8 @@ afValue :: Lens' AssociationFilter Text
 afValue = lens _afValue (\ s a -> s{_afValue = a});
 
 instance Hashable AssociationFilter
+
+instance NFData AssociationFilter
 
 instance ToJSON AssociationFilter where
         toJSON AssociationFilter'{..}
@@ -229,6 +235,8 @@ instance FromJSON AssociationStatus where
                      <*> (x .: "Message"))
 
 instance Hashable AssociationStatus
+
+instance NFData AssociationStatus
 
 instance ToJSON AssociationStatus where
         toJSON AssociationStatus'{..}
@@ -357,6 +365,8 @@ instance FromJSON Command where
 
 instance Hashable Command
 
+instance NFData Command
+
 -- | Describes a command filter.
 --
 -- /See:/ 'commandFilter' smart constructor.
@@ -391,6 +401,8 @@ cfValue :: Lens' CommandFilter Text
 cfValue = lens _cfValue (\ s a -> s{_cfValue = a});
 
 instance Hashable CommandFilter
+
+instance NFData CommandFilter
 
 instance ToJSON CommandFilter where
         toJSON CommandFilter'{..}
@@ -498,6 +510,8 @@ instance FromJSON CommandInvocation where
 
 instance Hashable CommandInvocation
 
+instance NFData CommandInvocation
+
 -- | Describes plugin details.
 --
 -- /See:/ 'commandPlugin' smart constructor.
@@ -599,6 +613,8 @@ instance FromJSON CommandPlugin where
 
 instance Hashable CommandPlugin
 
+instance NFData CommandPlugin
+
 -- | Describes the association of an SSM document and an instance.
 --
 -- /See:/ 'createAssociationBatchRequestEntry' smart constructor.
@@ -648,6 +664,8 @@ instance FromJSON CreateAssociationBatchRequestEntry
                      (x .:? "Parameters" .!= mempty))
 
 instance Hashable CreateAssociationBatchRequestEntry
+
+instance NFData CreateAssociationBatchRequestEntry
 
 instance ToJSON CreateAssociationBatchRequestEntry
          where
@@ -744,6 +762,8 @@ instance FromJSON DocumentDescription where
 
 instance Hashable DocumentDescription
 
+instance NFData DocumentDescription
+
 -- | Describes a filter.
 --
 -- /See:/ 'documentFilter' smart constructor.
@@ -778,6 +798,8 @@ dfValue :: Lens' DocumentFilter Text
 dfValue = lens _dfValue (\ s a -> s{_dfValue = a});
 
 instance Hashable DocumentFilter
+
+instance NFData DocumentFilter
 
 instance ToJSON DocumentFilter where
         toJSON DocumentFilter'{..}
@@ -825,6 +847,8 @@ instance FromJSON DocumentIdentifier where
                      (x .:? "Name"))
 
 instance Hashable DocumentIdentifier
+
+instance NFData DocumentIdentifier
 
 -- | /See:/ 'documentParameter' smart constructor.
 data DocumentParameter = DocumentParameter'
@@ -885,6 +909,8 @@ instance FromJSON DocumentParameter where
 
 instance Hashable DocumentParameter
 
+instance NFData DocumentParameter
+
 -- | Describes a failed association.
 --
 -- /See:/ 'failedCreateAssociation' smart constructor.
@@ -933,6 +959,8 @@ instance FromJSON FailedCreateAssociation where
                      (x .:? "Message"))
 
 instance Hashable FailedCreateAssociation
+
+instance NFData FailedCreateAssociation
 
 -- | Describes a filter for a specific list of instances.
 --
@@ -1029,6 +1057,8 @@ instance FromJSON InstanceInformation where
 
 instance Hashable InstanceInformation
 
+instance NFData InstanceInformation
+
 -- | Describes a filter for a specific list of instances.
 --
 -- /See:/ 'instanceInformationFilter' smart constructor.
@@ -1063,6 +1093,8 @@ iifValueSet :: Lens' InstanceInformationFilter (NonEmpty Text)
 iifValueSet = lens _iifValueSet (\ s a -> s{_iifValueSet = a}) . _List1;
 
 instance Hashable InstanceInformationFilter
+
+instance NFData InstanceInformationFilter
 
 instance ToJSON InstanceInformationFilter where
         toJSON InstanceInformationFilter'{..}

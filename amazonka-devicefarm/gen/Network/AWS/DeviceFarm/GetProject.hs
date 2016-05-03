@@ -77,6 +77,8 @@ instance AWSRequest GetProject where
 
 instance Hashable GetProject
 
+instance NFData GetProject
+
 instance ToHeaders GetProject where
         toHeaders
           = const
@@ -127,3 +129,5 @@ gprsProject = lens _gprsProject (\ s a -> s{_gprsProject = a});
 -- | The response status code.
 gprsResponseStatus :: Lens' GetProjectResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+
+instance NFData GetProjectResponse

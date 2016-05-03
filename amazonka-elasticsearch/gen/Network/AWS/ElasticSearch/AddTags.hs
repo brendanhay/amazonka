@@ -83,6 +83,8 @@ instance AWSRequest AddTags where
 
 instance Hashable AddTags
 
+instance NFData AddTags
+
 instance ToHeaders AddTags where
         toHeaders = const mempty
 
@@ -109,3 +111,5 @@ data AddTagsResponse =
 addTagsResponse
     :: AddTagsResponse
 addTagsResponse = AddTagsResponse'
+
+instance NFData AddTagsResponse

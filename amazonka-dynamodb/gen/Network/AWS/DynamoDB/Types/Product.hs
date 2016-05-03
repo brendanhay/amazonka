@@ -68,6 +68,8 @@ instance FromJSON AttributeDefinition where
 
 instance Hashable AttributeDefinition
 
+instance NFData AttributeDefinition
+
 instance ToJSON AttributeDefinition where
         toJSON AttributeDefinition'{..}
           = object
@@ -200,6 +202,8 @@ instance FromJSON AttributeValue where
 
 instance Hashable AttributeValue
 
+instance NFData AttributeValue
+
 instance ToJSON AttributeValue where
         toJSON AttributeValue'{..}
           = object
@@ -324,6 +328,8 @@ avuAction = lens _avuAction (\ s a -> s{_avuAction = a});
 
 instance Hashable AttributeValueUpdate
 
+instance NFData AttributeValueUpdate
+
 instance ToJSON AttributeValueUpdate where
         toJSON AttributeValueUpdate'{..}
           = object
@@ -361,6 +367,8 @@ instance FromJSON Capacity where
               (\ x -> Capacity' <$> (x .:? "CapacityUnits"))
 
 instance Hashable Capacity
+
+instance NFData Capacity
 
 -- | Represents the selection criteria for a /Query/ or /Scan/ operation:
 --
@@ -572,6 +580,8 @@ cComparisonOperator = lens _cComparisonOperator (\ s a -> s{_cComparisonOperator
 
 instance Hashable Condition
 
+instance NFData Condition
+
 instance ToJSON Condition where
         toJSON Condition'{..}
           = object
@@ -655,6 +665,8 @@ instance FromJSON ConsumedCapacity where
 
 instance Hashable ConsumedCapacity
 
+instance NFData ConsumedCapacity
+
 -- | Represents a new global secondary index to be added to an existing
 -- table.
 --
@@ -709,6 +721,8 @@ cgsiaProvisionedThroughput = lens _cgsiaProvisionedThroughput (\ s a -> s{_cgsia
 
 instance Hashable CreateGlobalSecondaryIndexAction
 
+instance NFData CreateGlobalSecondaryIndexAction
+
 instance ToJSON CreateGlobalSecondaryIndexAction
          where
         toJSON CreateGlobalSecondaryIndexAction'{..}
@@ -748,6 +762,8 @@ dgsiaIndexName = lens _dgsiaIndexName (\ s a -> s{_dgsiaIndexName = a});
 
 instance Hashable DeleteGlobalSecondaryIndexAction
 
+instance NFData DeleteGlobalSecondaryIndexAction
+
 instance ToJSON DeleteGlobalSecondaryIndexAction
          where
         toJSON DeleteGlobalSecondaryIndexAction'{..}
@@ -786,6 +802,8 @@ instance FromJSON DeleteRequest where
               (\ x -> DeleteRequest' <$> (x .:? "Key" .!= mempty))
 
 instance Hashable DeleteRequest
+
+instance NFData DeleteRequest
 
 instance ToJSON DeleteRequest where
         toJSON DeleteRequest'{..}
@@ -1050,6 +1068,8 @@ eavComparisonOperator = lens _eavComparisonOperator (\ s a -> s{_eavComparisonOp
 
 instance Hashable ExpectedAttributeValue
 
+instance NFData ExpectedAttributeValue
+
 instance ToJSON ExpectedAttributeValue where
         toJSON ExpectedAttributeValue'{..}
           = object
@@ -1129,6 +1149,8 @@ gsiProvisionedThroughput :: Lens' GlobalSecondaryIndex ProvisionedThroughput
 gsiProvisionedThroughput = lens _gsiProvisionedThroughput (\ s a -> s{_gsiProvisionedThroughput = a});
 
 instance Hashable GlobalSecondaryIndex
+
+instance NFData GlobalSecondaryIndex
 
 instance ToJSON GlobalSecondaryIndex where
         toJSON GlobalSecondaryIndex'{..}
@@ -1281,6 +1303,8 @@ instance FromJSON GlobalSecondaryIndexDescription
 
 instance Hashable GlobalSecondaryIndexDescription
 
+instance NFData GlobalSecondaryIndexDescription
+
 -- | Represents one of the following:
 --
 -- -   A new global secondary index to be added to an existing table.
@@ -1344,6 +1368,8 @@ gsiuUpdate = lens _gsiuUpdate (\ s a -> s{_gsiuUpdate = a});
 
 instance Hashable GlobalSecondaryIndexUpdate
 
+instance NFData GlobalSecondaryIndexUpdate
+
 instance ToJSON GlobalSecondaryIndexUpdate where
         toJSON GlobalSecondaryIndexUpdate'{..}
           = object
@@ -1404,6 +1430,8 @@ instance FromJSON ItemCollectionMetrics where
                      (x .:? "SizeEstimateRangeGB" .!= mempty))
 
 instance Hashable ItemCollectionMetrics
+
+instance NFData ItemCollectionMetrics
 
 -- | Represents /a single element/ of a key schema. A key schema specifies
 -- the attributes that make up the primary key of a table, or the key
@@ -1472,6 +1500,8 @@ instance FromJSON KeySchemaElement where
                    (x .: "AttributeName") <*> (x .: "KeyType"))
 
 instance Hashable KeySchemaElement
+
+instance NFData KeySchemaElement
 
 instance ToJSON KeySchemaElement where
         toJSON KeySchemaElement'{..}
@@ -1610,6 +1640,8 @@ instance FromJSON KeysAndAttributes where
 
 instance Hashable KeysAndAttributes
 
+instance NFData KeysAndAttributes
+
 instance ToJSON KeysAndAttributes where
         toJSON KeysAndAttributes'{..}
           = object
@@ -1681,6 +1713,8 @@ lsiProjection :: Lens' LocalSecondaryIndex Projection
 lsiProjection = lens _lsiProjection (\ s a -> s{_lsiProjection = a});
 
 instance Hashable LocalSecondaryIndex
+
+instance NFData LocalSecondaryIndex
 
 instance ToJSON LocalSecondaryIndex where
         toJSON LocalSecondaryIndex'{..}
@@ -1786,6 +1820,8 @@ instance FromJSON LocalSecondaryIndexDescription
 
 instance Hashable LocalSecondaryIndexDescription
 
+instance NFData LocalSecondaryIndexDescription
+
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
 -- attributes, which are automatically projected.
@@ -1845,6 +1881,8 @@ instance FromJSON Projection where
 
 instance Hashable Projection
 
+instance NFData Projection
+
 instance ToJSON Projection where
         toJSON Projection'{..}
           = object
@@ -1898,6 +1936,8 @@ ptWriteCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptWriteCapacityUnits = lens _ptWriteCapacityUnits (\ s a -> s{_ptWriteCapacityUnits = a}) . _Nat;
 
 instance Hashable ProvisionedThroughput
+
+instance NFData ProvisionedThroughput
 
 instance ToJSON ProvisionedThroughput where
         toJSON ProvisionedThroughput'{..}
@@ -1989,6 +2029,8 @@ instance FromJSON ProvisionedThroughputDescription
 
 instance Hashable ProvisionedThroughputDescription
 
+instance NFData ProvisionedThroughputDescription
+
 -- | Represents a request to perform a /PutItem/ operation on an item.
 --
 -- /See:/ 'putRequest' smart constructor.
@@ -2023,6 +2065,8 @@ instance FromJSON PutRequest where
               (\ x -> PutRequest' <$> (x .:? "Item" .!= mempty))
 
 instance Hashable PutRequest
+
+instance NFData PutRequest
 
 instance ToJSON PutRequest where
         toJSON PutRequest'{..}
@@ -2088,6 +2132,8 @@ instance FromJSON StreamSpecification where
                    (x .:? "StreamViewType") <*> (x .:? "StreamEnabled"))
 
 instance Hashable StreamSpecification
+
+instance NFData StreamSpecification
 
 instance ToJSON StreamSpecification where
         toJSON StreamSpecification'{..}
@@ -2416,6 +2462,8 @@ instance FromJSON TableDescription where
 
 instance Hashable TableDescription
 
+instance NFData TableDescription
+
 -- | Represents the new provisioned throughput settings to be applied to a
 -- global secondary index.
 --
@@ -2451,6 +2499,8 @@ ugsiaProvisionedThroughput :: Lens' UpdateGlobalSecondaryIndexAction Provisioned
 ugsiaProvisionedThroughput = lens _ugsiaProvisionedThroughput (\ s a -> s{_ugsiaProvisionedThroughput = a});
 
 instance Hashable UpdateGlobalSecondaryIndexAction
+
+instance NFData UpdateGlobalSecondaryIndexAction
 
 instance ToJSON UpdateGlobalSecondaryIndexAction
          where
@@ -2504,6 +2554,8 @@ instance FromJSON WriteRequest where
                    (x .:? "DeleteRequest") <*> (x .:? "PutRequest"))
 
 instance Hashable WriteRequest
+
+instance NFData WriteRequest
 
 instance ToJSON WriteRequest where
         toJSON WriteRequest'{..}

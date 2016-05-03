@@ -78,6 +78,8 @@ instance AWSRequest GetBucketVersioning where
 
 instance Hashable GetBucketVersioning
 
+instance NFData GetBucketVersioning
+
 instance ToHeaders GetBucketVersioning where
         toHeaders = const mempty
 
@@ -128,3 +130,5 @@ gbvrsMFADelete = lens _gbvrsMFADelete (\ s a -> s{_gbvrsMFADelete = a});
 -- | The response status code.
 gbvrsResponseStatus :: Lens' GetBucketVersioningResponse Int
 gbvrsResponseStatus = lens _gbvrsResponseStatus (\ s a -> s{_gbvrsResponseStatus = a});
+
+instance NFData GetBucketVersioningResponse

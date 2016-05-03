@@ -230,3 +230,5 @@ umprsChecksum = lens _umprsChecksum (\ s a -> s{_umprsChecksum = a});
 -- | The response status code.
 umprsResponseStatus :: Lens' UploadMultipartPartResponse Int
 umprsResponseStatus = lens _umprsResponseStatus (\ s a -> s{_umprsResponseStatus = a});
+
+instance NFData UploadMultipartPartResponse

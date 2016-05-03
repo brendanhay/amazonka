@@ -115,6 +115,8 @@ instance AWSRequest CreateModel where
 
 instance Hashable CreateModel
 
+instance NFData CreateModel
+
 instance ToHeaders CreateModel where
         toHeaders
           = const

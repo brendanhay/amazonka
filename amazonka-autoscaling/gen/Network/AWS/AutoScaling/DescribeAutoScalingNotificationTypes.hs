@@ -68,6 +68,8 @@ instance AWSRequest
 instance Hashable
          DescribeAutoScalingNotificationTypes
 
+instance NFData DescribeAutoScalingNotificationTypes
+
 instance ToHeaders
          DescribeAutoScalingNotificationTypes where
         toHeaders = const mempty
@@ -126,3 +128,6 @@ dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes 
 -- | The response status code.
 dasntrsResponseStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
 dasntrsResponseStatus = lens _dasntrsResponseStatus (\ s a -> s{_dasntrsResponseStatus = a});
+
+instance NFData
+         DescribeAutoScalingNotificationTypesResponse

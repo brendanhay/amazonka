@@ -108,6 +108,8 @@ instance AWSRequest AttachNetworkInterface where
 
 instance Hashable AttachNetworkInterface
 
+instance NFData AttachNetworkInterface
+
 instance ToHeaders AttachNetworkInterface where
         toHeaders = const mempty
 
@@ -154,3 +156,5 @@ anirsAttachmentId = lens _anirsAttachmentId (\ s a -> s{_anirsAttachmentId = a})
 -- | The response status code.
 anirsResponseStatus :: Lens' AttachNetworkInterfaceResponse Int
 anirsResponseStatus = lens _anirsResponseStatus (\ s a -> s{_anirsResponseStatus = a});
+
+instance NFData AttachNetworkInterfaceResponse

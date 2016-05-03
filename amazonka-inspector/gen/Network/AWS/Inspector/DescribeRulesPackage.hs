@@ -76,6 +76,8 @@ instance AWSRequest DescribeRulesPackage where
 
 instance Hashable DescribeRulesPackage
 
+instance NFData DescribeRulesPackage
+
 instance ToHeaders DescribeRulesPackage where
         toHeaders
           = const
@@ -127,3 +129,5 @@ drprsRulesPackage = lens _drprsRulesPackage (\ s a -> s{_drprsRulesPackage = a})
 -- | The response status code.
 drprsResponseStatus :: Lens' DescribeRulesPackageResponse Int
 drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a});
+
+instance NFData DescribeRulesPackageResponse

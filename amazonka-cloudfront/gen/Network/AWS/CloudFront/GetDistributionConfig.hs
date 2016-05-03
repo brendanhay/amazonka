@@ -80,6 +80,8 @@ instance AWSRequest GetDistributionConfig where
 
 instance Hashable GetDistributionConfig
 
+instance NFData GetDistributionConfig
+
 instance ToHeaders GetDistributionConfig where
         toHeaders = const mempty
 
@@ -130,3 +132,5 @@ gdcrsDistributionConfig = lens _gdcrsDistributionConfig (\ s a -> s{_gdcrsDistri
 -- | The response status code.
 gdcrsResponseStatus :: Lens' GetDistributionConfigResponse Int
 gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a});
+
+instance NFData GetDistributionConfigResponse

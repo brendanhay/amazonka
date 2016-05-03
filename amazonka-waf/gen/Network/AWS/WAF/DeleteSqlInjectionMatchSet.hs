@@ -105,6 +105,8 @@ instance AWSRequest DeleteSqlInjectionMatchSet where
 
 instance Hashable DeleteSqlInjectionMatchSet
 
+instance NFData DeleteSqlInjectionMatchSet
+
 instance ToHeaders DeleteSqlInjectionMatchSet where
         toHeaders
           = const
@@ -165,3 +167,5 @@ dsimsrsChangeToken = lens _dsimsrsChangeToken (\ s a -> s{_dsimsrsChangeToken = 
 -- | The response status code.
 dsimsrsResponseStatus :: Lens' DeleteSqlInjectionMatchSetResponse Int
 dsimsrsResponseStatus = lens _dsimsrsResponseStatus (\ s a -> s{_dsimsrsResponseStatus = a});
+
+instance NFData DeleteSqlInjectionMatchSetResponse

@@ -125,6 +125,8 @@ instance AWSRequest AllocatePrivateVirtualInterface
 
 instance Hashable AllocatePrivateVirtualInterface
 
+instance NFData AllocatePrivateVirtualInterface
+
 instance ToHeaders AllocatePrivateVirtualInterface
          where
         toHeaders

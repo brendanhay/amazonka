@@ -135,6 +135,8 @@ instance AWSRequest StopInstances where
 
 instance Hashable StopInstances
 
+instance NFData StopInstances
+
 instance ToHeaders StopInstances where
         toHeaders = const mempty
 
@@ -178,3 +180,5 @@ sirsStoppingInstances = lens _sirsStoppingInstances (\ s a -> s{_sirsStoppingIns
 -- | The response status code.
 sirsResponseStatus :: Lens' StopInstancesResponse Int
 sirsResponseStatus = lens _sirsResponseStatus (\ s a -> s{_sirsResponseStatus = a});
+
+instance NFData StopInstancesResponse

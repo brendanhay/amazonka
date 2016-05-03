@@ -111,6 +111,8 @@ instance AWSRequest CreateAssessment where
 
 instance Hashable CreateAssessment
 
+instance NFData CreateAssessment
+
 instance ToHeaders CreateAssessment where
         toHeaders
           = const
@@ -165,3 +167,5 @@ crsAssessmentARN = lens _crsAssessmentARN (\ s a -> s{_crsAssessmentARN = a});
 -- | The response status code.
 crsResponseStatus :: Lens' CreateAssessmentResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CreateAssessmentResponse

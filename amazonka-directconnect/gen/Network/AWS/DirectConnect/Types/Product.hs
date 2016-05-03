@@ -130,6 +130,8 @@ instance FromJSON Connection where
 
 instance Hashable Connection
 
+instance NFData Connection
+
 -- | A structure containing a list of connections.
 --
 -- /See:/ 'connections' smart constructor.
@@ -160,6 +162,8 @@ instance FromJSON Connections where
                  Connections' <$> (x .:? "connections" .!= mempty))
 
 instance Hashable Connections
+
+instance NFData Connections
 
 -- | An interconnect is a connection that can host other connections.
 --
@@ -248,6 +252,8 @@ instance FromJSON Interconnect where
 
 instance Hashable Interconnect
 
+instance NFData Interconnect
+
 -- | An AWS Direct Connect location where connections and interconnects can
 -- be requested.
 --
@@ -289,6 +295,8 @@ instance FromJSON Location where
                    (x .:? "locationName") <*> (x .:? "locationCode"))
 
 instance Hashable Location
+
+instance NFData Location
 
 -- | A structure containing information about a new private virtual
 -- interface.
@@ -367,6 +375,8 @@ nVirtualGatewayId :: Lens' NewPrivateVirtualInterface Text
 nVirtualGatewayId = lens _nVirtualGatewayId (\ s a -> s{_nVirtualGatewayId = a});
 
 instance Hashable NewPrivateVirtualInterface
+
+instance NFData NewPrivateVirtualInterface
 
 instance ToJSON NewPrivateVirtualInterface where
         toJSON NewPrivateVirtualInterface'{..}
@@ -449,6 +459,8 @@ npviaAsn = lens _npviaAsn (\ s a -> s{_npviaAsn = a});
 
 instance Hashable
          NewPrivateVirtualInterfaceAllocation
+
+instance NFData NewPrivateVirtualInterfaceAllocation
 
 instance ToJSON NewPrivateVirtualInterfaceAllocation
          where
@@ -541,6 +553,8 @@ npviRouteFilterPrefixes :: Lens' NewPublicVirtualInterface [RouteFilterPrefix]
 npviRouteFilterPrefixes = lens _npviRouteFilterPrefixes (\ s a -> s{_npviRouteFilterPrefixes = a}) . _Coerce;
 
 instance Hashable NewPublicVirtualInterface
+
+instance NFData NewPublicVirtualInterface
 
 instance ToJSON NewPublicVirtualInterface where
         toJSON NewPublicVirtualInterface'{..}
@@ -635,6 +649,8 @@ newRouteFilterPrefixes = lens _newRouteFilterPrefixes (\ s a -> s{_newRouteFilte
 
 instance Hashable NewPublicVirtualInterfaceAllocation
 
+instance NFData NewPublicVirtualInterfaceAllocation
+
 instance ToJSON NewPublicVirtualInterfaceAllocation
          where
         toJSON NewPublicVirtualInterfaceAllocation'{..}
@@ -682,6 +698,8 @@ instance FromJSON RouteFilterPrefix where
               (\ x -> RouteFilterPrefix' <$> (x .:? "cidr"))
 
 instance Hashable RouteFilterPrefix
+
+instance NFData RouteFilterPrefix
 
 instance ToJSON RouteFilterPrefix where
         toJSON RouteFilterPrefix'{..}
@@ -732,6 +750,8 @@ instance FromJSON VirtualGateway where
                      (x .:? "virtualGatewayState"))
 
 instance Hashable VirtualGateway
+
+instance NFData VirtualGateway
 
 -- | A virtual interface (VLAN) transmits the traffic between the AWS Direct
 -- Connect location and the customer.
@@ -891,3 +911,5 @@ instance FromJSON VirtualInterface where
                      <*> (x .:? "virtualInterfaceId"))
 
 instance Hashable VirtualInterface
+
+instance NFData VirtualInterface

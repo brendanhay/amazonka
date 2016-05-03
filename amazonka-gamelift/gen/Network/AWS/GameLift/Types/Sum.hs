@@ -40,6 +40,7 @@ instance ToText BuildStatus where
         Ready -> "READY"
 
 instance Hashable     BuildStatus
+instance NFData       BuildStatus
 instance ToByteString BuildStatus
 instance ToQuery      BuildStatus
 instance ToHeader     BuildStatus
@@ -74,6 +75,7 @@ instance ToText ComparisonOperatorType where
         LessThanThreshold -> "LessThanThreshold"
 
 instance Hashable     ComparisonOperatorType
+instance NFData       ComparisonOperatorType
 instance ToByteString ComparisonOperatorType
 instance ToQuery      ComparisonOperatorType
 instance ToHeader     ComparisonOperatorType
@@ -180,6 +182,7 @@ instance ToText EC2InstanceType where
         T2_Small -> "t2.small"
 
 instance Hashable     EC2InstanceType
+instance NFData       EC2InstanceType
 instance ToByteString EC2InstanceType
 instance ToQuery      EC2InstanceType
 instance ToHeader     EC2InstanceType
@@ -256,6 +259,7 @@ instance ToText EventCode where
         GenericEvent -> "GENERIC_EVENT"
 
 instance Hashable     EventCode
+instance NFData       EventCode
 instance ToByteString EventCode
 instance ToQuery      EventCode
 instance ToHeader     EventCode
@@ -302,6 +306,7 @@ instance ToText FleetStatus where
         FSValidating -> "VALIDATING"
 
 instance Hashable     FleetStatus
+instance NFData       FleetStatus
 instance ToByteString FleetStatus
 instance ToQuery      FleetStatus
 instance ToHeader     FleetStatus
@@ -333,6 +338,7 @@ instance ToText GameSessionStatus where
         GSSTerminating -> "TERMINATING"
 
 instance Hashable     GameSessionStatus
+instance NFData       GameSessionStatus
 instance ToByteString GameSessionStatus
 instance ToQuery      GameSessionStatus
 instance ToHeader     GameSessionStatus
@@ -358,6 +364,7 @@ instance ToText IPProtocol where
         Udp -> "UDP"
 
 instance Hashable     IPProtocol
+instance NFData       IPProtocol
 instance ToByteString IPProtocol
 instance ToQuery      IPProtocol
 instance ToHeader     IPProtocol
@@ -398,6 +405,7 @@ instance ToText MetricName where
         IdleInstances -> "IdleInstances"
 
 instance Hashable     MetricName
+instance NFData       MetricName
 instance ToByteString MetricName
 instance ToQuery      MetricName
 instance ToHeader     MetricName
@@ -426,6 +434,7 @@ instance ToText PlayerSessionCreationPolicy where
         DenyAll -> "DENY_ALL"
 
 instance Hashable     PlayerSessionCreationPolicy
+instance NFData       PlayerSessionCreationPolicy
 instance ToByteString PlayerSessionCreationPolicy
 instance ToQuery      PlayerSessionCreationPolicy
 instance ToHeader     PlayerSessionCreationPolicy
@@ -460,6 +469,7 @@ instance ToText PlayerSessionStatus where
         PSSTimedout -> "TIMEDOUT"
 
 instance Hashable     PlayerSessionStatus
+instance NFData       PlayerSessionStatus
 instance ToByteString PlayerSessionStatus
 instance ToQuery      PlayerSessionStatus
 instance ToHeader     PlayerSessionStatus
@@ -485,6 +495,7 @@ instance ToText ProtectionPolicy where
         NoProtection -> "NoProtection"
 
 instance Hashable     ProtectionPolicy
+instance NFData       ProtectionPolicy
 instance ToByteString ProtectionPolicy
 instance ToQuery      ProtectionPolicy
 instance ToHeader     ProtectionPolicy
@@ -513,6 +524,7 @@ instance ToText RoutingStrategyType where
         Terminal -> "TERMINAL"
 
 instance Hashable     RoutingStrategyType
+instance NFData       RoutingStrategyType
 instance ToByteString RoutingStrategyType
 instance ToQuery      RoutingStrategyType
 instance ToHeader     RoutingStrategyType
@@ -544,6 +556,7 @@ instance ToText ScalingAdjustmentType where
         PercentChangeInCapacity -> "PercentChangeInCapacity"
 
 instance Hashable     ScalingAdjustmentType
+instance NFData       ScalingAdjustmentType
 instance ToByteString ScalingAdjustmentType
 instance ToQuery      ScalingAdjustmentType
 instance ToHeader     ScalingAdjustmentType
@@ -587,6 +600,7 @@ instance ToText ScalingStatusType where
         Updating -> "UPDATING"
 
 instance Hashable     ScalingStatusType
+instance NFData       ScalingStatusType
 instance ToByteString ScalingStatusType
 instance ToQuery      ScalingStatusType
 instance ToHeader     ScalingStatusType

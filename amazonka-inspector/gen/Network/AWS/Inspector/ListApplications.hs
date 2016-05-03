@@ -107,6 +107,8 @@ instance AWSRequest ListApplications where
 
 instance Hashable ListApplications
 
+instance NFData ListApplications
+
 instance ToHeaders ListApplications where
         toHeaders
           = const
@@ -170,3 +172,5 @@ lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
 -- | The response status code.
 lrsResponseStatus :: Lens' ListApplicationsResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
+
+instance NFData ListApplicationsResponse

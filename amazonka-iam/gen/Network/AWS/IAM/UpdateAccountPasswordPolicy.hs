@@ -181,6 +181,8 @@ instance AWSRequest UpdateAccountPasswordPolicy where
 
 instance Hashable UpdateAccountPasswordPolicy
 
+instance NFData UpdateAccountPasswordPolicy
+
 instance ToHeaders UpdateAccountPasswordPolicy where
         toHeaders = const mempty
 
@@ -218,3 +220,5 @@ data UpdateAccountPasswordPolicyResponse =
 updateAccountPasswordPolicyResponse
     :: UpdateAccountPasswordPolicyResponse
 updateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse'
+
+instance NFData UpdateAccountPasswordPolicyResponse

@@ -90,6 +90,8 @@ instance AWSRequest GrantAccess where
 
 instance Hashable GrantAccess
 
+instance NFData GrantAccess
+
 instance ToHeaders GrantAccess where
         toHeaders
           = const
@@ -145,3 +147,5 @@ garsTemporaryCredential = lens _garsTemporaryCredential (\ s a -> s{_garsTempora
 -- | The response status code.
 garsResponseStatus :: Lens' GrantAccessResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+
+instance NFData GrantAccessResponse

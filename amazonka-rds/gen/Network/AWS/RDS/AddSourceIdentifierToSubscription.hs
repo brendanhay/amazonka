@@ -105,6 +105,8 @@ instance AWSRequest AddSourceIdentifierToSubscription
 
 instance Hashable AddSourceIdentifierToSubscription
 
+instance NFData AddSourceIdentifierToSubscription
+
 instance ToHeaders AddSourceIdentifierToSubscription
          where
         toHeaders = const mempty
@@ -152,3 +154,6 @@ asitsrsEventSubscription = lens _asitsrsEventSubscription (\ s a -> s{_asitsrsEv
 -- | The response status code.
 asitsrsResponseStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
 asitsrsResponseStatus = lens _asitsrsResponseStatus (\ s a -> s{_asitsrsResponseStatus = a});
+
+instance NFData
+         AddSourceIdentifierToSubscriptionResponse

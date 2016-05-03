@@ -427,6 +427,8 @@ instance AWSRequest CreateCacheCluster where
 
 instance Hashable CreateCacheCluster
 
+instance NFData CreateCacheCluster
+
 instance ToHeaders CreateCacheCluster where
         toHeaders = const mempty
 
@@ -506,3 +508,5 @@ cccrsCacheCluster = lens _cccrsCacheCluster (\ s a -> s{_cccrsCacheCluster = a})
 -- | The response status code.
 cccrsResponseStatus :: Lens' CreateCacheClusterResponse Int
 cccrsResponseStatus = lens _cccrsResponseStatus (\ s a -> s{_cccrsResponseStatus = a});
+
+instance NFData CreateCacheClusterResponse

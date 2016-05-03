@@ -174,6 +174,8 @@ instance AWSRequest
 
 instance Hashable DescribeOrderableDBInstanceOptions
 
+instance NFData DescribeOrderableDBInstanceOptions
+
 instance ToHeaders DescribeOrderableDBInstanceOptions
          where
         toHeaders = const mempty
@@ -242,3 +244,6 @@ dodiorsMarker = lens _dodiorsMarker (\ s a -> s{_dodiorsMarker = a});
 -- | The response status code.
 dodiorsResponseStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
 dodiorsResponseStatus = lens _dodiorsResponseStatus (\ s a -> s{_dodiorsResponseStatus = a});
+
+instance NFData
+         DescribeOrderableDBInstanceOptionsResponse

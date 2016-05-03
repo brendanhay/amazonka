@@ -117,6 +117,8 @@ instance AWSRequest GetTrailStatus where
 
 instance Hashable GetTrailStatus
 
+instance NFData GetTrailStatus
+
 instance ToHeaders GetTrailStatus where
         toHeaders
           = const
@@ -326,3 +328,5 @@ gtsrsStopLoggingTime = lens _gtsrsStopLoggingTime (\ s a -> s{_gtsrsStopLoggingT
 -- | The response status code.
 gtsrsResponseStatus :: Lens' GetTrailStatusResponse Int
 gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});
+
+instance NFData GetTrailStatusResponse

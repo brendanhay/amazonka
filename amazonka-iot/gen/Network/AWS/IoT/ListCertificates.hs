@@ -101,6 +101,8 @@ instance AWSRequest ListCertificates where
 
 instance Hashable ListCertificates
 
+instance NFData ListCertificates
+
 instance ToHeaders ListCertificates where
         toHeaders = const mempty
 
@@ -154,3 +156,5 @@ lcrsNextMarker = lens _lcrsNextMarker (\ s a -> s{_lcrsNextMarker = a});
 -- | The response status code.
 lcrsResponseStatus :: Lens' ListCertificatesResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
+
+instance NFData ListCertificatesResponse

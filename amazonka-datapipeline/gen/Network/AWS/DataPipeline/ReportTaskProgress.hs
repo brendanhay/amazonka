@@ -100,6 +100,8 @@ instance AWSRequest ReportTaskProgress where
 
 instance Hashable ReportTaskProgress
 
+instance NFData ReportTaskProgress
+
 instance ToHeaders ReportTaskProgress where
         toHeaders
           = const
@@ -156,3 +158,5 @@ rtprsResponseStatus = lens _rtprsResponseStatus (\ s a -> s{_rtprsResponseStatus
 -- tasks.
 rtprsCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprsCanceled = lens _rtprsCanceled (\ s a -> s{_rtprsCanceled = a});
+
+instance NFData ReportTaskProgressResponse

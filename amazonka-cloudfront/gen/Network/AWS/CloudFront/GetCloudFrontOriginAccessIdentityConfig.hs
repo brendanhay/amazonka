@@ -82,6 +82,9 @@ instance AWSRequest
 instance Hashable
          GetCloudFrontOriginAccessIdentityConfig
 
+instance NFData
+         GetCloudFrontOriginAccessIdentityConfig
+
 instance ToHeaders
          GetCloudFrontOriginAccessIdentityConfig where
         toHeaders = const mempty
@@ -136,3 +139,6 @@ gcfoaicrsETag = lens _gcfoaicrsETag (\ s a -> s{_gcfoaicrsETag = a});
 -- | The response status code.
 gcfoaicrsResponseStatus :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse Int
 gcfoaicrsResponseStatus = lens _gcfoaicrsResponseStatus (\ s a -> s{_gcfoaicrsResponseStatus = a});
+
+instance NFData
+         GetCloudFrontOriginAccessIdentityConfigResponse

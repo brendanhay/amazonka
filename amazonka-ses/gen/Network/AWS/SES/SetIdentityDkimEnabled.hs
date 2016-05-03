@@ -102,6 +102,8 @@ instance AWSRequest SetIdentityDkimEnabled where
 
 instance Hashable SetIdentityDkimEnabled
 
+instance NFData SetIdentityDkimEnabled
+
 instance ToHeaders SetIdentityDkimEnabled where
         toHeaders = const mempty
 
@@ -138,3 +140,5 @@ setIdentityDkimEnabledResponse pResponseStatus_ =
 -- | The response status code.
 sidersResponseStatus :: Lens' SetIdentityDkimEnabledResponse Int
 sidersResponseStatus = lens _sidersResponseStatus (\ s a -> s{_sidersResponseStatus = a});
+
+instance NFData SetIdentityDkimEnabledResponse

@@ -86,6 +86,8 @@ instance AWSRequest DeleteReusableDelegationSet where
 
 instance Hashable DeleteReusableDelegationSet
 
+instance NFData DeleteReusableDelegationSet
+
 instance ToHeaders DeleteReusableDelegationSet where
         toHeaders = const mempty
 
@@ -120,3 +122,5 @@ deleteReusableDelegationSetResponse pResponseStatus_ =
 -- | The response status code.
 drdsrsResponseStatus :: Lens' DeleteReusableDelegationSetResponse Int
 drdsrsResponseStatus = lens _drdsrsResponseStatus (\ s a -> s{_drdsrsResponseStatus = a});
+
+instance NFData DeleteReusableDelegationSetResponse

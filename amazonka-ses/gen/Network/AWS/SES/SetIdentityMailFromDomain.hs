@@ -117,6 +117,8 @@ instance AWSRequest SetIdentityMailFromDomain where
 
 instance Hashable SetIdentityMailFromDomain
 
+instance NFData SetIdentityMailFromDomain
+
 instance ToHeaders SetIdentityMailFromDomain where
         toHeaders = const mempty
 
@@ -154,3 +156,5 @@ setIdentityMailFromDomainResponse pResponseStatus_ =
 -- | The response status code.
 simfdrsResponseStatus :: Lens' SetIdentityMailFromDomainResponse Int
 simfdrsResponseStatus = lens _simfdrsResponseStatus (\ s a -> s{_simfdrsResponseStatus = a});
+
+instance NFData SetIdentityMailFromDomainResponse

@@ -83,6 +83,8 @@ instance AWSRequest DescribeStackSummary where
 
 instance Hashable DescribeStackSummary
 
+instance NFData DescribeStackSummary
+
 instance ToHeaders DescribeStackSummary where
         toHeaders
           = const
@@ -135,3 +137,5 @@ dssrsStackSummary = lens _dssrsStackSummary (\ s a -> s{_dssrsStackSummary = a})
 -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeStackSummaryResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+
+instance NFData DescribeStackSummaryResponse

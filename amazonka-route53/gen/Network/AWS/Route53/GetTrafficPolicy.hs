@@ -93,6 +93,8 @@ instance AWSRequest GetTrafficPolicy where
 
 instance Hashable GetTrafficPolicy
 
+instance NFData GetTrafficPolicy
+
 instance ToHeaders GetTrafficPolicy where
         toHeaders = const mempty
 
@@ -137,3 +139,5 @@ gtprsResponseStatus = lens _gtprsResponseStatus (\ s a -> s{_gtprsResponseStatus
 -- | A complex type that contains settings for the specified traffic policy.
 gtprsTrafficPolicy :: Lens' GetTrafficPolicyResponse TrafficPolicy
 gtprsTrafficPolicy = lens _gtprsTrafficPolicy (\ s a -> s{_gtprsTrafficPolicy = a});
+
+instance NFData GetTrafficPolicyResponse

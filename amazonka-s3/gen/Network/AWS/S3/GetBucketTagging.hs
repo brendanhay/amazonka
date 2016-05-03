@@ -76,6 +76,8 @@ instance AWSRequest GetBucketTagging where
 
 instance Hashable GetBucketTagging
 
+instance NFData GetBucketTagging
+
 instance ToHeaders GetBucketTagging where
         toHeaders = const mempty
 
@@ -115,3 +117,5 @@ gbtrsResponseStatus = lens _gbtrsResponseStatus (\ s a -> s{_gbtrsResponseStatus
 -- | Undocumented member.
 gbtrsTagSet :: Lens' GetBucketTaggingResponse [Tag]
 gbtrsTagSet = lens _gbtrsTagSet (\ s a -> s{_gbtrsTagSet = a}) . _Coerce;
+
+instance NFData GetBucketTaggingResponse

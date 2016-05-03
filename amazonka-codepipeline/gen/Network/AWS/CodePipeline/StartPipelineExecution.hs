@@ -80,6 +80,8 @@ instance AWSRequest StartPipelineExecution where
 
 instance Hashable StartPipelineExecution
 
+instance NFData StartPipelineExecution
+
 instance ToHeaders StartPipelineExecution where
         toHeaders
           = const
@@ -131,3 +133,5 @@ spersPipelineExecutionId = lens _spersPipelineExecutionId (\ s a -> s{_spersPipe
 -- | The response status code.
 spersResponseStatus :: Lens' StartPipelineExecutionResponse Int
 spersResponseStatus = lens _spersResponseStatus (\ s a -> s{_spersResponseStatus = a});
+
+instance NFData StartPipelineExecutionResponse

@@ -128,6 +128,8 @@ instance AWSRequest DescribeHSM where
 
 instance Hashable DescribeHSM
 
+instance NFData DescribeHSM
+
 instance ToHeaders DescribeHSM where
         toHeaders
           = const
@@ -343,3 +345,5 @@ desrsHSMType = lens _desrsHSMType (\ s a -> s{_desrsHSMType = a});
 -- | The response status code.
 desrsResponseStatus :: Lens' DescribeHSMResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+
+instance NFData DescribeHSMResponse

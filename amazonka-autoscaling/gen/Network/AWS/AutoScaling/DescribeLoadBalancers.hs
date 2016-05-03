@@ -99,6 +99,8 @@ instance AWSRequest DescribeLoadBalancers where
 
 instance Hashable DescribeLoadBalancers
 
+instance NFData DescribeLoadBalancers
+
 instance ToHeaders DescribeLoadBalancers where
         toHeaders = const mempty
 
@@ -152,3 +154,5 @@ dlbrsNextToken = lens _dlbrsNextToken (\ s a -> s{_dlbrsNextToken = a});
 -- | The response status code.
 dlbrsResponseStatus :: Lens' DescribeLoadBalancersResponse Int
 dlbrsResponseStatus = lens _dlbrsResponseStatus (\ s a -> s{_dlbrsResponseStatus = a});
+
+instance NFData DescribeLoadBalancersResponse

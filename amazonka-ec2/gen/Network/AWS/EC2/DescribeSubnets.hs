@@ -139,6 +139,8 @@ instance AWSRequest DescribeSubnets where
 
 instance Hashable DescribeSubnets
 
+instance NFData DescribeSubnets
+
 instance ToHeaders DescribeSubnets where
         toHeaders = const mempty
 
@@ -183,3 +185,5 @@ dsrsSubnets = lens _dsrsSubnets (\ s a -> s{_dsrsSubnets = a}) . _Default . _Coe
 -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeSubnetsResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+
+instance NFData DescribeSubnetsResponse

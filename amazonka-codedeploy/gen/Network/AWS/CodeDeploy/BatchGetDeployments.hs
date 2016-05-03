@@ -78,6 +78,8 @@ instance AWSRequest BatchGetDeployments where
 
 instance Hashable BatchGetDeployments
 
+instance NFData BatchGetDeployments
+
 instance ToHeaders BatchGetDeployments where
         toHeaders
           = const
@@ -131,3 +133,5 @@ bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\ s a -> s{_bgdrsDeploymentsI
 -- | The response status code.
 bgdrsResponseStatus :: Lens' BatchGetDeploymentsResponse Int
 bgdrsResponseStatus = lens _bgdrsResponseStatus (\ s a -> s{_bgdrsResponseStatus = a});
+
+instance NFData BatchGetDeploymentsResponse

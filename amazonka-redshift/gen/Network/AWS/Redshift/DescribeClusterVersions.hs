@@ -145,6 +145,8 @@ instance AWSRequest DescribeClusterVersions where
 
 instance Hashable DescribeClusterVersions
 
+instance NFData DescribeClusterVersions
+
 instance ToHeaders DescribeClusterVersions where
         toHeaders = const mempty
 
@@ -207,3 +209,5 @@ dcvrsMarker = lens _dcvrsMarker (\ s a -> s{_dcvrsMarker = a});
 -- | The response status code.
 dcvrsResponseStatus :: Lens' DescribeClusterVersionsResponse Int
 dcvrsResponseStatus = lens _dcvrsResponseStatus (\ s a -> s{_dcvrsResponseStatus = a});
+
+instance NFData DescribeClusterVersionsResponse

@@ -46,6 +46,7 @@ instance ToText ContactType where
         Reseller -> "RESELLER"
 
 instance Hashable     ContactType
+instance NFData       ContactType
 instance ToByteString ContactType
 instance ToQuery      ContactType
 instance ToHeader     ContactType
@@ -755,6 +756,7 @@ instance ToText CountryCode where
         ZW -> "ZW"
 
 instance Hashable     CountryCode
+instance NFData       CountryCode
 instance ToByteString CountryCode
 instance ToQuery      CountryCode
 instance ToHeader     CountryCode
@@ -801,6 +803,7 @@ instance ToText DomainAvailability where
         UnavailableRestricted -> "UNAVAILABLE_RESTRICTED"
 
 instance Hashable     DomainAvailability
+instance NFData       DomainAvailability
 instance ToByteString DomainAvailability
 instance ToQuery      DomainAvailability
 instance ToHeader     DomainAvailability
@@ -880,6 +883,7 @@ instance ToText ExtraParamName where
         VatNumber -> "VAT_NUMBER"
 
 instance Hashable     ExtraParamName
+instance NFData       ExtraParamName
 instance ToByteString ExtraParamName
 instance ToQuery      ExtraParamName
 instance ToHeader     ExtraParamName
@@ -917,6 +921,7 @@ instance ToText OperationStatus where
         Successful -> "SUCCESSFUL"
 
 instance Hashable     OperationStatus
+instance NFData       OperationStatus
 instance ToByteString OperationStatus
 instance ToQuery      OperationStatus
 instance ToHeader     OperationStatus
@@ -957,6 +962,7 @@ instance ToText OperationType where
         UpdateNameserver -> "UPDATE_NAMESERVER"
 
 instance Hashable     OperationType
+instance NFData       OperationType
 instance ToByteString OperationType
 instance ToQuery      OperationType
 instance ToHeader     OperationType

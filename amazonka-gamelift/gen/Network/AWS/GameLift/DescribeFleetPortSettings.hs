@@ -83,6 +83,8 @@ instance AWSRequest DescribeFleetPortSettings where
 
 instance Hashable DescribeFleetPortSettings
 
+instance NFData DescribeFleetPortSettings
+
 instance ToHeaders DescribeFleetPortSettings where
         toHeaders
           = const
@@ -134,3 +136,5 @@ dfpsrsInboundPermissions = lens _dfpsrsInboundPermissions (\ s a -> s{_dfpsrsInb
 -- | The response status code.
 dfpsrsResponseStatus :: Lens' DescribeFleetPortSettingsResponse Int
 dfpsrsResponseStatus = lens _dfpsrsResponseStatus (\ s a -> s{_dfpsrsResponseStatus = a});
+
+instance NFData DescribeFleetPortSettingsResponse

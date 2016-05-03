@@ -94,6 +94,8 @@ instance AWSRequest AttachElasticLoadBalancer where
 
 instance Hashable AttachElasticLoadBalancer
 
+instance NFData AttachElasticLoadBalancer
+
 instance ToHeaders AttachElasticLoadBalancer where
         toHeaders
           = const
@@ -129,3 +131,5 @@ data AttachElasticLoadBalancerResponse =
 attachElasticLoadBalancerResponse
     :: AttachElasticLoadBalancerResponse
 attachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse'
+
+instance NFData AttachElasticLoadBalancerResponse

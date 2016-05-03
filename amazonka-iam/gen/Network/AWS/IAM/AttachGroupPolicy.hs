@@ -85,6 +85,8 @@ instance AWSRequest AttachGroupPolicy where
 
 instance Hashable AttachGroupPolicy
 
+instance NFData AttachGroupPolicy
+
 instance ToHeaders AttachGroupPolicy where
         toHeaders = const mempty
 
@@ -109,3 +111,5 @@ data AttachGroupPolicyResponse =
 attachGroupPolicyResponse
     :: AttachGroupPolicyResponse
 attachGroupPolicyResponse = AttachGroupPolicyResponse'
+
+instance NFData AttachGroupPolicyResponse

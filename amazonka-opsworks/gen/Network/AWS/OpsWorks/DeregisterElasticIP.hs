@@ -77,6 +77,8 @@ instance AWSRequest DeregisterElasticIP where
 
 instance Hashable DeregisterElasticIP
 
+instance NFData DeregisterElasticIP
+
 instance ToHeaders DeregisterElasticIP where
         toHeaders
           = const
@@ -108,3 +110,5 @@ data DeregisterElasticIPResponse =
 deregisterElasticIPResponse
     :: DeregisterElasticIPResponse
 deregisterElasticIPResponse = DeregisterElasticIPResponse'
+
+instance NFData DeregisterElasticIPResponse

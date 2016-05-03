@@ -112,6 +112,8 @@ instance AWSRequest ListStreamingDistributions where
 
 instance Hashable ListStreamingDistributions
 
+instance NFData ListStreamingDistributions
+
 instance ToHeaders ListStreamingDistributions where
         toHeaders = const mempty
 
@@ -155,3 +157,5 @@ lsdrsResponseStatus = lens _lsdrsResponseStatus (\ s a -> s{_lsdrsResponseStatus
 -- | The StreamingDistributionList type.
 lsdrsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
 lsdrsStreamingDistributionList = lens _lsdrsStreamingDistributionList (\ s a -> s{_lsdrsStreamingDistributionList = a});
+
+instance NFData ListStreamingDistributionsResponse

@@ -92,6 +92,8 @@ instance AWSRequest CreateLoadBalancerListeners where
 
 instance Hashable CreateLoadBalancerListeners
 
+instance NFData CreateLoadBalancerListeners
+
 instance ToHeaders CreateLoadBalancerListeners where
         toHeaders = const mempty
 
@@ -128,3 +130,5 @@ createLoadBalancerListenersResponse pResponseStatus_ =
 -- | The response status code.
 clblrsResponseStatus :: Lens' CreateLoadBalancerListenersResponse Int
 clblrsResponseStatus = lens _clblrsResponseStatus (\ s a -> s{_clblrsResponseStatus = a});
+
+instance NFData CreateLoadBalancerListenersResponse

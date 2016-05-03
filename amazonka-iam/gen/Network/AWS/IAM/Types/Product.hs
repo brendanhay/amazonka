@@ -99,6 +99,8 @@ instance FromXML AccessKey where
 
 instance Hashable AccessKey
 
+instance NFData AccessKey
+
 -- | Contains information about the last time an AWS access key was used.
 --
 -- This data type is used as a response element in the
@@ -183,6 +185,8 @@ instance FromXML AccessKeyLastUsed where
 
 instance Hashable AccessKeyLastUsed
 
+instance NFData AccessKeyLastUsed
+
 -- | Contains information about an AWS access key, without its secret key.
 --
 -- This data type is used as a response element in the < ListAccessKeys>
@@ -243,6 +247,8 @@ instance FromXML AccessKeyMetadata where
 
 instance Hashable AccessKeyMetadata
 
+instance NFData AccessKeyMetadata
+
 -- | Contains information about an attached policy.
 --
 -- An attached policy is a managed policy that has been attached to a user,
@@ -290,6 +296,8 @@ instance FromXML AttachedPolicy where
               (x .@? "PolicyName") <*> (x .@? "PolicyArn")
 
 instance Hashable AttachedPolicy
+
+instance NFData AttachedPolicy
 
 -- | Contains information about a condition context key. It includes the name
 -- of the key and specifies the value (or values, if the context key
@@ -340,6 +348,8 @@ ceContextKeyType :: Lens' ContextEntry (Maybe ContextKeyTypeEnum)
 ceContextKeyType = lens _ceContextKeyType (\ s a -> s{_ceContextKeyType = a});
 
 instance Hashable ContextEntry
+
+instance NFData ContextEntry
 
 instance ToQuery ContextEntry where
         toQuery ContextEntry'{..}
@@ -468,6 +478,8 @@ instance FromXML EvaluationResult where
 
 instance Hashable EvaluationResult
 
+instance NFData EvaluationResult
+
 -- | Contains the response to a successful
 -- < GetContextKeysForPrincipalPolicy> or < GetContextKeysForCustomPolicy>
 -- request.
@@ -502,6 +514,8 @@ instance FromXML GetContextKeysForPolicyResponse
                  may (parseXMLList "member"))
 
 instance Hashable GetContextKeysForPolicyResponse
+
+instance NFData GetContextKeysForPolicyResponse
 
 -- | Contains information about an IAM group entity.
 --
@@ -588,6 +602,8 @@ instance FromXML Group where
                 <*> (x .@ "CreateDate")
 
 instance Hashable Group
+
+instance NFData Group
 
 -- | Contains information about an IAM group, including all of the group\'s
 -- policies.
@@ -686,6 +702,8 @@ instance FromXML GroupDetail where
                    may (parseXMLList "member"))
 
 instance Hashable GroupDetail
+
+instance NFData GroupDetail
 
 -- | Contains information about an instance profile.
 --
@@ -786,6 +804,8 @@ instance FromXML InstanceProfile where
 
 instance Hashable InstanceProfile
 
+instance NFData InstanceProfile
+
 -- | Contains the user name and password create date for a user.
 --
 -- This data type is used as a response element in the
@@ -840,6 +860,8 @@ instance FromXML LoginProfile where
 
 instance Hashable LoginProfile
 
+instance NFData LoginProfile
+
 -- | Contains information about an MFA device.
 --
 -- This data type is used as a response element in the < ListMFADevices>
@@ -893,6 +915,8 @@ instance FromXML MFADevice where
                 (x .@ "EnableDate")
 
 instance Hashable MFADevice
+
+instance NFData MFADevice
 
 -- | Contains information about a managed policy, including the policy\'s
 -- ARN, versions, and the number of principal entities (users, groups, and
@@ -1048,6 +1072,8 @@ instance FromXML ManagedPolicyDetail where
 
 instance Hashable ManagedPolicyDetail
 
+instance NFData ManagedPolicyDetail
+
 -- | Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect
 -- provider.
 --
@@ -1077,6 +1103,8 @@ instance FromXML OpenIdConnectProviderListEntry where
           = OpenIdConnectProviderListEntry' <$> (x .@? "Arn")
 
 instance Hashable OpenIdConnectProviderListEntry
+
+instance NFData OpenIdConnectProviderListEntry
 
 -- | Contains information about the account password policy.
 --
@@ -1197,6 +1225,8 @@ instance FromXML PasswordPolicy where
                 <*> (x .@? "AllowUsersToChangePassword")
 
 instance Hashable PasswordPolicy
+
+instance NFData PasswordPolicy
 
 -- | Contains information about a managed policy.
 --
@@ -1338,6 +1368,8 @@ instance FromXML Policy where
 
 instance Hashable Policy
 
+instance NFData Policy
+
 -- | Contains information about an IAM policy, including the policy document.
 --
 -- This data type is used as a response element in the
@@ -1378,6 +1410,8 @@ instance FromXML PolicyDetail where
               (x .@? "PolicyDocument") <*> (x .@? "PolicyName")
 
 instance Hashable PolicyDetail
+
+instance NFData PolicyDetail
 
 -- | Contains information about a group that a managed policy is attached to.
 --
@@ -1427,6 +1461,8 @@ instance FromXML PolicyGroup where
 
 instance Hashable PolicyGroup
 
+instance NFData PolicyGroup
+
 -- | Contains information about a role that a managed policy is attached to.
 --
 -- This data type is used as a response element in the
@@ -1475,6 +1511,8 @@ instance FromXML PolicyRole where
 
 instance Hashable PolicyRole
 
+instance NFData PolicyRole
+
 -- | Contains information about a user that a managed policy is attached to.
 --
 -- This data type is used as a response element in the
@@ -1522,6 +1560,8 @@ instance FromXML PolicyUser where
               (x .@? "UserName") <*> (x .@? "UserId")
 
 instance Hashable PolicyUser
+
+instance NFData PolicyUser
 
 -- | Contains information about a version of a managed policy.
 --
@@ -1598,6 +1638,8 @@ instance FromXML PolicyVersion where
 
 instance Hashable PolicyVersion
 
+instance NFData PolicyVersion
+
 -- | Contains the row and column of a location of a 'Statement' element in a
 -- policy document.
 --
@@ -1638,6 +1680,8 @@ instance FromXML Position where
           = Position' <$> (x .@? "Line") <*> (x .@? "Column")
 
 instance Hashable Position
+
+instance NFData Position
 
 -- | Contains the result of the simulation of a single API action call on a
 -- single resource.
@@ -1732,6 +1776,8 @@ instance FromXML ResourceSpecificResult where
                 <*> (x .@ "EvalResourceDecision")
 
 instance Hashable ResourceSpecificResult
+
+instance NFData ResourceSpecificResult
 
 -- | Contains information about an IAM role.
 --
@@ -1830,6 +1876,8 @@ instance FromXML Role where
                 <*> (x .@ "CreateDate")
 
 instance Hashable Role
+
+instance NFData Role
 
 -- | Contains information about an IAM role, including all of the role\'s
 -- policies.
@@ -1951,6 +1999,8 @@ instance FromXML RoleDetail where
 
 instance Hashable RoleDetail
 
+instance NFData RoleDetail
+
 -- | Contains the list of SAML providers for this account.
 --
 -- /See:/ 'sAMLProviderListEntry' smart constructor.
@@ -1997,6 +2047,8 @@ instance FromXML SAMLProviderListEntry where
                 (x .@? "ValidUntil")
 
 instance Hashable SAMLProviderListEntry
+
+instance NFData SAMLProviderListEntry
 
 -- | Contains information about an SSH public key.
 --
@@ -2084,6 +2136,8 @@ instance FromXML SSHPublicKey where
 
 instance Hashable SSHPublicKey
 
+instance NFData SSHPublicKey
+
 -- | Contains information about an SSH public key, without the key\'s body or
 -- fingerprint.
 --
@@ -2152,6 +2206,8 @@ instance FromXML SSHPublicKeyMetadata where
 
 instance Hashable SSHPublicKeyMetadata
 
+instance NFData SSHPublicKeyMetadata
+
 -- | Contains information about a server certificate.
 --
 -- This data type is used as a response element in the
@@ -2205,6 +2261,8 @@ instance FromXML ServerCertificate where
                 <*> (x .@ "CertificateBody")
 
 instance Hashable ServerCertificate
+
+instance NFData ServerCertificate
 
 -- | Contains information about a server certificate without its certificate
 -- body, certificate chain, and private key.
@@ -2297,6 +2355,8 @@ instance FromXML ServerCertificateMetadata where
 
 instance Hashable ServerCertificateMetadata
 
+instance NFData ServerCertificateMetadata
+
 -- | Contains information about an X.509 signing certificate.
 --
 -- This data type is used as a response element in the
@@ -2370,6 +2430,8 @@ instance FromXML SigningCertificate where
 
 instance Hashable SigningCertificate
 
+instance NFData SigningCertificate
+
 -- | Contains the response to a successful < SimulatePrincipalPolicy> or
 -- < SimulateCustomPolicy> request.
 --
@@ -2427,6 +2489,8 @@ instance FromXML SimulatePolicyResponse where
                 <*> (x .@? "IsTruncated")
 
 instance Hashable SimulatePolicyResponse
+
+instance NFData SimulatePolicyResponse
 
 -- | Contains a reference to a 'Statement' element in a policy document that
 -- determines the result of the simulation.
@@ -2488,6 +2552,8 @@ instance FromXML Statement where
                 <*> (x .@? "StartPosition")
 
 instance Hashable Statement
+
+instance NFData Statement
 
 -- | Contains information about an IAM user entity.
 --
@@ -2603,6 +2669,8 @@ instance FromXML User where
 
 instance Hashable User
 
+instance NFData User
+
 -- | Contains information about an IAM user, including all the user\'s
 -- policies and all the IAM groups the user is in.
 --
@@ -2712,6 +2780,8 @@ instance FromXML UserDetail where
 
 instance Hashable UserDetail
 
+instance NFData UserDetail
+
 -- | Contains information about a virtual MFA device.
 --
 -- /See:/ 'virtualMFADevice' smart constructor.
@@ -2796,3 +2866,5 @@ instance FromXML VirtualMFADevice where
                 <*> (x .@ "SerialNumber")
 
 instance Hashable VirtualMFADevice
+
+instance NFData VirtualMFADevice

@@ -108,6 +108,8 @@ instance AWSRequest DeprecateActivityType where
 
 instance Hashable DeprecateActivityType
 
+instance NFData DeprecateActivityType
+
 instance ToHeaders DeprecateActivityType where
         toHeaders
           = const
@@ -141,3 +143,5 @@ data DeprecateActivityTypeResponse =
 deprecateActivityTypeResponse
     :: DeprecateActivityTypeResponse
 deprecateActivityTypeResponse = DeprecateActivityTypeResponse'
+
+instance NFData DeprecateActivityTypeResponse

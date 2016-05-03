@@ -90,6 +90,8 @@ instance AWSRequest ListUploads where
 
 instance Hashable ListUploads
 
+instance NFData ListUploads
+
 instance ToHeaders ListUploads where
         toHeaders
           = const
@@ -153,3 +155,5 @@ lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default . _Coe
 -- | The response status code.
 lursResponseStatus :: Lens' ListUploadsResponse Int
 lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = a});
+
+instance NFData ListUploadsResponse

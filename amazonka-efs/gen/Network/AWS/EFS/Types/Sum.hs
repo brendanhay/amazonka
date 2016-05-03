@@ -43,6 +43,7 @@ instance ToText LifeCycleState where
         Deleting -> "deleting"
 
 instance Hashable     LifeCycleState
+instance NFData       LifeCycleState
 instance ToByteString LifeCycleState
 instance ToQuery      LifeCycleState
 instance ToHeader     LifeCycleState

@@ -78,6 +78,8 @@ instance AWSRequest DescribeIdentity where
 
 instance Hashable DescribeIdentity
 
+instance NFData DescribeIdentity
+
 instance ToHeaders DescribeIdentity where
         toHeaders
           = const

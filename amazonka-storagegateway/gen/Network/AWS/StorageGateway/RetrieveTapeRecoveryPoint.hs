@@ -97,6 +97,8 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
 
 instance Hashable RetrieveTapeRecoveryPoint
 
+instance NFData RetrieveTapeRecoveryPoint
+
 instance ToHeaders RetrieveTapeRecoveryPoint where
         toHeaders
           = const
@@ -152,3 +154,5 @@ rtrprsTapeARN = lens _rtrprsTapeARN (\ s a -> s{_rtrprsTapeARN = a});
 -- | The response status code.
 rtrprsResponseStatus :: Lens' RetrieveTapeRecoveryPointResponse Int
 rtrprsResponseStatus = lens _rtrprsResponseStatus (\ s a -> s{_rtrprsResponseStatus = a});
+
+instance NFData RetrieveTapeRecoveryPointResponse

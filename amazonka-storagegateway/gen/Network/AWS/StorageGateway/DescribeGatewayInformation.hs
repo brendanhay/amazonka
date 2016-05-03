@@ -97,6 +97,8 @@ instance AWSRequest DescribeGatewayInformation where
 
 instance Hashable DescribeGatewayInformation
 
+instance NFData DescribeGatewayInformation
+
 instance ToHeaders DescribeGatewayInformation where
         toHeaders
           = const
@@ -220,3 +222,5 @@ dgirsGatewayTimezone = lens _dgirsGatewayTimezone (\ s a -> s{_dgirsGatewayTimez
 -- | The response status code.
 dgirsResponseStatus :: Lens' DescribeGatewayInformationResponse Int
 dgirsResponseStatus = lens _dgirsResponseStatus (\ s a -> s{_dgirsResponseStatus = a});
+
+instance NFData DescribeGatewayInformationResponse

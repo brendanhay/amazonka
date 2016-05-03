@@ -87,6 +87,8 @@ instance AWSRequest GetGameSessionLogURL where
 
 instance Hashable GetGameSessionLogURL
 
+instance NFData GetGameSessionLogURL
+
 instance ToHeaders GetGameSessionLogURL where
         toHeaders
           = const
@@ -139,3 +141,5 @@ ggslursPreSignedURL = lens _ggslursPreSignedURL (\ s a -> s{_ggslursPreSignedURL
 -- | The response status code.
 ggslursResponseStatus :: Lens' GetGameSessionLogURLResponse Int
 ggslursResponseStatus = lens _ggslursResponseStatus (\ s a -> s{_ggslursResponseStatus = a});
+
+instance NFData GetGameSessionLogURLResponse

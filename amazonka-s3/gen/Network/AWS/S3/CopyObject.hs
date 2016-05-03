@@ -394,6 +394,8 @@ instance AWSRequest CopyObject where
 
 instance Hashable CopyObject
 
+instance NFData CopyObject
+
 instance ToHeaders CopyObject where
         toHeaders CopyObject'{..}
           = mconcat
@@ -546,3 +548,5 @@ corsCopyObjectResult = lens _corsCopyObjectResult (\ s a -> s{_corsCopyObjectRes
 -- | The response status code.
 corsResponseStatus :: Lens' CopyObjectResponse Int
 corsResponseStatus = lens _corsResponseStatus (\ s a -> s{_corsResponseStatus = a});
+
+instance NFData CopyObjectResponse

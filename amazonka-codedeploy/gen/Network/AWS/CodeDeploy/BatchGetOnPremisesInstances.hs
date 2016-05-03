@@ -78,6 +78,8 @@ instance AWSRequest BatchGetOnPremisesInstances where
 
 instance Hashable BatchGetOnPremisesInstances
 
+instance NFData BatchGetOnPremisesInstances
+
 instance ToHeaders BatchGetOnPremisesInstances where
         toHeaders
           = const
@@ -131,3 +133,5 @@ bgopirsInstanceInfos = lens _bgopirsInstanceInfos (\ s a -> s{_bgopirsInstanceIn
 -- | The response status code.
 bgopirsResponseStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
 bgopirsResponseStatus = lens _bgopirsResponseStatus (\ s a -> s{_bgopirsResponseStatus = a});
+
+instance NFData BatchGetOnPremisesInstancesResponse

@@ -88,6 +88,8 @@ instance AWSRequest ListBranches where
 
 instance Hashable ListBranches
 
+instance NFData ListBranches
+
 instance ToHeaders ListBranches where
         toHeaders
           = const
@@ -149,3 +151,5 @@ lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
 -- | The response status code.
 lbrsResponseStatus :: Lens' ListBranchesResponse Int
 lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
+
+instance NFData ListBranchesResponse

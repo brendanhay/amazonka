@@ -83,6 +83,8 @@ instance AWSRequest DescribeLoadBalancerPolicyTypes
 
 instance Hashable DescribeLoadBalancerPolicyTypes
 
+instance NFData DescribeLoadBalancerPolicyTypes
+
 instance ToHeaders DescribeLoadBalancerPolicyTypes
          where
         toHeaders = const mempty
@@ -130,3 +132,6 @@ dlbptrsPolicyTypeDescriptions = lens _dlbptrsPolicyTypeDescriptions (\ s a -> s{
 -- | The response status code.
 dlbptrsResponseStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
 dlbptrsResponseStatus = lens _dlbptrsResponseStatus (\ s a -> s{_dlbptrsResponseStatus = a});
+
+instance NFData
+         DescribeLoadBalancerPolicyTypesResponse

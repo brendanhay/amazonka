@@ -135,6 +135,8 @@ instance AWSRequest DescribeStream where
 
 instance Hashable DescribeStream
 
+instance NFData DescribeStream
+
 instance ToHeaders DescribeStream where
         toHeaders
           = const
@@ -193,3 +195,5 @@ dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = 
 -- shards available.
 dsrsStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a});
+
+instance NFData DescribeStreamResponse

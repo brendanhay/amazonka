@@ -61,6 +61,8 @@ instance FromJSON Bucket where
 
 instance Hashable Bucket
 
+instance NFData Bucket
+
 -- | A container for the calculated facet values and counts.
 --
 -- /See:/ 'bucketInfo' smart constructor.
@@ -90,6 +92,8 @@ instance FromJSON BucketInfo where
               (\ x -> BucketInfo' <$> (x .:? "buckets" .!= mempty))
 
 instance Hashable BucketInfo
+
+instance NFData BucketInfo
 
 -- | A warning returned by the document service when an issue is discovered
 -- while processing an upload request.
@@ -122,6 +126,8 @@ instance FromJSON DocumentServiceWarning where
                  DocumentServiceWarning' <$> (x .:? "message"))
 
 instance Hashable DocumentServiceWarning
+
+instance NFData DocumentServiceWarning
 
 -- | The statistics for a field calculated in the request.
 --
@@ -242,6 +248,8 @@ instance FromJSON FieldStats where
 
 instance Hashable FieldStats
 
+instance NFData FieldStats
+
 -- | Information about a document that matches the search request.
 --
 -- /See:/ 'hit' smart constructor.
@@ -300,6 +308,8 @@ instance FromJSON Hit where
                      <*> (x .:? "fields" .!= mempty))
 
 instance Hashable Hit
+
+instance NFData Hit
 
 -- | The collection of documents that match the search request.
 --
@@ -360,6 +370,8 @@ instance FromJSON Hits where
 
 instance Hashable Hits
 
+instance NFData Hits
+
 -- | Contains the resource id ('rid') and the time it took to process the
 -- request ('timems').
 --
@@ -399,6 +411,8 @@ instance FromJSON SearchStatus where
                  SearchStatus' <$> (x .:? "rid") <*> (x .:? "timems"))
 
 instance Hashable SearchStatus
+
+instance NFData SearchStatus
 
 -- | Container for the suggestion information returned in a
 -- 'SuggestResponse'.
@@ -450,6 +464,8 @@ instance FromJSON SuggestModel where
 
 instance Hashable SuggestModel
 
+instance NFData SuggestModel
+
 -- | Contains the resource id ('rid') and the time it took to process the
 -- request ('timems').
 --
@@ -490,6 +506,8 @@ instance FromJSON SuggestStatus where
                    (x .:? "rid") <*> (x .:? "timems"))
 
 instance Hashable SuggestStatus
+
+instance NFData SuggestStatus
 
 -- | An autocomplete suggestion that matches the query string specified in a
 -- 'SuggestRequest'.
@@ -541,3 +559,5 @@ instance FromJSON SuggestionMatch where
                      (x .:? "id"))
 
 instance Hashable SuggestionMatch
+
+instance NFData SuggestionMatch

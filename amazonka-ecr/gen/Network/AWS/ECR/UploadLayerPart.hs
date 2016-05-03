@@ -143,6 +143,8 @@ instance AWSRequest UploadLayerPart where
 
 instance Hashable UploadLayerPart
 
+instance NFData UploadLayerPart
+
 instance ToHeaders UploadLayerPart where
         toHeaders
           = const
@@ -223,3 +225,5 @@ ulprsUploadId = lens _ulprsUploadId (\ s a -> s{_ulprsUploadId = a});
 -- | The response status code.
 ulprsResponseStatus :: Lens' UploadLayerPartResponse Int
 ulprsResponseStatus = lens _ulprsResponseStatus (\ s a -> s{_ulprsResponseStatus = a});
+
+instance NFData UploadLayerPartResponse

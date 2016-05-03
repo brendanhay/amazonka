@@ -87,6 +87,8 @@ instance AWSRequest SetTimeBasedAutoScaling where
 
 instance Hashable SetTimeBasedAutoScaling
 
+instance NFData SetTimeBasedAutoScaling
+
 instance ToHeaders SetTimeBasedAutoScaling where
         toHeaders
           = const
@@ -121,3 +123,5 @@ data SetTimeBasedAutoScalingResponse =
 setTimeBasedAutoScalingResponse
     :: SetTimeBasedAutoScalingResponse
 setTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse'
+
+instance NFData SetTimeBasedAutoScalingResponse

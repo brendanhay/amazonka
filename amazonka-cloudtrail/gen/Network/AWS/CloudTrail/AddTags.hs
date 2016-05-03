@@ -90,6 +90,8 @@ instance AWSRequest AddTags where
 
 instance Hashable AddTags
 
+instance NFData AddTags
+
 instance ToHeaders AddTags where
         toHeaders
           = const
@@ -137,3 +139,5 @@ addTagsResponse pResponseStatus_ =
 -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
 atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
+
+instance NFData AddTagsResponse

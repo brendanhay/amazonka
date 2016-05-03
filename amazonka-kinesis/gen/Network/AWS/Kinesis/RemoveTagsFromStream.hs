@@ -83,6 +83,8 @@ instance AWSRequest RemoveTagsFromStream where
 
 instance Hashable RemoveTagsFromStream
 
+instance NFData RemoveTagsFromStream
+
 instance ToHeaders RemoveTagsFromStream where
         toHeaders
           = const
@@ -116,3 +118,5 @@ data RemoveTagsFromStreamResponse =
 removeTagsFromStreamResponse
     :: RemoveTagsFromStreamResponse
 removeTagsFromStreamResponse = RemoveTagsFromStreamResponse'
+
+instance NFData RemoveTagsFromStreamResponse

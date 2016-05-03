@@ -237,6 +237,8 @@ instance AWSRequest UpdateAutoScalingGroup where
 
 instance Hashable UpdateAutoScalingGroup
 
+instance NFData UpdateAutoScalingGroup
+
 instance ToHeaders UpdateAutoScalingGroup where
         toHeaders = const mempty
 
@@ -280,3 +282,5 @@ data UpdateAutoScalingGroupResponse =
 updateAutoScalingGroupResponse
     :: UpdateAutoScalingGroupResponse
 updateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse'
+
+instance NFData UpdateAutoScalingGroupResponse

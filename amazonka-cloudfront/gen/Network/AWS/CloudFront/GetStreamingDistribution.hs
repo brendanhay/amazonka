@@ -80,6 +80,8 @@ instance AWSRequest GetStreamingDistribution where
 
 instance Hashable GetStreamingDistribution
 
+instance NFData GetStreamingDistribution
+
 instance ToHeaders GetStreamingDistribution where
         toHeaders = const mempty
 
@@ -131,3 +133,5 @@ gsdrsStreamingDistribution = lens _gsdrsStreamingDistribution (\ s a -> s{_gsdrs
 -- | The response status code.
 gsdrsResponseStatus :: Lens' GetStreamingDistributionResponse Int
 gsdrsResponseStatus = lens _gsdrsResponseStatus (\ s a -> s{_gsdrsResponseStatus = a});
+
+instance NFData GetStreamingDistributionResponse

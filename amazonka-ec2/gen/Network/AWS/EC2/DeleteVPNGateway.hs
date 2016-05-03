@@ -84,6 +84,8 @@ instance AWSRequest DeleteVPNGateway where
 
 instance Hashable DeleteVPNGateway
 
+instance NFData DeleteVPNGateway
+
 instance ToHeaders DeleteVPNGateway where
         toHeaders = const mempty
 
@@ -108,3 +110,5 @@ data DeleteVPNGatewayResponse =
 deleteVPNGatewayResponse
     :: DeleteVPNGatewayResponse
 deleteVPNGatewayResponse = DeleteVPNGatewayResponse'
+
+instance NFData DeleteVPNGatewayResponse

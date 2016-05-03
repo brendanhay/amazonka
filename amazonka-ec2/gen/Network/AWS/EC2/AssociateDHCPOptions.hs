@@ -104,6 +104,8 @@ instance AWSRequest AssociateDHCPOptions where
 
 instance Hashable AssociateDHCPOptions
 
+instance NFData AssociateDHCPOptions
+
 instance ToHeaders AssociateDHCPOptions where
         toHeaders = const mempty
 
@@ -129,3 +131,5 @@ data AssociateDHCPOptionsResponse =
 associateDHCPOptionsResponse
     :: AssociateDHCPOptionsResponse
 associateDHCPOptionsResponse = AssociateDHCPOptionsResponse'
+
+instance NFData AssociateDHCPOptionsResponse

@@ -72,6 +72,8 @@ instance AWSRequest DeleteHSMClientCertificate where
 
 instance Hashable DeleteHSMClientCertificate
 
+instance NFData DeleteHSMClientCertificate
+
 instance ToHeaders DeleteHSMClientCertificate where
         toHeaders = const mempty
 
@@ -97,3 +99,5 @@ data DeleteHSMClientCertificateResponse =
 deleteHSMClientCertificateResponse
     :: DeleteHSMClientCertificateResponse
 deleteHSMClientCertificateResponse = DeleteHSMClientCertificateResponse'
+
+instance NFData DeleteHSMClientCertificateResponse

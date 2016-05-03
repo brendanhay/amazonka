@@ -153,6 +153,8 @@ instance AWSRequest DescribeClassicLinkInstances
 
 instance Hashable DescribeClassicLinkInstances
 
+instance NFData DescribeClassicLinkInstances
+
 instance ToHeaders DescribeClassicLinkInstances where
         toHeaders = const mempty
 
@@ -210,3 +212,5 @@ dclirsInstances = lens _dclirsInstances (\ s a -> s{_dclirsInstances = a}) . _De
 -- | The response status code.
 dclirsResponseStatus :: Lens' DescribeClassicLinkInstancesResponse Int
 dclirsResponseStatus = lens _dclirsResponseStatus (\ s a -> s{_dclirsResponseStatus = a});
+
+instance NFData DescribeClassicLinkInstancesResponse

@@ -99,6 +99,8 @@ instance AWSRequest DescribeWorkspaceDirectories
 
 instance Hashable DescribeWorkspaceDirectories
 
+instance NFData DescribeWorkspaceDirectories
+
 instance ToHeaders DescribeWorkspaceDirectories where
         toHeaders
           = const
@@ -164,3 +166,5 @@ dwdrsNextToken = lens _dwdrsNextToken (\ s a -> s{_dwdrsNextToken = a});
 -- | The response status code.
 dwdrsResponseStatus :: Lens' DescribeWorkspaceDirectoriesResponse Int
 dwdrsResponseStatus = lens _dwdrsResponseStatus (\ s a -> s{_dwdrsResponseStatus = a});
+
+instance NFData DescribeWorkspaceDirectoriesResponse

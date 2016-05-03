@@ -122,6 +122,8 @@ instance AWSRequest DescribeCacheParameterGroups
 
 instance Hashable DescribeCacheParameterGroups
 
+instance NFData DescribeCacheParameterGroups
+
 instance ToHeaders DescribeCacheParameterGroups where
         toHeaders = const mempty
 
@@ -179,3 +181,5 @@ dcpgrsMarker = lens _dcpgrsMarker (\ s a -> s{_dcpgrsMarker = a});
 -- | The response status code.
 dcpgrsResponseStatus :: Lens' DescribeCacheParameterGroupsResponse Int
 dcpgrsResponseStatus = lens _dcpgrsResponseStatus (\ s a -> s{_dcpgrsResponseStatus = a});
+
+instance NFData DescribeCacheParameterGroupsResponse

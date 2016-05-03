@@ -65,6 +65,8 @@ instance AWSRequest GetDirectoryLimits where
 
 instance Hashable GetDirectoryLimits
 
+instance NFData GetDirectoryLimits
+
 instance ToHeaders GetDirectoryLimits where
         toHeaders
           = const
@@ -116,3 +118,5 @@ gdlrsDirectoryLimits = lens _gdlrsDirectoryLimits (\ s a -> s{_gdlrsDirectoryLim
 -- | The response status code.
 gdlrsResponseStatus :: Lens' GetDirectoryLimitsResponse Int
 gdlrsResponseStatus = lens _gdlrsResponseStatus (\ s a -> s{_gdlrsResponseStatus = a});
+
+instance NFData GetDirectoryLimitsResponse

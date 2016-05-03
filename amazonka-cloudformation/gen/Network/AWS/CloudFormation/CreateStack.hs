@@ -260,6 +260,8 @@ instance AWSRequest CreateStack where
 
 instance Hashable CreateStack
 
+instance NFData CreateStack
+
 instance ToHeaders CreateStack where
         toHeaders = const mempty
 
@@ -321,3 +323,5 @@ csrsStackId = lens _csrsStackId (\ s a -> s{_csrsStackId = a});
 -- | The response status code.
 csrsResponseStatus :: Lens' CreateStackResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+
+instance NFData CreateStackResponse

@@ -109,6 +109,8 @@ instance AWSRequest UpdateDevicePool where
 
 instance Hashable UpdateDevicePool
 
+instance NFData UpdateDevicePool
+
 instance ToHeaders UpdateDevicePool where
         toHeaders
           = const
@@ -165,3 +167,5 @@ udprsDevicePool = lens _udprsDevicePool (\ s a -> s{_udprsDevicePool = a});
 -- | The response status code.
 udprsResponseStatus :: Lens' UpdateDevicePoolResponse Int
 udprsResponseStatus = lens _udprsResponseStatus (\ s a -> s{_udprsResponseStatus = a});
+
+instance NFData UpdateDevicePoolResponse

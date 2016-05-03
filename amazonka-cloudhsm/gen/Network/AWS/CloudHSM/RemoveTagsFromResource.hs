@@ -91,6 +91,8 @@ instance AWSRequest RemoveTagsFromResource where
 
 instance Hashable RemoveTagsFromResource
 
+instance NFData RemoveTagsFromResource
+
 instance ToHeaders RemoveTagsFromResource where
         toHeaders
           = const
@@ -144,3 +146,5 @@ rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseSta
 -- | The status of the operation.
 rtfrrsStatus :: Lens' RemoveTagsFromResourceResponse Text
 rtfrrsStatus = lens _rtfrrsStatus (\ s a -> s{_rtfrrsStatus = a});
+
+instance NFData RemoveTagsFromResourceResponse

@@ -132,6 +132,8 @@ instance AWSRequest ListAccessKeys where
 
 instance Hashable ListAccessKeys
 
+instance NFData ListAccessKeys
+
 instance ToHeaders ListAccessKeys where
         toHeaders = const mempty
 
@@ -201,3 +203,5 @@ lakrsResponseStatus = lens _lakrsResponseStatus (\ s a -> s{_lakrsResponseStatus
 -- | A list of access key metadata.
 lakrsAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
 lakrsAccessKeyMetadata = lens _lakrsAccessKeyMetadata (\ s a -> s{_lakrsAccessKeyMetadata = a}) . _Coerce;
+
+instance NFData ListAccessKeysResponse

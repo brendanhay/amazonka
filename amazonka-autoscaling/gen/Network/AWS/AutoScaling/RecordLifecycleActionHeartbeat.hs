@@ -130,6 +130,8 @@ instance AWSRequest RecordLifecycleActionHeartbeat
 
 instance Hashable RecordLifecycleActionHeartbeat
 
+instance NFData RecordLifecycleActionHeartbeat
+
 instance ToHeaders RecordLifecycleActionHeartbeat
          where
         toHeaders = const mempty
@@ -169,3 +171,6 @@ recordLifecycleActionHeartbeatResponse pResponseStatus_ =
 -- | The response status code.
 rlahrsResponseStatus :: Lens' RecordLifecycleActionHeartbeatResponse Int
 rlahrsResponseStatus = lens _rlahrsResponseStatus (\ s a -> s{_rlahrsResponseStatus = a});
+
+instance NFData
+         RecordLifecycleActionHeartbeatResponse

@@ -93,6 +93,8 @@ instance AWSRequest DescribeRDSDBInstances where
 
 instance Hashable DescribeRDSDBInstances
 
+instance NFData DescribeRDSDBInstances
+
 instance ToHeaders DescribeRDSDBInstances where
         toHeaders
           = const
@@ -147,3 +149,5 @@ drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\ s a -> s{_drdirsRDSDBInstan
 -- | The response status code.
 drdirsResponseStatus :: Lens' DescribeRDSDBInstancesResponse Int
 drdirsResponseStatus = lens _drdirsResponseStatus (\ s a -> s{_drdirsResponseStatus = a});
+
+instance NFData DescribeRDSDBInstancesResponse

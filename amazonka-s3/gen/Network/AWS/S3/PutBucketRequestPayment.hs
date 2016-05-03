@@ -94,6 +94,8 @@ instance AWSRequest PutBucketRequestPayment where
 
 instance Hashable PutBucketRequestPayment
 
+instance NFData PutBucketRequestPayment
+
 instance ToElement PutBucketRequestPayment where
         toElement
           = mkElement
@@ -122,3 +124,5 @@ data PutBucketRequestPaymentResponse =
 putBucketRequestPaymentResponse
     :: PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse'
+
+instance NFData PutBucketRequestPaymentResponse

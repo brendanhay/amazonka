@@ -125,6 +125,8 @@ instance AWSRequest ListVolumes where
 
 instance Hashable ListVolumes
 
+instance NFData ListVolumes
+
 instance ToHeaders ListVolumes where
         toHeaders
           = const
@@ -194,3 +196,5 @@ lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _De
 -- | The response status code.
 lvrsResponseStatus :: Lens' ListVolumesResponse Int
 lvrsResponseStatus = lens _lvrsResponseStatus (\ s a -> s{_lvrsResponseStatus = a});
+
+instance NFData ListVolumesResponse

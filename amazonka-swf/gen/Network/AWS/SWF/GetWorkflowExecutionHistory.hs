@@ -163,6 +163,8 @@ instance AWSRequest GetWorkflowExecutionHistory where
 
 instance Hashable GetWorkflowExecutionHistory
 
+instance NFData GetWorkflowExecutionHistory
+
 instance ToHeaders GetWorkflowExecutionHistory where
         toHeaders
           = const
@@ -236,3 +238,5 @@ gwehrsResponseStatus = lens _gwehrsResponseStatus (\ s a -> s{_gwehrsResponseSta
 -- | The list of history events.
 gwehrsEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
 gwehrsEvents = lens _gwehrsEvents (\ s a -> s{_gwehrsEvents = a}) . _Coerce;
+
+instance NFData GetWorkflowExecutionHistoryResponse

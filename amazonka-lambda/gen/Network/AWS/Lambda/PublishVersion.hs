@@ -116,6 +116,8 @@ instance AWSRequest PublishVersion where
 
 instance Hashable PublishVersion
 
+instance NFData PublishVersion
+
 instance ToHeaders PublishVersion where
         toHeaders = const mempty
 

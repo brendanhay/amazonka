@@ -93,6 +93,8 @@ instance AWSRequest DetachInternetGateway where
 
 instance Hashable DetachInternetGateway
 
+instance NFData DetachInternetGateway
+
 instance ToHeaders DetachInternetGateway where
         toHeaders = const mempty
 
@@ -118,3 +120,5 @@ data DetachInternetGatewayResponse =
 detachInternetGatewayResponse
     :: DetachInternetGatewayResponse
 detachInternetGatewayResponse = DetachInternetGatewayResponse'
+
+instance NFData DetachInternetGatewayResponse

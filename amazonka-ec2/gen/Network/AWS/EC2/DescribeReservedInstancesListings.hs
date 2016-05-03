@@ -130,6 +130,8 @@ instance AWSRequest DescribeReservedInstancesListings
 
 instance Hashable DescribeReservedInstancesListings
 
+instance NFData DescribeReservedInstancesListings
+
 instance ToHeaders DescribeReservedInstancesListings
          where
         toHeaders = const mempty
@@ -179,3 +181,6 @@ drilrsReservedInstancesListings = lens _drilrsReservedInstancesListings (\ s a -
 -- | The response status code.
 drilrsResponseStatus :: Lens' DescribeReservedInstancesListingsResponse Int
 drilrsResponseStatus = lens _drilrsResponseStatus (\ s a -> s{_drilrsResponseStatus = a});
+
+instance NFData
+         DescribeReservedInstancesListingsResponse

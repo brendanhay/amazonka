@@ -83,6 +83,8 @@ instance AWSRequest DescribeTaskDefinition where
 
 instance Hashable DescribeTaskDefinition
 
+instance NFData DescribeTaskDefinition
+
 instance ToHeaders DescribeTaskDefinition where
         toHeaders
           = const
@@ -134,3 +136,5 @@ desrsTaskDefinition = lens _desrsTaskDefinition (\ s a -> s{_desrsTaskDefinition
 -- | The response status code.
 desrsResponseStatus :: Lens' DescribeTaskDefinitionResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+
+instance NFData DescribeTaskDefinitionResponse

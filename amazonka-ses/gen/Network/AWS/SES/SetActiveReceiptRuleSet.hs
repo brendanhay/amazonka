@@ -83,6 +83,8 @@ instance AWSRequest SetActiveReceiptRuleSet where
 
 instance Hashable SetActiveReceiptRuleSet
 
+instance NFData SetActiveReceiptRuleSet
+
 instance ToHeaders SetActiveReceiptRuleSet where
         toHeaders = const mempty
 
@@ -118,3 +120,5 @@ setActiveReceiptRuleSetResponse pResponseStatus_ =
 -- | The response status code.
 sarrsrsResponseStatus :: Lens' SetActiveReceiptRuleSetResponse Int
 sarrsrsResponseStatus = lens _sarrsrsResponseStatus (\ s a -> s{_sarrsrsResponseStatus = a});
+
+instance NFData SetActiveReceiptRuleSetResponse

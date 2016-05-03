@@ -100,6 +100,8 @@ instance FromXML ApplicationDescription where
 
 instance Hashable ApplicationDescription
 
+instance NFData ApplicationDescription
+
 -- | Result message containing a single description of an application.
 --
 -- /See:/ 'applicationDescriptionMessage' smart constructor.
@@ -129,6 +131,8 @@ instance FromXML ApplicationDescriptionMessage where
               (x .@? "Application")
 
 instance Hashable ApplicationDescriptionMessage
+
+instance NFData ApplicationDescriptionMessage
 
 -- | Represents the application metrics for a specified environment.
 --
@@ -191,6 +195,8 @@ instance FromXML ApplicationMetrics where
                 <*> (x .@? "Duration")
 
 instance Hashable ApplicationMetrics
+
+instance NFData ApplicationMetrics
 
 -- | Describes the properties of an application version.
 --
@@ -275,6 +281,8 @@ instance FromXML ApplicationVersionDescription where
 
 instance Hashable ApplicationVersionDescription
 
+instance NFData ApplicationVersionDescription
+
 -- | Result message wrapping a single description of an application version.
 --
 -- /See:/ 'applicationVersionDescriptionMessage' smart constructor.
@@ -307,6 +315,8 @@ instance FromXML ApplicationVersionDescriptionMessage
 instance Hashable
          ApplicationVersionDescriptionMessage
 
+instance NFData ApplicationVersionDescriptionMessage
+
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
@@ -334,6 +344,8 @@ instance FromXML AutoScalingGroup where
         parseXML x = AutoScalingGroup' <$> (x .@? "Name")
 
 instance Hashable AutoScalingGroup
+
+instance NFData AutoScalingGroup
 
 -- | Represents CPU utilization information from the specified instance that
 -- belongs to the AWS Elastic Beanstalk environment. Use the 'instanceId'
@@ -427,6 +439,8 @@ instance FromXML CPUUtilization where
                 <*> (x .@? "Nice")
 
 instance Hashable CPUUtilization
+
+instance NFData CPUUtilization
 
 -- | Describes the possible values for a configuration option.
 --
@@ -586,6 +600,8 @@ instance FromXML ConfigurationOptionDescription where
 
 instance Hashable ConfigurationOptionDescription
 
+instance NFData ConfigurationOptionDescription
+
 -- | A specification identifying an individual configuration option along
 -- with its current value. For a list of possible option values, go to
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html Option Values>
@@ -644,6 +660,8 @@ instance FromXML ConfigurationOptionSetting where
                 <*> (x .@? "Value")
 
 instance Hashable ConfigurationOptionSetting
+
+instance NFData ConfigurationOptionSetting
 
 instance ToQuery ConfigurationOptionSetting where
         toQuery ConfigurationOptionSetting'{..}
@@ -768,6 +786,8 @@ instance FromXML ConfigurationSettingsDescription
                 <*> (x .@? "Description")
 
 instance Hashable ConfigurationSettingsDescription
+
+instance NFData ConfigurationSettingsDescription
 
 -- | Describes the properties of an environment.
 --
@@ -984,6 +1004,8 @@ instance FromXML EnvironmentDescription where
 
 instance Hashable EnvironmentDescription
 
+instance NFData EnvironmentDescription
+
 -- | Result message containing a list of environment descriptions.
 --
 -- /See:/ 'environmentDescriptionsMessage' smart constructor.
@@ -1014,6 +1036,8 @@ instance FromXML EnvironmentDescriptionsMessage where
                  may (parseXMLList "member"))
 
 instance Hashable EnvironmentDescriptionsMessage
+
+instance NFData EnvironmentDescriptionsMessage
 
 -- | The information retrieved from the Amazon EC2 instances.
 --
@@ -1071,6 +1095,8 @@ instance FromXML EnvironmentInfoDescription where
 
 instance Hashable EnvironmentInfoDescription
 
+instance NFData EnvironmentInfoDescription
+
 -- | A link to another environment, defined in the environment\'s manifest.
 -- Links provide connection information in system properties that can be
 -- used to connect to another environment in the same group. See
@@ -1112,6 +1138,8 @@ instance FromXML EnvironmentLink where
               (x .@? "LinkName") <*> (x .@? "EnvironmentName")
 
 instance Hashable EnvironmentLink
+
+instance NFData EnvironmentLink
 
 -- | Describes the AWS resources in use by this environment. This data is
 -- live.
@@ -1209,6 +1237,8 @@ instance FromXML EnvironmentResourceDescription where
 
 instance Hashable EnvironmentResourceDescription
 
+instance NFData EnvironmentResourceDescription
+
 -- | Describes the AWS resources in use by this environment. This data is not
 -- live data.
 --
@@ -1240,6 +1270,8 @@ instance FromXML EnvironmentResourcesDescription
               (x .@? "LoadBalancer")
 
 instance Hashable EnvironmentResourcesDescription
+
+instance NFData EnvironmentResourcesDescription
 
 -- | Describes the properties of an environment tier
 --
@@ -1287,6 +1319,8 @@ instance FromXML EnvironmentTier where
                 (x .@? "Type")
 
 instance Hashable EnvironmentTier
+
+instance NFData EnvironmentTier
 
 instance ToQuery EnvironmentTier where
         toQuery EnvironmentTier'{..}
@@ -1387,6 +1421,8 @@ instance FromXML EventDescription where
 
 instance Hashable EventDescription
 
+instance NFData EventDescription
+
 -- | The description of an Amazon EC2 instance.
 --
 -- /See:/ 'instance'' smart constructor.
@@ -1414,6 +1450,8 @@ instance FromXML Instance where
         parseXML x = Instance' <$> (x .@? "Id")
 
 instance Hashable Instance
+
+instance NFData Instance
 
 -- | Represents summary information about the health of an instance. For more
 -- information, see
@@ -1516,6 +1554,8 @@ instance FromXML InstanceHealthSummary where
 
 instance Hashable InstanceHealthSummary
 
+instance NFData InstanceHealthSummary
+
 -- | Represents the average latency for the slowest X percent of requests
 -- over the last 10 seconds.
 --
@@ -1616,6 +1656,8 @@ instance FromXML Latency where
 
 instance Hashable Latency
 
+instance NFData Latency
+
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'launchConfiguration' smart constructor.
@@ -1643,6 +1685,8 @@ instance FromXML LaunchConfiguration where
         parseXML x = LaunchConfiguration' <$> (x .@? "Name")
 
 instance Hashable LaunchConfiguration
+
+instance NFData LaunchConfiguration
 
 -- | Describes the properties of a Listener for the LoadBalancer.
 --
@@ -1681,6 +1725,8 @@ instance FromXML Listener where
 
 instance Hashable Listener
 
+instance NFData Listener
+
 -- | Describes a LoadBalancer.
 --
 -- /See:/ 'loadBalancer' smart constructor.
@@ -1708,6 +1754,8 @@ instance FromXML LoadBalancer where
         parseXML x = LoadBalancer' <$> (x .@? "Name")
 
 instance Hashable LoadBalancer
+
+instance NFData LoadBalancer
 
 -- | Describes the details of a LoadBalancer.
 --
@@ -1757,6 +1805,8 @@ instance FromXML LoadBalancerDescription where
 
 instance Hashable LoadBalancerDescription
 
+instance NFData LoadBalancerDescription
+
 -- | A regular expression representing a restriction on a string
 -- configuration option value.
 --
@@ -1796,6 +1846,8 @@ instance FromXML OptionRestrictionRegex where
               (x .@? "Pattern") <*> (x .@? "Label")
 
 instance Hashable OptionRestrictionRegex
+
+instance NFData OptionRestrictionRegex
 
 -- | A specification identifying an individual configuration option.
 --
@@ -1837,6 +1889,8 @@ osNamespace :: Lens' OptionSpecification (Maybe Text)
 osNamespace = lens _osNamespace (\ s a -> s{_osNamespace = a});
 
 instance Hashable OptionSpecification
+
+instance NFData OptionSpecification
 
 instance ToQuery OptionSpecification where
         toQuery OptionSpecification'{..}
@@ -1882,6 +1936,8 @@ instance FromXML Queue where
 
 instance Hashable Queue
 
+instance NFData Queue
+
 -- | A specification of a location in Amazon S3.
 --
 -- /See:/ 's3Location' smart constructor.
@@ -1919,6 +1975,8 @@ instance FromXML S3Location where
               (x .@? "S3Key") <*> (x .@? "S3Bucket")
 
 instance Hashable S3Location
+
+instance NFData S3Location
 
 instance ToQuery S3Location where
         toQuery S3Location'{..}
@@ -2018,6 +2076,8 @@ instance FromXML SingleInstanceHealth where
 
 instance Hashable SingleInstanceHealth
 
+instance NFData SingleInstanceHealth
+
 -- | Describes the solution stack.
 --
 -- /See:/ 'solutionStackDescription' smart constructor.
@@ -2058,6 +2118,8 @@ instance FromXML SolutionStackDescription where
 
 instance Hashable SolutionStackDescription
 
+instance NFData SolutionStackDescription
+
 -- | A specification for an environment configuration
 --
 -- /See:/ 'sourceConfiguration' smart constructor.
@@ -2090,6 +2152,8 @@ scApplicationName :: Lens' SourceConfiguration (Maybe Text)
 scApplicationName = lens _scApplicationName (\ s a -> s{_scApplicationName = a});
 
 instance Hashable SourceConfiguration
+
+instance NFData SourceConfiguration
 
 instance ToQuery SourceConfiguration where
         toQuery SourceConfiguration'{..}
@@ -2159,6 +2223,8 @@ instance FromXML StatusCodes where
 
 instance Hashable StatusCodes
 
+instance NFData StatusCodes
+
 -- | Represents CPU utilization and load average information for applications
 -- running in the specified environment.
 --
@@ -2202,6 +2268,8 @@ instance FromXML SystemStatus where
 
 instance Hashable SystemStatus
 
+instance NFData SystemStatus
+
 -- | Describes a tag applied to a resource in an environment.
 --
 -- /See:/ 'tag' smart constructor.
@@ -2235,6 +2303,8 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
 instance Hashable Tag
 
+instance NFData Tag
+
 instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
@@ -2266,6 +2336,8 @@ instance FromXML Trigger where
         parseXML x = Trigger' <$> (x .@? "Name")
 
 instance Hashable Trigger
+
+instance NFData Trigger
 
 -- | An error or warning for a desired configuration option value.
 --
@@ -2327,3 +2399,5 @@ instance FromXML ValidationMessage where
                 <*> (x .@? "Message")
 
 instance Hashable ValidationMessage
+
+instance NFData ValidationMessage

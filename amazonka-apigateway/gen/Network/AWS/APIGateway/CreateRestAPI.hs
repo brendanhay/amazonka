@@ -93,6 +93,8 @@ instance AWSRequest CreateRestAPI where
 
 instance Hashable CreateRestAPI
 
+instance NFData CreateRestAPI
+
 instance ToHeaders CreateRestAPI where
         toHeaders
           = const

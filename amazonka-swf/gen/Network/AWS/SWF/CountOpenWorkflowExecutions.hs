@@ -150,6 +150,8 @@ instance AWSRequest CountOpenWorkflowExecutions where
 
 instance Hashable CountOpenWorkflowExecutions
 
+instance NFData CountOpenWorkflowExecutions
+
 instance ToHeaders CountOpenWorkflowExecutions where
         toHeaders
           = const

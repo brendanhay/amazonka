@@ -65,6 +65,8 @@ instance AWSRequest CreateStorageLocation where
 
 instance Hashable CreateStorageLocation
 
+instance NFData CreateStorageLocation
+
 instance ToHeaders CreateStorageLocation where
         toHeaders = const mempty
 
@@ -109,3 +111,5 @@ cslrsS3Bucket = lens _cslrsS3Bucket (\ s a -> s{_cslrsS3Bucket = a});
 -- | The response status code.
 cslrsResponseStatus :: Lens' CreateStorageLocationResponse Int
 cslrsResponseStatus = lens _cslrsResponseStatus (\ s a -> s{_cslrsResponseStatus = a});
+
+instance NFData CreateStorageLocationResponse

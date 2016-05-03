@@ -96,6 +96,8 @@ instance AWSRequest SetEndpointAttributes where
 
 instance Hashable SetEndpointAttributes
 
+instance NFData SetEndpointAttributes
+
 instance ToHeaders SetEndpointAttributes where
         toHeaders = const mempty
 
@@ -121,3 +123,5 @@ data SetEndpointAttributesResponse =
 setEndpointAttributesResponse
     :: SetEndpointAttributesResponse
 setEndpointAttributesResponse = SetEndpointAttributesResponse'
+
+instance NFData SetEndpointAttributesResponse

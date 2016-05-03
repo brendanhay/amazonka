@@ -105,6 +105,8 @@ instance AWSRequest DescribeRAIdArrays where
 
 instance Hashable DescribeRAIdArrays
 
+instance NFData DescribeRAIdArrays
+
 instance ToHeaders DescribeRAIdArrays where
         toHeaders
           = const
@@ -160,3 +162,5 @@ draiarsRAIdArrays = lens _draiarsRAIdArrays (\ s a -> s{_draiarsRAIdArrays = a})
 -- | The response status code.
 draiarsResponseStatus :: Lens' DescribeRAIdArraysResponse Int
 draiarsResponseStatus = lens _draiarsResponseStatus (\ s a -> s{_draiarsResponseStatus = a});
+
+instance NFData DescribeRAIdArraysResponse

@@ -137,6 +137,8 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext
 
 instance Hashable GenerateDataKeyWithoutPlaintext
 
+instance NFData GenerateDataKeyWithoutPlaintext
+
 instance ToHeaders GenerateDataKeyWithoutPlaintext
          where
         toHeaders
@@ -214,3 +216,6 @@ gdkwprsCiphertextBlob = lens _gdkwprsCiphertextBlob (\ s a -> s{_gdkwprsCipherte
 -- | The response status code.
 gdkwprsResponseStatus :: Lens' GenerateDataKeyWithoutPlaintextResponse Int
 gdkwprsResponseStatus = lens _gdkwprsResponseStatus (\ s a -> s{_gdkwprsResponseStatus = a});
+
+instance NFData
+         GenerateDataKeyWithoutPlaintextResponse

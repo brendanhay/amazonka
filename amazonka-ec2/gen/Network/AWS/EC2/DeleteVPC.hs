@@ -85,6 +85,8 @@ instance AWSRequest DeleteVPC where
 
 instance Hashable DeleteVPC
 
+instance NFData DeleteVPC
+
 instance ToHeaders DeleteVPC where
         toHeaders = const mempty
 
@@ -108,3 +110,5 @@ data DeleteVPCResponse =
 deleteVPCResponse
     :: DeleteVPCResponse
 deleteVPCResponse = DeleteVPCResponse'
+
+instance NFData DeleteVPCResponse

@@ -108,6 +108,8 @@ instance AWSRequest DescribeStacks where
 
 instance Hashable DescribeStacks
 
+instance NFData DescribeStacks
+
 instance ToHeaders DescribeStacks where
         toHeaders = const mempty
 
@@ -162,3 +164,5 @@ dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce
 -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStacksResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+
+instance NFData DescribeStacksResponse

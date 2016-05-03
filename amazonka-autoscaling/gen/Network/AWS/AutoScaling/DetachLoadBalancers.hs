@@ -88,6 +88,8 @@ instance AWSRequest DetachLoadBalancers where
 
 instance Hashable DetachLoadBalancers
 
+instance NFData DetachLoadBalancers
+
 instance ToHeaders DetachLoadBalancers where
         toHeaders = const mempty
 
@@ -125,3 +127,5 @@ detachLoadBalancersResponse pResponseStatus_ =
 -- | The response status code.
 dlbsrsResponseStatus :: Lens' DetachLoadBalancersResponse Int
 dlbsrsResponseStatus = lens _dlbsrsResponseStatus (\ s a -> s{_dlbsrsResponseStatus = a});
+
+instance NFData DetachLoadBalancersResponse

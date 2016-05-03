@@ -92,6 +92,8 @@ instance AWSRequest DeletePolicyVersion where
 
 instance Hashable DeletePolicyVersion
 
+instance NFData DeletePolicyVersion
+
 instance ToHeaders DeletePolicyVersion where
         toHeaders = const mempty
 
@@ -116,3 +118,5 @@ data DeletePolicyVersionResponse =
 deletePolicyVersionResponse
     :: DeletePolicyVersionResponse
 deletePolicyVersionResponse = DeletePolicyVersionResponse'
+
+instance NFData DeletePolicyVersionResponse

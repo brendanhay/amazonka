@@ -79,6 +79,8 @@ instance AWSRequest GetAssessmentTelemetry where
 
 instance Hashable GetAssessmentTelemetry
 
+instance NFData GetAssessmentTelemetry
+
 instance ToHeaders GetAssessmentTelemetry where
         toHeaders
           = const
@@ -130,3 +132,5 @@ gatrsTelemetry = lens _gatrsTelemetry (\ s a -> s{_gatrsTelemetry = a}) . _Defau
 -- | The response status code.
 gatrsResponseStatus :: Lens' GetAssessmentTelemetryResponse Int
 gatrsResponseStatus = lens _gatrsResponseStatus (\ s a -> s{_gatrsResponseStatus = a});
+
+instance NFData GetAssessmentTelemetryResponse

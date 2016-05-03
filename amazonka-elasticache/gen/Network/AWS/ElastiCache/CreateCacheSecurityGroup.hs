@@ -102,6 +102,8 @@ instance AWSRequest CreateCacheSecurityGroup where
 
 instance Hashable CreateCacheSecurityGroup
 
+instance NFData CreateCacheSecurityGroup
+
 instance ToHeaders CreateCacheSecurityGroup where
         toHeaders = const mempty
 
@@ -147,3 +149,5 @@ ccsgrsCacheSecurityGroup = lens _ccsgrsCacheSecurityGroup (\ s a -> s{_ccsgrsCac
 -- | The response status code.
 ccsgrsResponseStatus :: Lens' CreateCacheSecurityGroupResponse Int
 ccsgrsResponseStatus = lens _ccsgrsResponseStatus (\ s a -> s{_ccsgrsResponseStatus = a});
+
+instance NFData CreateCacheSecurityGroupResponse

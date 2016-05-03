@@ -72,6 +72,8 @@ instance AWSRequest DeleteSnapshotCopyGrant where
 
 instance Hashable DeleteSnapshotCopyGrant
 
+instance NFData DeleteSnapshotCopyGrant
+
 instance ToHeaders DeleteSnapshotCopyGrant where
         toHeaders = const mempty
 
@@ -97,3 +99,5 @@ data DeleteSnapshotCopyGrantResponse =
 deleteSnapshotCopyGrantResponse
     :: DeleteSnapshotCopyGrantResponse
 deleteSnapshotCopyGrantResponse = DeleteSnapshotCopyGrantResponse'
+
+instance NFData DeleteSnapshotCopyGrantResponse

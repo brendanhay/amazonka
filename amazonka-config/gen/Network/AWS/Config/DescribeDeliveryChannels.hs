@@ -82,6 +82,8 @@ instance AWSRequest DescribeDeliveryChannels where
 
 instance Hashable DescribeDeliveryChannels
 
+instance NFData DescribeDeliveryChannels
+
 instance ToHeaders DescribeDeliveryChannels where
         toHeaders
           = const
@@ -136,3 +138,5 @@ ddcrsDeliveryChannels = lens _ddcrsDeliveryChannels (\ s a -> s{_ddcrsDeliveryCh
 -- | The response status code.
 ddcrsResponseStatus :: Lens' DescribeDeliveryChannelsResponse Int
 ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a});
+
+instance NFData DescribeDeliveryChannelsResponse

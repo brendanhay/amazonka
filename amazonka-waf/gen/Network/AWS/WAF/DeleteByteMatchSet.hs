@@ -101,6 +101,8 @@ instance AWSRequest DeleteByteMatchSet where
 
 instance Hashable DeleteByteMatchSet
 
+instance NFData DeleteByteMatchSet
+
 instance ToHeaders DeleteByteMatchSet where
         toHeaders
           = const
@@ -154,3 +156,5 @@ dbmsrsChangeToken = lens _dbmsrsChangeToken (\ s a -> s{_dbmsrsChangeToken = a})
 -- | The response status code.
 dbmsrsResponseStatus :: Lens' DeleteByteMatchSetResponse Int
 dbmsrsResponseStatus = lens _dbmsrsResponseStatus (\ s a -> s{_dbmsrsResponseStatus = a});
+
+instance NFData DeleteByteMatchSetResponse

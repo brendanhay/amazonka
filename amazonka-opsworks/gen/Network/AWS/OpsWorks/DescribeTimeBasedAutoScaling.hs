@@ -87,6 +87,8 @@ instance AWSRequest DescribeTimeBasedAutoScaling
 
 instance Hashable DescribeTimeBasedAutoScaling
 
+instance NFData DescribeTimeBasedAutoScaling
+
 instance ToHeaders DescribeTimeBasedAutoScaling where
         toHeaders
           = const
@@ -141,3 +143,5 @@ dtbasrsTimeBasedAutoScalingConfigurations = lens _dtbasrsTimeBasedAutoScalingCon
 -- | The response status code.
 dtbasrsResponseStatus :: Lens' DescribeTimeBasedAutoScalingResponse Int
 dtbasrsResponseStatus = lens _dtbasrsResponseStatus (\ s a -> s{_dtbasrsResponseStatus = a});
+
+instance NFData DescribeTimeBasedAutoScalingResponse

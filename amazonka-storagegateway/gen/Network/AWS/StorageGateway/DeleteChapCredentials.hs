@@ -96,6 +96,8 @@ instance AWSRequest DeleteChapCredentials where
 
 instance Hashable DeleteChapCredentials
 
+instance NFData DeleteChapCredentials
+
 instance ToHeaders DeleteChapCredentials where
         toHeaders
           = const
@@ -158,3 +160,5 @@ drsInitiatorName = lens _drsInitiatorName (\ s a -> s{_drsInitiatorName = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteChapCredentialsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteChapCredentialsResponse

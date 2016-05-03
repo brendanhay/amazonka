@@ -104,6 +104,8 @@ instance AWSRequest
 instance Hashable
          SetLoadBalancerListenerSSLCertificate
 
+instance NFData SetLoadBalancerListenerSSLCertificate
+
 instance ToHeaders
          SetLoadBalancerListenerSSLCertificate where
         toHeaders = const mempty
@@ -145,3 +147,6 @@ setLoadBalancerListenerSSLCertificateResponse pResponseStatus_ =
 -- | The response status code.
 slblscrsResponseStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
 slblscrsResponseStatus = lens _slblscrsResponseStatus (\ s a -> s{_slblscrsResponseStatus = a});
+
+instance NFData
+         SetLoadBalancerListenerSSLCertificateResponse

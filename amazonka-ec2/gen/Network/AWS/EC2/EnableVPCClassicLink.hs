@@ -96,6 +96,8 @@ instance AWSRequest EnableVPCClassicLink where
 
 instance Hashable EnableVPCClassicLink
 
+instance NFData EnableVPCClassicLink
+
 instance ToHeaders EnableVPCClassicLink where
         toHeaders = const mempty
 
@@ -138,3 +140,5 @@ evclrsReturn = lens _evclrsReturn (\ s a -> s{_evclrsReturn = a});
 -- | The response status code.
 evclrsResponseStatus :: Lens' EnableVPCClassicLinkResponse Int
 evclrsResponseStatus = lens _evclrsResponseStatus (\ s a -> s{_evclrsResponseStatus = a});
+
+instance NFData EnableVPCClassicLinkResponse

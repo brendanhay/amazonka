@@ -79,6 +79,8 @@ instance AWSRequest DeleteVirtualInterface where
 
 instance Hashable DeleteVirtualInterface
 
+instance NFData DeleteVirtualInterface
+
 instance ToHeaders DeleteVirtualInterface where
         toHeaders
           = const
@@ -133,3 +135,5 @@ dvirsVirtualInterfaceState = lens _dvirsVirtualInterfaceState (\ s a -> s{_dvirs
 -- | The response status code.
 dvirsResponseStatus :: Lens' DeleteVirtualInterfaceResponse Int
 dvirsResponseStatus = lens _dvirsResponseStatus (\ s a -> s{_dvirsResponseStatus = a});
+
+instance NFData DeleteVirtualInterfaceResponse

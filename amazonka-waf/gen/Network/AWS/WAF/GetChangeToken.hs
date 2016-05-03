@@ -76,6 +76,8 @@ instance AWSRequest GetChangeToken where
 
 instance Hashable GetChangeToken
 
+instance NFData GetChangeToken
+
 instance ToHeaders GetChangeToken where
         toHeaders
           = const
@@ -124,3 +126,5 @@ gctrsChangeToken = lens _gctrsChangeToken (\ s a -> s{_gctrsChangeToken = a});
 -- | The response status code.
 gctrsResponseStatus :: Lens' GetChangeTokenResponse Int
 gctrsResponseStatus = lens _gctrsResponseStatus (\ s a -> s{_gctrsResponseStatus = a});
+
+instance NFData GetChangeTokenResponse

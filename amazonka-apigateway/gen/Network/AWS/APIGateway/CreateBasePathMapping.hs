@@ -107,6 +107,8 @@ instance AWSRequest CreateBasePathMapping where
 
 instance Hashable CreateBasePathMapping
 
+instance NFData CreateBasePathMapping
+
 instance ToHeaders CreateBasePathMapping where
         toHeaders
           = const

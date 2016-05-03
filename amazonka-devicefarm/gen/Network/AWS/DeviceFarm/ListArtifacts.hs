@@ -107,6 +107,8 @@ instance AWSRequest ListArtifacts where
 
 instance Hashable ListArtifacts
 
+instance NFData ListArtifacts
+
 instance ToHeaders ListArtifacts where
         toHeaders
           = const
@@ -170,3 +172,5 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 -- | The response status code.
 larsResponseStatus :: Lens' ListArtifactsResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
+
+instance NFData ListArtifactsResponse

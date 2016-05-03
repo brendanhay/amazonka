@@ -99,6 +99,8 @@ instance AWSRequest CreatePlacementGroup where
 
 instance Hashable CreatePlacementGroup
 
+instance NFData CreatePlacementGroup
+
 instance ToHeaders CreatePlacementGroup where
         toHeaders = const mempty
 
@@ -123,3 +125,5 @@ data CreatePlacementGroupResponse =
 createPlacementGroupResponse
     :: CreatePlacementGroupResponse
 createPlacementGroupResponse = CreatePlacementGroupResponse'
+
+instance NFData CreatePlacementGroupResponse

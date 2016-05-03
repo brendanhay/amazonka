@@ -156,6 +156,8 @@ instance AWSRequest PutMethod where
 
 instance Hashable PutMethod
 
+instance NFData PutMethod
+
 instance ToHeaders PutMethod where
         toHeaders
           = const

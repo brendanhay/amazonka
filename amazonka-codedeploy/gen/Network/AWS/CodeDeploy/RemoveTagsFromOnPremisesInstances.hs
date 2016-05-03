@@ -83,6 +83,8 @@ instance AWSRequest RemoveTagsFromOnPremisesInstances
 
 instance Hashable RemoveTagsFromOnPremisesInstances
 
+instance NFData RemoveTagsFromOnPremisesInstances
+
 instance ToHeaders RemoveTagsFromOnPremisesInstances
          where
         toHeaders
@@ -121,3 +123,6 @@ removeTagsFromOnPremisesInstancesResponse
     :: RemoveTagsFromOnPremisesInstancesResponse
 removeTagsFromOnPremisesInstancesResponse =
     RemoveTagsFromOnPremisesInstancesResponse'
+
+instance NFData
+         RemoveTagsFromOnPremisesInstancesResponse

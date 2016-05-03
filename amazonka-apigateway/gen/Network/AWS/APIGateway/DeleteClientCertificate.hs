@@ -70,6 +70,8 @@ instance AWSRequest DeleteClientCertificate where
 
 instance Hashable DeleteClientCertificate
 
+instance NFData DeleteClientCertificate
+
 instance ToHeaders DeleteClientCertificate where
         toHeaders
           = const
@@ -95,3 +97,5 @@ data DeleteClientCertificateResponse =
 deleteClientCertificateResponse
     :: DeleteClientCertificateResponse
 deleteClientCertificateResponse = DeleteClientCertificateResponse'
+
+instance NFData DeleteClientCertificateResponse

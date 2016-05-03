@@ -514,6 +514,8 @@ instance AWSRequest Search where
 
 instance Hashable Search
 
+instance NFData Search
+
 instance ToHeaders Search where
         toHeaders
           = const
@@ -594,3 +596,5 @@ searsHits = lens _searsHits (\ s a -> s{_searsHits = a});
 -- | The response status code.
 searsResponseStatus :: Lens' SearchResponse Int
 searsResponseStatus = lens _searsResponseStatus (\ s a -> s{_searsResponseStatus = a});
+
+instance NFData SearchResponse

@@ -81,6 +81,8 @@ instance AWSRequest DisableVPCClassicLinkDNSSupport
 
 instance Hashable DisableVPCClassicLinkDNSSupport
 
+instance NFData DisableVPCClassicLinkDNSSupport
+
 instance ToHeaders DisableVPCClassicLinkDNSSupport
          where
         toHeaders = const mempty
@@ -126,3 +128,6 @@ dvcldsrsReturn = lens _dvcldsrsReturn (\ s a -> s{_dvcldsrsReturn = a});
 -- | The response status code.
 dvcldsrsResponseStatus :: Lens' DisableVPCClassicLinkDNSSupportResponse Int
 dvcldsrsResponseStatus = lens _dvcldsrsResponseStatus (\ s a -> s{_dvcldsrsResponseStatus = a});
+
+instance NFData
+         DisableVPCClassicLinkDNSSupportResponse

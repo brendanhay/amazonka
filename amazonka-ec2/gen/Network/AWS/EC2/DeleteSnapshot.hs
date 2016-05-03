@@ -96,6 +96,8 @@ instance AWSRequest DeleteSnapshot where
 
 instance Hashable DeleteSnapshot
 
+instance NFData DeleteSnapshot
+
 instance ToHeaders DeleteSnapshot where
         toHeaders = const mempty
 
@@ -120,3 +122,5 @@ data DeleteSnapshotResponse =
 deleteSnapshotResponse
     :: DeleteSnapshotResponse
 deleteSnapshotResponse = DeleteSnapshotResponse'
+
+instance NFData DeleteSnapshotResponse

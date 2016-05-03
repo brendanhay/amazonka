@@ -714,6 +714,8 @@ instance AWSRequest UpdateItem where
 
 instance Hashable UpdateItem
 
+instance NFData UpdateItem
+
 instance ToHeaders UpdateItem where
         toHeaders
           = const
@@ -802,3 +804,5 @@ uirsAttributes = lens _uirsAttributes (\ s a -> s{_uirsAttributes = a}) . _Defau
 -- | The response status code.
 uirsResponseStatus :: Lens' UpdateItemResponse Int
 uirsResponseStatus = lens _uirsResponseStatus (\ s a -> s{_uirsResponseStatus = a});
+
+instance NFData UpdateItemResponse

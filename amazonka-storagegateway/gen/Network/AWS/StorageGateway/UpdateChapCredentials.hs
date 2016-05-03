@@ -130,6 +130,8 @@ instance AWSRequest UpdateChapCredentials where
 
 instance Hashable UpdateChapCredentials
 
+instance NFData UpdateChapCredentials
+
 instance ToHeaders UpdateChapCredentials where
         toHeaders
           = const
@@ -199,3 +201,5 @@ uccrsInitiatorName = lens _uccrsInitiatorName (\ s a -> s{_uccrsInitiatorName = 
 -- | The response status code.
 uccrsResponseStatus :: Lens' UpdateChapCredentialsResponse Int
 uccrsResponseStatus = lens _uccrsResponseStatus (\ s a -> s{_uccrsResponseStatus = a});
+
+instance NFData UpdateChapCredentialsResponse

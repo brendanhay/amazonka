@@ -117,6 +117,8 @@ instance AWSRequest GetExport where
 
 instance Hashable GetExport
 
+instance NFData GetExport
+
 instance ToHeaders GetExport where
         toHeaders GetExport'{..}
           = mconcat
@@ -181,3 +183,5 @@ gersContentType = lens _gersContentType (\ s a -> s{_gersContentType = a});
 -- | The response status code.
 gersResponseStatus :: Lens' GetExportResponse Int
 gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a});
+
+instance NFData GetExportResponse

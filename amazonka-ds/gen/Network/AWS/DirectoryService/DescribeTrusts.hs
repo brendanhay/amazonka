@@ -117,6 +117,8 @@ instance AWSRequest DescribeTrusts where
 
 instance Hashable DescribeTrusts
 
+instance NFData DescribeTrusts
+
 instance ToHeaders DescribeTrusts where
         toHeaders
           = const
@@ -186,3 +188,5 @@ dtrsTrusts = lens _dtrsTrusts (\ s a -> s{_dtrsTrusts = a}) . _Default . _Coerce
 -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTrustsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+
+instance NFData DescribeTrustsResponse

@@ -167,6 +167,8 @@ instance AWSRequest TerminateWorkflowExecution where
 
 instance Hashable TerminateWorkflowExecution
 
+instance NFData TerminateWorkflowExecution
+
 instance ToHeaders TerminateWorkflowExecution where
         toHeaders
           = const
@@ -204,3 +206,5 @@ data TerminateWorkflowExecutionResponse =
 terminateWorkflowExecutionResponse
     :: TerminateWorkflowExecutionResponse
 terminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse'
+
+instance NFData TerminateWorkflowExecutionResponse

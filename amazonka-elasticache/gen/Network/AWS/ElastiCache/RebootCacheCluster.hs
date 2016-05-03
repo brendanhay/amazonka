@@ -100,6 +100,8 @@ instance AWSRequest RebootCacheCluster where
 
 instance Hashable RebootCacheCluster
 
+instance NFData RebootCacheCluster
+
 instance ToHeaders RebootCacheCluster where
         toHeaders = const mempty
 
@@ -144,3 +146,5 @@ rccrsCacheCluster = lens _rccrsCacheCluster (\ s a -> s{_rccrsCacheCluster = a})
 -- | The response status code.
 rccrsResponseStatus :: Lens' RebootCacheClusterResponse Int
 rccrsResponseStatus = lens _rccrsResponseStatus (\ s a -> s{_rccrsResponseStatus = a});
+
+instance NFData RebootCacheClusterResponse

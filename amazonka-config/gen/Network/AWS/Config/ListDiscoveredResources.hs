@@ -147,6 +147,8 @@ instance AWSRequest ListDiscoveredResources where
 
 instance Hashable ListDiscoveredResources
 
+instance NFData ListDiscoveredResources
+
 instance ToHeaders ListDiscoveredResources where
         toHeaders
           = const
@@ -215,3 +217,5 @@ ldrrsResourceIdentifiers = lens _ldrrsResourceIdentifiers (\ s a -> s{_ldrrsReso
 -- | The response status code.
 ldrrsResponseStatus :: Lens' ListDiscoveredResourcesResponse Int
 ldrrsResponseStatus = lens _ldrrsResponseStatus (\ s a -> s{_ldrrsResponseStatus = a});
+
+instance NFData ListDiscoveredResourcesResponse

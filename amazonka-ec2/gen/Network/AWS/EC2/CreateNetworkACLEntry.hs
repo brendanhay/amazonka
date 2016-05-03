@@ -173,6 +173,8 @@ instance AWSRequest CreateNetworkACLEntry where
 
 instance Hashable CreateNetworkACLEntry
 
+instance NFData CreateNetworkACLEntry
+
 instance ToHeaders CreateNetworkACLEntry where
         toHeaders = const mempty
 
@@ -204,3 +206,5 @@ data CreateNetworkACLEntryResponse =
 createNetworkACLEntryResponse
     :: CreateNetworkACLEntryResponse
 createNetworkACLEntryResponse = CreateNetworkACLEntryResponse'
+
+instance NFData CreateNetworkACLEntryResponse

@@ -212,6 +212,8 @@ instance AWSRequest DescribeDBSnapshots where
 
 instance Hashable DescribeDBSnapshots
 
+instance NFData DescribeDBSnapshots
+
 instance ToHeaders DescribeDBSnapshots where
         toHeaders = const mempty
 
@@ -275,3 +277,5 @@ ddsrsDBSnapshots = lens _ddsrsDBSnapshots (\ s a -> s{_ddsrsDBSnapshots = a}) . 
 -- | The response status code.
 ddsrsResponseStatus :: Lens' DescribeDBSnapshotsResponse Int
 ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});
+
+instance NFData DescribeDBSnapshotsResponse

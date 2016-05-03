@@ -305,6 +305,8 @@ instance AWSRequest RunJobFlow where
 
 instance Hashable RunJobFlow
 
+instance NFData RunJobFlow
+
 instance ToHeaders RunJobFlow where
         toHeaders
           = const
@@ -373,3 +375,5 @@ rjfrsJobFlowId = lens _rjfrsJobFlowId (\ s a -> s{_rjfrsJobFlowId = a});
 -- | The response status code.
 rjfrsResponseStatus :: Lens' RunJobFlowResponse Int
 rjfrsResponseStatus = lens _rjfrsResponseStatus (\ s a -> s{_rjfrsResponseStatus = a});
+
+instance NFData RunJobFlowResponse

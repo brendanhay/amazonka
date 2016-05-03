@@ -122,6 +122,8 @@ instance AWSRequest CreatePipeline where
 
 instance Hashable CreatePipeline
 
+instance NFData CreatePipeline
+
 instance ToHeaders CreatePipeline where
         toHeaders
           = const
@@ -178,3 +180,5 @@ cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = 
 -- example, 'df-06372391ZG65EXAMPLE'.
 cprsPipelineId :: Lens' CreatePipelineResponse Text
 cprsPipelineId = lens _cprsPipelineId (\ s a -> s{_cprsPipelineId = a});
+
+instance NFData CreatePipelineResponse

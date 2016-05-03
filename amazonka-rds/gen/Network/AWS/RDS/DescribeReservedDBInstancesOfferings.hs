@@ -190,6 +190,8 @@ instance AWSRequest
 instance Hashable
          DescribeReservedDBInstancesOfferings
 
+instance NFData DescribeReservedDBInstancesOfferings
+
 instance ToHeaders
          DescribeReservedDBInstancesOfferings where
         toHeaders = const mempty
@@ -260,3 +262,6 @@ drdiorsReservedDBInstancesOfferings = lens _drdiorsReservedDBInstancesOfferings 
 -- | The response status code.
 drdiorsResponseStatus :: Lens' DescribeReservedDBInstancesOfferingsResponse Int
 drdiorsResponseStatus = lens _drdiorsResponseStatus (\ s a -> s{_drdiorsResponseStatus = a});
+
+instance NFData
+         DescribeReservedDBInstancesOfferingsResponse

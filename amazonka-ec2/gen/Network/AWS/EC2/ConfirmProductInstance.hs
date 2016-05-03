@@ -103,6 +103,8 @@ instance AWSRequest ConfirmProductInstance where
 
 instance Hashable ConfirmProductInstance
 
+instance NFData ConfirmProductInstance
+
 instance ToHeaders ConfirmProductInstance where
         toHeaders = const mempty
 
@@ -159,3 +161,5 @@ cpirsOwnerId = lens _cpirsOwnerId (\ s a -> s{_cpirsOwnerId = a});
 -- | The response status code.
 cpirsResponseStatus :: Lens' ConfirmProductInstanceResponse Int
 cpirsResponseStatus = lens _cpirsResponseStatus (\ s a -> s{_cpirsResponseStatus = a});
+
+instance NFData ConfirmProductInstanceResponse

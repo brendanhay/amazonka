@@ -83,6 +83,8 @@ instance AWSRequest DeleteNetworkInterface where
 
 instance Hashable DeleteNetworkInterface
 
+instance NFData DeleteNetworkInterface
+
 instance ToHeaders DeleteNetworkInterface where
         toHeaders = const mempty
 
@@ -108,3 +110,5 @@ data DeleteNetworkInterfaceResponse =
 deleteNetworkInterfaceResponse
     :: DeleteNetworkInterfaceResponse
 deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse'
+
+instance NFData DeleteNetworkInterfaceResponse

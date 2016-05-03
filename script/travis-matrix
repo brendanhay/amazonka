@@ -41,7 +41,7 @@ TITLE
 }
 
 ghc_710=( 7.10.3 )
-ghc_all=( 7.10.3 7.8.4 )
+ghc_all=( 7.10.3 )
 
 matrix "Documentation" ghc_710[@] docs[@]
 matrix "Core" ghc_all[@] core[@]

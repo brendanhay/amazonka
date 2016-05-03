@@ -119,6 +119,8 @@ instance AWSRequest CreateLBCookieStickinessPolicy
 
 instance Hashable CreateLBCookieStickinessPolicy
 
+instance NFData CreateLBCookieStickinessPolicy
+
 instance ToHeaders CreateLBCookieStickinessPolicy
          where
         toHeaders = const mempty
@@ -158,3 +160,6 @@ createLBCookieStickinessPolicyResponse pResponseStatus_ =
 -- | The response status code.
 clbcsprsResponseStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
 clbcsprsResponseStatus = lens _clbcsprsResponseStatus (\ s a -> s{_clbcsprsResponseStatus = a});
+
+instance NFData
+         CreateLBCookieStickinessPolicyResponse

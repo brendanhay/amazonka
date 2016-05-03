@@ -108,6 +108,8 @@ instance AWSRequest DescribeVolumeAttribute where
 
 instance Hashable DescribeVolumeAttribute
 
+instance NFData DescribeVolumeAttribute
+
 instance ToHeaders DescribeVolumeAttribute where
         toHeaders = const mempty
 
@@ -168,3 +170,5 @@ dvarsAutoEnableIO = lens _dvarsAutoEnableIO (\ s a -> s{_dvarsAutoEnableIO = a})
 -- | The response status code.
 dvarsResponseStatus :: Lens' DescribeVolumeAttributeResponse Int
 dvarsResponseStatus = lens _dvarsResponseStatus (\ s a -> s{_dvarsResponseStatus = a});
+
+instance NFData DescribeVolumeAttributeResponse

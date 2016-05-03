@@ -119,6 +119,8 @@ instance AWSRequest RequestEnvironmentInfo where
 
 instance Hashable RequestEnvironmentInfo
 
+instance NFData RequestEnvironmentInfo
+
 instance ToHeaders RequestEnvironmentInfo where
         toHeaders = const mempty
 
@@ -145,3 +147,5 @@ data RequestEnvironmentInfoResponse =
 requestEnvironmentInfoResponse
     :: RequestEnvironmentInfoResponse
 requestEnvironmentInfoResponse = RequestEnvironmentInfoResponse'
+
+instance NFData RequestEnvironmentInfoResponse

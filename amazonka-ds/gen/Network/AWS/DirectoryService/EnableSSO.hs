@@ -103,6 +103,8 @@ instance AWSRequest EnableSSO where
 
 instance Hashable EnableSSO
 
+instance NFData EnableSSO
+
 instance ToHeaders EnableSSO where
         toHeaders
           = const
@@ -150,3 +152,5 @@ enableSSOResponse pResponseStatus_ =
 -- | The response status code.
 esrsResponseStatus :: Lens' EnableSSOResponse Int
 esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});
+
+instance NFData EnableSSOResponse

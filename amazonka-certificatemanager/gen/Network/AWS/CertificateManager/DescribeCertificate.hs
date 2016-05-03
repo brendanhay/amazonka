@@ -86,6 +86,8 @@ instance AWSRequest DescribeCertificate where
 
 instance Hashable DescribeCertificate
 
+instance NFData DescribeCertificate
+
 instance ToHeaders DescribeCertificate where
         toHeaders
           = const
@@ -138,3 +140,5 @@ dcrsCertificate = lens _dcrsCertificate (\ s a -> s{_dcrsCertificate = a});
 -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCertificateResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+
+instance NFData DescribeCertificateResponse

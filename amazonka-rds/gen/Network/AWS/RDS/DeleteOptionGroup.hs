@@ -72,6 +72,8 @@ instance AWSRequest DeleteOptionGroup where
 
 instance Hashable DeleteOptionGroup
 
+instance NFData DeleteOptionGroup
+
 instance ToHeaders DeleteOptionGroup where
         toHeaders = const mempty
 
@@ -95,3 +97,5 @@ data DeleteOptionGroupResponse =
 deleteOptionGroupResponse
     :: DeleteOptionGroupResponse
 deleteOptionGroupResponse = DeleteOptionGroupResponse'
+
+instance NFData DeleteOptionGroupResponse

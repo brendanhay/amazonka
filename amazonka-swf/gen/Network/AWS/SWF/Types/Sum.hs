@@ -43,6 +43,7 @@ instance ToText ActivityTaskTimeoutType where
         ATTTStartToClose -> "START_TO_CLOSE"
 
 instance Hashable     ActivityTaskTimeoutType
+instance NFData       ActivityTaskTimeoutType
 instance ToByteString ActivityTaskTimeoutType
 instance ToQuery      ActivityTaskTimeoutType
 instance ToHeader     ActivityTaskTimeoutType
@@ -68,6 +69,7 @@ instance ToText CancelTimerFailedCause where
         CTFCTimerIdUnknown -> "TIMER_ID_UNKNOWN"
 
 instance Hashable     CancelTimerFailedCause
+instance NFData       CancelTimerFailedCause
 instance ToByteString CancelTimerFailedCause
 instance ToQuery      CancelTimerFailedCause
 instance ToHeader     CancelTimerFailedCause
@@ -93,6 +95,7 @@ instance ToText CancelWorkflowExecutionFailedCause where
         CUnhandledDecision -> "UNHANDLED_DECISION"
 
 instance Hashable     CancelWorkflowExecutionFailedCause
+instance NFData       CancelWorkflowExecutionFailedCause
 instance ToByteString CancelWorkflowExecutionFailedCause
 instance ToQuery      CancelWorkflowExecutionFailedCause
 instance ToHeader     CancelWorkflowExecutionFailedCause
@@ -121,6 +124,7 @@ instance ToText ChildPolicy where
         Terminate -> "TERMINATE"
 
 instance Hashable     ChildPolicy
+instance NFData       ChildPolicy
 instance ToByteString ChildPolicy
 instance ToQuery      ChildPolicy
 instance ToHeader     ChildPolicy
@@ -161,6 +165,7 @@ instance ToText CloseStatus where
         TimedOut -> "TIMED_OUT"
 
 instance Hashable     CloseStatus
+instance NFData       CloseStatus
 instance ToByteString CloseStatus
 instance ToQuery      CloseStatus
 instance ToHeader     CloseStatus
@@ -189,6 +194,7 @@ instance ToText CompleteWorkflowExecutionFailedCause where
         CWEFCUnhandledDecision -> "UNHANDLED_DECISION"
 
 instance Hashable     CompleteWorkflowExecutionFailedCause
+instance NFData       CompleteWorkflowExecutionFailedCause
 instance ToByteString CompleteWorkflowExecutionFailedCause
 instance ToQuery      CompleteWorkflowExecutionFailedCause
 instance ToHeader     CompleteWorkflowExecutionFailedCause
@@ -235,6 +241,7 @@ instance ToText ContinueAsNewWorkflowExecutionFailedCause where
         CANWEFCWorkflowTypeDoesNotExist -> "WORKFLOW_TYPE_DOES_NOT_EXIST"
 
 instance Hashable     ContinueAsNewWorkflowExecutionFailedCause
+instance NFData       ContinueAsNewWorkflowExecutionFailedCause
 instance ToByteString ContinueAsNewWorkflowExecutionFailedCause
 instance ToQuery      ContinueAsNewWorkflowExecutionFailedCause
 instance ToHeader     ContinueAsNewWorkflowExecutionFailedCause
@@ -257,6 +264,7 @@ instance ToText DecisionTaskTimeoutType where
         StartToClose -> "START_TO_CLOSE"
 
 instance Hashable     DecisionTaskTimeoutType
+instance NFData       DecisionTaskTimeoutType
 instance ToByteString DecisionTaskTimeoutType
 instance ToQuery      DecisionTaskTimeoutType
 instance ToHeader     DecisionTaskTimeoutType
@@ -315,6 +323,7 @@ instance ToText DecisionType where
         StartTimer -> "StartTimer"
 
 instance Hashable     DecisionType
+instance NFData       DecisionType
 instance ToByteString DecisionType
 instance ToQuery      DecisionType
 instance ToHeader     DecisionType
@@ -496,6 +505,7 @@ instance ToText EventType where
         WorkflowExecutionTimedOut -> "WorkflowExecutionTimedOut"
 
 instance Hashable     EventType
+instance NFData       EventType
 instance ToByteString EventType
 instance ToQuery      EventType
 instance ToHeader     EventType
@@ -521,6 +531,7 @@ instance ToText ExecutionStatus where
         Open -> "OPEN"
 
 instance Hashable     ExecutionStatus
+instance NFData       ExecutionStatus
 instance ToByteString ExecutionStatus
 instance ToQuery      ExecutionStatus
 instance ToHeader     ExecutionStatus
@@ -546,6 +557,7 @@ instance ToText FailWorkflowExecutionFailedCause where
         FWEFCUnhandledDecision -> "UNHANDLED_DECISION"
 
 instance Hashable     FailWorkflowExecutionFailedCause
+instance NFData       FailWorkflowExecutionFailedCause
 instance ToByteString FailWorkflowExecutionFailedCause
 instance ToQuery      FailWorkflowExecutionFailedCause
 instance ToHeader     FailWorkflowExecutionFailedCause
@@ -568,6 +580,7 @@ instance ToText LambdaFunctionTimeoutType where
         LFTTStartToClose -> "START_TO_CLOSE"
 
 instance Hashable     LambdaFunctionTimeoutType
+instance NFData       LambdaFunctionTimeoutType
 instance ToByteString LambdaFunctionTimeoutType
 instance ToQuery      LambdaFunctionTimeoutType
 instance ToHeader     LambdaFunctionTimeoutType
@@ -590,6 +603,7 @@ instance ToText RecordMarkerFailedCause where
         OperationNotPermitted -> "OPERATION_NOT_PERMITTED"
 
 instance Hashable     RecordMarkerFailedCause
+instance NFData       RecordMarkerFailedCause
 instance ToByteString RecordMarkerFailedCause
 instance ToQuery      RecordMarkerFailedCause
 instance ToHeader     RecordMarkerFailedCause
@@ -615,6 +629,7 @@ instance ToText RegistrationStatus where
         Registered -> "REGISTERED"
 
 instance Hashable     RegistrationStatus
+instance NFData       RegistrationStatus
 instance ToByteString RegistrationStatus
 instance ToQuery      RegistrationStatus
 instance ToHeader     RegistrationStatus
@@ -643,6 +658,7 @@ instance ToText RequestCancelActivityTaskFailedCause where
         RCATFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
 
 instance Hashable     RequestCancelActivityTaskFailedCause
+instance NFData       RequestCancelActivityTaskFailedCause
 instance ToByteString RequestCancelActivityTaskFailedCause
 instance ToQuery      RequestCancelActivityTaskFailedCause
 instance ToHeader     RequestCancelActivityTaskFailedCause
@@ -671,6 +687,7 @@ instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
         RCEWEFCUnknownExternalWorkflowExecution -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
 
 instance Hashable     RequestCancelExternalWorkflowExecutionFailedCause
+instance NFData       RequestCancelExternalWorkflowExecutionFailedCause
 instance ToByteString RequestCancelExternalWorkflowExecutionFailedCause
 instance ToQuery      RequestCancelExternalWorkflowExecutionFailedCause
 instance ToHeader     RequestCancelExternalWorkflowExecutionFailedCause
@@ -723,6 +740,7 @@ instance ToText ScheduleActivityTaskFailedCause where
         SATFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
 
 instance Hashable     ScheduleActivityTaskFailedCause
+instance NFData       ScheduleActivityTaskFailedCause
 instance ToByteString ScheduleActivityTaskFailedCause
 instance ToQuery      ScheduleActivityTaskFailedCause
 instance ToHeader     ScheduleActivityTaskFailedCause
@@ -754,6 +772,7 @@ instance ToText ScheduleLambdaFunctionFailedCause where
         OpenLambdaFunctionsLimitExceeded -> "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED"
 
 instance Hashable     ScheduleLambdaFunctionFailedCause
+instance NFData       ScheduleLambdaFunctionFailedCause
 instance ToByteString ScheduleLambdaFunctionFailedCause
 instance ToQuery      ScheduleLambdaFunctionFailedCause
 instance ToHeader     ScheduleLambdaFunctionFailedCause
@@ -782,6 +801,7 @@ instance ToText SignalExternalWorkflowExecutionFailedCause where
         SEWEFCUnknownExternalWorkflowExecution -> "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
 
 instance Hashable     SignalExternalWorkflowExecutionFailedCause
+instance NFData       SignalExternalWorkflowExecutionFailedCause
 instance ToByteString SignalExternalWorkflowExecutionFailedCause
 instance ToQuery      SignalExternalWorkflowExecutionFailedCause
 instance ToHeader     SignalExternalWorkflowExecutionFailedCause
@@ -834,6 +854,7 @@ instance ToText StartChildWorkflowExecutionFailedCause where
         SCWEFCWorkflowTypeDoesNotExist -> "WORKFLOW_TYPE_DOES_NOT_EXIST"
 
 instance Hashable     StartChildWorkflowExecutionFailedCause
+instance NFData       StartChildWorkflowExecutionFailedCause
 instance ToByteString StartChildWorkflowExecutionFailedCause
 instance ToQuery      StartChildWorkflowExecutionFailedCause
 instance ToHeader     StartChildWorkflowExecutionFailedCause
@@ -856,6 +877,7 @@ instance ToText StartLambdaFunctionFailedCause where
         AssumeRoleFailed -> "ASSUME_ROLE_FAILED"
 
 instance Hashable     StartLambdaFunctionFailedCause
+instance NFData       StartLambdaFunctionFailedCause
 instance ToByteString StartLambdaFunctionFailedCause
 instance ToQuery      StartLambdaFunctionFailedCause
 instance ToHeader     StartLambdaFunctionFailedCause
@@ -887,6 +909,7 @@ instance ToText StartTimerFailedCause where
         STFCTimerIdAlreadyInUse -> "TIMER_ID_ALREADY_IN_USE"
 
 instance Hashable     StartTimerFailedCause
+instance NFData       StartTimerFailedCause
 instance ToByteString StartTimerFailedCause
 instance ToQuery      StartTimerFailedCause
 instance ToHeader     StartTimerFailedCause
@@ -909,6 +932,7 @@ instance ToText WorkflowExecutionCancelRequestedCause where
         ChildPolicyApplied -> "CHILD_POLICY_APPLIED"
 
 instance Hashable     WorkflowExecutionCancelRequestedCause
+instance NFData       WorkflowExecutionCancelRequestedCause
 instance ToByteString WorkflowExecutionCancelRequestedCause
 instance ToQuery      WorkflowExecutionCancelRequestedCause
 instance ToHeader     WorkflowExecutionCancelRequestedCause
@@ -937,6 +961,7 @@ instance ToText WorkflowExecutionTerminatedCause where
         WETCOperatorInitiated -> "OPERATOR_INITIATED"
 
 instance Hashable     WorkflowExecutionTerminatedCause
+instance NFData       WorkflowExecutionTerminatedCause
 instance ToByteString WorkflowExecutionTerminatedCause
 instance ToQuery      WorkflowExecutionTerminatedCause
 instance ToHeader     WorkflowExecutionTerminatedCause
@@ -959,6 +984,7 @@ instance ToText WorkflowExecutionTimeoutType where
         WETTStartToClose -> "START_TO_CLOSE"
 
 instance Hashable     WorkflowExecutionTimeoutType
+instance NFData       WorkflowExecutionTimeoutType
 instance ToByteString WorkflowExecutionTimeoutType
 instance ToQuery      WorkflowExecutionTimeoutType
 instance ToHeader     WorkflowExecutionTimeoutType

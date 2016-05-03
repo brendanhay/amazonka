@@ -51,6 +51,8 @@ instance FromJSON ComputeType where
 
 instance Hashable ComputeType
 
+instance NFData ComputeType
+
 -- | Contains default WorkSpace creation information.
 --
 -- /See:/ 'defaultWorkspaceCreationProperties' smart constructor.
@@ -123,6 +125,8 @@ instance FromJSON DefaultWorkspaceCreationProperties
 
 instance Hashable DefaultWorkspaceCreationProperties
 
+instance NFData DefaultWorkspaceCreationProperties
+
 -- | Contains information about a WorkSpace that could not be created.
 --
 -- /See:/ 'failedCreateWorkspaceRequest' smart constructor.
@@ -172,6 +176,8 @@ instance FromJSON FailedCreateWorkspaceRequest where
                      <*> (x .:? "ErrorMessage"))
 
 instance Hashable FailedCreateWorkspaceRequest
+
+instance NFData FailedCreateWorkspaceRequest
 
 -- | Contains information about a WorkSpace that could not be rebooted
 -- (< RebootWorkspaces>), rebuilt (< RebuildWorkspaces>), or terminated
@@ -224,6 +230,8 @@ instance FromJSON FailedWorkspaceChangeRequest where
 
 instance Hashable FailedWorkspaceChangeRequest
 
+instance NFData FailedWorkspaceChangeRequest
+
 -- | Contains information used with the < RebootWorkspaces> operation to
 -- reboot a WorkSpace.
 --
@@ -250,6 +258,8 @@ rWorkspaceId :: Lens' RebootRequest Text
 rWorkspaceId = lens _rWorkspaceId (\ s a -> s{_rWorkspaceId = a});
 
 instance Hashable RebootRequest
+
+instance NFData RebootRequest
 
 instance ToJSON RebootRequest where
         toJSON RebootRequest'{..}
@@ -283,6 +293,8 @@ rrWorkspaceId = lens _rrWorkspaceId (\ s a -> s{_rrWorkspaceId = a});
 
 instance Hashable RebuildRequest
 
+instance NFData RebuildRequest
+
 instance ToJSON RebuildRequest where
         toJSON RebuildRequest'{..}
           = object
@@ -314,6 +326,8 @@ trWorkspaceId :: Lens' TerminateRequest Text
 trWorkspaceId = lens _trWorkspaceId (\ s a -> s{_trWorkspaceId = a});
 
 instance Hashable TerminateRequest
+
+instance NFData TerminateRequest
 
 instance ToJSON TerminateRequest where
         toJSON TerminateRequest'{..}
@@ -349,6 +363,8 @@ instance FromJSON UserStorage where
               (\ x -> UserStorage' <$> (x .:? "Capacity"))
 
 instance Hashable UserStorage
+
+instance NFData UserStorage
 
 -- | Contains information about a WorkSpace.
 --
@@ -493,6 +509,8 @@ instance FromJSON Workspace where
 
 instance Hashable Workspace
 
+instance NFData Workspace
+
 -- | Contains information about a WorkSpace bundle.
 --
 -- /See:/ 'workspaceBundle' smart constructor.
@@ -570,6 +588,8 @@ instance FromJSON WorkspaceBundle where
                      <*> (x .:? "Description"))
 
 instance Hashable WorkspaceBundle
+
+instance NFData WorkspaceBundle
 
 -- | Contains information about an AWS Directory Service directory for use
 -- with Amazon WorkSpaces.
@@ -709,6 +729,8 @@ instance FromJSON WorkspaceDirectory where
 
 instance Hashable WorkspaceDirectory
 
+instance NFData WorkspaceDirectory
+
 -- | Contains information about a WorkSpace creation request.
 --
 -- /See:/ 'workspaceRequest' smart constructor.
@@ -796,6 +818,8 @@ instance FromJSON WorkspaceRequest where
                      <*> (x .: "BundleId"))
 
 instance Hashable WorkspaceRequest
+
+instance NFData WorkspaceRequest
 
 instance ToJSON WorkspaceRequest where
         toJSON WorkspaceRequest'{..}

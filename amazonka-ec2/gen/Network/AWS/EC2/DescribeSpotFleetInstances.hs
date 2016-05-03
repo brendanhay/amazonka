@@ -117,6 +117,8 @@ instance AWSRequest DescribeSpotFleetInstances where
 
 instance Hashable DescribeSpotFleetInstances
 
+instance NFData DescribeSpotFleetInstances
+
 instance ToHeaders DescribeSpotFleetInstances where
         toHeaders = const mempty
 
@@ -184,3 +186,5 @@ dsfirsSpotFleetRequestId = lens _dsfirsSpotFleetRequestId (\ s a -> s{_dsfirsSpo
 -- might be out of date.
 dsfirsActiveInstances :: Lens' DescribeSpotFleetInstancesResponse [ActiveInstance]
 dsfirsActiveInstances = lens _dsfirsActiveInstances (\ s a -> s{_dsfirsActiveInstances = a}) . _Coerce;
+
+instance NFData DescribeSpotFleetInstancesResponse

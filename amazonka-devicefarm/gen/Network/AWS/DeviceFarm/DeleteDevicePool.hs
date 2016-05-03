@@ -77,6 +77,8 @@ instance AWSRequest DeleteDevicePool where
 
 instance Hashable DeleteDevicePool
 
+instance NFData DeleteDevicePool
+
 instance ToHeaders DeleteDevicePool where
         toHeaders
           = const
@@ -120,3 +122,5 @@ deleteDevicePoolResponse pResponseStatus_ =
 -- | The response status code.
 ddprsResponseStatus :: Lens' DeleteDevicePoolResponse Int
 ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});
+
+instance NFData DeleteDevicePoolResponse

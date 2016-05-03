@@ -243,6 +243,8 @@ instance AWSRequest ModifyInstanceAttribute where
 
 instance Hashable ModifyInstanceAttribute
 
+instance NFData ModifyInstanceAttribute
+
 instance ToHeaders ModifyInstanceAttribute where
         toHeaders = const mempty
 
@@ -281,3 +283,5 @@ data ModifyInstanceAttributeResponse =
 modifyInstanceAttributeResponse
     :: ModifyInstanceAttributeResponse
 modifyInstanceAttributeResponse = ModifyInstanceAttributeResponse'
+
+instance NFData ModifyInstanceAttributeResponse

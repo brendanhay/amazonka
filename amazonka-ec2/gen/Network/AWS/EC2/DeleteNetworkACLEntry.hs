@@ -102,6 +102,8 @@ instance AWSRequest DeleteNetworkACLEntry where
 
 instance Hashable DeleteNetworkACLEntry
 
+instance NFData DeleteNetworkACLEntry
+
 instance ToHeaders DeleteNetworkACLEntry where
         toHeaders = const mempty
 
@@ -128,3 +130,5 @@ data DeleteNetworkACLEntryResponse =
 deleteNetworkACLEntryResponse
     :: DeleteNetworkACLEntryResponse
 deleteNetworkACLEntryResponse = DeleteNetworkACLEntryResponse'
+
+instance NFData DeleteNetworkACLEntryResponse

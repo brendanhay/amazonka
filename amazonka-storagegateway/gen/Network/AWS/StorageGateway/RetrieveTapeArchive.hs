@@ -101,6 +101,8 @@ instance AWSRequest RetrieveTapeArchive where
 
 instance Hashable RetrieveTapeArchive
 
+instance NFData RetrieveTapeArchive
+
 instance ToHeaders RetrieveTapeArchive where
         toHeaders
           = const
@@ -155,3 +157,5 @@ rtarsTapeARN = lens _rtarsTapeARN (\ s a -> s{_rtarsTapeARN = a});
 -- | The response status code.
 rtarsResponseStatus :: Lens' RetrieveTapeArchiveResponse Int
 rtarsResponseStatus = lens _rtarsResponseStatus (\ s a -> s{_rtarsResponseStatus = a});
+
+instance NFData RetrieveTapeArchiveResponse

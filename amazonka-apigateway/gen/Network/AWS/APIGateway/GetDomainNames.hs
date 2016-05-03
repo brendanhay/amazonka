@@ -99,6 +99,8 @@ instance AWSRequest GetDomainNames where
 
 instance Hashable GetDomainNames
 
+instance NFData GetDomainNames
+
 instance ToHeaders GetDomainNames where
         toHeaders
           = const
@@ -153,3 +155,5 @@ gdnrsPosition = lens _gdnrsPosition (\ s a -> s{_gdnrsPosition = a});
 -- | The response status code.
 gdnrsResponseStatus :: Lens' GetDomainNamesResponse Int
 gdnrsResponseStatus = lens _gdnrsResponseStatus (\ s a -> s{_gdnrsResponseStatus = a});
+
+instance NFData GetDomainNamesResponse

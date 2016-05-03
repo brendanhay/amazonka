@@ -285,6 +285,8 @@ instance AWSRequest StartWorkflowExecution where
 
 instance Hashable StartWorkflowExecution
 
+instance NFData StartWorkflowExecution
+
 instance ToHeaders StartWorkflowExecution where
         toHeaders
           = const
@@ -352,3 +354,5 @@ swersRunId = lens _swersRunId (\ s a -> s{_swersRunId = a});
 -- | The response status code.
 swersResponseStatus :: Lens' StartWorkflowExecutionResponse Int
 swersResponseStatus = lens _swersResponseStatus (\ s a -> s{_swersResponseStatus = a});
+
+instance NFData StartWorkflowExecutionResponse

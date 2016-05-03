@@ -138,6 +138,8 @@ instance AWSRequest ListVaults where
 
 instance Hashable ListVaults
 
+instance NFData ListVaults
+
 instance ToHeaders ListVaults where
         toHeaders = const mempty
 
@@ -191,3 +193,5 @@ lvrsVaultList = lens _lvrsVaultList (\ s a -> s{_lvrsVaultList = a}) . _Default 
 -- | The response status code.
 lvrsResponseStatus :: Lens' ListVaultsResponse Int
 lvrsResponseStatus = lens _lvrsResponseStatus (\ s a -> s{_lvrsResponseStatus = a});
+
+instance NFData ListVaultsResponse

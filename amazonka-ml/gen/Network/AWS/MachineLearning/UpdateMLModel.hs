@@ -102,6 +102,8 @@ instance AWSRequest UpdateMLModel where
 
 instance Hashable UpdateMLModel
 
+instance NFData UpdateMLModel
+
 instance ToHeaders UpdateMLModel where
         toHeaders
           = const
@@ -159,3 +161,5 @@ umlmrsMLModelId = lens _umlmrsMLModelId (\ s a -> s{_umlmrsMLModelId = a});
 -- | The response status code.
 umlmrsResponseStatus :: Lens' UpdateMLModelResponse Int
 umlmrsResponseStatus = lens _umlmrsResponseStatus (\ s a -> s{_umlmrsResponseStatus = a});
+
+instance NFData UpdateMLModelResponse

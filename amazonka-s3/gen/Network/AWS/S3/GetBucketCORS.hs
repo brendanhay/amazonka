@@ -76,6 +76,8 @@ instance AWSRequest GetBucketCORS where
 
 instance Hashable GetBucketCORS
 
+instance NFData GetBucketCORS
+
 instance ToHeaders GetBucketCORS where
         toHeaders = const mempty
 
@@ -115,3 +117,5 @@ gbcrsCORSRules = lens _gbcrsCORSRules (\ s a -> s{_gbcrsCORSRules = a}) . _Defau
 -- | The response status code.
 gbcrsResponseStatus :: Lens' GetBucketCORSResponse Int
 gbcrsResponseStatus = lens _gbcrsResponseStatus (\ s a -> s{_gbcrsResponseStatus = a});
+
+instance NFData GetBucketCORSResponse

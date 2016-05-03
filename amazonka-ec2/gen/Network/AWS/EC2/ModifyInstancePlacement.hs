@@ -122,6 +122,8 @@ instance AWSRequest ModifyInstancePlacement where
 
 instance Hashable ModifyInstancePlacement
 
+instance NFData ModifyInstancePlacement
+
 instance ToHeaders ModifyInstancePlacement where
         toHeaders = const mempty
 
@@ -167,3 +169,5 @@ miprsReturn = lens _miprsReturn (\ s a -> s{_miprsReturn = a});
 -- | The response status code.
 miprsResponseStatus :: Lens' ModifyInstancePlacementResponse Int
 miprsResponseStatus = lens _miprsResponseStatus (\ s a -> s{_miprsResponseStatus = a});
+
+instance NFData ModifyInstancePlacementResponse

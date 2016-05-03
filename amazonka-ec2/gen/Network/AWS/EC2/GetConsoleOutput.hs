@@ -110,6 +110,8 @@ instance AWSRequest GetConsoleOutput where
 
 instance Hashable GetConsoleOutput
 
+instance NFData GetConsoleOutput
+
 instance ToHeaders GetConsoleOutput where
         toHeaders = const mempty
 
@@ -170,3 +172,5 @@ gcorsTimestamp = lens _gcorsTimestamp (\ s a -> s{_gcorsTimestamp = a}) . mappin
 -- | The response status code.
 gcorsResponseStatus :: Lens' GetConsoleOutputResponse Int
 gcorsResponseStatus = lens _gcorsResponseStatus (\ s a -> s{_gcorsResponseStatus = a});
+
+instance NFData GetConsoleOutputResponse

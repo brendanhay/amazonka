@@ -89,6 +89,8 @@ instance AWSRequest DeleteStream where
 
 instance Hashable DeleteStream
 
+instance NFData DeleteStream
+
 instance ToHeaders DeleteStream where
         toHeaders
           = const
@@ -119,3 +121,5 @@ data DeleteStreamResponse =
 deleteStreamResponse
     :: DeleteStreamResponse
 deleteStreamResponse = DeleteStreamResponse'
+
+instance NFData DeleteStreamResponse

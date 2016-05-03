@@ -132,6 +132,8 @@ instance AWSRequest CreateJob where
 
 instance Hashable CreateJob
 
+instance NFData CreateJob
+
 instance ToHeaders CreateJob where
         toHeaders = const mempty
 
@@ -220,3 +222,5 @@ cjrsArtifactList = lens _cjrsArtifactList (\ s a -> s{_cjrsArtifactList = a}) . 
 -- | The response status code.
 cjrsResponseStatus :: Lens' CreateJobResponse Int
 cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});
+
+instance NFData CreateJobResponse

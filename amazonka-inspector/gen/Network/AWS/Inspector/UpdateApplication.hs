@@ -95,6 +95,8 @@ instance AWSRequest UpdateApplication where
 
 instance Hashable UpdateApplication
 
+instance NFData UpdateApplication
+
 instance ToHeaders UpdateApplication where
         toHeaders
           = const
@@ -147,3 +149,5 @@ uarsMessage = lens _uarsMessage (\ s a -> s{_uarsMessage = a});
 -- | The response status code.
 uarsResponseStatus :: Lens' UpdateApplicationResponse Int
 uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a});
+
+instance NFData UpdateApplicationResponse

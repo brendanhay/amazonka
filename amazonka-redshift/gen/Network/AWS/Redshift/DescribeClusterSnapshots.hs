@@ -229,6 +229,8 @@ instance AWSRequest DescribeClusterSnapshots where
 
 instance Hashable DescribeClusterSnapshots
 
+instance NFData DescribeClusterSnapshots
+
 instance ToHeaders DescribeClusterSnapshots where
         toHeaders = const mempty
 
@@ -297,3 +299,5 @@ dcssrsMarker = lens _dcssrsMarker (\ s a -> s{_dcssrsMarker = a});
 -- | The response status code.
 dcssrsResponseStatus :: Lens' DescribeClusterSnapshotsResponse Int
 dcssrsResponseStatus = lens _dcssrsResponseStatus (\ s a -> s{_dcssrsResponseStatus = a});
+
+instance NFData DescribeClusterSnapshotsResponse

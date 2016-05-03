@@ -109,6 +109,8 @@ instance AWSRequest DescribeNetworkInterfaceAttribute
 
 instance Hashable DescribeNetworkInterfaceAttribute
 
+instance NFData DescribeNetworkInterfaceAttribute
+
 instance ToHeaders DescribeNetworkInterfaceAttribute
          where
         toHeaders = const mempty
@@ -189,3 +191,6 @@ dniarsDescription = lens _dniarsDescription (\ s a -> s{_dniarsDescription = a})
 -- | The response status code.
 dniarsResponseStatus :: Lens' DescribeNetworkInterfaceAttributeResponse Int
 dniarsResponseStatus = lens _dniarsResponseStatus (\ s a -> s{_dniarsResponseStatus = a});
+
+instance NFData
+         DescribeNetworkInterfaceAttributeResponse

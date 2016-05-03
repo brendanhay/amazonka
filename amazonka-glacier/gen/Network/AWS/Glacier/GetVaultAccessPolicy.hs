@@ -98,6 +98,8 @@ instance AWSRequest GetVaultAccessPolicy where
 
 instance Hashable GetVaultAccessPolicy
 
+instance NFData GetVaultAccessPolicy
+
 instance ToHeaders GetVaultAccessPolicy where
         toHeaders = const mempty
 
@@ -141,3 +143,5 @@ gvaprsPolicy = lens _gvaprsPolicy (\ s a -> s{_gvaprsPolicy = a});
 -- | The response status code.
 gvaprsResponseStatus :: Lens' GetVaultAccessPolicyResponse Int
 gvaprsResponseStatus = lens _gvaprsResponseStatus (\ s a -> s{_gvaprsResponseStatus = a});
+
+instance NFData GetVaultAccessPolicyResponse

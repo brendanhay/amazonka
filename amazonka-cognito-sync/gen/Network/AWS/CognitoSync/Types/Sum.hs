@@ -43,6 +43,7 @@ instance ToText BulkPublishStatus where
         Succeeded -> "SUCCEEDED"
 
 instance Hashable     BulkPublishStatus
+instance NFData       BulkPublishStatus
 instance ToByteString BulkPublishStatus
 instance ToQuery      BulkPublishStatus
 instance ToHeader     BulkPublishStatus
@@ -68,6 +69,7 @@ instance ToText Operation where
         Replace -> "replace"
 
 instance Hashable     Operation
+instance NFData       Operation
 instance ToByteString Operation
 instance ToQuery      Operation
 instance ToHeader     Operation
@@ -99,6 +101,7 @@ instance ToText Platform where
         GCM -> "GCM"
 
 instance Hashable     Platform
+instance NFData       Platform
 instance ToByteString Platform
 instance ToQuery      Platform
 instance ToHeader     Platform
@@ -124,6 +127,7 @@ instance ToText StreamingStatus where
         Enabled -> "ENABLED"
 
 instance Hashable     StreamingStatus
+instance NFData       StreamingStatus
 instance ToByteString StreamingStatus
 instance ToQuery      StreamingStatus
 instance ToHeader     StreamingStatus

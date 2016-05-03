@@ -278,6 +278,8 @@ instance AWSRequest CreateAutoScalingGroup where
 
 instance Hashable CreateAutoScalingGroup
 
+instance NFData CreateAutoScalingGroup
+
 instance ToHeaders CreateAutoScalingGroup where
         toHeaders = const mempty
 
@@ -326,3 +328,5 @@ data CreateAutoScalingGroupResponse =
 createAutoScalingGroupResponse
     :: CreateAutoScalingGroupResponse
 createAutoScalingGroupResponse = CreateAutoScalingGroupResponse'
+
+instance NFData CreateAutoScalingGroupResponse

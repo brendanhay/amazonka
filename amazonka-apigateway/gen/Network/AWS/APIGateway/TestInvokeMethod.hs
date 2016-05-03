@@ -147,6 +147,8 @@ instance AWSRequest TestInvokeMethod where
 
 instance Hashable TestInvokeMethod
 
+instance NFData TestInvokeMethod
+
 instance ToHeaders TestInvokeMethod where
         toHeaders
           = const
@@ -238,3 +240,5 @@ timrsHeaders = lens _timrsHeaders (\ s a -> s{_timrsHeaders = a}) . _Default . _
 -- | The response status code.
 timrsResponseStatus :: Lens' TestInvokeMethodResponse Int
 timrsResponseStatus = lens _timrsResponseStatus (\ s a -> s{_timrsResponseStatus = a});
+
+instance NFData TestInvokeMethodResponse

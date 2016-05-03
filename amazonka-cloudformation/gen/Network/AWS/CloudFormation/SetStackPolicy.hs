@@ -94,6 +94,8 @@ instance AWSRequest SetStackPolicy where
 
 instance Hashable SetStackPolicy
 
+instance NFData SetStackPolicy
+
 instance ToHeaders SetStackPolicy where
         toHeaders = const mempty
 
@@ -119,3 +121,5 @@ data SetStackPolicyResponse =
 setStackPolicyResponse
     :: SetStackPolicyResponse
 setStackPolicyResponse = SetStackPolicyResponse'
+
+instance NFData SetStackPolicyResponse

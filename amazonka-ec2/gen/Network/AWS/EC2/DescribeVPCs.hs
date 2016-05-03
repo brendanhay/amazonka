@@ -127,6 +127,8 @@ instance AWSRequest DescribeVPCs where
 
 instance Hashable DescribeVPCs
 
+instance NFData DescribeVPCs
+
 instance ToHeaders DescribeVPCs where
         toHeaders = const mempty
 
@@ -171,3 +173,5 @@ dvrsVPCs = lens _dvrsVPCs (\ s a -> s{_dvrsVPCs = a}) . _Default . _Coerce;
 -- | The response status code.
 dvrsResponseStatus :: Lens' DescribeVPCsResponse Int
 dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a});
+
+instance NFData DescribeVPCsResponse

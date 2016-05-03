@@ -173,6 +173,8 @@ instance AWSRequest ListTrafficPolicyInstances where
 
 instance Hashable ListTrafficPolicyInstances
 
+instance NFData ListTrafficPolicyInstances
+
 instance ToHeaders ListTrafficPolicyInstances where
         toHeaders = const mempty
 
@@ -279,3 +281,5 @@ ltpirsIsTruncated = lens _ltpirsIsTruncated (\ s a -> s{_ltpirsIsTruncated = a})
 -- 'ListTrafficPolicyInstances' that produced the current response.
 ltpirsMaxItems :: Lens' ListTrafficPolicyInstancesResponse Text
 ltpirsMaxItems = lens _ltpirsMaxItems (\ s a -> s{_ltpirsMaxItems = a});
+
+instance NFData ListTrafficPolicyInstancesResponse

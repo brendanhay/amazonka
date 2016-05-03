@@ -319,6 +319,8 @@ instance FromJSON ContactDetail where
 
 instance Hashable ContactDetail
 
+instance NFData ContactDetail
+
 instance ToJSON ContactDetail where
         toJSON ContactDetail'{..}
           = object
@@ -407,6 +409,8 @@ instance FromJSON DomainSummary where
 
 instance Hashable DomainSummary
 
+instance NFData DomainSummary
+
 -- | ExtraParam includes the following elements.
 --
 -- /See:/ 'extraParam' smart constructor.
@@ -474,6 +478,8 @@ instance FromJSON ExtraParam where
 
 instance Hashable ExtraParam
 
+instance NFData ExtraParam
+
 instance ToJSON ExtraParam where
         toJSON ExtraParam'{..}
           = object
@@ -537,6 +543,8 @@ instance FromJSON Nameserver where
                    (x .:? "GlueIps" .!= mempty) <*> (x .: "Name"))
 
 instance Hashable Nameserver
+
+instance NFData Nameserver
 
 instance ToJSON Nameserver where
         toJSON Nameserver'{..}
@@ -617,6 +625,8 @@ instance FromJSON OperationSummary where
 
 instance Hashable OperationSummary
 
+instance NFData OperationSummary
+
 -- | Each tag includes the following elements.
 --
 -- /See:/ 'tag' smart constructor.
@@ -674,6 +684,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}

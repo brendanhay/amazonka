@@ -61,6 +61,8 @@ instance FromXML Endpoint where
 
 instance Hashable Endpoint
 
+instance NFData Endpoint
+
 -- | The user-specified message attribute value. For string data types, the
 -- value attribute has the same restrictions on the content as the message
 -- body. For more information, see
@@ -124,6 +126,8 @@ mavDataType = lens _mavDataType (\ s a -> s{_mavDataType = a});
 
 instance Hashable MessageAttributeValue
 
+instance NFData MessageAttributeValue
+
 instance ToQuery MessageAttributeValue where
         toQuery MessageAttributeValue'{..}
           = mconcat
@@ -170,6 +174,8 @@ instance FromXML PlatformApplication where
                    may (parseXMLMap "entry" "key" "value"))
 
 instance Hashable PlatformApplication
+
+instance NFData PlatformApplication
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
 --
@@ -236,6 +242,8 @@ instance FromXML Subscription where
 
 instance Hashable Subscription
 
+instance NFData Subscription
+
 -- | A wrapper type for the topic\'s Amazon Resource Name (ARN). To retrieve
 -- a topic\'s attributes, use 'GetTopicAttributes'.
 --
@@ -264,3 +272,5 @@ instance FromXML Topic where
         parseXML x = Topic' <$> (x .@? "TopicArn")
 
 instance Hashable Topic
+
+instance NFData Topic

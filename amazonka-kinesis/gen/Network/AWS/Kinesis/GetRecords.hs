@@ -149,6 +149,8 @@ instance AWSRequest GetRecords where
 
 instance Hashable GetRecords
 
+instance NFData GetRecords
+
 instance ToHeaders GetRecords where
         toHeaders
           = const
@@ -223,3 +225,5 @@ grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = 
 -- | The data records retrieved from the shard.
 grrsRecords :: Lens' GetRecordsResponse [Record]
 grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a}) . _Coerce;
+
+instance NFData GetRecordsResponse

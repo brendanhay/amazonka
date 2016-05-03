@@ -139,6 +139,8 @@ instance AWSRequest PutIntegrationResponse where
 
 instance Hashable PutIntegrationResponse
 
+instance NFData PutIntegrationResponse
+
 instance ToHeaders PutIntegrationResponse where
         toHeaders
           = const

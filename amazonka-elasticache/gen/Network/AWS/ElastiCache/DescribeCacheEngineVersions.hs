@@ -157,6 +157,8 @@ instance AWSRequest DescribeCacheEngineVersions where
 
 instance Hashable DescribeCacheEngineVersions
 
+instance NFData DescribeCacheEngineVersions
+
 instance ToHeaders DescribeCacheEngineVersions where
         toHeaders = const mempty
 
@@ -216,3 +218,5 @@ dcevrsMarker = lens _dcevrsMarker (\ s a -> s{_dcevrsMarker = a});
 -- | The response status code.
 dcevrsResponseStatus :: Lens' DescribeCacheEngineVersionsResponse Int
 dcevrsResponseStatus = lens _dcevrsResponseStatus (\ s a -> s{_dcevrsResponseStatus = a});
+
+instance NFData DescribeCacheEngineVersionsResponse

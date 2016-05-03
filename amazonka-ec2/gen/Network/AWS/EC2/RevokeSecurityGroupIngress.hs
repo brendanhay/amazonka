@@ -180,6 +180,8 @@ instance AWSRequest RevokeSecurityGroupIngress where
 
 instance Hashable RevokeSecurityGroupIngress
 
+instance NFData RevokeSecurityGroupIngress
+
 instance ToHeaders RevokeSecurityGroupIngress where
         toHeaders = const mempty
 
@@ -215,3 +217,5 @@ data RevokeSecurityGroupIngressResponse =
 revokeSecurityGroupIngressResponse
     :: RevokeSecurityGroupIngressResponse
 revokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse'
+
+instance NFData RevokeSecurityGroupIngressResponse

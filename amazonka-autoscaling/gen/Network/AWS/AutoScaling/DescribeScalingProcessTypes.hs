@@ -67,6 +67,8 @@ instance AWSRequest DescribeScalingProcessTypes where
 
 instance Hashable DescribeScalingProcessTypes
 
+instance NFData DescribeScalingProcessTypes
+
 instance ToHeaders DescribeScalingProcessTypes where
         toHeaders = const mempty
 
@@ -110,3 +112,5 @@ dsptrsProcesses = lens _dsptrsProcesses (\ s a -> s{_dsptrsProcesses = a}) . _De
 -- | The response status code.
 dsptrsResponseStatus :: Lens' DescribeScalingProcessTypesResponse Int
 dsptrsResponseStatus = lens _dsptrsResponseStatus (\ s a -> s{_dsptrsResponseStatus = a});
+
+instance NFData DescribeScalingProcessTypesResponse

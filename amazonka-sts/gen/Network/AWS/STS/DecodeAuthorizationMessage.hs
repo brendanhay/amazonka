@@ -105,6 +105,8 @@ instance AWSRequest DecodeAuthorizationMessage where
 
 instance Hashable DecodeAuthorizationMessage
 
+instance NFData DecodeAuthorizationMessage
+
 instance ToHeaders DecodeAuthorizationMessage where
         toHeaders = const mempty
 
@@ -153,3 +155,5 @@ damrsDecodedMessage = lens _damrsDecodedMessage (\ s a -> s{_damrsDecodedMessage
 -- | The response status code.
 damrsResponseStatus :: Lens' DecodeAuthorizationMessageResponse Int
 damrsResponseStatus = lens _damrsResponseStatus (\ s a -> s{_damrsResponseStatus = a});
+
+instance NFData DecodeAuthorizationMessageResponse

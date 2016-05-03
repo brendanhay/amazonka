@@ -112,6 +112,8 @@ instance AWSRequest SubscribeToDataset where
 
 instance Hashable SubscribeToDataset
 
+instance NFData SubscribeToDataset
+
 instance ToHeaders SubscribeToDataset where
         toHeaders
           = const
@@ -156,3 +158,5 @@ subscribeToDatasetResponse pResponseStatus_ =
 -- | The response status code.
 stdrsResponseStatus :: Lens' SubscribeToDatasetResponse Int
 stdrsResponseStatus = lens _stdrsResponseStatus (\ s a -> s{_stdrsResponseStatus = a});
+
+instance NFData SubscribeToDatasetResponse

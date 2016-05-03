@@ -84,6 +84,8 @@ instance AWSRequest CancelReservedInstancesListing
 
 instance Hashable CancelReservedInstancesListing
 
+instance NFData CancelReservedInstancesListing
+
 instance ToHeaders CancelReservedInstancesListing
          where
         toHeaders = const mempty
@@ -129,3 +131,6 @@ crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -
 -- | The response status code.
 crilrsResponseStatus :: Lens' CancelReservedInstancesListingResponse Int
 crilrsResponseStatus = lens _crilrsResponseStatus (\ s a -> s{_crilrsResponseStatus = a});
+
+instance NFData
+         CancelReservedInstancesListingResponse

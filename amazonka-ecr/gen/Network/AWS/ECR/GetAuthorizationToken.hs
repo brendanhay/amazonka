@@ -86,6 +86,8 @@ instance AWSRequest GetAuthorizationToken where
 
 instance Hashable GetAuthorizationToken
 
+instance NFData GetAuthorizationToken
+
 instance ToHeaders GetAuthorizationToken where
         toHeaders
           = const
@@ -137,3 +139,5 @@ gatrsAuthorizationData = lens _gatrsAuthorizationData (\ s a -> s{_gatrsAuthoriz
 -- | The response status code.
 gatrsResponseStatus :: Lens' GetAuthorizationTokenResponse Int
 gatrsResponseStatus = lens _gatrsResponseStatus (\ s a -> s{_gatrsResponseStatus = a});
+
+instance NFData GetAuthorizationTokenResponse

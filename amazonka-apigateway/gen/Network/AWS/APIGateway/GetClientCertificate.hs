@@ -74,6 +74,8 @@ instance AWSRequest GetClientCertificate where
 
 instance Hashable GetClientCertificate
 
+instance NFData GetClientCertificate
+
 instance ToHeaders GetClientCertificate where
         toHeaders
           = const

@@ -82,6 +82,8 @@ instance AWSRequest ListVolumeInitiators where
 
 instance Hashable ListVolumeInitiators
 
+instance NFData ListVolumeInitiators
+
 instance ToHeaders ListVolumeInitiators where
         toHeaders
           = const
@@ -135,3 +137,5 @@ lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _De
 -- | The response status code.
 lvirsResponseStatus :: Lens' ListVolumeInitiatorsResponse Int
 lvirsResponseStatus = lens _lvirsResponseStatus (\ s a -> s{_lvirsResponseStatus = a});
+
+instance NFData ListVolumeInitiatorsResponse

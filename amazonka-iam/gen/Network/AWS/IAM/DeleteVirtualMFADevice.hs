@@ -75,6 +75,8 @@ instance AWSRequest DeleteVirtualMFADevice where
 
 instance Hashable DeleteVirtualMFADevice
 
+instance NFData DeleteVirtualMFADevice
+
 instance ToHeaders DeleteVirtualMFADevice where
         toHeaders = const mempty
 
@@ -99,3 +101,5 @@ data DeleteVirtualMFADeviceResponse =
 deleteVirtualMFADeviceResponse
     :: DeleteVirtualMFADeviceResponse
 deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse'
+
+instance NFData DeleteVirtualMFADeviceResponse

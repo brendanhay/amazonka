@@ -81,6 +81,8 @@ instance AWSRequest DeleteDBSubnetGroup where
 
 instance Hashable DeleteDBSubnetGroup
 
+instance NFData DeleteDBSubnetGroup
+
 instance ToHeaders DeleteDBSubnetGroup where
         toHeaders = const mempty
 
@@ -104,3 +106,5 @@ data DeleteDBSubnetGroupResponse =
 deleteDBSubnetGroupResponse
     :: DeleteDBSubnetGroupResponse
 deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse'
+
+instance NFData DeleteDBSubnetGroupResponse

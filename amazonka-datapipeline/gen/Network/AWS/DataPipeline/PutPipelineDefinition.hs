@@ -125,6 +125,8 @@ instance AWSRequest PutPipelineDefinition where
 
 instance Hashable PutPipelineDefinition
 
+instance NFData PutPipelineDefinition
+
 instance ToHeaders PutPipelineDefinition where
         toHeaders
           = const
@@ -202,3 +204,5 @@ ppdrsResponseStatus = lens _ppdrsResponseStatus (\ s a -> s{_ppdrsResponseStatus
 -- pipeline.
 ppdrsErrored :: Lens' PutPipelineDefinitionResponse Bool
 ppdrsErrored = lens _ppdrsErrored (\ s a -> s{_ppdrsErrored = a});
+
+instance NFData PutPipelineDefinitionResponse

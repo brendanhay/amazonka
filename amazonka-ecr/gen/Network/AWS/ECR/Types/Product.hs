@@ -77,6 +77,8 @@ instance FromJSON AuthorizationData where
 
 instance Hashable AuthorizationData
 
+instance NFData AuthorizationData
+
 -- | Object representing an image.
 --
 -- /See:/ 'image' smart constructor.
@@ -136,6 +138,8 @@ instance FromJSON Image where
 
 instance Hashable Image
 
+instance NFData Image
+
 -- | /See:/ 'imageFailure' smart constructor.
 data ImageFailure = ImageFailure'
     { _ifFailureReason :: !(Maybe Text)
@@ -183,6 +187,8 @@ instance FromJSON ImageFailure where
 
 instance Hashable ImageFailure
 
+instance NFData ImageFailure
+
 -- | /See:/ 'imageIdentifier' smart constructor.
 data ImageIdentifier = ImageIdentifier'
     { _iiImageDigest :: !(Maybe Text)
@@ -220,6 +226,8 @@ instance FromJSON ImageIdentifier where
                    (x .:? "imageDigest") <*> (x .:? "imageTag"))
 
 instance Hashable ImageIdentifier
+
+instance NFData ImageIdentifier
 
 instance ToJSON ImageIdentifier where
         toJSON ImageIdentifier'{..}
@@ -276,6 +284,8 @@ instance FromJSON Layer where
 
 instance Hashable Layer
 
+instance NFData Layer
+
 -- | /See:/ 'layerFailure' smart constructor.
 data LayerFailure = LayerFailure'
     { _lfFailureReason :: !(Maybe Text)
@@ -322,6 +332,8 @@ instance FromJSON LayerFailure where
                      (x .:? "layerDigest"))
 
 instance Hashable LayerFailure
+
+instance NFData LayerFailure
 
 -- | Object representing a repository.
 --
@@ -376,3 +388,5 @@ instance FromJSON Repository where
                      (x .:? "repositoryName"))
 
 instance Hashable Repository
+
+instance NFData Repository

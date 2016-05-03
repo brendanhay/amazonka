@@ -61,6 +61,8 @@ instance FromJSON Tag where
 
 instance Hashable Tag
 
+instance NFData Tag
+
 instance ToJSON Tag where
         toJSON Tag'{..}
           = object

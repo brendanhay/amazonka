@@ -134,6 +134,8 @@ instance AWSRequest CreateSnapshot where
 
 instance Hashable CreateSnapshot
 
+instance NFData CreateSnapshot
+
 instance ToHeaders CreateSnapshot where
         toHeaders = const mempty
 

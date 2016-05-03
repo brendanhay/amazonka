@@ -83,6 +83,8 @@ instance AWSRequest GetKeyRotationStatus where
 
 instance Hashable GetKeyRotationStatus
 
+instance NFData GetKeyRotationStatus
+
 instance ToHeaders GetKeyRotationStatus where
         toHeaders
           = const
@@ -131,3 +133,5 @@ gkrsrsKeyRotationEnabled = lens _gkrsrsKeyRotationEnabled (\ s a -> s{_gkrsrsKey
 -- | The response status code.
 gkrsrsResponseStatus :: Lens' GetKeyRotationStatusResponse Int
 gkrsrsResponseStatus = lens _gkrsrsResponseStatus (\ s a -> s{_gkrsrsResponseStatus = a});
+
+instance NFData GetKeyRotationStatusResponse

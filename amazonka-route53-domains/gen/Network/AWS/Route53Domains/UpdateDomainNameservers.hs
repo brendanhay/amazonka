@@ -120,6 +120,8 @@ instance AWSRequest UpdateDomainNameservers where
 
 instance Hashable UpdateDomainNameservers
 
+instance NFData UpdateDomainNameservers
+
 instance ToHeaders UpdateDomainNameservers where
         toHeaders
           = const
@@ -183,3 +185,5 @@ udnrsResponseStatus = lens _udnrsResponseStatus (\ s a -> s{_udnrsResponseStatus
 -- Constraints: Maximum 255 characters.
 udnrsOperationId :: Lens' UpdateDomainNameserversResponse Text
 udnrsOperationId = lens _udnrsOperationId (\ s a -> s{_udnrsOperationId = a});
+
+instance NFData UpdateDomainNameserversResponse

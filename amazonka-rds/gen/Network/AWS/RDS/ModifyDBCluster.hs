@@ -249,6 +249,8 @@ instance AWSRequest ModifyDBCluster where
 
 instance Hashable ModifyDBCluster
 
+instance NFData ModifyDBCluster
+
 instance ToHeaders ModifyDBCluster where
         toHeaders = const mempty
 
@@ -307,3 +309,5 @@ mdcrsDBCluster = lens _mdcrsDBCluster (\ s a -> s{_mdcrsDBCluster = a});
 -- | The response status code.
 mdcrsResponseStatus :: Lens' ModifyDBClusterResponse Int
 mdcrsResponseStatus = lens _mdcrsResponseStatus (\ s a -> s{_mdcrsResponseStatus = a});
+
+instance NFData ModifyDBClusterResponse

@@ -110,6 +110,8 @@ instance AWSRequest ListAssociations where
 
 instance Hashable ListAssociations
 
+instance NFData ListAssociations
+
 instance ToHeaders ListAssociations where
         toHeaders
           = const
@@ -173,3 +175,5 @@ larsAssociations = lens _larsAssociations (\ s a -> s{_larsAssociations = a}) . 
 -- | The response status code.
 larsResponseStatus :: Lens' ListAssociationsResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
+
+instance NFData ListAssociationsResponse

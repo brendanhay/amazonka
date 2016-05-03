@@ -77,6 +77,8 @@ instance AWSRequest DeletePipeline where
 
 instance Hashable DeletePipeline
 
+instance NFData DeletePipeline
+
 instance ToHeaders DeletePipeline where
         toHeaders
           = const
@@ -107,3 +109,5 @@ data DeletePipelineResponse =
 deletePipelineResponse
     :: DeletePipelineResponse
 deletePipelineResponse = DeletePipelineResponse'
+
+instance NFData DeletePipelineResponse

@@ -87,6 +87,8 @@ instance AWSRequest SetTagsForResource where
 
 instance Hashable SetTagsForResource
 
+instance NFData SetTagsForResource
+
 instance ToHeaders SetTagsForResource where
         toHeaders
           = const
@@ -139,3 +141,5 @@ stfrrsMessage = lens _stfrrsMessage (\ s a -> s{_stfrrsMessage = a});
 -- | The response status code.
 stfrrsResponseStatus :: Lens' SetTagsForResourceResponse Int
 stfrrsResponseStatus = lens _stfrrsResponseStatus (\ s a -> s{_stfrrsResponseStatus = a});
+
+instance NFData SetTagsForResourceResponse

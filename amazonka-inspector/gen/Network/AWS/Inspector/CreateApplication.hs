@@ -91,6 +91,8 @@ instance AWSRequest CreateApplication where
 
 instance Hashable CreateApplication
 
+instance NFData CreateApplication
+
 instance ToHeaders CreateApplication where
         toHeaders
           = const
@@ -142,3 +144,5 @@ carsApplicationARN = lens _carsApplicationARN (\ s a -> s{_carsApplicationARN = 
 -- | The response status code.
 carsResponseStatus :: Lens' CreateApplicationResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+
+instance NFData CreateApplicationResponse

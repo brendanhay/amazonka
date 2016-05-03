@@ -118,6 +118,8 @@ instance AWSRequest UpdateMaintenanceStartTime where
 
 instance Hashable UpdateMaintenanceStartTime
 
+instance NFData UpdateMaintenanceStartTime
+
 instance ToHeaders UpdateMaintenanceStartTime where
         toHeaders
           = const
@@ -175,3 +177,5 @@ umstrsGatewayARN = lens _umstrsGatewayARN (\ s a -> s{_umstrsGatewayARN = a});
 -- | The response status code.
 umstrsResponseStatus :: Lens' UpdateMaintenanceStartTimeResponse Int
 umstrsResponseStatus = lens _umstrsResponseStatus (\ s a -> s{_umstrsResponseStatus = a});
+
+instance NFData UpdateMaintenanceStartTimeResponse

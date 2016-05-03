@@ -90,6 +90,8 @@ instance AWSRequest AssignInstance where
 
 instance Hashable AssignInstance
 
+instance NFData AssignInstance
+
 instance ToHeaders AssignInstance where
         toHeaders
           = const
@@ -122,3 +124,5 @@ data AssignInstanceResponse =
 assignInstanceResponse
     :: AssignInstanceResponse
 assignInstanceResponse = AssignInstanceResponse'
+
+instance NFData AssignInstanceResponse

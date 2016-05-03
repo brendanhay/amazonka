@@ -90,6 +90,8 @@ instance AWSRequest GetCertificate where
 
 instance Hashable GetCertificate
 
+instance NFData GetCertificate
+
 instance ToHeaders GetCertificate where
         toHeaders
           = const
@@ -150,3 +152,5 @@ gcrsCertificateChain = lens _gcrsCertificateChain (\ s a -> s{_gcrsCertificateCh
 -- | The response status code.
 gcrsResponseStatus :: Lens' GetCertificateResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
+
+instance NFData GetCertificateResponse

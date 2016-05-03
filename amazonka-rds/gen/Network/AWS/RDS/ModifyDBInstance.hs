@@ -674,6 +674,8 @@ instance AWSRequest ModifyDBInstance where
 
 instance Hashable ModifyDBInstance
 
+instance NFData ModifyDBInstance
+
 instance ToHeaders ModifyDBInstance where
         toHeaders = const mempty
 
@@ -753,3 +755,5 @@ mdirsDBInstance = lens _mdirsDBInstance (\ s a -> s{_mdirsDBInstance = a});
 -- | The response status code.
 mdirsResponseStatus :: Lens' ModifyDBInstanceResponse Int
 mdirsResponseStatus = lens _mdirsResponseStatus (\ s a -> s{_mdirsResponseStatus = a});
+
+instance NFData ModifyDBInstanceResponse

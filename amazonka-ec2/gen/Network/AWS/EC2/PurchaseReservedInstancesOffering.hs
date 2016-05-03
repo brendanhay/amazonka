@@ -125,6 +125,8 @@ instance AWSRequest PurchaseReservedInstancesOffering
 
 instance Hashable PurchaseReservedInstancesOffering
 
+instance NFData PurchaseReservedInstancesOffering
+
 instance ToHeaders PurchaseReservedInstancesOffering
          where
         toHeaders = const mempty
@@ -175,3 +177,6 @@ priorsReservedInstancesId = lens _priorsReservedInstancesId (\ s a -> s{_priorsR
 -- | The response status code.
 priorsResponseStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
 priorsResponseStatus = lens _priorsResponseStatus (\ s a -> s{_priorsResponseStatus = a});
+
+instance NFData
+         PurchaseReservedInstancesOfferingResponse

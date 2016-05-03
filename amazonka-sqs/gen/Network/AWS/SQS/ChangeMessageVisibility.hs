@@ -128,6 +128,8 @@ instance AWSRequest ChangeMessageVisibility where
 
 instance Hashable ChangeMessageVisibility
 
+instance NFData ChangeMessageVisibility
+
 instance ToHeaders ChangeMessageVisibility where
         toHeaders = const mempty
 
@@ -154,3 +156,5 @@ data ChangeMessageVisibilityResponse =
 changeMessageVisibilityResponse
     :: ChangeMessageVisibilityResponse
 changeMessageVisibilityResponse = ChangeMessageVisibilityResponse'
+
+instance NFData ChangeMessageVisibilityResponse

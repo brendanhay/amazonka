@@ -79,6 +79,8 @@ instance AWSRequest DeleteRealtimeEndpoint where
 
 instance Hashable DeleteRealtimeEndpoint
 
+instance NFData DeleteRealtimeEndpoint
+
 instance ToHeaders DeleteRealtimeEndpoint where
         toHeaders
           = const
@@ -143,3 +145,5 @@ drersMLModelId = lens _drersMLModelId (\ s a -> s{_drersMLModelId = a});
 -- | The response status code.
 drersResponseStatus :: Lens' DeleteRealtimeEndpointResponse Int
 drersResponseStatus = lens _drersResponseStatus (\ s a -> s{_drersResponseStatus = a});
+
+instance NFData DeleteRealtimeEndpointResponse

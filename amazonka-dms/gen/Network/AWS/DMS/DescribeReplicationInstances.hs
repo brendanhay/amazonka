@@ -111,6 +111,8 @@ instance AWSRequest DescribeReplicationInstances
 
 instance Hashable DescribeReplicationInstances
 
+instance NFData DescribeReplicationInstances
+
 instance ToHeaders DescribeReplicationInstances where
         toHeaders
           = const
@@ -174,3 +176,5 @@ drisrsReplicationInstances = lens _drisrsReplicationInstances (\ s a -> s{_drisr
 -- | The response status code.
 drisrsResponseStatus :: Lens' DescribeReplicationInstancesResponse Int
 drisrsResponseStatus = lens _drisrsResponseStatus (\ s a -> s{_drisrsResponseStatus = a});
+
+instance NFData DescribeReplicationInstancesResponse

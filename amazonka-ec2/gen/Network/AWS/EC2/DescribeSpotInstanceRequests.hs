@@ -232,6 +232,8 @@ instance AWSRequest DescribeSpotInstanceRequests
 
 instance Hashable DescribeSpotInstanceRequests
 
+instance NFData DescribeSpotInstanceRequests
+
 instance ToHeaders DescribeSpotInstanceRequests where
         toHeaders = const mempty
 
@@ -281,3 +283,5 @@ dsirrsSpotInstanceRequests = lens _dsirrsSpotInstanceRequests (\ s a -> s{_dsirr
 -- | The response status code.
 dsirrsResponseStatus :: Lens' DescribeSpotInstanceRequestsResponse Int
 dsirrsResponseStatus = lens _dsirrsResponseStatus (\ s a -> s{_dsirrsResponseStatus = a});
+
+instance NFData DescribeSpotInstanceRequestsResponse

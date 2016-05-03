@@ -82,6 +82,8 @@ instance AWSRequest PutBucketLifecycleConfiguration
 
 instance Hashable PutBucketLifecycleConfiguration
 
+instance NFData PutBucketLifecycleConfiguration
+
 instance ToElement PutBucketLifecycleConfiguration
          where
         toElement
@@ -113,3 +115,6 @@ putBucketLifecycleConfigurationResponse
     :: PutBucketLifecycleConfigurationResponse
 putBucketLifecycleConfigurationResponse =
     PutBucketLifecycleConfigurationResponse'
+
+instance NFData
+         PutBucketLifecycleConfigurationResponse

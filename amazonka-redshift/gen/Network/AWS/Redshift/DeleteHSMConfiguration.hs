@@ -72,6 +72,8 @@ instance AWSRequest DeleteHSMConfiguration where
 
 instance Hashable DeleteHSMConfiguration
 
+instance NFData DeleteHSMConfiguration
+
 instance ToHeaders DeleteHSMConfiguration where
         toHeaders = const mempty
 
@@ -97,3 +99,5 @@ data DeleteHSMConfigurationResponse =
 deleteHSMConfigurationResponse
     :: DeleteHSMConfigurationResponse
 deleteHSMConfigurationResponse = DeleteHSMConfigurationResponse'
+
+instance NFData DeleteHSMConfigurationResponse

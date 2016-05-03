@@ -140,6 +140,8 @@ instance AWSRequest CreateDeployment where
 
 instance Hashable CreateDeployment
 
+instance NFData CreateDeployment
+
 instance ToHeaders CreateDeployment where
         toHeaders
           = const
@@ -198,3 +200,5 @@ cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
 -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDeploymentResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+
+instance NFData CreateDeploymentResponse

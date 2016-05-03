@@ -119,6 +119,8 @@ instance AWSRequest CreateVPC where
 
 instance Hashable CreateVPC
 
+instance NFData CreateVPC
+
 instance ToHeaders CreateVPC where
         toHeaders = const mempty
 
@@ -162,3 +164,5 @@ cvrsVPC = lens _cvrsVPC (\ s a -> s{_cvrsVPC = a});
 -- | The response status code.
 cvrsResponseStatus :: Lens' CreateVPCResponse Int
 cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a});
+
+instance NFData CreateVPCResponse

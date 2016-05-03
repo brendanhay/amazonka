@@ -149,6 +149,8 @@ instance AWSRequest CreateSecurityGroup where
 
 instance Hashable CreateSecurityGroup
 
+instance NFData CreateSecurityGroup
+
 instance ToHeaders CreateSecurityGroup where
         toHeaders = const mempty
 
@@ -194,3 +196,5 @@ csgrsResponseStatus = lens _csgrsResponseStatus (\ s a -> s{_csgrsResponseStatus
 -- | The ID of the security group.
 csgrsGroupId :: Lens' CreateSecurityGroupResponse Text
 csgrsGroupId = lens _csgrsGroupId (\ s a -> s{_csgrsGroupId = a});
+
+instance NFData CreateSecurityGroupResponse

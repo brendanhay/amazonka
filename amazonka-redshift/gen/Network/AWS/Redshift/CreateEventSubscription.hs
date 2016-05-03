@@ -196,6 +196,8 @@ instance AWSRequest CreateEventSubscription where
 
 instance Hashable CreateEventSubscription
 
+instance NFData CreateEventSubscription
+
 instance ToHeaders CreateEventSubscription where
         toHeaders = const mempty
 
@@ -250,3 +252,5 @@ cesrsEventSubscription = lens _cesrsEventSubscription (\ s a -> s{_cesrsEventSub
 -- | The response status code.
 cesrsResponseStatus :: Lens' CreateEventSubscriptionResponse Int
 cesrsResponseStatus = lens _cesrsResponseStatus (\ s a -> s{_cesrsResponseStatus = a});
+
+instance NFData CreateEventSubscriptionResponse

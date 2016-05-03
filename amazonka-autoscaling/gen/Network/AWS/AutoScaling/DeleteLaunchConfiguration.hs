@@ -74,6 +74,8 @@ instance AWSRequest DeleteLaunchConfiguration where
 
 instance Hashable DeleteLaunchConfiguration
 
+instance NFData DeleteLaunchConfiguration
+
 instance ToHeaders DeleteLaunchConfiguration where
         toHeaders = const mempty
 
@@ -99,3 +101,5 @@ data DeleteLaunchConfigurationResponse =
 deleteLaunchConfigurationResponse
     :: DeleteLaunchConfigurationResponse
 deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse'
+
+instance NFData DeleteLaunchConfigurationResponse

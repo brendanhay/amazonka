@@ -94,6 +94,8 @@ instance AWSRequest DeleteGateway where
 
 instance Hashable DeleteGateway
 
+instance NFData DeleteGateway
+
 instance ToHeaders DeleteGateway where
         toHeaders
           = const
@@ -146,3 +148,5 @@ dgrsGatewayARN = lens _dgrsGatewayARN (\ s a -> s{_dgrsGatewayARN = a});
 -- | The response status code.
 dgrsResponseStatus :: Lens' DeleteGatewayResponse Int
 dgrsResponseStatus = lens _dgrsResponseStatus (\ s a -> s{_dgrsResponseStatus = a});
+
+instance NFData DeleteGatewayResponse

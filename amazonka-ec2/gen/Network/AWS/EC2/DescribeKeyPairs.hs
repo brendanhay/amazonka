@@ -108,6 +108,8 @@ instance AWSRequest DescribeKeyPairs where
 
 instance Hashable DescribeKeyPairs
 
+instance NFData DescribeKeyPairs
+
 instance ToHeaders DescribeKeyPairs where
         toHeaders = const mempty
 
@@ -152,3 +154,5 @@ dkprsKeyPairs = lens _dkprsKeyPairs (\ s a -> s{_dkprsKeyPairs = a}) . _Default 
 -- | The response status code.
 dkprsResponseStatus :: Lens' DescribeKeyPairsResponse Int
 dkprsResponseStatus = lens _dkprsResponseStatus (\ s a -> s{_dkprsResponseStatus = a});
+
+instance NFData DescribeKeyPairsResponse

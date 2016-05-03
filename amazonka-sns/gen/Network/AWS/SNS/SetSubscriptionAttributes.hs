@@ -95,6 +95,8 @@ instance AWSRequest SetSubscriptionAttributes where
 
 instance Hashable SetSubscriptionAttributes
 
+instance NFData SetSubscriptionAttributes
+
 instance ToHeaders SetSubscriptionAttributes where
         toHeaders = const mempty
 
@@ -121,3 +123,5 @@ data SetSubscriptionAttributesResponse =
 setSubscriptionAttributesResponse
     :: SetSubscriptionAttributesResponse
 setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse'
+
+instance NFData SetSubscriptionAttributesResponse

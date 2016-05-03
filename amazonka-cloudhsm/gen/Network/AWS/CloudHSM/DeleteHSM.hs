@@ -78,6 +78,8 @@ instance AWSRequest DeleteHSM where
 
 instance Hashable DeleteHSM
 
+instance NFData DeleteHSM
+
 instance ToHeaders DeleteHSM where
         toHeaders
           = const
@@ -129,3 +131,5 @@ dhsmrsResponseStatus = lens _dhsmrsResponseStatus (\ s a -> s{_dhsmrsResponseSta
 -- | The status of the operation.
 dhsmrsStatus :: Lens' DeleteHSMResponse Text
 dhsmrsStatus = lens _dhsmrsStatus (\ s a -> s{_dhsmrsStatus = a});
+
+instance NFData DeleteHSMResponse

@@ -77,6 +77,8 @@ instance AWSRequest StopReplicationTask where
 
 instance Hashable StopReplicationTask
 
+instance NFData StopReplicationTask
+
 instance ToHeaders StopReplicationTask where
         toHeaders
           = const
@@ -129,3 +131,5 @@ srsReplicationTask = lens _srsReplicationTask (\ s a -> s{_srsReplicationTask = 
 -- | The response status code.
 srsResponseStatus :: Lens' StopReplicationTaskResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+
+instance NFData StopReplicationTaskResponse

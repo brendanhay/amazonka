@@ -218,6 +218,8 @@ instance AWSRequest RegisterImage where
 
 instance Hashable RegisterImage
 
+instance NFData RegisterImage
+
 instance ToHeaders RegisterImage where
         toHeaders = const mempty
 
@@ -271,3 +273,5 @@ rirsImageId = lens _rirsImageId (\ s a -> s{_rirsImageId = a});
 -- | The response status code.
 rirsResponseStatus :: Lens' RegisterImageResponse Int
 rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});
+
+instance NFData RegisterImageResponse

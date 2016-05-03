@@ -78,6 +78,8 @@ instance FromJSON CognitoStreams where
 
 instance Hashable CognitoStreams
 
+instance NFData CognitoStreams
+
 instance ToJSON CognitoStreams where
         toJSON CognitoStreams'{..}
           = object
@@ -178,6 +180,8 @@ instance FromJSON Dataset where
 
 instance Hashable Dataset
 
+instance NFData Dataset
+
 -- | Usage information for the identity pool.
 --
 -- /See:/ 'identityPoolUsage' smart constructor.
@@ -238,6 +242,8 @@ instance FromJSON IdentityPoolUsage where
                      <*> (x .:? "SyncSessionsCount"))
 
 instance Hashable IdentityPoolUsage
+
+instance NFData IdentityPoolUsage
 
 -- | Usage information for the identity.
 --
@@ -311,6 +317,8 @@ instance FromJSON IdentityUsage where
 
 instance Hashable IdentityUsage
 
+instance NFData IdentityUsage
+
 -- | Configuration options to be applied to the identity pool.
 --
 -- /See:/ 'pushSync' smart constructor.
@@ -352,6 +360,8 @@ instance FromJSON PushSync where
                      (x .:? "RoleArn"))
 
 instance Hashable PushSync
+
+instance NFData PushSync
 
 instance ToJSON PushSync where
         toJSON PushSync'{..}
@@ -437,6 +447,8 @@ instance FromJSON Record where
 
 instance Hashable Record
 
+instance NFData Record
+
 -- | An update operation for a record.
 --
 -- /See:/ 'recordPatch' smart constructor.
@@ -496,6 +508,8 @@ rpSyncCount :: Lens' RecordPatch Integer
 rpSyncCount = lens _rpSyncCount (\ s a -> s{_rpSyncCount = a});
 
 instance Hashable RecordPatch
+
+instance NFData RecordPatch
 
 instance ToJSON RecordPatch where
         toJSON RecordPatch'{..}

@@ -105,6 +105,8 @@ instance AWSRequest ListSubscriptionsByTopic where
 
 instance Hashable ListSubscriptionsByTopic
 
+instance NFData ListSubscriptionsByTopic
+
 instance ToHeaders ListSubscriptionsByTopic where
         toHeaders = const mempty
 
@@ -160,3 +162,5 @@ lsbtrsSubscriptions = lens _lsbtrsSubscriptions (\ s a -> s{_lsbtrsSubscriptions
 -- | The response status code.
 lsbtrsResponseStatus :: Lens' ListSubscriptionsByTopicResponse Int
 lsbtrsResponseStatus = lens _lsbtrsResponseStatus (\ s a -> s{_lsbtrsResponseStatus = a});
+
+instance NFData ListSubscriptionsByTopicResponse

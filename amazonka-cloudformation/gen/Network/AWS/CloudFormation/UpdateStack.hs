@@ -274,6 +274,8 @@ instance AWSRequest UpdateStack where
 
 instance Hashable UpdateStack
 
+instance NFData UpdateStack
+
 instance ToHeaders UpdateStack where
         toHeaders = const mempty
 
@@ -337,3 +339,5 @@ usrsStackId = lens _usrsStackId (\ s a -> s{_usrsStackId = a});
 -- | The response status code.
 usrsResponseStatus :: Lens' UpdateStackResponse Int
 usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
+
+instance NFData UpdateStackResponse

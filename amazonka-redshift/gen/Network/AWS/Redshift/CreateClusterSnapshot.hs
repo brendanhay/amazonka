@@ -112,6 +112,8 @@ instance AWSRequest CreateClusterSnapshot where
 
 instance Hashable CreateClusterSnapshot
 
+instance NFData CreateClusterSnapshot
+
 instance ToHeaders CreateClusterSnapshot where
         toHeaders = const mempty
 
@@ -156,3 +158,5 @@ crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 -- | The response status code.
 crersResponseStatus :: Lens' CreateClusterSnapshotResponse Int
 crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+
+instance NFData CreateClusterSnapshotResponse

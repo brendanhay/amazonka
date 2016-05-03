@@ -137,6 +137,8 @@ instance AWSRequest CreateTrust where
 
 instance Hashable CreateTrust
 
+instance NFData CreateTrust
+
 instance ToHeaders CreateTrust where
         toHeaders
           = const
@@ -192,3 +194,5 @@ ctrsTrustId = lens _ctrsTrustId (\ s a -> s{_ctrsTrustId = a});
 -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTrustResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+
+instance NFData CreateTrustResponse

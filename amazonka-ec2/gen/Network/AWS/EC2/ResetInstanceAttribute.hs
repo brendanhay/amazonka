@@ -101,6 +101,8 @@ instance AWSRequest ResetInstanceAttribute where
 
 instance Hashable ResetInstanceAttribute
 
+instance NFData ResetInstanceAttribute
+
 instance ToHeaders ResetInstanceAttribute where
         toHeaders = const mempty
 
@@ -127,3 +129,5 @@ data ResetInstanceAttributeResponse =
 resetInstanceAttributeResponse
     :: ResetInstanceAttributeResponse
 resetInstanceAttributeResponse = ResetInstanceAttributeResponse'
+
+instance NFData ResetInstanceAttributeResponse

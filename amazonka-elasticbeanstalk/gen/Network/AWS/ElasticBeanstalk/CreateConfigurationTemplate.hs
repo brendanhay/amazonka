@@ -183,6 +183,8 @@ instance AWSRequest CreateConfigurationTemplate where
 
 instance Hashable CreateConfigurationTemplate
 
+instance NFData CreateConfigurationTemplate
+
 instance ToHeaders CreateConfigurationTemplate where
         toHeaders = const mempty
 

@@ -103,6 +103,8 @@ instance AWSRequest AcknowledgeThirdPartyJob where
 
 instance Hashable AcknowledgeThirdPartyJob
 
+instance NFData AcknowledgeThirdPartyJob
+
 instance ToHeaders AcknowledgeThirdPartyJob where
         toHeaders
           = const
@@ -158,3 +160,5 @@ atpjrsStatus = lens _atpjrsStatus (\ s a -> s{_atpjrsStatus = a});
 -- | The response status code.
 atpjrsResponseStatus :: Lens' AcknowledgeThirdPartyJobResponse Int
 atpjrsResponseStatus = lens _atpjrsResponseStatus (\ s a -> s{_atpjrsResponseStatus = a});
+
+instance NFData AcknowledgeThirdPartyJobResponse

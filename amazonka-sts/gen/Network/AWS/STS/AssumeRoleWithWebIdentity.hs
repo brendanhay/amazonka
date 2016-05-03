@@ -245,6 +245,8 @@ instance AWSRequest AssumeRoleWithWebIdentity where
 
 instance Hashable AssumeRoleWithWebIdentity
 
+instance NFData AssumeRoleWithWebIdentity
+
 instance ToHeaders AssumeRoleWithWebIdentity where
         toHeaders = const mempty
 
@@ -361,3 +363,5 @@ arwwirsProvider = lens _arwwirsProvider (\ s a -> s{_arwwirsProvider = a});
 -- | The response status code.
 arwwirsResponseStatus :: Lens' AssumeRoleWithWebIdentityResponse Int
 arwwirsResponseStatus = lens _arwwirsResponseStatus (\ s a -> s{_arwwirsResponseStatus = a});
+
+instance NFData AssumeRoleWithWebIdentityResponse

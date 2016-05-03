@@ -133,6 +133,8 @@ instance AWSRequest DescribePrefixLists where
 
 instance Hashable DescribePrefixLists
 
+instance NFData DescribePrefixLists
+
 instance ToHeaders DescribePrefixLists where
         toHeaders = const mempty
 
@@ -188,3 +190,5 @@ dplrsPrefixLists = lens _dplrsPrefixLists (\ s a -> s{_dplrsPrefixLists = a}) . 
 -- | The response status code.
 dplrsResponseStatus :: Lens' DescribePrefixListsResponse Int
 dplrsResponseStatus = lens _dplrsResponseStatus (\ s a -> s{_dplrsResponseStatus = a});
+
+instance NFData DescribePrefixListsResponse

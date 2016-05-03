@@ -79,6 +79,8 @@ instance AWSRequest DeleteCluster where
 
 instance Hashable DeleteCluster
 
+instance NFData DeleteCluster
+
 instance ToHeaders DeleteCluster where
         toHeaders
           = const
@@ -128,3 +130,5 @@ drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteClusterResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteClusterResponse

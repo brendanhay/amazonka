@@ -80,6 +80,8 @@ instance AWSRequest DeleteResource where
 
 instance Hashable DeleteResource
 
+instance NFData DeleteResource
+
 instance ToHeaders DeleteResource where
         toHeaders
           = const
@@ -105,3 +107,5 @@ data DeleteResourceResponse =
 deleteResourceResponse
     :: DeleteResourceResponse
 deleteResourceResponse = DeleteResourceResponse'
+
+instance NFData DeleteResourceResponse

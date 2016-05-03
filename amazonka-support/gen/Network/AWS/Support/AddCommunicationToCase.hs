@@ -118,6 +118,8 @@ instance AWSRequest AddCommunicationToCase where
 
 instance Hashable AddCommunicationToCase
 
+instance NFData AddCommunicationToCase
+
 instance ToHeaders AddCommunicationToCase where
         toHeaders
           = const
@@ -175,3 +177,5 @@ actcrsResult = lens _actcrsResult (\ s a -> s{_actcrsResult = a});
 -- | The response status code.
 actcrsResponseStatus :: Lens' AddCommunicationToCaseResponse Int
 actcrsResponseStatus = lens _actcrsResponseStatus (\ s a -> s{_actcrsResponseStatus = a});
+
+instance NFData AddCommunicationToCaseResponse

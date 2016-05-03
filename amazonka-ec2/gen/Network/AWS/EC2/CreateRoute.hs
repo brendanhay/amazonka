@@ -166,6 +166,8 @@ instance AWSRequest CreateRoute where
 
 instance Hashable CreateRoute
 
+instance NFData CreateRoute
+
 instance ToHeaders CreateRoute where
         toHeaders = const mempty
 
@@ -215,3 +217,5 @@ crrsReturn = lens _crrsReturn (\ s a -> s{_crrsReturn = a});
 -- | The response status code.
 crrsResponseStatus :: Lens' CreateRouteResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
+
+instance NFData CreateRouteResponse

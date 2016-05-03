@@ -106,6 +106,8 @@ instance AWSRequest DescribeRegions where
 
 instance Hashable DescribeRegions
 
+instance NFData DescribeRegions
+
 instance ToHeaders DescribeRegions where
         toHeaders = const mempty
 
@@ -151,3 +153,5 @@ drrsRegions = lens _drrsRegions (\ s a -> s{_drrsRegions = a}) . _Default . _Coe
 -- | The response status code.
 drrsResponseStatus :: Lens' DescribeRegionsResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+
+instance NFData DescribeRegionsResponse

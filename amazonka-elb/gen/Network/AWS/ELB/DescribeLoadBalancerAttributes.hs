@@ -79,6 +79,8 @@ instance AWSRequest DescribeLoadBalancerAttributes
 
 instance Hashable DescribeLoadBalancerAttributes
 
+instance NFData DescribeLoadBalancerAttributes
+
 instance ToHeaders DescribeLoadBalancerAttributes
          where
         toHeaders = const mempty
@@ -123,3 +125,6 @@ dlbarsLoadBalancerAttributes = lens _dlbarsLoadBalancerAttributes (\ s a -> s{_d
 -- | The response status code.
 dlbarsResponseStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
 dlbarsResponseStatus = lens _dlbarsResponseStatus (\ s a -> s{_dlbarsResponseStatus = a});
+
+instance NFData
+         DescribeLoadBalancerAttributesResponse

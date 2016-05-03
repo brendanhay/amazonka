@@ -198,6 +198,8 @@ instance AWSRequest CreateVolume where
 
 instance Hashable CreateVolume
 
+instance NFData CreateVolume
+
 instance ToHeaders CreateVolume where
         toHeaders = const mempty
 

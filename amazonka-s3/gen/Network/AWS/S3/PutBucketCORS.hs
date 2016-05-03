@@ -87,6 +87,8 @@ instance AWSRequest PutBucketCORS where
 
 instance Hashable PutBucketCORS
 
+instance NFData PutBucketCORS
+
 instance ToElement PutBucketCORS where
         toElement
           = mkElement
@@ -115,3 +117,5 @@ data PutBucketCORSResponse =
 putBucketCORSResponse
     :: PutBucketCORSResponse
 putBucketCORSResponse = PutBucketCORSResponse'
+
+instance NFData PutBucketCORSResponse

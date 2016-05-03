@@ -100,6 +100,8 @@ instance AWSRequest UpdateDistribution where
 
 instance Hashable UpdateDistribution
 
+instance NFData UpdateDistribution
+
 instance ToElement UpdateDistribution where
         toElement
           = mkElement
@@ -158,3 +160,5 @@ udrsDistribution = lens _udrsDistribution (\ s a -> s{_udrsDistribution = a});
 -- | The response status code.
 udrsResponseStatus :: Lens' UpdateDistributionResponse Int
 udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
+
+instance NFData UpdateDistributionResponse

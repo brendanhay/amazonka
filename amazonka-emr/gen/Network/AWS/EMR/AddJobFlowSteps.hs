@@ -111,6 +111,8 @@ instance AWSRequest AddJobFlowSteps where
 
 instance Hashable AddJobFlowSteps
 
+instance NFData AddJobFlowSteps
+
 instance ToHeaders AddJobFlowSteps where
         toHeaders
           = const
@@ -164,3 +166,5 @@ ajfsrsStepIds = lens _ajfsrsStepIds (\ s a -> s{_ajfsrsStepIds = a}) . _Default 
 -- | The response status code.
 ajfsrsResponseStatus :: Lens' AddJobFlowStepsResponse Int
 ajfsrsResponseStatus = lens _ajfsrsResponseStatus (\ s a -> s{_ajfsrsResponseStatus = a});
+
+instance NFData AddJobFlowStepsResponse

@@ -100,6 +100,8 @@ instance AWSRequest UpdateAvailabilityOptions where
 
 instance Hashable UpdateAvailabilityOptions
 
+instance NFData UpdateAvailabilityOptions
+
 instance ToHeaders UpdateAvailabilityOptions where
         toHeaders = const mempty
 
@@ -148,3 +150,5 @@ uaorsAvailabilityOptions = lens _uaorsAvailabilityOptions (\ s a -> s{_uaorsAvai
 -- | The response status code.
 uaorsResponseStatus :: Lens' UpdateAvailabilityOptionsResponse Int
 uaorsResponseStatus = lens _uaorsResponseStatus (\ s a -> s{_uaorsResponseStatus = a});
+
+instance NFData UpdateAvailabilityOptionsResponse

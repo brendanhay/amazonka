@@ -381,6 +381,8 @@ instance AWSRequest RestoreDBInstanceToPointInTime
 
 instance Hashable RestoreDBInstanceToPointInTime
 
+instance NFData RestoreDBInstanceToPointInTime
+
 instance ToHeaders RestoreDBInstanceToPointInTime
          where
         toHeaders = const mempty
@@ -450,3 +452,6 @@ rditpitrsDBInstance = lens _rditpitrsDBInstance (\ s a -> s{_rditpitrsDBInstance
 -- | The response status code.
 rditpitrsResponseStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
 rditpitrsResponseStatus = lens _rditpitrsResponseStatus (\ s a -> s{_rditpitrsResponseStatus = a});
+
+instance NFData
+         RestoreDBInstanceToPointInTimeResponse

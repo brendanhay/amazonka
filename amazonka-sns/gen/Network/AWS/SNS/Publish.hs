@@ -186,6 +186,8 @@ instance AWSRequest Publish where
 
 instance Hashable Publish
 
+instance NFData Publish
+
 instance ToHeaders Publish where
         toHeaders = const mempty
 
@@ -239,3 +241,5 @@ prsMessageId = lens _prsMessageId (\ s a -> s{_prsMessageId = a});
 -- | The response status code.
 prsResponseStatus :: Lens' PublishResponse Int
 prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});
+
+instance NFData PublishResponse

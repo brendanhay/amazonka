@@ -121,6 +121,8 @@ instance AWSRequest GetStatus where
 
 instance Hashable GetStatus
 
+instance NFData GetStatus
+
 instance ToHeaders GetStatus where
         toHeaders = const mempty
 
@@ -286,3 +288,5 @@ gsrsProgressMessage = lens _gsrsProgressMessage (\ s a -> s{_gsrsProgressMessage
 -- | The response status code.
 gsrsResponseStatus :: Lens' GetStatusResponse Int
 gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
+
+instance NFData GetStatusResponse

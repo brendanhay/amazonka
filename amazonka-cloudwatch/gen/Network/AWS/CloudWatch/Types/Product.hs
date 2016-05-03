@@ -89,6 +89,8 @@ instance FromXML AlarmHistoryItem where
 
 instance Hashable AlarmHistoryItem
 
+instance NFData AlarmHistoryItem
+
 -- | The 'Datapoint' data type encapsulates the statistical data that Amazon
 -- CloudWatch computes from metric data.
 --
@@ -174,6 +176,8 @@ instance FromXML Datapoint where
 
 instance Hashable Datapoint
 
+instance NFData Datapoint
+
 -- | The 'Dimension' data type further expands on the identity of a metric
 -- using a Name, Value pair.
 --
@@ -216,6 +220,8 @@ instance FromXML Dimension where
 
 instance Hashable Dimension
 
+instance NFData Dimension
+
 instance ToQuery Dimension where
         toQuery Dimension'{..}
           = mconcat ["Name" =: _dName, "Value" =: _dValue]
@@ -257,6 +263,8 @@ dfName :: Lens' DimensionFilter Text
 dfName = lens _dfName (\ s a -> s{_dfName = a});
 
 instance Hashable DimensionFilter
+
+instance NFData DimensionFilter
 
 instance ToQuery DimensionFilter where
         toQuery DimensionFilter'{..}
@@ -315,6 +323,8 @@ instance FromXML Metric where
                    may (parseXMLList "member"))
 
 instance Hashable Metric
+
+instance NFData Metric
 
 -- | The < MetricAlarm> data type represents an alarm. You can use
 -- < PutMetricAlarm> to create or update an alarm.
@@ -547,6 +557,8 @@ instance FromXML MetricAlarm where
 
 instance Hashable MetricAlarm
 
+instance NFData MetricAlarm
+
 -- | The 'MetricDatum' data type encapsulates the information sent with
 -- < PutMetricData> to either create a new metric or add new values to be
 -- aggregated into an existing metric.
@@ -625,6 +637,8 @@ mdMetricName = lens _mdMetricName (\ s a -> s{_mdMetricName = a});
 
 instance Hashable MetricDatum
 
+instance NFData MetricDatum
+
 instance ToQuery MetricDatum where
         toQuery MetricDatum'{..}
           = mconcat
@@ -689,6 +703,8 @@ ssMaximum :: Lens' StatisticSet Double
 ssMaximum = lens _ssMaximum (\ s a -> s{_ssMaximum = a});
 
 instance Hashable StatisticSet
+
+instance NFData StatisticSet
 
 instance ToQuery StatisticSet where
         toQuery StatisticSet'{..}

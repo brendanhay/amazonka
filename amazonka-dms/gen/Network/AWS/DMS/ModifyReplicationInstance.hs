@@ -185,6 +185,8 @@ instance AWSRequest ModifyReplicationInstance where
 
 instance Hashable ModifyReplicationInstance
 
+instance NFData ModifyReplicationInstance
+
 instance ToHeaders ModifyReplicationInstance where
         toHeaders
           = const
@@ -251,3 +253,5 @@ mrirsReplicationInstance = lens _mrirsReplicationInstance (\ s a -> s{_mrirsRepl
 -- | The response status code.
 mrirsResponseStatus :: Lens' ModifyReplicationInstanceResponse Int
 mrirsResponseStatus = lens _mrirsResponseStatus (\ s a -> s{_mrirsResponseStatus = a});
+
+instance NFData ModifyReplicationInstanceResponse

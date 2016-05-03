@@ -95,6 +95,8 @@ instance AWSRequest GetCredentialsForIdentity where
 
 instance Hashable GetCredentialsForIdentity
 
+instance NFData GetCredentialsForIdentity
+
 instance ToHeaders GetCredentialsForIdentity where
         toHeaders
           = const
@@ -158,3 +160,5 @@ gcfirsIdentityId = lens _gcfirsIdentityId (\ s a -> s{_gcfirsIdentityId = a});
 -- | The response status code.
 gcfirsResponseStatus :: Lens' GetCredentialsForIdentityResponse Int
 gcfirsResponseStatus = lens _gcfirsResponseStatus (\ s a -> s{_gcfirsResponseStatus = a});
+
+instance NFData GetCredentialsForIdentityResponse

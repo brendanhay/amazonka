@@ -108,6 +108,8 @@ instance AWSRequest GetSDK where
 
 instance Hashable GetSDK
 
+instance NFData GetSDK
+
 instance ToHeaders GetSDK where
         toHeaders
           = const
@@ -173,3 +175,5 @@ gsdkrsContentType = lens _gsdkrsContentType (\ s a -> s{_gsdkrsContentType = a})
 -- | The response status code.
 gsdkrsResponseStatus :: Lens' GetSDKResponse Int
 gsdkrsResponseStatus = lens _gsdkrsResponseStatus (\ s a -> s{_gsdkrsResponseStatus = a});
+
+instance NFData GetSDKResponse

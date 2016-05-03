@@ -169,6 +169,8 @@ instance AWSRequest ListObjectVersions where
 
 instance Hashable ListObjectVersions
 
+instance NFData ListObjectVersions
+
 instance ToHeaders ListObjectVersions where
         toHeaders = const mempty
 
@@ -317,3 +319,5 @@ lovrsDelimiter = lens _lovrsDelimiter (\ s a -> s{_lovrsDelimiter = a});
 -- | The response status code.
 lovrsResponseStatus :: Lens' ListObjectVersionsResponse Int
 lovrsResponseStatus = lens _lovrsResponseStatus (\ s a -> s{_lovrsResponseStatus = a});
+
+instance NFData ListObjectVersionsResponse

@@ -75,6 +75,8 @@ instance AWSRequest DeleteThing where
 
 instance Hashable DeleteThing
 
+instance NFData DeleteThing
+
 instance ToHeaders DeleteThing where
         toHeaders = const mempty
 
@@ -108,3 +110,5 @@ deleteThingResponse pResponseStatus_ =
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteThingResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteThingResponse

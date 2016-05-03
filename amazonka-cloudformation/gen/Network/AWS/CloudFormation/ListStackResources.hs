@@ -112,6 +112,8 @@ instance AWSRequest ListStackResources where
 
 instance Hashable ListStackResources
 
+instance NFData ListStackResources
+
 instance ToHeaders ListStackResources where
         toHeaders = const mempty
 
@@ -167,3 +169,5 @@ lsrrsStackResourceSummaries = lens _lsrrsStackResourceSummaries (\ s a -> s{_lsr
 -- | The response status code.
 lsrrsResponseStatus :: Lens' ListStackResourcesResponse Int
 lsrrsResponseStatus = lens _lsrrsResponseStatus (\ s a -> s{_lsrrsResponseStatus = a});
+
+instance NFData ListStackResourcesResponse

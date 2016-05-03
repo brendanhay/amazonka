@@ -83,6 +83,8 @@ instance AWSRequest DeleteDBSnapshot where
 
 instance Hashable DeleteDBSnapshot
 
+instance NFData DeleteDBSnapshot
+
 instance ToHeaders DeleteDBSnapshot where
         toHeaders = const mempty
 
@@ -125,3 +127,5 @@ ddbsrsDBSnapshot = lens _ddbsrsDBSnapshot (\ s a -> s{_ddbsrsDBSnapshot = a});
 -- | The response status code.
 ddbsrsResponseStatus :: Lens' DeleteDBSnapshotResponse Int
 ddbsrsResponseStatus = lens _ddbsrsResponseStatus (\ s a -> s{_ddbsrsResponseStatus = a});
+
+instance NFData DeleteDBSnapshotResponse

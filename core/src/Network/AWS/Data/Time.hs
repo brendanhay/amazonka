@@ -35,6 +35,7 @@ module Network.AWS.Data.Time
     ) where
 
 import           Control.Applicative
+import           Control.DeepSeq
 import           Data.Aeson
 import           Data.Attoparsec.Text        (Parser)
 import qualified Data.Attoparsec.Text        as AText
@@ -80,6 +81,8 @@ deriving instance Eq   (Time a)
 deriving instance Ord  (Time a)
 deriving instance Read (Time a)
 deriving instance Show (Time a)
+
+instance NFData (Time a)
 
 instance Hashable (Time a) where
     hashWithSalt salt (Time (UTCTime (ModifiedJulianDay d) t)) =

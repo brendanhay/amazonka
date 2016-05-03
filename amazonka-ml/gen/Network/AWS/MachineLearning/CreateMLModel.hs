@@ -199,6 +199,8 @@ instance AWSRequest CreateMLModel where
 
 instance Hashable CreateMLModel
 
+instance NFData CreateMLModel
+
 instance ToHeaders CreateMLModel where
         toHeaders
           = const
@@ -265,3 +267,5 @@ cmlmrsMLModelId = lens _cmlmrsMLModelId (\ s a -> s{_cmlmrsMLModelId = a});
 -- | The response status code.
 cmlmrsResponseStatus :: Lens' CreateMLModelResponse Int
 cmlmrsResponseStatus = lens _cmlmrsResponseStatus (\ s a -> s{_cmlmrsResponseStatus = a});
+
+instance NFData CreateMLModelResponse

@@ -139,6 +139,8 @@ instance AWSRequest ModifySnapshotAttribute where
 
 instance Hashable ModifySnapshotAttribute
 
+instance NFData ModifySnapshotAttribute
+
 instance ToHeaders ModifySnapshotAttribute where
         toHeaders = const mempty
 
@@ -170,3 +172,5 @@ data ModifySnapshotAttributeResponse =
 modifySnapshotAttributeResponse
     :: ModifySnapshotAttributeResponse
 modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse'
+
+instance NFData ModifySnapshotAttributeResponse

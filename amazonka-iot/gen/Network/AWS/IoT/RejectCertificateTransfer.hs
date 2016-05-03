@@ -81,6 +81,8 @@ instance AWSRequest RejectCertificateTransfer where
 
 instance Hashable RejectCertificateTransfer
 
+instance NFData RejectCertificateTransfer
+
 instance ToHeaders RejectCertificateTransfer where
         toHeaders = const mempty
 
@@ -106,3 +108,5 @@ data RejectCertificateTransferResponse =
 rejectCertificateTransferResponse
     :: RejectCertificateTransferResponse
 rejectCertificateTransferResponse = RejectCertificateTransferResponse'
+
+instance NFData RejectCertificateTransferResponse

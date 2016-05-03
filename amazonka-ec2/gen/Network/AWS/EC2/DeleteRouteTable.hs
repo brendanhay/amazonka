@@ -82,6 +82,8 @@ instance AWSRequest DeleteRouteTable where
 
 instance Hashable DeleteRouteTable
 
+instance NFData DeleteRouteTable
+
 instance ToHeaders DeleteRouteTable where
         toHeaders = const mempty
 
@@ -106,3 +108,5 @@ data DeleteRouteTableResponse =
 deleteRouteTableResponse
     :: DeleteRouteTableResponse
 deleteRouteTableResponse = DeleteRouteTableResponse'
+
+instance NFData DeleteRouteTableResponse

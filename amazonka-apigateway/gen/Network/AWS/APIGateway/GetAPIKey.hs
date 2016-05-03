@@ -78,6 +78,8 @@ instance AWSRequest GetAPIKey where
 
 instance Hashable GetAPIKey
 
+instance NFData GetAPIKey
+
 instance ToHeaders GetAPIKey where
         toHeaders
           = const

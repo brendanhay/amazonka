@@ -110,6 +110,8 @@ instance AWSRequest DescribeDataset where
 
 instance Hashable DescribeDataset
 
+instance NFData DescribeDataset
+
 instance ToHeaders DescribeDataset where
         toHeaders
           = const
@@ -162,3 +164,5 @@ ddrsDataset = lens _ddrsDataset (\ s a -> s{_ddrsDataset = a});
 -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeDatasetResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+
+instance NFData DescribeDatasetResponse

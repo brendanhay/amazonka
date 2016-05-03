@@ -76,6 +76,8 @@ instance AWSRequest DeleteVerifiedEmailAddress where
 
 instance Hashable DeleteVerifiedEmailAddress
 
+instance NFData DeleteVerifiedEmailAddress
+
 instance ToHeaders DeleteVerifiedEmailAddress where
         toHeaders = const mempty
 
@@ -100,3 +102,5 @@ data DeleteVerifiedEmailAddressResponse =
 deleteVerifiedEmailAddressResponse
     :: DeleteVerifiedEmailAddressResponse
 deleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse'
+
+instance NFData DeleteVerifiedEmailAddressResponse

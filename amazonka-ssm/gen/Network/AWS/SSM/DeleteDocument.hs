@@ -77,6 +77,8 @@ instance AWSRequest DeleteDocument where
 
 instance Hashable DeleteDocument
 
+instance NFData DeleteDocument
+
 instance ToHeaders DeleteDocument where
         toHeaders
           = const
@@ -117,3 +119,5 @@ deleteDocumentResponse pResponseStatus_ =
 -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDocumentResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+
+instance NFData DeleteDocumentResponse

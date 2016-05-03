@@ -80,6 +80,8 @@ instance FromJSON ApplicationInfo where
 
 instance Hashable ApplicationInfo
 
+instance NFData ApplicationInfo
+
 -- | Information about an Auto Scaling group.
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
@@ -119,6 +121,8 @@ instance FromJSON AutoScalingGroup where
                    (x .:? "hook") <*> (x .:? "name"))
 
 instance Hashable AutoScalingGroup
+
+instance NFData AutoScalingGroup
 
 -- | Information about a deployment configuration.
 --
@@ -178,6 +182,8 @@ instance FromJSON DeploymentConfigInfo where
                      <*> (x .:? "createTime"))
 
 instance Hashable DeploymentConfigInfo
+
+instance NFData DeploymentConfigInfo
 
 -- | Information about a deployment group.
 --
@@ -292,6 +298,8 @@ instance FromJSON DeploymentGroupInfo where
                      <*> (x .:? "deploymentGroupName"))
 
 instance Hashable DeploymentGroupInfo
+
+instance NFData DeploymentGroupInfo
 
 -- | Information about a deployment.
 --
@@ -458,6 +466,8 @@ instance FromJSON DeploymentInfo where
 
 instance Hashable DeploymentInfo
 
+instance NFData DeploymentInfo
+
 -- | Information about the deployment status of the instances in the
 -- deployment.
 --
@@ -526,6 +536,8 @@ instance FromJSON DeploymentOverview where
                      <*> (x .:? "Failed"))
 
 instance Hashable DeploymentOverview
+
+instance NFData DeploymentOverview
 
 -- | Diagnostic information about executable scripts that are part of a
 -- deployment.
@@ -600,6 +612,8 @@ instance FromJSON Diagnostics where
 
 instance Hashable Diagnostics
 
+instance NFData Diagnostics
+
 -- | Information about a tag filter.
 --
 -- /See:/ 'ec2TagFilter' smart constructor.
@@ -651,6 +665,8 @@ instance FromJSON EC2TagFilter where
                    (x .:? "Value") <*> (x .:? "Key") <*> (x .:? "Type"))
 
 instance Hashable EC2TagFilter
+
+instance NFData EC2TagFilter
 
 instance ToJSON EC2TagFilter where
         toJSON EC2TagFilter'{..}
@@ -726,6 +742,8 @@ instance FromJSON ErrorInformation where
 
 instance Hashable ErrorInformation
 
+instance NFData ErrorInformation
+
 -- | Information about an application revision.
 --
 -- /See:/ 'genericRevisionInfo' smart constructor.
@@ -793,6 +811,8 @@ instance FromJSON GenericRevisionInfo where
 
 instance Hashable GenericRevisionInfo
 
+instance NFData GenericRevisionInfo
+
 -- | Information about the location of application artifacts stored in
 -- GitHub.
 --
@@ -838,6 +858,8 @@ instance FromJSON GitHubLocation where
                    (x .:? "commitId") <*> (x .:? "repository"))
 
 instance Hashable GitHubLocation
+
+instance NFData GitHubLocation
 
 instance ToJSON GitHubLocation where
         toJSON GitHubLocation'{..}
@@ -923,6 +945,8 @@ instance FromJSON InstanceInfo where
 
 instance Hashable InstanceInfo
 
+instance NFData InstanceInfo
+
 -- | Information about an instance in a deployment.
 --
 -- /See:/ 'instanceSummary' smart constructor.
@@ -996,6 +1020,8 @@ instance FromJSON InstanceSummary where
                      <*> (x .:? "lifecycleEvents" .!= mempty))
 
 instance Hashable InstanceSummary
+
+instance NFData InstanceSummary
 
 -- | Information about a deployment lifecycle event.
 --
@@ -1072,6 +1098,8 @@ instance FromJSON LifecycleEvent where
 
 instance Hashable LifecycleEvent
 
+instance NFData LifecycleEvent
+
 -- | Information about minimum healthy instance.
 --
 -- /See:/ 'minimumHealthyHosts' smart constructor.
@@ -1136,6 +1164,8 @@ instance FromJSON MinimumHealthyHosts where
 
 instance Hashable MinimumHealthyHosts
 
+instance NFData MinimumHealthyHosts
+
 instance ToJSON MinimumHealthyHosts where
         toJSON MinimumHealthyHosts'{..}
           = object
@@ -1183,6 +1213,8 @@ instance FromJSON RevisionInfo where
                      (x .:? "revisionLocation"))
 
 instance Hashable RevisionInfo
+
+instance NFData RevisionInfo
 
 -- | Information about the location of an application revision.
 --
@@ -1235,6 +1267,8 @@ instance FromJSON RevisionLocation where
                      (x .:? "gitHubLocation"))
 
 instance Hashable RevisionLocation
+
+instance NFData RevisionLocation
 
 instance ToJSON RevisionLocation where
         toJSON RevisionLocation'{..}
@@ -1326,6 +1360,8 @@ instance FromJSON S3Location where
 
 instance Hashable S3Location
 
+instance NFData S3Location
+
 instance ToJSON S3Location where
         toJSON S3Location'{..}
           = object
@@ -1372,6 +1408,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -1431,6 +1469,8 @@ instance FromJSON TagFilter where
 
 instance Hashable TagFilter
 
+instance NFData TagFilter
+
 instance ToJSON TagFilter where
         toJSON TagFilter'{..}
           = object
@@ -1474,6 +1514,8 @@ trEnd :: Lens' TimeRange (Maybe UTCTime)
 trEnd = lens _trEnd (\ s a -> s{_trEnd = a}) . mapping _Time;
 
 instance Hashable TimeRange
+
+instance NFData TimeRange
 
 instance ToJSON TimeRange where
         toJSON TimeRange'{..}
@@ -1541,6 +1583,8 @@ instance FromJSON TriggerConfig where
                      <*> (x .:? "triggerTargetArn"))
 
 instance Hashable TriggerConfig
+
+instance NFData TriggerConfig
 
 instance ToJSON TriggerConfig where
         toJSON TriggerConfig'{..}

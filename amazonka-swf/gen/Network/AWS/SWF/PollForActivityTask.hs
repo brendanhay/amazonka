@@ -145,6 +145,8 @@ instance AWSRequest PollForActivityTask where
 
 instance Hashable PollForActivityTask
 
+instance NFData PollForActivityTask
+
 instance ToHeaders PollForActivityTask where
         toHeaders
           = const
@@ -247,3 +249,5 @@ pfatrsWorkflowExecution = lens _pfatrsWorkflowExecution (\ s a -> s{_pfatrsWorkf
 -- | The type of this activity task.
 pfatrsActivityType :: Lens' PollForActivityTaskResponse ActivityType
 pfatrsActivityType = lens _pfatrsActivityType (\ s a -> s{_pfatrsActivityType = a});
+
+instance NFData PollForActivityTaskResponse

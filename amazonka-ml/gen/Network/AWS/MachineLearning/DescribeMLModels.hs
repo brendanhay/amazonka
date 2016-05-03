@@ -224,6 +224,8 @@ instance AWSRequest DescribeMLModels where
 
 instance Hashable DescribeMLModels
 
+instance NFData DescribeMLModels
+
 instance ToHeaders DescribeMLModels where
         toHeaders
           = const
@@ -293,3 +295,5 @@ dmlmsrsNextToken = lens _dmlmsrsNextToken (\ s a -> s{_dmlmsrsNextToken = a});
 -- | The response status code.
 dmlmsrsResponseStatus :: Lens' DescribeMLModelsResponse Int
 dmlmsrsResponseStatus = lens _dmlmsrsResponseStatus (\ s a -> s{_dmlmsrsResponseStatus = a});
+
+instance NFData DescribeMLModelsResponse

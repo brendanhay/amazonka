@@ -88,6 +88,8 @@ instance AWSRequest ListLocalDisks where
 
 instance Hashable ListLocalDisks
 
+instance NFData ListLocalDisks
+
 instance ToHeaders ListLocalDisks where
         toHeaders
           = const
@@ -146,3 +148,5 @@ lldrsDisks = lens _lldrsDisks (\ s a -> s{_lldrsDisks = a}) . _Default . _Coerce
 -- | The response status code.
 lldrsResponseStatus :: Lens' ListLocalDisksResponse Int
 lldrsResponseStatus = lens _lldrsResponseStatus (\ s a -> s{_lldrsResponseStatus = a});
+
+instance NFData ListLocalDisksResponse

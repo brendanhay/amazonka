@@ -37,6 +37,7 @@ instance ToText ActionCode where
         InventoryRetrieval -> "InventoryRetrieval"
 
 instance Hashable     ActionCode
+instance NFData       ActionCode
 instance ToByteString ActionCode
 instance ToQuery      ActionCode
 instance ToHeader     ActionCode
@@ -65,6 +66,7 @@ instance ToText StatusCode where
         Succeeded -> "Succeeded"
 
 instance Hashable     StatusCode
+instance NFData       StatusCode
 instance ToByteString StatusCode
 instance ToQuery      StatusCode
 instance ToHeader     StatusCode

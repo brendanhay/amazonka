@@ -98,6 +98,8 @@ instance AWSRequest ListTargetsByRule where
 
 instance Hashable ListTargetsByRule
 
+instance NFData ListTargetsByRule
+
 instance ToHeaders ListTargetsByRule where
         toHeaders
           = const
@@ -160,3 +162,5 @@ ltbrrsTargets = lens _ltbrrsTargets (\ s a -> s{_ltbrrsTargets = a}) . _Default 
 -- | The response status code.
 ltbrrsResponseStatus :: Lens' ListTargetsByRuleResponse Int
 ltbrrsResponseStatus = lens _ltbrrsResponseStatus (\ s a -> s{_ltbrrsResponseStatus = a});
+
+instance NFData ListTargetsByRuleResponse

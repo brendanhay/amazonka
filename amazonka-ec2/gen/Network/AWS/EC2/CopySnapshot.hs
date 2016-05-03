@@ -192,6 +192,8 @@ instance AWSRequest CopySnapshot where
 
 instance Hashable CopySnapshot
 
+instance NFData CopySnapshot
+
 instance ToHeaders CopySnapshot where
         toHeaders = const mempty
 
@@ -241,3 +243,5 @@ csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 -- | The response status code.
 csrsResponseStatus :: Lens' CopySnapshotResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+
+instance NFData CopySnapshotResponse

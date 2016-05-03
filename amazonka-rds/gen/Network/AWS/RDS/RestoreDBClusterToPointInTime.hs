@@ -234,6 +234,8 @@ instance AWSRequest RestoreDBClusterToPointInTime
 
 instance Hashable RestoreDBClusterToPointInTime
 
+instance NFData RestoreDBClusterToPointInTime
+
 instance ToHeaders RestoreDBClusterToPointInTime
          where
         toHeaders = const mempty
@@ -293,3 +295,5 @@ rdctpitrsDBCluster = lens _rdctpitrsDBCluster (\ s a -> s{_rdctpitrsDBCluster = 
 -- | The response status code.
 rdctpitrsResponseStatus :: Lens' RestoreDBClusterToPointInTimeResponse Int
 rdctpitrsResponseStatus = lens _rdctpitrsResponseStatus (\ s a -> s{_rdctpitrsResponseStatus = a});
+
+instance NFData RestoreDBClusterToPointInTimeResponse

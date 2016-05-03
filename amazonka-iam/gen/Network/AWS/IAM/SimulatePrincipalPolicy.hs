@@ -292,6 +292,8 @@ instance AWSRequest SimulatePrincipalPolicy where
 
 instance Hashable SimulatePrincipalPolicy
 
+instance NFData SimulatePrincipalPolicy
+
 instance ToHeaders SimulatePrincipalPolicy where
         toHeaders = const mempty
 

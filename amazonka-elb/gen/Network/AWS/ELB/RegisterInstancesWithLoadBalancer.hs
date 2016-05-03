@@ -119,6 +119,8 @@ instance AWSRequest RegisterInstancesWithLoadBalancer
 
 instance Hashable RegisterInstancesWithLoadBalancer
 
+instance NFData RegisterInstancesWithLoadBalancer
+
 instance ToHeaders RegisterInstancesWithLoadBalancer
          where
         toHeaders = const mempty
@@ -166,3 +168,6 @@ riwlbrsInstances = lens _riwlbrsInstances (\ s a -> s{_riwlbrsInstances = a}) . 
 -- | The response status code.
 riwlbrsResponseStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
 riwlbrsResponseStatus = lens _riwlbrsResponseStatus (\ s a -> s{_riwlbrsResponseStatus = a});
+
+instance NFData
+         RegisterInstancesWithLoadBalancerResponse

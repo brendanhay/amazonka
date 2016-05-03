@@ -70,6 +70,8 @@ instance AWSRequest DeleteDomain where
 
 instance Hashable DeleteDomain
 
+instance NFData DeleteDomain
+
 instance ToHeaders DeleteDomain where
         toHeaders = const mempty
 
@@ -93,3 +95,5 @@ data DeleteDomainResponse =
 deleteDomainResponse
     :: DeleteDomainResponse
 deleteDomainResponse = DeleteDomainResponse'
+
+instance NFData DeleteDomainResponse

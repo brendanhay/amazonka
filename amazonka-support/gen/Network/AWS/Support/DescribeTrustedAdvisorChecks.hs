@@ -84,6 +84,8 @@ instance AWSRequest DescribeTrustedAdvisorChecks
 
 instance Hashable DescribeTrustedAdvisorChecks
 
+instance NFData DescribeTrustedAdvisorChecks
+
 instance ToHeaders DescribeTrustedAdvisorChecks where
         toHeaders
           = const
@@ -137,3 +139,5 @@ dtacrsResponseStatus = lens _dtacrsResponseStatus (\ s a -> s{_dtacrsResponseSta
 -- | Information about all available Trusted Advisor checks.
 dtacrsChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
 dtacrsChecks = lens _dtacrsChecks (\ s a -> s{_dtacrsChecks = a}) . _Coerce;
+
+instance NFData DescribeTrustedAdvisorChecksResponse

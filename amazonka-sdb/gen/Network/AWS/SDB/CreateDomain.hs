@@ -78,6 +78,8 @@ instance AWSRequest CreateDomain where
 
 instance Hashable CreateDomain
 
+instance NFData CreateDomain
+
 instance ToHeaders CreateDomain where
         toHeaders = const mempty
 
@@ -101,3 +103,5 @@ data CreateDomainResponse =
 createDomainResponse
     :: CreateDomainResponse
 createDomainResponse = CreateDomainResponse'
+
+instance NFData CreateDomainResponse

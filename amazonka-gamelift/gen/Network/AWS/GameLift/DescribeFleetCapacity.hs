@@ -189,3 +189,5 @@ dfcrsFleetCapacity = lens _dfcrsFleetCapacity (\ s a -> s{_dfcrsFleetCapacity = 
 -- | The response status code.
 dfcrsResponseStatus :: Lens' DescribeFleetCapacityResponse Int
 dfcrsResponseStatus = lens _dfcrsResponseStatus (\ s a -> s{_dfcrsResponseStatus = a});
+
+instance NFData DescribeFleetCapacityResponse

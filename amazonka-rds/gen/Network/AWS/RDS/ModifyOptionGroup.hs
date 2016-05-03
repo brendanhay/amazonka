@@ -165,3 +165,5 @@ mogrsOptionGroup = lens _mogrsOptionGroup (\ s a -> s{_mogrsOptionGroup = a});
 -- | The response status code.
 mogrsResponseStatus :: Lens' ModifyOptionGroupResponse Int
 mogrsResponseStatus = lens _mogrsResponseStatus (\ s a -> s{_mogrsResponseStatus = a});
+
+instance NFData ModifyOptionGroupResponse

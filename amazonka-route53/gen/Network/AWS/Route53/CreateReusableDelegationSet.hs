@@ -167,3 +167,5 @@ crdsrsDelegationSet = lens _crdsrsDelegationSet (\ s a -> s{_crdsrsDelegationSet
 -- | The unique URL representing the new reusbale delegation set.
 crdsrsLocation :: Lens' CreateReusableDelegationSetResponse Text
 crdsrsLocation = lens _crdsrsLocation (\ s a -> s{_crdsrsLocation = a});
+
+instance NFData CreateReusableDelegationSetResponse

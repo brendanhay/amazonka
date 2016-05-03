@@ -202,3 +202,5 @@ ggrsGroup = lens _ggrsGroup (\ s a -> s{_ggrsGroup = a});
 -- | A list of users in the group.
 ggrsUsers :: Lens' GetGroupResponse [User]
 ggrsUsers = lens _ggrsUsers (\ s a -> s{_ggrsUsers = a}) . _Coerce;
+
+instance NFData GetGroupResponse

@@ -108,3 +108,5 @@ data UnassignVolumeResponse =
 unassignVolumeResponse
     :: UnassignVolumeResponse
 unassignVolumeResponse = UnassignVolumeResponse'
+
+instance NFData UnassignVolumeResponse

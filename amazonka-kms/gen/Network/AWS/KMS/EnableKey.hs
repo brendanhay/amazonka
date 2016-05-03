@@ -105,3 +105,5 @@ data EnableKeyResponse =
 enableKeyResponse
     :: EnableKeyResponse
 enableKeyResponse = EnableKeyResponse'
+
+instance NFData EnableKeyResponse

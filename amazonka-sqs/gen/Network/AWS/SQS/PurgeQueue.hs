@@ -104,3 +104,5 @@ data PurgeQueueResponse =
 purgeQueueResponse
     :: PurgeQueueResponse
 purgeQueueResponse = PurgeQueueResponse'
+
+instance NFData PurgeQueueResponse

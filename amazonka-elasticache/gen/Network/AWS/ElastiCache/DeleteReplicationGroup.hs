@@ -157,3 +157,5 @@ delrsReplicationGroup = lens _delrsReplicationGroup (\ s a -> s{_delrsReplicatio
 -- | The response status code.
 delrsResponseStatus :: Lens' DeleteReplicationGroupResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+
+instance NFData DeleteReplicationGroupResponse

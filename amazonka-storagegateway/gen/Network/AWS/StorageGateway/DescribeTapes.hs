@@ -197,3 +197,5 @@ dtsrsTapes = lens _dtsrsTapes (\ s a -> s{_dtsrsTapes = a}) . _Default . _Coerce
 -- | The response status code.
 dtsrsResponseStatus :: Lens' DescribeTapesResponse Int
 dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
+
+instance NFData DescribeTapesResponse

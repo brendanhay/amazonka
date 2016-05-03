@@ -129,3 +129,5 @@ drgrsResourceGroup = lens _drgrsResourceGroup (\ s a -> s{_drgrsResourceGroup = 
 -- | The response status code.
 drgrsResponseStatus :: Lens' DescribeResourceGroupResponse Int
 drgrsResponseStatus = lens _drgrsResponseStatus (\ s a -> s{_drgrsResponseStatus = a});
+
+instance NFData DescribeResourceGroupResponse

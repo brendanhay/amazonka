@@ -174,3 +174,5 @@ cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a});
 -- | The response status code.
 cprsResponseStatus :: Lens' CreatePolicyResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+
+instance NFData CreatePolicyResponse

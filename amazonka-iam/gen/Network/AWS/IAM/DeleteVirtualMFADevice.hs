@@ -101,3 +101,5 @@ data DeleteVirtualMFADeviceResponse =
 deleteVirtualMFADeviceResponse
     :: DeleteVirtualMFADeviceResponse
 deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse'
+
+instance NFData DeleteVirtualMFADeviceResponse

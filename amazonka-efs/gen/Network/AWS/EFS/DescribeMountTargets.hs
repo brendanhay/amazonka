@@ -186,3 +186,5 @@ dmtrsNextMarker = lens _dmtrsNextMarker (\ s a -> s{_dmtrsNextMarker = a});
 -- | The response status code.
 dmtrsResponseStatus :: Lens' DescribeMountTargetsResponse Int
 dmtrsResponseStatus = lens _dmtrsResponseStatus (\ s a -> s{_dmtrsResponseStatus = a});
+
+instance NFData DescribeMountTargetsResponse

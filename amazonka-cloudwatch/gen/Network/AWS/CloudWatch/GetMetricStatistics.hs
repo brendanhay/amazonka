@@ -257,3 +257,5 @@ gmsrsLabel = lens _gmsrsLabel (\ s a -> s{_gmsrsLabel = a});
 -- | The response status code.
 gmsrsResponseStatus :: Lens' GetMetricStatisticsResponse Int
 gmsrsResponseStatus = lens _gmsrsResponseStatus (\ s a -> s{_gmsrsResponseStatus = a});
+
+instance NFData GetMetricStatisticsResponse

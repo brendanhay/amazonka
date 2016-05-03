@@ -113,3 +113,5 @@ lsamlprsSAMLProviderList = lens _lsamlprsSAMLProviderList (\ s a -> s{_lsamlprsS
 -- | The response status code.
 lsamlprsResponseStatus :: Lens' ListSAMLProvidersResponse Int
 lsamlprsResponseStatus = lens _lsamlprsResponseStatus (\ s a -> s{_lsamlprsResponseStatus = a});
+
+instance NFData ListSAMLProvidersResponse

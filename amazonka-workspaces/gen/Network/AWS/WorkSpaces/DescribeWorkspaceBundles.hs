@@ -184,3 +184,5 @@ dwbrsNextToken = lens _dwbrsNextToken (\ s a -> s{_dwbrsNextToken = a});
 -- | The response status code.
 dwbrsResponseStatus :: Lens' DescribeWorkspaceBundlesResponse Int
 dwbrsResponseStatus = lens _dwbrsResponseStatus (\ s a -> s{_dwbrsResponseStatus = a});
+
+instance NFData DescribeWorkspaceBundlesResponse

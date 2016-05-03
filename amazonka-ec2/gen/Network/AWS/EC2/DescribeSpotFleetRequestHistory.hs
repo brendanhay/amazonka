@@ -243,3 +243,6 @@ dsfrhrsLastEvaluatedTime = lens _dsfrhrsLastEvaluatedTime (\ s a -> s{_dsfrhrsLa
 -- | Information about the events in the history of the Spot fleet request.
 dsfrhrsHistoryRecords :: Lens' DescribeSpotFleetRequestHistoryResponse [HistoryRecord]
 dsfrhrsHistoryRecords = lens _dsfrhrsHistoryRecords (\ s a -> s{_dsfrhrsHistoryRecords = a}) . _Coerce;
+
+instance NFData
+         DescribeSpotFleetRequestHistoryResponse

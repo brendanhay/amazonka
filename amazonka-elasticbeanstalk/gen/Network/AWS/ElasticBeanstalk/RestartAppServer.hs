@@ -113,3 +113,5 @@ data RestartAppServerResponse =
 restartAppServerResponse
     :: RestartAppServerResponse
 restartAppServerResponse = RestartAppServerResponse'
+
+instance NFData RestartAppServerResponse

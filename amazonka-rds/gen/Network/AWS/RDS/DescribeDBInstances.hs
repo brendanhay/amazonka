@@ -198,3 +198,5 @@ ddbirsMarker = lens _ddbirsMarker (\ s a -> s{_ddbirsMarker = a});
 -- | The response status code.
 ddbirsResponseStatus :: Lens' DescribeDBInstancesResponse Int
 ddbirsResponseStatus = lens _ddbirsResponseStatus (\ s a -> s{_ddbirsResponseStatus = a});
+
+instance NFData DescribeDBInstancesResponse

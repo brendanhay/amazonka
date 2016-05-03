@@ -143,3 +143,5 @@ data DeleteArchiveResponse =
 deleteArchiveResponse
     :: DeleteArchiveResponse
 deleteArchiveResponse = DeleteArchiveResponse'
+
+instance NFData DeleteArchiveResponse

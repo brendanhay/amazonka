@@ -151,3 +151,6 @@ eazflbrsAvailabilityZones = lens _eazflbrsAvailabilityZones (\ s a -> s{_eazflbr
 -- | The response status code.
 eazflbrsResponseStatus :: Lens' EnableAvailabilityZonesForLoadBalancerResponse Int
 eazflbrsResponseStatus = lens _eazflbrsResponseStatus (\ s a -> s{_eazflbrsResponseStatus = a});
+
+instance NFData
+         EnableAvailabilityZonesForLoadBalancerResponse

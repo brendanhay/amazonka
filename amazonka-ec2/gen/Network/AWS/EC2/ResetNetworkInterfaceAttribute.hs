@@ -123,3 +123,6 @@ resetNetworkInterfaceAttributeResponse
     :: ResetNetworkInterfaceAttributeResponse
 resetNetworkInterfaceAttributeResponse =
     ResetNetworkInterfaceAttributeResponse'
+
+instance NFData
+         ResetNetworkInterfaceAttributeResponse

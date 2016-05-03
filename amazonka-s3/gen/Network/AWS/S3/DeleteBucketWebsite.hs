@@ -91,3 +91,5 @@ data DeleteBucketWebsiteResponse =
 deleteBucketWebsiteResponse
     :: DeleteBucketWebsiteResponse
 deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse'
+
+instance NFData DeleteBucketWebsiteResponse

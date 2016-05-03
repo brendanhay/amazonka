@@ -111,3 +111,5 @@ data DetachGroupPolicyResponse =
 detachGroupPolicyResponse
     :: DetachGroupPolicyResponse
 detachGroupPolicyResponse = DetachGroupPolicyResponse'
+
+instance NFData DetachGroupPolicyResponse

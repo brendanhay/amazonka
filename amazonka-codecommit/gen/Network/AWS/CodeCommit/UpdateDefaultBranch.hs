@@ -120,3 +120,5 @@ data UpdateDefaultBranchResponse =
 updateDefaultBranchResponse
     :: UpdateDefaultBranchResponse
 updateDefaultBranchResponse = UpdateDefaultBranchResponse'
+
+instance NFData UpdateDefaultBranchResponse

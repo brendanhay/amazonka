@@ -211,3 +211,5 @@ cjrsJob = lens _cjrsJob (\ s a -> s{_cjrsJob = a});
 -- | The response status code.
 cjrsResponseStatus :: Lens' CreateJobResponse Int
 cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});
+
+instance NFData CreateJobResponse

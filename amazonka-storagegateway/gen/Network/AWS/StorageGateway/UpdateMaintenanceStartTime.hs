@@ -177,3 +177,5 @@ umstrsGatewayARN = lens _umstrsGatewayARN (\ s a -> s{_umstrsGatewayARN = a});
 -- | The response status code.
 umstrsResponseStatus :: Lens' UpdateMaintenanceStartTimeResponse Int
 umstrsResponseStatus = lens _umstrsResponseStatus (\ s a -> s{_umstrsResponseStatus = a});
+
+instance NFData UpdateMaintenanceStartTimeResponse

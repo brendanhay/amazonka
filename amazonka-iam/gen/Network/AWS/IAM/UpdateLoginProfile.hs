@@ -119,3 +119,5 @@ data UpdateLoginProfileResponse =
 updateLoginProfileResponse
     :: UpdateLoginProfileResponse
 updateLoginProfileResponse = UpdateLoginProfileResponse'
+
+instance NFData UpdateLoginProfileResponse

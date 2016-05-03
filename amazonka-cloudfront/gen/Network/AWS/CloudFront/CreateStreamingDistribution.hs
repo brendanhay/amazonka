@@ -149,3 +149,5 @@ csdrsStreamingDistribution = lens _csdrsStreamingDistribution (\ s a -> s{_csdrs
 -- | The response status code.
 csdrsResponseStatus :: Lens' CreateStreamingDistributionResponse Int
 csdrsResponseStatus = lens _csdrsResponseStatus (\ s a -> s{_csdrsResponseStatus = a});
+
+instance NFData CreateStreamingDistributionResponse

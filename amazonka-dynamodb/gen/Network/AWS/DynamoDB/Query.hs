@@ -855,3 +855,5 @@ qrsConsumedCapacity = lens _qrsConsumedCapacity (\ s a -> s{_qrsConsumedCapacity
 -- | The response status code.
 qrsResponseStatus :: Lens' QueryResponse Int
 qrsResponseStatus = lens _qrsResponseStatus (\ s a -> s{_qrsResponseStatus = a});
+
+instance NFData QueryResponse

@@ -158,3 +158,5 @@ rdirsDBInstance = lens _rdirsDBInstance (\ s a -> s{_rdirsDBInstance = a});
 -- | The response status code.
 rdirsResponseStatus :: Lens' RebootDBInstanceResponse Int
 rdirsResponseStatus = lens _rdirsResponseStatus (\ s a -> s{_rdirsResponseStatus = a});
+
+instance NFData RebootDBInstanceResponse

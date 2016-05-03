@@ -120,3 +120,5 @@ data SetTopicAttributesResponse =
 setTopicAttributesResponse
     :: SetTopicAttributesResponse
 setTopicAttributesResponse = SetTopicAttributesResponse'
+
+instance NFData SetTopicAttributesResponse

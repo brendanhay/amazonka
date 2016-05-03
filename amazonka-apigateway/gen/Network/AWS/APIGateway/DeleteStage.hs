@@ -108,3 +108,5 @@ data DeleteStageResponse =
 deleteStageResponse
     :: DeleteStageResponse
 deleteStageResponse = DeleteStageResponse'
+
+instance NFData DeleteStageResponse

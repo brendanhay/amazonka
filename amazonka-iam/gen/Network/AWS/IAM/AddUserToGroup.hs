@@ -104,3 +104,5 @@ data AddUserToGroupResponse =
 addUserToGroupResponse
     :: AddUserToGroupResponse
 addUserToGroupResponse = AddUserToGroupResponse'
+
+instance NFData AddUserToGroupResponse

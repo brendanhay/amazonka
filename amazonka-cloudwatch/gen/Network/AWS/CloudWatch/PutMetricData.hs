@@ -124,3 +124,5 @@ data PutMetricDataResponse =
 putMetricDataResponse
     :: PutMetricDataResponse
 putMetricDataResponse = PutMetricDataResponse'
+
+instance NFData PutMetricDataResponse

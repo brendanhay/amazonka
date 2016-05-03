@@ -119,3 +119,5 @@ cancelJobResponse pResponseStatus_ =
 -- | The response status code.
 canrsResponseStatus :: Lens' CancelJobResponse Int
 canrsResponseStatus = lens _canrsResponseStatus (\ s a -> s{_canrsResponseStatus = a});
+
+instance NFData CancelJobResponse

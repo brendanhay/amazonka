@@ -142,3 +142,5 @@ tcrsConnection = lens _tcrsConnection (\ s a -> s{_tcrsConnection = a});
 -- | The response status code.
 tcrsResponseStatus :: Lens' TestConnectionResponse Int
 tcrsResponseStatus = lens _tcrsResponseStatus (\ s a -> s{_tcrsResponseStatus = a});
+
+instance NFData TestConnectionResponse

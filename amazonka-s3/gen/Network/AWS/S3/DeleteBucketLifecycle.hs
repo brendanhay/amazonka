@@ -91,3 +91,5 @@ data DeleteBucketLifecycleResponse =
 deleteBucketLifecycleResponse
     :: DeleteBucketLifecycleResponse
 deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse'
+
+instance NFData DeleteBucketLifecycleResponse

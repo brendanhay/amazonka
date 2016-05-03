@@ -150,3 +150,5 @@ dcsrsSnapshot = lens _dcsrsSnapshot (\ s a -> s{_dcsrsSnapshot = a});
 -- | The response status code.
 dcsrsResponseStatus :: Lens' DeleteClusterSnapshotResponse Int
 dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
+
+instance NFData DeleteClusterSnapshotResponse

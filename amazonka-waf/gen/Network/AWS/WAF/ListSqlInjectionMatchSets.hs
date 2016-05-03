@@ -170,3 +170,5 @@ lsimsrsSqlInjectionMatchSets = lens _lsimsrsSqlInjectionMatchSets (\ s a -> s{_l
 -- | The response status code.
 lsimsrsResponseStatus :: Lens' ListSqlInjectionMatchSetsResponse Int
 lsimsrsResponseStatus = lens _lsimsrsResponseStatus (\ s a -> s{_lsimsrsResponseStatus = a});
+
+instance NFData ListSqlInjectionMatchSetsResponse

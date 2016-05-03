@@ -225,3 +225,5 @@ udcprsResponseStatus = lens _udcprsResponseStatus (\ s a -> s{_udcprsResponseSta
 -- Constraints: Maximum 255 characters.
 udcprsOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
 udcprsOperationId = lens _udcprsOperationId (\ s a -> s{_udcprsOperationId = a});
+
+instance NFData UpdateDomainContactPrivacyResponse

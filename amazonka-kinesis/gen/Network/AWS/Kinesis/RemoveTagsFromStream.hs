@@ -118,3 +118,5 @@ data RemoveTagsFromStreamResponse =
 removeTagsFromStreamResponse
     :: RemoveTagsFromStreamResponse
 removeTagsFromStreamResponse = RemoveTagsFromStreamResponse'
+
+instance NFData RemoveTagsFromStreamResponse

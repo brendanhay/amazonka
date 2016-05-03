@@ -114,3 +114,5 @@ gcirrsResponseStatus = lens _gcirrsResponseStatus (\ s a -> s{_gcirrsResponseSta
 -- Amazon Route 53 health checkers.
 gcirrsCheckerIPRanges :: Lens' GetCheckerIPRangesResponse [Text]
 gcirrsCheckerIPRanges = lens _gcirrsCheckerIPRanges (\ s a -> s{_gcirrsCheckerIPRanges = a}) . _Coerce;
+
+instance NFData GetCheckerIPRangesResponse

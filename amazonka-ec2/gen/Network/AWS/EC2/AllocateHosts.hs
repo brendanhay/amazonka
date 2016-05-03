@@ -176,3 +176,5 @@ ahrsHostIds = lens _ahrsHostIds (\ s a -> s{_ahrsHostIds = a}) . _Default . _Coe
 -- | The response status code.
 ahrsResponseStatus :: Lens' AllocateHostsResponse Int
 ahrsResponseStatus = lens _ahrsResponseStatus (\ s a -> s{_ahrsResponseStatus = a});
+
+instance NFData AllocateHostsResponse

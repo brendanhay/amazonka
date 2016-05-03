@@ -122,3 +122,5 @@ data DeleteSnapshotResponse =
 deleteSnapshotResponse
     :: DeleteSnapshotResponse
 deleteSnapshotResponse = DeleteSnapshotResponse'
+
+instance NFData DeleteSnapshotResponse

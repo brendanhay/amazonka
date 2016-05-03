@@ -168,3 +168,6 @@ dorirsOrderableReplicationInstances = lens _dorirsOrderableReplicationInstances 
 -- | The response status code.
 dorirsResponseStatus :: Lens' DescribeOrderableReplicationInstancesResponse Int
 dorirsResponseStatus = lens _dorirsResponseStatus (\ s a -> s{_dorirsResponseStatus = a});
+
+instance NFData
+         DescribeOrderableReplicationInstancesResponse

@@ -151,3 +151,5 @@ dkrsKeyMetadata = lens _dkrsKeyMetadata (\ s a -> s{_dkrsKeyMetadata = a});
 -- | The response status code.
 dkrsResponseStatus :: Lens' DescribeKeyResponse Int
 dkrsResponseStatus = lens _dkrsResponseStatus (\ s a -> s{_dkrsResponseStatus = a});
+
+instance NFData DescribeKeyResponse

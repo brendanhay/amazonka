@@ -128,3 +128,5 @@ dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus
 -- | The status of the action.
 dlcrsStatus :: Lens' DeleteLunaClientResponse Text
 dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});
+
+instance NFData DeleteLunaClientResponse

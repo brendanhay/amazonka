@@ -125,3 +125,5 @@ delrsMessage = lens _delrsMessage (\ s a -> s{_delrsMessage = a});
 -- | The response status code.
 delrsResponseStatus :: Lens' DeleteRunResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+
+instance NFData DeleteRunResponse

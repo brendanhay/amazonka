@@ -166,3 +166,5 @@ goicprsClientIdList = lens _goicprsClientIdList (\ s a -> s{_goicprsClientIdList
 -- | The response status code.
 goicprsResponseStatus :: Lens' GetOpenIdConnectProviderResponse Int
 goicprsResponseStatus = lens _goicprsResponseStatus (\ s a -> s{_goicprsResponseStatus = a});
+
+instance NFData GetOpenIdConnectProviderResponse

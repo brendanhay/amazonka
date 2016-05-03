@@ -123,3 +123,5 @@ data SetDataRetrievalPolicyResponse =
 setDataRetrievalPolicyResponse
     :: SetDataRetrievalPolicyResponse
 setDataRetrievalPolicyResponse = SetDataRetrievalPolicyResponse'
+
+instance NFData SetDataRetrievalPolicyResponse

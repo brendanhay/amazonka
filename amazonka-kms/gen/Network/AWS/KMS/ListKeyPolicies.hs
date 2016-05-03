@@ -201,3 +201,5 @@ lkprsNextMarker = lens _lkprsNextMarker (\ s a -> s{_lkprsNextMarker = a});
 -- | The response status code.
 lkprsResponseStatus :: Lens' ListKeyPoliciesResponse Int
 lkprsResponseStatus = lens _lkprsResponseStatus (\ s a -> s{_lkprsResponseStatus = a});
+
+instance NFData ListKeyPoliciesResponse

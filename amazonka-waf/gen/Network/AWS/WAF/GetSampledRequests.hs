@@ -214,3 +214,5 @@ gsrrsTimeWindow = lens _gsrrsTimeWindow (\ s a -> s{_gsrrsTimeWindow = a});
 -- | The response status code.
 gsrrsResponseStatus :: Lens' GetSampledRequestsResponse Int
 gsrrsResponseStatus = lens _gsrrsResponseStatus (\ s a -> s{_gsrrsResponseStatus = a});
+
+instance NFData GetSampledRequestsResponse

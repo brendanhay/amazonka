@@ -104,3 +104,5 @@ data DeleteCacheSubnetGroupResponse =
 deleteCacheSubnetGroupResponse
     :: DeleteCacheSubnetGroupResponse
 deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse'
+
+instance NFData DeleteCacheSubnetGroupResponse

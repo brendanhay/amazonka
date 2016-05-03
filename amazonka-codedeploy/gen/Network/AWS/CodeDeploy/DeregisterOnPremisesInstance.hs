@@ -107,3 +107,5 @@ data DeregisterOnPremisesInstanceResponse =
 deregisterOnPremisesInstanceResponse
     :: DeregisterOnPremisesInstanceResponse
 deregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse'
+
+instance NFData DeregisterOnPremisesInstanceResponse

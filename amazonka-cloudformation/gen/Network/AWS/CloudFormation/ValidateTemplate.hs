@@ -185,3 +185,5 @@ vtrsCapabilities = lens _vtrsCapabilities (\ s a -> s{_vtrsCapabilities = a}) . 
 -- | The response status code.
 vtrsResponseStatus :: Lens' ValidateTemplateResponse Int
 vtrsResponseStatus = lens _vtrsResponseStatus (\ s a -> s{_vtrsResponseStatus = a});
+
+instance NFData ValidateTemplateResponse

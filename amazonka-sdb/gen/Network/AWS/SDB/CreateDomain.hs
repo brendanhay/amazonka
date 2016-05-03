@@ -103,3 +103,5 @@ data CreateDomainResponse =
 createDomainResponse
     :: CreateDomainResponse
 createDomainResponse = CreateDomainResponse'
+
+instance NFData CreateDomainResponse

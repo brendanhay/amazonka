@@ -217,3 +217,5 @@ imursUploadId = lens _imursUploadId (\ s a -> s{_imursUploadId = a});
 -- | The response status code.
 imursResponseStatus :: Lens' InitiateMultipartUploadResponse Int
 imursResponseStatus = lens _imursResponseStatus (\ s a -> s{_imursResponseStatus = a});
+
+instance NFData InitiateMultipartUploadResponse

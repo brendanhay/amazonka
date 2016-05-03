@@ -124,3 +124,5 @@ data DetachElasticLoadBalancerResponse =
 detachElasticLoadBalancerResponse
     :: DetachElasticLoadBalancerResponse
 detachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse'
+
+instance NFData DetachElasticLoadBalancerResponse

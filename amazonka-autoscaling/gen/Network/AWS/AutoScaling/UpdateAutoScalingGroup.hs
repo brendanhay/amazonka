@@ -282,3 +282,5 @@ data UpdateAutoScalingGroupResponse =
 updateAutoScalingGroupResponse
     :: UpdateAutoScalingGroupResponse
 updateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse'
+
+instance NFData UpdateAutoScalingGroupResponse

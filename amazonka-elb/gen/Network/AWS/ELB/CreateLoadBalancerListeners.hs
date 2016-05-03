@@ -130,3 +130,5 @@ createLoadBalancerListenersResponse pResponseStatus_ =
 -- | The response status code.
 clblrsResponseStatus :: Lens' CreateLoadBalancerListenersResponse Int
 clblrsResponseStatus = lens _clblrsResponseStatus (\ s a -> s{_clblrsResponseStatus = a});
+
+instance NFData CreateLoadBalancerListenersResponse

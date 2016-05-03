@@ -104,3 +104,5 @@ data DeleteScheduledActionResponse =
 deleteScheduledActionResponse
     :: DeleteScheduledActionResponse
 deleteScheduledActionResponse = DeleteScheduledActionResponse'
+
+instance NFData DeleteScheduledActionResponse

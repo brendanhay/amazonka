@@ -150,3 +150,5 @@ data AssignPrivateIPAddressesResponse =
 assignPrivateIPAddressesResponse
     :: AssignPrivateIPAddressesResponse
 assignPrivateIPAddressesResponse = AssignPrivateIPAddressesResponse'
+
+instance NFData AssignPrivateIPAddressesResponse

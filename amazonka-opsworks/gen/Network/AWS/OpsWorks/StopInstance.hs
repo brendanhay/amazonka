@@ -110,3 +110,5 @@ data StopInstanceResponse =
 stopInstanceResponse
     :: StopInstanceResponse
 stopInstanceResponse = StopInstanceResponse'
+
+instance NFData StopInstanceResponse

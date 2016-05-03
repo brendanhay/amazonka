@@ -104,3 +104,5 @@ data DeleteClusterParameterGroupResponse =
 deleteClusterParameterGroupResponse
     :: DeleteClusterParameterGroupResponse
 deleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse'
+
+instance NFData DeleteClusterParameterGroupResponse

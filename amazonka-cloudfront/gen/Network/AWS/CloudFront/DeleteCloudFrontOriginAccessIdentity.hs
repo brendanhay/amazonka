@@ -114,3 +114,6 @@ deleteCloudFrontOriginAccessIdentityResponse
     :: DeleteCloudFrontOriginAccessIdentityResponse
 deleteCloudFrontOriginAccessIdentityResponse =
     DeleteCloudFrontOriginAccessIdentityResponse'
+
+instance NFData
+         DeleteCloudFrontOriginAccessIdentityResponse

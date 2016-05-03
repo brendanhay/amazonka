@@ -144,3 +144,5 @@ aubrsGatewayARN = lens _aubrsGatewayARN (\ s a -> s{_aubrsGatewayARN = a});
 -- | The response status code.
 aubrsResponseStatus :: Lens' AddUploadBufferResponse Int
 aubrsResponseStatus = lens _aubrsResponseStatus (\ s a -> s{_aubrsResponseStatus = a});
+
+instance NFData AddUploadBufferResponse

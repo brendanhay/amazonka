@@ -156,3 +156,5 @@ dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Defau
 -- | The response status code.
 dirsResponseStatus :: Lens' DetachInstancesResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+
+instance NFData DetachInstancesResponse

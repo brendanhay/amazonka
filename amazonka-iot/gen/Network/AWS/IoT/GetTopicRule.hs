@@ -130,3 +130,5 @@ gtrrsRuleARN = lens _gtrrsRuleARN (\ s a -> s{_gtrrsRuleARN = a});
 -- | The response status code.
 gtrrsResponseStatus :: Lens' GetTopicRuleResponse Int
 gtrrsResponseStatus = lens _gtrrsResponseStatus (\ s a -> s{_gtrrsResponseStatus = a});
+
+instance NFData GetTopicRuleResponse

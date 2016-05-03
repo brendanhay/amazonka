@@ -118,3 +118,5 @@ data PutJobFailureResultResponse =
 putJobFailureResultResponse
     :: PutJobFailureResultResponse
 putJobFailureResultResponse = PutJobFailureResultResponse'
+
+instance NFData PutJobFailureResultResponse

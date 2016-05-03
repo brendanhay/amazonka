@@ -137,3 +137,6 @@ ginarsResponseStatus = lens _ginarsResponseStatus (\ s a -> s{_ginarsResponseSta
 -- | A map of Identity to IdentityNotificationAttributes.
 ginarsNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
 ginarsNotificationAttributes = lens _ginarsNotificationAttributes (\ s a -> s{_ginarsNotificationAttributes = a}) . _Map;
+
+instance NFData
+         GetIdentityNotificationAttributesResponse

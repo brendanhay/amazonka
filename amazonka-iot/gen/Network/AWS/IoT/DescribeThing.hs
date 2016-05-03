@@ -144,3 +144,5 @@ dtrsThingName = lens _dtrsThingName (\ s a -> s{_dtrsThingName = a});
 -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeThingResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+
+instance NFData DescribeThingResponse

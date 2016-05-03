@@ -152,3 +152,5 @@ artrsAssociationId = lens _artrsAssociationId (\ s a -> s{_artrsAssociationId = 
 -- | The response status code.
 artrsResponseStatus :: Lens' AssociateRouteTableResponse Int
 artrsResponseStatus = lens _artrsResponseStatus (\ s a -> s{_artrsResponseStatus = a});
+
+instance NFData AssociateRouteTableResponse

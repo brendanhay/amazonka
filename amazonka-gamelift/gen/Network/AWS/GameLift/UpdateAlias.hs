@@ -166,3 +166,5 @@ uarsAlias = lens _uarsAlias (\ s a -> s{_uarsAlias = a});
 -- | The response status code.
 uarsResponseStatus :: Lens' UpdateAliasResponse Int
 uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a});
+
+instance NFData UpdateAliasResponse

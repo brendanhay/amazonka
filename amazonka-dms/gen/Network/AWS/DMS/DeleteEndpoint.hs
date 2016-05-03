@@ -131,3 +131,5 @@ drsEndpoint = lens _drsEndpoint (\ s a -> s{_drsEndpoint = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteEndpointResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteEndpointResponse

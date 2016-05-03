@@ -114,3 +114,5 @@ loicprsOpenIdConnectProviderList = lens _loicprsOpenIdConnectProviderList (\ s a
 -- | The response status code.
 loicprsResponseStatus :: Lens' ListOpenIdConnectProvidersResponse Int
 loicprsResponseStatus = lens _loicprsResponseStatus (\ s a -> s{_loicprsResponseStatus = a});
+
+instance NFData ListOpenIdConnectProvidersResponse

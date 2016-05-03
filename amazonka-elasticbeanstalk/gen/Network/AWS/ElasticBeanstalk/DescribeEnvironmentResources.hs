@@ -145,3 +145,5 @@ derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEn
 -- | The response status code.
 derrsResponseStatus :: Lens' DescribeEnvironmentResourcesResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
+
+instance NFData DescribeEnvironmentResourcesResponse

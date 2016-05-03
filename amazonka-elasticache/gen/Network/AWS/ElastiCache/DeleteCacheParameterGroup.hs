@@ -104,3 +104,5 @@ data DeleteCacheParameterGroupResponse =
 deleteCacheParameterGroupResponse
     :: DeleteCacheParameterGroupResponse
 deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse'
+
+instance NFData DeleteCacheParameterGroupResponse

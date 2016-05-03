@@ -154,3 +154,6 @@ setLoadBalancerPoliciesForBackendServerResponse pResponseStatus_ =
 -- | The response status code.
 slbpfbsrsResponseStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
 slbpfbsrsResponseStatus = lens _slbpfbsrsResponseStatus (\ s a -> s{_slbpfbsrsResponseStatus = a});
+
+instance NFData
+         SetLoadBalancerPoliciesForBackendServerResponse

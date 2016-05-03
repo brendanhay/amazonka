@@ -198,3 +198,5 @@ cversVPCEndpoint = lens _cversVPCEndpoint (\ s a -> s{_cversVPCEndpoint = a});
 -- | The response status code.
 cversResponseStatus :: Lens' CreateVPCEndpointResponse Int
 cversResponseStatus = lens _cversResponseStatus (\ s a -> s{_cversResponseStatus = a});
+
+instance NFData CreateVPCEndpointResponse

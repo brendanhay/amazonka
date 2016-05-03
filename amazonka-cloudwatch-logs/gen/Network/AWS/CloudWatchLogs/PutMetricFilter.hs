@@ -143,3 +143,5 @@ data PutMetricFilterResponse =
 putMetricFilterResponse
     :: PutMetricFilterResponse
 putMetricFilterResponse = PutMetricFilterResponse'
+
+instance NFData PutMetricFilterResponse

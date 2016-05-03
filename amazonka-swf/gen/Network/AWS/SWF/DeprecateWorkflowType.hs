@@ -144,3 +144,5 @@ data DeprecateWorkflowTypeResponse =
 deprecateWorkflowTypeResponse
     :: DeprecateWorkflowTypeResponse
 deprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse'
+
+instance NFData DeprecateWorkflowTypeResponse

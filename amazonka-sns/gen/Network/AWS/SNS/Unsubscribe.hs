@@ -101,3 +101,5 @@ data UnsubscribeResponse =
 unsubscribeResponse
     :: UnsubscribeResponse
 unsubscribeResponse = UnsubscribeResponse'
+
+instance NFData UnsubscribeResponse

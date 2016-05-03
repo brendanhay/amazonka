@@ -187,3 +187,5 @@ crsDirectoryId = lens _crsDirectoryId (\ s a -> s{_crsDirectoryId = a});
 -- | The response status code.
 crsResponseStatus :: Lens' CreateDirectoryResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CreateDirectoryResponse

@@ -200,3 +200,5 @@ lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = 
 -- | A list of roles.
 lrrsRoles :: Lens' ListRolesResponse [Role]
 lrrsRoles = lens _lrrsRoles (\ s a -> s{_lrrsRoles = a}) . _Coerce;
+
+instance NFData ListRolesResponse

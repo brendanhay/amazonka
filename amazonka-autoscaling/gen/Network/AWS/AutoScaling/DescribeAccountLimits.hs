@@ -144,3 +144,5 @@ dalrsMaxNumberOfLaunchConfigurations = lens _dalrsMaxNumberOfLaunchConfiguration
 -- | The response status code.
 dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
 dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a});
+
+instance NFData DescribeAccountLimitsResponse

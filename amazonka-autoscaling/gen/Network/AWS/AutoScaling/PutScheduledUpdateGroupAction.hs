@@ -197,3 +197,5 @@ data PutScheduledUpdateGroupActionResponse =
 putScheduledUpdateGroupActionResponse
     :: PutScheduledUpdateGroupActionResponse
 putScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse'
+
+instance NFData PutScheduledUpdateGroupActionResponse

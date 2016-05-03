@@ -130,3 +130,5 @@ cdrsDomainStatus = lens _cdrsDomainStatus (\ s a -> s{_cdrsDomainStatus = a});
 -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDomainResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+
+instance NFData CreateDomainResponse

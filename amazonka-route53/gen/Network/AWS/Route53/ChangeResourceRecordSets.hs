@@ -177,3 +177,5 @@ crrsrsResponseStatus = lens _crrsrsResponseStatus (\ s a -> s{_crrsrsResponseSta
 -- action to get detailed information about the change.
 crrsrsChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrsChangeInfo = lens _crrsrsChangeInfo (\ s a -> s{_crrsrsChangeInfo = a});
+
+instance NFData ChangeResourceRecordSetsResponse

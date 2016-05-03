@@ -111,3 +111,5 @@ ghccrsResponseStatus = lens _ghccrsResponseStatus (\ s a -> s{_ghccrsResponseSta
 -- | The number of health checks associated with the current AWS account.
 ghccrsHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
 ghccrsHealthCheckCount = lens _ghccrsHealthCheckCount (\ s a -> s{_ghccrsHealthCheckCount = a});
+
+instance NFData GetHealthCheckCountResponse

@@ -114,3 +114,5 @@ gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSetti
 -- | The response status code.
 gasrsResponseStatus :: Lens' GetAccountSettingsResponse Int
 gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
+
+instance NFData GetAccountSettingsResponse

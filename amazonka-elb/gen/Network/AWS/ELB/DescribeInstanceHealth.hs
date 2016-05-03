@@ -139,3 +139,5 @@ dihrsInstanceStates = lens _dihrsInstanceStates (\ s a -> s{_dihrsInstanceStates
 -- | The response status code.
 dihrsResponseStatus :: Lens' DescribeInstanceHealthResponse Int
 dihrsResponseStatus = lens _dihrsResponseStatus (\ s a -> s{_dihrsResponseStatus = a});
+
+instance NFData DescribeInstanceHealthResponse

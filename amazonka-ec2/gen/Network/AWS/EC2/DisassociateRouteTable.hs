@@ -116,3 +116,5 @@ data DisassociateRouteTableResponse =
 disassociateRouteTableResponse
     :: DisassociateRouteTableResponse
 disassociateRouteTableResponse = DisassociateRouteTableResponse'
+
+instance NFData DisassociateRouteTableResponse

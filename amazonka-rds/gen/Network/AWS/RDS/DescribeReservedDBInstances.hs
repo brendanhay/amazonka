@@ -263,3 +263,5 @@ drdirsMarker = lens _drdirsMarker (\ s a -> s{_drdirsMarker = a});
 -- | The response status code.
 drdirsResponseStatus :: Lens' DescribeReservedDBInstancesResponse Int
 drdirsResponseStatus = lens _drdirsResponseStatus (\ s a -> s{_drdirsResponseStatus = a});
+
+instance NFData DescribeReservedDBInstancesResponse

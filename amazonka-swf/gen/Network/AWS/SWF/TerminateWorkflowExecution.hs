@@ -206,3 +206,5 @@ data TerminateWorkflowExecutionResponse =
 terminateWorkflowExecutionResponse
     :: TerminateWorkflowExecutionResponse
 terminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse'
+
+instance NFData TerminateWorkflowExecutionResponse

@@ -157,3 +157,5 @@ psirsScheduledInstanceSet = lens _psirsScheduledInstanceSet (\ s a -> s{_psirsSc
 -- | The response status code.
 psirsResponseStatus :: Lens' PurchaseScheduledInstancesResponse Int
 psirsResponseStatus = lens _psirsResponseStatus (\ s a -> s{_psirsResponseStatus = a});
+
+instance NFData PurchaseScheduledInstancesResponse

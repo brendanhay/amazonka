@@ -171,3 +171,5 @@ iirsConversionTask = lens _iirsConversionTask (\ s a -> s{_iirsConversionTask = 
 -- | The response status code.
 iirsResponseStatus :: Lens' ImportInstanceResponse Int
 iirsResponseStatus = lens _iirsResponseStatus (\ s a -> s{_iirsResponseStatus = a});
+
+instance NFData ImportInstanceResponse

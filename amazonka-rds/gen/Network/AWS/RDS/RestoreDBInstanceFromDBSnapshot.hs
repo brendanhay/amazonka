@@ -434,3 +434,6 @@ rdifdsrsDBInstance = lens _rdifdsrsDBInstance (\ s a -> s{_rdifdsrsDBInstance = 
 -- | The response status code.
 rdifdsrsResponseStatus :: Lens' RestoreDBInstanceFromDBSnapshotResponse Int
 rdifdsrsResponseStatus = lens _rdifdsrsResponseStatus (\ s a -> s{_rdifdsrsResponseStatus = a});
+
+instance NFData
+         RestoreDBInstanceFromDBSnapshotResponse

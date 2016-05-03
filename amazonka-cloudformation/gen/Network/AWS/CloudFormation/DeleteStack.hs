@@ -115,3 +115,5 @@ data DeleteStackResponse =
 deleteStackResponse
     :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse'
+
+instance NFData DeleteStackResponse

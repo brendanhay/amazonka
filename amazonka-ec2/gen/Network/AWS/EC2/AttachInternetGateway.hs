@@ -121,3 +121,5 @@ data AttachInternetGatewayResponse =
 attachInternetGatewayResponse
     :: AttachInternetGatewayResponse
 attachInternetGatewayResponse = AttachInternetGatewayResponse'
+
+instance NFData AttachInternetGatewayResponse

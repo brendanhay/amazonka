@@ -172,3 +172,5 @@ ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = 
 -- | The response status code.
 ivrsResponseStatus :: Lens' ImportVolumeResponse Int
 ivrsResponseStatus = lens _ivrsResponseStatus (\ s a -> s{_ivrsResponseStatus = a});
+
+instance NFData ImportVolumeResponse

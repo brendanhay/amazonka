@@ -269,3 +269,5 @@ ccrsCaseId = lens _ccrsCaseId (\ s a -> s{_ccrsCaseId = a});
 -- | The response status code.
 ccrsResponseStatus :: Lens' CreateCaseResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+
+instance NFData CreateCaseResponse

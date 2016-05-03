@@ -188,3 +188,5 @@ urrsChangeToken = lens _urrsChangeToken (\ s a -> s{_urrsChangeToken = a});
 -- | The response status code.
 urrsResponseStatus :: Lens' UpdateRuleResponse Int
 urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+
+instance NFData UpdateRuleResponse

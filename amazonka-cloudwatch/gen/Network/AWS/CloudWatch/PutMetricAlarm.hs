@@ -350,3 +350,5 @@ data PutMetricAlarmResponse =
 putMetricAlarmResponse
     :: PutMetricAlarmResponse
 putMetricAlarmResponse = PutMetricAlarmResponse'
+
+instance NFData PutMetricAlarmResponse

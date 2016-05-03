@@ -218,3 +218,6 @@ drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModification
 -- | The response status code.
 drimrsResponseStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
 drimrsResponseStatus = lens _drimrsResponseStatus (\ s a -> s{_drimrsResponseStatus = a});
+
+instance NFData
+         DescribeReservedInstancesModificationsResponse

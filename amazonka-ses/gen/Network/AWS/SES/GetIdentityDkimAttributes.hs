@@ -143,3 +143,5 @@ gidarsResponseStatus = lens _gidarsResponseStatus (\ s a -> s{_gidarsResponseSta
 -- | The DKIM attributes for an email address or a domain.
 gidarsDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
 gidarsDkimAttributes = lens _gidarsDkimAttributes (\ s a -> s{_gidarsDkimAttributes = a}) . _Map;
+
+instance NFData GetIdentityDkimAttributesResponse

@@ -141,3 +141,5 @@ albtsrsSubnets = lens _albtsrsSubnets (\ s a -> s{_albtsrsSubnets = a}) . _Defau
 -- | The response status code.
 albtsrsResponseStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
 albtsrsResponseStatus = lens _albtsrsResponseStatus (\ s a -> s{_albtsrsResponseStatus = a});
+
+instance NFData AttachLoadBalancerToSubnetsResponse

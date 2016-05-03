@@ -171,3 +171,6 @@ recordLifecycleActionHeartbeatResponse pResponseStatus_ =
 -- | The response status code.
 rlahrsResponseStatus :: Lens' RecordLifecycleActionHeartbeatResponse Int
 rlahrsResponseStatus = lens _rlahrsResponseStatus (\ s a -> s{_rlahrsResponseStatus = a});
+
+instance NFData
+         RecordLifecycleActionHeartbeatResponse

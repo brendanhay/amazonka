@@ -195,3 +195,6 @@ dpmarsMarker = lens _dpmarsMarker (\ s a -> s{_dpmarsMarker = a});
 -- | The response status code.
 dpmarsResponseStatus :: Lens' DescribePendingMaintenanceActionsResponse Int
 dpmarsResponseStatus = lens _dpmarsResponseStatus (\ s a -> s{_dpmarsResponseStatus = a});
+
+instance NFData
+         DescribePendingMaintenanceActionsResponse

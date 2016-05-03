@@ -164,3 +164,5 @@ cvrsVPC = lens _cvrsVPC (\ s a -> s{_cvrsVPC = a});
 -- | The response status code.
 cvrsResponseStatus :: Lens' CreateVPCResponse Int
 cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a});
+
+instance NFData CreateVPCResponse

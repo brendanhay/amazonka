@@ -248,3 +248,5 @@ dtrsTaggedResources = lens _dtrsTaggedResources (\ s a -> s{_dtrsTaggedResources
 -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+
+instance NFData DescribeTagsResponse

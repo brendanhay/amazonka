@@ -128,3 +128,5 @@ data AddTagsToVaultResponse =
 addTagsToVaultResponse
     :: AddTagsToVaultResponse
 addTagsToVaultResponse = AddTagsToVaultResponse'
+
+instance NFData AddTagsToVaultResponse

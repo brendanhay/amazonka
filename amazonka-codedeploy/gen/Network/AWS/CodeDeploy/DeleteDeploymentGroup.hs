@@ -152,3 +152,5 @@ ddgrsHooksNotCleanedUp = lens _ddgrsHooksNotCleanedUp (\ s a -> s{_ddgrsHooksNot
 -- | The response status code.
 ddgrsResponseStatus :: Lens' DeleteDeploymentGroupResponse Int
 ddgrsResponseStatus = lens _ddgrsResponseStatus (\ s a -> s{_ddgrsResponseStatus = a});
+
+instance NFData DeleteDeploymentGroupResponse

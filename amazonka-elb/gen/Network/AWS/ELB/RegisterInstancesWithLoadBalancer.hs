@@ -168,3 +168,6 @@ riwlbrsInstances = lens _riwlbrsInstances (\ s a -> s{_riwlbrsInstances = a}) . 
 -- | The response status code.
 riwlbrsResponseStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
 riwlbrsResponseStatus = lens _riwlbrsResponseStatus (\ s a -> s{_riwlbrsResponseStatus = a});
+
+instance NFData
+         RegisterInstancesWithLoadBalancerResponse

@@ -157,3 +157,5 @@ data RespondActivityTaskFailedResponse =
 respondActivityTaskFailedResponse
     :: RespondActivityTaskFailedResponse
 respondActivityTaskFailedResponse = RespondActivityTaskFailedResponse'
+
+instance NFData RespondActivityTaskFailedResponse

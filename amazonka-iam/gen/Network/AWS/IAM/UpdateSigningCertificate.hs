@@ -127,3 +127,5 @@ data UpdateSigningCertificateResponse =
 updateSigningCertificateResponse
     :: UpdateSigningCertificateResponse
 updateSigningCertificateResponse = UpdateSigningCertificateResponse'
+
+instance NFData UpdateSigningCertificateResponse

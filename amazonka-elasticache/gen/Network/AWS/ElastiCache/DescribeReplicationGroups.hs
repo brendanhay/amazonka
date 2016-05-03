@@ -183,3 +183,5 @@ drgrsReplicationGroups = lens _drgrsReplicationGroups (\ s a -> s{_drgrsReplicat
 -- | The response status code.
 drgrsResponseStatus :: Lens' DescribeReplicationGroupsResponse Int
 drgrsResponseStatus = lens _drgrsResponseStatus (\ s a -> s{_drgrsResponseStatus = a});
+
+instance NFData DescribeReplicationGroupsResponse

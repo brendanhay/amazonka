@@ -96,3 +96,5 @@ data DeleteTopicResponse =
 deleteTopicResponse
     :: DeleteTopicResponse
 deleteTopicResponse = DeleteTopicResponse'
+
+instance NFData DeleteTopicResponse

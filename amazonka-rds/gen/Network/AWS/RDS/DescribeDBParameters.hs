@@ -208,3 +208,5 @@ ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _De
 -- | The response status code.
 ddprsResponseStatus :: Lens' DescribeDBParametersResponse Int
 ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});
+
+instance NFData DescribeDBParametersResponse

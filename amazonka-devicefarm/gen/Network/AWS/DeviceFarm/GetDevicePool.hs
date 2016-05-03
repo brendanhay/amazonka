@@ -129,3 +129,5 @@ gdprsDevicePool = lens _gdprsDevicePool (\ s a -> s{_gdprsDevicePool = a});
 -- | The response status code.
 gdprsResponseStatus :: Lens' GetDevicePoolResponse Int
 gdprsResponseStatus = lens _gdprsResponseStatus (\ s a -> s{_gdprsResponseStatus = a});
+
+instance NFData GetDevicePoolResponse

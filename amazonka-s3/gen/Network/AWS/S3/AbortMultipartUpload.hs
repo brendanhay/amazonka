@@ -153,3 +153,5 @@ amursRequestCharged = lens _amursRequestCharged (\ s a -> s{_amursRequestCharged
 -- | The response status code.
 amursResponseStatus :: Lens' AbortMultipartUploadResponse Int
 amursResponseStatus = lens _amursResponseStatus (\ s a -> s{_amursResponseStatus = a});
+
+instance NFData AbortMultipartUploadResponse

@@ -111,3 +111,5 @@ ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . 
 -- | The response status code.
 ldnrsResponseStatus :: Lens' ListDomainNamesResponse Int
 ldnrsResponseStatus = lens _ldnrsResponseStatus (\ s a -> s{_ldnrsResponseStatus = a});
+
+instance NFData ListDomainNamesResponse

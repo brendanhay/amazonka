@@ -117,3 +117,5 @@ data PublishResponse =
 publishResponse
     :: PublishResponse
 publishResponse = PublishResponse'
+
+instance NFData PublishResponse

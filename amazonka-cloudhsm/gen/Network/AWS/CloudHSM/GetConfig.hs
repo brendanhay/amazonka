@@ -170,3 +170,5 @@ gcrsConfigType = lens _gcrsConfigType (\ s a -> s{_gcrsConfigType = a});
 -- | The response status code.
 gcrsResponseStatus :: Lens' GetConfigResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
+
+instance NFData GetConfigResponse

@@ -176,3 +176,5 @@ ljbprsJobs = lens _ljbprsJobs (\ s a -> s{_ljbprsJobs = a}) . _Default . _Coerce
 -- | The response status code.
 ljbprsResponseStatus :: Lens' ListJobsByPipelineResponse Int
 ljbprsResponseStatus = lens _ljbprsResponseStatus (\ s a -> s{_ljbprsResponseStatus = a});
+
+instance NFData ListJobsByPipelineResponse

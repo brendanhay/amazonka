@@ -173,3 +173,5 @@ ccsgrsClusterSubnetGroup = lens _ccsgrsClusterSubnetGroup (\ s a -> s{_ccsgrsClu
 -- | The response status code.
 ccsgrsResponseStatus :: Lens' CreateClusterSubnetGroupResponse Int
 ccsgrsResponseStatus = lens _ccsgrsResponseStatus (\ s a -> s{_ccsgrsResponseStatus = a});
+
+instance NFData CreateClusterSubnetGroupResponse

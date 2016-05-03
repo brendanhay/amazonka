@@ -163,3 +163,5 @@ dsersServiceErrors = lens _dsersServiceErrors (\ s a -> s{_dsersServiceErrors = 
 -- | The response status code.
 dsersResponseStatus :: Lens' DescribeServiceErrorsResponse Int
 dsersResponseStatus = lens _dsersResponseStatus (\ s a -> s{_dsersResponseStatus = a});
+
+instance NFData DescribeServiceErrorsResponse

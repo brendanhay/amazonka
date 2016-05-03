@@ -180,3 +180,5 @@ completeLifecycleActionResponse pResponseStatus_ =
 -- | The response status code.
 clarsResponseStatus :: Lens' CompleteLifecycleActionResponse Int
 clarsResponseStatus = lens _clarsResponseStatus (\ s a -> s{_clarsResponseStatus = a});
+
+instance NFData CompleteLifecycleActionResponse

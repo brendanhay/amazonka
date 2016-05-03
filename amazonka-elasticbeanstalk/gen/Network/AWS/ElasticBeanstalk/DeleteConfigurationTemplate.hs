@@ -114,3 +114,5 @@ data DeleteConfigurationTemplateResponse =
 deleteConfigurationTemplateResponse
     :: DeleteConfigurationTemplateResponse
 deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse'
+
+instance NFData DeleteConfigurationTemplateResponse

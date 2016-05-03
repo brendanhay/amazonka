@@ -136,3 +136,6 @@ updateOpenIdConnectProviderThumbprintResponse
     :: UpdateOpenIdConnectProviderThumbprintResponse
 updateOpenIdConnectProviderThumbprintResponse =
     UpdateOpenIdConnectProviderThumbprintResponse'
+
+instance NFData
+         UpdateOpenIdConnectProviderThumbprintResponse

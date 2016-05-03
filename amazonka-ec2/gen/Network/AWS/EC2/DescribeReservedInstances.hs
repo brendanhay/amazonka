@@ -221,3 +221,5 @@ drirsReservedInstances = lens _drirsReservedInstances (\ s a -> s{_drirsReserved
 -- | The response status code.
 drirsResponseStatus :: Lens' DescribeReservedInstancesResponse Int
 drirsResponseStatus = lens _drirsResponseStatus (\ s a -> s{_drirsResponseStatus = a});
+
+instance NFData DescribeReservedInstancesResponse

@@ -112,3 +112,5 @@ data SetDefaultPolicyVersionResponse =
 setDefaultPolicyVersionResponse
     :: SetDefaultPolicyVersionResponse
 setDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'
+
+instance NFData SetDefaultPolicyVersionResponse

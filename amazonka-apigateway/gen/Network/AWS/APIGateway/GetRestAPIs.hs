@@ -157,3 +157,5 @@ grarsPosition = lens _grarsPosition (\ s a -> s{_grarsPosition = a});
 -- | The response status code.
 grarsResponseStatus :: Lens' GetRestAPIsResponse Int
 grarsResponseStatus = lens _grarsResponseStatus (\ s a -> s{_grarsResponseStatus = a});
+
+instance NFData GetRestAPIsResponse

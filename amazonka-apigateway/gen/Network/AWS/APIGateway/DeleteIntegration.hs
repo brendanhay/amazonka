@@ -119,3 +119,5 @@ data DeleteIntegrationResponse' =
 deleteIntegrationResponse'
     :: DeleteIntegrationResponse'
 deleteIntegrationResponse' = DeleteIntegrationResponse''
+
+instance NFData DeleteIntegrationResponse'

@@ -203,3 +203,5 @@ lgprsResponseStatus = lens _lgprsResponseStatus (\ s a -> s{_lgprsResponseStatus
 -- | A list of policy names.
 lgprsPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
 lgprsPolicyNames = lens _lgprsPolicyNames (\ s a -> s{_lgprsPolicyNames = a}) . _Coerce;
+
+instance NFData ListGroupPoliciesResponse

@@ -119,3 +119,6 @@ deleteEnvironmentConfigurationResponse
     :: DeleteEnvironmentConfigurationResponse
 deleteEnvironmentConfigurationResponse =
     DeleteEnvironmentConfigurationResponse'
+
+instance NFData
+         DeleteEnvironmentConfigurationResponse

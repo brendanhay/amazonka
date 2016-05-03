@@ -120,3 +120,5 @@ data ResetImageAttributeResponse =
 resetImageAttributeResponse
     :: ResetImageAttributeResponse
 resetImageAttributeResponse = ResetImageAttributeResponse'
+
+instance NFData ResetImageAttributeResponse

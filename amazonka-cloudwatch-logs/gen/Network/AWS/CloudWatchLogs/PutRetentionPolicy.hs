@@ -115,3 +115,5 @@ data PutRetentionPolicyResponse =
 putRetentionPolicyResponse
     :: PutRetentionPolicyResponse
 putRetentionPolicyResponse = PutRetentionPolicyResponse'
+
+instance NFData PutRetentionPolicyResponse

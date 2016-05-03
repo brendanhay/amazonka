@@ -219,3 +219,5 @@ lagprsIsTruncated = lens _lagprsIsTruncated (\ s a -> s{_lagprsIsTruncated = a})
 -- | The response status code.
 lagprsResponseStatus :: Lens' ListAttachedGroupPoliciesResponse Int
 lagprsResponseStatus = lens _lagprsResponseStatus (\ s a -> s{_lagprsResponseStatus = a});
+
+instance NFData ListAttachedGroupPoliciesResponse

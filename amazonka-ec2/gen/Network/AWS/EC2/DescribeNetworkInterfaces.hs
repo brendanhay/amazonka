@@ -259,3 +259,5 @@ dnirsNetworkInterfaces = lens _dnirsNetworkInterfaces (\ s a -> s{_dnirsNetworkI
 -- | The response status code.
 dnirsResponseStatus :: Lens' DescribeNetworkInterfacesResponse Int
 dnirsResponseStatus = lens _dnirsResponseStatus (\ s a -> s{_dnirsResponseStatus = a});
+
+instance NFData DescribeNetworkInterfacesResponse

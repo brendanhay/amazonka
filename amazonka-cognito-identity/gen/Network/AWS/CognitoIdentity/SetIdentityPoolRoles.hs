@@ -120,3 +120,5 @@ data SetIdentityPoolRolesResponse =
 setIdentityPoolRolesResponse
     :: SetIdentityPoolRolesResponse
 setIdentityPoolRolesResponse = SetIdentityPoolRolesResponse'
+
+instance NFData SetIdentityPoolRolesResponse

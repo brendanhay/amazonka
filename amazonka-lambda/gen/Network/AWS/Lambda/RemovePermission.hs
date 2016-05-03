@@ -137,3 +137,5 @@ data RemovePermissionResponse =
 removePermissionResponse
     :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse'
+
+instance NFData RemovePermissionResponse

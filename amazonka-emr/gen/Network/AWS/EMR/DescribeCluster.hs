@@ -133,3 +133,5 @@ dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = 
 -- | This output contains the details for the requested cluster.
 dcrsCluster :: Lens' DescribeClusterResponse Cluster
 dcrsCluster = lens _dcrsCluster (\ s a -> s{_dcrsCluster = a});
+
+instance NFData DescribeClusterResponse

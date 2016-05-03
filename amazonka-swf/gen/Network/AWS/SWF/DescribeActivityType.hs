@@ -191,3 +191,5 @@ datrsTypeInfo = lens _datrsTypeInfo (\ s a -> s{_datrsTypeInfo = a});
 -- | The configuration settings registered with the activity type.
 datrsConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
 datrsConfiguration = lens _datrsConfiguration (\ s a -> s{_datrsConfiguration = a});
+
+instance NFData DescribeActivityTypeResponse

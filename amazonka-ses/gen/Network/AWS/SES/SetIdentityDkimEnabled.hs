@@ -140,3 +140,5 @@ setIdentityDkimEnabledResponse pResponseStatus_ =
 -- | The response status code.
 sidersResponseStatus :: Lens' SetIdentityDkimEnabledResponse Int
 sidersResponseStatus = lens _sidersResponseStatus (\ s a -> s{_sidersResponseStatus = a});
+
+instance NFData SetIdentityDkimEnabledResponse

@@ -113,3 +113,5 @@ data StartConfigurationRecorderResponse =
 startConfigurationRecorderResponse
     :: StartConfigurationRecorderResponse
 startConfigurationRecorderResponse = StartConfigurationRecorderResponse'
+
+instance NFData StartConfigurationRecorderResponse

@@ -283,3 +283,5 @@ data ModifyInstanceAttributeResponse =
 modifyInstanceAttributeResponse
     :: ModifyInstanceAttributeResponse
 modifyInstanceAttributeResponse = ModifyInstanceAttributeResponse'
+
+instance NFData ModifyInstanceAttributeResponse

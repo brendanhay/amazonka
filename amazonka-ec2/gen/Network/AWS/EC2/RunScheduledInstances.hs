@@ -182,3 +182,5 @@ rrsInstanceIdSet = lens _rrsInstanceIdSet (\ s a -> s{_rrsInstanceIdSet = a}) . 
 -- | The response status code.
 rrsResponseStatus :: Lens' RunScheduledInstancesResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
+
+instance NFData RunScheduledInstancesResponse

@@ -110,3 +110,5 @@ data DeleteVPNGatewayResponse =
 deleteVPNGatewayResponse
     :: DeleteVPNGatewayResponse
 deleteVPNGatewayResponse = DeleteVPNGatewayResponse'
+
+instance NFData DeleteVPNGatewayResponse

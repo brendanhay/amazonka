@@ -166,3 +166,6 @@ dtacrrsResult = lens _dtacrrsResult (\ s a -> s{_dtacrrsResult = a});
 -- | The response status code.
 dtacrrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
 dtacrrsResponseStatus = lens _dtacrrsResponseStatus (\ s a -> s{_dtacrrsResponseStatus = a});
+
+instance NFData
+         DescribeTrustedAdvisorCheckResultResponse

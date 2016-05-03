@@ -177,3 +177,5 @@ data SignalWorkflowExecutionResponse =
 signalWorkflowExecutionResponse
     :: SignalWorkflowExecutionResponse
 signalWorkflowExecutionResponse = SignalWorkflowExecutionResponse'
+
+instance NFData SignalWorkflowExecutionResponse

@@ -150,3 +150,5 @@ uaorsAvailabilityOptions = lens _uaorsAvailabilityOptions (\ s a -> s{_uaorsAvai
 -- | The response status code.
 uaorsResponseStatus :: Lens' UpdateAvailabilityOptionsResponse Int
 uaorsResponseStatus = lens _uaorsResponseStatus (\ s a -> s{_uaorsResponseStatus = a});
+
+instance NFData UpdateAvailabilityOptionsResponse

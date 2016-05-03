@@ -115,3 +115,5 @@ deleteReceiptFilterResponse pResponseStatus_ =
 -- | The response status code.
 drfrsResponseStatus :: Lens' DeleteReceiptFilterResponse Int
 drfrsResponseStatus = lens _drfrsResponseStatus (\ s a -> s{_drfrsResponseStatus = a});
+
+instance NFData DeleteReceiptFilterResponse

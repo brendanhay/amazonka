@@ -162,3 +162,5 @@ dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default 
 -- | The response status code.
 dirsResponseStatus :: Lens' DescribeInstancesResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+
+instance NFData DescribeInstancesResponse

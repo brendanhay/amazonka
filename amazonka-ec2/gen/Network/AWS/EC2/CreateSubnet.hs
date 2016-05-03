@@ -183,3 +183,5 @@ crsSubnet = lens _crsSubnet (\ s a -> s{_crsSubnet = a});
 -- | The response status code.
 crsResponseStatus :: Lens' CreateSubnetResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CreateSubnetResponse

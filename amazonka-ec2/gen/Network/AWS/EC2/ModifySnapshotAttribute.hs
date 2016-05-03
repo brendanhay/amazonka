@@ -172,3 +172,5 @@ data ModifySnapshotAttributeResponse =
 modifySnapshotAttributeResponse
     :: ModifySnapshotAttributeResponse
 modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse'
+
+instance NFData ModifySnapshotAttributeResponse

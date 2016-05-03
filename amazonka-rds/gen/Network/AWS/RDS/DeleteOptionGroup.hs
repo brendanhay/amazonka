@@ -97,3 +97,5 @@ data DeleteOptionGroupResponse =
 deleteOptionGroupResponse
     :: DeleteOptionGroupResponse
 deleteOptionGroupResponse = DeleteOptionGroupResponse'
+
+instance NFData DeleteOptionGroupResponse

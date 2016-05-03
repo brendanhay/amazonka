@@ -94,3 +94,5 @@ data DeleteUserResponse =
 deleteUserResponse
     :: DeleteUserResponse
 deleteUserResponse = DeleteUserResponse'
+
+instance NFData DeleteUserResponse

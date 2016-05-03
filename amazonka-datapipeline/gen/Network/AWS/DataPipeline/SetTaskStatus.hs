@@ -177,3 +177,5 @@ setTaskStatusResponse pResponseStatus_ =
 -- | The response status code.
 stsrsResponseStatus :: Lens' SetTaskStatusResponse Int
 stsrsResponseStatus = lens _stsrsResponseStatus (\ s a -> s{_stsrsResponseStatus = a});
+
+instance NFData SetTaskStatusResponse

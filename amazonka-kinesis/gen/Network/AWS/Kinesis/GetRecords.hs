@@ -225,3 +225,5 @@ grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = 
 -- | The data records retrieved from the shard.
 grrsRecords :: Lens' GetRecordsResponse [Record]
 grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a}) . _Coerce;
+
+instance NFData GetRecordsResponse

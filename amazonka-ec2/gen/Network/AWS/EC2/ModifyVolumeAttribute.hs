@@ -126,3 +126,5 @@ data ModifyVolumeAttributeResponse =
 modifyVolumeAttributeResponse
     :: ModifyVolumeAttributeResponse
 modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse'
+
+instance NFData ModifyVolumeAttributeResponse

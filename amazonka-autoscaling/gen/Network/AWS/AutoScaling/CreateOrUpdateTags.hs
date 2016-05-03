@@ -101,3 +101,5 @@ data CreateOrUpdateTagsResponse =
 createOrUpdateTagsResponse
     :: CreateOrUpdateTagsResponse
 createOrUpdateTagsResponse = CreateOrUpdateTagsResponse'
+
+instance NFData CreateOrUpdateTagsResponse

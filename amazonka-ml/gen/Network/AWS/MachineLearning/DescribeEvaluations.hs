@@ -296,3 +296,5 @@ desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
 -- | The response status code.
 desrsResponseStatus :: Lens' DescribeEvaluationsResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+
+instance NFData DescribeEvaluationsResponse

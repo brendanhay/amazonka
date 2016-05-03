@@ -125,3 +125,5 @@ data ResetSnapshotAttributeResponse =
 resetSnapshotAttributeResponse
     :: ResetSnapshotAttributeResponse
 resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse'
+
+instance NFData ResetSnapshotAttributeResponse

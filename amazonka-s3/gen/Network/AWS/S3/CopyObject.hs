@@ -548,3 +548,5 @@ corsCopyObjectResult = lens _corsCopyObjectResult (\ s a -> s{_corsCopyObjectRes
 -- | The response status code.
 corsResponseStatus :: Lens' CopyObjectResponse Int
 corsResponseStatus = lens _corsResponseStatus (\ s a -> s{_corsResponseStatus = a});
+
+instance NFData CopyObjectResponse

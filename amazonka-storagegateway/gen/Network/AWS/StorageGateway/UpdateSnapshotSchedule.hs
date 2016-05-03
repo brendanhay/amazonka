@@ -184,3 +184,5 @@ ussrsVolumeARN = lens _ussrsVolumeARN (\ s a -> s{_ussrsVolumeARN = a});
 -- | The response status code.
 ussrsResponseStatus :: Lens' UpdateSnapshotScheduleResponse Int
 ussrsResponseStatus = lens _ussrsResponseStatus (\ s a -> s{_ussrsResponseStatus = a});
+
+instance NFData UpdateSnapshotScheduleResponse

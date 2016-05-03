@@ -138,3 +138,6 @@ setPlatformApplicationAttributesResponse
     :: SetPlatformApplicationAttributesResponse
 setPlatformApplicationAttributesResponse =
     SetPlatformApplicationAttributesResponse'
+
+instance NFData
+         SetPlatformApplicationAttributesResponse

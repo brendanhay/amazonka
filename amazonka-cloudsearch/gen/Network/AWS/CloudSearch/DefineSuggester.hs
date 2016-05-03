@@ -144,3 +144,5 @@ dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = 
 -- | Undocumented member.
 dsrsSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
 dsrsSuggester = lens _dsrsSuggester (\ s a -> s{_dsrsSuggester = a});
+
+instance NFData DefineSuggesterResponse

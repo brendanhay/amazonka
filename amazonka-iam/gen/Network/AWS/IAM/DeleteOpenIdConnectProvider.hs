@@ -106,3 +106,5 @@ data DeleteOpenIdConnectProviderResponse =
 deleteOpenIdConnectProviderResponse
     :: DeleteOpenIdConnectProviderResponse
 deleteOpenIdConnectProviderResponse = DeleteOpenIdConnectProviderResponse'
+
+instance NFData DeleteOpenIdConnectProviderResponse

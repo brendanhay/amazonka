@@ -102,3 +102,5 @@ data DeleteLogGroupResponse =
 deleteLogGroupResponse
     :: DeleteLogGroupResponse
 deleteLogGroupResponse = DeleteLogGroupResponse'
+
+instance NFData DeleteLogGroupResponse

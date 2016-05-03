@@ -126,3 +126,5 @@ data DisableMetricsCollectionResponse =
 disableMetricsCollectionResponse
     :: DisableMetricsCollectionResponse
 disableMetricsCollectionResponse = DisableMetricsCollectionResponse'
+
+instance NFData DisableMetricsCollectionResponse

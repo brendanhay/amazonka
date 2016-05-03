@@ -220,3 +220,5 @@ data UpdateAccountPasswordPolicyResponse =
 updateAccountPasswordPolicyResponse
     :: UpdateAccountPasswordPolicyResponse
 updateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse'
+
+instance NFData UpdateAccountPasswordPolicyResponse

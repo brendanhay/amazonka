@@ -120,3 +120,5 @@ setActiveReceiptRuleSetResponse pResponseStatus_ =
 -- | The response status code.
 sarrsrsResponseStatus :: Lens' SetActiveReceiptRuleSetResponse Int
 sarrsrsResponseStatus = lens _sarrsrsResponseStatus (\ s a -> s{_sarrsrsResponseStatus = a});
+
+instance NFData SetActiveReceiptRuleSetResponse

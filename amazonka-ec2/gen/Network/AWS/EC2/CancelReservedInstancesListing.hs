@@ -131,3 +131,6 @@ crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -
 -- | The response status code.
 crilrsResponseStatus :: Lens' CancelReservedInstancesListingResponse Int
 crilrsResponseStatus = lens _crilrsResponseStatus (\ s a -> s{_crilrsResponseStatus = a});
+
+instance NFData
+         CancelReservedInstancesListingResponse

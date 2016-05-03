@@ -108,3 +108,5 @@ data DisableVGWRoutePropagationResponse =
 disableVGWRoutePropagationResponse
     :: DisableVGWRoutePropagationResponse
 disableVGWRoutePropagationResponse = DisableVGWRoutePropagationResponse'
+
+instance NFData DisableVGWRoutePropagationResponse

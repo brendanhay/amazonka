@@ -131,3 +131,5 @@ data DeleteVaultResponse =
 deleteVaultResponse
     :: DeleteVaultResponse
 deleteVaultResponse = DeleteVaultResponse'
+
+instance NFData DeleteVaultResponse

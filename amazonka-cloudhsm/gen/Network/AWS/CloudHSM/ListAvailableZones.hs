@@ -116,3 +116,5 @@ lazrsAZList = lens _lazrsAZList (\ s a -> s{_lazrsAZList = a}) . _Default . _Coe
 -- | The response status code.
 lazrsResponseStatus :: Lens' ListAvailableZonesResponse Int
 lazrsResponseStatus = lens _lazrsResponseStatus (\ s a -> s{_lazrsResponseStatus = a});
+
+instance NFData ListAvailableZonesResponse

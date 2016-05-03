@@ -149,3 +149,5 @@ ccsgrsCacheSecurityGroup = lens _ccsgrsCacheSecurityGroup (\ s a -> s{_ccsgrsCac
 -- | The response status code.
 ccsgrsResponseStatus :: Lens' CreateCacheSecurityGroupResponse Int
 ccsgrsResponseStatus = lens _ccsgrsResponseStatus (\ s a -> s{_ccsgrsResponseStatus = a});
+
+instance NFData CreateCacheSecurityGroupResponse

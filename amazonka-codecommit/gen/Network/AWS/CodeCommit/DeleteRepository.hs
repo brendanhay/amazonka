@@ -137,3 +137,5 @@ drrsRepositoryId = lens _drrsRepositoryId (\ s a -> s{_drrsRepositoryId = a});
 -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRepositoryResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+
+instance NFData DeleteRepositoryResponse

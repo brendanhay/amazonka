@@ -123,3 +123,5 @@ data SetTimeBasedAutoScalingResponse =
 setTimeBasedAutoScalingResponse
     :: SetTimeBasedAutoScalingResponse
 setTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse'
+
+instance NFData SetTimeBasedAutoScalingResponse

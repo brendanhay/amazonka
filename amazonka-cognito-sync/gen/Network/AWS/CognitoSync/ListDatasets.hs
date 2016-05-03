@@ -187,3 +187,5 @@ ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default . _
 -- | The response status code.
 ldrsResponseStatus :: Lens' ListDatasetsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+
+instance NFData ListDatasetsResponse

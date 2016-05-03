@@ -291,3 +291,5 @@ ddssrsNextToken = lens _ddssrsNextToken (\ s a -> s{_ddssrsNextToken = a});
 -- | The response status code.
 ddssrsResponseStatus :: Lens' DescribeDataSourcesResponse Int
 ddssrsResponseStatus = lens _ddssrsResponseStatus (\ s a -> s{_ddssrsResponseStatus = a});
+
+instance NFData DescribeDataSourcesResponse

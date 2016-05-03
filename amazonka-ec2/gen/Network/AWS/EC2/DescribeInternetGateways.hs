@@ -172,3 +172,5 @@ digrsInternetGateways = lens _digrsInternetGateways (\ s a -> s{_digrsInternetGa
 -- | The response status code.
 digrsResponseStatus :: Lens' DescribeInternetGatewaysResponse Int
 digrsResponseStatus = lens _digrsResponseStatus (\ s a -> s{_digrsResponseStatus = a});
+
+instance NFData DescribeInternetGatewaysResponse

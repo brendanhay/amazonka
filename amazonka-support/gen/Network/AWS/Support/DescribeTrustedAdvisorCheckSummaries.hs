@@ -141,3 +141,6 @@ dtacsrsResponseStatus = lens _dtacsrsResponseStatus (\ s a -> s{_dtacsrsResponse
 -- | The summary information for the requested Trusted Advisor checks.
 dtacsrsSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
 dtacsrsSummaries = lens _dtacsrsSummaries (\ s a -> s{_dtacsrsSummaries = a}) . _Coerce;
+
+instance NFData
+         DescribeTrustedAdvisorCheckSummariesResponse

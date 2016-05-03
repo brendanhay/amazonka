@@ -170,3 +170,5 @@ ubrlrsGatewayARN = lens _ubrlrsGatewayARN (\ s a -> s{_ubrlrsGatewayARN = a});
 -- | The response status code.
 ubrlrsResponseStatus :: Lens' UpdateBandwidthRateLimitResponse Int
 ubrlrsResponseStatus = lens _ubrlrsResponseStatus (\ s a -> s{_ubrlrsResponseStatus = a});
+
+instance NFData UpdateBandwidthRateLimitResponse

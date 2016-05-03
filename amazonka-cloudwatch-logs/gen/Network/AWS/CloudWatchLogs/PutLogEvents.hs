@@ -190,3 +190,5 @@ plersNextSequenceToken = lens _plersNextSequenceToken (\ s a -> s{_plersNextSequ
 -- | The response status code.
 plersResponseStatus :: Lens' PutLogEventsResponse Int
 plersResponseStatus = lens _plersResponseStatus (\ s a -> s{_plersResponseStatus = a});
+
+instance NFData PutLogEventsResponse

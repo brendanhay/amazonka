@@ -131,3 +131,5 @@ gdrsDeploymentInfo = lens _gdrsDeploymentInfo (\ s a -> s{_gdrsDeploymentInfo = 
 -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeploymentResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+
+instance NFData GetDeploymentResponse

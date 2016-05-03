@@ -137,3 +137,5 @@ data SetAlarmStateResponse =
 setAlarmStateResponse
     :: SetAlarmStateResponse
 setAlarmStateResponse = SetAlarmStateResponse'
+
+instance NFData SetAlarmStateResponse

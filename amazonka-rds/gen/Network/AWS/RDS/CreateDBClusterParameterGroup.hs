@@ -203,3 +203,5 @@ cdcpgrsDBClusterParameterGroup = lens _cdcpgrsDBClusterParameterGroup (\ s a -> 
 -- | The response status code.
 cdcpgrsResponseStatus :: Lens' CreateDBClusterParameterGroupResponse Int
 cdcpgrsResponseStatus = lens _cdcpgrsResponseStatus (\ s a -> s{_cdcpgrsResponseStatus = a});
+
+instance NFData CreateDBClusterParameterGroupResponse

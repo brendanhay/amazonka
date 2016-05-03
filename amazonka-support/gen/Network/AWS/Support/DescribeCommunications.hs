@@ -209,3 +209,5 @@ dcrsCommunications = lens _dcrsCommunications (\ s a -> s{_dcrsCommunications = 
 -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCommunicationsResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+
+instance NFData DescribeCommunicationsResponse

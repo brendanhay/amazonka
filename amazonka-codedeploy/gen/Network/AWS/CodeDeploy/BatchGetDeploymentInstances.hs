@@ -155,3 +155,5 @@ bgdirsErrorMessage = lens _bgdirsErrorMessage (\ s a -> s{_bgdirsErrorMessage = 
 -- | The response status code.
 bgdirsResponseStatus :: Lens' BatchGetDeploymentInstancesResponse Int
 bgdirsResponseStatus = lens _bgdirsResponseStatus (\ s a -> s{_bgdirsResponseStatus = a});
+
+instance NFData BatchGetDeploymentInstancesResponse

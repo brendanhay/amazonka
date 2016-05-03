@@ -155,3 +155,5 @@ dcisrsContainerInstances = lens _dcisrsContainerInstances (\ s a -> s{_dcisrsCon
 -- | The response status code.
 dcisrsResponseStatus :: Lens' DescribeContainerInstancesResponse Int
 dcisrsResponseStatus = lens _dcisrsResponseStatus (\ s a -> s{_dcisrsResponseStatus = a});
+
+instance NFData DescribeContainerInstancesResponse

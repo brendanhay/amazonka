@@ -136,3 +136,5 @@ dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a})
 -- | The response status code.
 dversResponseStatus :: Lens' DeleteVPCEndpointsResponse Int
 dversResponseStatus = lens _dversResponseStatus (\ s a -> s{_dversResponseStatus = a});
+
+instance NFData DeleteVPCEndpointsResponse

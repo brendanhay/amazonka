@@ -177,3 +177,5 @@ drsErrors = lens _drsErrors (\ s a -> s{_drsErrors = a}) . _Default . _Coerce;
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteObjectsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteObjectsResponse

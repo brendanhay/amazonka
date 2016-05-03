@@ -154,3 +154,5 @@ gtpjdrsJobDetails = lens _gtpjdrsJobDetails (\ s a -> s{_gtpjdrsJobDetails = a})
 -- | The response status code.
 gtpjdrsResponseStatus :: Lens' GetThirdPartyJobDetailsResponse Int
 gtpjdrsResponseStatus = lens _gtpjdrsResponseStatus (\ s a -> s{_gtpjdrsResponseStatus = a});
+
+instance NFData GetThirdPartyJobDetailsResponse

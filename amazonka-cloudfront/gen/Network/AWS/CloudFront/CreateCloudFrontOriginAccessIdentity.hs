@@ -157,3 +157,6 @@ ccfoairsCloudFrontOriginAccessIdentity = lens _ccfoairsCloudFrontOriginAccessIde
 -- | The response status code.
 ccfoairsResponseStatus :: Lens' CreateCloudFrontOriginAccessIdentityResponse Int
 ccfoairsResponseStatus = lens _ccfoairsResponseStatus (\ s a -> s{_ccfoairsResponseStatus = a});
+
+instance NFData
+         CreateCloudFrontOriginAccessIdentityResponse

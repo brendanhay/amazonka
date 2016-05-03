@@ -144,3 +144,5 @@ gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = 
 -- | Information about the specified commit.
 gcrsCommit :: Lens' GetCommitResponse Commit
 gcrsCommit = lens _gcrsCommit (\ s a -> s{_gcrsCommit = a});
+
+instance NFData GetCommitResponse

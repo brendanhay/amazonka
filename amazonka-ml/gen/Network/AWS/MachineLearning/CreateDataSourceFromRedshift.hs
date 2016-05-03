@@ -254,3 +254,5 @@ cdsfrrsDataSourceId = lens _cdsfrrsDataSourceId (\ s a -> s{_cdsfrrsDataSourceId
 -- | The response status code.
 cdsfrrsResponseStatus :: Lens' CreateDataSourceFromRedshiftResponse Int
 cdsfrrsResponseStatus = lens _cdsfrrsResponseStatus (\ s a -> s{_cdsfrrsResponseStatus = a});
+
+instance NFData CreateDataSourceFromRedshiftResponse

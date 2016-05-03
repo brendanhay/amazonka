@@ -113,3 +113,6 @@ deleteNotificationConfigurationResponse
     :: DeleteNotificationConfigurationResponse
 deleteNotificationConfigurationResponse =
     DeleteNotificationConfigurationResponse'
+
+instance NFData
+         DeleteNotificationConfigurationResponse

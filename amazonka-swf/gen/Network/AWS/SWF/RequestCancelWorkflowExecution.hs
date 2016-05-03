@@ -158,3 +158,6 @@ requestCancelWorkflowExecutionResponse
     :: RequestCancelWorkflowExecutionResponse
 requestCancelWorkflowExecutionResponse =
     RequestCancelWorkflowExecutionResponse'
+
+instance NFData
+         RequestCancelWorkflowExecutionResponse

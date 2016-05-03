@@ -105,3 +105,5 @@ data DeleteAppResponse =
 deleteAppResponse
     :: DeleteAppResponse
 deleteAppResponse = DeleteAppResponse'
+
+instance NFData DeleteAppResponse

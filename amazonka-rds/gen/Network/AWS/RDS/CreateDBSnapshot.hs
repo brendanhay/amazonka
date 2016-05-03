@@ -159,3 +159,5 @@ cdbsrsDBSnapshot = lens _cdbsrsDBSnapshot (\ s a -> s{_cdbsrsDBSnapshot = a});
 -- | The response status code.
 cdbsrsResponseStatus :: Lens' CreateDBSnapshotResponse Int
 cdbsrsResponseStatus = lens _cdbsrsResponseStatus (\ s a -> s{_cdbsrsResponseStatus = a});
+
+instance NFData CreateDBSnapshotResponse

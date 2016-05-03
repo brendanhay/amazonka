@@ -438,3 +438,5 @@ mcrsCluster = lens _mcrsCluster (\ s a -> s{_mcrsCluster = a});
 -- | The response status code.
 mcrsResponseStatus :: Lens' ModifyClusterResponse Int
 mcrsResponseStatus = lens _mcrsResponseStatus (\ s a -> s{_mcrsResponseStatus = a});
+
+instance NFData ModifyClusterResponse

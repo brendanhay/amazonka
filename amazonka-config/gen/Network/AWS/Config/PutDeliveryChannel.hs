@@ -117,3 +117,5 @@ data PutDeliveryChannelResponse =
 putDeliveryChannelResponse
     :: PutDeliveryChannelResponse
 putDeliveryChannelResponse = PutDeliveryChannelResponse'
+
+instance NFData PutDeliveryChannelResponse

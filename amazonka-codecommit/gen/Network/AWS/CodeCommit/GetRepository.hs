@@ -138,3 +138,5 @@ grrsRepositoryMetadata = lens _grrsRepositoryMetadata (\ s a -> s{_grrsRepositor
 -- | The response status code.
 grrsResponseStatus :: Lens' GetRepositoryResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+
+instance NFData GetRepositoryResponse

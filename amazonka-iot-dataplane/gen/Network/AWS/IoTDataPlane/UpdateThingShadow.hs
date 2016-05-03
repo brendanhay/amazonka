@@ -137,3 +137,5 @@ utsrsPayload = lens _utsrsPayload (\ s a -> s{_utsrsPayload = a});
 -- | The response status code.
 utsrsResponseStatus :: Lens' UpdateThingShadowResponse Int
 utsrsResponseStatus = lens _utsrsResponseStatus (\ s a -> s{_utsrsResponseStatus = a});
+
+instance NFData UpdateThingShadowResponse

@@ -148,3 +148,5 @@ teprsResult = lens _teprsResult (\ s a -> s{_teprsResult = a});
 -- | The response status code.
 teprsResponseStatus :: Lens' TestEventPatternResponse Int
 teprsResponseStatus = lens _teprsResponseStatus (\ s a -> s{_teprsResponseStatus = a});
+
+instance NFData TestEventPatternResponse

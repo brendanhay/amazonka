@@ -202,3 +202,5 @@ usimsrsChangeToken = lens _usimsrsChangeToken (\ s a -> s{_usimsrsChangeToken = 
 -- | The response status code.
 usimsrsResponseStatus :: Lens' UpdateSqlInjectionMatchSetResponse Int
 usimsrsResponseStatus = lens _usimsrsResponseStatus (\ s a -> s{_usimsrsResponseStatus = a});
+
+instance NFData UpdateSqlInjectionMatchSetResponse

@@ -156,3 +156,5 @@ setIdentityMailFromDomainResponse pResponseStatus_ =
 -- | The response status code.
 simfdrsResponseStatus :: Lens' SetIdentityMailFromDomainResponse Int
 simfdrsResponseStatus = lens _simfdrsResponseStatus (\ s a -> s{_simfdrsResponseStatus = a});
+
+instance NFData SetIdentityMailFromDomainResponse

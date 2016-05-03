@@ -189,3 +189,5 @@ dtarsMarker = lens _dtarsMarker (\ s a -> s{_dtarsMarker = a});
 -- | The response status code.
 dtarsResponseStatus :: Lens' DescribeTapeArchivesResponse Int
 dtarsResponseStatus = lens _dtarsResponseStatus (\ s a -> s{_dtarsResponseStatus = a});
+
+instance NFData DescribeTapeArchivesResponse

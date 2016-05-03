@@ -111,3 +111,5 @@ data DeregisterInstanceResponse =
 deregisterInstanceResponse
     :: DeregisterInstanceResponse
 deregisterInstanceResponse = DeregisterInstanceResponse'
+
+instance NFData DeregisterInstanceResponse

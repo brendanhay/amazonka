@@ -201,3 +201,5 @@ smrsMD5OfMessageAttributes = lens _smrsMD5OfMessageAttributes (\ s a -> s{_smrsM
 -- | The response status code.
 smrsResponseStatus :: Lens' SendMessageResponse Int
 smrsResponseStatus = lens _smrsResponseStatus (\ s a -> s{_smrsResponseStatus = a});
+
+instance NFData SendMessageResponse

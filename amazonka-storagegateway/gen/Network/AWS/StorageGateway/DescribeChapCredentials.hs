@@ -155,3 +155,5 @@ dccrsChapCredentials = lens _dccrsChapCredentials (\ s a -> s{_dccrsChapCredenti
 -- | The response status code.
 dccrsResponseStatus :: Lens' DescribeChapCredentialsResponse Int
 dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
+
+instance NFData DescribeChapCredentialsResponse

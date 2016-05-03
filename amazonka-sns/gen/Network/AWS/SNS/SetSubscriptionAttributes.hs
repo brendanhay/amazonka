@@ -123,3 +123,5 @@ data SetSubscriptionAttributesResponse =
 setSubscriptionAttributesResponse
     :: SetSubscriptionAttributesResponse
 setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse'
+
+instance NFData SetSubscriptionAttributesResponse

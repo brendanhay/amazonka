@@ -160,3 +160,5 @@ lrsPresets = lens _lrsPresets (\ s a -> s{_lrsPresets = a}) . _Default . _Coerce
 -- | The response status code.
 lrsResponseStatus :: Lens' ListPresetsResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
+
+instance NFData ListPresetsResponse

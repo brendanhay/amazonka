@@ -210,3 +210,5 @@ data AuthorizeSecurityGroupEgressResponse =
 authorizeSecurityGroupEgressResponse
     :: AuthorizeSecurityGroupEgressResponse
 authorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse'
+
+instance NFData AuthorizeSecurityGroupEgressResponse

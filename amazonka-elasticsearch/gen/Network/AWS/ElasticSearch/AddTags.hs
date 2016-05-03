@@ -111,3 +111,5 @@ data AddTagsResponse =
 addTagsResponse
     :: AddTagsResponse
 addTagsResponse = AddTagsResponse'
+
+instance NFData AddTagsResponse

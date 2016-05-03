@@ -291,3 +291,5 @@ data RegisterWorkflowTypeResponse =
 registerWorkflowTypeResponse
     :: RegisterWorkflowTypeResponse
 registerWorkflowTypeResponse = RegisterWorkflowTypeResponse'
+
+instance NFData RegisterWorkflowTypeResponse

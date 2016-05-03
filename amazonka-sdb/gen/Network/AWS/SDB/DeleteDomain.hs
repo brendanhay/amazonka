@@ -95,3 +95,5 @@ data DeleteDomainResponse =
 deleteDomainResponse
     :: DeleteDomainResponse
 deleteDomainResponse = DeleteDomainResponse'
+
+instance NFData DeleteDomainResponse

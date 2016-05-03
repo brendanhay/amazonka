@@ -174,3 +174,5 @@ srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
 -- | The response status code.
 srsResponseStatus :: Lens' SuggestResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+
+instance NFData SuggestResponse

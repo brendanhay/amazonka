@@ -266,3 +266,5 @@ csrsService = lens _csrsService (\ s a -> s{_csrsService = a});
 -- | The response status code.
 csrsResponseStatus :: Lens' CreateServiceResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+
+instance NFData CreateServiceResponse

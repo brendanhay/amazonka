@@ -137,3 +137,5 @@ deregisterEventTopicResponse pResponseStatus_ =
 -- | The response status code.
 derrsResponseStatus :: Lens' DeregisterEventTopicResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
+
+instance NFData DeregisterEventTopicResponse

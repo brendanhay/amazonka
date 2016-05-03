@@ -112,3 +112,5 @@ data DeleteDeliveryChannelResponse =
 deleteDeliveryChannelResponse
     :: DeleteDeliveryChannelResponse
 deleteDeliveryChannelResponse = DeleteDeliveryChannelResponse'
+
+instance NFData DeleteDeliveryChannelResponse

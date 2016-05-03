@@ -141,3 +141,5 @@ dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingCon
 -- | The response status code.
 dlbasrsResponseStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
 dlbasrsResponseStatus = lens _dlbasrsResponseStatus (\ s a -> s{_dlbasrsResponseStatus = a});
+
+instance NFData DescribeLoadBasedAutoScalingResponse

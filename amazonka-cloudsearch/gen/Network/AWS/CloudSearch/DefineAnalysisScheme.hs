@@ -143,3 +143,5 @@ defersResponseStatus = lens _defersResponseStatus (\ s a -> s{_defersResponseSta
 -- | Undocumented member.
 defersAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
 defersAnalysisScheme = lens _defersAnalysisScheme (\ s a -> s{_defersAnalysisScheme = a});
+
+instance NFData DefineAnalysisSchemeResponse

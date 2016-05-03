@@ -110,3 +110,5 @@ data DeregisterVolumeResponse =
 deregisterVolumeResponse
     :: DeregisterVolumeResponse
 deregisterVolumeResponse = DeregisterVolumeResponse'
+
+instance NFData DeregisterVolumeResponse

@@ -108,3 +108,5 @@ data DeleteIdentityPoolResponse =
 deleteIdentityPoolResponse
     :: DeleteIdentityPoolResponse
 deleteIdentityPoolResponse = DeleteIdentityPoolResponse'
+
+instance NFData DeleteIdentityPoolResponse

@@ -140,3 +140,5 @@ data SignalResourceResponse =
 signalResourceResponse
     :: SignalResourceResponse
 signalResourceResponse = SignalResourceResponse'
+
+instance NFData SignalResourceResponse

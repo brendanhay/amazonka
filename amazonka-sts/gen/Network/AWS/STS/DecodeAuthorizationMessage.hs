@@ -155,3 +155,5 @@ damrsDecodedMessage = lens _damrsDecodedMessage (\ s a -> s{_damrsDecodedMessage
 -- | The response status code.
 damrsResponseStatus :: Lens' DecodeAuthorizationMessageResponse Int
 damrsResponseStatus = lens _damrsResponseStatus (\ s a -> s{_damrsResponseStatus = a});
+
+instance NFData DecodeAuthorizationMessageResponse

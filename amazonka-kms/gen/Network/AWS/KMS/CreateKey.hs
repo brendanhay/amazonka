@@ -155,3 +155,5 @@ ckrsKeyMetadata = lens _ckrsKeyMetadata (\ s a -> s{_ckrsKeyMetadata = a});
 -- | The response status code.
 ckrsResponseStatus :: Lens' CreateKeyResponse Int
 ckrsResponseStatus = lens _ckrsResponseStatus (\ s a -> s{_ckrsResponseStatus = a});
+
+instance NFData CreateKeyResponse

@@ -217,3 +217,5 @@ drtrsRouteTables = lens _drtrsRouteTables (\ s a -> s{_drtrsRouteTables = a}) . 
 -- | The response status code.
 drtrsResponseStatus :: Lens' DescribeRouteTablesResponse Int
 drtrsResponseStatus = lens _drtrsResponseStatus (\ s a -> s{_drtrsResponseStatus = a});
+
+instance NFData DescribeRouteTablesResponse

@@ -190,3 +190,5 @@ mdsarsDBSnapshotAttributesResult = lens _mdsarsDBSnapshotAttributesResult (\ s a
 -- | The response status code.
 mdsarsResponseStatus :: Lens' ModifyDBSnapshotAttributeResponse Int
 mdsarsResponseStatus = lens _mdsarsResponseStatus (\ s a -> s{_mdsarsResponseStatus = a});
+
+instance NFData ModifyDBSnapshotAttributeResponse

@@ -188,3 +188,6 @@ csfvrprsSnapshotId = lens _csfvrprsSnapshotId (\ s a -> s{_csfvrprsSnapshotId = 
 -- | The response status code.
 csfvrprsResponseStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Int
 csfvrprsResponseStatus = lens _csfvrprsResponseStatus (\ s a -> s{_csfvrprsResponseStatus = a});
+
+instance NFData
+         CreateSnapshotFromVolumeRecoveryPointResponse

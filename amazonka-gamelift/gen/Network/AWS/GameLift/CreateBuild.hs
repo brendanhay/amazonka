@@ -194,3 +194,5 @@ cbrsBuild = lens _cbrsBuild (\ s a -> s{_cbrsBuild = a});
 -- | The response status code.
 cbrsResponseStatus :: Lens' CreateBuildResponse Int
 cbrsResponseStatus = lens _cbrsResponseStatus (\ s a -> s{_cbrsResponseStatus = a});
+
+instance NFData CreateBuildResponse

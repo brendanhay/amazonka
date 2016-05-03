@@ -128,3 +128,5 @@ data SetVaultAccessPolicyResponse =
 setVaultAccessPolicyResponse
     :: SetVaultAccessPolicyResponse
 setVaultAccessPolicyResponse = SetVaultAccessPolicyResponse'
+
+instance NFData SetVaultAccessPolicyResponse

@@ -179,3 +179,5 @@ data PutBucketACLResponse =
 putBucketACLResponse
     :: PutBucketACLResponse
 putBucketACLResponse = PutBucketACLResponse'
+
+instance NFData PutBucketACLResponse

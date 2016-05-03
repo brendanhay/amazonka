@@ -175,3 +175,5 @@ data ReplaceRouteResponse =
 replaceRouteResponse
     :: ReplaceRouteResponse
 replaceRouteResponse = ReplaceRouteResponse'
+
+instance NFData ReplaceRouteResponse

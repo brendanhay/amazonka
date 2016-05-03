@@ -272,3 +272,5 @@ cdgrsDeploymentGroupId = lens _cdgrsDeploymentGroupId (\ s a -> s{_cdgrsDeployme
 -- | The response status code.
 cdgrsResponseStatus :: Lens' CreateDeploymentGroupResponse Int
 cdgrsResponseStatus = lens _cdgrsResponseStatus (\ s a -> s{_cdgrsResponseStatus = a});
+
+instance NFData CreateDeploymentGroupResponse

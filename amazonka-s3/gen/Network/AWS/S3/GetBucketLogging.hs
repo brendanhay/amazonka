@@ -117,3 +117,5 @@ gblrsLoggingEnabled = lens _gblrsLoggingEnabled (\ s a -> s{_gblrsLoggingEnabled
 -- | The response status code.
 gblrsResponseStatus :: Lens' GetBucketLoggingResponse Int
 gblrsResponseStatus = lens _gblrsResponseStatus (\ s a -> s{_gblrsResponseStatus = a});
+
+instance NFData GetBucketLoggingResponse

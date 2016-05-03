@@ -135,3 +135,5 @@ duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a})
 -- | The response status code.
 duprsResponseStatus :: Lens' DescribeUserProfilesResponse Int
 duprsResponseStatus = lens _duprsResponseStatus (\ s a -> s{_duprsResponseStatus = a});
+
+instance NFData DescribeUserProfilesResponse

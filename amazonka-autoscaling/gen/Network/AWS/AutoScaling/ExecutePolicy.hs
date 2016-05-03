@@ -154,3 +154,5 @@ data ExecutePolicyResponse =
 executePolicyResponse
     :: ExecutePolicyResponse
 executePolicyResponse = ExecutePolicyResponse'
+
+instance NFData ExecutePolicyResponse

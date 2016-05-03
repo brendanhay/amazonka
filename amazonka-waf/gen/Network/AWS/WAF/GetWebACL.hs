@@ -135,3 +135,5 @@ gwarsWebACL = lens _gwarsWebACL (\ s a -> s{_gwarsWebACL = a});
 -- | The response status code.
 gwarsResponseStatus :: Lens' GetWebACLResponse Int
 gwarsResponseStatus = lens _gwarsResponseStatus (\ s a -> s{_gwarsResponseStatus = a});
+
+instance NFData GetWebACLResponse

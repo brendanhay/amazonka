@@ -185,3 +185,5 @@ prrsResponseStatus = lens _prrsResponseStatus (\ s a -> s{_prrsResponseStatus = 
 -- | The ID of the record.
 prrsRecordId :: Lens' PutRecordResponse Text
 prrsRecordId = lens _prrsRecordId (\ s a -> s{_prrsRecordId = a});
+
+instance NFData PutRecordResponse

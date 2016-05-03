@@ -131,3 +131,5 @@ crrsRepository = lens _crrsRepository (\ s a -> s{_crrsRepository = a});
 -- | The response status code.
 crrsResponseStatus :: Lens' CreateRepositoryResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
+
+instance NFData CreateRepositoryResponse

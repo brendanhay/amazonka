@@ -345,3 +345,5 @@ desrsHSMType = lens _desrsHSMType (\ s a -> s{_desrsHSMType = a});
 -- | The response status code.
 desrsResponseStatus :: Lens' DescribeHSMResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+
+instance NFData DescribeHSMResponse

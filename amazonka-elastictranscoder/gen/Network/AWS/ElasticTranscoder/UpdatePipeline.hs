@@ -333,3 +333,5 @@ uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a});
 -- | The response status code.
 uprsResponseStatus :: Lens' UpdatePipelineResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
+
+instance NFData UpdatePipelineResponse

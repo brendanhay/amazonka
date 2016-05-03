@@ -207,3 +207,5 @@ strsTasks = lens _strsTasks (\ s a -> s{_strsTasks = a}) . _Default . _Coerce;
 -- | The response status code.
 strsResponseStatus :: Lens' StartTaskResponse Int
 strsResponseStatus = lens _strsResponseStatus (\ s a -> s{_strsResponseStatus = a});
+
+instance NFData StartTaskResponse

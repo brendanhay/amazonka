@@ -133,3 +133,5 @@ gdrprsPolicy = lens _gdrprsPolicy (\ s a -> s{_gdrprsPolicy = a});
 -- | The response status code.
 gdrprsResponseStatus :: Lens' GetDataRetrievalPolicyResponse Int
 gdrprsResponseStatus = lens _gdrprsResponseStatus (\ s a -> s{_gdrprsResponseStatus = a});
+
+instance NFData GetDataRetrievalPolicyResponse

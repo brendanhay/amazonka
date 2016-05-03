@@ -149,3 +149,5 @@ detrsEventTopics = lens _detrsEventTopics (\ s a -> s{_detrsEventTopics = a}) . 
 -- | The response status code.
 detrsResponseStatus :: Lens' DescribeEventTopicsResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
+
+instance NFData DescribeEventTopicsResponse

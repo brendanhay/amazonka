@@ -140,3 +140,5 @@ cursUser = lens _cursUser (\ s a -> s{_cursUser = a});
 -- | The response status code.
 cursResponseStatus :: Lens' CreateUserResponse Int
 cursResponseStatus = lens _cursResponseStatus (\ s a -> s{_cursResponseStatus = a});
+
+instance NFData CreateUserResponse

@@ -185,3 +185,5 @@ lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default 
 -- | The response status code.
 lirsResponseStatus :: Lens' ListInstancesResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
+
+instance NFData ListInstancesResponse

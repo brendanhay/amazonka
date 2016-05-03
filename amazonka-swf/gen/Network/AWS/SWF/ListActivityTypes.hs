@@ -246,3 +246,5 @@ latrsResponseStatus = lens _latrsResponseStatus (\ s a -> s{_latrsResponseStatus
 -- | List of activity type information.
 latrsTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
 latrsTypeInfos = lens _latrsTypeInfos (\ s a -> s{_latrsTypeInfos = a}) . _Coerce;
+
+instance NFData ListActivityTypesResponse

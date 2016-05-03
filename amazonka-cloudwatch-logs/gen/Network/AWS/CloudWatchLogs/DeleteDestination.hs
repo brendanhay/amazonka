@@ -103,3 +103,5 @@ data DeleteDestinationResponse =
 deleteDestinationResponse
     :: DeleteDestinationResponse
 deleteDestinationResponse = DeleteDestinationResponse'
+
+instance NFData DeleteDestinationResponse

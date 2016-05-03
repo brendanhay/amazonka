@@ -150,3 +150,5 @@ data UnlinkDeveloperIdentityResponse =
 unlinkDeveloperIdentityResponse
     :: UnlinkDeveloperIdentityResponse
 unlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse'
+
+instance NFData UnlinkDeveloperIdentityResponse

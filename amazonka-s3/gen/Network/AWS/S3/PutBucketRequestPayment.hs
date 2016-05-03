@@ -124,3 +124,5 @@ data PutBucketRequestPaymentResponse =
 putBucketRequestPaymentResponse
     :: PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse'
+
+instance NFData PutBucketRequestPaymentResponse

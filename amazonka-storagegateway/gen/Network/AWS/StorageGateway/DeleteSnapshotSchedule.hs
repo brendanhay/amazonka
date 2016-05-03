@@ -138,3 +138,5 @@ dsssrsVolumeARN = lens _dsssrsVolumeARN (\ s a -> s{_dsssrsVolumeARN = a});
 -- | The response status code.
 dsssrsResponseStatus :: Lens' DeleteSnapshotScheduleResponse Int
 dsssrsResponseStatus = lens _dsssrsResponseStatus (\ s a -> s{_dsssrsResponseStatus = a});
+
+instance NFData DeleteSnapshotScheduleResponse

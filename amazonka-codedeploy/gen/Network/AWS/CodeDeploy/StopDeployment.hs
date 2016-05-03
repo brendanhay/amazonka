@@ -144,3 +144,5 @@ sdrsStatusMessage = lens _sdrsStatusMessage (\ s a -> s{_sdrsStatusMessage = a})
 -- | The response status code.
 sdrsResponseStatus :: Lens' StopDeploymentResponse Int
 sdrsResponseStatus = lens _sdrsResponseStatus (\ s a -> s{_sdrsResponseStatus = a});
+
+instance NFData StopDeploymentResponse

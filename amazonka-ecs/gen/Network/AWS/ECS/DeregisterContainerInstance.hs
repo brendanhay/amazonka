@@ -178,3 +178,5 @@ dcirsContainerInstance = lens _dcirsContainerInstance (\ s a -> s{_dcirsContaine
 -- | The response status code.
 dcirsResponseStatus :: Lens' DeregisterContainerInstanceResponse Int
 dcirsResponseStatus = lens _dcirsResponseStatus (\ s a -> s{_dcirsResponseStatus = a});
+
+instance NFData DeregisterContainerInstanceResponse

@@ -169,3 +169,5 @@ dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescr
 -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStreamResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+
+instance NFData DescribeStreamResponse

@@ -344,3 +344,5 @@ arwsamlrsIssuer = lens _arwsamlrsIssuer (\ s a -> s{_arwsamlrsIssuer = a});
 -- | The response status code.
 arwsamlrsResponseStatus :: Lens' AssumeRoleWithSAMLResponse Int
 arwsamlrsResponseStatus = lens _arwsamlrsResponseStatus (\ s a -> s{_arwsamlrsResponseStatus = a});
+
+instance NFData AssumeRoleWithSAMLResponse

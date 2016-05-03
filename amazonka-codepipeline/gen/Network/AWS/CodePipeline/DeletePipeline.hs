@@ -102,3 +102,5 @@ data DeletePipelineResponse =
 deletePipelineResponse
     :: DeletePipelineResponse
 deletePipelineResponse = DeletePipelineResponse'
+
+instance NFData DeletePipelineResponse

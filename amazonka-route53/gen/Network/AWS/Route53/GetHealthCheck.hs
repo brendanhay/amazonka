@@ -125,3 +125,5 @@ ghcrsResponseStatus = lens _ghcrsResponseStatus (\ s a -> s{_ghcrsResponseStatus
 -- check.
 ghcrsHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
 ghcrsHealthCheck = lens _ghcrsHealthCheck (\ s a -> s{_ghcrsHealthCheck = a});
+
+instance NFData GetHealthCheckResponse

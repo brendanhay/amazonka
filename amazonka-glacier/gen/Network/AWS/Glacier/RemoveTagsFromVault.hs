@@ -127,3 +127,5 @@ data RemoveTagsFromVaultResponse =
 removeTagsFromVaultResponse
     :: RemoveTagsFromVaultResponse
 removeTagsFromVaultResponse = RemoveTagsFromVaultResponse'
+
+instance NFData RemoveTagsFromVaultResponse

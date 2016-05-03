@@ -117,3 +117,5 @@ data PutBucketTaggingResponse =
 putBucketTaggingResponse
     :: PutBucketTaggingResponse
 putBucketTaggingResponse = PutBucketTaggingResponse'
+
+instance NFData PutBucketTaggingResponse

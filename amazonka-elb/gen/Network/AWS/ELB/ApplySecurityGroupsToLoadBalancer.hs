@@ -146,3 +146,6 @@ asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecur
 -- | The response status code.
 asgtlbrsResponseStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
 asgtlbrsResponseStatus = lens _asgtlbrsResponseStatus (\ s a -> s{_asgtlbrsResponseStatus = a});
+
+instance NFData
+         ApplySecurityGroupsToLoadBalancerResponse

@@ -249,3 +249,5 @@ pfatrsWorkflowExecution = lens _pfatrsWorkflowExecution (\ s a -> s{_pfatrsWorkf
 -- | The type of this activity task.
 pfatrsActivityType :: Lens' PollForActivityTaskResponse ActivityType
 pfatrsActivityType = lens _pfatrsActivityType (\ s a -> s{_pfatrsActivityType = a});
+
+instance NFData PollForActivityTaskResponse

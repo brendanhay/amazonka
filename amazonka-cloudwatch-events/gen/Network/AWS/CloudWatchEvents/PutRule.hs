@@ -201,3 +201,5 @@ prrsRuleARN = lens _prrsRuleARN (\ s a -> s{_prrsRuleARN = a});
 -- | The response status code.
 prrsResponseStatus :: Lens' PutRuleResponse Int
 prrsResponseStatus = lens _prrsResponseStatus (\ s a -> s{_prrsResponseStatus = a});
+
+instance NFData PutRuleResponse

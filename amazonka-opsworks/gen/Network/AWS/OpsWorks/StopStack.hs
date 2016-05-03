@@ -106,3 +106,5 @@ data StopStackResponse =
 stopStackResponse
     :: StopStackResponse
 stopStackResponse = StopStackResponse'
+
+instance NFData StopStackResponse

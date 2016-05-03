@@ -143,3 +143,5 @@ data DeprecateActivityTypeResponse =
 deprecateActivityTypeResponse
     :: DeprecateActivityTypeResponse
 deprecateActivityTypeResponse = DeprecateActivityTypeResponse'
+
+instance NFData DeprecateActivityTypeResponse

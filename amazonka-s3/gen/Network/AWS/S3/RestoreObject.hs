@@ -163,3 +163,5 @@ rorsRequestCharged = lens _rorsRequestCharged (\ s a -> s{_rorsRequestCharged = 
 -- | The response status code.
 rorsResponseStatus :: Lens' RestoreObjectResponse Int
 rorsResponseStatus = lens _rorsResponseStatus (\ s a -> s{_rorsResponseStatus = a});
+
+instance NFData RestoreObjectResponse

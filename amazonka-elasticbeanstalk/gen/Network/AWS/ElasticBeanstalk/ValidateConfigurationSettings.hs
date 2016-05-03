@@ -171,3 +171,5 @@ vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default 
 -- | The response status code.
 vcsrsResponseStatus :: Lens' ValidateConfigurationSettingsResponse Int
 vcsrsResponseStatus = lens _vcsrsResponseStatus (\ s a -> s{_vcsrsResponseStatus = a});
+
+instance NFData ValidateConfigurationSettingsResponse

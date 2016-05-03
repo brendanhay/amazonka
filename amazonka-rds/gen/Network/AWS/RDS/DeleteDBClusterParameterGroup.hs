@@ -112,3 +112,5 @@ data DeleteDBClusterParameterGroupResponse =
 deleteDBClusterParameterGroupResponse
     :: DeleteDBClusterParameterGroupResponse
 deleteDBClusterParameterGroupResponse = DeleteDBClusterParameterGroupResponse'
+
+instance NFData DeleteDBClusterParameterGroupResponse

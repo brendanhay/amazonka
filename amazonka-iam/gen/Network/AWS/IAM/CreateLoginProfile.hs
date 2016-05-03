@@ -149,3 +149,5 @@ clprsResponseStatus = lens _clprsResponseStatus (\ s a -> s{_clprsResponseStatus
 -- | The user name and password create date.
 clprsLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
 clprsLoginProfile = lens _clprsLoginProfile (\ s a -> s{_clprsLoginProfile = a});
+
+instance NFData CreateLoginProfileResponse

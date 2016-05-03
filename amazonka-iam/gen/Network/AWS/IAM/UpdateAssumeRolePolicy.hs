@@ -109,3 +109,5 @@ data UpdateAssumeRolePolicyResponse =
 updateAssumeRolePolicyResponse
     :: UpdateAssumeRolePolicyResponse
 updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse'
+
+instance NFData UpdateAssumeRolePolicyResponse

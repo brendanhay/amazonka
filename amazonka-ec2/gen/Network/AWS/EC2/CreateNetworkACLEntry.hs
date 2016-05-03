@@ -206,3 +206,5 @@ data CreateNetworkACLEntryResponse =
 createNetworkACLEntryResponse
     :: CreateNetworkACLEntryResponse
 createNetworkACLEntryResponse = CreateNetworkACLEntryResponse'
+
+instance NFData CreateNetworkACLEntryResponse

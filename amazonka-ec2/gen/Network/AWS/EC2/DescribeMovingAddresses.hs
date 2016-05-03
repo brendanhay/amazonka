@@ -188,3 +188,5 @@ dmarsNextToken = lens _dmarsNextToken (\ s a -> s{_dmarsNextToken = a});
 -- | The response status code.
 dmarsResponseStatus :: Lens' DescribeMovingAddressesResponse Int
 dmarsResponseStatus = lens _dmarsResponseStatus (\ s a -> s{_dmarsResponseStatus = a});
+
+instance NFData DescribeMovingAddressesResponse

@@ -379,3 +379,5 @@ crsPipeline = lens _crsPipeline (\ s a -> s{_crsPipeline = a});
 -- | The response status code.
 crsResponseStatus :: Lens' CreatePipelineResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CreatePipelineResponse

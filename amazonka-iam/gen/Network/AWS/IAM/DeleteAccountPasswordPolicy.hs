@@ -83,3 +83,5 @@ data DeleteAccountPasswordPolicyResponse =
 deleteAccountPasswordPolicyResponse
     :: DeleteAccountPasswordPolicyResponse
 deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse'
+
+instance NFData DeleteAccountPasswordPolicyResponse

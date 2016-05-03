@@ -140,3 +140,5 @@ evclrsReturn = lens _evclrsReturn (\ s a -> s{_evclrsReturn = a});
 -- | The response status code.
 evclrsResponseStatus :: Lens' EnableVPCClassicLinkResponse Int
 evclrsResponseStatus = lens _evclrsResponseStatus (\ s a -> s{_evclrsResponseStatus = a});
+
+instance NFData EnableVPCClassicLinkResponse

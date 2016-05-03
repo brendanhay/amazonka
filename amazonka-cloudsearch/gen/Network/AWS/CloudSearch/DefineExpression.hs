@@ -142,3 +142,5 @@ dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = 
 -- | Undocumented member.
 dersExpression :: Lens' DefineExpressionResponse ExpressionStatus
 dersExpression = lens _dersExpression (\ s a -> s{_dersExpression = a});
+
+instance NFData DefineExpressionResponse

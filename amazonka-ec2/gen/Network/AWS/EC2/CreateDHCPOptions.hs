@@ -170,3 +170,5 @@ cdorsDHCPOptions = lens _cdorsDHCPOptions (\ s a -> s{_cdorsDHCPOptions = a});
 -- | The response status code.
 cdorsResponseStatus :: Lens' CreateDHCPOptionsResponse Int
 cdorsResponseStatus = lens _cdorsResponseStatus (\ s a -> s{_cdorsResponseStatus = a});
+
+instance NFData CreateDHCPOptionsResponse

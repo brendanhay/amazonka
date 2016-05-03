@@ -139,3 +139,5 @@ gtprsResponseStatus = lens _gtprsResponseStatus (\ s a -> s{_gtprsResponseStatus
 -- | A complex type that contains settings for the specified traffic policy.
 gtprsTrafficPolicy :: Lens' GetTrafficPolicyResponse TrafficPolicy
 gtprsTrafficPolicy = lens _gtprsTrafficPolicy (\ s a -> s{_gtprsTrafficPolicy = a});
+
+instance NFData GetTrafficPolicyResponse

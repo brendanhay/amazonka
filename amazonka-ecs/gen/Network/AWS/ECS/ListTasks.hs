@@ -250,3 +250,5 @@ ltrsTaskARNs = lens _ltrsTaskARNs (\ s a -> s{_ltrsTaskARNs = a}) . _Default . _
 -- | The response status code.
 ltrsResponseStatus :: Lens' ListTasksResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+
+instance NFData ListTasksResponse

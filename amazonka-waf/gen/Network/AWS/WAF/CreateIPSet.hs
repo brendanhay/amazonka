@@ -171,3 +171,5 @@ cisrsIPSet = lens _cisrsIPSet (\ s a -> s{_cisrsIPSet = a});
 -- | The response status code.
 cisrsResponseStatus :: Lens' CreateIPSetResponse Int
 cisrsResponseStatus = lens _cisrsResponseStatus (\ s a -> s{_cisrsResponseStatus = a});
+
+instance NFData CreateIPSetResponse

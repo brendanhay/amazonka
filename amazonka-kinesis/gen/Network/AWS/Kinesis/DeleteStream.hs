@@ -121,3 +121,5 @@ data DeleteStreamResponse =
 deleteStreamResponse
     :: DeleteStreamResponse
 deleteStreamResponse = DeleteStreamResponse'
+
+instance NFData DeleteStreamResponse

@@ -167,3 +167,5 @@ dasgrsResponseStatus = lens _dasgrsResponseStatus (\ s a -> s{_dasgrsResponseSta
 -- | The groups.
 dasgrsAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
 dasgrsAutoScalingGroups = lens _dasgrsAutoScalingGroups (\ s a -> s{_dasgrsAutoScalingGroups = a}) . _Coerce;
+
+instance NFData DescribeAutoScalingGroupsResponse

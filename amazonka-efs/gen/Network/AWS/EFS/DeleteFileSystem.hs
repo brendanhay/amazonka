@@ -107,3 +107,5 @@ data DeleteFileSystemResponse =
 deleteFileSystemResponse
     :: DeleteFileSystemResponse
 deleteFileSystemResponse = DeleteFileSystemResponse'
+
+instance NFData DeleteFileSystemResponse

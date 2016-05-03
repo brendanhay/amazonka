@@ -374,3 +374,5 @@ cdirrrsDBInstance = lens _cdirrrsDBInstance (\ s a -> s{_cdirrrsDBInstance = a})
 -- | The response status code.
 cdirrrsResponseStatus :: Lens' CreateDBInstanceReadReplicaResponse Int
 cdirrrsResponseStatus = lens _cdirrrsResponseStatus (\ s a -> s{_cdirrrsResponseStatus = a});
+
+instance NFData CreateDBInstanceReadReplicaResponse

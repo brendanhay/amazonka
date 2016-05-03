@@ -121,3 +121,5 @@ createReceiptRuleSetResponse pResponseStatus_ =
 -- | The response status code.
 crrsrsResponseStatus :: Lens' CreateReceiptRuleSetResponse Int
 crrsrsResponseStatus = lens _crrsrsResponseStatus (\ s a -> s{_crrsrsResponseStatus = a});
+
+instance NFData CreateReceiptRuleSetResponse

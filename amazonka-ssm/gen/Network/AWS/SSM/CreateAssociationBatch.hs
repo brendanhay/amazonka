@@ -145,3 +145,5 @@ cabrsFailed = lens _cabrsFailed (\ s a -> s{_cabrsFailed = a}) . _Default . _Coe
 -- | The response status code.
 cabrsResponseStatus :: Lens' CreateAssociationBatchResponse Int
 cabrsResponseStatus = lens _cabrsResponseStatus (\ s a -> s{_cabrsResponseStatus = a});
+
+instance NFData CreateAssociationBatchResponse

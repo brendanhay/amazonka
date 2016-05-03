@@ -131,3 +131,5 @@ data AttachElasticLoadBalancerResponse =
 attachElasticLoadBalancerResponse
     :: AttachElasticLoadBalancerResponse
 attachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse'
+
+instance NFData AttachElasticLoadBalancerResponse

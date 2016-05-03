@@ -804,3 +804,5 @@ uirsAttributes = lens _uirsAttributes (\ s a -> s{_uirsAttributes = a}) . _Defau
 -- | The response status code.
 uirsResponseStatus :: Lens' UpdateItemResponse Int
 uirsResponseStatus = lens _uirsResponseStatus (\ s a -> s{_uirsResponseStatus = a});
+
+instance NFData UpdateItemResponse

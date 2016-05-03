@@ -131,3 +131,5 @@ data AssociateDHCPOptionsResponse =
 associateDHCPOptionsResponse
     :: AssociateDHCPOptionsResponse
 associateDHCPOptionsResponse = AssociateDHCPOptionsResponse'
+
+instance NFData AssociateDHCPOptionsResponse

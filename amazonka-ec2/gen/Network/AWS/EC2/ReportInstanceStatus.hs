@@ -192,3 +192,5 @@ data ReportInstanceStatusResponse =
 reportInstanceStatusResponse
     :: ReportInstanceStatusResponse
 reportInstanceStatusResponse = ReportInstanceStatusResponse'
+
+instance NFData ReportInstanceStatusResponse

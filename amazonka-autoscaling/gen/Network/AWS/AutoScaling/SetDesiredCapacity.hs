@@ -124,3 +124,5 @@ data SetDesiredCapacityResponse =
 setDesiredCapacityResponse
     :: SetDesiredCapacityResponse
 setDesiredCapacityResponse = SetDesiredCapacityResponse'
+
+instance NFData SetDesiredCapacityResponse

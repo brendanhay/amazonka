@@ -456,3 +456,5 @@ mccrsCacheCluster = lens _mccrsCacheCluster (\ s a -> s{_mccrsCacheCluster = a})
 -- | The response status code.
 mccrsResponseStatus :: Lens' ModifyCacheClusterResponse Int
 mccrsResponseStatus = lens _mccrsResponseStatus (\ s a -> s{_mccrsResponseStatus = a});
+
+instance NFData ModifyCacheClusterResponse

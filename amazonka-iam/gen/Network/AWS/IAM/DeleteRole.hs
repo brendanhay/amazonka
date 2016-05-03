@@ -100,3 +100,5 @@ data DeleteRoleResponse =
 deleteRoleResponse
     :: DeleteRoleResponse
 deleteRoleResponse = DeleteRoleResponse'
+
+instance NFData DeleteRoleResponse

@@ -110,3 +110,5 @@ data AttachPrincipalPolicyResponse =
 attachPrincipalPolicyResponse
     :: AttachPrincipalPolicyResponse
 attachPrincipalPolicyResponse = AttachPrincipalPolicyResponse'
+
+instance NFData AttachPrincipalPolicyResponse

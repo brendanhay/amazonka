@@ -125,3 +125,6 @@ removeClientIdFromOpenIdConnectProviderResponse
     :: RemoveClientIdFromOpenIdConnectProviderResponse
 removeClientIdFromOpenIdConnectProviderResponse =
     RemoveClientIdFromOpenIdConnectProviderResponse'
+
+instance NFData
+         RemoveClientIdFromOpenIdConnectProviderResponse

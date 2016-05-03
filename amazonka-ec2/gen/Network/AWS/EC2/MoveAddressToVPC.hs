@@ -150,3 +150,5 @@ matvrsAllocationId = lens _matvrsAllocationId (\ s a -> s{_matvrsAllocationId = 
 -- | The response status code.
 matvrsResponseStatus :: Lens' MoveAddressToVPCResponse Int
 matvrsResponseStatus = lens _matvrsResponseStatus (\ s a -> s{_matvrsResponseStatus = a});
+
+instance NFData MoveAddressToVPCResponse

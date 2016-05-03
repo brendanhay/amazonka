@@ -107,3 +107,5 @@ data ModifyInstanceGroupsResponse =
 modifyInstanceGroupsResponse
     :: ModifyInstanceGroupsResponse
 modifyInstanceGroupsResponse = ModifyInstanceGroupsResponse'
+
+instance NFData ModifyInstanceGroupsResponse

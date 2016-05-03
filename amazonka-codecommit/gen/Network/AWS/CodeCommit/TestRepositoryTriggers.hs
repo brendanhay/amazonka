@@ -159,3 +159,5 @@ trtrsSuccessfulExecutions = lens _trtrsSuccessfulExecutions (\ s a -> s{_trtrsSu
 -- | The response status code.
 trtrsResponseStatus :: Lens' TestRepositoryTriggersResponse Int
 trtrsResponseStatus = lens _trtrsResponseStatus (\ s a -> s{_trtrsResponseStatus = a});
+
+instance NFData TestRepositoryTriggersResponse

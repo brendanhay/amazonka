@@ -140,3 +140,5 @@ rcrsFinalCaseStatus = lens _rcrsFinalCaseStatus (\ s a -> s{_rcrsFinalCaseStatus
 -- | The response status code.
 rcrsResponseStatus :: Lens' ResolveCaseResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
+
+instance NFData ResolveCaseResponse

@@ -159,3 +159,5 @@ lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default 
 -- | The response status code.
 lprsResponseStatus :: Lens' ListPipelinesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+
+instance NFData ListPipelinesResponse

@@ -173,3 +173,5 @@ detrsMarker = lens _detrsMarker (\ s a -> s{_detrsMarker = a});
 -- | The response status code.
 detrsResponseStatus :: Lens' DescribeEndpointTypesResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
+
+instance NFData DescribeEndpointTypesResponse

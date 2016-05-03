@@ -133,3 +133,5 @@ dtatrsTapeARN = lens _dtatrsTapeARN (\ s a -> s{_dtatrsTapeARN = a});
 -- | The response status code.
 dtatrsResponseStatus :: Lens' DeleteTapeArchiveResponse Int
 dtatrsResponseStatus = lens _dtatrsResponseStatus (\ s a -> s{_dtatrsResponseStatus = a});
+
+instance NFData DeleteTapeArchiveResponse

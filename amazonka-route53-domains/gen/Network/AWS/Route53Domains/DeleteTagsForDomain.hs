@@ -156,3 +156,5 @@ deleteTagsForDomainResponse pResponseStatus_ =
 -- | The response status code.
 dtfdrsResponseStatus :: Lens' DeleteTagsForDomainResponse Int
 dtfdrsResponseStatus = lens _dtfdrsResponseStatus (\ s a -> s{_dtfdrsResponseStatus = a});
+
+instance NFData DeleteTagsForDomainResponse

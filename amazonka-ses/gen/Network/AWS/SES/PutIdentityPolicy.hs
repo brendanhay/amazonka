@@ -154,3 +154,5 @@ putIdentityPolicyResponse pResponseStatus_ =
 -- | The response status code.
 piprsResponseStatus :: Lens' PutIdentityPolicyResponse Int
 piprsResponseStatus = lens _piprsResponseStatus (\ s a -> s{_piprsResponseStatus = a});
+
+instance NFData PutIdentityPolicyResponse

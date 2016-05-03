@@ -93,3 +93,5 @@ data EnableAlarmActionsResponse =
 enableAlarmActionsResponse
     :: EnableAlarmActionsResponse
 enableAlarmActionsResponse = EnableAlarmActionsResponse'
+
+instance NFData EnableAlarmActionsResponse

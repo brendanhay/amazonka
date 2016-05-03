@@ -129,3 +129,5 @@ darsApplication = lens _darsApplication (\ s a -> s{_darsApplication = a});
 -- | The response status code.
 darsResponseStatus :: Lens' DescribeApplicationResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+
+instance NFData DescribeApplicationResponse

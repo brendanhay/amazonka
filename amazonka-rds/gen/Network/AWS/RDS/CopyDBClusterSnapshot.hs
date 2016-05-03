@@ -166,3 +166,5 @@ cdcsrsDBClusterSnapshot = lens _cdcsrsDBClusterSnapshot (\ s a -> s{_cdcsrsDBClu
 -- | The response status code.
 cdcsrsResponseStatus :: Lens' CopyDBClusterSnapshotResponse Int
 cdcsrsResponseStatus = lens _cdcsrsResponseStatus (\ s a -> s{_cdcsrsResponseStatus = a});
+
+instance NFData CopyDBClusterSnapshotResponse

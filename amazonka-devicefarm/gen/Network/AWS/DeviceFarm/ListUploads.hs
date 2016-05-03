@@ -155,3 +155,5 @@ lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default . _Coe
 -- | The response status code.
 lursResponseStatus :: Lens' ListUploadsResponse Int
 lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = a});
+
+instance NFData ListUploadsResponse

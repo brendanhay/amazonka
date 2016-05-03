@@ -162,3 +162,5 @@ ltrsThings = lens _ltrsThings (\ s a -> s{_ltrsThings = a}) . _Default . _Coerce
 -- | The response status code.
 ltrsResponseStatus :: Lens' ListThingsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+
+instance NFData ListThingsResponse

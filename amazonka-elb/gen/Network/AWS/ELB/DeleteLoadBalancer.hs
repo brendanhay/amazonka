@@ -119,3 +119,5 @@ deleteLoadBalancerResponse pResponseStatus_ =
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteLoadBalancerResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteLoadBalancerResponse

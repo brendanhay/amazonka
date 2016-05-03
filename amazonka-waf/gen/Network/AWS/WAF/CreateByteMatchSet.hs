@@ -172,3 +172,5 @@ cbmsrsChangeToken = lens _cbmsrsChangeToken (\ s a -> s{_cbmsrsChangeToken = a})
 -- | The response status code.
 cbmsrsResponseStatus :: Lens' CreateByteMatchSetResponse Int
 cbmsrsResponseStatus = lens _cbmsrsResponseStatus (\ s a -> s{_cbmsrsResponseStatus = a});
+
+instance NFData CreateByteMatchSetResponse

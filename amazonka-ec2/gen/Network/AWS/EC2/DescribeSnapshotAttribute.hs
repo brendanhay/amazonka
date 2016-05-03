@@ -174,3 +174,5 @@ dsarsSnapshotId = lens _dsarsSnapshotId (\ s a -> s{_dsarsSnapshotId = a});
 -- | The response status code.
 dsarsResponseStatus :: Lens' DescribeSnapshotAttributeResponse Int
 dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a});
+
+instance NFData DescribeSnapshotAttributeResponse

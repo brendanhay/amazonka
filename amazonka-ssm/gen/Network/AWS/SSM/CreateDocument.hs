@@ -144,3 +144,5 @@ cdrsDocumentDescription = lens _cdrsDocumentDescription (\ s a -> s{_cdrsDocumen
 -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDocumentResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+
+instance NFData CreateDocumentResponse

@@ -134,3 +134,6 @@ dedcrsResponseStatus = lens _dedcrsResponseStatus (\ s a -> s{_dedcrsResponseSta
 -- 'DescribeElasticsearchDomainConfig' request.
 dedcrsDomainConfig :: Lens' DescribeElasticsearchDomainConfigResponse ElasticsearchDomainConfig
 dedcrsDomainConfig = lens _dedcrsDomainConfig (\ s a -> s{_dedcrsDomainConfig = a});
+
+instance NFData
+         DescribeElasticsearchDomainConfigResponse

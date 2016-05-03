@@ -120,3 +120,5 @@ data DetachInternetGatewayResponse =
 detachInternetGatewayResponse
     :: DetachInternetGatewayResponse
 detachInternetGatewayResponse = DetachInternetGatewayResponse'
+
+instance NFData DetachInternetGatewayResponse

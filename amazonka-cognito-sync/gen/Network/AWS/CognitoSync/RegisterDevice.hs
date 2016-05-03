@@ -168,3 +168,5 @@ rdrsDeviceId = lens _rdrsDeviceId (\ s a -> s{_rdrsDeviceId = a});
 -- | The response status code.
 rdrsResponseStatus :: Lens' RegisterDeviceResponse Int
 rdrsResponseStatus = lens _rdrsResponseStatus (\ s a -> s{_rdrsResponseStatus = a});
+
+instance NFData RegisterDeviceResponse

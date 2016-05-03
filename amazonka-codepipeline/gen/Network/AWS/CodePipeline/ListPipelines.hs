@@ -144,3 +144,5 @@ lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 -- | The response status code.
 lprsResponseStatus :: Lens' ListPipelinesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+
+instance NFData ListPipelinesResponse

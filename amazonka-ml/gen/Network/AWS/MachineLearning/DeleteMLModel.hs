@@ -138,3 +138,5 @@ dmlmrsMLModelId = lens _dmlmrsMLModelId (\ s a -> s{_dmlmrsMLModelId = a});
 -- | The response status code.
 dmlmrsResponseStatus :: Lens' DeleteMLModelResponse Int
 dmlmrsResponseStatus = lens _dmlmrsResponseStatus (\ s a -> s{_dmlmrsResponseStatus = a});
+
+instance NFData DeleteMLModelResponse

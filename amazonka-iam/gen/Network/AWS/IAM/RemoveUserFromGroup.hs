@@ -105,3 +105,5 @@ data RemoveUserFromGroupResponse =
 removeUserFromGroupResponse
     :: RemoveUserFromGroupResponse
 removeUserFromGroupResponse = RemoveUserFromGroupResponse'
+
+instance NFData RemoveUserFromGroupResponse

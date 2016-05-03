@@ -179,3 +179,5 @@ ltrsTableNames = lens _ltrsTableNames (\ s a -> s{_ltrsTableNames = a}) . _Defau
 -- | The response status code.
 ltrsResponseStatus :: Lens' ListTablesResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+
+instance NFData ListTablesResponse

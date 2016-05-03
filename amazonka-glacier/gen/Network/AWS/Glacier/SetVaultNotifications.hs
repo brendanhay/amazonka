@@ -160,3 +160,5 @@ data SetVaultNotificationsResponse =
 setVaultNotificationsResponse
     :: SetVaultNotificationsResponse
 setVaultNotificationsResponse = SetVaultNotificationsResponse'
+
+instance NFData SetVaultNotificationsResponse

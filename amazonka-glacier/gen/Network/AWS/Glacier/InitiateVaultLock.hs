@@ -184,3 +184,5 @@ ivlrsLockId = lens _ivlrsLockId (\ s a -> s{_ivlrsLockId = a});
 -- | The response status code.
 ivlrsResponseStatus :: Lens' InitiateVaultLockResponse Int
 ivlrsResponseStatus = lens _ivlrsResponseStatus (\ s a -> s{_ivlrsResponseStatus = a});
+
+instance NFData InitiateVaultLockResponse

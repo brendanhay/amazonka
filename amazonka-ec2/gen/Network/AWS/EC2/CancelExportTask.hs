@@ -97,3 +97,5 @@ data CancelExportTaskResponse =
 cancelExportTaskResponse
     :: CancelExportTaskResponse
 cancelExportTaskResponse = CancelExportTaskResponse'
+
+instance NFData CancelExportTaskResponse

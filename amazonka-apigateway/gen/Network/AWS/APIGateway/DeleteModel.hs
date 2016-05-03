@@ -107,3 +107,5 @@ data DeleteModelResponse =
 deleteModelResponse
     :: DeleteModelResponse
 deleteModelResponse = DeleteModelResponse'
+
+instance NFData DeleteModelResponse

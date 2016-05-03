@@ -101,3 +101,5 @@ data VerifyEmailAddressResponse =
 verifyEmailAddressResponse
     :: VerifyEmailAddressResponse
 verifyEmailAddressResponse = VerifyEmailAddressResponse'
+
+instance NFData VerifyEmailAddressResponse

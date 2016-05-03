@@ -168,3 +168,5 @@ aatsrsAttachmentSetId = lens _aatsrsAttachmentSetId (\ s a -> s{_aatsrsAttachmen
 -- | The response status code.
 aatsrsResponseStatus :: Lens' AddAttachmentsToSetResponse Int
 aatsrsResponseStatus = lens _aatsrsResponseStatus (\ s a -> s{_aatsrsResponseStatus = a});
+
+instance NFData AddAttachmentsToSetResponse

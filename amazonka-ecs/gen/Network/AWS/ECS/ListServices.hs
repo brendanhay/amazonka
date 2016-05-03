@@ -185,3 +185,5 @@ lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 -- | The response status code.
 lsrsResponseStatus :: Lens' ListServicesResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
+
+instance NFData ListServicesResponse

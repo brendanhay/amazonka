@@ -133,3 +133,5 @@ gopirsInstanceInfo = lens _gopirsInstanceInfo (\ s a -> s{_gopirsInstanceInfo = 
 -- | The response status code.
 gopirsResponseStatus :: Lens' GetOnPremisesInstanceResponse Int
 gopirsResponseStatus = lens _gopirsResponseStatus (\ s a -> s{_gopirsResponseStatus = a});
+
+instance NFData GetOnPremisesInstanceResponse

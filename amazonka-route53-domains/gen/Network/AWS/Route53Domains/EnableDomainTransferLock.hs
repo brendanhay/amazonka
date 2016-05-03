@@ -154,3 +154,5 @@ edtlrsResponseStatus = lens _edtlrsResponseStatus (\ s a -> s{_edtlrsResponseSta
 -- Constraints: Maximum 255 characters.
 edtlrsOperationId :: Lens' EnableDomainTransferLockResponse Text
 edtlrsOperationId = lens _edtlrsOperationId (\ s a -> s{_edtlrsOperationId = a});
+
+instance NFData EnableDomainTransferLockResponse

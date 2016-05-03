@@ -159,3 +159,5 @@ lwarsNextMarker = lens _lwarsNextMarker (\ s a -> s{_lwarsNextMarker = a});
 -- | The response status code.
 lwarsResponseStatus :: Lens' ListWebACLsResponse Int
 lwarsResponseStatus = lens _lwarsResponseStatus (\ s a -> s{_lwarsResponseStatus = a});
+
+instance NFData ListWebACLsResponse

@@ -150,3 +150,5 @@ crersMLModelId = lens _crersMLModelId (\ s a -> s{_crersMLModelId = a});
 -- | The response status code.
 crersResponseStatus :: Lens' CreateRealtimeEndpointResponse Int
 crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+
+instance NFData CreateRealtimeEndpointResponse

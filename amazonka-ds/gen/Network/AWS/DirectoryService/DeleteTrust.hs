@@ -130,3 +130,5 @@ delrsTrustId = lens _delrsTrustId (\ s a -> s{_delrsTrustId = a});
 -- | The response status code.
 delrsResponseStatus :: Lens' DeleteTrustResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+
+instance NFData DeleteTrustResponse

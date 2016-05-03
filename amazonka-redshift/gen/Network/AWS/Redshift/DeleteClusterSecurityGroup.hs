@@ -106,3 +106,5 @@ data DeleteClusterSecurityGroupResponse =
 deleteClusterSecurityGroupResponse
     :: DeleteClusterSecurityGroupResponse
 deleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse'
+
+instance NFData DeleteClusterSecurityGroupResponse

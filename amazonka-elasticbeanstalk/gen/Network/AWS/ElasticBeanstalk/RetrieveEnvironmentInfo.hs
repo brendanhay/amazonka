@@ -167,3 +167,5 @@ reirsEnvironmentInfo = lens _reirsEnvironmentInfo (\ s a -> s{_reirsEnvironmentI
 -- | The response status code.
 reirsResponseStatus :: Lens' RetrieveEnvironmentInfoResponse Int
 reirsResponseStatus = lens _reirsResponseStatus (\ s a -> s{_reirsResponseStatus = a});
+
+instance NFData RetrieveEnvironmentInfoResponse

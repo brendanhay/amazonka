@@ -190,3 +190,5 @@ cgsrsGameSession = lens _cgsrsGameSession (\ s a -> s{_cgsrsGameSession = a});
 -- | The response status code.
 cgsrsResponseStatus :: Lens' CreateGameSessionResponse Int
 cgsrsResponseStatus = lens _cgsrsResponseStatus (\ s a -> s{_cgsrsResponseStatus = a});
+
+instance NFData CreateGameSessionResponse

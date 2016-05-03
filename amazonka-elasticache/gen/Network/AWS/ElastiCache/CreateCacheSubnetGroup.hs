@@ -155,3 +155,5 @@ crsCacheSubnetGroup = lens _crsCacheSubnetGroup (\ s a -> s{_crsCacheSubnetGroup
 -- | The response status code.
 crsResponseStatus :: Lens' CreateCacheSubnetGroupResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CreateCacheSubnetGroupResponse

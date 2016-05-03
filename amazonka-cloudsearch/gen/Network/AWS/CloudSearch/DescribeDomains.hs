@@ -136,3 +136,5 @@ ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus
 -- | Undocumented member.
 ddsrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
 ddsrsDomainStatusList = lens _ddsrsDomainStatusList (\ s a -> s{_ddsrsDomainStatusList = a}) . _Coerce;
+
+instance NFData DescribeDomainsResponse

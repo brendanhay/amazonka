@@ -121,3 +121,5 @@ data DeleteSecurityGroupResponse =
 deleteSecurityGroupResponse
     :: DeleteSecurityGroupResponse
 deleteSecurityGroupResponse = DeleteSecurityGroupResponse'
+
+instance NFData DeleteSecurityGroupResponse

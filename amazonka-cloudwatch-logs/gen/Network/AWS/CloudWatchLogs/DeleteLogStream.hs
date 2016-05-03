@@ -113,3 +113,5 @@ data DeleteLogStreamResponse =
 deleteLogStreamResponse
     :: DeleteLogStreamResponse
 deleteLogStreamResponse = DeleteLogStreamResponse'
+
+instance NFData DeleteLogStreamResponse

@@ -120,3 +120,5 @@ data RevokeGrantResponse =
 revokeGrantResponse
     :: RevokeGrantResponse
 revokeGrantResponse = RevokeGrantResponse'
+
+instance NFData RevokeGrantResponse

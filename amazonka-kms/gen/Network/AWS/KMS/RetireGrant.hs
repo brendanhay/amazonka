@@ -144,3 +144,5 @@ data RetireGrantResponse =
 retireGrantResponse
     :: RetireGrantResponse
 retireGrantResponse = RetireGrantResponse'
+
+instance NFData RetireGrantResponse

@@ -113,3 +113,5 @@ data UpdateApplicationResponse =
 updateApplicationResponse
     :: UpdateApplicationResponse
 updateApplicationResponse = UpdateApplicationResponse'
+
+instance NFData UpdateApplicationResponse

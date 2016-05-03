@@ -118,3 +118,5 @@ data UpdateCertificateResponse =
 updateCertificateResponse
     :: UpdateCertificateResponse
 updateCertificateResponse = UpdateCertificateResponse'
+
+instance NFData UpdateCertificateResponse

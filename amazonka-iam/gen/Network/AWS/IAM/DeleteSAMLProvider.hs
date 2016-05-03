@@ -101,3 +101,5 @@ data DeleteSAMLProviderResponse =
 deleteSAMLProviderResponse
     :: DeleteSAMLProviderResponse
 deleteSAMLProviderResponse = DeleteSAMLProviderResponse'
+
+instance NFData DeleteSAMLProviderResponse

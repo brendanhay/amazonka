@@ -108,3 +108,5 @@ data DetachPrincipalPolicyResponse =
 detachPrincipalPolicyResponse
     :: DetachPrincipalPolicyResponse
 detachPrincipalPolicyResponse = DetachPrincipalPolicyResponse'
+
+instance NFData DetachPrincipalPolicyResponse

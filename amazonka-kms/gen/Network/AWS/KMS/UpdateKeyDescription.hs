@@ -119,3 +119,5 @@ data UpdateKeyDescriptionResponse =
 updateKeyDescriptionResponse
     :: UpdateKeyDescriptionResponse
 updateKeyDescriptionResponse = UpdateKeyDescriptionResponse'
+
+instance NFData UpdateKeyDescriptionResponse

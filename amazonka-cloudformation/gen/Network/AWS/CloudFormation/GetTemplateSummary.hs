@@ -249,3 +249,5 @@ gtsrsResourceTypes = lens _gtsrsResourceTypes (\ s a -> s{_gtsrsResourceTypes = 
 -- | The response status code.
 gtsrsResponseStatus :: Lens' GetTemplateSummaryResponse Int
 gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});
+
+instance NFData GetTemplateSummaryResponse

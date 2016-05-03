@@ -149,3 +149,5 @@ activatePipelineResponse pResponseStatus_ =
 -- | The response status code.
 aprsResponseStatus :: Lens' ActivatePipelineResponse Int
 aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a});
+
+instance NFData ActivatePipelineResponse

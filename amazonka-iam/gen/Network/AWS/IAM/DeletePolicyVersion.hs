@@ -118,3 +118,5 @@ data DeletePolicyVersionResponse =
 deletePolicyVersionResponse
     :: DeletePolicyVersionResponse
 deletePolicyVersionResponse = DeletePolicyVersionResponse'
+
+instance NFData DeletePolicyVersionResponse

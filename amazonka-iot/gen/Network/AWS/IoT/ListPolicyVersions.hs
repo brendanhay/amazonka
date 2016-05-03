@@ -124,3 +124,5 @@ lpvrsPolicyVersions = lens _lpvrsPolicyVersions (\ s a -> s{_lpvrsPolicyVersions
 -- | The response status code.
 lpvrsResponseStatus :: Lens' ListPolicyVersionsResponse Int
 lpvrsResponseStatus = lens _lpvrsResponseStatus (\ s a -> s{_lpvrsResponseStatus = a});
+
+instance NFData ListPolicyVersionsResponse

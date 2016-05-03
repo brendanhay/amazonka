@@ -146,3 +146,5 @@ gprsPipeline = lens _gprsPipeline (\ s a -> s{_gprsPipeline = a});
 -- | The response status code.
 gprsResponseStatus :: Lens' GetPipelineResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+
+instance NFData GetPipelineResponse

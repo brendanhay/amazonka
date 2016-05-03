@@ -220,3 +220,5 @@ lhcrsIsTruncated = lens _lhcrsIsTruncated (\ s a -> s{_lhcrsIsTruncated = a});
 -- results.
 lhcrsMaxItems :: Lens' ListHealthChecksResponse Text
 lhcrsMaxItems = lens _lhcrsMaxItems (\ s a -> s{_lhcrsMaxItems = a});
+
+instance NFData ListHealthChecksResponse

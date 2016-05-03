@@ -191,3 +191,5 @@ cersEvaluationId = lens _cersEvaluationId (\ s a -> s{_cersEvaluationId = a});
 -- | The response status code.
 cersResponseStatus :: Lens' CreateEvaluationResponse Int
 cersResponseStatus = lens _cersResponseStatus (\ s a -> s{_cersResponseStatus = a});
+
+instance NFData CreateEvaluationResponse

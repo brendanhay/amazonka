@@ -220,3 +220,5 @@ cdsfsrsDataSourceId = lens _cdsfsrsDataSourceId (\ s a -> s{_cdsfsrsDataSourceId
 -- | The response status code.
 cdsfsrsResponseStatus :: Lens' CreateDataSourceFromS3Response Int
 cdsfsrsResponseStatus = lens _cdsfsrsResponseStatus (\ s a -> s{_cdsfsrsResponseStatus = a});
+
+instance NFData CreateDataSourceFromS3Response

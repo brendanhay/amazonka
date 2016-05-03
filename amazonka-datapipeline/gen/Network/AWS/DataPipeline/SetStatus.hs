@@ -132,3 +132,5 @@ data SetStatusResponse =
 setStatusResponse
     :: SetStatusResponse
 setStatusResponse = SetStatusResponse'
+
+instance NFData SetStatusResponse

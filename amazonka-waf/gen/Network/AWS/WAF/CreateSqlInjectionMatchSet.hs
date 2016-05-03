@@ -180,3 +180,5 @@ csimsrsChangeToken = lens _csimsrsChangeToken (\ s a -> s{_csimsrsChangeToken = 
 -- | The response status code.
 csimsrsResponseStatus :: Lens' CreateSqlInjectionMatchSetResponse Int
 csimsrsResponseStatus = lens _csimsrsResponseStatus (\ s a -> s{_csimsrsResponseStatus = a});
+
+instance NFData CreateSqlInjectionMatchSetResponse

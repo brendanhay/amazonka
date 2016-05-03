@@ -181,3 +181,5 @@ data SplitShardResponse =
 splitShardResponse
     :: SplitShardResponse
 splitShardResponse = SplitShardResponse'
+
+instance NFData SplitShardResponse

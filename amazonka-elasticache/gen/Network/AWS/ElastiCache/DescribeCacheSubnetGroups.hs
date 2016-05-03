@@ -178,3 +178,5 @@ dcsgrsCacheSubnetGroups = lens _dcsgrsCacheSubnetGroups (\ s a -> s{_dcsgrsCache
 -- | The response status code.
 dcsgrsResponseStatus :: Lens' DescribeCacheSubnetGroupsResponse Int
 dcsgrsResponseStatus = lens _dcsgrsResponseStatus (\ s a -> s{_dcsgrsResponseStatus = a});
+
+instance NFData DescribeCacheSubnetGroupsResponse

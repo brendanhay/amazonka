@@ -149,3 +149,5 @@ gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a})
 -- | The response status code.
 gbwrsResponseStatus :: Lens' GetBucketWebsiteResponse Int
 gbwrsResponseStatus = lens _gbwrsResponseStatus (\ s a -> s{_gbwrsResponseStatus = a});
+
+instance NFData GetBucketWebsiteResponse

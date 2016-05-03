@@ -183,3 +183,5 @@ cpersEndpointARN = lens _cpersEndpointARN (\ s a -> s{_cpersEndpointARN = a});
 -- | The response status code.
 cpersResponseStatus :: Lens' CreatePlatformEndpointResponse Int
 cpersResponseStatus = lens _cpersResponseStatus (\ s a -> s{_cpersResponseStatus = a});
+
+instance NFData CreatePlatformEndpointResponse

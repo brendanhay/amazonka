@@ -189,3 +189,6 @@ dcbcrrsNextToken = lens _dcbcrrsNextToken (\ s a -> s{_dcbcrrsNextToken = a});
 -- | The response status code.
 dcbcrrsResponseStatus :: Lens' DescribeComplianceByConfigRuleResponse Int
 dcbcrrsResponseStatus = lens _dcbcrrsResponseStatus (\ s a -> s{_dcbcrrsResponseStatus = a});
+
+instance NFData
+         DescribeComplianceByConfigRuleResponse

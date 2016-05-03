@@ -147,3 +147,5 @@ data RequestEnvironmentInfoResponse =
 requestEnvironmentInfoResponse
     :: RequestEnvironmentInfoResponse
 requestEnvironmentInfoResponse = RequestEnvironmentInfoResponse'
+
+instance NFData RequestEnvironmentInfoResponse

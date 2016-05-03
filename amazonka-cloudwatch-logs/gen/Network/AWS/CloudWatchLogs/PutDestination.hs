@@ -162,3 +162,5 @@ pdrsDestination = lens _pdrsDestination (\ s a -> s{_pdrsDestination = a});
 -- | The response status code.
 pdrsResponseStatus :: Lens' PutDestinationResponse Int
 pdrsResponseStatus = lens _pdrsResponseStatus (\ s a -> s{_pdrsResponseStatus = a});
+
+instance NFData PutDestinationResponse

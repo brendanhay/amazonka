@@ -152,3 +152,5 @@ ersActivities = lens _ersActivities (\ s a -> s{_ersActivities = a}) . _Default 
 -- | The response status code.
 ersResponseStatus :: Lens' EnterStandbyResponse Int
 ersResponseStatus = lens _ersResponseStatus (\ s a -> s{_ersResponseStatus = a});
+
+instance NFData EnterStandbyResponse

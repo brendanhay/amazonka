@@ -156,3 +156,6 @@ createAppCookieStickinessPolicyResponse pResponseStatus_ =
 -- | The response status code.
 cacsprsResponseStatus :: Lens' CreateAppCookieStickinessPolicyResponse Int
 cacsprsResponseStatus = lens _cacsprsResponseStatus (\ s a -> s{_cacsprsResponseStatus = a});
+
+instance NFData
+         CreateAppCookieStickinessPolicyResponse

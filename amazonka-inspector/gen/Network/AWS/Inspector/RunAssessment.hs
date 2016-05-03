@@ -139,3 +139,5 @@ rarsRunARN = lens _rarsRunARN (\ s a -> s{_rarsRunARN = a});
 -- | The response status code.
 rarsResponseStatus :: Lens' RunAssessmentResponse Int
 rarsResponseStatus = lens _rarsResponseStatus (\ s a -> s{_rarsResponseStatus = a});
+
+instance NFData RunAssessmentResponse

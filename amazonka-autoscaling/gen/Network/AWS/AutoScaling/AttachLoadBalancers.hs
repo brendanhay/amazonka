@@ -129,3 +129,5 @@ attachLoadBalancersResponse pResponseStatus_ =
 -- | The response status code.
 albrsResponseStatus :: Lens' AttachLoadBalancersResponse Int
 albrsResponseStatus = lens _albrsResponseStatus (\ s a -> s{_albrsResponseStatus = a});
+
+instance NFData AttachLoadBalancersResponse

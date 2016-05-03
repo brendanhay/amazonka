@@ -138,3 +138,5 @@ setInstanceProtectionResponse pResponseStatus_ =
 -- | The response status code.
 siprsResponseStatus :: Lens' SetInstanceProtectionResponse Int
 siprsResponseStatus = lens _siprsResponseStatus (\ s a -> s{_siprsResponseStatus = a});
+
+instance NFData SetInstanceProtectionResponse

@@ -162,3 +162,5 @@ srsTask = lens _srsTask (\ s a -> s{_srsTask = a});
 -- | The response status code.
 srsResponseStatus :: Lens' StopTaskResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+
+instance NFData StopTaskResponse

@@ -174,3 +174,5 @@ crsgrsReplicationSubnetGroup = lens _crsgrsReplicationSubnetGroup (\ s a -> s{_c
 -- | The response status code.
 crsgrsResponseStatus :: Lens' CreateReplicationSubnetGroupResponse Int
 crsgrsResponseStatus = lens _crsgrsResponseStatus (\ s a -> s{_crsgrsResponseStatus = a});
+
+instance NFData CreateReplicationSubnetGroupResponse

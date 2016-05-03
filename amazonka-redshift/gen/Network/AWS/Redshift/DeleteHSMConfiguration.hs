@@ -99,3 +99,5 @@ data DeleteHSMConfigurationResponse =
 deleteHSMConfigurationResponse
     :: DeleteHSMConfigurationResponse
 deleteHSMConfigurationResponse = DeleteHSMConfigurationResponse'
+
+instance NFData DeleteHSMConfigurationResponse

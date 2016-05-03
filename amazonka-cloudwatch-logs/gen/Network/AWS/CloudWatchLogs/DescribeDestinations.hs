@@ -179,3 +179,5 @@ ddrsDestinations = lens _ddrsDestinations (\ s a -> s{_ddrsDestinations = a}) . 
 -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeDestinationsResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+
+instance NFData DescribeDestinationsResponse

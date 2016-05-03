@@ -111,3 +111,5 @@ data AttachGroupPolicyResponse =
 attachGroupPolicyResponse
     :: AttachGroupPolicyResponse
 attachGroupPolicyResponse = AttachGroupPolicyResponse'
+
+instance NFData AttachGroupPolicyResponse

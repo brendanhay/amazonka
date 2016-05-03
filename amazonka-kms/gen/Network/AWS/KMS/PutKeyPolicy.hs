@@ -132,3 +132,5 @@ data PutKeyPolicyResponse =
 putKeyPolicyResponse
     :: PutKeyPolicyResponse
 putKeyPolicyResponse = PutKeyPolicyResponse'
+
+instance NFData PutKeyPolicyResponse

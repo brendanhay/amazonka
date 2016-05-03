@@ -132,3 +132,5 @@ drsInterconnectState = lens _drsInterconnectState (\ s a -> s{_drsInterconnectSt
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteInterconnectResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteInterconnectResponse

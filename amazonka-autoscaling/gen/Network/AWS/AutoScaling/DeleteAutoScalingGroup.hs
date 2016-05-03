@@ -125,3 +125,5 @@ data DeleteAutoScalingGroupResponse =
 deleteAutoScalingGroupResponse
     :: DeleteAutoScalingGroupResponse
 deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse'
+
+instance NFData DeleteAutoScalingGroupResponse

@@ -159,3 +159,5 @@ aarsPublicIP = lens _aarsPublicIP (\ s a -> s{_aarsPublicIP = a});
 -- | The response status code.
 aarsResponseStatus :: Lens' AllocateAddressResponse Int
 aarsResponseStatus = lens _aarsResponseStatus (\ s a -> s{_aarsResponseStatus = a});
+
+instance NFData AllocateAddressResponse

@@ -156,3 +156,5 @@ dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default . _
 -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeServicesResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+
+instance NFData DescribeServicesResponse

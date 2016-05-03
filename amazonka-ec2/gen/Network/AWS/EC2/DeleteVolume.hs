@@ -112,3 +112,5 @@ data DeleteVolumeResponse =
 deleteVolumeResponse
     :: DeleteVolumeResponse
 deleteVolumeResponse = DeleteVolumeResponse'
+
+instance NFData DeleteVolumeResponse

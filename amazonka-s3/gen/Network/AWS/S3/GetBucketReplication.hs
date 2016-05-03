@@ -117,3 +117,5 @@ gbrrsReplicationConfiguration = lens _gbrrsReplicationConfiguration (\ s a -> s{
 -- | The response status code.
 gbrrsResponseStatus :: Lens' GetBucketReplicationResponse Int
 gbrrsResponseStatus = lens _gbrrsResponseStatus (\ s a -> s{_gbrrsResponseStatus = a});
+
+instance NFData GetBucketReplicationResponse

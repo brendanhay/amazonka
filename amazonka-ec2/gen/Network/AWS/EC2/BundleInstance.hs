@@ -160,3 +160,5 @@ birsBundleTask = lens _birsBundleTask (\ s a -> s{_birsBundleTask = a});
 -- | The response status code.
 birsResponseStatus :: Lens' BundleInstanceResponse Int
 birsResponseStatus = lens _birsResponseStatus (\ s a -> s{_birsResponseStatus = a});
+
+instance NFData BundleInstanceResponse

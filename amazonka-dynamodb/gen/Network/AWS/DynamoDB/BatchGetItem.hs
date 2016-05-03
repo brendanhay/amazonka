@@ -337,3 +337,5 @@ bgirsConsumedCapacity = lens _bgirsConsumedCapacity (\ s a -> s{_bgirsConsumedCa
 -- | The response status code.
 bgirsResponseStatus :: Lens' BatchGetItemResponse Int
 bgirsResponseStatus = lens _bgirsResponseStatus (\ s a -> s{_bgirsResponseStatus = a});
+
+instance NFData BatchGetItemResponse

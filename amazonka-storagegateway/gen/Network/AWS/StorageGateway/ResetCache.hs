@@ -138,3 +138,5 @@ rcrsGatewayARN = lens _rcrsGatewayARN (\ s a -> s{_rcrsGatewayARN = a});
 -- | The response status code.
 rcrsResponseStatus :: Lens' ResetCacheResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
+
+instance NFData ResetCacheResponse

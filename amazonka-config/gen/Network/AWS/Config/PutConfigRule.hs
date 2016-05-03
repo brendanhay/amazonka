@@ -134,3 +134,5 @@ data PutConfigRuleResponse =
 putConfigRuleResponse
     :: PutConfigRuleResponse
 putConfigRuleResponse = PutConfigRuleResponse'
+
+instance NFData PutConfigRuleResponse

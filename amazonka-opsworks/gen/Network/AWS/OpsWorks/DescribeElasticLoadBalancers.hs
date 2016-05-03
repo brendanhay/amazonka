@@ -153,3 +153,5 @@ delbrsElasticLoadBalancers = lens _delbrsElasticLoadBalancers (\ s a -> s{_delbr
 -- | The response status code.
 delbrsResponseStatus :: Lens' DescribeElasticLoadBalancersResponse Int
 delbrsResponseStatus = lens _delbrsResponseStatus (\ s a -> s{_delbrsResponseStatus = a});
+
+instance NFData DescribeElasticLoadBalancersResponse

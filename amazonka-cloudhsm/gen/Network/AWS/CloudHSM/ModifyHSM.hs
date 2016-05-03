@@ -194,3 +194,5 @@ mhsmrsHSMARN = lens _mhsmrsHSMARN (\ s a -> s{_mhsmrsHSMARN = a});
 -- | The response status code.
 mhsmrsResponseStatus :: Lens' ModifyHSMResponse Int
 mhsmrsResponseStatus = lens _mhsmrsResponseStatus (\ s a -> s{_mhsmrsResponseStatus = a});
+
+instance NFData ModifyHSMResponse

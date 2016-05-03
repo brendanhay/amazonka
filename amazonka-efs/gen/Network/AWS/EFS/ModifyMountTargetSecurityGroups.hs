@@ -129,3 +129,6 @@ modifyMountTargetSecurityGroupsResponse
     :: ModifyMountTargetSecurityGroupsResponse
 modifyMountTargetSecurityGroupsResponse =
     ModifyMountTargetSecurityGroupsResponse'
+
+instance NFData
+         ModifyMountTargetSecurityGroupsResponse

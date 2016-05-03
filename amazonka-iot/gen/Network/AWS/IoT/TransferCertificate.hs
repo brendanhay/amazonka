@@ -148,3 +148,5 @@ tcrsTransferredCertificateARN = lens _tcrsTransferredCertificateARN (\ s a -> s{
 -- | The response status code.
 tcrsResponseStatus :: Lens' TransferCertificateResponse Int
 tcrsResponseStatus = lens _tcrsResponseStatus (\ s a -> s{_tcrsResponseStatus = a});
+
+instance NFData TransferCertificateResponse

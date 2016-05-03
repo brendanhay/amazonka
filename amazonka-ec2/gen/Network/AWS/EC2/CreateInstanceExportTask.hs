@@ -157,3 +157,5 @@ cietrsExportTask = lens _cietrsExportTask (\ s a -> s{_cietrsExportTask = a});
 -- | The response status code.
 cietrsResponseStatus :: Lens' CreateInstanceExportTaskResponse Int
 cietrsResponseStatus = lens _cietrsResponseStatus (\ s a -> s{_cietrsResponseStatus = a});
+
+instance NFData CreateInstanceExportTaskResponse

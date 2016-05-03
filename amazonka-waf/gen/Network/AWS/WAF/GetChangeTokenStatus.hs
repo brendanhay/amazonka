@@ -138,3 +138,5 @@ gctsrsChangeTokenStatus = lens _gctsrsChangeTokenStatus (\ s a -> s{_gctsrsChang
 -- | The response status code.
 gctsrsResponseStatus :: Lens' GetChangeTokenStatusResponse Int
 gctsrsResponseStatus = lens _gctsrsResponseStatus (\ s a -> s{_gctsrsResponseStatus = a});
+
+instance NFData GetChangeTokenStatusResponse

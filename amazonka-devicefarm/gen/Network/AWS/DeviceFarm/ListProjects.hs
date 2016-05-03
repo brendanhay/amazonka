@@ -154,3 +154,5 @@ lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Default . _
 -- | The response status code.
 lprsResponseStatus :: Lens' ListProjectsResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+
+instance NFData ListProjectsResponse

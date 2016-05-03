@@ -155,3 +155,5 @@ lrprsRulesPackageARNList = lens _lrprsRulesPackageARNList (\ s a -> s{_lrprsRule
 -- | The response status code.
 lrprsResponseStatus :: Lens' ListRulesPackagesResponse Int
 lrprsResponseStatus = lens _lrprsResponseStatus (\ s a -> s{_lrprsResponseStatus = a});
+
+instance NFData ListRulesPackagesResponse

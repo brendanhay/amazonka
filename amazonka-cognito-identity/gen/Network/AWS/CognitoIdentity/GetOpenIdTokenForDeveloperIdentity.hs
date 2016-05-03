@@ -212,3 +212,6 @@ goitfdirsIdentityId = lens _goitfdirsIdentityId (\ s a -> s{_goitfdirsIdentityId
 -- | The response status code.
 goitfdirsResponseStatus :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Int
 goitfdirsResponseStatus = lens _goitfdirsResponseStatus (\ s a -> s{_goitfdirsResponseStatus = a});
+
+instance NFData
+         GetOpenIdTokenForDeveloperIdentityResponse

@@ -97,3 +97,5 @@ data DeleteEndpointResponse =
 deleteEndpointResponse
     :: DeleteEndpointResponse
 deleteEndpointResponse = DeleteEndpointResponse'
+
+instance NFData DeleteEndpointResponse

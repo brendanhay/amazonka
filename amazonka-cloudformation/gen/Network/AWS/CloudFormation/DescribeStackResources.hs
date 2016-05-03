@@ -188,3 +188,5 @@ drsStackResources = lens _drsStackResources (\ s a -> s{_drsStackResources = a})
 -- | The response status code.
 drsResponseStatus :: Lens' DescribeStackResourcesResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DescribeStackResourcesResponse

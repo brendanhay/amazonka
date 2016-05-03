@@ -125,3 +125,5 @@ data CreatePlacementGroupResponse =
 createPlacementGroupResponse
     :: CreatePlacementGroupResponse
 createPlacementGroupResponse = CreatePlacementGroupResponse'
+
+instance NFData CreatePlacementGroupResponse

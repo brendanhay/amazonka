@@ -178,3 +178,5 @@ srsNextToken = lens _srsNextToken (\ s a -> s{_srsNextToken = a});
 -- | The response status code.
 srsResponseStatus :: Lens' SelectResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+
+instance NFData SelectResponse

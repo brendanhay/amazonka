@@ -184,3 +184,5 @@ ctpvrsTrafficPolicy = lens _ctpvrsTrafficPolicy (\ s a -> s{_ctpvrsTrafficPolicy
 -- | Undocumented member.
 ctpvrsLocation :: Lens' CreateTrafficPolicyVersionResponse Text
 ctpvrsLocation = lens _ctpvrsLocation (\ s a -> s{_ctpvrsLocation = a});
+
+instance NFData CreateTrafficPolicyVersionResponse

@@ -167,3 +167,5 @@ bgirsFailures = lens _bgirsFailures (\ s a -> s{_bgirsFailures = a}) . _Default 
 -- | The response status code.
 bgirsResponseStatus :: Lens' BatchGetImageResponse Int
 bgirsResponseStatus = lens _bgirsResponseStatus (\ s a -> s{_bgirsResponseStatus = a});
+
+instance NFData BatchGetImageResponse

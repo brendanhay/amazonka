@@ -115,3 +115,6 @@ putBucketLifecycleConfigurationResponse
     :: PutBucketLifecycleConfigurationResponse
 putBucketLifecycleConfigurationResponse =
     PutBucketLifecycleConfigurationResponse'
+
+instance NFData
+         PutBucketLifecycleConfigurationResponse

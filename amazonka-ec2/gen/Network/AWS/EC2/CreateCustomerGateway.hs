@@ -182,3 +182,5 @@ ccgrsCustomerGateway = lens _ccgrsCustomerGateway (\ s a -> s{_ccgrsCustomerGate
 -- | The response status code.
 ccgrsResponseStatus :: Lens' CreateCustomerGatewayResponse Int
 ccgrsResponseStatus = lens _ccgrsResponseStatus (\ s a -> s{_ccgrsResponseStatus = a});
+
+instance NFData CreateCustomerGatewayResponse

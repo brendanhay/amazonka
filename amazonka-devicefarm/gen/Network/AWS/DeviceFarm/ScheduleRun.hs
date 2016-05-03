@@ -183,3 +183,5 @@ srrsRun = lens _srrsRun (\ s a -> s{_srrsRun = a});
 -- | The response status code.
 srrsResponseStatus :: Lens' ScheduleRunResponse Int
 srrsResponseStatus = lens _srrsResponseStatus (\ s a -> s{_srrsResponseStatus = a});
+
+instance NFData ScheduleRunResponse

@@ -187,3 +187,6 @@ gcdbcrrsNextToken = lens _gcdbcrrsNextToken (\ s a -> s{_gcdbcrrsNextToken = a})
 -- | The response status code.
 gcdbcrrsResponseStatus :: Lens' GetComplianceDetailsByConfigRuleResponse Int
 gcdbcrrsResponseStatus = lens _gcdbcrrsResponseStatus (\ s a -> s{_gcdbcrrsResponseStatus = a});
+
+instance NFData
+         GetComplianceDetailsByConfigRuleResponse

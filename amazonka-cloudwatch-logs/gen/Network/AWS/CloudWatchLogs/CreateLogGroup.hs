@@ -109,3 +109,5 @@ data CreateLogGroupResponse =
 createLogGroupResponse
     :: CreateLogGroupResponse
 createLogGroupResponse = CreateLogGroupResponse'
+
+instance NFData CreateLogGroupResponse

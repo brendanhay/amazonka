@@ -379,3 +379,5 @@ tdrsResponseStatus = lens _tdrsResponseStatus (\ s a -> s{_tdrsResponseStatus = 
 -- Constraints: Maximum 255 characters.
 tdrsOperationId :: Lens' TransferDomainResponse Text
 tdrsOperationId = lens _tdrsOperationId (\ s a -> s{_tdrsOperationId = a});
+
+instance NFData TransferDomainResponse

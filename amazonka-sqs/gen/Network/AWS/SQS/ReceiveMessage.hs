@@ -253,3 +253,5 @@ rmrsMessages = lens _rmrsMessages (\ s a -> s{_rmrsMessages = a}) . _Default . _
 -- | The response status code.
 rmrsResponseStatus :: Lens' ReceiveMessageResponse Int
 rmrsResponseStatus = lens _rmrsResponseStatus (\ s a -> s{_rmrsResponseStatus = a});
+
+instance NFData ReceiveMessageResponse

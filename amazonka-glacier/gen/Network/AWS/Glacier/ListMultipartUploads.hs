@@ -219,3 +219,5 @@ lmursMarker = lens _lmursMarker (\ s a -> s{_lmursMarker = a});
 -- | The response status code.
 lmursResponseStatus :: Lens' ListMultipartUploadsResponse Int
 lmursResponseStatus = lens _lmursResponseStatus (\ s a -> s{_lmursResponseStatus = a});
+
+instance NFData ListMultipartUploadsResponse

@@ -617,3 +617,5 @@ dirsAttributes = lens _dirsAttributes (\ s a -> s{_dirsAttributes = a}) . _Defau
 -- | The response status code.
 dirsResponseStatus :: Lens' DeleteItemResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+
+instance NFData DeleteItemResponse

@@ -157,3 +157,5 @@ dprsPermissions = lens _dprsPermissions (\ s a -> s{_dprsPermissions = a}) . _De
 -- | The response status code.
 dprsResponseStatus :: Lens' DescribePermissionsResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+
+instance NFData DescribePermissionsResponse

@@ -196,3 +196,5 @@ rcrsCertificateARN = lens _rcrsCertificateARN (\ s a -> s{_rcrsCertificateARN = 
 -- | The response status code.
 rcrsResponseStatus :: Lens' RequestCertificateResponse Int
 rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a});
+
+instance NFData RequestCertificateResponse

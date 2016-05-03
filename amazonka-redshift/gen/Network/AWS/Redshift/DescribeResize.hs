@@ -275,3 +275,5 @@ drrsElapsedTimeInSeconds = lens _drrsElapsedTimeInSeconds (\ s a -> s{_drrsElaps
 -- | The response status code.
 drrsResponseStatus :: Lens' DescribeResizeResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+
+instance NFData DescribeResizeResponse

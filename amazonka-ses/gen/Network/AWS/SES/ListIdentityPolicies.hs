@@ -141,3 +141,5 @@ liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus
 -- | A list of names of policies that apply to the specified identity.
 liprsPolicyNames :: Lens' ListIdentityPoliciesResponse [Text]
 liprsPolicyNames = lens _liprsPolicyNames (\ s a -> s{_liprsPolicyNames = a}) . _Coerce;
+
+instance NFData ListIdentityPoliciesResponse

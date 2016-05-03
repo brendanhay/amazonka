@@ -97,3 +97,5 @@ data DeleteCertificateResponse =
 deleteCertificateResponse
     :: DeleteCertificateResponse
 deleteCertificateResponse = DeleteCertificateResponse'
+
+instance NFData DeleteCertificateResponse

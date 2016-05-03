@@ -183,3 +183,5 @@ laarsNextToken = lens _laarsNextToken (\ s a -> s{_laarsNextToken = a});
 -- | The response status code.
 laarsResponseStatus :: Lens' ListAssessmentAgentsResponse Int
 laarsResponseStatus = lens _laarsResponseStatus (\ s a -> s{_laarsResponseStatus = a});
+
+instance NFData ListAssessmentAgentsResponse

@@ -151,3 +151,5 @@ ubprsBatchPredictionId = lens _ubprsBatchPredictionId (\ s a -> s{_ubprsBatchPre
 -- | The response status code.
 ubprsResponseStatus :: Lens' UpdateBatchPredictionResponse Int
 ubprsResponseStatus = lens _ubprsResponseStatus (\ s a -> s{_ubprsResponseStatus = a});
+
+instance NFData UpdateBatchPredictionResponse

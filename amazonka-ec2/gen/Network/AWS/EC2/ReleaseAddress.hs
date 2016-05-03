@@ -130,3 +130,5 @@ data ReleaseAddressResponse =
 releaseAddressResponse
     :: ReleaseAddressResponse
 releaseAddressResponse = ReleaseAddressResponse'
+
+instance NFData ReleaseAddressResponse

@@ -116,3 +116,5 @@ data AttachRolePolicyResponse =
 attachRolePolicyResponse
     :: AttachRolePolicyResponse
 attachRolePolicyResponse = AttachRolePolicyResponse'
+
+instance NFData AttachRolePolicyResponse

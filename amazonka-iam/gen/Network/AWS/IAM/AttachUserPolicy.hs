@@ -111,3 +111,5 @@ data AttachUserPolicyResponse =
 attachUserPolicyResponse
     :: AttachUserPolicyResponse
 attachUserPolicyResponse = AttachUserPolicyResponse'
+
+instance NFData AttachUserPolicyResponse

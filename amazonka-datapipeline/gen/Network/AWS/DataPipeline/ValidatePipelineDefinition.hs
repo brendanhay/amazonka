@@ -187,3 +187,5 @@ vpdrsResponseStatus = lens _vpdrsResponseStatus (\ s a -> s{_vpdrsResponseStatus
 -- | Indicates whether there were validation errors.
 vpdrsErrored :: Lens' ValidatePipelineDefinitionResponse Bool
 vpdrsErrored = lens _vpdrsErrored (\ s a -> s{_vpdrsErrored = a});
+
+instance NFData ValidatePipelineDefinitionResponse

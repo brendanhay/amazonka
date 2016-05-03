@@ -131,3 +131,5 @@ data ResyncMFADeviceResponse =
 resyncMFADeviceResponse
     :: ResyncMFADeviceResponse
 resyncMFADeviceResponse = ResyncMFADeviceResponse'
+
+instance NFData ResyncMFADeviceResponse

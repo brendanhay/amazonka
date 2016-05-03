@@ -126,3 +126,5 @@ data DeprecateDomainResponse =
 deprecateDomainResponse
     :: DeprecateDomainResponse
 deprecateDomainResponse = DeprecateDomainResponse'
+
+instance NFData DeprecateDomainResponse

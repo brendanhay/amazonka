@@ -185,3 +185,5 @@ laarsResponseStatus = lens _laarsResponseStatus (\ s a -> s{_laarsResponseStatus
 -- alias per account.
 laarsAccountAliases :: Lens' ListAccountAliasesResponse [Text]
 laarsAccountAliases = lens _laarsAccountAliases (\ s a -> s{_laarsAccountAliases = a}) . _Coerce;
+
+instance NFData ListAccountAliasesResponse

@@ -382,3 +382,5 @@ data CreateLaunchConfigurationResponse =
 createLaunchConfigurationResponse
     :: CreateLaunchConfigurationResponse
 createLaunchConfigurationResponse = CreateLaunchConfigurationResponse'
+
+instance NFData CreateLaunchConfigurationResponse

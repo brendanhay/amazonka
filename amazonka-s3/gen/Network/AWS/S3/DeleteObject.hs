@@ -183,3 +183,5 @@ dorsDeleteMarker = lens _dorsDeleteMarker (\ s a -> s{_dorsDeleteMarker = a});
 -- | The response status code.
 dorsResponseStatus :: Lens' DeleteObjectResponse Int
 dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = a});
+
+instance NFData DeleteObjectResponse

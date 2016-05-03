@@ -201,3 +201,5 @@ gstrsCredentials = lens _gstrsCredentials (\ s a -> s{_gstrsCredentials = a});
 -- | The response status code.
 gstrsResponseStatus :: Lens' GetSessionTokenResponse Int
 gstrsResponseStatus = lens _gstrsResponseStatus (\ s a -> s{_gstrsResponseStatus = a});
+
+instance NFData GetSessionTokenResponse

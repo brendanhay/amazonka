@@ -132,3 +132,5 @@ dscrsCluster = lens _dscrsCluster (\ s a -> s{_dscrsCluster = a});
 -- | The response status code.
 dscrsResponseStatus :: Lens' DisableSnapshotCopyResponse Int
 dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a});
+
+instance NFData DisableSnapshotCopyResponse

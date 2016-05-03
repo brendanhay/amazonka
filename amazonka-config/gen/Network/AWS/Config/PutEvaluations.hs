@@ -143,3 +143,5 @@ persFailedEvaluations = lens _persFailedEvaluations (\ s a -> s{_persFailedEvalu
 -- | The response status code.
 persResponseStatus :: Lens' PutEvaluationsResponse Int
 persResponseStatus = lens _persResponseStatus (\ s a -> s{_persResponseStatus = a});
+
+instance NFData PutEvaluationsResponse

@@ -117,3 +117,5 @@ gbprsResponseStatus = lens _gbprsResponseStatus (\ s a -> s{_gbprsResponseStatus
 -- | The bucket policy as a JSON document.
 gbprsPolicy :: Lens' GetBucketPolicyResponse (HashMap Text Value)
 gbprsPolicy = lens _gbprsPolicy (\ s a -> s{_gbprsPolicy = a});
+
+instance NFData GetBucketPolicyResponse

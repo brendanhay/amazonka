@@ -148,3 +148,5 @@ chccrsHSMClientCertificate = lens _chccrsHSMClientCertificate (\ s a -> s{_chccr
 -- | The response status code.
 chccrsResponseStatus :: Lens' CreateHSMClientCertificateResponse Int
 chccrsResponseStatus = lens _chccrsResponseStatus (\ s a -> s{_chccrsResponseStatus = a});
+
+instance NFData CreateHSMClientCertificateResponse

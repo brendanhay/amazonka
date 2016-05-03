@@ -113,3 +113,5 @@ verifyEmailIdentityResponse pResponseStatus_ =
 -- | The response status code.
 veirsResponseStatus :: Lens' VerifyEmailIdentityResponse Int
 veirsResponseStatus = lens _veirsResponseStatus (\ s a -> s{_veirsResponseStatus = a});
+
+instance NFData VerifyEmailIdentityResponse

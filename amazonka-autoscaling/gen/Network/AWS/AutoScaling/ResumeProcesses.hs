@@ -127,3 +127,5 @@ data ResumeProcessesResponse =
 resumeProcessesResponse
     :: ResumeProcessesResponse
 resumeProcessesResponse = ResumeProcessesResponse'
+
+instance NFData ResumeProcessesResponse

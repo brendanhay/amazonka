@@ -132,3 +132,6 @@ rcaarrsMessage = lens _rcaarrsMessage (\ s a -> s{_rcaarrsMessage = a});
 -- | The response status code.
 rcaarrsResponseStatus :: Lens' RegisterCrossAccountAccessRoleResponse Int
 rcaarrsResponseStatus = lens _rcaarrsResponseStatus (\ s a -> s{_rcaarrsResponseStatus = a});
+
+instance NFData
+         RegisterCrossAccountAccessRoleResponse

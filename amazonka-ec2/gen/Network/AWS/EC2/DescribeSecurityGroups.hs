@@ -213,3 +213,5 @@ dsgrsSecurityGroups = lens _dsgrsSecurityGroups (\ s a -> s{_dsgrsSecurityGroups
 -- | The response status code.
 dsgrsResponseStatus :: Lens' DescribeSecurityGroupsResponse Int
 dsgrsResponseStatus = lens _dsgrsResponseStatus (\ s a -> s{_dsgrsResponseStatus = a});
+
+instance NFData DescribeSecurityGroupsResponse

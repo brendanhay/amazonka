@@ -132,3 +132,5 @@ dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus
 -- | Undocumented member.
 dsprsScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
 dsprsScalingParameters = lens _dsprsScalingParameters (\ s a -> s{_dsprsScalingParameters = a});
+
+instance NFData DescribeScalingParametersResponse

@@ -157,3 +157,5 @@ dpersEndpoint = lens _dpersEndpoint (\ s a -> s{_dpersEndpoint = a});
 -- | The response status code.
 dpersResponseStatus :: Lens' DiscoverPollEndpointResponse Int
 dpersResponseStatus = lens _dpersResponseStatus (\ s a -> s{_dpersResponseStatus = a});
+
+instance NFData DiscoverPollEndpointResponse

@@ -147,3 +147,5 @@ data DisableStageTransitionResponse =
 disableStageTransitionResponse
     :: DisableStageTransitionResponse
 disableStageTransitionResponse = DisableStageTransitionResponse'
+
+instance NFData DisableStageTransitionResponse

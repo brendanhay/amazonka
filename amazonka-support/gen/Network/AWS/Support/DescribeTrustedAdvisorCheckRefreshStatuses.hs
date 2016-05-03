@@ -142,3 +142,6 @@ dtacrsrsResponseStatus = lens _dtacrsrsResponseStatus (\ s a -> s{_dtacrsrsRespo
 -- | The refresh status of the specified Trusted Advisor checks.
 dtacrsrsStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
 dtacrsrsStatuses = lens _dtacrsrsStatuses (\ s a -> s{_dtacrsrsStatuses = a}) . _Coerce;
+
+instance NFData
+         DescribeTrustedAdvisorCheckRefreshStatusesResponse

@@ -126,3 +126,5 @@ cigrsInternetGateway = lens _cigrsInternetGateway (\ s a -> s{_cigrsInternetGate
 -- | The response status code.
 cigrsResponseStatus :: Lens' CreateInternetGatewayResponse Int
 cigrsResponseStatus = lens _cigrsResponseStatus (\ s a -> s{_cigrsResponseStatus = a});
+
+instance NFData CreateInternetGatewayResponse

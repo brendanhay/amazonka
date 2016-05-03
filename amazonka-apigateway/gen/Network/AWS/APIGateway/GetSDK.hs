@@ -175,3 +175,5 @@ gsdkrsContentType = lens _gsdkrsContentType (\ s a -> s{_gsdkrsContentType = a})
 -- | The response status code.
 gsdkrsResponseStatus :: Lens' GetSDKResponse Int
 gsdkrsResponseStatus = lens _gsdkrsResponseStatus (\ s a -> s{_gsdkrsResponseStatus = a});
+
+instance NFData GetSDKResponse

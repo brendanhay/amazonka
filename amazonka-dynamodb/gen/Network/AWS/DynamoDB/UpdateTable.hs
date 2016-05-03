@@ -212,3 +212,5 @@ utrsTableDescription = lens _utrsTableDescription (\ s a -> s{_utrsTableDescript
 -- | The response status code.
 utrsResponseStatus :: Lens' UpdateTableResponse Int
 utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});
+
+instance NFData UpdateTableResponse

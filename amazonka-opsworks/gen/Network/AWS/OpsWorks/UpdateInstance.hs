@@ -273,3 +273,5 @@ data UpdateInstanceResponse =
 updateInstanceResponse
     :: UpdateInstanceResponse
 updateInstanceResponse = UpdateInstanceResponse'
+
+instance NFData UpdateInstanceResponse

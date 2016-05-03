@@ -191,3 +191,5 @@ updateTagsForDomainResponse pResponseStatus_ =
 -- | The response status code.
 utfdrsResponseStatus :: Lens' UpdateTagsForDomainResponse Int
 utfdrsResponseStatus = lens _utfdrsResponseStatus (\ s a -> s{_utfdrsResponseStatus = a});
+
+instance NFData UpdateTagsForDomainResponse

@@ -136,3 +136,5 @@ registerEventTopicResponse pResponseStatus_ =
 -- | The response status code.
 retrsResponseStatus :: Lens' RegisterEventTopicResponse Int
 retrsResponseStatus = lens _retrsResponseStatus (\ s a -> s{_retrsResponseStatus = a});
+
+instance NFData RegisterEventTopicResponse

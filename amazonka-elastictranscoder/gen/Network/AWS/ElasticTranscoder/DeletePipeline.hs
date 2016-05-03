@@ -114,3 +114,5 @@ deletePipelineResponse pResponseStatus_ =
 -- | The response status code.
 drsResponseStatus :: Lens' DeletePipelineResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeletePipelineResponse

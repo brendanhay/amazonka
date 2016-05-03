@@ -136,3 +136,5 @@ data DeleteCustomActionTypeResponse =
 deleteCustomActionTypeResponse
     :: DeleteCustomActionTypeResponse
 deleteCustomActionTypeResponse = DeleteCustomActionTypeResponse'
+
+instance NFData DeleteCustomActionTypeResponse

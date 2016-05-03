@@ -99,3 +99,5 @@ data CancelUpdateStackResponse =
 cancelUpdateStackResponse
     :: CancelUpdateStackResponse
 cancelUpdateStackResponse = CancelUpdateStackResponse'
+
+instance NFData CancelUpdateStackResponse

@@ -144,3 +144,5 @@ data UpdateUserProfileResponse =
 updateUserProfileResponse
     :: UpdateUserProfileResponse
 updateUserProfileResponse = UpdateUserProfileResponse'
+
+instance NFData UpdateUserProfileResponse

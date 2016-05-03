@@ -155,3 +155,5 @@ lrsSamples = lens _lrsSamples (\ s a -> s{_lrsSamples = a}) . _Default . _Coerce
 -- | The response status code.
 lrsResponseStatus :: Lens' ListSamplesResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
+
+instance NFData ListSamplesResponse

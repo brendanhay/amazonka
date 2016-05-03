@@ -323,3 +323,5 @@ csrsStackId = lens _csrsStackId (\ s a -> s{_csrsStackId = a});
 -- | The response status code.
 csrsResponseStatus :: Lens' CreateStackResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+
+instance NFData CreateStackResponse

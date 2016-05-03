@@ -154,3 +154,5 @@ ldbwairsDistributionList = lens _ldbwairsDistributionList (\ s a -> s{_ldbwairsD
 -- | The response status code.
 ldbwairsResponseStatus :: Lens' ListDistributionsByWebACLIdResponse Int
 ldbwairsResponseStatus = lens _ldbwairsResponseStatus (\ s a -> s{_ldbwairsResponseStatus = a});
+
+instance NFData ListDistributionsByWebACLIdResponse

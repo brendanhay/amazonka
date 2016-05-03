@@ -267,3 +267,5 @@ cmlmrsMLModelId = lens _cmlmrsMLModelId (\ s a -> s{_cmlmrsMLModelId = a});
 -- | The response status code.
 cmlmrsResponseStatus :: Lens' CreateMLModelResponse Int
 cmlmrsResponseStatus = lens _cmlmrsResponseStatus (\ s a -> s{_cmlmrsResponseStatus = a});
+
+instance NFData CreateMLModelResponse

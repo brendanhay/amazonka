@@ -125,3 +125,5 @@ data DetachVPNGatewayResponse =
 detachVPNGatewayResponse
     :: DetachVPNGatewayResponse
 detachVPNGatewayResponse = DetachVPNGatewayResponse'
+
+instance NFData DetachVPNGatewayResponse

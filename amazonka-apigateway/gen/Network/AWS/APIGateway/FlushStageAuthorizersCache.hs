@@ -109,3 +109,5 @@ data FlushStageAuthorizersCacheResponse =
 flushStageAuthorizersCacheResponse
     :: FlushStageAuthorizersCacheResponse
 flushStageAuthorizersCacheResponse = FlushStageAuthorizersCacheResponse'
+
+instance NFData FlushStageAuthorizersCacheResponse

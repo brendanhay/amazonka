@@ -191,3 +191,5 @@ dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Defau
 -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeSnapshotsResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+
+instance NFData DescribeSnapshotsResponse

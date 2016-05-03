@@ -204,3 +204,5 @@ cursUpload = lens _cursUpload (\ s a -> s{_cursUpload = a});
 -- | The response status code.
 cursResponseStatus :: Lens' CreateUploadResponse Int
 cursResponseStatus = lens _cursResponseStatus (\ s a -> s{_cursResponseStatus = a});
+
+instance NFData CreateUploadResponse

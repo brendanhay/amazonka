@@ -147,3 +147,5 @@ crrsTapeARN = lens _crrsTapeARN (\ s a -> s{_crrsTapeARN = a});
 -- | The response status code.
 crrsResponseStatus :: Lens' CancelRetrievalResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
+
+instance NFData CancelRetrievalResponse

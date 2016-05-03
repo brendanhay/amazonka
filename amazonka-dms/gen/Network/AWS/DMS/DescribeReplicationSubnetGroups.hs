@@ -174,3 +174,6 @@ drsgsrsReplicationSubnetGroups = lens _drsgsrsReplicationSubnetGroups (\ s a -> 
 -- | The response status code.
 drsgsrsResponseStatus :: Lens' DescribeReplicationSubnetGroupsResponse Int
 drsgsrsResponseStatus = lens _drsgsrsResponseStatus (\ s a -> s{_drsgsrsResponseStatus = a});
+
+instance NFData
+         DescribeReplicationSubnetGroupsResponse

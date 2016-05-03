@@ -162,3 +162,5 @@ data PutAttributesResponse =
 putAttributesResponse
     :: PutAttributesResponse
 putAttributesResponse = PutAttributesResponse'
+
+instance NFData PutAttributesResponse

@@ -194,3 +194,5 @@ rathrsResponseStatus = lens _rathrsResponseStatus (\ s a -> s{_rathrsResponseSta
 -- | Set to 'true' if cancellation of the task is requested.
 rathrsCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
 rathrsCancelRequested = lens _rathrsCancelRequested (\ s a -> s{_rathrsCancelRequested = a});
+
+instance NFData RecordActivityTaskHeartbeatResponse

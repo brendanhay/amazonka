@@ -219,3 +219,5 @@ dgsdrsNextToken = lens _dgsdrsNextToken (\ s a -> s{_dgsdrsNextToken = a});
 -- | The response status code.
 dgsdrsResponseStatus :: Lens' DescribeGameSessionDetailsResponse Int
 dgsdrsResponseStatus = lens _dgsdrsResponseStatus (\ s a -> s{_dgsdrsResponseStatus = a});
+
+instance NFData DescribeGameSessionDetailsResponse

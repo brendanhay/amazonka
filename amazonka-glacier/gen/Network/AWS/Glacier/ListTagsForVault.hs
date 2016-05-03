@@ -140,3 +140,5 @@ ltfvrsTags = lens _ltfvrsTags (\ s a -> s{_ltfvrsTags = a}) . _Default . _Map;
 -- | The response status code.
 ltfvrsResponseStatus :: Lens' ListTagsForVaultResponse Int
 ltfvrsResponseStatus = lens _ltfvrsResponseStatus (\ s a -> s{_ltfvrsResponseStatus = a});
+
+instance NFData ListTagsForVaultResponse

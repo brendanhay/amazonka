@@ -133,3 +133,5 @@ dipursIdentityPoolUsage = lens _dipursIdentityPoolUsage (\ s a -> s{_dipursIdent
 -- | The response status code.
 dipursResponseStatus :: Lens' DescribeIdentityPoolUsageResponse Int
 dipursResponseStatus = lens _dipursResponseStatus (\ s a -> s{_dipursResponseStatus = a});
+
+instance NFData DescribeIdentityPoolUsageResponse

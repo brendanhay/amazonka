@@ -131,3 +131,5 @@ chapgrsHAPGARN = lens _chapgrsHAPGARN (\ s a -> s{_chapgrsHAPGARN = a});
 -- | The response status code.
 chapgrsResponseStatus :: Lens' CreateHAPGResponse Int
 chapgrsResponseStatus = lens _chapgrsResponseStatus (\ s a -> s{_chapgrsResponseStatus = a});
+
+instance NFData CreateHAPGResponse

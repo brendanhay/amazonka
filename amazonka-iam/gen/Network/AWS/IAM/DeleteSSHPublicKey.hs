@@ -112,3 +112,5 @@ data DeleteSSHPublicKeyResponse =
 deleteSSHPublicKeyResponse
     :: DeleteSSHPublicKeyResponse
 deleteSSHPublicKeyResponse = DeleteSSHPublicKeyResponse'
+
+instance NFData DeleteSSHPublicKeyResponse

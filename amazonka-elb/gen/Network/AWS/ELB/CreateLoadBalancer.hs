@@ -231,3 +231,5 @@ clbrsDNSName = lens _clbrsDNSName (\ s a -> s{_clbrsDNSName = a});
 -- | The response status code.
 clbrsResponseStatus :: Lens' CreateLoadBalancerResponse Int
 clbrsResponseStatus = lens _clbrsResponseStatus (\ s a -> s{_clbrsResponseStatus = a});
+
+instance NFData CreateLoadBalancerResponse

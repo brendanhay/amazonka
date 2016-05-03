@@ -187,3 +187,6 @@ dedprsResponseStatus = lens _dedprsResponseStatus (\ s a -> s{_dedprsResponseSta
 -- | Undocumented member.
 dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
 dedprsEngineDefaults = lens _dedprsEngineDefaults (\ s a -> s{_dedprsEngineDefaults = a});
+
+instance NFData
+         DescribeEngineDefaultParametersResponse

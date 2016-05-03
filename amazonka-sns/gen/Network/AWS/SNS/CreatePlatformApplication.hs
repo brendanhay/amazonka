@@ -166,3 +166,5 @@ cparsPlatformApplicationARN = lens _cparsPlatformApplicationARN (\ s a -> s{_cpa
 -- | The response status code.
 cparsResponseStatus :: Lens' CreatePlatformApplicationResponse Int
 cparsResponseStatus = lens _cparsResponseStatus (\ s a -> s{_cparsResponseStatus = a});
+
+instance NFData CreatePlatformApplicationResponse

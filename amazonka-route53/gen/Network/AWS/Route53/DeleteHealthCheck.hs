@@ -123,3 +123,5 @@ deleteHealthCheckResponse pResponseStatus_ =
 -- | The response status code.
 dhcrsResponseStatus :: Lens' DeleteHealthCheckResponse Int
 dhcrsResponseStatus = lens _dhcrsResponseStatus (\ s a -> s{_dhcrsResponseStatus = a});
+
+instance NFData DeleteHealthCheckResponse

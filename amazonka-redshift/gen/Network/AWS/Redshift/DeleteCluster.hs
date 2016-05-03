@@ -184,3 +184,5 @@ drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteClusterResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteClusterResponse

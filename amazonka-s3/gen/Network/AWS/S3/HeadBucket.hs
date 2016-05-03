@@ -91,3 +91,5 @@ data HeadBucketResponse =
 headBucketResponse
     :: HeadBucketResponse
 headBucketResponse = HeadBucketResponse'
+
+instance NFData HeadBucketResponse

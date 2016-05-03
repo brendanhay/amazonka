@@ -130,3 +130,5 @@ data DeleteNetworkACLEntryResponse =
 deleteNetworkACLEntryResponse
     :: DeleteNetworkACLEntryResponse
 deleteNetworkACLEntryResponse = DeleteNetworkACLEntryResponse'
+
+instance NFData DeleteNetworkACLEntryResponse

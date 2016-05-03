@@ -136,3 +136,5 @@ updateRadiusResponse pResponseStatus_ =
 -- | The response status code.
 urrsResponseStatus :: Lens' UpdateRadiusResponse Int
 urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+
+instance NFData UpdateRadiusResponse

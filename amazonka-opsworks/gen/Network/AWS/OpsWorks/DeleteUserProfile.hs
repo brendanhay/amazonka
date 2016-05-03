@@ -106,3 +106,5 @@ data DeleteUserProfileResponse =
 deleteUserProfileResponse
     :: DeleteUserProfileResponse
 deleteUserProfileResponse = DeleteUserProfileResponse'
+
+instance NFData DeleteUserProfileResponse

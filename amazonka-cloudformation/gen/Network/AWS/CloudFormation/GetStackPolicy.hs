@@ -127,3 +127,5 @@ gsprsStackPolicyBody = lens _gsprsStackPolicyBody (\ s a -> s{_gsprsStackPolicyB
 -- | The response status code.
 gsprsResponseStatus :: Lens' GetStackPolicyResponse Int
 gsprsResponseStatus = lens _gsprsResponseStatus (\ s a -> s{_gsprsResponseStatus = a});
+
+instance NFData GetStackPolicyResponse

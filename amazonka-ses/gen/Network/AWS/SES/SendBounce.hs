@@ -192,3 +192,5 @@ sbrsMessageId = lens _sbrsMessageId (\ s a -> s{_sbrsMessageId = a});
 -- | The response status code.
 sbrsResponseStatus :: Lens' SendBounceResponse Int
 sbrsResponseStatus = lens _sbrsResponseStatus (\ s a -> s{_sbrsResponseStatus = a});
+
+instance NFData SendBounceResponse

@@ -146,3 +146,6 @@ gpaarsAttributes = lens _gpaarsAttributes (\ s a -> s{_gpaarsAttributes = a}) . 
 -- | The response status code.
 gpaarsResponseStatus :: Lens' GetPlatformApplicationAttributesResponse Int
 gpaarsResponseStatus = lens _gpaarsResponseStatus (\ s a -> s{_gpaarsResponseStatus = a});
+
+instance NFData
+         GetPlatformApplicationAttributesResponse

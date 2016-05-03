@@ -158,3 +158,5 @@ lparsNextToken = lens _lparsNextToken (\ s a -> s{_lparsNextToken = a});
 -- | The response status code.
 lparsResponseStatus :: Lens' ListPlatformApplicationsResponse Int
 lparsResponseStatus = lens _lparsResponseStatus (\ s a -> s{_lparsResponseStatus = a});
+
+instance NFData ListPlatformApplicationsResponse

@@ -143,3 +143,5 @@ grtrsTriggers = lens _grtrsTriggers (\ s a -> s{_grtrsTriggers = a}) . _Default 
 -- | The response status code.
 grtrsResponseStatus :: Lens' GetRepositoryTriggersResponse Int
 grtrsResponseStatus = lens _grtrsResponseStatus (\ s a -> s{_grtrsResponseStatus = a});
+
+instance NFData GetRepositoryTriggersResponse

@@ -113,3 +113,5 @@ data RemoveTagsFromResourceResponse =
 removeTagsFromResourceResponse
     :: RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse = RemoveTagsFromResourceResponse'
+
+instance NFData RemoveTagsFromResourceResponse

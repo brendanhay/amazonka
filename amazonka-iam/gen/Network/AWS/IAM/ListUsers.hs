@@ -199,3 +199,5 @@ lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = 
 -- | A list of users.
 lursUsers :: Lens' ListUsersResponse [User]
 lursUsers = lens _lursUsers (\ s a -> s{_lursUsers = a}) . _Coerce;
+
+instance NFData ListUsersResponse

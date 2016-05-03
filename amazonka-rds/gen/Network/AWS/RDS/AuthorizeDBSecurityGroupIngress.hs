@@ -192,3 +192,6 @@ adsgirsDBSecurityGroup = lens _adsgirsDBSecurityGroup (\ s a -> s{_adsgirsDBSecu
 -- | The response status code.
 adsgirsResponseStatus :: Lens' AuthorizeDBSecurityGroupIngressResponse Int
 adsgirsResponseStatus = lens _adsgirsResponseStatus (\ s a -> s{_adsgirsResponseStatus = a});
+
+instance NFData
+         AuthorizeDBSecurityGroupIngressResponse

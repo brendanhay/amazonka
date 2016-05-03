@@ -138,3 +138,5 @@ data DeleteAttributesResponse =
 deleteAttributesResponse
     :: DeleteAttributesResponse
 deleteAttributesResponse = DeleteAttributesResponse'
+
+instance NFData DeleteAttributesResponse

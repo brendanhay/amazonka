@@ -165,3 +165,5 @@ lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = 
 -- | Information about invalidation batches.
 lirsInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
 lirsInvalidationList = lens _lirsInvalidationList (\ s a -> s{_lirsInvalidationList = a});
+
+instance NFData ListInvalidationsResponse

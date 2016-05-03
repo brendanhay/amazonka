@@ -148,3 +148,5 @@ lsrsSubscriptions = lens _lsrsSubscriptions (\ s a -> s{_lsrsSubscriptions = a})
 -- | The response status code.
 lsrsResponseStatus :: Lens' ListSubscriptionsResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
+
+instance NFData ListSubscriptionsResponse

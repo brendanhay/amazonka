@@ -107,3 +107,5 @@ data DeleteNetworkACLResponse =
 deleteNetworkACLResponse
     :: DeleteNetworkACLResponse
 deleteNetworkACLResponse = DeleteNetworkACLResponse'
+
+instance NFData DeleteNetworkACLResponse

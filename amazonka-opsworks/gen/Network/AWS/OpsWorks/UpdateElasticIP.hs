@@ -119,3 +119,5 @@ data UpdateElasticIPResponse =
 updateElasticIPResponse
     :: UpdateElasticIPResponse
 updateElasticIPResponse = UpdateElasticIPResponse'
+
+instance NFData UpdateElasticIPResponse

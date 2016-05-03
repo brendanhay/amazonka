@@ -104,3 +104,5 @@ data DeleteDistributionResponse =
 deleteDistributionResponse
     :: DeleteDistributionResponse
 deleteDistributionResponse = DeleteDistributionResponse'
+
+instance NFData DeleteDistributionResponse

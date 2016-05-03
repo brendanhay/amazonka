@@ -146,3 +146,5 @@ dbprsBatchPredictionId = lens _dbprsBatchPredictionId (\ s a -> s{_dbprsBatchPre
 -- | The response status code.
 dbprsResponseStatus :: Lens' DeleteBatchPredictionResponse Int
 dbprsResponseStatus = lens _dbprsResponseStatus (\ s a -> s{_dbprsResponseStatus = a});
+
+instance NFData DeleteBatchPredictionResponse

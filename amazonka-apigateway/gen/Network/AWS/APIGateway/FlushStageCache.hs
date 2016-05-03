@@ -107,3 +107,5 @@ data FlushStageCacheResponse =
 flushStageCacheResponse
     :: FlushStageCacheResponse
 flushStageCacheResponse = FlushStageCacheResponse'
+
+instance NFData FlushStageCacheResponse

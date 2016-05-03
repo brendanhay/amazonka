@@ -112,3 +112,5 @@ data RemoveTagsResponse =
 removeTagsResponse
     :: RemoveTagsResponse
 removeTagsResponse = RemoveTagsResponse'
+
+instance NFData RemoveTagsResponse

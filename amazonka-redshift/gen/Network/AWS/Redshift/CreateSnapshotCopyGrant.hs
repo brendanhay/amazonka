@@ -161,3 +161,5 @@ cscgrsSnapshotCopyGrant = lens _cscgrsSnapshotCopyGrant (\ s a -> s{_cscgrsSnaps
 -- | The response status code.
 cscgrsResponseStatus :: Lens' CreateSnapshotCopyGrantResponse Int
 cscgrsResponseStatus = lens _cscgrsResponseStatus (\ s a -> s{_cscgrsResponseStatus = a});
+
+instance NFData CreateSnapshotCopyGrantResponse

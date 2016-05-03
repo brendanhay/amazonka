@@ -160,3 +160,5 @@ gglrsResponseStatus = lens _gglrsResponseStatus (\ s a -> s{_gglrsResponseStatus
 -- location.
 gglrsGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
 gglrsGeoLocationDetails = lens _gglrsGeoLocationDetails (\ s a -> s{_gglrsGeoLocationDetails = a});
+
+instance NFData GetGeoLocationResponse

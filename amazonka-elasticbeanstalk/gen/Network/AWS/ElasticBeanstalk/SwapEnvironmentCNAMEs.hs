@@ -146,3 +146,5 @@ data SwapEnvironmentCNAMEsResponse =
 swapEnvironmentCNAMEsResponse
     :: SwapEnvironmentCNAMEsResponse
 swapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse'
+
+instance NFData SwapEnvironmentCNAMEsResponse

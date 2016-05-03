@@ -125,3 +125,5 @@ data DeleteMessageResponse =
 deleteMessageResponse
     :: DeleteMessageResponse
 deleteMessageResponse = DeleteMessageResponse'
+
+instance NFData DeleteMessageResponse

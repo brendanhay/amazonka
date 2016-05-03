@@ -120,3 +120,5 @@ data SetCognitoEventsResponse =
 setCognitoEventsResponse
     :: SetCognitoEventsResponse
 setCognitoEventsResponse = SetCognitoEventsResponse'
+
+instance NFData SetCognitoEventsResponse

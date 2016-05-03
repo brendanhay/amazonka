@@ -123,3 +123,5 @@ data SetEndpointAttributesResponse =
 setEndpointAttributesResponse
     :: SetEndpointAttributesResponse
 setEndpointAttributesResponse = SetEndpointAttributesResponse'
+
+instance NFData SetEndpointAttributesResponse

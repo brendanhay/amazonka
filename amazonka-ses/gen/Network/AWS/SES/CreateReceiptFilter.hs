@@ -117,3 +117,5 @@ createReceiptFilterResponse pResponseStatus_ =
 -- | The response status code.
 crfrsResponseStatus :: Lens' CreateReceiptFilterResponse Int
 crfrsResponseStatus = lens _crfrsResponseStatus (\ s a -> s{_crfrsResponseStatus = a});
+
+instance NFData CreateReceiptFilterResponse

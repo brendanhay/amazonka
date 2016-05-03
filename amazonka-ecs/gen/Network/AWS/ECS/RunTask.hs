@@ -207,3 +207,5 @@ rtrsTasks = lens _rtrsTasks (\ s a -> s{_rtrsTasks = a}) . _Default . _Coerce;
 -- | The response status code.
 rtrsResponseStatus :: Lens' RunTaskResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
+
+instance NFData RunTaskResponse

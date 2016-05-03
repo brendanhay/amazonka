@@ -189,3 +189,5 @@ cdpgrsDBParameterGroup = lens _cdpgrsDBParameterGroup (\ s a -> s{_cdpgrsDBParam
 -- | The response status code.
 cdpgrsResponseStatus :: Lens' CreateDBParameterGroupResponse Int
 cdpgrsResponseStatus = lens _cdpgrsResponseStatus (\ s a -> s{_cdpgrsResponseStatus = a});
+
+instance NFData CreateDBParameterGroupResponse

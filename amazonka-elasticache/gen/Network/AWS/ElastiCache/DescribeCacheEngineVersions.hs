@@ -218,3 +218,5 @@ dcevrsMarker = lens _dcevrsMarker (\ s a -> s{_dcevrsMarker = a});
 -- | The response status code.
 dcevrsResponseStatus :: Lens' DescribeCacheEngineVersionsResponse Int
 dcevrsResponseStatus = lens _dcevrsResponseStatus (\ s a -> s{_dcevrsResponseStatus = a});
+
+instance NFData DescribeCacheEngineVersionsResponse

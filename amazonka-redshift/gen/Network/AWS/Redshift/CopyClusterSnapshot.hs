@@ -179,3 +179,5 @@ ccsrsSnapshot = lens _ccsrsSnapshot (\ s a -> s{_ccsrsSnapshot = a});
 -- | The response status code.
 ccsrsResponseStatus :: Lens' CopyClusterSnapshotResponse Int
 ccsrsResponseStatus = lens _ccsrsResponseStatus (\ s a -> s{_ccsrsResponseStatus = a});
+
+instance NFData CopyClusterSnapshotResponse

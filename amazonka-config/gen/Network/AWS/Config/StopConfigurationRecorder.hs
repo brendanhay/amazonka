@@ -110,3 +110,5 @@ data StopConfigurationRecorderResponse =
 stopConfigurationRecorderResponse
     :: StopConfigurationRecorderResponse
 stopConfigurationRecorderResponse = StopConfigurationRecorderResponse'
+
+instance NFData StopConfigurationRecorderResponse

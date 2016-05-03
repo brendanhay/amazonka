@@ -162,3 +162,5 @@ garsAttributes = lens _garsAttributes (\ s a -> s{_garsAttributes = a}) . _Defau
 -- | The response status code.
 garsResponseStatus :: Lens' GetAttributesResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+
+instance NFData GetAttributesResponse

@@ -127,3 +127,5 @@ attachThingPrincipalResponse pResponseStatus_ =
 -- | The response status code.
 atprsResponseStatus :: Lens' AttachThingPrincipalResponse Int
 atprsResponseStatus = lens _atprsResponseStatus (\ s a -> s{_atprsResponseStatus = a});
+
+instance NFData AttachThingPrincipalResponse

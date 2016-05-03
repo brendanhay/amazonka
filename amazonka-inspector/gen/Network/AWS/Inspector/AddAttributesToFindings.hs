@@ -139,3 +139,5 @@ aatfrsMessage = lens _aatfrsMessage (\ s a -> s{_aatfrsMessage = a});
 -- | The response status code.
 aatfrsResponseStatus :: Lens' AddAttributesToFindingsResponse Int
 aatfrsResponseStatus = lens _aatfrsResponseStatus (\ s a -> s{_aatfrsResponseStatus = a});
+
+instance NFData AddAttributesToFindingsResponse

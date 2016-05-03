@@ -122,3 +122,5 @@ data AssociateElasticIPResponse =
 associateElasticIPResponse
     :: AssociateElasticIPResponse
 associateElasticIPResponse = AssociateElasticIPResponse'
+
+instance NFData AssociateElasticIPResponse

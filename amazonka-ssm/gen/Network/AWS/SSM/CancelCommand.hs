@@ -134,3 +134,5 @@ cancelCommandResponse pResponseStatus_ =
 -- | The response status code.
 ccrsResponseStatus :: Lens' CancelCommandResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+
+instance NFData CancelCommandResponse

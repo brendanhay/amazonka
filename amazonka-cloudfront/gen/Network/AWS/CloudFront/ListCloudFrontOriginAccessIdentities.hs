@@ -167,3 +167,6 @@ lcfoairsResponseStatus = lens _lcfoairsResponseStatus (\ s a -> s{_lcfoairsRespo
 -- | The CloudFrontOriginAccessIdentityList type.
 lcfoairsCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
 lcfoairsCloudFrontOriginAccessIdentityList = lens _lcfoairsCloudFrontOriginAccessIdentityList (\ s a -> s{_lcfoairsCloudFrontOriginAccessIdentityList = a});
+
+instance NFData
+         ListCloudFrontOriginAccessIdentitiesResponse

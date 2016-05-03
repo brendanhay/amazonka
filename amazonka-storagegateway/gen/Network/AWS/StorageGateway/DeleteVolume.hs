@@ -148,3 +148,5 @@ dvrsVolumeARN = lens _dvrsVolumeARN (\ s a -> s{_dvrsVolumeARN = a});
 -- | The response status code.
 dvrsResponseStatus :: Lens' DeleteVolumeResponse Int
 dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a});
+
+instance NFData DeleteVolumeResponse

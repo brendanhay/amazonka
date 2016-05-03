@@ -155,3 +155,5 @@ data ResendValidationEmailResponse =
 resendValidationEmailResponse
     :: ResendValidationEmailResponse
 resendValidationEmailResponse = ResendValidationEmailResponse'
+
+instance NFData ResendValidationEmailResponse

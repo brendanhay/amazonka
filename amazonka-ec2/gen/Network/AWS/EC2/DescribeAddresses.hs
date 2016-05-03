@@ -184,3 +184,5 @@ darsAddresses = lens _darsAddresses (\ s a -> s{_darsAddresses = a}) . _Default 
 -- | The response status code.
 darsResponseStatus :: Lens' DescribeAddressesResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+
+instance NFData DescribeAddressesResponse

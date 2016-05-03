@@ -149,3 +149,5 @@ data RespondDecisionTaskCompletedResponse =
 respondDecisionTaskCompletedResponse
     :: RespondDecisionTaskCompletedResponse
 respondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse'
+
+instance NFData RespondDecisionTaskCompletedResponse

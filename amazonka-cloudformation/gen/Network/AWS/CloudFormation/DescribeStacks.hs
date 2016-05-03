@@ -164,3 +164,5 @@ dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce
 -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStacksResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+
+instance NFData DescribeStacksResponse

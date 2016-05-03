@@ -138,3 +138,5 @@ drsTable = lens _drsTable (\ s a -> s{_drsTable = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DescribeTableResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DescribeTableResponse

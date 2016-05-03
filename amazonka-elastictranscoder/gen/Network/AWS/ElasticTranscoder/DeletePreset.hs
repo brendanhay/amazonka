@@ -115,3 +115,5 @@ deletePresetResponse pResponseStatus_ =
 -- | The response status code.
 dprsResponseStatus :: Lens' DeletePresetResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+
+instance NFData DeletePresetResponse

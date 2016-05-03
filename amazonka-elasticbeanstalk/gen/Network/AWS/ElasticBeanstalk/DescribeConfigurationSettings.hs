@@ -175,3 +175,5 @@ dcsrsConfigurationSettings = lens _dcsrsConfigurationSettings (\ s a -> s{_dcsrs
 -- | The response status code.
 dcsrsResponseStatus :: Lens' DescribeConfigurationSettingsResponse Int
 dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
+
+instance NFData DescribeConfigurationSettingsResponse

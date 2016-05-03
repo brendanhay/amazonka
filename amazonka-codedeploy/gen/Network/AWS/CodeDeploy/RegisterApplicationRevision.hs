@@ -129,3 +129,5 @@ data RegisterApplicationRevisionResponse =
 registerApplicationRevisionResponse
     :: RegisterApplicationRevisionResponse
 registerApplicationRevisionResponse = RegisterApplicationRevisionResponse'
+
+instance NFData RegisterApplicationRevisionResponse

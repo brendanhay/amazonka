@@ -114,3 +114,5 @@ data PutBucketPolicyResponse =
 putBucketPolicyResponse
     :: PutBucketPolicyResponse
 putBucketPolicyResponse = PutBucketPolicyResponse'
+
+instance NFData PutBucketPolicyResponse

@@ -110,3 +110,5 @@ data DeletePlacementGroupResponse =
 deletePlacementGroupResponse
     :: DeletePlacementGroupResponse
 deletePlacementGroupResponse = DeletePlacementGroupResponse'
+
+instance NFData DeletePlacementGroupResponse

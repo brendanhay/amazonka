@@ -128,3 +128,6 @@ dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes 
 -- | The response status code.
 dasntrsResponseStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
 dasntrsResponseStatus = lens _dasntrsResponseStatus (\ s a -> s{_dasntrsResponseStatus = a});
+
+instance NFData
+         DescribeAutoScalingNotificationTypesResponse

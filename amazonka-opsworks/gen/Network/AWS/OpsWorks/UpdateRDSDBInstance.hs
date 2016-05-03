@@ -129,3 +129,5 @@ data UpdateRDSDBInstanceResponse =
 updateRDSDBInstanceResponse
     :: UpdateRDSDBInstanceResponse
 updateRDSDBInstanceResponse = UpdateRDSDBInstanceResponse'
+
+instance NFData UpdateRDSDBInstanceResponse

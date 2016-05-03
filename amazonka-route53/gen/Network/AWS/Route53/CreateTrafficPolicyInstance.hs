@@ -208,3 +208,5 @@ ctpirsTrafficPolicyInstance = lens _ctpirsTrafficPolicyInstance (\ s a -> s{_ctp
 -- | A unique URL that represents a new traffic policy instance.
 ctpirsLocation :: Lens' CreateTrafficPolicyInstanceResponse Text
 ctpirsLocation = lens _ctpirsLocation (\ s a -> s{_ctpirsLocation = a});
+
+instance NFData CreateTrafficPolicyInstanceResponse

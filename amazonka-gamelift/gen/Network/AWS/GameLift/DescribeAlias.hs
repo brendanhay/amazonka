@@ -131,3 +131,5 @@ darsAlias = lens _darsAlias (\ s a -> s{_darsAlias = a});
 -- | The response status code.
 darsResponseStatus :: Lens' DescribeAliasResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+
+instance NFData DescribeAliasResponse

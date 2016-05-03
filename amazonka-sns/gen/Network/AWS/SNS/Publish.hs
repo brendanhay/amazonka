@@ -241,3 +241,5 @@ prsMessageId = lens _prsMessageId (\ s a -> s{_prsMessageId = a});
 -- | The response status code.
 prsResponseStatus :: Lens' PublishResponse Int
 prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});
+
+instance NFData PublishResponse

@@ -179,3 +179,5 @@ dafmrsMetricAlarms = lens _dafmrsMetricAlarms (\ s a -> s{_dafmrsMetricAlarms = 
 -- | The response status code.
 dafmrsResponseStatus :: Lens' DescribeAlarmsForMetricResponse Int
 dafmrsResponseStatus = lens _dafmrsResponseStatus (\ s a -> s{_dafmrsResponseStatus = a});
+
+instance NFData DescribeAlarmsForMetricResponse

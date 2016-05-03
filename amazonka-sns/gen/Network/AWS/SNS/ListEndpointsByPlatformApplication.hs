@@ -178,3 +178,6 @@ lebparsEndpoints = lens _lebparsEndpoints (\ s a -> s{_lebparsEndpoints = a}) . 
 -- | The response status code.
 lebparsResponseStatus :: Lens' ListEndpointsByPlatformApplicationResponse Int
 lebparsResponseStatus = lens _lebparsResponseStatus (\ s a -> s{_lebparsResponseStatus = a});
+
+instance NFData
+         ListEndpointsByPlatformApplicationResponse

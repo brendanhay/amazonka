@@ -153,3 +153,5 @@ mrirsReservedInstancesModificationId = lens _mrirsReservedInstancesModificationI
 -- | The response status code.
 mrirsResponseStatus :: Lens' ModifyReservedInstancesResponse Int
 mrirsResponseStatus = lens _mrirsResponseStatus (\ s a -> s{_mrirsResponseStatus = a});
+
+instance NFData ModifyReservedInstancesResponse

@@ -133,3 +133,5 @@ bgarsApplicationsInfo = lens _bgarsApplicationsInfo (\ s a -> s{_bgarsApplicatio
 -- | The response status code.
 bgarsResponseStatus :: Lens' BatchGetApplicationsResponse Int
 bgarsResponseStatus = lens _bgarsResponseStatus (\ s a -> s{_bgarsResponseStatus = a});
+
+instance NFData BatchGetApplicationsResponse

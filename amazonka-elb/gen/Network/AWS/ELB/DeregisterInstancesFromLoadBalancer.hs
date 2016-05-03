@@ -148,3 +148,6 @@ diflbrsInstances = lens _diflbrsInstances (\ s a -> s{_diflbrsInstances = a}) . 
 -- | The response status code.
 diflbrsResponseStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
 diflbrsResponseStatus = lens _diflbrsResponseStatus (\ s a -> s{_diflbrsResponseStatus = a});
+
+instance NFData
+         DeregisterInstancesFromLoadBalancerResponse

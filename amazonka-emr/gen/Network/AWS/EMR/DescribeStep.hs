@@ -142,3 +142,5 @@ dsrsStep = lens _dsrsStep (\ s a -> s{_dsrsStep = a});
 -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStepResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+
+instance NFData DescribeStepResponse

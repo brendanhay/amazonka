@@ -175,3 +175,5 @@ luprsUniqueProblems = lens _luprsUniqueProblems (\ s a -> s{_luprsUniqueProblems
 -- | The response status code.
 luprsResponseStatus :: Lens' ListUniqueProblemsResponse Int
 luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus = a});
+
+instance NFData ListUniqueProblemsResponse

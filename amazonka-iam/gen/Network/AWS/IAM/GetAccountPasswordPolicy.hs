@@ -114,3 +114,5 @@ gapprsResponseStatus = lens _gapprsResponseStatus (\ s a -> s{_gapprsResponseSta
 -- | Undocumented member.
 gapprsPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 gapprsPasswordPolicy = lens _gapprsPasswordPolicy (\ s a -> s{_gapprsPasswordPolicy = a});
+
+instance NFData GetAccountPasswordPolicyResponse

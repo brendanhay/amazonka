@@ -203,3 +203,5 @@ lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a})
 -- | A list of the user\'s signing certificate information.
 lrsCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
 lrsCertificates = lens _lrsCertificates (\ s a -> s{_lrsCertificates = a}) . _Coerce;
+
+instance NFData ListSigningCertificatesResponse

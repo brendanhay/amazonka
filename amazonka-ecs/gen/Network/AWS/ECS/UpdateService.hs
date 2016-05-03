@@ -236,3 +236,5 @@ usrsService = lens _usrsService (\ s a -> s{_usrsService = a});
 -- | The response status code.
 usrsResponseStatus :: Lens' UpdateServiceResponse Int
 usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
+
+instance NFData UpdateServiceResponse

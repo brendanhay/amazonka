@@ -176,3 +176,5 @@ larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a});
 -- | The response status code.
 larsResponseStatus :: Lens' ListAliasesResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
+
+instance NFData ListAliasesResponse

@@ -196,3 +196,5 @@ desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a});
 -- | The response status code.
 desrsResponseStatus :: Lens' DescribeEventSubscriptionsResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+
+instance NFData DescribeEventSubscriptionsResponse

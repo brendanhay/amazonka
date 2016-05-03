@@ -244,3 +244,6 @@ dcpgrsParameterGroups = lens _dcpgrsParameterGroups (\ s a -> s{_dcpgrsParameter
 -- | The response status code.
 dcpgrsResponseStatus :: Lens' DescribeClusterParameterGroupsResponse Int
 dcpgrsResponseStatus = lens _dcpgrsResponseStatus (\ s a -> s{_dcpgrsResponseStatus = a});
+
+instance NFData
+         DescribeClusterParameterGroupsResponse

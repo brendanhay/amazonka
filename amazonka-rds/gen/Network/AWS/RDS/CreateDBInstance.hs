@@ -922,3 +922,5 @@ cdirsDBInstance = lens _cdirsDBInstance (\ s a -> s{_cdirsDBInstance = a});
 -- | The response status code.
 cdirsResponseStatus :: Lens' CreateDBInstanceResponse Int
 cdirsResponseStatus = lens _cdirsResponseStatus (\ s a -> s{_cdirsResponseStatus = a});
+
+instance NFData CreateDBInstanceResponse

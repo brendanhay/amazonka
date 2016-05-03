@@ -110,3 +110,5 @@ data DeleteConfigRuleResponse =
 deleteConfigRuleResponse
     :: DeleteConfigRuleResponse
 deleteConfigRuleResponse = DeleteConfigRuleResponse'
+
+instance NFData DeleteConfigRuleResponse

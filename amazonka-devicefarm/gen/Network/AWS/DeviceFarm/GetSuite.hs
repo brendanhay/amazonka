@@ -129,3 +129,5 @@ gsrsSuite = lens _gsrsSuite (\ s a -> s{_gsrsSuite = a});
 -- | The response status code.
 gsrsResponseStatus :: Lens' GetSuiteResponse Int
 gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
+
+instance NFData GetSuiteResponse

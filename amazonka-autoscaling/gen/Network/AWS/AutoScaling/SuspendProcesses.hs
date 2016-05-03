@@ -132,3 +132,5 @@ data SuspendProcessesResponse =
 suspendProcessesResponse
     :: SuspendProcessesResponse
 suspendProcessesResponse = SuspendProcessesResponse'
+
+instance NFData SuspendProcessesResponse

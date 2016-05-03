@@ -141,3 +141,5 @@ data SetQueueAttributesResponse =
 setQueueAttributesResponse
     :: SetQueueAttributesResponse
 setQueueAttributesResponse = SetQueueAttributesResponse'
+
+instance NFData SetQueueAttributesResponse

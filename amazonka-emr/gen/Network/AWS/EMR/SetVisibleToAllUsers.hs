@@ -125,3 +125,5 @@ data SetVisibleToAllUsersResponse =
 setVisibleToAllUsersResponse
     :: SetVisibleToAllUsersResponse
 setVisibleToAllUsersResponse = SetVisibleToAllUsersResponse'
+
+instance NFData SetVisibleToAllUsersResponse

@@ -340,3 +340,5 @@ arrsAssumedRoleUser = lens _arrsAssumedRoleUser (\ s a -> s{_arrsAssumedRoleUser
 -- | The response status code.
 arrsResponseStatus :: Lens' AssumeRoleResponse Int
 arrsResponseStatus = lens _arrsResponseStatus (\ s a -> s{_arrsResponseStatus = a});
+
+instance NFData AssumeRoleResponse

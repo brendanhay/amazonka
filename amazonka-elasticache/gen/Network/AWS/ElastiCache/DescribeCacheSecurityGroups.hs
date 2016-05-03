@@ -180,3 +180,5 @@ dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
 -- | The response status code.
 dcsgsrsResponseStatus :: Lens' DescribeCacheSecurityGroupsResponse Int
 dcsgsrsResponseStatus = lens _dcsgsrsResponseStatus (\ s a -> s{_dcsgsrsResponseStatus = a});
+
+instance NFData DescribeCacheSecurityGroupsResponse

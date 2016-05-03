@@ -127,3 +127,5 @@ ddbsrsDBSnapshot = lens _ddbsrsDBSnapshot (\ s a -> s{_ddbsrsDBSnapshot = a});
 -- | The response status code.
 ddbsrsResponseStatus :: Lens' DeleteDBSnapshotResponse Int
 ddbsrsResponseStatus = lens _ddbsrsResponseStatus (\ s a -> s{_ddbsrsResponseStatus = a});
+
+instance NFData DeleteDBSnapshotResponse

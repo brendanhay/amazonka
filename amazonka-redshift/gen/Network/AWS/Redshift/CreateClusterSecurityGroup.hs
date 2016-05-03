@@ -162,3 +162,5 @@ crsClusterSecurityGroup = lens _crsClusterSecurityGroup (\ s a -> s{_crsClusterS
 -- | The response status code.
 crsResponseStatus :: Lens' CreateClusterSecurityGroupResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CreateClusterSecurityGroupResponse

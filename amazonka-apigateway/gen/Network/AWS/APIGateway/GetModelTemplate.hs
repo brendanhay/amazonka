@@ -139,3 +139,5 @@ gmtrsValue = lens _gmtrsValue (\ s a -> s{_gmtrsValue = a});
 -- | The response status code.
 gmtrsResponseStatus :: Lens' GetModelTemplateResponse Int
 gmtrsResponseStatus = lens _gmtrsResponseStatus (\ s a -> s{_gmtrsResponseStatus = a});
+
+instance NFData GetModelTemplateResponse

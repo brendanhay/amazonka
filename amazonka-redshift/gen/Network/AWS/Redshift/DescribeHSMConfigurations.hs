@@ -233,3 +233,5 @@ dhcrsHSMConfigurations = lens _dhcrsHSMConfigurations (\ s a -> s{_dhcrsHSMConfi
 -- | The response status code.
 dhcrsResponseStatus :: Lens' DescribeHSMConfigurationsResponse Int
 dhcrsResponseStatus = lens _dhcrsResponseStatus (\ s a -> s{_dhcrsResponseStatus = a});
+
+instance NFData DescribeHSMConfigurationsResponse

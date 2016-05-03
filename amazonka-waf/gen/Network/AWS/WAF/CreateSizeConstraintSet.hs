@@ -174,3 +174,5 @@ cscsrsChangeToken = lens _cscsrsChangeToken (\ s a -> s{_cscsrsChangeToken = a})
 -- | The response status code.
 cscsrsResponseStatus :: Lens' CreateSizeConstraintSetResponse Int
 cscsrsResponseStatus = lens _cscsrsResponseStatus (\ s a -> s{_cscsrsResponseStatus = a});
+
+instance NFData CreateSizeConstraintSetResponse

@@ -110,3 +110,5 @@ data DeregisterElasticIPResponse =
 deregisterElasticIPResponse
     :: DeregisterElasticIPResponse
 deregisterElasticIPResponse = DeregisterElasticIPResponse'
+
+instance NFData DeregisterElasticIPResponse

@@ -171,3 +171,5 @@ diirsInstanceInformationList = lens _diirsInstanceInformationList (\ s a -> s{_d
 -- | The response status code.
 diirsResponseStatus :: Lens' DescribeInstanceInformationResponse Int
 diirsResponseStatus = lens _diirsResponseStatus (\ s a -> s{_diirsResponseStatus = a});
+
+instance NFData DescribeInstanceInformationResponse

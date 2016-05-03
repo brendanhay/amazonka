@@ -109,3 +109,5 @@ data CancelCertificateTransferResponse =
 cancelCertificateTransferResponse
     :: CancelCertificateTransferResponse
 cancelCertificateTransferResponse = CancelCertificateTransferResponse'
+
+instance NFData CancelCertificateTransferResponse

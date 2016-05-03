@@ -129,3 +129,5 @@ bsrsFieldNames = lens _bsrsFieldNames (\ s a -> s{_bsrsFieldNames = a}) . _Defau
 -- | The response status code.
 bsrsResponseStatus :: Lens' BuildSuggestersResponse Int
 bsrsResponseStatus = lens _bsrsResponseStatus (\ s a -> s{_bsrsResponseStatus = a});
+
+instance NFData BuildSuggestersResponse

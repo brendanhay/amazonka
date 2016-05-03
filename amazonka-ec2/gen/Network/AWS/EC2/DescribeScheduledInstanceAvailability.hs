@@ -249,3 +249,6 @@ dsiarsNextToken = lens _dsiarsNextToken (\ s a -> s{_dsiarsNextToken = a});
 -- | The response status code.
 dsiarsResponseStatus :: Lens' DescribeScheduledInstanceAvailabilityResponse Int
 dsiarsResponseStatus = lens _dsiarsResponseStatus (\ s a -> s{_dsiarsResponseStatus = a});
+
+instance NFData
+         DescribeScheduledInstanceAvailabilityResponse

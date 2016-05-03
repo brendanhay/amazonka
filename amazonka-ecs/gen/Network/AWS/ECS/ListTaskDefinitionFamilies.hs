@@ -191,3 +191,5 @@ ltdfrsNextToken = lens _ltdfrsNextToken (\ s a -> s{_ltdfrsNextToken = a});
 -- | The response status code.
 ltdfrsResponseStatus :: Lens' ListTaskDefinitionFamiliesResponse Int
 ltdfrsResponseStatus = lens _ltdfrsResponseStatus (\ s a -> s{_ltdfrsResponseStatus = a});
+
+instance NFData ListTaskDefinitionFamiliesResponse

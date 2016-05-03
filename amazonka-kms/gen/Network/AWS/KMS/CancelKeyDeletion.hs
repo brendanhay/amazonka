@@ -143,3 +143,5 @@ ckdrsKeyId = lens _ckdrsKeyId (\ s a -> s{_ckdrsKeyId = a});
 -- | The response status code.
 ckdrsResponseStatus :: Lens' CancelKeyDeletionResponse Int
 ckdrsResponseStatus = lens _ckdrsResponseStatus (\ s a -> s{_ckdrsResponseStatus = a});
+
+instance NFData CancelKeyDeletionResponse

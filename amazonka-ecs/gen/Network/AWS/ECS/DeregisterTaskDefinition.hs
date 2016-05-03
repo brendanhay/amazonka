@@ -142,3 +142,5 @@ dtdrsTaskDefinition = lens _dtdrsTaskDefinition (\ s a -> s{_dtdrsTaskDefinition
 -- | The response status code.
 dtdrsResponseStatus :: Lens' DeregisterTaskDefinitionResponse Int
 dtdrsResponseStatus = lens _dtdrsResponseStatus (\ s a -> s{_dtdrsResponseStatus = a});
+
+instance NFData DeregisterTaskDefinitionResponse

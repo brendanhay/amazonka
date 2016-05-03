@@ -105,3 +105,5 @@ data ModifySubnetAttributeResponse =
 modifySubnetAttributeResponse
     :: ModifySubnetAttributeResponse
 modifySubnetAttributeResponse = ModifySubnetAttributeResponse'
+
+instance NFData ModifySubnetAttributeResponse

@@ -191,3 +191,5 @@ lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = 
 -- Children: 'OperationId', 'Status', 'SubmittedDate', 'Type'
 lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a}) . _Coerce;
+
+instance NFData ListOperationsResponse

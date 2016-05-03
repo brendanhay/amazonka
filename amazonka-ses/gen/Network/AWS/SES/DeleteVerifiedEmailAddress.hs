@@ -102,3 +102,5 @@ data DeleteVerifiedEmailAddressResponse =
 deleteVerifiedEmailAddressResponse
     :: DeleteVerifiedEmailAddressResponse
 deleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse'
+
+instance NFData DeleteVerifiedEmailAddressResponse

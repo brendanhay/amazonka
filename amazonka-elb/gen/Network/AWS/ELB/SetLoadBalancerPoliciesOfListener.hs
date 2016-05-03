@@ -142,3 +142,6 @@ setLoadBalancerPoliciesOfListenerResponse pResponseStatus_ =
 -- | The response status code.
 slbpolrsResponseStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
 slbpolrsResponseStatus = lens _slbpolrsResponseStatus (\ s a -> s{_slbpolrsResponseStatus = a});
+
+instance NFData
+         SetLoadBalancerPoliciesOfListenerResponse

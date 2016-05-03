@@ -117,3 +117,5 @@ data DeleteVPNConnectionResponse =
 deleteVPNConnectionResponse
     :: DeleteVPNConnectionResponse
 deleteVPNConnectionResponse = DeleteVPNConnectionResponse'
+
+instance NFData DeleteVPNConnectionResponse

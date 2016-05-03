@@ -131,3 +131,5 @@ data DeleteInstanceResponse =
 deleteInstanceResponse
     :: DeleteInstanceResponse
 deleteInstanceResponse = DeleteInstanceResponse'
+
+instance NFData DeleteInstanceResponse

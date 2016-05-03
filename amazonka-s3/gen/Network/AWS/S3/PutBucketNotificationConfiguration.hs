@@ -116,3 +116,6 @@ putBucketNotificationConfigurationResponse
     :: PutBucketNotificationConfigurationResponse
 putBucketNotificationConfigurationResponse =
     PutBucketNotificationConfigurationResponse'
+
+instance NFData
+         PutBucketNotificationConfigurationResponse

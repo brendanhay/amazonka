@@ -109,3 +109,5 @@ data UnassignInstanceResponse =
 unassignInstanceResponse
     :: UnassignInstanceResponse
 unassignInstanceResponse = UnassignInstanceResponse'
+
+instance NFData UnassignInstanceResponse

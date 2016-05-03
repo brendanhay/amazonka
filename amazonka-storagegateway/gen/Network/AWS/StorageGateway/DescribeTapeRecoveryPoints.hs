@@ -198,3 +198,5 @@ dtrprsMarker = lens _dtrprsMarker (\ s a -> s{_dtrprsMarker = a});
 -- | The response status code.
 dtrprsResponseStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
 dtrprsResponseStatus = lens _dtrprsResponseStatus (\ s a -> s{_dtrprsResponseStatus = a});
+
+instance NFData DescribeTapeRecoveryPointsResponse

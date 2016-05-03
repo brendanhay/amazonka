@@ -110,3 +110,5 @@ data UnassignPrivateIPAddressesResponse =
 unassignPrivateIPAddressesResponse
     :: UnassignPrivateIPAddressesResponse
 unassignPrivateIPAddressesResponse = UnassignPrivateIPAddressesResponse'
+
+instance NFData UnassignPrivateIPAddressesResponse

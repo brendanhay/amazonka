@@ -156,3 +156,5 @@ cdbsgrsDBSecurityGroup = lens _cdbsgrsDBSecurityGroup (\ s a -> s{_cdbsgrsDBSecu
 -- | The response status code.
 cdbsgrsResponseStatus :: Lens' CreateDBSecurityGroupResponse Int
 cdbsgrsResponseStatus = lens _cdbsgrsResponseStatus (\ s a -> s{_cdbsgrsResponseStatus = a});
+
+instance NFData CreateDBSecurityGroupResponse

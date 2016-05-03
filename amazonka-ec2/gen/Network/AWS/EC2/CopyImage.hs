@@ -218,3 +218,5 @@ coprsImageId = lens _coprsImageId (\ s a -> s{_coprsImageId = a});
 -- | The response status code.
 coprsResponseStatus :: Lens' CopyImageResponse Int
 coprsResponseStatus = lens _coprsResponseStatus (\ s a -> s{_coprsResponseStatus = a});
+
+instance NFData CopyImageResponse

@@ -147,3 +147,5 @@ delrsGatewayARN = lens _delrsGatewayARN (\ s a -> s{_delrsGatewayARN = a});
 -- | The response status code.
 delrsResponseStatus :: Lens' DeleteBandwidthRateLimitResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+
+instance NFData DeleteBandwidthRateLimitResponse

@@ -384,3 +384,5 @@ ctrsIsMultiRegionTrail = lens _ctrsIsMultiRegionTrail (\ s a -> s{_ctrsIsMultiRe
 -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTrailResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+
+instance NFData CreateTrailResponse

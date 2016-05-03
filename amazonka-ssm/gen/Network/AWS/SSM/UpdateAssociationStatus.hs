@@ -152,3 +152,5 @@ uasrsAssociationDescription = lens _uasrsAssociationDescription (\ s a -> s{_uas
 -- | The response status code.
 uasrsResponseStatus :: Lens' UpdateAssociationStatusResponse Int
 uasrsResponseStatus = lens _uasrsResponseStatus (\ s a -> s{_uasrsResponseStatus = a});
+
+instance NFData UpdateAssociationStatusResponse

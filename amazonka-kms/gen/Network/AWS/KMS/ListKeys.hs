@@ -176,3 +176,5 @@ lkrsNextMarker = lens _lkrsNextMarker (\ s a -> s{_lkrsNextMarker = a});
 -- | The response status code.
 lkrsResponseStatus :: Lens' ListKeysResponse Int
 lkrsResponseStatus = lens _lkrsResponseStatus (\ s a -> s{_lkrsResponseStatus = a});
+
+instance NFData ListKeysResponse

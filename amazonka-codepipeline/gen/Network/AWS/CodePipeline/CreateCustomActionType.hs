@@ -209,3 +209,5 @@ ccatrsResponseStatus = lens _ccatrsResponseStatus (\ s a -> s{_ccatrsResponseSta
 -- | Undocumented member.
 ccatrsActionType :: Lens' CreateCustomActionTypeResponse ActionType
 ccatrsActionType = lens _ccatrsActionType (\ s a -> s{_ccatrsActionType = a});
+
+instance NFData CreateCustomActionTypeResponse

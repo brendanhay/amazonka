@@ -346,3 +346,5 @@ rdrsResponseStatus = lens _rdrsResponseStatus (\ s a -> s{_rdrsResponseStatus = 
 -- Constraints: Maximum 255 characters.
 rdrsOperationId :: Lens' RegisterDomainResponse Text
 rdrsOperationId = lens _rdrsOperationId (\ s a -> s{_rdrsOperationId = a});
+
+instance NFData RegisterDomainResponse

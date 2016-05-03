@@ -120,3 +120,5 @@ data PutConfigurationRecorderResponse =
 putConfigurationRecorderResponse
     :: PutConfigurationRecorderResponse
 putConfigurationRecorderResponse = PutConfigurationRecorderResponse'
+
+instance NFData PutConfigurationRecorderResponse

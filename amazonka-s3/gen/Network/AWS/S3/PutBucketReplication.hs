@@ -119,3 +119,5 @@ data PutBucketReplicationResponse =
 putBucketReplicationResponse
     :: PutBucketReplicationResponse
 putBucketReplicationResponse = PutBucketReplicationResponse'
+
+instance NFData PutBucketReplicationResponse

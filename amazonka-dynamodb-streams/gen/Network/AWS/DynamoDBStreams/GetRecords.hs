@@ -169,3 +169,5 @@ grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIt
 -- | The response status code.
 grrsResponseStatus :: Lens' GetRecordsResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+
+instance NFData GetRecordsResponse

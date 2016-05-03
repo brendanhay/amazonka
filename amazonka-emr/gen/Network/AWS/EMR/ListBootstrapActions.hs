@@ -167,3 +167,5 @@ lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a});
 -- | The response status code.
 lbarsResponseStatus :: Lens' ListBootstrapActionsResponse Int
 lbarsResponseStatus = lens _lbarsResponseStatus (\ s a -> s{_lbarsResponseStatus = a});
+
+instance NFData ListBootstrapActionsResponse

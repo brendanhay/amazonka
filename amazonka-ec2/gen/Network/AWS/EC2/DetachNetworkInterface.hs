@@ -118,3 +118,5 @@ data DetachNetworkInterfaceResponse =
 detachNetworkInterfaceResponse
     :: DetachNetworkInterfaceResponse
 detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse'
+
+instance NFData DetachNetworkInterfaceResponse

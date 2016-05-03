@@ -142,3 +142,5 @@ uprsProject = lens _uprsProject (\ s a -> s{_uprsProject = a});
 -- | The response status code.
 uprsResponseStatus :: Lens' UpdateProjectResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
+
+instance NFData UpdateProjectResponse

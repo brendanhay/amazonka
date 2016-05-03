@@ -191,3 +191,5 @@ dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\ s a -> s{_dcrsCache
 -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCacheResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+
+instance NFData DescribeCacheResponse

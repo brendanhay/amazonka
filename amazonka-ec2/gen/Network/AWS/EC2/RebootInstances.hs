@@ -115,3 +115,5 @@ data RebootInstancesResponse =
 rebootInstancesResponse
     :: RebootInstancesResponse
 rebootInstancesResponse = RebootInstancesResponse'
+
+instance NFData RebootInstancesResponse

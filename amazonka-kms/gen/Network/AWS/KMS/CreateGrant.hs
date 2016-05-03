@@ -270,3 +270,5 @@ cgrsGrantToken = lens _cgrsGrantToken (\ s a -> s{_cgrsGrantToken = a});
 -- | The response status code.
 cgrsResponseStatus :: Lens' CreateGrantResponse Int
 cgrsResponseStatus = lens _cgrsResponseStatus (\ s a -> s{_cgrsResponseStatus = a});
+
+instance NFData CreateGrantResponse

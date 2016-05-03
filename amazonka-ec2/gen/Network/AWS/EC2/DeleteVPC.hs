@@ -110,3 +110,5 @@ data DeleteVPCResponse =
 deleteVPCResponse
     :: DeleteVPCResponse
 deleteVPCResponse = DeleteVPCResponse'
+
+instance NFData DeleteVPCResponse

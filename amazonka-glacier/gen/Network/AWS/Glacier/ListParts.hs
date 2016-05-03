@@ -275,3 +275,5 @@ lprsCreationDate = lens _lprsCreationDate (\ s a -> s{_lprsCreationDate = a});
 -- | The response status code.
 lprsResponseStatus :: Lens' ListPartsResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+
+instance NFData ListPartsResponse

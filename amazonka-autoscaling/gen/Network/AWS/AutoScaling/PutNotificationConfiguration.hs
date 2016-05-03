@@ -130,3 +130,5 @@ data PutNotificationConfigurationResponse =
 putNotificationConfigurationResponse
     :: PutNotificationConfigurationResponse
 putNotificationConfigurationResponse = PutNotificationConfigurationResponse'
+
+instance NFData PutNotificationConfigurationResponse

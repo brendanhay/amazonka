@@ -144,3 +144,5 @@ acrsGatewayARN = lens _acrsGatewayARN (\ s a -> s{_acrsGatewayARN = a});
 -- | The response status code.
 acrsResponseStatus :: Lens' AddCacheResponse Int
 acrsResponseStatus = lens _acrsResponseStatus (\ s a -> s{_acrsResponseStatus = a});
+
+instance NFData AddCacheResponse

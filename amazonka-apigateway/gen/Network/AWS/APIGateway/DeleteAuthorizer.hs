@@ -107,3 +107,5 @@ data DeleteAuthorizerResponse =
 deleteAuthorizerResponse
     :: DeleteAuthorizerResponse
 deleteAuthorizerResponse = DeleteAuthorizerResponse'
+
+instance NFData DeleteAuthorizerResponse

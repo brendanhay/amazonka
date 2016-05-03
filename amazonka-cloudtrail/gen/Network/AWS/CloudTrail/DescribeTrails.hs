@@ -162,3 +162,5 @@ dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default 
 -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTrailsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+
+instance NFData DescribeTrailsResponse

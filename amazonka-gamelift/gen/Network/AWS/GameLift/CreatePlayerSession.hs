@@ -151,3 +151,5 @@ cpsrsPlayerSession = lens _cpsrsPlayerSession (\ s a -> s{_cpsrsPlayerSession = 
 -- | The response status code.
 cpsrsResponseStatus :: Lens' CreatePlayerSessionResponse Int
 cpsrsResponseStatus = lens _cpsrsResponseStatus (\ s a -> s{_cpsrsResponseStatus = a});
+
+instance NFData CreatePlayerSessionResponse

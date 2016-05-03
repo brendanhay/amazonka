@@ -113,3 +113,5 @@ data DeleteSigningCertificateResponse =
 deleteSigningCertificateResponse
     :: DeleteSigningCertificateResponse
 deleteSigningCertificateResponse = DeleteSigningCertificateResponse'
+
+instance NFData DeleteSigningCertificateResponse

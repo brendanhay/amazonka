@@ -136,3 +136,5 @@ dirsInterconnects = lens _dirsInterconnects (\ s a -> s{_dirsInterconnects = a})
 -- | The response status code.
 dirsResponseStatus :: Lens' DescribeInterconnectsResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+
+instance NFData DescribeInterconnectsResponse

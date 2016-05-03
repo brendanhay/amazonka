@@ -212,3 +212,5 @@ arsAssociationId = lens _arsAssociationId (\ s a -> s{_arsAssociationId = a});
 -- | The response status code.
 arsResponseStatus :: Lens' AssociateAddressResponse Int
 arsResponseStatus = lens _arsResponseStatus (\ s a -> s{_arsResponseStatus = a});
+
+instance NFData AssociateAddressResponse

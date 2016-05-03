@@ -108,3 +108,5 @@ data RejectCertificateTransferResponse =
 rejectCertificateTransferResponse
     :: RejectCertificateTransferResponse
 rejectCertificateTransferResponse = RejectCertificateTransferResponse'
+
+instance NFData RejectCertificateTransferResponse

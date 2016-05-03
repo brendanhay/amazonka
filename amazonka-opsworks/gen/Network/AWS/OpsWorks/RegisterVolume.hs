@@ -149,3 +149,5 @@ rvrsVolumeId = lens _rvrsVolumeId (\ s a -> s{_rvrsVolumeId = a});
 -- | The response status code.
 rvrsResponseStatus :: Lens' RegisterVolumeResponse Int
 rvrsResponseStatus = lens _rvrsResponseStatus (\ s a -> s{_rvrsResponseStatus = a});
+
+instance NFData RegisterVolumeResponse

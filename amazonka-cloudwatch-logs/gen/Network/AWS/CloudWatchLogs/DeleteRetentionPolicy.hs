@@ -106,3 +106,5 @@ data DeleteRetentionPolicyResponse =
 deleteRetentionPolicyResponse
     :: DeleteRetentionPolicyResponse
 deleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'
+
+instance NFData DeleteRetentionPolicyResponse

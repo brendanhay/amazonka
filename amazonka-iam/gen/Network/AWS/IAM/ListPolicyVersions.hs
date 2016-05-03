@@ -201,3 +201,5 @@ lpvrsIsTruncated = lens _lpvrsIsTruncated (\ s a -> s{_lpvrsIsTruncated = a});
 -- | The response status code.
 lpvrsResponseStatus :: Lens' ListPolicyVersionsResponse Int
 lpvrsResponseStatus = lens _lpvrsResponseStatus (\ s a -> s{_lpvrsResponseStatus = a});
+
+instance NFData ListPolicyVersionsResponse

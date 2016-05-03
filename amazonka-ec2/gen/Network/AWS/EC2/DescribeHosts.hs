@@ -191,3 +191,5 @@ dhrsNextToken = lens _dhrsNextToken (\ s a -> s{_dhrsNextToken = a});
 -- | The response status code.
 dhrsResponseStatus :: Lens' DescribeHostsResponse Int
 dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
+
+instance NFData DescribeHostsResponse

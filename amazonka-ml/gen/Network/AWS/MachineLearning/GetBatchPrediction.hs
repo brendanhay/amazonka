@@ -265,3 +265,5 @@ gbprsOutputURI = lens _gbprsOutputURI (\ s a -> s{_gbprsOutputURI = a});
 -- | The response status code.
 gbprsResponseStatus :: Lens' GetBatchPredictionResponse Int
 gbprsResponseStatus = lens _gbprsResponseStatus (\ s a -> s{_gbprsResponseStatus = a});
+
+instance NFData GetBatchPredictionResponse

@@ -110,3 +110,5 @@ data DeregisterRDSDBInstanceResponse =
 deregisterRDSDBInstanceResponse
     :: DeregisterRDSDBInstanceResponse
 deregisterRDSDBInstanceResponse = DeregisterRDSDBInstanceResponse'
+
+instance NFData DeregisterRDSDBInstanceResponse

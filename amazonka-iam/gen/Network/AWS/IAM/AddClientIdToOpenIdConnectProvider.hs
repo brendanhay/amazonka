@@ -121,3 +121,6 @@ addClientIdToOpenIdConnectProviderResponse
     :: AddClientIdToOpenIdConnectProviderResponse
 addClientIdToOpenIdConnectProviderResponse =
     AddClientIdToOpenIdConnectProviderResponse'
+
+instance NFData
+         AddClientIdToOpenIdConnectProviderResponse

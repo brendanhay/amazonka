@@ -113,3 +113,5 @@ data AcceptCertificateTransferResponse =
 acceptCertificateTransferResponse
     :: AcceptCertificateTransferResponse
 acceptCertificateTransferResponse = AcceptCertificateTransferResponse'
+
+instance NFData AcceptCertificateTransferResponse

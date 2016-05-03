@@ -255,3 +255,5 @@ prrsShardId = lens _prrsShardId (\ s a -> s{_prrsShardId = a});
 -- put into the stream.
 prrsSequenceNumber :: Lens' PutRecordResponse Text
 prrsSequenceNumber = lens _prrsSequenceNumber (\ s a -> s{_prrsSequenceNumber = a});
+
+instance NFData PutRecordResponse

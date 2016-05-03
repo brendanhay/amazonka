@@ -204,3 +204,5 @@ cnirsNetworkInterface = lens _cnirsNetworkInterface (\ s a -> s{_cnirsNetworkInt
 -- | The response status code.
 cnirsResponseStatus :: Lens' CreateNetworkInterfaceResponse Int
 cnirsResponseStatus = lens _cnirsResponseStatus (\ s a -> s{_cnirsResponseStatus = a});
+
+instance NFData CreateNetworkInterfaceResponse

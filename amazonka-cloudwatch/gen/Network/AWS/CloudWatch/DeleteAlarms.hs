@@ -93,3 +93,5 @@ data DeleteAlarmsResponse =
 deleteAlarmsResponse
     :: DeleteAlarmsResponse
 deleteAlarmsResponse = DeleteAlarmsResponse'
+
+instance NFData DeleteAlarmsResponse

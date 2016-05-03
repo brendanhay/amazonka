@@ -187,3 +187,5 @@ mdirsIdentityId = lens _mdirsIdentityId (\ s a -> s{_mdirsIdentityId = a});
 -- | The response status code.
 mdirsResponseStatus :: Lens' MergeDeveloperIdentitiesResponse Int
 mdirsResponseStatus = lens _mdirsResponseStatus (\ s a -> s{_mdirsResponseStatus = a});
+
+instance NFData MergeDeveloperIdentitiesResponse

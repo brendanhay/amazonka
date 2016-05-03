@@ -199,3 +199,5 @@ drnorsMarker = lens _drnorsMarker (\ s a -> s{_drnorsMarker = a});
 -- | The response status code.
 drnorsResponseStatus :: Lens' DescribeReservedNodeOfferingsResponse Int
 drnorsResponseStatus = lens _drnorsResponseStatus (\ s a -> s{_drnorsResponseStatus = a});
+
+instance NFData DescribeReservedNodeOfferingsResponse

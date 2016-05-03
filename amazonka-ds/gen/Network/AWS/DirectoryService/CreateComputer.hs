@@ -179,3 +179,5 @@ ccrsComputer = lens _ccrsComputer (\ s a -> s{_ccrsComputer = a});
 -- | The response status code.
 ccrsResponseStatus :: Lens' CreateComputerResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+
+instance NFData CreateComputerResponse

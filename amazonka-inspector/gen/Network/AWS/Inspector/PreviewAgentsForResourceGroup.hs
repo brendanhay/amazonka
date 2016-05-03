@@ -171,3 +171,5 @@ pafrgrsNextToken = lens _pafrgrsNextToken (\ s a -> s{_pafrgrsNextToken = a});
 -- | The response status code.
 pafrgrsResponseStatus :: Lens' PreviewAgentsForResourceGroupResponse Int
 pafrgrsResponseStatus = lens _pafrgrsResponseStatus (\ s a -> s{_pafrgrsResponseStatus = a});
+
+instance NFData PreviewAgentsForResourceGroupResponse

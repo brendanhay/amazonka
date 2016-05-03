@@ -137,3 +137,5 @@ uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanc
 -- | The response status code.
 uirsResponseStatus :: Lens' UnmonitorInstancesResponse Int
 uirsResponseStatus = lens _uirsResponseStatus (\ s a -> s{_uirsResponseStatus = a});
+
+instance NFData UnmonitorInstancesResponse

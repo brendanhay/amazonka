@@ -110,3 +110,5 @@ data TerminateJobFlowsResponse =
 terminateJobFlowsResponse
     :: TerminateJobFlowsResponse
 terminateJobFlowsResponse = TerminateJobFlowsResponse'
+
+instance NFData TerminateJobFlowsResponse

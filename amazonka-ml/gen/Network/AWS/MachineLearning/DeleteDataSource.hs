@@ -137,3 +137,5 @@ ddsrsDataSourceId = lens _ddsrsDataSourceId (\ s a -> s{_ddsrsDataSourceId = a})
 -- | The response status code.
 ddsrsResponseStatus :: Lens' DeleteDataSourceResponse Int
 ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});
+
+instance NFData DeleteDataSourceResponse

@@ -122,3 +122,5 @@ data AssignVolumeResponse =
 assignVolumeResponse
     :: AssignVolumeResponse
 assignVolumeResponse = AssignVolumeResponse'
+
+instance NFData AssignVolumeResponse

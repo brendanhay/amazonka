@@ -187,3 +187,5 @@ cdrsDirectoryId = lens _cdrsDirectoryId (\ s a -> s{_cdrsDirectoryId = a});
 -- | The response status code.
 cdrsResponseStatus :: Lens' ConnectDirectoryResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+
+instance NFData ConnectDirectoryResponse

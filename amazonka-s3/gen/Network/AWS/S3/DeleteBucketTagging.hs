@@ -91,3 +91,5 @@ data DeleteBucketTaggingResponse =
 deleteBucketTaggingResponse
     :: DeleteBucketTaggingResponse
 deleteBucketTaggingResponse = DeleteBucketTaggingResponse'
+
+instance NFData DeleteBucketTaggingResponse

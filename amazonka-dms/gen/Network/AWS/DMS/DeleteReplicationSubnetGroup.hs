@@ -124,3 +124,5 @@ deleteReplicationSubnetGroupResponse pResponseStatus_ =
 -- | The response status code.
 drsgrsResponseStatus :: Lens' DeleteReplicationSubnetGroupResponse Int
 drsgrsResponseStatus = lens _drsgrsResponseStatus (\ s a -> s{_drsgrsResponseStatus = a});
+
+instance NFData DeleteReplicationSubnetGroupResponse

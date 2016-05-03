@@ -155,3 +155,5 @@ lsrsSuites = lens _lsrsSuites (\ s a -> s{_lsrsSuites = a}) . _Default . _Coerce
 -- | The response status code.
 lsrsResponseStatus :: Lens' ListSuitesResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
+
+instance NFData ListSuitesResponse

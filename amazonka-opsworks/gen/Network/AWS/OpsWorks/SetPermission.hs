@@ -160,3 +160,5 @@ data SetPermissionResponse =
 setPermissionResponse
     :: SetPermissionResponse
 setPermissionResponse = SetPermissionResponse'
+
+instance NFData SetPermissionResponse

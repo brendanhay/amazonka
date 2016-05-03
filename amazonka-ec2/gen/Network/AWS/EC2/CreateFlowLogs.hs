@@ -210,3 +210,5 @@ cflrsFlowLogIds = lens _cflrsFlowLogIds (\ s a -> s{_cflrsFlowLogIds = a}) . _De
 -- | The response status code.
 cflrsResponseStatus :: Lens' CreateFlowLogsResponse Int
 cflrsResponseStatus = lens _cflrsResponseStatus (\ s a -> s{_cflrsResponseStatus = a});
+
+instance NFData CreateFlowLogsResponse

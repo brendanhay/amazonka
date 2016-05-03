@@ -97,3 +97,5 @@ data DisableAlarmActionsResponse =
 disableAlarmActionsResponse
     :: DisableAlarmActionsResponse
 disableAlarmActionsResponse = DisableAlarmActionsResponse'
+
+instance NFData DisableAlarmActionsResponse

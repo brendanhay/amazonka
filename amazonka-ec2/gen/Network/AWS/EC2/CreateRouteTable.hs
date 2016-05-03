@@ -136,3 +136,5 @@ crtrsRouteTable = lens _crtrsRouteTable (\ s a -> s{_crtrsRouteTable = a});
 -- | The response status code.
 crtrsResponseStatus :: Lens' CreateRouteTableResponse Int
 crtrsResponseStatus = lens _crtrsResponseStatus (\ s a -> s{_crtrsResponseStatus = a});
+
+instance NFData CreateRouteTableResponse

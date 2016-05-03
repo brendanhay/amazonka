@@ -99,3 +99,5 @@ data SetLoggingOptionsResponse =
 setLoggingOptionsResponse
     :: SetLoggingOptionsResponse
 setLoggingOptionsResponse = SetLoggingOptionsResponse'
+
+instance NFData SetLoggingOptionsResponse

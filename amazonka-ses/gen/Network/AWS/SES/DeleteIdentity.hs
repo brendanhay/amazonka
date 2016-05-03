@@ -113,3 +113,5 @@ deleteIdentityResponse pResponseStatus_ =
 -- | The response status code.
 dirsResponseStatus :: Lens' DeleteIdentityResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+
+instance NFData DeleteIdentityResponse

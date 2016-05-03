@@ -149,3 +149,5 @@ gccrsPosition = lens _gccrsPosition (\ s a -> s{_gccrsPosition = a});
 -- | The response status code.
 gccrsResponseStatus :: Lens' GetClientCertificatesResponse Int
 gccrsResponseStatus = lens _gccrsResponseStatus (\ s a -> s{_gccrsResponseStatus = a});
+
+instance NFData GetClientCertificatesResponse

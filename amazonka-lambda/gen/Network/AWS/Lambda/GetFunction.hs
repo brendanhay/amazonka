@@ -168,3 +168,5 @@ gfrsConfiguration = lens _gfrsConfiguration (\ s a -> s{_gfrsConfiguration = a})
 -- | The response status code.
 gfrsResponseStatus :: Lens' GetFunctionResponse Int
 gfrsResponseStatus = lens _gfrsResponseStatus (\ s a -> s{_gfrsResponseStatus = a});
+
+instance NFData GetFunctionResponse

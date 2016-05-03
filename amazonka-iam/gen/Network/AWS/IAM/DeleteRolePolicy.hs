@@ -112,3 +112,5 @@ data DeleteRolePolicyResponse =
 deleteRolePolicyResponse
     :: DeleteRolePolicyResponse
 deleteRolePolicyResponse = DeleteRolePolicyResponse'
+
+instance NFData DeleteRolePolicyResponse

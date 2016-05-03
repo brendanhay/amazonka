@@ -156,3 +156,6 @@ prcnorsReservedCacheNode = lens _prcnorsReservedCacheNode (\ s a -> s{_prcnorsRe
 -- | The response status code.
 prcnorsResponseStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
 prcnorsResponseStatus = lens _prcnorsResponseStatus (\ s a -> s{_prcnorsResponseStatus = a});
+
+instance NFData
+         PurchaseReservedCacheNodesOfferingResponse

@@ -124,3 +124,5 @@ deleteTrafficPolicyResponse pResponseStatus_ =
 -- | The response status code.
 dtprsResponseStatus :: Lens' DeleteTrafficPolicyResponse Int
 dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a});
+
+instance NFData DeleteTrafficPolicyResponse

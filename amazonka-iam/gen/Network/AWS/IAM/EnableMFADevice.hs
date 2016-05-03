@@ -129,3 +129,5 @@ data EnableMFADeviceResponse =
 enableMFADeviceResponse
     :: EnableMFADeviceResponse
 enableMFADeviceResponse = EnableMFADeviceResponse'
+
+instance NFData EnableMFADeviceResponse

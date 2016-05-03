@@ -119,3 +119,5 @@ data DeleteVaultAccessPolicyResponse =
 deleteVaultAccessPolicyResponse
     :: DeleteVaultAccessPolicyResponse
 deleteVaultAccessPolicyResponse = DeleteVaultAccessPolicyResponse'
+
+instance NFData DeleteVaultAccessPolicyResponse

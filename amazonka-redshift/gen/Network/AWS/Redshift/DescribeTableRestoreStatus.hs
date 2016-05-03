@@ -179,3 +179,5 @@ dtrsrsTableRestoreStatusDetails = lens _dtrsrsTableRestoreStatusDetails (\ s a -
 -- | The response status code.
 dtrsrsResponseStatus :: Lens' DescribeTableRestoreStatusResponse Int
 dtrsrsResponseStatus = lens _dtrsrsResponseStatus (\ s a -> s{_dtrsrsResponseStatus = a});
+
+instance NFData DescribeTableRestoreStatusResponse

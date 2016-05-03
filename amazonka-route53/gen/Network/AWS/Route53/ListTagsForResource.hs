@@ -140,3 +140,5 @@ ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseSta
 -- resource.
 ltfrrsResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
 ltfrrsResourceTagSet = lens _ltfrrsResourceTagSet (\ s a -> s{_ltfrrsResourceTagSet = a});
+
+instance NFData ListTagsForResourceResponse

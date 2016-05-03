@@ -115,3 +115,5 @@ lbrsOwner = lens _lbrsOwner (\ s a -> s{_lbrsOwner = a});
 -- | The response status code.
 lbrsResponseStatus :: Lens' ListBucketsResponse Int
 lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
+
+instance NFData ListBucketsResponse

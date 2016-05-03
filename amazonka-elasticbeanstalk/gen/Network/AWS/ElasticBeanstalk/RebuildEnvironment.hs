@@ -115,3 +115,5 @@ data RebuildEnvironmentResponse =
 rebuildEnvironmentResponse
     :: RebuildEnvironmentResponse
 rebuildEnvironmentResponse = RebuildEnvironmentResponse'
+
+instance NFData RebuildEnvironmentResponse

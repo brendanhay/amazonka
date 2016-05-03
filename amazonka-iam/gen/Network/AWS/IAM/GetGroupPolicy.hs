@@ -165,3 +165,5 @@ ggprsPolicyName = lens _ggprsPolicyName (\ s a -> s{_ggprsPolicyName = a});
 -- | The policy document.
 ggprsPolicyDocument :: Lens' GetGroupPolicyResponse Text
 ggprsPolicyDocument = lens _ggprsPolicyDocument (\ s a -> s{_ggprsPolicyDocument = a});
+
+instance NFData GetGroupPolicyResponse

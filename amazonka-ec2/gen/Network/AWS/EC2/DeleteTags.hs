@@ -124,3 +124,5 @@ data DeleteTagsResponse =
 deleteTagsResponse
     :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse'
+
+instance NFData DeleteTagsResponse

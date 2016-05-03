@@ -108,3 +108,5 @@ data DeregisterImageResponse =
 deregisterImageResponse
     :: DeregisterImageResponse
 deregisterImageResponse = DeregisterImageResponse'
+
+instance NFData DeregisterImageResponse

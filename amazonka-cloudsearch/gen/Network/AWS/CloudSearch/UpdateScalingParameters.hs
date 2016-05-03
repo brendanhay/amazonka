@@ -148,3 +148,5 @@ usprsResponseStatus = lens _usprsResponseStatus (\ s a -> s{_usprsResponseStatus
 -- | Undocumented member.
 usprsScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
 usprsScalingParameters = lens _usprsScalingParameters (\ s a -> s{_usprsScalingParameters = a});
+
+instance NFData UpdateScalingParametersResponse

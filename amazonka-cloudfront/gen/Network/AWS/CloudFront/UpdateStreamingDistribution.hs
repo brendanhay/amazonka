@@ -161,3 +161,5 @@ usdrsStreamingDistribution = lens _usdrsStreamingDistribution (\ s a -> s{_usdrs
 -- | The response status code.
 usdrsResponseStatus :: Lens' UpdateStreamingDistributionResponse Int
 usdrsResponseStatus = lens _usdrsResponseStatus (\ s a -> s{_usdrsResponseStatus = a});
+
+instance NFData UpdateStreamingDistributionResponse

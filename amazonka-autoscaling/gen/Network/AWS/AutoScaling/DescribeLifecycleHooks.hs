@@ -135,3 +135,5 @@ dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\ s a -> s{_dlhrsLifecycleHooks
 -- | The response status code.
 dlhrsResponseStatus :: Lens' DescribeLifecycleHooksResponse Int
 dlhrsResponseStatus = lens _dlhrsResponseStatus (\ s a -> s{_dlhrsResponseStatus = a});
+
+instance NFData DescribeLifecycleHooksResponse

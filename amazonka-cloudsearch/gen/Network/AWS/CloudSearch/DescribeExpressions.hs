@@ -161,3 +161,5 @@ drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 -- | The expressions configured for the domain.
 drsExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
 drsExpressions = lens _drsExpressions (\ s a -> s{_drsExpressions = a}) . _Coerce;
+
+instance NFData DescribeExpressionsResponse

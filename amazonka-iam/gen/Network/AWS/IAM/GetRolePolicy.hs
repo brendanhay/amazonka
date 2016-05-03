@@ -168,3 +168,5 @@ grprsPolicyName = lens _grprsPolicyName (\ s a -> s{_grprsPolicyName = a});
 -- | The policy document.
 grprsPolicyDocument :: Lens' GetRolePolicyResponse Text
 grprsPolicyDocument = lens _grprsPolicyDocument (\ s a -> s{_grprsPolicyDocument = a});
+
+instance NFData GetRolePolicyResponse

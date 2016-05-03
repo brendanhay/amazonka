@@ -127,3 +127,5 @@ grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = 
 -- | Information about the role.
 grrsRole :: Lens' GetRoleResponse Role
 grrsRole = lens _grrsRole (\ s a -> s{_grrsRole = a});
+
+instance NFData GetRoleResponse

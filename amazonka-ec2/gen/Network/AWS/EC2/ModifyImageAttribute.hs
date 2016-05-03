@@ -196,3 +196,5 @@ data ModifyImageAttributeResponse =
 modifyImageAttributeResponse
     :: ModifyImageAttributeResponse
 modifyImageAttributeResponse = ModifyImageAttributeResponse'
+
+instance NFData ModifyImageAttributeResponse

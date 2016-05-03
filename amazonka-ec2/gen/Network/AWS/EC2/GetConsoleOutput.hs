@@ -172,3 +172,5 @@ gcorsTimestamp = lens _gcorsTimestamp (\ s a -> s{_gcorsTimestamp = a}) . mappin
 -- | The response status code.
 gcorsResponseStatus :: Lens' GetConsoleOutputResponse Int
 gcorsResponseStatus = lens _gcorsResponseStatus (\ s a -> s{_gcorsResponseStatus = a});
+
+instance NFData GetConsoleOutputResponse

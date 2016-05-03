@@ -174,3 +174,5 @@ dssrsDescription = lens _dssrsDescription (\ s a -> s{_dssrsDescription = a});
 -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeSnapshotScheduleResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+
+instance NFData DescribeSnapshotScheduleResponse

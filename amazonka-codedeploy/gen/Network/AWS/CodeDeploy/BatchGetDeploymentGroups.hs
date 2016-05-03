@@ -157,3 +157,5 @@ bgdgrsErrorMessage = lens _bgdgrsErrorMessage (\ s a -> s{_bgdgrsErrorMessage = 
 -- | The response status code.
 bgdgrsResponseStatus :: Lens' BatchGetDeploymentGroupsResponse Int
 bgdgrsResponseStatus = lens _bgdgrsResponseStatus (\ s a -> s{_bgdgrsResponseStatus = a});
+
+instance NFData BatchGetDeploymentGroupsResponse

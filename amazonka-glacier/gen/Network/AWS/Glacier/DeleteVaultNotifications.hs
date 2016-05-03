@@ -127,3 +127,5 @@ data DeleteVaultNotificationsResponse =
 deleteVaultNotificationsResponse
     :: DeleteVaultNotificationsResponse
 deleteVaultNotificationsResponse = DeleteVaultNotificationsResponse'
+
+instance NFData DeleteVaultNotificationsResponse

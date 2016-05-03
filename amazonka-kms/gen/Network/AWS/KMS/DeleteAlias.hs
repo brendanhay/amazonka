@@ -103,3 +103,5 @@ data DeleteAliasResponse =
 deleteAliasResponse
     :: DeleteAliasResponse
 deleteAliasResponse = DeleteAliasResponse'
+
+instance NFData DeleteAliasResponse

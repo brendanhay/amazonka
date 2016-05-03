@@ -176,3 +176,5 @@ data PutSubscriptionFilterResponse =
 putSubscriptionFilterResponse
     :: PutSubscriptionFilterResponse
 putSubscriptionFilterResponse = PutSubscriptionFilterResponse'
+
+instance NFData PutSubscriptionFilterResponse

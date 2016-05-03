@@ -163,3 +163,5 @@ cdcrsDeploymentConfigId = lens _cdcrsDeploymentConfigId (\ s a -> s{_cdcrsDeploy
 -- | The response status code.
 cdcrsResponseStatus :: Lens' CreateDeploymentConfigResponse Int
 cdcrsResponseStatus = lens _cdcrsResponseStatus (\ s a -> s{_cdcrsResponseStatus = a});
+
+instance NFData CreateDeploymentConfigResponse

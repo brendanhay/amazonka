@@ -195,3 +195,5 @@ ddsgrsMarker = lens _ddsgrsMarker (\ s a -> s{_ddsgrsMarker = a});
 -- | The response status code.
 ddsgrsResponseStatus :: Lens' DescribeDBSubnetGroupsResponse Int
 ddsgrsResponseStatus = lens _ddsgrsResponseStatus (\ s a -> s{_ddsgrsResponseStatus = a});
+
+instance NFData DescribeDBSubnetGroupsResponse

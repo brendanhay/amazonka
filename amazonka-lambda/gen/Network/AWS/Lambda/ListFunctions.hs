@@ -162,3 +162,5 @@ lfrsFunctions = lens _lfrsFunctions (\ s a -> s{_lfrsFunctions = a}) . _Default 
 -- | The response status code.
 lfrsResponseStatus :: Lens' ListFunctionsResponse Int
 lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = a});
+
+instance NFData ListFunctionsResponse

@@ -131,3 +131,5 @@ data PutBucketVersioningResponse =
 putBucketVersioningResponse
     :: PutBucketVersioningResponse
 putBucketVersioningResponse = PutBucketVersioningResponse'
+
+instance NFData PutBucketVersioningResponse

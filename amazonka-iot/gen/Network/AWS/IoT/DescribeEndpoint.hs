@@ -109,3 +109,5 @@ dersEndpointAddress = lens _dersEndpointAddress (\ s a -> s{_dersEndpointAddress
 -- | The response status code.
 dersResponseStatus :: Lens' DescribeEndpointResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
+
+instance NFData DescribeEndpointResponse

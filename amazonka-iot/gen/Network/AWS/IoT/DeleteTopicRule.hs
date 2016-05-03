@@ -92,3 +92,5 @@ data DeleteTopicRuleResponse =
 deleteTopicRuleResponse
     :: DeleteTopicRuleResponse
 deleteTopicRuleResponse = DeleteTopicRuleResponse'
+
+instance NFData DeleteTopicRuleResponse

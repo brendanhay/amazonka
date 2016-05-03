@@ -117,3 +117,5 @@ data PutBucketCORSResponse =
 putBucketCORSResponse
     :: PutBucketCORSResponse
 putBucketCORSResponse = PutBucketCORSResponse'
+
+instance NFData PutBucketCORSResponse

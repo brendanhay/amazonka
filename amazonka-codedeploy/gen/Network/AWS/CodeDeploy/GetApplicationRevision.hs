@@ -165,3 +165,5 @@ garrsRevision = lens _garrsRevision (\ s a -> s{_garrsRevision = a});
 -- | The response status code.
 garrsResponseStatus :: Lens' GetApplicationRevisionResponse Int
 garrsResponseStatus = lens _garrsResponseStatus (\ s a -> s{_garrsResponseStatus = a});
+
+instance NFData GetApplicationRevisionResponse

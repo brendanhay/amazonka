@@ -128,3 +128,5 @@ data CreateBranchResponse =
 createBranchResponse
     :: CreateBranchResponse
 createBranchResponse = CreateBranchResponse'
+
+instance NFData CreateBranchResponse

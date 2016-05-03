@@ -151,3 +151,5 @@ data BatchPutAttributesResponse =
 batchPutAttributesResponse
     :: BatchPutAttributesResponse
 batchPutAttributesResponse = BatchPutAttributesResponse'
+
+instance NFData BatchPutAttributesResponse

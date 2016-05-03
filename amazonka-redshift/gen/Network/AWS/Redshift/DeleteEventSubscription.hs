@@ -99,3 +99,5 @@ data DeleteEventSubscriptionResponse =
 deleteEventSubscriptionResponse
     :: DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
+
+instance NFData DeleteEventSubscriptionResponse

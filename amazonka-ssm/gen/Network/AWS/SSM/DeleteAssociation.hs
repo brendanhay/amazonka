@@ -134,3 +134,5 @@ deleteAssociationResponse pResponseStatus_ =
 -- | The response status code.
 delrsResponseStatus :: Lens' DeleteAssociationResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+
+instance NFData DeleteAssociationResponse

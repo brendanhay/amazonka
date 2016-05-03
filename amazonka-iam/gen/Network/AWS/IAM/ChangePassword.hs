@@ -111,3 +111,5 @@ data ChangePasswordResponse =
 changePasswordResponse
     :: ChangePasswordResponse
 changePasswordResponse = ChangePasswordResponse'
+
+instance NFData ChangePasswordResponse

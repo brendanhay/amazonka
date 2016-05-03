@@ -173,3 +173,6 @@ dncrsResponseStatus = lens _dncrsResponseStatus (\ s a -> s{_dncrsResponseStatus
 -- | The notification configurations.
 dncrsNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
 dncrsNotificationConfigurations = lens _dncrsNotificationConfigurations (\ s a -> s{_dncrsNotificationConfigurations = a}) . _Coerce;
+
+instance NFData
+         DescribeNotificationConfigurationsResponse

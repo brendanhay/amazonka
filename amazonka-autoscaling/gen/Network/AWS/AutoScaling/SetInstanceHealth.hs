@@ -128,3 +128,5 @@ data SetInstanceHealthResponse =
 setInstanceHealthResponse
     :: SetInstanceHealthResponse
 setInstanceHealthResponse = SetInstanceHealthResponse'
+
+instance NFData SetInstanceHealthResponse

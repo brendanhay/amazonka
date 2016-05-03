@@ -182,3 +182,5 @@ lfrsFindingARNList = lens _lfrsFindingARNList (\ s a -> s{_lfrsFindingARNList = 
 -- | The response status code.
 lfrsResponseStatus :: Lens' ListFindingsResponse Int
 lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = a});
+
+instance NFData ListFindingsResponse

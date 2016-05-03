@@ -163,3 +163,5 @@ cdprsDevicePool = lens _cdprsDevicePool (\ s a -> s{_cdprsDevicePool = a});
 -- | The response status code.
 cdprsResponseStatus :: Lens' CreateDevicePoolResponse Int
 cdprsResponseStatus = lens _cdprsResponseStatus (\ s a -> s{_cdprsResponseStatus = a});
+
+instance NFData CreateDevicePoolResponse

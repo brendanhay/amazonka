@@ -178,3 +178,5 @@ cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus
 --     registry is performing maintenance. Try again later.
 cdarsAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarsAvailability = lens _cdarsAvailability (\ s a -> s{_cdarsAvailability = a});
+
+instance NFData CheckDomainAvailabilityResponse

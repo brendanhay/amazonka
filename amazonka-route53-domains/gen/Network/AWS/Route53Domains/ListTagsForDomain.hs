@@ -152,3 +152,5 @@ ltfdrsResponseStatus = lens _ltfdrsResponseStatus (\ s a -> s{_ltfdrsResponseSta
 --
 ltfdrsTagList :: Lens' ListTagsForDomainResponse [Tag]
 ltfdrsTagList = lens _ltfdrsTagList (\ s a -> s{_ltfdrsTagList = a}) . _Coerce;
+
+instance NFData ListTagsForDomainResponse

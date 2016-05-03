@@ -140,3 +140,5 @@ setReceiptRulePositionResponse pResponseStatus_ =
 -- | The response status code.
 srrprsResponseStatus :: Lens' SetReceiptRulePositionResponse Int
 srrprsResponseStatus = lens _srrprsResponseStatus (\ s a -> s{_srrprsResponseStatus = a});
+
+instance NFData SetReceiptRulePositionResponse

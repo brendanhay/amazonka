@@ -178,3 +178,5 @@ lfrsFleetIds = lens _lfrsFleetIds (\ s a -> s{_lfrsFleetIds = a}) . mapping _Lis
 -- | The response status code.
 lfrsResponseStatus :: Lens' ListFleetsResponse Int
 lfrsResponseStatus = lens _lfrsResponseStatus (\ s a -> s{_lfrsResponseStatus = a});
+
+instance NFData ListFleetsResponse

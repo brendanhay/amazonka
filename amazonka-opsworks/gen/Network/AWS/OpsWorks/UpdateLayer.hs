@@ -294,3 +294,5 @@ data UpdateLayerResponse =
 updateLayerResponse
     :: UpdateLayerResponse
 updateLayerResponse = UpdateLayerResponse'
+
+instance NFData UpdateLayerResponse

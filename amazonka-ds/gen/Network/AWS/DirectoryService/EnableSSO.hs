@@ -152,3 +152,5 @@ enableSSOResponse pResponseStatus_ =
 -- | The response status code.
 esrsResponseStatus :: Lens' EnableSSOResponse Int
 esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});
+
+instance NFData EnableSSOResponse

@@ -133,3 +133,5 @@ drssrsRefreshSchemasStatus = lens _drssrsRefreshSchemasStatus (\ s a -> s{_drssr
 -- | The response status code.
 drssrsResponseStatus :: Lens' DescribeRefreshSchemasStatusResponse Int
 drssrsResponseStatus = lens _drssrsResponseStatus (\ s a -> s{_drssrsResponseStatus = a});
+
+instance NFData DescribeRefreshSchemasStatusResponse

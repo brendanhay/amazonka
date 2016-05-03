@@ -195,3 +195,5 @@ ctrsTapeARNs = lens _ctrsTapeARNs (\ s a -> s{_ctrsTapeARNs = a}) . _Default . _
 -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTapesResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+
+instance NFData CreateTapesResponse

@@ -140,3 +140,5 @@ data CompleteVaultLockResponse =
 completeVaultLockResponse
     :: CompleteVaultLockResponse
 completeVaultLockResponse = CompleteVaultLockResponse'
+
+instance NFData CompleteVaultLockResponse

@@ -185,3 +185,6 @@ crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> 
 -- | The response status code.
 crersResponseStatus :: Lens' CreateReservedInstancesListingResponse Int
 crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+
+instance NFData
+         CreateReservedInstancesListingResponse

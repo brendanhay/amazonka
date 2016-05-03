@@ -217,3 +217,5 @@ data RevokeSecurityGroupIngressResponse =
 revokeSecurityGroupIngressResponse
     :: RevokeSecurityGroupIngressResponse
 revokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse'
+
+instance NFData RevokeSecurityGroupIngressResponse

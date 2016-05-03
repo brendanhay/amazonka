@@ -124,3 +124,5 @@ data AssignInstanceResponse =
 assignInstanceResponse
     :: AssignInstanceResponse
 assignInstanceResponse = AssignInstanceResponse'
+
+instance NFData AssignInstanceResponse

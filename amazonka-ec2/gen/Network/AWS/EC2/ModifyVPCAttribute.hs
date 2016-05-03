@@ -128,3 +128,5 @@ data ModifyVPCAttributeResponse =
 modifyVPCAttributeResponse
     :: ModifyVPCAttributeResponse
 modifyVPCAttributeResponse = ModifyVPCAttributeResponse'
+
+instance NFData ModifyVPCAttributeResponse

@@ -287,3 +287,5 @@ rsirsSpotInstanceRequests = lens _rsirsSpotInstanceRequests (\ s a -> s{_rsirsSp
 -- | The response status code.
 rsirsResponseStatus :: Lens' RequestSpotInstancesResponse Int
 rsirsResponseStatus = lens _rsirsResponseStatus (\ s a -> s{_rsirsResponseStatus = a});
+
+instance NFData RequestSpotInstancesResponse

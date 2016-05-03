@@ -110,3 +110,5 @@ deleteThingResponse pResponseStatus_ =
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteThingResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteThingResponse

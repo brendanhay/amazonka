@@ -125,3 +125,5 @@ data CancelConversionTaskResponse =
 cancelConversionTaskResponse
     :: CancelConversionTaskResponse
 cancelConversionTaskResponse = CancelConversionTaskResponse'
+
+instance NFData CancelConversionTaskResponse

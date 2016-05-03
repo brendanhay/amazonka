@@ -274,3 +274,5 @@ gersEvaluationDataSourceId = lens _gersEvaluationDataSourceId (\ s a -> s{_gersE
 -- | The response status code.
 gersResponseStatus :: Lens' GetEvaluationResponse Int
 gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a});
+
+instance NFData GetEvaluationResponse

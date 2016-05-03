@@ -224,3 +224,5 @@ prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a})
 -- 'ErrorMessage' in the result.
 prsRecords :: Lens' PutRecordsResponse (NonEmpty PutRecordsResultEntry)
 prsRecords = lens _prsRecords (\ s a -> s{_prsRecords = a}) . _List1;
+
+instance NFData PutRecordsResponse

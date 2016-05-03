@@ -193,3 +193,6 @@ uedcrsResponseStatus = lens _uedcrsResponseStatus (\ s a -> s{_uedcrsResponseSta
 -- | The status of the updated Elasticsearch domain.
 uedcrsDomainConfig :: Lens' UpdateElasticsearchDomainConfigResponse ElasticsearchDomainConfig
 uedcrsDomainConfig = lens _uedcrsDomainConfig (\ s a -> s{_uedcrsDomainConfig = a});
+
+instance NFData
+         UpdateElasticsearchDomainConfigResponse

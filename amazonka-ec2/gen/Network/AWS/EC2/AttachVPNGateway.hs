@@ -145,3 +145,5 @@ avgrsVPCAttachment = lens _avgrsVPCAttachment (\ s a -> s{_avgrsVPCAttachment = 
 -- | The response status code.
 avgrsResponseStatus :: Lens' AttachVPNGatewayResponse Int
 avgrsResponseStatus = lens _avgrsResponseStatus (\ s a -> s{_avgrsResponseStatus = a});
+
+instance NFData AttachVPNGatewayResponse

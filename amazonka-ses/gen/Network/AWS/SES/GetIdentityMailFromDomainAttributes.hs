@@ -133,3 +133,6 @@ gimfdarsResponseStatus = lens _gimfdarsResponseStatus (\ s a -> s{_gimfdarsRespo
 -- | A map of identities to custom MAIL FROM attributes.
 gimfdarsMailFromDomainAttributes :: Lens' GetIdentityMailFromDomainAttributesResponse (HashMap Text IdentityMailFromDomainAttributes)
 gimfdarsMailFromDomainAttributes = lens _gimfdarsMailFromDomainAttributes (\ s a -> s{_gimfdarsMailFromDomainAttributes = a}) . _Map;
+
+instance NFData
+         GetIdentityMailFromDomainAttributesResponse

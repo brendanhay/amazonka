@@ -118,3 +118,5 @@ data PutDestinationPolicyResponse =
 putDestinationPolicyResponse
     :: PutDestinationPolicyResponse
 putDestinationPolicyResponse = PutDestinationPolicyResponse'
+
+instance NFData PutDestinationPolicyResponse

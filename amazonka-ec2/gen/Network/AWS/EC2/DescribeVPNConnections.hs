@@ -195,3 +195,5 @@ dvcrsVPNConnections = lens _dvcrsVPNConnections (\ s a -> s{_dvcrsVPNConnections
 -- | The response status code.
 dvcrsResponseStatus :: Lens' DescribeVPNConnectionsResponse Int
 dvcrsResponseStatus = lens _dvcrsResponseStatus (\ s a -> s{_dvcrsResponseStatus = a});
+
+instance NFData DescribeVPNConnectionsResponse

@@ -229,3 +229,5 @@ ddbcsrsDBClusterSnapshots = lens _ddbcsrsDBClusterSnapshots (\ s a -> s{_ddbcsrs
 -- | The response status code.
 ddbcsrsResponseStatus :: Lens' DescribeDBClusterSnapshotsResponse Int
 ddbcsrsResponseStatus = lens _ddbcsrsResponseStatus (\ s a -> s{_ddbcsrsResponseStatus = a});
+
+instance NFData DescribeDBClusterSnapshotsResponse

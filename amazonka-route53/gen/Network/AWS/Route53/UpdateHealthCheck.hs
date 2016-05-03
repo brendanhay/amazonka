@@ -298,3 +298,5 @@ uhcrsResponseStatus = lens _uhcrsResponseStatus (\ s a -> s{_uhcrsResponseStatus
 -- | Undocumented member.
 uhcrsHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
 uhcrsHealthCheck = lens _uhcrsHealthCheck (\ s a -> s{_uhcrsHealthCheck = a});
+
+instance NFData UpdateHealthCheckResponse

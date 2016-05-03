@@ -211,3 +211,5 @@ dogrsOptionGroupsList = lens _dogrsOptionGroupsList (\ s a -> s{_dogrsOptionGrou
 -- | The response status code.
 dogrsResponseStatus :: Lens' DescribeOptionGroupsResponse Int
 dogrsResponseStatus = lens _dogrsResponseStatus (\ s a -> s{_dogrsResponseStatus = a});
+
+instance NFData DescribeOptionGroupsResponse

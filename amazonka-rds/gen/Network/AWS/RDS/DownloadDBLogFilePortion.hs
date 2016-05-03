@@ -223,3 +223,5 @@ ddlfprsMarker = lens _ddlfprsMarker (\ s a -> s{_ddlfprsMarker = a});
 -- | The response status code.
 ddlfprsResponseStatus :: Lens' DownloadDBLogFilePortionResponse Int
 ddlfprsResponseStatus = lens _ddlfprsResponseStatus (\ s a -> s{_ddlfprsResponseStatus = a});
+
+instance NFData DownloadDBLogFilePortionResponse

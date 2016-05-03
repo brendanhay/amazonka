@@ -175,3 +175,5 @@ dbtrsBundleTasks = lens _dbtrsBundleTasks (\ s a -> s{_dbtrsBundleTasks = a}) . 
 -- | The response status code.
 dbtrsResponseStatus :: Lens' DescribeBundleTasksResponse Int
 dbtrsResponseStatus = lens _dbtrsResponseStatus (\ s a -> s{_dbtrsResponseStatus = a});
+
+instance NFData DescribeBundleTasksResponse

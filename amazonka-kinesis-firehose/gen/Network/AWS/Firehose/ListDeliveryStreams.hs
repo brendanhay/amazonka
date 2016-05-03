@@ -164,3 +164,5 @@ ldsrsDeliveryStreamNames = lens _ldsrsDeliveryStreamNames (\ s a -> s{_ldsrsDeli
 -- | Indicates whether there are more delivery streams available to list.
 ldsrsHasMoreDeliveryStreams :: Lens' ListDeliveryStreamsResponse Bool
 ldsrsHasMoreDeliveryStreams = lens _ldsrsHasMoreDeliveryStreams (\ s a -> s{_ldsrsHasMoreDeliveryStreams = a});
+
+instance NFData ListDeliveryStreamsResponse

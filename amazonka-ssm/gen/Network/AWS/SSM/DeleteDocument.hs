@@ -119,3 +119,5 @@ deleteDocumentResponse pResponseStatus_ =
 -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDocumentResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+
+instance NFData DeleteDocumentResponse

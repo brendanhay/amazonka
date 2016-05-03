@@ -129,3 +129,5 @@ grrsRun = lens _grrsRun (\ s a -> s{_grrsRun = a});
 -- | The response status code.
 grrsResponseStatus :: Lens' GetRunResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+
+instance NFData GetRunResponse

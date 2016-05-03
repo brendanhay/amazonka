@@ -133,3 +133,5 @@ data EnableStageTransitionResponse =
 enableStageTransitionResponse
     :: EnableStageTransitionResponse
 enableStageTransitionResponse = EnableStageTransitionResponse'
+
+instance NFData EnableStageTransitionResponse

@@ -95,3 +95,5 @@ data DisableTopicRuleResponse =
 disableTopicRuleResponse
     :: DisableTopicRuleResponse
 disableTopicRuleResponse = DisableTopicRuleResponse'
+
+instance NFData DisableTopicRuleResponse

@@ -120,3 +120,5 @@ deleteUploadResponse pResponseStatus_ =
 -- | The response status code.
 dursResponseStatus :: Lens' DeleteUploadResponse Int
 dursResponseStatus = lens _dursResponseStatus (\ s a -> s{_dursResponseStatus = a});
+
+instance NFData DeleteUploadResponse

@@ -114,3 +114,5 @@ data CreateVPNConnectionRouteResponse =
 createVPNConnectionRouteResponse
     :: CreateVPNConnectionRouteResponse
 createVPNConnectionRouteResponse = CreateVPNConnectionRouteResponse'
+
+instance NFData CreateVPNConnectionRouteResponse

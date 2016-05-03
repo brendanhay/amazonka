@@ -103,3 +103,6 @@ deleteSpotDatafeedSubscriptionResponse
     :: DeleteSpotDatafeedSubscriptionResponse
 deleteSpotDatafeedSubscriptionResponse =
     DeleteSpotDatafeedSubscriptionResponse'
+
+instance NFData
+         DeleteSpotDatafeedSubscriptionResponse

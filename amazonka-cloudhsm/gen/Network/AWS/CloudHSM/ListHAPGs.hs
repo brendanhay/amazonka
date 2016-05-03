@@ -142,3 +142,5 @@ lhrsResponseStatus = lens _lhrsResponseStatus (\ s a -> s{_lhrsResponseStatus = 
 -- | The list of high-availability partition groups.
 lhrsHAPGList :: Lens' ListHAPGsResponse [Text]
 lhrsHAPGList = lens _lhrsHAPGList (\ s a -> s{_lhrsHAPGList = a}) . _Coerce;
+
+instance NFData ListHAPGsResponse

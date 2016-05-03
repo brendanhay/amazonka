@@ -118,3 +118,5 @@ data DeleteMethodResponse' =
 deleteMethodResponse'
     :: DeleteMethodResponse'
 deleteMethodResponse' = DeleteMethodResponse''
+
+instance NFData DeleteMethodResponse'

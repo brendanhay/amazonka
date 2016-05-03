@@ -163,3 +163,5 @@ data AddPermissionResponse =
 addPermissionResponse
     :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse'
+
+instance NFData AddPermissionResponse

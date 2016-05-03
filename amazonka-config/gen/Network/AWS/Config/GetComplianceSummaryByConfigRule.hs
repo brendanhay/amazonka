@@ -120,3 +120,6 @@ gcsbcrrsComplianceSummary = lens _gcsbcrrsComplianceSummary (\ s a -> s{_gcsbcrr
 -- | The response status code.
 gcsbcrrsResponseStatus :: Lens' GetComplianceSummaryByConfigRuleResponse Int
 gcsbcrrsResponseStatus = lens _gcsbcrrsResponseStatus (\ s a -> s{_gcsbcrrsResponseStatus = a});
+
+instance NFData
+         GetComplianceSummaryByConfigRuleResponse

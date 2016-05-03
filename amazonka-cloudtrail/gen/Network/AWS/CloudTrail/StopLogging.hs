@@ -131,3 +131,5 @@ stopLoggingResponse pResponseStatus_ =
 -- | The response status code.
 slrsResponseStatus :: Lens' StopLoggingResponse Int
 slrsResponseStatus = lens _slrsResponseStatus (\ s a -> s{_slrsResponseStatus = a});
+
+instance NFData StopLoggingResponse

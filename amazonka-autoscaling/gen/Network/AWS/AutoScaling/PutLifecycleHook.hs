@@ -250,3 +250,5 @@ putLifecycleHookResponse pResponseStatus_ =
 -- | The response status code.
 plhrsResponseStatus :: Lens' PutLifecycleHookResponse Int
 plhrsResponseStatus = lens _plhrsResponseStatus (\ s a -> s{_plhrsResponseStatus = a});
+
+instance NFData PutLifecycleHookResponse

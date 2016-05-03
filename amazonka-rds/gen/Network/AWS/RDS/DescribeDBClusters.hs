@@ -191,3 +191,5 @@ ddcrsMarker = lens _ddcrsMarker (\ s a -> s{_ddcrsMarker = a});
 -- | The response status code.
 ddcrsResponseStatus :: Lens' DescribeDBClustersResponse Int
 ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a});
+
+instance NFData DescribeDBClustersResponse

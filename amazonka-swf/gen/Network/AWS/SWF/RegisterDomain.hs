@@ -162,3 +162,5 @@ data RegisterDomainResponse =
 registerDomainResponse
     :: RegisterDomainResponse
 registerDomainResponse = RegisterDomainResponse'
+
+instance NFData RegisterDomainResponse

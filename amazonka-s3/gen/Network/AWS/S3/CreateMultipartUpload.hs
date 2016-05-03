@@ -460,3 +460,5 @@ cmursServerSideEncryption = lens _cmursServerSideEncryption (\ s a -> s{_cmursSe
 -- | The response status code.
 cmursResponseStatus :: Lens' CreateMultipartUploadResponse Int
 cmursResponseStatus = lens _cmursResponseStatus (\ s a -> s{_cmursResponseStatus = a});
+
+instance NFData CreateMultipartUploadResponse

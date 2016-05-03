@@ -143,3 +143,5 @@ rtacrsResponseStatus = lens _rtacrsResponseStatus (\ s a -> s{_rtacrsResponseSta
 -- until the check is eligible for refresh.
 rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
 rtacrsStatus = lens _rtacrsStatus (\ s a -> s{_rtacrsStatus = a});
+
+instance NFData RefreshTrustedAdvisorCheckResponse

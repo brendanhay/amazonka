@@ -129,3 +129,5 @@ desrsAssessment = lens _desrsAssessment (\ s a -> s{_desrsAssessment = a});
 -- | The response status code.
 desrsResponseStatus :: Lens' DescribeAssessmentResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+
+instance NFData DescribeAssessmentResponse

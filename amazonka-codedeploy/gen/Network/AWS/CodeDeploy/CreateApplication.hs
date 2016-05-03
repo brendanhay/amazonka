@@ -133,3 +133,5 @@ carsApplicationId = lens _carsApplicationId (\ s a -> s{_carsApplicationId = a})
 -- | The response status code.
 carsResponseStatus :: Lens' CreateApplicationResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+
+instance NFData CreateApplicationResponse

@@ -140,3 +140,5 @@ darsAssociationDescription = lens _darsAssociationDescription (\ s a -> s{_darsA
 -- | The response status code.
 darsResponseStatus :: Lens' DescribeAssociationResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+
+instance NFData DescribeAssociationResponse

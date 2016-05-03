@@ -106,3 +106,5 @@ data DeleteBuildResponse =
 deleteBuildResponse
     :: DeleteBuildResponse
 deleteBuildResponse = DeleteBuildResponse'
+
+instance NFData DeleteBuildResponse

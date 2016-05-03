@@ -359,3 +359,5 @@ cirsInstanceId = lens _cirsInstanceId (\ s a -> s{_cirsInstanceId = a});
 -- | The response status code.
 cirsResponseStatus :: Lens' CreateInstanceResponse Int
 cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
+
+instance NFData CreateInstanceResponse

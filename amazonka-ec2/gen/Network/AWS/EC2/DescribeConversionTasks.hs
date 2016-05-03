@@ -154,3 +154,5 @@ dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTa
 -- | The response status code.
 dctrsResponseStatus :: Lens' DescribeConversionTasksResponse Int
 dctrsResponseStatus = lens _dctrsResponseStatus (\ s a -> s{_dctrsResponseStatus = a});
+
+instance NFData DescribeConversionTasksResponse

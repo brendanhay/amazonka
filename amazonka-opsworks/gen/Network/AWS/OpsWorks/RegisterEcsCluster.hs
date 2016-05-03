@@ -151,3 +151,5 @@ recrsEcsClusterARN = lens _recrsEcsClusterARN (\ s a -> s{_recrsEcsClusterARN = 
 -- | The response status code.
 recrsResponseStatus :: Lens' RegisterEcsClusterResponse Int
 recrsResponseStatus = lens _recrsResponseStatus (\ s a -> s{_recrsResponseStatus = a});
+
+instance NFData RegisterEcsClusterResponse

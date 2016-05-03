@@ -158,3 +158,5 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 -- | The response status code.
 ldrsResponseStatus :: Lens' ListDomainsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+
+instance NFData ListDomainsResponse

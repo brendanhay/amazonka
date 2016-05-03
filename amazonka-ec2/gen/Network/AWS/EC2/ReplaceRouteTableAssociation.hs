@@ -156,3 +156,5 @@ rrtarsNewAssociationId = lens _rrtarsNewAssociationId (\ s a -> s{_rrtarsNewAsso
 -- | The response status code.
 rrtarsResponseStatus :: Lens' ReplaceRouteTableAssociationResponse Int
 rrtarsResponseStatus = lens _rrtarsResponseStatus (\ s a -> s{_rrtarsResponseStatus = a});
+
+instance NFData ReplaceRouteTableAssociationResponse

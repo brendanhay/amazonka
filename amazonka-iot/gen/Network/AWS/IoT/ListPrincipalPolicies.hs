@@ -167,3 +167,5 @@ lpprsPolicies = lens _lpprsPolicies (\ s a -> s{_lpprsPolicies = a}) . _Default 
 -- | The response status code.
 lpprsResponseStatus :: Lens' ListPrincipalPoliciesResponse Int
 lpprsResponseStatus = lens _lpprsResponseStatus (\ s a -> s{_lpprsResponseStatus = a});
+
+instance NFData ListPrincipalPoliciesResponse

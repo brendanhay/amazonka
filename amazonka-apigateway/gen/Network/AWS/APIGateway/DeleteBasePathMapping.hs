@@ -108,3 +108,5 @@ data DeleteBasePathMappingResponse =
 deleteBasePathMappingResponse
     :: DeleteBasePathMappingResponse
 deleteBasePathMappingResponse = DeleteBasePathMappingResponse'
+
+instance NFData DeleteBasePathMappingResponse

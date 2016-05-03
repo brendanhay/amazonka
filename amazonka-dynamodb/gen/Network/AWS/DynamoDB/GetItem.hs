@@ -283,3 +283,5 @@ girsItem = lens _girsItem (\ s a -> s{_girsItem = a}) . _Default . _Map;
 -- | The response status code.
 girsResponseStatus :: Lens' GetItemResponse Int
 girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
+
+instance NFData GetItemResponse

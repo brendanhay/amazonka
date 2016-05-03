@@ -147,3 +147,5 @@ gsamlprsSAMLMetadataDocument = lens _gsamlprsSAMLMetadataDocument (\ s a -> s{_g
 -- | The response status code.
 gsamlprsResponseStatus :: Lens' GetSAMLProviderResponse Int
 gsamlprsResponseStatus = lens _gsamlprsResponseStatus (\ s a -> s{_gsamlprsResponseStatus = a});
+
+instance NFData GetSAMLProviderResponse

@@ -120,3 +120,5 @@ data AddTagsToOnPremisesInstancesResponse =
 addTagsToOnPremisesInstancesResponse
     :: AddTagsToOnPremisesInstancesResponse
 addTagsToOnPremisesInstancesResponse = AddTagsToOnPremisesInstancesResponse'
+
+instance NFData AddTagsToOnPremisesInstancesResponse

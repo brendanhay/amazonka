@@ -131,3 +131,5 @@ reorderReceiptRuleSetResponse pResponseStatus_ =
 -- | The response status code.
 rrrsrsResponseStatus :: Lens' ReorderReceiptRuleSetResponse Int
 rrrsrsResponseStatus = lens _rrrsrsResponseStatus (\ s a -> s{_rrrsrsResponseStatus = a});
+
+instance NFData ReorderReceiptRuleSetResponse

@@ -188,3 +188,5 @@ cedrsDomainStatus = lens _cedrsDomainStatus (\ s a -> s{_cedrsDomainStatus = a})
 -- | The response status code.
 cedrsResponseStatus :: Lens' CreateElasticsearchDomainResponse Int
 cedrsResponseStatus = lens _cedrsResponseStatus (\ s a -> s{_cedrsResponseStatus = a});
+
+instance NFData CreateElasticsearchDomainResponse

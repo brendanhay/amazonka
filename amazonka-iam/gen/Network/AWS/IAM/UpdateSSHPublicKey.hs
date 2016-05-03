@@ -128,3 +128,5 @@ data UpdateSSHPublicKeyResponse =
 updateSSHPublicKeyResponse
     :: UpdateSSHPublicKeyResponse
 updateSSHPublicKeyResponse = UpdateSSHPublicKeyResponse'
+
+instance NFData UpdateSSHPublicKeyResponse

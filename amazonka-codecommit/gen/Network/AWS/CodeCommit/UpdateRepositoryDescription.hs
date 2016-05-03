@@ -126,3 +126,5 @@ data UpdateRepositoryDescriptionResponse =
 updateRepositoryDescriptionResponse
     :: UpdateRepositoryDescriptionResponse
 updateRepositoryDescriptionResponse = UpdateRepositoryDescriptionResponse'
+
+instance NFData UpdateRepositoryDescriptionResponse

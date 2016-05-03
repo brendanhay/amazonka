@@ -202,3 +202,5 @@ dogorsMarker = lens _dogorsMarker (\ s a -> s{_dogorsMarker = a});
 -- | The response status code.
 dogorsResponseStatus :: Lens' DescribeOptionGroupOptionsResponse Int
 dogorsResponseStatus = lens _dogorsResponseStatus (\ s a -> s{_dogorsResponseStatus = a});
+
+instance NFData DescribeOptionGroupOptionsResponse

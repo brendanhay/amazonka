@@ -122,3 +122,5 @@ delrsNatGatewayId = lens _delrsNatGatewayId (\ s a -> s{_delrsNatGatewayId = a})
 -- | The response status code.
 delrsResponseStatus :: Lens' DeleteNatGatewayResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+
+instance NFData DeleteNatGatewayResponse

@@ -219,3 +219,5 @@ ldirsDeveloperUserIdentifierList = lens _ldirsDeveloperUserIdentifierList (\ s a
 -- | The response status code.
 ldirsResponseStatus :: Lens' LookupDeveloperIdentityResponse Int
 ldirsResponseStatus = lens _ldirsResponseStatus (\ s a -> s{_ldirsResponseStatus = a});
+
+instance NFData LookupDeveloperIdentityResponse

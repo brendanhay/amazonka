@@ -101,3 +101,5 @@ data DeletePlatformApplicationResponse =
 deletePlatformApplicationResponse
     :: DeletePlatformApplicationResponse
 deletePlatformApplicationResponse = DeletePlatformApplicationResponse'
+
+instance NFData DeletePlatformApplicationResponse

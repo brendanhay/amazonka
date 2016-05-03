@@ -175,3 +175,5 @@ lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default . _
 -- | The response status code.
 lgrsResponseStatus :: Lens' ListGatewaysResponse Int
 lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});
+
+instance NFData ListGatewaysResponse

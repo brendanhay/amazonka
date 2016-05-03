@@ -192,3 +192,5 @@ gvlrsPolicy = lens _gvlrsPolicy (\ s a -> s{_gvlrsPolicy = a});
 -- | The response status code.
 gvlrsResponseStatus :: Lens' GetVaultLockResponse Int
 gvlrsResponseStatus = lens _gvlrsResponseStatus (\ s a -> s{_gvlrsResponseStatus = a});
+
+instance NFData GetVaultLockResponse

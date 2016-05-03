@@ -106,3 +106,5 @@ data DeleteRuleResponse =
 deleteRuleResponse
     :: DeleteRuleResponse
 deleteRuleResponse = DeleteRuleResponse'
+
+instance NFData DeleteRuleResponse

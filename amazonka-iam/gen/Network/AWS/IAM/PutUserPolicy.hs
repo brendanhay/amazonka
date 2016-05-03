@@ -134,3 +134,5 @@ data PutUserPolicyResponse =
 putUserPolicyResponse
     :: PutUserPolicyResponse
 putUserPolicyResponse = PutUserPolicyResponse'
+
+instance NFData PutUserPolicyResponse

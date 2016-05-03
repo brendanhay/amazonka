@@ -238,3 +238,5 @@ gslrsWarning = lens _gslrsWarning (\ s a -> s{_gslrsWarning = a});
 -- | The response status code.
 gslrsResponseStatus :: Lens' GetShippingLabelResponse Int
 gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a});
+
+instance NFData GetShippingLabelResponse

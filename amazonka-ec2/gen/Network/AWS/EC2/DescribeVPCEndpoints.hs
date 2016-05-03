@@ -193,3 +193,5 @@ dvpcersVPCEndpoints = lens _dvpcersVPCEndpoints (\ s a -> s{_dvpcersVPCEndpoints
 -- | The response status code.
 dvpcersResponseStatus :: Lens' DescribeVPCEndpointsResponse Int
 dvpcersResponseStatus = lens _dvpcersResponseStatus (\ s a -> s{_dvpcersResponseStatus = a});
+
+instance NFData DescribeVPCEndpointsResponse

@@ -116,3 +116,5 @@ data DeleteSubscriptionFilterResponse =
 deleteSubscriptionFilterResponse
     :: DeleteSubscriptionFilterResponse
 deleteSubscriptionFilterResponse = DeleteSubscriptionFilterResponse'
+
+instance NFData DeleteSubscriptionFilterResponse

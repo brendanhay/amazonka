@@ -181,3 +181,5 @@ skdrsDeletionDate = lens _skdrsDeletionDate (\ s a -> s{_skdrsDeletionDate = a})
 -- | The response status code.
 skdrsResponseStatus :: Lens' ScheduleKeyDeletionResponse Int
 skdrsResponseStatus = lens _skdrsResponseStatus (\ s a -> s{_skdrsResponseStatus = a});
+
+instance NFData ScheduleKeyDeletionResponse

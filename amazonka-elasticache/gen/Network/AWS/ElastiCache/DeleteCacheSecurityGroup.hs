@@ -104,3 +104,5 @@ data DeleteCacheSecurityGroupResponse =
 deleteCacheSecurityGroupResponse
     :: DeleteCacheSecurityGroupResponse
 deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse'
+
+instance NFData DeleteCacheSecurityGroupResponse

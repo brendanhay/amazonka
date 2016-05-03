@@ -131,3 +131,5 @@ dbrsBuild = lens _dbrsBuild (\ s a -> s{_dbrsBuild = a});
 -- | The response status code.
 dbrsResponseStatus :: Lens' DescribeBuildResponse Int
 dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a});
+
+instance NFData DescribeBuildResponse

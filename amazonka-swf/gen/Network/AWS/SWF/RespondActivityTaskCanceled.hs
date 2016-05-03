@@ -153,3 +153,5 @@ data RespondActivityTaskCanceledResponse =
 respondActivityTaskCanceledResponse
     :: RespondActivityTaskCanceledResponse
 respondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse'
+
+instance NFData RespondActivityTaskCanceledResponse

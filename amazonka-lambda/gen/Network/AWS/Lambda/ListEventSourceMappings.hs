@@ -196,3 +196,5 @@ lesmrsNextMarker = lens _lesmrsNextMarker (\ s a -> s{_lesmrsNextMarker = a});
 -- | The response status code.
 lesmrsResponseStatus :: Lens' ListEventSourceMappingsResponse Int
 lesmrsResponseStatus = lens _lesmrsResponseStatus (\ s a -> s{_lesmrsResponseStatus = a});
+
+instance NFData ListEventSourceMappingsResponse

@@ -230,3 +230,6 @@ gaadrsPolicies = lens _gaadrsPolicies (\ s a -> s{_gaadrsPolicies = a}) . _Defau
 -- | The response status code.
 gaadrsResponseStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
 gaadrsResponseStatus = lens _gaadrsResponseStatus (\ s a -> s{_gaadrsResponseStatus = a});
+
+instance NFData
+         GetAccountAuthorizationDetailsResponse

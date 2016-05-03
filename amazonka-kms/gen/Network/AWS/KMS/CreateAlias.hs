@@ -133,3 +133,5 @@ data CreateAliasResponse =
 createAliasResponse
     :: CreateAliasResponse
 createAliasResponse = CreateAliasResponse'
+
+instance NFData CreateAliasResponse

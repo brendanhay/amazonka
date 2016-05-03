@@ -146,3 +146,5 @@ rdacrsResponseStatus = lens _rdacrsResponseStatus (\ s a -> s{_rdacrsResponseSta
 -- Type: String
 rdacrsAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
 rdacrsAuthCode = lens _rdacrsAuthCode (\ s a -> s{_rdacrsAuthCode = a}) . _Sensitive;
+
+instance NFData RetrieveDomainAuthCodeResponse

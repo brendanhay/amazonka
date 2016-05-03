@@ -161,3 +161,5 @@ citrsPreviousState = lens _citrsPreviousState (\ s a -> s{_citrsPreviousState = 
 -- | The response status code.
 citrsResponseStatus :: Lens' CancelImportTaskResponse Int
 citrsResponseStatus = lens _citrsResponseStatus (\ s a -> s{_citrsResponseStatus = a});
+
+instance NFData CancelImportTaskResponse

@@ -110,3 +110,5 @@ data DeleteAccessKeyResponse =
 deleteAccessKeyResponse
     :: DeleteAccessKeyResponse
 deleteAccessKeyResponse = DeleteAccessKeyResponse'
+
+instance NFData DeleteAccessKeyResponse

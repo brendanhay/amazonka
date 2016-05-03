@@ -328,3 +328,5 @@ data CreateAutoScalingGroupResponse =
 createAutoScalingGroupResponse
     :: CreateAutoScalingGroupResponse
 createAutoScalingGroupResponse = CreateAutoScalingGroupResponse'
+
+instance NFData CreateAutoScalingGroupResponse

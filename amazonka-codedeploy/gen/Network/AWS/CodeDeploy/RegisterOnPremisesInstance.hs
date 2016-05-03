@@ -117,3 +117,5 @@ data RegisterOnPremisesInstanceResponse =
 registerOnPremisesInstanceResponse
     :: RegisterOnPremisesInstanceResponse
 registerOnPremisesInstanceResponse = RegisterOnPremisesInstanceResponse'
+
+instance NFData RegisterOnPremisesInstanceResponse

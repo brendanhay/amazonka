@@ -240,3 +240,5 @@ ddevrsDBEngineVersions = lens _ddevrsDBEngineVersions (\ s a -> s{_ddevrsDBEngin
 -- | The response status code.
 ddevrsResponseStatus :: Lens' DescribeDBEngineVersionsResponse Int
 ddevrsResponseStatus = lens _ddevrsResponseStatus (\ s a -> s{_ddevrsResponseStatus = a});
+
+instance NFData DescribeDBEngineVersionsResponse

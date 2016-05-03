@@ -203,3 +203,5 @@ dfsrsNextMarker = lens _dfsrsNextMarker (\ s a -> s{_dfsrsNextMarker = a});
 -- | The response status code.
 dfsrsResponseStatus :: Lens' DescribeFileSystemsResponse Int
 dfsrsResponseStatus = lens _dfsrsResponseStatus (\ s a -> s{_dfsrsResponseStatus = a});
+
+instance NFData DescribeFileSystemsResponse

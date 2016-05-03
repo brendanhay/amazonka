@@ -110,3 +110,5 @@ data DisassociateElasticIPResponse =
 disassociateElasticIPResponse
     :: DisassociateElasticIPResponse
 disassociateElasticIPResponse = DisassociateElasticIPResponse'
+
+instance NFData DisassociateElasticIPResponse

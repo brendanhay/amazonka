@@ -106,3 +106,5 @@ data EnableVolumeIOResponse =
 enableVolumeIOResponse
     :: EnableVolumeIOResponse
 enableVolumeIOResponse = EnableVolumeIOResponse'
+
+instance NFData EnableVolumeIOResponse

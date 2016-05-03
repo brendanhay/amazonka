@@ -141,3 +141,5 @@ ggslursPreSignedURL = lens _ggslursPreSignedURL (\ s a -> s{_ggslursPreSignedURL
 -- | The response status code.
 ggslursResponseStatus :: Lens' GetGameSessionLogURLResponse Int
 ggslursResponseStatus = lens _ggslursResponseStatus (\ s a -> s{_ggslursResponseStatus = a});
+
+instance NFData GetGameSessionLogURLResponse

@@ -110,3 +110,5 @@ data AbortEnvironmentUpdateResponse =
 abortEnvironmentUpdateResponse
     :: AbortEnvironmentUpdateResponse
 abortEnvironmentUpdateResponse = AbortEnvironmentUpdateResponse'
+
+instance NFData AbortEnvironmentUpdateResponse

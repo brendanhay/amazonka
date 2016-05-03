@@ -267,3 +267,5 @@ gasrsSummaryMap = lens _gasrsSummaryMap (\ s a -> s{_gasrsSummaryMap = a}) . _De
 -- | The response status code.
 gasrsResponseStatus :: Lens' GetAccountSummaryResponse Int
 gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
+
+instance NFData GetAccountSummaryResponse

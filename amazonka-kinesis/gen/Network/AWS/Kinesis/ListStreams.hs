@@ -182,3 +182,5 @@ lsrsStreamNames = lens _lsrsStreamNames (\ s a -> s{_lsrsStreamNames = a}) . _Co
 -- | If set to 'true', there are more streams available to list.
 lsrsHasMoreStreams :: Lens' ListStreamsResponse Bool
 lsrsHasMoreStreams = lens _lsrsHasMoreStreams (\ s a -> s{_lsrsHasMoreStreams = a});
+
+instance NFData ListStreamsResponse

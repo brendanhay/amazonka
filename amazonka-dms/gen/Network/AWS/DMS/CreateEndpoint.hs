@@ -242,3 +242,5 @@ cersEndpoint = lens _cersEndpoint (\ s a -> s{_cersEndpoint = a});
 -- | The response status code.
 cersResponseStatus :: Lens' CreateEndpointResponse Int
 cersResponseStatus = lens _cersResponseStatus (\ s a -> s{_cersResponseStatus = a});
+
+instance NFData CreateEndpointResponse

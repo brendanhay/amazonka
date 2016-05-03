@@ -153,3 +153,5 @@ crsPlayerSessions = lens _crsPlayerSessions (\ s a -> s{_crsPlayerSessions = a})
 -- | The response status code.
 crsResponseStatus :: Lens' CreatePlayerSessionsResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CreatePlayerSessionsResponse

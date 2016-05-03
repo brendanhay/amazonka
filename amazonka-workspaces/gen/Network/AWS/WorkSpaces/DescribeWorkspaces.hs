@@ -222,3 +222,5 @@ dwrsWorkspaces = lens _dwrsWorkspaces (\ s a -> s{_dwrsWorkspaces = a}) . _Defau
 -- | The response status code.
 dwrsResponseStatus :: Lens' DescribeWorkspacesResponse Int
 dwrsResponseStatus = lens _dwrsResponseStatus (\ s a -> s{_dwrsResponseStatus = a});
+
+instance NFData DescribeWorkspacesResponse

@@ -156,3 +156,5 @@ latrsResponseStatus = lens _latrsResponseStatus (\ s a -> s{_latrsResponseStatus
 -- | Provides details of the action types.
 latrsActionTypes :: Lens' ListActionTypesResponse [ActionType]
 latrsActionTypes = lens _latrsActionTypes (\ s a -> s{_latrsActionTypes = a}) . _Coerce;
+
+instance NFData ListActionTypesResponse

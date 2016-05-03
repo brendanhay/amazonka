@@ -112,3 +112,5 @@ data DeleteDeploymentConfigResponse =
 deleteDeploymentConfigResponse
     :: DeleteDeploymentConfigResponse
 deleteDeploymentConfigResponse = DeleteDeploymentConfigResponse'
+
+instance NFData DeleteDeploymentConfigResponse

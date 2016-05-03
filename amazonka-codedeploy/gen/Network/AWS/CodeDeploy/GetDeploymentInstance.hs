@@ -144,3 +144,5 @@ gdirsInstanceSummary = lens _gdirsInstanceSummary (\ s a -> s{_gdirsInstanceSumm
 -- | The response status code.
 gdirsResponseStatus :: Lens' GetDeploymentInstanceResponse Int
 gdirsResponseStatus = lens _gdirsResponseStatus (\ s a -> s{_gdirsResponseStatus = a});
+
+instance NFData GetDeploymentInstanceResponse

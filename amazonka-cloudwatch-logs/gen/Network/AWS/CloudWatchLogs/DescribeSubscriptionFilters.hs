@@ -189,3 +189,5 @@ dsfrsNextToken = lens _dsfrsNextToken (\ s a -> s{_dsfrsNextToken = a});
 -- | The response status code.
 dsfrsResponseStatus :: Lens' DescribeSubscriptionFiltersResponse Int
 dsfrsResponseStatus = lens _dsfrsResponseStatus (\ s a -> s{_dsfrsResponseStatus = a});
+
+instance NFData DescribeSubscriptionFiltersResponse

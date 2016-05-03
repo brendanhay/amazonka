@@ -126,3 +126,5 @@ rekrsCluster = lens _rekrsCluster (\ s a -> s{_rekrsCluster = a});
 -- | The response status code.
 rekrsResponseStatus :: Lens' RotateEncryptionKeyResponse Int
 rekrsResponseStatus = lens _rekrsResponseStatus (\ s a -> s{_rekrsResponseStatus = a});
+
+instance NFData RotateEncryptionKeyResponse

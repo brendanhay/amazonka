@@ -159,3 +159,5 @@ dscsrsChangeToken = lens _dscsrsChangeToken (\ s a -> s{_dscsrsChangeToken = a})
 -- | The response status code.
 dscsrsResponseStatus :: Lens' DeleteSizeConstraintSetResponse Int
 dscsrsResponseStatus = lens _dscsrsResponseStatus (\ s a -> s{_dscsrsResponseStatus = a});
+
+instance NFData DeleteSizeConstraintSetResponse

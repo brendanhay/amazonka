@@ -125,3 +125,5 @@ dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus
 -- | The state information, in JSON format.
 dtsrsPayload :: Lens' DeleteThingShadowResponse (HashMap Text Value)
 dtsrsPayload = lens _dtsrsPayload (\ s a -> s{_dtsrsPayload = a});
+
+instance NFData DeleteThingShadowResponse

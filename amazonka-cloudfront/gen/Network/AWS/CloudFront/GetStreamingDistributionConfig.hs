@@ -135,3 +135,6 @@ gsdcrsETag = lens _gsdcrsETag (\ s a -> s{_gsdcrsETag = a});
 -- | The response status code.
 gsdcrsResponseStatus :: Lens' GetStreamingDistributionConfigResponse Int
 gsdcrsResponseStatus = lens _gsdcrsResponseStatus (\ s a -> s{_gsdcrsResponseStatus = a});
+
+instance NFData
+         GetStreamingDistributionConfigResponse

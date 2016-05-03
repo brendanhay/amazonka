@@ -155,3 +155,5 @@ liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a});
 -- | The response status code.
 liprsResponseStatus :: Lens' ListIdentityPoolsResponse Int
 liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});
+
+instance NFData ListIdentityPoolsResponse

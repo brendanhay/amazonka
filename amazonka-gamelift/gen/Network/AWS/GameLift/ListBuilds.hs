@@ -184,3 +184,5 @@ lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
 -- | The response status code.
 lbrsResponseStatus :: Lens' ListBuildsResponse Int
 lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
+
+instance NFData ListBuildsResponse

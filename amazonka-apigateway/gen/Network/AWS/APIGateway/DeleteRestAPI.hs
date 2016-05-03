@@ -95,3 +95,5 @@ data DeleteRestAPIResponse =
 deleteRestAPIResponse
     :: DeleteRestAPIResponse
 deleteRestAPIResponse = DeleteRestAPIResponse'
+
+instance NFData DeleteRestAPIResponse

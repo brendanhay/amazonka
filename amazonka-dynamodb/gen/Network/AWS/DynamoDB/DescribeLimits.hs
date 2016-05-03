@@ -210,3 +210,5 @@ dlrsAccountMaxReadCapacityUnits = lens _dlrsAccountMaxReadCapacityUnits (\ s a -
 -- | The response status code.
 dlrsResponseStatus :: Lens' DescribeLimitsResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+
+instance NFData DescribeLimitsResponse

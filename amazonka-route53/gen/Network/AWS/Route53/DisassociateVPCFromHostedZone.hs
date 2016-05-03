@@ -170,3 +170,5 @@ dvfhzrsResponseStatus = lens _dvfhzrsResponseStatus (\ s a -> s{_dvfhzrsResponse
 -- of your 'DisassociateVPCFromHostedZoneRequest'.
 dvfhzrsChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
 dvfhzrsChangeInfo = lens _dvfhzrsChangeInfo (\ s a -> s{_dvfhzrsChangeInfo = a});
+
+instance NFData DisassociateVPCFromHostedZoneResponse

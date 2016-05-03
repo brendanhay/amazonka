@@ -111,3 +111,5 @@ data DeregisterEcsClusterResponse =
 deregisterEcsClusterResponse
     :: DeregisterEcsClusterResponse
 deregisterEcsClusterResponse = DeregisterEcsClusterResponse'
+
+instance NFData DeregisterEcsClusterResponse

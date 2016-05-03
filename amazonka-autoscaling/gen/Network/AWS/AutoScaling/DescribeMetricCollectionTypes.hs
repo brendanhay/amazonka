@@ -129,3 +129,5 @@ dmctrsGranularities = lens _dmctrsGranularities (\ s a -> s{_dmctrsGranularities
 -- | The response status code.
 dmctrsResponseStatus :: Lens' DescribeMetricCollectionTypesResponse Int
 dmctrsResponseStatus = lens _dmctrsResponseStatus (\ s a -> s{_dmctrsResponseStatus = a});
+
+instance NFData DescribeMetricCollectionTypesResponse

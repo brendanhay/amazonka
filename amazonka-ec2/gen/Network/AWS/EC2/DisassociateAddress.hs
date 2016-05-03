@@ -124,3 +124,5 @@ data DisassociateAddressResponse =
 disassociateAddressResponse
     :: DisassociateAddressResponse
 disassociateAddressResponse = DisassociateAddressResponse'
+
+instance NFData DisassociateAddressResponse

@@ -162,3 +162,5 @@ drsDataset = lens _drsDataset (\ s a -> s{_drsDataset = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteDatasetResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteDatasetResponse

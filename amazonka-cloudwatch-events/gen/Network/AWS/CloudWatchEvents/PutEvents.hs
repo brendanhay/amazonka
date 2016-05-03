@@ -146,3 +146,5 @@ persEntries = lens _persEntries (\ s a -> s{_persEntries = a}) . _Default . _Coe
 -- | The response status code.
 persResponseStatus :: Lens' PutEventsResponse Int
 persResponseStatus = lens _persResponseStatus (\ s a -> s{_persResponseStatus = a});
+
+instance NFData PutEventsResponse

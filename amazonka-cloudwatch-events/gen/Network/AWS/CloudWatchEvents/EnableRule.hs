@@ -105,3 +105,5 @@ data EnableRuleResponse =
 enableRuleResponse
     :: EnableRuleResponse
 enableRuleResponse = EnableRuleResponse'
+
+instance NFData EnableRuleResponse

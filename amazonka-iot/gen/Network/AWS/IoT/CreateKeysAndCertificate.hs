@@ -158,3 +158,5 @@ ckacrsCertificateId = lens _ckacrsCertificateId (\ s a -> s{_ckacrsCertificateId
 -- | The response status code.
 ckacrsResponseStatus :: Lens' CreateKeysAndCertificateResponse Int
 ckacrsResponseStatus = lens _ckacrsResponseStatus (\ s a -> s{_ckacrsResponseStatus = a});
+
+instance NFData CreateKeysAndCertificateResponse

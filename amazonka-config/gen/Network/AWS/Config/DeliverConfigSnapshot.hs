@@ -144,3 +144,5 @@ dcsrsConfigSnapshotId = lens _dcsrsConfigSnapshotId (\ s a -> s{_dcsrsConfigSnap
 -- | The response status code.
 dcsrsResponseStatus :: Lens' DeliverConfigSnapshotResponse Int
 dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
+
+instance NFData DeliverConfigSnapshotResponse

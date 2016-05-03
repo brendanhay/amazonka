@@ -106,3 +106,5 @@ data DisableKeyRotationResponse =
 disableKeyRotationResponse
     :: DisableKeyRotationResponse
 disableKeyRotationResponse = DisableKeyRotationResponse'
+
+instance NFData DisableKeyRotationResponse

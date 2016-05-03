@@ -181,3 +181,5 @@ sipcrsPushSync = lens _sipcrsPushSync (\ s a -> s{_sipcrsPushSync = a});
 -- | The response status code.
 sipcrsResponseStatus :: Lens' SetIdentityPoolConfigurationResponse Int
 sipcrsResponseStatus = lens _sipcrsResponseStatus (\ s a -> s{_sipcrsResponseStatus = a});
+
+instance NFData SetIdentityPoolConfigurationResponse

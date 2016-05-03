@@ -141,3 +141,5 @@ rrsFailedRequests = lens _rrsFailedRequests (\ s a -> s{_rrsFailedRequests = a})
 -- | The response status code.
 rrsResponseStatus :: Lens' RebootWorkspacesResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
+
+instance NFData RebootWorkspacesResponse

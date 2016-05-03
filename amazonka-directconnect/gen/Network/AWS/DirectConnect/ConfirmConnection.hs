@@ -135,3 +135,5 @@ ccrsConnectionState = lens _ccrsConnectionState (\ s a -> s{_ccrsConnectionState
 -- | The response status code.
 ccrsResponseStatus :: Lens' ConfirmConnectionResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+
+instance NFData ConfirmConnectionResponse

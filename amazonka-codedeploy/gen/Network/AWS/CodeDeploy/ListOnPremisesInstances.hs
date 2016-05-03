@@ -180,3 +180,5 @@ lopirsInstanceNames = lens _lopirsInstanceNames (\ s a -> s{_lopirsInstanceNames
 -- | The response status code.
 lopirsResponseStatus :: Lens' ListOnPremisesInstancesResponse Int
 lopirsResponseStatus = lens _lopirsResponseStatus (\ s a -> s{_lopirsResponseStatus = a});
+
+instance NFData ListOnPremisesInstancesResponse

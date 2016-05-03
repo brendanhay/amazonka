@@ -133,3 +133,5 @@ dvpcclrsReturn = lens _dvpcclrsReturn (\ s a -> s{_dvpcclrsReturn = a});
 -- | The response status code.
 dvpcclrsResponseStatus :: Lens' DisableVPCClassicLinkResponse Int
 dvpcclrsResponseStatus = lens _dvpcclrsResponseStatus (\ s a -> s{_dvpcclrsResponseStatus = a});
+
+instance NFData DisableVPCClassicLinkResponse

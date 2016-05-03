@@ -129,3 +129,5 @@ data ResetInstanceAttributeResponse =
 resetInstanceAttributeResponse
     :: ResetInstanceAttributeResponse
 resetInstanceAttributeResponse = ResetInstanceAttributeResponse'
+
+instance NFData ResetInstanceAttributeResponse

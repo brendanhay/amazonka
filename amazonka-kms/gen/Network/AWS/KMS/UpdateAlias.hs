@@ -137,3 +137,5 @@ data UpdateAliasResponse =
 updateAliasResponse
     :: UpdateAliasResponse
 updateAliasResponse = UpdateAliasResponse'
+
+instance NFData UpdateAliasResponse

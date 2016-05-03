@@ -120,3 +120,5 @@ dflrsUnsuccessful = lens _dflrsUnsuccessful (\ s a -> s{_dflrsUnsuccessful = a})
 -- | The response status code.
 dflrsResponseStatus :: Lens' DeleteFlowLogsResponse Int
 dflrsResponseStatus = lens _dflrsResponseStatus (\ s a -> s{_dflrsResponseStatus = a});
+
+instance NFData DeleteFlowLogsResponse

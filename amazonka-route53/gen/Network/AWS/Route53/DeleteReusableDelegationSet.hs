@@ -122,3 +122,5 @@ deleteReusableDelegationSetResponse pResponseStatus_ =
 -- | The response status code.
 drdsrsResponseStatus :: Lens' DeleteReusableDelegationSetResponse Int
 drdsrsResponseStatus = lens _drdsrsResponseStatus (\ s a -> s{_drdsrsResponseStatus = a});
+
+instance NFData DeleteReusableDelegationSetResponse

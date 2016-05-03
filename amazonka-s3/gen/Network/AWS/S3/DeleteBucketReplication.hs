@@ -92,3 +92,5 @@ data DeleteBucketReplicationResponse =
 deleteBucketReplicationResponse
     :: DeleteBucketReplicationResponse
 deleteBucketReplicationResponse = DeleteBucketReplicationResponse'
+
+instance NFData DeleteBucketReplicationResponse

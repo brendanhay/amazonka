@@ -103,3 +103,5 @@ data DeletePolicyResponse =
 deletePolicyResponse
     :: DeletePolicyResponse
 deletePolicyResponse = DeletePolicyResponse'
+
+instance NFData DeletePolicyResponse

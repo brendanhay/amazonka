@@ -154,3 +154,5 @@ garsPosition = lens _garsPosition (\ s a -> s{_garsPosition = a});
 -- | The response status code.
 garsResponseStatus :: Lens' GetAuthorizersResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+
+instance NFData GetAuthorizersResponse

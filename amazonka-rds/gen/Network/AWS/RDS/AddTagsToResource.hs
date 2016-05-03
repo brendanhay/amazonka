@@ -113,3 +113,5 @@ data AddTagsToResourceResponse =
 addTagsToResourceResponse
     :: AddTagsToResourceResponse
 addTagsToResourceResponse = AddTagsToResourceResponse'
+
+instance NFData AddTagsToResourceResponse

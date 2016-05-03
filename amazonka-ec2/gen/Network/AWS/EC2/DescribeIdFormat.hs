@@ -135,3 +135,5 @@ difrsStatuses = lens _difrsStatuses (\ s a -> s{_difrsStatuses = a}) . _Default 
 -- | The response status code.
 difrsResponseStatus :: Lens' DescribeIdFormatResponse Int
 difrsResponseStatus = lens _difrsResponseStatus (\ s a -> s{_difrsResponseStatus = a});
+
+instance NFData DescribeIdFormatResponse

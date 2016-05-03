@@ -139,3 +139,6 @@ dcresrsConfigRulesEvaluationStatus = lens _dcresrsConfigRulesEvaluationStatus (\
 -- | The response status code.
 dcresrsResponseStatus :: Lens' DescribeConfigRuleEvaluationStatusResponse Int
 dcresrsResponseStatus = lens _dcresrsResponseStatus (\ s a -> s{_dcresrsResponseStatus = a});
+
+instance NFData
+         DescribeConfigRuleEvaluationStatusResponse

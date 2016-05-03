@@ -152,3 +152,5 @@ aigrsInstanceGroupIds = lens _aigrsInstanceGroupIds (\ s a -> s{_aigrsInstanceGr
 -- | The response status code.
 aigrsResponseStatus :: Lens' AddInstanceGroupsResponse Int
 aigrsResponseStatus = lens _aigrsResponseStatus (\ s a -> s{_aigrsResponseStatus = a});
+
+instance NFData AddInstanceGroupsResponse

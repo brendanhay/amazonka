@@ -151,3 +151,5 @@ data SetLoadBasedAutoScalingResponse =
 setLoadBasedAutoScalingResponse
     :: SetLoadBasedAutoScalingResponse
 setLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse'
+
+instance NFData SetLoadBasedAutoScalingResponse

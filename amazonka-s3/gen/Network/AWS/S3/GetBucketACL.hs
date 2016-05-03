@@ -128,3 +128,5 @@ gbarsOwner = lens _gbarsOwner (\ s a -> s{_gbarsOwner = a});
 -- | The response status code.
 gbarsResponseStatus :: Lens' GetBucketACLResponse Int
 gbarsResponseStatus = lens _gbarsResponseStatus (\ s a -> s{_gbarsResponseStatus = a});
+
+instance NFData GetBucketACLResponse

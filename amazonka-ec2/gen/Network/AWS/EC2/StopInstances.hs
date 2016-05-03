@@ -180,3 +180,5 @@ sirsStoppingInstances = lens _sirsStoppingInstances (\ s a -> s{_sirsStoppingIns
 -- | The response status code.
 sirsResponseStatus :: Lens' StopInstancesResponse Int
 sirsResponseStatus = lens _sirsResponseStatus (\ s a -> s{_sirsResponseStatus = a});
+
+instance NFData StopInstancesResponse

@@ -180,3 +180,5 @@ mversReturn = lens _mversReturn (\ s a -> s{_mversReturn = a});
 -- | The response status code.
 mversResponseStatus :: Lens' ModifyVPCEndpointResponse Int
 mversResponseStatus = lens _mversResponseStatus (\ s a -> s{_mversResponseStatus = a});
+
+instance NFData ModifyVPCEndpointResponse

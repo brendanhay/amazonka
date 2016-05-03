@@ -154,3 +154,6 @@ csdsrsSpotDatafeedSubscription = lens _csdsrsSpotDatafeedSubscription (\ s a -> 
 -- | The response status code.
 csdsrsResponseStatus :: Lens' CreateSpotDatafeedSubscriptionResponse Int
 csdsrsResponseStatus = lens _csdsrsResponseStatus (\ s a -> s{_csdsrsResponseStatus = a});
+
+instance NFData
+         CreateSpotDatafeedSubscriptionResponse

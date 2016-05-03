@@ -147,3 +147,5 @@ twrsFailedRequests = lens _twrsFailedRequests (\ s a -> s{_twrsFailedRequests = 
 -- | The response status code.
 twrsResponseStatus :: Lens' TerminateWorkspacesResponse Int
 twrsResponseStatus = lens _twrsResponseStatus (\ s a -> s{_twrsResponseStatus = a});
+
+instance NFData TerminateWorkspacesResponse

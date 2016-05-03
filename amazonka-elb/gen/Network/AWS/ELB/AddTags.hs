@@ -128,3 +128,5 @@ addTagsResponse pResponseStatus_ =
 -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
 atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
+
+instance NFData AddTagsResponse

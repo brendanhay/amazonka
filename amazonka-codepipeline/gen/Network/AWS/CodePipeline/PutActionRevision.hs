@@ -180,3 +180,5 @@ parrsPipelineExecutionId = lens _parrsPipelineExecutionId (\ s a -> s{_parrsPipe
 -- | The response status code.
 parrsResponseStatus :: Lens' PutActionRevisionResponse Int
 parrsResponseStatus = lens _parrsResponseStatus (\ s a -> s{_parrsResponseStatus = a});
+
+instance NFData PutActionRevisionResponse

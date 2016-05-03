@@ -167,3 +167,5 @@ gpdrsParameterValues = lens _gpdrsParameterValues (\ s a -> s{_gpdrsParameterVal
 -- | The response status code.
 gpdrsResponseStatus :: Lens' GetPipelineDefinitionResponse Int
 gpdrsResponseStatus = lens _gpdrsResponseStatus (\ s a -> s{_gpdrsResponseStatus = a});
+
+instance NFData GetPipelineDefinitionResponse

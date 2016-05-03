@@ -133,3 +133,5 @@ cloneReceiptRuleSetResponse pResponseStatus_ =
 -- | The response status code.
 crsResponseStatus :: Lens' CloneReceiptRuleSetResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CloneReceiptRuleSetResponse

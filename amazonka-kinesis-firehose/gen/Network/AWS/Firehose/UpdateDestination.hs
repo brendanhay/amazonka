@@ -206,3 +206,5 @@ updateDestinationResponse pResponseStatus_ =
 -- | The response status code.
 udrsResponseStatus :: Lens' UpdateDestinationResponse Int
 udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
+
+instance NFData UpdateDestinationResponse

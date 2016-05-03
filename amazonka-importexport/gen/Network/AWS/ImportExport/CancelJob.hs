@@ -134,3 +134,5 @@ crsSuccess = lens _crsSuccess (\ s a -> s{_crsSuccess = a});
 -- | The response status code.
 crsResponseStatus :: Lens' CancelJobResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CancelJobResponse

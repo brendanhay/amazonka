@@ -108,3 +108,5 @@ data DeleteInternetGatewayResponse =
 deleteInternetGatewayResponse
     :: DeleteInternetGatewayResponse
 deleteInternetGatewayResponse = DeleteInternetGatewayResponse'
+
+instance NFData DeleteInternetGatewayResponse

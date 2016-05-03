@@ -201,3 +201,5 @@ uscsrsChangeToken = lens _uscsrsChangeToken (\ s a -> s{_uscsrsChangeToken = a})
 -- | The response status code.
 uscsrsResponseStatus :: Lens' UpdateSizeConstraintSetResponse Int
 uscsrsResponseStatus = lens _uscsrsResponseStatus (\ s a -> s{_uscsrsResponseStatus = a});
+
+instance NFData UpdateSizeConstraintSetResponse

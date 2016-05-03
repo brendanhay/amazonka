@@ -134,3 +134,5 @@ data PutGroupPolicyResponse =
 putGroupPolicyResponse
     :: PutGroupPolicyResponse
 putGroupPolicyResponse = PutGroupPolicyResponse'
+
+instance NFData PutGroupPolicyResponse

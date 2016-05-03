@@ -129,3 +129,5 @@ data UpdateVolumeResponse =
 updateVolumeResponse
     :: UpdateVolumeResponse
 updateVolumeResponse = UpdateVolumeResponse'
+
+instance NFData UpdateVolumeResponse

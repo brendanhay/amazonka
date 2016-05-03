@@ -168,3 +168,5 @@ ikprsKeyName = lens _ikprsKeyName (\ s a -> s{_ikprsKeyName = a});
 -- | The response status code.
 ikprsResponseStatus :: Lens' ImportKeyPairResponse Int
 ikprsResponseStatus = lens _ikprsResponseStatus (\ s a -> s{_ikprsResponseStatus = a});
+
+instance NFData ImportKeyPairResponse

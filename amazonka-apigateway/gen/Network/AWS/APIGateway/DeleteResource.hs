@@ -107,3 +107,5 @@ data DeleteResourceResponse =
 deleteResourceResponse
     :: DeleteResourceResponse
 deleteResourceResponse = DeleteResourceResponse'
+
+instance NFData DeleteResourceResponse

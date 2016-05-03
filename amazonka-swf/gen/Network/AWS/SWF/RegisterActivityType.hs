@@ -278,3 +278,5 @@ data RegisterActivityTypeResponse =
 registerActivityTypeResponse
     :: RegisterActivityTypeResponse
 registerActivityTypeResponse = RegisterActivityTypeResponse'
+
+instance NFData RegisterActivityTypeResponse

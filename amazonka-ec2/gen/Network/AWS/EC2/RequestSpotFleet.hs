@@ -156,3 +156,5 @@ rsfrsResponseStatus = lens _rsfrsResponseStatus (\ s a -> s{_rsfrsResponseStatus
 -- | The ID of the Spot fleet request.
 rsfrsSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text
 rsfrsSpotFleetRequestId = lens _rsfrsSpotFleetRequestId (\ s a -> s{_rsfrsSpotFleetRequestId = a});
+
+instance NFData RequestSpotFleetResponse

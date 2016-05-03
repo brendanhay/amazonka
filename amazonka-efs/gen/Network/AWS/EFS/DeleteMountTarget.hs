@@ -116,3 +116,5 @@ data DeleteMountTargetResponse =
 deleteMountTargetResponse
     :: DeleteMountTargetResponse
 deleteMountTargetResponse = DeleteMountTargetResponse'
+
+instance NFData DeleteMountTargetResponse

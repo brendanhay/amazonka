@@ -162,3 +162,5 @@ dasrsResponseStatus = lens _dasrsResponseStatus (\ s a -> s{_dasrsResponseStatus
 -- | The analysis scheme descriptions.
 dasrsAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
 dasrsAnalysisSchemes = lens _dasrsAnalysisSchemes (\ s a -> s{_dasrsAnalysisSchemes = a}) . _Coerce;
+
+instance NFData DescribeAnalysisSchemesResponse

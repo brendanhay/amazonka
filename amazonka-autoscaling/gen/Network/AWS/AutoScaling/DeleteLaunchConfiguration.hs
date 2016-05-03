@@ -101,3 +101,5 @@ data DeleteLaunchConfigurationResponse =
 deleteLaunchConfigurationResponse
     :: DeleteLaunchConfigurationResponse
 deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse'
+
+instance NFData DeleteLaunchConfigurationResponse

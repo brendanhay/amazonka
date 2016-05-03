@@ -125,3 +125,5 @@ data UpdateGroupResponse =
 updateGroupResponse
     :: UpdateGroupResponse
 updateGroupResponse = UpdateGroupResponse'
+
+instance NFData UpdateGroupResponse

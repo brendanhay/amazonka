@@ -167,3 +167,5 @@ grrsPosition = lens _grrsPosition (\ s a -> s{_grrsPosition = a});
 -- | The response status code.
 grrsResponseStatus :: Lens' GetResourcesResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+
+instance NFData GetResourcesResponse

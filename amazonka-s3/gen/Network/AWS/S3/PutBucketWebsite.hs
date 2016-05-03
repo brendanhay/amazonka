@@ -117,3 +117,5 @@ data PutBucketWebsiteResponse =
 putBucketWebsiteResponse
     :: PutBucketWebsiteResponse
 putBucketWebsiteResponse = PutBucketWebsiteResponse'
+
+instance NFData PutBucketWebsiteResponse

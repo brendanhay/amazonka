@@ -192,3 +192,5 @@ dmfrsMetricFilters = lens _dmfrsMetricFilters (\ s a -> s{_dmfrsMetricFilters = 
 -- | The response status code.
 dmfrsResponseStatus :: Lens' DescribeMetricFiltersResponse Int
 dmfrsResponseStatus = lens _dmfrsResponseStatus (\ s a -> s{_dmfrsResponseStatus = a});
+
+instance NFData DescribeMetricFiltersResponse

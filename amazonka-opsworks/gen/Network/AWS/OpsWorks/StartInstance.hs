@@ -107,3 +107,5 @@ data StartInstanceResponse =
 startInstanceResponse
     :: StartInstanceResponse
 startInstanceResponse = StartInstanceResponse'
+
+instance NFData StartInstanceResponse

@@ -132,3 +132,5 @@ data IncreaseStreamRetentionPeriodResponse =
 increaseStreamRetentionPeriodResponse
     :: IncreaseStreamRetentionPeriodResponse
 increaseStreamRetentionPeriodResponse = IncreaseStreamRetentionPeriodResponse'
+
+instance NFData IncreaseStreamRetentionPeriodResponse

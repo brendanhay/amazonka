@@ -121,3 +121,5 @@ data SetStackPolicyResponse =
 setStackPolicyResponse
     :: SetStackPolicyResponse
 setStackPolicyResponse = SetStackPolicyResponse'
+
+instance NFData SetStackPolicyResponse

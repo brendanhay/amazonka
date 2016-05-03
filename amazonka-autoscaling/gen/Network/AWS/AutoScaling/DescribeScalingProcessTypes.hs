@@ -112,3 +112,5 @@ dsptrsProcesses = lens _dsptrsProcesses (\ s a -> s{_dsptrsProcesses = a}) . _De
 -- | The response status code.
 dsptrsResponseStatus :: Lens' DescribeScalingProcessTypesResponse Int
 dsptrsResponseStatus = lens _dsptrsResponseStatus (\ s a -> s{_dsptrsResponseStatus = a});
+
+instance NFData DescribeScalingProcessTypesResponse

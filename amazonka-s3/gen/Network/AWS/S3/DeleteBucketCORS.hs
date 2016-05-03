@@ -90,3 +90,5 @@ data DeleteBucketCORSResponse =
 deleteBucketCORSResponse
     :: DeleteBucketCORSResponse
 deleteBucketCORSResponse = DeleteBucketCORSResponse'
+
+instance NFData DeleteBucketCORSResponse

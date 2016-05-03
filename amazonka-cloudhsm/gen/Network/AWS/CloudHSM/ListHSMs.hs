@@ -145,3 +145,5 @@ lhsmrsHSMList = lens _lhsmrsHSMList (\ s a -> s{_lhsmrsHSMList = a}) . _Default 
 -- | The response status code.
 lhsmrsResponseStatus :: Lens' ListHSMsResponse Int
 lhsmrsResponseStatus = lens _lhsmrsResponseStatus (\ s a -> s{_lhsmrsResponseStatus = a});
+
+instance NFData ListHSMsResponse

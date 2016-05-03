@@ -147,3 +147,5 @@ data AbortMultipartUploadResponse =
 abortMultipartUploadResponse
     :: AbortMultipartUploadResponse
 abortMultipartUploadResponse = AbortMultipartUploadResponse'
+
+instance NFData AbortMultipartUploadResponse

@@ -145,3 +145,5 @@ gtarsAttributes = lens _gtarsAttributes (\ s a -> s{_gtarsAttributes = a}) . _De
 -- | The response status code.
 gtarsResponseStatus :: Lens' GetTopicAttributesResponse Int
 gtarsResponseStatus = lens _gtarsResponseStatus (\ s a -> s{_gtarsResponseStatus = a});
+
+instance NFData GetTopicAttributesResponse

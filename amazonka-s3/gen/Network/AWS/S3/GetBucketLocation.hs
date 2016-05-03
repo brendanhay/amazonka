@@ -117,3 +117,5 @@ grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
 -- | Undocumented member.
 grsLocationConstraint :: Lens' GetBucketLocationResponse LocationConstraint
 grsLocationConstraint = lens _grsLocationConstraint (\ s a -> s{_grsLocationConstraint = a});
+
+instance NFData GetBucketLocationResponse

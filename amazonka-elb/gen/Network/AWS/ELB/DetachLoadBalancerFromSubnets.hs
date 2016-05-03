@@ -142,3 +142,5 @@ dlbfsrsSubnets = lens _dlbfsrsSubnets (\ s a -> s{_dlbfsrsSubnets = a}) . _Defau
 -- | The response status code.
 dlbfsrsResponseStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
 dlbfsrsResponseStatus = lens _dlbfsrsResponseStatus (\ s a -> s{_dlbfsrsResponseStatus = a});
+
+instance NFData DetachLoadBalancerFromSubnetsResponse

@@ -153,3 +153,5 @@ dsrsService = lens _dsrsService (\ s a -> s{_dsrsService = a});
 -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteServiceResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+
+instance NFData DeleteServiceResponse

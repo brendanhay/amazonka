@@ -143,3 +143,5 @@ llcrsResponseStatus = lens _llcrsResponseStatus (\ s a -> s{_llcrsResponseStatus
 -- | The list of clients.
 llcrsClientList :: Lens' ListLunaClientsResponse [Text]
 llcrsClientList = lens _llcrsClientList (\ s a -> s{_llcrsClientList = a}) . _Coerce;
+
+instance NFData ListLunaClientsResponse

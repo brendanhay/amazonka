@@ -106,3 +106,5 @@ data DeleteDBSubnetGroupResponse =
 deleteDBSubnetGroupResponse
     :: DeleteDBSubnetGroupResponse
 deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse'
+
+instance NFData DeleteDBSubnetGroupResponse

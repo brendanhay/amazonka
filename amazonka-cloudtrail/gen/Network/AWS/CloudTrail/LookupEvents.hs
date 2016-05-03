@@ -214,3 +214,5 @@ lersEvents = lens _lersEvents (\ s a -> s{_lersEvents = a}) . _Default . _Coerce
 -- | The response status code.
 lersResponseStatus :: Lens' LookupEventsResponse Int
 lersResponseStatus = lens _lersResponseStatus (\ s a -> s{_lersResponseStatus = a});
+
+instance NFData LookupEventsResponse

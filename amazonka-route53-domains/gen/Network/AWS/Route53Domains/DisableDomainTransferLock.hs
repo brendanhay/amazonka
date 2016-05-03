@@ -156,3 +156,5 @@ ddtlrsResponseStatus = lens _ddtlrsResponseStatus (\ s a -> s{_ddtlrsResponseSta
 -- Constraints: Maximum 255 characters.
 ddtlrsOperationId :: Lens' DisableDomainTransferLockResponse Text
 ddtlrsOperationId = lens _ddtlrsOperationId (\ s a -> s{_ddtlrsOperationId = a});
+
+instance NFData DisableDomainTransferLockResponse

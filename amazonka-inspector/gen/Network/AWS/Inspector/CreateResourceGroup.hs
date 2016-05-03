@@ -136,3 +136,5 @@ crgrsResourceGroupARN = lens _crgrsResourceGroupARN (\ s a -> s{_crgrsResourceGr
 -- | The response status code.
 crgrsResponseStatus :: Lens' CreateResourceGroupResponse Int
 crgrsResponseStatus = lens _crgrsResponseStatus (\ s a -> s{_crgrsResponseStatus = a});
+
+instance NFData CreateResourceGroupResponse

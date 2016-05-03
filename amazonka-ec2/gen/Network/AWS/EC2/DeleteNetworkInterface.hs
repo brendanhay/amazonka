@@ -110,3 +110,5 @@ data DeleteNetworkInterfaceResponse =
 deleteNetworkInterfaceResponse
     :: DeleteNetworkInterfaceResponse
 deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse'
+
+instance NFData DeleteNetworkInterfaceResponse

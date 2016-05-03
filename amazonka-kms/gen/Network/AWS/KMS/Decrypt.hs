@@ -192,3 +192,5 @@ drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping (_Se
 -- | The response status code.
 drsResponseStatus :: Lens' DecryptResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DecryptResponse

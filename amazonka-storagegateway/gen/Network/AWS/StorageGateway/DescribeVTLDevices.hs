@@ -210,3 +210,5 @@ dvtldrsMarker = lens _dvtldrsMarker (\ s a -> s{_dvtldrsMarker = a});
 -- | The response status code.
 dvtldrsResponseStatus :: Lens' DescribeVTLDevicesResponse Int
 dvtldrsResponseStatus = lens _dvtldrsResponseStatus (\ s a -> s{_dvtldrsResponseStatus = a});
+
+instance NFData DescribeVTLDevicesResponse

@@ -124,3 +124,5 @@ gtsrsPayload = lens _gtsrsPayload (\ s a -> s{_gtsrsPayload = a});
 -- | The response status code.
 gtsrsResponseStatus :: Lens' GetThingShadowResponse Int
 gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});
+
+instance NFData GetThingShadowResponse

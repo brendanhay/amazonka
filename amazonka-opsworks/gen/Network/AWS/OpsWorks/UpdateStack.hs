@@ -391,3 +391,5 @@ data UpdateStackResponse =
 updateStackResponse
     :: UpdateStackResponse
 updateStackResponse = UpdateStackResponse'
+
+instance NFData UpdateStackResponse

@@ -117,3 +117,5 @@ gbrprsPayer = lens _gbrprsPayer (\ s a -> s{_gbrprsPayer = a});
 -- | The response status code.
 gbrprsResponseStatus :: Lens' GetBucketRequestPaymentResponse Int
 gbrprsResponseStatus = lens _gbrprsResponseStatus (\ s a -> s{_gbrprsResponseStatus = a});
+
+instance NFData GetBucketRequestPaymentResponse

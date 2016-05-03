@@ -185,3 +185,5 @@ csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 -- | The response status code.
 csrsResponseStatus :: Lens' CreateSnapshotResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+
+instance NFData CreateSnapshotResponse

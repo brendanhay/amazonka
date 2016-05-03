@@ -136,3 +136,5 @@ rrsPipeline = lens _rrsPipeline (\ s a -> s{_rrsPipeline = a});
 -- | The response status code.
 rrsResponseStatus :: Lens' ReadPipelineResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
+
+instance NFData ReadPipelineResponse

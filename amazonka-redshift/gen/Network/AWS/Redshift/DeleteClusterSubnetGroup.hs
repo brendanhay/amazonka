@@ -99,3 +99,5 @@ data DeleteClusterSubnetGroupResponse =
 deleteClusterSubnetGroupResponse
     :: DeleteClusterSubnetGroupResponse
 deleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse'
+
+instance NFData DeleteClusterSubnetGroupResponse

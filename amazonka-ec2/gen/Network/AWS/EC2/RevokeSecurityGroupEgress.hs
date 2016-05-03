@@ -203,3 +203,5 @@ data RevokeSecurityGroupEgressResponse =
 revokeSecurityGroupEgressResponse
     :: RevokeSecurityGroupEgressResponse
 revokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse'
+
+instance NFData RevokeSecurityGroupEgressResponse

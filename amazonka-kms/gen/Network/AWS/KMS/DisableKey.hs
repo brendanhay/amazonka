@@ -109,3 +109,5 @@ data DisableKeyResponse =
 disableKeyResponse
     :: DisableKeyResponse
 disableKeyResponse = DisableKeyResponse'
+
+instance NFData DisableKeyResponse

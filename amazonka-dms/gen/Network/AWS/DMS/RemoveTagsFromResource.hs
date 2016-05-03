@@ -132,3 +132,5 @@ removeTagsFromResourceResponse pResponseStatus_ =
 -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
 rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
+
+instance NFData RemoveTagsFromResourceResponse

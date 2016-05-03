@@ -175,3 +175,5 @@ crsOptionGroup = lens _crsOptionGroup (\ s a -> s{_crsOptionGroup = a});
 -- | The response status code.
 crsResponseStatus :: Lens' CreateOptionGroupResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CreateOptionGroupResponse

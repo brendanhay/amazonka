@@ -141,3 +141,5 @@ data SetTerminationProtectionResponse =
 setTerminationProtectionResponse
     :: SetTerminationProtectionResponse
 setTerminationProtectionResponse = SetTerminationProtectionResponse'
+
+instance NFData SetTerminationProtectionResponse

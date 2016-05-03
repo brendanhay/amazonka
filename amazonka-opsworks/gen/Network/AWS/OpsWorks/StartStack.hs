@@ -106,3 +106,5 @@ data StartStackResponse =
 startStackResponse
     :: StartStackResponse
 startStackResponse = StartStackResponse'
+
+instance NFData StartStackResponse

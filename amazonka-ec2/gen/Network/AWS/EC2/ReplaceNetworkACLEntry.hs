@@ -191,3 +191,5 @@ data ReplaceNetworkACLEntryResponse =
 replaceNetworkACLEntryResponse
     :: ReplaceNetworkACLEntryResponse
 replaceNetworkACLEntryResponse = ReplaceNetworkACLEntryResponse'
+
+instance NFData ReplaceNetworkACLEntryResponse

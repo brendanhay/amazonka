@@ -112,3 +112,5 @@ data DeactivateMFADeviceResponse =
 deactivateMFADeviceResponse
     :: DeactivateMFADeviceResponse
 deactivateMFADeviceResponse = DeactivateMFADeviceResponse'
+
+instance NFData DeactivateMFADeviceResponse

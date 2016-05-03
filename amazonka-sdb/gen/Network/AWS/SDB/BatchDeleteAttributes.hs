@@ -111,3 +111,5 @@ data BatchDeleteAttributesResponse =
 batchDeleteAttributesResponse
     :: BatchDeleteAttributesResponse
 batchDeleteAttributesResponse = BatchDeleteAttributesResponse'
+
+instance NFData BatchDeleteAttributesResponse

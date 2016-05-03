@@ -139,3 +139,5 @@ dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _
 -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeClustersResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+
+instance NFData DescribeClustersResponse

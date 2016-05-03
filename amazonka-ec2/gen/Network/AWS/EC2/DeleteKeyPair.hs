@@ -106,3 +106,5 @@ data DeleteKeyPairResponse =
 deleteKeyPairResponse
     :: DeleteKeyPairResponse
 deleteKeyPairResponse = DeleteKeyPairResponse'
+
+instance NFData DeleteKeyPairResponse

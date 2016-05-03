@@ -160,3 +160,5 @@ dpgrsPlacementGroups = lens _dpgrsPlacementGroups (\ s a -> s{_dpgrsPlacementGro
 -- | The response status code.
 dpgrsResponseStatus :: Lens' DescribePlacementGroupsResponse Int
 dpgrsResponseStatus = lens _dpgrsResponseStatus (\ s a -> s{_dpgrsResponseStatus = a});
+
+instance NFData DescribePlacementGroupsResponse

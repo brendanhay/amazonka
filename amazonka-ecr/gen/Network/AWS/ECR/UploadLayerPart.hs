@@ -225,3 +225,5 @@ ulprsUploadId = lens _ulprsUploadId (\ s a -> s{_ulprsUploadId = a});
 -- | The response status code.
 ulprsResponseStatus :: Lens' UploadLayerPartResponse Int
 ulprsResponseStatus = lens _ulprsResponseStatus (\ s a -> s{_ulprsResponseStatus = a});
+
+instance NFData UploadLayerPartResponse

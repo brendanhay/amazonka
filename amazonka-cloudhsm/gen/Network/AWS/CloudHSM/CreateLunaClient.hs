@@ -143,3 +143,5 @@ clcrsClientARN = lens _clcrsClientARN (\ s a -> s{_clcrsClientARN = a});
 -- | The response status code.
 clcrsResponseStatus :: Lens' CreateLunaClientResponse Int
 clcrsResponseStatus = lens _clcrsResponseStatus (\ s a -> s{_clcrsResponseStatus = a});
+
+instance NFData CreateLunaClientResponse

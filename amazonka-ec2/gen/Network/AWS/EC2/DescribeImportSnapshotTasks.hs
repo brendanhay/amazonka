@@ -178,3 +178,5 @@ distrsImportSnapshotTasks = lens _distrsImportSnapshotTasks (\ s a -> s{_distrsI
 -- | The response status code.
 distrsResponseStatus :: Lens' DescribeImportSnapshotTasksResponse Int
 distrsResponseStatus = lens _distrsResponseStatus (\ s a -> s{_distrsResponseStatus = a});
+
+instance NFData DescribeImportSnapshotTasksResponse

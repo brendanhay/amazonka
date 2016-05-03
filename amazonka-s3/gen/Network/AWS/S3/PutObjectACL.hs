@@ -227,3 +227,5 @@ poarsRequestCharged = lens _poarsRequestCharged (\ s a -> s{_poarsRequestCharged
 -- | The response status code.
 poarsResponseStatus :: Lens' PutObjectACLResponse Int
 poarsResponseStatus = lens _poarsResponseStatus (\ s a -> s{_poarsResponseStatus = a});
+
+instance NFData PutObjectACLResponse

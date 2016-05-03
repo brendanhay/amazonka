@@ -198,3 +198,5 @@ ddpgrsDBParameterGroups = lens _ddpgrsDBParameterGroups (\ s a -> s{_ddpgrsDBPar
 -- | The response status code.
 ddpgrsResponseStatus :: Lens' DescribeDBParameterGroupsResponse Int
 ddpgrsResponseStatus = lens _ddpgrsResponseStatus (\ s a -> s{_ddpgrsResponseStatus = a});
+
+instance NFData DescribeDBParameterGroupsResponse

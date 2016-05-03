@@ -108,3 +108,5 @@ data DeleteCustomerGatewayResponse =
 deleteCustomerGatewayResponse
     :: DeleteCustomerGatewayResponse
 deleteCustomerGatewayResponse = DeleteCustomerGatewayResponse'
+
+instance NFData DeleteCustomerGatewayResponse

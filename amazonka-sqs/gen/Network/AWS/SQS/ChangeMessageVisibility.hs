@@ -156,3 +156,5 @@ data ChangeMessageVisibilityResponse =
 changeMessageVisibilityResponse
     :: ChangeMessageVisibilityResponse
 changeMessageVisibilityResponse = ChangeMessageVisibilityResponse'
+
+instance NFData ChangeMessageVisibilityResponse

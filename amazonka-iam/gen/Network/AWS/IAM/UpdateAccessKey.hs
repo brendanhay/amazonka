@@ -128,3 +128,5 @@ data UpdateAccessKeyResponse =
 updateAccessKeyResponse
     :: UpdateAccessKeyResponse
 updateAccessKeyResponse = UpdateAccessKeyResponse'
+
+instance NFData UpdateAccessKeyResponse

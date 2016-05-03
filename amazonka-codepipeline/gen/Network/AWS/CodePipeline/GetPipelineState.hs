@@ -175,3 +175,5 @@ gpsrsUpdated = lens _gpsrsUpdated (\ s a -> s{_gpsrsUpdated = a}) . mapping _Tim
 -- | The response status code.
 gpsrsResponseStatus :: Lens' GetPipelineStateResponse Int
 gpsrsResponseStatus = lens _gpsrsResponseStatus (\ s a -> s{_gpsrsResponseStatus = a});
+
+instance NFData GetPipelineStateResponse

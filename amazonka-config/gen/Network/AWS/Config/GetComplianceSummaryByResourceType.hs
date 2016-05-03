@@ -147,3 +147,6 @@ gcsbrtrsComplianceSummariesByResourceType = lens _gcsbrtrsComplianceSummariesByR
 -- | The response status code.
 gcsbrtrsResponseStatus :: Lens' GetComplianceSummaryByResourceTypeResponse Int
 gcsbrtrsResponseStatus = lens _gcsbrtrsResponseStatus (\ s a -> s{_gcsbrtrsResponseStatus = a});
+
+instance NFData
+         GetComplianceSummaryByResourceTypeResponse

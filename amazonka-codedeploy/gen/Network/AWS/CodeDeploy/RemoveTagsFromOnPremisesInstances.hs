@@ -123,3 +123,6 @@ removeTagsFromOnPremisesInstancesResponse
     :: RemoveTagsFromOnPremisesInstancesResponse
 removeTagsFromOnPremisesInstancesResponse =
     RemoveTagsFromOnPremisesInstancesResponse'
+
+instance NFData
+         RemoveTagsFromOnPremisesInstancesResponse

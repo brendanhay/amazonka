@@ -149,3 +149,5 @@ daorsAvailabilityOptions = lens _daorsAvailabilityOptions (\ s a -> s{_daorsAvai
 -- | The response status code.
 daorsResponseStatus :: Lens' DescribeAvailabilityOptionsResponse Int
 daorsResponseStatus = lens _daorsResponseStatus (\ s a -> s{_daorsResponseStatus = a});
+
+instance NFData DescribeAvailabilityOptionsResponse

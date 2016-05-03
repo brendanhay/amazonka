@@ -155,3 +155,6 @@ rcsgirsCacheSecurityGroup = lens _rcsgirsCacheSecurityGroup (\ s a -> s{_rcsgirs
 -- | The response status code.
 rcsgirsResponseStatus :: Lens' RevokeCacheSecurityGroupIngressResponse Int
 rcsgirsResponseStatus = lens _rcsgirsResponseStatus (\ s a -> s{_rcsgirsResponseStatus = a});
+
+instance NFData
+         RevokeCacheSecurityGroupIngressResponse

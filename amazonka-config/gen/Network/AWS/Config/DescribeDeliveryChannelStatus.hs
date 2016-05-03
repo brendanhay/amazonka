@@ -140,3 +140,5 @@ ddcsrsDeliveryChannelsStatus = lens _ddcsrsDeliveryChannelsStatus (\ s a -> s{_d
 -- | The response status code.
 ddcsrsResponseStatus :: Lens' DescribeDeliveryChannelStatusResponse Int
 ddcsrsResponseStatus = lens _ddcsrsResponseStatus (\ s a -> s{_ddcsrsResponseStatus = a});
+
+instance NFData DescribeDeliveryChannelStatusResponse

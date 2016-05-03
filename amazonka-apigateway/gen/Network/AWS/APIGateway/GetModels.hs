@@ -166,3 +166,5 @@ gmrsPosition = lens _gmrsPosition (\ s a -> s{_gmrsPosition = a});
 -- | The response status code.
 gmrsResponseStatus :: Lens' GetModelsResponse Int
 gmrsResponseStatus = lens _gmrsResponseStatus (\ s a -> s{_gmrsResponseStatus = a});
+
+instance NFData GetModelsResponse

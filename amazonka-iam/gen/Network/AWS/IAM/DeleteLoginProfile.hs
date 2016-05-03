@@ -102,3 +102,5 @@ data DeleteLoginProfileResponse =
 deleteLoginProfileResponse
     :: DeleteLoginProfileResponse
 deleteLoginProfileResponse = DeleteLoginProfileResponse'
+
+instance NFData DeleteLoginProfileResponse

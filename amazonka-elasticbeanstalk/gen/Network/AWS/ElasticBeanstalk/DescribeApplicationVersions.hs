@@ -143,3 +143,5 @@ davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsAppl
 -- | The response status code.
 davrsResponseStatus :: Lens' DescribeApplicationVersionsResponse Int
 davrsResponseStatus = lens _davrsResponseStatus (\ s a -> s{_davrsResponseStatus = a});
+
+instance NFData DescribeApplicationVersionsResponse

@@ -143,3 +143,5 @@ dlbprsPolicyDescriptions = lens _dlbprsPolicyDescriptions (\ s a -> s{_dlbprsPol
 -- | The response status code.
 dlbprsResponseStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
 dlbprsResponseStatus = lens _dlbprsResponseStatus (\ s a -> s{_dlbprsResponseStatus = a});
+
+instance NFData DescribeLoadBalancerPoliciesResponse

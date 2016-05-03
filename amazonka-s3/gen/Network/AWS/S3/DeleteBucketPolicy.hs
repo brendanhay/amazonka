@@ -91,3 +91,5 @@ data DeleteBucketPolicyResponse =
 deleteBucketPolicyResponse
     :: DeleteBucketPolicyResponse
 deleteBucketPolicyResponse = DeleteBucketPolicyResponse'
+
+instance NFData DeleteBucketPolicyResponse

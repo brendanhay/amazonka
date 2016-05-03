@@ -166,3 +166,5 @@ data MergeShardsResponse =
 mergeShardsResponse
     :: MergeShardsResponse
 mergeShardsResponse = MergeShardsResponse'
+
+instance NFData MergeShardsResponse

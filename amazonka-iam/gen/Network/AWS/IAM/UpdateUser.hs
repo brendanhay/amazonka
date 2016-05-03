@@ -129,3 +129,5 @@ data UpdateUserResponse =
 updateUserResponse
     :: UpdateUserResponse
 updateUserResponse = UpdateUserResponse'
+
+instance NFData UpdateUserResponse

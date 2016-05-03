@@ -170,3 +170,5 @@ ltfsrsTags = lens _ltfsrsTags (\ s a -> s{_ltfsrsTags = a}) . _Coerce;
 -- set 'ExclusiveStartTagKey' to the key of the last tag returned.
 ltfsrsHasMoreTags :: Lens' ListTagsForStreamResponse Bool
 ltfsrsHasMoreTags = lens _ltfsrsHasMoreTags (\ s a -> s{_ltfsrsHasMoreTags = a});
+
+instance NFData ListTagsForStreamResponse

@@ -169,3 +169,5 @@ msfrrsReturn = lens _msfrrsReturn (\ s a -> s{_msfrrsReturn = a});
 -- | The response status code.
 msfrrsResponseStatus :: Lens' ModifySpotFleetRequestResponse Int
 msfrrsResponseStatus = lens _msfrrsResponseStatus (\ s a -> s{_msfrrsResponseStatus = a});
+
+instance NFData ModifySpotFleetRequestResponse

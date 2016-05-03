@@ -149,3 +149,5 @@ darsApps = lens _darsApps (\ s a -> s{_darsApps = a}) . _Default . _Coerce;
 -- | The response status code.
 darsResponseStatus :: Lens' DescribeAppsResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+
+instance NFData DescribeAppsResponse

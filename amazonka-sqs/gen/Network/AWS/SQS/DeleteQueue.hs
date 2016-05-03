@@ -110,3 +110,5 @@ data DeleteQueueResponse =
 deleteQueueResponse
     :: DeleteQueueResponse
 deleteQueueResponse = DeleteQueueResponse'
+
+instance NFData DeleteQueueResponse

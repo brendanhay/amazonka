@@ -108,3 +108,5 @@ data DeleteLayerResponse =
 deleteLayerResponse
     :: DeleteLayerResponse
 deleteLayerResponse = DeleteLayerResponse'
+
+instance NFData DeleteLayerResponse

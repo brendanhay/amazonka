@@ -151,3 +151,5 @@ reirsElasticIP = lens _reirsElasticIP (\ s a -> s{_reirsElasticIP = a});
 -- | The response status code.
 reirsResponseStatus :: Lens' RegisterElasticIPResponse Int
 reirsResponseStatus = lens _reirsResponseStatus (\ s a -> s{_reirsResponseStatus = a});
+
+instance NFData RegisterElasticIPResponse

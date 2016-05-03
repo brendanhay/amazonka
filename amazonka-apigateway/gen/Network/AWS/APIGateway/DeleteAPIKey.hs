@@ -95,3 +95,5 @@ data DeleteAPIKeyResponse =
 deleteAPIKeyResponse
     :: DeleteAPIKeyResponse
 deleteAPIKeyResponse = DeleteAPIKeyResponse'
+
+instance NFData DeleteAPIKeyResponse

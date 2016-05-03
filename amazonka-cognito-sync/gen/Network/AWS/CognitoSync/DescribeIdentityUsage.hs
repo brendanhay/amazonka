@@ -145,3 +145,5 @@ diursIdentityUsage = lens _diursIdentityUsage (\ s a -> s{_diursIdentityUsage = 
 -- | The response status code.
 diursResponseStatus :: Lens' DescribeIdentityUsageResponse Int
 diursResponseStatus = lens _diursResponseStatus (\ s a -> s{_diursResponseStatus = a});
+
+instance NFData DescribeIdentityUsageResponse

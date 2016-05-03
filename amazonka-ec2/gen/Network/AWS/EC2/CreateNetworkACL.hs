@@ -137,3 +137,5 @@ cnarsNetworkACL = lens _cnarsNetworkACL (\ s a -> s{_cnarsNetworkACL = a});
 -- | The response status code.
 cnarsResponseStatus :: Lens' CreateNetworkACLResponse Int
 cnarsResponseStatus = lens _cnarsResponseStatus (\ s a -> s{_cnarsResponseStatus = a});
+
+instance NFData CreateNetworkACLResponse

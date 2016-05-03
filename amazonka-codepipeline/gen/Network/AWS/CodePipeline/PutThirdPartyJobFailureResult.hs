@@ -134,3 +134,5 @@ data PutThirdPartyJobFailureResultResponse =
 putThirdPartyJobFailureResultResponse
     :: PutThirdPartyJobFailureResultResponse
 putThirdPartyJobFailureResultResponse = PutThirdPartyJobFailureResultResponse'
+
+instance NFData PutThirdPartyJobFailureResultResponse

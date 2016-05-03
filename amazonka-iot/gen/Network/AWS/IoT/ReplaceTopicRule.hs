@@ -111,3 +111,5 @@ data ReplaceTopicRuleResponse =
 replaceTopicRuleResponse
     :: ReplaceTopicRuleResponse
 replaceTopicRuleResponse = ReplaceTopicRuleResponse'
+
+instance NFData ReplaceTopicRuleResponse

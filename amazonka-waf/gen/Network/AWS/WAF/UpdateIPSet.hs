@@ -192,3 +192,5 @@ uisrsChangeToken = lens _uisrsChangeToken (\ s a -> s{_uisrsChangeToken = a});
 -- | The response status code.
 uisrsResponseStatus :: Lens' UpdateIPSetResponse Int
 uisrsResponseStatus = lens _uisrsResponseStatus (\ s a -> s{_uisrsResponseStatus = a});
+
+instance NFData UpdateIPSetResponse

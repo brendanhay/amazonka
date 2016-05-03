@@ -109,3 +109,5 @@ data DeleteDHCPOptionsResponse =
 deleteDHCPOptionsResponse
     :: DeleteDHCPOptionsResponse
 deleteDHCPOptionsResponse = DeleteDHCPOptionsResponse'
+
+instance NFData DeleteDHCPOptionsResponse

@@ -143,3 +143,5 @@ data EnableMetricsCollectionResponse =
 enableMetricsCollectionResponse
     :: EnableMetricsCollectionResponse
 enableMetricsCollectionResponse = EnableMetricsCollectionResponse'
+
+instance NFData EnableMetricsCollectionResponse

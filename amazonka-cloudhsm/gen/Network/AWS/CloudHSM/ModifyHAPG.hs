@@ -149,3 +149,5 @@ mhrsHAPGARN = lens _mhrsHAPGARN (\ s a -> s{_mhrsHAPGARN = a});
 -- | The response status code.
 mhrsResponseStatus :: Lens' ModifyHAPGResponse Int
 mhrsResponseStatus = lens _mhrsResponseStatus (\ s a -> s{_mhrsResponseStatus = a});
+
+instance NFData ModifyHAPGResponse

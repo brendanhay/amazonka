@@ -186,3 +186,5 @@ ccpgrsClusterParameterGroup = lens _ccpgrsClusterParameterGroup (\ s a -> s{_ccp
 -- | The response status code.
 ccpgrsResponseStatus :: Lens' CreateClusterParameterGroupResponse Int
 ccpgrsResponseStatus = lens _ccpgrsResponseStatus (\ s a -> s{_ccpgrsResponseStatus = a});
+
+instance NFData CreateClusterParameterGroupResponse

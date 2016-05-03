@@ -99,3 +99,5 @@ data DeleteHSMClientCertificateResponse =
 deleteHSMClientCertificateResponse
     :: DeleteHSMClientCertificateResponse
 deleteHSMClientCertificateResponse = DeleteHSMClientCertificateResponse'
+
+instance NFData DeleteHSMClientCertificateResponse

@@ -113,3 +113,5 @@ data AttachInstancesResponse =
 attachInstancesResponse
     :: AttachInstancesResponse
 attachInstancesResponse = AttachInstancesResponse'
+
+instance NFData AttachInstancesResponse

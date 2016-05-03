@@ -175,3 +175,5 @@ ufarsFleetId = lens _ufarsFleetId (\ s a -> s{_ufarsFleetId = a});
 -- | The response status code.
 ufarsResponseStatus :: Lens' UpdateFleetAttributesResponse Int
 ufarsResponseStatus = lens _ufarsResponseStatus (\ s a -> s{_ufarsResponseStatus = a});
+
+instance NFData UpdateFleetAttributesResponse

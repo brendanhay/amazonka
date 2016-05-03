@@ -115,3 +115,5 @@ lrfrsFilters = lens _lrfrsFilters (\ s a -> s{_lrfrsFilters = a}) . _Default . _
 -- | The response status code.
 lrfrsResponseStatus :: Lens' ListReceiptFiltersResponse Int
 lrfrsResponseStatus = lens _lrfrsResponseStatus (\ s a -> s{_lrfrsResponseStatus = a});
+
+instance NFData ListReceiptFiltersResponse

@@ -136,3 +136,5 @@ mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanc
 -- | The response status code.
 mirsResponseStatus :: Lens' MonitorInstancesResponse Int
 mirsResponseStatus = lens _mirsResponseStatus (\ s a -> s{_mirsResponseStatus = a});
+
+instance NFData MonitorInstancesResponse

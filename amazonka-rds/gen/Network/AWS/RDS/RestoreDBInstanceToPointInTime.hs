@@ -452,3 +452,6 @@ rditpitrsDBInstance = lens _rditpitrsDBInstance (\ s a -> s{_rditpitrsDBInstance
 -- | The response status code.
 rditpitrsResponseStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
 rditpitrsResponseStatus = lens _rditpitrsResponseStatus (\ s a -> s{_rditpitrsResponseStatus = a});
+
+instance NFData
+         RestoreDBInstanceToPointInTimeResponse

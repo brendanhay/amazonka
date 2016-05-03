@@ -212,3 +212,5 @@ udcrsResponseStatus = lens _udcrsResponseStatus (\ s a -> s{_udcrsResponseStatus
 -- Constraints: Maximum 255 characters.
 udcrsOperationId :: Lens' UpdateDomainContactResponse Text
 udcrsOperationId = lens _udcrsOperationId (\ s a -> s{_udcrsOperationId = a});
+
+instance NFData UpdateDomainContactResponse

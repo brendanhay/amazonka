@@ -146,3 +146,5 @@ gkprsPolicy = lens _gkprsPolicy (\ s a -> s{_gkprsPolicy = a});
 -- | The response status code.
 gkprsResponseStatus :: Lens' GetKeyPolicyResponse Int
 gkprsResponseStatus = lens _gkprsResponseStatus (\ s a -> s{_gkprsResponseStatus = a});
+
+instance NFData GetKeyPolicyResponse

@@ -138,3 +138,5 @@ cdarsAvailable = lens _cdarsAvailable (\ s a -> s{_cdarsAvailable = a});
 -- | The response status code.
 cdarsResponseStatus :: Lens' CheckDNSAvailabilityResponse Int
 cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus = a});
+
+instance NFData CheckDNSAvailabilityResponse

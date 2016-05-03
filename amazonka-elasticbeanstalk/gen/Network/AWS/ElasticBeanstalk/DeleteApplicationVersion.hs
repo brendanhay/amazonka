@@ -129,3 +129,5 @@ data DeleteApplicationVersionResponse =
 deleteApplicationVersionResponse
     :: DeleteApplicationVersionResponse
 deleteApplicationVersionResponse = DeleteApplicationVersionResponse'
+
+instance NFData DeleteApplicationVersionResponse

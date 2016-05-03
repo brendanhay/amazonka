@@ -187,3 +187,5 @@ lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Defau
 -- | The response status code.
 lirsResponseStatus :: Lens' ListIdentitiesResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
+
+instance NFData ListIdentitiesResponse

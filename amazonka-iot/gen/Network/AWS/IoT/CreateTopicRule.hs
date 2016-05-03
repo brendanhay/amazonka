@@ -110,3 +110,5 @@ data CreateTopicRuleResponse =
 createTopicRuleResponse
     :: CreateTopicRuleResponse
 createTopicRuleResponse = CreateTopicRuleResponse'
+
+instance NFData CreateTopicRuleResponse

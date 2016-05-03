@@ -166,3 +166,6 @@ modifyNetworkInterfaceAttributeResponse
     :: ModifyNetworkInterfaceAttributeResponse
 modifyNetworkInterfaceAttributeResponse =
     ModifyNetworkInterfaceAttributeResponse'
+
+instance NFData
+         ModifyNetworkInterfaceAttributeResponse

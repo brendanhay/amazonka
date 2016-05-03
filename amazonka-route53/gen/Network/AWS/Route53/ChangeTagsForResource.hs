@@ -164,3 +164,5 @@ changeTagsForResourceResponse pResponseStatus_ =
 -- | The response status code.
 ctfrrsResponseStatus :: Lens' ChangeTagsForResourceResponse Int
 ctfrrsResponseStatus = lens _ctfrrsResponseStatus (\ s a -> s{_ctfrrsResponseStatus = a});
+
+instance NFData ChangeTagsForResourceResponse

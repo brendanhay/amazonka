@@ -183,3 +183,5 @@ dvgrsVPNGateways = lens _dvgrsVPNGateways (\ s a -> s{_dvgrsVPNGateways = a}) . 
 -- | The response status code.
 dvgrsResponseStatus :: Lens' DescribeVPNGatewaysResponse Int
 dvgrsResponseStatus = lens _dvgrsResponseStatus (\ s a -> s{_dvgrsResponseStatus = a});
+
+instance NFData DescribeVPNGatewaysResponse

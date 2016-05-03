@@ -165,3 +165,5 @@ ctwbrsTapeARN = lens _ctwbrsTapeARN (\ s a -> s{_ctwbrsTapeARN = a});
 -- | The response status code.
 ctwbrsResponseStatus :: Lens' CreateTapeWithBarcodeResponse Int
 ctwbrsResponseStatus = lens _ctwbrsResponseStatus (\ s a -> s{_ctwbrsResponseStatus = a});
+
+instance NFData CreateTapeWithBarcodeResponse

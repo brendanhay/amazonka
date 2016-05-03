@@ -192,3 +192,5 @@ isrsDescription = lens _isrsDescription (\ s a -> s{_isrsDescription = a});
 -- | The response status code.
 isrsResponseStatus :: Lens' ImportSnapshotResponse Int
 isrsResponseStatus = lens _isrsResponseStatus (\ s a -> s{_isrsResponseStatus = a});
+
+instance NFData ImportSnapshotResponse

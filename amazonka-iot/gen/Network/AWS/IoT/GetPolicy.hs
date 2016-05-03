@@ -151,3 +151,5 @@ gprsPolicyARN = lens _gprsPolicyARN (\ s a -> s{_gprsPolicyARN = a});
 -- | The response status code.
 gprsResponseStatus :: Lens' GetPolicyResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+
+instance NFData GetPolicyResponse

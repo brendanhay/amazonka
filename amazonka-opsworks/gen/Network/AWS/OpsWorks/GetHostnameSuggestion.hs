@@ -147,3 +147,5 @@ ghsrsLayerId = lens _ghsrsLayerId (\ s a -> s{_ghsrsLayerId = a});
 -- | The response status code.
 ghsrsResponseStatus :: Lens' GetHostnameSuggestionResponse Int
 ghsrsResponseStatus = lens _ghsrsResponseStatus (\ s a -> s{_ghsrsResponseStatus = a});
+
+instance NFData GetHostnameSuggestionResponse

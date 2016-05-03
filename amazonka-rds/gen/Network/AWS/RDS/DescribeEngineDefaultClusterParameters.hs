@@ -179,3 +179,6 @@ dedcprsEngineDefaults = lens _dedcprsEngineDefaults (\ s a -> s{_dedcprsEngineDe
 -- | The response status code.
 dedcprsResponseStatus :: Lens' DescribeEngineDefaultClusterParametersResponse Int
 dedcprsResponseStatus = lens _dedcprsResponseStatus (\ s a -> s{_dedcprsResponseStatus = a});
+
+instance NFData
+         DescribeEngineDefaultClusterParametersResponse

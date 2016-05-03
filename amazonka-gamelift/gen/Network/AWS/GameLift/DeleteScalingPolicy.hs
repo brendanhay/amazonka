@@ -119,3 +119,5 @@ data DeleteScalingPolicyResponse =
 deleteScalingPolicyResponse
     :: DeleteScalingPolicyResponse
 deleteScalingPolicyResponse = DeleteScalingPolicyResponse'
+
+instance NFData DeleteScalingPolicyResponse

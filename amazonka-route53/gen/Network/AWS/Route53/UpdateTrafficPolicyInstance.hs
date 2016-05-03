@@ -200,3 +200,5 @@ utpirsResponseStatus = lens _utpirsResponseStatus (\ s a -> s{_utpirsResponseSta
 -- instance.
 utpirsTrafficPolicyInstance :: Lens' UpdateTrafficPolicyInstanceResponse TrafficPolicyInstance
 utpirsTrafficPolicyInstance = lens _utpirsTrafficPolicyInstance (\ s a -> s{_utpirsTrafficPolicyInstance = a});
+
+instance NFData UpdateTrafficPolicyInstanceResponse

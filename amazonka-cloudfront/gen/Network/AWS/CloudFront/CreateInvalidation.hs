@@ -151,3 +151,5 @@ cirsLocation = lens _cirsLocation (\ s a -> s{_cirsLocation = a});
 -- | The response status code.
 cirsResponseStatus :: Lens' CreateInvalidationResponse Int
 cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
+
+instance NFData CreateInvalidationResponse

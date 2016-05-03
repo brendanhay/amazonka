@@ -131,3 +131,5 @@ continueUpdateRollbackResponse pResponseStatus_ =
 -- | The response status code.
 currsResponseStatus :: Lens' ContinueUpdateRollbackResponse Int
 currsResponseStatus = lens _currsResponseStatus (\ s a -> s{_currsResponseStatus = a});
+
+instance NFData ContinueUpdateRollbackResponse

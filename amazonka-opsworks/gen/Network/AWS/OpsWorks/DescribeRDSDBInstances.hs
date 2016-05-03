@@ -149,3 +149,5 @@ drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\ s a -> s{_drdirsRDSDBInstan
 -- | The response status code.
 drdirsResponseStatus :: Lens' DescribeRDSDBInstancesResponse Int
 drdirsResponseStatus = lens _drdirsResponseStatus (\ s a -> s{_drdirsResponseStatus = a});
+
+instance NFData DescribeRDSDBInstancesResponse

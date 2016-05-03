@@ -122,3 +122,5 @@ data UpdateRepositoryNameResponse =
 updateRepositoryNameResponse
     :: UpdateRepositoryNameResponse
 updateRepositoryNameResponse = UpdateRepositoryNameResponse'
+
+instance NFData UpdateRepositoryNameResponse

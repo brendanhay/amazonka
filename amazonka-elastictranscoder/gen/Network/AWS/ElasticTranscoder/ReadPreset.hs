@@ -122,3 +122,5 @@ rprsPreset = lens _rprsPreset (\ s a -> s{_rprsPreset = a});
 -- | The response status code.
 rprsResponseStatus :: Lens' ReadPresetResponse Int
 rprsResponseStatus = lens _rprsResponseStatus (\ s a -> s{_rprsResponseStatus = a});
+
+instance NFData ReadPresetResponse

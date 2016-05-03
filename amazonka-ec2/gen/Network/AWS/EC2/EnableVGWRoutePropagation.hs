@@ -108,3 +108,5 @@ data EnableVGWRoutePropagationResponse =
 enableVGWRoutePropagationResponse
     :: EnableVGWRoutePropagationResponse
 enableVGWRoutePropagationResponse = EnableVGWRoutePropagationResponse'
+
+instance NFData EnableVGWRoutePropagationResponse

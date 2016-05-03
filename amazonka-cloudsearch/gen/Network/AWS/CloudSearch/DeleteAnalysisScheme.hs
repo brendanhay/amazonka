@@ -141,3 +141,5 @@ dasarsResponseStatus = lens _dasarsResponseStatus (\ s a -> s{_dasarsResponseSta
 -- | The status of the analysis scheme being deleted.
 dasarsAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
 dasarsAnalysisScheme = lens _dasarsAnalysisScheme (\ s a -> s{_dasarsAnalysisScheme = a});
+
+instance NFData DeleteAnalysisSchemeResponse

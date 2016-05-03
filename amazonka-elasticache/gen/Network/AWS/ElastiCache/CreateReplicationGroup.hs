@@ -499,3 +499,5 @@ crgrsReplicationGroup = lens _crgrsReplicationGroup (\ s a -> s{_crgrsReplicatio
 -- | The response status code.
 crgrsResponseStatus :: Lens' CreateReplicationGroupResponse Int
 crgrsResponseStatus = lens _crgrsResponseStatus (\ s a -> s{_crgrsResponseStatus = a});
+
+instance NFData CreateReplicationGroupResponse

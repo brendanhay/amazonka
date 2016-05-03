@@ -170,3 +170,5 @@ bclarsLayers = lens _bclarsLayers (\ s a -> s{_bclarsLayers = a}) . _Default . _
 -- | The response status code.
 bclarsResponseStatus :: Lens' BatchCheckLayerAvailabilityResponse Int
 bclarsResponseStatus = lens _bclarsResponseStatus (\ s a -> s{_bclarsResponseStatus = a});
+
+instance NFData BatchCheckLayerAvailabilityResponse

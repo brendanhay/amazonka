@@ -122,3 +122,5 @@ dcrsCertificateDescription = lens _dcrsCertificateDescription (\ s a -> s{_dcrsC
 -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCertificateResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+
+instance NFData DescribeCertificateResponse

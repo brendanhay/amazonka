@@ -155,3 +155,5 @@ data RespondActivityTaskCompletedResponse =
 respondActivityTaskCompletedResponse
     :: RespondActivityTaskCompletedResponse
 respondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse'
+
+instance NFData RespondActivityTaskCompletedResponse

@@ -281,3 +281,5 @@ crirsReplicationInstance = lens _crirsReplicationInstance (\ s a -> s{_crirsRepl
 -- | The response status code.
 crirsResponseStatus :: Lens' CreateReplicationInstanceResponse Int
 crirsResponseStatus = lens _crirsResponseStatus (\ s a -> s{_crirsResponseStatus = a});
+
+instance NFData CreateReplicationInstanceResponse

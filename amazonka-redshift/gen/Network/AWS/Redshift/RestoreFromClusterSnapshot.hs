@@ -429,3 +429,5 @@ rfcsrsCluster = lens _rfcsrsCluster (\ s a -> s{_rfcsrsCluster = a});
 -- | The response status code.
 rfcsrsResponseStatus :: Lens' RestoreFromClusterSnapshotResponse Int
 rfcsrsResponseStatus = lens _rfcsrsResponseStatus (\ s a -> s{_rfcsrsResponseStatus = a});
+
+instance NFData RestoreFromClusterSnapshotResponse

@@ -163,3 +163,5 @@ dvclrsVPCs = lens _dvclrsVPCs (\ s a -> s{_dvclrsVPCs = a}) . _Default . _Coerce
 -- | The response status code.
 dvclrsResponseStatus :: Lens' DescribeVPCClassicLinkResponse Int
 dvclrsResponseStatus = lens _dvclrsResponseStatus (\ s a -> s{_dvclrsResponseStatus = a});
+
+instance NFData DescribeVPCClassicLinkResponse

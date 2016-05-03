@@ -127,3 +127,5 @@ detachLoadBalancersResponse pResponseStatus_ =
 -- | The response status code.
 dlbsrsResponseStatus :: Lens' DetachLoadBalancersResponse Int
 dlbsrsResponseStatus = lens _dlbsrsResponseStatus (\ s a -> s{_dlbsrsResponseStatus = a});
+
+instance NFData DetachLoadBalancersResponse

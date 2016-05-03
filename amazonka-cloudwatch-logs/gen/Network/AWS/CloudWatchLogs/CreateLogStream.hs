@@ -119,3 +119,5 @@ data CreateLogStreamResponse =
 createLogStreamResponse
     :: CreateLogStreamResponse
 createLogStreamResponse = CreateLogStreamResponse'
+
+instance NFData CreateLogStreamResponse

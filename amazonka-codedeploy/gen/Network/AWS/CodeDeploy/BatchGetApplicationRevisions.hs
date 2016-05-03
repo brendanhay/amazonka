@@ -168,3 +168,5 @@ bgarrsErrorMessage = lens _bgarrsErrorMessage (\ s a -> s{_bgarrsErrorMessage = 
 -- | The response status code.
 bgarrsResponseStatus :: Lens' BatchGetApplicationRevisionsResponse Int
 bgarrsResponseStatus = lens _bgarrsResponseStatus (\ s a -> s{_bgarrsResponseStatus = a});
+
+instance NFData BatchGetApplicationRevisionsResponse

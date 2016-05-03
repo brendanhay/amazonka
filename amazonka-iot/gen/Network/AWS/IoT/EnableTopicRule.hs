@@ -95,3 +95,5 @@ data EnableTopicRuleResponse =
 enableTopicRuleResponse
     :: EnableTopicRuleResponse
 enableTopicRuleResponse = EnableTopicRuleResponse'
+
+instance NFData EnableTopicRuleResponse

@@ -142,3 +142,5 @@ data RegisterRDSDBInstanceResponse =
 registerRDSDBInstanceResponse
     :: RegisterRDSDBInstanceResponse
 registerRDSDBInstanceResponse = RegisterRDSDBInstanceResponse'
+
+instance NFData RegisterRDSDBInstanceResponse

@@ -331,3 +331,5 @@ irsDescription = lens _irsDescription (\ s a -> s{_irsDescription = a});
 -- | The response status code.
 irsResponseStatus :: Lens' ImportImageResponse Int
 irsResponseStatus = lens _irsResponseStatus (\ s a -> s{_irsResponseStatus = a});
+
+instance NFData ImportImageResponse

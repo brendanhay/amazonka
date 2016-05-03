@@ -124,3 +124,5 @@ gcrrsDescription = lens _gcrrsDescription (\ s a -> s{_gcrrsDescription = a});
 -- | The response status code.
 gcrrsResponseStatus :: Lens' GenerateCredentialReportResponse Int
 gcrrsResponseStatus = lens _gcrrsResponseStatus (\ s a -> s{_gcrrsResponseStatus = a});
+
+instance NFData GenerateCredentialReportResponse

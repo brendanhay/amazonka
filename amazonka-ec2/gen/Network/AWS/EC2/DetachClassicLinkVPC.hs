@@ -147,3 +147,5 @@ dclvrsReturn = lens _dclvrsReturn (\ s a -> s{_dclvrsReturn = a});
 -- | The response status code.
 dclvrsResponseStatus :: Lens' DetachClassicLinkVPCResponse Int
 dclvrsResponseStatus = lens _dclvrsResponseStatus (\ s a -> s{_dclvrsResponseStatus = a});
+
+instance NFData DetachClassicLinkVPCResponse

@@ -118,3 +118,5 @@ data DeleteRouteResponse =
 deleteRouteResponse
     :: DeleteRouteResponse
 deleteRouteResponse = DeleteRouteResponse'
+
+instance NFData DeleteRouteResponse

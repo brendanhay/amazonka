@@ -148,3 +148,5 @@ ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrs
 -- | The response status code.
 ldcrsResponseStatus :: Lens' ListDeploymentConfigsResponse Int
 ldcrsResponseStatus = lens _ldcrsResponseStatus (\ s a -> s{_ldcrsResponseStatus = a});
+
+instance NFData ListDeploymentConfigsResponse

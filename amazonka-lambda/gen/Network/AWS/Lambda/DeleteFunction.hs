@@ -138,3 +138,5 @@ data DeleteFunctionResponse =
 deleteFunctionResponse
     :: DeleteFunctionResponse
 deleteFunctionResponse = DeleteFunctionResponse'
+
+instance NFData DeleteFunctionResponse

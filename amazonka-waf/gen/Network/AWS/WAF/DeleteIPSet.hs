@@ -153,3 +153,5 @@ disrsChangeToken = lens _disrsChangeToken (\ s a -> s{_disrsChangeToken = a});
 -- | The response status code.
 disrsResponseStatus :: Lens' DeleteIPSetResponse Int
 disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
+
+instance NFData DeleteIPSetResponse

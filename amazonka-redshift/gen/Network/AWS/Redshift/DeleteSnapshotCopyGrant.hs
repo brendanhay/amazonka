@@ -99,3 +99,5 @@ data DeleteSnapshotCopyGrantResponse =
 deleteSnapshotCopyGrantResponse
     :: DeleteSnapshotCopyGrantResponse
 deleteSnapshotCopyGrantResponse = DeleteSnapshotCopyGrantResponse'
+
+instance NFData DeleteSnapshotCopyGrantResponse

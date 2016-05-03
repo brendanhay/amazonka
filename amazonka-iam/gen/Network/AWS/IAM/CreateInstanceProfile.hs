@@ -145,3 +145,5 @@ ciprsResponseStatus = lens _ciprsResponseStatus (\ s a -> s{_ciprsResponseStatus
 -- | Information about the instance profile.
 ciprsInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
 ciprsInstanceProfile = lens _ciprsInstanceProfile (\ s a -> s{_ciprsInstanceProfile = a});
+
+instance NFData CreateInstanceProfileResponse

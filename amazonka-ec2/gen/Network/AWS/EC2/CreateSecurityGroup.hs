@@ -196,3 +196,5 @@ csgrsResponseStatus = lens _csgrsResponseStatus (\ s a -> s{_csgrsResponseStatus
 -- | The ID of the security group.
 csgrsGroupId :: Lens' CreateSecurityGroupResponse Text
 csgrsGroupId = lens _csgrsGroupId (\ s a -> s{_csgrsGroupId = a});
+
+instance NFData CreateSecurityGroupResponse

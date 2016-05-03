@@ -203,3 +203,5 @@ lakrsResponseStatus = lens _lakrsResponseStatus (\ s a -> s{_lakrsResponseStatus
 -- | A list of access key metadata.
 lakrsAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
 lakrsAccessKeyMetadata = lens _lakrsAccessKeyMetadata (\ s a -> s{_lakrsAccessKeyMetadata = a}) . _Coerce;
+
+instance NFData ListAccessKeysResponse

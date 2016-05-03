@@ -140,3 +140,5 @@ rvpcrsReturn = lens _rvpcrsReturn (\ s a -> s{_rvpcrsReturn = a});
 -- | The response status code.
 rvpcrsResponseStatus :: Lens' RejectVPCPeeringConnectionResponse Int
 rvpcrsResponseStatus = lens _rvpcrsResponseStatus (\ s a -> s{_rvpcrsResponseStatus = a});
+
+instance NFData RejectVPCPeeringConnectionResponse

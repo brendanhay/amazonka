@@ -128,3 +128,5 @@ data DecreaseStreamRetentionPeriodResponse =
 decreaseStreamRetentionPeriodResponse
     :: DecreaseStreamRetentionPeriodResponse
 decreaseStreamRetentionPeriodResponse = DecreaseStreamRetentionPeriodResponse'
+
+instance NFData DecreaseStreamRetentionPeriodResponse

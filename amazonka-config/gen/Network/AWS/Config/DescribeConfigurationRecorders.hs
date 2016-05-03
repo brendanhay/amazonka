@@ -141,3 +141,6 @@ drsConfigurationRecorders = lens _drsConfigurationRecorders (\ s a -> s{_drsConf
 -- | The response status code.
 drsResponseStatus :: Lens' DescribeConfigurationRecordersResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData
+         DescribeConfigurationRecordersResponse

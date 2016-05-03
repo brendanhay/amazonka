@@ -127,3 +127,5 @@ data AbortVaultLockResponse =
 abortVaultLockResponse
     :: AbortVaultLockResponse
 abortVaultLockResponse = AbortVaultLockResponse'
+
+instance NFData AbortVaultLockResponse

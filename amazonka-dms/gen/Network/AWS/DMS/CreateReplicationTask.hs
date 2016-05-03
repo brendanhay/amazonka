@@ -228,3 +228,5 @@ crtrsReplicationTask = lens _crtrsReplicationTask (\ s a -> s{_crtrsReplicationT
 -- | The response status code.
 crtrsResponseStatus :: Lens' CreateReplicationTaskResponse Int
 crtrsResponseStatus = lens _crtrsResponseStatus (\ s a -> s{_crtrsResponseStatus = a});
+
+instance NFData CreateReplicationTaskResponse

@@ -127,3 +127,5 @@ daarsMessage = lens _daarsMessage (\ s a -> s{_daarsMessage = a});
 -- | The response status code.
 daarsResponseStatus :: Lens' DeleteAssessmentResponse Int
 daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
+
+instance NFData DeleteAssessmentResponse

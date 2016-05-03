@@ -177,3 +177,5 @@ dwsrsWorkingStorageUsedInBytes = lens _dwsrsWorkingStorageUsedInBytes (\ s a -> 
 -- | The response status code.
 dwsrsResponseStatus :: Lens' DescribeWorkingStorageResponse Int
 dwsrsResponseStatus = lens _dwsrsResponseStatus (\ s a -> s{_dwsrsResponseStatus = a});
+
+instance NFData DescribeWorkingStorageResponse

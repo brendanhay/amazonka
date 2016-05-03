@@ -111,3 +111,5 @@ data AddRoleToInstanceProfileResponse =
 addRoleToInstanceProfileResponse
     :: AddRoleToInstanceProfileResponse
 addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse'
+
+instance NFData AddRoleToInstanceProfileResponse

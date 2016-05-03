@@ -94,3 +94,5 @@ data DeleteGroupResponse =
 deleteGroupResponse
     :: DeleteGroupResponse
 deleteGroupResponse = DeleteGroupResponse'
+
+instance NFData DeleteGroupResponse

@@ -228,3 +228,5 @@ diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBloc
 -- | The response status code.
 diarsResponseStatus :: Lens' DescribeImageAttributeResponse Int
 diarsResponseStatus = lens _diarsResponseStatus (\ s a -> s{_diarsResponseStatus = a});
+
+instance NFData DescribeImageAttributeResponse

@@ -117,3 +117,5 @@ data AddTagsToStreamResponse =
 addTagsToStreamResponse
     :: AddTagsToStreamResponse
 addTagsToStreamResponse = AddTagsToStreamResponse'
+
+instance NFData AddTagsToStreamResponse

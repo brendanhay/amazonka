@@ -131,3 +131,5 @@ cprsPipeline = lens _cprsPipeline (\ s a -> s{_cprsPipeline = a});
 -- | The response status code.
 cprsResponseStatus :: Lens' CreatePipelineResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+
+instance NFData CreatePipelineResponse

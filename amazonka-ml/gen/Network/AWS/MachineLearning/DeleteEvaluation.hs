@@ -142,3 +142,5 @@ dersEvaluationId = lens _dersEvaluationId (\ s a -> s{_dersEvaluationId = a});
 -- | The response status code.
 dersResponseStatus :: Lens' DeleteEvaluationResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
+
+instance NFData DeleteEvaluationResponse

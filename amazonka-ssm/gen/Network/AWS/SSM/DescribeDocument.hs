@@ -125,3 +125,5 @@ drsDocument = lens _drsDocument (\ s a -> s{_drsDocument = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DescribeDocumentResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DescribeDocumentResponse

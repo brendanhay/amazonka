@@ -184,3 +184,5 @@ cvcrsVPNConnection = lens _cvcrsVPNConnection (\ s a -> s{_cvcrsVPNConnection = 
 -- | The response status code.
 cvcrsResponseStatus :: Lens' CreateVPNConnectionResponse Int
 cvcrsResponseStatus = lens _cvcrsResponseStatus (\ s a -> s{_cvcrsResponseStatus = a});
+
+instance NFData CreateVPNConnectionResponse

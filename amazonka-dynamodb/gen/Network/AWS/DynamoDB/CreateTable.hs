@@ -348,3 +348,5 @@ ctrsTableDescription = lens _ctrsTableDescription (\ s a -> s{_ctrsTableDescript
 -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTableResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+
+instance NFData CreateTableResponse

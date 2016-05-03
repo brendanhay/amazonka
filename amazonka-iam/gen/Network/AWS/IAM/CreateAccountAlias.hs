@@ -97,3 +97,5 @@ data CreateAccountAliasResponse =
 createAccountAliasResponse
     :: CreateAccountAliasResponse
 createAccountAliasResponse = CreateAccountAliasResponse'
+
+instance NFData CreateAccountAliasResponse

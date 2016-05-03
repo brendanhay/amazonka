@@ -132,3 +132,5 @@ cbtrsBundleTask = lens _cbtrsBundleTask (\ s a -> s{_cbtrsBundleTask = a});
 -- | The response status code.
 cbtrsResponseStatus :: Lens' CancelBundleTaskResponse Int
 cbtrsResponseStatus = lens _cbtrsResponseStatus (\ s a -> s{_cbtrsResponseStatus = a});
+
+instance NFData CancelBundleTaskResponse

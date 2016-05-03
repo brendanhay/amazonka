@@ -105,3 +105,5 @@ data DeleteDBParameterGroupResponse =
 deleteDBParameterGroupResponse
     :: DeleteDBParameterGroupResponse
 deleteDBParameterGroupResponse = DeleteDBParameterGroupResponse'
+
+instance NFData DeleteDBParameterGroupResponse

@@ -105,3 +105,5 @@ data DeleteFleetResponse =
 deleteFleetResponse
     :: DeleteFleetResponse
 deleteFleetResponse = DeleteFleetResponse'
+
+instance NFData DeleteFleetResponse

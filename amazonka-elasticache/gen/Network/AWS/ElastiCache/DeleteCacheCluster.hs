@@ -143,3 +143,5 @@ dccrsCacheCluster = lens _dccrsCacheCluster (\ s a -> s{_dccrsCacheCluster = a})
 -- | The response status code.
 dccrsResponseStatus :: Lens' DeleteCacheClusterResponse Int
 dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
+
+instance NFData DeleteCacheClusterResponse

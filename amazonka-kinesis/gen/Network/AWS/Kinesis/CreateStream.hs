@@ -163,3 +163,5 @@ data CreateStreamResponse =
 createStreamResponse
     :: CreateStreamResponse
 createStreamResponse = CreateStreamResponse'
+
+instance NFData CreateStreamResponse

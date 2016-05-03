@@ -130,3 +130,5 @@ sdcrsMessage = lens _sdcrsMessage (\ s a -> s{_sdcrsMessage = a});
 -- | The response status code.
 sdcrsResponseStatus :: Lens' StopDataCollectionResponse Int
 sdcrsResponseStatus = lens _sdcrsResponseStatus (\ s a -> s{_sdcrsResponseStatus = a});
+
+instance NFData StopDataCollectionResponse

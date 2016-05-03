@@ -109,3 +109,5 @@ data DeleteDeploymentResponse =
 deleteDeploymentResponse
     :: DeleteDeploymentResponse
 deleteDeploymentResponse = DeleteDeploymentResponse'
+
+instance NFData DeleteDeploymentResponse

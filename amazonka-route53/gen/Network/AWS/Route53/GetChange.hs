@@ -133,3 +133,5 @@ gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = 
 -- date and time of the request.
 gcrsChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrsChangeInfo = lens _gcrsChangeInfo (\ s a -> s{_gcrsChangeInfo = a});
+
+instance NFData GetChangeResponse

@@ -114,3 +114,5 @@ data DeleteMetricFilterResponse =
 deleteMetricFilterResponse
     :: DeleteMetricFilterResponse
 deleteMetricFilterResponse = DeleteMetricFilterResponse'
+
+instance NFData DeleteMetricFilterResponse

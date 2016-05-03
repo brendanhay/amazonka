@@ -162,3 +162,6 @@ cpvirsVirtualInterfaceState = lens _cpvirsVirtualInterfaceState (\ s a -> s{_cpv
 -- | The response status code.
 cpvirsResponseStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
 cpvirsResponseStatus = lens _cpvirsResponseStatus (\ s a -> s{_cpvirsResponseStatus = a});
+
+instance NFData
+         ConfirmPrivateVirtualInterfaceResponse

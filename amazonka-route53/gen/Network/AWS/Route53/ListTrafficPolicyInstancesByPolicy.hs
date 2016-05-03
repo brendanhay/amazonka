@@ -343,3 +343,6 @@ ltpibprsIsTruncated = lens _ltpibprsIsTruncated (\ s a -> s{_ltpibprsIsTruncated
 -- 'ListTrafficPolicyInstancesByPolicy' that produced the current response.
 ltpibprsMaxItems :: Lens' ListTrafficPolicyInstancesByPolicyResponse Text
 ltpibprsMaxItems = lens _ltpibprsMaxItems (\ s a -> s{_ltpibprsMaxItems = a});
+
+instance NFData
+         ListTrafficPolicyInstancesByPolicyResponse

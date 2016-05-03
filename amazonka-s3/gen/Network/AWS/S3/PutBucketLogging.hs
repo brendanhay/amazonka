@@ -119,3 +119,5 @@ data PutBucketLoggingResponse =
 putBucketLoggingResponse
     :: PutBucketLoggingResponse
 putBucketLoggingResponse = PutBucketLoggingResponse'
+
+instance NFData PutBucketLoggingResponse

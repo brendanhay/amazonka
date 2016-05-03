@@ -116,3 +116,5 @@ dlhtrsLifecycleHookTypes = lens _dlhtrsLifecycleHookTypes (\ s a -> s{_dlhtrsLif
 -- | The response status code.
 dlhtrsResponseStatus :: Lens' DescribeLifecycleHookTypesResponse Int
 dlhtrsResponseStatus = lens _dlhtrsResponseStatus (\ s a -> s{_dlhtrsResponseStatus = a});
+
+instance NFData DescribeLifecycleHookTypesResponse

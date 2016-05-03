@@ -154,3 +154,5 @@ srsGatewayARN = lens _srsGatewayARN (\ s a -> s{_srsGatewayARN = a});
 -- | The response status code.
 srsResponseStatus :: Lens' ShutdownGatewayResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+
+instance NFData ShutdownGatewayResponse

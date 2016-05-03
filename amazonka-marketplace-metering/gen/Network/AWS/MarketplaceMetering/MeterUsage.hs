@@ -178,3 +178,5 @@ mursMeteringRecordId = lens _mursMeteringRecordId (\ s a -> s{_mursMeteringRecor
 -- | The response status code.
 mursResponseStatus :: Lens' MeterUsageResponse Int
 mursResponseStatus = lens _mursResponseStatus (\ s a -> s{_mursResponseStatus = a});
+
+instance NFData MeterUsageResponse

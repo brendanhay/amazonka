@@ -132,3 +132,5 @@ gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits
 -- | The response status code.
 gslrsResponseStatus :: Lens' GetSnapshotLimitsResponse Int
 gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a});
+
+instance NFData GetSnapshotLimitsResponse

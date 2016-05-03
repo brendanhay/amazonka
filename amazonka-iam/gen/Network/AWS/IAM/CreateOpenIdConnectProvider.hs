@@ -209,3 +209,5 @@ coicprsOpenIdConnectProviderARN = lens _coicprsOpenIdConnectProviderARN (\ s a -
 -- | The response status code.
 coicprsResponseStatus :: Lens' CreateOpenIdConnectProviderResponse Int
 coicprsResponseStatus = lens _coicprsResponseStatus (\ s a -> s{_coicprsResponseStatus = a});
+
+instance NFData CreateOpenIdConnectProviderResponse

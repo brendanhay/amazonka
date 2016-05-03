@@ -161,3 +161,5 @@ rtdrsTaskDefinition = lens _rtdrsTaskDefinition (\ s a -> s{_rtdrsTaskDefinition
 -- | The response status code.
 rtdrsResponseStatus :: Lens' RegisterTaskDefinitionResponse Int
 rtdrsResponseStatus = lens _rtdrsResponseStatus (\ s a -> s{_rtdrsResponseStatus = a});
+
+instance NFData RegisterTaskDefinitionResponse

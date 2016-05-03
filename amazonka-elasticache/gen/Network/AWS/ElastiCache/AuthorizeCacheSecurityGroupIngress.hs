@@ -161,3 +161,6 @@ acsgirsCacheSecurityGroup = lens _acsgirsCacheSecurityGroup (\ s a -> s{_acsgirs
 -- | The response status code.
 acsgirsResponseStatus :: Lens' AuthorizeCacheSecurityGroupIngressResponse Int
 acsgirsResponseStatus = lens _acsgirsResponseStatus (\ s a -> s{_acsgirsResponseStatus = a});
+
+instance NFData
+         AuthorizeCacheSecurityGroupIngressResponse

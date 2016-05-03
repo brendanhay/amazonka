@@ -242,3 +242,5 @@ tiarsPolicy = lens _tiarsPolicy (\ s a -> s{_tiarsPolicy = a});
 -- | The response status code.
 tiarsResponseStatus :: Lens' TestInvokeAuthorizerResponse Int
 tiarsResponseStatus = lens _tiarsResponseStatus (\ s a -> s{_tiarsResponseStatus = a});
+
+instance NFData TestInvokeAuthorizerResponse

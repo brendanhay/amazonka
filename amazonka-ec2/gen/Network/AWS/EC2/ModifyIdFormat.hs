@@ -121,3 +121,5 @@ data ModifyIdFormatResponse =
 modifyIdFormatResponse
     :: ModifyIdFormatResponse
 modifyIdFormatResponse = ModifyIdFormatResponse'
+
+instance NFData ModifyIdFormatResponse

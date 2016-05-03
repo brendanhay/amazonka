@@ -190,3 +190,5 @@ ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});
 -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeDirectoriesResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+
+instance NFData DescribeDirectoriesResponse

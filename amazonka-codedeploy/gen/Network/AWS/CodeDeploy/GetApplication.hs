@@ -132,3 +132,5 @@ garsApplication = lens _garsApplication (\ s a -> s{_garsApplication = a});
 -- | The response status code.
 garsResponseStatus :: Lens' GetApplicationResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+
+instance NFData GetApplicationResponse

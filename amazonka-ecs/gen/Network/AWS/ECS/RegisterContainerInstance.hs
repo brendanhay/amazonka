@@ -205,3 +205,5 @@ rcirsContainerInstance = lens _rcirsContainerInstance (\ s a -> s{_rcirsContaine
 -- | The response status code.
 rcirsResponseStatus :: Lens' RegisterContainerInstanceResponse Int
 rcirsResponseStatus = lens _rcirsResponseStatus (\ s a -> s{_rcirsResponseStatus = a});
+
+instance NFData RegisterContainerInstanceResponse

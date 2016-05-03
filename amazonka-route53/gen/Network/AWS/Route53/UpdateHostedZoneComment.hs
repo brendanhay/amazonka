@@ -148,3 +148,5 @@ uhzcrsResponseStatus = lens _uhzcrsResponseStatus (\ s a -> s{_uhzcrsResponseSta
 -- | Undocumented member.
 uhzcrsHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
 uhzcrsHostedZone = lens _uhzcrsHostedZone (\ s a -> s{_uhzcrsHostedZone = a});
+
+instance NFData UpdateHostedZoneCommentResponse

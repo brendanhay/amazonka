@@ -97,3 +97,5 @@ data DeleteAccountAliasResponse =
 deleteAccountAliasResponse
     :: DeleteAccountAliasResponse
 deleteAccountAliasResponse = DeleteAccountAliasResponse'
+
+instance NFData DeleteAccountAliasResponse

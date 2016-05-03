@@ -147,3 +147,5 @@ uersEvaluationId = lens _uersEvaluationId (\ s a -> s{_uersEvaluationId = a});
 -- | The response status code.
 uersResponseStatus :: Lens' UpdateEvaluationResponse Int
 uersResponseStatus = lens _uersResponseStatus (\ s a -> s{_uersResponseStatus = a});
+
+instance NFData UpdateEvaluationResponse

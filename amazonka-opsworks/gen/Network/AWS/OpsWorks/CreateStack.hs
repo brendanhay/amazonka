@@ -466,3 +466,5 @@ crsStackId = lens _crsStackId (\ s a -> s{_crsStackId = a});
 -- | The response status code.
 crsResponseStatus :: Lens' CreateStackResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CreateStackResponse

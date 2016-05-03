@@ -254,3 +254,5 @@ drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DescribeCasesResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DescribeCasesResponse

@@ -269,3 +269,6 @@ drcnorsReservedCacheNodesOfferings = lens _drcnorsReservedCacheNodesOfferings (\
 -- | The response status code.
 drcnorsResponseStatus :: Lens' DescribeReservedCacheNodesOfferingsResponse Int
 drcnorsResponseStatus = lens _drcnorsResponseStatus (\ s a -> s{_drcnorsResponseStatus = a});
+
+instance NFData
+         DescribeReservedCacheNodesOfferingsResponse

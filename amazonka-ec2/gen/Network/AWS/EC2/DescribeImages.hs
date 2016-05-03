@@ -258,3 +258,5 @@ desrsImages = lens _desrsImages (\ s a -> s{_desrsImages = a}) . _Default . _Coe
 -- | The response status code.
 desrsResponseStatus :: Lens' DescribeImagesResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+
+instance NFData DescribeImagesResponse

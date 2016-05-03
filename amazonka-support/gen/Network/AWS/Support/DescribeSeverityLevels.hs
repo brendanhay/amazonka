@@ -137,3 +137,5 @@ dslrsSeverityLevels = lens _dslrsSeverityLevels (\ s a -> s{_dslrsSeverityLevels
 -- | The response status code.
 dslrsResponseStatus :: Lens' DescribeSeverityLevelsResponse Int
 dslrsResponseStatus = lens _dslrsResponseStatus (\ s a -> s{_dslrsResponseStatus = a});
+
+instance NFData DescribeSeverityLevelsResponse

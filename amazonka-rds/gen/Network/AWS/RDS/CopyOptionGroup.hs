@@ -177,3 +177,5 @@ cogrsOptionGroup = lens _cogrsOptionGroup (\ s a -> s{_cogrsOptionGroup = a});
 -- | The response status code.
 cogrsResponseStatus :: Lens' CopyOptionGroupResponse Int
 cogrsResponseStatus = lens _cogrsResponseStatus (\ s a -> s{_cogrsResponseStatus = a});
+
+instance NFData CopyOptionGroupResponse

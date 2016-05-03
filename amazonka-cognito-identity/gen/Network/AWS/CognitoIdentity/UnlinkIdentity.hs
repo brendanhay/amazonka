@@ -129,3 +129,5 @@ data UnlinkIdentityResponse =
 unlinkIdentityResponse
     :: UnlinkIdentityResponse
 unlinkIdentityResponse = UnlinkIdentityResponse'
+
+instance NFData UnlinkIdentityResponse

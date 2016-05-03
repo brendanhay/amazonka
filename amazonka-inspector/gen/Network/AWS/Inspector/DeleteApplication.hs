@@ -127,3 +127,5 @@ drsMessage = lens _drsMessage (\ s a -> s{_drsMessage = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteApplicationResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteApplicationResponse

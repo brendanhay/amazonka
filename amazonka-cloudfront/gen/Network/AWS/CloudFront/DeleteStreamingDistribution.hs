@@ -106,3 +106,5 @@ data DeleteStreamingDistributionResponse =
 deleteStreamingDistributionResponse
     :: DeleteStreamingDistributionResponse
 deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse'
+
+instance NFData DeleteStreamingDistributionResponse

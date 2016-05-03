@@ -127,3 +127,5 @@ startLoggingResponse pResponseStatus_ =
 -- | The response status code.
 srsResponseStatus :: Lens' StartLoggingResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+
+instance NFData StartLoggingResponse

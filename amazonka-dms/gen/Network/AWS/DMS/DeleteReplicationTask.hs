@@ -131,3 +131,5 @@ drtrsReplicationTask = lens _drtrsReplicationTask (\ s a -> s{_drtrsReplicationT
 -- | The response status code.
 drtrsResponseStatus :: Lens' DeleteReplicationTaskResponse Int
 drtrsResponseStatus = lens _drtrsResponseStatus (\ s a -> s{_drtrsResponseStatus = a});
+
+instance NFData DeleteReplicationTaskResponse

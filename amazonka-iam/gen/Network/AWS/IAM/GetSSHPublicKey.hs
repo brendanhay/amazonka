@@ -153,3 +153,5 @@ gspkrsSSHPublicKey = lens _gspkrsSSHPublicKey (\ s a -> s{_gspkrsSSHPublicKey = 
 -- | The response status code.
 gspkrsResponseStatus :: Lens' GetSSHPublicKeyResponse Int
 gspkrsResponseStatus = lens _gspkrsResponseStatus (\ s a -> s{_gspkrsResponseStatus = a});
+
+instance NFData GetSSHPublicKeyResponse

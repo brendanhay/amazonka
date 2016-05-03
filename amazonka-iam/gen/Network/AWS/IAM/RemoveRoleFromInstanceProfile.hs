@@ -119,3 +119,5 @@ data RemoveRoleFromInstanceProfileResponse =
 removeRoleFromInstanceProfileResponse
     :: RemoveRoleFromInstanceProfileResponse
 removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse'
+
+instance NFData RemoveRoleFromInstanceProfileResponse

@@ -21,25 +21,48 @@
 -- applications and businesses unique.
 --
 -- Amazon RDS gives you access to the capabilities of a MySQL, MariaDB,
--- PostgreSQL, Microsoft SQL Server, Oracle, or Aurora database server.
--- This means the code, applications, and tools you already use today with
--- your existing databases work with Amazon RDS without modification.
--- Amazon RDS automatically backs up your database and maintains the
--- database software that powers your DB instance. Amazon RDS is flexible:
--- you can scale your database instance\'s compute resources and storage
--- capacity to meet your application\'s demand. As with all Amazon Web
--- Services, there are no up-front investments, and you pay only for the
--- resources you use.
+-- PostgreSQL, Microsoft SQL Server, Oracle, or Amazon Aurora database
+-- server. These capabilities mean that the code, applications, and tools
+-- you already use today with your existing databases work with Amazon RDS
+-- without modification. Amazon RDS automatically backs up your database
+-- and maintains the database software that powers your DB instance. Amazon
+-- RDS is flexible: you can scale your database instance\'s compute
+-- resources and storage capacity to meet your application\'s demand. As
+-- with all Amazon Web Services, there are no up-front investments, and you
+-- pay only for the resources you use.
 --
--- This is an interface reference for Amazon RDS. It contains documentation
--- for a programming or command line interface you can use to manage Amazon
--- RDS. Note that Amazon RDS is asynchronous, which means that some
--- interfaces might require techniques such as polling or callback
--- functions to determine when a command has been applied. In this
--- reference, the parameter descriptions indicate whether a command is
--- applied immediately, on the next instance reboot, or during the
--- maintenance window. For a summary of the Amazon RDS interfaces, go to
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces Available RDS Interfaces>.
+-- This interface reference for Amazon RDS contains documentation for a
+-- programming or command line interface you can use to manage Amazon RDS.
+-- Note that Amazon RDS is asynchronous, which means that some interfaces
+-- might require techniques such as polling or callback functions to
+-- determine when a command has been applied. In this reference, the
+-- parameter descriptions indicate whether a command is applied
+-- immediately, on the next instance reboot, or during the maintenance
+-- window. The reference structure is as follows, and we list following
+-- some related topics from the user guide.
+--
+-- __Amazon RDS API Reference__
+--
+-- -   For the alphabetical list of API actions, see
+--     <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Operations.html API Actions>.
+--
+-- -   For the alphabetical list of data types, see
+--     <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Types.html Data Types>.
+--
+-- -   For a list of common query parameters, see
+--     <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonParameters.html Common Parameters>.
+--
+-- -   For descriptions of the error codes, see
+--     <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonErrors.html Common Errors>.
+--
+-- __Amazon RDS User Guide__
+--
+-- -   For a summary of the Amazon RDS interfaces, see
+--     <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces Available RDS Interfaces>.
+--
+-- -   For more information about how to use the Query API, see
+--     <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using_the_Query_API.html Using the Query API>.
+--
 module Network.AWS.RDS
     (
     -- * Service Configuration
@@ -164,6 +187,9 @@ module Network.AWS.RDS
 
     -- ** InstanceQuotaExceededFault
     , _InstanceQuotaExceededFault
+
+    -- ** DomainNotFoundFault
+    , _DomainNotFoundFault
 
     -- ** DBParameterGroupNotFoundFault
     , _DBParameterGroupNotFoundFault
@@ -578,6 +604,7 @@ module Network.AWS.RDS
     -- ** DBClusterMember
     , DBClusterMember
     , dbClusterMember
+    , dcmPromotionTier
     , dcmDBInstanceIdentifier
     , dcmIsClusterWriter
     , dcmDBClusterParameterGroupStatus
@@ -652,6 +679,7 @@ module Network.AWS.RDS
     , diEngine
     , diLatestRestorableTime
     , diDBInstanceClass
+    , diPromotionTier
     , diLicenseModel
     , diPreferredMaintenanceWindow
     , diCACertificateIdentifier
@@ -678,6 +706,7 @@ module Network.AWS.RDS
     , diPendingModifiedValues
     , diStorageType
     , diStatusInfos
+    , diDomainMemberships
     , diDBName
 
     -- ** DBInstanceStatusInfo
@@ -776,6 +805,14 @@ module Network.AWS.RDS
     , ddlfdLastWritten
     , ddlfdSize
     , ddlfdLogFileName
+
+    -- ** DomainMembership
+    , DomainMembership
+    , domainMembership
+    , dmStatus
+    , dmFQDN
+    , dmDomain
+    , dmIAMRoleName
 
     -- ** EC2SecurityGroup
     , EC2SecurityGroup

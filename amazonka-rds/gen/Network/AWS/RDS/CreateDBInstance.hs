@@ -36,8 +36,10 @@ module Network.AWS.RDS.CreateDBInstance
     , cdiDBSubnetGroupName
     , cdiMonitoringRoleARN
     , cdiIOPS
+    , cdiDomain
     , cdiMonitoringInterval
     , cdiTDECredentialPassword
+    , cdiPromotionTier
     , cdiLicenseModel
     , cdiPreferredMaintenanceWindow
     , cdiCharacterSetName
@@ -52,6 +54,7 @@ module Network.AWS.RDS.CreateDBInstance
     , cdiOptionGroupName
     , cdiCopyTagsToSnapshot
     , cdiTDECredentialARN
+    , cdiDomainIAMRoleName
     , cdiTags
     , cdiPort
     , cdiStorageType
@@ -90,8 +93,10 @@ data CreateDBInstance = CreateDBInstance'
     , _cdiDBSubnetGroupName          :: !(Maybe Text)
     , _cdiMonitoringRoleARN          :: !(Maybe Text)
     , _cdiIOPS                       :: !(Maybe Int)
+    , _cdiDomain                     :: !(Maybe Text)
     , _cdiMonitoringInterval         :: !(Maybe Int)
     , _cdiTDECredentialPassword      :: !(Maybe Text)
+    , _cdiPromotionTier              :: !(Maybe Int)
     , _cdiLicenseModel               :: !(Maybe Text)
     , _cdiPreferredMaintenanceWindow :: !(Maybe Text)
     , _cdiCharacterSetName           :: !(Maybe Text)
@@ -106,6 +111,7 @@ data CreateDBInstance = CreateDBInstance'
     , _cdiOptionGroupName            :: !(Maybe Text)
     , _cdiCopyTagsToSnapshot         :: !(Maybe Bool)
     , _cdiTDECredentialARN           :: !(Maybe Text)
+    , _cdiDomainIAMRoleName          :: !(Maybe Text)
     , _cdiTags                       :: !(Maybe [Tag])
     , _cdiPort                       :: !(Maybe Int)
     , _cdiStorageType                :: !(Maybe Text)
@@ -141,9 +147,13 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- * 'cdiIOPS'
 --
+-- * 'cdiDomain'
+--
 -- * 'cdiMonitoringInterval'
 --
 -- * 'cdiTDECredentialPassword'
+--
+-- * 'cdiPromotionTier'
 --
 -- * 'cdiLicenseModel'
 --
@@ -172,6 +182,8 @@ data CreateDBInstance = CreateDBInstance'
 -- * 'cdiCopyTagsToSnapshot'
 --
 -- * 'cdiTDECredentialARN'
+--
+-- * 'cdiDomainIAMRoleName'
 --
 -- * 'cdiTags'
 --
@@ -204,8 +216,10 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
     , _cdiDBSubnetGroupName = Nothing
     , _cdiMonitoringRoleARN = Nothing
     , _cdiIOPS = Nothing
+    , _cdiDomain = Nothing
     , _cdiMonitoringInterval = Nothing
     , _cdiTDECredentialPassword = Nothing
+    , _cdiPromotionTier = Nothing
     , _cdiLicenseModel = Nothing
     , _cdiPreferredMaintenanceWindow = Nothing
     , _cdiCharacterSetName = Nothing
@@ -220,6 +234,7 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
     , _cdiOptionGroupName = Nothing
     , _cdiCopyTagsToSnapshot = Nothing
     , _cdiTDECredentialARN = Nothing
+    , _cdiDomainIAMRoleName = Nothing
     , _cdiTags = Nothing
     , _cdiPort = Nothing
     , _cdiStorageType = Nothing
@@ -246,7 +261,7 @@ createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
 -- -   __Version 5.5 (Available in all regions):__
 --     ' 5.5.40b | 5.5.41 | 5.5.42'
 -- -   __Version 5.6 (Available in all regions):__
---     ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23'
+--     ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23 | 5.6.27'
 -- -   __Version 5.7 (Available in all regions):__ ' 5.7.10'
 --
 -- __MariaDB__
@@ -480,6 +495,10 @@ cdiMonitoringRoleARN = lens _cdiMonitoringRoleARN (\ s a -> s{_cdiMonitoringRole
 cdiIOPS :: Lens' CreateDBInstance (Maybe Int)
 cdiIOPS = lens _cdiIOPS (\ s a -> s{_cdiIOPS = a});
 
+-- | Specify the Active Directory Domain to create the instance in.
+cdiDomain :: Lens' CreateDBInstance (Maybe Text)
+cdiDomain = lens _cdiDomain (\ s a -> s{_cdiDomain = a});
+
 -- | The interval, in seconds, between points when Enhanced Monitoring
 -- metrics are collected for the DB instance. To disable collecting
 -- Enhanced Monitoring metrics, specify 0. The default is 60.
@@ -495,6 +514,17 @@ cdiMonitoringInterval = lens _cdiMonitoringInterval (\ s a -> s{_cdiMonitoringIn
 -- device.
 cdiTDECredentialPassword :: Lens' CreateDBInstance (Maybe Text)
 cdiTDECredentialPassword = lens _cdiTDECredentialPassword (\ s a -> s{_cdiTDECredentialPassword = a});
+
+-- | A value that specifies the order in which an Aurora Replica is promoted
+-- to the primary instance after a failure of the existing primary
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>.
+--
+-- Default: 1
+--
+-- Valid Values: 0 - 15
+cdiPromotionTier :: Lens' CreateDBInstance (Maybe Int)
+cdiPromotionTier = lens _cdiPromotionTier (\ s a -> s{_cdiPromotionTier = a});
 
 -- | License model information for this DB instance.
 --
@@ -663,6 +693,11 @@ cdiCopyTagsToSnapshot = lens _cdiCopyTagsToSnapshot (\ s a -> s{_cdiCopyTagsToSn
 -- encryption.
 cdiTDECredentialARN :: Lens' CreateDBInstance (Maybe Text)
 cdiTDECredentialARN = lens _cdiTDECredentialARN (\ s a -> s{_cdiTDECredentialARN = a});
+
+-- | Specify the name of the IAM role to be used when making API calls to the
+-- Directory Service.
+cdiDomainIAMRoleName :: Lens' CreateDBInstance (Maybe Text)
+cdiDomainIAMRoleName = lens _cdiDomainIAMRoleName (\ s a -> s{_cdiDomainIAMRoleName = a});
 
 -- | Undocumented member.
 cdiTags :: Lens' CreateDBInstance [Tag]
@@ -865,9 +900,10 @@ instance ToQuery CreateDBInstance where
                "MasterUsername" =: _cdiMasterUsername,
                "DBSubnetGroupName" =: _cdiDBSubnetGroupName,
                "MonitoringRoleArn" =: _cdiMonitoringRoleARN,
-               "Iops" =: _cdiIOPS,
+               "Iops" =: _cdiIOPS, "Domain" =: _cdiDomain,
                "MonitoringInterval" =: _cdiMonitoringInterval,
                "TdeCredentialPassword" =: _cdiTDECredentialPassword,
+               "PromotionTier" =: _cdiPromotionTier,
                "LicenseModel" =: _cdiLicenseModel,
                "PreferredMaintenanceWindow" =:
                  _cdiPreferredMaintenanceWindow,
@@ -886,6 +922,7 @@ instance ToQuery CreateDBInstance where
                "OptionGroupName" =: _cdiOptionGroupName,
                "CopyTagsToSnapshot" =: _cdiCopyTagsToSnapshot,
                "TdeCredentialArn" =: _cdiTDECredentialARN,
+               "DomainIAMRoleName" =: _cdiDomainIAMRoleName,
                "Tags" =: toQuery (toQueryList "Tag" <$> _cdiTags),
                "Port" =: _cdiPort, "StorageType" =: _cdiStorageType,
                "DBName" =: _cdiDBName,

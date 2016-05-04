@@ -81,7 +81,7 @@ mdsgDBSubnetGroupDescription = lens _mdsgDBSubnetGroupDescription (\ s a -> s{_m
 -- string.
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters,
--- periods, underscores, spaces, or hyphens. Must not be \"default\".
+-- periods, underscores, spaces, or hyphens. Must not be default.
 --
 -- Example: 'mySubnetgroup'
 mdsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text

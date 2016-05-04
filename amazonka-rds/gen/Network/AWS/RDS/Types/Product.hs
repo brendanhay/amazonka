@@ -509,7 +509,8 @@ instance NFData DBCluster
 --
 -- /See:/ 'dbClusterMember' smart constructor.
 data DBClusterMember = DBClusterMember'
-    { _dcmDBInstanceIdentifier          :: !(Maybe Text)
+    { _dcmPromotionTier                 :: !(Maybe Int)
+    , _dcmDBInstanceIdentifier          :: !(Maybe Text)
     , _dcmIsClusterWriter               :: !(Maybe Bool)
     , _dcmDBClusterParameterGroupStatus :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -517,6 +518,8 @@ data DBClusterMember = DBClusterMember'
 -- | Creates a value of 'DBClusterMember' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcmPromotionTier'
 --
 -- * 'dcmDBInstanceIdentifier'
 --
@@ -527,10 +530,18 @@ dbClusterMember
     :: DBClusterMember
 dbClusterMember =
     DBClusterMember'
-    { _dcmDBInstanceIdentifier = Nothing
+    { _dcmPromotionTier = Nothing
+    , _dcmDBInstanceIdentifier = Nothing
     , _dcmIsClusterWriter = Nothing
     , _dcmDBClusterParameterGroupStatus = Nothing
     }
+
+-- | A value that specifies the order in which an Aurora Replica is promoted
+-- to the primary instance after a failure of the existing primary
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>.
+dcmPromotionTier :: Lens' DBClusterMember (Maybe Int)
+dcmPromotionTier = lens _dcmPromotionTier (\ s a -> s{_dcmPromotionTier = a});
 
 -- | Specifies the instance identifier for this member of the DB cluster.
 dcmDBInstanceIdentifier :: Lens' DBClusterMember (Maybe Text)
@@ -549,8 +560,9 @@ dcmDBClusterParameterGroupStatus = lens _dcmDBClusterParameterGroupStatus (\ s a
 instance FromXML DBClusterMember where
         parseXML x
           = DBClusterMember' <$>
-              (x .@? "DBInstanceIdentifier") <*>
-                (x .@? "IsClusterWriter")
+              (x .@? "PromotionTier") <*>
+                (x .@? "DBInstanceIdentifier")
+                <*> (x .@? "IsClusterWriter")
                 <*> (x .@? "DBClusterParameterGroupStatus")
 
 instance Hashable DBClusterMember
@@ -1018,6 +1030,7 @@ data DBInstance = DBInstance'
     , _diEngine                                :: !(Maybe Text)
     , _diLatestRestorableTime                  :: !(Maybe ISO8601)
     , _diDBInstanceClass                       :: !(Maybe Text)
+    , _diPromotionTier                         :: !(Maybe Int)
     , _diLicenseModel                          :: !(Maybe Text)
     , _diPreferredMaintenanceWindow            :: !(Maybe Text)
     , _diCACertificateIdentifier               :: !(Maybe Text)
@@ -1044,6 +1057,7 @@ data DBInstance = DBInstance'
     , _diPendingModifiedValues                 :: !(Maybe PendingModifiedValues)
     , _diStorageType                           :: !(Maybe Text)
     , _diStatusInfos                           :: !(Maybe [DBInstanceStatusInfo])
+    , _diDomainMemberships                     :: !(Maybe [DomainMembership])
     , _diDBName                                :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1082,6 +1096,8 @@ data DBInstance = DBInstance'
 -- * 'diLatestRestorableTime'
 --
 -- * 'diDBInstanceClass'
+--
+-- * 'diPromotionTier'
 --
 -- * 'diLicenseModel'
 --
@@ -1135,6 +1151,8 @@ data DBInstance = DBInstance'
 --
 -- * 'diStatusInfos'
 --
+-- * 'diDomainMemberships'
+--
 -- * 'diDBName'
 dbInstance
     :: DBInstance
@@ -1156,6 +1174,7 @@ dbInstance =
     , _diEngine = Nothing
     , _diLatestRestorableTime = Nothing
     , _diDBInstanceClass = Nothing
+    , _diPromotionTier = Nothing
     , _diLicenseModel = Nothing
     , _diPreferredMaintenanceWindow = Nothing
     , _diCACertificateIdentifier = Nothing
@@ -1182,6 +1201,7 @@ dbInstance =
     , _diPendingModifiedValues = Nothing
     , _diStorageType = Nothing
     , _diStatusInfos = Nothing
+    , _diDomainMemberships = Nothing
     , _diDBName = Nothing
     }
 
@@ -1274,6 +1294,13 @@ diLatestRestorableTime = lens _diLatestRestorableTime (\ s a -> s{_diLatestResto
 -- instance.
 diDBInstanceClass :: Lens' DBInstance (Maybe Text)
 diDBInstanceClass = lens _diDBInstanceClass (\ s a -> s{_diDBInstanceClass = a});
+
+-- | A value that specifies the order in which an Aurora Replica is promoted
+-- to the primary instance after a failure of the existing primary
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>.
+diPromotionTier :: Lens' DBInstance (Maybe Int)
+diPromotionTier = lens _diPromotionTier (\ s a -> s{_diPromotionTier = a});
 
 -- | License model information for this DB instance.
 diLicenseModel :: Lens' DBInstance (Maybe Text)
@@ -1401,6 +1428,11 @@ diStorageType = lens _diStorageType (\ s a -> s{_diStorageType = a});
 diStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
 diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a}) . _Default . _Coerce;
 
+-- | The Active Directory Domain membership records associated with the DB
+-- instance.
+diDomainMemberships :: Lens' DBInstance [DomainMembership]
+diDomainMemberships = lens _diDomainMemberships (\ s a -> s{_diDomainMemberships = a}) . _Default . _Coerce;
+
 -- | The meaning of this parameter differs according to the database engine
 -- you use. For example, this value returns MySQL, MariaDB, or PostgreSQL
 -- information when returning values from CreateDBInstanceReadReplica since
@@ -1445,6 +1477,7 @@ instance FromXML DBInstance where
                 <*> (x .@? "Engine")
                 <*> (x .@? "LatestRestorableTime")
                 <*> (x .@? "DBInstanceClass")
+                <*> (x .@? "PromotionTier")
                 <*> (x .@? "LicenseModel")
                 <*> (x .@? "PreferredMaintenanceWindow")
                 <*> (x .@? "CACertificateIdentifier")
@@ -1479,6 +1512,9 @@ instance FromXML DBInstance where
                 <*>
                 (x .@? "StatusInfos" .!@ mempty >>=
                    may (parseXMLList "DBInstanceStatusInfo"))
+                <*>
+                (x .@? "DomainMemberships" .!@ mempty >>=
+                   may (parseXMLList "DomainMembership"))
                 <*> (x .@? "DBName")
 
 instance Hashable DBInstance
@@ -2287,6 +2323,67 @@ instance FromXML DescribeDBLogFilesDetails where
 instance Hashable DescribeDBLogFilesDetails
 
 instance NFData DescribeDBLogFilesDetails
+
+-- | An Active Directory Domain membership record associated with the DB
+-- instance.
+--
+-- /See:/ 'domainMembership' smart constructor.
+data DomainMembership = DomainMembership'
+    { _dmStatus      :: !(Maybe Text)
+    , _dmFQDN        :: !(Maybe Text)
+    , _dmDomain      :: !(Maybe Text)
+    , _dmIAMRoleName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DomainMembership' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmStatus'
+--
+-- * 'dmFQDN'
+--
+-- * 'dmDomain'
+--
+-- * 'dmIAMRoleName'
+domainMembership
+    :: DomainMembership
+domainMembership =
+    DomainMembership'
+    { _dmStatus = Nothing
+    , _dmFQDN = Nothing
+    , _dmDomain = Nothing
+    , _dmIAMRoleName = Nothing
+    }
+
+-- | The status of the DB instance\'s Active Directory Domain membership,
+-- such as joined, pending-join, failed etc).
+dmStatus :: Lens' DomainMembership (Maybe Text)
+dmStatus = lens _dmStatus (\ s a -> s{_dmStatus = a});
+
+-- | The fully qualified domain name of the Active Directory Domain.
+dmFQDN :: Lens' DomainMembership (Maybe Text)
+dmFQDN = lens _dmFQDN (\ s a -> s{_dmFQDN = a});
+
+-- | The identifier of the Active Directory Domain.
+dmDomain :: Lens' DomainMembership (Maybe Text)
+dmDomain = lens _dmDomain (\ s a -> s{_dmDomain = a});
+
+-- | The name of the IAM role to be used when making API calls to the
+-- Directory Service.
+dmIAMRoleName :: Lens' DomainMembership (Maybe Text)
+dmIAMRoleName = lens _dmIAMRoleName (\ s a -> s{_dmIAMRoleName = a});
+
+instance FromXML DomainMembership where
+        parseXML x
+          = DomainMembership' <$>
+              (x .@? "Status") <*> (x .@? "FQDN") <*>
+                (x .@? "Domain")
+                <*> (x .@? "IAMRoleName")
+
+instance Hashable DomainMembership
+
+instance NFData DomainMembership
 
 -- | This data type is used as a response element in the following actions:
 --

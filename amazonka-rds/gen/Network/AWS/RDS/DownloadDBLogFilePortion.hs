@@ -93,7 +93,8 @@ downloadDBLogFilePortion pDBInstanceIdentifier_ pLogFileName_ =
 -- on the value of the Marker parameter.
 --
 -- -   If neither Marker or NumberOfLines are specified, the entire log
---     file is returned.
+--     file is returned up to a maximum of 10000 lines, starting with the
+--     most recent log entries first.
 --
 -- -   If NumberOfLines is specified and Marker is not specified, then the
 --     most recent lines from the end of the log file are returned.

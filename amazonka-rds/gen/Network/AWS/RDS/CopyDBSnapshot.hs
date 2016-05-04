@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Copies the specified DB Snapshot. The source DB snapshot must be in the
+-- Copies the specified DB snapshot. The source DB snapshot must be in the
 -- \"available\" state.
 --
 -- If you are copying from a shared manual DB snapshot, the

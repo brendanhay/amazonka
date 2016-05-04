@@ -55,6 +55,7 @@ module Network.AWS.RDS.Types
     , _DBSecurityGroupNotFoundFault
     , _DBSecurityGroupNotSupportedFault
     , _InstanceQuotaExceededFault
+    , _DomainNotFoundFault
     , _DBParameterGroupNotFoundFault
     , _InvalidDBSubnetGroupFault
     , _ReservedDBInstancesOfferingNotFoundFault
@@ -154,6 +155,7 @@ module Network.AWS.RDS.Types
     -- * DBClusterMember
     , DBClusterMember
     , dbClusterMember
+    , dcmPromotionTier
     , dcmDBInstanceIdentifier
     , dcmIsClusterWriter
     , dcmDBClusterParameterGroupStatus
@@ -228,6 +230,7 @@ module Network.AWS.RDS.Types
     , diEngine
     , diLatestRestorableTime
     , diDBInstanceClass
+    , diPromotionTier
     , diLicenseModel
     , diPreferredMaintenanceWindow
     , diCACertificateIdentifier
@@ -254,6 +257,7 @@ module Network.AWS.RDS.Types
     , diPendingModifiedValues
     , diStorageType
     , diStatusInfos
+    , diDomainMemberships
     , diDBName
 
     -- * DBInstanceStatusInfo
@@ -352,6 +356,14 @@ module Network.AWS.RDS.Types
     , ddlfdLastWritten
     , ddlfdSize
     , ddlfdLogFileName
+
+    -- * DomainMembership
+    , DomainMembership
+    , domainMembership
+    , dmStatus
+    , dmFQDN
+    , dmDomain
+    , dmIAMRoleName
 
     -- * EC2SecurityGroup
     , EC2SecurityGroup
@@ -652,6 +664,8 @@ rds =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
@@ -865,6 +879,11 @@ _DBSecurityGroupNotSupportedFault =
 _InstanceQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InstanceQuotaExceededFault =
     _ServiceError . hasStatus 400 . hasCode "InstanceQuotaExceeded"
+
+-- | Prism for DomainNotFoundFault' errors.
+_DomainNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DomainNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "DomainNotFoundFault"
 
 -- | /DBParameterGroupName/ does not refer to an existing DB parameter group.
 _DBParameterGroupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError

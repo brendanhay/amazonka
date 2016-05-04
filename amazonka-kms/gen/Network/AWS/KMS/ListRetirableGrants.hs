@@ -76,8 +76,8 @@ listRetirableGrants pRetiringPrincipal_ =
     }
 
 -- | Use this parameter only when paginating results and only in a subsequent
--- request after you\'ve received a response with truncated results. Set it
--- to the value of 'NextMarker' from the response you just received.
+-- request after you receive a response with truncated results. Set it to
+-- the value of 'NextMarker' from the response you just received.
 lrgMarker :: Lens' ListRetirableGrants (Maybe Text)
 lrgMarker = lens _lrgMarker (\ s a -> s{_lrgMarker = a});
 

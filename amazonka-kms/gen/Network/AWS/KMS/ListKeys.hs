@@ -70,8 +70,8 @@ listKeys =
     }
 
 -- | Use this parameter only when paginating results and only in a subsequent
--- request after you\'ve received a response with truncated results. Set it
--- to the value of 'NextMarker' from the response you just received.
+-- request after you receive a response with truncated results. Set it to
+-- the value of 'NextMarker' from the response you just received.
 lkMarker :: Lens' ListKeys (Maybe Text)
 lkMarker = lens _lkMarker (\ s a -> s{_lkMarker = a});
 

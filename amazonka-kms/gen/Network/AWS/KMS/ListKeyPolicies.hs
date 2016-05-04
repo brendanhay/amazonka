@@ -76,8 +76,8 @@ listKeyPolicies pKeyId_ =
     }
 
 -- | Use this parameter only when paginating results and only in a subsequent
--- request after you\'ve received a response with truncated results. Set it
--- to the value of 'NextMarker' from the response you just received.
+-- request after you receive a response with truncated results. Set it to
+-- the value of 'NextMarker' from the response you just received.
 lkpMarker :: Lens' ListKeyPolicies (Maybe Text)
 lkpMarker = lens _lkpMarker (\ s a -> s{_lkpMarker = a});
 

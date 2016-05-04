@@ -70,8 +70,8 @@ listAliases =
     }
 
 -- | Use this parameter only when paginating results and only in a subsequent
--- request after you\'ve received a response with truncated results. Set it
--- to the value of 'NextMarker' from the response you just received.
+-- request after you receive a response with truncated results. Set it to
+-- the value of 'NextMarker' from the response you just received.
 laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
 

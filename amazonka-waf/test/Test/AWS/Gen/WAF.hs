@@ -73,6 +73,15 @@ import Test.AWS.WAF.Internal
 --         , testGetRule $
 --             getRule
 --
+--         , testDeleteXSSMatchSet $
+--             deleteXSSMatchSet
+--
+--         , testUpdateXSSMatchSet $
+--             updateXSSMatchSet
+--
+--         , testListXSSMatchSets $
+--             listXSSMatchSets
+--
 --         , testGetChangeToken $
 --             getChangeToken
 --
@@ -87,6 +96,9 @@ import Test.AWS.WAF.Internal
 --
 --         , testCreateSqlInjectionMatchSet $
 --             createSqlInjectionMatchSet
+--
+--         , testGetXSSMatchSet $
+--             getXSSMatchSet
 --
 --         , testCreateByteMatchSet $
 --             createByteMatchSet
@@ -105,6 +117,9 @@ import Test.AWS.WAF.Internal
 --
 --         , testListIPSets $
 --             listIPSets
+--
+--         , testCreateXSSMatchSet $
+--             createXSSMatchSet
 --
 --         , testGetByteMatchSet $
 --             getByteMatchSet
@@ -175,6 +190,15 @@ import Test.AWS.WAF.Internal
 --         , testGetRuleResponse $
 --             getRuleResponse
 --
+--         , testDeleteXSSMatchSetResponse $
+--             deleteXSSMatchSetResponse
+--
+--         , testUpdateXSSMatchSetResponse $
+--             updateXSSMatchSetResponse
+--
+--         , testListXSSMatchSetsResponse $
+--             listXSSMatchSetsResponse
+--
 --         , testGetChangeTokenResponse $
 --             getChangeTokenResponse
 --
@@ -189,6 +213,9 @@ import Test.AWS.WAF.Internal
 --
 --         , testCreateSqlInjectionMatchSetResponse $
 --             createSqlInjectionMatchSetResponse
+--
+--         , testGetXSSMatchSetResponse $
+--             getXSSMatchSetResponse
 --
 --         , testCreateByteMatchSetResponse $
 --             createByteMatchSetResponse
@@ -207,6 +234,9 @@ import Test.AWS.WAF.Internal
 --
 --         , testListIPSetsResponse $
 --             listIPSetsResponse
+--
+--         , testCreateXSSMatchSetResponse $
+--             createXSSMatchSetResponse
 --
 --         , testGetByteMatchSetResponse $
 --             getByteMatchSetResponse
@@ -309,6 +339,21 @@ testGetRule = req
     "GetRule"
     "fixture/GetRule.yaml"
 
+testDeleteXSSMatchSet :: DeleteXSSMatchSet -> TestTree
+testDeleteXSSMatchSet = req
+    "DeleteXSSMatchSet"
+    "fixture/DeleteXSSMatchSet.yaml"
+
+testUpdateXSSMatchSet :: UpdateXSSMatchSet -> TestTree
+testUpdateXSSMatchSet = req
+    "UpdateXSSMatchSet"
+    "fixture/UpdateXSSMatchSet.yaml"
+
+testListXSSMatchSets :: ListXSSMatchSets -> TestTree
+testListXSSMatchSets = req
+    "ListXSSMatchSets"
+    "fixture/ListXSSMatchSets.yaml"
+
 testGetChangeToken :: GetChangeToken -> TestTree
 testGetChangeToken = req
     "GetChangeToken"
@@ -333,6 +378,11 @@ testCreateSqlInjectionMatchSet :: CreateSqlInjectionMatchSet -> TestTree
 testCreateSqlInjectionMatchSet = req
     "CreateSqlInjectionMatchSet"
     "fixture/CreateSqlInjectionMatchSet.yaml"
+
+testGetXSSMatchSet :: GetXSSMatchSet -> TestTree
+testGetXSSMatchSet = req
+    "GetXSSMatchSet"
+    "fixture/GetXSSMatchSet.yaml"
 
 testCreateByteMatchSet :: CreateByteMatchSet -> TestTree
 testCreateByteMatchSet = req
@@ -363,6 +413,11 @@ testListIPSets :: ListIPSets -> TestTree
 testListIPSets = req
     "ListIPSets"
     "fixture/ListIPSets.yaml"
+
+testCreateXSSMatchSet :: CreateXSSMatchSet -> TestTree
+testCreateXSSMatchSet = req
+    "CreateXSSMatchSet"
+    "fixture/CreateXSSMatchSet.yaml"
 
 testGetByteMatchSet :: GetByteMatchSet -> TestTree
 testGetByteMatchSet = req
@@ -506,6 +561,27 @@ testGetRuleResponse = res
     waf
     (Proxy :: Proxy GetRule)
 
+testDeleteXSSMatchSetResponse :: DeleteXSSMatchSetResponse -> TestTree
+testDeleteXSSMatchSetResponse = res
+    "DeleteXSSMatchSetResponse"
+    "fixture/DeleteXSSMatchSetResponse.proto"
+    waf
+    (Proxy :: Proxy DeleteXSSMatchSet)
+
+testUpdateXSSMatchSetResponse :: UpdateXSSMatchSetResponse -> TestTree
+testUpdateXSSMatchSetResponse = res
+    "UpdateXSSMatchSetResponse"
+    "fixture/UpdateXSSMatchSetResponse.proto"
+    waf
+    (Proxy :: Proxy UpdateXSSMatchSet)
+
+testListXSSMatchSetsResponse :: ListXSSMatchSetsResponse -> TestTree
+testListXSSMatchSetsResponse = res
+    "ListXSSMatchSetsResponse"
+    "fixture/ListXSSMatchSetsResponse.proto"
+    waf
+    (Proxy :: Proxy ListXSSMatchSets)
+
 testGetChangeTokenResponse :: GetChangeTokenResponse -> TestTree
 testGetChangeTokenResponse = res
     "GetChangeTokenResponse"
@@ -540,6 +616,13 @@ testCreateSqlInjectionMatchSetResponse = res
     "fixture/CreateSqlInjectionMatchSetResponse.proto"
     waf
     (Proxy :: Proxy CreateSqlInjectionMatchSet)
+
+testGetXSSMatchSetResponse :: GetXSSMatchSetResponse -> TestTree
+testGetXSSMatchSetResponse = res
+    "GetXSSMatchSetResponse"
+    "fixture/GetXSSMatchSetResponse.proto"
+    waf
+    (Proxy :: Proxy GetXSSMatchSet)
 
 testCreateByteMatchSetResponse :: CreateByteMatchSetResponse -> TestTree
 testCreateByteMatchSetResponse = res
@@ -582,6 +665,13 @@ testListIPSetsResponse = res
     "fixture/ListIPSetsResponse.proto"
     waf
     (Proxy :: Proxy ListIPSets)
+
+testCreateXSSMatchSetResponse :: CreateXSSMatchSetResponse -> TestTree
+testCreateXSSMatchSetResponse = res
+    "CreateXSSMatchSetResponse"
+    "fixture/CreateXSSMatchSetResponse.proto"
+    waf
+    (Proxy :: Proxy CreateXSSMatchSet)
 
 testGetByteMatchSetResponse :: GetByteMatchSetResponse -> TestTree
 testGetByteMatchSetResponse = res

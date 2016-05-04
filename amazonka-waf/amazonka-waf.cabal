@@ -51,12 +51,14 @@ library
         , Network.AWS.WAF.CreateSizeConstraintSet
         , Network.AWS.WAF.CreateSqlInjectionMatchSet
         , Network.AWS.WAF.CreateWebACL
+        , Network.AWS.WAF.CreateXSSMatchSet
         , Network.AWS.WAF.DeleteByteMatchSet
         , Network.AWS.WAF.DeleteIPSet
         , Network.AWS.WAF.DeleteRule
         , Network.AWS.WAF.DeleteSizeConstraintSet
         , Network.AWS.WAF.DeleteSqlInjectionMatchSet
         , Network.AWS.WAF.DeleteWebACL
+        , Network.AWS.WAF.DeleteXSSMatchSet
         , Network.AWS.WAF.GetByteMatchSet
         , Network.AWS.WAF.GetChangeToken
         , Network.AWS.WAF.GetChangeTokenStatus
@@ -66,12 +68,14 @@ library
         , Network.AWS.WAF.GetSizeConstraintSet
         , Network.AWS.WAF.GetSqlInjectionMatchSet
         , Network.AWS.WAF.GetWebACL
+        , Network.AWS.WAF.GetXSSMatchSet
         , Network.AWS.WAF.ListByteMatchSets
         , Network.AWS.WAF.ListIPSets
         , Network.AWS.WAF.ListRules
         , Network.AWS.WAF.ListSizeConstraintSets
         , Network.AWS.WAF.ListSqlInjectionMatchSets
         , Network.AWS.WAF.ListWebACLs
+        , Network.AWS.WAF.ListXSSMatchSets
         , Network.AWS.WAF.Types
         , Network.AWS.WAF.UpdateByteMatchSet
         , Network.AWS.WAF.UpdateIPSet
@@ -79,6 +83,7 @@ library
         , Network.AWS.WAF.UpdateSizeConstraintSet
         , Network.AWS.WAF.UpdateSqlInjectionMatchSet
         , Network.AWS.WAF.UpdateWebACL
+        , Network.AWS.WAF.UpdateXSSMatchSet
         , Network.AWS.WAF.Waiters
 
     other-modules:

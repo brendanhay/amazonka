@@ -150,7 +150,7 @@ bmsName = lens _bmsName (\ s a -> s{_bmsName = a});
 
 -- | The 'ByteMatchSetId' for a 'ByteMatchSet'. You use 'ByteMatchSetId' to
 -- get information about a 'ByteMatchSet' (see < GetByteMatchSet>), update
--- a 'ByteMatchSet' (see < UpdateByteMatchSet>, insert a 'ByteMatchSet'
+-- a 'ByteMatchSet' (see < UpdateByteMatchSet>), insert a 'ByteMatchSet'
 -- into a 'Rule' or delete one from a 'Rule' (see < UpdateRule>), and
 -- delete a 'ByteMatchSet' from AWS WAF (see < DeleteByteMatchSet>).
 --
@@ -947,10 +947,11 @@ instance ToJSON IPSetUpdate where
                  [Just ("Action" .= _isuAction),
                   Just ("IPSetDescriptor" .= _isuIPSetDescriptor)])
 
--- | Specifies the < ByteMatchSet>, < IPSet>, and < SqlInjectionMatchSet>
--- objects that you want to add to a 'Rule' and, for each object, indicates
--- whether you want to negate the settings, for example, requests that do
--- NOT originate from the IP address 192.0.2.44.
+-- | Specifies the < ByteMatchSet>, < IPSet>, < SqlInjectionMatchSet>,
+-- < XssMatchSet>, and < SizeConstraintSet> objects that you want to add to
+-- a 'Rule' and, for each object, indicates whether you want to negate the
+-- settings, for example, requests that do NOT originate from the IP
+-- address 192.0.2.44.
 --
 -- /See:/ 'predicate' smart constructor.
 data Predicate = Predicate'
@@ -982,15 +983,17 @@ predicate pNegated_ pType_ pDataId_ =
 
 -- | Set 'Negated' to 'False' if you want AWS WAF to allow, block, or count
 -- requests based on the settings in the specified < ByteMatchSet>,
--- < IPSet>, or < SqlInjectionMatchSet>. For example, if an 'IPSet'
--- includes the IP address '192.0.2.44', AWS WAF will allow or block
--- requests based on that IP address.
+-- < IPSet>, < SqlInjectionMatchSet>, < XssMatchSet>, or
+-- < SizeConstraintSet>. For example, if an 'IPSet' includes the IP address
+-- '192.0.2.44', AWS WAF will allow or block requests based on that IP
+-- address.
 --
 -- Set 'Negated' to 'True' if you want AWS WAF to allow or block a request
 -- based on the negation of the settings in the < ByteMatchSet>, < IPSet>,
--- or < SqlInjectionMatchSet>. For example, if an 'IPSet' includes the IP
--- address '192.0.2.44', AWS WAF will allow, block, or count requests based
--- on all IP addresses /except/ '192.0.2.44'.
+-- < SqlInjectionMatchSet>, < XssMatchSet>, or < SizeConstraintSet>. For
+-- example, if an 'IPSet' includes the IP address '192.0.2.44', AWS WAF
+-- will allow, block, or count requests based on all IP addresses /except/
+-- '192.0.2.44'.
 pNegated :: Lens' Predicate Bool
 pNegated = lens _pNegated (\ s a -> s{_pNegated = a});
 
@@ -1482,7 +1485,7 @@ scsName = lens _scsName (\ s a -> s{_scsName = a});
 -- | A unique identifier for a 'SizeConstraintSet'. You use
 -- 'SizeConstraintSetId' to get information about a 'SizeConstraintSet'
 -- (see < GetSizeConstraintSet>), update a 'SizeConstraintSet' (see
--- < UpdateSizeConstraintSet>, insert a 'SizeConstraintSet' into a 'Rule'
+-- < UpdateSizeConstraintSet>), insert a 'SizeConstraintSet' into a 'Rule'
 -- or delete one from a 'Rule' (see < UpdateRule>), and delete a
 -- 'SizeConstraintSet' from AWS WAF (see < DeleteSizeConstraintSet>).
 --
@@ -1536,7 +1539,7 @@ sizeConstraintSetSummary pSizeConstraintSetId_ pName_ =
 -- | A unique identifier for a 'SizeConstraintSet'. You use
 -- 'SizeConstraintSetId' to get information about a 'SizeConstraintSet'
 -- (see < GetSizeConstraintSet>), update a 'SizeConstraintSet' (see
--- < UpdateSizeConstraintSet>, insert a 'SizeConstraintSet' into a 'Rule'
+-- < UpdateSizeConstraintSet>), insert a 'SizeConstraintSet' into a 'Rule'
 -- or delete one from a 'Rule' (see < UpdateRule>), and delete a
 -- 'SizeConstraintSet' from AWS WAF (see < DeleteSizeConstraintSet>).
 --
@@ -1653,7 +1656,7 @@ simsName = lens _simsName (\ s a -> s{_simsName = a});
 -- | A unique identifier for a 'SqlInjectionMatchSet'. You use
 -- 'SqlInjectionMatchSetId' to get information about a
 -- 'SqlInjectionMatchSet' (see < GetSqlInjectionMatchSet>), update a
--- 'SqlInjectionMatchSet' (see < UpdateSqlInjectionMatchSet>, insert a
+-- 'SqlInjectionMatchSet' (see < UpdateSqlInjectionMatchSet>), insert a
 -- 'SqlInjectionMatchSet' into a 'Rule' or delete one from a 'Rule' (see
 -- < UpdateRule>), and delete a 'SqlInjectionMatchSet' from AWS WAF (see
 -- < DeleteSqlInjectionMatchSet>).
@@ -1708,7 +1711,7 @@ sqlInjectionMatchSetSummary pSqlInjectionMatchSetId_ pName_ =
 -- | A unique identifier for a 'SqlInjectionMatchSet'. You use
 -- 'SqlInjectionMatchSetId' to get information about a
 -- 'SqlInjectionMatchSet' (see < GetSqlInjectionMatchSet>), update a
--- 'SqlInjectionMatchSet' (see < UpdateSqlInjectionMatchSet>, insert a
+-- 'SqlInjectionMatchSet' (see < UpdateSqlInjectionMatchSet>), insert a
 -- 'SqlInjectionMatchSet' into a 'Rule' or delete one from a 'Rule' (see
 -- < UpdateRule>), and delete a 'SqlInjectionMatchSet' from AWS WAF (see
 -- < DeleteSqlInjectionMatchSet>).
@@ -2068,7 +2071,7 @@ waName = lens _waName (\ s a -> s{_waName = a});
 
 -- | A unique identifier for a 'WebACL'. You use 'WebACLId' to get
 -- information about a 'WebACL' (see < GetWebACL>), update a 'WebACL' (see
--- < UpdateWebACL>, and delete a 'WebACL' from AWS WAF (see
+-- < UpdateWebACL>), and delete a 'WebACL' from AWS WAF (see
 -- < DeleteWebACL>).
 --
 -- 'WebACLId' is returned by < CreateWebACL> and by < ListWebACLs>.
@@ -2126,7 +2129,7 @@ webACLSummary pWebACLId_ pName_ =
 
 -- | A unique identifier for a 'WebACL'. You use 'WebACLId' to get
 -- information about a 'WebACL' (see < GetWebACL>), update a 'WebACL' (see
--- < UpdateWebACL>, and delete a 'WebACL' from AWS WAF (see
+-- < UpdateWebACL>), and delete a 'WebACL' from AWS WAF (see
 -- < DeleteWebACL>).
 --
 -- 'WebACLId' is returned by < CreateWebACL> and by < ListWebACLs>.
@@ -2194,3 +2197,279 @@ instance ToJSON WebACLUpdate where
               (catMaybes
                  [Just ("Action" .= _wauAction),
                   Just ("ActivatedRule" .= _wauActivatedRule)])
+
+-- | A complex type that contains 'XssMatchTuple' objects, which specify the
+-- parts of web requests that you want AWS WAF to inspect for cross-site
+-- scripting attacks and, if you want AWS WAF to inspect a header, the name
+-- of the header. If a 'XssMatchSet' contains more than one 'XssMatchTuple'
+-- object, a request needs to include cross-site scripting attacks in only
+-- one of the specified parts of the request to be considered a match.
+--
+-- /See:/ 'xssMatchSet' smart constructor.
+data XSSMatchSet = XSSMatchSet'
+    { _xmsName           :: !(Maybe Text)
+    , _xmsXSSMatchSetId  :: !Text
+    , _xmsXSSMatchTuples :: ![XSSMatchTuple]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'XSSMatchSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'xmsName'
+--
+-- * 'xmsXSSMatchSetId'
+--
+-- * 'xmsXSSMatchTuples'
+xssMatchSet
+    :: Text -- ^ 'xmsXSSMatchSetId'
+    -> XSSMatchSet
+xssMatchSet pXSSMatchSetId_ =
+    XSSMatchSet'
+    { _xmsName = Nothing
+    , _xmsXSSMatchSetId = pXSSMatchSetId_
+    , _xmsXSSMatchTuples = mempty
+    }
+
+-- | The name, if any, of the 'XssMatchSet'.
+xmsName :: Lens' XSSMatchSet (Maybe Text)
+xmsName = lens _xmsName (\ s a -> s{_xmsName = a});
+
+-- | A unique identifier for an 'XssMatchSet'. You use 'XssMatchSetId' to get
+-- information about an 'XssMatchSet' (see < GetXssMatchSet>), update an
+-- 'XssMatchSet' (see < UpdateXssMatchSet>), insert an 'XssMatchSet' into a
+-- 'Rule' or delete one from a 'Rule' (see < UpdateRule>), and delete an
+-- 'XssMatchSet' from AWS WAF (see < DeleteXssMatchSet>).
+--
+-- 'XssMatchSetId' is returned by < CreateXssMatchSet> and by
+-- < ListXssMatchSets>.
+xmsXSSMatchSetId :: Lens' XSSMatchSet Text
+xmsXSSMatchSetId = lens _xmsXSSMatchSetId (\ s a -> s{_xmsXSSMatchSetId = a});
+
+-- | Specifies the parts of web requests that you want to inspect for
+-- cross-site scripting attacks.
+xmsXSSMatchTuples :: Lens' XSSMatchSet [XSSMatchTuple]
+xmsXSSMatchTuples = lens _xmsXSSMatchTuples (\ s a -> s{_xmsXSSMatchTuples = a}) . _Coerce;
+
+instance FromJSON XSSMatchSet where
+        parseJSON
+          = withObject "XSSMatchSet"
+              (\ x ->
+                 XSSMatchSet' <$>
+                   (x .:? "Name") <*> (x .: "XssMatchSetId") <*>
+                     (x .:? "XssMatchTuples" .!= mempty))
+
+instance Hashable XSSMatchSet
+
+instance NFData XSSMatchSet
+
+-- | The 'Id' and 'Name' of an 'XssMatchSet'.
+--
+-- /See:/ 'xssMatchSetSummary' smart constructor.
+data XSSMatchSetSummary = XSSMatchSetSummary'
+    { _xmssXSSMatchSetId :: !Text
+    , _xmssName          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'XSSMatchSetSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'xmssXSSMatchSetId'
+--
+-- * 'xmssName'
+xssMatchSetSummary
+    :: Text -- ^ 'xmssXSSMatchSetId'
+    -> Text -- ^ 'xmssName'
+    -> XSSMatchSetSummary
+xssMatchSetSummary pXSSMatchSetId_ pName_ =
+    XSSMatchSetSummary'
+    { _xmssXSSMatchSetId = pXSSMatchSetId_
+    , _xmssName = pName_
+    }
+
+-- | A unique identifier for an 'XssMatchSet'. You use 'XssMatchSetId' to get
+-- information about a 'XssMatchSet' (see < GetXssMatchSet>), update an
+-- 'XssMatchSet' (see < UpdateXssMatchSet>), insert an 'XssMatchSet' into a
+-- 'Rule' or delete one from a 'Rule' (see < UpdateRule>), and delete an
+-- 'XssMatchSet' from AWS WAF (see < DeleteXssMatchSet>).
+--
+-- 'XssMatchSetId' is returned by < CreateXssMatchSet> and by
+-- < ListXssMatchSets>.
+xmssXSSMatchSetId :: Lens' XSSMatchSetSummary Text
+xmssXSSMatchSetId = lens _xmssXSSMatchSetId (\ s a -> s{_xmssXSSMatchSetId = a});
+
+-- | The name of the 'XssMatchSet', if any, specified by 'Id'.
+xmssName :: Lens' XSSMatchSetSummary Text
+xmssName = lens _xmssName (\ s a -> s{_xmssName = a});
+
+instance FromJSON XSSMatchSetSummary where
+        parseJSON
+          = withObject "XSSMatchSetSummary"
+              (\ x ->
+                 XSSMatchSetSummary' <$>
+                   (x .: "XssMatchSetId") <*> (x .: "Name"))
+
+instance Hashable XSSMatchSetSummary
+
+instance NFData XSSMatchSetSummary
+
+-- | Specifies the part of a web request that you want to inspect for
+-- cross-site scripting attacks and indicates whether you want to add the
+-- specification to an < XssMatchSet> or delete it from an 'XssMatchSet'.
+--
+-- /See:/ 'xssMatchSetUpdate' smart constructor.
+data XSSMatchSetUpdate = XSSMatchSetUpdate'
+    { _xmsuAction        :: !ChangeAction
+    , _xmsuXSSMatchTuple :: !XSSMatchTuple
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'XSSMatchSetUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'xmsuAction'
+--
+-- * 'xmsuXSSMatchTuple'
+xssMatchSetUpdate
+    :: ChangeAction -- ^ 'xmsuAction'
+    -> XSSMatchTuple -- ^ 'xmsuXSSMatchTuple'
+    -> XSSMatchSetUpdate
+xssMatchSetUpdate pAction_ pXSSMatchTuple_ =
+    XSSMatchSetUpdate'
+    { _xmsuAction = pAction_
+    , _xmsuXSSMatchTuple = pXSSMatchTuple_
+    }
+
+-- | Specify 'INSERT' to add a < XssMatchSetUpdate> to an < XssMatchSet>. Use
+-- 'DELETE' to remove a 'XssMatchSetUpdate' from an 'XssMatchSet'.
+xmsuAction :: Lens' XSSMatchSetUpdate ChangeAction
+xmsuAction = lens _xmsuAction (\ s a -> s{_xmsuAction = a});
+
+-- | Specifies the part of a web request that you want AWS WAF to inspect for
+-- cross-site scripting attacks and, if you want AWS WAF to inspect a
+-- header, the name of the header.
+xmsuXSSMatchTuple :: Lens' XSSMatchSetUpdate XSSMatchTuple
+xmsuXSSMatchTuple = lens _xmsuXSSMatchTuple (\ s a -> s{_xmsuXSSMatchTuple = a});
+
+instance Hashable XSSMatchSetUpdate
+
+instance NFData XSSMatchSetUpdate
+
+instance ToJSON XSSMatchSetUpdate where
+        toJSON XSSMatchSetUpdate'{..}
+          = object
+              (catMaybes
+                 [Just ("Action" .= _xmsuAction),
+                  Just ("XssMatchTuple" .= _xmsuXSSMatchTuple)])
+
+-- | Specifies the part of a web request that you want AWS WAF to inspect for
+-- cross-site scripting attacks and, if you want AWS WAF to inspect a
+-- header, the name of the header.
+--
+-- /See:/ 'xssMatchTuple' smart constructor.
+data XSSMatchTuple = XSSMatchTuple'
+    { _xmtFieldToMatch       :: !FieldToMatch
+    , _xmtTextTransformation :: !TextTransformation
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'XSSMatchTuple' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'xmtFieldToMatch'
+--
+-- * 'xmtTextTransformation'
+xssMatchTuple
+    :: FieldToMatch -- ^ 'xmtFieldToMatch'
+    -> TextTransformation -- ^ 'xmtTextTransformation'
+    -> XSSMatchTuple
+xssMatchTuple pFieldToMatch_ pTextTransformation_ =
+    XSSMatchTuple'
+    { _xmtFieldToMatch = pFieldToMatch_
+    , _xmtTextTransformation = pTextTransformation_
+    }
+
+-- | Undocumented member.
+xmtFieldToMatch :: Lens' XSSMatchTuple FieldToMatch
+xmtFieldToMatch = lens _xmtFieldToMatch (\ s a -> s{_xmtFieldToMatch = a});
+
+-- | Text transformations eliminate some of the unusual formatting that
+-- attackers use in web requests in an effort to bypass AWS WAF. If you
+-- specify a transformation, AWS WAF performs the transformation on
+-- 'FieldToMatch' before inspecting a request for a match.
+--
+-- __CMD_LINE__
+--
+-- When you\'re concerned that attackers are injecting an operating system
+-- commandline command and using unusual formatting to disguise some or all
+-- of the command, use this option to perform the following
+-- transformations:
+--
+-- -   Delete the following characters: \\ \" \' ^
+-- -   Delete spaces before the following characters: \/ (
+-- -   Replace the following characters with a space: , ;
+-- -   Replace multiple spaces with one space
+-- -   Convert uppercase letters (A-Z) to lowercase (a-z)
+--
+-- __COMPRESS_WHITE_SPACE__
+--
+-- Use this option to replace the following characters with a space
+-- character (decimal 32):
+--
+-- -   \\f, formfeed, decimal 12
+-- -   \\t, tab, decimal 9
+-- -   \\n, newline, decimal 10
+-- -   \\r, carriage return, decimal 13
+-- -   \\v, vertical tab, decimal 11
+-- -   non-breaking space, decimal 160
+--
+-- 'COMPRESS_WHITE_SPACE' also replaces multiple spaces with one space.
+--
+-- __HTML_ENTITY_DECODE__
+--
+-- Use this option to replace HTML-encoded characters with unencoded
+-- characters. 'HTML_ENTITY_DECODE' performs the following operations:
+--
+-- -   Replaces '(ampersand)quot;' with '\"'
+-- -   Replaces '(ampersand)nbsp;' with a non-breaking space, decimal 160
+-- -   Replaces '(ampersand)lt;' with a \"less than\" symbol
+-- -   Replaces '(ampersand)gt;' with '>'
+-- -   Replaces characters that are represented in hexadecimal format,
+--     '(ampersand)#xhhhh;', with the corresponding characters
+-- -   Replaces characters that are represented in decimal format,
+--     '(ampersand)#nnnn;', with the corresponding characters
+--
+-- __LOWERCASE__
+--
+-- Use this option to convert uppercase letters (A-Z) to lowercase (a-z).
+--
+-- __URL_DECODE__
+--
+-- Use this option to decode a URL-encoded value.
+--
+-- __NONE__
+--
+-- Specify 'NONE' if you don\'t want to perform any text transformations.
+xmtTextTransformation :: Lens' XSSMatchTuple TextTransformation
+xmtTextTransformation = lens _xmtTextTransformation (\ s a -> s{_xmtTextTransformation = a});
+
+instance FromJSON XSSMatchTuple where
+        parseJSON
+          = withObject "XSSMatchTuple"
+              (\ x ->
+                 XSSMatchTuple' <$>
+                   (x .: "FieldToMatch") <*>
+                     (x .: "TextTransformation"))
+
+instance Hashable XSSMatchTuple
+
+instance NFData XSSMatchTuple
+
+instance ToJSON XSSMatchTuple where
+        toJSON XSSMatchTuple'{..}
+          = object
+              (catMaybes
+                 [Just ("FieldToMatch" .= _xmtFieldToMatch),
+                  Just
+                    ("TextTransformation" .= _xmtTextTransformation)])

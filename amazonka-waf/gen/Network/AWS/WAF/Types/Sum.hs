@@ -222,6 +222,7 @@ data PredicateType
     | IPMatch
     | SizeConstraint
     | SqlInjectionMatch
+    | XSSMatch
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PredicateType where
@@ -230,8 +231,9 @@ instance FromText PredicateType where
         "ipmatch" -> pure IPMatch
         "sizeconstraint" -> pure SizeConstraint
         "sqlinjectionmatch" -> pure SqlInjectionMatch
+        "xssmatch" -> pure XSSMatch
         e -> fromTextError $ "Failure parsing PredicateType from value: '" <> e
-           <> "'. Accepted values: ByteMatch, IPMatch, SizeConstraint, SqlInjectionMatch"
+           <> "'. Accepted values: ByteMatch, IPMatch, SizeConstraint, SqlInjectionMatch, XssMatch"
 
 instance ToText PredicateType where
     toText = \case
@@ -239,6 +241,7 @@ instance ToText PredicateType where
         IPMatch -> "IPMatch"
         SizeConstraint -> "SizeConstraint"
         SqlInjectionMatch -> "SqlInjectionMatch"
+        XSSMatch -> "XssMatch"
 
 instance Hashable     PredicateType
 instance NFData       PredicateType

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets data records from a shard.
+-- Gets data records from an Amazon Kinesis stream\'s shard.
 --
 -- Specify a shard iterator using the 'ShardIterator' parameter. The shard
 -- iterator specifies the position in the shard from which you want to
@@ -27,11 +27,14 @@
 -- < GetRecords> returns an empty list. Note that it might take multiple
 -- calls to get to a portion of the shard that contains records.
 --
--- You can scale by provisioning multiple shards. Your application should
--- have one thread per shard, each reading continuously from its stream. To
--- read from a stream continually, call < GetRecords> in a loop. Use
--- < GetShardIterator> to get the shard iterator to specify in the first
--- < GetRecords> call. < GetRecords> returns a new shard iterator in
+-- You can scale by provisioning multiple shards per stream while
+-- considering service limits (for more information, see
+-- <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits>
+-- in the /Amazon Kinesis Streams Developer Guide/). Your application
+-- should have one thread per shard, each reading continuously from its
+-- stream. To read from a stream continually, call < GetRecords> in a loop.
+-- Use < GetShardIterator> to get the shard iterator to specify in the
+-- first < GetRecords> call. < GetRecords> returns a new shard iterator in
 -- 'NextShardIterator'. Specify the shard iterator returned in
 -- 'NextShardIterator' in subsequent calls to < GetRecords>. Note that if
 -- the shard has been closed, the shard iterator can\'t return more data
@@ -46,10 +49,10 @@
 -- specify the maximum number of records that < GetRecords> can return.
 -- Consider your average record size when determining this limit.
 --
--- The size of the data returned by < GetRecords> will vary depending on
--- the utilization of the shard. The maximum size of data that
--- < GetRecords> can return is 10 MB. If a call returns this amount of
--- data, subsequent calls made within the next 5 seconds throw
+-- The size of the data returned by < GetRecords> varies depending on the
+-- utilization of the shard. The maximum size of data that < GetRecords>
+-- can return is 10 MB. If a call returns this amount of data, subsequent
+-- calls made within the next 5 seconds throw
 -- 'ProvisionedThroughputExceededException'. If there is insufficient
 -- provisioned throughput on the shard, subsequent calls made within the
 -- next 1 second throw 'ProvisionedThroughputExceededException'. Note that
@@ -60,19 +63,20 @@
 --
 -- To detect whether the application is falling behind in processing, you
 -- can use the 'MillisBehindLatest' response attribute. You can also
--- monitor the stream using CloudWatch metrics (see
--- <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring.html Monitoring Amazon Kinesis>
--- in the /Amazon Kinesis Developer Guide/).
+-- monitor the stream using CloudWatch metrics and other mechanisms (see
+-- <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring.html Monitoring>
+-- in the /Amazon Kinesis Streams Developer Guide/).
 --
 -- Each Amazon Kinesis record includes a value,
--- 'ApproximateArrivalTimestamp', that is set when an Amazon Kinesis stream
--- successfully receives and stores a record. This is commonly referred to
--- as a server-side timestamp, which is different than a client-side
--- timestamp, where the timestamp is set when a data producer creates or
--- sends the record to a stream. The timestamp has millisecond precision.
--- There are no guarantees about the timestamp accuracy, or that the
--- timestamp is always increasing. For example, records in a shard or
--- across a stream might have timestamps that are out of order.
+-- 'ApproximateArrivalTimestamp', that is set when a stream successfully
+-- receives and stores a record. This is commonly referred to as a
+-- server-side timestamp, whereas a client-side timestamp is set when a
+-- data producer creates or sends the record to a stream (a data producer
+-- is any data source putting data records into a stream, for example with
+-- < PutRecords>). The timestamp has millisecond precision. There are no
+-- guarantees about the timestamp accuracy, or that the timestamp is always
+-- increasing. For example, records in a shard or across a stream might
+-- have timestamps that are out of order.
 module Network.AWS.Kinesis.GetRecords
     (
     -- * Creating a Request

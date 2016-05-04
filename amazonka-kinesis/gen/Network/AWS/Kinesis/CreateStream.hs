@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a Amazon Kinesis stream. A stream captures and transports data
+-- Creates an Amazon Kinesis stream. A stream captures and transports data
 -- records that are continuously emitted from different data sources or
--- /producers/. Scale-out within an Amazon Kinesis stream is explicitly
--- supported by means of shards, which are uniquely identified groups of
--- data records in an Amazon Kinesis stream.
+-- /producers/. Scale-out within a stream is explicitly supported by means
+-- of shards, which are uniquely identified groups of data records in a
+-- stream.
 --
 -- You specify and control the number of shards that a stream is composed
 -- of. Each shard can support reads up to 5 transactions per second, up to
@@ -52,8 +52,9 @@
 -- -   Create more shards than are authorized for your account.
 --
 -- For the default shard limit for an AWS account, see
--- <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Amazon Kinesis Limits>.
--- If you need to increase this limit,
+-- <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits>
+-- in the /Amazon Kinesis Streams Developer Guide/. If you need to increase
+-- this limit,
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support>.
 --
 -- You can use 'DescribeStream' to check the stream status, which is
@@ -109,8 +110,8 @@ createStream pStreamName_ pShardCount_ =
 -- | A name to identify the stream. The stream name is scoped to the AWS
 -- account used by the application that creates the stream. It is also
 -- scoped by region. That is, two streams in two different AWS accounts can
--- have the same name, and two streams in the same AWS account, but in two
--- different regions, can have the same name.
+-- have the same name, and two streams in the same AWS account but in two
+-- different regions can have the same name.
 csStreamName :: Lens' CreateStream Text
 csStreamName = lens _csStreamName (\ s a -> s{_csStreamName = a});
 

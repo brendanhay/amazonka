@@ -23,11 +23,26 @@ module Network.AWS.Kinesis.Types
     , _LimitExceededException
     , _ResourceInUseException
 
+    -- * MetricsName
+    , MetricsName (..)
+
     -- * ShardIteratorType
     , ShardIteratorType (..)
 
     -- * StreamStatus
     , StreamStatus (..)
+
+    -- * EnhancedMetrics
+    , EnhancedMetrics
+    , enhancedMetrics
+    , emShardLevelMetrics
+
+    -- * EnhancedMonitoringOutput
+    , EnhancedMonitoringOutput
+    , enhancedMonitoringOutput
+    , emoDesiredShardLevelMetrics
+    , emoCurrentShardLevelMetrics
+    , emoStreamName
 
     -- * HashKeyRange
     , HashKeyRange
@@ -82,6 +97,7 @@ module Network.AWS.Kinesis.Types
     , sdShards
     , sdHasMoreShards
     , sdRetentionPeriodHours
+    , sdEnhancedMonitoring
 
     -- * Tag
     , Tag
@@ -123,6 +139,8 @@ kinesis =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
@@ -137,9 +155,11 @@ _ExpiredIteratorException = _ServiceError . hasCode "ExpiredIteratorException"
 _InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
 
--- | The request rate is too high, or the requested data is too large for the
--- available throughput. Reduce the frequency or size of your requests. For
--- more information, see
+-- | The request rate for the stream is too high, or the requested data is
+-- too large for the available throughput. Reduce the frequency or size of
+-- your requests. For more information, see
+-- <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits>
+-- in the /Amazon Kinesis Streams Developer Guide/, and
 -- <http://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in AWS>
 -- in the /AWS General Reference/.
 _ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError

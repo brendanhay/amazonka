@@ -18,16 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified stream.
+-- Describes the specified Amazon Kinesis stream.
 --
 -- The information about the stream includes its current status, its Amazon
 -- Resource Name (ARN), and an array of shard objects. For each shard
 -- object, there is information about the hash key and sequence number
 -- ranges that the shard spans, and the IDs of any earlier shards that
 -- played in a role in creating the shard. A sequence number is the
--- identifier associated with every record ingested in the Amazon Kinesis
--- stream. The sequence number is assigned when a record is put into the
--- stream.
+-- identifier associated with every record ingested in the stream. The
+-- sequence number is assigned when a record is put into the stream.
 --
 -- You can limit the number of returned shards using the 'Limit' parameter.
 -- The number of shards in a stream may be too large to return from a
@@ -39,6 +38,10 @@
 -- available, you can request them using the shard ID of the last shard
 -- returned. Specify this ID in the 'ExclusiveStartShardId' parameter in a
 -- subsequent request to 'DescribeStream'.
+--
+-- There are no guarantees about the chronological order shards returned in
+-- 'DescribeStream' results. If you want to process shards in chronological
+-- order, use 'ParentShardId' to track lineage to the oldest shard.
 --
 -- < DescribeStream> has a limit of 10 transactions per second per account.
 --

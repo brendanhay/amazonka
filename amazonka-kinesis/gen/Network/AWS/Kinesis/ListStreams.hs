@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists your streams.
+-- Lists your Amazon Kinesis streams.
 --
 -- The number of streams may be too large to return from a single call to
 -- 'ListStreams'. You can limit the number of returned streams using the

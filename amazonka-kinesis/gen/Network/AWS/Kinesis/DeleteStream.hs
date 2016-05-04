@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a stream and all its shards and data. You must shut down any
--- applications that are operating on the stream before you delete the
--- stream. If an application attempts to operate on a deleted stream, it
--- will receive the exception 'ResourceNotFoundException'.
+-- Deletes an Amazon Kinesis stream and all its shards and data. You must
+-- shut down any applications that are operating on the stream before you
+-- delete the stream. If an application attempts to operate on a deleted
+-- stream, it will receive the exception 'ResourceNotFoundException'.
 --
 -- If the stream is in the 'ACTIVE' state, you can delete it. After a
 -- 'DeleteStream' request, the specified stream is in the 'DELETING' state

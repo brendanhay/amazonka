@@ -18,17 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Splits a shard into two new shards in the stream, to increase the
--- stream\'s capacity to ingest and transport data. 'SplitShard' is called
--- when there is a need to increase the overall capacity of stream because
--- of an expected increase in the volume of data records being ingested.
+-- Splits a shard into two new shards in the Amazon Kinesis stream to
+-- increase the stream\'s capacity to ingest and transport data.
+-- 'SplitShard' is called when there is a need to increase the overall
+-- capacity of a stream because of an expected increase in the volume of
+-- data records being ingested.
 --
 -- You can also use 'SplitShard' when a shard appears to be approaching its
--- maximum utilization, for example, when the set of producers sending data
--- into the specific shard are suddenly sending more than previously
--- anticipated. You can also call 'SplitShard' to increase stream capacity,
--- so that more Amazon Kinesis applications can simultaneously read data
--- from the stream for real-time processing.
+-- maximum utilization; for example, the producers sending data into the
+-- specific shard are suddenly sending more than previously anticipated.
+-- You can also call 'SplitShard' to increase stream capacity, so that more
+-- Amazon Kinesis applications can simultaneously read data from the stream
+-- for real-time processing.
 --
 -- You must specify the shard to be split and the new hash key, which is
 -- the position in the shard where the shard gets split in two. In many
@@ -36,7 +37,7 @@
 -- ending hash key, but it can be any hash key value in the range being
 -- mapped into the shard. For more information about splitting shards, see
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-split.html Split a Shard>
--- in the /Amazon Kinesis Developer Guide/.
+-- in the /Amazon Kinesis Streams Developer Guide/.
 --
 -- You can use < DescribeStream> to determine the shard ID and hash key
 -- values for the 'ShardToSplit' and 'NewStartingHashKey' parameters that
@@ -58,13 +59,14 @@
 -- authorized for your account, you receive a 'LimitExceededException'.
 --
 -- For the default shard limit for an AWS account, see
--- <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Amazon Kinesis Limits>.
--- If you need to increase this limit,
+-- <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits>
+-- in the /Amazon Kinesis Streams Developer Guide/. If you need to increase
+-- this limit,
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support>.
 --
--- If you try to operate on too many streams in parallel using
--- < CreateStream>, < DeleteStream>, < MergeShards> or < SplitShard>, you
--- receive a 'LimitExceededException'.
+-- If you try to operate on too many streams simultaneously using
+-- < CreateStream>, < DeleteStream>, < MergeShards>, and\/or < SplitShard>,
+-- you receive a 'LimitExceededException'.
 --
 -- 'SplitShard' has limit of 5 transactions per second per account.
 module Network.AWS.Kinesis.SplitShard

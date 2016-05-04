@@ -11,10 +11,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Kinesis Service API Reference
+-- Amazon Kinesis Streams Service API Reference
 --
--- Amazon Kinesis is a managed service that scales elastically for real
--- time processing of streaming big data.
+-- Amazon Kinesis Streams is a managed service that scales elastically for
+-- real time processing of streaming big data.
 module Network.AWS.Kinesis
     (
     -- * Service Configuration
@@ -68,6 +68,12 @@ module Network.AWS.Kinesis
     -- ** GetRecords
     , module Network.AWS.Kinesis.GetRecords
 
+    -- ** EnableEnhancedMonitoring
+    , module Network.AWS.Kinesis.EnableEnhancedMonitoring
+
+    -- ** DisableEnhancedMonitoring
+    , module Network.AWS.Kinesis.DisableEnhancedMonitoring
+
     -- ** ListTagsForStream
     , module Network.AWS.Kinesis.ListTagsForStream
 
@@ -100,11 +106,26 @@ module Network.AWS.Kinesis
 
     -- * Types
 
+    -- ** MetricsName
+    , MetricsName (..)
+
     -- ** ShardIteratorType
     , ShardIteratorType (..)
 
     -- ** StreamStatus
     , StreamStatus (..)
+
+    -- ** EnhancedMetrics
+    , EnhancedMetrics
+    , enhancedMetrics
+    , emShardLevelMetrics
+
+    -- ** EnhancedMonitoringOutput
+    , EnhancedMonitoringOutput
+    , enhancedMonitoringOutput
+    , emoDesiredShardLevelMetrics
+    , emoCurrentShardLevelMetrics
+    , emoStreamName
 
     -- ** HashKeyRange
     , HashKeyRange
@@ -159,6 +180,7 @@ module Network.AWS.Kinesis
     , sdShards
     , sdHasMoreShards
     , sdRetentionPeriodHours
+    , sdEnhancedMonitoring
 
     -- ** Tag
     , Tag
@@ -172,6 +194,8 @@ import           Network.AWS.Kinesis.CreateStream
 import           Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
 import           Network.AWS.Kinesis.DeleteStream
 import           Network.AWS.Kinesis.DescribeStream
+import           Network.AWS.Kinesis.DisableEnhancedMonitoring
+import           Network.AWS.Kinesis.EnableEnhancedMonitoring
 import           Network.AWS.Kinesis.GetRecords
 import           Network.AWS.Kinesis.GetShardIterator
 import           Network.AWS.Kinesis.IncreaseStreamRetentionPeriod

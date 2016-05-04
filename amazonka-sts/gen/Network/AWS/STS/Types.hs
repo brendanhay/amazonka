@@ -79,6 +79,8 @@ sts =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
@@ -106,11 +108,11 @@ _PackedPolicyTooLargeException =
     _ServiceError . hasStatus 400 . hasCode "PackedPolicyTooLarge"
 
 -- | STS is not activated in the requested region for the account that is
--- being asked to create temporary credentials. The account administrator
--- must activate STS in that region using the IAM Console. For more
--- information, see
+-- being asked to generate credentials. The account administrator must use
+-- the IAM console to activate STS in that region. For more information,
+-- see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating AWS STS in an AWS Region>
--- in the /Using IAM/.
+-- in the /IAM User Guide/.
 _RegionDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _RegionDisabledException =
     _ServiceError . hasStatus 403 . hasCode "RegionDisabledException"

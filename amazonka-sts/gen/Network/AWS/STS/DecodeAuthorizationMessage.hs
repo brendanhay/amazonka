@@ -42,11 +42,16 @@
 -- -   Whether the request was denied due to an explicit deny or due to the
 --     absence of an explicit allow. For more information, see
 --     <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-denyallow Determining Whether a Request is Allowed or Denied>
---     in the /Using IAM/.
+--     in the /IAM User Guide/.
+--
 -- -   The principal who made the request.
+--
 -- -   The requested action.
+--
 -- -   The requested resource.
+--
 -- -   The values of condition keys in the context of the user\'s request.
+--
 module Network.AWS.STS.DecodeAuthorizationMessage
     (
     -- * Creating a Request
@@ -147,8 +152,7 @@ decodeAuthorizationMessageResponse pResponseStatus_ =
     , _damrsResponseStatus = pResponseStatus_
     }
 
--- | An XML document that contains the decoded message. For more information,
--- see 'DecodeAuthorizationMessage'.
+-- | An XML document that contains the decoded message.
 damrsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damrsDecodedMessage = lens _damrsDecodedMessage (\ s a -> s{_damrsDecodedMessage = a});
 

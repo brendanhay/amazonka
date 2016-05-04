@@ -40,7 +40,7 @@ API, go to
 in /Using IAM/. For information about using security tokens with other
 AWS products, go to
 <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html AWS Services That Work with IAM>
-in the /Using IAM/.
+in the /IAM User Guide/.
 
 If you\'re new to AWS and need additional technical information about a
 specific AWS product, you can find the product\'s technical
@@ -50,11 +50,10 @@ __Endpoints__
 
 The AWS Security Token Service (STS) has a default endpoint of
 https:\/\/sts.amazonaws.com that maps to the US East (N. Virginia)
-region. Additional regions are available, but must first be activated in
-the AWS Management Console before you can use a different region\'s
-endpoint. For more information about activating a region for STS see
-<http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating STS in a New Region>
-in the /Using IAM/.
+region. Additional regions are available and are activated by default.
+For more information, see
+<http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating AWS STS in an AWS Region>
+in the /IAM User Guide/.
 
 For information about STS endpoints, see
 <http://docs.aws.amazon.com/general/latest/gr/rande.html#sts_region Regions and Endpoints>

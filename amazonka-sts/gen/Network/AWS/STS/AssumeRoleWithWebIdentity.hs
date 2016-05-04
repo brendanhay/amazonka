@@ -42,15 +42,27 @@
 -- without including long-term AWS credentials in the application, and
 -- without deploying server-based proxy services that use long-term AWS
 -- credentials. Instead, the identity of the caller is validated by using a
--- token from the web identity provider.
+-- token from the web identity provider. For a comparison of
+-- 'AssumeRoleWithWebIdentity' with the other APIs that produce temporary
+-- credentials, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
+-- and
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the AWS STS APIs>
+-- in the /IAM User Guide/.
 --
 -- The temporary security credentials returned by this API consist of an
 -- access key ID, a secret access key, and a security token. Applications
 -- can use these temporary security credentials to sign calls to AWS
--- service APIs. The credentials are valid for the duration that you
--- specified when calling 'AssumeRoleWithWebIdentity', which can be from
--- 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the
--- temporary security credentials are valid for 1 hour.
+-- service APIs.
+--
+-- The credentials are valid for the duration that you specified when
+-- calling 'AssumeRoleWithWebIdentity', which can be from 900 seconds (15
+-- minutes) to a maximum of 3600 seconds (1 hour). The default is 1 hour.
+--
+-- The temporary security credentials created by
+-- 'AssumeRoleWithWebIdentity' can be used to make API calls to any AWS
+-- service with the following exception: you cannot call the STS service\'s
+-- 'GetFederationToken' or 'GetSessionToken' APIs.
 --
 -- Optionally, you can pass an IAM access policy to this operation. If you
 -- choose not to pass a policy, the temporary security credentials that are
@@ -65,7 +77,7 @@
 -- access policy of the role that is being assumed. For more information,
 -- see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity>
--- in the /Using IAM/.
+-- in the /IAM User Guide/.
 --
 -- Before your application can call 'AssumeRoleWithWebIdentity', you must
 -- have an identity token from a supported identity provider and create a
@@ -74,26 +86,38 @@
 -- identity token. In other words, the identity provider must be specified
 -- in the role\'s trust policy.
 --
+-- Calling 'AssumeRoleWithWebIdentity' can result in an entry in your AWS
+-- CloudTrail logs. The entry includes the
+-- <http://openid.net/specs/openid-connect-core-1_0.html#Claims Subject> of
+-- the provided Web Identity Token. We recommend that you avoid using any
+-- personally identifiable information (PII) in this field. For example,
+-- you could instead use a GUID or a pairwise identifier, as
+-- <http://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes suggested in the OIDC specification>.
+--
 -- For more information about how to use web identity federation and the
 -- 'AssumeRoleWithWebIdentity' API, see the following resources:
 --
 -- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc_manual Using Web Identity Federation APIs for Mobile Apps>
 --     and
 --     <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity Federation Through a Web-based Identity Provider>.
+--
 -- -   <https://web-identity-federation-playground.s3.amazonaws.com/index.html Web Identity Federation Playground>.
 --     This interactive website lets you walk through the process of
 --     authenticating via Login with Amazon, Facebook, or Google, getting
 --     temporary security credentials, and then using those credentials to
 --     make a request to AWS.
+--
 -- -   <http://aws.amazon.com/sdkforios/ AWS SDK for iOS> and
 --     <http://aws.amazon.com/sdkforandroid/ AWS SDK for Android>. These
 --     toolkits contain sample apps that show how to invoke the identity
 --     providers, and then how to use the information from these providers
 --     to get and use temporary security credentials.
+--
 -- -   <http://aws.amazon.com/articles/4617974389850313 Web Identity Federation with Mobile Applications>.
 --     This article discusses web identity federation and shows an example
 --     of how to use web identity federation to get access to content in
 --     Amazon S3.
+--
 module Network.AWS.STS.AssumeRoleWithWebIdentity
     (
     -- * Creating a Request
@@ -196,7 +220,13 @@ arwwiDurationSeconds = lens _arwwiDurationSeconds (\ s a -> s{_arwwiDurationSeco
 -- permissions that are in excess of those allowed by the access policy of
 -- the role that is being assumed. For more information, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html Permissions for AssumeRoleWithWebIdentity>
--- in the /Using IAM/.
+-- in the /IAM User Guide/.
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- string of characters up to 2048 characters in length. The characters can
+-- be any ASCII character from the space character to the end of the valid
+-- character list (\\u0020-\\u00FF). It can also include the tab (\\u0009),
+-- linefeed (\\u000A), and carriage return (\\u000D) characters.
 --
 -- The policy plain text must be 2048 bytes or shorter. However, an
 -- internal conversion compresses it into a packed binary format with a
@@ -216,6 +246,11 @@ arwwiRoleARN = lens _arwwiRoleARN (\ s a -> s{_arwwiRoleARN = a});
 -- application will use are associated with that user. This session name is
 -- included as part of the ARN and assumed role ID in the 'AssumedRoleUser'
 -- response element.
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- string of characters consisting of upper- and lower-case alphanumeric
+-- characters with no spaces. You can also include any of the following
+-- characters: =,.\'-
 arwwiRoleSessionName :: Lens' AssumeRoleWithWebIdentity Text
 arwwiRoleSessionName = lens _arwwiRoleSessionName (\ s a -> s{_arwwiRoleSessionName = a});
 

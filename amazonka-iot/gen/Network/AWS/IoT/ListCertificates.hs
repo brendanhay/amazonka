@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists your certificates.
+-- Lists the certificates registered in your AWS account.
 --
 -- The results are paginated with a default page size of 25. You can use
 -- the returned marker to retrieve additional results.

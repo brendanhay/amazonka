@@ -36,6 +36,7 @@ module Network.AWS.IoT.TransferCertificate
       transferCertificate
     , TransferCertificate
     -- * Request Lenses
+    , tcTransferMessage
     , tcCertificateId
     , tcTargetAWSAccount
 
@@ -58,13 +59,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'transferCertificate' smart constructor.
 data TransferCertificate = TransferCertificate'
-    { _tcCertificateId    :: !Text
+    { _tcTransferMessage  :: !(Maybe Text)
+    , _tcCertificateId    :: !Text
     , _tcTargetAWSAccount :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TransferCertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tcTransferMessage'
 --
 -- * 'tcCertificateId'
 --
@@ -75,9 +79,14 @@ transferCertificate
     -> TransferCertificate
 transferCertificate pCertificateId_ pTargetAWSAccount_ =
     TransferCertificate'
-    { _tcCertificateId = pCertificateId_
+    { _tcTransferMessage = Nothing
+    , _tcCertificateId = pCertificateId_
     , _tcTargetAWSAccount = pTargetAWSAccount_
     }
+
+-- | The transfer message.
+tcTransferMessage :: Lens' TransferCertificate (Maybe Text)
+tcTransferMessage = lens _tcTransferMessage (\ s a -> s{_tcTransferMessage = a});
 
 -- | The ID of the certificate.
 tcCertificateId :: Lens' TransferCertificate Text
@@ -106,7 +115,10 @@ instance ToHeaders TransferCertificate where
         toHeaders = const mempty
 
 instance ToJSON TransferCertificate where
-        toJSON = const (Object mempty)
+        toJSON TransferCertificate'{..}
+          = object
+              (catMaybes
+                 [("transferMessage" .=) <$> _tcTransferMessage])
 
 instance ToPath TransferCertificate where
         toPath TransferCertificate'{..}

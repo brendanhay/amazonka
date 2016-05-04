@@ -20,7 +20,7 @@
 --
 -- Rejects a pending certificate transfer. After AWS IoT rejects a
 -- certificate transfer, the certificate status changes from
--- __PENDING_TRANFER__ to __INACTIVE__.
+-- __PENDING_TRANSFER__ to __INACTIVE__.
 --
 -- To check for pending certificate transfers, call < ListCertificates> to
 -- enumerate your certificates.
@@ -34,6 +34,7 @@ module Network.AWS.IoT.RejectCertificateTransfer
       rejectCertificateTransfer
     , RejectCertificateTransfer
     -- * Request Lenses
+    , rctRejectReason
     , rctCertificateId
 
     -- * Destructuring the Response
@@ -51,13 +52,16 @@ import           Network.AWS.Response
 -- | The input for the RejectCertificateTransfer operation.
 --
 -- /See:/ 'rejectCertificateTransfer' smart constructor.
-newtype RejectCertificateTransfer = RejectCertificateTransfer'
-    { _rctCertificateId :: Text
+data RejectCertificateTransfer = RejectCertificateTransfer'
+    { _rctRejectReason  :: !(Maybe Text)
+    , _rctCertificateId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RejectCertificateTransfer' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rctRejectReason'
 --
 -- * 'rctCertificateId'
 rejectCertificateTransfer
@@ -65,8 +69,13 @@ rejectCertificateTransfer
     -> RejectCertificateTransfer
 rejectCertificateTransfer pCertificateId_ =
     RejectCertificateTransfer'
-    { _rctCertificateId = pCertificateId_
+    { _rctRejectReason = Nothing
+    , _rctCertificateId = pCertificateId_
     }
+
+-- | The reason the certificate transfer was rejected.
+rctRejectReason :: Lens' RejectCertificateTransfer (Maybe Text)
+rctRejectReason = lens _rctRejectReason (\ s a -> s{_rctRejectReason = a});
 
 -- | The ID of the certificate.
 rctCertificateId :: Lens' RejectCertificateTransfer Text
@@ -87,7 +96,10 @@ instance ToHeaders RejectCertificateTransfer where
         toHeaders = const mempty
 
 instance ToJSON RejectCertificateTransfer where
-        toJSON = const (Object mempty)
+        toJSON RejectCertificateTransfer'{..}
+          = object
+              (catMaybes
+                 [("rejectReason" .=) <$> _rctRejectReason])
 
 instance ToPath RejectCertificateTransfer where
         toPath RejectCertificateTransfer'{..}

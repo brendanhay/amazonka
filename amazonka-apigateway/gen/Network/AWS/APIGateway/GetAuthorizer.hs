@@ -37,6 +37,7 @@ module Network.AWS.APIGateway.GetAuthorizer
     , aName
     , aId
     , aAuthorizerResultTtlInSeconds
+    , aAuthType
     , aType
     , aIdentitySource
     , aAuthorizerCredentials

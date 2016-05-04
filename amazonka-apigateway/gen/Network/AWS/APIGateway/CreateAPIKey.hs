@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Create an < ApiKey> resource.
 module Network.AWS.APIGateway.CreateAPIKey
     (
     -- * Creating a Request
@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createAPIKey' smart constructor.
+-- | Request to create an < ApiKey> resource.
+--
+-- /See:/ 'createAPIKey' smart constructor.
 data CreateAPIKey = CreateAPIKey'
     { _cakEnabled     :: !(Maybe Bool)
     , _cakName        :: !(Maybe Text)

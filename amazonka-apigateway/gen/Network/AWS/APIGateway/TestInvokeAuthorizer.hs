@@ -18,7 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Simulate the execution of an < Authorizer> in your < RestApi> with
+-- headers, parameters, and an incoming request body.
 module Network.AWS.APIGateway.TestInvokeAuthorizer
     (
     -- * Creating a Request
@@ -53,7 +54,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'testInvokeAuthorizer' smart constructor.
+-- | Make a request to simulate the execution of an < Authorizer>.
+--
+-- /See:/ 'testInvokeAuthorizer' smart constructor.
 data TestInvokeAuthorizer = TestInvokeAuthorizer'
     { _tiaPathWithQueryString :: !(Maybe Text)
     , _tiaBody                :: !(Maybe Text)
@@ -96,31 +99,36 @@ testInvokeAuthorizer pRestAPIId_ pAuthorizerId_ =
     , _tiaAuthorizerId = pAuthorizerId_
     }
 
--- | Undocumented member.
+-- | [Optional] The URI path, including query string, of the simulated
+-- invocation request. Use this to specify path parameters and query string
+-- parameters.
 tiaPathWithQueryString :: Lens' TestInvokeAuthorizer (Maybe Text)
 tiaPathWithQueryString = lens _tiaPathWithQueryString (\ s a -> s{_tiaPathWithQueryString = a});
 
--- | Undocumented member.
+-- | [Optional] The simulated request body of an incoming invocation request.
 tiaBody :: Lens' TestInvokeAuthorizer (Maybe Text)
 tiaBody = lens _tiaBody (\ s a -> s{_tiaBody = a});
 
--- | Undocumented member.
+-- | [Optional] A key-value map of additional context variables.
 tiaAdditionalContext :: Lens' TestInvokeAuthorizer (HashMap Text Text)
 tiaAdditionalContext = lens _tiaAdditionalContext (\ s a -> s{_tiaAdditionalContext = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | A key-value map of stage variables to simulate an invocation on a
+-- deployed < Stage>.
 tiaStageVariables :: Lens' TestInvokeAuthorizer (HashMap Text Text)
 tiaStageVariables = lens _tiaStageVariables (\ s a -> s{_tiaStageVariables = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | [Required] A key-value map of headers to simulate an incoming invocation
+-- request. This is where the incoming authorization token, or identity
+-- source, should be specified.
 tiaHeaders :: Lens' TestInvokeAuthorizer (HashMap Text Text)
 tiaHeaders = lens _tiaHeaders (\ s a -> s{_tiaHeaders = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | Specifies a test invoke authorizer request\'s < RestApi> identifier.
 tiaRestAPIId :: Lens' TestInvokeAuthorizer Text
 tiaRestAPIId = lens _tiaRestAPIId (\ s a -> s{_tiaRestAPIId = a});
 
--- | Undocumented member.
+-- | Specifies a test invoke authorizer request\'s < Authorizer> ID.
 tiaAuthorizerId :: Lens' TestInvokeAuthorizer Text
 tiaAuthorizerId = lens _tiaAuthorizerId (\ s a -> s{_tiaAuthorizerId = a});
 

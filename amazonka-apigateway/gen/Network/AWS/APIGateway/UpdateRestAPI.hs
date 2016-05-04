@@ -32,6 +32,7 @@ module Network.AWS.APIGateway.UpdateRestAPI
     , restAPI
     , RestAPI
     -- * Response Lenses
+    , raWarnings
     , raCreatedDate
     , raName
     , raId

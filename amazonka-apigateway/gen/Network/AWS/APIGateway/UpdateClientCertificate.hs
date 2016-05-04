@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Changes information about an < ClientCertificate> resource.
 module Network.AWS.APIGateway.UpdateClientCertificate
     (
     -- * Creating a Request
@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'updateClientCertificate' smart constructor.
+-- | A request to change information about an < ClientCertificate> resource.
+--
+-- /See:/ 'updateClientCertificate' smart constructor.
 data UpdateClientCertificate = UpdateClientCertificate'
     { _uccPatchOperations     :: !(Maybe [PatchOperation])
     , _uccClientCertificateId :: !Text
@@ -73,7 +75,7 @@ updateClientCertificate pClientCertificateId_ =
 uccPatchOperations :: Lens' UpdateClientCertificate [PatchOperation]
 uccPatchOperations = lens _uccPatchOperations (\ s a -> s{_uccPatchOperations = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The identifier of the < ClientCertificate> resource to be updated.
 uccClientCertificateId :: Lens' UpdateClientCertificate Text
 uccClientCertificateId = lens _uccClientCertificateId (\ s a -> s{_uccClientCertificateId = a});
 

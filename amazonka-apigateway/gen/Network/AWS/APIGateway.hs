@@ -80,6 +80,9 @@ module Network.AWS.APIGateway
     -- ** PutMethodResponse
     , module Network.AWS.APIGateway.PutMethodResponse
 
+    -- ** ImportRestAPI
+    , module Network.AWS.APIGateway.ImportRestAPI
+
     -- ** DeleteMethodResponse
     , module Network.AWS.APIGateway.DeleteMethodResponse
 
@@ -148,6 +151,9 @@ module Network.AWS.APIGateway
 
     -- ** GetStages
     , module Network.AWS.APIGateway.GetStages
+
+    -- ** PutRestAPI
+    , module Network.AWS.APIGateway.PutRestAPI
 
     -- ** GetMethod
     , module Network.AWS.APIGateway.GetMethod
@@ -295,6 +301,9 @@ module Network.AWS.APIGateway
     -- ** Op
     , Op (..)
 
+    -- ** PutMode
+    , PutMode (..)
+
     -- ** UnauthorizedCacheControlHeaderStrategy
     , UnauthorizedCacheControlHeaderStrategy (..)
 
@@ -323,6 +332,7 @@ module Network.AWS.APIGateway
     , aName
     , aId
     , aAuthorizerResultTtlInSeconds
+    , aAuthType
     , aType
     , aIdentitySource
     , aAuthorizerCredentials
@@ -448,6 +458,7 @@ module Network.AWS.APIGateway
     -- ** RestAPI
     , RestAPI
     , restAPI
+    , raWarnings
     , raCreatedDate
     , raName
     , raId
@@ -535,10 +546,12 @@ import           Network.AWS.APIGateway.GetRestAPIs
 import           Network.AWS.APIGateway.GetSDK
 import           Network.AWS.APIGateway.GetStage
 import           Network.AWS.APIGateway.GetStages
+import           Network.AWS.APIGateway.ImportRestAPI
 import           Network.AWS.APIGateway.PutIntegration
 import           Network.AWS.APIGateway.PutIntegrationResponse
 import           Network.AWS.APIGateway.PutMethod
 import           Network.AWS.APIGateway.PutMethodResponse
+import           Network.AWS.APIGateway.PutRestAPI
 import           Network.AWS.APIGateway.TestInvokeAuthorizer
 import           Network.AWS.APIGateway.TestInvokeMethod
 import           Network.AWS.APIGateway.Types

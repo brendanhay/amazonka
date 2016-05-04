@@ -38,6 +38,7 @@ module Network.AWS.APIGateway.UpdateAuthorizer
     , aName
     , aId
     , aAuthorizerResultTtlInSeconds
+    , aAuthType
     , aType
     , aIdentitySource
     , aAuthorizerCredentials

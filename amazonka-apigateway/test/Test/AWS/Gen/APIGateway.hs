@@ -55,6 +55,9 @@ import Test.AWS.APIGateway.Internal
 --         , testPutMethodResponse $
 --             putMethodResponse
 --
+--         , testImportRestAPI $
+--             importRestAPI
+--
 --         , testDeleteMethodResponse $
 --             deleteMethodResponse
 --
@@ -123,6 +126,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , testGetStages $
 --             getStages
+--
+--         , testPutRestAPI $
+--             putRestAPI
 --
 --         , testGetMethod $
 --             getMethod
@@ -283,6 +289,9 @@ import Test.AWS.APIGateway.Internal
 --         , testPutMethodResponseResponse $
 --             methodResponse
 --
+--         , testImportRestAPIResponse $
+--             restAPI
+--
 --         , testDeleteMethodResponseResponse $
 --             deleteMethodResponseResponse
 --
@@ -351,6 +360,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , testGetStagesResponse $
 --             getStagesResponse
+--
+--         , testPutRestAPIResponse $
+--             restAPI
 --
 --         , testGetMethodResponse $
 --             method
@@ -531,6 +543,11 @@ testPutMethodResponse = req
     "PutMethodResponse"
     "fixture/PutMethodResponse.yaml"
 
+testImportRestAPI :: ImportRestAPI -> TestTree
+testImportRestAPI = req
+    "ImportRestAPI"
+    "fixture/ImportRestAPI.yaml"
+
 testDeleteMethodResponse :: DeleteMethodResponse -> TestTree
 testDeleteMethodResponse = req
     "DeleteMethodResponse"
@@ -645,6 +662,11 @@ testGetStages :: GetStages -> TestTree
 testGetStages = req
     "GetStages"
     "fixture/GetStages.yaml"
+
+testPutRestAPI :: PutRestAPI -> TestTree
+testPutRestAPI = req
+    "PutRestAPI"
+    "fixture/PutRestAPI.yaml"
 
 testGetMethod :: GetMethod -> TestTree
 testGetMethod = req
@@ -926,6 +948,13 @@ testPutMethodResponseResponse = res
     apiGateway
     (Proxy :: Proxy PutMethodResponse)
 
+testImportRestAPIResponse :: RestAPI -> TestTree
+testImportRestAPIResponse = res
+    "ImportRestAPIResponse"
+    "fixture/ImportRestAPIResponse.proto"
+    apiGateway
+    (Proxy :: Proxy ImportRestAPI)
+
 testDeleteMethodResponseResponse :: DeleteMethodResponseResponse -> TestTree
 testDeleteMethodResponseResponse = res
     "DeleteMethodResponseResponse"
@@ -1086,6 +1115,13 @@ testGetStagesResponse = res
     "fixture/GetStagesResponse.proto"
     apiGateway
     (Proxy :: Proxy GetStages)
+
+testPutRestAPIResponse :: RestAPI -> TestTree
+testPutRestAPIResponse = res
+    "PutRestAPIResponse"
+    "fixture/PutRestAPIResponse.proto"
+    apiGateway
+    (Proxy :: Proxy PutRestAPI)
 
 testGetMethodResponse :: Method -> TestTree
 testGetMethodResponse = res

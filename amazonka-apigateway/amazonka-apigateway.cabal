@@ -101,10 +101,12 @@ library
         , Network.AWS.APIGateway.GetSDK
         , Network.AWS.APIGateway.GetStage
         , Network.AWS.APIGateway.GetStages
+        , Network.AWS.APIGateway.ImportRestAPI
         , Network.AWS.APIGateway.PutIntegration
         , Network.AWS.APIGateway.PutIntegrationResponse
         , Network.AWS.APIGateway.PutMethod
         , Network.AWS.APIGateway.PutMethodResponse
+        , Network.AWS.APIGateway.PutRestAPI
         , Network.AWS.APIGateway.TestInvokeAuthorizer
         , Network.AWS.APIGateway.TestInvokeMethod
         , Network.AWS.APIGateway.Types

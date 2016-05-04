@@ -168,6 +168,7 @@ data Authorizer = Authorizer'
     , _aName                         :: !(Maybe Text)
     , _aId                           :: !(Maybe Text)
     , _aAuthorizerResultTtlInSeconds :: !(Maybe Int)
+    , _aAuthType                     :: !(Maybe Text)
     , _aType                         :: !(Maybe AuthorizerType)
     , _aIdentitySource               :: !(Maybe Text)
     , _aAuthorizerCredentials        :: !(Maybe Text)
@@ -187,6 +188,8 @@ data Authorizer = Authorizer'
 --
 -- * 'aAuthorizerResultTtlInSeconds'
 --
+-- * 'aAuthType'
+--
 -- * 'aType'
 --
 -- * 'aIdentitySource'
@@ -201,6 +204,7 @@ authorizer =
     , _aName = Nothing
     , _aId = Nothing
     , _aAuthorizerResultTtlInSeconds = Nothing
+    , _aAuthType = Nothing
     , _aType = Nothing
     , _aIdentitySource = Nothing
     , _aAuthorizerCredentials = Nothing
@@ -240,6 +244,11 @@ aId = lens _aId (\ s a -> s{_aId = a});
 aAuthorizerResultTtlInSeconds :: Lens' Authorizer (Maybe Int)
 aAuthorizerResultTtlInSeconds = lens _aAuthorizerResultTtlInSeconds (\ s a -> s{_aAuthorizerResultTtlInSeconds = a});
 
+-- | Optional customer-defined field, used in Swagger imports\/exports. Has
+-- no functional impact.
+aAuthType :: Lens' Authorizer (Maybe Text)
+aAuthType = lens _aAuthType (\ s a -> s{_aAuthType = a});
+
 -- | [Required] The type of the authorizer. Currently, the only valid type is
 -- TOKEN.
 aType :: Lens' Authorizer (Maybe AuthorizerType)
@@ -271,6 +280,7 @@ instance FromJSON Authorizer where
                      <*> (x .:? "name")
                      <*> (x .:? "id")
                      <*> (x .:? "authorizerResultTtlInSeconds")
+                     <*> (x .:? "authType")
                      <*> (x .:? "type")
                      <*> (x .:? "identitySource")
                      <*> (x .:? "authorizerCredentials"))
@@ -332,7 +342,10 @@ instance Hashable BasePathMapping
 
 instance NFData BasePathMapping
 
--- | /See:/ 'clientCertificate' smart constructor.
+-- | Represents a Client Certificate used to configure client-side SSL
+-- authentication while sending requests to the integration endpoint.
+--
+-- /See:/ 'clientCertificate' smart constructor.
 data ClientCertificate = ClientCertificate'
     { _ccPemEncodedCertificate :: !(Maybe Text)
     , _ccClientCertificateId   :: !(Maybe Text)
@@ -365,23 +378,26 @@ clientCertificate =
     , _ccDescription = Nothing
     }
 
--- | Undocumented member.
+-- | The PEM-encoded public key of the Client Certificate, that can be used
+-- to configure certificate authentication in the integration endpoint .
 ccPemEncodedCertificate :: Lens' ClientCertificate (Maybe Text)
 ccPemEncodedCertificate = lens _ccPemEncodedCertificate (\ s a -> s{_ccPemEncodedCertificate = a});
 
--- | Undocumented member.
+-- | The identifier of the Client Certificate.
 ccClientCertificateId :: Lens' ClientCertificate (Maybe Text)
 ccClientCertificateId = lens _ccClientCertificateId (\ s a -> s{_ccClientCertificateId = a});
 
--- | Undocumented member.
+-- | The date when the Client Certificate was created, in
+-- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 ccCreatedDate :: Lens' ClientCertificate (Maybe UTCTime)
 ccCreatedDate = lens _ccCreatedDate (\ s a -> s{_ccCreatedDate = a}) . mapping _Time;
 
--- | Undocumented member.
+-- | The date when the Client Certificate will expire, in
+-- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 ccExpirationDate :: Lens' ClientCertificate (Maybe UTCTime)
 ccExpirationDate = lens _ccExpirationDate (\ s a -> s{_ccExpirationDate = a}) . mapping _Time;
 
--- | Undocumented member.
+-- | The description of the Client Certificate.
 ccDescription :: Lens' ClientCertificate (Maybe Text)
 ccDescription = lens _ccDescription (\ s a -> s{_ccDescription = a});
 
@@ -631,7 +647,8 @@ iIntegrationResponses = lens _iIntegrationResponses (\ s a -> s{_iIntegrationRes
 iCacheNamespace :: Lens' Integration (Maybe Text)
 iCacheNamespace = lens _iCacheNamespace (\ s a -> s{_iCacheNamespace = a});
 
--- | Specifies the integration\'s type.
+-- | Specifies the integration\'s type. The valid value is 'HTTP', 'AWS', or
+-- 'MOCK'.
 iType :: Lens' Integration (Maybe IntegrationType)
 iType = lens _iType (\ s a -> s{_iType = a});
 
@@ -1278,8 +1295,8 @@ rPath = lens _rPath (\ s a -> s{_rPath = a});
 rId :: Lens' Resource (Maybe Text)
 rId = lens _rId (\ s a -> s{_rId = a});
 
--- | Map of methods for this resource, which is included only if requested
--- using the __embed__ option.
+-- | Map of methods for this resource, which is included only if the request
+-- uses the __embed__ query option.
 rResourceMethods :: Lens' Resource (HashMap Text Method)
 rResourceMethods = lens _rResourceMethods (\ s a -> s{_rResourceMethods = a}) . _Default . _Map;
 
@@ -1305,7 +1322,8 @@ instance NFData Resource
 --
 -- /See:/ 'restAPI' smart constructor.
 data RestAPI = RestAPI'
-    { _raCreatedDate :: !(Maybe POSIX)
+    { _raWarnings    :: !(Maybe [Text])
+    , _raCreatedDate :: !(Maybe POSIX)
     , _raName        :: !(Maybe Text)
     , _raId          :: !(Maybe Text)
     , _raDescription :: !(Maybe Text)
@@ -1314,6 +1332,8 @@ data RestAPI = RestAPI'
 -- | Creates a value of 'RestAPI' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'raWarnings'
 --
 -- * 'raCreatedDate'
 --
@@ -1326,11 +1346,16 @@ restAPI
     :: RestAPI
 restAPI =
     RestAPI'
-    { _raCreatedDate = Nothing
+    { _raWarnings = Nothing
+    , _raCreatedDate = Nothing
     , _raName = Nothing
     , _raId = Nothing
     , _raDescription = Nothing
     }
+
+-- | Undocumented member.
+raWarnings :: Lens' RestAPI [Text]
+raWarnings = lens _raWarnings (\ s a -> s{_raWarnings = a}) . _Default . _Coerce;
 
 -- | The date when the API was created, in
 -- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
@@ -1355,8 +1380,10 @@ instance FromJSON RestAPI where
           = withObject "RestAPI"
               (\ x ->
                  RestAPI' <$>
-                   (x .:? "createdDate") <*> (x .:? "name") <*>
-                     (x .:? "id")
+                   (x .:? "warnings" .!= mempty) <*>
+                     (x .:? "createdDate")
+                     <*> (x .:? "name")
+                     <*> (x .:? "id")
                      <*> (x .:? "description"))
 
 instance Hashable RestAPI

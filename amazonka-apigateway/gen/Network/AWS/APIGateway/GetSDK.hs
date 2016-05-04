@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Generates a client SDK for a < RestApi> and < Stage>.
 module Network.AWS.APIGateway.GetSDK
     (
     -- * Creating a Request
@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getSDK' smart constructor.
+-- | Request a new generated client SDK for a < RestApi> and < Stage>.
+--
+-- /See:/ 'getSDK' smart constructor.
 data GetSDK = GetSDK'
     { _gsdkParameters :: !(Maybe (Map Text Text))
     , _gsdkRestAPIId  :: !Text
@@ -79,19 +81,24 @@ getSDK pRestAPIId_ pStageName_ pSdkType_ =
     , _gsdkSdkType = pSdkType_
     }
 
--- | Undocumented member.
+-- | A key-value map of query string parameters that specify properties of
+-- the SDK, depending on the requested sdkType. For sdkType \'objectivec\',
+-- a parameter named \"classPrefix\" is required. For sdkType \'android\',
+-- parameters named \"groupId\", \"artifactId\", \"artifactVersion\", and
+-- \"invokerPackage\" are required.
 gsdkParameters :: Lens' GetSDK (HashMap Text Text)
 gsdkParameters = lens _gsdkParameters (\ s a -> s{_gsdkParameters = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The identifier of the < RestApi> that the SDK will use.
 gsdkRestAPIId :: Lens' GetSDK Text
 gsdkRestAPIId = lens _gsdkRestAPIId (\ s a -> s{_gsdkRestAPIId = a});
 
--- | Undocumented member.
+-- | The name of the < Stage> that the SDK will use.
 gsdkStageName :: Lens' GetSDK Text
 gsdkStageName = lens _gsdkStageName (\ s a -> s{_gsdkStageName = a});
 
--- | Undocumented member.
+-- | The language for the generated SDK. Currently javascript, android, and
+-- objectivec (for iOS) are supported.
 gsdkSdkType :: Lens' GetSDK Text
 gsdkSdkType = lens _gsdkSdkType (\ s a -> s{_gsdkSdkType = a});
 
@@ -130,7 +137,9 @@ instance ToQuery GetSDK where
                    (toQueryMap "entry" "key" "value" <$>
                       _gsdkParameters)]
 
--- | /See:/ 'getSDKResponse' smart constructor.
+-- | The binary blob response to < GetSdk>, which contains the generated SDK.
+--
+-- /See:/ 'getSDKResponse' smart constructor.
 data GetSDKResponse = GetSDKResponse'
     { _gsdkrsBody               :: !(Maybe (HashMap Text Value))
     , _gsdkrsContentDisposition :: !(Maybe Text)
@@ -160,15 +169,15 @@ getSDKResponse pResponseStatus_ =
     , _gsdkrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The binary blob response to < GetSdk>, which contains the generated SDK.
 gsdkrsBody :: Lens' GetSDKResponse (Maybe (HashMap Text Value))
 gsdkrsBody = lens _gsdkrsBody (\ s a -> s{_gsdkrsBody = a});
 
--- | Undocumented member.
+-- | The content-disposition header value in the HTTP reseponse.
 gsdkrsContentDisposition :: Lens' GetSDKResponse (Maybe Text)
 gsdkrsContentDisposition = lens _gsdkrsContentDisposition (\ s a -> s{_gsdkrsContentDisposition = a});
 
--- | Undocumented member.
+-- | The content-type header value in the HTTP response.
 gsdkrsContentType :: Lens' GetSDKResponse (Maybe Text)
 gsdkrsContentType = lens _gsdkrsContentType (\ s a -> s{_gsdkrsContentType = a});
 

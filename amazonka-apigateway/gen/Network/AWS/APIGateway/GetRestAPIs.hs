@@ -47,7 +47,8 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to list existing < RestApis> defined for your collection.
+-- | The GET request to list existing < RestApis> defined for your
+-- collection.
 --
 -- /See:/ 'getRestAPIs' smart constructor.
 data GetRestAPIs = GetRestAPIs'

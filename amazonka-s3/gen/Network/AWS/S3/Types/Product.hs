@@ -62,6 +62,35 @@ instance ToXML AbortIncompleteMultipartUpload where
           = mconcat
               ["DaysAfterInitiation" @= _aimuDaysAfterInitiation]
 
+-- | /See:/ 'accelerateConfiguration' smart constructor.
+newtype AccelerateConfiguration = AccelerateConfiguration'
+    { _acStatus :: Maybe BucketAccelerateStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AccelerateConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acStatus'
+accelerateConfiguration
+    :: AccelerateConfiguration
+accelerateConfiguration =
+    AccelerateConfiguration'
+    { _acStatus = Nothing
+    }
+
+-- | The accelerate configuration of the bucket.
+acStatus :: Lens' AccelerateConfiguration (Maybe BucketAccelerateStatus)
+acStatus = lens _acStatus (\ s a -> s{_acStatus = a});
+
+instance Hashable AccelerateConfiguration
+
+instance NFData AccelerateConfiguration
+
+instance ToXML AccelerateConfiguration where
+        toXML AccelerateConfiguration'{..}
+          = mconcat ["Status" @= _acStatus]
+
 -- | /See:/ 'accessControlPolicy' smart constructor.
 data AccessControlPolicy = AccessControlPolicy'
     { _acpGrants :: !(Maybe [Grant])

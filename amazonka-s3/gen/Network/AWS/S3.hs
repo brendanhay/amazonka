@@ -101,6 +101,9 @@ module Network.AWS.S3
     -- ** GetBucketNotificationConfiguration
     , module Network.AWS.S3.GetBucketNotificationConfiguration
 
+    -- ** PutBucketAccelerateConfiguration
+    , module Network.AWS.S3.PutBucketAccelerateConfiguration
+
     -- ** GetObject
     , module Network.AWS.S3.GetObject
 
@@ -160,6 +163,9 @@ module Network.AWS.S3
 
     -- ** PutBucketPolicy
     , module Network.AWS.S3.PutBucketPolicy
+
+    -- ** GetBucketAccelerateConfiguration
+    , module Network.AWS.S3.GetBucketAccelerateConfiguration
 
     -- ** GetObjectTorrent
     , module Network.AWS.S3.GetObjectTorrent
@@ -225,6 +231,9 @@ module Network.AWS.S3
 
     -- ** Re-exported Types
     , module Network.AWS.S3.Internal
+
+    -- ** BucketAccelerateStatus
+    , BucketAccelerateStatus (..)
 
     -- ** BucketCannedACL
     , BucketCannedACL (..)
@@ -302,6 +311,11 @@ module Network.AWS.S3
     , AbortIncompleteMultipartUpload
     , abortIncompleteMultipartUpload
     , aimuDaysAfterInitiation
+
+    -- ** AccelerateConfiguration
+    , AccelerateConfiguration
+    , accelerateConfiguration
+    , acStatus
 
     -- ** AccessControlPolicy
     , AccessControlPolicy
@@ -680,6 +694,7 @@ import           Network.AWS.S3.DeleteBucketTagging
 import           Network.AWS.S3.DeleteBucketWebsite
 import           Network.AWS.S3.DeleteObject
 import           Network.AWS.S3.DeleteObjects
+import           Network.AWS.S3.GetBucketAccelerateConfiguration
 import           Network.AWS.S3.GetBucketACL
 import           Network.AWS.S3.GetBucketCORS
 import           Network.AWS.S3.GetBucketLifecycleConfiguration
@@ -703,6 +718,7 @@ import           Network.AWS.S3.ListMultipartUploads
 import           Network.AWS.S3.ListObjects
 import           Network.AWS.S3.ListObjectVersions
 import           Network.AWS.S3.ListParts
+import           Network.AWS.S3.PutBucketAccelerateConfiguration
 import           Network.AWS.S3.PutBucketACL
 import           Network.AWS.S3.PutBucketCORS
 import           Network.AWS.S3.PutBucketLifecycleConfiguration

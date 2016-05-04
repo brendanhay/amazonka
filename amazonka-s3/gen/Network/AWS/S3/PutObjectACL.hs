@@ -26,6 +26,7 @@ module Network.AWS.S3.PutObjectACL
       putObjectACL
     , PutObjectACL
     -- * Request Lenses
+    , poaVersionId
     , poaGrantReadACP
     , poaRequestPayer
     , poaGrantWriteACP
@@ -55,7 +56,8 @@ import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putObjectACL' smart constructor.
 data PutObjectACL = PutObjectACL'
-    { _poaGrantReadACP        :: !(Maybe Text)
+    { _poaVersionId           :: !(Maybe ObjectVersionId)
+    , _poaGrantReadACP        :: !(Maybe Text)
     , _poaRequestPayer        :: !(Maybe RequestPayer)
     , _poaGrantWriteACP       :: !(Maybe Text)
     , _poaGrantRead           :: !(Maybe Text)
@@ -71,6 +73,8 @@ data PutObjectACL = PutObjectACL'
 -- | Creates a value of 'PutObjectACL' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'poaVersionId'
 --
 -- * 'poaGrantReadACP'
 --
@@ -99,7 +103,8 @@ putObjectACL
     -> PutObjectACL
 putObjectACL pBucket_ pKey_ =
     PutObjectACL'
-    { _poaGrantReadACP = Nothing
+    { _poaVersionId = Nothing
+    , _poaGrantReadACP = Nothing
     , _poaRequestPayer = Nothing
     , _poaGrantWriteACP = Nothing
     , _poaGrantRead = Nothing
@@ -111,6 +116,10 @@ putObjectACL pBucket_ pKey_ =
     , _poaBucket = pBucket_
     , _poaKey = pKey_
     }
+
+-- | VersionId used to reference a specific version of the object.
+poaVersionId :: Lens' PutObjectACL (Maybe ObjectVersionId)
+poaVersionId = lens _poaVersionId (\ s a -> s{_poaVersionId = a});
 
 -- | Allows grantee to read the bucket ACL.
 poaGrantReadACP :: Lens' PutObjectACL (Maybe Text)
@@ -196,7 +205,8 @@ instance ToPath PutObjectACL where
           = mconcat ["/", toBS _poaBucket, "/", toBS _poaKey]
 
 instance ToQuery PutObjectACL where
-        toQuery = const (mconcat ["acl"])
+        toQuery PutObjectACL'{..}
+          = mconcat ["versionId" =: _poaVersionId, "acl"]
 
 -- | /See:/ 'putObjectACLResponse' smart constructor.
 data PutObjectACLResponse = PutObjectACLResponse'

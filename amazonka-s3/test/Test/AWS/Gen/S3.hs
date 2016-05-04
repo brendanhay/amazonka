@@ -64,6 +64,9 @@ import Test.AWS.S3.Internal
 --         , testGetBucketNotificationConfiguration $
 --             getBucketNotificationConfiguration
 --
+--         , testPutBucketAccelerateConfiguration $
+--             putBucketAccelerateConfiguration
+--
 --         , testGetObject $
 --             getObject
 --
@@ -123,6 +126,9 @@ import Test.AWS.S3.Internal
 --
 --         , testPutBucketPolicy $
 --             putBucketPolicy
+--
+--         , testGetBucketAccelerateConfiguration $
+--             getBucketAccelerateConfiguration
 --
 --         , testGetObjectTorrent $
 --             getObjectTorrent
@@ -223,6 +229,9 @@ import Test.AWS.S3.Internal
 --         , testGetBucketNotificationConfigurationResponse $
 --             notificationConfiguration
 --
+--         , testPutBucketAccelerateConfigurationResponse $
+--             putBucketAccelerateConfigurationResponse
+--
 --         , testGetObjectResponse $
 --             getObjectResponse
 --
@@ -282,6 +291,9 @@ import Test.AWS.S3.Internal
 --
 --         , testPutBucketPolicyResponse $
 --             putBucketPolicyResponse
+--
+--         , testGetBucketAccelerateConfigurationResponse $
+--             getBucketAccelerateConfigurationResponse
 --
 --         , testGetObjectTorrentResponse $
 --             getObjectTorrentResponse
@@ -403,6 +415,11 @@ testGetBucketNotificationConfiguration = req
     "GetBucketNotificationConfiguration"
     "fixture/GetBucketNotificationConfiguration.yaml"
 
+testPutBucketAccelerateConfiguration :: PutBucketAccelerateConfiguration -> TestTree
+testPutBucketAccelerateConfiguration = req
+    "PutBucketAccelerateConfiguration"
+    "fixture/PutBucketAccelerateConfiguration.yaml"
+
 testGetObject :: GetObject -> TestTree
 testGetObject = req
     "GetObject"
@@ -497,6 +514,11 @@ testPutBucketPolicy :: PutBucketPolicy -> TestTree
 testPutBucketPolicy = req
     "PutBucketPolicy"
     "fixture/PutBucketPolicy.yaml"
+
+testGetBucketAccelerateConfiguration :: GetBucketAccelerateConfiguration -> TestTree
+testGetBucketAccelerateConfiguration = req
+    "GetBucketAccelerateConfiguration"
+    "fixture/GetBucketAccelerateConfiguration.yaml"
 
 testGetObjectTorrent :: GetObjectTorrent -> TestTree
 testGetObjectTorrent = req
@@ -684,6 +706,13 @@ testGetBucketNotificationConfigurationResponse = res
     s3
     (Proxy :: Proxy GetBucketNotificationConfiguration)
 
+testPutBucketAccelerateConfigurationResponse :: PutBucketAccelerateConfigurationResponse -> TestTree
+testPutBucketAccelerateConfigurationResponse = res
+    "PutBucketAccelerateConfigurationResponse"
+    "fixture/PutBucketAccelerateConfigurationResponse.proto"
+    s3
+    (Proxy :: Proxy PutBucketAccelerateConfiguration)
+
 testPutBucketReplicationResponse :: PutBucketReplicationResponse -> TestTree
 testPutBucketReplicationResponse = res
     "PutBucketReplicationResponse"
@@ -816,6 +845,13 @@ testPutBucketPolicyResponse = res
     "fixture/PutBucketPolicyResponse.proto"
     s3
     (Proxy :: Proxy PutBucketPolicy)
+
+testGetBucketAccelerateConfigurationResponse :: GetBucketAccelerateConfigurationResponse -> TestTree
+testGetBucketAccelerateConfigurationResponse = res
+    "GetBucketAccelerateConfigurationResponse"
+    "fixture/GetBucketAccelerateConfigurationResponse.proto"
+    s3
+    (Proxy :: Proxy GetBucketAccelerateConfiguration)
 
 testDeleteObjectsResponse :: DeleteObjectsResponse -> TestTree
 testDeleteObjectsResponse = res

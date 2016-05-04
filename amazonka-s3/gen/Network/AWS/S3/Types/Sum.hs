@@ -20,6 +20,35 @@ module Network.AWS.S3.Types.Sum where
 import           Network.AWS.Prelude
 import           Network.AWS.S3.Internal
 
+data BucketAccelerateStatus
+    = BASEnabled
+    | BASSuspended
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText BucketAccelerateStatus where
+    parser = takeLowerText >>= \case
+        "enabled" -> pure BASEnabled
+        "suspended" -> pure BASSuspended
+        e -> fromTextError $ "Failure parsing BucketAccelerateStatus from value: '" <> e
+           <> "'. Accepted values: Enabled, Suspended"
+
+instance ToText BucketAccelerateStatus where
+    toText = \case
+        BASEnabled -> "Enabled"
+        BASSuspended -> "Suspended"
+
+instance Hashable     BucketAccelerateStatus
+instance NFData       BucketAccelerateStatus
+instance ToByteString BucketAccelerateStatus
+instance ToQuery      BucketAccelerateStatus
+instance ToHeader     BucketAccelerateStatus
+
+instance FromXML BucketAccelerateStatus where
+    parseXML = parseXMLText "BucketAccelerateStatus"
+
+instance ToXML BucketAccelerateStatus where
+    toXML = toXMLText
+
 data BucketCannedACL
     = BAuthenticatedRead
     | BPrivate

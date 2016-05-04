@@ -18,10 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation checks the availability of one domain name. You can
--- access this API without authenticating. Note that if the availability
--- status of a domain is pending, you must submit another request to
--- determine the availability of the domain name.
+-- This operation checks the availability of one domain name. Note that if
+-- the availability status of a domain is pending, you must submit another
+-- request to determine the availability of the domain name.
 module Network.AWS.Route53Domains.CheckDomainAvailability
     (
     -- * Creating a Request

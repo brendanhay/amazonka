@@ -126,9 +126,9 @@ utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . 
 --
 -- Constraints: The domain name can contain only the letters a through z,
 -- the numbers 0 through 9, and hyphen (-). Hyphens are allowed only when
--- theyaposre surrounded by letters, numbers, or other hyphens. You
--- canapost specify a hyphen at the beginning or end of a label. To specify
--- an Internationalized Domain Name, you must convert the name to Punycode.
+-- they\'re surrounded by letters, numbers, or other hyphens. You can\'t
+-- specify a hyphen at the beginning or end of a label. To specify an
+-- Internationalized Domain Name, you must convert the name to Punycode.
 --
 -- Required: Yes
 utfdDomainName :: Lens' UpdateTagsForDomain Text

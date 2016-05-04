@@ -819,6 +819,7 @@ data ExtraParamName
     | BirthDateInYyyyMmDd
     | BirthDepartment
     | BrandNumber
+    | CaBusinessEntityType
     | CaLegalType
     | DocumentNumber
     | DunsNumber
@@ -843,6 +844,7 @@ instance FromText ExtraParamName where
         "birth_date_in_yyyy_mm_dd" -> pure BirthDateInYyyyMmDd
         "birth_department" -> pure BirthDepartment
         "brand_number" -> pure BrandNumber
+        "ca_business_entity_type" -> pure CaBusinessEntityType
         "ca_legal_type" -> pure CaLegalType
         "document_number" -> pure DocumentNumber
         "duns_number" -> pure DunsNumber
@@ -857,7 +859,7 @@ instance FromText ExtraParamName where
         "sg_id_number" -> pure SgIdNumber
         "vat_number" -> pure VatNumber
         e -> fromTextError $ "Failure parsing ExtraParamName from value: '" <> e
-           <> "'. Accepted values: AU_ID_NUMBER, AU_ID_TYPE, BIRTH_CITY, BIRTH_COUNTRY, BIRTH_DATE_IN_YYYY_MM_DD, BIRTH_DEPARTMENT, BRAND_NUMBER, CA_LEGAL_TYPE, DOCUMENT_NUMBER, DUNS_NUMBER, ES_IDENTIFICATION, ES_IDENTIFICATION_TYPE, ES_LEGAL_FORM, FI_BUSINESS_NUMBER, FI_ID_NUMBER, IT_PIN, RU_PASSPORT_DATA, SE_ID_NUMBER, SG_ID_NUMBER, VAT_NUMBER"
+           <> "'. Accepted values: AU_ID_NUMBER, AU_ID_TYPE, BIRTH_CITY, BIRTH_COUNTRY, BIRTH_DATE_IN_YYYY_MM_DD, BIRTH_DEPARTMENT, BRAND_NUMBER, CA_BUSINESS_ENTITY_TYPE, CA_LEGAL_TYPE, DOCUMENT_NUMBER, DUNS_NUMBER, ES_IDENTIFICATION, ES_IDENTIFICATION_TYPE, ES_LEGAL_FORM, FI_BUSINESS_NUMBER, FI_ID_NUMBER, IT_PIN, RU_PASSPORT_DATA, SE_ID_NUMBER, SG_ID_NUMBER, VAT_NUMBER"
 
 instance ToText ExtraParamName where
     toText = \case
@@ -868,6 +870,7 @@ instance ToText ExtraParamName where
         BirthDateInYyyyMmDd -> "BIRTH_DATE_IN_YYYY_MM_DD"
         BirthDepartment -> "BIRTH_DEPARTMENT"
         BrandNumber -> "BRAND_NUMBER"
+        CaBusinessEntityType -> "CA_BUSINESS_ENTITY_TYPE"
         CaLegalType -> "CA_LEGAL_TYPE"
         DocumentNumber -> "DOCUMENT_NUMBER"
         DunsNumber -> "DUNS_NUMBER"
@@ -969,3 +972,32 @@ instance ToHeader     OperationType
 
 instance FromJSON OperationType where
     parseJSON = parseJSONText "OperationType"
+
+data ReachabilityStatus
+    = Done
+    | Expired
+    | Pending
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ReachabilityStatus where
+    parser = takeLowerText >>= \case
+        "done" -> pure Done
+        "expired" -> pure Expired
+        "pending" -> pure Pending
+        e -> fromTextError $ "Failure parsing ReachabilityStatus from value: '" <> e
+           <> "'. Accepted values: DONE, EXPIRED, PENDING"
+
+instance ToText ReachabilityStatus where
+    toText = \case
+        Done -> "DONE"
+        Expired -> "EXPIRED"
+        Pending -> "PENDING"
+
+instance Hashable     ReachabilityStatus
+instance NFData       ReachabilityStatus
+instance ToByteString ReachabilityStatus
+instance ToQuery      ReachabilityStatus
+instance ToHeader     ReachabilityStatus
+
+instance FromJSON ReachabilityStatus where
+    parseJSON = parseJSONText "ReachabilityStatus"

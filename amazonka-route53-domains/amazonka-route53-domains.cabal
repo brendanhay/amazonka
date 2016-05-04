@@ -47,12 +47,14 @@ library
         , Network.AWS.Route53Domains.DisableDomainTransferLock
         , Network.AWS.Route53Domains.EnableDomainAutoRenew
         , Network.AWS.Route53Domains.EnableDomainTransferLock
+        , Network.AWS.Route53Domains.GetContactReachabilityStatus
         , Network.AWS.Route53Domains.GetDomainDetail
         , Network.AWS.Route53Domains.GetOperationDetail
         , Network.AWS.Route53Domains.ListDomains
         , Network.AWS.Route53Domains.ListOperations
         , Network.AWS.Route53Domains.ListTagsForDomain
         , Network.AWS.Route53Domains.RegisterDomain
+        , Network.AWS.Route53Domains.ResendContactReachabilityEmail
         , Network.AWS.Route53Domains.RetrieveDomainAuthCode
         , Network.AWS.Route53Domains.TransferDomain
         , Network.AWS.Route53Domains.Types

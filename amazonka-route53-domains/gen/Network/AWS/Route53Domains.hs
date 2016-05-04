@@ -59,6 +59,9 @@ module Network.AWS.Route53Domains
     -- ** EnableDomainAutoRenew
     , module Network.AWS.Route53Domains.EnableDomainAutoRenew
 
+    -- ** ResendContactReachabilityEmail
+    , module Network.AWS.Route53Domains.ResendContactReachabilityEmail
+
     -- ** DisableDomainAutoRenew
     , module Network.AWS.Route53Domains.DisableDomainAutoRenew
 
@@ -76,6 +79,9 @@ module Network.AWS.Route53Domains
 
     -- ** CheckDomainAvailability
     , module Network.AWS.Route53Domains.CheckDomainAvailability
+
+    -- ** GetContactReachabilityStatus
+    , module Network.AWS.Route53Domains.GetContactReachabilityStatus
 
     -- ** ListTagsForDomain
     , module Network.AWS.Route53Domains.ListTagsForDomain
@@ -117,6 +123,9 @@ module Network.AWS.Route53Domains
 
     -- ** OperationType
     , OperationType (..)
+
+    -- ** ReachabilityStatus
+    , ReachabilityStatus (..)
 
     -- ** ContactDetail
     , ContactDetail
@@ -177,12 +186,14 @@ import           Network.AWS.Route53Domains.DisableDomainAutoRenew
 import           Network.AWS.Route53Domains.DisableDomainTransferLock
 import           Network.AWS.Route53Domains.EnableDomainAutoRenew
 import           Network.AWS.Route53Domains.EnableDomainTransferLock
+import           Network.AWS.Route53Domains.GetContactReachabilityStatus
 import           Network.AWS.Route53Domains.GetDomainDetail
 import           Network.AWS.Route53Domains.GetOperationDetail
 import           Network.AWS.Route53Domains.ListDomains
 import           Network.AWS.Route53Domains.ListOperations
 import           Network.AWS.Route53Domains.ListTagsForDomain
 import           Network.AWS.Route53Domains.RegisterDomain
+import           Network.AWS.Route53Domains.ResendContactReachabilityEmail
 import           Network.AWS.Route53Domains.RetrieveDomainAuthCode
 import           Network.AWS.Route53Domains.TransferDomain
 import           Network.AWS.Route53Domains.Types

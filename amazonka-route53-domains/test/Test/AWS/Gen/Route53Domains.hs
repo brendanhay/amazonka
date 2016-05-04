@@ -43,6 +43,9 @@ import Test.AWS.Route53Domains.Internal
 --         , testEnableDomainAutoRenew $
 --             enableDomainAutoRenew
 --
+--         , testResendContactReachabilityEmail $
+--             resendContactReachabilityEmail
+--
 --         , testDisableDomainAutoRenew $
 --             disableDomainAutoRenew
 --
@@ -60,6 +63,9 @@ import Test.AWS.Route53Domains.Internal
 --
 --         , testCheckDomainAvailability $
 --             checkDomainAvailability
+--
+--         , testGetContactReachabilityStatus $
+--             getContactReachabilityStatus
 --
 --         , testListTagsForDomain $
 --             listTagsForDomain
@@ -100,6 +106,9 @@ import Test.AWS.Route53Domains.Internal
 --         , testEnableDomainAutoRenewResponse $
 --             enableDomainAutoRenewResponse
 --
+--         , testResendContactReachabilityEmailResponse $
+--             resendContactReachabilityEmailResponse
+--
 --         , testDisableDomainAutoRenewResponse $
 --             disableDomainAutoRenewResponse
 --
@@ -117,6 +126,9 @@ import Test.AWS.Route53Domains.Internal
 --
 --         , testCheckDomainAvailabilityResponse $
 --             checkDomainAvailabilityResponse
+--
+--         , testGetContactReachabilityStatusResponse $
+--             getContactReachabilityStatusResponse
 --
 --         , testListTagsForDomainResponse $
 --             listTagsForDomainResponse
@@ -169,6 +181,11 @@ testEnableDomainAutoRenew = req
     "EnableDomainAutoRenew"
     "fixture/EnableDomainAutoRenew.yaml"
 
+testResendContactReachabilityEmail :: ResendContactReachabilityEmail -> TestTree
+testResendContactReachabilityEmail = req
+    "ResendContactReachabilityEmail"
+    "fixture/ResendContactReachabilityEmail.yaml"
+
 testDisableDomainAutoRenew :: DisableDomainAutoRenew -> TestTree
 testDisableDomainAutoRenew = req
     "DisableDomainAutoRenew"
@@ -198,6 +215,11 @@ testCheckDomainAvailability :: CheckDomainAvailability -> TestTree
 testCheckDomainAvailability = req
     "CheckDomainAvailability"
     "fixture/CheckDomainAvailability.yaml"
+
+testGetContactReachabilityStatus :: GetContactReachabilityStatus -> TestTree
+testGetContactReachabilityStatus = req
+    "GetContactReachabilityStatus"
+    "fixture/GetContactReachabilityStatus.yaml"
 
 testListTagsForDomain :: ListTagsForDomain -> TestTree
 testListTagsForDomain = req
@@ -271,6 +293,13 @@ testEnableDomainAutoRenewResponse = res
     route53Domains
     (Proxy :: Proxy EnableDomainAutoRenew)
 
+testResendContactReachabilityEmailResponse :: ResendContactReachabilityEmailResponse -> TestTree
+testResendContactReachabilityEmailResponse = res
+    "ResendContactReachabilityEmailResponse"
+    "fixture/ResendContactReachabilityEmailResponse.proto"
+    route53Domains
+    (Proxy :: Proxy ResendContactReachabilityEmail)
+
 testDisableDomainAutoRenewResponse :: DisableDomainAutoRenewResponse -> TestTree
 testDisableDomainAutoRenewResponse = res
     "DisableDomainAutoRenewResponse"
@@ -312,6 +341,13 @@ testCheckDomainAvailabilityResponse = res
     "fixture/CheckDomainAvailabilityResponse.proto"
     route53Domains
     (Proxy :: Proxy CheckDomainAvailability)
+
+testGetContactReachabilityStatusResponse :: GetContactReachabilityStatusResponse -> TestTree
+testGetContactReachabilityStatusResponse = res
+    "GetContactReachabilityStatusResponse"
+    "fixture/GetContactReachabilityStatusResponse.proto"
+    route53Domains
+    (Proxy :: Proxy GetContactReachabilityStatus)
 
 testListTagsForDomainResponse :: ListTagsForDomainResponse -> TestTree
 testListTagsForDomainResponse = res

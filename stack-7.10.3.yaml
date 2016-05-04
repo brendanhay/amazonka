@@ -24,6 +24,7 @@ packages:
   - amazonka-codedeploy
   - amazonka-codepipeline
   - amazonka-cognito-identity
+  - amazonka-cognito-idp
   - amazonka-cognito-sync
   - amazonka-config
   - amazonka-datapipeline

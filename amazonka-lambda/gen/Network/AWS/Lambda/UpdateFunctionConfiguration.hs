@@ -38,6 +38,7 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , UpdateFunctionConfiguration
     -- * Request Lenses
     , ufcMemorySize
+    , ufcRuntime
     , ufcRole
     , ufcVPCConfig
     , ufcHandler
@@ -74,6 +75,7 @@ import           Network.AWS.Response
 -- | /See:/ 'updateFunctionConfiguration' smart constructor.
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     { _ufcMemorySize   :: !(Maybe Nat)
+    , _ufcRuntime      :: !(Maybe Runtime)
     , _ufcRole         :: !(Maybe Text)
     , _ufcVPCConfig    :: !(Maybe VPCConfig)
     , _ufcHandler      :: !(Maybe Text)
@@ -87,6 +89,8 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ufcMemorySize'
+--
+-- * 'ufcRuntime'
 --
 -- * 'ufcRole'
 --
@@ -105,6 +109,7 @@ updateFunctionConfiguration
 updateFunctionConfiguration pFunctionName_ =
     UpdateFunctionConfiguration'
     { _ufcMemorySize = Nothing
+    , _ufcRuntime = Nothing
     , _ufcRole = Nothing
     , _ufcVPCConfig = Nothing
     , _ufcHandler = Nothing
@@ -121,6 +126,10 @@ updateFunctionConfiguration pFunctionName_ =
 -- The value must be a multiple of 64 MB.
 ufcMemorySize :: Lens' UpdateFunctionConfiguration (Maybe Natural)
 ufcMemorySize = lens _ufcMemorySize (\ s a -> s{_ufcMemorySize = a}) . mapping _Nat;
+
+-- | Undocumented member.
+ufcRuntime :: Lens' UpdateFunctionConfiguration (Maybe Runtime)
+ufcRuntime = lens _ufcRuntime (\ s a -> s{_ufcRuntime = a});
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda will assume
 -- when it executes your function.
@@ -178,6 +187,7 @@ instance ToJSON UpdateFunctionConfiguration where
           = object
               (catMaybes
                  [("MemorySize" .=) <$> _ufcMemorySize,
+                  ("Runtime" .=) <$> _ufcRuntime,
                   ("Role" .=) <$> _ufcRole,
                   ("VpcConfig" .=) <$> _ufcVPCConfig,
                   ("Handler" .=) <$> _ufcHandler,

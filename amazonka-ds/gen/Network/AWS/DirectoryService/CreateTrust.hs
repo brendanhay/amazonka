@@ -34,6 +34,7 @@ module Network.AWS.DirectoryService.CreateTrust
       createTrust
     , CreateTrust
     -- * Request Lenses
+    , ctConditionalForwarderIPAddrs
     , ctTrustType
     , ctDirectoryId
     , ctRemoteDomainName
@@ -68,16 +69,19 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createTrust' smart constructor.
 data CreateTrust = CreateTrust'
-    { _ctTrustType        :: !(Maybe TrustType)
-    , _ctDirectoryId      :: !Text
-    , _ctRemoteDomainName :: !Text
-    , _ctTrustPassword    :: !(Sensitive Text)
-    , _ctTrustDirection   :: !TrustDirection
+    { _ctConditionalForwarderIPAddrs :: !(Maybe [Text])
+    , _ctTrustType                   :: !(Maybe TrustType)
+    , _ctDirectoryId                 :: !Text
+    , _ctRemoteDomainName            :: !Text
+    , _ctTrustPassword               :: !(Sensitive Text)
+    , _ctTrustDirection              :: !TrustDirection
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateTrust' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctConditionalForwarderIPAddrs'
 --
 -- * 'ctTrustType'
 --
@@ -96,12 +100,17 @@ createTrust
     -> CreateTrust
 createTrust pDirectoryId_ pRemoteDomainName_ pTrustPassword_ pTrustDirection_ =
     CreateTrust'
-    { _ctTrustType = Nothing
+    { _ctConditionalForwarderIPAddrs = Nothing
+    , _ctTrustType = Nothing
     , _ctDirectoryId = pDirectoryId_
     , _ctRemoteDomainName = pRemoteDomainName_
     , _ctTrustPassword = _Sensitive # pTrustPassword_
     , _ctTrustDirection = pTrustDirection_
     }
+
+-- | Undocumented member.
+ctConditionalForwarderIPAddrs :: Lens' CreateTrust [Text]
+ctConditionalForwarderIPAddrs = lens _ctConditionalForwarderIPAddrs (\ s a -> s{_ctConditionalForwarderIPAddrs = a}) . _Default . _Coerce;
 
 -- | The trust relationship type.
 ctTrustType :: Lens' CreateTrust (Maybe TrustType)
@@ -153,7 +162,9 @@ instance ToJSON CreateTrust where
         toJSON CreateTrust'{..}
           = object
               (catMaybes
-                 [("TrustType" .=) <$> _ctTrustType,
+                 [("ConditionalForwarderIpAddrs" .=) <$>
+                    _ctConditionalForwarderIPAddrs,
+                  ("TrustType" .=) <$> _ctTrustType,
                   Just ("DirectoryId" .= _ctDirectoryId),
                   Just ("RemoteDomainName" .= _ctRemoteDomainName),
                   Just ("TrustPassword" .= _ctTrustPassword),

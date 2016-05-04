@@ -48,14 +48,17 @@ library
         , Network.AWS.DirectoryService.ConnectDirectory
         , Network.AWS.DirectoryService.CreateAlias
         , Network.AWS.DirectoryService.CreateComputer
+        , Network.AWS.DirectoryService.CreateConditionalForwarder
         , Network.AWS.DirectoryService.CreateDirectory
         , Network.AWS.DirectoryService.CreateMicrosoftAD
         , Network.AWS.DirectoryService.CreateSnapshot
         , Network.AWS.DirectoryService.CreateTrust
+        , Network.AWS.DirectoryService.DeleteConditionalForwarder
         , Network.AWS.DirectoryService.DeleteDirectory
         , Network.AWS.DirectoryService.DeleteSnapshot
         , Network.AWS.DirectoryService.DeleteTrust
         , Network.AWS.DirectoryService.DeregisterEventTopic
+        , Network.AWS.DirectoryService.DescribeConditionalForwarders
         , Network.AWS.DirectoryService.DescribeDirectories
         , Network.AWS.DirectoryService.DescribeEventTopics
         , Network.AWS.DirectoryService.DescribeSnapshots
@@ -69,6 +72,7 @@ library
         , Network.AWS.DirectoryService.RegisterEventTopic
         , Network.AWS.DirectoryService.RestoreFromSnapshot
         , Network.AWS.DirectoryService.Types
+        , Network.AWS.DirectoryService.UpdateConditionalForwarder
         , Network.AWS.DirectoryService.UpdateRadius
         , Network.AWS.DirectoryService.VerifyTrust
         , Network.AWS.DirectoryService.Waiters

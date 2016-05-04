@@ -44,6 +44,9 @@ module Network.AWS.DirectoryService.Types
     -- * RadiusStatus
     , RadiusStatus (..)
 
+    -- * ReplicationScope
+    , ReplicationScope (..)
+
     -- * SnapshotStatus
     , SnapshotStatus (..)
 
@@ -74,6 +77,13 @@ module Network.AWS.DirectoryService.Types
     , cComputerId
     , cComputerAttributes
     , cComputerName
+
+    -- * ConditionalForwarder
+    , ConditionalForwarder
+    , conditionalForwarder
+    , cfDNSIPAddrs
+    , cfRemoteDomainName
+    , cfReplicationScope
 
     -- * DirectoryConnectSettings
     , DirectoryConnectSettings
@@ -189,6 +199,7 @@ module Network.AWS.DirectoryService.Types
     , tTrustDirection
     , tStateLastUpdatedDateTime
     , tTrustType
+    , tTrustStateReason
     , tRemoteDomainName
     , tTrustId
     , tCreatedDateTime
@@ -227,6 +238,8 @@ directoryService =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"

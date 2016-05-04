@@ -66,6 +66,9 @@ module Network.AWS.DirectoryService
     -- * Operations
     -- $operations
 
+    -- ** DescribeConditionalForwarders
+    , module Network.AWS.DirectoryService.DescribeConditionalForwarders
+
     -- ** GetSnapshotLimits
     , module Network.AWS.DirectoryService.GetSnapshotLimits
 
@@ -98,6 +101,12 @@ module Network.AWS.DirectoryService
 
     -- ** DescribeEventTopics
     , module Network.AWS.DirectoryService.DescribeEventTopics
+
+    -- ** UpdateConditionalForwarder
+    , module Network.AWS.DirectoryService.UpdateConditionalForwarder
+
+    -- ** DeleteConditionalForwarder
+    , module Network.AWS.DirectoryService.DeleteConditionalForwarder
 
     -- ** EnableSSO
     , module Network.AWS.DirectoryService.EnableSSO
@@ -135,6 +144,9 @@ module Network.AWS.DirectoryService
     -- ** VerifyTrust
     , module Network.AWS.DirectoryService.VerifyTrust
 
+    -- ** CreateConditionalForwarder
+    , module Network.AWS.DirectoryService.CreateConditionalForwarder
+
     -- ** GetDirectoryLimits
     , module Network.AWS.DirectoryService.GetDirectoryLimits
 
@@ -157,6 +169,9 @@ module Network.AWS.DirectoryService
 
     -- ** RadiusStatus
     , RadiusStatus (..)
+
+    -- ** ReplicationScope
+    , ReplicationScope (..)
 
     -- ** SnapshotStatus
     , SnapshotStatus (..)
@@ -188,6 +203,13 @@ module Network.AWS.DirectoryService
     , cComputerId
     , cComputerAttributes
     , cComputerName
+
+    -- ** ConditionalForwarder
+    , ConditionalForwarder
+    , conditionalForwarder
+    , cfDNSIPAddrs
+    , cfRemoteDomainName
+    , cfReplicationScope
 
     -- ** DirectoryConnectSettings
     , DirectoryConnectSettings
@@ -303,6 +325,7 @@ module Network.AWS.DirectoryService
     , tTrustDirection
     , tStateLastUpdatedDateTime
     , tTrustType
+    , tTrustStateReason
     , tRemoteDomainName
     , tTrustId
     , tCreatedDateTime
@@ -311,14 +334,17 @@ module Network.AWS.DirectoryService
 import           Network.AWS.DirectoryService.ConnectDirectory
 import           Network.AWS.DirectoryService.CreateAlias
 import           Network.AWS.DirectoryService.CreateComputer
+import           Network.AWS.DirectoryService.CreateConditionalForwarder
 import           Network.AWS.DirectoryService.CreateDirectory
 import           Network.AWS.DirectoryService.CreateMicrosoftAD
 import           Network.AWS.DirectoryService.CreateSnapshot
 import           Network.AWS.DirectoryService.CreateTrust
+import           Network.AWS.DirectoryService.DeleteConditionalForwarder
 import           Network.AWS.DirectoryService.DeleteDirectory
 import           Network.AWS.DirectoryService.DeleteSnapshot
 import           Network.AWS.DirectoryService.DeleteTrust
 import           Network.AWS.DirectoryService.DeregisterEventTopic
+import           Network.AWS.DirectoryService.DescribeConditionalForwarders
 import           Network.AWS.DirectoryService.DescribeDirectories
 import           Network.AWS.DirectoryService.DescribeEventTopics
 import           Network.AWS.DirectoryService.DescribeSnapshots
@@ -332,6 +358,7 @@ import           Network.AWS.DirectoryService.GetSnapshotLimits
 import           Network.AWS.DirectoryService.RegisterEventTopic
 import           Network.AWS.DirectoryService.RestoreFromSnapshot
 import           Network.AWS.DirectoryService.Types
+import           Network.AWS.DirectoryService.UpdateConditionalForwarder
 import           Network.AWS.DirectoryService.UpdateRadius
 import           Network.AWS.DirectoryService.VerifyTrust
 import           Network.AWS.DirectoryService.Waiters

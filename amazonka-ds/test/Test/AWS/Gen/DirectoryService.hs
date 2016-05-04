@@ -28,7 +28,10 @@ import Test.AWS.DirectoryService.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testGetSnapshotLimits $
+--         [ testDescribeConditionalForwarders $
+--             describeConditionalForwarders
+--
+--         , testGetSnapshotLimits $
 --             getSnapshotLimits
 --
 --         , testRegisterEventTopic $
@@ -60,6 +63,12 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , testDescribeEventTopics $
 --             describeEventTopics
+--
+--         , testUpdateConditionalForwarder $
+--             updateConditionalForwarder
+--
+--         , testDeleteConditionalForwarder $
+--             deleteConditionalForwarder
 --
 --         , testEnableSSO $
 --             enableSSO
@@ -97,6 +106,9 @@ import Test.AWS.DirectoryService.Internal
 --         , testVerifyTrust $
 --             verifyTrust
 --
+--         , testCreateConditionalForwarder $
+--             createConditionalForwarder
+--
 --         , testGetDirectoryLimits $
 --             getDirectoryLimits
 --
@@ -106,7 +118,10 @@ import Test.AWS.DirectoryService.Internal
 --           ]
 
 --     , testGroup "response"
---         [ testGetSnapshotLimitsResponse $
+--         [ testDescribeConditionalForwardersResponse $
+--             describeConditionalForwardersResponse
+--
+--         , testGetSnapshotLimitsResponse $
 --             getSnapshotLimitsResponse
 --
 --         , testRegisterEventTopicResponse $
@@ -138,6 +153,12 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , testDescribeEventTopicsResponse $
 --             describeEventTopicsResponse
+--
+--         , testUpdateConditionalForwarderResponse $
+--             updateConditionalForwarderResponse
+--
+--         , testDeleteConditionalForwarderResponse $
+--             deleteConditionalForwarderResponse
 --
 --         , testEnableSSOResponse $
 --             enableSSOResponse
@@ -175,6 +196,9 @@ import Test.AWS.DirectoryService.Internal
 --         , testVerifyTrustResponse $
 --             verifyTrustResponse
 --
+--         , testCreateConditionalForwarderResponse $
+--             createConditionalForwarderResponse
+--
 --         , testGetDirectoryLimitsResponse $
 --             getDirectoryLimitsResponse
 --
@@ -185,6 +209,11 @@ import Test.AWS.DirectoryService.Internal
 --     ]
 
 -- Requests
+
+testDescribeConditionalForwarders :: DescribeConditionalForwarders -> TestTree
+testDescribeConditionalForwarders = req
+    "DescribeConditionalForwarders"
+    "fixture/DescribeConditionalForwarders.yaml"
 
 testGetSnapshotLimits :: GetSnapshotLimits -> TestTree
 testGetSnapshotLimits = req
@@ -240,6 +269,16 @@ testDescribeEventTopics :: DescribeEventTopics -> TestTree
 testDescribeEventTopics = req
     "DescribeEventTopics"
     "fixture/DescribeEventTopics.yaml"
+
+testUpdateConditionalForwarder :: UpdateConditionalForwarder -> TestTree
+testUpdateConditionalForwarder = req
+    "UpdateConditionalForwarder"
+    "fixture/UpdateConditionalForwarder.yaml"
+
+testDeleteConditionalForwarder :: DeleteConditionalForwarder -> TestTree
+testDeleteConditionalForwarder = req
+    "DeleteConditionalForwarder"
+    "fixture/DeleteConditionalForwarder.yaml"
 
 testEnableSSO :: EnableSSO -> TestTree
 testEnableSSO = req
@@ -301,6 +340,11 @@ testVerifyTrust = req
     "VerifyTrust"
     "fixture/VerifyTrust.yaml"
 
+testCreateConditionalForwarder :: CreateConditionalForwarder -> TestTree
+testCreateConditionalForwarder = req
+    "CreateConditionalForwarder"
+    "fixture/CreateConditionalForwarder.yaml"
+
 testGetDirectoryLimits :: GetDirectoryLimits -> TestTree
 testGetDirectoryLimits = req
     "GetDirectoryLimits"
@@ -312,6 +356,13 @@ testUpdateRadius = req
     "fixture/UpdateRadius.yaml"
 
 -- Responses
+
+testDescribeConditionalForwardersResponse :: DescribeConditionalForwardersResponse -> TestTree
+testDescribeConditionalForwardersResponse = res
+    "DescribeConditionalForwardersResponse"
+    "fixture/DescribeConditionalForwardersResponse.proto"
+    directoryService
+    (Proxy :: Proxy DescribeConditionalForwarders)
 
 testGetSnapshotLimitsResponse :: GetSnapshotLimitsResponse -> TestTree
 testGetSnapshotLimitsResponse = res
@@ -389,6 +440,20 @@ testDescribeEventTopicsResponse = res
     "fixture/DescribeEventTopicsResponse.proto"
     directoryService
     (Proxy :: Proxy DescribeEventTopics)
+
+testUpdateConditionalForwarderResponse :: UpdateConditionalForwarderResponse -> TestTree
+testUpdateConditionalForwarderResponse = res
+    "UpdateConditionalForwarderResponse"
+    "fixture/UpdateConditionalForwarderResponse.proto"
+    directoryService
+    (Proxy :: Proxy UpdateConditionalForwarder)
+
+testDeleteConditionalForwarderResponse :: DeleteConditionalForwarderResponse -> TestTree
+testDeleteConditionalForwarderResponse = res
+    "DeleteConditionalForwarderResponse"
+    "fixture/DeleteConditionalForwarderResponse.proto"
+    directoryService
+    (Proxy :: Proxy DeleteConditionalForwarder)
 
 testEnableSSOResponse :: EnableSSOResponse -> TestTree
 testEnableSSOResponse = res
@@ -473,6 +538,13 @@ testVerifyTrustResponse = res
     "fixture/VerifyTrustResponse.proto"
     directoryService
     (Proxy :: Proxy VerifyTrust)
+
+testCreateConditionalForwarderResponse :: CreateConditionalForwarderResponse -> TestTree
+testCreateConditionalForwarderResponse = res
+    "CreateConditionalForwarderResponse"
+    "fixture/CreateConditionalForwarderResponse.proto"
+    directoryService
+    (Proxy :: Proxy CreateConditionalForwarder)
 
 testGetDirectoryLimitsResponse :: GetDirectoryLimitsResponse -> TestTree
 testGetDirectoryLimitsResponse = res

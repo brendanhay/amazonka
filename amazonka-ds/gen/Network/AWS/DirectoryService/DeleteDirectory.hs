@@ -25,14 +25,14 @@ module Network.AWS.DirectoryService.DeleteDirectory
       deleteDirectory
     , DeleteDirectory
     -- * Request Lenses
-    , delDirectoryId
+    , dddDirectoryId
 
     -- * Destructuring the Response
     , deleteDirectoryResponse
     , DeleteDirectoryResponse
     -- * Response Lenses
-    , drsDirectoryId
-    , drsResponseStatus
+    , delrsDirectoryId
+    , delrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -46,25 +46,25 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteDirectory' smart constructor.
 newtype DeleteDirectory = DeleteDirectory'
-    { _delDirectoryId :: Text
+    { _dddDirectoryId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDirectory' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delDirectoryId'
+-- * 'dddDirectoryId'
 deleteDirectory
-    :: Text -- ^ 'delDirectoryId'
+    :: Text -- ^ 'dddDirectoryId'
     -> DeleteDirectory
 deleteDirectory pDirectoryId_ =
     DeleteDirectory'
-    { _delDirectoryId = pDirectoryId_
+    { _dddDirectoryId = pDirectoryId_
     }
 
 -- | The identifier of the directory to delete.
-delDirectoryId :: Lens' DeleteDirectory Text
-delDirectoryId = lens _delDirectoryId (\ s a -> s{_delDirectoryId = a});
+dddDirectoryId :: Lens' DeleteDirectory Text
+dddDirectoryId = lens _dddDirectoryId (\ s a -> s{_dddDirectoryId = a});
 
 instance AWSRequest DeleteDirectory where
         type Rs DeleteDirectory = DeleteDirectoryResponse
@@ -92,7 +92,7 @@ instance ToHeaders DeleteDirectory where
 instance ToJSON DeleteDirectory where
         toJSON DeleteDirectory'{..}
           = object
-              (catMaybes [Just ("DirectoryId" .= _delDirectoryId)])
+              (catMaybes [Just ("DirectoryId" .= _dddDirectoryId)])
 
 instance ToPath DeleteDirectory where
         toPath = const "/"
@@ -104,32 +104,32 @@ instance ToQuery DeleteDirectory where
 --
 -- /See:/ 'deleteDirectoryResponse' smart constructor.
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
-    { _drsDirectoryId    :: !(Maybe Text)
-    , _drsResponseStatus :: !Int
+    { _delrsDirectoryId    :: !(Maybe Text)
+    , _delrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDirectoryResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsDirectoryId'
+-- * 'delrsDirectoryId'
 --
--- * 'drsResponseStatus'
+-- * 'delrsResponseStatus'
 deleteDirectoryResponse
-    :: Int -- ^ 'drsResponseStatus'
+    :: Int -- ^ 'delrsResponseStatus'
     -> DeleteDirectoryResponse
 deleteDirectoryResponse pResponseStatus_ =
     DeleteDirectoryResponse'
-    { _drsDirectoryId = Nothing
-    , _drsResponseStatus = pResponseStatus_
+    { _delrsDirectoryId = Nothing
+    , _delrsResponseStatus = pResponseStatus_
     }
 
 -- | The directory identifier.
-drsDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
-drsDirectoryId = lens _drsDirectoryId (\ s a -> s{_drsDirectoryId = a});
+delrsDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
+delrsDirectoryId = lens _delrsDirectoryId (\ s a -> s{_delrsDirectoryId = a});
 
 -- | The response status code.
-drsResponseStatus :: Lens' DeleteDirectoryResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+delrsResponseStatus :: Lens' DeleteDirectoryResponse Int
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
 instance NFData DeleteDirectoryResponse

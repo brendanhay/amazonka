@@ -121,6 +121,65 @@ instance Hashable Computer
 
 instance NFData Computer
 
+-- | Points to a remote domain with which you are setting up a trust
+-- relationship. Conditional forwarders are required in order to set up a
+-- trust relationship with another domain.
+--
+-- /See:/ 'conditionalForwarder' smart constructor.
+data ConditionalForwarder = ConditionalForwarder'
+    { _cfDNSIPAddrs       :: !(Maybe [Text])
+    , _cfRemoteDomainName :: !(Maybe Text)
+    , _cfReplicationScope :: !(Maybe ReplicationScope)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConditionalForwarder' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfDNSIPAddrs'
+--
+-- * 'cfRemoteDomainName'
+--
+-- * 'cfReplicationScope'
+conditionalForwarder
+    :: ConditionalForwarder
+conditionalForwarder =
+    ConditionalForwarder'
+    { _cfDNSIPAddrs = Nothing
+    , _cfRemoteDomainName = Nothing
+    , _cfReplicationScope = Nothing
+    }
+
+-- | The IP addresses of the remote DNS server associated with
+-- RemoteDomainName. This is the IP address of the DNS server that your
+-- conditional forwarder points to.
+cfDNSIPAddrs :: Lens' ConditionalForwarder [Text]
+cfDNSIPAddrs = lens _cfDNSIPAddrs (\ s a -> s{_cfDNSIPAddrs = a}) . _Default . _Coerce;
+
+-- | The fully qualified domain name (FQDN) of the remote domains pointed to
+-- by the conditional forwarder.
+cfRemoteDomainName :: Lens' ConditionalForwarder (Maybe Text)
+cfRemoteDomainName = lens _cfRemoteDomainName (\ s a -> s{_cfRemoteDomainName = a});
+
+-- | The replication scope of the conditional forwarder. The only allowed
+-- value is 'Domain', which will replicate the conditional forwarder to all
+-- of the domain controllers for your AWS directory.
+cfReplicationScope :: Lens' ConditionalForwarder (Maybe ReplicationScope)
+cfReplicationScope = lens _cfReplicationScope (\ s a -> s{_cfReplicationScope = a});
+
+instance FromJSON ConditionalForwarder where
+        parseJSON
+          = withObject "ConditionalForwarder"
+              (\ x ->
+                 ConditionalForwarder' <$>
+                   (x .:? "DnsIpAddrs" .!= mempty) <*>
+                     (x .:? "RemoteDomainName")
+                     <*> (x .:? "ReplicationScope"))
+
+instance Hashable ConditionalForwarder
+
+instance NFData ConditionalForwarder
+
 -- | Contains information for the < ConnectDirectory> operation when an AD
 -- Connector directory is being created.
 --
@@ -1020,6 +1079,7 @@ data Trust = Trust'
     , _tTrustDirection           :: !(Maybe TrustDirection)
     , _tStateLastUpdatedDateTime :: !(Maybe POSIX)
     , _tTrustType                :: !(Maybe TrustType)
+    , _tTrustStateReason         :: !(Maybe Text)
     , _tRemoteDomainName         :: !(Maybe Text)
     , _tTrustId                  :: !(Maybe Text)
     , _tCreatedDateTime          :: !(Maybe POSIX)
@@ -1041,6 +1101,8 @@ data Trust = Trust'
 --
 -- * 'tTrustType'
 --
+-- * 'tTrustStateReason'
+--
 -- * 'tRemoteDomainName'
 --
 -- * 'tTrustId'
@@ -1056,6 +1118,7 @@ trust =
     , _tTrustDirection = Nothing
     , _tStateLastUpdatedDateTime = Nothing
     , _tTrustType = Nothing
+    , _tTrustStateReason = Nothing
     , _tRemoteDomainName = Nothing
     , _tTrustId = Nothing
     , _tCreatedDateTime = Nothing
@@ -1086,6 +1149,10 @@ tStateLastUpdatedDateTime = lens _tStateLastUpdatedDateTime (\ s a -> s{_tStateL
 tTrustType :: Lens' Trust (Maybe TrustType)
 tTrustType = lens _tTrustType (\ s a -> s{_tTrustType = a});
 
+-- | The reason for the TrustState.
+tTrustStateReason :: Lens' Trust (Maybe Text)
+tTrustStateReason = lens _tTrustStateReason (\ s a -> s{_tTrustStateReason = a});
+
 -- | The Fully Qualified Domain Name (FQDN) of the external domain involved
 -- in the trust relationship.
 tRemoteDomainName :: Lens' Trust (Maybe Text)
@@ -1109,6 +1176,7 @@ instance FromJSON Trust where
                      <*> (x .:? "TrustDirection")
                      <*> (x .:? "StateLastUpdatedDateTime")
                      <*> (x .:? "TrustType")
+                     <*> (x .:? "TrustStateReason")
                      <*> (x .:? "RemoteDomainName")
                      <*> (x .:? "TrustId")
                      <*> (x .:? "CreatedDateTime"))

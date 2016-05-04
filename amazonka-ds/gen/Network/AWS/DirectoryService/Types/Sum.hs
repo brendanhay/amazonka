@@ -194,6 +194,29 @@ instance ToHeader     RadiusStatus
 instance FromJSON RadiusStatus where
     parseJSON = parseJSONText "RadiusStatus"
 
+data ReplicationScope =
+    Domain
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ReplicationScope where
+    parser = takeLowerText >>= \case
+        "domain" -> pure Domain
+        e -> fromTextError $ "Failure parsing ReplicationScope from value: '" <> e
+           <> "'. Accepted values: Domain"
+
+instance ToText ReplicationScope where
+    toText = \case
+        Domain -> "Domain"
+
+instance Hashable     ReplicationScope
+instance NFData       ReplicationScope
+instance ToByteString ReplicationScope
+instance ToQuery      ReplicationScope
+instance ToHeader     ReplicationScope
+
+instance FromJSON ReplicationScope where
+    parseJSON = parseJSONText "ReplicationScope"
+
 data SnapshotStatus
     = SSCompleted
     | SSCreating

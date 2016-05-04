@@ -26,14 +26,15 @@ module Network.AWS.DirectoryService.DeleteTrust
       deleteTrust
     , DeleteTrust
     -- * Request Lenses
+    , dtDeleteAssociatedConditionalForwarder
     , dtTrustId
 
     -- * Destructuring the Response
     , deleteTrustResponse
     , DeleteTrustResponse
     -- * Response Lenses
-    , delrsTrustId
-    , delrsResponseStatus
+    , dttrsTrustId
+    , dttrsResponseStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -47,13 +48,16 @@ import           Network.AWS.Response
 -- Microsoft AD in the AWS cloud and the external domain.
 --
 -- /See:/ 'deleteTrust' smart constructor.
-newtype DeleteTrust = DeleteTrust'
-    { _dtTrustId :: Text
+data DeleteTrust = DeleteTrust'
+    { _dtDeleteAssociatedConditionalForwarder :: !(Maybe Bool)
+    , _dtTrustId                              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteTrust' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtDeleteAssociatedConditionalForwarder'
 --
 -- * 'dtTrustId'
 deleteTrust
@@ -61,8 +65,13 @@ deleteTrust
     -> DeleteTrust
 deleteTrust pTrustId_ =
     DeleteTrust'
-    { _dtTrustId = pTrustId_
+    { _dtDeleteAssociatedConditionalForwarder = Nothing
+    , _dtTrustId = pTrustId_
     }
+
+-- | Undocumented member.
+dtDeleteAssociatedConditionalForwarder :: Lens' DeleteTrust (Maybe Bool)
+dtDeleteAssociatedConditionalForwarder = lens _dtDeleteAssociatedConditionalForwarder (\ s a -> s{_dtDeleteAssociatedConditionalForwarder = a});
 
 -- | The Trust ID of the trust relationship to be deleted.
 dtTrustId :: Lens' DeleteTrust Text
@@ -93,7 +102,11 @@ instance ToHeaders DeleteTrust where
 
 instance ToJSON DeleteTrust where
         toJSON DeleteTrust'{..}
-          = object (catMaybes [Just ("TrustId" .= _dtTrustId)])
+          = object
+              (catMaybes
+                 [("DeleteAssociatedConditionalForwarder" .=) <$>
+                    _dtDeleteAssociatedConditionalForwarder,
+                  Just ("TrustId" .= _dtTrustId)])
 
 instance ToPath DeleteTrust where
         toPath = const "/"
@@ -103,32 +116,32 @@ instance ToQuery DeleteTrust where
 
 -- | /See:/ 'deleteTrustResponse' smart constructor.
 data DeleteTrustResponse = DeleteTrustResponse'
-    { _delrsTrustId        :: !(Maybe Text)
-    , _delrsResponseStatus :: !Int
+    { _dttrsTrustId        :: !(Maybe Text)
+    , _dttrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteTrustResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsTrustId'
+-- * 'dttrsTrustId'
 --
--- * 'delrsResponseStatus'
+-- * 'dttrsResponseStatus'
 deleteTrustResponse
-    :: Int -- ^ 'delrsResponseStatus'
+    :: Int -- ^ 'dttrsResponseStatus'
     -> DeleteTrustResponse
 deleteTrustResponse pResponseStatus_ =
     DeleteTrustResponse'
-    { _delrsTrustId = Nothing
-    , _delrsResponseStatus = pResponseStatus_
+    { _dttrsTrustId = Nothing
+    , _dttrsResponseStatus = pResponseStatus_
     }
 
 -- | The Trust ID of the trust relationship that was deleted.
-delrsTrustId :: Lens' DeleteTrustResponse (Maybe Text)
-delrsTrustId = lens _delrsTrustId (\ s a -> s{_delrsTrustId = a});
+dttrsTrustId :: Lens' DeleteTrustResponse (Maybe Text)
+dttrsTrustId = lens _dttrsTrustId (\ s a -> s{_dttrsTrustId = a});
 
 -- | The response status code.
-delrsResponseStatus :: Lens' DeleteTrustResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+dttrsResponseStatus :: Lens' DeleteTrustResponse Int
+dttrsResponseStatus = lens _dttrsResponseStatus (\ s a -> s{_dttrsResponseStatus = a});
 
 instance NFData DeleteTrustResponse

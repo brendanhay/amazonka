@@ -1,0 +1,217 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.CognitoIdentityProvider.AdminGetUser
+-- Copyright   : (c) 2013-2016 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Gets the specified user by user name in a user pool as an administrator.
+-- Works on any user.
+module Network.AWS.CognitoIdentityProvider.AdminGetUser
+    (
+    -- * Creating a Request
+      adminGetUser
+    , AdminGetUser
+    -- * Request Lenses
+    , aguUserPoolId
+    , aguUsername
+
+    -- * Destructuring the Response
+    , adminGetUserResponse
+    , AdminGetUserResponse
+    -- * Response Lenses
+    , agursEnabled
+    , agursUserStatus
+    , agursUserAttributes
+    , agursUserCreateDate
+    , agursMFAOptions
+    , agursUserLastModifiedDate
+    , agursResponseStatus
+    , agursUsername
+    ) where
+
+import           Network.AWS.CognitoIdentityProvider.Types
+import           Network.AWS.CognitoIdentityProvider.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | Represents the request to get the specified user as an administrator.
+--
+-- /See:/ 'adminGetUser' smart constructor.
+data AdminGetUser = AdminGetUser'
+    { _aguUserPoolId :: !Text
+    , _aguUsername   :: !(Sensitive Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AdminGetUser' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aguUserPoolId'
+--
+-- * 'aguUsername'
+adminGetUser
+    :: Text -- ^ 'aguUserPoolId'
+    -> Text -- ^ 'aguUsername'
+    -> AdminGetUser
+adminGetUser pUserPoolId_ pUsername_ =
+    AdminGetUser'
+    { _aguUserPoolId = pUserPoolId_
+    , _aguUsername = _Sensitive # pUsername_
+    }
+
+-- | The user pool ID for the user pool where you want to get information
+-- about the user.
+aguUserPoolId :: Lens' AdminGetUser Text
+aguUserPoolId = lens _aguUserPoolId (\ s a -> s{_aguUserPoolId = a});
+
+-- | The user name of the user you wish to retrieve.
+aguUsername :: Lens' AdminGetUser Text
+aguUsername = lens _aguUsername (\ s a -> s{_aguUsername = a}) . _Sensitive;
+
+instance AWSRequest AdminGetUser where
+        type Rs AdminGetUser = AdminGetUserResponse
+        request = postJSON cognitoIdentityProvider
+        response
+          = receiveJSON
+              (\ s h x ->
+                 AdminGetUserResponse' <$>
+                   (x .?> "Enabled") <*> (x .?> "UserStatus") <*>
+                     (x .?> "UserAttributes" .!@ mempty)
+                     <*> (x .?> "UserCreateDate")
+                     <*> (x .?> "MFAOptions" .!@ mempty)
+                     <*> (x .?> "UserLastModifiedDate")
+                     <*> (pure (fromEnum s))
+                     <*> (x .:> "Username"))
+
+instance Hashable AdminGetUser
+
+instance NFData AdminGetUser
+
+instance ToHeaders AdminGetUser where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSCognitoIdentityProviderService.AdminGetUser" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON AdminGetUser where
+        toJSON AdminGetUser'{..}
+          = object
+              (catMaybes
+                 [Just ("UserPoolId" .= _aguUserPoolId),
+                  Just ("Username" .= _aguUsername)])
+
+instance ToPath AdminGetUser where
+        toPath = const "/"
+
+instance ToQuery AdminGetUser where
+        toQuery = const mempty
+
+-- | Represents the response from the server from the request to get the
+-- specified user as an administrator.
+--
+-- /See:/ 'adminGetUserResponse' smart constructor.
+data AdminGetUserResponse = AdminGetUserResponse'
+    { _agursEnabled              :: !(Maybe Bool)
+    , _agursUserStatus           :: !(Maybe UserStatusType)
+    , _agursUserAttributes       :: !(Maybe [AttributeType])
+    , _agursUserCreateDate       :: !(Maybe POSIX)
+    , _agursMFAOptions           :: !(Maybe [MFAOptionType])
+    , _agursUserLastModifiedDate :: !(Maybe POSIX)
+    , _agursResponseStatus       :: !Int
+    , _agursUsername             :: !(Sensitive Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AdminGetUserResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'agursEnabled'
+--
+-- * 'agursUserStatus'
+--
+-- * 'agursUserAttributes'
+--
+-- * 'agursUserCreateDate'
+--
+-- * 'agursMFAOptions'
+--
+-- * 'agursUserLastModifiedDate'
+--
+-- * 'agursResponseStatus'
+--
+-- * 'agursUsername'
+adminGetUserResponse
+    :: Int -- ^ 'agursResponseStatus'
+    -> Text -- ^ 'agursUsername'
+    -> AdminGetUserResponse
+adminGetUserResponse pResponseStatus_ pUsername_ =
+    AdminGetUserResponse'
+    { _agursEnabled = Nothing
+    , _agursUserStatus = Nothing
+    , _agursUserAttributes = Nothing
+    , _agursUserCreateDate = Nothing
+    , _agursMFAOptions = Nothing
+    , _agursUserLastModifiedDate = Nothing
+    , _agursResponseStatus = pResponseStatus_
+    , _agursUsername = _Sensitive # pUsername_
+    }
+
+-- | Indicates that the status is enabled.
+agursEnabled :: Lens' AdminGetUserResponse (Maybe Bool)
+agursEnabled = lens _agursEnabled (\ s a -> s{_agursEnabled = a});
+
+-- | The user status. Can be one of the following:
+--
+-- -   UNCONFIRMED - User has been created but not confirmed.
+-- -   CONFIRMED - User has been confirmed.
+-- -   ARCHIVED - User is no longer active.
+-- -   COMPROMISED - User is disabled due to a potential security threat.
+-- -   UNKNOWN - User status is not known.
+agursUserStatus :: Lens' AdminGetUserResponse (Maybe UserStatusType)
+agursUserStatus = lens _agursUserStatus (\ s a -> s{_agursUserStatus = a});
+
+-- | An array of name-value pairs representing user attributes.
+agursUserAttributes :: Lens' AdminGetUserResponse [AttributeType]
+agursUserAttributes = lens _agursUserAttributes (\ s a -> s{_agursUserAttributes = a}) . _Default . _Coerce;
+
+-- | The date the user was created.
+agursUserCreateDate :: Lens' AdminGetUserResponse (Maybe UTCTime)
+agursUserCreateDate = lens _agursUserCreateDate (\ s a -> s{_agursUserCreateDate = a}) . mapping _Time;
+
+-- | Specifies the options for MFA (e.g., email or phone number).
+agursMFAOptions :: Lens' AdminGetUserResponse [MFAOptionType]
+agursMFAOptions = lens _agursMFAOptions (\ s a -> s{_agursMFAOptions = a}) . _Default . _Coerce;
+
+-- | The date the user was last modified.
+agursUserLastModifiedDate :: Lens' AdminGetUserResponse (Maybe UTCTime)
+agursUserLastModifiedDate = lens _agursUserLastModifiedDate (\ s a -> s{_agursUserLastModifiedDate = a}) . mapping _Time;
+
+-- | The response status code.
+agursResponseStatus :: Lens' AdminGetUserResponse Int
+agursResponseStatus = lens _agursResponseStatus (\ s a -> s{_agursResponseStatus = a});
+
+-- | The user name of the user about whom you are receiving information.
+agursUsername :: Lens' AdminGetUserResponse Text
+agursUsername = lens _agursUsername (\ s a -> s{_agursUsername = a}) . _Sensitive;
+
+instance NFData AdminGetUserResponse

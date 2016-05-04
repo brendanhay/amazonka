@@ -39,6 +39,7 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     , cipSupportedLoginProviders
     , cipDeveloperProviderName
     , cipOpenIdConnectProviderARNs
+    , cipCognitoIdentityProviders
     , cipIdentityPoolName
     , cipAllowUnauthenticatedIdentities
 
@@ -49,6 +50,7 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs
+    , ipCognitoIdentityProviders
     , ipIdentityPoolId
     , ipIdentityPoolName
     , ipAllowUnauthenticatedIdentities
@@ -68,6 +70,7 @@ data CreateIdentityPool = CreateIdentityPool'
     { _cipSupportedLoginProviders        :: !(Maybe (Map Text Text))
     , _cipDeveloperProviderName          :: !(Maybe Text)
     , _cipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+    , _cipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
     , _cipIdentityPoolName               :: !Text
     , _cipAllowUnauthenticatedIdentities :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -82,6 +85,8 @@ data CreateIdentityPool = CreateIdentityPool'
 --
 -- * 'cipOpenIdConnectProviderARNs'
 --
+-- * 'cipCognitoIdentityProviders'
+--
 -- * 'cipIdentityPoolName'
 --
 -- * 'cipAllowUnauthenticatedIdentities'
@@ -94,6 +99,7 @@ createIdentityPool pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     { _cipSupportedLoginProviders = Nothing
     , _cipDeveloperProviderName = Nothing
     , _cipOpenIdConnectProviderARNs = Nothing
+    , _cipCognitoIdentityProviders = Nothing
     , _cipIdentityPoolName = pIdentityPoolName_
     , _cipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
     }
@@ -116,6 +122,10 @@ cipDeveloperProviderName = lens _cipDeveloperProviderName (\ s a -> s{_cipDevelo
 -- | A list of OpendID Connect provider ARNs.
 cipOpenIdConnectProviderARNs :: Lens' CreateIdentityPool [Text]
 cipOpenIdConnectProviderARNs = lens _cipOpenIdConnectProviderARNs (\ s a -> s{_cipOpenIdConnectProviderARNs = a}) . _Default . _Coerce;
+
+-- | A list representing a Cognito User Identity Pool and its client ID.
+cipCognitoIdentityProviders :: Lens' CreateIdentityPool [CognitoIdentityProvider]
+cipCognitoIdentityProviders = lens _cipCognitoIdentityProviders (\ s a -> s{_cipCognitoIdentityProviders = a}) . _Default . _Coerce;
 
 -- | A string that you provide.
 cipIdentityPoolName :: Lens' CreateIdentityPool Text
@@ -154,6 +164,8 @@ instance ToJSON CreateIdentityPool where
                     _cipDeveloperProviderName,
                   ("OpenIdConnectProviderARNs" .=) <$>
                     _cipOpenIdConnectProviderARNs,
+                  ("CognitoIdentityProviders" .=) <$>
+                    _cipCognitoIdentityProviders,
                   Just ("IdentityPoolName" .= _cipIdentityPoolName),
                   Just
                     ("AllowUnauthenticatedIdentities" .=

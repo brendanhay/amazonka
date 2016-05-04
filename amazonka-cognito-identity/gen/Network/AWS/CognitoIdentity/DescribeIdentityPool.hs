@@ -37,6 +37,7 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs
+    , ipCognitoIdentityProviders
     , ipIdentityPoolId
     , ipIdentityPoolName
     , ipAllowUnauthenticatedIdentities

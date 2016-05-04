@@ -19,28 +19,118 @@ module Network.AWS.ElasticBeanstalk.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data ActionHistoryStatus
+    = Completed
+    | Failed
+    | Unknown
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ActionHistoryStatus where
+    parser = takeLowerText >>= \case
+        "completed" -> pure Completed
+        "failed" -> pure Failed
+        "unknown" -> pure Unknown
+        e -> fromTextError $ "Failure parsing ActionHistoryStatus from value: '" <> e
+           <> "'. Accepted values: Completed, Failed, Unknown"
+
+instance ToText ActionHistoryStatus where
+    toText = \case
+        Completed -> "Completed"
+        Failed -> "Failed"
+        Unknown -> "Unknown"
+
+instance Hashable     ActionHistoryStatus
+instance NFData       ActionHistoryStatus
+instance ToByteString ActionHistoryStatus
+instance ToQuery      ActionHistoryStatus
+instance ToHeader     ActionHistoryStatus
+
+instance FromXML ActionHistoryStatus where
+    parseXML = parseXMLText "ActionHistoryStatus"
+
+data ActionStatus
+    = ASPending
+    | ASRunning
+    | ASScheduled
+    | ASUnknown
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ActionStatus where
+    parser = takeLowerText >>= \case
+        "pending" -> pure ASPending
+        "running" -> pure ASRunning
+        "scheduled" -> pure ASScheduled
+        "unknown" -> pure ASUnknown
+        e -> fromTextError $ "Failure parsing ActionStatus from value: '" <> e
+           <> "'. Accepted values: Pending, Running, Scheduled, Unknown"
+
+instance ToText ActionStatus where
+    toText = \case
+        ASPending -> "Pending"
+        ASRunning -> "Running"
+        ASScheduled -> "Scheduled"
+        ASUnknown -> "Unknown"
+
+instance Hashable     ActionStatus
+instance NFData       ActionStatus
+instance ToByteString ActionStatus
+instance ToQuery      ActionStatus
+instance ToHeader     ActionStatus
+
+instance FromXML ActionStatus where
+    parseXML = parseXMLText "ActionStatus"
+
+data ActionType
+    = ATInstanceRefresh
+    | ATPlatformUpdate
+    | ATUnknown
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ActionType where
+    parser = takeLowerText >>= \case
+        "instancerefresh" -> pure ATInstanceRefresh
+        "platformupdate" -> pure ATPlatformUpdate
+        "unknown" -> pure ATUnknown
+        e -> fromTextError $ "Failure parsing ActionType from value: '" <> e
+           <> "'. Accepted values: InstanceRefresh, PlatformUpdate, Unknown"
+
+instance ToText ActionType where
+    toText = \case
+        ATInstanceRefresh -> "InstanceRefresh"
+        ATPlatformUpdate -> "PlatformUpdate"
+        ATUnknown -> "Unknown"
+
+instance Hashable     ActionType
+instance NFData       ActionType
+instance ToByteString ActionType
+instance ToQuery      ActionType
+instance ToHeader     ActionType
+
+instance FromXML ActionType where
+    parseXML = parseXMLText "ActionType"
+
 data ApplicationVersionStatus
-    = Failed
-    | Processed
-    | Processing
-    | Unprocessed
+    = AVSFailed
+    | AVSProcessed
+    | AVSProcessing
+    | AVSUnprocessed
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ApplicationVersionStatus where
     parser = takeLowerText >>= \case
-        "failed" -> pure Failed
-        "processed" -> pure Processed
-        "processing" -> pure Processing
-        "unprocessed" -> pure Unprocessed
+        "failed" -> pure AVSFailed
+        "processed" -> pure AVSProcessed
+        "processing" -> pure AVSProcessing
+        "unprocessed" -> pure AVSUnprocessed
         e -> fromTextError $ "Failure parsing ApplicationVersionStatus from value: '" <> e
            <> "'. Accepted values: Failed, Processed, Processing, Unprocessed"
 
 instance ToText ApplicationVersionStatus where
     toText = \case
-        Failed -> "Failed"
-        Processed -> "Processed"
-        Processing -> "Processing"
-        Unprocessed -> "Unprocessed"
+        AVSFailed -> "Failed"
+        AVSProcessed -> "Processed"
+        AVSProcessing -> "Processing"
+        AVSUnprocessed -> "Unprocessed"
 
 instance Hashable     ApplicationVersionStatus
 instance NFData       ApplicationVersionStatus
@@ -180,39 +270,39 @@ instance ToQuery      EnvironmentHealthAttribute
 instance ToHeader     EnvironmentHealthAttribute
 
 data EnvironmentHealthStatus
-    = Degraded
-    | Info
-    | NoData
-    | OK
-    | Pending
-    | Severe
-    | Unknown
-    | Warning
+    = EHSDegraded
+    | EHSInfo
+    | EHSNoData
+    | EHSOK
+    | EHSPending
+    | EHSSevere
+    | EHSUnknown
+    | EHSWarning
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EnvironmentHealthStatus where
     parser = takeLowerText >>= \case
-        "degraded" -> pure Degraded
-        "info" -> pure Info
-        "nodata" -> pure NoData
-        "ok" -> pure OK
-        "pending" -> pure Pending
-        "severe" -> pure Severe
-        "unknown" -> pure Unknown
-        "warning" -> pure Warning
+        "degraded" -> pure EHSDegraded
+        "info" -> pure EHSInfo
+        "nodata" -> pure EHSNoData
+        "ok" -> pure EHSOK
+        "pending" -> pure EHSPending
+        "severe" -> pure EHSSevere
+        "unknown" -> pure EHSUnknown
+        "warning" -> pure EHSWarning
         e -> fromTextError $ "Failure parsing EnvironmentHealthStatus from value: '" <> e
            <> "'. Accepted values: Degraded, Info, NoData, Ok, Pending, Severe, Unknown, Warning"
 
 instance ToText EnvironmentHealthStatus where
     toText = \case
-        Degraded -> "Degraded"
-        Info -> "Info"
-        NoData -> "NoData"
-        OK -> "Ok"
-        Pending -> "Pending"
-        Severe -> "Severe"
-        Unknown -> "Unknown"
-        Warning -> "Warning"
+        EHSDegraded -> "Degraded"
+        EHSInfo -> "Info"
+        EHSNoData -> "NoData"
+        EHSOK -> "Ok"
+        EHSPending -> "Pending"
+        EHSSevere -> "Severe"
+        EHSUnknown -> "Unknown"
+        EHSWarning -> "Warning"
 
 instance Hashable     EnvironmentHealthStatus
 instance NFData       EnvironmentHealthStatus
@@ -322,12 +412,56 @@ instance ToHeader     EventSeverity
 instance FromXML EventSeverity where
     parseXML = parseXMLText "EventSeverity"
 
+data FailureType
+    = CancellationFailed
+    | InternalFailure
+    | InvalidEnvironmentState
+    | PermissionsError
+    | RollbackFailed
+    | RollbackSuccessful
+    | UpdateCancelled
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText FailureType where
+    parser = takeLowerText >>= \case
+        "cancellationfailed" -> pure CancellationFailed
+        "internalfailure" -> pure InternalFailure
+        "invalidenvironmentstate" -> pure InvalidEnvironmentState
+        "permissionserror" -> pure PermissionsError
+        "rollbackfailed" -> pure RollbackFailed
+        "rollbacksuccessful" -> pure RollbackSuccessful
+        "updatecancelled" -> pure UpdateCancelled
+        e -> fromTextError $ "Failure parsing FailureType from value: '" <> e
+           <> "'. Accepted values: CancellationFailed, InternalFailure, InvalidEnvironmentState, PermissionsError, RollbackFailed, RollbackSuccessful, UpdateCancelled"
+
+instance ToText FailureType where
+    toText = \case
+        CancellationFailed -> "CancellationFailed"
+        InternalFailure -> "InternalFailure"
+        InvalidEnvironmentState -> "InvalidEnvironmentState"
+        PermissionsError -> "PermissionsError"
+        RollbackFailed -> "RollbackFailed"
+        RollbackSuccessful -> "RollbackSuccessful"
+        UpdateCancelled -> "UpdateCancelled"
+
+instance Hashable     FailureType
+instance NFData       FailureType
+instance ToByteString FailureType
+instance ToQuery      FailureType
+instance ToHeader     FailureType
+
+instance FromXML FailureType where
+    parseXML = parseXMLText "FailureType"
+
 data InstancesHealthAttribute
     = All
     | ApplicationMetrics
+    | AvailabilityZone
     | Causes
     | Color
+    | Deployment
     | HealthStatus
+    | InstanceType
     | LaunchedAt
     | RefreshedAt
     | System
@@ -337,22 +471,28 @@ instance FromText InstancesHealthAttribute where
     parser = takeLowerText >>= \case
         "all" -> pure All
         "applicationmetrics" -> pure ApplicationMetrics
+        "availabilityzone" -> pure AvailabilityZone
         "causes" -> pure Causes
         "color" -> pure Color
+        "deployment" -> pure Deployment
         "healthstatus" -> pure HealthStatus
+        "instancetype" -> pure InstanceType
         "launchedat" -> pure LaunchedAt
         "refreshedat" -> pure RefreshedAt
         "system" -> pure System
         e -> fromTextError $ "Failure parsing InstancesHealthAttribute from value: '" <> e
-           <> "'. Accepted values: All, ApplicationMetrics, Causes, Color, HealthStatus, LaunchedAt, RefreshedAt, System"
+           <> "'. Accepted values: All, ApplicationMetrics, AvailabilityZone, Causes, Color, Deployment, HealthStatus, InstanceType, LaunchedAt, RefreshedAt, System"
 
 instance ToText InstancesHealthAttribute where
     toText = \case
         All -> "All"
         ApplicationMetrics -> "ApplicationMetrics"
+        AvailabilityZone -> "AvailabilityZone"
         Causes -> "Causes"
         Color -> "Color"
+        Deployment -> "Deployment"
         HealthStatus -> "HealthStatus"
+        InstanceType -> "InstanceType"
         LaunchedAt -> "LaunchedAt"
         RefreshedAt -> "RefreshedAt"
         System -> "System"
@@ -364,21 +504,21 @@ instance ToQuery      InstancesHealthAttribute
 instance ToHeader     InstancesHealthAttribute
 
 data ValidationSeverity
-    = VSError'
-    | VSWarning
+    = Error'
+    | Warning
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ValidationSeverity where
     parser = takeLowerText >>= \case
-        "error" -> pure VSError'
-        "warning" -> pure VSWarning
+        "error" -> pure Error'
+        "warning" -> pure Warning
         e -> fromTextError $ "Failure parsing ValidationSeverity from value: '" <> e
            <> "'. Accepted values: error, warning"
 
 instance ToText ValidationSeverity where
     toText = \case
-        VSError' -> "error"
-        VSWarning -> "warning"
+        Error' -> "error"
+        Warning -> "warning"
 
 instance Hashable     ValidationSeverity
 instance NFData       ValidationSeverity

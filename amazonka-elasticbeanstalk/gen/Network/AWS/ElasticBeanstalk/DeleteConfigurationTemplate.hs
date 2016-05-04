@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to delete a configuration template.
 --
 -- /See:/ 'deleteConfigurationTemplate' smart constructor.
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate'

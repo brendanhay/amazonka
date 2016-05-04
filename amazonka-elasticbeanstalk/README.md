@@ -15,13 +15,9 @@
 
 AWS Elastic Beanstalk
 
-This is the AWS Elastic Beanstalk API Reference. This guide provides
-detailed information about AWS Elastic Beanstalk actions, data types,
-parameters, and errors.
-
-AWS Elastic Beanstalk is a tool that makes it easy for you to create,
-deploy, and manage scalable, fault-tolerant applications running on
-Amazon Web Services cloud resources.
+AWS Elastic Beanstalk makes it easy for you to create, deploy, and
+manage scalable, fault-tolerant applications running on the Amazon Web
+Services cloud.
 
 For more information about this product, go to the
 <http://aws.amazon.com/elasticbeanstalk/ AWS Elastic Beanstalk> details

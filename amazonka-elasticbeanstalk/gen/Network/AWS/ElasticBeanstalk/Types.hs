@@ -25,9 +25,19 @@ module Network.AWS.ElasticBeanstalk.Types
     , _InsufficientPrivilegesException
     , _ElasticBeanstalkServiceException
     , _TooManyApplicationsException
+    , _ManagedActionInvalidStateException
     , _SourceBundleDeletionException
     , _S3LocationNotInServiceRegionException
     , _TooManyEnvironmentsException
+
+    -- * ActionHistoryStatus
+    , ActionHistoryStatus (..)
+
+    -- * ActionStatus
+    , ActionStatus (..)
+
+    -- * ActionType
+    , ActionType (..)
 
     -- * ApplicationVersionStatus
     , ApplicationVersionStatus (..)
@@ -55,6 +65,9 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * EventSeverity
     , EventSeverity (..)
+
+    -- * FailureType
+    , FailureType (..)
 
     -- * InstancesHealthAttribute
     , InstancesHealthAttribute (..)
@@ -152,6 +165,14 @@ module Network.AWS.ElasticBeanstalk.Types
     , csdDeploymentStatus
     , csdSolutionStackName
     , csdDescription
+
+    -- * Deployment
+    , Deployment
+    , deployment
+    , dDeploymentId
+    , dStatus
+    , dDeploymentTime
+    , dVersionLabel
 
     -- * EnvironmentDescription
     , EnvironmentDescription
@@ -281,6 +302,27 @@ module Network.AWS.ElasticBeanstalk.Types
     , lbdDomain
     , lbdListeners
 
+    -- * ManagedAction
+    , ManagedAction
+    , managedAction
+    , maStatus
+    , maActionId
+    , maWindowStartTime
+    , maActionDescription
+    , maActionType
+
+    -- * ManagedActionHistoryItem
+    , ManagedActionHistoryItem
+    , managedActionHistoryItem
+    , mahiStatus
+    , mahiFailureType
+    , mahiActionId
+    , mahiFailureDescription
+    , mahiFinishedTime
+    , mahiActionDescription
+    , mahiExecutedTime
+    , mahiActionType
+
     -- * OptionRestrictionRegex
     , OptionRestrictionRegex
     , optionRestrictionRegex
@@ -314,7 +356,10 @@ module Network.AWS.ElasticBeanstalk.Types
     , sihSystem
     , sihApplicationMetrics
     , sihColor
+    , sihInstanceType
+    , sihAvailabilityZone
     , sihHealthStatus
+    , sihDeployment
     , sihLaunchedAt
 
     -- * SolutionStackDescription
@@ -396,6 +441,8 @@ elasticBeanstalk =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
@@ -449,6 +496,12 @@ _ElasticBeanstalkServiceException =
 _TooManyApplicationsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyApplicationsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyApplicationsException"
+
+-- | Cannot modify the managed action in its current state.
+_ManagedActionInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
+_ManagedActionInvalidStateException =
+    _ServiceError .
+    hasStatus 400 . hasCode "ManagedActionInvalidStateException"
 
 -- | Unable to delete the Amazon S3 source bundle associated with the
 -- application version. The application version was deleted successfully.

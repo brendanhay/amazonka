@@ -789,6 +789,71 @@ instance Hashable ConfigurationSettingsDescription
 
 instance NFData ConfigurationSettingsDescription
 
+-- | Information about an application version deployment.
+--
+-- /See:/ 'deployment' smart constructor.
+data Deployment = Deployment'
+    { _dDeploymentId   :: !(Maybe Integer)
+    , _dStatus         :: !(Maybe Text)
+    , _dDeploymentTime :: !(Maybe ISO8601)
+    , _dVersionLabel   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Deployment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dDeploymentId'
+--
+-- * 'dStatus'
+--
+-- * 'dDeploymentTime'
+--
+-- * 'dVersionLabel'
+deployment
+    :: Deployment
+deployment =
+    Deployment'
+    { _dDeploymentId = Nothing
+    , _dStatus = Nothing
+    , _dDeploymentTime = Nothing
+    , _dVersionLabel = Nothing
+    }
+
+-- | The ID of the deployment. This number increases by one each time that
+-- you deploy source code or change instance configuration settings.
+dDeploymentId :: Lens' Deployment (Maybe Integer)
+dDeploymentId = lens _dDeploymentId (\ s a -> s{_dDeploymentId = a});
+
+-- | The status of the deployment:
+--
+-- -   'In Progress' : The deployment is in progress.
+-- -   'Deployed' : The deployment succeeded.
+-- -   'Failed' : The deployment failed.
+dStatus :: Lens' Deployment (Maybe Text)
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
+
+-- | For in-progress deployments, the time that the deloyment started.
+--
+-- For completed deployments, the time that the deployment ended.
+dDeploymentTime :: Lens' Deployment (Maybe UTCTime)
+dDeploymentTime = lens _dDeploymentTime (\ s a -> s{_dDeploymentTime = a}) . mapping _Time;
+
+-- | The version label of the application version in the deployment.
+dVersionLabel :: Lens' Deployment (Maybe Text)
+dVersionLabel = lens _dVersionLabel (\ s a -> s{_dVersionLabel = a});
+
+instance FromXML Deployment where
+        parseXML x
+          = Deployment' <$>
+              (x .@? "DeploymentId") <*> (x .@? "Status") <*>
+                (x .@? "DeploymentTime")
+                <*> (x .@? "VersionLabel")
+
+instance Hashable Deployment
+
+instance NFData Deployment
+
 -- | Describes the properties of an environment.
 --
 -- /See:/ 'environmentDescription' smart constructor.
@@ -1100,7 +1165,7 @@ instance NFData EnvironmentInfoDescription
 -- | A link to another environment, defined in the environment\'s manifest.
 -- Links provide connection information in system properties that can be
 -- used to connect to another environment in the same group. See
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html#environment-mgmt-compose-envyaml Environment Manifest (env.yaml)>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
 -- for details.
 --
 -- /See:/ 'environmentLink' smart constructor.
@@ -1807,6 +1872,169 @@ instance Hashable LoadBalancerDescription
 
 instance NFData LoadBalancerDescription
 
+-- | The record of an upcoming or in-progress managed action.
+--
+-- /See:/ 'managedAction' smart constructor.
+data ManagedAction = ManagedAction'
+    { _maStatus            :: !(Maybe ActionStatus)
+    , _maActionId          :: !(Maybe Text)
+    , _maWindowStartTime   :: !(Maybe ISO8601)
+    , _maActionDescription :: !(Maybe Text)
+    , _maActionType        :: !(Maybe ActionType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ManagedAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'maStatus'
+--
+-- * 'maActionId'
+--
+-- * 'maWindowStartTime'
+--
+-- * 'maActionDescription'
+--
+-- * 'maActionType'
+managedAction
+    :: ManagedAction
+managedAction =
+    ManagedAction'
+    { _maStatus = Nothing
+    , _maActionId = Nothing
+    , _maWindowStartTime = Nothing
+    , _maActionDescription = Nothing
+    , _maActionType = Nothing
+    }
+
+-- | The status of the managed action. If the action is 'Scheduled', you can
+-- apply it immediately with < ApplyEnvironmentManagedAction>.
+maStatus :: Lens' ManagedAction (Maybe ActionStatus)
+maStatus = lens _maStatus (\ s a -> s{_maStatus = a});
+
+-- | A unique identifier for the managed action.
+maActionId :: Lens' ManagedAction (Maybe Text)
+maActionId = lens _maActionId (\ s a -> s{_maActionId = a});
+
+-- | The start time of the maintenance window in which the managed action
+-- will execute.
+maWindowStartTime :: Lens' ManagedAction (Maybe UTCTime)
+maWindowStartTime = lens _maWindowStartTime (\ s a -> s{_maWindowStartTime = a}) . mapping _Time;
+
+-- | A description of the managed action.
+maActionDescription :: Lens' ManagedAction (Maybe Text)
+maActionDescription = lens _maActionDescription (\ s a -> s{_maActionDescription = a});
+
+-- | The type of managed action.
+maActionType :: Lens' ManagedAction (Maybe ActionType)
+maActionType = lens _maActionType (\ s a -> s{_maActionType = a});
+
+instance FromXML ManagedAction where
+        parseXML x
+          = ManagedAction' <$>
+              (x .@? "Status") <*> (x .@? "ActionId") <*>
+                (x .@? "WindowStartTime")
+                <*> (x .@? "ActionDescription")
+                <*> (x .@? "ActionType")
+
+instance Hashable ManagedAction
+
+instance NFData ManagedAction
+
+-- | The record of a completed or failed managed action.
+--
+-- /See:/ 'managedActionHistoryItem' smart constructor.
+data ManagedActionHistoryItem = ManagedActionHistoryItem'
+    { _mahiStatus             :: !(Maybe ActionHistoryStatus)
+    , _mahiFailureType        :: !(Maybe FailureType)
+    , _mahiActionId           :: !(Maybe Text)
+    , _mahiFailureDescription :: !(Maybe Text)
+    , _mahiFinishedTime       :: !(Maybe ISO8601)
+    , _mahiActionDescription  :: !(Maybe Text)
+    , _mahiExecutedTime       :: !(Maybe ISO8601)
+    , _mahiActionType         :: !(Maybe ActionType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ManagedActionHistoryItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mahiStatus'
+--
+-- * 'mahiFailureType'
+--
+-- * 'mahiActionId'
+--
+-- * 'mahiFailureDescription'
+--
+-- * 'mahiFinishedTime'
+--
+-- * 'mahiActionDescription'
+--
+-- * 'mahiExecutedTime'
+--
+-- * 'mahiActionType'
+managedActionHistoryItem
+    :: ManagedActionHistoryItem
+managedActionHistoryItem =
+    ManagedActionHistoryItem'
+    { _mahiStatus = Nothing
+    , _mahiFailureType = Nothing
+    , _mahiActionId = Nothing
+    , _mahiFailureDescription = Nothing
+    , _mahiFinishedTime = Nothing
+    , _mahiActionDescription = Nothing
+    , _mahiExecutedTime = Nothing
+    , _mahiActionType = Nothing
+    }
+
+-- | The status of the action.
+mahiStatus :: Lens' ManagedActionHistoryItem (Maybe ActionHistoryStatus)
+mahiStatus = lens _mahiStatus (\ s a -> s{_mahiStatus = a});
+
+-- | If the action failed, the type of failure.
+mahiFailureType :: Lens' ManagedActionHistoryItem (Maybe FailureType)
+mahiFailureType = lens _mahiFailureType (\ s a -> s{_mahiFailureType = a});
+
+-- | A unique identifier for the managed action.
+mahiActionId :: Lens' ManagedActionHistoryItem (Maybe Text)
+mahiActionId = lens _mahiActionId (\ s a -> s{_mahiActionId = a});
+
+-- | If the action failed, a description of the failure.
+mahiFailureDescription :: Lens' ManagedActionHistoryItem (Maybe Text)
+mahiFailureDescription = lens _mahiFailureDescription (\ s a -> s{_mahiFailureDescription = a});
+
+-- | The date and time that the action finished executing.
+mahiFinishedTime :: Lens' ManagedActionHistoryItem (Maybe UTCTime)
+mahiFinishedTime = lens _mahiFinishedTime (\ s a -> s{_mahiFinishedTime = a}) . mapping _Time;
+
+-- | A description of the managed action.
+mahiActionDescription :: Lens' ManagedActionHistoryItem (Maybe Text)
+mahiActionDescription = lens _mahiActionDescription (\ s a -> s{_mahiActionDescription = a});
+
+-- | The date and time that the action started executing.
+mahiExecutedTime :: Lens' ManagedActionHistoryItem (Maybe UTCTime)
+mahiExecutedTime = lens _mahiExecutedTime (\ s a -> s{_mahiExecutedTime = a}) . mapping _Time;
+
+-- | The type of the managed action.
+mahiActionType :: Lens' ManagedActionHistoryItem (Maybe ActionType)
+mahiActionType = lens _mahiActionType (\ s a -> s{_mahiActionType = a});
+
+instance FromXML ManagedActionHistoryItem where
+        parseXML x
+          = ManagedActionHistoryItem' <$>
+              (x .@? "Status") <*> (x .@? "FailureType") <*>
+                (x .@? "ActionId")
+                <*> (x .@? "FailureDescription")
+                <*> (x .@? "FinishedTime")
+                <*> (x .@? "ActionDescription")
+                <*> (x .@? "ExecutedTime")
+                <*> (x .@? "ActionType")
+
+instance Hashable ManagedActionHistoryItem
+
+instance NFData ManagedActionHistoryItem
+
 -- | A regular expression representing a restriction on a string
 -- configuration option value.
 --
@@ -1995,7 +2223,10 @@ data SingleInstanceHealth = SingleInstanceHealth'
     , _sihSystem             :: !(Maybe SystemStatus)
     , _sihApplicationMetrics :: !(Maybe ApplicationMetrics)
     , _sihColor              :: !(Maybe Text)
+    , _sihInstanceType       :: !(Maybe Text)
+    , _sihAvailabilityZone   :: !(Maybe Text)
     , _sihHealthStatus       :: !(Maybe Text)
+    , _sihDeployment         :: !(Maybe Deployment)
     , _sihLaunchedAt         :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -2013,7 +2244,13 @@ data SingleInstanceHealth = SingleInstanceHealth'
 --
 -- * 'sihColor'
 --
+-- * 'sihInstanceType'
+--
+-- * 'sihAvailabilityZone'
+--
 -- * 'sihHealthStatus'
+--
+-- * 'sihDeployment'
 --
 -- * 'sihLaunchedAt'
 singleInstanceHealth
@@ -2025,7 +2262,10 @@ singleInstanceHealth =
     , _sihSystem = Nothing
     , _sihApplicationMetrics = Nothing
     , _sihColor = Nothing
+    , _sihInstanceType = Nothing
+    , _sihAvailabilityZone = Nothing
     , _sihHealthStatus = Nothing
+    , _sihDeployment = Nothing
     , _sihLaunchedAt = Nothing
     }
 
@@ -2052,11 +2292,23 @@ sihApplicationMetrics = lens _sihApplicationMetrics (\ s a -> s{_sihApplicationM
 sihColor :: Lens' SingleInstanceHealth (Maybe Text)
 sihColor = lens _sihColor (\ s a -> s{_sihColor = a});
 
+-- | The instance\'s type.
+sihInstanceType :: Lens' SingleInstanceHealth (Maybe Text)
+sihInstanceType = lens _sihInstanceType (\ s a -> s{_sihInstanceType = a});
+
+-- | The availability zone in which the instance runs.
+sihAvailabilityZone :: Lens' SingleInstanceHealth (Maybe Text)
+sihAvailabilityZone = lens _sihAvailabilityZone (\ s a -> s{_sihAvailabilityZone = a});
+
 -- | Returns the health status of the specified instance. For more
 -- information, see
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
 sihHealthStatus :: Lens' SingleInstanceHealth (Maybe Text)
 sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a});
+
+-- | Information about the most recent deployment to an instance.
+sihDeployment :: Lens' SingleInstanceHealth (Maybe Deployment)
+sihDeployment = lens _sihDeployment (\ s a -> s{_sihDeployment = a});
 
 -- | The time at which the EC2 instance was launched.
 sihLaunchedAt :: Lens' SingleInstanceHealth (Maybe UTCTime)
@@ -2071,7 +2323,10 @@ instance FromXML SingleInstanceHealth where
                 <*> (x .@? "System")
                 <*> (x .@? "ApplicationMetrics")
                 <*> (x .@? "Color")
+                <*> (x .@? "InstanceType")
+                <*> (x .@? "AvailabilityZone")
                 <*> (x .@? "HealthStatus")
+                <*> (x .@? "Deployment")
                 <*> (x .@? "LaunchedAt")
 
 instance Hashable SingleInstanceHealth

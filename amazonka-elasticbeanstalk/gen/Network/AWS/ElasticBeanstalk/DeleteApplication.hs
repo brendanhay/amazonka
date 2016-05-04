@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to delete an application.
 --
 -- /See:/ 'deleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'

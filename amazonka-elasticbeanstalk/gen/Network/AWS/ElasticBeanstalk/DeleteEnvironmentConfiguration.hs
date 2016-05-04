@@ -47,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to delete a draft environment configuration.
 --
 -- /See:/ 'deleteEnvironmentConfiguration' smart constructor.
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'

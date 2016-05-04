@@ -60,7 +60,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to retrieve a list of events for an environment.
 --
 -- /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'

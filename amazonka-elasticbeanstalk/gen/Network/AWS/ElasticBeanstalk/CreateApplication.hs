@@ -43,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to create an application.
 --
 -- /See:/ 'createApplication' smart constructor.
 data CreateApplication = CreateApplication'

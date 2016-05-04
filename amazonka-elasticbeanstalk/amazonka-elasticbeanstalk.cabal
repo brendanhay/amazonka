@@ -15,13 +15,9 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     AWS Elastic Beanstalk
 
-    This is the AWS Elastic Beanstalk API Reference. This guide provides
-    detailed information about AWS Elastic Beanstalk actions, data types,
-    parameters, and errors.
-
-    AWS Elastic Beanstalk is a tool that makes it easy for you to create,
-    deploy, and manage scalable, fault-tolerant applications running on
-    Amazon Web Services cloud resources.
+    AWS Elastic Beanstalk makes it easy for you to create, deploy, and
+    manage scalable, fault-tolerant applications running on the Amazon Web
+    Services cloud.
 
     For more information about this product, go to the
     <http://aws.amazon.com/elasticbeanstalk/ AWS Elastic Beanstalk> details
@@ -66,6 +62,7 @@ library
     exposed-modules:
           Network.AWS.ElasticBeanstalk
         , Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
+        , Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
         , Network.AWS.ElasticBeanstalk.CheckDNSAvailability
         , Network.AWS.ElasticBeanstalk.ComposeEnvironments
         , Network.AWS.ElasticBeanstalk.CreateApplication
@@ -82,6 +79,8 @@ library
         , Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
         , Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
         , Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
+        , Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
+        , Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
         , Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
         , Network.AWS.ElasticBeanstalk.DescribeEnvironments
         , Network.AWS.ElasticBeanstalk.DescribeEvents

@@ -61,7 +61,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to terminate an environment.
 --
 -- /See:/ 'terminateEnvironment' smart constructor.
 data TerminateEnvironment = TerminateEnvironment'

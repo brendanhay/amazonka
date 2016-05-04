@@ -13,13 +13,9 @@
 --
 -- AWS Elastic Beanstalk
 --
--- This is the AWS Elastic Beanstalk API Reference. This guide provides
--- detailed information about AWS Elastic Beanstalk actions, data types,
--- parameters, and errors.
---
--- AWS Elastic Beanstalk is a tool that makes it easy for you to create,
--- deploy, and manage scalable, fault-tolerant applications running on
--- Amazon Web Services cloud resources.
+-- AWS Elastic Beanstalk makes it easy for you to create, deploy, and
+-- manage scalable, fault-tolerant applications running on the Amazon Web
+-- Services cloud.
 --
 -- For more information about this product, go to the
 -- <http://aws.amazon.com/elasticbeanstalk/ AWS Elastic Beanstalk> details
@@ -70,6 +66,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** TooManyApplicationsException
     , _TooManyApplicationsException
+
+    -- ** ManagedActionInvalidStateException
+    , _ManagedActionInvalidStateException
 
     -- ** SourceBundleDeletionException
     , _SourceBundleDeletionException
@@ -134,6 +133,9 @@ module Network.AWS.ElasticBeanstalk
     -- ** DescribeEnvironmentResources
     , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
 
+    -- ** DescribeEnvironmentManagedActionHistory
+    , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
+
     -- ** DeleteApplicationVersion
     , module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
 
@@ -158,11 +160,17 @@ module Network.AWS.ElasticBeanstalk
     -- ** ListAvailableSolutionStacks
     , module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
 
+    -- ** ApplyEnvironmentManagedAction
+    , module Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
+
     -- ** DescribeConfigurationOptions
     , module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
 
     -- ** CreateStorageLocation
     , module Network.AWS.ElasticBeanstalk.CreateStorageLocation
+
+    -- ** DescribeEnvironmentManagedActions
+    , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
 
     -- ** DescribeConfigurationSettings
     , module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
@@ -186,6 +194,15 @@ module Network.AWS.ElasticBeanstalk
     , module Network.AWS.ElasticBeanstalk.CreateEnvironment
 
     -- * Types
+
+    -- ** ActionHistoryStatus
+    , ActionHistoryStatus (..)
+
+    -- ** ActionStatus
+    , ActionStatus (..)
+
+    -- ** ActionType
+    , ActionType (..)
 
     -- ** ApplicationVersionStatus
     , ApplicationVersionStatus (..)
@@ -213,6 +230,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** EventSeverity
     , EventSeverity (..)
+
+    -- ** FailureType
+    , FailureType (..)
 
     -- ** InstancesHealthAttribute
     , InstancesHealthAttribute (..)
@@ -310,6 +330,14 @@ module Network.AWS.ElasticBeanstalk
     , csdDeploymentStatus
     , csdSolutionStackName
     , csdDescription
+
+    -- ** Deployment
+    , Deployment
+    , deployment
+    , dDeploymentId
+    , dStatus
+    , dDeploymentTime
+    , dVersionLabel
 
     -- ** EnvironmentDescription
     , EnvironmentDescription
@@ -439,6 +467,27 @@ module Network.AWS.ElasticBeanstalk
     , lbdDomain
     , lbdListeners
 
+    -- ** ManagedAction
+    , ManagedAction
+    , managedAction
+    , maStatus
+    , maActionId
+    , maWindowStartTime
+    , maActionDescription
+    , maActionType
+
+    -- ** ManagedActionHistoryItem
+    , ManagedActionHistoryItem
+    , managedActionHistoryItem
+    , mahiStatus
+    , mahiFailureType
+    , mahiActionId
+    , mahiFailureDescription
+    , mahiFinishedTime
+    , mahiActionDescription
+    , mahiExecutedTime
+    , mahiActionType
+
     -- ** OptionRestrictionRegex
     , OptionRestrictionRegex
     , optionRestrictionRegex
@@ -472,7 +521,10 @@ module Network.AWS.ElasticBeanstalk
     , sihSystem
     , sihApplicationMetrics
     , sihColor
+    , sihInstanceType
+    , sihAvailabilityZone
     , sihHealthStatus
+    , sihDeployment
     , sihLaunchedAt
 
     -- ** SolutionStackDescription
@@ -522,6 +574,7 @@ module Network.AWS.ElasticBeanstalk
     ) where
 
 import           Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
+import           Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
 import           Network.AWS.ElasticBeanstalk.CheckDNSAvailability
 import           Network.AWS.ElasticBeanstalk.ComposeEnvironments
 import           Network.AWS.ElasticBeanstalk.CreateApplication
@@ -538,6 +591,8 @@ import           Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 import           Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
 import           Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
 import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
+import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
+import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
 import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
 import           Network.AWS.ElasticBeanstalk.DescribeEnvironments
 import           Network.AWS.ElasticBeanstalk.DescribeEvents

@@ -56,7 +56,8 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to retrieve logs from an environment and store them in your
+-- Elastic Beanstalk storage bucket.
 --
 -- /See:/ 'requestEnvironmentInfo' smart constructor.
 data RequestEnvironmentInfo = RequestEnvironmentInfo'

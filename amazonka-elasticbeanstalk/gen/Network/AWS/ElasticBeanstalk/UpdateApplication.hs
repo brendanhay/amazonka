@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to update an application.
 --
 -- /See:/ 'updateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'

@@ -43,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to describe the resources in an environment.
 --
 -- /See:/ 'describeEnvironmentResources' smart constructor.
 data DescribeEnvironmentResources = DescribeEnvironmentResources'

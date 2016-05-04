@@ -42,7 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to describe one or more applications.
 --
 -- /See:/ 'describeApplications' smart constructor.
 newtype DescribeApplications = DescribeApplications'

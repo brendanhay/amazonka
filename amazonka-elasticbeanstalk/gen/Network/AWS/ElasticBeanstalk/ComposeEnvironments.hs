@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to create or update a group of environments.
 --
 -- /See:/ 'composeEnvironments' smart constructor.
 data ComposeEnvironments = ComposeEnvironments'
@@ -93,7 +93,7 @@ ceApplicationName = lens _ceApplicationName (\ s a -> s{_ceApplicationName = a})
 -- | The name of the group to which the target environments belong. Specify a
 -- group name only if the environment name defined in each target
 -- environment\'s manifest ends with a + (plus) character. See
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html#environment-mgmt-compose-envyaml Environment Manifest (env.yaml)>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
 -- for details.
 ceGroupName :: Lens' ComposeEnvironments (Maybe Text)
 ceGroupName = lens _ceGroupName (\ s a -> s{_ceGroupName = a});

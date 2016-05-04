@@ -49,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to download logs retrieved with < RequestEnvironmentInfo>.
 --
 -- /See:/ 'retrieveEnvironmentInfo' smart constructor.
 data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo'

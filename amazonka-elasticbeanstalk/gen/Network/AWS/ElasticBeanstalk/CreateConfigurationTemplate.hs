@@ -63,7 +63,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to create a configuration template.
 --
 -- /See:/ 'createConfigurationTemplate' smart constructor.
 data CreateConfigurationTemplate = CreateConfigurationTemplate'

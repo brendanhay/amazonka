@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all tags for the specified resource.
+-- Returns a list of all tags for the specified AWS CloudHSM resource.
 module Network.AWS.CloudHSM.ListTagsForResource
     (
     -- * Creating a Request
@@ -60,7 +60,7 @@ listTagsForResource pResourceARN_ =
     { _ltfrResourceARN = pResourceARN_
     }
 
--- | The Amazon Resource Name (ARN) of the resource.
+-- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
 ltfrResourceARN :: Lens' ListTagsForResource Text
 ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
 

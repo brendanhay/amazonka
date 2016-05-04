@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more tags from the specified resource.
+-- Removes one or more tags from the specified AWS CloudHSM resource.
 --
 -- To remove a tag, specify only the tag key to remove (not the value). To
 -- overwrite the value for an existing tag, use < AddTagsToResource>.
@@ -68,7 +68,7 @@ removeTagsFromResource pResourceARN_ =
     , _rtfrTagKeyList = mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource.
+-- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
 rtfrResourceARN :: Lens' RemoveTagsFromResource Text
 rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
 

@@ -18,9 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or overwrites one or more tags for the specified resource.
+-- Adds or overwrites one or more tags for the specified AWS CloudHSM
+-- resource.
 --
--- Each tag consists of a key and a value. Tag keys must be unique per
+-- Each tag consists of a key and a value. Tag keys must be unique to each
 -- resource.
 module Network.AWS.CloudHSM.AddTagsToResource
     (
@@ -68,7 +69,7 @@ addTagsToResource pResourceARN_ =
     , _attrTagList = mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource to tag.
+-- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.
 attrResourceARN :: Lens' AddTagsToResource Text
 attrResourceARN = lens _attrResourceARN (\ s a -> s{_attrResourceARN = a});
 

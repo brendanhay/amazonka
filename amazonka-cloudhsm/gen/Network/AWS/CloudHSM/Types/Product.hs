@@ -21,7 +21,8 @@ import           Network.AWS.CloudHSM.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | A key-value pair that identifies or specifies metadata about a resource.
+-- | A key-value pair that identifies or specifies metadata about an AWS
+-- CloudHSM resource.
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'

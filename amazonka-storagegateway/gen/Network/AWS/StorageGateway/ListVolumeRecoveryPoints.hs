@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists the recovery points for a specified gateway. This
--- operation is supported only for the gateway-cached volume architecture.
+-- Lists the recovery points for a specified gateway. This operation is
+-- supported only for the gateway-cached volume architecture.
 --
 -- Each gateway-cached volume has one recovery point. A volume recovery
 -- point is a point in time at which all data of the volume is consistent

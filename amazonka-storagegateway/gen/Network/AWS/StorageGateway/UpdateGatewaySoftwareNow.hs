@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation updates the gateway virtual machine (VM) software. The
--- request immediately triggers the software update.
+-- Updates the gateway virtual machine (VM) software. The request
+-- immediately triggers the software update.
 --
 -- When you make this request, you get a '200 OK' success response
 -- immediately. However, it might take some time for the update to

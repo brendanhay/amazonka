@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists the tags that have been added to the specified
--- resource.
+-- Lists the tags that have been added to the specified resource.
 module Network.AWS.StorageGateway.ListTagsForResource
     (
     -- * Creating a Request

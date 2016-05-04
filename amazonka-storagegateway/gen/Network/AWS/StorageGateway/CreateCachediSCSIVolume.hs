@@ -18,9 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation creates a cached volume on a specified cached gateway.
--- This operation is supported only for the gateway-cached volume
--- architecture.
+-- Creates a cached volume on a specified cached gateway. This operation is
+-- supported only for the gateway-cached volume architecture.
 --
 -- Cache storage must be allocated to the gateway before you can create a
 -- cached volume. Use the < AddCache> operation to add cache storage to a

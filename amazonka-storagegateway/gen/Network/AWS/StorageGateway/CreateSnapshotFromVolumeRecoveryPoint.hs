@@ -18,9 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation initiates a snapshot of a gateway from a volume recovery
--- point. This operation is supported only for the gateway-cached volume
--- architecture (see ).
+-- Initiates a snapshot of a gateway from a volume recovery point. This
+-- operation is supported only for the gateway-cached volume architecture.
 --
 -- A volume recovery point is a point in time at which all data of the
 -- volume is consistent and from which you can create a snapshot. To get a

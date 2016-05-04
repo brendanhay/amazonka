@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation adds one or more tags to the specified resource. You use
--- tags to add metadata to resources, which you can use to categorize these
--- resources. For example, you can categorize resources by purpose, owner,
+-- Adds one or more tags to the specified resource. You use tags to add
+-- metadata to resources, which you can use to categorize these resources.
+-- For example, you can categorize resources by purpose, owner,
 -- environment, or team. Each tag consists of a key and a value, which you
 -- define. You can add tags to the following AWS Storage Gateway resources:
 --

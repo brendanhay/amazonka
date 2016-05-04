@@ -36,8 +36,8 @@
 --     operations, their request parameters, response elements, possible
 --     errors, and examples of requests and responses.
 -- -   <http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html AWS Storage Gateway Regions and Endpoints>:
---     Provides a list of each of the regions and endpoints available for
---     use with AWS Storage Gateway.
+--     Provides a list of each of the s and endpoints available for use
+--     with AWS Storage Gateway.
 --
 -- AWS Storage Gateway resource IDs are in uppercase. When you use these
 -- resource IDs with the Amazon EC2 API, EC2 expects resource IDs in
@@ -73,6 +73,9 @@ module Network.AWS.StorageGateway
 
     -- ** DescribeChapCredentials
     , module Network.AWS.StorageGateway.DescribeChapCredentials
+
+    -- ** SetLocalConsolePassword
+    , module Network.AWS.StorageGateway.SetLocalConsolePassword
 
     -- ** CreateTapes
     , module Network.AWS.StorageGateway.CreateTapes
@@ -409,6 +412,7 @@ import           Network.AWS.StorageGateway.RemoveTagsFromResource
 import           Network.AWS.StorageGateway.ResetCache
 import           Network.AWS.StorageGateway.RetrieveTapeArchive
 import           Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
+import           Network.AWS.StorageGateway.SetLocalConsolePassword
 import           Network.AWS.StorageGateway.ShutdownGateway
 import           Network.AWS.StorageGateway.StartGateway
 import           Network.AWS.StorageGateway.Types

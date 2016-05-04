@@ -18,9 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns the bandwidth rate limits of a gateway. By
--- default, these limits are not set, which means no bandwidth rate
--- limiting is in effect.
+-- Returns the bandwidth rate limits of a gateway. By default, these limits
+-- are not set, which means no bandwidth rate limiting is in effect.
 --
 -- This operation only returns a value for a bandwidth rate limit only if
 -- the limit is set. If no limits are set for the gateway, then this

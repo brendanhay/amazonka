@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation initiates a snapshot of a volume.
+-- Initiates a snapshot of a volume.
 --
 -- AWS Storage Gateway provides the ability to back up point-in-time
 -- snapshots of your data to Amazon Simple Storage (S3) for durable

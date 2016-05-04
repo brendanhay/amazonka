@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists the iSCSI stored volumes of a gateway. Results are
--- sorted by volume ARN. The response includes only the volume ARNs. If you
--- want additional volume information, use the
--- < DescribeStorediSCSIVolumes> API.
+-- Lists the iSCSI stored volumes of a gateway. Results are sorted by
+-- volume ARN. The response includes only the volume ARNs. If you want
+-- additional volume information, use the < DescribeStorediSCSIVolumes>
+-- API.
 --
 -- The operation supports pagination. By default, the operation returns a
 -- maximum of up to 100 volumes. You can optionally specify the 'Limit'

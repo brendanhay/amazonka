@@ -38,8 +38,8 @@ Service API Reference/:
     operations, their request parameters, response elements, possible
     errors, and examples of requests and responses.
 -   <http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html AWS Storage Gateway Regions and Endpoints>:
-    Provides a list of each of the regions and endpoints available for
-    use with AWS Storage Gateway.
+    Provides a list of each of the s and endpoints available for use
+    with AWS Storage Gateway.
 
 AWS Storage Gateway resource IDs are in uppercase. When you use these
 resource IDs with the Amazon EC2 API, EC2 expects resource IDs in

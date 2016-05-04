@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation deletes Challenge-Handshake Authentication Protocol
--- (CHAP) credentials for a specified iSCSI target and initiator pair.
+-- Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials
+-- for a specified iSCSI target and initiator pair.
 module Network.AWS.StorageGateway.DeleteChapCredentials
     (
     -- * Creating a Request

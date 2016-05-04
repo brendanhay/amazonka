@@ -18,9 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists iSCSI initiators that are connected to a volume.
--- You can use this operation to determine whether a volume is being used
--- or not.
+-- Lists iSCSI initiators that are connected to a volume. You can use this
+-- operation to determine whether a volume is being used or not.
 module Network.AWS.StorageGateway.ListVolumeInitiators
     (
     -- * Creating a Request

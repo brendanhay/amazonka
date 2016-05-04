@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation removes one or more tags from the specified resource.
+-- Removes one or more tags from the specified resource.
 module Network.AWS.StorageGateway.RemoveTagsFromResource
     (
     -- * Creating a Request

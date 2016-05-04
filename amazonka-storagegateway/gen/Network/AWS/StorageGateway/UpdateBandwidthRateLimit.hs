@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation updates the bandwidth rate limits of a gateway. You can
--- update both the upload and download bandwidth rate limit or specify only
--- one of the two. If you don\'t set a bandwidth rate limit, the existing
--- rate limit remains.
+-- Updates the bandwidth rate limits of a gateway. You can update both the
+-- upload and download bandwidth rate limit or specify only one of the two.
+-- If you don\'t set a bandwidth rate limit, the existing rate limit
+-- remains.
 --
 -- By default, a gateway\'s bandwidth rate limits are not set. If you
 -- don\'t set any limit, the gateway does not have any limitations on its

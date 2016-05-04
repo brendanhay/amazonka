@@ -18,9 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation shuts down a gateway. To specify which gateway to shut
--- down, use the Amazon Resource Name (ARN) of the gateway in the body of
--- your request.
+-- Shuts down a gateway. To specify which gateway to shut down, use the
+-- Amazon Resource Name (ARN) of the gateway in the body of your request.
 --
 -- The operation shuts down the gateway service component running in the
 -- storage gateway\'s virtual machine (VM) and not the VM.

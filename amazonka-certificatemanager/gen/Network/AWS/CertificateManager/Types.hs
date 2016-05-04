@@ -16,7 +16,9 @@ module Network.AWS.CertificateManager.Types
       certificateManager
 
     -- * Errors
+    , _InvalidTagException
     , _InvalidDomainValidationOptionsException
+    , _TooManyTagsException
     , _RequestInProgressException
     , _InvalidARNException
     , _ResourceNotFoundException
@@ -72,6 +74,12 @@ module Network.AWS.CertificateManager.Types
     , domainValidationOption
     , dvoDomainName
     , dvoValidationDomain
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
     ) where
 
 import           Network.AWS.CertificateManager.Types.Product
@@ -107,16 +115,28 @@ certificateManager =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
+
+-- | One or both of the values that make up the key-value pair is not valid.
+-- For example, you cannot specify a tag value that begins with 'aws:'.
+_InvalidTagException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTagException = _ServiceError . hasCode "InvalidTagException"
 
 -- | One or more values in the < DomainValidationOption> structure is
 -- incorrect.
 _InvalidDomainValidationOptionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDomainValidationOptionsException =
     _ServiceError . hasCode "InvalidDomainValidationOptionsException"
+
+-- | The request contains too many tags. Try the request again with fewer
+-- tags.
+_TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyTagsException = _ServiceError . hasCode "TooManyTagsException"
 
 -- | The certificate request is in process and the certificate in your
 -- account has not yet been issued.

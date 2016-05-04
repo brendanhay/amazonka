@@ -30,8 +30,14 @@ module Network.AWS.CertificateManager
     -- * Errors
     -- $errors
 
+    -- ** InvalidTagException
+    , _InvalidTagException
+
     -- ** InvalidDomainValidationOptionsException
     , _InvalidDomainValidationOptionsException
+
+    -- ** TooManyTagsException
+    , _TooManyTagsException
 
     -- ** RequestInProgressException
     , _RequestInProgressException
@@ -60,8 +66,14 @@ module Network.AWS.CertificateManager
     -- ** ResendValidationEmail
     , module Network.AWS.CertificateManager.ResendValidationEmail
 
+    -- ** ListTagsForCertificate
+    , module Network.AWS.CertificateManager.ListTagsForCertificate
+
     -- ** GetCertificate
     , module Network.AWS.CertificateManager.GetCertificate
+
+    -- ** AddTagsToCertificate
+    , module Network.AWS.CertificateManager.AddTagsToCertificate
 
     -- ** RequestCertificate
     , module Network.AWS.CertificateManager.RequestCertificate
@@ -71,6 +83,9 @@ module Network.AWS.CertificateManager
 
     -- ** DeleteCertificate
     , module Network.AWS.CertificateManager.DeleteCertificate
+
+    -- ** RemoveTagsFromCertificate
+    , module Network.AWS.CertificateManager.RemoveTagsFromCertificate
 
     -- ** DescribeCertificate
     , module Network.AWS.CertificateManager.DescribeCertificate
@@ -125,12 +140,21 @@ module Network.AWS.CertificateManager
     , domainValidationOption
     , dvoDomainName
     , dvoValidationDomain
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
     ) where
 
+import           Network.AWS.CertificateManager.AddTagsToCertificate
 import           Network.AWS.CertificateManager.DeleteCertificate
 import           Network.AWS.CertificateManager.DescribeCertificate
 import           Network.AWS.CertificateManager.GetCertificate
 import           Network.AWS.CertificateManager.ListCertificates
+import           Network.AWS.CertificateManager.ListTagsForCertificate
+import           Network.AWS.CertificateManager.RemoveTagsFromCertificate
 import           Network.AWS.CertificateManager.RequestCertificate
 import           Network.AWS.CertificateManager.ResendValidationEmail
 import           Network.AWS.CertificateManager.Types

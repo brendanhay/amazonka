@@ -52,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'requestCertificate' smart constructor.
+-- |
+--
+-- /See:/ 'requestCertificate' smart constructor.
 data RequestCertificate = RequestCertificate'
     { _rcIdempotencyToken        :: !(Maybe Text)
     , _rcSubjectAlternativeNames :: !(Maybe (List1 Text))
@@ -108,10 +110,15 @@ rcSubjectAlternativeNames = lens _rcSubjectAlternativeNames (\ s a -> s{_rcSubje
 -- WHOIS and the following five addresses:
 --
 -- -   admin\'example.com
+--
 -- -   administrator\'example.com
+--
 -- -   hostmaster\'example.com
+--
 -- -   postmaster\'example.com
+--
 -- -   webmaster\'example.com
+--
 rcDomainValidationOptions :: Lens' RequestCertificate (Maybe (NonEmpty DomainValidationOption))
 rcDomainValidationOptions = lens _rcDomainValidationOptions (\ s a -> s{_rcDomainValidationOptions = a}) . mapping _List1;
 
@@ -164,7 +171,9 @@ instance ToPath RequestCertificate where
 instance ToQuery RequestCertificate where
         toQuery = const mempty
 
--- | /See:/ 'requestCertificateResponse' smart constructor.
+-- |
+--
+-- /See:/ 'requestCertificateResponse' smart constructor.
 data RequestCertificateResponse = RequestCertificateResponse'
     { _rcrsCertificateARN :: !(Maybe Text)
     , _rcrsResponseStatus :: !Int

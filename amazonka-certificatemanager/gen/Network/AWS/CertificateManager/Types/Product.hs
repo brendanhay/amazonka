@@ -114,12 +114,19 @@ cdSubject = lens _cdSubject (\ s a -> s{_cdSubject = a});
 -- following:
 --
 -- -   PENDING_VALIDATION
+--
 -- -   ISSUED
+--
 -- -   INACTIVE
+--
 -- -   EXPIRED
+--
 -- -   REVOKED
+--
 -- -   FAILED
+--
 -- -   VALIDATION_TIMED_OUT
+--
 cdStatus :: Lens' CertificateDetail (Maybe CertificateStatus)
 cdStatus = lens _cdStatus (\ s a -> s{_cdStatus = a});
 
@@ -168,15 +175,25 @@ cdNotBefore = lens _cdNotBefore (\ s a -> s{_cdNotBefore = a}) . mapping _Time;
 -- been revoked. This can be one of the following vales:
 --
 -- -   UNSPECIFIED
+--
 -- -   KEY_COMPROMISE
+--
 -- -   CA_COMPROMISE
+--
 -- -   AFFILIATION_CHANGED
+--
 -- -   SUPERCEDED
+--
 -- -   CESSATION_OF_OPERATION
+--
 -- -   CERTIFICATE_HOLD
+--
 -- -   REMOVE_FROM_CRL
+--
 -- -   PRIVILEGE_WITHDRAWN
+--
 -- -   A_A_COMPROMISE
+--
 cdRevocationReason :: Lens' CertificateDetail (Maybe RevocationReason)
 cdRevocationReason = lens _cdRevocationReason (\ s a -> s{_cdRevocationReason = a});
 
@@ -383,13 +400,18 @@ dvoDomainName = lens _dvoDomainName (\ s a -> s{_dvoDomainName = a});
 -- 'site.subdomain.example.com' and specify a __ValidationDomain__ of
 -- 'subdomain.example.com', ACM sends email to the domain registrant,
 -- technical contact, and administrative contact in WHOIS for the base
--- domain and the and the following five addresses:
+-- domain and the following five addresses:
 --
 -- -   admin\'subdomain.example.com
+--
 -- -   administrator\'subdomain.example.com
+--
 -- -   hostmaster\'subdomain.example.com
+--
 -- -   postmaster\'subdomain.example.com
+--
 -- -   webmaster\'subdomain.example.com
+--
 dvoValidationDomain :: Lens' DomainValidationOption Text
 dvoValidationDomain = lens _dvoValidationDomain (\ s a -> s{_dvoValidationDomain = a});
 
@@ -403,3 +425,52 @@ instance ToJSON DomainValidationOption where
               (catMaybes
                  [Just ("DomainName" .= _dvoDomainName),
                   Just ("ValidationDomain" .= _dvoValidationDomain)])
+
+-- | A key-value pair that identifies or specifies metadata about an ACM
+-- resource.
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Tag
+tag pKey_ =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = pKey_
+    }
+
+-- | The value of the tag.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
+-- | The key of the tag.
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
+
+instance Hashable Tag
+
+instance NFData Tag
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _tagValue,
+                  Just ("Key" .= _tagKey)])

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more branches in a repository.
+--
+-- This operation returns paginated results.
 module Network.AWS.CodeCommit.ListBranches
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.CodeCommit.ListBranches
 import           Network.AWS.CodeCommit.Types
 import           Network.AWS.CodeCommit.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -75,6 +78,13 @@ lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a});
 -- | The name of the repository that contains the branches.
 lbRepositoryName :: Lens' ListBranches Text
 lbRepositoryName = lens _lbRepositoryName (\ s a -> s{_lbRepositoryName = a});
+
+instance AWSPager ListBranches where
+        page rq rs
+          | stop (rs ^. lbrsNextToken) = Nothing
+          | stop (rs ^. lbrsBranches) = Nothing
+          | otherwise =
+            Just $ rq & lbNextToken .~ rs ^. lbrsNextToken
 
 instance AWSRequest ListBranches where
         type Rs ListBranches = ListBranchesResponse

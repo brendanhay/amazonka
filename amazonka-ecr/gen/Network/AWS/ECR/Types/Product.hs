@@ -56,7 +56,7 @@ adExpiresAt = lens _adExpiresAt (\ s a -> s{_adExpiresAt = a}) . mapping _Time;
 -- | The registry URL to use for this authorization token in a 'docker login'
 -- command. The Amazon ECR registry URL format is
 -- 'https:\/\/aws_account_id.dkr.ecr.region.amazonaws.com'. For example,
--- 'https:\/\/012345678910.dkr.ecr.us-east-1.amazonaws.com'.
+-- 'https:\/\/012345678910.dkr.ecr.us-east-1.amazonaws.com'..
 adProxyEndpoint :: Lens' AuthorizationData (Maybe Text)
 adProxyEndpoint = lens _adProxyEndpoint (\ s a -> s{_adProxyEndpoint = a});
 
@@ -341,6 +341,7 @@ instance NFData LayerFailure
 data Repository = Repository'
     { _rRepositoryARN  :: !(Maybe Text)
     , _rRegistryId     :: !(Maybe Text)
+    , _rRepositoryURI  :: !(Maybe Text)
     , _rRepositoryName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -352,6 +353,8 @@ data Repository = Repository'
 --
 -- * 'rRegistryId'
 --
+-- * 'rRepositoryURI'
+--
 -- * 'rRepositoryName'
 repository
     :: Repository
@@ -359,6 +362,7 @@ repository =
     Repository'
     { _rRepositoryARN = Nothing
     , _rRegistryId = Nothing
+    , _rRepositoryURI = Nothing
     , _rRepositoryName = Nothing
     }
 
@@ -375,6 +379,11 @@ rRepositoryARN = lens _rRepositoryARN (\ s a -> s{_rRepositoryARN = a});
 rRegistryId :: Lens' Repository (Maybe Text)
 rRegistryId = lens _rRegistryId (\ s a -> s{_rRegistryId = a});
 
+-- | The URI for the repository. You can use this URI for Docker 'push' and
+-- 'pull' operations.
+rRepositoryURI :: Lens' Repository (Maybe Text)
+rRepositoryURI = lens _rRepositoryURI (\ s a -> s{_rRepositoryURI = a});
+
 -- | The name of the repository.
 rRepositoryName :: Lens' Repository (Maybe Text)
 rRepositoryName = lens _rRepositoryName (\ s a -> s{_rRepositoryName = a});
@@ -385,7 +394,8 @@ instance FromJSON Repository where
               (\ x ->
                  Repository' <$>
                    (x .:? "repositoryArn") <*> (x .:? "registryId") <*>
-                     (x .:? "repositoryName"))
+                     (x .:? "repositoryUri")
+                     <*> (x .:? "repositoryName"))
 
 instance Hashable Repository
 

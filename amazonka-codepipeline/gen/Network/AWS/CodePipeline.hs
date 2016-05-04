@@ -17,7 +17,7 @@
 -- descriptions of the actions and data types for AWS CodePipeline. Some
 -- functionality for your pipeline is only configurable through the API.
 -- For additional information, see the
--- <http://docs.aws.amazon.com/pipelines/latest/userguide/welcome.html AWS CodePipeline User Guide>.
+-- <http://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html AWS CodePipeline User Guide>.
 --
 -- You can use the AWS CodePipeline API to work with pipelines, stages,
 -- actions, gates, and transitions, as described below.
@@ -50,8 +50,8 @@
 -- displays the status of a pipeline, including the status of stages in the
 -- pipeline, or < GetPipeline>, which returns the entire structure of the
 -- pipeline, including the stages of that pipeline. For more information
--- about the structure of stages and actions, also refer to the AWS
--- CodePipeline Pipeline Structure Reference.
+-- about the structure of stages and actions, also refer to the
+-- <http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html AWS CodePipeline Pipeline Structure Reference>.
 --
 -- Pipeline stages include /actions/, which are categorized into categories
 -- such as source or build actions performed within a stage of a pipeline.
@@ -333,8 +333,8 @@ module Network.AWS.CodePipeline
     -- ** ActionRevision
     , ActionRevision
     , actionRevision
-    , arRevisionChangeId
     , arRevisionId
+    , arRevisionChangeId
     , arCreated
 
     -- ** ActionState

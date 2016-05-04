@@ -461,8 +461,8 @@ instance NFData ActionExecution
 --
 -- /See:/ 'actionRevision' smart constructor.
 data ActionRevision = ActionRevision'
-    { _arRevisionChangeId :: !(Maybe Text)
-    , _arRevisionId       :: !Text
+    { _arRevisionId       :: !Text
+    , _arRevisionChangeId :: !Text
     , _arCreated          :: !POSIX
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -470,31 +470,32 @@ data ActionRevision = ActionRevision'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arRevisionChangeId'
---
 -- * 'arRevisionId'
+--
+-- * 'arRevisionChangeId'
 --
 -- * 'arCreated'
 actionRevision
     :: Text -- ^ 'arRevisionId'
+    -> Text -- ^ 'arRevisionChangeId'
     -> UTCTime -- ^ 'arCreated'
     -> ActionRevision
-actionRevision pRevisionId_ pCreated_ =
+actionRevision pRevisionId_ pRevisionChangeId_ pCreated_ =
     ActionRevision'
-    { _arRevisionChangeId = Nothing
-    , _arRevisionId = pRevisionId_
+    { _arRevisionId = pRevisionId_
+    , _arRevisionChangeId = pRevisionChangeId_
     , _arCreated = _Time # pCreated_
     }
-
--- | The unique identifier of the change that set the state to this revision,
--- for example a deployment ID or timestamp.
-arRevisionChangeId :: Lens' ActionRevision (Maybe Text)
-arRevisionChangeId = lens _arRevisionChangeId (\ s a -> s{_arRevisionChangeId = a});
 
 -- | The system-generated unique ID that identifies the revision number of
 -- the action.
 arRevisionId :: Lens' ActionRevision Text
 arRevisionId = lens _arRevisionId (\ s a -> s{_arRevisionId = a});
+
+-- | The unique identifier of the change that set the state to this revision,
+-- for example a deployment ID or timestamp.
+arRevisionChangeId :: Lens' ActionRevision Text
+arRevisionChangeId = lens _arRevisionChangeId (\ s a -> s{_arRevisionChangeId = a});
 
 -- | The date and time when the most recent version of the action was
 -- created, in timestamp format.
@@ -506,8 +507,8 @@ instance FromJSON ActionRevision where
           = withObject "ActionRevision"
               (\ x ->
                  ActionRevision' <$>
-                   (x .:? "revisionChangeId") <*> (x .: "revisionId")
-                     <*> (x .: "created"))
+                   (x .: "revisionId") <*> (x .: "revisionChangeId") <*>
+                     (x .: "created"))
 
 instance Hashable ActionRevision
 
@@ -517,8 +518,8 @@ instance ToJSON ActionRevision where
         toJSON ActionRevision'{..}
           = object
               (catMaybes
-                 [("revisionChangeId" .=) <$> _arRevisionChangeId,
-                  Just ("revisionId" .= _arRevisionId),
+                 [Just ("revisionId" .= _arRevisionId),
+                  Just ("revisionChangeId" .= _arRevisionChangeId),
                   Just ("created" .= _arCreated)])
 
 -- | Represents information about the state of an action.
@@ -975,7 +976,8 @@ instance NFData ArtifactLocation
 
 -- | The Amazon S3 location where artifacts are stored for the pipeline. If
 -- this Amazon S3 bucket is created manually, it must meet the requirements
--- for AWS CodePipeline. For more information, see the Concepts.
+-- for AWS CodePipeline. For more information, see the
+-- <http://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#CPS3Bucket Concepts>.
 --
 -- /See:/ 'artifactStore' smart constructor.
 data ArtifactStore = ArtifactStore'
@@ -1004,9 +1006,9 @@ artifactStore pType_ pLocation_ =
     , _asLocation = pLocation_
     }
 
--- | The AWS Key Management Service (AWS KMS) key used to encrypt the data in
--- the artifact store. If this is undefined, the default key for Amazon S3
--- is used.
+-- | The encryption key used to encrypt the data in the artifact store, such
+-- as an AWS Key Management Service (AWS KMS) key. If this is undefined,
+-- the default key for Amazon S3 is used.
 asEncryptionKey :: Lens' ArtifactStore (Maybe EncryptionKey)
 asEncryptionKey = lens _asEncryptionKey (\ s a -> s{_asEncryptionKey = a});
 
@@ -1039,7 +1041,7 @@ instance ToJSON ArtifactStore where
                   Just ("type" .= _asType),
                   Just ("location" .= _asLocation)])
 
--- | Represents information about a gate declaration.
+-- | Reserved for future use.
 --
 -- /See:/ 'blockerDeclaration' smart constructor.
 data BlockerDeclaration = BlockerDeclaration'
@@ -1064,11 +1066,11 @@ blockerDeclaration pName_ pType_ =
     , _bdType = pType_
     }
 
--- | The name of the gate declaration.
+-- | Reserved for future use.
 bdName :: Lens' BlockerDeclaration Text
 bdName = lens _bdName (\ s a -> s{_bdName = a});
 
--- | The type of the gate declaration.
+-- | Reserved for future use.
 bdType :: Lens' BlockerDeclaration BlockerType
 bdType = lens _bdType (\ s a -> s{_bdType = a});
 
@@ -1133,8 +1135,8 @@ instance ToJSON CurrentRevision where
                  [Just ("revision" .= _crRevision),
                   Just ("changeIdentifier" .= _crChangeIdentifier)])
 
--- | Represents information about the AWS Key Management Service (AWS KMS)
--- key used to encrypt data in the artifact store.
+-- | Represents information about the key used to encrypt data in the
+-- artifact store, such as an AWS Key Management Service (AWS KMS) key.
 --
 -- /See:/ 'encryptionKey' smart constructor.
 data EncryptionKey = EncryptionKey'
@@ -1159,11 +1161,14 @@ encryptionKey pId_ pType_ =
     , _ekType = pType_
     }
 
--- | The ID of the AWS KMS key.
+-- | The ID used to identify the key. For an AWS KMS key, this is the key ID
+-- or key ARN.
 ekId :: Lens' EncryptionKey Text
 ekId = lens _ekId (\ s a -> s{_ekId = a});
 
--- | The type of AWS KMS key, such as a customer master key.
+-- | The type of encryption key, such as an AWS Key Management Service (AWS
+-- KMS) key. When creating or updating a pipeline, the value must be set to
+-- \'KMS\'.
 ekType :: Lens' EncryptionKey EncryptionKeyType
 ekType = lens _ekType (\ s a -> s{_ekType = a});
 
@@ -1941,7 +1946,7 @@ stageDeclaration pName_ =
     , _sdActions = mempty
     }
 
--- | The gates included in a stage.
+-- | Reserved for future use.
 sdBlockers :: Lens' StageDeclaration [BlockerDeclaration]
 sdBlockers = lens _sdBlockers (\ s a -> s{_sdBlockers = a}) . _Default . _Coerce;
 
@@ -2137,8 +2142,9 @@ tpjdArtifactCredentials = lens _tpjdArtifactCredentials (\ s a -> s{_tpjdArtifac
 tpjdPipelineContext :: Lens' ThirdPartyJobData (Maybe PipelineContext)
 tpjdPipelineContext = lens _tpjdPipelineContext (\ s a -> s{_tpjdPipelineContext = a});
 
--- | The AWS Key Management Service (AWS KMS) key used to encrypt and decrypt
--- data in the artifact store for the pipeline.
+-- | The encryption key used to encrypt and decrypt data in the artifact
+-- store for the pipeline, such as an AWS Key Management Service (AWS KMS)
+-- key. This is optional and might not be present.
 tpjdEncryptionKey :: Lens' ThirdPartyJobData (Maybe EncryptionKey)
 tpjdEncryptionKey = lens _tpjdEncryptionKey (\ s a -> s{_tpjdEncryptionKey = a});
 

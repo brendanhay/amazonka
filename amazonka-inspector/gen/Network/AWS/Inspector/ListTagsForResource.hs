@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all tags associated with a resource.
+-- Lists all tags associated with an assessment template.
 module Network.AWS.Inspector.ListTagsForResource
     (
     -- * Creating a Request
@@ -31,8 +31,8 @@ module Network.AWS.Inspector.ListTagsForResource
     , listTagsForResourceResponse
     , ListTagsForResourceResponse
     -- * Response Lenses
-    , ltfrrsTagList
     , ltfrrsResponseStatus
+    , ltfrrsTags
     ) where
 
 import           Network.AWS.Inspector.Types
@@ -60,7 +60,8 @@ listTagsForResource pResourceARN_ =
     { _ltfrResourceARN = pResourceARN_
     }
 
--- | The ARN specifying the resource whose tags you want to list.
+-- | The ARN that specifies the assessment template whose tags you want to
+-- list.
 ltfrResourceARN :: Lens' ListTagsForResource Text
 ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
 
@@ -72,7 +73,7 @@ instance AWSRequest ListTagsForResource where
           = receiveJSON
               (\ s h x ->
                  ListTagsForResourceResponse' <$>
-                   (x .?> "tagList" .!@ mempty) <*> (pure (fromEnum s)))
+                   (pure (fromEnum s)) <*> (x .?> "tags" .!@ mempty))
 
 instance Hashable ListTagsForResource
 
@@ -102,32 +103,32 @@ instance ToQuery ListTagsForResource where
 
 -- | /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrsTagList        :: !(Maybe [Tag])
-    , _ltfrrsResponseStatus :: !Int
+    { _ltfrrsResponseStatus :: !Int
+    , _ltfrrsTags           :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsTagList'
---
 -- * 'ltfrrsResponseStatus'
+--
+-- * 'ltfrrsTags'
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
 listTagsForResourceResponse pResponseStatus_ =
     ListTagsForResourceResponse'
-    { _ltfrrsTagList = Nothing
-    , _ltfrrsResponseStatus = pResponseStatus_
+    { _ltfrrsResponseStatus = pResponseStatus_
+    , _ltfrrsTags = mempty
     }
-
--- | A collection of key and value pairs.
-ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default . _Coerce;
 
 -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
+
+-- | A collection of key and value pairs.
+ltfrrsTags :: Lens' ListTagsForResourceResponse [Tag]
+ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Coerce;
 
 instance NFData ListTagsForResourceResponse

@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the entire attribute (key and value pair) from the findings
--- specified by the finding ARNs where an attribute with the specified key
--- exists.
+-- Removes entire attributes (key and value pairs) from the findings that
+-- are specified by the ARNs of the findings where an attribute with the
+-- specified key exists.
 module Network.AWS.Inspector.RemoveAttributesFromFindings
     (
     -- * Creating a Request
@@ -34,8 +34,8 @@ module Network.AWS.Inspector.RemoveAttributesFromFindings
     , removeAttributesFromFindingsResponse
     , RemoveAttributesFromFindingsResponse
     -- * Response Lenses
-    , raffrsMessage
     , raffrsResponseStatus
+    , raffrsFailedItems
     ) where
 
 import           Network.AWS.Inspector.Types
@@ -47,7 +47,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'removeAttributesFromFindings' smart constructor.
 data RemoveAttributesFromFindings = RemoveAttributesFromFindings'
-    { _raffFindingARNs   :: ![Text]
+    { _raffFindingARNs   :: !(List1 Text)
     , _raffAttributeKeys :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -59,17 +59,18 @@ data RemoveAttributesFromFindings = RemoveAttributesFromFindings'
 --
 -- * 'raffAttributeKeys'
 removeAttributesFromFindings
-    :: RemoveAttributesFromFindings
-removeAttributesFromFindings =
+    :: NonEmpty Text -- ^ 'raffFindingARNs'
+    -> RemoveAttributesFromFindings
+removeAttributesFromFindings pFindingARNs_ =
     RemoveAttributesFromFindings'
-    { _raffFindingARNs = mempty
+    { _raffFindingARNs = _List1 # pFindingARNs_
     , _raffAttributeKeys = mempty
     }
 
--- | The ARNs specifying the findings that you want to remove attributes
+-- | The ARNs that specify the findings that you want to remove attributes
 -- from.
-raffFindingARNs :: Lens' RemoveAttributesFromFindings [Text]
-raffFindingARNs = lens _raffFindingARNs (\ s a -> s{_raffFindingARNs = a}) . _Coerce;
+raffFindingARNs :: Lens' RemoveAttributesFromFindings (NonEmpty Text)
+raffFindingARNs = lens _raffFindingARNs (\ s a -> s{_raffFindingARNs = a}) . _List1;
 
 -- | The array of attribute keys that you want to remove from specified
 -- findings.
@@ -85,7 +86,8 @@ instance AWSRequest RemoveAttributesFromFindings
           = receiveJSON
               (\ s h x ->
                  RemoveAttributesFromFindingsResponse' <$>
-                   (x .?> "message") <*> (pure (fromEnum s)))
+                   (pure (fromEnum s)) <*>
+                     (x .?> "failedItems" .!@ mempty))
 
 instance Hashable RemoveAttributesFromFindings
 
@@ -116,32 +118,33 @@ instance ToQuery RemoveAttributesFromFindings where
 
 -- | /See:/ 'removeAttributesFromFindingsResponse' smart constructor.
 data RemoveAttributesFromFindingsResponse = RemoveAttributesFromFindingsResponse'
-    { _raffrsMessage        :: !(Maybe Text)
-    , _raffrsResponseStatus :: !Int
+    { _raffrsResponseStatus :: !Int
+    , _raffrsFailedItems    :: !(Map Text FailedItemDetails)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemoveAttributesFromFindingsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'raffrsMessage'
---
 -- * 'raffrsResponseStatus'
+--
+-- * 'raffrsFailedItems'
 removeAttributesFromFindingsResponse
     :: Int -- ^ 'raffrsResponseStatus'
     -> RemoveAttributesFromFindingsResponse
 removeAttributesFromFindingsResponse pResponseStatus_ =
     RemoveAttributesFromFindingsResponse'
-    { _raffrsMessage = Nothing
-    , _raffrsResponseStatus = pResponseStatus_
+    { _raffrsResponseStatus = pResponseStatus_
+    , _raffrsFailedItems = mempty
     }
-
--- | Confirmation details of the action performed.
-raffrsMessage :: Lens' RemoveAttributesFromFindingsResponse (Maybe Text)
-raffrsMessage = lens _raffrsMessage (\ s a -> s{_raffrsMessage = a});
 
 -- | The response status code.
 raffrsResponseStatus :: Lens' RemoveAttributesFromFindingsResponse Int
 raffrsResponseStatus = lens _raffrsResponseStatus (\ s a -> s{_raffrsResponseStatus = a});
+
+-- | Attributes details that cannot be described. An error code is provided
+-- for each failed item.
+raffrsFailedItems :: Lens' RemoveAttributesFromFindingsResponse (HashMap Text FailedItemDetails)
+raffrsFailedItems = lens _raffrsFailedItems (\ s a -> s{_raffrsFailedItems = a}) . _Map;
 
 instance NFData RemoveAttributesFromFindingsResponse

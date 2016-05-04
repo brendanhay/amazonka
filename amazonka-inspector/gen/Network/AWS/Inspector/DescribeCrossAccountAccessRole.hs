@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the IAM role that enables Inspector to access your AWS
+-- Describes the IAM role that enables Amazon Inspector to access your AWS
 -- account.
 module Network.AWS.Inspector.DescribeCrossAccountAccessRole
     (
@@ -30,9 +30,10 @@ module Network.AWS.Inspector.DescribeCrossAccountAccessRole
     , describeCrossAccountAccessRoleResponse
     , DescribeCrossAccountAccessRoleResponse
     -- * Response Lenses
-    , dcaarrsValid
-    , dcaarrsRoleARN
     , dcaarrsResponseStatus
+    , dcaarrsRoleARN
+    , dcaarrsValid
+    , dcaarrsRegisteredAt
     ) where
 
 import           Network.AWS.Inspector.Types
@@ -62,8 +63,9 @@ instance AWSRequest DescribeCrossAccountAccessRole
           = receiveJSON
               (\ s h x ->
                  DescribeCrossAccountAccessRoleResponse' <$>
-                   (x .?> "valid") <*> (x .?> "roleArn") <*>
-                     (pure (fromEnum s)))
+                   (pure (fromEnum s)) <*> (x .:> "roleArn") <*>
+                     (x .:> "valid")
+                     <*> (x .:> "registeredAt"))
 
 instance Hashable DescribeCrossAccountAccessRole
 
@@ -91,43 +93,54 @@ instance ToQuery DescribeCrossAccountAccessRole where
 
 -- | /See:/ 'describeCrossAccountAccessRoleResponse' smart constructor.
 data DescribeCrossAccountAccessRoleResponse = DescribeCrossAccountAccessRoleResponse'
-    { _dcaarrsValid          :: !(Maybe Bool)
-    , _dcaarrsRoleARN        :: !(Maybe Text)
-    , _dcaarrsResponseStatus :: !Int
+    { _dcaarrsResponseStatus :: !Int
+    , _dcaarrsRoleARN        :: !Text
+    , _dcaarrsValid          :: !Bool
+    , _dcaarrsRegisteredAt   :: !POSIX
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCrossAccountAccessRoleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcaarrsValid'
+-- * 'dcaarrsResponseStatus'
 --
 -- * 'dcaarrsRoleARN'
 --
--- * 'dcaarrsResponseStatus'
+-- * 'dcaarrsValid'
+--
+-- * 'dcaarrsRegisteredAt'
 describeCrossAccountAccessRoleResponse
     :: Int -- ^ 'dcaarrsResponseStatus'
+    -> Text -- ^ 'dcaarrsRoleARN'
+    -> Bool -- ^ 'dcaarrsValid'
+    -> UTCTime -- ^ 'dcaarrsRegisteredAt'
     -> DescribeCrossAccountAccessRoleResponse
-describeCrossAccountAccessRoleResponse pResponseStatus_ =
+describeCrossAccountAccessRoleResponse pResponseStatus_ pRoleARN_ pValid_ pRegisteredAt_ =
     DescribeCrossAccountAccessRoleResponse'
-    { _dcaarrsValid = Nothing
-    , _dcaarrsRoleARN = Nothing
-    , _dcaarrsResponseStatus = pResponseStatus_
+    { _dcaarrsResponseStatus = pResponseStatus_
+    , _dcaarrsRoleARN = pRoleARN_
+    , _dcaarrsValid = pValid_
+    , _dcaarrsRegisteredAt = _Time # pRegisteredAt_
     }
-
--- | A Boolean value that specifies whether the IAM role has the necessary
--- policies attached to enable Inspector to access your AWS account.
-dcaarrsValid :: Lens' DescribeCrossAccountAccessRoleResponse (Maybe Bool)
-dcaarrsValid = lens _dcaarrsValid (\ s a -> s{_dcaarrsValid = a});
-
--- | The ARN specifying the IAM role that Inspector uses to access your AWS
--- account.
-dcaarrsRoleARN :: Lens' DescribeCrossAccountAccessRoleResponse (Maybe Text)
-dcaarrsRoleARN = lens _dcaarrsRoleARN (\ s a -> s{_dcaarrsRoleARN = a});
 
 -- | The response status code.
 dcaarrsResponseStatus :: Lens' DescribeCrossAccountAccessRoleResponse Int
 dcaarrsResponseStatus = lens _dcaarrsResponseStatus (\ s a -> s{_dcaarrsResponseStatus = a});
+
+-- | The ARN that specifies the IAM role that Amazon Inspector uses to access
+-- your AWS account.
+dcaarrsRoleARN :: Lens' DescribeCrossAccountAccessRoleResponse Text
+dcaarrsRoleARN = lens _dcaarrsRoleARN (\ s a -> s{_dcaarrsRoleARN = a});
+
+-- | A Boolean value that specifies whether the IAM role has the necessary
+-- policies attached to enable Amazon Inspector to access your AWS account.
+dcaarrsValid :: Lens' DescribeCrossAccountAccessRoleResponse Bool
+dcaarrsValid = lens _dcaarrsValid (\ s a -> s{_dcaarrsValid = a});
+
+-- | The date when the cross-account access role was registered.
+dcaarrsRegisteredAt :: Lens' DescribeCrossAccountAccessRoleResponse UTCTime
+dcaarrsRegisteredAt = lens _dcaarrsRegisteredAt (\ s a -> s{_dcaarrsRegisteredAt = a}) . _Time;
 
 instance NFData
          DescribeCrossAccountAccessRoleResponse

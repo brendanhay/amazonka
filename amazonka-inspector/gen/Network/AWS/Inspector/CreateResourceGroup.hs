@@ -20,8 +20,9 @@
 --
 -- Creates a resource group using the specified set of tags (key and value
 -- pairs) that are used to select the EC2 instances to be included in an
--- Inspector application. The created resource group is then used to create
--- an Inspector application.
+-- Amazon Inspector assessment target. The created resource group is then
+-- used to create an Amazon Inspector assessment target. For more
+-- information, see < CreateAssessmentTarget>.
 module Network.AWS.Inspector.CreateResourceGroup
     (
     -- * Creating a Request
@@ -34,8 +35,8 @@ module Network.AWS.Inspector.CreateResourceGroup
     , createResourceGroupResponse
     , CreateResourceGroupResponse
     -- * Response Lenses
-    , crgrsResourceGroupARN
     , crgrsResponseStatus
+    , crgrsResourceGroupARN
     ) where
 
 import           Network.AWS.Inspector.Types
@@ -47,7 +48,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createResourceGroup' smart constructor.
 newtype CreateResourceGroup = CreateResourceGroup'
-    { _crgResourceGroupTags :: Text
+    { _crgResourceGroupTags :: List1 ResourceGroupTag
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateResourceGroup' with the minimum fields required to make a request.
@@ -56,19 +57,19 @@ newtype CreateResourceGroup = CreateResourceGroup'
 --
 -- * 'crgResourceGroupTags'
 createResourceGroup
-    :: Text -- ^ 'crgResourceGroupTags'
+    :: NonEmpty ResourceGroupTag -- ^ 'crgResourceGroupTags'
     -> CreateResourceGroup
 createResourceGroup pResourceGroupTags_ =
     CreateResourceGroup'
-    { _crgResourceGroupTags = pResourceGroupTags_
+    { _crgResourceGroupTags = _List1 # pResourceGroupTags_
     }
 
--- | A collection of keys and an array of possible values in JSON format.
+-- | A collection of keys and an array of possible values,
+-- \'[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]\'.
 --
--- For example, [{ \"key1\" : [\"Value1\",\"Value2\"]},{\"Key2\":
--- [\"Value3\"]}]
-crgResourceGroupTags :: Lens' CreateResourceGroup Text
-crgResourceGroupTags = lens _crgResourceGroupTags (\ s a -> s{_crgResourceGroupTags = a});
+-- For example,\'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]\'.
+crgResourceGroupTags :: Lens' CreateResourceGroup (NonEmpty ResourceGroupTag)
+crgResourceGroupTags = lens _crgResourceGroupTags (\ s a -> s{_crgResourceGroupTags = a}) . _List1;
 
 instance AWSRequest CreateResourceGroup where
         type Rs CreateResourceGroup =
@@ -78,7 +79,7 @@ instance AWSRequest CreateResourceGroup where
           = receiveJSON
               (\ s h x ->
                  CreateResourceGroupResponse' <$>
-                   (x .?> "resourceGroupArn") <*> (pure (fromEnum s)))
+                   (pure (fromEnum s)) <*> (x .:> "resourceGroupArn"))
 
 instance Hashable CreateResourceGroup
 
@@ -109,32 +110,33 @@ instance ToQuery CreateResourceGroup where
 
 -- | /See:/ 'createResourceGroupResponse' smart constructor.
 data CreateResourceGroupResponse = CreateResourceGroupResponse'
-    { _crgrsResourceGroupARN :: !(Maybe Text)
-    , _crgrsResponseStatus   :: !Int
+    { _crgrsResponseStatus   :: !Int
+    , _crgrsResourceGroupARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateResourceGroupResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crgrsResourceGroupARN'
---
 -- * 'crgrsResponseStatus'
+--
+-- * 'crgrsResourceGroupARN'
 createResourceGroupResponse
     :: Int -- ^ 'crgrsResponseStatus'
+    -> Text -- ^ 'crgrsResourceGroupARN'
     -> CreateResourceGroupResponse
-createResourceGroupResponse pResponseStatus_ =
+createResourceGroupResponse pResponseStatus_ pResourceGroupARN_ =
     CreateResourceGroupResponse'
-    { _crgrsResourceGroupARN = Nothing
-    , _crgrsResponseStatus = pResponseStatus_
+    { _crgrsResponseStatus = pResponseStatus_
+    , _crgrsResourceGroupARN = pResourceGroupARN_
     }
-
--- | The ARN specifying the resource group that is created.
-crgrsResourceGroupARN :: Lens' CreateResourceGroupResponse (Maybe Text)
-crgrsResourceGroupARN = lens _crgrsResourceGroupARN (\ s a -> s{_crgrsResourceGroupARN = a});
 
 -- | The response status code.
 crgrsResponseStatus :: Lens' CreateResourceGroupResponse Int
 crgrsResponseStatus = lens _crgrsResponseStatus (\ s a -> s{_crgrsResponseStatus = a});
+
+-- | The ARN that specifies the resource group that is created.
+crgrsResourceGroupARN :: Lens' CreateResourceGroupResponse Text
+crgrsResourceGroupARN = lens _crgrsResourceGroupARN (\ s a -> s{_crgrsResourceGroupARN = a});
 
 instance NFData CreateResourceGroupResponse

@@ -18,8 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Register the role that Inspector uses to list your EC2 instances during
--- the assessment.
+-- Registers the IAM role that Amazon Inspector uses to list your EC2
+-- instances at the start of the assessment run or when you call the
+-- < PreviewAgents> action.
 module Network.AWS.Inspector.RegisterCrossAccountAccessRole
     (
     -- * Creating a Request
@@ -31,9 +32,6 @@ module Network.AWS.Inspector.RegisterCrossAccountAccessRole
     -- * Destructuring the Response
     , registerCrossAccountAccessRoleResponse
     , RegisterCrossAccountAccessRoleResponse
-    -- * Response Lenses
-    , rcaarrsMessage
-    , rcaarrsResponseStatus
     ) where
 
 import           Network.AWS.Inspector.Types
@@ -61,8 +59,9 @@ registerCrossAccountAccessRole pRoleARN_ =
     { _rcaarRoleARN = pRoleARN_
     }
 
--- | The ARN of the IAM role that Inspector uses to list your EC2 instances
--- during the assessment.
+-- | The ARN of the IAM role that Amazon Inspector uses to list your EC2
+-- instances during the assessment run or when you call the
+-- < PreviewAgents> action.
 rcaarRoleARN :: Lens' RegisterCrossAccountAccessRole Text
 rcaarRoleARN = lens _rcaarRoleARN (\ s a -> s{_rcaarRoleARN = a});
 
@@ -72,10 +71,7 @@ instance AWSRequest RegisterCrossAccountAccessRole
              RegisterCrossAccountAccessRoleResponse
         request = postJSON inspector
         response
-          = receiveJSON
-              (\ s h x ->
-                 RegisterCrossAccountAccessRoleResponse' <$>
-                   (x .?> "message") <*> (pure (fromEnum s)))
+          = receiveNull RegisterCrossAccountAccessRoleResponse'
 
 instance Hashable RegisterCrossAccountAccessRole
 
@@ -104,34 +100,16 @@ instance ToQuery RegisterCrossAccountAccessRole where
         toQuery = const mempty
 
 -- | /See:/ 'registerCrossAccountAccessRoleResponse' smart constructor.
-data RegisterCrossAccountAccessRoleResponse = RegisterCrossAccountAccessRoleResponse'
-    { _rcaarrsMessage        :: !(Maybe Text)
-    , _rcaarrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data RegisterCrossAccountAccessRoleResponse =
+    RegisterCrossAccountAccessRoleResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterCrossAccountAccessRoleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcaarrsMessage'
---
--- * 'rcaarrsResponseStatus'
 registerCrossAccountAccessRoleResponse
-    :: Int -- ^ 'rcaarrsResponseStatus'
-    -> RegisterCrossAccountAccessRoleResponse
-registerCrossAccountAccessRoleResponse pResponseStatus_ =
+    :: RegisterCrossAccountAccessRoleResponse
+registerCrossAccountAccessRoleResponse =
     RegisterCrossAccountAccessRoleResponse'
-    { _rcaarrsMessage = Nothing
-    , _rcaarrsResponseStatus = pResponseStatus_
-    }
-
--- | Confirmation details of the action performed.
-rcaarrsMessage :: Lens' RegisterCrossAccountAccessRoleResponse (Maybe Text)
-rcaarrsMessage = lens _rcaarrsMessage (\ s a -> s{_rcaarrsMessage = a});
-
--- | The response status code.
-rcaarrsResponseStatus :: Lens' RegisterCrossAccountAccessRoleResponse Int
-rcaarrsResponseStatus = lens _rcaarrsResponseStatus (\ s a -> s{_rcaarrsResponseStatus = a});
 
 instance NFData
          RegisterCrossAccountAccessRoleResponse

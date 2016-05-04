@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets tags (key and value pairs) to the assessment specified by the
--- assessment ARN.
+-- Sets tags (key and value pairs) to the assessment template that is
+-- specified by the ARN of the assessment template.
 module Network.AWS.Inspector.SetTagsForResource
     (
     -- * Creating a Request
@@ -32,9 +32,6 @@ module Network.AWS.Inspector.SetTagsForResource
     -- * Destructuring the Response
     , setTagsForResourceResponse
     , SetTagsForResourceResponse
-    -- * Response Lenses
-    , stfrrsMessage
-    , stfrrsResponseStatus
     ) where
 
 import           Network.AWS.Inspector.Types
@@ -66,12 +63,12 @@ setTagsForResource pResourceARN_ =
     , _stfrResourceARN = pResourceARN_
     }
 
--- | A collection of key and value pairs that you want to set to an
--- assessment.
+-- | A collection of key and value pairs that you want to set to the
+-- assessment template.
 stfrTags :: Lens' SetTagsForResource [Tag]
 stfrTags = lens _stfrTags (\ s a -> s{_stfrTags = a}) . _Default . _Coerce;
 
--- | The ARN of the assessment that you want to set tags to.
+-- | The ARN of the assessment template that you want to set tags to.
 stfrResourceARN :: Lens' SetTagsForResource Text
 stfrResourceARN = lens _stfrResourceARN (\ s a -> s{_stfrResourceARN = a});
 
@@ -79,11 +76,7 @@ instance AWSRequest SetTagsForResource where
         type Rs SetTagsForResource =
              SetTagsForResourceResponse
         request = postJSON inspector
-        response
-          = receiveJSON
-              (\ s h x ->
-                 SetTagsForResourceResponse' <$>
-                   (x .?> "message") <*> (pure (fromEnum s)))
+        response = receiveNull SetTagsForResourceResponse'
 
 instance Hashable SetTagsForResource
 
@@ -113,33 +106,14 @@ instance ToQuery SetTagsForResource where
         toQuery = const mempty
 
 -- | /See:/ 'setTagsForResourceResponse' smart constructor.
-data SetTagsForResourceResponse = SetTagsForResourceResponse'
-    { _stfrrsMessage        :: !(Maybe Text)
-    , _stfrrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+data SetTagsForResourceResponse =
+    SetTagsForResourceResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetTagsForResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stfrrsMessage'
---
--- * 'stfrrsResponseStatus'
 setTagsForResourceResponse
-    :: Int -- ^ 'stfrrsResponseStatus'
-    -> SetTagsForResourceResponse
-setTagsForResourceResponse pResponseStatus_ =
-    SetTagsForResourceResponse'
-    { _stfrrsMessage = Nothing
-    , _stfrrsResponseStatus = pResponseStatus_
-    }
-
--- | Confirmation details of the action performed.
-stfrrsMessage :: Lens' SetTagsForResourceResponse (Maybe Text)
-stfrrsMessage = lens _stfrrsMessage (\ s a -> s{_stfrrsMessage = a});
-
--- | The response status code.
-stfrrsResponseStatus :: Lens' SetTagsForResourceResponse Int
-stfrrsResponseStatus = lens _stfrrsResponseStatus (\ s a -> s{_stfrrsResponseStatus = a});
+    :: SetTagsForResourceResponse
+setTagsForResourceResponse = SetTagsForResourceResponse'
 
 instance NFData SetTagsForResourceResponse

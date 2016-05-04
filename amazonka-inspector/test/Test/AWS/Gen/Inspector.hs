@@ -28,17 +28,29 @@ import Test.AWS.Inspector.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testListFindings $
+--         [ testGetTelemetryMetadata $
+--             getTelemetryMetadata
+--
+--         , testListFindings $
 --             listFindings
 --
---         , testDescribeRun $
---             describeRun
+--         , testListAssessmentTemplates $
+--             listAssessmentTemplates
 --
---         , testDescribeApplication $
---             describeApplication
+--         , testSubscribeToEvent $
+--             subscribeToEvent
 --
---         , testRunAssessment $
---             runAssessment
+--         , testListAssessmentRunAgents $
+--             listAssessmentRunAgents
+--
+--         , testStartAssessmentRun $
+--             startAssessmentRun
+--
+--         , testDeleteAssessmentTemplate $
+--             deleteAssessmentTemplate
+--
+--         , testCreateAssessmentTemplate $
+--             createAssessmentTemplate
 --
 --         , testListTagsForResource $
 --             listTagsForResource
@@ -49,107 +61,95 @@ import Test.AWS.Inspector.Internal
 --         , testDescribeCrossAccountAccessRole $
 --             describeCrossAccountAccessRole
 --
---         , testListAttachedAssessments $
---             listAttachedAssessments
+--         , testDescribeAssessmentTemplates $
+--             describeAssessmentTemplates
 --
---         , testDescribeFinding $
---             describeFinding
+--         , testDescribeResourceGroups $
+--             describeResourceGroups
 --
---         , testDeleteRun $
---             deleteRun
+--         , testCreateAssessmentTarget $
+--             createAssessmentTarget
 --
---         , testListRuns $
---             listRuns
---
---         , testDeleteApplication $
---             deleteApplication
---
---         , testUpdateApplication $
---             updateApplication
---
---         , testStartDataCollection $
---             startDataCollection
---
---         , testLocalizeText $
---             localizeText
+--         , testListEventSubscriptions $
+--             listEventSubscriptions
 --
 --         , testRegisterCrossAccountAccessRole $
 --             registerCrossAccountAccessRole
 --
---         , testCreateApplication $
---             createApplication
+--         , testListAssessmentTargets $
+--             listAssessmentTargets
 --
 --         , testCreateResourceGroup $
 --             createResourceGroup
 --
---         , testListAttachedRulesPackages $
---             listAttachedRulesPackages
+--         , testDescribeRulesPackages $
+--             describeRulesPackages
 --
---         , testDeleteAssessment $
---             deleteAssessment
+--         , testStopAssessmentRun $
+--             stopAssessmentRun
 --
---         , testUpdateAssessment $
---             updateAssessment
+--         , testPreviewAgents $
+--             previewAgents
 --
---         , testGetAssessmentTelemetry $
---             getAssessmentTelemetry
---
---         , testListAssessments $
---             listAssessments
---
---         , testDescribeRulesPackage $
---             describeRulesPackage
---
---         , testCreateAssessment $
---             createAssessment
---
---         , testDetachAssessmentAndRulesPackage $
---             detachAssessmentAndRulesPackage
---
---         , testDescribeResourceGroup $
---             describeResourceGroup
---
---         , testListApplications $
---             listApplications
---
---         , testDescribeAssessment $
---             describeAssessment
+--         , testDescribeFindings $
+--             describeFindings
 --
 --         , testAddAttributesToFindings $
 --             addAttributesToFindings
 --
---         , testStopDataCollection $
---             stopDataCollection
+--         , testUpdateAssessmentTarget $
+--             updateAssessmentTarget
 --
---         , testPreviewAgentsForResourceGroup $
---             previewAgentsForResourceGroup
+--         , testDeleteAssessmentTarget $
+--             deleteAssessmentTarget
 --
---         , testListAssessmentAgents $
---             listAssessmentAgents
+--         , testDeleteAssessmentRun $
+--             deleteAssessmentRun
+--
+--         , testListAssessmentRuns $
+--             listAssessmentRuns
 --
 --         , testListRulesPackages $
 --             listRulesPackages
 --
+--         , testDescribeAssessmentRuns $
+--             describeAssessmentRuns
+--
+--         , testUnsubscribeFromEvent $
+--             unsubscribeFromEvent
+--
 --         , testRemoveAttributesFromFindings $
 --             removeAttributesFromFindings
 --
---         , testAttachAssessmentAndRulesPackage $
---             attachAssessmentAndRulesPackage
+--         , testDescribeAssessmentTargets $
+--             describeAssessmentTargets
 --
 --           ]
 
 --     , testGroup "response"
---         [ testListFindingsResponse $
+--         [ testGetTelemetryMetadataResponse $
+--             getTelemetryMetadataResponse
+--
+--         , testListFindingsResponse $
 --             listFindingsResponse
 --
---         , testDescribeRunResponse $
---             describeRunResponse
+--         , testListAssessmentTemplatesResponse $
+--             listAssessmentTemplatesResponse
 --
---         , testDescribeApplicationResponse $
---             describeApplicationResponse
+--         , testSubscribeToEventResponse $
+--             subscribeToEventResponse
 --
---         , testRunAssessmentResponse $
---             runAssessmentResponse
+--         , testListAssessmentRunAgentsResponse $
+--             listAssessmentRunAgentsResponse
+--
+--         , testStartAssessmentRunResponse $
+--             startAssessmentRunResponse
+--
+--         , testDeleteAssessmentTemplateResponse $
+--             deleteAssessmentTemplateResponse
+--
+--         , testCreateAssessmentTemplateResponse $
+--             createAssessmentTemplateResponse
 --
 --         , testListTagsForResourceResponse $
 --             listTagsForResourceResponse
@@ -160,117 +160,113 @@ import Test.AWS.Inspector.Internal
 --         , testDescribeCrossAccountAccessRoleResponse $
 --             describeCrossAccountAccessRoleResponse
 --
---         , testListAttachedAssessmentsResponse $
---             listAttachedAssessmentsResponse
+--         , testDescribeAssessmentTemplatesResponse $
+--             describeAssessmentTemplatesResponse
 --
---         , testDescribeFindingResponse $
---             describeFindingResponse
+--         , testDescribeResourceGroupsResponse $
+--             describeResourceGroupsResponse
 --
---         , testDeleteRunResponse $
---             deleteRunResponse
+--         , testCreateAssessmentTargetResponse $
+--             createAssessmentTargetResponse
 --
---         , testListRunsResponse $
---             listRunsResponse
---
---         , testDeleteApplicationResponse $
---             deleteApplicationResponse
---
---         , testUpdateApplicationResponse $
---             updateApplicationResponse
---
---         , testStartDataCollectionResponse $
---             startDataCollectionResponse
---
---         , testLocalizeTextResponse $
---             localizeTextResponse
+--         , testListEventSubscriptionsResponse $
+--             listEventSubscriptionsResponse
 --
 --         , testRegisterCrossAccountAccessRoleResponse $
 --             registerCrossAccountAccessRoleResponse
 --
---         , testCreateApplicationResponse $
---             createApplicationResponse
+--         , testListAssessmentTargetsResponse $
+--             listAssessmentTargetsResponse
 --
 --         , testCreateResourceGroupResponse $
 --             createResourceGroupResponse
 --
---         , testListAttachedRulesPackagesResponse $
---             listAttachedRulesPackagesResponse
+--         , testDescribeRulesPackagesResponse $
+--             describeRulesPackagesResponse
 --
---         , testDeleteAssessmentResponse $
---             deleteAssessmentResponse
+--         , testStopAssessmentRunResponse $
+--             stopAssessmentRunResponse
 --
---         , testUpdateAssessmentResponse $
---             updateAssessmentResponse
+--         , testPreviewAgentsResponse $
+--             previewAgentsResponse
 --
---         , testGetAssessmentTelemetryResponse $
---             getAssessmentTelemetryResponse
---
---         , testListAssessmentsResponse $
---             listAssessmentsResponse
---
---         , testDescribeRulesPackageResponse $
---             describeRulesPackageResponse
---
---         , testCreateAssessmentResponse $
---             createAssessmentResponse
---
---         , testDetachAssessmentAndRulesPackageResponse $
---             detachAssessmentAndRulesPackageResponse
---
---         , testDescribeResourceGroupResponse $
---             describeResourceGroupResponse
---
---         , testListApplicationsResponse $
---             listApplicationsResponse
---
---         , testDescribeAssessmentResponse $
---             describeAssessmentResponse
+--         , testDescribeFindingsResponse $
+--             describeFindingsResponse
 --
 --         , testAddAttributesToFindingsResponse $
 --             addAttributesToFindingsResponse
 --
---         , testStopDataCollectionResponse $
---             stopDataCollectionResponse
+--         , testUpdateAssessmentTargetResponse $
+--             updateAssessmentTargetResponse
 --
---         , testPreviewAgentsForResourceGroupResponse $
---             previewAgentsForResourceGroupResponse
+--         , testDeleteAssessmentTargetResponse $
+--             deleteAssessmentTargetResponse
 --
---         , testListAssessmentAgentsResponse $
---             listAssessmentAgentsResponse
+--         , testDeleteAssessmentRunResponse $
+--             deleteAssessmentRunResponse
+--
+--         , testListAssessmentRunsResponse $
+--             listAssessmentRunsResponse
 --
 --         , testListRulesPackagesResponse $
 --             listRulesPackagesResponse
 --
+--         , testDescribeAssessmentRunsResponse $
+--             describeAssessmentRunsResponse
+--
+--         , testUnsubscribeFromEventResponse $
+--             unsubscribeFromEventResponse
+--
 --         , testRemoveAttributesFromFindingsResponse $
 --             removeAttributesFromFindingsResponse
 --
---         , testAttachAssessmentAndRulesPackageResponse $
---             attachAssessmentAndRulesPackageResponse
+--         , testDescribeAssessmentTargetsResponse $
+--             describeAssessmentTargetsResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
+testGetTelemetryMetadata :: GetTelemetryMetadata -> TestTree
+testGetTelemetryMetadata = req
+    "GetTelemetryMetadata"
+    "fixture/GetTelemetryMetadata.yaml"
+
 testListFindings :: ListFindings -> TestTree
 testListFindings = req
     "ListFindings"
     "fixture/ListFindings.yaml"
 
-testDescribeRun :: DescribeRun -> TestTree
-testDescribeRun = req
-    "DescribeRun"
-    "fixture/DescribeRun.yaml"
+testListAssessmentTemplates :: ListAssessmentTemplates -> TestTree
+testListAssessmentTemplates = req
+    "ListAssessmentTemplates"
+    "fixture/ListAssessmentTemplates.yaml"
 
-testDescribeApplication :: DescribeApplication -> TestTree
-testDescribeApplication = req
-    "DescribeApplication"
-    "fixture/DescribeApplication.yaml"
+testSubscribeToEvent :: SubscribeToEvent -> TestTree
+testSubscribeToEvent = req
+    "SubscribeToEvent"
+    "fixture/SubscribeToEvent.yaml"
 
-testRunAssessment :: RunAssessment -> TestTree
-testRunAssessment = req
-    "RunAssessment"
-    "fixture/RunAssessment.yaml"
+testListAssessmentRunAgents :: ListAssessmentRunAgents -> TestTree
+testListAssessmentRunAgents = req
+    "ListAssessmentRunAgents"
+    "fixture/ListAssessmentRunAgents.yaml"
+
+testStartAssessmentRun :: StartAssessmentRun -> TestTree
+testStartAssessmentRun = req
+    "StartAssessmentRun"
+    "fixture/StartAssessmentRun.yaml"
+
+testDeleteAssessmentTemplate :: DeleteAssessmentTemplate -> TestTree
+testDeleteAssessmentTemplate = req
+    "DeleteAssessmentTemplate"
+    "fixture/DeleteAssessmentTemplate.yaml"
+
+testCreateAssessmentTemplate :: CreateAssessmentTemplate -> TestTree
+testCreateAssessmentTemplate = req
+    "CreateAssessmentTemplate"
+    "fixture/CreateAssessmentTemplate.yaml"
 
 testListTagsForResource :: ListTagsForResource -> TestTree
 testListTagsForResource = req
@@ -287,152 +283,119 @@ testDescribeCrossAccountAccessRole = req
     "DescribeCrossAccountAccessRole"
     "fixture/DescribeCrossAccountAccessRole.yaml"
 
-testListAttachedAssessments :: ListAttachedAssessments -> TestTree
-testListAttachedAssessments = req
-    "ListAttachedAssessments"
-    "fixture/ListAttachedAssessments.yaml"
+testDescribeAssessmentTemplates :: DescribeAssessmentTemplates -> TestTree
+testDescribeAssessmentTemplates = req
+    "DescribeAssessmentTemplates"
+    "fixture/DescribeAssessmentTemplates.yaml"
 
-testDescribeFinding :: DescribeFinding -> TestTree
-testDescribeFinding = req
-    "DescribeFinding"
-    "fixture/DescribeFinding.yaml"
+testDescribeResourceGroups :: DescribeResourceGroups -> TestTree
+testDescribeResourceGroups = req
+    "DescribeResourceGroups"
+    "fixture/DescribeResourceGroups.yaml"
 
-testDeleteRun :: DeleteRun -> TestTree
-testDeleteRun = req
-    "DeleteRun"
-    "fixture/DeleteRun.yaml"
+testCreateAssessmentTarget :: CreateAssessmentTarget -> TestTree
+testCreateAssessmentTarget = req
+    "CreateAssessmentTarget"
+    "fixture/CreateAssessmentTarget.yaml"
 
-testListRuns :: ListRuns -> TestTree
-testListRuns = req
-    "ListRuns"
-    "fixture/ListRuns.yaml"
-
-testDeleteApplication :: DeleteApplication -> TestTree
-testDeleteApplication = req
-    "DeleteApplication"
-    "fixture/DeleteApplication.yaml"
-
-testUpdateApplication :: UpdateApplication -> TestTree
-testUpdateApplication = req
-    "UpdateApplication"
-    "fixture/UpdateApplication.yaml"
-
-testStartDataCollection :: StartDataCollection -> TestTree
-testStartDataCollection = req
-    "StartDataCollection"
-    "fixture/StartDataCollection.yaml"
-
-testLocalizeText :: LocalizeText -> TestTree
-testLocalizeText = req
-    "LocalizeText"
-    "fixture/LocalizeText.yaml"
+testListEventSubscriptions :: ListEventSubscriptions -> TestTree
+testListEventSubscriptions = req
+    "ListEventSubscriptions"
+    "fixture/ListEventSubscriptions.yaml"
 
 testRegisterCrossAccountAccessRole :: RegisterCrossAccountAccessRole -> TestTree
 testRegisterCrossAccountAccessRole = req
     "RegisterCrossAccountAccessRole"
     "fixture/RegisterCrossAccountAccessRole.yaml"
 
-testCreateApplication :: CreateApplication -> TestTree
-testCreateApplication = req
-    "CreateApplication"
-    "fixture/CreateApplication.yaml"
+testListAssessmentTargets :: ListAssessmentTargets -> TestTree
+testListAssessmentTargets = req
+    "ListAssessmentTargets"
+    "fixture/ListAssessmentTargets.yaml"
 
 testCreateResourceGroup :: CreateResourceGroup -> TestTree
 testCreateResourceGroup = req
     "CreateResourceGroup"
     "fixture/CreateResourceGroup.yaml"
 
-testListAttachedRulesPackages :: ListAttachedRulesPackages -> TestTree
-testListAttachedRulesPackages = req
-    "ListAttachedRulesPackages"
-    "fixture/ListAttachedRulesPackages.yaml"
+testDescribeRulesPackages :: DescribeRulesPackages -> TestTree
+testDescribeRulesPackages = req
+    "DescribeRulesPackages"
+    "fixture/DescribeRulesPackages.yaml"
 
-testDeleteAssessment :: DeleteAssessment -> TestTree
-testDeleteAssessment = req
-    "DeleteAssessment"
-    "fixture/DeleteAssessment.yaml"
+testStopAssessmentRun :: StopAssessmentRun -> TestTree
+testStopAssessmentRun = req
+    "StopAssessmentRun"
+    "fixture/StopAssessmentRun.yaml"
 
-testUpdateAssessment :: UpdateAssessment -> TestTree
-testUpdateAssessment = req
-    "UpdateAssessment"
-    "fixture/UpdateAssessment.yaml"
+testPreviewAgents :: PreviewAgents -> TestTree
+testPreviewAgents = req
+    "PreviewAgents"
+    "fixture/PreviewAgents.yaml"
 
-testGetAssessmentTelemetry :: GetAssessmentTelemetry -> TestTree
-testGetAssessmentTelemetry = req
-    "GetAssessmentTelemetry"
-    "fixture/GetAssessmentTelemetry.yaml"
-
-testListAssessments :: ListAssessments -> TestTree
-testListAssessments = req
-    "ListAssessments"
-    "fixture/ListAssessments.yaml"
-
-testDescribeRulesPackage :: DescribeRulesPackage -> TestTree
-testDescribeRulesPackage = req
-    "DescribeRulesPackage"
-    "fixture/DescribeRulesPackage.yaml"
-
-testCreateAssessment :: CreateAssessment -> TestTree
-testCreateAssessment = req
-    "CreateAssessment"
-    "fixture/CreateAssessment.yaml"
-
-testDetachAssessmentAndRulesPackage :: DetachAssessmentAndRulesPackage -> TestTree
-testDetachAssessmentAndRulesPackage = req
-    "DetachAssessmentAndRulesPackage"
-    "fixture/DetachAssessmentAndRulesPackage.yaml"
-
-testDescribeResourceGroup :: DescribeResourceGroup -> TestTree
-testDescribeResourceGroup = req
-    "DescribeResourceGroup"
-    "fixture/DescribeResourceGroup.yaml"
-
-testListApplications :: ListApplications -> TestTree
-testListApplications = req
-    "ListApplications"
-    "fixture/ListApplications.yaml"
-
-testDescribeAssessment :: DescribeAssessment -> TestTree
-testDescribeAssessment = req
-    "DescribeAssessment"
-    "fixture/DescribeAssessment.yaml"
+testDescribeFindings :: DescribeFindings -> TestTree
+testDescribeFindings = req
+    "DescribeFindings"
+    "fixture/DescribeFindings.yaml"
 
 testAddAttributesToFindings :: AddAttributesToFindings -> TestTree
 testAddAttributesToFindings = req
     "AddAttributesToFindings"
     "fixture/AddAttributesToFindings.yaml"
 
-testStopDataCollection :: StopDataCollection -> TestTree
-testStopDataCollection = req
-    "StopDataCollection"
-    "fixture/StopDataCollection.yaml"
+testUpdateAssessmentTarget :: UpdateAssessmentTarget -> TestTree
+testUpdateAssessmentTarget = req
+    "UpdateAssessmentTarget"
+    "fixture/UpdateAssessmentTarget.yaml"
 
-testPreviewAgentsForResourceGroup :: PreviewAgentsForResourceGroup -> TestTree
-testPreviewAgentsForResourceGroup = req
-    "PreviewAgentsForResourceGroup"
-    "fixture/PreviewAgentsForResourceGroup.yaml"
+testDeleteAssessmentTarget :: DeleteAssessmentTarget -> TestTree
+testDeleteAssessmentTarget = req
+    "DeleteAssessmentTarget"
+    "fixture/DeleteAssessmentTarget.yaml"
 
-testListAssessmentAgents :: ListAssessmentAgents -> TestTree
-testListAssessmentAgents = req
-    "ListAssessmentAgents"
-    "fixture/ListAssessmentAgents.yaml"
+testDeleteAssessmentRun :: DeleteAssessmentRun -> TestTree
+testDeleteAssessmentRun = req
+    "DeleteAssessmentRun"
+    "fixture/DeleteAssessmentRun.yaml"
+
+testListAssessmentRuns :: ListAssessmentRuns -> TestTree
+testListAssessmentRuns = req
+    "ListAssessmentRuns"
+    "fixture/ListAssessmentRuns.yaml"
 
 testListRulesPackages :: ListRulesPackages -> TestTree
 testListRulesPackages = req
     "ListRulesPackages"
     "fixture/ListRulesPackages.yaml"
 
+testDescribeAssessmentRuns :: DescribeAssessmentRuns -> TestTree
+testDescribeAssessmentRuns = req
+    "DescribeAssessmentRuns"
+    "fixture/DescribeAssessmentRuns.yaml"
+
+testUnsubscribeFromEvent :: UnsubscribeFromEvent -> TestTree
+testUnsubscribeFromEvent = req
+    "UnsubscribeFromEvent"
+    "fixture/UnsubscribeFromEvent.yaml"
+
 testRemoveAttributesFromFindings :: RemoveAttributesFromFindings -> TestTree
 testRemoveAttributesFromFindings = req
     "RemoveAttributesFromFindings"
     "fixture/RemoveAttributesFromFindings.yaml"
 
-testAttachAssessmentAndRulesPackage :: AttachAssessmentAndRulesPackage -> TestTree
-testAttachAssessmentAndRulesPackage = req
-    "AttachAssessmentAndRulesPackage"
-    "fixture/AttachAssessmentAndRulesPackage.yaml"
+testDescribeAssessmentTargets :: DescribeAssessmentTargets -> TestTree
+testDescribeAssessmentTargets = req
+    "DescribeAssessmentTargets"
+    "fixture/DescribeAssessmentTargets.yaml"
 
 -- Responses
+
+testGetTelemetryMetadataResponse :: GetTelemetryMetadataResponse -> TestTree
+testGetTelemetryMetadataResponse = res
+    "GetTelemetryMetadataResponse"
+    "fixture/GetTelemetryMetadataResponse.proto"
+    inspector
+    (Proxy :: Proxy GetTelemetryMetadata)
 
 testListFindingsResponse :: ListFindingsResponse -> TestTree
 testListFindingsResponse = res
@@ -441,26 +404,47 @@ testListFindingsResponse = res
     inspector
     (Proxy :: Proxy ListFindings)
 
-testDescribeRunResponse :: DescribeRunResponse -> TestTree
-testDescribeRunResponse = res
-    "DescribeRunResponse"
-    "fixture/DescribeRunResponse.proto"
+testListAssessmentTemplatesResponse :: ListAssessmentTemplatesResponse -> TestTree
+testListAssessmentTemplatesResponse = res
+    "ListAssessmentTemplatesResponse"
+    "fixture/ListAssessmentTemplatesResponse.proto"
     inspector
-    (Proxy :: Proxy DescribeRun)
+    (Proxy :: Proxy ListAssessmentTemplates)
 
-testDescribeApplicationResponse :: DescribeApplicationResponse -> TestTree
-testDescribeApplicationResponse = res
-    "DescribeApplicationResponse"
-    "fixture/DescribeApplicationResponse.proto"
+testSubscribeToEventResponse :: SubscribeToEventResponse -> TestTree
+testSubscribeToEventResponse = res
+    "SubscribeToEventResponse"
+    "fixture/SubscribeToEventResponse.proto"
     inspector
-    (Proxy :: Proxy DescribeApplication)
+    (Proxy :: Proxy SubscribeToEvent)
 
-testRunAssessmentResponse :: RunAssessmentResponse -> TestTree
-testRunAssessmentResponse = res
-    "RunAssessmentResponse"
-    "fixture/RunAssessmentResponse.proto"
+testListAssessmentRunAgentsResponse :: ListAssessmentRunAgentsResponse -> TestTree
+testListAssessmentRunAgentsResponse = res
+    "ListAssessmentRunAgentsResponse"
+    "fixture/ListAssessmentRunAgentsResponse.proto"
     inspector
-    (Proxy :: Proxy RunAssessment)
+    (Proxy :: Proxy ListAssessmentRunAgents)
+
+testStartAssessmentRunResponse :: StartAssessmentRunResponse -> TestTree
+testStartAssessmentRunResponse = res
+    "StartAssessmentRunResponse"
+    "fixture/StartAssessmentRunResponse.proto"
+    inspector
+    (Proxy :: Proxy StartAssessmentRun)
+
+testDeleteAssessmentTemplateResponse :: DeleteAssessmentTemplateResponse -> TestTree
+testDeleteAssessmentTemplateResponse = res
+    "DeleteAssessmentTemplateResponse"
+    "fixture/DeleteAssessmentTemplateResponse.proto"
+    inspector
+    (Proxy :: Proxy DeleteAssessmentTemplate)
+
+testCreateAssessmentTemplateResponse :: CreateAssessmentTemplateResponse -> TestTree
+testCreateAssessmentTemplateResponse = res
+    "CreateAssessmentTemplateResponse"
+    "fixture/CreateAssessmentTemplateResponse.proto"
+    inspector
+    (Proxy :: Proxy CreateAssessmentTemplate)
 
 testListTagsForResourceResponse :: ListTagsForResourceResponse -> TestTree
 testListTagsForResourceResponse = res
@@ -483,61 +467,33 @@ testDescribeCrossAccountAccessRoleResponse = res
     inspector
     (Proxy :: Proxy DescribeCrossAccountAccessRole)
 
-testListAttachedAssessmentsResponse :: ListAttachedAssessmentsResponse -> TestTree
-testListAttachedAssessmentsResponse = res
-    "ListAttachedAssessmentsResponse"
-    "fixture/ListAttachedAssessmentsResponse.proto"
+testDescribeAssessmentTemplatesResponse :: DescribeAssessmentTemplatesResponse -> TestTree
+testDescribeAssessmentTemplatesResponse = res
+    "DescribeAssessmentTemplatesResponse"
+    "fixture/DescribeAssessmentTemplatesResponse.proto"
     inspector
-    (Proxy :: Proxy ListAttachedAssessments)
+    (Proxy :: Proxy DescribeAssessmentTemplates)
 
-testDescribeFindingResponse :: DescribeFindingResponse -> TestTree
-testDescribeFindingResponse = res
-    "DescribeFindingResponse"
-    "fixture/DescribeFindingResponse.proto"
+testDescribeResourceGroupsResponse :: DescribeResourceGroupsResponse -> TestTree
+testDescribeResourceGroupsResponse = res
+    "DescribeResourceGroupsResponse"
+    "fixture/DescribeResourceGroupsResponse.proto"
     inspector
-    (Proxy :: Proxy DescribeFinding)
+    (Proxy :: Proxy DescribeResourceGroups)
 
-testDeleteRunResponse :: DeleteRunResponse -> TestTree
-testDeleteRunResponse = res
-    "DeleteRunResponse"
-    "fixture/DeleteRunResponse.proto"
+testCreateAssessmentTargetResponse :: CreateAssessmentTargetResponse -> TestTree
+testCreateAssessmentTargetResponse = res
+    "CreateAssessmentTargetResponse"
+    "fixture/CreateAssessmentTargetResponse.proto"
     inspector
-    (Proxy :: Proxy DeleteRun)
+    (Proxy :: Proxy CreateAssessmentTarget)
 
-testListRunsResponse :: ListRunsResponse -> TestTree
-testListRunsResponse = res
-    "ListRunsResponse"
-    "fixture/ListRunsResponse.proto"
+testListEventSubscriptionsResponse :: ListEventSubscriptionsResponse -> TestTree
+testListEventSubscriptionsResponse = res
+    "ListEventSubscriptionsResponse"
+    "fixture/ListEventSubscriptionsResponse.proto"
     inspector
-    (Proxy :: Proxy ListRuns)
-
-testDeleteApplicationResponse :: DeleteApplicationResponse -> TestTree
-testDeleteApplicationResponse = res
-    "DeleteApplicationResponse"
-    "fixture/DeleteApplicationResponse.proto"
-    inspector
-    (Proxy :: Proxy DeleteApplication)
-
-testUpdateApplicationResponse :: UpdateApplicationResponse -> TestTree
-testUpdateApplicationResponse = res
-    "UpdateApplicationResponse"
-    "fixture/UpdateApplicationResponse.proto"
-    inspector
-    (Proxy :: Proxy UpdateApplication)
-
-testStartDataCollectionResponse :: StartDataCollectionResponse -> TestTree
-testStartDataCollectionResponse = res
-    "StartDataCollectionResponse"
-    "fixture/StartDataCollectionResponse.proto"
-    inspector
-    (Proxy :: Proxy StartDataCollection)
-
-testLocalizeTextResponse :: LocalizeTextResponse -> TestTree
-testLocalizeTextResponse = res
-    "LocalizeTextResponse"
-    "fixture/LocalizeTextResponse.proto"
-    inspector
-    (Proxy :: Proxy LocalizeText)
+    (Proxy :: Proxy ListEventSubscriptions)
 
 testRegisterCrossAccountAccessRoleResponse :: RegisterCrossAccountAccessRoleResponse -> TestTree
 testRegisterCrossAccountAccessRoleResponse = res
@@ -546,12 +502,12 @@ testRegisterCrossAccountAccessRoleResponse = res
     inspector
     (Proxy :: Proxy RegisterCrossAccountAccessRole)
 
-testCreateApplicationResponse :: CreateApplicationResponse -> TestTree
-testCreateApplicationResponse = res
-    "CreateApplicationResponse"
-    "fixture/CreateApplicationResponse.proto"
+testListAssessmentTargetsResponse :: ListAssessmentTargetsResponse -> TestTree
+testListAssessmentTargetsResponse = res
+    "ListAssessmentTargetsResponse"
+    "fixture/ListAssessmentTargetsResponse.proto"
     inspector
-    (Proxy :: Proxy CreateApplication)
+    (Proxy :: Proxy ListAssessmentTargets)
 
 testCreateResourceGroupResponse :: CreateResourceGroupResponse -> TestTree
 testCreateResourceGroupResponse = res
@@ -560,82 +516,33 @@ testCreateResourceGroupResponse = res
     inspector
     (Proxy :: Proxy CreateResourceGroup)
 
-testListAttachedRulesPackagesResponse :: ListAttachedRulesPackagesResponse -> TestTree
-testListAttachedRulesPackagesResponse = res
-    "ListAttachedRulesPackagesResponse"
-    "fixture/ListAttachedRulesPackagesResponse.proto"
+testDescribeRulesPackagesResponse :: DescribeRulesPackagesResponse -> TestTree
+testDescribeRulesPackagesResponse = res
+    "DescribeRulesPackagesResponse"
+    "fixture/DescribeRulesPackagesResponse.proto"
     inspector
-    (Proxy :: Proxy ListAttachedRulesPackages)
+    (Proxy :: Proxy DescribeRulesPackages)
 
-testDeleteAssessmentResponse :: DeleteAssessmentResponse -> TestTree
-testDeleteAssessmentResponse = res
-    "DeleteAssessmentResponse"
-    "fixture/DeleteAssessmentResponse.proto"
+testStopAssessmentRunResponse :: StopAssessmentRunResponse -> TestTree
+testStopAssessmentRunResponse = res
+    "StopAssessmentRunResponse"
+    "fixture/StopAssessmentRunResponse.proto"
     inspector
-    (Proxy :: Proxy DeleteAssessment)
+    (Proxy :: Proxy StopAssessmentRun)
 
-testUpdateAssessmentResponse :: UpdateAssessmentResponse -> TestTree
-testUpdateAssessmentResponse = res
-    "UpdateAssessmentResponse"
-    "fixture/UpdateAssessmentResponse.proto"
+testPreviewAgentsResponse :: PreviewAgentsResponse -> TestTree
+testPreviewAgentsResponse = res
+    "PreviewAgentsResponse"
+    "fixture/PreviewAgentsResponse.proto"
     inspector
-    (Proxy :: Proxy UpdateAssessment)
+    (Proxy :: Proxy PreviewAgents)
 
-testGetAssessmentTelemetryResponse :: GetAssessmentTelemetryResponse -> TestTree
-testGetAssessmentTelemetryResponse = res
-    "GetAssessmentTelemetryResponse"
-    "fixture/GetAssessmentTelemetryResponse.proto"
+testDescribeFindingsResponse :: DescribeFindingsResponse -> TestTree
+testDescribeFindingsResponse = res
+    "DescribeFindingsResponse"
+    "fixture/DescribeFindingsResponse.proto"
     inspector
-    (Proxy :: Proxy GetAssessmentTelemetry)
-
-testListAssessmentsResponse :: ListAssessmentsResponse -> TestTree
-testListAssessmentsResponse = res
-    "ListAssessmentsResponse"
-    "fixture/ListAssessmentsResponse.proto"
-    inspector
-    (Proxy :: Proxy ListAssessments)
-
-testDescribeRulesPackageResponse :: DescribeRulesPackageResponse -> TestTree
-testDescribeRulesPackageResponse = res
-    "DescribeRulesPackageResponse"
-    "fixture/DescribeRulesPackageResponse.proto"
-    inspector
-    (Proxy :: Proxy DescribeRulesPackage)
-
-testCreateAssessmentResponse :: CreateAssessmentResponse -> TestTree
-testCreateAssessmentResponse = res
-    "CreateAssessmentResponse"
-    "fixture/CreateAssessmentResponse.proto"
-    inspector
-    (Proxy :: Proxy CreateAssessment)
-
-testDetachAssessmentAndRulesPackageResponse :: DetachAssessmentAndRulesPackageResponse -> TestTree
-testDetachAssessmentAndRulesPackageResponse = res
-    "DetachAssessmentAndRulesPackageResponse"
-    "fixture/DetachAssessmentAndRulesPackageResponse.proto"
-    inspector
-    (Proxy :: Proxy DetachAssessmentAndRulesPackage)
-
-testDescribeResourceGroupResponse :: DescribeResourceGroupResponse -> TestTree
-testDescribeResourceGroupResponse = res
-    "DescribeResourceGroupResponse"
-    "fixture/DescribeResourceGroupResponse.proto"
-    inspector
-    (Proxy :: Proxy DescribeResourceGroup)
-
-testListApplicationsResponse :: ListApplicationsResponse -> TestTree
-testListApplicationsResponse = res
-    "ListApplicationsResponse"
-    "fixture/ListApplicationsResponse.proto"
-    inspector
-    (Proxy :: Proxy ListApplications)
-
-testDescribeAssessmentResponse :: DescribeAssessmentResponse -> TestTree
-testDescribeAssessmentResponse = res
-    "DescribeAssessmentResponse"
-    "fixture/DescribeAssessmentResponse.proto"
-    inspector
-    (Proxy :: Proxy DescribeAssessment)
+    (Proxy :: Proxy DescribeFindings)
 
 testAddAttributesToFindingsResponse :: AddAttributesToFindingsResponse -> TestTree
 testAddAttributesToFindingsResponse = res
@@ -644,26 +551,33 @@ testAddAttributesToFindingsResponse = res
     inspector
     (Proxy :: Proxy AddAttributesToFindings)
 
-testStopDataCollectionResponse :: StopDataCollectionResponse -> TestTree
-testStopDataCollectionResponse = res
-    "StopDataCollectionResponse"
-    "fixture/StopDataCollectionResponse.proto"
+testUpdateAssessmentTargetResponse :: UpdateAssessmentTargetResponse -> TestTree
+testUpdateAssessmentTargetResponse = res
+    "UpdateAssessmentTargetResponse"
+    "fixture/UpdateAssessmentTargetResponse.proto"
     inspector
-    (Proxy :: Proxy StopDataCollection)
+    (Proxy :: Proxy UpdateAssessmentTarget)
 
-testPreviewAgentsForResourceGroupResponse :: PreviewAgentsForResourceGroupResponse -> TestTree
-testPreviewAgentsForResourceGroupResponse = res
-    "PreviewAgentsForResourceGroupResponse"
-    "fixture/PreviewAgentsForResourceGroupResponse.proto"
+testDeleteAssessmentTargetResponse :: DeleteAssessmentTargetResponse -> TestTree
+testDeleteAssessmentTargetResponse = res
+    "DeleteAssessmentTargetResponse"
+    "fixture/DeleteAssessmentTargetResponse.proto"
     inspector
-    (Proxy :: Proxy PreviewAgentsForResourceGroup)
+    (Proxy :: Proxy DeleteAssessmentTarget)
 
-testListAssessmentAgentsResponse :: ListAssessmentAgentsResponse -> TestTree
-testListAssessmentAgentsResponse = res
-    "ListAssessmentAgentsResponse"
-    "fixture/ListAssessmentAgentsResponse.proto"
+testDeleteAssessmentRunResponse :: DeleteAssessmentRunResponse -> TestTree
+testDeleteAssessmentRunResponse = res
+    "DeleteAssessmentRunResponse"
+    "fixture/DeleteAssessmentRunResponse.proto"
     inspector
-    (Proxy :: Proxy ListAssessmentAgents)
+    (Proxy :: Proxy DeleteAssessmentRun)
+
+testListAssessmentRunsResponse :: ListAssessmentRunsResponse -> TestTree
+testListAssessmentRunsResponse = res
+    "ListAssessmentRunsResponse"
+    "fixture/ListAssessmentRunsResponse.proto"
+    inspector
+    (Proxy :: Proxy ListAssessmentRuns)
 
 testListRulesPackagesResponse :: ListRulesPackagesResponse -> TestTree
 testListRulesPackagesResponse = res
@@ -672,6 +586,20 @@ testListRulesPackagesResponse = res
     inspector
     (Proxy :: Proxy ListRulesPackages)
 
+testDescribeAssessmentRunsResponse :: DescribeAssessmentRunsResponse -> TestTree
+testDescribeAssessmentRunsResponse = res
+    "DescribeAssessmentRunsResponse"
+    "fixture/DescribeAssessmentRunsResponse.proto"
+    inspector
+    (Proxy :: Proxy DescribeAssessmentRuns)
+
+testUnsubscribeFromEventResponse :: UnsubscribeFromEventResponse -> TestTree
+testUnsubscribeFromEventResponse = res
+    "UnsubscribeFromEventResponse"
+    "fixture/UnsubscribeFromEventResponse.proto"
+    inspector
+    (Proxy :: Proxy UnsubscribeFromEvent)
+
 testRemoveAttributesFromFindingsResponse :: RemoveAttributesFromFindingsResponse -> TestTree
 testRemoveAttributesFromFindingsResponse = res
     "RemoveAttributesFromFindingsResponse"
@@ -679,9 +607,9 @@ testRemoveAttributesFromFindingsResponse = res
     inspector
     (Proxy :: Proxy RemoveAttributesFromFindings)
 
-testAttachAssessmentAndRulesPackageResponse :: AttachAssessmentAndRulesPackageResponse -> TestTree
-testAttachAssessmentAndRulesPackageResponse = res
-    "AttachAssessmentAndRulesPackageResponse"
-    "fixture/AttachAssessmentAndRulesPackageResponse.proto"
+testDescribeAssessmentTargetsResponse :: DescribeAssessmentTargetsResponse -> TestTree
+testDescribeAssessmentTargetsResponse = res
+    "DescribeAssessmentTargetsResponse"
+    "fixture/DescribeAssessmentTargetsResponse.proto"
     inspector
-    (Proxy :: Proxy AttachAssessmentAndRulesPackage)
+    (Proxy :: Proxy DescribeAssessmentTargets)

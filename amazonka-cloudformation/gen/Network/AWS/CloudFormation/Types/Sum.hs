@@ -42,6 +42,154 @@ instance ToHeader     Capability
 instance FromXML Capability where
     parseXML = parseXMLText "Capability"
 
+data ChangeAction
+    = Add
+    | Modify
+    | Remove
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ChangeAction where
+    parser = takeLowerText >>= \case
+        "add" -> pure Add
+        "modify" -> pure Modify
+        "remove" -> pure Remove
+        e -> fromTextError $ "Failure parsing ChangeAction from value: '" <> e
+           <> "'. Accepted values: Add, Modify, Remove"
+
+instance ToText ChangeAction where
+    toText = \case
+        Add -> "Add"
+        Modify -> "Modify"
+        Remove -> "Remove"
+
+instance Hashable     ChangeAction
+instance NFData       ChangeAction
+instance ToByteString ChangeAction
+instance ToQuery      ChangeAction
+instance ToHeader     ChangeAction
+
+instance FromXML ChangeAction where
+    parseXML = parseXMLText "ChangeAction"
+
+data ChangeSetStatus
+    = CSSCreateComplete
+    | CSSCreateInProgress
+    | CSSCreatePending
+    | CSSDeleteComplete
+    | CSSFailed
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ChangeSetStatus where
+    parser = takeLowerText >>= \case
+        "create_complete" -> pure CSSCreateComplete
+        "create_in_progress" -> pure CSSCreateInProgress
+        "create_pending" -> pure CSSCreatePending
+        "delete_complete" -> pure CSSDeleteComplete
+        "failed" -> pure CSSFailed
+        e -> fromTextError $ "Failure parsing ChangeSetStatus from value: '" <> e
+           <> "'. Accepted values: CREATE_COMPLETE, CREATE_IN_PROGRESS, CREATE_PENDING, DELETE_COMPLETE, FAILED"
+
+instance ToText ChangeSetStatus where
+    toText = \case
+        CSSCreateComplete -> "CREATE_COMPLETE"
+        CSSCreateInProgress -> "CREATE_IN_PROGRESS"
+        CSSCreatePending -> "CREATE_PENDING"
+        CSSDeleteComplete -> "DELETE_COMPLETE"
+        CSSFailed -> "FAILED"
+
+instance Hashable     ChangeSetStatus
+instance NFData       ChangeSetStatus
+instance ToByteString ChangeSetStatus
+instance ToQuery      ChangeSetStatus
+instance ToHeader     ChangeSetStatus
+
+instance FromXML ChangeSetStatus where
+    parseXML = parseXMLText "ChangeSetStatus"
+
+data ChangeSource
+    = Automatic
+    | DirectModification
+    | ParameterReference
+    | ResourceAttribute
+    | ResourceReference
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ChangeSource where
+    parser = takeLowerText >>= \case
+        "automatic" -> pure Automatic
+        "directmodification" -> pure DirectModification
+        "parameterreference" -> pure ParameterReference
+        "resourceattribute" -> pure ResourceAttribute
+        "resourcereference" -> pure ResourceReference
+        e -> fromTextError $ "Failure parsing ChangeSource from value: '" <> e
+           <> "'. Accepted values: Automatic, DirectModification, ParameterReference, ResourceAttribute, ResourceReference"
+
+instance ToText ChangeSource where
+    toText = \case
+        Automatic -> "Automatic"
+        DirectModification -> "DirectModification"
+        ParameterReference -> "ParameterReference"
+        ResourceAttribute -> "ResourceAttribute"
+        ResourceReference -> "ResourceReference"
+
+instance Hashable     ChangeSource
+instance NFData       ChangeSource
+instance ToByteString ChangeSource
+instance ToQuery      ChangeSource
+instance ToHeader     ChangeSource
+
+instance FromXML ChangeSource where
+    parseXML = parseXMLText "ChangeSource"
+
+data ChangeType =
+    Resource
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ChangeType where
+    parser = takeLowerText >>= \case
+        "resource" -> pure Resource
+        e -> fromTextError $ "Failure parsing ChangeType from value: '" <> e
+           <> "'. Accepted values: Resource"
+
+instance ToText ChangeType where
+    toText = \case
+        Resource -> "Resource"
+
+instance Hashable     ChangeType
+instance NFData       ChangeType
+instance ToByteString ChangeType
+instance ToQuery      ChangeType
+instance ToHeader     ChangeType
+
+instance FromXML ChangeType where
+    parseXML = parseXMLText "ChangeType"
+
+data EvaluationType
+    = Dynamic
+    | Static
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText EvaluationType where
+    parser = takeLowerText >>= \case
+        "dynamic" -> pure Dynamic
+        "static" -> pure Static
+        e -> fromTextError $ "Failure parsing EvaluationType from value: '" <> e
+           <> "'. Accepted values: Dynamic, Static"
+
+instance ToText EvaluationType where
+    toText = \case
+        Dynamic -> "Dynamic"
+        Static -> "Static"
+
+instance Hashable     EvaluationType
+instance NFData       EvaluationType
+instance ToByteString EvaluationType
+instance ToQuery      EvaluationType
+instance ToHeader     EvaluationType
+
+instance FromXML EvaluationType where
+    parseXML = parseXMLText "EvaluationType"
+
 data OnFailure
     = Delete
     | DoNothing
@@ -67,6 +215,102 @@ instance NFData       OnFailure
 instance ToByteString OnFailure
 instance ToQuery      OnFailure
 instance ToHeader     OnFailure
+
+data Replacement
+    = Conditional
+    | False'
+    | True'
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText Replacement where
+    parser = takeLowerText >>= \case
+        "conditional" -> pure Conditional
+        "false" -> pure False'
+        "true" -> pure True'
+        e -> fromTextError $ "Failure parsing Replacement from value: '" <> e
+           <> "'. Accepted values: Conditional, False, True"
+
+instance ToText Replacement where
+    toText = \case
+        Conditional -> "Conditional"
+        False' -> "False"
+        True' -> "True"
+
+instance Hashable     Replacement
+instance NFData       Replacement
+instance ToByteString Replacement
+instance ToQuery      Replacement
+instance ToHeader     Replacement
+
+instance FromXML Replacement where
+    parseXML = parseXMLText "Replacement"
+
+data RequiresRecreation
+    = Always
+    | Conditionally
+    | Never
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText RequiresRecreation where
+    parser = takeLowerText >>= \case
+        "always" -> pure Always
+        "conditionally" -> pure Conditionally
+        "never" -> pure Never
+        e -> fromTextError $ "Failure parsing RequiresRecreation from value: '" <> e
+           <> "'. Accepted values: Always, Conditionally, Never"
+
+instance ToText RequiresRecreation where
+    toText = \case
+        Always -> "Always"
+        Conditionally -> "Conditionally"
+        Never -> "Never"
+
+instance Hashable     RequiresRecreation
+instance NFData       RequiresRecreation
+instance ToByteString RequiresRecreation
+instance ToQuery      RequiresRecreation
+instance ToHeader     RequiresRecreation
+
+instance FromXML RequiresRecreation where
+    parseXML = parseXMLText "RequiresRecreation"
+
+data ResourceAttribute
+    = CreationPolicy
+    | DeletionPolicy
+    | Metadata
+    | Properties
+    | Tags
+    | UpdatePolicy
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ResourceAttribute where
+    parser = takeLowerText >>= \case
+        "creationpolicy" -> pure CreationPolicy
+        "deletionpolicy" -> pure DeletionPolicy
+        "metadata" -> pure Metadata
+        "properties" -> pure Properties
+        "tags" -> pure Tags
+        "updatepolicy" -> pure UpdatePolicy
+        e -> fromTextError $ "Failure parsing ResourceAttribute from value: '" <> e
+           <> "'. Accepted values: CreationPolicy, DeletionPolicy, Metadata, Properties, Tags, UpdatePolicy"
+
+instance ToText ResourceAttribute where
+    toText = \case
+        CreationPolicy -> "CreationPolicy"
+        DeletionPolicy -> "DeletionPolicy"
+        Metadata -> "Metadata"
+        Properties -> "Properties"
+        Tags -> "Tags"
+        UpdatePolicy -> "UpdatePolicy"
+
+instance Hashable     ResourceAttribute
+instance NFData       ResourceAttribute
+instance ToByteString ResourceAttribute
+instance ToQuery      ResourceAttribute
+instance ToHeader     ResourceAttribute
+
+instance FromXML ResourceAttribute where
+    parseXML = parseXMLText "ResourceAttribute"
 
 data ResourceSignalStatus
     = Failure

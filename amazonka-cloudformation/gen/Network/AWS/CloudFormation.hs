@@ -41,6 +41,12 @@ module Network.AWS.CloudFormation
     -- * Errors
     -- $errors
 
+    -- ** ChangeSetNotFoundException
+    , _ChangeSetNotFoundException
+
+    -- ** InvalidChangeSetStatusException
+    , _InvalidChangeSetStatusException
+
     -- ** InsufficientCapabilitiesException
     , _InsufficientCapabilitiesException
 
@@ -77,6 +83,9 @@ module Network.AWS.CloudFormation
     -- ** GetTemplateSummary
     , module Network.AWS.CloudFormation.GetTemplateSummary
 
+    -- ** ListChangeSets
+    , module Network.AWS.CloudFormation.ListChangeSets
+
     -- ** ListStackResources (Paginated)
     , module Network.AWS.CloudFormation.ListStackResources
 
@@ -85,6 +94,12 @@ module Network.AWS.CloudFormation
 
     -- ** DescribeStacks (Paginated)
     , module Network.AWS.CloudFormation.DescribeStacks
+
+    -- ** CreateChangeSet
+    , module Network.AWS.CloudFormation.CreateChangeSet
+
+    -- ** ExecuteChangeSet
+    , module Network.AWS.CloudFormation.ExecuteChangeSet
 
     -- ** ContinueUpdateRollback
     , module Network.AWS.CloudFormation.ContinueUpdateRollback
@@ -119,8 +134,14 @@ module Network.AWS.CloudFormation
     -- ** EstimateTemplateCost
     , module Network.AWS.CloudFormation.EstimateTemplateCost
 
+    -- ** DeleteChangeSet
+    , module Network.AWS.CloudFormation.DeleteChangeSet
+
     -- ** GetTemplate
     , module Network.AWS.CloudFormation.GetTemplate
+
+    -- ** DescribeChangeSet
+    , module Network.AWS.CloudFormation.DescribeChangeSet
 
     -- ** DescribeStackResource
     , module Network.AWS.CloudFormation.DescribeStackResource
@@ -130,8 +151,32 @@ module Network.AWS.CloudFormation
     -- ** Capability
     , Capability (..)
 
+    -- ** ChangeAction
+    , ChangeAction (..)
+
+    -- ** ChangeSetStatus
+    , ChangeSetStatus (..)
+
+    -- ** ChangeSource
+    , ChangeSource (..)
+
+    -- ** ChangeType
+    , ChangeType (..)
+
+    -- ** EvaluationType
+    , EvaluationType (..)
+
     -- ** OnFailure
     , OnFailure (..)
+
+    -- ** Replacement
+    , Replacement (..)
+
+    -- ** RequiresRecreation
+    , RequiresRecreation (..)
+
+    -- ** ResourceAttribute
+    , ResourceAttribute (..)
 
     -- ** ResourceSignalStatus
     , ResourceSignalStatus (..)
@@ -147,6 +192,24 @@ module Network.AWS.CloudFormation
     , accountLimit
     , alValue
     , alName
+
+    -- ** Change
+    , Change
+    , change
+    , cResourceChange
+    , cType
+
+    -- ** ChangeSetSummary
+    , ChangeSetSummary
+    , changeSetSummary
+    , cssCreationTime
+    , cssStatus
+    , cssChangeSetName
+    , cssChangeSetId
+    , cssStatusReason
+    , cssStackId
+    , cssDescription
+    , cssStackName
 
     -- ** Output
     , Output
@@ -176,6 +239,32 @@ module Network.AWS.CloudFormation
     , pdDefaultValue
     , pdNoEcho
     , pdDescription
+
+    -- ** ResourceChange
+    , ResourceChange
+    , resourceChange
+    , rcLogicalResourceId
+    , rcPhysicalResourceId
+    , rcResourceType
+    , rcAction
+    , rcScope
+    , rcDetails
+    , rcReplacement
+
+    -- ** ResourceChangeDetail
+    , ResourceChangeDetail
+    , resourceChangeDetail
+    , rcdCausingEntity
+    , rcdChangeSource
+    , rcdEvaluation
+    , rcdTarget
+
+    -- ** ResourceTargetDefinition
+    , ResourceTargetDefinition
+    , resourceTargetDefinition
+    , rtdAttribute
+    , rtdRequiresRecreation
+    , rtdName
 
     -- ** Stack
     , Stack
@@ -275,17 +364,22 @@ module Network.AWS.CloudFormation
 
 import           Network.AWS.CloudFormation.CancelUpdateStack
 import           Network.AWS.CloudFormation.ContinueUpdateRollback
+import           Network.AWS.CloudFormation.CreateChangeSet
 import           Network.AWS.CloudFormation.CreateStack
+import           Network.AWS.CloudFormation.DeleteChangeSet
 import           Network.AWS.CloudFormation.DeleteStack
 import           Network.AWS.CloudFormation.DescribeAccountLimits
+import           Network.AWS.CloudFormation.DescribeChangeSet
 import           Network.AWS.CloudFormation.DescribeStackEvents
 import           Network.AWS.CloudFormation.DescribeStackResource
 import           Network.AWS.CloudFormation.DescribeStackResources
 import           Network.AWS.CloudFormation.DescribeStacks
 import           Network.AWS.CloudFormation.EstimateTemplateCost
+import           Network.AWS.CloudFormation.ExecuteChangeSet
 import           Network.AWS.CloudFormation.GetStackPolicy
 import           Network.AWS.CloudFormation.GetTemplate
 import           Network.AWS.CloudFormation.GetTemplateSummary
+import           Network.AWS.CloudFormation.ListChangeSets
 import           Network.AWS.CloudFormation.ListStackResources
 import           Network.AWS.CloudFormation.ListStacks
 import           Network.AWS.CloudFormation.SetStackPolicy

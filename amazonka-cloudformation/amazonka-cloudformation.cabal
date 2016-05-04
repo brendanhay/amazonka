@@ -64,17 +64,22 @@ library
           Network.AWS.CloudFormation
         , Network.AWS.CloudFormation.CancelUpdateStack
         , Network.AWS.CloudFormation.ContinueUpdateRollback
+        , Network.AWS.CloudFormation.CreateChangeSet
         , Network.AWS.CloudFormation.CreateStack
+        , Network.AWS.CloudFormation.DeleteChangeSet
         , Network.AWS.CloudFormation.DeleteStack
         , Network.AWS.CloudFormation.DescribeAccountLimits
+        , Network.AWS.CloudFormation.DescribeChangeSet
         , Network.AWS.CloudFormation.DescribeStackEvents
         , Network.AWS.CloudFormation.DescribeStackResource
         , Network.AWS.CloudFormation.DescribeStackResources
         , Network.AWS.CloudFormation.DescribeStacks
         , Network.AWS.CloudFormation.EstimateTemplateCost
+        , Network.AWS.CloudFormation.ExecuteChangeSet
         , Network.AWS.CloudFormation.GetStackPolicy
         , Network.AWS.CloudFormation.GetTemplate
         , Network.AWS.CloudFormation.GetTemplateSummary
+        , Network.AWS.CloudFormation.ListChangeSets
         , Network.AWS.CloudFormation.ListStackResources
         , Network.AWS.CloudFormation.ListStacks
         , Network.AWS.CloudFormation.SetStackPolicy

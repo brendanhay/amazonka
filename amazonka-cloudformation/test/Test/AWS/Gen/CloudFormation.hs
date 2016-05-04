@@ -37,6 +37,9 @@ import Test.AWS.CloudFormation.Internal
 --         , testGetTemplateSummary $
 --             getTemplateSummary
 --
+--         , testListChangeSets $
+--             listChangeSets
+--
 --         , testListStackResources $
 --             listStackResources
 --
@@ -45,6 +48,12 @@ import Test.AWS.CloudFormation.Internal
 --
 --         , testDescribeStacks $
 --             describeStacks
+--
+--         , testCreateChangeSet $
+--             createChangeSet
+--
+--         , testExecuteChangeSet $
+--             executeChangeSet
 --
 --         , testContinueUpdateRollback $
 --             continueUpdateRollback
@@ -79,8 +88,14 @@ import Test.AWS.CloudFormation.Internal
 --         , testEstimateTemplateCost $
 --             estimateTemplateCost
 --
+--         , testDeleteChangeSet $
+--             deleteChangeSet
+--
 --         , testGetTemplate $
 --             getTemplate
+--
+--         , testDescribeChangeSet $
+--             describeChangeSet
 --
 --         , testDescribeStackResource $
 --             describeStackResource
@@ -97,6 +112,9 @@ import Test.AWS.CloudFormation.Internal
 --         , testGetTemplateSummaryResponse $
 --             getTemplateSummaryResponse
 --
+--         , testListChangeSetsResponse $
+--             listChangeSetsResponse
+--
 --         , testListStackResourcesResponse $
 --             listStackResourcesResponse
 --
@@ -105,6 +123,12 @@ import Test.AWS.CloudFormation.Internal
 --
 --         , testDescribeStacksResponse $
 --             describeStacksResponse
+--
+--         , testCreateChangeSetResponse $
+--             createChangeSetResponse
+--
+--         , testExecuteChangeSetResponse $
+--             executeChangeSetResponse
 --
 --         , testContinueUpdateRollbackResponse $
 --             continueUpdateRollbackResponse
@@ -139,8 +163,14 @@ import Test.AWS.CloudFormation.Internal
 --         , testEstimateTemplateCostResponse $
 --             estimateTemplateCostResponse
 --
+--         , testDeleteChangeSetResponse $
+--             deleteChangeSetResponse
+--
 --         , testGetTemplateResponse $
 --             getTemplateResponse
+--
+--         , testDescribeChangeSetResponse $
+--             describeChangeSetResponse
 --
 --         , testDescribeStackResourceResponse $
 --             describeStackResourceResponse
@@ -165,6 +195,11 @@ testGetTemplateSummary = req
     "GetTemplateSummary"
     "fixture/GetTemplateSummary.yaml"
 
+testListChangeSets :: ListChangeSets -> TestTree
+testListChangeSets = req
+    "ListChangeSets"
+    "fixture/ListChangeSets.yaml"
+
 testListStackResources :: ListStackResources -> TestTree
 testListStackResources = req
     "ListStackResources"
@@ -179,6 +214,16 @@ testDescribeStacks :: DescribeStacks -> TestTree
 testDescribeStacks = req
     "DescribeStacks"
     "fixture/DescribeStacks.yaml"
+
+testCreateChangeSet :: CreateChangeSet -> TestTree
+testCreateChangeSet = req
+    "CreateChangeSet"
+    "fixture/CreateChangeSet.yaml"
+
+testExecuteChangeSet :: ExecuteChangeSet -> TestTree
+testExecuteChangeSet = req
+    "ExecuteChangeSet"
+    "fixture/ExecuteChangeSet.yaml"
 
 testContinueUpdateRollback :: ContinueUpdateRollback -> TestTree
 testContinueUpdateRollback = req
@@ -235,10 +280,20 @@ testEstimateTemplateCost = req
     "EstimateTemplateCost"
     "fixture/EstimateTemplateCost.yaml"
 
+testDeleteChangeSet :: DeleteChangeSet -> TestTree
+testDeleteChangeSet = req
+    "DeleteChangeSet"
+    "fixture/DeleteChangeSet.yaml"
+
 testGetTemplate :: GetTemplate -> TestTree
 testGetTemplate = req
     "GetTemplate"
     "fixture/GetTemplate.yaml"
+
+testDescribeChangeSet :: DescribeChangeSet -> TestTree
+testDescribeChangeSet = req
+    "DescribeChangeSet"
+    "fixture/DescribeChangeSet.yaml"
 
 testDescribeStackResource :: DescribeStackResource -> TestTree
 testDescribeStackResource = req
@@ -268,6 +323,13 @@ testGetTemplateSummaryResponse = res
     cloudFormation
     (Proxy :: Proxy GetTemplateSummary)
 
+testListChangeSetsResponse :: ListChangeSetsResponse -> TestTree
+testListChangeSetsResponse = res
+    "ListChangeSetsResponse"
+    "fixture/ListChangeSetsResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy ListChangeSets)
+
 testListStackResourcesResponse :: ListStackResourcesResponse -> TestTree
 testListStackResourcesResponse = res
     "ListStackResourcesResponse"
@@ -288,6 +350,20 @@ testDescribeStacksResponse = res
     "fixture/DescribeStacksResponse.proto"
     cloudFormation
     (Proxy :: Proxy DescribeStacks)
+
+testCreateChangeSetResponse :: CreateChangeSetResponse -> TestTree
+testCreateChangeSetResponse = res
+    "CreateChangeSetResponse"
+    "fixture/CreateChangeSetResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy CreateChangeSet)
+
+testExecuteChangeSetResponse :: ExecuteChangeSetResponse -> TestTree
+testExecuteChangeSetResponse = res
+    "ExecuteChangeSetResponse"
+    "fixture/ExecuteChangeSetResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy ExecuteChangeSet)
 
 testContinueUpdateRollbackResponse :: ContinueUpdateRollbackResponse -> TestTree
 testContinueUpdateRollbackResponse = res
@@ -366,12 +442,26 @@ testEstimateTemplateCostResponse = res
     cloudFormation
     (Proxy :: Proxy EstimateTemplateCost)
 
+testDeleteChangeSetResponse :: DeleteChangeSetResponse -> TestTree
+testDeleteChangeSetResponse = res
+    "DeleteChangeSetResponse"
+    "fixture/DeleteChangeSetResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DeleteChangeSet)
+
 testGetTemplateResponse :: GetTemplateResponse -> TestTree
 testGetTemplateResponse = res
     "GetTemplateResponse"
     "fixture/GetTemplateResponse.proto"
     cloudFormation
     (Proxy :: Proxy GetTemplate)
+
+testDescribeChangeSetResponse :: DescribeChangeSetResponse -> TestTree
+testDescribeChangeSetResponse = res
+    "DescribeChangeSetResponse"
+    "fixture/DescribeChangeSetResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DescribeChangeSet)
 
 testDescribeStackResourceResponse :: DescribeStackResourceResponse -> TestTree
 testDescribeStackResourceResponse = res

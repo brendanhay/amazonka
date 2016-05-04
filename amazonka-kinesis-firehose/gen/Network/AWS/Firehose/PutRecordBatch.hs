@@ -40,48 +40,48 @@
 -- segment from a log file, geographic location data, web site clickstream
 -- data, and so on.
 --
--- Amazon Kinesis Firehose buffers records before delivering them to the
--- destination. To disambiguate the data blobs at the destination, a common
--- solution is to use delimiters in the data, such as a newline ('\\n') or
--- some other character unique within the data. This allows the consumer
+-- Firehose buffers records before delivering them to the destination. To
+-- disambiguate the data blobs at the destination, a common solution is to
+-- use delimiters in the data, such as a newline ('\\n') or some other
+-- character unique within the data. This allows the consumer
 -- application(s) to parse individual data items when reading the data from
 -- the destination.
 --
 -- The < PutRecordBatch> response includes a count of any failed records,
--- 'FailedPutCount', and an array of responses, 'RequestResponses'. The
--- 'FailedPutCount' value is a count of records that failed. Each entry in
--- the 'RequestResponses' array gives additional information of the
--- processed record. Each entry in 'RequestResponses' directly correlates
+-- __FailedPutCount__, and an array of responses, __RequestResponses__. The
+-- __FailedPutCount__ value is a count of records that failed. Each entry
+-- in the __RequestResponses__ array gives additional information of the
+-- processed record. Each entry in __RequestResponses__ directly correlates
 -- with a record in the request array using the same ordering, from the top
--- to the bottom of the request and response. 'RequestResponses' always
+-- to the bottom of the request and response. __RequestResponses__ always
 -- includes the same number of records as the request array.
--- 'RequestResponses' both successfully and unsuccessfully processed
--- records. Amazon Kinesis Firehose attempts to process all records in each
+-- __RequestResponses__ both successfully and unsuccessfully processed
+-- records. Firehose attempts to process all records in each
 -- < PutRecordBatch> request. A single record failure does not stop the
 -- processing of subsequent records.
 --
--- A successfully processed record includes a 'RecordId' value, which is a
--- unique value identified for the record. An unsuccessfully processed
--- record includes 'ErrorCode' and 'ErrorMessage' values. 'ErrorCode'
+-- A successfully processed record includes a __RecordId__ value, which is
+-- a unique value identified for the record. An unsuccessfully processed
+-- record includes __ErrorCode__ and __ErrorMessage__ values. __ErrorCode__
 -- reflects the type of error and is one of the following values:
 -- 'ServiceUnavailable' or 'InternalFailure'. 'ErrorMessage' provides more
 -- detailed information about the error.
 --
--- If 'FailedPutCount' is greater than 0 (zero), retry the request. A retry
--- of the entire batch of records is possible; however, we strongly
+-- If __FailedPutCount__ is greater than 0 (zero), retry the request. A
+-- retry of the entire batch of records is possible; however, we strongly
 -- recommend that you inspect the entire response and resend only those
 -- records that failed processing. This minimizes duplicate records and
 -- also reduces the total bytes sent (and corresponding charges).
 --
 -- If the < PutRecordBatch> operation throws a
--- 'ServiceUnavailableException', back off and retry. If the exception
+-- __ServiceUnavailableException__, back off and retry. If the exception
 -- persists, it is possible that the throughput limits have been exceeded
 -- for the delivery stream.
 --
--- Data records sent to Amazon Kinesis Firehose are stored for 24 hours
--- from the time they are added to a delivery stream as it attempts to send
--- the records to the destination. If the destination is unreachable for
--- more than 24 hours, the data is no longer available.
+-- Data records sent to Firehose are stored for 24 hours from the time they
+-- are added to a delivery stream as it attempts to send the records to the
+-- destination. If the destination is unreachable for more than 24 hours,
+-- the data is no longer available.
 module Network.AWS.Firehose.PutRecordBatch
     (
     -- * Creating a Request

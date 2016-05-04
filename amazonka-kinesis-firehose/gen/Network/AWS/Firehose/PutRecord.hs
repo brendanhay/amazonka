@@ -36,30 +36,25 @@
 -- segment from a log file, geographic location data, web site clickstream
 -- data, etc.
 --
--- Amazon Kinesis Firehose buffers records before delivering them to the
--- destination. To disambiguate the data blobs at the destination, a common
--- solution is to use delimiters in the data, such as a newline ('\\n') or
--- some other character unique within the data. This allows the consumer
+-- Firehose buffers records before delivering them to the destination. To
+-- disambiguate the data blobs at the destination, a common solution is to
+-- use delimiters in the data, such as a newline ('\\n') or some other
+-- character unique within the data. This allows the consumer
 -- application(s) to parse individual data items when reading the data from
 -- the destination.
 --
--- Amazon Kinesis Firehose does not maintain data record ordering. If the
--- destination data needs to be re-ordered by the consumer application, the
--- producer should include some form of sequence number in each data
--- record.
---
--- The < PutRecord> operation returns a 'RecordId', which is a unique
+-- The < PutRecord> operation returns a __RecordId__, which is a unique
 -- string assigned to each record. Producer applications can use this ID
 -- for purposes such as auditability and investigation.
 --
--- If the < PutRecord> operation throws a 'ServiceUnavailableException',
+-- If the < PutRecord> operation throws a __ServiceUnavailableException__,
 -- back off and retry. If the exception persists, it is possible that the
 -- throughput limits have been exceeded for the delivery stream.
 --
--- Data records sent to Amazon Kinesis Firehose are stored for 24 hours
--- from the time they are added to a delivery stream as it attempts to send
--- the records to the destination. If the destination is unreachable for
--- more than 24 hours, the data is no longer available.
+-- Data records sent to Firehose are stored for 24 hours from the time they
+-- are added to a delivery stream as it attempts to send the records to the
+-- destination. If the destination is unreachable for more than 24 hours,
+-- the data is no longer available.
 module Network.AWS.Firehose.PutRecord
     (
     -- * Creating a Request

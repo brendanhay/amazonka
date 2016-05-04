@@ -83,6 +83,73 @@ instance ToHeader     DeliveryStreamStatus
 instance FromJSON DeliveryStreamStatus where
     parseJSON = parseJSONText "DeliveryStreamStatus"
 
+data ElasticsearchIndexRotationPeriod
+    = NoRotation
+    | OneDay
+    | OneHour
+    | OneMonth
+    | OneWeek
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ElasticsearchIndexRotationPeriod where
+    parser = takeLowerText >>= \case
+        "norotation" -> pure NoRotation
+        "oneday" -> pure OneDay
+        "onehour" -> pure OneHour
+        "onemonth" -> pure OneMonth
+        "oneweek" -> pure OneWeek
+        e -> fromTextError $ "Failure parsing ElasticsearchIndexRotationPeriod from value: '" <> e
+           <> "'. Accepted values: NoRotation, OneDay, OneHour, OneMonth, OneWeek"
+
+instance ToText ElasticsearchIndexRotationPeriod where
+    toText = \case
+        NoRotation -> "NoRotation"
+        OneDay -> "OneDay"
+        OneHour -> "OneHour"
+        OneMonth -> "OneMonth"
+        OneWeek -> "OneWeek"
+
+instance Hashable     ElasticsearchIndexRotationPeriod
+instance NFData       ElasticsearchIndexRotationPeriod
+instance ToByteString ElasticsearchIndexRotationPeriod
+instance ToQuery      ElasticsearchIndexRotationPeriod
+instance ToHeader     ElasticsearchIndexRotationPeriod
+
+instance ToJSON ElasticsearchIndexRotationPeriod where
+    toJSON = toJSONText
+
+instance FromJSON ElasticsearchIndexRotationPeriod where
+    parseJSON = parseJSONText "ElasticsearchIndexRotationPeriod"
+
+data ElasticsearchS3BackupMode
+    = AllDocuments
+    | FailedDocumentsOnly
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ElasticsearchS3BackupMode where
+    parser = takeLowerText >>= \case
+        "alldocuments" -> pure AllDocuments
+        "faileddocumentsonly" -> pure FailedDocumentsOnly
+        e -> fromTextError $ "Failure parsing ElasticsearchS3BackupMode from value: '" <> e
+           <> "'. Accepted values: AllDocuments, FailedDocumentsOnly"
+
+instance ToText ElasticsearchS3BackupMode where
+    toText = \case
+        AllDocuments -> "AllDocuments"
+        FailedDocumentsOnly -> "FailedDocumentsOnly"
+
+instance Hashable     ElasticsearchS3BackupMode
+instance NFData       ElasticsearchS3BackupMode
+instance ToByteString ElasticsearchS3BackupMode
+instance ToQuery      ElasticsearchS3BackupMode
+instance ToHeader     ElasticsearchS3BackupMode
+
+instance ToJSON ElasticsearchS3BackupMode where
+    toJSON = toJSONText
+
+instance FromJSON ElasticsearchS3BackupMode where
+    parseJSON = parseJSONText "ElasticsearchS3BackupMode"
+
 data NoEncryptionConfig =
     NoEncryption
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)

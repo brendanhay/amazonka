@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeNetworkInterfaceAttribute' smart constructor.
+-- | Contains the parameters for DescribeNetworkInterfaceAttribute.
+--
+-- /See:/ 'describeNetworkInterfaceAttribute' smart constructor.
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
     { _dniaAttribute          :: !(Maybe NetworkInterfaceAttribute)
     , _dniaDryRun             :: !(Maybe Bool)
@@ -130,7 +132,9 @@ instance ToQuery DescribeNetworkInterfaceAttribute
                "DryRun" =: _dniaDryRun,
                "NetworkInterfaceId" =: _dniaNetworkInterfaceId]
 
--- | /See:/ 'describeNetworkInterfaceAttributeResponse' smart constructor.
+-- | Contains the output of DescribeNetworkInterfaceAttribute.
+--
+-- /See:/ 'describeNetworkInterfaceAttributeResponse' smart constructor.
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'
     { _dniarsGroups             :: !(Maybe [GroupIdentifier])
     , _dniarsSourceDestCheck    :: !(Maybe AttributeBooleanValue)

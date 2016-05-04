@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createNetworkACL' smart constructor.
+-- | Contains the parameters for CreateNetworkAcl.
+--
+-- /See:/ 'createNetworkACL' smart constructor.
 data CreateNetworkACL = CreateNetworkACL'
     { _cnaDryRun :: !(Maybe Bool)
     , _cnaVPCId  :: !Text
@@ -108,7 +110,9 @@ instance ToQuery CreateNetworkACL where
                "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _cnaDryRun, "VpcId" =: _cnaVPCId]
 
--- | /See:/ 'createNetworkACLResponse' smart constructor.
+-- | Contains the output of CreateNetworkAcl.
+--
+-- /See:/ 'createNetworkACLResponse' smart constructor.
 data CreateNetworkACLResponse = CreateNetworkACLResponse'
     { _cnarsNetworkACL     :: !(Maybe NetworkACL)
     , _cnarsResponseStatus :: !Int

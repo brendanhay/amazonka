@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteSubnet' smart constructor.
+-- | Contains the parameters for DeleteSubnet.
+--
+-- /See:/ 'deleteSubnet' smart constructor.
 data DeleteSubnet = DeleteSubnet'
     { _ddDryRun   :: !(Maybe Bool)
     , _ddSubnetId :: !Text

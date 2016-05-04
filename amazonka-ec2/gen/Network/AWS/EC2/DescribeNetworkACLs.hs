@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeNetworkACLs' smart constructor.
+-- | Contains the parameters for DescribeNetworkAcls.
+--
+-- /See:/ 'describeNetworkACLs' smart constructor.
 data DescribeNetworkACLs = DescribeNetworkACLs'
     { _dnaclFilters       :: !(Maybe [Filter])
     , _dnaclNetworkACLIds :: !(Maybe [Text])
@@ -177,7 +179,9 @@ instance ToQuery DescribeNetworkACLs where
                  (toQueryList "NetworkAclId" <$> _dnaclNetworkACLIds),
                "DryRun" =: _dnaclDryRun]
 
--- | /See:/ 'describeNetworkACLsResponse' smart constructor.
+-- | Contains the output of DescribeNetworkAcls.
+--
+-- /See:/ 'describeNetworkACLsResponse' smart constructor.
 data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
     { _dnarsNetworkACLs    :: !(Maybe [NetworkACL])
     , _dnarsResponseStatus :: !Int

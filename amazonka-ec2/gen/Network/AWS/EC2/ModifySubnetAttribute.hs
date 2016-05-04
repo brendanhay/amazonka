@@ -40,7 +40,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifySubnetAttribute' smart constructor.
+-- | Contains the parameters for ModifySubnetAttribute.
+--
+-- /See:/ 'modifySubnetAttribute' smart constructor.
 data ModifySubnetAttribute = ModifySubnetAttribute'
     { _msaMapPublicIPOnLaunch :: !(Maybe AttributeBooleanValue)
     , _msaSubnetId            :: !Text

@@ -86,7 +86,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createSnapshot' smart constructor.
+-- | Contains the parameters for CreateSnapshot.
+--
+-- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
     { _ccDescription :: !(Maybe Text)
     , _ccDryRun      :: !(Maybe Bool)

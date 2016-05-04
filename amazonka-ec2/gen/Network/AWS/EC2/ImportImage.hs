@@ -62,7 +62,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'importImage' smart constructor.
+-- | Contains the parameters for ImportImage.
+--
+-- /See:/ 'importImage' smart constructor.
 data ImportImage = ImportImage'
     { _impHypervisor     :: !(Maybe Text)
     , _impPlatform       :: !(Maybe Text)
@@ -222,7 +224,9 @@ instance ToQuery ImportImage where
                toQuery
                  (toQueryList "DiskContainer" <$> _impDiskContainers)]
 
--- | /See:/ 'importImageResponse' smart constructor.
+-- | Contains the output for ImportImage.
+--
+-- /See:/ 'importImageResponse' smart constructor.
 data ImportImageResponse = ImportImageResponse'
     { _irsStatus          :: !(Maybe Text)
     , _irsHypervisor      :: !(Maybe Text)

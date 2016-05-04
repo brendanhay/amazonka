@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVPCClassicLink' smart constructor.
+-- | Contains the parameters for DescribeVpcClassicLink.
+--
+-- /See:/ 'describeVPCClassicLink' smart constructor.
 data DescribeVPCClassicLink = DescribeVPCClassicLink'
     { _dvclFilters :: !(Maybe [Filter])
     , _dvclVPCIds  :: !(Maybe [Text])
@@ -134,7 +136,9 @@ instance ToQuery DescribeVPCClassicLink where
                toQuery (toQueryList "VpcId" <$> _dvclVPCIds),
                "DryRun" =: _dvclDryRun]
 
--- | /See:/ 'describeVPCClassicLinkResponse' smart constructor.
+-- | Contains the output of DescribeVpcClassicLink.
+--
+-- /See:/ 'describeVPCClassicLinkResponse' smart constructor.
 data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
     { _dvclrsVPCs           :: !(Maybe [VPCClassicLink])
     , _dvclrsResponseStatus :: !Int

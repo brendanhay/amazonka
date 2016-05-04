@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeImportImageTasks' smart constructor.
+-- | Contains the parameters for DescribeImportImageTasks.
+--
+-- /See:/ 'describeImportImageTasks' smart constructor.
 data DescribeImportImageTasks = DescribeImportImageTasks'
     { _diitFilters       :: !(Maybe [Filter])
     , _diitImportTaskIds :: !(Maybe [Text])
@@ -81,7 +83,8 @@ describeImportImageTasks =
     , _diitMaxResults = Nothing
     }
 
--- | One or more filters.
+-- | Filter tasks using the 'task-state' filter and one of the following
+-- values: active, completed, deleting, deleted.
 diitFilters :: Lens' DescribeImportImageTasks [Filter]
 diitFilters = lens _diitFilters (\ s a -> s{_diitFilters = a}) . _Default . _Coerce;
 
@@ -100,7 +103,9 @@ diitNextToken = lens _diitNextToken (\ s a -> s{_diitNextToken = a});
 diitDryRun :: Lens' DescribeImportImageTasks (Maybe Bool)
 diitDryRun = lens _diitDryRun (\ s a -> s{_diitDryRun = a});
 
--- | The maximum number of results to return in a single request.
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned 'NextToken'
+-- value.
 diitMaxResults :: Lens' DescribeImportImageTasks (Maybe Int)
 diitMaxResults = lens _diitMaxResults (\ s a -> s{_diitMaxResults = a});
 
@@ -140,7 +145,9 @@ instance ToQuery DescribeImportImageTasks where
                "DryRun" =: _diitDryRun,
                "MaxResults" =: _diitMaxResults]
 
--- | /See:/ 'describeImportImageTasksResponse' smart constructor.
+-- | Contains the output for DescribeImportImageTasks.
+--
+-- /See:/ 'describeImportImageTasksResponse' smart constructor.
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
     { _diitrsNextToken        :: !(Maybe Text)
     , _diitrsImportImageTasks :: !(Maybe [ImportImageTask])

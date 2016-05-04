@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteCustomerGateway' smart constructor.
+-- | Contains the parameters for DeleteCustomerGateway.
+--
+-- /See:/ 'deleteCustomerGateway' smart constructor.
 data DeleteCustomerGateway = DeleteCustomerGateway'
     { _dcgcDryRun            :: !(Maybe Bool)
     , _dcgcCustomerGatewayId :: !Text

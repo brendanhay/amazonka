@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyVPCAttribute' smart constructor.
+-- | Contains the parameters for ModifyVpcAttribute.
+--
+-- /See:/ 'modifyVPCAttribute' smart constructor.
 data ModifyVPCAttribute = ModifyVPCAttribute'
     { _mvaEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
     , _mvaEnableDNSSupport   :: !(Maybe AttributeBooleanValue)

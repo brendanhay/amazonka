@@ -55,7 +55,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'copyImage' smart constructor.
+-- | Contains the parameters for CopyImage.
+--
+-- /See:/ 'copyImage' smart constructor.
 data CopyImage = CopyImage'
     { _ciClientToken   :: !(Maybe Text)
     , _ciEncrypted     :: !(Maybe Bool)
@@ -189,7 +191,9 @@ instance ToQuery CopyImage where
                "SourceImageId" =: _ciSourceImageId,
                "Name" =: _ciName]
 
--- | /See:/ 'copyImageResponse' smart constructor.
+-- | Contains the output of CopyImage.
+--
+-- /See:/ 'copyImageResponse' smart constructor.
 data CopyImageResponse = CopyImageResponse'
     { _coprsImageId        :: !(Maybe Text)
     , _coprsResponseStatus :: !Int

@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeMovingAddresses' smart constructor.
+-- | Contains the parameters for DescribeMovingAddresses.
+--
+-- /See:/ 'describeMovingAddresses' smart constructor.
 data DescribeMovingAddresses = DescribeMovingAddresses'
     { _dmaFilters    :: !(Maybe [Filter])
     , _dmaPublicIPs  :: !(Maybe [Text])
@@ -150,7 +152,9 @@ instance ToQuery DescribeMovingAddresses where
                "NextToken" =: _dmaNextToken, "DryRun" =: _dmaDryRun,
                "MaxResults" =: _dmaMaxResults]
 
--- | /See:/ 'describeMovingAddressesResponse' smart constructor.
+-- | Contains the output of DescribeMovingAddresses.
+--
+-- /See:/ 'describeMovingAddressesResponse' smart constructor.
 data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
     { _dmarsMovingAddressStatuses :: !(Maybe [MovingAddressStatus])
     , _dmarsNextToken             :: !(Maybe Text)

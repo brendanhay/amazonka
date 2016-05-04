@@ -71,7 +71,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createSubnet' smart constructor.
+-- | Contains the parameters for CreateSubnet.
+--
+-- /See:/ 'createSubnet' smart constructor.
 data CreateSubnet = CreateSubnet'
     { _cssAvailabilityZone :: !(Maybe Text)
     , _cssDryRun           :: !(Maybe Bool)
@@ -154,7 +156,9 @@ instance ToQuery CreateSubnet where
                "DryRun" =: _cssDryRun, "VpcId" =: _cssVPCId,
                "CidrBlock" =: _cssCIdRBlock]
 
--- | /See:/ 'createSubnetResponse' smart constructor.
+-- | Contains the output of CreateSubnet.
+--
+-- /See:/ 'createSubnetResponse' smart constructor.
 data CreateSubnetResponse = CreateSubnetResponse'
     { _crsSubnet         :: !(Maybe Subnet)
     , _crsResponseStatus :: !Int

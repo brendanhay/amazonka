@@ -64,7 +64,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'detachVolume' smart constructor.
+-- | Contains the parameters for DetachVolume.
+--
+-- /See:/ 'detachVolume' smart constructor.
 data DetachVolume = DetachVolume'
     { _dvInstanceId :: !(Maybe Text)
     , _dvForce      :: !(Maybe Bool)

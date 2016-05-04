@@ -52,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeImageAttribute' smart constructor.
+-- | Contains the parameters for DescribeImageAttribute.
+--
+-- /See:/ 'describeImageAttribute' smart constructor.
 data DescribeImageAttribute = DescribeImageAttribute'
     { _diaiDryRun    :: !(Maybe Bool)
     , _diaiImageId   :: !Text

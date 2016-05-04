@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'confirmProductInstance' smart constructor.
+-- | Contains the parameters for ConfirmProductInstance.
+--
+-- /See:/ 'confirmProductInstance' smart constructor.
 data ConfirmProductInstance = ConfirmProductInstance'
     { _cpiDryRun      :: !(Maybe Bool)
     , _cpiProductCode :: !Text
@@ -121,7 +123,9 @@ instance ToQuery ConfirmProductInstance where
                "ProductCode" =: _cpiProductCode,
                "InstanceId" =: _cpiInstanceId]
 
--- | /See:/ 'confirmProductInstanceResponse' smart constructor.
+-- | Contains the output of ConfirmProductInstance.
+--
+-- /See:/ 'confirmProductInstanceResponse' smart constructor.
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
     { _cpirsReturn         :: !(Maybe Bool)
     , _cpirsOwnerId        :: !(Maybe Text)

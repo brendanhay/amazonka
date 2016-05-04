@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeHosts' smart constructor.
+-- | Contains the parameters for DescribeHosts.
+--
+-- /See:/ 'describeHosts' smart constructor.
 data DescribeHosts = DescribeHosts'
     { _dhNextToken  :: !(Maybe Text)
     , _dhFilter     :: !(Maybe [Filter])
@@ -153,7 +155,9 @@ instance ToQuery DescribeHosts where
                toQuery (toQueryList "HostId" <$> _dhHostIds),
                "MaxResults" =: _dhMaxResults]
 
--- | /See:/ 'describeHostsResponse' smart constructor.
+-- | Contains the output of DescribeHosts.
+--
+-- /See:/ 'describeHostsResponse' smart constructor.
 data DescribeHostsResponse = DescribeHostsResponse'
     { _dhrsHosts          :: !(Maybe [Host])
     , _dhrsNextToken      :: !(Maybe Text)

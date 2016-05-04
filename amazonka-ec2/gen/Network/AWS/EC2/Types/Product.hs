@@ -1665,9 +1665,11 @@ ebdDeleteOnTermination = lens _ebdDeleteOnTermination (\ s a -> s{_ebdDeleteOnTe
 
 -- | The size of the volume, in GiB.
 --
--- Constraints: '1-1024' for 'standard' volumes, '1-16384' for 'gp2'
--- volumes, and '4-16384' for 'io1' volumes. If you specify a snapshot, the
--- volume size must be equal to or larger than the snapshot size.
+-- Constraints: 1-16384 for General Purpose SSD ('gp2'), 4-16384 for
+-- Provisioned IOPS SSD ('io1'), 500-16384 for Throughput Optimized HDD
+-- ('st1'), 500-16384 for Cold HDD ('sc1'), and 1-1024 for Magnetic
+-- ('standard') volumes. If you specify a snapshot, the volume size must be
+-- equal to or larger than the snapshot size.
 --
 -- Default: If you\'re creating the volume from a snapshot and don\'t
 -- specify a volume size, the default is the snapshot size.
@@ -1675,21 +1677,20 @@ ebdVolumeSize :: Lens' EBSBlockDevice (Maybe Int)
 ebdVolumeSize = lens _ebdVolumeSize (\ s a -> s{_ebdVolumeSize = a});
 
 -- | The number of I\/O operations per second (IOPS) that the volume
--- supports. For Provisioned IOPS (SSD) volumes, this represents the number
--- of IOPS that are provisioned for the volume. For General Purpose (SSD)
--- volumes, this represents the baseline performance of the volume and the
--- rate at which the volume accumulates I\/O credits for bursting. For more
--- information on General Purpose (SSD) baseline performance, I\/O credits,
--- and bursting, see
+-- supports. For io1, this represents the number of IOPS that are
+-- provisioned for the volume. For 'gp2', this represents the baseline
+-- performance of the volume and the rate at which the volume accumulates
+-- I\/O credits for bursting. For more information on General Purpose SSD
+-- baseline performance, I\/O credits, and bursting, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and
--- 3 to 10000 for General Purpose (SSD) volumes.
+-- Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS
+-- for 'gp2' volumes.
 --
 -- Condition: This parameter is required for requests to create 'io1'
--- volumes; it is not used in requests to create 'standard' or 'gp2'
--- volumes.
+-- volumes; it is not used in requests to create 'gp2', 'st1', 'sc1', or
+-- 'standard' volumes.
 ebdIOPS :: Lens' EBSBlockDevice (Maybe Int)
 ebdIOPS = lens _ebdIOPS (\ s a -> s{_ebdIOPS = a});
 
@@ -1699,8 +1700,7 @@ ebdIOPS = lens _ebdIOPS (\ s a -> s{_ebdIOPS = a});
 ebdEncrypted :: Lens' EBSBlockDevice (Maybe Bool)
 ebdEncrypted = lens _ebdEncrypted (\ s a -> s{_ebdEncrypted = a});
 
--- | The volume type. 'gp2' for General Purpose (SSD) volumes, 'io1' for
--- Provisioned IOPS (SSD) volumes, and 'standard' for Magnetic volumes.
+-- | The volume type: 'gp2', 'io1', 'st1', 'sc1', or 'standard'.
 --
 -- Default: 'standard'
 ebdVolumeType :: Lens' EBSBlockDevice (Maybe VolumeType)
@@ -1792,7 +1792,10 @@ instance Hashable EBSInstanceBlockDevice
 
 instance NFData EBSInstanceBlockDevice
 
--- | /See:/ 'ebsInstanceBlockDeviceSpecification' smart constructor.
+-- | Describes information used to set up an EBS volume specified in a block
+-- device mapping.
+--
+-- /See:/ 'ebsInstanceBlockDeviceSpecification' smart constructor.
 data EBSInstanceBlockDeviceSpecification = EBSInstanceBlockDeviceSpecification'
     { _eibdsDeleteOnTermination :: !(Maybe Bool)
     , _eibdsVolumeId            :: !(Maybe Text)
@@ -2513,7 +2516,9 @@ instance Hashable Host
 
 instance NFData Host
 
--- | /See:/ 'hostInstance' smart constructor.
+-- | Describes an instance running on a Dedicated host.
+--
+-- /See:/ 'hostInstance' smart constructor.
 data HostInstance = HostInstance'
     { _hiInstanceId   :: !(Maybe Text)
     , _hiInstanceType :: !(Maybe Text)
@@ -2538,7 +2543,7 @@ hostInstance =
 hiInstanceId :: Lens' HostInstance (Maybe Text)
 hiInstanceId = lens _hiInstanceId (\ s a -> s{_hiInstanceId = a});
 
--- | The instance type size (e.g., m3.medium) of the running instance.
+-- | The instance type size (for example, m3.medium) of the running instance.
 hiInstanceType :: Lens' HostInstance (Maybe Text)
 hiInstanceType = lens _hiInstanceType (\ s a -> s{_hiInstanceType = a});
 
@@ -2551,7 +2556,9 @@ instance Hashable HostInstance
 
 instance NFData HostInstance
 
--- | /See:/ 'hostProperties' smart constructor.
+-- | Describes properties of a Dedicated host.
+--
+-- /See:/ 'hostProperties' smart constructor.
 data HostProperties = HostProperties'
     { _hpInstanceType :: !(Maybe Text)
     , _hpTotalVCPUs   :: !(Maybe Int)
@@ -2580,7 +2587,7 @@ hostProperties =
     , _hpSockets = Nothing
     }
 
--- | The instance type size that the Dedicated host supports (e.g.,
+-- | The instance type size that the Dedicated host supports (for example,
 -- m3.medium).
 hpInstanceType :: Lens' HostProperties (Maybe Text)
 hpInstanceType = lens _hpInstanceType (\ s a -> s{_hpInstanceType = a});
@@ -5658,6 +5665,9 @@ lsAddressingType :: Lens' LaunchSpecification (Maybe Text)
 lsAddressingType = lens _lsAddressingType (\ s a -> s{_lsAddressingType = a});
 
 -- | One or more block device mapping entries.
+--
+-- Although you can specify encrypted EBS volumes in this block device
+-- mapping for your Spot Instances, these volumes are not encrypted.
 lsBlockDeviceMappings :: Lens' LaunchSpecification [BlockDeviceMapping]
 lsBlockDeviceMappings = lens _lsBlockDeviceMappings (\ s a -> s{_lsBlockDeviceMappings = a}) . _Default . _Coerce;
 
@@ -5834,18 +5844,25 @@ ngVPCId = lens _ngVPCId (\ s a -> s{_ngVPCId = a});
 -- | If the NAT gateway could not be created, specifies the error message for
 -- the failure, that corresponds to the error code.
 --
--- -   For InsufficientFreeAddressesInSubnet:
---     'Subnet has insufficient free addresses to create this NAT gateway'
--- -   For Gateway.NotAttached:
---     'Network vpc-xxxxxxxx has no Internet gateway attached'
--- -   For InvalidAllocationID.NotFound:
---     'Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway'
--- -   For Resource.AlreadyAssociated:
---     'Elastic IP address eipalloc-xxxxxxxx is already associated'
--- -   For InternalError:
---     'Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again.'
--- -   For InvalidSubnetID.NotFound:
---     'The specified subnet subnet-xxxxxxxx does not exist or could not be found.'
+-- -   For InsufficientFreeAddressesInSubnet: \"Subnet has insufficient
+--     free addresses to create this NAT gateway\"
+--
+-- -   For Gateway.NotAttached: \"Network vpc-xxxxxxxx has no Internet
+--     gateway attached\"
+--
+-- -   For InvalidAllocationID.NotFound: \"Elastic IP address
+--     eipalloc-xxxxxxxx could not be associated with this NAT gateway\"
+--
+-- -   For Resource.AlreadyAssociated: \"Elastic IP address
+--     eipalloc-xxxxxxxx is already associated\"
+--
+-- -   For InternalError: \"Network interface eni-xxxxxxxx, created and
+--     used internally by this NAT gateway is in an invalid state. Please
+--     try again.\"
+--
+-- -   For InvalidSubnetID.NotFound: \"The specified subnet subnet-xxxxxxxx
+--     does not exist or could not be found.\"
+--
 ngFailureMessage :: Lens' NatGateway (Maybe Text)
 ngFailureMessage = lens _ngFailureMessage (\ s a -> s{_ngFailureMessage = a});
 
@@ -6663,6 +6680,100 @@ instance ToQuery NewDHCPConfiguration where
               [toQuery (toQueryList "Value" <$> _ndcValues),
                "Key" =: _ndcKey]
 
+-- | Describes the VPC peering connection options.
+--
+-- /See:/ 'peeringConnectionOptions' smart constructor.
+data PeeringConnectionOptions = PeeringConnectionOptions'
+    { _pcoAllowEgressFromLocalVPCToRemoteClassicLink :: !(Maybe Bool)
+    , _pcoAllowEgressFromLocalClassicLinkToRemoteVPC :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PeeringConnectionOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcoAllowEgressFromLocalVPCToRemoteClassicLink'
+--
+-- * 'pcoAllowEgressFromLocalClassicLinkToRemoteVPC'
+peeringConnectionOptions
+    :: PeeringConnectionOptions
+peeringConnectionOptions =
+    PeeringConnectionOptions'
+    { _pcoAllowEgressFromLocalVPCToRemoteClassicLink = Nothing
+    , _pcoAllowEgressFromLocalClassicLinkToRemoteVPC = Nothing
+    }
+
+-- | If true, enables outbound communication from instances in a local VPC to
+-- an EC2-Classic instance that\'s linked to a peer VPC via ClassicLink.
+pcoAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' PeeringConnectionOptions (Maybe Bool)
+pcoAllowEgressFromLocalVPCToRemoteClassicLink = lens _pcoAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_pcoAllowEgressFromLocalVPCToRemoteClassicLink = a});
+
+-- | If true, enables outbound communication from an EC2-Classic instance
+-- that\'s linked to a local VPC via ClassicLink to instances in a peer
+-- VPC.
+pcoAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' PeeringConnectionOptions (Maybe Bool)
+pcoAllowEgressFromLocalClassicLinkToRemoteVPC = lens _pcoAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_pcoAllowEgressFromLocalClassicLinkToRemoteVPC = a});
+
+instance FromXML PeeringConnectionOptions where
+        parseXML x
+          = PeeringConnectionOptions' <$>
+              (x .@? "allowEgressFromLocalVpcToRemoteClassicLink")
+                <*>
+                (x .@? "allowEgressFromLocalClassicLinkToRemoteVpc")
+
+instance Hashable PeeringConnectionOptions
+
+instance NFData PeeringConnectionOptions
+
+-- | The VPC peering connection options.
+--
+-- /See:/ 'peeringConnectionOptionsRequest' smart constructor.
+data PeeringConnectionOptionsRequest = PeeringConnectionOptionsRequest'
+    { _pcorAllowEgressFromLocalClassicLinkToRemoteVPC :: !Bool
+    , _pcorAllowEgressFromLocalVPCToRemoteClassicLink :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PeeringConnectionOptionsRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcorAllowEgressFromLocalClassicLinkToRemoteVPC'
+--
+-- * 'pcorAllowEgressFromLocalVPCToRemoteClassicLink'
+peeringConnectionOptionsRequest
+    :: Bool -- ^ 'pcorAllowEgressFromLocalClassicLinkToRemoteVPC'
+    -> Bool -- ^ 'pcorAllowEgressFromLocalVPCToRemoteClassicLink'
+    -> PeeringConnectionOptionsRequest
+peeringConnectionOptionsRequest pAllowEgressFromLocalClassicLinkToRemoteVPC_ pAllowEgressFromLocalVPCToRemoteClassicLink_ =
+    PeeringConnectionOptionsRequest'
+    { _pcorAllowEgressFromLocalClassicLinkToRemoteVPC = pAllowEgressFromLocalClassicLinkToRemoteVPC_
+    , _pcorAllowEgressFromLocalVPCToRemoteClassicLink = pAllowEgressFromLocalVPCToRemoteClassicLink_
+    }
+
+-- | If true, enables outbound communication from an EC2-Classic instance
+-- that\'s linked to a local VPC via ClassicLink to instances in a peer
+-- VPC.
+pcorAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' PeeringConnectionOptionsRequest Bool
+pcorAllowEgressFromLocalClassicLinkToRemoteVPC = lens _pcorAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_pcorAllowEgressFromLocalClassicLinkToRemoteVPC = a});
+
+-- | If true, enables outbound communication from instances in a local VPC to
+-- an EC2-Classic instance that\'s linked to a peer VPC via ClassicLink.
+pcorAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' PeeringConnectionOptionsRequest Bool
+pcorAllowEgressFromLocalVPCToRemoteClassicLink = lens _pcorAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_pcorAllowEgressFromLocalVPCToRemoteClassicLink = a});
+
+instance Hashable PeeringConnectionOptionsRequest
+
+instance NFData PeeringConnectionOptionsRequest
+
+instance ToQuery PeeringConnectionOptionsRequest
+         where
+        toQuery PeeringConnectionOptionsRequest'{..}
+          = mconcat
+              ["AllowEgressFromLocalClassicLinkToRemoteVpc" =:
+                 _pcorAllowEgressFromLocalClassicLinkToRemoteVPC,
+               "AllowEgressFromLocalVpcToRemoteClassicLink" =:
+                 _pcorAllowEgressFromLocalVPCToRemoteClassicLink]
+
 -- | Describes the placement for the instance.
 --
 -- /See:/ 'placement' smart constructor.
@@ -7462,6 +7573,9 @@ rslsAddressingType :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsAddressingType = lens _rslsAddressingType (\ s a -> s{_rslsAddressingType = a});
 
 -- | One or more block device mapping entries.
+--
+-- Although you can specify encrypted EBS volumes in this block device
+-- mapping for your Spot Instances, these volumes are not encrypted.
 rslsBlockDeviceMappings :: Lens' RequestSpotLaunchSpecification [BlockDeviceMapping]
 rslsBlockDeviceMappings = lens _rslsBlockDeviceMappings (\ s a -> s{_rslsBlockDeviceMappings = a}) . _Default . _Coerce;
 
@@ -8121,7 +8235,9 @@ instance Hashable ReservedInstancesModification
 
 instance NFData ReservedInstancesModification
 
--- | /See:/ 'reservedInstancesModificationResult' smart constructor.
+-- | Describes the modification request\/s.
+--
+-- /See:/ 'reservedInstancesModificationResult' smart constructor.
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult'
     { _rimrReservedInstancesId :: !(Maybe Text)
     , _rimrTargetConfiguration :: !(Maybe ReservedInstancesConfiguration)
@@ -8376,12 +8492,14 @@ rInstanceId = lens _rInstanceId (\ s a -> s{_rInstanceId = a});
 
 -- | Describes how the route was created.
 --
--- -   'CreateRouteTable' indicates that route was automatically created
---     when the route table was created.
--- -   'CreateRoute' indicates that the route was manually added to the
---     route table.
--- -   'EnableVgwRoutePropagation' indicates that the route was propagated
---     by route propagation.
+-- -   'CreateRouteTable' - The route was automatically created when the
+--     route table was created.
+--
+-- -   'CreateRoute' - The route was manually added to the route table.
+--
+-- -   'EnableVgwRoutePropagation' - The route was propagated by route
+--     propagation.
+--
 rOrigin :: Lens' Route (Maybe RouteOrigin)
 rOrigin = lens _rOrigin (\ s a -> s{_rOrigin = a});
 
@@ -8654,8 +8772,9 @@ s3Storage =
 ssPrefix :: Lens' S3Storage (Maybe Text)
 ssPrefix = lens _ssPrefix (\ s a -> s{_ssPrefix = a});
 
--- | A Base64-encoded Amazon S3 upload policy that gives Amazon EC2
--- permission to upload items into Amazon S3 on your behalf.
+-- | A base64-encoded Amazon S3 upload policy that gives Amazon EC2
+-- permission to upload items into Amazon S3 on your behalf. For command
+-- line tools, base64 encoding is performed for you.
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
@@ -9278,21 +9397,20 @@ sieVolumeSize :: Lens' ScheduledInstancesEBS (Maybe Int)
 sieVolumeSize = lens _sieVolumeSize (\ s a -> s{_sieVolumeSize = a});
 
 -- | The number of I\/O operations per second (IOPS) that the volume
--- supports. For Provisioned IOPS (SSD) volumes, this represents the number
--- of IOPS that are provisioned for the volume. For General Purpose (SSD)
--- volumes, this represents the baseline performance of the volume and the
--- rate at which the volume accumulates I\/O credits for bursting. For more
--- information about General Purpose (SSD) baseline performance, I\/O
--- credits, and bursting, see
+-- supports. For io1 volumes, this represents the number of IOPS that are
+-- provisioned for the volume. For 'gp2' volumes, this represents the
+-- baseline performance of the volume and the rate at which the volume
+-- accumulates I\/O credits for bursting. For more information about 'gp2'
+-- baseline performance, I\/O credits, and bursting, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and
--- 3 to 10000 for General Purpose (SSD) volumes.
+-- Constraint: Range is 100-20000 IOPS for 'io1' volumes and 100-10000 IOPS
+-- for 'gp2' volumes.
 --
--- Condition: This parameter is required for requests to create 'io1'
--- volumes; it is not used in requests to create 'standard' or 'gp2'
--- volumes.
+-- Condition: This parameter is required for requests to create
+-- 'io1'volumes; it is not used in requests to create 'gp2', 'st1', 'sc1',
+-- or 'standard' volumes.
 sieIOPS :: Lens' ScheduledInstancesEBS (Maybe Int)
 sieIOPS = lens _sieIOPS (\ s a -> s{_sieIOPS = a});
 
@@ -9301,8 +9419,9 @@ sieIOPS = lens _sieIOPS (\ s a -> s{_sieIOPS = a});
 sieEncrypted :: Lens' ScheduledInstancesEBS (Maybe Bool)
 sieEncrypted = lens _sieEncrypted (\ s a -> s{_sieEncrypted = a});
 
--- | The volume type. 'gp2' for General Purpose (SSD) volumes, 'io1' for
--- Provisioned IOPS (SSD) volumes, and 'standard' for Magnetic volumes.
+-- | The volume type. 'gp2' for General Purpose SSD, 'io1' for Provisioned
+-- IOPS SSD, Throughput Optimized HDD for 'st1', Cold HDD for 'sc1', or
+-- 'standard' for Magnetic.
 --
 -- Default: 'standard'
 sieVolumeType :: Lens' ScheduledInstancesEBS (Maybe Text)
@@ -10219,7 +10338,7 @@ sdDeviceName = lens _sdDeviceName (\ s a -> s{_sdDeviceName = a});
 sdStatusMessage :: Lens' SnapshotDetail (Maybe Text)
 sdStatusMessage = lens _sdStatusMessage (\ s a -> s{_sdStatusMessage = a});
 
--- | Undocumented member.
+-- | The S3 bucket for the disk image.
 sdUserBucket :: Lens' SnapshotDetail (Maybe UserBucketDetails)
 sdUserBucket = lens _sdUserBucket (\ s a -> s{_sdUserBucket = a});
 
@@ -10294,7 +10413,7 @@ sdcFormat = lens _sdcFormat (\ s a -> s{_sdcFormat = a});
 sdcURL :: Lens' SnapshotDiskContainer (Maybe Text)
 sdcURL = lens _sdcURL (\ s a -> s{_sdcURL = a});
 
--- | Undocumented member.
+-- | The S3 bucket for the disk image.
 sdcUserBucket :: Lens' SnapshotDiskContainer (Maybe UserBucket)
 sdcUserBucket = lens _sdcUserBucket (\ s a -> s{_sdcUserBucket = a});
 
@@ -11945,6 +12064,9 @@ uigpVPCId :: Lens' UserIdGroupPair (Maybe Text)
 uigpVPCId = lens _uigpVPCId (\ s a -> s{_uigpVPCId = a});
 
 -- | The ID of an AWS account.
+--
+-- [EC2-Classic] Required when adding or removing rules that reference a
+-- security group in another AWS account.
 uigpUserId :: Lens' UserIdGroupPair (Maybe Text)
 uigpUserId = lens _uigpUserId (\ s a -> s{_uigpUserId = a});
 
@@ -11954,7 +12076,7 @@ uigpGroupId = lens _uigpGroupId (\ s a -> s{_uigpGroupId = a});
 
 -- | The name of the security group. In a request, use this parameter for a
 -- security group in EC2-Classic or a default VPC only. For a security
--- group in a nondefault VPC, use 'GroupId'.
+-- group in a nondefault VPC, use the security group ID.
 uigpGroupName :: Lens' UserIdGroupPair (Maybe Text)
 uigpGroupName = lens _uigpGroupName (\ s a -> s{_uigpGroupName = a});
 
@@ -12371,11 +12493,14 @@ vpcpcVPCPeeringConnectionId = lens _vpcpcVPCPeeringConnectionId (\ s a -> s{_vpc
 vpcpcStatus :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionStateReason)
 vpcpcStatus = lens _vpcpcStatus (\ s a -> s{_vpcpcStatus = a});
 
--- | The information of the peer VPC.
+-- | Information about the peer VPC. CIDR block information is not returned
+-- when creating a VPC peering connection, or when describing a VPC peering
+-- connection that\'s in the 'initiating-request' or 'pending-acceptance'
+-- state.
 vpcpcAccepterVPCInfo :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionVPCInfo)
 vpcpcAccepterVPCInfo = lens _vpcpcAccepterVPCInfo (\ s a -> s{_vpcpcAccepterVPCInfo = a});
 
--- | The information of the requester VPC.
+-- | Information about the requester VPC.
 vpcpcRequesterVPCInfo :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionVPCInfo)
 vpcpcRequesterVPCInfo = lens _vpcpcRequesterVPCInfo (\ s a -> s{_vpcpcRequesterVPCInfo = a});
 
@@ -12401,6 +12526,53 @@ instance FromXML VPCPeeringConnection where
 instance Hashable VPCPeeringConnection
 
 instance NFData VPCPeeringConnection
+
+-- | Describes the VPC peering connection options.
+--
+-- /See:/ 'vpcPeeringConnectionOptionsDescription' smart constructor.
+data VPCPeeringConnectionOptionsDescription = VPCPeeringConnectionOptionsDescription'
+    { _vpcodAllowEgressFromLocalVPCToRemoteClassicLink :: !(Maybe Bool)
+    , _vpcodAllowEgressFromLocalClassicLinkToRemoteVPC :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VPCPeeringConnectionOptionsDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vpcodAllowEgressFromLocalVPCToRemoteClassicLink'
+--
+-- * 'vpcodAllowEgressFromLocalClassicLinkToRemoteVPC'
+vpcPeeringConnectionOptionsDescription
+    :: VPCPeeringConnectionOptionsDescription
+vpcPeeringConnectionOptionsDescription =
+    VPCPeeringConnectionOptionsDescription'
+    { _vpcodAllowEgressFromLocalVPCToRemoteClassicLink = Nothing
+    , _vpcodAllowEgressFromLocalClassicLinkToRemoteVPC = Nothing
+    }
+
+-- | Indicates whether a local VPC can communicate with a ClassicLink
+-- connection in the peer VPC over the VPC peering connection.
+vpcodAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' VPCPeeringConnectionOptionsDescription (Maybe Bool)
+vpcodAllowEgressFromLocalVPCToRemoteClassicLink = lens _vpcodAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_vpcodAllowEgressFromLocalVPCToRemoteClassicLink = a});
+
+-- | Indicates whether a local ClassicLink connection can communicate with
+-- the peer VPC over the VPC peering connection.
+vpcodAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' VPCPeeringConnectionOptionsDescription (Maybe Bool)
+vpcodAllowEgressFromLocalClassicLinkToRemoteVPC = lens _vpcodAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_vpcodAllowEgressFromLocalClassicLinkToRemoteVPC = a});
+
+instance FromXML
+         VPCPeeringConnectionOptionsDescription where
+        parseXML x
+          = VPCPeeringConnectionOptionsDescription' <$>
+              (x .@? "allowEgressFromLocalVpcToRemoteClassicLink")
+                <*>
+                (x .@? "allowEgressFromLocalClassicLinkToRemoteVpc")
+
+instance Hashable
+         VPCPeeringConnectionOptionsDescription
+
+instance NFData
+         VPCPeeringConnectionOptionsDescription
 
 -- | Describes the status of a VPC peering connection.
 --
@@ -12448,9 +12620,10 @@ instance NFData VPCPeeringConnectionStateReason
 --
 -- /See:/ 'vpcPeeringConnectionVPCInfo' smart constructor.
 data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
-    { _vpcviVPCId     :: !(Maybe Text)
-    , _vpcviOwnerId   :: !(Maybe Text)
-    , _vpcviCIdRBlock :: !(Maybe Text)
+    { _vpcviVPCId          :: !(Maybe Text)
+    , _vpcviOwnerId        :: !(Maybe Text)
+    , _vpcviPeeringOptions :: !(Maybe VPCPeeringConnectionOptionsDescription)
+    , _vpcviCIdRBlock      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VPCPeeringConnectionVPCInfo' with the minimum fields required to make a request.
@@ -12461,6 +12634,8 @@ data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
 --
 -- * 'vpcviOwnerId'
 --
+-- * 'vpcviPeeringOptions'
+--
 -- * 'vpcviCIdRBlock'
 vpcPeeringConnectionVPCInfo
     :: VPCPeeringConnectionVPCInfo
@@ -12468,6 +12643,7 @@ vpcPeeringConnectionVPCInfo =
     VPCPeeringConnectionVPCInfo'
     { _vpcviVPCId = Nothing
     , _vpcviOwnerId = Nothing
+    , _vpcviPeeringOptions = Nothing
     , _vpcviCIdRBlock = Nothing
     }
 
@@ -12479,6 +12655,11 @@ vpcviVPCId = lens _vpcviVPCId (\ s a -> s{_vpcviVPCId = a});
 vpcviOwnerId :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
 vpcviOwnerId = lens _vpcviOwnerId (\ s a -> s{_vpcviOwnerId = a});
 
+-- | Information about the VPC peering connection options for the accepter or
+-- requester VPC.
+vpcviPeeringOptions :: Lens' VPCPeeringConnectionVPCInfo (Maybe VPCPeeringConnectionOptionsDescription)
+vpcviPeeringOptions = lens _vpcviPeeringOptions (\ s a -> s{_vpcviPeeringOptions = a});
+
 -- | The CIDR block for the VPC.
 vpcviCIdRBlock :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
 vpcviCIdRBlock = lens _vpcviCIdRBlock (\ s a -> s{_vpcviCIdRBlock = a});
@@ -12487,7 +12668,8 @@ instance FromXML VPCPeeringConnectionVPCInfo where
         parseXML x
           = VPCPeeringConnectionVPCInfo' <$>
               (x .@? "vpcId") <*> (x .@? "ownerId") <*>
-                (x .@? "cidrBlock")
+                (x .@? "peeringOptions")
+                <*> (x .@? "cidrBlock")
 
 instance Hashable VPCPeeringConnectionVPCInfo
 
@@ -12894,21 +13076,21 @@ vAttachments :: Lens' Volume [VolumeAttachment]
 vAttachments = lens _vAttachments (\ s a -> s{_vAttachments = a}) . _Default . _Coerce;
 
 -- | The number of I\/O operations per second (IOPS) that the volume
--- supports. For Provisioned IOPS (SSD) volumes, this represents the number
--- of IOPS that are provisioned for the volume. For General Purpose (SSD)
+-- supports. For Provisioned IOPS SSD volumes, this represents the number
+-- of IOPS that are provisioned for the volume. For General Purpose SSD
 -- volumes, this represents the baseline performance of the volume and the
 -- rate at which the volume accumulates I\/O credits for bursting. For more
--- information on General Purpose (SSD) baseline performance, I\/O credits,
+-- information on General Purpose SSD baseline performance, I\/O credits,
 -- and bursting, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and
--- 3 to 10000 for General Purpose (SSD) volumes.
+-- Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS
+-- for 'gp2' volumes.
 --
 -- Condition: This parameter is required for requests to create 'io1'
--- volumes; it is not used in requests to create 'standard' or 'gp2'
--- volumes.
+-- volumes; it is not used in requests to create 'gp2', 'st1', 'sc1', or
+-- 'standard' volumes.
 vIOPS :: Lens' Volume (Maybe Int)
 vIOPS = lens _vIOPS (\ s a -> s{_vIOPS = a});
 
@@ -12950,9 +13132,9 @@ vState = lens _vState (\ s a -> s{_vState = a});
 vVolumeId :: Lens' Volume Text
 vVolumeId = lens _vVolumeId (\ s a -> s{_vVolumeId = a});
 
--- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes,
--- 'io1' for Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic
--- volumes.
+-- | The volume type. This can be 'gp2' for General Purpose SSD, 'io1' for
+-- Provisioned IOPS SSD, 'st1' for Throughput Optimized HDD, 'sc1' for Cold
+-- HDD, or 'standard' for Magnetic volumes.
 vVolumeType :: Lens' Volume VolumeType
 vVolumeType = lens _vVolumeType (\ s a -> s{_vVolumeType = a});
 

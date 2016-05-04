@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'importSnapshot' smart constructor.
+-- | Contains the parameters for ImportSnapshot.
+--
+-- /See:/ 'importSnapshot' smart constructor.
 data ImportSnapshot = ImportSnapshot'
     { _isDiskContainer :: !(Maybe SnapshotDiskContainer)
     , _isClientToken   :: !(Maybe Text)
@@ -147,7 +149,9 @@ instance ToQuery ImportSnapshot where
                "Description" =: _isDescription,
                "DryRun" =: _isDryRun, "ClientData" =: _isClientData]
 
--- | /See:/ 'importSnapshotResponse' smart constructor.
+-- | Contains the output for ImportSnapshot.
+--
+-- /See:/ 'importSnapshotResponse' smart constructor.
 data ImportSnapshotResponse = ImportSnapshotResponse'
     { _isrsSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
     , _isrsImportTaskId       :: !(Maybe Text)

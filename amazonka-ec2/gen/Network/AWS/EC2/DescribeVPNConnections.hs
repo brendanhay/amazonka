@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVPNConnections' smart constructor.
+-- | Contains the parameters for DescribeVpnConnections.
+--
+-- /See:/ 'describeVPNConnections' smart constructor.
 data DescribeVPNConnections = DescribeVPNConnections'
     { _dvpncFilters          :: !(Maybe [Filter])
     , _dvpncVPNConnectionIds :: !(Maybe [Text])
@@ -166,7 +168,9 @@ instance ToQuery DescribeVPNConnections where
                     _dvpncVPNConnectionIds),
                "DryRun" =: _dvpncDryRun]
 
--- | /See:/ 'describeVPNConnectionsResponse' smart constructor.
+-- | Contains the output of DescribeVpnConnections.
+--
+-- /See:/ 'describeVPNConnectionsResponse' smart constructor.
 data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
     { _dvcrsVPNConnections :: !(Maybe [VPNConnection])
     , _dvcrsResponseStatus :: !Int

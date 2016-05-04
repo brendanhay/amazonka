@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVolumeAttribute' smart constructor.
+-- | Contains the parameters for DescribeVolumeAttribute.
+--
+-- /See:/ 'describeVolumeAttribute' smart constructor.
 data DescribeVolumeAttribute = DescribeVolumeAttribute'
     { _dvaAttribute :: !(Maybe VolumeAttributeName)
     , _dvaDryRun    :: !(Maybe Bool)
@@ -125,7 +127,9 @@ instance ToQuery DescribeVolumeAttribute where
                "Attribute" =: _dvaAttribute, "DryRun" =: _dvaDryRun,
                "VolumeId" =: _dvaVolumeId]
 
--- | /See:/ 'describeVolumeAttributeResponse' smart constructor.
+-- | Contains the output of DescribeVolumeAttribute.
+--
+-- /See:/ 'describeVolumeAttributeResponse' smart constructor.
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
     { _dvarsVolumeId       :: !(Maybe Text)
     , _dvarsProductCodes   :: !(Maybe [ProductCode])

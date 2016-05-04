@@ -58,7 +58,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'revokeSecurityGroupIngress' smart constructor.
+-- | Contains the parameters for RevokeSecurityGroupIngress.
+--
+-- /See:/ 'revokeSecurityGroupIngress' smart constructor.
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
     { _rsgiFromPort                   :: !(Maybe Int)
     , _rsgiIPPermissions              :: !(Maybe [IPPermission])
@@ -143,12 +145,12 @@ rsgiToPort = lens _rsgiToPort (\ s a -> s{_rsgiToPort = a});
 rsgiCIdRIP :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiCIdRIP = lens _rsgiCIdRIP (\ s a -> s{_rsgiCIdRIP = a});
 
--- | [EC2-Classic, default VPC] The AWS account ID of the source security
--- group. For EC2-VPC, the source security group must be in the same VPC.
--- You can\'t specify this parameter in combination with the following
--- parameters: the CIDR IP address range, the IP protocol, the start of the
--- port range, and the end of the port range. To revoke a specific rule for
--- an IP protocol and port range, use a set of IP permissions instead.
+-- | [EC2-Classic] The AWS account ID of the source security group, if the
+-- source security group is in a different account. You can\'t specify this
+-- parameter in combination with the following parameters: the CIDR IP
+-- address range, the IP protocol, the start of the port range, and the end
+-- of the port range. To revoke a specific rule for an IP protocol and port
+-- range, use a set of IP permissions instead.
 rsgiSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiSourceSecurityGroupOwnerId = lens _rsgiSourceSecurityGroupOwnerId (\ s a -> s{_rsgiSourceSecurityGroupOwnerId = a});
 
@@ -160,7 +162,8 @@ rsgiGroupName = lens _rsgiGroupName (\ s a -> s{_rsgiGroupName = a});
 -- can\'t specify this parameter in combination with the following
 -- parameters: the CIDR IP address range, the start of the port range, the
 -- IP protocol, and the end of the port range. For EC2-VPC, the source
--- security group must be in the same VPC.
+-- security group must be in the same VPC. To revoke a specific rule for an
+-- IP protocol and port range, use a set of IP permissions instead.
 rsgiSourceSecurityGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiSourceSecurityGroupName = lens _rsgiSourceSecurityGroupName (\ s a -> s{_rsgiSourceSecurityGroupName = a});
 

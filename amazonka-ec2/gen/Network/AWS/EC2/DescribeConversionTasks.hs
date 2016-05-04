@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeConversionTasks' smart constructor.
+-- | Contains the parameters for DescribeConversionTasks.
+--
+-- /See:/ 'describeConversionTasks' smart constructor.
 data DescribeConversionTasks = DescribeConversionTasks'
     { _dctFilters           :: !(Maybe [Filter])
     , _dctConversionTaskIds :: !(Maybe [Text])
@@ -125,7 +127,9 @@ instance ToQuery DescribeConversionTasks where
                     _dctConversionTaskIds),
                "DryRun" =: _dctDryRun]
 
--- | /See:/ 'describeConversionTasksResponse' smart constructor.
+-- | Contains the output for DescribeConversionTasks.
+--
+-- /See:/ 'describeConversionTasksResponse' smart constructor.
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
     { _dctrsConversionTasks :: !(Maybe [ConversionTask])
     , _dctrsResponseStatus  :: !Int

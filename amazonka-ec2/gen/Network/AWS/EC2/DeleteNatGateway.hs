@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteNatGateway' smart constructor.
+-- | Contains the parameters for DeleteNatGateway.
+--
+-- /See:/ 'deleteNatGateway' smart constructor.
 newtype DeleteNatGateway = DeleteNatGateway'
     { _dngNatGatewayId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -93,7 +95,9 @@ instance ToQuery DeleteNatGateway where
                "Version" =: ("2015-10-01" :: ByteString),
                "NatGatewayId" =: _dngNatGatewayId]
 
--- | /See:/ 'deleteNatGatewayResponse' smart constructor.
+-- | Contains the output of DeleteNatGateway.
+--
+-- /See:/ 'deleteNatGatewayResponse' smart constructor.
 data DeleteNatGatewayResponse = DeleteNatGatewayResponse'
     { _delrsNatGatewayId   :: !(Maybe Text)
     , _delrsResponseStatus :: !Int

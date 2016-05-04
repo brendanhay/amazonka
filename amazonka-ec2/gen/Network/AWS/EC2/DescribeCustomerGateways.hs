@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeCustomerGateways' smart constructor.
+-- | Contains the parameters for DescribeCustomerGateways.
+--
+-- /See:/ 'describeCustomerGateways' smart constructor.
 data DescribeCustomerGateways = DescribeCustomerGateways'
     { _dcgCustomerGatewayIds :: !(Maybe [Text])
     , _dcgFilters            :: !(Maybe [Filter])
@@ -153,7 +155,9 @@ instance ToQuery DescribeCustomerGateways where
                toQuery (toQueryList "Filter" <$> _dcgFilters),
                "DryRun" =: _dcgDryRun]
 
--- | /See:/ 'describeCustomerGatewaysResponse' smart constructor.
+-- | Contains the output of DescribeCustomerGateways.
+--
+-- /See:/ 'describeCustomerGatewaysResponse' smart constructor.
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
     { _dcgrsCustomerGateways :: !(Maybe [CustomerGateway])
     , _dcgrsResponseStatus   :: !Int

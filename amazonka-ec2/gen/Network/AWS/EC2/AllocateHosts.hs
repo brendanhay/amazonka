@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'allocateHosts' smart constructor.
+-- | Contains the parameters for AllocateHosts.
+--
+-- /See:/ 'allocateHosts' smart constructor.
 data AllocateHosts = AllocateHosts'
     { _ahClientToken      :: !(Maybe Text)
     , _ahAutoPlacement    :: !(Maybe AutoPlacement)
@@ -146,7 +148,9 @@ instance ToQuery AllocateHosts where
                "Quantity" =: _ahQuantity,
                "AvailabilityZone" =: _ahAvailabilityZone]
 
--- | /See:/ 'allocateHostsResponse' smart constructor.
+-- | Contains the output of AllocateHosts.
+--
+-- /See:/ 'allocateHostsResponse' smart constructor.
 data AllocateHostsResponse = AllocateHostsResponse'
     { _ahrsHostIds        :: !(Maybe [Text])
     , _ahrsResponseStatus :: !Int

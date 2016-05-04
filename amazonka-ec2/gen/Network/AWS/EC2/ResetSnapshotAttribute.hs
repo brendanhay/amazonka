@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'resetSnapshotAttribute' smart constructor.
+-- | Contains the parameters for ResetSnapshotAttribute.
+--
+-- /See:/ 'resetSnapshotAttribute' smart constructor.
 data ResetSnapshotAttribute = ResetSnapshotAttribute'
     { _rsaDryRun     :: !(Maybe Bool)
     , _rsaSnapshotId :: !Text

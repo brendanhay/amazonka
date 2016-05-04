@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createInstanceExportTask' smart constructor.
+-- | Contains the parameters for CreateInstanceExportTask.
+--
+-- /See:/ 'createInstanceExportTask' smart constructor.
 data CreateInstanceExportTask = CreateInstanceExportTask'
     { _cietTargetEnvironment :: !(Maybe ExportEnvironment)
     , _cietExportToS3Task    :: !(Maybe ExportToS3TaskSpecification)
@@ -128,7 +130,9 @@ instance ToQuery CreateInstanceExportTask where
                "Description" =: _cietDescription,
                "InstanceId" =: _cietInstanceId]
 
--- | /See:/ 'createInstanceExportTaskResponse' smart constructor.
+-- | Contains the output for CreateInstanceExportTask.
+--
+-- /See:/ 'createInstanceExportTaskResponse' smart constructor.
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
     { _cietrsExportTask     :: !(Maybe ExportTask)
     , _cietrsResponseStatus :: !Int

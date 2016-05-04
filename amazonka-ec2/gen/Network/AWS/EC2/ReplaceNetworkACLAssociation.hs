@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'replaceNetworkACLAssociation' smart constructor.
+-- | Contains the parameters for ReplaceNetworkAclAssociation.
+--
+-- /See:/ 'replaceNetworkACLAssociation' smart constructor.
 data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
     { _rnaaDryRun        :: !(Maybe Bool)
     , _rnaaAssociationId :: !Text
@@ -122,7 +124,9 @@ instance ToQuery ReplaceNetworkACLAssociation where
                "AssociationId" =: _rnaaAssociationId,
                "NetworkAclId" =: _rnaaNetworkACLId]
 
--- | /See:/ 'replaceNetworkACLAssociationResponse' smart constructor.
+-- | Contains the output of ReplaceNetworkAclAssociation.
+--
+-- /See:/ 'replaceNetworkACLAssociationResponse' smart constructor.
 data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
     { _rnaarsNewAssociationId :: !(Maybe Text)
     , _rnaarsResponseStatus   :: !Int

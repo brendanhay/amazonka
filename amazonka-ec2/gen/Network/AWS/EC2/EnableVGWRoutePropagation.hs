@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'enableVGWRoutePropagation' smart constructor.
+-- | Contains the parameters for EnableVgwRoutePropagation.
+--
+-- /See:/ 'enableVGWRoutePropagation' smart constructor.
 data EnableVGWRoutePropagation = EnableVGWRoutePropagation'
     { _evrpRouteTableId :: !Text
     , _evrpGatewayId    :: !Text

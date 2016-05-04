@@ -18,7 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the status of one or more instances.
+-- Describes the status of one or more instances. By default, only running
+-- instances are described, unless specified otherwise.
 --
 -- Instance status includes the following components:
 --
@@ -74,7 +75,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeInstanceStatus' smart constructor.
+-- | Contains the parameters for DescribeInstanceStatus.
+--
+-- /See:/ 'describeInstanceStatus' smart constructor.
 data DescribeInstanceStatus = DescribeInstanceStatus'
     { _disIncludeAllInstances :: !(Maybe Bool)
     , _disFilters             :: !(Maybe [Filter])
@@ -182,12 +185,10 @@ disInstanceIds = lens _disInstanceIds (\ s a -> s{_disInstanceIds = a}) . _Defau
 disDryRun :: Lens' DescribeInstanceStatus (Maybe Bool)
 disDryRun = lens _disDryRun (\ s a -> s{_disDryRun = a});
 
--- | The maximum number of results to return for the request in a single
--- page. The remaining results of the initial request can be seen by
--- sending another request with the returned 'NextToken' value. This value
--- can be between 5 and 1000; if 'MaxResults' is given a value larger than
--- 1000, only 1000 results are returned. You cannot specify this parameter
--- and the instance IDs parameter in the same request.
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned 'NextToken'
+-- value. This value can be between 5 and 1000. You cannot specify this
+-- parameter and the instance IDs parameter in the same call.
 disMaxResults :: Lens' DescribeInstanceStatus (Maybe Int)
 disMaxResults = lens _disMaxResults (\ s a -> s{_disMaxResults = a});
 
@@ -235,7 +236,9 @@ instance ToQuery DescribeInstanceStatus where
                "DryRun" =: _disDryRun,
                "MaxResults" =: _disMaxResults]
 
--- | /See:/ 'describeInstanceStatusResponse' smart constructor.
+-- | Contains the output of DescribeInstanceStatus.
+--
+-- /See:/ 'describeInstanceStatusResponse' smart constructor.
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
     { _disrsInstanceStatuses :: !(Maybe [InstanceStatus])
     , _disrsNextToken        :: !(Maybe Text)

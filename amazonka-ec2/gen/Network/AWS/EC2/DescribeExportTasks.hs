@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeExportTasks' smart constructor.
+-- | Contains the parameters for DescribeExportTasks.
+--
+-- /See:/ 'describeExportTasks' smart constructor.
 newtype DescribeExportTasks = DescribeExportTasks'
     { _detExportTaskIds :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -93,7 +95,9 @@ instance ToQuery DescribeExportTasks where
                toQuery
                  (toQueryList "ExportTaskId" <$> _detExportTaskIds)]
 
--- | /See:/ 'describeExportTasksResponse' smart constructor.
+-- | Contains the output for DescribeExportTasks.
+--
+-- /See:/ 'describeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
     { _detrsExportTasks    :: !(Maybe [ExportTask])
     , _detrsResponseStatus :: !Int

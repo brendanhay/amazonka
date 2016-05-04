@@ -59,7 +59,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'revokeSecurityGroupEgress' smart constructor.
+-- | Contains the parameters for RevokeSecurityGroupEgress.
+--
+-- /See:/ 'revokeSecurityGroupEgress' smart constructor.
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
     { _rsgeFromPort                   :: !(Maybe Int)
     , _rsgeIPPermissions              :: !(Maybe [IPPermission])

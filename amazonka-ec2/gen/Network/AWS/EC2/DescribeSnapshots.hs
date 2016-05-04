@@ -29,8 +29,10 @@
 -- -   /public/: The owner of the snapshot granted create volume
 --     permissions for the snapshot to the 'all' group. All AWS accounts
 --     have create volume permissions for these snapshots.
+--
 -- -   /explicit/: The owner of the snapshot granted create volume
 --     permissions to a specific AWS account.
+--
 -- -   /implicit/: An AWS account has implicit create volume permissions
 --     for all snapshots it owns.
 --
@@ -98,7 +100,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeSnapshots' smart constructor.
+-- | Contains the parameters for DescribeSnapshots.
+--
+-- /See:/ 'describeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
     { _dssOwnerIds            :: !(Maybe [Text])
     , _dssFilters             :: !(Maybe [Filter])
@@ -267,7 +271,9 @@ instance ToQuery DescribeSnapshots where
                "DryRun" =: _dssDryRun,
                "MaxResults" =: _dssMaxResults]
 
--- | /See:/ 'describeSnapshotsResponse' smart constructor.
+-- | Contains the output of DescribeSnapshots.
+--
+-- /See:/ 'describeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
     { _dssrsNextToken      :: !(Maybe Text)
     , _dssrsSnapshots      :: !(Maybe [Snapshot])

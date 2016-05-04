@@ -57,7 +57,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'releaseAddress' smart constructor.
+-- | Contains the parameters for ReleaseAddress.
+--
+-- /See:/ 'releaseAddress' smart constructor.
 data ReleaseAddress = ReleaseAddress'
     { _raAllocationId :: !(Maybe Text)
     , _raPublicIP     :: !(Maybe Text)

@@ -32,6 +32,9 @@
 -- create a new VPN connection, you must reconfigure your customer gateway
 -- with the new information returned from this call.
 --
+-- This is an idempotent operation. If you perform the operation more than
+-- once, Amazon EC2 doesn\'t return an error.
+--
 -- For more information about VPN connections, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
@@ -62,7 +65,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createVPNConnection' smart constructor.
+-- | Contains the parameters for CreateVpnConnection.
+--
+-- /See:/ 'createVPNConnection' smart constructor.
 data CreateVPNConnection = CreateVPNConnection'
     { _cvcOptions           :: !(Maybe VPNConnectionOptionsSpecification)
     , _cvcDryRun            :: !(Maybe Bool)
@@ -155,7 +160,9 @@ instance ToQuery CreateVPNConnection where
                "CustomerGatewayId" =: _cvcCustomerGatewayId,
                "VpnGatewayId" =: _cvcVPNGatewayId]
 
--- | /See:/ 'createVPNConnectionResponse' smart constructor.
+-- | Contains the output of CreateVpnConnection.
+--
+-- /See:/ 'createVPNConnectionResponse' smart constructor.
 data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
     { _cvcrsVPNConnection  :: !(Maybe VPNConnection)
     , _cvcrsResponseStatus :: !Int

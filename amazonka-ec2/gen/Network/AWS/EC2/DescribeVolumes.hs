@@ -61,7 +61,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVolumes' smart constructor.
+-- | Contains the parameters for DescribeVolumes.
+--
+-- /See:/ 'describeVolumes' smart constructor.
 data DescribeVolumes = DescribeVolumes'
     { _desFilters    :: !(Maybe [Filter])
     , _desVolumeIds  :: !(Maybe [Text])
@@ -142,8 +144,9 @@ describeVolumes =
 -- -   'volume-id' - The volume ID.
 --
 -- -   'volume-type' - The Amazon EBS volume type. This can be 'gp2' for
---     General Purpose (SSD) volumes, 'io1' for Provisioned IOPS (SSD)
---     volumes, or 'standard' for Magnetic volumes.
+--     General Purpose SSD, 'io1' for Provisioned IOPS SSD, 'st1' for
+--     Throughput Optimized HDD, 'sc1' for Cold HDD, or 'standard' for
+--     Magnetic volumes.
 --
 desFilters :: Lens' DescribeVolumes [Filter]
 desFilters = lens _desFilters (\ s a -> s{_desFilters = a}) . _Default . _Coerce;
@@ -219,7 +222,9 @@ instance ToQuery DescribeVolumes where
                "NextToken" =: _desNextToken, "DryRun" =: _desDryRun,
                "MaxResults" =: _desMaxResults]
 
--- | /See:/ 'describeVolumesResponse' smart constructor.
+-- | Contains the output of DescribeVolumes.
+--
+-- /See:/ 'describeVolumesResponse' smart constructor.
 data DescribeVolumesResponse = DescribeVolumesResponse'
     { _dvvrsNextToken      :: !(Maybe Text)
     , _dvvrsVolumes        :: !(Maybe [Volume])

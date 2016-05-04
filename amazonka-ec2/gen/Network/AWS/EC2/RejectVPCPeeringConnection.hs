@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'rejectVPCPeeringConnection' smart constructor.
+-- | Contains the parameters for RejectVpcPeeringConnection.
+--
+-- /See:/ 'rejectVPCPeeringConnection' smart constructor.
 data RejectVPCPeeringConnection = RejectVPCPeeringConnection'
     { _rvpcDryRun                 :: !(Maybe Bool)
     , _rvpcVPCPeeringConnectionId :: !Text
@@ -111,7 +113,9 @@ instance ToQuery RejectVPCPeeringConnection where
                "VpcPeeringConnectionId" =:
                  _rvpcVPCPeeringConnectionId]
 
--- | /See:/ 'rejectVPCPeeringConnectionResponse' smart constructor.
+-- | Contains the output of RejectVpcPeeringConnection.
+--
+-- /See:/ 'rejectVPCPeeringConnectionResponse' smart constructor.
 data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
     { _rvpcrsReturn         :: !(Maybe Bool)
     , _rvpcrsResponseStatus :: !Int

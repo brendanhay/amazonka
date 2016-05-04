@@ -2731,6 +2731,8 @@ instance FromXML VolumeStatusName where
 data VolumeType
     = GP2
     | IO1
+    | SC1
+    | ST1
     | Standard
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
@@ -2738,14 +2740,18 @@ instance FromText VolumeType where
     parser = takeLowerText >>= \case
         "gp2" -> pure GP2
         "io1" -> pure IO1
+        "sc1" -> pure SC1
+        "st1" -> pure ST1
         "standard" -> pure Standard
         e -> fromTextError $ "Failure parsing VolumeType from value: '" <> e
-           <> "'. Accepted values: gp2, io1, standard"
+           <> "'. Accepted values: gp2, io1, sc1, st1, standard"
 
 instance ToText VolumeType where
     toText = \case
         GP2 -> "gp2"
         IO1 -> "io1"
+        SC1 -> "sc1"
+        ST1 -> "st1"
         Standard -> "standard"
 
 instance Hashable     VolumeType

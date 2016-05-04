@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createNatGateway' smart constructor.
+-- | Contains the parameters for CreateNatGateway.
+--
+-- /See:/ 'createNatGateway' smart constructor.
 data CreateNatGateway = CreateNatGateway'
     { _cngClientToken  :: !(Maybe Text)
     , _cngSubnetId     :: !Text
@@ -125,7 +127,9 @@ instance ToQuery CreateNatGateway where
                "SubnetId" =: _cngSubnetId,
                "AllocationId" =: _cngAllocationId]
 
--- | /See:/ 'createNatGatewayResponse' smart constructor.
+-- | Contains the output of CreateNatGateway.
+--
+-- /See:/ 'createNatGatewayResponse' smart constructor.
 data CreateNatGatewayResponse = CreateNatGatewayResponse'
     { _cngrsClientToken    :: !(Maybe Text)
     , _cngrsNatGateway     :: !(Maybe NatGateway)

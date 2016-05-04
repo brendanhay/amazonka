@@ -55,7 +55,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'importVolume' smart constructor.
+-- | Contains the parameters for ImportVolume.
+--
+-- /See:/ 'importVolume' smart constructor.
 data ImportVolume = ImportVolume'
     { _ivDescription      :: !(Maybe Text)
     , _ivDryRun           :: !(Maybe Bool)
@@ -143,7 +145,9 @@ instance ToQuery ImportVolume where
                "AvailabilityZone" =: _ivAvailabilityZone,
                "Image" =: _ivImage, "Volume" =: _ivVolume]
 
--- | /See:/ 'importVolumeResponse' smart constructor.
+-- | Contains the output for ImportVolume.
+--
+-- /See:/ 'importVolumeResponse' smart constructor.
 data ImportVolumeResponse = ImportVolumeResponse'
     { _ivrsConversionTask :: !(Maybe ConversionTask)
     , _ivrsResponseStatus :: !Int

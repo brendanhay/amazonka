@@ -71,7 +71,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeReservedInstancesOfferings' smart constructor.
+-- | Contains the parameters for DescribeReservedInstancesOfferings.
+--
+-- /See:/ 'describeReservedInstancesOfferings' smart constructor.
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     { _drioMaxDuration                  :: !(Maybe Integer)
     , _drioProductDescription           :: !(Maybe RIProductDescription)
@@ -319,7 +321,9 @@ instance ToQuery DescribeReservedInstancesOfferings
                "DryRun" =: _drioDryRun,
                "MaxResults" =: _drioMaxResults]
 
--- | /See:/ 'describeReservedInstancesOfferingsResponse' smart constructor.
+-- | Contains the output of DescribeReservedInstancesOfferings.
+--
+-- /See:/ 'describeReservedInstancesOfferingsResponse' smart constructor.
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'
     { _driorsNextToken                  :: !(Maybe Text)
     , _driorsReservedInstancesOfferings :: !(Maybe [ReservedInstancesOffering])

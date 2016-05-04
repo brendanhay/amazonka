@@ -67,7 +67,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeReservedInstancesListings' smart constructor.
+-- | Contains the parameters for DescribeReservedInstancesListings.
+--
+-- /See:/ 'describeReservedInstancesListings' smart constructor.
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
     { _drilFilters                    :: !(Maybe [Filter])
     , _drilReservedInstancesId        :: !(Maybe Text)
@@ -152,7 +154,9 @@ instance ToQuery DescribeReservedInstancesListings
                "ReservedInstancesListingId" =:
                  _drilReservedInstancesListingId]
 
--- | /See:/ 'describeReservedInstancesListingsResponse' smart constructor.
+-- | Contains the output of DescribeReservedInstancesListings.
+--
+-- /See:/ 'describeReservedInstancesListingsResponse' smart constructor.
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
     { _drilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _drilrsResponseStatus            :: !Int

@@ -215,6 +215,7 @@ library
         , Network.AWS.EC2.ModifySubnetAttribute
         , Network.AWS.EC2.ModifyVPCAttribute
         , Network.AWS.EC2.ModifyVPCEndpoint
+        , Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
         , Network.AWS.EC2.ModifyVolumeAttribute
         , Network.AWS.EC2.MonitorInstances
         , Network.AWS.EC2.MoveAddressToVPC

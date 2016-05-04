@@ -63,7 +63,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeAccountAttributes' smart constructor.
+-- | Contains the parameters for DescribeAccountAttributes.
+--
+-- /See:/ 'describeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
     { _daaAttributeNames :: !(Maybe [AccountAttributeName])
     , _daaDryRun         :: !(Maybe Bool)
@@ -127,7 +129,9 @@ instance ToQuery DescribeAccountAttributes where
                  (toQueryList "AttributeName" <$> _daaAttributeNames),
                "DryRun" =: _daaDryRun]
 
--- | /See:/ 'describeAccountAttributesResponse' smart constructor.
+-- | Contains the output of DescribeAccountAttributes.
+--
+-- /See:/ 'describeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     { _daarsAccountAttributes :: !(Maybe [AccountAttribute])
     , _daarsResponseStatus    :: !Int

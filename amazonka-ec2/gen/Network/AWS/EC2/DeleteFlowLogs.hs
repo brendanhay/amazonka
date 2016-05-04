@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteFlowLogs' smart constructor.
+-- | Contains the parameters for DeleteFlowLogs.
+--
+-- /See:/ 'deleteFlowLogs' smart constructor.
 newtype DeleteFlowLogs = DeleteFlowLogs'
     { _dflFlowLogIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -91,7 +93,9 @@ instance ToQuery DeleteFlowLogs where
                "Version" =: ("2015-10-01" :: ByteString),
                toQueryList "FlowLogId" _dflFlowLogIds]
 
--- | /See:/ 'deleteFlowLogsResponse' smart constructor.
+-- | Contains the output of DeleteFlowLogs.
+--
+-- /See:/ 'deleteFlowLogsResponse' smart constructor.
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
     { _dflrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
     , _dflrsResponseStatus :: !Int

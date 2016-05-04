@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describePrefixLists' smart constructor.
+-- | Contains the parameters for DescribePrefixLists.
+--
+-- /See:/ 'describePrefixLists' smart constructor.
 data DescribePrefixLists = DescribePrefixLists'
     { _dplFilters       :: !(Maybe [Filter])
     , _dplPrefixListIds :: !(Maybe [Text])
@@ -152,7 +154,9 @@ instance ToQuery DescribePrefixLists where
                "NextToken" =: _dplNextToken, "DryRun" =: _dplDryRun,
                "MaxResults" =: _dplMaxResults]
 
--- | /See:/ 'describePrefixListsResponse' smart constructor.
+-- | Contains the output of DescribePrefixLists.
+--
+-- /See:/ 'describePrefixListsResponse' smart constructor.
 data DescribePrefixListsResponse = DescribePrefixListsResponse'
     { _dplrsNextToken      :: !(Maybe Text)
     , _dplrsPrefixLists    :: !(Maybe [PrefixList])

@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeSubnets' smart constructor.
+-- | Contains the parameters for DescribeSubnets.
+--
+-- /See:/ 'describeSubnets' smart constructor.
 data DescribeSubnets = DescribeSubnets'
     { _dsSubnetIds :: !(Maybe [Text])
     , _dsFilters   :: !(Maybe [Filter])
@@ -156,7 +158,9 @@ instance ToQuery DescribeSubnets where
                toQuery (toQueryList "Filter" <$> _dsFilters),
                "DryRun" =: _dsDryRun]
 
--- | /See:/ 'describeSubnetsResponse' smart constructor.
+-- | Contains the output of DescribeSubnets.
+--
+-- /See:/ 'describeSubnetsResponse' smart constructor.
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
     { _dsrsSubnets        :: !(Maybe [Subnet])
     , _dsrsResponseStatus :: !Int

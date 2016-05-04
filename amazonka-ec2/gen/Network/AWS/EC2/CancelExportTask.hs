@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'cancelExportTask' smart constructor.
+-- | Contains the parameters for CancelExportTask.
+--
+-- /See:/ 'cancelExportTask' smart constructor.
 newtype CancelExportTask = CancelExportTask'
     { _cetExportTaskId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

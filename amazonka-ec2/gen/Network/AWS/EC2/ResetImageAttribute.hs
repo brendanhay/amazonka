@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'resetImageAttribute' smart constructor.
+-- | Contains the parameters for ResetImageAttribute.
+--
+-- /See:/ 'resetImageAttribute' smart constructor.
 data ResetImageAttribute = ResetImageAttribute'
     { _resDryRun    :: !(Maybe Bool)
     , _resImageId   :: !Text

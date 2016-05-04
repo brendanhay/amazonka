@@ -66,7 +66,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createReservedInstancesListing' smart constructor.
+-- | Contains the parameters for CreateReservedInstancesListing.
+--
+-- /See:/ 'createReservedInstancesListing' smart constructor.
 data CreateReservedInstancesListing = CreateReservedInstancesListing'
     { _crilReservedInstancesId :: !Text
     , _crilInstanceCount       :: !Int
@@ -156,7 +158,9 @@ instance ToQuery CreateReservedInstancesListing where
                toQueryList "PriceSchedules" _crilPriceSchedules,
                "ClientToken" =: _crilClientToken]
 
--- | /See:/ 'createReservedInstancesListingResponse' smart constructor.
+-- | Contains the output of CreateReservedInstancesListing.
+--
+-- /See:/ 'createReservedInstancesListingResponse' smart constructor.
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
     { _crersReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _crersResponseStatus            :: !Int

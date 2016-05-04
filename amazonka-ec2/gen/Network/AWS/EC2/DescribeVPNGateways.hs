@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVPNGateways' smart constructor.
+-- | Contains the parameters for DescribeVpnGateways.
+--
+-- /See:/ 'describeVPNGateways' smart constructor.
 data DescribeVPNGateways = DescribeVPNGateways'
     { _dvgsFilters       :: !(Maybe [Filter])
     , _dvgsVPNGatewayIds :: !(Maybe [Text])
@@ -154,7 +156,9 @@ instance ToQuery DescribeVPNGateways where
                  (toQueryList "VpnGatewayId" <$> _dvgsVPNGatewayIds),
                "DryRun" =: _dvgsDryRun]
 
--- | /See:/ 'describeVPNGatewaysResponse' smart constructor.
+-- | Contains the output of DescribeVpnGateways.
+--
+-- /See:/ 'describeVPNGatewaysResponse' smart constructor.
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
     { _dvgrsVPNGateways    :: !(Maybe [VPNGateway])
     , _dvgrsResponseStatus :: !Int

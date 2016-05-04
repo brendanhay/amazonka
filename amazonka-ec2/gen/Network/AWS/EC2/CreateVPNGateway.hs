@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createVPNGateway' smart constructor.
+-- | Contains the parameters for CreateVpnGateway.
+--
+-- /See:/ 'createVPNGateway' smart constructor.
 data CreateVPNGateway = CreateVPNGateway'
     { _cvgAvailabilityZone :: !(Maybe Text)
     , _cvgDryRun           :: !(Maybe Bool)
@@ -118,7 +120,9 @@ instance ToQuery CreateVPNGateway where
                "AvailabilityZone" =: _cvgAvailabilityZone,
                "DryRun" =: _cvgDryRun, "Type" =: _cvgType]
 
--- | /See:/ 'createVPNGatewayResponse' smart constructor.
+-- | Contains the output of CreateVpnGateway.
+--
+-- /See:/ 'createVPNGatewayResponse' smart constructor.
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
     { _cvgrsVPNGateway     :: !(Maybe VPNGateway)
     , _cvgrsResponseStatus :: !Int

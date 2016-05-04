@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeDHCPOptions' smart constructor.
+-- | Contains the parameters for DescribeDhcpOptions.
+--
+-- /See:/ 'describeDHCPOptions' smart constructor.
 data DescribeDHCPOptions = DescribeDHCPOptions'
     { _ddoFilters        :: !(Maybe [Filter])
     , _ddoDHCPOptionsIds :: !(Maybe [Text])
@@ -143,7 +145,9 @@ instance ToQuery DescribeDHCPOptions where
                  (toQueryList "DhcpOptionsId" <$> _ddoDHCPOptionsIds),
                "DryRun" =: _ddoDryRun]
 
--- | /See:/ 'describeDHCPOptionsResponse' smart constructor.
+-- | Contains the output of DescribeDhcpOptions.
+--
+-- /See:/ 'describeDHCPOptionsResponse' smart constructor.
 data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
     { _ddorsDHCPOptions    :: !(Maybe [DHCPOptions])
     , _ddorsResponseStatus :: !Int

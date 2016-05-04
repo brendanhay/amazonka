@@ -70,7 +70,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createCustomerGateway' smart constructor.
+-- | Contains the parameters for CreateCustomerGateway.
+--
+-- /See:/ 'createCustomerGateway' smart constructor.
 data CreateCustomerGateway = CreateCustomerGateway'
     { _ccgDryRun   :: !(Maybe Bool)
     , _ccgType     :: !GatewayType
@@ -153,7 +155,9 @@ instance ToQuery CreateCustomerGateway where
                "DryRun" =: _ccgDryRun, "Type" =: _ccgType,
                "IpAddress" =: _ccgPublicIP, "BgpAsn" =: _ccgBGPASN]
 
--- | /See:/ 'createCustomerGatewayResponse' smart constructor.
+-- | Contains the output of CreateCustomerGateway.
+--
+-- /See:/ 'createCustomerGatewayResponse' smart constructor.
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
     { _ccgrsCustomerGateway :: !(Maybe CustomerGateway)
     , _ccgrsResponseStatus  :: !Int

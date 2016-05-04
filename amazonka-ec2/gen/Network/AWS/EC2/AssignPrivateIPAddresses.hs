@@ -54,7 +54,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'assignPrivateIPAddresses' smart constructor.
+-- | Contains the parameters for AssignPrivateIpAddresses.
+--
+-- /See:/ 'assignPrivateIPAddresses' smart constructor.
 data AssignPrivateIPAddresses = AssignPrivateIPAddresses'
     { _apiaPrivateIPAddresses             :: !(Maybe [Text])
     , _apiaAllowReassignment              :: !(Maybe Bool)

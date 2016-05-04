@@ -25,7 +25,7 @@
 -- resource types.
 --
 -- The following resource types support longer IDs: 'instance' |
--- 'reservation'.
+-- 'reservation' | 'snapshot' | 'volume'.
 --
 -- These settings apply to the IAM user who makes the request; they do not
 -- apply to the entire AWS account. By default, an IAM user defaults to the
@@ -57,7 +57,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeIdFormat' smart constructor.
+-- | Contains the parameters for DescribeIdFormat.
+--
+-- /See:/ 'describeIdFormat' smart constructor.
 newtype DescribeIdFormat = DescribeIdFormat'
     { _difResource :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -106,7 +108,9 @@ instance ToQuery DescribeIdFormat where
                "Version" =: ("2015-10-01" :: ByteString),
                "Resource" =: _difResource]
 
--- | /See:/ 'describeIdFormatResponse' smart constructor.
+-- | Contains the output of DescribeIdFormat.
+--
+-- /See:/ 'describeIdFormatResponse' smart constructor.
 data DescribeIdFormatResponse = DescribeIdFormatResponse'
     { _difrsStatuses       :: !(Maybe [IdFormat])
     , _difrsResponseStatus :: !Int

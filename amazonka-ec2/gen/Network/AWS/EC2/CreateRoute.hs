@@ -70,7 +70,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createRoute' smart constructor.
+-- | Contains the parameters for CreateRoute.
+--
+-- /See:/ 'createRoute' smart constructor.
 data CreateRoute = CreateRoute'
     { _crVPCPeeringConnectionId :: !(Maybe Text)
     , _crInstanceId             :: !(Maybe Text)
@@ -188,7 +190,9 @@ instance ToQuery CreateRoute where
                "RouteTableId" =: _crRouteTableId,
                "DestinationCidrBlock" =: _crDestinationCIdRBlock]
 
--- | /See:/ 'createRouteResponse' smart constructor.
+-- | Contains the output of CreateRoute.
+--
+-- /See:/ 'createRouteResponse' smart constructor.
 data CreateRouteResponse = CreateRouteResponse'
     { _crrsReturn         :: !(Maybe Bool)
     , _crrsResponseStatus :: !Int

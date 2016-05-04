@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createVPNConnectionRoute' smart constructor.
+-- | Contains the parameters for CreateVpnConnectionRoute.
+--
+-- /See:/ 'createVPNConnectionRoute' smart constructor.
 data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
     { _cvcrVPNConnectionId      :: !Text
     , _cvcrDestinationCIdRBlock :: !Text

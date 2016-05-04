@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'unmonitorInstances' smart constructor.
+-- | Contains the parameters for UnmonitorInstances.
+--
+-- /See:/ 'unmonitorInstances' smart constructor.
 data UnmonitorInstances = UnmonitorInstances'
     { _uiDryRun      :: !(Maybe Bool)
     , _uiInstanceIds :: ![Text]
@@ -108,7 +110,9 @@ instance ToQuery UnmonitorInstances where
                "DryRun" =: _uiDryRun,
                toQueryList "InstanceId" _uiInstanceIds]
 
--- | /See:/ 'unmonitorInstancesResponse' smart constructor.
+-- | Contains the output of UnmonitorInstances.
+--
+-- /See:/ 'unmonitorInstancesResponse' smart constructor.
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
     { _uirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
     , _uirsResponseStatus      :: !Int

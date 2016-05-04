@@ -73,7 +73,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createSecurityGroup' smart constructor.
+-- | Contains the parameters for CreateSecurityGroup.
+--
+-- /See:/ 'createSecurityGroup' smart constructor.
 data CreateSecurityGroup = CreateSecurityGroup'
     { _csgVPCId       :: !(Maybe Text)
     , _csgDryRun      :: !(Maybe Bool)
@@ -166,7 +168,9 @@ instance ToQuery CreateSecurityGroup where
                "GroupName" =: _csgGroupName,
                "GroupDescription" =: _csgDescription]
 
--- | /See:/ 'createSecurityGroupResponse' smart constructor.
+-- | Contains the output of CreateSecurityGroup.
+--
+-- /See:/ 'createSecurityGroupResponse' smart constructor.
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
     { _csgrsResponseStatus :: !Int
     , _csgrsGroupId        :: !Text

@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyHosts' smart constructor.
+-- | Contains the parameters for ModifyHosts.
+--
+-- /See:/ 'modifyHosts' smart constructor.
 data ModifyHosts = ModifyHosts'
     { _mhHostIds       :: ![Text]
     , _mhAutoPlacement :: !AutoPlacement
@@ -113,7 +115,9 @@ instance ToQuery ModifyHosts where
                toQueryList "HostId" _mhHostIds,
                "AutoPlacement" =: _mhAutoPlacement]
 
--- | /See:/ 'modifyHostsResponse' smart constructor.
+-- | Contains the output of ModifyHosts.
+--
+-- /See:/ 'modifyHostsResponse' smart constructor.
 data ModifyHostsResponse = ModifyHostsResponse'
     { _mhrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
     , _mhrsSuccessful     :: !(Maybe [Text])

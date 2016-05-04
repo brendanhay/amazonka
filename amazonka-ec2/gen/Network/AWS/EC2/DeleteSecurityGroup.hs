@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteSecurityGroup' smart constructor.
+-- | Contains the parameters for DeleteSecurityGroup.
+--
+-- /See:/ 'deleteSecurityGroup' smart constructor.
 data DeleteSecurityGroup = DeleteSecurityGroup'
     { _dsgGroupId   :: !(Maybe Text)
     , _dsgGroupName :: !(Maybe Text)

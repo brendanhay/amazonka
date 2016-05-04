@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeAddresses' smart constructor.
+-- | Contains the parameters for DescribeAddresses.
+--
+-- /See:/ 'describeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
     { _daFilters       :: !(Maybe [Filter])
     , _daPublicIPs     :: !(Maybe [Text])
@@ -155,7 +157,9 @@ instance ToQuery DescribeAddresses where
                  (toQueryList "AllocationId" <$> _daAllocationIds),
                "DryRun" =: _daDryRun]
 
--- | /See:/ 'describeAddressesResponse' smart constructor.
+-- | Contains the output of DescribeAddresses.
+--
+-- /See:/ 'describeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'
     { _darsAddresses      :: !(Maybe [Address])
     , _darsResponseStatus :: !Int

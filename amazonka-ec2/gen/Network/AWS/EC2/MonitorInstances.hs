@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'monitorInstances' smart constructor.
+-- | Contains the parameters for MonitorInstances.
+--
+-- /See:/ 'monitorInstances' smart constructor.
 data MonitorInstances = MonitorInstances'
     { _miDryRun      :: !(Maybe Bool)
     , _miInstanceIds :: ![Text]
@@ -107,7 +109,9 @@ instance ToQuery MonitorInstances where
                "DryRun" =: _miDryRun,
                toQueryList "InstanceId" _miInstanceIds]
 
--- | /See:/ 'monitorInstancesResponse' smart constructor.
+-- | Contains the output of MonitorInstances.
+--
+-- /See:/ 'monitorInstancesResponse' smart constructor.
 data MonitorInstancesResponse = MonitorInstancesResponse'
     { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
     , _mirsResponseStatus      :: !Int

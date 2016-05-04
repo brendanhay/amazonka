@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'restoreAddressToClassic' smart constructor.
+-- | Contains the parameters for RestoreAddressToClassic.
+--
+-- /See:/ 'restoreAddressToClassic' smart constructor.
 data RestoreAddressToClassic = RestoreAddressToClassic'
     { _ratcDryRun   :: !(Maybe Bool)
     , _ratcPublicIP :: !Text
@@ -112,7 +114,9 @@ instance ToQuery RestoreAddressToClassic where
                "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _ratcDryRun, "PublicIp" =: _ratcPublicIP]
 
--- | /See:/ 'restoreAddressToClassicResponse' smart constructor.
+-- | Contains the output of RestoreAddressToClassic.
+--
+-- /See:/ 'restoreAddressToClassicResponse' smart constructor.
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
     { _ratcrsStatus         :: !(Maybe AddressStatus)
     , _ratcrsPublicIP       :: !(Maybe Text)

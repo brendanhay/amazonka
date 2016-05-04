@@ -52,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeSecurityGroups' smart constructor.
+-- | Contains the parameters for DescribeSecurityGroups.
+--
+-- /See:/ 'describeSecurityGroups' smart constructor.
 data DescribeSecurityGroups = DescribeSecurityGroups'
     { _dsgsFilters    :: !(Maybe [Filter])
     , _dsgsGroupNames :: !(Maybe [Text])
@@ -184,7 +186,9 @@ instance ToQuery DescribeSecurityGroups where
                toQuery (toQueryList "GroupId" <$> _dsgsGroupIds),
                "DryRun" =: _dsgsDryRun]
 
--- | /See:/ 'describeSecurityGroupsResponse' smart constructor.
+-- | Contains the output of DescribeSecurityGroups.
+--
+-- /See:/ 'describeSecurityGroupsResponse' smart constructor.
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
     { _dsgrsSecurityGroups :: !(Maybe [SecurityGroup])
     , _dsgrsResponseStatus :: !Int

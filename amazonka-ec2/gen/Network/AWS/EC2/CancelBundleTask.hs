@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'cancelBundleTask' smart constructor.
+-- | Contains the parameters for CancelBundleTask.
+--
+-- /See:/ 'cancelBundleTask' smart constructor.
 data CancelBundleTask = CancelBundleTask'
     { _cbtDryRun   :: !(Maybe Bool)
     , _cbtBundleId :: !Text
@@ -103,7 +105,9 @@ instance ToQuery CancelBundleTask where
                "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _cbtDryRun, "BundleId" =: _cbtBundleId]
 
--- | /See:/ 'cancelBundleTaskResponse' smart constructor.
+-- | Contains the output of CancelBundleTask.
+--
+-- /See:/ 'cancelBundleTaskResponse' smart constructor.
 data CancelBundleTaskResponse = CancelBundleTaskResponse'
     { _cbtrsBundleTask     :: !(Maybe BundleTask)
     , _cbtrsResponseStatus :: !Int

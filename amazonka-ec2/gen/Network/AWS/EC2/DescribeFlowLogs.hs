@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeFlowLogs' smart constructor.
+-- | Contains the parameters for DescribeFlowLogs.
+--
+-- /See:/ 'describeFlowLogs' smart constructor.
 data DescribeFlowLogs = DescribeFlowLogs'
     { _dNextToken  :: !(Maybe Text)
     , _dFlowLogIds :: !(Maybe [Text])
@@ -142,7 +144,9 @@ instance ToQuery DescribeFlowLogs where
                toQuery (toQueryList "Filter" <$> _dFilter),
                "MaxResults" =: _dMaxResults]
 
--- | /See:/ 'describeFlowLogsResponse' smart constructor.
+-- | Contains the output of DescribeFlowLogs.
+--
+-- /See:/ 'describeFlowLogsResponse' smart constructor.
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
     { _dflsrsNextToken      :: !(Maybe Text)
     , _dflsrsFlowLogs       :: !(Maybe [FlowLog])

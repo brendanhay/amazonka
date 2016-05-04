@@ -56,7 +56,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'importInstance' smart constructor.
+-- | Contains the parameters for ImportInstance.
+--
+-- /See:/ 'importInstance' smart constructor.
 data ImportInstance = ImportInstance'
     { _iiLaunchSpecification :: !(Maybe ImportInstanceLaunchSpecification)
     , _iiDiskImages          :: !(Maybe [DiskImage])
@@ -142,7 +144,9 @@ instance ToQuery ImportInstance where
                "Description" =: _iiDescription,
                "DryRun" =: _iiDryRun, "Platform" =: _iiPlatform]
 
--- | /See:/ 'importInstanceResponse' smart constructor.
+-- | Contains the output for ImportInstance.
+--
+-- /See:/ 'importInstanceResponse' smart constructor.
 data ImportInstanceResponse = ImportInstanceResponse'
     { _iirsConversionTask :: !(Maybe ConversionTask)
     , _iirsResponseStatus :: !Int

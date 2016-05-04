@@ -55,7 +55,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifySnapshotAttribute' smart constructor.
+-- | Contains the parameters for ModifySnapshotAttribute.
+--
+-- /See:/ 'modifySnapshotAttribute' smart constructor.
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
     { _msaAttribute              :: !(Maybe SnapshotAttributeName)
     , _msaCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)

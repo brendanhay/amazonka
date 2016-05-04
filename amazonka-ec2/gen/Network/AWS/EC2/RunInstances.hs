@@ -113,7 +113,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'runInstances' smart constructor.
+-- | Contains the parameters for RunInstances.
+--
+-- /See:/ 'runInstances' smart constructor.
 data RunInstances = RunInstances'
     { _rAdditionalInfo                    :: !(Maybe Text)
     , _rSecurityGroupIds                  :: !(Maybe [Text])

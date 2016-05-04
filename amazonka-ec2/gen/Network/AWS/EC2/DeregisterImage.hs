@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deregisterImage' smart constructor.
+-- | Contains the parameters for DeregisterImage.
+--
+-- /See:/ 'deregisterImage' smart constructor.
 data DeregisterImage = DeregisterImage'
     { _diDryRun  :: !(Maybe Bool)
     , _diImageId :: !Text

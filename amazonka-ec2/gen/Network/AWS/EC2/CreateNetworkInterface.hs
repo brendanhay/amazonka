@@ -52,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createNetworkInterface' smart constructor.
+-- | Contains the parameters for CreateNetworkInterface.
+--
+-- /See:/ 'createNetworkInterface' smart constructor.
 data CreateNetworkInterface = CreateNetworkInterface'
     { _cniGroups                         :: !(Maybe [Text])
     , _cniPrivateIPAddresses             :: !(Maybe [PrivateIPAddressSpecification])
@@ -175,7 +177,9 @@ instance ToQuery CreateNetworkInterface where
                "Description" =: _cniDescription,
                "DryRun" =: _cniDryRun, "SubnetId" =: _cniSubnetId]
 
--- | /See:/ 'createNetworkInterfaceResponse' smart constructor.
+-- | Contains the output of CreateNetworkInterface.
+--
+-- /See:/ 'createNetworkInterfaceResponse' smart constructor.
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
     { _cnirsNetworkInterface :: !(Maybe NetworkInterface)
     , _cnirsResponseStatus   :: !Int

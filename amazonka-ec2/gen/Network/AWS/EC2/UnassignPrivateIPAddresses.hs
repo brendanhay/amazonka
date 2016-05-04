@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'unassignPrivateIPAddresses' smart constructor.
+-- | Contains the parameters for UnassignPrivateIpAddresses.
+--
+-- /See:/ 'unassignPrivateIPAddresses' smart constructor.
 data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
     { _upiaNetworkInterfaceId :: !Text
     , _upiaPrivateIPAddresses :: ![Text]

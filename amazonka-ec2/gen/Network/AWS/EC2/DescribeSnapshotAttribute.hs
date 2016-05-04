@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeSnapshotAttribute' smart constructor.
+-- | Contains the parameters for DescribeSnapshotAttribute.
+--
+-- /See:/ 'describeSnapshotAttribute' smart constructor.
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
     { _dsaDryRun     :: !(Maybe Bool)
     , _dsaSnapshotId :: !Text
@@ -129,7 +131,9 @@ instance ToQuery DescribeSnapshotAttribute where
                "SnapshotId" =: _dsaSnapshotId,
                "Attribute" =: _dsaAttribute]
 
--- | /See:/ 'describeSnapshotAttributeResponse' smart constructor.
+-- | Contains the output of DescribeSnapshotAttribute.
+--
+-- /See:/ 'describeSnapshotAttributeResponse' smart constructor.
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
     { _dsarsCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
     , _dsarsProductCodes            :: !(Maybe [ProductCode])

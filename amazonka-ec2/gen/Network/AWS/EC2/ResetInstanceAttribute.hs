@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'resetInstanceAttribute' smart constructor.
+-- | Contains the parameters for ResetInstanceAttribute.
+--
+-- /See:/ 'resetInstanceAttribute' smart constructor.
 data ResetInstanceAttribute = ResetInstanceAttribute'
     { _riaDryRun     :: !(Maybe Bool)
     , _riaInstanceId :: !Text

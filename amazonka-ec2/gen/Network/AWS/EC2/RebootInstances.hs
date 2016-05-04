@@ -23,8 +23,8 @@
 -- instances. The operation succeeds if the instances are valid and belong
 -- to you. Requests to reboot terminated instances are ignored.
 --
--- If a Linux\/Unix instance does not cleanly shut down within four
--- minutes, Amazon EC2 performs a hard reboot.
+-- If an instance does not cleanly shut down within four minutes, Amazon
+-- EC2 performs a hard reboot.
 --
 -- For more information about troubleshooting, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html Getting Console Output and Rebooting Instances>
@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'rebootInstances' smart constructor.
+-- | Contains the parameters for RebootInstances.
+--
+-- /See:/ 'rebootInstances' smart constructor.
 data RebootInstances = RebootInstances'
     { _rebDryRun      :: !(Maybe Bool)
     , _rebInstanceIds :: ![Text]

@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'replaceNetworkACLEntry' smart constructor.
+-- | Contains the parameters for ReplaceNetworkAclEntry.
+--
+-- /See:/ 'replaceNetworkACLEntry' smart constructor.
 data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
     { _rnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
     , _rnaePortRange    :: !(Maybe PortRange)

@@ -54,7 +54,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createVPCEndpoint' smart constructor.
+-- | Contains the parameters for CreateVpcEndpoint.
+--
+-- /See:/ 'createVPCEndpoint' smart constructor.
 data CreateVPCEndpoint = CreateVPCEndpoint'
     { _cvePolicyDocument :: !(Maybe Text)
     , _cveClientToken    :: !(Maybe Text)
@@ -160,7 +162,9 @@ instance ToQuery CreateVPCEndpoint where
                "VpcId" =: _cveVPCId,
                "ServiceName" =: _cveServiceName]
 
--- | /See:/ 'createVPCEndpointResponse' smart constructor.
+-- | Contains the output of CreateVpcEndpoint.
+--
+-- /See:/ 'createVPCEndpointResponse' smart constructor.
 data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
     { _cversClientToken    :: !(Maybe Text)
     , _cversVPCEndpoint    :: !(Maybe VPCEndpoint)

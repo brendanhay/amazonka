@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeBundleTasks' smart constructor.
+-- | Contains the parameters for DescribeBundleTasks.
+--
+-- /See:/ 'describeBundleTasks' smart constructor.
 data DescribeBundleTasks = DescribeBundleTasks'
     { _dbtBundleIds :: !(Maybe [Text])
     , _dbtFilters   :: !(Maybe [Filter])
@@ -146,7 +148,9 @@ instance ToQuery DescribeBundleTasks where
                toQuery (toQueryList "Filter" <$> _dbtFilters),
                "DryRun" =: _dbtDryRun]
 
--- | /See:/ 'describeBundleTasksResponse' smart constructor.
+-- | Contains the output of DescribeBundleTasks.
+--
+-- /See:/ 'describeBundleTasksResponse' smart constructor.
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
     { _dbtrsBundleTasks    :: !(Maybe [BundleTask])
     , _dbtrsResponseStatus :: !Int

@@ -59,7 +59,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyInstanceAttribute' smart constructor.
+-- | Contains the parameters for ModifyInstanceAttribute.
+--
+-- /See:/ 'modifyInstanceAttribute' smart constructor.
 data ModifyInstanceAttribute = ModifyInstanceAttribute'
     { _mGroups                            :: !(Maybe [Text])
     , _mAttribute                         :: !(Maybe InstanceAttributeName)
@@ -201,7 +203,8 @@ mSRIOVNetSupport = lens _mSRIOVNetSupport (\ s a -> s{_mSRIOVNetSupport = a});
 mEBSOptimized :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mEBSOptimized = lens _mEBSOptimized (\ s a -> s{_mEBSOptimized = a});
 
--- | Changes the instance\'s user data to the specified value.
+-- | Changes the instance\'s user data to the specified base64-encoded value.
+-- For command line tools, base64 encoding is performed for you.
 mUserData :: Lens' ModifyInstanceAttribute (Maybe BlobAttributeValue)
 mUserData = lens _mUserData (\ s a -> s{_mUserData = a});
 

@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'cancelConversionTask' smart constructor.
+-- | Contains the parameters for CancelConversionTask.
+--
+-- /See:/ 'cancelConversionTask' smart constructor.
 data CancelConversionTask = CancelConversionTask'
     { _cctReasonMessage    :: !(Maybe Text)
     , _cctDryRun           :: !(Maybe Bool)

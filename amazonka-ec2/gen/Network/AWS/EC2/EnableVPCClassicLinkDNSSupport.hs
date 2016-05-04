@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'enableVPCClassicLinkDNSSupport' smart constructor.
+-- | Contains the parameters for EnableVpcClassicLinkDnsSupport.
+--
+-- /See:/ 'enableVPCClassicLinkDNSSupport' smart constructor.
 newtype EnableVPCClassicLinkDNSSupport = EnableVPCClassicLinkDNSSupport'
     { _evcldsVPCId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -100,7 +102,9 @@ instance ToQuery EnableVPCClassicLinkDNSSupport where
                "Version" =: ("2015-10-01" :: ByteString),
                "VpcId" =: _evcldsVPCId]
 
--- | /See:/ 'enableVPCClassicLinkDNSSupportResponse' smart constructor.
+-- | Contains the output of EnableVpcClassicLinkDnsSupport.
+--
+-- /See:/ 'enableVPCClassicLinkDNSSupportResponse' smart constructor.
 data EnableVPCClassicLinkDNSSupportResponse = EnableVPCClassicLinkDNSSupportResponse'
     { _evcldsrsReturn         :: !(Maybe Bool)
     , _evcldsrsResponseStatus :: !Int

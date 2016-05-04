@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'allocateAddress' smart constructor.
+-- | Contains the parameters for AllocateAddress.
+--
+-- /See:/ 'allocateAddress' smart constructor.
 data AllocateAddress = AllocateAddress'
     { _aaDomain :: !(Maybe DomainType)
     , _aaDryRun :: !(Maybe Bool)
@@ -112,7 +114,9 @@ instance ToQuery AllocateAddress where
                "Version" =: ("2015-10-01" :: ByteString),
                "Domain" =: _aaDomain, "DryRun" =: _aaDryRun]
 
--- | /See:/ 'allocateAddressResponse' smart constructor.
+-- | Contains the output of AllocateAddress.
+--
+-- /See:/ 'allocateAddressResponse' smart constructor.
 data AllocateAddressResponse = AllocateAddressResponse'
     { _aarsAllocationId   :: !(Maybe Text)
     , _aarsDomain         :: !(Maybe DomainType)

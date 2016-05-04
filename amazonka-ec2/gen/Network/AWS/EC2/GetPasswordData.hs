@@ -59,7 +59,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getPasswordData' smart constructor.
+-- | Contains the parameters for GetPasswordData.
+--
+-- /See:/ 'getPasswordData' smart constructor.
 data GetPasswordData = GetPasswordData'
     { _gpdDryRun     :: !(Maybe Bool)
     , _gpdInstanceId :: !Text
@@ -121,7 +123,9 @@ instance ToQuery GetPasswordData where
                "DryRun" =: _gpdDryRun,
                "InstanceId" =: _gpdInstanceId]
 
--- | /See:/ 'getPasswordDataResponse' smart constructor.
+-- | Contains the output of GetPasswordData.
+--
+-- /See:/ 'getPasswordDataResponse' smart constructor.
 data GetPasswordDataResponse = GetPasswordDataResponse'
     { _gpdrsResponseStatus :: !Int
     , _gpdrsInstanceId     :: !Text

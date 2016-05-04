@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyNetworkInterfaceAttribute' smart constructor.
+-- | Contains the parameters for ModifyNetworkInterfaceAttribute.
+--
+-- /See:/ 'modifyNetworkInterfaceAttribute' smart constructor.
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
     { _mniaGroups             :: !(Maybe [Text])
     , _mniaSourceDestCheck    :: !(Maybe AttributeBooleanValue)

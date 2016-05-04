@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVPCEndpointServices' smart constructor.
+-- | Contains the parameters for DescribeVpcEndpointServices.
+--
+-- /See:/ 'describeVPCEndpointServices' smart constructor.
 data DescribeVPCEndpointServices = DescribeVPCEndpointServices'
     { _dvesNextToken  :: !(Maybe Text)
     , _dvesDryRun     :: !(Maybe Bool)
@@ -125,7 +127,9 @@ instance ToQuery DescribeVPCEndpointServices where
                "DryRun" =: _dvesDryRun,
                "MaxResults" =: _dvesMaxResults]
 
--- | /See:/ 'describeVPCEndpointServicesResponse' smart constructor.
+-- | Contains the output of DescribeVpcEndpointServices.
+--
+-- /See:/ 'describeVPCEndpointServicesResponse' smart constructor.
 data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
     { _dvesrsServiceNames   :: !(Maybe [Text])
     , _dvesrsNextToken      :: !(Maybe Text)

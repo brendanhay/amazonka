@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVPCPeeringConnections' smart constructor.
+-- | Contains the parameters for DescribeVpcPeeringConnections.
+--
+-- /See:/ 'describeVPCPeeringConnections' smart constructor.
 data DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'
     { _dvpcpcFilters                 :: !(Maybe [Filter])
     , _dvpcpcVPCPeeringConnectionIds :: !(Maybe [Text])
@@ -164,7 +166,9 @@ instance ToQuery DescribeVPCPeeringConnections where
                     _dvpcpcVPCPeeringConnectionIds),
                "DryRun" =: _dvpcpcDryRun]
 
--- | /See:/ 'describeVPCPeeringConnectionsResponse' smart constructor.
+-- | Contains the output of DescribeVpcPeeringConnections.
+--
+-- /See:/ 'describeVPCPeeringConnectionsResponse' smart constructor.
 data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'
     { _dvpcpcrsVPCPeeringConnections :: !(Maybe [VPCPeeringConnection])
     , _dvpcpcrsResponseStatus        :: !Int

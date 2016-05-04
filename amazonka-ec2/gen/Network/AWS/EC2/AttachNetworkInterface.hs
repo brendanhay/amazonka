@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'attachNetworkInterface' smart constructor.
+-- | Contains the parameters for AttachNetworkInterface.
+--
+-- /See:/ 'attachNetworkInterface' smart constructor.
 data AttachNetworkInterface = AttachNetworkInterface'
     { _aniDryRun             :: !(Maybe Bool)
     , _aniNetworkInterfaceId :: !Text
@@ -127,7 +129,9 @@ instance ToQuery AttachNetworkInterface where
                "InstanceId" =: _aniInstanceId,
                "DeviceIndex" =: _aniDeviceIndex]
 
--- | /See:/ 'attachNetworkInterfaceResponse' smart constructor.
+-- | Contains the output of AttachNetworkInterface.
+--
+-- /See:/ 'attachNetworkInterfaceResponse' smart constructor.
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
     { _anirsAttachmentId   :: !(Maybe Text)
     , _anirsResponseStatus :: !Int

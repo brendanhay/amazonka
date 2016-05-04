@@ -65,7 +65,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createNetworkACLEntry' smart constructor.
+-- | Contains the parameters for CreateNetworkAclEntry.
+--
+-- /See:/ 'createNetworkACLEntry' smart constructor.
 data CreateNetworkACLEntry = CreateNetworkACLEntry'
     { _cnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
     , _cnaePortRange    :: !(Maybe PortRange)

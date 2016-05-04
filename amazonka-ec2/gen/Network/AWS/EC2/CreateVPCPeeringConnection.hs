@@ -56,7 +56,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createVPCPeeringConnection' smart constructor.
+-- | Contains the parameters for CreateVpcPeeringConnection.
+--
+-- /See:/ 'createVPCPeeringConnection' smart constructor.
 data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
     { _cvpcPeerVPCId   :: !(Maybe Text)
     , _cvpcVPCId       :: !(Maybe Text)
@@ -138,7 +140,9 @@ instance ToQuery CreateVPCPeeringConnection where
                "PeerOwnerId" =: _cvpcPeerOwnerId,
                "DryRun" =: _cvpcDryRun]
 
--- | /See:/ 'createVPCPeeringConnectionResponse' smart constructor.
+-- | Contains the output of CreateVpcPeeringConnection.
+--
+-- /See:/ 'createVPCPeeringConnectionResponse' smart constructor.
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
     { _cvpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
     , _cvpcrsResponseStatus       :: !Int

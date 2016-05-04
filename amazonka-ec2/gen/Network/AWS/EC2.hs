@@ -34,6 +34,9 @@ module Network.AWS.EC2
     -- ** VolumeInUse
     , volumeInUse
 
+    -- ** ImageExists
+    , imageExists
+
     -- ** NatGatewayAvailable
     , natGatewayAvailable
 
@@ -408,6 +411,9 @@ module Network.AWS.EC2
 
     -- ** CreateVPC
     , module Network.AWS.EC2.CreateVPC
+
+    -- ** ModifyVPCPeeringConnectionOptions
+    , module Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
 
     -- ** CopySnapshot
     , module Network.AWS.EC2.CopySnapshot
@@ -1797,6 +1803,18 @@ module Network.AWS.EC2
     , ndcValues
     , ndcKey
 
+    -- ** PeeringConnectionOptions
+    , PeeringConnectionOptions
+    , peeringConnectionOptions
+    , pcoAllowEgressFromLocalVPCToRemoteClassicLink
+    , pcoAllowEgressFromLocalClassicLinkToRemoteVPC
+
+    -- ** PeeringConnectionOptionsRequest
+    , PeeringConnectionOptionsRequest
+    , peeringConnectionOptionsRequest
+    , pcorAllowEgressFromLocalClassicLinkToRemoteVPC
+    , pcorAllowEgressFromLocalVPCToRemoteClassicLink
+
     -- ** Placement
     , Placement
     , placement
@@ -2493,6 +2511,12 @@ module Network.AWS.EC2
     , vpcpcExpirationTime
     , vpcpcTags
 
+    -- ** VPCPeeringConnectionOptionsDescription
+    , VPCPeeringConnectionOptionsDescription
+    , vpcPeeringConnectionOptionsDescription
+    , vpcodAllowEgressFromLocalVPCToRemoteClassicLink
+    , vpcodAllowEgressFromLocalClassicLinkToRemoteVPC
+
     -- ** VPCPeeringConnectionStateReason
     , VPCPeeringConnectionStateReason
     , vpcPeeringConnectionStateReason
@@ -2504,6 +2528,7 @@ module Network.AWS.EC2
     , vpcPeeringConnectionVPCInfo
     , vpcviVPCId
     , vpcviOwnerId
+    , vpcviPeeringOptions
     , vpcviCIdRBlock
 
     -- ** VPNConnection
@@ -2788,6 +2813,7 @@ import           Network.AWS.EC2.ModifySubnetAttribute
 import           Network.AWS.EC2.ModifyVolumeAttribute
 import           Network.AWS.EC2.ModifyVPCAttribute
 import           Network.AWS.EC2.ModifyVPCEndpoint
+import           Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
 import           Network.AWS.EC2.MonitorInstances
 import           Network.AWS.EC2.MoveAddressToVPC
 import           Network.AWS.EC2.PurchaseReservedInstancesOffering

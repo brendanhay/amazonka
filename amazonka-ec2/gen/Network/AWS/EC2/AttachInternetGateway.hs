@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'attachInternetGateway' smart constructor.
+-- | Contains the parameters for AttachInternetGateway.
+--
+-- /See:/ 'attachInternetGateway' smart constructor.
 data AttachInternetGateway = AttachInternetGateway'
     { _aigDryRun            :: !(Maybe Bool)
     , _aigInternetGatewayId :: !Text

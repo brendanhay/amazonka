@@ -77,7 +77,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createVolume' smart constructor.
+-- | Contains the parameters for CreateVolume.
+--
+-- /See:/ 'createVolume' smart constructor.
 data CreateVolume = CreateVolume'
     { _creSize             :: !(Maybe Int)
     , _creIOPS             :: !(Maybe Int)
@@ -125,20 +127,21 @@ createVolume pAvailabilityZone_ =
 
 -- | The size of the volume, in GiBs.
 --
--- Constraints: '1-1024' for 'standard' volumes, '1-16384' for 'gp2'
--- volumes, and '4-16384' for 'io1' volumes. If you specify a snapshot, the
--- volume size must be equal to or larger than the snapshot size.
+-- Constraints: 1-16384 for 'gp2', 4-16384 for 'io1', 500-16384 for 'st1',
+-- 500-16384 for 'sc1', and 1-1024 for 'standard'. If you specify a
+-- snapshot, the volume size must be equal to or larger than the snapshot
+-- size.
 --
 -- Default: If you\'re creating the volume from a snapshot and don\'t
 -- specify a volume size, the default is the snapshot size.
 creSize :: Lens' CreateVolume (Maybe Int)
 creSize = lens _creSize (\ s a -> s{_creSize = a});
 
--- | Only valid for Provisioned IOPS (SSD) volumes. The number of I\/O
+-- | Only valid for Provisioned IOPS SSD volumes. The number of I\/O
 -- operations per second (IOPS) to provision for the volume, with a maximum
 -- ratio of 30 IOPS\/GiB.
 --
--- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes
+-- Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes
 creIOPS :: Lens' CreateVolume (Maybe Int)
 creIOPS = lens _creIOPS (\ s a -> s{_creIOPS = a});
 
@@ -166,9 +169,9 @@ creEncrypted = lens _creEncrypted (\ s a -> s{_creEncrypted = a});
 creKMSKeyId :: Lens' CreateVolume (Maybe Text)
 creKMSKeyId = lens _creKMSKeyId (\ s a -> s{_creKMSKeyId = a});
 
--- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes,
--- 'io1' for Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic
--- volumes.
+-- | The volume type. This can be 'gp2' for General Purpose SSD, 'io1' for
+-- Provisioned IOPS SSD, 'st1' for Throughput Optimized HDD, 'sc1' for Cold
+-- HDD, or 'standard' for Magnetic volumes.
 --
 -- Default: 'standard'
 creVolumeType :: Lens' CreateVolume (Maybe VolumeType)

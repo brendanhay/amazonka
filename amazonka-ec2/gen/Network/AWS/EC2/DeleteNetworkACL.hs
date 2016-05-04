@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteNetworkACL' smart constructor.
+-- | Contains the parameters for DeleteNetworkAcl.
+--
+-- /See:/ 'deleteNetworkACL' smart constructor.
 data DeleteNetworkACL = DeleteNetworkACL'
     { _dnaDryRun       :: !(Maybe Bool)
     , _dnaNetworkACLId :: !Text

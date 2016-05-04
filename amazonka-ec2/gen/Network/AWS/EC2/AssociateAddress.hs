@@ -67,7 +67,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'associateAddress' smart constructor.
+-- | Contains the parameters for AssociateAddress.
+--
+-- /See:/ 'associateAddress' smart constructor.
 data AssociateAddress = AssociateAddress'
     { _aasInstanceId         :: !(Maybe Text)
     , _aasAllocationId       :: !(Maybe Text)
@@ -182,7 +184,9 @@ instance ToQuery AssociateAddress where
                "PrivateIpAddress" =: _aasPrivateIPAddress,
                "PublicIp" =: _aasPublicIP, "DryRun" =: _aasDryRun]
 
--- | /See:/ 'associateAddressResponse' smart constructor.
+-- | Contains the output of AssociateAddress.
+--
+-- /See:/ 'associateAddressResponse' smart constructor.
 data AssociateAddressResponse = AssociateAddressResponse'
     { _arsAssociationId  :: !(Maybe Text)
     , _arsResponseStatus :: !Int

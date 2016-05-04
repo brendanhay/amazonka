@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'disableVGWRoutePropagation' smart constructor.
+-- | Contains the parameters for DisableVgwRoutePropagation.
+--
+-- /See:/ 'disableVGWRoutePropagation' smart constructor.
 data DisableVGWRoutePropagation = DisableVGWRoutePropagation'
     { _dvrpRouteTableId :: !Text
     , _dvrpGatewayId    :: !Text

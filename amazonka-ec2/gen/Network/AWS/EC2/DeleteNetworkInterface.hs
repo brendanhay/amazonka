@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteNetworkInterface' smart constructor.
+-- | Contains the parameters for DeleteNetworkInterface.
+--
+-- /See:/ 'deleteNetworkInterface' smart constructor.
 data DeleteNetworkInterface = DeleteNetworkInterface'
     { _dninDryRun             :: !(Maybe Bool)
     , _dninNetworkInterfaceId :: !Text

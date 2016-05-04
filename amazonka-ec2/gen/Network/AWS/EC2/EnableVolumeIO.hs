@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'enableVolumeIO' smart constructor.
+-- | Contains the parameters for EnableVolumeIO.
+--
+-- /See:/ 'enableVolumeIO' smart constructor.
 data EnableVolumeIO = EnableVolumeIO'
     { _evioDryRun   :: !(Maybe Bool)
     , _evioVolumeId :: !Text

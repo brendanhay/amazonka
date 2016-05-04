@@ -59,7 +59,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createKeyPair' smart constructor.
+-- | Contains the parameters for CreateKeyPair.
+--
+-- /See:/ 'createKeyPair' smart constructor.
 data CreateKeyPair = CreateKeyPair'
     { _ckpDryRun  :: !(Maybe Bool)
     , _ckpKeyName :: !Text

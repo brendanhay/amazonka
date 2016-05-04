@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'associateRouteTable' smart constructor.
+-- | Contains the parameters for AssociateRouteTable.
+--
+-- /See:/ 'associateRouteTable' smart constructor.
 data AssociateRouteTable = AssociateRouteTable'
     { _artDryRun       :: !(Maybe Bool)
     , _artSubnetId     :: !Text
@@ -123,7 +125,9 @@ instance ToQuery AssociateRouteTable where
                "DryRun" =: _artDryRun, "SubnetId" =: _artSubnetId,
                "RouteTableId" =: _artRouteTableId]
 
--- | /See:/ 'associateRouteTableResponse' smart constructor.
+-- | Contains the output of AssociateRouteTable.
+--
+-- /See:/ 'associateRouteTableResponse' smart constructor.
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
     { _artrsAssociationId  :: !(Maybe Text)
     , _artrsResponseStatus :: !Int

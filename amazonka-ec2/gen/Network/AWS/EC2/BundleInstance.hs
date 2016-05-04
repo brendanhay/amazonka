@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'bundleInstance' smart constructor.
+-- | Contains the parameters for BundleInstance.
+--
+-- /See:/ 'bundleInstance' smart constructor.
 data BundleInstance = BundleInstance'
     { _biDryRun     :: !(Maybe Bool)
     , _biInstanceId :: !Text
@@ -131,7 +133,9 @@ instance ToQuery BundleInstance where
                "DryRun" =: _biDryRun, "InstanceId" =: _biInstanceId,
                "Storage" =: _biStorage]
 
--- | /See:/ 'bundleInstanceResponse' smart constructor.
+-- | Contains the output of BundleInstance.
+--
+-- /See:/ 'bundleInstanceResponse' smart constructor.
 data BundleInstanceResponse = BundleInstanceResponse'
     { _birsBundleTask     :: !(Maybe BundleTask)
     , _birsResponseStatus :: !Int

@@ -64,7 +64,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'startInstances' smart constructor.
+-- | Contains the parameters for StartInstances.
+--
+-- /See:/ 'startInstances' smart constructor.
 data StartInstances = StartInstances'
     { _sAdditionalInfo :: !(Maybe Text)
     , _sDryRun         :: !(Maybe Bool)
@@ -134,7 +136,9 @@ instance ToQuery StartInstances where
                "DryRun" =: _sDryRun,
                toQueryList "InstanceId" _sInstanceIds]
 
--- | /See:/ 'startInstancesResponse' smart constructor.
+-- | Contains the output of StartInstances.
+--
+-- /See:/ 'startInstancesResponse' smart constructor.
 data StartInstancesResponse = StartInstancesResponse'
     { _srsStartingInstances :: !(Maybe [InstanceStateChange])
     , _srsResponseStatus    :: !Int

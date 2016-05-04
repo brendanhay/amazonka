@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'resetNetworkInterfaceAttribute' smart constructor.
+-- | Contains the parameters for ResetNetworkInterfaceAttribute.
+--
+-- /See:/ 'resetNetworkInterfaceAttribute' smart constructor.
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
     { _rniaSourceDestCheck    :: !(Maybe Text)
     , _rniaDryRun             :: !(Maybe Bool)

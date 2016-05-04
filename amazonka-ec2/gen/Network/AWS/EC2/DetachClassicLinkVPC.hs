@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'detachClassicLinkVPC' smart constructor.
+-- | Contains the parameters for DetachClassicLinkVpc.
+--
+-- /See:/ 'detachClassicLinkVPC' smart constructor.
 data DetachClassicLinkVPC = DetachClassicLinkVPC'
     { _dclvDryRun     :: !(Maybe Bool)
     , _dclvInstanceId :: !Text
@@ -118,7 +120,9 @@ instance ToQuery DetachClassicLinkVPC where
                "InstanceId" =: _dclvInstanceId,
                "VpcId" =: _dclvVPCId]
 
--- | /See:/ 'detachClassicLinkVPCResponse' smart constructor.
+-- | Contains the output of DetachClassicLinkVpc.
+--
+-- /See:/ 'detachClassicLinkVPCResponse' smart constructor.
 data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
     { _dclvrsReturn         :: !(Maybe Bool)
     , _dclvrsResponseStatus :: !Int

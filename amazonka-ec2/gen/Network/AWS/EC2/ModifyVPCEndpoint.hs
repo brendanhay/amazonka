@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyVPCEndpoint' smart constructor.
+-- | Contains the parameters for ModifyVpcEndpoint.
+--
+-- /See:/ 'modifyVPCEndpoint' smart constructor.
 data ModifyVPCEndpoint = ModifyVPCEndpoint'
     { _mvePolicyDocument      :: !(Maybe Text)
     , _mveRemoveRouteTableIds :: !(Maybe [Text])
@@ -151,7 +153,9 @@ instance ToQuery ModifyVPCEndpoint where
                "DryRun" =: _mveDryRun,
                "VpcEndpointId" =: _mveVPCEndpointId]
 
--- | /See:/ 'modifyVPCEndpointResponse' smart constructor.
+-- | Contains the output of ModifyVpcEndpoint.
+--
+-- /See:/ 'modifyVPCEndpointResponse' smart constructor.
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
     { _mversReturn         :: !(Maybe Bool)
     , _mversResponseStatus :: !Int

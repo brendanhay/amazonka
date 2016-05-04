@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeImportSnapshotTasks' smart constructor.
+-- | Contains the parameters for DescribeImportSnapshotTasks.
+--
+-- /See:/ 'describeImportSnapshotTasks' smart constructor.
 data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
     { _distFilters       :: !(Maybe [Filter])
     , _distImportTaskIds :: !(Maybe [Text])
@@ -99,7 +101,9 @@ distNextToken = lens _distNextToken (\ s a -> s{_distNextToken = a});
 distDryRun :: Lens' DescribeImportSnapshotTasks (Maybe Bool)
 distDryRun = lens _distDryRun (\ s a -> s{_distDryRun = a});
 
--- | The maximum number of results to return in a single request.
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned 'NextToken'
+-- value.
 distMaxResults :: Lens' DescribeImportSnapshotTasks (Maybe Int)
 distMaxResults = lens _distMaxResults (\ s a -> s{_distMaxResults = a});
 
@@ -139,7 +143,9 @@ instance ToQuery DescribeImportSnapshotTasks where
                "DryRun" =: _distDryRun,
                "MaxResults" =: _distMaxResults]
 
--- | /See:/ 'describeImportSnapshotTasksResponse' smart constructor.
+-- | Contains the output for DescribeImportSnapshotTasks.
+--
+-- /See:/ 'describeImportSnapshotTasksResponse' smart constructor.
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
     { _distrsNextToken           :: !(Maybe Text)
     , _distrsImportSnapshotTasks :: !(Maybe [ImportSnapshotTask])

@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'detachNetworkInterface' smart constructor.
+-- | Contains the parameters for DetachNetworkInterface.
+--
+-- /See:/ 'detachNetworkInterface' smart constructor.
 data DetachNetworkInterface = DetachNetworkInterface'
     { _dniForce        :: !(Maybe Bool)
     , _dniDryRun       :: !(Maybe Bool)

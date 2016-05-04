@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteVPNConnection' smart constructor.
+-- | Contains the parameters for DeleteVpnConnection.
+--
+-- /See:/ 'deleteVPNConnection' smart constructor.
 data DeleteVPNConnection = DeleteVPNConnection'
     { _dvcDryRun          :: !(Maybe Bool)
     , _dvcVPNConnectionId :: !Text

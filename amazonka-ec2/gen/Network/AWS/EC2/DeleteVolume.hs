@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteVolume' smart constructor.
+-- | Contains the parameters for DeleteVolume.
+--
+-- /See:/ 'deleteVolume' smart constructor.
 data DeleteVolume = DeleteVolume'
     { _dvvDryRun   :: !(Maybe Bool)
     , _dvvVolumeId :: !Text

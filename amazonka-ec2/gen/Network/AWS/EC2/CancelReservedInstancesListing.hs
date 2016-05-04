@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'cancelReservedInstancesListing' smart constructor.
+-- | Contains the parameters for CancelReservedInstancesListing.
+--
+-- /See:/ 'cancelReservedInstancesListing' smart constructor.
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing'
     { _crilReservedInstancesListingId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -102,7 +104,9 @@ instance ToQuery CancelReservedInstancesListing where
                "ReservedInstancesListingId" =:
                  _crilReservedInstancesListingId]
 
--- | /See:/ 'cancelReservedInstancesListingResponse' smart constructor.
+-- | Contains the output of CancelReservedInstancesListing.
+--
+-- /See:/ 'cancelReservedInstancesListingResponse' smart constructor.
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
     { _crilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _crilrsResponseStatus            :: !Int

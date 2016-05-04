@@ -59,7 +59,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'purchaseReservedInstancesOffering' smart constructor.
+-- | Contains the parameters for PurchaseReservedInstancesOffering.
+--
+-- /See:/ 'purchaseReservedInstancesOffering' smart constructor.
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
     { _prioLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
     , _prioDryRun                      :: !(Maybe Bool)
@@ -148,7 +150,9 @@ instance ToQuery PurchaseReservedInstancesOffering
                  _prioReservedInstancesOfferingId,
                "InstanceCount" =: _prioInstanceCount]
 
--- | /See:/ 'purchaseReservedInstancesOfferingResponse' smart constructor.
+-- | Contains the output of PurchaseReservedInstancesOffering.
+--
+-- /See:/ 'purchaseReservedInstancesOfferingResponse' smart constructor.
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
     { _priorsReservedInstancesId :: !(Maybe Text)
     , _priorsResponseStatus      :: !Int

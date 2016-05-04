@@ -52,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeImages' smart constructor.
+-- | Contains the parameters for DescribeImages.
+--
+-- /See:/ 'describeImages' smart constructor.
 data DescribeImages = DescribeImages'
     { _deseOwners          :: !(Maybe [Text])
     , _deseExecutableUsers :: !(Maybe [Text])
@@ -116,7 +118,7 @@ deseExecutableUsers = lens _deseExecutableUsers (\ s a -> s{_deseExecutableUsers
 --     volume, in GiB.
 --
 -- -   'block-device-mapping.volume-type' - The volume type of the EBS
---     volume ('gp2' | 'standard' | 'io1').
+--     volume ('gp2' | 'io1' | 'st1 '| 'sc1' | 'standard').
 --
 -- -   'description' - The description of the image (provided during image
 --     creation).
@@ -229,7 +231,9 @@ instance ToQuery DescribeImages where
                toQuery (toQueryList "ImageId" <$> _deseImageIds),
                "DryRun" =: _deseDryRun]
 
--- | /See:/ 'describeImagesResponse' smart constructor.
+-- | Contains the output of DescribeImages.
+--
+-- /See:/ 'describeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
     { _desrsImages         :: !(Maybe [Image])
     , _desrsResponseStatus :: !Int

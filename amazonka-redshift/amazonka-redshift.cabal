@@ -116,6 +116,7 @@ library
         , Network.AWS.Redshift.EnableLogging
         , Network.AWS.Redshift.EnableSnapshotCopy
         , Network.AWS.Redshift.ModifyCluster
+        , Network.AWS.Redshift.ModifyClusterIAMRoles
         , Network.AWS.Redshift.ModifyClusterParameterGroup
         , Network.AWS.Redshift.ModifyClusterSubnetGroup
         , Network.AWS.Redshift.ModifyEventSubscription

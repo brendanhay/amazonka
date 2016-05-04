@@ -107,6 +107,7 @@ data Cluster = Cluster'
     , _cAvailabilityZone                 :: !(Maybe Text)
     , _cVPCSecurityGroups                :: !(Maybe [VPCSecurityGroupMembership])
     , _cHSMStatus                        :: !(Maybe HSMStatus)
+    , _cIAMRoles                         :: !(Maybe [ClusterIAMRole])
     , _cElasticIPStatus                  :: !(Maybe ElasticIPStatus)
     , _cClusterVersion                   :: !(Maybe Text)
     , _cNodeType                         :: !(Maybe Text)
@@ -164,6 +165,8 @@ data Cluster = Cluster'
 --
 -- * 'cHSMStatus'
 --
+-- * 'cIAMRoles'
+--
 -- * 'cElasticIPStatus'
 --
 -- * 'cClusterVersion'
@@ -209,6 +212,7 @@ cluster =
     , _cAvailabilityZone = Nothing
     , _cVPCSecurityGroups = Nothing
     , _cHSMStatus = Nothing
+    , _cIAMRoles = Nothing
     , _cElasticIPStatus = Nothing
     , _cClusterVersion = Nothing
     , _cNodeType = Nothing
@@ -321,6 +325,11 @@ cVPCSecurityGroups = lens _cVPCSecurityGroups (\ s a -> s{_cVPCSecurityGroups = 
 cHSMStatus :: Lens' Cluster (Maybe HSMStatus)
 cHSMStatus = lens _cHSMStatus (\ s a -> s{_cHSMStatus = a});
 
+-- | A list of AWS Identity and Access Management (IAM) roles that can be
+-- used by the cluster to access other AWS services.
+cIAMRoles :: Lens' Cluster [ClusterIAMRole]
+cIAMRoles = lens _cIAMRoles (\ s a -> s{_cIAMRoles = a}) . _Default . _Coerce;
+
 -- | The status of the elastic IP (EIP) address.
 cElasticIPStatus :: Lens' Cluster (Maybe ElasticIPStatus)
 cElasticIPStatus = lens _cElasticIPStatus (\ s a -> s{_cElasticIPStatus = a});
@@ -417,6 +426,9 @@ instance FromXML Cluster where
                 (x .@? "VpcSecurityGroups" .!@ mempty >>=
                    may (parseXMLList "VpcSecurityGroup"))
                 <*> (x .@? "HsmStatus")
+                <*>
+                (x .@? "IamRoles" .!@ mempty >>=
+                   may (parseXMLList "ClusterIamRole"))
                 <*> (x .@? "ElasticIpStatus")
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
@@ -436,6 +448,57 @@ instance FromXML Cluster where
 instance Hashable Cluster
 
 instance NFData Cluster
+
+-- | An AWS Identity and Access Management (IAM) role that can be used by the
+-- associated Amazon Redshift cluster to access other AWS services.
+--
+-- /See:/ 'clusterIAMRole' smart constructor.
+data ClusterIAMRole = ClusterIAMRole'
+    { _cirIAMRoleARN  :: !(Maybe Text)
+    , _cirApplyStatus :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ClusterIAMRole' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cirIAMRoleARN'
+--
+-- * 'cirApplyStatus'
+clusterIAMRole
+    :: ClusterIAMRole
+clusterIAMRole =
+    ClusterIAMRole'
+    { _cirIAMRoleARN = Nothing
+    , _cirApplyStatus = Nothing
+    }
+
+-- | The Amazon Resource Name (ARN) of the IAM role. For example,
+-- 'arn:aws:iam::123456789012:role\/RedshiftCopyUnload'.
+cirIAMRoleARN :: Lens' ClusterIAMRole (Maybe Text)
+cirIAMRoleARN = lens _cirIAMRoleARN (\ s a -> s{_cirIAMRoleARN = a});
+
+-- | Describes the status of the IAM role\'s association with an Amazon
+-- Redshift cluster.
+--
+-- The following are possible statuses and descriptions.
+--
+-- -   'in-sync': The role is available for use by the cluster.
+-- -   'adding': The role is in the process of being associated with the
+--     cluster.
+-- -   'removing': The role is in the process of being disassociated with
+--     the cluster.
+cirApplyStatus :: Lens' ClusterIAMRole (Maybe Text)
+cirApplyStatus = lens _cirApplyStatus (\ s a -> s{_cirApplyStatus = a});
+
+instance FromXML ClusterIAMRole where
+        parseXML x
+          = ClusterIAMRole' <$>
+              (x .@? "IamRoleArn") <*> (x .@? "ApplyStatus")
+
+instance Hashable ClusterIAMRole
+
+instance NFData ClusterIAMRole
 
 -- | The identifier of a node in a cluster.
 --
@@ -3012,7 +3075,7 @@ tableRestoreStatus =
 
 -- | A value that describes the current state of the table restore request.
 --
--- Valid Values: 'SUCCEEDED', 'FAILED', 'CANCELLED', 'PENDING',
+-- Valid Values: 'SUCCEEDED', 'FAILED', 'CANCELED', 'PENDING',
 -- 'IN_PROGRESS'
 trsStatus :: Lens' TableRestoreStatus (Maybe TableRestoreStatusType)
 trsStatus = lens _trsStatus (\ s a -> s{_trsStatus = a});
@@ -3069,7 +3132,7 @@ trsProgressInMegaBytes :: Lens' TableRestoreStatus (Maybe Integer)
 trsProgressInMegaBytes = lens _trsProgressInMegaBytes (\ s a -> s{_trsProgressInMegaBytes = a});
 
 -- | A description of the status of the table restore request. Status values
--- include 'SUCCEEDED', 'FAILED', 'CANCELLED', 'PENDING', 'IN_PROGRESS'.
+-- include 'SUCCEEDED', 'FAILED', 'CANCELED', 'PENDING', 'IN_PROGRESS'.
 trsMessage :: Lens' TableRestoreStatus (Maybe Text)
 trsMessage = lens _trsMessage (\ s a -> s{_trsMessage = a});
 

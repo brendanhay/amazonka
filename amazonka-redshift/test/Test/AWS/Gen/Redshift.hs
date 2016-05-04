@@ -91,6 +91,9 @@ import Test.AWS.Redshift.Internal
 --         , testModifySnapshotCopyRetentionPeriod $
 --             modifySnapshotCopyRetentionPeriod
 --
+--         , testModifyClusterIAMRoles $
+--             modifyClusterIAMRoles
+--
 --         , testAuthorizeSnapshotAccess $
 --             authorizeSnapshotAccess
 --
@@ -276,6 +279,9 @@ import Test.AWS.Redshift.Internal
 --
 --         , testModifySnapshotCopyRetentionPeriodResponse $
 --             modifySnapshotCopyRetentionPeriodResponse
+--
+--         , testModifyClusterIAMRolesResponse $
+--             modifyClusterIAMRolesResponse
 --
 --         , testAuthorizeSnapshotAccessResponse $
 --             authorizeSnapshotAccessResponse
@@ -506,6 +512,11 @@ testModifySnapshotCopyRetentionPeriod :: ModifySnapshotCopyRetentionPeriod -> Te
 testModifySnapshotCopyRetentionPeriod = req
     "ModifySnapshotCopyRetentionPeriod"
     "fixture/ModifySnapshotCopyRetentionPeriod.yaml"
+
+testModifyClusterIAMRoles :: ModifyClusterIAMRoles -> TestTree
+testModifyClusterIAMRoles = req
+    "ModifyClusterIAMRoles"
+    "fixture/ModifyClusterIAMRoles.yaml"
 
 testAuthorizeSnapshotAccess :: AuthorizeSnapshotAccess -> TestTree
 testAuthorizeSnapshotAccess = req
@@ -855,6 +866,13 @@ testModifySnapshotCopyRetentionPeriodResponse = res
     "fixture/ModifySnapshotCopyRetentionPeriodResponse.proto"
     redshift
     (Proxy :: Proxy ModifySnapshotCopyRetentionPeriod)
+
+testModifyClusterIAMRolesResponse :: ModifyClusterIAMRolesResponse -> TestTree
+testModifyClusterIAMRolesResponse = res
+    "ModifyClusterIAMRolesResponse"
+    "fixture/ModifyClusterIAMRolesResponse.proto"
+    redshift
+    (Proxy :: Proxy ModifyClusterIAMRoles)
 
 testAuthorizeSnapshotAccessResponse :: AuthorizeSnapshotAccessResponse -> TestTree
 testAuthorizeSnapshotAccessResponse = res

@@ -21,9 +21,10 @@
 -- Lists the status of one or more table restore requests made using the
 -- < RestoreTableFromClusterSnapshot> API action. If you don\'t specify a
 -- value for the 'TableRestoreRequestId' parameter, then
--- 'DescribeTableRestoreStatus' returns the status of all in-progress table
--- restore requests. Otherwise 'DescribeTableRestoreStatus' returns the
--- status of the table specified by 'TableRestoreRequestId'.
+-- 'DescribeTableRestoreStatus' returns the status of all table restore
+-- requests ordered by the date and time of the request in ascending order.
+-- Otherwise 'DescribeTableRestoreStatus' returns the status of the table
+-- specified by 'TableRestoreRequestId'.
 module Network.AWS.Redshift.DescribeTableRestoreStatus
     (
     -- * Creating a Request

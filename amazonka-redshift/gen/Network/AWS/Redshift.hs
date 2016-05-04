@@ -373,6 +373,9 @@ module Network.AWS.Redshift
     -- ** ModifySnapshotCopyRetentionPeriod
     , module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
 
+    -- ** ModifyClusterIAMRoles
+    , module Network.AWS.Redshift.ModifyClusterIAMRoles
+
     -- ** AuthorizeSnapshotAccess
     , module Network.AWS.Redshift.AuthorizeSnapshotAccess
 
@@ -537,6 +540,7 @@ module Network.AWS.Redshift
     , cAvailabilityZone
     , cVPCSecurityGroups
     , cHSMStatus
+    , cIAMRoles
     , cElasticIPStatus
     , cClusterVersion
     , cNodeType
@@ -548,6 +552,12 @@ module Network.AWS.Redshift
     , cTags
     , cClusterNodes
     , cDBName
+
+    -- ** ClusterIAMRole
+    , ClusterIAMRole
+    , clusterIAMRole
+    , cirIAMRoleARN
+    , cirApplyStatus
 
     -- ** ClusterNode
     , ClusterNode
@@ -940,6 +950,7 @@ import           Network.AWS.Redshift.DisableSnapshotCopy
 import           Network.AWS.Redshift.EnableLogging
 import           Network.AWS.Redshift.EnableSnapshotCopy
 import           Network.AWS.Redshift.ModifyCluster
+import           Network.AWS.Redshift.ModifyClusterIAMRoles
 import           Network.AWS.Redshift.ModifyClusterParameterGroup
 import           Network.AWS.Redshift.ModifyClusterSubnetGroup
 import           Network.AWS.Redshift.ModifyEventSubscription

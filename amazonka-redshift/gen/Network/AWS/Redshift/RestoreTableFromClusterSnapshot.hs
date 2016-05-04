@@ -121,6 +121,8 @@ rtfcsTargetDatabaseName :: Lens' RestoreTableFromClusterSnapshot (Maybe Text)
 rtfcsTargetDatabaseName = lens _rtfcsTargetDatabaseName (\ s a -> s{_rtfcsTargetDatabaseName = a});
 
 -- | The name of the source schema that contains the table to restore from.
+-- If you do not specify a 'SourceSchemaName' value, the default is
+-- 'public'.
 rtfcsSourceSchemaName :: Lens' RestoreTableFromClusterSnapshot (Maybe Text)
 rtfcsSourceSchemaName = lens _rtfcsSourceSchemaName (\ s a -> s{_rtfcsSourceSchemaName = a});
 

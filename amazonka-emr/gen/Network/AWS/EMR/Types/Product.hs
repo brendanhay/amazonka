@@ -1236,6 +1236,7 @@ data InstanceGroup = InstanceGroup'
     , _igEBSOptimized           :: !(Maybe Bool)
     , _igMarket                 :: !(Maybe MarketType)
     , _igName                   :: !(Maybe Text)
+    , _igShrinkPolicy           :: !(Maybe ShrinkPolicy)
     , _igId                     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1265,6 +1266,8 @@ data InstanceGroup = InstanceGroup'
 --
 -- * 'igName'
 --
+-- * 'igShrinkPolicy'
+--
 -- * 'igId'
 instanceGroup
     :: InstanceGroup
@@ -1281,6 +1284,7 @@ instanceGroup =
     , _igEBSOptimized = Nothing
     , _igMarket = Nothing
     , _igName = Nothing
+    , _igShrinkPolicy = Nothing
     , _igId = Nothing
     }
 
@@ -1336,6 +1340,10 @@ igMarket = lens _igMarket (\ s a -> s{_igMarket = a});
 igName :: Lens' InstanceGroup (Maybe Text)
 igName = lens _igName (\ s a -> s{_igName = a});
 
+-- | Policy for customizing shrink operations.
+igShrinkPolicy :: Lens' InstanceGroup (Maybe ShrinkPolicy)
+igShrinkPolicy = lens _igShrinkPolicy (\ s a -> s{_igShrinkPolicy = a});
+
 -- | The identifier of the instance group.
 igId :: Lens' InstanceGroup (Maybe Text)
 igId = lens _igId (\ s a -> s{_igId = a});
@@ -1355,6 +1363,7 @@ instance FromJSON InstanceGroup where
                      <*> (x .:? "EbsOptimized")
                      <*> (x .:? "Market")
                      <*> (x .:? "Name")
+                     <*> (x .:? "ShrinkPolicy")
                      <*> (x .:? "Id"))
 
 instance Hashable InstanceGroup
@@ -1472,6 +1481,7 @@ instance ToJSON InstanceGroupConfig where
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
     { _igmcInstanceCount             :: !(Maybe Int)
     , _igmcEC2InstanceIdsToTerminate :: !(Maybe [Text])
+    , _igmcShrinkPolicy              :: !(Maybe ShrinkPolicy)
     , _igmcInstanceGroupId           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1483,6 +1493,8 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
 --
 -- * 'igmcEC2InstanceIdsToTerminate'
 --
+-- * 'igmcShrinkPolicy'
+--
 -- * 'igmcInstanceGroupId'
 instanceGroupModifyConfig
     :: Text -- ^ 'igmcInstanceGroupId'
@@ -1491,6 +1503,7 @@ instanceGroupModifyConfig pInstanceGroupId_ =
     InstanceGroupModifyConfig'
     { _igmcInstanceCount = Nothing
     , _igmcEC2InstanceIdsToTerminate = Nothing
+    , _igmcShrinkPolicy = Nothing
     , _igmcInstanceGroupId = pInstanceGroupId_
     }
 
@@ -1498,11 +1511,14 @@ instanceGroupModifyConfig pInstanceGroupId_ =
 igmcInstanceCount :: Lens' InstanceGroupModifyConfig (Maybe Int)
 igmcInstanceCount = lens _igmcInstanceCount (\ s a -> s{_igmcInstanceCount = a});
 
--- | The EC2 InstanceIds to terminate. For advanced users only. Once you
--- terminate the instances, the instance group will not return to its
--- original requested size.
+-- | The EC2 InstanceIds to terminate. Once you terminate the instances, the
+-- instance group will not return to its original requested size.
 igmcEC2InstanceIdsToTerminate :: Lens' InstanceGroupModifyConfig [Text]
 igmcEC2InstanceIdsToTerminate = lens _igmcEC2InstanceIdsToTerminate (\ s a -> s{_igmcEC2InstanceIdsToTerminate = a}) . _Default . _Coerce;
+
+-- | Policy for customizing shrink operations.
+igmcShrinkPolicy :: Lens' InstanceGroupModifyConfig (Maybe ShrinkPolicy)
+igmcShrinkPolicy = lens _igmcShrinkPolicy (\ s a -> s{_igmcShrinkPolicy = a});
 
 -- | Unique ID of the instance group to expand or shrink.
 igmcInstanceGroupId :: Lens' InstanceGroupModifyConfig Text
@@ -1519,6 +1535,7 @@ instance ToJSON InstanceGroupModifyConfig where
                  [("InstanceCount" .=) <$> _igmcInstanceCount,
                   ("EC2InstanceIdsToTerminate" .=) <$>
                     _igmcEC2InstanceIdsToTerminate,
+                  ("ShrinkPolicy" .=) <$> _igmcShrinkPolicy,
                   Just ("InstanceGroupId" .= _igmcInstanceGroupId)])
 
 -- | The status change reason details for the instance group.
@@ -1666,6 +1683,73 @@ instance FromJSON InstanceGroupTimeline where
 instance Hashable InstanceGroupTimeline
 
 instance NFData InstanceGroupTimeline
+
+-- | Custom policy for requesting termination protection or termination of
+-- specific instances when shrinking an instance group.
+--
+-- /See:/ 'instanceResizePolicy' smart constructor.
+data InstanceResizePolicy = InstanceResizePolicy'
+    { _irpInstancesToProtect         :: !(Maybe [Text])
+    , _irpInstancesToTerminate       :: !(Maybe [Text])
+    , _irpInstanceTerminationTimeout :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceResizePolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'irpInstancesToProtect'
+--
+-- * 'irpInstancesToTerminate'
+--
+-- * 'irpInstanceTerminationTimeout'
+instanceResizePolicy
+    :: InstanceResizePolicy
+instanceResizePolicy =
+    InstanceResizePolicy'
+    { _irpInstancesToProtect = Nothing
+    , _irpInstancesToTerminate = Nothing
+    , _irpInstanceTerminationTimeout = Nothing
+    }
+
+-- | Specific list of instances to be protected when shrinking an instance
+-- group.
+irpInstancesToProtect :: Lens' InstanceResizePolicy [Text]
+irpInstancesToProtect = lens _irpInstancesToProtect (\ s a -> s{_irpInstancesToProtect = a}) . _Default . _Coerce;
+
+-- | Specific list of instances to be terminated when shrinking an instance
+-- group.
+irpInstancesToTerminate :: Lens' InstanceResizePolicy [Text]
+irpInstancesToTerminate = lens _irpInstancesToTerminate (\ s a -> s{_irpInstancesToTerminate = a}) . _Default . _Coerce;
+
+-- | Decommissioning timeout override for the specific list of instances to
+-- be terminated.
+irpInstanceTerminationTimeout :: Lens' InstanceResizePolicy (Maybe Int)
+irpInstanceTerminationTimeout = lens _irpInstanceTerminationTimeout (\ s a -> s{_irpInstanceTerminationTimeout = a});
+
+instance FromJSON InstanceResizePolicy where
+        parseJSON
+          = withObject "InstanceResizePolicy"
+              (\ x ->
+                 InstanceResizePolicy' <$>
+                   (x .:? "InstancesToProtect" .!= mempty) <*>
+                     (x .:? "InstancesToTerminate" .!= mempty)
+                     <*> (x .:? "InstanceTerminationTimeout"))
+
+instance Hashable InstanceResizePolicy
+
+instance NFData InstanceResizePolicy
+
+instance ToJSON InstanceResizePolicy where
+        toJSON InstanceResizePolicy'{..}
+          = object
+              (catMaybes
+                 [("InstancesToProtect" .=) <$>
+                    _irpInstancesToProtect,
+                  ("InstancesToTerminate" .=) <$>
+                    _irpInstancesToTerminate,
+                  ("InstanceTerminationTimeout" .=) <$>
+                    _irpInstanceTerminationTimeout])
 
 -- | The details of the status change reason for the instance.
 --
@@ -2119,6 +2203,61 @@ instance ToJSON ScriptBootstrapActionConfig where
               (catMaybes
                  [("Args" .=) <$> _sbacArgs,
                   Just ("Path" .= _sbacPath)])
+
+-- | Policy for customizing shrink operations. Allows configuration of
+-- decommissioning timeout and targeted instance shrinking.
+--
+-- /See:/ 'shrinkPolicy' smart constructor.
+data ShrinkPolicy = ShrinkPolicy'
+    { _spDecommissionTimeout  :: !(Maybe Int)
+    , _spInstanceResizePolicy :: !(Maybe InstanceResizePolicy)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ShrinkPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spDecommissionTimeout'
+--
+-- * 'spInstanceResizePolicy'
+shrinkPolicy
+    :: ShrinkPolicy
+shrinkPolicy =
+    ShrinkPolicy'
+    { _spDecommissionTimeout = Nothing
+    , _spInstanceResizePolicy = Nothing
+    }
+
+-- | The desired timeout for decommissioning an instance. Overrides the
+-- default YARN decommissioning timeout.
+spDecommissionTimeout :: Lens' ShrinkPolicy (Maybe Int)
+spDecommissionTimeout = lens _spDecommissionTimeout (\ s a -> s{_spDecommissionTimeout = a});
+
+-- | Custom policy for requesting termination protection or termination of
+-- specific instances when shrinking an instance group.
+spInstanceResizePolicy :: Lens' ShrinkPolicy (Maybe InstanceResizePolicy)
+spInstanceResizePolicy = lens _spInstanceResizePolicy (\ s a -> s{_spInstanceResizePolicy = a});
+
+instance FromJSON ShrinkPolicy where
+        parseJSON
+          = withObject "ShrinkPolicy"
+              (\ x ->
+                 ShrinkPolicy' <$>
+                   (x .:? "DecommissionTimeout") <*>
+                     (x .:? "InstanceResizePolicy"))
+
+instance Hashable ShrinkPolicy
+
+instance NFData ShrinkPolicy
+
+instance ToJSON ShrinkPolicy where
+        toJSON ShrinkPolicy'{..}
+          = object
+              (catMaybes
+                 [("DecommissionTimeout" .=) <$>
+                    _spDecommissionTimeout,
+                  ("InstanceResizePolicy" .=) <$>
+                    _spInstanceResizePolicy])
 
 -- | This represents a step in a cluster.
 --

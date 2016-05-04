@@ -142,7 +142,8 @@ instance ToPath ListSteps where
 instance ToQuery ListSteps where
         toQuery = const mempty
 
--- | This output contains the list of steps.
+-- | This output contains the list of steps returned in reverse order. This
+-- means that the last step is the first element in the list.
 --
 -- /See:/ 'listStepsResponse' smart constructor.
 data ListStepsResponse = ListStepsResponse'

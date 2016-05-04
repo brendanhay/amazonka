@@ -88,6 +88,9 @@ module Network.AWS.OpsWorks
     -- ** AppExists
     , appExists
 
+    -- ** InstanceRegistered
+    , instanceRegistered
+
     -- * Operations
     -- $operations
 
@@ -507,6 +510,7 @@ module Network.AWS.OpsWorks
     , iOS
     , iAvailabilityZone
     , iLastServiceErrorId
+    , iTenancy
     , iAutoScalingType
     , iLayerIds
     , iArchitecture

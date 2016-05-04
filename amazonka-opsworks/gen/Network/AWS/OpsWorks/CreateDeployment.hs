@@ -37,6 +37,7 @@ module Network.AWS.OpsWorks.CreateDeployment
     , cdCustomJSON
     , cdAppId
     , cdInstanceIds
+    , cdLayerIds
     , cdComment
     , cdStackId
     , cdCommand
@@ -61,6 +62,7 @@ data CreateDeployment = CreateDeployment'
     { _cdCustomJSON  :: !(Maybe Text)
     , _cdAppId       :: !(Maybe Text)
     , _cdInstanceIds :: !(Maybe [Text])
+    , _cdLayerIds    :: !(Maybe [Text])
     , _cdComment     :: !(Maybe Text)
     , _cdStackId     :: !Text
     , _cdCommand     :: !DeploymentCommand
@@ -76,6 +78,8 @@ data CreateDeployment = CreateDeployment'
 --
 -- * 'cdInstanceIds'
 --
+-- * 'cdLayerIds'
+--
 -- * 'cdComment'
 --
 -- * 'cdStackId'
@@ -90,6 +94,7 @@ createDeployment pStackId_ pCommand_ =
     { _cdCustomJSON = Nothing
     , _cdAppId = Nothing
     , _cdInstanceIds = Nothing
+    , _cdLayerIds = Nothing
     , _cdComment = Nothing
     , _cdStackId = pStackId_
     , _cdCommand = pCommand_
@@ -115,6 +120,10 @@ cdAppId = lens _cdAppId (\ s a -> s{_cdAppId = a});
 -- | The instance IDs for the deployment targets.
 cdInstanceIds :: Lens' CreateDeployment [Text]
 cdInstanceIds = lens _cdInstanceIds (\ s a -> s{_cdInstanceIds = a}) . _Default . _Coerce;
+
+-- | The layer IDs for the deployment targets.
+cdLayerIds :: Lens' CreateDeployment [Text]
+cdLayerIds = lens _cdLayerIds (\ s a -> s{_cdLayerIds = a}) . _Default . _Coerce;
 
 -- | A user-defined comment.
 cdComment :: Lens' CreateDeployment (Maybe Text)
@@ -158,6 +167,7 @@ instance ToJSON CreateDeployment where
                  [("CustomJson" .=) <$> _cdCustomJSON,
                   ("AppId" .=) <$> _cdAppId,
                   ("InstanceIds" .=) <$> _cdInstanceIds,
+                  ("LayerIds" .=) <$> _cdLayerIds,
                   ("Comment" .=) <$> _cdComment,
                   Just ("StackId" .= _cdStackId),
                   Just ("Command" .= _cdCommand)])

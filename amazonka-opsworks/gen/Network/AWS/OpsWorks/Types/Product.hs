@@ -1330,6 +1330,7 @@ data Instance = Instance'
     , _iOS                       :: !(Maybe Text)
     , _iAvailabilityZone         :: !(Maybe Text)
     , _iLastServiceErrorId       :: !(Maybe Text)
+    , _iTenancy                  :: !(Maybe Text)
     , _iAutoScalingType          :: !(Maybe AutoScalingType)
     , _iLayerIds                 :: !(Maybe [Text])
     , _iArchitecture             :: !(Maybe Architecture)
@@ -1402,6 +1403,8 @@ data Instance = Instance'
 --
 -- * 'iLastServiceErrorId'
 --
+-- * 'iTenancy'
+--
 -- * 'iAutoScalingType'
 --
 -- * 'iLayerIds'
@@ -1456,6 +1459,7 @@ instance' =
     , _iOS = Nothing
     , _iAvailabilityZone = Nothing
     , _iLastServiceErrorId = Nothing
+    , _iTenancy = Nothing
     , _iAutoScalingType = Nothing
     , _iLayerIds = Nothing
     , _iArchitecture = Nothing
@@ -1610,6 +1614,10 @@ iAvailabilityZone = lens _iAvailabilityZone (\ s a -> s{_iAvailabilityZone = a})
 iLastServiceErrorId :: Lens' Instance (Maybe Text)
 iLastServiceErrorId = lens _iLastServiceErrorId (\ s a -> s{_iLastServiceErrorId = a});
 
+-- | The instance\'s tenancy option, such as 'dedicated' or 'host'.
+iTenancy :: Lens' Instance (Maybe Text)
+iTenancy = lens _iTenancy (\ s a -> s{_iTenancy = a});
+
 -- | For load-based or time-based instances, the type.
 iAutoScalingType :: Lens' Instance (Maybe AutoScalingType)
 iAutoScalingType = lens _iAutoScalingType (\ s a -> s{_iAutoScalingType = a});
@@ -1694,6 +1702,7 @@ instance FromJSON Instance where
                      <*> (x .:? "Os")
                      <*> (x .:? "AvailabilityZone")
                      <*> (x .:? "LastServiceErrorId")
+                     <*> (x .:? "Tenancy")
                      <*> (x .:? "AutoScalingType")
                      <*> (x .:? "LayerIds" .!= mempty)
                      <*> (x .:? "Architecture")
@@ -3811,7 +3820,7 @@ vVolumeType = lens _vVolumeType (\ s a -> s{_vVolumeType = a});
 vEC2VolumeId :: Lens' Volume (Maybe Text)
 vEC2VolumeId = lens _vEC2VolumeId (\ s a -> s{_vEC2VolumeId = a});
 
--- | The volume mount point. For example \"\/dev\/sdh\".
+-- | The volume mount point. For example, \"\/mnt\/disk1\".
 vMountPoint :: Lens' Volume (Maybe Text)
 vMountPoint = lens _vMountPoint (\ s a -> s{_vMountPoint = a});
 

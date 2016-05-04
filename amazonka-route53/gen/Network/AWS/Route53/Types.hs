@@ -67,20 +67,41 @@ module Network.AWS.Route53.Types
     -- * ChangeStatus
     , ChangeStatus (..)
 
+    -- * CloudWatchRegion
+    , CloudWatchRegion (..)
+
+    -- * ComparisonOperator
+    , ComparisonOperator (..)
+
     -- * Failover
     , Failover (..)
+
+    -- * HealthCheckRegion
+    , HealthCheckRegion (..)
 
     -- * HealthCheckType
     , HealthCheckType (..)
 
+    -- * InsufficientDataHealthStatus
+    , InsufficientDataHealthStatus (..)
+
     -- * RecordType
     , RecordType (..)
+
+    -- * Statistic
+    , Statistic (..)
 
     -- * TagResourceType
     , TagResourceType (..)
 
     -- * VPCRegion
     , VPCRegion (..)
+
+    -- * AlarmIdentifier
+    , AlarmIdentifier
+    , alarmIdentifier
+    , aiRegion
+    , aiName
 
     -- * AliasTarget
     , AliasTarget
@@ -109,12 +130,30 @@ module Network.AWS.Route53.Types
     , ciStatus
     , ciSubmittedAt
 
+    -- * CloudWatchAlarmConfiguration
+    , CloudWatchAlarmConfiguration
+    , cloudWatchAlarmConfiguration
+    , cwacDimensions
+    , cwacEvaluationPeriods
+    , cwacThreshold
+    , cwacComparisonOperator
+    , cwacPeriod
+    , cwacMetricName
+    , cwacNamespace
+    , cwacStatistic
+
     -- * DelegationSet
     , DelegationSet
     , delegationSet
     , dsId
     , dsCallerReference
     , dsNameServers
+
+    -- * Dimension
+    , Dimension
+    , dimension
+    , dName
+    , dValue
 
     -- * GeoLocation
     , GeoLocation
@@ -136,6 +175,7 @@ module Network.AWS.Route53.Types
     -- * HealthCheck
     , HealthCheck
     , healthCheck
+    , hcCloudWatchAlarmConfiguration
     , hcId
     , hcCallerReference
     , hcHealthCheckConfig
@@ -149,7 +189,10 @@ module Network.AWS.Route53.Types
     , hccEnableSNI
     , hccSearchString
     , hccHealthThreshold
+    , hccRegions
     , hccResourcePath
+    , hccInsufficientDataHealthStatus
+    , hccAlarmIdentifier
     , hccMeasureLatency
     , hccInverted
     , hccFullyQualifiedDomainName
@@ -163,6 +206,7 @@ module Network.AWS.Route53.Types
     , healthCheckObservation
     , hcoIPAddress
     , hcoStatusReport
+    , hcoRegion
 
     -- * HostedZone
     , HostedZone
@@ -294,8 +338,10 @@ route53 =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasCode "PriorRequestNotComplete" . hasStatus 400) e =
           Just "still_processing"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"

@@ -36,8 +36,11 @@ module Network.AWS.Route53.UpdateHealthCheck
     , uhcEnableSNI
     , uhcSearchString
     , uhcHealthThreshold
+    , uhcRegions
     , uhcResourcePath
+    , uhcInsufficientDataHealthStatus
     , uhcHealthCheckVersion
+    , uhcAlarmIdentifier
     , uhcInverted
     , uhcFullyQualifiedDomainName
     , uhcChildHealthChecks
@@ -64,18 +67,21 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'updateHealthCheck' smart constructor.
 data UpdateHealthCheck = UpdateHealthCheck'
-    { _uhcFailureThreshold         :: !(Maybe Nat)
-    , _uhcIPAddress                :: !(Maybe Text)
-    , _uhcEnableSNI                :: !(Maybe Bool)
-    , _uhcSearchString             :: !(Maybe Text)
-    , _uhcHealthThreshold          :: !(Maybe Nat)
-    , _uhcResourcePath             :: !(Maybe Text)
-    , _uhcHealthCheckVersion       :: !(Maybe Nat)
-    , _uhcInverted                 :: !(Maybe Bool)
-    , _uhcFullyQualifiedDomainName :: !(Maybe Text)
-    , _uhcChildHealthChecks        :: !(Maybe [Text])
-    , _uhcPort                     :: !(Maybe Nat)
-    , _uhcHealthCheckId            :: !Text
+    { _uhcFailureThreshold             :: !(Maybe Nat)
+    , _uhcIPAddress                    :: !(Maybe Text)
+    , _uhcEnableSNI                    :: !(Maybe Bool)
+    , _uhcSearchString                 :: !(Maybe Text)
+    , _uhcHealthThreshold              :: !(Maybe Nat)
+    , _uhcRegions                      :: !(Maybe (List1 HealthCheckRegion))
+    , _uhcResourcePath                 :: !(Maybe Text)
+    , _uhcInsufficientDataHealthStatus :: !(Maybe InsufficientDataHealthStatus)
+    , _uhcHealthCheckVersion           :: !(Maybe Nat)
+    , _uhcAlarmIdentifier              :: !(Maybe AlarmIdentifier)
+    , _uhcInverted                     :: !(Maybe Bool)
+    , _uhcFullyQualifiedDomainName     :: !(Maybe Text)
+    , _uhcChildHealthChecks            :: !(Maybe [Text])
+    , _uhcPort                         :: !(Maybe Nat)
+    , _uhcHealthCheckId                :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateHealthCheck' with the minimum fields required to make a request.
@@ -92,9 +98,15 @@ data UpdateHealthCheck = UpdateHealthCheck'
 --
 -- * 'uhcHealthThreshold'
 --
+-- * 'uhcRegions'
+--
 -- * 'uhcResourcePath'
 --
+-- * 'uhcInsufficientDataHealthStatus'
+--
 -- * 'uhcHealthCheckVersion'
+--
+-- * 'uhcAlarmIdentifier'
 --
 -- * 'uhcInverted'
 --
@@ -115,8 +127,11 @@ updateHealthCheck pHealthCheckId_ =
     , _uhcEnableSNI = Nothing
     , _uhcSearchString = Nothing
     , _uhcHealthThreshold = Nothing
+    , _uhcRegions = Nothing
     , _uhcResourcePath = Nothing
+    , _uhcInsufficientDataHealthStatus = Nothing
     , _uhcHealthCheckVersion = Nothing
+    , _uhcAlarmIdentifier = Nothing
     , _uhcInverted = Nothing
     , _uhcFullyQualifiedDomainName = Nothing
     , _uhcChildHealthChecks = Nothing
@@ -171,6 +186,17 @@ uhcSearchString = lens _uhcSearchString (\ s a -> s{_uhcSearchString = a});
 uhcHealthThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcHealthThreshold = lens _uhcHealthThreshold (\ s a -> s{_uhcHealthThreshold = a}) . mapping _Nat;
 
+-- | A list of 'HealthCheckRegion' values that specify the Amazon EC2 regions
+-- that you want Amazon Route 53 to use to perform health checks. You must
+-- specify at least three regions.
+--
+-- When you remove a region from the list, Amazon Route 53 will briefly
+-- continue to check your endpoint from that region.
+--
+-- Specify this value only if you want to change it.
+uhcRegions :: Lens' UpdateHealthCheck (Maybe (NonEmpty HealthCheckRegion))
+uhcRegions = lens _uhcRegions (\ s a -> s{_uhcRegions = a}) . mapping _List1;
+
 -- | The path that you want Amazon Route 53 to request when performing health
 -- checks. The path can be any value for which your endpoint will return an
 -- HTTP status code of 2xx or 3xx when the endpoint is healthy, for example
@@ -180,6 +206,10 @@ uhcHealthThreshold = lens _uhcHealthThreshold (\ s a -> s{_uhcHealthThreshold = 
 uhcResourcePath :: Lens' UpdateHealthCheck (Maybe Text)
 uhcResourcePath = lens _uhcResourcePath (\ s a -> s{_uhcResourcePath = a});
 
+-- | Undocumented member.
+uhcInsufficientDataHealthStatus :: Lens' UpdateHealthCheck (Maybe InsufficientDataHealthStatus)
+uhcInsufficientDataHealthStatus = lens _uhcInsufficientDataHealthStatus (\ s a -> s{_uhcInsufficientDataHealthStatus = a});
+
 -- | Optional. When you specify a health check version, Amazon Route 53
 -- compares this value with the current value in the health check, which
 -- prevents you from updating the health check when the versions don\'t
@@ -187,6 +217,10 @@ uhcResourcePath = lens _uhcResourcePath (\ s a -> s{_uhcResourcePath = a});
 -- change to the health check.
 uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcHealthCheckVersion = lens _uhcHealthCheckVersion (\ s a -> s{_uhcHealthCheckVersion = a}) . mapping _Nat;
+
+-- | Undocumented member.
+uhcAlarmIdentifier :: Lens' UpdateHealthCheck (Maybe AlarmIdentifier)
+uhcAlarmIdentifier = lens _uhcAlarmIdentifier (\ s a -> s{_uhcAlarmIdentifier = a});
 
 -- | A boolean value that indicates whether the status of health check should
 -- be inverted. For example, if a health check is healthy but 'Inverted' is
@@ -257,8 +291,13 @@ instance ToXML UpdateHealthCheck where
                "EnableSNI" @= _uhcEnableSNI,
                "SearchString" @= _uhcSearchString,
                "HealthThreshold" @= _uhcHealthThreshold,
+               "Regions" @=
+                 toXML (toXMLList "Region" <$> _uhcRegions),
                "ResourcePath" @= _uhcResourcePath,
+               "InsufficientDataHealthStatus" @=
+                 _uhcInsufficientDataHealthStatus,
                "HealthCheckVersion" @= _uhcHealthCheckVersion,
+               "AlarmIdentifier" @= _uhcAlarmIdentifier,
                "Inverted" @= _uhcInverted,
                "FullyQualifiedDomainName" @=
                  _uhcFullyQualifiedDomainName,

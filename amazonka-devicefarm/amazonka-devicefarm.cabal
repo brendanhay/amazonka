@@ -55,6 +55,7 @@ library
         , Network.AWS.DeviceFarm.GetDevicePool
         , Network.AWS.DeviceFarm.GetDevicePoolCompatibility
         , Network.AWS.DeviceFarm.GetJob
+        , Network.AWS.DeviceFarm.GetOfferingStatus
         , Network.AWS.DeviceFarm.GetProject
         , Network.AWS.DeviceFarm.GetRun
         , Network.AWS.DeviceFarm.GetSuite
@@ -64,6 +65,8 @@ library
         , Network.AWS.DeviceFarm.ListDevicePools
         , Network.AWS.DeviceFarm.ListDevices
         , Network.AWS.DeviceFarm.ListJobs
+        , Network.AWS.DeviceFarm.ListOfferingTransactions
+        , Network.AWS.DeviceFarm.ListOfferings
         , Network.AWS.DeviceFarm.ListProjects
         , Network.AWS.DeviceFarm.ListRuns
         , Network.AWS.DeviceFarm.ListSamples
@@ -71,7 +74,10 @@ library
         , Network.AWS.DeviceFarm.ListTests
         , Network.AWS.DeviceFarm.ListUniqueProblems
         , Network.AWS.DeviceFarm.ListUploads
+        , Network.AWS.DeviceFarm.PurchaseOffering
+        , Network.AWS.DeviceFarm.RenewOffering
         , Network.AWS.DeviceFarm.ScheduleRun
+        , Network.AWS.DeviceFarm.StopRun
         , Network.AWS.DeviceFarm.Types
         , Network.AWS.DeviceFarm.UpdateDevicePool
         , Network.AWS.DeviceFarm.UpdateProject

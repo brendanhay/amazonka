@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about runs.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListRuns
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.DeviceFarm.ListRuns
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -77,6 +80,13 @@ lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
 -- | The runs\' ARNs.
 lrArn :: Lens' ListRuns Text
 lrArn = lens _lrArn (\ s a -> s{_lrArn = a});
+
+instance AWSPager ListRuns where
+        page rq rs
+          | stop (rs ^. lrrsNextToken) = Nothing
+          | stop (rs ^. lrrsRuns) = Nothing
+          | otherwise =
+            Just $ rq & lrNextToken .~ rs ^. lrrsNextToken
 
 instance AWSRequest ListRuns where
         type Rs ListRuns = ListRunsResponse

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about suites.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListSuites
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.DeviceFarm.ListSuites
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -77,6 +80,13 @@ lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
 -- | The suites\' ARNs.
 lArn :: Lens' ListSuites Text
 lArn = lens _lArn (\ s a -> s{_lArn = a});
+
+instance AWSPager ListSuites where
+        page rq rs
+          | stop (rs ^. lsrsNextToken) = Nothing
+          | stop (rs ^. lsrsSuites) = Nothing
+          | otherwise =
+            Just $ rq & lNextToken .~ rs ^. lsrsNextToken
 
 instance AWSRequest ListSuites where
         type Rs ListSuites = ListSuitesResponse

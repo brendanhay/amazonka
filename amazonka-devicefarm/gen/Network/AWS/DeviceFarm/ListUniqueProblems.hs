@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about unique problems.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListUniqueProblems
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.DeviceFarm.ListUniqueProblems
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -77,6 +80,13 @@ lupNextToken = lens _lupNextToken (\ s a -> s{_lupNextToken = a});
 -- | The unique problems\' ARNs.
 lupArn :: Lens' ListUniqueProblems Text
 lupArn = lens _lupArn (\ s a -> s{_lupArn = a});
+
+instance AWSPager ListUniqueProblems where
+        page rq rs
+          | stop (rs ^. luprsNextToken) = Nothing
+          | stop (rs ^. luprsUniqueProblems) = Nothing
+          | otherwise =
+            Just $ rq & lupNextToken .~ rs ^. luprsNextToken
 
 instance AWSRequest ListUniqueProblems where
         type Rs ListUniqueProblems =
@@ -155,19 +165,19 @@ luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a});
 --
 -- Allowed values include:
 --
--- -   ERRORED: An error condition.
+-- -   PENDING: A pending condition.
+--
+-- -   PASSED: A passing condition.
+--
+-- -   WARNED: A warning condition.
 --
 -- -   FAILED: A failed condition.
 --
 -- -   SKIPPED: A skipped condition.
 --
+-- -   ERRORED: An error condition.
+--
 -- -   STOPPED: A stopped condition.
---
--- -   PASSED: A passing condition.
---
--- -   PENDING: A pending condition.
---
--- -   WARNED: A warning condition.
 --
 luprsUniqueProblems :: Lens' ListUniqueProblemsResponse (HashMap ExecutionResult [UniqueProblem])
 luprsUniqueProblems = lens _luprsUniqueProblems (\ s a -> s{_luprsUniqueProblems = a}) . _Default . _Map;

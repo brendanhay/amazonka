@@ -70,6 +70,7 @@ data ArtifactType
     | Screenshot
     | ServiceLog
     | Unknown
+    | Video
     | WebkitLog
     | XctestLog
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -97,10 +98,11 @@ instance FromText ArtifactType where
         "screenshot" -> pure Screenshot
         "service_log" -> pure ServiceLog
         "unknown" -> pure Unknown
+        "video" -> pure Video
         "webkit_log" -> pure WebkitLog
         "xctest_log" -> pure XctestLog
         e -> fromTextError $ "Failure parsing ArtifactType from value: '" <> e
-           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_PYTHON_OUTPUT, APPIUM_PYTHON_XML_OUTPUT, APPIUM_SERVER_OUTPUT, APPLICATION_CRASH_REPORT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, EXPLORER_EVENT_LOG, EXPLORER_SUMMARY_LOG, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN, WEBKIT_LOG, XCTEST_LOG"
+           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_PYTHON_OUTPUT, APPIUM_PYTHON_XML_OUTPUT, APPIUM_SERVER_OUTPUT, APPLICATION_CRASH_REPORT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, EXPLORER_EVENT_LOG, EXPLORER_SUMMARY_LOG, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN, VIDEO, WEBKIT_LOG, XCTEST_LOG"
 
 instance ToText ArtifactType where
     toText = \case
@@ -125,6 +127,7 @@ instance ToText ArtifactType where
         Screenshot -> "SCREENSHOT"
         ServiceLog -> "SERVICE_LOG"
         Unknown -> "UNKNOWN"
+        Video -> "VIDEO"
         WebkitLog -> "WEBKIT_LOG"
         XctestLog -> "XCTEST_LOG"
 
@@ -165,6 +168,29 @@ instance ToJSON BillingMethod where
 
 instance FromJSON BillingMethod where
     parseJSON = parseJSONText "BillingMethod"
+
+data CurrencyCode =
+    Usd
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText CurrencyCode where
+    parser = takeLowerText >>= \case
+        "usd" -> pure Usd
+        e -> fromTextError $ "Failure parsing CurrencyCode from value: '" <> e
+           <> "'. Accepted values: USD"
+
+instance ToText CurrencyCode where
+    toText = \case
+        Usd -> "USD"
+
+instance Hashable     CurrencyCode
+instance NFData       CurrencyCode
+instance ToByteString CurrencyCode
+instance ToQuery      CurrencyCode
+instance ToHeader     CurrencyCode
+
+instance FromJSON CurrencyCode where
+    parseJSON = parseJSONText "CurrencyCode"
 
 data DeviceAttribute
     = ARN
@@ -326,28 +352,40 @@ instance FromJSON ExecutionResult where
 data ExecutionStatus
     = Completed
     | Pending
+    | PendingConcurrency
+    | PendingDevice
+    | Preparing
     | Processing
     | Running
     | Scheduling
+    | Stopping
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ExecutionStatus where
     parser = takeLowerText >>= \case
         "completed" -> pure Completed
         "pending" -> pure Pending
+        "pending_concurrency" -> pure PendingConcurrency
+        "pending_device" -> pure PendingDevice
+        "preparing" -> pure Preparing
         "processing" -> pure Processing
         "running" -> pure Running
         "scheduling" -> pure Scheduling
+        "stopping" -> pure Stopping
         e -> fromTextError $ "Failure parsing ExecutionStatus from value: '" <> e
-           <> "'. Accepted values: COMPLETED, PENDING, PROCESSING, RUNNING, SCHEDULING"
+           <> "'. Accepted values: COMPLETED, PENDING, PENDING_CONCURRENCY, PENDING_DEVICE, PREPARING, PROCESSING, RUNNING, SCHEDULING, STOPPING"
 
 instance ToText ExecutionStatus where
     toText = \case
         Completed -> "COMPLETED"
         Pending -> "PENDING"
+        PendingConcurrency -> "PENDING_CONCURRENCY"
+        PendingDevice -> "PENDING_DEVICE"
+        Preparing -> "PREPARING"
         Processing -> "PROCESSING"
         Running -> "RUNNING"
         Scheduling -> "SCHEDULING"
+        Stopping -> "STOPPING"
 
 instance Hashable     ExecutionStatus
 instance NFData       ExecutionStatus
@@ -357,6 +395,81 @@ instance ToHeader     ExecutionStatus
 
 instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
+
+data OfferingTransactionType
+    = Purchase
+    | Renew
+    | System
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText OfferingTransactionType where
+    parser = takeLowerText >>= \case
+        "purchase" -> pure Purchase
+        "renew" -> pure Renew
+        "system" -> pure System
+        e -> fromTextError $ "Failure parsing OfferingTransactionType from value: '" <> e
+           <> "'. Accepted values: PURCHASE, RENEW, SYSTEM"
+
+instance ToText OfferingTransactionType where
+    toText = \case
+        Purchase -> "PURCHASE"
+        Renew -> "RENEW"
+        System -> "SYSTEM"
+
+instance Hashable     OfferingTransactionType
+instance NFData       OfferingTransactionType
+instance ToByteString OfferingTransactionType
+instance ToQuery      OfferingTransactionType
+instance ToHeader     OfferingTransactionType
+
+instance FromJSON OfferingTransactionType where
+    parseJSON = parseJSONText "OfferingTransactionType"
+
+data OfferingType =
+    Recurring
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText OfferingType where
+    parser = takeLowerText >>= \case
+        "recurring" -> pure Recurring
+        e -> fromTextError $ "Failure parsing OfferingType from value: '" <> e
+           <> "'. Accepted values: RECURRING"
+
+instance ToText OfferingType where
+    toText = \case
+        Recurring -> "RECURRING"
+
+instance Hashable     OfferingType
+instance NFData       OfferingType
+instance ToByteString OfferingType
+instance ToQuery      OfferingType
+instance ToHeader     OfferingType
+
+instance FromJSON OfferingType where
+    parseJSON = parseJSONText "OfferingType"
+
+data RecurringChargeFrequency =
+    Monthly
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText RecurringChargeFrequency where
+    parser = takeLowerText >>= \case
+        "monthly" -> pure Monthly
+        e -> fromTextError $ "Failure parsing RecurringChargeFrequency from value: '" <> e
+           <> "'. Accepted values: MONTHLY"
+
+instance ToText RecurringChargeFrequency where
+    toText = \case
+        Monthly -> "MONTHLY"
+
+instance Hashable     RecurringChargeFrequency
+instance NFData       RecurringChargeFrequency
+instance ToByteString RecurringChargeFrequency
+instance ToQuery      RecurringChargeFrequency
+instance ToHeader     RecurringChargeFrequency
+
+instance FromJSON RecurringChargeFrequency where
+    parseJSON = parseJSONText "RecurringChargeFrequency"
 
 data RuleOperator
     = Equals

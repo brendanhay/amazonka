@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about tests.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListTests
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.DeviceFarm.ListTests
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -77,6 +80,13 @@ ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 -- | The tests\' ARNs.
 ltArn :: Lens' ListTests Text
 ltArn = lens _ltArn (\ s a -> s{_ltArn = a});
+
+instance AWSPager ListTests where
+        page rq rs
+          | stop (rs ^. ltrsNextToken) = Nothing
+          | stop (rs ^. ltrsTests) = Nothing
+          | otherwise =
+            Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListTests where
         type Rs ListTests = ListTestsResponse

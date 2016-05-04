@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about jobs.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListJobs
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.DeviceFarm.ListJobs
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -77,6 +80,13 @@ ljNextToken = lens _ljNextToken (\ s a -> s{_ljNextToken = a});
 -- | The jobs\' ARNs.
 ljArn :: Lens' ListJobs Text
 ljArn = lens _ljArn (\ s a -> s{_ljArn = a});
+
+instance AWSPager ListJobs where
+        page rq rs
+          | stop (rs ^. ljrsNextToken) = Nothing
+          | stop (rs ^. ljrsJobs) = Nothing
+          | otherwise =
+            Just $ rq & ljNextToken .~ rs ^. ljrsNextToken
 
 instance AWSRequest ListJobs where
         type Rs ListJobs = ListJobsResponse

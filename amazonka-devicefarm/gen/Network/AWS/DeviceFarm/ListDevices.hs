@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about unique device types.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListDevices
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.DeviceFarm.ListDevices
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -76,6 +79,13 @@ ldArn = lens _ldArn (\ s a -> s{_ldArn = a});
 -- list.
 ldNextToken :: Lens' ListDevices (Maybe Text)
 ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
+
+instance AWSPager ListDevices where
+        page rq rs
+          | stop (rs ^. ldrsNextToken) = Nothing
+          | stop (rs ^. ldrsDevices) = Nothing
+          | otherwise =
+            Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
 
 instance AWSRequest ListDevices where
         type Rs ListDevices = ListDevicesResponse

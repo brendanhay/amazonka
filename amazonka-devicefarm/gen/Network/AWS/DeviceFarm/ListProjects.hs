@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about projects.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListProjects
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.DeviceFarm.ListProjects
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -76,6 +79,13 @@ lpArn = lens _lpArn (\ s a -> s{_lpArn = a});
 -- list.
 lpNextToken :: Lens' ListProjects (Maybe Text)
 lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
+
+instance AWSPager ListProjects where
+        page rq rs
+          | stop (rs ^. lprsNextToken) = Nothing
+          | stop (rs ^. lprsProjects) = Nothing
+          | otherwise =
+            Just $ rq & lpNextToken .~ rs ^. lprsNextToken
 
 instance AWSRequest ListProjects where
         type Rs ListProjects = ListProjectsResponse

@@ -67,6 +67,9 @@ import Test.AWS.DeviceFarm.Internal
 --         , testGetUpload $
 --             getUpload
 --
+--         , testListOfferingTransactions $
+--             listOfferingTransactions
+--
 --         , testCreateDevicePool $
 --             createDevicePool
 --
@@ -78,6 +81,9 @@ import Test.AWS.DeviceFarm.Internal
 --
 --         , testGetTest $
 --             getTest
+--
+--         , testRenewOffering $
+--             renewOffering
 --
 --         , testGetDevice $
 --             getDevice
@@ -103,11 +109,17 @@ import Test.AWS.DeviceFarm.Internal
 --         , testGetAccountSettings $
 --             getAccountSettings
 --
+--         , testGetOfferingStatus $
+--             getOfferingStatus
+--
 --         , testListUploads $
 --             listUploads
 --
 --         , testGetSuite $
 --             getSuite
+--
+--         , testPurchaseOffering $
+--             purchaseOffering
 --
 --         , testGetProject $
 --             getProject
@@ -115,11 +127,17 @@ import Test.AWS.DeviceFarm.Internal
 --         , testListUniqueProblems $
 --             listUniqueProblems
 --
+--         , testStopRun $
+--             stopRun
+--
 --         , testListDevices $
 --             listDevices
 --
 --         , testCreateProject $
 --             createProject
+--
+--         , testListOfferings $
+--             listOfferings
 --
 --           ]
 
@@ -163,6 +181,9 @@ import Test.AWS.DeviceFarm.Internal
 --         , testGetUploadResponse $
 --             getUploadResponse
 --
+--         , testListOfferingTransactionsResponse $
+--             listOfferingTransactionsResponse
+--
 --         , testCreateDevicePoolResponse $
 --             createDevicePoolResponse
 --
@@ -174,6 +195,9 @@ import Test.AWS.DeviceFarm.Internal
 --
 --         , testGetTestResponse $
 --             getTestResponse
+--
+--         , testRenewOfferingResponse $
+--             renewOfferingResponse
 --
 --         , testGetDeviceResponse $
 --             getDeviceResponse
@@ -199,11 +223,17 @@ import Test.AWS.DeviceFarm.Internal
 --         , testGetAccountSettingsResponse $
 --             getAccountSettingsResponse
 --
+--         , testGetOfferingStatusResponse $
+--             getOfferingStatusResponse
+--
 --         , testListUploadsResponse $
 --             listUploadsResponse
 --
 --         , testGetSuiteResponse $
 --             getSuiteResponse
+--
+--         , testPurchaseOfferingResponse $
+--             purchaseOfferingResponse
 --
 --         , testGetProjectResponse $
 --             getProjectResponse
@@ -211,11 +241,17 @@ import Test.AWS.DeviceFarm.Internal
 --         , testListUniqueProblemsResponse $
 --             listUniqueProblemsResponse
 --
+--         , testStopRunResponse $
+--             stopRunResponse
+--
 --         , testListDevicesResponse $
 --             listDevicesResponse
 --
 --         , testCreateProjectResponse $
 --             createProjectResponse
+--
+--         , testListOfferingsResponse $
+--             listOfferingsResponse
 --
 --           ]
 --     ]
@@ -287,6 +323,11 @@ testGetUpload = req
     "GetUpload"
     "fixture/GetUpload.yaml"
 
+testListOfferingTransactions :: ListOfferingTransactions -> TestTree
+testListOfferingTransactions = req
+    "ListOfferingTransactions"
+    "fixture/ListOfferingTransactions.yaml"
+
 testCreateDevicePool :: CreateDevicePool -> TestTree
 testCreateDevicePool = req
     "CreateDevicePool"
@@ -306,6 +347,11 @@ testGetTest :: GetTest -> TestTree
 testGetTest = req
     "GetTest"
     "fixture/GetTest.yaml"
+
+testRenewOffering :: RenewOffering -> TestTree
+testRenewOffering = req
+    "RenewOffering"
+    "fixture/RenewOffering.yaml"
 
 testGetDevice :: GetDevice -> TestTree
 testGetDevice = req
@@ -347,6 +393,11 @@ testGetAccountSettings = req
     "GetAccountSettings"
     "fixture/GetAccountSettings.yaml"
 
+testGetOfferingStatus :: GetOfferingStatus -> TestTree
+testGetOfferingStatus = req
+    "GetOfferingStatus"
+    "fixture/GetOfferingStatus.yaml"
+
 testListUploads :: ListUploads -> TestTree
 testListUploads = req
     "ListUploads"
@@ -356,6 +407,11 @@ testGetSuite :: GetSuite -> TestTree
 testGetSuite = req
     "GetSuite"
     "fixture/GetSuite.yaml"
+
+testPurchaseOffering :: PurchaseOffering -> TestTree
+testPurchaseOffering = req
+    "PurchaseOffering"
+    "fixture/PurchaseOffering.yaml"
 
 testGetProject :: GetProject -> TestTree
 testGetProject = req
@@ -367,6 +423,11 @@ testListUniqueProblems = req
     "ListUniqueProblems"
     "fixture/ListUniqueProblems.yaml"
 
+testStopRun :: StopRun -> TestTree
+testStopRun = req
+    "StopRun"
+    "fixture/StopRun.yaml"
+
 testListDevices :: ListDevices -> TestTree
 testListDevices = req
     "ListDevices"
@@ -376,6 +437,11 @@ testCreateProject :: CreateProject -> TestTree
 testCreateProject = req
     "CreateProject"
     "fixture/CreateProject.yaml"
+
+testListOfferings :: ListOfferings -> TestTree
+testListOfferings = req
+    "ListOfferings"
+    "fixture/ListOfferings.yaml"
 
 -- Responses
 
@@ -470,6 +536,13 @@ testGetUploadResponse = res
     deviceFarm
     (Proxy :: Proxy GetUpload)
 
+testListOfferingTransactionsResponse :: ListOfferingTransactionsResponse -> TestTree
+testListOfferingTransactionsResponse = res
+    "ListOfferingTransactionsResponse"
+    "fixture/ListOfferingTransactionsResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListOfferingTransactions)
+
 testCreateDevicePoolResponse :: CreateDevicePoolResponse -> TestTree
 testCreateDevicePoolResponse = res
     "CreateDevicePoolResponse"
@@ -497,6 +570,13 @@ testGetTestResponse = res
     "fixture/GetTestResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetTest)
+
+testRenewOfferingResponse :: RenewOfferingResponse -> TestTree
+testRenewOfferingResponse = res
+    "RenewOfferingResponse"
+    "fixture/RenewOfferingResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy RenewOffering)
 
 testGetDeviceResponse :: GetDeviceResponse -> TestTree
 testGetDeviceResponse = res
@@ -554,6 +634,13 @@ testGetAccountSettingsResponse = res
     deviceFarm
     (Proxy :: Proxy GetAccountSettings)
 
+testGetOfferingStatusResponse :: GetOfferingStatusResponse -> TestTree
+testGetOfferingStatusResponse = res
+    "GetOfferingStatusResponse"
+    "fixture/GetOfferingStatusResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy GetOfferingStatus)
+
 testListUploadsResponse :: ListUploadsResponse -> TestTree
 testListUploadsResponse = res
     "ListUploadsResponse"
@@ -567,6 +654,13 @@ testGetSuiteResponse = res
     "fixture/GetSuiteResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetSuite)
+
+testPurchaseOfferingResponse :: PurchaseOfferingResponse -> TestTree
+testPurchaseOfferingResponse = res
+    "PurchaseOfferingResponse"
+    "fixture/PurchaseOfferingResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy PurchaseOffering)
 
 testGetProjectResponse :: GetProjectResponse -> TestTree
 testGetProjectResponse = res
@@ -582,6 +676,13 @@ testListUniqueProblemsResponse = res
     deviceFarm
     (Proxy :: Proxy ListUniqueProblems)
 
+testStopRunResponse :: StopRunResponse -> TestTree
+testStopRunResponse = res
+    "StopRunResponse"
+    "fixture/StopRunResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy StopRun)
+
 testListDevicesResponse :: ListDevicesResponse -> TestTree
 testListDevicesResponse = res
     "ListDevicesResponse"
@@ -595,3 +696,10 @@ testCreateProjectResponse = res
     "fixture/CreateProjectResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateProject)
+
+testListOfferingsResponse :: ListOfferingsResponse -> TestTree
+testListOfferingsResponse = res
+    "ListOfferingsResponse"
+    "fixture/ListOfferingsResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListOfferings)

@@ -154,8 +154,7 @@ cacheCluster =
     , _ccNumCacheNodes = Nothing
     }
 
--- | The version of the cache engine version that is used in this cache
--- cluster.
+-- | The version of the cache engine that is used in this cache cluster.
 ccEngineVersion :: Lens' CacheCluster (Maybe Text)
 ccEngineVersion = lens _ccEngineVersion (\ s a -> s{_ccEngineVersion = a});
 
@@ -1590,6 +1589,7 @@ instance ToQuery ParameterNameValue where
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
     { _pmvEngineVersion        :: !(Maybe Text)
+    , _pmvCacheNodeType        :: !(Maybe Text)
     , _pmvCacheNodeIdsToRemove :: !(Maybe [Text])
     , _pmvNumCacheNodes        :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1600,6 +1600,8 @@ data PendingModifiedValues = PendingModifiedValues'
 --
 -- * 'pmvEngineVersion'
 --
+-- * 'pmvCacheNodeType'
+--
 -- * 'pmvCacheNodeIdsToRemove'
 --
 -- * 'pmvNumCacheNodes'
@@ -1608,6 +1610,7 @@ pendingModifiedValues
 pendingModifiedValues =
     PendingModifiedValues'
     { _pmvEngineVersion = Nothing
+    , _pmvCacheNodeType = Nothing
     , _pmvCacheNodeIdsToRemove = Nothing
     , _pmvNumCacheNodes = Nothing
     }
@@ -1615,6 +1618,11 @@ pendingModifiedValues =
 -- | The new cache engine version that the cache cluster will run.
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
 pmvEngineVersion = lens _pmvEngineVersion (\ s a -> s{_pmvEngineVersion = a});
+
+-- | The cache node type that this cache cluster or replication group will be
+-- scaled to.
+pmvCacheNodeType :: Lens' PendingModifiedValues (Maybe Text)
+pmvCacheNodeType = lens _pmvCacheNodeType (\ s a -> s{_pmvCacheNodeType = a});
 
 -- | A list of cache node IDs that are being removed (or will be removed)
 -- from the cache cluster. A node ID is a numeric identifier (0001, 0002,
@@ -1632,7 +1640,8 @@ pmvNumCacheNodes = lens _pmvNumCacheNodes (\ s a -> s{_pmvNumCacheNodes = a});
 instance FromXML PendingModifiedValues where
         parseXML x
           = PendingModifiedValues' <$>
-              (x .@? "EngineVersion") <*>
+              (x .@? "EngineVersion") <*> (x .@? "CacheNodeType")
+                <*>
                 (x .@? "CacheNodeIdsToRemove" .!@ mempty >>=
                    may (parseXMLList "CacheNodeId"))
                 <*> (x .@? "NumCacheNodes")

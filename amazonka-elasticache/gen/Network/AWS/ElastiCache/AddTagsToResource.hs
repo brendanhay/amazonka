@@ -77,8 +77,13 @@ addTagsToResource pResourceName_ =
     , _attrTags = mempty
     }
 
--- | The name of the resource to which the tags are to be added, for example
--- 'arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster'.
+-- | The Amazon Resource Name (ARN) of the resource to which the tags are to
+-- be added, for example
+-- 'arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster' or
+-- 'arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot'.
+--
+-- For more information on ARNs, go to
+-- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
 attrResourceName :: Lens' AddTagsToResource Text
 attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
 

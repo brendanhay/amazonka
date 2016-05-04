@@ -29,6 +29,7 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     , ModifyCacheCluster
     -- * Request Lenses
     , mccEngineVersion
+    , mccCacheNodeType
     , mccSecurityGroupIds
     , mccAutoMinorVersionUpgrade
     , mccCacheParameterGroupName
@@ -65,6 +66,7 @@ import           Network.AWS.Response
 -- /See:/ 'modifyCacheCluster' smart constructor.
 data ModifyCacheCluster = ModifyCacheCluster'
     { _mccEngineVersion              :: !(Maybe Text)
+    , _mccCacheNodeType              :: !(Maybe Text)
     , _mccSecurityGroupIds           :: !(Maybe [Text])
     , _mccAutoMinorVersionUpgrade    :: !(Maybe Bool)
     , _mccCacheParameterGroupName    :: !(Maybe Text)
@@ -87,6 +89,8 @@ data ModifyCacheCluster = ModifyCacheCluster'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mccEngineVersion'
+--
+-- * 'mccCacheNodeType'
 --
 -- * 'mccSecurityGroupIds'
 --
@@ -123,6 +127,7 @@ modifyCacheCluster
 modifyCacheCluster pCacheClusterId_ =
     ModifyCacheCluster'
     { _mccEngineVersion = Nothing
+    , _mccCacheNodeType = Nothing
     , _mccSecurityGroupIds = Nothing
     , _mccAutoMinorVersionUpgrade = Nothing
     , _mccCacheParameterGroupName = Nothing
@@ -141,8 +146,20 @@ modifyCacheCluster pCacheClusterId_ =
     }
 
 -- | The upgraded version of the cache engine to be run on the cache nodes.
+--
+-- __Important:__ You can upgrade to a newer engine version (see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
+-- but you cannot downgrade to an earlier engine version. If you want to
+-- use an earlier engine version, you must delete the existing cache
+-- cluster and create it anew with the earlier engine version.
 mccEngineVersion :: Lens' ModifyCacheCluster (Maybe Text)
 mccEngineVersion = lens _mccEngineVersion (\ s a -> s{_mccEngineVersion = a});
+
+-- | A valid cache node type that you want to scale this cache cluster to.
+-- The value of this parameter must be one of the /ScaleUpModifications/
+-- values returned by the 'ListAllowedCacheNodeTypeModification' action.
+mccCacheNodeType :: Lens' ModifyCacheCluster (Maybe Text)
+mccCacheNodeType = lens _mccCacheNodeType (\ s a -> s{_mccCacheNodeType = a});
 
 -- | Specifies the VPC Security Groups associated with the cache cluster.
 --
@@ -202,22 +219,33 @@ mccSnapshotWindow = lens _mccSnapshotWindow (\ s a -> s{_mccSnapshotWindow = a})
 --
 -- __Impact of new add\/remove requests upon pending requests__
 --
--- >   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- >   Scenarios    Pending action   New Request   Results
--- >   ------------ ---------------- ------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- >   Scenario-1   Delete           Delete        The new delete, pending or immediate, replaces the pending delete.
--- >
--- >   Scenario-2   Delete           Create        The new create, pending or immediate, replaces the pending delete.
--- >
--- >   Scenario-3   Create           Delete        The new delete, pending or immediate, replaces the pending create.
--- >
--- >   Scenario-4   Create           Create        The new create is added to the pending create.
--- >                                               __Important:__
--- >                                               If the new create request is __Apply Immediately - Yes__, all creates are performed immediately. If the new create request is __Apply Immediately - No__, all creates are pending.
--- >   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- -   Scenario-1
+--     -   Pending Action: Delete
+--     -   New Request: Delete
+--     -   Result: The new delete, pending or immediate, replaces the
+--         pending delete.
+-- -   Scenario-2
+--     -   Pending Action: Delete
+--     -   New Request: Create
+--     -   Result: The new create, pending or immediate, replaces the
+--         pending delete.
+-- -   Scenario-3
+--     -   Pending Action: Create
+--     -   New Request: Delete
+--     -   Result: The new delete, pending or immediate, replaces the
+--         pending create.
+-- -   Scenario-4
+--     -   Pending Action: Create
+--     -   New Request: Create
+--     -   Result: The new create is added to the pending create.
+--         __Important:__
+--         If the new create request is __Apply Immediately - Yes__, all
+--         creates are performed immediately.
+--         If the new create request is __Apply Immediately - No__, all
+--         creates are pending.
 --
 -- Example:
--- 'NewAvailabilityZones.member.1=us-west-2a&NewAvailabilityZones.member.2=us-west-2b&NewAvailabilityZones.member.3=us-west-2c'
+-- 'NewAvailabilityZones.member.1=us-west-2a&amp;NewAvailabilityZones.member.2=us-west-2b&amp;NewAvailabilityZones.member.3=us-west-2c'
 mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
 mccNewAvailabilityZones = lens _mccNewAvailabilityZones (\ s a -> s{_mccNewAvailabilityZones = a}) . _Default . _Coerce;
 
@@ -394,6 +422,7 @@ instance ToQuery ModifyCacheCluster where
               ["Action" =: ("ModifyCacheCluster" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "EngineVersion" =: _mccEngineVersion,
+               "CacheNodeType" =: _mccCacheNodeType,
                "SecurityGroupIds" =:
                  toQuery
                    (toQueryList "SecurityGroupId" <$>

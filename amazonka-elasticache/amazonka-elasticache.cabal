@@ -81,6 +81,7 @@ library
         , Network.AWS.ElastiCache.DescribeReservedCacheNodes
         , Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
         , Network.AWS.ElastiCache.DescribeSnapshots
+        , Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
         , Network.AWS.ElastiCache.ListTagsForResource
         , Network.AWS.ElastiCache.ModifyCacheCluster
         , Network.AWS.ElastiCache.ModifyCacheParameterGroup

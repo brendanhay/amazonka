@@ -28,6 +28,7 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     -- * Request Lenses
     , mrgAutomaticFailoverEnabled
     , mrgEngineVersion
+    , mrgCacheNodeType
     , mrgSnapshottingClusterId
     , mrgSecurityGroupIds
     , mrgAutoMinorVersionUpgrade
@@ -64,6 +65,7 @@ import           Network.AWS.Response
 data ModifyReplicationGroup = ModifyReplicationGroup'
     { _mrgAutomaticFailoverEnabled    :: !(Maybe Bool)
     , _mrgEngineVersion               :: !(Maybe Text)
+    , _mrgCacheNodeType               :: !(Maybe Text)
     , _mrgSnapshottingClusterId       :: !(Maybe Text)
     , _mrgSecurityGroupIds            :: !(Maybe [Text])
     , _mrgAutoMinorVersionUpgrade     :: !(Maybe Bool)
@@ -87,6 +89,8 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 -- * 'mrgAutomaticFailoverEnabled'
 --
 -- * 'mrgEngineVersion'
+--
+-- * 'mrgCacheNodeType'
 --
 -- * 'mrgSnapshottingClusterId'
 --
@@ -122,6 +126,7 @@ modifyReplicationGroup pReplicationGroupId_ =
     ModifyReplicationGroup'
     { _mrgAutomaticFailoverEnabled = Nothing
     , _mrgEngineVersion = Nothing
+    , _mrgCacheNodeType = Nothing
     , _mrgSnapshottingClusterId = Nothing
     , _mrgSecurityGroupIds = Nothing
     , _mrgAutoMinorVersionUpgrade = Nothing
@@ -152,8 +157,21 @@ mrgAutomaticFailoverEnabled = lens _mrgAutomaticFailoverEnabled (\ s a -> s{_mrg
 
 -- | The upgraded version of the cache engine to be run on the cache clusters
 -- in the replication group.
+--
+-- __Important:__ You can upgrade to a newer engine version (see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
+-- but you cannot downgrade to an earlier engine version. If you want to
+-- use an earlier engine version, you must delete the existing replication
+-- group and create it anew with the earlier engine version.
 mrgEngineVersion :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgEngineVersion = lens _mrgEngineVersion (\ s a -> s{_mrgEngineVersion = a});
+
+-- | A valid cache node type that you want to scale this replication group
+-- to. The value of this parameter must be one of the
+-- /ScaleUpModifications/ values returned by the
+-- 'ListAllowedCacheNodeTypeModification' action.
+mrgCacheNodeType :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgCacheNodeType = lens _mrgCacheNodeType (\ s a -> s{_mrgCacheNodeType = a});
 
 -- | The cache cluster ID that will be used as the daily snapshot source for
 -- the replication group.
@@ -194,10 +212,10 @@ mrgReplicationGroupDescription = lens _mrgReplicationGroupDescription (\ s a -> 
 mrgSnapshotWindow :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgSnapshotWindow = lens _mrgSnapshotWindow (\ s a -> s{_mrgSnapshotWindow = a});
 
--- | If this parameter is specified, ElastiCache will promote each of the
--- cache clusters in the specified replication group to the primary role.
--- The nodes of all other cache clusters in the replication group will be
--- read replicas.
+-- | If this parameter is specified, ElastiCache will promote the specified
+-- cluster in the specified replication group to the primary role. The
+-- nodes of all other clusters in the replication group will be read
+-- replicas.
 mrgPrimaryClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgPrimaryClusterId = lens _mrgPrimaryClusterId (\ s a -> s{_mrgPrimaryClusterId = a});
 
@@ -303,6 +321,7 @@ instance ToQuery ModifyReplicationGroup where
                "AutomaticFailoverEnabled" =:
                  _mrgAutomaticFailoverEnabled,
                "EngineVersion" =: _mrgEngineVersion,
+               "CacheNodeType" =: _mrgCacheNodeType,
                "SnapshottingClusterId" =: _mrgSnapshottingClusterId,
                "SecurityGroupIds" =:
                  toQuery

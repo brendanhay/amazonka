@@ -100,7 +100,7 @@ ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 -- -   In Progress: Include in-progress deployments in the resulting list.
 -- -   Succeeded: Include successful deployments in the resulting list.
 -- -   Failed: Include failed deployments in the resulting list.
--- -   Aborted: Include aborted deployments in the resulting list.
+-- -   Stopped: Include stopped deployments in the resulting list.
 ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
 ldIncludeOnlyStatuses = lens _ldIncludeOnlyStatuses (\ s a -> s{_ldIncludeOnlyStatuses = a}) . _Default . _Coerce;
 

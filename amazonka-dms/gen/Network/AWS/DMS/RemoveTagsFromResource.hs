@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For internal use only
+-- Removes metadata tags from a DMS resource.
 --
 module Network.AWS.DMS.RemoveTagsFromResource
     (

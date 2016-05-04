@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For internal use only
+-- Lists all tags for an AWS DMS resource.
 --
 module Network.AWS.DMS.ListTagsForResource
     (

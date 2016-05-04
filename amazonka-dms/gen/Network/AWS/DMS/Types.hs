@@ -234,62 +234,66 @@ dms =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Prism for InvalidSubnet' errors.
+-- | The subnet provided is invalid.
 _InvalidSubnet :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSubnet = _ServiceError . hasCode "InvalidSubnet"
 
--- | Prism for KMSKeyNotAccessibleFault' errors.
+-- | AWS DMS cannot access the KMS key.
 _KMSKeyNotAccessibleFault :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSKeyNotAccessibleFault = _ServiceError . hasCode "KMSKeyNotAccessibleFault"
 
--- | Prism for ReplicationSubnetGroupDoesNotCoverEnoughAZs' errors.
+-- | The replication subnet group does not cover enough Availability Zones
+-- (AZs). Edit the replication subnet group and add more AZs.
 _ReplicationSubnetGroupDoesNotCoverEnoughAZs :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationSubnetGroupDoesNotCoverEnoughAZs =
     _ServiceError . hasCode "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
 
--- | Prism for InvalidResourceStateFault' errors.
+-- | The resource is in a state that prevents it from being used for database
+-- migration.
 _InvalidResourceStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidResourceStateFault =
     _ServiceError . hasCode "InvalidResourceStateFault"
 
--- | Prism for ResourceAlreadyExistsFault' errors.
+-- | The resource you are attempting to create already exists.
 _ResourceAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsFault =
     _ServiceError . hasCode "ResourceAlreadyExistsFault"
 
--- | Prism for InsufficientResourceCapacityFault' errors.
+-- | There are not enough resources allocated to the database migration.
 _InsufficientResourceCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientResourceCapacityFault =
     _ServiceError . hasCode "InsufficientResourceCapacityFault"
 
--- | Prism for ResourceQuotaExceededFault' errors.
+-- | The quota for this resource quota has been exceeded.
 _ResourceQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceQuotaExceededFault =
     _ServiceError . hasCode "ResourceQuotaExceededFault"
 
--- | Prism for UpgradeDependencyFailureFault' errors.
+-- | An upgrade dependency is preventing the database migration.
 _UpgradeDependencyFailureFault :: AsError a => Getting (First ServiceError) a ServiceError
 _UpgradeDependencyFailureFault =
     _ServiceError . hasCode "UpgradeDependencyFailureFault"
 
--- | Prism for ResourceNotFoundFault' errors.
+-- | The resource could not be found.
 _ResourceNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundFault = _ServiceError . hasCode "ResourceNotFoundFault"
 
--- | Prism for StorageQuotaExceededFault' errors.
+-- | The storage quota has been exceeded.
 _StorageQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _StorageQuotaExceededFault =
     _ServiceError . hasCode "StorageQuotaExceededFault"
 
--- | Prism for AccessDeniedFault' errors.
+-- | AWS DMS was denied access to the endpoint.
 _AccessDeniedFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AccessDeniedFault = _ServiceError . hasCode "AccessDeniedFault"
 
--- | Prism for SubnetAlreadyInUse' errors.
+-- | The specified subnet is already in use.
 _SubnetAlreadyInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _SubnetAlreadyInUse = _ServiceError . hasCode "SubnetAlreadyInUse"

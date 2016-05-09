@@ -9,6 +9,9 @@ extra-deps:
   - unordered-containers-0.2.7.0
   - QuickCheck-2.8.2
 packages:
+  - location:
+      git: https://github.com/chrisdone/ini
+      commit: 03d73a4ceecda53ecdc2b8373485a51fafa58051
   - core
   - test
   - examples

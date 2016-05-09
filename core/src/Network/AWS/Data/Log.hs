@@ -100,7 +100,7 @@ instance ToLog HttpVersion where
 
 instance ToLog RequestBody where
     build = \case
-        RequestBodyBuilder     n _ -> " <msger:"   <> build n <> ">"
+        RequestBodyBuilder     n _ -> " <builder:" <> build n <> ">"
         RequestBodyStream      n _ -> " <stream:"  <> build n <> ">"
 
         RequestBodyLBS lbs

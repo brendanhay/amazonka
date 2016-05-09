@@ -1,8 +1,13 @@
 compiler:   ghc-7.8.4
 resolver:   lts-5.15
-flags:      {}
+flags:
+  QuickCheck:
+    base3:       false
+    base4:       true
+    base4point8: false
 extra-deps:
   - unordered-containers-0.2.7.0
+  - QuickCheck-2.8.2
 packages:
   - core
   - test

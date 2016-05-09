@@ -23,7 +23,6 @@ import           Network.AWS.EC2.DescribeCustomerGateways
 import           Network.AWS.EC2.DescribeExportTasks
 import           Network.AWS.EC2.DescribeExportTasks
 import           Network.AWS.EC2.DescribeImages
-import           Network.AWS.EC2.DescribeImages
 import           Network.AWS.EC2.DescribeInstances
 import           Network.AWS.EC2.DescribeInstances
 import           Network.AWS.EC2.DescribeInstances
@@ -94,21 +93,6 @@ volumeInUse =
                              AcceptFailure
                              (folding (concatOf dvvrsVolumes) .
                               vState . to toTextCI)]
-    }
-
--- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
-imageExists :: Wait DescribeImages
-imageExists =
-    Wait
-    { _waitName = "ImageExists"
-    , _waitAttempts = 40
-    , _waitDelay = 15
-    , _waitAcceptors = [ matchAll
-                             True
-                             AcceptSuccess
-                             (nonEmpty (folding (concatOf desrsImages)))
-                       , matchError "InvalidAMIID.NotFound" AcceptRetry]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeNatGateways' every 15 seconds until a

@@ -34,9 +34,6 @@ module Network.AWS.EC2
     -- ** VolumeInUse
     , volumeInUse
 
-    -- ** ImageExists
-    , imageExists
-
     -- ** NatGatewayAvailable
     , natGatewayAvailable
 

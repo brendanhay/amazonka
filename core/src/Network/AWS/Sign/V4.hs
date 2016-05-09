@@ -30,7 +30,7 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
-import           Network.AWS.Lens            ((%~), (.~), (<>~))
+import           Network.AWS.Lens            ((%~), (<>~))
 import           Network.AWS.Request
 import           Network.AWS.Sign.V4.Base
 import           Network.AWS.Sign.V4.Chunked

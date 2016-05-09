@@ -44,8 +44,12 @@ matrix:
     # Core
     - env: GHCVER=7.10.3 LIBRARY=amazonka-core
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.8.4 LIBRARY=amazonka-core
+      addons: { apt: { packages: [ghc-7.8.4], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.8.4 LIBRARY=amazonka
+      addons: { apt: { packages: [ghc-7.8.4], sources: [hvr-ghc] } }
 
     # Test
     - env: GHCVER=7.10.3 LIBRARY=amazonka-test
@@ -54,16 +58,28 @@ matrix:
     # Priority
     - env: GHCVER=7.10.3 LIBRARY=amazonka-s3
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.8.4 LIBRARY=amazonka-s3
+      addons: { apt: { packages: [ghc-7.8.4], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-autoscaling
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.8.4 LIBRARY=amazonka-autoscaling
+      addons: { apt: { packages: [ghc-7.8.4], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-elb
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.8.4 LIBRARY=amazonka-elb
+      addons: { apt: { packages: [ghc-7.8.4], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-sqs
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.8.4 LIBRARY=amazonka-sqs
+      addons: { apt: { packages: [ghc-7.8.4], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-iam
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.8.4 LIBRARY=amazonka-iam
+      addons: { apt: { packages: [ghc-7.8.4], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-ec2
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.8.4 LIBRARY=amazonka-ec2
+      addons: { apt: { packages: [ghc-7.8.4], sources: [hvr-ghc] } }
 
     # Remainder
     - env: GHCVER=7.10.3 LIBRARY=amazonka-apigateway

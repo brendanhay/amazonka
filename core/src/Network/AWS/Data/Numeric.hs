@@ -55,7 +55,8 @@ _Nat = iso unNat Nat
 instance Hashable Nat where
     hashWithSalt salt (Nat n) = hashWithSalt salt (toInteger n)
 
-instance NFData Nat
+instance NFData Nat where
+    rnf = rnf . toInteger . unNat
 
 instance FromJSON Nat where
     parseJSON = parseJSON >=> go

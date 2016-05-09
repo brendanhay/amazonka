@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVPCEndpointServices' smart constructor.
+-- | Contains the parameters for DescribeVpcEndpointServices.
+--
+-- /See:/ 'describeVPCEndpointServices' smart constructor.
 data DescribeVPCEndpointServices = DescribeVPCEndpointServices'
     { _dvesNextToken  :: !(Maybe Text)
     , _dvesDryRun     :: !(Maybe Bool)
@@ -107,6 +109,8 @@ instance AWSRequest DescribeVPCEndpointServices where
 
 instance Hashable DescribeVPCEndpointServices
 
+instance NFData DescribeVPCEndpointServices
+
 instance ToHeaders DescribeVPCEndpointServices where
         toHeaders = const mempty
 
@@ -123,7 +127,9 @@ instance ToQuery DescribeVPCEndpointServices where
                "DryRun" =: _dvesDryRun,
                "MaxResults" =: _dvesMaxResults]
 
--- | /See:/ 'describeVPCEndpointServicesResponse' smart constructor.
+-- | Contains the output of DescribeVpcEndpointServices.
+--
+-- /See:/ 'describeVPCEndpointServicesResponse' smart constructor.
 data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
     { _dvesrsServiceNames   :: !(Maybe [Text])
     , _dvesrsNextToken      :: !(Maybe Text)
@@ -161,3 +167,5 @@ dvesrsNextToken = lens _dvesrsNextToken (\ s a -> s{_dvesrsNextToken = a});
 -- | The response status code.
 dvesrsResponseStatus :: Lens' DescribeVPCEndpointServicesResponse Int
 dvesrsResponseStatus = lens _dvesrsResponseStatus (\ s a -> s{_dvesrsResponseStatus = a});
+
+instance NFData DescribeVPCEndpointServicesResponse

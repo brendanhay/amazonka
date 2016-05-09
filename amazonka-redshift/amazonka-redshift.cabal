@@ -1,5 +1,5 @@
 name:                  amazonka-redshift
-version:               1.4.0
+version:               1.4.1
 synopsis:              Amazon Redshift SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -116,6 +116,7 @@ library
         , Network.AWS.Redshift.EnableLogging
         , Network.AWS.Redshift.EnableSnapshotCopy
         , Network.AWS.Redshift.ModifyCluster
+        , Network.AWS.Redshift.ModifyClusterIAMRoles
         , Network.AWS.Redshift.ModifyClusterParameterGroup
         , Network.AWS.Redshift.ModifyClusterSubnetGroup
         , Network.AWS.Redshift.ModifyEventSubscription
@@ -136,7 +137,7 @@ library
         , Network.AWS.Redshift.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.0.*
+          amazonka-core == 1.4.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-redshift-test
@@ -156,9 +157,9 @@ test-suite amazonka-redshift-test
         , Test.AWS.Redshift.Internal
 
     build-depends:
-          amazonka-core == 1.4.0.*
-        , amazonka-test == 1.4.0.*
-        , amazonka-redshift == 1.4.0.*
+          amazonka-core == 1.4.1.*
+        , amazonka-test == 1.4.1.*
+        , amazonka-redshift == 1.4.1.*
         , base
         , bytestring
         , tasty

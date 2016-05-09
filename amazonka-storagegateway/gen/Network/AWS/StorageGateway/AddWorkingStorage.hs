@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation configures one or more gateway local disks as working
--- storage for a gateway. This operation is supported only for the
--- gateway-stored volume architecture. This operation is deprecated method
--- in cached-volumes API version (20120630). Use AddUploadBuffer instead.
+-- Configures one or more gateway local disks as working storage for a
+-- gateway. This operation is supported only for the gateway-stored volume
+-- architecture. This operation is deprecated in cached-volumes API version
+-- 20120630. Use < AddUploadBuffer> instead.
 --
 -- Working storage is also referred to as upload buffer. You can also use
 -- the < AddUploadBuffer> operation to add upload buffer to a stored-volume
@@ -101,6 +101,8 @@ instance AWSRequest AddWorkingStorage where
 
 instance Hashable AddWorkingStorage
 
+instance NFData AddWorkingStorage
+
 instance ToHeaders AddWorkingStorage where
         toHeaders
           = const
@@ -156,3 +158,5 @@ awsrsGatewayARN = lens _awsrsGatewayARN (\ s a -> s{_awsrsGatewayARN = a});
 -- | The response status code.
 awsrsResponseStatus :: Lens' AddWorkingStorageResponse Int
 awsrsResponseStatus = lens _awsrsResponseStatus (\ s a -> s{_awsrsResponseStatus = a});
+
+instance NFData AddWorkingStorageResponse

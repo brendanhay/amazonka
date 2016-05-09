@@ -325,6 +325,9 @@ import Test.AWS.EC2.Internal
 --         , testCreateVPC $
 --             createVPC
 --
+--         , testModifyVPCPeeringConnectionOptions $
+--             modifyVPCPeeringConnectionOptions
+--
 --         , testCopySnapshot $
 --             copySnapshot
 --
@@ -927,6 +930,9 @@ import Test.AWS.EC2.Internal
 --
 --         , testCreateVPCResponse $
 --             createVPCResponse
+--
+--         , testModifyVPCPeeringConnectionOptionsResponse $
+--             modifyVPCPeeringConnectionOptionsResponse
 --
 --         , testCopySnapshotResponse $
 --             copySnapshotResponse
@@ -1730,6 +1736,11 @@ testCreateVPC :: CreateVPC -> TestTree
 testCreateVPC = req
     "CreateVPC"
     "fixture/CreateVPC.yaml"
+
+testModifyVPCPeeringConnectionOptions :: ModifyVPCPeeringConnectionOptions -> TestTree
+testModifyVPCPeeringConnectionOptions = req
+    "ModifyVPCPeeringConnectionOptions"
+    "fixture/ModifyVPCPeeringConnectionOptions.yaml"
 
 testCopySnapshot :: CopySnapshot -> TestTree
 testCopySnapshot = req
@@ -2930,6 +2941,13 @@ testCreateVPCResponse = res
     "fixture/CreateVPCResponse.proto"
     ec2
     (Proxy :: Proxy CreateVPC)
+
+testModifyVPCPeeringConnectionOptionsResponse :: ModifyVPCPeeringConnectionOptionsResponse -> TestTree
+testModifyVPCPeeringConnectionOptionsResponse = res
+    "ModifyVPCPeeringConnectionOptionsResponse"
+    "fixture/ModifyVPCPeeringConnectionOptionsResponse.proto"
+    ec2
+    (Proxy :: Proxy ModifyVPCPeeringConnectionOptions)
 
 testCopySnapshotResponse :: CopySnapshotResponse -> TestTree
 testCopySnapshotResponse = res

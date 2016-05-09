@@ -38,6 +38,7 @@ module Network.AWS.APIGateway.UpdateAuthorizer
     , aName
     , aId
     , aAuthorizerResultTtlInSeconds
+    , aAuthType
     , aType
     , aIdentitySource
     , aAuthorizerCredentials
@@ -98,6 +99,8 @@ instance AWSRequest UpdateAuthorizer where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateAuthorizer
+
+instance NFData UpdateAuthorizer
 
 instance ToHeaders UpdateAuthorizer where
         toHeaders

@@ -22,6 +22,53 @@ import           Network.AWS.Prelude
 import           Network.AWS.Route53.Internal
 import           Network.AWS.Route53.Types.Sum
 
+-- | A complex type that contains information to uniquely identify the
+-- CloudWatch alarm that you\'re associating with a Route 53 health check.
+--
+-- /See:/ 'alarmIdentifier' smart constructor.
+data AlarmIdentifier = AlarmIdentifier'
+    { _aiRegion :: !CloudWatchRegion
+    , _aiName   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AlarmIdentifier' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aiRegion'
+--
+-- * 'aiName'
+alarmIdentifier
+    :: CloudWatchRegion -- ^ 'aiRegion'
+    -> Text -- ^ 'aiName'
+    -> AlarmIdentifier
+alarmIdentifier pRegion_ pName_ =
+    AlarmIdentifier'
+    { _aiRegion = pRegion_
+    , _aiName = pName_
+    }
+
+-- | The 'CloudWatchRegion' that the CloudWatch alarm was created in.
+aiRegion :: Lens' AlarmIdentifier CloudWatchRegion
+aiRegion = lens _aiRegion (\ s a -> s{_aiRegion = a});
+
+-- | The name of the CloudWatch alarm.
+aiName :: Lens' AlarmIdentifier Text
+aiName = lens _aiName (\ s a -> s{_aiName = a});
+
+instance FromXML AlarmIdentifier where
+        parseXML x
+          = AlarmIdentifier' <$>
+              (x .@ "Region") <*> (x .@ "Name")
+
+instance Hashable AlarmIdentifier
+
+instance NFData AlarmIdentifier
+
+instance ToXML AlarmIdentifier where
+        toXML AlarmIdentifier'{..}
+          = mconcat ["Region" @= _aiRegion, "Name" @= _aiName]
+
 -- | /Alias resource record sets only:/ Information about the CloudFront
 -- distribution, ELB load balancer, Amazon S3 bucket, or Amazon Route 53
 -- resource record set to which you are routing traffic.
@@ -213,6 +260,8 @@ instance FromXML AliasTarget where
 
 instance Hashable AliasTarget
 
+instance NFData AliasTarget
+
 instance ToXML AliasTarget where
         toXML AliasTarget'{..}
           = mconcat
@@ -270,6 +319,8 @@ cResourceRecordSet = lens _cResourceRecordSet (\ s a -> s{_cResourceRecordSet = 
 
 instance Hashable Change
 
+instance NFData Change
+
 instance ToXML Change where
         toXML Change'{..}
           = mconcat
@@ -312,6 +363,8 @@ cbChanges :: Lens' ChangeBatch (NonEmpty Change)
 cbChanges = lens _cbChanges (\ s a -> s{_cbChanges = a}) . _List1;
 
 instance Hashable ChangeBatch
+
+instance NFData ChangeBatch
 
 instance ToXML ChangeBatch where
         toXML ChangeBatch'{..}
@@ -392,6 +445,132 @@ instance FromXML ChangeInfo where
 
 instance Hashable ChangeInfo
 
+instance NFData ChangeInfo
+
+-- | For CLOUDWATCH_METRIC health checks, a complex type that contains
+-- information about the CloudWatch alarm that you\'re associating with the
+-- health check.
+--
+-- /See:/ 'cloudWatchAlarmConfiguration' smart constructor.
+data CloudWatchAlarmConfiguration = CloudWatchAlarmConfiguration'
+    { _cwacDimensions         :: !(Maybe [Dimension])
+    , _cwacEvaluationPeriods  :: !Nat
+    , _cwacThreshold          :: !Double
+    , _cwacComparisonOperator :: !ComparisonOperator
+    , _cwacPeriod             :: !Nat
+    , _cwacMetricName         :: !Text
+    , _cwacNamespace          :: !Text
+    , _cwacStatistic          :: !Statistic
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloudWatchAlarmConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cwacDimensions'
+--
+-- * 'cwacEvaluationPeriods'
+--
+-- * 'cwacThreshold'
+--
+-- * 'cwacComparisonOperator'
+--
+-- * 'cwacPeriod'
+--
+-- * 'cwacMetricName'
+--
+-- * 'cwacNamespace'
+--
+-- * 'cwacStatistic'
+cloudWatchAlarmConfiguration
+    :: Natural -- ^ 'cwacEvaluationPeriods'
+    -> Double -- ^ 'cwacThreshold'
+    -> ComparisonOperator -- ^ 'cwacComparisonOperator'
+    -> Natural -- ^ 'cwacPeriod'
+    -> Text -- ^ 'cwacMetricName'
+    -> Text -- ^ 'cwacNamespace'
+    -> Statistic -- ^ 'cwacStatistic'
+    -> CloudWatchAlarmConfiguration
+cloudWatchAlarmConfiguration pEvaluationPeriods_ pThreshold_ pComparisonOperator_ pPeriod_ pMetricName_ pNamespace_ pStatistic_ =
+    CloudWatchAlarmConfiguration'
+    { _cwacDimensions = Nothing
+    , _cwacEvaluationPeriods = _Nat # pEvaluationPeriods_
+    , _cwacThreshold = pThreshold_
+    , _cwacComparisonOperator = pComparisonOperator_
+    , _cwacPeriod = _Nat # pPeriod_
+    , _cwacMetricName = pMetricName_
+    , _cwacNamespace = pNamespace_
+    , _cwacStatistic = pStatistic_
+    }
+
+-- | A list of 'Dimension' elements for the CloudWatch metric that is
+-- associated with the CloudWatch alarm. For information about the metrics
+-- and dimensions that CloudWatch supports, see
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference>.
+cwacDimensions :: Lens' CloudWatchAlarmConfiguration [Dimension]
+cwacDimensions = lens _cwacDimensions (\ s a -> s{_cwacDimensions = a}) . _Default . _Coerce;
+
+-- | The number of periods over which data is compared to the specified
+-- threshold.
+cwacEvaluationPeriods :: Lens' CloudWatchAlarmConfiguration Natural
+cwacEvaluationPeriods = lens _cwacEvaluationPeriods (\ s a -> s{_cwacEvaluationPeriods = a}) . _Nat;
+
+-- | The value that the metric is compared with to determine the state of the
+-- alarm. For example, if you want the health check to fail if the average
+-- TCP connection time is greater than 500 milliseconds for more than 60
+-- seconds, the threshold is 500.
+cwacThreshold :: Lens' CloudWatchAlarmConfiguration Double
+cwacThreshold = lens _cwacThreshold (\ s a -> s{_cwacThreshold = a});
+
+-- | The arithmetic operation to use when comparing the specified Statistic
+-- and Threshold.
+--
+-- Valid Values are 'GreaterThanOrEqualToThreshold',
+-- 'GreaterThanThreshold', 'LessThanThreshold' and
+-- 'LessThanOrEqualToThreshold'
+cwacComparisonOperator :: Lens' CloudWatchAlarmConfiguration ComparisonOperator
+cwacComparisonOperator = lens _cwacComparisonOperator (\ s a -> s{_cwacComparisonOperator = a});
+
+-- | An integer that represents the period in seconds over which the
+-- statistic is applied.
+cwacPeriod :: Lens' CloudWatchAlarmConfiguration Natural
+cwacPeriod = lens _cwacPeriod (\ s a -> s{_cwacPeriod = a}) . _Nat;
+
+-- | The name of the CloudWatch metric that is associated with the CloudWatch
+-- alarm.
+cwacMetricName :: Lens' CloudWatchAlarmConfiguration Text
+cwacMetricName = lens _cwacMetricName (\ s a -> s{_cwacMetricName = a});
+
+-- | The namespace of the CloudWatch metric that is associated with the
+-- CloudWatch alarm.
+cwacNamespace :: Lens' CloudWatchAlarmConfiguration Text
+cwacNamespace = lens _cwacNamespace (\ s a -> s{_cwacNamespace = a});
+
+-- | The statistic to apply to the CloudWatch metric that is associated with
+-- the CloudWatch alarm.
+--
+-- Valid Values are 'SampleCount', 'Average', 'Sum', 'Minimum' and
+-- 'Maximum'
+cwacStatistic :: Lens' CloudWatchAlarmConfiguration Statistic
+cwacStatistic = lens _cwacStatistic (\ s a -> s{_cwacStatistic = a});
+
+instance FromXML CloudWatchAlarmConfiguration where
+        parseXML x
+          = CloudWatchAlarmConfiguration' <$>
+              (x .@? "Dimensions" .!@ mempty >>=
+                 may (parseXMLList "Dimension"))
+                <*> (x .@ "EvaluationPeriods")
+                <*> (x .@ "Threshold")
+                <*> (x .@ "ComparisonOperator")
+                <*> (x .@ "Period")
+                <*> (x .@ "MetricName")
+                <*> (x .@ "Namespace")
+                <*> (x .@ "Statistic")
+
+instance Hashable CloudWatchAlarmConfiguration
+
+instance NFData CloudWatchAlarmConfiguration
+
 -- | A complex type that contains name server information.
 --
 -- /See:/ 'delegationSet' smart constructor.
@@ -443,6 +622,49 @@ instance FromXML DelegationSet where
                    parseXMLList1 "NameServer")
 
 instance Hashable DelegationSet
+
+instance NFData DelegationSet
+
+-- | The name and value of a dimension for a CloudWatch metric.
+--
+-- /See:/ 'dimension' smart constructor.
+data Dimension = Dimension'
+    { _dName  :: !Text
+    , _dValue :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Dimension' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dName'
+--
+-- * 'dValue'
+dimension
+    :: Text -- ^ 'dName'
+    -> Text -- ^ 'dValue'
+    -> Dimension
+dimension pName_ pValue_ =
+    Dimension'
+    { _dName = pName_
+    , _dValue = pValue_
+    }
+
+-- | The name of the dimension.
+dName :: Lens' Dimension Text
+dName = lens _dName (\ s a -> s{_dName = a});
+
+-- | The value of the dimension.
+dValue :: Lens' Dimension Text
+dValue = lens _dValue (\ s a -> s{_dValue = a});
+
+instance FromXML Dimension where
+        parseXML x
+          = Dimension' <$> (x .@ "Name") <*> (x .@ "Value")
+
+instance Hashable Dimension
+
+instance NFData Dimension
 
 -- | A complex type that contains information about a geo location.
 --
@@ -505,6 +727,8 @@ instance FromXML GeoLocation where
                 <*> (x .@? "ContinentCode")
 
 instance Hashable GeoLocation
+
+instance NFData GeoLocation
 
 instance ToXML GeoLocation where
         toXML GeoLocation'{..}
@@ -598,20 +822,25 @@ instance FromXML GeoLocationDetails where
 
 instance Hashable GeoLocationDetails
 
+instance NFData GeoLocationDetails
+
 -- | A complex type that contains identifying information about the health
 -- check.
 --
 -- /See:/ 'healthCheck' smart constructor.
 data HealthCheck = HealthCheck'
-    { _hcId                 :: !Text
-    , _hcCallerReference    :: !Text
-    , _hcHealthCheckConfig  :: !HealthCheckConfig
-    , _hcHealthCheckVersion :: !Nat
+    { _hcCloudWatchAlarmConfiguration :: !(Maybe CloudWatchAlarmConfiguration)
+    , _hcId                           :: !Text
+    , _hcCallerReference              :: !Text
+    , _hcHealthCheckConfig            :: !HealthCheckConfig
+    , _hcHealthCheckVersion           :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'HealthCheck' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hcCloudWatchAlarmConfiguration'
 --
 -- * 'hcId'
 --
@@ -628,11 +857,18 @@ healthCheck
     -> HealthCheck
 healthCheck pId_ pCallerReference_ pHealthCheckConfig_ pHealthCheckVersion_ =
     HealthCheck'
-    { _hcId = pId_
+    { _hcCloudWatchAlarmConfiguration = Nothing
+    , _hcId = pId_
     , _hcCallerReference = pCallerReference_
     , _hcHealthCheckConfig = pHealthCheckConfig_
     , _hcHealthCheckVersion = _Nat # pHealthCheckVersion_
     }
+
+-- | For CLOUDWATCH_METRIC health checks, a complex type that contains
+-- information about the CloudWatch alarm that you\'re associating with the
+-- health check.
+hcCloudWatchAlarmConfiguration :: Lens' HealthCheck (Maybe CloudWatchAlarmConfiguration)
+hcCloudWatchAlarmConfiguration = lens _hcCloudWatchAlarmConfiguration (\ s a -> s{_hcCloudWatchAlarmConfiguration = a});
 
 -- | The ID of the specified health check.
 hcId :: Lens' HealthCheck Text
@@ -655,29 +891,36 @@ hcHealthCheckVersion = lens _hcHealthCheckVersion (\ s a -> s{_hcHealthCheckVers
 instance FromXML HealthCheck where
         parseXML x
           = HealthCheck' <$>
-              (x .@ "Id") <*> (x .@ "CallerReference") <*>
-                (x .@ "HealthCheckConfig")
+              (x .@? "CloudWatchAlarmConfiguration") <*>
+                (x .@ "Id")
+                <*> (x .@ "CallerReference")
+                <*> (x .@ "HealthCheckConfig")
                 <*> (x .@ "HealthCheckVersion")
 
 instance Hashable HealthCheck
+
+instance NFData HealthCheck
 
 -- | A complex type that contains the health check configuration.
 --
 -- /See:/ 'healthCheckConfig' smart constructor.
 data HealthCheckConfig = HealthCheckConfig'
-    { _hccFailureThreshold         :: !(Maybe Nat)
-    , _hccIPAddress                :: !(Maybe Text)
-    , _hccEnableSNI                :: !(Maybe Bool)
-    , _hccSearchString             :: !(Maybe Text)
-    , _hccHealthThreshold          :: !(Maybe Nat)
-    , _hccResourcePath             :: !(Maybe Text)
-    , _hccMeasureLatency           :: !(Maybe Bool)
-    , _hccInverted                 :: !(Maybe Bool)
-    , _hccFullyQualifiedDomainName :: !(Maybe Text)
-    , _hccChildHealthChecks        :: !(Maybe [Text])
-    , _hccRequestInterval          :: !(Maybe Nat)
-    , _hccPort                     :: !(Maybe Nat)
-    , _hccType                     :: !HealthCheckType
+    { _hccFailureThreshold             :: !(Maybe Nat)
+    , _hccIPAddress                    :: !(Maybe Text)
+    , _hccEnableSNI                    :: !(Maybe Bool)
+    , _hccSearchString                 :: !(Maybe Text)
+    , _hccHealthThreshold              :: !(Maybe Nat)
+    , _hccRegions                      :: !(Maybe (List1 HealthCheckRegion))
+    , _hccResourcePath                 :: !(Maybe Text)
+    , _hccInsufficientDataHealthStatus :: !(Maybe InsufficientDataHealthStatus)
+    , _hccAlarmIdentifier              :: !(Maybe AlarmIdentifier)
+    , _hccMeasureLatency               :: !(Maybe Bool)
+    , _hccInverted                     :: !(Maybe Bool)
+    , _hccFullyQualifiedDomainName     :: !(Maybe Text)
+    , _hccChildHealthChecks            :: !(Maybe [Text])
+    , _hccRequestInterval              :: !(Maybe Nat)
+    , _hccPort                         :: !(Maybe Nat)
+    , _hccType                         :: !HealthCheckType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'HealthCheckConfig' with the minimum fields required to make a request.
@@ -694,7 +937,13 @@ data HealthCheckConfig = HealthCheckConfig'
 --
 -- * 'hccHealthThreshold'
 --
+-- * 'hccRegions'
+--
 -- * 'hccResourcePath'
+--
+-- * 'hccInsufficientDataHealthStatus'
+--
+-- * 'hccAlarmIdentifier'
 --
 -- * 'hccMeasureLatency'
 --
@@ -719,7 +968,10 @@ healthCheckConfig pType_ =
     , _hccEnableSNI = Nothing
     , _hccSearchString = Nothing
     , _hccHealthThreshold = Nothing
+    , _hccRegions = Nothing
     , _hccResourcePath = Nothing
+    , _hccInsufficientDataHealthStatus = Nothing
+    , _hccAlarmIdentifier = Nothing
     , _hccMeasureLatency = Nothing
     , _hccInverted = Nothing
     , _hccFullyQualifiedDomainName = Nothing
@@ -764,11 +1016,28 @@ hccSearchString = lens _hccSearchString (\ s a -> s{_hccSearchString = a});
 hccHealthThreshold :: Lens' HealthCheckConfig (Maybe Natural)
 hccHealthThreshold = lens _hccHealthThreshold (\ s a -> s{_hccHealthThreshold = a}) . mapping _Nat;
 
+-- | A list of 'HealthCheckRegion' values that you want Amazon Route 53 to
+-- use to perform health checks for the specified endpoint. You must
+-- specify at least three regions.
+hccRegions :: Lens' HealthCheckConfig (Maybe (NonEmpty HealthCheckRegion))
+hccRegions = lens _hccRegions (\ s a -> s{_hccRegions = a}) . mapping _List1;
+
 -- | Path to ping on the instance to check the health. Required for HTTP,
 -- HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH health checks. The HTTP
 -- request is issued to the instance on the given port and path.
 hccResourcePath :: Lens' HealthCheckConfig (Maybe Text)
 hccResourcePath = lens _hccResourcePath (\ s a -> s{_hccResourcePath = a});
+
+-- | The status of the health check when CloudWatch has insufficient data
+-- about the state of associated alarm. Valid values are 'Healthy',
+-- 'Unhealthy' and 'LastKnownStatus'.
+hccInsufficientDataHealthStatus :: Lens' HealthCheckConfig (Maybe InsufficientDataHealthStatus)
+hccInsufficientDataHealthStatus = lens _hccInsufficientDataHealthStatus (\ s a -> s{_hccInsufficientDataHealthStatus = a});
+
+-- | A complex type that contains information to uniquely identify the
+-- CloudWatch alarm that you\'re associating with a Route 53 health check.
+hccAlarmIdentifier :: Lens' HealthCheckConfig (Maybe AlarmIdentifier)
+hccAlarmIdentifier = lens _hccAlarmIdentifier (\ s a -> s{_hccAlarmIdentifier = a});
 
 -- | A Boolean value that indicates whether you want Amazon Route 53 to
 -- measure the latency between health checkers in multiple AWS regions and
@@ -809,7 +1078,8 @@ hccPort :: Lens' HealthCheckConfig (Maybe Natural)
 hccPort = lens _hccPort (\ s a -> s{_hccPort = a}) . mapping _Nat;
 
 -- | The type of health check to be performed. Currently supported types are
--- TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
+-- TCP, HTTP, HTTPS, HTTP_STR_MATCH, HTTPS_STR_MATCH, CALCULATED and
+-- CLOUDWATCH_METRIC.
 hccType :: Lens' HealthCheckConfig HealthCheckType
 hccType = lens _hccType (\ s a -> s{_hccType = a});
 
@@ -820,7 +1090,12 @@ instance FromXML HealthCheckConfig where
                 <*> (x .@? "EnableSNI")
                 <*> (x .@? "SearchString")
                 <*> (x .@? "HealthThreshold")
+                <*>
+                (x .@? "Regions" .!@ mempty >>=
+                   may (parseXMLList1 "Region"))
                 <*> (x .@? "ResourcePath")
+                <*> (x .@? "InsufficientDataHealthStatus")
+                <*> (x .@? "AlarmIdentifier")
                 <*> (x .@? "MeasureLatency")
                 <*> (x .@? "Inverted")
                 <*> (x .@? "FullyQualifiedDomainName")
@@ -833,6 +1108,8 @@ instance FromXML HealthCheckConfig where
 
 instance Hashable HealthCheckConfig
 
+instance NFData HealthCheckConfig
+
 instance ToXML HealthCheckConfig where
         toXML HealthCheckConfig'{..}
           = mconcat
@@ -841,7 +1118,12 @@ instance ToXML HealthCheckConfig where
                "EnableSNI" @= _hccEnableSNI,
                "SearchString" @= _hccSearchString,
                "HealthThreshold" @= _hccHealthThreshold,
+               "Regions" @=
+                 toXML (toXMLList "Region" <$> _hccRegions),
                "ResourcePath" @= _hccResourcePath,
+               "InsufficientDataHealthStatus" @=
+                 _hccInsufficientDataHealthStatus,
+               "AlarmIdentifier" @= _hccAlarmIdentifier,
                "MeasureLatency" @= _hccMeasureLatency,
                "Inverted" @= _hccInverted,
                "FullyQualifiedDomainName" @=
@@ -860,6 +1142,7 @@ instance ToXML HealthCheckConfig where
 data HealthCheckObservation = HealthCheckObservation'
     { _hcoIPAddress    :: !(Maybe Text)
     , _hcoStatusReport :: !(Maybe StatusReport)
+    , _hcoRegion       :: !(Maybe HealthCheckRegion)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'HealthCheckObservation' with the minimum fields required to make a request.
@@ -869,15 +1152,18 @@ data HealthCheckObservation = HealthCheckObservation'
 -- * 'hcoIPAddress'
 --
 -- * 'hcoStatusReport'
+--
+-- * 'hcoRegion'
 healthCheckObservation
     :: HealthCheckObservation
 healthCheckObservation =
     HealthCheckObservation'
     { _hcoIPAddress = Nothing
     , _hcoStatusReport = Nothing
+    , _hcoRegion = Nothing
     }
 
--- | The IP address of the Amazon Route 53 health checker that performed the
+-- | The IP address of the Amazon Route 53 health checker that performed this
 -- health check.
 hcoIPAddress :: Lens' HealthCheckObservation (Maybe Text)
 hcoIPAddress = lens _hcoIPAddress (\ s a -> s{_hcoIPAddress = a});
@@ -887,12 +1173,20 @@ hcoIPAddress = lens _hcoIPAddress (\ s a -> s{_hcoIPAddress = a});
 hcoStatusReport :: Lens' HealthCheckObservation (Maybe StatusReport)
 hcoStatusReport = lens _hcoStatusReport (\ s a -> s{_hcoStatusReport = a});
 
+-- | The 'HealthCheckRegion' of the Amazon Route 53 health checker that
+-- performed this health check.
+hcoRegion :: Lens' HealthCheckObservation (Maybe HealthCheckRegion)
+hcoRegion = lens _hcoRegion (\ s a -> s{_hcoRegion = a});
+
 instance FromXML HealthCheckObservation where
         parseXML x
           = HealthCheckObservation' <$>
-              (x .@? "IPAddress") <*> (x .@? "StatusReport")
+              (x .@? "IPAddress") <*> (x .@? "StatusReport") <*>
+                (x .@? "Region")
 
 instance Hashable HealthCheckObservation
+
+instance NFData HealthCheckObservation
 
 -- | A complex type that contain information about the specified hosted zone.
 --
@@ -970,6 +1264,8 @@ instance FromXML HostedZone where
 
 instance Hashable HostedZone
 
+instance NFData HostedZone
+
 -- | A complex type that contains an optional comment about your hosted zone.
 -- If you don\'t want to specify a comment, you can omit the
 -- 'HostedZoneConfig' and 'Comment' elements from the XML document.
@@ -1011,6 +1307,8 @@ instance FromXML HostedZoneConfig where
               (x .@? "PrivateZone") <*> (x .@? "Comment")
 
 instance Hashable HostedZoneConfig
+
+instance NFData HostedZoneConfig
 
 instance ToXML HostedZoneConfig where
         toXML HostedZoneConfig'{..}
@@ -1055,6 +1353,8 @@ instance FromXML ResourceRecord where
         parseXML x = ResourceRecord' <$> (x .@ "Value")
 
 instance Hashable ResourceRecord
+
+instance NFData ResourceRecord
 
 instance ToXML ResourceRecord where
         toXML ResourceRecord'{..}
@@ -1407,6 +1707,8 @@ instance FromXML ResourceRecordSet where
 
 instance Hashable ResourceRecordSet
 
+instance NFData ResourceRecordSet
+
 instance ToXML ResourceRecordSet where
         toXML ResourceRecordSet'{..}
           = mconcat
@@ -1477,6 +1779,8 @@ instance FromXML ResourceTagSet where
 
 instance Hashable ResourceTagSet
 
+instance NFData ResourceTagSet
+
 -- | A complex type that contains information about the health check status
 -- for the current observation.
 --
@@ -1519,6 +1823,8 @@ instance FromXML StatusReport where
 
 instance Hashable StatusReport
 
+instance NFData StatusReport
+
 -- | A single tag containing a key and value.
 --
 -- /See:/ 'tag' smart constructor.
@@ -1555,6 +1861,8 @@ instance FromXML Tag where
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToXML Tag where
         toXML Tag'{..}
@@ -1636,6 +1944,8 @@ instance FromXML TrafficPolicy where
                 <*> (x .@ "Document")
 
 instance Hashable TrafficPolicy
+
+instance NFData TrafficPolicy
 
 -- | /See:/ 'trafficPolicyInstance' smart constructor.
 data TrafficPolicyInstance = TrafficPolicyInstance'
@@ -1745,6 +2055,8 @@ instance FromXML TrafficPolicyInstance where
 
 instance Hashable TrafficPolicyInstance
 
+instance NFData TrafficPolicyInstance
+
 -- | /See:/ 'trafficPolicySummary' smart constructor.
 data TrafficPolicySummary = TrafficPolicySummary'
     { _tpsId                 :: !Text
@@ -1812,6 +2124,8 @@ instance FromXML TrafficPolicySummary where
 
 instance Hashable TrafficPolicySummary
 
+instance NFData TrafficPolicySummary
+
 -- | /See:/ 'vpc' smart constructor.
 data VPC = VPC'
     { _vpcVPCRegion :: !(Maybe VPCRegion)
@@ -1846,6 +2160,8 @@ instance FromXML VPC where
           = VPC' <$> (x .@? "VPCRegion") <*> (x .@? "VPCId")
 
 instance Hashable VPC
+
+instance NFData VPC
 
 instance ToXML VPC where
         toXML VPC'{..}

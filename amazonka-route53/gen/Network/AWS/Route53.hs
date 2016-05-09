@@ -303,20 +303,41 @@ module Network.AWS.Route53
     -- ** ChangeStatus
     , ChangeStatus (..)
 
+    -- ** CloudWatchRegion
+    , CloudWatchRegion (..)
+
+    -- ** ComparisonOperator
+    , ComparisonOperator (..)
+
     -- ** Failover
     , Failover (..)
+
+    -- ** HealthCheckRegion
+    , HealthCheckRegion (..)
 
     -- ** HealthCheckType
     , HealthCheckType (..)
 
+    -- ** InsufficientDataHealthStatus
+    , InsufficientDataHealthStatus (..)
+
     -- ** RecordType
     , RecordType (..)
+
+    -- ** Statistic
+    , Statistic (..)
 
     -- ** TagResourceType
     , TagResourceType (..)
 
     -- ** VPCRegion
     , VPCRegion (..)
+
+    -- ** AlarmIdentifier
+    , AlarmIdentifier
+    , alarmIdentifier
+    , aiRegion
+    , aiName
 
     -- ** AliasTarget
     , AliasTarget
@@ -345,12 +366,30 @@ module Network.AWS.Route53
     , ciStatus
     , ciSubmittedAt
 
+    -- ** CloudWatchAlarmConfiguration
+    , CloudWatchAlarmConfiguration
+    , cloudWatchAlarmConfiguration
+    , cwacDimensions
+    , cwacEvaluationPeriods
+    , cwacThreshold
+    , cwacComparisonOperator
+    , cwacPeriod
+    , cwacMetricName
+    , cwacNamespace
+    , cwacStatistic
+
     -- ** DelegationSet
     , DelegationSet
     , delegationSet
     , dsId
     , dsCallerReference
     , dsNameServers
+
+    -- ** Dimension
+    , Dimension
+    , dimension
+    , dName
+    , dValue
 
     -- ** GeoLocation
     , GeoLocation
@@ -372,6 +411,7 @@ module Network.AWS.Route53
     -- ** HealthCheck
     , HealthCheck
     , healthCheck
+    , hcCloudWatchAlarmConfiguration
     , hcId
     , hcCallerReference
     , hcHealthCheckConfig
@@ -385,7 +425,10 @@ module Network.AWS.Route53
     , hccEnableSNI
     , hccSearchString
     , hccHealthThreshold
+    , hccRegions
     , hccResourcePath
+    , hccInsufficientDataHealthStatus
+    , hccAlarmIdentifier
     , hccMeasureLatency
     , hccInverted
     , hccFullyQualifiedDomainName
@@ -399,6 +442,7 @@ module Network.AWS.Route53
     , healthCheckObservation
     , hcoIPAddress
     , hcoStatusReport
+    , hcoRegion
 
     -- ** HostedZone
     , HostedZone

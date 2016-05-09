@@ -203,6 +203,8 @@ instance AWSRequest GenerateDataSet where
 
 instance Hashable GenerateDataSet
 
+instance NFData GenerateDataSet
+
 instance ToHeaders GenerateDataSet where
         toHeaders
           = const
@@ -270,3 +272,5 @@ gdsrsDataSetRequestId = lens _gdsrsDataSetRequestId (\ s a -> s{_gdsrsDataSetReq
 -- | The response status code.
 gdsrsResponseStatus :: Lens' GenerateDataSetResponse Int
 gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
+
+instance NFData GenerateDataSetResponse

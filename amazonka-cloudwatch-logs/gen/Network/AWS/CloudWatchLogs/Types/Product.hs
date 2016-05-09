@@ -101,6 +101,8 @@ instance FromJSON Destination where
 
 instance Hashable Destination
 
+instance NFData Destination
+
 -- | Represents an export task.
 --
 -- /See:/ 'exportTask' smart constructor.
@@ -209,6 +211,8 @@ instance FromJSON ExportTask where
 
 instance Hashable ExportTask
 
+instance NFData ExportTask
+
 -- | Represents the status of an export task.
 --
 -- /See:/ 'exportTaskExecutionInfo' smart constructor.
@@ -249,6 +253,8 @@ instance FromJSON ExportTaskExecutionInfo where
 
 instance Hashable ExportTaskExecutionInfo
 
+instance NFData ExportTaskExecutionInfo
+
 -- | Represents the status of an export task.
 --
 -- /See:/ 'exportTaskStatus' smart constructor.
@@ -288,6 +294,8 @@ instance FromJSON ExportTaskStatus where
                    (x .:? "code") <*> (x .:? "message"))
 
 instance Hashable ExportTaskStatus
+
+instance NFData ExportTaskStatus
 
 -- | Represents a matched event from a 'FilterLogEvents' request.
 --
@@ -356,6 +364,8 @@ instance FromJSON FilteredLogEvent where
 
 instance Hashable FilteredLogEvent
 
+instance NFData FilteredLogEvent
+
 -- | A log event is a record of some activity that was recorded by the
 -- application or resource being monitored. The log event record that
 -- CloudWatch Logs understands contains two properties: the timestamp of
@@ -393,6 +403,8 @@ ileMessage :: Lens' InputLogEvent Text
 ileMessage = lens _ileMessage (\ s a -> s{_ileMessage = a});
 
 instance Hashable InputLogEvent
+
+instance NFData InputLogEvent
 
 instance ToJSON InputLogEvent where
         toJSON InputLogEvent'{..}
@@ -475,6 +487,8 @@ instance FromJSON LogGroup where
                      <*> (x .:? "storedBytes"))
 
 instance Hashable LogGroup
+
+instance NFData LogGroup
 
 -- | A log stream is sequence of log events from a single emitter of logs.
 --
@@ -571,6 +585,8 @@ instance FromJSON LogStream where
 
 instance Hashable LogStream
 
+instance NFData LogStream
+
 -- | Metric filters can be used to express how CloudWatch Logs would extract
 -- metric observations from ingested log events and transform them to
 -- metric data in a CloudWatch metric.
@@ -631,6 +647,8 @@ instance FromJSON MetricFilter where
 
 instance Hashable MetricFilter
 
+instance NFData MetricFilter
+
 -- | /See:/ 'metricFilterMatchRecord' smart constructor.
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
     { _mfmrExtractedValues :: !(Maybe (Map Text Text))
@@ -678,6 +696,8 @@ instance FromJSON MetricFilterMatchRecord where
                      <*> (x .:? "eventMessage"))
 
 instance Hashable MetricFilterMatchRecord
+
+instance NFData MetricFilterMatchRecord
 
 -- | /See:/ 'metricTransformation' smart constructor.
 data MetricTransformation = MetricTransformation'
@@ -728,6 +748,8 @@ instance FromJSON MetricTransformation where
                      (x .: "metricValue"))
 
 instance Hashable MetricTransformation
+
+instance NFData MetricTransformation
 
 instance ToJSON MetricTransformation where
         toJSON MetricTransformation'{..}
@@ -784,6 +806,8 @@ instance FromJSON OutputLogEvent where
 
 instance Hashable OutputLogEvent
 
+instance NFData OutputLogEvent
+
 -- | /See:/ 'rejectedLogEventsInfo' smart constructor.
 data RejectedLogEventsInfo = RejectedLogEventsInfo'
     { _rleiTooOldLogEventEndIndex   :: !(Maybe Int)
@@ -832,6 +856,8 @@ instance FromJSON RejectedLogEventsInfo where
 
 instance Hashable RejectedLogEventsInfo
 
+instance NFData RejectedLogEventsInfo
+
 -- | An object indicating the search status of a log stream in a
 -- 'FilterLogEvents' request.
 --
@@ -874,6 +900,8 @@ instance FromJSON SearchedLogStream where
                      (x .:? "searchedCompletely"))
 
 instance Hashable SearchedLogStream
+
+instance NFData SearchedLogStream
 
 -- | /See:/ 'subscriptionFilter' smart constructor.
 data SubscriptionFilter = SubscriptionFilter'
@@ -948,3 +976,5 @@ instance FromJSON SubscriptionFilter where
                      <*> (x .:? "roleArn"))
 
 instance Hashable SubscriptionFilter
+
+instance NFData SubscriptionFilter

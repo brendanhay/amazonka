@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists your streams.
+-- Lists your Amazon Kinesis streams.
 --
 -- The number of streams may be too large to return from a single call to
 -- 'ListStreams'. You can limit the number of returned streams using the
@@ -116,6 +116,8 @@ instance AWSRequest ListStreams where
 
 instance Hashable ListStreams
 
+instance NFData ListStreams
+
 instance ToHeaders ListStreams where
         toHeaders
           = const
@@ -180,3 +182,5 @@ lsrsStreamNames = lens _lsrsStreamNames (\ s a -> s{_lsrsStreamNames = a}) . _Co
 -- | If set to 'true', there are more streams available to list.
 lsrsHasMoreStreams :: Lens' ListStreamsResponse Bool
 lsrsHasMoreStreams = lens _lsrsHasMoreStreams (\ s a -> s{_lsrsHasMoreStreams = a});
+
+instance NFData ListStreamsResponse

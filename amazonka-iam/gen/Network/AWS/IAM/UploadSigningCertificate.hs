@@ -104,6 +104,8 @@ instance AWSRequest UploadSigningCertificate where
 
 instance Hashable UploadSigningCertificate
 
+instance NFData UploadSigningCertificate
+
 instance ToHeaders UploadSigningCertificate where
         toHeaders = const mempty
 
@@ -152,3 +154,5 @@ uscrsResponseStatus = lens _uscrsResponseStatus (\ s a -> s{_uscrsResponseStatus
 -- | Information about the certificate.
 uscrsCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
 uscrsCertificate = lens _uscrsCertificate (\ s a -> s{_uscrsCertificate = a});
+
+instance NFData UploadSigningCertificateResponse

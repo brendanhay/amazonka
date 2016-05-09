@@ -68,6 +68,8 @@ instance FromJSON AccessPoliciesStatus where
 
 instance Hashable AccessPoliciesStatus
 
+instance NFData AccessPoliciesStatus
+
 -- | Status of the advanced options for the specified Elasticsearch domain.
 -- Currently, the following advanced options are available:
 --
@@ -123,6 +125,8 @@ instance FromJSON AdvancedOptionsStatus where
 
 instance Hashable AdvancedOptionsStatus
 
+instance NFData AdvancedOptionsStatus
+
 -- | /See:/ 'domainInfo' smart constructor.
 newtype DomainInfo = DomainInfo'
     { _diDomainName :: Maybe Text
@@ -150,6 +154,8 @@ instance FromJSON DomainInfo where
               (\ x -> DomainInfo' <$> (x .:? "DomainName"))
 
 instance Hashable DomainInfo
+
+instance NFData DomainInfo
 
 -- | Options to enable, disable, and specify the properties of EBS storage
 -- volumes. For more information, see
@@ -211,6 +217,8 @@ instance FromJSON EBSOptions where
 
 instance Hashable EBSOptions
 
+instance NFData EBSOptions
+
 instance ToJSON EBSOptions where
         toJSON EBSOptions'{..}
           = object
@@ -262,6 +270,8 @@ instance FromJSON EBSOptionsStatus where
                    (x .: "Options") <*> (x .: "Status"))
 
 instance Hashable EBSOptionsStatus
+
+instance NFData EBSOptionsStatus
 
 -- | Specifies the configuration for the domain cluster, such as the type and
 -- number of instances.
@@ -347,6 +357,8 @@ instance FromJSON ElasticsearchClusterConfig where
 
 instance Hashable ElasticsearchClusterConfig
 
+instance NFData ElasticsearchClusterConfig
+
 instance ToJSON ElasticsearchClusterConfig where
         toJSON ElasticsearchClusterConfig'{..}
           = object
@@ -407,6 +419,8 @@ instance FromJSON ElasticsearchClusterConfigStatus
                    (x .: "Options") <*> (x .: "Status"))
 
 instance Hashable ElasticsearchClusterConfigStatus
+
+instance NFData ElasticsearchClusterConfigStatus
 
 -- | The configuration of an Elasticsearch domain.
 --
@@ -476,6 +490,8 @@ instance FromJSON ElasticsearchDomainConfig where
                      <*> (x .:? "AdvancedOptions"))
 
 instance Hashable ElasticsearchDomainConfig
+
+instance NFData ElasticsearchDomainConfig
 
 -- | The current status of an Elasticsearch domain.
 --
@@ -625,6 +641,8 @@ instance FromJSON ElasticsearchDomainStatus where
 
 instance Hashable ElasticsearchDomainStatus
 
+instance NFData ElasticsearchDomainStatus
+
 -- | Provides the current status of the entity.
 --
 -- /See:/ 'optionStatus' smart constructor.
@@ -695,6 +713,8 @@ instance FromJSON OptionStatus where
 
 instance Hashable OptionStatus
 
+instance NFData OptionStatus
+
 -- | Specifies the time, in UTC format, when the service takes a daily
 -- automated snapshot of the specified Elasticsearch domain. Default value
 -- is '0' hours.
@@ -730,6 +750,8 @@ instance FromJSON SnapshotOptions where
                    (x .:? "AutomatedSnapshotStartHour"))
 
 instance Hashable SnapshotOptions
+
+instance NFData SnapshotOptions
 
 instance ToJSON SnapshotOptions where
         toJSON SnapshotOptions'{..}
@@ -781,6 +803,8 @@ instance FromJSON SnapshotOptionsStatus where
 
 instance Hashable SnapshotOptionsStatus
 
+instance NFData SnapshotOptionsStatus
+
 -- | Specifies a key value pair for a resource tag.
 --
 -- /See:/ 'tag' smart constructor.
@@ -824,6 +848,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}

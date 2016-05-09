@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Exports a deployed version of a < RestApi> in a specified format.
 module Network.AWS.APIGateway.GetExport
     (
     -- * Creating a Request
@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getExport' smart constructor.
+-- | Request a new export of a < RestApi> for a particular < Stage>.
+--
+-- /See:/ 'getExport' smart constructor.
 data GetExport = GetExport'
     { _geParameters :: !(Maybe (Map Text Text))
     , _geAccepts    :: !(Maybe Text)
@@ -84,23 +86,32 @@ getExport pRestAPIId_ pStageName_ pExportType_ =
     , _geExportType = pExportType_
     }
 
--- | Undocumented member.
+-- | A key-value map of query string parameters that specify properties of
+-- the export, depending on the requested exportType. For exportType
+-- \'swagger\', any combination of the following parameters are supported:
+-- \'integrations\' will export x-amazon-apigateway-integration extensions
+-- \'authorizers\' will export x-amazon-apigateway-authorizer extensions
+-- \'postman\' will export with Postman extensions, allowing for import to
+-- the Postman tool
 geParameters :: Lens' GetExport (HashMap Text Text)
 geParameters = lens _geParameters (\ s a -> s{_geParameters = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The content-type of the export, for example \'application\/json\'.
+-- Currently \'application\/json\' and \'application\/yaml\' are supported
+-- for exportType \'swagger\'. Should be specifed in the \'Accept\' header
+-- for direct API requests.
 geAccepts :: Lens' GetExport (Maybe Text)
 geAccepts = lens _geAccepts (\ s a -> s{_geAccepts = a});
 
--- | Undocumented member.
+-- | The identifier of the < RestApi> to be exported.
 geRestAPIId :: Lens' GetExport Text
 geRestAPIId = lens _geRestAPIId (\ s a -> s{_geRestAPIId = a});
 
--- | Undocumented member.
+-- | The name of the < Stage> that will be exported.
 geStageName :: Lens' GetExport Text
 geStageName = lens _geStageName (\ s a -> s{_geStageName = a});
 
--- | Undocumented member.
+-- | The type of export. Currently only \'swagger\' is supported.
 geExportType :: Lens' GetExport Text
 geExportType = lens _geExportType (\ s a -> s{_geExportType = a});
 
@@ -116,6 +127,8 @@ instance AWSRequest GetExport where
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetExport
+
+instance NFData GetExport
 
 instance ToHeaders GetExport where
         toHeaders GetExport'{..}
@@ -136,7 +149,10 @@ instance ToQuery GetExport where
                  toQuery
                    (toQueryMap "entry" "key" "value" <$> _geParameters)]
 
--- | /See:/ 'getExportResponse' smart constructor.
+-- | The binary blob response to < GetExport>, which contains the generated
+-- SDK.
+--
+-- /See:/ 'getExportResponse' smart constructor.
 data GetExportResponse = GetExportResponse'
     { _gersBody               :: !(Maybe (HashMap Text Value))
     , _gersContentDisposition :: !(Maybe Text)
@@ -166,18 +182,21 @@ getExportResponse pResponseStatus_ =
     , _gersResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The binary blob response to < GetExport>, which contains the export.
 gersBody :: Lens' GetExportResponse (Maybe (HashMap Text Value))
 gersBody = lens _gersBody (\ s a -> s{_gersBody = a});
 
--- | Undocumented member.
+-- | The content-disposition header value in the HTTP reseponse.
 gersContentDisposition :: Lens' GetExportResponse (Maybe Text)
 gersContentDisposition = lens _gersContentDisposition (\ s a -> s{_gersContentDisposition = a});
 
--- | Undocumented member.
+-- | The content-type header value in the HTTP response. This will correspond
+-- to a valid \'accept\' type in the request.
 gersContentType :: Lens' GetExportResponse (Maybe Text)
 gersContentType = lens _gersContentType (\ s a -> s{_gersContentType = a});
 
 -- | The response status code.
 gersResponseStatus :: Lens' GetExportResponse Int
 gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a});
+
+instance NFData GetExportResponse

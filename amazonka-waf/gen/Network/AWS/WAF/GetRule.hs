@@ -77,6 +77,8 @@ instance AWSRequest GetRule where
 
 instance Hashable GetRule
 
+instance NFData GetRule
+
 instance ToHeaders GetRule where
         toHeaders
           = const
@@ -131,3 +133,5 @@ grrsRule = lens _grrsRule (\ s a -> s{_grrsRule = a});
 -- | The response status code.
 grrsResponseStatus :: Lens' GetRuleResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+
+instance NFData GetRuleResponse

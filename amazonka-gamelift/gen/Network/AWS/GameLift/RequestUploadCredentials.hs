@@ -93,6 +93,8 @@ instance AWSRequest RequestUploadCredentials where
 
 instance Hashable RequestUploadCredentials
 
+instance NFData RequestUploadCredentials
+
 instance ToHeaders RequestUploadCredentials where
         toHeaders
           = const
@@ -155,3 +157,5 @@ rucrsUploadCredentials = lens _rucrsUploadCredentials (\ s a -> s{_rucrsUploadCr
 -- | The response status code.
 rucrsResponseStatus :: Lens' RequestUploadCredentialsResponse Int
 rucrsResponseStatus = lens _rucrsResponseStatus (\ s a -> s{_rucrsResponseStatus = a});
+
+instance NFData RequestUploadCredentialsResponse

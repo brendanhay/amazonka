@@ -107,6 +107,8 @@ instance AWSRequest RevokeSnapshotAccess where
 
 instance Hashable RevokeSnapshotAccess
 
+instance NFData RevokeSnapshotAccess
+
 instance ToHeaders RevokeSnapshotAccess where
         toHeaders = const mempty
 
@@ -153,3 +155,5 @@ rsarsSnapshot = lens _rsarsSnapshot (\ s a -> s{_rsarsSnapshot = a});
 -- | The response status code.
 rsarsResponseStatus :: Lens' RevokeSnapshotAccessResponse Int
 rsarsResponseStatus = lens _rsarsResponseStatus (\ s a -> s{_rsarsResponseStatus = a});
+
+instance NFData RevokeSnapshotAccessResponse

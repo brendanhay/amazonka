@@ -117,6 +117,8 @@ instance AWSRequest CreateVault where
 
 instance Hashable CreateVault
 
+instance NFData CreateVault
+
 instance ToHeaders CreateVault where
         toHeaders = const mempty
 
@@ -163,3 +165,5 @@ cvrsLocation = lens _cvrsLocation (\ s a -> s{_cvrsLocation = a});
 -- | The response status code.
 cvrsResponseStatus :: Lens' CreateVaultResponse Int
 cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a});
+
+instance NFData CreateVaultResponse

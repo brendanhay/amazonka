@@ -111,6 +111,8 @@ instance AWSRequest ListDeploymentInstances where
 
 instance Hashable ListDeploymentInstances
 
+instance NFData ListDeploymentInstances
+
 instance ToHeaders ListDeploymentInstances where
         toHeaders
           = const
@@ -177,3 +179,5 @@ ldirsInstancesList = lens _ldirsInstancesList (\ s a -> s{_ldirsInstancesList = 
 -- | The response status code.
 ldirsResponseStatus :: Lens' ListDeploymentInstancesResponse Int
 ldirsResponseStatus = lens _ldirsResponseStatus (\ s a -> s{_ldirsResponseStatus = a});
+
+instance NFData ListDeploymentInstancesResponse

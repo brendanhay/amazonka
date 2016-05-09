@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns the description of the gateway volumes specified
--- in the request. The list of gateway volumes in the request must be from
--- one gateway. In the response Amazon Storage Gateway returns volume
--- information sorted by volume ARNs.
+-- Returns the description of the gateway volumes specified in the request.
+-- The list of gateway volumes in the request must be from one gateway. In
+-- the response Amazon Storage Gateway returns volume information sorted by
+-- volume ARNs.
 module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     (
     -- * Creating a Request
@@ -45,7 +45,7 @@ import           Network.AWS.Response
 import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
--- | A JSON Object containing a list of
+-- | A JSON object containing a list of
 -- < DescribeStorediSCSIVolumesInput$VolumeARNs>.
 --
 -- /See:/ 'describeStorediSCSIVolumes' smart constructor.
@@ -84,6 +84,8 @@ instance AWSRequest DescribeStorediSCSIVolumes where
                      (pure (fromEnum s)))
 
 instance Hashable DescribeStorediSCSIVolumes
+
+instance NFData DescribeStorediSCSIVolumes
 
 instance ToHeaders DescribeStorediSCSIVolumes where
         toHeaders
@@ -136,3 +138,5 @@ dsscsivrsStorediSCSIVolumes = lens _dsscsivrsStorediSCSIVolumes (\ s a -> s{_dss
 -- | The response status code.
 dsscsivrsResponseStatus :: Lens' DescribeStorediSCSIVolumesResponse Int
 dsscsivrsResponseStatus = lens _dsscsivrsResponseStatus (\ s a -> s{_dsscsivrsResponseStatus = a});
+
+instance NFData DescribeStorediSCSIVolumesResponse

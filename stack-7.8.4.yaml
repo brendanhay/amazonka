@@ -1,19 +1,24 @@
-resolver:   lts-2.21
+compiler:   ghc-7.8.4
+resolver:   lts-5.15
 flags:
-  amazonka-core:
-    old-locale: true
+  QuickCheck:
+    base3:       false
+    base4:       true
+    base4point8: false
 extra-deps:
-  - groom-0.1.2
-  - cryptonite-0.5
-  - retry-0.7.0.1
   - unordered-containers-0.2.7.0
+  - QuickCheck-2.8.2
 packages:
+  - location:
+      git: https://github.com/chrisdone/ini
+      commit: 03d73a4ceecda53ecdc2b8373485a51fafa58051
   - core
   - test
   - examples
   - amazonka
   - amazonka-apigateway
   - amazonka-autoscaling
+  - amazonka-certificatemanager
   - amazonka-cloudformation
   - amazonka-cloudfront
   - amazonka-cloudhsm
@@ -21,20 +26,24 @@ packages:
   - amazonka-cloudsearch-domains
   - amazonka-cloudtrail
   - amazonka-cloudwatch
+  - amazonka-cloudwatch-events
   - amazonka-cloudwatch-logs
   - amazonka-codecommit
   - amazonka-codedeploy
   - amazonka-codepipeline
   - amazonka-cognito-identity
+  - amazonka-cognito-idp
   - amazonka-cognito-sync
   - amazonka-config
   - amazonka-datapipeline
   - amazonka-devicefarm
   - amazonka-directconnect
+  - amazonka-dms
   - amazonka-ds
   - amazonka-dynamodb
   - amazonka-dynamodb-streams
   - amazonka-ec2
+  - amazonka-ecr
   - amazonka-ecs
   - amazonka-efs
   - amazonka-elasticache
@@ -43,6 +52,7 @@ packages:
   - amazonka-elastictranscoder
   - amazonka-elb
   - amazonka-emr
+  - amazonka-gamelift
   - amazonka-glacier
   - amazonka-iam
   - amazonka-importexport
@@ -54,6 +64,7 @@ packages:
   - amazonka-kms
   - amazonka-lambda
   - amazonka-marketplace-analytics
+  - amazonka-marketplace-metering
   - amazonka-ml
   - amazonka-opsworks
   - amazonka-rds

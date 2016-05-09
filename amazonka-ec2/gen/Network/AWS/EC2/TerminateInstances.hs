@@ -66,7 +66,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'terminateInstances' smart constructor.
+-- | Contains the parameters for TerminateInstances.
+--
+-- /See:/ 'terminateInstances' smart constructor.
 data TerminateInstances = TerminateInstances'
     { _tiDryRun      :: !(Maybe Bool)
     , _tiInstanceIds :: ![Text]
@@ -112,6 +114,8 @@ instance AWSRequest TerminateInstances where
 
 instance Hashable TerminateInstances
 
+instance NFData TerminateInstances
+
 instance ToHeaders TerminateInstances where
         toHeaders = const mempty
 
@@ -126,7 +130,9 @@ instance ToQuery TerminateInstances where
                "DryRun" =: _tiDryRun,
                toQueryList "InstanceId" _tiInstanceIds]
 
--- | /See:/ 'terminateInstancesResponse' smart constructor.
+-- | Contains the output of TerminateInstances.
+--
+-- /See:/ 'terminateInstancesResponse' smart constructor.
 data TerminateInstancesResponse = TerminateInstancesResponse'
     { _tirsTerminatingInstances :: !(Maybe [InstanceStateChange])
     , _tirsResponseStatus       :: !Int
@@ -155,3 +161,5 @@ tirsTerminatingInstances = lens _tirsTerminatingInstances (\ s a -> s{_tirsTermi
 -- | The response status code.
 tirsResponseStatus :: Lens' TerminateInstancesResponse Int
 tirsResponseStatus = lens _tirsResponseStatus (\ s a -> s{_tirsResponseStatus = a});
+
+instance NFData TerminateInstancesResponse

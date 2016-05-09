@@ -146,6 +146,8 @@ instance AWSRequest DescribeScheduledActions where
 
 instance Hashable DescribeScheduledActions
 
+instance NFData DescribeScheduledActions
+
 instance ToHeaders DescribeScheduledActions where
         toHeaders = const mempty
 
@@ -205,3 +207,5 @@ dsarsNextToken = lens _dsarsNextToken (\ s a -> s{_dsarsNextToken = a});
 -- | The response status code.
 dsarsResponseStatus :: Lens' DescribeScheduledActionsResponse Int
 dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a});
+
+instance NFData DescribeScheduledActionsResponse

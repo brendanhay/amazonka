@@ -76,6 +76,8 @@ instance AWSRequest DeleteUpload where
 
 instance Hashable DeleteUpload
 
+instance NFData DeleteUpload
+
 instance ToHeaders DeleteUpload where
         toHeaders
           = const
@@ -118,3 +120,5 @@ deleteUploadResponse pResponseStatus_ =
 -- | The response status code.
 dursResponseStatus :: Lens' DeleteUploadResponse Int
 dursResponseStatus = lens _dursResponseStatus (\ s a -> s{_dursResponseStatus = a});
+
+instance NFData DeleteUploadResponse

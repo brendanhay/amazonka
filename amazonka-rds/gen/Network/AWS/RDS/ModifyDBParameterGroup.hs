@@ -120,6 +120,8 @@ instance AWSRequest ModifyDBParameterGroup where
 
 instance Hashable ModifyDBParameterGroup
 
+instance NFData ModifyDBParameterGroup
+
 instance ToHeaders ModifyDBParameterGroup where
         toHeaders = const mempty
 

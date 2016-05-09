@@ -76,6 +76,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , testDescribeEnvironmentResources $
 --             describeEnvironmentResources
 --
+--         , testDescribeEnvironmentManagedActionHistory $
+--             describeEnvironmentManagedActionHistory
+--
 --         , testDeleteApplicationVersion $
 --             deleteApplicationVersion
 --
@@ -100,11 +103,17 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , testListAvailableSolutionStacks $
 --             listAvailableSolutionStacks
 --
+--         , testApplyEnvironmentManagedAction $
+--             applyEnvironmentManagedAction
+--
 --         , testDescribeConfigurationOptions $
 --             describeConfigurationOptions
 --
 --         , testCreateStorageLocation $
 --             createStorageLocation
+--
+--         , testDescribeEnvironmentManagedActions $
+--             describeEnvironmentManagedActions
 --
 --         , testDescribeConfigurationSettings $
 --             describeConfigurationSettings
@@ -178,6 +187,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , testDescribeEnvironmentResourcesResponse $
 --             describeEnvironmentResourcesResponse
 --
+--         , testDescribeEnvironmentManagedActionHistoryResponse $
+--             describeEnvironmentManagedActionHistoryResponse
+--
 --         , testDeleteApplicationVersionResponse $
 --             deleteApplicationVersionResponse
 --
@@ -202,11 +214,17 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , testListAvailableSolutionStacksResponse $
 --             listAvailableSolutionStacksResponse
 --
+--         , testApplyEnvironmentManagedActionResponse $
+--             applyEnvironmentManagedActionResponse
+--
 --         , testDescribeConfigurationOptionsResponse $
 --             describeConfigurationOptionsResponse
 --
 --         , testCreateStorageLocationResponse $
 --             createStorageLocationResponse
+--
+--         , testDescribeEnvironmentManagedActionsResponse $
+--             describeEnvironmentManagedActionsResponse
 --
 --         , testDescribeConfigurationSettingsResponse $
 --             describeConfigurationSettingsResponse
@@ -314,6 +332,11 @@ testDescribeEnvironmentResources = req
     "DescribeEnvironmentResources"
     "fixture/DescribeEnvironmentResources.yaml"
 
+testDescribeEnvironmentManagedActionHistory :: DescribeEnvironmentManagedActionHistory -> TestTree
+testDescribeEnvironmentManagedActionHistory = req
+    "DescribeEnvironmentManagedActionHistory"
+    "fixture/DescribeEnvironmentManagedActionHistory.yaml"
+
 testDeleteApplicationVersion :: DeleteApplicationVersion -> TestTree
 testDeleteApplicationVersion = req
     "DeleteApplicationVersion"
@@ -354,6 +377,11 @@ testListAvailableSolutionStacks = req
     "ListAvailableSolutionStacks"
     "fixture/ListAvailableSolutionStacks.yaml"
 
+testApplyEnvironmentManagedAction :: ApplyEnvironmentManagedAction -> TestTree
+testApplyEnvironmentManagedAction = req
+    "ApplyEnvironmentManagedAction"
+    "fixture/ApplyEnvironmentManagedAction.yaml"
+
 testDescribeConfigurationOptions :: DescribeConfigurationOptions -> TestTree
 testDescribeConfigurationOptions = req
     "DescribeConfigurationOptions"
@@ -363,6 +391,11 @@ testCreateStorageLocation :: CreateStorageLocation -> TestTree
 testCreateStorageLocation = req
     "CreateStorageLocation"
     "fixture/CreateStorageLocation.yaml"
+
+testDescribeEnvironmentManagedActions :: DescribeEnvironmentManagedActions -> TestTree
+testDescribeEnvironmentManagedActions = req
+    "DescribeEnvironmentManagedActions"
+    "fixture/DescribeEnvironmentManagedActions.yaml"
 
 testDescribeConfigurationSettings :: DescribeConfigurationSettings -> TestTree
 testDescribeConfigurationSettings = req
@@ -513,6 +546,13 @@ testDescribeEnvironmentResourcesResponse = res
     elasticBeanstalk
     (Proxy :: Proxy DescribeEnvironmentResources)
 
+testDescribeEnvironmentManagedActionHistoryResponse :: DescribeEnvironmentManagedActionHistoryResponse -> TestTree
+testDescribeEnvironmentManagedActionHistoryResponse = res
+    "DescribeEnvironmentManagedActionHistoryResponse"
+    "fixture/DescribeEnvironmentManagedActionHistoryResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy DescribeEnvironmentManagedActionHistory)
+
 testDeleteApplicationVersionResponse :: DeleteApplicationVersionResponse -> TestTree
 testDeleteApplicationVersionResponse = res
     "DeleteApplicationVersionResponse"
@@ -569,6 +609,13 @@ testListAvailableSolutionStacksResponse = res
     elasticBeanstalk
     (Proxy :: Proxy ListAvailableSolutionStacks)
 
+testApplyEnvironmentManagedActionResponse :: ApplyEnvironmentManagedActionResponse -> TestTree
+testApplyEnvironmentManagedActionResponse = res
+    "ApplyEnvironmentManagedActionResponse"
+    "fixture/ApplyEnvironmentManagedActionResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy ApplyEnvironmentManagedAction)
+
 testDescribeConfigurationOptionsResponse :: DescribeConfigurationOptionsResponse -> TestTree
 testDescribeConfigurationOptionsResponse = res
     "DescribeConfigurationOptionsResponse"
@@ -582,6 +629,13 @@ testCreateStorageLocationResponse = res
     "fixture/CreateStorageLocationResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy CreateStorageLocation)
+
+testDescribeEnvironmentManagedActionsResponse :: DescribeEnvironmentManagedActionsResponse -> TestTree
+testDescribeEnvironmentManagedActionsResponse = res
+    "DescribeEnvironmentManagedActionsResponse"
+    "fixture/DescribeEnvironmentManagedActionsResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy DescribeEnvironmentManagedActions)
 
 testDescribeConfigurationSettingsResponse :: DescribeConfigurationSettingsResponse -> TestTree
 testDescribeConfigurationSettingsResponse = res

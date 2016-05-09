@@ -70,6 +70,8 @@ instance AWSRequest GetCredentialReport where
 
 instance Hashable GetCredentialReport
 
+instance NFData GetCredentialReport
+
 instance ToHeaders GetCredentialReport where
         toHeaders = const mempty
 
@@ -137,3 +139,5 @@ grsReportFormat = lens _grsReportFormat (\ s a -> s{_grsReportFormat = a});
 -- | The response status code.
 grsResponseStatus :: Lens' GetCredentialReportResponse Int
 grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
+
+instance NFData GetCredentialReportResponse

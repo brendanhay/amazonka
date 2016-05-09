@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeRouteTables' smart constructor.
+-- | Contains the parameters for DescribeRouteTables.
+--
+-- /See:/ 'describeRouteTables' smart constructor.
 data DescribeRouteTables = DescribeRouteTables'
     { _drtsFilters       :: !(Maybe [Filter])
     , _drtsDryRun        :: !(Maybe Bool)
@@ -170,6 +172,8 @@ instance AWSRequest DescribeRouteTables where
 
 instance Hashable DescribeRouteTables
 
+instance NFData DescribeRouteTables
+
 instance ToHeaders DescribeRouteTables where
         toHeaders = const mempty
 
@@ -186,7 +190,9 @@ instance ToQuery DescribeRouteTables where
                toQuery
                  (toQueryList "RouteTableId" <$> _drtsRouteTableIds)]
 
--- | /See:/ 'describeRouteTablesResponse' smart constructor.
+-- | Contains the output of DescribeRouteTables.
+--
+-- /See:/ 'describeRouteTablesResponse' smart constructor.
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
     { _drtrsRouteTables    :: !(Maybe [RouteTable])
     , _drtrsResponseStatus :: !Int
@@ -215,3 +221,5 @@ drtrsRouteTables = lens _drtrsRouteTables (\ s a -> s{_drtrsRouteTables = a}) . 
 -- | The response status code.
 drtrsResponseStatus :: Lens' DescribeRouteTablesResponse Int
 drtrsResponseStatus = lens _drtrsResponseStatus (\ s a -> s{_drtrsResponseStatus = a});
+
+instance NFData DescribeRouteTablesResponse

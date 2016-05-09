@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists the iSCSI stored volumes of a gateway. Results are
--- sorted by volume ARN. The response includes only the volume ARNs. If you
--- want additional volume information, use the
--- < DescribeStorediSCSIVolumes> API.
+-- Lists the iSCSI stored volumes of a gateway. Results are sorted by
+-- volume ARN. The response includes only the volume ARNs. If you want
+-- additional volume information, use the < DescribeStorediSCSIVolumes>
+-- API.
 --
 -- The operation supports pagination. By default, the operation returns a
 -- maximum of up to 100 volumes. You can optionally specify the 'Limit'
@@ -125,6 +125,8 @@ instance AWSRequest ListVolumes where
 
 instance Hashable ListVolumes
 
+instance NFData ListVolumes
+
 instance ToHeaders ListVolumes where
         toHeaders
           = const
@@ -194,3 +196,5 @@ lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _De
 -- | The response status code.
 lvrsResponseStatus :: Lens' ListVolumesResponse Int
 lvrsResponseStatus = lens _lvrsResponseStatus (\ s a -> s{_lvrsResponseStatus = a});
+
+instance NFData ListVolumesResponse

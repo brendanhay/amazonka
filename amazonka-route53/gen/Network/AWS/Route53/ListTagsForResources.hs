@@ -96,6 +96,8 @@ instance AWSRequest ListTagsForResources where
 
 instance Hashable ListTagsForResources
 
+instance NFData ListTagsForResources
+
 instance ToElement ListTagsForResources where
         toElement
           = mkElement
@@ -149,3 +151,5 @@ lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a})
 -- specified resources.
 lrsResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
 lrsResourceTagSets = lens _lrsResourceTagSets (\ s a -> s{_lrsResourceTagSets = a}) . _Coerce;
+
+instance NFData ListTagsForResourcesResponse

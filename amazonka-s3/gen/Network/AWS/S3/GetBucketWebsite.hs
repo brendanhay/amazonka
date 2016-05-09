@@ -84,6 +84,8 @@ instance AWSRequest GetBucketWebsite where
 
 instance Hashable GetBucketWebsite
 
+instance NFData GetBucketWebsite
+
 instance ToHeaders GetBucketWebsite where
         toHeaders = const mempty
 
@@ -147,3 +149,5 @@ gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a})
 -- | The response status code.
 gbwrsResponseStatus :: Lens' GetBucketWebsiteResponse Int
 gbwrsResponseStatus = lens _gbwrsResponseStatus (\ s a -> s{_gbwrsResponseStatus = a});
+
+instance NFData GetBucketWebsiteResponse

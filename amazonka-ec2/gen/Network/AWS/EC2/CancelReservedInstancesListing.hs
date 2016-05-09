@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'cancelReservedInstancesListing' smart constructor.
+-- | Contains the parameters for CancelReservedInstancesListing.
+--
+-- /See:/ 'cancelReservedInstancesListing' smart constructor.
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing'
     { _crilReservedInstancesListingId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -84,6 +86,8 @@ instance AWSRequest CancelReservedInstancesListing
 
 instance Hashable CancelReservedInstancesListing
 
+instance NFData CancelReservedInstancesListing
+
 instance ToHeaders CancelReservedInstancesListing
          where
         toHeaders = const mempty
@@ -100,7 +104,9 @@ instance ToQuery CancelReservedInstancesListing where
                "ReservedInstancesListingId" =:
                  _crilReservedInstancesListingId]
 
--- | /See:/ 'cancelReservedInstancesListingResponse' smart constructor.
+-- | Contains the output of CancelReservedInstancesListing.
+--
+-- /See:/ 'cancelReservedInstancesListingResponse' smart constructor.
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
     { _crilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _crilrsResponseStatus            :: !Int
@@ -129,3 +135,6 @@ crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -
 -- | The response status code.
 crilrsResponseStatus :: Lens' CancelReservedInstancesListingResponse Int
 crilrsResponseStatus = lens _crilrsResponseStatus (\ s a -> s{_crilrsResponseStatus = a});
+
+instance NFData
+         CancelReservedInstancesListingResponse

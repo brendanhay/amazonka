@@ -18,16 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists gateways owned by an AWS account in a region
--- specified in the request. The returned list is ordered by gateway Amazon
--- Resource Name (ARN).
+-- Lists gateways owned by an AWS account in a region specified in the
+-- request. The returned list is ordered by gateway Amazon Resource Name
+-- (ARN).
 --
 -- By default, the operation returns a maximum of 100 gateways. This
 -- operation supports pagination that allows you to optionally reduce the
 -- number of gateways returned in a response.
 --
--- If you have more gateways than are returned in a response-that is, the
--- response returns only a truncated list of your gateways-the response
+-- If you have more gateways than are returned in a response (that is, the
+-- response returns only a truncated list of your gateways), the response
 -- contains a marker that you can specify in your next request to fetch the
 -- next page of gateways.
 --
@@ -113,6 +113,8 @@ instance AWSRequest ListGateways where
 
 instance Hashable ListGateways
 
+instance NFData ListGateways
+
 instance ToHeaders ListGateways where
         toHeaders
           = const
@@ -173,3 +175,5 @@ lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default . _
 -- | The response status code.
 lgrsResponseStatus :: Lens' ListGatewaysResponse Int
 lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a});
+
+instance NFData ListGatewaysResponse

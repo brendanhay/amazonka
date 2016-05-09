@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about samples.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListSamples
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.DeviceFarm.ListSamples
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -78,6 +81,13 @@ lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 lsArn :: Lens' ListSamples Text
 lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
 
+instance AWSPager ListSamples where
+        page rq rs
+          | stop (rs ^. lrsNextToken) = Nothing
+          | stop (rs ^. lrsSamples) = Nothing
+          | otherwise =
+            Just $ rq & lsNextToken .~ rs ^. lrsNextToken
+
 instance AWSRequest ListSamples where
         type Rs ListSamples = ListSamplesResponse
         request = postJSON deviceFarm
@@ -89,6 +99,8 @@ instance AWSRequest ListSamples where
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListSamples
+
+instance NFData ListSamples
 
 instance ToHeaders ListSamples where
         toHeaders
@@ -153,3 +165,5 @@ lrsSamples = lens _lrsSamples (\ s a -> s{_lrsSamples = a}) . _Default . _Coerce
 -- | The response status code.
 lrsResponseStatus :: Lens' ListSamplesResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
+
+instance NFData ListSamplesResponse

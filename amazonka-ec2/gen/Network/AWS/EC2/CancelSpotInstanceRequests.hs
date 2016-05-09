@@ -100,6 +100,8 @@ instance AWSRequest CancelSpotInstanceRequests where
 
 instance Hashable CancelSpotInstanceRequests
 
+instance NFData CancelSpotInstanceRequests
+
 instance ToHeaders CancelSpotInstanceRequests where
         toHeaders = const mempty
 
@@ -147,3 +149,5 @@ csirrsCancelledSpotInstanceRequests = lens _csirrsCancelledSpotInstanceRequests 
 -- | The response status code.
 csirrsResponseStatus :: Lens' CancelSpotInstanceRequestsResponse Int
 csirrsResponseStatus = lens _csirrsResponseStatus (\ s a -> s{_csirrsResponseStatus = a});
+
+instance NFData CancelSpotInstanceRequestsResponse

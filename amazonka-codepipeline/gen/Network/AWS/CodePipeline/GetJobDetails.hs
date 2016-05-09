@@ -83,6 +83,8 @@ instance AWSRequest GetJobDetails where
 
 instance Hashable GetJobDetails
 
+instance NFData GetJobDetails
+
 instance ToHeaders GetJobDetails where
         toHeaders
           = const
@@ -137,3 +139,5 @@ gjdrsJobDetails = lens _gjdrsJobDetails (\ s a -> s{_gjdrsJobDetails = a});
 -- | The response status code.
 gjdrsResponseStatus :: Lens' GetJobDetailsResponse Int
 gjdrsResponseStatus = lens _gjdrsResponseStatus (\ s a -> s{_gjdrsResponseStatus = a});
+
+instance NFData GetJobDetailsResponse

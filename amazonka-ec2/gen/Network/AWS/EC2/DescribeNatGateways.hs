@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeNatGateways' smart constructor.
+-- | Contains the parameters for DescribeNatGateways.
+--
+-- /See:/ 'describeNatGateways' smart constructor.
 data DescribeNatGateways = DescribeNatGateways'
     { _dngNatGatewayIds :: !(Maybe [Text])
     , _dngNextToken     :: !(Maybe Text)
@@ -121,6 +123,8 @@ instance AWSRequest DescribeNatGateways where
 
 instance Hashable DescribeNatGateways
 
+instance NFData DescribeNatGateways
+
 instance ToHeaders DescribeNatGateways where
         toHeaders = const mempty
 
@@ -138,7 +142,9 @@ instance ToQuery DescribeNatGateways where
                toQuery (toQueryList "Filter" <$> _dngFilter),
                "MaxResults" =: _dngMaxResults]
 
--- | /See:/ 'describeNatGatewaysResponse' smart constructor.
+-- | Contains the output of DescribeNatGateways.
+--
+-- /See:/ 'describeNatGatewaysResponse' smart constructor.
 data DescribeNatGatewaysResponse = DescribeNatGatewaysResponse'
     { _dngrsNatGateways    :: !(Maybe [NatGateway])
     , _dngrsNextToken      :: !(Maybe Text)
@@ -176,3 +182,5 @@ dngrsNextToken = lens _dngrsNextToken (\ s a -> s{_dngrsNextToken = a});
 -- | The response status code.
 dngrsResponseStatus :: Lens' DescribeNatGatewaysResponse Int
 dngrsResponseStatus = lens _dngrsResponseStatus (\ s a -> s{_dngrsResponseStatus = a});
+
+instance NFData DescribeNatGatewaysResponse

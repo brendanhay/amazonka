@@ -77,6 +77,8 @@ instance AWSRequest DeleteIdentity where
 
 instance Hashable DeleteIdentity
 
+instance NFData DeleteIdentity
+
 instance ToHeaders DeleteIdentity where
         toHeaders = const mempty
 
@@ -111,3 +113,5 @@ deleteIdentityResponse pResponseStatus_ =
 -- | The response status code.
 dirsResponseStatus :: Lens' DeleteIdentityResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+
+instance NFData DeleteIdentityResponse

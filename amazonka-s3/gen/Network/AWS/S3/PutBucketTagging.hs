@@ -87,6 +87,8 @@ instance AWSRequest PutBucketTagging where
 
 instance Hashable PutBucketTagging
 
+instance NFData PutBucketTagging
+
 instance ToElement PutBucketTagging where
         toElement
           = mkElement
@@ -115,3 +117,5 @@ data PutBucketTaggingResponse =
 putBucketTaggingResponse
     :: PutBucketTaggingResponse
 putBucketTaggingResponse = PutBucketTaggingResponse'
+
+instance NFData PutBucketTaggingResponse

@@ -118,6 +118,8 @@ instance AWSRequest RespondActivityTaskCanceled where
 
 instance Hashable RespondActivityTaskCanceled
 
+instance NFData RespondActivityTaskCanceled
+
 instance ToHeaders RespondActivityTaskCanceled where
         toHeaders
           = const
@@ -151,3 +153,5 @@ data RespondActivityTaskCanceledResponse =
 respondActivityTaskCanceledResponse
     :: RespondActivityTaskCanceledResponse
 respondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse'
+
+instance NFData RespondActivityTaskCanceledResponse

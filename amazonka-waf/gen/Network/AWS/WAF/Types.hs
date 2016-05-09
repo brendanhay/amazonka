@@ -254,6 +254,31 @@ module Network.AWS.WAF.Types
     , webACLUpdate
     , wauAction
     , wauActivatedRule
+
+    -- * XSSMatchSet
+    , XSSMatchSet
+    , xssMatchSet
+    , xmsName
+    , xmsXSSMatchSetId
+    , xmsXSSMatchTuples
+
+    -- * XSSMatchSetSummary
+    , XSSMatchSetSummary
+    , xssMatchSetSummary
+    , xmssXSSMatchSetId
+    , xmssName
+
+    -- * XSSMatchSetUpdate
+    , XSSMatchSetUpdate
+    , xssMatchSetUpdate
+    , xmsuAction
+    , xmsuXSSMatchTuple
+
+    -- * XSSMatchTuple
+    , XSSMatchTuple
+    , xssMatchTuple
+    , xmtFieldToMatch
+    , xmtTextTransformation
     ) where
 
 import           Network.AWS.Lens
@@ -289,6 +314,8 @@ waf =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"

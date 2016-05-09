@@ -25,7 +25,7 @@ module Network.AWS.IoT.DescribeCertificate
       describeCertificate
     , DescribeCertificate
     -- * Request Lenses
-    , dCertificateId
+    , desCertificateId
 
     -- * Destructuring the Response
     , describeCertificateResponse
@@ -46,25 +46,25 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeCertificate' smart constructor.
 newtype DescribeCertificate = DescribeCertificate'
-    { _dCertificateId :: Text
+    { _desCertificateId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeCertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dCertificateId'
+-- * 'desCertificateId'
 describeCertificate
-    :: Text -- ^ 'dCertificateId'
+    :: Text -- ^ 'desCertificateId'
     -> DescribeCertificate
 describeCertificate pCertificateId_ =
     DescribeCertificate'
-    { _dCertificateId = pCertificateId_
+    { _desCertificateId = pCertificateId_
     }
 
 -- | The ID of the certificate.
-dCertificateId :: Lens' DescribeCertificate Text
-dCertificateId = lens _dCertificateId (\ s a -> s{_dCertificateId = a});
+desCertificateId :: Lens' DescribeCertificate Text
+desCertificateId = lens _desCertificateId (\ s a -> s{_desCertificateId = a});
 
 instance AWSRequest DescribeCertificate where
         type Rs DescribeCertificate =
@@ -79,12 +79,14 @@ instance AWSRequest DescribeCertificate where
 
 instance Hashable DescribeCertificate
 
+instance NFData DescribeCertificate
+
 instance ToHeaders DescribeCertificate where
         toHeaders = const mempty
 
 instance ToPath DescribeCertificate where
         toPath DescribeCertificate'{..}
-          = mconcat ["/certificates/", toBS _dCertificateId]
+          = mconcat ["/certificates/", toBS _desCertificateId]
 
 instance ToQuery DescribeCertificate where
         toQuery = const mempty
@@ -120,3 +122,5 @@ dcrsCertificateDescription = lens _dcrsCertificateDescription (\ s a -> s{_dcrsC
 -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCertificateResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+
+instance NFData DescribeCertificateResponse

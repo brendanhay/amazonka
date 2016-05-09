@@ -72,6 +72,8 @@ instance AWSRequest DescribeAccountAttributes where
 
 instance Hashable DescribeAccountAttributes
 
+instance NFData DescribeAccountAttributes
+
 instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty
 
@@ -119,3 +121,5 @@ daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = 
 -- | The response status code.
 daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
 daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
+
+instance NFData DescribeAccountAttributesResponse

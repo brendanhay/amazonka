@@ -88,7 +88,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVolumeStatus' smart constructor.
+-- | Contains the parameters for DescribeVolumeStatus.
+--
+-- /See:/ 'describeVolumeStatus' smart constructor.
 data DescribeVolumeStatus = DescribeVolumeStatus'
     { _dvssFilters    :: !(Maybe [Filter])
     , _dvssVolumeIds  :: !(Maybe [Text])
@@ -212,6 +214,8 @@ instance AWSRequest DescribeVolumeStatus where
 
 instance Hashable DescribeVolumeStatus
 
+instance NFData DescribeVolumeStatus
+
 instance ToHeaders DescribeVolumeStatus where
         toHeaders = const mempty
 
@@ -229,7 +233,9 @@ instance ToQuery DescribeVolumeStatus where
                "DryRun" =: _dvssDryRun,
                "MaxResults" =: _dvssMaxResults]
 
--- | /See:/ 'describeVolumeStatusResponse' smart constructor.
+-- | Contains the output of DescribeVolumeStatus.
+--
+-- /See:/ 'describeVolumeStatusResponse' smart constructor.
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
     { _dvsrsNextToken      :: !(Maybe Text)
     , _dvsrsVolumeStatuses :: !(Maybe [VolumeStatusItem])
@@ -267,3 +273,5 @@ dvsrsVolumeStatuses = lens _dvsrsVolumeStatuses (\ s a -> s{_dvsrsVolumeStatuses
 -- | The response status code.
 dvsrsResponseStatus :: Lens' DescribeVolumeStatusResponse Int
 dvsrsResponseStatus = lens _dvsrsResponseStatus (\ s a -> s{_dvsrsResponseStatus = a});
+
+instance NFData DescribeVolumeStatusResponse

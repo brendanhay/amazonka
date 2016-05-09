@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation deletes a snapshot of a volume.
+-- Deletes a snapshot of a volume.
 --
--- You can take snapshots of your gateway volumes on a scheduled or ad-hoc
--- basis. This API enables you to delete a snapshot schedule for a volume.
--- For more information, see
+-- You can take snapshots of your gateway volumes on a scheduled or ad hoc
+-- basis. This API action enables you to delete a snapshot schedule for a
+-- volume. For more information, see
 -- <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working with Snapshots>.
 -- In the 'DeleteSnapshotSchedule' request, you identify the volume by
 -- providing its Amazon Resource Name (ARN).
@@ -86,6 +86,8 @@ instance AWSRequest DeleteSnapshotSchedule where
 
 instance Hashable DeleteSnapshotSchedule
 
+instance NFData DeleteSnapshotSchedule
+
 instance ToHeaders DeleteSnapshotSchedule where
         toHeaders
           = const
@@ -136,3 +138,5 @@ dsssrsVolumeARN = lens _dsssrsVolumeARN (\ s a -> s{_dsssrsVolumeARN = a});
 -- | The response status code.
 dsssrsResponseStatus :: Lens' DeleteSnapshotScheduleResponse Int
 dsssrsResponseStatus = lens _dsssrsResponseStatus (\ s a -> s{_dsssrsResponseStatus = a});
+
+instance NFData DeleteSnapshotScheduleResponse

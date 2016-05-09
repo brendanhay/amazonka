@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteVPC' smart constructor.
+-- | Contains the parameters for DeleteVpc.
+--
+-- /See:/ 'deleteVPC' smart constructor.
 data DeleteVPC = DeleteVPC'
     { _delDryRun :: !(Maybe Bool)
     , _delVPCId  :: !Text
@@ -85,6 +87,8 @@ instance AWSRequest DeleteVPC where
 
 instance Hashable DeleteVPC
 
+instance NFData DeleteVPC
+
 instance ToHeaders DeleteVPC where
         toHeaders = const mempty
 
@@ -108,3 +112,5 @@ data DeleteVPCResponse =
 deleteVPCResponse
     :: DeleteVPCResponse
 deleteVPCResponse = DeleteVPCResponse'
+
+instance NFData DeleteVPCResponse

@@ -100,9 +100,8 @@ instance ToLog HttpVersion where
 
 instance ToLog RequestBody where
     build = \case
-        RequestBodyBuilder     n _ -> " <msger:"   <> build n <> ">"
+        RequestBodyBuilder     n _ -> " <builder:" <> build n <> ">"
         RequestBodyStream      n _ -> " <stream:"  <> build n <> ">"
-        RequestBodyStreamChunked _ -> " <chunked>"
 
         RequestBodyLBS lbs
             | n <= 4096            -> build lbs
@@ -115,6 +114,8 @@ instance ToLog RequestBody where
             | otherwise            -> " <strict:" <> build n <> ">"
           where
             n = BS.length bs
+
+        _                          -> " <chunked>"
 
 instance ToLog HttpException where
     build x = "[HttpException] {\n" <> build (show x) <> "\n}"

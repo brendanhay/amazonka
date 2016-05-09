@@ -60,6 +60,149 @@ instance FromXML AccountLimit where
 
 instance Hashable AccountLimit
 
+instance NFData AccountLimit
+
+-- | The 'Change' structure describes the changes AWS CloudFormation will
+-- perform if you execute the change set.
+--
+-- /See:/ 'change' smart constructor.
+data Change = Change'
+    { _cResourceChange :: !(Maybe ResourceChange)
+    , _cType           :: !(Maybe ChangeType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Change' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cResourceChange'
+--
+-- * 'cType'
+change
+    :: Change
+change =
+    Change'
+    { _cResourceChange = Nothing
+    , _cType = Nothing
+    }
+
+-- | A 'ResourceChange' structure that describes the resource and action that
+-- AWS CloudFormation will perform.
+cResourceChange :: Lens' Change (Maybe ResourceChange)
+cResourceChange = lens _cResourceChange (\ s a -> s{_cResourceChange = a});
+
+-- | The type of entity that AWS CloudFormation changes. Currently, the only
+-- entity type is 'Resource'.
+cType :: Lens' Change (Maybe ChangeType)
+cType = lens _cType (\ s a -> s{_cType = a});
+
+instance FromXML Change where
+        parseXML x
+          = Change' <$>
+              (x .@? "ResourceChange") <*> (x .@? "Type")
+
+instance Hashable Change
+
+instance NFData Change
+
+-- | The 'ChangeSetSummary' structure describes a change set, its status, and
+-- the stack with which it\'s associated.
+--
+-- /See:/ 'changeSetSummary' smart constructor.
+data ChangeSetSummary = ChangeSetSummary'
+    { _cssCreationTime  :: !(Maybe ISO8601)
+    , _cssStatus        :: !(Maybe ChangeSetStatus)
+    , _cssChangeSetName :: !(Maybe Text)
+    , _cssChangeSetId   :: !(Maybe Text)
+    , _cssStatusReason  :: !(Maybe Text)
+    , _cssStackId       :: !(Maybe Text)
+    , _cssDescription   :: !(Maybe Text)
+    , _cssStackName     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ChangeSetSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cssCreationTime'
+--
+-- * 'cssStatus'
+--
+-- * 'cssChangeSetName'
+--
+-- * 'cssChangeSetId'
+--
+-- * 'cssStatusReason'
+--
+-- * 'cssStackId'
+--
+-- * 'cssDescription'
+--
+-- * 'cssStackName'
+changeSetSummary
+    :: ChangeSetSummary
+changeSetSummary =
+    ChangeSetSummary'
+    { _cssCreationTime = Nothing
+    , _cssStatus = Nothing
+    , _cssChangeSetName = Nothing
+    , _cssChangeSetId = Nothing
+    , _cssStatusReason = Nothing
+    , _cssStackId = Nothing
+    , _cssDescription = Nothing
+    , _cssStackName = Nothing
+    }
+
+-- | The start time when the change set was created, in UTC.
+cssCreationTime :: Lens' ChangeSetSummary (Maybe UTCTime)
+cssCreationTime = lens _cssCreationTime (\ s a -> s{_cssCreationTime = a}) . mapping _Time;
+
+-- | The state of the change set, such as 'CREATE_IN_PROGRESS',
+-- 'CREATE_COMPLETE', or 'FAILED'.
+cssStatus :: Lens' ChangeSetSummary (Maybe ChangeSetStatus)
+cssStatus = lens _cssStatus (\ s a -> s{_cssStatus = a});
+
+-- | The name of the change set.
+cssChangeSetName :: Lens' ChangeSetSummary (Maybe Text)
+cssChangeSetName = lens _cssChangeSetName (\ s a -> s{_cssChangeSetName = a});
+
+-- | The ID of the change set.
+cssChangeSetId :: Lens' ChangeSetSummary (Maybe Text)
+cssChangeSetId = lens _cssChangeSetId (\ s a -> s{_cssChangeSetId = a});
+
+-- | A description of the change set\'s status. For example, if your change
+-- set is in the 'FAILED' state, AWS CloudFormation shows the error
+-- message.
+cssStatusReason :: Lens' ChangeSetSummary (Maybe Text)
+cssStatusReason = lens _cssStatusReason (\ s a -> s{_cssStatusReason = a});
+
+-- | The ID of the stack with which the change set is associated.
+cssStackId :: Lens' ChangeSetSummary (Maybe Text)
+cssStackId = lens _cssStackId (\ s a -> s{_cssStackId = a});
+
+-- | Descriptive information about the change set.
+cssDescription :: Lens' ChangeSetSummary (Maybe Text)
+cssDescription = lens _cssDescription (\ s a -> s{_cssDescription = a});
+
+-- | The name of the stack with which the change set is associated.
+cssStackName :: Lens' ChangeSetSummary (Maybe Text)
+cssStackName = lens _cssStackName (\ s a -> s{_cssStackName = a});
+
+instance FromXML ChangeSetSummary where
+        parseXML x
+          = ChangeSetSummary' <$>
+              (x .@? "CreationTime") <*> (x .@? "Status") <*>
+                (x .@? "ChangeSetName")
+                <*> (x .@? "ChangeSetId")
+                <*> (x .@? "StatusReason")
+                <*> (x .@? "StackId")
+                <*> (x .@? "Description")
+                <*> (x .@? "StackName")
+
+instance Hashable ChangeSetSummary
+
+instance NFData ChangeSetSummary
+
 -- | The Output data type.
 --
 -- /See:/ 'output' smart constructor.
@@ -106,6 +249,8 @@ instance FromXML Output where
                 (x .@? "Description")
 
 instance Hashable Output
+
+instance NFData Output
 
 -- | The Parameter data type.
 --
@@ -158,6 +303,8 @@ instance FromXML Parameter where
 
 instance Hashable Parameter
 
+instance NFData Parameter
+
 instance ToQuery Parameter where
         toQuery Parameter'{..}
           = mconcat
@@ -197,6 +344,8 @@ instance FromXML ParameterConstraints where
                  may (parseXMLList "member"))
 
 instance Hashable ParameterConstraints
+
+instance NFData ParameterConstraints
 
 -- | The ParameterDeclaration data type.
 --
@@ -272,6 +421,279 @@ instance FromXML ParameterDeclaration where
                 <*> (x .@? "Description")
 
 instance Hashable ParameterDeclaration
+
+instance NFData ParameterDeclaration
+
+-- | The 'ResourceChange' structure describes the resource and the action
+-- that AWS CloudFormation will perform on it if you execute this change
+-- set.
+--
+-- /See:/ 'resourceChange' smart constructor.
+data ResourceChange = ResourceChange'
+    { _rcLogicalResourceId  :: !(Maybe Text)
+    , _rcPhysicalResourceId :: !(Maybe Text)
+    , _rcResourceType       :: !(Maybe Text)
+    , _rcAction             :: !(Maybe ChangeAction)
+    , _rcScope              :: !(Maybe [ResourceAttribute])
+    , _rcDetails            :: !(Maybe [ResourceChangeDetail])
+    , _rcReplacement        :: !(Maybe Replacement)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceChange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcLogicalResourceId'
+--
+-- * 'rcPhysicalResourceId'
+--
+-- * 'rcResourceType'
+--
+-- * 'rcAction'
+--
+-- * 'rcScope'
+--
+-- * 'rcDetails'
+--
+-- * 'rcReplacement'
+resourceChange
+    :: ResourceChange
+resourceChange =
+    ResourceChange'
+    { _rcLogicalResourceId = Nothing
+    , _rcPhysicalResourceId = Nothing
+    , _rcResourceType = Nothing
+    , _rcAction = Nothing
+    , _rcScope = Nothing
+    , _rcDetails = Nothing
+    , _rcReplacement = Nothing
+    }
+
+-- | The resource\'s logical ID, which is defined in the stack\'s template.
+rcLogicalResourceId :: Lens' ResourceChange (Maybe Text)
+rcLogicalResourceId = lens _rcLogicalResourceId (\ s a -> s{_rcLogicalResourceId = a});
+
+-- | The resource\'s physical ID (resource name). Resources that you are
+-- adding don\'t have physical IDs because they haven\'t been created.
+rcPhysicalResourceId :: Lens' ResourceChange (Maybe Text)
+rcPhysicalResourceId = lens _rcPhysicalResourceId (\ s a -> s{_rcPhysicalResourceId = a});
+
+-- | The type of AWS CloudFormation resource, such as 'AWS::S3::Bucket'.
+rcResourceType :: Lens' ResourceChange (Maybe Text)
+rcResourceType = lens _rcResourceType (\ s a -> s{_rcResourceType = a});
+
+-- | The action that AWS CloudFormation takes on the resource, such as 'Add'
+-- (adds a new resource), 'Modify' (changes a resource), or 'Remove'
+-- (deletes a resource).
+rcAction :: Lens' ResourceChange (Maybe ChangeAction)
+rcAction = lens _rcAction (\ s a -> s{_rcAction = a});
+
+-- | For the 'Modify' action, indicates which resource attribute is
+-- triggering this update, such as a change in the resource attribute\'s
+-- 'Metadata', 'Properties', or 'Tags'.
+rcScope :: Lens' ResourceChange [ResourceAttribute]
+rcScope = lens _rcScope (\ s a -> s{_rcScope = a}) . _Default . _Coerce;
+
+-- | For the 'Modify' action, a list of 'ResourceChangeDetail' structures
+-- that describes the changes that AWS CloudFormation will make to the
+-- resource.
+rcDetails :: Lens' ResourceChange [ResourceChangeDetail]
+rcDetails = lens _rcDetails (\ s a -> s{_rcDetails = a}) . _Default . _Coerce;
+
+-- | For the 'Modify' action, indicates whether AWS CloudFormation will
+-- replace the resource by creating a new one and deleting the old one.
+-- This value depends on the value of the 'RequiresRecreation' property in
+-- the 'ResourceTargetDefinition' structure. For example, if the
+-- 'RequiresRecreation' field is 'Always' and the 'Evaluation' field is
+-- 'Static', 'Replacement' is 'True'. If the 'RequiresRecreation' field is
+-- 'Always' and the 'Evaluation' field is 'Dynamic', 'Replacement' is
+-- 'Conditionally'.
+--
+-- If you have multiple changes with different 'RequiresRecreation' values,
+-- the 'Replacement' value depends on the change with the most impact. A
+-- 'RequiresRecreation' value of 'Always' has the most impact, followed by
+-- 'Conditionally', and then 'Never'.
+rcReplacement :: Lens' ResourceChange (Maybe Replacement)
+rcReplacement = lens _rcReplacement (\ s a -> s{_rcReplacement = a});
+
+instance FromXML ResourceChange where
+        parseXML x
+          = ResourceChange' <$>
+              (x .@? "LogicalResourceId") <*>
+                (x .@? "PhysicalResourceId")
+                <*> (x .@? "ResourceType")
+                <*> (x .@? "Action")
+                <*>
+                (x .@? "Scope" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*>
+                (x .@? "Details" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "Replacement")
+
+instance Hashable ResourceChange
+
+instance NFData ResourceChange
+
+-- | For a resource with 'Modify' as the action, the 'ResourceChange'
+-- structure describes the changes AWS CloudFormation will make to that
+-- resource.
+--
+-- /See:/ 'resourceChangeDetail' smart constructor.
+data ResourceChangeDetail = ResourceChangeDetail'
+    { _rcdCausingEntity :: !(Maybe Text)
+    , _rcdChangeSource  :: !(Maybe ChangeSource)
+    , _rcdEvaluation    :: !(Maybe EvaluationType)
+    , _rcdTarget        :: !(Maybe ResourceTargetDefinition)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceChangeDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcdCausingEntity'
+--
+-- * 'rcdChangeSource'
+--
+-- * 'rcdEvaluation'
+--
+-- * 'rcdTarget'
+resourceChangeDetail
+    :: ResourceChangeDetail
+resourceChangeDetail =
+    ResourceChangeDetail'
+    { _rcdCausingEntity = Nothing
+    , _rcdChangeSource = Nothing
+    , _rcdEvaluation = Nothing
+    , _rcdTarget = Nothing
+    }
+
+-- | The identity of the entity that triggered this change. This entity is a
+-- member of the group that is specified by the 'ChangeSource' field. For
+-- example, if you modified the value of the 'KeyPairName' parameter, the
+-- 'CausingEntity' is the name of the parameter ('KeyPairName').
+--
+-- If the 'ChangeSource' value is 'DirectModification', no value is given
+-- for 'CausingEntity'.
+rcdCausingEntity :: Lens' ResourceChangeDetail (Maybe Text)
+rcdCausingEntity = lens _rcdCausingEntity (\ s a -> s{_rcdCausingEntity = a});
+
+-- | The group to which the 'CausingEntity' value belongs. There are five
+-- entity groups:
+--
+-- -   'ResourceReference' entities are 'Ref' intrinsic functions that
+--     refer to resources in the template, such as
+--     '{ \"Ref\" : \"MyEC2InstanceResource\" }'.
+-- -   'ParameterReference' entities are 'Ref' intrinsic functions that get
+--     template parameter values, such as
+--     '{ \"Ref\" : \"MyPasswordParameter\" }'.
+-- -   'ResourceAttribute' entities are 'Fn::GetAtt' intrinsic functions
+--     that get resource attribute values, such as
+--     '{ \"Fn::GetAtt\" : [ \"MyEC2InstanceResource\", \"PublicDnsName\" ] }'.
+-- -   'DirectModification' entities are changes that are made directly to
+--     the template.
+-- -   'Automatic' entities are 'AWS::CloudFormation::Stack' resource
+--     types, which are also known as nested stacks. If you made no changes
+--     to the 'AWS::CloudFormation::Stack' resource, AWS CloudFormation
+--     sets the 'ChangeSource' to 'Automatic' because the nested stack\'s
+--     template might have changed. Changes to a nested stack\'s template
+--     aren\'t visible to AWS CloudFormation until you run an update on the
+--     parent stack.
+rcdChangeSource :: Lens' ResourceChangeDetail (Maybe ChangeSource)
+rcdChangeSource = lens _rcdChangeSource (\ s a -> s{_rcdChangeSource = a});
+
+-- | Indicates whether AWS CloudFormation can determine the target value, and
+-- whether the target value will change before you execute a change set.
+--
+-- For 'Static' evaluations, AWS CloudFormation can determine that the
+-- target value will change, and its value. For example, if you directly
+-- modify the 'InstanceType' property of an EC2 instance, AWS
+-- CloudFormation knows that this property value will change, and its
+-- value, so this is a 'Static' evaluation.
+--
+-- For 'Dynamic' evaluations, cannot determine the target value because it
+-- depends on the result of an intrinsic function, such as a 'Ref' or
+-- 'Fn::GetAtt' intrinsic function, when the stack is updated. For example,
+-- if your template includes a reference to a resource that is
+-- conditionally recreated, the value of the reference (the physical ID of
+-- the resource) might change, depending on if the resource is recreated.
+-- If the resource is recreated, it will have a new physical ID, so all
+-- references to that resource will also be updated.
+rcdEvaluation :: Lens' ResourceChangeDetail (Maybe EvaluationType)
+rcdEvaluation = lens _rcdEvaluation (\ s a -> s{_rcdEvaluation = a});
+
+-- | A 'ResourceTargetDefinition' structure that describes the field that AWS
+-- CloudFormation will change and whether the resource will be recreated.
+rcdTarget :: Lens' ResourceChangeDetail (Maybe ResourceTargetDefinition)
+rcdTarget = lens _rcdTarget (\ s a -> s{_rcdTarget = a});
+
+instance FromXML ResourceChangeDetail where
+        parseXML x
+          = ResourceChangeDetail' <$>
+              (x .@? "CausingEntity") <*> (x .@? "ChangeSource")
+                <*> (x .@? "Evaluation")
+                <*> (x .@? "Target")
+
+instance Hashable ResourceChangeDetail
+
+instance NFData ResourceChangeDetail
+
+-- | The field that AWS CloudFormation will change, such as the name of a
+-- resource\'s property, and whether the resource will be recreated.
+--
+-- /See:/ 'resourceTargetDefinition' smart constructor.
+data ResourceTargetDefinition = ResourceTargetDefinition'
+    { _rtdAttribute          :: !(Maybe ResourceAttribute)
+    , _rtdRequiresRecreation :: !(Maybe RequiresRecreation)
+    , _rtdName               :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceTargetDefinition' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtdAttribute'
+--
+-- * 'rtdRequiresRecreation'
+--
+-- * 'rtdName'
+resourceTargetDefinition
+    :: ResourceTargetDefinition
+resourceTargetDefinition =
+    ResourceTargetDefinition'
+    { _rtdAttribute = Nothing
+    , _rtdRequiresRecreation = Nothing
+    , _rtdName = Nothing
+    }
+
+-- | Indicates which resource attribute is triggering this update, such as a
+-- change in the resource attribute\'s 'Metadata', 'Properties', or 'Tags'.
+rtdAttribute :: Lens' ResourceTargetDefinition (Maybe ResourceAttribute)
+rtdAttribute = lens _rtdAttribute (\ s a -> s{_rtdAttribute = a});
+
+-- | If the 'Attribute' value is 'Properties', indicates whether a change to
+-- this property causes the resource to be recreated. The value can be
+-- 'Never', 'Always', or 'Conditionally'. To determine the conditions for a
+-- 'Conditionally' recreation, see the update behavior for that
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property>
+-- in the AWS CloudFormation User Guide.
+rtdRequiresRecreation :: Lens' ResourceTargetDefinition (Maybe RequiresRecreation)
+rtdRequiresRecreation = lens _rtdRequiresRecreation (\ s a -> s{_rtdRequiresRecreation = a});
+
+-- | If the 'Attribute' value is 'Properties', the name of the property. For
+-- all other attributes, the value is null.
+rtdName :: Lens' ResourceTargetDefinition (Maybe Text)
+rtdName = lens _rtdName (\ s a -> s{_rtdName = a});
+
+instance FromXML ResourceTargetDefinition where
+        parseXML x
+          = ResourceTargetDefinition' <$>
+              (x .@? "Attribute") <*> (x .@? "RequiresRecreation")
+                <*> (x .@? "Name")
+
+instance Hashable ResourceTargetDefinition
+
+instance NFData ResourceTargetDefinition
 
 -- | The Stack data type.
 --
@@ -387,7 +809,7 @@ sDescription = lens _sDescription (\ s a -> s{_sDescription = a});
 sCapabilities :: Lens' Stack [Capability]
 sCapabilities = lens _sCapabilities (\ s a -> s{_sCapabilities = a}) . _Default . _Coerce;
 
--- | A list of 'Tag's that specify cost allocation information for the stack.
+-- | A list of 'Tag's that specify information about the stack.
 sTags :: Lens' Stack [Tag]
 sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
 
@@ -436,6 +858,8 @@ instance FromXML Stack where
                 <*> (x .@ "StackStatus")
 
 instance Hashable Stack
+
+instance NFData Stack
 
 -- | The StackEvent data type.
 --
@@ -555,6 +979,8 @@ instance FromXML StackEvent where
 
 instance Hashable StackEvent
 
+instance NFData StackEvent
+
 -- | The StackResource data type.
 --
 -- /See:/ 'stackResource' smart constructor.
@@ -663,6 +1089,8 @@ instance FromXML StackResource where
                 <*> (x .@ "ResourceStatus")
 
 instance Hashable StackResource
+
+instance NFData StackResource
 
 -- | Contains detailed information about the specified stack resource.
 --
@@ -785,6 +1213,8 @@ instance FromXML StackResourceDetail where
 
 instance Hashable StackResourceDetail
 
+instance NFData StackResourceDetail
+
 -- | Contains high-level information about the specified stack resource.
 --
 -- /See:/ 'stackResourceSummary' smart constructor.
@@ -866,6 +1296,8 @@ instance FromXML StackResourceSummary where
                 <*> (x .@ "ResourceStatus")
 
 instance Hashable StackResourceSummary
+
+instance NFData StackResourceSummary
 
 -- | The StackSummary Data Type
 --
@@ -964,9 +1396,10 @@ instance FromXML StackSummary where
 
 instance Hashable StackSummary
 
--- | The Tag type is used by 'CreateStack' in the 'Tags' parameter. It allows
--- you to specify a key-value pair that can be used to store information
--- related to cost allocation for an AWS CloudFormation stack.
+instance NFData StackSummary
+
+-- | The Tag type enables you to specify a key-value pair that can be used to
+-- store information about an AWS CloudFormation stack.
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
@@ -1005,6 +1438,8 @@ instance FromXML Tag where
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -1066,3 +1501,5 @@ instance FromXML TemplateParameter where
                 <*> (x .@? "Description")
 
 instance Hashable TemplateParameter
+
+instance NFData TemplateParameter

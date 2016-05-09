@@ -81,6 +81,8 @@ instance AWSRequest GetUser where
 
 instance Hashable GetUser
 
+instance NFData GetUser
+
 instance ToHeaders GetUser where
         toHeaders = const mempty
 
@@ -126,3 +128,5 @@ gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = 
 -- | Information about the user.
 gursUser :: Lens' GetUserResponse User
 gursUser = lens _gursUser (\ s a -> s{_gursUser = a});
+
+instance NFData GetUserResponse

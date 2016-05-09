@@ -88,6 +88,8 @@ instance AWSRequest DescribeAgentVersions where
 
 instance Hashable DescribeAgentVersions
 
+instance NFData DescribeAgentVersions
+
 instance ToHeaders DescribeAgentVersions where
         toHeaders
           = const
@@ -145,3 +147,5 @@ davrsAgentVersions = lens _davrsAgentVersions (\ s a -> s{_davrsAgentVersions = 
 -- | The response status code.
 davrsResponseStatus :: Lens' DescribeAgentVersionsResponse Int
 davrsResponseStatus = lens _davrsResponseStatus (\ s a -> s{_davrsResponseStatus = a});
+
+instance NFData DescribeAgentVersionsResponse

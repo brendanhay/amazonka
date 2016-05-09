@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all available Inspector rules packages.
+-- Lists all available Amazon Inspector rules packages.
 module Network.AWS.Inspector.ListRulesPackages
     (
     -- * Creating a Request
@@ -33,8 +33,8 @@ module Network.AWS.Inspector.ListRulesPackages
     , ListRulesPackagesResponse
     -- * Response Lenses
     , lrprsNextToken
-    , lrprsRulesPackageARNList
     , lrprsResponseStatus
+    , lrprsRulesPackageARNs
     ) where
 
 import           Network.AWS.Inspector.Types
@@ -66,10 +66,10 @@ listRulesPackages =
     }
 
 -- | You can use this parameter when paginating results. Set the value of
--- this parameter to \'null\' on your first call to the
--- __ListRulesPackages__ action. Subsequent calls to the action fill
--- __nextToken__ in the request with the value of __NextToken__ from
--- previous response to continue listing data.
+-- this parameter to null on your first call to the __ListRulesPackages__
+-- action. Subsequent calls to the action fill __nextToken__ in the request
+-- with the value of __NextToken__ from the previous response to continue
+-- listing data.
 lrpNextToken :: Lens' ListRulesPackages (Maybe Text)
 lrpNextToken = lens _lrpNextToken (\ s a -> s{_lrpNextToken = a});
 
@@ -85,11 +85,12 @@ instance AWSRequest ListRulesPackages where
           = receiveJSON
               (\ s h x ->
                  ListRulesPackagesResponse' <$>
-                   (x .?> "nextToken") <*>
-                     (x .?> "rulesPackageArnList" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+                   (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
+                     (x .?> "rulesPackageArns" .!@ mempty))
 
 instance Hashable ListRulesPackages
+
+instance NFData ListRulesPackages
 
 instance ToHeaders ListRulesPackages where
         toHeaders
@@ -115,9 +116,9 @@ instance ToQuery ListRulesPackages where
 
 -- | /See:/ 'listRulesPackagesResponse' smart constructor.
 data ListRulesPackagesResponse = ListRulesPackagesResponse'
-    { _lrprsNextToken           :: !(Maybe Text)
-    , _lrprsRulesPackageARNList :: !(Maybe [Text])
-    , _lrprsResponseStatus      :: !Int
+    { _lrprsNextToken        :: !(Maybe Text)
+    , _lrprsResponseStatus   :: !Int
+    , _lrprsRulesPackageARNs :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListRulesPackagesResponse' with the minimum fields required to make a request.
@@ -126,30 +127,33 @@ data ListRulesPackagesResponse = ListRulesPackagesResponse'
 --
 -- * 'lrprsNextToken'
 --
--- * 'lrprsRulesPackageARNList'
---
 -- * 'lrprsResponseStatus'
+--
+-- * 'lrprsRulesPackageARNs'
 listRulesPackagesResponse
     :: Int -- ^ 'lrprsResponseStatus'
     -> ListRulesPackagesResponse
 listRulesPackagesResponse pResponseStatus_ =
     ListRulesPackagesResponse'
     { _lrprsNextToken = Nothing
-    , _lrprsRulesPackageARNList = Nothing
     , _lrprsResponseStatus = pResponseStatus_
+    , _lrprsRulesPackageARNs = mempty
     }
 
 -- | When a response is generated, if there is more data to be listed, this
 -- parameter is present in the response and contains the value to use for
 -- the __nextToken__ parameter in a subsequent pagination request. If there
--- is no more data to be listed, this parameter is set to \'null\'.
+-- is no more data to be listed, this parameter is set to null.
 lrprsNextToken :: Lens' ListRulesPackagesResponse (Maybe Text)
 lrprsNextToken = lens _lrprsNextToken (\ s a -> s{_lrprsNextToken = a});
-
--- | The list of ARNs specifying the rules packages returned by the action.
-lrprsRulesPackageARNList :: Lens' ListRulesPackagesResponse [Text]
-lrprsRulesPackageARNList = lens _lrprsRulesPackageARNList (\ s a -> s{_lrprsRulesPackageARNList = a}) . _Default . _Coerce;
 
 -- | The response status code.
 lrprsResponseStatus :: Lens' ListRulesPackagesResponse Int
 lrprsResponseStatus = lens _lrprsResponseStatus (\ s a -> s{_lrprsResponseStatus = a});
+
+-- | The list of ARNs that specifies the rules packages returned by the
+-- action.
+lrprsRulesPackageARNs :: Lens' ListRulesPackagesResponse [Text]
+lrprsRulesPackageARNs = lens _lrprsRulesPackageARNs (\ s a -> s{_lrprsRulesPackageARNs = a}) . _Coerce;
+
+instance NFData ListRulesPackagesResponse

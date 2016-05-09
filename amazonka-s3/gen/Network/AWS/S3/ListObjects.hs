@@ -160,6 +160,8 @@ instance AWSRequest ListObjects where
 
 instance Hashable ListObjects
 
+instance NFData ListObjects
+
 instance ToHeaders ListObjects where
         toHeaders = const mempty
 
@@ -284,3 +286,5 @@ lorsDelimiter = lens _lorsDelimiter (\ s a -> s{_lorsDelimiter = a});
 -- | The response status code.
 lorsResponseStatus :: Lens' ListObjectsResponse Int
 lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = a});
+
+instance NFData ListObjectsResponse

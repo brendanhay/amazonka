@@ -18,9 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation creates a cached volume on a specified cached gateway.
--- This operation is supported only for the gateway-cached volume
--- architecture.
+-- Creates a cached volume on a specified cached gateway. This operation is
+-- supported only for the gateway-cached volume architecture.
 --
 -- Cache storage must be allocated to the gateway before you can create a
 -- cached volume. Use the < AddCache> operation to add cache storage to a
@@ -140,6 +139,8 @@ instance AWSRequest CreateCachediSCSIVolume where
 
 instance Hashable CreateCachediSCSIVolume
 
+instance NFData CreateCachediSCSIVolume
+
 instance ToHeaders CreateCachediSCSIVolume where
         toHeaders
           = const
@@ -206,3 +207,5 @@ ccscsivrsVolumeARN = lens _ccscsivrsVolumeARN (\ s a -> s{_ccscsivrsVolumeARN = 
 -- | The response status code.
 ccscsivrsResponseStatus :: Lens' CreateCachediSCSIVolumeResponse Int
 ccscsivrsResponseStatus = lens _ccscsivrsResponseStatus (\ s a -> s{_ccscsivrsResponseStatus = a});
+
+instance NFData CreateCachediSCSIVolumeResponse

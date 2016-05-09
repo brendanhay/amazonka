@@ -55,7 +55,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'copyImage' smart constructor.
+-- | Contains the parameters for CopyImage.
+--
+-- /See:/ 'copyImage' smart constructor.
 data CopyImage = CopyImage'
     { _ciClientToken   :: !(Maybe Text)
     , _ciEncrypted     :: !(Maybe Bool)
@@ -167,6 +169,8 @@ instance AWSRequest CopyImage where
 
 instance Hashable CopyImage
 
+instance NFData CopyImage
+
 instance ToHeaders CopyImage where
         toHeaders = const mempty
 
@@ -187,7 +191,9 @@ instance ToQuery CopyImage where
                "SourceImageId" =: _ciSourceImageId,
                "Name" =: _ciName]
 
--- | /See:/ 'copyImageResponse' smart constructor.
+-- | Contains the output of CopyImage.
+--
+-- /See:/ 'copyImageResponse' smart constructor.
 data CopyImageResponse = CopyImageResponse'
     { _coprsImageId        :: !(Maybe Text)
     , _coprsResponseStatus :: !Int
@@ -216,3 +222,5 @@ coprsImageId = lens _coprsImageId (\ s a -> s{_coprsImageId = a});
 -- | The response status code.
 coprsResponseStatus :: Lens' CopyImageResponse Int
 coprsResponseStatus = lens _coprsResponseStatus (\ s a -> s{_coprsResponseStatus = a});
+
+instance NFData CopyImageResponse

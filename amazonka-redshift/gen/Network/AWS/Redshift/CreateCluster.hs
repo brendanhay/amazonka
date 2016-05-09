@@ -46,6 +46,7 @@ module Network.AWS.Redshift.CreateCluster
     , ccKMSKeyId
     , ccAvailabilityZone
     , ccVPCSecurityGroupIds
+    , ccIAMRoles
     , ccClusterType
     , ccClusterVersion
     , ccAllowVersionUpgrade
@@ -91,6 +92,7 @@ data CreateCluster = CreateCluster'
     , _ccKMSKeyId                         :: !(Maybe Text)
     , _ccAvailabilityZone                 :: !(Maybe Text)
     , _ccVPCSecurityGroupIds              :: !(Maybe [Text])
+    , _ccIAMRoles                         :: !(Maybe [Text])
     , _ccClusterType                      :: !(Maybe Text)
     , _ccClusterVersion                   :: !(Maybe Text)
     , _ccAllowVersionUpgrade              :: !(Maybe Bool)
@@ -136,6 +138,8 @@ data CreateCluster = CreateCluster'
 --
 -- * 'ccVPCSecurityGroupIds'
 --
+-- * 'ccIAMRoles'
+--
 -- * 'ccClusterType'
 --
 -- * 'ccClusterVersion'
@@ -179,6 +183,7 @@ createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPasswor
     , _ccKMSKeyId = Nothing
     , _ccAvailabilityZone = Nothing
     , _ccVPCSecurityGroupIds = Nothing
+    , _ccIAMRoles = Nothing
     , _ccClusterType = Nothing
     , _ccClusterVersion = Nothing
     , _ccAllowVersionUpgrade = Nothing
@@ -311,6 +316,15 @@ ccAvailabilityZone = lens _ccAvailabilityZone (\ s a -> s{_ccAvailabilityZone = 
 -- Default: The default VPC security group is associated with the cluster.
 ccVPCSecurityGroupIds :: Lens' CreateCluster [Text]
 ccVPCSecurityGroupIds = lens _ccVPCSecurityGroupIds (\ s a -> s{_ccVPCSecurityGroupIds = a}) . _Default . _Coerce;
+
+-- | A list of AWS Identity and Access Management (IAM) roles that can be
+-- used by the cluster to access other AWS services. You must supply the
+-- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
+-- to 10 IAM roles in a single request.
+--
+-- A cluster can have up to 10 IAM roles associated at any time.
+ccIAMRoles :: Lens' CreateCluster [Text]
+ccIAMRoles = lens _ccIAMRoles (\ s a -> s{_ccIAMRoles = a}) . _Default . _Coerce;
 
 -- | The type of the cluster. When cluster type is specified as
 --
@@ -462,6 +476,8 @@ instance AWSRequest CreateCluster where
 
 instance Hashable CreateCluster
 
+instance NFData CreateCluster
+
 instance ToHeaders CreateCluster where
         toHeaders = const mempty
 
@@ -498,6 +514,8 @@ instance ToQuery CreateCluster where
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>
                       _ccVPCSecurityGroupIds),
+               "IamRoles" =:
+                 toQuery (toQueryList "IamRoleArn" <$> _ccIAMRoles),
                "ClusterType" =: _ccClusterType,
                "ClusterVersion" =: _ccClusterVersion,
                "AllowVersionUpgrade" =: _ccAllowVersionUpgrade,
@@ -539,3 +557,5 @@ ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
 -- | The response status code.
 ccrsResponseStatus :: Lens' CreateClusterResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
+
+instance NFData CreateClusterResponse

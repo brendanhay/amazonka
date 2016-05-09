@@ -190,6 +190,8 @@ instance AWSRequest ListJobs where
 
 instance Hashable ListJobs
 
+instance NFData ListJobs
+
 instance ToHeaders ListJobs where
         toHeaders = const mempty
 
@@ -247,3 +249,5 @@ ljrsJobList = lens _ljrsJobList (\ s a -> s{_ljrsJobList = a}) . _Default . _Coe
 -- | The response status code.
 ljrsResponseStatus :: Lens' ListJobsResponse Int
 ljrsResponseStatus = lens _ljrsResponseStatus (\ s a -> s{_ljrsResponseStatus = a});
+
+instance NFData ListJobsResponse

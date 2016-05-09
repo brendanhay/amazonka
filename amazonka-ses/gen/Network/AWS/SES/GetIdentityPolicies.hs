@@ -108,6 +108,8 @@ instance AWSRequest GetIdentityPolicies where
 
 instance Hashable GetIdentityPolicies
 
+instance NFData GetIdentityPolicies
+
 instance ToHeaders GetIdentityPolicies where
         toHeaders = const mempty
 
@@ -152,3 +154,5 @@ giprsResponseStatus = lens _giprsResponseStatus (\ s a -> s{_giprsResponseStatus
 -- | A map of policy names to policies.
 giprsPolicies :: Lens' GetIdentityPoliciesResponse (HashMap Text Text)
 giprsPolicies = lens _giprsPolicies (\ s a -> s{_giprsPolicies = a}) . _Map;
+
+instance NFData GetIdentityPoliciesResponse

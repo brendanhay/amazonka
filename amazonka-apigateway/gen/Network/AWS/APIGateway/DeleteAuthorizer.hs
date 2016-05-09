@@ -80,6 +80,8 @@ instance AWSRequest DeleteAuthorizer where
 
 instance Hashable DeleteAuthorizer
 
+instance NFData DeleteAuthorizer
+
 instance ToHeaders DeleteAuthorizer where
         toHeaders
           = const
@@ -105,3 +107,5 @@ data DeleteAuthorizerResponse =
 deleteAuthorizerResponse
     :: DeleteAuthorizerResponse
 deleteAuthorizerResponse = DeleteAuthorizerResponse'
+
+instance NFData DeleteAuthorizerResponse

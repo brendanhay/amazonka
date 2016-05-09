@@ -55,10 +55,41 @@ instance FromXML AbortIncompleteMultipartUpload where
 
 instance Hashable AbortIncompleteMultipartUpload
 
+instance NFData AbortIncompleteMultipartUpload
+
 instance ToXML AbortIncompleteMultipartUpload where
         toXML AbortIncompleteMultipartUpload'{..}
           = mconcat
               ["DaysAfterInitiation" @= _aimuDaysAfterInitiation]
+
+-- | /See:/ 'accelerateConfiguration' smart constructor.
+newtype AccelerateConfiguration = AccelerateConfiguration'
+    { _acStatus :: Maybe BucketAccelerateStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AccelerateConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acStatus'
+accelerateConfiguration
+    :: AccelerateConfiguration
+accelerateConfiguration =
+    AccelerateConfiguration'
+    { _acStatus = Nothing
+    }
+
+-- | The accelerate configuration of the bucket.
+acStatus :: Lens' AccelerateConfiguration (Maybe BucketAccelerateStatus)
+acStatus = lens _acStatus (\ s a -> s{_acStatus = a});
+
+instance Hashable AccelerateConfiguration
+
+instance NFData AccelerateConfiguration
+
+instance ToXML AccelerateConfiguration where
+        toXML AccelerateConfiguration'{..}
+          = mconcat ["Status" @= _acStatus]
 
 -- | /See:/ 'accessControlPolicy' smart constructor.
 data AccessControlPolicy = AccessControlPolicy'
@@ -90,6 +121,8 @@ acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
 acpOwner = lens _acpOwner (\ s a -> s{_acpOwner = a});
 
 instance Hashable AccessControlPolicy
+
+instance NFData AccessControlPolicy
 
 instance ToXML AccessControlPolicy where
         toXML AccessControlPolicy'{..}
@@ -135,6 +168,8 @@ instance FromXML Bucket where
 
 instance Hashable Bucket
 
+instance NFData Bucket
+
 -- | /See:/ 'bucketLifecycleConfiguration' smart constructor.
 newtype BucketLifecycleConfiguration = BucketLifecycleConfiguration'
     { _blcRules :: [LifecycleRule]
@@ -157,6 +192,8 @@ blcRules :: Lens' BucketLifecycleConfiguration [LifecycleRule]
 blcRules = lens _blcRules (\ s a -> s{_blcRules = a}) . _Coerce;
 
 instance Hashable BucketLifecycleConfiguration
+
+instance NFData BucketLifecycleConfiguration
 
 instance ToXML BucketLifecycleConfiguration where
         toXML BucketLifecycleConfiguration'{..}
@@ -185,6 +222,8 @@ blsLoggingEnabled = lens _blsLoggingEnabled (\ s a -> s{_blsLoggingEnabled = a})
 
 instance Hashable BucketLoggingStatus
 
+instance NFData BucketLoggingStatus
+
 instance ToXML BucketLoggingStatus where
         toXML BucketLoggingStatus'{..}
           = mconcat ["LoggingEnabled" @= _blsLoggingEnabled]
@@ -211,6 +250,8 @@ ccCORSRules :: Lens' CORSConfiguration [CORSRule]
 ccCORSRules = lens _ccCORSRules (\ s a -> s{_ccCORSRules = a}) . _Coerce;
 
 instance Hashable CORSConfiguration
+
+instance NFData CORSConfiguration
 
 instance ToXML CORSConfiguration where
         toXML CORSConfiguration'{..}
@@ -285,6 +326,8 @@ instance FromXML CORSRule where
 
 instance Hashable CORSRule
 
+instance NFData CORSRule
+
 instance ToXML CORSRule where
         toXML CORSRule'{..}
           = mconcat
@@ -322,6 +365,8 @@ instance FromXML CommonPrefix where
 
 instance Hashable CommonPrefix
 
+instance NFData CommonPrefix
+
 -- | /See:/ 'completedMultipartUpload' smart constructor.
 newtype CompletedMultipartUpload = CompletedMultipartUpload'
     { _cmuParts :: Maybe (List1 CompletedPart)
@@ -344,6 +389,8 @@ cmuParts :: Lens' CompletedMultipartUpload (Maybe (NonEmpty CompletedPart))
 cmuParts = lens _cmuParts (\ s a -> s{_cmuParts = a}) . mapping _List1;
 
 instance Hashable CompletedMultipartUpload
+
+instance NFData CompletedMultipartUpload
 
 instance ToXML CompletedMultipartUpload where
         toXML CompletedMultipartUpload'{..}
@@ -382,6 +429,8 @@ cpETag :: Lens' CompletedPart ETag
 cpETag = lens _cpETag (\ s a -> s{_cpETag = a});
 
 instance Hashable CompletedPart
+
+instance NFData CompletedPart
 
 instance ToXML CompletedPart where
         toXML CompletedPart'{..}
@@ -436,6 +485,8 @@ instance FromXML Condition where
 
 instance Hashable Condition
 
+instance NFData Condition
+
 instance ToXML Condition where
         toXML Condition'{..}
           = mconcat
@@ -479,6 +530,8 @@ instance FromXML CopyObjectResult where
 
 instance Hashable CopyObjectResult
 
+instance NFData CopyObjectResult
+
 -- | /See:/ 'copyPartResult' smart constructor.
 data CopyPartResult = CopyPartResult'
     { _cprETag         :: !(Maybe ETag)
@@ -515,6 +568,8 @@ instance FromXML CopyPartResult where
 
 instance Hashable CopyPartResult
 
+instance NFData CopyPartResult
+
 -- | /See:/ 'createBucketConfiguration' smart constructor.
 newtype CreateBucketConfiguration = CreateBucketConfiguration'
     { _cbcLocationConstraint :: Maybe LocationConstraint
@@ -538,6 +593,8 @@ cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe LocationConstrai
 cbcLocationConstraint = lens _cbcLocationConstraint (\ s a -> s{_cbcLocationConstraint = a});
 
 instance Hashable CreateBucketConfiguration
+
+instance NFData CreateBucketConfiguration
 
 instance ToXML CreateBucketConfiguration where
         toXML CreateBucketConfiguration'{..}
@@ -575,6 +632,8 @@ dObjects :: Lens' Delete [ObjectIdentifier]
 dObjects = lens _dObjects (\ s a -> s{_dObjects = a}) . _Coerce;
 
 instance Hashable Delete
+
+instance NFData Delete
 
 instance ToXML Delete where
         toXML Delete'{..}
@@ -645,6 +704,8 @@ instance FromXML DeleteMarkerEntry where
 
 instance Hashable DeleteMarkerEntry
 
+instance NFData DeleteMarkerEntry
+
 -- | /See:/ 'deletedObject' smart constructor.
 data DeletedObject = DeletedObject'
     { _dVersionId             :: !(Maybe ObjectVersionId)
@@ -699,6 +760,8 @@ instance FromXML DeletedObject where
 
 instance Hashable DeletedObject
 
+instance NFData DeletedObject
+
 -- | /See:/ 'destination' smart constructor.
 data Destination = Destination'
     { _dStorageClass :: !(Maybe StorageClass)
@@ -737,6 +800,8 @@ instance FromXML Destination where
 
 instance Hashable Destination
 
+instance NFData Destination
+
 instance ToXML Destination where
         toXML Destination'{..}
           = mconcat
@@ -769,6 +834,8 @@ instance FromXML ErrorDocument where
         parseXML x = ErrorDocument' <$> (x .@ "Key")
 
 instance Hashable ErrorDocument
+
+instance NFData ErrorDocument
 
 instance ToXML ErrorDocument where
         toXML ErrorDocument'{..} = mconcat ["Key" @= _edKey]
@@ -816,6 +883,8 @@ instance FromXML FilterRule where
 
 instance Hashable FilterRule
 
+instance NFData FilterRule
+
 instance ToXML FilterRule where
         toXML FilterRule'{..}
           = mconcat ["Value" @= _frValue, "Name" @= _frName]
@@ -855,6 +924,8 @@ instance FromXML Grant where
               (x .@? "Permission") <*> (x .@? "Grantee")
 
 instance Hashable Grant
+
+instance NFData Grant
 
 instance ToXML Grant where
         toXML Grant'{..}
@@ -926,6 +997,8 @@ instance FromXML Grantee where
 
 instance Hashable Grantee
 
+instance NFData Grantee
+
 instance ToXML Grantee where
         toXML Grantee'{..}
           = mconcat
@@ -963,6 +1036,8 @@ instance FromXML IndexDocument where
         parseXML x = IndexDocument' <$> (x .@ "Suffix")
 
 instance Hashable IndexDocument
+
+instance NFData IndexDocument
 
 instance ToXML IndexDocument where
         toXML IndexDocument'{..}
@@ -1004,6 +1079,8 @@ instance FromXML Initiator where
               (x .@? "DisplayName") <*> (x .@? "ID")
 
 instance Hashable Initiator
+
+instance NFData Initiator
 
 -- | Container for specifying the AWS Lambda notification configuration.
 --
@@ -1063,6 +1140,8 @@ instance FromXML LambdaFunctionConfiguration where
 
 instance Hashable LambdaFunctionConfiguration
 
+instance NFData LambdaFunctionConfiguration
+
 instance ToXML LambdaFunctionConfiguration where
         toXML LambdaFunctionConfiguration'{..}
           = mconcat
@@ -1119,6 +1198,8 @@ instance FromXML LifecycleExpiration where
                 (x .@? "ExpiredObjectDeleteMarker")
 
 instance Hashable LifecycleExpiration
+
+instance NFData LifecycleExpiration
 
 instance ToXML LifecycleExpiration where
         toXML LifecycleExpiration'{..}
@@ -1223,6 +1304,8 @@ instance FromXML LifecycleRule where
 
 instance Hashable LifecycleRule
 
+instance NFData LifecycleRule
+
 instance ToXML LifecycleRule where
         toXML LifecycleRule'{..}
           = mconcat
@@ -1289,6 +1372,8 @@ instance FromXML LoggingEnabled where
                 <*> (x .@? "TargetPrefix")
 
 instance Hashable LoggingEnabled
+
+instance NFData LoggingEnabled
 
 instance ToXML LoggingEnabled where
         toXML LoggingEnabled'{..}
@@ -1370,6 +1455,8 @@ instance FromXML MultipartUpload where
 
 instance Hashable MultipartUpload
 
+instance NFData MultipartUpload
+
 -- | Specifies when noncurrent object versions expire. Upon expiration,
 -- Amazon S3 permanently deletes the noncurrent object versions. You set
 -- this lifecycle configuration action on a bucket that has versioning
@@ -1408,6 +1495,8 @@ instance FromXML NoncurrentVersionExpiration where
               (x .@ "NoncurrentDays")
 
 instance Hashable NoncurrentVersionExpiration
+
+instance NFData NoncurrentVersionExpiration
 
 instance ToXML NoncurrentVersionExpiration where
         toXML NoncurrentVersionExpiration'{..}
@@ -1461,6 +1550,8 @@ instance FromXML NoncurrentVersionTransition where
               (x .@ "NoncurrentDays") <*> (x .@ "StorageClass")
 
 instance Hashable NoncurrentVersionTransition
+
+instance NFData NoncurrentVersionTransition
 
 instance ToXML NoncurrentVersionTransition where
         toXML NoncurrentVersionTransition'{..}
@@ -1518,6 +1609,8 @@ instance FromXML NotificationConfiguration where
 
 instance Hashable NotificationConfiguration
 
+instance NFData NotificationConfiguration
+
 instance ToXML NotificationConfiguration where
         toXML NotificationConfiguration'{..}
           = mconcat
@@ -1564,6 +1657,8 @@ instance FromXML NotificationConfigurationFilter
               (x .@? "S3Key")
 
 instance Hashable NotificationConfigurationFilter
+
+instance NFData NotificationConfigurationFilter
 
 instance ToXML NotificationConfigurationFilter where
         toXML NotificationConfigurationFilter'{..}
@@ -1645,6 +1740,8 @@ instance FromXML Object where
 
 instance Hashable Object
 
+instance NFData Object
+
 -- | /See:/ 'objectIdentifier' smart constructor.
 data ObjectIdentifier = ObjectIdentifier'
     { _oiVersionId :: !(Maybe ObjectVersionId)
@@ -1676,6 +1773,8 @@ oiKey :: Lens' ObjectIdentifier ObjectKey
 oiKey = lens _oiKey (\ s a -> s{_oiKey = a});
 
 instance Hashable ObjectIdentifier
+
+instance NFData ObjectIdentifier
 
 instance ToXML ObjectIdentifier where
         toXML ObjectIdentifier'{..}
@@ -1773,6 +1872,8 @@ instance FromXML ObjectVersion where
 
 instance Hashable ObjectVersion
 
+instance NFData ObjectVersion
+
 -- | /See:/ 'owner' smart constructor.
 data Owner = Owner'
     { _oDisplayName :: !(Maybe Text)
@@ -1807,6 +1908,8 @@ instance FromXML Owner where
           = Owner' <$> (x .@? "DisplayName") <*> (x .@? "ID")
 
 instance Hashable Owner
+
+instance NFData Owner
 
 instance ToXML Owner where
         toXML Owner'{..}
@@ -1868,6 +1971,8 @@ instance FromXML Part where
 
 instance Hashable Part
 
+instance NFData Part
+
 -- | Container for specifying an configuration when you want Amazon S3 to
 -- publish events to an Amazon Simple Queue Service (Amazon SQS) queue.
 --
@@ -1925,6 +2030,8 @@ instance FromXML QueueConfiguration where
                 <*> (parseXMLList "Event" x)
 
 instance Hashable QueueConfiguration
+
+instance NFData QueueConfiguration
 
 instance ToXML QueueConfiguration where
         toXML QueueConfiguration'{..}
@@ -2004,6 +2111,8 @@ instance FromXML Redirect where
 
 instance Hashable Redirect
 
+instance NFData Redirect
+
 instance ToXML Redirect where
         toXML Redirect'{..}
           = mconcat
@@ -2049,6 +2158,8 @@ instance FromXML RedirectAllRequestsTo where
               (x .@? "Protocol") <*> (x .@ "HostName")
 
 instance Hashable RedirectAllRequestsTo
+
+instance NFData RedirectAllRequestsTo
 
 instance ToXML RedirectAllRequestsTo where
         toXML RedirectAllRequestsTo'{..}
@@ -2098,6 +2209,8 @@ instance FromXML ReplicationConfiguration where
               (x .@ "Role") <*> (parseXMLList "Rule" x)
 
 instance Hashable ReplicationConfiguration
+
+instance NFData ReplicationConfiguration
 
 instance ToXML ReplicationConfiguration where
         toXML ReplicationConfiguration'{..}
@@ -2163,6 +2276,8 @@ instance FromXML ReplicationRule where
 
 instance Hashable ReplicationRule
 
+instance NFData ReplicationRule
+
 instance ToXML ReplicationRule where
         toXML ReplicationRule'{..}
           = mconcat
@@ -2194,6 +2309,8 @@ rpcPayer = lens _rpcPayer (\ s a -> s{_rpcPayer = a});
 
 instance Hashable RequestPaymentConfiguration
 
+instance NFData RequestPaymentConfiguration
+
 instance ToXML RequestPaymentConfiguration where
         toXML RequestPaymentConfiguration'{..}
           = mconcat ["Payer" @= _rpcPayer]
@@ -2221,6 +2338,8 @@ rrDays :: Lens' RestoreRequest Int
 rrDays = lens _rrDays (\ s a -> s{_rrDays = a});
 
 instance Hashable RestoreRequest
+
+instance NFData RestoreRequest
 
 instance ToXML RestoreRequest where
         toXML RestoreRequest'{..}
@@ -2269,6 +2388,8 @@ instance FromXML RoutingRule where
 
 instance Hashable RoutingRule
 
+instance NFData RoutingRule
+
 instance ToXML RoutingRule where
         toXML RoutingRule'{..}
           = mconcat
@@ -2304,6 +2425,8 @@ instance FromXML S3KeyFilter where
               (may (parseXMLList "FilterRule") x)
 
 instance Hashable S3KeyFilter
+
+instance NFData S3KeyFilter
 
 instance ToXML S3KeyFilter where
         toXML S3KeyFilter'{..}
@@ -2364,6 +2487,8 @@ instance FromXML S3ServiceError where
 
 instance Hashable S3ServiceError
 
+instance NFData S3ServiceError
+
 -- | /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagKey   :: !ObjectKey
@@ -2400,6 +2525,8 @@ instance FromXML Tag where
 
 instance Hashable Tag
 
+instance NFData Tag
+
 instance ToXML Tag where
         toXML Tag'{..}
           = mconcat ["Key" @= _tagKey, "Value" @= _tagValue]
@@ -2426,6 +2553,8 @@ tTagSet :: Lens' Tagging [Tag]
 tTagSet = lens _tTagSet (\ s a -> s{_tTagSet = a}) . _Coerce;
 
 instance Hashable Tagging
+
+instance NFData Tagging
 
 instance ToXML Tagging where
         toXML Tagging'{..}
@@ -2466,6 +2595,8 @@ instance FromXML TargetGrant where
               (x .@? "Permission") <*> (x .@? "Grantee")
 
 instance Hashable TargetGrant
+
+instance NFData TargetGrant
 
 instance ToXML TargetGrant where
         toXML TargetGrant'{..}
@@ -2532,6 +2663,8 @@ instance FromXML TopicConfiguration where
 
 instance Hashable TopicConfiguration
 
+instance NFData TopicConfiguration
+
 instance ToXML TopicConfiguration where
         toXML TopicConfiguration'{..}
           = mconcat
@@ -2585,6 +2718,8 @@ instance FromXML Transition where
 
 instance Hashable Transition
 
+instance NFData Transition
+
 instance ToXML Transition where
         toXML Transition'{..}
           = mconcat
@@ -2624,6 +2759,8 @@ vcMFADelete :: Lens' VersioningConfiguration (Maybe MFADelete)
 vcMFADelete = lens _vcMFADelete (\ s a -> s{_vcMFADelete = a});
 
 instance Hashable VersioningConfiguration
+
+instance NFData VersioningConfiguration
 
 instance ToXML VersioningConfiguration where
         toXML VersioningConfiguration'{..}
@@ -2676,6 +2813,8 @@ wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
 wcRoutingRules = lens _wcRoutingRules (\ s a -> s{_wcRoutingRules = a}) . _Default . _Coerce;
 
 instance Hashable WebsiteConfiguration
+
+instance NFData WebsiteConfiguration
 
 instance ToXML WebsiteConfiguration where
         toXML WebsiteConfiguration'{..}

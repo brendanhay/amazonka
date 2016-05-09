@@ -60,7 +60,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to retrieve a list of events for an environment.
 --
 -- /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
@@ -195,6 +195,8 @@ instance AWSRequest DescribeEvents where
 
 instance Hashable DescribeEvents
 
+instance NFData DescribeEvents
+
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty
 
@@ -259,3 +261,5 @@ dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce
 -- | The response status code.
 dersResponseStatus :: Lens' DescribeEventsResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
+
+instance NFData DescribeEventsResponse

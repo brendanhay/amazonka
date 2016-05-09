@@ -77,6 +77,8 @@ instance AWSRequest ResolveAlias where
 
 instance Hashable ResolveAlias
 
+instance NFData ResolveAlias
+
 instance ToHeaders ResolveAlias where
         toHeaders
           = const
@@ -127,3 +129,5 @@ rarsFleetId = lens _rarsFleetId (\ s a -> s{_rarsFleetId = a});
 -- | The response status code.
 rarsResponseStatus :: Lens' ResolveAliasResponse Int
 rarsResponseStatus = lens _rarsResponseStatus (\ s a -> s{_rarsResponseStatus = a});
+
+instance NFData ResolveAliasResponse

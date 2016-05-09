@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyVPCEndpoint' smart constructor.
+-- | Contains the parameters for ModifyVpcEndpoint.
+--
+-- /See:/ 'modifyVPCEndpoint' smart constructor.
 data ModifyVPCEndpoint = ModifyVPCEndpoint'
     { _mvePolicyDocument      :: !(Maybe Text)
     , _mveRemoveRouteTableIds :: !(Maybe [Text])
@@ -127,6 +129,8 @@ instance AWSRequest ModifyVPCEndpoint where
 
 instance Hashable ModifyVPCEndpoint
 
+instance NFData ModifyVPCEndpoint
+
 instance ToHeaders ModifyVPCEndpoint where
         toHeaders = const mempty
 
@@ -149,7 +153,9 @@ instance ToQuery ModifyVPCEndpoint where
                "DryRun" =: _mveDryRun,
                "VpcEndpointId" =: _mveVPCEndpointId]
 
--- | /See:/ 'modifyVPCEndpointResponse' smart constructor.
+-- | Contains the output of ModifyVpcEndpoint.
+--
+-- /See:/ 'modifyVPCEndpointResponse' smart constructor.
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
     { _mversReturn         :: !(Maybe Bool)
     , _mversResponseStatus :: !Int
@@ -178,3 +184,5 @@ mversReturn = lens _mversReturn (\ s a -> s{_mversReturn = a});
 -- | The response status code.
 mversResponseStatus :: Lens' ModifyVPCEndpointResponse Int
 mversResponseStatus = lens _mversResponseStatus (\ s a -> s{_mversResponseStatus = a});
+
+instance NFData ModifyVPCEndpointResponse

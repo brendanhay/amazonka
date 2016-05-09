@@ -101,6 +101,8 @@ instance AWSRequest AddPermission where
 
 instance Hashable AddPermission
 
+instance NFData AddPermission
+
 instance ToHeaders AddPermission where
         toHeaders = const mempty
 
@@ -127,3 +129,5 @@ data AddPermissionResponse =
 addPermissionResponse
     :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse'
+
+instance NFData AddPermissionResponse

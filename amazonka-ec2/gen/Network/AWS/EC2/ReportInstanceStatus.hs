@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'reportInstanceStatus' smart constructor.
+-- | Contains the parameters for ReportInstanceStatus.
+--
+-- /See:/ 'reportInstanceStatus' smart constructor.
 data ReportInstanceStatus = ReportInstanceStatus'
     { _risStartTime   :: !(Maybe ISO8601)
     , _risEndTime     :: !(Maybe ISO8601)
@@ -161,6 +163,8 @@ instance AWSRequest ReportInstanceStatus where
 
 instance Hashable ReportInstanceStatus
 
+instance NFData ReportInstanceStatus
+
 instance ToHeaders ReportInstanceStatus where
         toHeaders = const mempty
 
@@ -190,3 +194,5 @@ data ReportInstanceStatusResponse =
 reportInstanceStatusResponse
     :: ReportInstanceStatusResponse
 reportInstanceStatusResponse = ReportInstanceStatusResponse'
+
+instance NFData ReportInstanceStatusResponse

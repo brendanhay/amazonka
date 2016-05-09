@@ -81,6 +81,8 @@ instance FromXML ActiveTrustedSigners where
 
 instance Hashable ActiveTrustedSigners
 
+instance NFData ActiveTrustedSigners
+
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this distribution.
 --
@@ -123,6 +125,8 @@ instance FromXML Aliases where
                 <*> (x .@ "Quantity")
 
 instance Hashable Aliases
+
+instance NFData Aliases
 
 instance ToXML Aliases where
         toXML Aliases'{..}
@@ -189,6 +193,8 @@ instance FromXML AllowedMethods where
                 (x .@? "Items" .!@ mempty >>= parseXMLList "Method")
 
 instance Hashable AllowedMethods
+
+instance NFData AllowedMethods
 
 instance ToXML AllowedMethods where
         toXML AllowedMethods'{..}
@@ -398,6 +404,8 @@ instance FromXML CacheBehavior where
 
 instance Hashable CacheBehavior
 
+instance NFData CacheBehavior
+
 instance ToXML CacheBehavior where
         toXML CacheBehavior'{..}
           = mconcat
@@ -453,6 +461,8 @@ instance FromXML CacheBehaviors where
                 <*> (x .@ "Quantity")
 
 instance Hashable CacheBehaviors
+
+instance NFData CacheBehaviors
 
 instance ToXML CacheBehaviors where
         toXML CacheBehaviors'{..}
@@ -510,6 +520,8 @@ instance FromXML CachedMethods where
                 (x .@? "Items" .!@ mempty >>= parseXMLList "Method")
 
 instance Hashable CachedMethods
+
+instance NFData CachedMethods
 
 instance ToXML CachedMethods where
         toXML CachedMethods'{..}
@@ -569,6 +581,8 @@ instance FromXML CloudFrontOriginAccessIdentity where
 
 instance Hashable CloudFrontOriginAccessIdentity
 
+instance NFData CloudFrontOriginAccessIdentity
+
 -- | Origin access identity configuration.
 --
 -- /See:/ 'cloudFrontOriginAccessIdentityConfig' smart constructor.
@@ -621,6 +635,8 @@ instance FromXML CloudFrontOriginAccessIdentityConfig
 
 instance Hashable
          CloudFrontOriginAccessIdentityConfig
+
+instance NFData CloudFrontOriginAccessIdentityConfig
 
 instance ToXML CloudFrontOriginAccessIdentityConfig
          where
@@ -720,6 +736,8 @@ instance FromXML CloudFrontOriginAccessIdentityList
 
 instance Hashable CloudFrontOriginAccessIdentityList
 
+instance NFData CloudFrontOriginAccessIdentityList
+
 -- | Summary of the information about a CloudFront origin access identity.
 --
 -- /See:/ 'cloudFrontOriginAccessIdentitySummary' smart constructor.
@@ -775,6 +793,8 @@ instance FromXML
 instance Hashable
          CloudFrontOriginAccessIdentitySummary
 
+instance NFData CloudFrontOriginAccessIdentitySummary
+
 -- | A complex type that specifies the whitelisted cookies, if any, that you
 -- want CloudFront to forward to your origin that is associated with this
 -- cache behavior.
@@ -818,6 +838,8 @@ instance FromXML CookieNames where
                 <*> (x .@ "Quantity")
 
 instance Hashable CookieNames
+
+instance NFData CookieNames
 
 instance ToXML CookieNames where
         toXML CookieNames'{..}
@@ -869,6 +891,8 @@ instance FromXML CookiePreference where
               (x .@? "WhitelistedNames") <*> (x .@ "Forward")
 
 instance Hashable CookiePreference
+
+instance NFData CookiePreference
 
 instance ToXML CookiePreference where
         toXML CookiePreference'{..}
@@ -956,6 +980,8 @@ instance FromXML CustomErrorResponse where
 
 instance Hashable CustomErrorResponse
 
+instance NFData CustomErrorResponse
+
 instance ToXML CustomErrorResponse where
         toXML CustomErrorResponse'{..}
           = mconcat
@@ -1006,6 +1032,8 @@ instance FromXML CustomErrorResponses where
 
 instance Hashable CustomErrorResponses
 
+instance NFData CustomErrorResponses
+
 instance ToXML CustomErrorResponses where
         toXML CustomErrorResponses'{..}
           = mconcat
@@ -1054,6 +1082,8 @@ instance FromXML CustomHeaders where
                 <*> (x .@ "Quantity")
 
 instance Hashable CustomHeaders
+
+instance NFData CustomHeaders
 
 instance ToXML CustomHeaders where
         toXML CustomHeaders'{..}
@@ -1121,6 +1151,8 @@ instance FromXML CustomOriginConfig where
                 <*> (x .@ "OriginProtocolPolicy")
 
 instance Hashable CustomOriginConfig
+
+instance NFData CustomOriginConfig
 
 instance ToXML CustomOriginConfig where
         toXML CustomOriginConfig'{..}
@@ -1302,6 +1334,8 @@ instance FromXML DefaultCacheBehavior where
 
 instance Hashable DefaultCacheBehavior
 
+instance NFData DefaultCacheBehavior
+
 instance ToXML DefaultCacheBehavior where
         toXML DefaultCacheBehavior'{..}
           = mconcat
@@ -1415,6 +1449,8 @@ instance FromXML Distribution where
                 <*> (x .@ "DistributionConfig")
 
 instance Hashable Distribution
+
+instance NFData Distribution
 
 -- | A distribution Configuration.
 --
@@ -1595,6 +1631,8 @@ instance FromXML DistributionConfig where
 
 instance Hashable DistributionConfig
 
+instance NFData DistributionConfig
+
 instance ToXML DistributionConfig where
         toXML DistributionConfig'{..}
           = mconcat
@@ -1698,6 +1736,8 @@ instance FromXML DistributionList where
                 <*> (x .@ "Quantity")
 
 instance Hashable DistributionList
+
+instance NFData DistributionList
 
 -- | A summary of the information for an Amazon CloudFront distribution.
 --
@@ -1878,6 +1918,8 @@ instance FromXML DistributionSummary where
 
 instance Hashable DistributionSummary
 
+instance NFData DistributionSummary
+
 -- | A complex type that specifies how CloudFront handles query strings,
 -- cookies and headers.
 --
@@ -1930,6 +1972,8 @@ instance FromXML ForwardedValues where
                 (x .@ "Cookies")
 
 instance Hashable ForwardedValues
+
+instance NFData ForwardedValues
 
 instance ToXML ForwardedValues where
         toXML ForwardedValues'{..}
@@ -2011,6 +2055,8 @@ instance FromXML GeoRestriction where
 
 instance Hashable GeoRestriction
 
+instance NFData GeoRestriction
+
 instance ToXML GeoRestriction where
         toXML GeoRestriction'{..}
           = mconcat
@@ -2075,6 +2121,8 @@ instance FromXML Headers where
                 <*> (x .@ "Quantity")
 
 instance Hashable Headers
+
+instance NFData Headers
 
 instance ToXML Headers where
         toXML Headers'{..}
@@ -2144,6 +2192,8 @@ instance FromXML Invalidation where
 
 instance Hashable Invalidation
 
+instance NFData Invalidation
+
 -- | An invalidation batch.
 --
 -- /See:/ 'invalidationBatch' smart constructor.
@@ -2198,6 +2248,8 @@ instance FromXML InvalidationBatch where
               (x .@ "Paths") <*> (x .@ "CallerReference")
 
 instance Hashable InvalidationBatch
+
+instance NFData InvalidationBatch
 
 instance ToXML InvalidationBatch where
         toXML InvalidationBatch'{..}
@@ -2292,6 +2344,8 @@ instance FromXML InvalidationList where
 
 instance Hashable InvalidationList
 
+instance NFData InvalidationList
+
 -- | Summary of an invalidation request.
 --
 -- /See:/ 'invalidationSummary' smart constructor.
@@ -2342,6 +2396,8 @@ instance FromXML InvalidationSummary where
 
 instance Hashable InvalidationSummary
 
+instance NFData InvalidationSummary
+
 -- | A complex type that lists the active CloudFront key pairs, if any, that
 -- are associated with AwsAccountNumber.
 --
@@ -2384,6 +2440,8 @@ instance FromXML KeyPairIds where
                 <*> (x .@ "Quantity")
 
 instance Hashable KeyPairIds
+
+instance NFData KeyPairIds
 
 -- | A complex type that controls whether access logs are written for the
 -- distribution.
@@ -2460,6 +2518,8 @@ instance FromXML LoggingConfig where
                 <*> (x .@ "Prefix")
 
 instance Hashable LoggingConfig
+
+instance NFData LoggingConfig
 
 instance ToXML LoggingConfig where
         toXML LoggingConfig'{..}
@@ -2562,6 +2622,8 @@ instance FromXML Origin where
 
 instance Hashable Origin
 
+instance NFData Origin
+
 instance ToXML Origin where
         toXML Origin'{..}
           = mconcat
@@ -2610,6 +2672,8 @@ instance FromXML OriginCustomHeader where
               (x .@ "HeaderName") <*> (x .@ "HeaderValue")
 
 instance Hashable OriginCustomHeader
+
+instance NFData OriginCustomHeader
 
 instance ToXML OriginCustomHeader where
         toXML OriginCustomHeader'{..}
@@ -2662,6 +2726,8 @@ instance FromXML OriginSSLProtocols where
 
 instance Hashable OriginSSLProtocols
 
+instance NFData OriginSSLProtocols
+
 instance ToXML OriginSSLProtocols where
         toXML OriginSSLProtocols'{..}
           = mconcat
@@ -2709,6 +2775,8 @@ instance FromXML Origins where
                 <*> (x .@ "Quantity")
 
 instance Hashable Origins
+
+instance NFData Origins
 
 instance ToXML Origins where
         toXML Origins'{..}
@@ -2759,6 +2827,8 @@ instance FromXML Paths where
 
 instance Hashable Paths
 
+instance NFData Paths
+
 instance ToXML Paths where
         toXML Paths'{..}
           = mconcat
@@ -2795,6 +2865,8 @@ instance FromXML Restrictions where
           = Restrictions' <$> (x .@ "GeoRestriction")
 
 instance Hashable Restrictions
+
+instance NFData Restrictions
 
 instance ToXML Restrictions where
         toXML Restrictions'{..}
@@ -2840,6 +2912,8 @@ instance FromXML S3Origin where
               (x .@ "DomainName") <*> (x .@ "OriginAccessIdentity")
 
 instance Hashable S3Origin
+
+instance NFData S3Origin
 
 instance ToXML S3Origin where
         toXML S3Origin'{..}
@@ -2890,6 +2964,8 @@ instance FromXML S3OriginConfig where
 
 instance Hashable S3OriginConfig
 
+instance NFData S3OriginConfig
+
 instance ToXML S3OriginConfig where
         toXML S3OriginConfig'{..}
           = mconcat
@@ -2938,6 +3014,8 @@ instance FromXML Signer where
               (x .@? "AwsAccountNumber") <*> (x .@? "KeyPairIds")
 
 instance Hashable Signer
+
+instance NFData Signer
 
 -- | A streaming distribution.
 --
@@ -3029,6 +3107,8 @@ instance FromXML StreamingDistribution where
                 <*> (x .@ "StreamingDistributionConfig")
 
 instance Hashable StreamingDistribution
+
+instance NFData StreamingDistribution
 
 -- | The configuration for the streaming distribution.
 --
@@ -3153,6 +3233,8 @@ instance FromXML StreamingDistributionConfig where
 
 instance Hashable StreamingDistributionConfig
 
+instance NFData StreamingDistributionConfig
+
 instance ToXML StreamingDistributionConfig where
         toXML StreamingDistributionConfig'{..}
           = mconcat
@@ -3250,6 +3332,8 @@ instance FromXML StreamingDistributionList where
                 <*> (x .@ "Quantity")
 
 instance Hashable StreamingDistributionList
+
+instance NFData StreamingDistributionList
 
 -- | A summary of the information for an Amazon CloudFront streaming
 -- distribution.
@@ -3389,6 +3473,8 @@ instance FromXML StreamingDistributionSummary where
 
 instance Hashable StreamingDistributionSummary
 
+instance NFData StreamingDistributionSummary
+
 -- | A complex type that controls whether access logs are written for this
 -- streaming distribution.
 --
@@ -3449,6 +3535,8 @@ instance FromXML StreamingLoggingConfig where
                 (x .@ "Prefix")
 
 instance Hashable StreamingLoggingConfig
+
+instance NFData StreamingLoggingConfig
 
 instance ToXML StreamingLoggingConfig where
         toXML StreamingLoggingConfig'{..}
@@ -3519,6 +3607,8 @@ instance FromXML TrustedSigners where
                 <*> (x .@ "Quantity")
 
 instance Hashable TrustedSigners
+
+instance NFData TrustedSigners
 
 instance ToXML TrustedSigners where
         toXML TrustedSigners'{..}
@@ -3645,6 +3735,8 @@ instance FromXML ViewerCertificate where
                 <*> (x .@? "CloudFrontDefaultCertificate")
 
 instance Hashable ViewerCertificate
+
+instance NFData ViewerCertificate
 
 instance ToXML ViewerCertificate where
         toXML ViewerCertificate'{..}

@@ -116,6 +116,8 @@ instance AWSRequest DescribeFleetAttributes where
 
 instance Hashable DescribeFleetAttributes
 
+instance NFData DescribeFleetAttributes
+
 instance ToHeaders DescribeFleetAttributes where
         toHeaders
           = const
@@ -185,3 +187,5 @@ dfarsFleetAttributes = lens _dfarsFleetAttributes (\ s a -> s{_dfarsFleetAttribu
 -- | The response status code.
 dfarsResponseStatus :: Lens' DescribeFleetAttributesResponse Int
 dfarsResponseStatus = lens _dfarsResponseStatus (\ s a -> s{_dfarsResponseStatus = a});
+
+instance NFData DescribeFleetAttributesResponse

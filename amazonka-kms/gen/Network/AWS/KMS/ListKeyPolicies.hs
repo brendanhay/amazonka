@@ -76,8 +76,8 @@ listKeyPolicies pKeyId_ =
     }
 
 -- | Use this parameter only when paginating results and only in a subsequent
--- request after you\'ve received a response with truncated results. Set it
--- to the value of 'NextMarker' from the response you just received.
+-- request after you receive a response with truncated results. Set it to
+-- the value of 'NextMarker' from the response you just received.
 lkpMarker :: Lens' ListKeyPolicies (Maybe Text)
 lkpMarker = lens _lkpMarker (\ s a -> s{_lkpMarker = a});
 
@@ -126,6 +126,8 @@ instance AWSRequest ListKeyPolicies where
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListKeyPolicies
+
+instance NFData ListKeyPolicies
 
 instance ToHeaders ListKeyPolicies where
         toHeaders
@@ -199,3 +201,5 @@ lkprsNextMarker = lens _lkprsNextMarker (\ s a -> s{_lkprsNextMarker = a});
 -- | The response status code.
 lkprsResponseStatus :: Lens' ListKeyPoliciesResponse Int
 lkprsResponseStatus = lens _lkprsResponseStatus (\ s a -> s{_lkprsResponseStatus = a});
+
+instance NFData ListKeyPoliciesResponse

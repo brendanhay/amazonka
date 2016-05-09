@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about artifacts.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListArtifacts
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.DeviceFarm.ListArtifacts
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -94,6 +97,13 @@ laArn = lens _laArn (\ s a -> s{_laArn = a});
 laType :: Lens' ListArtifacts ArtifactCategory
 laType = lens _laType (\ s a -> s{_laType = a});
 
+instance AWSPager ListArtifacts where
+        page rq rs
+          | stop (rs ^. larsNextToken) = Nothing
+          | stop (rs ^. larsArtifacts) = Nothing
+          | otherwise =
+            Just $ rq & laNextToken .~ rs ^. larsNextToken
+
 instance AWSRequest ListArtifacts where
         type Rs ListArtifacts = ListArtifactsResponse
         request = postJSON deviceFarm
@@ -106,6 +116,8 @@ instance AWSRequest ListArtifacts where
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListArtifacts
+
+instance NFData ListArtifacts
 
 instance ToHeaders ListArtifacts where
         toHeaders
@@ -170,3 +182,5 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 -- | The response status code.
 larsResponseStatus :: Lens' ListArtifactsResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
+
+instance NFData ListArtifactsResponse

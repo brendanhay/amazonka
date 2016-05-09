@@ -97,6 +97,8 @@ instance AWSRequest GetModel where
 
 instance Hashable GetModel
 
+instance NFData GetModel
+
 instance ToHeaders GetModel where
         toHeaders
           = const

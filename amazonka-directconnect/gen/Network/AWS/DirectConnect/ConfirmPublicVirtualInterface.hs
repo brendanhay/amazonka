@@ -86,6 +86,8 @@ instance AWSRequest ConfirmPublicVirtualInterface
 
 instance Hashable ConfirmPublicVirtualInterface
 
+instance NFData ConfirmPublicVirtualInterface
+
 instance ToHeaders ConfirmPublicVirtualInterface
          where
         toHeaders
@@ -141,3 +143,5 @@ crsVirtualInterfaceState = lens _crsVirtualInterfaceState (\ s a -> s{_crsVirtua
 -- | The response status code.
 crsResponseStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData ConfirmPublicVirtualInterfaceResponse

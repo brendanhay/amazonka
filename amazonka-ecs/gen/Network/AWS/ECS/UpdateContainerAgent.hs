@@ -100,6 +100,8 @@ instance AWSRequest UpdateContainerAgent where
 
 instance Hashable UpdateContainerAgent
 
+instance NFData UpdateContainerAgent
+
 instance ToHeaders UpdateContainerAgent where
         toHeaders
           = const
@@ -152,3 +154,5 @@ ucarsContainerInstance = lens _ucarsContainerInstance (\ s a -> s{_ucarsContaine
 -- | The response status code.
 ucarsResponseStatus :: Lens' UpdateContainerAgentResponse Int
 ucarsResponseStatus = lens _ucarsResponseStatus (\ s a -> s{_ucarsResponseStatus = a});
+
+instance NFData UpdateContainerAgentResponse

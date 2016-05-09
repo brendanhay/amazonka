@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation configures one or more gateway local disks as upload
--- buffer for a specified gateway. This operation is supported for both the
+-- Configures one or more gateway local disks as upload buffer for a
+-- specified gateway. This operation is supported for both the
 -- gateway-stored and gateway-cached volume architectures.
 --
 -- In the request, you specify the gateway Amazon Resource Name (ARN) to
@@ -90,6 +90,8 @@ instance AWSRequest AddUploadBuffer where
 
 instance Hashable AddUploadBuffer
 
+instance NFData AddUploadBuffer
+
 instance ToHeaders AddUploadBuffer where
         toHeaders
           = const
@@ -142,3 +144,5 @@ aubrsGatewayARN = lens _aubrsGatewayARN (\ s a -> s{_aubrsGatewayARN = a});
 -- | The response status code.
 aubrsResponseStatus :: Lens' AddUploadBufferResponse Int
 aubrsResponseStatus = lens _aubrsResponseStatus (\ s a -> s{_aubrsResponseStatus = a});
+
+instance NFData AddUploadBufferResponse

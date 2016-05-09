@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'cancelImportTask' smart constructor.
+-- | Contains the parameters for CancelImportTask.
+--
+-- /See:/ 'cancelImportTask' smart constructor.
 data CancelImportTask = CancelImportTask'
     { _citCancelReason :: !(Maybe Text)
     , _citImportTaskId :: !(Maybe Text)
@@ -99,6 +101,8 @@ instance AWSRequest CancelImportTask where
 
 instance Hashable CancelImportTask
 
+instance NFData CancelImportTask
+
 instance ToHeaders CancelImportTask where
         toHeaders = const mempty
 
@@ -114,7 +118,9 @@ instance ToQuery CancelImportTask where
                "ImportTaskId" =: _citImportTaskId,
                "DryRun" =: _citDryRun]
 
--- | /See:/ 'cancelImportTaskResponse' smart constructor.
+-- | Contains the output for CancelImportTask.
+--
+-- /See:/ 'cancelImportTaskResponse' smart constructor.
 data CancelImportTaskResponse = CancelImportTaskResponse'
     { _citrsState          :: !(Maybe Text)
     , _citrsImportTaskId   :: !(Maybe Text)
@@ -159,3 +165,5 @@ citrsPreviousState = lens _citrsPreviousState (\ s a -> s{_citrsPreviousState = 
 -- | The response status code.
 citrsResponseStatus :: Lens' CancelImportTaskResponse Int
 citrsResponseStatus = lens _citrsResponseStatus (\ s a -> s{_citrsResponseStatus = a});
+
+instance NFData CancelImportTaskResponse

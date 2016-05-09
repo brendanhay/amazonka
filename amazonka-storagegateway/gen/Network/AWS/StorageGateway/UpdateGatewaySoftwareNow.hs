@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation updates the gateway virtual machine (VM) software. The
--- request immediately triggers the software update.
+-- Updates the gateway virtual machine (VM) software. The request
+-- immediately triggers the software update.
 --
 -- When you make this request, you get a '200 OK' success response
 -- immediately. However, it might take some time for the update to
@@ -93,6 +93,8 @@ instance AWSRequest UpdateGatewaySoftwareNow where
 
 instance Hashable UpdateGatewaySoftwareNow
 
+instance NFData UpdateGatewaySoftwareNow
+
 instance ToHeaders UpdateGatewaySoftwareNow where
         toHeaders
           = const
@@ -145,3 +147,5 @@ ugsnrsGatewayARN = lens _ugsnrsGatewayARN (\ s a -> s{_ugsnrsGatewayARN = a});
 -- | The response status code.
 ugsnrsResponseStatus :: Lens' UpdateGatewaySoftwareNowResponse Int
 ugsnrsResponseStatus = lens _ugsnrsResponseStatus (\ s a -> s{_ugsnrsResponseStatus = a});
+
+instance NFData UpdateGatewaySoftwareNowResponse

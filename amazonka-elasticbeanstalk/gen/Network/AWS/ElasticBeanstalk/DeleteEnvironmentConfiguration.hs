@@ -47,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to delete a draft environment configuration.
 --
 -- /See:/ 'deleteEnvironmentConfiguration' smart constructor.
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
@@ -90,6 +90,8 @@ instance AWSRequest DeleteEnvironmentConfiguration
 
 instance Hashable DeleteEnvironmentConfiguration
 
+instance NFData DeleteEnvironmentConfiguration
+
 instance ToHeaders DeleteEnvironmentConfiguration
          where
         toHeaders = const mempty
@@ -117,3 +119,6 @@ deleteEnvironmentConfigurationResponse
     :: DeleteEnvironmentConfigurationResponse
 deleteEnvironmentConfigurationResponse =
     DeleteEnvironmentConfigurationResponse'
+
+instance NFData
+         DeleteEnvironmentConfigurationResponse

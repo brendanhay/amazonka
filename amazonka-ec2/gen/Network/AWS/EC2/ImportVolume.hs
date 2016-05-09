@@ -55,7 +55,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'importVolume' smart constructor.
+-- | Contains the parameters for ImportVolume.
+--
+-- /See:/ 'importVolume' smart constructor.
 data ImportVolume = ImportVolume'
     { _ivDescription      :: !(Maybe Text)
     , _ivDryRun           :: !(Maybe Bool)
@@ -125,6 +127,8 @@ instance AWSRequest ImportVolume where
 
 instance Hashable ImportVolume
 
+instance NFData ImportVolume
+
 instance ToHeaders ImportVolume where
         toHeaders = const mempty
 
@@ -141,7 +145,9 @@ instance ToQuery ImportVolume where
                "AvailabilityZone" =: _ivAvailabilityZone,
                "Image" =: _ivImage, "Volume" =: _ivVolume]
 
--- | /See:/ 'importVolumeResponse' smart constructor.
+-- | Contains the output for ImportVolume.
+--
+-- /See:/ 'importVolumeResponse' smart constructor.
 data ImportVolumeResponse = ImportVolumeResponse'
     { _ivrsConversionTask :: !(Maybe ConversionTask)
     , _ivrsResponseStatus :: !Int
@@ -170,3 +176,5 @@ ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = 
 -- | The response status code.
 ivrsResponseStatus :: Lens' ImportVolumeResponse Int
 ivrsResponseStatus = lens _ivrsResponseStatus (\ s a -> s{_ivrsResponseStatus = a});
+
+instance NFData ImportVolumeResponse

@@ -123,6 +123,8 @@ instance AWSRequest DescribeEnvironmentHealth where
 
 instance Hashable DescribeEnvironmentHealth
 
+instance NFData DescribeEnvironmentHealth
+
 instance ToHeaders DescribeEnvironmentHealth where
         toHeaders = const mempty
 
@@ -233,3 +235,5 @@ dehrsRefreshedAt = lens _dehrsRefreshedAt (\ s a -> s{_dehrsRefreshedAt = a}) . 
 -- | The response status code.
 dehrsResponseStatus :: Lens' DescribeEnvironmentHealthResponse Int
 dehrsResponseStatus = lens _dehrsResponseStatus (\ s a -> s{_dehrsResponseStatus = a});
+
+instance NFData DescribeEnvironmentHealthResponse

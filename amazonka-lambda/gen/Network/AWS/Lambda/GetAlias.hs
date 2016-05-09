@@ -90,6 +90,8 @@ instance AWSRequest GetAlias where
 
 instance Hashable GetAlias
 
+instance NFData GetAlias
+
 instance ToHeaders GetAlias where
         toHeaders = const mempty
 

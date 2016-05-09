@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteDHCPOptions' smart constructor.
+-- | Contains the parameters for DeleteDhcpOptions.
+--
+-- /See:/ 'deleteDHCPOptions' smart constructor.
 data DeleteDHCPOptions = DeleteDHCPOptions'
     { _ddhcpoDryRun        :: !(Maybe Bool)
     , _ddhcpoDHCPOptionsId :: !Text
@@ -83,6 +85,8 @@ instance AWSRequest DeleteDHCPOptions where
 
 instance Hashable DeleteDHCPOptions
 
+instance NFData DeleteDHCPOptions
+
 instance ToHeaders DeleteDHCPOptions where
         toHeaders = const mempty
 
@@ -107,3 +111,5 @@ data DeleteDHCPOptionsResponse =
 deleteDHCPOptionsResponse
     :: DeleteDHCPOptionsResponse
 deleteDHCPOptionsResponse = DeleteDHCPOptionsResponse'
+
+instance NFData DeleteDHCPOptionsResponse

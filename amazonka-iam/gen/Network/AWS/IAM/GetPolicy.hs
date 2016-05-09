@@ -90,6 +90,8 @@ instance AWSRequest GetPolicy where
 
 instance Hashable GetPolicy
 
+instance NFData GetPolicy
+
 instance ToHeaders GetPolicy where
         toHeaders = const mempty
 
@@ -134,3 +136,5 @@ gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 -- | The response status code.
 gprsResponseStatus :: Lens' GetPolicyResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+
+instance NFData GetPolicyResponse

@@ -120,6 +120,8 @@ instance AWSRequest DescribeRepositories where
 
 instance Hashable DescribeRepositories
 
+instance NFData DescribeRepositories
+
 instance ToHeaders DescribeRepositories where
         toHeaders
           = const
@@ -185,3 +187,5 @@ drrsNextToken = lens _drrsNextToken (\ s a -> s{_drrsNextToken = a});
 -- | The response status code.
 drrsResponseStatus :: Lens' DescribeRepositoriesResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+
+instance NFData DescribeRepositoriesResponse

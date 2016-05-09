@@ -52,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeAvailabilityZones' smart constructor.
+-- | Contains the parameters for DescribeAvailabilityZones.
+--
+-- /See:/ 'describeAvailabilityZones' smart constructor.
 data DescribeAvailabilityZones = DescribeAvailabilityZones'
     { _dazZoneNames :: !(Maybe [Text])
     , _dazFilters   :: !(Maybe [Filter])
@@ -118,6 +120,8 @@ instance AWSRequest DescribeAvailabilityZones where
 
 instance Hashable DescribeAvailabilityZones
 
+instance NFData DescribeAvailabilityZones
+
 instance ToHeaders DescribeAvailabilityZones where
         toHeaders = const mempty
 
@@ -134,7 +138,9 @@ instance ToQuery DescribeAvailabilityZones where
                toQuery (toQueryList "Filter" <$> _dazFilters),
                "DryRun" =: _dazDryRun]
 
--- | /See:/ 'describeAvailabilityZonesResponse' smart constructor.
+-- | Contains the output of DescribeAvailabiltyZones.
+--
+-- /See:/ 'describeAvailabilityZonesResponse' smart constructor.
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
     { _dazrsAvailabilityZones :: !(Maybe [AvailabilityZone])
     , _dazrsResponseStatus    :: !Int
@@ -163,3 +169,5 @@ dazrsAvailabilityZones = lens _dazrsAvailabilityZones (\ s a -> s{_dazrsAvailabi
 -- | The response status code.
 dazrsResponseStatus :: Lens' DescribeAvailabilityZonesResponse Int
 dazrsResponseStatus = lens _dazrsResponseStatus (\ s a -> s{_dazrsResponseStatus = a});
+
+instance NFData DescribeAvailabilityZonesResponse

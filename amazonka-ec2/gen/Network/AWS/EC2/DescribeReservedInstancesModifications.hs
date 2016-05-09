@@ -55,7 +55,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeReservedInstancesModifications' smart constructor.
+-- | Contains the parameters for DescribeReservedInstancesModifications.
+--
+-- /See:/ 'describeReservedInstancesModifications' smart constructor.
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
     { _drimFilters                          :: !(Maybe [Filter])
     , _drimReservedInstancesModificationIds :: !(Maybe [Text])
@@ -155,6 +157,9 @@ instance AWSRequest
 instance Hashable
          DescribeReservedInstancesModifications
 
+instance NFData
+         DescribeReservedInstancesModifications
+
 instance ToHeaders
          DescribeReservedInstancesModifications where
         toHeaders = const mempty
@@ -177,7 +182,9 @@ instance ToQuery
                     _drimReservedInstancesModificationIds),
                "NextToken" =: _drimNextToken]
 
--- | /See:/ 'describeReservedInstancesModificationsResponse' smart constructor.
+-- | Contains the output of DescribeReservedInstancesModifications.
+--
+-- /See:/ 'describeReservedInstancesModificationsResponse' smart constructor.
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
     { _drimrsNextToken                      :: !(Maybe Text)
     , _drimrsReservedInstancesModifications :: !(Maybe [ReservedInstancesModification])
@@ -215,3 +222,6 @@ drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModification
 -- | The response status code.
 drimrsResponseStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
 drimrsResponseStatus = lens _drimrsResponseStatus (\ s a -> s{_drimrsResponseStatus = a});
+
+instance NFData
+         DescribeReservedInstancesModificationsResponse

@@ -18,10 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation checks the availability of one domain name. You can
--- access this API without authenticating. Note that if the availability
--- status of a domain is pending, you must submit another request to
--- determine the availability of the domain name.
+-- This operation checks the availability of one domain name. Note that if
+-- the availability status of a domain is pending, you must submit another
+-- request to determine the availability of the domain name.
 module Network.AWS.Route53Domains.CheckDomainAvailability
     (
     -- * Creating a Request
@@ -100,6 +99,8 @@ instance AWSRequest CheckDomainAvailability where
 
 instance Hashable CheckDomainAvailability
 
+instance NFData CheckDomainAvailability
+
 instance ToHeaders CheckDomainAvailability where
         toHeaders
           = const
@@ -176,3 +177,5 @@ cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus
 --     registry is performing maintenance. Try again later.
 cdarsAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarsAvailability = lens _cdarsAvailability (\ s a -> s{_cdarsAvailability = a});
+
+instance NFData CheckDomainAvailabilityResponse

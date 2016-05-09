@@ -36,9 +36,12 @@
 -- If a volume has an AWS Marketplace product code:
 --
 -- -   The volume can be attached only to a stopped instance.
+--
 -- -   AWS Marketplace product codes are copied from the volume to the
 --     instance.
+--
 -- -   You must be subscribed to the product.
+--
 -- -   The instance type and operating system of the instance must support
 --     the product. For example, you can\'t detach a volume from a Windows
 --     instance and attach it to a Linux instance.
@@ -79,7 +82,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'attachVolume' smart constructor.
+-- | Contains the parameters for AttachVolume.
+--
+-- /See:/ 'attachVolume' smart constructor.
 data AttachVolume = AttachVolume'
     { _avDryRun     :: !(Maybe Bool)
     , _avVolumeId   :: !Text
@@ -138,6 +143,8 @@ instance AWSRequest AttachVolume where
         response = receiveXML (\ s h x -> parseXML x)
 
 instance Hashable AttachVolume
+
+instance NFData AttachVolume
 
 instance ToHeaders AttachVolume where
         toHeaders = const mempty

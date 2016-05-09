@@ -152,6 +152,8 @@ instance AWSRequest CreateDBClusterParameterGroup
 
 instance Hashable CreateDBClusterParameterGroup
 
+instance NFData CreateDBClusterParameterGroup
+
 instance ToHeaders CreateDBClusterParameterGroup
          where
         toHeaders = const mempty
@@ -201,3 +203,5 @@ cdcpgrsDBClusterParameterGroup = lens _cdcpgrsDBClusterParameterGroup (\ s a -> 
 -- | The response status code.
 cdcpgrsResponseStatus :: Lens' CreateDBClusterParameterGroupResponse Int
 cdcpgrsResponseStatus = lens _cdcpgrsResponseStatus (\ s a -> s{_cdcpgrsResponseStatus = a});
+
+instance NFData CreateDBClusterParameterGroupResponse

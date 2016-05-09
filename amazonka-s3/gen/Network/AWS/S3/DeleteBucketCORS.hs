@@ -68,6 +68,8 @@ instance AWSRequest DeleteBucketCORS where
 
 instance Hashable DeleteBucketCORS
 
+instance NFData DeleteBucketCORS
+
 instance ToHeaders DeleteBucketCORS where
         toHeaders = const mempty
 
@@ -88,3 +90,5 @@ data DeleteBucketCORSResponse =
 deleteBucketCORSResponse
     :: DeleteBucketCORSResponse
 deleteBucketCORSResponse = DeleteBucketCORSResponse'
+
+instance NFData DeleteBucketCORSResponse

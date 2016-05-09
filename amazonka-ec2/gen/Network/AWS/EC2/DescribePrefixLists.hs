@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describePrefixLists' smart constructor.
+-- | Contains the parameters for DescribePrefixLists.
+--
+-- /See:/ 'describePrefixLists' smart constructor.
 data DescribePrefixLists = DescribePrefixLists'
     { _dplFilters       :: !(Maybe [Filter])
     , _dplPrefixListIds :: !(Maybe [Text])
@@ -133,6 +135,8 @@ instance AWSRequest DescribePrefixLists where
 
 instance Hashable DescribePrefixLists
 
+instance NFData DescribePrefixLists
+
 instance ToHeaders DescribePrefixLists where
         toHeaders = const mempty
 
@@ -150,7 +154,9 @@ instance ToQuery DescribePrefixLists where
                "NextToken" =: _dplNextToken, "DryRun" =: _dplDryRun,
                "MaxResults" =: _dplMaxResults]
 
--- | /See:/ 'describePrefixListsResponse' smart constructor.
+-- | Contains the output of DescribePrefixLists.
+--
+-- /See:/ 'describePrefixListsResponse' smart constructor.
 data DescribePrefixListsResponse = DescribePrefixListsResponse'
     { _dplrsNextToken      :: !(Maybe Text)
     , _dplrsPrefixLists    :: !(Maybe [PrefixList])
@@ -188,3 +194,5 @@ dplrsPrefixLists = lens _dplrsPrefixLists (\ s a -> s{_dplrsPrefixLists = a}) . 
 -- | The response status code.
 dplrsResponseStatus :: Lens' DescribePrefixListsResponse Int
 dplrsResponseStatus = lens _dplrsResponseStatus (\ s a -> s{_dplrsResponseStatus = a});
+
+instance NFData DescribePrefixListsResponse

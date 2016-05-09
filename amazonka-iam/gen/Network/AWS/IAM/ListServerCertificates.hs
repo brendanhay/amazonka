@@ -135,6 +135,8 @@ instance AWSRequest ListServerCertificates where
 
 instance Hashable ListServerCertificates
 
+instance NFData ListServerCertificates
+
 instance ToHeaders ListServerCertificates where
         toHeaders = const mempty
 
@@ -205,3 +207,5 @@ lscrsResponseStatus = lens _lscrsResponseStatus (\ s a -> s{_lscrsResponseStatus
 -- | A list of server certificates.
 lscrsServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [ServerCertificateMetadata]
 lscrsServerCertificateMetadataList = lens _lscrsServerCertificateMetadataList (\ s a -> s{_lscrsServerCertificateMetadataList = a}) . _Coerce;
+
+instance NFData ListServerCertificatesResponse

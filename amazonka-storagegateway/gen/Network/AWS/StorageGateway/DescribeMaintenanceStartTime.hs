@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns your gateway\'s weekly maintenance start time
--- including the day and time of the week. Note that values are in terms of
--- the gateway\'s time zone.
+-- Returns your gateway\'s weekly maintenance start time including the day
+-- and time of the week. Note that values are in terms of the gateway\'s
+-- time zone.
 module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     (
     -- * Creating a Request
@@ -88,6 +88,8 @@ instance AWSRequest DescribeMaintenanceStartTime
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeMaintenanceStartTime
+
+instance NFData DescribeMaintenanceStartTime
 
 instance ToHeaders DescribeMaintenanceStartTime where
         toHeaders
@@ -171,3 +173,5 @@ dmstrsDayOfWeek = lens _dmstrsDayOfWeek (\ s a -> s{_dmstrsDayOfWeek = a}) . map
 -- | The response status code.
 dmstrsResponseStatus :: Lens' DescribeMaintenanceStartTimeResponse Int
 dmstrsResponseStatus = lens _dmstrsResponseStatus (\ s a -> s{_dmstrsResponseStatus = a});
+
+instance NFData DescribeMaintenanceStartTimeResponse

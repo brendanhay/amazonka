@@ -82,13 +82,13 @@ module Network.AWS.SWF.PollForDecisionTask
     , PollForDecisionTaskResponse
     -- * Response Lenses
     , pfdtrsNextPageToken
+    , pfdtrsWorkflowType
     , pfdtrsPreviousStartedEventId
+    , pfdtrsEvents
     , pfdtrsTaskToken
+    , pfdtrsWorkflowExecution
     , pfdtrsResponseStatus
     , pfdtrsStartedEventId
-    , pfdtrsWorkflowExecution
-    , pfdtrsWorkflowType
-    , pfdtrsEvents
     ) where
 
 import           Network.AWS.Lens
@@ -208,16 +208,17 @@ instance AWSRequest PollForDecisionTask where
           = receiveJSON
               (\ s h x ->
                  PollForDecisionTaskResponse' <$>
-                   (x .?> "nextPageToken") <*>
-                     (x .?> "previousStartedEventId")
+                   (x .?> "nextPageToken") <*> (x .?> "workflowType")
+                     <*> (x .?> "previousStartedEventId")
+                     <*> (x .?> "events" .!@ mempty)
                      <*> (x .?> "taskToken")
+                     <*> (x .?> "workflowExecution")
                      <*> (pure (fromEnum s))
-                     <*> (x .:> "startedEventId")
-                     <*> (x .:> "workflowExecution")
-                     <*> (x .:> "workflowType")
-                     <*> (x .?> "events" .!@ mempty))
+                     <*> (x .:> "startedEventId"))
 
 instance Hashable PollForDecisionTask
+
+instance NFData PollForDecisionTask
 
 instance ToHeaders PollForDecisionTask where
         toHeaders
@@ -252,13 +253,13 @@ instance ToQuery PollForDecisionTask where
 -- /See:/ 'pollForDecisionTaskResponse' smart constructor.
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
     { _pfdtrsNextPageToken          :: !(Maybe Text)
+    , _pfdtrsWorkflowType           :: !(Maybe WorkflowType)
     , _pfdtrsPreviousStartedEventId :: !(Maybe Integer)
+    , _pfdtrsEvents                 :: !(Maybe [HistoryEvent])
     , _pfdtrsTaskToken              :: !(Maybe Text)
+    , _pfdtrsWorkflowExecution      :: !(Maybe WorkflowExecution)
     , _pfdtrsResponseStatus         :: !Int
     , _pfdtrsStartedEventId         :: !Integer
-    , _pfdtrsWorkflowExecution      :: !WorkflowExecution
-    , _pfdtrsWorkflowType           :: !WorkflowType
-    , _pfdtrsEvents                 :: ![HistoryEvent]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PollForDecisionTaskResponse' with the minimum fields required to make a request.
@@ -267,35 +268,33 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
 --
 -- * 'pfdtrsNextPageToken'
 --
+-- * 'pfdtrsWorkflowType'
+--
 -- * 'pfdtrsPreviousStartedEventId'
 --
+-- * 'pfdtrsEvents'
+--
 -- * 'pfdtrsTaskToken'
+--
+-- * 'pfdtrsWorkflowExecution'
 --
 -- * 'pfdtrsResponseStatus'
 --
 -- * 'pfdtrsStartedEventId'
---
--- * 'pfdtrsWorkflowExecution'
---
--- * 'pfdtrsWorkflowType'
---
--- * 'pfdtrsEvents'
 pollForDecisionTaskResponse
     :: Int -- ^ 'pfdtrsResponseStatus'
     -> Integer -- ^ 'pfdtrsStartedEventId'
-    -> WorkflowExecution -- ^ 'pfdtrsWorkflowExecution'
-    -> WorkflowType -- ^ 'pfdtrsWorkflowType'
     -> PollForDecisionTaskResponse
-pollForDecisionTaskResponse pResponseStatus_ pStartedEventId_ pWorkflowExecution_ pWorkflowType_ =
+pollForDecisionTaskResponse pResponseStatus_ pStartedEventId_ =
     PollForDecisionTaskResponse'
     { _pfdtrsNextPageToken = Nothing
+    , _pfdtrsWorkflowType = Nothing
     , _pfdtrsPreviousStartedEventId = Nothing
+    , _pfdtrsEvents = Nothing
     , _pfdtrsTaskToken = Nothing
+    , _pfdtrsWorkflowExecution = Nothing
     , _pfdtrsResponseStatus = pResponseStatus_
     , _pfdtrsStartedEventId = pStartedEventId_
-    , _pfdtrsWorkflowExecution = pWorkflowExecution_
-    , _pfdtrsWorkflowType = pWorkflowType_
-    , _pfdtrsEvents = mempty
     }
 
 -- | If a 'NextPageToken' was returned by a previous call, there are more
@@ -308,6 +307,11 @@ pollForDecisionTaskResponse pResponseStatus_ pStartedEventId_ pWorkflowExecution
 pfdtrsNextPageToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
 pfdtrsNextPageToken = lens _pfdtrsNextPageToken (\ s a -> s{_pfdtrsNextPageToken = a});
 
+-- | The type of the workflow execution for which this decision task was
+-- created.
+pfdtrsWorkflowType :: Lens' PollForDecisionTaskResponse (Maybe WorkflowType)
+pfdtrsWorkflowType = lens _pfdtrsWorkflowType (\ s a -> s{_pfdtrsWorkflowType = a});
+
 -- | The ID of the DecisionTaskStarted event of the previous decision task of
 -- this workflow execution that was processed by the decider. This can be
 -- used to determine the events in the history new since the last decision
@@ -315,11 +319,20 @@ pfdtrsNextPageToken = lens _pfdtrsNextPageToken (\ s a -> s{_pfdtrsNextPageToken
 pfdtrsPreviousStartedEventId :: Lens' PollForDecisionTaskResponse (Maybe Integer)
 pfdtrsPreviousStartedEventId = lens _pfdtrsPreviousStartedEventId (\ s a -> s{_pfdtrsPreviousStartedEventId = a});
 
+-- | A paginated list of history events of the workflow execution. The
+-- decider uses this during the processing of the decision task.
+pfdtrsEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
+pfdtrsEvents = lens _pfdtrsEvents (\ s a -> s{_pfdtrsEvents = a}) . _Default . _Coerce;
+
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the
 -- system about the task.
 pfdtrsTaskToken :: Lens' PollForDecisionTaskResponse (Maybe Text)
 pfdtrsTaskToken = lens _pfdtrsTaskToken (\ s a -> s{_pfdtrsTaskToken = a});
+
+-- | The workflow execution for which this decision task was created.
+pfdtrsWorkflowExecution :: Lens' PollForDecisionTaskResponse (Maybe WorkflowExecution)
+pfdtrsWorkflowExecution = lens _pfdtrsWorkflowExecution (\ s a -> s{_pfdtrsWorkflowExecution = a});
 
 -- | The response status code.
 pfdtrsResponseStatus :: Lens' PollForDecisionTaskResponse Int
@@ -329,16 +342,4 @@ pfdtrsResponseStatus = lens _pfdtrsResponseStatus (\ s a -> s{_pfdtrsResponseSta
 pfdtrsStartedEventId :: Lens' PollForDecisionTaskResponse Integer
 pfdtrsStartedEventId = lens _pfdtrsStartedEventId (\ s a -> s{_pfdtrsStartedEventId = a});
 
--- | The workflow execution for which this decision task was created.
-pfdtrsWorkflowExecution :: Lens' PollForDecisionTaskResponse WorkflowExecution
-pfdtrsWorkflowExecution = lens _pfdtrsWorkflowExecution (\ s a -> s{_pfdtrsWorkflowExecution = a});
-
--- | The type of the workflow execution for which this decision task was
--- created.
-pfdtrsWorkflowType :: Lens' PollForDecisionTaskResponse WorkflowType
-pfdtrsWorkflowType = lens _pfdtrsWorkflowType (\ s a -> s{_pfdtrsWorkflowType = a});
-
--- | A paginated list of history events of the workflow execution. The
--- decider uses this during the processing of the decision task.
-pfdtrsEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
-pfdtrsEvents = lens _pfdtrsEvents (\ s a -> s{_pfdtrsEvents = a}) . _Coerce;
+instance NFData PollForDecisionTaskResponse

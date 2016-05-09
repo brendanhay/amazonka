@@ -91,6 +91,8 @@ instance AWSRequest ConfigureHealthCheck where
 
 instance Hashable ConfigureHealthCheck
 
+instance NFData ConfigureHealthCheck
+
 instance ToHeaders ConfigureHealthCheck where
         toHeaders = const mempty
 
@@ -134,3 +136,5 @@ chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 -- | The response status code.
 chcrsResponseStatus :: Lens' ConfigureHealthCheckResponse Int
 chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});
+
+instance NFData ConfigureHealthCheckResponse

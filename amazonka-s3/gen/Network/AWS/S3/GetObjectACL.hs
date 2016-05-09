@@ -109,6 +109,8 @@ instance AWSRequest GetObjectACL where
 
 instance Hashable GetObjectACL
 
+instance NFData GetObjectACL
+
 instance ToHeaders GetObjectACL where
         toHeaders GetObjectACL'{..}
           = mconcat ["x-amz-request-payer" =# _goaRequestPayer]
@@ -166,3 +168,5 @@ goarsOwner = lens _goarsOwner (\ s a -> s{_goarsOwner = a});
 -- | The response status code.
 goarsResponseStatus :: Lens' GetObjectACLResponse Int
 goarsResponseStatus = lens _goarsResponseStatus (\ s a -> s{_goarsResponseStatus = a});
+
+instance NFData GetObjectACLResponse

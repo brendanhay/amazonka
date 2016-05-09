@@ -64,7 +64,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'copySnapshot' smart constructor.
+-- | Contains the parameters for CopySnapshot.
+--
+-- /See:/ 'copySnapshot' smart constructor.
 data CopySnapshot = CopySnapshot'
     { _csPresignedURL      :: !(Maybe Text)
     , _csEncrypted         :: !(Maybe Bool)
@@ -192,6 +194,8 @@ instance AWSRequest CopySnapshot where
 
 instance Hashable CopySnapshot
 
+instance NFData CopySnapshot
+
 instance ToHeaders CopySnapshot where
         toHeaders = const mempty
 
@@ -212,7 +216,9 @@ instance ToQuery CopySnapshot where
                "SourceRegion" =: _csSourceRegion,
                "SourceSnapshotId" =: _csSourceSnapshotId]
 
--- | /See:/ 'copySnapshotResponse' smart constructor.
+-- | Contains the output of CopySnapshot.
+--
+-- /See:/ 'copySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
     { _csrsSnapshotId     :: !(Maybe Text)
     , _csrsResponseStatus :: !Int
@@ -241,3 +247,5 @@ csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 -- | The response status code.
 csrsResponseStatus :: Lens' CopySnapshotResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+
+instance NFData CopySnapshotResponse

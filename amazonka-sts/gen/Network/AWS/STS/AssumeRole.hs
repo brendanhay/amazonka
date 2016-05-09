@@ -22,9 +22,15 @@
 -- key ID, a secret access key, and a security token) that you can use to
 -- access AWS resources that you might not normally have access to.
 -- Typically, you use 'AssumeRole' for cross-account access or federation.
+-- For a comparison of 'AssumeRole' with the other APIs that produce
+-- temporary credentials, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
+-- and
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the AWS STS APIs>
+-- in the /IAM User Guide/.
 --
--- __Important:__ You cannot call 'AssumeRole' by using AWS account
--- credentials; access will be denied. You must use IAM user credentials or
+-- __Important:__ You cannot call 'AssumeRole' by using AWS root account
+-- credentials; access is denied. You must use IAM user credentials or
 -- temporary security credentials to call 'AssumeRole'.
 --
 -- For cross-account access, imagine that you own multiple accounts and
@@ -36,7 +42,7 @@
 -- to access all the other accounts by assuming roles in those accounts.
 -- For more information about roles, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html IAM Roles (Delegation and Federation)>
--- in the /Using IAM/.
+-- in the /IAM User Guide/.
 --
 -- For federation, you can, for example, grant single sign-on access to the
 -- AWS Management Console. If you already have an identity and
@@ -48,11 +54,16 @@
 -- security credentials, you construct a sign-in URL that users can use to
 -- access the console. For more information, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html#sts-introduction Common Scenarios for Temporary Credentials>
--- in the /Using IAM/.
+-- in the /IAM User Guide/.
 --
 -- The temporary security credentials are valid for the duration that you
 -- specified when calling 'AssumeRole', which can be from 900 seconds (15
--- minutes) to 3600 seconds (1 hour). The default is 1 hour.
+-- minutes) to a maximum of 3600 seconds (1 hour). The default is 1 hour.
+--
+-- The temporary security credentials created by 'AssumeRole' can be used
+-- to make API calls to any AWS service with the following exception: you
+-- cannot call the STS service\'s 'GetFederationToken' or 'GetSessionToken'
+-- APIs.
 --
 -- Optionally, you can pass an IAM access policy to this operation. If you
 -- choose not to pass a policy, the temporary security credentials that are
@@ -67,12 +78,21 @@
 -- access policy of the role that is being assumed. For more information,
 -- see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity>
--- in the /Using IAM/.
+-- in the /IAM User Guide/.
 --
 -- To assume a role, your AWS account must be trusted by the role. The
 -- trust relationship is defined in the role\'s trust policy when the role
--- is created. You must also have a policy that allows you to call
--- 'sts:AssumeRole'.
+-- is created. That trust policy states which accounts are allowed to
+-- delegate access to this account\'s role.
+--
+-- The user who wants to access the role must also have permissions
+-- delegated from the role\'s administrator. If the user is in a different
+-- account than the role, then the user\'s administrator must attach a
+-- policy that allows the user to call AssumeRole on the ARN of the role in
+-- the other account. If the user is in the same account as the role, then
+-- you can either attach a policy to the user (identical to the previous
+-- different account user), or you can add the user as a principal directly
+-- in the role\'s trust policy
 --
 -- __Using MFA with AssumeRole__
 --
@@ -90,7 +110,7 @@
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html Configuring MFA-Protected API Access>
--- in the /Using IAM/ guide.
+-- in the /IAM User Guide/ guide.
 --
 -- To use MFA with 'AssumeRole', you pass values for the 'SerialNumber' and
 -- 'TokenCode' parameters. The 'SerialNumber' value identifies the user\'s
@@ -175,6 +195,9 @@ assumeRole pRoleARN_ pRoleSessionName_ =
 -- that tests for MFA). If the role being assumed requires MFA and if the
 -- 'TokenCode' value is missing or expired, the 'AssumeRole' call returns
 -- an \"access denied\" error.
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- sequence of six numeric digits.
 arTokenCode :: Lens' AssumeRole (Maybe Text)
 arTokenCode = lens _arTokenCode (\ s a -> s{_arTokenCode = a});
 
@@ -195,7 +218,13 @@ arDurationSeconds = lens _arDurationSeconds (\ s a -> s{_arDurationSeconds = a})
 -- permissions that are in excess of those allowed by the access policy of
 -- the role that is being assumed. For more information, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity>
--- in the /Using IAM/.
+-- in the /IAM User Guide/.
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- string of characters up to 2048 characters in length. The characters can
+-- be any ASCII character from the space character to the end of the valid
+-- character list (\\u0020-\\u00FF). It can also include the tab (\\u0009),
+-- linefeed (\\u000A), and carriage return (\\u000D) characters.
 --
 -- The policy plain text must be 2048 bytes or shorter. However, an
 -- internal conversion compresses it into a packed binary format with a
@@ -214,7 +243,12 @@ arPolicy = lens _arPolicy (\ s a -> s{_arPolicy = a});
 -- bind a role to the customer who created it. For more information about
 -- the external ID, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html How to Use an External ID When Granting Access to Your AWS Resources to a Third Party>
--- in the /Using IAM/.
+-- in the /IAM User Guide/.
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- string of characters consisting of upper- and lower-case alphanumeric
+-- characters with no spaces. You can also include any of the following
+-- characters: =,.\':\\\/-
 arExternalId :: Lens' AssumeRole (Maybe Text)
 arExternalId = lens _arExternalId (\ s a -> s{_arExternalId = a});
 
@@ -225,6 +259,11 @@ arExternalId = lens _arExternalId (\ s a -> s{_arExternalId = a});
 -- hardware device (such as 'GAHT12345678') or an Amazon Resource Name
 -- (ARN) for a virtual device (such as
 -- 'arn:aws:iam::123456789012:mfa\/user').
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- string of characters consisting of upper- and lower-case alphanumeric
+-- characters with no spaces. You can also include any of the following
+-- characters: =,.\'-
 arSerialNumber :: Lens' AssumeRole (Maybe Text)
 arSerialNumber = lens _arSerialNumber (\ s a -> s{_arSerialNumber = a});
 
@@ -242,6 +281,11 @@ arRoleARN = lens _arRoleARN (\ s a -> s{_arRoleARN = a});
 -- subsequent cross-account API requests using the temporary security
 -- credentials will expose the role session name to the external account in
 -- their CloudTrail logs.
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- string of characters consisting of upper- and lower-case alphanumeric
+-- characters with no spaces. You can also include any of the following
+-- characters: =,.\'-
 arRoleSessionName :: Lens' AssumeRole Text
 arRoleSessionName = lens _arRoleSessionName (\ s a -> s{_arRoleSessionName = a});
 
@@ -257,6 +301,8 @@ instance AWSRequest AssumeRole where
                      <*> (pure (fromEnum s)))
 
 instance Hashable AssumeRole
+
+instance NFData AssumeRole
 
 instance ToHeaders AssumeRole where
         toHeaders = const mempty
@@ -338,3 +384,5 @@ arrsAssumedRoleUser = lens _arrsAssumedRoleUser (\ s a -> s{_arrsAssumedRoleUser
 -- | The response status code.
 arrsResponseStatus :: Lens' AssumeRoleResponse Int
 arrsResponseStatus = lens _arrsResponseStatus (\ s a -> s{_arrsResponseStatus = a});
+
+instance NFData AssumeRoleResponse

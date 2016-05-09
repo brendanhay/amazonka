@@ -82,6 +82,8 @@ instance AWSRequest GetCognitoEvents where
 
 instance Hashable GetCognitoEvents
 
+instance NFData GetCognitoEvents
+
 instance ToHeaders GetCognitoEvents where
         toHeaders
           = const
@@ -129,3 +131,5 @@ gcersEvents = lens _gcersEvents (\ s a -> s{_gcersEvents = a}) . _Default . _Map
 -- | The response status code.
 gcersResponseStatus :: Lens' GetCognitoEventsResponse Int
 gcersResponseStatus = lens _gcersResponseStatus (\ s a -> s{_gcersResponseStatus = a});
+
+instance NFData GetCognitoEventsResponse

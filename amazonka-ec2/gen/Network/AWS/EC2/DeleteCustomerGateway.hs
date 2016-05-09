@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteCustomerGateway' smart constructor.
+-- | Contains the parameters for DeleteCustomerGateway.
+--
+-- /See:/ 'deleteCustomerGateway' smart constructor.
 data DeleteCustomerGateway = DeleteCustomerGateway'
     { _dcgcDryRun            :: !(Maybe Bool)
     , _dcgcCustomerGatewayId :: !Text
@@ -82,6 +84,8 @@ instance AWSRequest DeleteCustomerGateway where
 
 instance Hashable DeleteCustomerGateway
 
+instance NFData DeleteCustomerGateway
+
 instance ToHeaders DeleteCustomerGateway where
         toHeaders = const mempty
 
@@ -106,3 +110,5 @@ data DeleteCustomerGatewayResponse =
 deleteCustomerGatewayResponse
     :: DeleteCustomerGatewayResponse
 deleteCustomerGatewayResponse = DeleteCustomerGatewayResponse'
+
+instance NFData DeleteCustomerGatewayResponse

@@ -124,6 +124,8 @@ instance AWSRequest RegisterDomain where
 
 instance Hashable RegisterDomain
 
+instance NFData RegisterDomain
+
 instance ToHeaders RegisterDomain where
         toHeaders
           = const
@@ -160,3 +162,5 @@ data RegisterDomainResponse =
 registerDomainResponse
     :: RegisterDomainResponse
 registerDomainResponse = RegisterDomainResponse'
+
+instance NFData RegisterDomainResponse

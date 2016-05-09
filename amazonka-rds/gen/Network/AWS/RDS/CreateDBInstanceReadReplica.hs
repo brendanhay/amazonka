@@ -313,6 +313,8 @@ instance AWSRequest CreateDBInstanceReadReplica where
 
 instance Hashable CreateDBInstanceReadReplica
 
+instance NFData CreateDBInstanceReadReplica
+
 instance ToHeaders CreateDBInstanceReadReplica where
         toHeaders = const mempty
 
@@ -372,3 +374,5 @@ cdirrrsDBInstance = lens _cdirrrsDBInstance (\ s a -> s{_cdirrrsDBInstance = a})
 -- | The response status code.
 cdirrrsResponseStatus :: Lens' CreateDBInstanceReadReplicaResponse Int
 cdirrrsResponseStatus = lens _cdirrrsResponseStatus (\ s a -> s{_cdirrrsResponseStatus = a});
+
+instance NFData CreateDBInstanceReadReplicaResponse

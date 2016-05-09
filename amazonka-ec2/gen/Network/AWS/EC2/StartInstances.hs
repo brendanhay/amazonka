@@ -64,7 +64,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'startInstances' smart constructor.
+-- | Contains the parameters for StartInstances.
+--
+-- /See:/ 'startInstances' smart constructor.
 data StartInstances = StartInstances'
     { _sAdditionalInfo :: !(Maybe Text)
     , _sDryRun         :: !(Maybe Bool)
@@ -117,6 +119,8 @@ instance AWSRequest StartInstances where
 
 instance Hashable StartInstances
 
+instance NFData StartInstances
+
 instance ToHeaders StartInstances where
         toHeaders = const mempty
 
@@ -132,7 +136,9 @@ instance ToQuery StartInstances where
                "DryRun" =: _sDryRun,
                toQueryList "InstanceId" _sInstanceIds]
 
--- | /See:/ 'startInstancesResponse' smart constructor.
+-- | Contains the output of StartInstances.
+--
+-- /See:/ 'startInstancesResponse' smart constructor.
 data StartInstancesResponse = StartInstancesResponse'
     { _srsStartingInstances :: !(Maybe [InstanceStateChange])
     , _srsResponseStatus    :: !Int
@@ -161,3 +167,5 @@ srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstan
 -- | The response status code.
 srsResponseStatus :: Lens' StartInstancesResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+
+instance NFData StartInstancesResponse

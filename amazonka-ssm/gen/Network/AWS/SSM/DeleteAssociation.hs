@@ -89,6 +89,8 @@ instance AWSRequest DeleteAssociation where
 
 instance Hashable DeleteAssociation
 
+instance NFData DeleteAssociation
+
 instance ToHeaders DeleteAssociation where
         toHeaders
           = const
@@ -132,3 +134,5 @@ deleteAssociationResponse pResponseStatus_ =
 -- | The response status code.
 delrsResponseStatus :: Lens' DeleteAssociationResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+
+instance NFData DeleteAssociationResponse

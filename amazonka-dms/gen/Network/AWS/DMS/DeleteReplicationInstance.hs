@@ -82,6 +82,8 @@ instance AWSRequest DeleteReplicationInstance where
 
 instance Hashable DeleteReplicationInstance
 
+instance NFData DeleteReplicationInstance
+
 instance ToHeaders DeleteReplicationInstance where
         toHeaders
           = const
@@ -135,3 +137,5 @@ drirsReplicationInstance = lens _drirsReplicationInstance (\ s a -> s{_drirsRepl
 -- | The response status code.
 drirsResponseStatus :: Lens' DeleteReplicationInstanceResponse Int
 drirsResponseStatus = lens _drirsResponseStatus (\ s a -> s{_drirsResponseStatus = a});
+
+instance NFData DeleteReplicationInstanceResponse

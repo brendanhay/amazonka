@@ -66,6 +66,8 @@ deleteDBSubnetGroup pDBSubnetGroupName_ =
 --
 -- You cannot delete the default subnet group.
 --
+-- Constraints:
+--
 -- Constraints: Must contain no more than 255 alphanumeric characters,
 -- periods, underscores, spaces, or hyphens. Must not be default.
 --
@@ -80,6 +82,8 @@ instance AWSRequest DeleteDBSubnetGroup where
         response = receiveNull DeleteDBSubnetGroupResponse'
 
 instance Hashable DeleteDBSubnetGroup
+
+instance NFData DeleteDBSubnetGroup
 
 instance ToHeaders DeleteDBSubnetGroup where
         toHeaders = const mempty
@@ -104,3 +108,5 @@ data DeleteDBSubnetGroupResponse =
 deleteDBSubnetGroupResponse
     :: DeleteDBSubnetGroupResponse
 deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse'
+
+instance NFData DeleteDBSubnetGroupResponse

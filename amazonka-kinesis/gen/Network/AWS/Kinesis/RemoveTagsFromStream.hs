@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes tags from the specified Amazon Kinesis stream.
+-- Removes tags from the specified Amazon Kinesis stream. Removed tags are
+-- deleted and cannot be recovered after this operation successfully
+-- completes.
 --
 -- If you specify a tag that does not exist, it is ignored.
 module Network.AWS.Kinesis.RemoveTagsFromStream
@@ -83,6 +85,8 @@ instance AWSRequest RemoveTagsFromStream where
 
 instance Hashable RemoveTagsFromStream
 
+instance NFData RemoveTagsFromStream
+
 instance ToHeaders RemoveTagsFromStream where
         toHeaders
           = const
@@ -116,3 +120,5 @@ data RemoveTagsFromStreamResponse =
 removeTagsFromStreamResponse
     :: RemoveTagsFromStreamResponse
 removeTagsFromStreamResponse = RemoveTagsFromStreamResponse'
+
+instance NFData RemoveTagsFromStreamResponse

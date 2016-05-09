@@ -129,6 +129,8 @@ instance AWSRequest DescribePolicies where
 
 instance Hashable DescribePolicies
 
+instance NFData DescribePolicies
+
 instance ToHeaders DescribePolicies where
         toHeaders = const mempty
 
@@ -186,3 +188,5 @@ dprsScalingPolicies = lens _dprsScalingPolicies (\ s a -> s{_dprsScalingPolicies
 -- | The response status code.
 dprsResponseStatus :: Lens' DescribePoliciesResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+
+instance NFData DescribePoliciesResponse

@@ -18,7 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Simulate the execution of a < Method> in your < RestApi> with headers,
+-- parameters, and an incoming request body.
 module Network.AWS.APIGateway.TestInvokeMethod
     (
     -- * Creating a Request
@@ -53,7 +54,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'testInvokeMethod' smart constructor.
+-- | Make a request to simulate the execution of a < Method>.
+--
+-- /See:/ 'testInvokeMethod' smart constructor.
 data TestInvokeMethod = TestInvokeMethod'
     { _timPathWithQueryString :: !(Maybe Text)
     , _timBody                :: !(Maybe Text)
@@ -101,35 +104,40 @@ testInvokeMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _timHttpMethod = pHttpMethod_
     }
 
--- | Undocumented member.
+-- | The URI path, including query string, of the simulated invocation
+-- request. Use this to specify path parameters and query string
+-- parameters.
 timPathWithQueryString :: Lens' TestInvokeMethod (Maybe Text)
 timPathWithQueryString = lens _timPathWithQueryString (\ s a -> s{_timPathWithQueryString = a});
 
--- | Undocumented member.
+-- | The simulated request body of an incoming invocation request.
 timBody :: Lens' TestInvokeMethod (Maybe Text)
 timBody = lens _timBody (\ s a -> s{_timBody = a});
 
--- | Undocumented member.
+-- | A < ClientCertificate> identifier to use in the test invocation. API
+-- Gateway will use use the certificate when making the HTTPS request to
+-- the defined backend endpoint.
 timClientCertificateId :: Lens' TestInvokeMethod (Maybe Text)
 timClientCertificateId = lens _timClientCertificateId (\ s a -> s{_timClientCertificateId = a});
 
--- | Undocumented member.
+-- | A key-value map of stage variables to simulate an invocation on a
+-- deployed < Stage>.
 timStageVariables :: Lens' TestInvokeMethod (HashMap Text Text)
 timStageVariables = lens _timStageVariables (\ s a -> s{_timStageVariables = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | A key-value map of headers to simulate an incoming invocation request.
 timHeaders :: Lens' TestInvokeMethod (HashMap Text Text)
 timHeaders = lens _timHeaders (\ s a -> s{_timHeaders = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | Specifies a test invoke method request\'s API identifier.
 timRestAPIId :: Lens' TestInvokeMethod Text
 timRestAPIId = lens _timRestAPIId (\ s a -> s{_timRestAPIId = a});
 
--- | Undocumented member.
+-- | Specifies a test invoke method request\'s resource ID.
 timResourceId :: Lens' TestInvokeMethod Text
 timResourceId = lens _timResourceId (\ s a -> s{_timResourceId = a});
 
--- | Undocumented member.
+-- | Specifies a test invoke method request\'s HTTP method.
 timHttpMethod :: Lens' TestInvokeMethod Text
 timHttpMethod = lens _timHttpMethod (\ s a -> s{_timHttpMethod = a});
 
@@ -146,6 +154,8 @@ instance AWSRequest TestInvokeMethod where
                      <*> (pure (fromEnum s)))
 
 instance Hashable TestInvokeMethod
+
+instance NFData TestInvokeMethod
 
 instance ToHeaders TestInvokeMethod where
         toHeaders
@@ -238,3 +248,5 @@ timrsHeaders = lens _timrsHeaders (\ s a -> s{_timrsHeaders = a}) . _Default . _
 -- | The response status code.
 timrsResponseStatus :: Lens' TestInvokeMethodResponse Int
 timrsResponseStatus = lens _timrsResponseStatus (\ s a -> s{_timrsResponseStatus = a});
+
+instance NFData TestInvokeMethodResponse

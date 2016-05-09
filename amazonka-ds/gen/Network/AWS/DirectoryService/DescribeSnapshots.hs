@@ -119,6 +119,8 @@ instance AWSRequest DescribeSnapshots where
 
 instance Hashable DescribeSnapshots
 
+instance NFData DescribeSnapshots
+
 instance ToHeaders DescribeSnapshots where
         toHeaders
           = const
@@ -189,3 +191,5 @@ dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Defau
 -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeSnapshotsResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+
+instance NFData DescribeSnapshotsResponse

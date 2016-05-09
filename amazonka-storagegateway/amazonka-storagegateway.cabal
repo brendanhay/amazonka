@@ -1,5 +1,5 @@
 name:                  amazonka-storagegateway
-version:               1.4.0
+version:               1.4.1
 synopsis:              Amazon Storage Gateway SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -38,8 +38,8 @@ description:
         operations, their request parameters, response elements, possible
         errors, and examples of requests and responses.
     -   <http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html AWS Storage Gateway Regions and Endpoints>:
-        Provides a list of each of the regions and endpoints available for
-        use with AWS Storage Gateway.
+        Provides a list of each of the s and endpoints available for use
+        with AWS Storage Gateway.
 
     AWS Storage Gateway resource IDs are in uppercase. When you use these
     resource IDs with the Amazon EC2 API, EC2 expects resource IDs in
@@ -119,6 +119,7 @@ library
         , Network.AWS.StorageGateway.ResetCache
         , Network.AWS.StorageGateway.RetrieveTapeArchive
         , Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
+        , Network.AWS.StorageGateway.SetLocalConsolePassword
         , Network.AWS.StorageGateway.ShutdownGateway
         , Network.AWS.StorageGateway.StartGateway
         , Network.AWS.StorageGateway.Types
@@ -136,7 +137,7 @@ library
         , Network.AWS.StorageGateway.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.0.*
+          amazonka-core == 1.4.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-storagegateway-test
@@ -156,9 +157,9 @@ test-suite amazonka-storagegateway-test
         , Test.AWS.StorageGateway.Internal
 
     build-depends:
-          amazonka-core == 1.4.0.*
-        , amazonka-test == 1.4.0.*
-        , amazonka-storagegateway == 1.4.0.*
+          amazonka-core == 1.4.1.*
+        , amazonka-test == 1.4.1.*
+        , amazonka-storagegateway == 1.4.1.*
         , base
         , bytestring
         , tasty

@@ -110,6 +110,8 @@ instance AWSRequest ListVersionsByFunction where
 
 instance Hashable ListVersionsByFunction
 
+instance NFData ListVersionsByFunction
+
 instance ToHeaders ListVersionsByFunction where
         toHeaders = const mempty
 
@@ -162,3 +164,5 @@ lvbfrsNextMarker = lens _lvbfrsNextMarker (\ s a -> s{_lvbfrsNextMarker = a});
 -- | The response status code.
 lvbfrsResponseStatus :: Lens' ListVersionsByFunctionResponse Int
 lvbfrsResponseStatus = lens _lvbfrsResponseStatus (\ s a -> s{_lvbfrsResponseStatus = a});
+
+instance NFData ListVersionsByFunctionResponse

@@ -70,6 +70,8 @@ instance AWSRequest DescribeVirtualGateways where
 
 instance Hashable DescribeVirtualGateways
 
+instance NFData DescribeVirtualGateways
+
 instance ToHeaders DescribeVirtualGateways where
         toHeaders
           = const
@@ -120,3 +122,5 @@ dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGatew
 -- | The response status code.
 dvgrsResponseStatus :: Lens' DescribeVirtualGatewaysResponse Int
 dvgrsResponseStatus = lens _dvgrsResponseStatus (\ s a -> s{_dvgrsResponseStatus = a});
+
+instance NFData DescribeVirtualGatewaysResponse

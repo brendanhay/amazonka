@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists the recovery points for a specified gateway. This
--- operation is supported only for the gateway-cached volume architecture.
+-- Lists the recovery points for a specified gateway. This operation is
+-- supported only for the gateway-cached volume architecture.
 --
 -- Each gateway-cached volume has one recovery point. A volume recovery
 -- point is a point in time at which all data of the volume is consistent
@@ -86,6 +86,8 @@ instance AWSRequest ListVolumeRecoveryPoints where
 
 instance Hashable ListVolumeRecoveryPoints
 
+instance NFData ListVolumeRecoveryPoints
+
 instance ToHeaders ListVolumeRecoveryPoints where
         toHeaders
           = const
@@ -144,3 +146,5 @@ lvrprsGatewayARN = lens _lvrprsGatewayARN (\ s a -> s{_lvrprsGatewayARN = a});
 -- | The response status code.
 lvrprsResponseStatus :: Lens' ListVolumeRecoveryPointsResponse Int
 lvrprsResponseStatus = lens _lvrprsResponseStatus (\ s a -> s{_lvrprsResponseStatus = a});
+
+instance NFData ListVolumeRecoveryPointsResponse

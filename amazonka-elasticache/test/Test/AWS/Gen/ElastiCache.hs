@@ -100,6 +100,9 @@ import Test.AWS.ElastiCache.Internal
 --         , testResetCacheParameterGroup $
 --             resetCacheParameterGroup
 --
+--         , testListAllowedNodeTypeModifications $
+--             listAllowedNodeTypeModifications
+--
 --         , testDescribeSnapshots $
 --             describeSnapshots
 --
@@ -213,6 +216,9 @@ import Test.AWS.ElastiCache.Internal
 --
 --         , testResetCacheParameterGroupResponse $
 --             cacheParameterGroupNameMessage
+--
+--         , testListAllowedNodeTypeModificationsResponse $
+--             listAllowedNodeTypeModificationsResponse
 --
 --         , testDescribeSnapshotsResponse $
 --             describeSnapshotsResponse
@@ -377,6 +383,11 @@ testResetCacheParameterGroup :: ResetCacheParameterGroup -> TestTree
 testResetCacheParameterGroup = req
     "ResetCacheParameterGroup"
     "fixture/ResetCacheParameterGroup.yaml"
+
+testListAllowedNodeTypeModifications :: ListAllowedNodeTypeModifications -> TestTree
+testListAllowedNodeTypeModifications = req
+    "ListAllowedNodeTypeModifications"
+    "fixture/ListAllowedNodeTypeModifications.yaml"
 
 testDescribeSnapshots :: DescribeSnapshots -> TestTree
 testDescribeSnapshots = req
@@ -612,6 +623,13 @@ testResetCacheParameterGroupResponse = res
     "fixture/ResetCacheParameterGroupResponse.proto"
     elastiCache
     (Proxy :: Proxy ResetCacheParameterGroup)
+
+testListAllowedNodeTypeModificationsResponse :: ListAllowedNodeTypeModificationsResponse -> TestTree
+testListAllowedNodeTypeModificationsResponse = res
+    "ListAllowedNodeTypeModificationsResponse"
+    "fixture/ListAllowedNodeTypeModificationsResponse.proto"
+    elastiCache
+    (Proxy :: Proxy ListAllowedNodeTypeModifications)
 
 testDescribeSnapshotsResponse :: DescribeSnapshotsResponse -> TestTree
 testDescribeSnapshotsResponse = res

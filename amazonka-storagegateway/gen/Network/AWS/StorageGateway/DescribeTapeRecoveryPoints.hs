@@ -21,7 +21,7 @@
 -- Returns a list of virtual tape recovery points that are available for
 -- the specified gateway-VTL.
 --
--- A recovery point is a point in time view of a virtual tape at which all
+-- A recovery point is a point-in-time view of a virtual tape at which all
 -- the data on the virtual tape is consistent. If your gateway crashes,
 -- virtual tapes that have recovery points can be recovered to a new
 -- gateway.
@@ -119,6 +119,8 @@ instance AWSRequest DescribeTapeRecoveryPoints where
 
 instance Hashable DescribeTapeRecoveryPoints
 
+instance NFData DescribeTapeRecoveryPoints
+
 instance ToHeaders DescribeTapeRecoveryPoints where
         toHeaders
           = const
@@ -196,3 +198,5 @@ dtrprsMarker = lens _dtrprsMarker (\ s a -> s{_dtrprsMarker = a});
 -- | The response status code.
 dtrprsResponseStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
 dtrprsResponseStatus = lens _dtrprsResponseStatus (\ s a -> s{_dtrprsResponseStatus = a});
+
+instance NFData DescribeTapeRecoveryPointsResponse

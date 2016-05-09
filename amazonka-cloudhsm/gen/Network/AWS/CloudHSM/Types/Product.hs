@@ -21,7 +21,8 @@ import           Network.AWS.CloudHSM.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | A key-value pair that identifies or specifies metadata about a resource.
+-- | A key-value pair that identifies or specifies metadata about an AWS
+-- CloudHSM resource.
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
@@ -60,6 +61,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}

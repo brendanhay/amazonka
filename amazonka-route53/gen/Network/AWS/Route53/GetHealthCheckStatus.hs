@@ -144,6 +144,8 @@ instance AWSRequest GetHealthCheckStatus where
 
 instance Hashable GetHealthCheckStatus
 
+instance NFData GetHealthCheckStatus
+
 instance ToHeaders GetHealthCheckStatus where
         toHeaders = const mempty
 
@@ -189,3 +191,5 @@ ghcsrsResponseStatus = lens _ghcsrsResponseStatus (\ s a -> s{_ghcsrsResponseSta
 -- Amazon Route 53 health checker.
 ghcsrsHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
 ghcsrsHealthCheckObservations = lens _ghcsrsHealthCheckObservations (\ s a -> s{_ghcsrsHealthCheckObservations = a}) . _Coerce;
+
+instance NFData GetHealthCheckStatusResponse

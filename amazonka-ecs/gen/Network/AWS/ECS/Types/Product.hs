@@ -63,6 +63,8 @@ instance FromJSON Attribute where
 
 instance Hashable Attribute
 
+instance NFData Attribute
+
 instance ToJSON Attribute where
         toJSON Attribute'{..}
           = object
@@ -165,6 +167,8 @@ instance FromJSON Cluster where
 
 instance Hashable Cluster
 
+instance NFData Cluster
+
 -- | A Docker container that is part of a task.
 --
 -- /See:/ 'container' smart constructor.
@@ -251,6 +255,8 @@ instance FromJSON Container where
                      <*> (x .:? "exitCode"))
 
 instance Hashable Container
+
+instance NFData Container
 
 -- | Container definitions are used in task definitions to describe the
 -- different containers that are launched as part of a task.
@@ -763,6 +769,8 @@ instance FromJSON ContainerDefinition where
 
 instance Hashable ContainerDefinition
 
+instance NFData ContainerDefinition
+
 instance ToJSON ContainerDefinition where
         toJSON ContainerDefinition'{..}
           = object
@@ -933,6 +941,8 @@ instance FromJSON ContainerInstance where
 
 instance Hashable ContainerInstance
 
+instance NFData ContainerInstance
+
 -- | The overrides that should be sent to a container.
 --
 -- /See:/ 'containerOverride' smart constructor.
@@ -986,6 +996,8 @@ instance FromJSON ContainerOverride where
                      <*> (x .:? "name"))
 
 instance Hashable ContainerOverride
+
+instance NFData ContainerOverride
 
 instance ToJSON ContainerOverride where
         toJSON ContainerOverride'{..}
@@ -1154,6 +1166,8 @@ instance FromJSON ContainerService where
 
 instance Hashable ContainerService
 
+instance NFData ContainerService
+
 -- | The details of an Amazon ECS service deployment.
 --
 -- /See:/ 'deployment' smart constructor.
@@ -1254,6 +1268,8 @@ instance FromJSON Deployment where
 
 instance Hashable Deployment
 
+instance NFData Deployment
+
 -- | Optional deployment parameters that control how many tasks run during
 -- the deployment and the ordering of stopping and starting tasks.
 --
@@ -1304,6 +1320,8 @@ instance FromJSON DeploymentConfiguration where
 
 instance Hashable DeploymentConfiguration
 
+instance NFData DeploymentConfiguration
+
 instance ToJSON DeploymentConfiguration where
         toJSON DeploymentConfiguration'{..}
           = object
@@ -1351,6 +1369,8 @@ instance FromJSON Failure where
 
 instance Hashable Failure
 
+instance NFData Failure
+
 -- | Hostnames and IP address entries that are added to the '\/etc\/hosts'
 -- file of a container via the 'extraHosts' parameter of its
 -- < ContainerDefinition>.
@@ -1394,6 +1414,8 @@ instance FromJSON HostEntry where
                    (x .: "hostname") <*> (x .: "ipAddress"))
 
 instance Hashable HostEntry
+
+instance NFData HostEntry
 
 instance ToJSON HostEntry where
         toJSON HostEntry'{..}
@@ -1440,6 +1462,8 @@ instance FromJSON HostVolumeProperties where
 
 instance Hashable HostVolumeProperties
 
+instance NFData HostVolumeProperties
+
 instance ToJSON HostVolumeProperties where
         toJSON HostVolumeProperties'{..}
           = object
@@ -1485,6 +1509,8 @@ instance FromJSON KeyValuePair where
                  KeyValuePair' <$> (x .:? "value") <*> (x .:? "name"))
 
 instance Hashable KeyValuePair
+
+instance NFData KeyValuePair
 
 instance ToJSON KeyValuePair where
         toJSON KeyValuePair'{..}
@@ -1547,6 +1573,8 @@ instance FromJSON LoadBalancer where
 
 instance Hashable LoadBalancer
 
+instance NFData LoadBalancer
+
 instance ToJSON LoadBalancer where
         toJSON LoadBalancer'{..}
           = object
@@ -1605,6 +1633,8 @@ instance FromJSON LogConfiguration where
 
 instance Hashable LogConfiguration
 
+instance NFData LogConfiguration
+
 instance ToJSON LogConfiguration where
         toJSON LogConfiguration'{..}
           = object
@@ -1662,6 +1692,8 @@ instance FromJSON MountPoint where
                      <*> (x .:? "readOnly"))
 
 instance Hashable MountPoint
+
+instance NFData MountPoint
 
 instance ToJSON MountPoint where
         toJSON MountPoint'{..}
@@ -1732,6 +1764,8 @@ instance FromJSON NetworkBinding where
                      <*> (x .:? "containerPort"))
 
 instance Hashable NetworkBinding
+
+instance NFData NetworkBinding
 
 instance ToJSON NetworkBinding where
         toJSON NetworkBinding'{..}
@@ -1821,6 +1855,8 @@ instance FromJSON PortMapping where
                      (x .:? "containerPort"))
 
 instance Hashable PortMapping
+
+instance NFData PortMapping
 
 instance ToJSON PortMapping where
         toJSON PortMapping'{..}
@@ -1913,6 +1949,8 @@ instance FromJSON Resource where
 
 instance Hashable Resource
 
+instance NFData Resource
+
 instance ToJSON Resource where
         toJSON Resource'{..}
           = object
@@ -1971,6 +2009,8 @@ instance FromJSON ServiceEvent where
                      (x .:? "message"))
 
 instance Hashable ServiceEvent
+
+instance NFData ServiceEvent
 
 -- | Details on a task in a cluster.
 --
@@ -2119,6 +2159,8 @@ instance FromJSON Task where
 
 instance Hashable Task
 
+instance NFData Task
+
 -- | Details of a task definition.
 --
 -- /See:/ 'taskDefinition' smart constructor.
@@ -2216,6 +2258,8 @@ instance FromJSON TaskDefinition where
 
 instance Hashable TaskDefinition
 
+instance NFData TaskDefinition
+
 -- | The overrides associated with a task.
 --
 -- /See:/ 'taskOverride' smart constructor.
@@ -2247,6 +2291,8 @@ instance FromJSON TaskOverride where
                    (x .:? "containerOverrides" .!= mempty))
 
 instance Hashable TaskOverride
+
+instance NFData TaskOverride
 
 instance ToJSON TaskOverride where
         toJSON TaskOverride'{..}
@@ -2306,6 +2352,8 @@ instance FromJSON Ulimit where
                      (x .: "hardLimit"))
 
 instance Hashable Ulimit
+
+instance NFData Ulimit
 
 instance ToJSON Ulimit where
         toJSON Ulimit'{..}
@@ -2367,6 +2415,8 @@ instance FromJSON VersionInfo where
 
 instance Hashable VersionInfo
 
+instance NFData VersionInfo
+
 instance ToJSON VersionInfo where
         toJSON VersionInfo'{..}
           = object
@@ -2420,6 +2470,8 @@ instance FromJSON Volume where
 
 instance Hashable Volume
 
+instance NFData Volume
+
 instance ToJSON Volume where
         toJSON Volume'{..}
           = object
@@ -2467,6 +2519,8 @@ instance FromJSON VolumeFrom where
                    (x .:? "sourceContainer") <*> (x .:? "readOnly"))
 
 instance Hashable VolumeFrom
+
+instance NFData VolumeFrom
 
 instance ToJSON VolumeFrom where
         toJSON VolumeFrom'{..}

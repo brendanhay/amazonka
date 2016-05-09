@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteKeyPair' smart constructor.
+-- | Contains the parameters for DeleteKeyPair.
+--
+-- /See:/ 'deleteKeyPair' smart constructor.
 data DeleteKeyPair = DeleteKeyPair'
     { _dkpDryRun  :: !(Maybe Bool)
     , _dkpKeyName :: !Text
@@ -81,6 +83,8 @@ instance AWSRequest DeleteKeyPair where
 
 instance Hashable DeleteKeyPair
 
+instance NFData DeleteKeyPair
+
 instance ToHeaders DeleteKeyPair where
         toHeaders = const mempty
 
@@ -104,3 +108,5 @@ data DeleteKeyPairResponse =
 deleteKeyPairResponse
     :: DeleteKeyPairResponse
 deleteKeyPairResponse = DeleteKeyPairResponse'
+
+instance NFData DeleteKeyPairResponse

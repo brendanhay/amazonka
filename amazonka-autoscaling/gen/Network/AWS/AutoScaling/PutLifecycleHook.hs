@@ -207,6 +207,8 @@ instance AWSRequest PutLifecycleHook where
 
 instance Hashable PutLifecycleHook
 
+instance NFData PutLifecycleHook
+
 instance ToHeaders PutLifecycleHook where
         toHeaders = const mempty
 
@@ -248,3 +250,5 @@ putLifecycleHookResponse pResponseStatus_ =
 -- | The response status code.
 plhrsResponseStatus :: Lens' PutLifecycleHookResponse Int
 plhrsResponseStatus = lens _plhrsResponseStatus (\ s a -> s{_plhrsResponseStatus = a});
+
+instance NFData PutLifecycleHookResponse

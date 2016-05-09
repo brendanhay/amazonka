@@ -77,6 +77,8 @@ instance AWSRequest DeleteCacheSecurityGroup where
 
 instance Hashable DeleteCacheSecurityGroup
 
+instance NFData DeleteCacheSecurityGroup
+
 instance ToHeaders DeleteCacheSecurityGroup where
         toHeaders = const mempty
 
@@ -102,3 +104,5 @@ data DeleteCacheSecurityGroupResponse =
 deleteCacheSecurityGroupResponse
     :: DeleteCacheSecurityGroupResponse
 deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse'
+
+instance NFData DeleteCacheSecurityGroupResponse

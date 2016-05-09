@@ -143,6 +143,8 @@ instance FromJSON Action where
 
 instance Hashable Action
 
+instance NFData Action
+
 instance ToJSON Action where
         toJSON Action'{..}
           = object
@@ -185,10 +187,150 @@ apAttributes = lens _apAttributes (\ s a -> s{_apAttributes = a}) . _Default . _
 
 instance Hashable AttributePayload
 
+instance NFData AttributePayload
+
 instance ToJSON AttributePayload where
         toJSON AttributePayload'{..}
           = object
               (catMaybes [("attributes" .=) <$> _apAttributes])
+
+-- | A CA certificate.
+--
+-- /See:/ 'cACertificate' smart constructor.
+data CACertificate = CACertificate'
+    { _cacStatus         :: !(Maybe CACertificateStatus)
+    , _cacCertificateARN :: !(Maybe Text)
+    , _cacCertificateId  :: !(Maybe Text)
+    , _cacCreationDate   :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CACertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cacStatus'
+--
+-- * 'cacCertificateARN'
+--
+-- * 'cacCertificateId'
+--
+-- * 'cacCreationDate'
+cACertificate
+    :: CACertificate
+cACertificate =
+    CACertificate'
+    { _cacStatus = Nothing
+    , _cacCertificateARN = Nothing
+    , _cacCertificateId = Nothing
+    , _cacCreationDate = Nothing
+    }
+
+-- | The status of the CA certificate.
+cacStatus :: Lens' CACertificate (Maybe CACertificateStatus)
+cacStatus = lens _cacStatus (\ s a -> s{_cacStatus = a});
+
+-- | The ARN of the CA certificate.
+cacCertificateARN :: Lens' CACertificate (Maybe Text)
+cacCertificateARN = lens _cacCertificateARN (\ s a -> s{_cacCertificateARN = a});
+
+-- | The ID of the CA certificate.
+cacCertificateId :: Lens' CACertificate (Maybe Text)
+cacCertificateId = lens _cacCertificateId (\ s a -> s{_cacCertificateId = a});
+
+-- | The date the CA certificate was created.
+cacCreationDate :: Lens' CACertificate (Maybe UTCTime)
+cacCreationDate = lens _cacCreationDate (\ s a -> s{_cacCreationDate = a}) . mapping _Time;
+
+instance FromJSON CACertificate where
+        parseJSON
+          = withObject "CACertificate"
+              (\ x ->
+                 CACertificate' <$>
+                   (x .:? "status") <*> (x .:? "certificateArn") <*>
+                     (x .:? "certificateId")
+                     <*> (x .:? "creationDate"))
+
+instance Hashable CACertificate
+
+instance NFData CACertificate
+
+-- | Describes a CA certificate.
+--
+-- /See:/ 'cACertificateDescription' smart constructor.
+data CACertificateDescription = CACertificateDescription'
+    { _cacdStatus         :: !(Maybe CACertificateStatus)
+    , _cacdOwnedBy        :: !(Maybe Text)
+    , _cacdCertificatePem :: !(Maybe Text)
+    , _cacdCertificateARN :: !(Maybe Text)
+    , _cacdCertificateId  :: !(Maybe Text)
+    , _cacdCreationDate   :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CACertificateDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cacdStatus'
+--
+-- * 'cacdOwnedBy'
+--
+-- * 'cacdCertificatePem'
+--
+-- * 'cacdCertificateARN'
+--
+-- * 'cacdCertificateId'
+--
+-- * 'cacdCreationDate'
+cACertificateDescription
+    :: CACertificateDescription
+cACertificateDescription =
+    CACertificateDescription'
+    { _cacdStatus = Nothing
+    , _cacdOwnedBy = Nothing
+    , _cacdCertificatePem = Nothing
+    , _cacdCertificateARN = Nothing
+    , _cacdCertificateId = Nothing
+    , _cacdCreationDate = Nothing
+    }
+
+-- | The status of a CA certificate.
+cacdStatus :: Lens' CACertificateDescription (Maybe CACertificateStatus)
+cacdStatus = lens _cacdStatus (\ s a -> s{_cacdStatus = a});
+
+-- | The owner of the CA certificate.
+cacdOwnedBy :: Lens' CACertificateDescription (Maybe Text)
+cacdOwnedBy = lens _cacdOwnedBy (\ s a -> s{_cacdOwnedBy = a});
+
+-- | The CA certificate data, in PEM format.
+cacdCertificatePem :: Lens' CACertificateDescription (Maybe Text)
+cacdCertificatePem = lens _cacdCertificatePem (\ s a -> s{_cacdCertificatePem = a});
+
+-- | The CA certificate ARN.
+cacdCertificateARN :: Lens' CACertificateDescription (Maybe Text)
+cacdCertificateARN = lens _cacdCertificateARN (\ s a -> s{_cacdCertificateARN = a});
+
+-- | The CA certificate ID.
+cacdCertificateId :: Lens' CACertificateDescription (Maybe Text)
+cacdCertificateId = lens _cacdCertificateId (\ s a -> s{_cacdCertificateId = a});
+
+-- | The date the CA certificate was created.
+cacdCreationDate :: Lens' CACertificateDescription (Maybe UTCTime)
+cacdCreationDate = lens _cacdCreationDate (\ s a -> s{_cacdCreationDate = a}) . mapping _Time;
+
+instance FromJSON CACertificateDescription where
+        parseJSON
+          = withObject "CACertificateDescription"
+              (\ x ->
+                 CACertificateDescription' <$>
+                   (x .:? "status") <*> (x .:? "ownedBy") <*>
+                     (x .:? "certificatePem")
+                     <*> (x .:? "certificateArn")
+                     <*> (x .:? "certificateId")
+                     <*> (x .:? "creationDate"))
+
+instance Hashable CACertificateDescription
+
+instance NFData CACertificateDescription
 
 -- | Information about a certificate.
 --
@@ -248,6 +390,8 @@ instance FromJSON Certificate where
 
 instance Hashable Certificate
 
+instance NFData Certificate
+
 -- | Describes a certificate.
 --
 -- /See:/ 'certificateDescription' smart constructor.
@@ -255,10 +399,13 @@ data CertificateDescription = CertificateDescription'
     { _cdStatus           :: !(Maybe CertificateStatus)
     , _cdOwnedBy          :: !(Maybe Text)
     , _cdLastModifiedDate :: !(Maybe POSIX)
+    , _cdCaCertificateId  :: !(Maybe Text)
+    , _cdPreviousOwnedBy  :: !(Maybe Text)
     , _cdCertificatePem   :: !(Maybe Text)
     , _cdCertificateARN   :: !(Maybe Text)
     , _cdCertificateId    :: !(Maybe Text)
     , _cdCreationDate     :: !(Maybe POSIX)
+    , _cdTransferData     :: !(Maybe TransferData)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CertificateDescription' with the minimum fields required to make a request.
@@ -271,6 +418,10 @@ data CertificateDescription = CertificateDescription'
 --
 -- * 'cdLastModifiedDate'
 --
+-- * 'cdCaCertificateId'
+--
+-- * 'cdPreviousOwnedBy'
+--
 -- * 'cdCertificatePem'
 --
 -- * 'cdCertificateARN'
@@ -278,6 +429,8 @@ data CertificateDescription = CertificateDescription'
 -- * 'cdCertificateId'
 --
 -- * 'cdCreationDate'
+--
+-- * 'cdTransferData'
 certificateDescription
     :: CertificateDescription
 certificateDescription =
@@ -285,10 +438,13 @@ certificateDescription =
     { _cdStatus = Nothing
     , _cdOwnedBy = Nothing
     , _cdLastModifiedDate = Nothing
+    , _cdCaCertificateId = Nothing
+    , _cdPreviousOwnedBy = Nothing
     , _cdCertificatePem = Nothing
     , _cdCertificateARN = Nothing
     , _cdCertificateId = Nothing
     , _cdCreationDate = Nothing
+    , _cdTransferData = Nothing
     }
 
 -- | The status of the certificate.
@@ -302,6 +458,14 @@ cdOwnedBy = lens _cdOwnedBy (\ s a -> s{_cdOwnedBy = a});
 -- | The date and time the certificate was last modified.
 cdLastModifiedDate :: Lens' CertificateDescription (Maybe UTCTime)
 cdLastModifiedDate = lens _cdLastModifiedDate (\ s a -> s{_cdLastModifiedDate = a}) . mapping _Time;
+
+-- | The certificate ID of the CA certificate used to sign this certificate.
+cdCaCertificateId :: Lens' CertificateDescription (Maybe Text)
+cdCaCertificateId = lens _cdCaCertificateId (\ s a -> s{_cdCaCertificateId = a});
+
+-- | The ID of the AWS account of the previous owner of the certificate.
+cdPreviousOwnedBy :: Lens' CertificateDescription (Maybe Text)
+cdPreviousOwnedBy = lens _cdPreviousOwnedBy (\ s a -> s{_cdPreviousOwnedBy = a});
 
 -- | The certificate data, in PEM format.
 cdCertificatePem :: Lens' CertificateDescription (Maybe Text)
@@ -319,6 +483,10 @@ cdCertificateId = lens _cdCertificateId (\ s a -> s{_cdCertificateId = a});
 cdCreationDate :: Lens' CertificateDescription (Maybe UTCTime)
 cdCreationDate = lens _cdCreationDate (\ s a -> s{_cdCreationDate = a}) . mapping _Time;
 
+-- | The transfer data.
+cdTransferData :: Lens' CertificateDescription (Maybe TransferData)
+cdTransferData = lens _cdTransferData (\ s a -> s{_cdTransferData = a});
+
 instance FromJSON CertificateDescription where
         parseJSON
           = withObject "CertificateDescription"
@@ -326,12 +494,17 @@ instance FromJSON CertificateDescription where
                  CertificateDescription' <$>
                    (x .:? "status") <*> (x .:? "ownedBy") <*>
                      (x .:? "lastModifiedDate")
+                     <*> (x .:? "caCertificateId")
+                     <*> (x .:? "previousOwnedBy")
                      <*> (x .:? "certificatePem")
                      <*> (x .:? "certificateArn")
                      <*> (x .:? "certificateId")
-                     <*> (x .:? "creationDate"))
+                     <*> (x .:? "creationDate")
+                     <*> (x .:? "transferData"))
 
 instance Hashable CertificateDescription
+
+instance NFData CertificateDescription
 
 -- | Describes an action that updates a CloudWatch alarm.
 --
@@ -395,6 +568,8 @@ instance FromJSON CloudwatchAlarmAction where
                      <*> (x .: "stateValue"))
 
 instance Hashable CloudwatchAlarmAction
+
+instance NFData CloudwatchAlarmAction
 
 instance ToJSON CloudwatchAlarmAction where
         toJSON CloudwatchAlarmAction'{..}
@@ -488,6 +663,8 @@ instance FromJSON CloudwatchMetricAction where
                      <*> (x .: "metricUnit"))
 
 instance Hashable CloudwatchMetricAction
+
+instance NFData CloudwatchMetricAction
 
 instance ToJSON CloudwatchMetricAction where
         toJSON CloudwatchMetricAction'{..}
@@ -608,6 +785,8 @@ instance FromJSON DynamoDBAction where
 
 instance Hashable DynamoDBAction
 
+instance NFData DynamoDBAction
+
 instance ToJSON DynamoDBAction where
         toJSON DynamoDBAction'{..}
           = object
@@ -693,6 +872,8 @@ instance FromJSON ElasticsearchAction where
 
 instance Hashable ElasticsearchAction
 
+instance NFData ElasticsearchAction
+
 instance ToJSON ElasticsearchAction where
         toJSON ElasticsearchAction'{..}
           = object
@@ -745,6 +926,8 @@ instance FromJSON FirehoseAction where
 
 instance Hashable FirehoseAction
 
+instance NFData FirehoseAction
+
 instance ToJSON FirehoseAction where
         toJSON FirehoseAction'{..}
           = object
@@ -792,6 +975,8 @@ instance FromJSON KeyPair where
                    (x .:? "PrivateKey") <*> (x .:? "PublicKey"))
 
 instance Hashable KeyPair
+
+instance NFData KeyPair
 
 -- | Describes an action to write data to an Amazon Kinesis stream.
 --
@@ -844,6 +1029,8 @@ instance FromJSON KinesisAction where
 
 instance Hashable KinesisAction
 
+instance NFData KinesisAction
+
 instance ToJSON KinesisAction where
         toJSON KinesisAction'{..}
           = object
@@ -883,6 +1070,8 @@ instance FromJSON LambdaAction where
 
 instance Hashable LambdaAction
 
+instance NFData LambdaAction
+
 instance ToJSON LambdaAction where
         toJSON LambdaAction'{..}
           = object
@@ -921,6 +1110,8 @@ lopRoleARN :: Lens' LoggingOptionsPayload Text
 lopRoleARN = lens _lopRoleARN (\ s a -> s{_lopRoleARN = a});
 
 instance Hashable LoggingOptionsPayload
+
+instance NFData LoggingOptionsPayload
 
 instance ToJSON LoggingOptionsPayload where
         toJSON LoggingOptionsPayload'{..}
@@ -968,6 +1159,8 @@ instance FromJSON Policy where
                    (x .:? "policyName") <*> (x .:? "policyArn"))
 
 instance Hashable Policy
+
+instance NFData Policy
 
 -- | Describes a policy version.
 --
@@ -1018,6 +1211,8 @@ instance FromJSON PolicyVersion where
 
 instance Hashable PolicyVersion
 
+instance NFData PolicyVersion
+
 -- | Describes an action to republish to another topic.
 --
 -- /See:/ 'republishAction' smart constructor.
@@ -1059,6 +1254,8 @@ instance FromJSON RepublishAction where
                    (x .: "roleArn") <*> (x .: "topic"))
 
 instance Hashable RepublishAction
+
+instance NFData RepublishAction
 
 instance ToJSON RepublishAction where
         toJSON RepublishAction'{..}
@@ -1118,6 +1315,8 @@ instance FromJSON S3Action where
                      (x .: "key"))
 
 instance Hashable S3Action
+
+instance NFData S3Action
 
 instance ToJSON S3Action where
         toJSON S3Action'{..}
@@ -1184,6 +1383,8 @@ instance FromJSON SNSAction where
 
 instance Hashable SNSAction
 
+instance NFData SNSAction
+
 instance ToJSON SNSAction where
         toJSON SNSAction'{..}
           = object
@@ -1243,6 +1444,8 @@ instance FromJSON SqsAction where
 
 instance Hashable SqsAction
 
+instance NFData SqsAction
+
 instance ToJSON SqsAction where
         toJSON SqsAction'{..}
           = object
@@ -1292,16 +1495,19 @@ instance FromJSON ThingAttribute where
 
 instance Hashable ThingAttribute
 
+instance NFData ThingAttribute
+
 -- | Describes a rule.
 --
 -- /See:/ 'topicRule' smart constructor.
 data TopicRule = TopicRule'
-    { _trCreatedAt    :: !(Maybe POSIX)
-    , _trActions      :: !(Maybe [Action])
-    , _trRuleDisabled :: !(Maybe Bool)
-    , _trRuleName     :: !(Maybe Text)
-    , _trSql          :: !(Maybe Text)
-    , _trDescription  :: !(Maybe Text)
+    { _trCreatedAt        :: !(Maybe POSIX)
+    , _trActions          :: !(Maybe [Action])
+    , _trAwsIotSqlVersion :: !(Maybe Text)
+    , _trRuleDisabled     :: !(Maybe Bool)
+    , _trRuleName         :: !(Maybe Text)
+    , _trSql              :: !(Maybe Text)
+    , _trDescription      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TopicRule' with the minimum fields required to make a request.
@@ -1311,6 +1517,8 @@ data TopicRule = TopicRule'
 -- * 'trCreatedAt'
 --
 -- * 'trActions'
+--
+-- * 'trAwsIotSqlVersion'
 --
 -- * 'trRuleDisabled'
 --
@@ -1325,6 +1533,7 @@ topicRule =
     TopicRule'
     { _trCreatedAt = Nothing
     , _trActions = Nothing
+    , _trAwsIotSqlVersion = Nothing
     , _trRuleDisabled = Nothing
     , _trRuleName = Nothing
     , _trSql = Nothing
@@ -1338,6 +1547,10 @@ trCreatedAt = lens _trCreatedAt (\ s a -> s{_trCreatedAt = a}) . mapping _Time;
 -- | The actions associated with the rule.
 trActions :: Lens' TopicRule [Action]
 trActions = lens _trActions (\ s a -> s{_trActions = a}) . _Default . _Coerce;
+
+-- | The version of the SQL rules engine to use when evaluating the rule.
+trAwsIotSqlVersion :: Lens' TopicRule (Maybe Text)
+trAwsIotSqlVersion = lens _trAwsIotSqlVersion (\ s a -> s{_trAwsIotSqlVersion = a});
 
 -- | Specifies whether the rule is disabled.
 trRuleDisabled :: Lens' TopicRule (Maybe Bool)
@@ -1362,12 +1575,15 @@ instance FromJSON TopicRule where
               (\ x ->
                  TopicRule' <$>
                    (x .:? "createdAt") <*> (x .:? "actions" .!= mempty)
+                     <*> (x .:? "awsIotSqlVersion")
                      <*> (x .:? "ruleDisabled")
                      <*> (x .:? "ruleName")
                      <*> (x .:? "sql")
                      <*> (x .:? "description"))
 
 instance Hashable TopicRule
+
+instance NFData TopicRule
 
 -- | Describes a rule.
 --
@@ -1436,19 +1652,24 @@ instance FromJSON TopicRuleListItem where
 
 instance Hashable TopicRuleListItem
 
+instance NFData TopicRuleListItem
+
 -- | Describes a rule.
 --
 -- /See:/ 'topicRulePayload' smart constructor.
 data TopicRulePayload = TopicRulePayload'
-    { _trpRuleDisabled :: !(Maybe Bool)
-    , _trpDescription  :: !(Maybe Text)
-    , _trpSql          :: !Text
-    , _trpActions      :: ![Action]
+    { _trpAwsIotSqlVersion :: !(Maybe Text)
+    , _trpRuleDisabled     :: !(Maybe Bool)
+    , _trpDescription      :: !(Maybe Text)
+    , _trpSql              :: !Text
+    , _trpActions          :: ![Action]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TopicRulePayload' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'trpAwsIotSqlVersion'
 --
 -- * 'trpRuleDisabled'
 --
@@ -1462,11 +1683,16 @@ topicRulePayload
     -> TopicRulePayload
 topicRulePayload pSql_ =
     TopicRulePayload'
-    { _trpRuleDisabled = Nothing
+    { _trpAwsIotSqlVersion = Nothing
+    , _trpRuleDisabled = Nothing
     , _trpDescription = Nothing
     , _trpSql = pSql_
     , _trpActions = mempty
     }
+
+-- | The version of the SQL rules engine to use when evaluating the rule.
+trpAwsIotSqlVersion :: Lens' TopicRulePayload (Maybe Text)
+trpAwsIotSqlVersion = lens _trpAwsIotSqlVersion (\ s a -> s{_trpAwsIotSqlVersion = a});
 
 -- | Specifies whether the rule is disabled.
 trpRuleDisabled :: Lens' TopicRulePayload (Maybe Bool)
@@ -1488,11 +1714,83 @@ trpActions = lens _trpActions (\ s a -> s{_trpActions = a}) . _Coerce;
 
 instance Hashable TopicRulePayload
 
+instance NFData TopicRulePayload
+
 instance ToJSON TopicRulePayload where
         toJSON TopicRulePayload'{..}
           = object
               (catMaybes
-                 [("ruleDisabled" .=) <$> _trpRuleDisabled,
+                 [("awsIotSqlVersion" .=) <$> _trpAwsIotSqlVersion,
+                  ("ruleDisabled" .=) <$> _trpRuleDisabled,
                   ("description" .=) <$> _trpDescription,
                   Just ("sql" .= _trpSql),
                   Just ("actions" .= _trpActions)])
+
+-- | Data used to transfer a certificate to an AWS account.
+--
+-- /See:/ 'transferData' smart constructor.
+data TransferData = TransferData'
+    { _tdTransferDate    :: !(Maybe POSIX)
+    , _tdAcceptDate      :: !(Maybe POSIX)
+    , _tdTransferMessage :: !(Maybe Text)
+    , _tdRejectDate      :: !(Maybe POSIX)
+    , _tdRejectReason    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TransferData' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tdTransferDate'
+--
+-- * 'tdAcceptDate'
+--
+-- * 'tdTransferMessage'
+--
+-- * 'tdRejectDate'
+--
+-- * 'tdRejectReason'
+transferData
+    :: TransferData
+transferData =
+    TransferData'
+    { _tdTransferDate = Nothing
+    , _tdAcceptDate = Nothing
+    , _tdTransferMessage = Nothing
+    , _tdRejectDate = Nothing
+    , _tdRejectReason = Nothing
+    }
+
+-- | The date the transfer took place.
+tdTransferDate :: Lens' TransferData (Maybe UTCTime)
+tdTransferDate = lens _tdTransferDate (\ s a -> s{_tdTransferDate = a}) . mapping _Time;
+
+-- | The date the transfer was accepted.
+tdAcceptDate :: Lens' TransferData (Maybe UTCTime)
+tdAcceptDate = lens _tdAcceptDate (\ s a -> s{_tdAcceptDate = a}) . mapping _Time;
+
+-- | The transfer message.
+tdTransferMessage :: Lens' TransferData (Maybe Text)
+tdTransferMessage = lens _tdTransferMessage (\ s a -> s{_tdTransferMessage = a});
+
+-- | The date the transfer was rejected.
+tdRejectDate :: Lens' TransferData (Maybe UTCTime)
+tdRejectDate = lens _tdRejectDate (\ s a -> s{_tdRejectDate = a}) . mapping _Time;
+
+-- | The reason why the transfer was rejected.
+tdRejectReason :: Lens' TransferData (Maybe Text)
+tdRejectReason = lens _tdRejectReason (\ s a -> s{_tdRejectReason = a});
+
+instance FromJSON TransferData where
+        parseJSON
+          = withObject "TransferData"
+              (\ x ->
+                 TransferData' <$>
+                   (x .:? "transferDate") <*> (x .:? "acceptDate") <*>
+                     (x .:? "transferMessage")
+                     <*> (x .:? "rejectDate")
+                     <*> (x .:? "rejectReason"))
+
+instance Hashable TransferData
+
+instance NFData TransferData

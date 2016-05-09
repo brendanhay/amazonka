@@ -94,6 +94,8 @@ instance AWSRequest DefineAnalysisScheme where
 
 instance Hashable DefineAnalysisScheme
 
+instance NFData DefineAnalysisScheme
+
 instance ToHeaders DefineAnalysisScheme where
         toHeaders = const mempty
 
@@ -141,3 +143,5 @@ defersResponseStatus = lens _defersResponseStatus (\ s a -> s{_defersResponseSta
 -- | Undocumented member.
 defersAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
 defersAnalysisScheme = lens _defersAnalysisScheme (\ s a -> s{_defersAnalysisScheme = a});
+
+instance NFData DefineAnalysisSchemeResponse

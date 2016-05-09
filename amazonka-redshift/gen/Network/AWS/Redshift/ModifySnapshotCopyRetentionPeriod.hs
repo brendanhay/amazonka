@@ -104,6 +104,8 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod
 
 instance Hashable ModifySnapshotCopyRetentionPeriod
 
+instance NFData ModifySnapshotCopyRetentionPeriod
+
 instance ToHeaders ModifySnapshotCopyRetentionPeriod
          where
         toHeaders = const mempty
@@ -151,3 +153,6 @@ mscrprsCluster = lens _mscrprsCluster (\ s a -> s{_mscrprsCluster = a});
 -- | The response status code.
 mscrprsResponseStatus :: Lens' ModifySnapshotCopyRetentionPeriodResponse Int
 mscrprsResponseStatus = lens _mscrprsResponseStatus (\ s a -> s{_mscrprsResponseStatus = a});
+
+instance NFData
+         ModifySnapshotCopyRetentionPeriodResponse

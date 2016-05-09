@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns information about the working storage of a
--- gateway. This operation is supported only for the gateway-stored volume
--- architecture. This operation is deprecated in cached-volumes API version
--- (20120630). Use DescribeUploadBuffer instead.
+-- Returns information about the working storage of a gateway. This
+-- operation is supported only for the gateway-stored volume architecture.
+-- This operation is deprecated in cached-volumes API version (20120630).
+-- Use DescribeUploadBuffer instead.
 --
 -- Working storage is also referred to as upload buffer. You can also use
 -- the DescribeUploadBuffer operation to add upload buffer to a
@@ -93,6 +93,8 @@ instance AWSRequest DescribeWorkingStorage where
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeWorkingStorage
+
+instance NFData DescribeWorkingStorage
 
 instance ToHeaders DescribeWorkingStorage where
         toHeaders
@@ -175,3 +177,5 @@ dwsrsWorkingStorageUsedInBytes = lens _dwsrsWorkingStorageUsedInBytes (\ s a -> 
 -- | The response status code.
 dwsrsResponseStatus :: Lens' DescribeWorkingStorageResponse Int
 dwsrsResponseStatus = lens _dwsrsResponseStatus (\ s a -> s{_dwsrsResponseStatus = a});
+
+instance NFData DescribeWorkingStorageResponse

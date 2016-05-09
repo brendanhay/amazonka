@@ -104,6 +104,8 @@ instance AWSRequest CreatePublicVirtualInterface
 
 instance Hashable CreatePublicVirtualInterface
 
+instance NFData CreatePublicVirtualInterface
+
 instance ToHeaders CreatePublicVirtualInterface where
         toHeaders
           = const

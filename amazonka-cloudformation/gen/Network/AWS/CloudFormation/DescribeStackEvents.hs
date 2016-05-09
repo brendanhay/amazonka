@@ -114,6 +114,8 @@ instance AWSRequest DescribeStackEvents where
 
 instance Hashable DescribeStackEvents
 
+instance NFData DescribeStackEvents
+
 instance ToHeaders DescribeStackEvents where
         toHeaders = const mempty
 
@@ -168,3 +170,5 @@ dsersStackEvents = lens _dsersStackEvents (\ s a -> s{_dsersStackEvents = a}) . 
 -- | The response status code.
 dsersResponseStatus :: Lens' DescribeStackEventsResponse Int
 dsersResponseStatus = lens _dsersResponseStatus (\ s a -> s{_dsersResponseStatus = a});
+
+instance NFData DescribeStackEventsResponse

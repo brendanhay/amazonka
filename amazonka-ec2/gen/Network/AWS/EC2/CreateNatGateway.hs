@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createNatGateway' smart constructor.
+-- | Contains the parameters for CreateNatGateway.
+--
+-- /See:/ 'createNatGateway' smart constructor.
 data CreateNatGateway = CreateNatGateway'
     { _cngClientToken  :: !(Maybe Text)
     , _cngSubnetId     :: !Text
@@ -108,6 +110,8 @@ instance AWSRequest CreateNatGateway where
 
 instance Hashable CreateNatGateway
 
+instance NFData CreateNatGateway
+
 instance ToHeaders CreateNatGateway where
         toHeaders = const mempty
 
@@ -123,7 +127,9 @@ instance ToQuery CreateNatGateway where
                "SubnetId" =: _cngSubnetId,
                "AllocationId" =: _cngAllocationId]
 
--- | /See:/ 'createNatGatewayResponse' smart constructor.
+-- | Contains the output of CreateNatGateway.
+--
+-- /See:/ 'createNatGatewayResponse' smart constructor.
 data CreateNatGatewayResponse = CreateNatGatewayResponse'
     { _cngrsClientToken    :: !(Maybe Text)
     , _cngrsNatGateway     :: !(Maybe NatGateway)
@@ -161,3 +167,5 @@ cngrsNatGateway = lens _cngrsNatGateway (\ s a -> s{_cngrsNatGateway = a});
 -- | The response status code.
 cngrsResponseStatus :: Lens' CreateNatGatewayResponse Int
 cngrsResponseStatus = lens _cngrsResponseStatus (\ s a -> s{_cngrsResponseStatus = a});
+
+instance NFData CreateNatGatewayResponse

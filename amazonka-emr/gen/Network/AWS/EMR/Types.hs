@@ -213,6 +213,7 @@ module Network.AWS.EMR.Types
     , igEBSOptimized
     , igMarket
     , igName
+    , igShrinkPolicy
     , igId
 
     -- * InstanceGroupConfig
@@ -232,6 +233,7 @@ module Network.AWS.EMR.Types
     , instanceGroupModifyConfig
     , igmcInstanceCount
     , igmcEC2InstanceIdsToTerminate
+    , igmcShrinkPolicy
     , igmcInstanceGroupId
 
     -- * InstanceGroupStateChangeReason
@@ -253,6 +255,13 @@ module Network.AWS.EMR.Types
     , igtReadyDateTime
     , igtCreationDateTime
     , igtEndDateTime
+
+    -- * InstanceResizePolicy
+    , InstanceResizePolicy
+    , instanceResizePolicy
+    , irpInstancesToProtect
+    , irpInstancesToTerminate
+    , irpInstanceTerminationTimeout
 
     -- * InstanceStateChangeReason
     , InstanceStateChangeReason
@@ -309,6 +318,12 @@ module Network.AWS.EMR.Types
     , scriptBootstrapActionConfig
     , sbacArgs
     , sbacPath
+
+    -- * ShrinkPolicy
+    , ShrinkPolicy
+    , shrinkPolicy
+    , spDecommissionTimeout
+    , spInstanceResizePolicy
 
     -- * Step
     , Step
@@ -408,6 +423,8 @@ emr =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"

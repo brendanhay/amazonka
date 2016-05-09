@@ -21,6 +21,56 @@ import           Network.AWS.CognitoIdentity.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
+-- | A provider representing a Cognito User Identity Pool and its client ID.
+--
+-- /See:/ 'cognitoIdentityProvider' smart constructor.
+data CognitoIdentityProvider = CognitoIdentityProvider'
+    { _cipClientId     :: !(Maybe Text)
+    , _cipProviderName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CognitoIdentityProvider' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cipClientId'
+--
+-- * 'cipProviderName'
+cognitoIdentityProvider
+    :: CognitoIdentityProvider
+cognitoIdentityProvider =
+    CognitoIdentityProvider'
+    { _cipClientId = Nothing
+    , _cipProviderName = Nothing
+    }
+
+-- | The client ID for the Cognito User Identity Pool.
+cipClientId :: Lens' CognitoIdentityProvider (Maybe Text)
+cipClientId = lens _cipClientId (\ s a -> s{_cipClientId = a});
+
+-- | The provider name for a Cognito User Identity Pool. For example,
+-- 'cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789'.
+cipProviderName :: Lens' CognitoIdentityProvider (Maybe Text)
+cipProviderName = lens _cipProviderName (\ s a -> s{_cipProviderName = a});
+
+instance FromJSON CognitoIdentityProvider where
+        parseJSON
+          = withObject "CognitoIdentityProvider"
+              (\ x ->
+                 CognitoIdentityProvider' <$>
+                   (x .:? "ClientId") <*> (x .:? "ProviderName"))
+
+instance Hashable CognitoIdentityProvider
+
+instance NFData CognitoIdentityProvider
+
+instance ToJSON CognitoIdentityProvider where
+        toJSON CognitoIdentityProvider'{..}
+          = object
+              (catMaybes
+                 [("ClientId" .=) <$> _cipClientId,
+                  ("ProviderName" .=) <$> _cipProviderName])
+
 -- | Credentials for the provided identity ID.
 --
 -- /See:/ 'credentials' smart constructor.
@@ -78,6 +128,8 @@ instance FromJSON Credentials where
                      <*> (x .:? "AccessKeyId"))
 
 instance Hashable Credentials
+
+instance NFData Credentials
 
 -- | A description of the identity.
 --
@@ -138,6 +190,8 @@ instance FromJSON IdentityDescription where
 
 instance Hashable IdentityDescription
 
+instance NFData IdentityDescription
+
 -- | An object representing a Cognito identity pool.
 --
 -- /See:/ 'identityPool' smart constructor.
@@ -145,6 +199,7 @@ data IdentityPool = IdentityPool'
     { _ipSupportedLoginProviders        :: !(Maybe (Map Text Text))
     , _ipDeveloperProviderName          :: !(Maybe Text)
     , _ipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+    , _ipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
     , _ipIdentityPoolId                 :: !Text
     , _ipIdentityPoolName               :: !Text
     , _ipAllowUnauthenticatedIdentities :: !Bool
@@ -159,6 +214,8 @@ data IdentityPool = IdentityPool'
 -- * 'ipDeveloperProviderName'
 --
 -- * 'ipOpenIdConnectProviderARNs'
+--
+-- * 'ipCognitoIdentityProviders'
 --
 -- * 'ipIdentityPoolId'
 --
@@ -175,6 +232,7 @@ identityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities
     { _ipSupportedLoginProviders = Nothing
     , _ipDeveloperProviderName = Nothing
     , _ipOpenIdConnectProviderARNs = Nothing
+    , _ipCognitoIdentityProviders = Nothing
     , _ipIdentityPoolId = pIdentityPoolId_
     , _ipIdentityPoolName = pIdentityPoolName_
     , _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
@@ -191,6 +249,10 @@ ipDeveloperProviderName = lens _ipDeveloperProviderName (\ s a -> s{_ipDeveloper
 -- | A list of OpendID Connect provider ARNs.
 ipOpenIdConnectProviderARNs :: Lens' IdentityPool [Text]
 ipOpenIdConnectProviderARNs = lens _ipOpenIdConnectProviderARNs (\ s a -> s{_ipOpenIdConnectProviderARNs = a}) . _Default . _Coerce;
+
+-- | A list representing a Cognito User Identity Pool and its client ID.
+ipCognitoIdentityProviders :: Lens' IdentityPool [CognitoIdentityProvider]
+ipCognitoIdentityProviders = lens _ipCognitoIdentityProviders (\ s a -> s{_ipCognitoIdentityProviders = a}) . _Default . _Coerce;
 
 -- | An identity pool ID in the format REGION:GUID.
 ipIdentityPoolId :: Lens' IdentityPool Text
@@ -212,11 +274,14 @@ instance FromJSON IdentityPool where
                    (x .:? "SupportedLoginProviders" .!= mempty) <*>
                      (x .:? "DeveloperProviderName")
                      <*> (x .:? "OpenIdConnectProviderARNs" .!= mempty)
+                     <*> (x .:? "CognitoIdentityProviders" .!= mempty)
                      <*> (x .: "IdentityPoolId")
                      <*> (x .: "IdentityPoolName")
                      <*> (x .: "AllowUnauthenticatedIdentities"))
 
 instance Hashable IdentityPool
+
+instance NFData IdentityPool
 
 instance ToJSON IdentityPool where
         toJSON IdentityPool'{..}
@@ -228,6 +293,8 @@ instance ToJSON IdentityPool where
                     _ipDeveloperProviderName,
                   ("OpenIdConnectProviderARNs" .=) <$>
                     _ipOpenIdConnectProviderARNs,
+                  ("CognitoIdentityProviders" .=) <$>
+                    _ipCognitoIdentityProviders,
                   Just ("IdentityPoolId" .= _ipIdentityPoolId),
                   Just ("IdentityPoolName" .= _ipIdentityPoolName),
                   Just
@@ -275,6 +342,8 @@ instance FromJSON IdentityPoolShortDescription where
 
 instance Hashable IdentityPoolShortDescription
 
+instance NFData IdentityPoolShortDescription
+
 -- | An array of UnprocessedIdentityId objects, each of which contains an
 -- ErrorCode and IdentityId.
 --
@@ -315,3 +384,5 @@ instance FromJSON UnprocessedIdentityId where
                    (x .:? "ErrorCode") <*> (x .:? "IdentityId"))
 
 instance Hashable UnprocessedIdentityId
+
+instance NFData UnprocessedIdentityId

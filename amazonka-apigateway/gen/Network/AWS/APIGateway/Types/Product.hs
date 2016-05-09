@@ -111,6 +111,8 @@ instance FromJSON APIKey where
 
 instance Hashable APIKey
 
+instance NFData APIKey
+
 -- | Represents an AWS account that is associated with Amazon API Gateway.
 --
 -- /See:/ 'account' smart constructor.
@@ -154,6 +156,8 @@ instance FromJSON Account where
 
 instance Hashable Account
 
+instance NFData Account
+
 -- | Represents an authorization layer for methods. If enabled on a method,
 -- API Gateway will activate the authorizer when a client calls the method.
 --
@@ -164,6 +168,7 @@ data Authorizer = Authorizer'
     , _aName                         :: !(Maybe Text)
     , _aId                           :: !(Maybe Text)
     , _aAuthorizerResultTtlInSeconds :: !(Maybe Int)
+    , _aAuthType                     :: !(Maybe Text)
     , _aType                         :: !(Maybe AuthorizerType)
     , _aIdentitySource               :: !(Maybe Text)
     , _aAuthorizerCredentials        :: !(Maybe Text)
@@ -183,6 +188,8 @@ data Authorizer = Authorizer'
 --
 -- * 'aAuthorizerResultTtlInSeconds'
 --
+-- * 'aAuthType'
+--
 -- * 'aType'
 --
 -- * 'aIdentitySource'
@@ -197,6 +204,7 @@ authorizer =
     , _aName = Nothing
     , _aId = Nothing
     , _aAuthorizerResultTtlInSeconds = Nothing
+    , _aAuthType = Nothing
     , _aType = Nothing
     , _aIdentitySource = Nothing
     , _aAuthorizerCredentials = Nothing
@@ -236,6 +244,11 @@ aId = lens _aId (\ s a -> s{_aId = a});
 aAuthorizerResultTtlInSeconds :: Lens' Authorizer (Maybe Int)
 aAuthorizerResultTtlInSeconds = lens _aAuthorizerResultTtlInSeconds (\ s a -> s{_aAuthorizerResultTtlInSeconds = a});
 
+-- | Optional customer-defined field, used in Swagger imports\/exports. Has
+-- no functional impact.
+aAuthType :: Lens' Authorizer (Maybe Text)
+aAuthType = lens _aAuthType (\ s a -> s{_aAuthType = a});
+
 -- | [Required] The type of the authorizer. Currently, the only valid type is
 -- TOKEN.
 aType :: Lens' Authorizer (Maybe AuthorizerType)
@@ -267,11 +280,14 @@ instance FromJSON Authorizer where
                      <*> (x .:? "name")
                      <*> (x .:? "id")
                      <*> (x .:? "authorizerResultTtlInSeconds")
+                     <*> (x .:? "authType")
                      <*> (x .:? "type")
                      <*> (x .:? "identitySource")
                      <*> (x .:? "authorizerCredentials"))
 
 instance Hashable Authorizer
+
+instance NFData Authorizer
 
 -- | Represents the base path that callers of the API that must provide as
 -- part of the URL after the domain name.
@@ -324,7 +340,12 @@ instance FromJSON BasePathMapping where
 
 instance Hashable BasePathMapping
 
--- | /See:/ 'clientCertificate' smart constructor.
+instance NFData BasePathMapping
+
+-- | Represents a Client Certificate used to configure client-side SSL
+-- authentication while sending requests to the integration endpoint.
+--
+-- /See:/ 'clientCertificate' smart constructor.
 data ClientCertificate = ClientCertificate'
     { _ccPemEncodedCertificate :: !(Maybe Text)
     , _ccClientCertificateId   :: !(Maybe Text)
@@ -357,23 +378,26 @@ clientCertificate =
     , _ccDescription = Nothing
     }
 
--- | Undocumented member.
+-- | The PEM-encoded public key of the Client Certificate, that can be used
+-- to configure certificate authentication in the integration endpoint .
 ccPemEncodedCertificate :: Lens' ClientCertificate (Maybe Text)
 ccPemEncodedCertificate = lens _ccPemEncodedCertificate (\ s a -> s{_ccPemEncodedCertificate = a});
 
--- | Undocumented member.
+-- | The identifier of the Client Certificate.
 ccClientCertificateId :: Lens' ClientCertificate (Maybe Text)
 ccClientCertificateId = lens _ccClientCertificateId (\ s a -> s{_ccClientCertificateId = a});
 
--- | Undocumented member.
+-- | The date when the Client Certificate was created, in
+-- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 ccCreatedDate :: Lens' ClientCertificate (Maybe UTCTime)
 ccCreatedDate = lens _ccCreatedDate (\ s a -> s{_ccCreatedDate = a}) . mapping _Time;
 
--- | Undocumented member.
+-- | The date when the Client Certificate will expire, in
+-- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 ccExpirationDate :: Lens' ClientCertificate (Maybe UTCTime)
 ccExpirationDate = lens _ccExpirationDate (\ s a -> s{_ccExpirationDate = a}) . mapping _Time;
 
--- | Undocumented member.
+-- | The description of the Client Certificate.
 ccDescription :: Lens' ClientCertificate (Maybe Text)
 ccDescription = lens _ccDescription (\ s a -> s{_ccDescription = a});
 
@@ -389,6 +413,8 @@ instance FromJSON ClientCertificate where
                      <*> (x .:? "description"))
 
 instance Hashable ClientCertificate
+
+instance NFData ClientCertificate
 
 -- | An immutable representation of a < RestApi> resource that can be called
 -- by users using < Stages>. A deployment must be associated with a
@@ -452,6 +478,8 @@ instance FromJSON Deployment where
 
 instance Hashable Deployment
 
+instance NFData Deployment
+
 -- | Represents a domain name that is contained in a simpler, more intuitive
 -- URL that can be called.
 --
@@ -513,6 +541,8 @@ instance FromJSON DomainName where
                      <*> (x .:? "distributionDomainName"))
 
 instance Hashable DomainName
+
+instance NFData DomainName
 
 -- | Represents a HTTP, AWS, or Mock integration.
 --
@@ -617,7 +647,8 @@ iIntegrationResponses = lens _iIntegrationResponses (\ s a -> s{_iIntegrationRes
 iCacheNamespace :: Lens' Integration (Maybe Text)
 iCacheNamespace = lens _iCacheNamespace (\ s a -> s{_iCacheNamespace = a});
 
--- | Specifies the integration\'s type.
+-- | Specifies the integration\'s type. The valid value is 'HTTP', 'AWS', or
+-- 'MOCK'.
 iType :: Lens' Integration (Maybe IntegrationType)
 iType = lens _iType (\ s a -> s{_iType = a});
 
@@ -641,6 +672,8 @@ instance FromJSON Integration where
                      <*> (x .:? "cacheKeyParameters" .!= mempty))
 
 instance Hashable Integration
+
+instance NFData Integration
 
 -- | Represents an integration response. The status code must map to an
 -- existing < MethodResponse>, and parameters and templates can be used to
@@ -716,6 +749,8 @@ instance FromJSON IntegrationResponse where
                      <*> (x .:? "responseParameters" .!= mempty))
 
 instance Hashable IntegrationResponse
+
+instance NFData IntegrationResponse
 
 -- | Represents a method.
 --
@@ -825,6 +860,8 @@ instance FromJSON Method where
 
 instance Hashable Method
 
+instance NFData Method
+
 -- | Represents a method response. Amazon API Gateway sends back the status
 -- code to the caller as the HTTP status code. Parameters and models can be
 -- used to transform the response from the method\'s integration.
@@ -885,6 +922,8 @@ instance FromJSON MethodResponse where
                      <*> (x .:? "responseParameters" .!= mempty))
 
 instance Hashable MethodResponse
+
+instance NFData MethodResponse
 
 -- | Specifies the method setting properties.
 --
@@ -1027,6 +1066,8 @@ instance FromJSON MethodSetting where
 
 instance Hashable MethodSetting
 
+instance NFData MethodSetting
+
 -- | Represents a summary of a < Method> resource, given a particular date
 -- and time.
 --
@@ -1068,6 +1109,8 @@ instance FromJSON MethodSnapshot where
                      (x .:? "apiKeyRequired"))
 
 instance Hashable MethodSnapshot
+
+instance NFData MethodSnapshot
 
 -- | Represents the structure of a request or response payload for a method.
 --
@@ -1136,6 +1179,8 @@ instance FromJSON Model where
 
 instance Hashable Model
 
+instance NFData Model
+
 -- | A single patch operation to apply to the specified resource. Please
 -- refer to http:\/\/tools.ietf.org\/html\/rfc6902#section-4 for an
 -- explanation of how each operation is used.
@@ -1194,6 +1239,8 @@ poFrom = lens _poFrom (\ s a -> s{_poFrom = a});
 
 instance Hashable PatchOperation
 
+instance NFData PatchOperation
+
 instance ToJSON PatchOperation where
         toJSON PatchOperation'{..}
           = object
@@ -1248,8 +1295,8 @@ rPath = lens _rPath (\ s a -> s{_rPath = a});
 rId :: Lens' Resource (Maybe Text)
 rId = lens _rId (\ s a -> s{_rId = a});
 
--- | Map of methods for this resource, which is included only if requested
--- using the __embed__ option.
+-- | Map of methods for this resource, which is included only if the request
+-- uses the __embed__ query option.
 rResourceMethods :: Lens' Resource (HashMap Text Method)
 rResourceMethods = lens _rResourceMethods (\ s a -> s{_rResourceMethods = a}) . _Default . _Map;
 
@@ -1269,11 +1316,14 @@ instance FromJSON Resource where
 
 instance Hashable Resource
 
+instance NFData Resource
+
 -- | Represents a REST API.
 --
 -- /See:/ 'restAPI' smart constructor.
 data RestAPI = RestAPI'
-    { _raCreatedDate :: !(Maybe POSIX)
+    { _raWarnings    :: !(Maybe [Text])
+    , _raCreatedDate :: !(Maybe POSIX)
     , _raName        :: !(Maybe Text)
     , _raId          :: !(Maybe Text)
     , _raDescription :: !(Maybe Text)
@@ -1282,6 +1332,8 @@ data RestAPI = RestAPI'
 -- | Creates a value of 'RestAPI' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'raWarnings'
 --
 -- * 'raCreatedDate'
 --
@@ -1294,11 +1346,16 @@ restAPI
     :: RestAPI
 restAPI =
     RestAPI'
-    { _raCreatedDate = Nothing
+    { _raWarnings = Nothing
+    , _raCreatedDate = Nothing
     , _raName = Nothing
     , _raId = Nothing
     , _raDescription = Nothing
     }
+
+-- | Undocumented member.
+raWarnings :: Lens' RestAPI [Text]
+raWarnings = lens _raWarnings (\ s a -> s{_raWarnings = a}) . _Default . _Coerce;
 
 -- | The date when the API was created, in
 -- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
@@ -1323,11 +1380,15 @@ instance FromJSON RestAPI where
           = withObject "RestAPI"
               (\ x ->
                  RestAPI' <$>
-                   (x .:? "createdDate") <*> (x .:? "name") <*>
-                     (x .:? "id")
+                   (x .:? "warnings" .!= mempty) <*>
+                     (x .:? "createdDate")
+                     <*> (x .:? "name")
+                     <*> (x .:? "id")
                      <*> (x .:? "description"))
 
 instance Hashable RestAPI
+
+instance NFData RestAPI
 
 -- | Represents a unique identifier for a version of a deployed < RestApi>
 -- that is callable by users.
@@ -1460,6 +1521,8 @@ instance FromJSON Stage where
 
 instance Hashable Stage
 
+instance NFData Stage
+
 -- | A reference to a unique stage identified in the format
 -- '{restApiId}\/{stage}'.
 --
@@ -1494,6 +1557,8 @@ skStageName :: Lens' StageKey (Maybe Text)
 skStageName = lens _skStageName (\ s a -> s{_skStageName = a});
 
 instance Hashable StageKey
+
+instance NFData StageKey
 
 instance ToJSON StageKey where
         toJSON StageKey'{..}
@@ -1541,3 +1606,5 @@ instance FromJSON ThrottleSettings where
                    (x .:? "burstLimit") <*> (x .:? "rateLimit"))
 
 instance Hashable ThrottleSettings
+
+instance NFData ThrottleSettings

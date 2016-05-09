@@ -26,8 +26,8 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
       describeApplicationVersions
     , DescribeApplicationVersions
     -- * Request Lenses
-    , davsVersionLabels
-    , davsApplicationName
+    , dVersionLabels
+    , dApplicationName
 
     -- * Destructuring the Response
     , describeApplicationVersionsResponse
@@ -48,34 +48,34 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeApplicationVersions' smart constructor.
 data DescribeApplicationVersions = DescribeApplicationVersions'
-    { _davsVersionLabels   :: !(Maybe [Text])
-    , _davsApplicationName :: !(Maybe Text)
+    { _dVersionLabels   :: !(Maybe [Text])
+    , _dApplicationName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeApplicationVersions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'davsVersionLabels'
+-- * 'dVersionLabels'
 --
--- * 'davsApplicationName'
+-- * 'dApplicationName'
 describeApplicationVersions
     :: DescribeApplicationVersions
 describeApplicationVersions =
     DescribeApplicationVersions'
-    { _davsVersionLabels = Nothing
-    , _davsApplicationName = Nothing
+    { _dVersionLabels = Nothing
+    , _dApplicationName = Nothing
     }
 
 -- | If specified, restricts the returned descriptions to only include ones
 -- that have the specified version labels.
-davsVersionLabels :: Lens' DescribeApplicationVersions [Text]
-davsVersionLabels = lens _davsVersionLabels (\ s a -> s{_davsVersionLabels = a}) . _Default . _Coerce;
+dVersionLabels :: Lens' DescribeApplicationVersions [Text]
+dVersionLabels = lens _dVersionLabels (\ s a -> s{_dVersionLabels = a}) . _Default . _Coerce;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include ones that are associated with the specified application.
-davsApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
-davsApplicationName = lens _davsApplicationName (\ s a -> s{_davsApplicationName = a});
+dApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
+dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
 
 instance AWSRequest DescribeApplicationVersions where
         type Rs DescribeApplicationVersions =
@@ -92,6 +92,8 @@ instance AWSRequest DescribeApplicationVersions where
 
 instance Hashable DescribeApplicationVersions
 
+instance NFData DescribeApplicationVersions
+
 instance ToHeaders DescribeApplicationVersions where
         toHeaders = const mempty
 
@@ -105,9 +107,8 @@ instance ToQuery DescribeApplicationVersions where
                  ("DescribeApplicationVersions" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
                "VersionLabels" =:
-                 toQuery
-                   (toQueryList "member" <$> _davsVersionLabels),
-               "ApplicationName" =: _davsApplicationName]
+                 toQuery (toQueryList "member" <$> _dVersionLabels),
+               "ApplicationName" =: _dApplicationName]
 
 -- | Result message wrapping a list of application version descriptions.
 --
@@ -141,3 +142,5 @@ davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsAppl
 -- | The response status code.
 davrsResponseStatus :: Lens' DescribeApplicationVersionsResponse Int
 davrsResponseStatus = lens _davrsResponseStatus (\ s a -> s{_davrsResponseStatus = a});
+
+instance NFData DescribeApplicationVersionsResponse

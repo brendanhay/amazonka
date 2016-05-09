@@ -52,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVPCClassicLinkDNSSupport' smart constructor.
+-- | Contains the parameters for DescribeVpcClassicLinkDnsSupport.
+--
+-- /See:/ 'describeVPCClassicLinkDNSSupport' smart constructor.
 data DescribeVPCClassicLinkDNSSupport = DescribeVPCClassicLinkDNSSupport'
     { _dvcldsNextToken  :: !(Maybe Text)
     , _dvcldsVPCIds     :: !(Maybe [Text])
@@ -108,6 +110,8 @@ instance AWSRequest DescribeVPCClassicLinkDNSSupport
 
 instance Hashable DescribeVPCClassicLinkDNSSupport
 
+instance NFData DescribeVPCClassicLinkDNSSupport
+
 instance ToHeaders DescribeVPCClassicLinkDNSSupport
          where
         toHeaders = const mempty
@@ -127,7 +131,9 @@ instance ToQuery DescribeVPCClassicLinkDNSSupport
                toQuery (toQueryList "VpcIds" <$> _dvcldsVPCIds),
                "MaxResults" =: _dvcldsMaxResults]
 
--- | /See:/ 'describeVPCClassicLinkDNSSupportResponse' smart constructor.
+-- | Contains the output of DescribeVpcClassicLinkDnsSupport.
+--
+-- /See:/ 'describeVPCClassicLinkDNSSupportResponse' smart constructor.
 data DescribeVPCClassicLinkDNSSupportResponse = DescribeVPCClassicLinkDNSSupportResponse'
     { _dvpccldnssrsVPCs           :: !(Maybe [ClassicLinkDNSSupport])
     , _dvpccldnssrsNextToken      :: !(Maybe Text)
@@ -164,3 +170,6 @@ dvpccldnssrsNextToken = lens _dvpccldnssrsNextToken (\ s a -> s{_dvpccldnssrsNex
 -- | The response status code.
 dvpccldnssrsResponseStatus :: Lens' DescribeVPCClassicLinkDNSSupportResponse Int
 dvpccldnssrsResponseStatus = lens _dvpccldnssrsResponseStatus (\ s a -> s{_dvpccldnssrsResponseStatus = a});
+
+instance NFData
+         DescribeVPCClassicLinkDNSSupportResponse

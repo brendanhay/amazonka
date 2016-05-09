@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'acceptVPCPeeringConnection' smart constructor.
+-- | Contains the parameters for AcceptVpcPeeringConnection.
+--
+-- /See:/ 'acceptVPCPeeringConnection' smart constructor.
 data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'
     { _avpcVPCPeeringConnectionId :: !(Maybe Text)
     , _avpcDryRun                 :: !(Maybe Bool)
@@ -92,6 +94,8 @@ instance AWSRequest AcceptVPCPeeringConnection where
 
 instance Hashable AcceptVPCPeeringConnection
 
+instance NFData AcceptVPCPeeringConnection
+
 instance ToHeaders AcceptVPCPeeringConnection where
         toHeaders = const mempty
 
@@ -108,7 +112,9 @@ instance ToQuery AcceptVPCPeeringConnection where
                  _avpcVPCPeeringConnectionId,
                "DryRun" =: _avpcDryRun]
 
--- | /See:/ 'acceptVPCPeeringConnectionResponse' smart constructor.
+-- | Contains the output of AcceptVpcPeeringConnection.
+--
+-- /See:/ 'acceptVPCPeeringConnectionResponse' smart constructor.
 data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
     { _avpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
     , _avpcrsResponseStatus       :: !Int
@@ -137,3 +143,5 @@ avpcrsVPCPeeringConnection = lens _avpcrsVPCPeeringConnection (\ s a -> s{_avpcr
 -- | The response status code.
 avpcrsResponseStatus :: Lens' AcceptVPCPeeringConnectionResponse Int
 avpcrsResponseStatus = lens _avpcrsResponseStatus (\ s a -> s{_avpcrsResponseStatus = a});
+
+instance NFData AcceptVPCPeeringConnectionResponse

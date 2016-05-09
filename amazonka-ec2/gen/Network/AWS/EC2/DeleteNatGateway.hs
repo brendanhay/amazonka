@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteNatGateway' smart constructor.
+-- | Contains the parameters for DeleteNatGateway.
+--
+-- /See:/ 'deleteNatGateway' smart constructor.
 newtype DeleteNatGateway = DeleteNatGateway'
     { _dngNatGatewayId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -78,6 +80,8 @@ instance AWSRequest DeleteNatGateway where
 
 instance Hashable DeleteNatGateway
 
+instance NFData DeleteNatGateway
+
 instance ToHeaders DeleteNatGateway where
         toHeaders = const mempty
 
@@ -91,7 +95,9 @@ instance ToQuery DeleteNatGateway where
                "Version" =: ("2015-10-01" :: ByteString),
                "NatGatewayId" =: _dngNatGatewayId]
 
--- | /See:/ 'deleteNatGatewayResponse' smart constructor.
+-- | Contains the output of DeleteNatGateway.
+--
+-- /See:/ 'deleteNatGatewayResponse' smart constructor.
 data DeleteNatGatewayResponse = DeleteNatGatewayResponse'
     { _delrsNatGatewayId   :: !(Maybe Text)
     , _delrsResponseStatus :: !Int
@@ -120,3 +126,5 @@ delrsNatGatewayId = lens _delrsNatGatewayId (\ s a -> s{_delrsNatGatewayId = a})
 -- | The response status code.
 delrsResponseStatus :: Lens' DeleteNatGatewayResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+
+instance NFData DeleteNatGatewayResponse

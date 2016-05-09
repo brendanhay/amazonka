@@ -83,6 +83,8 @@ instance AWSRequest DescribeElasticsearchDomains
 
 instance Hashable DescribeElasticsearchDomains
 
+instance NFData DescribeElasticsearchDomains
+
 instance ToHeaders DescribeElasticsearchDomains where
         toHeaders = const mempty
 
@@ -130,3 +132,5 @@ drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 -- 'DescribeElasticsearchDomains' request.
 drsDomainStatusList :: Lens' DescribeElasticsearchDomainsResponse [ElasticsearchDomainStatus]
 drsDomainStatusList = lens _drsDomainStatusList (\ s a -> s{_drsDomainStatusList = a}) . _Coerce;
+
+instance NFData DescribeElasticsearchDomainsResponse

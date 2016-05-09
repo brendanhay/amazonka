@@ -81,7 +81,7 @@ mdsgDBSubnetGroupDescription = lens _mdsgDBSubnetGroupDescription (\ s a -> s{_m
 -- string.
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters,
--- periods, underscores, spaces, or hyphens. Must not be \"default\".
+-- periods, underscores, spaces, or hyphens. Must not be default.
 --
 -- Example: 'mySubnetgroup'
 mdsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
@@ -102,6 +102,8 @@ instance AWSRequest ModifyDBSubnetGroup where
                    (x .@? "DBSubnetGroup") <*> (pure (fromEnum s)))
 
 instance Hashable ModifyDBSubnetGroup
+
+instance NFData ModifyDBSubnetGroup
 
 instance ToHeaders ModifyDBSubnetGroup where
         toHeaders = const mempty
@@ -149,3 +151,5 @@ mdsgrsDBSubnetGroup = lens _mdsgrsDBSubnetGroup (\ s a -> s{_mdsgrsDBSubnetGroup
 -- | The response status code.
 mdsgrsResponseStatus :: Lens' ModifyDBSubnetGroupResponse Int
 mdsgrsResponseStatus = lens _mdsgrsResponseStatus (\ s a -> s{_mdsgrsResponseStatus = a});
+
+instance NFData ModifyDBSubnetGroupResponse

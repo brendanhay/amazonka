@@ -128,6 +128,8 @@ instance AWSRequest ListUsers where
 
 instance Hashable ListUsers
 
+instance NFData ListUsers
+
 instance ToHeaders ListUsers where
         toHeaders = const mempty
 
@@ -197,3 +199,5 @@ lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = 
 -- | A list of users.
 lursUsers :: Lens' ListUsersResponse [User]
 lursUsers = lens _lursUsers (\ s a -> s{_lursUsers = a}) . _Coerce;
+
+instance NFData ListUsersResponse

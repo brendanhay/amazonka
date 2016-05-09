@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation deletes the specified gateway volume that you previously
--- created using the < CreateCachediSCSIVolume> or
--- < CreateStorediSCSIVolume> API. For gateway-stored volumes, the local
--- disk that was configured as the storage volume is not deleted. You can
--- reuse the local disk to create another storage volume.
+-- Deletes the specified gateway volume that you previously created using
+-- the < CreateCachediSCSIVolume> or < CreateStorediSCSIVolume> API. For
+-- gateway-stored volumes, the local disk that was configured as the
+-- storage volume is not deleted. You can reuse the local disk to create
+-- another storage volume.
 --
 -- Before you delete a gateway volume, make sure there are no iSCSI
 -- connections to the volume you are deleting. You should also make sure
@@ -93,6 +93,8 @@ instance AWSRequest DeleteVolume where
 
 instance Hashable DeleteVolume
 
+instance NFData DeleteVolume
+
 instance ToHeaders DeleteVolume where
         toHeaders
           = const
@@ -146,3 +148,5 @@ dvrsVolumeARN = lens _dvrsVolumeARN (\ s a -> s{_dvrsVolumeARN = a});
 -- | The response status code.
 dvrsResponseStatus :: Lens' DeleteVolumeResponse Int
 dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a});
+
+instance NFData DeleteVolumeResponse

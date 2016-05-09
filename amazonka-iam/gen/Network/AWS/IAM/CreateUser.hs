@@ -94,6 +94,8 @@ instance AWSRequest CreateUser where
 
 instance Hashable CreateUser
 
+instance NFData CreateUser
+
 instance ToHeaders CreateUser where
         toHeaders = const mempty
 
@@ -138,3 +140,5 @@ cursUser = lens _cursUser (\ s a -> s{_cursUser = a});
 -- | The response status code.
 cursResponseStatus :: Lens' CreateUserResponse Int
 cursResponseStatus = lens _cursResponseStatus (\ s a -> s{_cursResponseStatus = a});
+
+instance NFData CreateUserResponse

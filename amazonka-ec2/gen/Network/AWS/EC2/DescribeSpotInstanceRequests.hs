@@ -112,7 +112,9 @@ describeSpotInstanceRequests =
 --     EBS volume, in GiB.
 --
 -- -   'launch.block-device-mapping.volume-type' - The type of the Amazon
---     EBS volume ('gp2' | 'standard' | 'io1').
+--     EBS volume: 'gp2' for General Purpose SSD, 'io1' for Provisioned
+--     IOPS SSD, 'st1' for Throughput Optimized HDD, 'sc1'for Cold HDD, or
+--     'standard' for Magnetic.
 --
 -- -   'launch.group-id' - The security group for the instance.
 --
@@ -232,6 +234,8 @@ instance AWSRequest DescribeSpotInstanceRequests
 
 instance Hashable DescribeSpotInstanceRequests
 
+instance NFData DescribeSpotInstanceRequests
+
 instance ToHeaders DescribeSpotInstanceRequests where
         toHeaders = const mempty
 
@@ -281,3 +285,5 @@ dsirrsSpotInstanceRequests = lens _dsirrsSpotInstanceRequests (\ s a -> s{_dsirr
 -- | The response status code.
 dsirrsResponseStatus :: Lens' DescribeSpotInstanceRequestsResponse Int
 dsirrsResponseStatus = lens _dsirrsResponseStatus (\ s a -> s{_dsirrsResponseStatus = a});
+
+instance NFData DescribeSpotInstanceRequestsResponse

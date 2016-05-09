@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteVPNGateway' smart constructor.
+-- | Contains the parameters for DeleteVpnGateway.
+--
+-- /See:/ 'deleteVPNGateway' smart constructor.
 data DeleteVPNGateway = DeleteVPNGateway'
     { _dvgDryRun       :: !(Maybe Bool)
     , _dvgVPNGatewayId :: !Text
@@ -84,6 +86,8 @@ instance AWSRequest DeleteVPNGateway where
 
 instance Hashable DeleteVPNGateway
 
+instance NFData DeleteVPNGateway
+
 instance ToHeaders DeleteVPNGateway where
         toHeaders = const mempty
 
@@ -108,3 +112,5 @@ data DeleteVPNGatewayResponse =
 deleteVPNGatewayResponse
     :: DeleteVPNGatewayResponse
 deleteVPNGatewayResponse = DeleteVPNGatewayResponse'
+
+instance NFData DeleteVPNGatewayResponse

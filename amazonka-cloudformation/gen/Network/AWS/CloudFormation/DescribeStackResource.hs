@@ -28,8 +28,8 @@ module Network.AWS.CloudFormation.DescribeStackResource
       describeStackResource
     , DescribeStackResource
     -- * Request Lenses
-    , desStackName
-    , desLogicalResourceId
+    , dsrsStackName
+    , dsrsLogicalResourceId
 
     -- * Destructuring the Response
     , describeStackResourceResponse
@@ -50,25 +50,25 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeStackResource' smart constructor.
 data DescribeStackResource = DescribeStackResource'
-    { _desStackName         :: !Text
-    , _desLogicalResourceId :: !Text
+    { _dsrsStackName         :: !Text
+    , _dsrsLogicalResourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeStackResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desStackName'
+-- * 'dsrsStackName'
 --
--- * 'desLogicalResourceId'
+-- * 'dsrsLogicalResourceId'
 describeStackResource
-    :: Text -- ^ 'desStackName'
-    -> Text -- ^ 'desLogicalResourceId'
+    :: Text -- ^ 'dsrsStackName'
+    -> Text -- ^ 'dsrsLogicalResourceId'
     -> DescribeStackResource
 describeStackResource pStackName_ pLogicalResourceId_ =
     DescribeStackResource'
-    { _desStackName = pStackName_
-    , _desLogicalResourceId = pLogicalResourceId_
+    { _dsrsStackName = pStackName_
+    , _dsrsLogicalResourceId = pLogicalResourceId_
     }
 
 -- | The name or the unique stack ID that is associated with the stack, which
@@ -79,14 +79,14 @@ describeStackResource pStackName_ pLogicalResourceId_ =
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-desStackName :: Lens' DescribeStackResource Text
-desStackName = lens _desStackName (\ s a -> s{_desStackName = a});
+dsrsStackName :: Lens' DescribeStackResource Text
+dsrsStackName = lens _dsrsStackName (\ s a -> s{_dsrsStackName = a});
 
 -- | The logical name of the resource as specified in the template.
 --
 -- Default: There is no default value.
-desLogicalResourceId :: Lens' DescribeStackResource Text
-desLogicalResourceId = lens _desLogicalResourceId (\ s a -> s{_desLogicalResourceId = a});
+dsrsLogicalResourceId :: Lens' DescribeStackResource Text
+dsrsLogicalResourceId = lens _dsrsLogicalResourceId (\ s a -> s{_dsrsLogicalResourceId = a});
 
 instance AWSRequest DescribeStackResource where
         type Rs DescribeStackResource =
@@ -101,6 +101,8 @@ instance AWSRequest DescribeStackResource where
 
 instance Hashable DescribeStackResource
 
+instance NFData DescribeStackResource
+
 instance ToHeaders DescribeStackResource where
         toHeaders = const mempty
 
@@ -112,8 +114,8 @@ instance ToQuery DescribeStackResource where
           = mconcat
               ["Action" =: ("DescribeStackResource" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "StackName" =: _desStackName,
-               "LogicalResourceId" =: _desLogicalResourceId]
+               "StackName" =: _dsrsStackName,
+               "LogicalResourceId" =: _dsrsLogicalResourceId]
 
 -- | The output for a < DescribeStackResource> action.
 --
@@ -147,3 +149,5 @@ dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\ s a -> s{_dsrrsStac
 -- | The response status code.
 dsrrsResponseStatus :: Lens' DescribeStackResourceResponse Int
 dsrrsResponseStatus = lens _dsrrsResponseStatus (\ s a -> s{_dsrrsResponseStatus = a});
+
+instance NFData DescribeStackResourceResponse

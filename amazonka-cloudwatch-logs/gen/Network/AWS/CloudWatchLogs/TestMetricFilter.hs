@@ -87,6 +87,8 @@ instance AWSRequest TestMetricFilter where
 
 instance Hashable TestMetricFilter
 
+instance NFData TestMetricFilter
+
 instance ToHeaders TestMetricFilter where
         toHeaders
           = const
@@ -138,3 +140,5 @@ tmfrsMatches = lens _tmfrsMatches (\ s a -> s{_tmfrsMatches = a}) . _Default . _
 -- | The response status code.
 tmfrsResponseStatus :: Lens' TestMetricFilterResponse Int
 tmfrsResponseStatus = lens _tmfrsResponseStatus (\ s a -> s{_tmfrsResponseStatus = a});
+
+instance NFData TestMetricFilterResponse

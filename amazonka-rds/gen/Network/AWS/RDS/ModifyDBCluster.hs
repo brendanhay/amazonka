@@ -181,10 +181,16 @@ mdcDBClusterParameterGroupName = lens _mdcDBClusterParameterGroupName (\ s a -> 
 -- | A value that specifies whether the modifications in this request and any
 -- pending modifications are asynchronously applied as soon as possible,
 -- regardless of the 'PreferredMaintenanceWindow' setting for the DB
--- cluster.
+-- cluster. If this parameter is set to 'false', changes to the DB cluster
+-- are applied during the next maintenance window.
 --
--- If this parameter is set to 'false', changes to the DB cluster are
--- applied during the next maintenance window.
+-- The 'ApplyImmediately' parameter only affects the
+-- 'NewDBClusterIdentifier' and 'MasterUserPassword' values. If you set the
+-- 'ApplyImmediately' parameter value to false, then changes to the
+-- 'NewDBClusterIdentifier' and 'MasterUserPassword' values are applied
+-- during the next maintenance window. All other changes are applied
+-- immediately, regardless of the value of the 'ApplyImmediately'
+-- parameter.
 --
 -- Default: 'false'
 mdcApplyImmediately :: Lens' ModifyDBCluster (Maybe Bool)
@@ -249,6 +255,8 @@ instance AWSRequest ModifyDBCluster where
 
 instance Hashable ModifyDBCluster
 
+instance NFData ModifyDBCluster
+
 instance ToHeaders ModifyDBCluster where
         toHeaders = const mempty
 
@@ -307,3 +315,5 @@ mdcrsDBCluster = lens _mdcrsDBCluster (\ s a -> s{_mdcrsDBCluster = a});
 -- | The response status code.
 mdcrsResponseStatus :: Lens' ModifyDBClusterResponse Int
 mdcrsResponseStatus = lens _mdcrsResponseStatus (\ s a -> s{_mdcrsResponseStatus = a});
+
+instance NFData ModifyDBClusterResponse

@@ -82,6 +82,8 @@ instance AWSRequest CreateTopicRule where
 
 instance Hashable CreateTopicRule
 
+instance NFData CreateTopicRule
+
 instance ToHeaders CreateTopicRule where
         toHeaders = const mempty
 
@@ -108,3 +110,5 @@ data CreateTopicRuleResponse =
 createTopicRuleResponse
     :: CreateTopicRuleResponse
 createTopicRuleResponse = CreateTopicRuleResponse'
+
+instance NFData CreateTopicRuleResponse

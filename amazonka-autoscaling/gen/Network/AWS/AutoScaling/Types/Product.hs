@@ -138,6 +138,8 @@ instance FromXML Activity where
 
 instance Hashable Activity
 
+instance NFData Activity
+
 -- | Describes a policy adjustment type.
 --
 -- For more information, see
@@ -171,6 +173,8 @@ instance FromXML AdjustmentType where
           = AdjustmentType' <$> (x .@? "AdjustmentType")
 
 instance Hashable AdjustmentType
+
+instance NFData AdjustmentType
 
 -- | Describes an alarm.
 --
@@ -209,6 +213,8 @@ instance FromXML Alarm where
               (x .@? "AlarmName") <*> (x .@? "AlarmARN")
 
 instance Hashable Alarm
+
+instance NFData Alarm
 
 -- | Describes an Auto Scaling group.
 --
@@ -453,22 +459,26 @@ instance FromXML AutoScalingGroup where
 
 instance Hashable AutoScalingGroup
 
+instance NFData AutoScalingGroup
+
 -- | Describes an EC2 instance associated with an Auto Scaling group.
 --
 -- /See:/ 'autoScalingInstanceDetails' smart constructor.
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
-    { _asidInstanceId              :: !Text
+    { _asidLaunchConfigurationName :: !(Maybe Text)
+    , _asidInstanceId              :: !Text
     , _asidAutoScalingGroupName    :: !Text
     , _asidAvailabilityZone        :: !Text
     , _asidLifecycleState          :: !Text
     , _asidHealthStatus            :: !Text
-    , _asidLaunchConfigurationName :: !Text
     , _asidProtectedFromScaleIn    :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AutoScalingInstanceDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asidLaunchConfigurationName'
 --
 -- * 'asidInstanceId'
 --
@@ -480,8 +490,6 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
 --
 -- * 'asidHealthStatus'
 --
--- * 'asidLaunchConfigurationName'
---
 -- * 'asidProtectedFromScaleIn'
 autoScalingInstanceDetails
     :: Text -- ^ 'asidInstanceId'
@@ -489,19 +497,22 @@ autoScalingInstanceDetails
     -> Text -- ^ 'asidAvailabilityZone'
     -> Text -- ^ 'asidLifecycleState'
     -> Text -- ^ 'asidHealthStatus'
-    -> Text -- ^ 'asidLaunchConfigurationName'
     -> Bool -- ^ 'asidProtectedFromScaleIn'
     -> AutoScalingInstanceDetails
-autoScalingInstanceDetails pInstanceId_ pAutoScalingGroupName_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pLaunchConfigurationName_ pProtectedFromScaleIn_ =
+autoScalingInstanceDetails pInstanceId_ pAutoScalingGroupName_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pProtectedFromScaleIn_ =
     AutoScalingInstanceDetails'
-    { _asidInstanceId = pInstanceId_
+    { _asidLaunchConfigurationName = Nothing
+    , _asidInstanceId = pInstanceId_
     , _asidAutoScalingGroupName = pAutoScalingGroupName_
     , _asidAvailabilityZone = pAvailabilityZone_
     , _asidLifecycleState = pLifecycleState_
     , _asidHealthStatus = pHealthStatus_
-    , _asidLaunchConfigurationName = pLaunchConfigurationName_
     , _asidProtectedFromScaleIn = pProtectedFromScaleIn_
     }
+
+-- | The launch configuration associated with the instance.
+asidLaunchConfigurationName :: Lens' AutoScalingInstanceDetails (Maybe Text)
+asidLaunchConfigurationName = lens _asidLaunchConfigurationName (\ s a -> s{_asidLaunchConfigurationName = a});
 
 -- | The ID of the instance.
 asidInstanceId :: Lens' AutoScalingInstanceDetails Text
@@ -527,10 +538,6 @@ asidLifecycleState = lens _asidLifecycleState (\ s a -> s{_asidLifecycleState = 
 asidHealthStatus :: Lens' AutoScalingInstanceDetails Text
 asidHealthStatus = lens _asidHealthStatus (\ s a -> s{_asidHealthStatus = a});
 
--- | The launch configuration associated with the instance.
-asidLaunchConfigurationName :: Lens' AutoScalingInstanceDetails Text
-asidLaunchConfigurationName = lens _asidLaunchConfigurationName (\ s a -> s{_asidLaunchConfigurationName = a});
-
 -- | Indicates whether the instance is protected from termination by Auto
 -- Scaling when scaling in.
 asidProtectedFromScaleIn :: Lens' AutoScalingInstanceDetails Bool
@@ -539,14 +546,17 @@ asidProtectedFromScaleIn = lens _asidProtectedFromScaleIn (\ s a -> s{_asidProte
 instance FromXML AutoScalingInstanceDetails where
         parseXML x
           = AutoScalingInstanceDetails' <$>
-              (x .@ "InstanceId") <*> (x .@ "AutoScalingGroupName")
+              (x .@? "LaunchConfigurationName") <*>
+                (x .@ "InstanceId")
+                <*> (x .@ "AutoScalingGroupName")
                 <*> (x .@ "AvailabilityZone")
                 <*> (x .@ "LifecycleState")
                 <*> (x .@ "HealthStatus")
-                <*> (x .@ "LaunchConfigurationName")
                 <*> (x .@ "ProtectedFromScaleIn")
 
 instance Hashable AutoScalingInstanceDetails
+
+instance NFData AutoScalingInstanceDetails
 
 -- | Describes a block device mapping.
 --
@@ -609,6 +619,8 @@ instance FromXML BlockDeviceMapping where
                 <*> (x .@ "DeviceName")
 
 instance Hashable BlockDeviceMapping
+
+instance NFData BlockDeviceMapping
 
 instance ToQuery BlockDeviceMapping where
         toQuery BlockDeviceMapping'{..}
@@ -716,6 +728,8 @@ instance FromXML EBS where
 
 instance Hashable EBS
 
+instance NFData EBS
+
 instance ToQuery EBS where
         toQuery EBS'{..}
           = mconcat
@@ -780,6 +794,8 @@ instance FromXML EnabledMetric where
 
 instance Hashable EnabledMetric
 
+instance NFData EnabledMetric
+
 -- | Describes a filter.
 --
 -- /See:/ 'filter'' smart constructor.
@@ -814,6 +830,8 @@ fName :: Lens' Filter Text
 fName = lens _fName (\ s a -> s{_fName = a});
 
 instance Hashable Filter
+
+instance NFData Filter
 
 instance ToQuery Filter where
         toQuery Filter'{..}
@@ -906,6 +924,8 @@ instance FromXML Instance where
 
 instance Hashable Instance
 
+instance NFData Instance
+
 -- | Describes whether instance monitoring is enabled.
 --
 -- /See:/ 'instanceMonitoring' smart constructor.
@@ -934,6 +954,8 @@ instance FromXML InstanceMonitoring where
           = InstanceMonitoring' <$> (x .@? "Enabled")
 
 instance Hashable InstanceMonitoring
+
+instance NFData InstanceMonitoring
 
 instance ToQuery InstanceMonitoring where
         toQuery InstanceMonitoring'{..}
@@ -1156,6 +1178,8 @@ instance FromXML LaunchConfiguration where
 
 instance Hashable LaunchConfiguration
 
+instance NFData LaunchConfiguration
+
 -- | Describes a lifecycle hook, which tells Auto Scaling that you want to
 -- perform an action when an instance launches or terminates. When you have
 -- a lifecycle hook in place, the Auto Scaling group will either:
@@ -1292,6 +1316,8 @@ instance FromXML LifecycleHook where
 
 instance Hashable LifecycleHook
 
+instance NFData LifecycleHook
+
 -- | Describes the state of a load balancer.
 --
 -- /See:/ 'loadBalancerState' smart constructor.
@@ -1345,6 +1371,8 @@ instance FromXML LoadBalancerState where
 
 instance Hashable LoadBalancerState
 
+instance NFData LoadBalancerState
+
 -- | Describes a metric.
 --
 -- /See:/ 'metricCollectionType' smart constructor.
@@ -1391,6 +1419,8 @@ instance FromXML MetricCollectionType where
 
 instance Hashable MetricCollectionType
 
+instance NFData MetricCollectionType
+
 -- | Describes a granularity of a metric.
 --
 -- /See:/ 'metricGranularityType' smart constructor.
@@ -1419,6 +1449,8 @@ instance FromXML MetricGranularityType where
           = MetricGranularityType' <$> (x .@? "Granularity")
 
 instance Hashable MetricGranularityType
+
+instance NFData MetricGranularityType
 
 -- | Describes a notification.
 --
@@ -1479,6 +1511,8 @@ instance FromXML NotificationConfiguration where
 
 instance Hashable NotificationConfiguration
 
+instance NFData NotificationConfiguration
+
 -- | Describes a process type.
 --
 -- For more information, see
@@ -1528,6 +1562,8 @@ instance FromXML ProcessType where
         parseXML x = ProcessType' <$> (x .@ "ProcessName")
 
 instance Hashable ProcessType
+
+instance NFData ProcessType
 
 -- | Describes a scaling policy.
 --
@@ -1683,6 +1719,8 @@ instance FromXML ScalingPolicy where
 
 instance Hashable ScalingPolicy
 
+instance NFData ScalingPolicy
+
 -- | /See:/ 'scalingProcessQuery' smart constructor.
 data ScalingProcessQuery = ScalingProcessQuery'
     { _spqScalingProcesses     :: !(Maybe [Text])
@@ -1731,6 +1769,8 @@ spqAutoScalingGroupName :: Lens' ScalingProcessQuery Text
 spqAutoScalingGroupName = lens _spqAutoScalingGroupName (\ s a -> s{_spqAutoScalingGroupName = a});
 
 instance Hashable ScalingProcessQuery
+
+instance NFData ScalingProcessQuery
 
 instance ToQuery ScalingProcessQuery where
         toQuery ScalingProcessQuery'{..}
@@ -1855,6 +1895,8 @@ instance FromXML ScheduledUpdateGroupAction where
 
 instance Hashable ScheduledUpdateGroupAction
 
+instance NFData ScheduledUpdateGroupAction
+
 -- | Describes an adjustment based on the difference between the value of the
 -- aggregated CloudWatch metric and the breach threshold that you\'ve
 -- defined for the alarm.
@@ -1947,6 +1989,8 @@ instance FromXML StepAdjustment where
 
 instance Hashable StepAdjustment
 
+instance NFData StepAdjustment
+
 instance ToQuery StepAdjustment where
         toQuery StepAdjustment'{..}
           = mconcat
@@ -1994,6 +2038,8 @@ instance FromXML SuspendedProcess where
               (x .@? "ProcessName") <*> (x .@? "SuspensionReason")
 
 instance Hashable SuspendedProcess
+
+instance NFData SuspendedProcess
 
 -- | Describes a tag for an Auto Scaling group.
 --
@@ -2057,6 +2103,8 @@ tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -2136,3 +2184,5 @@ instance FromXML TagDescription where
                 <*> (x .@ "Value")
 
 instance Hashable TagDescription
+
+instance NFData TagDescription

@@ -156,6 +156,8 @@ instance FromJSON Artwork where
 
 instance Hashable Artwork
 
+instance NFData Artwork
+
 instance ToJSON Artwork where
         toJSON Artwork'{..}
           = object
@@ -265,6 +267,8 @@ instance FromJSON AudioCodecOptions where
                      <*> (x .:? "BitOrder"))
 
 instance Hashable AudioCodecOptions
+
+instance NFData AudioCodecOptions
 
 instance ToJSON AudioCodecOptions where
         toJSON AudioCodecOptions'{..}
@@ -476,6 +480,8 @@ instance FromJSON AudioParameters where
 
 instance Hashable AudioParameters
 
+instance NFData AudioParameters
+
 instance ToJSON AudioParameters where
         toJSON AudioParameters'{..}
           = object
@@ -580,6 +586,8 @@ instance FromJSON CaptionFormat where
 
 instance Hashable CaptionFormat
 
+instance NFData CaptionFormat
+
 instance ToJSON CaptionFormat where
         toJSON CaptionFormat'{..}
           = object
@@ -672,6 +680,8 @@ instance FromJSON CaptionSource where
 
 instance Hashable CaptionSource
 
+instance NFData CaptionSource
+
 instance ToJSON CaptionSource where
         toJSON CaptionSource'{..}
           = object
@@ -753,6 +763,8 @@ instance FromJSON Captions where
 
 instance Hashable Captions
 
+instance NFData Captions
+
 instance ToJSON Captions where
         toJSON Captions'{..}
           = object
@@ -791,6 +803,8 @@ instance FromJSON Clip where
               (\ x -> Clip' <$> (x .:? "TimeSpan"))
 
 instance Hashable Clip
+
+instance NFData Clip
 
 instance ToJSON Clip where
         toJSON Clip'{..}
@@ -1025,6 +1039,8 @@ cjoRotate = lens _cjoRotate (\ s a -> s{_cjoRotate = a});
 
 instance Hashable CreateJobOutput
 
+instance NFData CreateJobOutput
+
 instance ToJSON CreateJobOutput where
         toJSON CreateJobOutput'{..}
           = object
@@ -1150,6 +1166,8 @@ cjpHlsContentProtection = lens _cjpHlsContentProtection (\ s a -> s{_cjpHlsConte
 
 instance Hashable CreateJobPlaylist
 
+instance NFData CreateJobPlaylist
+
 instance ToJSON CreateJobPlaylist where
         toJSON CreateJobPlaylist'{..}
           = object
@@ -1228,6 +1246,8 @@ instance FromJSON DetectedProperties where
                      <*> (x .:? "DurationMillis"))
 
 instance Hashable DetectedProperties
+
+instance NFData DetectedProperties
 
 instance ToJSON DetectedProperties where
         toJSON DetectedProperties'{..}
@@ -1351,6 +1371,8 @@ instance FromJSON Encryption where
 
 instance Hashable Encryption
 
+instance NFData Encryption
+
 instance ToJSON Encryption where
         toJSON Encryption'{..}
           = object
@@ -1466,6 +1488,8 @@ instance FromJSON HlsContentProtection where
                      <*> (x .:? "LicenseAcquisitionUrl"))
 
 instance Hashable HlsContentProtection
+
+instance NFData HlsContentProtection
 
 instance ToJSON HlsContentProtection where
         toJSON HlsContentProtection'{..}
@@ -1650,6 +1674,8 @@ instance FromJSON Job' where
 
 instance Hashable Job'
 
+instance NFData Job'
+
 -- | The .jpg or .png file associated with an audio file.
 --
 -- /See:/ 'jobAlbumArt' smart constructor.
@@ -1704,6 +1730,8 @@ instance FromJSON JobAlbumArt where
                      (x .:? "Artwork" .!= mempty))
 
 instance Hashable JobAlbumArt
+
+instance NFData JobAlbumArt
 
 instance ToJSON JobAlbumArt where
         toJSON JobAlbumArt'{..}
@@ -1845,6 +1873,8 @@ instance FromJSON JobInput where
                      <*> (x .:? "Interlaced"))
 
 instance Hashable JobInput
+
+instance NFData JobInput
 
 instance ToJSON JobInput where
         toJSON JobInput'{..}
@@ -2233,6 +2263,8 @@ instance FromJSON JobOutput where
 
 instance Hashable JobOutput
 
+instance NFData JobOutput
+
 -- | Watermarks can be in .png or .jpg format. If you want to display a
 -- watermark that is not rectangular, use the .png format, which supports
 -- transparency.
@@ -2294,6 +2326,8 @@ instance FromJSON JobWatermark where
                      <*> (x .:? "Encryption"))
 
 instance Hashable JobWatermark
+
+instance NFData JobWatermark
 
 instance ToJSON JobWatermark where
         toJSON JobWatermark'{..}
@@ -2368,6 +2402,8 @@ instance FromJSON Notifications where
                      <*> (x .:? "Completed"))
 
 instance Hashable Notifications
+
+instance NFData Notifications
 
 instance ToJSON Notifications where
         toJSON Notifications'{..}
@@ -2448,6 +2484,8 @@ instance FromJSON Permission where
                      <*> (x .:? "Grantee"))
 
 instance Hashable Permission
+
+instance NFData Permission
 
 instance ToJSON Permission where
         toJSON Permission'{..}
@@ -2684,6 +2722,8 @@ instance FromJSON Pipeline where
 
 instance Hashable Pipeline
 
+instance NFData Pipeline
+
 -- | The 'PipelineOutputConfig' structure.
 --
 -- /See:/ 'pipelineOutputConfig' smart constructor.
@@ -2763,6 +2803,8 @@ instance FromJSON PipelineOutputConfig where
                      (x .:? "Permissions" .!= mempty))
 
 instance Hashable PipelineOutputConfig
+
+instance NFData PipelineOutputConfig
 
 instance ToJSON PipelineOutputConfig where
         toJSON PipelineOutputConfig'{..}
@@ -2880,6 +2922,8 @@ instance FromJSON PlayReadyDrm where
                      <*> (x .:? "LicenseAcquisitionUrl"))
 
 instance Hashable PlayReadyDrm
+
+instance NFData PlayReadyDrm
 
 instance ToJSON PlayReadyDrm where
         toJSON PlayReadyDrm'{..}
@@ -3034,6 +3078,8 @@ instance FromJSON Playlist where
 
 instance Hashable Playlist
 
+instance NFData Playlist
+
 -- | Presets are templates that contain most of the settings for transcoding
 -- media files from one format to another. Elastic Transcoder includes some
 -- default presets for common formats, for example, several iPod and iPhone
@@ -3148,6 +3194,8 @@ instance FromJSON Preset where
                      <*> (x .:? "Audio"))
 
 instance Hashable Preset
+
+instance NFData Preset
 
 -- | Settings for the size, location, and opacity of graphics that you want
 -- Elastic Transcoder to overlay over videos that are transcoded using this
@@ -3386,6 +3434,8 @@ instance FromJSON PresetWatermark where
 
 instance Hashable PresetWatermark
 
+instance NFData PresetWatermark
+
 instance ToJSON PresetWatermark where
         toJSON PresetWatermark'{..}
           = object
@@ -3552,6 +3602,8 @@ instance FromJSON Thumbnails where
 
 instance Hashable Thumbnails
 
+instance NFData Thumbnails
+
 instance ToJSON Thumbnails where
         toJSON Thumbnails'{..}
           = object
@@ -3615,6 +3667,8 @@ instance FromJSON TimeSpan where
 
 instance Hashable TimeSpan
 
+instance NFData TimeSpan
+
 instance ToJSON TimeSpan where
         toJSON TimeSpan'{..}
           = object
@@ -3672,6 +3726,8 @@ instance FromJSON Timing where
                      <*> (x .:? "StartTimeMillis"))
 
 instance Hashable Timing
+
+instance NFData Timing
 
 -- | The 'VideoParameters' structure.
 --
@@ -4165,6 +4221,8 @@ instance FromJSON VideoParameters where
 
 instance Hashable VideoParameters
 
+instance NFData VideoParameters
+
 instance ToJSON VideoParameters where
         toJSON VideoParameters'{..}
           = object
@@ -4231,3 +4289,5 @@ instance FromJSON Warning where
                  Warning' <$> (x .:? "Code") <*> (x .:? "Message"))
 
 instance Hashable Warning
+
+instance NFData Warning

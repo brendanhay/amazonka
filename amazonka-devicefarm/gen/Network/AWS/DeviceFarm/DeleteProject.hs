@@ -78,6 +78,8 @@ instance AWSRequest DeleteProject where
 
 instance Hashable DeleteProject
 
+instance NFData DeleteProject
+
 instance ToHeaders DeleteProject where
         toHeaders
           = const
@@ -120,3 +122,5 @@ deleteProjectResponse pResponseStatus_ =
 -- | The response status code.
 dprsResponseStatus :: Lens' DeleteProjectResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+
+instance NFData DeleteProjectResponse

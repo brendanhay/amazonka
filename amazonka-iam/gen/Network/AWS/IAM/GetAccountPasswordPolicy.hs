@@ -65,6 +65,8 @@ instance AWSRequest GetAccountPasswordPolicy where
 
 instance Hashable GetAccountPasswordPolicy
 
+instance NFData GetAccountPasswordPolicy
+
 instance ToHeaders GetAccountPasswordPolicy where
         toHeaders = const mempty
 
@@ -112,3 +114,5 @@ gapprsResponseStatus = lens _gapprsResponseStatus (\ s a -> s{_gapprsResponseSta
 -- | Undocumented member.
 gapprsPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 gapprsPasswordPolicy = lens _gapprsPasswordPolicy (\ s a -> s{_gapprsPasswordPolicy = a});
+
+instance NFData GetAccountPasswordPolicyResponse

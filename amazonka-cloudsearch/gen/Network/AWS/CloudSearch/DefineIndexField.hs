@@ -97,6 +97,8 @@ instance AWSRequest DefineIndexField where
 
 instance Hashable DefineIndexField
 
+instance NFData DefineIndexField
+
 instance ToHeaders DefineIndexField where
         toHeaders = const mempty
 
@@ -144,3 +146,5 @@ defrsResponseStatus = lens _defrsResponseStatus (\ s a -> s{_defrsResponseStatus
 -- | Undocumented member.
 defrsIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
 defrsIndexField = lens _defrsIndexField (\ s a -> s{_defrsIndexField = a});
+
+instance NFData DefineIndexFieldResponse

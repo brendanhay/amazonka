@@ -121,6 +121,8 @@ rtfcsTargetDatabaseName :: Lens' RestoreTableFromClusterSnapshot (Maybe Text)
 rtfcsTargetDatabaseName = lens _rtfcsTargetDatabaseName (\ s a -> s{_rtfcsTargetDatabaseName = a});
 
 -- | The name of the source schema that contains the table to restore from.
+-- If you do not specify a 'SourceSchemaName' value, the default is
+-- 'public'.
 rtfcsSourceSchemaName :: Lens' RestoreTableFromClusterSnapshot (Maybe Text)
 rtfcsSourceSchemaName = lens _rtfcsSourceSchemaName (\ s a -> s{_rtfcsSourceSchemaName = a});
 
@@ -159,6 +161,8 @@ instance AWSRequest RestoreTableFromClusterSnapshot
                    (x .@? "TableRestoreStatus") <*> (pure (fromEnum s)))
 
 instance Hashable RestoreTableFromClusterSnapshot
+
+instance NFData RestoreTableFromClusterSnapshot
 
 instance ToHeaders RestoreTableFromClusterSnapshot
          where
@@ -212,3 +216,6 @@ rtfcsrsTableRestoreStatus = lens _rtfcsrsTableRestoreStatus (\ s a -> s{_rtfcsrs
 -- | The response status code.
 rtfcsrsResponseStatus :: Lens' RestoreTableFromClusterSnapshotResponse Int
 rtfcsrsResponseStatus = lens _rtfcsrsResponseStatus (\ s a -> s{_rtfcsrsResponseStatus = a});
+
+instance NFData
+         RestoreTableFromClusterSnapshotResponse

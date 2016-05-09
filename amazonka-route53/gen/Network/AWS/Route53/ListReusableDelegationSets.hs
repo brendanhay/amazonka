@@ -118,6 +118,8 @@ instance AWSRequest ListReusableDelegationSets where
 
 instance Hashable ListReusableDelegationSets
 
+instance NFData ListReusableDelegationSets
+
 instance ToHeaders ListReusableDelegationSets where
         toHeaders = const mempty
 
@@ -214,3 +216,5 @@ lrdsrsIsTruncated = lens _lrdsrsIsTruncated (\ s a -> s{_lrdsrsIsTruncated = a})
 -- of results.
 lrdsrsMaxItems :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrsMaxItems = lens _lrdsrsMaxItems (\ s a -> s{_lrdsrsMaxItems = a});
+
+instance NFData ListReusableDelegationSetsResponse

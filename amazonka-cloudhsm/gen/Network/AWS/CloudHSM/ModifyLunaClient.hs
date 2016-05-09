@@ -88,6 +88,8 @@ instance AWSRequest ModifyLunaClient where
 
 instance Hashable ModifyLunaClient
 
+instance NFData ModifyLunaClient
+
 instance ToHeaders ModifyLunaClient where
         toHeaders
           = const
@@ -140,3 +142,5 @@ mlcrsClientARN = lens _mlcrsClientARN (\ s a -> s{_mlcrsClientARN = a});
 -- | The response status code.
 mlcrsResponseStatus :: Lens' ModifyLunaClientResponse Int
 mlcrsResponseStatus = lens _mlcrsResponseStatus (\ s a -> s{_mlcrsResponseStatus = a});
+
+instance NFData ModifyLunaClientResponse

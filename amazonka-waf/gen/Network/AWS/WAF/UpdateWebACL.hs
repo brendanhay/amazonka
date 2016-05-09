@@ -153,6 +153,8 @@ instance AWSRequest UpdateWebACL where
 
 instance Hashable UpdateWebACL
 
+instance NFData UpdateWebACL
+
 instance ToHeaders UpdateWebACL where
         toHeaders
           = const
@@ -208,3 +210,5 @@ uwarsChangeToken = lens _uwarsChangeToken (\ s a -> s{_uwarsChangeToken = a});
 -- | The response status code.
 uwarsResponseStatus :: Lens' UpdateWebACLResponse Int
 uwarsResponseStatus = lens _uwarsResponseStatus (\ s a -> s{_uwarsResponseStatus = a});
+
+instance NFData UpdateWebACLResponse

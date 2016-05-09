@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeNetworkInterfaces' smart constructor.
+-- | Contains the parameters for DescribeNetworkInterfaces.
+--
+-- /See:/ 'describeNetworkInterfaces' smart constructor.
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
     { _dnisNetworkInterfaceIds :: !(Maybe [Text])
     , _dnisFilters             :: !(Maybe [Filter])
@@ -210,6 +212,8 @@ instance AWSRequest DescribeNetworkInterfaces where
 
 instance Hashable DescribeNetworkInterfaces
 
+instance NFData DescribeNetworkInterfaces
+
 instance ToHeaders DescribeNetworkInterfaces where
         toHeaders = const mempty
 
@@ -228,7 +232,9 @@ instance ToQuery DescribeNetworkInterfaces where
                toQuery (toQueryList "Filter" <$> _dnisFilters),
                "DryRun" =: _dnisDryRun]
 
--- | /See:/ 'describeNetworkInterfacesResponse' smart constructor.
+-- | Contains the output of DescribeNetworkInterfaces.
+--
+-- /See:/ 'describeNetworkInterfacesResponse' smart constructor.
 data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
     { _dnirsNetworkInterfaces :: !(Maybe [NetworkInterface])
     , _dnirsResponseStatus    :: !Int
@@ -257,3 +263,5 @@ dnirsNetworkInterfaces = lens _dnirsNetworkInterfaces (\ s a -> s{_dnirsNetworkI
 -- | The response status code.
 dnirsResponseStatus :: Lens' DescribeNetworkInterfacesResponse Int
 dnirsResponseStatus = lens _dnirsResponseStatus (\ s a -> s{_dnirsResponseStatus = a});
+
+instance NFData DescribeNetworkInterfacesResponse

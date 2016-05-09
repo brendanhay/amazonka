@@ -117,6 +117,8 @@ instance AWSRequest ListOperations where
 
 instance Hashable ListOperations
 
+instance NFData ListOperations
+
 instance ToHeaders ListOperations where
         toHeaders
           = const
@@ -189,3 +191,5 @@ lorsResponseStatus = lens _lorsResponseStatus (\ s a -> s{_lorsResponseStatus = 
 -- Children: 'OperationId', 'Status', 'SubmittedDate', 'Type'
 lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a}) . _Coerce;
+
+instance NFData ListOperationsResponse

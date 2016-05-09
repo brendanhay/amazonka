@@ -37,6 +37,7 @@ instance ToText AssociationFilterKey where
         AFKName -> "Name"
 
 instance Hashable     AssociationFilterKey
+instance NFData       AssociationFilterKey
 instance ToByteString AssociationFilterKey
 instance ToQuery      AssociationFilterKey
 instance ToHeader     AssociationFilterKey
@@ -65,6 +66,7 @@ instance ToText AssociationStatusName where
         ASNSuccess -> "Success"
 
 instance Hashable     AssociationStatusName
+instance NFData       AssociationStatusName
 instance ToByteString AssociationStatusName
 instance ToQuery      AssociationStatusName
 instance ToHeader     AssociationStatusName
@@ -96,6 +98,7 @@ instance ToText CommandFilterKey where
         CommandStatus -> "Status"
 
 instance Hashable     CommandFilterKey
+instance NFData       CommandFilterKey
 instance ToByteString CommandFilterKey
 instance ToQuery      CommandFilterKey
 instance ToHeader     CommandFilterKey
@@ -136,6 +139,7 @@ instance ToText CommandInvocationStatus where
         CISTimedOut -> "TimedOut"
 
 instance Hashable     CommandInvocationStatus
+instance NFData       CommandInvocationStatus
 instance ToByteString CommandInvocationStatus
 instance ToQuery      CommandInvocationStatus
 instance ToHeader     CommandInvocationStatus
@@ -173,6 +177,7 @@ instance ToText CommandPluginStatus where
         CPSTimedOut -> "TimedOut"
 
 instance Hashable     CommandPluginStatus
+instance NFData       CommandPluginStatus
 instance ToByteString CommandPluginStatus
 instance ToQuery      CommandPluginStatus
 instance ToHeader     CommandPluginStatus
@@ -213,6 +218,7 @@ instance ToText CommandStatus where
         TimedOut -> "TimedOut"
 
 instance Hashable     CommandStatus
+instance NFData       CommandStatus
 instance ToByteString CommandStatus
 instance ToQuery      CommandStatus
 instance ToHeader     CommandStatus
@@ -241,6 +247,7 @@ instance ToText DocumentFilterKey where
         PlatformTypes -> "PlatformTypes"
 
 instance Hashable     DocumentFilterKey
+instance NFData       DocumentFilterKey
 instance ToByteString DocumentFilterKey
 instance ToQuery      DocumentFilterKey
 instance ToHeader     DocumentFilterKey
@@ -266,6 +273,7 @@ instance ToText DocumentParameterType where
         StringList -> "StringList"
 
 instance Hashable     DocumentParameterType
+instance NFData       DocumentParameterType
 instance ToByteString DocumentParameterType
 instance ToQuery      DocumentParameterType
 instance ToHeader     DocumentParameterType
@@ -294,6 +302,7 @@ instance ToText DocumentStatus where
         Deleting -> "Deleting"
 
 instance Hashable     DocumentStatus
+instance NFData       DocumentStatus
 instance ToByteString DocumentStatus
 instance ToQuery      DocumentStatus
 instance ToHeader     DocumentStatus
@@ -322,6 +331,7 @@ instance ToText Fault where
         Unknown -> "Unknown"
 
 instance Hashable     Fault
+instance NFData       Fault
 instance ToByteString Fault
 instance ToQuery      Fault
 instance ToHeader     Fault
@@ -353,6 +363,7 @@ instance ToText InstanceInformationFilterKey where
         IIFKPlatformTypes -> "PlatformTypes"
 
 instance Hashable     InstanceInformationFilterKey
+instance NFData       InstanceInformationFilterKey
 instance ToByteString InstanceInformationFilterKey
 instance ToQuery      InstanceInformationFilterKey
 instance ToHeader     InstanceInformationFilterKey
@@ -381,6 +392,7 @@ instance ToText PingStatus where
         Online -> "Online"
 
 instance Hashable     PingStatus
+instance NFData       PingStatus
 instance ToByteString PingStatus
 instance ToQuery      PingStatus
 instance ToHeader     PingStatus
@@ -406,6 +418,7 @@ instance ToText PlatformType where
         Windows -> "Windows"
 
 instance Hashable     PlatformType
+instance NFData       PlatformType
 instance ToByteString PlatformType
 instance ToQuery      PlatformType
 instance ToHeader     PlatformType

@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns a description of the gateway volumes specified in
--- the request. This operation is supported only for the gateway-cached
--- volume architecture.
+-- Returns a description of the gateway volumes specified in the request.
+-- This operation is supported only for the gateway-cached volume
+-- architecture.
 --
 -- The list of gateway volumes in the request must be from one gateway. In
 -- the response Amazon Storage Gateway returns volume information sorted by
@@ -82,6 +82,8 @@ instance AWSRequest DescribeCachediSCSIVolumes where
 
 instance Hashable DescribeCachediSCSIVolumes
 
+instance NFData DescribeCachediSCSIVolumes
+
 instance ToHeaders DescribeCachediSCSIVolumes where
         toHeaders
           = const
@@ -136,3 +138,5 @@ dcscsivrsCachediSCSIVolumes = lens _dcscsivrsCachediSCSIVolumes (\ s a -> s{_dcs
 -- | The response status code.
 dcscsivrsResponseStatus :: Lens' DescribeCachediSCSIVolumesResponse Int
 dcscsivrsResponseStatus = lens _dcscsivrsResponseStatus (\ s a -> s{_dcscsivrsResponseStatus = a});
+
+instance NFData DescribeCachediSCSIVolumesResponse

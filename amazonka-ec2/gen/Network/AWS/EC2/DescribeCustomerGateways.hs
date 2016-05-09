@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeCustomerGateways' smart constructor.
+-- | Contains the parameters for DescribeCustomerGateways.
+--
+-- /See:/ 'describeCustomerGateways' smart constructor.
 data DescribeCustomerGateways = DescribeCustomerGateways'
     { _dcgCustomerGatewayIds :: !(Maybe [Text])
     , _dcgFilters            :: !(Maybe [Filter])
@@ -133,6 +135,8 @@ instance AWSRequest DescribeCustomerGateways where
 
 instance Hashable DescribeCustomerGateways
 
+instance NFData DescribeCustomerGateways
+
 instance ToHeaders DescribeCustomerGateways where
         toHeaders = const mempty
 
@@ -151,7 +155,9 @@ instance ToQuery DescribeCustomerGateways where
                toQuery (toQueryList "Filter" <$> _dcgFilters),
                "DryRun" =: _dcgDryRun]
 
--- | /See:/ 'describeCustomerGatewaysResponse' smart constructor.
+-- | Contains the output of DescribeCustomerGateways.
+--
+-- /See:/ 'describeCustomerGatewaysResponse' smart constructor.
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
     { _dcgrsCustomerGateways :: !(Maybe [CustomerGateway])
     , _dcgrsResponseStatus   :: !Int
@@ -180,3 +186,5 @@ dcgrsCustomerGateways = lens _dcgrsCustomerGateways (\ s a -> s{_dcgrsCustomerGa
 -- | The response status code.
 dcgrsResponseStatus :: Lens' DescribeCustomerGatewaysResponse Int
 dcgrsResponseStatus = lens _dcgrsResponseStatus (\ s a -> s{_dcgrsResponseStatus = a});
+
+instance NFData DescribeCustomerGatewaysResponse

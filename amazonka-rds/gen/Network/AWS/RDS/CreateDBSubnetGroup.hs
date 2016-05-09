@@ -113,6 +113,8 @@ instance AWSRequest CreateDBSubnetGroup where
 
 instance Hashable CreateDBSubnetGroup
 
+instance NFData CreateDBSubnetGroup
+
 instance ToHeaders CreateDBSubnetGroup where
         toHeaders = const mempty
 
@@ -160,3 +162,5 @@ cdsgrsDBSubnetGroup = lens _cdsgrsDBSubnetGroup (\ s a -> s{_cdsgrsDBSubnetGroup
 -- | The response status code.
 cdsgrsResponseStatus :: Lens' CreateDBSubnetGroupResponse Int
 cdsgrsResponseStatus = lens _cdsgrsResponseStatus (\ s a -> s{_cdsgrsResponseStatus = a});
+
+instance NFData CreateDBSubnetGroupResponse

@@ -83,6 +83,8 @@ instance FromXML AccessLog where
 
 instance Hashable AccessLog
 
+instance NFData AccessLog
+
 instance ToQuery AccessLog where
         toQuery AccessLog'{..}
           = mconcat
@@ -129,6 +131,8 @@ instance FromXML AdditionalAttribute where
 
 instance Hashable AdditionalAttribute
 
+instance NFData AdditionalAttribute
+
 instance ToQuery AdditionalAttribute where
         toQuery AdditionalAttribute'{..}
           = mconcat ["Value" =: _aaValue, "Key" =: _aaKey]
@@ -173,6 +177,8 @@ instance FromXML AppCookieStickinessPolicy where
 
 instance Hashable AppCookieStickinessPolicy
 
+instance NFData AppCookieStickinessPolicy
+
 -- | Information about the configuration of a back-end server.
 --
 -- /See:/ 'backendServerDescription' smart constructor.
@@ -212,6 +218,8 @@ instance FromXML BackendServerDescription where
                 <*> (x .@? "InstancePort")
 
 instance Hashable BackendServerDescription
+
+instance NFData BackendServerDescription
 
 -- | Information about the 'ConnectionDraining' attribute.
 --
@@ -253,6 +261,8 @@ instance FromXML ConnectionDraining where
 
 instance Hashable ConnectionDraining
 
+instance NFData ConnectionDraining
+
 instance ToQuery ConnectionDraining where
         toQuery ConnectionDraining'{..}
           = mconcat
@@ -290,6 +300,8 @@ instance FromXML ConnectionSettings where
 
 instance Hashable ConnectionSettings
 
+instance NFData ConnectionSettings
+
 instance ToQuery ConnectionSettings where
         toQuery ConnectionSettings'{..}
           = mconcat ["IdleTimeout" =: _csIdleTimeout]
@@ -324,6 +336,8 @@ instance FromXML CrossZoneLoadBalancing where
           = CrossZoneLoadBalancing' <$> (x .@ "Enabled")
 
 instance Hashable CrossZoneLoadBalancing
+
+instance NFData CrossZoneLoadBalancing
 
 instance ToQuery CrossZoneLoadBalancing where
         toQuery CrossZoneLoadBalancing'{..}
@@ -422,6 +436,8 @@ instance FromXML HealthCheck where
 
 instance Hashable HealthCheck
 
+instance NFData HealthCheck
+
 instance ToQuery HealthCheck where
         toQuery HealthCheck'{..}
           = mconcat
@@ -457,6 +473,8 @@ instance FromXML Instance where
         parseXML x = Instance' <$> (x .@? "InstanceId")
 
 instance Hashable Instance
+
+instance NFData Instance
 
 instance ToQuery Instance where
         toQuery Instance'{..}
@@ -549,6 +567,8 @@ instance FromXML InstanceState where
 
 instance Hashable InstanceState
 
+instance NFData InstanceState
+
 -- | Information about a policy for duration-based session stickiness.
 --
 -- /See:/ 'lBCookieStickinessPolicy' smart constructor.
@@ -590,6 +610,8 @@ instance FromXML LBCookieStickinessPolicy where
                 (x .@? "CookieExpirationPeriod")
 
 instance Hashable LBCookieStickinessPolicy
+
+instance NFData LBCookieStickinessPolicy
 
 -- | Information about a listener.
 --
@@ -680,6 +702,8 @@ instance FromXML Listener where
 
 instance Hashable Listener
 
+instance NFData Listener
+
 instance ToQuery Listener where
         toQuery Listener'{..}
           = mconcat
@@ -728,6 +752,8 @@ instance FromXML ListenerDescription where
                 <*> (x .@? "Listener")
 
 instance Hashable ListenerDescription
+
+instance NFData ListenerDescription
 
 -- | The attributes for a load balancer.
 --
@@ -820,6 +846,8 @@ instance FromXML LoadBalancerAttributes where
                 <*> (x .@? "ConnectionDraining")
 
 instance Hashable LoadBalancerAttributes
+
+instance NFData LoadBalancerAttributes
 
 instance ToQuery LoadBalancerAttributes where
         toQuery LoadBalancerAttributes'{..}
@@ -1026,6 +1054,8 @@ instance FromXML LoadBalancerDescription where
 
 instance Hashable LoadBalancerDescription
 
+instance NFData LoadBalancerDescription
+
 -- | The policies for a load balancer.
 --
 -- /See:/ 'policies' smart constructor.
@@ -1080,6 +1110,8 @@ instance FromXML Policies where
 
 instance Hashable Policies
 
+instance NFData Policies
+
 -- | Information about a policy attribute.
 --
 -- /See:/ 'policyAttribute' smart constructor.
@@ -1112,6 +1144,8 @@ paAttributeName :: Lens' PolicyAttribute (Maybe Text)
 paAttributeName = lens _paAttributeName (\ s a -> s{_paAttributeName = a});
 
 instance Hashable PolicyAttribute
+
+instance NFData PolicyAttribute
 
 instance ToQuery PolicyAttribute where
         toQuery PolicyAttribute'{..}
@@ -1156,6 +1190,8 @@ instance FromXML PolicyAttributeDescription where
               (x .@? "AttributeValue") <*> (x .@? "AttributeName")
 
 instance Hashable PolicyAttributeDescription
+
+instance NFData PolicyAttributeDescription
 
 -- | Information about a policy attribute type.
 --
@@ -1229,6 +1265,8 @@ instance FromXML PolicyAttributeTypeDescription where
 
 instance Hashable PolicyAttributeTypeDescription
 
+instance NFData PolicyAttributeTypeDescription
+
 -- | Information about a policy.
 --
 -- /See:/ 'policyDescription' smart constructor.
@@ -1277,6 +1315,8 @@ instance FromXML PolicyDescription where
                 <*> (x .@? "PolicyTypeName")
 
 instance Hashable PolicyDescription
+
+instance NFData PolicyDescription
 
 -- | Information about a policy type.
 --
@@ -1328,6 +1368,8 @@ instance FromXML PolicyTypeDescription where
 
 instance Hashable PolicyTypeDescription
 
+instance NFData PolicyTypeDescription
+
 -- | Information about a source security group.
 --
 -- /See:/ 'sourceSecurityGroup' smart constructor.
@@ -1366,6 +1408,8 @@ instance FromXML SourceSecurityGroup where
 
 instance Hashable SourceSecurityGroup
 
+instance NFData SourceSecurityGroup
+
 -- | Information about a tag.
 --
 -- /See:/ 'tag' smart constructor.
@@ -1403,6 +1447,8 @@ instance FromXML Tag where
           = Tag' <$> (x .@? "Value") <*> (x .@ "Key")
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -1448,6 +1494,8 @@ instance FromXML TagDescription where
 
 instance Hashable TagDescription
 
+instance NFData TagDescription
+
 -- | The key of a tag.
 --
 -- /See:/ 'tagKeyOnly' smart constructor.
@@ -1472,6 +1520,8 @@ tkoKey :: Lens' TagKeyOnly (Maybe Text)
 tkoKey = lens _tkoKey (\ s a -> s{_tkoKey = a});
 
 instance Hashable TagKeyOnly
+
+instance NFData TagKeyOnly
 
 instance ToQuery TagKeyOnly where
         toQuery TagKeyOnly'{..} = mconcat ["Key" =: _tkoKey]

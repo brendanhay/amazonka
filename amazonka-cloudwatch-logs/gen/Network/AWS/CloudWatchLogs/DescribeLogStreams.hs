@@ -153,6 +153,8 @@ instance AWSRequest DescribeLogStreams where
 
 instance Hashable DescribeLogStreams
 
+instance NFData DescribeLogStreams
+
 instance ToHeaders DescribeLogStreams where
         toHeaders
           = const
@@ -217,3 +219,5 @@ dlsrsLogStreams = lens _dlsrsLogStreams (\ s a -> s{_dlsrsLogStreams = a}) . _De
 -- | The response status code.
 dlsrsResponseStatus :: Lens' DescribeLogStreamsResponse Int
 dlsrsResponseStatus = lens _dlsrsResponseStatus (\ s a -> s{_dlsrsResponseStatus = a});
+
+instance NFData DescribeLogStreamsResponse

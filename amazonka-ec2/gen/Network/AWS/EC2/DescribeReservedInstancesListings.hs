@@ -67,7 +67,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeReservedInstancesListings' smart constructor.
+-- | Contains the parameters for DescribeReservedInstancesListings.
+--
+-- /See:/ 'describeReservedInstancesListings' smart constructor.
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
     { _drilFilters                    :: !(Maybe [Filter])
     , _drilReservedInstancesId        :: !(Maybe Text)
@@ -130,6 +132,8 @@ instance AWSRequest DescribeReservedInstancesListings
 
 instance Hashable DescribeReservedInstancesListings
 
+instance NFData DescribeReservedInstancesListings
+
 instance ToHeaders DescribeReservedInstancesListings
          where
         toHeaders = const mempty
@@ -150,7 +154,9 @@ instance ToQuery DescribeReservedInstancesListings
                "ReservedInstancesListingId" =:
                  _drilReservedInstancesListingId]
 
--- | /See:/ 'describeReservedInstancesListingsResponse' smart constructor.
+-- | Contains the output of DescribeReservedInstancesListings.
+--
+-- /See:/ 'describeReservedInstancesListingsResponse' smart constructor.
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
     { _drilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _drilrsResponseStatus            :: !Int
@@ -179,3 +185,6 @@ drilrsReservedInstancesListings = lens _drilrsReservedInstancesListings (\ s a -
 -- | The response status code.
 drilrsResponseStatus :: Lens' DescribeReservedInstancesListingsResponse Int
 drilrsResponseStatus = lens _drilrsResponseStatus (\ s a -> s{_drilrsResponseStatus = a});
+
+instance NFData
+         DescribeReservedInstancesListingsResponse

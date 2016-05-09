@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation creates a volume on a specified gateway. This operation
--- is supported only for the gateway-stored volume architecture.
+-- Creates a volume on a specified gateway. This operation is supported
+-- only for the gateway-stored volume architecture.
 --
 -- The size of the volume to create is inferred from the disk size. You can
 -- choose to preserve existing data on the disk, create volume from an
@@ -169,6 +169,8 @@ instance AWSRequest CreateStorediSCSIVolume where
 
 instance Hashable CreateStorediSCSIVolume
 
+instance NFData CreateStorediSCSIVolume
+
 instance ToHeaders CreateStorediSCSIVolume where
         toHeaders
           = const
@@ -248,3 +250,5 @@ csscsivrsVolumeSizeInBytes = lens _csscsivrsVolumeSizeInBytes (\ s a -> s{_csscs
 -- | The response status code.
 csscsivrsResponseStatus :: Lens' CreateStorediSCSIVolumeResponse Int
 csscsivrsResponseStatus = lens _csscsivrsResponseStatus (\ s a -> s{_csscsivrsResponseStatus = a});
+
+instance NFData CreateStorediSCSIVolumeResponse

@@ -27,6 +27,9 @@ module Network.AWS.S3.Types
     -- * Re-exported Types
     , module Network.AWS.S3.Internal
 
+    -- * BucketAccelerateStatus
+    , BucketAccelerateStatus (..)
+
     -- * BucketCannedACL
     , BucketCannedACL (..)
 
@@ -103,6 +106,11 @@ module Network.AWS.S3.Types
     , AbortIncompleteMultipartUpload
     , abortIncompleteMultipartUpload
     , aimuDaysAfterInitiation
+
+    -- * AccelerateConfiguration
+    , AccelerateConfiguration
+    , accelerateConfiguration
+    , acStatus
 
     -- * AccessControlPolicy
     , AccessControlPolicy
@@ -501,7 +509,9 @@ s3 =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasCode "BadDigest" . hasStatus 400) e = Just "contentmd5"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasCode "RequestTimeout" . hasStatus 400) e = Just "timeouts"
       | has (hasStatus 500) e = Just "general_server_error"

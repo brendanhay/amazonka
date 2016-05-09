@@ -131,6 +131,8 @@ instance AWSRequest CompleteMultipartUpload where
 
 instance Hashable CompleteMultipartUpload
 
+instance NFData CompleteMultipartUpload
+
 instance ToElement CompleteMultipartUpload where
         toElement
           = mkElement
@@ -247,3 +249,5 @@ crsServerSideEncryption = lens _crsServerSideEncryption (\ s a -> s{_crsServerSi
 -- | The response status code.
 crsResponseStatus :: Lens' CompleteMultipartUploadResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+
+instance NFData CompleteMultipartUploadResponse

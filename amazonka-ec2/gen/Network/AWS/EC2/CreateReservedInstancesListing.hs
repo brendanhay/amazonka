@@ -66,7 +66,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createReservedInstancesListing' smart constructor.
+-- | Contains the parameters for CreateReservedInstancesListing.
+--
+-- /See:/ 'createReservedInstancesListing' smart constructor.
 data CreateReservedInstancesListing = CreateReservedInstancesListing'
     { _crilReservedInstancesId :: !Text
     , _crilInstanceCount       :: !Int
@@ -136,6 +138,8 @@ instance AWSRequest CreateReservedInstancesListing
 
 instance Hashable CreateReservedInstancesListing
 
+instance NFData CreateReservedInstancesListing
+
 instance ToHeaders CreateReservedInstancesListing
          where
         toHeaders = const mempty
@@ -154,7 +158,9 @@ instance ToQuery CreateReservedInstancesListing where
                toQueryList "PriceSchedules" _crilPriceSchedules,
                "ClientToken" =: _crilClientToken]
 
--- | /See:/ 'createReservedInstancesListingResponse' smart constructor.
+-- | Contains the output of CreateReservedInstancesListing.
+--
+-- /See:/ 'createReservedInstancesListingResponse' smart constructor.
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
     { _crersReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _crersResponseStatus            :: !Int
@@ -183,3 +189,6 @@ crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> 
 -- | The response status code.
 crersResponseStatus :: Lens' CreateReservedInstancesListingResponse Int
 crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+
+instance NFData
+         CreateReservedInstancesListingResponse

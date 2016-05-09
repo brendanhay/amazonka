@@ -16,6 +16,8 @@ module Network.AWS.CloudFormation.Types
       cloudFormation
 
     -- * Errors
+    , _ChangeSetNotFoundException
+    , _InvalidChangeSetStatusException
     , _InsufficientCapabilitiesException
     , _AlreadyExistsException
     , _LimitExceededException
@@ -23,8 +25,32 @@ module Network.AWS.CloudFormation.Types
     -- * Capability
     , Capability (..)
 
+    -- * ChangeAction
+    , ChangeAction (..)
+
+    -- * ChangeSetStatus
+    , ChangeSetStatus (..)
+
+    -- * ChangeSource
+    , ChangeSource (..)
+
+    -- * ChangeType
+    , ChangeType (..)
+
+    -- * EvaluationType
+    , EvaluationType (..)
+
     -- * OnFailure
     , OnFailure (..)
+
+    -- * Replacement
+    , Replacement (..)
+
+    -- * RequiresRecreation
+    , RequiresRecreation (..)
+
+    -- * ResourceAttribute
+    , ResourceAttribute (..)
 
     -- * ResourceSignalStatus
     , ResourceSignalStatus (..)
@@ -40,6 +66,24 @@ module Network.AWS.CloudFormation.Types
     , accountLimit
     , alValue
     , alName
+
+    -- * Change
+    , Change
+    , change
+    , cResourceChange
+    , cType
+
+    -- * ChangeSetSummary
+    , ChangeSetSummary
+    , changeSetSummary
+    , cssCreationTime
+    , cssStatus
+    , cssChangeSetName
+    , cssChangeSetId
+    , cssStatusReason
+    , cssStackId
+    , cssDescription
+    , cssStackName
 
     -- * Output
     , Output
@@ -69,6 +113,32 @@ module Network.AWS.CloudFormation.Types
     , pdDefaultValue
     , pdNoEcho
     , pdDescription
+
+    -- * ResourceChange
+    , ResourceChange
+    , resourceChange
+    , rcLogicalResourceId
+    , rcPhysicalResourceId
+    , rcResourceType
+    , rcAction
+    , rcScope
+    , rcDetails
+    , rcReplacement
+
+    -- * ResourceChangeDetail
+    , ResourceChangeDetail
+    , resourceChangeDetail
+    , rcdCausingEntity
+    , rcdChangeSource
+    , rcdEvaluation
+    , rcdTarget
+
+    -- * ResourceTargetDefinition
+    , ResourceTargetDefinition
+    , resourceTargetDefinition
+    , rtdAttribute
+    , rtdRequiresRecreation
+    , rtdName
 
     -- * Stack
     , Stack
@@ -199,10 +269,25 @@ cloudFormation =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
+
+-- | The specified change set name or ID doesn\'t exit. To view valid change
+-- sets for a stack, use the 'ListChangeSets' action.
+_ChangeSetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ChangeSetNotFoundException =
+    _ServiceError . hasStatus 404 . hasCode "ChangeSetNotFound"
+
+-- | The specified change set cannot be used to update the stack. For
+-- example, the change set status might be 'CREATE_IN_PROGRESS' or the
+-- stack status might be 'UPDATE_IN_PROGRESS'.
+_InvalidChangeSetStatusException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidChangeSetStatusException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidChangeSetStatus"
 
 -- | The template contains resources with capabilities that were not
 -- specified in the Capabilities parameter.

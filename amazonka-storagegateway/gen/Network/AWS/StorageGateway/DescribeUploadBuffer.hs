@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns information about the upload buffer of a gateway.
--- This operation is supported for both the gateway-stored and
--- gateway-cached volume architectures.
+-- Returns information about the upload buffer of a gateway. This operation
+-- is supported for both the gateway-stored and gateway-cached volume
+-- architectures.
 --
 -- The response includes disk IDs that are configured as upload buffer
 -- space, and it includes the amount of upload buffer space allocated and
@@ -88,6 +88,8 @@ instance AWSRequest DescribeUploadBuffer where
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeUploadBuffer
+
+instance NFData DescribeUploadBuffer
 
 instance ToHeaders DescribeUploadBuffer where
         toHeaders
@@ -163,3 +165,5 @@ dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\ s a -> s{_d
 -- | The response status code.
 dubrsResponseStatus :: Lens' DescribeUploadBufferResponse Int
 dubrsResponseStatus = lens _dubrsResponseStatus (\ s a -> s{_dubrsResponseStatus = a});
+
+instance NFData DescribeUploadBufferResponse

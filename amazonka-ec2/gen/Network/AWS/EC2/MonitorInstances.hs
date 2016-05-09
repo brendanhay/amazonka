@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'monitorInstances' smart constructor.
+-- | Contains the parameters for MonitorInstances.
+--
+-- /See:/ 'monitorInstances' smart constructor.
 data MonitorInstances = MonitorInstances'
     { _miDryRun      :: !(Maybe Bool)
     , _miInstanceIds :: ![Text]
@@ -91,6 +93,8 @@ instance AWSRequest MonitorInstances where
 
 instance Hashable MonitorInstances
 
+instance NFData MonitorInstances
+
 instance ToHeaders MonitorInstances where
         toHeaders = const mempty
 
@@ -105,7 +109,9 @@ instance ToQuery MonitorInstances where
                "DryRun" =: _miDryRun,
                toQueryList "InstanceId" _miInstanceIds]
 
--- | /See:/ 'monitorInstancesResponse' smart constructor.
+-- | Contains the output of MonitorInstances.
+--
+-- /See:/ 'monitorInstancesResponse' smart constructor.
 data MonitorInstancesResponse = MonitorInstancesResponse'
     { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
     , _mirsResponseStatus      :: !Int
@@ -134,3 +140,5 @@ mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanc
 -- | The response status code.
 mirsResponseStatus :: Lens' MonitorInstancesResponse Int
 mirsResponseStatus = lens _mirsResponseStatus (\ s a -> s{_mirsResponseStatus = a});
+
+instance NFData MonitorInstancesResponse

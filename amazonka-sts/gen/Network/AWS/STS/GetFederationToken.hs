@@ -25,7 +25,12 @@
 -- network. Because you must call the 'GetFederationToken' action using the
 -- long-term security credentials of an IAM user, this call is appropriate
 -- in contexts where those credentials can be safely stored, usually in a
--- server-based application.
+-- server-based application. For a comparison of 'GetFederationToken' with
+-- the other APIs that produce temporary credentials, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
+-- and
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the AWS STS APIs>
+-- in the /IAM User Guide/.
 --
 -- If you are creating a mobile-based or browser-based app that can
 -- authenticate users using a web identity provider like Login with Amazon,
@@ -36,19 +41,29 @@
 --
 -- The 'GetFederationToken' action must be called by using the long-term
 -- AWS security credentials of an IAM user. You can also call
--- 'GetFederationToken' using the security credentials of an AWS account
--- (root), but this is not recommended. Instead, we recommend that you
+-- 'GetFederationToken' using the security credentials of an AWS root
+-- account, but we do not recommended it. Instead, we recommend that you
 -- create an IAM user for the purpose of the proxy application and then
 -- attach a policy to the IAM user that limits federated users to only the
--- actions and resources they need access to. For more information, see
+-- actions and resources that they need access to. For more information,
+-- see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html IAM Best Practices>
--- in the /Using IAM/.
+-- in the /IAM User Guide/.
 --
 -- The temporary security credentials that are obtained by using the
 -- long-term credentials of an IAM user are valid for the specified
--- duration, between 900 seconds (15 minutes) and 129600 seconds (36
--- hours). Temporary credentials that are obtained by using AWS account
--- (root) credentials have a maximum duration of 3600 seconds (1 hour)
+-- duration, from 900 seconds (15 minutes) up to a maximium of 129600
+-- seconds (36 hours). The default is 43200 seconds (12 hours). Temporary
+-- credentials that are obtained by using AWS root account credentials have
+-- a maximum duration of 3600 seconds (1 hour).
+--
+-- The temporary security credentials created by 'GetFederationToken' can
+-- be used to make API calls to any AWS service with the following
+-- exceptions:
+--
+-- -   You cannot use these credentials to call any IAM APIs.
+--
+-- -   You cannot call any STS APIs.
 --
 -- __Permissions__
 --
@@ -57,6 +72,7 @@
 --
 -- -   The policy or policies that are attached to the IAM user whose
 --     credentials are used to call 'GetFederationToken'.
+--
 -- -   The policy that is passed as a parameter in the call.
 --
 -- The passed policy is attached to the temporary security credentials that
@@ -169,6 +185,12 @@ gftDurationSeconds = lens _gftDurationSeconds (\ s a -> s{_gftDurationSeconds = 
 -- has a resource-based policy that specifically allows the federated user
 -- to access the resource.
 --
+-- The format for this parameter, as described by its regex pattern, is a
+-- string of characters up to 2048 characters in length. The characters can
+-- be any ASCII character from the space character to the end of the valid
+-- character list (\\u0020-\\u00FF). It can also include the tab (\\u0009),
+-- linefeed (\\u000A), and carriage return (\\u000D) characters.
+--
 -- The policy plain text must be 2048 bytes or shorter. However, an
 -- internal conversion compresses it into a packed binary format with a
 -- separate limit. The PackedPolicySize response element indicates by
@@ -184,6 +206,11 @@ gftPolicy = lens _gftPolicy (\ s a -> s{_gftPolicy = a});
 -- the temporary security credentials (such as 'Bob'). For example, you can
 -- reference the federated user name in a resource-based policy, such as in
 -- an Amazon S3 bucket policy.
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- string of characters consisting of upper- and lower-case alphanumeric
+-- characters with no spaces. You can also include any of the following
+-- characters: =,.\'-
 gftName :: Lens' GetFederationToken Text
 gftName = lens _gftName (\ s a -> s{_gftName = a});
 
@@ -200,6 +227,8 @@ instance AWSRequest GetFederationToken where
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetFederationToken
+
+instance NFData GetFederationToken
 
 instance ToHeaders GetFederationToken where
         toHeaders = const mempty
@@ -276,3 +305,5 @@ gftrsFederatedUser = lens _gftrsFederatedUser (\ s a -> s{_gftrsFederatedUser = 
 -- | The response status code.
 gftrsResponseStatus :: Lens' GetFederationTokenResponse Int
 gftrsResponseStatus = lens _gftrsResponseStatus (\ s a -> s{_gftrsResponseStatus = a});
+
+instance NFData GetFederationTokenResponse

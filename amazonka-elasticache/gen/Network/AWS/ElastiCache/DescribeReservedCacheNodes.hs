@@ -207,6 +207,8 @@ instance AWSRequest DescribeReservedCacheNodes where
 
 instance Hashable DescribeReservedCacheNodes
 
+instance NFData DescribeReservedCacheNodes
+
 instance ToHeaders DescribeReservedCacheNodes where
         toHeaders = const mempty
 
@@ -269,3 +271,5 @@ drcnrsReservedCacheNodes = lens _drcnrsReservedCacheNodes (\ s a -> s{_drcnrsRes
 -- | The response status code.
 drcnrsResponseStatus :: Lens' DescribeReservedCacheNodesResponse Int
 drcnrsResponseStatus = lens _drcnrsResponseStatus (\ s a -> s{_drcnrsResponseStatus = a});
+
+instance NFData DescribeReservedCacheNodesResponse

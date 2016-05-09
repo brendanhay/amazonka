@@ -175,8 +175,6 @@ cdcStorageEncrypted = lens _cdcStorageEncrypted (\ s a -> s{_cdcStorageEncrypted
 -- Constraints: Must contain no more than 255 alphanumeric characters,
 -- periods, underscores, spaces, or hyphens. Must not be default.
 --
--- +
---
 -- Example: 'mySubnetgroup'
 cdcDBSubnetGroupName :: Lens' CreateDBCluster (Maybe Text)
 cdcDBSubnetGroupName = lens _cdcDBSubnetGroupName (\ s a -> s{_cdcDBSubnetGroupName = a});
@@ -343,6 +341,8 @@ instance AWSRequest CreateDBCluster where
 
 instance Hashable CreateDBCluster
 
+instance NFData CreateDBCluster
+
 instance ToHeaders CreateDBCluster where
         toHeaders = const mempty
 
@@ -411,3 +411,5 @@ cdcrsDBCluster = lens _cdcrsDBCluster (\ s a -> s{_cdcrsDBCluster = a});
 -- | The response status code.
 cdcrsResponseStatus :: Lens' CreateDBClusterResponse Int
 cdcrsResponseStatus = lens _cdcrsResponseStatus (\ s a -> s{_cdcrsResponseStatus = a});
+
+instance NFData CreateDBClusterResponse

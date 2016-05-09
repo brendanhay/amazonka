@@ -238,6 +238,8 @@ instance AWSRequest UpdateLayer where
 
 instance Hashable UpdateLayer
 
+instance NFData UpdateLayer
+
 instance ToHeaders UpdateLayer where
         toHeaders
           = const
@@ -292,3 +294,5 @@ data UpdateLayerResponse =
 updateLayerResponse
     :: UpdateLayerResponse
 updateLayerResponse = UpdateLayerResponse'
+
+instance NFData UpdateLayerResponse

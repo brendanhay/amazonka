@@ -90,6 +90,8 @@ instance AWSRequest DomainMetadata where
 
 instance Hashable DomainMetadata
 
+instance NFData DomainMetadata
+
 instance ToHeaders DomainMetadata where
         toHeaders = const mempty
 
@@ -180,3 +182,5 @@ dmrsTimestamp = lens _dmrsTimestamp (\ s a -> s{_dmrsTimestamp = a});
 -- | The response status code.
 dmrsResponseStatus :: Lens' DomainMetadataResponse Int
 dmrsResponseStatus = lens _dmrsResponseStatus (\ s a -> s{_dmrsResponseStatus = a});
+
+instance NFData DomainMetadataResponse

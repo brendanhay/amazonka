@@ -94,6 +94,8 @@ instance AWSRequest GetQueueURL where
 
 instance Hashable GetQueueURL
 
+instance NFData GetQueueURL
+
 instance ToHeaders GetQueueURL where
         toHeaders = const mempty
 
@@ -143,3 +145,5 @@ gqursResponseStatus = lens _gqursResponseStatus (\ s a -> s{_gqursResponseStatus
 -- | The URL for the queue.
 gqursQueueURL :: Lens' GetQueueURLResponse Text
 gqursQueueURL = lens _gqursQueueURL (\ s a -> s{_gqursQueueURL = a});
+
+instance NFData GetQueueURLResponse

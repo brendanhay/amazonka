@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'unassignPrivateIPAddresses' smart constructor.
+-- | Contains the parameters for UnassignPrivateIpAddresses.
+--
+-- /See:/ 'unassignPrivateIPAddresses' smart constructor.
 data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
     { _upiaNetworkInterfaceId :: !Text
     , _upiaPrivateIPAddresses :: ![Text]
@@ -82,6 +84,8 @@ instance AWSRequest UnassignPrivateIPAddresses where
 
 instance Hashable UnassignPrivateIPAddresses
 
+instance NFData UnassignPrivateIPAddresses
+
 instance ToHeaders UnassignPrivateIPAddresses where
         toHeaders = const mempty
 
@@ -108,3 +112,5 @@ data UnassignPrivateIPAddressesResponse =
 unassignPrivateIPAddressesResponse
     :: UnassignPrivateIPAddressesResponse
 unassignPrivateIPAddressesResponse = UnassignPrivateIPAddressesResponse'
+
+instance NFData UnassignPrivateIPAddressesResponse

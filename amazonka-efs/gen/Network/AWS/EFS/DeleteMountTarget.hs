@@ -93,6 +93,8 @@ instance AWSRequest DeleteMountTarget where
 
 instance Hashable DeleteMountTarget
 
+instance NFData DeleteMountTarget
+
 instance ToHeaders DeleteMountTarget where
         toHeaders = const mempty
 
@@ -114,3 +116,5 @@ data DeleteMountTargetResponse =
 deleteMountTargetResponse
     :: DeleteMountTargetResponse
 deleteMountTargetResponse = DeleteMountTargetResponse'
+
+instance NFData DeleteMountTargetResponse

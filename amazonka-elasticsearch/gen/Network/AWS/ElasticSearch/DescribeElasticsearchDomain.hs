@@ -81,6 +81,8 @@ instance AWSRequest DescribeElasticsearchDomain where
 
 instance Hashable DescribeElasticsearchDomain
 
+instance NFData DescribeElasticsearchDomain
+
 instance ToHeaders DescribeElasticsearchDomain where
         toHeaders = const mempty
 
@@ -125,3 +127,5 @@ dedrsResponseStatus = lens _dedrsResponseStatus (\ s a -> s{_dedrsResponseStatus
 -- | The current status of the Elasticsearch domain.
 dedrsDomainStatus :: Lens' DescribeElasticsearchDomainResponse ElasticsearchDomainStatus
 dedrsDomainStatus = lens _dedrsDomainStatus (\ s a -> s{_dedrsDomainStatus = a});
+
+instance NFData DescribeElasticsearchDomainResponse

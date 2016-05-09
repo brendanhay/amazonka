@@ -16,13 +16,16 @@ module Network.AWS.IoT.Types
       ioT
 
     -- * Errors
+    , _CertificateConflictException
     , _SqlParseException
     , _InvalidRequestException
     , _TransferConflictException
     , _CertificateStateException
+    , _RegistrationCodeValidationException
     , _MalformedPolicyException
     , _DeleteConflictException
     , _ResourceAlreadyExistsException
+    , _CertificateValidationException
     , _TransferAlreadyCompletedException
     , _ThrottlingException
     , _InternalFailureException
@@ -32,6 +35,9 @@ module Network.AWS.IoT.Types
     , _UnauthorizedException
     , _ResourceNotFoundException
     , _LimitExceededException
+
+    -- * CACertificateStatus
+    , CACertificateStatus (..)
 
     -- * CertificateStatus
     , CertificateStatus (..)
@@ -62,6 +68,24 @@ module Network.AWS.IoT.Types
     , attributePayload
     , apAttributes
 
+    -- * CACertificate
+    , CACertificate
+    , cACertificate
+    , cacStatus
+    , cacCertificateARN
+    , cacCertificateId
+    , cacCreationDate
+
+    -- * CACertificateDescription
+    , CACertificateDescription
+    , cACertificateDescription
+    , cacdStatus
+    , cacdOwnedBy
+    , cacdCertificatePem
+    , cacdCertificateARN
+    , cacdCertificateId
+    , cacdCreationDate
+
     -- * Certificate
     , Certificate
     , certificate
@@ -76,10 +100,13 @@ module Network.AWS.IoT.Types
     , cdStatus
     , cdOwnedBy
     , cdLastModifiedDate
+    , cdCaCertificateId
+    , cdPreviousOwnedBy
     , cdCertificatePem
     , cdCertificateARN
     , cdCertificateId
     , cdCreationDate
+    , cdTransferData
 
     -- * CloudwatchAlarmAction
     , CloudwatchAlarmAction
@@ -200,6 +227,7 @@ module Network.AWS.IoT.Types
     , topicRule
     , trCreatedAt
     , trActions
+    , trAwsIotSqlVersion
     , trRuleDisabled
     , trRuleName
     , trSql
@@ -217,10 +245,20 @@ module Network.AWS.IoT.Types
     -- * TopicRulePayload
     , TopicRulePayload
     , topicRulePayload
+    , trpAwsIotSqlVersion
     , trpRuleDisabled
     , trpDescription
     , trpSql
     , trpActions
+
+    -- * TransferData
+    , TransferData
+    , transferData
+    , tdTransferDate
+    , tdAcceptDate
+    , tdTransferMessage
+    , tdRejectDate
+    , tdRejectReason
     ) where
 
 import           Network.AWS.IoT.Types.Product
@@ -256,15 +294,25 @@ ioT =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+-- | Unable to verify the CA certificate used to sign the device certificate
+-- you are attempting to register. This is happens when you have registered
+-- more than one CA certificate that has the same subject field and public
+-- key.
+_CertificateConflictException :: AsError a => Getting (First ServiceError) a ServiceError
+_CertificateConflictException =
+    _ServiceError . hasStatus 409 . hasCode "CertificateConflictException"
+
 -- | The Rule-SQL expression can\'t be parsed correctly.
 _SqlParseException :: AsError a => Getting (First ServiceError) a ServiceError
 _SqlParseException =
-    _ServiceError . hasStatus 406 . hasCode "SqlParseException"
+    _ServiceError . hasStatus 400 . hasCode "SqlParseException"
 
 -- | The request is not valid.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -282,6 +330,12 @@ _CertificateStateException :: AsError a => Getting (First ServiceError) a Servic
 _CertificateStateException =
     _ServiceError . hasStatus 406 . hasCode "CertificateStateException"
 
+-- | The registration code is invalid.
+_RegistrationCodeValidationException :: AsError a => Getting (First ServiceError) a ServiceError
+_RegistrationCodeValidationException =
+    _ServiceError .
+    hasStatus 400 . hasCode "RegistrationCodeValidationException"
+
 -- | The policy documentation is not valid.
 _MalformedPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _MalformedPolicyException =
@@ -297,6 +351,11 @@ _DeleteConflictException =
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
     _ServiceError . hasStatus 409 . hasCode "ResourceAlreadyExistsException"
+
+-- | The certificate is invalid.
+_CertificateValidationException :: AsError a => Getting (First ServiceError) a ServiceError
+_CertificateValidationException =
+    _ServiceError . hasStatus 400 . hasCode "CertificateValidationException"
 
 -- | You can\'t revert the certificate transfer because the transfer is
 -- already complete.

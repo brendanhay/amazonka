@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to update an application.
 --
 -- /See:/ 'updateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
@@ -90,6 +90,8 @@ instance AWSRequest UpdateApplication where
               (\ s h x -> parseXML x)
 
 instance Hashable UpdateApplication
+
+instance NFData UpdateApplication
 
 instance ToHeaders UpdateApplication where
         toHeaders = const mempty

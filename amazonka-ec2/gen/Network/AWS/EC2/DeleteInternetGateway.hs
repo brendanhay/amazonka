@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteInternetGateway' smart constructor.
+-- | Contains the parameters for DeleteInternetGateway.
+--
+-- /See:/ 'deleteInternetGateway' smart constructor.
 data DeleteInternetGateway = DeleteInternetGateway'
     { _digiDryRun            :: !(Maybe Bool)
     , _digiInternetGatewayId :: !Text
@@ -82,6 +84,8 @@ instance AWSRequest DeleteInternetGateway where
 
 instance Hashable DeleteInternetGateway
 
+instance NFData DeleteInternetGateway
+
 instance ToHeaders DeleteInternetGateway where
         toHeaders = const mempty
 
@@ -106,3 +110,5 @@ data DeleteInternetGatewayResponse =
 deleteInternetGatewayResponse
     :: DeleteInternetGatewayResponse
 deleteInternetGatewayResponse = DeleteInternetGatewayResponse'
+
+instance NFData DeleteInternetGatewayResponse

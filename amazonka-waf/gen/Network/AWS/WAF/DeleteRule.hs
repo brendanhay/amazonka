@@ -100,6 +100,8 @@ instance AWSRequest DeleteRule where
 
 instance Hashable DeleteRule
 
+instance NFData DeleteRule
+
 instance ToHeaders DeleteRule where
         toHeaders
           = const
@@ -153,3 +155,5 @@ drrsChangeToken = lens _drrsChangeToken (\ s a -> s{_drrsChangeToken = a});
 -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRuleResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+
+instance NFData DeleteRuleResponse

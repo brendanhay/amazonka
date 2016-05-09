@@ -88,6 +88,8 @@ instance AWSRequest AssignVolume where
 
 instance Hashable AssignVolume
 
+instance NFData AssignVolume
+
 instance ToHeaders AssignVolume where
         toHeaders
           = const
@@ -120,3 +122,5 @@ data AssignVolumeResponse =
 assignVolumeResponse
     :: AssignVolumeResponse
 assignVolumeResponse = AssignVolumeResponse'
+
+instance NFData AssignVolumeResponse

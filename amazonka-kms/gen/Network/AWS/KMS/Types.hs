@@ -132,6 +132,8 @@ kms =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
@@ -140,8 +142,7 @@ kms =
 -- | The request was rejected because the marker that specifies where
 -- pagination should next begin is not valid.
 _InvalidMarkerException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidMarkerException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidMarker"
+_InvalidMarkerException = _ServiceError . hasCode "InvalidMarkerException"
 
 -- | The request was rejected because the state of the specified resource is
 -- not valid for this request.
@@ -151,89 +152,83 @@ _InvalidMarkerException =
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key>
 -- in the /AWS Key Management Service Developer Guide/.
 _KMSInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSInvalidStateException =
-    _ServiceError . hasStatus 409 . hasCode "KMSInvalidStateException"
+_KMSInvalidStateException = _ServiceError . hasCode "KMSInvalidStateException"
 
 -- | The request was rejected because the specified KeySpec parameter is not
 -- valid. The currently supported value is ENCRYPT\/DECRYPT.
 _InvalidKeyUsageException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidKeyUsageException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidKeyUsage"
+_InvalidKeyUsageException = _ServiceError . hasCode "InvalidKeyUsageException"
 
 -- | The request was rejected because the specified policy is not
 -- syntactically or semantically correct.
 _MalformedPolicyDocumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _MalformedPolicyDocumentException =
-    _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
+    _ServiceError . hasCode "MalformedPolicyDocumentException"
 
 -- | The request was rejected because a specified parameter is not supported.
 _UnsupportedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedOperationException =
-    _ServiceError . hasStatus 400 . hasCode "UnsupportedOperation"
+    _ServiceError . hasCode "UnsupportedOperationException"
 
 -- | The request was rejected because the specified key was marked as
 -- disabled.
 _DisabledException :: AsError a => Getting (First ServiceError) a ServiceError
-_DisabledException = _ServiceError . hasStatus 409 . hasCode "Disabled"
+_DisabledException = _ServiceError . hasCode "DisabledException"
 
 -- | The request was rejected because the key was not available. The request
 -- can be retried.
 _KeyUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-_KeyUnavailableException =
-    _ServiceError . hasStatus 500 . hasCode "KeyUnavailable"
+_KeyUnavailableException = _ServiceError . hasCode "KeyUnavailableException"
 
 -- | The request was rejected because an internal exception occurred. The
 -- request can be retried.
 _KMSInternalException :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSInternalException = _ServiceError . hasStatus 500 . hasCode "KMSInternal"
+_KMSInternalException = _ServiceError . hasCode "KMSInternalException"
 
 -- | The request was rejected because the specified entity or resource could
 -- not be found.
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound"
+_NotFoundException = _ServiceError . hasCode "NotFoundException"
 
 -- | The request was rejected because the specified alias name is not valid.
 _InvalidAliasNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAliasNameException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidAliasName"
+    _ServiceError . hasCode "InvalidAliasNameException"
 
 -- | The request was rejected because the specified 'GrantId' is not valid.
 _InvalidGrantIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidGrantIdException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidGrantId"
+_InvalidGrantIdException = _ServiceError . hasCode "InvalidGrantIdException"
 
 -- | The request was rejected because a grant token provided as part of the
 -- request is invalid.
 _InvalidGrantTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGrantTokenException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidGrantToken"
+    _ServiceError . hasCode "InvalidGrantTokenException"
 
 -- | The request was rejected because a specified ARN was not valid.
 _InvalidARNException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidARNException = _ServiceError . hasStatus 400 . hasCode "InvalidArn"
+_InvalidARNException = _ServiceError . hasCode "InvalidArnException"
 
 -- | The system timed out while trying to fulfill the request. The request
 -- can be retried.
 _DependencyTimeoutException :: AsError a => Getting (First ServiceError) a ServiceError
 _DependencyTimeoutException =
-    _ServiceError . hasStatus 503 . hasCode "DependencyTimeout"
+    _ServiceError . hasCode "DependencyTimeoutException"
 
 -- | The request was rejected because the specified ciphertext has been
 -- corrupted or is otherwise invalid.
 _InvalidCiphertextException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCiphertextException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidCiphertext"
+    _ServiceError . hasCode "InvalidCiphertextException"
 
 -- | The request was rejected because it attempted to create a resource that
 -- already exists.
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_AlreadyExistsException =
-    _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
+_AlreadyExistsException = _ServiceError . hasCode "AlreadyExistsException"
 
 -- | The request was rejected because a limit was exceeded. For more
 -- information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/limits.html Limits>
 -- in the /AWS Key Management Service Developer Guide/.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException =
-    _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException"

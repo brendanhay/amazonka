@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Deletes the < ClientCertificate> resource.
 module Network.AWS.APIGateway.DeleteClientCertificate
     (
     -- * Creating a Request
@@ -39,7 +39,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteClientCertificate' smart constructor.
+-- | A request to delete the < ClientCertificate> resource.
+--
+-- /See:/ 'deleteClientCertificate' smart constructor.
 newtype DeleteClientCertificate = DeleteClientCertificate'
     { _dccClientCertificateId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -57,7 +59,7 @@ deleteClientCertificate pClientCertificateId_ =
     { _dccClientCertificateId = pClientCertificateId_
     }
 
--- | Undocumented member.
+-- | The identifier of the < ClientCertificate> resource to be deleted.
 dccClientCertificateId :: Lens' DeleteClientCertificate Text
 dccClientCertificateId = lens _dccClientCertificateId (\ s a -> s{_dccClientCertificateId = a});
 
@@ -69,6 +71,8 @@ instance AWSRequest DeleteClientCertificate where
           = receiveNull DeleteClientCertificateResponse'
 
 instance Hashable DeleteClientCertificate
+
+instance NFData DeleteClientCertificate
 
 instance ToHeaders DeleteClientCertificate where
         toHeaders
@@ -95,3 +99,5 @@ data DeleteClientCertificateResponse =
 deleteClientCertificateResponse
     :: DeleteClientCertificateResponse
 deleteClientCertificateResponse = DeleteClientCertificateResponse'
+
+instance NFData DeleteClientCertificateResponse

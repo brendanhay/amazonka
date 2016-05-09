@@ -55,7 +55,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifySnapshotAttribute' smart constructor.
+-- | Contains the parameters for ModifySnapshotAttribute.
+--
+-- /See:/ 'modifySnapshotAttribute' smart constructor.
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
     { _msaAttribute              :: !(Maybe SnapshotAttributeName)
     , _msaCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
@@ -139,6 +141,8 @@ instance AWSRequest ModifySnapshotAttribute where
 
 instance Hashable ModifySnapshotAttribute
 
+instance NFData ModifySnapshotAttribute
+
 instance ToHeaders ModifySnapshotAttribute where
         toHeaders = const mempty
 
@@ -170,3 +174,5 @@ data ModifySnapshotAttributeResponse =
 modifySnapshotAttributeResponse
     :: ModifySnapshotAttributeResponse
 modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse'
+
+instance NFData ModifySnapshotAttributeResponse

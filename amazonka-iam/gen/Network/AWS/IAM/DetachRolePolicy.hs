@@ -84,6 +84,8 @@ instance AWSRequest DetachRolePolicy where
 
 instance Hashable DetachRolePolicy
 
+instance NFData DetachRolePolicy
+
 instance ToHeaders DetachRolePolicy where
         toHeaders = const mempty
 
@@ -108,3 +110,5 @@ data DetachRolePolicyResponse =
 detachRolePolicyResponse
     :: DetachRolePolicyResponse
 detachRolePolicyResponse = DetachRolePolicyResponse'
+
+instance NFData DetachRolePolicyResponse

@@ -125,6 +125,8 @@ instance AWSRequest ListMFADevices where
 
 instance Hashable ListMFADevices
 
+instance NFData ListMFADevices
+
 instance ToHeaders ListMFADevices where
         toHeaders = const mempty
 
@@ -194,3 +196,5 @@ lmdrsResponseStatus = lens _lmdrsResponseStatus (\ s a -> s{_lmdrsResponseStatus
 -- | A list of MFA devices.
 lmdrsMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
 lmdrsMFADevices = lens _lmdrsMFADevices (\ s a -> s{_lmdrsMFADevices = a}) . _Coerce;
+
+instance NFData ListMFADevicesResponse

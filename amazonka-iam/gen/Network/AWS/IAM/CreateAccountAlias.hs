@@ -72,6 +72,8 @@ instance AWSRequest CreateAccountAlias where
 
 instance Hashable CreateAccountAlias
 
+instance NFData CreateAccountAlias
+
 instance ToHeaders CreateAccountAlias where
         toHeaders = const mempty
 
@@ -95,3 +97,5 @@ data CreateAccountAliasResponse =
 createAccountAliasResponse
     :: CreateAccountAliasResponse
 createAccountAliasResponse = CreateAccountAliasResponse'
+
+instance NFData CreateAccountAliasResponse

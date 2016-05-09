@@ -37,6 +37,7 @@ instance ToText AZMode where
         SingleAz -> "single-az"
 
 instance Hashable     AZMode
+instance NFData       AZMode
 instance ToByteString AZMode
 instance ToQuery      AZMode
 instance ToHeader     AZMode
@@ -65,6 +66,7 @@ instance ToText AutomaticFailoverStatus where
         AFSEnabling -> "enabling"
 
 instance Hashable     AutomaticFailoverStatus
+instance NFData       AutomaticFailoverStatus
 instance ToByteString AutomaticFailoverStatus
 instance ToQuery      AutomaticFailoverStatus
 instance ToHeader     AutomaticFailoverStatus
@@ -90,6 +92,7 @@ instance ToText PendingAutomaticFailoverStatus where
         Enabled -> "enabled"
 
 instance Hashable     PendingAutomaticFailoverStatus
+instance NFData       PendingAutomaticFailoverStatus
 instance ToByteString PendingAutomaticFailoverStatus
 instance ToQuery      PendingAutomaticFailoverStatus
 instance ToHeader     PendingAutomaticFailoverStatus
@@ -121,6 +124,7 @@ instance ToText SourceType where
         CacheSubnetGroup -> "cache-subnet-group"
 
 instance Hashable     SourceType
+instance NFData       SourceType
 instance ToByteString SourceType
 instance ToQuery      SourceType
 instance ToHeader     SourceType

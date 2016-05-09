@@ -160,6 +160,8 @@ instance AWSRequest UpdateRecords where
 
 instance Hashable UpdateRecords
 
+instance NFData UpdateRecords
+
 instance ToHeaders UpdateRecords where
         toHeaders UpdateRecords'{..}
           = mconcat
@@ -216,3 +218,5 @@ urrsRecords = lens _urrsRecords (\ s a -> s{_urrsRecords = a}) . _Default . _Coe
 -- | The response status code.
 urrsResponseStatus :: Lens' UpdateRecordsResponse Int
 urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+
+instance NFData UpdateRecordsResponse

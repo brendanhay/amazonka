@@ -285,6 +285,7 @@ module Network.AWS.EMR
     , igEBSOptimized
     , igMarket
     , igName
+    , igShrinkPolicy
     , igId
 
     -- ** InstanceGroupConfig
@@ -304,6 +305,7 @@ module Network.AWS.EMR
     , instanceGroupModifyConfig
     , igmcInstanceCount
     , igmcEC2InstanceIdsToTerminate
+    , igmcShrinkPolicy
     , igmcInstanceGroupId
 
     -- ** InstanceGroupStateChangeReason
@@ -325,6 +327,13 @@ module Network.AWS.EMR
     , igtReadyDateTime
     , igtCreationDateTime
     , igtEndDateTime
+
+    -- ** InstanceResizePolicy
+    , InstanceResizePolicy
+    , instanceResizePolicy
+    , irpInstancesToProtect
+    , irpInstancesToTerminate
+    , irpInstanceTerminationTimeout
 
     -- ** InstanceStateChangeReason
     , InstanceStateChangeReason
@@ -381,6 +390,12 @@ module Network.AWS.EMR
     , scriptBootstrapActionConfig
     , sbacArgs
     , sbacPath
+
+    -- ** ShrinkPolicy
+    , ShrinkPolicy
+    , shrinkPolicy
+    , spDecommissionTimeout
+    , spInstanceResizePolicy
 
     -- ** Step
     , Step

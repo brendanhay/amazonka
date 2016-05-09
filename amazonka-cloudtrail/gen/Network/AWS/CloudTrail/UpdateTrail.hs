@@ -234,6 +234,8 @@ instance AWSRequest UpdateTrail where
 
 instance Hashable UpdateTrail
 
+instance NFData UpdateTrail
+
 instance ToHeaders UpdateTrail where
         toHeaders
           = const
@@ -392,3 +394,5 @@ utrsIsMultiRegionTrail = lens _utrsIsMultiRegionTrail (\ s a -> s{_utrsIsMultiRe
 -- | The response status code.
 utrsResponseStatus :: Lens' UpdateTrailResponse Int
 utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});
+
+instance NFData UpdateTrailResponse

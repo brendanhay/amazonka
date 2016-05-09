@@ -237,6 +237,8 @@ instance AWSRequest RestoreDBClusterFromSnapshot
 
 instance Hashable RestoreDBClusterFromSnapshot
 
+instance NFData RestoreDBClusterFromSnapshot
+
 instance ToHeaders RestoreDBClusterFromSnapshot where
         toHeaders = const mempty
 
@@ -297,3 +299,5 @@ rdcfsrsDBCluster = lens _rdcfsrsDBCluster (\ s a -> s{_rdcfsrsDBCluster = a});
 -- | The response status code.
 rdcfsrsResponseStatus :: Lens' RestoreDBClusterFromSnapshotResponse Int
 rdcfsrsResponseStatus = lens _rdcfsrsResponseStatus (\ s a -> s{_rdcfsrsResponseStatus = a});
+
+instance NFData RestoreDBClusterFromSnapshotResponse

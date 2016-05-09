@@ -107,6 +107,8 @@ instance AWSRequest ListThings where
 
 instance Hashable ListThings
 
+instance NFData ListThings
+
 instance ToHeaders ListThings where
         toHeaders = const mempty
 
@@ -160,3 +162,5 @@ ltrsThings = lens _ltrsThings (\ s a -> s{_ltrsThings = a}) . _Default . _Coerce
 -- | The response status code.
 ltrsResponseStatus :: Lens' ListThingsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
+
+instance NFData ListThingsResponse

@@ -89,6 +89,8 @@ instance AWSRequest CreateSnapshot where
 
 instance Hashable CreateSnapshot
 
+instance NFData CreateSnapshot
+
 instance ToHeaders CreateSnapshot where
         toHeaders = const mempty
 
@@ -132,3 +134,5 @@ crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 -- | The response status code.
 crersResponseStatus :: Lens' CreateSnapshotResponse Int
 crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+
+instance NFData CreateSnapshotResponse

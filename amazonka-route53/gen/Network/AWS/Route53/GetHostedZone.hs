@@ -87,6 +87,8 @@ instance AWSRequest GetHostedZone where
 
 instance Hashable GetHostedZone
 
+instance NFData GetHostedZone
+
 instance ToHeaders GetHostedZone where
         toHeaders = const mempty
 
@@ -148,3 +150,5 @@ ghzrsResponseStatus = lens _ghzrsResponseStatus (\ s a -> s{_ghzrsResponseStatus
 -- zone.
 ghzrsHostedZone :: Lens' GetHostedZoneResponse HostedZone
 ghzrsHostedZone = lens _ghzrsHostedZone (\ s a -> s{_ghzrsHostedZone = a});
+
+instance NFData GetHostedZoneResponse

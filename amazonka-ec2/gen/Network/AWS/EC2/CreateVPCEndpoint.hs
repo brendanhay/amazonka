@@ -54,7 +54,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createVPCEndpoint' smart constructor.
+-- | Contains the parameters for CreateVpcEndpoint.
+--
+-- /See:/ 'createVPCEndpoint' smart constructor.
 data CreateVPCEndpoint = CreateVPCEndpoint'
     { _cvePolicyDocument :: !(Maybe Text)
     , _cveClientToken    :: !(Maybe Text)
@@ -139,6 +141,8 @@ instance AWSRequest CreateVPCEndpoint where
 
 instance Hashable CreateVPCEndpoint
 
+instance NFData CreateVPCEndpoint
+
 instance ToHeaders CreateVPCEndpoint where
         toHeaders = const mempty
 
@@ -158,7 +162,9 @@ instance ToQuery CreateVPCEndpoint where
                "VpcId" =: _cveVPCId,
                "ServiceName" =: _cveServiceName]
 
--- | /See:/ 'createVPCEndpointResponse' smart constructor.
+-- | Contains the output of CreateVpcEndpoint.
+--
+-- /See:/ 'createVPCEndpointResponse' smart constructor.
 data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
     { _cversClientToken    :: !(Maybe Text)
     , _cversVPCEndpoint    :: !(Maybe VPCEndpoint)
@@ -196,3 +202,5 @@ cversVPCEndpoint = lens _cversVPCEndpoint (\ s a -> s{_cversVPCEndpoint = a});
 -- | The response status code.
 cversResponseStatus :: Lens' CreateVPCEndpointResponse Int
 cversResponseStatus = lens _cversResponseStatus (\ s a -> s{_cversResponseStatus = a});
+
+instance NFData CreateVPCEndpointResponse

@@ -111,6 +111,8 @@ instance AWSRequest CreateLoadBalancerPolicy where
 
 instance Hashable CreateLoadBalancerPolicy
 
+instance NFData CreateLoadBalancerPolicy
+
 instance ToHeaders CreateLoadBalancerPolicy where
         toHeaders = const mempty
 
@@ -151,3 +153,5 @@ createLoadBalancerPolicyResponse pResponseStatus_ =
 -- | The response status code.
 clbprsResponseStatus :: Lens' CreateLoadBalancerPolicyResponse Int
 clbprsResponseStatus = lens _clbprsResponseStatus (\ s a -> s{_clbprsResponseStatus = a});
+
+instance NFData CreateLoadBalancerPolicyResponse

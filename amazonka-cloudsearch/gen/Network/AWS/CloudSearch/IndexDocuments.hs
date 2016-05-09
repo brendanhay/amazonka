@@ -82,6 +82,8 @@ instance AWSRequest IndexDocuments where
 
 instance Hashable IndexDocuments
 
+instance NFData IndexDocuments
+
 instance ToHeaders IndexDocuments where
         toHeaders = const mempty
 
@@ -127,3 +129,5 @@ idrsFieldNames = lens _idrsFieldNames (\ s a -> s{_idrsFieldNames = a}) . _Defau
 -- | The response status code.
 idrsResponseStatus :: Lens' IndexDocumentsResponse Int
 idrsResponseStatus = lens _idrsResponseStatus (\ s a -> s{_idrsResponseStatus = a});
+
+instance NFData IndexDocumentsResponse

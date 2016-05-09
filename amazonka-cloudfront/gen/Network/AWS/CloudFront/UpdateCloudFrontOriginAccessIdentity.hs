@@ -102,6 +102,8 @@ instance AWSRequest
 instance Hashable
          UpdateCloudFrontOriginAccessIdentity
 
+instance NFData UpdateCloudFrontOriginAccessIdentity
+
 instance ToElement
          UpdateCloudFrontOriginAccessIdentity where
         toElement
@@ -165,3 +167,6 @@ ucfoairsCloudFrontOriginAccessIdentity = lens _ucfoairsCloudFrontOriginAccessIde
 -- | The response status code.
 ucfoairsResponseStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
 ucfoairsResponseStatus = lens _ucfoairsResponseStatus (\ s a -> s{_ucfoairsResponseStatus = a});
+
+instance NFData
+         UpdateCloudFrontOriginAccessIdentityResponse

@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteTags' smart constructor.
+-- | Contains the parameters for DeleteTags.
+--
+-- /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
     { _dtsDryRun    :: !(Maybe Bool)
     , _dtsTags      :: !(Maybe [Tag])
@@ -97,6 +99,8 @@ instance AWSRequest DeleteTags where
 
 instance Hashable DeleteTags
 
+instance NFData DeleteTags
+
 instance ToHeaders DeleteTags where
         toHeaders = const mempty
 
@@ -122,3 +126,5 @@ data DeleteTagsResponse =
 deleteTagsResponse
     :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse'
+
+instance NFData DeleteTagsResponse

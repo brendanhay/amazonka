@@ -204,6 +204,8 @@ instance AWSRequest CreateMountTarget where
 
 instance Hashable CreateMountTarget
 
+instance NFData CreateMountTarget
+
 instance ToHeaders CreateMountTarget where
         toHeaders = const mempty
 

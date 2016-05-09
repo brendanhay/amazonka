@@ -142,6 +142,8 @@ instance AWSRequest ListHostedZonesByName where
 
 instance Hashable ListHostedZonesByName
 
+instance NFData ListHostedZonesByName
+
 instance ToHeaders ListHostedZonesByName where
         toHeaders = const mempty
 
@@ -260,3 +262,5 @@ lhzbnrsIsTruncated = lens _lhzbnrsIsTruncated (\ s a -> s{_lhzbnrsIsTruncated = 
 -- to get the next page of results.
 lhzbnrsMaxItems :: Lens' ListHostedZonesByNameResponse Text
 lhzbnrsMaxItems = lens _lhzbnrsMaxItems (\ s a -> s{_lhzbnrsMaxItems = a});
+
+instance NFData ListHostedZonesByNameResponse

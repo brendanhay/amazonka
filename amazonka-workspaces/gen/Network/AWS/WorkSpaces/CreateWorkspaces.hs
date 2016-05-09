@@ -83,6 +83,8 @@ instance AWSRequest CreateWorkspaces where
 
 instance Hashable CreateWorkspaces
 
+instance NFData CreateWorkspaces
+
 instance ToHeaders CreateWorkspaces where
         toHeaders
           = const
@@ -148,3 +150,5 @@ cwrsPendingRequests = lens _cwrsPendingRequests (\ s a -> s{_cwrsPendingRequests
 -- | The response status code.
 cwrsResponseStatus :: Lens' CreateWorkspacesResponse Int
 cwrsResponseStatus = lens _cwrsResponseStatus (\ s a -> s{_cwrsResponseStatus = a});
+
+instance NFData CreateWorkspacesResponse

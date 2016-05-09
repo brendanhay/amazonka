@@ -19,6 +19,7 @@ module Network.AWS.APIGateway.Types.Sum where
 
 import           Network.AWS.Prelude
 
+-- | The authorizer type. Only current value is TOKEN.
 data AuthorizerType =
     Token
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -34,6 +35,7 @@ instance ToText AuthorizerType where
         Token -> "TOKEN"
 
 instance Hashable     AuthorizerType
+instance NFData       AuthorizerType
 instance ToByteString AuthorizerType
 instance ToQuery      AuthorizerType
 instance ToHeader     AuthorizerType
@@ -81,6 +83,7 @@ instance ToText CacheClusterSize where
         D6_1 -> "6.1"
 
 instance Hashable     CacheClusterSize
+instance NFData       CacheClusterSize
 instance ToByteString CacheClusterSize
 instance ToQuery      CacheClusterSize
 instance ToHeader     CacheClusterSize
@@ -119,6 +122,7 @@ instance ToText CacheClusterStatus where
         NotAvailable -> "NOT_AVAILABLE"
 
 instance Hashable     CacheClusterStatus
+instance NFData       CacheClusterStatus
 instance ToByteString CacheClusterStatus
 instance ToQuery      CacheClusterStatus
 instance ToHeader     CacheClusterStatus
@@ -126,7 +130,7 @@ instance ToHeader     CacheClusterStatus
 instance FromJSON CacheClusterStatus where
     parseJSON = parseJSONText "CacheClusterStatus"
 
--- | The integration type. Possible values are HTTP, AWS, or Mock.
+-- | The integration type. The valid value is 'HTTP', 'AWS', or 'MOCK'.
 data IntegrationType
     = AWS
     | HTTP
@@ -148,6 +152,7 @@ instance ToText IntegrationType where
         Mock -> "MOCK"
 
 instance Hashable     IntegrationType
+instance NFData       IntegrationType
 instance ToByteString IntegrationType
 instance ToQuery      IntegrationType
 instance ToHeader     IntegrationType
@@ -188,11 +193,38 @@ instance ToText Op where
         Test -> "test"
 
 instance Hashable     Op
+instance NFData       Op
 instance ToByteString Op
 instance ToQuery      Op
 instance ToHeader     Op
 
 instance ToJSON Op where
+    toJSON = toJSONText
+
+data PutMode
+    = Merge
+    | Overwrite
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PutMode where
+    parser = takeLowerText >>= \case
+        "merge" -> pure Merge
+        "overwrite" -> pure Overwrite
+        e -> fromTextError $ "Failure parsing PutMode from value: '" <> e
+           <> "'. Accepted values: merge, overwrite"
+
+instance ToText PutMode where
+    toText = \case
+        Merge -> "merge"
+        Overwrite -> "overwrite"
+
+instance Hashable     PutMode
+instance NFData       PutMode
+instance ToByteString PutMode
+instance ToQuery      PutMode
+instance ToHeader     PutMode
+
+instance ToJSON PutMode where
     toJSON = toJSONText
 
 data UnauthorizedCacheControlHeaderStrategy
@@ -216,6 +248,7 @@ instance ToText UnauthorizedCacheControlHeaderStrategy where
         SucceedWithoutResponseHeader -> "SUCCEED_WITHOUT_RESPONSE_HEADER"
 
 instance Hashable     UnauthorizedCacheControlHeaderStrategy
+instance NFData       UnauthorizedCacheControlHeaderStrategy
 instance ToByteString UnauthorizedCacheControlHeaderStrategy
 instance ToQuery      UnauthorizedCacheControlHeaderStrategy
 instance ToHeader     UnauthorizedCacheControlHeaderStrategy

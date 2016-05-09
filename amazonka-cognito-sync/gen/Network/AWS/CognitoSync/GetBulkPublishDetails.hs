@@ -93,6 +93,8 @@ instance AWSRequest GetBulkPublishDetails where
 
 instance Hashable GetBulkPublishDetails
 
+instance NFData GetBulkPublishDetails
+
 instance ToHeaders GetBulkPublishDetails where
         toHeaders
           = const
@@ -189,3 +191,5 @@ gbpdrsBulkPublishStatus = lens _gbpdrsBulkPublishStatus (\ s a -> s{_gbpdrsBulkP
 -- | The response status code.
 gbpdrsResponseStatus :: Lens' GetBulkPublishDetailsResponse Int
 gbpdrsResponseStatus = lens _gbpdrsResponseStatus (\ s a -> s{_gbpdrsResponseStatus = a});
+
+instance NFData GetBulkPublishDetailsResponse

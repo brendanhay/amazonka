@@ -83,6 +83,8 @@ instance AWSRequest ReplaceTopicRule where
 
 instance Hashable ReplaceTopicRule
 
+instance NFData ReplaceTopicRule
+
 instance ToHeaders ReplaceTopicRule where
         toHeaders = const mempty
 
@@ -109,3 +111,5 @@ data ReplaceTopicRuleResponse =
 replaceTopicRuleResponse
     :: ReplaceTopicRuleResponse
 replaceTopicRuleResponse = ReplaceTopicRuleResponse'
+
+instance NFData ReplaceTopicRuleResponse

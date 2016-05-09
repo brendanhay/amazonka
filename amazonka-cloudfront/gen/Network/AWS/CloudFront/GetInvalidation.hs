@@ -87,6 +87,8 @@ instance AWSRequest GetInvalidation where
 
 instance Hashable GetInvalidation
 
+instance NFData GetInvalidation
+
 instance ToHeaders GetInvalidation where
         toHeaders = const mempty
 
@@ -130,3 +132,5 @@ girsInvalidation = lens _girsInvalidation (\ s a -> s{_girsInvalidation = a});
 -- | The response status code.
 girsResponseStatus :: Lens' GetInvalidationResponse Int
 girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
+
+instance NFData GetInvalidationResponse

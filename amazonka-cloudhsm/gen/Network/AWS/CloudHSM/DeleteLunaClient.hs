@@ -75,6 +75,8 @@ instance AWSRequest DeleteLunaClient where
 
 instance Hashable DeleteLunaClient
 
+instance NFData DeleteLunaClient
+
 instance ToHeaders DeleteLunaClient where
         toHeaders
           = const
@@ -126,3 +128,5 @@ dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus
 -- | The status of the action.
 dlcrsStatus :: Lens' DeleteLunaClientResponse Text
 dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});
+
+instance NFData DeleteLunaClientResponse

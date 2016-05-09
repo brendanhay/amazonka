@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeHosts' smart constructor.
+-- | Contains the parameters for DescribeHosts.
+--
+-- /See:/ 'describeHosts' smart constructor.
 data DescribeHosts = DescribeHosts'
     { _dhNextToken  :: !(Maybe Text)
     , _dhFilter     :: !(Maybe [Filter])
@@ -135,6 +137,8 @@ instance AWSRequest DescribeHosts where
 
 instance Hashable DescribeHosts
 
+instance NFData DescribeHosts
+
 instance ToHeaders DescribeHosts where
         toHeaders = const mempty
 
@@ -151,7 +155,9 @@ instance ToQuery DescribeHosts where
                toQuery (toQueryList "HostId" <$> _dhHostIds),
                "MaxResults" =: _dhMaxResults]
 
--- | /See:/ 'describeHostsResponse' smart constructor.
+-- | Contains the output of DescribeHosts.
+--
+-- /See:/ 'describeHostsResponse' smart constructor.
 data DescribeHostsResponse = DescribeHostsResponse'
     { _dhrsHosts          :: !(Maybe [Host])
     , _dhrsNextToken      :: !(Maybe Text)
@@ -189,3 +195,5 @@ dhrsNextToken = lens _dhrsNextToken (\ s a -> s{_dhrsNextToken = a});
 -- | The response status code.
 dhrsResponseStatus :: Lens' DescribeHostsResponse Int
 dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = a});
+
+instance NFData DescribeHostsResponse

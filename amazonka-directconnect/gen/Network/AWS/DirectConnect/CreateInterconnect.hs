@@ -127,6 +127,8 @@ instance AWSRequest CreateInterconnect where
 
 instance Hashable CreateInterconnect
 
+instance NFData CreateInterconnect
+
 instance ToHeaders CreateInterconnect where
         toHeaders
           = const

@@ -113,6 +113,8 @@ instance AWSRequest RebootDBInstance where
 
 instance Hashable RebootDBInstance
 
+instance NFData RebootDBInstance
+
 instance ToHeaders RebootDBInstance where
         toHeaders = const mempty
 
@@ -156,3 +158,5 @@ rdirsDBInstance = lens _rdirsDBInstance (\ s a -> s{_rdirsDBInstance = a});
 -- | The response status code.
 rdirsResponseStatus :: Lens' RebootDBInstanceResponse Int
 rdirsResponseStatus = lens _rdirsResponseStatus (\ s a -> s{_rdirsResponseStatus = a});
+
+instance NFData RebootDBInstanceResponse

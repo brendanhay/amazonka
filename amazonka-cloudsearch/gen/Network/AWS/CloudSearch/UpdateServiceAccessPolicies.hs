@@ -94,6 +94,8 @@ instance AWSRequest UpdateServiceAccessPolicies where
 
 instance Hashable UpdateServiceAccessPolicies
 
+instance NFData UpdateServiceAccessPolicies
+
 instance ToHeaders UpdateServiceAccessPolicies where
         toHeaders = const mempty
 
@@ -142,3 +144,5 @@ usaprsResponseStatus = lens _usaprsResponseStatus (\ s a -> s{_usaprsResponseSta
 -- | The access rules configured for the domain.
 usaprsAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
 usaprsAccessPolicies = lens _usaprsAccessPolicies (\ s a -> s{_usaprsAccessPolicies = a});
+
+instance NFData UpdateServiceAccessPoliciesResponse

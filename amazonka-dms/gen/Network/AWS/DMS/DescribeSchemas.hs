@@ -106,6 +106,8 @@ instance AWSRequest DescribeSchemas where
 
 instance Hashable DescribeSchemas
 
+instance NFData DescribeSchemas
+
 instance ToHeaders DescribeSchemas where
         toHeaders
           = const
@@ -168,3 +170,5 @@ dsrsMarker = lens _dsrsMarker (\ s a -> s{_dsrsMarker = a});
 -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeSchemasResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+
+instance NFData DescribeSchemasResponse

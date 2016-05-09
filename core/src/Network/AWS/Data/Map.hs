@@ -23,6 +23,7 @@ module Network.AWS.Data.Map
     , toQueryMap
     ) where
 
+import           Control.DeepSeq
 import           Control.Applicative
 import           Data.Aeson
 import           Data.Bifunctor
@@ -70,6 +71,7 @@ _Map :: (Coercible a b, Coercible b a) => Iso' (Map k a) (HashMap k b)
 _Map = iso (coerce . toMap) (Map . coerce)
 
 instance (Hashable k, Hashable v) => Hashable (Map k v)
+instance (NFData k,   NFData   v) => NFData   (Map k v)
 
 instance (Hashable k, Eq k) => IsList (Map k v) where
    type Item (Map k v) = (k, v)

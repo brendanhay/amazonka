@@ -27,6 +27,9 @@
 -- You can\'t stop or reboot a Scheduled Instance, but you can terminate it
 -- as needed. If you terminate a Scheduled Instance before the current
 -- scheduled time period ends, you can launch it again after a few minutes.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html Scheduled Instances>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.RunScheduledInstances
     (
     -- * Creating a Request
@@ -132,6 +135,8 @@ instance AWSRequest RunScheduledInstances where
 
 instance Hashable RunScheduledInstances
 
+instance NFData RunScheduledInstances
+
 instance ToHeaders RunScheduledInstances where
         toHeaders = const mempty
 
@@ -180,3 +185,5 @@ rrsInstanceIdSet = lens _rrsInstanceIdSet (\ s a -> s{_rrsInstanceIdSet = a}) . 
 -- | The response status code.
 rrsResponseStatus :: Lens' RunScheduledInstancesResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
+
+instance NFData RunScheduledInstancesResponse

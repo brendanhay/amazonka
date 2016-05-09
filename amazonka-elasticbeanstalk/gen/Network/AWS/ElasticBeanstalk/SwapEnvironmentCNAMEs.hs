@@ -115,6 +115,8 @@ instance AWSRequest SwapEnvironmentCNAMEs where
 
 instance Hashable SwapEnvironmentCNAMEs
 
+instance NFData SwapEnvironmentCNAMEs
+
 instance ToHeaders SwapEnvironmentCNAMEs where
         toHeaders = const mempty
 
@@ -144,3 +146,5 @@ data SwapEnvironmentCNAMEsResponse =
 swapEnvironmentCNAMEsResponse
     :: SwapEnvironmentCNAMEsResponse
 swapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse'
+
+instance NFData SwapEnvironmentCNAMEsResponse

@@ -132,6 +132,8 @@ instance AWSRequest GetShardIterator where
 
 instance Hashable GetShardIterator
 
+instance NFData GetShardIterator
+
 instance ToHeaders GetShardIterator where
         toHeaders
           = const
@@ -190,3 +192,5 @@ gsirsShardIterator = lens _gsirsShardIterator (\ s a -> s{_gsirsShardIterator = 
 -- | The response status code.
 gsirsResponseStatus :: Lens' GetShardIteratorResponse Int
 gsirsResponseStatus = lens _gsirsResponseStatus (\ s a -> s{_gsirsResponseStatus = a});
+
+instance NFData GetShardIteratorResponse

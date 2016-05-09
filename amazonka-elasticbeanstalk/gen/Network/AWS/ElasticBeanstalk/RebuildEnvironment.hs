@@ -89,6 +89,8 @@ instance AWSRequest RebuildEnvironment where
 
 instance Hashable RebuildEnvironment
 
+instance NFData RebuildEnvironment
+
 instance ToHeaders RebuildEnvironment where
         toHeaders = const mempty
 
@@ -113,3 +115,5 @@ data RebuildEnvironmentResponse =
 rebuildEnvironmentResponse
     :: RebuildEnvironmentResponse
 rebuildEnvironmentResponse = RebuildEnvironmentResponse'
+
+instance NFData RebuildEnvironmentResponse

@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeSubnets' smart constructor.
+-- | Contains the parameters for DescribeSubnets.
+--
+-- /See:/ 'describeSubnets' smart constructor.
 data DescribeSubnets = DescribeSubnets'
     { _dsSubnetIds :: !(Maybe [Text])
     , _dsFilters   :: !(Maybe [Filter])
@@ -139,6 +141,8 @@ instance AWSRequest DescribeSubnets where
 
 instance Hashable DescribeSubnets
 
+instance NFData DescribeSubnets
+
 instance ToHeaders DescribeSubnets where
         toHeaders = const mempty
 
@@ -154,7 +158,9 @@ instance ToQuery DescribeSubnets where
                toQuery (toQueryList "Filter" <$> _dsFilters),
                "DryRun" =: _dsDryRun]
 
--- | /See:/ 'describeSubnetsResponse' smart constructor.
+-- | Contains the output of DescribeSubnets.
+--
+-- /See:/ 'describeSubnetsResponse' smart constructor.
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
     { _dsrsSubnets        :: !(Maybe [Subnet])
     , _dsrsResponseStatus :: !Int
@@ -183,3 +189,5 @@ dsrsSubnets = lens _dsrsSubnets (\ s a -> s{_dsrsSubnets = a}) . _Default . _Coe
 -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeSubnetsResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+
+instance NFData DescribeSubnetsResponse

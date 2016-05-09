@@ -113,6 +113,8 @@ instance AWSRequest CreateDBSnapshot where
 
 instance Hashable CreateDBSnapshot
 
+instance NFData CreateDBSnapshot
+
 instance ToHeaders CreateDBSnapshot where
         toHeaders = const mempty
 
@@ -157,3 +159,5 @@ cdbsrsDBSnapshot = lens _cdbsrsDBSnapshot (\ s a -> s{_cdbsrsDBSnapshot = a});
 -- | The response status code.
 cdbsrsResponseStatus :: Lens' CreateDBSnapshotResponse Int
 cdbsrsResponseStatus = lens _cdbsrsResponseStatus (\ s a -> s{_cdbsrsResponseStatus = a});
+
+instance NFData CreateDBSnapshotResponse

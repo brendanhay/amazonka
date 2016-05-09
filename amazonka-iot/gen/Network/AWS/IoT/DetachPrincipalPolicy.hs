@@ -84,6 +84,8 @@ instance AWSRequest DetachPrincipalPolicy where
 
 instance Hashable DetachPrincipalPolicy
 
+instance NFData DetachPrincipalPolicy
+
 instance ToHeaders DetachPrincipalPolicy where
         toHeaders DetachPrincipalPolicy'{..}
           = mconcat ["x-amzn-iot-principal" =# _dppPrincipal]
@@ -106,3 +108,5 @@ data DetachPrincipalPolicyResponse =
 detachPrincipalPolicyResponse
     :: DetachPrincipalPolicyResponse
 detachPrincipalPolicyResponse = DetachPrincipalPolicyResponse'
+
+instance NFData DetachPrincipalPolicyResponse

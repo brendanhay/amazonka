@@ -80,6 +80,8 @@ instance AWSRequest GetRole where
 
 instance Hashable GetRole
 
+instance NFData GetRole
+
 instance ToHeaders GetRole where
         toHeaders = const mempty
 
@@ -125,3 +127,5 @@ grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = 
 -- | Information about the role.
 grrsRole :: Lens' GetRoleResponse Role
 grrsRole = lens _grrsRole (\ s a -> s{_grrsRole = a});
+
+instance NFData GetRoleResponse

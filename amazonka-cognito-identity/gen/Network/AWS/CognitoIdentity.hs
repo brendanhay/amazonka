@@ -154,6 +154,12 @@ module Network.AWS.CognitoIdentity
     -- ** CognitoErrorCode
     , CognitoErrorCode (..)
 
+    -- ** CognitoIdentityProvider
+    , CognitoIdentityProvider
+    , cognitoIdentityProvider
+    , cipClientId
+    , cipProviderName
+
     -- ** Credentials
     , Credentials
     , credentials
@@ -176,6 +182,7 @@ module Network.AWS.CognitoIdentity
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs
+    , ipCognitoIdentityProviders
     , ipIdentityPoolId
     , ipIdentityPoolName
     , ipAllowUnauthenticatedIdentities

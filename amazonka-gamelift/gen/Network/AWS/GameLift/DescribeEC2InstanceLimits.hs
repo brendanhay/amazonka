@@ -90,6 +90,8 @@ instance AWSRequest DescribeEC2InstanceLimits where
 
 instance Hashable DescribeEC2InstanceLimits
 
+instance NFData DescribeEC2InstanceLimits
+
 instance ToHeaders DescribeEC2InstanceLimits where
         toHeaders
           = const
@@ -143,3 +145,5 @@ deilrsEC2InstanceLimits = lens _deilrsEC2InstanceLimits (\ s a -> s{_deilrsEC2In
 -- | The response status code.
 deilrsResponseStatus :: Lens' DescribeEC2InstanceLimitsResponse Int
 deilrsResponseStatus = lens _deilrsResponseStatus (\ s a -> s{_deilrsResponseStatus = a});
+
+instance NFData DescribeEC2InstanceLimitsResponse

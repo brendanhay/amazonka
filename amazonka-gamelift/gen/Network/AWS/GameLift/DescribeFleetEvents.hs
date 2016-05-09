@@ -128,6 +128,8 @@ instance AWSRequest DescribeFleetEvents where
 
 instance Hashable DescribeFleetEvents
 
+instance NFData DescribeFleetEvents
+
 instance ToHeaders DescribeFleetEvents where
         toHeaders
           = const
@@ -199,3 +201,5 @@ dfersEvents = lens _dfersEvents (\ s a -> s{_dfersEvents = a}) . _Default . _Coe
 -- | The response status code.
 dfersResponseStatus :: Lens' DescribeFleetEventsResponse Int
 dfersResponseStatus = lens _dfersResponseStatus (\ s a -> s{_dfersResponseStatus = a});
+
+instance NFData DescribeFleetEventsResponse

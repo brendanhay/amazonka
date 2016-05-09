@@ -217,11 +217,14 @@ usTemplateURL :: Lens' UpdateStack (Maybe Text)
 usTemplateURL = lens _usTemplateURL (\ s a -> s{_usTemplateURL = a});
 
 -- | A list of capabilities that you must specify before AWS CloudFormation
--- can create or update certain stacks. Some stack templates might include
--- resources that can affect permissions in your AWS account. For those
+-- can update certain stacks. Some stack templates might include resources
+-- that can affect permissions in your AWS account, for example, by
+-- creating new AWS Identity and Access Management (IAM) users. For those
 -- stacks, you must explicitly acknowledge their capabilities by specifying
--- this parameter. Currently, the only valid value is 'CAPABILITY_IAM',
--- which is required for the following resources:
+-- this parameter.
+--
+-- Currently, the only valid value is 'CAPABILITY_IAM', which is required
+-- for the following resources:
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey>,
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group>,
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>,
@@ -231,8 +234,10 @@ usTemplateURL = lens _usTemplateURL (\ s a -> s{_usTemplateURL = a});
 -- and
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html AWS::IAM::UserToGroupAddition>.
 -- If your stack template contains these resources, we recommend that you
--- review any permissions associated with them. If you don\'t specify this
--- parameter, this action returns an InsufficientCapabilities error.
+-- review all permissions associated with them and edit their permissions
+-- if necessary. If your template contains any of the listed resources and
+-- you don\'t specify this parameter, this action returns an
+-- 'InsufficientCapabilities' error.
 usCapabilities :: Lens' UpdateStack [Capability]
 usCapabilities = lens _usCapabilities (\ s a -> s{_usCapabilities = a}) . _Default . _Coerce;
 
@@ -273,6 +278,8 @@ instance AWSRequest UpdateStack where
                    (x .@? "StackId") <*> (pure (fromEnum s)))
 
 instance Hashable UpdateStack
+
+instance NFData UpdateStack
 
 instance ToHeaders UpdateStack where
         toHeaders = const mempty
@@ -337,3 +344,5 @@ usrsStackId = lens _usrsStackId (\ s a -> s{_usrsStackId = a});
 -- | The response status code.
 usrsResponseStatus :: Lens' UpdateStackResponse Int
 usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
+
+instance NFData UpdateStackResponse

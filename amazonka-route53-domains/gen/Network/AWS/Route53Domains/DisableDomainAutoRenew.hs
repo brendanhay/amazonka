@@ -81,6 +81,8 @@ instance AWSRequest DisableDomainAutoRenew where
 
 instance Hashable DisableDomainAutoRenew
 
+instance NFData DisableDomainAutoRenew
+
 instance ToHeaders DisableDomainAutoRenew where
         toHeaders
           = const
@@ -123,3 +125,5 @@ disableDomainAutoRenewResponse pResponseStatus_ =
 -- | The response status code.
 ddarrsResponseStatus :: Lens' DisableDomainAutoRenewResponse Int
 ddarrsResponseStatus = lens _ddarrsResponseStatus (\ s a -> s{_ddarrsResponseStatus = a});
+
+instance NFData DisableDomainAutoRenewResponse

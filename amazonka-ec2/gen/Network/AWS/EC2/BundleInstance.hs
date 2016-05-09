@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'bundleInstance' smart constructor.
+-- | Contains the parameters for BundleInstance.
+--
+-- /See:/ 'bundleInstance' smart constructor.
 data BundleInstance = BundleInstance'
     { _biDryRun     :: !(Maybe Bool)
     , _biInstanceId :: !Text
@@ -115,6 +117,8 @@ instance AWSRequest BundleInstance where
 
 instance Hashable BundleInstance
 
+instance NFData BundleInstance
+
 instance ToHeaders BundleInstance where
         toHeaders = const mempty
 
@@ -129,7 +133,9 @@ instance ToQuery BundleInstance where
                "DryRun" =: _biDryRun, "InstanceId" =: _biInstanceId,
                "Storage" =: _biStorage]
 
--- | /See:/ 'bundleInstanceResponse' smart constructor.
+-- | Contains the output of BundleInstance.
+--
+-- /See:/ 'bundleInstanceResponse' smart constructor.
 data BundleInstanceResponse = BundleInstanceResponse'
     { _birsBundleTask     :: !(Maybe BundleTask)
     , _birsResponseStatus :: !Int
@@ -158,3 +164,5 @@ birsBundleTask = lens _birsBundleTask (\ s a -> s{_birsBundleTask = a});
 -- | The response status code.
 birsResponseStatus :: Lens' BundleInstanceResponse Int
 birsResponseStatus = lens _birsResponseStatus (\ s a -> s{_birsResponseStatus = a});
+
+instance NFData BundleInstanceResponse

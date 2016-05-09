@@ -80,6 +80,8 @@ instance AWSRequest GetSubscriptionAttributes where
 
 instance Hashable GetSubscriptionAttributes
 
+instance NFData GetSubscriptionAttributes
+
 instance ToHeaders GetSubscriptionAttributes where
         toHeaders = const mempty
 
@@ -137,3 +139,5 @@ gsarsAttributes = lens _gsarsAttributes (\ s a -> s{_gsarsAttributes = a}) . _De
 -- | The response status code.
 gsarsResponseStatus :: Lens' GetSubscriptionAttributesResponse Int
 gsarsResponseStatus = lens _gsarsResponseStatus (\ s a -> s{_gsarsResponseStatus = a});
+
+instance NFData GetSubscriptionAttributesResponse

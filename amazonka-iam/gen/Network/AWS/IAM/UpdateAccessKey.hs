@@ -101,6 +101,8 @@ instance AWSRequest UpdateAccessKey where
 
 instance Hashable UpdateAccessKey
 
+instance NFData UpdateAccessKey
+
 instance ToHeaders UpdateAccessKey where
         toHeaders = const mempty
 
@@ -126,3 +128,5 @@ data UpdateAccessKeyResponse =
 updateAccessKeyResponse
     :: UpdateAccessKeyResponse
 updateAccessKeyResponse = UpdateAccessKeyResponse'
+
+instance NFData UpdateAccessKeyResponse

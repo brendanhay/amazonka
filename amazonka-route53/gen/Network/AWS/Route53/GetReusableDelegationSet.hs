@@ -80,6 +80,8 @@ instance AWSRequest GetReusableDelegationSet where
 
 instance Hashable GetReusableDelegationSet
 
+instance NFData GetReusableDelegationSet
+
 instance ToHeaders GetReusableDelegationSet where
         toHeaders = const mempty
 
@@ -125,3 +127,5 @@ grdsrsResponseStatus = lens _grdsrsResponseStatus (\ s a -> s{_grdsrsResponseSta
 -- the specified delegation set ID.
 grdsrsDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
 grdsrsDelegationSet = lens _grdsrsDelegationSet (\ s a -> s{_grdsrsDelegationSet = a});
+
+instance NFData GetReusableDelegationSetResponse

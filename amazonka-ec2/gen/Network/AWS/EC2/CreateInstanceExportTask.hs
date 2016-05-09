@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createInstanceExportTask' smart constructor.
+-- | Contains the parameters for CreateInstanceExportTask.
+--
+-- /See:/ 'createInstanceExportTask' smart constructor.
 data CreateInstanceExportTask = CreateInstanceExportTask'
     { _cietTargetEnvironment :: !(Maybe ExportEnvironment)
     , _cietExportToS3Task    :: !(Maybe ExportToS3TaskSpecification)
@@ -109,6 +111,8 @@ instance AWSRequest CreateInstanceExportTask where
 
 instance Hashable CreateInstanceExportTask
 
+instance NFData CreateInstanceExportTask
+
 instance ToHeaders CreateInstanceExportTask where
         toHeaders = const mempty
 
@@ -126,7 +130,9 @@ instance ToQuery CreateInstanceExportTask where
                "Description" =: _cietDescription,
                "InstanceId" =: _cietInstanceId]
 
--- | /See:/ 'createInstanceExportTaskResponse' smart constructor.
+-- | Contains the output for CreateInstanceExportTask.
+--
+-- /See:/ 'createInstanceExportTaskResponse' smart constructor.
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
     { _cietrsExportTask     :: !(Maybe ExportTask)
     , _cietrsResponseStatus :: !Int
@@ -155,3 +161,5 @@ cietrsExportTask = lens _cietrsExportTask (\ s a -> s{_cietrsExportTask = a});
 -- | The response status code.
 cietrsResponseStatus :: Lens' CreateInstanceExportTaskResponse Int
 cietrsResponseStatus = lens _cietrsResponseStatus (\ s a -> s{_cietrsResponseStatus = a});
+
+instance NFData CreateInstanceExportTaskResponse

@@ -112,6 +112,8 @@ instance AWSRequest ListStackResources where
 
 instance Hashable ListStackResources
 
+instance NFData ListStackResources
+
 instance ToHeaders ListStackResources where
         toHeaders = const mempty
 
@@ -154,9 +156,8 @@ listStackResourcesResponse pResponseStatus_ =
     , _lsrrsResponseStatus = pResponseStatus_
     }
 
--- | If the output exceeds 1 MB in size, a string that identifies the next
--- page of stack resources. If no additional page exists, this value is
--- null.
+-- | If the output exceeds 1 MB, a string that identifies the next page of
+-- stack resources. If no additional page exists, this value is null.
 lsrrsNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
 lsrrsNextToken = lens _lsrrsNextToken (\ s a -> s{_lsrrsNextToken = a});
 
@@ -167,3 +168,5 @@ lsrrsStackResourceSummaries = lens _lsrrsStackResourceSummaries (\ s a -> s{_lsr
 -- | The response status code.
 lsrrsResponseStatus :: Lens' ListStackResourcesResponse Int
 lsrrsResponseStatus = lens _lsrrsResponseStatus (\ s a -> s{_lsrrsResponseStatus = a});
+
+instance NFData ListStackResourcesResponse

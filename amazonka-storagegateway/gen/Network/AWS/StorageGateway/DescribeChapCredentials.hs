@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns an array of Challenge-Handshake Authentication
--- Protocol (CHAP) credentials information for a specified iSCSI target,
--- one for each target-initiator pair.
+-- Returns an array of Challenge-Handshake Authentication Protocol (CHAP)
+-- credentials information for a specified iSCSI target, one for each
+-- target-initiator pair.
 module Network.AWS.StorageGateway.DescribeChapCredentials
     (
     -- * Creating a Request
@@ -83,6 +83,8 @@ instance AWSRequest DescribeChapCredentials where
                      (pure (fromEnum s)))
 
 instance Hashable DescribeChapCredentials
+
+instance NFData DescribeChapCredentials
 
 instance ToHeaders DescribeChapCredentials where
         toHeaders
@@ -153,3 +155,5 @@ dccrsChapCredentials = lens _dccrsChapCredentials (\ s a -> s{_dccrsChapCredenti
 -- | The response status code.
 dccrsResponseStatus :: Lens' DescribeChapCredentialsResponse Int
 dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
+
+instance NFData DescribeChapCredentialsResponse

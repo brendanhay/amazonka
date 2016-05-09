@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'replaceRoute' smart constructor.
+-- | Contains the parameters for ReplaceRoute.
+--
+-- /See:/ 'replaceRoute' smart constructor.
 data ReplaceRoute = ReplaceRoute'
     { _rrVPCPeeringConnectionId :: !(Maybe Text)
     , _rrInstanceId             :: !(Maybe Text)
@@ -143,6 +145,8 @@ instance AWSRequest ReplaceRoute where
 
 instance Hashable ReplaceRoute
 
+instance NFData ReplaceRoute
+
 instance ToHeaders ReplaceRoute where
         toHeaders = const mempty
 
@@ -173,3 +177,5 @@ data ReplaceRouteResponse =
 replaceRouteResponse
     :: ReplaceRouteResponse
 replaceRouteResponse = ReplaceRouteResponse'
+
+instance NFData ReplaceRouteResponse

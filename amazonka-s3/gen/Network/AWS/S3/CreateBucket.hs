@@ -140,6 +140,8 @@ instance AWSRequest CreateBucket where
 
 instance Hashable CreateBucket
 
+instance NFData CreateBucket
+
 instance ToElement CreateBucket where
         toElement
           = mkElement
@@ -193,3 +195,5 @@ cbrsLocation = lens _cbrsLocation (\ s a -> s{_cbrsLocation = a});
 -- | The response status code.
 cbrsResponseStatus :: Lens' CreateBucketResponse Int
 cbrsResponseStatus = lens _cbrsResponseStatus (\ s a -> s{_cbrsResponseStatus = a});
+
+instance NFData CreateBucketResponse

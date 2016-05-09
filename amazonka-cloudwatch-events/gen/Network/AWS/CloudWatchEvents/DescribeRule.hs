@@ -89,6 +89,8 @@ instance AWSRequest DescribeRule where
 
 instance Hashable DescribeRule
 
+instance NFData DescribeRule
+
 instance ToHeaders DescribeRule where
         toHeaders
           = const
@@ -188,3 +190,5 @@ drrsRoleARN = lens _drrsRoleARN (\ s a -> s{_drrsRoleARN = a});
 -- | The response status code.
 drrsResponseStatus :: Lens' DescribeRuleResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+
+instance NFData DescribeRuleResponse

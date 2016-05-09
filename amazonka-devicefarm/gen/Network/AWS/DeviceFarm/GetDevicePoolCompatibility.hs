@@ -132,6 +132,8 @@ instance AWSRequest GetDevicePoolCompatibility where
 
 instance Hashable GetDevicePoolCompatibility
 
+instance NFData GetDevicePoolCompatibility
+
 instance ToHeaders GetDevicePoolCompatibility where
         toHeaders
           = const
@@ -195,3 +197,5 @@ gdpcrsCompatibleDevices = lens _gdpcrsCompatibleDevices (\ s a -> s{_gdpcrsCompa
 -- | The response status code.
 gdpcrsResponseStatus :: Lens' GetDevicePoolCompatibilityResponse Int
 gdpcrsResponseStatus = lens _gdpcrsResponseStatus (\ s a -> s{_gdpcrsResponseStatus = a});
+
+instance NFData GetDevicePoolCompatibilityResponse

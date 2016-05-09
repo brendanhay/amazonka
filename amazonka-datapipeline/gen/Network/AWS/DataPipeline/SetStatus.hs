@@ -97,6 +97,8 @@ instance AWSRequest SetStatus where
 
 instance Hashable SetStatus
 
+instance NFData SetStatus
+
 instance ToHeaders SetStatus where
         toHeaders
           = const
@@ -130,3 +132,5 @@ data SetStatusResponse =
 setStatusResponse
     :: SetStatusResponse
 setStatusResponse = SetStatusResponse'
+
+instance NFData SetStatusResponse

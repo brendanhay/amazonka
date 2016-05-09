@@ -109,6 +109,8 @@ instance AWSRequest DescribeTableStatistics where
 
 instance Hashable DescribeTableStatistics
 
+instance NFData DescribeTableStatistics
+
 instance ToHeaders DescribeTableStatistics where
         toHeaders
           = const
@@ -181,3 +183,5 @@ dtsrsTableStatistics = lens _dtsrsTableStatistics (\ s a -> s{_dtsrsTableStatist
 -- | The response status code.
 dtsrsResponseStatus :: Lens' DescribeTableStatisticsResponse Int
 dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a});
+
+instance NFData DescribeTableStatisticsResponse

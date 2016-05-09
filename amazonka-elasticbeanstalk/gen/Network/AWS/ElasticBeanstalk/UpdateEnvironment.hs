@@ -80,7 +80,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to update an environment.
 --
 -- /See:/ 'updateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
@@ -203,7 +203,7 @@ ueEnvironmentId = lens _ueEnvironmentId (\ s a -> s{_ueEnvironmentId = a});
 -- group name only if the environment\'s name is specified in an
 -- environment manifest and not with the environment name or environment ID
 -- parameters. See
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html#environment-mgmt-compose-envyaml Environment Manifest (env.yaml)>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
 -- for details.
 ueGroupName :: Lens' UpdateEnvironment (Maybe Text)
 ueGroupName = lens _ueGroupName (\ s a -> s{_ueGroupName = a});
@@ -221,6 +221,8 @@ instance AWSRequest UpdateEnvironment where
               (\ s h x -> parseXML x)
 
 instance Hashable UpdateEnvironment
+
+instance NFData UpdateEnvironment
 
 instance ToHeaders UpdateEnvironment where
         toHeaders = const mempty

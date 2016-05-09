@@ -300,3 +300,5 @@ uprsServerSideEncryption = lens _uprsServerSideEncryption (\ s a -> s{_uprsServe
 -- | The response status code.
 uprsResponseStatus :: Lens' UploadPartResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
+
+instance NFData UploadPartResponse

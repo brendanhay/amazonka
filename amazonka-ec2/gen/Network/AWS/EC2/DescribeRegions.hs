@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeRegions' smart constructor.
+-- | Contains the parameters for DescribeRegions.
+--
+-- /See:/ 'describeRegions' smart constructor.
 data DescribeRegions = DescribeRegions'
     { _drsRegionNames :: !(Maybe [Text])
     , _drsFilters     :: !(Maybe [Filter])
@@ -106,6 +108,8 @@ instance AWSRequest DescribeRegions where
 
 instance Hashable DescribeRegions
 
+instance NFData DescribeRegions
+
 instance ToHeaders DescribeRegions where
         toHeaders = const mempty
 
@@ -122,7 +126,9 @@ instance ToQuery DescribeRegions where
                toQuery (toQueryList "Filter" <$> _drsFilters),
                "DryRun" =: _drsDryRun]
 
--- | /See:/ 'describeRegionsResponse' smart constructor.
+-- | Contains the output of DescribeRegions.
+--
+-- /See:/ 'describeRegionsResponse' smart constructor.
 data DescribeRegionsResponse = DescribeRegionsResponse'
     { _drrsRegions        :: !(Maybe [RegionInfo])
     , _drrsResponseStatus :: !Int
@@ -151,3 +157,5 @@ drrsRegions = lens _drrsRegions (\ s a -> s{_drrsRegions = a}) . _Default . _Coe
 -- | The response status code.
 drrsResponseStatus :: Lens' DescribeRegionsResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+
+instance NFData DescribeRegionsResponse

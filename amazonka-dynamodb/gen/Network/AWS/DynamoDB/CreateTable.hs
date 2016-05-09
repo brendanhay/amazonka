@@ -282,6 +282,8 @@ instance AWSRequest CreateTable where
 
 instance Hashable CreateTable
 
+instance NFData CreateTable
+
 instance ToHeaders CreateTable where
         toHeaders
           = const
@@ -346,3 +348,5 @@ ctrsTableDescription = lens _ctrsTableDescription (\ s a -> s{_ctrsTableDescript
 -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTableResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+
+instance NFData CreateTableResponse

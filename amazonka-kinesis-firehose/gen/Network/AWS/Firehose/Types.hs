@@ -29,6 +29,12 @@ module Network.AWS.Firehose.Types
     -- * DeliveryStreamStatus
     , DeliveryStreamStatus (..)
 
+    -- * ElasticsearchIndexRotationPeriod
+    , ElasticsearchIndexRotationPeriod (..)
+
+    -- * ElasticsearchS3BackupMode
+    , ElasticsearchS3BackupMode (..)
+
     -- * NoEncryptionConfig
     , NoEncryptionConfig (..)
 
@@ -37,6 +43,13 @@ module Network.AWS.Firehose.Types
     , bufferingHints
     , bhSizeInMBs
     , bhIntervalInSeconds
+
+    -- * CloudWatchLoggingOptions
+    , CloudWatchLoggingOptions
+    , cloudWatchLoggingOptions
+    , cwloEnabled
+    , cwloLogGroupName
+    , cwloLogStreamName
 
     -- * CopyCommand
     , CopyCommand
@@ -61,8 +74,61 @@ module Network.AWS.Firehose.Types
     , DestinationDescription
     , destinationDescription
     , ddS3DestinationDescription
+    , ddElasticsearchDestinationDescription
     , ddRedshiftDestinationDescription
     , ddDestinationId
+
+    -- * ElasticsearchBufferingHints
+    , ElasticsearchBufferingHints
+    , elasticsearchBufferingHints
+    , ebhSizeInMBs
+    , ebhIntervalInSeconds
+
+    -- * ElasticsearchDestinationConfiguration
+    , ElasticsearchDestinationConfiguration
+    , elasticsearchDestinationConfiguration
+    , edcIndexRotationPeriod
+    , edcS3BackupMode
+    , edcCloudWatchLoggingOptions
+    , edcBufferingHints
+    , edcRetryOptions
+    , edcRoleARN
+    , edcDomainARN
+    , edcIndexName
+    , edcTypeName
+    , edcS3Configuration
+
+    -- * ElasticsearchDestinationDescription
+    , ElasticsearchDestinationDescription
+    , elasticsearchDestinationDescription
+    , eddIndexRotationPeriod
+    , eddTypeName
+    , eddS3BackupMode
+    , eddDomainARN
+    , eddCloudWatchLoggingOptions
+    , eddS3DestinationDescription
+    , eddBufferingHints
+    , eddRetryOptions
+    , eddRoleARN
+    , eddIndexName
+
+    -- * ElasticsearchDestinationUpdate
+    , ElasticsearchDestinationUpdate
+    , elasticsearchDestinationUpdate
+    , eduIndexRotationPeriod
+    , eduTypeName
+    , eduDomainARN
+    , eduCloudWatchLoggingOptions
+    , eduS3Update
+    , eduBufferingHints
+    , eduRetryOptions
+    , eduRoleARN
+    , eduIndexName
+
+    -- * ElasticsearchRetryOptions
+    , ElasticsearchRetryOptions
+    , elasticsearchRetryOptions
+    , eroDurationInSeconds
 
     -- * EncryptionConfiguration
     , EncryptionConfiguration
@@ -90,6 +156,7 @@ module Network.AWS.Firehose.Types
     -- * RedshiftDestinationConfiguration
     , RedshiftDestinationConfiguration
     , redshiftDestinationConfiguration
+    , rdcCloudWatchLoggingOptions
     , rdcRoleARN
     , rdcClusterJDBCURL
     , rdcCopyCommand
@@ -100,6 +167,7 @@ module Network.AWS.Firehose.Types
     -- * RedshiftDestinationDescription
     , RedshiftDestinationDescription
     , redshiftDestinationDescription
+    , rddCloudWatchLoggingOptions
     , rddRoleARN
     , rddClusterJDBCURL
     , rddCopyCommand
@@ -109,6 +177,7 @@ module Network.AWS.Firehose.Types
     -- * RedshiftDestinationUpdate
     , RedshiftDestinationUpdate
     , redshiftDestinationUpdate
+    , rduCloudWatchLoggingOptions
     , rduUsername
     , rduS3Update
     , rduPassword
@@ -120,6 +189,7 @@ module Network.AWS.Firehose.Types
     , S3DestinationConfiguration
     , s3DestinationConfiguration
     , sdcPrefix
+    , sdcCloudWatchLoggingOptions
     , sdcEncryptionConfiguration
     , sdcCompressionFormat
     , sdcBufferingHints
@@ -130,6 +200,7 @@ module Network.AWS.Firehose.Types
     , S3DestinationDescription
     , s3DestinationDescription
     , sddPrefix
+    , sddCloudWatchLoggingOptions
     , sddRoleARN
     , sddBucketARN
     , sddBufferingHints
@@ -140,6 +211,7 @@ module Network.AWS.Firehose.Types
     , S3DestinationUpdate
     , s3DestinationUpdate
     , sduPrefix
+    , sduCloudWatchLoggingOptions
     , sduEncryptionConfiguration
     , sduCompressionFormat
     , sduBufferingHints
@@ -180,6 +252,8 @@ firehose =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
@@ -189,7 +263,7 @@ firehose =
 _InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
 
--- | Another modification has already happened. Fetch 'VersionId' again and
+-- | Another modification has already happened. Fetch __VersionId__ again and
 -- use it to update the destination.
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
@@ -202,7 +276,7 @@ _ConcurrentModificationException =
 -- <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Firehose Limits>.
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
-    _ServiceError . hasStatus 503 . hasCode "ServiceUnavailableException"
+    _ServiceError . hasCode "ServiceUnavailableException"
 
 -- | The specified resource could not be found.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError

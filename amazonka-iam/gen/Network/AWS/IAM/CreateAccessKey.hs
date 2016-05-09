@@ -91,6 +91,8 @@ instance AWSRequest CreateAccessKey where
 
 instance Hashable CreateAccessKey
 
+instance NFData CreateAccessKey
+
 instance ToHeaders CreateAccessKey where
         toHeaders = const mempty
 
@@ -136,3 +138,5 @@ cakrsResponseStatus = lens _cakrsResponseStatus (\ s a -> s{_cakrsResponseStatus
 -- | Information about the access key.
 cakrsAccessKey :: Lens' CreateAccessKeyResponse AccessKey
 cakrsAccessKey = lens _cakrsAccessKey (\ s a -> s{_cakrsAccessKey = a});
+
+instance NFData CreateAccessKeyResponse

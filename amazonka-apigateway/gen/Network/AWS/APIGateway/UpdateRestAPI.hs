@@ -32,6 +32,7 @@ module Network.AWS.APIGateway.UpdateRestAPI
     , restAPI
     , RestAPI
     -- * Response Lenses
+    , raWarnings
     , raCreatedDate
     , raName
     , raId
@@ -84,6 +85,8 @@ instance AWSRequest UpdateRestAPI where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateRestAPI
+
+instance NFData UpdateRestAPI
 
 instance ToHeaders UpdateRestAPI where
         toHeaders

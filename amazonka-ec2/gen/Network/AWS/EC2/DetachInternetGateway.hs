@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'detachInternetGateway' smart constructor.
+-- | Contains the parameters for DetachInternetGateway.
+--
+-- /See:/ 'detachInternetGateway' smart constructor.
 data DetachInternetGateway = DetachInternetGateway'
     { _digDryRun            :: !(Maybe Bool)
     , _digInternetGatewayId :: !Text
@@ -93,6 +95,8 @@ instance AWSRequest DetachInternetGateway where
 
 instance Hashable DetachInternetGateway
 
+instance NFData DetachInternetGateway
+
 instance ToHeaders DetachInternetGateway where
         toHeaders = const mempty
 
@@ -118,3 +122,5 @@ data DetachInternetGatewayResponse =
 detachInternetGatewayResponse
     :: DetachInternetGatewayResponse
 detachInternetGatewayResponse = DetachInternetGatewayResponse'
+
+instance NFData DetachInternetGatewayResponse

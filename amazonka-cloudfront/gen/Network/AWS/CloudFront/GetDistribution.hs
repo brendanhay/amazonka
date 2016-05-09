@@ -79,6 +79,8 @@ instance AWSRequest GetDistribution where
 
 instance Hashable GetDistribution
 
+instance NFData GetDistribution
+
 instance ToHeaders GetDistribution where
         toHeaders = const mempty
 
@@ -129,3 +131,5 @@ gdrsDistribution = lens _gdrsDistribution (\ s a -> s{_gdrsDistribution = a});
 -- | The response status code.
 gdrsResponseStatus :: Lens' GetDistributionResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+
+instance NFData GetDistributionResponse

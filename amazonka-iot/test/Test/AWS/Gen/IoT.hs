@@ -34,6 +34,9 @@ import Test.AWS.IoT.Internal
 --         , testCreatePolicy $
 --             createPolicy
 --
+--         , testRegisterCertificate $
+--             registerCertificate
+--
 --         , testListThingPrincipals $
 --             listThingPrincipals
 --
@@ -67,11 +70,20 @@ import Test.AWS.IoT.Internal
 --         , testCreatePolicyVersion $
 --             createPolicyVersion
 --
+--         , testListCACertificates $
+--             listCACertificates
+--
 --         , testDeleteTopicRule $
 --             deleteTopicRule
 --
 --         , testListPrincipalPolicies $
 --             listPrincipalPolicies
+--
+--         , testDeleteCACertificate $
+--             deleteCACertificate
+--
+--         , testUpdateCACertificate $
+--             updateCACertificate
 --
 --         , testListTopicRules $
 --             listTopicRules
@@ -100,6 +112,15 @@ import Test.AWS.IoT.Internal
 --         , testUpdateCertificate $
 --             updateCertificate
 --
+--         , testDescribeCACertificate $
+--             describeCACertificate
+--
+--         , testGetRegistrationCode $
+--             getRegistrationCode
+--
+--         , testListCertificatesByCA $
+--             listCertificatesByCA
+--
 --         , testAttachThingPrincipal $
 --             attachThingPrincipal
 --
@@ -108,6 +129,9 @@ import Test.AWS.IoT.Internal
 --
 --         , testDetachPrincipalPolicy $
 --             detachPrincipalPolicy
+--
+--         , testDeleteRegistrationCode $
+--             deleteRegistrationCode
 --
 --         , testCreateThing $
 --             createThing
@@ -139,6 +163,9 @@ import Test.AWS.IoT.Internal
 --         , testDescribeEndpoint $
 --             describeEndpoint
 --
+--         , testRegisterCACertificate $
+--             registerCACertificate
+--
 --         , testSetLoggingOptions $
 --             setLoggingOptions
 --
@@ -159,6 +186,9 @@ import Test.AWS.IoT.Internal
 --
 --         , testCreatePolicyResponse $
 --             createPolicyResponse
+--
+--         , testRegisterCertificateResponse $
+--             registerCertificateResponse
 --
 --         , testListThingPrincipalsResponse $
 --             listThingPrincipalsResponse
@@ -193,11 +223,20 @@ import Test.AWS.IoT.Internal
 --         , testCreatePolicyVersionResponse $
 --             createPolicyVersionResponse
 --
+--         , testListCACertificatesResponse $
+--             listCACertificatesResponse
+--
 --         , testDeleteTopicRuleResponse $
 --             deleteTopicRuleResponse
 --
 --         , testListPrincipalPoliciesResponse $
 --             listPrincipalPoliciesResponse
+--
+--         , testDeleteCACertificateResponse $
+--             deleteCACertificateResponse
+--
+--         , testUpdateCACertificateResponse $
+--             updateCACertificateResponse
 --
 --         , testListTopicRulesResponse $
 --             listTopicRulesResponse
@@ -226,6 +265,15 @@ import Test.AWS.IoT.Internal
 --         , testUpdateCertificateResponse $
 --             updateCertificateResponse
 --
+--         , testDescribeCACertificateResponse $
+--             describeCACertificateResponse
+--
+--         , testGetRegistrationCodeResponse $
+--             getRegistrationCodeResponse
+--
+--         , testListCertificatesByCAResponse $
+--             listCertificatesByCAResponse
+--
 --         , testAttachThingPrincipalResponse $
 --             attachThingPrincipalResponse
 --
@@ -234,6 +282,9 @@ import Test.AWS.IoT.Internal
 --
 --         , testDetachPrincipalPolicyResponse $
 --             detachPrincipalPolicyResponse
+--
+--         , testDeleteRegistrationCodeResponse $
+--             deleteRegistrationCodeResponse
 --
 --         , testCreateThingResponse $
 --             createThingResponse
@@ -265,6 +316,9 @@ import Test.AWS.IoT.Internal
 --         , testDescribeEndpointResponse $
 --             describeEndpointResponse
 --
+--         , testRegisterCACertificateResponse $
+--             registerCACertificateResponse
+--
 --         , testSetLoggingOptionsResponse $
 --             setLoggingOptionsResponse
 --
@@ -291,6 +345,11 @@ testCreatePolicy :: CreatePolicy -> TestTree
 testCreatePolicy = req
     "CreatePolicy"
     "fixture/CreatePolicy.yaml"
+
+testRegisterCertificate :: RegisterCertificate -> TestTree
+testRegisterCertificate = req
+    "RegisterCertificate"
+    "fixture/RegisterCertificate.yaml"
 
 testListThingPrincipals :: ListThingPrincipals -> TestTree
 testListThingPrincipals = req
@@ -347,6 +406,11 @@ testCreatePolicyVersion = req
     "CreatePolicyVersion"
     "fixture/CreatePolicyVersion.yaml"
 
+testListCACertificates :: ListCACertificates -> TestTree
+testListCACertificates = req
+    "ListCACertificates"
+    "fixture/ListCACertificates.yaml"
+
 testDeleteTopicRule :: DeleteTopicRule -> TestTree
 testDeleteTopicRule = req
     "DeleteTopicRule"
@@ -356,6 +420,16 @@ testListPrincipalPolicies :: ListPrincipalPolicies -> TestTree
 testListPrincipalPolicies = req
     "ListPrincipalPolicies"
     "fixture/ListPrincipalPolicies.yaml"
+
+testDeleteCACertificate :: DeleteCACertificate -> TestTree
+testDeleteCACertificate = req
+    "DeleteCACertificate"
+    "fixture/DeleteCACertificate.yaml"
+
+testUpdateCACertificate :: UpdateCACertificate -> TestTree
+testUpdateCACertificate = req
+    "UpdateCACertificate"
+    "fixture/UpdateCACertificate.yaml"
 
 testListTopicRules :: ListTopicRules -> TestTree
 testListTopicRules = req
@@ -402,6 +476,21 @@ testUpdateCertificate = req
     "UpdateCertificate"
     "fixture/UpdateCertificate.yaml"
 
+testDescribeCACertificate :: DescribeCACertificate -> TestTree
+testDescribeCACertificate = req
+    "DescribeCACertificate"
+    "fixture/DescribeCACertificate.yaml"
+
+testGetRegistrationCode :: GetRegistrationCode -> TestTree
+testGetRegistrationCode = req
+    "GetRegistrationCode"
+    "fixture/GetRegistrationCode.yaml"
+
+testListCertificatesByCA :: ListCertificatesByCA -> TestTree
+testListCertificatesByCA = req
+    "ListCertificatesByCA"
+    "fixture/ListCertificatesByCA.yaml"
+
 testAttachThingPrincipal :: AttachThingPrincipal -> TestTree
 testAttachThingPrincipal = req
     "AttachThingPrincipal"
@@ -416,6 +505,11 @@ testDetachPrincipalPolicy :: DetachPrincipalPolicy -> TestTree
 testDetachPrincipalPolicy = req
     "DetachPrincipalPolicy"
     "fixture/DetachPrincipalPolicy.yaml"
+
+testDeleteRegistrationCode :: DeleteRegistrationCode -> TestTree
+testDeleteRegistrationCode = req
+    "DeleteRegistrationCode"
+    "fixture/DeleteRegistrationCode.yaml"
 
 testCreateThing :: CreateThing -> TestTree
 testCreateThing = req
@@ -467,6 +561,11 @@ testDescribeEndpoint = req
     "DescribeEndpoint"
     "fixture/DescribeEndpoint.yaml"
 
+testRegisterCACertificate :: RegisterCACertificate -> TestTree
+testRegisterCACertificate = req
+    "RegisterCACertificate"
+    "fixture/RegisterCACertificate.yaml"
+
 testSetLoggingOptions :: SetLoggingOptions -> TestTree
 testSetLoggingOptions = req
     "SetLoggingOptions"
@@ -502,6 +601,13 @@ testCreatePolicyResponse = res
     "fixture/CreatePolicyResponse.proto"
     ioT
     (Proxy :: Proxy CreatePolicy)
+
+testRegisterCertificateResponse :: RegisterCertificateResponse -> TestTree
+testRegisterCertificateResponse = res
+    "RegisterCertificateResponse"
+    "fixture/RegisterCertificateResponse.proto"
+    ioT
+    (Proxy :: Proxy RegisterCertificate)
 
 testListThingPrincipalsResponse :: ListThingPrincipalsResponse -> TestTree
 testListThingPrincipalsResponse = res
@@ -580,6 +686,13 @@ testCreatePolicyVersionResponse = res
     ioT
     (Proxy :: Proxy CreatePolicyVersion)
 
+testListCACertificatesResponse :: ListCACertificatesResponse -> TestTree
+testListCACertificatesResponse = res
+    "ListCACertificatesResponse"
+    "fixture/ListCACertificatesResponse.proto"
+    ioT
+    (Proxy :: Proxy ListCACertificates)
+
 testDeleteTopicRuleResponse :: DeleteTopicRuleResponse -> TestTree
 testDeleteTopicRuleResponse = res
     "DeleteTopicRuleResponse"
@@ -593,6 +706,20 @@ testListPrincipalPoliciesResponse = res
     "fixture/ListPrincipalPoliciesResponse.proto"
     ioT
     (Proxy :: Proxy ListPrincipalPolicies)
+
+testDeleteCACertificateResponse :: DeleteCACertificateResponse -> TestTree
+testDeleteCACertificateResponse = res
+    "DeleteCACertificateResponse"
+    "fixture/DeleteCACertificateResponse.proto"
+    ioT
+    (Proxy :: Proxy DeleteCACertificate)
+
+testUpdateCACertificateResponse :: UpdateCACertificateResponse -> TestTree
+testUpdateCACertificateResponse = res
+    "UpdateCACertificateResponse"
+    "fixture/UpdateCACertificateResponse.proto"
+    ioT
+    (Proxy :: Proxy UpdateCACertificate)
 
 testListTopicRulesResponse :: ListTopicRulesResponse -> TestTree
 testListTopicRulesResponse = res
@@ -657,6 +784,27 @@ testUpdateCertificateResponse = res
     ioT
     (Proxy :: Proxy UpdateCertificate)
 
+testDescribeCACertificateResponse :: DescribeCACertificateResponse -> TestTree
+testDescribeCACertificateResponse = res
+    "DescribeCACertificateResponse"
+    "fixture/DescribeCACertificateResponse.proto"
+    ioT
+    (Proxy :: Proxy DescribeCACertificate)
+
+testGetRegistrationCodeResponse :: GetRegistrationCodeResponse -> TestTree
+testGetRegistrationCodeResponse = res
+    "GetRegistrationCodeResponse"
+    "fixture/GetRegistrationCodeResponse.proto"
+    ioT
+    (Proxy :: Proxy GetRegistrationCode)
+
+testListCertificatesByCAResponse :: ListCertificatesByCAResponse -> TestTree
+testListCertificatesByCAResponse = res
+    "ListCertificatesByCAResponse"
+    "fixture/ListCertificatesByCAResponse.proto"
+    ioT
+    (Proxy :: Proxy ListCertificatesByCA)
+
 testAttachThingPrincipalResponse :: AttachThingPrincipalResponse -> TestTree
 testAttachThingPrincipalResponse = res
     "AttachThingPrincipalResponse"
@@ -677,6 +825,13 @@ testDetachPrincipalPolicyResponse = res
     "fixture/DetachPrincipalPolicyResponse.proto"
     ioT
     (Proxy :: Proxy DetachPrincipalPolicy)
+
+testDeleteRegistrationCodeResponse :: DeleteRegistrationCodeResponse -> TestTree
+testDeleteRegistrationCodeResponse = res
+    "DeleteRegistrationCodeResponse"
+    "fixture/DeleteRegistrationCodeResponse.proto"
+    ioT
+    (Proxy :: Proxy DeleteRegistrationCode)
 
 testCreateThingResponse :: CreateThingResponse -> TestTree
 testCreateThingResponse = res
@@ -747,6 +902,13 @@ testDescribeEndpointResponse = res
     "fixture/DescribeEndpointResponse.proto"
     ioT
     (Proxy :: Proxy DescribeEndpoint)
+
+testRegisterCACertificateResponse :: RegisterCACertificateResponse -> TestTree
+testRegisterCACertificateResponse = res
+    "RegisterCACertificateResponse"
+    "fixture/RegisterCACertificateResponse.proto"
+    ioT
+    (Proxy :: Proxy RegisterCACertificate)
 
 testSetLoggingOptionsResponse :: SetLoggingOptionsResponse -> TestTree
 testSetLoggingOptionsResponse = res

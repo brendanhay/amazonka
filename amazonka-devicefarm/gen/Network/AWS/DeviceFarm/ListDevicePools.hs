@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about device pools.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListDevicePools
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.DeviceFarm.ListDevicePools
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -96,6 +99,13 @@ ldpType = lens _ldpType (\ s a -> s{_ldpType = a});
 ldpArn :: Lens' ListDevicePools Text
 ldpArn = lens _ldpArn (\ s a -> s{_ldpArn = a});
 
+instance AWSPager ListDevicePools where
+        page rq rs
+          | stop (rs ^. ldprsNextToken) = Nothing
+          | stop (rs ^. ldprsDevicePools) = Nothing
+          | otherwise =
+            Just $ rq & ldpNextToken .~ rs ^. ldprsNextToken
+
 instance AWSRequest ListDevicePools where
         type Rs ListDevicePools = ListDevicePoolsResponse
         request = postJSON deviceFarm
@@ -108,6 +118,8 @@ instance AWSRequest ListDevicePools where
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListDevicePools
+
+instance NFData ListDevicePools
 
 instance ToHeaders ListDevicePools where
         toHeaders
@@ -173,3 +185,5 @@ ldprsNextToken = lens _ldprsNextToken (\ s a -> s{_ldprsNextToken = a});
 -- | The response status code.
 ldprsResponseStatus :: Lens' ListDevicePoolsResponse Int
 ldprsResponseStatus = lens _ldprsResponseStatus (\ s a -> s{_ldprsResponseStatus = a});
+
+instance NFData ListDevicePoolsResponse

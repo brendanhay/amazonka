@@ -118,6 +118,8 @@ instance AWSRequest DescribeExportTasks where
 
 instance Hashable DescribeExportTasks
 
+instance NFData DescribeExportTasks
+
 instance ToHeaders DescribeExportTasks where
         toHeaders
           = const
@@ -179,3 +181,5 @@ detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . 
 -- | The response status code.
 detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
+
+instance NFData DescribeExportTasksResponse

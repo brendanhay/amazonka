@@ -423,6 +423,8 @@ instance AWSRequest CloneStack where
 
 instance Hashable CloneStack
 
+instance NFData CloneStack
+
 instance ToHeaders CloneStack where
         toHeaders
           = const
@@ -502,3 +504,5 @@ csrsStackId = lens _csrsStackId (\ s a -> s{_csrsStackId = a});
 -- | The response status code.
 csrsResponseStatus :: Lens' CloneStackResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+
+instance NFData CloneStackResponse

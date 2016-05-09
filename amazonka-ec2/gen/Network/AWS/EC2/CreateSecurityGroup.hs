@@ -73,7 +73,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createSecurityGroup' smart constructor.
+-- | Contains the parameters for CreateSecurityGroup.
+--
+-- /See:/ 'createSecurityGroup' smart constructor.
 data CreateSecurityGroup = CreateSecurityGroup'
     { _csgVPCId       :: !(Maybe Text)
     , _csgDryRun      :: !(Maybe Bool)
@@ -149,6 +151,8 @@ instance AWSRequest CreateSecurityGroup where
 
 instance Hashable CreateSecurityGroup
 
+instance NFData CreateSecurityGroup
+
 instance ToHeaders CreateSecurityGroup where
         toHeaders = const mempty
 
@@ -164,7 +168,9 @@ instance ToQuery CreateSecurityGroup where
                "GroupName" =: _csgGroupName,
                "GroupDescription" =: _csgDescription]
 
--- | /See:/ 'createSecurityGroupResponse' smart constructor.
+-- | Contains the output of CreateSecurityGroup.
+--
+-- /See:/ 'createSecurityGroupResponse' smart constructor.
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
     { _csgrsResponseStatus :: !Int
     , _csgrsGroupId        :: !Text
@@ -194,3 +200,5 @@ csgrsResponseStatus = lens _csgrsResponseStatus (\ s a -> s{_csgrsResponseStatus
 -- | The ID of the security group.
 csgrsGroupId :: Lens' CreateSecurityGroupResponse Text
 csgrsGroupId = lens _csgrsGroupId (\ s a -> s{_csgrsGroupId = a});
+
+instance NFData CreateSecurityGroupResponse

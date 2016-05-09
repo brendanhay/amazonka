@@ -93,6 +93,8 @@ instance AWSRequest DescribeLayers where
 
 instance Hashable DescribeLayers
 
+instance NFData DescribeLayers
+
 instance ToHeaders DescribeLayers where
         toHeaders
           = const
@@ -146,3 +148,5 @@ dlrsLayers = lens _dlrsLayers (\ s a -> s{_dlrsLayers = a}) . _Default . _Coerce
 -- | The response status code.
 dlrsResponseStatus :: Lens' DescribeLayersResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+
+instance NFData DescribeLayersResponse

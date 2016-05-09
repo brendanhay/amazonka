@@ -81,6 +81,8 @@ instance AWSRequest DeleteSubscriptionFilter where
 
 instance Hashable DeleteSubscriptionFilter
 
+instance NFData DeleteSubscriptionFilter
+
 instance ToHeaders DeleteSubscriptionFilter where
         toHeaders
           = const
@@ -114,3 +116,5 @@ data DeleteSubscriptionFilterResponse =
 deleteSubscriptionFilterResponse
     :: DeleteSubscriptionFilterResponse
 deleteSubscriptionFilterResponse = DeleteSubscriptionFilterResponse'
+
+instance NFData DeleteSubscriptionFilterResponse

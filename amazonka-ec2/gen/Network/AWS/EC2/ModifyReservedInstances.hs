@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyReservedInstances' smart constructor.
+-- | Contains the parameters for ModifyReservedInstances.
+--
+-- /See:/ 'modifyReservedInstances' smart constructor.
 data ModifyReservedInstances = ModifyReservedInstances'
     { _mriClientToken          :: !(Maybe Text)
     , _mriReservedInstancesIds :: ![Text]
@@ -103,6 +105,8 @@ instance AWSRequest ModifyReservedInstances where
 
 instance Hashable ModifyReservedInstances
 
+instance NFData ModifyReservedInstances
+
 instance ToHeaders ModifyReservedInstances where
         toHeaders = const mempty
 
@@ -122,7 +126,9 @@ instance ToQuery ModifyReservedInstances where
                  "ReservedInstancesConfigurationSetItemType"
                  _mriTargetConfigurations]
 
--- | /See:/ 'modifyReservedInstancesResponse' smart constructor.
+-- | Contains the output of ModifyReservedInstances.
+--
+-- /See:/ 'modifyReservedInstancesResponse' smart constructor.
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
     { _mrirsReservedInstancesModificationId :: !(Maybe Text)
     , _mrirsResponseStatus                  :: !Int
@@ -151,3 +157,5 @@ mrirsReservedInstancesModificationId = lens _mrirsReservedInstancesModificationI
 -- | The response status code.
 mrirsResponseStatus :: Lens' ModifyReservedInstancesResponse Int
 mrirsResponseStatus = lens _mrirsResponseStatus (\ s a -> s{_mrirsResponseStatus = a});
+
+instance NFData ModifyReservedInstancesResponse

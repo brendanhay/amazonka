@@ -92,6 +92,8 @@ instance AWSRequest DeleteHostedZone where
 
 instance Hashable DeleteHostedZone
 
+instance NFData DeleteHostedZone
+
 instance ToHeaders DeleteHostedZone where
         toHeaders = const mempty
 
@@ -135,3 +137,5 @@ dhzrsResponseStatus = lens _dhzrsResponseStatus (\ s a -> s{_dhzrsResponseStatus
 -- of your delete request.
 dhzrsChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
 dhzrsChangeInfo = lens _dhzrsChangeInfo (\ s a -> s{_dhzrsChangeInfo = a});
+
+instance NFData DeleteHostedZoneResponse

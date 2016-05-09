@@ -109,6 +109,8 @@ instance AWSRequest DescribeConnections where
 
 instance Hashable DescribeConnections
 
+instance NFData DescribeConnections
+
 instance ToHeaders DescribeConnections where
         toHeaders
           = const
@@ -172,3 +174,5 @@ dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeConnectionsResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+
+instance NFData DescribeConnectionsResponse

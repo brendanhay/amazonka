@@ -75,6 +75,8 @@ instance AWSRequest DisableRule where
 
 instance Hashable DisableRule
 
+instance NFData DisableRule
+
 instance ToHeaders DisableRule where
         toHeaders
           = const
@@ -104,3 +106,5 @@ data DisableRuleResponse =
 disableRuleResponse
     :: DisableRuleResponse
 disableRuleResponse = DisableRuleResponse'
+
+instance NFData DisableRuleResponse

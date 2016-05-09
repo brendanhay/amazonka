@@ -113,6 +113,8 @@ instance AWSRequest UnsubscribeFromDataset where
 
 instance Hashable UnsubscribeFromDataset
 
+instance NFData UnsubscribeFromDataset
+
 instance ToHeaders UnsubscribeFromDataset where
         toHeaders
           = const
@@ -154,3 +156,5 @@ unsubscribeFromDatasetResponse pResponseStatus_ =
 -- | The response status code.
 ufdrsResponseStatus :: Lens' UnsubscribeFromDatasetResponse Int
 ufdrsResponseStatus = lens _ufdrsResponseStatus (\ s a -> s{_ufdrsResponseStatus = a});
+
+instance NFData UnsubscribeFromDatasetResponse

@@ -145,7 +145,10 @@ pRequestParameters :: Lens' PutIntegration (HashMap Text Text)
 pRequestParameters = lens _pRequestParameters (\ s a -> s{_pRequestParameters = a}) . _Default . _Map;
 
 -- | Specifies a put integration input\'s Uniform Resource Identifier (URI).
--- When the integration type is HTTP or AWS, this field is required.
+-- When the integration type is HTTP or AWS, this field is required. For
+-- integration with Lambda as an AWS service proxy, this value is of the
+-- \'arn:aws:apigateway:\<region>:lambda:path\/2015-03-31\/functions\/\<functionArn>\/invocations\'
+-- format.
 pUri :: Lens' PutIntegration (Maybe Text)
 pUri = lens _pUri (\ s a -> s{_pUri = a});
 
@@ -184,6 +187,8 @@ instance AWSRequest PutIntegration where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable PutIntegration
+
+instance NFData PutIntegration
 
 instance ToHeaders PutIntegration where
         toHeaders

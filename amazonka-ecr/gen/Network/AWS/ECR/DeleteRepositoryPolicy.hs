@@ -92,6 +92,8 @@ instance AWSRequest DeleteRepositoryPolicy where
 
 instance Hashable DeleteRepositoryPolicy
 
+instance NFData DeleteRepositoryPolicy
+
 instance ToHeaders DeleteRepositoryPolicy where
         toHeaders
           = const
@@ -160,3 +162,5 @@ drprsPolicyText = lens _drprsPolicyText (\ s a -> s{_drprsPolicyText = a});
 -- | The response status code.
 drprsResponseStatus :: Lens' DeleteRepositoryPolicyResponse Int
 drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a});
+
+instance NFData DeleteRepositoryPolicyResponse

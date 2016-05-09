@@ -89,6 +89,8 @@ instance AWSRequest UpdateDataSource where
 
 instance Hashable UpdateDataSource
 
+instance NFData UpdateDataSource
+
 instance ToHeaders UpdateDataSource where
         toHeaders
           = const
@@ -146,3 +148,5 @@ udsrsDataSourceId = lens _udsrsDataSourceId (\ s a -> s{_udsrsDataSourceId = a})
 -- | The response status code.
 udsrsResponseStatus :: Lens' UpdateDataSourceResponse Int
 udsrsResponseStatus = lens _udsrsResponseStatus (\ s a -> s{_udsrsResponseStatus = a});
+
+instance NFData UpdateDataSourceResponse

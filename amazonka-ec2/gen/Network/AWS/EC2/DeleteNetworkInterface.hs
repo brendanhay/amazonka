@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteNetworkInterface' smart constructor.
+-- | Contains the parameters for DeleteNetworkInterface.
+--
+-- /See:/ 'deleteNetworkInterface' smart constructor.
 data DeleteNetworkInterface = DeleteNetworkInterface'
     { _dninDryRun             :: !(Maybe Bool)
     , _dninNetworkInterfaceId :: !Text
@@ -83,6 +85,8 @@ instance AWSRequest DeleteNetworkInterface where
 
 instance Hashable DeleteNetworkInterface
 
+instance NFData DeleteNetworkInterface
+
 instance ToHeaders DeleteNetworkInterface where
         toHeaders = const mempty
 
@@ -108,3 +112,5 @@ data DeleteNetworkInterfaceResponse =
 deleteNetworkInterfaceResponse
     :: DeleteNetworkInterfaceResponse
 deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse'
+
+instance NFData DeleteNetworkInterfaceResponse

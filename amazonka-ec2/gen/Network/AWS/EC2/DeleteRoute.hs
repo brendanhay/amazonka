@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteRoute' smart constructor.
+-- | Contains the parameters for DeleteRoute.
+--
+-- /See:/ 'deleteRoute' smart constructor.
 data DeleteRoute = DeleteRoute'
     { _drDryRun               :: !(Maybe Bool)
     , _drRouteTableId         :: !Text
@@ -91,6 +93,8 @@ instance AWSRequest DeleteRoute where
 
 instance Hashable DeleteRoute
 
+instance NFData DeleteRoute
+
 instance ToHeaders DeleteRoute where
         toHeaders = const mempty
 
@@ -116,3 +120,5 @@ data DeleteRouteResponse =
 deleteRouteResponse
     :: DeleteRouteResponse
 deleteRouteResponse = DeleteRouteResponse'
+
+instance NFData DeleteRouteResponse

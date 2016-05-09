@@ -71,6 +71,8 @@ instance AWSRequest DeleteAlias where
 
 instance Hashable DeleteAlias
 
+instance NFData DeleteAlias
+
 instance ToHeaders DeleteAlias where
         toHeaders
           = const
@@ -101,3 +103,5 @@ data DeleteAliasResponse =
 deleteAliasResponse
     :: DeleteAliasResponse
 deleteAliasResponse = DeleteAliasResponse'
+
+instance NFData DeleteAliasResponse

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more repositories.
+--
+-- This operation returns paginated results.
 module Network.AWS.CodeCommit.ListRepositories
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.CodeCommit.ListRepositories
 import           Network.AWS.CodeCommit.Types
 import           Network.AWS.CodeCommit.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -87,6 +90,13 @@ lrOrder = lens _lrOrder (\ s a -> s{_lrOrder = a});
 lrSortBy :: Lens' ListRepositories (Maybe SortByEnum)
 lrSortBy = lens _lrSortBy (\ s a -> s{_lrSortBy = a});
 
+instance AWSPager ListRepositories where
+        page rq rs
+          | stop (rs ^. lrrsNextToken) = Nothing
+          | stop (rs ^. lrrsRepositories) = Nothing
+          | otherwise =
+            Just $ rq & lrNextToken .~ rs ^. lrrsNextToken
+
 instance AWSRequest ListRepositories where
         type Rs ListRepositories = ListRepositoriesResponse
         request = postJSON codeCommit
@@ -99,6 +109,8 @@ instance AWSRequest ListRepositories where
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListRepositories
+
+instance NFData ListRepositories
 
 instance ToHeaders ListRepositories where
         toHeaders
@@ -166,3 +178,5 @@ lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 -- | The response status code.
 lrrsResponseStatus :: Lens' ListRepositoriesResponse Int
 lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
+
+instance NFData ListRepositoriesResponse

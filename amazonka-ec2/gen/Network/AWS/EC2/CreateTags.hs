@@ -52,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createTags' smart constructor.
+-- | Contains the parameters for CreateTags.
+--
+-- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
     { _cDryRun    :: !(Maybe Bool)
     , _cResources :: ![Text]
@@ -101,6 +103,8 @@ instance AWSRequest CreateTags where
 
 instance Hashable CreateTags
 
+instance NFData CreateTags
+
 instance ToHeaders CreateTags where
         toHeaders = const mempty
 
@@ -126,3 +130,5 @@ data CreateTagsResponse =
 createTagsResponse
     :: CreateTagsResponse
 createTagsResponse = CreateTagsResponse'
+
+instance NFData CreateTagsResponse

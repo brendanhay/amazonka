@@ -49,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to download logs retrieved with < RequestEnvironmentInfo>.
 --
 -- /See:/ 'retrieveEnvironmentInfo' smart constructor.
 data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo'
@@ -117,6 +117,8 @@ instance AWSRequest RetrieveEnvironmentInfo where
 
 instance Hashable RetrieveEnvironmentInfo
 
+instance NFData RetrieveEnvironmentInfo
+
 instance ToHeaders RetrieveEnvironmentInfo where
         toHeaders = const mempty
 
@@ -165,3 +167,5 @@ reirsEnvironmentInfo = lens _reirsEnvironmentInfo (\ s a -> s{_reirsEnvironmentI
 -- | The response status code.
 reirsResponseStatus :: Lens' RetrieveEnvironmentInfoResponse Int
 reirsResponseStatus = lens _reirsResponseStatus (\ s a -> s{_reirsResponseStatus = a});
+
+instance NFData RetrieveEnvironmentInfoResponse

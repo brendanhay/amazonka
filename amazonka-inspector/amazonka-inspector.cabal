@@ -1,5 +1,5 @@
 name:                  amazonka-inspector
-version:               1.4.0
+version:               1.4.1
 synopsis:              Amazon Inspector SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -15,10 +15,10 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon Inspector
 
-    Amazon Inspector enables you to analyze the behavior of the applications
-    you run in AWS and to identify potential security issues. For more
+    Amazon Inspector enables you to analyze the behavior of your AWS
+    resources and to identify potential security issues. For more
     information, see
-    <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide>.
+    <http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide>.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
@@ -47,42 +47,38 @@ library
     exposed-modules:
           Network.AWS.Inspector
         , Network.AWS.Inspector.AddAttributesToFindings
-        , Network.AWS.Inspector.AttachAssessmentAndRulesPackage
-        , Network.AWS.Inspector.CreateApplication
-        , Network.AWS.Inspector.CreateAssessment
+        , Network.AWS.Inspector.CreateAssessmentTarget
+        , Network.AWS.Inspector.CreateAssessmentTemplate
         , Network.AWS.Inspector.CreateResourceGroup
-        , Network.AWS.Inspector.DeleteApplication
-        , Network.AWS.Inspector.DeleteAssessment
-        , Network.AWS.Inspector.DeleteRun
-        , Network.AWS.Inspector.DescribeApplication
-        , Network.AWS.Inspector.DescribeAssessment
+        , Network.AWS.Inspector.DeleteAssessmentRun
+        , Network.AWS.Inspector.DeleteAssessmentTarget
+        , Network.AWS.Inspector.DeleteAssessmentTemplate
+        , Network.AWS.Inspector.DescribeAssessmentRuns
+        , Network.AWS.Inspector.DescribeAssessmentTargets
+        , Network.AWS.Inspector.DescribeAssessmentTemplates
         , Network.AWS.Inspector.DescribeCrossAccountAccessRole
-        , Network.AWS.Inspector.DescribeFinding
-        , Network.AWS.Inspector.DescribeResourceGroup
-        , Network.AWS.Inspector.DescribeRulesPackage
-        , Network.AWS.Inspector.DescribeRun
-        , Network.AWS.Inspector.DetachAssessmentAndRulesPackage
-        , Network.AWS.Inspector.GetAssessmentTelemetry
-        , Network.AWS.Inspector.ListApplications
-        , Network.AWS.Inspector.ListAssessmentAgents
-        , Network.AWS.Inspector.ListAssessments
-        , Network.AWS.Inspector.ListAttachedAssessments
-        , Network.AWS.Inspector.ListAttachedRulesPackages
+        , Network.AWS.Inspector.DescribeFindings
+        , Network.AWS.Inspector.DescribeResourceGroups
+        , Network.AWS.Inspector.DescribeRulesPackages
+        , Network.AWS.Inspector.GetTelemetryMetadata
+        , Network.AWS.Inspector.ListAssessmentRunAgents
+        , Network.AWS.Inspector.ListAssessmentRuns
+        , Network.AWS.Inspector.ListAssessmentTargets
+        , Network.AWS.Inspector.ListAssessmentTemplates
+        , Network.AWS.Inspector.ListEventSubscriptions
         , Network.AWS.Inspector.ListFindings
         , Network.AWS.Inspector.ListRulesPackages
-        , Network.AWS.Inspector.ListRuns
         , Network.AWS.Inspector.ListTagsForResource
-        , Network.AWS.Inspector.LocalizeText
-        , Network.AWS.Inspector.PreviewAgentsForResourceGroup
+        , Network.AWS.Inspector.PreviewAgents
         , Network.AWS.Inspector.RegisterCrossAccountAccessRole
         , Network.AWS.Inspector.RemoveAttributesFromFindings
-        , Network.AWS.Inspector.RunAssessment
         , Network.AWS.Inspector.SetTagsForResource
-        , Network.AWS.Inspector.StartDataCollection
-        , Network.AWS.Inspector.StopDataCollection
+        , Network.AWS.Inspector.StartAssessmentRun
+        , Network.AWS.Inspector.StopAssessmentRun
+        , Network.AWS.Inspector.SubscribeToEvent
         , Network.AWS.Inspector.Types
-        , Network.AWS.Inspector.UpdateApplication
-        , Network.AWS.Inspector.UpdateAssessment
+        , Network.AWS.Inspector.UnsubscribeFromEvent
+        , Network.AWS.Inspector.UpdateAssessmentTarget
         , Network.AWS.Inspector.Waiters
 
     other-modules:
@@ -90,7 +86,7 @@ library
         , Network.AWS.Inspector.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.0.*
+          amazonka-core == 1.4.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-inspector-test
@@ -110,9 +106,9 @@ test-suite amazonka-inspector-test
         , Test.AWS.Inspector.Internal
 
     build-depends:
-          amazonka-core == 1.4.0.*
-        , amazonka-test == 1.4.0.*
-        , amazonka-inspector == 1.4.0.*
+          amazonka-core == 1.4.1.*
+        , amazonka-test == 1.4.1.*
+        , amazonka-inspector == 1.4.1.*
         , base
         , bytestring
         , tasty

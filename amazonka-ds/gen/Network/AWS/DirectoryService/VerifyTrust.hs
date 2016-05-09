@@ -82,6 +82,8 @@ instance AWSRequest VerifyTrust where
 
 instance Hashable VerifyTrust
 
+instance NFData VerifyTrust
+
 instance ToHeaders VerifyTrust where
         toHeaders
           = const
@@ -131,3 +133,5 @@ vtrsTrustId = lens _vtrsTrustId (\ s a -> s{_vtrsTrustId = a});
 -- | The response status code.
 vtrsResponseStatus :: Lens' VerifyTrustResponse Int
 vtrsResponseStatus = lens _vtrsResponseStatus (\ s a -> s{_vtrsResponseStatus = a});
+
+instance NFData VerifyTrustResponse

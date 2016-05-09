@@ -79,6 +79,8 @@ instance AWSRequest DeleteReceiptFilter where
 
 instance Hashable DeleteReceiptFilter
 
+instance NFData DeleteReceiptFilter
+
 instance ToHeaders DeleteReceiptFilter where
         toHeaders = const mempty
 
@@ -113,3 +115,5 @@ deleteReceiptFilterResponse pResponseStatus_ =
 -- | The response status code.
 drfrsResponseStatus :: Lens' DeleteReceiptFilterResponse Int
 drfrsResponseStatus = lens _drfrsResponseStatus (\ s a -> s{_drfrsResponseStatus = a});
+
+instance NFData DeleteReceiptFilterResponse

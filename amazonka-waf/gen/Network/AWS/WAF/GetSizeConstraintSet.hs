@@ -78,6 +78,8 @@ instance AWSRequest GetSizeConstraintSet where
 
 instance Hashable GetSizeConstraintSet
 
+instance NFData GetSizeConstraintSet
+
 instance ToHeaders GetSizeConstraintSet where
         toHeaders
           = const
@@ -139,3 +141,5 @@ gscsrsSizeConstraintSet = lens _gscsrsSizeConstraintSet (\ s a -> s{_gscsrsSizeC
 -- | The response status code.
 gscsrsResponseStatus :: Lens' GetSizeConstraintSetResponse Int
 gscsrsResponseStatus = lens _gscsrsResponseStatus (\ s a -> s{_gscsrsResponseStatus = a});
+
+instance NFData GetSizeConstraintSetResponse

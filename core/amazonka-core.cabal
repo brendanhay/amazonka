@@ -1,5 +1,5 @@
 name:                  amazonka-core
-version:               1.4.0
+version:               1.4.1
 synopsis:              Core data types and functionality for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -80,6 +80,7 @@ library
         , conduit              >= 1.1
         , conduit-extra        >= 1.1
         , cryptonite           >= 0.4
+        , deepseq              >= 1.4
         , exceptions           >= 0.6
         , hashable             >= 1.2
         , http-conduit         >= 2.1.4

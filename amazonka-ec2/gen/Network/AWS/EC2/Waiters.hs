@@ -123,7 +123,7 @@ natGatewayAvailable =
                              AcceptFailure
                              (folding (concatOf dngrsNatGateways) .
                               ngState . _Just . to toTextCI)
-                       , matchError "InvalidNatGatewayIDNotFound" AcceptRetry]
+                       , matchError "NatGatewayNotFound" AcceptRetry]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeSubnets' every 15 seconds until a
@@ -155,7 +155,7 @@ networkInterfaceAvailable =
                              (folding (concatOf dnirsNetworkInterfaces) .
                               niStatus . _Just . to toTextCI)
                        , matchError
-                             "InvalidNetworkInterfaceIDNotFound"
+                             "InvalidNetworkInterfaceID.NotFound"
                              AcceptFailure]
     }
 
@@ -313,7 +313,7 @@ instanceRunning =
                              (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
                               insState . isName . to toTextCI)
-                       , matchError "InvalidInstanceIDNotFound" AcceptRetry]
+                       , matchError "InvalidInstanceID.NotFound" AcceptRetry]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeSpotInstanceRequests' every 15 seconds until a
@@ -434,7 +434,7 @@ volumeDeleted =
                              AcceptSuccess
                              (folding (concatOf dvvrsVolumes) .
                               vState . to toTextCI)
-                       , matchError "InvalidVolumeNotFound" AcceptSuccess]
+                       , matchError "InvalidVolume.NotFound" AcceptSuccess]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeBundleTasks' every 15 seconds until a
@@ -522,7 +522,7 @@ vpcPeeringConnectionExists =
     , _waitDelay = 15
     , _waitAcceptors = [ matchStatus 200 AcceptSuccess
                        , matchError
-                             "InvalidVpcPeeringConnectionIDNotFound"
+                             "InvalidVpcPeeringConnectionID.NotFound"
                              AcceptRetry]
     }
 
@@ -567,7 +567,7 @@ instanceStatusOK =
                              (folding (concatOf disrsInstanceStatuses) .
                               isInstanceStatus .
                               _Just . issStatus . to toTextCI)
-                       , matchError "InvalidInstanceIDNotFound" AcceptRetry]
+                       , matchError "InvalidInstanceID.NotFound" AcceptRetry]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a

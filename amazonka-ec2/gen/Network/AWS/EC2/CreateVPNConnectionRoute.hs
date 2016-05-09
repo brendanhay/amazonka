@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createVPNConnectionRoute' smart constructor.
+-- | Contains the parameters for CreateVpnConnectionRoute.
+--
+-- /See:/ 'createVPNConnectionRoute' smart constructor.
 data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
     { _cvcrVPNConnectionId      :: !Text
     , _cvcrDestinationCIdRBlock :: !Text
@@ -87,6 +89,8 @@ instance AWSRequest CreateVPNConnectionRoute where
 
 instance Hashable CreateVPNConnectionRoute
 
+instance NFData CreateVPNConnectionRoute
+
 instance ToHeaders CreateVPNConnectionRoute where
         toHeaders = const mempty
 
@@ -112,3 +116,5 @@ data CreateVPNConnectionRouteResponse =
 createVPNConnectionRouteResponse
     :: CreateVPNConnectionRouteResponse
 createVPNConnectionRouteResponse = CreateVPNConnectionRouteResponse'
+
+instance NFData CreateVPNConnectionRouteResponse

@@ -85,6 +85,8 @@ instance AWSRequest DetachGroupPolicy where
 
 instance Hashable DetachGroupPolicy
 
+instance NFData DetachGroupPolicy
+
 instance ToHeaders DetachGroupPolicy where
         toHeaders = const mempty
 
@@ -109,3 +111,5 @@ data DetachGroupPolicyResponse =
 detachGroupPolicyResponse
     :: DetachGroupPolicyResponse
 detachGroupPolicyResponse = DetachGroupPolicyResponse'
+
+instance NFData DetachGroupPolicyResponse

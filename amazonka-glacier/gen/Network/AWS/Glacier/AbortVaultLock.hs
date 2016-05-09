@@ -103,6 +103,8 @@ instance AWSRequest AbortVaultLock where
 
 instance Hashable AbortVaultLock
 
+instance NFData AbortVaultLock
+
 instance ToHeaders AbortVaultLock where
         toHeaders = const mempty
 
@@ -125,3 +127,5 @@ data AbortVaultLockResponse =
 abortVaultLockResponse
     :: AbortVaultLockResponse
 abortVaultLockResponse = AbortVaultLockResponse'
+
+instance NFData AbortVaultLockResponse

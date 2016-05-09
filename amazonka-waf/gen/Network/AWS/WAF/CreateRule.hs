@@ -132,6 +132,8 @@ instance AWSRequest CreateRule where
 
 instance Hashable CreateRule
 
+instance NFData CreateRule
+
 instance ToHeaders CreateRule where
         toHeaders
           = const
@@ -194,3 +196,5 @@ crrsChangeToken = lens _crrsChangeToken (\ s a -> s{_crrsChangeToken = a});
 -- | The response status code.
 crrsResponseStatus :: Lens' CreateRuleResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
+
+instance NFData CreateRuleResponse

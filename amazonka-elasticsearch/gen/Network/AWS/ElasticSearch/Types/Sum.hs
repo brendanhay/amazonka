@@ -73,6 +73,7 @@ instance ToText ESPartitionInstanceType where
         T2_Small_Elasticsearch -> "t2.small.elasticsearch"
 
 instance Hashable     ESPartitionInstanceType
+instance NFData       ESPartitionInstanceType
 instance ToByteString ESPartitionInstanceType
 instance ToQuery      ESPartitionInstanceType
 instance ToHeader     ESPartitionInstanceType
@@ -109,6 +110,7 @@ instance ToText OptionState where
         RequiresIndexDocuments -> "RequiresIndexDocuments"
 
 instance Hashable     OptionState
+instance NFData       OptionState
 instance ToByteString OptionState
 instance ToQuery      OptionState
 instance ToHeader     OptionState
@@ -140,6 +142,7 @@ instance ToText VolumeType where
         Standard -> "standard"
 
 instance Hashable     VolumeType
+instance NFData       VolumeType
 instance ToByteString VolumeType
 instance ToQuery      VolumeType
 instance ToHeader     VolumeType

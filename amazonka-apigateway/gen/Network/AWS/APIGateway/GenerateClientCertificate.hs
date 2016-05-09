@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Generates a < ClientCertificate> resource.
 module Network.AWS.APIGateway.GenerateClientCertificate
     (
     -- * Creating a Request
@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'generateClientCertificate' smart constructor.
+-- | A request to generate a < ClientCertificate> resource.
+--
+-- /See:/ 'generateClientCertificate' smart constructor.
 newtype GenerateClientCertificate = GenerateClientCertificate'
     { _gccDescription :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -62,7 +64,7 @@ generateClientCertificate =
     { _gccDescription = Nothing
     }
 
--- | Undocumented member.
+-- | The description of the < ClientCertificate>.
 gccDescription :: Lens' GenerateClientCertificate (Maybe Text)
 gccDescription = lens _gccDescription (\ s a -> s{_gccDescription = a});
 
@@ -72,6 +74,8 @@ instance AWSRequest GenerateClientCertificate where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GenerateClientCertificate
+
+instance NFData GenerateClientCertificate
 
 instance ToHeaders GenerateClientCertificate where
         toHeaders

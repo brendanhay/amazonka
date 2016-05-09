@@ -84,6 +84,8 @@ instance AWSRequest DeleteDBClusterParameterGroup
 
 instance Hashable DeleteDBClusterParameterGroup
 
+instance NFData DeleteDBClusterParameterGroup
+
 instance ToHeaders DeleteDBClusterParameterGroup
          where
         toHeaders = const mempty
@@ -110,3 +112,5 @@ data DeleteDBClusterParameterGroupResponse =
 deleteDBClusterParameterGroupResponse
     :: DeleteDBClusterParameterGroupResponse
 deleteDBClusterParameterGroupResponse = DeleteDBClusterParameterGroupResponse'
+
+instance NFData DeleteDBClusterParameterGroupResponse

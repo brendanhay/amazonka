@@ -77,6 +77,8 @@ instance AWSRequest GetDevice where
 
 instance Hashable GetDevice
 
+instance NFData GetDevice
+
 instance ToHeaders GetDevice where
         toHeaders
           = const
@@ -127,3 +129,5 @@ gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a});
 -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeviceResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+
+instance NFData GetDeviceResponse

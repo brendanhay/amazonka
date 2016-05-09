@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about suites.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListSuites
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.DeviceFarm.ListSuites
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -78,6 +81,13 @@ lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
 lArn :: Lens' ListSuites Text
 lArn = lens _lArn (\ s a -> s{_lArn = a});
 
+instance AWSPager ListSuites where
+        page rq rs
+          | stop (rs ^. lsrsNextToken) = Nothing
+          | stop (rs ^. lsrsSuites) = Nothing
+          | otherwise =
+            Just $ rq & lNextToken .~ rs ^. lsrsNextToken
+
 instance AWSRequest ListSuites where
         type Rs ListSuites = ListSuitesResponse
         request = postJSON deviceFarm
@@ -89,6 +99,8 @@ instance AWSRequest ListSuites where
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListSuites
+
+instance NFData ListSuites
 
 instance ToHeaders ListSuites where
         toHeaders
@@ -153,3 +165,5 @@ lsrsSuites = lens _lsrsSuites (\ s a -> s{_lsrsSuites = a}) . _Default . _Coerce
 -- | The response status code.
 lsrsResponseStatus :: Lens' ListSuitesResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
+
+instance NFData ListSuitesResponse

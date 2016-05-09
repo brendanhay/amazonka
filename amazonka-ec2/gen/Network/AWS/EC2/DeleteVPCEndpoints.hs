@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteVPCEndpoints' smart constructor.
+-- | Contains the parameters for DeleteVpcEndpoints.
+--
+-- /See:/ 'deleteVPCEndpoints' smart constructor.
 data DeleteVPCEndpoints = DeleteVPCEndpoints'
     { _dveDryRun         :: !(Maybe Bool)
     , _dveVPCEndpointIds :: ![Text]
@@ -91,6 +93,8 @@ instance AWSRequest DeleteVPCEndpoints where
 
 instance Hashable DeleteVPCEndpoints
 
+instance NFData DeleteVPCEndpoints
+
 instance ToHeaders DeleteVPCEndpoints where
         toHeaders = const mempty
 
@@ -105,7 +109,9 @@ instance ToQuery DeleteVPCEndpoints where
                "DryRun" =: _dveDryRun,
                toQueryList "VpcEndpointId" _dveVPCEndpointIds]
 
--- | /See:/ 'deleteVPCEndpointsResponse' smart constructor.
+-- | Contains the output of DeleteVpcEndpoints.
+--
+-- /See:/ 'deleteVPCEndpointsResponse' smart constructor.
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
     { _dversUnsuccessful   :: !(Maybe [UnsuccessfulItem])
     , _dversResponseStatus :: !Int
@@ -134,3 +140,5 @@ dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a})
 -- | The response status code.
 dversResponseStatus :: Lens' DeleteVPCEndpointsResponse Int
 dversResponseStatus = lens _dversResponseStatus (\ s a -> s{_dversResponseStatus = a});
+
+instance NFData DeleteVPCEndpointsResponse

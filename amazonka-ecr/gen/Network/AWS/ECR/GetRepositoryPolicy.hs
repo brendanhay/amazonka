@@ -91,6 +91,8 @@ instance AWSRequest GetRepositoryPolicy where
 
 instance Hashable GetRepositoryPolicy
 
+instance NFData GetRepositoryPolicy
+
 instance ToHeaders GetRepositoryPolicy where
         toHeaders
           = const
@@ -159,3 +161,5 @@ grprsPolicyText = lens _grprsPolicyText (\ s a -> s{_grprsPolicyText = a});
 -- | The response status code.
 grprsResponseStatus :: Lens' GetRepositoryPolicyResponse Int
 grprsResponseStatus = lens _grprsResponseStatus (\ s a -> s{_grprsResponseStatus = a});
+
+instance NFData GetRepositoryPolicyResponse

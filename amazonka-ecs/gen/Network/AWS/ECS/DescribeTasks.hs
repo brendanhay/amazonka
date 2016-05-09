@@ -89,6 +89,8 @@ instance AWSRequest DescribeTasks where
 
 instance Hashable DescribeTasks
 
+instance NFData DescribeTasks
+
 instance ToHeaders DescribeTasks where
         toHeaders
           = const
@@ -149,3 +151,5 @@ dtrsTasks = lens _dtrsTasks (\ s a -> s{_dtrsTasks = a}) . _Default . _Coerce;
 -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTasksResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+
+instance NFData DescribeTasksResponse

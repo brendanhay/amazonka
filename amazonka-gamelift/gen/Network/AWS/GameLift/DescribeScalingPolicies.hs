@@ -130,6 +130,8 @@ instance AWSRequest DescribeScalingPolicies where
 
 instance Hashable DescribeScalingPolicies
 
+instance NFData DescribeScalingPolicies
+
 instance ToHeaders DescribeScalingPolicies where
         toHeaders
           = const
@@ -200,3 +202,5 @@ dsprsScalingPolicies = lens _dsprsScalingPolicies (\ s a -> s{_dsprsScalingPolic
 -- | The response status code.
 dsprsResponseStatus :: Lens' DescribeScalingPoliciesResponse Int
 dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a});
+
+instance NFData DescribeScalingPoliciesResponse

@@ -18,10 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation updates the Challenge-Handshake Authentication Protocol
--- (CHAP) credentials for a specified iSCSI target. By default, a gateway
--- does not have CHAP enabled; however, for added security, you might use
--- it.
+-- Updates the Challenge-Handshake Authentication Protocol (CHAP)
+-- credentials for a specified iSCSI target. By default, a gateway does not
+-- have CHAP enabled; however, for added security, you might use it.
 --
 -- When you update CHAP credentials, all existing connections on the target
 -- are closed and initiators must reconnect with the new credentials.
@@ -130,6 +129,8 @@ instance AWSRequest UpdateChapCredentials where
 
 instance Hashable UpdateChapCredentials
 
+instance NFData UpdateChapCredentials
+
 instance ToHeaders UpdateChapCredentials where
         toHeaders
           = const
@@ -199,3 +200,5 @@ uccrsInitiatorName = lens _uccrsInitiatorName (\ s a -> s{_uccrsInitiatorName = 
 -- | The response status code.
 uccrsResponseStatus :: Lens' UpdateChapCredentialsResponse Int
 uccrsResponseStatus = lens _uccrsResponseStatus (\ s a -> s{_uccrsResponseStatus = a});
+
+instance NFData UpdateChapCredentialsResponse

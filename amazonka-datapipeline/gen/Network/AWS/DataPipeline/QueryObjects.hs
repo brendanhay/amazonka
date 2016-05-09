@@ -137,6 +137,8 @@ instance AWSRequest QueryObjects where
 
 instance Hashable QueryObjects
 
+instance NFData QueryObjects
+
 instance ToHeaders QueryObjects where
         toHeaders
           = const
@@ -212,3 +214,5 @@ qorsMarker = lens _qorsMarker (\ s a -> s{_qorsMarker = a});
 -- | The response status code.
 qorsResponseStatus :: Lens' QueryObjectsResponse Int
 qorsResponseStatus = lens _qorsResponseStatus (\ s a -> s{_qorsResponseStatus = a});
+
+instance NFData QueryObjectsResponse

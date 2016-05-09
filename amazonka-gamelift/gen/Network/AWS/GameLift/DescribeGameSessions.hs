@@ -143,6 +143,8 @@ instance AWSRequest DescribeGameSessions where
 
 instance Hashable DescribeGameSessions
 
+instance NFData DescribeGameSessions
+
 instance ToHeaders DescribeGameSessions where
         toHeaders
           = const
@@ -215,3 +217,5 @@ dgsrsNextToken = lens _dgsrsNextToken (\ s a -> s{_dgsrsNextToken = a});
 -- | The response status code.
 dgsrsResponseStatus :: Lens' DescribeGameSessionsResponse Int
 dgsrsResponseStatus = lens _dgsrsResponseStatus (\ s a -> s{_dgsrsResponseStatus = a});
+
+instance NFData DescribeGameSessionsResponse

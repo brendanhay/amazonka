@@ -195,10 +195,10 @@ module Network.AWS.CodeCommit
     -- ** CreateBranch
     , module Network.AWS.CodeCommit.CreateBranch
 
-    -- ** ListBranches
+    -- ** ListBranches (Paginated)
     , module Network.AWS.CodeCommit.ListBranches
 
-    -- ** ListRepositories
+    -- ** ListRepositories (Paginated)
     , module Network.AWS.CodeCommit.ListRepositories
 
     -- ** CreateRepository

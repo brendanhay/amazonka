@@ -86,6 +86,8 @@ instance AWSRequest
 
 instance Hashable DescribeStackProvisioningParameters
 
+instance NFData DescribeStackProvisioningParameters
+
 instance ToHeaders
          DescribeStackProvisioningParameters where
         toHeaders
@@ -151,3 +153,6 @@ dspprsParameters = lens _dspprsParameters (\ s a -> s{_dspprsParameters = a}) . 
 -- | The response status code.
 dspprsResponseStatus :: Lens' DescribeStackProvisioningParametersResponse Int
 dspprsResponseStatus = lens _dspprsResponseStatus (\ s a -> s{_dspprsResponseStatus = a});
+
+instance NFData
+         DescribeStackProvisioningParametersResponse

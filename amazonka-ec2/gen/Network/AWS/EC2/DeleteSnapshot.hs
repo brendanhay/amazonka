@@ -56,7 +56,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteSnapshot' smart constructor.
+-- | Contains the parameters for DeleteSnapshot.
+--
+-- /See:/ 'deleteSnapshot' smart constructor.
 data DeleteSnapshot = DeleteSnapshot'
     { _deleDryRun     :: !(Maybe Bool)
     , _deleSnapshotId :: !Text
@@ -96,6 +98,8 @@ instance AWSRequest DeleteSnapshot where
 
 instance Hashable DeleteSnapshot
 
+instance NFData DeleteSnapshot
+
 instance ToHeaders DeleteSnapshot where
         toHeaders = const mempty
 
@@ -120,3 +124,5 @@ data DeleteSnapshotResponse =
 deleteSnapshotResponse
     :: DeleteSnapshotResponse
 deleteSnapshotResponse = DeleteSnapshotResponse'
+
+instance NFData DeleteSnapshotResponse

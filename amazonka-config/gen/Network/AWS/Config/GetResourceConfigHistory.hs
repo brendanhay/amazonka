@@ -156,6 +156,8 @@ instance AWSRequest GetResourceConfigHistory where
 
 instance Hashable GetResourceConfigHistory
 
+instance NFData GetResourceConfigHistory
+
 instance ToHeaders GetResourceConfigHistory where
         toHeaders
           = const
@@ -225,3 +227,5 @@ grchrsConfigurationItems = lens _grchrsConfigurationItems (\ s a -> s{_grchrsCon
 -- | The response status code.
 grchrsResponseStatus :: Lens' GetResourceConfigHistoryResponse Int
 grchrsResponseStatus = lens _grchrsResponseStatus (\ s a -> s{_grchrsResponseStatus = a});
+
+instance NFData GetResourceConfigHistoryResponse

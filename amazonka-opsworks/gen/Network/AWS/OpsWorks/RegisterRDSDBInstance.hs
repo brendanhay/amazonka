@@ -105,6 +105,8 @@ instance AWSRequest RegisterRDSDBInstance where
 
 instance Hashable RegisterRDSDBInstance
 
+instance NFData RegisterRDSDBInstance
+
 instance ToHeaders RegisterRDSDBInstance where
         toHeaders
           = const
@@ -140,3 +142,5 @@ data RegisterRDSDBInstanceResponse =
 registerRDSDBInstanceResponse
     :: RegisterRDSDBInstanceResponse
 registerRDSDBInstanceResponse = RegisterRDSDBInstanceResponse'
+
+instance NFData RegisterRDSDBInstanceResponse

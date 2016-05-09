@@ -145,6 +145,8 @@ instance AWSRequest ListAttachedRolePolicies where
 
 instance Hashable ListAttachedRolePolicies
 
+instance NFData ListAttachedRolePolicies
+
 instance ToHeaders ListAttachedRolePolicies where
         toHeaders = const mempty
 
@@ -217,3 +219,5 @@ larprsIsTruncated = lens _larprsIsTruncated (\ s a -> s{_larprsIsTruncated = a})
 -- | The response status code.
 larprsResponseStatus :: Lens' ListAttachedRolePoliciesResponse Int
 larprsResponseStatus = lens _larprsResponseStatus (\ s a -> s{_larprsResponseStatus = a});
+
+instance NFData ListAttachedRolePoliciesResponse

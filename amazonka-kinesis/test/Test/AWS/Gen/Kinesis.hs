@@ -43,6 +43,12 @@ import Test.AWS.Kinesis.Internal
 --         , testGetRecords $
 --             getRecords
 --
+--         , testEnableEnhancedMonitoring $
+--             enableEnhancedMonitoring
+--
+--         , testDisableEnhancedMonitoring $
+--             disableEnhancedMonitoring
+--
 --         , testListTagsForStream $
 --             listTagsForStream
 --
@@ -90,6 +96,12 @@ import Test.AWS.Kinesis.Internal
 --
 --         , testGetRecordsResponse $
 --             getRecordsResponse
+--
+--         , testEnableEnhancedMonitoringResponse $
+--             enhancedMonitoringOutput
+--
+--         , testDisableEnhancedMonitoringResponse $
+--             enhancedMonitoringOutput
 --
 --         , testListTagsForStreamResponse $
 --             listTagsForStreamResponse
@@ -150,6 +162,16 @@ testGetRecords :: GetRecords -> TestTree
 testGetRecords = req
     "GetRecords"
     "fixture/GetRecords.yaml"
+
+testEnableEnhancedMonitoring :: EnableEnhancedMonitoring -> TestTree
+testEnableEnhancedMonitoring = req
+    "EnableEnhancedMonitoring"
+    "fixture/EnableEnhancedMonitoring.yaml"
+
+testDisableEnhancedMonitoring :: DisableEnhancedMonitoring -> TestTree
+testDisableEnhancedMonitoring = req
+    "DisableEnhancedMonitoring"
+    "fixture/DisableEnhancedMonitoring.yaml"
 
 testListTagsForStream :: ListTagsForStream -> TestTree
 testListTagsForStream = req
@@ -237,6 +259,20 @@ testGetRecordsResponse = res
     "fixture/GetRecordsResponse.proto"
     kinesis
     (Proxy :: Proxy GetRecords)
+
+testEnableEnhancedMonitoringResponse :: EnhancedMonitoringOutput -> TestTree
+testEnableEnhancedMonitoringResponse = res
+    "EnableEnhancedMonitoringResponse"
+    "fixture/EnableEnhancedMonitoringResponse.proto"
+    kinesis
+    (Proxy :: Proxy EnableEnhancedMonitoring)
+
+testDisableEnhancedMonitoringResponse :: EnhancedMonitoringOutput -> TestTree
+testDisableEnhancedMonitoringResponse = res
+    "DisableEnhancedMonitoringResponse"
+    "fixture/DisableEnhancedMonitoringResponse.proto"
+    kinesis
+    (Proxy :: Proxy DisableEnhancedMonitoring)
 
 testListTagsForStreamResponse :: ListTagsForStreamResponse -> TestTree
 testListTagsForStreamResponse = res

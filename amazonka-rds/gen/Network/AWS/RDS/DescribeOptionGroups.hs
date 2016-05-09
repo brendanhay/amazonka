@@ -149,6 +149,8 @@ instance AWSRequest DescribeOptionGroups where
 
 instance Hashable DescribeOptionGroups
 
+instance NFData DescribeOptionGroups
+
 instance ToHeaders DescribeOptionGroups where
         toHeaders = const mempty
 
@@ -209,3 +211,5 @@ dogrsOptionGroupsList = lens _dogrsOptionGroupsList (\ s a -> s{_dogrsOptionGrou
 -- | The response status code.
 dogrsResponseStatus :: Lens' DescribeOptionGroupsResponse Int
 dogrsResponseStatus = lens _dogrsResponseStatus (\ s a -> s{_dogrsResponseStatus = a});
+
+instance NFData DescribeOptionGroupsResponse

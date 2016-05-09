@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'disableVPCClassicLink' smart constructor.
+-- | Contains the parameters for DisableVpcClassicLink.
+--
+-- /See:/ 'disableVPCClassicLink' smart constructor.
 data DisableVPCClassicLink = DisableVPCClassicLink'
     { _dvpcclDryRun :: !(Maybe Bool)
     , _dvpcclVPCId  :: !Text
@@ -89,6 +91,8 @@ instance AWSRequest DisableVPCClassicLink where
 
 instance Hashable DisableVPCClassicLink
 
+instance NFData DisableVPCClassicLink
+
 instance ToHeaders DisableVPCClassicLink where
         toHeaders = const mempty
 
@@ -102,7 +106,9 @@ instance ToQuery DisableVPCClassicLink where
                "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _dvpcclDryRun, "VpcId" =: _dvpcclVPCId]
 
--- | /See:/ 'disableVPCClassicLinkResponse' smart constructor.
+-- | Contains the output of DisableVpcClassicLink.
+--
+-- /See:/ 'disableVPCClassicLinkResponse' smart constructor.
 data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
     { _dvpcclrsReturn         :: !(Maybe Bool)
     , _dvpcclrsResponseStatus :: !Int
@@ -131,3 +137,5 @@ dvpcclrsReturn = lens _dvpcclrsReturn (\ s a -> s{_dvpcclrsReturn = a});
 -- | The response status code.
 dvpcclrsResponseStatus :: Lens' DisableVPCClassicLinkResponse Int
 dvpcclrsResponseStatus = lens _dvpcclrsResponseStatus (\ s a -> s{_dvpcclrsResponseStatus = a});
+
+instance NFData DisableVPCClassicLinkResponse

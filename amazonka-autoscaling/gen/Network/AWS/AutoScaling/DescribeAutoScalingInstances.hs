@@ -113,6 +113,8 @@ instance AWSRequest DescribeAutoScalingInstances
 
 instance Hashable DescribeAutoScalingInstances
 
+instance NFData DescribeAutoScalingInstances
+
 instance ToHeaders DescribeAutoScalingInstances where
         toHeaders = const mempty
 
@@ -168,3 +170,5 @@ dasirsAutoScalingInstances = lens _dasirsAutoScalingInstances (\ s a -> s{_dasir
 -- | The response status code.
 dasirsResponseStatus :: Lens' DescribeAutoScalingInstancesResponse Int
 dasirsResponseStatus = lens _dasirsResponseStatus (\ s a -> s{_dasirsResponseStatus = a});
+
+instance NFData DescribeAutoScalingInstancesResponse

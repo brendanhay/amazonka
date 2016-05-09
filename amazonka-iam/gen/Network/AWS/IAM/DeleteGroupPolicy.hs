@@ -86,6 +86,8 @@ instance AWSRequest DeleteGroupPolicy where
 
 instance Hashable DeleteGroupPolicy
 
+instance NFData DeleteGroupPolicy
+
 instance ToHeaders DeleteGroupPolicy where
         toHeaders = const mempty
 
@@ -110,3 +112,5 @@ data DeleteGroupPolicyResponse =
 deleteGroupPolicyResponse
     :: DeleteGroupPolicyResponse
 deleteGroupPolicyResponse = DeleteGroupPolicyResponse'
+
+instance NFData DeleteGroupPolicyResponse

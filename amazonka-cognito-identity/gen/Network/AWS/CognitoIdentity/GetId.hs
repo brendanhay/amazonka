@@ -85,6 +85,8 @@ giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
 -- The available provider names for 'Logins' are as follows:
 --
 -- -   Facebook: 'graph.facebook.com'
+-- -   Amazon Cognito Identity Provider:
+--     'cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789'
 -- -   Google: 'accounts.google.com'
 -- -   Amazon: 'www.amazon.com'
 -- -   Twitter: 'api.twitter.com'
@@ -106,6 +108,8 @@ instance AWSRequest GetId where
                    (x .?> "IdentityId") <*> (pure (fromEnum s)))
 
 instance Hashable GetId
+
+instance NFData GetId
 
 instance ToHeaders GetId where
         toHeaders
@@ -161,3 +165,5 @@ girsIdentityId = lens _girsIdentityId (\ s a -> s{_girsIdentityId = a});
 -- | The response status code.
 girsResponseStatus :: Lens' GetIdResponse Int
 girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
+
+instance NFData GetIdResponse

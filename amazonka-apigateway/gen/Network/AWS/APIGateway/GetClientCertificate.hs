@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Gets information about the current < ClientCertificate> resource.
 module Network.AWS.APIGateway.GetClientCertificate
     (
     -- * Creating a Request
@@ -45,7 +45,10 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getClientCertificate' smart constructor.
+-- | A request to get information about the current < ClientCertificate>
+-- resource.
+--
+-- /See:/ 'getClientCertificate' smart constructor.
 newtype GetClientCertificate = GetClientCertificate'
     { _gccClientCertificateId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -63,7 +66,7 @@ getClientCertificate pClientCertificateId_ =
     { _gccClientCertificateId = pClientCertificateId_
     }
 
--- | Undocumented member.
+-- | The identifier of the < ClientCertificate> resource to be described.
 gccClientCertificateId :: Lens' GetClientCertificate Text
 gccClientCertificateId = lens _gccClientCertificateId (\ s a -> s{_gccClientCertificateId = a});
 
@@ -73,6 +76,8 @@ instance AWSRequest GetClientCertificate where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetClientCertificate
+
+instance NFData GetClientCertificate
 
 instance ToHeaders GetClientCertificate where
         toHeaders

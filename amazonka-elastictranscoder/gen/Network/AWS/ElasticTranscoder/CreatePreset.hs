@@ -146,6 +146,8 @@ instance AWSRequest CreatePreset where
 
 instance Hashable CreatePreset
 
+instance NFData CreatePreset
+
 instance ToHeaders CreatePreset where
         toHeaders = const mempty
 
@@ -209,3 +211,5 @@ cprsPreset = lens _cprsPreset (\ s a -> s{_cprsPreset = a});
 -- | The response status code.
 cprsResponseStatus :: Lens' CreatePresetResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+
+instance NFData CreatePresetResponse

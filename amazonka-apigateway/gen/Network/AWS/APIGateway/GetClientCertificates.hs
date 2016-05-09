@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Gets a collection of < ClientCertificate> resources.
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetClientCertificates
@@ -47,7 +47,10 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getClientCertificates' smart constructor.
+-- | A request to get information about a collection of < ClientCertificate>
+-- resources.
+--
+-- /See:/ 'getClientCertificates' smart constructor.
 data GetClientCertificates = GetClientCertificates'
     { _gccLimit    :: !(Maybe Int)
     , _gccPosition :: !(Maybe Text)
@@ -68,11 +71,14 @@ getClientCertificates =
     , _gccPosition = Nothing
     }
 
--- | Undocumented member.
+-- | The maximum number of < ClientCertificate> resources in the collection
+-- to get information about. The default limit is 25. It should be an
+-- integer between 1 - 500.
 gccLimit :: Lens' GetClientCertificates (Maybe Int)
 gccLimit = lens _gccLimit (\ s a -> s{_gccLimit = a});
 
--- | Undocumented member.
+-- | The position of the current < ClientCertificate> resource in the
+-- collection to get information about.
 gccPosition :: Lens' GetClientCertificates (Maybe Text)
 gccPosition = lens _gccPosition (\ s a -> s{_gccPosition = a});
 
@@ -96,6 +102,8 @@ instance AWSRequest GetClientCertificates where
 
 instance Hashable GetClientCertificates
 
+instance NFData GetClientCertificates
+
 instance ToHeaders GetClientCertificates where
         toHeaders
           = const
@@ -110,7 +118,9 @@ instance ToQuery GetClientCertificates where
           = mconcat
               ["limit" =: _gccLimit, "position" =: _gccPosition]
 
--- | /See:/ 'getClientCertificatesResponse' smart constructor.
+-- | Represents a collection of < ClientCertificate> resources.
+--
+-- /See:/ 'getClientCertificatesResponse' smart constructor.
 data GetClientCertificatesResponse = GetClientCertificatesResponse'
     { _gccrsItems          :: !(Maybe [ClientCertificate])
     , _gccrsPosition       :: !(Maybe Text)
@@ -136,7 +146,8 @@ getClientCertificatesResponse pResponseStatus_ =
     , _gccrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The current page of any < ClientCertificate> resources in the collection
+-- of < ClientCertificate> resources.
 gccrsItems :: Lens' GetClientCertificatesResponse [ClientCertificate]
 gccrsItems = lens _gccrsItems (\ s a -> s{_gccrsItems = a}) . _Default . _Coerce;
 
@@ -147,3 +158,5 @@ gccrsPosition = lens _gccrsPosition (\ s a -> s{_gccrsPosition = a});
 -- | The response status code.
 gccrsResponseStatus :: Lens' GetClientCertificatesResponse Int
 gccrsResponseStatus = lens _gccrsResponseStatus (\ s a -> s{_gccrsResponseStatus = a});
+
+instance NFData GetClientCertificatesResponse

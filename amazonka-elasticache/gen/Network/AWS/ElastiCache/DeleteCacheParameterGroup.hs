@@ -77,6 +77,8 @@ instance AWSRequest DeleteCacheParameterGroup where
 
 instance Hashable DeleteCacheParameterGroup
 
+instance NFData DeleteCacheParameterGroup
+
 instance ToHeaders DeleteCacheParameterGroup where
         toHeaders = const mempty
 
@@ -102,3 +104,5 @@ data DeleteCacheParameterGroupResponse =
 deleteCacheParameterGroupResponse
     :: DeleteCacheParameterGroupResponse
 deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse'
+
+instance NFData DeleteCacheParameterGroupResponse

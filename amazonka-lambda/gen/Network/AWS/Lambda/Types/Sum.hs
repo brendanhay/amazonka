@@ -37,6 +37,7 @@ instance ToText EventSourcePosition where
         TrimHorizon -> "TRIM_HORIZON"
 
 instance Hashable     EventSourcePosition
+instance NFData       EventSourcePosition
 instance ToByteString EventSourcePosition
 instance ToQuery      EventSourcePosition
 instance ToHeader     EventSourcePosition
@@ -65,6 +66,7 @@ instance ToText InvocationType where
         RequestResponse -> "RequestResponse"
 
 instance Hashable     InvocationType
+instance NFData       InvocationType
 instance ToByteString InvocationType
 instance ToQuery      InvocationType
 instance ToHeader     InvocationType
@@ -90,6 +92,7 @@ instance ToText LogType where
         Tail -> "Tail"
 
 instance Hashable     LogType
+instance NFData       LogType
 instance ToByteString LogType
 instance ToQuery      LogType
 instance ToHeader     LogType
@@ -99,6 +102,7 @@ instance ToJSON LogType where
 
 data Runtime
     = JAVA8
+    | NODEJS4_3
     | Nodejs
     | PYTHON2_7
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -106,18 +110,21 @@ data Runtime
 instance FromText Runtime where
     parser = takeLowerText >>= \case
         "java8" -> pure JAVA8
+        "nodejs4.3" -> pure NODEJS4_3
         "nodejs" -> pure Nodejs
         "python2.7" -> pure PYTHON2_7
         e -> fromTextError $ "Failure parsing Runtime from value: '" <> e
-           <> "'. Accepted values: java8, nodejs, python2.7"
+           <> "'. Accepted values: java8, nodejs4.3, nodejs, python2.7"
 
 instance ToText Runtime where
     toText = \case
         JAVA8 -> "java8"
+        NODEJS4_3 -> "nodejs4.3"
         Nodejs -> "nodejs"
         PYTHON2_7 -> "python2.7"
 
 instance Hashable     Runtime
+instance NFData       Runtime
 instance ToByteString Runtime
 instance ToQuery      Runtime
 instance ToHeader     Runtime

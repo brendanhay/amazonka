@@ -1,5 +1,5 @@
 name:                  amazonka-cloudwatch-events
-version:               1.4.0
+version:               1.4.1
 synopsis:              Amazon CloudWatch Events SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -78,7 +78,7 @@ library
         , Network.AWS.CloudWatchEvents.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.0.*
+          amazonka-core == 1.4.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudwatch-events-test
@@ -98,9 +98,9 @@ test-suite amazonka-cloudwatch-events-test
         , Test.AWS.CloudWatchEvents.Internal
 
     build-depends:
-          amazonka-core == 1.4.0.*
-        , amazonka-test == 1.4.0.*
-        , amazonka-cloudwatch-events == 1.4.0.*
+          amazonka-core == 1.4.1.*
+        , amazonka-test == 1.4.1.*
+        , amazonka-cloudwatch-events == 1.4.1.*
         , base
         , bytestring
         , tasty

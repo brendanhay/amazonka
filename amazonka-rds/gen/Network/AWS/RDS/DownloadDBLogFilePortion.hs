@@ -93,7 +93,8 @@ downloadDBLogFilePortion pDBInstanceIdentifier_ pLogFileName_ =
 -- on the value of the Marker parameter.
 --
 -- -   If neither Marker or NumberOfLines are specified, the entire log
---     file is returned.
+--     file is returned up to a maximum of 10000 lines, starting with the
+--     most recent log entries first.
 --
 -- -   If NumberOfLines is specified and Marker is not specified, then the
 --     most recent lines from the end of the log file are returned.
@@ -153,6 +154,8 @@ instance AWSRequest DownloadDBLogFilePortion where
                      <*> (pure (fromEnum s)))
 
 instance Hashable DownloadDBLogFilePortion
+
+instance NFData DownloadDBLogFilePortion
 
 instance ToHeaders DownloadDBLogFilePortion where
         toHeaders = const mempty
@@ -221,3 +224,5 @@ ddlfprsMarker = lens _ddlfprsMarker (\ s a -> s{_ddlfprsMarker = a});
 -- | The response status code.
 ddlfprsResponseStatus :: Lens' DownloadDBLogFilePortionResponse Int
 ddlfprsResponseStatus = lens _ddlfprsResponseStatus (\ s a -> s{_ddlfprsResponseStatus = a});
+
+instance NFData DownloadDBLogFilePortionResponse

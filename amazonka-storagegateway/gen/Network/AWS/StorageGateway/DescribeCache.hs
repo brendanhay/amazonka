@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns information about the cache of a gateway. This
--- operation is supported only for the gateway-cached volume architecture.
+-- Returns information about the cache of a gateway. This operation is
+-- supported only for the gateway-cached volume architecture.
 --
 -- The response includes disk IDs that are configured as cache, and it
 -- includes the amount of cache allocated and used.
@@ -90,6 +90,8 @@ instance AWSRequest DescribeCache where
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeCache
+
+instance NFData DescribeCache
 
 instance ToHeaders DescribeCache where
         toHeaders
@@ -189,3 +191,5 @@ dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\ s a -> s{_dcrsCache
 -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCacheResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+
+instance NFData DescribeCacheResponse

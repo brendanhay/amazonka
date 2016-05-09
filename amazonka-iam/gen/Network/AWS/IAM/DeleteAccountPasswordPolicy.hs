@@ -57,6 +57,8 @@ instance AWSRequest DeleteAccountPasswordPolicy where
 
 instance Hashable DeleteAccountPasswordPolicy
 
+instance NFData DeleteAccountPasswordPolicy
+
 instance ToHeaders DeleteAccountPasswordPolicy where
         toHeaders = const mempty
 
@@ -81,3 +83,5 @@ data DeleteAccountPasswordPolicyResponse =
 deleteAccountPasswordPolicyResponse
     :: DeleteAccountPasswordPolicyResponse
 deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse'
+
+instance NFData DeleteAccountPasswordPolicyResponse

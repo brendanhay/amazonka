@@ -204,6 +204,8 @@ instance AWSRequest CreateApp where
 
 instance Hashable CreateApp
 
+instance NFData CreateApp
+
 instance ToHeaders CreateApp where
         toHeaders
           = const
@@ -266,3 +268,5 @@ carsAppId = lens _carsAppId (\ s a -> s{_carsAppId = a});
 -- | The response status code.
 carsResponseStatus :: Lens' CreateAppResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+
+instance NFData CreateAppResponse

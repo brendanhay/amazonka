@@ -95,6 +95,8 @@ instance AWSRequest RemoveTargets where
 
 instance Hashable RemoveTargets
 
+instance NFData RemoveTargets
+
 instance ToHeaders RemoveTargets where
         toHeaders
           = const
@@ -155,3 +157,5 @@ rtrsFailedEntries = lens _rtrsFailedEntries (\ s a -> s{_rtrsFailedEntries = a})
 -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTargetsResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
+
+instance NFData RemoveTargetsResponse

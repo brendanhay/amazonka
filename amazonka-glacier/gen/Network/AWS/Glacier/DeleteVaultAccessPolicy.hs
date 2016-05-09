@@ -95,6 +95,8 @@ instance AWSRequest DeleteVaultAccessPolicy where
 
 instance Hashable DeleteVaultAccessPolicy
 
+instance NFData DeleteVaultAccessPolicy
+
 instance ToHeaders DeleteVaultAccessPolicy where
         toHeaders = const mempty
 
@@ -117,3 +119,5 @@ data DeleteVaultAccessPolicyResponse =
 deleteVaultAccessPolicyResponse
     :: DeleteVaultAccessPolicyResponse
 deleteVaultAccessPolicyResponse = DeleteVaultAccessPolicyResponse'
+
+instance NFData DeleteVaultAccessPolicyResponse

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Copies the specified DB Snapshot. The source DB snapshot must be in the
+-- Copies the specified DB snapshot. The source DB snapshot must be in the
 -- \"available\" state.
 --
 -- If you are copying from a shared manual DB snapshot, the
@@ -160,6 +160,8 @@ instance AWSRequest CopyDBSnapshot where
 
 instance Hashable CopyDBSnapshot
 
+instance NFData CopyDBSnapshot
+
 instance ToHeaders CopyDBSnapshot where
         toHeaders = const mempty
 
@@ -208,3 +210,5 @@ cdsrsDBSnapshot = lens _cdsrsDBSnapshot (\ s a -> s{_cdsrsDBSnapshot = a});
 -- | The response status code.
 cdsrsResponseStatus :: Lens' CopyDBSnapshotResponse Int
 cdsrsResponseStatus = lens _cdsrsResponseStatus (\ s a -> s{_cdsrsResponseStatus = a});
+
+instance NFData CopyDBSnapshotResponse

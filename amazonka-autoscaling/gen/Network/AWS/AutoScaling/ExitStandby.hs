@@ -90,6 +90,8 @@ instance AWSRequest ExitStandby where
 
 instance Hashable ExitStandby
 
+instance NFData ExitStandby
+
 instance ToHeaders ExitStandby where
         toHeaders = const mempty
 
@@ -134,3 +136,5 @@ esrsActivities = lens _esrsActivities (\ s a -> s{_esrsActivities = a}) . _Defau
 -- | The response status code.
 esrsResponseStatus :: Lens' ExitStandbyResponse Int
 esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});
+
+instance NFData ExitStandbyResponse

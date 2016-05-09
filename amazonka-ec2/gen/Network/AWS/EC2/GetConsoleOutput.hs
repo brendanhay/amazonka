@@ -64,7 +64,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getConsoleOutput' smart constructor.
+-- | Contains the parameters for GetConsoleOutput.
+--
+-- /See:/ 'getConsoleOutput' smart constructor.
 data GetConsoleOutput = GetConsoleOutput'
     { _gcoDryRun     :: !(Maybe Bool)
     , _gcoInstanceId :: !Text
@@ -110,6 +112,8 @@ instance AWSRequest GetConsoleOutput where
 
 instance Hashable GetConsoleOutput
 
+instance NFData GetConsoleOutput
+
 instance ToHeaders GetConsoleOutput where
         toHeaders = const mempty
 
@@ -124,7 +128,9 @@ instance ToQuery GetConsoleOutput where
                "DryRun" =: _gcoDryRun,
                "InstanceId" =: _gcoInstanceId]
 
--- | /See:/ 'getConsoleOutputResponse' smart constructor.
+-- | Contains the output of GetConsoleOutput.
+--
+-- /See:/ 'getConsoleOutputResponse' smart constructor.
 data GetConsoleOutputResponse = GetConsoleOutputResponse'
     { _gcorsInstanceId     :: !(Maybe Text)
     , _gcorsOutput         :: !(Maybe Text)
@@ -170,3 +176,5 @@ gcorsTimestamp = lens _gcorsTimestamp (\ s a -> s{_gcorsTimestamp = a}) . mappin
 -- | The response status code.
 gcorsResponseStatus :: Lens' GetConsoleOutputResponse Int
 gcorsResponseStatus = lens _gcorsResponseStatus (\ s a -> s{_gcorsResponseStatus = a});
+
+instance NFData GetConsoleOutputResponse

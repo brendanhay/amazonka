@@ -257,12 +257,12 @@ module Network.AWS.AutoScaling
     -- ** AutoScalingInstanceDetails
     , AutoScalingInstanceDetails
     , autoScalingInstanceDetails
+    , asidLaunchConfigurationName
     , asidInstanceId
     , asidAutoScalingGroupName
     , asidAvailabilityZone
     , asidLifecycleState
     , asidHealthStatus
-    , asidLaunchConfigurationName
     , asidProtectedFromScaleIn
 
     -- ** BlockDeviceMapping

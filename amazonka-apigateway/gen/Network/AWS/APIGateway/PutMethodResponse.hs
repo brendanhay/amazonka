@@ -131,6 +131,8 @@ instance AWSRequest PutMethodResponse where
 
 instance Hashable PutMethodResponse
 
+instance NFData PutMethodResponse
+
 instance ToHeaders PutMethodResponse where
         toHeaders
           = const

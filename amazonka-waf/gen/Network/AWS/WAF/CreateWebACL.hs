@@ -141,6 +141,8 @@ instance AWSRequest CreateWebACL where
 
 instance Hashable CreateWebACL
 
+instance NFData CreateWebACL
+
 instance ToHeaders CreateWebACL where
         toHeaders
           = const
@@ -204,3 +206,5 @@ cwarsChangeToken = lens _cwarsChangeToken (\ s a -> s{_cwarsChangeToken = a});
 -- | The response status code.
 cwarsResponseStatus :: Lens' CreateWebACLResponse Int
 cwarsResponseStatus = lens _cwarsResponseStatus (\ s a -> s{_cwarsResponseStatus = a});
+
+instance NFData CreateWebACLResponse

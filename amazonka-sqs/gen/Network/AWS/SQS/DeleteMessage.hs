@@ -99,6 +99,8 @@ instance AWSRequest DeleteMessage where
 
 instance Hashable DeleteMessage
 
+instance NFData DeleteMessage
+
 instance ToHeaders DeleteMessage where
         toHeaders = const mempty
 
@@ -123,3 +125,5 @@ data DeleteMessageResponse =
 deleteMessageResponse
     :: DeleteMessageResponse
 deleteMessageResponse = DeleteMessageResponse'
+
+instance NFData DeleteMessageResponse

@@ -150,6 +150,8 @@ instance AWSRequest GetLogEvents where
 
 instance Hashable GetLogEvents
 
+instance NFData GetLogEvents
+
 instance ToHeaders GetLogEvents where
         toHeaders
           = const
@@ -222,3 +224,5 @@ glersEvents = lens _glersEvents (\ s a -> s{_glersEvents = a}) . _Default . _Coe
 -- | The response status code.
 glersResponseStatus :: Lens' GetLogEventsResponse Int
 glersResponseStatus = lens _glersResponseStatus (\ s a -> s{_glersResponseStatus = a});
+
+instance NFData GetLogEventsResponse

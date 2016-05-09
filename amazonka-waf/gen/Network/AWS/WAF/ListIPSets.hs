@@ -94,6 +94,8 @@ instance AWSRequest ListIPSets where
 
 instance Hashable ListIPSets
 
+instance NFData ListIPSets
+
 instance ToHeaders ListIPSets where
         toHeaders
           = const
@@ -157,3 +159,5 @@ lisrsIPSets = lens _lisrsIPSets (\ s a -> s{_lisrsIPSets = a}) . _Default . _Coe
 -- | The response status code.
 lisrsResponseStatus :: Lens' ListIPSetsResponse Int
 lisrsResponseStatus = lens _lisrsResponseStatus (\ s a -> s{_lisrsResponseStatus = a});
+
+instance NFData ListIPSetsResponse

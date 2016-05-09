@@ -95,6 +95,8 @@ instance AWSRequest ListByteMatchSets where
 
 instance Hashable ListByteMatchSets
 
+instance NFData ListByteMatchSets
+
 instance ToHeaders ListByteMatchSets where
         toHeaders
           = const
@@ -158,3 +160,5 @@ lbmsrsNextMarker = lens _lbmsrsNextMarker (\ s a -> s{_lbmsrsNextMarker = a});
 -- | The response status code.
 lbmsrsResponseStatus :: Lens' ListByteMatchSetsResponse Int
 lbmsrsResponseStatus = lens _lbmsrsResponseStatus (\ s a -> s{_lbmsrsResponseStatus = a});
+
+instance NFData ListByteMatchSetsResponse

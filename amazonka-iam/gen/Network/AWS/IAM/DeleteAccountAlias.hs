@@ -72,6 +72,8 @@ instance AWSRequest DeleteAccountAlias where
 
 instance Hashable DeleteAccountAlias
 
+instance NFData DeleteAccountAlias
+
 instance ToHeaders DeleteAccountAlias where
         toHeaders = const mempty
 
@@ -95,3 +97,5 @@ data DeleteAccountAliasResponse =
 deleteAccountAliasResponse
     :: DeleteAccountAliasResponse
 deleteAccountAliasResponse = DeleteAccountAliasResponse'
+
+instance NFData DeleteAccountAliasResponse

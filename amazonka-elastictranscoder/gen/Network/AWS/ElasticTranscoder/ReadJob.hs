@@ -78,6 +78,8 @@ instance AWSRequest ReadJob where
 
 instance Hashable ReadJob
 
+instance NFData ReadJob
+
 instance ToHeaders ReadJob where
         toHeaders = const mempty
 
@@ -120,3 +122,5 @@ rjrsResponseStatus = lens _rjrsResponseStatus (\ s a -> s{_rjrsResponseStatus = 
 -- | A section of the response body that provides information about the job.
 rjrsJob :: Lens' ReadJobResponse Job'
 rjrsJob = lens _rjrsJob (\ s a -> s{_rjrsJob = a});
+
+instance NFData ReadJobResponse

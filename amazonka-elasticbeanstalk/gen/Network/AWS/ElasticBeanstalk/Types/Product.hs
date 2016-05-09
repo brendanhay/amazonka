@@ -100,6 +100,8 @@ instance FromXML ApplicationDescription where
 
 instance Hashable ApplicationDescription
 
+instance NFData ApplicationDescription
+
 -- | Result message containing a single description of an application.
 --
 -- /See:/ 'applicationDescriptionMessage' smart constructor.
@@ -129,6 +131,8 @@ instance FromXML ApplicationDescriptionMessage where
               (x .@? "Application")
 
 instance Hashable ApplicationDescriptionMessage
+
+instance NFData ApplicationDescriptionMessage
 
 -- | Represents the application metrics for a specified environment.
 --
@@ -191,6 +195,8 @@ instance FromXML ApplicationMetrics where
                 <*> (x .@? "Duration")
 
 instance Hashable ApplicationMetrics
+
+instance NFData ApplicationMetrics
 
 -- | Describes the properties of an application version.
 --
@@ -275,6 +281,8 @@ instance FromXML ApplicationVersionDescription where
 
 instance Hashable ApplicationVersionDescription
 
+instance NFData ApplicationVersionDescription
+
 -- | Result message wrapping a single description of an application version.
 --
 -- /See:/ 'applicationVersionDescriptionMessage' smart constructor.
@@ -307,6 +315,8 @@ instance FromXML ApplicationVersionDescriptionMessage
 instance Hashable
          ApplicationVersionDescriptionMessage
 
+instance NFData ApplicationVersionDescriptionMessage
+
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
@@ -334,6 +344,8 @@ instance FromXML AutoScalingGroup where
         parseXML x = AutoScalingGroup' <$> (x .@? "Name")
 
 instance Hashable AutoScalingGroup
+
+instance NFData AutoScalingGroup
 
 -- | Represents CPU utilization information from the specified instance that
 -- belongs to the AWS Elastic Beanstalk environment. Use the 'instanceId'
@@ -427,6 +439,8 @@ instance FromXML CPUUtilization where
                 <*> (x .@? "Nice")
 
 instance Hashable CPUUtilization
+
+instance NFData CPUUtilization
 
 -- | Describes the possible values for a configuration option.
 --
@@ -586,6 +600,8 @@ instance FromXML ConfigurationOptionDescription where
 
 instance Hashable ConfigurationOptionDescription
 
+instance NFData ConfigurationOptionDescription
+
 -- | A specification identifying an individual configuration option along
 -- with its current value. For a list of possible option values, go to
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html Option Values>
@@ -644,6 +660,8 @@ instance FromXML ConfigurationOptionSetting where
                 <*> (x .@? "Value")
 
 instance Hashable ConfigurationOptionSetting
+
+instance NFData ConfigurationOptionSetting
 
 instance ToQuery ConfigurationOptionSetting where
         toQuery ConfigurationOptionSetting'{..}
@@ -768,6 +786,73 @@ instance FromXML ConfigurationSettingsDescription
                 <*> (x .@? "Description")
 
 instance Hashable ConfigurationSettingsDescription
+
+instance NFData ConfigurationSettingsDescription
+
+-- | Information about an application version deployment.
+--
+-- /See:/ 'deployment' smart constructor.
+data Deployment = Deployment'
+    { _dDeploymentId   :: !(Maybe Integer)
+    , _dStatus         :: !(Maybe Text)
+    , _dDeploymentTime :: !(Maybe ISO8601)
+    , _dVersionLabel   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Deployment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dDeploymentId'
+--
+-- * 'dStatus'
+--
+-- * 'dDeploymentTime'
+--
+-- * 'dVersionLabel'
+deployment
+    :: Deployment
+deployment =
+    Deployment'
+    { _dDeploymentId = Nothing
+    , _dStatus = Nothing
+    , _dDeploymentTime = Nothing
+    , _dVersionLabel = Nothing
+    }
+
+-- | The ID of the deployment. This number increases by one each time that
+-- you deploy source code or change instance configuration settings.
+dDeploymentId :: Lens' Deployment (Maybe Integer)
+dDeploymentId = lens _dDeploymentId (\ s a -> s{_dDeploymentId = a});
+
+-- | The status of the deployment:
+--
+-- -   'In Progress' : The deployment is in progress.
+-- -   'Deployed' : The deployment succeeded.
+-- -   'Failed' : The deployment failed.
+dStatus :: Lens' Deployment (Maybe Text)
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
+
+-- | For in-progress deployments, the time that the deloyment started.
+--
+-- For completed deployments, the time that the deployment ended.
+dDeploymentTime :: Lens' Deployment (Maybe UTCTime)
+dDeploymentTime = lens _dDeploymentTime (\ s a -> s{_dDeploymentTime = a}) . mapping _Time;
+
+-- | The version label of the application version in the deployment.
+dVersionLabel :: Lens' Deployment (Maybe Text)
+dVersionLabel = lens _dVersionLabel (\ s a -> s{_dVersionLabel = a});
+
+instance FromXML Deployment where
+        parseXML x
+          = Deployment' <$>
+              (x .@? "DeploymentId") <*> (x .@? "Status") <*>
+                (x .@? "DeploymentTime")
+                <*> (x .@? "VersionLabel")
+
+instance Hashable Deployment
+
+instance NFData Deployment
 
 -- | Describes the properties of an environment.
 --
@@ -984,6 +1069,8 @@ instance FromXML EnvironmentDescription where
 
 instance Hashable EnvironmentDescription
 
+instance NFData EnvironmentDescription
+
 -- | Result message containing a list of environment descriptions.
 --
 -- /See:/ 'environmentDescriptionsMessage' smart constructor.
@@ -1014,6 +1101,8 @@ instance FromXML EnvironmentDescriptionsMessage where
                  may (parseXMLList "member"))
 
 instance Hashable EnvironmentDescriptionsMessage
+
+instance NFData EnvironmentDescriptionsMessage
 
 -- | The information retrieved from the Amazon EC2 instances.
 --
@@ -1071,10 +1160,12 @@ instance FromXML EnvironmentInfoDescription where
 
 instance Hashable EnvironmentInfoDescription
 
+instance NFData EnvironmentInfoDescription
+
 -- | A link to another environment, defined in the environment\'s manifest.
 -- Links provide connection information in system properties that can be
 -- used to connect to another environment in the same group. See
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html#environment-mgmt-compose-envyaml Environment Manifest (env.yaml)>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
 -- for details.
 --
 -- /See:/ 'environmentLink' smart constructor.
@@ -1112,6 +1203,8 @@ instance FromXML EnvironmentLink where
               (x .@? "LinkName") <*> (x .@? "EnvironmentName")
 
 instance Hashable EnvironmentLink
+
+instance NFData EnvironmentLink
 
 -- | Describes the AWS resources in use by this environment. This data is
 -- live.
@@ -1209,6 +1302,8 @@ instance FromXML EnvironmentResourceDescription where
 
 instance Hashable EnvironmentResourceDescription
 
+instance NFData EnvironmentResourceDescription
+
 -- | Describes the AWS resources in use by this environment. This data is not
 -- live data.
 --
@@ -1240,6 +1335,8 @@ instance FromXML EnvironmentResourcesDescription
               (x .@? "LoadBalancer")
 
 instance Hashable EnvironmentResourcesDescription
+
+instance NFData EnvironmentResourcesDescription
 
 -- | Describes the properties of an environment tier
 --
@@ -1287,6 +1384,8 @@ instance FromXML EnvironmentTier where
                 (x .@? "Type")
 
 instance Hashable EnvironmentTier
+
+instance NFData EnvironmentTier
 
 instance ToQuery EnvironmentTier where
         toQuery EnvironmentTier'{..}
@@ -1387,6 +1486,8 @@ instance FromXML EventDescription where
 
 instance Hashable EventDescription
 
+instance NFData EventDescription
+
 -- | The description of an Amazon EC2 instance.
 --
 -- /See:/ 'instance'' smart constructor.
@@ -1414,6 +1515,8 @@ instance FromXML Instance where
         parseXML x = Instance' <$> (x .@? "Id")
 
 instance Hashable Instance
+
+instance NFData Instance
 
 -- | Represents summary information about the health of an instance. For more
 -- information, see
@@ -1516,6 +1619,8 @@ instance FromXML InstanceHealthSummary where
 
 instance Hashable InstanceHealthSummary
 
+instance NFData InstanceHealthSummary
+
 -- | Represents the average latency for the slowest X percent of requests
 -- over the last 10 seconds.
 --
@@ -1616,6 +1721,8 @@ instance FromXML Latency where
 
 instance Hashable Latency
 
+instance NFData Latency
+
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'launchConfiguration' smart constructor.
@@ -1643,6 +1750,8 @@ instance FromXML LaunchConfiguration where
         parseXML x = LaunchConfiguration' <$> (x .@? "Name")
 
 instance Hashable LaunchConfiguration
+
+instance NFData LaunchConfiguration
 
 -- | Describes the properties of a Listener for the LoadBalancer.
 --
@@ -1681,6 +1790,8 @@ instance FromXML Listener where
 
 instance Hashable Listener
 
+instance NFData Listener
+
 -- | Describes a LoadBalancer.
 --
 -- /See:/ 'loadBalancer' smart constructor.
@@ -1708,6 +1819,8 @@ instance FromXML LoadBalancer where
         parseXML x = LoadBalancer' <$> (x .@? "Name")
 
 instance Hashable LoadBalancer
+
+instance NFData LoadBalancer
 
 -- | Describes the details of a LoadBalancer.
 --
@@ -1757,6 +1870,171 @@ instance FromXML LoadBalancerDescription where
 
 instance Hashable LoadBalancerDescription
 
+instance NFData LoadBalancerDescription
+
+-- | The record of an upcoming or in-progress managed action.
+--
+-- /See:/ 'managedAction' smart constructor.
+data ManagedAction = ManagedAction'
+    { _maStatus            :: !(Maybe ActionStatus)
+    , _maActionId          :: !(Maybe Text)
+    , _maWindowStartTime   :: !(Maybe ISO8601)
+    , _maActionDescription :: !(Maybe Text)
+    , _maActionType        :: !(Maybe ActionType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ManagedAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'maStatus'
+--
+-- * 'maActionId'
+--
+-- * 'maWindowStartTime'
+--
+-- * 'maActionDescription'
+--
+-- * 'maActionType'
+managedAction
+    :: ManagedAction
+managedAction =
+    ManagedAction'
+    { _maStatus = Nothing
+    , _maActionId = Nothing
+    , _maWindowStartTime = Nothing
+    , _maActionDescription = Nothing
+    , _maActionType = Nothing
+    }
+
+-- | The status of the managed action. If the action is 'Scheduled', you can
+-- apply it immediately with < ApplyEnvironmentManagedAction>.
+maStatus :: Lens' ManagedAction (Maybe ActionStatus)
+maStatus = lens _maStatus (\ s a -> s{_maStatus = a});
+
+-- | A unique identifier for the managed action.
+maActionId :: Lens' ManagedAction (Maybe Text)
+maActionId = lens _maActionId (\ s a -> s{_maActionId = a});
+
+-- | The start time of the maintenance window in which the managed action
+-- will execute.
+maWindowStartTime :: Lens' ManagedAction (Maybe UTCTime)
+maWindowStartTime = lens _maWindowStartTime (\ s a -> s{_maWindowStartTime = a}) . mapping _Time;
+
+-- | A description of the managed action.
+maActionDescription :: Lens' ManagedAction (Maybe Text)
+maActionDescription = lens _maActionDescription (\ s a -> s{_maActionDescription = a});
+
+-- | The type of managed action.
+maActionType :: Lens' ManagedAction (Maybe ActionType)
+maActionType = lens _maActionType (\ s a -> s{_maActionType = a});
+
+instance FromXML ManagedAction where
+        parseXML x
+          = ManagedAction' <$>
+              (x .@? "Status") <*> (x .@? "ActionId") <*>
+                (x .@? "WindowStartTime")
+                <*> (x .@? "ActionDescription")
+                <*> (x .@? "ActionType")
+
+instance Hashable ManagedAction
+
+instance NFData ManagedAction
+
+-- | The record of a completed or failed managed action.
+--
+-- /See:/ 'managedActionHistoryItem' smart constructor.
+data ManagedActionHistoryItem = ManagedActionHistoryItem'
+    { _mahiStatus             :: !(Maybe ActionHistoryStatus)
+    , _mahiFailureType        :: !(Maybe FailureType)
+    , _mahiActionId           :: !(Maybe Text)
+    , _mahiFailureDescription :: !(Maybe Text)
+    , _mahiFinishedTime       :: !(Maybe ISO8601)
+    , _mahiActionDescription  :: !(Maybe Text)
+    , _mahiExecutedTime       :: !(Maybe ISO8601)
+    , _mahiActionType         :: !(Maybe ActionType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ManagedActionHistoryItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mahiStatus'
+--
+-- * 'mahiFailureType'
+--
+-- * 'mahiActionId'
+--
+-- * 'mahiFailureDescription'
+--
+-- * 'mahiFinishedTime'
+--
+-- * 'mahiActionDescription'
+--
+-- * 'mahiExecutedTime'
+--
+-- * 'mahiActionType'
+managedActionHistoryItem
+    :: ManagedActionHistoryItem
+managedActionHistoryItem =
+    ManagedActionHistoryItem'
+    { _mahiStatus = Nothing
+    , _mahiFailureType = Nothing
+    , _mahiActionId = Nothing
+    , _mahiFailureDescription = Nothing
+    , _mahiFinishedTime = Nothing
+    , _mahiActionDescription = Nothing
+    , _mahiExecutedTime = Nothing
+    , _mahiActionType = Nothing
+    }
+
+-- | The status of the action.
+mahiStatus :: Lens' ManagedActionHistoryItem (Maybe ActionHistoryStatus)
+mahiStatus = lens _mahiStatus (\ s a -> s{_mahiStatus = a});
+
+-- | If the action failed, the type of failure.
+mahiFailureType :: Lens' ManagedActionHistoryItem (Maybe FailureType)
+mahiFailureType = lens _mahiFailureType (\ s a -> s{_mahiFailureType = a});
+
+-- | A unique identifier for the managed action.
+mahiActionId :: Lens' ManagedActionHistoryItem (Maybe Text)
+mahiActionId = lens _mahiActionId (\ s a -> s{_mahiActionId = a});
+
+-- | If the action failed, a description of the failure.
+mahiFailureDescription :: Lens' ManagedActionHistoryItem (Maybe Text)
+mahiFailureDescription = lens _mahiFailureDescription (\ s a -> s{_mahiFailureDescription = a});
+
+-- | The date and time that the action finished executing.
+mahiFinishedTime :: Lens' ManagedActionHistoryItem (Maybe UTCTime)
+mahiFinishedTime = lens _mahiFinishedTime (\ s a -> s{_mahiFinishedTime = a}) . mapping _Time;
+
+-- | A description of the managed action.
+mahiActionDescription :: Lens' ManagedActionHistoryItem (Maybe Text)
+mahiActionDescription = lens _mahiActionDescription (\ s a -> s{_mahiActionDescription = a});
+
+-- | The date and time that the action started executing.
+mahiExecutedTime :: Lens' ManagedActionHistoryItem (Maybe UTCTime)
+mahiExecutedTime = lens _mahiExecutedTime (\ s a -> s{_mahiExecutedTime = a}) . mapping _Time;
+
+-- | The type of the managed action.
+mahiActionType :: Lens' ManagedActionHistoryItem (Maybe ActionType)
+mahiActionType = lens _mahiActionType (\ s a -> s{_mahiActionType = a});
+
+instance FromXML ManagedActionHistoryItem where
+        parseXML x
+          = ManagedActionHistoryItem' <$>
+              (x .@? "Status") <*> (x .@? "FailureType") <*>
+                (x .@? "ActionId")
+                <*> (x .@? "FailureDescription")
+                <*> (x .@? "FinishedTime")
+                <*> (x .@? "ActionDescription")
+                <*> (x .@? "ExecutedTime")
+                <*> (x .@? "ActionType")
+
+instance Hashable ManagedActionHistoryItem
+
+instance NFData ManagedActionHistoryItem
+
 -- | A regular expression representing a restriction on a string
 -- configuration option value.
 --
@@ -1796,6 +2074,8 @@ instance FromXML OptionRestrictionRegex where
               (x .@? "Pattern") <*> (x .@? "Label")
 
 instance Hashable OptionRestrictionRegex
+
+instance NFData OptionRestrictionRegex
 
 -- | A specification identifying an individual configuration option.
 --
@@ -1837,6 +2117,8 @@ osNamespace :: Lens' OptionSpecification (Maybe Text)
 osNamespace = lens _osNamespace (\ s a -> s{_osNamespace = a});
 
 instance Hashable OptionSpecification
+
+instance NFData OptionSpecification
 
 instance ToQuery OptionSpecification where
         toQuery OptionSpecification'{..}
@@ -1882,6 +2164,8 @@ instance FromXML Queue where
 
 instance Hashable Queue
 
+instance NFData Queue
+
 -- | A specification of a location in Amazon S3.
 --
 -- /See:/ 's3Location' smart constructor.
@@ -1920,6 +2204,8 @@ instance FromXML S3Location where
 
 instance Hashable S3Location
 
+instance NFData S3Location
+
 instance ToQuery S3Location where
         toQuery S3Location'{..}
           = mconcat
@@ -1937,7 +2223,10 @@ data SingleInstanceHealth = SingleInstanceHealth'
     , _sihSystem             :: !(Maybe SystemStatus)
     , _sihApplicationMetrics :: !(Maybe ApplicationMetrics)
     , _sihColor              :: !(Maybe Text)
+    , _sihInstanceType       :: !(Maybe Text)
+    , _sihAvailabilityZone   :: !(Maybe Text)
     , _sihHealthStatus       :: !(Maybe Text)
+    , _sihDeployment         :: !(Maybe Deployment)
     , _sihLaunchedAt         :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1955,7 +2244,13 @@ data SingleInstanceHealth = SingleInstanceHealth'
 --
 -- * 'sihColor'
 --
+-- * 'sihInstanceType'
+--
+-- * 'sihAvailabilityZone'
+--
 -- * 'sihHealthStatus'
+--
+-- * 'sihDeployment'
 --
 -- * 'sihLaunchedAt'
 singleInstanceHealth
@@ -1967,7 +2262,10 @@ singleInstanceHealth =
     , _sihSystem = Nothing
     , _sihApplicationMetrics = Nothing
     , _sihColor = Nothing
+    , _sihInstanceType = Nothing
+    , _sihAvailabilityZone = Nothing
     , _sihHealthStatus = Nothing
+    , _sihDeployment = Nothing
     , _sihLaunchedAt = Nothing
     }
 
@@ -1994,11 +2292,23 @@ sihApplicationMetrics = lens _sihApplicationMetrics (\ s a -> s{_sihApplicationM
 sihColor :: Lens' SingleInstanceHealth (Maybe Text)
 sihColor = lens _sihColor (\ s a -> s{_sihColor = a});
 
+-- | The instance\'s type.
+sihInstanceType :: Lens' SingleInstanceHealth (Maybe Text)
+sihInstanceType = lens _sihInstanceType (\ s a -> s{_sihInstanceType = a});
+
+-- | The availability zone in which the instance runs.
+sihAvailabilityZone :: Lens' SingleInstanceHealth (Maybe Text)
+sihAvailabilityZone = lens _sihAvailabilityZone (\ s a -> s{_sihAvailabilityZone = a});
+
 -- | Returns the health status of the specified instance. For more
 -- information, see
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
 sihHealthStatus :: Lens' SingleInstanceHealth (Maybe Text)
 sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a});
+
+-- | Information about the most recent deployment to an instance.
+sihDeployment :: Lens' SingleInstanceHealth (Maybe Deployment)
+sihDeployment = lens _sihDeployment (\ s a -> s{_sihDeployment = a});
 
 -- | The time at which the EC2 instance was launched.
 sihLaunchedAt :: Lens' SingleInstanceHealth (Maybe UTCTime)
@@ -2013,10 +2323,15 @@ instance FromXML SingleInstanceHealth where
                 <*> (x .@? "System")
                 <*> (x .@? "ApplicationMetrics")
                 <*> (x .@? "Color")
+                <*> (x .@? "InstanceType")
+                <*> (x .@? "AvailabilityZone")
                 <*> (x .@? "HealthStatus")
+                <*> (x .@? "Deployment")
                 <*> (x .@? "LaunchedAt")
 
 instance Hashable SingleInstanceHealth
+
+instance NFData SingleInstanceHealth
 
 -- | Describes the solution stack.
 --
@@ -2058,6 +2373,8 @@ instance FromXML SolutionStackDescription where
 
 instance Hashable SolutionStackDescription
 
+instance NFData SolutionStackDescription
+
 -- | A specification for an environment configuration
 --
 -- /See:/ 'sourceConfiguration' smart constructor.
@@ -2090,6 +2407,8 @@ scApplicationName :: Lens' SourceConfiguration (Maybe Text)
 scApplicationName = lens _scApplicationName (\ s a -> s{_scApplicationName = a});
 
 instance Hashable SourceConfiguration
+
+instance NFData SourceConfiguration
 
 instance ToQuery SourceConfiguration where
         toQuery SourceConfiguration'{..}
@@ -2159,6 +2478,8 @@ instance FromXML StatusCodes where
 
 instance Hashable StatusCodes
 
+instance NFData StatusCodes
+
 -- | Represents CPU utilization and load average information for applications
 -- running in the specified environment.
 --
@@ -2202,6 +2523,8 @@ instance FromXML SystemStatus where
 
 instance Hashable SystemStatus
 
+instance NFData SystemStatus
+
 -- | Describes a tag applied to a resource in an environment.
 --
 -- /See:/ 'tag' smart constructor.
@@ -2235,6 +2558,8 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
 instance Hashable Tag
 
+instance NFData Tag
+
 instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
@@ -2266,6 +2591,8 @@ instance FromXML Trigger where
         parseXML x = Trigger' <$> (x .@? "Name")
 
 instance Hashable Trigger
+
+instance NFData Trigger
 
 -- | An error or warning for a desired configuration option value.
 --
@@ -2327,3 +2654,5 @@ instance FromXML ValidationMessage where
                 <*> (x .@? "Message")
 
 instance Hashable ValidationMessage
+
+instance NFData ValidationMessage

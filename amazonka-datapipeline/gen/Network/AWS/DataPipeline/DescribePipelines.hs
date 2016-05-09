@@ -88,6 +88,8 @@ instance AWSRequest DescribePipelines where
 
 instance Hashable DescribePipelines
 
+instance NFData DescribePipelines
+
 instance ToHeaders DescribePipelines where
         toHeaders
           = const
@@ -139,3 +141,5 @@ dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = 
 -- | An array of descriptions for the specified pipelines.
 dprsPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
 dprsPipelineDescriptionList = lens _dprsPipelineDescriptionList (\ s a -> s{_dprsPipelineDescriptionList = a}) . _Coerce;
+
+instance NFData DescribePipelinesResponse

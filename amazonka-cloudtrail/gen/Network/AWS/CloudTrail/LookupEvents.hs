@@ -140,6 +140,8 @@ instance AWSRequest LookupEvents where
 
 instance Hashable LookupEvents
 
+instance NFData LookupEvents
+
 instance ToHeaders LookupEvents where
         toHeaders
           = const
@@ -212,3 +214,5 @@ lersEvents = lens _lersEvents (\ s a -> s{_lersEvents = a}) . _Default . _Coerce
 -- | The response status code.
 lersResponseStatus :: Lens' LookupEventsResponse Int
 lersResponseStatus = lens _lersResponseStatus (\ s a -> s{_lersResponseStatus = a});
+
+instance NFData LookupEventsResponse

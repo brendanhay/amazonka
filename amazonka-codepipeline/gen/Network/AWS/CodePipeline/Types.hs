@@ -121,8 +121,8 @@ module Network.AWS.CodePipeline.Types
     -- * ActionRevision
     , ActionRevision
     , actionRevision
-    , arRevisionChangeId
     , arRevisionId
+    , arRevisionChangeId
     , arCreated
 
     -- * ActionState
@@ -376,6 +376,8 @@ codePipeline =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
@@ -398,7 +400,7 @@ _InvalidNonceException = _ServiceError . hasCode "InvalidNonceException"
 _ActionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ActionNotFoundException = _ServiceError . hasCode "ActionNotFoundException"
 
--- | The specified gate declaration was specified in an invalid format.
+-- | Reserved for future use.
 _InvalidBlockerDeclarationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidBlockerDeclarationException =
     _ServiceError . hasCode "InvalidBlockerDeclarationException"

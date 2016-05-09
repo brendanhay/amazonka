@@ -107,6 +107,8 @@ instance AWSRequest SubmitTaskStateChange where
 
 instance Hashable SubmitTaskStateChange
 
+instance NFData SubmitTaskStateChange
+
 instance ToHeaders SubmitTaskStateChange where
         toHeaders
           = const
@@ -161,3 +163,5 @@ stscrsAcknowledgment = lens _stscrsAcknowledgment (\ s a -> s{_stscrsAcknowledgm
 -- | The response status code.
 stscrsResponseStatus :: Lens' SubmitTaskStateChangeResponse Int
 stscrsResponseStatus = lens _stscrsResponseStatus (\ s a -> s{_stscrsResponseStatus = a});
+
+instance NFData SubmitTaskStateChangeResponse

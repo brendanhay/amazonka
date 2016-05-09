@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'replaceNetworkACLAssociation' smart constructor.
+-- | Contains the parameters for ReplaceNetworkAclAssociation.
+--
+-- /See:/ 'replaceNetworkACLAssociation' smart constructor.
 data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
     { _rnaaDryRun        :: !(Maybe Bool)
     , _rnaaAssociationId :: !Text
@@ -104,6 +106,8 @@ instance AWSRequest ReplaceNetworkACLAssociation
 
 instance Hashable ReplaceNetworkACLAssociation
 
+instance NFData ReplaceNetworkACLAssociation
+
 instance ToHeaders ReplaceNetworkACLAssociation where
         toHeaders = const mempty
 
@@ -120,7 +124,9 @@ instance ToQuery ReplaceNetworkACLAssociation where
                "AssociationId" =: _rnaaAssociationId,
                "NetworkAclId" =: _rnaaNetworkACLId]
 
--- | /See:/ 'replaceNetworkACLAssociationResponse' smart constructor.
+-- | Contains the output of ReplaceNetworkAclAssociation.
+--
+-- /See:/ 'replaceNetworkACLAssociationResponse' smart constructor.
 data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
     { _rnaarsNewAssociationId :: !(Maybe Text)
     , _rnaarsResponseStatus   :: !Int
@@ -149,3 +155,5 @@ rnaarsNewAssociationId = lens _rnaarsNewAssociationId (\ s a -> s{_rnaarsNewAsso
 -- | The response status code.
 rnaarsResponseStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
 rnaarsResponseStatus = lens _rnaarsResponseStatus (\ s a -> s{_rnaarsResponseStatus = a});
+
+instance NFData ReplaceNetworkACLAssociationResponse

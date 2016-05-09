@@ -78,6 +78,8 @@ instance AWSRequest AddUserToGroup where
 
 instance Hashable AddUserToGroup
 
+instance NFData AddUserToGroup
+
 instance ToHeaders AddUserToGroup where
         toHeaders = const mempty
 
@@ -102,3 +104,5 @@ data AddUserToGroupResponse =
 addUserToGroupResponse
     :: AddUserToGroupResponse
 addUserToGroupResponse = AddUserToGroupResponse'
+
+instance NFData AddUserToGroupResponse

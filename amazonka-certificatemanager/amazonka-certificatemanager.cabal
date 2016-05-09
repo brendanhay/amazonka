@@ -1,5 +1,5 @@
 name:                  amazonka-certificatemanager
-version:               1.4.0
+version:               1.4.1
 synopsis:              Amazon Certificate Manager SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -51,10 +51,13 @@ library
 
     exposed-modules:
           Network.AWS.CertificateManager
+        , Network.AWS.CertificateManager.AddTagsToCertificate
         , Network.AWS.CertificateManager.DeleteCertificate
         , Network.AWS.CertificateManager.DescribeCertificate
         , Network.AWS.CertificateManager.GetCertificate
         , Network.AWS.CertificateManager.ListCertificates
+        , Network.AWS.CertificateManager.ListTagsForCertificate
+        , Network.AWS.CertificateManager.RemoveTagsFromCertificate
         , Network.AWS.CertificateManager.RequestCertificate
         , Network.AWS.CertificateManager.ResendValidationEmail
         , Network.AWS.CertificateManager.Types
@@ -65,7 +68,7 @@ library
         , Network.AWS.CertificateManager.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.0.*
+          amazonka-core == 1.4.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-certificatemanager-test
@@ -85,9 +88,9 @@ test-suite amazonka-certificatemanager-test
         , Test.AWS.CertificateManager.Internal
 
     build-depends:
-          amazonka-core == 1.4.0.*
-        , amazonka-test == 1.4.0.*
-        , amazonka-certificatemanager == 1.4.0.*
+          amazonka-core == 1.4.1.*
+        , amazonka-test == 1.4.1.*
+        , amazonka-certificatemanager == 1.4.1.*
         , base
         , bytestring
         , tasty

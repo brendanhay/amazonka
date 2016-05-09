@@ -71,6 +71,8 @@ instance AWSRequest DeleteTopic where
 
 instance Hashable DeleteTopic
 
+instance NFData DeleteTopic
+
 instance ToHeaders DeleteTopic where
         toHeaders = const mempty
 
@@ -94,3 +96,5 @@ data DeleteTopicResponse =
 deleteTopicResponse
     :: DeleteTopicResponse
 deleteTopicResponse = DeleteTopicResponse'
+
+instance NFData DeleteTopicResponse

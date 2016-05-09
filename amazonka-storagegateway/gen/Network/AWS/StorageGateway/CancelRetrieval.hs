@@ -90,6 +90,8 @@ instance AWSRequest CancelRetrieval where
 
 instance Hashable CancelRetrieval
 
+instance NFData CancelRetrieval
+
 instance ToHeaders CancelRetrieval where
         toHeaders
           = const
@@ -145,3 +147,5 @@ crrsTapeARN = lens _crrsTapeARN (\ s a -> s{_crrsTapeARN = a});
 -- | The response status code.
 crrsResponseStatus :: Lens' CancelRetrievalResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
+
+instance NFData CancelRetrievalResponse

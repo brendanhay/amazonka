@@ -37,6 +37,9 @@ import Test.AWS.StorageGateway.Internal
 --         , testDescribeChapCredentials $
 --             describeChapCredentials
 --
+--         , testSetLocalConsolePassword $
+--             setLocalConsolePassword
+--
 --         , testCreateTapes $
 --             createTapes
 --
@@ -201,6 +204,9 @@ import Test.AWS.StorageGateway.Internal
 --
 --         , testDescribeChapCredentialsResponse $
 --             describeChapCredentialsResponse
+--
+--         , testSetLocalConsolePasswordResponse $
+--             setLocalConsolePasswordResponse
 --
 --         , testCreateTapesResponse $
 --             createTapesResponse
@@ -374,6 +380,11 @@ testDescribeChapCredentials :: DescribeChapCredentials -> TestTree
 testDescribeChapCredentials = req
     "DescribeChapCredentials"
     "fixture/DescribeChapCredentials.yaml"
+
+testSetLocalConsolePassword :: SetLocalConsolePassword -> TestTree
+testSetLocalConsolePassword = req
+    "SetLocalConsolePassword"
+    "fixture/SetLocalConsolePassword.yaml"
 
 testCreateTapes :: CreateTapes -> TestTree
 testCreateTapes = req
@@ -652,6 +663,13 @@ testDescribeChapCredentialsResponse = res
     "fixture/DescribeChapCredentialsResponse.proto"
     storageGateway
     (Proxy :: Proxy DescribeChapCredentials)
+
+testSetLocalConsolePasswordResponse :: SetLocalConsolePasswordResponse -> TestTree
+testSetLocalConsolePasswordResponse = res
+    "SetLocalConsolePasswordResponse"
+    "fixture/SetLocalConsolePasswordResponse.proto"
+    storageGateway
+    (Proxy :: Proxy SetLocalConsolePassword)
 
 testCreateTapesResponse :: CreateTapesResponse -> TestTree
 testCreateTapesResponse = res

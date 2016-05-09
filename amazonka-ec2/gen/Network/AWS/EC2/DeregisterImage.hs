@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deregisterImage' smart constructor.
+-- | Contains the parameters for DeregisterImage.
+--
+-- /See:/ 'deregisterImage' smart constructor.
 data DeregisterImage = DeregisterImage'
     { _diDryRun  :: !(Maybe Bool)
     , _diImageId :: !Text
@@ -83,6 +85,8 @@ instance AWSRequest DeregisterImage where
 
 instance Hashable DeregisterImage
 
+instance NFData DeregisterImage
+
 instance ToHeaders DeregisterImage where
         toHeaders = const mempty
 
@@ -106,3 +110,5 @@ data DeregisterImageResponse =
 deregisterImageResponse
     :: DeregisterImageResponse
 deregisterImageResponse = DeregisterImageResponse'
+
+instance NFData DeregisterImageResponse

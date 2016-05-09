@@ -62,6 +62,8 @@ instance FromXML AccessPoliciesStatus where
 
 instance Hashable AccessPoliciesStatus
 
+instance NFData AccessPoliciesStatus
+
 -- | Synonyms, stopwords, and stemming options for an analysis scheme.
 -- Includes tokenization dictionary for Japanese.
 --
@@ -154,6 +156,8 @@ instance FromXML AnalysisOptions where
 
 instance Hashable AnalysisOptions
 
+instance NFData AnalysisOptions
+
 instance ToQuery AnalysisOptions where
         toQuery AnalysisOptions'{..}
           = mconcat
@@ -218,6 +222,8 @@ instance FromXML AnalysisScheme where
 
 instance Hashable AnalysisScheme
 
+instance NFData AnalysisScheme
+
 instance ToQuery AnalysisScheme where
         toQuery AnalysisScheme'{..}
           = mconcat
@@ -266,6 +272,8 @@ instance FromXML AnalysisSchemeStatus where
 
 instance Hashable AnalysisSchemeStatus
 
+instance NFData AnalysisSchemeStatus
+
 -- | The status and configuration of the domain\'s availability options.
 --
 -- /See:/ 'availabilityOptionsStatus' smart constructor.
@@ -305,6 +313,8 @@ instance FromXML AvailabilityOptionsStatus where
               (x .@ "Options") <*> (x .@ "Status")
 
 instance Hashable AvailabilityOptionsStatus
+
+instance NFData AvailabilityOptionsStatus
 
 -- | Options for a field that contains an array of dates. Present if
 -- 'IndexFieldType' specifies the field is of type 'date-array'. All
@@ -373,6 +383,8 @@ instance FromXML DateArrayOptions where
                 <*> (x .@? "DefaultValue")
 
 instance Hashable DateArrayOptions
+
+instance NFData DateArrayOptions
 
 instance ToQuery DateArrayOptions where
         toQuery DateArrayOptions'{..}
@@ -461,6 +473,8 @@ instance FromXML DateOptions where
 
 instance Hashable DateOptions
 
+instance NFData DateOptions
+
 instance ToQuery DateOptions where
         toQuery DateOptions'{..}
           = mconcat
@@ -529,6 +543,8 @@ instance FromXML DocumentSuggesterOptions where
                 <*> (x .@ "SourceField")
 
 instance Hashable DocumentSuggesterOptions
+
+instance NFData DocumentSuggesterOptions
 
 instance ToQuery DocumentSuggesterOptions where
         toQuery DocumentSuggesterOptions'{..}
@@ -688,6 +704,8 @@ instance FromXML DomainStatus where
 
 instance Hashable DomainStatus
 
+instance NFData DomainStatus
+
 -- | Options for a field that contains an array of double-precision 64-bit
 -- floating point values. Present if 'IndexFieldType' specifies the field
 -- is of type 'double-array'. All options are enabled by default.
@@ -755,6 +773,8 @@ instance FromXML DoubleArrayOptions where
                 <*> (x .@? "DefaultValue")
 
 instance Hashable DoubleArrayOptions
+
+instance NFData DoubleArrayOptions
 
 instance ToQuery DoubleArrayOptions where
         toQuery DoubleArrayOptions'{..}
@@ -843,6 +863,8 @@ instance FromXML DoubleOptions where
 
 instance Hashable DoubleOptions
 
+instance NFData DoubleOptions
+
 instance ToQuery DoubleOptions where
         toQuery DoubleOptions'{..}
           = mconcat
@@ -895,6 +917,8 @@ instance FromXML Expression where
 
 instance Hashable Expression
 
+instance NFData Expression
+
 instance ToQuery Expression where
         toQuery Expression'{..}
           = mconcat
@@ -941,6 +965,8 @@ instance FromXML ExpressionStatus where
               (x .@ "Options") <*> (x .@ "Status")
 
 instance Hashable ExpressionStatus
+
+instance NFData ExpressionStatus
 
 -- | Configuration information for a field in the index, including its name,
 -- type, and options. The supported options depend on the 'IndexFieldType'.
@@ -1097,6 +1123,8 @@ instance FromXML IndexField where
 
 instance Hashable IndexField
 
+instance NFData IndexField
+
 instance ToQuery IndexField where
         toQuery IndexField'{..}
           = mconcat
@@ -1153,6 +1181,8 @@ instance FromXML IndexFieldStatus where
               (x .@ "Options") <*> (x .@ "Status")
 
 instance Hashable IndexFieldStatus
+
+instance NFData IndexFieldStatus
 
 -- | Options for a field that contains an array of 64-bit signed integers.
 -- Present if 'IndexFieldType' specifies the field is of type 'int-array'.
@@ -1221,6 +1251,8 @@ instance FromXML IntArrayOptions where
                 <*> (x .@? "DefaultValue")
 
 instance Hashable IntArrayOptions
+
+instance NFData IntArrayOptions
 
 instance ToQuery IntArrayOptions where
         toQuery IntArrayOptions'{..}
@@ -1308,6 +1340,8 @@ instance FromXML IntOptions where
                 <*> (x .@? "DefaultValue")
 
 instance Hashable IntOptions
+
+instance NFData IntOptions
 
 instance ToQuery IntOptions where
         toQuery IntOptions'{..}
@@ -1397,6 +1431,8 @@ instance FromXML LatLonOptions where
 
 instance Hashable LatLonOptions
 
+instance NFData LatLonOptions
+
 instance ToQuery LatLonOptions where
         toQuery LatLonOptions'{..}
           = mconcat
@@ -1445,6 +1481,8 @@ instance FromXML Limits where
                 (x .@ "MaximumPartitionCount")
 
 instance Hashable Limits
+
+instance NFData Limits
 
 -- | Options for a field that contains an array of literal strings. Present
 -- if 'IndexFieldType' specifies the field is of type 'literal-array'. All
@@ -1513,6 +1551,8 @@ instance FromXML LiteralArrayOptions where
                 <*> (x .@? "DefaultValue")
 
 instance Hashable LiteralArrayOptions
+
+instance NFData LiteralArrayOptions
 
 instance ToQuery LiteralArrayOptions where
         toQuery LiteralArrayOptions'{..}
@@ -1598,6 +1638,8 @@ instance FromXML LiteralOptions where
                 <*> (x .@? "DefaultValue")
 
 instance Hashable LiteralOptions
+
+instance NFData LiteralOptions
 
 instance ToQuery LiteralOptions where
         toQuery LiteralOptions'{..}
@@ -1688,6 +1730,8 @@ instance FromXML OptionStatus where
 
 instance Hashable OptionStatus
 
+instance NFData OptionStatus
+
 -- | The desired instance type and desired number of replicas of each index
 -- partition.
 --
@@ -1740,6 +1784,8 @@ instance FromXML ScalingParameters where
 
 instance Hashable ScalingParameters
 
+instance NFData ScalingParameters
+
 instance ToQuery ScalingParameters where
         toQuery ScalingParameters'{..}
           = mconcat
@@ -1788,6 +1834,8 @@ instance FromXML ScalingParametersStatus where
 
 instance Hashable ScalingParametersStatus
 
+instance NFData ScalingParametersStatus
+
 -- | The endpoint to which service requests can be submitted.
 --
 -- /See:/ 'serviceEndpoint' smart constructor.
@@ -1815,6 +1863,8 @@ instance FromXML ServiceEndpoint where
         parseXML x = ServiceEndpoint' <$> (x .@? "Endpoint")
 
 instance Hashable ServiceEndpoint
+
+instance NFData ServiceEndpoint
 
 -- | Configuration information for a search suggester. Each suggester has a
 -- unique name and specifies the text field you want to use for
@@ -1859,6 +1909,8 @@ instance FromXML Suggester where
                 (x .@ "DocumentSuggesterOptions")
 
 instance Hashable Suggester
+
+instance NFData Suggester
 
 instance ToQuery Suggester where
         toQuery Suggester'{..}
@@ -1906,6 +1958,8 @@ instance FromXML SuggesterStatus where
               (x .@ "Options") <*> (x .@ "Status")
 
 instance Hashable SuggesterStatus
+
+instance NFData SuggesterStatus
 
 -- | Options for a field that contains an array of text strings. Present if
 -- 'IndexFieldType' specifies the field is of type 'text-array'. A
@@ -1975,6 +2029,8 @@ instance FromXML TextArrayOptions where
                 <*> (x .@? "DefaultValue")
 
 instance Hashable TextArrayOptions
+
+instance NFData TextArrayOptions
 
 instance ToQuery TextArrayOptions where
         toQuery TextArrayOptions'{..}
@@ -2061,6 +2117,8 @@ instance FromXML TextOptions where
                 <*> (x .@? "DefaultValue")
 
 instance Hashable TextOptions
+
+instance NFData TextOptions
 
 instance ToQuery TextOptions where
         toQuery TextOptions'{..}

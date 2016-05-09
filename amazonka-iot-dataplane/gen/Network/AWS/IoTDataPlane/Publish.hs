@@ -92,6 +92,8 @@ instance AWSRequest Publish where
 
 instance Hashable Publish
 
+instance NFData Publish
+
 instance ToBody Publish where
         toBody = toBody . _pPayload
 
@@ -115,3 +117,5 @@ data PublishResponse =
 publishResponse
     :: PublishResponse
 publishResponse = PublishResponse'
+
+instance NFData PublishResponse

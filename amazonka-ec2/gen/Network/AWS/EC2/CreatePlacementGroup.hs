@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createPlacementGroup' smart constructor.
+-- | Contains the parameters for CreatePlacementGroup.
+--
+-- /See:/ 'createPlacementGroup' smart constructor.
 data CreatePlacementGroup = CreatePlacementGroup'
     { _cpgDryRun    :: !(Maybe Bool)
     , _cpgGroupName :: !Text
@@ -99,6 +101,8 @@ instance AWSRequest CreatePlacementGroup where
 
 instance Hashable CreatePlacementGroup
 
+instance NFData CreatePlacementGroup
+
 instance ToHeaders CreatePlacementGroup where
         toHeaders = const mempty
 
@@ -123,3 +127,5 @@ data CreatePlacementGroupResponse =
 createPlacementGroupResponse
     :: CreatePlacementGroupResponse
 createPlacementGroupResponse = CreatePlacementGroupResponse'
+
+instance NFData CreatePlacementGroupResponse

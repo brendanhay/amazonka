@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteCertificate' smart constructor.
+-- |
+--
+-- /See:/ 'deleteCertificate' smart constructor.
 newtype DeleteCertificate = DeleteCertificate'
     { _dcCertificateARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -82,6 +84,8 @@ instance AWSRequest DeleteCertificate where
 
 instance Hashable DeleteCertificate
 
+instance NFData DeleteCertificate
+
 instance ToHeaders DeleteCertificate where
         toHeaders
           = const
@@ -114,3 +118,5 @@ data DeleteCertificateResponse =
 deleteCertificateResponse
     :: DeleteCertificateResponse
 deleteCertificateResponse = DeleteCertificateResponse'
+
+instance NFData DeleteCertificateResponse

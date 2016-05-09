@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyNetworkInterfaceAttribute' smart constructor.
+-- | Contains the parameters for ModifyNetworkInterfaceAttribute.
+--
+-- /See:/ 'modifyNetworkInterfaceAttribute' smart constructor.
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
     { _mniaGroups             :: !(Maybe [Text])
     , _mniaSourceDestCheck    :: !(Maybe AttributeBooleanValue)
@@ -131,6 +133,8 @@ instance AWSRequest ModifyNetworkInterfaceAttribute
 
 instance Hashable ModifyNetworkInterfaceAttribute
 
+instance NFData ModifyNetworkInterfaceAttribute
+
 instance ToHeaders ModifyNetworkInterfaceAttribute
          where
         toHeaders = const mempty
@@ -164,3 +168,6 @@ modifyNetworkInterfaceAttributeResponse
     :: ModifyNetworkInterfaceAttributeResponse
 modifyNetworkInterfaceAttributeResponse =
     ModifyNetworkInterfaceAttributeResponse'
+
+instance NFData
+         ModifyNetworkInterfaceAttributeResponse

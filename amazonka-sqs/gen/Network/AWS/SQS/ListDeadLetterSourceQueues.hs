@@ -81,6 +81,8 @@ instance AWSRequest ListDeadLetterSourceQueues where
 
 instance Hashable ListDeadLetterSourceQueues
 
+instance NFData ListDeadLetterSourceQueues
+
 instance ToHeaders ListDeadLetterSourceQueues where
         toHeaders = const mempty
 
@@ -127,3 +129,5 @@ ldlsqrsResponseStatus = lens _ldlsqrsResponseStatus (\ s a -> s{_ldlsqrsResponse
 -- configured with a dead letter queue.
 ldlsqrsQueueURLs :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrsQueueURLs = lens _ldlsqrsQueueURLs (\ s a -> s{_ldlsqrsQueueURLs = a}) . _Coerce;
+
+instance NFData ListDeadLetterSourceQueuesResponse

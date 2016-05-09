@@ -99,6 +99,8 @@ instance AWSRequest DescribeServiceAccessPolicies
 
 instance Hashable DescribeServiceAccessPolicies
 
+instance NFData DescribeServiceAccessPolicies
+
 instance ToHeaders DescribeServiceAccessPolicies
          where
         toHeaders = const mempty
@@ -147,3 +149,5 @@ dsaprsResponseStatus = lens _dsaprsResponseStatus (\ s a -> s{_dsaprsResponseSta
 -- | The access rules configured for the domain specified in the request.
 dsaprsAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
 dsaprsAccessPolicies = lens _dsaprsAccessPolicies (\ s a -> s{_dsaprsAccessPolicies = a});
+
+instance NFData DescribeServiceAccessPoliciesResponse

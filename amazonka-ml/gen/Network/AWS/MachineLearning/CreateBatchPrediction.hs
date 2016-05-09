@@ -139,6 +139,8 @@ instance AWSRequest CreateBatchPrediction where
 
 instance Hashable CreateBatchPrediction
 
+instance NFData CreateBatchPrediction
+
 instance ToHeaders CreateBatchPrediction where
         toHeaders
           = const
@@ -206,3 +208,5 @@ cbprsBatchPredictionId = lens _cbprsBatchPredictionId (\ s a -> s{_cbprsBatchPre
 -- | The response status code.
 cbprsResponseStatus :: Lens' CreateBatchPredictionResponse Int
 cbprsResponseStatus = lens _cbprsResponseStatus (\ s a -> s{_cbprsResponseStatus = a});
+
+instance NFData CreateBatchPredictionResponse

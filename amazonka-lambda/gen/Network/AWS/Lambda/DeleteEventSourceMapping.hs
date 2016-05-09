@@ -82,6 +82,8 @@ instance AWSRequest DeleteEventSourceMapping where
 
 instance Hashable DeleteEventSourceMapping
 
+instance NFData DeleteEventSourceMapping
+
 instance ToHeaders DeleteEventSourceMapping where
         toHeaders = const mempty
 

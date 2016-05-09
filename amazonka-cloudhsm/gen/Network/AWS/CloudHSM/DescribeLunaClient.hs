@@ -93,6 +93,8 @@ instance AWSRequest DescribeLunaClient where
 
 instance Hashable DescribeLunaClient
 
+instance NFData DescribeLunaClient
+
 instance ToHeaders DescribeLunaClient where
         toHeaders
           = const
@@ -178,3 +180,5 @@ drsLabel = lens _drsLabel (\ s a -> s{_drsLabel = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DescribeLunaClientResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DescribeLunaClientResponse

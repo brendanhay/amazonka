@@ -83,6 +83,8 @@ instance AWSRequest CreateDomain where
 
 instance Hashable CreateDomain
 
+instance NFData CreateDomain
+
 instance ToHeaders CreateDomain where
         toHeaders = const mempty
 
@@ -128,3 +130,5 @@ cdrsDomainStatus = lens _cdrsDomainStatus (\ s a -> s{_cdrsDomainStatus = a});
 -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDomainResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+
+instance NFData CreateDomainResponse

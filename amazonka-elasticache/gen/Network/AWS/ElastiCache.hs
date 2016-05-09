@@ -249,6 +249,9 @@ module Network.AWS.ElastiCache
     -- ** ResetCacheParameterGroup
     , module Network.AWS.ElastiCache.ResetCacheParameterGroup
 
+    -- ** ListAllowedNodeTypeModifications
+    , module Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
+
     -- ** DescribeSnapshots (Paginated)
     , module Network.AWS.ElastiCache.DescribeSnapshots
 
@@ -494,6 +497,7 @@ module Network.AWS.ElastiCache
     , PendingModifiedValues
     , pendingModifiedValues
     , pmvEngineVersion
+    , pmvCacheNodeType
     , pmvCacheNodeIdsToRemove
     , pmvNumCacheNodes
 
@@ -624,6 +628,7 @@ import           Network.AWS.ElastiCache.DescribeReplicationGroups
 import           Network.AWS.ElastiCache.DescribeReservedCacheNodes
 import           Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
 import           Network.AWS.ElastiCache.DescribeSnapshots
+import           Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
 import           Network.AWS.ElastiCache.ListTagsForResource
 import           Network.AWS.ElastiCache.ModifyCacheCluster
 import           Network.AWS.ElastiCache.ModifyCacheParameterGroup

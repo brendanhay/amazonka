@@ -93,6 +93,8 @@ instance AWSRequest DescribeHAPG where
 
 instance Hashable DescribeHAPG
 
+instance NFData DescribeHAPG
+
 instance ToHeaders DescribeHAPG where
         toHeaders
           = const
@@ -211,3 +213,5 @@ dhapgrsLabel = lens _dhapgrsLabel (\ s a -> s{_dhapgrsLabel = a});
 -- | The response status code.
 dhapgrsResponseStatus :: Lens' DescribeHAPGResponse Int
 dhapgrsResponseStatus = lens _dhapgrsResponseStatus (\ s a -> s{_dhapgrsResponseStatus = a});
+
+instance NFData DescribeHAPGResponse

@@ -104,6 +104,8 @@ instance AWSRequest SetTerminationProtection where
 
 instance Hashable SetTerminationProtection
 
+instance NFData SetTerminationProtection
+
 instance ToHeaders SetTerminationProtection where
         toHeaders
           = const
@@ -139,3 +141,5 @@ data SetTerminationProtectionResponse =
 setTerminationProtectionResponse
     :: SetTerminationProtectionResponse
 setTerminationProtectionResponse = SetTerminationProtectionResponse'
+
+instance NFData SetTerminationProtectionResponse

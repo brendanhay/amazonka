@@ -23,7 +23,12 @@
 -- Scheduled Instances enable you to purchase Amazon EC2 compute capacity
 -- by the hour for a one-year term. Before you can purchase a Scheduled
 -- Instance, you must call < DescribeScheduledInstanceAvailability> to
--- check for available schedules and obtain a purchase token.
+-- check for available schedules and obtain a purchase token. After you
+-- purchase a Scheduled Instance, you must call < RunScheduledInstances>
+-- during each scheduled time period.
+--
+-- After you purchase a Scheduled Instance, you can\'t cancel, modify, or
+-- resell your purchase.
 module Network.AWS.EC2.PurchaseScheduledInstances
     (
     -- * Creating a Request
@@ -108,6 +113,8 @@ instance AWSRequest PurchaseScheduledInstances where
 
 instance Hashable PurchaseScheduledInstances
 
+instance NFData PurchaseScheduledInstances
+
 instance ToHeaders PurchaseScheduledInstances where
         toHeaders = const mempty
 
@@ -155,3 +162,5 @@ psirsScheduledInstanceSet = lens _psirsScheduledInstanceSet (\ s a -> s{_psirsSc
 -- | The response status code.
 psirsResponseStatus :: Lens' PurchaseScheduledInstancesResponse Int
 psirsResponseStatus = lens _psirsResponseStatus (\ s a -> s{_psirsResponseStatus = a});
+
+instance NFData PurchaseScheduledInstancesResponse

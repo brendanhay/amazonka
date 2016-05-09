@@ -90,6 +90,8 @@ instance AWSRequest RefreshSchemas where
 
 instance Hashable RefreshSchemas
 
+instance NFData RefreshSchemas
+
 instance ToHeaders RefreshSchemas where
         toHeaders
           = const
@@ -143,3 +145,5 @@ rsrsRefreshSchemasStatus = lens _rsrsRefreshSchemasStatus (\ s a -> s{_rsrsRefre
 -- | The response status code.
 rsrsResponseStatus :: Lens' RefreshSchemasResponse Int
 rsrsResponseStatus = lens _rsrsResponseStatus (\ s a -> s{_rsrsResponseStatus = a});
+
+instance NFData RefreshSchemasResponse

@@ -62,6 +62,8 @@ instance FromXML AccountAttribute where
 
 instance Hashable AccountAttribute
 
+instance NFData AccountAttribute
+
 -- | Describes a value of an account attribute.
 --
 -- /See:/ 'accountAttributeValue' smart constructor.
@@ -90,6 +92,8 @@ instance FromXML AccountAttributeValue where
           = AccountAttributeValue' <$> (x .@? "attributeValue")
 
 instance Hashable AccountAttributeValue
+
+instance NFData AccountAttributeValue
 
 -- | Describes a running instance in a Spot fleet.
 --
@@ -137,6 +141,8 @@ instance FromXML ActiveInstance where
                 (x .@? "spotInstanceRequestId")
 
 instance Hashable ActiveInstance
+
+instance NFData ActiveInstance
 
 -- | Describes an Elastic IP address.
 --
@@ -232,6 +238,8 @@ instance FromXML Address where
 
 instance Hashable Address
 
+instance NFData Address
+
 -- | The value to use when a resource attribute accepts a Boolean value.
 --
 -- /See:/ 'attributeBooleanValue' smart constructor.
@@ -260,6 +268,8 @@ instance FromXML AttributeBooleanValue where
           = AttributeBooleanValue' <$> (x .@? "value")
 
 instance Hashable AttributeBooleanValue
+
+instance NFData AttributeBooleanValue
 
 instance ToQuery AttributeBooleanValue where
         toQuery AttributeBooleanValue'{..}
@@ -292,6 +302,8 @@ instance FromXML AttributeValue where
         parseXML x = AttributeValue' <$> (x .@? "value")
 
 instance Hashable AttributeValue
+
+instance NFData AttributeValue
 
 instance ToQuery AttributeValue where
         toQuery AttributeValue'{..}
@@ -355,6 +367,8 @@ instance FromXML AvailabilityZone where
 
 instance Hashable AvailabilityZone
 
+instance NFData AvailabilityZone
+
 -- | Describes a message about an Availability Zone.
 --
 -- /See:/ 'availabilityZoneMessage' smart constructor.
@@ -383,6 +397,8 @@ instance FromXML AvailabilityZoneMessage where
           = AvailabilityZoneMessage' <$> (x .@? "message")
 
 instance Hashable AvailabilityZoneMessage
+
+instance NFData AvailabilityZoneMessage
 
 -- | The capacity information for instances launched onto the Dedicated host.
 --
@@ -424,6 +440,8 @@ instance FromXML AvailableCapacity where
 
 instance Hashable AvailableCapacity
 
+instance NFData AvailableCapacity
+
 -- | /See:/ 'blobAttributeValue' smart constructor.
 newtype BlobAttributeValue = BlobAttributeValue'
     { _bavValue :: Maybe Base64
@@ -452,6 +470,8 @@ bavValue :: Lens' BlobAttributeValue (Maybe ByteString)
 bavValue = lens _bavValue (\ s a -> s{_bavValue = a}) . mapping _Base64;
 
 instance Hashable BlobAttributeValue
+
+instance NFData BlobAttributeValue
 
 instance ToQuery BlobAttributeValue where
         toQuery BlobAttributeValue'{..}
@@ -525,6 +545,8 @@ instance FromXML BlockDeviceMapping where
                 <*> (x .@ "deviceName")
 
 instance Hashable BlockDeviceMapping
+
+instance NFData BlockDeviceMapping
 
 instance ToQuery BlockDeviceMapping where
         toQuery BlockDeviceMapping'{..}
@@ -632,6 +654,8 @@ instance FromXML BundleTask where
 
 instance Hashable BundleTask
 
+instance NFData BundleTask
+
 -- | Describes an error for < BundleInstance>.
 --
 -- /See:/ 'bundleTaskError' smart constructor.
@@ -669,6 +693,8 @@ instance FromXML BundleTaskError where
               (x .@? "code") <*> (x .@? "message")
 
 instance Hashable BundleTaskError
+
+instance NFData BundleTaskError
 
 -- | Describes a Spot fleet error.
 --
@@ -710,6 +736,8 @@ instance FromXML CancelSpotFleetRequestsError where
 
 instance Hashable CancelSpotFleetRequestsError
 
+instance NFData CancelSpotFleetRequestsError
+
 -- | Describes a Spot fleet request that was not successfully canceled.
 --
 -- /See:/ 'cancelSpotFleetRequestsErrorItem' smart constructor.
@@ -750,6 +778,8 @@ instance FromXML CancelSpotFleetRequestsErrorItem
               (x .@ "spotFleetRequestId") <*> (x .@ "error")
 
 instance Hashable CancelSpotFleetRequestsErrorItem
+
+instance NFData CancelSpotFleetRequestsErrorItem
 
 -- | Describes a Spot fleet request that was successfully canceled.
 --
@@ -803,6 +833,8 @@ instance FromXML CancelSpotFleetRequestsSuccessItem
 
 instance Hashable CancelSpotFleetRequestsSuccessItem
 
+instance NFData CancelSpotFleetRequestsSuccessItem
+
 -- | Describes a request to cancel a Spot instance.
 --
 -- /See:/ 'cancelledSpotInstanceRequest' smart constructor.
@@ -841,6 +873,8 @@ instance FromXML CancelledSpotInstanceRequest where
 
 instance Hashable CancelledSpotInstanceRequest
 
+instance NFData CancelledSpotInstanceRequest
+
 -- | Describes the ClassicLink DNS support status of a VPC.
 --
 -- /See:/ 'classicLinkDNSSupport' smart constructor.
@@ -878,6 +912,8 @@ instance FromXML ClassicLinkDNSSupport where
               (x .@? "vpcId") <*> (x .@? "classicLinkDnsSupported")
 
 instance Hashable ClassicLinkDNSSupport
+
+instance NFData ClassicLinkDNSSupport
 
 -- | Describes a linked EC2-Classic instance.
 --
@@ -939,6 +975,8 @@ instance FromXML ClassicLinkInstance where
 
 instance Hashable ClassicLinkInstance
 
+instance NFData ClassicLinkInstance
+
 -- | Describes the client-specific data.
 --
 -- /See:/ 'clientData' smart constructor.
@@ -987,6 +1025,8 @@ cdComment :: Lens' ClientData (Maybe Text)
 cdComment = lens _cdComment (\ s a -> s{_cdComment = a});
 
 instance Hashable ClientData
+
+instance NFData ClientData
 
 instance ToQuery ClientData where
         toQuery ClientData'{..}
@@ -1085,6 +1125,8 @@ instance FromXML ConversionTask where
 
 instance Hashable ConversionTask
 
+instance NFData ConversionTask
+
 -- | Describes the user or group to be added or removed from the permissions
 -- for a volume.
 --
@@ -1126,6 +1168,8 @@ instance FromXML CreateVolumePermission where
 
 instance Hashable CreateVolumePermission
 
+instance NFData CreateVolumePermission
+
 instance ToQuery CreateVolumePermission where
         toQuery CreateVolumePermission'{..}
           = mconcat
@@ -1165,6 +1209,8 @@ cvpmAdd :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
 cvpmAdd = lens _cvpmAdd (\ s a -> s{_cvpmAdd = a}) . _Default . _Coerce;
 
 instance Hashable CreateVolumePermissionModifications
+
+instance NFData CreateVolumePermissionModifications
 
 instance ToQuery CreateVolumePermissionModifications
          where
@@ -1257,6 +1303,8 @@ instance FromXML CustomerGateway where
 
 instance Hashable CustomerGateway
 
+instance NFData CustomerGateway
+
 -- | Describes a DHCP configuration option.
 --
 -- /See:/ 'dhcpConfiguration' smart constructor.
@@ -1296,6 +1344,8 @@ instance FromXML DHCPConfiguration where
                 <*> (x .@? "key")
 
 instance Hashable DHCPConfiguration
+
+instance NFData DHCPConfiguration
 
 -- | Describes a set of DHCP options.
 --
@@ -1348,6 +1398,8 @@ instance FromXML DHCPOptions where
 
 instance Hashable DHCPOptions
 
+instance NFData DHCPOptions
+
 -- | Describes a disk image.
 --
 -- /See:/ 'diskImage' smart constructor.
@@ -1388,6 +1440,8 @@ diDescription :: Lens' DiskImage (Maybe Text)
 diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
 
 instance Hashable DiskImage
+
+instance NFData DiskImage
 
 instance ToQuery DiskImage where
         toQuery DiskImage'{..}
@@ -1462,6 +1516,8 @@ instance FromXML DiskImageDescription where
 
 instance Hashable DiskImageDescription
 
+instance NFData DiskImageDescription
+
 -- | Describes a disk image.
 --
 -- /See:/ 'diskImageDetail' smart constructor.
@@ -1515,6 +1571,8 @@ didImportManifestURL = lens _didImportManifestURL (\ s a -> s{_didImportManifest
 
 instance Hashable DiskImageDetail
 
+instance NFData DiskImageDetail
+
 instance ToQuery DiskImageDetail where
         toQuery DiskImageDetail'{..}
           = mconcat
@@ -1559,6 +1617,8 @@ instance FromXML DiskImageVolumeDescription where
               (x .@? "size") <*> (x .@ "id")
 
 instance Hashable DiskImageVolumeDescription
+
+instance NFData DiskImageVolumeDescription
 
 -- | Describes a block device for an EBS volume.
 --
@@ -1605,9 +1665,11 @@ ebdDeleteOnTermination = lens _ebdDeleteOnTermination (\ s a -> s{_ebdDeleteOnTe
 
 -- | The size of the volume, in GiB.
 --
--- Constraints: '1-1024' for 'standard' volumes, '1-16384' for 'gp2'
--- volumes, and '4-16384' for 'io1' volumes. If you specify a snapshot, the
--- volume size must be equal to or larger than the snapshot size.
+-- Constraints: 1-16384 for General Purpose SSD ('gp2'), 4-16384 for
+-- Provisioned IOPS SSD ('io1'), 500-16384 for Throughput Optimized HDD
+-- ('st1'), 500-16384 for Cold HDD ('sc1'), and 1-1024 for Magnetic
+-- ('standard') volumes. If you specify a snapshot, the volume size must be
+-- equal to or larger than the snapshot size.
 --
 -- Default: If you\'re creating the volume from a snapshot and don\'t
 -- specify a volume size, the default is the snapshot size.
@@ -1615,21 +1677,20 @@ ebdVolumeSize :: Lens' EBSBlockDevice (Maybe Int)
 ebdVolumeSize = lens _ebdVolumeSize (\ s a -> s{_ebdVolumeSize = a});
 
 -- | The number of I\/O operations per second (IOPS) that the volume
--- supports. For Provisioned IOPS (SSD) volumes, this represents the number
--- of IOPS that are provisioned for the volume. For General Purpose (SSD)
--- volumes, this represents the baseline performance of the volume and the
--- rate at which the volume accumulates I\/O credits for bursting. For more
--- information on General Purpose (SSD) baseline performance, I\/O credits,
--- and bursting, see
+-- supports. For io1, this represents the number of IOPS that are
+-- provisioned for the volume. For 'gp2', this represents the baseline
+-- performance of the volume and the rate at which the volume accumulates
+-- I\/O credits for bursting. For more information on General Purpose SSD
+-- baseline performance, I\/O credits, and bursting, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and
--- 3 to 10000 for General Purpose (SSD) volumes.
+-- Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS
+-- for 'gp2' volumes.
 --
 -- Condition: This parameter is required for requests to create 'io1'
--- volumes; it is not used in requests to create 'standard' or 'gp2'
--- volumes.
+-- volumes; it is not used in requests to create 'gp2', 'st1', 'sc1', or
+-- 'standard' volumes.
 ebdIOPS :: Lens' EBSBlockDevice (Maybe Int)
 ebdIOPS = lens _ebdIOPS (\ s a -> s{_ebdIOPS = a});
 
@@ -1639,8 +1700,7 @@ ebdIOPS = lens _ebdIOPS (\ s a -> s{_ebdIOPS = a});
 ebdEncrypted :: Lens' EBSBlockDevice (Maybe Bool)
 ebdEncrypted = lens _ebdEncrypted (\ s a -> s{_ebdEncrypted = a});
 
--- | The volume type. 'gp2' for General Purpose (SSD) volumes, 'io1' for
--- Provisioned IOPS (SSD) volumes, and 'standard' for Magnetic volumes.
+-- | The volume type: 'gp2', 'io1', 'st1', 'sc1', or 'standard'.
 --
 -- Default: 'standard'
 ebdVolumeType :: Lens' EBSBlockDevice (Maybe VolumeType)
@@ -1661,6 +1721,8 @@ instance FromXML EBSBlockDevice where
                 <*> (x .@? "snapshotId")
 
 instance Hashable EBSBlockDevice
+
+instance NFData EBSBlockDevice
 
 instance ToQuery EBSBlockDevice where
         toQuery EBSBlockDevice'{..}
@@ -1728,7 +1790,12 @@ instance FromXML EBSInstanceBlockDevice where
 
 instance Hashable EBSInstanceBlockDevice
 
--- | /See:/ 'ebsInstanceBlockDeviceSpecification' smart constructor.
+instance NFData EBSInstanceBlockDevice
+
+-- | Describes information used to set up an EBS volume specified in a block
+-- device mapping.
+--
+-- /See:/ 'ebsInstanceBlockDeviceSpecification' smart constructor.
 data EBSInstanceBlockDeviceSpecification = EBSInstanceBlockDeviceSpecification'
     { _eibdsDeleteOnTermination :: !(Maybe Bool)
     , _eibdsVolumeId            :: !(Maybe Text)
@@ -1758,6 +1825,8 @@ eibdsVolumeId :: Lens' EBSInstanceBlockDeviceSpecification (Maybe Text)
 eibdsVolumeId = lens _eibdsVolumeId (\ s a -> s{_eibdsVolumeId = a});
 
 instance Hashable EBSInstanceBlockDeviceSpecification
+
+instance NFData EBSInstanceBlockDeviceSpecification
 
 instance ToQuery EBSInstanceBlockDeviceSpecification
          where
@@ -1867,6 +1936,8 @@ instance FromXML EventInformation where
 
 instance Hashable EventInformation
 
+instance NFData EventInformation
+
 -- | Describes an instance export task.
 --
 -- /See:/ 'exportTask' smart constructor.
@@ -1947,6 +2018,8 @@ instance FromXML ExportTask where
 
 instance Hashable ExportTask
 
+instance NFData ExportTask
+
 -- | Describes the format and location for an instance export task.
 --
 -- /See:/ 'exportToS3Task' smart constructor.
@@ -2006,6 +2079,8 @@ instance FromXML ExportToS3Task where
 
 instance Hashable ExportToS3Task
 
+instance NFData ExportToS3Task
+
 -- | Describes an instance export task.
 --
 -- /See:/ 'exportToS3TaskSpecification' smart constructor.
@@ -2059,6 +2134,8 @@ etstsDiskImageFormat = lens _etstsDiskImageFormat (\ s a -> s{_etstsDiskImageFor
 
 instance Hashable ExportToS3TaskSpecification
 
+instance NFData ExportToS3TaskSpecification
+
 instance ToQuery ExportToS3TaskSpecification where
         toQuery ExportToS3TaskSpecification'{..}
           = mconcat
@@ -2102,6 +2179,8 @@ fName :: Lens' Filter Text
 fName = lens _fName (\ s a -> s{_fName = a});
 
 instance Hashable Filter
+
+instance NFData Filter
 
 instance ToQuery Filter where
         toQuery Filter'{..}
@@ -2216,6 +2295,8 @@ instance FromXML FlowLog where
 
 instance Hashable FlowLog
 
+instance NFData FlowLog
+
 -- | Describes a security group.
 --
 -- /See:/ 'groupIdentifier' smart constructor.
@@ -2253,6 +2334,8 @@ instance FromXML GroupIdentifier where
               (x .@? "groupId") <*> (x .@? "groupName")
 
 instance Hashable GroupIdentifier
+
+instance NFData GroupIdentifier
 
 instance ToQuery GroupIdentifier where
         toQuery GroupIdentifier'{..}
@@ -2319,6 +2402,8 @@ instance FromXML HistoryRecord where
                 (x .@ "eventInformation")
 
 instance Hashable HistoryRecord
+
+instance NFData HistoryRecord
 
 -- | Describes the properties of the Dedicated host.
 --
@@ -2429,7 +2514,11 @@ instance FromXML Host where
 
 instance Hashable Host
 
--- | /See:/ 'hostInstance' smart constructor.
+instance NFData Host
+
+-- | Describes an instance running on a Dedicated host.
+--
+-- /See:/ 'hostInstance' smart constructor.
 data HostInstance = HostInstance'
     { _hiInstanceId   :: !(Maybe Text)
     , _hiInstanceType :: !(Maybe Text)
@@ -2454,7 +2543,7 @@ hostInstance =
 hiInstanceId :: Lens' HostInstance (Maybe Text)
 hiInstanceId = lens _hiInstanceId (\ s a -> s{_hiInstanceId = a});
 
--- | The instance type size (e.g., m3.medium) of the running instance.
+-- | The instance type size (for example, m3.medium) of the running instance.
 hiInstanceType :: Lens' HostInstance (Maybe Text)
 hiInstanceType = lens _hiInstanceType (\ s a -> s{_hiInstanceType = a});
 
@@ -2465,7 +2554,11 @@ instance FromXML HostInstance where
 
 instance Hashable HostInstance
 
--- | /See:/ 'hostProperties' smart constructor.
+instance NFData HostInstance
+
+-- | Describes properties of a Dedicated host.
+--
+-- /See:/ 'hostProperties' smart constructor.
 data HostProperties = HostProperties'
     { _hpInstanceType :: !(Maybe Text)
     , _hpTotalVCPUs   :: !(Maybe Int)
@@ -2494,7 +2587,7 @@ hostProperties =
     , _hpSockets = Nothing
     }
 
--- | The instance type size that the Dedicated host supports (e.g.,
+-- | The instance type size that the Dedicated host supports (for example,
 -- m3.medium).
 hpInstanceType :: Lens' HostProperties (Maybe Text)
 hpInstanceType = lens _hpInstanceType (\ s a -> s{_hpInstanceType = a});
@@ -2519,6 +2612,8 @@ instance FromXML HostProperties where
                 <*> (x .@? "sockets")
 
 instance Hashable HostProperties
+
+instance NFData HostProperties
 
 -- | Describes an IAM instance profile.
 --
@@ -2558,6 +2653,8 @@ instance FromXML IAMInstanceProfile where
 
 instance Hashable IAMInstanceProfile
 
+instance NFData IAMInstanceProfile
+
 -- | Describes an IAM instance profile.
 --
 -- /See:/ 'iamInstanceProfileSpecification' smart constructor.
@@ -2596,6 +2693,8 @@ instance FromXML IAMInstanceProfileSpecification
               (x .@? "arn") <*> (x .@? "name")
 
 instance Hashable IAMInstanceProfileSpecification
+
+instance NFData IAMInstanceProfileSpecification
 
 instance ToQuery IAMInstanceProfileSpecification
          where
@@ -2639,6 +2738,8 @@ instance FromXML ICMPTypeCode where
           = ICMPTypeCode' <$> (x .@? "code") <*> (x .@? "type")
 
 instance Hashable ICMPTypeCode
+
+instance NFData ICMPTypeCode
 
 instance ToQuery ICMPTypeCode where
         toQuery ICMPTypeCode'{..}
@@ -2735,6 +2836,8 @@ instance FromXML IPPermission where
 
 instance Hashable IPPermission
 
+instance NFData IPPermission
+
 instance ToQuery IPPermission where
         toQuery IPPermission'{..}
           = mconcat
@@ -2776,6 +2879,8 @@ instance FromXML IPRange where
         parseXML x = IPRange' <$> (x .@ "cidrIp")
 
 instance Hashable IPRange
+
+instance NFData IPRange
 
 instance ToQuery IPRange where
         toQuery IPRange'{..}
@@ -2830,6 +2935,8 @@ instance FromXML IdFormat where
                 (x .@? "resource")
 
 instance Hashable IdFormat
+
+instance NFData IdFormat
 
 -- | Describes an image.
 --
@@ -3082,6 +3189,8 @@ instance FromXML Image where
 
 instance Hashable Image
 
+instance NFData Image
+
 -- | Describes the disk container object for an import image task.
 --
 -- /See:/ 'imageDiskContainer' smart constructor.
@@ -3149,6 +3258,8 @@ idcSnapshotId :: Lens' ImageDiskContainer (Maybe Text)
 idcSnapshotId = lens _idcSnapshotId (\ s a -> s{_idcSnapshotId = a});
 
 instance Hashable ImageDiskContainer
+
+instance NFData ImageDiskContainer
 
 instance ToQuery ImageDiskContainer where
         toQuery ImageDiskContainer'{..}
@@ -3285,6 +3396,8 @@ instance FromXML ImportImageTask where
 
 instance Hashable ImportImageTask
 
+instance NFData ImportImageTask
+
 -- | Describes the launch specification for VM import.
 --
 -- /See:/ 'importInstanceLaunchSpecification' smart constructor.
@@ -3396,6 +3509,8 @@ iilsPlacement = lens _iilsPlacement (\ s a -> s{_iilsPlacement = a});
 
 instance Hashable ImportInstanceLaunchSpecification
 
+instance NFData ImportInstanceLaunchSpecification
+
 instance ToQuery ImportInstanceLaunchSpecification
          where
         toQuery ImportInstanceLaunchSpecification'{..}
@@ -3470,6 +3585,8 @@ instance FromXML ImportInstanceTaskDetails where
                 (x .@? "volumes" .!@ mempty >>= parseXMLList "item")
 
 instance Hashable ImportInstanceTaskDetails
+
+instance NFData ImportInstanceTaskDetails
 
 -- | Describes an import volume task.
 --
@@ -3559,6 +3676,8 @@ instance FromXML ImportInstanceVolumeDetailItem where
 
 instance Hashable ImportInstanceVolumeDetailItem
 
+instance NFData ImportInstanceVolumeDetailItem
+
 -- | Describes an import snapshot task.
 --
 -- /See:/ 'importSnapshotTask' smart constructor.
@@ -3606,6 +3725,8 @@ instance FromXML ImportSnapshotTask where
                 <*> (x .@? "description")
 
 instance Hashable ImportSnapshotTask
+
+instance NFData ImportSnapshotTask
 
 -- | Describes an import volume task.
 --
@@ -3675,6 +3796,8 @@ instance FromXML ImportVolumeTaskDetails where
                 <*> (x .@ "volume")
 
 instance Hashable ImportVolumeTaskDetails
+
+instance NFData ImportVolumeTaskDetails
 
 -- | Describes an instance.
 --
@@ -4070,6 +4193,8 @@ instance FromXML Instance where
 
 instance Hashable Instance
 
+instance NFData Instance
+
 -- | Describes a block device mapping.
 --
 -- /See:/ 'instanceBlockDeviceMapping' smart constructor.
@@ -4109,6 +4234,8 @@ instance FromXML InstanceBlockDeviceMapping where
               (x .@? "ebs") <*> (x .@? "deviceName")
 
 instance Hashable InstanceBlockDeviceMapping
+
+instance NFData InstanceBlockDeviceMapping
 
 -- | Describes a block device mapping entry.
 --
@@ -4160,6 +4287,9 @@ ibdmsDeviceName :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
 ibdmsDeviceName = lens _ibdmsDeviceName (\ s a -> s{_ibdmsDeviceName = a});
 
 instance Hashable
+         InstanceBlockDeviceMappingSpecification
+
+instance NFData
          InstanceBlockDeviceMappingSpecification
 
 instance ToQuery
@@ -4220,6 +4350,8 @@ instance FromXML InstanceCapacity where
 
 instance Hashable InstanceCapacity
 
+instance NFData InstanceCapacity
+
 -- | Describes a Reserved Instance listing state.
 --
 -- /See:/ 'instanceCount' smart constructor.
@@ -4259,6 +4391,8 @@ instance FromXML InstanceCount where
 
 instance Hashable InstanceCount
 
+instance NFData InstanceCount
+
 -- | Describes an instance to export.
 --
 -- /See:/ 'instanceExportDetails' smart constructor.
@@ -4297,6 +4431,8 @@ instance FromXML InstanceExportDetails where
 
 instance Hashable InstanceExportDetails
 
+instance NFData InstanceExportDetails
+
 -- | Describes the monitoring information of the instance.
 --
 -- /See:/ 'instanceMonitoring' smart constructor.
@@ -4334,6 +4470,8 @@ instance FromXML InstanceMonitoring where
               (x .@? "instanceId") <*> (x .@? "monitoring")
 
 instance Hashable InstanceMonitoring
+
+instance NFData InstanceMonitoring
 
 -- | Describes a network interface.
 --
@@ -4487,6 +4625,8 @@ instance FromXML InstanceNetworkInterface where
 
 instance Hashable InstanceNetworkInterface
 
+instance NFData InstanceNetworkInterface
+
 -- | Describes association information for an Elastic IP address.
 --
 -- /See:/ 'instanceNetworkInterfaceAssociation' smart constructor.
@@ -4535,6 +4675,8 @@ instance FromXML InstanceNetworkInterfaceAssociation
                 (x .@? "publicIp")
 
 instance Hashable InstanceNetworkInterfaceAssociation
+
+instance NFData InstanceNetworkInterfaceAssociation
 
 -- | Describes a network interface attachment.
 --
@@ -4603,6 +4745,8 @@ instance FromXML InstanceNetworkInterfaceAttachment
                 <*> (x .@? "deviceIndex")
 
 instance Hashable InstanceNetworkInterfaceAttachment
+
+instance NFData InstanceNetworkInterfaceAttachment
 
 -- | Describes a network interface.
 --
@@ -4736,6 +4880,8 @@ instance FromXML
 instance Hashable
          InstanceNetworkInterfaceSpecification
 
+instance NFData InstanceNetworkInterfaceSpecification
+
 instance ToQuery
          InstanceNetworkInterfaceSpecification where
         toQuery InstanceNetworkInterfaceSpecification'{..}
@@ -4814,6 +4960,8 @@ instance FromXML InstancePrivateIPAddress where
 
 instance Hashable InstancePrivateIPAddress
 
+instance NFData InstancePrivateIPAddress
+
 -- | Describes the current state of the instance.
 --
 -- /See:/ 'instanceState' smart constructor.
@@ -4867,6 +5015,8 @@ instance FromXML InstanceState where
 
 instance Hashable InstanceState
 
+instance NFData InstanceState
+
 -- | Describes an instance state change.
 --
 -- /See:/ 'instanceStateChange' smart constructor.
@@ -4913,6 +5063,8 @@ instance FromXML InstanceStateChange where
                 (x .@? "previousState")
 
 instance Hashable InstanceStateChange
+
+instance NFData InstanceStateChange
 
 -- | Describes the status of an instance.
 --
@@ -4993,6 +5145,8 @@ instance FromXML InstanceStatus where
 
 instance Hashable InstanceStatus
 
+instance NFData InstanceStatus
+
 -- | Describes the instance status.
 --
 -- /See:/ 'instanceStatusDetails' smart constructor.
@@ -5040,6 +5194,8 @@ instance FromXML InstanceStatusDetails where
                 (x .@? "name")
 
 instance Hashable InstanceStatusDetails
+
+instance NFData InstanceStatusDetails
 
 -- | Describes a scheduled event for an instance.
 --
@@ -5101,6 +5257,8 @@ instance FromXML InstanceStatusEvent where
 
 instance Hashable InstanceStatusEvent
 
+instance NFData InstanceStatusEvent
+
 -- | Describes the status of an instance.
 --
 -- /See:/ 'instanceStatusSummary' smart constructor.
@@ -5141,6 +5299,8 @@ instance FromXML InstanceStatusSummary where
                 <*> (x .@ "status")
 
 instance Hashable InstanceStatusSummary
+
+instance NFData InstanceStatusSummary
 
 -- | Describes an Internet gateway.
 --
@@ -5194,6 +5354,8 @@ instance FromXML InternetGateway where
 
 instance Hashable InternetGateway
 
+instance NFData InternetGateway
+
 -- | Describes the attachment of a VPC to an Internet gateway.
 --
 -- /See:/ 'internetGatewayAttachment' smart constructor.
@@ -5233,6 +5395,8 @@ instance FromXML InternetGatewayAttachment where
               (x .@ "state") <*> (x .@ "vpcId")
 
 instance Hashable InternetGatewayAttachment
+
+instance NFData InternetGatewayAttachment
 
 -- | Describes a key pair.
 --
@@ -5275,6 +5439,8 @@ instance FromXML KeyPairInfo where
 
 instance Hashable KeyPairInfo
 
+instance NFData KeyPairInfo
+
 -- | Describes a launch permission.
 --
 -- /See:/ 'launchPermission' smart constructor.
@@ -5312,6 +5478,8 @@ instance FromXML LaunchPermission where
               (x .@? "group") <*> (x .@? "userId")
 
 instance Hashable LaunchPermission
+
+instance NFData LaunchPermission
 
 instance ToQuery LaunchPermission where
         toQuery LaunchPermission'{..}
@@ -5351,6 +5519,8 @@ lpmAdd :: Lens' LaunchPermissionModifications [LaunchPermission]
 lpmAdd = lens _lpmAdd (\ s a -> s{_lpmAdd = a}) . _Default . _Coerce;
 
 instance Hashable LaunchPermissionModifications
+
+instance NFData LaunchPermissionModifications
 
 instance ToQuery LaunchPermissionModifications where
         toQuery LaunchPermissionModifications'{..}
@@ -5495,6 +5665,9 @@ lsAddressingType :: Lens' LaunchSpecification (Maybe Text)
 lsAddressingType = lens _lsAddressingType (\ s a -> s{_lsAddressingType = a});
 
 -- | One or more block device mapping entries.
+--
+-- Although you can specify encrypted EBS volumes in this block device
+-- mapping for your Spot Instances, these volumes are not encrypted.
 lsBlockDeviceMappings :: Lens' LaunchSpecification [BlockDeviceMapping]
 lsBlockDeviceMappings = lens _lsBlockDeviceMappings (\ s a -> s{_lsBlockDeviceMappings = a}) . _Default . _Coerce;
 
@@ -5528,6 +5701,8 @@ instance FromXML LaunchSpecification where
 
 instance Hashable LaunchSpecification
 
+instance NFData LaunchSpecification
+
 -- | Describes the monitoring for the instance.
 --
 -- /See:/ 'monitoring' smart constructor.
@@ -5555,6 +5730,8 @@ instance FromXML Monitoring where
         parseXML x = Monitoring' <$> (x .@? "state")
 
 instance Hashable Monitoring
+
+instance NFData Monitoring
 
 -- | Describes the status of a moving Elastic IP address.
 --
@@ -5594,6 +5771,8 @@ instance FromXML MovingAddressStatus where
               (x .@? "moveStatus") <*> (x .@? "publicIp")
 
 instance Hashable MovingAddressStatus
+
+instance NFData MovingAddressStatus
 
 -- | Describes a NAT gateway.
 --
@@ -5665,18 +5844,25 @@ ngVPCId = lens _ngVPCId (\ s a -> s{_ngVPCId = a});
 -- | If the NAT gateway could not be created, specifies the error message for
 -- the failure, that corresponds to the error code.
 --
--- -   For InsufficientFreeAddressesInSubnet:
---     'Subnet has insufficient free addresses to create this NAT gateway'
--- -   For Gateway.NotAttached:
---     'Network vpc-xxxxxxxx has no Internet gateway attached'
--- -   For InvalidAllocationID.NotFound:
---     'Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway'
--- -   For Resource.AlreadyAssociated:
---     'Elastic IP address eipalloc-xxxxxxxx is already associated'
--- -   For InternalError:
---     'Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again.'
--- -   For InvalidSubnetID.NotFound:
---     'The specified subnet subnet-xxxxxxxx does not exist or could not be found.'
+-- -   For InsufficientFreeAddressesInSubnet: \"Subnet has insufficient
+--     free addresses to create this NAT gateway\"
+--
+-- -   For Gateway.NotAttached: \"Network vpc-xxxxxxxx has no Internet
+--     gateway attached\"
+--
+-- -   For InvalidAllocationID.NotFound: \"Elastic IP address
+--     eipalloc-xxxxxxxx could not be associated with this NAT gateway\"
+--
+-- -   For Resource.AlreadyAssociated: \"Elastic IP address
+--     eipalloc-xxxxxxxx is already associated\"
+--
+-- -   For InternalError: \"Network interface eni-xxxxxxxx, created and
+--     used internally by this NAT gateway is in an invalid state. Please
+--     try again.\"
+--
+-- -   For InvalidSubnetID.NotFound: \"The specified subnet subnet-xxxxxxxx
+--     does not exist or could not be found.\"
+--
 ngFailureMessage :: Lens' NatGateway (Maybe Text)
 ngFailureMessage = lens _ngFailureMessage (\ s a -> s{_ngFailureMessage = a});
 
@@ -5716,6 +5902,8 @@ instance FromXML NatGateway where
                 <*> (x .@? "createTime")
 
 instance Hashable NatGateway
+
+instance NFData NatGateway
 
 -- | Describes the IP addresses and network interface associated with a NAT
 -- gateway.
@@ -5774,6 +5962,8 @@ instance FromXML NatGatewayAddress where
                 <*> (x .@? "publicIp")
 
 instance Hashable NatGatewayAddress
+
+instance NFData NatGatewayAddress
 
 -- | Describes a network ACL.
 --
@@ -5855,6 +6045,8 @@ instance FromXML NetworkACL where
 
 instance Hashable NetworkACL
 
+instance NFData NetworkACL
+
 -- | Describes an association between a network ACL and a subnet.
 --
 -- /See:/ 'networkACLAssociation' smart constructor.
@@ -5901,6 +6093,8 @@ instance FromXML NetworkACLAssociation where
                 (x .@? "networkAclAssociationId")
 
 instance Hashable NetworkACLAssociation
+
+instance NFData NetworkACLAssociation
 
 -- | Describes an entry in a network ACL.
 --
@@ -5986,6 +6180,8 @@ instance FromXML NetworkACLEntry where
                 <*> (x .@? "egress")
 
 instance Hashable NetworkACLEntry
+
+instance NFData NetworkACLEntry
 
 -- | Describes a network interface.
 --
@@ -6186,6 +6382,8 @@ instance FromXML NetworkInterface where
 
 instance Hashable NetworkInterface
 
+instance NFData NetworkInterface
+
 -- | Describes association information for an Elastic IP address.
 --
 -- /See:/ 'networkInterfaceAssociation' smart constructor.
@@ -6250,6 +6448,8 @@ instance FromXML NetworkInterfaceAssociation where
                 <*> (x .@? "publicIp")
 
 instance Hashable NetworkInterfaceAssociation
+
+instance NFData NetworkInterfaceAssociation
 
 -- | Describes a network interface attachment.
 --
@@ -6335,6 +6535,8 @@ instance FromXML NetworkInterfaceAttachment where
 
 instance Hashable NetworkInterfaceAttachment
 
+instance NFData NetworkInterfaceAttachment
+
 -- | Describes an attachment change.
 --
 -- /See:/ 'networkInterfaceAttachmentChanges' smart constructor.
@@ -6368,6 +6570,8 @@ niacAttachmentId :: Lens' NetworkInterfaceAttachmentChanges (Maybe Text)
 niacAttachmentId = lens _niacAttachmentId (\ s a -> s{_niacAttachmentId = a});
 
 instance Hashable NetworkInterfaceAttachmentChanges
+
+instance NFData NetworkInterfaceAttachmentChanges
 
 instance ToQuery NetworkInterfaceAttachmentChanges
          where
@@ -6435,6 +6639,8 @@ instance FromXML NetworkInterfacePrivateIPAddress
 
 instance Hashable NetworkInterfacePrivateIPAddress
 
+instance NFData NetworkInterfacePrivateIPAddress
+
 -- | /See:/ 'newDHCPConfiguration' smart constructor.
 data NewDHCPConfiguration = NewDHCPConfiguration'
     { _ndcValues :: !(Maybe [Text])
@@ -6466,11 +6672,107 @@ ndcKey = lens _ndcKey (\ s a -> s{_ndcKey = a});
 
 instance Hashable NewDHCPConfiguration
 
+instance NFData NewDHCPConfiguration
+
 instance ToQuery NewDHCPConfiguration where
         toQuery NewDHCPConfiguration'{..}
           = mconcat
               [toQuery (toQueryList "Value" <$> _ndcValues),
                "Key" =: _ndcKey]
+
+-- | Describes the VPC peering connection options.
+--
+-- /See:/ 'peeringConnectionOptions' smart constructor.
+data PeeringConnectionOptions = PeeringConnectionOptions'
+    { _pcoAllowEgressFromLocalVPCToRemoteClassicLink :: !(Maybe Bool)
+    , _pcoAllowEgressFromLocalClassicLinkToRemoteVPC :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PeeringConnectionOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcoAllowEgressFromLocalVPCToRemoteClassicLink'
+--
+-- * 'pcoAllowEgressFromLocalClassicLinkToRemoteVPC'
+peeringConnectionOptions
+    :: PeeringConnectionOptions
+peeringConnectionOptions =
+    PeeringConnectionOptions'
+    { _pcoAllowEgressFromLocalVPCToRemoteClassicLink = Nothing
+    , _pcoAllowEgressFromLocalClassicLinkToRemoteVPC = Nothing
+    }
+
+-- | If true, enables outbound communication from instances in a local VPC to
+-- an EC2-Classic instance that\'s linked to a peer VPC via ClassicLink.
+pcoAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' PeeringConnectionOptions (Maybe Bool)
+pcoAllowEgressFromLocalVPCToRemoteClassicLink = lens _pcoAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_pcoAllowEgressFromLocalVPCToRemoteClassicLink = a});
+
+-- | If true, enables outbound communication from an EC2-Classic instance
+-- that\'s linked to a local VPC via ClassicLink to instances in a peer
+-- VPC.
+pcoAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' PeeringConnectionOptions (Maybe Bool)
+pcoAllowEgressFromLocalClassicLinkToRemoteVPC = lens _pcoAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_pcoAllowEgressFromLocalClassicLinkToRemoteVPC = a});
+
+instance FromXML PeeringConnectionOptions where
+        parseXML x
+          = PeeringConnectionOptions' <$>
+              (x .@? "allowEgressFromLocalVpcToRemoteClassicLink")
+                <*>
+                (x .@? "allowEgressFromLocalClassicLinkToRemoteVpc")
+
+instance Hashable PeeringConnectionOptions
+
+instance NFData PeeringConnectionOptions
+
+-- | The VPC peering connection options.
+--
+-- /See:/ 'peeringConnectionOptionsRequest' smart constructor.
+data PeeringConnectionOptionsRequest = PeeringConnectionOptionsRequest'
+    { _pcorAllowEgressFromLocalClassicLinkToRemoteVPC :: !Bool
+    , _pcorAllowEgressFromLocalVPCToRemoteClassicLink :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PeeringConnectionOptionsRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcorAllowEgressFromLocalClassicLinkToRemoteVPC'
+--
+-- * 'pcorAllowEgressFromLocalVPCToRemoteClassicLink'
+peeringConnectionOptionsRequest
+    :: Bool -- ^ 'pcorAllowEgressFromLocalClassicLinkToRemoteVPC'
+    -> Bool -- ^ 'pcorAllowEgressFromLocalVPCToRemoteClassicLink'
+    -> PeeringConnectionOptionsRequest
+peeringConnectionOptionsRequest pAllowEgressFromLocalClassicLinkToRemoteVPC_ pAllowEgressFromLocalVPCToRemoteClassicLink_ =
+    PeeringConnectionOptionsRequest'
+    { _pcorAllowEgressFromLocalClassicLinkToRemoteVPC = pAllowEgressFromLocalClassicLinkToRemoteVPC_
+    , _pcorAllowEgressFromLocalVPCToRemoteClassicLink = pAllowEgressFromLocalVPCToRemoteClassicLink_
+    }
+
+-- | If true, enables outbound communication from an EC2-Classic instance
+-- that\'s linked to a local VPC via ClassicLink to instances in a peer
+-- VPC.
+pcorAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' PeeringConnectionOptionsRequest Bool
+pcorAllowEgressFromLocalClassicLinkToRemoteVPC = lens _pcorAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_pcorAllowEgressFromLocalClassicLinkToRemoteVPC = a});
+
+-- | If true, enables outbound communication from instances in a local VPC to
+-- an EC2-Classic instance that\'s linked to a peer VPC via ClassicLink.
+pcorAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' PeeringConnectionOptionsRequest Bool
+pcorAllowEgressFromLocalVPCToRemoteClassicLink = lens _pcorAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_pcorAllowEgressFromLocalVPCToRemoteClassicLink = a});
+
+instance Hashable PeeringConnectionOptionsRequest
+
+instance NFData PeeringConnectionOptionsRequest
+
+instance ToQuery PeeringConnectionOptionsRequest
+         where
+        toQuery PeeringConnectionOptionsRequest'{..}
+          = mconcat
+              ["AllowEgressFromLocalClassicLinkToRemoteVpc" =:
+                 _pcorAllowEgressFromLocalClassicLinkToRemoteVPC,
+               "AllowEgressFromLocalVpcToRemoteClassicLink" =:
+                 _pcorAllowEgressFromLocalVPCToRemoteClassicLink]
 
 -- | Describes the placement for the instance.
 --
@@ -6542,6 +6844,8 @@ instance FromXML Placement where
 
 instance Hashable Placement
 
+instance NFData Placement
+
 instance ToQuery Placement where
         toQuery Placement'{..}
           = mconcat
@@ -6596,6 +6900,8 @@ instance FromXML PlacementGroup where
 
 instance Hashable PlacementGroup
 
+instance NFData PlacementGroup
+
 -- | Describes a range of ports.
 --
 -- /See:/ 'portRange' smart constructor.
@@ -6632,6 +6938,8 @@ instance FromXML PortRange where
           = PortRange' <$> (x .@? "to") <*> (x .@? "from")
 
 instance Hashable PortRange
+
+instance NFData PortRange
 
 instance ToQuery PortRange where
         toQuery PortRange'{..}
@@ -6686,6 +6994,8 @@ instance FromXML PrefixList where
 
 instance Hashable PrefixList
 
+instance NFData PrefixList
+
 -- | The ID of the prefix.
 --
 -- /See:/ 'prefixListId' smart constructor.
@@ -6713,6 +7023,8 @@ instance FromXML PrefixListId where
         parseXML x = PrefixListId' <$> (x .@? "prefixListId")
 
 instance Hashable PrefixListId
+
+instance NFData PrefixListId
 
 instance ToQuery PrefixListId where
         toQuery PrefixListId'{..}
@@ -6785,6 +7097,8 @@ instance FromXML PriceSchedule where
 
 instance Hashable PriceSchedule
 
+instance NFData PriceSchedule
+
 -- | Describes the price for a Reserved Instance.
 --
 -- /See:/ 'priceScheduleSpecification' smart constructor.
@@ -6827,6 +7141,8 @@ pssPrice :: Lens' PriceScheduleSpecification (Maybe Double)
 pssPrice = lens _pssPrice (\ s a -> s{_pssPrice = a});
 
 instance Hashable PriceScheduleSpecification
+
+instance NFData PriceScheduleSpecification
 
 instance ToQuery PriceScheduleSpecification where
         toQuery PriceScheduleSpecification'{..}
@@ -6872,6 +7188,8 @@ instance FromXML PricingDetail where
 
 instance Hashable PricingDetail
 
+instance NFData PricingDetail
+
 -- | Describes a secondary private IP address for a network interface.
 --
 -- /See:/ 'privateIPAddressSpecification' smart constructor.
@@ -6911,6 +7229,8 @@ instance FromXML PrivateIPAddressSpecification where
               (x .@? "primary") <*> (x .@ "privateIpAddress")
 
 instance Hashable PrivateIPAddressSpecification
+
+instance NFData PrivateIPAddressSpecification
 
 instance ToQuery PrivateIPAddressSpecification where
         toQuery PrivateIPAddressSpecification'{..}
@@ -6956,6 +7276,8 @@ instance FromXML ProductCode where
 
 instance Hashable ProductCode
 
+instance NFData ProductCode
+
 -- | Describes a virtual private gateway propagating route.
 --
 -- /See:/ 'propagatingVGW' smart constructor.
@@ -6983,6 +7305,8 @@ instance FromXML PropagatingVGW where
         parseXML x = PropagatingVGW' <$> (x .@? "gatewayId")
 
 instance Hashable PropagatingVGW
+
+instance NFData PropagatingVGW
 
 -- | Describes a request to purchase Scheduled Instances.
 --
@@ -7018,6 +7342,8 @@ prInstanceCount :: Lens' PurchaseRequest Int
 prInstanceCount = lens _prInstanceCount (\ s a -> s{_prInstanceCount = a});
 
 instance Hashable PurchaseRequest
+
+instance NFData PurchaseRequest
 
 instance ToQuery PurchaseRequest where
         toQuery PurchaseRequest'{..}
@@ -7063,6 +7389,8 @@ instance FromXML RecurringCharge where
 
 instance Hashable RecurringCharge
 
+instance NFData RecurringCharge
+
 -- | Describes a region.
 --
 -- /See:/ 'regionInfo' smart constructor.
@@ -7100,6 +7428,8 @@ instance FromXML RegionInfo where
               (x .@? "regionName") <*> (x .@? "regionEndpoint")
 
 instance Hashable RegionInfo
+
+instance NFData RegionInfo
 
 -- | Describes the launch specification for an instance.
 --
@@ -7243,6 +7573,9 @@ rslsAddressingType :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsAddressingType = lens _rslsAddressingType (\ s a -> s{_rslsAddressingType = a});
 
 -- | One or more block device mapping entries.
+--
+-- Although you can specify encrypted EBS volumes in this block device
+-- mapping for your Spot Instances, these volumes are not encrypted.
 rslsBlockDeviceMappings :: Lens' RequestSpotLaunchSpecification [BlockDeviceMapping]
 rslsBlockDeviceMappings = lens _rslsBlockDeviceMappings (\ s a -> s{_rslsBlockDeviceMappings = a}) . _Default . _Coerce;
 
@@ -7251,6 +7584,8 @@ rslsPlacement :: Lens' RequestSpotLaunchSpecification (Maybe SpotPlacement)
 rslsPlacement = lens _rslsPlacement (\ s a -> s{_rslsPlacement = a});
 
 instance Hashable RequestSpotLaunchSpecification
+
+instance NFData RequestSpotLaunchSpecification
 
 instance ToQuery RequestSpotLaunchSpecification where
         toQuery RequestSpotLaunchSpecification'{..}
@@ -7352,6 +7687,8 @@ instance FromXML Reservation where
 
 instance Hashable Reservation
 
+instance NFData Reservation
+
 -- | Describes the limit price of a Reserved Instance offering.
 --
 -- /See:/ 'reservedInstanceLimitPrice' smart constructor.
@@ -7386,6 +7723,8 @@ rilpCurrencyCode :: Lens' ReservedInstanceLimitPrice (Maybe CurrencyCodeValues)
 rilpCurrencyCode = lens _rilpCurrencyCode (\ s a -> s{_rilpCurrencyCode = a});
 
 instance Hashable ReservedInstanceLimitPrice
+
+instance NFData ReservedInstanceLimitPrice
 
 instance ToQuery ReservedInstanceLimitPrice where
         toQuery ReservedInstanceLimitPrice'{..}
@@ -7563,6 +7902,8 @@ instance FromXML ReservedInstances where
 
 instance Hashable ReservedInstances
 
+instance NFData ReservedInstances
+
 -- | Describes the configuration settings for the modified Reserved
 -- Instances.
 --
@@ -7621,6 +7962,8 @@ instance FromXML ReservedInstancesConfiguration where
 
 instance Hashable ReservedInstancesConfiguration
 
+instance NFData ReservedInstancesConfiguration
+
 instance ToQuery ReservedInstancesConfiguration where
         toQuery ReservedInstancesConfiguration'{..}
           = mconcat
@@ -7658,6 +8001,8 @@ instance FromXML ReservedInstancesId where
               (x .@? "reservedInstancesId")
 
 instance Hashable ReservedInstancesId
+
+instance NFData ReservedInstancesId
 
 -- | Describes a Reserved Instance listing.
 --
@@ -7778,6 +8123,8 @@ instance FromXML ReservedInstancesListing where
 
 instance Hashable ReservedInstancesListing
 
+instance NFData ReservedInstancesListing
+
 -- | Describes a Reserved Instance modification.
 --
 -- /See:/ 'reservedInstancesModification' smart constructor.
@@ -7886,7 +8233,11 @@ instance FromXML ReservedInstancesModification where
 
 instance Hashable ReservedInstancesModification
 
--- | /See:/ 'reservedInstancesModificationResult' smart constructor.
+instance NFData ReservedInstancesModification
+
+-- | Describes the modification request\/s.
+--
+-- /See:/ 'reservedInstancesModificationResult' smart constructor.
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult'
     { _rimrReservedInstancesId :: !(Maybe Text)
     , _rimrTargetConfiguration :: !(Maybe ReservedInstancesConfiguration)
@@ -7926,6 +8277,8 @@ instance FromXML ReservedInstancesModificationResult
                 (x .@? "targetConfiguration")
 
 instance Hashable ReservedInstancesModificationResult
+
+instance NFData ReservedInstancesModificationResult
 
 -- | Describes a Reserved Instance offering.
 --
@@ -8072,6 +8425,8 @@ instance FromXML ReservedInstancesOffering where
 
 instance Hashable ReservedInstancesOffering
 
+instance NFData ReservedInstancesOffering
+
 -- | Describes a route in a route table.
 --
 -- /See:/ 'route' smart constructor.
@@ -8137,12 +8492,14 @@ rInstanceId = lens _rInstanceId (\ s a -> s{_rInstanceId = a});
 
 -- | Describes how the route was created.
 --
--- -   'CreateRouteTable' indicates that route was automatically created
---     when the route table was created.
--- -   'CreateRoute' indicates that the route was manually added to the
---     route table.
--- -   'EnableVgwRoutePropagation' indicates that the route was propagated
---     by route propagation.
+-- -   'CreateRouteTable' - The route was automatically created when the
+--     route table was created.
+--
+-- -   'CreateRoute' - The route was manually added to the route table.
+--
+-- -   'EnableVgwRoutePropagation' - The route was propagated by route
+--     propagation.
+--
 rOrigin :: Lens' Route (Maybe RouteOrigin)
 rOrigin = lens _rOrigin (\ s a -> s{_rOrigin = a});
 
@@ -8192,6 +8549,8 @@ instance FromXML Route where
                 <*> (x .@? "destinationCidrBlock")
 
 instance Hashable Route
+
+instance NFData Route
 
 -- | Describes a route table.
 --
@@ -8275,6 +8634,8 @@ instance FromXML RouteTable where
 
 instance Hashable RouteTable
 
+instance NFData RouteTable
+
 -- | Describes an association between a route table and a subnet.
 --
 -- /See:/ 'routeTableAssociation' smart constructor.
@@ -8333,6 +8694,8 @@ instance FromXML RouteTableAssociation where
 
 instance Hashable RouteTableAssociation
 
+instance NFData RouteTableAssociation
+
 -- | Describes the monitoring for the instance.
 --
 -- /See:/ 'runInstancesMonitoringEnabled' smart constructor.
@@ -8362,6 +8725,8 @@ instance FromXML RunInstancesMonitoringEnabled where
           = RunInstancesMonitoringEnabled' <$> (x .@ "enabled")
 
 instance Hashable RunInstancesMonitoringEnabled
+
+instance NFData RunInstancesMonitoringEnabled
 
 instance ToQuery RunInstancesMonitoringEnabled where
         toQuery RunInstancesMonitoringEnabled'{..}
@@ -8407,8 +8772,9 @@ s3Storage =
 ssPrefix :: Lens' S3Storage (Maybe Text)
 ssPrefix = lens _ssPrefix (\ s a -> s{_ssPrefix = a});
 
--- | A Base64-encoded Amazon S3 upload policy that gives Amazon EC2
--- permission to upload items into Amazon S3 on your behalf.
+-- | A base64-encoded Amazon S3 upload policy that gives Amazon EC2
+-- permission to upload items into Amazon S3 on your behalf. For command
+-- line tools, base64 encoding is performed for you.
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
@@ -8444,6 +8810,8 @@ instance FromXML S3Storage where
                 <*> (x .@? "AWSAccessKeyId")
 
 instance Hashable S3Storage
+
+instance NFData S3Storage
 
 instance ToQuery S3Storage where
         toQuery S3Storage'{..}
@@ -8609,6 +8977,8 @@ instance FromXML ScheduledInstance where
 
 instance Hashable ScheduledInstance
 
+instance NFData ScheduledInstance
+
 -- | Describes a schedule that is available for your Scheduled Instances.
 --
 -- /See:/ 'scheduledInstanceAvailability' smart constructor.
@@ -8748,6 +9118,8 @@ instance FromXML ScheduledInstanceAvailability where
 
 instance Hashable ScheduledInstanceAvailability
 
+instance NFData ScheduledInstanceAvailability
+
 -- | Describes the recurring schedule for a Scheduled Instance.
 --
 -- /See:/ 'scheduledInstanceRecurrence' smart constructor.
@@ -8820,6 +9192,8 @@ instance FromXML ScheduledInstanceRecurrence where
 
 instance Hashable ScheduledInstanceRecurrence
 
+instance NFData ScheduledInstanceRecurrence
+
 -- | Describes the recurring schedule for a Scheduled Instance.
 --
 -- /See:/ 'scheduledInstanceRecurrenceRequest' smart constructor.
@@ -8884,6 +9258,8 @@ sirrInterval :: Lens' ScheduledInstanceRecurrenceRequest (Maybe Int)
 sirrInterval = lens _sirrInterval (\ s a -> s{_sirrInterval = a});
 
 instance Hashable ScheduledInstanceRecurrenceRequest
+
+instance NFData ScheduledInstanceRecurrenceRequest
 
 instance ToQuery ScheduledInstanceRecurrenceRequest
          where
@@ -8960,6 +9336,8 @@ sibdmDeviceName = lens _sibdmDeviceName (\ s a -> s{_sibdmDeviceName = a});
 instance Hashable
          ScheduledInstancesBlockDeviceMapping
 
+instance NFData ScheduledInstancesBlockDeviceMapping
+
 instance ToQuery ScheduledInstancesBlockDeviceMapping
          where
         toQuery ScheduledInstancesBlockDeviceMapping'{..}
@@ -9019,21 +9397,20 @@ sieVolumeSize :: Lens' ScheduledInstancesEBS (Maybe Int)
 sieVolumeSize = lens _sieVolumeSize (\ s a -> s{_sieVolumeSize = a});
 
 -- | The number of I\/O operations per second (IOPS) that the volume
--- supports. For Provisioned IOPS (SSD) volumes, this represents the number
--- of IOPS that are provisioned for the volume. For General Purpose (SSD)
--- volumes, this represents the baseline performance of the volume and the
--- rate at which the volume accumulates I\/O credits for bursting. For more
--- information about General Purpose (SSD) baseline performance, I\/O
--- credits, and bursting, see
+-- supports. For io1 volumes, this represents the number of IOPS that are
+-- provisioned for the volume. For 'gp2' volumes, this represents the
+-- baseline performance of the volume and the rate at which the volume
+-- accumulates I\/O credits for bursting. For more information about 'gp2'
+-- baseline performance, I\/O credits, and bursting, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and
--- 3 to 10000 for General Purpose (SSD) volumes.
+-- Constraint: Range is 100-20000 IOPS for 'io1' volumes and 100-10000 IOPS
+-- for 'gp2' volumes.
 --
--- Condition: This parameter is required for requests to create 'io1'
--- volumes; it is not used in requests to create 'standard' or 'gp2'
--- volumes.
+-- Condition: This parameter is required for requests to create
+-- 'io1'volumes; it is not used in requests to create 'gp2', 'st1', 'sc1',
+-- or 'standard' volumes.
 sieIOPS :: Lens' ScheduledInstancesEBS (Maybe Int)
 sieIOPS = lens _sieIOPS (\ s a -> s{_sieIOPS = a});
 
@@ -9042,8 +9419,9 @@ sieIOPS = lens _sieIOPS (\ s a -> s{_sieIOPS = a});
 sieEncrypted :: Lens' ScheduledInstancesEBS (Maybe Bool)
 sieEncrypted = lens _sieEncrypted (\ s a -> s{_sieEncrypted = a});
 
--- | The volume type. 'gp2' for General Purpose (SSD) volumes, 'io1' for
--- Provisioned IOPS (SSD) volumes, and 'standard' for Magnetic volumes.
+-- | The volume type. 'gp2' for General Purpose SSD, 'io1' for Provisioned
+-- IOPS SSD, Throughput Optimized HDD for 'st1', Cold HDD for 'sc1', or
+-- 'standard' for Magnetic.
 --
 -- Default: 'standard'
 sieVolumeType :: Lens' ScheduledInstancesEBS (Maybe Text)
@@ -9054,6 +9432,8 @@ sieSnapshotId :: Lens' ScheduledInstancesEBS (Maybe Text)
 sieSnapshotId = lens _sieSnapshotId (\ s a -> s{_sieSnapshotId = a});
 
 instance Hashable ScheduledInstancesEBS
+
+instance NFData ScheduledInstancesEBS
 
 instance ToQuery ScheduledInstancesEBS where
         toQuery ScheduledInstancesEBS'{..}
@@ -9097,6 +9477,8 @@ siiapName = lens _siiapName (\ s a -> s{_siiapName = a});
 
 instance Hashable
          ScheduledInstancesIAMInstanceProfile
+
+instance NFData ScheduledInstancesIAMInstanceProfile
 
 instance ToQuery ScheduledInstancesIAMInstanceProfile
          where
@@ -9244,6 +9626,8 @@ silsImageId = lens _silsImageId (\ s a -> s{_silsImageId = a});
 instance Hashable
          ScheduledInstancesLaunchSpecification
 
+instance NFData ScheduledInstancesLaunchSpecification
+
 instance ToQuery
          ScheduledInstancesLaunchSpecification where
         toQuery ScheduledInstancesLaunchSpecification'{..}
@@ -9293,6 +9677,8 @@ simEnabled :: Lens' ScheduledInstancesMonitoring (Maybe Bool)
 simEnabled = lens _simEnabled (\ s a -> s{_simEnabled = a});
 
 instance Hashable ScheduledInstancesMonitoring
+
+instance NFData ScheduledInstancesMonitoring
 
 instance ToQuery ScheduledInstancesMonitoring where
         toQuery ScheduledInstancesMonitoring'{..}
@@ -9401,6 +9787,8 @@ siniDeviceIndex = lens _siniDeviceIndex (\ s a -> s{_siniDeviceIndex = a});
 
 instance Hashable ScheduledInstancesNetworkInterface
 
+instance NFData ScheduledInstancesNetworkInterface
+
 instance ToQuery ScheduledInstancesNetworkInterface
          where
         toQuery ScheduledInstancesNetworkInterface'{..}
@@ -9453,6 +9841,8 @@ sipGroupName = lens _sipGroupName (\ s a -> s{_sipGroupName = a});
 
 instance Hashable ScheduledInstancesPlacement
 
+instance NFData ScheduledInstancesPlacement
+
 instance ToQuery ScheduledInstancesPlacement where
         toQuery ScheduledInstancesPlacement'{..}
           = mconcat
@@ -9492,6 +9882,9 @@ sipiacPrivateIPAddress :: Lens' ScheduledInstancesPrivateIPAddressConfig (Maybe 
 sipiacPrivateIPAddress = lens _sipiacPrivateIPAddress (\ s a -> s{_sipiacPrivateIPAddress = a});
 
 instance Hashable
+         ScheduledInstancesPrivateIPAddressConfig
+
+instance NFData
          ScheduledInstancesPrivateIPAddressConfig
 
 instance ToQuery
@@ -9603,6 +9996,8 @@ instance FromXML SecurityGroup where
 
 instance Hashable SecurityGroup
 
+instance NFData SecurityGroup
+
 -- | Describes the time period for a Scheduled Instance to start its first
 -- schedule. The time period must span less than one day.
 --
@@ -9640,6 +10035,8 @@ sdtrrLatestTime :: Lens' SlotDateTimeRangeRequest UTCTime
 sdtrrLatestTime = lens _sdtrrLatestTime (\ s a -> s{_sdtrrLatestTime = a}) . _Time;
 
 instance Hashable SlotDateTimeRangeRequest
+
+instance NFData SlotDateTimeRangeRequest
 
 instance ToQuery SlotDateTimeRangeRequest where
         toQuery SlotDateTimeRangeRequest'{..}
@@ -9680,6 +10077,8 @@ sstrrEarliestTime :: Lens' SlotStartTimeRangeRequest (Maybe UTCTime)
 sstrrEarliestTime = lens _sstrrEarliestTime (\ s a -> s{_sstrrEarliestTime = a}) . mapping _Time;
 
 instance Hashable SlotStartTimeRangeRequest
+
+instance NFData SlotStartTimeRangeRequest
 
 instance ToQuery SlotStartTimeRangeRequest where
         toQuery SlotStartTimeRangeRequest'{..}
@@ -9858,6 +10257,8 @@ instance FromXML Snapshot where
 
 instance Hashable Snapshot
 
+instance NFData Snapshot
+
 -- | Describes the snapshot created from the imported disk.
 --
 -- /See:/ 'snapshotDetail' smart constructor.
@@ -9937,7 +10338,7 @@ sdDeviceName = lens _sdDeviceName (\ s a -> s{_sdDeviceName = a});
 sdStatusMessage :: Lens' SnapshotDetail (Maybe Text)
 sdStatusMessage = lens _sdStatusMessage (\ s a -> s{_sdStatusMessage = a});
 
--- | Undocumented member.
+-- | The S3 bucket for the disk image.
 sdUserBucket :: Lens' SnapshotDetail (Maybe UserBucketDetails)
 sdUserBucket = lens _sdUserBucket (\ s a -> s{_sdUserBucket = a});
 
@@ -9967,6 +10368,8 @@ instance FromXML SnapshotDetail where
                 <*> (x .@? "snapshotId")
 
 instance Hashable SnapshotDetail
+
+instance NFData SnapshotDetail
 
 -- | The disk container object for the import snapshot request.
 --
@@ -10010,7 +10413,7 @@ sdcFormat = lens _sdcFormat (\ s a -> s{_sdcFormat = a});
 sdcURL :: Lens' SnapshotDiskContainer (Maybe Text)
 sdcURL = lens _sdcURL (\ s a -> s{_sdcURL = a});
 
--- | Undocumented member.
+-- | The S3 bucket for the disk image.
 sdcUserBucket :: Lens' SnapshotDiskContainer (Maybe UserBucket)
 sdcUserBucket = lens _sdcUserBucket (\ s a -> s{_sdcUserBucket = a});
 
@@ -10019,6 +10422,8 @@ sdcDescription :: Lens' SnapshotDiskContainer (Maybe Text)
 sdcDescription = lens _sdcDescription (\ s a -> s{_sdcDescription = a});
 
 instance Hashable SnapshotDiskContainer
+
+instance NFData SnapshotDiskContainer
 
 instance ToQuery SnapshotDiskContainer where
         toQuery SnapshotDiskContainer'{..}
@@ -10128,6 +10533,8 @@ instance FromXML SnapshotTaskDetail where
 
 instance Hashable SnapshotTaskDetail
 
+instance NFData SnapshotTaskDetail
+
 -- | Describes the data feed for a Spot instance.
 --
 -- /See:/ 'spotDatafeedSubscription' smart constructor.
@@ -10192,6 +10599,8 @@ instance FromXML SpotDatafeedSubscription where
                 <*> (x .@? "fault")
 
 instance Hashable SpotDatafeedSubscription
+
+instance NFData SpotDatafeedSubscription
 
 -- | Describes the launch specification for one or more Spot instances.
 --
@@ -10393,6 +10802,8 @@ instance FromXML SpotFleetLaunchSpecification where
 
 instance Hashable SpotFleetLaunchSpecification
 
+instance NFData SpotFleetLaunchSpecification
+
 instance ToQuery SpotFleetLaunchSpecification where
         toQuery SpotFleetLaunchSpecification'{..}
           = mconcat
@@ -10449,6 +10860,8 @@ instance FromXML SpotFleetMonitoring where
           = SpotFleetMonitoring' <$> (x .@? "enabled")
 
 instance Hashable SpotFleetMonitoring
+
+instance NFData SpotFleetMonitoring
 
 instance ToQuery SpotFleetMonitoring where
         toQuery SpotFleetMonitoring'{..}
@@ -10514,6 +10927,8 @@ instance FromXML SpotFleetRequestConfig where
                 <*> (x .@ "createTime")
 
 instance Hashable SpotFleetRequestConfig
+
+instance NFData SpotFleetRequestConfig
 
 -- | Describes the configuration of a Spot fleet request.
 --
@@ -10647,6 +11062,8 @@ instance FromXML SpotFleetRequestConfigData where
                    parseXMLList1 "item")
 
 instance Hashable SpotFleetRequestConfigData
+
+instance NFData SpotFleetRequestConfigData
 
 instance ToQuery SpotFleetRequestConfigData where
         toQuery SpotFleetRequestConfigData'{..}
@@ -10866,6 +11283,8 @@ instance FromXML SpotInstanceRequest where
 
 instance Hashable SpotInstanceRequest
 
+instance NFData SpotInstanceRequest
+
 -- | Describes a Spot instance state change.
 --
 -- /See:/ 'spotInstanceStateFault' smart constructor.
@@ -10903,6 +11322,8 @@ instance FromXML SpotInstanceStateFault where
               (x .@? "code") <*> (x .@? "message")
 
 instance Hashable SpotInstanceStateFault
+
+instance NFData SpotInstanceStateFault
 
 -- | Describes the status of a Spot instance request.
 --
@@ -10954,6 +11375,8 @@ instance FromXML SpotInstanceStatus where
 
 instance Hashable SpotInstanceStatus
 
+instance NFData SpotInstanceStatus
+
 -- | Describes Spot instance placement.
 --
 -- /See:/ 'spotPlacement' smart constructor.
@@ -10994,6 +11417,8 @@ instance FromXML SpotPlacement where
               (x .@? "availabilityZone") <*> (x .@? "groupName")
 
 instance Hashable SpotPlacement
+
+instance NFData SpotPlacement
 
 instance ToQuery SpotPlacement where
         toQuery SpotPlacement'{..}
@@ -11068,6 +11493,8 @@ instance FromXML SpotPrice where
 
 instance Hashable SpotPrice
 
+instance NFData SpotPrice
+
 -- | Describes a state change.
 --
 -- /See:/ 'stateReason' smart constructor.
@@ -11132,6 +11559,8 @@ instance FromXML StateReason where
 
 instance Hashable StateReason
 
+instance NFData StateReason
+
 -- | Describes the storage location for an instance store-backed AMI.
 --
 -- /See:/ 'storage' smart constructor.
@@ -11159,6 +11588,8 @@ instance FromXML Storage where
         parseXML x = Storage' <$> (x .@? "S3")
 
 instance Hashable Storage
+
+instance NFData Storage
 
 instance ToQuery Storage where
         toQuery Storage'{..} = mconcat ["S3" =: _sS3]
@@ -11275,6 +11706,8 @@ instance FromXML Subnet where
 
 instance Hashable Subnet
 
+instance NFData Subnet
+
 -- | Describes a tag.
 --
 -- /See:/ 'tag' smart constructor.
@@ -11318,6 +11751,8 @@ instance FromXML Tag where
         parseXML x = Tag' <$> (x .@ "key") <*> (x .@ "value")
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -11383,6 +11818,8 @@ instance FromXML TagDescription where
 
 instance Hashable TagDescription
 
+instance NFData TagDescription
+
 -- | Information about items that were not successfully processed in a batch
 -- call.
 --
@@ -11422,6 +11859,8 @@ instance FromXML UnsuccessfulItem where
               (x .@? "resourceId") <*> (x .@ "error")
 
 instance Hashable UnsuccessfulItem
+
+instance NFData UnsuccessfulItem
 
 -- | Information about the error that occurred. For more information about
 -- errors, see
@@ -11465,6 +11904,8 @@ instance FromXML UnsuccessfulItemError where
 
 instance Hashable UnsuccessfulItemError
 
+instance NFData UnsuccessfulItemError
+
 -- | Describes the S3 bucket for the disk image.
 --
 -- /See:/ 'userBucket' smart constructor.
@@ -11497,6 +11938,8 @@ ubS3Bucket :: Lens' UserBucket (Maybe Text)
 ubS3Bucket = lens _ubS3Bucket (\ s a -> s{_ubS3Bucket = a});
 
 instance Hashable UserBucket
+
+instance NFData UserBucket
 
 instance ToQuery UserBucket where
         toQuery UserBucket'{..}
@@ -11541,6 +11984,8 @@ instance FromXML UserBucketDetails where
 
 instance Hashable UserBucketDetails
 
+instance NFData UserBucketDetails
+
 -- | Describes the user data to be made available to an instance.
 --
 -- /See:/ 'userData' smart constructor.
@@ -11565,6 +12010,8 @@ udData :: Lens' UserData (Maybe Text)
 udData = lens _udData (\ s a -> s{_udData = a});
 
 instance Hashable UserData
+
+instance NFData UserData
 
 instance ToQuery UserData where
         toQuery UserData'{..} = mconcat ["Data" =: _udData]
@@ -11617,6 +12064,9 @@ uigpVPCId :: Lens' UserIdGroupPair (Maybe Text)
 uigpVPCId = lens _uigpVPCId (\ s a -> s{_uigpVPCId = a});
 
 -- | The ID of an AWS account.
+--
+-- [EC2-Classic] Required when adding or removing rules that reference a
+-- security group in another AWS account.
 uigpUserId :: Lens' UserIdGroupPair (Maybe Text)
 uigpUserId = lens _uigpUserId (\ s a -> s{_uigpUserId = a});
 
@@ -11626,7 +12076,7 @@ uigpGroupId = lens _uigpGroupId (\ s a -> s{_uigpGroupId = a});
 
 -- | The name of the security group. In a request, use this parameter for a
 -- security group in EC2-Classic or a default VPC only. For a security
--- group in a nondefault VPC, use 'GroupId'.
+-- group in a nondefault VPC, use the security group ID.
 uigpGroupName :: Lens' UserIdGroupPair (Maybe Text)
 uigpGroupName = lens _uigpGroupName (\ s a -> s{_uigpGroupName = a});
 
@@ -11644,6 +12094,8 @@ instance FromXML UserIdGroupPair where
                 <*> (x .@? "peeringStatus")
 
 instance Hashable UserIdGroupPair
+
+instance NFData UserIdGroupPair
 
 instance ToQuery UserIdGroupPair where
         toQuery UserIdGroupPair'{..}
@@ -11720,6 +12172,8 @@ instance FromXML VGWTelemetry where
                 <*> (x .@? "statusMessage")
 
 instance Hashable VGWTelemetry
+
+instance NFData VGWTelemetry
 
 -- | Describes a VPC.
 --
@@ -11812,6 +12266,8 @@ instance FromXML VPC where
 
 instance Hashable VPC
 
+instance NFData VPC
+
 -- | Describes an attachment between a virtual private gateway and a VPC.
 --
 -- /See:/ 'vpcAttachment' smart constructor.
@@ -11849,6 +12305,8 @@ instance FromXML VPCAttachment where
               (x .@? "state") <*> (x .@? "vpcId")
 
 instance Hashable VPCAttachment
+
+instance NFData VPCAttachment
 
 -- | Describes whether a VPC is enabled for ClassicLink.
 --
@@ -11898,6 +12356,8 @@ instance FromXML VPCClassicLink where
                 <*> (x .@? "classicLinkEnabled")
 
 instance Hashable VPCClassicLink
+
+instance NFData VPCClassicLink
 
 -- | Describes a VPC endpoint.
 --
@@ -11984,6 +12444,8 @@ instance FromXML VPCEndpoint where
 
 instance Hashable VPCEndpoint
 
+instance NFData VPCEndpoint
+
 -- | Describes a VPC peering connection.
 --
 -- /See:/ 'vpcPeeringConnection' smart constructor.
@@ -12031,11 +12493,14 @@ vpcpcVPCPeeringConnectionId = lens _vpcpcVPCPeeringConnectionId (\ s a -> s{_vpc
 vpcpcStatus :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionStateReason)
 vpcpcStatus = lens _vpcpcStatus (\ s a -> s{_vpcpcStatus = a});
 
--- | The information of the peer VPC.
+-- | Information about the peer VPC. CIDR block information is not returned
+-- when creating a VPC peering connection, or when describing a VPC peering
+-- connection that\'s in the 'initiating-request' or 'pending-acceptance'
+-- state.
 vpcpcAccepterVPCInfo :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionVPCInfo)
 vpcpcAccepterVPCInfo = lens _vpcpcAccepterVPCInfo (\ s a -> s{_vpcpcAccepterVPCInfo = a});
 
--- | The information of the requester VPC.
+-- | Information about the requester VPC.
 vpcpcRequesterVPCInfo :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionVPCInfo)
 vpcpcRequesterVPCInfo = lens _vpcpcRequesterVPCInfo (\ s a -> s{_vpcpcRequesterVPCInfo = a});
 
@@ -12059,6 +12524,55 @@ instance FromXML VPCPeeringConnection where
                    may (parseXMLList "item"))
 
 instance Hashable VPCPeeringConnection
+
+instance NFData VPCPeeringConnection
+
+-- | Describes the VPC peering connection options.
+--
+-- /See:/ 'vpcPeeringConnectionOptionsDescription' smart constructor.
+data VPCPeeringConnectionOptionsDescription = VPCPeeringConnectionOptionsDescription'
+    { _vpcodAllowEgressFromLocalVPCToRemoteClassicLink :: !(Maybe Bool)
+    , _vpcodAllowEgressFromLocalClassicLinkToRemoteVPC :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VPCPeeringConnectionOptionsDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vpcodAllowEgressFromLocalVPCToRemoteClassicLink'
+--
+-- * 'vpcodAllowEgressFromLocalClassicLinkToRemoteVPC'
+vpcPeeringConnectionOptionsDescription
+    :: VPCPeeringConnectionOptionsDescription
+vpcPeeringConnectionOptionsDescription =
+    VPCPeeringConnectionOptionsDescription'
+    { _vpcodAllowEgressFromLocalVPCToRemoteClassicLink = Nothing
+    , _vpcodAllowEgressFromLocalClassicLinkToRemoteVPC = Nothing
+    }
+
+-- | Indicates whether a local VPC can communicate with a ClassicLink
+-- connection in the peer VPC over the VPC peering connection.
+vpcodAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' VPCPeeringConnectionOptionsDescription (Maybe Bool)
+vpcodAllowEgressFromLocalVPCToRemoteClassicLink = lens _vpcodAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_vpcodAllowEgressFromLocalVPCToRemoteClassicLink = a});
+
+-- | Indicates whether a local ClassicLink connection can communicate with
+-- the peer VPC over the VPC peering connection.
+vpcodAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' VPCPeeringConnectionOptionsDescription (Maybe Bool)
+vpcodAllowEgressFromLocalClassicLinkToRemoteVPC = lens _vpcodAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_vpcodAllowEgressFromLocalClassicLinkToRemoteVPC = a});
+
+instance FromXML
+         VPCPeeringConnectionOptionsDescription where
+        parseXML x
+          = VPCPeeringConnectionOptionsDescription' <$>
+              (x .@? "allowEgressFromLocalVpcToRemoteClassicLink")
+                <*>
+                (x .@? "allowEgressFromLocalClassicLinkToRemoteVpc")
+
+instance Hashable
+         VPCPeeringConnectionOptionsDescription
+
+instance NFData
+         VPCPeeringConnectionOptionsDescription
 
 -- | Describes the status of a VPC peering connection.
 --
@@ -12100,13 +12614,16 @@ instance FromXML VPCPeeringConnectionStateReason
 
 instance Hashable VPCPeeringConnectionStateReason
 
+instance NFData VPCPeeringConnectionStateReason
+
 -- | Describes a VPC in a VPC peering connection.
 --
 -- /See:/ 'vpcPeeringConnectionVPCInfo' smart constructor.
 data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
-    { _vpcviVPCId     :: !(Maybe Text)
-    , _vpcviOwnerId   :: !(Maybe Text)
-    , _vpcviCIdRBlock :: !(Maybe Text)
+    { _vpcviVPCId          :: !(Maybe Text)
+    , _vpcviOwnerId        :: !(Maybe Text)
+    , _vpcviPeeringOptions :: !(Maybe VPCPeeringConnectionOptionsDescription)
+    , _vpcviCIdRBlock      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VPCPeeringConnectionVPCInfo' with the minimum fields required to make a request.
@@ -12117,6 +12634,8 @@ data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
 --
 -- * 'vpcviOwnerId'
 --
+-- * 'vpcviPeeringOptions'
+--
 -- * 'vpcviCIdRBlock'
 vpcPeeringConnectionVPCInfo
     :: VPCPeeringConnectionVPCInfo
@@ -12124,6 +12643,7 @@ vpcPeeringConnectionVPCInfo =
     VPCPeeringConnectionVPCInfo'
     { _vpcviVPCId = Nothing
     , _vpcviOwnerId = Nothing
+    , _vpcviPeeringOptions = Nothing
     , _vpcviCIdRBlock = Nothing
     }
 
@@ -12135,6 +12655,11 @@ vpcviVPCId = lens _vpcviVPCId (\ s a -> s{_vpcviVPCId = a});
 vpcviOwnerId :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
 vpcviOwnerId = lens _vpcviOwnerId (\ s a -> s{_vpcviOwnerId = a});
 
+-- | Information about the VPC peering connection options for the accepter or
+-- requester VPC.
+vpcviPeeringOptions :: Lens' VPCPeeringConnectionVPCInfo (Maybe VPCPeeringConnectionOptionsDescription)
+vpcviPeeringOptions = lens _vpcviPeeringOptions (\ s a -> s{_vpcviPeeringOptions = a});
+
 -- | The CIDR block for the VPC.
 vpcviCIdRBlock :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
 vpcviCIdRBlock = lens _vpcviCIdRBlock (\ s a -> s{_vpcviCIdRBlock = a});
@@ -12143,9 +12668,12 @@ instance FromXML VPCPeeringConnectionVPCInfo where
         parseXML x
           = VPCPeeringConnectionVPCInfo' <$>
               (x .@? "vpcId") <*> (x .@? "ownerId") <*>
-                (x .@? "cidrBlock")
+                (x .@? "peeringOptions")
+                <*> (x .@? "cidrBlock")
 
 instance Hashable VPCPeeringConnectionVPCInfo
+
+instance NFData VPCPeeringConnectionVPCInfo
 
 -- | Describes a VPN connection.
 --
@@ -12272,6 +12800,8 @@ instance FromXML VPNConnection where
 
 instance Hashable VPNConnection
 
+instance NFData VPNConnection
+
 -- | Describes VPN connection options.
 --
 -- /See:/ 'vpnConnectionOptions' smart constructor.
@@ -12303,6 +12833,8 @@ instance FromXML VPNConnectionOptions where
 
 instance Hashable VPNConnectionOptions
 
+instance NFData VPNConnectionOptions
+
 -- | Describes VPN connection options.
 --
 -- /See:/ 'vpnConnectionOptionsSpecification' smart constructor.
@@ -12328,6 +12860,8 @@ vcosStaticRoutesOnly :: Lens' VPNConnectionOptionsSpecification (Maybe Bool)
 vcosStaticRoutesOnly = lens _vcosStaticRoutesOnly (\ s a -> s{_vcosStaticRoutesOnly = a});
 
 instance Hashable VPNConnectionOptionsSpecification
+
+instance NFData VPNConnectionOptionsSpecification
 
 instance ToQuery VPNConnectionOptionsSpecification
          where
@@ -12414,6 +12948,8 @@ instance FromXML VPNGateway where
 
 instance Hashable VPNGateway
 
+instance NFData VPNGateway
+
 -- | Describes a static route for a VPN connection.
 --
 -- /See:/ 'vpnStaticRoute' smart constructor.
@@ -12461,6 +12997,8 @@ instance FromXML VPNStaticRoute where
                 (x .@? "destinationCidrBlock")
 
 instance Hashable VPNStaticRoute
+
+instance NFData VPNStaticRoute
 
 -- | Describes a volume.
 --
@@ -12538,21 +13076,21 @@ vAttachments :: Lens' Volume [VolumeAttachment]
 vAttachments = lens _vAttachments (\ s a -> s{_vAttachments = a}) . _Default . _Coerce;
 
 -- | The number of I\/O operations per second (IOPS) that the volume
--- supports. For Provisioned IOPS (SSD) volumes, this represents the number
--- of IOPS that are provisioned for the volume. For General Purpose (SSD)
+-- supports. For Provisioned IOPS SSD volumes, this represents the number
+-- of IOPS that are provisioned for the volume. For General Purpose SSD
 -- volumes, this represents the baseline performance of the volume and the
 -- rate at which the volume accumulates I\/O credits for bursting. For more
--- information on General Purpose (SSD) baseline performance, I\/O credits,
+-- information on General Purpose SSD baseline performance, I\/O credits,
 -- and bursting, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and
--- 3 to 10000 for General Purpose (SSD) volumes.
+-- Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS
+-- for 'gp2' volumes.
 --
 -- Condition: This parameter is required for requests to create 'io1'
--- volumes; it is not used in requests to create 'standard' or 'gp2'
--- volumes.
+-- volumes; it is not used in requests to create 'gp2', 'st1', 'sc1', or
+-- 'standard' volumes.
 vIOPS :: Lens' Volume (Maybe Int)
 vIOPS = lens _vIOPS (\ s a -> s{_vIOPS = a});
 
@@ -12594,9 +13132,9 @@ vState = lens _vState (\ s a -> s{_vState = a});
 vVolumeId :: Lens' Volume Text
 vVolumeId = lens _vVolumeId (\ s a -> s{_vVolumeId = a});
 
--- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes,
--- 'io1' for Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic
--- volumes.
+-- | The volume type. This can be 'gp2' for General Purpose SSD, 'io1' for
+-- Provisioned IOPS SSD, 'st1' for Throughput Optimized HDD, 'sc1' for Cold
+-- HDD, or 'standard' for Magnetic volumes.
 vVolumeType :: Lens' Volume VolumeType
 vVolumeType = lens _vVolumeType (\ s a -> s{_vVolumeType = a});
 
@@ -12620,6 +13158,8 @@ instance FromXML Volume where
                 <*> (x .@ "volumeType")
 
 instance Hashable Volume
+
+instance NFData Volume
 
 -- | Describes volume attachment details.
 --
@@ -12696,6 +13236,8 @@ instance FromXML VolumeAttachment where
 
 instance Hashable VolumeAttachment
 
+instance NFData VolumeAttachment
+
 -- | Describes an EBS volume.
 --
 -- /See:/ 'volumeDetail' smart constructor.
@@ -12721,6 +13263,8 @@ vdSize :: Lens' VolumeDetail Integer
 vdSize = lens _vdSize (\ s a -> s{_vdSize = a});
 
 instance Hashable VolumeDetail
+
+instance NFData VolumeDetail
 
 instance ToQuery VolumeDetail where
         toQuery VolumeDetail'{..}
@@ -12782,6 +13326,8 @@ instance FromXML VolumeStatusAction where
 
 instance Hashable VolumeStatusAction
 
+instance NFData VolumeStatusAction
+
 -- | Describes a volume status.
 --
 -- /See:/ 'volumeStatusDetails' smart constructor.
@@ -12819,6 +13365,8 @@ instance FromXML VolumeStatusDetails where
               (x .@? "status") <*> (x .@? "name")
 
 instance Hashable VolumeStatusDetails
+
+instance NFData VolumeStatusDetails
 
 -- | Describes a volume status event.
 --
@@ -12885,6 +13433,8 @@ instance FromXML VolumeStatusEvent where
 
 instance Hashable VolumeStatusEvent
 
+instance NFData VolumeStatusEvent
+
 -- | Describes the status of a volume.
 --
 -- /See:/ 'volumeStatusInfo' smart constructor.
@@ -12924,6 +13474,8 @@ instance FromXML VolumeStatusInfo where
                    may (parseXMLList "item"))
 
 instance Hashable VolumeStatusInfo
+
+instance NFData VolumeStatusInfo
 
 -- | Describes the volume status.
 --
@@ -12993,3 +13545,5 @@ instance FromXML VolumeStatusItem where
                 <*> (x .@? "volumeId")
 
 instance Hashable VolumeStatusItem
+
+instance NFData VolumeStatusItem

@@ -111,6 +111,8 @@ instance AWSRequest ListPrincipalPolicies where
 
 instance Hashable ListPrincipalPolicies
 
+instance NFData ListPrincipalPolicies
+
 instance ToHeaders ListPrincipalPolicies where
         toHeaders ListPrincipalPolicies'{..}
           = mconcat ["x-amzn-iot-principal" =# _lppPrincipal]
@@ -165,3 +167,5 @@ lpprsPolicies = lens _lpprsPolicies (\ s a -> s{_lpprsPolicies = a}) . _Default 
 -- | The response status code.
 lpprsResponseStatus :: Lens' ListPrincipalPoliciesResponse Int
 lpprsResponseStatus = lens _lpprsResponseStatus (\ s a -> s{_lpprsResponseStatus = a});
+
+instance NFData ListPrincipalPoliciesResponse

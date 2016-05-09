@@ -319,6 +319,8 @@ instance FromJSON ContactDetail where
 
 instance Hashable ContactDetail
 
+instance NFData ContactDetail
+
 instance ToJSON ContactDetail where
         toJSON ContactDetail'{..}
           = object
@@ -407,6 +409,8 @@ instance FromJSON DomainSummary where
 
 instance Hashable DomainSummary
 
+instance NFData DomainSummary
+
 -- | ExtraParam includes the following elements.
 --
 -- /See:/ 'extraParam' smart constructor.
@@ -441,9 +445,10 @@ extraParam pName_ pValue_ =
 -- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' |
 -- 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' |
 -- 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' |
--- 'ES_IDENTIFICATION' | 'ES_IDENTIFICATION_TYPE' | 'ES_LEGAL_FORM' |
--- 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA' |
--- 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'
+-- 'CA_BUSINESS_ENTITY_TYPE' |'ES_IDENTIFICATION' |
+-- 'ES_IDENTIFICATION_TYPE' | 'ES_LEGAL_FORM' | 'FI_BUSINESS_NUMBER' |
+-- 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA' | 'SE_ID_NUMBER' |
+-- 'SG_ID_NUMBER' | 'VAT_NUMBER'
 --
 -- Parent: 'ExtraParams'
 --
@@ -473,6 +478,8 @@ instance FromJSON ExtraParam where
                  ExtraParam' <$> (x .: "Name") <*> (x .: "Value"))
 
 instance Hashable ExtraParam
+
+instance NFData ExtraParam
 
 instance ToJSON ExtraParam where
         toJSON ExtraParam'{..}
@@ -537,6 +544,8 @@ instance FromJSON Nameserver where
                    (x .:? "GlueIps" .!= mempty) <*> (x .: "Name"))
 
 instance Hashable Nameserver
+
+instance NFData Nameserver
 
 instance ToJSON Nameserver where
         toJSON Nameserver'{..}
@@ -617,6 +626,8 @@ instance FromJSON OperationSummary where
 
 instance Hashable OperationSummary
 
+instance NFData OperationSummary
+
 -- | Each tag includes the following elements.
 --
 -- /See:/ 'tag' smart constructor.
@@ -674,6 +685,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}

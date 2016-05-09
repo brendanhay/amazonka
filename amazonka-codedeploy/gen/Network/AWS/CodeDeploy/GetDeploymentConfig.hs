@@ -80,6 +80,8 @@ instance AWSRequest GetDeploymentConfig where
 
 instance Hashable GetDeploymentConfig
 
+instance NFData GetDeploymentConfig
+
 instance ToHeaders GetDeploymentConfig where
         toHeaders
           = const
@@ -135,3 +137,5 @@ gdcrsDeploymentConfigInfo = lens _gdcrsDeploymentConfigInfo (\ s a -> s{_gdcrsDe
 -- | The response status code.
 gdcrsResponseStatus :: Lens' GetDeploymentConfigResponse Int
 gdcrsResponseStatus = lens _gdcrsResponseStatus (\ s a -> s{_gdcrsResponseStatus = a});
+
+instance NFData GetDeploymentConfigResponse

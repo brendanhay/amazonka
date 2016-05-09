@@ -81,6 +81,11 @@ prcnoCacheNodeCount = lens _prcnoCacheNodeCount (\ s a -> s{_prcnoCacheNodeCount
 
 -- | A customer-specified identifier to track this reservation.
 --
+-- __Note:__
+-- The Reserved Cache Node ID is an unique customer-specified identifier to
+-- track this reservation. If this parameter is not specified, ElastiCache
+-- automatically generates an identifier for the reservation.
+--
 -- Example: myreservationID
 prcnoReservedCacheNodeId :: Lens' PurchaseReservedCacheNodesOffering (Maybe Text)
 prcnoReservedCacheNodeId = lens _prcnoReservedCacheNodeId (\ s a -> s{_prcnoReservedCacheNodeId = a});
@@ -104,6 +109,8 @@ instance AWSRequest
                    (x .@? "ReservedCacheNode") <*> (pure (fromEnum s)))
 
 instance Hashable PurchaseReservedCacheNodesOffering
+
+instance NFData PurchaseReservedCacheNodesOffering
 
 instance ToHeaders PurchaseReservedCacheNodesOffering
          where
@@ -154,3 +161,6 @@ prcnorsReservedCacheNode = lens _prcnorsReservedCacheNode (\ s a -> s{_prcnorsRe
 -- | The response status code.
 prcnorsResponseStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
 prcnorsResponseStatus = lens _prcnorsResponseStatus (\ s a -> s{_prcnorsResponseStatus = a});
+
+instance NFData
+         PurchaseReservedCacheNodesOfferingResponse

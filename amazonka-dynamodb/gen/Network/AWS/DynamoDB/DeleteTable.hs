@@ -96,6 +96,8 @@ instance AWSRequest DeleteTable where
 
 instance Hashable DeleteTable
 
+instance NFData DeleteTable
+
 instance ToHeaders DeleteTable where
         toHeaders
           = const
@@ -147,3 +149,5 @@ dtrsTableDescription = lens _dtrsTableDescription (\ s a -> s{_dtrsTableDescript
 -- | The response status code.
 dtrsResponseStatus :: Lens' DeleteTableResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+
+instance NFData DeleteTableResponse

@@ -88,6 +88,8 @@ instance AWSRequest UpdateRadius where
 
 instance Hashable UpdateRadius
 
+instance NFData UpdateRadius
+
 instance ToHeaders UpdateRadius where
         toHeaders
           = const
@@ -134,3 +136,5 @@ updateRadiusResponse pResponseStatus_ =
 -- | The response status code.
 urrsResponseStatus :: Lens' UpdateRadiusResponse Int
 urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+
+instance NFData UpdateRadiusResponse

@@ -21,8 +21,8 @@
 -- Returns a list of the fields contained in the specified ACM Certificate.
 -- For example, this action returns the certificate status, a flag that
 -- indicates whether the certificate is associated with any other AWS
--- service, and the date at which the certificate request was created. The
--- ACM Certificate is specified on input by its Amazon Resource Name (ARN).
+-- service, and the date at which the certificate request was created. You
+-- specify the ACM Certificate on input by its Amazon Resource Name (ARN).
 module Network.AWS.CertificateManager.DescribeCertificate
     (
     -- * Creating a Request
@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeCertificate' smart constructor.
+-- |
+--
+-- /See:/ 'describeCertificate' smart constructor.
 newtype DescribeCertificate = DescribeCertificate'
     { _dCertificateARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -86,6 +88,8 @@ instance AWSRequest DescribeCertificate where
 
 instance Hashable DescribeCertificate
 
+instance NFData DescribeCertificate
+
 instance ToHeaders DescribeCertificate where
         toHeaders
           = const
@@ -108,7 +112,9 @@ instance ToPath DescribeCertificate where
 instance ToQuery DescribeCertificate where
         toQuery = const mempty
 
--- | /See:/ 'describeCertificateResponse' smart constructor.
+-- |
+--
+-- /See:/ 'describeCertificateResponse' smart constructor.
 data DescribeCertificateResponse = DescribeCertificateResponse'
     { _dcrsCertificate    :: !(Maybe CertificateDetail)
     , _dcrsResponseStatus :: !Int
@@ -138,3 +144,5 @@ dcrsCertificate = lens _dcrsCertificate (\ s a -> s{_dcrsCertificate = a});
 -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCertificateResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+
+instance NFData DescribeCertificateResponse

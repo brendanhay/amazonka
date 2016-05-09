@@ -37,6 +37,7 @@ instance ToText OrderEnum where
         Descending -> "descending"
 
 instance Hashable     OrderEnum
+instance NFData       OrderEnum
 instance ToByteString OrderEnum
 instance ToQuery      OrderEnum
 instance ToHeader     OrderEnum
@@ -68,6 +69,7 @@ instance ToText RepositoryTriggerEventEnum where
         UpdateReference -> "updateReference"
 
 instance Hashable     RepositoryTriggerEventEnum
+instance NFData       RepositoryTriggerEventEnum
 instance ToByteString RepositoryTriggerEventEnum
 instance ToQuery      RepositoryTriggerEventEnum
 instance ToHeader     RepositoryTriggerEventEnum
@@ -96,6 +98,7 @@ instance ToText SortByEnum where
         RepositoryName -> "repositoryName"
 
 instance Hashable     SortByEnum
+instance NFData       SortByEnum
 instance ToByteString SortByEnum
 instance ToQuery      SortByEnum
 instance ToHeader     SortByEnum

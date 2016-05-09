@@ -92,6 +92,8 @@ instance AWSRequest ContinueUpdateRollback where
 
 instance Hashable ContinueUpdateRollback
 
+instance NFData ContinueUpdateRollback
+
 instance ToHeaders ContinueUpdateRollback where
         toHeaders = const mempty
 
@@ -129,3 +131,5 @@ continueUpdateRollbackResponse pResponseStatus_ =
 -- | The response status code.
 currsResponseStatus :: Lens' ContinueUpdateRollbackResponse Int
 currsResponseStatus = lens _currsResponseStatus (\ s a -> s{_currsResponseStatus = a});
+
+instance NFData ContinueUpdateRollbackResponse

@@ -87,6 +87,8 @@ instance AWSRequest PutBucketWebsite where
 
 instance Hashable PutBucketWebsite
 
+instance NFData PutBucketWebsite
+
 instance ToElement PutBucketWebsite where
         toElement
           = mkElement
@@ -115,3 +117,5 @@ data PutBucketWebsiteResponse =
 putBucketWebsiteResponse
     :: PutBucketWebsiteResponse
 putBucketWebsiteResponse = PutBucketWebsiteResponse'
+
+instance NFData PutBucketWebsiteResponse

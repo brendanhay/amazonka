@@ -37,6 +37,7 @@ instance ToText ClientVersion where
         VD5_3 -> "5.3"
 
 instance Hashable     ClientVersion
+instance NFData       ClientVersion
 instance ToByteString ClientVersion
 instance ToQuery      ClientVersion
 instance ToHeader     ClientVersion
@@ -65,6 +66,7 @@ instance ToText CloudHSMObjectState where
         Updating -> "UPDATING"
 
 instance Hashable     CloudHSMObjectState
+instance NFData       CloudHSMObjectState
 instance ToByteString CloudHSMObjectState
 instance ToQuery      CloudHSMObjectState
 instance ToHeader     CloudHSMObjectState
@@ -105,6 +107,7 @@ instance ToText HSMStatus where
         HSUpdating -> "UPDATING"
 
 instance Hashable     HSMStatus
+instance NFData       HSMStatus
 instance ToByteString HSMStatus
 instance ToQuery      HSMStatus
 instance ToHeader     HSMStatus
@@ -131,6 +134,7 @@ instance ToText SubscriptionType where
         Production -> "PRODUCTION"
 
 instance Hashable     SubscriptionType
+instance NFData       SubscriptionType
 instance ToByteString SubscriptionType
 instance ToQuery      SubscriptionType
 instance ToHeader     SubscriptionType

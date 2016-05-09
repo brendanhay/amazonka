@@ -120,6 +120,8 @@ instance AWSRequest RespondActivityTaskCompleted
 
 instance Hashable RespondActivityTaskCompleted
 
+instance NFData RespondActivityTaskCompleted
+
 instance ToHeaders RespondActivityTaskCompleted where
         toHeaders
           = const
@@ -153,3 +155,5 @@ data RespondActivityTaskCompletedResponse =
 respondActivityTaskCompletedResponse
     :: RespondActivityTaskCompletedResponse
 respondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse'
+
+instance NFData RespondActivityTaskCompletedResponse

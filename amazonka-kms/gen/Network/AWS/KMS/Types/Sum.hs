@@ -37,6 +37,7 @@ instance ToText DataKeySpec where
         AES256 -> "AES_256"
 
 instance Hashable     DataKeySpec
+instance NFData       DataKeySpec
 instance ToByteString DataKeySpec
 instance ToQuery      DataKeySpec
 instance ToHeader     DataKeySpec
@@ -83,6 +84,7 @@ instance ToText GrantOperation where
         RetireGrant -> "RetireGrant"
 
 instance Hashable     GrantOperation
+instance NFData       GrantOperation
 instance ToByteString GrantOperation
 instance ToQuery      GrantOperation
 instance ToHeader     GrantOperation
@@ -114,6 +116,7 @@ instance ToText KeyState where
         PendingDeletion -> "PendingDeletion"
 
 instance Hashable     KeyState
+instance NFData       KeyState
 instance ToByteString KeyState
 instance ToQuery      KeyState
 instance ToHeader     KeyState
@@ -136,6 +139,7 @@ instance ToText KeyUsageType where
         EncryptDecrypt -> "ENCRYPT_DECRYPT"
 
 instance Hashable     KeyUsageType
+instance NFData       KeyUsageType
 instance ToByteString KeyUsageType
 instance ToQuery      KeyUsageType
 instance ToHeader     KeyUsageType

@@ -17,23 +17,46 @@ module Network.AWS.Inspector.Types
 
     -- * Errors
     , _AccessDeniedException
+    , _AssessmentRunInProgressException
     , _NoSuchEntityException
-    , _OperationInProgressException
+    , _AgentsAlreadyRunningAssessmentException
     , _InvalidCrossAccountRoleException
     , _InvalidInputException
     , _InternalException
+    , _LimitExceededException
 
-    -- * Agent
-    , Agent
-    , agent
-    , aTelemetry
-    , aAutoScalingGroup
-    , aAgentHealthCode
-    , aAssessmentARN
-    , aAgentId
-    , aAccountId
-    , aAgentHealthDetails
-    , aAgentHealth
+    -- * AgentHealth
+    , AgentHealth (..)
+
+    -- * AgentHealthCode
+    , AgentHealthCode (..)
+
+    -- * AssessmentRunNotificationSNSStatusCode
+    , AssessmentRunNotificationSNSStatusCode (..)
+
+    -- * AssessmentRunState
+    , AssessmentRunState (..)
+
+    -- * AssetType
+    , AssetType (..)
+
+    -- * FailedItemErrorCode
+    , FailedItemErrorCode (..)
+
+    -- * InspectorEvent
+    , InspectorEvent (..)
+
+    -- * Locale
+    , Locale (..)
+
+    -- * Severity
+    , Severity (..)
+
+    -- * AgentFilter
+    , AgentFilter
+    , agentFilter
+    , afAgentHealths
+    , afAgentHealthCodes
 
     -- * AgentPreview
     , AgentPreview
@@ -41,46 +64,103 @@ module Network.AWS.Inspector.Types
     , apAutoScalingGroup
     , apAgentId
 
-    -- * AgentsFilter
-    , AgentsFilter
-    , agentsFilter
-    , afAgentHealthList
+    -- * AssessmentRun
+    , AssessmentRun
+    , assessmentRun
+    , arStartedAt
+    , arCompletedAt
+    , arArn
+    , arName
+    , arAssessmentTemplateARN
+    , arState
+    , arDurationInSeconds
+    , arRulesPackageARNs
+    , arUserAttributesForFindings
+    , arCreatedAt
+    , arStateChangedAt
+    , arDataCollected
+    , arStateChanges
+    , arNotifications
 
-    -- * Application
-    , Application
-    , application
-    , aApplicationARN
+    -- * AssessmentRunAgent
+    , AssessmentRunAgent
+    , assessmentRunAgent
+    , araAutoScalingGroup
+    , araAgentHealthDetails
+    , araAgentId
+    , araAssessmentRunARN
+    , araAgentHealth
+    , araAgentHealthCode
+    , araTelemetryMetadata
+
+    -- * AssessmentRunFilter
+    , AssessmentRunFilter
+    , assessmentRunFilter
+    , arfStates
+    , arfNamePattern
+    , arfStartTimeRange
+    , arfStateChangeTimeRange
+    , arfRulesPackageARNs
+    , arfCompletionTimeRange
+    , arfDurationRange
+
+    -- * AssessmentRunNotification
+    , AssessmentRunNotification
+    , assessmentRunNotification
+    , arnSnsTopicARN
+    , arnSnsPublishStatusCode
+    , arnMessage
+    , arnDate
+    , arnEvent
+    , arnError
+
+    -- * AssessmentRunStateChange
+    , AssessmentRunStateChange
+    , assessmentRunStateChange
+    , arscStateChangedAt
+    , arscState
+
+    -- * AssessmentTarget
+    , AssessmentTarget
+    , assessmentTarget
+    , aArn
+    , aName
     , aResourceGroupARN
-    , aApplicationName
+    , aCreatedAt
+    , aUpdatedAt
 
-    -- * ApplicationsFilter
-    , ApplicationsFilter
-    , applicationsFilter
-    , afApplicationNamePatterns
+    -- * AssessmentTargetFilter
+    , AssessmentTargetFilter
+    , assessmentTargetFilter
+    , atfAssessmentTargetNamePattern
 
-    -- * Assessment
-    , Assessment
-    , assessment
-    , assDataCollected
-    , assApplicationARN
-    , assStartTime
-    , assAssessmentARN
-    , assUserAttributesForFindings
-    , assFailureMessage
-    , assAssessmentState
-    , assEndTime
-    , assDurationInSeconds
-    , assAssessmentName
+    -- * AssessmentTemplate
+    , AssessmentTemplate
+    , assessmentTemplate
+    , atArn
+    , atName
+    , atAssessmentTargetARN
+    , atDurationInSeconds
+    , atRulesPackageARNs
+    , atUserAttributesForFindings
+    , atCreatedAt
 
-    -- * AssessmentsFilter
-    , AssessmentsFilter
-    , assessmentsFilter
-    , afDataCollected
-    , afAssessmentStates
-    , afStartTimeRange
-    , afAssessmentNamePatterns
-    , afEndTimeRange
-    , afDurationRange
+    -- * AssessmentTemplateFilter
+    , AssessmentTemplateFilter
+    , assessmentTemplateFilter
+    , atfNamePattern
+    , atfRulesPackageARNs
+    , atfDurationRange
+
+    -- * AssetAttributes
+    , AssetAttributes
+    , assetAttributes
+    , aaHostname
+    , aaAutoScalingGroup
+    , aaIpv4Addresses
+    , aaAgentId
+    , aaAmiId
+    , aaSchemaVersion
 
     -- * Attribute
     , Attribute
@@ -91,93 +171,90 @@ module Network.AWS.Inspector.Types
     -- * DurationRange
     , DurationRange
     , durationRange
-    , drMaximum
-    , drMinimum
+    , drMinSeconds
+    , drMaxSeconds
+
+    -- * EventSubscription
+    , EventSubscription
+    , eventSubscription
+    , esEvent
+    , esSubscribedAt
+
+    -- * FailedItemDetails
+    , FailedItemDetails
+    , failedItemDetails
+    , fidFailureCode
+    , fidRetryable
 
     -- * Finding
     , Finding
     , finding
-    , fAutoScalingGroup
-    , fFinding
+    , fService
     , fSeverity
-    , fUserAttributes
-    , fRuleName
-    , fAgentId
-    , fRunARN
-    , fAttributes
-    , fRulesPackageARN
-    , fFindingARN
+    , fSchemaVersion
+    , fConfidence
+    , fAssetAttributes
+    , fServiceAttributes
+    , fId
+    , fNumericSeverity
+    , fAssetType
+    , fTitle
+    , fIndicatorOfCompromise
     , fDescription
     , fRecommendation
+    , fArn
+    , fAttributes
+    , fUserAttributes
+    , fCreatedAt
+    , fUpdatedAt
 
-    -- * FindingsFilter
-    , FindingsFilter
-    , findingsFilter
+    -- * FindingFilter
+    , FindingFilter
+    , findingFilter
+    , ffAgentIds
     , ffRuleNames
     , ffUserAttributes
     , ffRulesPackageARNs
     , ffAttributes
     , ffSeverities
+    , ffCreationTimeRange
+    , ffAutoScalingGroups
 
-    -- * LocalizedText
-    , LocalizedText
-    , localizedText
-    , ltKey
-    , ltParameters
-
-    -- * LocalizedTextKey
-    , LocalizedTextKey
-    , localizedTextKey
-    , ltkFacility
-    , ltkId
-
-    -- * MessageTypeTelemetry
-    , MessageTypeTelemetry
-    , messageTypeTelemetry
-    , mttDataSize
-    , mttMessageType
-    , mttCount
-
-    -- * Parameter
-    , Parameter
-    , parameter
-    , pValue
-    , pName
+    -- * InspectorServiceAttributes
+    , InspectorServiceAttributes
+    , inspectorServiceAttributes
+    , isaRulesPackageARN
+    , isaAssessmentRunARN
+    , isaSchemaVersion
 
     -- * ResourceGroup
     , ResourceGroup
     , resourceGroup
-    , rgResourceGroupTags
-    , rgResourceGroupARN
+    , rgArn
+    , rgTags
+    , rgCreatedAt
+
+    -- * ResourceGroupTag
+    , ResourceGroupTag
+    , resourceGroupTag
+    , rgtValue
+    , rgtKey
 
     -- * RulesPackage
     , RulesPackage
     , rulesPackage
-    , rpVersion
-    , rpRulesPackageARN
-    , rpRulesPackageName
     , rpDescription
+    , rpArn
+    , rpName
+    , rpVersion
     , rpProvider
 
-    -- * Run
-    , Run
-    , run
-    , runCreationTime
-    , runRulesPackages
-    , runAssessmentARN
-    , runRunState
-    , runRunName
-    , runCompletionTime
-    , runRunARN
-
-    -- * RunsFilter
-    , RunsFilter
-    , runsFilter
-    , rfCreationTime
-    , rfRulesPackages
-    , rfRunStates
-    , rfRunNamePatterns
-    , rfCompletionTime
+    -- * Subscription
+    , Subscription
+    , subscription
+    , sResourceARN
+    , sTopicARN
+    , sEventSubscriptions
 
     -- * Tag
     , Tag
@@ -185,17 +262,18 @@ module Network.AWS.Inspector.Types
     , tagValue
     , tagKey
 
-    -- * Telemetry
-    , Telemetry
-    , telemetry
-    , tStatus
-    , tMessageTypeTelemetries
+    -- * TelemetryMetadata
+    , TelemetryMetadata
+    , telemetryMetadata
+    , tmDataSize
+    , tmMessageType
+    , tmCount
 
     -- * TimestampRange
     , TimestampRange
     , timestampRange
-    , trMaximum
-    , trMinimum
+    , trEndDate
+    , trBeginDate
     ) where
 
 import           Network.AWS.Inspector.Types.Product
@@ -204,14 +282,14 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-08-18' of the Amazon Inspector SDK configuration.
+-- | API version '2016-02-16' of the Amazon Inspector SDK configuration.
 inspector :: Service
 inspector =
     Service
     { _svcAbbrev = "Inspector"
     , _svcSigner = v4
     , _svcPrefix = "inspector"
-    , _svcVersion = "2015-08-18"
+    , _svcVersion = "2016-02-16"
     , _svcEndpoint = defaultEndpoint inspector
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
@@ -231,33 +309,51 @@ inspector =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Prism for AccessDeniedException' errors.
+-- | You do not have required permissions to access the requested resource.
 _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 _AccessDeniedException = _ServiceError . hasCode "AccessDeniedException"
 
--- | Prism for NoSuchEntityException' errors.
+-- | You cannot perform a specified action if an assessment run is currently
+-- in progress.
+_AssessmentRunInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
+_AssessmentRunInProgressException =
+    _ServiceError . hasCode "AssessmentRunInProgressException"
+
+-- | The request was rejected because it referenced an entity that does not
+-- exist. The error code describes the entity.
 _NoSuchEntityException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchEntityException = _ServiceError . hasCode "NoSuchEntityException"
 
--- | Prism for OperationInProgressException' errors.
-_OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
-_OperationInProgressException =
-    _ServiceError . hasCode "OperationInProgressException"
+-- | You started an assessment run, but one of the instances is already
+-- participating in another assessment run.
+_AgentsAlreadyRunningAssessmentException :: AsError a => Getting (First ServiceError) a ServiceError
+_AgentsAlreadyRunningAssessmentException =
+    _ServiceError . hasCode "AgentsAlreadyRunningAssessmentException"
 
--- | Prism for InvalidCrossAccountRoleException' errors.
+-- | Amazon Inspector cannot assume the cross-account role that it needs to
+-- list your EC2 instances during the assessment run.
 _InvalidCrossAccountRoleException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCrossAccountRoleException =
     _ServiceError . hasCode "InvalidCrossAccountRoleException"
 
--- | Prism for InvalidInputException' errors.
+-- | The request was rejected because an invalid or out-of-range value was
+-- supplied for an input parameter.
 _InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInputException = _ServiceError . hasCode "InvalidInputException"
 
--- | Prism for InternalException' errors.
+-- | Internal server error.
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalException = _ServiceError . hasCode "InternalException"
+
+-- | The request was rejected because it attempted to create resources beyond
+-- the current AWS account limits. The error code describes the limit
+-- exceeded.
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException"

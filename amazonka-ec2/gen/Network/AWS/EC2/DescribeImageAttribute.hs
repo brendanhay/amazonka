@@ -52,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeImageAttribute' smart constructor.
+-- | Contains the parameters for DescribeImageAttribute.
+--
+-- /See:/ 'describeImageAttribute' smart constructor.
 data DescribeImageAttribute = DescribeImageAttribute'
     { _diaiDryRun    :: !(Maybe Bool)
     , _diaiImageId   :: !Text
@@ -123,6 +125,8 @@ instance AWSRequest DescribeImageAttribute where
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeImageAttribute
+
+instance NFData DescribeImageAttribute
 
 instance ToHeaders DescribeImageAttribute where
         toHeaders = const mempty
@@ -226,3 +230,5 @@ diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBloc
 -- | The response status code.
 diarsResponseStatus :: Lens' DescribeImageAttributeResponse Int
 diarsResponseStatus = lens _diarsResponseStatus (\ s a -> s{_diarsResponseStatus = a});
+
+instance NFData DescribeImageAttributeResponse

@@ -42,6 +42,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , rditpitDBSubnetGroupName
     , rditpitRestoreTime
     , rditpitIOPS
+    , rditpitDomain
     , rditpitEngine
     , rditpitTDECredentialPassword
     , rditpitDBInstanceClass
@@ -51,6 +52,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , rditpitOptionGroupName
     , rditpitCopyTagsToSnapshot
     , rditpitTDECredentialARN
+    , rditpitDomainIAMRoleName
     , rditpitTags
     , rditpitPort
     , rditpitStorageType
@@ -83,6 +85,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     , _rditpitDBSubnetGroupName          :: !(Maybe Text)
     , _rditpitRestoreTime                :: !(Maybe ISO8601)
     , _rditpitIOPS                       :: !(Maybe Int)
+    , _rditpitDomain                     :: !(Maybe Text)
     , _rditpitEngine                     :: !(Maybe Text)
     , _rditpitTDECredentialPassword      :: !(Maybe Text)
     , _rditpitDBInstanceClass            :: !(Maybe Text)
@@ -92,6 +95,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     , _rditpitOptionGroupName            :: !(Maybe Text)
     , _rditpitCopyTagsToSnapshot         :: !(Maybe Bool)
     , _rditpitTDECredentialARN           :: !(Maybe Text)
+    , _rditpitDomainIAMRoleName          :: !(Maybe Text)
     , _rditpitTags                       :: !(Maybe [Tag])
     , _rditpitPort                       :: !(Maybe Int)
     , _rditpitStorageType                :: !(Maybe Text)
@@ -116,6 +120,8 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 --
 -- * 'rditpitIOPS'
 --
+-- * 'rditpitDomain'
+--
 -- * 'rditpitEngine'
 --
 -- * 'rditpitTDECredentialPassword'
@@ -133,6 +139,8 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 -- * 'rditpitCopyTagsToSnapshot'
 --
 -- * 'rditpitTDECredentialARN'
+--
+-- * 'rditpitDomainIAMRoleName'
 --
 -- * 'rditpitTags'
 --
@@ -157,6 +165,7 @@ restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier_ pTargetDBInstanceIde
     , _rditpitDBSubnetGroupName = Nothing
     , _rditpitRestoreTime = Nothing
     , _rditpitIOPS = Nothing
+    , _rditpitDomain = Nothing
     , _rditpitEngine = Nothing
     , _rditpitTDECredentialPassword = Nothing
     , _rditpitDBInstanceClass = Nothing
@@ -166,6 +175,7 @@ restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier_ pTargetDBInstanceIde
     , _rditpitOptionGroupName = Nothing
     , _rditpitCopyTagsToSnapshot = Nothing
     , _rditpitTDECredentialARN = Nothing
+    , _rditpitDomainIAMRoleName = Nothing
     , _rditpitTags = Nothing
     , _rditpitPort = Nothing
     , _rditpitStorageType = Nothing
@@ -244,6 +254,10 @@ rditpitRestoreTime = lens _rditpitRestoreTime (\ s a -> s{_rditpitRestoreTime = 
 rditpitIOPS :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
 rditpitIOPS = lens _rditpitIOPS (\ s a -> s{_rditpitIOPS = a});
 
+-- | Specify the Active Directory Domain to restore the instance in.
+rditpitDomain :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitDomain = lens _rditpitDomain (\ s a -> s{_rditpitDomain = a});
+
 -- | The database engine to use for the new instance.
 --
 -- Default: The same as source
@@ -316,6 +330,11 @@ rditpitCopyTagsToSnapshot = lens _rditpitCopyTagsToSnapshot (\ s a -> s{_rditpit
 rditpitTDECredentialARN :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitTDECredentialARN = lens _rditpitTDECredentialARN (\ s a -> s{_rditpitTDECredentialARN = a});
 
+-- | Specify the name of the IAM role to be used when making API calls to the
+-- Directory Service.
+rditpitDomainIAMRoleName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitDomainIAMRoleName = lens _rditpitDomainIAMRoleName (\ s a -> s{_rditpitDomainIAMRoleName = a});
+
 -- | Undocumented member.
 rditpitTags :: Lens' RestoreDBInstanceToPointInTime [Tag]
 rditpitTags = lens _rditpitTags (\ s a -> s{_rditpitTags = a}) . _Default . _Coerce;
@@ -381,6 +400,8 @@ instance AWSRequest RestoreDBInstanceToPointInTime
 
 instance Hashable RestoreDBInstanceToPointInTime
 
+instance NFData RestoreDBInstanceToPointInTime
+
 instance ToHeaders RestoreDBInstanceToPointInTime
          where
         toHeaders = const mempty
@@ -401,7 +422,8 @@ instance ToQuery RestoreDBInstanceToPointInTime where
                  _rditpitAutoMinorVersionUpgrade,
                "DBSubnetGroupName" =: _rditpitDBSubnetGroupName,
                "RestoreTime" =: _rditpitRestoreTime,
-               "Iops" =: _rditpitIOPS, "Engine" =: _rditpitEngine,
+               "Iops" =: _rditpitIOPS, "Domain" =: _rditpitDomain,
+               "Engine" =: _rditpitEngine,
                "TdeCredentialPassword" =:
                  _rditpitTDECredentialPassword,
                "DBInstanceClass" =: _rditpitDBInstanceClass,
@@ -411,6 +433,7 @@ instance ToQuery RestoreDBInstanceToPointInTime where
                "OptionGroupName" =: _rditpitOptionGroupName,
                "CopyTagsToSnapshot" =: _rditpitCopyTagsToSnapshot,
                "TdeCredentialArn" =: _rditpitTDECredentialARN,
+               "DomainIAMRoleName" =: _rditpitDomainIAMRoleName,
                "Tags" =:
                  toQuery (toQueryList "Tag" <$> _rditpitTags),
                "Port" =: _rditpitPort,
@@ -450,3 +473,6 @@ rditpitrsDBInstance = lens _rditpitrsDBInstance (\ s a -> s{_rditpitrsDBInstance
 -- | The response status code.
 rditpitrsResponseStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
 rditpitrsResponseStatus = lens _rditpitrsResponseStatus (\ s a -> s{_rditpitrsResponseStatus = a});
+
+instance NFData
+         RestoreDBInstanceToPointInTimeResponse

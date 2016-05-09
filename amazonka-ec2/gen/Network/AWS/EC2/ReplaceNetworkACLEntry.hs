@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'replaceNetworkACLEntry' smart constructor.
+-- | Contains the parameters for ReplaceNetworkAclEntry.
+--
+-- /See:/ 'replaceNetworkACLEntry' smart constructor.
 data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
     { _rnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
     , _rnaePortRange    :: !(Maybe PortRange)
@@ -157,6 +159,8 @@ instance AWSRequest ReplaceNetworkACLEntry where
 
 instance Hashable ReplaceNetworkACLEntry
 
+instance NFData ReplaceNetworkACLEntry
+
 instance ToHeaders ReplaceNetworkACLEntry where
         toHeaders = const mempty
 
@@ -189,3 +193,5 @@ data ReplaceNetworkACLEntryResponse =
 replaceNetworkACLEntryResponse
     :: ReplaceNetworkACLEntryResponse
 replaceNetworkACLEntryResponse = ReplaceNetworkACLEntryResponse'
+
+instance NFData ReplaceNetworkACLEntryResponse

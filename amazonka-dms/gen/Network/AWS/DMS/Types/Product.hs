@@ -71,6 +71,8 @@ instance FromJSON AccountQuota where
 
 instance Hashable AccountQuota
 
+instance NFData AccountQuota
+
 -- | /See:/ 'availabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
     { _azName :: Maybe Text
@@ -98,6 +100,8 @@ instance FromJSON AvailabilityZone where
               (\ x -> AvailabilityZone' <$> (x .:? "Name"))
 
 instance Hashable AvailabilityZone
+
+instance NFData AvailabilityZone
 
 -- | /See:/ 'connection' smart constructor.
 data Connection = Connection'
@@ -176,6 +180,8 @@ instance FromJSON Connection where
                      <*> (x .:? "LastFailureMessage"))
 
 instance Hashable Connection
+
+instance NFData Connection
 
 -- | /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
@@ -303,6 +309,8 @@ instance FromJSON Endpoint where
 
 instance Hashable Endpoint
 
+instance NFData Endpoint
+
 -- | /See:/ 'filter'' smart constructor.
 data Filter = Filter'
     { _fName   :: !Text
@@ -334,6 +342,8 @@ fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Coerce;
 
 instance Hashable Filter
+
+instance NFData Filter
 
 instance ToJSON Filter where
         toJSON Filter'{..}
@@ -433,6 +443,8 @@ instance FromJSON OrderableReplicationInstance where
 
 instance Hashable OrderableReplicationInstance
 
+instance NFData OrderableReplicationInstance
+
 -- | /See:/ 'refreshSchemasStatus' smart constructor.
 data RefreshSchemasStatus = RefreshSchemasStatus'
     { _rssStatus                 :: !(Maybe RefreshSchemasStatusTypeValue)
@@ -498,6 +510,8 @@ instance FromJSON RefreshSchemasStatus where
                      <*> (x .:? "LastFailureMessage"))
 
 instance Hashable RefreshSchemasStatus
+
+instance NFData RefreshSchemasStatus
 
 -- | /See:/ 'replicationInstance' smart constructor.
 data ReplicationInstance = ReplicationInstance'
@@ -685,6 +699,8 @@ instance FromJSON ReplicationInstance where
 
 instance Hashable ReplicationInstance
 
+instance NFData ReplicationInstance
+
 -- | /See:/ 'replicationPendingModifiedValues' smart constructor.
 data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
     { _rpmvEngineVersion            :: !(Maybe Text)
@@ -737,6 +753,8 @@ instance FromJSON ReplicationPendingModifiedValues
                      <*> (x .:? "ReplicationInstanceClass"))
 
 instance Hashable ReplicationPendingModifiedValues
+
+instance NFData ReplicationPendingModifiedValues
 
 -- | /See:/ 'replicationSubnetGroup' smart constructor.
 data ReplicationSubnetGroup = ReplicationSubnetGroup'
@@ -802,6 +820,8 @@ instance FromJSON ReplicationSubnetGroup where
                      <*> (x .:? "ReplicationSubnetGroupDescription"))
 
 instance Hashable ReplicationSubnetGroup
+
+instance NFData ReplicationSubnetGroup
 
 -- | /See:/ 'replicationTask' smart constructor.
 data ReplicationTask = ReplicationTask'
@@ -950,6 +970,8 @@ instance FromJSON ReplicationTask where
 
 instance Hashable ReplicationTask
 
+instance NFData ReplicationTask
+
 -- | /See:/ 'replicationTaskStats' smart constructor.
 data ReplicationTaskStats = ReplicationTaskStats'
     { _rtsFullLoadProgressPercent :: !(Maybe Int)
@@ -1025,6 +1047,8 @@ instance FromJSON ReplicationTaskStats where
 
 instance Hashable ReplicationTaskStats
 
+instance NFData ReplicationTaskStats
+
 -- | /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
     { _sSubnetStatus           :: !(Maybe Text)
@@ -1072,6 +1096,8 @@ instance FromJSON Subnet where
 
 instance Hashable Subnet
 
+instance NFData Subnet
+
 -- | /See:/ 'supportedEndpointType' smart constructor.
 data SupportedEndpointType = SupportedEndpointType'
     { _setEndpointType :: !(Maybe ReplicationEndpointTypeValue)
@@ -1118,6 +1144,8 @@ instance FromJSON SupportedEndpointType where
                      (x .:? "SupportsCDC"))
 
 instance Hashable SupportedEndpointType
+
+instance NFData SupportedEndpointType
 
 -- | /See:/ 'tableStatistics' smart constructor.
 data TableStatistics = TableStatistics'
@@ -1221,6 +1249,8 @@ instance FromJSON TableStatistics where
 
 instance Hashable TableStatistics
 
+instance NFData TableStatistics
+
 -- | /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
@@ -1264,6 +1294,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}

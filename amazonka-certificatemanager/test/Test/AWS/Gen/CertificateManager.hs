@@ -31,8 +31,14 @@ import Test.AWS.CertificateManager.Internal
 --         [ testResendValidationEmail $
 --             resendValidationEmail
 --
+--         , testListTagsForCertificate $
+--             listTagsForCertificate
+--
 --         , testGetCertificate $
 --             getCertificate
+--
+--         , testAddTagsToCertificate $
+--             addTagsToCertificate
 --
 --         , testRequestCertificate $
 --             requestCertificate
@@ -43,6 +49,9 @@ import Test.AWS.CertificateManager.Internal
 --         , testDeleteCertificate $
 --             deleteCertificate
 --
+--         , testRemoveTagsFromCertificate $
+--             removeTagsFromCertificate
+--
 --         , testDescribeCertificate $
 --             describeCertificate
 --
@@ -52,8 +61,14 @@ import Test.AWS.CertificateManager.Internal
 --         [ testResendValidationEmailResponse $
 --             resendValidationEmailResponse
 --
+--         , testListTagsForCertificateResponse $
+--             listTagsForCertificateResponse
+--
 --         , testGetCertificateResponse $
 --             getCertificateResponse
+--
+--         , testAddTagsToCertificateResponse $
+--             addTagsToCertificateResponse
 --
 --         , testRequestCertificateResponse $
 --             requestCertificateResponse
@@ -63,6 +78,9 @@ import Test.AWS.CertificateManager.Internal
 --
 --         , testDeleteCertificateResponse $
 --             deleteCertificateResponse
+--
+--         , testRemoveTagsFromCertificateResponse $
+--             removeTagsFromCertificateResponse
 --
 --         , testDescribeCertificateResponse $
 --             describeCertificateResponse
@@ -77,10 +95,20 @@ testResendValidationEmail = req
     "ResendValidationEmail"
     "fixture/ResendValidationEmail.yaml"
 
+testListTagsForCertificate :: ListTagsForCertificate -> TestTree
+testListTagsForCertificate = req
+    "ListTagsForCertificate"
+    "fixture/ListTagsForCertificate.yaml"
+
 testGetCertificate :: GetCertificate -> TestTree
 testGetCertificate = req
     "GetCertificate"
     "fixture/GetCertificate.yaml"
+
+testAddTagsToCertificate :: AddTagsToCertificate -> TestTree
+testAddTagsToCertificate = req
+    "AddTagsToCertificate"
+    "fixture/AddTagsToCertificate.yaml"
 
 testRequestCertificate :: RequestCertificate -> TestTree
 testRequestCertificate = req
@@ -97,6 +125,11 @@ testDeleteCertificate = req
     "DeleteCertificate"
     "fixture/DeleteCertificate.yaml"
 
+testRemoveTagsFromCertificate :: RemoveTagsFromCertificate -> TestTree
+testRemoveTagsFromCertificate = req
+    "RemoveTagsFromCertificate"
+    "fixture/RemoveTagsFromCertificate.yaml"
+
 testDescribeCertificate :: DescribeCertificate -> TestTree
 testDescribeCertificate = req
     "DescribeCertificate"
@@ -111,12 +144,26 @@ testResendValidationEmailResponse = res
     certificateManager
     (Proxy :: Proxy ResendValidationEmail)
 
+testListTagsForCertificateResponse :: ListTagsForCertificateResponse -> TestTree
+testListTagsForCertificateResponse = res
+    "ListTagsForCertificateResponse"
+    "fixture/ListTagsForCertificateResponse.proto"
+    certificateManager
+    (Proxy :: Proxy ListTagsForCertificate)
+
 testGetCertificateResponse :: GetCertificateResponse -> TestTree
 testGetCertificateResponse = res
     "GetCertificateResponse"
     "fixture/GetCertificateResponse.proto"
     certificateManager
     (Proxy :: Proxy GetCertificate)
+
+testAddTagsToCertificateResponse :: AddTagsToCertificateResponse -> TestTree
+testAddTagsToCertificateResponse = res
+    "AddTagsToCertificateResponse"
+    "fixture/AddTagsToCertificateResponse.proto"
+    certificateManager
+    (Proxy :: Proxy AddTagsToCertificate)
 
 testRequestCertificateResponse :: RequestCertificateResponse -> TestTree
 testRequestCertificateResponse = res
@@ -138,6 +185,13 @@ testDeleteCertificateResponse = res
     "fixture/DeleteCertificateResponse.proto"
     certificateManager
     (Proxy :: Proxy DeleteCertificate)
+
+testRemoveTagsFromCertificateResponse :: RemoveTagsFromCertificateResponse -> TestTree
+testRemoveTagsFromCertificateResponse = res
+    "RemoveTagsFromCertificateResponse"
+    "fixture/RemoveTagsFromCertificateResponse.proto"
+    certificateManager
+    (Proxy :: Proxy RemoveTagsFromCertificate)
 
 testDescribeCertificateResponse :: DescribeCertificateResponse -> TestTree
 testDescribeCertificateResponse = res

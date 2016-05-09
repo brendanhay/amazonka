@@ -74,6 +74,8 @@ instance AWSRequest StartStack where
 
 instance Hashable StartStack
 
+instance NFData StartStack
+
 instance ToHeaders StartStack where
         toHeaders
           = const
@@ -104,3 +106,5 @@ data StartStackResponse =
 startStackResponse
     :: StartStackResponse
 startStackResponse = StartStackResponse'
+
+instance NFData StartStackResponse

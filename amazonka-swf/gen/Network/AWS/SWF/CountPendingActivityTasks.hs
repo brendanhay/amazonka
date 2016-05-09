@@ -104,6 +104,8 @@ instance AWSRequest CountPendingActivityTasks where
 
 instance Hashable CountPendingActivityTasks
 
+instance NFData CountPendingActivityTasks
+
 instance ToHeaders CountPendingActivityTasks where
         toHeaders
           = const

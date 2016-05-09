@@ -18,10 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Writes multiple data records from a producer into an Amazon Kinesis
--- stream in a single call (also referred to as a 'PutRecords' request).
--- Use this operation to send data from a data producer into the Amazon
--- Kinesis stream for data ingestion and processing.
+-- Writes multiple data records into an Amazon Kinesis stream in a single
+-- call (also referred to as a 'PutRecords' request). Use this operation to
+-- send data into the stream for data ingestion and processing.
 --
 -- Each 'PutRecords' request can support up to 500 records. Each record in
 -- the request can be as large as 1 MB, up to a limit of 5 MB for the
@@ -44,14 +43,14 @@
 -- hashing mechanism, all data records with the same partition key map to
 -- the same shard within the stream. For more information, see
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream Adding Data to a Stream>
--- in the /Amazon Kinesis Developer Guide/.
+-- in the /Amazon Kinesis Streams Developer Guide/.
 --
 -- Each record in the 'Records' array may include an optional parameter,
 -- 'ExplicitHashKey', which overrides the partition key to shard mapping.
 -- This parameter allows a data producer to determine explicitly the shard
 -- where the record is stored. For more information, see
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-putrecords Adding Multiple Records with PutRecords>
--- in the /Amazon Kinesis Developer Guide/.
+-- in the /Amazon Kinesis Streams Developer Guide/.
 --
 -- The 'PutRecords' response includes an array of response 'Records'. Each
 -- record in the response array directly correlates with a record in the
@@ -78,7 +77,7 @@
 -- throttled. For more information about partially successful responses,
 -- see
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html#kinesis-using-sdk-java-putrecords Adding Multiple Records with PutRecords>
--- in the /Amazon Kinesis Developer Guide/.
+-- in the /Amazon Kinesis Streams Developer Guide/.
 --
 -- By default, data records are accessible for only 24 hours from the time
 -- that they are added to an Amazon Kinesis stream. This retention period
@@ -154,6 +153,8 @@ instance AWSRequest PutRecords where
 
 instance Hashable PutRecords
 
+instance NFData PutRecords
+
 instance ToHeaders PutRecords where
         toHeaders
           = const
@@ -216,9 +217,10 @@ prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a})
 
 -- | An array of successfully and unsuccessfully processed record results,
 -- correlated with the request by natural ordering. A record that is
--- successfully added to your Amazon Kinesis stream includes
--- 'SequenceNumber' and 'ShardId' in the result. A record that fails to be
--- added to your Amazon Kinesis stream includes 'ErrorCode' and
--- 'ErrorMessage' in the result.
+-- successfully added to a stream includes 'SequenceNumber' and 'ShardId'
+-- in the result. A record that fails to be added to a stream includes
+-- 'ErrorCode' and 'ErrorMessage' in the result.
 prsRecords :: Lens' PutRecordsResponse (NonEmpty PutRecordsResultEntry)
 prsRecords = lens _prsRecords (\ s a -> s{_prsRecords = a}) . _List1;
+
+instance NFData PutRecordsResponse

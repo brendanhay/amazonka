@@ -70,6 +70,8 @@ instance AWSRequest GetSendStatistics where
 
 instance Hashable GetSendStatistics
 
+instance NFData GetSendStatistics
+
 instance ToHeaders GetSendStatistics where
         toHeaders = const mempty
 
@@ -112,3 +114,5 @@ gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints
 -- | The response status code.
 gssrsResponseStatus :: Lens' GetSendStatisticsResponse Int
 gssrsResponseStatus = lens _gssrsResponseStatus (\ s a -> s{_gssrsResponseStatus = a});
+
+instance NFData GetSendStatisticsResponse

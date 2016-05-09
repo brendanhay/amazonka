@@ -79,6 +79,8 @@ instance FromJSON Compliance where
 
 instance Hashable Compliance
 
+instance NFData Compliance
+
 -- | Indicates whether an AWS Config rule is compliant. A rule is compliant
 -- if all of the resources that the rule evaluated comply with it, and it
 -- is noncompliant if any of these resources do not comply.
@@ -120,6 +122,8 @@ instance FromJSON ComplianceByConfigRule where
                    (x .:? "Compliance") <*> (x .:? "ConfigRuleName"))
 
 instance Hashable ComplianceByConfigRule
+
+instance NFData ComplianceByConfigRule
 
 -- | Indicates whether an AWS resource that is evaluated according to one or
 -- more AWS Config rules is compliant. A resource is compliant if it
@@ -174,6 +178,8 @@ instance FromJSON ComplianceByResource where
 
 instance Hashable ComplianceByResource
 
+instance NFData ComplianceByResource
+
 -- | The number of AWS resources or AWS Config rules responsible for the
 -- current compliance of the item, up to a maximum number.
 --
@@ -215,6 +221,8 @@ instance FromJSON ComplianceContributorCount where
                    (x .:? "CappedCount") <*> (x .:? "CapExceeded"))
 
 instance Hashable ComplianceContributorCount
+
+instance NFData ComplianceContributorCount
 
 -- | The number of AWS Config rules or AWS resources that are compliant and
 -- noncompliant, up to a maximum.
@@ -269,6 +277,8 @@ instance FromJSON ComplianceSummary where
 
 instance Hashable ComplianceSummary
 
+instance NFData ComplianceSummary
+
 -- | The number of AWS resources of a specific type that are compliant or
 -- noncompliant, up to a maximum of 100 for each compliance.
 --
@@ -312,6 +322,8 @@ instance FromJSON ComplianceSummaryByResourceType
                      (x .:? "ComplianceSummary"))
 
 instance Hashable ComplianceSummaryByResourceType
+
+instance NFData ComplianceSummaryByResourceType
 
 -- | A list that contains the status of the delivery of either the snapshot
 -- or the configuration history to the specified Amazon S3 bucket.
@@ -389,6 +401,8 @@ instance FromJSON ConfigExportDeliveryInfo where
                      <*> (x .:? "nextDeliveryTime"))
 
 instance Hashable ConfigExportDeliveryInfo
+
+instance NFData ConfigExportDeliveryInfo
 
 -- | An AWS Lambda function that evaluates configuration items to assess
 -- whether your AWS resources comply with your desired configurations. This
@@ -528,6 +542,8 @@ instance FromJSON ConfigRule where
                      <*> (x .: "Source"))
 
 instance Hashable ConfigRule
+
+instance NFData ConfigRule
 
 instance ToJSON ConfigRule where
         toJSON ConfigRule'{..}
@@ -681,6 +697,8 @@ instance FromJSON ConfigRuleEvaluationStatus where
 
 instance Hashable ConfigRuleEvaluationStatus
 
+instance NFData ConfigRuleEvaluationStatus
+
 -- | Options for how AWS Config delivers configuration snapshots to the
 -- Amazon S3 bucket in your delivery channel.
 --
@@ -715,6 +733,8 @@ instance FromJSON ConfigSnapshotDeliveryProperties
                    (x .:? "deliveryFrequency"))
 
 instance Hashable ConfigSnapshotDeliveryProperties
+
+instance NFData ConfigSnapshotDeliveryProperties
 
 instance ToJSON ConfigSnapshotDeliveryProperties
          where
@@ -788,6 +808,8 @@ instance FromJSON ConfigStreamDeliveryInfo where
                      <*> (x .:? "lastErrorMessage"))
 
 instance Hashable ConfigStreamDeliveryInfo
+
+instance NFData ConfigStreamDeliveryInfo
 
 -- | A list that contains detailed configurations of a specified resource.
 --
@@ -979,6 +1001,8 @@ instance FromJSON ConfigurationItem where
 
 instance Hashable ConfigurationItem
 
+instance NFData ConfigurationItem
+
 -- | An object that represents the recording of configuration changes of an
 -- AWS resource.
 --
@@ -1032,6 +1056,8 @@ instance FromJSON ConfigurationRecorder where
                      (x .:? "roleARN"))
 
 instance Hashable ConfigurationRecorder
+
+instance NFData ConfigurationRecorder
 
 instance ToJSON ConfigurationRecorder where
         toJSON ConfigurationRecorder'{..}
@@ -1135,6 +1161,8 @@ instance FromJSON ConfigurationRecorderStatus where
 
 instance Hashable ConfigurationRecorderStatus
 
+instance NFData ConfigurationRecorderStatus
+
 -- | A logical container used for storing the configuration changes of an AWS
 -- resource.
 --
@@ -1206,6 +1234,8 @@ instance FromJSON DeliveryChannel where
                      <*> (x .:? "s3BucketName"))
 
 instance Hashable DeliveryChannel
+
+instance NFData DeliveryChannel
 
 instance ToJSON DeliveryChannel where
         toJSON DeliveryChannel'{..}
@@ -1281,6 +1311,8 @@ instance FromJSON DeliveryChannelStatus where
                      <*> (x .:? "name"))
 
 instance Hashable DeliveryChannelStatus
+
+instance NFData DeliveryChannelStatus
 
 -- | Identifies an AWS resource and indicates whether it complies with the
 -- AWS Config rule that it was evaluated against.
@@ -1369,6 +1401,8 @@ instance FromJSON Evaluation where
                      <*> (x .: "OrderingTimestamp"))
 
 instance Hashable Evaluation
+
+instance NFData Evaluation
 
 instance ToJSON Evaluation where
         toJSON Evaluation'{..}
@@ -1471,6 +1505,8 @@ instance FromJSON EvaluationResult where
 
 instance Hashable EvaluationResult
 
+instance NFData EvaluationResult
+
 -- | Uniquely identifies an evaluation result.
 --
 -- /See:/ 'evaluationResultIdentifier' smart constructor.
@@ -1516,6 +1552,8 @@ instance FromJSON EvaluationResultIdentifier where
                      (x .:? "OrderingTimestamp"))
 
 instance Hashable EvaluationResultIdentifier
+
+instance NFData EvaluationResultIdentifier
 
 -- | Identifies an AWS Config rule that evaluated an AWS resource, and
 -- provides the type and ID of the resource that the rule evaluated.
@@ -1566,6 +1604,8 @@ instance FromJSON EvaluationResultQualifier where
                      (x .:? "ConfigRuleName"))
 
 instance Hashable EvaluationResultQualifier
+
+instance NFData EvaluationResultQualifier
 
 -- | Specifies the types of AWS resource for which AWS Config records
 -- configuration changes.
@@ -1684,6 +1724,8 @@ instance FromJSON RecordingGroup where
 
 instance Hashable RecordingGroup
 
+instance NFData RecordingGroup
+
 instance ToJSON RecordingGroup where
         toJSON RecordingGroup'{..}
           = object
@@ -1751,6 +1793,8 @@ instance FromJSON Relationship where
 
 instance Hashable Relationship
 
+instance NFData Relationship
+
 -- | The details that identify a resource that is discovered by AWS Config,
 -- including the resource type, ID, and (if available) the custom resource
 -- name.
@@ -1810,6 +1854,8 @@ instance FromJSON ResourceIdentifier where
                      <*> (x .:? "resourceDeletionTime"))
 
 instance Hashable ResourceIdentifier
+
+instance NFData ResourceIdentifier
 
 -- | Defines which resources trigger an evaluation for an AWS Config rule.
 -- The scope can include one or more resource types, a combination of a tag
@@ -1882,6 +1928,8 @@ instance FromJSON Scope where
 
 instance Hashable Scope
 
+instance NFData Scope
+
 instance ToJSON Scope where
         toJSON Scope'{..}
           = object
@@ -1951,6 +1999,8 @@ instance FromJSON Source where
 
 instance Hashable Source
 
+instance NFData Source
+
 instance ToJSON Source where
         toJSON Source'{..}
           = object
@@ -2005,6 +2055,8 @@ instance FromJSON SourceDetail where
                    (x .:? "MessageType") <*> (x .:? "EventSource"))
 
 instance Hashable SourceDetail
+
+instance NFData SourceDetail
 
 instance ToJSON SourceDetail where
         toJSON SourceDetail'{..}

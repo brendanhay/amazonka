@@ -135,6 +135,8 @@ instance AWSRequest GetSampledRequests where
 
 instance Hashable GetSampledRequests
 
+instance NFData GetSampledRequests
+
 instance ToHeaders GetSampledRequests where
         toHeaders
           = const
@@ -212,3 +214,5 @@ gsrrsTimeWindow = lens _gsrrsTimeWindow (\ s a -> s{_gsrrsTimeWindow = a});
 -- | The response status code.
 gsrrsResponseStatus :: Lens' GetSampledRequestsResponse Int
 gsrrsResponseStatus = lens _gsrrsResponseStatus (\ s a -> s{_gsrrsResponseStatus = a});
+
+instance NFData GetSampledRequestsResponse

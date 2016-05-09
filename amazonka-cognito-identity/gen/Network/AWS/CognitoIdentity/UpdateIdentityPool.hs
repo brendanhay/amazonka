@@ -30,6 +30,7 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , uipSupportedLoginProviders
     , uipDeveloperProviderName
     , uipOpenIdConnectProviderARNs
+    , uipCognitoIdentityProviders
     , uipIdentityPoolId
     , uipIdentityPoolName
     , uipAllowUnauthenticatedIdentities
@@ -41,6 +42,7 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs
+    , ipCognitoIdentityProviders
     , ipIdentityPoolId
     , ipIdentityPoolName
     , ipAllowUnauthenticatedIdentities
@@ -60,6 +62,7 @@ data UpdateIdentityPool = UpdateIdentityPool'
     { _uipSupportedLoginProviders        :: !(Maybe (Map Text Text))
     , _uipDeveloperProviderName          :: !(Maybe Text)
     , _uipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+    , _uipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
     , _uipIdentityPoolId                 :: !Text
     , _uipIdentityPoolName               :: !Text
     , _uipAllowUnauthenticatedIdentities :: !Bool
@@ -74,6 +77,8 @@ data UpdateIdentityPool = UpdateIdentityPool'
 -- * 'uipDeveloperProviderName'
 --
 -- * 'uipOpenIdConnectProviderARNs'
+--
+-- * 'uipCognitoIdentityProviders'
 --
 -- * 'uipIdentityPoolId'
 --
@@ -90,6 +95,7 @@ updateIdentityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIden
     { _uipSupportedLoginProviders = Nothing
     , _uipDeveloperProviderName = Nothing
     , _uipOpenIdConnectProviderARNs = Nothing
+    , _uipCognitoIdentityProviders = Nothing
     , _uipIdentityPoolId = pIdentityPoolId_
     , _uipIdentityPoolName = pIdentityPoolName_
     , _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
@@ -106,6 +112,10 @@ uipDeveloperProviderName = lens _uipDeveloperProviderName (\ s a -> s{_uipDevelo
 -- | A list of OpendID Connect provider ARNs.
 uipOpenIdConnectProviderARNs :: Lens' UpdateIdentityPool [Text]
 uipOpenIdConnectProviderARNs = lens _uipOpenIdConnectProviderARNs (\ s a -> s{_uipOpenIdConnectProviderARNs = a}) . _Default . _Coerce;
+
+-- | A list representing a Cognito User Identity Pool and its client ID.
+uipCognitoIdentityProviders :: Lens' UpdateIdentityPool [CognitoIdentityProvider]
+uipCognitoIdentityProviders = lens _uipCognitoIdentityProviders (\ s a -> s{_uipCognitoIdentityProviders = a}) . _Default . _Coerce;
 
 -- | An identity pool ID in the format REGION:GUID.
 uipIdentityPoolId :: Lens' UpdateIdentityPool Text
@@ -125,6 +135,8 @@ instance AWSRequest UpdateIdentityPool where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable UpdateIdentityPool
+
+instance NFData UpdateIdentityPool
 
 instance ToHeaders UpdateIdentityPool where
         toHeaders
@@ -146,6 +158,8 @@ instance ToJSON UpdateIdentityPool where
                     _uipDeveloperProviderName,
                   ("OpenIdConnectProviderARNs" .=) <$>
                     _uipOpenIdConnectProviderARNs,
+                  ("CognitoIdentityProviders" .=) <$>
+                    _uipCognitoIdentityProviders,
                   Just ("IdentityPoolId" .= _uipIdentityPoolId),
                   Just ("IdentityPoolName" .= _uipIdentityPoolName),
                   Just

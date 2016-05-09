@@ -117,6 +117,8 @@ instance AWSRequest ListInvalidations where
 
 instance Hashable ListInvalidations
 
+instance NFData ListInvalidations
+
 instance ToHeaders ListInvalidations where
         toHeaders = const mempty
 
@@ -163,3 +165,5 @@ lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = 
 -- | Information about invalidation batches.
 lirsInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
 lirsInvalidationList = lens _lirsInvalidationList (\ s a -> s{_lirsInvalidationList = a});
+
+instance NFData ListInvalidationsResponse

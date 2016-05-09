@@ -110,6 +110,8 @@ instance AWSRequest DescribeReplicationTasks where
 
 instance Hashable DescribeReplicationTasks
 
+instance NFData DescribeReplicationTasks
+
 instance ToHeaders DescribeReplicationTasks where
         toHeaders
           = const
@@ -173,3 +175,5 @@ drtsrsMarker = lens _drtsrsMarker (\ s a -> s{_drtsrsMarker = a});
 -- | The response status code.
 drtsrsResponseStatus :: Lens' DescribeReplicationTasksResponse Int
 drtsrsResponseStatus = lens _drtsrsResponseStatus (\ s a -> s{_drtsrsResponseStatus = a});
+
+instance NFData DescribeReplicationTasksResponse

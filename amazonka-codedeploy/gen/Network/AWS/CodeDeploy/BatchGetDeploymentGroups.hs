@@ -91,6 +91,8 @@ instance AWSRequest BatchGetDeploymentGroups where
 
 instance Hashable BatchGetDeploymentGroups
 
+instance NFData BatchGetDeploymentGroups
+
 instance ToHeaders BatchGetDeploymentGroups where
         toHeaders
           = const
@@ -155,3 +157,5 @@ bgdgrsErrorMessage = lens _bgdgrsErrorMessage (\ s a -> s{_bgdgrsErrorMessage = 
 -- | The response status code.
 bgdgrsResponseStatus :: Lens' BatchGetDeploymentGroupsResponse Int
 bgdgrsResponseStatus = lens _bgdgrsResponseStatus (\ s a -> s{_bgdgrsResponseStatus = a});
+
+instance NFData BatchGetDeploymentGroupsResponse

@@ -112,6 +112,8 @@ matrix:
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-cognito-identity
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.3 LIBRARY=amazonka-cognito-idp
+      addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-cognito-sync
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-config

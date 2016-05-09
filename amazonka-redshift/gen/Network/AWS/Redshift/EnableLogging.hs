@@ -118,6 +118,8 @@ instance AWSRequest EnableLogging where
 
 instance Hashable EnableLogging
 
+instance NFData EnableLogging
+
 instance ToHeaders EnableLogging where
         toHeaders = const mempty
 

@@ -95,6 +95,8 @@ instance AWSRequest GetPolicyVersion where
 
 instance Hashable GetPolicyVersion
 
+instance NFData GetPolicyVersion
+
 instance ToHeaders GetPolicyVersion where
         toHeaders = const mempty
 
@@ -170,3 +172,5 @@ gpvrsIsDefaultVersion = lens _gpvrsIsDefaultVersion (\ s a -> s{_gpvrsIsDefaultV
 -- | The response status code.
 gpvrsResponseStatus :: Lens' GetPolicyVersionResponse Int
 gpvrsResponseStatus = lens _gpvrsResponseStatus (\ s a -> s{_gpvrsResponseStatus = a});
+
+instance NFData GetPolicyVersionResponse

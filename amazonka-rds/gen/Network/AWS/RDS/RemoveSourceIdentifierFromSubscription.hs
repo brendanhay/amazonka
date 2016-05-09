@@ -95,6 +95,9 @@ instance AWSRequest
 instance Hashable
          RemoveSourceIdentifierFromSubscription
 
+instance NFData
+         RemoveSourceIdentifierFromSubscription
+
 instance ToHeaders
          RemoveSourceIdentifierFromSubscription where
         toHeaders = const mempty
@@ -143,3 +146,6 @@ rsifsrsEventSubscription = lens _rsifsrsEventSubscription (\ s a -> s{_rsifsrsEv
 -- | The response status code.
 rsifsrsResponseStatus :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
 rsifsrsResponseStatus = lens _rsifsrsResponseStatus (\ s a -> s{_rsifsrsResponseStatus = a});
+
+instance NFData
+         RemoveSourceIdentifierFromSubscriptionResponse

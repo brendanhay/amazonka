@@ -99,6 +99,8 @@ instance AWSRequest GetUserPolicy where
 
 instance Hashable GetUserPolicy
 
+instance NFData GetUserPolicy
+
 instance ToHeaders GetUserPolicy where
         toHeaders = const mempty
 
@@ -163,3 +165,5 @@ guprsPolicyName = lens _guprsPolicyName (\ s a -> s{_guprsPolicyName = a});
 -- | The policy document.
 guprsPolicyDocument :: Lens' GetUserPolicyResponse Text
 guprsPolicyDocument = lens _guprsPolicyDocument (\ s a -> s{_guprsPolicyDocument = a});
+
+instance NFData GetUserPolicyResponse

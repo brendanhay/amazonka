@@ -78,6 +78,8 @@ instance AWSRequest GetBucketLifecycleConfiguration
 
 instance Hashable GetBucketLifecycleConfiguration
 
+instance NFData GetBucketLifecycleConfiguration
+
 instance ToHeaders GetBucketLifecycleConfiguration
          where
         toHeaders = const mempty
@@ -119,3 +121,6 @@ gblcrsRules = lens _gblcrsRules (\ s a -> s{_gblcrsRules = a}) . _Default . _Coe
 -- | The response status code.
 gblcrsResponseStatus :: Lens' GetBucketLifecycleConfigurationResponse Int
 gblcrsResponseStatus = lens _gblcrsResponseStatus (\ s a -> s{_gblcrsResponseStatus = a});
+
+instance NFData
+         GetBucketLifecycleConfigurationResponse

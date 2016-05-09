@@ -74,6 +74,8 @@ instance AWSRequest EnableKey where
 
 instance Hashable EnableKey
 
+instance NFData EnableKey
+
 instance ToHeaders EnableKey where
         toHeaders
           = const
@@ -103,3 +105,5 @@ data EnableKeyResponse =
 enableKeyResponse
     :: EnableKeyResponse
 enableKeyResponse = EnableKeyResponse'
+
+instance NFData EnableKeyResponse

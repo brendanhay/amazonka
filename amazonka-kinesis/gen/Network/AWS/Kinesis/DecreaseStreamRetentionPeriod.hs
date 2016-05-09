@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Decreases the stream\'s retention period, which is the length of time
--- data records are accessible after they are added to the stream. The
--- minimum value of a stream’s retention period is 24 hours.
+-- Decreases the Amazon Kinesis stream\'s retention period, which is the
+-- length of time data records are accessible after they are added to the
+-- stream. The minimum value of a stream\'s retention period is 24 hours.
 --
 -- This operation may result in lost data. For example, if the stream\'s
 -- retention period is 48 hours and is decreased to 24 hours, any data
@@ -90,6 +90,8 @@ instance AWSRequest DecreaseStreamRetentionPeriod
 
 instance Hashable DecreaseStreamRetentionPeriod
 
+instance NFData DecreaseStreamRetentionPeriod
+
 instance ToHeaders DecreaseStreamRetentionPeriod
          where
         toHeaders
@@ -126,3 +128,5 @@ data DecreaseStreamRetentionPeriodResponse =
 decreaseStreamRetentionPeriodResponse
     :: DecreaseStreamRetentionPeriodResponse
 decreaseStreamRetentionPeriodResponse = DecreaseStreamRetentionPeriodResponse'
+
+instance NFData DecreaseStreamRetentionPeriodResponse

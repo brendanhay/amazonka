@@ -260,6 +260,8 @@ instance AWSRequest UploadPartCopy where
 
 instance Hashable UploadPartCopy
 
+instance NFData UploadPartCopy
+
 instance ToHeaders UploadPartCopy where
         toHeaders UploadPartCopy'{..}
           = mconcat
@@ -381,3 +383,5 @@ upcrsServerSideEncryption = lens _upcrsServerSideEncryption (\ s a -> s{_upcrsSe
 -- | The response status code.
 upcrsResponseStatus :: Lens' UploadPartCopyResponse Int
 upcrsResponseStatus = lens _upcrsResponseStatus (\ s a -> s{_upcrsResponseStatus = a});
+
+instance NFData UploadPartCopyResponse

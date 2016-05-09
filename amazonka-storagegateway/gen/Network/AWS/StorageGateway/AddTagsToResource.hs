@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation adds one or more tags to the specified resource. You use
--- tags to add metadata to resources, which you can use to categorize these
--- resources. For example, you can categorize resources by purpose, owner,
+-- Adds one or more tags to the specified resource. You use tags to add
+-- metadata to resources, which you can use to categorize these resources.
+-- For example, you can categorize resources by purpose, owner,
 -- environment, or team. Each tag consists of a key and a value, which you
 -- define. You can add tags to the following AWS Storage Gateway resources:
 --
@@ -104,6 +104,8 @@ instance AWSRequest AddTagsToResource where
 
 instance Hashable AddTagsToResource
 
+instance NFData AddTagsToResource
+
 instance ToHeaders AddTagsToResource where
         toHeaders
           = const
@@ -158,3 +160,5 @@ attrrsResourceARN = lens _attrrsResourceARN (\ s a -> s{_attrrsResourceARN = a})
 -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
 attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
+
+instance NFData AddTagsToResourceResponse

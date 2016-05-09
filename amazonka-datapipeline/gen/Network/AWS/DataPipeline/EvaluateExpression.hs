@@ -101,6 +101,8 @@ instance AWSRequest EvaluateExpression where
 
 instance Hashable EvaluateExpression
 
+instance NFData EvaluateExpression
+
 instance ToHeaders EvaluateExpression where
         toHeaders
           = const
@@ -156,3 +158,5 @@ eersResponseStatus = lens _eersResponseStatus (\ s a -> s{_eersResponseStatus = 
 -- | The evaluated expression.
 eersEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
 eersEvaluatedExpression = lens _eersEvaluatedExpression (\ s a -> s{_eersEvaluatedExpression = a});
+
+instance NFData EvaluateExpressionResponse

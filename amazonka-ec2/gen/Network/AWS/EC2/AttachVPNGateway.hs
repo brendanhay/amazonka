@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'attachVPNGateway' smart constructor.
+-- | Contains the parameters for AttachVpnGateway.
+--
+-- /See:/ 'attachVPNGateway' smart constructor.
 data AttachVPNGateway = AttachVPNGateway'
     { _avgDryRun       :: !(Maybe Bool)
     , _avgVPNGatewayId :: !Text
@@ -99,6 +101,8 @@ instance AWSRequest AttachVPNGateway where
 
 instance Hashable AttachVPNGateway
 
+instance NFData AttachVPNGateway
+
 instance ToHeaders AttachVPNGateway where
         toHeaders = const mempty
 
@@ -114,7 +118,9 @@ instance ToQuery AttachVPNGateway where
                "VpnGatewayId" =: _avgVPNGatewayId,
                "VpcId" =: _avgVPCId]
 
--- | /See:/ 'attachVPNGatewayResponse' smart constructor.
+-- | Contains the output of AttachVpnGateway.
+--
+-- /See:/ 'attachVPNGatewayResponse' smart constructor.
 data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
     { _avgrsVPCAttachment  :: !(Maybe VPCAttachment)
     , _avgrsResponseStatus :: !Int
@@ -143,3 +149,5 @@ avgrsVPCAttachment = lens _avgrsVPCAttachment (\ s a -> s{_avgrsVPCAttachment = 
 -- | The response status code.
 avgrsResponseStatus :: Lens' AttachVPNGatewayResponse Int
 avgrsResponseStatus = lens _avgrsResponseStatus (\ s a -> s{_avgrsResponseStatus = a});
+
+instance NFData AttachVPNGatewayResponse

@@ -98,6 +98,8 @@ instance AWSRequest ListPrincipalThings where
 
 instance Hashable ListPrincipalThings
 
+instance NFData ListPrincipalThings
+
 instance ToHeaders ListPrincipalThings where
         toHeaders ListPrincipalThings'{..}
           = mconcat ["x-amzn-principal" =# _lptPrincipal]
@@ -150,3 +152,5 @@ lptrsThings = lens _lptrsThings (\ s a -> s{_lptrsThings = a}) . _Default . _Coe
 -- | The response status code.
 lptrsResponseStatus :: Lens' ListPrincipalThingsResponse Int
 lptrsResponseStatus = lens _lptrsResponseStatus (\ s a -> s{_lptrsResponseStatus = a});
+
+instance NFData ListPrincipalThingsResponse

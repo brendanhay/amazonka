@@ -98,6 +98,8 @@ instance AWSRequest UpdatePipelineStatus where
 
 instance Hashable UpdatePipelineStatus
 
+instance NFData UpdatePipelineStatus
+
 instance ToHeaders UpdatePipelineStatus where
         toHeaders = const mempty
 
@@ -146,3 +148,5 @@ upsrsPipeline = lens _upsrsPipeline (\ s a -> s{_upsrsPipeline = a});
 -- | The response status code.
 upsrsResponseStatus :: Lens' UpdatePipelineStatusResponse Int
 upsrsResponseStatus = lens _upsrsResponseStatus (\ s a -> s{_upsrsResponseStatus = a});
+
+instance NFData UpdatePipelineStatusResponse

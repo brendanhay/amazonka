@@ -123,6 +123,8 @@ instance AWSRequest DescribeScalingActivities where
 
 instance Hashable DescribeScalingActivities
 
+instance NFData DescribeScalingActivities
+
 instance ToHeaders DescribeScalingActivities where
         toHeaders = const mempty
 
@@ -179,3 +181,5 @@ dsasrsResponseStatus = lens _dsasrsResponseStatus (\ s a -> s{_dsasrsResponseSta
 -- | The scaling activities.
 dsasrsActivities :: Lens' DescribeScalingActivitiesResponse [Activity]
 dsasrsActivities = lens _dsasrsActivities (\ s a -> s{_dsasrsActivities = a}) . _Coerce;
+
+instance NFData DescribeScalingActivitiesResponse

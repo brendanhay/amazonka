@@ -70,6 +70,8 @@ instance FromJSON AliasListEntry where
 
 instance Hashable AliasListEntry
 
+instance NFData AliasListEntry
+
 -- | A structure for specifying the conditions under which the operations
 -- permitted by the grant are allowed.
 --
@@ -125,6 +127,8 @@ instance FromJSON GrantConstraints where
                      (x .:? "EncryptionContextSubset" .!= mempty))
 
 instance Hashable GrantConstraints
+
+instance NFData GrantConstraints
 
 instance ToJSON GrantConstraints where
         toJSON GrantConstraints'{..}
@@ -241,6 +245,8 @@ instance FromJSON GrantListEntry where
 
 instance Hashable GrantListEntry
 
+instance NFData GrantListEntry
+
 -- | Contains information about each entry in the key list.
 --
 -- /See:/ 'keyListEntry' smart constructor.
@@ -280,6 +286,8 @@ instance FromJSON KeyListEntry where
                    (x .:? "KeyId") <*> (x .:? "KeyArn"))
 
 instance Hashable KeyListEntry
+
+instance NFData KeyListEntry
 
 -- | Contains metadata about a customer master key (CMK).
 --
@@ -399,6 +407,8 @@ instance FromJSON KeyMetadata where
 
 instance Hashable KeyMetadata
 
+instance NFData KeyMetadata
+
 -- | /See:/ 'listGrantsResponse' smart constructor.
 data ListGrantsResponse = ListGrantsResponse'
     { _lgTruncated  :: !(Maybe Bool)
@@ -448,3 +458,5 @@ instance FromJSON ListGrantsResponse where
                      <*> (x .:? "NextMarker"))
 
 instance Hashable ListGrantsResponse
+
+instance NFData ListGrantsResponse

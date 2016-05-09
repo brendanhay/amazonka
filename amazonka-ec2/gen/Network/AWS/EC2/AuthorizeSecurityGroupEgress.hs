@@ -65,7 +65,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'authorizeSecurityGroupEgress' smart constructor.
+-- | Contains the parameters for AuthorizeSecurityGroupEgress.
+--
+-- /See:/ 'authorizeSecurityGroupEgress' smart constructor.
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
     { _asgeFromPort                   :: !(Maybe Int)
     , _asgeIPPermissions              :: !(Maybe [IPPermission])
@@ -175,6 +177,8 @@ instance AWSRequest AuthorizeSecurityGroupEgress
 
 instance Hashable AuthorizeSecurityGroupEgress
 
+instance NFData AuthorizeSecurityGroupEgress
+
 instance ToHeaders AuthorizeSecurityGroupEgress where
         toHeaders = const mempty
 
@@ -208,3 +212,5 @@ data AuthorizeSecurityGroupEgressResponse =
 authorizeSecurityGroupEgressResponse
     :: AuthorizeSecurityGroupEgressResponse
 authorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse'
+
+instance NFData AuthorizeSecurityGroupEgressResponse

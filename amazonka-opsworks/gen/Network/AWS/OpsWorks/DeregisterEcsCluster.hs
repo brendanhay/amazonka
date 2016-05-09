@@ -77,6 +77,8 @@ instance AWSRequest DeregisterEcsCluster where
 
 instance Hashable DeregisterEcsCluster
 
+instance NFData DeregisterEcsCluster
+
 instance ToHeaders DeregisterEcsCluster where
         toHeaders
           = const
@@ -109,3 +111,5 @@ data DeregisterEcsClusterResponse =
 deregisterEcsClusterResponse
     :: DeregisterEcsClusterResponse
 deregisterEcsClusterResponse = DeregisterEcsClusterResponse'
+
+instance NFData DeregisterEcsClusterResponse

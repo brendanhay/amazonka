@@ -192,3 +192,5 @@ udrsDeletes = lens _udrsDeletes (\ s a -> s{_udrsDeletes = a});
 -- | The response status code.
 udrsResponseStatus :: Lens' UploadDocumentsResponse Int
 udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a});
+
+instance NFData UploadDocumentsResponse

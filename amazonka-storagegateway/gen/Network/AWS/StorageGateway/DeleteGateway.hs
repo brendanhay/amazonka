@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation deletes a gateway. To specify which gateway to delete,
--- use the Amazon Resource Name (ARN) of the gateway in your request. The
--- operation deletes the gateway; however, it does not delete the gateway
--- virtual machine (VM) from your host computer.
+-- Deletes a gateway. To specify which gateway to delete, use the Amazon
+-- Resource Name (ARN) of the gateway in your request. The operation
+-- deletes the gateway; however, it does not delete the gateway virtual
+-- machine (VM) from your host computer.
 --
 -- After you delete a gateway, you cannot reactivate it. Completed
 -- snapshots of the gateway volumes are not deleted upon deleting the
@@ -94,6 +94,8 @@ instance AWSRequest DeleteGateway where
 
 instance Hashable DeleteGateway
 
+instance NFData DeleteGateway
+
 instance ToHeaders DeleteGateway where
         toHeaders
           = const
@@ -146,3 +148,5 @@ dgrsGatewayARN = lens _dgrsGatewayARN (\ s a -> s{_dgrsGatewayARN = a});
 -- | The response status code.
 dgrsResponseStatus :: Lens' DeleteGatewayResponse Int
 dgrsResponseStatus = lens _dgrsResponseStatus (\ s a -> s{_dgrsResponseStatus = a});
+
+instance NFData DeleteGatewayResponse

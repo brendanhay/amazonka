@@ -43,6 +43,7 @@ instance ToText AlgorithmicStemming where
         ASNone -> "none"
 
 instance Hashable     AlgorithmicStemming
+instance NFData       AlgorithmicStemming
 instance ToByteString AlgorithmicStemming
 instance ToQuery      AlgorithmicStemming
 instance ToHeader     AlgorithmicStemming
@@ -169,6 +170,7 @@ instance ToText AnalysisSchemeLanguage where
         ZhHant -> "zh-Hant"
 
 instance Hashable     AnalysisSchemeLanguage
+instance NFData       AnalysisSchemeLanguage
 instance ToByteString AnalysisSchemeLanguage
 instance ToQuery      AnalysisSchemeLanguage
 instance ToHeader     AnalysisSchemeLanguage
@@ -225,6 +227,7 @@ instance ToText IndexFieldType where
         TextArray -> "text-array"
 
 instance Hashable     IndexFieldType
+instance NFData       IndexFieldType
 instance ToByteString IndexFieldType
 instance ToQuery      IndexFieldType
 instance ToHeader     IndexFieldType
@@ -268,6 +271,7 @@ instance ToText OptionState where
         RequiresIndexDocuments -> "RequiresIndexDocuments"
 
 instance Hashable     OptionState
+instance NFData       OptionState
 instance ToByteString OptionState
 instance ToQuery      OptionState
 instance ToHeader     OptionState
@@ -313,6 +317,7 @@ instance ToText PartitionInstanceType where
         Search_M3_XLarge -> "search.m3.xlarge"
 
 instance Hashable     PartitionInstanceType
+instance NFData       PartitionInstanceType
 instance ToByteString PartitionInstanceType
 instance ToQuery      PartitionInstanceType
 instance ToHeader     PartitionInstanceType
@@ -341,6 +346,7 @@ instance ToText SuggesterFuzzyMatching where
         None -> "none"
 
 instance Hashable     SuggesterFuzzyMatching
+instance NFData       SuggesterFuzzyMatching
 instance ToByteString SuggesterFuzzyMatching
 instance ToQuery      SuggesterFuzzyMatching
 instance ToHeader     SuggesterFuzzyMatching

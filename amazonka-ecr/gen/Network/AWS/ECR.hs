@@ -186,6 +186,7 @@ module Network.AWS.ECR
     , repository
     , rRepositoryARN
     , rRegistryId
+    , rRepositoryURI
     , rRepositoryName
     ) where
 

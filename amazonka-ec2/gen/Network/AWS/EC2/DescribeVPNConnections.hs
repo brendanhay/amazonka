@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVPNConnections' smart constructor.
+-- | Contains the parameters for DescribeVpnConnections.
+--
+-- /See:/ 'describeVPNConnections' smart constructor.
 data DescribeVPNConnections = DescribeVPNConnections'
     { _dvpncFilters          :: !(Maybe [Filter])
     , _dvpncVPNConnectionIds :: !(Maybe [Text])
@@ -146,6 +148,8 @@ instance AWSRequest DescribeVPNConnections where
 
 instance Hashable DescribeVPNConnections
 
+instance NFData DescribeVPNConnections
+
 instance ToHeaders DescribeVPNConnections where
         toHeaders = const mempty
 
@@ -164,7 +168,9 @@ instance ToQuery DescribeVPNConnections where
                     _dvpncVPNConnectionIds),
                "DryRun" =: _dvpncDryRun]
 
--- | /See:/ 'describeVPNConnectionsResponse' smart constructor.
+-- | Contains the output of DescribeVpnConnections.
+--
+-- /See:/ 'describeVPNConnectionsResponse' smart constructor.
 data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
     { _dvcrsVPNConnections :: !(Maybe [VPNConnection])
     , _dvcrsResponseStatus :: !Int
@@ -193,3 +199,5 @@ dvcrsVPNConnections = lens _dvcrsVPNConnections (\ s a -> s{_dvcrsVPNConnections
 -- | The response status code.
 dvcrsResponseStatus :: Lens' DescribeVPNConnectionsResponse Int
 dvcrsResponseStatus = lens _dvcrsResponseStatus (\ s a -> s{_dvcrsResponseStatus = a});
+
+instance NFData DescribeVPNConnectionsResponse

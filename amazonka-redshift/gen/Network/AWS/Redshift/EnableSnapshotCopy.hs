@@ -121,6 +121,8 @@ instance AWSRequest EnableSnapshotCopy where
 
 instance Hashable EnableSnapshotCopy
 
+instance NFData EnableSnapshotCopy
+
 instance ToHeaders EnableSnapshotCopy where
         toHeaders = const mempty
 
@@ -166,3 +168,5 @@ escrsCluster = lens _escrsCluster (\ s a -> s{_escrsCluster = a});
 -- | The response status code.
 escrsResponseStatus :: Lens' EnableSnapshotCopyResponse Int
 escrsResponseStatus = lens _escrsResponseStatus (\ s a -> s{_escrsResponseStatus = a});
+
+instance NFData EnableSnapshotCopyResponse

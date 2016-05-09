@@ -52,8 +52,8 @@ module Network.AWS.CloudFormation.DescribeStackResources
     , describeStackResourcesResponse
     , DescribeStackResourcesResponse
     -- * Response Lenses
-    , drsStackResources
-    , drsResponseStatus
+    , dsrsrsStackResources
+    , dsrsrsResponseStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -139,6 +139,8 @@ instance AWSRequest DescribeStackResources where
 
 instance Hashable DescribeStackResources
 
+instance NFData DescribeStackResources
+
 instance ToHeaders DescribeStackResources where
         toHeaders = const mempty
 
@@ -159,30 +161,32 @@ instance ToQuery DescribeStackResources where
 --
 -- /See:/ 'describeStackResourcesResponse' smart constructor.
 data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
-    { _drsStackResources :: !(Maybe [StackResource])
-    , _drsResponseStatus :: !Int
+    { _dsrsrsStackResources :: !(Maybe [StackResource])
+    , _dsrsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeStackResourcesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsStackResources'
+-- * 'dsrsrsStackResources'
 --
--- * 'drsResponseStatus'
+-- * 'dsrsrsResponseStatus'
 describeStackResourcesResponse
-    :: Int -- ^ 'drsResponseStatus'
+    :: Int -- ^ 'dsrsrsResponseStatus'
     -> DescribeStackResourcesResponse
 describeStackResourcesResponse pResponseStatus_ =
     DescribeStackResourcesResponse'
-    { _drsStackResources = Nothing
-    , _drsResponseStatus = pResponseStatus_
+    { _dsrsrsStackResources = Nothing
+    , _dsrsrsResponseStatus = pResponseStatus_
     }
 
 -- | A list of 'StackResource' structures.
-drsStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
-drsStackResources = lens _drsStackResources (\ s a -> s{_drsStackResources = a}) . _Default . _Coerce;
+dsrsrsStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
+dsrsrsStackResources = lens _dsrsrsStackResources (\ s a -> s{_dsrsrsStackResources = a}) . _Default . _Coerce;
 
 -- | The response status code.
-drsResponseStatus :: Lens' DescribeStackResourcesResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+dsrsrsResponseStatus :: Lens' DescribeStackResourcesResponse Int
+dsrsrsResponseStatus = lens _dsrsrsResponseStatus (\ s a -> s{_dsrsrsResponseStatus = a});
+
+instance NFData DescribeStackResourcesResponse

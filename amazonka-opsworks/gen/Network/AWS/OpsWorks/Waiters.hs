@@ -21,6 +21,7 @@ import           Network.AWS.OpsWorks.DescribeDeployments
 import           Network.AWS.OpsWorks.DescribeInstances
 import           Network.AWS.OpsWorks.DescribeInstances
 import           Network.AWS.OpsWorks.DescribeInstances
+import           Network.AWS.OpsWorks.DescribeInstances
 import           Network.AWS.OpsWorks.Types
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
@@ -226,4 +227,54 @@ appExists =
     , _waitDelay = 1
     , _waitAcceptors = [ matchStatus 200 AcceptSuccess
                        , matchStatus 400 AcceptFailure]
+    }
+
+-- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a
+-- successful state is reached. An error is returned after 40 failed checks.
+instanceRegistered :: Wait DescribeInstances
+instanceRegistered =
+    Wait
+    { _waitName = "InstanceRegistered"
+    , _waitAttempts = 40
+    , _waitDelay = 15
+    , _waitAcceptors = [ matchAll
+                             "registered"
+                             AcceptSuccess
+                             (folding (concatOf dirsInstances) .
+                              iStatus . _Just . to toTextCI)
+                       , matchAny
+                             "setup_failed"
+                             AcceptFailure
+                             (folding (concatOf dirsInstances) .
+                              iStatus . _Just . to toTextCI)
+                       , matchAny
+                             "shutting_down"
+                             AcceptFailure
+                             (folding (concatOf dirsInstances) .
+                              iStatus . _Just . to toTextCI)
+                       , matchAny
+                             "stopped"
+                             AcceptFailure
+                             (folding (concatOf dirsInstances) .
+                              iStatus . _Just . to toTextCI)
+                       , matchAny
+                             "stopping"
+                             AcceptFailure
+                             (folding (concatOf dirsInstances) .
+                              iStatus . _Just . to toTextCI)
+                       , matchAny
+                             "terminating"
+                             AcceptFailure
+                             (folding (concatOf dirsInstances) .
+                              iStatus . _Just . to toTextCI)
+                       , matchAny
+                             "terminated"
+                             AcceptFailure
+                             (folding (concatOf dirsInstances) .
+                              iStatus . _Just . to toTextCI)
+                       , matchAny
+                             "stop_failed"
+                             AcceptFailure
+                             (folding (concatOf dirsInstances) .
+                              iStatus . _Just . to toTextCI)]
     }

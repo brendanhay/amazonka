@@ -101,6 +101,8 @@ instance AWSRequest PurchaseReservedNodeOffering
 
 instance Hashable PurchaseReservedNodeOffering
 
+instance NFData PurchaseReservedNodeOffering
+
 instance ToHeaders PurchaseReservedNodeOffering where
         toHeaders = const mempty
 
@@ -146,3 +148,5 @@ prnorsReservedNode = lens _prnorsReservedNode (\ s a -> s{_prnorsReservedNode = 
 -- | The response status code.
 prnorsResponseStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
 prnorsResponseStatus = lens _prnorsResponseStatus (\ s a -> s{_prnorsResponseStatus = a});
+
+instance NFData PurchaseReservedNodeOfferingResponse

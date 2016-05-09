@@ -492,6 +492,8 @@ instance AWSRequest Scan where
 
 instance Hashable Scan
 
+instance NFData Scan
+
 instance ToHeaders Scan where
         toHeaders
           = const
@@ -619,3 +621,5 @@ srsConsumedCapacity = lens _srsConsumedCapacity (\ s a -> s{_srsConsumedCapacity
 -- | The response status code.
 srsResponseStatus :: Lens' ScanResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+
+instance NFData ScanResponse

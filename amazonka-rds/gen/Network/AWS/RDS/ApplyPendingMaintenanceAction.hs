@@ -83,6 +83,8 @@ apmaResourceIdentifier :: Lens' ApplyPendingMaintenanceAction Text
 apmaResourceIdentifier = lens _apmaResourceIdentifier (\ s a -> s{_apmaResourceIdentifier = a});
 
 -- | The pending maintenance action to apply to this resource.
+--
+-- Valid values: 'system-update', 'db-upgrade'
 apmaApplyAction :: Lens' ApplyPendingMaintenanceAction Text
 apmaApplyAction = lens _apmaApplyAction (\ s a -> s{_apmaApplyAction = a});
 
@@ -113,6 +115,8 @@ instance AWSRequest ApplyPendingMaintenanceAction
                      (pure (fromEnum s)))
 
 instance Hashable ApplyPendingMaintenanceAction
+
+instance NFData ApplyPendingMaintenanceAction
 
 instance ToHeaders ApplyPendingMaintenanceAction
          where
@@ -160,3 +164,5 @@ apmarsResourcePendingMaintenanceActions = lens _apmarsResourcePendingMaintenance
 -- | The response status code.
 apmarsResponseStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
 apmarsResponseStatus = lens _apmarsResponseStatus (\ s a -> s{_apmarsResponseStatus = a});
+
+instance NFData ApplyPendingMaintenanceActionResponse

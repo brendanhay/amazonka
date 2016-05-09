@@ -70,6 +70,8 @@ instance AWSRequest DeleteBucketReplication where
 
 instance Hashable DeleteBucketReplication
 
+instance NFData DeleteBucketReplication
+
 instance ToHeaders DeleteBucketReplication where
         toHeaders = const mempty
 
@@ -90,3 +92,5 @@ data DeleteBucketReplicationResponse =
 deleteBucketReplicationResponse
     :: DeleteBucketReplicationResponse
 deleteBucketReplicationResponse = DeleteBucketReplicationResponse'
+
+instance NFData DeleteBucketReplicationResponse

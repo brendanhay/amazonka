@@ -312,6 +312,8 @@ instance AWSRequest CreateMultipartUpload where
 
 instance Hashable CreateMultipartUpload
 
+instance NFData CreateMultipartUpload
+
 instance ToHeaders CreateMultipartUpload where
         toHeaders CreateMultipartUpload'{..}
           = mconcat
@@ -458,3 +460,5 @@ cmursServerSideEncryption = lens _cmursServerSideEncryption (\ s a -> s{_cmursSe
 -- | The response status code.
 cmursResponseStatus :: Lens' CreateMultipartUploadResponse Int
 cmursResponseStatus = lens _cmursResponseStatus (\ s a -> s{_cmursResponseStatus = a});
+
+instance NFData CreateMultipartUploadResponse

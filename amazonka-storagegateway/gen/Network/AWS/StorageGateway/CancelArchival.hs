@@ -89,6 +89,8 @@ instance AWSRequest CancelArchival where
 
 instance Hashable CancelArchival
 
+instance NFData CancelArchival
+
 instance ToHeaders CancelArchival where
         toHeaders
           = const
@@ -144,3 +146,5 @@ carsTapeARN = lens _carsTapeARN (\ s a -> s{_carsTapeARN = a});
 -- | The response status code.
 carsResponseStatus :: Lens' CancelArchivalResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
+
+instance NFData CancelArchivalResponse

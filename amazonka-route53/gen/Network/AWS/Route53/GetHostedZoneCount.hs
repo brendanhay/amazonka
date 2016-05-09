@@ -67,6 +67,8 @@ instance AWSRequest GetHostedZoneCount where
 
 instance Hashable GetHostedZoneCount
 
+instance NFData GetHostedZoneCount
+
 instance ToHeaders GetHostedZoneCount where
         toHeaders = const mempty
 
@@ -109,3 +111,5 @@ ghzcrsResponseStatus = lens _ghzcrsResponseStatus (\ s a -> s{_ghzcrsResponseSta
 -- | The number of hosted zones associated with the current AWS account.
 ghzcrsHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
 ghzcrsHostedZoneCount = lens _ghzcrsHostedZoneCount (\ s a -> s{_ghzcrsHostedZoneCount = a});
+
+instance NFData GetHostedZoneCountResponse

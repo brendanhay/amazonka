@@ -97,6 +97,8 @@ instance AWSRequest GetOperationDetail where
 
 instance Hashable GetOperationDetail
 
+instance NFData GetOperationDetail
+
 instance ToHeaders GetOperationDetail where
         toHeaders
           = const
@@ -199,3 +201,5 @@ godrsMessage = lens _godrsMessage (\ s a -> s{_godrsMessage = a});
 -- | The response status code.
 godrsResponseStatus :: Lens' GetOperationDetailResponse Int
 godrsResponseStatus = lens _godrsResponseStatus (\ s a -> s{_godrsResponseStatus = a});
+
+instance NFData GetOperationDetailResponse

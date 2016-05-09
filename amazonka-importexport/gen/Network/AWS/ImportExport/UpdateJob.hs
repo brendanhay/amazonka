@@ -125,6 +125,8 @@ instance AWSRequest UpdateJob where
 
 instance Hashable UpdateJob
 
+instance NFData UpdateJob
+
 instance ToHeaders UpdateJob where
         toHeaders = const mempty
 
@@ -188,3 +190,5 @@ ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . 
 -- | The response status code.
 ujrsResponseStatus :: Lens' UpdateJobResponse Int
 ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a});
+
+instance NFData UpdateJobResponse

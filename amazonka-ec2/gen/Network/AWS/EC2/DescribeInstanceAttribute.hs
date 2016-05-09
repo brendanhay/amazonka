@@ -62,7 +62,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeInstanceAttribute' smart constructor.
+-- | Contains the parameters for DescribeInstanceAttribute.
+--
+-- /See:/ 'describeInstanceAttribute' smart constructor.
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
     { _diaDryRun     :: !(Maybe Bool)
     , _diaInstanceId :: !Text
@@ -134,6 +136,8 @@ instance AWSRequest DescribeInstanceAttribute where
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeInstanceAttribute
+
+instance NFData DescribeInstanceAttribute
 
 instance ToHeaders DescribeInstanceAttribute where
         toHeaders = const mempty
@@ -292,3 +296,5 @@ drsBlockDeviceMappings = lens _drsBlockDeviceMappings (\ s a -> s{_drsBlockDevic
 -- | The response status code.
 drsResponseStatus :: Lens' DescribeInstanceAttributeResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DescribeInstanceAttributeResponse

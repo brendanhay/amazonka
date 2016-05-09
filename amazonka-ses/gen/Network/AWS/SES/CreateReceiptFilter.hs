@@ -81,6 +81,8 @@ instance AWSRequest CreateReceiptFilter where
 
 instance Hashable CreateReceiptFilter
 
+instance NFData CreateReceiptFilter
+
 instance ToHeaders CreateReceiptFilter where
         toHeaders = const mempty
 
@@ -115,3 +117,5 @@ createReceiptFilterResponse pResponseStatus_ =
 -- | The response status code.
 crfrsResponseStatus :: Lens' CreateReceiptFilterResponse Int
 crfrsResponseStatus = lens _crfrsResponseStatus (\ s a -> s{_crfrsResponseStatus = a});
+
+instance NFData CreateReceiptFilterResponse

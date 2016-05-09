@@ -22,6 +22,9 @@ module Network.AWS.DeviceFarm
     -- * Errors
     -- $errors
 
+    -- ** NotEligibleException
+    , _NotEligibleException
+
     -- ** IdempotencyException
     , _IdempotencyException
 
@@ -43,7 +46,7 @@ module Network.AWS.DeviceFarm
     -- * Operations
     -- $operations
 
-    -- ** ListProjects
+    -- ** ListProjects (Paginated)
     , module Network.AWS.DeviceFarm.ListProjects
 
     -- ** DeleteProject
@@ -55,10 +58,10 @@ module Network.AWS.DeviceFarm
     -- ** GetDevicePoolCompatibility
     , module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
 
-    -- ** ListTests
+    -- ** ListTests (Paginated)
     , module Network.AWS.DeviceFarm.ListTests
 
-    -- ** ListArtifacts
+    -- ** ListArtifacts (Paginated)
     , module Network.AWS.DeviceFarm.ListArtifacts
 
     -- ** CreateUpload
@@ -70,7 +73,7 @@ module Network.AWS.DeviceFarm
     -- ** GetDevicePool
     , module Network.AWS.DeviceFarm.GetDevicePool
 
-    -- ** ListDevicePools
+    -- ** ListDevicePools (Paginated)
     , module Network.AWS.DeviceFarm.ListDevicePools
 
     -- ** UpdateDevicePool
@@ -82,22 +85,28 @@ module Network.AWS.DeviceFarm
     -- ** GetUpload
     , module Network.AWS.DeviceFarm.GetUpload
 
+    -- ** ListOfferingTransactions
+    , module Network.AWS.DeviceFarm.ListOfferingTransactions
+
     -- ** CreateDevicePool
     , module Network.AWS.DeviceFarm.CreateDevicePool
 
     -- ** DeleteRun
     , module Network.AWS.DeviceFarm.DeleteRun
 
-    -- ** ListRuns
+    -- ** ListRuns (Paginated)
     , module Network.AWS.DeviceFarm.ListRuns
 
     -- ** GetTest
     , module Network.AWS.DeviceFarm.GetTest
 
+    -- ** RenewOffering
+    , module Network.AWS.DeviceFarm.RenewOffering
+
     -- ** GetDevice
     , module Network.AWS.DeviceFarm.GetDevice
 
-    -- ** ListJobs
+    -- ** ListJobs (Paginated)
     , module Network.AWS.DeviceFarm.ListJobs
 
     -- ** GetJob
@@ -109,32 +118,44 @@ module Network.AWS.DeviceFarm
     -- ** GetRun
     , module Network.AWS.DeviceFarm.GetRun
 
-    -- ** ListSamples
+    -- ** ListSamples (Paginated)
     , module Network.AWS.DeviceFarm.ListSamples
 
-    -- ** ListSuites
+    -- ** ListSuites (Paginated)
     , module Network.AWS.DeviceFarm.ListSuites
 
     -- ** GetAccountSettings
     , module Network.AWS.DeviceFarm.GetAccountSettings
 
-    -- ** ListUploads
+    -- ** GetOfferingStatus
+    , module Network.AWS.DeviceFarm.GetOfferingStatus
+
+    -- ** ListUploads (Paginated)
     , module Network.AWS.DeviceFarm.ListUploads
 
     -- ** GetSuite
     , module Network.AWS.DeviceFarm.GetSuite
 
+    -- ** PurchaseOffering
+    , module Network.AWS.DeviceFarm.PurchaseOffering
+
     -- ** GetProject
     , module Network.AWS.DeviceFarm.GetProject
 
-    -- ** ListUniqueProblems
+    -- ** ListUniqueProblems (Paginated)
     , module Network.AWS.DeviceFarm.ListUniqueProblems
 
-    -- ** ListDevices
+    -- ** StopRun
+    , module Network.AWS.DeviceFarm.StopRun
+
+    -- ** ListDevices (Paginated)
     , module Network.AWS.DeviceFarm.ListDevices
 
     -- ** CreateProject
     , module Network.AWS.DeviceFarm.CreateProject
+
+    -- ** ListOfferings
+    , module Network.AWS.DeviceFarm.ListOfferings
 
     -- * Types
 
@@ -146,6 +167,9 @@ module Network.AWS.DeviceFarm
 
     -- ** BillingMethod
     , BillingMethod (..)
+
+    -- ** CurrencyCode
+    , CurrencyCode (..)
 
     -- ** DeviceAttribute
     , DeviceAttribute (..)
@@ -164,6 +188,15 @@ module Network.AWS.DeviceFarm
 
     -- ** ExecutionStatus
     , ExecutionStatus (..)
+
+    -- ** OfferingTransactionType
+    , OfferingTransactionType (..)
+
+    -- ** OfferingType
+    , OfferingType (..)
+
+    -- ** RecurringChargeFrequency
+    , RecurringChargeFrequency (..)
 
     -- ** RuleOperator
     , RuleOperator (..)
@@ -185,6 +218,7 @@ module Network.AWS.DeviceFarm
     , accountSettings
     , asAwsAccountNumber
     , asUnmeteredDevices
+    , asUnmeteredRemoteAccessDevices
 
     -- ** Artifact
     , Artifact
@@ -282,6 +316,37 @@ module Network.AWS.DeviceFarm
     , lLatitude
     , lLongitude
 
+    -- ** MonetaryAmount
+    , MonetaryAmount
+    , monetaryAmount
+    , maAmount
+    , maCurrencyCode
+
+    -- ** Offering
+    , Offering
+    , offering
+    , oPlatform
+    , oId
+    , oRecurringCharges
+    , oType
+    , oDescription
+
+    -- ** OfferingStatus
+    , OfferingStatus
+    , offeringStatus
+    , osEffectiveOn
+    , osOffering
+    , osQuantity
+    , osType
+
+    -- ** OfferingTransaction
+    , OfferingTransaction
+    , offeringTransaction
+    , otOfferingStatus
+    , otCost
+    , otTransactionId
+    , otCreatedOn
+
     -- ** Problem
     , Problem
     , problem
@@ -313,6 +378,12 @@ module Network.AWS.DeviceFarm
     , rGps
     , rBluetooth
     , rWifi
+
+    -- ** RecurringCharge
+    , RecurringCharge
+    , recurringCharge
+    , rcFrequency
+    , rcCost
 
     -- ** Resolution
     , Resolution
@@ -434,6 +505,7 @@ import           Network.AWS.DeviceFarm.GetDevice
 import           Network.AWS.DeviceFarm.GetDevicePool
 import           Network.AWS.DeviceFarm.GetDevicePoolCompatibility
 import           Network.AWS.DeviceFarm.GetJob
+import           Network.AWS.DeviceFarm.GetOfferingStatus
 import           Network.AWS.DeviceFarm.GetProject
 import           Network.AWS.DeviceFarm.GetRun
 import           Network.AWS.DeviceFarm.GetSuite
@@ -443,6 +515,8 @@ import           Network.AWS.DeviceFarm.ListArtifacts
 import           Network.AWS.DeviceFarm.ListDevicePools
 import           Network.AWS.DeviceFarm.ListDevices
 import           Network.AWS.DeviceFarm.ListJobs
+import           Network.AWS.DeviceFarm.ListOfferings
+import           Network.AWS.DeviceFarm.ListOfferingTransactions
 import           Network.AWS.DeviceFarm.ListProjects
 import           Network.AWS.DeviceFarm.ListRuns
 import           Network.AWS.DeviceFarm.ListSamples
@@ -450,7 +524,10 @@ import           Network.AWS.DeviceFarm.ListSuites
 import           Network.AWS.DeviceFarm.ListTests
 import           Network.AWS.DeviceFarm.ListUniqueProblems
 import           Network.AWS.DeviceFarm.ListUploads
+import           Network.AWS.DeviceFarm.PurchaseOffering
+import           Network.AWS.DeviceFarm.RenewOffering
 import           Network.AWS.DeviceFarm.ScheduleRun
+import           Network.AWS.DeviceFarm.StopRun
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.UpdateDevicePool
 import           Network.AWS.DeviceFarm.UpdateProject

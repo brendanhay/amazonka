@@ -114,6 +114,8 @@ instance AWSRequest ChangeTagsForResource where
 
 instance Hashable ChangeTagsForResource
 
+instance NFData ChangeTagsForResource
+
 instance ToElement ChangeTagsForResource where
         toElement
           = mkElement
@@ -162,3 +164,5 @@ changeTagsForResourceResponse pResponseStatus_ =
 -- | The response status code.
 ctfrrsResponseStatus :: Lens' ChangeTagsForResourceResponse Int
 ctfrrsResponseStatus = lens _ctfrrsResponseStatus (\ s a -> s{_ctfrrsResponseStatus = a});
+
+instance NFData ChangeTagsForResourceResponse

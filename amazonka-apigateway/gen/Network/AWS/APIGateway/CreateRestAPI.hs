@@ -33,6 +33,7 @@ module Network.AWS.APIGateway.CreateRestAPI
     , restAPI
     , RestAPI
     -- * Response Lenses
+    , raWarnings
     , raCreatedDate
     , raName
     , raId
@@ -46,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to add a new < RestApi> resource to your collection.
+-- | The POST Request to add a new < RestApi> resource to your collection.
 --
 -- /See:/ 'createRestAPI' smart constructor.
 data CreateRestAPI = CreateRestAPI'
@@ -92,6 +93,8 @@ instance AWSRequest CreateRestAPI where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable CreateRestAPI
+
+instance NFData CreateRestAPI
 
 instance ToHeaders CreateRestAPI where
         toHeaders

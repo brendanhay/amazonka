@@ -70,7 +70,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createCustomerGateway' smart constructor.
+-- | Contains the parameters for CreateCustomerGateway.
+--
+-- /See:/ 'createCustomerGateway' smart constructor.
 data CreateCustomerGateway = CreateCustomerGateway'
     { _ccgDryRun   :: !(Maybe Bool)
     , _ccgType     :: !GatewayType
@@ -137,6 +139,8 @@ instance AWSRequest CreateCustomerGateway where
 
 instance Hashable CreateCustomerGateway
 
+instance NFData CreateCustomerGateway
+
 instance ToHeaders CreateCustomerGateway where
         toHeaders = const mempty
 
@@ -151,7 +155,9 @@ instance ToQuery CreateCustomerGateway where
                "DryRun" =: _ccgDryRun, "Type" =: _ccgType,
                "IpAddress" =: _ccgPublicIP, "BgpAsn" =: _ccgBGPASN]
 
--- | /See:/ 'createCustomerGatewayResponse' smart constructor.
+-- | Contains the output of CreateCustomerGateway.
+--
+-- /See:/ 'createCustomerGatewayResponse' smart constructor.
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
     { _ccgrsCustomerGateway :: !(Maybe CustomerGateway)
     , _ccgrsResponseStatus  :: !Int
@@ -180,3 +186,5 @@ ccgrsCustomerGateway = lens _ccgrsCustomerGateway (\ s a -> s{_ccgrsCustomerGate
 -- | The response status code.
 ccgrsResponseStatus :: Lens' CreateCustomerGatewayResponse Int
 ccgrsResponseStatus = lens _ccgrsResponseStatus (\ s a -> s{_ccgrsResponseStatus = a});
+
+instance NFData CreateCustomerGatewayResponse

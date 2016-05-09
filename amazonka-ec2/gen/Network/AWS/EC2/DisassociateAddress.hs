@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'disassociateAddress' smart constructor.
+-- | Contains the parameters for DisassociateAddress.
+--
+-- /See:/ 'disassociateAddress' smart constructor.
 data DisassociateAddress = DisassociateAddress'
     { _dasAssociationId :: !(Maybe Text)
     , _dasPublicIP      :: !(Maybe Text)
@@ -98,6 +100,8 @@ instance AWSRequest DisassociateAddress where
 
 instance Hashable DisassociateAddress
 
+instance NFData DisassociateAddress
+
 instance ToHeaders DisassociateAddress where
         toHeaders = const mempty
 
@@ -122,3 +126,5 @@ data DisassociateAddressResponse =
 disassociateAddressResponse
     :: DisassociateAddressResponse
 disassociateAddressResponse = DisassociateAddressResponse'
+
+instance NFData DisassociateAddressResponse

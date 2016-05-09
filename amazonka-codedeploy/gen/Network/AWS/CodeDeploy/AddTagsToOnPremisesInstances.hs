@@ -85,6 +85,8 @@ instance AWSRequest AddTagsToOnPremisesInstances
 
 instance Hashable AddTagsToOnPremisesInstances
 
+instance NFData AddTagsToOnPremisesInstances
+
 instance ToHeaders AddTagsToOnPremisesInstances where
         toHeaders
           = const
@@ -118,3 +120,5 @@ data AddTagsToOnPremisesInstancesResponse =
 addTagsToOnPremisesInstancesResponse
     :: AddTagsToOnPremisesInstancesResponse
 addTagsToOnPremisesInstancesResponse = AddTagsToOnPremisesInstancesResponse'
+
+instance NFData AddTagsToOnPremisesInstancesResponse

@@ -88,6 +88,8 @@ instance AWSRequest ListReceiptRuleSets where
 
 instance Hashable ListReceiptRuleSets
 
+instance NFData ListReceiptRuleSets
+
 instance ToHeaders ListReceiptRuleSets where
         toHeaders = const mempty
 
@@ -142,3 +144,5 @@ lrrsrsNextToken = lens _lrrsrsNextToken (\ s a -> s{_lrrsrsNextToken = a});
 -- | The response status code.
 lrrsrsResponseStatus :: Lens' ListReceiptRuleSetsResponse Int
 lrrsrsResponseStatus = lens _lrrsrsResponseStatus (\ s a -> s{_lrrsrsResponseStatus = a});
+
+instance NFData ListReceiptRuleSetsResponse

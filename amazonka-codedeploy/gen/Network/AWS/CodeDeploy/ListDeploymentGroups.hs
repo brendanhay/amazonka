@@ -94,6 +94,8 @@ instance AWSRequest ListDeploymentGroups where
 
 instance Hashable ListDeploymentGroups
 
+instance NFData ListDeploymentGroups
+
 instance ToHeaders ListDeploymentGroups where
         toHeaders
           = const
@@ -166,3 +168,5 @@ ldgrsDeploymentGroups = lens _ldgrsDeploymentGroups (\ s a -> s{_ldgrsDeployment
 -- | The response status code.
 ldgrsResponseStatus :: Lens' ListDeploymentGroupsResponse Int
 ldgrsResponseStatus = lens _ldgrsResponseStatus (\ s a -> s{_ldgrsResponseStatus = a});
+
+instance NFData ListDeploymentGroupsResponse

@@ -70,8 +70,8 @@ listAliases =
     }
 
 -- | Use this parameter only when paginating results and only in a subsequent
--- request after you\'ve received a response with truncated results. Set it
--- to the value of 'NextMarker' from the response you just received.
+-- request after you receive a response with truncated results. Set it to
+-- the value of 'NextMarker' from the response you just received.
 laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
 
@@ -103,6 +103,8 @@ instance AWSRequest ListAliases where
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListAliases
+
+instance NFData ListAliases
 
 instance ToHeaders ListAliases where
         toHeaders
@@ -174,3 +176,5 @@ larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a});
 -- | The response status code.
 larsResponseStatus :: Lens' ListAliasesResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
+
+instance NFData ListAliasesResponse

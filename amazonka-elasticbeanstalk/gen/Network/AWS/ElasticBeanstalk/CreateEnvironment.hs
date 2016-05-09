@@ -182,7 +182,7 @@ cTier = lens _cTier (\ s a -> s{_cTier = a});
 -- | A unique name for the deployment environment. Used in the application
 -- URL.
 --
--- Constraint: Must be from 4 to 23 characters in length. The name can
+-- Constraint: Must be from 4 to 40 characters in length. The name can
 -- contain only letters, numbers, and hyphens. It cannot start or end with
 -- a hyphen. This name must be unique in your account. If the specified
 -- name already exists, AWS Elastic Beanstalk returns an
@@ -208,7 +208,7 @@ cSolutionStackName = lens _cSolutionStackName (\ s a -> s{_cSolutionStackName = 
 -- | The name of the group to which the target environment belongs. Specify a
 -- group name only if the environment\'s name is specified in an
 -- environment manifest and not with the environment name parameter. See
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html#environment-mgmt-compose-envyaml Environment Manifest (env.yaml)>
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
 -- for details.
 cGroupName :: Lens' CreateEnvironment (Maybe Text)
 cGroupName = lens _cGroupName (\ s a -> s{_cGroupName = a});
@@ -236,6 +236,8 @@ instance AWSRequest CreateEnvironment where
               (\ s h x -> parseXML x)
 
 instance Hashable CreateEnvironment
+
+instance NFData CreateEnvironment
 
 instance ToHeaders CreateEnvironment where
         toHeaders = const mempty

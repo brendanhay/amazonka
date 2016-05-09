@@ -94,6 +94,8 @@ instance AWSRequest ListPipelines where
 
 instance Hashable ListPipelines
 
+instance NFData ListPipelines
+
 instance ToHeaders ListPipelines where
         toHeaders
           = const
@@ -165,3 +167,5 @@ lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = 
 -- < DescribePipelines> and < GetPipelineDefinition>.
 lprsPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
 lprsPipelineIdList = lens _lprsPipelineIdList (\ s a -> s{_lprsPipelineIdList = a}) . _Coerce;
+
+instance NFData ListPipelinesResponse

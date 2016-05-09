@@ -80,6 +80,8 @@ instance AWSRequest CheckDNSAvailability where
 
 instance Hashable CheckDNSAvailability
 
+instance NFData CheckDNSAvailability
+
 instance ToHeaders CheckDNSAvailability where
         toHeaders = const mempty
 
@@ -136,3 +138,5 @@ cdarsAvailable = lens _cdarsAvailable (\ s a -> s{_cdarsAvailable = a});
 -- | The response status code.
 cdarsResponseStatus :: Lens' CheckDNSAvailabilityResponse Int
 cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus = a});
+
+instance NFData CheckDNSAvailabilityResponse

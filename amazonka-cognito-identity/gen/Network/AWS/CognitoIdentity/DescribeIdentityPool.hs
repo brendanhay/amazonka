@@ -37,6 +37,7 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs
+    , ipCognitoIdentityProviders
     , ipIdentityPoolId
     , ipIdentityPoolName
     , ipAllowUnauthenticatedIdentities
@@ -79,6 +80,8 @@ instance AWSRequest DescribeIdentityPool where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable DescribeIdentityPool
+
+instance NFData DescribeIdentityPool
 
 instance ToHeaders DescribeIdentityPool where
         toHeaders

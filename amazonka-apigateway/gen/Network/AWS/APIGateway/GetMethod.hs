@@ -99,6 +99,8 @@ instance AWSRequest GetMethod where
 
 instance Hashable GetMethod
 
+instance NFData GetMethod
+
 instance ToHeaders GetMethod where
         toHeaders
           = const

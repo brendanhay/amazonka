@@ -88,6 +88,8 @@ instance AWSRequest GetContextKeysForCustomPolicy
 
 instance Hashable GetContextKeysForCustomPolicy
 
+instance NFData GetContextKeysForCustomPolicy
+
 instance ToHeaders GetContextKeysForCustomPolicy
          where
         toHeaders = const mempty

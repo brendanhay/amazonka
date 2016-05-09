@@ -81,6 +81,8 @@ instance AWSRequest GetStreamingDistributionConfig
 
 instance Hashable GetStreamingDistributionConfig
 
+instance NFData GetStreamingDistributionConfig
+
 instance ToHeaders GetStreamingDistributionConfig
          where
         toHeaders = const mempty
@@ -133,3 +135,6 @@ gsdcrsETag = lens _gsdcrsETag (\ s a -> s{_gsdcrsETag = a});
 -- | The response status code.
 gsdcrsResponseStatus :: Lens' GetStreamingDistributionConfigResponse Int
 gsdcrsResponseStatus = lens _gsdcrsResponseStatus (\ s a -> s{_gsdcrsResponseStatus = a});
+
+instance NFData
+         GetStreamingDistributionConfigResponse

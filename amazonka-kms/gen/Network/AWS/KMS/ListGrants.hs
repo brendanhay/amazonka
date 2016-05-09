@@ -75,8 +75,8 @@ listGrants pKeyId_ =
     }
 
 -- | Use this parameter only when paginating results and only in a subsequent
--- request after you\'ve received a response with truncated results. Set it
--- to the value of 'NextMarker' from the response you just received.
+-- request after you receive a response with truncated results. Set it to
+-- the value of 'NextMarker' from the response you just received.
 lgMarker :: Lens' ListGrants (Maybe Text)
 lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 
@@ -112,6 +112,8 @@ instance AWSRequest ListGrants where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable ListGrants
+
+instance NFData ListGrants
 
 instance ToHeaders ListGrants where
         toHeaders

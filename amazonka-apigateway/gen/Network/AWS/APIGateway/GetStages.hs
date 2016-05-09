@@ -87,6 +87,8 @@ instance AWSRequest GetStages where
 
 instance Hashable GetStages
 
+instance NFData GetStages
+
 instance ToHeaders GetStages where
         toHeaders
           = const
@@ -134,3 +136,5 @@ gsrsItem = lens _gsrsItem (\ s a -> s{_gsrsItem = a}) . _Default . _Coerce;
 -- | The response status code.
 gsrsResponseStatus :: Lens' GetStagesResponse Int
 gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
+
+instance NFData GetStagesResponse

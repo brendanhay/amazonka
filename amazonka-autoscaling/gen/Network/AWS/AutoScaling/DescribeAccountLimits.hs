@@ -74,6 +74,8 @@ instance AWSRequest DescribeAccountLimits where
 
 instance Hashable DescribeAccountLimits
 
+instance NFData DescribeAccountLimits
+
 instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty
 
@@ -142,3 +144,5 @@ dalrsMaxNumberOfLaunchConfigurations = lens _dalrsMaxNumberOfLaunchConfiguration
 -- | The response status code.
 dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
 dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a});
+
+instance NFData DescribeAccountLimitsResponse

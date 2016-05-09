@@ -242,6 +242,7 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Ia$",           "IA")
          , ("Qos",           "QOS")
          , ("Sdk",           "SDK")
+         , ("Xss",           "XSS")
          ]
 
 acronyms :: [(String, String)]
@@ -313,5 +314,6 @@ acronyms =
     , ("HAPG",     "Hapg")
     , ("ID",       "Id")
     , ("QOS",      "Qos")
-    , ("SDK",       "Sdk")
+    , ("SDK",      "Sdk")
+    , ("XSS",      "Xss")
     ]

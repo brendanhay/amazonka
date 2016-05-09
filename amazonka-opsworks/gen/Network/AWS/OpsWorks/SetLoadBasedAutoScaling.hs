@@ -114,6 +114,8 @@ instance AWSRequest SetLoadBasedAutoScaling where
 
 instance Hashable SetLoadBasedAutoScaling
 
+instance NFData SetLoadBasedAutoScaling
+
 instance ToHeaders SetLoadBasedAutoScaling where
         toHeaders
           = const
@@ -149,3 +151,5 @@ data SetLoadBasedAutoScalingResponse =
 setLoadBasedAutoScalingResponse
     :: SetLoadBasedAutoScalingResponse
 setLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse'
+
+instance NFData SetLoadBasedAutoScalingResponse

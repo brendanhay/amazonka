@@ -105,6 +105,8 @@ instance AWSRequest ModifyLoadBalancerAttributes
 
 instance Hashable ModifyLoadBalancerAttributes
 
+instance NFData ModifyLoadBalancerAttributes
+
 instance ToHeaders ModifyLoadBalancerAttributes where
         toHeaders = const mempty
 
@@ -158,3 +160,5 @@ mlbarsLoadBalancerAttributes = lens _mlbarsLoadBalancerAttributes (\ s a -> s{_m
 -- | The response status code.
 mlbarsResponseStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
 mlbarsResponseStatus = lens _mlbarsResponseStatus (\ s a -> s{_mlbarsResponseStatus = a});
+
+instance NFData ModifyLoadBalancerAttributesResponse

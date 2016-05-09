@@ -88,6 +88,8 @@ instance AWSRequest DeliverConfigSnapshot where
 
 instance Hashable DeliverConfigSnapshot
 
+instance NFData DeliverConfigSnapshot
+
 instance ToHeaders DeliverConfigSnapshot where
         toHeaders
           = const
@@ -142,3 +144,5 @@ dcsrsConfigSnapshotId = lens _dcsrsConfigSnapshotId (\ s a -> s{_dcsrsConfigSnap
 -- | The response status code.
 dcsrsResponseStatus :: Lens' DeliverConfigSnapshotResponse Int
 dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
+
+instance NFData DeliverConfigSnapshotResponse

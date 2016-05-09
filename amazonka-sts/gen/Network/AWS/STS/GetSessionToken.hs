@@ -27,14 +27,30 @@
 -- MFA device. Using the temporary security credentials that are returned
 -- from the call, IAM users can then make programmatic calls to APIs that
 -- require MFA authentication. If you do not supply a correct MFA code,
--- then the API returns an access denied error.
+-- then the API returns an access denied error. For a comparison of
+-- 'GetSessionToken' with the other APIs that produce temporary
+-- credentials, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
+-- and
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the AWS STS APIs>
+-- in the /IAM User Guide/.
 --
 -- The 'GetSessionToken' action must be called by using the long-term AWS
 -- security credentials of the AWS account or an IAM user. Credentials that
 -- are created by IAM users are valid for the duration that you specify,
--- between 900 seconds (15 minutes) and 129600 seconds (36 hours);
--- credentials that are created by using account credentials have a maximum
--- duration of 3600 seconds (1 hour).
+-- from 900 seconds (15 minutes) up to a maximum of 129600 seconds (36
+-- hours), with a default of 43200 seconds (12 hours); credentials that are
+-- created by using account credentials can range from 900 seconds (15
+-- minutes) up to a maximum of 3600 seconds (1 hour), with a default of 1
+-- hour.
+--
+-- The temporary security credentials created by 'GetSessionToken' can be
+-- used to make API calls to any AWS service with the following exceptions:
+--
+-- -   You cannot call any IAM APIs unless MFA authentication information
+--     is included in the request.
+--
+-- -   You cannot call any STS API /except/ 'AssumeRole'.
 --
 -- We recommend that you do not call 'GetSessionToken' with root account
 -- credentials. Instead, follow our
@@ -53,7 +69,7 @@
 -- For more information about using 'GetSessionToken' to create temporary
 -- credentials, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken Temporary Credentials for Users in Untrusted Environments>
--- in the /Using IAM/.
+-- in the /IAM User Guide/.
 module Network.AWS.STS.GetSessionToken
     (
     -- * Creating a Request
@@ -110,6 +126,9 @@ getSessionToken =
 -- requesting a set of temporary security credentials, the user will
 -- receive an \"access denied\" response when requesting resources that
 -- require MFA authentication.
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- sequence of six numeric digits.
 gstTokenCode :: Lens' GetSessionToken (Maybe Text)
 gstTokenCode = lens _gstTokenCode (\ s a -> s{_gstTokenCode = a});
 
@@ -130,6 +149,11 @@ gstDurationSeconds = lens _gstDurationSeconds (\ s a -> s{_gstDurationSeconds = 
 -- 'arn:aws:iam::123456789012:mfa\/user'). You can find the device for an
 -- IAM user by going to the AWS Management Console and viewing the user\'s
 -- security credentials.
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- string of characters consisting of upper- and lower-case alphanumeric
+-- characters with no spaces. You can also include any of the following
+-- characters: =,.\'-
 gstSerialNumber :: Lens' GetSessionToken (Maybe Text)
 gstSerialNumber = lens _gstSerialNumber (\ s a -> s{_gstSerialNumber = a});
 
@@ -143,6 +167,8 @@ instance AWSRequest GetSessionToken where
                    (x .@? "Credentials") <*> (pure (fromEnum s)))
 
 instance Hashable GetSessionToken
+
+instance NFData GetSessionToken
 
 instance ToHeaders GetSessionToken where
         toHeaders = const mempty
@@ -199,3 +225,5 @@ gstrsCredentials = lens _gstrsCredentials (\ s a -> s{_gstrsCredentials = a});
 -- | The response status code.
 gstrsResponseStatus :: Lens' GetSessionTokenResponse Int
 gstrsResponseStatus = lens _gstrsResponseStatus (\ s a -> s{_gstrsResponseStatus = a});
+
+instance NFData GetSessionTokenResponse

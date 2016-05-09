@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteVolume' smart constructor.
+-- | Contains the parameters for DeleteVolume.
+--
+-- /See:/ 'deleteVolume' smart constructor.
 data DeleteVolume = DeleteVolume'
     { _dvvDryRun   :: !(Maybe Bool)
     , _dvvVolumeId :: !Text
@@ -87,6 +89,8 @@ instance AWSRequest DeleteVolume where
 
 instance Hashable DeleteVolume
 
+instance NFData DeleteVolume
+
 instance ToHeaders DeleteVolume where
         toHeaders = const mempty
 
@@ -110,3 +114,5 @@ data DeleteVolumeResponse =
 deleteVolumeResponse
     :: DeleteVolumeResponse
 deleteVolumeResponse = DeleteVolumeResponse'
+
+instance NFData DeleteVolumeResponse

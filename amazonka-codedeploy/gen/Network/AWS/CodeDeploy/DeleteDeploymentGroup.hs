@@ -90,6 +90,8 @@ instance AWSRequest DeleteDeploymentGroup where
 
 instance Hashable DeleteDeploymentGroup
 
+instance NFData DeleteDeploymentGroup
+
 instance ToHeaders DeleteDeploymentGroup where
         toHeaders
           = const
@@ -150,3 +152,5 @@ ddgrsHooksNotCleanedUp = lens _ddgrsHooksNotCleanedUp (\ s a -> s{_ddgrsHooksNot
 -- | The response status code.
 ddgrsResponseStatus :: Lens' DeleteDeploymentGroupResponse Int
 ddgrsResponseStatus = lens _ddgrsResponseStatus (\ s a -> s{_ddgrsResponseStatus = a});
+
+instance NFData DeleteDeploymentGroupResponse

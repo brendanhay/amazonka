@@ -112,6 +112,8 @@ instance AWSRequest GetDeployments where
 
 instance Hashable GetDeployments
 
+instance NFData GetDeployments
+
 instance ToHeaders GetDeployments where
         toHeaders
           = const
@@ -171,3 +173,5 @@ gdrsPosition = lens _gdrsPosition (\ s a -> s{_gdrsPosition = a});
 -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeploymentsResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+
+instance NFData GetDeploymentsResponse

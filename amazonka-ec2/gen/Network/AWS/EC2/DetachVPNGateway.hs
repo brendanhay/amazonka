@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'detachVPNGateway' smart constructor.
+-- | Contains the parameters for DetachVpnGateway.
+--
+-- /See:/ 'detachVPNGateway' smart constructor.
 data DetachVPNGateway = DetachVPNGateway'
     { _dvpngDryRun       :: !(Maybe Bool)
     , _dvpngVPNGatewayId :: !Text
@@ -98,6 +100,8 @@ instance AWSRequest DetachVPNGateway where
 
 instance Hashable DetachVPNGateway
 
+instance NFData DetachVPNGateway
+
 instance ToHeaders DetachVPNGateway where
         toHeaders = const mempty
 
@@ -123,3 +127,5 @@ data DetachVPNGatewayResponse =
 detachVPNGatewayResponse
     :: DetachVPNGatewayResponse
 detachVPNGatewayResponse = DetachVPNGatewayResponse'
+
+instance NFData DetachVPNGatewayResponse

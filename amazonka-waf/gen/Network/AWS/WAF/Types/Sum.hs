@@ -37,6 +37,7 @@ instance ToText ChangeAction where
         Insert -> "INSERT"
 
 instance Hashable     ChangeAction
+instance NFData       ChangeAction
 instance ToByteString ChangeAction
 instance ToQuery      ChangeAction
 instance ToHeader     ChangeAction
@@ -65,6 +66,7 @@ instance ToText ChangeTokenStatus where
         Provisioned -> "PROVISIONED"
 
 instance Hashable     ChangeTokenStatus
+instance NFData       ChangeTokenStatus
 instance ToByteString ChangeTokenStatus
 instance ToQuery      ChangeTokenStatus
 instance ToHeader     ChangeTokenStatus
@@ -102,6 +104,7 @@ instance ToText ComparisonOperator where
         NE -> "NE"
 
 instance Hashable     ComparisonOperator
+instance NFData       ComparisonOperator
 instance ToByteString ComparisonOperator
 instance ToQuery      ComparisonOperator
 instance ToHeader     ComparisonOperator
@@ -127,6 +130,7 @@ instance ToText IPSetDescriptorType where
         IPV4 -> "IPV4"
 
 instance Hashable     IPSetDescriptorType
+instance NFData       IPSetDescriptorType
 instance ToByteString IPSetDescriptorType
 instance ToQuery      IPSetDescriptorType
 instance ToHeader     IPSetDescriptorType
@@ -164,6 +168,7 @@ instance ToText MatchFieldType where
         URI -> "URI"
 
 instance Hashable     MatchFieldType
+instance NFData       MatchFieldType
 instance ToByteString MatchFieldType
 instance ToQuery      MatchFieldType
 instance ToHeader     MatchFieldType
@@ -201,6 +206,7 @@ instance ToText PositionalConstraint where
         StartsWith -> "STARTS_WITH"
 
 instance Hashable     PositionalConstraint
+instance NFData       PositionalConstraint
 instance ToByteString PositionalConstraint
 instance ToQuery      PositionalConstraint
 instance ToHeader     PositionalConstraint
@@ -216,6 +222,7 @@ data PredicateType
     | IPMatch
     | SizeConstraint
     | SqlInjectionMatch
+    | XSSMatch
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PredicateType where
@@ -224,8 +231,9 @@ instance FromText PredicateType where
         "ipmatch" -> pure IPMatch
         "sizeconstraint" -> pure SizeConstraint
         "sqlinjectionmatch" -> pure SqlInjectionMatch
+        "xssmatch" -> pure XSSMatch
         e -> fromTextError $ "Failure parsing PredicateType from value: '" <> e
-           <> "'. Accepted values: ByteMatch, IPMatch, SizeConstraint, SqlInjectionMatch"
+           <> "'. Accepted values: ByteMatch, IPMatch, SizeConstraint, SqlInjectionMatch, XssMatch"
 
 instance ToText PredicateType where
     toText = \case
@@ -233,8 +241,10 @@ instance ToText PredicateType where
         IPMatch -> "IPMatch"
         SizeConstraint -> "SizeConstraint"
         SqlInjectionMatch -> "SqlInjectionMatch"
+        XSSMatch -> "XssMatch"
 
 instance Hashable     PredicateType
+instance NFData       PredicateType
 instance ToByteString PredicateType
 instance ToQuery      PredicateType
 instance ToHeader     PredicateType
@@ -275,6 +285,7 @@ instance ToText TextTransformation where
         URLDecode -> "URL_DECODE"
 
 instance Hashable     TextTransformation
+instance NFData       TextTransformation
 instance ToByteString TextTransformation
 instance ToQuery      TextTransformation
 instance ToHeader     TextTransformation
@@ -306,6 +317,7 @@ instance ToText WafActionType where
         Count -> "COUNT"
 
 instance Hashable     WafActionType
+instance NFData       WafActionType
 instance ToByteString WafActionType
 instance ToQuery      WafActionType
 instance ToHeader     WafActionType

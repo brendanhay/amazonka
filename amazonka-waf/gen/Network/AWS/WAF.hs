@@ -108,6 +108,15 @@ module Network.AWS.WAF
     -- ** GetRule
     , module Network.AWS.WAF.GetRule
 
+    -- ** DeleteXSSMatchSet
+    , module Network.AWS.WAF.DeleteXSSMatchSet
+
+    -- ** UpdateXSSMatchSet
+    , module Network.AWS.WAF.UpdateXSSMatchSet
+
+    -- ** ListXSSMatchSets
+    , module Network.AWS.WAF.ListXSSMatchSets
+
     -- ** GetChangeToken
     , module Network.AWS.WAF.GetChangeToken
 
@@ -122,6 +131,9 @@ module Network.AWS.WAF
 
     -- ** CreateSqlInjectionMatchSet
     , module Network.AWS.WAF.CreateSqlInjectionMatchSet
+
+    -- ** GetXSSMatchSet
+    , module Network.AWS.WAF.GetXSSMatchSet
 
     -- ** CreateByteMatchSet
     , module Network.AWS.WAF.CreateByteMatchSet
@@ -140,6 +152,9 @@ module Network.AWS.WAF
 
     -- ** ListIPSets
     , module Network.AWS.WAF.ListIPSets
+
+    -- ** CreateXSSMatchSet
+    , module Network.AWS.WAF.CreateXSSMatchSet
 
     -- ** GetByteMatchSet
     , module Network.AWS.WAF.GetByteMatchSet
@@ -390,6 +405,31 @@ module Network.AWS.WAF
     , webACLUpdate
     , wauAction
     , wauActivatedRule
+
+    -- ** XSSMatchSet
+    , XSSMatchSet
+    , xssMatchSet
+    , xmsName
+    , xmsXSSMatchSetId
+    , xmsXSSMatchTuples
+
+    -- ** XSSMatchSetSummary
+    , XSSMatchSetSummary
+    , xssMatchSetSummary
+    , xmssXSSMatchSetId
+    , xmssName
+
+    -- ** XSSMatchSetUpdate
+    , XSSMatchSetUpdate
+    , xssMatchSetUpdate
+    , xmsuAction
+    , xmsuXSSMatchTuple
+
+    -- ** XSSMatchTuple
+    , XSSMatchTuple
+    , xssMatchTuple
+    , xmtFieldToMatch
+    , xmtTextTransformation
     ) where
 
 import           Network.AWS.WAF.CreateByteMatchSet
@@ -398,12 +438,14 @@ import           Network.AWS.WAF.CreateRule
 import           Network.AWS.WAF.CreateSizeConstraintSet
 import           Network.AWS.WAF.CreateSqlInjectionMatchSet
 import           Network.AWS.WAF.CreateWebACL
+import           Network.AWS.WAF.CreateXSSMatchSet
 import           Network.AWS.WAF.DeleteByteMatchSet
 import           Network.AWS.WAF.DeleteIPSet
 import           Network.AWS.WAF.DeleteRule
 import           Network.AWS.WAF.DeleteSizeConstraintSet
 import           Network.AWS.WAF.DeleteSqlInjectionMatchSet
 import           Network.AWS.WAF.DeleteWebACL
+import           Network.AWS.WAF.DeleteXSSMatchSet
 import           Network.AWS.WAF.GetByteMatchSet
 import           Network.AWS.WAF.GetChangeToken
 import           Network.AWS.WAF.GetChangeTokenStatus
@@ -413,12 +455,14 @@ import           Network.AWS.WAF.GetSampledRequests
 import           Network.AWS.WAF.GetSizeConstraintSet
 import           Network.AWS.WAF.GetSqlInjectionMatchSet
 import           Network.AWS.WAF.GetWebACL
+import           Network.AWS.WAF.GetXSSMatchSet
 import           Network.AWS.WAF.ListByteMatchSets
 import           Network.AWS.WAF.ListIPSets
 import           Network.AWS.WAF.ListRules
 import           Network.AWS.WAF.ListSizeConstraintSets
 import           Network.AWS.WAF.ListSqlInjectionMatchSets
 import           Network.AWS.WAF.ListWebACLs
+import           Network.AWS.WAF.ListXSSMatchSets
 import           Network.AWS.WAF.Types
 import           Network.AWS.WAF.UpdateByteMatchSet
 import           Network.AWS.WAF.UpdateIPSet
@@ -426,6 +470,7 @@ import           Network.AWS.WAF.UpdateRule
 import           Network.AWS.WAF.UpdateSizeConstraintSet
 import           Network.AWS.WAF.UpdateSqlInjectionMatchSet
 import           Network.AWS.WAF.UpdateWebACL
+import           Network.AWS.WAF.UpdateXSSMatchSet
 import           Network.AWS.WAF.Waiters
 
 {- $errors

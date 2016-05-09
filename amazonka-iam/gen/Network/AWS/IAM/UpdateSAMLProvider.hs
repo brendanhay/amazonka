@@ -94,6 +94,8 @@ instance AWSRequest UpdateSAMLProvider where
 
 instance Hashable UpdateSAMLProvider
 
+instance NFData UpdateSAMLProvider
+
 instance ToHeaders UpdateSAMLProvider where
         toHeaders = const mempty
 
@@ -140,3 +142,5 @@ usamlprsSAMLProviderARN = lens _usamlprsSAMLProviderARN (\ s a -> s{_usamlprsSAM
 -- | The response status code.
 usamlprsResponseStatus :: Lens' UpdateSAMLProviderResponse Int
 usamlprsResponseStatus = lens _usamlprsResponseStatus (\ s a -> s{_usamlprsResponseStatus = a});
+
+instance NFData UpdateSAMLProviderResponse

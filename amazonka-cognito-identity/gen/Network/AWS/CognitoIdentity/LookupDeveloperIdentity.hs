@@ -136,6 +136,8 @@ instance AWSRequest LookupDeveloperIdentity where
 
 instance Hashable LookupDeveloperIdentity
 
+instance NFData LookupDeveloperIdentity
+
 instance ToHeaders LookupDeveloperIdentity where
         toHeaders
           = const
@@ -217,3 +219,5 @@ ldirsDeveloperUserIdentifierList = lens _ldirsDeveloperUserIdentifierList (\ s a
 -- | The response status code.
 ldirsResponseStatus :: Lens' LookupDeveloperIdentityResponse Int
 ldirsResponseStatus = lens _ldirsResponseStatus (\ s a -> s{_ldirsResponseStatus = a});
+
+instance NFData LookupDeveloperIdentityResponse

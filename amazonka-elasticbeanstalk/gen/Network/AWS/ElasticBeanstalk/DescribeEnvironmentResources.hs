@@ -43,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to describe the resources in an environment.
 --
 -- /See:/ 'describeEnvironmentResources' smart constructor.
 data DescribeEnvironmentResources = DescribeEnvironmentResources'
@@ -97,6 +97,8 @@ instance AWSRequest DescribeEnvironmentResources
 
 instance Hashable DescribeEnvironmentResources
 
+instance NFData DescribeEnvironmentResources
+
 instance ToHeaders DescribeEnvironmentResources where
         toHeaders = const mempty
 
@@ -143,3 +145,5 @@ derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEn
 -- | The response status code.
 derrsResponseStatus :: Lens' DescribeEnvironmentResourcesResponse Int
 derrsResponseStatus = lens _derrsResponseStatus (\ s a -> s{_derrsResponseStatus = a});
+
+instance NFData DescribeEnvironmentResourcesResponse

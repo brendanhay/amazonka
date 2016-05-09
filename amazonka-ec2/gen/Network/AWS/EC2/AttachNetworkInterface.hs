@@ -45,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'attachNetworkInterface' smart constructor.
+-- | Contains the parameters for AttachNetworkInterface.
+--
+-- /See:/ 'attachNetworkInterface' smart constructor.
 data AttachNetworkInterface = AttachNetworkInterface'
     { _aniDryRun             :: !(Maybe Bool)
     , _aniNetworkInterfaceId :: !Text
@@ -108,6 +110,8 @@ instance AWSRequest AttachNetworkInterface where
 
 instance Hashable AttachNetworkInterface
 
+instance NFData AttachNetworkInterface
+
 instance ToHeaders AttachNetworkInterface where
         toHeaders = const mempty
 
@@ -125,7 +129,9 @@ instance ToQuery AttachNetworkInterface where
                "InstanceId" =: _aniInstanceId,
                "DeviceIndex" =: _aniDeviceIndex]
 
--- | /See:/ 'attachNetworkInterfaceResponse' smart constructor.
+-- | Contains the output of AttachNetworkInterface.
+--
+-- /See:/ 'attachNetworkInterfaceResponse' smart constructor.
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
     { _anirsAttachmentId   :: !(Maybe Text)
     , _anirsResponseStatus :: !Int
@@ -154,3 +160,5 @@ anirsAttachmentId = lens _anirsAttachmentId (\ s a -> s{_anirsAttachmentId = a})
 -- | The response status code.
 anirsResponseStatus :: Lens' AttachNetworkInterfaceResponse Int
 anirsResponseStatus = lens _anirsResponseStatus (\ s a -> s{_anirsResponseStatus = a});
+
+instance NFData AttachNetworkInterfaceResponse

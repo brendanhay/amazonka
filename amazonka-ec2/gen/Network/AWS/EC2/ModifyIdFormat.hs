@@ -21,7 +21,7 @@
 -- Modifies the ID format for the specified resource on a per-region basis.
 -- You can specify that resources should receive longer IDs (17-character
 -- IDs) when they are created. The following resource types support longer
--- IDs: 'instance' | 'reservation'.
+-- IDs: 'instance' | 'reservation' | 'snapshot' | 'volume'.
 --
 -- This setting applies to the IAM user who makes the request; it does not
 -- apply to the entire AWS account. By default, an IAM user defaults to the
@@ -57,7 +57,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyIdFormat' smart constructor.
+-- | Contains the parameters of ModifyIdFormat.
+--
+-- /See:/ 'modifyIdFormat' smart constructor.
 data ModifyIdFormat = ModifyIdFormat'
     { _mifResource   :: !Text
     , _mifUseLongIds :: !Bool
@@ -95,6 +97,8 @@ instance AWSRequest ModifyIdFormat where
 
 instance Hashable ModifyIdFormat
 
+instance NFData ModifyIdFormat
+
 instance ToHeaders ModifyIdFormat where
         toHeaders = const mempty
 
@@ -119,3 +123,5 @@ data ModifyIdFormatResponse =
 modifyIdFormatResponse
     :: ModifyIdFormatResponse
 modifyIdFormatResponse = ModifyIdFormatResponse'
+
+instance NFData ModifyIdFormatResponse

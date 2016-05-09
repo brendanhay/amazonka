@@ -101,6 +101,8 @@ instance AWSRequest SetReceiptRulePosition where
 
 instance Hashable SetReceiptRulePosition
 
+instance NFData SetReceiptRulePosition
+
 instance ToHeaders SetReceiptRulePosition where
         toHeaders = const mempty
 
@@ -138,3 +140,5 @@ setReceiptRulePositionResponse pResponseStatus_ =
 -- | The response status code.
 srrprsResponseStatus :: Lens' SetReceiptRulePositionResponse Int
 srrprsResponseStatus = lens _srrprsResponseStatus (\ s a -> s{_srrprsResponseStatus = a});
+
+instance NFData SetReceiptRulePositionResponse

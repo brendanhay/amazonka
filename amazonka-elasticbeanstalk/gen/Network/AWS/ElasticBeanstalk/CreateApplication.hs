@@ -43,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to create an application.
 --
 -- /See:/ 'createApplication' smart constructor.
 data CreateApplication = CreateApplication'
@@ -88,6 +88,8 @@ instance AWSRequest CreateApplication where
               (\ s h x -> parseXML x)
 
 instance Hashable CreateApplication
+
+instance NFData CreateApplication
 
 instance ToHeaders CreateApplication where
         toHeaders = const mempty

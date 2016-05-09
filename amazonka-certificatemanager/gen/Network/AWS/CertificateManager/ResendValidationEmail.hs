@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'resendValidationEmail' smart constructor.
+-- |
+--
+-- /See:/ 'resendValidationEmail' smart constructor.
 data ResendValidationEmail = ResendValidationEmail'
     { _rveCertificateARN   :: !Text
     , _rveDomain           :: !Text
@@ -79,9 +81,9 @@ resendValidationEmail pCertificateARN_ pDomain_ pValidationDomain_ =
     }
 
 -- | String that contains the ARN of the requested certificate. The
--- certificate ARN is generated and returned by < RequestCertificate> as
--- soon as the request is made. By default, using this parameter causes
--- email to be sent to all top-level domains you specified in the
+-- certificate ARN is generated and returned by the < RequestCertificate>
+-- action as soon as the request is made. By default, using this parameter
+-- causes email to be sent to all top-level domains you specified in the
 -- certificate request.
 --
 -- The ARN must be of the form:
@@ -104,10 +106,15 @@ rveDomain = lens _rveDomain (\ s a -> s{_rveDomain = a});
 -- WHOIS and the following five addresses:
 --
 -- -   admin\'subdomain.example.com
+--
 -- -   administrator\'subdomain.example.com
+--
 -- -   hostmaster\'subdomain.example.com
+--
 -- -   postmaster\'subdomain.example.com
+--
 -- -   webmaster\'subdomain.example.com
+--
 rveValidationDomain :: Lens' ResendValidationEmail Text
 rveValidationDomain = lens _rveValidationDomain (\ s a -> s{_rveValidationDomain = a});
 
@@ -118,6 +125,8 @@ instance AWSRequest ResendValidationEmail where
         response = receiveNull ResendValidationEmailResponse'
 
 instance Hashable ResendValidationEmail
+
+instance NFData ResendValidationEmail
 
 instance ToHeaders ResendValidationEmail where
         toHeaders
@@ -153,3 +162,5 @@ data ResendValidationEmailResponse =
 resendValidationEmailResponse
     :: ResendValidationEmailResponse
 resendValidationEmailResponse = ResendValidationEmailResponse'
+
+instance NFData ResendValidationEmailResponse

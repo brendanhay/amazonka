@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeReservedInstances' smart constructor.
+-- | Contains the parameters for DescribeReservedInstances.
+--
+-- /See:/ 'describeReservedInstances' smart constructor.
 data DescribeReservedInstances = DescribeReservedInstances'
     { _driFilters              :: !(Maybe [Filter])
     , _driReservedInstancesIds :: !(Maybe [Text])
@@ -171,6 +173,8 @@ instance AWSRequest DescribeReservedInstances where
 
 instance Hashable DescribeReservedInstances
 
+instance NFData DescribeReservedInstances
+
 instance ToHeaders DescribeReservedInstances where
         toHeaders = const mempty
 
@@ -190,7 +194,9 @@ instance ToQuery DescribeReservedInstances where
                "OfferingType" =: _driOfferingType,
                "DryRun" =: _driDryRun]
 
--- | /See:/ 'describeReservedInstancesResponse' smart constructor.
+-- | Contains the output for DescribeReservedInstances.
+--
+-- /See:/ 'describeReservedInstancesResponse' smart constructor.
 data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'
     { _drirsReservedInstances :: !(Maybe [ReservedInstances])
     , _drirsResponseStatus    :: !Int
@@ -219,3 +225,5 @@ drirsReservedInstances = lens _drirsReservedInstances (\ s a -> s{_drirsReserved
 -- | The response status code.
 drirsResponseStatus :: Lens' DescribeReservedInstancesResponse Int
 drirsResponseStatus = lens _drirsResponseStatus (\ s a -> s{_drirsResponseStatus = a});
+
+instance NFData DescribeReservedInstancesResponse

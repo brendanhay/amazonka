@@ -98,6 +98,8 @@ instance AWSRequest GetAPIKeys where
 
 instance Hashable GetAPIKeys
 
+instance NFData GetAPIKeys
+
 instance ToHeaders GetAPIKeys where
         toHeaders
           = const
@@ -152,3 +154,5 @@ gakrsPosition = lens _gakrsPosition (\ s a -> s{_gakrsPosition = a});
 -- | The response status code.
 gakrsResponseStatus :: Lens' GetAPIKeysResponse Int
 gakrsResponseStatus = lens _gakrsResponseStatus (\ s a -> s{_gakrsResponseStatus = a});
+
+instance NFData GetAPIKeysResponse

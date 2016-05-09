@@ -127,6 +127,8 @@ instance AWSRequest DescribeLimits where
 
 instance Hashable DescribeLimits
 
+instance NFData DescribeLimits
+
 instance ToHeaders DescribeLimits where
         toHeaders
           = const
@@ -208,3 +210,5 @@ dlrsAccountMaxReadCapacityUnits = lens _dlrsAccountMaxReadCapacityUnits (\ s a -
 -- | The response status code.
 dlrsResponseStatus :: Lens' DescribeLimitsResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
+
+instance NFData DescribeLimitsResponse

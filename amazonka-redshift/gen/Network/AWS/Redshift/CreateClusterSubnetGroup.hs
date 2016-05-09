@@ -123,6 +123,8 @@ instance AWSRequest CreateClusterSubnetGroup where
 
 instance Hashable CreateClusterSubnetGroup
 
+instance NFData CreateClusterSubnetGroup
+
 instance ToHeaders CreateClusterSubnetGroup where
         toHeaders = const mempty
 
@@ -171,3 +173,5 @@ ccsgrsClusterSubnetGroup = lens _ccsgrsClusterSubnetGroup (\ s a -> s{_ccsgrsClu
 -- | The response status code.
 ccsgrsResponseStatus :: Lens' CreateClusterSubnetGroupResponse Int
 ccsgrsResponseStatus = lens _ccsgrsResponseStatus (\ s a -> s{_ccsgrsResponseStatus = a});
+
+instance NFData CreateClusterSubnetGroupResponse

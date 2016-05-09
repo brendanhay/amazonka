@@ -78,6 +78,8 @@ instance AWSRequest DeregisterVolume where
 
 instance Hashable DeregisterVolume
 
+instance NFData DeregisterVolume
+
 instance ToHeaders DeregisterVolume where
         toHeaders
           = const
@@ -108,3 +110,5 @@ data DeregisterVolumeResponse =
 deregisterVolumeResponse
     :: DeregisterVolumeResponse
 deregisterVolumeResponse = DeregisterVolumeResponse'
+
+instance NFData DeregisterVolumeResponse

@@ -52,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyImageAttribute' smart constructor.
+-- | Contains the parameters for ModifyImageAttribute.
+--
+-- /See:/ 'modifyImageAttribute' smart constructor.
 data ModifyImageAttribute = ModifyImageAttribute'
     { _miaAttribute        :: !(Maybe Text)
     , _miaUserIds          :: !(Maybe [Text])
@@ -162,6 +164,8 @@ instance AWSRequest ModifyImageAttribute where
 
 instance Hashable ModifyImageAttribute
 
+instance NFData ModifyImageAttribute
+
 instance ToHeaders ModifyImageAttribute where
         toHeaders = const mempty
 
@@ -194,3 +198,5 @@ data ModifyImageAttributeResponse =
 modifyImageAttributeResponse
     :: ModifyImageAttributeResponse
 modifyImageAttributeResponse = ModifyImageAttributeResponse'
+
+instance NFData ModifyImageAttributeResponse

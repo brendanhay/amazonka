@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'allocateHosts' smart constructor.
+-- | Contains the parameters for AllocateHosts.
+--
+-- /See:/ 'allocateHosts' smart constructor.
 data AllocateHosts = AllocateHosts'
     { _ahClientToken      :: !(Maybe Text)
     , _ahAutoPlacement    :: !(Maybe AutoPlacement)
@@ -127,6 +129,8 @@ instance AWSRequest AllocateHosts where
 
 instance Hashable AllocateHosts
 
+instance NFData AllocateHosts
+
 instance ToHeaders AllocateHosts where
         toHeaders = const mempty
 
@@ -144,7 +148,9 @@ instance ToQuery AllocateHosts where
                "Quantity" =: _ahQuantity,
                "AvailabilityZone" =: _ahAvailabilityZone]
 
--- | /See:/ 'allocateHostsResponse' smart constructor.
+-- | Contains the output of AllocateHosts.
+--
+-- /See:/ 'allocateHostsResponse' smart constructor.
 data AllocateHostsResponse = AllocateHostsResponse'
     { _ahrsHostIds        :: !(Maybe [Text])
     , _ahrsResponseStatus :: !Int
@@ -174,3 +180,5 @@ ahrsHostIds = lens _ahrsHostIds (\ s a -> s{_ahrsHostIds = a}) . _Default . _Coe
 -- | The response status code.
 ahrsResponseStatus :: Lens' AllocateHostsResponse Int
 ahrsResponseStatus = lens _ahrsResponseStatus (\ s a -> s{_ahrsResponseStatus = a});
+
+instance NFData AllocateHostsResponse

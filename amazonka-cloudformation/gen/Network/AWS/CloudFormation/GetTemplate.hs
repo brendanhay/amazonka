@@ -90,6 +90,8 @@ instance AWSRequest GetTemplate where
 
 instance Hashable GetTemplate
 
+instance NFData GetTemplate
+
 instance ToHeaders GetTemplate where
         toHeaders = const mempty
 
@@ -136,3 +138,5 @@ gtrsTemplateBody = lens _gtrsTemplateBody (\ s a -> s{_gtrsTemplateBody = a});
 -- | The response status code.
 gtrsResponseStatus :: Lens' GetTemplateResponse Int
 gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});
+
+instance NFData GetTemplateResponse

@@ -82,6 +82,8 @@ instance AWSRequest ListLunaClients where
 
 instance Hashable ListLunaClients
 
+instance NFData ListLunaClients
+
 instance ToHeaders ListLunaClients where
         toHeaders
           = const
@@ -141,3 +143,5 @@ llcrsResponseStatus = lens _llcrsResponseStatus (\ s a -> s{_llcrsResponseStatus
 -- | The list of clients.
 llcrsClientList :: Lens' ListLunaClientsResponse [Text]
 llcrsClientList = lens _llcrsClientList (\ s a -> s{_llcrsClientList = a}) . _Coerce;
+
+instance NFData ListLunaClientsResponse

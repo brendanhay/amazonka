@@ -76,8 +76,8 @@ describeDeliveryStream pDeliveryStreamName_ =
     }
 
 -- | Specifies the destination ID to start returning the destination
--- information. Currently Amazon Kinesis Firehose supports one destination
--- per delivery stream.
+-- information. Currently Firehose supports one destination per delivery
+-- stream.
 ddsExclusiveStartDestinationId :: Lens' DescribeDeliveryStream (Maybe Text)
 ddsExclusiveStartDestinationId = lens _ddsExclusiveStartDestinationId (\ s a -> s{_ddsExclusiveStartDestinationId = a});
 
@@ -102,6 +102,8 @@ instance AWSRequest DescribeDeliveryStream where
                      (x .:> "DeliveryStreamDescription"))
 
 instance Hashable DescribeDeliveryStream
+
+instance NFData DescribeDeliveryStream
 
 instance ToHeaders DescribeDeliveryStream where
         toHeaders
@@ -161,3 +163,5 @@ ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus
 -- | Information about the delivery stream.
 ddsrsDeliveryStreamDescription :: Lens' DescribeDeliveryStreamResponse DeliveryStreamDescription
 ddsrsDeliveryStreamDescription = lens _ddsrsDeliveryStreamDescription (\ s a -> s{_ddsrsDeliveryStreamDescription = a});
+
+instance NFData DescribeDeliveryStreamResponse

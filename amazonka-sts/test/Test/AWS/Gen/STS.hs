@@ -28,7 +28,10 @@ import Test.AWS.STS.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testAssumeRole $
+--         [ testGetCallerIdentity $
+--             getCallerIdentity
+--
+--         , testAssumeRole $
 --             assumeRole
 --
 --         , testDecodeAuthorizationMessage $
@@ -49,7 +52,10 @@ import Test.AWS.STS.Internal
 --           ]
 
 --     , testGroup "response"
---         [ testAssumeRoleResponse $
+--         [ testGetCallerIdentityResponse $
+--             getCallerIdentityResponse
+--
+--         , testAssumeRoleResponse $
 --             assumeRoleResponse
 --
 --         , testDecodeAuthorizationMessageResponse $
@@ -71,6 +77,11 @@ import Test.AWS.STS.Internal
 --     ]
 
 -- Requests
+
+testGetCallerIdentity :: GetCallerIdentity -> TestTree
+testGetCallerIdentity = req
+    "GetCallerIdentity"
+    "fixture/GetCallerIdentity.yaml"
 
 testAssumeRole :: AssumeRole -> TestTree
 testAssumeRole = req
@@ -103,6 +114,13 @@ testAssumeRoleWithSAML = req
     "fixture/AssumeRoleWithSAML.yaml"
 
 -- Responses
+
+testGetCallerIdentityResponse :: GetCallerIdentityResponse -> TestTree
+testGetCallerIdentityResponse = res
+    "GetCallerIdentityResponse"
+    "fixture/GetCallerIdentityResponse.proto"
+    sts
+    (Proxy :: Proxy GetCallerIdentity)
 
 testAssumeRoleResponse :: AssumeRoleResponse -> TestTree
 testAssumeRoleResponse = res

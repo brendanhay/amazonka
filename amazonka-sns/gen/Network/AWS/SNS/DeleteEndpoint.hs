@@ -72,6 +72,8 @@ instance AWSRequest DeleteEndpoint where
 
 instance Hashable DeleteEndpoint
 
+instance NFData DeleteEndpoint
+
 instance ToHeaders DeleteEndpoint where
         toHeaders = const mempty
 
@@ -95,3 +97,5 @@ data DeleteEndpointResponse =
 deleteEndpointResponse
     :: DeleteEndpointResponse
 deleteEndpointResponse = DeleteEndpointResponse'
+
+instance NFData DeleteEndpointResponse

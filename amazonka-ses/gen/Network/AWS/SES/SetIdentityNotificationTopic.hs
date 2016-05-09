@@ -114,6 +114,8 @@ instance AWSRequest SetIdentityNotificationTopic
 
 instance Hashable SetIdentityNotificationTopic
 
+instance NFData SetIdentityNotificationTopic
+
 instance ToHeaders SetIdentityNotificationTopic where
         toHeaders = const mempty
 
@@ -151,3 +153,5 @@ setIdentityNotificationTopicResponse pResponseStatus_ =
 -- | The response status code.
 sintrsResponseStatus :: Lens' SetIdentityNotificationTopicResponse Int
 sintrsResponseStatus = lens _sintrsResponseStatus (\ s a -> s{_sintrsResponseStatus = a});
+
+instance NFData SetIdentityNotificationTopicResponse

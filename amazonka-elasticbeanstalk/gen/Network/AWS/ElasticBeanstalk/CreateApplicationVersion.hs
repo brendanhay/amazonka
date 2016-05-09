@@ -155,6 +155,8 @@ instance AWSRequest CreateApplicationVersion where
 
 instance Hashable CreateApplicationVersion
 
+instance NFData CreateApplicationVersion
+
 instance ToHeaders CreateApplicationVersion where
         toHeaders = const mempty
 

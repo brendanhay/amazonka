@@ -68,6 +68,8 @@ instance AWSRequest GetSendQuota where
 
 instance Hashable GetSendQuota
 
+instance NFData GetSendQuota
+
 instance ToHeaders GetSendQuota where
         toHeaders = const mempty
 
@@ -131,3 +133,5 @@ gsqrsMax24HourSend = lens _gsqrsMax24HourSend (\ s a -> s{_gsqrsMax24HourSend = 
 -- | The response status code.
 gsqrsResponseStatus :: Lens' GetSendQuotaResponse Int
 gsqrsResponseStatus = lens _gsqrsResponseStatus (\ s a -> s{_gsqrsResponseStatus = a});
+
+instance NFData GetSendQuotaResponse

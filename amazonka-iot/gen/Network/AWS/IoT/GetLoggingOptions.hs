@@ -66,6 +66,8 @@ instance AWSRequest GetLoggingOptions where
 
 instance Hashable GetLoggingOptions
 
+instance NFData GetLoggingOptions
+
 instance ToHeaders GetLoggingOptions where
         toHeaders = const mempty
 
@@ -114,3 +116,5 @@ glorsRoleARN = lens _glorsRoleARN (\ s a -> s{_glorsRoleARN = a});
 -- | The response status code.
 glorsResponseStatus :: Lens' GetLoggingOptionsResponse Int
 glorsResponseStatus = lens _glorsResponseStatus (\ s a -> s{_glorsResponseStatus = a});
+
+instance NFData GetLoggingOptionsResponse

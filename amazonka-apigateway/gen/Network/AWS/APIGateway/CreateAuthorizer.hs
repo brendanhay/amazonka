@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Adds a new < Authorizer> resource to an existing < RestApi> resource.
 module Network.AWS.APIGateway.CreateAuthorizer
     (
     -- * Creating a Request
@@ -27,6 +27,7 @@ module Network.AWS.APIGateway.CreateAuthorizer
     -- * Request Lenses
     , caIdentityValidationExpression
     , caAuthorizerResultTtlInSeconds
+    , caAuthType
     , caAuthorizerCredentials
     , caRestAPIId
     , caName
@@ -43,6 +44,7 @@ module Network.AWS.APIGateway.CreateAuthorizer
     , aName
     , aId
     , aAuthorizerResultTtlInSeconds
+    , aAuthType
     , aType
     , aIdentitySource
     , aAuthorizerCredentials
@@ -55,10 +57,13 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createAuthorizer' smart constructor.
+-- | Request to add a new < Authorizer> to an existing < RestApi> resource.
+--
+-- /See:/ 'createAuthorizer' smart constructor.
 data CreateAuthorizer = CreateAuthorizer'
     { _caIdentityValidationExpression :: !(Maybe Text)
     , _caAuthorizerResultTtlInSeconds :: !(Maybe Int)
+    , _caAuthType                     :: !(Maybe Text)
     , _caAuthorizerCredentials        :: !(Maybe Text)
     , _caRestAPIId                    :: !Text
     , _caName                         :: !Text
@@ -74,6 +79,8 @@ data CreateAuthorizer = CreateAuthorizer'
 -- * 'caIdentityValidationExpression'
 --
 -- * 'caAuthorizerResultTtlInSeconds'
+--
+-- * 'caAuthType'
 --
 -- * 'caAuthorizerCredentials'
 --
@@ -97,6 +104,7 @@ createAuthorizer pRestAPIId_ pName_ pType_ pAuthorizerURI_ pIdentitySource_ =
     CreateAuthorizer'
     { _caIdentityValidationExpression = Nothing
     , _caAuthorizerResultTtlInSeconds = Nothing
+    , _caAuthType = Nothing
     , _caAuthorizerCredentials = Nothing
     , _caRestAPIId = pRestAPIId_
     , _caName = pName_
@@ -113,11 +121,16 @@ caIdentityValidationExpression = lens _caIdentityValidationExpression (\ s a -> 
 caAuthorizerResultTtlInSeconds :: Lens' CreateAuthorizer (Maybe Int)
 caAuthorizerResultTtlInSeconds = lens _caAuthorizerResultTtlInSeconds (\ s a -> s{_caAuthorizerResultTtlInSeconds = a});
 
+-- | Optional customer-defined field, used in Swagger imports\/exports. Has
+-- no functional impact.
+caAuthType :: Lens' CreateAuthorizer (Maybe Text)
+caAuthType = lens _caAuthType (\ s a -> s{_caAuthType = a});
+
 -- | Specifies the credentials required for the authorizer, if any.
 caAuthorizerCredentials :: Lens' CreateAuthorizer (Maybe Text)
 caAuthorizerCredentials = lens _caAuthorizerCredentials (\ s a -> s{_caAuthorizerCredentials = a});
 
--- | Undocumented member.
+-- | The < RestApi> identifier under which the < Authorizer> will be created.
 caRestAPIId :: Lens' CreateAuthorizer Text
 caRestAPIId = lens _caRestAPIId (\ s a -> s{_caRestAPIId = a});
 
@@ -145,6 +158,8 @@ instance AWSRequest CreateAuthorizer where
 
 instance Hashable CreateAuthorizer
 
+instance NFData CreateAuthorizer
+
 instance ToHeaders CreateAuthorizer where
         toHeaders
           = const
@@ -159,6 +174,7 @@ instance ToJSON CreateAuthorizer where
                     _caIdentityValidationExpression,
                   ("authorizerResultTtlInSeconds" .=) <$>
                     _caAuthorizerResultTtlInSeconds,
+                  ("authType" .=) <$> _caAuthType,
                   ("authorizerCredentials" .=) <$>
                     _caAuthorizerCredentials,
                   Just ("name" .= _caName), Just ("type" .= _caType),

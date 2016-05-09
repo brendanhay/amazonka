@@ -136,6 +136,8 @@ instance AWSRequest DescribeCacheParameters where
 
 instance Hashable DescribeCacheParameters
 
+instance NFData DescribeCacheParameters
+
 instance ToHeaders DescribeCacheParameters where
         toHeaders = const mempty
 
@@ -202,3 +204,5 @@ dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _De
 -- | The response status code.
 dcprsResponseStatus :: Lens' DescribeCacheParametersResponse Int
 dcprsResponseStatus = lens _dcprsResponseStatus (\ s a -> s{_dcprsResponseStatus = a});
+
+instance NFData DescribeCacheParametersResponse

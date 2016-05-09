@@ -128,6 +128,8 @@ instance AWSRequest GetDomainDetail where
 
 instance Hashable GetDomainDetail
 
+instance NFData GetDomainDetail
+
 instance ToHeaders GetDomainDetail where
         toHeaders
           = const
@@ -420,3 +422,5 @@ gddrsRegistrantContact = lens _gddrsRegistrantContact (\ s a -> s{_gddrsRegistra
 -- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 gddrsTechContact :: Lens' GetDomainDetailResponse ContactDetail
 gddrsTechContact = lens _gddrsTechContact (\ s a -> s{_gddrsTechContact = a}) . _Sensitive;
+
+instance NFData GetDomainDetailResponse

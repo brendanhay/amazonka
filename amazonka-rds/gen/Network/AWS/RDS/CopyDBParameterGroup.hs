@@ -128,6 +128,8 @@ instance AWSRequest CopyDBParameterGroup where
 
 instance Hashable CopyDBParameterGroup
 
+instance NFData CopyDBParameterGroup
+
 instance ToHeaders CopyDBParameterGroup where
         toHeaders = const mempty
 
@@ -176,3 +178,5 @@ cdbpgrsDBParameterGroup = lens _cdbpgrsDBParameterGroup (\ s a -> s{_cdbpgrsDBPa
 -- | The response status code.
 cdbpgrsResponseStatus :: Lens' CopyDBParameterGroupResponse Int
 cdbpgrsResponseStatus = lens _cdbpgrsResponseStatus (\ s a -> s{_cdbpgrsResponseStatus = a});
+
+instance NFData CopyDBParameterGroupResponse

@@ -90,6 +90,8 @@ instance AWSRequest PutEvaluations where
 
 instance Hashable PutEvaluations
 
+instance NFData PutEvaluations
+
 instance ToHeaders PutEvaluations where
         toHeaders
           = const
@@ -141,3 +143,5 @@ persFailedEvaluations = lens _persFailedEvaluations (\ s a -> s{_persFailedEvalu
 -- | The response status code.
 persResponseStatus :: Lens' PutEvaluationsResponse Int
 persResponseStatus = lens _persResponseStatus (\ s a -> s{_persResponseStatus = a});
+
+instance NFData PutEvaluationsResponse

@@ -160,6 +160,8 @@ instance AWSRequest CreateHSM where
 
 instance Hashable CreateHSM
 
+instance NFData CreateHSM
+
 instance ToHeaders CreateHSM where
         toHeaders
           = const
@@ -219,3 +221,5 @@ chrsHSMARN = lens _chrsHSMARN (\ s a -> s{_chrsHSMARN = a});
 -- | The response status code.
 chrsResponseStatus :: Lens' CreateHSMResponse Int
 chrsResponseStatus = lens _chrsResponseStatus (\ s a -> s{_chrsResponseStatus = a});
+
+instance NFData CreateHSMResponse

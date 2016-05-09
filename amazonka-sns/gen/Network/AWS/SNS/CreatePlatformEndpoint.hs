@@ -129,6 +129,8 @@ instance AWSRequest CreatePlatformEndpoint where
 
 instance Hashable CreatePlatformEndpoint
 
+instance NFData CreatePlatformEndpoint
+
 instance ToHeaders CreatePlatformEndpoint where
         toHeaders = const mempty
 
@@ -181,3 +183,5 @@ cpersEndpointARN = lens _cpersEndpointARN (\ s a -> s{_cpersEndpointARN = a});
 -- | The response status code.
 cpersResponseStatus :: Lens' CreatePlatformEndpointResponse Int
 cpersResponseStatus = lens _cpersResponseStatus (\ s a -> s{_cpersResponseStatus = a});
+
+instance NFData CreatePlatformEndpointResponse

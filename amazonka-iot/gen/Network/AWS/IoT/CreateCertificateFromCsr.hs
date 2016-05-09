@@ -135,6 +135,8 @@ instance AWSRequest CreateCertificateFromCsr where
 
 instance Hashable CreateCertificateFromCsr
 
+instance NFData CreateCertificateFromCsr
+
 instance ToHeaders CreateCertificateFromCsr where
         toHeaders = const mempty
 
@@ -202,3 +204,5 @@ ccfcrsCertificateId = lens _ccfcrsCertificateId (\ s a -> s{_ccfcrsCertificateId
 -- | The response status code.
 ccfcrsResponseStatus :: Lens' CreateCertificateFromCsrResponse Int
 ccfcrsResponseStatus = lens _ccfcrsResponseStatus (\ s a -> s{_ccfcrsResponseStatus = a});
+
+instance NFData CreateCertificateFromCsrResponse

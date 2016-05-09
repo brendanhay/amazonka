@@ -85,6 +85,8 @@ instance AWSRequest StopLogging where
 
 instance Hashable StopLogging
 
+instance NFData StopLogging
+
 instance ToHeaders StopLogging where
         toHeaders
           = const
@@ -129,3 +131,5 @@ stopLoggingResponse pResponseStatus_ =
 -- | The response status code.
 slrsResponseStatus :: Lens' StopLoggingResponse Int
 slrsResponseStatus = lens _slrsResponseStatus (\ s a -> s{_slrsResponseStatus = a});
+
+instance NFData StopLoggingResponse

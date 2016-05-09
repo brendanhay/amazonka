@@ -93,6 +93,8 @@ instance AWSRequest CreateGroup where
 
 instance Hashable CreateGroup
 
+instance NFData CreateGroup
+
 instance ToHeaders CreateGroup where
         toHeaders = const mempty
 
@@ -138,3 +140,5 @@ cgrsResponseStatus = lens _cgrsResponseStatus (\ s a -> s{_cgrsResponseStatus = 
 -- | Information about the group.
 cgrsGroup :: Lens' CreateGroupResponse Group
 cgrsGroup = lens _cgrsGroup (\ s a -> s{_cgrsGroup = a});
+
+instance NFData CreateGroupResponse

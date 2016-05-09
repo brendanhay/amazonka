@@ -224,6 +224,8 @@ instance AWSRequest CreateTrail where
 
 instance Hashable CreateTrail
 
+instance NFData CreateTrail
+
 instance ToHeaders CreateTrail where
         toHeaders
           = const
@@ -382,3 +384,5 @@ ctrsIsMultiRegionTrail = lens _ctrsIsMultiRegionTrail (\ s a -> s{_ctrsIsMultiRe
 -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTrailResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
+
+instance NFData CreateTrailResponse

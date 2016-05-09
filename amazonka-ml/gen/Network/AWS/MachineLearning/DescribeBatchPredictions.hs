@@ -225,6 +225,8 @@ instance AWSRequest DescribeBatchPredictions where
 
 instance Hashable DescribeBatchPredictions
 
+instance NFData DescribeBatchPredictions
+
 instance ToHeaders DescribeBatchPredictions where
         toHeaders
           = const
@@ -295,3 +297,5 @@ drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DescribeBatchPredictionsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DescribeBatchPredictionsResponse

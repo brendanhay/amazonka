@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation starts a gateway that you previously shut down (see
--- < ShutdownGateway>). After the gateway starts, you can then make other
--- API calls, your applications can read from or write to the gateway\'s
--- storage volumes and you will be able to take snapshot backups.
+-- Starts a gateway that you previously shut down (see < ShutdownGateway>).
+-- After the gateway starts, you can then make other API calls, your
+-- applications can read from or write to the gateway\'s storage volumes
+-- and you will be able to take snapshot backups.
 --
 -- When you make a request, you will get a 200 OK success response
 -- immediately. However, it might take some time for the gateway to be
@@ -89,6 +89,8 @@ instance AWSRequest StartGateway where
 
 instance Hashable StartGateway
 
+instance NFData StartGateway
+
 instance ToHeaders StartGateway where
         toHeaders
           = const
@@ -141,3 +143,5 @@ sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a});
 -- | The response status code.
 sgrsResponseStatus :: Lens' StartGatewayResponse Int
 sgrsResponseStatus = lens _sgrsResponseStatus (\ s a -> s{_sgrsResponseStatus = a});
+
+instance NFData StartGatewayResponse

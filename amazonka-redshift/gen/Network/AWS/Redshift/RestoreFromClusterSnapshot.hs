@@ -53,6 +53,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     , rfcsKMSKeyId
     , rfcsAvailabilityZone
     , rfcsVPCSecurityGroupIds
+    , rfcsIAMRoles
     , rfcsOwnerAccount
     , rfcsNodeType
     , rfcsAllowVersionUpgrade
@@ -93,6 +94,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     , _rfcsKMSKeyId                         :: !(Maybe Text)
     , _rfcsAvailabilityZone                 :: !(Maybe Text)
     , _rfcsVPCSecurityGroupIds              :: !(Maybe [Text])
+    , _rfcsIAMRoles                         :: !(Maybe [Text])
     , _rfcsOwnerAccount                     :: !(Maybe Text)
     , _rfcsNodeType                         :: !(Maybe Text)
     , _rfcsAllowVersionUpgrade              :: !(Maybe Bool)
@@ -132,6 +134,8 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- * 'rfcsVPCSecurityGroupIds'
 --
+-- * 'rfcsIAMRoles'
+--
 -- * 'rfcsOwnerAccount'
 --
 -- * 'rfcsNodeType'
@@ -164,6 +168,7 @@ restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
     , _rfcsKMSKeyId = Nothing
     , _rfcsAvailabilityZone = Nothing
     , _rfcsVPCSecurityGroupIds = Nothing
+    , _rfcsIAMRoles = Nothing
     , _rfcsOwnerAccount = Nothing
     , _rfcsNodeType = Nothing
     , _rfcsAllowVersionUpgrade = Nothing
@@ -269,6 +274,15 @@ rfcsAvailabilityZone = lens _rfcsAvailabilityZone (\ s a -> s{_rfcsAvailabilityZ
 rfcsVPCSecurityGroupIds :: Lens' RestoreFromClusterSnapshot [Text]
 rfcsVPCSecurityGroupIds = lens _rfcsVPCSecurityGroupIds (\ s a -> s{_rfcsVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
+-- | A list of AWS Identity and Access Management (IAM) roles that can be
+-- used by the cluster to access other AWS services. You must supply the
+-- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
+-- to 10 IAM roles in a single request.
+--
+-- A cluster can have up to 10 IAM roles associated at any time.
+rfcsIAMRoles :: Lens' RestoreFromClusterSnapshot [Text]
+rfcsIAMRoles = lens _rfcsIAMRoles (\ s a -> s{_rfcsIAMRoles = a}) . _Default . _Coerce;
+
 -- | The AWS customer account used to create or copy the snapshot. Required
 -- if you are restoring a snapshot you do not own, optional if you own the
 -- snapshot.
@@ -352,6 +366,8 @@ instance AWSRequest RestoreFromClusterSnapshot where
 
 instance Hashable RestoreFromClusterSnapshot
 
+instance NFData RestoreFromClusterSnapshot
+
 instance ToHeaders RestoreFromClusterSnapshot where
         toHeaders = const mempty
 
@@ -389,6 +405,8 @@ instance ToQuery RestoreFromClusterSnapshot where
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>
                       _rfcsVPCSecurityGroupIds),
+               "IamRoles" =:
+                 toQuery (toQueryList "IamRoleArn" <$> _rfcsIAMRoles),
                "OwnerAccount" =: _rfcsOwnerAccount,
                "NodeType" =: _rfcsNodeType,
                "AllowVersionUpgrade" =: _rfcsAllowVersionUpgrade,
@@ -427,3 +445,5 @@ rfcsrsCluster = lens _rfcsrsCluster (\ s a -> s{_rfcsrsCluster = a});
 -- | The response status code.
 rfcsrsResponseStatus :: Lens' RestoreFromClusterSnapshotResponse Int
 rfcsrsResponseStatus = lens _rfcsrsResponseStatus (\ s a -> s{_rfcsrsResponseStatus = a});
+
+instance NFData RestoreFromClusterSnapshotResponse

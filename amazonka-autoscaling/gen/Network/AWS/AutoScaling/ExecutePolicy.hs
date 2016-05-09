@@ -125,6 +125,8 @@ instance AWSRequest ExecutePolicy where
 
 instance Hashable ExecutePolicy
 
+instance NFData ExecutePolicy
+
 instance ToHeaders ExecutePolicy where
         toHeaders = const mempty
 
@@ -152,3 +154,5 @@ data ExecutePolicyResponse =
 executePolicyResponse
     :: ExecutePolicyResponse
 executePolicyResponse = ExecutePolicyResponse'
+
+instance NFData ExecutePolicyResponse

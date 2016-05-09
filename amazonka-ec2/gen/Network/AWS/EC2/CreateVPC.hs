@@ -31,6 +31,12 @@
 -- (AmazonProvidedDNS). For more information about DHCP options, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- You can specify the instance tenancy value for the VPC when you create
+-- it. You can\'t change this value for the VPC after you create it. For
+-- more information, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html.html Dedicated Instances>
+-- in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.CreateVPC
     (
     -- * Creating a Request
@@ -56,7 +62,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createVPC' smart constructor.
+-- | Contains the parameters for CreateVpc.
+--
+-- /See:/ 'createVPC' smart constructor.
 data CreateVPC = CreateVPC'
     { _cvInstanceTenancy :: !(Maybe Tenancy)
     , _cvDryRun          :: !(Maybe Bool)
@@ -82,12 +90,12 @@ createVPC pCIdRBlock_ =
     , _cvCIdRBlock = pCIdRBlock_
     }
 
--- | The supported tenancy options for instances launched into the VPC. A
--- value of 'default' means that instances can be launched with any
--- tenancy; a value of 'dedicated' means all instances launched into the
--- VPC are launched as dedicated tenancy instances regardless of the
--- tenancy assigned to the instance at launch. Dedicated tenancy instances
--- run on single-tenant hardware.
+-- | The tenancy options for instances launched into the VPC. For 'default',
+-- instances are launched with shared tenancy by default. You can launch
+-- instances with any tenancy into a shared tenancy VPC. For 'dedicated',
+-- instances are launched as dedicated tenancy instances by default. You
+-- can only launch instances with a tenancy of 'dedicated' or 'host' into a
+-- dedicated tenancy VPC.
 --
 -- __Important:__ The 'host' value cannot be used with this parameter. Use
 -- the 'default' or 'dedicated' values only.
@@ -119,6 +127,8 @@ instance AWSRequest CreateVPC where
 
 instance Hashable CreateVPC
 
+instance NFData CreateVPC
+
 instance ToHeaders CreateVPC where
         toHeaders = const mempty
 
@@ -133,7 +143,9 @@ instance ToQuery CreateVPC where
                "InstanceTenancy" =: _cvInstanceTenancy,
                "DryRun" =: _cvDryRun, "CidrBlock" =: _cvCIdRBlock]
 
--- | /See:/ 'createVPCResponse' smart constructor.
+-- | Contains the output of CreateVpc.
+--
+-- /See:/ 'createVPCResponse' smart constructor.
 data CreateVPCResponse = CreateVPCResponse'
     { _cvrsVPC            :: !(Maybe VPC)
     , _cvrsResponseStatus :: !Int
@@ -162,3 +174,5 @@ cvrsVPC = lens _cvrsVPC (\ s a -> s{_cvrsVPC = a});
 -- | The response status code.
 cvrsResponseStatus :: Lens' CreateVPCResponse Int
 cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a});
+
+instance NFData CreateVPCResponse

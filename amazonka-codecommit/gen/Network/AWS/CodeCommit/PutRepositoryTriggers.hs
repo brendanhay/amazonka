@@ -88,6 +88,8 @@ instance AWSRequest PutRepositoryTriggers where
 
 instance Hashable PutRepositoryTriggers
 
+instance NFData PutRepositoryTriggers
+
 instance ToHeaders PutRepositoryTriggers where
         toHeaders
           = const
@@ -142,3 +144,5 @@ prtrsConfigurationId = lens _prtrsConfigurationId (\ s a -> s{_prtrsConfiguratio
 -- | The response status code.
 prtrsResponseStatus :: Lens' PutRepositoryTriggersResponse Int
 prtrsResponseStatus = lens _prtrsResponseStatus (\ s a -> s{_prtrsResponseStatus = a});
+
+instance NFData PutRepositoryTriggersResponse

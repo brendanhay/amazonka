@@ -110,6 +110,8 @@ instance AWSRequest UpdateIntegration where
 
 instance Hashable UpdateIntegration
 
+instance NFData UpdateIntegration
+
 instance ToHeaders UpdateIntegration where
         toHeaders
           = const

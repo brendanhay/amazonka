@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'associateRouteTable' smart constructor.
+-- | Contains the parameters for AssociateRouteTable.
+--
+-- /See:/ 'associateRouteTable' smart constructor.
 data AssociateRouteTable = AssociateRouteTable'
     { _artDryRun       :: !(Maybe Bool)
     , _artSubnetId     :: !Text
@@ -107,6 +109,8 @@ instance AWSRequest AssociateRouteTable where
 
 instance Hashable AssociateRouteTable
 
+instance NFData AssociateRouteTable
+
 instance ToHeaders AssociateRouteTable where
         toHeaders = const mempty
 
@@ -121,7 +125,9 @@ instance ToQuery AssociateRouteTable where
                "DryRun" =: _artDryRun, "SubnetId" =: _artSubnetId,
                "RouteTableId" =: _artRouteTableId]
 
--- | /See:/ 'associateRouteTableResponse' smart constructor.
+-- | Contains the output of AssociateRouteTable.
+--
+-- /See:/ 'associateRouteTableResponse' smart constructor.
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
     { _artrsAssociationId  :: !(Maybe Text)
     , _artrsResponseStatus :: !Int
@@ -150,3 +156,5 @@ artrsAssociationId = lens _artrsAssociationId (\ s a -> s{_artrsAssociationId = 
 -- | The response status code.
 artrsResponseStatus :: Lens' AssociateRouteTableResponse Int
 artrsResponseStatus = lens _artrsResponseStatus (\ s a -> s{_artrsResponseStatus = a});
+
+instance NFData AssociateRouteTableResponse

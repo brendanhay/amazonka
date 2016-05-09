@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation updates a snapshot schedule configured for a gateway
--- volume.
+-- Updates a snapshot schedule configured for a gateway volume.
 --
 -- The default snapshot schedule for volume is once every 24 hours,
 -- starting at the creation time of the volume. You can use this API to
@@ -126,6 +125,8 @@ instance AWSRequest UpdateSnapshotSchedule where
 
 instance Hashable UpdateSnapshotSchedule
 
+instance NFData UpdateSnapshotSchedule
+
 instance ToHeaders UpdateSnapshotSchedule where
         toHeaders
           = const
@@ -182,3 +183,5 @@ ussrsVolumeARN = lens _ussrsVolumeARN (\ s a -> s{_ussrsVolumeARN = a});
 -- | The response status code.
 ussrsResponseStatus :: Lens' UpdateSnapshotScheduleResponse Int
 ussrsResponseStatus = lens _ussrsResponseStatus (\ s a -> s{_ussrsResponseStatus = a});
+
+instance NFData UpdateSnapshotScheduleResponse

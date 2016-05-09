@@ -228,6 +228,8 @@ instance AWSRequest UpdateInstance where
 
 instance Hashable UpdateInstance
 
+instance NFData UpdateInstance
+
 instance ToHeaders UpdateInstance where
         toHeaders
           = const
@@ -271,3 +273,5 @@ data UpdateInstanceResponse =
 updateInstanceResponse
     :: UpdateInstanceResponse
 updateInstanceResponse = UpdateInstanceResponse'
+
+instance NFData UpdateInstanceResponse

@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getCertificate' smart constructor.
+-- |
+--
+-- /See:/ 'getCertificate' smart constructor.
 newtype GetCertificate = GetCertificate'
     { _gcCertificateARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -90,6 +92,8 @@ instance AWSRequest GetCertificate where
 
 instance Hashable GetCertificate
 
+instance NFData GetCertificate
+
 instance ToHeaders GetCertificate where
         toHeaders
           = const
@@ -111,7 +115,9 @@ instance ToPath GetCertificate where
 instance ToQuery GetCertificate where
         toQuery = const mempty
 
--- | /See:/ 'getCertificateResponse' smart constructor.
+-- |
+--
+-- /See:/ 'getCertificateResponse' smart constructor.
 data GetCertificateResponse = GetCertificateResponse'
     { _gcrsCertificate      :: !(Maybe Text)
     , _gcrsCertificateChain :: !(Maybe Text)
@@ -150,3 +156,5 @@ gcrsCertificateChain = lens _gcrsCertificateChain (\ s a -> s{_gcrsCertificateCh
 -- | The response status code.
 gcrsResponseStatus :: Lens' GetCertificateResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
+
+instance NFData GetCertificateResponse

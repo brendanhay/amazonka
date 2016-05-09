@@ -104,6 +104,8 @@ instance AWSRequest ListDomains where
 
 instance Hashable ListDomains
 
+instance NFData ListDomains
+
 instance ToHeaders ListDomains where
         toHeaders = const mempty
 
@@ -156,3 +158,5 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 -- | The response status code.
 ldrsResponseStatus :: Lens' ListDomainsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+
+instance NFData ListDomainsResponse

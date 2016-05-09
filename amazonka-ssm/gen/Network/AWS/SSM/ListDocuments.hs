@@ -109,6 +109,8 @@ instance AWSRequest ListDocuments where
 
 instance Hashable ListDocuments
 
+instance NFData ListDocuments
+
 instance ToHeaders ListDocuments where
         toHeaders
           = const
@@ -170,3 +172,5 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 -- | The response status code.
 ldrsResponseStatus :: Lens' ListDocumentsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+
+instance NFData ListDocumentsResponse

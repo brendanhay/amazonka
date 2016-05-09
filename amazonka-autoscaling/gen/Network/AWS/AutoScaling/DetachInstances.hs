@@ -107,6 +107,8 @@ instance AWSRequest DetachInstances where
 
 instance Hashable DetachInstances
 
+instance NFData DetachInstances
+
 instance ToHeaders DetachInstances where
         toHeaders = const mempty
 
@@ -154,3 +156,5 @@ dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Defau
 -- | The response status code.
 dirsResponseStatus :: Lens' DetachInstancesResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+
+instance NFData DetachInstancesResponse

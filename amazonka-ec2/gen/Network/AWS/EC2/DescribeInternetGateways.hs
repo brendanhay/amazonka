@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeInternetGateways' smart constructor.
+-- | Contains the parameters for DescribeInternetGateways.
+--
+-- /See:/ 'describeInternetGateways' smart constructor.
 data DescribeInternetGateways = DescribeInternetGateways'
     { _dFilters            :: !(Maybe [Filter])
     , _dInternetGatewayIds :: !(Maybe [Text])
@@ -123,6 +125,8 @@ instance AWSRequest DescribeInternetGateways where
 
 instance Hashable DescribeInternetGateways
 
+instance NFData DescribeInternetGateways
+
 instance ToHeaders DescribeInternetGateways where
         toHeaders = const mempty
 
@@ -141,7 +145,9 @@ instance ToQuery DescribeInternetGateways where
                     _dInternetGatewayIds),
                "DryRun" =: _dDryRun]
 
--- | /See:/ 'describeInternetGatewaysResponse' smart constructor.
+-- | Contains the output of DescribeInternetGateways.
+--
+-- /See:/ 'describeInternetGatewaysResponse' smart constructor.
 data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
     { _digrsInternetGateways :: !(Maybe [InternetGateway])
     , _digrsResponseStatus   :: !Int
@@ -170,3 +176,5 @@ digrsInternetGateways = lens _digrsInternetGateways (\ s a -> s{_digrsInternetGa
 -- | The response status code.
 digrsResponseStatus :: Lens' DescribeInternetGatewaysResponse Int
 digrsResponseStatus = lens _digrsResponseStatus (\ s a -> s{_digrsResponseStatus = a});
+
+instance NFData DescribeInternetGatewaysResponse

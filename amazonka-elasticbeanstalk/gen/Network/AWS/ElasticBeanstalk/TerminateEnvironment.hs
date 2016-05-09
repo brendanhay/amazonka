@@ -61,7 +61,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to terminate an environment.
 --
 -- /See:/ 'terminateEnvironment' smart constructor.
 data TerminateEnvironment = TerminateEnvironment'
@@ -139,6 +139,8 @@ instance AWSRequest TerminateEnvironment where
               (\ s h x -> parseXML x)
 
 instance Hashable TerminateEnvironment
+
+instance NFData TerminateEnvironment
 
 instance ToHeaders TerminateEnvironment where
         toHeaders = const mempty

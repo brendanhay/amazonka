@@ -4,12 +4,17 @@
         "ActivityTask": {
             "optionalFields": [
                 "activityId",
-                "taskToken"
+                "taskToken",
+                "workflowExecution",
+                "activityType"
             ]
         },
         "DecisionTask": {
             "optionalFields": [
-                "taskToken"
+                "taskToken",
+                "workflowExecution",
+                "workflowType",
+                "events"
             ]
         }
     }

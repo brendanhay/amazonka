@@ -73,6 +73,8 @@ instance AWSRequest ModifyInstanceGroups where
 
 instance Hashable ModifyInstanceGroups
 
+instance NFData ModifyInstanceGroups
+
 instance ToHeaders ModifyInstanceGroups where
         toHeaders
           = const
@@ -105,3 +107,5 @@ data ModifyInstanceGroupsResponse =
 modifyInstanceGroupsResponse
     :: ModifyInstanceGroupsResponse
 modifyInstanceGroupsResponse = ModifyInstanceGroupsResponse'
+
+instance NFData ModifyInstanceGroupsResponse

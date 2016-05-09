@@ -40,6 +40,7 @@ instance ToText ApplicationRevisionSortBy where
         RegisterTime -> "registerTime"
 
 instance Hashable     ApplicationRevisionSortBy
+instance NFData       ApplicationRevisionSortBy
 instance ToByteString ApplicationRevisionSortBy
 instance ToQuery      ApplicationRevisionSortBy
 instance ToHeader     ApplicationRevisionSortBy
@@ -68,6 +69,7 @@ instance ToText BundleType where
         Zip -> "zip"
 
 instance Hashable     BundleType
+instance NFData       BundleType
 instance ToByteString BundleType
 instance ToQuery      BundleType
 instance ToHeader     BundleType
@@ -129,6 +131,7 @@ instance ToText DeployErrorCode where
         Timeout -> "TIMEOUT"
 
 instance Hashable     DeployErrorCode
+instance NFData       DeployErrorCode
 instance ToByteString DeployErrorCode
 instance ToQuery      DeployErrorCode
 instance ToHeader     DeployErrorCode
@@ -154,6 +157,7 @@ instance ToText DeploymentCreator where
         User -> "user"
 
 instance Hashable     DeploymentCreator
+instance NFData       DeploymentCreator
 instance ToByteString DeploymentCreator
 instance ToQuery      DeploymentCreator
 instance ToHeader     DeploymentCreator
@@ -191,6 +195,7 @@ instance ToText DeploymentStatus where
         Succeeded -> "Succeeded"
 
 instance Hashable     DeploymentStatus
+instance NFData       DeploymentStatus
 instance ToByteString DeploymentStatus
 instance ToQuery      DeploymentStatus
 instance ToHeader     DeploymentStatus
@@ -222,6 +227,7 @@ instance ToText EC2TagFilterType where
         ValueOnly -> "VALUE_ONLY"
 
 instance Hashable     EC2TagFilterType
+instance NFData       EC2TagFilterType
 instance ToByteString EC2TagFilterType
 instance ToQuery      EC2TagFilterType
 instance ToHeader     EC2TagFilterType
@@ -262,6 +268,7 @@ instance ToText InstanceStatus where
         ISUnknown -> "Unknown"
 
 instance Hashable     InstanceStatus
+instance NFData       InstanceStatus
 instance ToByteString InstanceStatus
 instance ToQuery      InstanceStatus
 instance ToHeader     InstanceStatus
@@ -302,6 +309,7 @@ instance ToText LifecycleErrorCode where
         UnknownError -> "UnknownError"
 
 instance Hashable     LifecycleErrorCode
+instance NFData       LifecycleErrorCode
 instance ToByteString LifecycleErrorCode
 instance ToQuery      LifecycleErrorCode
 instance ToHeader     LifecycleErrorCode
@@ -339,6 +347,7 @@ instance ToText LifecycleEventStatus where
         LESUnknown -> "Unknown"
 
 instance Hashable     LifecycleEventStatus
+instance NFData       LifecycleEventStatus
 instance ToByteString LifecycleEventStatus
 instance ToQuery      LifecycleEventStatus
 instance ToHeader     LifecycleEventStatus
@@ -367,6 +376,7 @@ instance ToText ListStateFilterAction where
         Include -> "include"
 
 instance Hashable     ListStateFilterAction
+instance NFData       ListStateFilterAction
 instance ToByteString ListStateFilterAction
 instance ToQuery      ListStateFilterAction
 instance ToHeader     ListStateFilterAction
@@ -392,6 +402,7 @@ instance ToText MinimumHealthyHostsType where
         HostCount -> "HOST_COUNT"
 
 instance Hashable     MinimumHealthyHostsType
+instance NFData       MinimumHealthyHostsType
 instance ToByteString MinimumHealthyHostsType
 instance ToQuery      MinimumHealthyHostsType
 instance ToHeader     MinimumHealthyHostsType
@@ -420,6 +431,7 @@ instance ToText RegistrationStatus where
         Registered -> "Registered"
 
 instance Hashable     RegistrationStatus
+instance NFData       RegistrationStatus
 instance ToByteString RegistrationStatus
 instance ToQuery      RegistrationStatus
 instance ToHeader     RegistrationStatus
@@ -445,6 +457,7 @@ instance ToText RevisionLocationType where
         S3 -> "S3"
 
 instance Hashable     RevisionLocationType
+instance NFData       RevisionLocationType
 instance ToByteString RevisionLocationType
 instance ToQuery      RevisionLocationType
 instance ToHeader     RevisionLocationType
@@ -473,6 +486,7 @@ instance ToText SortOrder where
         Descending -> "descending"
 
 instance Hashable     SortOrder
+instance NFData       SortOrder
 instance ToByteString SortOrder
 instance ToQuery      SortOrder
 instance ToHeader     SortOrder
@@ -498,6 +512,7 @@ instance ToText StopStatus where
         SSSucceeded -> "Succeeded"
 
 instance Hashable     StopStatus
+instance NFData       StopStatus
 instance ToByteString StopStatus
 instance ToQuery      StopStatus
 instance ToHeader     StopStatus
@@ -526,6 +541,7 @@ instance ToText TagFilterType where
         TFTValueOnly -> "VALUE_ONLY"
 
 instance Hashable     TagFilterType
+instance NFData       TagFilterType
 instance ToByteString TagFilterType
 instance ToQuery      TagFilterType
 instance ToHeader     TagFilterType
@@ -569,6 +585,7 @@ instance ToText TriggerEventType where
         InstanceSuccess -> "InstanceSuccess"
 
 instance Hashable     TriggerEventType
+instance NFData       TriggerEventType
 instance ToByteString TriggerEventType
 instance ToQuery      TriggerEventType
 instance ToHeader     TriggerEventType

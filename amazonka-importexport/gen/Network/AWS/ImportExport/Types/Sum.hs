@@ -38,6 +38,7 @@ instance ToText JobType where
         Import -> "Import"
 
 instance Hashable     JobType
+instance NFData       JobType
 instance ToByteString JobType
 instance ToQuery      JobType
 instance ToHeader     JobType

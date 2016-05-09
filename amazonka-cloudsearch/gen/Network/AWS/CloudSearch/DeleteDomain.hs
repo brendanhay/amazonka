@@ -81,6 +81,8 @@ instance AWSRequest DeleteDomain where
 
 instance Hashable DeleteDomain
 
+instance NFData DeleteDomain
+
 instance ToHeaders DeleteDomain where
         toHeaders = const mempty
 
@@ -127,3 +129,5 @@ ddrsDomainStatus = lens _ddrsDomainStatus (\ s a -> s{_ddrsDomainStatus = a});
 -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDomainResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
+
+instance NFData DeleteDomainResponse

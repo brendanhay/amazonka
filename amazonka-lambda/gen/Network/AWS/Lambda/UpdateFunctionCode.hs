@@ -156,6 +156,8 @@ instance AWSRequest UpdateFunctionCode where
 
 instance Hashable UpdateFunctionCode
 
+instance NFData UpdateFunctionCode
+
 instance ToHeaders UpdateFunctionCode where
         toHeaders = const mempty
 

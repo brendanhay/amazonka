@@ -69,6 +69,8 @@ instance AWSRequest HeadBucket where
 
 instance Hashable HeadBucket
 
+instance NFData HeadBucket
+
 instance ToHeaders HeadBucket where
         toHeaders = const mempty
 
@@ -89,3 +91,5 @@ data HeadBucketResponse =
 headBucketResponse
     :: HeadBucketResponse
 headBucketResponse = HeadBucketResponse'
+
+instance NFData HeadBucketResponse

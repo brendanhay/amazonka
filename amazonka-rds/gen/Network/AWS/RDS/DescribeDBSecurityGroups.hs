@@ -130,6 +130,8 @@ instance AWSRequest DescribeDBSecurityGroups where
 
 instance Hashable DescribeDBSecurityGroups
 
+instance NFData DescribeDBSecurityGroups
+
 instance ToHeaders DescribeDBSecurityGroups where
         toHeaders = const mempty
 
@@ -190,3 +192,5 @@ ddbsgrsMarker = lens _ddbsgrsMarker (\ s a -> s{_ddbsgrsMarker = a});
 -- | The response status code.
 ddbsgrsResponseStatus :: Lens' DescribeDBSecurityGroupsResponse Int
 ddbsgrsResponseStatus = lens _ddbsgrsResponseStatus (\ s a -> s{_ddbsgrsResponseStatus = a});
+
+instance NFData DescribeDBSecurityGroupsResponse

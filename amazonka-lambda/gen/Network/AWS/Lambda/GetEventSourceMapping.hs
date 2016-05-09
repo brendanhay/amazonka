@@ -82,6 +82,8 @@ instance AWSRequest GetEventSourceMapping where
 
 instance Hashable GetEventSourceMapping
 
+instance NFData GetEventSourceMapping
+
 instance ToHeaders GetEventSourceMapping where
         toHeaders = const mempty
 

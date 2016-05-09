@@ -54,7 +54,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'releaseHosts' smart constructor.
+-- | Contains the parameters for ReleaseHosts.
+--
+-- /See:/ 'releaseHosts' smart constructor.
 newtype ReleaseHosts = ReleaseHosts'
     { _rhHostIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -91,6 +93,8 @@ instance AWSRequest ReleaseHosts where
 
 instance Hashable ReleaseHosts
 
+instance NFData ReleaseHosts
+
 instance ToHeaders ReleaseHosts where
         toHeaders = const mempty
 
@@ -104,7 +108,9 @@ instance ToQuery ReleaseHosts where
                "Version" =: ("2015-10-01" :: ByteString),
                toQueryList "HostId" _rhHostIds]
 
--- | /See:/ 'releaseHostsResponse' smart constructor.
+-- | Contains the output of ReleaseHosts.
+--
+-- /See:/ 'releaseHostsResponse' smart constructor.
 data ReleaseHostsResponse = ReleaseHostsResponse'
     { _rhrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
     , _rhrsSuccessful     :: !(Maybe [Text])
@@ -142,3 +148,5 @@ rhrsSuccessful = lens _rhrsSuccessful (\ s a -> s{_rhrsSuccessful = a}) . _Defau
 -- | The response status code.
 rhrsResponseStatus :: Lens' ReleaseHostsResponse Int
 rhrsResponseStatus = lens _rhrsResponseStatus (\ s a -> s{_rhrsResponseStatus = a});
+
+instance NFData ReleaseHostsResponse

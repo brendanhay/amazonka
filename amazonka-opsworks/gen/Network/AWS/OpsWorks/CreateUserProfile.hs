@@ -113,6 +113,8 @@ instance AWSRequest CreateUserProfile where
 
 instance Hashable CreateUserProfile
 
+instance NFData CreateUserProfile
+
 instance ToHeaders CreateUserProfile where
         toHeaders
           = const
@@ -170,3 +172,5 @@ cuprsIAMUserARN = lens _cuprsIAMUserARN (\ s a -> s{_cuprsIAMUserARN = a});
 -- | The response status code.
 cuprsResponseStatus :: Lens' CreateUserProfileResponse Int
 cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a});
+
+instance NFData CreateUserProfileResponse

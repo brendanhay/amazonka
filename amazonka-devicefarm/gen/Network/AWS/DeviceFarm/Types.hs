@@ -16,6 +16,7 @@ module Network.AWS.DeviceFarm.Types
       deviceFarm
 
     -- * Errors
+    , _NotEligibleException
     , _IdempotencyException
     , _ArgumentException
     , _NotFoundException
@@ -30,6 +31,9 @@ module Network.AWS.DeviceFarm.Types
 
     -- * BillingMethod
     , BillingMethod (..)
+
+    -- * CurrencyCode
+    , CurrencyCode (..)
 
     -- * DeviceAttribute
     , DeviceAttribute (..)
@@ -48,6 +52,15 @@ module Network.AWS.DeviceFarm.Types
 
     -- * ExecutionStatus
     , ExecutionStatus (..)
+
+    -- * OfferingTransactionType
+    , OfferingTransactionType (..)
+
+    -- * OfferingType
+    , OfferingType (..)
+
+    -- * RecurringChargeFrequency
+    , RecurringChargeFrequency (..)
 
     -- * RuleOperator
     , RuleOperator (..)
@@ -69,6 +82,7 @@ module Network.AWS.DeviceFarm.Types
     , accountSettings
     , asAwsAccountNumber
     , asUnmeteredDevices
+    , asUnmeteredRemoteAccessDevices
 
     -- * Artifact
     , Artifact
@@ -166,6 +180,37 @@ module Network.AWS.DeviceFarm.Types
     , lLatitude
     , lLongitude
 
+    -- * MonetaryAmount
+    , MonetaryAmount
+    , monetaryAmount
+    , maAmount
+    , maCurrencyCode
+
+    -- * Offering
+    , Offering
+    , offering
+    , oPlatform
+    , oId
+    , oRecurringCharges
+    , oType
+    , oDescription
+
+    -- * OfferingStatus
+    , OfferingStatus
+    , offeringStatus
+    , osEffectiveOn
+    , osOffering
+    , osQuantity
+    , osType
+
+    -- * OfferingTransaction
+    , OfferingTransaction
+    , offeringTransaction
+    , otOfferingStatus
+    , otCost
+    , otTransactionId
+    , otCreatedOn
+
     -- * Problem
     , Problem
     , problem
@@ -197,6 +242,12 @@ module Network.AWS.DeviceFarm.Types
     , rGps
     , rBluetooth
     , rWifi
+
+    -- * RecurringCharge
+    , RecurringCharge
+    , recurringCharge
+    , rcFrequency
+    , rcCost
 
     -- * Resolution
     , Resolution
@@ -339,10 +390,17 @@ deviceFarm =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
+
+-- | Exception gets thrown when a user is not eligible to perform the
+-- specified transaction.
+_NotEligibleException :: AsError a => Getting (First ServiceError) a ServiceError
+_NotEligibleException = _ServiceError . hasCode "NotEligibleException"
 
 -- | An entity with the same name already exists.
 _IdempotencyException :: AsError a => Getting (First ServiceError) a ServiceError

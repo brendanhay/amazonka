@@ -80,6 +80,8 @@ instance AWSRequest DeleteTrail where
 
 instance Hashable DeleteTrail
 
+instance NFData DeleteTrail
+
 instance ToHeaders DeleteTrail where
         toHeaders
           = const
@@ -124,3 +126,5 @@ deleteTrailResponse pResponseStatus_ =
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteTrailResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteTrailResponse

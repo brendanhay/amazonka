@@ -113,6 +113,8 @@ instance AWSRequest DescribeWorkflowType where
 
 instance Hashable DescribeWorkflowType
 
+instance NFData DescribeWorkflowType
+
 instance ToHeaders DescribeWorkflowType where
         toHeaders
           = const
@@ -188,3 +190,5 @@ dwtrsTypeInfo = lens _dwtrsTypeInfo (\ s a -> s{_dwtrsTypeInfo = a});
 -- < RegisterWorkflowType>
 dwtrsConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
 dwtrsConfiguration = lens _dwtrsConfiguration (\ s a -> s{_dwtrsConfiguration = a});
+
+instance NFData DescribeWorkflowTypeResponse

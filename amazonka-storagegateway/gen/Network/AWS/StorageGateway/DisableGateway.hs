@@ -84,6 +84,8 @@ instance AWSRequest DisableGateway where
 
 instance Hashable DisableGateway
 
+instance NFData DisableGateway
+
 instance ToHeaders DisableGateway where
         toHeaders
           = const
@@ -136,3 +138,5 @@ disrsGatewayARN = lens _disrsGatewayARN (\ s a -> s{_disrsGatewayARN = a});
 -- | The response status code.
 disrsResponseStatus :: Lens' DisableGatewayResponse Int
 disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
+
+instance NFData DisableGatewayResponse

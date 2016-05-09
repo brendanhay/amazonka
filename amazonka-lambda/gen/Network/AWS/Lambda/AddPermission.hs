@@ -43,6 +43,7 @@ module Network.AWS.Lambda.AddPermission
     , AddPermission
     -- * Request Lenses
     , apSourceAccount
+    , apEventSourceToken
     , apSourceARN
     , apQualifier
     , apFunctionName
@@ -67,13 +68,14 @@ import           Network.AWS.Response
 
 -- | /See:/ 'addPermission' smart constructor.
 data AddPermission = AddPermission'
-    { _apSourceAccount :: !(Maybe Text)
-    , _apSourceARN     :: !(Maybe Text)
-    , _apQualifier     :: !(Maybe Text)
-    , _apFunctionName  :: !Text
-    , _apStatementId   :: !Text
-    , _apAction        :: !Text
-    , _apPrincipal     :: !Text
+    { _apSourceAccount    :: !(Maybe Text)
+    , _apEventSourceToken :: !(Maybe Text)
+    , _apSourceARN        :: !(Maybe Text)
+    , _apQualifier        :: !(Maybe Text)
+    , _apFunctionName     :: !Text
+    , _apStatementId      :: !Text
+    , _apAction           :: !Text
+    , _apPrincipal        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
@@ -81,6 +83,8 @@ data AddPermission = AddPermission'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'apSourceAccount'
+--
+-- * 'apEventSourceToken'
 --
 -- * 'apSourceARN'
 --
@@ -102,6 +106,7 @@ addPermission
 addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
     AddPermission'
     { _apSourceAccount = Nothing
+    , _apEventSourceToken = Nothing
     , _apSourceARN = Nothing
     , _apQualifier = Nothing
     , _apFunctionName = pFunctionName_
@@ -119,6 +124,10 @@ addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
 -- don\'t specify the 'SourceArn') owned by a specific account.
 apSourceAccount :: Lens' AddPermission (Maybe Text)
 apSourceAccount = lens _apSourceAccount (\ s a -> s{_apSourceAccount = a});
+
+-- | Undocumented member.
+apEventSourceToken :: Lens' AddPermission (Maybe Text)
+apEventSourceToken = lens _apEventSourceToken (\ s a -> s{_apEventSourceToken = a});
 
 -- | This is optional; however, when granting Amazon S3 permission to invoke
 -- your function, you should specify this field with the bucket Amazon
@@ -196,6 +205,8 @@ instance AWSRequest AddPermission where
 
 instance Hashable AddPermission
 
+instance NFData AddPermission
+
 instance ToHeaders AddPermission where
         toHeaders = const mempty
 
@@ -204,6 +215,7 @@ instance ToJSON AddPermission where
           = object
               (catMaybes
                  [("SourceAccount" .=) <$> _apSourceAccount,
+                  ("EventSourceToken" .=) <$> _apEventSourceToken,
                   ("SourceArn" .=) <$> _apSourceARN,
                   Just ("StatementId" .= _apStatementId),
                   Just ("Action" .= _apAction),
@@ -250,3 +262,5 @@ aprsStatement = lens _aprsStatement (\ s a -> s{_aprsStatement = a});
 -- | The response status code.
 aprsResponseStatus :: Lens' AddPermissionResponse Int
 aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a});
+
+instance NFData AddPermissionResponse

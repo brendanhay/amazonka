@@ -87,6 +87,8 @@ instance AWSRequest DetachThingPrincipal where
 
 instance Hashable DetachThingPrincipal
 
+instance NFData DetachThingPrincipal
+
 instance ToHeaders DetachThingPrincipal where
         toHeaders DetachThingPrincipal'{..}
           = mconcat ["x-amzn-principal" =# _dtpPrincipal]
@@ -122,3 +124,5 @@ detachThingPrincipalResponse pResponseStatus_ =
 -- | The response status code.
 dtprsResponseStatus :: Lens' DetachThingPrincipalResponse Int
 dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a});
+
+instance NFData DetachThingPrincipalResponse

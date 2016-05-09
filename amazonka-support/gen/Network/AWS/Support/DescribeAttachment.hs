@@ -81,6 +81,8 @@ instance AWSRequest DescribeAttachment where
 
 instance Hashable DescribeAttachment
 
+instance NFData DescribeAttachment
+
 instance ToHeaders DescribeAttachment where
         toHeaders
           = const
@@ -135,3 +137,5 @@ darsAttachment = lens _darsAttachment (\ s a -> s{_darsAttachment = a});
 -- | The response status code.
 darsResponseStatus :: Lens' DescribeAttachmentResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
+
+instance NFData DescribeAttachmentResponse

@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'disassociateRouteTable' smart constructor.
+-- | Contains the parameters for DisassociateRouteTable.
+--
+-- /See:/ 'disassociateRouteTable' smart constructor.
 data DisassociateRouteTable = DisassociateRouteTable'
     { _drtDryRun        :: !(Maybe Bool)
     , _drtAssociationId :: !Text
@@ -89,6 +91,8 @@ instance AWSRequest DisassociateRouteTable where
 
 instance Hashable DisassociateRouteTable
 
+instance NFData DisassociateRouteTable
+
 instance ToHeaders DisassociateRouteTable where
         toHeaders = const mempty
 
@@ -114,3 +118,5 @@ data DisassociateRouteTableResponse =
 disassociateRouteTableResponse
     :: DisassociateRouteTableResponse
 disassociateRouteTableResponse = DisassociateRouteTableResponse'
+
+instance NFData DisassociateRouteTableResponse

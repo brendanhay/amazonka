@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVPNGateways' smart constructor.
+-- | Contains the parameters for DescribeVpnGateways.
+--
+-- /See:/ 'describeVPNGateways' smart constructor.
 data DescribeVPNGateways = DescribeVPNGateways'
     { _dvgsFilters       :: !(Maybe [Filter])
     , _dvgsVPNGatewayIds :: !(Maybe [Text])
@@ -136,6 +138,8 @@ instance AWSRequest DescribeVPNGateways where
 
 instance Hashable DescribeVPNGateways
 
+instance NFData DescribeVPNGateways
+
 instance ToHeaders DescribeVPNGateways where
         toHeaders = const mempty
 
@@ -152,7 +156,9 @@ instance ToQuery DescribeVPNGateways where
                  (toQueryList "VpnGatewayId" <$> _dvgsVPNGatewayIds),
                "DryRun" =: _dvgsDryRun]
 
--- | /See:/ 'describeVPNGatewaysResponse' smart constructor.
+-- | Contains the output of DescribeVpnGateways.
+--
+-- /See:/ 'describeVPNGatewaysResponse' smart constructor.
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
     { _dvgrsVPNGateways    :: !(Maybe [VPNGateway])
     , _dvgrsResponseStatus :: !Int
@@ -181,3 +187,5 @@ dvgrsVPNGateways = lens _dvgrsVPNGateways (\ s a -> s{_dvgrsVPNGateways = a}) . 
 -- | The response status code.
 dvgrsResponseStatus :: Lens' DescribeVPNGatewaysResponse Int
 dvgrsResponseStatus = lens _dvgrsResponseStatus (\ s a -> s{_dvgrsResponseStatus = a});
+
+instance NFData DescribeVPNGatewaysResponse

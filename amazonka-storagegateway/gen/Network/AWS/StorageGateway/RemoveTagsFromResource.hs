@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation removes one or more tags from the specified resource.
+-- Removes one or more tags from the specified resource.
 module Network.AWS.StorageGateway.RemoveTagsFromResource
     (
     -- * Creating a Request
@@ -89,6 +89,8 @@ instance AWSRequest RemoveTagsFromResource where
 
 instance Hashable RemoveTagsFromResource
 
+instance NFData RemoveTagsFromResource
+
 instance ToHeaders RemoveTagsFromResource where
         toHeaders
           = const
@@ -144,3 +146,5 @@ rtfrrsResourceARN = lens _rtfrrsResourceARN (\ s a -> s{_rtfrrsResourceARN = a})
 -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
 rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
+
+instance NFData RemoveTagsFromResourceResponse

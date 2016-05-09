@@ -80,6 +80,8 @@ instance FromXML Attribute where
 
 instance Hashable Attribute
 
+instance NFData Attribute
+
 instance ToQuery Attribute where
         toQuery Attribute'{..}
           = mconcat
@@ -119,6 +121,8 @@ diName :: Lens' DeletableItem Text
 diName = lens _diName (\ s a -> s{_diName = a});
 
 instance Hashable DeletableItem
+
+instance NFData DeletableItem
 
 instance ToQuery DeletableItem where
         toQuery DeletableItem'{..}
@@ -174,6 +178,8 @@ instance FromXML Item where
 
 instance Hashable Item
 
+instance NFData Item
+
 -- |
 --
 -- /See:/ 'replaceableAttribute' smart constructor.
@@ -218,6 +224,8 @@ raValue = lens _raValue (\ s a -> s{_raValue = a});
 
 instance Hashable ReplaceableAttribute
 
+instance NFData ReplaceableAttribute
+
 instance ToQuery ReplaceableAttribute where
         toQuery ReplaceableAttribute'{..}
           = mconcat
@@ -257,6 +265,8 @@ riAttributes :: Lens' ReplaceableItem [ReplaceableAttribute]
 riAttributes = lens _riAttributes (\ s a -> s{_riAttributes = a}) . _Coerce;
 
 instance Hashable ReplaceableItem
+
+instance NFData ReplaceableItem
 
 instance ToQuery ReplaceableItem where
         toQuery ReplaceableItem'{..}
@@ -313,6 +323,8 @@ ucName :: Lens' UpdateCondition (Maybe Text)
 ucName = lens _ucName (\ s a -> s{_ucName = a});
 
 instance Hashable UpdateCondition
+
+instance NFData UpdateCondition
 
 instance ToQuery UpdateCondition where
         toQuery UpdateCondition'{..}

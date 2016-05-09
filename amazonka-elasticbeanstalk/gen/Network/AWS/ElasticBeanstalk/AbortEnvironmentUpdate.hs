@@ -83,6 +83,8 @@ instance AWSRequest AbortEnvironmentUpdate where
 
 instance Hashable AbortEnvironmentUpdate
 
+instance NFData AbortEnvironmentUpdate
+
 instance ToHeaders AbortEnvironmentUpdate where
         toHeaders = const mempty
 
@@ -108,3 +110,5 @@ data AbortEnvironmentUpdateResponse =
 abortEnvironmentUpdateResponse
     :: AbortEnvironmentUpdateResponse
 abortEnvironmentUpdateResponse = AbortEnvironmentUpdateResponse'
+
+instance NFData AbortEnvironmentUpdateResponse

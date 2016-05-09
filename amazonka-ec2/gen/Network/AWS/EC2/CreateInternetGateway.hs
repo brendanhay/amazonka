@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createInternetGateway' smart constructor.
+-- | Contains the parameters for CreateInternetGateway.
+--
+-- /See:/ 'createInternetGateway' smart constructor.
 newtype CreateInternetGateway = CreateInternetGateway'
     { _cigDryRun :: Maybe Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -82,6 +84,8 @@ instance AWSRequest CreateInternetGateway where
 
 instance Hashable CreateInternetGateway
 
+instance NFData CreateInternetGateway
+
 instance ToHeaders CreateInternetGateway where
         toHeaders = const mempty
 
@@ -95,7 +99,9 @@ instance ToQuery CreateInternetGateway where
                "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _cigDryRun]
 
--- | /See:/ 'createInternetGatewayResponse' smart constructor.
+-- | Contains the output of CreateInternetGateway.
+--
+-- /See:/ 'createInternetGatewayResponse' smart constructor.
 data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
     { _cigrsInternetGateway :: !(Maybe InternetGateway)
     , _cigrsResponseStatus  :: !Int
@@ -124,3 +130,5 @@ cigrsInternetGateway = lens _cigrsInternetGateway (\ s a -> s{_cigrsInternetGate
 -- | The response status code.
 cigrsResponseStatus :: Lens' CreateInternetGatewayResponse Int
 cigrsResponseStatus = lens _cigrsResponseStatus (\ s a -> s{_cigrsResponseStatus = a});
+
+instance NFData CreateInternetGatewayResponse

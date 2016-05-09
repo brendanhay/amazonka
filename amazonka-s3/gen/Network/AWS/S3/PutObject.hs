@@ -463,3 +463,5 @@ porsServerSideEncryption = lens _porsServerSideEncryption (\ s a -> s{_porsServe
 -- | The response status code.
 porsResponseStatus :: Lens' PutObjectResponse Int
 porsResponseStatus = lens _porsResponseStatus (\ s a -> s{_porsResponseStatus = a});
+
+instance NFData PutObjectResponse

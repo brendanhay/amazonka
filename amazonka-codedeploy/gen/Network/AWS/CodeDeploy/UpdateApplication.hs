@@ -78,6 +78,8 @@ instance AWSRequest UpdateApplication where
 
 instance Hashable UpdateApplication
 
+instance NFData UpdateApplication
+
 instance ToHeaders UpdateApplication where
         toHeaders
           = const
@@ -111,3 +113,5 @@ data UpdateApplicationResponse =
 updateApplicationResponse
     :: UpdateApplicationResponse
 updateApplicationResponse = UpdateApplicationResponse'
+
+instance NFData UpdateApplicationResponse

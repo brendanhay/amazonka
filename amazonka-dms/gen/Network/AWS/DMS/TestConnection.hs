@@ -87,6 +87,8 @@ instance AWSRequest TestConnection where
 
 instance Hashable TestConnection
 
+instance NFData TestConnection
+
 instance ToHeaders TestConnection where
         toHeaders
           = const
@@ -140,3 +142,5 @@ tcrsConnection = lens _tcrsConnection (\ s a -> s{_tcrsConnection = a});
 -- | The response status code.
 tcrsResponseStatus :: Lens' TestConnectionResponse Int
 tcrsResponseStatus = lens _tcrsResponseStatus (\ s a -> s{_tcrsResponseStatus = a});
+
+instance NFData TestConnectionResponse

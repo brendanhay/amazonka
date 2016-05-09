@@ -70,6 +70,8 @@ instance AWSRequest ListAvailableSolutionStacks where
 
 instance Hashable ListAvailableSolutionStacks
 
+instance NFData ListAvailableSolutionStacks
+
 instance ToHeaders ListAvailableSolutionStacks where
         toHeaders = const mempty
 
@@ -124,3 +126,5 @@ lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\ s a -> s{_lassr
 -- | The response status code.
 lassrsResponseStatus :: Lens' ListAvailableSolutionStacksResponse Int
 lassrsResponseStatus = lens _lassrsResponseStatus (\ s a -> s{_lassrsResponseStatus = a});
+
+instance NFData ListAvailableSolutionStacksResponse

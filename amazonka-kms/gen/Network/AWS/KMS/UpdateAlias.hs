@@ -103,6 +103,8 @@ instance AWSRequest UpdateAlias where
 
 instance Hashable UpdateAlias
 
+instance NFData UpdateAlias
+
 instance ToHeaders UpdateAlias where
         toHeaders
           = const
@@ -135,3 +137,5 @@ data UpdateAliasResponse =
 updateAliasResponse
     :: UpdateAliasResponse
 updateAliasResponse = UpdateAliasResponse'
+
+instance NFData UpdateAliasResponse

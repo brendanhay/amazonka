@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'associateDHCPOptions' smart constructor.
+-- | Contains the parameters for AssociateDhcpOptions.
+--
+-- /See:/ 'associateDHCPOptions' smart constructor.
 data AssociateDHCPOptions = AssociateDHCPOptions'
     { _adoDryRun        :: !(Maybe Bool)
     , _adoDHCPOptionsId :: !Text
@@ -104,6 +106,8 @@ instance AWSRequest AssociateDHCPOptions where
 
 instance Hashable AssociateDHCPOptions
 
+instance NFData AssociateDHCPOptions
+
 instance ToHeaders AssociateDHCPOptions where
         toHeaders = const mempty
 
@@ -129,3 +133,5 @@ data AssociateDHCPOptionsResponse =
 associateDHCPOptionsResponse
     :: AssociateDHCPOptionsResponse
 associateDHCPOptionsResponse = AssociateDHCPOptionsResponse'
+
+instance NFData AssociateDHCPOptionsResponse

@@ -152,6 +152,8 @@ instance AWSRequest DescribeCacheClusters where
 
 instance Hashable DescribeCacheClusters
 
+instance NFData DescribeCacheClusters
+
 instance ToHeaders DescribeCacheClusters where
         toHeaders = const mempty
 
@@ -207,3 +209,5 @@ drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DescribeCacheClustersResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DescribeCacheClustersResponse

@@ -100,6 +100,8 @@ instance AWSRequest CreateRepository where
 
 instance Hashable CreateRepository
 
+instance NFData CreateRepository
+
 instance ToHeaders CreateRepository where
         toHeaders
           = const
@@ -155,3 +157,5 @@ crrsRepositoryMetadata = lens _crrsRepositoryMetadata (\ s a -> s{_crrsRepositor
 -- | The response status code.
 crrsResponseStatus :: Lens' CreateRepositoryResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
+
+instance NFData CreateRepositoryResponse

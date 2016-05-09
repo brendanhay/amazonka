@@ -18,15 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation activates the gateway you previously deployed on your
--- host. For more information, see
+-- Activates the gateway you previously deployed on your host. For more
+-- information, see
 -- <http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html Activate the AWS Storage Gateway>.
--- In the activation process, you specify information such as the region
--- you want to use for storing snapshots, the time zone for scheduled
--- snapshots the gateway snapshot schedule window, an activation key, and a
--- name for your gateway. The activation process also associates your
--- gateway with your account; for more information, see
--- < UpdateGatewayInformation>.
+-- In the activation process, you specify information such as the you want
+-- to use for storing snapshots, the time zone for scheduled snapshots the
+-- gateway snapshot schedule window, an activation key, and a name for your
+-- gateway. The activation process also associates your gateway with your
+-- account; for more information, see < UpdateGatewayInformation>.
 --
 -- You must turn on the gateway VM before you can activate your gateway.
 module Network.AWS.StorageGateway.ActivateGateway
@@ -178,6 +177,8 @@ instance AWSRequest ActivateGateway where
 
 instance Hashable ActivateGateway
 
+instance NFData ActivateGateway
+
 instance ToHeaders ActivateGateway where
         toHeaders
           = const
@@ -211,7 +212,7 @@ instance ToQuery ActivateGateway where
 -- account, gateway name, and region. This ARN is used to reference the
 -- gateway in other API operations as well as resource-based authorization.
 --
--- For Gateways activated prior to September 02, 2015 the gateway ARN
+-- For gateways activated prior to September 02, 2015 the gateway ARN
 -- contains the gateway name rather than the gateway id. Changing the name
 -- of the gateway has no effect on the gateway ARN.
 --
@@ -244,3 +245,5 @@ agrsGatewayARN = lens _agrsGatewayARN (\ s a -> s{_agrsGatewayARN = a});
 -- | The response status code.
 agrsResponseStatus :: Lens' ActivateGatewayResponse Int
 agrsResponseStatus = lens _agrsResponseStatus (\ s a -> s{_agrsResponseStatus = a});
+
+instance NFData ActivateGatewayResponse

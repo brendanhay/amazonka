@@ -120,6 +120,8 @@ instance AWSRequest ListContainerInstances where
 
 instance Hashable ListContainerInstances
 
+instance NFData ListContainerInstances
+
 instance ToHeaders ListContainerInstances where
         toHeaders
           = const
@@ -186,3 +188,5 @@ lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a});
 -- | The response status code.
 lcirsResponseStatus :: Lens' ListContainerInstancesResponse Int
 lcirsResponseStatus = lens _lcirsResponseStatus (\ s a -> s{_lcirsResponseStatus = a});
+
+instance NFData ListContainerInstancesResponse

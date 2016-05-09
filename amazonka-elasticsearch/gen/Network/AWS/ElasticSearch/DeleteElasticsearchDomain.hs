@@ -82,6 +82,8 @@ instance AWSRequest DeleteElasticsearchDomain where
 
 instance Hashable DeleteElasticsearchDomain
 
+instance NFData DeleteElasticsearchDomain
+
 instance ToHeaders DeleteElasticsearchDomain where
         toHeaders = const mempty
 
@@ -126,3 +128,5 @@ delrsDomainStatus = lens _delrsDomainStatus (\ s a -> s{_delrsDomainStatus = a})
 -- | The response status code.
 delrsResponseStatus :: Lens' DeleteElasticsearchDomainResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+
+instance NFData DeleteElasticsearchDomainResponse

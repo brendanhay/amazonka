@@ -111,6 +111,8 @@ instance AWSRequest GetContextKeysForPrincipalPolicy
 
 instance Hashable GetContextKeysForPrincipalPolicy
 
+instance NFData GetContextKeysForPrincipalPolicy
+
 instance ToHeaders GetContextKeysForPrincipalPolicy
          where
         toHeaders = const mempty

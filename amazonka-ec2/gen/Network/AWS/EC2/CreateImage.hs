@@ -58,7 +58,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createImage' smart constructor.
+-- | Contains the parameters for CreateImage.
+--
+-- /See:/ 'createImage' smart constructor.
 data CreateImage = CreateImage'
     { _ciiNoReboot            :: !(Maybe Bool)
     , _ciiDescription         :: !(Maybe Text)
@@ -97,9 +99,8 @@ createImage pInstanceId_ pName_ =
     , _ciiName = pName_
     }
 
--- | By default, this parameter is set to 'false', which means Amazon EC2
--- attempts to shut down the instance cleanly before image creation and
--- then reboots the instance. When the parameter is set to 'true', Amazon
+-- | By default, Amazon EC2 attempts to shut down and reboot the instance
+-- before creating the image. If the \'No Reboot\' option is set, Amazon
 -- EC2 doesn\'t shut down the instance before creating the image. When this
 -- option is used, file system integrity on the created image can\'t be
 -- guaranteed.
@@ -144,6 +145,8 @@ instance AWSRequest CreateImage where
 
 instance Hashable CreateImage
 
+instance NFData CreateImage
+
 instance ToHeaders CreateImage where
         toHeaders = const mempty
 
@@ -163,7 +166,9 @@ instance ToQuery CreateImage where
                "DryRun" =: _ciiDryRun,
                "InstanceId" =: _ciiInstanceId, "Name" =: _ciiName]
 
--- | /See:/ 'createImageResponse' smart constructor.
+-- | Contains the output of CreateImage.
+--
+-- /See:/ 'createImageResponse' smart constructor.
 data CreateImageResponse = CreateImageResponse'
     { _cirsImageId        :: !(Maybe Text)
     , _cirsResponseStatus :: !Int
@@ -192,3 +197,5 @@ cirsImageId = lens _cirsImageId (\ s a -> s{_cirsImageId = a});
 -- | The response status code.
 cirsResponseStatus :: Lens' CreateImageResponse Int
 cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
+
+instance NFData CreateImageResponse

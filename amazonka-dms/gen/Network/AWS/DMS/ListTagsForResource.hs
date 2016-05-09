@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For internal use only
+-- Lists all tags for an AWS DMS resource.
 --
 module Network.AWS.DMS.ListTagsForResource
     (
@@ -78,6 +78,8 @@ instance AWSRequest ListTagsForResource where
 
 instance Hashable ListTagsForResource
 
+instance NFData ListTagsForResource
+
 instance ToHeaders ListTagsForResource where
         toHeaders
           = const
@@ -129,3 +131,5 @@ ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default 
 -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
+
+instance NFData ListTagsForResourceResponse

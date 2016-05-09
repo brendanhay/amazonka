@@ -77,6 +77,8 @@ instance AWSRequest GetDocument where
 
 instance Hashable GetDocument
 
+instance NFData GetDocument
+
 instance ToHeaders GetDocument where
         toHeaders
           = const
@@ -133,3 +135,5 @@ gdrsName = lens _gdrsName (\ s a -> s{_gdrsName = a});
 -- | The response status code.
 gdrsResponseStatus :: Lens' GetDocumentResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
+
+instance NFData GetDocumentResponse

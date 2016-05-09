@@ -84,6 +84,8 @@ instance AWSRequest EnableDomainAutoRenew where
 
 instance Hashable EnableDomainAutoRenew
 
+instance NFData EnableDomainAutoRenew
+
 instance ToHeaders EnableDomainAutoRenew where
         toHeaders
           = const
@@ -126,3 +128,5 @@ enableDomainAutoRenewResponse pResponseStatus_ =
 -- | The response status code.
 edarrsResponseStatus :: Lens' EnableDomainAutoRenewResponse Int
 edarrsResponseStatus = lens _edarrsResponseStatus (\ s a -> s{_edarrsResponseStatus = a});
+
+instance NFData EnableDomainAutoRenewResponse

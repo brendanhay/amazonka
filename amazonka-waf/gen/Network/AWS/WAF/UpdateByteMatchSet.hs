@@ -139,6 +139,8 @@ instance AWSRequest UpdateByteMatchSet where
 
 instance Hashable UpdateByteMatchSet
 
+instance NFData UpdateByteMatchSet
+
 instance ToHeaders UpdateByteMatchSet where
         toHeaders
           = const
@@ -193,3 +195,5 @@ ubmsrsChangeToken = lens _ubmsrsChangeToken (\ s a -> s{_ubmsrsChangeToken = a})
 -- | The response status code.
 ubmsrsResponseStatus :: Lens' UpdateByteMatchSetResponse Int
 ubmsrsResponseStatus = lens _ubmsrsResponseStatus (\ s a -> s{_ubmsrsResponseStatus = a});
+
+instance NFData UpdateByteMatchSetResponse

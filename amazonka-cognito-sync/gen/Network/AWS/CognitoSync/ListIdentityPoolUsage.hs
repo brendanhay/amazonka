@@ -97,6 +97,8 @@ instance AWSRequest ListIdentityPoolUsage where
 
 instance Hashable ListIdentityPoolUsage
 
+instance NFData ListIdentityPoolUsage
+
 instance ToHeaders ListIdentityPoolUsage where
         toHeaders
           = const
@@ -168,3 +170,5 @@ lipursMaxResults = lens _lipursMaxResults (\ s a -> s{_lipursMaxResults = a});
 -- | The response status code.
 lipursResponseStatus :: Lens' ListIdentityPoolUsageResponse Int
 lipursResponseStatus = lens _lipursResponseStatus (\ s a -> s{_lipursResponseStatus = a});
+
+instance NFData ListIdentityPoolUsageResponse

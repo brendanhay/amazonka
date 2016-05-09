@@ -83,6 +83,8 @@ instance AWSRequest DeleteLoadBalancer where
 
 instance Hashable DeleteLoadBalancer
 
+instance NFData DeleteLoadBalancer
+
 instance ToHeaders DeleteLoadBalancer where
         toHeaders = const mempty
 
@@ -117,3 +119,5 @@ deleteLoadBalancerResponse pResponseStatus_ =
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteLoadBalancerResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteLoadBalancerResponse

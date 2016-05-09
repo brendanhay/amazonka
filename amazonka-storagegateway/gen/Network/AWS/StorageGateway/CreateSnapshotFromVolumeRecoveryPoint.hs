@@ -18,9 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation initiates a snapshot of a gateway from a volume recovery
--- point. This operation is supported only for the gateway-cached volume
--- architecture (see ).
+-- Initiates a snapshot of a gateway from a volume recovery point. This
+-- operation is supported only for the gateway-cached volume architecture.
 --
 -- A volume recovery point is a point in time at which all data of the
 -- volume is consistent and from which you can create a snapshot. To get a
@@ -112,6 +111,8 @@ instance AWSRequest
 instance Hashable
          CreateSnapshotFromVolumeRecoveryPoint
 
+instance NFData CreateSnapshotFromVolumeRecoveryPoint
+
 instance ToHeaders
          CreateSnapshotFromVolumeRecoveryPoint where
         toHeaders
@@ -186,3 +187,6 @@ csfvrprsSnapshotId = lens _csfvrprsSnapshotId (\ s a -> s{_csfvrprsSnapshotId = 
 -- | The response status code.
 csfvrprsResponseStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Int
 csfvrprsResponseStatus = lens _csfvrprsResponseStatus (\ s a -> s{_csfvrprsResponseStatus = a});
+
+instance NFData
+         CreateSnapshotFromVolumeRecoveryPointResponse

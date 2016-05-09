@@ -97,6 +97,8 @@ instance AWSRequest PutKeyPolicy where
 
 instance Hashable PutKeyPolicy
 
+instance NFData PutKeyPolicy
+
 instance ToHeaders PutKeyPolicy where
         toHeaders
           = const
@@ -130,3 +132,5 @@ data PutKeyPolicyResponse =
 putKeyPolicyResponse
     :: PutKeyPolicyResponse
 putKeyPolicyResponse = PutKeyPolicyResponse'
+
+instance NFData PutKeyPolicyResponse

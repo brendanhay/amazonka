@@ -109,6 +109,8 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
 
 instance Hashable ReportTaskRunnerHeartbeat
 
+instance NFData ReportTaskRunnerHeartbeat
+
 instance ToHeaders ReportTaskRunnerHeartbeat where
         toHeaders
           = const
@@ -165,3 +167,5 @@ rtrhrsResponseStatus = lens _rtrhrsResponseStatus (\ s a -> s{_rtrhrsResponseSta
 -- | Indicates whether the calling task runner should terminate.
 rtrhrsTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
 rtrhrsTerminate = lens _rtrhrsTerminate (\ s a -> s{_rtrhrsTerminate = a});
+
+instance NFData ReportTaskRunnerHeartbeatResponse

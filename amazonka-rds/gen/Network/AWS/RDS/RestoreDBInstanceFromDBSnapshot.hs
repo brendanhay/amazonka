@@ -49,6 +49,7 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     , rdifdsAutoMinorVersionUpgrade
     , rdifdsDBSubnetGroupName
     , rdifdsIOPS
+    , rdifdsDomain
     , rdifdsEngine
     , rdifdsTDECredentialPassword
     , rdifdsDBInstanceClass
@@ -58,6 +59,7 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     , rdifdsOptionGroupName
     , rdifdsCopyTagsToSnapshot
     , rdifdsTDECredentialARN
+    , rdifdsDomainIAMRoleName
     , rdifdsTags
     , rdifdsPort
     , rdifdsStorageType
@@ -88,6 +90,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     , _rdifdsAutoMinorVersionUpgrade :: !(Maybe Bool)
     , _rdifdsDBSubnetGroupName       :: !(Maybe Text)
     , _rdifdsIOPS                    :: !(Maybe Int)
+    , _rdifdsDomain                  :: !(Maybe Text)
     , _rdifdsEngine                  :: !(Maybe Text)
     , _rdifdsTDECredentialPassword   :: !(Maybe Text)
     , _rdifdsDBInstanceClass         :: !(Maybe Text)
@@ -97,6 +100,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     , _rdifdsOptionGroupName         :: !(Maybe Text)
     , _rdifdsCopyTagsToSnapshot      :: !(Maybe Bool)
     , _rdifdsTDECredentialARN        :: !(Maybe Text)
+    , _rdifdsDomainIAMRoleName       :: !(Maybe Text)
     , _rdifdsTags                    :: !(Maybe [Tag])
     , _rdifdsPort                    :: !(Maybe Int)
     , _rdifdsStorageType             :: !(Maybe Text)
@@ -117,6 +121,8 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- * 'rdifdsIOPS'
 --
+-- * 'rdifdsDomain'
+--
 -- * 'rdifdsEngine'
 --
 -- * 'rdifdsTDECredentialPassword'
@@ -134,6 +140,8 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- * 'rdifdsCopyTagsToSnapshot'
 --
 -- * 'rdifdsTDECredentialARN'
+--
+-- * 'rdifdsDomainIAMRoleName'
 --
 -- * 'rdifdsTags'
 --
@@ -156,6 +164,7 @@ restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier_ pDBSnapshotIdentifier_ =
     , _rdifdsAutoMinorVersionUpgrade = Nothing
     , _rdifdsDBSubnetGroupName = Nothing
     , _rdifdsIOPS = Nothing
+    , _rdifdsDomain = Nothing
     , _rdifdsEngine = Nothing
     , _rdifdsTDECredentialPassword = Nothing
     , _rdifdsDBInstanceClass = Nothing
@@ -165,6 +174,7 @@ restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier_ pDBSnapshotIdentifier_ =
     , _rdifdsOptionGroupName = Nothing
     , _rdifdsCopyTagsToSnapshot = Nothing
     , _rdifdsTDECredentialARN = Nothing
+    , _rdifdsDomainIAMRoleName = Nothing
     , _rdifdsTags = Nothing
     , _rdifdsPort = Nothing
     , _rdifdsStorageType = Nothing
@@ -223,6 +233,10 @@ rdifdsDBSubnetGroupName = lens _rdifdsDBSubnetGroupName (\ s a -> s{_rdifdsDBSub
 -- supported.
 rdifdsIOPS :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Int)
 rdifdsIOPS = lens _rdifdsIOPS (\ s a -> s{_rdifdsIOPS = a});
+
+-- | Specify the Active Directory Domain to restore the instance in.
+rdifdsDomain :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
+rdifdsDomain = lens _rdifdsDomain (\ s a -> s{_rdifdsDomain = a});
 
 -- | The database engine to use for the new instance.
 --
@@ -293,6 +307,11 @@ rdifdsCopyTagsToSnapshot = lens _rdifdsCopyTagsToSnapshot (\ s a -> s{_rdifdsCop
 -- encryption.
 rdifdsTDECredentialARN :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsTDECredentialARN = lens _rdifdsTDECredentialARN (\ s a -> s{_rdifdsTDECredentialARN = a});
+
+-- | Specify the name of the IAM role to be used when making API calls to the
+-- Directory Service.
+rdifdsDomainIAMRoleName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
+rdifdsDomainIAMRoleName = lens _rdifdsDomainIAMRoleName (\ s a -> s{_rdifdsDomainIAMRoleName = a});
 
 -- | Undocumented member.
 rdifdsTags :: Lens' RestoreDBInstanceFromDBSnapshot [Tag]
@@ -365,6 +384,8 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot
 
 instance Hashable RestoreDBInstanceFromDBSnapshot
 
+instance NFData RestoreDBInstanceFromDBSnapshot
+
 instance ToHeaders RestoreDBInstanceFromDBSnapshot
          where
         toHeaders = const mempty
@@ -383,7 +404,8 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
                "AutoMinorVersionUpgrade" =:
                  _rdifdsAutoMinorVersionUpgrade,
                "DBSubnetGroupName" =: _rdifdsDBSubnetGroupName,
-               "Iops" =: _rdifdsIOPS, "Engine" =: _rdifdsEngine,
+               "Iops" =: _rdifdsIOPS, "Domain" =: _rdifdsDomain,
+               "Engine" =: _rdifdsEngine,
                "TdeCredentialPassword" =:
                  _rdifdsTDECredentialPassword,
                "DBInstanceClass" =: _rdifdsDBInstanceClass,
@@ -393,6 +415,7 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
                "OptionGroupName" =: _rdifdsOptionGroupName,
                "CopyTagsToSnapshot" =: _rdifdsCopyTagsToSnapshot,
                "TdeCredentialArn" =: _rdifdsTDECredentialARN,
+               "DomainIAMRoleName" =: _rdifdsDomainIAMRoleName,
                "Tags" =:
                  toQuery (toQueryList "Tag" <$> _rdifdsTags),
                "Port" =: _rdifdsPort,
@@ -432,3 +455,6 @@ rdifdsrsDBInstance = lens _rdifdsrsDBInstance (\ s a -> s{_rdifdsrsDBInstance = 
 -- | The response status code.
 rdifdsrsResponseStatus :: Lens' RestoreDBInstanceFromDBSnapshotResponse Int
 rdifdsrsResponseStatus = lens _rdifdsrsResponseStatus (\ s a -> s{_rdifdsrsResponseStatus = a});
+
+instance NFData
+         RestoreDBInstanceFromDBSnapshotResponse

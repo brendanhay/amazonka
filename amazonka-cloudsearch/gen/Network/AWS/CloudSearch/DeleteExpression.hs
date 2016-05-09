@@ -92,6 +92,8 @@ instance AWSRequest DeleteExpression where
 
 instance Hashable DeleteExpression
 
+instance NFData DeleteExpression
+
 instance ToHeaders DeleteExpression where
         toHeaders = const mempty
 
@@ -139,3 +141,5 @@ delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus
 -- | The status of the expression being deleted.
 delrsExpression :: Lens' DeleteExpressionResponse ExpressionStatus
 delrsExpression = lens _delrsExpression (\ s a -> s{_delrsExpression = a});
+
+instance NFData DeleteExpressionResponse

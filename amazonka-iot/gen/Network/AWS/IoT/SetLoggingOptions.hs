@@ -70,6 +70,8 @@ instance AWSRequest SetLoggingOptions where
 
 instance Hashable SetLoggingOptions
 
+instance NFData SetLoggingOptions
+
 instance ToHeaders SetLoggingOptions where
         toHeaders = const mempty
 
@@ -97,3 +99,5 @@ data SetLoggingOptionsResponse =
 setLoggingOptionsResponse
     :: SetLoggingOptionsResponse
 setLoggingOptionsResponse = SetLoggingOptionsResponse'
+
+instance NFData SetLoggingOptionsResponse

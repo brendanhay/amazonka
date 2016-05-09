@@ -99,6 +99,8 @@ instance AWSRequest ResumeProcesses where
 
 instance Hashable ResumeProcesses
 
+instance NFData ResumeProcesses
+
 instance ToHeaders ResumeProcesses where
         toHeaders = const mempty
 
@@ -125,3 +127,5 @@ data ResumeProcessesResponse =
 resumeProcessesResponse
     :: ResumeProcessesResponse
 resumeProcessesResponse = ResumeProcessesResponse'
+
+instance NFData ResumeProcessesResponse

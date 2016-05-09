@@ -122,6 +122,8 @@ instance AWSRequest Subscribe where
 
 instance Hashable Subscribe
 
+instance NFData Subscribe
+
 instance ToHeaders Subscribe where
         toHeaders = const mempty
 
@@ -170,3 +172,5 @@ srsSubscriptionARN = lens _srsSubscriptionARN (\ s a -> s{_srsSubscriptionARN = 
 -- | The response status code.
 srsResponseStatus :: Lens' SubscribeResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+
+instance NFData SubscribeResponse

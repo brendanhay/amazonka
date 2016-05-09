@@ -87,6 +87,8 @@ instance AWSRequest BatchGetRepositories where
 
 instance Hashable BatchGetRepositories
 
+instance NFData BatchGetRepositories
+
 instance ToHeaders BatchGetRepositories where
         toHeaders
           = const
@@ -149,3 +151,5 @@ bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRe
 -- | The response status code.
 bgrrsResponseStatus :: Lens' BatchGetRepositoriesResponse Int
 bgrrsResponseStatus = lens _bgrrsResponseStatus (\ s a -> s{_bgrrsResponseStatus = a});
+
+instance NFData BatchGetRepositoriesResponse

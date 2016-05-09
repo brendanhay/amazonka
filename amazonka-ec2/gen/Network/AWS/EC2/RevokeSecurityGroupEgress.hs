@@ -59,7 +59,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'revokeSecurityGroupEgress' smart constructor.
+-- | Contains the parameters for RevokeSecurityGroupEgress.
+--
+-- /See:/ 'revokeSecurityGroupEgress' smart constructor.
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
     { _rsgeFromPort                   :: !(Maybe Int)
     , _rsgeIPPermissions              :: !(Maybe [IPPermission])
@@ -168,6 +170,8 @@ instance AWSRequest RevokeSecurityGroupEgress where
 
 instance Hashable RevokeSecurityGroupEgress
 
+instance NFData RevokeSecurityGroupEgress
+
 instance ToHeaders RevokeSecurityGroupEgress where
         toHeaders = const mempty
 
@@ -201,3 +205,5 @@ data RevokeSecurityGroupEgressResponse =
 revokeSecurityGroupEgressResponse
     :: RevokeSecurityGroupEgressResponse
 revokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse'
+
+instance NFData RevokeSecurityGroupEgressResponse

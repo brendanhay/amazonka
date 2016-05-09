@@ -77,6 +77,8 @@ instance AWSRequest DisableRadius where
 
 instance Hashable DisableRadius
 
+instance NFData DisableRadius
+
 instance ToHeaders DisableRadius where
         toHeaders
           = const
@@ -121,3 +123,5 @@ disableRadiusResponse pResponseStatus_ =
 -- | The response status code.
 drrsResponseStatus :: Lens' DisableRadiusResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
+
+instance NFData DisableRadiusResponse

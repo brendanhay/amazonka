@@ -87,6 +87,8 @@ instance AWSRequest UpdateThing where
 
 instance Hashable UpdateThing
 
+instance NFData UpdateThing
+
 instance ToHeaders UpdateThing where
         toHeaders = const mempty
 
@@ -126,3 +128,5 @@ updateThingResponse pResponseStatus_ =
 -- | The response status code.
 utrsResponseStatus :: Lens' UpdateThingResponse Int
 utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});
+
+instance NFData UpdateThingResponse

@@ -119,6 +119,8 @@ instance AWSRequest ListDatasets where
 
 instance Hashable ListDatasets
 
+instance NFData ListDatasets
+
 instance ToHeaders ListDatasets where
         toHeaders
           = const
@@ -185,3 +187,5 @@ ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default . _
 -- | The response status code.
 ldrsResponseStatus :: Lens' ListDatasetsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
+
+instance NFData ListDatasetsResponse

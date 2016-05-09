@@ -105,6 +105,8 @@ instance AWSRequest GetSSHPublicKey where
 
 instance Hashable GetSSHPublicKey
 
+instance NFData GetSSHPublicKey
+
 instance ToHeaders GetSSHPublicKey where
         toHeaders = const mempty
 
@@ -151,3 +153,5 @@ gspkrsSSHPublicKey = lens _gspkrsSSHPublicKey (\ s a -> s{_gspkrsSSHPublicKey = 
 -- | The response status code.
 gspkrsResponseStatus :: Lens' GetSSHPublicKeyResponse Int
 gspkrsResponseStatus = lens _gspkrsResponseStatus (\ s a -> s{_gspkrsResponseStatus = a});
+
+instance NFData GetSSHPublicKeyResponse

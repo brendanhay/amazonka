@@ -94,6 +94,8 @@ instance AWSRequest GetStage where
 
 instance Hashable GetStage
 
+instance NFData GetStage
+
 instance ToHeaders GetStage where
         toHeaders
           = const

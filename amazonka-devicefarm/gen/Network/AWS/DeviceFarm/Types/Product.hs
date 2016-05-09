@@ -25,8 +25,9 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'accountSettings' smart constructor.
 data AccountSettings = AccountSettings'
-    { _asAwsAccountNumber :: !(Maybe Text)
-    , _asUnmeteredDevices :: !(Maybe (Map DevicePlatform Int))
+    { _asAwsAccountNumber             :: !(Maybe Text)
+    , _asUnmeteredDevices             :: !(Maybe (Map DevicePlatform Int))
+    , _asUnmeteredRemoteAccessDevices :: !(Maybe (Map DevicePlatform Int))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountSettings' with the minimum fields required to make a request.
@@ -36,21 +37,29 @@ data AccountSettings = AccountSettings'
 -- * 'asAwsAccountNumber'
 --
 -- * 'asUnmeteredDevices'
+--
+-- * 'asUnmeteredRemoteAccessDevices'
 accountSettings
     :: AccountSettings
 accountSettings =
     AccountSettings'
     { _asAwsAccountNumber = Nothing
     , _asUnmeteredDevices = Nothing
+    , _asUnmeteredRemoteAccessDevices = Nothing
     }
 
 -- | The AWS account number specified in the 'AccountSettings' container.
 asAwsAccountNumber :: Lens' AccountSettings (Maybe Text)
 asAwsAccountNumber = lens _asAwsAccountNumber (\ s a -> s{_asAwsAccountNumber = a});
 
--- | Returns the unmetered devices you have purchased.
+-- | Returns the unmetered devices you have purchased or want to purchase.
 asUnmeteredDevices :: Lens' AccountSettings (HashMap DevicePlatform Int)
 asUnmeteredDevices = lens _asUnmeteredDevices (\ s a -> s{_asUnmeteredDevices = a}) . _Default . _Map;
+
+-- | Returns the unmetered remote access devices you have purchased or want
+-- to purchase.
+asUnmeteredRemoteAccessDevices :: Lens' AccountSettings (HashMap DevicePlatform Int)
+asUnmeteredRemoteAccessDevices = lens _asUnmeteredRemoteAccessDevices (\ s a -> s{_asUnmeteredRemoteAccessDevices = a}) . _Default . _Map;
 
 instance FromJSON AccountSettings where
         parseJSON
@@ -58,9 +67,13 @@ instance FromJSON AccountSettings where
               (\ x ->
                  AccountSettings' <$>
                    (x .:? "awsAccountNumber") <*>
-                     (x .:? "unmeteredDevices" .!= mempty))
+                     (x .:? "unmeteredDevices" .!= mempty)
+                     <*>
+                     (x .:? "unmeteredRemoteAccessDevices" .!= mempty))
 
 instance Hashable AccountSettings
+
+instance NFData AccountSettings
 
 -- | Represents the output of a test. Examples of artifacts include logs and
 -- screenshots.
@@ -181,6 +194,8 @@ instance FromJSON Artifact where
 
 instance Hashable Artifact
 
+instance NFData Artifact
+
 -- | Represents the amount of CPU that an app is using on a physical device.
 --
 -- Note that this does not represent system-wide CPU usage.
@@ -232,6 +247,8 @@ instance FromJSON CPU where
                      (x .:? "architecture"))
 
 instance Hashable CPU
+
+instance NFData CPU
 
 -- | Represents entity counters.
 --
@@ -317,6 +334,8 @@ instance FromJSON Counters where
                      <*> (x .:? "errored"))
 
 instance Hashable Counters
+
+instance NFData Counters
 
 -- | Represents a device type that an app is tested against.
 --
@@ -480,6 +499,8 @@ instance FromJSON Device where
 
 instance Hashable Device
 
+instance NFData Device
+
 -- | Represents the total (metered or unmetered) minutes used by the resource
 -- to run tests. Contains the sum of minutes consumed by all children.
 --
@@ -532,6 +553,8 @@ instance FromJSON DeviceMinutes where
                      (x .:? "unmetered"))
 
 instance Hashable DeviceMinutes
+
+instance NFData DeviceMinutes
 
 -- | Represents a collection of device types.
 --
@@ -609,6 +632,8 @@ instance FromJSON DevicePool where
 
 instance Hashable DevicePool
 
+instance NFData DevicePool
+
 -- | Represents a device pool compatibility result.
 --
 -- /See:/ 'devicePoolCompatibilityResult' smart constructor.
@@ -657,6 +682,8 @@ instance FromJSON DevicePoolCompatibilityResult where
                      (x .:? "incompatibilityMessages" .!= mempty))
 
 instance Hashable DevicePoolCompatibilityResult
+
+instance NFData DevicePoolCompatibilityResult
 
 -- | Represents information about incompatibility.
 --
@@ -708,6 +735,8 @@ instance FromJSON IncompatibilityMessage where
                    (x .:? "type") <*> (x .:? "message"))
 
 instance Hashable IncompatibilityMessage
+
+instance NFData IncompatibilityMessage
 
 -- | Represents a device.
 --
@@ -776,15 +805,23 @@ job =
 --
 -- Allowed values include:
 --
--- -   COMPLETED: A completed status.
---
 -- -   PENDING: A pending status.
+--
+-- -   PENDING_CONCURRENCY: A pending concurrency status.
+--
+-- -   PENDING_DEVICE: A pending device status.
 --
 -- -   PROCESSING: A processing status.
 --
+-- -   SCHEDULING: A scheduling status.
+--
+-- -   PREPARING: A preparing status.
+--
 -- -   RUNNING: A running status.
 --
--- -   SCHEDULING: A scheduling status.
+-- -   COMPLETED: A completed status.
+--
+-- -   STOPPING: A stopping status.
 --
 jobStatus :: Lens' Job (Maybe ExecutionStatus)
 jobStatus = lens _jobStatus (\ s a -> s{_jobStatus = a});
@@ -813,19 +850,19 @@ jobStopped = lens _jobStopped (\ s a -> s{_jobStopped = a}) . mapping _Time;
 --
 -- Allowed values include:
 --
--- -   ERRORED: An error condition.
+-- -   PENDING: A pending condition.
+--
+-- -   PASSED: A passing condition.
+--
+-- -   WARNED: A warning condition.
 --
 -- -   FAILED: A failed condition.
 --
 -- -   SKIPPED: A skipped condition.
 --
+-- -   ERRORED: An error condition.
+--
 -- -   STOPPED: A stopped condition.
---
--- -   PASSED: A passing condition.
---
--- -   PENDING: A pending condition.
---
--- -   WARNED: A warning condition.
 --
 jobResult :: Lens' Job (Maybe ExecutionResult)
 jobResult = lens _jobResult (\ s a -> s{_jobResult = a});
@@ -902,6 +939,8 @@ instance FromJSON Job where
 
 instance Hashable Job
 
+instance NFData Job
+
 -- | Represents a latitude and longitude pair, expressed in geographic
 -- coordinate system degrees (for example 47.6204, -122.3491).
 --
@@ -940,12 +979,247 @@ lLongitude = lens _lLongitude (\ s a -> s{_lLongitude = a});
 
 instance Hashable Location
 
+instance NFData Location
+
 instance ToJSON Location where
         toJSON Location'{..}
           = object
               (catMaybes
                  [Just ("latitude" .= _lLatitude),
                   Just ("longitude" .= _lLongitude)])
+
+-- | A number representing the monetary amount for an offering or
+-- transaction.
+--
+-- /See:/ 'monetaryAmount' smart constructor.
+data MonetaryAmount = MonetaryAmount'
+    { _maAmount       :: !(Maybe Double)
+    , _maCurrencyCode :: !(Maybe CurrencyCode)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MonetaryAmount' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'maAmount'
+--
+-- * 'maCurrencyCode'
+monetaryAmount
+    :: MonetaryAmount
+monetaryAmount =
+    MonetaryAmount'
+    { _maAmount = Nothing
+    , _maCurrencyCode = Nothing
+    }
+
+-- | The numerical amount of an offering or transaction.
+maAmount :: Lens' MonetaryAmount (Maybe Double)
+maAmount = lens _maAmount (\ s a -> s{_maAmount = a});
+
+-- | The currency code of a monetary amount. For example, 'USD' means \"U.S.
+-- dollars.\"
+maCurrencyCode :: Lens' MonetaryAmount (Maybe CurrencyCode)
+maCurrencyCode = lens _maCurrencyCode (\ s a -> s{_maCurrencyCode = a});
+
+instance FromJSON MonetaryAmount where
+        parseJSON
+          = withObject "MonetaryAmount"
+              (\ x ->
+                 MonetaryAmount' <$>
+                   (x .:? "amount") <*> (x .:? "currencyCode"))
+
+instance Hashable MonetaryAmount
+
+instance NFData MonetaryAmount
+
+-- | Represents the metadata of a device offering.
+--
+-- /See:/ 'offering' smart constructor.
+data Offering = Offering'
+    { _oPlatform         :: !(Maybe DevicePlatform)
+    , _oId               :: !(Maybe Text)
+    , _oRecurringCharges :: !(Maybe [RecurringCharge])
+    , _oType             :: !(Maybe OfferingType)
+    , _oDescription      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Offering' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'oPlatform'
+--
+-- * 'oId'
+--
+-- * 'oRecurringCharges'
+--
+-- * 'oType'
+--
+-- * 'oDescription'
+offering
+    :: Offering
+offering =
+    Offering'
+    { _oPlatform = Nothing
+    , _oId = Nothing
+    , _oRecurringCharges = Nothing
+    , _oType = Nothing
+    , _oDescription = Nothing
+    }
+
+-- | The platform of the device (e.g., ANDROID or IOS).
+oPlatform :: Lens' Offering (Maybe DevicePlatform)
+oPlatform = lens _oPlatform (\ s a -> s{_oPlatform = a});
+
+-- | The ID that corresponds to a device offering.
+oId :: Lens' Offering (Maybe Text)
+oId = lens _oId (\ s a -> s{_oId = a});
+
+-- | Specifies whether there are recurring charges for the offering.
+oRecurringCharges :: Lens' Offering [RecurringCharge]
+oRecurringCharges = lens _oRecurringCharges (\ s a -> s{_oRecurringCharges = a}) . _Default . _Coerce;
+
+-- | The type of offering (e.g., \"RECURRING\") for a device.
+oType :: Lens' Offering (Maybe OfferingType)
+oType = lens _oType (\ s a -> s{_oType = a});
+
+-- | A string describing the offering.
+oDescription :: Lens' Offering (Maybe Text)
+oDescription = lens _oDescription (\ s a -> s{_oDescription = a});
+
+instance FromJSON Offering where
+        parseJSON
+          = withObject "Offering"
+              (\ x ->
+                 Offering' <$>
+                   (x .:? "platform") <*> (x .:? "id") <*>
+                     (x .:? "recurringCharges" .!= mempty)
+                     <*> (x .:? "type")
+                     <*> (x .:? "description"))
+
+instance Hashable Offering
+
+instance NFData Offering
+
+-- | The status of the offering.
+--
+-- /See:/ 'offeringStatus' smart constructor.
+data OfferingStatus = OfferingStatus'
+    { _osEffectiveOn :: !(Maybe POSIX)
+    , _osOffering    :: !(Maybe Offering)
+    , _osQuantity    :: !(Maybe Int)
+    , _osType        :: !(Maybe OfferingTransactionType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OfferingStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'osEffectiveOn'
+--
+-- * 'osOffering'
+--
+-- * 'osQuantity'
+--
+-- * 'osType'
+offeringStatus
+    :: OfferingStatus
+offeringStatus =
+    OfferingStatus'
+    { _osEffectiveOn = Nothing
+    , _osOffering = Nothing
+    , _osQuantity = Nothing
+    , _osType = Nothing
+    }
+
+-- | The date on which the offering is effective.
+osEffectiveOn :: Lens' OfferingStatus (Maybe UTCTime)
+osEffectiveOn = lens _osEffectiveOn (\ s a -> s{_osEffectiveOn = a}) . mapping _Time;
+
+-- | Represents the metadata of an offering status.
+osOffering :: Lens' OfferingStatus (Maybe Offering)
+osOffering = lens _osOffering (\ s a -> s{_osOffering = a});
+
+-- | The number of available devices in the offering.
+osQuantity :: Lens' OfferingStatus (Maybe Int)
+osQuantity = lens _osQuantity (\ s a -> s{_osQuantity = a});
+
+-- | The type specified for the offering status.
+osType :: Lens' OfferingStatus (Maybe OfferingTransactionType)
+osType = lens _osType (\ s a -> s{_osType = a});
+
+instance FromJSON OfferingStatus where
+        parseJSON
+          = withObject "OfferingStatus"
+              (\ x ->
+                 OfferingStatus' <$>
+                   (x .:? "effectiveOn") <*> (x .:? "offering") <*>
+                     (x .:? "quantity")
+                     <*> (x .:? "type"))
+
+instance Hashable OfferingStatus
+
+instance NFData OfferingStatus
+
+-- | Represents the metadata of an offering transaction.
+--
+-- /See:/ 'offeringTransaction' smart constructor.
+data OfferingTransaction = OfferingTransaction'
+    { _otOfferingStatus :: !(Maybe OfferingStatus)
+    , _otCost           :: !(Maybe MonetaryAmount)
+    , _otTransactionId  :: !(Maybe Text)
+    , _otCreatedOn      :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OfferingTransaction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'otOfferingStatus'
+--
+-- * 'otCost'
+--
+-- * 'otTransactionId'
+--
+-- * 'otCreatedOn'
+offeringTransaction
+    :: OfferingTransaction
+offeringTransaction =
+    OfferingTransaction'
+    { _otOfferingStatus = Nothing
+    , _otCost = Nothing
+    , _otTransactionId = Nothing
+    , _otCreatedOn = Nothing
+    }
+
+-- | The status of an offering transaction.
+otOfferingStatus :: Lens' OfferingTransaction (Maybe OfferingStatus)
+otOfferingStatus = lens _otOfferingStatus (\ s a -> s{_otOfferingStatus = a});
+
+-- | The cost of an offering transaction.
+otCost :: Lens' OfferingTransaction (Maybe MonetaryAmount)
+otCost = lens _otCost (\ s a -> s{_otCost = a});
+
+-- | The transaction ID of the offering transaction.
+otTransactionId :: Lens' OfferingTransaction (Maybe Text)
+otTransactionId = lens _otTransactionId (\ s a -> s{_otTransactionId = a});
+
+-- | The date on which an offering transaction was created.
+otCreatedOn :: Lens' OfferingTransaction (Maybe UTCTime)
+otCreatedOn = lens _otCreatedOn (\ s a -> s{_otCreatedOn = a}) . mapping _Time;
+
+instance FromJSON OfferingTransaction where
+        parseJSON
+          = withObject "OfferingTransaction"
+              (\ x ->
+                 OfferingTransaction' <$>
+                   (x .:? "offeringStatus") <*> (x .:? "cost") <*>
+                     (x .:? "transactionId")
+                     <*> (x .:? "createdOn"))
+
+instance Hashable OfferingTransaction
+
+instance NFData OfferingTransaction
 
 -- | Represents a specific warning or failure.
 --
@@ -1002,19 +1276,19 @@ pTest = lens _pTest (\ s a -> s{_pTest = a});
 --
 -- Allowed values include:
 --
--- -   ERRORED: An error condition.
+-- -   PENDING: A pending condition.
+--
+-- -   PASSED: A passing condition.
+--
+-- -   WARNED: A warning condition.
 --
 -- -   FAILED: A failed condition.
 --
 -- -   SKIPPED: A skipped condition.
 --
+-- -   ERRORED: An error condition.
+--
 -- -   STOPPED: A stopped condition.
---
--- -   PASSED: A passing condition.
---
--- -   PENDING: A pending condition.
---
--- -   WARNED: A warning condition.
 --
 pResult :: Lens' Problem (Maybe ExecutionResult)
 pResult = lens _pResult (\ s a -> s{_pResult = a});
@@ -1048,6 +1322,8 @@ instance FromJSON Problem where
                      <*> (x .:? "suite"))
 
 instance Hashable Problem
+
+instance NFData Problem
 
 -- | Information about a problem detail.
 --
@@ -1087,6 +1363,8 @@ instance FromJSON ProblemDetail where
                  ProblemDetail' <$> (x .:? "arn") <*> (x .:? "name"))
 
 instance Hashable ProblemDetail
+
+instance NFData ProblemDetail
 
 -- | Represents an operating-system neutral workspace for running and
 -- managing tests.
@@ -1137,6 +1415,8 @@ instance FromJSON Project where
                      (x .:? "name"))
 
 instance Hashable Project
+
+instance NFData Project
 
 -- | Represents the set of radios and their states on a device. Examples of
 -- radios include Wi-Fi, GPS, Bluetooth, and NFC.
@@ -1189,6 +1469,8 @@ rWifi = lens _rWifi (\ s a -> s{_rWifi = a});
 
 instance Hashable Radios
 
+instance NFData Radios
+
 instance ToJSON Radios where
         toJSON Radios'{..}
           = object
@@ -1196,6 +1478,48 @@ instance ToJSON Radios where
                  [("nfc" .=) <$> _rNfc, ("gps" .=) <$> _rGps,
                   ("bluetooth" .=) <$> _rBluetooth,
                   ("wifi" .=) <$> _rWifi])
+
+-- | Specifies whether charges for devices will be recurring.
+--
+-- /See:/ 'recurringCharge' smart constructor.
+data RecurringCharge = RecurringCharge'
+    { _rcFrequency :: !(Maybe RecurringChargeFrequency)
+    , _rcCost      :: !(Maybe MonetaryAmount)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcFrequency'
+--
+-- * 'rcCost'
+recurringCharge
+    :: RecurringCharge
+recurringCharge =
+    RecurringCharge'
+    { _rcFrequency = Nothing
+    , _rcCost = Nothing
+    }
+
+-- | The frequency in which charges will recur.
+rcFrequency :: Lens' RecurringCharge (Maybe RecurringChargeFrequency)
+rcFrequency = lens _rcFrequency (\ s a -> s{_rcFrequency = a});
+
+-- | The cost of the recurring charge.
+rcCost :: Lens' RecurringCharge (Maybe MonetaryAmount)
+rcCost = lens _rcCost (\ s a -> s{_rcCost = a});
+
+instance FromJSON RecurringCharge where
+        parseJSON
+          = withObject "RecurringCharge"
+              (\ x ->
+                 RecurringCharge' <$>
+                   (x .:? "frequency") <*> (x .:? "cost"))
+
+instance Hashable RecurringCharge
+
+instance NFData RecurringCharge
 
 -- | Represents the screen resolution of a device in height and width,
 -- expressed in pixels.
@@ -1237,6 +1561,8 @@ instance FromJSON Resolution where
 
 instance Hashable Resolution
 
+instance NFData Resolution
+
 -- | Represents a condition for a device pool.
 --
 -- /See:/ 'rule' smart constructor.
@@ -1264,7 +1590,8 @@ rule =
     , _rValue = Nothing
     }
 
--- | The rule\'s attribute.
+-- | The rule\'s stringified attribute. For example, specify the value as
+-- '\"\\\"abc\\\"\"'.
 --
 -- Allowed values include:
 --
@@ -1307,6 +1634,8 @@ instance FromJSON Rule where
                      (x .:? "value"))
 
 instance Hashable Rule
+
+instance NFData Rule
 
 instance ToJSON Rule where
         toJSON Rule'{..}
@@ -1401,15 +1730,23 @@ runBillingMethod = lens _runBillingMethod (\ s a -> s{_runBillingMethod = a});
 --
 -- Allowed values include:
 --
--- -   COMPLETED: A completed status.
---
 -- -   PENDING: A pending status.
+--
+-- -   PENDING_CONCURRENCY: A pending concurrency status.
+--
+-- -   PENDING_DEVICE: A pending device status.
 --
 -- -   PROCESSING: A processing status.
 --
+-- -   SCHEDULING: A scheduling status.
+--
+-- -   PREPARING: A preparing status.
+--
 -- -   RUNNING: A running status.
 --
--- -   SCHEDULING: A scheduling status.
+-- -   COMPLETED: A completed status.
+--
+-- -   STOPPING: A stopping status.
 --
 runStatus :: Lens' Run (Maybe ExecutionStatus)
 runStatus = lens _runStatus (\ s a -> s{_runStatus = a});
@@ -1445,19 +1782,19 @@ runStopped = lens _runStopped (\ s a -> s{_runStopped = a}) . mapping _Time;
 --
 -- Allowed values include:
 --
--- -   ERRORED: An error condition.
+-- -   PENDING: A pending condition.
+--
+-- -   PASSED: A passing condition.
+--
+-- -   WARNED: A warning condition.
 --
 -- -   FAILED: A failed condition.
 --
 -- -   SKIPPED: A skipped condition.
 --
+-- -   ERRORED: An error condition.
+--
 -- -   STOPPED: A stopped condition.
---
--- -   PASSED: A passing condition.
---
--- -   PENDING: A pending condition.
---
--- -   WARNED: A warning condition.
 --
 runResult :: Lens' Run (Maybe ExecutionResult)
 runResult = lens _runResult (\ s a -> s{_runResult = a});
@@ -1545,6 +1882,8 @@ instance FromJSON Run where
                      <*> (x .:? "started"))
 
 instance Hashable Run
+
+instance NFData Run
 
 -- | Represents a sample of performance data.
 --
@@ -1638,6 +1977,8 @@ instance FromJSON Sample where
 
 instance Hashable Sample
 
+instance NFData Sample
+
 -- | Represents the settings for a run. Includes things like location, radio
 -- states, auxiliary apps, and network profiles.
 --
@@ -1714,6 +2055,8 @@ srcAuxiliaryApps :: Lens' ScheduleRunConfiguration [Text]
 srcAuxiliaryApps = lens _srcAuxiliaryApps (\ s a -> s{_srcAuxiliaryApps = a}) . _Default . _Coerce;
 
 instance Hashable ScheduleRunConfiguration
+
+instance NFData ScheduleRunConfiguration
 
 instance ToJSON ScheduleRunConfiguration where
         toJSON ScheduleRunConfiguration'{..}
@@ -1812,6 +2155,8 @@ srtType = lens _srtType (\ s a -> s{_srtType = a});
 
 instance Hashable ScheduleRunTest
 
+instance NFData ScheduleRunTest
+
 instance ToJSON ScheduleRunTest where
         toJSON ScheduleRunTest'{..}
           = object
@@ -1884,15 +2229,23 @@ suite =
 --
 -- Allowed values include:
 --
--- -   COMPLETED: A completed status.
---
 -- -   PENDING: A pending status.
+--
+-- -   PENDING_CONCURRENCY: A pending concurrency status.
+--
+-- -   PENDING_DEVICE: A pending device status.
 --
 -- -   PROCESSING: A processing status.
 --
+-- -   SCHEDULING: A scheduling status.
+--
+-- -   PREPARING: A preparing status.
+--
 -- -   RUNNING: A running status.
 --
--- -   SCHEDULING: A scheduling status.
+-- -   COMPLETED: A completed status.
+--
+-- -   STOPPING: A stopping status.
 --
 sStatus :: Lens' Suite (Maybe ExecutionStatus)
 sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
@@ -1917,19 +2270,19 @@ sStopped = lens _sStopped (\ s a -> s{_sStopped = a}) . mapping _Time;
 --
 -- Allowed values include:
 --
--- -   ERRORED: An error condition.
+-- -   PENDING: A pending condition.
+--
+-- -   PASSED: A passing condition.
+--
+-- -   WARNED: A warning condition.
 --
 -- -   FAILED: A failed condition.
 --
 -- -   SKIPPED: A skipped condition.
 --
+-- -   ERRORED: An error condition.
+--
 -- -   STOPPED: A stopped condition.
---
--- -   PASSED: A passing condition.
---
--- -   PENDING: A pending condition.
---
--- -   WARNED: A warning condition.
 --
 sResult :: Lens' Suite (Maybe ExecutionResult)
 sResult = lens _sResult (\ s a -> s{_sResult = a});
@@ -2006,6 +2359,8 @@ instance FromJSON Suite where
 
 instance Hashable Suite
 
+instance NFData Suite
+
 -- | Represents a condition that is evaluated.
 --
 -- /See:/ 'test' smart constructor.
@@ -2069,15 +2424,23 @@ test =
 --
 -- Allowed values include:
 --
--- -   COMPLETED: A completed status.
---
 -- -   PENDING: A pending status.
+--
+-- -   PENDING_CONCURRENCY: A pending concurrency status.
+--
+-- -   PENDING_DEVICE: A pending device status.
 --
 -- -   PROCESSING: A processing status.
 --
+-- -   SCHEDULING: A scheduling status.
+--
+-- -   PREPARING: A preparing status.
+--
 -- -   RUNNING: A running status.
 --
--- -   SCHEDULING: A scheduling status.
+-- -   COMPLETED: A completed status.
+--
+-- -   STOPPING: A stopping status.
 --
 tStatus :: Lens' Test (Maybe ExecutionStatus)
 tStatus = lens _tStatus (\ s a -> s{_tStatus = a});
@@ -2102,19 +2465,19 @@ tStopped = lens _tStopped (\ s a -> s{_tStopped = a}) . mapping _Time;
 --
 -- Allowed values include:
 --
--- -   ERRORED: An error condition.
+-- -   PENDING: A pending condition.
+--
+-- -   PASSED: A passing condition.
+--
+-- -   WARNED: A warning condition.
 --
 -- -   FAILED: A failed condition.
 --
 -- -   SKIPPED: A skipped condition.
 --
+-- -   ERRORED: An error condition.
+--
 -- -   STOPPED: A stopped condition.
---
--- -   PASSED: A passing condition.
---
--- -   PENDING: A pending condition.
---
--- -   WARNED: A warning condition.
 --
 tResult :: Lens' Test (Maybe ExecutionResult)
 tResult = lens _tResult (\ s a -> s{_tResult = a});
@@ -2190,6 +2553,8 @@ instance FromJSON Test where
 
 instance Hashable Test
 
+instance NFData Test
+
 -- | A collection of one or more problems, grouped by their result.
 --
 -- /See:/ 'uniqueProblem' smart constructor.
@@ -2229,6 +2594,8 @@ instance FromJSON UniqueProblem where
                    (x .:? "problems" .!= mempty) <*> (x .:? "message"))
 
 instance Hashable UniqueProblem
+
+instance NFData UniqueProblem
 
 -- | An app or a set of one or more tests to upload or that have been
 -- uploaded.
@@ -2387,3 +2754,5 @@ instance FromJSON Upload where
                      <*> (x .:? "contentType"))
 
 instance Hashable Upload
+
+instance NFData Upload

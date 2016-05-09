@@ -97,6 +97,8 @@ instance AWSRequest SetDesiredCapacity where
 
 instance Hashable SetDesiredCapacity
 
+instance NFData SetDesiredCapacity
+
 instance ToHeaders SetDesiredCapacity where
         toHeaders = const mempty
 
@@ -122,3 +124,5 @@ data SetDesiredCapacityResponse =
 setDesiredCapacityResponse
     :: SetDesiredCapacityResponse
 setDesiredCapacityResponse = SetDesiredCapacityResponse'
+
+instance NFData SetDesiredCapacityResponse

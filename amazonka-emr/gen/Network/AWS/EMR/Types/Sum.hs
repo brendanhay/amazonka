@@ -43,6 +43,7 @@ instance ToText ActionOnFailure where
         TerminateJobFlow -> "TERMINATE_JOB_FLOW"
 
 instance Hashable     ActionOnFailure
+instance NFData       ActionOnFailure
 instance ToByteString ActionOnFailure
 instance ToQuery      ActionOnFailure
 instance ToHeader     ActionOnFailure
@@ -86,6 +87,7 @@ instance ToText ClusterState where
         CSWaiting -> "WAITING"
 
 instance Hashable     ClusterState
+instance NFData       ClusterState
 instance ToByteString ClusterState
 instance ToQuery      ClusterState
 instance ToHeader     ClusterState
@@ -129,6 +131,7 @@ instance ToText ClusterStateChangeReasonCode where
         CSCRCValidationError -> "VALIDATION_ERROR"
 
 instance Hashable     ClusterStateChangeReasonCode
+instance NFData       ClusterStateChangeReasonCode
 instance ToByteString ClusterStateChangeReasonCode
 instance ToQuery      ClusterStateChangeReasonCode
 instance ToHeader     ClusterStateChangeReasonCode
@@ -178,6 +181,7 @@ instance ToText InstanceGroupState where
         Terminating -> "TERMINATING"
 
 instance Hashable     InstanceGroupState
+instance NFData       InstanceGroupState
 instance ToByteString InstanceGroupState
 instance ToQuery      InstanceGroupState
 instance ToHeader     InstanceGroupState
@@ -209,6 +213,7 @@ instance ToText InstanceGroupStateChangeReasonCode where
         ValidationError -> "VALIDATION_ERROR"
 
 instance Hashable     InstanceGroupStateChangeReasonCode
+instance NFData       InstanceGroupStateChangeReasonCode
 instance ToByteString InstanceGroupStateChangeReasonCode
 instance ToQuery      InstanceGroupStateChangeReasonCode
 instance ToHeader     InstanceGroupStateChangeReasonCode
@@ -237,6 +242,7 @@ instance ToText InstanceGroupType where
         Task -> "TASK"
 
 instance Hashable     InstanceGroupType
+instance NFData       InstanceGroupType
 instance ToByteString InstanceGroupType
 instance ToQuery      InstanceGroupType
 instance ToHeader     InstanceGroupType
@@ -268,6 +274,7 @@ instance ToText InstanceRoleType where
         IRTTask -> "TASK"
 
 instance Hashable     InstanceRoleType
+instance NFData       InstanceRoleType
 instance ToByteString InstanceRoleType
 instance ToQuery      InstanceRoleType
 instance ToHeader     InstanceRoleType
@@ -302,6 +309,7 @@ instance ToText InstanceState where
         ISTerminated -> "TERMINATED"
 
 instance Hashable     InstanceState
+instance NFData       InstanceState
 instance ToByteString InstanceState
 instance ToQuery      InstanceState
 instance ToHeader     InstanceState
@@ -336,6 +344,7 @@ instance ToText InstanceStateChangeReasonCode where
         ISCRCValidationError -> "VALIDATION_ERROR"
 
 instance Hashable     InstanceStateChangeReasonCode
+instance NFData       InstanceStateChangeReasonCode
 instance ToByteString InstanceStateChangeReasonCode
 instance ToQuery      InstanceStateChangeReasonCode
 instance ToHeader     InstanceStateChangeReasonCode
@@ -361,6 +370,7 @@ instance ToText MarketType where
         Spot -> "SPOT"
 
 instance Hashable     MarketType
+instance NFData       MarketType
 instance ToByteString MarketType
 instance ToQuery      MarketType
 instance ToHeader     MarketType
@@ -401,6 +411,7 @@ instance ToText StepState where
         SSRunning -> "RUNNING"
 
 instance Hashable     StepState
+instance NFData       StepState
 instance ToByteString StepState
 instance ToQuery      StepState
 instance ToHeader     StepState
@@ -426,6 +437,7 @@ instance ToText StepStateChangeReasonCode where
         None -> "NONE"
 
 instance Hashable     StepStateChangeReasonCode
+instance NFData       StepStateChangeReasonCode
 instance ToByteString StepStateChangeReasonCode
 instance ToQuery      StepStateChangeReasonCode
 instance ToHeader     StepStateChangeReasonCode

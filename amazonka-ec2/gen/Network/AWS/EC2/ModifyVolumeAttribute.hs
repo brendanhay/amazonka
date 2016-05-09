@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyVolumeAttribute' smart constructor.
+-- | Contains the parameters for ModifyVolumeAttribute.
+--
+-- /See:/ 'modifyVolumeAttribute' smart constructor.
 data ModifyVolumeAttribute = ModifyVolumeAttribute'
     { _mvaAutoEnableIO :: !(Maybe AttributeBooleanValue)
     , _mvaDryRun       :: !(Maybe Bool)
@@ -100,6 +102,8 @@ instance AWSRequest ModifyVolumeAttribute where
 
 instance Hashable ModifyVolumeAttribute
 
+instance NFData ModifyVolumeAttribute
+
 instance ToHeaders ModifyVolumeAttribute where
         toHeaders = const mempty
 
@@ -124,3 +128,5 @@ data ModifyVolumeAttributeResponse =
 modifyVolumeAttributeResponse
     :: ModifyVolumeAttributeResponse
 modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse'
+
+instance NFData ModifyVolumeAttributeResponse

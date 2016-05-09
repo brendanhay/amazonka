@@ -107,6 +107,8 @@ instance AWSRequest DescribeCommands where
 
 instance Hashable DescribeCommands
 
+instance NFData DescribeCommands
+
 instance ToHeaders DescribeCommands where
         toHeaders
           = const
@@ -162,3 +164,5 @@ dcrsCommands = lens _dcrsCommands (\ s a -> s{_dcrsCommands = a}) . _Default . _
 -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeCommandsResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+
+instance NFData DescribeCommandsResponse

@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getAccountSettings' smart constructor.
+-- | Represents the request sent to retrieve the account settings.
+--
+-- /See:/ 'getAccountSettings' smart constructor.
 data GetAccountSettings =
     GetAccountSettings'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -64,6 +66,8 @@ instance AWSRequest GetAccountSettings where
 
 instance Hashable GetAccountSettings
 
+instance NFData GetAccountSettings
+
 instance ToHeaders GetAccountSettings where
         toHeaders
           = const
@@ -83,7 +87,10 @@ instance ToPath GetAccountSettings where
 instance ToQuery GetAccountSettings where
         toQuery = const mempty
 
--- | /See:/ 'getAccountSettingsResponse' smart constructor.
+-- | Represents the account settings return values from the
+-- 'GetAccountSettings' request.
+--
+-- /See:/ 'getAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
     { _gasrsAccountSettings :: !(Maybe AccountSettings)
     , _gasrsResponseStatus  :: !Int
@@ -112,3 +119,5 @@ gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSetti
 -- | The response status code.
 gasrsResponseStatus :: Lens' GetAccountSettingsResponse Int
 gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
+
+instance NFData GetAccountSettingsResponse

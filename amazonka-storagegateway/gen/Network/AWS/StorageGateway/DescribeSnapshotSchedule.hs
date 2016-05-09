@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation describes the snapshot schedule for the specified gateway
--- volume. The snapshot schedule information includes intervals at which
--- snapshots are automatically initiated on the volume.
+-- Describes the snapshot schedule for the specified gateway volume. The
+-- snapshot schedule information includes intervals at which snapshots are
+-- automatically initiated on the volume.
 module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     (
     -- * Creating a Request
@@ -89,6 +89,8 @@ instance AWSRequest DescribeSnapshotSchedule where
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeSnapshotSchedule
+
+instance NFData DescribeSnapshotSchedule
 
 instance ToHeaders DescribeSnapshotSchedule where
         toHeaders
@@ -172,3 +174,5 @@ dssrsDescription = lens _dssrsDescription (\ s a -> s{_dssrsDescription = a});
 -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeSnapshotScheduleResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
+
+instance NFData DescribeSnapshotScheduleResponse

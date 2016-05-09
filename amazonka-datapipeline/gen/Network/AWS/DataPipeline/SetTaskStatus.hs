@@ -127,6 +127,8 @@ instance AWSRequest SetTaskStatus where
 
 instance Hashable SetTaskStatus
 
+instance NFData SetTaskStatus
+
 instance ToHeaders SetTaskStatus where
         toHeaders
           = const
@@ -175,3 +177,5 @@ setTaskStatusResponse pResponseStatus_ =
 -- | The response status code.
 stsrsResponseStatus :: Lens' SetTaskStatusResponse Int
 stsrsResponseStatus = lens _stsrsResponseStatus (\ s a -> s{_stsrsResponseStatus = a});
+
+instance NFData SetTaskStatusResponse

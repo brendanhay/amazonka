@@ -74,6 +74,8 @@ instance AWSRequest DeleteApp where
 
 instance Hashable DeleteApp
 
+instance NFData DeleteApp
+
 instance ToHeaders DeleteApp where
         toHeaders
           = const
@@ -103,3 +105,5 @@ data DeleteAppResponse =
 deleteAppResponse
     :: DeleteAppResponse
 deleteAppResponse = DeleteAppResponse'
+
+instance NFData DeleteAppResponse

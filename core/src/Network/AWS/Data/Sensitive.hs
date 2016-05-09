@@ -12,6 +12,7 @@
 --
 module Network.AWS.Data.Sensitive where
 
+import           Control.DeepSeq
 import           Data.Data                   (Data, Typeable)
 import           Data.Hashable
 import           Data.Monoid
@@ -49,6 +50,7 @@ instance Show (Sensitive a) where
     show = const "******"
 
 instance Hashable a => Hashable (Sensitive a)
+instance NFData   a => NFData   (Sensitive a)
 
 _Sensitive :: Iso' (Sensitive a) a
 _Sensitive = iso desensitise Sensitive

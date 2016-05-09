@@ -143,6 +143,8 @@ instance AWSRequest RegisterContainerInstance where
 
 instance Hashable RegisterContainerInstance
 
+instance NFData RegisterContainerInstance
+
 instance ToHeaders RegisterContainerInstance where
         toHeaders
           = const
@@ -203,3 +205,5 @@ rcirsContainerInstance = lens _rcirsContainerInstance (\ s a -> s{_rcirsContaine
 -- | The response status code.
 rcirsResponseStatus :: Lens' RegisterContainerInstanceResponse Int
 rcirsResponseStatus = lens _rcirsResponseStatus (\ s a -> s{_rcirsResponseStatus = a});
+
+instance NFData RegisterContainerInstanceResponse

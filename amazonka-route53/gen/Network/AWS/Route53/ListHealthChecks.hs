@@ -125,6 +125,8 @@ instance AWSRequest ListHealthChecks where
 
 instance Hashable ListHealthChecks
 
+instance NFData ListHealthChecks
+
 instance ToHeaders ListHealthChecks where
         toHeaders = const mempty
 
@@ -218,3 +220,5 @@ lhcrsIsTruncated = lens _lhcrsIsTruncated (\ s a -> s{_lhcrsIsTruncated = a});
 -- results.
 lhcrsMaxItems :: Lens' ListHealthChecksResponse Text
 lhcrsMaxItems = lens _lhcrsMaxItems (\ s a -> s{_lhcrsMaxItems = a});
+
+instance NFData ListHealthChecksResponse

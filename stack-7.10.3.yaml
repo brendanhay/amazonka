@@ -1,4 +1,5 @@
-resolver:   lts-5.8
+compiler:   ghc-7.10.3
+resolver:   lts-5.15
 flags:      {}
 extra-deps:
   - unordered-containers-0.2.7.0
@@ -23,6 +24,7 @@ packages:
   - amazonka-codedeploy
   - amazonka-codepipeline
   - amazonka-cognito-identity
+  - amazonka-cognito-idp
   - amazonka-cognito-sync
   - amazonka-config
   - amazonka-datapipeline

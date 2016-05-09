@@ -149,6 +149,8 @@ instance AWSRequest Encrypt where
 
 instance Hashable Encrypt
 
+instance NFData Encrypt
+
 instance ToHeaders Encrypt where
         toHeaders
           = const
@@ -217,3 +219,5 @@ ersCiphertextBlob = lens _ersCiphertextBlob (\ s a -> s{_ersCiphertextBlob = a})
 -- | The response status code.
 ersResponseStatus :: Lens' EncryptResponse Int
 ersResponseStatus = lens _ersResponseStatus (\ s a -> s{_ersResponseStatus = a});
+
+instance NFData EncryptResponse

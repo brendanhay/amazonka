@@ -366,9 +366,11 @@ instanceD p n = \case
     ToQuery   es   -> toQueryD   p n es
     ToBody    f    -> toBodyD      n f
     IsHashable     -> hashableD    n
+    IsNFData       -> nfDataD      n
 
-hashableD :: Id -> Decl
+hashableD, nfDataD :: Id -> Decl
 hashableD n = instD "Hashable" n []
+nfDataD   n = instD "NFData"   n []
 
 -- FIXME: merge D + E constructors where possible
 fromXMLD :: Protocol -> Id -> [Field] -> Decl

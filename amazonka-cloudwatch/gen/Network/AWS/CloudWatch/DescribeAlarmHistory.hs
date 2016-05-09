@@ -140,6 +140,8 @@ instance AWSRequest DescribeAlarmHistory where
 
 instance Hashable DescribeAlarmHistory
 
+instance NFData DescribeAlarmHistory
+
 instance ToHeaders DescribeAlarmHistory where
         toHeaders = const mempty
 
@@ -197,3 +199,5 @@ dahrsNextToken = lens _dahrsNextToken (\ s a -> s{_dahrsNextToken = a});
 -- | The response status code.
 dahrsResponseStatus :: Lens' DescribeAlarmHistoryResponse Int
 dahrsResponseStatus = lens _dahrsResponseStatus (\ s a -> s{_dahrsResponseStatus = a});
+
+instance NFData DescribeAlarmHistoryResponse

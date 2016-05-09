@@ -1,5 +1,5 @@
 name:                  amazonka-ec2
-version:               1.4.0
+version:               1.4.1
 synopsis:              Amazon Elastic Compute Cloud SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -215,6 +215,7 @@ library
         , Network.AWS.EC2.ModifySubnetAttribute
         , Network.AWS.EC2.ModifyVPCAttribute
         , Network.AWS.EC2.ModifyVPCEndpoint
+        , Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
         , Network.AWS.EC2.ModifyVolumeAttribute
         , Network.AWS.EC2.MonitorInstances
         , Network.AWS.EC2.MoveAddressToVPC
@@ -255,7 +256,7 @@ library
         , Network.AWS.EC2.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.0.*
+          amazonka-core == 1.4.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ec2-test
@@ -275,9 +276,9 @@ test-suite amazonka-ec2-test
         , Test.AWS.EC2.Internal
 
     build-depends:
-          amazonka-core == 1.4.0.*
-        , amazonka-test == 1.4.0.*
-        , amazonka-ec2 == 1.4.0.*
+          amazonka-core == 1.4.1.*
+        , amazonka-test == 1.4.1.*
+        , amazonka-ec2 == 1.4.1.*
         , base
         , bytestring
         , tasty

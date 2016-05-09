@@ -134,6 +134,8 @@ instance AWSRequest SubmitContainerStateChange where
 
 instance Hashable SubmitContainerStateChange
 
+instance NFData SubmitContainerStateChange
+
 instance ToHeaders SubmitContainerStateChange where
         toHeaders
           = const
@@ -191,3 +193,5 @@ scscrsAcknowledgment = lens _scscrsAcknowledgment (\ s a -> s{_scscrsAcknowledgm
 -- | The response status code.
 scscrsResponseStatus :: Lens' SubmitContainerStateChangeResponse Int
 scscrsResponseStatus = lens _scscrsResponseStatus (\ s a -> s{_scscrsResponseStatus = a});
+
+instance NFData SubmitContainerStateChangeResponse

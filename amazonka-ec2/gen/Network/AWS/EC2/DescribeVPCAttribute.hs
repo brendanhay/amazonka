@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVPCAttribute' smart constructor.
+-- | Contains the parameters for DescribeVpcAttribute.
+--
+-- /See:/ 'describeVPCAttribute' smart constructor.
 data DescribeVPCAttribute = DescribeVPCAttribute'
     { _dvpcaDryRun    :: !(Maybe Bool)
     , _dvpcaVPCId     :: !Text
@@ -104,6 +106,8 @@ instance AWSRequest DescribeVPCAttribute where
 
 instance Hashable DescribeVPCAttribute
 
+instance NFData DescribeVPCAttribute
+
 instance ToHeaders DescribeVPCAttribute where
         toHeaders = const mempty
 
@@ -118,7 +122,9 @@ instance ToQuery DescribeVPCAttribute where
                "DryRun" =: _dvpcaDryRun, "VpcId" =: _dvpcaVPCId,
                "Attribute" =: _dvpcaAttribute]
 
--- | /See:/ 'describeVPCAttributeResponse' smart constructor.
+-- | Contains the output of DescribeVpcAttribute.
+--
+-- /See:/ 'describeVPCAttributeResponse' smart constructor.
 data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
     { _dvpcarsEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
     , _dvpcarsEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
@@ -168,3 +174,5 @@ dvpcarsVPCId = lens _dvpcarsVPCId (\ s a -> s{_dvpcarsVPCId = a});
 -- | The response status code.
 dvpcarsResponseStatus :: Lens' DescribeVPCAttributeResponse Int
 dvpcarsResponseStatus = lens _dvpcarsResponseStatus (\ s a -> s{_dvpcarsResponseStatus = a});
+
+instance NFData DescribeVPCAttributeResponse

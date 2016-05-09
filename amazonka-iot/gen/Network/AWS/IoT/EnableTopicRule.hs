@@ -70,6 +70,8 @@ instance AWSRequest EnableTopicRule where
 
 instance Hashable EnableTopicRule
 
+instance NFData EnableTopicRule
+
 instance ToHeaders EnableTopicRule where
         toHeaders = const mempty
 
@@ -93,3 +95,5 @@ data EnableTopicRuleResponse =
 enableTopicRuleResponse
     :: EnableTopicRuleResponse
 enableTopicRuleResponse = EnableTopicRuleResponse'
+
+instance NFData EnableTopicRuleResponse

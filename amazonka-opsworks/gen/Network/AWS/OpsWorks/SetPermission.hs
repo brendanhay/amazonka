@@ -123,6 +123,8 @@ instance AWSRequest SetPermission where
 
 instance Hashable SetPermission
 
+instance NFData SetPermission
+
 instance ToHeaders SetPermission where
         toHeaders
           = const
@@ -158,3 +160,5 @@ data SetPermissionResponse =
 setPermissionResponse
     :: SetPermissionResponse
 setPermissionResponse = SetPermissionResponse'
+
+instance NFData SetPermissionResponse

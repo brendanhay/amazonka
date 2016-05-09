@@ -18,9 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists iSCSI initiators that are connected to a volume.
--- You can use this operation to determine whether a volume is being used
--- or not.
+-- Lists iSCSI initiators that are connected to a volume. You can use this
+-- operation to determine whether a volume is being used or not.
 module Network.AWS.StorageGateway.ListVolumeInitiators
     (
     -- * Creating a Request
@@ -82,6 +81,8 @@ instance AWSRequest ListVolumeInitiators where
 
 instance Hashable ListVolumeInitiators
 
+instance NFData ListVolumeInitiators
+
 instance ToHeaders ListVolumeInitiators where
         toHeaders
           = const
@@ -135,3 +136,5 @@ lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _De
 -- | The response status code.
 lvirsResponseStatus :: Lens' ListVolumeInitiatorsResponse Int
 lvirsResponseStatus = lens _lvirsResponseStatus (\ s a -> s{_lvirsResponseStatus = a});
+
+instance NFData ListVolumeInitiatorsResponse

@@ -120,6 +120,8 @@ instance AWSRequest ListDomains where
 
 instance Hashable ListDomains
 
+instance NFData ListDomains
+
 instance ToHeaders ListDomains where
         toHeaders
           = const
@@ -192,3 +194,5 @@ ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = 
 -- Children: 'AutoRenew', 'DomainName', 'Expiry', 'TransferLock'
 ldrsDomains :: Lens' ListDomainsResponse [DomainSummary]
 ldrsDomains = lens _ldrsDomains (\ s a -> s{_ldrsDomains = a}) . _Coerce;
+
+instance NFData ListDomainsResponse

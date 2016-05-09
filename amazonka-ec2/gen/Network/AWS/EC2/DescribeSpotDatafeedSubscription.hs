@@ -84,6 +84,8 @@ instance AWSRequest DescribeSpotDatafeedSubscription
 
 instance Hashable DescribeSpotDatafeedSubscription
 
+instance NFData DescribeSpotDatafeedSubscription
+
 instance ToHeaders DescribeSpotDatafeedSubscription
          where
         toHeaders = const mempty
@@ -132,3 +134,6 @@ dsdsrsSpotDatafeedSubscription = lens _dsdsrsSpotDatafeedSubscription (\ s a -> 
 -- | The response status code.
 dsdsrsResponseStatus :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
 dsdsrsResponseStatus = lens _dsdsrsResponseStatus (\ s a -> s{_dsdsrsResponseStatus = a});
+
+instance NFData
+         DescribeSpotDatafeedSubscriptionResponse

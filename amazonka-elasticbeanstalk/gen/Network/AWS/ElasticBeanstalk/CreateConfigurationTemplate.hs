@@ -63,7 +63,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to create a configuration template.
 --
 -- /See:/ 'createConfigurationTemplate' smart constructor.
 data CreateConfigurationTemplate = CreateConfigurationTemplate'
@@ -182,6 +182,8 @@ instance AWSRequest CreateConfigurationTemplate where
               (\ s h x -> parseXML x)
 
 instance Hashable CreateConfigurationTemplate
+
+instance NFData CreateConfigurationTemplate
 
 instance ToHeaders CreateConfigurationTemplate where
         toHeaders = const mempty

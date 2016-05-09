@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deletePlacementGroup' smart constructor.
+-- | Contains the parameters for DeletePlacementGroup.
+--
+-- /See:/ 'deletePlacementGroup' smart constructor.
 data DeletePlacementGroup = DeletePlacementGroup'
     { _dpgDryRun    :: !(Maybe Bool)
     , _dpgGroupName :: !Text
@@ -85,6 +87,8 @@ instance AWSRequest DeletePlacementGroup where
 
 instance Hashable DeletePlacementGroup
 
+instance NFData DeletePlacementGroup
+
 instance ToHeaders DeletePlacementGroup where
         toHeaders = const mempty
 
@@ -108,3 +112,5 @@ data DeletePlacementGroupResponse =
 deletePlacementGroupResponse
     :: DeletePlacementGroupResponse
 deletePlacementGroupResponse = DeletePlacementGroupResponse'
+
+instance NFData DeletePlacementGroupResponse

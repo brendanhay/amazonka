@@ -102,6 +102,8 @@ instance AWSRequest ResetCacheParameterGroup where
 
 instance Hashable ResetCacheParameterGroup
 
+instance NFData ResetCacheParameterGroup
+
 instance ToHeaders ResetCacheParameterGroup where
         toHeaders = const mempty
 

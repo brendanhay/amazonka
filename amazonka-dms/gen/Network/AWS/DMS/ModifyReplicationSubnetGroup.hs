@@ -97,6 +97,8 @@ instance AWSRequest ModifyReplicationSubnetGroup
 
 instance Hashable ModifyReplicationSubnetGroup
 
+instance NFData ModifyReplicationSubnetGroup
+
 instance ToHeaders ModifyReplicationSubnetGroup where
         toHeaders
           = const
@@ -153,3 +155,5 @@ mrsgrsReplicationSubnetGroup = lens _mrsgrsReplicationSubnetGroup (\ s a -> s{_m
 -- | The response status code.
 mrsgrsResponseStatus :: Lens' ModifyReplicationSubnetGroupResponse Int
 mrsgrsResponseStatus = lens _mrsgrsResponseStatus (\ s a -> s{_mrsgrsResponseStatus = a});
+
+instance NFData ModifyReplicationSubnetGroupResponse

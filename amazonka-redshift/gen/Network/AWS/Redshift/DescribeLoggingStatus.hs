@@ -82,6 +82,8 @@ instance AWSRequest DescribeLoggingStatus where
 
 instance Hashable DescribeLoggingStatus
 
+instance NFData DescribeLoggingStatus
+
 instance ToHeaders DescribeLoggingStatus where
         toHeaders = const mempty
 

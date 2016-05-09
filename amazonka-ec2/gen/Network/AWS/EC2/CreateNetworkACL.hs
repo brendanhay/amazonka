@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createNetworkACL' smart constructor.
+-- | Contains the parameters for CreateNetworkAcl.
+--
+-- /See:/ 'createNetworkACL' smart constructor.
 data CreateNetworkACL = CreateNetworkACL'
     { _cnaDryRun :: !(Maybe Bool)
     , _cnaVPCId  :: !Text
@@ -93,6 +95,8 @@ instance AWSRequest CreateNetworkACL where
 
 instance Hashable CreateNetworkACL
 
+instance NFData CreateNetworkACL
+
 instance ToHeaders CreateNetworkACL where
         toHeaders = const mempty
 
@@ -106,7 +110,9 @@ instance ToQuery CreateNetworkACL where
                "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _cnaDryRun, "VpcId" =: _cnaVPCId]
 
--- | /See:/ 'createNetworkACLResponse' smart constructor.
+-- | Contains the output of CreateNetworkAcl.
+--
+-- /See:/ 'createNetworkACLResponse' smart constructor.
 data CreateNetworkACLResponse = CreateNetworkACLResponse'
     { _cnarsNetworkACL     :: !(Maybe NetworkACL)
     , _cnarsResponseStatus :: !Int
@@ -135,3 +141,5 @@ cnarsNetworkACL = lens _cnarsNetworkACL (\ s a -> s{_cnarsNetworkACL = a});
 -- | The response status code.
 cnarsResponseStatus :: Lens' CreateNetworkACLResponse Int
 cnarsResponseStatus = lens _cnarsResponseStatus (\ s a -> s{_cnarsResponseStatus = a});
+
+instance NFData CreateNetworkACLResponse

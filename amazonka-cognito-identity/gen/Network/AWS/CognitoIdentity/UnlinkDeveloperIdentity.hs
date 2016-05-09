@@ -109,6 +109,8 @@ instance AWSRequest UnlinkDeveloperIdentity where
 
 instance Hashable UnlinkDeveloperIdentity
 
+instance NFData UnlinkDeveloperIdentity
+
 instance ToHeaders UnlinkDeveloperIdentity where
         toHeaders
           = const
@@ -148,3 +150,5 @@ data UnlinkDeveloperIdentityResponse =
 unlinkDeveloperIdentityResponse
     :: UnlinkDeveloperIdentityResponse
 unlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse'
+
+instance NFData UnlinkDeveloperIdentityResponse

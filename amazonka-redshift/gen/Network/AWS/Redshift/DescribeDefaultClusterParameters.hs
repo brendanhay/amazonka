@@ -138,6 +138,8 @@ instance AWSRequest DescribeDefaultClusterParameters
 
 instance Hashable DescribeDefaultClusterParameters
 
+instance NFData DescribeDefaultClusterParameters
+
 instance ToHeaders DescribeDefaultClusterParameters
          where
         toHeaders = const mempty
@@ -187,3 +189,6 @@ ddcprsResponseStatus = lens _ddcprsResponseStatus (\ s a -> s{_ddcprsResponseSta
 -- | Undocumented member.
 ddcprsDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
 ddcprsDefaultClusterParameters = lens _ddcprsDefaultClusterParameters (\ s a -> s{_ddcprsDefaultClusterParameters = a});
+
+instance NFData
+         DescribeDefaultClusterParametersResponse

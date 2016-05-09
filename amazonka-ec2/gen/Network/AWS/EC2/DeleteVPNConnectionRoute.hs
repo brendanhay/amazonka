@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteVPNConnectionRoute' smart constructor.
+-- | Contains the parameters for DeleteVpnConnectionRoute.
+--
+-- /See:/ 'deleteVPNConnectionRoute' smart constructor.
 data DeleteVPNConnectionRoute = DeleteVPNConnectionRoute'
     { _dvcrVPNConnectionId      :: !Text
     , _dvcrDestinationCIdRBlock :: !Text
@@ -83,6 +85,8 @@ instance AWSRequest DeleteVPNConnectionRoute where
 
 instance Hashable DeleteVPNConnectionRoute
 
+instance NFData DeleteVPNConnectionRoute
+
 instance ToHeaders DeleteVPNConnectionRoute where
         toHeaders = const mempty
 
@@ -108,3 +112,5 @@ data DeleteVPNConnectionRouteResponse =
 deleteVPNConnectionRouteResponse
     :: DeleteVPNConnectionRouteResponse
 deleteVPNConnectionRouteResponse = DeleteVPNConnectionRouteResponse'
+
+instance NFData DeleteVPNConnectionRouteResponse

@@ -81,6 +81,8 @@ instance AWSRequest DeleteIdentities where
 
 instance Hashable DeleteIdentities
 
+instance NFData DeleteIdentities
+
 instance ToHeaders DeleteIdentities where
         toHeaders
           = const
@@ -136,3 +138,5 @@ dirsUnprocessedIdentityIds = lens _dirsUnprocessedIdentityIds (\ s a -> s{_dirsU
 -- | The response status code.
 dirsResponseStatus :: Lens' DeleteIdentitiesResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+
+instance NFData DeleteIdentitiesResponse

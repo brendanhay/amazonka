@@ -99,6 +99,8 @@ instance AWSRequest CreatePolicy where
 
 instance Hashable CreatePolicy
 
+instance NFData CreatePolicy
+
 instance ToHeaders CreatePolicy where
         toHeaders = const mempty
 
@@ -170,3 +172,5 @@ cprsPolicyARN = lens _cprsPolicyARN (\ s a -> s{_cprsPolicyARN = a});
 -- | The response status code.
 cprsResponseStatus :: Lens' CreatePolicyResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
+
+instance NFData CreatePolicyResponse

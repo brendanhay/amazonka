@@ -77,8 +77,8 @@ getOpenIdToken pIdentityId_ =
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens. When using graph.facebook.com and www.amazon.com, supply the
 -- access_token returned from the provider\'s authflow. For
--- accounts.google.com or any other OpenId Connect provider, always include
--- the id_token.
+-- accounts.google.com, an Amazon Cognito Identity Provider, or any other
+-- OpenId Connect provider, always include the 'id_token'.
 goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
 goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Default . _Map;
 
@@ -97,6 +97,8 @@ instance AWSRequest GetOpenIdToken where
                      (pure (fromEnum s)))
 
 instance Hashable GetOpenIdToken
+
+instance NFData GetOpenIdToken
 
 instance ToHeaders GetOpenIdToken where
         toHeaders
@@ -161,3 +163,5 @@ goitrsIdentityId = lens _goitrsIdentityId (\ s a -> s{_goitrsIdentityId = a});
 -- | The response status code.
 goitrsResponseStatus :: Lens' GetOpenIdTokenResponse Int
 goitrsResponseStatus = lens _goitrsResponseStatus (\ s a -> s{_goitrsResponseStatus = a});
+
+instance NFData GetOpenIdTokenResponse

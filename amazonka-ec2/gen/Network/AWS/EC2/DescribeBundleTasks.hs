@@ -49,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeBundleTasks' smart constructor.
+-- | Contains the parameters for DescribeBundleTasks.
+--
+-- /See:/ 'describeBundleTasks' smart constructor.
 data DescribeBundleTasks = DescribeBundleTasks'
     { _dbtBundleIds :: !(Maybe [Text])
     , _dbtFilters   :: !(Maybe [Filter])
@@ -129,6 +131,8 @@ instance AWSRequest DescribeBundleTasks where
 
 instance Hashable DescribeBundleTasks
 
+instance NFData DescribeBundleTasks
+
 instance ToHeaders DescribeBundleTasks where
         toHeaders = const mempty
 
@@ -144,7 +148,9 @@ instance ToQuery DescribeBundleTasks where
                toQuery (toQueryList "Filter" <$> _dbtFilters),
                "DryRun" =: _dbtDryRun]
 
--- | /See:/ 'describeBundleTasksResponse' smart constructor.
+-- | Contains the output of DescribeBundleTasks.
+--
+-- /See:/ 'describeBundleTasksResponse' smart constructor.
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
     { _dbtrsBundleTasks    :: !(Maybe [BundleTask])
     , _dbtrsResponseStatus :: !Int
@@ -173,3 +179,5 @@ dbtrsBundleTasks = lens _dbtrsBundleTasks (\ s a -> s{_dbtrsBundleTasks = a}) . 
 -- | The response status code.
 dbtrsResponseStatus :: Lens' DescribeBundleTasksResponse Int
 dbtrsResponseStatus = lens _dbtrsResponseStatus (\ s a -> s{_dbtrsResponseStatus = a});
+
+instance NFData DescribeBundleTasksResponse

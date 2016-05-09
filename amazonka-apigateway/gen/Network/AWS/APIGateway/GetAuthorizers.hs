@@ -73,11 +73,12 @@ getAuthorizers pRestAPIId_ =
     , _gaRestAPIId = pRestAPIId_
     }
 
--- | Undocumented member.
+-- | Limit the number of < Authorizer> resources in the response.
 gaLimit :: Lens' GetAuthorizers (Maybe Int)
 gaLimit = lens _gaLimit (\ s a -> s{_gaLimit = a});
 
--- | Undocumented member.
+-- | If not all < Authorizer> resources in the response were present, the
+-- position will specificy where to start the next page of results.
 gaPosition :: Lens' GetAuthorizers (Maybe Text)
 gaPosition = lens _gaPosition (\ s a -> s{_gaPosition = a});
 
@@ -96,6 +97,8 @@ instance AWSRequest GetAuthorizers where
                      (pure (fromEnum s)))
 
 instance Hashable GetAuthorizers
+
+instance NFData GetAuthorizers
 
 instance ToHeaders GetAuthorizers where
         toHeaders
@@ -152,3 +155,5 @@ garsPosition = lens _garsPosition (\ s a -> s{_garsPosition = a});
 -- | The response status code.
 garsResponseStatus :: Lens' GetAuthorizersResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+
+instance NFData GetAuthorizersResponse

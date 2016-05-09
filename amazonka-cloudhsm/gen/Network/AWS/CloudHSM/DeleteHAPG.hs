@@ -77,6 +77,8 @@ instance AWSRequest DeleteHAPG where
 
 instance Hashable DeleteHAPG
 
+instance NFData DeleteHAPG
+
 instance ToHeaders DeleteHAPG where
         toHeaders
           = const
@@ -128,3 +130,5 @@ dhrsResponseStatus = lens _dhrsResponseStatus (\ s a -> s{_dhrsResponseStatus = 
 -- | The status of the action.
 dhrsStatus :: Lens' DeleteHAPGResponse Text
 dhrsStatus = lens _dhrsStatus (\ s a -> s{_dhrsStatus = a});
+
+instance NFData DeleteHAPGResponse

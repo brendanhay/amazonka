@@ -181,8 +181,9 @@ csTemplateURL :: Lens' CreateStack (Maybe Text)
 csTemplateURL = lens _csTemplateURL (\ s a -> s{_csTemplateURL = a});
 
 -- | A list of capabilities that you must specify before AWS CloudFormation
--- can create or update certain stacks. Some stack templates might include
--- resources that can affect permissions in your AWS account. For those
+-- can create certain stacks. Some stack templates might include resources
+-- that can affect permissions in your AWS account, for example, by
+-- creating new AWS Identity and Access Management (IAM) users. For those
 -- stacks, you must explicitly acknowledge their capabilities by specifying
 -- this parameter.
 --
@@ -197,8 +198,10 @@ csTemplateURL = lens _csTemplateURL (\ s a -> s{_csTemplateURL = a});
 -- and
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html AWS::IAM::UserToGroupAddition>.
 -- If your stack template contains these resources, we recommend that you
--- review any permissions associated with them. If you don\'t specify this
--- parameter, this action returns an 'InsufficientCapabilities' error.
+-- review all permissions associated with them and edit their permissions
+-- if necessary. If your template contains any of the listed resources and
+-- you don\'t specify this parameter, this action returns an
+-- 'InsufficientCapabilities' error.
 csCapabilities :: Lens' CreateStack [Capability]
 csCapabilities = lens _csCapabilities (\ s a -> s{_csCapabilities = a}) . _Default . _Coerce;
 
@@ -259,6 +262,8 @@ instance AWSRequest CreateStack where
                    (x .@? "StackId") <*> (pure (fromEnum s)))
 
 instance Hashable CreateStack
+
+instance NFData CreateStack
 
 instance ToHeaders CreateStack where
         toHeaders = const mempty
@@ -321,3 +326,5 @@ csrsStackId = lens _csrsStackId (\ s a -> s{_csrsStackId = a});
 -- | The response status code.
 csrsResponseStatus :: Lens' CreateStackResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+
+instance NFData CreateStackResponse

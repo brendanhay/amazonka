@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'disableVPCClassicLinkDNSSupport' smart constructor.
+-- | Contains the parameters for DisableVpcClassicLinkDnsSupport.
+--
+-- /See:/ 'disableVPCClassicLinkDNSSupport' smart constructor.
 newtype DisableVPCClassicLinkDNSSupport = DisableVPCClassicLinkDNSSupport'
     { _dvcldsVPCId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -81,6 +83,8 @@ instance AWSRequest DisableVPCClassicLinkDNSSupport
 
 instance Hashable DisableVPCClassicLinkDNSSupport
 
+instance NFData DisableVPCClassicLinkDNSSupport
+
 instance ToHeaders DisableVPCClassicLinkDNSSupport
          where
         toHeaders = const mempty
@@ -97,7 +101,9 @@ instance ToQuery DisableVPCClassicLinkDNSSupport
                "Version" =: ("2015-10-01" :: ByteString),
                "VpcId" =: _dvcldsVPCId]
 
--- | /See:/ 'disableVPCClassicLinkDNSSupportResponse' smart constructor.
+-- | Contains the output of DisableVpcClassicLinkDnsSupport.
+--
+-- /See:/ 'disableVPCClassicLinkDNSSupportResponse' smart constructor.
 data DisableVPCClassicLinkDNSSupportResponse = DisableVPCClassicLinkDNSSupportResponse'
     { _dvcldsrsReturn         :: !(Maybe Bool)
     , _dvcldsrsResponseStatus :: !Int
@@ -126,3 +132,6 @@ dvcldsrsReturn = lens _dvcldsrsReturn (\ s a -> s{_dvcldsrsReturn = a});
 -- | The response status code.
 dvcldsrsResponseStatus :: Lens' DisableVPCClassicLinkDNSSupportResponse Int
 dvcldsrsResponseStatus = lens _dvcldsrsResponseStatus (\ s a -> s{_dvcldsrsResponseStatus = a});
+
+instance NFData
+         DisableVPCClassicLinkDNSSupportResponse

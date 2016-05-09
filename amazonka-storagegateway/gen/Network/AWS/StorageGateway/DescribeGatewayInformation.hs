@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns metadata about a gateway such as its name,
--- network interfaces, configured time zone, and the state (whether the
--- gateway is running or not). To specify which gateway to describe, use
--- the Amazon Resource Name (ARN) of the gateway in your request.
+-- Returns metadata about a gateway such as its name, network interfaces,
+-- configured time zone, and the state (whether the gateway is running or
+-- not). To specify which gateway to describe, use the Amazon Resource Name
+-- (ARN) of the gateway in your request.
 module Network.AWS.StorageGateway.DescribeGatewayInformation
     (
     -- * Creating a Request
@@ -96,6 +96,8 @@ instance AWSRequest DescribeGatewayInformation where
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeGatewayInformation
+
+instance NFData DescribeGatewayInformation
 
 instance ToHeaders DescribeGatewayInformation where
         toHeaders
@@ -220,3 +222,5 @@ dgirsGatewayTimezone = lens _dgirsGatewayTimezone (\ s a -> s{_dgirsGatewayTimez
 -- | The response status code.
 dgirsResponseStatus :: Lens' DescribeGatewayInformationResponse Int
 dgirsResponseStatus = lens _dgirsResponseStatus (\ s a -> s{_dgirsResponseStatus = a});
+
+instance NFData DescribeGatewayInformationResponse

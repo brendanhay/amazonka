@@ -40,6 +40,7 @@ instance ToText Compute where
         Value -> "VALUE"
 
 instance Hashable     Compute
+instance NFData       Compute
 instance ToByteString Compute
 instance ToQuery      Compute
 instance ToHeader     Compute
@@ -74,6 +75,7 @@ instance ToText WorkspaceDirectoryState where
         Registering -> "REGISTERING"
 
 instance Hashable     WorkspaceDirectoryState
+instance NFData       WorkspaceDirectoryState
 instance ToByteString WorkspaceDirectoryState
 instance ToQuery      WorkspaceDirectoryState
 instance ToHeader     WorkspaceDirectoryState
@@ -99,6 +101,7 @@ instance ToText WorkspaceDirectoryType where
         SimpleAd -> "SIMPLE_AD"
 
 instance Hashable     WorkspaceDirectoryType
+instance NFData       WorkspaceDirectoryType
 instance ToByteString WorkspaceDirectoryType
 instance ToQuery      WorkspaceDirectoryType
 instance ToHeader     WorkspaceDirectoryType
@@ -148,6 +151,7 @@ instance ToText WorkspaceState where
         WSUnhealthy -> "UNHEALTHY"
 
 instance Hashable     WorkspaceState
+instance NFData       WorkspaceState
 instance ToByteString WorkspaceState
 instance ToQuery      WorkspaceState
 instance ToHeader     WorkspaceState

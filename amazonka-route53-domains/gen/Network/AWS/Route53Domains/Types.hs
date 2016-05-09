@@ -41,6 +41,9 @@ module Network.AWS.Route53Domains.Types
     -- * OperationType
     , OperationType (..)
 
+    -- * ReachabilityStatus
+    , ReachabilityStatus (..)
+
     -- * ContactDetail
     , ContactDetail
     , contactDetail
@@ -127,6 +130,8 @@ route53Domains =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
       | has (hasStatus 503) e = Just "service_unavailable"
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
@@ -137,29 +142,26 @@ route53Domains =
 -- domain name, it may not be a valid domain name or belong to the
 -- requester account.
 _InvalidInput :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInput = _ServiceError . hasStatus 400 . hasCode "InvalidInput"
+_InvalidInput = _ServiceError . hasCode "InvalidInput"
 
 -- | The number of operations or jobs running exceeded the allowed threshold
 -- for the account.
 _OperationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_OperationLimitExceeded =
-    _ServiceError . hasStatus 400 . hasCode "OperationLimitExceeded"
+_OperationLimitExceeded = _ServiceError . hasCode "OperationLimitExceeded"
 
 -- | The number of domains has exceeded the allowed threshold for the
 -- account.
 _DomainLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_DomainLimitExceeded =
-    _ServiceError . hasStatus 400 . hasCode "DomainLimitExceeded"
+_DomainLimitExceeded = _ServiceError . hasCode "DomainLimitExceeded"
 
 -- | Amazon Route 53 does not support this top-level domain.
 _UnsupportedTLD :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedTLD = _ServiceError . hasStatus 400 . hasCode "UnsupportedTLD"
+_UnsupportedTLD = _ServiceError . hasCode "UnsupportedTLD"
 
 -- | The top-level domain does not support this operation.
 _TLDRulesViolation :: AsError a => Getting (First ServiceError) a ServiceError
-_TLDRulesViolation =
-    _ServiceError . hasStatus 400 . hasCode "TLDRulesViolation"
+_TLDRulesViolation = _ServiceError . hasCode "TLDRulesViolation"
 
 -- | The request is already in progress for the domain.
 _DuplicateRequest :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateRequest = _ServiceError . hasStatus 400 . hasCode "DuplicateRequest"
+_DuplicateRequest = _ServiceError . hasCode "DuplicateRequest"

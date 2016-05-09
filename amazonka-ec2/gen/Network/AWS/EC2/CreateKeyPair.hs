@@ -59,7 +59,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createKeyPair' smart constructor.
+-- | Contains the parameters for CreateKeyPair.
+--
+-- /See:/ 'createKeyPair' smart constructor.
 data CreateKeyPair = CreateKeyPair'
     { _ckpDryRun  :: !(Maybe Bool)
     , _ckpKeyName :: !Text
@@ -106,6 +108,8 @@ instance AWSRequest CreateKeyPair where
                      <*> (x .@ "keyMaterial"))
 
 instance Hashable CreateKeyPair
+
+instance NFData CreateKeyPair
 
 instance ToHeaders CreateKeyPair where
         toHeaders = const mempty
@@ -170,3 +174,5 @@ ckprsKeyFingerprint = lens _ckprsKeyFingerprint (\ s a -> s{_ckprsKeyFingerprint
 -- | An unencrypted PEM encoded RSA private key.
 ckprsKeyMaterial :: Lens' CreateKeyPairResponse Text
 ckprsKeyMaterial = lens _ckprsKeyMaterial (\ s a -> s{_ckprsKeyMaterial = a});
+
+instance NFData CreateKeyPairResponse

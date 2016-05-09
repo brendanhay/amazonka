@@ -57,7 +57,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'attachClassicLinkVPC' smart constructor.
+-- | Contains the parameters for AttachClassicLinkVpc.
+--
+-- /See:/ 'attachClassicLinkVPC' smart constructor.
 data AttachClassicLinkVPC = AttachClassicLinkVPC'
     { _aclvDryRun     :: !(Maybe Bool)
     , _aclvInstanceId :: !Text
@@ -121,6 +123,8 @@ instance AWSRequest AttachClassicLinkVPC where
 
 instance Hashable AttachClassicLinkVPC
 
+instance NFData AttachClassicLinkVPC
+
 instance ToHeaders AttachClassicLinkVPC where
         toHeaders = const mempty
 
@@ -137,7 +141,9 @@ instance ToQuery AttachClassicLinkVPC where
                "VpcId" =: _aclvVPCId,
                toQueryList "SecurityGroupId" _aclvGroups]
 
--- | /See:/ 'attachClassicLinkVPCResponse' smart constructor.
+-- | Contains the output of AttachClassicLinkVpc.
+--
+-- /See:/ 'attachClassicLinkVPCResponse' smart constructor.
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
     { _aclvrsReturn         :: !(Maybe Bool)
     , _aclvrsResponseStatus :: !Int
@@ -166,3 +172,5 @@ aclvrsReturn = lens _aclvrsReturn (\ s a -> s{_aclvrsReturn = a});
 -- | The response status code.
 aclvrsResponseStatus :: Lens' AttachClassicLinkVPCResponse Int
 aclvrsResponseStatus = lens _aclvrsResponseStatus (\ s a -> s{_aclvrsResponseStatus = a});
+
+instance NFData AttachClassicLinkVPCResponse

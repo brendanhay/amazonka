@@ -87,6 +87,8 @@ instance AWSRequest EnableRadius where
 
 instance Hashable EnableRadius
 
+instance NFData EnableRadius
+
 instance ToHeaders EnableRadius where
         toHeaders
           = const
@@ -133,3 +135,5 @@ enableRadiusResponse pResponseStatus_ =
 -- | The response status code.
 errsResponseStatus :: Lens' EnableRadiusResponse Int
 errsResponseStatus = lens _errsResponseStatus (\ s a -> s{_errsResponseStatus = a});
+
+instance NFData EnableRadiusResponse

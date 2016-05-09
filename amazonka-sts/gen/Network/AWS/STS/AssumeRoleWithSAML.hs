@@ -22,18 +22,28 @@
 -- authenticated via a SAML authentication response. This operation
 -- provides a mechanism for tying an enterprise identity store or directory
 -- to role-based AWS access without user-specific credentials or
--- configuration.
+-- configuration. For a comparison of 'AssumeRoleWithSAML' with the other
+-- APIs that produce temporary credentials, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
+-- and
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the AWS STS APIs>
+-- in the /IAM User Guide/.
 --
 -- The temporary security credentials returned by this operation consist of
 -- an access key ID, a secret access key, and a security token.
 -- Applications can use these temporary security credentials to sign calls
--- to AWS services. The credentials are valid for the duration that you
--- specified when calling 'AssumeRoleWithSAML', which can be up to 3600
--- seconds (1 hour) or until the time specified in the SAML authentication
--- response\'s 'SessionNotOnOrAfter' value, whichever is shorter.
+-- to AWS services.
 --
--- The maximum duration for a session is 1 hour, and the minimum duration
--- is 15 minutes, even if values outside this range are specified.
+-- The temporary security credentials are valid for the duration that you
+-- specified when calling 'AssumeRole', or until the time specified in the
+-- SAML authentication response\'s 'SessionNotOnOrAfter' value, whichever
+-- is shorter. The duration can be from 900 seconds (15 minutes) to a
+-- maximum of 3600 seconds (1 hour). The default is 1 hour.
+--
+-- The temporary security credentials created by 'AssumeRoleWithSAML' can
+-- be used to make API calls to any AWS service with the following
+-- exception: you cannot call the STS service\'s 'GetFederationToken' or
+-- 'GetSessionToken' APIs.
 --
 -- Optionally, you can pass an IAM access policy to this operation. If you
 -- choose not to pass a policy, the temporary security credentials that are
@@ -48,7 +58,7 @@
 -- access policy of the role that is being assumed. For more information,
 -- see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity>
--- in the /Using IAM/.
+-- in the /IAM User Guide/.
 --
 -- Before your application can call 'AssumeRoleWithSAML', you must
 -- configure your SAML identity provider (IdP) to issue the claims required
@@ -62,16 +72,27 @@
 -- the metadata document that is uploaded for the SAML provider entity for
 -- your identity provider.
 --
+-- Calling 'AssumeRoleWithSAML' can result in an entry in your AWS
+-- CloudTrail logs. The entry includes the value in the 'NameID' element of
+-- the SAML assertion. We recommend that you use a NameIDType that is not
+-- associated with any personally identifiable information (PII). For
+-- example, you could instead use the Persistent Identifier
+-- ('urn:oasis:names:tc:SAML:2.0:nameid-format:persistent').
+--
 -- For more information, see the following resources:
 --
 -- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html About SAML 2.0-based Federation>
---     in the /Using IAM/.
+--     in the /IAM User Guide/.
+--
 -- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html Creating SAML Identity Providers>
---     in the /Using IAM/.
+--     in the /IAM User Guide/.
+--
 -- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.html Configuring a Relying Party and Claims>
---     in the /Using IAM/.
+--     in the /IAM User Guide/.
+--
 -- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html Creating a Role for SAML 2.0 Federation>
---     in the /Using IAM/.
+--     in the /IAM User Guide/.
+--
 module Network.AWS.STS.AssumeRoleWithSAML
     (
     -- * Creating a Request
@@ -164,7 +185,13 @@ arwsamlDurationSeconds = lens _arwsamlDurationSeconds (\ s a -> s{_arwsamlDurati
 -- permissions that are in excess of those allowed by the access policy of
 -- the role that is being assumed. For more information,
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity>
--- in the /Using IAM/.
+-- in the /IAM User Guide/.
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- string of characters up to 2048 characters in length. The characters can
+-- be any ASCII character from the space character to the end of the valid
+-- character list (\\u0020-\\u00FF). It can also include the tab (\\u0009),
+-- linefeed (\\u000A), and carriage return (\\u000D) characters.
 --
 -- The policy plain text must be 2048 bytes or shorter. However, an
 -- internal conversion compresses it into a packed binary format with a
@@ -209,6 +236,8 @@ instance AWSRequest AssumeRoleWithSAML where
                      <*> (pure (fromEnum s)))
 
 instance Hashable AssumeRoleWithSAML
+
+instance NFData AssumeRoleWithSAML
 
 instance ToHeaders AssumeRoleWithSAML where
         toHeaders = const mempty
@@ -331,7 +360,8 @@ arwsamlrsSubjectType = lens _arwsamlrsSubjectType (\ s a -> s{_arwsamlrsSubjectT
 arwsamlrsNameQualifier :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsNameQualifier = lens _arwsamlrsNameQualifier (\ s a -> s{_arwsamlrsNameQualifier = a});
 
--- | Undocumented member.
+-- | The identifiers for the temporary security credentials that the
+-- operation returns.
 arwsamlrsAssumedRoleUser :: Lens' AssumeRoleWithSAMLResponse (Maybe AssumedRoleUser)
 arwsamlrsAssumedRoleUser = lens _arwsamlrsAssumedRoleUser (\ s a -> s{_arwsamlrsAssumedRoleUser = a});
 
@@ -342,3 +372,5 @@ arwsamlrsIssuer = lens _arwsamlrsIssuer (\ s a -> s{_arwsamlrsIssuer = a});
 -- | The response status code.
 arwsamlrsResponseStatus :: Lens' AssumeRoleWithSAMLResponse Int
 arwsamlrsResponseStatus = lens _arwsamlrsResponseStatus (\ s a -> s{_arwsamlrsResponseStatus = a});
+
+instance NFData AssumeRoleWithSAMLResponse

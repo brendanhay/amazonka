@@ -100,6 +100,8 @@ instance AWSRequest Predict where
 
 instance Hashable Predict
 
+instance NFData Predict
+
 instance ToHeaders Predict where
         toHeaders
           = const
@@ -152,3 +154,5 @@ prsPrediction = lens _prsPrediction (\ s a -> s{_prsPrediction = a});
 -- | The response status code.
 prsResponseStatus :: Lens' PredictResponse Int
 prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});
+
+instance NFData PredictResponse

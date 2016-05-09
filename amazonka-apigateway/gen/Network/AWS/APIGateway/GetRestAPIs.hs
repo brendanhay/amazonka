@@ -47,7 +47,8 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to list existing < RestApis> defined for your collection.
+-- | The GET request to list existing < RestApis> defined for your
+-- collection.
 --
 -- /See:/ 'getRestAPIs' smart constructor.
 data GetRestAPIs = GetRestAPIs'
@@ -99,6 +100,8 @@ instance AWSRequest GetRestAPIs where
                      (pure (fromEnum s)))
 
 instance Hashable GetRestAPIs
+
+instance NFData GetRestAPIs
 
 instance ToHeaders GetRestAPIs where
         toHeaders
@@ -155,3 +158,5 @@ grarsPosition = lens _grarsPosition (\ s a -> s{_grarsPosition = a});
 -- | The response status code.
 grarsResponseStatus :: Lens' GetRestAPIsResponse Int
 grarsResponseStatus = lens _grarsResponseStatus (\ s a -> s{_grarsResponseStatus = a});
+
+instance NFData GetRestAPIsResponse

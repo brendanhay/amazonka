@@ -108,6 +108,8 @@ instance AWSRequest EstimateTemplateCost where
 
 instance Hashable EstimateTemplateCost
 
+instance NFData EstimateTemplateCost
+
 instance ToHeaders EstimateTemplateCost where
         toHeaders = const mempty
 
@@ -156,3 +158,5 @@ etcrsURL = lens _etcrsURL (\ s a -> s{_etcrsURL = a});
 -- | The response status code.
 etcrsResponseStatus :: Lens' EstimateTemplateCostResponse Int
 etcrsResponseStatus = lens _etcrsResponseStatus (\ s a -> s{_etcrsResponseStatus = a});
+
+instance NFData EstimateTemplateCostResponse

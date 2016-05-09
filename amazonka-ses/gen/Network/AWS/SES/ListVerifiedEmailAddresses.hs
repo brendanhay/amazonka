@@ -73,6 +73,8 @@ instance AWSRequest ListVerifiedEmailAddresses where
 
 instance Hashable ListVerifiedEmailAddresses
 
+instance NFData ListVerifiedEmailAddresses
+
 instance ToHeaders ListVerifiedEmailAddresses where
         toHeaders = const mempty
 
@@ -116,3 +118,5 @@ lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_l
 -- | The response status code.
 lvearsResponseStatus :: Lens' ListVerifiedEmailAddressesResponse Int
 lvearsResponseStatus = lens _lvearsResponseStatus (\ s a -> s{_lvearsResponseStatus = a});
+
+instance NFData ListVerifiedEmailAddressesResponse

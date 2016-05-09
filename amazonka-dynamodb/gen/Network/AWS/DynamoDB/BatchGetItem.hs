@@ -236,6 +236,8 @@ instance AWSRequest BatchGetItem where
 
 instance Hashable BatchGetItem
 
+instance NFData BatchGetItem
+
 instance ToHeaders BatchGetItem where
         toHeaders
           = const
@@ -335,3 +337,5 @@ bgirsConsumedCapacity = lens _bgirsConsumedCapacity (\ s a -> s{_bgirsConsumedCa
 -- | The response status code.
 bgirsResponseStatus :: Lens' BatchGetItemResponse Int
 bgirsResponseStatus = lens _bgirsResponseStatus (\ s a -> s{_bgirsResponseStatus = a});
+
+instance NFData BatchGetItemResponse

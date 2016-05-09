@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'cancelExportTask' smart constructor.
+-- | Contains the parameters for CancelExportTask.
+--
+-- /See:/ 'cancelExportTask' smart constructor.
 newtype CancelExportTask = CancelExportTask'
     { _cetExportTaskId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -72,6 +74,8 @@ instance AWSRequest CancelExportTask where
 
 instance Hashable CancelExportTask
 
+instance NFData CancelExportTask
+
 instance ToHeaders CancelExportTask where
         toHeaders = const mempty
 
@@ -95,3 +99,5 @@ data CancelExportTaskResponse =
 cancelExportTaskResponse
     :: CancelExportTaskResponse
 cancelExportTaskResponse = CancelExportTaskResponse'
+
+instance NFData CancelExportTaskResponse

@@ -162,6 +162,8 @@ instance AWSRequest ListRecords where
 
 instance Hashable ListRecords
 
+instance NFData ListRecords
+
 instance ToHeaders ListRecords where
         toHeaders
           = const
@@ -279,3 +281,5 @@ lrrsDatasetSyncCount = lens _lrrsDatasetSyncCount (\ s a -> s{_lrrsDatasetSyncCo
 -- | The response status code.
 lrrsResponseStatus :: Lens' ListRecordsResponse Int
 lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
+
+instance NFData ListRecordsResponse

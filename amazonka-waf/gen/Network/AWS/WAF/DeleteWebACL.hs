@@ -95,6 +95,8 @@ instance AWSRequest DeleteWebACL where
 
 instance Hashable DeleteWebACL
 
+instance NFData DeleteWebACL
+
 instance ToHeaders DeleteWebACL where
         toHeaders
           = const
@@ -148,3 +150,5 @@ dwarsChangeToken = lens _dwarsChangeToken (\ s a -> s{_dwarsChangeToken = a});
 -- | The response status code.
 dwarsResponseStatus :: Lens' DeleteWebACLResponse Int
 dwarsResponseStatus = lens _dwarsResponseStatus (\ s a -> s{_dwarsResponseStatus = a});
+
+instance NFData DeleteWebACLResponse

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about runs.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListRuns
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.DeviceFarm.ListRuns
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -78,6 +81,13 @@ lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
 lrArn :: Lens' ListRuns Text
 lrArn = lens _lrArn (\ s a -> s{_lrArn = a});
 
+instance AWSPager ListRuns where
+        page rq rs
+          | stop (rs ^. lrrsNextToken) = Nothing
+          | stop (rs ^. lrrsRuns) = Nothing
+          | otherwise =
+            Just $ rq & lrNextToken .~ rs ^. lrrsNextToken
+
 instance AWSRequest ListRuns where
         type Rs ListRuns = ListRunsResponse
         request = postJSON deviceFarm
@@ -89,6 +99,8 @@ instance AWSRequest ListRuns where
                      (pure (fromEnum s)))
 
 instance Hashable ListRuns
+
+instance NFData ListRuns
 
 instance ToHeaders ListRuns where
         toHeaders
@@ -153,3 +165,5 @@ lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 -- | The response status code.
 lrrsResponseStatus :: Lens' ListRunsResponse Int
 lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
+
+instance NFData ListRunsResponse

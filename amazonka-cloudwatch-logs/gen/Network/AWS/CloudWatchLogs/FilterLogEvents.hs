@@ -181,6 +181,8 @@ instance AWSRequest FilterLogEvents where
 
 instance Hashable FilterLogEvents
 
+instance NFData FilterLogEvents
+
 instance ToHeaders FilterLogEvents where
         toHeaders
           = const
@@ -259,3 +261,5 @@ flersEvents = lens _flersEvents (\ s a -> s{_flersEvents = a}) . _Default . _Coe
 -- | The response status code.
 flersResponseStatus :: Lens' FilterLogEventsResponse Int
 flersResponseStatus = lens _flersResponseStatus (\ s a -> s{_flersResponseStatus = a});
+
+instance NFData FilterLogEventsResponse

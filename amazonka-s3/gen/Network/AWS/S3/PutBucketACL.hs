@@ -142,6 +142,8 @@ instance AWSRequest PutBucketACL where
 
 instance Hashable PutBucketACL
 
+instance NFData PutBucketACL
+
 instance ToElement PutBucketACL where
         toElement
           = mkElement
@@ -177,3 +179,5 @@ data PutBucketACLResponse =
 putBucketACLResponse
     :: PutBucketACLResponse
 putBucketACLResponse = PutBucketACLResponse'
+
+instance NFData PutBucketACLResponse

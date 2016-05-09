@@ -169,6 +169,8 @@ instance AWSRequest Invoke where
 
 instance Hashable Invoke
 
+instance NFData Invoke
+
 instance ToBody Invoke where
         toBody = toBody . _iPayload
 
@@ -254,3 +256,5 @@ irsPayload = lens _irsPayload (\ s a -> s{_irsPayload = a});
 -- 'DryRun' invocation type the status code will be 204.
 irsStatusCode :: Lens' InvokeResponse Int
 irsStatusCode = lens _irsStatusCode (\ s a -> s{_irsStatusCode = a});
+
+instance NFData InvokeResponse

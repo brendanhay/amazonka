@@ -107,6 +107,8 @@ instance AWSRequest
 instance Hashable
          SetIdentityFeedbackForwardingEnabled
 
+instance NFData SetIdentityFeedbackForwardingEnabled
+
 instance ToHeaders
          SetIdentityFeedbackForwardingEnabled where
         toHeaders = const mempty
@@ -147,3 +149,6 @@ setIdentityFeedbackForwardingEnabledResponse pResponseStatus_ =
 -- | The response status code.
 siffersResponseStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
 siffersResponseStatus = lens _siffersResponseStatus (\ s a -> s{_siffersResponseStatus = a});
+
+instance NFData
+         SetIdentityFeedbackForwardingEnabledResponse

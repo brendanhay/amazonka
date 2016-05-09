@@ -124,6 +124,8 @@ instance AWSRequest RevokeClusterSecurityGroupIngress
 
 instance Hashable RevokeClusterSecurityGroupIngress
 
+instance NFData RevokeClusterSecurityGroupIngress
+
 instance ToHeaders RevokeClusterSecurityGroupIngress
          where
         toHeaders = const mempty
@@ -175,3 +177,6 @@ rcsgirsClusterSecurityGroup = lens _rcsgirsClusterSecurityGroup (\ s a -> s{_rcs
 -- | The response status code.
 rcsgirsResponseStatus :: Lens' RevokeClusterSecurityGroupIngressResponse Int
 rcsgirsResponseStatus = lens _rcsgirsResponseStatus (\ s a -> s{_rcsgirsResponseStatus = a});
+
+instance NFData
+         RevokeClusterSecurityGroupIngressResponse

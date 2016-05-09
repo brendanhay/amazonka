@@ -37,6 +37,7 @@ module Network.AWS.APIGateway.GetAuthorizer
     , aName
     , aId
     , aAuthorizerResultTtlInSeconds
+    , aAuthType
     , aType
     , aIdentitySource
     , aAuthorizerCredentials
@@ -88,6 +89,8 @@ instance AWSRequest GetAuthorizer where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance Hashable GetAuthorizer
+
+instance NFData GetAuthorizer
 
 instance ToHeaders GetAuthorizer where
         toHeaders

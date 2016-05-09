@@ -69,6 +69,8 @@ instance FromXML AccountQuota where
 
 instance Hashable AccountQuota
 
+instance NFData AccountQuota
+
 -- | Contains Availability Zone information.
 --
 -- This data type is used as an element in the following data type:
@@ -100,6 +102,8 @@ instance FromXML AvailabilityZone where
         parseXML x = AvailabilityZone' <$> (x .@? "Name")
 
 instance Hashable AvailabilityZone
+
+instance NFData AvailabilityZone
 
 -- | A CA certificate for an AWS account.
 --
@@ -166,6 +170,8 @@ instance FromXML Certificate where
 
 instance Hashable Certificate
 
+instance NFData Certificate
+
 -- | This data type is used as a response element in the action
 -- < DescribeDBEngineVersions>.
 --
@@ -205,6 +211,8 @@ instance FromXML CharacterSet where
                 (x .@? "CharacterSetDescription")
 
 instance Hashable CharacterSet
+
+instance NFData CharacterSet
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -495,11 +503,14 @@ instance FromXML DBCluster where
 
 instance Hashable DBCluster
 
+instance NFData DBCluster
+
 -- | Contains information about an instance that is part of a DB cluster.
 --
 -- /See:/ 'dbClusterMember' smart constructor.
 data DBClusterMember = DBClusterMember'
-    { _dcmDBInstanceIdentifier          :: !(Maybe Text)
+    { _dcmPromotionTier                 :: !(Maybe Int)
+    , _dcmDBInstanceIdentifier          :: !(Maybe Text)
     , _dcmIsClusterWriter               :: !(Maybe Bool)
     , _dcmDBClusterParameterGroupStatus :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -507,6 +518,8 @@ data DBClusterMember = DBClusterMember'
 -- | Creates a value of 'DBClusterMember' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcmPromotionTier'
 --
 -- * 'dcmDBInstanceIdentifier'
 --
@@ -517,10 +530,18 @@ dbClusterMember
     :: DBClusterMember
 dbClusterMember =
     DBClusterMember'
-    { _dcmDBInstanceIdentifier = Nothing
+    { _dcmPromotionTier = Nothing
+    , _dcmDBInstanceIdentifier = Nothing
     , _dcmIsClusterWriter = Nothing
     , _dcmDBClusterParameterGroupStatus = Nothing
     }
+
+-- | A value that specifies the order in which an Aurora Replica is promoted
+-- to the primary instance after a failure of the existing primary
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>.
+dcmPromotionTier :: Lens' DBClusterMember (Maybe Int)
+dcmPromotionTier = lens _dcmPromotionTier (\ s a -> s{_dcmPromotionTier = a});
 
 -- | Specifies the instance identifier for this member of the DB cluster.
 dcmDBInstanceIdentifier :: Lens' DBClusterMember (Maybe Text)
@@ -539,11 +560,14 @@ dcmDBClusterParameterGroupStatus = lens _dcmDBClusterParameterGroupStatus (\ s a
 instance FromXML DBClusterMember where
         parseXML x
           = DBClusterMember' <$>
-              (x .@? "DBInstanceIdentifier") <*>
-                (x .@? "IsClusterWriter")
+              (x .@? "PromotionTier") <*>
+                (x .@? "DBInstanceIdentifier")
+                <*> (x .@? "IsClusterWriter")
                 <*> (x .@? "DBClusterParameterGroupStatus")
 
 instance Hashable DBClusterMember
+
+instance NFData DBClusterMember
 
 -- | Contains status information for a DB cluster option group.
 --
@@ -583,6 +607,8 @@ instance FromXML DBClusterOptionGroupStatus where
                 (x .@? "DBClusterOptionGroupName")
 
 instance Hashable DBClusterOptionGroupStatus
+
+instance NFData DBClusterOptionGroupStatus
 
 -- | Contains the result of a successful invocation of the
 -- < CreateDBClusterParameterGroup> action.
@@ -639,6 +665,8 @@ instance FromXML DBClusterParameterGroup where
 
 instance Hashable DBClusterParameterGroup
 
+instance NFData DBClusterParameterGroup
+
 -- |
 --
 -- /See:/ 'dbClusterParameterGroupNameMessage' smart constructor.
@@ -677,6 +705,8 @@ instance FromXML DBClusterParameterGroupNameMessage
               (x .@? "DBClusterParameterGroupName")
 
 instance Hashable DBClusterParameterGroupNameMessage
+
+instance NFData DBClusterParameterGroupNameMessage
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -867,6 +897,8 @@ instance FromXML DBClusterSnapshot where
 
 instance Hashable DBClusterSnapshot
 
+instance NFData DBClusterSnapshot
+
 -- | This data type is used as a response element in the action
 -- < DescribeDBEngineVersions>.
 --
@@ -969,6 +1001,8 @@ instance FromXML DBEngineVersion where
 
 instance Hashable DBEngineVersion
 
+instance NFData DBEngineVersion
+
 -- | Contains the result of a successful invocation of the following actions:
 --
 -- -   < CreateDBInstance>
@@ -996,6 +1030,7 @@ data DBInstance = DBInstance'
     , _diEngine                                :: !(Maybe Text)
     , _diLatestRestorableTime                  :: !(Maybe ISO8601)
     , _diDBInstanceClass                       :: !(Maybe Text)
+    , _diPromotionTier                         :: !(Maybe Int)
     , _diLicenseModel                          :: !(Maybe Text)
     , _diPreferredMaintenanceWindow            :: !(Maybe Text)
     , _diCACertificateIdentifier               :: !(Maybe Text)
@@ -1022,6 +1057,7 @@ data DBInstance = DBInstance'
     , _diPendingModifiedValues                 :: !(Maybe PendingModifiedValues)
     , _diStorageType                           :: !(Maybe Text)
     , _diStatusInfos                           :: !(Maybe [DBInstanceStatusInfo])
+    , _diDomainMemberships                     :: !(Maybe [DomainMembership])
     , _diDBName                                :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1060,6 +1096,8 @@ data DBInstance = DBInstance'
 -- * 'diLatestRestorableTime'
 --
 -- * 'diDBInstanceClass'
+--
+-- * 'diPromotionTier'
 --
 -- * 'diLicenseModel'
 --
@@ -1113,6 +1151,8 @@ data DBInstance = DBInstance'
 --
 -- * 'diStatusInfos'
 --
+-- * 'diDomainMemberships'
+--
 -- * 'diDBName'
 dbInstance
     :: DBInstance
@@ -1134,6 +1174,7 @@ dbInstance =
     , _diEngine = Nothing
     , _diLatestRestorableTime = Nothing
     , _diDBInstanceClass = Nothing
+    , _diPromotionTier = Nothing
     , _diLicenseModel = Nothing
     , _diPreferredMaintenanceWindow = Nothing
     , _diCACertificateIdentifier = Nothing
@@ -1160,6 +1201,7 @@ dbInstance =
     , _diPendingModifiedValues = Nothing
     , _diStorageType = Nothing
     , _diStatusInfos = Nothing
+    , _diDomainMemberships = Nothing
     , _diDBName = Nothing
     }
 
@@ -1252,6 +1294,13 @@ diLatestRestorableTime = lens _diLatestRestorableTime (\ s a -> s{_diLatestResto
 -- instance.
 diDBInstanceClass :: Lens' DBInstance (Maybe Text)
 diDBInstanceClass = lens _diDBInstanceClass (\ s a -> s{_diDBInstanceClass = a});
+
+-- | A value that specifies the order in which an Aurora Replica is promoted
+-- to the primary instance after a failure of the existing primary
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>.
+diPromotionTier :: Lens' DBInstance (Maybe Int)
+diPromotionTier = lens _diPromotionTier (\ s a -> s{_diPromotionTier = a});
 
 -- | License model information for this DB instance.
 diLicenseModel :: Lens' DBInstance (Maybe Text)
@@ -1379,6 +1428,11 @@ diStorageType = lens _diStorageType (\ s a -> s{_diStorageType = a});
 diStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
 diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a}) . _Default . _Coerce;
 
+-- | The Active Directory Domain membership records associated with the DB
+-- instance.
+diDomainMemberships :: Lens' DBInstance [DomainMembership]
+diDomainMemberships = lens _diDomainMemberships (\ s a -> s{_diDomainMemberships = a}) . _Default . _Coerce;
+
 -- | The meaning of this parameter differs according to the database engine
 -- you use. For example, this value returns MySQL, MariaDB, or PostgreSQL
 -- information when returning values from CreateDBInstanceReadReplica since
@@ -1423,6 +1477,7 @@ instance FromXML DBInstance where
                 <*> (x .@? "Engine")
                 <*> (x .@? "LatestRestorableTime")
                 <*> (x .@? "DBInstanceClass")
+                <*> (x .@? "PromotionTier")
                 <*> (x .@? "LicenseModel")
                 <*> (x .@? "PreferredMaintenanceWindow")
                 <*> (x .@? "CACertificateIdentifier")
@@ -1457,9 +1512,14 @@ instance FromXML DBInstance where
                 <*>
                 (x .@? "StatusInfos" .!@ mempty >>=
                    may (parseXMLList "DBInstanceStatusInfo"))
+                <*>
+                (x .@? "DomainMemberships" .!@ mempty >>=
+                   may (parseXMLList "DomainMembership"))
                 <*> (x .@? "DBName")
 
 instance Hashable DBInstance
+
+instance NFData DBInstance
 
 -- | Provides a list of status information for a DB instance.
 --
@@ -1520,6 +1580,8 @@ instance FromXML DBInstanceStatusInfo where
 
 instance Hashable DBInstanceStatusInfo
 
+instance NFData DBInstanceStatusInfo
+
 -- | Contains the result of a successful invocation of the
 -- < CreateDBParameterGroup> action.
 --
@@ -1574,6 +1636,8 @@ instance FromXML DBParameterGroup where
 
 instance Hashable DBParameterGroup
 
+instance NFData DBParameterGroup
+
 -- | Contains the result of a successful invocation of the
 -- < ModifyDBParameterGroup> or < ResetDBParameterGroup> action.
 --
@@ -1604,6 +1668,8 @@ instance FromXML DBParameterGroupNameMessage where
               (x .@? "DBParameterGroupName")
 
 instance Hashable DBParameterGroupNameMessage
+
+instance NFData DBParameterGroupNameMessage
 
 -- | The status of the DB parameter group.
 --
@@ -1652,6 +1718,8 @@ instance FromXML DBParameterGroupStatus where
                 (x .@? "ParameterApplyStatus")
 
 instance Hashable DBParameterGroupStatus
+
+instance NFData DBParameterGroupStatus
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -1738,6 +1806,8 @@ instance FromXML DBSecurityGroup where
 
 instance Hashable DBSecurityGroup
 
+instance NFData DBSecurityGroup
+
 -- | This data type is used as a response element in the following actions:
 --
 -- -   < ModifyDBInstance>
@@ -1780,6 +1850,8 @@ instance FromXML DBSecurityGroupMembership where
               (x .@? "Status") <*> (x .@? "DBSecurityGroupName")
 
 instance Hashable DBSecurityGroupMembership
+
+instance NFData DBSecurityGroupMembership
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -2023,6 +2095,8 @@ instance FromXML DBSnapshot where
 
 instance Hashable DBSnapshot
 
+instance NFData DBSnapshot
+
 -- | Contains the name and values of a manual DB snapshot attribute
 --
 -- Manual DB snapshot attributes are used to authorize other AWS accounts
@@ -2076,6 +2150,8 @@ instance FromXML DBSnapshotAttribute where
 
 instance Hashable DBSnapshotAttribute
 
+instance NFData DBSnapshotAttribute
+
 -- | Contains the results of a successful call to the
 -- < DescribeDBSnapshotAttributes> API.
 --
@@ -2120,6 +2196,8 @@ instance FromXML DBSnapshotAttributesResult where
                    may (parseXMLList "DBSnapshotAttribute"))
 
 instance Hashable DBSnapshotAttributesResult
+
+instance NFData DBSnapshotAttributesResult
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -2195,6 +2273,8 @@ instance FromXML DBSubnetGroup where
 
 instance Hashable DBSubnetGroup
 
+instance NFData DBSubnetGroup
+
 -- | This data type is used as a response element to < DescribeDBLogFiles>.
 --
 -- /See:/ 'describeDBLogFilesDetails' smart constructor.
@@ -2241,6 +2321,69 @@ instance FromXML DescribeDBLogFilesDetails where
                 (x .@? "LogFileName")
 
 instance Hashable DescribeDBLogFilesDetails
+
+instance NFData DescribeDBLogFilesDetails
+
+-- | An Active Directory Domain membership record associated with the DB
+-- instance.
+--
+-- /See:/ 'domainMembership' smart constructor.
+data DomainMembership = DomainMembership'
+    { _dmStatus      :: !(Maybe Text)
+    , _dmFQDN        :: !(Maybe Text)
+    , _dmDomain      :: !(Maybe Text)
+    , _dmIAMRoleName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DomainMembership' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmStatus'
+--
+-- * 'dmFQDN'
+--
+-- * 'dmDomain'
+--
+-- * 'dmIAMRoleName'
+domainMembership
+    :: DomainMembership
+domainMembership =
+    DomainMembership'
+    { _dmStatus = Nothing
+    , _dmFQDN = Nothing
+    , _dmDomain = Nothing
+    , _dmIAMRoleName = Nothing
+    }
+
+-- | The status of the DB instance\'s Active Directory Domain membership,
+-- such as joined, pending-join, failed etc).
+dmStatus :: Lens' DomainMembership (Maybe Text)
+dmStatus = lens _dmStatus (\ s a -> s{_dmStatus = a});
+
+-- | The fully qualified domain name of the Active Directory Domain.
+dmFQDN :: Lens' DomainMembership (Maybe Text)
+dmFQDN = lens _dmFQDN (\ s a -> s{_dmFQDN = a});
+
+-- | The identifier of the Active Directory Domain.
+dmDomain :: Lens' DomainMembership (Maybe Text)
+dmDomain = lens _dmDomain (\ s a -> s{_dmDomain = a});
+
+-- | The name of the IAM role to be used when making API calls to the
+-- Directory Service.
+dmIAMRoleName :: Lens' DomainMembership (Maybe Text)
+dmIAMRoleName = lens _dmIAMRoleName (\ s a -> s{_dmIAMRoleName = a});
+
+instance FromXML DomainMembership where
+        parseXML x
+          = DomainMembership' <$>
+              (x .@? "Status") <*> (x .@? "FQDN") <*>
+                (x .@? "Domain")
+                <*> (x .@? "IAMRoleName")
+
+instance Hashable DomainMembership
+
+instance NFData DomainMembership
 
 -- | This data type is used as a response element in the following actions:
 --
@@ -2305,6 +2448,8 @@ instance FromXML EC2SecurityGroup where
 
 instance Hashable EC2SecurityGroup
 
+instance NFData EC2SecurityGroup
+
 -- | This data type is used as a response element in the following actions:
 --
 -- -   < CreateDBInstance>
@@ -2356,6 +2501,8 @@ instance FromXML Endpoint where
                 (x .@? "Port")
 
 instance Hashable Endpoint
+
+instance NFData Endpoint
 
 -- | Contains the result of a successful invocation of the
 -- < DescribeEngineDefaultParameters> action.
@@ -2409,6 +2556,8 @@ instance FromXML EngineDefaults where
                    may (parseXMLList "Parameter"))
 
 instance Hashable EngineDefaults
+
+instance NFData EngineDefaults
 
 -- | This data type is used as a response element in the < DescribeEvents>
 -- action.
@@ -2478,6 +2627,8 @@ instance FromXML Event where
 
 instance Hashable Event
 
+instance NFData Event
+
 -- | Contains the results of a successful invocation of the
 -- < DescribeEventCategories> action.
 --
@@ -2518,6 +2669,8 @@ instance FromXML EventCategoriesMap where
                    may (parseXMLList "EventCategory"))
 
 instance Hashable EventCategoriesMap
+
+instance NFData EventCategoriesMap
 
 -- | Contains the results of a successful invocation of the
 -- < DescribeEventSubscriptions> action.
@@ -2636,6 +2789,8 @@ instance FromXML EventSubscription where
 
 instance Hashable EventSubscription
 
+instance NFData EventSubscription
+
 -- | /See:/ 'filter'' smart constructor.
 data Filter = Filter'
     { _fName   :: !Text
@@ -2667,6 +2822,8 @@ fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Coerce;
 
 instance Hashable Filter
+
+instance NFData Filter
 
 instance ToQuery Filter where
         toQuery Filter'{..}
@@ -2712,6 +2869,8 @@ instance FromXML IPRange where
           = IPRange' <$> (x .@? "Status") <*> (x .@? "CIDRIP")
 
 instance Hashable IPRange
+
+instance NFData IPRange
 
 -- | Option details.
 --
@@ -2813,6 +2972,8 @@ instance FromXML Option where
 
 instance Hashable Option
 
+instance NFData Option
+
 -- | A list of all available options
 --
 -- /See:/ 'optionConfiguration' smart constructor.
@@ -2870,6 +3031,8 @@ ocOptionName :: Lens' OptionConfiguration Text
 ocOptionName = lens _ocOptionName (\ s a -> s{_ocOptionName = a});
 
 instance Hashable OptionConfiguration
+
+instance NFData OptionConfiguration
 
 instance ToQuery OptionConfiguration where
         toQuery OptionConfiguration'{..}
@@ -2980,6 +3143,8 @@ instance FromXML OptionGroup where
 
 instance Hashable OptionGroup
 
+instance NFData OptionGroup
+
 -- | Provides information on the option groups the DB instance is a member
 -- of.
 --
@@ -3021,6 +3186,8 @@ instance FromXML OptionGroupMembership where
               (x .@? "Status") <*> (x .@? "OptionGroupName")
 
 instance Hashable OptionGroupMembership
+
+instance NFData OptionGroupMembership
 
 -- | Available option.
 --
@@ -3153,6 +3320,8 @@ instance FromXML OptionGroupOption where
 
 instance Hashable OptionGroupOption
 
+instance NFData OptionGroupOption
+
 -- | Option group option settings are used to display settings available for
 -- each option with their default values and other information. These
 -- values are used with the DescribeOptionGroupOptions action.
@@ -3229,6 +3398,8 @@ instance FromXML OptionGroupOptionSetting where
                 <*> (x .@? "AllowedValues")
 
 instance Hashable OptionGroupOptionSetting
+
+instance NFData OptionGroupOptionSetting
 
 -- | Option settings are the actual settings being applied or configured for
 -- that option. It is used when you modify an option group or describe
@@ -3335,6 +3506,8 @@ instance FromXML OptionSetting where
                 <*> (x .@? "Description")
 
 instance Hashable OptionSetting
+
+instance NFData OptionSetting
 
 instance ToQuery OptionSetting where
         toQuery OptionSetting'{..}
@@ -3481,6 +3654,8 @@ instance FromXML OrderableDBInstanceOption where
 
 instance Hashable OrderableDBInstanceOption
 
+instance NFData OrderableDBInstanceOption
+
 -- | This data type is used as a request parameter in the
 -- < ModifyDBParameterGroup> and < ResetDBParameterGroup> actions.
 --
@@ -3597,6 +3772,8 @@ instance FromXML Parameter where
 
 instance Hashable Parameter
 
+instance NFData Parameter
+
 instance ToQuery Parameter where
         toQuery Parameter'{..}
           = mconcat
@@ -3697,6 +3874,8 @@ instance FromXML PendingMaintenanceAction where
                 <*> (x .@? "CurrentApplyDate")
 
 instance Hashable PendingMaintenanceAction
+
+instance NFData PendingMaintenanceAction
 
 -- | This data type is used as a response element in the < ModifyDBInstance>
 -- action.
@@ -3826,6 +4005,8 @@ instance FromXML PendingModifiedValues where
 
 instance Hashable PendingModifiedValues
 
+instance NFData PendingModifiedValues
+
 -- | This data type is used as a response element in the
 -- < DescribeReservedDBInstances> and
 -- < DescribeReservedDBInstancesOfferings> actions.
@@ -3866,6 +4047,8 @@ instance FromXML RecurringCharge where
                 (x .@? "RecurringChargeAmount")
 
 instance Hashable RecurringCharge
+
+instance NFData RecurringCharge
 
 -- | This data type is used as a response element in the
 -- < DescribeReservedDBInstances> and
@@ -4017,6 +4200,8 @@ instance FromXML ReservedDBInstance where
 
 instance Hashable ReservedDBInstance
 
+instance NFData ReservedDBInstance
+
 -- | This data type is used as a response element in the
 -- < DescribeReservedDBInstancesOfferings> action.
 --
@@ -4131,6 +4316,8 @@ instance FromXML ReservedDBInstancesOffering where
 
 instance Hashable ReservedDBInstancesOffering
 
+instance NFData ReservedDBInstancesOffering
+
 -- | Describes the pending maintenance actions for a resource.
 --
 -- /See:/ 'resourcePendingMaintenanceActions' smart constructor.
@@ -4172,6 +4359,8 @@ instance FromXML ResourcePendingMaintenanceActions
                 <*> (x .@? "ResourceIdentifier")
 
 instance Hashable ResourcePendingMaintenanceActions
+
+instance NFData ResourcePendingMaintenanceActions
 
 -- | This data type is used as a response element in the
 -- < DescribeDBSubnetGroups> action.
@@ -4221,6 +4410,8 @@ instance FromXML Subnet where
 
 instance Hashable Subnet
 
+instance NFData Subnet
+
 -- | Metadata assigned to an Amazon RDS resource consisting of a key-value
 -- pair.
 --
@@ -4266,6 +4457,8 @@ instance FromXML Tag where
           = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -4341,6 +4534,8 @@ instance FromXML UpgradeTarget where
 
 instance Hashable UpgradeTarget
 
+instance NFData UpgradeTarget
+
 -- | This data type is used as a response element for queries on VPC security
 -- group membership.
 --
@@ -4379,3 +4574,5 @@ instance FromXML VPCSecurityGroupMembership where
               (x .@? "Status") <*> (x .@? "VpcSecurityGroupId")
 
 instance Hashable VPCSecurityGroupMembership
+
+instance NFData VPCSecurityGroupMembership

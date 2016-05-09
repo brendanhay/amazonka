@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'detachClassicLinkVPC' smart constructor.
+-- | Contains the parameters for DetachClassicLinkVpc.
+--
+-- /See:/ 'detachClassicLinkVPC' smart constructor.
 data DetachClassicLinkVPC = DetachClassicLinkVPC'
     { _dclvDryRun     :: !(Maybe Bool)
     , _dclvInstanceId :: !Text
@@ -101,6 +103,8 @@ instance AWSRequest DetachClassicLinkVPC where
 
 instance Hashable DetachClassicLinkVPC
 
+instance NFData DetachClassicLinkVPC
+
 instance ToHeaders DetachClassicLinkVPC where
         toHeaders = const mempty
 
@@ -116,7 +120,9 @@ instance ToQuery DetachClassicLinkVPC where
                "InstanceId" =: _dclvInstanceId,
                "VpcId" =: _dclvVPCId]
 
--- | /See:/ 'detachClassicLinkVPCResponse' smart constructor.
+-- | Contains the output of DetachClassicLinkVpc.
+--
+-- /See:/ 'detachClassicLinkVPCResponse' smart constructor.
 data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
     { _dclvrsReturn         :: !(Maybe Bool)
     , _dclvrsResponseStatus :: !Int
@@ -145,3 +151,5 @@ dclvrsReturn = lens _dclvrsReturn (\ s a -> s{_dclvrsReturn = a});
 -- | The response status code.
 dclvrsResponseStatus :: Lens' DetachClassicLinkVPCResponse Int
 dclvrsResponseStatus = lens _dclvrsResponseStatus (\ s a -> s{_dclvrsResponseStatus = a});
+
+instance NFData DetachClassicLinkVPCResponse

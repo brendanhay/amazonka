@@ -73,6 +73,8 @@ instance FromJSON AWSCredentials where
 
 instance Hashable AWSCredentials
 
+instance NFData AWSCredentials
+
 -- | Properties describing a fleet alias.
 --
 -- /See:/ 'alias' smart constructor.
@@ -152,6 +154,8 @@ instance FromJSON Alias where
                      <*> (x .:? "Description"))
 
 instance Hashable Alias
+
+instance NFData Alias
 
 -- | Properties describing a game build.
 --
@@ -242,6 +246,8 @@ instance FromJSON Build where
                      <*> (x .:? "SizeOnDisk"))
 
 instance Hashable Build
+
+instance NFData Build
 
 -- | Current status of fleet capacity. The number of active instances should
 -- match or be in the process of matching the number of desired instances.
@@ -334,6 +340,8 @@ instance FromJSON EC2InstanceCounts where
 
 instance Hashable EC2InstanceCounts
 
+instance NFData EC2InstanceCounts
+
 -- | Maximum number of instances allowed based on the Amazon Elastic Compute
 -- Cloud (Amazon EC2) instance type. Instance limits can be retrieved by
 -- calling < DescribeEC2InstanceLimits>.
@@ -390,6 +398,8 @@ instance FromJSON EC2InstanceLimit where
                      <*> (x .:? "InstanceLimit"))
 
 instance Hashable EC2InstanceLimit
+
+instance NFData EC2InstanceLimit
 
 -- | Log entry describing an event involving an Amazon GameLift resource
 -- (such as a fleet).
@@ -459,6 +469,8 @@ instance FromJSON Event where
                      <*> (x .:? "EventId"))
 
 instance Hashable Event
+
+instance NFData Event
 
 -- | General properties describing a fleet.
 --
@@ -609,6 +621,8 @@ instance FromJSON FleetAttributes where
 
 instance Hashable FleetAttributes
 
+instance NFData FleetAttributes
+
 -- | Information about the fleet\'s capacity. Fleet capacity is measured in
 -- EC2 instances. By default, new fleets have a capacity of one instance,
 -- but can be updated as needed. The maximum number of instances for a
@@ -664,6 +678,8 @@ instance FromJSON FleetCapacity where
                      (x .:? "InstanceCounts"))
 
 instance Hashable FleetCapacity
+
+instance NFData FleetCapacity
 
 -- | Current status of fleet utilization, including the number of game and
 -- player sessions being hosted.
@@ -728,6 +744,8 @@ instance FromJSON FleetUtilization where
 
 instance Hashable FleetUtilization
 
+instance NFData FleetUtilization
+
 -- | Set of key-value pairs containing information your game server requires
 -- to set up sessions. This object allows you to pass in any set of data
 -- needed for your game. For more information, see the
@@ -771,6 +789,8 @@ instance FromJSON GameProperty where
                  GameProperty' <$> (x .: "Key") <*> (x .: "Value"))
 
 instance Hashable GameProperty
+
+instance NFData GameProperty
 
 instance ToJSON GameProperty where
         toJSON GameProperty'{..}
@@ -904,6 +924,8 @@ instance FromJSON GameSession where
 
 instance Hashable GameSession
 
+instance NFData GameSession
+
 -- | A game session\'s properties and the protection policy currently in
 -- force.
 --
@@ -949,6 +971,8 @@ instance FromJSON GameSessionDetail where
                    (x .:? "GameSession") <*> (x .:? "ProtectionPolicy"))
 
 instance Hashable GameSessionDetail
+
+instance NFData GameSessionDetail
 
 -- | IP addresses and port settings used to limit access by incoming traffic
 -- (players) to a fleet. Permissions specify a range of IP addresses and
@@ -1018,6 +1042,8 @@ instance FromJSON IPPermission where
                      <*> (x .: "Protocol"))
 
 instance Hashable IPPermission
+
+instance NFData IPPermission
 
 instance ToJSON IPPermission where
         toJSON IPPermission'{..}
@@ -1137,6 +1163,8 @@ instance FromJSON PlayerSession where
 
 instance Hashable PlayerSession
 
+instance NFData PlayerSession
+
 -- | Routing configuration for a fleet alias.
 --
 -- /See:/ 'routingStrategy' smart constructor.
@@ -1192,6 +1220,8 @@ instance FromJSON RoutingStrategy where
                      (x .:? "FleetId"))
 
 instance Hashable RoutingStrategy
+
+instance NFData RoutingStrategy
 
 instance ToJSON RoutingStrategy where
         toJSON RoutingStrategy'{..}
@@ -1253,6 +1283,8 @@ instance FromJSON S3Location where
                      (x .:? "RoleArn"))
 
 instance Hashable S3Location
+
+instance NFData S3Location
 
 instance ToJSON S3Location where
         toJSON S3Location'{..}
@@ -1407,3 +1439,5 @@ instance FromJSON ScalingPolicy where
                      <*> (x .:? "FleetId"))
 
 instance Hashable ScalingPolicy
+
+instance NFData ScalingPolicy

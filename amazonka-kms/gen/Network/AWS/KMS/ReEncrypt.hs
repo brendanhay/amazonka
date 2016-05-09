@@ -150,6 +150,8 @@ instance AWSRequest ReEncrypt where
 
 instance Hashable ReEncrypt
 
+instance NFData ReEncrypt
+
 instance ToHeaders ReEncrypt where
         toHeaders
           = const
@@ -229,3 +231,5 @@ rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = 
 -- | The response status code.
 rersResponseStatus :: Lens' ReEncryptResponse Int
 rersResponseStatus = lens _rersResponseStatus (\ s a -> s{_rersResponseStatus = a});
+
+instance NFData ReEncryptResponse

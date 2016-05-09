@@ -69,6 +69,8 @@ instance AWSRequest DeleteBucketTagging where
 
 instance Hashable DeleteBucketTagging
 
+instance NFData DeleteBucketTagging
+
 instance ToHeaders DeleteBucketTagging where
         toHeaders = const mempty
 
@@ -89,3 +91,5 @@ data DeleteBucketTaggingResponse =
 deleteBucketTaggingResponse
     :: DeleteBucketTaggingResponse
 deleteBucketTaggingResponse = DeleteBucketTaggingResponse'
+
+instance NFData DeleteBucketTaggingResponse

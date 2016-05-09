@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns a list of the gateway\'s local disks. To specify
--- which gateway to describe, you use the Amazon Resource Name (ARN) of the
--- gateway in the body of the request.
+-- Returns a list of the gateway\'s local disks. To specify which gateway
+-- to describe, you use the Amazon Resource Name (ARN) of the gateway in
+-- the body of the request.
 --
 -- The request returns a list of all disks, specifying which are configured
 -- as working storage, cache storage, or stored volume or not configured at
@@ -88,6 +88,8 @@ instance AWSRequest ListLocalDisks where
 
 instance Hashable ListLocalDisks
 
+instance NFData ListLocalDisks
+
 instance ToHeaders ListLocalDisks where
         toHeaders
           = const
@@ -146,3 +148,5 @@ lldrsDisks = lens _lldrsDisks (\ s a -> s{_lldrsDisks = a}) . _Default . _Coerce
 -- | The response status code.
 lldrsResponseStatus :: Lens' ListLocalDisksResponse Int
 lldrsResponseStatus = lens _lldrsResponseStatus (\ s a -> s{_lldrsResponseStatus = a});
+
+instance NFData ListLocalDisksResponse

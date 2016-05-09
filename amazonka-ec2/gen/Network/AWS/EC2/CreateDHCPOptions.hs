@@ -26,24 +26,27 @@
 -- <http://www.ietf.org/rfc/rfc2132.txt RFC 2132>.
 --
 -- -   'domain-name-servers' - The IP addresses of up to four domain name
---     servers, or 'AmazonProvidedDNS'. The default DHCP option set
---     specifies 'AmazonProvidedDNS'. If specifying more than one domain
---     name server, specify the IP addresses in a single parameter,
---     separated by commas.
--- -   'domain-name' - If you\'re using AmazonProvidedDNS in 'us-east-1',
---     specify 'ec2.internal'. If you\'re using AmazonProvidedDNS in
---     another region, specify 'region.compute.internal' (for example,
---     'ap-northeast-1.compute.internal'). Otherwise, specify a domain name
---     (for example, 'MyCompany.com'). __Important__: Some Linux operating
---     systems accept multiple domain names separated by spaces. However,
---     Windows and other Linux operating systems treat the value as a
---     single domain, which results in unexpected behavior. If your DHCP
---     options set is associated with a VPC that has instances with
+--     servers, or AmazonProvidedDNS. The default DHCP option set specifies
+--     AmazonProvidedDNS. If specifying more than one domain name server,
+--     specify the IP addresses in a single parameter, separated by commas.
+--
+-- -   'domain-name' - If you\'re using AmazonProvidedDNS in \"us-east-1\",
+--     specify \"ec2.internal\". If you\'re using AmazonProvidedDNS in
+--     another region, specify \"region.compute.internal\" (for example,
+--     \"ap-northeast-1.compute.internal\"). Otherwise, specify a domain
+--     name (for example, \"MyCompany.com\"). __Important__: Some Linux
+--     operating systems accept multiple domain names separated by spaces.
+--     However, Windows and other Linux operating systems treat the value
+--     as a single domain, which results in unexpected behavior. If your
+--     DHCP options set is associated with a VPC that has instances with
 --     multiple operating systems, specify only one domain name.
+--
 -- -   'ntp-servers' - The IP addresses of up to four Network Time Protocol
 --     (NTP) servers.
+--
 -- -   'netbios-name-servers' - The IP addresses of up to four NetBIOS name
 --     servers.
+--
 -- -   'netbios-node-type' - The NetBIOS node type (1, 2, 4, or 8). We
 --     recommend that you specify 2 (broadcast and multicast are not
 --     currently supported). For more information about these node types,
@@ -81,7 +84,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createDHCPOptions' smart constructor.
+-- | Contains the parameters for CreateDhcpOptions.
+--
+-- /See:/ 'createDHCPOptions' smart constructor.
 data CreateDHCPOptions = CreateDHCPOptions'
     { _cdoDryRun             :: !(Maybe Bool)
     , _cdoDHCPConfigurations :: ![NewDHCPConfiguration]
@@ -124,6 +129,8 @@ instance AWSRequest CreateDHCPOptions where
 
 instance Hashable CreateDHCPOptions
 
+instance NFData CreateDHCPOptions
+
 instance ToHeaders CreateDHCPOptions where
         toHeaders = const mempty
 
@@ -139,7 +146,9 @@ instance ToQuery CreateDHCPOptions where
                toQueryList "DhcpConfiguration"
                  _cdoDHCPConfigurations]
 
--- | /See:/ 'createDHCPOptionsResponse' smart constructor.
+-- | Contains the output of CreateDhcpOptions.
+--
+-- /See:/ 'createDHCPOptionsResponse' smart constructor.
 data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
     { _cdorsDHCPOptions    :: !(Maybe DHCPOptions)
     , _cdorsResponseStatus :: !Int
@@ -168,3 +177,5 @@ cdorsDHCPOptions = lens _cdorsDHCPOptions (\ s a -> s{_cdorsDHCPOptions = a});
 -- | The response status code.
 cdorsResponseStatus :: Lens' CreateDHCPOptionsResponse Int
 cdorsResponseStatus = lens _cdorsResponseStatus (\ s a -> s{_cdorsResponseStatus = a});
+
+instance NFData CreateDHCPOptionsResponse

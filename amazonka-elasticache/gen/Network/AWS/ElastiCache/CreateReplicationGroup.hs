@@ -197,6 +197,13 @@ crgAutomaticFailoverEnabled = lens _crgAutomaticFailoverEnabled (\ s a -> s{_crg
 -- | The version number of the cache engine to be used for the cache clusters
 -- in this replication group. To view the supported cache engine versions,
 -- use the /DescribeCacheEngineVersions/ action.
+--
+-- __Important:__ You can upgrade to a newer engine version (see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
+-- but you cannot downgrade to an earlier engine version. If you want to
+-- use an earlier engine version, you must delete the existing cache
+-- cluster or replication group and create it anew with the earlier engine
+-- version.
 crgEngineVersion :: Lens' CreateReplicationGroup (Maybe Text)
 crgEngineVersion = lens _crgEngineVersion (\ s a -> s{_crgEngineVersion = a});
 
@@ -416,6 +423,8 @@ instance AWSRequest CreateReplicationGroup where
 
 instance Hashable CreateReplicationGroup
 
+instance NFData CreateReplicationGroup
+
 instance ToHeaders CreateReplicationGroup where
         toHeaders = const mempty
 
@@ -497,3 +506,5 @@ crgrsReplicationGroup = lens _crgrsReplicationGroup (\ s a -> s{_crgrsReplicatio
 -- | The response status code.
 crgrsResponseStatus :: Lens' CreateReplicationGroupResponse Int
 crgrsResponseStatus = lens _crgrsResponseStatus (\ s a -> s{_crgrsResponseStatus = a});
+
+instance NFData CreateReplicationGroupResponse

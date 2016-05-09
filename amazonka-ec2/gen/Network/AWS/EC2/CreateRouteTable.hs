@@ -48,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createRouteTable' smart constructor.
+-- | Contains the parameters for CreateRouteTable.
+--
+-- /See:/ 'createRouteTable' smart constructor.
 data CreateRouteTable = CreateRouteTable'
     { _crtDryRun :: !(Maybe Bool)
     , _crtVPCId  :: !Text
@@ -92,6 +94,8 @@ instance AWSRequest CreateRouteTable where
 
 instance Hashable CreateRouteTable
 
+instance NFData CreateRouteTable
+
 instance ToHeaders CreateRouteTable where
         toHeaders = const mempty
 
@@ -105,7 +109,9 @@ instance ToQuery CreateRouteTable where
                "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _crtDryRun, "VpcId" =: _crtVPCId]
 
--- | /See:/ 'createRouteTableResponse' smart constructor.
+-- | Contains the output of CreateRouteTable.
+--
+-- /See:/ 'createRouteTableResponse' smart constructor.
 data CreateRouteTableResponse = CreateRouteTableResponse'
     { _crtrsRouteTable     :: !(Maybe RouteTable)
     , _crtrsResponseStatus :: !Int
@@ -134,3 +140,5 @@ crtrsRouteTable = lens _crtrsRouteTable (\ s a -> s{_crtrsRouteTable = a});
 -- | The response status code.
 crtrsResponseStatus :: Lens' CreateRouteTableResponse Int
 crtrsResponseStatus = lens _crtrsResponseStatus (\ s a -> s{_crtrsResponseStatus = a});
+
+instance NFData CreateRouteTableResponse

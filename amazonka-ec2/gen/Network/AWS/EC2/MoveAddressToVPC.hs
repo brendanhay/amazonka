@@ -24,10 +24,10 @@
 -- After the Elastic IP address is moved, it is no longer available for use
 -- in the EC2-Classic platform, unless you move it back using the
 -- < RestoreAddressToClassic> request. You cannot move an Elastic IP
--- address that\'s allocated for use in the EC2-VPC platform to the
--- EC2-Classic platform. You cannot migrate an Elastic IP address that\'s
--- associated with a reverse DNS record. Contact AWS account and billing
--- support to remove the reverse DNS record.
+-- address that was originally allocated for use in the EC2-VPC platform to
+-- the EC2-Classic platform. You cannot migrate an Elastic IP address
+-- that\'s associated with a reverse DNS record. Contact AWS account and
+-- billing support to remove the reverse DNS record.
 module Network.AWS.EC2.MoveAddressToVPC
     (
     -- * Creating a Request
@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'moveAddressToVPC' smart constructor.
+-- | Contains the parameters for MoveAddressToVpc.
+--
+-- /See:/ 'moveAddressToVPC' smart constructor.
 data MoveAddressToVPC = MoveAddressToVPC'
     { _matvDryRun   :: !(Maybe Bool)
     , _matvPublicIP :: !Text
@@ -98,6 +100,8 @@ instance AWSRequest MoveAddressToVPC where
 
 instance Hashable MoveAddressToVPC
 
+instance NFData MoveAddressToVPC
+
 instance ToHeaders MoveAddressToVPC where
         toHeaders = const mempty
 
@@ -111,7 +115,9 @@ instance ToQuery MoveAddressToVPC where
                "Version" =: ("2015-10-01" :: ByteString),
                "DryRun" =: _matvDryRun, "PublicIp" =: _matvPublicIP]
 
--- | /See:/ 'moveAddressToVPCResponse' smart constructor.
+-- | Contains the output of MoveAddressToVpc.
+--
+-- /See:/ 'moveAddressToVPCResponse' smart constructor.
 data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
     { _matvrsStatus         :: !(Maybe AddressStatus)
     , _matvrsAllocationId   :: !(Maybe Text)
@@ -148,3 +154,5 @@ matvrsAllocationId = lens _matvrsAllocationId (\ s a -> s{_matvrsAllocationId = 
 -- | The response status code.
 matvrsResponseStatus :: Lens' MoveAddressToVPCResponse Int
 matvrsResponseStatus = lens _matvrsResponseStatus (\ s a -> s{_matvrsResponseStatus = a});
+
+instance NFData MoveAddressToVPCResponse

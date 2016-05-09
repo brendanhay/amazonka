@@ -8,17 +8,17 @@
 
 ## Version
 
-`1.4.0`
+`1.4.1`
 
 
 ## Description
 
 Amazon Inspector
 
-Amazon Inspector enables you to analyze the behavior of the applications
-you run in AWS and to identify potential security issues. For more
+Amazon Inspector enables you to analyze the behavior of your AWS
+resources and to identify potential security issues. For more
 information, see
-<https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide>.
+<http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-inspector)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

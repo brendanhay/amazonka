@@ -104,6 +104,8 @@ instance AWSRequest DeleteClusterSnapshot where
 
 instance Hashable DeleteClusterSnapshot
 
+instance NFData DeleteClusterSnapshot
+
 instance ToHeaders DeleteClusterSnapshot where
         toHeaders = const mempty
 
@@ -148,3 +150,5 @@ dcsrsSnapshot = lens _dcsrsSnapshot (\ s a -> s{_dcsrsSnapshot = a});
 -- | The response status code.
 dcsrsResponseStatus :: Lens' DeleteClusterSnapshotResponse Int
 dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
+
+instance NFData DeleteClusterSnapshotResponse

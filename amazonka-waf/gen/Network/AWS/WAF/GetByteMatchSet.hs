@@ -77,6 +77,8 @@ instance AWSRequest GetByteMatchSet where
 
 instance Hashable GetByteMatchSet
 
+instance NFData GetByteMatchSet
+
 instance ToHeaders GetByteMatchSet where
         toHeaders
           = const
@@ -136,3 +138,5 @@ gbmsrsByteMatchSet = lens _gbmsrsByteMatchSet (\ s a -> s{_gbmsrsByteMatchSet = 
 -- | The response status code.
 gbmsrsResponseStatus :: Lens' GetByteMatchSetResponse Int
 gbmsrsResponseStatus = lens _gbmsrsResponseStatus (\ s a -> s{_gbmsrsResponseStatus = a});
+
+instance NFData GetByteMatchSetResponse

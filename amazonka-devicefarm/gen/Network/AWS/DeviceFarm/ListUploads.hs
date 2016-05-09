@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about uploads.
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListUploads
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.DeviceFarm.ListUploads
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -78,6 +81,13 @@ luNextToken = lens _luNextToken (\ s a -> s{_luNextToken = a});
 luArn :: Lens' ListUploads Text
 luArn = lens _luArn (\ s a -> s{_luArn = a});
 
+instance AWSPager ListUploads where
+        page rq rs
+          | stop (rs ^. lursNextToken) = Nothing
+          | stop (rs ^. lursUploads) = Nothing
+          | otherwise =
+            Just $ rq & luNextToken .~ rs ^. lursNextToken
+
 instance AWSRequest ListUploads where
         type Rs ListUploads = ListUploadsResponse
         request = postJSON deviceFarm
@@ -89,6 +99,8 @@ instance AWSRequest ListUploads where
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListUploads
+
+instance NFData ListUploads
 
 instance ToHeaders ListUploads where
         toHeaders
@@ -153,3 +165,5 @@ lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default . _Coe
 -- | The response status code.
 lursResponseStatus :: Lens' ListUploadsResponse Int
 lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = a});
+
+instance NFData ListUploadsResponse

@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createVPNGateway' smart constructor.
+-- | Contains the parameters for CreateVpnGateway.
+--
+-- /See:/ 'createVPNGateway' smart constructor.
 data CreateVPNGateway = CreateVPNGateway'
     { _cvgAvailabilityZone :: !(Maybe Text)
     , _cvgDryRun           :: !(Maybe Bool)
@@ -102,6 +104,8 @@ instance AWSRequest CreateVPNGateway where
 
 instance Hashable CreateVPNGateway
 
+instance NFData CreateVPNGateway
+
 instance ToHeaders CreateVPNGateway where
         toHeaders = const mempty
 
@@ -116,7 +120,9 @@ instance ToQuery CreateVPNGateway where
                "AvailabilityZone" =: _cvgAvailabilityZone,
                "DryRun" =: _cvgDryRun, "Type" =: _cvgType]
 
--- | /See:/ 'createVPNGatewayResponse' smart constructor.
+-- | Contains the output of CreateVpnGateway.
+--
+-- /See:/ 'createVPNGatewayResponse' smart constructor.
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
     { _cvgrsVPNGateway     :: !(Maybe VPNGateway)
     , _cvgrsResponseStatus :: !Int
@@ -145,3 +151,5 @@ cvgrsVPNGateway = lens _cvgrsVPNGateway (\ s a -> s{_cvgrsVPNGateway = a});
 -- | The response status code.
 cvgrsResponseStatus :: Lens' CreateVPNGatewayResponse Int
 cvgrsResponseStatus = lens _cvgrsResponseStatus (\ s a -> s{_cvgrsResponseStatus = a});
+
+instance NFData CreateVPNGatewayResponse

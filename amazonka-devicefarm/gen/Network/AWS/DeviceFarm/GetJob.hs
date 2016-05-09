@@ -77,6 +77,8 @@ instance AWSRequest GetJob where
 
 instance Hashable GetJob
 
+instance NFData GetJob
+
 instance ToHeaders GetJob where
         toHeaders
           = const
@@ -127,3 +129,5 @@ gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a});
 -- | The response status code.
 gjrsResponseStatus :: Lens' GetJobResponse Int
 gjrsResponseStatus = lens _gjrsResponseStatus (\ s a -> s{_gjrsResponseStatus = a});
+
+instance NFData GetJobResponse

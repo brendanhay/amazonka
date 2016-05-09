@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For internal use only
+-- Removes metadata tags from a DMS resource.
 --
 module Network.AWS.DMS.RemoveTagsFromResource
     (
@@ -86,6 +86,8 @@ instance AWSRequest RemoveTagsFromResource where
 
 instance Hashable RemoveTagsFromResource
 
+instance NFData RemoveTagsFromResource
+
 instance ToHeaders RemoveTagsFromResource where
         toHeaders
           = const
@@ -130,3 +132,5 @@ removeTagsFromResourceResponse pResponseStatus_ =
 -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
 rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
+
+instance NFData RemoveTagsFromResourceResponse

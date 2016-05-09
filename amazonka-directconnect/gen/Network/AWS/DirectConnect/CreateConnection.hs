@@ -110,6 +110,8 @@ instance AWSRequest CreateConnection where
 
 instance Hashable CreateConnection
 
+instance NFData CreateConnection
+
 instance ToHeaders CreateConnection where
         toHeaders
           = const

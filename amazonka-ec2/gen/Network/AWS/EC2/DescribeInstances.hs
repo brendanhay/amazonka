@@ -60,7 +60,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeInstances' smart constructor.
+-- | Contains the parameters for DescribeInstances.
+--
+-- /See:/ 'describeInstances' smart constructor.
 data DescribeInstances = DescribeInstances'
     { _diiFilters     :: !(Maybe [Filter])
     , _diiNextToken   :: !(Maybe Text)
@@ -365,12 +367,10 @@ diiInstanceIds = lens _diiInstanceIds (\ s a -> s{_diiInstanceIds = a}) . _Defau
 diiDryRun :: Lens' DescribeInstances (Maybe Bool)
 diiDryRun = lens _diiDryRun (\ s a -> s{_diiDryRun = a});
 
--- | The maximum number of results to return for the request in a single
--- page. The remaining results of the initial request can be seen by
--- sending another request with the returned 'NextToken' value. This value
--- can be between 5 and 1000; if 'MaxResults' is given a value larger than
--- 1000, only 1000 results are returned. You cannot specify this parameter
--- and the instance IDs parameter in the same request.
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned 'NextToken'
+-- value. This value can be between 5 and 1000. You cannot specify this
+-- parameter and the instance IDs parameter in the same call.
 diiMaxResults :: Lens' DescribeInstances (Maybe Int)
 diiMaxResults = lens _diiMaxResults (\ s a -> s{_diiMaxResults = a});
 
@@ -395,6 +395,8 @@ instance AWSRequest DescribeInstances where
 
 instance Hashable DescribeInstances
 
+instance NFData DescribeInstances
+
 instance ToHeaders DescribeInstances where
         toHeaders = const mempty
 
@@ -413,7 +415,9 @@ instance ToQuery DescribeInstances where
                "DryRun" =: _diiDryRun,
                "MaxResults" =: _diiMaxResults]
 
--- | /See:/ 'describeInstancesResponse' smart constructor.
+-- | Contains the output of DescribeInstances.
+--
+-- /See:/ 'describeInstancesResponse' smart constructor.
 data DescribeInstancesResponse = DescribeInstancesResponse'
     { _dirsNextToken      :: !(Maybe Text)
     , _dirsReservations   :: !(Maybe [Reservation])
@@ -451,3 +455,5 @@ dirsReservations = lens _dirsReservations (\ s a -> s{_dirsReservations = a}) . 
 -- | The response status code.
 dirsResponseStatus :: Lens' DescribeInstancesResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+
+instance NFData DescribeInstancesResponse

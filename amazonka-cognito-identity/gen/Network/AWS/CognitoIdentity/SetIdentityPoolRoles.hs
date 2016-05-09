@@ -85,6 +85,8 @@ instance AWSRequest SetIdentityPoolRoles where
 
 instance Hashable SetIdentityPoolRoles
 
+instance NFData SetIdentityPoolRoles
+
 instance ToHeaders SetIdentityPoolRoles where
         toHeaders
           = const
@@ -118,3 +120,5 @@ data SetIdentityPoolRolesResponse =
 setIdentityPoolRolesResponse
     :: SetIdentityPoolRolesResponse
 setIdentityPoolRolesResponse = SetIdentityPoolRolesResponse'
+
+instance NFData SetIdentityPoolRolesResponse

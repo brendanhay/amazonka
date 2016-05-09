@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'attachInternetGateway' smart constructor.
+-- | Contains the parameters for AttachInternetGateway.
+--
+-- /See:/ 'attachInternetGateway' smart constructor.
 data AttachInternetGateway = AttachInternetGateway'
     { _aigDryRun            :: !(Maybe Bool)
     , _aigInternetGatewayId :: !Text
@@ -94,6 +96,8 @@ instance AWSRequest AttachInternetGateway where
 
 instance Hashable AttachInternetGateway
 
+instance NFData AttachInternetGateway
+
 instance ToHeaders AttachInternetGateway where
         toHeaders = const mempty
 
@@ -119,3 +123,5 @@ data AttachInternetGatewayResponse =
 attachInternetGatewayResponse
     :: AttachInternetGatewayResponse
 attachInternetGatewayResponse = AttachInternetGatewayResponse'
+
+instance NFData AttachInternetGatewayResponse

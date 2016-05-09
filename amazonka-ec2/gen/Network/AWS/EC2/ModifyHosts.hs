@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'modifyHosts' smart constructor.
+-- | Contains the parameters for ModifyHosts.
+--
+-- /See:/ 'modifyHosts' smart constructor.
 data ModifyHosts = ModifyHosts'
     { _mhHostIds       :: ![Text]
     , _mhAutoPlacement :: !AutoPlacement
@@ -97,6 +99,8 @@ instance AWSRequest ModifyHosts where
 
 instance Hashable ModifyHosts
 
+instance NFData ModifyHosts
+
 instance ToHeaders ModifyHosts where
         toHeaders = const mempty
 
@@ -111,7 +115,9 @@ instance ToQuery ModifyHosts where
                toQueryList "HostId" _mhHostIds,
                "AutoPlacement" =: _mhAutoPlacement]
 
--- | /See:/ 'modifyHostsResponse' smart constructor.
+-- | Contains the output of ModifyHosts.
+--
+-- /See:/ 'modifyHostsResponse' smart constructor.
 data ModifyHostsResponse = ModifyHostsResponse'
     { _mhrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
     , _mhrsSuccessful     :: !(Maybe [Text])
@@ -149,3 +155,5 @@ mhrsSuccessful = lens _mhrsSuccessful (\ s a -> s{_mhrsSuccessful = a}) . _Defau
 -- | The response status code.
 mhrsResponseStatus :: Lens' ModifyHostsResponse Int
 mhrsResponseStatus = lens _mhrsResponseStatus (\ s a -> s{_mhrsResponseStatus = a});
+
+instance NFData ModifyHostsResponse

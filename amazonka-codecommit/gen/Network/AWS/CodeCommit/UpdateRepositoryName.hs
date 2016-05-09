@@ -87,6 +87,8 @@ instance AWSRequest UpdateRepositoryName where
 
 instance Hashable UpdateRepositoryName
 
+instance NFData UpdateRepositoryName
+
 instance ToHeaders UpdateRepositoryName where
         toHeaders
           = const
@@ -120,3 +122,5 @@ data UpdateRepositoryNameResponse =
 updateRepositoryNameResponse
     :: UpdateRepositoryNameResponse
 updateRepositoryNameResponse = UpdateRepositoryNameResponse'
+
+instance NFData UpdateRepositoryNameResponse

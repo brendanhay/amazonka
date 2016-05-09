@@ -126,6 +126,8 @@ instance AWSRequest DescribeObjects where
 
 instance Hashable DescribeObjects
 
+instance NFData DescribeObjects
+
 instance ToHeaders DescribeObjects where
         toHeaders
           = const
@@ -200,3 +202,5 @@ dorsResponseStatus = lens _dorsResponseStatus (\ s a -> s{_dorsResponseStatus = 
 -- | An array of object definitions.
 dorsPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
 dorsPipelineObjects = lens _dorsPipelineObjects (\ s a -> s{_dorsPipelineObjects = a}) . _Coerce;
+
+instance NFData DescribeObjectsResponse

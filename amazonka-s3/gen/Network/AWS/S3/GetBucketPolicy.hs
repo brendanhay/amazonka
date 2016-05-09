@@ -75,6 +75,8 @@ instance AWSRequest GetBucketPolicy where
 
 instance Hashable GetBucketPolicy
 
+instance NFData GetBucketPolicy
+
 instance ToHeaders GetBucketPolicy where
         toHeaders = const mempty
 
@@ -115,3 +117,5 @@ gbprsResponseStatus = lens _gbprsResponseStatus (\ s a -> s{_gbprsResponseStatus
 -- | The bucket policy as a JSON document.
 gbprsPolicy :: Lens' GetBucketPolicyResponse (HashMap Text Value)
 gbprsPolicy = lens _gbprsPolicy (\ s a -> s{_gbprsPolicy = a});
+
+instance NFData GetBucketPolicyResponse

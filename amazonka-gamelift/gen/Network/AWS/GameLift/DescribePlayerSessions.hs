@@ -153,6 +153,8 @@ instance AWSRequest DescribePlayerSessions where
 
 instance Hashable DescribePlayerSessions
 
+instance NFData DescribePlayerSessions
+
 instance ToHeaders DescribePlayerSessions where
         toHeaders
           = const
@@ -226,3 +228,5 @@ dpsrsPlayerSessions = lens _dpsrsPlayerSessions (\ s a -> s{_dpsrsPlayerSessions
 -- | The response status code.
 dpsrsResponseStatus :: Lens' DescribePlayerSessionsResponse Int
 dpsrsResponseStatus = lens _dpsrsResponseStatus (\ s a -> s{_dpsrsResponseStatus = a});
+
+instance NFData DescribePlayerSessionsResponse

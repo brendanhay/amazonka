@@ -88,6 +88,8 @@ instance AWSRequest UpdateProject where
 
 instance Hashable UpdateProject
 
+instance NFData UpdateProject
+
 instance ToHeaders UpdateProject where
         toHeaders
           = const
@@ -140,3 +142,5 @@ uprsProject = lens _uprsProject (\ s a -> s{_uprsProject = a});
 -- | The response status code.
 uprsResponseStatus :: Lens' UpdateProjectResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
+
+instance NFData UpdateProjectResponse

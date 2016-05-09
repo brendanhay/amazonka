@@ -76,6 +76,8 @@ instance AWSRequest GetIPSet where
 
 instance Hashable GetIPSet
 
+instance NFData GetIPSet
+
 instance ToHeaders GetIPSet where
         toHeaders
           = const
@@ -130,3 +132,5 @@ gisrsIPSet = lens _gisrsIPSet (\ s a -> s{_gisrsIPSet = a});
 -- | The response status code.
 gisrsResponseStatus :: Lens' GetIPSetResponse Int
 gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a});
+
+instance NFData GetIPSetResponse

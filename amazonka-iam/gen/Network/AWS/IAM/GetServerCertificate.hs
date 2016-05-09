@@ -83,6 +83,8 @@ instance AWSRequest GetServerCertificate where
 
 instance Hashable GetServerCertificate
 
+instance NFData GetServerCertificate
+
 instance ToHeaders GetServerCertificate where
         toHeaders = const mempty
 
@@ -128,3 +130,5 @@ gscrsResponseStatus = lens _gscrsResponseStatus (\ s a -> s{_gscrsResponseStatus
 -- | Information about the server certificate.
 gscrsServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
 gscrsServerCertificate = lens _gscrsServerCertificate (\ s a -> s{_gscrsServerCertificate = a});
+
+instance NFData GetServerCertificateResponse

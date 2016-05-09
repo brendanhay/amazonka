@@ -96,6 +96,8 @@ instance AWSRequest DescribeDomain where
 
 instance Hashable DescribeDomain
 
+instance NFData DescribeDomain
+
 instance ToHeaders DescribeDomain where
         toHeaders
           = const
@@ -157,3 +159,5 @@ ddrsDomainInfo = lens _ddrsDomainInfo (\ s a -> s{_ddrsDomainInfo = a});
 -- | Undocumented member.
 ddrsConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
 ddrsConfiguration = lens _ddrsConfiguration (\ s a -> s{_ddrsConfiguration = a});
+
+instance NFData DescribeDomainResponse

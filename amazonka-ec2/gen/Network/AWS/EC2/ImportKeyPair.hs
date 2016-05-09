@@ -54,7 +54,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'importKeyPair' smart constructor.
+-- | Contains the parameters for ImportKeyPair.
+--
+-- /See:/ 'importKeyPair' smart constructor.
 data ImportKeyPair = ImportKeyPair'
     { _ikpDryRun            :: !(Maybe Bool)
     , _ikpKeyName           :: !Text
@@ -92,8 +94,8 @@ ikpDryRun = lens _ikpDryRun (\ s a -> s{_ikpDryRun = a});
 ikpKeyName :: Lens' ImportKeyPair Text
 ikpKeyName = lens _ikpKeyName (\ s a -> s{_ikpKeyName = a});
 
--- | The public key. You must base64 encode the public key material before
--- sending it to AWS.
+-- | The public key. For API calls, the text must be base64-encoded. For
+-- command line tools, base64 encoding is performed for you.
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
@@ -115,6 +117,8 @@ instance AWSRequest ImportKeyPair where
 
 instance Hashable ImportKeyPair
 
+instance NFData ImportKeyPair
+
 instance ToHeaders ImportKeyPair where
         toHeaders = const mempty
 
@@ -129,7 +133,9 @@ instance ToQuery ImportKeyPair where
                "DryRun" =: _ikpDryRun, "KeyName" =: _ikpKeyName,
                "PublicKeyMaterial" =: _ikpPublicKeyMaterial]
 
--- | /See:/ 'importKeyPairResponse' smart constructor.
+-- | Contains the output of ImportKeyPair.
+--
+-- /See:/ 'importKeyPairResponse' smart constructor.
 data ImportKeyPairResponse = ImportKeyPairResponse'
     { _ikprsKeyFingerprint :: !(Maybe Text)
     , _ikprsKeyName        :: !(Maybe Text)
@@ -166,3 +172,5 @@ ikprsKeyName = lens _ikprsKeyName (\ s a -> s{_ikprsKeyName = a});
 -- | The response status code.
 ikprsResponseStatus :: Lens' ImportKeyPairResponse Int
 ikprsResponseStatus = lens _ikprsResponseStatus (\ s a -> s{_ikprsResponseStatus = a});
+
+instance NFData ImportKeyPairResponse

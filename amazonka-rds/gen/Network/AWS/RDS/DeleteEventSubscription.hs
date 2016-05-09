@@ -78,6 +78,8 @@ instance AWSRequest DeleteEventSubscription where
 
 instance Hashable DeleteEventSubscription
 
+instance NFData DeleteEventSubscription
+
 instance ToHeaders DeleteEventSubscription where
         toHeaders = const mempty
 
@@ -121,3 +123,5 @@ drsEventSubscription = lens _drsEventSubscription (\ s a -> s{_drsEventSubscript
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteEventSubscriptionResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteEventSubscriptionResponse

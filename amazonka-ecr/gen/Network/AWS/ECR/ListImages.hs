@@ -117,6 +117,8 @@ instance AWSRequest ListImages where
 
 instance Hashable ListImages
 
+instance NFData ListImages
+
 instance ToHeaders ListImages where
         toHeaders
           = const
@@ -182,3 +184,5 @@ lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 -- | The response status code.
 lirsResponseStatus :: Lens' ListImagesResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
+
+instance NFData ListImagesResponse

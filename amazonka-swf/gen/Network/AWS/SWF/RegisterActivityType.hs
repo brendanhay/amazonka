@@ -230,6 +230,8 @@ instance AWSRequest RegisterActivityType where
 
 instance Hashable RegisterActivityType
 
+instance NFData RegisterActivityType
+
 instance ToHeaders RegisterActivityType where
         toHeaders
           = const
@@ -276,3 +278,5 @@ data RegisterActivityTypeResponse =
 registerActivityTypeResponse
     :: RegisterActivityTypeResponse
 registerActivityTypeResponse = RegisterActivityTypeResponse'
+
+instance NFData RegisterActivityTypeResponse

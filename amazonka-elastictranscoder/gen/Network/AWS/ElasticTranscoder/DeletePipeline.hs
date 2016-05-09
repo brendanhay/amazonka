@@ -79,6 +79,8 @@ instance AWSRequest DeletePipeline where
 
 instance Hashable DeletePipeline
 
+instance NFData DeletePipeline
+
 instance ToHeaders DeletePipeline where
         toHeaders = const mempty
 
@@ -112,3 +114,5 @@ deletePipelineResponse pResponseStatus_ =
 -- | The response status code.
 drsResponseStatus :: Lens' DeletePipelineResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeletePipelineResponse

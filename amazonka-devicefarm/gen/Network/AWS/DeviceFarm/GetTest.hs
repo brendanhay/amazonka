@@ -77,6 +77,8 @@ instance AWSRequest GetTest where
 
 instance Hashable GetTest
 
+instance NFData GetTest
+
 instance ToHeaders GetTest where
         toHeaders
           = const
@@ -127,3 +129,5 @@ gtrsTest = lens _gtrsTest (\ s a -> s{_gtrsTest = a});
 -- | The response status code.
 gtrsResponseStatus :: Lens' GetTestResponse Int
 gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});
+
+instance NFData GetTestResponse

@@ -72,6 +72,8 @@ instance AWSRequest DeleteRetentionPolicy where
 
 instance Hashable DeleteRetentionPolicy
 
+instance NFData DeleteRetentionPolicy
+
 instance ToHeaders DeleteRetentionPolicy where
         toHeaders
           = const
@@ -104,3 +106,5 @@ data DeleteRetentionPolicyResponse =
 deleteRetentionPolicyResponse
     :: DeleteRetentionPolicyResponse
 deleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'
+
+instance NFData DeleteRetentionPolicyResponse

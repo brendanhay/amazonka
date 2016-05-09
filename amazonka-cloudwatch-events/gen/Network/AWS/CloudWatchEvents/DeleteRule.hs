@@ -75,6 +75,8 @@ instance AWSRequest DeleteRule where
 
 instance Hashable DeleteRule
 
+instance NFData DeleteRule
+
 instance ToHeaders DeleteRule where
         toHeaders
           = const
@@ -104,3 +106,5 @@ data DeleteRuleResponse =
 deleteRuleResponse
     :: DeleteRuleResponse
 deleteRuleResponse = DeleteRuleResponse'
+
+instance NFData DeleteRuleResponse

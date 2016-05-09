@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to delete an application version.
 --
 -- /See:/ 'deleteApplicationVersion' smart constructor.
 data DeleteApplicationVersion = DeleteApplicationVersion'
@@ -101,6 +101,8 @@ instance AWSRequest DeleteApplicationVersion where
 
 instance Hashable DeleteApplicationVersion
 
+instance NFData DeleteApplicationVersion
+
 instance ToHeaders DeleteApplicationVersion where
         toHeaders = const mempty
 
@@ -127,3 +129,5 @@ data DeleteApplicationVersionResponse =
 deleteApplicationVersionResponse
     :: DeleteApplicationVersionResponse
 deleteApplicationVersionResponse = DeleteApplicationVersionResponse'
+
+instance NFData DeleteApplicationVersionResponse

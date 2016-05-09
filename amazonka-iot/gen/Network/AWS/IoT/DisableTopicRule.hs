@@ -70,6 +70,8 @@ instance AWSRequest DisableTopicRule where
 
 instance Hashable DisableTopicRule
 
+instance NFData DisableTopicRule
+
 instance ToHeaders DisableTopicRule where
         toHeaders = const mempty
 
@@ -93,3 +95,5 @@ data DisableTopicRuleResponse =
 disableTopicRuleResponse
     :: DisableTopicRuleResponse
 disableTopicRuleResponse = DisableTopicRuleResponse'
+
+instance NFData DisableTopicRuleResponse

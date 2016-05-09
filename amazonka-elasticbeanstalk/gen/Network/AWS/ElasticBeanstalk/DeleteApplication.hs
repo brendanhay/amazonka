@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
+-- | Request to delete an application.
 --
 -- /See:/ 'deleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
@@ -84,6 +84,8 @@ instance AWSRequest DeleteApplication where
 
 instance Hashable DeleteApplication
 
+instance NFData DeleteApplication
+
 instance ToHeaders DeleteApplication where
         toHeaders = const mempty
 
@@ -108,3 +110,5 @@ data DeleteApplicationResponse =
 deleteApplicationResponse
     :: DeleteApplicationResponse
 deleteApplicationResponse = DeleteApplicationResponse'
+
+instance NFData DeleteApplicationResponse

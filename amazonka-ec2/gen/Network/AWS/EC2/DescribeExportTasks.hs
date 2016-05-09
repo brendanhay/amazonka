@@ -42,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeExportTasks' smart constructor.
+-- | Contains the parameters for DescribeExportTasks.
+--
+-- /See:/ 'describeExportTasks' smart constructor.
 newtype DescribeExportTasks = DescribeExportTasks'
     { _detExportTaskIds :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -77,6 +79,8 @@ instance AWSRequest DescribeExportTasks where
 
 instance Hashable DescribeExportTasks
 
+instance NFData DescribeExportTasks
+
 instance ToHeaders DescribeExportTasks where
         toHeaders = const mempty
 
@@ -91,7 +95,9 @@ instance ToQuery DescribeExportTasks where
                toQuery
                  (toQueryList "ExportTaskId" <$> _detExportTaskIds)]
 
--- | /See:/ 'describeExportTasksResponse' smart constructor.
+-- | Contains the output for DescribeExportTasks.
+--
+-- /See:/ 'describeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
     { _detrsExportTasks    :: !(Maybe [ExportTask])
     , _detrsResponseStatus :: !Int
@@ -120,3 +126,5 @@ detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . 
 -- | The response status code.
 detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
+
+instance NFData DescribeExportTasksResponse

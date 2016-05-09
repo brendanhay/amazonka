@@ -87,6 +87,8 @@ instance AWSRequest DescribeStep where
 
 instance Hashable DescribeStep
 
+instance NFData DescribeStep
+
 instance ToHeaders DescribeStep where
         toHeaders
           = const
@@ -140,3 +142,5 @@ dsrsStep = lens _dsrsStep (\ s a -> s{_dsrsStep = a});
 -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStepResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+
+instance NFData DescribeStepResponse

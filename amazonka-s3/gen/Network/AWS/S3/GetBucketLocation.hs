@@ -75,6 +75,8 @@ instance AWSRequest GetBucketLocation where
 
 instance Hashable GetBucketLocation
 
+instance NFData GetBucketLocation
+
 instance ToHeaders GetBucketLocation where
         toHeaders = const mempty
 
@@ -115,3 +117,5 @@ grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
 -- | Undocumented member.
 grsLocationConstraint :: Lens' GetBucketLocationResponse LocationConstraint
 grsLocationConstraint = lens _grsLocationConstraint (\ s a -> s{_grsLocationConstraint = a});
+
+instance NFData GetBucketLocationResponse

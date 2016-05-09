@@ -101,6 +101,8 @@ instance AWSRequest UpdateFleetPortSettings where
 
 instance Hashable UpdateFleetPortSettings
 
+instance NFData UpdateFleetPortSettings
+
 instance ToHeaders UpdateFleetPortSettings where
         toHeaders
           = const
@@ -157,3 +159,5 @@ ufpsrsFleetId = lens _ufpsrsFleetId (\ s a -> s{_ufpsrsFleetId = a});
 -- | The response status code.
 ufpsrsResponseStatus :: Lens' UpdateFleetPortSettingsResponse Int
 ufpsrsResponseStatus = lens _ufpsrsResponseStatus (\ s a -> s{_ufpsrsResponseStatus = a});
+
+instance NFData UpdateFleetPortSettingsResponse

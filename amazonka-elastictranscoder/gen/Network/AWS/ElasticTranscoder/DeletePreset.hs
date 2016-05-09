@@ -80,6 +80,8 @@ instance AWSRequest DeletePreset where
 
 instance Hashable DeletePreset
 
+instance NFData DeletePreset
+
 instance ToHeaders DeletePreset where
         toHeaders = const mempty
 
@@ -113,3 +115,5 @@ deletePresetResponse pResponseStatus_ =
 -- | The response status code.
 dprsResponseStatus :: Lens' DeletePresetResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+
+instance NFData DeletePresetResponse

@@ -105,6 +105,8 @@ instance AWSRequest SetPlatformApplicationAttributes
 
 instance Hashable SetPlatformApplicationAttributes
 
+instance NFData SetPlatformApplicationAttributes
+
 instance ToHeaders SetPlatformApplicationAttributes
          where
         toHeaders = const mempty
@@ -136,3 +138,6 @@ setPlatformApplicationAttributesResponse
     :: SetPlatformApplicationAttributesResponse
 setPlatformApplicationAttributesResponse =
     SetPlatformApplicationAttributesResponse'
+
+instance NFData
+         SetPlatformApplicationAttributesResponse

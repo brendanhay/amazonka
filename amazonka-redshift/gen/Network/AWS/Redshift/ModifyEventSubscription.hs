@@ -156,6 +156,8 @@ instance AWSRequest ModifyEventSubscription where
 
 instance Hashable ModifyEventSubscription
 
+instance NFData ModifyEventSubscription
+
 instance ToHeaders ModifyEventSubscription where
         toHeaders = const mempty
 
@@ -209,3 +211,5 @@ mesrsEventSubscription = lens _mesrsEventSubscription (\ s a -> s{_mesrsEventSub
 -- | The response status code.
 mesrsResponseStatus :: Lens' ModifyEventSubscriptionResponse Int
 mesrsResponseStatus = lens _mesrsResponseStatus (\ s a -> s{_mesrsResponseStatus = a});
+
+instance NFData ModifyEventSubscriptionResponse

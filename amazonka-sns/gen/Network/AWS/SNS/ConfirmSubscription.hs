@@ -104,6 +104,8 @@ instance AWSRequest ConfirmSubscription where
 
 instance Hashable ConfirmSubscription
 
+instance NFData ConfirmSubscription
+
 instance ToHeaders ConfirmSubscription where
         toHeaders = const mempty
 
@@ -150,3 +152,5 @@ csrsSubscriptionARN = lens _csrsSubscriptionARN (\ s a -> s{_csrsSubscriptionARN
 -- | The response status code.
 csrsResponseStatus :: Lens' ConfirmSubscriptionResponse Int
 csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a});
+
+instance NFData ConfirmSubscriptionResponse

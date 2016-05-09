@@ -113,6 +113,8 @@ instance AWSRequest CreateSqlInjectionMatchSet where
 
 instance Hashable CreateSqlInjectionMatchSet
 
+instance NFData CreateSqlInjectionMatchSet
+
 instance ToHeaders CreateSqlInjectionMatchSet where
         toHeaders
           = const
@@ -178,3 +180,5 @@ csimsrsChangeToken = lens _csimsrsChangeToken (\ s a -> s{_csimsrsChangeToken = 
 -- | The response status code.
 csimsrsResponseStatus :: Lens' CreateSqlInjectionMatchSetResponse Int
 csimsrsResponseStatus = lens _csimsrsResponseStatus (\ s a -> s{_csimsrsResponseStatus = a});
+
+instance NFData CreateSqlInjectionMatchSetResponse

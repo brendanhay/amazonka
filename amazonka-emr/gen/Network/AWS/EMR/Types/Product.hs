@@ -99,6 +99,8 @@ instance FromJSON Application where
 
 instance Hashable Application
 
+instance NFData Application
+
 instance ToJSON Application where
         toJSON Application'{..}
           = object
@@ -142,6 +144,8 @@ bacScriptBootstrapAction :: Lens' BootstrapActionConfig ScriptBootstrapActionCon
 bacScriptBootstrapAction = lens _bacScriptBootstrapAction (\ s a -> s{_bacScriptBootstrapAction = a});
 
 instance Hashable BootstrapActionConfig
+
+instance NFData BootstrapActionConfig
 
 instance ToJSON BootstrapActionConfig where
         toJSON BootstrapActionConfig'{..}
@@ -349,6 +353,8 @@ instance FromJSON Cluster where
 
 instance Hashable Cluster
 
+instance NFData Cluster
+
 -- | The reason that the cluster changed to its current state.
 --
 -- /See:/ 'clusterStateChangeReason' smart constructor.
@@ -388,6 +394,8 @@ instance FromJSON ClusterStateChangeReason where
                    (x .:? "Code") <*> (x .:? "Message"))
 
 instance Hashable ClusterStateChangeReason
+
+instance NFData ClusterStateChangeReason
 
 -- | The detailed status of the cluster.
 --
@@ -438,6 +446,8 @@ instance FromJSON ClusterStatus where
                      (x .:? "Timeline"))
 
 instance Hashable ClusterStatus
+
+instance NFData ClusterStatus
 
 -- | The summary description of the cluster.
 --
@@ -503,6 +513,8 @@ instance FromJSON ClusterSummary where
 
 instance Hashable ClusterSummary
 
+instance NFData ClusterSummary
+
 -- | Represents the timeline of the cluster\'s lifecycle.
 --
 -- /See:/ 'clusterTimeline' smart constructor.
@@ -553,6 +565,8 @@ instance FromJSON ClusterTimeline where
 
 instance Hashable ClusterTimeline
 
+instance NFData ClusterTimeline
+
 -- | An entity describing an executable that runs on a cluster.
 --
 -- /See:/ 'command' smart constructor.
@@ -601,6 +615,8 @@ instance FromJSON Command where
                      <*> (x .:? "Name"))
 
 instance Hashable Command
+
+instance NFData Command
 
 -- | Amazon EMR releases 4.x or later.
 --
@@ -660,6 +676,8 @@ instance FromJSON Configuration where
 
 instance Hashable Configuration
 
+instance NFData Configuration
+
 instance ToJSON Configuration where
         toJSON Configuration'{..}
           = object
@@ -711,6 +729,8 @@ instance FromJSON EBSBlockDevice where
 
 instance Hashable EBSBlockDevice
 
+instance NFData EBSBlockDevice
+
 -- | Configuration of requested EBS block device associated with the instance
 -- group with count of volumes that will be associated to every instance.
 --
@@ -748,6 +768,8 @@ ebdcVolumeSpecification :: Lens' EBSBlockDeviceConfig VolumeSpecification
 ebdcVolumeSpecification = lens _ebdcVolumeSpecification (\ s a -> s{_ebdcVolumeSpecification = a});
 
 instance Hashable EBSBlockDeviceConfig
+
+instance NFData EBSBlockDeviceConfig
 
 instance ToJSON EBSBlockDeviceConfig where
         toJSON EBSBlockDeviceConfig'{..}
@@ -788,6 +810,8 @@ ecEBSBlockDeviceConfigs :: Lens' EBSConfiguration [EBSBlockDeviceConfig]
 ecEBSBlockDeviceConfigs = lens _ecEBSBlockDeviceConfigs (\ s a -> s{_ecEBSBlockDeviceConfigs = a}) . _Default . _Coerce;
 
 instance Hashable EBSConfiguration
+
+instance NFData EBSConfiguration
 
 instance ToJSON EBSConfiguration where
         toJSON EBSConfiguration'{..}
@@ -836,6 +860,8 @@ instance FromJSON EBSVolume where
                    (x .:? "Device") <*> (x .:? "VolumeId"))
 
 instance Hashable EBSVolume
+
+instance NFData EBSVolume
 
 -- | Provides information about the EC2 instances in a cluster grouped by
 -- category. For example, key name, subnet ID, IAM instance profile, and so
@@ -955,6 +981,8 @@ instance FromJSON EC2InstanceAttributes where
 
 instance Hashable EC2InstanceAttributes
 
+instance NFData EC2InstanceAttributes
+
 -- | A job flow step consisting of a JAR file whose main function will be
 -- executed. The main function submits a job for Hadoop to execute and
 -- waits for the job to finish or fail.
@@ -1009,6 +1037,8 @@ hjscJAR :: Lens' HadoopJARStepConfig Text
 hjscJAR = lens _hjscJAR (\ s a -> s{_hjscJAR = a});
 
 instance Hashable HadoopJARStepConfig
+
+instance NFData HadoopJARStepConfig
 
 instance ToJSON HadoopJARStepConfig where
         toJSON HadoopJARStepConfig'{..}
@@ -1081,6 +1111,8 @@ instance FromJSON HadoopStepConfig where
                      <*> (x .:? "Properties" .!= mempty))
 
 instance Hashable HadoopStepConfig
+
+instance NFData HadoopStepConfig
 
 -- | Represents an EC2 instance provisioned as part of cluster.
 --
@@ -1185,6 +1217,8 @@ instance FromJSON Instance where
 
 instance Hashable Instance
 
+instance NFData Instance
+
 -- | This entity represents an instance group, which is a group of instances
 -- that have common purpose. For example, CORE instance group is used for
 -- HDFS.
@@ -1202,6 +1236,7 @@ data InstanceGroup = InstanceGroup'
     , _igEBSOptimized           :: !(Maybe Bool)
     , _igMarket                 :: !(Maybe MarketType)
     , _igName                   :: !(Maybe Text)
+    , _igShrinkPolicy           :: !(Maybe ShrinkPolicy)
     , _igId                     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1231,6 +1266,8 @@ data InstanceGroup = InstanceGroup'
 --
 -- * 'igName'
 --
+-- * 'igShrinkPolicy'
+--
 -- * 'igId'
 instanceGroup
     :: InstanceGroup
@@ -1247,6 +1284,7 @@ instanceGroup =
     , _igEBSOptimized = Nothing
     , _igMarket = Nothing
     , _igName = Nothing
+    , _igShrinkPolicy = Nothing
     , _igId = Nothing
     }
 
@@ -1302,6 +1340,10 @@ igMarket = lens _igMarket (\ s a -> s{_igMarket = a});
 igName :: Lens' InstanceGroup (Maybe Text)
 igName = lens _igName (\ s a -> s{_igName = a});
 
+-- | Policy for customizing shrink operations.
+igShrinkPolicy :: Lens' InstanceGroup (Maybe ShrinkPolicy)
+igShrinkPolicy = lens _igShrinkPolicy (\ s a -> s{_igShrinkPolicy = a});
+
 -- | The identifier of the instance group.
 igId :: Lens' InstanceGroup (Maybe Text)
 igId = lens _igId (\ s a -> s{_igId = a});
@@ -1321,9 +1363,12 @@ instance FromJSON InstanceGroup where
                      <*> (x .:? "EbsOptimized")
                      <*> (x .:? "Market")
                      <*> (x .:? "Name")
+                     <*> (x .:? "ShrinkPolicy")
                      <*> (x .:? "Id"))
 
 instance Hashable InstanceGroup
+
+instance NFData InstanceGroup
 
 -- | Configuration defining a new instance group.
 --
@@ -1415,6 +1460,8 @@ igcInstanceCount = lens _igcInstanceCount (\ s a -> s{_igcInstanceCount = a});
 
 instance Hashable InstanceGroupConfig
 
+instance NFData InstanceGroupConfig
+
 instance ToJSON InstanceGroupConfig where
         toJSON InstanceGroupConfig'{..}
           = object
@@ -1434,6 +1481,7 @@ instance ToJSON InstanceGroupConfig where
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
     { _igmcInstanceCount             :: !(Maybe Int)
     , _igmcEC2InstanceIdsToTerminate :: !(Maybe [Text])
+    , _igmcShrinkPolicy              :: !(Maybe ShrinkPolicy)
     , _igmcInstanceGroupId           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1445,6 +1493,8 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
 --
 -- * 'igmcEC2InstanceIdsToTerminate'
 --
+-- * 'igmcShrinkPolicy'
+--
 -- * 'igmcInstanceGroupId'
 instanceGroupModifyConfig
     :: Text -- ^ 'igmcInstanceGroupId'
@@ -1453,6 +1503,7 @@ instanceGroupModifyConfig pInstanceGroupId_ =
     InstanceGroupModifyConfig'
     { _igmcInstanceCount = Nothing
     , _igmcEC2InstanceIdsToTerminate = Nothing
+    , _igmcShrinkPolicy = Nothing
     , _igmcInstanceGroupId = pInstanceGroupId_
     }
 
@@ -1460,17 +1511,22 @@ instanceGroupModifyConfig pInstanceGroupId_ =
 igmcInstanceCount :: Lens' InstanceGroupModifyConfig (Maybe Int)
 igmcInstanceCount = lens _igmcInstanceCount (\ s a -> s{_igmcInstanceCount = a});
 
--- | The EC2 InstanceIds to terminate. For advanced users only. Once you
--- terminate the instances, the instance group will not return to its
--- original requested size.
+-- | The EC2 InstanceIds to terminate. Once you terminate the instances, the
+-- instance group will not return to its original requested size.
 igmcEC2InstanceIdsToTerminate :: Lens' InstanceGroupModifyConfig [Text]
 igmcEC2InstanceIdsToTerminate = lens _igmcEC2InstanceIdsToTerminate (\ s a -> s{_igmcEC2InstanceIdsToTerminate = a}) . _Default . _Coerce;
+
+-- | Policy for customizing shrink operations.
+igmcShrinkPolicy :: Lens' InstanceGroupModifyConfig (Maybe ShrinkPolicy)
+igmcShrinkPolicy = lens _igmcShrinkPolicy (\ s a -> s{_igmcShrinkPolicy = a});
 
 -- | Unique ID of the instance group to expand or shrink.
 igmcInstanceGroupId :: Lens' InstanceGroupModifyConfig Text
 igmcInstanceGroupId = lens _igmcInstanceGroupId (\ s a -> s{_igmcInstanceGroupId = a});
 
 instance Hashable InstanceGroupModifyConfig
+
+instance NFData InstanceGroupModifyConfig
 
 instance ToJSON InstanceGroupModifyConfig where
         toJSON InstanceGroupModifyConfig'{..}
@@ -1479,6 +1535,7 @@ instance ToJSON InstanceGroupModifyConfig where
                  [("InstanceCount" .=) <$> _igmcInstanceCount,
                   ("EC2InstanceIdsToTerminate" .=) <$>
                     _igmcEC2InstanceIdsToTerminate,
+                  ("ShrinkPolicy" .=) <$> _igmcShrinkPolicy,
                   Just ("InstanceGroupId" .= _igmcInstanceGroupId)])
 
 -- | The status change reason details for the instance group.
@@ -1521,6 +1578,8 @@ instance FromJSON InstanceGroupStateChangeReason
                    (x .:? "Code") <*> (x .:? "Message"))
 
 instance Hashable InstanceGroupStateChangeReason
+
+instance NFData InstanceGroupStateChangeReason
 
 -- | The details of the instance group status.
 --
@@ -1570,6 +1629,8 @@ instance FromJSON InstanceGroupStatus where
                      (x .:? "Timeline"))
 
 instance Hashable InstanceGroupStatus
+
+instance NFData InstanceGroupStatus
 
 -- | The timeline of the instance group lifecycle.
 --
@@ -1621,6 +1682,75 @@ instance FromJSON InstanceGroupTimeline where
 
 instance Hashable InstanceGroupTimeline
 
+instance NFData InstanceGroupTimeline
+
+-- | Custom policy for requesting termination protection or termination of
+-- specific instances when shrinking an instance group.
+--
+-- /See:/ 'instanceResizePolicy' smart constructor.
+data InstanceResizePolicy = InstanceResizePolicy'
+    { _irpInstancesToProtect         :: !(Maybe [Text])
+    , _irpInstancesToTerminate       :: !(Maybe [Text])
+    , _irpInstanceTerminationTimeout :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceResizePolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'irpInstancesToProtect'
+--
+-- * 'irpInstancesToTerminate'
+--
+-- * 'irpInstanceTerminationTimeout'
+instanceResizePolicy
+    :: InstanceResizePolicy
+instanceResizePolicy =
+    InstanceResizePolicy'
+    { _irpInstancesToProtect = Nothing
+    , _irpInstancesToTerminate = Nothing
+    , _irpInstanceTerminationTimeout = Nothing
+    }
+
+-- | Specific list of instances to be protected when shrinking an instance
+-- group.
+irpInstancesToProtect :: Lens' InstanceResizePolicy [Text]
+irpInstancesToProtect = lens _irpInstancesToProtect (\ s a -> s{_irpInstancesToProtect = a}) . _Default . _Coerce;
+
+-- | Specific list of instances to be terminated when shrinking an instance
+-- group.
+irpInstancesToTerminate :: Lens' InstanceResizePolicy [Text]
+irpInstancesToTerminate = lens _irpInstancesToTerminate (\ s a -> s{_irpInstancesToTerminate = a}) . _Default . _Coerce;
+
+-- | Decommissioning timeout override for the specific list of instances to
+-- be terminated.
+irpInstanceTerminationTimeout :: Lens' InstanceResizePolicy (Maybe Int)
+irpInstanceTerminationTimeout = lens _irpInstanceTerminationTimeout (\ s a -> s{_irpInstanceTerminationTimeout = a});
+
+instance FromJSON InstanceResizePolicy where
+        parseJSON
+          = withObject "InstanceResizePolicy"
+              (\ x ->
+                 InstanceResizePolicy' <$>
+                   (x .:? "InstancesToProtect" .!= mempty) <*>
+                     (x .:? "InstancesToTerminate" .!= mempty)
+                     <*> (x .:? "InstanceTerminationTimeout"))
+
+instance Hashable InstanceResizePolicy
+
+instance NFData InstanceResizePolicy
+
+instance ToJSON InstanceResizePolicy where
+        toJSON InstanceResizePolicy'{..}
+          = object
+              (catMaybes
+                 [("InstancesToProtect" .=) <$>
+                    _irpInstancesToProtect,
+                  ("InstancesToTerminate" .=) <$>
+                    _irpInstancesToTerminate,
+                  ("InstanceTerminationTimeout" .=) <$>
+                    _irpInstanceTerminationTimeout])
+
 -- | The details of the status change reason for the instance.
 --
 -- /See:/ 'instanceStateChangeReason' smart constructor.
@@ -1660,6 +1790,8 @@ instance FromJSON InstanceStateChangeReason where
                    (x .:? "Code") <*> (x .:? "Message"))
 
 instance Hashable InstanceStateChangeReason
+
+instance NFData InstanceStateChangeReason
 
 -- | The instance status details.
 --
@@ -1710,6 +1842,8 @@ instance FromJSON InstanceStatus where
 
 instance Hashable InstanceStatus
 
+instance NFData InstanceStatus
+
 -- | The timeline of the instance lifecycle.
 --
 -- /See:/ 'instanceTimeline' smart constructor.
@@ -1759,6 +1893,8 @@ instance FromJSON InstanceTimeline where
                      <*> (x .:? "EndDateTime"))
 
 instance Hashable InstanceTimeline
+
+instance NFData InstanceTimeline
 
 -- | A description of the Amazon EC2 instance running the job flow. A valid
 -- JobFlowInstancesConfig must contain at least InstanceGroups, which is
@@ -1919,6 +2055,8 @@ jficPlacement = lens _jficPlacement (\ s a -> s{_jficPlacement = a});
 
 instance Hashable JobFlowInstancesConfig
 
+instance NFData JobFlowInstancesConfig
+
 instance ToJSON JobFlowInstancesConfig where
         toJSON JobFlowInstancesConfig'{..}
           = object
@@ -1980,6 +2118,8 @@ kvKey = lens _kvKey (\ s a -> s{_kvKey = a});
 
 instance Hashable KeyValue
 
+instance NFData KeyValue
+
 instance ToJSON KeyValue where
         toJSON KeyValue'{..}
           = object
@@ -2011,6 +2151,8 @@ ptAvailabilityZone :: Lens' PlacementType Text
 ptAvailabilityZone = lens _ptAvailabilityZone (\ s a -> s{_ptAvailabilityZone = a});
 
 instance Hashable PlacementType
+
+instance NFData PlacementType
 
 instance ToJSON PlacementType where
         toJSON PlacementType'{..}
@@ -2053,12 +2195,69 @@ sbacPath = lens _sbacPath (\ s a -> s{_sbacPath = a});
 
 instance Hashable ScriptBootstrapActionConfig
 
+instance NFData ScriptBootstrapActionConfig
+
 instance ToJSON ScriptBootstrapActionConfig where
         toJSON ScriptBootstrapActionConfig'{..}
           = object
               (catMaybes
                  [("Args" .=) <$> _sbacArgs,
                   Just ("Path" .= _sbacPath)])
+
+-- | Policy for customizing shrink operations. Allows configuration of
+-- decommissioning timeout and targeted instance shrinking.
+--
+-- /See:/ 'shrinkPolicy' smart constructor.
+data ShrinkPolicy = ShrinkPolicy'
+    { _spDecommissionTimeout  :: !(Maybe Int)
+    , _spInstanceResizePolicy :: !(Maybe InstanceResizePolicy)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ShrinkPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spDecommissionTimeout'
+--
+-- * 'spInstanceResizePolicy'
+shrinkPolicy
+    :: ShrinkPolicy
+shrinkPolicy =
+    ShrinkPolicy'
+    { _spDecommissionTimeout = Nothing
+    , _spInstanceResizePolicy = Nothing
+    }
+
+-- | The desired timeout for decommissioning an instance. Overrides the
+-- default YARN decommissioning timeout.
+spDecommissionTimeout :: Lens' ShrinkPolicy (Maybe Int)
+spDecommissionTimeout = lens _spDecommissionTimeout (\ s a -> s{_spDecommissionTimeout = a});
+
+-- | Custom policy for requesting termination protection or termination of
+-- specific instances when shrinking an instance group.
+spInstanceResizePolicy :: Lens' ShrinkPolicy (Maybe InstanceResizePolicy)
+spInstanceResizePolicy = lens _spInstanceResizePolicy (\ s a -> s{_spInstanceResizePolicy = a});
+
+instance FromJSON ShrinkPolicy where
+        parseJSON
+          = withObject "ShrinkPolicy"
+              (\ x ->
+                 ShrinkPolicy' <$>
+                   (x .:? "DecommissionTimeout") <*>
+                     (x .:? "InstanceResizePolicy"))
+
+instance Hashable ShrinkPolicy
+
+instance NFData ShrinkPolicy
+
+instance ToJSON ShrinkPolicy where
+        toJSON ShrinkPolicy'{..}
+          = object
+              (catMaybes
+                 [("DecommissionTimeout" .=) <$>
+                    _spDecommissionTimeout,
+                  ("InstanceResizePolicy" .=) <$>
+                    _spInstanceResizePolicy])
 
 -- | This represents a step in a cluster.
 --
@@ -2128,6 +2327,8 @@ instance FromJSON Step where
 
 instance Hashable Step
 
+instance NFData Step
+
 -- | Specification of a job flow step.
 --
 -- /See:/ 'stepConfig' smart constructor.
@@ -2170,6 +2371,8 @@ scHadoopJARStep :: Lens' StepConfig HadoopJARStepConfig
 scHadoopJARStep = lens _scHadoopJARStep (\ s a -> s{_scHadoopJARStep = a});
 
 instance Hashable StepConfig
+
+instance NFData StepConfig
 
 instance ToJSON StepConfig where
         toJSON StepConfig'{..}
@@ -2220,6 +2423,8 @@ instance FromJSON StepStateChangeReason where
 
 instance Hashable StepStateChangeReason
 
+instance NFData StepStateChangeReason
+
 -- | The execution status details of the cluster step.
 --
 -- /See:/ 'stepStatus' smart constructor.
@@ -2268,6 +2473,8 @@ instance FromJSON StepStatus where
                      (x .:? "Timeline"))
 
 instance Hashable StepStatus
+
+instance NFData StepStatus
 
 -- | The summary of the cluster step.
 --
@@ -2337,6 +2544,8 @@ instance FromJSON StepSummary where
 
 instance Hashable StepSummary
 
+instance NFData StepSummary
+
 -- | The timeline of the cluster step lifecycle.
 --
 -- /See:/ 'stepTimeline' smart constructor.
@@ -2386,6 +2595,8 @@ instance FromJSON StepTimeline where
 
 instance Hashable StepTimeline
 
+instance NFData StepTimeline
+
 -- | The list of supported product configurations which allow user-supplied
 -- arguments. EMR accepts these arguments and forwards them to the
 -- corresponding installation script as bootstrap action arguments.
@@ -2420,6 +2631,8 @@ spcName :: Lens' SupportedProductConfig (Maybe Text)
 spcName = lens _spcName (\ s a -> s{_spcName = a});
 
 instance Hashable SupportedProductConfig
+
+instance NFData SupportedProductConfig
 
 instance ToJSON SupportedProductConfig where
         toJSON SupportedProductConfig'{..}
@@ -2472,6 +2685,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -2533,6 +2748,8 @@ instance FromJSON VolumeSpecification where
                      (x .: "SizeInGB"))
 
 instance Hashable VolumeSpecification
+
+instance NFData VolumeSpecification
 
 instance ToJSON VolumeSpecification where
         toJSON VolumeSpecification'{..}

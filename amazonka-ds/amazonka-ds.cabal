@@ -1,5 +1,5 @@
 name:                  amazonka-ds
-version:               1.4.0
+version:               1.4.1
 synopsis:              Amazon Directory Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -48,14 +48,17 @@ library
         , Network.AWS.DirectoryService.ConnectDirectory
         , Network.AWS.DirectoryService.CreateAlias
         , Network.AWS.DirectoryService.CreateComputer
+        , Network.AWS.DirectoryService.CreateConditionalForwarder
         , Network.AWS.DirectoryService.CreateDirectory
         , Network.AWS.DirectoryService.CreateMicrosoftAD
         , Network.AWS.DirectoryService.CreateSnapshot
         , Network.AWS.DirectoryService.CreateTrust
+        , Network.AWS.DirectoryService.DeleteConditionalForwarder
         , Network.AWS.DirectoryService.DeleteDirectory
         , Network.AWS.DirectoryService.DeleteSnapshot
         , Network.AWS.DirectoryService.DeleteTrust
         , Network.AWS.DirectoryService.DeregisterEventTopic
+        , Network.AWS.DirectoryService.DescribeConditionalForwarders
         , Network.AWS.DirectoryService.DescribeDirectories
         , Network.AWS.DirectoryService.DescribeEventTopics
         , Network.AWS.DirectoryService.DescribeSnapshots
@@ -69,6 +72,7 @@ library
         , Network.AWS.DirectoryService.RegisterEventTopic
         , Network.AWS.DirectoryService.RestoreFromSnapshot
         , Network.AWS.DirectoryService.Types
+        , Network.AWS.DirectoryService.UpdateConditionalForwarder
         , Network.AWS.DirectoryService.UpdateRadius
         , Network.AWS.DirectoryService.VerifyTrust
         , Network.AWS.DirectoryService.Waiters
@@ -78,7 +82,7 @@ library
         , Network.AWS.DirectoryService.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.0.*
+          amazonka-core == 1.4.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ds-test
@@ -98,9 +102,9 @@ test-suite amazonka-ds-test
         , Test.AWS.DirectoryService.Internal
 
     build-depends:
-          amazonka-core == 1.4.0.*
-        , amazonka-test == 1.4.0.*
-        , amazonka-ds == 1.4.0.*
+          amazonka-core == 1.4.1.*
+        , amazonka-test == 1.4.1.*
+        , amazonka-ds == 1.4.1.*
         , base
         , bytestring
         , tasty

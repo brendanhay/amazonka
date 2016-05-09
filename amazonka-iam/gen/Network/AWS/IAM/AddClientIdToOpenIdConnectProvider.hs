@@ -89,6 +89,8 @@ instance AWSRequest
 
 instance Hashable AddClientIdToOpenIdConnectProvider
 
+instance NFData AddClientIdToOpenIdConnectProvider
+
 instance ToHeaders AddClientIdToOpenIdConnectProvider
          where
         toHeaders = const mempty
@@ -119,3 +121,6 @@ addClientIdToOpenIdConnectProviderResponse
     :: AddClientIdToOpenIdConnectProviderResponse
 addClientIdToOpenIdConnectProviderResponse =
     AddClientIdToOpenIdConnectProviderResponse'
+
+instance NFData
+         AddClientIdToOpenIdConnectProviderResponse

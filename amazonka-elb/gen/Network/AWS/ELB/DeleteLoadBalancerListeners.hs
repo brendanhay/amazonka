@@ -85,6 +85,8 @@ instance AWSRequest DeleteLoadBalancerListeners where
 
 instance Hashable DeleteLoadBalancerListeners
 
+instance NFData DeleteLoadBalancerListeners
+
 instance ToHeaders DeleteLoadBalancerListeners where
         toHeaders = const mempty
 
@@ -122,3 +124,5 @@ deleteLoadBalancerListenersResponse pResponseStatus_ =
 -- | The response status code.
 dlblrsResponseStatus :: Lens' DeleteLoadBalancerListenersResponse Int
 dlblrsResponseStatus = lens _dlblrsResponseStatus (\ s a -> s{_dlblrsResponseStatus = a});
+
+instance NFData DeleteLoadBalancerListenersResponse

@@ -49,6 +49,7 @@ instance ToText ExportTaskStatusCode where
         Running -> "RUNNING"
 
 instance Hashable     ExportTaskStatusCode
+instance NFData       ExportTaskStatusCode
 instance ToByteString ExportTaskStatusCode
 instance ToQuery      ExportTaskStatusCode
 instance ToHeader     ExportTaskStatusCode
@@ -77,6 +78,7 @@ instance ToText OrderBy where
         LogStreamName -> "LogStreamName"
 
 instance Hashable     OrderBy
+instance NFData       OrderBy
 instance ToByteString OrderBy
 instance ToQuery      OrderBy
 instance ToHeader     OrderBy

@@ -172,6 +172,13 @@ createCacheCluster pCacheClusterId_ =
 -- | The version number of the cache engine to be used for this cache
 -- cluster. To view the supported cache engine versions, use the
 -- /DescribeCacheEngineVersions/ action.
+--
+-- __Important:__ You can upgrade to a newer engine version (see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
+-- but you cannot downgrade to an earlier engine version. If you want to
+-- use an earlier engine version, you must delete the existing cache
+-- cluster or replication group and create it anew with the earlier engine
+-- version.
 cccEngineVersion :: Lens' CreateCacheCluster (Maybe Text)
 cccEngineVersion = lens _cccEngineVersion (\ s a -> s{_cccEngineVersion = a});
 
@@ -279,10 +286,10 @@ cccEngine = lens _cccEngine (\ s a -> s{_cccEngine = a});
 --
 -- Example: One Memcached node in each of three different Availability
 -- Zones:
--- 'PreferredAvailabilityZones.member.1=us-west-2a&PreferredAvailabilityZones.member.2=us-west-2b&PreferredAvailabilityZones.member.3=us-west-2c'
+-- 'PreferredAvailabilityZones.member.1=us-west-2a&amp;PreferredAvailabilityZones.member.2=us-west-2b&amp;PreferredAvailabilityZones.member.3=us-west-2c'
 --
 -- Example: All three Memcached nodes in one Availability Zone:
--- 'PreferredAvailabilityZones.member.1=us-west-2a&PreferredAvailabilityZones.member.2=us-west-2a&PreferredAvailabilityZones.member.3=us-west-2a'
+-- 'PreferredAvailabilityZones.member.1=us-west-2a&amp;PreferredAvailabilityZones.member.2=us-west-2a&amp;PreferredAvailabilityZones.member.3=us-west-2a'
 cccPreferredAvailabilityZones :: Lens' CreateCacheCluster [Text]
 cccPreferredAvailabilityZones = lens _cccPreferredAvailabilityZones (\ s a -> s{_cccPreferredAvailabilityZones = a}) . _Default . _Coerce;
 
@@ -427,6 +434,8 @@ instance AWSRequest CreateCacheCluster where
 
 instance Hashable CreateCacheCluster
 
+instance NFData CreateCacheCluster
+
 instance ToHeaders CreateCacheCluster where
         toHeaders = const mempty
 
@@ -506,3 +515,5 @@ cccrsCacheCluster = lens _cccrsCacheCluster (\ s a -> s{_cccrsCacheCluster = a})
 -- | The response status code.
 cccrsResponseStatus :: Lens' CreateCacheClusterResponse Int
 cccrsResponseStatus = lens _cccrsResponseStatus (\ s a -> s{_cccrsResponseStatus = a});
+
+instance NFData CreateCacheClusterResponse

@@ -1,5 +1,60 @@
 # Change Log
 
+## [1.4.1](https://github.com/brendanhay/amazonka/tree/1.4.1)
+Released: **09 May, 2016**, Compare: [1.4.1](https://github.com/brendanhay/amazonka/compare/1.4.0...1.4.1)
+
+### Fixed
+
+- AutoScaling `DescribeAutoScalingInstances` response field `LaunchConfigurationName` is now optional. [\#281](https://github.com/brendanhay/amazonka/issues/281)
+- SWF `PollForDecisionTask` and `PollForActivityTask` response fields are now optional. [\#285](https://github.com/brendanhay/amazonka/issues/285)
+
+### Changes
+
+- `NFData` instances generated for all eligible types. [\#283](https://github.com/brendanhay/amazonka/issues/283)
+- Additional retry cases for HTTP `5XX` response codes. [c5e494e](https://github.com/brendanhay/amazonka/commit/c5e494e2a97fcf2e9210527ed5e8547f1be898de)
+
+### Updated Service Definitions
+
+> The following services contain a large number of definition updates.
+Please review the linked commit for each library for specific changes:
+
+- [APIGateway](https://github.com/brendanhay/amazonka/commit/e57d291)
+- [CertificateManager](https://github.com/brendanhay/amazonka/commit/513fab6)
+- [CloudFormation](https://github.com/brendanhay/amazonka/commit/b2e70e3)
+- [CloudHSM](https://github.com/brendanhay/amazonka/commit/c091447)
+- [CodeCommit](https://github.com/brendanhay/amazonka/commit/bffa050)
+- [CodeDeploy](https://github.com/brendanhay/amazonka/commit/ef50a4c)
+- [CodePipeline](https://github.com/brendanhay/amazonka/commit/f2bf49d)
+- [Cognito Identity](https://github.com/brendanhay/amazonka/commit/6287585)
+- [DMS](https://github.com/brendanhay/amazonka/commit/eab3c87)
+- [DeviceFarm](https://github.com/brendanhay/amazonka/commit/452ef52)
+- [DirectoryService](https://github.com/brendanhay/amazonka/commit/35fb573)
+- [EC2](https://github.com/brendanhay/amazonka/commit/6b097cb)
+- [ECR](https://github.com/brendanhay/amazonka/commit/8cf3929)
+- [EMR](https://github.com/brendanhay/amazonka/commit/74a44ae)
+- [ElastiCache](https://github.com/brendanhay/amazonka/commit/bb570ae)
+- [ElasticBeanstalk](https://github.com/brendanhay/amazonka/commit/7f098ad)
+- [Inspector](https://github.com/brendanhay/amazonka/commit/71dc844)
+- [IoT](https://github.com/brendanhay/amazonka/commit/4c9276d)
+- [KMS](https://github.com/brendanhay/amazonka/commit/fedd472)
+- [Kineses](https://github.com/brendanhay/amazonka/commit/e2a1c4e)
+- [Kinesis Firehose](https://github.com/brendanhay/amazonka/commit/cf4d8a9)
+- [Lambda](https://github.com/brendanhay/amazonka/commit/53ec890)
+- [OpsWorks](https://github.com/brendanhay/amazonka/commit/7672d9f)
+- [RDS](https://github.com/brendanhay/amazonka/commit/236d9df)
+- [Redshift](https://github.com/brendanhay/amazonka/commit/baffabf)
+- [Route53Domains](https://github.com/brendanhay/amazonka/commit/9ac880f)
+- [Route53](https://github.com/brendanhay/amazonka/commit/6a9bd83)
+- [S3](https://github.com/brendanhay/amazonka/commit/3e65f86)
+- [STS](https://github.com/brendanhay/amazonka/commit/cbc0625)
+- [StorageGateway](https://github.com/brendanhay/amazonka/commit/f970f0e)
+- [WAF](https://github.com/brendanhay/amazonka/commit/3981bfa)
+
+### New Libraries
+
+- `amazonka-coginito-idp`: Cognito Identity Provider.
+
+
 ## [1.4.0](https://github.com/brendanhay/amazonka/tree/1.4.0)
 Released: **21 March, 2016**, Compare: [1.4.0](https://github.com/brendanhay/amazonka/compare/1.3.7...1.4.0)
 

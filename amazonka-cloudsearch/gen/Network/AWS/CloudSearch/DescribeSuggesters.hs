@@ -110,6 +110,8 @@ instance AWSRequest DescribeSuggesters where
 
 instance Hashable DescribeSuggesters
 
+instance NFData DescribeSuggesters
+
 instance ToHeaders DescribeSuggesters where
         toHeaders = const mempty
 
@@ -158,3 +160,5 @@ dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus
 -- | The suggesters configured for the domain specified in the request.
 dssrsSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
 dssrsSuggesters = lens _dssrsSuggesters (\ s a -> s{_dssrsSuggesters = a}) . _Coerce;
+
+instance NFData DescribeSuggestersResponse

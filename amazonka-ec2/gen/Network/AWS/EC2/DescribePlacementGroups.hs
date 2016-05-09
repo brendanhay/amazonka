@@ -47,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describePlacementGroups' smart constructor.
+-- | Contains the parameters for DescribePlacementGroups.
+--
+-- /See:/ 'describePlacementGroups' smart constructor.
 data DescribePlacementGroups = DescribePlacementGroups'
     { _dpgsFilters    :: !(Maybe [Filter])
     , _dpgsGroupNames :: !(Maybe [Text])
@@ -112,6 +114,8 @@ instance AWSRequest DescribePlacementGroups where
 
 instance Hashable DescribePlacementGroups
 
+instance NFData DescribePlacementGroups
+
 instance ToHeaders DescribePlacementGroups where
         toHeaders = const mempty
 
@@ -129,7 +133,9 @@ instance ToQuery DescribePlacementGroups where
                  (toQueryList "GroupName" <$> _dpgsGroupNames),
                "DryRun" =: _dpgsDryRun]
 
--- | /See:/ 'describePlacementGroupsResponse' smart constructor.
+-- | Contains the output of DescribePlacementGroups.
+--
+-- /See:/ 'describePlacementGroupsResponse' smart constructor.
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
     { _dpgrsPlacementGroups :: !(Maybe [PlacementGroup])
     , _dpgrsResponseStatus  :: !Int
@@ -158,3 +164,5 @@ dpgrsPlacementGroups = lens _dpgrsPlacementGroups (\ s a -> s{_dpgrsPlacementGro
 -- | The response status code.
 dpgrsResponseStatus :: Lens' DescribePlacementGroupsResponse Int
 dpgrsResponseStatus = lens _dpgrsResponseStatus (\ s a -> s{_dpgrsResponseStatus = a});
+
+instance NFData DescribePlacementGroupsResponse

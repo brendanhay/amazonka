@@ -80,6 +80,8 @@ instance AWSRequest DeleteMetricFilter where
 
 instance Hashable DeleteMetricFilter
 
+instance NFData DeleteMetricFilter
+
 instance ToHeaders DeleteMetricFilter where
         toHeaders
           = const
@@ -112,3 +114,5 @@ data DeleteMetricFilterResponse =
 deleteMetricFilterResponse
     :: DeleteMetricFilterResponse
 deleteMetricFilterResponse = DeleteMetricFilterResponse'
+
+instance NFData DeleteMetricFilterResponse

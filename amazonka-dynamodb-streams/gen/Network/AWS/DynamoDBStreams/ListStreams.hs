@@ -104,6 +104,8 @@ instance AWSRequest ListStreams where
 
 instance Hashable ListStreams
 
+instance NFData ListStreams
+
 instance ToHeaders ListStreams where
         toHeaders
           = const
@@ -179,3 +181,5 @@ lsrsStreams = lens _lsrsStreams (\ s a -> s{_lsrsStreams = a}) . _Default . _Coe
 -- | The response status code.
 lsrsResponseStatus :: Lens' ListStreamsResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
+
+instance NFData ListStreamsResponse

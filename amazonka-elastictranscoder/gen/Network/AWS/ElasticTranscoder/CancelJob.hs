@@ -83,6 +83,8 @@ instance AWSRequest CancelJob where
 
 instance Hashable CancelJob
 
+instance NFData CancelJob
+
 instance ToHeaders CancelJob where
         toHeaders = const mempty
 
@@ -117,3 +119,5 @@ cancelJobResponse pResponseStatus_ =
 -- | The response status code.
 canrsResponseStatus :: Lens' CancelJobResponse Int
 canrsResponseStatus = lens _canrsResponseStatus (\ s a -> s{_canrsResponseStatus = a});
+
+instance NFData CancelJobResponse

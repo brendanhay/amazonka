@@ -58,7 +58,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createFlowLogs' smart constructor.
+-- | Contains the parameters for CreateFlowLogs.
+--
+-- /See:/ 'createFlowLogs' smart constructor.
 data CreateFlowLogs = CreateFlowLogs'
     { _cflClientToken              :: !(Maybe Text)
     , _cflResourceIds              :: ![Text]
@@ -143,6 +145,8 @@ instance AWSRequest CreateFlowLogs where
 
 instance Hashable CreateFlowLogs
 
+instance NFData CreateFlowLogs
+
 instance ToHeaders CreateFlowLogs where
         toHeaders = const mempty
 
@@ -162,7 +166,9 @@ instance ToQuery CreateFlowLogs where
                "DeliverLogsPermissionArn" =:
                  _cflDeliverLogsPermissionARN]
 
--- | /See:/ 'createFlowLogsResponse' smart constructor.
+-- | Contains the output of CreateFlowLogs.
+--
+-- /See:/ 'createFlowLogsResponse' smart constructor.
 data CreateFlowLogsResponse = CreateFlowLogsResponse'
     { _cflrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
     , _cflrsClientToken    :: !(Maybe Text)
@@ -208,3 +214,5 @@ cflrsFlowLogIds = lens _cflrsFlowLogIds (\ s a -> s{_cflrsFlowLogIds = a}) . _De
 -- | The response status code.
 cflrsResponseStatus :: Lens' CreateFlowLogsResponse Int
 cflrsResponseStatus = lens _cflrsResponseStatus (\ s a -> s{_cflrsResponseStatus = a});
+
+instance NFData CreateFlowLogsResponse

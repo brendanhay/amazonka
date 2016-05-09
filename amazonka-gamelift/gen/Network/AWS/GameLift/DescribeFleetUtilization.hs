@@ -116,6 +116,8 @@ instance AWSRequest DescribeFleetUtilization where
 
 instance Hashable DescribeFleetUtilization
 
+instance NFData DescribeFleetUtilization
+
 instance ToHeaders DescribeFleetUtilization where
         toHeaders
           = const
@@ -185,3 +187,5 @@ dfursFleetUtilization = lens _dfursFleetUtilization (\ s a -> s{_dfursFleetUtili
 -- | The response status code.
 dfursResponseStatus :: Lens' DescribeFleetUtilizationResponse Int
 dfursResponseStatus = lens _dfursResponseStatus (\ s a -> s{_dfursResponseStatus = a});
+
+instance NFData DescribeFleetUtilizationResponse

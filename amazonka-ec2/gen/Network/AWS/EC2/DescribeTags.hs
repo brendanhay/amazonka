@@ -53,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeTags' smart constructor.
+-- | Contains the parameters for DescribeTags.
+--
+-- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
     { _dtFilters    :: !(Maybe [Filter])
     , _dtNextToken  :: !(Maybe Text)
@@ -111,11 +113,9 @@ dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 dtDryRun :: Lens' DescribeTags (Maybe Bool)
 dtDryRun = lens _dtDryRun (\ s a -> s{_dtDryRun = a});
 
--- | The maximum number of results to return for the request in a single
--- page. The remaining results of the initial request can be seen by
--- sending another request with the returned 'NextToken' value. This value
--- can be between 5 and 1000; if 'MaxResults' is given a value larger than
--- 1000, only 1000 results are returned.
+-- | The maximum number of results to return in a single call. This value can
+-- be between 5 and 1000. To retrieve the remaining results, make another
+-- call with the returned 'NextToken' value.
 dtMaxResults :: Lens' DescribeTags (Maybe Int)
 dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a});
 
@@ -140,6 +140,8 @@ instance AWSRequest DescribeTags where
 
 instance Hashable DescribeTags
 
+instance NFData DescribeTags
+
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
 
@@ -155,7 +157,9 @@ instance ToQuery DescribeTags where
                "NextToken" =: _dtNextToken, "DryRun" =: _dtDryRun,
                "MaxResults" =: _dtMaxResults]
 
--- | /See:/ 'describeTagsResponse' smart constructor.
+-- | Contains the output of DescribeTags.
+--
+-- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsNextToken      :: !(Maybe Text)
     , _dtrsTags           :: !(Maybe [TagDescription])
@@ -193,3 +197,5 @@ dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+
+instance NFData DescribeTagsResponse

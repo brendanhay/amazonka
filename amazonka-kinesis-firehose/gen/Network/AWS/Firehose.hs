@@ -14,8 +14,9 @@
 -- Amazon Kinesis Firehose API Reference
 --
 -- Amazon Kinesis Firehose is a fully-managed service that delivers
--- real-time streaming data to destinations such as Amazon S3 and Amazon
--- Redshift.
+-- real-time streaming data to destinations such as Amazon Simple Storage
+-- Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), and
+-- Amazon Redshift.
 module Network.AWS.Firehose
     (
     -- * Service Configuration
@@ -77,6 +78,12 @@ module Network.AWS.Firehose
     -- ** DeliveryStreamStatus
     , DeliveryStreamStatus (..)
 
+    -- ** ElasticsearchIndexRotationPeriod
+    , ElasticsearchIndexRotationPeriod (..)
+
+    -- ** ElasticsearchS3BackupMode
+    , ElasticsearchS3BackupMode (..)
+
     -- ** NoEncryptionConfig
     , NoEncryptionConfig (..)
 
@@ -85,6 +92,13 @@ module Network.AWS.Firehose
     , bufferingHints
     , bhSizeInMBs
     , bhIntervalInSeconds
+
+    -- ** CloudWatchLoggingOptions
+    , CloudWatchLoggingOptions
+    , cloudWatchLoggingOptions
+    , cwloEnabled
+    , cwloLogGroupName
+    , cwloLogStreamName
 
     -- ** CopyCommand
     , CopyCommand
@@ -109,8 +123,61 @@ module Network.AWS.Firehose
     , DestinationDescription
     , destinationDescription
     , ddS3DestinationDescription
+    , ddElasticsearchDestinationDescription
     , ddRedshiftDestinationDescription
     , ddDestinationId
+
+    -- ** ElasticsearchBufferingHints
+    , ElasticsearchBufferingHints
+    , elasticsearchBufferingHints
+    , ebhSizeInMBs
+    , ebhIntervalInSeconds
+
+    -- ** ElasticsearchDestinationConfiguration
+    , ElasticsearchDestinationConfiguration
+    , elasticsearchDestinationConfiguration
+    , edcIndexRotationPeriod
+    , edcS3BackupMode
+    , edcCloudWatchLoggingOptions
+    , edcBufferingHints
+    , edcRetryOptions
+    , edcRoleARN
+    , edcDomainARN
+    , edcIndexName
+    , edcTypeName
+    , edcS3Configuration
+
+    -- ** ElasticsearchDestinationDescription
+    , ElasticsearchDestinationDescription
+    , elasticsearchDestinationDescription
+    , eddIndexRotationPeriod
+    , eddTypeName
+    , eddS3BackupMode
+    , eddDomainARN
+    , eddCloudWatchLoggingOptions
+    , eddS3DestinationDescription
+    , eddBufferingHints
+    , eddRetryOptions
+    , eddRoleARN
+    , eddIndexName
+
+    -- ** ElasticsearchDestinationUpdate
+    , ElasticsearchDestinationUpdate
+    , elasticsearchDestinationUpdate
+    , eduIndexRotationPeriod
+    , eduTypeName
+    , eduDomainARN
+    , eduCloudWatchLoggingOptions
+    , eduS3Update
+    , eduBufferingHints
+    , eduRetryOptions
+    , eduRoleARN
+    , eduIndexName
+
+    -- ** ElasticsearchRetryOptions
+    , ElasticsearchRetryOptions
+    , elasticsearchRetryOptions
+    , eroDurationInSeconds
 
     -- ** EncryptionConfiguration
     , EncryptionConfiguration
@@ -138,6 +205,7 @@ module Network.AWS.Firehose
     -- ** RedshiftDestinationConfiguration
     , RedshiftDestinationConfiguration
     , redshiftDestinationConfiguration
+    , rdcCloudWatchLoggingOptions
     , rdcRoleARN
     , rdcClusterJDBCURL
     , rdcCopyCommand
@@ -148,6 +216,7 @@ module Network.AWS.Firehose
     -- ** RedshiftDestinationDescription
     , RedshiftDestinationDescription
     , redshiftDestinationDescription
+    , rddCloudWatchLoggingOptions
     , rddRoleARN
     , rddClusterJDBCURL
     , rddCopyCommand
@@ -157,6 +226,7 @@ module Network.AWS.Firehose
     -- ** RedshiftDestinationUpdate
     , RedshiftDestinationUpdate
     , redshiftDestinationUpdate
+    , rduCloudWatchLoggingOptions
     , rduUsername
     , rduS3Update
     , rduPassword
@@ -168,6 +238,7 @@ module Network.AWS.Firehose
     , S3DestinationConfiguration
     , s3DestinationConfiguration
     , sdcPrefix
+    , sdcCloudWatchLoggingOptions
     , sdcEncryptionConfiguration
     , sdcCompressionFormat
     , sdcBufferingHints
@@ -178,6 +249,7 @@ module Network.AWS.Firehose
     , S3DestinationDescription
     , s3DestinationDescription
     , sddPrefix
+    , sddCloudWatchLoggingOptions
     , sddRoleARN
     , sddBucketARN
     , sddBufferingHints
@@ -188,6 +260,7 @@ module Network.AWS.Firehose
     , S3DestinationUpdate
     , s3DestinationUpdate
     , sduPrefix
+    , sduCloudWatchLoggingOptions
     , sduEncryptionConfiguration
     , sduCompressionFormat
     , sduBufferingHints

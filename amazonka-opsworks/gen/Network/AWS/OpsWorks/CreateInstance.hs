@@ -41,6 +41,7 @@ module Network.AWS.OpsWorks.CreateInstance
     , ciEBSOptimized
     , ciOS
     , ciAvailabilityZone
+    , ciTenancy
     , ciAutoScalingType
     , ciArchitecture
     , ciAMIId
@@ -76,6 +77,7 @@ data CreateInstance = CreateInstance'
     , _ciEBSOptimized         :: !(Maybe Bool)
     , _ciOS                   :: !(Maybe Text)
     , _ciAvailabilityZone     :: !(Maybe Text)
+    , _ciTenancy              :: !(Maybe Text)
     , _ciAutoScalingType      :: !(Maybe AutoScalingType)
     , _ciArchitecture         :: !(Maybe Architecture)
     , _ciAMIId                :: !(Maybe Text)
@@ -108,6 +110,8 @@ data CreateInstance = CreateInstance'
 --
 -- * 'ciAvailabilityZone'
 --
+-- * 'ciTenancy'
+--
 -- * 'ciAutoScalingType'
 --
 -- * 'ciArchitecture'
@@ -138,6 +142,7 @@ createInstance pStackId_ pInstanceType_ =
     , _ciEBSOptimized = Nothing
     , _ciOS = Nothing
     , _ciAvailabilityZone = Nothing
+    , _ciTenancy = Nothing
     , _ciAutoScalingType = Nothing
     , _ciArchitecture = Nothing
     , _ciAMIId = Nothing
@@ -225,6 +230,23 @@ ciOS = lens _ciOS (\ s a -> s{_ciOS = a});
 ciAvailabilityZone :: Lens' CreateInstance (Maybe Text)
 ciAvailabilityZone = lens _ciAvailabilityZone (\ s a -> s{_ciAvailabilityZone = a});
 
+-- | The instance\'s tenancy option. The default option is no tenancy, or if
+-- the instance is running in a VPC, inherit tenancy settings from the VPC.
+-- The following are valid values for this parameter: 'dedicated',
+-- 'default', or 'host'. Because there are costs associated with changes in
+-- tenancy options, we recommend that you research tenancy options before
+-- choosing them for your instances. For more information about dedicated
+-- hosts, see
+-- <https://aws.amazon.com/ec2/dedicated-hosts/ Dedicated Hosts Overview>
+-- and
+-- <https://aws.amazon.com/ec2/dedicated-hosts/ Amazon EC2 Dedicated Hosts>.
+-- For more information about dedicated instances, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html Dedicated Instances>
+-- and
+-- <https://aws.amazon.com/ec2/purchasing-options/dedicated-instances/ Amazon EC2 Dedicated Instances>.
+ciTenancy :: Lens' CreateInstance (Maybe Text)
+ciTenancy = lens _ciTenancy (\ s a -> s{_ciTenancy = a});
+
 -- | For load-based or time-based instances, the type. Windows stacks can use
 -- only time-based instances.
 ciAutoScalingType :: Lens' CreateInstance (Maybe AutoScalingType)
@@ -287,6 +309,8 @@ instance AWSRequest CreateInstance where
 
 instance Hashable CreateInstance
 
+instance NFData CreateInstance
+
 instance ToHeaders CreateInstance where
         toHeaders
           = const
@@ -310,6 +334,7 @@ instance ToJSON CreateInstance where
                   ("EbsOptimized" .=) <$> _ciEBSOptimized,
                   ("Os" .=) <$> _ciOS,
                   ("AvailabilityZone" .=) <$> _ciAvailabilityZone,
+                  ("Tenancy" .=) <$> _ciTenancy,
                   ("AutoScalingType" .=) <$> _ciAutoScalingType,
                   ("Architecture" .=) <$> _ciArchitecture,
                   ("AmiId" .=) <$> _ciAMIId,
@@ -357,3 +382,5 @@ cirsInstanceId = lens _cirsInstanceId (\ s a -> s{_cirsInstanceId = a});
 -- | The response status code.
 cirsResponseStatus :: Lens' CreateInstanceResponse Int
 cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
+
+instance NFData CreateInstanceResponse

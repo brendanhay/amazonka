@@ -99,6 +99,8 @@ instance AWSRequest UpdateGroup where
 
 instance Hashable UpdateGroup
 
+instance NFData UpdateGroup
+
 instance ToHeaders UpdateGroup where
         toHeaders = const mempty
 
@@ -123,3 +125,5 @@ data UpdateGroupResponse =
 updateGroupResponse
     :: UpdateGroupResponse
 updateGroupResponse = UpdateGroupResponse'
+
+instance NFData UpdateGroupResponse

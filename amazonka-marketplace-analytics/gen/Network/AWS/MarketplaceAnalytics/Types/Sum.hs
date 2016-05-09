@@ -85,6 +85,7 @@ instance ToText DataSetType where
         MonthlyRevenueBillingAndRevenueData -> "monthly_revenue_billing_and_revenue_data"
 
 instance Hashable     DataSetType
+instance NFData       DataSetType
 instance ToByteString DataSetType
 instance ToQuery      DataSetType
 instance ToHeader     DataSetType

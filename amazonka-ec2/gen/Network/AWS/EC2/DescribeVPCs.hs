@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVPCs' smart constructor.
+-- | Contains the parameters for DescribeVpcs.
+--
+-- /See:/ 'describeVPCs' smart constructor.
 data DescribeVPCs = DescribeVPCs'
     { _dvsFilters :: !(Maybe [Filter])
     , _dvsVPCIds  :: !(Maybe [Text])
@@ -127,6 +129,8 @@ instance AWSRequest DescribeVPCs where
 
 instance Hashable DescribeVPCs
 
+instance NFData DescribeVPCs
+
 instance ToHeaders DescribeVPCs where
         toHeaders = const mempty
 
@@ -142,7 +146,9 @@ instance ToQuery DescribeVPCs where
                toQuery (toQueryList "VpcId" <$> _dvsVPCIds),
                "DryRun" =: _dvsDryRun]
 
--- | /See:/ 'describeVPCsResponse' smart constructor.
+-- | Contains the output of DescribeVpcs.
+--
+-- /See:/ 'describeVPCsResponse' smart constructor.
 data DescribeVPCsResponse = DescribeVPCsResponse'
     { _dvrsVPCs           :: !(Maybe [VPC])
     , _dvrsResponseStatus :: !Int
@@ -171,3 +177,5 @@ dvrsVPCs = lens _dvrsVPCs (\ s a -> s{_dvrsVPCs = a}) . _Default . _Coerce;
 -- | The response status code.
 dvrsResponseStatus :: Lens' DescribeVPCsResponse Int
 dvrsResponseStatus = lens _dvrsResponseStatus (\ s a -> s{_dvrsResponseStatus = a});
+
+instance NFData DescribeVPCsResponse

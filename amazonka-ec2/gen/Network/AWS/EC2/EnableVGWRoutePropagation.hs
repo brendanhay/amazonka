@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'enableVGWRoutePropagation' smart constructor.
+-- | Contains the parameters for EnableVgwRoutePropagation.
+--
+-- /See:/ 'enableVGWRoutePropagation' smart constructor.
 data EnableVGWRoutePropagation = EnableVGWRoutePropagation'
     { _evrpRouteTableId :: !Text
     , _evrpGatewayId    :: !Text
@@ -81,6 +83,8 @@ instance AWSRequest EnableVGWRoutePropagation where
 
 instance Hashable EnableVGWRoutePropagation
 
+instance NFData EnableVGWRoutePropagation
+
 instance ToHeaders EnableVGWRoutePropagation where
         toHeaders = const mempty
 
@@ -106,3 +110,5 @@ data EnableVGWRoutePropagationResponse =
 enableVGWRoutePropagationResponse
     :: EnableVGWRoutePropagationResponse
 enableVGWRoutePropagationResponse = EnableVGWRoutePropagationResponse'
+
+instance NFData EnableVGWRoutePropagationResponse

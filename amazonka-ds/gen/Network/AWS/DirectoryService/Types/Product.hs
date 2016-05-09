@@ -60,6 +60,8 @@ instance FromJSON Attribute where
 
 instance Hashable Attribute
 
+instance NFData Attribute
+
 instance ToJSON Attribute where
         toJSON Attribute'{..}
           = object
@@ -116,6 +118,67 @@ instance FromJSON Computer where
                      <*> (x .:? "ComputerName"))
 
 instance Hashable Computer
+
+instance NFData Computer
+
+-- | Points to a remote domain with which you are setting up a trust
+-- relationship. Conditional forwarders are required in order to set up a
+-- trust relationship with another domain.
+--
+-- /See:/ 'conditionalForwarder' smart constructor.
+data ConditionalForwarder = ConditionalForwarder'
+    { _cfDNSIPAddrs       :: !(Maybe [Text])
+    , _cfRemoteDomainName :: !(Maybe Text)
+    , _cfReplicationScope :: !(Maybe ReplicationScope)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConditionalForwarder' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfDNSIPAddrs'
+--
+-- * 'cfRemoteDomainName'
+--
+-- * 'cfReplicationScope'
+conditionalForwarder
+    :: ConditionalForwarder
+conditionalForwarder =
+    ConditionalForwarder'
+    { _cfDNSIPAddrs = Nothing
+    , _cfRemoteDomainName = Nothing
+    , _cfReplicationScope = Nothing
+    }
+
+-- | The IP addresses of the remote DNS server associated with
+-- RemoteDomainName. This is the IP address of the DNS server that your
+-- conditional forwarder points to.
+cfDNSIPAddrs :: Lens' ConditionalForwarder [Text]
+cfDNSIPAddrs = lens _cfDNSIPAddrs (\ s a -> s{_cfDNSIPAddrs = a}) . _Default . _Coerce;
+
+-- | The fully qualified domain name (FQDN) of the remote domains pointed to
+-- by the conditional forwarder.
+cfRemoteDomainName :: Lens' ConditionalForwarder (Maybe Text)
+cfRemoteDomainName = lens _cfRemoteDomainName (\ s a -> s{_cfRemoteDomainName = a});
+
+-- | The replication scope of the conditional forwarder. The only allowed
+-- value is 'Domain', which will replicate the conditional forwarder to all
+-- of the domain controllers for your AWS directory.
+cfReplicationScope :: Lens' ConditionalForwarder (Maybe ReplicationScope)
+cfReplicationScope = lens _cfReplicationScope (\ s a -> s{_cfReplicationScope = a});
+
+instance FromJSON ConditionalForwarder where
+        parseJSON
+          = withObject "ConditionalForwarder"
+              (\ x ->
+                 ConditionalForwarder' <$>
+                   (x .:? "DnsIpAddrs" .!= mempty) <*>
+                     (x .:? "RemoteDomainName")
+                     <*> (x .:? "ReplicationScope"))
+
+instance Hashable ConditionalForwarder
+
+instance NFData ConditionalForwarder
 
 -- | Contains information for the < ConnectDirectory> operation when an AD
 -- Connector directory is being created.
@@ -176,6 +239,8 @@ dcsCustomerUserName :: Lens' DirectoryConnectSettings Text
 dcsCustomerUserName = lens _dcsCustomerUserName (\ s a -> s{_dcsCustomerUserName = a});
 
 instance Hashable DirectoryConnectSettings
+
+instance NFData DirectoryConnectSettings
 
 instance ToJSON DirectoryConnectSettings where
         toJSON DirectoryConnectSettings'{..}
@@ -263,6 +328,8 @@ instance FromJSON DirectoryConnectSettingsDescription
                      <*> (x .:? "AvailabilityZones" .!= mempty))
 
 instance Hashable DirectoryConnectSettingsDescription
+
+instance NFData DirectoryConnectSettingsDescription
 
 -- | Contains information about an AWS Directory Service directory.
 --
@@ -463,6 +530,8 @@ instance FromJSON DirectoryDescription where
 
 instance Hashable DirectoryDescription
 
+instance NFData DirectoryDescription
+
 -- | Contains directory limit information for a region.
 --
 -- /See:/ 'directoryLimits' smart constructor.
@@ -567,6 +636,8 @@ instance FromJSON DirectoryLimits where
 
 instance Hashable DirectoryLimits
 
+instance NFData DirectoryLimits
+
 -- | Contains VPC information for the < CreateDirectory> or
 -- < CreateMicrosoftAD> operation.
 --
@@ -603,6 +674,8 @@ dvsSubnetIds :: Lens' DirectoryVPCSettings [Text]
 dvsSubnetIds = lens _dvsSubnetIds (\ s a -> s{_dvsSubnetIds = a}) . _Coerce;
 
 instance Hashable DirectoryVPCSettings
+
+instance NFData DirectoryVPCSettings
 
 instance ToJSON DirectoryVPCSettings where
         toJSON DirectoryVPCSettings'{..}
@@ -672,6 +745,8 @@ instance FromJSON DirectoryVPCSettingsDescription
                      <*> (x .:? "AvailabilityZones" .!= mempty))
 
 instance Hashable DirectoryVPCSettingsDescription
+
+instance NFData DirectoryVPCSettingsDescription
 
 -- | Information about SNS topic and AWS Directory Service directory
 -- associations.
@@ -743,6 +818,8 @@ instance FromJSON EventTopic where
                      <*> (x .:? "CreatedDateTime"))
 
 instance Hashable EventTopic
+
+instance NFData EventTopic
 
 -- | Contains information about a Remote Authentication Dial In User Service
 -- (RADIUS) server.
@@ -845,6 +922,8 @@ instance FromJSON RadiusSettings where
 
 instance Hashable RadiusSettings
 
+instance NFData RadiusSettings
+
 instance ToJSON RadiusSettings where
         toJSON RadiusSettings'{..}
           = object
@@ -935,6 +1014,8 @@ instance FromJSON Snapshot where
 
 instance Hashable Snapshot
 
+instance NFData Snapshot
+
 -- | Contains manual snapshot limit information for a directory.
 --
 -- /See:/ 'snapshotLimits' smart constructor.
@@ -985,6 +1066,8 @@ instance FromJSON SnapshotLimits where
 
 instance Hashable SnapshotLimits
 
+instance NFData SnapshotLimits
+
 -- | Describes a trust relationship between an Microsoft AD in the AWS cloud
 -- and an external domain.
 --
@@ -996,6 +1079,7 @@ data Trust = Trust'
     , _tTrustDirection           :: !(Maybe TrustDirection)
     , _tStateLastUpdatedDateTime :: !(Maybe POSIX)
     , _tTrustType                :: !(Maybe TrustType)
+    , _tTrustStateReason         :: !(Maybe Text)
     , _tRemoteDomainName         :: !(Maybe Text)
     , _tTrustId                  :: !(Maybe Text)
     , _tCreatedDateTime          :: !(Maybe POSIX)
@@ -1017,6 +1101,8 @@ data Trust = Trust'
 --
 -- * 'tTrustType'
 --
+-- * 'tTrustStateReason'
+--
 -- * 'tRemoteDomainName'
 --
 -- * 'tTrustId'
@@ -1032,6 +1118,7 @@ trust =
     , _tTrustDirection = Nothing
     , _tStateLastUpdatedDateTime = Nothing
     , _tTrustType = Nothing
+    , _tTrustStateReason = Nothing
     , _tRemoteDomainName = Nothing
     , _tTrustId = Nothing
     , _tCreatedDateTime = Nothing
@@ -1062,6 +1149,10 @@ tStateLastUpdatedDateTime = lens _tStateLastUpdatedDateTime (\ s a -> s{_tStateL
 tTrustType :: Lens' Trust (Maybe TrustType)
 tTrustType = lens _tTrustType (\ s a -> s{_tTrustType = a});
 
+-- | The reason for the TrustState.
+tTrustStateReason :: Lens' Trust (Maybe Text)
+tTrustStateReason = lens _tTrustStateReason (\ s a -> s{_tTrustStateReason = a});
+
 -- | The Fully Qualified Domain Name (FQDN) of the external domain involved
 -- in the trust relationship.
 tRemoteDomainName :: Lens' Trust (Maybe Text)
@@ -1085,8 +1176,11 @@ instance FromJSON Trust where
                      <*> (x .:? "TrustDirection")
                      <*> (x .:? "StateLastUpdatedDateTime")
                      <*> (x .:? "TrustType")
+                     <*> (x .:? "TrustStateReason")
                      <*> (x .:? "RemoteDomainName")
                      <*> (x .:? "TrustId")
                      <*> (x .:? "CreatedDateTime"))
 
 instance Hashable Trust
+
+instance NFData Trust

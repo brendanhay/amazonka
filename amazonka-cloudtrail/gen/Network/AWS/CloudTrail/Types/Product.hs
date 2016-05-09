@@ -99,6 +99,8 @@ instance FromJSON Event where
 
 instance Hashable Event
 
+instance NFData Event
+
 -- | Specifies an attribute and value that filter the events returned.
 --
 -- /See:/ 'lookupAttribute' smart constructor.
@@ -133,6 +135,8 @@ laAttributeValue :: Lens' LookupAttribute Text
 laAttributeValue = lens _laAttributeValue (\ s a -> s{_laAttributeValue = a});
 
 instance Hashable LookupAttribute
+
+instance NFData LookupAttribute
 
 instance ToJSON LookupAttribute where
         toJSON LookupAttribute'{..}
@@ -205,6 +209,8 @@ instance FromJSON PublicKey where
 
 instance Hashable PublicKey
 
+instance NFData PublicKey
+
 -- | Specifies the type and name of a resource referenced by an event.
 --
 -- /See:/ 'resource' smart constructor.
@@ -253,6 +259,8 @@ instance FromJSON Resource where
 
 instance Hashable Resource
 
+instance NFData Resource
+
 -- | A resource tag.
 --
 -- /See:/ 'resourceTag' smart constructor.
@@ -293,6 +301,8 @@ instance FromJSON ResourceTag where
                      (x .:? "TagsList" .!= mempty))
 
 instance Hashable ResourceTag
+
+instance NFData ResourceTag
 
 -- | A custom key-value pair associated with a resource such as a CloudTrail
 -- trail.
@@ -336,6 +346,8 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
 
 instance Hashable Tag
+
+instance NFData Tag
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -491,3 +503,5 @@ instance FromJSON Trail where
                      <*> (x .:? "IsMultiRegionTrail"))
 
 instance Hashable Trail
+
+instance NFData Trail

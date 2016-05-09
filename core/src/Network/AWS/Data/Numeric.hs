@@ -13,6 +13,7 @@
 --
 module Network.AWS.Data.Numeric where
 
+import           Control.DeepSeq
 import           Control.Monad
 import           Data.Aeson.Types
 import           Data.Data                   (Data, Typeable)
@@ -53,6 +54,9 @@ _Nat = iso unNat Nat
 
 instance Hashable Nat where
     hashWithSalt salt (Nat n) = hashWithSalt salt (toInteger n)
+
+instance NFData Nat where
+    rnf = rnf . toInteger . unNat
 
 instance FromJSON Nat where
     parseJSON = parseJSON >=> go

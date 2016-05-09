@@ -85,6 +85,8 @@ instance AWSRequest UpdateKeyDescription where
 
 instance Hashable UpdateKeyDescription
 
+instance NFData UpdateKeyDescription
+
 instance ToHeaders UpdateKeyDescription where
         toHeaders
           = const
@@ -117,3 +119,5 @@ data UpdateKeyDescriptionResponse =
 updateKeyDescriptionResponse
     :: UpdateKeyDescriptionResponse
 updateKeyDescriptionResponse = UpdateKeyDescriptionResponse'
+
+instance NFData UpdateKeyDescriptionResponse

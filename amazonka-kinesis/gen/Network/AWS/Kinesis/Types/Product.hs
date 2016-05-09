@@ -21,6 +21,110 @@ import           Network.AWS.Kinesis.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
+-- | Represents enhanced metrics types.
+--
+-- /See:/ 'enhancedMetrics' smart constructor.
+newtype EnhancedMetrics = EnhancedMetrics'
+    { _emShardLevelMetrics :: Maybe (List1 MetricsName)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnhancedMetrics' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'emShardLevelMetrics'
+enhancedMetrics
+    :: EnhancedMetrics
+enhancedMetrics =
+    EnhancedMetrics'
+    { _emShardLevelMetrics = Nothing
+    }
+
+-- | List of shard-level metrics.
+--
+-- The following are the valid shard-level metrics. The value \"'ALL'\"
+-- enhances every metric.
+--
+-- -   'IncomingBytes'
+-- -   'IncomingRecords'
+-- -   'OutgoingBytes'
+-- -   'OutgoingRecords'
+-- -   'WriteProvisionedThroughputExceeded'
+-- -   'ReadProvisionedThroughputExceeded'
+-- -   'IteratorAgeMilliseconds'
+-- -   'ALL'
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch>
+-- in the /Amazon Kinesis Streams Developer Guide/.
+emShardLevelMetrics :: Lens' EnhancedMetrics (Maybe (NonEmpty MetricsName))
+emShardLevelMetrics = lens _emShardLevelMetrics (\ s a -> s{_emShardLevelMetrics = a}) . mapping _List1;
+
+instance FromJSON EnhancedMetrics where
+        parseJSON
+          = withObject "EnhancedMetrics"
+              (\ x ->
+                 EnhancedMetrics' <$> (x .:? "ShardLevelMetrics"))
+
+instance Hashable EnhancedMetrics
+
+instance NFData EnhancedMetrics
+
+-- | Represents the output for < EnableEnhancedMonitoring> and
+-- < DisableEnhancedMonitoring>.
+--
+-- /See:/ 'enhancedMonitoringOutput' smart constructor.
+data EnhancedMonitoringOutput = EnhancedMonitoringOutput'
+    { _emoDesiredShardLevelMetrics :: !(Maybe (List1 MetricsName))
+    , _emoCurrentShardLevelMetrics :: !(Maybe (List1 MetricsName))
+    , _emoStreamName               :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnhancedMonitoringOutput' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'emoDesiredShardLevelMetrics'
+--
+-- * 'emoCurrentShardLevelMetrics'
+--
+-- * 'emoStreamName'
+enhancedMonitoringOutput
+    :: EnhancedMonitoringOutput
+enhancedMonitoringOutput =
+    EnhancedMonitoringOutput'
+    { _emoDesiredShardLevelMetrics = Nothing
+    , _emoCurrentShardLevelMetrics = Nothing
+    , _emoStreamName = Nothing
+    }
+
+-- | Represents the list of all the metrics that would be in the enhanced
+-- state after the operation.
+emoDesiredShardLevelMetrics :: Lens' EnhancedMonitoringOutput (Maybe (NonEmpty MetricsName))
+emoDesiredShardLevelMetrics = lens _emoDesiredShardLevelMetrics (\ s a -> s{_emoDesiredShardLevelMetrics = a}) . mapping _List1;
+
+-- | Represents the current state of the metrics that are in the enhanced
+-- state before the operation.
+emoCurrentShardLevelMetrics :: Lens' EnhancedMonitoringOutput (Maybe (NonEmpty MetricsName))
+emoCurrentShardLevelMetrics = lens _emoCurrentShardLevelMetrics (\ s a -> s{_emoCurrentShardLevelMetrics = a}) . mapping _List1;
+
+-- | The name of the Amazon Kinesis stream.
+emoStreamName :: Lens' EnhancedMonitoringOutput (Maybe Text)
+emoStreamName = lens _emoStreamName (\ s a -> s{_emoStreamName = a});
+
+instance FromJSON EnhancedMonitoringOutput where
+        parseJSON
+          = withObject "EnhancedMonitoringOutput"
+              (\ x ->
+                 EnhancedMonitoringOutput' <$>
+                   (x .:? "DesiredShardLevelMetrics") <*>
+                     (x .:? "CurrentShardLevelMetrics")
+                     <*> (x .:? "StreamName"))
+
+instance Hashable EnhancedMonitoringOutput
+
+instance NFData EnhancedMonitoringOutput
+
 -- | The range of possible hash key values for the shard, which is a set of
 -- ordered contiguous positive integers.
 --
@@ -63,6 +167,8 @@ instance FromJSON HashKeyRange where
                    (x .: "StartingHashKey") <*> (x .: "EndingHashKey"))
 
 instance Hashable HashKeyRange
+
+instance NFData HashKeyRange
 
 -- | Represents the output for 'PutRecords'.
 --
@@ -125,6 +231,8 @@ prrePartitionKey = lens _prrePartitionKey (\ s a -> s{_prrePartitionKey = a});
 
 instance Hashable PutRecordsRequestEntry
 
+instance NFData PutRecordsRequestEntry
+
 instance ToJSON PutRecordsRequestEntry where
         toJSON PutRecordsRequestEntry'{..}
           = object
@@ -134,10 +242,10 @@ instance ToJSON PutRecordsRequestEntry where
                   Just ("PartitionKey" .= _prrePartitionKey)])
 
 -- | Represents the result of an individual record from a 'PutRecords'
--- request. A record that is successfully added to your Amazon Kinesis
--- stream includes SequenceNumber and ShardId in the result. A record that
--- fails to be added to your Amazon Kinesis stream includes ErrorCode and
--- ErrorMessage in the result.
+-- request. A record that is successfully added to a stream includes
+-- 'SequenceNumber' and 'ShardId' in the result. A record that fails to be
+-- added to the stream includes 'ErrorCode' and 'ErrorMessage' in the
+-- result.
 --
 -- /See:/ 'putRecordsResultEntry' smart constructor.
 data PutRecordsResultEntry = PutRecordsResultEntry'
@@ -199,6 +307,8 @@ instance FromJSON PutRecordsResultEntry where
                      <*> (x .:? "ShardId"))
 
 instance Hashable PutRecordsResultEntry
+
+instance NFData PutRecordsResultEntry
 
 -- | The unit of data of the Amazon Kinesis stream, which is composed of a
 -- sequence number, a partition key, and a data blob.
@@ -273,6 +383,8 @@ instance FromJSON Record where
 
 instance Hashable Record
 
+instance NFData Record
+
 -- | The range of possible sequence numbers for the shard.
 --
 -- /See:/ 'sequenceNumberRange' smart constructor.
@@ -316,6 +428,8 @@ instance FromJSON SequenceNumberRange where
 
 instance Hashable SequenceNumberRange
 
+instance NFData SequenceNumberRange
+
 -- | A uniquely identified group of data records in an Amazon Kinesis stream.
 --
 -- /See:/ 'shard' smart constructor.
@@ -354,15 +468,15 @@ shard pShardId_ pHashKeyRange_ pSequenceNumberRange_ =
     , _sSequenceNumberRange = pSequenceNumberRange_
     }
 
--- | The shard Id of the shard adjacent to the shard\'s parent.
+-- | The shard ID of the shard adjacent to the shard\'s parent.
 sAdjacentParentShardId :: Lens' Shard (Maybe Text)
 sAdjacentParentShardId = lens _sAdjacentParentShardId (\ s a -> s{_sAdjacentParentShardId = a});
 
--- | The shard Id of the shard\'s parent.
+-- | The shard ID of the shard\'s parent.
 sParentShardId :: Lens' Shard (Maybe Text)
 sParentShardId = lens _sParentShardId (\ s a -> s{_sParentShardId = a});
 
--- | The unique identifier of the shard within the Amazon Kinesis stream.
+-- | The unique identifier of the shard within the stream.
 sShardId :: Lens' Shard Text
 sShardId = lens _sShardId (\ s a -> s{_sShardId = a});
 
@@ -388,6 +502,8 @@ instance FromJSON Shard where
 
 instance Hashable Shard
 
+instance NFData Shard
+
 -- | Represents the output for < DescribeStream>.
 --
 -- /See:/ 'streamDescription' smart constructor.
@@ -398,6 +514,7 @@ data StreamDescription = StreamDescription'
     , _sdShards               :: ![Shard]
     , _sdHasMoreShards        :: !Bool
     , _sdRetentionPeriodHours :: !Nat
+    , _sdEnhancedMonitoring   :: ![EnhancedMetrics]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StreamDescription' with the minimum fields required to make a request.
@@ -415,6 +532,8 @@ data StreamDescription = StreamDescription'
 -- * 'sdHasMoreShards'
 --
 -- * 'sdRetentionPeriodHours'
+--
+-- * 'sdEnhancedMonitoring'
 streamDescription
     :: Text -- ^ 'sdStreamName'
     -> Text -- ^ 'sdStreamARN'
@@ -430,6 +549,7 @@ streamDescription pStreamName_ pStreamARN_ pStreamStatus_ pHasMoreShards_ pReten
     , _sdShards = mempty
     , _sdHasMoreShards = pHasMoreShards_
     , _sdRetentionPeriodHours = _Nat # pRetentionPeriodHours_
+    , _sdEnhancedMonitoring = mempty
     }
 
 -- | The name of the stream being described.
@@ -440,9 +560,8 @@ sdStreamName = lens _sdStreamName (\ s a -> s{_sdStreamName = a});
 sdStreamARN :: Lens' StreamDescription Text
 sdStreamARN = lens _sdStreamARN (\ s a -> s{_sdStreamARN = a});
 
--- | The current status of the stream being described.
---
--- The stream status is one of the following states:
+-- | The current status of the stream being described. The stream status is
+-- one of the following states:
 --
 -- -   'CREATING' - The stream is being created. Amazon Kinesis immediately
 --     returns and sets 'StreamStatus' to 'CREATING'.
@@ -469,6 +588,10 @@ sdHasMoreShards = lens _sdHasMoreShards (\ s a -> s{_sdHasMoreShards = a});
 sdRetentionPeriodHours :: Lens' StreamDescription Natural
 sdRetentionPeriodHours = lens _sdRetentionPeriodHours (\ s a -> s{_sdRetentionPeriodHours = a}) . _Nat;
 
+-- | Represents the current enhanced monitoring settings of the stream.
+sdEnhancedMonitoring :: Lens' StreamDescription [EnhancedMetrics]
+sdEnhancedMonitoring = lens _sdEnhancedMonitoring (\ s a -> s{_sdEnhancedMonitoring = a}) . _Coerce;
+
 instance FromJSON StreamDescription where
         parseJSON
           = withObject "StreamDescription"
@@ -478,9 +601,12 @@ instance FromJSON StreamDescription where
                      (x .: "StreamStatus")
                      <*> (x .:? "Shards" .!= mempty)
                      <*> (x .: "HasMoreShards")
-                     <*> (x .: "RetentionPeriodHours"))
+                     <*> (x .: "RetentionPeriodHours")
+                     <*> (x .:? "EnhancedMonitoring" .!= mempty))
 
 instance Hashable StreamDescription
+
+instance NFData StreamDescription
 
 -- | Metadata assigned to the stream, consisting of a key-value pair.
 --
@@ -523,3 +649,5 @@ instance FromJSON Tag where
               (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))
 
 instance Hashable Tag
+
+instance NFData Tag

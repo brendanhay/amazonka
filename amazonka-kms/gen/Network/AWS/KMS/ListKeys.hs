@@ -70,8 +70,8 @@ listKeys =
     }
 
 -- | Use this parameter only when paginating results and only in a subsequent
--- request after you\'ve received a response with truncated results. Set it
--- to the value of 'NextMarker' from the response you just received.
+-- request after you receive a response with truncated results. Set it to
+-- the value of 'NextMarker' from the response you just received.
 lkMarker :: Lens' ListKeys (Maybe Text)
 lkMarker = lens _lkMarker (\ s a -> s{_lkMarker = a});
 
@@ -103,6 +103,8 @@ instance AWSRequest ListKeys where
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListKeys
+
+instance NFData ListKeys
 
 instance ToHeaders ListKeys where
         toHeaders
@@ -174,3 +176,5 @@ lkrsNextMarker = lens _lkrsNextMarker (\ s a -> s{_lkrsNextMarker = a});
 -- | The response status code.
 lkrsResponseStatus :: Lens' ListKeysResponse Int
 lkrsResponseStatus = lens _lkrsResponseStatus (\ s a -> s{_lkrsResponseStatus = a});
+
+instance NFData ListKeysResponse

@@ -155,6 +155,8 @@ instance AWSRequest CreateExportTask where
 
 instance Hashable CreateExportTask
 
+instance NFData CreateExportTask
+
 instance ToHeaders CreateExportTask where
         toHeaders
           = const
@@ -211,3 +213,5 @@ cetrsTaskId = lens _cetrsTaskId (\ s a -> s{_cetrsTaskId = a});
 -- | The response status code.
 cetrsResponseStatus :: Lens' CreateExportTaskResponse Int
 cetrsResponseStatus = lens _cetrsResponseStatus (\ s a -> s{_cetrsResponseStatus = a});
+
+instance NFData CreateExportTaskResponse

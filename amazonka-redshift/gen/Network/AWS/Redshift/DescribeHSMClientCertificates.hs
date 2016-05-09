@@ -170,6 +170,8 @@ instance AWSRequest DescribeHSMClientCertificates
 
 instance Hashable DescribeHSMClientCertificates
 
+instance NFData DescribeHSMClientCertificates
+
 instance ToHeaders DescribeHSMClientCertificates
          where
         toHeaders = const mempty
@@ -238,3 +240,5 @@ dhccrsHSMClientCertificates = lens _dhccrsHSMClientCertificates (\ s a -> s{_dhc
 -- | The response status code.
 dhccrsResponseStatus :: Lens' DescribeHSMClientCertificatesResponse Int
 dhccrsResponseStatus = lens _dhccrsResponseStatus (\ s a -> s{_dhccrsResponseStatus = a});
+
+instance NFData DescribeHSMClientCertificatesResponse

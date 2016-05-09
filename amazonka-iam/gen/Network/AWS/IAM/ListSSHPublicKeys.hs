@@ -122,6 +122,8 @@ instance AWSRequest ListSSHPublicKeys where
 
 instance Hashable ListSSHPublicKeys
 
+instance NFData ListSSHPublicKeys
+
 instance ToHeaders ListSSHPublicKeys where
         toHeaders = const mempty
 
@@ -191,3 +193,5 @@ lspkrsIsTruncated = lens _lspkrsIsTruncated (\ s a -> s{_lspkrsIsTruncated = a})
 -- | The response status code.
 lspkrsResponseStatus :: Lens' ListSSHPublicKeysResponse Int
 lspkrsResponseStatus = lens _lspkrsResponseStatus (\ s a -> s{_lspkrsResponseStatus = a});
+
+instance NFData ListSSHPublicKeysResponse

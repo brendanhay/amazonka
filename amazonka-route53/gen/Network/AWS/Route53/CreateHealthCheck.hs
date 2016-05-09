@@ -105,6 +105,8 @@ instance AWSRequest CreateHealthCheck where
 
 instance Hashable CreateHealthCheck
 
+instance NFData CreateHealthCheck
+
 instance ToElement CreateHealthCheck where
         toElement
           = mkElement
@@ -168,3 +170,5 @@ chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 -- | The unique URL representing the new health check.
 chcrsLocation :: Lens' CreateHealthCheckResponse Text
 chcrsLocation = lens _chcrsLocation (\ s a -> s{_chcrsLocation = a});
+
+instance NFData CreateHealthCheckResponse

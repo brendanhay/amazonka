@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Writes a single data record from a producer into an Amazon Kinesis
--- stream. Call 'PutRecord' to send data from the producer into the Amazon
--- Kinesis stream for real-time ingestion and subsequent processing, one
--- record at a time. Each shard can support writes up to 1,000 records per
--- second, up to a maximum data write total of 1 MB per second.
+-- Writes a single data record into an Amazon Kinesis stream. Call
+-- 'PutRecord' to send data into the stream for real-time ingestion and
+-- subsequent processing, one record at a time. Each shard can support
+-- writes up to 1,000 records per second, up to a maximum data write total
+-- of 1 MB per second.
 --
 -- You must specify the name of the stream that captures, stores, and
 -- transports the data; a partition key; and the data blob itself.
@@ -31,7 +31,7 @@
 -- file, geographic\/location data, website clickstream data, and so on.
 --
 -- The partition key is used by Amazon Kinesis to distribute data across
--- shards. Amazon Kinesis segregates the data records that belong to a data
+-- shards. Amazon Kinesis segregates the data records that belong to a
 -- stream into multiple shards, using the partition key associated with
 -- each data record to determine which shard a given data record belongs
 -- to.
@@ -43,25 +43,24 @@
 -- the partition key to determine the shard by explicitly specifying a hash
 -- value using the 'ExplicitHashKey' parameter. For more information, see
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream Adding Data to a Stream>
--- in the /Amazon Kinesis Developer Guide/.
+-- in the /Amazon Kinesis Streams Developer Guide/.
 --
 -- 'PutRecord' returns the shard ID of where the data record was placed and
 -- the sequence number that was assigned to the data record.
 --
--- Sequence numbers generally increase over time. To guarantee strictly
--- increasing ordering, use the 'SequenceNumberForOrdering' parameter. For
--- more information, see
+-- Sequence numbers increase over time and are specific to a shard within a
+-- stream, not across all shards within a stream. To guarantee strictly
+-- increasing ordering, write serially to a shard and use the
+-- 'SequenceNumberForOrdering' parameter. For more information, see
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream Adding Data to a Stream>
--- in the /Amazon Kinesis Developer Guide/.
+-- in the /Amazon Kinesis Streams Developer Guide/.
 --
 -- If a 'PutRecord' request cannot be processed because of insufficient
 -- provisioned throughput on the shard involved in the request, 'PutRecord'
 -- throws 'ProvisionedThroughputExceededException'.
 --
--- By default, data records are accessible for only 24 hours from the time
--- that they are added to an Amazon Kinesis stream. This retention period
--- can be modified using the < DecreaseStreamRetentionPeriod> and
--- < IncreaseStreamRetentionPeriod> operations.
+-- Data records are accessible for only 24 hours from the time that they
+-- are added to a stream.
 module Network.AWS.Kinesis.PutRecord
     (
     -- * Creating a Request
@@ -166,8 +165,8 @@ prData = lens _prData (\ s a -> s{_prData = a}) . _Base64;
 -- specific shard. Specifically, an MD5 hash function is used to map
 -- partition keys to 128-bit integer values and to map associated data
 -- records to shards. As a result of this hashing mechanism, all data
--- records with the same partition key will map to the same shard within
--- the stream.
+-- records with the same partition key map to the same shard within the
+-- stream.
 prPartitionKey :: Lens' PutRecord Text
 prPartitionKey = lens _prPartitionKey (\ s a -> s{_prPartitionKey = a});
 
@@ -182,6 +181,8 @@ instance AWSRequest PutRecord where
                      (x .:> "SequenceNumber"))
 
 instance Hashable PutRecord
+
+instance NFData PutRecord
 
 instance ToHeaders PutRecord where
         toHeaders
@@ -253,3 +254,5 @@ prrsShardId = lens _prrsShardId (\ s a -> s{_prrsShardId = a});
 -- put into the stream.
 prrsSequenceNumber :: Lens' PutRecordResponse Text
 prrsSequenceNumber = lens _prrsSequenceNumber (\ s a -> s{_prrsSequenceNumber = a});
+
+instance NFData PutRecordResponse

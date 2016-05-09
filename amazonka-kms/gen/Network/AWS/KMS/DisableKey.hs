@@ -78,6 +78,8 @@ instance AWSRequest DisableKey where
 
 instance Hashable DisableKey
 
+instance NFData DisableKey
+
 instance ToHeaders DisableKey where
         toHeaders
           = const
@@ -107,3 +109,5 @@ data DisableKeyResponse =
 disableKeyResponse
     :: DisableKeyResponse
 disableKeyResponse = DisableKeyResponse'
+
+instance NFData DisableKeyResponse

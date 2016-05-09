@@ -92,6 +92,8 @@ instance AWSRequest UpdateCertificate where
 
 instance Hashable UpdateCertificate
 
+instance NFData UpdateCertificate
+
 instance ToHeaders UpdateCertificate where
         toHeaders = const mempty
 
@@ -116,3 +118,5 @@ data UpdateCertificateResponse =
 updateCertificateResponse
     :: UpdateCertificateResponse
 updateCertificateResponse = UpdateCertificateResponse'
+
+instance NFData UpdateCertificateResponse

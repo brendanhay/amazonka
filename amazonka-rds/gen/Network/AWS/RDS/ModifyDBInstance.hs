@@ -37,9 +37,11 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdiIOPS
     , mdiAllowMajorVersionUpgrade
     , mdiNewDBInstanceIdentifier
+    , mdiDomain
     , mdiMonitoringInterval
     , mdiTDECredentialPassword
     , mdiDBInstanceClass
+    , mdiPromotionTier
     , mdiPreferredMaintenanceWindow
     , mdiCACertificateIdentifier
     , mdiDBParameterGroupName
@@ -52,6 +54,7 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdiOptionGroupName
     , mdiCopyTagsToSnapshot
     , mdiTDECredentialARN
+    , mdiDomainIAMRoleName
     , mdiStorageType
     , mdiDBInstanceIdentifier
 
@@ -84,9 +87,11 @@ data ModifyDBInstance = ModifyDBInstance'
     , _mdiIOPS                       :: !(Maybe Int)
     , _mdiAllowMajorVersionUpgrade   :: !(Maybe Bool)
     , _mdiNewDBInstanceIdentifier    :: !(Maybe Text)
+    , _mdiDomain                     :: !(Maybe Text)
     , _mdiMonitoringInterval         :: !(Maybe Int)
     , _mdiTDECredentialPassword      :: !(Maybe Text)
     , _mdiDBInstanceClass            :: !(Maybe Text)
+    , _mdiPromotionTier              :: !(Maybe Int)
     , _mdiPreferredMaintenanceWindow :: !(Maybe Text)
     , _mdiCACertificateIdentifier    :: !(Maybe Text)
     , _mdiDBParameterGroupName       :: !(Maybe Text)
@@ -99,6 +104,7 @@ data ModifyDBInstance = ModifyDBInstance'
     , _mdiOptionGroupName            :: !(Maybe Text)
     , _mdiCopyTagsToSnapshot         :: !(Maybe Bool)
     , _mdiTDECredentialARN           :: !(Maybe Text)
+    , _mdiDomainIAMRoleName          :: !(Maybe Text)
     , _mdiStorageType                :: !(Maybe Text)
     , _mdiDBInstanceIdentifier       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -127,11 +133,15 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- * 'mdiNewDBInstanceIdentifier'
 --
+-- * 'mdiDomain'
+--
 -- * 'mdiMonitoringInterval'
 --
 -- * 'mdiTDECredentialPassword'
 --
 -- * 'mdiDBInstanceClass'
+--
+-- * 'mdiPromotionTier'
 --
 -- * 'mdiPreferredMaintenanceWindow'
 --
@@ -157,6 +167,8 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- * 'mdiTDECredentialARN'
 --
+-- * 'mdiDomainIAMRoleName'
+--
 -- * 'mdiStorageType'
 --
 -- * 'mdiDBInstanceIdentifier'
@@ -175,9 +187,11 @@ modifyDBInstance pDBInstanceIdentifier_ =
     , _mdiIOPS = Nothing
     , _mdiAllowMajorVersionUpgrade = Nothing
     , _mdiNewDBInstanceIdentifier = Nothing
+    , _mdiDomain = Nothing
     , _mdiMonitoringInterval = Nothing
     , _mdiTDECredentialPassword = Nothing
     , _mdiDBInstanceClass = Nothing
+    , _mdiPromotionTier = Nothing
     , _mdiPreferredMaintenanceWindow = Nothing
     , _mdiCACertificateIdentifier = Nothing
     , _mdiDBParameterGroupName = Nothing
@@ -190,6 +204,7 @@ modifyDBInstance pDBInstanceIdentifier_ =
     , _mdiOptionGroupName = Nothing
     , _mdiCopyTagsToSnapshot = Nothing
     , _mdiTDECredentialARN = Nothing
+    , _mdiDomainIAMRoleName = Nothing
     , _mdiStorageType = Nothing
     , _mdiDBInstanceIdentifier = pDBInstanceIdentifier_
     }
@@ -245,6 +260,8 @@ mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups
 -- Default: '5432'
 --
 -- Valid Values: '1150-65535'
+--
+-- Type: Integer
 --
 -- __Oracle__
 --
@@ -389,6 +406,14 @@ mdiAllowMajorVersionUpgrade = lens _mdiAllowMajorVersionUpgrade (\ s a -> s{_mdi
 mdiNewDBInstanceIdentifier :: Lens' ModifyDBInstance (Maybe Text)
 mdiNewDBInstanceIdentifier = lens _mdiNewDBInstanceIdentifier (\ s a -> s{_mdiNewDBInstanceIdentifier = a});
 
+-- | Specify the Active Directory Domain to move the instance to.
+--
+-- The specified Active Directory Domain must be created prior to this
+-- operation. Currently only a SQL Server instance can be created in a
+-- Active Directory Domain.
+mdiDomain :: Lens' ModifyDBInstance (Maybe Text)
+mdiDomain = lens _mdiDomain (\ s a -> s{_mdiDomain = a});
+
 -- | The interval, in seconds, between points when Enhanced Monitoring
 -- metrics are collected for the DB instance. To disable collecting
 -- Enhanced Monitoring metrics, specify 0. The default is 60.
@@ -419,6 +444,17 @@ mdiTDECredentialPassword = lens _mdiTDECredentialPassword (\ s a -> s{_mdiTDECre
 -- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
 mdiDBInstanceClass :: Lens' ModifyDBInstance (Maybe Text)
 mdiDBInstanceClass = lens _mdiDBInstanceClass (\ s a -> s{_mdiDBInstanceClass = a});
+
+-- | A value that specifies the order in which an Aurora Replica is promoted
+-- to the primary instance after a failure of the existing primary
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>.
+--
+-- Default: 1
+--
+-- Valid Values: 0 - 15
+mdiPromotionTier :: Lens' ModifyDBInstance (Maybe Int)
+mdiPromotionTier = lens _mdiPromotionTier (\ s a -> s{_mdiPromotionTier = a});
 
 -- | The weekly time range (in UTC) during which system maintenance can
 -- occur, which might result in an outage. Changing this parameter does not
@@ -640,6 +676,11 @@ mdiCopyTagsToSnapshot = lens _mdiCopyTagsToSnapshot (\ s a -> s{_mdiCopyTagsToSn
 mdiTDECredentialARN :: Lens' ModifyDBInstance (Maybe Text)
 mdiTDECredentialARN = lens _mdiTDECredentialARN (\ s a -> s{_mdiTDECredentialARN = a});
 
+-- | Specify the name of the IAM role to be used when making API calls to the
+-- Directory Service.
+mdiDomainIAMRoleName :: Lens' ModifyDBInstance (Maybe Text)
+mdiDomainIAMRoleName = lens _mdiDomainIAMRoleName (\ s a -> s{_mdiDomainIAMRoleName = a});
+
 -- | Specifies the storage type to be associated with the DB instance.
 --
 -- Valid values: 'standard | gp2 | io1'
@@ -674,6 +715,8 @@ instance AWSRequest ModifyDBInstance where
 
 instance Hashable ModifyDBInstance
 
+instance NFData ModifyDBInstance
+
 instance ToHeaders ModifyDBInstance where
         toHeaders = const mempty
 
@@ -701,9 +744,11 @@ instance ToQuery ModifyDBInstance where
                  _mdiAllowMajorVersionUpgrade,
                "NewDBInstanceIdentifier" =:
                  _mdiNewDBInstanceIdentifier,
+               "Domain" =: _mdiDomain,
                "MonitoringInterval" =: _mdiMonitoringInterval,
                "TdeCredentialPassword" =: _mdiTDECredentialPassword,
                "DBInstanceClass" =: _mdiDBInstanceClass,
+               "PromotionTier" =: _mdiPromotionTier,
                "PreferredMaintenanceWindow" =:
                  _mdiPreferredMaintenanceWindow,
                "CACertificateIdentifier" =:
@@ -721,6 +766,7 @@ instance ToQuery ModifyDBInstance where
                "OptionGroupName" =: _mdiOptionGroupName,
                "CopyTagsToSnapshot" =: _mdiCopyTagsToSnapshot,
                "TdeCredentialArn" =: _mdiTDECredentialARN,
+               "DomainIAMRoleName" =: _mdiDomainIAMRoleName,
                "StorageType" =: _mdiStorageType,
                "DBInstanceIdentifier" =: _mdiDBInstanceIdentifier]
 
@@ -753,3 +799,5 @@ mdirsDBInstance = lens _mdirsDBInstance (\ s a -> s{_mdirsDBInstance = a});
 -- | The response status code.
 mdirsResponseStatus :: Lens' ModifyDBInstanceResponse Int
 mdirsResponseStatus = lens _mdirsResponseStatus (\ s a -> s{_mdirsResponseStatus = a});
+
+instance NFData ModifyDBInstanceResponse

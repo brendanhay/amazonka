@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation updates a gateway\'s weekly maintenance start time
--- information, including day and time of the week. The maintenance time is
--- the time in your gateway\'s time zone.
+-- Updates a gateway\'s weekly maintenance start time information,
+-- including day and time of the week. The maintenance time is the time in
+-- your gateway\'s time zone.
 module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     (
     -- * Creating a Request
@@ -118,6 +118,8 @@ instance AWSRequest UpdateMaintenanceStartTime where
 
 instance Hashable UpdateMaintenanceStartTime
 
+instance NFData UpdateMaintenanceStartTime
+
 instance ToHeaders UpdateMaintenanceStartTime where
         toHeaders
           = const
@@ -175,3 +177,5 @@ umstrsGatewayARN = lens _umstrsGatewayARN (\ s a -> s{_umstrsGatewayARN = a});
 -- | The response status code.
 umstrsResponseStatus :: Lens' UpdateMaintenanceStartTimeResponse Int
 umstrsResponseStatus = lens _umstrsResponseStatus (\ s a -> s{_umstrsResponseStatus = a});
+
+instance NFData UpdateMaintenanceStartTimeResponse

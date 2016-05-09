@@ -139,6 +139,8 @@ instance AWSRequest CreateQueue where
 
 instance Hashable CreateQueue
 
+instance NFData CreateQueue
+
 instance ToHeaders CreateQueue where
         toHeaders = const mempty
 
@@ -186,3 +188,5 @@ cqrsQueueURL = lens _cqrsQueueURL (\ s a -> s{_cqrsQueueURL = a});
 -- | The response status code.
 cqrsResponseStatus :: Lens' CreateQueueResponse Int
 cqrsResponseStatus = lens _cqrsResponseStatus (\ s a -> s{_cqrsResponseStatus = a});
+
+instance NFData CreateQueueResponse

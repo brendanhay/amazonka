@@ -106,6 +106,8 @@ instance AWSRequest ListRuleNamesByTarget where
 
 instance Hashable ListRuleNamesByTarget
 
+instance NFData ListRuleNamesByTarget
+
 instance ToHeaders ListRuleNamesByTarget where
         toHeaders
           = const
@@ -168,3 +170,5 @@ lrnbtrsNextToken = lens _lrnbtrsNextToken (\ s a -> s{_lrnbtrsNextToken = a});
 -- | The response status code.
 lrnbtrsResponseStatus :: Lens' ListRuleNamesByTargetResponse Int
 lrnbtrsResponseStatus = lens _lrnbtrsResponseStatus (\ s a -> s{_lrnbtrsResponseStatus = a});
+
+instance NFData ListRuleNamesByTargetResponse

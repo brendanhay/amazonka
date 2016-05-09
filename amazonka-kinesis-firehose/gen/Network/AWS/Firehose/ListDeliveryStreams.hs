@@ -22,12 +22,12 @@
 --
 -- The number of delivery streams might be too large to return using a
 -- single call to < ListDeliveryStreams>. You can limit the number of
--- delivery streams returned, using the 'Limit' parameter. To determine
+-- delivery streams returned, using the __Limit__ parameter. To determine
 -- whether there are more delivery streams to list, check the value of
--- 'HasMoreDeliveryStreams' in the output. If there are more delivery
+-- __HasMoreDeliveryStreams__ in the output. If there are more delivery
 -- streams to list, you can request them by specifying the name of the last
 -- delivery stream returned in the call in the
--- 'ExclusiveStartDeliveryStreamName' parameter of a subsequent call.
+-- __ExclusiveStartDeliveryStreamName__ parameter of a subsequent call.
 module Network.AWS.Firehose.ListDeliveryStreams
     (
     -- * Creating a Request
@@ -98,6 +98,8 @@ instance AWSRequest ListDeliveryStreams where
 
 instance Hashable ListDeliveryStreams
 
+instance NFData ListDeliveryStreams
+
 instance ToHeaders ListDeliveryStreams where
         toHeaders
           = const
@@ -162,3 +164,5 @@ ldsrsDeliveryStreamNames = lens _ldsrsDeliveryStreamNames (\ s a -> s{_ldsrsDeli
 -- | Indicates whether there are more delivery streams available to list.
 ldsrsHasMoreDeliveryStreams :: Lens' ListDeliveryStreamsResponse Bool
 ldsrsHasMoreDeliveryStreams = lens _ldsrsHasMoreDeliveryStreams (\ s a -> s{_ldsrsHasMoreDeliveryStreams = a});
+
+instance NFData ListDeliveryStreamsResponse

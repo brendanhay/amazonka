@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Assigns attributes (key and value pair) to the findings specified by the
--- findings\' ARNs.
+-- Assigns attributes (key and value pairs) to the findings that are
+-- specified by the ARNs of the findings.
 module Network.AWS.Inspector.AddAttributesToFindings
     (
     -- * Creating a Request
@@ -33,8 +33,8 @@ module Network.AWS.Inspector.AddAttributesToFindings
     , addAttributesToFindingsResponse
     , AddAttributesToFindingsResponse
     -- * Response Lenses
-    , aatfrsMessage
     , aatfrsResponseStatus
+    , aatfrsFailedItems
     ) where
 
 import           Network.AWS.Inspector.Types
@@ -46,7 +46,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'addAttributesToFindings' smart constructor.
 data AddAttributesToFindings = AddAttributesToFindings'
-    { _aatfFindingARNs :: ![Text]
+    { _aatfFindingARNs :: !(List1 Text)
     , _aatfAttributes  :: ![Attribute]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -58,16 +58,18 @@ data AddAttributesToFindings = AddAttributesToFindings'
 --
 -- * 'aatfAttributes'
 addAttributesToFindings
-    :: AddAttributesToFindings
-addAttributesToFindings =
+    :: NonEmpty Text -- ^ 'aatfFindingARNs'
+    -> AddAttributesToFindings
+addAttributesToFindings pFindingARNs_ =
     AddAttributesToFindings'
-    { _aatfFindingARNs = mempty
+    { _aatfFindingARNs = _List1 # pFindingARNs_
     , _aatfAttributes = mempty
     }
 
--- | The ARNs specifying the findings that you want to assign attributes to.
-aatfFindingARNs :: Lens' AddAttributesToFindings [Text]
-aatfFindingARNs = lens _aatfFindingARNs (\ s a -> s{_aatfFindingARNs = a}) . _Coerce;
+-- | The ARNs that specify the findings that you want to assign attributes
+-- to.
+aatfFindingARNs :: Lens' AddAttributesToFindings (NonEmpty Text)
+aatfFindingARNs = lens _aatfFindingARNs (\ s a -> s{_aatfFindingARNs = a}) . _List1;
 
 -- | The array of attributes that you want to assign to specified findings.
 aatfAttributes :: Lens' AddAttributesToFindings [Attribute]
@@ -81,9 +83,12 @@ instance AWSRequest AddAttributesToFindings where
           = receiveJSON
               (\ s h x ->
                  AddAttributesToFindingsResponse' <$>
-                   (x .?> "message") <*> (pure (fromEnum s)))
+                   (pure (fromEnum s)) <*>
+                     (x .?> "failedItems" .!@ mempty))
 
 instance Hashable AddAttributesToFindings
+
+instance NFData AddAttributesToFindings
 
 instance ToHeaders AddAttributesToFindings where
         toHeaders
@@ -110,30 +115,33 @@ instance ToQuery AddAttributesToFindings where
 
 -- | /See:/ 'addAttributesToFindingsResponse' smart constructor.
 data AddAttributesToFindingsResponse = AddAttributesToFindingsResponse'
-    { _aatfrsMessage        :: !(Maybe Text)
-    , _aatfrsResponseStatus :: !Int
+    { _aatfrsResponseStatus :: !Int
+    , _aatfrsFailedItems    :: !(Map Text FailedItemDetails)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddAttributesToFindingsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aatfrsMessage'
---
 -- * 'aatfrsResponseStatus'
+--
+-- * 'aatfrsFailedItems'
 addAttributesToFindingsResponse
     :: Int -- ^ 'aatfrsResponseStatus'
     -> AddAttributesToFindingsResponse
 addAttributesToFindingsResponse pResponseStatus_ =
     AddAttributesToFindingsResponse'
-    { _aatfrsMessage = Nothing
-    , _aatfrsResponseStatus = pResponseStatus_
+    { _aatfrsResponseStatus = pResponseStatus_
+    , _aatfrsFailedItems = mempty
     }
-
--- | Confirmation details of the action performed.
-aatfrsMessage :: Lens' AddAttributesToFindingsResponse (Maybe Text)
-aatfrsMessage = lens _aatfrsMessage (\ s a -> s{_aatfrsMessage = a});
 
 -- | The response status code.
 aatfrsResponseStatus :: Lens' AddAttributesToFindingsResponse Int
 aatfrsResponseStatus = lens _aatfrsResponseStatus (\ s a -> s{_aatfrsResponseStatus = a});
+
+-- | Attribute details that cannot be described. An error code is provided
+-- for each failed item.
+aatfrsFailedItems :: Lens' AddAttributesToFindingsResponse (HashMap Text FailedItemDetails)
+aatfrsFailedItems = lens _aatfrsFailedItems (\ s a -> s{_aatfrsFailedItems = a}) . _Map;
+
+instance NFData AddAttributesToFindingsResponse

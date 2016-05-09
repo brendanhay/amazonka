@@ -44,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeVPCClassicLink' smart constructor.
+-- | Contains the parameters for DescribeVpcClassicLink.
+--
+-- /See:/ 'describeVPCClassicLink' smart constructor.
 data DescribeVPCClassicLink = DescribeVPCClassicLink'
     { _dvclFilters :: !(Maybe [Filter])
     , _dvclVPCIds  :: !(Maybe [Text])
@@ -116,6 +118,8 @@ instance AWSRequest DescribeVPCClassicLink where
 
 instance Hashable DescribeVPCClassicLink
 
+instance NFData DescribeVPCClassicLink
+
 instance ToHeaders DescribeVPCClassicLink where
         toHeaders = const mempty
 
@@ -132,7 +136,9 @@ instance ToQuery DescribeVPCClassicLink where
                toQuery (toQueryList "VpcId" <$> _dvclVPCIds),
                "DryRun" =: _dvclDryRun]
 
--- | /See:/ 'describeVPCClassicLinkResponse' smart constructor.
+-- | Contains the output of DescribeVpcClassicLink.
+--
+-- /See:/ 'describeVPCClassicLinkResponse' smart constructor.
 data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
     { _dvclrsVPCs           :: !(Maybe [VPCClassicLink])
     , _dvclrsResponseStatus :: !Int
@@ -161,3 +167,5 @@ dvclrsVPCs = lens _dvclrsVPCs (\ s a -> s{_dvclrsVPCs = a}) . _Default . _Coerce
 -- | The response status code.
 dvclrsResponseStatus :: Lens' DescribeVPCClassicLinkResponse Int
 dvclrsResponseStatus = lens _dvclrsResponseStatus (\ s a -> s{_dvclrsResponseStatus = a});
+
+instance NFData DescribeVPCClassicLinkResponse

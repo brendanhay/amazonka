@@ -50,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeClassicLinkInstances' smart constructor.
+-- | Contains the parameters for DescribeClassicLinkInstances.
+--
+-- /See:/ 'describeClassicLinkInstances' smart constructor.
 data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
     { _dcliFilters     :: !(Maybe [Filter])
     , _dcliNextToken   :: !(Maybe Text)
@@ -153,6 +155,8 @@ instance AWSRequest DescribeClassicLinkInstances
 
 instance Hashable DescribeClassicLinkInstances
 
+instance NFData DescribeClassicLinkInstances
+
 instance ToHeaders DescribeClassicLinkInstances where
         toHeaders = const mempty
 
@@ -172,7 +176,9 @@ instance ToQuery DescribeClassicLinkInstances where
                "DryRun" =: _dcliDryRun,
                "MaxResults" =: _dcliMaxResults]
 
--- | /See:/ 'describeClassicLinkInstancesResponse' smart constructor.
+-- | Contains the output of DescribeClassicLinkInstances.
+--
+-- /See:/ 'describeClassicLinkInstancesResponse' smart constructor.
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
     { _dclirsNextToken      :: !(Maybe Text)
     , _dclirsInstances      :: !(Maybe [ClassicLinkInstance])
@@ -210,3 +216,5 @@ dclirsInstances = lens _dclirsInstances (\ s a -> s{_dclirsInstances = a}) . _De
 -- | The response status code.
 dclirsResponseStatus :: Lens' DescribeClassicLinkInstancesResponse Int
 dclirsResponseStatus = lens _dclirsResponseStatus (\ s a -> s{_dclirsResponseStatus = a});
+
+instance NFData DescribeClassicLinkInstancesResponse

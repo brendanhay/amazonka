@@ -164,6 +164,8 @@ instance AWSRequest ListApplicationRevisions where
 
 instance Hashable ListApplicationRevisions
 
+instance NFData ListApplicationRevisions
+
 instance ToHeaders ListApplicationRevisions where
         toHeaders
           = const
@@ -233,3 +235,5 @@ larrsRevisions = lens _larrsRevisions (\ s a -> s{_larrsRevisions = a}) . _Defau
 -- | The response status code.
 larrsResponseStatus :: Lens' ListApplicationRevisionsResponse Int
 larrsResponseStatus = lens _larrsResponseStatus (\ s a -> s{_larrsResponseStatus = a});
+
+instance NFData ListApplicationRevisionsResponse

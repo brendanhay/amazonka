@@ -89,6 +89,8 @@ instance AWSRequest GetIdentityPoolConfiguration
 
 instance Hashable GetIdentityPoolConfiguration
 
+instance NFData GetIdentityPoolConfiguration
+
 instance ToHeaders GetIdentityPoolConfiguration where
         toHeaders
           = const
@@ -154,3 +156,5 @@ gipcrsPushSync = lens _gipcrsPushSync (\ s a -> s{_gipcrsPushSync = a});
 -- | The response status code.
 gipcrsResponseStatus :: Lens' GetIdentityPoolConfigurationResponse Int
 gipcrsResponseStatus = lens _gipcrsResponseStatus (\ s a -> s{_gipcrsResponseStatus = a});
+
+instance NFData GetIdentityPoolConfigurationResponse

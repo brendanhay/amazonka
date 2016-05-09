@@ -40,6 +40,7 @@ instance ToText ArtifactCategory where
         ACScreenshot -> "SCREENSHOT"
 
 instance Hashable     ArtifactCategory
+instance NFData       ArtifactCategory
 instance ToByteString ArtifactCategory
 instance ToQuery      ArtifactCategory
 instance ToHeader     ArtifactCategory
@@ -69,6 +70,7 @@ data ArtifactType
     | Screenshot
     | ServiceLog
     | Unknown
+    | Video
     | WebkitLog
     | XctestLog
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -96,10 +98,11 @@ instance FromText ArtifactType where
         "screenshot" -> pure Screenshot
         "service_log" -> pure ServiceLog
         "unknown" -> pure Unknown
+        "video" -> pure Video
         "webkit_log" -> pure WebkitLog
         "xctest_log" -> pure XctestLog
         e -> fromTextError $ "Failure parsing ArtifactType from value: '" <> e
-           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_PYTHON_OUTPUT, APPIUM_PYTHON_XML_OUTPUT, APPIUM_SERVER_OUTPUT, APPLICATION_CRASH_REPORT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, EXPLORER_EVENT_LOG, EXPLORER_SUMMARY_LOG, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN, WEBKIT_LOG, XCTEST_LOG"
+           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_PYTHON_OUTPUT, APPIUM_PYTHON_XML_OUTPUT, APPIUM_SERVER_OUTPUT, APPLICATION_CRASH_REPORT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, EXPLORER_EVENT_LOG, EXPLORER_SUMMARY_LOG, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN, VIDEO, WEBKIT_LOG, XCTEST_LOG"
 
 instance ToText ArtifactType where
     toText = \case
@@ -124,10 +127,12 @@ instance ToText ArtifactType where
         Screenshot -> "SCREENSHOT"
         ServiceLog -> "SERVICE_LOG"
         Unknown -> "UNKNOWN"
+        Video -> "VIDEO"
         WebkitLog -> "WEBKIT_LOG"
         XctestLog -> "XCTEST_LOG"
 
 instance Hashable     ArtifactType
+instance NFData       ArtifactType
 instance ToByteString ArtifactType
 instance ToQuery      ArtifactType
 instance ToHeader     ArtifactType
@@ -153,6 +158,7 @@ instance ToText BillingMethod where
         Unmetered -> "UNMETERED"
 
 instance Hashable     BillingMethod
+instance NFData       BillingMethod
 instance ToByteString BillingMethod
 instance ToQuery      BillingMethod
 instance ToHeader     BillingMethod
@@ -162,6 +168,29 @@ instance ToJSON BillingMethod where
 
 instance FromJSON BillingMethod where
     parseJSON = parseJSONText "BillingMethod"
+
+data CurrencyCode =
+    Usd
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText CurrencyCode where
+    parser = takeLowerText >>= \case
+        "usd" -> pure Usd
+        e -> fromTextError $ "Failure parsing CurrencyCode from value: '" <> e
+           <> "'. Accepted values: USD"
+
+instance ToText CurrencyCode where
+    toText = \case
+        Usd -> "USD"
+
+instance Hashable     CurrencyCode
+instance NFData       CurrencyCode
+instance ToByteString CurrencyCode
+instance ToQuery      CurrencyCode
+instance ToHeader     CurrencyCode
+
+instance FromJSON CurrencyCode where
+    parseJSON = parseJSONText "CurrencyCode"
 
 data DeviceAttribute
     = ARN
@@ -187,6 +216,7 @@ instance ToText DeviceAttribute where
         Platform -> "PLATFORM"
 
 instance Hashable     DeviceAttribute
+instance NFData       DeviceAttribute
 instance ToByteString DeviceAttribute
 instance ToQuery      DeviceAttribute
 instance ToHeader     DeviceAttribute
@@ -215,6 +245,7 @@ instance ToText DeviceFormFactor where
         Tablet -> "TABLET"
 
 instance Hashable     DeviceFormFactor
+instance NFData       DeviceFormFactor
 instance ToByteString DeviceFormFactor
 instance ToQuery      DeviceFormFactor
 instance ToHeader     DeviceFormFactor
@@ -240,6 +271,7 @@ instance ToText DevicePlatform where
         Ios -> "IOS"
 
 instance Hashable     DevicePlatform
+instance NFData       DevicePlatform
 instance ToByteString DevicePlatform
 instance ToQuery      DevicePlatform
 instance ToHeader     DevicePlatform
@@ -265,6 +297,7 @@ instance ToText DevicePoolType where
         Private -> "PRIVATE"
 
 instance Hashable     DevicePoolType
+instance NFData       DevicePoolType
 instance ToByteString DevicePoolType
 instance ToQuery      DevicePoolType
 instance ToHeader     DevicePoolType
@@ -308,6 +341,7 @@ instance ToText ExecutionResult where
         ERWarned -> "WARNED"
 
 instance Hashable     ExecutionResult
+instance NFData       ExecutionResult
 instance ToByteString ExecutionResult
 instance ToQuery      ExecutionResult
 instance ToHeader     ExecutionResult
@@ -318,36 +352,124 @@ instance FromJSON ExecutionResult where
 data ExecutionStatus
     = Completed
     | Pending
+    | PendingConcurrency
+    | PendingDevice
+    | Preparing
     | Processing
     | Running
     | Scheduling
+    | Stopping
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ExecutionStatus where
     parser = takeLowerText >>= \case
         "completed" -> pure Completed
         "pending" -> pure Pending
+        "pending_concurrency" -> pure PendingConcurrency
+        "pending_device" -> pure PendingDevice
+        "preparing" -> pure Preparing
         "processing" -> pure Processing
         "running" -> pure Running
         "scheduling" -> pure Scheduling
+        "stopping" -> pure Stopping
         e -> fromTextError $ "Failure parsing ExecutionStatus from value: '" <> e
-           <> "'. Accepted values: COMPLETED, PENDING, PROCESSING, RUNNING, SCHEDULING"
+           <> "'. Accepted values: COMPLETED, PENDING, PENDING_CONCURRENCY, PENDING_DEVICE, PREPARING, PROCESSING, RUNNING, SCHEDULING, STOPPING"
 
 instance ToText ExecutionStatus where
     toText = \case
         Completed -> "COMPLETED"
         Pending -> "PENDING"
+        PendingConcurrency -> "PENDING_CONCURRENCY"
+        PendingDevice -> "PENDING_DEVICE"
+        Preparing -> "PREPARING"
         Processing -> "PROCESSING"
         Running -> "RUNNING"
         Scheduling -> "SCHEDULING"
+        Stopping -> "STOPPING"
 
 instance Hashable     ExecutionStatus
+instance NFData       ExecutionStatus
 instance ToByteString ExecutionStatus
 instance ToQuery      ExecutionStatus
 instance ToHeader     ExecutionStatus
 
 instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
+
+data OfferingTransactionType
+    = Purchase
+    | Renew
+    | System
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText OfferingTransactionType where
+    parser = takeLowerText >>= \case
+        "purchase" -> pure Purchase
+        "renew" -> pure Renew
+        "system" -> pure System
+        e -> fromTextError $ "Failure parsing OfferingTransactionType from value: '" <> e
+           <> "'. Accepted values: PURCHASE, RENEW, SYSTEM"
+
+instance ToText OfferingTransactionType where
+    toText = \case
+        Purchase -> "PURCHASE"
+        Renew -> "RENEW"
+        System -> "SYSTEM"
+
+instance Hashable     OfferingTransactionType
+instance NFData       OfferingTransactionType
+instance ToByteString OfferingTransactionType
+instance ToQuery      OfferingTransactionType
+instance ToHeader     OfferingTransactionType
+
+instance FromJSON OfferingTransactionType where
+    parseJSON = parseJSONText "OfferingTransactionType"
+
+data OfferingType =
+    Recurring
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText OfferingType where
+    parser = takeLowerText >>= \case
+        "recurring" -> pure Recurring
+        e -> fromTextError $ "Failure parsing OfferingType from value: '" <> e
+           <> "'. Accepted values: RECURRING"
+
+instance ToText OfferingType where
+    toText = \case
+        Recurring -> "RECURRING"
+
+instance Hashable     OfferingType
+instance NFData       OfferingType
+instance ToByteString OfferingType
+instance ToQuery      OfferingType
+instance ToHeader     OfferingType
+
+instance FromJSON OfferingType where
+    parseJSON = parseJSONText "OfferingType"
+
+data RecurringChargeFrequency =
+    Monthly
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText RecurringChargeFrequency where
+    parser = takeLowerText >>= \case
+        "monthly" -> pure Monthly
+        e -> fromTextError $ "Failure parsing RecurringChargeFrequency from value: '" <> e
+           <> "'. Accepted values: MONTHLY"
+
+instance ToText RecurringChargeFrequency where
+    toText = \case
+        Monthly -> "MONTHLY"
+
+instance Hashable     RecurringChargeFrequency
+instance NFData       RecurringChargeFrequency
+instance ToByteString RecurringChargeFrequency
+instance ToQuery      RecurringChargeFrequency
+instance ToHeader     RecurringChargeFrequency
+
+instance FromJSON RecurringChargeFrequency where
+    parseJSON = parseJSONText "RecurringChargeFrequency"
 
 data RuleOperator
     = Equals
@@ -376,6 +498,7 @@ instance ToText RuleOperator where
         NotIn -> "NOT_IN"
 
 instance Hashable     RuleOperator
+instance NFData       RuleOperator
 instance ToByteString RuleOperator
 instance ToQuery      RuleOperator
 instance ToHeader     RuleOperator
@@ -449,6 +572,7 @@ instance ToText SampleType where
         TxRate -> "TX_RATE"
 
 instance Hashable     SampleType
+instance NFData       SampleType
 instance ToByteString SampleType
 instance ToQuery      SampleType
 instance ToHeader     SampleType
@@ -510,6 +634,7 @@ instance ToText TestType where
         XctestUi -> "XCTEST_UI"
 
 instance Hashable     TestType
+instance NFData       TestType
 instance ToByteString TestType
 instance ToQuery      TestType
 instance ToHeader     TestType
@@ -544,6 +669,7 @@ instance ToText UploadStatus where
         USSucceeded -> "SUCCEEDED"
 
 instance Hashable     UploadStatus
+instance NFData       UploadStatus
 instance ToByteString UploadStatus
 instance ToQuery      UploadStatus
 instance ToHeader     UploadStatus
@@ -611,6 +737,7 @@ instance ToText UploadType where
         XctestUiTestPackage -> "XCTEST_UI_TEST_PACKAGE"
 
 instance Hashable     UploadType
+instance NFData       UploadType
 instance ToByteString UploadType
 instance ToQuery      UploadType
 instance ToHeader     UploadType

@@ -46,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteVPCPeeringConnection' smart constructor.
+-- | Contains the parameters for DeleteVpcPeeringConnection.
+--
+-- /See:/ 'deleteVPCPeeringConnection' smart constructor.
 data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
     { _dvpcDryRun                 :: !(Maybe Bool)
     , _dvpcVPCPeeringConnectionId :: !Text
@@ -91,6 +93,8 @@ instance AWSRequest DeleteVPCPeeringConnection where
 
 instance Hashable DeleteVPCPeeringConnection
 
+instance NFData DeleteVPCPeeringConnection
+
 instance ToHeaders DeleteVPCPeeringConnection where
         toHeaders = const mempty
 
@@ -107,7 +111,9 @@ instance ToQuery DeleteVPCPeeringConnection where
                "VpcPeeringConnectionId" =:
                  _dvpcVPCPeeringConnectionId]
 
--- | /See:/ 'deleteVPCPeeringConnectionResponse' smart constructor.
+-- | Contains the output of DeleteVpcPeeringConnection.
+--
+-- /See:/ 'deleteVPCPeeringConnectionResponse' smart constructor.
 data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
     { _dvpcrsReturn         :: !(Maybe Bool)
     , _dvpcrsResponseStatus :: !Int
@@ -136,3 +142,5 @@ dvpcrsReturn = lens _dvpcrsReturn (\ s a -> s{_dvpcrsReturn = a});
 -- | The response status code.
 dvpcrsResponseStatus :: Lens' DeleteVPCPeeringConnectionResponse Int
 dvpcrsResponseStatus = lens _dvpcrsResponseStatus (\ s a -> s{_dvpcrsResponseStatus = a});
+
+instance NFData DeleteVPCPeeringConnectionResponse

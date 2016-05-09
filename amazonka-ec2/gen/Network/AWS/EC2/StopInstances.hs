@@ -18,34 +18,30 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops an Amazon EBS-backed instance. Each time you transition an
--- instance from stopped to started, Amazon EC2 charges a full instance
--- hour, even if transitions happen multiple times within a single hour.
+-- Stops an Amazon EBS-backed instance.
 --
--- You can\'t start or stop Spot instances.
+-- We don\'t charge hourly usage for a stopped instance, or data transfer
+-- fees; however, your root partition Amazon EBS volume remains, continues
+-- to persist your data, and you are charged for Amazon EBS volume usage.
+-- Each time you transition an instance from stopped to started, Amazon EC2
+-- charges a full instance hour, even if transitions happen multiple times
+-- within a single hour.
 --
--- Instances that use Amazon EBS volumes as their root devices can be
--- quickly stopped and started. When an instance is stopped, the compute
--- resources are released and you are not billed for hourly instance usage.
--- However, your root partition Amazon EBS volume remains, continues to
--- persist your data, and you are charged for Amazon EBS volume usage. You
--- can restart your instance at any time.
+-- You can\'t start or stop Spot instances, and you can\'t stop instance
+-- store-backed instances.
 --
--- Before stopping an instance, make sure it is in a state from which it
--- can be restarted. Stopping an instance does not preserve data stored in
--- RAM.
+-- When you stop an instance, we shut it down. You can restart your
+-- instance at any time. Before stopping an instance, make sure it is in a
+-- state from which it can be restarted. Stopping an instance does not
+-- preserve data stored in RAM.
 --
--- Performing this operation on an instance that uses an instance store as
--- its root device returns an error.
---
--- You can stop, start, and terminate EBS-backed instances. You can only
--- terminate instance store-backed instances. What happens to an instance
--- differs if you stop it or terminate it. For example, when you stop an
--- instance, the root device and any other devices attached to the instance
--- persist. When you terminate an instance, the root device and any other
--- devices attached during the instance launch are automatically deleted.
--- For more information about the differences between stopping and
--- terminating instances, see
+-- Stopping an instance is different to rebooting or terminating it. For
+-- example, when you stop an instance, the root device and any other
+-- devices attached to the instance persist. When you terminate an
+-- instance, the root device and any other devices attached during the
+-- instance launch are automatically deleted. For more information about
+-- the differences between rebooting, stopping, and terminating instances,
+-- see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance Lifecycle>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
@@ -77,7 +73,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'stopInstances' smart constructor.
+-- | Contains the parameters for StopInstances.
+--
+-- /See:/ 'stopInstances' smart constructor.
 data StopInstances = StopInstances'
     { _siForce       :: !(Maybe Bool)
     , _siDryRun      :: !(Maybe Bool)
@@ -135,6 +133,8 @@ instance AWSRequest StopInstances where
 
 instance Hashable StopInstances
 
+instance NFData StopInstances
+
 instance ToHeaders StopInstances where
         toHeaders = const mempty
 
@@ -149,7 +149,9 @@ instance ToQuery StopInstances where
                "Force" =: _siForce, "DryRun" =: _siDryRun,
                toQueryList "InstanceId" _siInstanceIds]
 
--- | /See:/ 'stopInstancesResponse' smart constructor.
+-- | Contains the output of StopInstances.
+--
+-- /See:/ 'stopInstancesResponse' smart constructor.
 data StopInstancesResponse = StopInstancesResponse'
     { _sirsStoppingInstances :: !(Maybe [InstanceStateChange])
     , _sirsResponseStatus    :: !Int
@@ -178,3 +180,5 @@ sirsStoppingInstances = lens _sirsStoppingInstances (\ s a -> s{_sirsStoppingIns
 -- | The response status code.
 sirsResponseStatus :: Lens' StopInstancesResponse Int
 sirsResponseStatus = lens _sirsResponseStatus (\ s a -> s{_sirsResponseStatus = a});
+
+instance NFData StopInstancesResponse

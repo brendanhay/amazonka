@@ -132,6 +132,8 @@ instance AWSRequest PromoteReadReplica where
 
 instance Hashable PromoteReadReplica
 
+instance NFData PromoteReadReplica
+
 instance ToHeaders PromoteReadReplica where
         toHeaders = const mempty
 
@@ -176,3 +178,5 @@ prrrsDBInstance = lens _prrrsDBInstance (\ s a -> s{_prrrsDBInstance = a});
 -- | The response status code.
 prrrsResponseStatus :: Lens' PromoteReadReplicaResponse Int
 prrrsResponseStatus = lens _prrrsResponseStatus (\ s a -> s{_prrrsResponseStatus = a});
+
+instance NFData PromoteReadReplicaResponse

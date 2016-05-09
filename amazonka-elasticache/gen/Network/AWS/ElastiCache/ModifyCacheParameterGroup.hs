@@ -88,6 +88,8 @@ instance AWSRequest ModifyCacheParameterGroup where
 
 instance Hashable ModifyCacheParameterGroup
 
+instance NFData ModifyCacheParameterGroup
+
 instance ToHeaders ModifyCacheParameterGroup where
         toHeaders = const mempty
 

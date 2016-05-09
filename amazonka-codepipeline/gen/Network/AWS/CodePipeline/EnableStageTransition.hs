@@ -97,6 +97,8 @@ instance AWSRequest EnableStageTransition where
 
 instance Hashable EnableStageTransition
 
+instance NFData EnableStageTransition
+
 instance ToHeaders EnableStageTransition where
         toHeaders
           = const
@@ -131,3 +133,5 @@ data EnableStageTransitionResponse =
 enableStageTransitionResponse
     :: EnableStageTransitionResponse
 enableStageTransitionResponse = EnableStageTransitionResponse'
+
+instance NFData EnableStageTransitionResponse

@@ -86,7 +86,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'registerImage' smart constructor.
+-- | Contains the parameters for RegisterImage.
+--
+-- /See:/ 'registerImage' smart constructor.
 data RegisterImage = RegisterImage'
     { _riVirtualizationType  :: !(Maybe Text)
     , _riImageLocation       :: !(Maybe Text)
@@ -218,6 +220,8 @@ instance AWSRequest RegisterImage where
 
 instance Hashable RegisterImage
 
+instance NFData RegisterImage
+
 instance ToHeaders RegisterImage where
         toHeaders = const mempty
 
@@ -242,7 +246,9 @@ instance ToQuery RegisterImage where
                     _riBlockDeviceMappings),
                "DryRun" =: _riDryRun, "Name" =: _riName]
 
--- | /See:/ 'registerImageResponse' smart constructor.
+-- | Contains the output of RegisterImage.
+--
+-- /See:/ 'registerImageResponse' smart constructor.
 data RegisterImageResponse = RegisterImageResponse'
     { _rirsImageId        :: !(Maybe Text)
     , _rirsResponseStatus :: !Int
@@ -271,3 +277,5 @@ rirsImageId = lens _rirsImageId (\ s a -> s{_rirsImageId = a});
 -- | The response status code.
 rirsResponseStatus :: Lens' RegisterImageResponse Int
 rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});
+
+instance NFData RegisterImageResponse

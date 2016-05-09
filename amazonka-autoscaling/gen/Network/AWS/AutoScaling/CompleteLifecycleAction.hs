@@ -139,6 +139,8 @@ instance AWSRequest CompleteLifecycleAction where
 
 instance Hashable CompleteLifecycleAction
 
+instance NFData CompleteLifecycleAction
+
 instance ToHeaders CompleteLifecycleAction where
         toHeaders = const mempty
 
@@ -178,3 +180,5 @@ completeLifecycleActionResponse pResponseStatus_ =
 -- | The response status code.
 clarsResponseStatus :: Lens' CompleteLifecycleActionResponse Int
 clarsResponseStatus = lens _clarsResponseStatus (\ s a -> s{_clarsResponseStatus = a});
+
+instance NFData CompleteLifecycleActionResponse

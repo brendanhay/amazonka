@@ -88,6 +88,8 @@ instance AWSRequest DeleteLoadBalancerPolicy where
 
 instance Hashable DeleteLoadBalancerPolicy
 
+instance NFData DeleteLoadBalancerPolicy
+
 instance ToHeaders DeleteLoadBalancerPolicy where
         toHeaders = const mempty
 
@@ -124,3 +126,5 @@ deleteLoadBalancerPolicyResponse pResponseStatus_ =
 -- | The response status code.
 delrsResponseStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+
+instance NFData DeleteLoadBalancerPolicyResponse

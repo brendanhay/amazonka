@@ -96,6 +96,8 @@ instance AWSRequest DeleteRepository where
 
 instance Hashable DeleteRepository
 
+instance NFData DeleteRepository
+
 instance ToHeaders DeleteRepository where
         toHeaders
           = const
@@ -149,3 +151,5 @@ drsRepository = lens _drsRepository (\ s a -> s{_drsRepository = a});
 -- | The response status code.
 drsResponseStatus :: Lens' DeleteRepositoryResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+instance NFData DeleteRepositoryResponse

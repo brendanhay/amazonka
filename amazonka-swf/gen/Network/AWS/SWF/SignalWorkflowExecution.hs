@@ -139,6 +139,8 @@ instance AWSRequest SignalWorkflowExecution where
 
 instance Hashable SignalWorkflowExecution
 
+instance NFData SignalWorkflowExecution
+
 instance ToHeaders SignalWorkflowExecution where
         toHeaders
           = const
@@ -175,3 +177,5 @@ data SignalWorkflowExecutionResponse =
 signalWorkflowExecutionResponse
     :: SignalWorkflowExecutionResponse
 signalWorkflowExecutionResponse = SignalWorkflowExecutionResponse'
+
+instance NFData SignalWorkflowExecutionResponse

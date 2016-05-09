@@ -112,6 +112,8 @@ instance AWSRequest
 
 instance Hashable DescribeNotificationConfigurations
 
+instance NFData DescribeNotificationConfigurations
+
 instance ToHeaders DescribeNotificationConfigurations
          where
         toHeaders = const mempty
@@ -171,3 +173,6 @@ dncrsResponseStatus = lens _dncrsResponseStatus (\ s a -> s{_dncrsResponseStatus
 -- | The notification configurations.
 dncrsNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
 dncrsNotificationConfigurations = lens _dncrsNotificationConfigurations (\ s a -> s{_dncrsNotificationConfigurations = a}) . _Coerce;
+
+instance NFData
+         DescribeNotificationConfigurationsResponse

@@ -81,6 +81,8 @@ instance AWSRequest GetTopicAttributes where
 
 instance Hashable GetTopicAttributes
 
+instance NFData GetTopicAttributes
+
 instance ToHeaders GetTopicAttributes where
         toHeaders = const mempty
 
@@ -143,3 +145,5 @@ gtarsAttributes = lens _gtarsAttributes (\ s a -> s{_gtarsAttributes = a}) . _De
 -- | The response status code.
 gtarsResponseStatus :: Lens' GetTopicAttributesResponse Int
 gtarsResponseStatus = lens _gtarsResponseStatus (\ s a -> s{_gtarsResponseStatus = a});
+
+instance NFData GetTopicAttributesResponse

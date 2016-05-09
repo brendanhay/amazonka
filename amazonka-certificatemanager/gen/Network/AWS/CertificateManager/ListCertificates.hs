@@ -51,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'listCertificates' smart constructor.
+-- |
+--
+-- /See:/ 'listCertificates' smart constructor.
 data ListCertificates = ListCertificates'
     { _lcCertificateStatuses :: !(Maybe [CertificateStatus])
     , _lcNextToken           :: !(Maybe Text)
@@ -80,12 +82,19 @@ listCertificates =
 -- retrieve the ARNs. This can be one or more of the following values:
 --
 -- -   'PENDING_VALIDATION'
+--
 -- -   'ISSUED'
+--
 -- -   'INACTIVE'
+--
 -- -   'EXPIRED'
+--
 -- -   'VALIDATION_TIMED_OUT'
+--
 -- -   'REVOKED'
+--
 -- -   'FAILED'
+--
 lcCertificateStatuses :: Lens' ListCertificates [CertificateStatus]
 lcCertificateStatuses = lens _lcCertificateStatuses (\ s a -> s{_lcCertificateStatuses = a}) . _Default . _Coerce;
 
@@ -119,6 +128,8 @@ instance AWSRequest ListCertificates where
 
 instance Hashable ListCertificates
 
+instance NFData ListCertificates
+
 instance ToHeaders ListCertificates where
         toHeaders
           = const
@@ -144,7 +155,9 @@ instance ToPath ListCertificates where
 instance ToQuery ListCertificates where
         toQuery = const mempty
 
--- | /See:/ 'listCertificatesResponse' smart constructor.
+-- |
+--
+-- /See:/ 'listCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
     { _lcrsCertificateSummaryList :: !(Maybe [CertificateSummary])
     , _lcrsNextToken              :: !(Maybe Text)
@@ -183,3 +196,5 @@ lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 -- | The response status code.
 lcrsResponseStatus :: Lens' ListCertificatesResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
+
+instance NFData ListCertificatesResponse

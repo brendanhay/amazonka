@@ -87,6 +87,8 @@ instance AWSRequest DeleteTrafficPolicy where
 
 instance Hashable DeleteTrafficPolicy
 
+instance NFData DeleteTrafficPolicy
+
 instance ToHeaders DeleteTrafficPolicy where
         toHeaders = const mempty
 
@@ -122,3 +124,5 @@ deleteTrafficPolicyResponse pResponseStatus_ =
 -- | The response status code.
 dtprsResponseStatus :: Lens' DeleteTrafficPolicyResponse Int
 dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a});
+
+instance NFData DeleteTrafficPolicyResponse

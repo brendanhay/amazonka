@@ -18,7 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For internal use only
+-- Adds metadata tags to a DMS resource, including replication instance,
+-- endpoint, security group, and migration task. These tags can also be
+-- used with cost allocation reporting to track cost associated with DMS
+-- resources, or used in a Condition statement in an IAM policy for DMS.
 --
 module Network.AWS.DMS.AddTagsToResource
     (
@@ -85,6 +88,8 @@ instance AWSRequest AddTagsToResource where
 
 instance Hashable AddTagsToResource
 
+instance NFData AddTagsToResource
+
 instance ToHeaders AddTagsToResource where
         toHeaders
           = const
@@ -129,3 +134,5 @@ addTagsToResourceResponse pResponseStatus_ =
 -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
 attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
+
+instance NFData AddTagsToResourceResponse

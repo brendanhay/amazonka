@@ -76,6 +76,8 @@ instance FromJSON AWSSessionCredentials where
 
 instance Hashable AWSSessionCredentials
 
+instance NFData AWSSessionCredentials
+
 -- | Represents information about an action configuration.
 --
 -- /See:/ 'actionConfiguration' smart constructor.
@@ -107,6 +109,8 @@ instance FromJSON ActionConfiguration where
                    (x .:? "configuration" .!= mempty))
 
 instance Hashable ActionConfiguration
+
+instance NFData ActionConfiguration
 
 -- | Represents information about an action configuration property.
 --
@@ -212,6 +216,8 @@ instance FromJSON ActionConfigurationProperty where
 
 instance Hashable ActionConfigurationProperty
 
+instance NFData ActionConfigurationProperty
+
 instance ToJSON ActionConfigurationProperty where
         toJSON ActionConfigurationProperty'{..}
           = object
@@ -254,6 +260,8 @@ instance FromJSON ActionContext where
               (\ x -> ActionContext' <$> (x .:? "name"))
 
 instance Hashable ActionContext
+
+instance NFData ActionContext
 
 -- | Represents information about an action declaration.
 --
@@ -345,6 +353,8 @@ instance FromJSON ActionDeclaration where
                      <*> (x .: "actionTypeId"))
 
 instance Hashable ActionDeclaration
+
+instance NFData ActionDeclaration
 
 instance ToJSON ActionDeclaration where
         toJSON ActionDeclaration'{..}
@@ -445,12 +455,14 @@ instance FromJSON ActionExecution where
 
 instance Hashable ActionExecution
 
+instance NFData ActionExecution
+
 -- | Represents information about the version (or revision) of an action.
 --
 -- /See:/ 'actionRevision' smart constructor.
 data ActionRevision = ActionRevision'
-    { _arRevisionChangeId :: !(Maybe Text)
-    , _arRevisionId       :: !Text
+    { _arRevisionId       :: !Text
+    , _arRevisionChangeId :: !Text
     , _arCreated          :: !POSIX
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -458,31 +470,32 @@ data ActionRevision = ActionRevision'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arRevisionChangeId'
---
 -- * 'arRevisionId'
+--
+-- * 'arRevisionChangeId'
 --
 -- * 'arCreated'
 actionRevision
     :: Text -- ^ 'arRevisionId'
+    -> Text -- ^ 'arRevisionChangeId'
     -> UTCTime -- ^ 'arCreated'
     -> ActionRevision
-actionRevision pRevisionId_ pCreated_ =
+actionRevision pRevisionId_ pRevisionChangeId_ pCreated_ =
     ActionRevision'
-    { _arRevisionChangeId = Nothing
-    , _arRevisionId = pRevisionId_
+    { _arRevisionId = pRevisionId_
+    , _arRevisionChangeId = pRevisionChangeId_
     , _arCreated = _Time # pCreated_
     }
-
--- | The unique identifier of the change that set the state to this revision,
--- for example a deployment ID or timestamp.
-arRevisionChangeId :: Lens' ActionRevision (Maybe Text)
-arRevisionChangeId = lens _arRevisionChangeId (\ s a -> s{_arRevisionChangeId = a});
 
 -- | The system-generated unique ID that identifies the revision number of
 -- the action.
 arRevisionId :: Lens' ActionRevision Text
 arRevisionId = lens _arRevisionId (\ s a -> s{_arRevisionId = a});
+
+-- | The unique identifier of the change that set the state to this revision,
+-- for example a deployment ID or timestamp.
+arRevisionChangeId :: Lens' ActionRevision Text
+arRevisionChangeId = lens _arRevisionChangeId (\ s a -> s{_arRevisionChangeId = a});
 
 -- | The date and time when the most recent version of the action was
 -- created, in timestamp format.
@@ -494,17 +507,19 @@ instance FromJSON ActionRevision where
           = withObject "ActionRevision"
               (\ x ->
                  ActionRevision' <$>
-                   (x .:? "revisionChangeId") <*> (x .: "revisionId")
-                     <*> (x .: "created"))
+                   (x .: "revisionId") <*> (x .: "revisionChangeId") <*>
+                     (x .: "created"))
 
 instance Hashable ActionRevision
+
+instance NFData ActionRevision
 
 instance ToJSON ActionRevision where
         toJSON ActionRevision'{..}
           = object
               (catMaybes
-                 [("revisionChangeId" .=) <$> _arRevisionChangeId,
-                  Just ("revisionId" .= _arRevisionId),
+                 [Just ("revisionId" .= _arRevisionId),
+                  Just ("revisionChangeId" .= _arRevisionChangeId),
                   Just ("created" .= _arCreated)])
 
 -- | Represents information about the state of an action.
@@ -575,6 +590,8 @@ instance FromJSON ActionState where
                      <*> (x .:? "latestExecution"))
 
 instance Hashable ActionState
+
+instance NFData ActionState
 
 -- | Returns information about the details of an action type.
 --
@@ -647,6 +664,8 @@ instance FromJSON ActionType where
 
 instance Hashable ActionType
 
+instance NFData ActionType
+
 -- | Represents information about an action type.
 --
 -- /See:/ 'actionTypeId' smart constructor.
@@ -713,6 +732,8 @@ instance FromJSON ActionTypeId where
                      <*> (x .: "version"))
 
 instance Hashable ActionTypeId
+
+instance NFData ActionTypeId
 
 instance ToJSON ActionTypeId where
         toJSON ActionTypeId'{..}
@@ -793,6 +814,8 @@ instance FromJSON ActionTypeSettings where
 
 instance Hashable ActionTypeSettings
 
+instance NFData ActionTypeSettings
+
 instance ToJSON ActionTypeSettings where
         toJSON ActionTypeSettings'{..}
           = object
@@ -856,6 +879,8 @@ instance FromJSON Artifact where
 
 instance Hashable Artifact
 
+instance NFData Artifact
+
 -- | Returns information about the details of an artifact.
 --
 -- /See:/ 'artifactDetails' smart constructor.
@@ -897,6 +922,8 @@ instance FromJSON ArtifactDetails where
                    (x .: "minimumCount") <*> (x .: "maximumCount"))
 
 instance Hashable ArtifactDetails
+
+instance NFData ArtifactDetails
 
 instance ToJSON ArtifactDetails where
         toJSON ArtifactDetails'{..}
@@ -945,9 +972,12 @@ instance FromJSON ArtifactLocation where
 
 instance Hashable ArtifactLocation
 
+instance NFData ArtifactLocation
+
 -- | The Amazon S3 location where artifacts are stored for the pipeline. If
 -- this Amazon S3 bucket is created manually, it must meet the requirements
--- for AWS CodePipeline. For more information, see the Concepts.
+-- for AWS CodePipeline. For more information, see the
+-- <http://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#CPS3Bucket Concepts>.
 --
 -- /See:/ 'artifactStore' smart constructor.
 data ArtifactStore = ArtifactStore'
@@ -976,9 +1006,9 @@ artifactStore pType_ pLocation_ =
     , _asLocation = pLocation_
     }
 
--- | The AWS Key Management Service (AWS KMS) key used to encrypt the data in
--- the artifact store. If this is undefined, the default key for Amazon S3
--- is used.
+-- | The encryption key used to encrypt the data in the artifact store, such
+-- as an AWS Key Management Service (AWS KMS) key. If this is undefined,
+-- the default key for Amazon S3 is used.
 asEncryptionKey :: Lens' ArtifactStore (Maybe EncryptionKey)
 asEncryptionKey = lens _asEncryptionKey (\ s a -> s{_asEncryptionKey = a});
 
@@ -1001,6 +1031,8 @@ instance FromJSON ArtifactStore where
 
 instance Hashable ArtifactStore
 
+instance NFData ArtifactStore
+
 instance ToJSON ArtifactStore where
         toJSON ArtifactStore'{..}
           = object
@@ -1009,7 +1041,7 @@ instance ToJSON ArtifactStore where
                   Just ("type" .= _asType),
                   Just ("location" .= _asLocation)])
 
--- | Represents information about a gate declaration.
+-- | Reserved for future use.
 --
 -- /See:/ 'blockerDeclaration' smart constructor.
 data BlockerDeclaration = BlockerDeclaration'
@@ -1034,11 +1066,11 @@ blockerDeclaration pName_ pType_ =
     , _bdType = pType_
     }
 
--- | The name of the gate declaration.
+-- | Reserved for future use.
 bdName :: Lens' BlockerDeclaration Text
 bdName = lens _bdName (\ s a -> s{_bdName = a});
 
--- | The type of the gate declaration.
+-- | Reserved for future use.
 bdType :: Lens' BlockerDeclaration BlockerType
 bdType = lens _bdType (\ s a -> s{_bdType = a});
 
@@ -1050,6 +1082,8 @@ instance FromJSON BlockerDeclaration where
                    (x .: "name") <*> (x .: "type"))
 
 instance Hashable BlockerDeclaration
+
+instance NFData BlockerDeclaration
 
 instance ToJSON BlockerDeclaration where
         toJSON BlockerDeclaration'{..}
@@ -1092,6 +1126,8 @@ crChangeIdentifier = lens _crChangeIdentifier (\ s a -> s{_crChangeIdentifier = 
 
 instance Hashable CurrentRevision
 
+instance NFData CurrentRevision
+
 instance ToJSON CurrentRevision where
         toJSON CurrentRevision'{..}
           = object
@@ -1099,8 +1135,8 @@ instance ToJSON CurrentRevision where
                  [Just ("revision" .= _crRevision),
                   Just ("changeIdentifier" .= _crChangeIdentifier)])
 
--- | Represents information about the AWS Key Management Service (AWS KMS)
--- key used to encrypt data in the artifact store.
+-- | Represents information about the key used to encrypt data in the
+-- artifact store, such as an AWS Key Management Service (AWS KMS) key.
 --
 -- /See:/ 'encryptionKey' smart constructor.
 data EncryptionKey = EncryptionKey'
@@ -1125,11 +1161,14 @@ encryptionKey pId_ pType_ =
     , _ekType = pType_
     }
 
--- | The ID of the AWS KMS key.
+-- | The ID used to identify the key. For an AWS KMS key, this is the key ID
+-- or key ARN.
 ekId :: Lens' EncryptionKey Text
 ekId = lens _ekId (\ s a -> s{_ekId = a});
 
--- | The type of AWS KMS key, such as a customer master key.
+-- | The type of encryption key, such as an AWS Key Management Service (AWS
+-- KMS) key. When creating or updating a pipeline, the value must be set to
+-- \'KMS\'.
 ekType :: Lens' EncryptionKey EncryptionKeyType
 ekType = lens _ekType (\ s a -> s{_ekType = a});
 
@@ -1140,6 +1179,8 @@ instance FromJSON EncryptionKey where
                  EncryptionKey' <$> (x .: "id") <*> (x .: "type"))
 
 instance Hashable EncryptionKey
+
+instance NFData EncryptionKey
 
 instance ToJSON EncryptionKey where
         toJSON EncryptionKey'{..}
@@ -1187,6 +1228,8 @@ instance FromJSON ErrorDetails where
 
 instance Hashable ErrorDetails
 
+instance NFData ErrorDetails
+
 -- | The details of the actions taken and results produced on an artifact as
 -- it passes through stages in the pipeline.
 --
@@ -1230,6 +1273,8 @@ edPercentComplete :: Lens' ExecutionDetails (Maybe Natural)
 edPercentComplete = lens _edPercentComplete (\ s a -> s{_edPercentComplete = a}) . mapping _Nat;
 
 instance Hashable ExecutionDetails
+
+instance NFData ExecutionDetails
 
 instance ToJSON ExecutionDetails where
         toJSON ExecutionDetails'{..}
@@ -1283,6 +1328,8 @@ fdMessage = lens _fdMessage (\ s a -> s{_fdMessage = a});
 
 instance Hashable FailureDetails
 
+instance NFData FailureDetails
+
 instance ToJSON FailureDetails where
         toJSON FailureDetails'{..}
           = object
@@ -1329,6 +1376,8 @@ instance FromJSON InputArtifact where
               (\ x -> InputArtifact' <$> (x .: "name"))
 
 instance Hashable InputArtifact
+
+instance NFData InputArtifact
 
 instance ToJSON InputArtifact where
         toJSON InputArtifact'{..}
@@ -1393,6 +1442,8 @@ instance FromJSON Job where
                      <*> (x .:? "nonce"))
 
 instance Hashable Job
+
+instance NFData Job
 
 -- | Represents additional information about a job required for a job worker
 -- to complete the job.
@@ -1491,6 +1542,8 @@ instance FromJSON JobData where
 
 instance Hashable JobData
 
+instance NFData JobData
+
 -- | Represents information about the details of a job.
 --
 -- /See:/ 'jobDetails' smart constructor.
@@ -1540,6 +1593,8 @@ instance FromJSON JobDetails where
 
 instance Hashable JobDetails
 
+instance NFData JobDetails
+
 -- | Represents information about the output of an action.
 --
 -- /See:/ 'outputArtifact' smart constructor.
@@ -1578,6 +1633,8 @@ instance FromJSON OutputArtifact where
               (\ x -> OutputArtifact' <$> (x .: "name"))
 
 instance Hashable OutputArtifact
+
+instance NFData OutputArtifact
 
 instance ToJSON OutputArtifact where
         toJSON OutputArtifact'{..}
@@ -1633,6 +1690,8 @@ instance FromJSON PipelineContext where
                      (x .:? "action"))
 
 instance Hashable PipelineContext
+
+instance NFData PipelineContext
 
 -- | Represents the structure of actions and stages to be performed in the
 -- pipeline.
@@ -1709,6 +1768,8 @@ instance FromJSON PipelineDeclaration where
 
 instance Hashable PipelineDeclaration
 
+instance NFData PipelineDeclaration
+
 instance ToJSON PipelineDeclaration where
         toJSON PipelineDeclaration'{..}
           = object
@@ -1778,6 +1839,8 @@ instance FromJSON PipelineSummary where
 
 instance Hashable PipelineSummary
 
+instance NFData PipelineSummary
+
 -- | The location of the Amazon S3 bucket that contains a revision.
 --
 -- /See:/ 's3ArtifactLocation' smart constructor.
@@ -1821,6 +1884,8 @@ instance FromJSON S3ArtifactLocation where
 
 instance Hashable S3ArtifactLocation
 
+instance NFData S3ArtifactLocation
+
 -- | Represents information about a stage to a job worker.
 --
 -- /See:/ 'stageContext' smart constructor.
@@ -1851,6 +1916,8 @@ instance FromJSON StageContext where
 
 instance Hashable StageContext
 
+instance NFData StageContext
+
 -- | Represents information about a stage and its definition.
 --
 -- /See:/ 'stageDeclaration' smart constructor.
@@ -1879,7 +1946,7 @@ stageDeclaration pName_ =
     , _sdActions = mempty
     }
 
--- | The gates included in a stage.
+-- | Reserved for future use.
 sdBlockers :: Lens' StageDeclaration [BlockerDeclaration]
 sdBlockers = lens _sdBlockers (\ s a -> s{_sdBlockers = a}) . _Default . _Coerce;
 
@@ -1900,6 +1967,8 @@ instance FromJSON StageDeclaration where
                      (x .:? "actions" .!= mempty))
 
 instance Hashable StageDeclaration
+
+instance NFData StageDeclaration
 
 instance ToJSON StageDeclaration where
         toJSON StageDeclaration'{..}
@@ -1960,6 +2029,8 @@ instance FromJSON StageState where
 
 instance Hashable StageState
 
+instance NFData StageState
+
 -- | A response to a PollForThirdPartyJobs request returned by AWS
 -- CodePipeline when there is a job to be worked upon by a partner action.
 --
@@ -2002,6 +2073,8 @@ instance FromJSON ThirdPartyJob where
                    (x .:? "clientId") <*> (x .:? "jobId"))
 
 instance Hashable ThirdPartyJob
+
+instance NFData ThirdPartyJob
 
 -- | Represents information about the job data for a partner action.
 --
@@ -2069,8 +2142,9 @@ tpjdArtifactCredentials = lens _tpjdArtifactCredentials (\ s a -> s{_tpjdArtifac
 tpjdPipelineContext :: Lens' ThirdPartyJobData (Maybe PipelineContext)
 tpjdPipelineContext = lens _tpjdPipelineContext (\ s a -> s{_tpjdPipelineContext = a});
 
--- | The AWS Key Management Service (AWS KMS) key used to encrypt and decrypt
--- data in the artifact store for the pipeline.
+-- | The encryption key used to encrypt and decrypt data in the artifact
+-- store for the pipeline, such as an AWS Key Management Service (AWS KMS)
+-- key. This is optional and might not be present.
 tpjdEncryptionKey :: Lens' ThirdPartyJobData (Maybe EncryptionKey)
 tpjdEncryptionKey = lens _tpjdEncryptionKey (\ s a -> s{_tpjdEncryptionKey = a});
 
@@ -2105,6 +2179,8 @@ instance FromJSON ThirdPartyJobData where
                      <*> (x .:? "actionConfiguration"))
 
 instance Hashable ThirdPartyJobData
+
+instance NFData ThirdPartyJobData
 
 -- | The details of a job sent in response to a GetThirdPartyJobDetails
 -- request.
@@ -2156,6 +2232,8 @@ instance FromJSON ThirdPartyJobDetails where
                    (x .:? "data") <*> (x .:? "id") <*> (x .:? "nonce"))
 
 instance Hashable ThirdPartyJobDetails
+
+instance NFData ThirdPartyJobDetails
 
 -- | Represents information about the state of transitions between one stage
 -- and another stage.
@@ -2217,3 +2295,5 @@ instance FromJSON TransitionState where
                      <*> (x .:? "lastChangedBy"))
 
 instance Hashable TransitionState
+
+instance NFData TransitionState

@@ -83,6 +83,8 @@ instance AWSRequest GetIdentityPoolRoles where
 
 instance Hashable GetIdentityPoolRoles
 
+instance NFData GetIdentityPoolRoles
+
 instance ToHeaders GetIdentityPoolRoles where
         toHeaders
           = const
@@ -145,3 +147,5 @@ giprrsIdentityPoolId = lens _giprrsIdentityPoolId (\ s a -> s{_giprrsIdentityPoo
 -- | The response status code.
 giprrsResponseStatus :: Lens' GetIdentityPoolRolesResponse Int
 giprrsResponseStatus = lens _giprrsResponseStatus (\ s a -> s{_giprrsResponseStatus = a});
+
+instance NFData GetIdentityPoolRolesResponse

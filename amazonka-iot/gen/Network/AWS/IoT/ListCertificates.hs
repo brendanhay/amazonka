@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists your certificates.
+-- Lists the certificates registered in your AWS account.
 --
 -- The results are paginated with a default page size of 25. You can use
 -- the returned marker to retrieve additional results.
@@ -101,6 +101,8 @@ instance AWSRequest ListCertificates where
 
 instance Hashable ListCertificates
 
+instance NFData ListCertificates
+
 instance ToHeaders ListCertificates where
         toHeaders = const mempty
 
@@ -154,3 +156,5 @@ lcrsNextMarker = lens _lcrsNextMarker (\ s a -> s{_lcrsNextMarker = a});
 -- | The response status code.
 lcrsResponseStatus :: Lens' ListCertificatesResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
+
+instance NFData ListCertificatesResponse

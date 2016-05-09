@@ -84,6 +84,8 @@ instance AWSRequest PutConfigurationRecorder where
 
 instance Hashable PutConfigurationRecorder
 
+instance NFData PutConfigurationRecorder
+
 instance ToHeaders PutConfigurationRecorder where
         toHeaders
           = const
@@ -118,3 +120,5 @@ data PutConfigurationRecorderResponse =
 putConfigurationRecorderResponse
     :: PutConfigurationRecorderResponse
 putConfigurationRecorderResponse = PutConfigurationRecorderResponse'
+
+instance NFData PutConfigurationRecorderResponse

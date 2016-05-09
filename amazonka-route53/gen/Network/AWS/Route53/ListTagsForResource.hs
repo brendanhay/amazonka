@@ -93,6 +93,8 @@ instance AWSRequest ListTagsForResource where
 
 instance Hashable ListTagsForResource
 
+instance NFData ListTagsForResource
+
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
 
@@ -138,3 +140,5 @@ ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseSta
 -- resource.
 ltfrrsResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
 ltfrrsResourceTagSet = lens _ltfrrsResourceTagSet (\ s a -> s{_ltfrrsResourceTagSet = a});
+
+instance NFData ListTagsForResourceResponse

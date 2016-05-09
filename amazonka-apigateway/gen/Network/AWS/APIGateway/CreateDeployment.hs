@@ -138,6 +138,8 @@ instance AWSRequest CreateDeployment where
 
 instance Hashable CreateDeployment
 
+instance NFData CreateDeployment
+
 instance ToHeaders CreateDeployment where
         toHeaders
           = const

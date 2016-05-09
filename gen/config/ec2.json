@@ -2,7 +2,8 @@
     "libraryName": "amazonka-ec2",
     "ignoredWaiters": [
         "ConsoleOutputAvailable",
-        "KeyPairExists"
+        "KeyPairExists",
+        "ImageExists"
     ],
     "typeModules": [
         "Network.AWS.EC2.Internal"

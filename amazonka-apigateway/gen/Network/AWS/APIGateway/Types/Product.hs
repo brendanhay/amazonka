@@ -29,11 +29,11 @@ import           Network.AWS.Prelude
 -- /See:/ 'apiKey' smart constructor.
 data APIKey = APIKey'
     { _akEnabled         :: !(Maybe Bool)
-    , _akCreatedDate     :: !(Maybe POSIX)
+    , _akCreatedDate     :: !(Maybe ISO8601)
     , _akName            :: !(Maybe Text)
     , _akId              :: !(Maybe Text)
     , _akStageKeys       :: !(Maybe [Text])
-    , _akLastUpdatedDate :: !(Maybe POSIX)
+    , _akLastUpdatedDate :: !(Maybe ISO8601)
     , _akDescription     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -349,8 +349,8 @@ instance NFData BasePathMapping
 data ClientCertificate = ClientCertificate'
     { _ccPemEncodedCertificate :: !(Maybe Text)
     , _ccClientCertificateId   :: !(Maybe Text)
-    , _ccCreatedDate           :: !(Maybe POSIX)
-    , _ccExpirationDate        :: !(Maybe POSIX)
+    , _ccCreatedDate           :: !(Maybe ISO8601)
+    , _ccExpirationDate        :: !(Maybe ISO8601)
     , _ccDescription           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -423,7 +423,7 @@ instance NFData ClientCertificate
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
     { _dApiSummary  :: !(Maybe (Map Text (Map Text MethodSnapshot)))
-    , _dCreatedDate :: !(Maybe POSIX)
+    , _dCreatedDate :: !(Maybe ISO8601)
     , _dId          :: !(Maybe Text)
     , _dDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -487,7 +487,7 @@ instance NFData Deployment
 data DomainName = DomainName'
     { _dnCertificateName        :: !(Maybe Text)
     , _dnDomainName             :: !(Maybe Text)
-    , _dnCertificateUploadDate  :: !(Maybe POSIX)
+    , _dnCertificateUploadDate  :: !(Maybe ISO8601)
     , _dnDistributionDomainName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1323,7 +1323,7 @@ instance NFData Resource
 -- /See:/ 'restAPI' smart constructor.
 data RestAPI = RestAPI'
     { _raWarnings    :: !(Maybe [Text])
-    , _raCreatedDate :: !(Maybe POSIX)
+    , _raCreatedDate :: !(Maybe ISO8601)
     , _raName        :: !(Maybe Text)
     , _raId          :: !(Maybe Text)
     , _raDescription :: !(Maybe Text)
@@ -1398,10 +1398,10 @@ data Stage = Stage'
     { _sDeploymentId        :: !(Maybe Text)
     , _sVariables           :: !(Maybe (Map Text Text))
     , _sClientCertificateId :: !(Maybe Text)
-    , _sCreatedDate         :: !(Maybe POSIX)
+    , _sCreatedDate         :: !(Maybe ISO8601)
     , _sCacheClusterStatus  :: !(Maybe CacheClusterStatus)
     , _sMethodSettings      :: !(Maybe (Map Text MethodSetting))
-    , _sLastUpdatedDate     :: !(Maybe POSIX)
+    , _sLastUpdatedDate     :: !(Maybe ISO8601)
     , _sCacheClusterSize    :: !(Maybe CacheClusterSize)
     , _sCacheClusterEnabled :: !(Maybe Bool)
     , _sStageName           :: !(Maybe Text)

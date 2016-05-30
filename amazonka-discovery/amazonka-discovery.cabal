@@ -1,4 +1,4 @@
-name:                  amazonka-discovery
+ name:                  amazonka-discovery
 version:               1.4.1
 synopsis:              Amazon Application Discovery Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
@@ -198,8 +198,7 @@ description:
 
     You can tag discovered configuration items. Tags are metadata that help
     you categorize IT assets in your data center. Tags use a /key/-/value/
-    format. For example,
-    @{\"key\": \"serverType\", \"value\": \"webServer\"}@.
+    format.
 
     -   /CreateTags/: Creates one or more tags for a configuration items.
 

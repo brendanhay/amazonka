@@ -116,7 +116,7 @@ kms =
     , _svcEndpoint = defaultEndpoint kms
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "KMS"
     , _svcRetry = retry
     }
   where

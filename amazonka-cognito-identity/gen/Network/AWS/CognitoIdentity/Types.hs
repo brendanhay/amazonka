@@ -94,7 +94,7 @@ cognitoIdentity =
     , _svcEndpoint = defaultEndpoint cognitoIdentity
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CognitoIdentity"
     , _svcRetry = retry
     }
   where

@@ -39,7 +39,7 @@ marketplaceAnalytics =
     , _svcEndpoint = defaultEndpoint marketplaceAnalytics
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "MarketplaceAnalytics"
     , _svcRetry = retry
     }
   where

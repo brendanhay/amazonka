@@ -520,7 +520,7 @@ redshift =
     , _svcEndpoint = defaultEndpoint redshift
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "Redshift"
     , _svcRetry = retry
     }
   where

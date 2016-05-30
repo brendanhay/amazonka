@@ -128,7 +128,7 @@ lambda =
     , _svcEndpoint = defaultEndpoint lambda
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "Lambda"
     , _svcRetry = retry
     }
   where

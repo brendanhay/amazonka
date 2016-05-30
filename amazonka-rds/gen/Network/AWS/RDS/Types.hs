@@ -648,7 +648,7 @@ rds =
     , _svcEndpoint = defaultEndpoint rds
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "RDS"
     , _svcRetry = retry
     }
   where

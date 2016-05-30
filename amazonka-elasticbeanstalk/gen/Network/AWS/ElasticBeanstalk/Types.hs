@@ -425,7 +425,7 @@ elasticBeanstalk =
     , _svcEndpoint = defaultEndpoint elasticBeanstalk
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "ElasticBeanstalk"
     , _svcRetry = retry
     }
   where

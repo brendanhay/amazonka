@@ -110,7 +110,7 @@ ecr =
     , _svcEndpoint = defaultEndpoint ecr
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "ECR"
     , _svcRetry = retry
     }
   where

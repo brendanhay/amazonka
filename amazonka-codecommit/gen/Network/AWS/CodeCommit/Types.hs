@@ -139,7 +139,7 @@ codeCommit =
     , _svcEndpoint = defaultEndpoint codeCommit
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CodeCommit"
     , _svcRetry = retry
     }
   where

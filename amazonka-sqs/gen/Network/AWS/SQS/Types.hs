@@ -124,7 +124,7 @@ sqs =
     , _svcEndpoint = defaultEndpoint sqs
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "SQS"
     , _svcRetry = retry
     }
   where

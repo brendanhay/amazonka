@@ -110,7 +110,7 @@ discovery =
     , _svcEndpoint = defaultEndpoint discovery
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "Discovery"
     , _svcRetry = retry
     }
   where

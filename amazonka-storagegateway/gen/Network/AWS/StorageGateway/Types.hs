@@ -171,7 +171,7 @@ storageGateway =
     , _svcEndpoint = defaultEndpoint storageGateway
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "StorageGateway"
     , _svcRetry = retry
     }
   where

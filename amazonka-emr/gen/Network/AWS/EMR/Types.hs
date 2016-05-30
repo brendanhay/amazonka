@@ -407,7 +407,7 @@ emr =
     , _svcEndpoint = defaultEndpoint emr
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "EMR"
     , _svcRetry = retry
     }
   where

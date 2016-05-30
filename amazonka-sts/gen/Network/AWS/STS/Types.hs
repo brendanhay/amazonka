@@ -63,7 +63,7 @@ sts =
     , _svcEndpoint = defaultEndpoint sts
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "STS"
     , _svcRetry = retry
     }
   where

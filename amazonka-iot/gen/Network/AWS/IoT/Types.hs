@@ -278,7 +278,7 @@ ioT =
     , _svcEndpoint = defaultEndpoint ioT
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "IoT"
     , _svcRetry = retry
     }
   where

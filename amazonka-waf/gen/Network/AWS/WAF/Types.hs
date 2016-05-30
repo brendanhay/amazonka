@@ -298,7 +298,7 @@ waf =
     , _svcEndpoint = defaultEndpoint waf
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "WAF"
     , _svcRetry = retry
     }
   where

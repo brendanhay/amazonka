@@ -153,7 +153,7 @@ directConnect =
     , _svcEndpoint = defaultEndpoint directConnect
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "DirectConnect"
     , _svcRetry = retry
     }
   where

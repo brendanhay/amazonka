@@ -1957,7 +1957,7 @@ ec2 =
     , _svcEndpoint = defaultEndpoint ec2
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "EC2"
     , _svcRetry = retry
     }
   where

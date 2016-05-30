@@ -253,7 +253,7 @@ cloudFormation =
     , _svcEndpoint = defaultEndpoint cloudFormation
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "CloudFormation"
     , _svcRetry = retry
     }
   where

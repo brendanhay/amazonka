@@ -92,7 +92,7 @@ cloudWatchEvents =
     , _svcEndpoint = defaultEndpoint cloudWatchEvents
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CloudWatchEvents"
     , _svcRetry = retry
     }
   where

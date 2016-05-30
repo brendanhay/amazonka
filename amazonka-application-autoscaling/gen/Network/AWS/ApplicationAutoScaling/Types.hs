@@ -121,7 +121,7 @@ applicationAutoScaling =
     , _svcEndpoint = defaultEndpoint applicationAutoScaling
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "ApplicationAutoScaling"
     , _svcRetry = retry
     }
   where

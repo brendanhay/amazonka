@@ -99,7 +99,7 @@ certificateManager =
     , _svcEndpoint = defaultEndpoint certificateManager
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CertificateManager"
     , _svcRetry = retry
     }
   where

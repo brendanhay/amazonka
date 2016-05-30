@@ -268,7 +268,7 @@ ses =
     , _svcEndpoint = defaultEndpoint ses
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "SES"
     , _svcRetry = retry
     }
   where

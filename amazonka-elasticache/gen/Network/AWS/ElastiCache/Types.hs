@@ -384,7 +384,7 @@ elastiCache =
     , _svcEndpoint = defaultEndpoint elastiCache
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "ElastiCache"
     , _svcRetry = retry
     }
   where

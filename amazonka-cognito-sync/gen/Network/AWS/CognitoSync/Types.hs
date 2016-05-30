@@ -120,7 +120,7 @@ cognitoSync =
     , _svcEndpoint = defaultEndpoint cognitoSync
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CognitoSync"
     , _svcRetry = retry
     }
   where

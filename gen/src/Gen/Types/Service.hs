@@ -121,7 +121,7 @@ timestamp = \case
     RestXML    -> ISO8601
     Query      -> ISO8601
     EC2        -> ISO8601
-    APIGateway -> POSIX
+    APIGateway -> ISO8601
 
 data Checksum
     = MD5

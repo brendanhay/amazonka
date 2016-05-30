@@ -84,6 +84,8 @@ matrix:
     # Remainder
     - env: GHCVER=7.10.3 LIBRARY=amazonka-apigateway
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.3 LIBRARY=amazonka-application-autoscaling
+      addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-certificatemanager
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-cloudformation
@@ -123,6 +125,8 @@ matrix:
     - env: GHCVER=7.10.3 LIBRARY=amazonka-devicefarm
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-directconnect
+      addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+    - env: GHCVER=7.10.3 LIBRARY=amazonka-discovery
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
     - env: GHCVER=7.10.3 LIBRARY=amazonka-dms
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }

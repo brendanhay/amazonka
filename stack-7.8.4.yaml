@@ -17,6 +17,7 @@ packages:
   - examples
   - amazonka
   - amazonka-apigateway
+  - amazonka-application-autoscaling
   - amazonka-autoscaling
   - amazonka-certificatemanager
   - amazonka-cloudformation
@@ -38,6 +39,7 @@ packages:
   - amazonka-datapipeline
   - amazonka-devicefarm
   - amazonka-directconnect
+  - amazonka-discovery
   - amazonka-dms
   - amazonka-ds
   - amazonka-dynamodb
@@ -84,3 +86,4 @@ packages:
   - amazonka-swf
   - amazonka-waf
   - amazonka-workspaces
+ 

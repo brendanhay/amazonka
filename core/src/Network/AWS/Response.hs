@@ -39,8 +39,8 @@ receiveNull :: MonadResource m
             -> Proxy a
             -> ClientResponse
             -> m (Response a)
-receiveNull rs _ = receive $ \_ _ x ->
-    liftResourceT (x $$+- return (Right rs))
+receiveNull rs _ = stream $ \_ _ x ->
+    liftResourceT (x $$+- pure (Right rs))
 
 receiveEmpty :: MonadResource m
              => (Int -> ResponseHeaders -> () -> Either String (Rs a))
@@ -49,8 +49,8 @@ receiveEmpty :: MonadResource m
              -> Proxy a
              -> ClientResponse
              -> m (Response a)
-receiveEmpty f _ = receive $ \s h x ->
-    liftResourceT (x $$+- return (f s h ()))
+receiveEmpty f _ = stream $ \s h x ->
+    liftResourceT (x $$+- pure (f s h ()))
 
 receiveXMLWrapper :: MonadResource m
                   => Text
@@ -87,8 +87,9 @@ receiveBody :: MonadResource m
             -> Proxy a
             -> ClientResponse
             -> m (Response a)
-receiveBody f _ = receive $ \s h x -> return (f s h (RsBody x))
+receiveBody f _ = stream $ \s h x -> pure (f s h (RsBody x))
 
+-- | Deserialise an entire response body, such as an XML or JSON payload.
 deserialise :: MonadResource m
             => (LazyByteString -> Either String b)
             -> (Int -> ResponseHeaders -> b -> Either String (Rs a))
@@ -97,34 +98,38 @@ deserialise :: MonadResource m
             -> Proxy a
             -> ClientResponse
             -> m (Response a)
-deserialise g f l = receive $ \s h x -> do
-    lbs <- sinkLBS x
-    liftIO . l Debug . build $ "[Raw Response Body] {\n" <> lbs <> "\n}"
-    return $! g lbs >>= f s h
+deserialise g f l Service{..} _ rs = do
+    let s = responseStatus  rs
+        h = responseHeaders rs
+        x = responseBody    rs
+    b <- sinkLBS x
+    if not (_svcCheck s)
+        then throwM (_svcError s h b)
+        else do
+            liftIO . l Debug . build $ "[Raw Response Body] {\n" <> b <> "\n}"
+            case g b >>= f (fromEnum s) h of
+                Right r -> pure (s, r)
+                Left  e -> throwM . SerializeError $
+                    SerializeError' _svcAbbrev s (Just b) e
 
-receive :: MonadResource m
-        => (Int -> ResponseHeaders -> ResponseBody -> m (Either String (Rs a)))
-        -> Service
-        -> Proxy a
-        -> ClientResponse
-        -> m (Response a)
-receive f Service{..} _ rs
-    | not (_svcCheck s) = sinkLBS x >>= serviceErr
-    | otherwise          = do
-        p <- f (fromEnum s) h x
-        either serializeErr
-               (return . (s,))
-               p
-  where
-    s = responseStatus  rs
-    h = responseHeaders rs
-    x = responseBody    rs
-
-    serviceErr :: MonadThrow m => LazyByteString -> m a
-    serviceErr = throwM . _svcError _svcAbbrev s h
-
-    serializeErr :: MonadThrow m => String -> m a
-    serializeErr e = throwM (SerializeError (SerializeError' _svcAbbrev s e))
+-- | Stream a raw response body, such as an S3 object payload.
+stream :: MonadResource m
+       => (Int -> ResponseHeaders -> ResponseBody -> m (Either String (Rs a)))
+       -> Service
+       -> Proxy a
+       -> ClientResponse
+       -> m (Response a)
+stream f Service{..} _ rs = do
+    let s = responseStatus  rs
+        h = responseHeaders rs
+        x = responseBody    rs
+    if not (_svcCheck s)
+        then sinkLBS x >>= throwM . _svcError s h
+        else do
+            e <- f (fromEnum s) h x
+            either (throwM . SerializeError . SerializeError' _svcAbbrev s Nothing)
+                   (pure . (s,))
+                   e
 
 sinkLBS :: MonadResource m => ResponseBody -> m LazyByteString
 sinkLBS bdy = liftResourceT (bdy $$+- Conduit.sinkLbs)

@@ -40,12 +40,12 @@ TITLE
     done
 }
 
-ghc_710=( 7.10.3 )
-ghc_all=( 7.10.3 7.8.4 )
+ghc_801=( 8.0.1 )
+ghc_all=( 8.0.1 7.10.3 7.8.4 )
 
-matrix "Documentation" ghc_710[@] docs[@]
+matrix "Documentation" ghc_801[@] docs[@]
 matrix "Core" ghc_all[@] core[@]
-matrix "Test" ghc_710[@] test[@]
+matrix "Test" ghc_801[@] test[@]
 matrix "Priority" ghc_all[@] priority[@]
-matrix "Remainder" ghc_710[@] library[@]
-matrix "Examples" ghc_710[@] examples[@]
+matrix "Remainder" ghc_801[@] library[@]
+matrix "Examples" ghc_801[@] examples[@]

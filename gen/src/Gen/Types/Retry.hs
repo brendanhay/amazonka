@@ -87,12 +87,11 @@ makeLenses ''Retry
 instance HasDelay Retry where
     delay = retryDelay
 
-instance FromJSON (Identity Retry) where
+instance FromJSON Retry where
     parseJSON = withObject "default_retry" $ \o ->
-        fmap Identity $ Retry'
-            <$> o .: "max_attempts"
-            <*> o .: "delay"
-            <*> pure mempty
+        Retry' <$> o .: "max_attempts"
+               <*> o .: "delay"
+               <*> pure mempty
 
 instance FromJSON (Retry -> Retry) where
     parseJSON = withObject "retry" $ \o -> do

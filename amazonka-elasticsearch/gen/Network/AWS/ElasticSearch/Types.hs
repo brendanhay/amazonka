@@ -150,7 +150,7 @@ elasticSearch =
     , _svcEndpoint = defaultEndpoint elasticSearch
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "ElasticSearch"
     , _svcRetry = retry
     }
   where

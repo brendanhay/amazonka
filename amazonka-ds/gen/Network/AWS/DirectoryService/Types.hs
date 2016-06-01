@@ -222,7 +222,7 @@ directoryService =
     , _svcEndpoint = defaultEndpoint directoryService
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "DirectoryService"
     , _svcRetry = retry
     }
   where

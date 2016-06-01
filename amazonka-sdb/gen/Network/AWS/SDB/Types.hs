@@ -93,7 +93,7 @@ sdb =
     , _svcEndpoint = defaultEndpoint sdb
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "SDB"
     , _svcRetry = retry
     }
   where

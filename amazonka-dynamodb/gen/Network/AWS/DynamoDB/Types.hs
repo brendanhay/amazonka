@@ -281,7 +281,7 @@ dynamoDB =
     , _svcEndpoint = defaultEndpoint dynamoDB
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "DynamoDB"
     , _svcRetry = retry
     }
   where

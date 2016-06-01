@@ -123,7 +123,7 @@ kinesis =
     , _svcEndpoint = defaultEndpoint kinesis
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "Kinesis"
     , _svcRetry = retry
     }
   where

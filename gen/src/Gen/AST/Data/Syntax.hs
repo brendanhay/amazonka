@@ -180,7 +180,7 @@ serviceD m r = patBindWhere noLoc (pvar n) rhs bs
             , FieldUpdate (unqual "_svcEndpoint") (app (var "defaultEndpoint") (var n))
             , FieldUpdate (unqual "_svcTimeout")  (app justE (intE 70))
             , FieldUpdate (unqual "_svcCheck")    (var "statusSuccess")
-            , FieldUpdate (unqual "_svcError")    (var (serviceError m))
+            , FieldUpdate (unqual "_svcError")    (var (serviceError m) `app` str abbrev)
             , FieldUpdate (unqual "_svcRetry")    (var "retry")
             ]
 

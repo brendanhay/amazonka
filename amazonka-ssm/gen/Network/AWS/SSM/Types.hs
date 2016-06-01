@@ -231,7 +231,7 @@ ssm =
     , _svcEndpoint = defaultEndpoint ssm
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "SSM"
     , _svcRetry = retry
     }
   where

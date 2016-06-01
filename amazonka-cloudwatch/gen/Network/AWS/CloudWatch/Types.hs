@@ -140,7 +140,7 @@ cloudWatch =
     , _svcEndpoint = defaultEndpoint cloudWatch
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "CloudWatch"
     , _svcRetry = retry
     }
   where

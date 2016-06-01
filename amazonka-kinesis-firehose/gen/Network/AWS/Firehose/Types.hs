@@ -236,7 +236,7 @@ firehose =
     , _svcEndpoint = defaultEndpoint firehose
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "Firehose"
     , _svcRetry = retry
     }
   where

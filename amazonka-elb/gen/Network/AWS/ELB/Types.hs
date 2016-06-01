@@ -233,7 +233,7 @@ elb =
     , _svcEndpoint = defaultEndpoint elb
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "ELB"
     , _svcRetry = retry
     }
   where

@@ -496,7 +496,7 @@ cloudFront =
     , _svcEndpoint = defaultEndpoint cloudFront
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "CloudFront"
     , _svcRetry = retry
     }
   where

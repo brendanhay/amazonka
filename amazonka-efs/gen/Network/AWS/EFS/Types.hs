@@ -91,7 +91,7 @@ efs =
     , _svcEndpoint = defaultEndpoint efs
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "EFS"
     , _svcRetry = retry
     }
   where

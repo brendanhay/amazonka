@@ -156,7 +156,7 @@ glacier =
     , _svcEndpoint = defaultEndpoint glacier
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "Glacier"
     , _svcRetry = retry
     }
   where

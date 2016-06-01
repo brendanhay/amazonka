@@ -77,7 +77,7 @@ sns =
     , _svcEndpoint = defaultEndpoint sns
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "SNS"
     , _svcRetry = retry
     }
   where

@@ -328,7 +328,7 @@ codeDeploy =
     , _svcEndpoint = defaultEndpoint codeDeploy
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CodeDeploy"
     , _svcRetry = retry
     }
   where

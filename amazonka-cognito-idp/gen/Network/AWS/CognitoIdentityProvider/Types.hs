@@ -194,7 +194,7 @@ cognitoIdentityProvider =
     , _svcEndpoint = defaultEndpoint cognitoIdentityProvider
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CognitoIdentityProvider"
     , _svcRetry = retry
     }
   where

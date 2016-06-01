@@ -113,7 +113,7 @@ cloudSearchDomains =
     , _svcEndpoint = defaultEndpoint cloudSearchDomains
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CloudSearchDomains"
     , _svcRetry = retry
     }
   where

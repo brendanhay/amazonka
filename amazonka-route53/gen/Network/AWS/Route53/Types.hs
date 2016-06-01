@@ -320,7 +320,7 @@ route53 =
     , _svcEndpoint = defaultEndpoint route53
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "Route53"
     , _svcRetry = retry
     }
   where

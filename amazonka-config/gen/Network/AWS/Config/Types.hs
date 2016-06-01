@@ -317,7 +317,7 @@ config =
     , _svcEndpoint = defaultEndpoint config
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "Config"
     , _svcRetry = retry
     }
   where

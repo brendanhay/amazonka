@@ -360,7 +360,7 @@ codePipeline =
     , _svcEndpoint = defaultEndpoint codePipeline
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CodePipeline"
     , _svcRetry = retry
     }
   where

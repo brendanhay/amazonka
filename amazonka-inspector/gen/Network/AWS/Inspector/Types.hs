@@ -293,7 +293,7 @@ inspector =
     , _svcEndpoint = defaultEndpoint inspector
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "Inspector"
     , _svcRetry = retry
     }
   where

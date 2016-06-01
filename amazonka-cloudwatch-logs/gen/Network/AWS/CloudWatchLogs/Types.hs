@@ -174,7 +174,7 @@ cloudWatchLogs =
     , _svcEndpoint = defaultEndpoint cloudWatchLogs
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CloudWatchLogs"
     , _svcRetry = retry
     }
   where

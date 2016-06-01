@@ -350,7 +350,7 @@ elasticTranscoder =
     , _svcEndpoint = defaultEndpoint elasticTranscoder
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "ElasticTranscoder"
     , _svcRetry = retry
     }
   where

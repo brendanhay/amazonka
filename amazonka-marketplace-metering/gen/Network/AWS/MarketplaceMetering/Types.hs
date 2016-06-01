@@ -42,7 +42,7 @@ marketplaceMetering =
     , _svcEndpoint = defaultEndpoint marketplaceMetering
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "MarketplaceMetering"
     , _svcRetry = retry
     }
   where

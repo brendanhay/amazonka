@@ -128,7 +128,7 @@ dynamoDBStreams =
     , _svcEndpoint = defaultEndpoint dynamoDBStreams
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "DynamoDBStreams"
     , _svcRetry = retry
     }
   where

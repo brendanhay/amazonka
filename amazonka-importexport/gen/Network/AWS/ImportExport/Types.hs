@@ -72,7 +72,7 @@ importExport =
     , _svcEndpoint = defaultEndpoint importExport
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "ImportExport"
     , _svcRetry = retry
     }
   where

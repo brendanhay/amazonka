@@ -302,7 +302,7 @@ cloudSearch =
     , _svcEndpoint = defaultEndpoint cloudSearch
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "CloudSearch"
     , _svcRetry = retry
     }
   where

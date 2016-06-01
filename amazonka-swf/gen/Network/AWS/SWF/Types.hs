@@ -887,7 +887,7 @@ swf =
     , _svcEndpoint = defaultEndpoint swf
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "SWF"
     , _svcRetry = retry
     }
   where

@@ -402,7 +402,7 @@ iam =
     , _svcEndpoint = defaultEndpoint iam
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "IAM"
     , _svcRetry = retry
     }
   where

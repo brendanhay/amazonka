@@ -45,7 +45,7 @@ ioTDataPlane =
     , _svcEndpoint = defaultEndpoint ioTDataPlane
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "IoTDataPlane"
     , _svcRetry = retry
     }
   where

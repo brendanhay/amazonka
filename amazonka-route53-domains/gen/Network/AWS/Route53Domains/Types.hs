@@ -114,7 +114,7 @@ route53Domains =
     , _svcEndpoint = defaultEndpoint route53Domains
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "Route53Domains"
     , _svcRetry = retry
     }
   where

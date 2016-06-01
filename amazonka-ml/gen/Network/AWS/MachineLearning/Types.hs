@@ -236,7 +236,7 @@ machineLearning =
     , _svcEndpoint = defaultEndpoint machineLearning
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "MachineLearning"
     , _svcRetry = retry
     }
   where

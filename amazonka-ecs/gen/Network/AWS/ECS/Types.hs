@@ -315,7 +315,7 @@ ecs =
     , _svcEndpoint = defaultEndpoint ecs
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "ECS"
     , _svcRetry = retry
     }
   where

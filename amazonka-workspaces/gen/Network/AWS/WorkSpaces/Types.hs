@@ -151,7 +151,7 @@ workSpaces =
     , _svcEndpoint = defaultEndpoint workSpaces
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "WorkSpaces"
     , _svcRetry = retry
     }
   where

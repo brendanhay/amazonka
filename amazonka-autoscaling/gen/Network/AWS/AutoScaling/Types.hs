@@ -285,7 +285,7 @@ autoScaling =
     , _svcEndpoint = defaultEndpoint autoScaling
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "AutoScaling"
     , _svcRetry = retry
     }
   where

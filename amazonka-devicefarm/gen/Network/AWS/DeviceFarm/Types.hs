@@ -374,7 +374,7 @@ deviceFarm =
     , _svcEndpoint = defaultEndpoint deviceFarm
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "DeviceFarm"
     , _svcRetry = retry
     }
   where

@@ -246,7 +246,7 @@ gameLift =
     , _svcEndpoint = defaultEndpoint gameLift
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "GameLift"
     , _svcRetry = retry
     }
   where

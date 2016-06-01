@@ -128,7 +128,7 @@ cloudTrail =
     , _svcEndpoint = defaultEndpoint cloudTrail
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "CloudTrail"
     , _svcRetry = retry
     }
   where

@@ -493,7 +493,7 @@ s3 =
     , _svcEndpoint = defaultEndpoint s3
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseXMLError
+    , _svcError = parseXMLError "S3"
     , _svcRetry = retry
     }
   where

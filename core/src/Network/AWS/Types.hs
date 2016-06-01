@@ -223,6 +223,8 @@ instance ToLog Error where
 data SerializeError = SerializeError'
     { _serializeAbbrev  :: !Abbrev
     , _serializeStatus  :: !Status
+    , _serializeBody    :: Maybe LazyByteString
+      -- ^ The response body, if the response was not streaming.
     , _serializeMessage :: String
     } deriving (Eq, Show, Typeable)
 
@@ -232,6 +234,7 @@ instance ToLog SerializeError where
         , "  service = " <> build _serializeAbbrev
         , "  status  = " <> build _serializeStatus
         , "  message = " <> build _serializeMessage
+        , "  body    = " <> build _serializeBody
         , "}"
         ]
 
@@ -418,7 +421,7 @@ data Service = Service
     , _svcEndpoint :: !(Region -> Endpoint)
     , _svcTimeout  :: !(Maybe Seconds)
     , _svcCheck    :: !(Status -> Bool)
-    , _svcError    :: !(Abbrev -> Status -> [Header] -> LazyByteString -> Error)
+    , _svcError    :: !(Status -> [Header] -> LazyByteString -> Error)
     , _svcRetry    :: !Retry
     }
 

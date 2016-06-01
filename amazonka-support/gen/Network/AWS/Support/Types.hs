@@ -170,7 +170,7 @@ support =
     , _svcEndpoint = defaultEndpoint support
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "Support"
     , _svcRetry = retry
     }
   where

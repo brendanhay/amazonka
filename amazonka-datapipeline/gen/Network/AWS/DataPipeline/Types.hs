@@ -142,7 +142,7 @@ dataPipeline =
     , _svcEndpoint = defaultEndpoint dataPipeline
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
-    , _svcError = parseJSONError
+    , _svcError = parseJSONError "DataPipeline"
     , _svcRetry = retry
     }
   where

@@ -20,7 +20,7 @@ path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 output=doc
 
 $path/travis-timeout \
-  stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml haddock \
+  stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml build --fast --haddock \
     amazonka-core amazonka*
 
 {

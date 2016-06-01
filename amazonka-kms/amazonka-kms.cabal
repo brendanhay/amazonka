@@ -1,5 +1,5 @@
 name:                  amazonka-kms
-version:               1.4.1
+version:               1.4.2
 synopsis:              Amazon Key Management Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -150,7 +150,7 @@ library
         , Network.AWS.KMS.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.2.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-kms-test
@@ -170,9 +170,9 @@ test-suite amazonka-kms-test
         , Test.AWS.KMS.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-kms == 1.4.1.*
+          amazonka-core == 1.4.2.*
+        , amazonka-test == 1.4.2.*
+        , amazonka-kms == 1.4.2.*
         , base
         , bytestring
         , tasty

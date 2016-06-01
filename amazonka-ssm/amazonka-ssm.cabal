@@ -1,5 +1,5 @@
 name:                  amazonka-ssm
-version:               1.4.1
+version:               1.4.2
 synopsis:              Amazon Simple Systems Management Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -187,7 +187,7 @@ library
         , Network.AWS.SSM.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.1.*
+          amazonka-core == 1.4.2.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ssm-test
@@ -207,9 +207,9 @@ test-suite amazonka-ssm-test
         , Test.AWS.SSM.Internal
 
     build-depends:
-          amazonka-core == 1.4.1.*
-        , amazonka-test == 1.4.1.*
-        , amazonka-ssm == 1.4.1.*
+          amazonka-core == 1.4.2.*
+        , amazonka-test == 1.4.2.*
+        , amazonka-ssm == 1.4.2.*
         , base
         , bytestring
         , tasty

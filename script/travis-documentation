@@ -13,37 +13,15 @@ if [ -z "$DOC_TOKEN" ]; then
 fi
 
 GHCVER=${GHCVER?"GHCVER needs to be set."}
-DOC_REF=${DOC_REF?"DOC_REF needs to be set."}
 BUILD_ID=${TRAVIS_BUILD_ID?"TRAVIS_BUILD_ID needs to be set."}
 BUILD_NUMBER=${TRAVIS_BUILD_NUMBER?"TRAVIS_BUILD_NUMBER needs to be set."}
 
 path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
-
 output=doc
-platform=x86_64-linux
-resolver=$(sed -n 's/^resolver: *\(.*\)$/\1/p' stack-$GHCVER.yaml)
-
-echo "Using resolver ${resolver}"
-
-databases=( $(stack --stack-yaml stack-$GHCVER.yaml path | sed -n 's/^.*-pkg-db: *\(.*\)$/\1/p') )
-databases=( "${databases[@]/#/--package-db }" )
-
-echo "Using resolver ${resolver}"
-echo "Using databases ${databases[@]}"
 
 $path/travis-timeout \
-    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml install \
-    standalone-haddock \
-    hscolour
-
-$path/travis-timeout \
-    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml build \
-    amazonka-core amazonka amazonka-s3-encryption
-
-$path/travis-timeout \
-    standalone-haddock --hyperlink-source -o $output \
-    ${databases[@]} \
-    core amazonka*
+  stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml haddock \
+    amazonka-core amazonka*
 
 {
     cat <<-HTML
@@ -77,4 +55,4 @@ git config user.email "brendan.g.hay@gmail.com"
 git add .
 git commit -m "Travis CI documentation deploy $BUILD_NUMBER"
 
-git push --force --quiet "https://${DOC_TOKEN}@${DOC_REF}" master:gh-pages > /dev/null 2>&1
+git push --force --quiet "https://${DOC_TOKEN}@github.com/brendanhay/amazonka-doc.git" master:gh-pages > /dev/null 2>&1

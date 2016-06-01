@@ -2,7 +2,6 @@ sudo: false
 
 env:
   global:
-    - DOC_REF: github.com/brendanhay/amazonka-doc.git
     - secure: fxJPfu/icH+3w9nRcedFtqNumnpmo1vWAA7HBaeeCF0vnzTHBbD2ej3olyaDmFoJ9PaW84q5UKX3iU6BBXLmlestOZCcfQ9nDvVuIVpimIovO7QuZhnRYea0SaSRcXEgNE+nWEcsiiKWuVUnDEXAUQRCs04YQpAvgsUjMcZgXQw=
 
 cache:

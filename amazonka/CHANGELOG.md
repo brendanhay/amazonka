@@ -1,5 +1,33 @@
 # Change Log
 
+## [1.4.2](https://github.com/brendanhay/amazonka/tree/1.4.2)
+Released: **03 June, 2016**, Compare: [1.4.2](https://github.com/brendanhay/amazonka/compare/1.4.1...1.4.2)
+
+### Fixed
+
+- GHC 8 support. [\#294](https://github.com/brendanhay/amazonka/issues/294)
+- APIGateway now correctly parses and encodes `ISO8601` formatted timestamps. [\#291](https://github.com/brendanhay/amazonka/issues/291)
+- `~/.aws/credentials` now correctly parses with leading newlines. [\#290](https://github.com/brendanhay/amazonka/issues/290)
+
+### Changes
+
+- `SerializeError` now contains the unparsed response body. [\#293](https://github.com/brendanhay/amazonka/pull/293)
+
+### Updated Service Definitions
+
+- [WorkSpaces](https://github.com/brendanhay/amazonka/commit/b869bf0)
+- [StorageGateway](https://github.com/brendanhay/amazonka/commit/9af316)
+- [SSM](https://github.com/brendanhay/amazonka/commit/542f50c)
+- [S3](https://github.com/brendanhay/amazonka/commit/84d66a6)
+- [RDS](https://github.com/brendanhay/amazonka/commit/98edec9)
+- [EC2](https://github.com/brendanhay/amazonka/commit/93b6b72)
+
+### New Libraries
+
+- `amazonka-discovery`: Discover on-premises application inventory and dependencies. [Overview](https://aws.amazon.com/application-discovery/)
+- `amazonka-application-autoscaling`: General purpose scaling of AWS resources. [API Reference](http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/Welcome.html)
+
+
 ## [1.4.1](https://github.com/brendanhay/amazonka/tree/1.4.1)
 Released: **09 May, 2016**, Compare: [1.4.1](https://github.com/brendanhay/amazonka/compare/1.4.0...1.4.1)
 

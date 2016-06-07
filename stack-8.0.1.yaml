@@ -1,5 +1,5 @@
 compiler:   ghc-8.0.1
-resolver:   nightly-2016-05-31
+resolver:   nightly-2016-06-07
 flags:      {}
 extra-deps:
   # amazonka-test / GHC8

@@ -23,13 +23,13 @@ import {{ import.value }}
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         {% for op in operations %}{% if op.first %}[{% else %},{% endif %} test{{ op.value.name }} $
+--         {% for op in operations %}{% if op.first %}[{% else %},{% endif %} request{{ op.value.name }} $
 --             {{ op.value.input.constructor.name }}
 --
 --         {% endfor %}  ]
 
 --     , testGroup "response"
---         {% for op in operations %}{% if op.first %}[{% else %},{% endif %} test{{ op.value.name }}Response $
+--         {% for op in operations %}{% if op.first %}[{% else %},{% endif %} response{{ op.value.name }} $
 --             {{ op.value.output.constructor.name }}
 --
 --         {% endfor %}  ]
@@ -39,8 +39,8 @@ import {{ import.value }}
 {% for op in operations %}
   {% if op.value.input.eq %}
 
-test{{ op.value.name }} :: {{ op.value.input.name }} -> TestTree
-test{{ op.value.name }} = req
+request{{ op.value.name }} :: {{ op.value.input.name }} -> TestTree
+request{{ op.value.name }} = req
     "{{ op.value.name }}"
     "fixture/{{ op.value.name }}.yaml"
   {% endif %}
@@ -50,8 +50,8 @@ test{{ op.value.name }} = req
 {% for op in operations %}
   {% if op.value.output.eq %}
 
-test{{ op.value.name }}Response :: {{ op.value.output.name }} -> TestTree
-test{{ op.value.name }}Response = res
+response{{ op.value.name }} :: {{ op.value.output.name }} -> TestTree
+response{{ op.value.name }} = res
     "{{ op.value.name }}Response"
     "fixture/{{ op.value.name }}Response.proto"
     {{ serviceConfig }}

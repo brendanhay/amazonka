@@ -28,229 +28,229 @@ import Test.AWS.DeviceFarm.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testListProjects $
+--         [ requestListProjects $
 --             listProjects
 --
---         , testDeleteProject $
+--         , requestDeleteProject $
 --             deleteProject
 --
---         , testUpdateProject $
+--         , requestUpdateProject $
 --             updateProject
 --
---         , testGetDevicePoolCompatibility $
+--         , requestGetDevicePoolCompatibility $
 --             getDevicePoolCompatibility
 --
---         , testListTests $
+--         , requestListTests $
 --             listTests
 --
---         , testListArtifacts $
+--         , requestListArtifacts $
 --             listArtifacts
 --
---         , testCreateUpload $
+--         , requestCreateUpload $
 --             createUpload
 --
---         , testDeleteUpload $
+--         , requestDeleteUpload $
 --             deleteUpload
 --
---         , testGetDevicePool $
+--         , requestGetDevicePool $
 --             getDevicePool
 --
---         , testListDevicePools $
+--         , requestListDevicePools $
 --             listDevicePools
 --
---         , testUpdateDevicePool $
+--         , requestUpdateDevicePool $
 --             updateDevicePool
 --
---         , testDeleteDevicePool $
+--         , requestDeleteDevicePool $
 --             deleteDevicePool
 --
---         , testGetUpload $
+--         , requestGetUpload $
 --             getUpload
 --
---         , testListOfferingTransactions $
+--         , requestListOfferingTransactions $
 --             listOfferingTransactions
 --
---         , testCreateDevicePool $
+--         , requestCreateDevicePool $
 --             createDevicePool
 --
---         , testDeleteRun $
+--         , requestDeleteRun $
 --             deleteRun
 --
---         , testListRuns $
+--         , requestListRuns $
 --             listRuns
 --
---         , testGetTest $
+--         , requestGetTest $
 --             getTest
 --
---         , testRenewOffering $
+--         , requestRenewOffering $
 --             renewOffering
 --
---         , testGetDevice $
+--         , requestGetDevice $
 --             getDevice
 --
---         , testListJobs $
+--         , requestListJobs $
 --             listJobs
 --
---         , testGetJob $
+--         , requestGetJob $
 --             getJob
 --
---         , testScheduleRun $
+--         , requestScheduleRun $
 --             scheduleRun
 --
---         , testGetRun $
+--         , requestGetRun $
 --             getRun
 --
---         , testListSamples $
+--         , requestListSamples $
 --             listSamples
 --
---         , testListSuites $
+--         , requestListSuites $
 --             listSuites
 --
---         , testGetAccountSettings $
+--         , requestGetAccountSettings $
 --             getAccountSettings
 --
---         , testGetOfferingStatus $
+--         , requestGetOfferingStatus $
 --             getOfferingStatus
 --
---         , testListUploads $
+--         , requestListUploads $
 --             listUploads
 --
---         , testGetSuite $
+--         , requestGetSuite $
 --             getSuite
 --
---         , testPurchaseOffering $
+--         , requestPurchaseOffering $
 --             purchaseOffering
 --
---         , testGetProject $
+--         , requestGetProject $
 --             getProject
 --
---         , testListUniqueProblems $
+--         , requestListUniqueProblems $
 --             listUniqueProblems
 --
---         , testStopRun $
+--         , requestStopRun $
 --             stopRun
 --
---         , testListDevices $
+--         , requestListDevices $
 --             listDevices
 --
---         , testCreateProject $
+--         , requestCreateProject $
 --             createProject
 --
---         , testListOfferings $
+--         , requestListOfferings $
 --             listOfferings
 --
 --           ]
 
 --     , testGroup "response"
---         [ testListProjectsResponse $
+--         [ responseListProjects $
 --             listProjectsResponse
 --
---         , testDeleteProjectResponse $
+--         , responseDeleteProject $
 --             deleteProjectResponse
 --
---         , testUpdateProjectResponse $
+--         , responseUpdateProject $
 --             updateProjectResponse
 --
---         , testGetDevicePoolCompatibilityResponse $
+--         , responseGetDevicePoolCompatibility $
 --             getDevicePoolCompatibilityResponse
 --
---         , testListTestsResponse $
+--         , responseListTests $
 --             listTestsResponse
 --
---         , testListArtifactsResponse $
+--         , responseListArtifacts $
 --             listArtifactsResponse
 --
---         , testCreateUploadResponse $
+--         , responseCreateUpload $
 --             createUploadResponse
 --
---         , testDeleteUploadResponse $
+--         , responseDeleteUpload $
 --             deleteUploadResponse
 --
---         , testGetDevicePoolResponse $
+--         , responseGetDevicePool $
 --             getDevicePoolResponse
 --
---         , testListDevicePoolsResponse $
+--         , responseListDevicePools $
 --             listDevicePoolsResponse
 --
---         , testUpdateDevicePoolResponse $
+--         , responseUpdateDevicePool $
 --             updateDevicePoolResponse
 --
---         , testDeleteDevicePoolResponse $
+--         , responseDeleteDevicePool $
 --             deleteDevicePoolResponse
 --
---         , testGetUploadResponse $
+--         , responseGetUpload $
 --             getUploadResponse
 --
---         , testListOfferingTransactionsResponse $
+--         , responseListOfferingTransactions $
 --             listOfferingTransactionsResponse
 --
---         , testCreateDevicePoolResponse $
+--         , responseCreateDevicePool $
 --             createDevicePoolResponse
 --
---         , testDeleteRunResponse $
+--         , responseDeleteRun $
 --             deleteRunResponse
 --
---         , testListRunsResponse $
+--         , responseListRuns $
 --             listRunsResponse
 --
---         , testGetTestResponse $
+--         , responseGetTest $
 --             getTestResponse
 --
---         , testRenewOfferingResponse $
+--         , responseRenewOffering $
 --             renewOfferingResponse
 --
---         , testGetDeviceResponse $
+--         , responseGetDevice $
 --             getDeviceResponse
 --
---         , testListJobsResponse $
+--         , responseListJobs $
 --             listJobsResponse
 --
---         , testGetJobResponse $
+--         , responseGetJob $
 --             getJobResponse
 --
---         , testScheduleRunResponse $
+--         , responseScheduleRun $
 --             scheduleRunResponse
 --
---         , testGetRunResponse $
+--         , responseGetRun $
 --             getRunResponse
 --
---         , testListSamplesResponse $
+--         , responseListSamples $
 --             listSamplesResponse
 --
---         , testListSuitesResponse $
+--         , responseListSuites $
 --             listSuitesResponse
 --
---         , testGetAccountSettingsResponse $
+--         , responseGetAccountSettings $
 --             getAccountSettingsResponse
 --
---         , testGetOfferingStatusResponse $
+--         , responseGetOfferingStatus $
 --             getOfferingStatusResponse
 --
---         , testListUploadsResponse $
+--         , responseListUploads $
 --             listUploadsResponse
 --
---         , testGetSuiteResponse $
+--         , responseGetSuite $
 --             getSuiteResponse
 --
---         , testPurchaseOfferingResponse $
+--         , responsePurchaseOffering $
 --             purchaseOfferingResponse
 --
---         , testGetProjectResponse $
+--         , responseGetProject $
 --             getProjectResponse
 --
---         , testListUniqueProblemsResponse $
+--         , responseListUniqueProblems $
 --             listUniqueProblemsResponse
 --
---         , testStopRunResponse $
+--         , responseStopRun $
 --             stopRunResponse
 --
---         , testListDevicesResponse $
+--         , responseListDevices $
 --             listDevicesResponse
 --
---         , testCreateProjectResponse $
+--         , responseCreateProject $
 --             createProjectResponse
 --
---         , testListOfferingsResponse $
+--         , responseListOfferings $
 --             listOfferingsResponse
 --
 --           ]
@@ -258,447 +258,447 @@ import Test.AWS.DeviceFarm.Internal
 
 -- Requests
 
-testListProjects :: ListProjects -> TestTree
-testListProjects = req
+requestListProjects :: ListProjects -> TestTree
+requestListProjects = req
     "ListProjects"
     "fixture/ListProjects.yaml"
 
-testDeleteProject :: DeleteProject -> TestTree
-testDeleteProject = req
+requestDeleteProject :: DeleteProject -> TestTree
+requestDeleteProject = req
     "DeleteProject"
     "fixture/DeleteProject.yaml"
 
-testUpdateProject :: UpdateProject -> TestTree
-testUpdateProject = req
+requestUpdateProject :: UpdateProject -> TestTree
+requestUpdateProject = req
     "UpdateProject"
     "fixture/UpdateProject.yaml"
 
-testGetDevicePoolCompatibility :: GetDevicePoolCompatibility -> TestTree
-testGetDevicePoolCompatibility = req
+requestGetDevicePoolCompatibility :: GetDevicePoolCompatibility -> TestTree
+requestGetDevicePoolCompatibility = req
     "GetDevicePoolCompatibility"
     "fixture/GetDevicePoolCompatibility.yaml"
 
-testListTests :: ListTests -> TestTree
-testListTests = req
+requestListTests :: ListTests -> TestTree
+requestListTests = req
     "ListTests"
     "fixture/ListTests.yaml"
 
-testListArtifacts :: ListArtifacts -> TestTree
-testListArtifacts = req
+requestListArtifacts :: ListArtifacts -> TestTree
+requestListArtifacts = req
     "ListArtifacts"
     "fixture/ListArtifacts.yaml"
 
-testCreateUpload :: CreateUpload -> TestTree
-testCreateUpload = req
+requestCreateUpload :: CreateUpload -> TestTree
+requestCreateUpload = req
     "CreateUpload"
     "fixture/CreateUpload.yaml"
 
-testDeleteUpload :: DeleteUpload -> TestTree
-testDeleteUpload = req
+requestDeleteUpload :: DeleteUpload -> TestTree
+requestDeleteUpload = req
     "DeleteUpload"
     "fixture/DeleteUpload.yaml"
 
-testGetDevicePool :: GetDevicePool -> TestTree
-testGetDevicePool = req
+requestGetDevicePool :: GetDevicePool -> TestTree
+requestGetDevicePool = req
     "GetDevicePool"
     "fixture/GetDevicePool.yaml"
 
-testListDevicePools :: ListDevicePools -> TestTree
-testListDevicePools = req
+requestListDevicePools :: ListDevicePools -> TestTree
+requestListDevicePools = req
     "ListDevicePools"
     "fixture/ListDevicePools.yaml"
 
-testUpdateDevicePool :: UpdateDevicePool -> TestTree
-testUpdateDevicePool = req
+requestUpdateDevicePool :: UpdateDevicePool -> TestTree
+requestUpdateDevicePool = req
     "UpdateDevicePool"
     "fixture/UpdateDevicePool.yaml"
 
-testDeleteDevicePool :: DeleteDevicePool -> TestTree
-testDeleteDevicePool = req
+requestDeleteDevicePool :: DeleteDevicePool -> TestTree
+requestDeleteDevicePool = req
     "DeleteDevicePool"
     "fixture/DeleteDevicePool.yaml"
 
-testGetUpload :: GetUpload -> TestTree
-testGetUpload = req
+requestGetUpload :: GetUpload -> TestTree
+requestGetUpload = req
     "GetUpload"
     "fixture/GetUpload.yaml"
 
-testListOfferingTransactions :: ListOfferingTransactions -> TestTree
-testListOfferingTransactions = req
+requestListOfferingTransactions :: ListOfferingTransactions -> TestTree
+requestListOfferingTransactions = req
     "ListOfferingTransactions"
     "fixture/ListOfferingTransactions.yaml"
 
-testCreateDevicePool :: CreateDevicePool -> TestTree
-testCreateDevicePool = req
+requestCreateDevicePool :: CreateDevicePool -> TestTree
+requestCreateDevicePool = req
     "CreateDevicePool"
     "fixture/CreateDevicePool.yaml"
 
-testDeleteRun :: DeleteRun -> TestTree
-testDeleteRun = req
+requestDeleteRun :: DeleteRun -> TestTree
+requestDeleteRun = req
     "DeleteRun"
     "fixture/DeleteRun.yaml"
 
-testListRuns :: ListRuns -> TestTree
-testListRuns = req
+requestListRuns :: ListRuns -> TestTree
+requestListRuns = req
     "ListRuns"
     "fixture/ListRuns.yaml"
 
-testGetTest :: GetTest -> TestTree
-testGetTest = req
+requestGetTest :: GetTest -> TestTree
+requestGetTest = req
     "GetTest"
     "fixture/GetTest.yaml"
 
-testRenewOffering :: RenewOffering -> TestTree
-testRenewOffering = req
+requestRenewOffering :: RenewOffering -> TestTree
+requestRenewOffering = req
     "RenewOffering"
     "fixture/RenewOffering.yaml"
 
-testGetDevice :: GetDevice -> TestTree
-testGetDevice = req
+requestGetDevice :: GetDevice -> TestTree
+requestGetDevice = req
     "GetDevice"
     "fixture/GetDevice.yaml"
 
-testListJobs :: ListJobs -> TestTree
-testListJobs = req
+requestListJobs :: ListJobs -> TestTree
+requestListJobs = req
     "ListJobs"
     "fixture/ListJobs.yaml"
 
-testGetJob :: GetJob -> TestTree
-testGetJob = req
+requestGetJob :: GetJob -> TestTree
+requestGetJob = req
     "GetJob"
     "fixture/GetJob.yaml"
 
-testScheduleRun :: ScheduleRun -> TestTree
-testScheduleRun = req
+requestScheduleRun :: ScheduleRun -> TestTree
+requestScheduleRun = req
     "ScheduleRun"
     "fixture/ScheduleRun.yaml"
 
-testGetRun :: GetRun -> TestTree
-testGetRun = req
+requestGetRun :: GetRun -> TestTree
+requestGetRun = req
     "GetRun"
     "fixture/GetRun.yaml"
 
-testListSamples :: ListSamples -> TestTree
-testListSamples = req
+requestListSamples :: ListSamples -> TestTree
+requestListSamples = req
     "ListSamples"
     "fixture/ListSamples.yaml"
 
-testListSuites :: ListSuites -> TestTree
-testListSuites = req
+requestListSuites :: ListSuites -> TestTree
+requestListSuites = req
     "ListSuites"
     "fixture/ListSuites.yaml"
 
-testGetAccountSettings :: GetAccountSettings -> TestTree
-testGetAccountSettings = req
+requestGetAccountSettings :: GetAccountSettings -> TestTree
+requestGetAccountSettings = req
     "GetAccountSettings"
     "fixture/GetAccountSettings.yaml"
 
-testGetOfferingStatus :: GetOfferingStatus -> TestTree
-testGetOfferingStatus = req
+requestGetOfferingStatus :: GetOfferingStatus -> TestTree
+requestGetOfferingStatus = req
     "GetOfferingStatus"
     "fixture/GetOfferingStatus.yaml"
 
-testListUploads :: ListUploads -> TestTree
-testListUploads = req
+requestListUploads :: ListUploads -> TestTree
+requestListUploads = req
     "ListUploads"
     "fixture/ListUploads.yaml"
 
-testGetSuite :: GetSuite -> TestTree
-testGetSuite = req
+requestGetSuite :: GetSuite -> TestTree
+requestGetSuite = req
     "GetSuite"
     "fixture/GetSuite.yaml"
 
-testPurchaseOffering :: PurchaseOffering -> TestTree
-testPurchaseOffering = req
+requestPurchaseOffering :: PurchaseOffering -> TestTree
+requestPurchaseOffering = req
     "PurchaseOffering"
     "fixture/PurchaseOffering.yaml"
 
-testGetProject :: GetProject -> TestTree
-testGetProject = req
+requestGetProject :: GetProject -> TestTree
+requestGetProject = req
     "GetProject"
     "fixture/GetProject.yaml"
 
-testListUniqueProblems :: ListUniqueProblems -> TestTree
-testListUniqueProblems = req
+requestListUniqueProblems :: ListUniqueProblems -> TestTree
+requestListUniqueProblems = req
     "ListUniqueProblems"
     "fixture/ListUniqueProblems.yaml"
 
-testStopRun :: StopRun -> TestTree
-testStopRun = req
+requestStopRun :: StopRun -> TestTree
+requestStopRun = req
     "StopRun"
     "fixture/StopRun.yaml"
 
-testListDevices :: ListDevices -> TestTree
-testListDevices = req
+requestListDevices :: ListDevices -> TestTree
+requestListDevices = req
     "ListDevices"
     "fixture/ListDevices.yaml"
 
-testCreateProject :: CreateProject -> TestTree
-testCreateProject = req
+requestCreateProject :: CreateProject -> TestTree
+requestCreateProject = req
     "CreateProject"
     "fixture/CreateProject.yaml"
 
-testListOfferings :: ListOfferings -> TestTree
-testListOfferings = req
+requestListOfferings :: ListOfferings -> TestTree
+requestListOfferings = req
     "ListOfferings"
     "fixture/ListOfferings.yaml"
 
 -- Responses
 
-testListProjectsResponse :: ListProjectsResponse -> TestTree
-testListProjectsResponse = res
+responseListProjects :: ListProjectsResponse -> TestTree
+responseListProjects = res
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListProjects)
 
-testDeleteProjectResponse :: DeleteProjectResponse -> TestTree
-testDeleteProjectResponse = res
+responseDeleteProject :: DeleteProjectResponse -> TestTree
+responseDeleteProject = res
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteProject)
 
-testUpdateProjectResponse :: UpdateProjectResponse -> TestTree
-testUpdateProjectResponse = res
+responseUpdateProject :: UpdateProjectResponse -> TestTree
+responseUpdateProject = res
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
     deviceFarm
     (Proxy :: Proxy UpdateProject)
 
-testGetDevicePoolCompatibilityResponse :: GetDevicePoolCompatibilityResponse -> TestTree
-testGetDevicePoolCompatibilityResponse = res
+responseGetDevicePoolCompatibility :: GetDevicePoolCompatibilityResponse -> TestTree
+responseGetDevicePoolCompatibility = res
     "GetDevicePoolCompatibilityResponse"
     "fixture/GetDevicePoolCompatibilityResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetDevicePoolCompatibility)
 
-testListTestsResponse :: ListTestsResponse -> TestTree
-testListTestsResponse = res
+responseListTests :: ListTestsResponse -> TestTree
+responseListTests = res
     "ListTestsResponse"
     "fixture/ListTestsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListTests)
 
-testListArtifactsResponse :: ListArtifactsResponse -> TestTree
-testListArtifactsResponse = res
+responseListArtifacts :: ListArtifactsResponse -> TestTree
+responseListArtifacts = res
     "ListArtifactsResponse"
     "fixture/ListArtifactsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListArtifacts)
 
-testCreateUploadResponse :: CreateUploadResponse -> TestTree
-testCreateUploadResponse = res
+responseCreateUpload :: CreateUploadResponse -> TestTree
+responseCreateUpload = res
     "CreateUploadResponse"
     "fixture/CreateUploadResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateUpload)
 
-testDeleteUploadResponse :: DeleteUploadResponse -> TestTree
-testDeleteUploadResponse = res
+responseDeleteUpload :: DeleteUploadResponse -> TestTree
+responseDeleteUpload = res
     "DeleteUploadResponse"
     "fixture/DeleteUploadResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteUpload)
 
-testGetDevicePoolResponse :: GetDevicePoolResponse -> TestTree
-testGetDevicePoolResponse = res
+responseGetDevicePool :: GetDevicePoolResponse -> TestTree
+responseGetDevicePool = res
     "GetDevicePoolResponse"
     "fixture/GetDevicePoolResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetDevicePool)
 
-testListDevicePoolsResponse :: ListDevicePoolsResponse -> TestTree
-testListDevicePoolsResponse = res
+responseListDevicePools :: ListDevicePoolsResponse -> TestTree
+responseListDevicePools = res
     "ListDevicePoolsResponse"
     "fixture/ListDevicePoolsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListDevicePools)
 
-testUpdateDevicePoolResponse :: UpdateDevicePoolResponse -> TestTree
-testUpdateDevicePoolResponse = res
+responseUpdateDevicePool :: UpdateDevicePoolResponse -> TestTree
+responseUpdateDevicePool = res
     "UpdateDevicePoolResponse"
     "fixture/UpdateDevicePoolResponse.proto"
     deviceFarm
     (Proxy :: Proxy UpdateDevicePool)
 
-testDeleteDevicePoolResponse :: DeleteDevicePoolResponse -> TestTree
-testDeleteDevicePoolResponse = res
+responseDeleteDevicePool :: DeleteDevicePoolResponse -> TestTree
+responseDeleteDevicePool = res
     "DeleteDevicePoolResponse"
     "fixture/DeleteDevicePoolResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteDevicePool)
 
-testGetUploadResponse :: GetUploadResponse -> TestTree
-testGetUploadResponse = res
+responseGetUpload :: GetUploadResponse -> TestTree
+responseGetUpload = res
     "GetUploadResponse"
     "fixture/GetUploadResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetUpload)
 
-testListOfferingTransactionsResponse :: ListOfferingTransactionsResponse -> TestTree
-testListOfferingTransactionsResponse = res
+responseListOfferingTransactions :: ListOfferingTransactionsResponse -> TestTree
+responseListOfferingTransactions = res
     "ListOfferingTransactionsResponse"
     "fixture/ListOfferingTransactionsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListOfferingTransactions)
 
-testCreateDevicePoolResponse :: CreateDevicePoolResponse -> TestTree
-testCreateDevicePoolResponse = res
+responseCreateDevicePool :: CreateDevicePoolResponse -> TestTree
+responseCreateDevicePool = res
     "CreateDevicePoolResponse"
     "fixture/CreateDevicePoolResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateDevicePool)
 
-testDeleteRunResponse :: DeleteRunResponse -> TestTree
-testDeleteRunResponse = res
+responseDeleteRun :: DeleteRunResponse -> TestTree
+responseDeleteRun = res
     "DeleteRunResponse"
     "fixture/DeleteRunResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteRun)
 
-testListRunsResponse :: ListRunsResponse -> TestTree
-testListRunsResponse = res
+responseListRuns :: ListRunsResponse -> TestTree
+responseListRuns = res
     "ListRunsResponse"
     "fixture/ListRunsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListRuns)
 
-testGetTestResponse :: GetTestResponse -> TestTree
-testGetTestResponse = res
+responseGetTest :: GetTestResponse -> TestTree
+responseGetTest = res
     "GetTestResponse"
     "fixture/GetTestResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetTest)
 
-testRenewOfferingResponse :: RenewOfferingResponse -> TestTree
-testRenewOfferingResponse = res
+responseRenewOffering :: RenewOfferingResponse -> TestTree
+responseRenewOffering = res
     "RenewOfferingResponse"
     "fixture/RenewOfferingResponse.proto"
     deviceFarm
     (Proxy :: Proxy RenewOffering)
 
-testGetDeviceResponse :: GetDeviceResponse -> TestTree
-testGetDeviceResponse = res
+responseGetDevice :: GetDeviceResponse -> TestTree
+responseGetDevice = res
     "GetDeviceResponse"
     "fixture/GetDeviceResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetDevice)
 
-testListJobsResponse :: ListJobsResponse -> TestTree
-testListJobsResponse = res
+responseListJobs :: ListJobsResponse -> TestTree
+responseListJobs = res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListJobs)
 
-testGetJobResponse :: GetJobResponse -> TestTree
-testGetJobResponse = res
+responseGetJob :: GetJobResponse -> TestTree
+responseGetJob = res
     "GetJobResponse"
     "fixture/GetJobResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetJob)
 
-testScheduleRunResponse :: ScheduleRunResponse -> TestTree
-testScheduleRunResponse = res
+responseScheduleRun :: ScheduleRunResponse -> TestTree
+responseScheduleRun = res
     "ScheduleRunResponse"
     "fixture/ScheduleRunResponse.proto"
     deviceFarm
     (Proxy :: Proxy ScheduleRun)
 
-testGetRunResponse :: GetRunResponse -> TestTree
-testGetRunResponse = res
+responseGetRun :: GetRunResponse -> TestTree
+responseGetRun = res
     "GetRunResponse"
     "fixture/GetRunResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetRun)
 
-testListSamplesResponse :: ListSamplesResponse -> TestTree
-testListSamplesResponse = res
+responseListSamples :: ListSamplesResponse -> TestTree
+responseListSamples = res
     "ListSamplesResponse"
     "fixture/ListSamplesResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListSamples)
 
-testListSuitesResponse :: ListSuitesResponse -> TestTree
-testListSuitesResponse = res
+responseListSuites :: ListSuitesResponse -> TestTree
+responseListSuites = res
     "ListSuitesResponse"
     "fixture/ListSuitesResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListSuites)
 
-testGetAccountSettingsResponse :: GetAccountSettingsResponse -> TestTree
-testGetAccountSettingsResponse = res
+responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
+responseGetAccountSettings = res
     "GetAccountSettingsResponse"
     "fixture/GetAccountSettingsResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetAccountSettings)
 
-testGetOfferingStatusResponse :: GetOfferingStatusResponse -> TestTree
-testGetOfferingStatusResponse = res
+responseGetOfferingStatus :: GetOfferingStatusResponse -> TestTree
+responseGetOfferingStatus = res
     "GetOfferingStatusResponse"
     "fixture/GetOfferingStatusResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetOfferingStatus)
 
-testListUploadsResponse :: ListUploadsResponse -> TestTree
-testListUploadsResponse = res
+responseListUploads :: ListUploadsResponse -> TestTree
+responseListUploads = res
     "ListUploadsResponse"
     "fixture/ListUploadsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListUploads)
 
-testGetSuiteResponse :: GetSuiteResponse -> TestTree
-testGetSuiteResponse = res
+responseGetSuite :: GetSuiteResponse -> TestTree
+responseGetSuite = res
     "GetSuiteResponse"
     "fixture/GetSuiteResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetSuite)
 
-testPurchaseOfferingResponse :: PurchaseOfferingResponse -> TestTree
-testPurchaseOfferingResponse = res
+responsePurchaseOffering :: PurchaseOfferingResponse -> TestTree
+responsePurchaseOffering = res
     "PurchaseOfferingResponse"
     "fixture/PurchaseOfferingResponse.proto"
     deviceFarm
     (Proxy :: Proxy PurchaseOffering)
 
-testGetProjectResponse :: GetProjectResponse -> TestTree
-testGetProjectResponse = res
+responseGetProject :: GetProjectResponse -> TestTree
+responseGetProject = res
     "GetProjectResponse"
     "fixture/GetProjectResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetProject)
 
-testListUniqueProblemsResponse :: ListUniqueProblemsResponse -> TestTree
-testListUniqueProblemsResponse = res
+responseListUniqueProblems :: ListUniqueProblemsResponse -> TestTree
+responseListUniqueProblems = res
     "ListUniqueProblemsResponse"
     "fixture/ListUniqueProblemsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListUniqueProblems)
 
-testStopRunResponse :: StopRunResponse -> TestTree
-testStopRunResponse = res
+responseStopRun :: StopRunResponse -> TestTree
+responseStopRun = res
     "StopRunResponse"
     "fixture/StopRunResponse.proto"
     deviceFarm
     (Proxy :: Proxy StopRun)
 
-testListDevicesResponse :: ListDevicesResponse -> TestTree
-testListDevicesResponse = res
+responseListDevices :: ListDevicesResponse -> TestTree
+responseListDevices = res
     "ListDevicesResponse"
     "fixture/ListDevicesResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListDevices)
 
-testCreateProjectResponse :: CreateProjectResponse -> TestTree
-testCreateProjectResponse = res
+responseCreateProject :: CreateProjectResponse -> TestTree
+responseCreateProject = res
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateProject)
 
-testListOfferingsResponse :: ListOfferingsResponse -> TestTree
-testListOfferingsResponse = res
+responseListOfferings :: ListOfferingsResponse -> TestTree
+responseListOfferings = res
     "ListOfferingsResponse"
     "fixture/ListOfferingsResponse.proto"
     deviceFarm

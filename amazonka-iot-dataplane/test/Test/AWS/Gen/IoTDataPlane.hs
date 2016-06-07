@@ -28,31 +28,31 @@ import Test.AWS.IoTDataPlane.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testGetThingShadow $
+--         [ requestGetThingShadow $
 --             getThingShadow
 --
---         , testDeleteThingShadow $
+--         , requestDeleteThingShadow $
 --             deleteThingShadow
 --
---         , testUpdateThingShadow $
+--         , requestUpdateThingShadow $
 --             updateThingShadow
 --
---         , testPublish $
+--         , requestPublish $
 --             publish
 --
 --           ]
 
 --     , testGroup "response"
---         [ testGetThingShadowResponse $
+--         [ responseGetThingShadow $
 --             getThingShadowResponse
 --
---         , testDeleteThingShadowResponse $
+--         , responseDeleteThingShadow $
 --             deleteThingShadowResponse
 --
---         , testUpdateThingShadowResponse $
+--         , responseUpdateThingShadow $
 --             updateThingShadowResponse
 --
---         , testPublishResponse $
+--         , responsePublish $
 --             publishResponse
 --
 --           ]
@@ -60,51 +60,51 @@ import Test.AWS.IoTDataPlane.Internal
 
 -- Requests
 
-testGetThingShadow :: GetThingShadow -> TestTree
-testGetThingShadow = req
+requestGetThingShadow :: GetThingShadow -> TestTree
+requestGetThingShadow = req
     "GetThingShadow"
     "fixture/GetThingShadow.yaml"
 
-testDeleteThingShadow :: DeleteThingShadow -> TestTree
-testDeleteThingShadow = req
+requestDeleteThingShadow :: DeleteThingShadow -> TestTree
+requestDeleteThingShadow = req
     "DeleteThingShadow"
     "fixture/DeleteThingShadow.yaml"
 
-testUpdateThingShadow :: UpdateThingShadow -> TestTree
-testUpdateThingShadow = req
+requestUpdateThingShadow :: UpdateThingShadow -> TestTree
+requestUpdateThingShadow = req
     "UpdateThingShadow"
     "fixture/UpdateThingShadow.yaml"
 
-testPublish :: Publish -> TestTree
-testPublish = req
+requestPublish :: Publish -> TestTree
+requestPublish = req
     "Publish"
     "fixture/Publish.yaml"
 
 -- Responses
 
-testGetThingShadowResponse :: GetThingShadowResponse -> TestTree
-testGetThingShadowResponse = res
+responseGetThingShadow :: GetThingShadowResponse -> TestTree
+responseGetThingShadow = res
     "GetThingShadowResponse"
     "fixture/GetThingShadowResponse.proto"
     ioTDataPlane
     (Proxy :: Proxy GetThingShadow)
 
-testDeleteThingShadowResponse :: DeleteThingShadowResponse -> TestTree
-testDeleteThingShadowResponse = res
+responseDeleteThingShadow :: DeleteThingShadowResponse -> TestTree
+responseDeleteThingShadow = res
     "DeleteThingShadowResponse"
     "fixture/DeleteThingShadowResponse.proto"
     ioTDataPlane
     (Proxy :: Proxy DeleteThingShadow)
 
-testUpdateThingShadowResponse :: UpdateThingShadowResponse -> TestTree
-testUpdateThingShadowResponse = res
+responseUpdateThingShadow :: UpdateThingShadowResponse -> TestTree
+responseUpdateThingShadow = res
     "UpdateThingShadowResponse"
     "fixture/UpdateThingShadowResponse.proto"
     ioTDataPlane
     (Proxy :: Proxy UpdateThingShadow)
 
-testPublishResponse :: PublishResponse -> TestTree
-testPublishResponse = res
+responsePublish :: PublishResponse -> TestTree
+responsePublish = res
     "PublishResponse"
     "fixture/PublishResponse.proto"
     ioTDataPlane

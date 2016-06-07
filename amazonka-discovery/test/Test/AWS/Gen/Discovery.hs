@@ -28,67 +28,67 @@ import Test.AWS.Discovery.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDescribeTags $
+--         [ requestDescribeTags $
 --             describeTags
 --
---         , testExportConfigurations $
+--         , requestExportConfigurations $
 --             exportConfigurations
 --
---         , testStopDataCollectionByAgentIds $
+--         , requestStopDataCollectionByAgentIds $
 --             stopDataCollectionByAgentIds
 --
---         , testCreateTags $
+--         , requestCreateTags $
 --             createTags
 --
---         , testDeleteTags $
+--         , requestDeleteTags $
 --             deleteTags
 --
---         , testDescribeConfigurations $
+--         , requestDescribeConfigurations $
 --             describeConfigurations
 --
---         , testListConfigurations $
+--         , requestListConfigurations $
 --             listConfigurations
 --
---         , testDescribeAgents $
+--         , requestDescribeAgents $
 --             describeAgents
 --
---         , testDescribeExportConfigurations $
+--         , requestDescribeExportConfigurations $
 --             describeExportConfigurations
 --
---         , testStartDataCollectionByAgentIds $
+--         , requestStartDataCollectionByAgentIds $
 --             startDataCollectionByAgentIds
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDescribeTagsResponse $
+--         [ responseDescribeTags $
 --             describeTagsResponse
 --
---         , testExportConfigurationsResponse $
+--         , responseExportConfigurations $
 --             exportConfigurationsResponse
 --
---         , testStopDataCollectionByAgentIdsResponse $
+--         , responseStopDataCollectionByAgentIds $
 --             stopDataCollectionByAgentIdsResponse
 --
---         , testCreateTagsResponse $
+--         , responseCreateTags $
 --             createTagsResponse
 --
---         , testDeleteTagsResponse $
+--         , responseDeleteTags $
 --             deleteTagsResponse
 --
---         , testDescribeConfigurationsResponse $
+--         , responseDescribeConfigurations $
 --             describeConfigurationsResponse
 --
---         , testListConfigurationsResponse $
+--         , responseListConfigurations $
 --             listConfigurationsResponse
 --
---         , testDescribeAgentsResponse $
+--         , responseDescribeAgents $
 --             describeAgentsResponse
 --
---         , testDescribeExportConfigurationsResponse $
+--         , responseDescribeExportConfigurations $
 --             describeExportConfigurationsResponse
 --
---         , testStartDataCollectionByAgentIdsResponse $
+--         , responseStartDataCollectionByAgentIds $
 --             startDataCollectionByAgentIdsResponse
 --
 --           ]
@@ -96,123 +96,123 @@ import Test.AWS.Discovery.Internal
 
 -- Requests
 
-testDescribeTags :: DescribeTags -> TestTree
-testDescribeTags = req
+requestDescribeTags :: DescribeTags -> TestTree
+requestDescribeTags = req
     "DescribeTags"
     "fixture/DescribeTags.yaml"
 
-testExportConfigurations :: ExportConfigurations -> TestTree
-testExportConfigurations = req
+requestExportConfigurations :: ExportConfigurations -> TestTree
+requestExportConfigurations = req
     "ExportConfigurations"
     "fixture/ExportConfigurations.yaml"
 
-testStopDataCollectionByAgentIds :: StopDataCollectionByAgentIds -> TestTree
-testStopDataCollectionByAgentIds = req
+requestStopDataCollectionByAgentIds :: StopDataCollectionByAgentIds -> TestTree
+requestStopDataCollectionByAgentIds = req
     "StopDataCollectionByAgentIds"
     "fixture/StopDataCollectionByAgentIds.yaml"
 
-testCreateTags :: CreateTags -> TestTree
-testCreateTags = req
+requestCreateTags :: CreateTags -> TestTree
+requestCreateTags = req
     "CreateTags"
     "fixture/CreateTags.yaml"
 
-testDeleteTags :: DeleteTags -> TestTree
-testDeleteTags = req
+requestDeleteTags :: DeleteTags -> TestTree
+requestDeleteTags = req
     "DeleteTags"
     "fixture/DeleteTags.yaml"
 
-testDescribeConfigurations :: DescribeConfigurations -> TestTree
-testDescribeConfigurations = req
+requestDescribeConfigurations :: DescribeConfigurations -> TestTree
+requestDescribeConfigurations = req
     "DescribeConfigurations"
     "fixture/DescribeConfigurations.yaml"
 
-testListConfigurations :: ListConfigurations -> TestTree
-testListConfigurations = req
+requestListConfigurations :: ListConfigurations -> TestTree
+requestListConfigurations = req
     "ListConfigurations"
     "fixture/ListConfigurations.yaml"
 
-testDescribeAgents :: DescribeAgents -> TestTree
-testDescribeAgents = req
+requestDescribeAgents :: DescribeAgents -> TestTree
+requestDescribeAgents = req
     "DescribeAgents"
     "fixture/DescribeAgents.yaml"
 
-testDescribeExportConfigurations :: DescribeExportConfigurations -> TestTree
-testDescribeExportConfigurations = req
+requestDescribeExportConfigurations :: DescribeExportConfigurations -> TestTree
+requestDescribeExportConfigurations = req
     "DescribeExportConfigurations"
     "fixture/DescribeExportConfigurations.yaml"
 
-testStartDataCollectionByAgentIds :: StartDataCollectionByAgentIds -> TestTree
-testStartDataCollectionByAgentIds = req
+requestStartDataCollectionByAgentIds :: StartDataCollectionByAgentIds -> TestTree
+requestStartDataCollectionByAgentIds = req
     "StartDataCollectionByAgentIds"
     "fixture/StartDataCollectionByAgentIds.yaml"
 
 -- Responses
 
-testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
-testDescribeTagsResponse = res
+responseDescribeTags :: DescribeTagsResponse -> TestTree
+responseDescribeTags = res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     discovery
     (Proxy :: Proxy DescribeTags)
 
-testExportConfigurationsResponse :: ExportConfigurationsResponse -> TestTree
-testExportConfigurationsResponse = res
+responseExportConfigurations :: ExportConfigurationsResponse -> TestTree
+responseExportConfigurations = res
     "ExportConfigurationsResponse"
     "fixture/ExportConfigurationsResponse.proto"
     discovery
     (Proxy :: Proxy ExportConfigurations)
 
-testStopDataCollectionByAgentIdsResponse :: StopDataCollectionByAgentIdsResponse -> TestTree
-testStopDataCollectionByAgentIdsResponse = res
+responseStopDataCollectionByAgentIds :: StopDataCollectionByAgentIdsResponse -> TestTree
+responseStopDataCollectionByAgentIds = res
     "StopDataCollectionByAgentIdsResponse"
     "fixture/StopDataCollectionByAgentIdsResponse.proto"
     discovery
     (Proxy :: Proxy StopDataCollectionByAgentIds)
 
-testCreateTagsResponse :: CreateTagsResponse -> TestTree
-testCreateTagsResponse = res
+responseCreateTags :: CreateTagsResponse -> TestTree
+responseCreateTags = res
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
     discovery
     (Proxy :: Proxy CreateTags)
 
-testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
-testDeleteTagsResponse = res
+responseDeleteTags :: DeleteTagsResponse -> TestTree
+responseDeleteTags = res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     discovery
     (Proxy :: Proxy DeleteTags)
 
-testDescribeConfigurationsResponse :: DescribeConfigurationsResponse -> TestTree
-testDescribeConfigurationsResponse = res
+responseDescribeConfigurations :: DescribeConfigurationsResponse -> TestTree
+responseDescribeConfigurations = res
     "DescribeConfigurationsResponse"
     "fixture/DescribeConfigurationsResponse.proto"
     discovery
     (Proxy :: Proxy DescribeConfigurations)
 
-testListConfigurationsResponse :: ListConfigurationsResponse -> TestTree
-testListConfigurationsResponse = res
+responseListConfigurations :: ListConfigurationsResponse -> TestTree
+responseListConfigurations = res
     "ListConfigurationsResponse"
     "fixture/ListConfigurationsResponse.proto"
     discovery
     (Proxy :: Proxy ListConfigurations)
 
-testDescribeAgentsResponse :: DescribeAgentsResponse -> TestTree
-testDescribeAgentsResponse = res
+responseDescribeAgents :: DescribeAgentsResponse -> TestTree
+responseDescribeAgents = res
     "DescribeAgentsResponse"
     "fixture/DescribeAgentsResponse.proto"
     discovery
     (Proxy :: Proxy DescribeAgents)
 
-testDescribeExportConfigurationsResponse :: DescribeExportConfigurationsResponse -> TestTree
-testDescribeExportConfigurationsResponse = res
+responseDescribeExportConfigurations :: DescribeExportConfigurationsResponse -> TestTree
+responseDescribeExportConfigurations = res
     "DescribeExportConfigurationsResponse"
     "fixture/DescribeExportConfigurationsResponse.proto"
     discovery
     (Proxy :: Proxy DescribeExportConfigurations)
 
-testStartDataCollectionByAgentIdsResponse :: StartDataCollectionByAgentIdsResponse -> TestTree
-testStartDataCollectionByAgentIdsResponse = res
+responseStartDataCollectionByAgentIds :: StartDataCollectionByAgentIdsResponse -> TestTree
+responseStartDataCollectionByAgentIds = res
     "StartDataCollectionByAgentIdsResponse"
     "fixture/StartDataCollectionByAgentIdsResponse.proto"
     discovery

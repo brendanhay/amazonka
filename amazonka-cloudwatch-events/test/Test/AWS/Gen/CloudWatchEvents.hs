@@ -28,79 +28,79 @@ import Test.AWS.CloudWatchEvents.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testRemoveTargets $
+--         [ requestRemoveTargets $
 --             removeTargets
 --
---         , testDeleteRule $
+--         , requestDeleteRule $
 --             deleteRule
 --
---         , testListRules $
+--         , requestListRules $
 --             listRules
 --
---         , testPutRule $
+--         , requestPutRule $
 --             putRule
 --
---         , testDisableRule $
+--         , requestDisableRule $
 --             disableRule
 --
---         , testListTargetsByRule $
+--         , requestListTargetsByRule $
 --             listTargetsByRule
 --
---         , testDescribeRule $
+--         , requestDescribeRule $
 --             describeRule
 --
---         , testEnableRule $
+--         , requestEnableRule $
 --             enableRule
 --
---         , testListRuleNamesByTarget $
+--         , requestListRuleNamesByTarget $
 --             listRuleNamesByTarget
 --
---         , testTestEventPattern $
+--         , requestTestEventPattern $
 --             testEventPattern
 --
---         , testPutTargets $
+--         , requestPutTargets $
 --             putTargets
 --
---         , testPutEvents $
+--         , requestPutEvents $
 --             putEvents
 --
 --           ]
 
 --     , testGroup "response"
---         [ testRemoveTargetsResponse $
+--         [ responseRemoveTargets $
 --             removeTargetsResponse
 --
---         , testDeleteRuleResponse $
+--         , responseDeleteRule $
 --             deleteRuleResponse
 --
---         , testListRulesResponse $
+--         , responseListRules $
 --             listRulesResponse
 --
---         , testPutRuleResponse $
+--         , responsePutRule $
 --             putRuleResponse
 --
---         , testDisableRuleResponse $
+--         , responseDisableRule $
 --             disableRuleResponse
 --
---         , testListTargetsByRuleResponse $
+--         , responseListTargetsByRule $
 --             listTargetsByRuleResponse
 --
---         , testDescribeRuleResponse $
+--         , responseDescribeRule $
 --             describeRuleResponse
 --
---         , testEnableRuleResponse $
+--         , responseEnableRule $
 --             enableRuleResponse
 --
---         , testListRuleNamesByTargetResponse $
+--         , responseListRuleNamesByTarget $
 --             listRuleNamesByTargetResponse
 --
---         , testTestEventPatternResponse $
+--         , responseTestEventPattern $
 --             testEventPatternResponse
 --
---         , testPutTargetsResponse $
+--         , responsePutTargets $
 --             putTargetsResponse
 --
---         , testPutEventsResponse $
+--         , responsePutEvents $
 --             putEventsResponse
 --
 --           ]
@@ -108,147 +108,147 @@ import Test.AWS.CloudWatchEvents.Internal
 
 -- Requests
 
-testRemoveTargets :: RemoveTargets -> TestTree
-testRemoveTargets = req
+requestRemoveTargets :: RemoveTargets -> TestTree
+requestRemoveTargets = req
     "RemoveTargets"
     "fixture/RemoveTargets.yaml"
 
-testDeleteRule :: DeleteRule -> TestTree
-testDeleteRule = req
+requestDeleteRule :: DeleteRule -> TestTree
+requestDeleteRule = req
     "DeleteRule"
     "fixture/DeleteRule.yaml"
 
-testListRules :: ListRules -> TestTree
-testListRules = req
+requestListRules :: ListRules -> TestTree
+requestListRules = req
     "ListRules"
     "fixture/ListRules.yaml"
 
-testPutRule :: PutRule -> TestTree
-testPutRule = req
+requestPutRule :: PutRule -> TestTree
+requestPutRule = req
     "PutRule"
     "fixture/PutRule.yaml"
 
-testDisableRule :: DisableRule -> TestTree
-testDisableRule = req
+requestDisableRule :: DisableRule -> TestTree
+requestDisableRule = req
     "DisableRule"
     "fixture/DisableRule.yaml"
 
-testListTargetsByRule :: ListTargetsByRule -> TestTree
-testListTargetsByRule = req
+requestListTargetsByRule :: ListTargetsByRule -> TestTree
+requestListTargetsByRule = req
     "ListTargetsByRule"
     "fixture/ListTargetsByRule.yaml"
 
-testDescribeRule :: DescribeRule -> TestTree
-testDescribeRule = req
+requestDescribeRule :: DescribeRule -> TestTree
+requestDescribeRule = req
     "DescribeRule"
     "fixture/DescribeRule.yaml"
 
-testEnableRule :: EnableRule -> TestTree
-testEnableRule = req
+requestEnableRule :: EnableRule -> TestTree
+requestEnableRule = req
     "EnableRule"
     "fixture/EnableRule.yaml"
 
-testListRuleNamesByTarget :: ListRuleNamesByTarget -> TestTree
-testListRuleNamesByTarget = req
+requestListRuleNamesByTarget :: ListRuleNamesByTarget -> TestTree
+requestListRuleNamesByTarget = req
     "ListRuleNamesByTarget"
     "fixture/ListRuleNamesByTarget.yaml"
 
-testTestEventPattern :: TestEventPattern -> TestTree
-testTestEventPattern = req
+requestTestEventPattern :: TestEventPattern -> TestTree
+requestTestEventPattern = req
     "TestEventPattern"
     "fixture/TestEventPattern.yaml"
 
-testPutTargets :: PutTargets -> TestTree
-testPutTargets = req
+requestPutTargets :: PutTargets -> TestTree
+requestPutTargets = req
     "PutTargets"
     "fixture/PutTargets.yaml"
 
-testPutEvents :: PutEvents -> TestTree
-testPutEvents = req
+requestPutEvents :: PutEvents -> TestTree
+requestPutEvents = req
     "PutEvents"
     "fixture/PutEvents.yaml"
 
 -- Responses
 
-testRemoveTargetsResponse :: RemoveTargetsResponse -> TestTree
-testRemoveTargetsResponse = res
+responseRemoveTargets :: RemoveTargetsResponse -> TestTree
+responseRemoveTargets = res
     "RemoveTargetsResponse"
     "fixture/RemoveTargetsResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy RemoveTargets)
 
-testDeleteRuleResponse :: DeleteRuleResponse -> TestTree
-testDeleteRuleResponse = res
+responseDeleteRule :: DeleteRuleResponse -> TestTree
+responseDeleteRule = res
     "DeleteRuleResponse"
     "fixture/DeleteRuleResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy DeleteRule)
 
-testListRulesResponse :: ListRulesResponse -> TestTree
-testListRulesResponse = res
+responseListRules :: ListRulesResponse -> TestTree
+responseListRules = res
     "ListRulesResponse"
     "fixture/ListRulesResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy ListRules)
 
-testPutRuleResponse :: PutRuleResponse -> TestTree
-testPutRuleResponse = res
+responsePutRule :: PutRuleResponse -> TestTree
+responsePutRule = res
     "PutRuleResponse"
     "fixture/PutRuleResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy PutRule)
 
-testDisableRuleResponse :: DisableRuleResponse -> TestTree
-testDisableRuleResponse = res
+responseDisableRule :: DisableRuleResponse -> TestTree
+responseDisableRule = res
     "DisableRuleResponse"
     "fixture/DisableRuleResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy DisableRule)
 
-testListTargetsByRuleResponse :: ListTargetsByRuleResponse -> TestTree
-testListTargetsByRuleResponse = res
+responseListTargetsByRule :: ListTargetsByRuleResponse -> TestTree
+responseListTargetsByRule = res
     "ListTargetsByRuleResponse"
     "fixture/ListTargetsByRuleResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy ListTargetsByRule)
 
-testDescribeRuleResponse :: DescribeRuleResponse -> TestTree
-testDescribeRuleResponse = res
+responseDescribeRule :: DescribeRuleResponse -> TestTree
+responseDescribeRule = res
     "DescribeRuleResponse"
     "fixture/DescribeRuleResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy DescribeRule)
 
-testEnableRuleResponse :: EnableRuleResponse -> TestTree
-testEnableRuleResponse = res
+responseEnableRule :: EnableRuleResponse -> TestTree
+responseEnableRule = res
     "EnableRuleResponse"
     "fixture/EnableRuleResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy EnableRule)
 
-testListRuleNamesByTargetResponse :: ListRuleNamesByTargetResponse -> TestTree
-testListRuleNamesByTargetResponse = res
+responseListRuleNamesByTarget :: ListRuleNamesByTargetResponse -> TestTree
+responseListRuleNamesByTarget = res
     "ListRuleNamesByTargetResponse"
     "fixture/ListRuleNamesByTargetResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy ListRuleNamesByTarget)
 
-testTestEventPatternResponse :: TestEventPatternResponse -> TestTree
-testTestEventPatternResponse = res
+responseTestEventPattern :: TestEventPatternResponse -> TestTree
+responseTestEventPattern = res
     "TestEventPatternResponse"
     "fixture/TestEventPatternResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy TestEventPattern)
 
-testPutTargetsResponse :: PutTargetsResponse -> TestTree
-testPutTargetsResponse = res
+responsePutTargets :: PutTargetsResponse -> TestTree
+responsePutTargets = res
     "PutTargetsResponse"
     "fixture/PutTargetsResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy PutTargets)
 
-testPutEventsResponse :: PutEventsResponse -> TestTree
-testPutEventsResponse = res
+responsePutEvents :: PutEventsResponse -> TestTree
+responsePutEvents = res
     "PutEventsResponse"
     "fixture/PutEventsResponse.proto"
     cloudWatchEvents

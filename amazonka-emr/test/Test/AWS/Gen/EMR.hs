@@ -28,103 +28,103 @@ import Test.AWS.EMR.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testRunJobFlow $
+--         [ requestRunJobFlow $
 --             runJobFlow
 --
---         , testSetVisibleToAllUsers $
+--         , requestSetVisibleToAllUsers $
 --             setVisibleToAllUsers
 --
---         , testTerminateJobFlows $
+--         , requestTerminateJobFlows $
 --             terminateJobFlows
 --
---         , testDescribeStep $
+--         , requestDescribeStep $
 --             describeStep
 --
---         , testRemoveTags $
+--         , requestRemoveTags $
 --             removeTags
 --
---         , testDescribeCluster $
+--         , requestDescribeCluster $
 --             describeCluster
 --
---         , testSetTerminationProtection $
+--         , requestSetTerminationProtection $
 --             setTerminationProtection
 --
---         , testAddJobFlowSteps $
+--         , requestAddJobFlowSteps $
 --             addJobFlowSteps
 --
---         , testModifyInstanceGroups $
+--         , requestModifyInstanceGroups $
 --             modifyInstanceGroups
 --
---         , testListSteps $
+--         , requestListSteps $
 --             listSteps
 --
---         , testAddInstanceGroups $
+--         , requestAddInstanceGroups $
 --             addInstanceGroups
 --
---         , testListInstanceGroups $
+--         , requestListInstanceGroups $
 --             listInstanceGroups
 --
---         , testListBootstrapActions $
+--         , requestListBootstrapActions $
 --             listBootstrapActions
 --
---         , testAddTags $
+--         , requestAddTags $
 --             addTags
 --
---         , testListInstances $
+--         , requestListInstances $
 --             listInstances
 --
---         , testListClusters $
+--         , requestListClusters $
 --             listClusters
 --
 --           ]
 
 --     , testGroup "response"
---         [ testRunJobFlowResponse $
+--         [ responseRunJobFlow $
 --             runJobFlowResponse
 --
---         , testSetVisibleToAllUsersResponse $
+--         , responseSetVisibleToAllUsers $
 --             setVisibleToAllUsersResponse
 --
---         , testTerminateJobFlowsResponse $
+--         , responseTerminateJobFlows $
 --             terminateJobFlowsResponse
 --
---         , testDescribeStepResponse $
+--         , responseDescribeStep $
 --             describeStepResponse
 --
---         , testRemoveTagsResponse $
+--         , responseRemoveTags $
 --             removeTagsResponse
 --
---         , testDescribeClusterResponse $
+--         , responseDescribeCluster $
 --             describeClusterResponse
 --
---         , testSetTerminationProtectionResponse $
+--         , responseSetTerminationProtection $
 --             setTerminationProtectionResponse
 --
---         , testAddJobFlowStepsResponse $
+--         , responseAddJobFlowSteps $
 --             addJobFlowStepsResponse
 --
---         , testModifyInstanceGroupsResponse $
+--         , responseModifyInstanceGroups $
 --             modifyInstanceGroupsResponse
 --
---         , testListStepsResponse $
+--         , responseListSteps $
 --             listStepsResponse
 --
---         , testAddInstanceGroupsResponse $
+--         , responseAddInstanceGroups $
 --             addInstanceGroupsResponse
 --
---         , testListInstanceGroupsResponse $
+--         , responseListInstanceGroups $
 --             listInstanceGroupsResponse
 --
---         , testListBootstrapActionsResponse $
+--         , responseListBootstrapActions $
 --             listBootstrapActionsResponse
 --
---         , testAddTagsResponse $
+--         , responseAddTags $
 --             addTagsResponse
 --
---         , testListInstancesResponse $
+--         , responseListInstances $
 --             listInstancesResponse
 --
---         , testListClustersResponse $
+--         , responseListClusters $
 --             listClustersResponse
 --
 --           ]
@@ -132,195 +132,195 @@ import Test.AWS.EMR.Internal
 
 -- Requests
 
-testRunJobFlow :: RunJobFlow -> TestTree
-testRunJobFlow = req
+requestRunJobFlow :: RunJobFlow -> TestTree
+requestRunJobFlow = req
     "RunJobFlow"
     "fixture/RunJobFlow.yaml"
 
-testSetVisibleToAllUsers :: SetVisibleToAllUsers -> TestTree
-testSetVisibleToAllUsers = req
+requestSetVisibleToAllUsers :: SetVisibleToAllUsers -> TestTree
+requestSetVisibleToAllUsers = req
     "SetVisibleToAllUsers"
     "fixture/SetVisibleToAllUsers.yaml"
 
-testTerminateJobFlows :: TerminateJobFlows -> TestTree
-testTerminateJobFlows = req
+requestTerminateJobFlows :: TerminateJobFlows -> TestTree
+requestTerminateJobFlows = req
     "TerminateJobFlows"
     "fixture/TerminateJobFlows.yaml"
 
-testDescribeStep :: DescribeStep -> TestTree
-testDescribeStep = req
+requestDescribeStep :: DescribeStep -> TestTree
+requestDescribeStep = req
     "DescribeStep"
     "fixture/DescribeStep.yaml"
 
-testRemoveTags :: RemoveTags -> TestTree
-testRemoveTags = req
+requestRemoveTags :: RemoveTags -> TestTree
+requestRemoveTags = req
     "RemoveTags"
     "fixture/RemoveTags.yaml"
 
-testDescribeCluster :: DescribeCluster -> TestTree
-testDescribeCluster = req
+requestDescribeCluster :: DescribeCluster -> TestTree
+requestDescribeCluster = req
     "DescribeCluster"
     "fixture/DescribeCluster.yaml"
 
-testSetTerminationProtection :: SetTerminationProtection -> TestTree
-testSetTerminationProtection = req
+requestSetTerminationProtection :: SetTerminationProtection -> TestTree
+requestSetTerminationProtection = req
     "SetTerminationProtection"
     "fixture/SetTerminationProtection.yaml"
 
-testAddJobFlowSteps :: AddJobFlowSteps -> TestTree
-testAddJobFlowSteps = req
+requestAddJobFlowSteps :: AddJobFlowSteps -> TestTree
+requestAddJobFlowSteps = req
     "AddJobFlowSteps"
     "fixture/AddJobFlowSteps.yaml"
 
-testModifyInstanceGroups :: ModifyInstanceGroups -> TestTree
-testModifyInstanceGroups = req
+requestModifyInstanceGroups :: ModifyInstanceGroups -> TestTree
+requestModifyInstanceGroups = req
     "ModifyInstanceGroups"
     "fixture/ModifyInstanceGroups.yaml"
 
-testListSteps :: ListSteps -> TestTree
-testListSteps = req
+requestListSteps :: ListSteps -> TestTree
+requestListSteps = req
     "ListSteps"
     "fixture/ListSteps.yaml"
 
-testAddInstanceGroups :: AddInstanceGroups -> TestTree
-testAddInstanceGroups = req
+requestAddInstanceGroups :: AddInstanceGroups -> TestTree
+requestAddInstanceGroups = req
     "AddInstanceGroups"
     "fixture/AddInstanceGroups.yaml"
 
-testListInstanceGroups :: ListInstanceGroups -> TestTree
-testListInstanceGroups = req
+requestListInstanceGroups :: ListInstanceGroups -> TestTree
+requestListInstanceGroups = req
     "ListInstanceGroups"
     "fixture/ListInstanceGroups.yaml"
 
-testListBootstrapActions :: ListBootstrapActions -> TestTree
-testListBootstrapActions = req
+requestListBootstrapActions :: ListBootstrapActions -> TestTree
+requestListBootstrapActions = req
     "ListBootstrapActions"
     "fixture/ListBootstrapActions.yaml"
 
-testAddTags :: AddTags -> TestTree
-testAddTags = req
+requestAddTags :: AddTags -> TestTree
+requestAddTags = req
     "AddTags"
     "fixture/AddTags.yaml"
 
-testListInstances :: ListInstances -> TestTree
-testListInstances = req
+requestListInstances :: ListInstances -> TestTree
+requestListInstances = req
     "ListInstances"
     "fixture/ListInstances.yaml"
 
-testListClusters :: ListClusters -> TestTree
-testListClusters = req
+requestListClusters :: ListClusters -> TestTree
+requestListClusters = req
     "ListClusters"
     "fixture/ListClusters.yaml"
 
 -- Responses
 
-testRunJobFlowResponse :: RunJobFlowResponse -> TestTree
-testRunJobFlowResponse = res
+responseRunJobFlow :: RunJobFlowResponse -> TestTree
+responseRunJobFlow = res
     "RunJobFlowResponse"
     "fixture/RunJobFlowResponse.proto"
     emr
     (Proxy :: Proxy RunJobFlow)
 
-testSetVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse -> TestTree
-testSetVisibleToAllUsersResponse = res
+responseSetVisibleToAllUsers :: SetVisibleToAllUsersResponse -> TestTree
+responseSetVisibleToAllUsers = res
     "SetVisibleToAllUsersResponse"
     "fixture/SetVisibleToAllUsersResponse.proto"
     emr
     (Proxy :: Proxy SetVisibleToAllUsers)
 
-testTerminateJobFlowsResponse :: TerminateJobFlowsResponse -> TestTree
-testTerminateJobFlowsResponse = res
+responseTerminateJobFlows :: TerminateJobFlowsResponse -> TestTree
+responseTerminateJobFlows = res
     "TerminateJobFlowsResponse"
     "fixture/TerminateJobFlowsResponse.proto"
     emr
     (Proxy :: Proxy TerminateJobFlows)
 
-testDescribeStepResponse :: DescribeStepResponse -> TestTree
-testDescribeStepResponse = res
+responseDescribeStep :: DescribeStepResponse -> TestTree
+responseDescribeStep = res
     "DescribeStepResponse"
     "fixture/DescribeStepResponse.proto"
     emr
     (Proxy :: Proxy DescribeStep)
 
-testRemoveTagsResponse :: RemoveTagsResponse -> TestTree
-testRemoveTagsResponse = res
+responseRemoveTags :: RemoveTagsResponse -> TestTree
+responseRemoveTags = res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     emr
     (Proxy :: Proxy RemoveTags)
 
-testDescribeClusterResponse :: DescribeClusterResponse -> TestTree
-testDescribeClusterResponse = res
+responseDescribeCluster :: DescribeClusterResponse -> TestTree
+responseDescribeCluster = res
     "DescribeClusterResponse"
     "fixture/DescribeClusterResponse.proto"
     emr
     (Proxy :: Proxy DescribeCluster)
 
-testSetTerminationProtectionResponse :: SetTerminationProtectionResponse -> TestTree
-testSetTerminationProtectionResponse = res
+responseSetTerminationProtection :: SetTerminationProtectionResponse -> TestTree
+responseSetTerminationProtection = res
     "SetTerminationProtectionResponse"
     "fixture/SetTerminationProtectionResponse.proto"
     emr
     (Proxy :: Proxy SetTerminationProtection)
 
-testAddJobFlowStepsResponse :: AddJobFlowStepsResponse -> TestTree
-testAddJobFlowStepsResponse = res
+responseAddJobFlowSteps :: AddJobFlowStepsResponse -> TestTree
+responseAddJobFlowSteps = res
     "AddJobFlowStepsResponse"
     "fixture/AddJobFlowStepsResponse.proto"
     emr
     (Proxy :: Proxy AddJobFlowSteps)
 
-testModifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse -> TestTree
-testModifyInstanceGroupsResponse = res
+responseModifyInstanceGroups :: ModifyInstanceGroupsResponse -> TestTree
+responseModifyInstanceGroups = res
     "ModifyInstanceGroupsResponse"
     "fixture/ModifyInstanceGroupsResponse.proto"
     emr
     (Proxy :: Proxy ModifyInstanceGroups)
 
-testListStepsResponse :: ListStepsResponse -> TestTree
-testListStepsResponse = res
+responseListSteps :: ListStepsResponse -> TestTree
+responseListSteps = res
     "ListStepsResponse"
     "fixture/ListStepsResponse.proto"
     emr
     (Proxy :: Proxy ListSteps)
 
-testAddInstanceGroupsResponse :: AddInstanceGroupsResponse -> TestTree
-testAddInstanceGroupsResponse = res
+responseAddInstanceGroups :: AddInstanceGroupsResponse -> TestTree
+responseAddInstanceGroups = res
     "AddInstanceGroupsResponse"
     "fixture/AddInstanceGroupsResponse.proto"
     emr
     (Proxy :: Proxy AddInstanceGroups)
 
-testListInstanceGroupsResponse :: ListInstanceGroupsResponse -> TestTree
-testListInstanceGroupsResponse = res
+responseListInstanceGroups :: ListInstanceGroupsResponse -> TestTree
+responseListInstanceGroups = res
     "ListInstanceGroupsResponse"
     "fixture/ListInstanceGroupsResponse.proto"
     emr
     (Proxy :: Proxy ListInstanceGroups)
 
-testListBootstrapActionsResponse :: ListBootstrapActionsResponse -> TestTree
-testListBootstrapActionsResponse = res
+responseListBootstrapActions :: ListBootstrapActionsResponse -> TestTree
+responseListBootstrapActions = res
     "ListBootstrapActionsResponse"
     "fixture/ListBootstrapActionsResponse.proto"
     emr
     (Proxy :: Proxy ListBootstrapActions)
 
-testAddTagsResponse :: AddTagsResponse -> TestTree
-testAddTagsResponse = res
+responseAddTags :: AddTagsResponse -> TestTree
+responseAddTags = res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     emr
     (Proxy :: Proxy AddTags)
 
-testListInstancesResponse :: ListInstancesResponse -> TestTree
-testListInstancesResponse = res
+responseListInstances :: ListInstancesResponse -> TestTree
+responseListInstances = res
     "ListInstancesResponse"
     "fixture/ListInstancesResponse.proto"
     emr
     (Proxy :: Proxy ListInstances)
 
-testListClustersResponse :: ListClustersResponse -> TestTree
-testListClustersResponse = res
+responseListClusters :: ListClustersResponse -> TestTree
+responseListClusters = res
     "ListClustersResponse"
     "fixture/ListClustersResponse.proto"
     emr

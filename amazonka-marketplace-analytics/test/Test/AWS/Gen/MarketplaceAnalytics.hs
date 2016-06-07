@@ -28,13 +28,13 @@ import Test.AWS.MarketplaceAnalytics.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testGenerateDataSet $
+--         [ requestGenerateDataSet $
 --             generateDataSet
 --
 --           ]
 
 --     , testGroup "response"
---         [ testGenerateDataSetResponse $
+--         [ responseGenerateDataSet $
 --             generateDataSetResponse
 --
 --           ]
@@ -42,15 +42,15 @@ import Test.AWS.MarketplaceAnalytics.Internal
 
 -- Requests
 
-testGenerateDataSet :: GenerateDataSet -> TestTree
-testGenerateDataSet = req
+requestGenerateDataSet :: GenerateDataSet -> TestTree
+requestGenerateDataSet = req
     "GenerateDataSet"
     "fixture/GenerateDataSet.yaml"
 
 -- Responses
 
-testGenerateDataSetResponse :: GenerateDataSetResponse -> TestTree
-testGenerateDataSetResponse = res
+responseGenerateDataSet :: GenerateDataSetResponse -> TestTree
+responseGenerateDataSet = res
     "GenerateDataSetResponse"
     "fixture/GenerateDataSetResponse.proto"
     marketplaceAnalytics

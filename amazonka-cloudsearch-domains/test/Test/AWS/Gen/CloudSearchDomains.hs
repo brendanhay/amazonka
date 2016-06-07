@@ -28,25 +28,25 @@ import Test.AWS.CloudSearchDomains.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testSuggest $
+--         [ requestSuggest $
 --             suggest
 --
---         , testUploadDocuments $
+--         , requestUploadDocuments $
 --             uploadDocuments
 --
---         , testSearch $
+--         , requestSearch $
 --             search
 --
 --           ]
 
 --     , testGroup "response"
---         [ testSuggestResponse $
+--         [ responseSuggest $
 --             suggestResponse
 --
---         , testUploadDocumentsResponse $
+--         , responseUploadDocuments $
 --             uploadDocumentsResponse
 --
---         , testSearchResponse $
+--         , responseSearch $
 --             searchResponse
 --
 --           ]
@@ -54,34 +54,34 @@ import Test.AWS.CloudSearchDomains.Internal
 
 -- Requests
 
-testSuggest :: Suggest -> TestTree
-testSuggest = req
+requestSuggest :: Suggest -> TestTree
+requestSuggest = req
     "Suggest"
     "fixture/Suggest.yaml"
 
-testSearch :: Search -> TestTree
-testSearch = req
+requestSearch :: Search -> TestTree
+requestSearch = req
     "Search"
     "fixture/Search.yaml"
 
 -- Responses
 
-testSuggestResponse :: SuggestResponse -> TestTree
-testSuggestResponse = res
+responseSuggest :: SuggestResponse -> TestTree
+responseSuggest = res
     "SuggestResponse"
     "fixture/SuggestResponse.proto"
     cloudSearchDomains
     (Proxy :: Proxy Suggest)
 
-testUploadDocumentsResponse :: UploadDocumentsResponse -> TestTree
-testUploadDocumentsResponse = res
+responseUploadDocuments :: UploadDocumentsResponse -> TestTree
+responseUploadDocuments = res
     "UploadDocumentsResponse"
     "fixture/UploadDocumentsResponse.proto"
     cloudSearchDomains
     (Proxy :: Proxy UploadDocuments)
 
-testSearchResponse :: SearchResponse -> TestTree
-testSearchResponse = res
+responseSearch :: SearchResponse -> TestTree
+responseSearch = res
     "SearchResponse"
     "fixture/SearchResponse.proto"
     cloudSearchDomains

@@ -28,235 +28,235 @@ import Test.AWS.WAF.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testGetSizeConstraintSet $
+--         [ requestGetSizeConstraintSet $
 --             getSizeConstraintSet
 --
---         , testUpdateRule $
+--         , requestUpdateRule $
 --             updateRule
 --
---         , testDeleteRule $
+--         , requestDeleteRule $
 --             deleteRule
 --
---         , testCreateIPSet $
+--         , requestCreateIPSet $
 --             createIPSet
 --
---         , testGetChangeTokenStatus $
+--         , requestGetChangeTokenStatus $
 --             getChangeTokenStatus
 --
---         , testDeleteWebACL $
+--         , requestDeleteWebACL $
 --             deleteWebACL
 --
---         , testUpdateWebACL $
+--         , requestUpdateWebACL $
 --             updateWebACL
 --
---         , testListWebACLs $
+--         , requestListWebACLs $
 --             listWebACLs
 --
---         , testListRules $
+--         , requestListRules $
 --             listRules
 --
---         , testCreateRule $
+--         , requestCreateRule $
 --             createRule
 --
---         , testCreateWebACL $
+--         , requestCreateWebACL $
 --             createWebACL
 --
---         , testListByteMatchSets $
+--         , requestListByteMatchSets $
 --             listByteMatchSets
 --
---         , testGetIPSet $
+--         , requestGetIPSet $
 --             getIPSet
 --
---         , testGetWebACL $
+--         , requestGetWebACL $
 --             getWebACL
 --
---         , testGetRule $
+--         , requestGetRule $
 --             getRule
 --
---         , testDeleteXSSMatchSet $
+--         , requestDeleteXSSMatchSet $
 --             deleteXSSMatchSet
 --
---         , testUpdateXSSMatchSet $
+--         , requestUpdateXSSMatchSet $
 --             updateXSSMatchSet
 --
---         , testListXSSMatchSets $
+--         , requestListXSSMatchSets $
 --             listXSSMatchSets
 --
---         , testGetChangeToken $
+--         , requestGetChangeToken $
 --             getChangeToken
 --
---         , testListSizeConstraintSets $
+--         , requestListSizeConstraintSets $
 --             listSizeConstraintSets
 --
---         , testGetSampledRequests $
+--         , requestGetSampledRequests $
 --             getSampledRequests
 --
---         , testGetSqlInjectionMatchSet $
+--         , requestGetSqlInjectionMatchSet $
 --             getSqlInjectionMatchSet
 --
---         , testCreateSqlInjectionMatchSet $
+--         , requestCreateSqlInjectionMatchSet $
 --             createSqlInjectionMatchSet
 --
---         , testGetXSSMatchSet $
+--         , requestGetXSSMatchSet $
 --             getXSSMatchSet
 --
---         , testCreateByteMatchSet $
+--         , requestCreateByteMatchSet $
 --             createByteMatchSet
 --
---         , testUpdateByteMatchSet $
+--         , requestUpdateByteMatchSet $
 --             updateByteMatchSet
 --
---         , testDeleteByteMatchSet $
+--         , requestDeleteByteMatchSet $
 --             deleteByteMatchSet
 --
---         , testDeleteIPSet $
+--         , requestDeleteIPSet $
 --             deleteIPSet
 --
---         , testUpdateIPSet $
+--         , requestUpdateIPSet $
 --             updateIPSet
 --
---         , testListIPSets $
+--         , requestListIPSets $
 --             listIPSets
 --
---         , testCreateXSSMatchSet $
+--         , requestCreateXSSMatchSet $
 --             createXSSMatchSet
 --
---         , testGetByteMatchSet $
+--         , requestGetByteMatchSet $
 --             getByteMatchSet
 --
---         , testDeleteSizeConstraintSet $
+--         , requestDeleteSizeConstraintSet $
 --             deleteSizeConstraintSet
 --
---         , testUpdateSizeConstraintSet $
+--         , requestUpdateSizeConstraintSet $
 --             updateSizeConstraintSet
 --
---         , testCreateSizeConstraintSet $
+--         , requestCreateSizeConstraintSet $
 --             createSizeConstraintSet
 --
---         , testListSqlInjectionMatchSets $
+--         , requestListSqlInjectionMatchSets $
 --             listSqlInjectionMatchSets
 --
---         , testDeleteSqlInjectionMatchSet $
+--         , requestDeleteSqlInjectionMatchSet $
 --             deleteSqlInjectionMatchSet
 --
---         , testUpdateSqlInjectionMatchSet $
+--         , requestUpdateSqlInjectionMatchSet $
 --             updateSqlInjectionMatchSet
 --
 --           ]
 
 --     , testGroup "response"
---         [ testGetSizeConstraintSetResponse $
+--         [ responseGetSizeConstraintSet $
 --             getSizeConstraintSetResponse
 --
---         , testUpdateRuleResponse $
+--         , responseUpdateRule $
 --             updateRuleResponse
 --
---         , testDeleteRuleResponse $
+--         , responseDeleteRule $
 --             deleteRuleResponse
 --
---         , testCreateIPSetResponse $
+--         , responseCreateIPSet $
 --             createIPSetResponse
 --
---         , testGetChangeTokenStatusResponse $
+--         , responseGetChangeTokenStatus $
 --             getChangeTokenStatusResponse
 --
---         , testDeleteWebACLResponse $
+--         , responseDeleteWebACL $
 --             deleteWebACLResponse
 --
---         , testUpdateWebACLResponse $
+--         , responseUpdateWebACL $
 --             updateWebACLResponse
 --
---         , testListWebACLsResponse $
+--         , responseListWebACLs $
 --             listWebACLsResponse
 --
---         , testListRulesResponse $
+--         , responseListRules $
 --             listRulesResponse
 --
---         , testCreateRuleResponse $
+--         , responseCreateRule $
 --             createRuleResponse
 --
---         , testCreateWebACLResponse $
+--         , responseCreateWebACL $
 --             createWebACLResponse
 --
---         , testListByteMatchSetsResponse $
+--         , responseListByteMatchSets $
 --             listByteMatchSetsResponse
 --
---         , testGetIPSetResponse $
+--         , responseGetIPSet $
 --             getIPSetResponse
 --
---         , testGetWebACLResponse $
+--         , responseGetWebACL $
 --             getWebACLResponse
 --
---         , testGetRuleResponse $
+--         , responseGetRule $
 --             getRuleResponse
 --
---         , testDeleteXSSMatchSetResponse $
+--         , responseDeleteXSSMatchSet $
 --             deleteXSSMatchSetResponse
 --
---         , testUpdateXSSMatchSetResponse $
+--         , responseUpdateXSSMatchSet $
 --             updateXSSMatchSetResponse
 --
---         , testListXSSMatchSetsResponse $
+--         , responseListXSSMatchSets $
 --             listXSSMatchSetsResponse
 --
---         , testGetChangeTokenResponse $
+--         , responseGetChangeToken $
 --             getChangeTokenResponse
 --
---         , testListSizeConstraintSetsResponse $
+--         , responseListSizeConstraintSets $
 --             listSizeConstraintSetsResponse
 --
---         , testGetSampledRequestsResponse $
+--         , responseGetSampledRequests $
 --             getSampledRequestsResponse
 --
---         , testGetSqlInjectionMatchSetResponse $
+--         , responseGetSqlInjectionMatchSet $
 --             getSqlInjectionMatchSetResponse
 --
---         , testCreateSqlInjectionMatchSetResponse $
+--         , responseCreateSqlInjectionMatchSet $
 --             createSqlInjectionMatchSetResponse
 --
---         , testGetXSSMatchSetResponse $
+--         , responseGetXSSMatchSet $
 --             getXSSMatchSetResponse
 --
---         , testCreateByteMatchSetResponse $
+--         , responseCreateByteMatchSet $
 --             createByteMatchSetResponse
 --
---         , testUpdateByteMatchSetResponse $
+--         , responseUpdateByteMatchSet $
 --             updateByteMatchSetResponse
 --
---         , testDeleteByteMatchSetResponse $
+--         , responseDeleteByteMatchSet $
 --             deleteByteMatchSetResponse
 --
---         , testDeleteIPSetResponse $
+--         , responseDeleteIPSet $
 --             deleteIPSetResponse
 --
---         , testUpdateIPSetResponse $
+--         , responseUpdateIPSet $
 --             updateIPSetResponse
 --
---         , testListIPSetsResponse $
+--         , responseListIPSets $
 --             listIPSetsResponse
 --
---         , testCreateXSSMatchSetResponse $
+--         , responseCreateXSSMatchSet $
 --             createXSSMatchSetResponse
 --
---         , testGetByteMatchSetResponse $
+--         , responseGetByteMatchSet $
 --             getByteMatchSetResponse
 --
---         , testDeleteSizeConstraintSetResponse $
+--         , responseDeleteSizeConstraintSet $
 --             deleteSizeConstraintSetResponse
 --
---         , testUpdateSizeConstraintSetResponse $
+--         , responseUpdateSizeConstraintSet $
 --             updateSizeConstraintSetResponse
 --
---         , testCreateSizeConstraintSetResponse $
+--         , responseCreateSizeConstraintSet $
 --             createSizeConstraintSetResponse
 --
---         , testListSqlInjectionMatchSetsResponse $
+--         , responseListSqlInjectionMatchSets $
 --             listSqlInjectionMatchSetsResponse
 --
---         , testDeleteSqlInjectionMatchSetResponse $
+--         , responseDeleteSqlInjectionMatchSet $
 --             deleteSqlInjectionMatchSetResponse
 --
---         , testUpdateSqlInjectionMatchSetResponse $
+--         , responseUpdateSqlInjectionMatchSet $
 --             updateSqlInjectionMatchSetResponse
 --
 --           ]
@@ -264,459 +264,459 @@ import Test.AWS.WAF.Internal
 
 -- Requests
 
-testGetSizeConstraintSet :: GetSizeConstraintSet -> TestTree
-testGetSizeConstraintSet = req
+requestGetSizeConstraintSet :: GetSizeConstraintSet -> TestTree
+requestGetSizeConstraintSet = req
     "GetSizeConstraintSet"
     "fixture/GetSizeConstraintSet.yaml"
 
-testUpdateRule :: UpdateRule -> TestTree
-testUpdateRule = req
+requestUpdateRule :: UpdateRule -> TestTree
+requestUpdateRule = req
     "UpdateRule"
     "fixture/UpdateRule.yaml"
 
-testDeleteRule :: DeleteRule -> TestTree
-testDeleteRule = req
+requestDeleteRule :: DeleteRule -> TestTree
+requestDeleteRule = req
     "DeleteRule"
     "fixture/DeleteRule.yaml"
 
-testCreateIPSet :: CreateIPSet -> TestTree
-testCreateIPSet = req
+requestCreateIPSet :: CreateIPSet -> TestTree
+requestCreateIPSet = req
     "CreateIPSet"
     "fixture/CreateIPSet.yaml"
 
-testGetChangeTokenStatus :: GetChangeTokenStatus -> TestTree
-testGetChangeTokenStatus = req
+requestGetChangeTokenStatus :: GetChangeTokenStatus -> TestTree
+requestGetChangeTokenStatus = req
     "GetChangeTokenStatus"
     "fixture/GetChangeTokenStatus.yaml"
 
-testDeleteWebACL :: DeleteWebACL -> TestTree
-testDeleteWebACL = req
+requestDeleteWebACL :: DeleteWebACL -> TestTree
+requestDeleteWebACL = req
     "DeleteWebACL"
     "fixture/DeleteWebACL.yaml"
 
-testUpdateWebACL :: UpdateWebACL -> TestTree
-testUpdateWebACL = req
+requestUpdateWebACL :: UpdateWebACL -> TestTree
+requestUpdateWebACL = req
     "UpdateWebACL"
     "fixture/UpdateWebACL.yaml"
 
-testListWebACLs :: ListWebACLs -> TestTree
-testListWebACLs = req
+requestListWebACLs :: ListWebACLs -> TestTree
+requestListWebACLs = req
     "ListWebACLs"
     "fixture/ListWebACLs.yaml"
 
-testListRules :: ListRules -> TestTree
-testListRules = req
+requestListRules :: ListRules -> TestTree
+requestListRules = req
     "ListRules"
     "fixture/ListRules.yaml"
 
-testCreateRule :: CreateRule -> TestTree
-testCreateRule = req
+requestCreateRule :: CreateRule -> TestTree
+requestCreateRule = req
     "CreateRule"
     "fixture/CreateRule.yaml"
 
-testCreateWebACL :: CreateWebACL -> TestTree
-testCreateWebACL = req
+requestCreateWebACL :: CreateWebACL -> TestTree
+requestCreateWebACL = req
     "CreateWebACL"
     "fixture/CreateWebACL.yaml"
 
-testListByteMatchSets :: ListByteMatchSets -> TestTree
-testListByteMatchSets = req
+requestListByteMatchSets :: ListByteMatchSets -> TestTree
+requestListByteMatchSets = req
     "ListByteMatchSets"
     "fixture/ListByteMatchSets.yaml"
 
-testGetIPSet :: GetIPSet -> TestTree
-testGetIPSet = req
+requestGetIPSet :: GetIPSet -> TestTree
+requestGetIPSet = req
     "GetIPSet"
     "fixture/GetIPSet.yaml"
 
-testGetWebACL :: GetWebACL -> TestTree
-testGetWebACL = req
+requestGetWebACL :: GetWebACL -> TestTree
+requestGetWebACL = req
     "GetWebACL"
     "fixture/GetWebACL.yaml"
 
-testGetRule :: GetRule -> TestTree
-testGetRule = req
+requestGetRule :: GetRule -> TestTree
+requestGetRule = req
     "GetRule"
     "fixture/GetRule.yaml"
 
-testDeleteXSSMatchSet :: DeleteXSSMatchSet -> TestTree
-testDeleteXSSMatchSet = req
+requestDeleteXSSMatchSet :: DeleteXSSMatchSet -> TestTree
+requestDeleteXSSMatchSet = req
     "DeleteXSSMatchSet"
     "fixture/DeleteXSSMatchSet.yaml"
 
-testUpdateXSSMatchSet :: UpdateXSSMatchSet -> TestTree
-testUpdateXSSMatchSet = req
+requestUpdateXSSMatchSet :: UpdateXSSMatchSet -> TestTree
+requestUpdateXSSMatchSet = req
     "UpdateXSSMatchSet"
     "fixture/UpdateXSSMatchSet.yaml"
 
-testListXSSMatchSets :: ListXSSMatchSets -> TestTree
-testListXSSMatchSets = req
+requestListXSSMatchSets :: ListXSSMatchSets -> TestTree
+requestListXSSMatchSets = req
     "ListXSSMatchSets"
     "fixture/ListXSSMatchSets.yaml"
 
-testGetChangeToken :: GetChangeToken -> TestTree
-testGetChangeToken = req
+requestGetChangeToken :: GetChangeToken -> TestTree
+requestGetChangeToken = req
     "GetChangeToken"
     "fixture/GetChangeToken.yaml"
 
-testListSizeConstraintSets :: ListSizeConstraintSets -> TestTree
-testListSizeConstraintSets = req
+requestListSizeConstraintSets :: ListSizeConstraintSets -> TestTree
+requestListSizeConstraintSets = req
     "ListSizeConstraintSets"
     "fixture/ListSizeConstraintSets.yaml"
 
-testGetSampledRequests :: GetSampledRequests -> TestTree
-testGetSampledRequests = req
+requestGetSampledRequests :: GetSampledRequests -> TestTree
+requestGetSampledRequests = req
     "GetSampledRequests"
     "fixture/GetSampledRequests.yaml"
 
-testGetSqlInjectionMatchSet :: GetSqlInjectionMatchSet -> TestTree
-testGetSqlInjectionMatchSet = req
+requestGetSqlInjectionMatchSet :: GetSqlInjectionMatchSet -> TestTree
+requestGetSqlInjectionMatchSet = req
     "GetSqlInjectionMatchSet"
     "fixture/GetSqlInjectionMatchSet.yaml"
 
-testCreateSqlInjectionMatchSet :: CreateSqlInjectionMatchSet -> TestTree
-testCreateSqlInjectionMatchSet = req
+requestCreateSqlInjectionMatchSet :: CreateSqlInjectionMatchSet -> TestTree
+requestCreateSqlInjectionMatchSet = req
     "CreateSqlInjectionMatchSet"
     "fixture/CreateSqlInjectionMatchSet.yaml"
 
-testGetXSSMatchSet :: GetXSSMatchSet -> TestTree
-testGetXSSMatchSet = req
+requestGetXSSMatchSet :: GetXSSMatchSet -> TestTree
+requestGetXSSMatchSet = req
     "GetXSSMatchSet"
     "fixture/GetXSSMatchSet.yaml"
 
-testCreateByteMatchSet :: CreateByteMatchSet -> TestTree
-testCreateByteMatchSet = req
+requestCreateByteMatchSet :: CreateByteMatchSet -> TestTree
+requestCreateByteMatchSet = req
     "CreateByteMatchSet"
     "fixture/CreateByteMatchSet.yaml"
 
-testUpdateByteMatchSet :: UpdateByteMatchSet -> TestTree
-testUpdateByteMatchSet = req
+requestUpdateByteMatchSet :: UpdateByteMatchSet -> TestTree
+requestUpdateByteMatchSet = req
     "UpdateByteMatchSet"
     "fixture/UpdateByteMatchSet.yaml"
 
-testDeleteByteMatchSet :: DeleteByteMatchSet -> TestTree
-testDeleteByteMatchSet = req
+requestDeleteByteMatchSet :: DeleteByteMatchSet -> TestTree
+requestDeleteByteMatchSet = req
     "DeleteByteMatchSet"
     "fixture/DeleteByteMatchSet.yaml"
 
-testDeleteIPSet :: DeleteIPSet -> TestTree
-testDeleteIPSet = req
+requestDeleteIPSet :: DeleteIPSet -> TestTree
+requestDeleteIPSet = req
     "DeleteIPSet"
     "fixture/DeleteIPSet.yaml"
 
-testUpdateIPSet :: UpdateIPSet -> TestTree
-testUpdateIPSet = req
+requestUpdateIPSet :: UpdateIPSet -> TestTree
+requestUpdateIPSet = req
     "UpdateIPSet"
     "fixture/UpdateIPSet.yaml"
 
-testListIPSets :: ListIPSets -> TestTree
-testListIPSets = req
+requestListIPSets :: ListIPSets -> TestTree
+requestListIPSets = req
     "ListIPSets"
     "fixture/ListIPSets.yaml"
 
-testCreateXSSMatchSet :: CreateXSSMatchSet -> TestTree
-testCreateXSSMatchSet = req
+requestCreateXSSMatchSet :: CreateXSSMatchSet -> TestTree
+requestCreateXSSMatchSet = req
     "CreateXSSMatchSet"
     "fixture/CreateXSSMatchSet.yaml"
 
-testGetByteMatchSet :: GetByteMatchSet -> TestTree
-testGetByteMatchSet = req
+requestGetByteMatchSet :: GetByteMatchSet -> TestTree
+requestGetByteMatchSet = req
     "GetByteMatchSet"
     "fixture/GetByteMatchSet.yaml"
 
-testDeleteSizeConstraintSet :: DeleteSizeConstraintSet -> TestTree
-testDeleteSizeConstraintSet = req
+requestDeleteSizeConstraintSet :: DeleteSizeConstraintSet -> TestTree
+requestDeleteSizeConstraintSet = req
     "DeleteSizeConstraintSet"
     "fixture/DeleteSizeConstraintSet.yaml"
 
-testUpdateSizeConstraintSet :: UpdateSizeConstraintSet -> TestTree
-testUpdateSizeConstraintSet = req
+requestUpdateSizeConstraintSet :: UpdateSizeConstraintSet -> TestTree
+requestUpdateSizeConstraintSet = req
     "UpdateSizeConstraintSet"
     "fixture/UpdateSizeConstraintSet.yaml"
 
-testCreateSizeConstraintSet :: CreateSizeConstraintSet -> TestTree
-testCreateSizeConstraintSet = req
+requestCreateSizeConstraintSet :: CreateSizeConstraintSet -> TestTree
+requestCreateSizeConstraintSet = req
     "CreateSizeConstraintSet"
     "fixture/CreateSizeConstraintSet.yaml"
 
-testListSqlInjectionMatchSets :: ListSqlInjectionMatchSets -> TestTree
-testListSqlInjectionMatchSets = req
+requestListSqlInjectionMatchSets :: ListSqlInjectionMatchSets -> TestTree
+requestListSqlInjectionMatchSets = req
     "ListSqlInjectionMatchSets"
     "fixture/ListSqlInjectionMatchSets.yaml"
 
-testDeleteSqlInjectionMatchSet :: DeleteSqlInjectionMatchSet -> TestTree
-testDeleteSqlInjectionMatchSet = req
+requestDeleteSqlInjectionMatchSet :: DeleteSqlInjectionMatchSet -> TestTree
+requestDeleteSqlInjectionMatchSet = req
     "DeleteSqlInjectionMatchSet"
     "fixture/DeleteSqlInjectionMatchSet.yaml"
 
-testUpdateSqlInjectionMatchSet :: UpdateSqlInjectionMatchSet -> TestTree
-testUpdateSqlInjectionMatchSet = req
+requestUpdateSqlInjectionMatchSet :: UpdateSqlInjectionMatchSet -> TestTree
+requestUpdateSqlInjectionMatchSet = req
     "UpdateSqlInjectionMatchSet"
     "fixture/UpdateSqlInjectionMatchSet.yaml"
 
 -- Responses
 
-testGetSizeConstraintSetResponse :: GetSizeConstraintSetResponse -> TestTree
-testGetSizeConstraintSetResponse = res
+responseGetSizeConstraintSet :: GetSizeConstraintSetResponse -> TestTree
+responseGetSizeConstraintSet = res
     "GetSizeConstraintSetResponse"
     "fixture/GetSizeConstraintSetResponse.proto"
     waf
     (Proxy :: Proxy GetSizeConstraintSet)
 
-testUpdateRuleResponse :: UpdateRuleResponse -> TestTree
-testUpdateRuleResponse = res
+responseUpdateRule :: UpdateRuleResponse -> TestTree
+responseUpdateRule = res
     "UpdateRuleResponse"
     "fixture/UpdateRuleResponse.proto"
     waf
     (Proxy :: Proxy UpdateRule)
 
-testDeleteRuleResponse :: DeleteRuleResponse -> TestTree
-testDeleteRuleResponse = res
+responseDeleteRule :: DeleteRuleResponse -> TestTree
+responseDeleteRule = res
     "DeleteRuleResponse"
     "fixture/DeleteRuleResponse.proto"
     waf
     (Proxy :: Proxy DeleteRule)
 
-testCreateIPSetResponse :: CreateIPSetResponse -> TestTree
-testCreateIPSetResponse = res
+responseCreateIPSet :: CreateIPSetResponse -> TestTree
+responseCreateIPSet = res
     "CreateIPSetResponse"
     "fixture/CreateIPSetResponse.proto"
     waf
     (Proxy :: Proxy CreateIPSet)
 
-testGetChangeTokenStatusResponse :: GetChangeTokenStatusResponse -> TestTree
-testGetChangeTokenStatusResponse = res
+responseGetChangeTokenStatus :: GetChangeTokenStatusResponse -> TestTree
+responseGetChangeTokenStatus = res
     "GetChangeTokenStatusResponse"
     "fixture/GetChangeTokenStatusResponse.proto"
     waf
     (Proxy :: Proxy GetChangeTokenStatus)
 
-testDeleteWebACLResponse :: DeleteWebACLResponse -> TestTree
-testDeleteWebACLResponse = res
+responseDeleteWebACL :: DeleteWebACLResponse -> TestTree
+responseDeleteWebACL = res
     "DeleteWebACLResponse"
     "fixture/DeleteWebACLResponse.proto"
     waf
     (Proxy :: Proxy DeleteWebACL)
 
-testUpdateWebACLResponse :: UpdateWebACLResponse -> TestTree
-testUpdateWebACLResponse = res
+responseUpdateWebACL :: UpdateWebACLResponse -> TestTree
+responseUpdateWebACL = res
     "UpdateWebACLResponse"
     "fixture/UpdateWebACLResponse.proto"
     waf
     (Proxy :: Proxy UpdateWebACL)
 
-testListWebACLsResponse :: ListWebACLsResponse -> TestTree
-testListWebACLsResponse = res
+responseListWebACLs :: ListWebACLsResponse -> TestTree
+responseListWebACLs = res
     "ListWebACLsResponse"
     "fixture/ListWebACLsResponse.proto"
     waf
     (Proxy :: Proxy ListWebACLs)
 
-testListRulesResponse :: ListRulesResponse -> TestTree
-testListRulesResponse = res
+responseListRules :: ListRulesResponse -> TestTree
+responseListRules = res
     "ListRulesResponse"
     "fixture/ListRulesResponse.proto"
     waf
     (Proxy :: Proxy ListRules)
 
-testCreateRuleResponse :: CreateRuleResponse -> TestTree
-testCreateRuleResponse = res
+responseCreateRule :: CreateRuleResponse -> TestTree
+responseCreateRule = res
     "CreateRuleResponse"
     "fixture/CreateRuleResponse.proto"
     waf
     (Proxy :: Proxy CreateRule)
 
-testCreateWebACLResponse :: CreateWebACLResponse -> TestTree
-testCreateWebACLResponse = res
+responseCreateWebACL :: CreateWebACLResponse -> TestTree
+responseCreateWebACL = res
     "CreateWebACLResponse"
     "fixture/CreateWebACLResponse.proto"
     waf
     (Proxy :: Proxy CreateWebACL)
 
-testListByteMatchSetsResponse :: ListByteMatchSetsResponse -> TestTree
-testListByteMatchSetsResponse = res
+responseListByteMatchSets :: ListByteMatchSetsResponse -> TestTree
+responseListByteMatchSets = res
     "ListByteMatchSetsResponse"
     "fixture/ListByteMatchSetsResponse.proto"
     waf
     (Proxy :: Proxy ListByteMatchSets)
 
-testGetIPSetResponse :: GetIPSetResponse -> TestTree
-testGetIPSetResponse = res
+responseGetIPSet :: GetIPSetResponse -> TestTree
+responseGetIPSet = res
     "GetIPSetResponse"
     "fixture/GetIPSetResponse.proto"
     waf
     (Proxy :: Proxy GetIPSet)
 
-testGetWebACLResponse :: GetWebACLResponse -> TestTree
-testGetWebACLResponse = res
+responseGetWebACL :: GetWebACLResponse -> TestTree
+responseGetWebACL = res
     "GetWebACLResponse"
     "fixture/GetWebACLResponse.proto"
     waf
     (Proxy :: Proxy GetWebACL)
 
-testGetRuleResponse :: GetRuleResponse -> TestTree
-testGetRuleResponse = res
+responseGetRule :: GetRuleResponse -> TestTree
+responseGetRule = res
     "GetRuleResponse"
     "fixture/GetRuleResponse.proto"
     waf
     (Proxy :: Proxy GetRule)
 
-testDeleteXSSMatchSetResponse :: DeleteXSSMatchSetResponse -> TestTree
-testDeleteXSSMatchSetResponse = res
+responseDeleteXSSMatchSet :: DeleteXSSMatchSetResponse -> TestTree
+responseDeleteXSSMatchSet = res
     "DeleteXSSMatchSetResponse"
     "fixture/DeleteXSSMatchSetResponse.proto"
     waf
     (Proxy :: Proxy DeleteXSSMatchSet)
 
-testUpdateXSSMatchSetResponse :: UpdateXSSMatchSetResponse -> TestTree
-testUpdateXSSMatchSetResponse = res
+responseUpdateXSSMatchSet :: UpdateXSSMatchSetResponse -> TestTree
+responseUpdateXSSMatchSet = res
     "UpdateXSSMatchSetResponse"
     "fixture/UpdateXSSMatchSetResponse.proto"
     waf
     (Proxy :: Proxy UpdateXSSMatchSet)
 
-testListXSSMatchSetsResponse :: ListXSSMatchSetsResponse -> TestTree
-testListXSSMatchSetsResponse = res
+responseListXSSMatchSets :: ListXSSMatchSetsResponse -> TestTree
+responseListXSSMatchSets = res
     "ListXSSMatchSetsResponse"
     "fixture/ListXSSMatchSetsResponse.proto"
     waf
     (Proxy :: Proxy ListXSSMatchSets)
 
-testGetChangeTokenResponse :: GetChangeTokenResponse -> TestTree
-testGetChangeTokenResponse = res
+responseGetChangeToken :: GetChangeTokenResponse -> TestTree
+responseGetChangeToken = res
     "GetChangeTokenResponse"
     "fixture/GetChangeTokenResponse.proto"
     waf
     (Proxy :: Proxy GetChangeToken)
 
-testListSizeConstraintSetsResponse :: ListSizeConstraintSetsResponse -> TestTree
-testListSizeConstraintSetsResponse = res
+responseListSizeConstraintSets :: ListSizeConstraintSetsResponse -> TestTree
+responseListSizeConstraintSets = res
     "ListSizeConstraintSetsResponse"
     "fixture/ListSizeConstraintSetsResponse.proto"
     waf
     (Proxy :: Proxy ListSizeConstraintSets)
 
-testGetSampledRequestsResponse :: GetSampledRequestsResponse -> TestTree
-testGetSampledRequestsResponse = res
+responseGetSampledRequests :: GetSampledRequestsResponse -> TestTree
+responseGetSampledRequests = res
     "GetSampledRequestsResponse"
     "fixture/GetSampledRequestsResponse.proto"
     waf
     (Proxy :: Proxy GetSampledRequests)
 
-testGetSqlInjectionMatchSetResponse :: GetSqlInjectionMatchSetResponse -> TestTree
-testGetSqlInjectionMatchSetResponse = res
+responseGetSqlInjectionMatchSet :: GetSqlInjectionMatchSetResponse -> TestTree
+responseGetSqlInjectionMatchSet = res
     "GetSqlInjectionMatchSetResponse"
     "fixture/GetSqlInjectionMatchSetResponse.proto"
     waf
     (Proxy :: Proxy GetSqlInjectionMatchSet)
 
-testCreateSqlInjectionMatchSetResponse :: CreateSqlInjectionMatchSetResponse -> TestTree
-testCreateSqlInjectionMatchSetResponse = res
+responseCreateSqlInjectionMatchSet :: CreateSqlInjectionMatchSetResponse -> TestTree
+responseCreateSqlInjectionMatchSet = res
     "CreateSqlInjectionMatchSetResponse"
     "fixture/CreateSqlInjectionMatchSetResponse.proto"
     waf
     (Proxy :: Proxy CreateSqlInjectionMatchSet)
 
-testGetXSSMatchSetResponse :: GetXSSMatchSetResponse -> TestTree
-testGetXSSMatchSetResponse = res
+responseGetXSSMatchSet :: GetXSSMatchSetResponse -> TestTree
+responseGetXSSMatchSet = res
     "GetXSSMatchSetResponse"
     "fixture/GetXSSMatchSetResponse.proto"
     waf
     (Proxy :: Proxy GetXSSMatchSet)
 
-testCreateByteMatchSetResponse :: CreateByteMatchSetResponse -> TestTree
-testCreateByteMatchSetResponse = res
+responseCreateByteMatchSet :: CreateByteMatchSetResponse -> TestTree
+responseCreateByteMatchSet = res
     "CreateByteMatchSetResponse"
     "fixture/CreateByteMatchSetResponse.proto"
     waf
     (Proxy :: Proxy CreateByteMatchSet)
 
-testUpdateByteMatchSetResponse :: UpdateByteMatchSetResponse -> TestTree
-testUpdateByteMatchSetResponse = res
+responseUpdateByteMatchSet :: UpdateByteMatchSetResponse -> TestTree
+responseUpdateByteMatchSet = res
     "UpdateByteMatchSetResponse"
     "fixture/UpdateByteMatchSetResponse.proto"
     waf
     (Proxy :: Proxy UpdateByteMatchSet)
 
-testDeleteByteMatchSetResponse :: DeleteByteMatchSetResponse -> TestTree
-testDeleteByteMatchSetResponse = res
+responseDeleteByteMatchSet :: DeleteByteMatchSetResponse -> TestTree
+responseDeleteByteMatchSet = res
     "DeleteByteMatchSetResponse"
     "fixture/DeleteByteMatchSetResponse.proto"
     waf
     (Proxy :: Proxy DeleteByteMatchSet)
 
-testDeleteIPSetResponse :: DeleteIPSetResponse -> TestTree
-testDeleteIPSetResponse = res
+responseDeleteIPSet :: DeleteIPSetResponse -> TestTree
+responseDeleteIPSet = res
     "DeleteIPSetResponse"
     "fixture/DeleteIPSetResponse.proto"
     waf
     (Proxy :: Proxy DeleteIPSet)
 
-testUpdateIPSetResponse :: UpdateIPSetResponse -> TestTree
-testUpdateIPSetResponse = res
+responseUpdateIPSet :: UpdateIPSetResponse -> TestTree
+responseUpdateIPSet = res
     "UpdateIPSetResponse"
     "fixture/UpdateIPSetResponse.proto"
     waf
     (Proxy :: Proxy UpdateIPSet)
 
-testListIPSetsResponse :: ListIPSetsResponse -> TestTree
-testListIPSetsResponse = res
+responseListIPSets :: ListIPSetsResponse -> TestTree
+responseListIPSets = res
     "ListIPSetsResponse"
     "fixture/ListIPSetsResponse.proto"
     waf
     (Proxy :: Proxy ListIPSets)
 
-testCreateXSSMatchSetResponse :: CreateXSSMatchSetResponse -> TestTree
-testCreateXSSMatchSetResponse = res
+responseCreateXSSMatchSet :: CreateXSSMatchSetResponse -> TestTree
+responseCreateXSSMatchSet = res
     "CreateXSSMatchSetResponse"
     "fixture/CreateXSSMatchSetResponse.proto"
     waf
     (Proxy :: Proxy CreateXSSMatchSet)
 
-testGetByteMatchSetResponse :: GetByteMatchSetResponse -> TestTree
-testGetByteMatchSetResponse = res
+responseGetByteMatchSet :: GetByteMatchSetResponse -> TestTree
+responseGetByteMatchSet = res
     "GetByteMatchSetResponse"
     "fixture/GetByteMatchSetResponse.proto"
     waf
     (Proxy :: Proxy GetByteMatchSet)
 
-testDeleteSizeConstraintSetResponse :: DeleteSizeConstraintSetResponse -> TestTree
-testDeleteSizeConstraintSetResponse = res
+responseDeleteSizeConstraintSet :: DeleteSizeConstraintSetResponse -> TestTree
+responseDeleteSizeConstraintSet = res
     "DeleteSizeConstraintSetResponse"
     "fixture/DeleteSizeConstraintSetResponse.proto"
     waf
     (Proxy :: Proxy DeleteSizeConstraintSet)
 
-testUpdateSizeConstraintSetResponse :: UpdateSizeConstraintSetResponse -> TestTree
-testUpdateSizeConstraintSetResponse = res
+responseUpdateSizeConstraintSet :: UpdateSizeConstraintSetResponse -> TestTree
+responseUpdateSizeConstraintSet = res
     "UpdateSizeConstraintSetResponse"
     "fixture/UpdateSizeConstraintSetResponse.proto"
     waf
     (Proxy :: Proxy UpdateSizeConstraintSet)
 
-testCreateSizeConstraintSetResponse :: CreateSizeConstraintSetResponse -> TestTree
-testCreateSizeConstraintSetResponse = res
+responseCreateSizeConstraintSet :: CreateSizeConstraintSetResponse -> TestTree
+responseCreateSizeConstraintSet = res
     "CreateSizeConstraintSetResponse"
     "fixture/CreateSizeConstraintSetResponse.proto"
     waf
     (Proxy :: Proxy CreateSizeConstraintSet)
 
-testListSqlInjectionMatchSetsResponse :: ListSqlInjectionMatchSetsResponse -> TestTree
-testListSqlInjectionMatchSetsResponse = res
+responseListSqlInjectionMatchSets :: ListSqlInjectionMatchSetsResponse -> TestTree
+responseListSqlInjectionMatchSets = res
     "ListSqlInjectionMatchSetsResponse"
     "fixture/ListSqlInjectionMatchSetsResponse.proto"
     waf
     (Proxy :: Proxy ListSqlInjectionMatchSets)
 
-testDeleteSqlInjectionMatchSetResponse :: DeleteSqlInjectionMatchSetResponse -> TestTree
-testDeleteSqlInjectionMatchSetResponse = res
+responseDeleteSqlInjectionMatchSet :: DeleteSqlInjectionMatchSetResponse -> TestTree
+responseDeleteSqlInjectionMatchSet = res
     "DeleteSqlInjectionMatchSetResponse"
     "fixture/DeleteSqlInjectionMatchSetResponse.proto"
     waf
     (Proxy :: Proxy DeleteSqlInjectionMatchSet)
 
-testUpdateSqlInjectionMatchSetResponse :: UpdateSqlInjectionMatchSetResponse -> TestTree
-testUpdateSqlInjectionMatchSetResponse = res
+responseUpdateSqlInjectionMatchSet :: UpdateSqlInjectionMatchSetResponse -> TestTree
+responseUpdateSqlInjectionMatchSet = res
     "UpdateSqlInjectionMatchSetResponse"
     "fixture/UpdateSqlInjectionMatchSetResponse.proto"
     waf

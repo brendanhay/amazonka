@@ -28,181 +28,181 @@ import Test.AWS.DirectoryService.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDescribeConditionalForwarders $
+--         [ requestDescribeConditionalForwarders $
 --             describeConditionalForwarders
 --
---         , testGetSnapshotLimits $
+--         , requestGetSnapshotLimits $
 --             getSnapshotLimits
 --
---         , testRegisterEventTopic $
+--         , requestRegisterEventTopic $
 --             registerEventTopic
 --
---         , testConnectDirectory $
+--         , requestConnectDirectory $
 --             connectDirectory
 --
---         , testCreateAlias $
+--         , requestCreateAlias $
 --             createAlias
 --
---         , testDescribeDirectories $
+--         , requestDescribeDirectories $
 --             describeDirectories
 --
---         , testDescribeTrusts $
+--         , requestDescribeTrusts $
 --             describeTrusts
 --
---         , testDeleteTrust $
+--         , requestDeleteTrust $
 --             deleteTrust
 --
---         , testCreateMicrosoftAD $
+--         , requestCreateMicrosoftAD $
 --             createMicrosoftAD
 --
---         , testDeregisterEventTopic $
+--         , requestDeregisterEventTopic $
 --             deregisterEventTopic
 --
---         , testCreateDirectory $
+--         , requestCreateDirectory $
 --             createDirectory
 --
---         , testDescribeEventTopics $
+--         , requestDescribeEventTopics $
 --             describeEventTopics
 --
---         , testUpdateConditionalForwarder $
+--         , requestUpdateConditionalForwarder $
 --             updateConditionalForwarder
 --
---         , testDeleteConditionalForwarder $
+--         , requestDeleteConditionalForwarder $
 --             deleteConditionalForwarder
 --
---         , testEnableSSO $
+--         , requestEnableSSO $
 --             enableSSO
 --
---         , testEnableRadius $
+--         , requestEnableRadius $
 --             enableRadius
 --
---         , testDisableRadius $
+--         , requestDisableRadius $
 --             disableRadius
 --
---         , testRestoreFromSnapshot $
+--         , requestRestoreFromSnapshot $
 --             restoreFromSnapshot
 --
---         , testDescribeSnapshots $
+--         , requestDescribeSnapshots $
 --             describeSnapshots
 --
---         , testDeleteSnapshot $
+--         , requestDeleteSnapshot $
 --             deleteSnapshot
 --
---         , testCreateTrust $
+--         , requestCreateTrust $
 --             createTrust
 --
---         , testDeleteDirectory $
+--         , requestDeleteDirectory $
 --             deleteDirectory
 --
---         , testCreateSnapshot $
+--         , requestCreateSnapshot $
 --             createSnapshot
 --
---         , testCreateComputer $
+--         , requestCreateComputer $
 --             createComputer
 --
---         , testDisableSSO $
+--         , requestDisableSSO $
 --             disableSSO
 --
---         , testVerifyTrust $
+--         , requestVerifyTrust $
 --             verifyTrust
 --
---         , testCreateConditionalForwarder $
+--         , requestCreateConditionalForwarder $
 --             createConditionalForwarder
 --
---         , testGetDirectoryLimits $
+--         , requestGetDirectoryLimits $
 --             getDirectoryLimits
 --
---         , testUpdateRadius $
+--         , requestUpdateRadius $
 --             updateRadius
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDescribeConditionalForwardersResponse $
+--         [ responseDescribeConditionalForwarders $
 --             describeConditionalForwardersResponse
 --
---         , testGetSnapshotLimitsResponse $
+--         , responseGetSnapshotLimits $
 --             getSnapshotLimitsResponse
 --
---         , testRegisterEventTopicResponse $
+--         , responseRegisterEventTopic $
 --             registerEventTopicResponse
 --
---         , testConnectDirectoryResponse $
+--         , responseConnectDirectory $
 --             connectDirectoryResponse
 --
---         , testCreateAliasResponse $
+--         , responseCreateAlias $
 --             createAliasResponse
 --
---         , testDescribeDirectoriesResponse $
+--         , responseDescribeDirectories $
 --             describeDirectoriesResponse
 --
---         , testDescribeTrustsResponse $
+--         , responseDescribeTrusts $
 --             describeTrustsResponse
 --
---         , testDeleteTrustResponse $
+--         , responseDeleteTrust $
 --             deleteTrustResponse
 --
---         , testCreateMicrosoftADResponse $
+--         , responseCreateMicrosoftAD $
 --             createMicrosoftADResponse
 --
---         , testDeregisterEventTopicResponse $
+--         , responseDeregisterEventTopic $
 --             deregisterEventTopicResponse
 --
---         , testCreateDirectoryResponse $
+--         , responseCreateDirectory $
 --             createDirectoryResponse
 --
---         , testDescribeEventTopicsResponse $
+--         , responseDescribeEventTopics $
 --             describeEventTopicsResponse
 --
---         , testUpdateConditionalForwarderResponse $
+--         , responseUpdateConditionalForwarder $
 --             updateConditionalForwarderResponse
 --
---         , testDeleteConditionalForwarderResponse $
+--         , responseDeleteConditionalForwarder $
 --             deleteConditionalForwarderResponse
 --
---         , testEnableSSOResponse $
+--         , responseEnableSSO $
 --             enableSSOResponse
 --
---         , testEnableRadiusResponse $
+--         , responseEnableRadius $
 --             enableRadiusResponse
 --
---         , testDisableRadiusResponse $
+--         , responseDisableRadius $
 --             disableRadiusResponse
 --
---         , testRestoreFromSnapshotResponse $
+--         , responseRestoreFromSnapshot $
 --             restoreFromSnapshotResponse
 --
---         , testDescribeSnapshotsResponse $
+--         , responseDescribeSnapshots $
 --             describeSnapshotsResponse
 --
---         , testDeleteSnapshotResponse $
+--         , responseDeleteSnapshot $
 --             deleteSnapshotResponse
 --
---         , testCreateTrustResponse $
+--         , responseCreateTrust $
 --             createTrustResponse
 --
---         , testDeleteDirectoryResponse $
+--         , responseDeleteDirectory $
 --             deleteDirectoryResponse
 --
---         , testCreateSnapshotResponse $
+--         , responseCreateSnapshot $
 --             createSnapshotResponse
 --
---         , testCreateComputerResponse $
+--         , responseCreateComputer $
 --             createComputerResponse
 --
---         , testDisableSSOResponse $
+--         , responseDisableSSO $
 --             disableSSOResponse
 --
---         , testVerifyTrustResponse $
+--         , responseVerifyTrust $
 --             verifyTrustResponse
 --
---         , testCreateConditionalForwarderResponse $
+--         , responseCreateConditionalForwarder $
 --             createConditionalForwarderResponse
 --
---         , testGetDirectoryLimitsResponse $
+--         , responseGetDirectoryLimits $
 --             getDirectoryLimitsResponse
 --
---         , testUpdateRadiusResponse $
+--         , responseUpdateRadius $
 --             updateRadiusResponse
 --
 --           ]
@@ -210,351 +210,351 @@ import Test.AWS.DirectoryService.Internal
 
 -- Requests
 
-testDescribeConditionalForwarders :: DescribeConditionalForwarders -> TestTree
-testDescribeConditionalForwarders = req
+requestDescribeConditionalForwarders :: DescribeConditionalForwarders -> TestTree
+requestDescribeConditionalForwarders = req
     "DescribeConditionalForwarders"
     "fixture/DescribeConditionalForwarders.yaml"
 
-testGetSnapshotLimits :: GetSnapshotLimits -> TestTree
-testGetSnapshotLimits = req
+requestGetSnapshotLimits :: GetSnapshotLimits -> TestTree
+requestGetSnapshotLimits = req
     "GetSnapshotLimits"
     "fixture/GetSnapshotLimits.yaml"
 
-testRegisterEventTopic :: RegisterEventTopic -> TestTree
-testRegisterEventTopic = req
+requestRegisterEventTopic :: RegisterEventTopic -> TestTree
+requestRegisterEventTopic = req
     "RegisterEventTopic"
     "fixture/RegisterEventTopic.yaml"
 
-testConnectDirectory :: ConnectDirectory -> TestTree
-testConnectDirectory = req
+requestConnectDirectory :: ConnectDirectory -> TestTree
+requestConnectDirectory = req
     "ConnectDirectory"
     "fixture/ConnectDirectory.yaml"
 
-testCreateAlias :: CreateAlias -> TestTree
-testCreateAlias = req
+requestCreateAlias :: CreateAlias -> TestTree
+requestCreateAlias = req
     "CreateAlias"
     "fixture/CreateAlias.yaml"
 
-testDescribeDirectories :: DescribeDirectories -> TestTree
-testDescribeDirectories = req
+requestDescribeDirectories :: DescribeDirectories -> TestTree
+requestDescribeDirectories = req
     "DescribeDirectories"
     "fixture/DescribeDirectories.yaml"
 
-testDescribeTrusts :: DescribeTrusts -> TestTree
-testDescribeTrusts = req
+requestDescribeTrusts :: DescribeTrusts -> TestTree
+requestDescribeTrusts = req
     "DescribeTrusts"
     "fixture/DescribeTrusts.yaml"
 
-testDeleteTrust :: DeleteTrust -> TestTree
-testDeleteTrust = req
+requestDeleteTrust :: DeleteTrust -> TestTree
+requestDeleteTrust = req
     "DeleteTrust"
     "fixture/DeleteTrust.yaml"
 
-testCreateMicrosoftAD :: CreateMicrosoftAD -> TestTree
-testCreateMicrosoftAD = req
+requestCreateMicrosoftAD :: CreateMicrosoftAD -> TestTree
+requestCreateMicrosoftAD = req
     "CreateMicrosoftAD"
     "fixture/CreateMicrosoftAD.yaml"
 
-testDeregisterEventTopic :: DeregisterEventTopic -> TestTree
-testDeregisterEventTopic = req
+requestDeregisterEventTopic :: DeregisterEventTopic -> TestTree
+requestDeregisterEventTopic = req
     "DeregisterEventTopic"
     "fixture/DeregisterEventTopic.yaml"
 
-testCreateDirectory :: CreateDirectory -> TestTree
-testCreateDirectory = req
+requestCreateDirectory :: CreateDirectory -> TestTree
+requestCreateDirectory = req
     "CreateDirectory"
     "fixture/CreateDirectory.yaml"
 
-testDescribeEventTopics :: DescribeEventTopics -> TestTree
-testDescribeEventTopics = req
+requestDescribeEventTopics :: DescribeEventTopics -> TestTree
+requestDescribeEventTopics = req
     "DescribeEventTopics"
     "fixture/DescribeEventTopics.yaml"
 
-testUpdateConditionalForwarder :: UpdateConditionalForwarder -> TestTree
-testUpdateConditionalForwarder = req
+requestUpdateConditionalForwarder :: UpdateConditionalForwarder -> TestTree
+requestUpdateConditionalForwarder = req
     "UpdateConditionalForwarder"
     "fixture/UpdateConditionalForwarder.yaml"
 
-testDeleteConditionalForwarder :: DeleteConditionalForwarder -> TestTree
-testDeleteConditionalForwarder = req
+requestDeleteConditionalForwarder :: DeleteConditionalForwarder -> TestTree
+requestDeleteConditionalForwarder = req
     "DeleteConditionalForwarder"
     "fixture/DeleteConditionalForwarder.yaml"
 
-testEnableSSO :: EnableSSO -> TestTree
-testEnableSSO = req
+requestEnableSSO :: EnableSSO -> TestTree
+requestEnableSSO = req
     "EnableSSO"
     "fixture/EnableSSO.yaml"
 
-testEnableRadius :: EnableRadius -> TestTree
-testEnableRadius = req
+requestEnableRadius :: EnableRadius -> TestTree
+requestEnableRadius = req
     "EnableRadius"
     "fixture/EnableRadius.yaml"
 
-testDisableRadius :: DisableRadius -> TestTree
-testDisableRadius = req
+requestDisableRadius :: DisableRadius -> TestTree
+requestDisableRadius = req
     "DisableRadius"
     "fixture/DisableRadius.yaml"
 
-testRestoreFromSnapshot :: RestoreFromSnapshot -> TestTree
-testRestoreFromSnapshot = req
+requestRestoreFromSnapshot :: RestoreFromSnapshot -> TestTree
+requestRestoreFromSnapshot = req
     "RestoreFromSnapshot"
     "fixture/RestoreFromSnapshot.yaml"
 
-testDescribeSnapshots :: DescribeSnapshots -> TestTree
-testDescribeSnapshots = req
+requestDescribeSnapshots :: DescribeSnapshots -> TestTree
+requestDescribeSnapshots = req
     "DescribeSnapshots"
     "fixture/DescribeSnapshots.yaml"
 
-testDeleteSnapshot :: DeleteSnapshot -> TestTree
-testDeleteSnapshot = req
+requestDeleteSnapshot :: DeleteSnapshot -> TestTree
+requestDeleteSnapshot = req
     "DeleteSnapshot"
     "fixture/DeleteSnapshot.yaml"
 
-testCreateTrust :: CreateTrust -> TestTree
-testCreateTrust = req
+requestCreateTrust :: CreateTrust -> TestTree
+requestCreateTrust = req
     "CreateTrust"
     "fixture/CreateTrust.yaml"
 
-testDeleteDirectory :: DeleteDirectory -> TestTree
-testDeleteDirectory = req
+requestDeleteDirectory :: DeleteDirectory -> TestTree
+requestDeleteDirectory = req
     "DeleteDirectory"
     "fixture/DeleteDirectory.yaml"
 
-testCreateSnapshot :: CreateSnapshot -> TestTree
-testCreateSnapshot = req
+requestCreateSnapshot :: CreateSnapshot -> TestTree
+requestCreateSnapshot = req
     "CreateSnapshot"
     "fixture/CreateSnapshot.yaml"
 
-testCreateComputer :: CreateComputer -> TestTree
-testCreateComputer = req
+requestCreateComputer :: CreateComputer -> TestTree
+requestCreateComputer = req
     "CreateComputer"
     "fixture/CreateComputer.yaml"
 
-testDisableSSO :: DisableSSO -> TestTree
-testDisableSSO = req
+requestDisableSSO :: DisableSSO -> TestTree
+requestDisableSSO = req
     "DisableSSO"
     "fixture/DisableSSO.yaml"
 
-testVerifyTrust :: VerifyTrust -> TestTree
-testVerifyTrust = req
+requestVerifyTrust :: VerifyTrust -> TestTree
+requestVerifyTrust = req
     "VerifyTrust"
     "fixture/VerifyTrust.yaml"
 
-testCreateConditionalForwarder :: CreateConditionalForwarder -> TestTree
-testCreateConditionalForwarder = req
+requestCreateConditionalForwarder :: CreateConditionalForwarder -> TestTree
+requestCreateConditionalForwarder = req
     "CreateConditionalForwarder"
     "fixture/CreateConditionalForwarder.yaml"
 
-testGetDirectoryLimits :: GetDirectoryLimits -> TestTree
-testGetDirectoryLimits = req
+requestGetDirectoryLimits :: GetDirectoryLimits -> TestTree
+requestGetDirectoryLimits = req
     "GetDirectoryLimits"
     "fixture/GetDirectoryLimits.yaml"
 
-testUpdateRadius :: UpdateRadius -> TestTree
-testUpdateRadius = req
+requestUpdateRadius :: UpdateRadius -> TestTree
+requestUpdateRadius = req
     "UpdateRadius"
     "fixture/UpdateRadius.yaml"
 
 -- Responses
 
-testDescribeConditionalForwardersResponse :: DescribeConditionalForwardersResponse -> TestTree
-testDescribeConditionalForwardersResponse = res
+responseDescribeConditionalForwarders :: DescribeConditionalForwardersResponse -> TestTree
+responseDescribeConditionalForwarders = res
     "DescribeConditionalForwardersResponse"
     "fixture/DescribeConditionalForwardersResponse.proto"
     directoryService
     (Proxy :: Proxy DescribeConditionalForwarders)
 
-testGetSnapshotLimitsResponse :: GetSnapshotLimitsResponse -> TestTree
-testGetSnapshotLimitsResponse = res
+responseGetSnapshotLimits :: GetSnapshotLimitsResponse -> TestTree
+responseGetSnapshotLimits = res
     "GetSnapshotLimitsResponse"
     "fixture/GetSnapshotLimitsResponse.proto"
     directoryService
     (Proxy :: Proxy GetSnapshotLimits)
 
-testRegisterEventTopicResponse :: RegisterEventTopicResponse -> TestTree
-testRegisterEventTopicResponse = res
+responseRegisterEventTopic :: RegisterEventTopicResponse -> TestTree
+responseRegisterEventTopic = res
     "RegisterEventTopicResponse"
     "fixture/RegisterEventTopicResponse.proto"
     directoryService
     (Proxy :: Proxy RegisterEventTopic)
 
-testConnectDirectoryResponse :: ConnectDirectoryResponse -> TestTree
-testConnectDirectoryResponse = res
+responseConnectDirectory :: ConnectDirectoryResponse -> TestTree
+responseConnectDirectory = res
     "ConnectDirectoryResponse"
     "fixture/ConnectDirectoryResponse.proto"
     directoryService
     (Proxy :: Proxy ConnectDirectory)
 
-testCreateAliasResponse :: CreateAliasResponse -> TestTree
-testCreateAliasResponse = res
+responseCreateAlias :: CreateAliasResponse -> TestTree
+responseCreateAlias = res
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
     directoryService
     (Proxy :: Proxy CreateAlias)
 
-testDescribeDirectoriesResponse :: DescribeDirectoriesResponse -> TestTree
-testDescribeDirectoriesResponse = res
+responseDescribeDirectories :: DescribeDirectoriesResponse -> TestTree
+responseDescribeDirectories = res
     "DescribeDirectoriesResponse"
     "fixture/DescribeDirectoriesResponse.proto"
     directoryService
     (Proxy :: Proxy DescribeDirectories)
 
-testDescribeTrustsResponse :: DescribeTrustsResponse -> TestTree
-testDescribeTrustsResponse = res
+responseDescribeTrusts :: DescribeTrustsResponse -> TestTree
+responseDescribeTrusts = res
     "DescribeTrustsResponse"
     "fixture/DescribeTrustsResponse.proto"
     directoryService
     (Proxy :: Proxy DescribeTrusts)
 
-testDeleteTrustResponse :: DeleteTrustResponse -> TestTree
-testDeleteTrustResponse = res
+responseDeleteTrust :: DeleteTrustResponse -> TestTree
+responseDeleteTrust = res
     "DeleteTrustResponse"
     "fixture/DeleteTrustResponse.proto"
     directoryService
     (Proxy :: Proxy DeleteTrust)
 
-testCreateMicrosoftADResponse :: CreateMicrosoftADResponse -> TestTree
-testCreateMicrosoftADResponse = res
+responseCreateMicrosoftAD :: CreateMicrosoftADResponse -> TestTree
+responseCreateMicrosoftAD = res
     "CreateMicrosoftADResponse"
     "fixture/CreateMicrosoftADResponse.proto"
     directoryService
     (Proxy :: Proxy CreateMicrosoftAD)
 
-testDeregisterEventTopicResponse :: DeregisterEventTopicResponse -> TestTree
-testDeregisterEventTopicResponse = res
+responseDeregisterEventTopic :: DeregisterEventTopicResponse -> TestTree
+responseDeregisterEventTopic = res
     "DeregisterEventTopicResponse"
     "fixture/DeregisterEventTopicResponse.proto"
     directoryService
     (Proxy :: Proxy DeregisterEventTopic)
 
-testCreateDirectoryResponse :: CreateDirectoryResponse -> TestTree
-testCreateDirectoryResponse = res
+responseCreateDirectory :: CreateDirectoryResponse -> TestTree
+responseCreateDirectory = res
     "CreateDirectoryResponse"
     "fixture/CreateDirectoryResponse.proto"
     directoryService
     (Proxy :: Proxy CreateDirectory)
 
-testDescribeEventTopicsResponse :: DescribeEventTopicsResponse -> TestTree
-testDescribeEventTopicsResponse = res
+responseDescribeEventTopics :: DescribeEventTopicsResponse -> TestTree
+responseDescribeEventTopics = res
     "DescribeEventTopicsResponse"
     "fixture/DescribeEventTopicsResponse.proto"
     directoryService
     (Proxy :: Proxy DescribeEventTopics)
 
-testUpdateConditionalForwarderResponse :: UpdateConditionalForwarderResponse -> TestTree
-testUpdateConditionalForwarderResponse = res
+responseUpdateConditionalForwarder :: UpdateConditionalForwarderResponse -> TestTree
+responseUpdateConditionalForwarder = res
     "UpdateConditionalForwarderResponse"
     "fixture/UpdateConditionalForwarderResponse.proto"
     directoryService
     (Proxy :: Proxy UpdateConditionalForwarder)
 
-testDeleteConditionalForwarderResponse :: DeleteConditionalForwarderResponse -> TestTree
-testDeleteConditionalForwarderResponse = res
+responseDeleteConditionalForwarder :: DeleteConditionalForwarderResponse -> TestTree
+responseDeleteConditionalForwarder = res
     "DeleteConditionalForwarderResponse"
     "fixture/DeleteConditionalForwarderResponse.proto"
     directoryService
     (Proxy :: Proxy DeleteConditionalForwarder)
 
-testEnableSSOResponse :: EnableSSOResponse -> TestTree
-testEnableSSOResponse = res
+responseEnableSSO :: EnableSSOResponse -> TestTree
+responseEnableSSO = res
     "EnableSSOResponse"
     "fixture/EnableSSOResponse.proto"
     directoryService
     (Proxy :: Proxy EnableSSO)
 
-testEnableRadiusResponse :: EnableRadiusResponse -> TestTree
-testEnableRadiusResponse = res
+responseEnableRadius :: EnableRadiusResponse -> TestTree
+responseEnableRadius = res
     "EnableRadiusResponse"
     "fixture/EnableRadiusResponse.proto"
     directoryService
     (Proxy :: Proxy EnableRadius)
 
-testDisableRadiusResponse :: DisableRadiusResponse -> TestTree
-testDisableRadiusResponse = res
+responseDisableRadius :: DisableRadiusResponse -> TestTree
+responseDisableRadius = res
     "DisableRadiusResponse"
     "fixture/DisableRadiusResponse.proto"
     directoryService
     (Proxy :: Proxy DisableRadius)
 
-testRestoreFromSnapshotResponse :: RestoreFromSnapshotResponse -> TestTree
-testRestoreFromSnapshotResponse = res
+responseRestoreFromSnapshot :: RestoreFromSnapshotResponse -> TestTree
+responseRestoreFromSnapshot = res
     "RestoreFromSnapshotResponse"
     "fixture/RestoreFromSnapshotResponse.proto"
     directoryService
     (Proxy :: Proxy RestoreFromSnapshot)
 
-testDescribeSnapshotsResponse :: DescribeSnapshotsResponse -> TestTree
-testDescribeSnapshotsResponse = res
+responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
+responseDescribeSnapshots = res
     "DescribeSnapshotsResponse"
     "fixture/DescribeSnapshotsResponse.proto"
     directoryService
     (Proxy :: Proxy DescribeSnapshots)
 
-testDeleteSnapshotResponse :: DeleteSnapshotResponse -> TestTree
-testDeleteSnapshotResponse = res
+responseDeleteSnapshot :: DeleteSnapshotResponse -> TestTree
+responseDeleteSnapshot = res
     "DeleteSnapshotResponse"
     "fixture/DeleteSnapshotResponse.proto"
     directoryService
     (Proxy :: Proxy DeleteSnapshot)
 
-testCreateTrustResponse :: CreateTrustResponse -> TestTree
-testCreateTrustResponse = res
+responseCreateTrust :: CreateTrustResponse -> TestTree
+responseCreateTrust = res
     "CreateTrustResponse"
     "fixture/CreateTrustResponse.proto"
     directoryService
     (Proxy :: Proxy CreateTrust)
 
-testDeleteDirectoryResponse :: DeleteDirectoryResponse -> TestTree
-testDeleteDirectoryResponse = res
+responseDeleteDirectory :: DeleteDirectoryResponse -> TestTree
+responseDeleteDirectory = res
     "DeleteDirectoryResponse"
     "fixture/DeleteDirectoryResponse.proto"
     directoryService
     (Proxy :: Proxy DeleteDirectory)
 
-testCreateSnapshotResponse :: CreateSnapshotResponse -> TestTree
-testCreateSnapshotResponse = res
+responseCreateSnapshot :: CreateSnapshotResponse -> TestTree
+responseCreateSnapshot = res
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse.proto"
     directoryService
     (Proxy :: Proxy CreateSnapshot)
 
-testCreateComputerResponse :: CreateComputerResponse -> TestTree
-testCreateComputerResponse = res
+responseCreateComputer :: CreateComputerResponse -> TestTree
+responseCreateComputer = res
     "CreateComputerResponse"
     "fixture/CreateComputerResponse.proto"
     directoryService
     (Proxy :: Proxy CreateComputer)
 
-testDisableSSOResponse :: DisableSSOResponse -> TestTree
-testDisableSSOResponse = res
+responseDisableSSO :: DisableSSOResponse -> TestTree
+responseDisableSSO = res
     "DisableSSOResponse"
     "fixture/DisableSSOResponse.proto"
     directoryService
     (Proxy :: Proxy DisableSSO)
 
-testVerifyTrustResponse :: VerifyTrustResponse -> TestTree
-testVerifyTrustResponse = res
+responseVerifyTrust :: VerifyTrustResponse -> TestTree
+responseVerifyTrust = res
     "VerifyTrustResponse"
     "fixture/VerifyTrustResponse.proto"
     directoryService
     (Proxy :: Proxy VerifyTrust)
 
-testCreateConditionalForwarderResponse :: CreateConditionalForwarderResponse -> TestTree
-testCreateConditionalForwarderResponse = res
+responseCreateConditionalForwarder :: CreateConditionalForwarderResponse -> TestTree
+responseCreateConditionalForwarder = res
     "CreateConditionalForwarderResponse"
     "fixture/CreateConditionalForwarderResponse.proto"
     directoryService
     (Proxy :: Proxy CreateConditionalForwarder)
 
-testGetDirectoryLimitsResponse :: GetDirectoryLimitsResponse -> TestTree
-testGetDirectoryLimitsResponse = res
+responseGetDirectoryLimits :: GetDirectoryLimitsResponse -> TestTree
+responseGetDirectoryLimits = res
     "GetDirectoryLimitsResponse"
     "fixture/GetDirectoryLimitsResponse.proto"
     directoryService
     (Proxy :: Proxy GetDirectoryLimits)
 
-testUpdateRadiusResponse :: UpdateRadiusResponse -> TestTree
-testUpdateRadiusResponse = res
+responseUpdateRadius :: UpdateRadiusResponse -> TestTree
+responseUpdateRadius = res
     "UpdateRadiusResponse"
     "fixture/UpdateRadiusResponse.proto"
     directoryService

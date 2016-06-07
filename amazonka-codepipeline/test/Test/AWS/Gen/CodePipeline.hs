@@ -28,145 +28,145 @@ import Test.AWS.CodePipeline.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testGetPipeline $
+--         [ requestGetPipeline $
 --             getPipeline
 --
---         , testPutJobFailureResult $
+--         , requestPutJobFailureResult $
 --             putJobFailureResult
 --
---         , testAcknowledgeThirdPartyJob $
+--         , requestAcknowledgeThirdPartyJob $
 --             acknowledgeThirdPartyJob
 --
---         , testPutThirdPartyJobFailureResult $
+--         , requestPutThirdPartyJobFailureResult $
 --             putThirdPartyJobFailureResult
 --
---         , testPollForThirdPartyJobs $
+--         , requestPollForThirdPartyJobs $
 --             pollForThirdPartyJobs
 --
---         , testPollForJobs $
+--         , requestPollForJobs $
 --             pollForJobs
 --
---         , testStartPipelineExecution $
+--         , requestStartPipelineExecution $
 --             startPipelineExecution
 --
---         , testUpdatePipeline $
+--         , requestUpdatePipeline $
 --             updatePipeline
 --
---         , testDeletePipeline $
+--         , requestDeletePipeline $
 --             deletePipeline
 --
---         , testGetPipelineState $
+--         , requestGetPipelineState $
 --             getPipelineState
 --
---         , testGetJobDetails $
+--         , requestGetJobDetails $
 --             getJobDetails
 --
---         , testListPipelines $
+--         , requestListPipelines $
 --             listPipelines
 --
---         , testPutJobSuccessResult $
+--         , requestPutJobSuccessResult $
 --             putJobSuccessResult
 --
---         , testDeleteCustomActionType $
+--         , requestDeleteCustomActionType $
 --             deleteCustomActionType
 --
---         , testPutActionRevision $
+--         , requestPutActionRevision $
 --             putActionRevision
 --
---         , testDisableStageTransition $
+--         , requestDisableStageTransition $
 --             disableStageTransition
 --
---         , testListActionTypes $
+--         , requestListActionTypes $
 --             listActionTypes
 --
---         , testAcknowledgeJob $
+--         , requestAcknowledgeJob $
 --             acknowledgeJob
 --
---         , testEnableStageTransition $
+--         , requestEnableStageTransition $
 --             enableStageTransition
 --
---         , testCreatePipeline $
+--         , requestCreatePipeline $
 --             createPipeline
 --
---         , testGetThirdPartyJobDetails $
+--         , requestGetThirdPartyJobDetails $
 --             getThirdPartyJobDetails
 --
---         , testPutThirdPartyJobSuccessResult $
+--         , requestPutThirdPartyJobSuccessResult $
 --             putThirdPartyJobSuccessResult
 --
---         , testCreateCustomActionType $
+--         , requestCreateCustomActionType $
 --             createCustomActionType
 --
 --           ]
 
 --     , testGroup "response"
---         [ testGetPipelineResponse $
+--         [ responseGetPipeline $
 --             getPipelineResponse
 --
---         , testPutJobFailureResultResponse $
+--         , responsePutJobFailureResult $
 --             putJobFailureResultResponse
 --
---         , testAcknowledgeThirdPartyJobResponse $
+--         , responseAcknowledgeThirdPartyJob $
 --             acknowledgeThirdPartyJobResponse
 --
---         , testPutThirdPartyJobFailureResultResponse $
+--         , responsePutThirdPartyJobFailureResult $
 --             putThirdPartyJobFailureResultResponse
 --
---         , testPollForThirdPartyJobsResponse $
+--         , responsePollForThirdPartyJobs $
 --             pollForThirdPartyJobsResponse
 --
---         , testPollForJobsResponse $
+--         , responsePollForJobs $
 --             pollForJobsResponse
 --
---         , testStartPipelineExecutionResponse $
+--         , responseStartPipelineExecution $
 --             startPipelineExecutionResponse
 --
---         , testUpdatePipelineResponse $
+--         , responseUpdatePipeline $
 --             updatePipelineResponse
 --
---         , testDeletePipelineResponse $
+--         , responseDeletePipeline $
 --             deletePipelineResponse
 --
---         , testGetPipelineStateResponse $
+--         , responseGetPipelineState $
 --             getPipelineStateResponse
 --
---         , testGetJobDetailsResponse $
+--         , responseGetJobDetails $
 --             getJobDetailsResponse
 --
---         , testListPipelinesResponse $
+--         , responseListPipelines $
 --             listPipelinesResponse
 --
---         , testPutJobSuccessResultResponse $
+--         , responsePutJobSuccessResult $
 --             putJobSuccessResultResponse
 --
---         , testDeleteCustomActionTypeResponse $
+--         , responseDeleteCustomActionType $
 --             deleteCustomActionTypeResponse
 --
---         , testPutActionRevisionResponse $
+--         , responsePutActionRevision $
 --             putActionRevisionResponse
 --
---         , testDisableStageTransitionResponse $
+--         , responseDisableStageTransition $
 --             disableStageTransitionResponse
 --
---         , testListActionTypesResponse $
+--         , responseListActionTypes $
 --             listActionTypesResponse
 --
---         , testAcknowledgeJobResponse $
+--         , responseAcknowledgeJob $
 --             acknowledgeJobResponse
 --
---         , testEnableStageTransitionResponse $
+--         , responseEnableStageTransition $
 --             enableStageTransitionResponse
 --
---         , testCreatePipelineResponse $
+--         , responseCreatePipeline $
 --             createPipelineResponse
 --
---         , testGetThirdPartyJobDetailsResponse $
+--         , responseGetThirdPartyJobDetails $
 --             getThirdPartyJobDetailsResponse
 --
---         , testPutThirdPartyJobSuccessResultResponse $
+--         , responsePutThirdPartyJobSuccessResult $
 --             putThirdPartyJobSuccessResultResponse
 --
---         , testCreateCustomActionTypeResponse $
+--         , responseCreateCustomActionType $
 --             createCustomActionTypeResponse
 --
 --           ]
@@ -174,279 +174,279 @@ import Test.AWS.CodePipeline.Internal
 
 -- Requests
 
-testGetPipeline :: GetPipeline -> TestTree
-testGetPipeline = req
+requestGetPipeline :: GetPipeline -> TestTree
+requestGetPipeline = req
     "GetPipeline"
     "fixture/GetPipeline.yaml"
 
-testPutJobFailureResult :: PutJobFailureResult -> TestTree
-testPutJobFailureResult = req
+requestPutJobFailureResult :: PutJobFailureResult -> TestTree
+requestPutJobFailureResult = req
     "PutJobFailureResult"
     "fixture/PutJobFailureResult.yaml"
 
-testAcknowledgeThirdPartyJob :: AcknowledgeThirdPartyJob -> TestTree
-testAcknowledgeThirdPartyJob = req
+requestAcknowledgeThirdPartyJob :: AcknowledgeThirdPartyJob -> TestTree
+requestAcknowledgeThirdPartyJob = req
     "AcknowledgeThirdPartyJob"
     "fixture/AcknowledgeThirdPartyJob.yaml"
 
-testPutThirdPartyJobFailureResult :: PutThirdPartyJobFailureResult -> TestTree
-testPutThirdPartyJobFailureResult = req
+requestPutThirdPartyJobFailureResult :: PutThirdPartyJobFailureResult -> TestTree
+requestPutThirdPartyJobFailureResult = req
     "PutThirdPartyJobFailureResult"
     "fixture/PutThirdPartyJobFailureResult.yaml"
 
-testPollForThirdPartyJobs :: PollForThirdPartyJobs -> TestTree
-testPollForThirdPartyJobs = req
+requestPollForThirdPartyJobs :: PollForThirdPartyJobs -> TestTree
+requestPollForThirdPartyJobs = req
     "PollForThirdPartyJobs"
     "fixture/PollForThirdPartyJobs.yaml"
 
-testPollForJobs :: PollForJobs -> TestTree
-testPollForJobs = req
+requestPollForJobs :: PollForJobs -> TestTree
+requestPollForJobs = req
     "PollForJobs"
     "fixture/PollForJobs.yaml"
 
-testStartPipelineExecution :: StartPipelineExecution -> TestTree
-testStartPipelineExecution = req
+requestStartPipelineExecution :: StartPipelineExecution -> TestTree
+requestStartPipelineExecution = req
     "StartPipelineExecution"
     "fixture/StartPipelineExecution.yaml"
 
-testUpdatePipeline :: UpdatePipeline -> TestTree
-testUpdatePipeline = req
+requestUpdatePipeline :: UpdatePipeline -> TestTree
+requestUpdatePipeline = req
     "UpdatePipeline"
     "fixture/UpdatePipeline.yaml"
 
-testDeletePipeline :: DeletePipeline -> TestTree
-testDeletePipeline = req
+requestDeletePipeline :: DeletePipeline -> TestTree
+requestDeletePipeline = req
     "DeletePipeline"
     "fixture/DeletePipeline.yaml"
 
-testGetPipelineState :: GetPipelineState -> TestTree
-testGetPipelineState = req
+requestGetPipelineState :: GetPipelineState -> TestTree
+requestGetPipelineState = req
     "GetPipelineState"
     "fixture/GetPipelineState.yaml"
 
-testGetJobDetails :: GetJobDetails -> TestTree
-testGetJobDetails = req
+requestGetJobDetails :: GetJobDetails -> TestTree
+requestGetJobDetails = req
     "GetJobDetails"
     "fixture/GetJobDetails.yaml"
 
-testListPipelines :: ListPipelines -> TestTree
-testListPipelines = req
+requestListPipelines :: ListPipelines -> TestTree
+requestListPipelines = req
     "ListPipelines"
     "fixture/ListPipelines.yaml"
 
-testPutJobSuccessResult :: PutJobSuccessResult -> TestTree
-testPutJobSuccessResult = req
+requestPutJobSuccessResult :: PutJobSuccessResult -> TestTree
+requestPutJobSuccessResult = req
     "PutJobSuccessResult"
     "fixture/PutJobSuccessResult.yaml"
 
-testDeleteCustomActionType :: DeleteCustomActionType -> TestTree
-testDeleteCustomActionType = req
+requestDeleteCustomActionType :: DeleteCustomActionType -> TestTree
+requestDeleteCustomActionType = req
     "DeleteCustomActionType"
     "fixture/DeleteCustomActionType.yaml"
 
-testPutActionRevision :: PutActionRevision -> TestTree
-testPutActionRevision = req
+requestPutActionRevision :: PutActionRevision -> TestTree
+requestPutActionRevision = req
     "PutActionRevision"
     "fixture/PutActionRevision.yaml"
 
-testDisableStageTransition :: DisableStageTransition -> TestTree
-testDisableStageTransition = req
+requestDisableStageTransition :: DisableStageTransition -> TestTree
+requestDisableStageTransition = req
     "DisableStageTransition"
     "fixture/DisableStageTransition.yaml"
 
-testListActionTypes :: ListActionTypes -> TestTree
-testListActionTypes = req
+requestListActionTypes :: ListActionTypes -> TestTree
+requestListActionTypes = req
     "ListActionTypes"
     "fixture/ListActionTypes.yaml"
 
-testAcknowledgeJob :: AcknowledgeJob -> TestTree
-testAcknowledgeJob = req
+requestAcknowledgeJob :: AcknowledgeJob -> TestTree
+requestAcknowledgeJob = req
     "AcknowledgeJob"
     "fixture/AcknowledgeJob.yaml"
 
-testEnableStageTransition :: EnableStageTransition -> TestTree
-testEnableStageTransition = req
+requestEnableStageTransition :: EnableStageTransition -> TestTree
+requestEnableStageTransition = req
     "EnableStageTransition"
     "fixture/EnableStageTransition.yaml"
 
-testCreatePipeline :: CreatePipeline -> TestTree
-testCreatePipeline = req
+requestCreatePipeline :: CreatePipeline -> TestTree
+requestCreatePipeline = req
     "CreatePipeline"
     "fixture/CreatePipeline.yaml"
 
-testGetThirdPartyJobDetails :: GetThirdPartyJobDetails -> TestTree
-testGetThirdPartyJobDetails = req
+requestGetThirdPartyJobDetails :: GetThirdPartyJobDetails -> TestTree
+requestGetThirdPartyJobDetails = req
     "GetThirdPartyJobDetails"
     "fixture/GetThirdPartyJobDetails.yaml"
 
-testPutThirdPartyJobSuccessResult :: PutThirdPartyJobSuccessResult -> TestTree
-testPutThirdPartyJobSuccessResult = req
+requestPutThirdPartyJobSuccessResult :: PutThirdPartyJobSuccessResult -> TestTree
+requestPutThirdPartyJobSuccessResult = req
     "PutThirdPartyJobSuccessResult"
     "fixture/PutThirdPartyJobSuccessResult.yaml"
 
-testCreateCustomActionType :: CreateCustomActionType -> TestTree
-testCreateCustomActionType = req
+requestCreateCustomActionType :: CreateCustomActionType -> TestTree
+requestCreateCustomActionType = req
     "CreateCustomActionType"
     "fixture/CreateCustomActionType.yaml"
 
 -- Responses
 
-testGetPipelineResponse :: GetPipelineResponse -> TestTree
-testGetPipelineResponse = res
+responseGetPipeline :: GetPipelineResponse -> TestTree
+responseGetPipeline = res
     "GetPipelineResponse"
     "fixture/GetPipelineResponse.proto"
     codePipeline
     (Proxy :: Proxy GetPipeline)
 
-testPutJobFailureResultResponse :: PutJobFailureResultResponse -> TestTree
-testPutJobFailureResultResponse = res
+responsePutJobFailureResult :: PutJobFailureResultResponse -> TestTree
+responsePutJobFailureResult = res
     "PutJobFailureResultResponse"
     "fixture/PutJobFailureResultResponse.proto"
     codePipeline
     (Proxy :: Proxy PutJobFailureResult)
 
-testAcknowledgeThirdPartyJobResponse :: AcknowledgeThirdPartyJobResponse -> TestTree
-testAcknowledgeThirdPartyJobResponse = res
+responseAcknowledgeThirdPartyJob :: AcknowledgeThirdPartyJobResponse -> TestTree
+responseAcknowledgeThirdPartyJob = res
     "AcknowledgeThirdPartyJobResponse"
     "fixture/AcknowledgeThirdPartyJobResponse.proto"
     codePipeline
     (Proxy :: Proxy AcknowledgeThirdPartyJob)
 
-testPutThirdPartyJobFailureResultResponse :: PutThirdPartyJobFailureResultResponse -> TestTree
-testPutThirdPartyJobFailureResultResponse = res
+responsePutThirdPartyJobFailureResult :: PutThirdPartyJobFailureResultResponse -> TestTree
+responsePutThirdPartyJobFailureResult = res
     "PutThirdPartyJobFailureResultResponse"
     "fixture/PutThirdPartyJobFailureResultResponse.proto"
     codePipeline
     (Proxy :: Proxy PutThirdPartyJobFailureResult)
 
-testPollForThirdPartyJobsResponse :: PollForThirdPartyJobsResponse -> TestTree
-testPollForThirdPartyJobsResponse = res
+responsePollForThirdPartyJobs :: PollForThirdPartyJobsResponse -> TestTree
+responsePollForThirdPartyJobs = res
     "PollForThirdPartyJobsResponse"
     "fixture/PollForThirdPartyJobsResponse.proto"
     codePipeline
     (Proxy :: Proxy PollForThirdPartyJobs)
 
-testPollForJobsResponse :: PollForJobsResponse -> TestTree
-testPollForJobsResponse = res
+responsePollForJobs :: PollForJobsResponse -> TestTree
+responsePollForJobs = res
     "PollForJobsResponse"
     "fixture/PollForJobsResponse.proto"
     codePipeline
     (Proxy :: Proxy PollForJobs)
 
-testStartPipelineExecutionResponse :: StartPipelineExecutionResponse -> TestTree
-testStartPipelineExecutionResponse = res
+responseStartPipelineExecution :: StartPipelineExecutionResponse -> TestTree
+responseStartPipelineExecution = res
     "StartPipelineExecutionResponse"
     "fixture/StartPipelineExecutionResponse.proto"
     codePipeline
     (Proxy :: Proxy StartPipelineExecution)
 
-testUpdatePipelineResponse :: UpdatePipelineResponse -> TestTree
-testUpdatePipelineResponse = res
+responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
+responseUpdatePipeline = res
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse.proto"
     codePipeline
     (Proxy :: Proxy UpdatePipeline)
 
-testDeletePipelineResponse :: DeletePipelineResponse -> TestTree
-testDeletePipelineResponse = res
+responseDeletePipeline :: DeletePipelineResponse -> TestTree
+responseDeletePipeline = res
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
     codePipeline
     (Proxy :: Proxy DeletePipeline)
 
-testGetPipelineStateResponse :: GetPipelineStateResponse -> TestTree
-testGetPipelineStateResponse = res
+responseGetPipelineState :: GetPipelineStateResponse -> TestTree
+responseGetPipelineState = res
     "GetPipelineStateResponse"
     "fixture/GetPipelineStateResponse.proto"
     codePipeline
     (Proxy :: Proxy GetPipelineState)
 
-testGetJobDetailsResponse :: GetJobDetailsResponse -> TestTree
-testGetJobDetailsResponse = res
+responseGetJobDetails :: GetJobDetailsResponse -> TestTree
+responseGetJobDetails = res
     "GetJobDetailsResponse"
     "fixture/GetJobDetailsResponse.proto"
     codePipeline
     (Proxy :: Proxy GetJobDetails)
 
-testListPipelinesResponse :: ListPipelinesResponse -> TestTree
-testListPipelinesResponse = res
+responseListPipelines :: ListPipelinesResponse -> TestTree
+responseListPipelines = res
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
     codePipeline
     (Proxy :: Proxy ListPipelines)
 
-testPutJobSuccessResultResponse :: PutJobSuccessResultResponse -> TestTree
-testPutJobSuccessResultResponse = res
+responsePutJobSuccessResult :: PutJobSuccessResultResponse -> TestTree
+responsePutJobSuccessResult = res
     "PutJobSuccessResultResponse"
     "fixture/PutJobSuccessResultResponse.proto"
     codePipeline
     (Proxy :: Proxy PutJobSuccessResult)
 
-testDeleteCustomActionTypeResponse :: DeleteCustomActionTypeResponse -> TestTree
-testDeleteCustomActionTypeResponse = res
+responseDeleteCustomActionType :: DeleteCustomActionTypeResponse -> TestTree
+responseDeleteCustomActionType = res
     "DeleteCustomActionTypeResponse"
     "fixture/DeleteCustomActionTypeResponse.proto"
     codePipeline
     (Proxy :: Proxy DeleteCustomActionType)
 
-testPutActionRevisionResponse :: PutActionRevisionResponse -> TestTree
-testPutActionRevisionResponse = res
+responsePutActionRevision :: PutActionRevisionResponse -> TestTree
+responsePutActionRevision = res
     "PutActionRevisionResponse"
     "fixture/PutActionRevisionResponse.proto"
     codePipeline
     (Proxy :: Proxy PutActionRevision)
 
-testDisableStageTransitionResponse :: DisableStageTransitionResponse -> TestTree
-testDisableStageTransitionResponse = res
+responseDisableStageTransition :: DisableStageTransitionResponse -> TestTree
+responseDisableStageTransition = res
     "DisableStageTransitionResponse"
     "fixture/DisableStageTransitionResponse.proto"
     codePipeline
     (Proxy :: Proxy DisableStageTransition)
 
-testListActionTypesResponse :: ListActionTypesResponse -> TestTree
-testListActionTypesResponse = res
+responseListActionTypes :: ListActionTypesResponse -> TestTree
+responseListActionTypes = res
     "ListActionTypesResponse"
     "fixture/ListActionTypesResponse.proto"
     codePipeline
     (Proxy :: Proxy ListActionTypes)
 
-testAcknowledgeJobResponse :: AcknowledgeJobResponse -> TestTree
-testAcknowledgeJobResponse = res
+responseAcknowledgeJob :: AcknowledgeJobResponse -> TestTree
+responseAcknowledgeJob = res
     "AcknowledgeJobResponse"
     "fixture/AcknowledgeJobResponse.proto"
     codePipeline
     (Proxy :: Proxy AcknowledgeJob)
 
-testEnableStageTransitionResponse :: EnableStageTransitionResponse -> TestTree
-testEnableStageTransitionResponse = res
+responseEnableStageTransition :: EnableStageTransitionResponse -> TestTree
+responseEnableStageTransition = res
     "EnableStageTransitionResponse"
     "fixture/EnableStageTransitionResponse.proto"
     codePipeline
     (Proxy :: Proxy EnableStageTransition)
 
-testCreatePipelineResponse :: CreatePipelineResponse -> TestTree
-testCreatePipelineResponse = res
+responseCreatePipeline :: CreatePipelineResponse -> TestTree
+responseCreatePipeline = res
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
     codePipeline
     (Proxy :: Proxy CreatePipeline)
 
-testGetThirdPartyJobDetailsResponse :: GetThirdPartyJobDetailsResponse -> TestTree
-testGetThirdPartyJobDetailsResponse = res
+responseGetThirdPartyJobDetails :: GetThirdPartyJobDetailsResponse -> TestTree
+responseGetThirdPartyJobDetails = res
     "GetThirdPartyJobDetailsResponse"
     "fixture/GetThirdPartyJobDetailsResponse.proto"
     codePipeline
     (Proxy :: Proxy GetThirdPartyJobDetails)
 
-testPutThirdPartyJobSuccessResultResponse :: PutThirdPartyJobSuccessResultResponse -> TestTree
-testPutThirdPartyJobSuccessResultResponse = res
+responsePutThirdPartyJobSuccessResult :: PutThirdPartyJobSuccessResultResponse -> TestTree
+responsePutThirdPartyJobSuccessResult = res
     "PutThirdPartyJobSuccessResultResponse"
     "fixture/PutThirdPartyJobSuccessResultResponse.proto"
     codePipeline
     (Proxy :: Proxy PutThirdPartyJobSuccessResult)
 
-testCreateCustomActionTypeResponse :: CreateCustomActionTypeResponse -> TestTree
-testCreateCustomActionTypeResponse = res
+responseCreateCustomActionType :: CreateCustomActionTypeResponse -> TestTree
+responseCreateCustomActionType = res
     "CreateCustomActionTypeResponse"
     "fixture/CreateCustomActionTypeResponse.proto"
     codePipeline

@@ -28,61 +28,61 @@ import Test.AWS.CertificateManager.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testResendValidationEmail $
+--         [ requestResendValidationEmail $
 --             resendValidationEmail
 --
---         , testListTagsForCertificate $
+--         , requestListTagsForCertificate $
 --             listTagsForCertificate
 --
---         , testGetCertificate $
+--         , requestGetCertificate $
 --             getCertificate
 --
---         , testAddTagsToCertificate $
+--         , requestAddTagsToCertificate $
 --             addTagsToCertificate
 --
---         , testRequestCertificate $
+--         , requestRequestCertificate $
 --             requestCertificate
 --
---         , testListCertificates $
+--         , requestListCertificates $
 --             listCertificates
 --
---         , testDeleteCertificate $
+--         , requestDeleteCertificate $
 --             deleteCertificate
 --
---         , testRemoveTagsFromCertificate $
+--         , requestRemoveTagsFromCertificate $
 --             removeTagsFromCertificate
 --
---         , testDescribeCertificate $
+--         , requestDescribeCertificate $
 --             describeCertificate
 --
 --           ]
 
 --     , testGroup "response"
---         [ testResendValidationEmailResponse $
+--         [ responseResendValidationEmail $
 --             resendValidationEmailResponse
 --
---         , testListTagsForCertificateResponse $
+--         , responseListTagsForCertificate $
 --             listTagsForCertificateResponse
 --
---         , testGetCertificateResponse $
+--         , responseGetCertificate $
 --             getCertificateResponse
 --
---         , testAddTagsToCertificateResponse $
+--         , responseAddTagsToCertificate $
 --             addTagsToCertificateResponse
 --
---         , testRequestCertificateResponse $
+--         , responseRequestCertificate $
 --             requestCertificateResponse
 --
---         , testListCertificatesResponse $
+--         , responseListCertificates $
 --             listCertificatesResponse
 --
---         , testDeleteCertificateResponse $
+--         , responseDeleteCertificate $
 --             deleteCertificateResponse
 --
---         , testRemoveTagsFromCertificateResponse $
+--         , responseRemoveTagsFromCertificate $
 --             removeTagsFromCertificateResponse
 --
---         , testDescribeCertificateResponse $
+--         , responseDescribeCertificate $
 --             describeCertificateResponse
 --
 --           ]
@@ -90,111 +90,111 @@ import Test.AWS.CertificateManager.Internal
 
 -- Requests
 
-testResendValidationEmail :: ResendValidationEmail -> TestTree
-testResendValidationEmail = req
+requestResendValidationEmail :: ResendValidationEmail -> TestTree
+requestResendValidationEmail = req
     "ResendValidationEmail"
     "fixture/ResendValidationEmail.yaml"
 
-testListTagsForCertificate :: ListTagsForCertificate -> TestTree
-testListTagsForCertificate = req
+requestListTagsForCertificate :: ListTagsForCertificate -> TestTree
+requestListTagsForCertificate = req
     "ListTagsForCertificate"
     "fixture/ListTagsForCertificate.yaml"
 
-testGetCertificate :: GetCertificate -> TestTree
-testGetCertificate = req
+requestGetCertificate :: GetCertificate -> TestTree
+requestGetCertificate = req
     "GetCertificate"
     "fixture/GetCertificate.yaml"
 
-testAddTagsToCertificate :: AddTagsToCertificate -> TestTree
-testAddTagsToCertificate = req
+requestAddTagsToCertificate :: AddTagsToCertificate -> TestTree
+requestAddTagsToCertificate = req
     "AddTagsToCertificate"
     "fixture/AddTagsToCertificate.yaml"
 
-testRequestCertificate :: RequestCertificate -> TestTree
-testRequestCertificate = req
+requestRequestCertificate :: RequestCertificate -> TestTree
+requestRequestCertificate = req
     "RequestCertificate"
     "fixture/RequestCertificate.yaml"
 
-testListCertificates :: ListCertificates -> TestTree
-testListCertificates = req
+requestListCertificates :: ListCertificates -> TestTree
+requestListCertificates = req
     "ListCertificates"
     "fixture/ListCertificates.yaml"
 
-testDeleteCertificate :: DeleteCertificate -> TestTree
-testDeleteCertificate = req
+requestDeleteCertificate :: DeleteCertificate -> TestTree
+requestDeleteCertificate = req
     "DeleteCertificate"
     "fixture/DeleteCertificate.yaml"
 
-testRemoveTagsFromCertificate :: RemoveTagsFromCertificate -> TestTree
-testRemoveTagsFromCertificate = req
+requestRemoveTagsFromCertificate :: RemoveTagsFromCertificate -> TestTree
+requestRemoveTagsFromCertificate = req
     "RemoveTagsFromCertificate"
     "fixture/RemoveTagsFromCertificate.yaml"
 
-testDescribeCertificate :: DescribeCertificate -> TestTree
-testDescribeCertificate = req
+requestDescribeCertificate :: DescribeCertificate -> TestTree
+requestDescribeCertificate = req
     "DescribeCertificate"
     "fixture/DescribeCertificate.yaml"
 
 -- Responses
 
-testResendValidationEmailResponse :: ResendValidationEmailResponse -> TestTree
-testResendValidationEmailResponse = res
+responseResendValidationEmail :: ResendValidationEmailResponse -> TestTree
+responseResendValidationEmail = res
     "ResendValidationEmailResponse"
     "fixture/ResendValidationEmailResponse.proto"
     certificateManager
     (Proxy :: Proxy ResendValidationEmail)
 
-testListTagsForCertificateResponse :: ListTagsForCertificateResponse -> TestTree
-testListTagsForCertificateResponse = res
+responseListTagsForCertificate :: ListTagsForCertificateResponse -> TestTree
+responseListTagsForCertificate = res
     "ListTagsForCertificateResponse"
     "fixture/ListTagsForCertificateResponse.proto"
     certificateManager
     (Proxy :: Proxy ListTagsForCertificate)
 
-testGetCertificateResponse :: GetCertificateResponse -> TestTree
-testGetCertificateResponse = res
+responseGetCertificate :: GetCertificateResponse -> TestTree
+responseGetCertificate = res
     "GetCertificateResponse"
     "fixture/GetCertificateResponse.proto"
     certificateManager
     (Proxy :: Proxy GetCertificate)
 
-testAddTagsToCertificateResponse :: AddTagsToCertificateResponse -> TestTree
-testAddTagsToCertificateResponse = res
+responseAddTagsToCertificate :: AddTagsToCertificateResponse -> TestTree
+responseAddTagsToCertificate = res
     "AddTagsToCertificateResponse"
     "fixture/AddTagsToCertificateResponse.proto"
     certificateManager
     (Proxy :: Proxy AddTagsToCertificate)
 
-testRequestCertificateResponse :: RequestCertificateResponse -> TestTree
-testRequestCertificateResponse = res
+responseRequestCertificate :: RequestCertificateResponse -> TestTree
+responseRequestCertificate = res
     "RequestCertificateResponse"
     "fixture/RequestCertificateResponse.proto"
     certificateManager
     (Proxy :: Proxy RequestCertificate)
 
-testListCertificatesResponse :: ListCertificatesResponse -> TestTree
-testListCertificatesResponse = res
+responseListCertificates :: ListCertificatesResponse -> TestTree
+responseListCertificates = res
     "ListCertificatesResponse"
     "fixture/ListCertificatesResponse.proto"
     certificateManager
     (Proxy :: Proxy ListCertificates)
 
-testDeleteCertificateResponse :: DeleteCertificateResponse -> TestTree
-testDeleteCertificateResponse = res
+responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
+responseDeleteCertificate = res
     "DeleteCertificateResponse"
     "fixture/DeleteCertificateResponse.proto"
     certificateManager
     (Proxy :: Proxy DeleteCertificate)
 
-testRemoveTagsFromCertificateResponse :: RemoveTagsFromCertificateResponse -> TestTree
-testRemoveTagsFromCertificateResponse = res
+responseRemoveTagsFromCertificate :: RemoveTagsFromCertificateResponse -> TestTree
+responseRemoveTagsFromCertificate = res
     "RemoveTagsFromCertificateResponse"
     "fixture/RemoveTagsFromCertificateResponse.proto"
     certificateManager
     (Proxy :: Proxy RemoveTagsFromCertificate)
 
-testDescribeCertificateResponse :: DescribeCertificateResponse -> TestTree
-testDescribeCertificateResponse = res
+responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
+responseDescribeCertificate = res
     "DescribeCertificateResponse"
     "fixture/DescribeCertificateResponse.proto"
     certificateManager

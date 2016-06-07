@@ -28,13 +28,13 @@ import Test.AWS.MarketplaceMetering.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testMeterUsage $
+--         [ requestMeterUsage $
 --             meterUsage
 --
 --           ]
 
 --     , testGroup "response"
---         [ testMeterUsageResponse $
+--         [ responseMeterUsage $
 --             meterUsageResponse
 --
 --           ]
@@ -42,15 +42,15 @@ import Test.AWS.MarketplaceMetering.Internal
 
 -- Requests
 
-testMeterUsage :: MeterUsage -> TestTree
-testMeterUsage = req
+requestMeterUsage :: MeterUsage -> TestTree
+requestMeterUsage = req
     "MeterUsage"
     "fixture/MeterUsage.yaml"
 
 -- Responses
 
-testMeterUsageResponse :: MeterUsageResponse -> TestTree
-testMeterUsageResponse = res
+responseMeterUsage :: MeterUsageResponse -> TestTree
+responseMeterUsage = res
     "MeterUsageResponse"
     "fixture/MeterUsageResponse.proto"
     marketplaceMetering

@@ -28,211 +28,211 @@ import Test.AWS.CognitoIdentityProvider.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDeleteUserPool $
+--         [ requestDeleteUserPool $
 --             deleteUserPool
 --
---         , testUpdateUserPool $
+--         , requestUpdateUserPool $
 --             updateUserPool
 --
---         , testAdminEnableUser $
+--         , requestAdminEnableUser $
 --             adminEnableUser
 --
---         , testGetUserAttributeVerificationCode $
+--         , requestGetUserAttributeVerificationCode $
 --             getUserAttributeVerificationCode
 --
---         , testUpdateUserAttributes $
+--         , requestUpdateUserAttributes $
 --             updateUserAttributes
 --
---         , testDeleteUserAttributes $
+--         , requestDeleteUserAttributes $
 --             deleteUserAttributes
 --
---         , testVerifyUserAttribute $
+--         , requestVerifyUserAttribute $
 --             verifyUserAttribute
 --
---         , testAdminDisableUser $
+--         , requestAdminDisableUser $
 --             adminDisableUser
 --
---         , testConfirmForgotPassword $
+--         , requestConfirmForgotPassword $
 --             confirmForgotPassword
 --
---         , testListUsers $
+--         , requestListUsers $
 --             listUsers
 --
---         , testAdminDeleteUserAttributes $
+--         , requestAdminDeleteUserAttributes $
 --             adminDeleteUserAttributes
 --
---         , testAdminUpdateUserAttributes $
+--         , requestAdminUpdateUserAttributes $
 --             adminUpdateUserAttributes
 --
---         , testAdminGetUser $
+--         , requestAdminGetUser $
 --             adminGetUser
 --
---         , testForgotPassword $
+--         , requestForgotPassword $
 --             forgotPassword
 --
---         , testDescribeUserPool $
+--         , requestDescribeUserPool $
 --             describeUserPool
 --
---         , testAdminConfirmSignUp $
+--         , requestAdminConfirmSignUp $
 --             adminConfirmSignUp
 --
---         , testSignUp $
+--         , requestSignUp $
 --             signUp
 --
---         , testChangePassword $
+--         , requestChangePassword $
 --             changePassword
 --
---         , testCreateUserPool $
+--         , requestCreateUserPool $
 --             createUserPool
 --
---         , testConfirmSignUp $
+--         , requestConfirmSignUp $
 --             confirmSignUp
 --
---         , testListUserPools $
+--         , requestListUserPools $
 --             listUserPools
 --
---         , testAdminResetUserPassword $
+--         , requestAdminResetUserPassword $
 --             adminResetUserPassword
 --
---         , testGetUser $
+--         , requestGetUser $
 --             getUser
 --
---         , testAdminDeleteUser $
+--         , requestAdminDeleteUser $
 --             adminDeleteUser
 --
---         , testAddCustomAttributes $
+--         , requestAddCustomAttributes $
 --             addCustomAttributes
 --
---         , testListUserPoolClients $
+--         , requestListUserPoolClients $
 --             listUserPoolClients
 --
---         , testUpdateUserPoolClient $
+--         , requestUpdateUserPoolClient $
 --             updateUserPoolClient
 --
---         , testDeleteUserPoolClient $
+--         , requestDeleteUserPoolClient $
 --             deleteUserPoolClient
 --
---         , testDeleteUser $
+--         , requestDeleteUser $
 --             deleteUser
 --
---         , testCreateUserPoolClient $
+--         , requestCreateUserPoolClient $
 --             createUserPoolClient
 --
---         , testSetUserSettings $
+--         , requestSetUserSettings $
 --             setUserSettings
 --
---         , testDescribeUserPoolClient $
+--         , requestDescribeUserPoolClient $
 --             describeUserPoolClient
 --
---         , testResendConfirmationCode $
+--         , requestResendConfirmationCode $
 --             resendConfirmationCode
 --
---         , testAdminSetUserSettings $
+--         , requestAdminSetUserSettings $
 --             adminSetUserSettings
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDeleteUserPoolResponse $
+--         [ responseDeleteUserPool $
 --             deleteUserPoolResponse
 --
---         , testUpdateUserPoolResponse $
+--         , responseUpdateUserPool $
 --             updateUserPoolResponse
 --
---         , testAdminEnableUserResponse $
+--         , responseAdminEnableUser $
 --             adminEnableUserResponse
 --
---         , testGetUserAttributeVerificationCodeResponse $
+--         , responseGetUserAttributeVerificationCode $
 --             getUserAttributeVerificationCodeResponse
 --
---         , testUpdateUserAttributesResponse $
+--         , responseUpdateUserAttributes $
 --             updateUserAttributesResponse
 --
---         , testDeleteUserAttributesResponse $
+--         , responseDeleteUserAttributes $
 --             deleteUserAttributesResponse
 --
---         , testVerifyUserAttributeResponse $
+--         , responseVerifyUserAttribute $
 --             verifyUserAttributeResponse
 --
---         , testAdminDisableUserResponse $
+--         , responseAdminDisableUser $
 --             adminDisableUserResponse
 --
---         , testConfirmForgotPasswordResponse $
+--         , responseConfirmForgotPassword $
 --             confirmForgotPasswordResponse
 --
---         , testListUsersResponse $
+--         , responseListUsers $
 --             listUsersResponse
 --
---         , testAdminDeleteUserAttributesResponse $
+--         , responseAdminDeleteUserAttributes $
 --             adminDeleteUserAttributesResponse
 --
---         , testAdminUpdateUserAttributesResponse $
+--         , responseAdminUpdateUserAttributes $
 --             adminUpdateUserAttributesResponse
 --
---         , testAdminGetUserResponse $
+--         , responseAdminGetUser $
 --             adminGetUserResponse
 --
---         , testForgotPasswordResponse $
+--         , responseForgotPassword $
 --             forgotPasswordResponse
 --
---         , testDescribeUserPoolResponse $
+--         , responseDescribeUserPool $
 --             describeUserPoolResponse
 --
---         , testAdminConfirmSignUpResponse $
+--         , responseAdminConfirmSignUp $
 --             adminConfirmSignUpResponse
 --
---         , testSignUpResponse $
+--         , responseSignUp $
 --             signUpResponse
 --
---         , testChangePasswordResponse $
+--         , responseChangePassword $
 --             changePasswordResponse
 --
---         , testCreateUserPoolResponse $
+--         , responseCreateUserPool $
 --             createUserPoolResponse
 --
---         , testConfirmSignUpResponse $
+--         , responseConfirmSignUp $
 --             confirmSignUpResponse
 --
---         , testListUserPoolsResponse $
+--         , responseListUserPools $
 --             listUserPoolsResponse
 --
---         , testAdminResetUserPasswordResponse $
+--         , responseAdminResetUserPassword $
 --             adminResetUserPasswordResponse
 --
---         , testGetUserResponse $
+--         , responseGetUser $
 --             getUserResponse
 --
---         , testAdminDeleteUserResponse $
+--         , responseAdminDeleteUser $
 --             adminDeleteUserResponse
 --
---         , testAddCustomAttributesResponse $
+--         , responseAddCustomAttributes $
 --             addCustomAttributesResponse
 --
---         , testListUserPoolClientsResponse $
+--         , responseListUserPoolClients $
 --             listUserPoolClientsResponse
 --
---         , testUpdateUserPoolClientResponse $
+--         , responseUpdateUserPoolClient $
 --             updateUserPoolClientResponse
 --
---         , testDeleteUserPoolClientResponse $
+--         , responseDeleteUserPoolClient $
 --             deleteUserPoolClientResponse
 --
---         , testDeleteUserResponse $
+--         , responseDeleteUser $
 --             deleteUserResponse
 --
---         , testCreateUserPoolClientResponse $
+--         , responseCreateUserPoolClient $
 --             createUserPoolClientResponse
 --
---         , testSetUserSettingsResponse $
+--         , responseSetUserSettings $
 --             setUserSettingsResponse
 --
---         , testDescribeUserPoolClientResponse $
+--         , responseDescribeUserPoolClient $
 --             describeUserPoolClientResponse
 --
---         , testResendConfirmationCodeResponse $
+--         , responseResendConfirmationCode $
 --             resendConfirmationCodeResponse
 --
---         , testAdminSetUserSettingsResponse $
+--         , responseAdminSetUserSettings $
 --             adminSetUserSettingsResponse
 --
 --           ]
@@ -240,411 +240,411 @@ import Test.AWS.CognitoIdentityProvider.Internal
 
 -- Requests
 
-testDeleteUserPool :: DeleteUserPool -> TestTree
-testDeleteUserPool = req
+requestDeleteUserPool :: DeleteUserPool -> TestTree
+requestDeleteUserPool = req
     "DeleteUserPool"
     "fixture/DeleteUserPool.yaml"
 
-testUpdateUserPool :: UpdateUserPool -> TestTree
-testUpdateUserPool = req
+requestUpdateUserPool :: UpdateUserPool -> TestTree
+requestUpdateUserPool = req
     "UpdateUserPool"
     "fixture/UpdateUserPool.yaml"
 
-testAdminEnableUser :: AdminEnableUser -> TestTree
-testAdminEnableUser = req
+requestAdminEnableUser :: AdminEnableUser -> TestTree
+requestAdminEnableUser = req
     "AdminEnableUser"
     "fixture/AdminEnableUser.yaml"
 
-testGetUserAttributeVerificationCode :: GetUserAttributeVerificationCode -> TestTree
-testGetUserAttributeVerificationCode = req
+requestGetUserAttributeVerificationCode :: GetUserAttributeVerificationCode -> TestTree
+requestGetUserAttributeVerificationCode = req
     "GetUserAttributeVerificationCode"
     "fixture/GetUserAttributeVerificationCode.yaml"
 
-testUpdateUserAttributes :: UpdateUserAttributes -> TestTree
-testUpdateUserAttributes = req
+requestUpdateUserAttributes :: UpdateUserAttributes -> TestTree
+requestUpdateUserAttributes = req
     "UpdateUserAttributes"
     "fixture/UpdateUserAttributes.yaml"
 
-testDeleteUserAttributes :: DeleteUserAttributes -> TestTree
-testDeleteUserAttributes = req
+requestDeleteUserAttributes :: DeleteUserAttributes -> TestTree
+requestDeleteUserAttributes = req
     "DeleteUserAttributes"
     "fixture/DeleteUserAttributes.yaml"
 
-testVerifyUserAttribute :: VerifyUserAttribute -> TestTree
-testVerifyUserAttribute = req
+requestVerifyUserAttribute :: VerifyUserAttribute -> TestTree
+requestVerifyUserAttribute = req
     "VerifyUserAttribute"
     "fixture/VerifyUserAttribute.yaml"
 
-testAdminDisableUser :: AdminDisableUser -> TestTree
-testAdminDisableUser = req
+requestAdminDisableUser :: AdminDisableUser -> TestTree
+requestAdminDisableUser = req
     "AdminDisableUser"
     "fixture/AdminDisableUser.yaml"
 
-testConfirmForgotPassword :: ConfirmForgotPassword -> TestTree
-testConfirmForgotPassword = req
+requestConfirmForgotPassword :: ConfirmForgotPassword -> TestTree
+requestConfirmForgotPassword = req
     "ConfirmForgotPassword"
     "fixture/ConfirmForgotPassword.yaml"
 
-testListUsers :: ListUsers -> TestTree
-testListUsers = req
+requestListUsers :: ListUsers -> TestTree
+requestListUsers = req
     "ListUsers"
     "fixture/ListUsers.yaml"
 
-testAdminDeleteUserAttributes :: AdminDeleteUserAttributes -> TestTree
-testAdminDeleteUserAttributes = req
+requestAdminDeleteUserAttributes :: AdminDeleteUserAttributes -> TestTree
+requestAdminDeleteUserAttributes = req
     "AdminDeleteUserAttributes"
     "fixture/AdminDeleteUserAttributes.yaml"
 
-testAdminUpdateUserAttributes :: AdminUpdateUserAttributes -> TestTree
-testAdminUpdateUserAttributes = req
+requestAdminUpdateUserAttributes :: AdminUpdateUserAttributes -> TestTree
+requestAdminUpdateUserAttributes = req
     "AdminUpdateUserAttributes"
     "fixture/AdminUpdateUserAttributes.yaml"
 
-testAdminGetUser :: AdminGetUser -> TestTree
-testAdminGetUser = req
+requestAdminGetUser :: AdminGetUser -> TestTree
+requestAdminGetUser = req
     "AdminGetUser"
     "fixture/AdminGetUser.yaml"
 
-testForgotPassword :: ForgotPassword -> TestTree
-testForgotPassword = req
+requestForgotPassword :: ForgotPassword -> TestTree
+requestForgotPassword = req
     "ForgotPassword"
     "fixture/ForgotPassword.yaml"
 
-testDescribeUserPool :: DescribeUserPool -> TestTree
-testDescribeUserPool = req
+requestDescribeUserPool :: DescribeUserPool -> TestTree
+requestDescribeUserPool = req
     "DescribeUserPool"
     "fixture/DescribeUserPool.yaml"
 
-testAdminConfirmSignUp :: AdminConfirmSignUp -> TestTree
-testAdminConfirmSignUp = req
+requestAdminConfirmSignUp :: AdminConfirmSignUp -> TestTree
+requestAdminConfirmSignUp = req
     "AdminConfirmSignUp"
     "fixture/AdminConfirmSignUp.yaml"
 
-testSignUp :: SignUp -> TestTree
-testSignUp = req
+requestSignUp :: SignUp -> TestTree
+requestSignUp = req
     "SignUp"
     "fixture/SignUp.yaml"
 
-testChangePassword :: ChangePassword -> TestTree
-testChangePassword = req
+requestChangePassword :: ChangePassword -> TestTree
+requestChangePassword = req
     "ChangePassword"
     "fixture/ChangePassword.yaml"
 
-testCreateUserPool :: CreateUserPool -> TestTree
-testCreateUserPool = req
+requestCreateUserPool :: CreateUserPool -> TestTree
+requestCreateUserPool = req
     "CreateUserPool"
     "fixture/CreateUserPool.yaml"
 
-testConfirmSignUp :: ConfirmSignUp -> TestTree
-testConfirmSignUp = req
+requestConfirmSignUp :: ConfirmSignUp -> TestTree
+requestConfirmSignUp = req
     "ConfirmSignUp"
     "fixture/ConfirmSignUp.yaml"
 
-testListUserPools :: ListUserPools -> TestTree
-testListUserPools = req
+requestListUserPools :: ListUserPools -> TestTree
+requestListUserPools = req
     "ListUserPools"
     "fixture/ListUserPools.yaml"
 
-testAdminResetUserPassword :: AdminResetUserPassword -> TestTree
-testAdminResetUserPassword = req
+requestAdminResetUserPassword :: AdminResetUserPassword -> TestTree
+requestAdminResetUserPassword = req
     "AdminResetUserPassword"
     "fixture/AdminResetUserPassword.yaml"
 
-testGetUser :: GetUser -> TestTree
-testGetUser = req
+requestGetUser :: GetUser -> TestTree
+requestGetUser = req
     "GetUser"
     "fixture/GetUser.yaml"
 
-testAdminDeleteUser :: AdminDeleteUser -> TestTree
-testAdminDeleteUser = req
+requestAdminDeleteUser :: AdminDeleteUser -> TestTree
+requestAdminDeleteUser = req
     "AdminDeleteUser"
     "fixture/AdminDeleteUser.yaml"
 
-testAddCustomAttributes :: AddCustomAttributes -> TestTree
-testAddCustomAttributes = req
+requestAddCustomAttributes :: AddCustomAttributes -> TestTree
+requestAddCustomAttributes = req
     "AddCustomAttributes"
     "fixture/AddCustomAttributes.yaml"
 
-testListUserPoolClients :: ListUserPoolClients -> TestTree
-testListUserPoolClients = req
+requestListUserPoolClients :: ListUserPoolClients -> TestTree
+requestListUserPoolClients = req
     "ListUserPoolClients"
     "fixture/ListUserPoolClients.yaml"
 
-testUpdateUserPoolClient :: UpdateUserPoolClient -> TestTree
-testUpdateUserPoolClient = req
+requestUpdateUserPoolClient :: UpdateUserPoolClient -> TestTree
+requestUpdateUserPoolClient = req
     "UpdateUserPoolClient"
     "fixture/UpdateUserPoolClient.yaml"
 
-testDeleteUserPoolClient :: DeleteUserPoolClient -> TestTree
-testDeleteUserPoolClient = req
+requestDeleteUserPoolClient :: DeleteUserPoolClient -> TestTree
+requestDeleteUserPoolClient = req
     "DeleteUserPoolClient"
     "fixture/DeleteUserPoolClient.yaml"
 
-testDeleteUser :: DeleteUser -> TestTree
-testDeleteUser = req
+requestDeleteUser :: DeleteUser -> TestTree
+requestDeleteUser = req
     "DeleteUser"
     "fixture/DeleteUser.yaml"
 
-testCreateUserPoolClient :: CreateUserPoolClient -> TestTree
-testCreateUserPoolClient = req
+requestCreateUserPoolClient :: CreateUserPoolClient -> TestTree
+requestCreateUserPoolClient = req
     "CreateUserPoolClient"
     "fixture/CreateUserPoolClient.yaml"
 
-testSetUserSettings :: SetUserSettings -> TestTree
-testSetUserSettings = req
+requestSetUserSettings :: SetUserSettings -> TestTree
+requestSetUserSettings = req
     "SetUserSettings"
     "fixture/SetUserSettings.yaml"
 
-testDescribeUserPoolClient :: DescribeUserPoolClient -> TestTree
-testDescribeUserPoolClient = req
+requestDescribeUserPoolClient :: DescribeUserPoolClient -> TestTree
+requestDescribeUserPoolClient = req
     "DescribeUserPoolClient"
     "fixture/DescribeUserPoolClient.yaml"
 
-testResendConfirmationCode :: ResendConfirmationCode -> TestTree
-testResendConfirmationCode = req
+requestResendConfirmationCode :: ResendConfirmationCode -> TestTree
+requestResendConfirmationCode = req
     "ResendConfirmationCode"
     "fixture/ResendConfirmationCode.yaml"
 
-testAdminSetUserSettings :: AdminSetUserSettings -> TestTree
-testAdminSetUserSettings = req
+requestAdminSetUserSettings :: AdminSetUserSettings -> TestTree
+requestAdminSetUserSettings = req
     "AdminSetUserSettings"
     "fixture/AdminSetUserSettings.yaml"
 
 -- Responses
 
-testDeleteUserPoolResponse :: DeleteUserPoolResponse -> TestTree
-testDeleteUserPoolResponse = res
+responseDeleteUserPool :: DeleteUserPoolResponse -> TestTree
+responseDeleteUserPool = res
     "DeleteUserPoolResponse"
     "fixture/DeleteUserPoolResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy DeleteUserPool)
 
-testUpdateUserPoolResponse :: UpdateUserPoolResponse -> TestTree
-testUpdateUserPoolResponse = res
+responseUpdateUserPool :: UpdateUserPoolResponse -> TestTree
+responseUpdateUserPool = res
     "UpdateUserPoolResponse"
     "fixture/UpdateUserPoolResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy UpdateUserPool)
 
-testAdminEnableUserResponse :: AdminEnableUserResponse -> TestTree
-testAdminEnableUserResponse = res
+responseAdminEnableUser :: AdminEnableUserResponse -> TestTree
+responseAdminEnableUser = res
     "AdminEnableUserResponse"
     "fixture/AdminEnableUserResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminEnableUser)
 
-testGetUserAttributeVerificationCodeResponse :: GetUserAttributeVerificationCodeResponse -> TestTree
-testGetUserAttributeVerificationCodeResponse = res
+responseGetUserAttributeVerificationCode :: GetUserAttributeVerificationCodeResponse -> TestTree
+responseGetUserAttributeVerificationCode = res
     "GetUserAttributeVerificationCodeResponse"
     "fixture/GetUserAttributeVerificationCodeResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy GetUserAttributeVerificationCode)
 
-testUpdateUserAttributesResponse :: UpdateUserAttributesResponse -> TestTree
-testUpdateUserAttributesResponse = res
+responseUpdateUserAttributes :: UpdateUserAttributesResponse -> TestTree
+responseUpdateUserAttributes = res
     "UpdateUserAttributesResponse"
     "fixture/UpdateUserAttributesResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy UpdateUserAttributes)
 
-testDeleteUserAttributesResponse :: DeleteUserAttributesResponse -> TestTree
-testDeleteUserAttributesResponse = res
+responseDeleteUserAttributes :: DeleteUserAttributesResponse -> TestTree
+responseDeleteUserAttributes = res
     "DeleteUserAttributesResponse"
     "fixture/DeleteUserAttributesResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy DeleteUserAttributes)
 
-testVerifyUserAttributeResponse :: VerifyUserAttributeResponse -> TestTree
-testVerifyUserAttributeResponse = res
+responseVerifyUserAttribute :: VerifyUserAttributeResponse -> TestTree
+responseVerifyUserAttribute = res
     "VerifyUserAttributeResponse"
     "fixture/VerifyUserAttributeResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy VerifyUserAttribute)
 
-testAdminDisableUserResponse :: AdminDisableUserResponse -> TestTree
-testAdminDisableUserResponse = res
+responseAdminDisableUser :: AdminDisableUserResponse -> TestTree
+responseAdminDisableUser = res
     "AdminDisableUserResponse"
     "fixture/AdminDisableUserResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminDisableUser)
 
-testConfirmForgotPasswordResponse :: ConfirmForgotPasswordResponse -> TestTree
-testConfirmForgotPasswordResponse = res
+responseConfirmForgotPassword :: ConfirmForgotPasswordResponse -> TestTree
+responseConfirmForgotPassword = res
     "ConfirmForgotPasswordResponse"
     "fixture/ConfirmForgotPasswordResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy ConfirmForgotPassword)
 
-testListUsersResponse :: ListUsersResponse -> TestTree
-testListUsersResponse = res
+responseListUsers :: ListUsersResponse -> TestTree
+responseListUsers = res
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy ListUsers)
 
-testAdminDeleteUserAttributesResponse :: AdminDeleteUserAttributesResponse -> TestTree
-testAdminDeleteUserAttributesResponse = res
+responseAdminDeleteUserAttributes :: AdminDeleteUserAttributesResponse -> TestTree
+responseAdminDeleteUserAttributes = res
     "AdminDeleteUserAttributesResponse"
     "fixture/AdminDeleteUserAttributesResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminDeleteUserAttributes)
 
-testAdminUpdateUserAttributesResponse :: AdminUpdateUserAttributesResponse -> TestTree
-testAdminUpdateUserAttributesResponse = res
+responseAdminUpdateUserAttributes :: AdminUpdateUserAttributesResponse -> TestTree
+responseAdminUpdateUserAttributes = res
     "AdminUpdateUserAttributesResponse"
     "fixture/AdminUpdateUserAttributesResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminUpdateUserAttributes)
 
-testAdminGetUserResponse :: AdminGetUserResponse -> TestTree
-testAdminGetUserResponse = res
+responseAdminGetUser :: AdminGetUserResponse -> TestTree
+responseAdminGetUser = res
     "AdminGetUserResponse"
     "fixture/AdminGetUserResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminGetUser)
 
-testForgotPasswordResponse :: ForgotPasswordResponse -> TestTree
-testForgotPasswordResponse = res
+responseForgotPassword :: ForgotPasswordResponse -> TestTree
+responseForgotPassword = res
     "ForgotPasswordResponse"
     "fixture/ForgotPasswordResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy ForgotPassword)
 
-testDescribeUserPoolResponse :: DescribeUserPoolResponse -> TestTree
-testDescribeUserPoolResponse = res
+responseDescribeUserPool :: DescribeUserPoolResponse -> TestTree
+responseDescribeUserPool = res
     "DescribeUserPoolResponse"
     "fixture/DescribeUserPoolResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy DescribeUserPool)
 
-testAdminConfirmSignUpResponse :: AdminConfirmSignUpResponse -> TestTree
-testAdminConfirmSignUpResponse = res
+responseAdminConfirmSignUp :: AdminConfirmSignUpResponse -> TestTree
+responseAdminConfirmSignUp = res
     "AdminConfirmSignUpResponse"
     "fixture/AdminConfirmSignUpResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminConfirmSignUp)
 
-testSignUpResponse :: SignUpResponse -> TestTree
-testSignUpResponse = res
+responseSignUp :: SignUpResponse -> TestTree
+responseSignUp = res
     "SignUpResponse"
     "fixture/SignUpResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy SignUp)
 
-testChangePasswordResponse :: ChangePasswordResponse -> TestTree
-testChangePasswordResponse = res
+responseChangePassword :: ChangePasswordResponse -> TestTree
+responseChangePassword = res
     "ChangePasswordResponse"
     "fixture/ChangePasswordResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy ChangePassword)
 
-testCreateUserPoolResponse :: CreateUserPoolResponse -> TestTree
-testCreateUserPoolResponse = res
+responseCreateUserPool :: CreateUserPoolResponse -> TestTree
+responseCreateUserPool = res
     "CreateUserPoolResponse"
     "fixture/CreateUserPoolResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy CreateUserPool)
 
-testConfirmSignUpResponse :: ConfirmSignUpResponse -> TestTree
-testConfirmSignUpResponse = res
+responseConfirmSignUp :: ConfirmSignUpResponse -> TestTree
+responseConfirmSignUp = res
     "ConfirmSignUpResponse"
     "fixture/ConfirmSignUpResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy ConfirmSignUp)
 
-testListUserPoolsResponse :: ListUserPoolsResponse -> TestTree
-testListUserPoolsResponse = res
+responseListUserPools :: ListUserPoolsResponse -> TestTree
+responseListUserPools = res
     "ListUserPoolsResponse"
     "fixture/ListUserPoolsResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy ListUserPools)
 
-testAdminResetUserPasswordResponse :: AdminResetUserPasswordResponse -> TestTree
-testAdminResetUserPasswordResponse = res
+responseAdminResetUserPassword :: AdminResetUserPasswordResponse -> TestTree
+responseAdminResetUserPassword = res
     "AdminResetUserPasswordResponse"
     "fixture/AdminResetUserPasswordResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminResetUserPassword)
 
-testGetUserResponse :: GetUserResponse -> TestTree
-testGetUserResponse = res
+responseGetUser :: GetUserResponse -> TestTree
+responseGetUser = res
     "GetUserResponse"
     "fixture/GetUserResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy GetUser)
 
-testAdminDeleteUserResponse :: AdminDeleteUserResponse -> TestTree
-testAdminDeleteUserResponse = res
+responseAdminDeleteUser :: AdminDeleteUserResponse -> TestTree
+responseAdminDeleteUser = res
     "AdminDeleteUserResponse"
     "fixture/AdminDeleteUserResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminDeleteUser)
 
-testAddCustomAttributesResponse :: AddCustomAttributesResponse -> TestTree
-testAddCustomAttributesResponse = res
+responseAddCustomAttributes :: AddCustomAttributesResponse -> TestTree
+responseAddCustomAttributes = res
     "AddCustomAttributesResponse"
     "fixture/AddCustomAttributesResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AddCustomAttributes)
 
-testListUserPoolClientsResponse :: ListUserPoolClientsResponse -> TestTree
-testListUserPoolClientsResponse = res
+responseListUserPoolClients :: ListUserPoolClientsResponse -> TestTree
+responseListUserPoolClients = res
     "ListUserPoolClientsResponse"
     "fixture/ListUserPoolClientsResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy ListUserPoolClients)
 
-testUpdateUserPoolClientResponse :: UpdateUserPoolClientResponse -> TestTree
-testUpdateUserPoolClientResponse = res
+responseUpdateUserPoolClient :: UpdateUserPoolClientResponse -> TestTree
+responseUpdateUserPoolClient = res
     "UpdateUserPoolClientResponse"
     "fixture/UpdateUserPoolClientResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy UpdateUserPoolClient)
 
-testDeleteUserPoolClientResponse :: DeleteUserPoolClientResponse -> TestTree
-testDeleteUserPoolClientResponse = res
+responseDeleteUserPoolClient :: DeleteUserPoolClientResponse -> TestTree
+responseDeleteUserPoolClient = res
     "DeleteUserPoolClientResponse"
     "fixture/DeleteUserPoolClientResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy DeleteUserPoolClient)
 
-testDeleteUserResponse :: DeleteUserResponse -> TestTree
-testDeleteUserResponse = res
+responseDeleteUser :: DeleteUserResponse -> TestTree
+responseDeleteUser = res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy DeleteUser)
 
-testCreateUserPoolClientResponse :: CreateUserPoolClientResponse -> TestTree
-testCreateUserPoolClientResponse = res
+responseCreateUserPoolClient :: CreateUserPoolClientResponse -> TestTree
+responseCreateUserPoolClient = res
     "CreateUserPoolClientResponse"
     "fixture/CreateUserPoolClientResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy CreateUserPoolClient)
 
-testSetUserSettingsResponse :: SetUserSettingsResponse -> TestTree
-testSetUserSettingsResponse = res
+responseSetUserSettings :: SetUserSettingsResponse -> TestTree
+responseSetUserSettings = res
     "SetUserSettingsResponse"
     "fixture/SetUserSettingsResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy SetUserSettings)
 
-testDescribeUserPoolClientResponse :: DescribeUserPoolClientResponse -> TestTree
-testDescribeUserPoolClientResponse = res
+responseDescribeUserPoolClient :: DescribeUserPoolClientResponse -> TestTree
+responseDescribeUserPoolClient = res
     "DescribeUserPoolClientResponse"
     "fixture/DescribeUserPoolClientResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy DescribeUserPoolClient)
 
-testResendConfirmationCodeResponse :: ResendConfirmationCodeResponse -> TestTree
-testResendConfirmationCodeResponse = res
+responseResendConfirmationCode :: ResendConfirmationCodeResponse -> TestTree
+responseResendConfirmationCode = res
     "ResendConfirmationCodeResponse"
     "fixture/ResendConfirmationCodeResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy ResendConfirmationCode)
 
-testAdminSetUserSettingsResponse :: AdminSetUserSettingsResponse -> TestTree
-testAdminSetUserSettingsResponse = res
+responseAdminSetUserSettings :: AdminSetUserSettingsResponse -> TestTree
+responseAdminSetUserSettings = res
     "AdminSetUserSettingsResponse"
     "fixture/AdminSetUserSettingsResponse.proto"
     cognitoIdentityProvider

@@ -28,157 +28,157 @@ import Test.AWS.SNS.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDeleteEndpoint $
+--         [ requestDeleteEndpoint $
 --             deleteEndpoint
 --
---         , testRemovePermission $
+--         , requestRemovePermission $
 --             removePermission
 --
---         , testDeleteTopic $
+--         , requestDeleteTopic $
 --             deleteTopic
 --
---         , testListTopics $
+--         , requestListTopics $
 --             listTopics
 --
---         , testCreatePlatformEndpoint $
+--         , requestCreatePlatformEndpoint $
 --             createPlatformEndpoint
 --
---         , testSetPlatformApplicationAttributes $
+--         , requestSetPlatformApplicationAttributes $
 --             setPlatformApplicationAttributes
 --
---         , testListSubscriptionsByTopic $
+--         , requestListSubscriptionsByTopic $
 --             listSubscriptionsByTopic
 --
---         , testGetTopicAttributes $
+--         , requestGetTopicAttributes $
 --             getTopicAttributes
 --
---         , testCreatePlatformApplication $
+--         , requestCreatePlatformApplication $
 --             createPlatformApplication
 --
---         , testGetPlatformApplicationAttributes $
+--         , requestGetPlatformApplicationAttributes $
 --             getPlatformApplicationAttributes
 --
---         , testListEndpointsByPlatformApplication $
+--         , requestListEndpointsByPlatformApplication $
 --             listEndpointsByPlatformApplication
 --
---         , testSetTopicAttributes $
+--         , requestSetTopicAttributes $
 --             setTopicAttributes
 --
---         , testDeletePlatformApplication $
+--         , requestDeletePlatformApplication $
 --             deletePlatformApplication
 --
---         , testListPlatformApplications $
+--         , requestListPlatformApplications $
 --             listPlatformApplications
 --
---         , testAddPermission $
+--         , requestAddPermission $
 --             addPermission
 --
---         , testGetEndpointAttributes $
+--         , requestGetEndpointAttributes $
 --             getEndpointAttributes
 --
---         , testListSubscriptions $
+--         , requestListSubscriptions $
 --             listSubscriptions
 --
---         , testGetSubscriptionAttributes $
+--         , requestGetSubscriptionAttributes $
 --             getSubscriptionAttributes
 --
---         , testCreateTopic $
+--         , requestCreateTopic $
 --             createTopic
 --
---         , testSubscribe $
+--         , requestSubscribe $
 --             subscribe
 --
---         , testUnsubscribe $
+--         , requestUnsubscribe $
 --             unsubscribe
 --
---         , testSetEndpointAttributes $
+--         , requestSetEndpointAttributes $
 --             setEndpointAttributes
 --
---         , testSetSubscriptionAttributes $
+--         , requestSetSubscriptionAttributes $
 --             setSubscriptionAttributes
 --
---         , testConfirmSubscription $
+--         , requestConfirmSubscription $
 --             confirmSubscription
 --
---         , testPublish $
+--         , requestPublish $
 --             publish
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDeleteEndpointResponse $
+--         [ responseDeleteEndpoint $
 --             deleteEndpointResponse
 --
---         , testRemovePermissionResponse $
+--         , responseRemovePermission $
 --             removePermissionResponse
 --
---         , testDeleteTopicResponse $
+--         , responseDeleteTopic $
 --             deleteTopicResponse
 --
---         , testListTopicsResponse $
+--         , responseListTopics $
 --             listTopicsResponse
 --
---         , testCreatePlatformEndpointResponse $
+--         , responseCreatePlatformEndpoint $
 --             createPlatformEndpointResponse
 --
---         , testSetPlatformApplicationAttributesResponse $
+--         , responseSetPlatformApplicationAttributes $
 --             setPlatformApplicationAttributesResponse
 --
---         , testListSubscriptionsByTopicResponse $
+--         , responseListSubscriptionsByTopic $
 --             listSubscriptionsByTopicResponse
 --
---         , testGetTopicAttributesResponse $
+--         , responseGetTopicAttributes $
 --             getTopicAttributesResponse
 --
---         , testCreatePlatformApplicationResponse $
+--         , responseCreatePlatformApplication $
 --             createPlatformApplicationResponse
 --
---         , testGetPlatformApplicationAttributesResponse $
+--         , responseGetPlatformApplicationAttributes $
 --             getPlatformApplicationAttributesResponse
 --
---         , testListEndpointsByPlatformApplicationResponse $
+--         , responseListEndpointsByPlatformApplication $
 --             listEndpointsByPlatformApplicationResponse
 --
---         , testSetTopicAttributesResponse $
+--         , responseSetTopicAttributes $
 --             setTopicAttributesResponse
 --
---         , testDeletePlatformApplicationResponse $
+--         , responseDeletePlatformApplication $
 --             deletePlatformApplicationResponse
 --
---         , testListPlatformApplicationsResponse $
+--         , responseListPlatformApplications $
 --             listPlatformApplicationsResponse
 --
---         , testAddPermissionResponse $
+--         , responseAddPermission $
 --             addPermissionResponse
 --
---         , testGetEndpointAttributesResponse $
+--         , responseGetEndpointAttributes $
 --             getEndpointAttributesResponse
 --
---         , testListSubscriptionsResponse $
+--         , responseListSubscriptions $
 --             listSubscriptionsResponse
 --
---         , testGetSubscriptionAttributesResponse $
+--         , responseGetSubscriptionAttributes $
 --             getSubscriptionAttributesResponse
 --
---         , testCreateTopicResponse $
+--         , responseCreateTopic $
 --             createTopicResponse
 --
---         , testSubscribeResponse $
+--         , responseSubscribe $
 --             subscribeResponse
 --
---         , testUnsubscribeResponse $
+--         , responseUnsubscribe $
 --             unsubscribeResponse
 --
---         , testSetEndpointAttributesResponse $
+--         , responseSetEndpointAttributes $
 --             setEndpointAttributesResponse
 --
---         , testSetSubscriptionAttributesResponse $
+--         , responseSetSubscriptionAttributes $
 --             setSubscriptionAttributesResponse
 --
---         , testConfirmSubscriptionResponse $
+--         , responseConfirmSubscription $
 --             confirmSubscriptionResponse
 --
---         , testPublishResponse $
+--         , responsePublish $
 --             publishResponse
 --
 --           ]
@@ -186,303 +186,303 @@ import Test.AWS.SNS.Internal
 
 -- Requests
 
-testDeleteEndpoint :: DeleteEndpoint -> TestTree
-testDeleteEndpoint = req
+requestDeleteEndpoint :: DeleteEndpoint -> TestTree
+requestDeleteEndpoint = req
     "DeleteEndpoint"
     "fixture/DeleteEndpoint.yaml"
 
-testRemovePermission :: RemovePermission -> TestTree
-testRemovePermission = req
+requestRemovePermission :: RemovePermission -> TestTree
+requestRemovePermission = req
     "RemovePermission"
     "fixture/RemovePermission.yaml"
 
-testDeleteTopic :: DeleteTopic -> TestTree
-testDeleteTopic = req
+requestDeleteTopic :: DeleteTopic -> TestTree
+requestDeleteTopic = req
     "DeleteTopic"
     "fixture/DeleteTopic.yaml"
 
-testListTopics :: ListTopics -> TestTree
-testListTopics = req
+requestListTopics :: ListTopics -> TestTree
+requestListTopics = req
     "ListTopics"
     "fixture/ListTopics.yaml"
 
-testCreatePlatformEndpoint :: CreatePlatformEndpoint -> TestTree
-testCreatePlatformEndpoint = req
+requestCreatePlatformEndpoint :: CreatePlatformEndpoint -> TestTree
+requestCreatePlatformEndpoint = req
     "CreatePlatformEndpoint"
     "fixture/CreatePlatformEndpoint.yaml"
 
-testSetPlatformApplicationAttributes :: SetPlatformApplicationAttributes -> TestTree
-testSetPlatformApplicationAttributes = req
+requestSetPlatformApplicationAttributes :: SetPlatformApplicationAttributes -> TestTree
+requestSetPlatformApplicationAttributes = req
     "SetPlatformApplicationAttributes"
     "fixture/SetPlatformApplicationAttributes.yaml"
 
-testListSubscriptionsByTopic :: ListSubscriptionsByTopic -> TestTree
-testListSubscriptionsByTopic = req
+requestListSubscriptionsByTopic :: ListSubscriptionsByTopic -> TestTree
+requestListSubscriptionsByTopic = req
     "ListSubscriptionsByTopic"
     "fixture/ListSubscriptionsByTopic.yaml"
 
-testGetTopicAttributes :: GetTopicAttributes -> TestTree
-testGetTopicAttributes = req
+requestGetTopicAttributes :: GetTopicAttributes -> TestTree
+requestGetTopicAttributes = req
     "GetTopicAttributes"
     "fixture/GetTopicAttributes.yaml"
 
-testCreatePlatformApplication :: CreatePlatformApplication -> TestTree
-testCreatePlatformApplication = req
+requestCreatePlatformApplication :: CreatePlatformApplication -> TestTree
+requestCreatePlatformApplication = req
     "CreatePlatformApplication"
     "fixture/CreatePlatformApplication.yaml"
 
-testGetPlatformApplicationAttributes :: GetPlatformApplicationAttributes -> TestTree
-testGetPlatformApplicationAttributes = req
+requestGetPlatformApplicationAttributes :: GetPlatformApplicationAttributes -> TestTree
+requestGetPlatformApplicationAttributes = req
     "GetPlatformApplicationAttributes"
     "fixture/GetPlatformApplicationAttributes.yaml"
 
-testListEndpointsByPlatformApplication :: ListEndpointsByPlatformApplication -> TestTree
-testListEndpointsByPlatformApplication = req
+requestListEndpointsByPlatformApplication :: ListEndpointsByPlatformApplication -> TestTree
+requestListEndpointsByPlatformApplication = req
     "ListEndpointsByPlatformApplication"
     "fixture/ListEndpointsByPlatformApplication.yaml"
 
-testSetTopicAttributes :: SetTopicAttributes -> TestTree
-testSetTopicAttributes = req
+requestSetTopicAttributes :: SetTopicAttributes -> TestTree
+requestSetTopicAttributes = req
     "SetTopicAttributes"
     "fixture/SetTopicAttributes.yaml"
 
-testDeletePlatformApplication :: DeletePlatformApplication -> TestTree
-testDeletePlatformApplication = req
+requestDeletePlatformApplication :: DeletePlatformApplication -> TestTree
+requestDeletePlatformApplication = req
     "DeletePlatformApplication"
     "fixture/DeletePlatformApplication.yaml"
 
-testListPlatformApplications :: ListPlatformApplications -> TestTree
-testListPlatformApplications = req
+requestListPlatformApplications :: ListPlatformApplications -> TestTree
+requestListPlatformApplications = req
     "ListPlatformApplications"
     "fixture/ListPlatformApplications.yaml"
 
-testAddPermission :: AddPermission -> TestTree
-testAddPermission = req
+requestAddPermission :: AddPermission -> TestTree
+requestAddPermission = req
     "AddPermission"
     "fixture/AddPermission.yaml"
 
-testGetEndpointAttributes :: GetEndpointAttributes -> TestTree
-testGetEndpointAttributes = req
+requestGetEndpointAttributes :: GetEndpointAttributes -> TestTree
+requestGetEndpointAttributes = req
     "GetEndpointAttributes"
     "fixture/GetEndpointAttributes.yaml"
 
-testListSubscriptions :: ListSubscriptions -> TestTree
-testListSubscriptions = req
+requestListSubscriptions :: ListSubscriptions -> TestTree
+requestListSubscriptions = req
     "ListSubscriptions"
     "fixture/ListSubscriptions.yaml"
 
-testGetSubscriptionAttributes :: GetSubscriptionAttributes -> TestTree
-testGetSubscriptionAttributes = req
+requestGetSubscriptionAttributes :: GetSubscriptionAttributes -> TestTree
+requestGetSubscriptionAttributes = req
     "GetSubscriptionAttributes"
     "fixture/GetSubscriptionAttributes.yaml"
 
-testCreateTopic :: CreateTopic -> TestTree
-testCreateTopic = req
+requestCreateTopic :: CreateTopic -> TestTree
+requestCreateTopic = req
     "CreateTopic"
     "fixture/CreateTopic.yaml"
 
-testSubscribe :: Subscribe -> TestTree
-testSubscribe = req
+requestSubscribe :: Subscribe -> TestTree
+requestSubscribe = req
     "Subscribe"
     "fixture/Subscribe.yaml"
 
-testUnsubscribe :: Unsubscribe -> TestTree
-testUnsubscribe = req
+requestUnsubscribe :: Unsubscribe -> TestTree
+requestUnsubscribe = req
     "Unsubscribe"
     "fixture/Unsubscribe.yaml"
 
-testSetEndpointAttributes :: SetEndpointAttributes -> TestTree
-testSetEndpointAttributes = req
+requestSetEndpointAttributes :: SetEndpointAttributes -> TestTree
+requestSetEndpointAttributes = req
     "SetEndpointAttributes"
     "fixture/SetEndpointAttributes.yaml"
 
-testSetSubscriptionAttributes :: SetSubscriptionAttributes -> TestTree
-testSetSubscriptionAttributes = req
+requestSetSubscriptionAttributes :: SetSubscriptionAttributes -> TestTree
+requestSetSubscriptionAttributes = req
     "SetSubscriptionAttributes"
     "fixture/SetSubscriptionAttributes.yaml"
 
-testConfirmSubscription :: ConfirmSubscription -> TestTree
-testConfirmSubscription = req
+requestConfirmSubscription :: ConfirmSubscription -> TestTree
+requestConfirmSubscription = req
     "ConfirmSubscription"
     "fixture/ConfirmSubscription.yaml"
 
-testPublish :: Publish -> TestTree
-testPublish = req
+requestPublish :: Publish -> TestTree
+requestPublish = req
     "Publish"
     "fixture/Publish.yaml"
 
 -- Responses
 
-testDeleteEndpointResponse :: DeleteEndpointResponse -> TestTree
-testDeleteEndpointResponse = res
+responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
+responseDeleteEndpoint = res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
     sns
     (Proxy :: Proxy DeleteEndpoint)
 
-testRemovePermissionResponse :: RemovePermissionResponse -> TestTree
-testRemovePermissionResponse = res
+responseRemovePermission :: RemovePermissionResponse -> TestTree
+responseRemovePermission = res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
     sns
     (Proxy :: Proxy RemovePermission)
 
-testDeleteTopicResponse :: DeleteTopicResponse -> TestTree
-testDeleteTopicResponse = res
+responseDeleteTopic :: DeleteTopicResponse -> TestTree
+responseDeleteTopic = res
     "DeleteTopicResponse"
     "fixture/DeleteTopicResponse.proto"
     sns
     (Proxy :: Proxy DeleteTopic)
 
-testListTopicsResponse :: ListTopicsResponse -> TestTree
-testListTopicsResponse = res
+responseListTopics :: ListTopicsResponse -> TestTree
+responseListTopics = res
     "ListTopicsResponse"
     "fixture/ListTopicsResponse.proto"
     sns
     (Proxy :: Proxy ListTopics)
 
-testCreatePlatformEndpointResponse :: CreatePlatformEndpointResponse -> TestTree
-testCreatePlatformEndpointResponse = res
+responseCreatePlatformEndpoint :: CreatePlatformEndpointResponse -> TestTree
+responseCreatePlatformEndpoint = res
     "CreatePlatformEndpointResponse"
     "fixture/CreatePlatformEndpointResponse.proto"
     sns
     (Proxy :: Proxy CreatePlatformEndpoint)
 
-testSetPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse -> TestTree
-testSetPlatformApplicationAttributesResponse = res
+responseSetPlatformApplicationAttributes :: SetPlatformApplicationAttributesResponse -> TestTree
+responseSetPlatformApplicationAttributes = res
     "SetPlatformApplicationAttributesResponse"
     "fixture/SetPlatformApplicationAttributesResponse.proto"
     sns
     (Proxy :: Proxy SetPlatformApplicationAttributes)
 
-testListSubscriptionsByTopicResponse :: ListSubscriptionsByTopicResponse -> TestTree
-testListSubscriptionsByTopicResponse = res
+responseListSubscriptionsByTopic :: ListSubscriptionsByTopicResponse -> TestTree
+responseListSubscriptionsByTopic = res
     "ListSubscriptionsByTopicResponse"
     "fixture/ListSubscriptionsByTopicResponse.proto"
     sns
     (Proxy :: Proxy ListSubscriptionsByTopic)
 
-testGetTopicAttributesResponse :: GetTopicAttributesResponse -> TestTree
-testGetTopicAttributesResponse = res
+responseGetTopicAttributes :: GetTopicAttributesResponse -> TestTree
+responseGetTopicAttributes = res
     "GetTopicAttributesResponse"
     "fixture/GetTopicAttributesResponse.proto"
     sns
     (Proxy :: Proxy GetTopicAttributes)
 
-testCreatePlatformApplicationResponse :: CreatePlatformApplicationResponse -> TestTree
-testCreatePlatformApplicationResponse = res
+responseCreatePlatformApplication :: CreatePlatformApplicationResponse -> TestTree
+responseCreatePlatformApplication = res
     "CreatePlatformApplicationResponse"
     "fixture/CreatePlatformApplicationResponse.proto"
     sns
     (Proxy :: Proxy CreatePlatformApplication)
 
-testGetPlatformApplicationAttributesResponse :: GetPlatformApplicationAttributesResponse -> TestTree
-testGetPlatformApplicationAttributesResponse = res
+responseGetPlatformApplicationAttributes :: GetPlatformApplicationAttributesResponse -> TestTree
+responseGetPlatformApplicationAttributes = res
     "GetPlatformApplicationAttributesResponse"
     "fixture/GetPlatformApplicationAttributesResponse.proto"
     sns
     (Proxy :: Proxy GetPlatformApplicationAttributes)
 
-testListEndpointsByPlatformApplicationResponse :: ListEndpointsByPlatformApplicationResponse -> TestTree
-testListEndpointsByPlatformApplicationResponse = res
+responseListEndpointsByPlatformApplication :: ListEndpointsByPlatformApplicationResponse -> TestTree
+responseListEndpointsByPlatformApplication = res
     "ListEndpointsByPlatformApplicationResponse"
     "fixture/ListEndpointsByPlatformApplicationResponse.proto"
     sns
     (Proxy :: Proxy ListEndpointsByPlatformApplication)
 
-testSetTopicAttributesResponse :: SetTopicAttributesResponse -> TestTree
-testSetTopicAttributesResponse = res
+responseSetTopicAttributes :: SetTopicAttributesResponse -> TestTree
+responseSetTopicAttributes = res
     "SetTopicAttributesResponse"
     "fixture/SetTopicAttributesResponse.proto"
     sns
     (Proxy :: Proxy SetTopicAttributes)
 
-testDeletePlatformApplicationResponse :: DeletePlatformApplicationResponse -> TestTree
-testDeletePlatformApplicationResponse = res
+responseDeletePlatformApplication :: DeletePlatformApplicationResponse -> TestTree
+responseDeletePlatformApplication = res
     "DeletePlatformApplicationResponse"
     "fixture/DeletePlatformApplicationResponse.proto"
     sns
     (Proxy :: Proxy DeletePlatformApplication)
 
-testListPlatformApplicationsResponse :: ListPlatformApplicationsResponse -> TestTree
-testListPlatformApplicationsResponse = res
+responseListPlatformApplications :: ListPlatformApplicationsResponse -> TestTree
+responseListPlatformApplications = res
     "ListPlatformApplicationsResponse"
     "fixture/ListPlatformApplicationsResponse.proto"
     sns
     (Proxy :: Proxy ListPlatformApplications)
 
-testAddPermissionResponse :: AddPermissionResponse -> TestTree
-testAddPermissionResponse = res
+responseAddPermission :: AddPermissionResponse -> TestTree
+responseAddPermission = res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
     sns
     (Proxy :: Proxy AddPermission)
 
-testGetEndpointAttributesResponse :: GetEndpointAttributesResponse -> TestTree
-testGetEndpointAttributesResponse = res
+responseGetEndpointAttributes :: GetEndpointAttributesResponse -> TestTree
+responseGetEndpointAttributes = res
     "GetEndpointAttributesResponse"
     "fixture/GetEndpointAttributesResponse.proto"
     sns
     (Proxy :: Proxy GetEndpointAttributes)
 
-testListSubscriptionsResponse :: ListSubscriptionsResponse -> TestTree
-testListSubscriptionsResponse = res
+responseListSubscriptions :: ListSubscriptionsResponse -> TestTree
+responseListSubscriptions = res
     "ListSubscriptionsResponse"
     "fixture/ListSubscriptionsResponse.proto"
     sns
     (Proxy :: Proxy ListSubscriptions)
 
-testGetSubscriptionAttributesResponse :: GetSubscriptionAttributesResponse -> TestTree
-testGetSubscriptionAttributesResponse = res
+responseGetSubscriptionAttributes :: GetSubscriptionAttributesResponse -> TestTree
+responseGetSubscriptionAttributes = res
     "GetSubscriptionAttributesResponse"
     "fixture/GetSubscriptionAttributesResponse.proto"
     sns
     (Proxy :: Proxy GetSubscriptionAttributes)
 
-testCreateTopicResponse :: CreateTopicResponse -> TestTree
-testCreateTopicResponse = res
+responseCreateTopic :: CreateTopicResponse -> TestTree
+responseCreateTopic = res
     "CreateTopicResponse"
     "fixture/CreateTopicResponse.proto"
     sns
     (Proxy :: Proxy CreateTopic)
 
-testSubscribeResponse :: SubscribeResponse -> TestTree
-testSubscribeResponse = res
+responseSubscribe :: SubscribeResponse -> TestTree
+responseSubscribe = res
     "SubscribeResponse"
     "fixture/SubscribeResponse.proto"
     sns
     (Proxy :: Proxy Subscribe)
 
-testUnsubscribeResponse :: UnsubscribeResponse -> TestTree
-testUnsubscribeResponse = res
+responseUnsubscribe :: UnsubscribeResponse -> TestTree
+responseUnsubscribe = res
     "UnsubscribeResponse"
     "fixture/UnsubscribeResponse.proto"
     sns
     (Proxy :: Proxy Unsubscribe)
 
-testSetEndpointAttributesResponse :: SetEndpointAttributesResponse -> TestTree
-testSetEndpointAttributesResponse = res
+responseSetEndpointAttributes :: SetEndpointAttributesResponse -> TestTree
+responseSetEndpointAttributes = res
     "SetEndpointAttributesResponse"
     "fixture/SetEndpointAttributesResponse.proto"
     sns
     (Proxy :: Proxy SetEndpointAttributes)
 
-testSetSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse -> TestTree
-testSetSubscriptionAttributesResponse = res
+responseSetSubscriptionAttributes :: SetSubscriptionAttributesResponse -> TestTree
+responseSetSubscriptionAttributes = res
     "SetSubscriptionAttributesResponse"
     "fixture/SetSubscriptionAttributesResponse.proto"
     sns
     (Proxy :: Proxy SetSubscriptionAttributes)
 
-testConfirmSubscriptionResponse :: ConfirmSubscriptionResponse -> TestTree
-testConfirmSubscriptionResponse = res
+responseConfirmSubscription :: ConfirmSubscriptionResponse -> TestTree
+responseConfirmSubscription = res
     "ConfirmSubscriptionResponse"
     "fixture/ConfirmSubscriptionResponse.proto"
     sns
     (Proxy :: Proxy ConfirmSubscription)
 
-testPublishResponse :: PublishResponse -> TestTree
-testPublishResponse = res
+responsePublish :: PublishResponse -> TestTree
+responsePublish = res
     "PublishResponse"
     "fixture/PublishResponse.proto"
     sns

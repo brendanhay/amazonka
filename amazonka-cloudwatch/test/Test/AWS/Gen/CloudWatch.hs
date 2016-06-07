@@ -28,73 +28,73 @@ import Test.AWS.CloudWatch.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testEnableAlarmActions $
+--         [ requestEnableAlarmActions $
 --             enableAlarmActions
 --
---         , testPutMetricData $
+--         , requestPutMetricData $
 --             putMetricData
 --
---         , testDescribeAlarms $
+--         , requestDescribeAlarms $
 --             describeAlarms
 --
---         , testListMetrics $
+--         , requestListMetrics $
 --             listMetrics
 --
---         , testDeleteAlarms $
+--         , requestDeleteAlarms $
 --             deleteAlarms
 --
---         , testDescribeAlarmHistory $
+--         , requestDescribeAlarmHistory $
 --             describeAlarmHistory
 --
---         , testGetMetricStatistics $
+--         , requestGetMetricStatistics $
 --             getMetricStatistics
 --
---         , testDescribeAlarmsForMetric $
+--         , requestDescribeAlarmsForMetric $
 --             describeAlarmsForMetric
 --
---         , testDisableAlarmActions $
+--         , requestDisableAlarmActions $
 --             disableAlarmActions
 --
---         , testPutMetricAlarm $
+--         , requestPutMetricAlarm $
 --             putMetricAlarm
 --
---         , testSetAlarmState $
+--         , requestSetAlarmState $
 --             setAlarmState
 --
 --           ]
 
 --     , testGroup "response"
---         [ testEnableAlarmActionsResponse $
+--         [ responseEnableAlarmActions $
 --             enableAlarmActionsResponse
 --
---         , testPutMetricDataResponse $
+--         , responsePutMetricData $
 --             putMetricDataResponse
 --
---         , testDescribeAlarmsResponse $
+--         , responseDescribeAlarms $
 --             describeAlarmsResponse
 --
---         , testListMetricsResponse $
+--         , responseListMetrics $
 --             listMetricsResponse
 --
---         , testDeleteAlarmsResponse $
+--         , responseDeleteAlarms $
 --             deleteAlarmsResponse
 --
---         , testDescribeAlarmHistoryResponse $
+--         , responseDescribeAlarmHistory $
 --             describeAlarmHistoryResponse
 --
---         , testGetMetricStatisticsResponse $
+--         , responseGetMetricStatistics $
 --             getMetricStatisticsResponse
 --
---         , testDescribeAlarmsForMetricResponse $
+--         , responseDescribeAlarmsForMetric $
 --             describeAlarmsForMetricResponse
 --
---         , testDisableAlarmActionsResponse $
+--         , responseDisableAlarmActions $
 --             disableAlarmActionsResponse
 --
---         , testPutMetricAlarmResponse $
+--         , responsePutMetricAlarm $
 --             putMetricAlarmResponse
 --
---         , testSetAlarmStateResponse $
+--         , responseSetAlarmState $
 --             setAlarmStateResponse
 --
 --           ]
@@ -102,135 +102,135 @@ import Test.AWS.CloudWatch.Internal
 
 -- Requests
 
-testEnableAlarmActions :: EnableAlarmActions -> TestTree
-testEnableAlarmActions = req
+requestEnableAlarmActions :: EnableAlarmActions -> TestTree
+requestEnableAlarmActions = req
     "EnableAlarmActions"
     "fixture/EnableAlarmActions.yaml"
 
-testPutMetricData :: PutMetricData -> TestTree
-testPutMetricData = req
+requestPutMetricData :: PutMetricData -> TestTree
+requestPutMetricData = req
     "PutMetricData"
     "fixture/PutMetricData.yaml"
 
-testDescribeAlarms :: DescribeAlarms -> TestTree
-testDescribeAlarms = req
+requestDescribeAlarms :: DescribeAlarms -> TestTree
+requestDescribeAlarms = req
     "DescribeAlarms"
     "fixture/DescribeAlarms.yaml"
 
-testListMetrics :: ListMetrics -> TestTree
-testListMetrics = req
+requestListMetrics :: ListMetrics -> TestTree
+requestListMetrics = req
     "ListMetrics"
     "fixture/ListMetrics.yaml"
 
-testDeleteAlarms :: DeleteAlarms -> TestTree
-testDeleteAlarms = req
+requestDeleteAlarms :: DeleteAlarms -> TestTree
+requestDeleteAlarms = req
     "DeleteAlarms"
     "fixture/DeleteAlarms.yaml"
 
-testDescribeAlarmHistory :: DescribeAlarmHistory -> TestTree
-testDescribeAlarmHistory = req
+requestDescribeAlarmHistory :: DescribeAlarmHistory -> TestTree
+requestDescribeAlarmHistory = req
     "DescribeAlarmHistory"
     "fixture/DescribeAlarmHistory.yaml"
 
-testGetMetricStatistics :: GetMetricStatistics -> TestTree
-testGetMetricStatistics = req
+requestGetMetricStatistics :: GetMetricStatistics -> TestTree
+requestGetMetricStatistics = req
     "GetMetricStatistics"
     "fixture/GetMetricStatistics.yaml"
 
-testDescribeAlarmsForMetric :: DescribeAlarmsForMetric -> TestTree
-testDescribeAlarmsForMetric = req
+requestDescribeAlarmsForMetric :: DescribeAlarmsForMetric -> TestTree
+requestDescribeAlarmsForMetric = req
     "DescribeAlarmsForMetric"
     "fixture/DescribeAlarmsForMetric.yaml"
 
-testDisableAlarmActions :: DisableAlarmActions -> TestTree
-testDisableAlarmActions = req
+requestDisableAlarmActions :: DisableAlarmActions -> TestTree
+requestDisableAlarmActions = req
     "DisableAlarmActions"
     "fixture/DisableAlarmActions.yaml"
 
-testPutMetricAlarm :: PutMetricAlarm -> TestTree
-testPutMetricAlarm = req
+requestPutMetricAlarm :: PutMetricAlarm -> TestTree
+requestPutMetricAlarm = req
     "PutMetricAlarm"
     "fixture/PutMetricAlarm.yaml"
 
-testSetAlarmState :: SetAlarmState -> TestTree
-testSetAlarmState = req
+requestSetAlarmState :: SetAlarmState -> TestTree
+requestSetAlarmState = req
     "SetAlarmState"
     "fixture/SetAlarmState.yaml"
 
 -- Responses
 
-testEnableAlarmActionsResponse :: EnableAlarmActionsResponse -> TestTree
-testEnableAlarmActionsResponse = res
+responseEnableAlarmActions :: EnableAlarmActionsResponse -> TestTree
+responseEnableAlarmActions = res
     "EnableAlarmActionsResponse"
     "fixture/EnableAlarmActionsResponse.proto"
     cloudWatch
     (Proxy :: Proxy EnableAlarmActions)
 
-testPutMetricDataResponse :: PutMetricDataResponse -> TestTree
-testPutMetricDataResponse = res
+responsePutMetricData :: PutMetricDataResponse -> TestTree
+responsePutMetricData = res
     "PutMetricDataResponse"
     "fixture/PutMetricDataResponse.proto"
     cloudWatch
     (Proxy :: Proxy PutMetricData)
 
-testDescribeAlarmsResponse :: DescribeAlarmsResponse -> TestTree
-testDescribeAlarmsResponse = res
+responseDescribeAlarms :: DescribeAlarmsResponse -> TestTree
+responseDescribeAlarms = res
     "DescribeAlarmsResponse"
     "fixture/DescribeAlarmsResponse.proto"
     cloudWatch
     (Proxy :: Proxy DescribeAlarms)
 
-testListMetricsResponse :: ListMetricsResponse -> TestTree
-testListMetricsResponse = res
+responseListMetrics :: ListMetricsResponse -> TestTree
+responseListMetrics = res
     "ListMetricsResponse"
     "fixture/ListMetricsResponse.proto"
     cloudWatch
     (Proxy :: Proxy ListMetrics)
 
-testDeleteAlarmsResponse :: DeleteAlarmsResponse -> TestTree
-testDeleteAlarmsResponse = res
+responseDeleteAlarms :: DeleteAlarmsResponse -> TestTree
+responseDeleteAlarms = res
     "DeleteAlarmsResponse"
     "fixture/DeleteAlarmsResponse.proto"
     cloudWatch
     (Proxy :: Proxy DeleteAlarms)
 
-testDescribeAlarmHistoryResponse :: DescribeAlarmHistoryResponse -> TestTree
-testDescribeAlarmHistoryResponse = res
+responseDescribeAlarmHistory :: DescribeAlarmHistoryResponse -> TestTree
+responseDescribeAlarmHistory = res
     "DescribeAlarmHistoryResponse"
     "fixture/DescribeAlarmHistoryResponse.proto"
     cloudWatch
     (Proxy :: Proxy DescribeAlarmHistory)
 
-testGetMetricStatisticsResponse :: GetMetricStatisticsResponse -> TestTree
-testGetMetricStatisticsResponse = res
+responseGetMetricStatistics :: GetMetricStatisticsResponse -> TestTree
+responseGetMetricStatistics = res
     "GetMetricStatisticsResponse"
     "fixture/GetMetricStatisticsResponse.proto"
     cloudWatch
     (Proxy :: Proxy GetMetricStatistics)
 
-testDescribeAlarmsForMetricResponse :: DescribeAlarmsForMetricResponse -> TestTree
-testDescribeAlarmsForMetricResponse = res
+responseDescribeAlarmsForMetric :: DescribeAlarmsForMetricResponse -> TestTree
+responseDescribeAlarmsForMetric = res
     "DescribeAlarmsForMetricResponse"
     "fixture/DescribeAlarmsForMetricResponse.proto"
     cloudWatch
     (Proxy :: Proxy DescribeAlarmsForMetric)
 
-testDisableAlarmActionsResponse :: DisableAlarmActionsResponse -> TestTree
-testDisableAlarmActionsResponse = res
+responseDisableAlarmActions :: DisableAlarmActionsResponse -> TestTree
+responseDisableAlarmActions = res
     "DisableAlarmActionsResponse"
     "fixture/DisableAlarmActionsResponse.proto"
     cloudWatch
     (Proxy :: Proxy DisableAlarmActions)
 
-testPutMetricAlarmResponse :: PutMetricAlarmResponse -> TestTree
-testPutMetricAlarmResponse = res
+responsePutMetricAlarm :: PutMetricAlarmResponse -> TestTree
+responsePutMetricAlarm = res
     "PutMetricAlarmResponse"
     "fixture/PutMetricAlarmResponse.proto"
     cloudWatch
     (Proxy :: Proxy PutMetricAlarm)
 
-testSetAlarmStateResponse :: SetAlarmStateResponse -> TestTree
-testSetAlarmStateResponse = res
+responseSetAlarmState :: SetAlarmStateResponse -> TestTree
+responseSetAlarmState = res
     "SetAlarmStateResponse"
     "fixture/SetAlarmStateResponse.proto"
     cloudWatch

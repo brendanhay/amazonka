@@ -29,17 +29,17 @@ tests =
 fixtures :: [TestTree]
 fixtures =
     [ testGroup "request"
-        [ testDeleteObjects $
+        [ requestDeleteObjects $
             deleteObjects "bucketname" $
                 delete' & dObjects .~
                     [ objectIdentifier "sample1.text"
                     , objectIdentifier "sample2.text"
                     ]
 
-        , testListMultipartUploads $
+        , requestListMultipartUploads $
             listMultipartUploads "foo-bucket" & lmuMaxUploads ?~ 3
 
-        , testPutObjectACLWithBody $
+        , requestPutObjectACLWithBody $
             putObjectACL "bucket-body" "key-body"
                 & poaAccessControlPolicy ?~
                     ( accessControlPolicy
@@ -47,13 +47,13 @@ fixtures =
                         & acpOwner  ?~ (owner & oId         ?~ "foo-oid")
                     )
 
-        , testPutObjectACLWithHeaders $
+        , requestPutObjectACLWithHeaders $
             putObjectACL "bucket-headers" "key-headers"
                 & poaACL ?~ OBucketOwnerRead
         ]
 
     , testGroup "response"
-        [ testGetBucketReplicationResponse $
+        [ responseGetBucketReplication $
             getBucketReplicationResponse 200
                 & gbrrsReplicationConfiguration ?~
                    (replicationConfiguration "arn:aws:iam::35667example:role/CrossRegionReplicationRoleForS3"
@@ -62,14 +62,14 @@ fixtures =
                                & rrId ?~ "rule1"
                            ])
 
-        , testCopyObjectResponse $
+        , responseCopyObject $
             copyObjectResponse 200
                 & corsCopyObjectResult ?~
                     (copyObjectResult
                         & corETag         ?~ ETag "\"9b2cf535f27731c974343645a3985328\""
                         & corLastModified ?~ $(mkTime "2009-10-28T22:32:00Z"))
 
-        , testListPartsResponse $
+        , responseListParts $
             listPartsResponse 200
                 & lprsBucket               ?~ "example-bucket"
                 & lprsKey                  ?~ "example-object"
@@ -99,7 +99,7 @@ fixtures =
                     ]
 
         -- FIXME: Has a JSON body, not XML, hence, serialiser error.
-        -- , testGetBucketPolicyResponse $
+        -- , requestGetBucketPolicyResponse $
         --     getBucketPolicyResponse 200
         --         & gbprPolicy ?~ "foo"
         ]

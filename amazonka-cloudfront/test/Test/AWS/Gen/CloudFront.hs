@@ -28,139 +28,139 @@ import Test.AWS.CloudFront.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDeleteStreamingDistribution $
+--         [ requestDeleteStreamingDistribution $
 --             deleteStreamingDistribution
 --
---         , testUpdateStreamingDistribution $
+--         , requestUpdateStreamingDistribution $
 --             updateStreamingDistribution
 --
---         , testCreateDistribution $
+--         , requestCreateDistribution $
 --             createDistribution
 --
---         , testGetDistributionConfig $
+--         , requestGetDistributionConfig $
 --             getDistributionConfig
 --
---         , testGetDistribution $
+--         , requestGetDistribution $
 --             getDistribution
 --
---         , testUpdateCloudFrontOriginAccessIdentity $
+--         , requestUpdateCloudFrontOriginAccessIdentity $
 --             updateCloudFrontOriginAccessIdentity
 --
---         , testDeleteCloudFrontOriginAccessIdentity $
+--         , requestDeleteCloudFrontOriginAccessIdentity $
 --             deleteCloudFrontOriginAccessIdentity
 --
---         , testListStreamingDistributions $
+--         , requestListStreamingDistributions $
 --             listStreamingDistributions
 --
---         , testGetStreamingDistributionConfig $
+--         , requestGetStreamingDistributionConfig $
 --             getStreamingDistributionConfig
 --
---         , testGetCloudFrontOriginAccessIdentityConfig $
+--         , requestGetCloudFrontOriginAccessIdentityConfig $
 --             getCloudFrontOriginAccessIdentityConfig
 --
---         , testCreateStreamingDistribution $
+--         , requestCreateStreamingDistribution $
 --             createStreamingDistribution
 --
---         , testCreateCloudFrontOriginAccessIdentity $
+--         , requestCreateCloudFrontOriginAccessIdentity $
 --             createCloudFrontOriginAccessIdentity
 --
---         , testListCloudFrontOriginAccessIdentities $
+--         , requestListCloudFrontOriginAccessIdentities $
 --             listCloudFrontOriginAccessIdentities
 --
---         , testGetInvalidation $
+--         , requestGetInvalidation $
 --             getInvalidation
 --
---         , testListInvalidations $
+--         , requestListInvalidations $
 --             listInvalidations
 --
---         , testCreateInvalidation $
+--         , requestCreateInvalidation $
 --             createInvalidation
 --
---         , testGetCloudFrontOriginAccessIdentity $
+--         , requestGetCloudFrontOriginAccessIdentity $
 --             getCloudFrontOriginAccessIdentity
 --
---         , testGetStreamingDistribution $
+--         , requestGetStreamingDistribution $
 --             getStreamingDistribution
 --
---         , testUpdateDistribution $
+--         , requestUpdateDistribution $
 --             updateDistribution
 --
---         , testDeleteDistribution $
+--         , requestDeleteDistribution $
 --             deleteDistribution
 --
---         , testListDistributionsByWebACLId $
+--         , requestListDistributionsByWebACLId $
 --             listDistributionsByWebACLId
 --
---         , testListDistributions $
+--         , requestListDistributions $
 --             listDistributions
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDeleteStreamingDistributionResponse $
+--         [ responseDeleteStreamingDistribution $
 --             deleteStreamingDistributionResponse
 --
---         , testUpdateStreamingDistributionResponse $
+--         , responseUpdateStreamingDistribution $
 --             updateStreamingDistributionResponse
 --
---         , testCreateDistributionResponse $
+--         , responseCreateDistribution $
 --             createDistributionResponse
 --
---         , testGetDistributionConfigResponse $
+--         , responseGetDistributionConfig $
 --             getDistributionConfigResponse
 --
---         , testGetDistributionResponse $
+--         , responseGetDistribution $
 --             getDistributionResponse
 --
---         , testUpdateCloudFrontOriginAccessIdentityResponse $
+--         , responseUpdateCloudFrontOriginAccessIdentity $
 --             updateCloudFrontOriginAccessIdentityResponse
 --
---         , testDeleteCloudFrontOriginAccessIdentityResponse $
+--         , responseDeleteCloudFrontOriginAccessIdentity $
 --             deleteCloudFrontOriginAccessIdentityResponse
 --
---         , testListStreamingDistributionsResponse $
+--         , responseListStreamingDistributions $
 --             listStreamingDistributionsResponse
 --
---         , testGetStreamingDistributionConfigResponse $
+--         , responseGetStreamingDistributionConfig $
 --             getStreamingDistributionConfigResponse
 --
---         , testGetCloudFrontOriginAccessIdentityConfigResponse $
+--         , responseGetCloudFrontOriginAccessIdentityConfig $
 --             getCloudFrontOriginAccessIdentityConfigResponse
 --
---         , testCreateStreamingDistributionResponse $
+--         , responseCreateStreamingDistribution $
 --             createStreamingDistributionResponse
 --
---         , testCreateCloudFrontOriginAccessIdentityResponse $
+--         , responseCreateCloudFrontOriginAccessIdentity $
 --             createCloudFrontOriginAccessIdentityResponse
 --
---         , testListCloudFrontOriginAccessIdentitiesResponse $
+--         , responseListCloudFrontOriginAccessIdentities $
 --             listCloudFrontOriginAccessIdentitiesResponse
 --
---         , testGetInvalidationResponse $
+--         , responseGetInvalidation $
 --             getInvalidationResponse
 --
---         , testListInvalidationsResponse $
+--         , responseListInvalidations $
 --             listInvalidationsResponse
 --
---         , testCreateInvalidationResponse $
+--         , responseCreateInvalidation $
 --             createInvalidationResponse
 --
---         , testGetCloudFrontOriginAccessIdentityResponse $
+--         , responseGetCloudFrontOriginAccessIdentity $
 --             getCloudFrontOriginAccessIdentityResponse
 --
---         , testGetStreamingDistributionResponse $
+--         , responseGetStreamingDistribution $
 --             getStreamingDistributionResponse
 --
---         , testUpdateDistributionResponse $
+--         , responseUpdateDistribution $
 --             updateDistributionResponse
 --
---         , testDeleteDistributionResponse $
+--         , responseDeleteDistribution $
 --             deleteDistributionResponse
 --
---         , testListDistributionsByWebACLIdResponse $
+--         , responseListDistributionsByWebACLId $
 --             listDistributionsByWebACLIdResponse
 --
---         , testListDistributionsResponse $
+--         , responseListDistributions $
 --             listDistributionsResponse
 --
 --           ]
@@ -168,267 +168,267 @@ import Test.AWS.CloudFront.Internal
 
 -- Requests
 
-testDeleteStreamingDistribution :: DeleteStreamingDistribution -> TestTree
-testDeleteStreamingDistribution = req
+requestDeleteStreamingDistribution :: DeleteStreamingDistribution -> TestTree
+requestDeleteStreamingDistribution = req
     "DeleteStreamingDistribution"
     "fixture/DeleteStreamingDistribution.yaml"
 
-testUpdateStreamingDistribution :: UpdateStreamingDistribution -> TestTree
-testUpdateStreamingDistribution = req
+requestUpdateStreamingDistribution :: UpdateStreamingDistribution -> TestTree
+requestUpdateStreamingDistribution = req
     "UpdateStreamingDistribution"
     "fixture/UpdateStreamingDistribution.yaml"
 
-testCreateDistribution :: CreateDistribution -> TestTree
-testCreateDistribution = req
+requestCreateDistribution :: CreateDistribution -> TestTree
+requestCreateDistribution = req
     "CreateDistribution"
     "fixture/CreateDistribution.yaml"
 
-testGetDistributionConfig :: GetDistributionConfig -> TestTree
-testGetDistributionConfig = req
+requestGetDistributionConfig :: GetDistributionConfig -> TestTree
+requestGetDistributionConfig = req
     "GetDistributionConfig"
     "fixture/GetDistributionConfig.yaml"
 
-testGetDistribution :: GetDistribution -> TestTree
-testGetDistribution = req
+requestGetDistribution :: GetDistribution -> TestTree
+requestGetDistribution = req
     "GetDistribution"
     "fixture/GetDistribution.yaml"
 
-testUpdateCloudFrontOriginAccessIdentity :: UpdateCloudFrontOriginAccessIdentity -> TestTree
-testUpdateCloudFrontOriginAccessIdentity = req
+requestUpdateCloudFrontOriginAccessIdentity :: UpdateCloudFrontOriginAccessIdentity -> TestTree
+requestUpdateCloudFrontOriginAccessIdentity = req
     "UpdateCloudFrontOriginAccessIdentity"
     "fixture/UpdateCloudFrontOriginAccessIdentity.yaml"
 
-testDeleteCloudFrontOriginAccessIdentity :: DeleteCloudFrontOriginAccessIdentity -> TestTree
-testDeleteCloudFrontOriginAccessIdentity = req
+requestDeleteCloudFrontOriginAccessIdentity :: DeleteCloudFrontOriginAccessIdentity -> TestTree
+requestDeleteCloudFrontOriginAccessIdentity = req
     "DeleteCloudFrontOriginAccessIdentity"
     "fixture/DeleteCloudFrontOriginAccessIdentity.yaml"
 
-testListStreamingDistributions :: ListStreamingDistributions -> TestTree
-testListStreamingDistributions = req
+requestListStreamingDistributions :: ListStreamingDistributions -> TestTree
+requestListStreamingDistributions = req
     "ListStreamingDistributions"
     "fixture/ListStreamingDistributions.yaml"
 
-testGetStreamingDistributionConfig :: GetStreamingDistributionConfig -> TestTree
-testGetStreamingDistributionConfig = req
+requestGetStreamingDistributionConfig :: GetStreamingDistributionConfig -> TestTree
+requestGetStreamingDistributionConfig = req
     "GetStreamingDistributionConfig"
     "fixture/GetStreamingDistributionConfig.yaml"
 
-testGetCloudFrontOriginAccessIdentityConfig :: GetCloudFrontOriginAccessIdentityConfig -> TestTree
-testGetCloudFrontOriginAccessIdentityConfig = req
+requestGetCloudFrontOriginAccessIdentityConfig :: GetCloudFrontOriginAccessIdentityConfig -> TestTree
+requestGetCloudFrontOriginAccessIdentityConfig = req
     "GetCloudFrontOriginAccessIdentityConfig"
     "fixture/GetCloudFrontOriginAccessIdentityConfig.yaml"
 
-testCreateStreamingDistribution :: CreateStreamingDistribution -> TestTree
-testCreateStreamingDistribution = req
+requestCreateStreamingDistribution :: CreateStreamingDistribution -> TestTree
+requestCreateStreamingDistribution = req
     "CreateStreamingDistribution"
     "fixture/CreateStreamingDistribution.yaml"
 
-testCreateCloudFrontOriginAccessIdentity :: CreateCloudFrontOriginAccessIdentity -> TestTree
-testCreateCloudFrontOriginAccessIdentity = req
+requestCreateCloudFrontOriginAccessIdentity :: CreateCloudFrontOriginAccessIdentity -> TestTree
+requestCreateCloudFrontOriginAccessIdentity = req
     "CreateCloudFrontOriginAccessIdentity"
     "fixture/CreateCloudFrontOriginAccessIdentity.yaml"
 
-testListCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities -> TestTree
-testListCloudFrontOriginAccessIdentities = req
+requestListCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities -> TestTree
+requestListCloudFrontOriginAccessIdentities = req
     "ListCloudFrontOriginAccessIdentities"
     "fixture/ListCloudFrontOriginAccessIdentities.yaml"
 
-testGetInvalidation :: GetInvalidation -> TestTree
-testGetInvalidation = req
+requestGetInvalidation :: GetInvalidation -> TestTree
+requestGetInvalidation = req
     "GetInvalidation"
     "fixture/GetInvalidation.yaml"
 
-testListInvalidations :: ListInvalidations -> TestTree
-testListInvalidations = req
+requestListInvalidations :: ListInvalidations -> TestTree
+requestListInvalidations = req
     "ListInvalidations"
     "fixture/ListInvalidations.yaml"
 
-testCreateInvalidation :: CreateInvalidation -> TestTree
-testCreateInvalidation = req
+requestCreateInvalidation :: CreateInvalidation -> TestTree
+requestCreateInvalidation = req
     "CreateInvalidation"
     "fixture/CreateInvalidation.yaml"
 
-testGetCloudFrontOriginAccessIdentity :: GetCloudFrontOriginAccessIdentity -> TestTree
-testGetCloudFrontOriginAccessIdentity = req
+requestGetCloudFrontOriginAccessIdentity :: GetCloudFrontOriginAccessIdentity -> TestTree
+requestGetCloudFrontOriginAccessIdentity = req
     "GetCloudFrontOriginAccessIdentity"
     "fixture/GetCloudFrontOriginAccessIdentity.yaml"
 
-testGetStreamingDistribution :: GetStreamingDistribution -> TestTree
-testGetStreamingDistribution = req
+requestGetStreamingDistribution :: GetStreamingDistribution -> TestTree
+requestGetStreamingDistribution = req
     "GetStreamingDistribution"
     "fixture/GetStreamingDistribution.yaml"
 
-testUpdateDistribution :: UpdateDistribution -> TestTree
-testUpdateDistribution = req
+requestUpdateDistribution :: UpdateDistribution -> TestTree
+requestUpdateDistribution = req
     "UpdateDistribution"
     "fixture/UpdateDistribution.yaml"
 
-testDeleteDistribution :: DeleteDistribution -> TestTree
-testDeleteDistribution = req
+requestDeleteDistribution :: DeleteDistribution -> TestTree
+requestDeleteDistribution = req
     "DeleteDistribution"
     "fixture/DeleteDistribution.yaml"
 
-testListDistributionsByWebACLId :: ListDistributionsByWebACLId -> TestTree
-testListDistributionsByWebACLId = req
+requestListDistributionsByWebACLId :: ListDistributionsByWebACLId -> TestTree
+requestListDistributionsByWebACLId = req
     "ListDistributionsByWebACLId"
     "fixture/ListDistributionsByWebACLId.yaml"
 
-testListDistributions :: ListDistributions -> TestTree
-testListDistributions = req
+requestListDistributions :: ListDistributions -> TestTree
+requestListDistributions = req
     "ListDistributions"
     "fixture/ListDistributions.yaml"
 
 -- Responses
 
-testDeleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse -> TestTree
-testDeleteStreamingDistributionResponse = res
+responseDeleteStreamingDistribution :: DeleteStreamingDistributionResponse -> TestTree
+responseDeleteStreamingDistribution = res
     "DeleteStreamingDistributionResponse"
     "fixture/DeleteStreamingDistributionResponse.proto"
     cloudFront
     (Proxy :: Proxy DeleteStreamingDistribution)
 
-testUpdateStreamingDistributionResponse :: UpdateStreamingDistributionResponse -> TestTree
-testUpdateStreamingDistributionResponse = res
+responseUpdateStreamingDistribution :: UpdateStreamingDistributionResponse -> TestTree
+responseUpdateStreamingDistribution = res
     "UpdateStreamingDistributionResponse"
     "fixture/UpdateStreamingDistributionResponse.proto"
     cloudFront
     (Proxy :: Proxy UpdateStreamingDistribution)
 
-testCreateDistributionResponse :: CreateDistributionResponse -> TestTree
-testCreateDistributionResponse = res
+responseCreateDistribution :: CreateDistributionResponse -> TestTree
+responseCreateDistribution = res
     "CreateDistributionResponse"
     "fixture/CreateDistributionResponse.proto"
     cloudFront
     (Proxy :: Proxy CreateDistribution)
 
-testGetDistributionConfigResponse :: GetDistributionConfigResponse -> TestTree
-testGetDistributionConfigResponse = res
+responseGetDistributionConfig :: GetDistributionConfigResponse -> TestTree
+responseGetDistributionConfig = res
     "GetDistributionConfigResponse"
     "fixture/GetDistributionConfigResponse.proto"
     cloudFront
     (Proxy :: Proxy GetDistributionConfig)
 
-testGetDistributionResponse :: GetDistributionResponse -> TestTree
-testGetDistributionResponse = res
+responseGetDistribution :: GetDistributionResponse -> TestTree
+responseGetDistribution = res
     "GetDistributionResponse"
     "fixture/GetDistributionResponse.proto"
     cloudFront
     (Proxy :: Proxy GetDistribution)
 
-testUpdateCloudFrontOriginAccessIdentityResponse :: UpdateCloudFrontOriginAccessIdentityResponse -> TestTree
-testUpdateCloudFrontOriginAccessIdentityResponse = res
+responseUpdateCloudFrontOriginAccessIdentity :: UpdateCloudFrontOriginAccessIdentityResponse -> TestTree
+responseUpdateCloudFrontOriginAccessIdentity = res
     "UpdateCloudFrontOriginAccessIdentityResponse"
     "fixture/UpdateCloudFrontOriginAccessIdentityResponse.proto"
     cloudFront
     (Proxy :: Proxy UpdateCloudFrontOriginAccessIdentity)
 
-testDeleteCloudFrontOriginAccessIdentityResponse :: DeleteCloudFrontOriginAccessIdentityResponse -> TestTree
-testDeleteCloudFrontOriginAccessIdentityResponse = res
+responseDeleteCloudFrontOriginAccessIdentity :: DeleteCloudFrontOriginAccessIdentityResponse -> TestTree
+responseDeleteCloudFrontOriginAccessIdentity = res
     "DeleteCloudFrontOriginAccessIdentityResponse"
     "fixture/DeleteCloudFrontOriginAccessIdentityResponse.proto"
     cloudFront
     (Proxy :: Proxy DeleteCloudFrontOriginAccessIdentity)
 
-testListStreamingDistributionsResponse :: ListStreamingDistributionsResponse -> TestTree
-testListStreamingDistributionsResponse = res
+responseListStreamingDistributions :: ListStreamingDistributionsResponse -> TestTree
+responseListStreamingDistributions = res
     "ListStreamingDistributionsResponse"
     "fixture/ListStreamingDistributionsResponse.proto"
     cloudFront
     (Proxy :: Proxy ListStreamingDistributions)
 
-testGetStreamingDistributionConfigResponse :: GetStreamingDistributionConfigResponse -> TestTree
-testGetStreamingDistributionConfigResponse = res
+responseGetStreamingDistributionConfig :: GetStreamingDistributionConfigResponse -> TestTree
+responseGetStreamingDistributionConfig = res
     "GetStreamingDistributionConfigResponse"
     "fixture/GetStreamingDistributionConfigResponse.proto"
     cloudFront
     (Proxy :: Proxy GetStreamingDistributionConfig)
 
-testGetCloudFrontOriginAccessIdentityConfigResponse :: GetCloudFrontOriginAccessIdentityConfigResponse -> TestTree
-testGetCloudFrontOriginAccessIdentityConfigResponse = res
+responseGetCloudFrontOriginAccessIdentityConfig :: GetCloudFrontOriginAccessIdentityConfigResponse -> TestTree
+responseGetCloudFrontOriginAccessIdentityConfig = res
     "GetCloudFrontOriginAccessIdentityConfigResponse"
     "fixture/GetCloudFrontOriginAccessIdentityConfigResponse.proto"
     cloudFront
     (Proxy :: Proxy GetCloudFrontOriginAccessIdentityConfig)
 
-testCreateStreamingDistributionResponse :: CreateStreamingDistributionResponse -> TestTree
-testCreateStreamingDistributionResponse = res
+responseCreateStreamingDistribution :: CreateStreamingDistributionResponse -> TestTree
+responseCreateStreamingDistribution = res
     "CreateStreamingDistributionResponse"
     "fixture/CreateStreamingDistributionResponse.proto"
     cloudFront
     (Proxy :: Proxy CreateStreamingDistribution)
 
-testCreateCloudFrontOriginAccessIdentityResponse :: CreateCloudFrontOriginAccessIdentityResponse -> TestTree
-testCreateCloudFrontOriginAccessIdentityResponse = res
+responseCreateCloudFrontOriginAccessIdentity :: CreateCloudFrontOriginAccessIdentityResponse -> TestTree
+responseCreateCloudFrontOriginAccessIdentity = res
     "CreateCloudFrontOriginAccessIdentityResponse"
     "fixture/CreateCloudFrontOriginAccessIdentityResponse.proto"
     cloudFront
     (Proxy :: Proxy CreateCloudFrontOriginAccessIdentity)
 
-testListCloudFrontOriginAccessIdentitiesResponse :: ListCloudFrontOriginAccessIdentitiesResponse -> TestTree
-testListCloudFrontOriginAccessIdentitiesResponse = res
+responseListCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentitiesResponse -> TestTree
+responseListCloudFrontOriginAccessIdentities = res
     "ListCloudFrontOriginAccessIdentitiesResponse"
     "fixture/ListCloudFrontOriginAccessIdentitiesResponse.proto"
     cloudFront
     (Proxy :: Proxy ListCloudFrontOriginAccessIdentities)
 
-testGetInvalidationResponse :: GetInvalidationResponse -> TestTree
-testGetInvalidationResponse = res
+responseGetInvalidation :: GetInvalidationResponse -> TestTree
+responseGetInvalidation = res
     "GetInvalidationResponse"
     "fixture/GetInvalidationResponse.proto"
     cloudFront
     (Proxy :: Proxy GetInvalidation)
 
-testListInvalidationsResponse :: ListInvalidationsResponse -> TestTree
-testListInvalidationsResponse = res
+responseListInvalidations :: ListInvalidationsResponse -> TestTree
+responseListInvalidations = res
     "ListInvalidationsResponse"
     "fixture/ListInvalidationsResponse.proto"
     cloudFront
     (Proxy :: Proxy ListInvalidations)
 
-testCreateInvalidationResponse :: CreateInvalidationResponse -> TestTree
-testCreateInvalidationResponse = res
+responseCreateInvalidation :: CreateInvalidationResponse -> TestTree
+responseCreateInvalidation = res
     "CreateInvalidationResponse"
     "fixture/CreateInvalidationResponse.proto"
     cloudFront
     (Proxy :: Proxy CreateInvalidation)
 
-testGetCloudFrontOriginAccessIdentityResponse :: GetCloudFrontOriginAccessIdentityResponse -> TestTree
-testGetCloudFrontOriginAccessIdentityResponse = res
+responseGetCloudFrontOriginAccessIdentity :: GetCloudFrontOriginAccessIdentityResponse -> TestTree
+responseGetCloudFrontOriginAccessIdentity = res
     "GetCloudFrontOriginAccessIdentityResponse"
     "fixture/GetCloudFrontOriginAccessIdentityResponse.proto"
     cloudFront
     (Proxy :: Proxy GetCloudFrontOriginAccessIdentity)
 
-testGetStreamingDistributionResponse :: GetStreamingDistributionResponse -> TestTree
-testGetStreamingDistributionResponse = res
+responseGetStreamingDistribution :: GetStreamingDistributionResponse -> TestTree
+responseGetStreamingDistribution = res
     "GetStreamingDistributionResponse"
     "fixture/GetStreamingDistributionResponse.proto"
     cloudFront
     (Proxy :: Proxy GetStreamingDistribution)
 
-testUpdateDistributionResponse :: UpdateDistributionResponse -> TestTree
-testUpdateDistributionResponse = res
+responseUpdateDistribution :: UpdateDistributionResponse -> TestTree
+responseUpdateDistribution = res
     "UpdateDistributionResponse"
     "fixture/UpdateDistributionResponse.proto"
     cloudFront
     (Proxy :: Proxy UpdateDistribution)
 
-testDeleteDistributionResponse :: DeleteDistributionResponse -> TestTree
-testDeleteDistributionResponse = res
+responseDeleteDistribution :: DeleteDistributionResponse -> TestTree
+responseDeleteDistribution = res
     "DeleteDistributionResponse"
     "fixture/DeleteDistributionResponse.proto"
     cloudFront
     (Proxy :: Proxy DeleteDistribution)
 
-testListDistributionsByWebACLIdResponse :: ListDistributionsByWebACLIdResponse -> TestTree
-testListDistributionsByWebACLIdResponse = res
+responseListDistributionsByWebACLId :: ListDistributionsByWebACLIdResponse -> TestTree
+responseListDistributionsByWebACLId = res
     "ListDistributionsByWebACLIdResponse"
     "fixture/ListDistributionsByWebACLIdResponse.proto"
     cloudFront
     (Proxy :: Proxy ListDistributionsByWebACLId)
 
-testListDistributionsResponse :: ListDistributionsResponse -> TestTree
-testListDistributionsResponse = res
+responseListDistributions :: ListDistributionsResponse -> TestTree
+responseListDistributions = res
     "ListDistributionsResponse"
     "fixture/ListDistributionsResponse.proto"
     cloudFront

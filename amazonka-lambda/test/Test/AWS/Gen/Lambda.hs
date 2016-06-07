@@ -28,145 +28,145 @@ import Test.AWS.Lambda.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testGetFunctionConfiguration $
+--         [ requestGetFunctionConfiguration $
 --             getFunctionConfiguration
 --
---         , testDeleteEventSourceMapping $
+--         , requestDeleteEventSourceMapping $
 --             deleteEventSourceMapping
 --
---         , testUpdateEventSourceMapping $
+--         , requestUpdateEventSourceMapping $
 --             updateEventSourceMapping
 --
---         , testCreateAlias $
+--         , requestCreateAlias $
 --             createAlias
 --
---         , testListVersionsByFunction $
+--         , requestListVersionsByFunction $
 --             listVersionsByFunction
 --
---         , testListAliases $
+--         , requestListAliases $
 --             listAliases
 --
---         , testRemovePermission $
+--         , requestRemovePermission $
 --             removePermission
 --
---         , testInvoke $
+--         , requestInvoke $
 --             invoke
 --
---         , testGetAlias $
+--         , requestGetAlias $
 --             getAlias
 --
---         , testGetEventSourceMapping $
+--         , requestGetEventSourceMapping $
 --             getEventSourceMapping
 --
---         , testCreateFunction $
+--         , requestCreateFunction $
 --             createFunction
 --
---         , testCreateEventSourceMapping $
+--         , requestCreateEventSourceMapping $
 --             createEventSourceMapping
 --
---         , testGetFunction $
+--         , requestGetFunction $
 --             getFunction
 --
---         , testListEventSourceMappings $
+--         , requestListEventSourceMappings $
 --             listEventSourceMappings
 --
---         , testDeleteAlias $
+--         , requestDeleteAlias $
 --             deleteAlias
 --
---         , testUpdateAlias $
+--         , requestUpdateAlias $
 --             updateAlias
 --
---         , testAddPermission $
+--         , requestAddPermission $
 --             addPermission
 --
---         , testPublishVersion $
+--         , requestPublishVersion $
 --             publishVersion
 --
---         , testDeleteFunction $
+--         , requestDeleteFunction $
 --             deleteFunction
 --
---         , testUpdateFunctionConfiguration $
+--         , requestUpdateFunctionConfiguration $
 --             updateFunctionConfiguration
 --
---         , testListFunctions $
+--         , requestListFunctions $
 --             listFunctions
 --
---         , testUpdateFunctionCode $
+--         , requestUpdateFunctionCode $
 --             updateFunctionCode
 --
---         , testGetPolicy $
+--         , requestGetPolicy $
 --             getPolicy
 --
 --           ]
 
 --     , testGroup "response"
---         [ testGetFunctionConfigurationResponse $
+--         [ responseGetFunctionConfiguration $
 --             functionConfiguration
 --
---         , testDeleteEventSourceMappingResponse $
+--         , responseDeleteEventSourceMapping $
 --             eventSourceMappingConfiguration
 --
---         , testUpdateEventSourceMappingResponse $
+--         , responseUpdateEventSourceMapping $
 --             eventSourceMappingConfiguration
 --
---         , testCreateAliasResponse $
+--         , responseCreateAlias $
 --             aliasConfiguration
 --
---         , testListVersionsByFunctionResponse $
+--         , responseListVersionsByFunction $
 --             listVersionsByFunctionResponse
 --
---         , testListAliasesResponse $
+--         , responseListAliases $
 --             listAliasesResponse
 --
---         , testRemovePermissionResponse $
+--         , responseRemovePermission $
 --             removePermissionResponse
 --
---         , testInvokeResponse $
+--         , responseInvoke $
 --             invokeResponse
 --
---         , testGetAliasResponse $
+--         , responseGetAlias $
 --             aliasConfiguration
 --
---         , testGetEventSourceMappingResponse $
+--         , responseGetEventSourceMapping $
 --             eventSourceMappingConfiguration
 --
---         , testCreateFunctionResponse $
+--         , responseCreateFunction $
 --             functionConfiguration
 --
---         , testCreateEventSourceMappingResponse $
+--         , responseCreateEventSourceMapping $
 --             eventSourceMappingConfiguration
 --
---         , testGetFunctionResponse $
+--         , responseGetFunction $
 --             getFunctionResponse
 --
---         , testListEventSourceMappingsResponse $
+--         , responseListEventSourceMappings $
 --             listEventSourceMappingsResponse
 --
---         , testDeleteAliasResponse $
+--         , responseDeleteAlias $
 --             deleteAliasResponse
 --
---         , testUpdateAliasResponse $
+--         , responseUpdateAlias $
 --             aliasConfiguration
 --
---         , testAddPermissionResponse $
+--         , responseAddPermission $
 --             addPermissionResponse
 --
---         , testPublishVersionResponse $
+--         , responsePublishVersion $
 --             functionConfiguration
 --
---         , testDeleteFunctionResponse $
+--         , responseDeleteFunction $
 --             deleteFunctionResponse
 --
---         , testUpdateFunctionConfigurationResponse $
+--         , responseUpdateFunctionConfiguration $
 --             functionConfiguration
 --
---         , testListFunctionsResponse $
+--         , responseListFunctions $
 --             listFunctionsResponse
 --
---         , testUpdateFunctionCodeResponse $
+--         , responseUpdateFunctionCode $
 --             functionConfiguration
 --
---         , testGetPolicyResponse $
+--         , responseGetPolicy $
 --             getPolicyResponse
 --
 --           ]
@@ -174,279 +174,279 @@ import Test.AWS.Lambda.Internal
 
 -- Requests
 
-testGetFunctionConfiguration :: GetFunctionConfiguration -> TestTree
-testGetFunctionConfiguration = req
+requestGetFunctionConfiguration :: GetFunctionConfiguration -> TestTree
+requestGetFunctionConfiguration = req
     "GetFunctionConfiguration"
     "fixture/GetFunctionConfiguration.yaml"
 
-testDeleteEventSourceMapping :: DeleteEventSourceMapping -> TestTree
-testDeleteEventSourceMapping = req
+requestDeleteEventSourceMapping :: DeleteEventSourceMapping -> TestTree
+requestDeleteEventSourceMapping = req
     "DeleteEventSourceMapping"
     "fixture/DeleteEventSourceMapping.yaml"
 
-testUpdateEventSourceMapping :: UpdateEventSourceMapping -> TestTree
-testUpdateEventSourceMapping = req
+requestUpdateEventSourceMapping :: UpdateEventSourceMapping -> TestTree
+requestUpdateEventSourceMapping = req
     "UpdateEventSourceMapping"
     "fixture/UpdateEventSourceMapping.yaml"
 
-testCreateAlias :: CreateAlias -> TestTree
-testCreateAlias = req
+requestCreateAlias :: CreateAlias -> TestTree
+requestCreateAlias = req
     "CreateAlias"
     "fixture/CreateAlias.yaml"
 
-testListVersionsByFunction :: ListVersionsByFunction -> TestTree
-testListVersionsByFunction = req
+requestListVersionsByFunction :: ListVersionsByFunction -> TestTree
+requestListVersionsByFunction = req
     "ListVersionsByFunction"
     "fixture/ListVersionsByFunction.yaml"
 
-testListAliases :: ListAliases -> TestTree
-testListAliases = req
+requestListAliases :: ListAliases -> TestTree
+requestListAliases = req
     "ListAliases"
     "fixture/ListAliases.yaml"
 
-testRemovePermission :: RemovePermission -> TestTree
-testRemovePermission = req
+requestRemovePermission :: RemovePermission -> TestTree
+requestRemovePermission = req
     "RemovePermission"
     "fixture/RemovePermission.yaml"
 
-testInvoke :: Invoke -> TestTree
-testInvoke = req
+requestInvoke :: Invoke -> TestTree
+requestInvoke = req
     "Invoke"
     "fixture/Invoke.yaml"
 
-testGetAlias :: GetAlias -> TestTree
-testGetAlias = req
+requestGetAlias :: GetAlias -> TestTree
+requestGetAlias = req
     "GetAlias"
     "fixture/GetAlias.yaml"
 
-testGetEventSourceMapping :: GetEventSourceMapping -> TestTree
-testGetEventSourceMapping = req
+requestGetEventSourceMapping :: GetEventSourceMapping -> TestTree
+requestGetEventSourceMapping = req
     "GetEventSourceMapping"
     "fixture/GetEventSourceMapping.yaml"
 
-testCreateFunction :: CreateFunction -> TestTree
-testCreateFunction = req
+requestCreateFunction :: CreateFunction -> TestTree
+requestCreateFunction = req
     "CreateFunction"
     "fixture/CreateFunction.yaml"
 
-testCreateEventSourceMapping :: CreateEventSourceMapping -> TestTree
-testCreateEventSourceMapping = req
+requestCreateEventSourceMapping :: CreateEventSourceMapping -> TestTree
+requestCreateEventSourceMapping = req
     "CreateEventSourceMapping"
     "fixture/CreateEventSourceMapping.yaml"
 
-testGetFunction :: GetFunction -> TestTree
-testGetFunction = req
+requestGetFunction :: GetFunction -> TestTree
+requestGetFunction = req
     "GetFunction"
     "fixture/GetFunction.yaml"
 
-testListEventSourceMappings :: ListEventSourceMappings -> TestTree
-testListEventSourceMappings = req
+requestListEventSourceMappings :: ListEventSourceMappings -> TestTree
+requestListEventSourceMappings = req
     "ListEventSourceMappings"
     "fixture/ListEventSourceMappings.yaml"
 
-testDeleteAlias :: DeleteAlias -> TestTree
-testDeleteAlias = req
+requestDeleteAlias :: DeleteAlias -> TestTree
+requestDeleteAlias = req
     "DeleteAlias"
     "fixture/DeleteAlias.yaml"
 
-testUpdateAlias :: UpdateAlias -> TestTree
-testUpdateAlias = req
+requestUpdateAlias :: UpdateAlias -> TestTree
+requestUpdateAlias = req
     "UpdateAlias"
     "fixture/UpdateAlias.yaml"
 
-testAddPermission :: AddPermission -> TestTree
-testAddPermission = req
+requestAddPermission :: AddPermission -> TestTree
+requestAddPermission = req
     "AddPermission"
     "fixture/AddPermission.yaml"
 
-testPublishVersion :: PublishVersion -> TestTree
-testPublishVersion = req
+requestPublishVersion :: PublishVersion -> TestTree
+requestPublishVersion = req
     "PublishVersion"
     "fixture/PublishVersion.yaml"
 
-testDeleteFunction :: DeleteFunction -> TestTree
-testDeleteFunction = req
+requestDeleteFunction :: DeleteFunction -> TestTree
+requestDeleteFunction = req
     "DeleteFunction"
     "fixture/DeleteFunction.yaml"
 
-testUpdateFunctionConfiguration :: UpdateFunctionConfiguration -> TestTree
-testUpdateFunctionConfiguration = req
+requestUpdateFunctionConfiguration :: UpdateFunctionConfiguration -> TestTree
+requestUpdateFunctionConfiguration = req
     "UpdateFunctionConfiguration"
     "fixture/UpdateFunctionConfiguration.yaml"
 
-testListFunctions :: ListFunctions -> TestTree
-testListFunctions = req
+requestListFunctions :: ListFunctions -> TestTree
+requestListFunctions = req
     "ListFunctions"
     "fixture/ListFunctions.yaml"
 
-testUpdateFunctionCode :: UpdateFunctionCode -> TestTree
-testUpdateFunctionCode = req
+requestUpdateFunctionCode :: UpdateFunctionCode -> TestTree
+requestUpdateFunctionCode = req
     "UpdateFunctionCode"
     "fixture/UpdateFunctionCode.yaml"
 
-testGetPolicy :: GetPolicy -> TestTree
-testGetPolicy = req
+requestGetPolicy :: GetPolicy -> TestTree
+requestGetPolicy = req
     "GetPolicy"
     "fixture/GetPolicy.yaml"
 
 -- Responses
 
-testGetFunctionConfigurationResponse :: FunctionConfiguration -> TestTree
-testGetFunctionConfigurationResponse = res
+responseGetFunctionConfiguration :: FunctionConfiguration -> TestTree
+responseGetFunctionConfiguration = res
     "GetFunctionConfigurationResponse"
     "fixture/GetFunctionConfigurationResponse.proto"
     lambda
     (Proxy :: Proxy GetFunctionConfiguration)
 
-testDeleteEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
-testDeleteEventSourceMappingResponse = res
+responseDeleteEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
+responseDeleteEventSourceMapping = res
     "DeleteEventSourceMappingResponse"
     "fixture/DeleteEventSourceMappingResponse.proto"
     lambda
     (Proxy :: Proxy DeleteEventSourceMapping)
 
-testUpdateEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
-testUpdateEventSourceMappingResponse = res
+responseUpdateEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
+responseUpdateEventSourceMapping = res
     "UpdateEventSourceMappingResponse"
     "fixture/UpdateEventSourceMappingResponse.proto"
     lambda
     (Proxy :: Proxy UpdateEventSourceMapping)
 
-testCreateAliasResponse :: AliasConfiguration -> TestTree
-testCreateAliasResponse = res
+responseCreateAlias :: AliasConfiguration -> TestTree
+responseCreateAlias = res
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
     lambda
     (Proxy :: Proxy CreateAlias)
 
-testListVersionsByFunctionResponse :: ListVersionsByFunctionResponse -> TestTree
-testListVersionsByFunctionResponse = res
+responseListVersionsByFunction :: ListVersionsByFunctionResponse -> TestTree
+responseListVersionsByFunction = res
     "ListVersionsByFunctionResponse"
     "fixture/ListVersionsByFunctionResponse.proto"
     lambda
     (Proxy :: Proxy ListVersionsByFunction)
 
-testListAliasesResponse :: ListAliasesResponse -> TestTree
-testListAliasesResponse = res
+responseListAliases :: ListAliasesResponse -> TestTree
+responseListAliases = res
     "ListAliasesResponse"
     "fixture/ListAliasesResponse.proto"
     lambda
     (Proxy :: Proxy ListAliases)
 
-testRemovePermissionResponse :: RemovePermissionResponse -> TestTree
-testRemovePermissionResponse = res
+responseRemovePermission :: RemovePermissionResponse -> TestTree
+responseRemovePermission = res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
     lambda
     (Proxy :: Proxy RemovePermission)
 
-testInvokeResponse :: InvokeResponse -> TestTree
-testInvokeResponse = res
+responseInvoke :: InvokeResponse -> TestTree
+responseInvoke = res
     "InvokeResponse"
     "fixture/InvokeResponse.proto"
     lambda
     (Proxy :: Proxy Invoke)
 
-testGetAliasResponse :: AliasConfiguration -> TestTree
-testGetAliasResponse = res
+responseGetAlias :: AliasConfiguration -> TestTree
+responseGetAlias = res
     "GetAliasResponse"
     "fixture/GetAliasResponse.proto"
     lambda
     (Proxy :: Proxy GetAlias)
 
-testGetEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
-testGetEventSourceMappingResponse = res
+responseGetEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
+responseGetEventSourceMapping = res
     "GetEventSourceMappingResponse"
     "fixture/GetEventSourceMappingResponse.proto"
     lambda
     (Proxy :: Proxy GetEventSourceMapping)
 
-testCreateFunctionResponse :: FunctionConfiguration -> TestTree
-testCreateFunctionResponse = res
+responseCreateFunction :: FunctionConfiguration -> TestTree
+responseCreateFunction = res
     "CreateFunctionResponse"
     "fixture/CreateFunctionResponse.proto"
     lambda
     (Proxy :: Proxy CreateFunction)
 
-testCreateEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
-testCreateEventSourceMappingResponse = res
+responseCreateEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
+responseCreateEventSourceMapping = res
     "CreateEventSourceMappingResponse"
     "fixture/CreateEventSourceMappingResponse.proto"
     lambda
     (Proxy :: Proxy CreateEventSourceMapping)
 
-testGetFunctionResponse :: GetFunctionResponse -> TestTree
-testGetFunctionResponse = res
+responseGetFunction :: GetFunctionResponse -> TestTree
+responseGetFunction = res
     "GetFunctionResponse"
     "fixture/GetFunctionResponse.proto"
     lambda
     (Proxy :: Proxy GetFunction)
 
-testListEventSourceMappingsResponse :: ListEventSourceMappingsResponse -> TestTree
-testListEventSourceMappingsResponse = res
+responseListEventSourceMappings :: ListEventSourceMappingsResponse -> TestTree
+responseListEventSourceMappings = res
     "ListEventSourceMappingsResponse"
     "fixture/ListEventSourceMappingsResponse.proto"
     lambda
     (Proxy :: Proxy ListEventSourceMappings)
 
-testDeleteAliasResponse :: DeleteAliasResponse -> TestTree
-testDeleteAliasResponse = res
+responseDeleteAlias :: DeleteAliasResponse -> TestTree
+responseDeleteAlias = res
     "DeleteAliasResponse"
     "fixture/DeleteAliasResponse.proto"
     lambda
     (Proxy :: Proxy DeleteAlias)
 
-testUpdateAliasResponse :: AliasConfiguration -> TestTree
-testUpdateAliasResponse = res
+responseUpdateAlias :: AliasConfiguration -> TestTree
+responseUpdateAlias = res
     "UpdateAliasResponse"
     "fixture/UpdateAliasResponse.proto"
     lambda
     (Proxy :: Proxy UpdateAlias)
 
-testAddPermissionResponse :: AddPermissionResponse -> TestTree
-testAddPermissionResponse = res
+responseAddPermission :: AddPermissionResponse -> TestTree
+responseAddPermission = res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
     lambda
     (Proxy :: Proxy AddPermission)
 
-testPublishVersionResponse :: FunctionConfiguration -> TestTree
-testPublishVersionResponse = res
+responsePublishVersion :: FunctionConfiguration -> TestTree
+responsePublishVersion = res
     "PublishVersionResponse"
     "fixture/PublishVersionResponse.proto"
     lambda
     (Proxy :: Proxy PublishVersion)
 
-testDeleteFunctionResponse :: DeleteFunctionResponse -> TestTree
-testDeleteFunctionResponse = res
+responseDeleteFunction :: DeleteFunctionResponse -> TestTree
+responseDeleteFunction = res
     "DeleteFunctionResponse"
     "fixture/DeleteFunctionResponse.proto"
     lambda
     (Proxy :: Proxy DeleteFunction)
 
-testUpdateFunctionConfigurationResponse :: FunctionConfiguration -> TestTree
-testUpdateFunctionConfigurationResponse = res
+responseUpdateFunctionConfiguration :: FunctionConfiguration -> TestTree
+responseUpdateFunctionConfiguration = res
     "UpdateFunctionConfigurationResponse"
     "fixture/UpdateFunctionConfigurationResponse.proto"
     lambda
     (Proxy :: Proxy UpdateFunctionConfiguration)
 
-testListFunctionsResponse :: ListFunctionsResponse -> TestTree
-testListFunctionsResponse = res
+responseListFunctions :: ListFunctionsResponse -> TestTree
+responseListFunctions = res
     "ListFunctionsResponse"
     "fixture/ListFunctionsResponse.proto"
     lambda
     (Proxy :: Proxy ListFunctions)
 
-testUpdateFunctionCodeResponse :: FunctionConfiguration -> TestTree
-testUpdateFunctionCodeResponse = res
+responseUpdateFunctionCode :: FunctionConfiguration -> TestTree
+responseUpdateFunctionCode = res
     "UpdateFunctionCodeResponse"
     "fixture/UpdateFunctionCodeResponse.proto"
     lambda
     (Proxy :: Proxy UpdateFunctionCode)
 
-testGetPolicyResponse :: GetPolicyResponse -> TestTree
-testGetPolicyResponse = res
+responseGetPolicy :: GetPolicyResponse -> TestTree
+responseGetPolicy = res
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
     lambda

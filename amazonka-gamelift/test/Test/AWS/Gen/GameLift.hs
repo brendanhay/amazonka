@@ -28,217 +28,217 @@ import Test.AWS.GameLift.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testCreateGameSession $
+--         [ requestCreateGameSession $
 --             createGameSession
 --
---         , testDeleteScalingPolicy $
+--         , requestDeleteScalingPolicy $
 --             deleteScalingPolicy
 --
---         , testPutScalingPolicy $
+--         , requestPutScalingPolicy $
 --             putScalingPolicy
 --
---         , testListBuilds $
+--         , requestListBuilds $
 --             listBuilds
 --
---         , testDeleteFleet $
+--         , requestDeleteFleet $
 --             deleteFleet
 --
---         , testCreateBuild $
+--         , requestCreateBuild $
 --             createBuild
 --
---         , testRequestUploadCredentials $
+--         , requestRequestUploadCredentials $
 --             requestUploadCredentials
 --
---         , testCreateAlias $
+--         , requestCreateAlias $
 --             createAlias
 --
---         , testResolveAlias $
+--         , requestResolveAlias $
 --             resolveAlias
 --
---         , testListAliases $
+--         , requestListAliases $
 --             listAliases
 --
---         , testDescribeScalingPolicies $
+--         , requestDescribeScalingPolicies $
 --             describeScalingPolicies
 --
---         , testDescribeGameSessions $
+--         , requestDescribeGameSessions $
 --             describeGameSessions
 --
---         , testDescribeFleetUtilization $
+--         , requestDescribeFleetUtilization $
 --             describeFleetUtilization
 --
---         , testGetGameSessionLogURL $
+--         , requestGetGameSessionLogURL $
 --             getGameSessionLogURL
 --
---         , testDescribeFleetAttributes $
+--         , requestDescribeFleetAttributes $
 --             describeFleetAttributes
 --
---         , testDescribeFleetEvents $
+--         , requestDescribeFleetEvents $
 --             describeFleetEvents
 --
---         , testDescribeFleetCapacity $
+--         , requestDescribeFleetCapacity $
 --             describeFleetCapacity
 --
---         , testDeleteBuild $
+--         , requestDeleteBuild $
 --             deleteBuild
 --
---         , testUpdateBuild $
+--         , requestUpdateBuild $
 --             updateBuild
 --
---         , testListFleets $
+--         , requestListFleets $
 --             listFleets
 --
---         , testDeleteAlias $
+--         , requestDeleteAlias $
 --             deleteAlias
 --
---         , testUpdateAlias $
+--         , requestUpdateAlias $
 --             updateAlias
 --
---         , testDescribeGameSessionDetails $
+--         , requestDescribeGameSessionDetails $
 --             describeGameSessionDetails
 --
---         , testDescribeFleetPortSettings $
+--         , requestDescribeFleetPortSettings $
 --             describeFleetPortSettings
 --
---         , testCreatePlayerSessions $
+--         , requestCreatePlayerSessions $
 --             createPlayerSessions
 --
---         , testCreateFleet $
+--         , requestCreateFleet $
 --             createFleet
 --
---         , testUpdateFleetAttributes $
+--         , requestUpdateFleetAttributes $
 --             updateFleetAttributes
 --
---         , testDescribePlayerSessions $
+--         , requestDescribePlayerSessions $
 --             describePlayerSessions
 --
---         , testDescribeBuild $
+--         , requestDescribeBuild $
 --             describeBuild
 --
---         , testUpdateFleetPortSettings $
+--         , requestUpdateFleetPortSettings $
 --             updateFleetPortSettings
 --
---         , testUpdateFleetCapacity $
+--         , requestUpdateFleetCapacity $
 --             updateFleetCapacity
 --
---         , testDescribeAlias $
+--         , requestDescribeAlias $
 --             describeAlias
 --
---         , testDescribeEC2InstanceLimits $
+--         , requestDescribeEC2InstanceLimits $
 --             describeEC2InstanceLimits
 --
---         , testUpdateGameSession $
+--         , requestUpdateGameSession $
 --             updateGameSession
 --
---         , testCreatePlayerSession $
+--         , requestCreatePlayerSession $
 --             createPlayerSession
 --
 --           ]
 
 --     , testGroup "response"
---         [ testCreateGameSessionResponse $
+--         [ responseCreateGameSession $
 --             createGameSessionResponse
 --
---         , testDeleteScalingPolicyResponse $
+--         , responseDeleteScalingPolicy $
 --             deleteScalingPolicyResponse
 --
---         , testPutScalingPolicyResponse $
+--         , responsePutScalingPolicy $
 --             putScalingPolicyResponse
 --
---         , testListBuildsResponse $
+--         , responseListBuilds $
 --             listBuildsResponse
 --
---         , testDeleteFleetResponse $
+--         , responseDeleteFleet $
 --             deleteFleetResponse
 --
---         , testCreateBuildResponse $
+--         , responseCreateBuild $
 --             createBuildResponse
 --
---         , testRequestUploadCredentialsResponse $
+--         , responseRequestUploadCredentials $
 --             requestUploadCredentialsResponse
 --
---         , testCreateAliasResponse $
+--         , responseCreateAlias $
 --             createAliasResponse
 --
---         , testResolveAliasResponse $
+--         , responseResolveAlias $
 --             resolveAliasResponse
 --
---         , testListAliasesResponse $
+--         , responseListAliases $
 --             listAliasesResponse
 --
---         , testDescribeScalingPoliciesResponse $
+--         , responseDescribeScalingPolicies $
 --             describeScalingPoliciesResponse
 --
---         , testDescribeGameSessionsResponse $
+--         , responseDescribeGameSessions $
 --             describeGameSessionsResponse
 --
---         , testDescribeFleetUtilizationResponse $
+--         , responseDescribeFleetUtilization $
 --             describeFleetUtilizationResponse
 --
---         , testGetGameSessionLogURLResponse $
+--         , responseGetGameSessionLogURL $
 --             getGameSessionLogURLResponse
 --
---         , testDescribeFleetAttributesResponse $
+--         , responseDescribeFleetAttributes $
 --             describeFleetAttributesResponse
 --
---         , testDescribeFleetEventsResponse $
+--         , responseDescribeFleetEvents $
 --             describeFleetEventsResponse
 --
---         , testDescribeFleetCapacityResponse $
+--         , responseDescribeFleetCapacity $
 --             describeFleetCapacityResponse
 --
---         , testDeleteBuildResponse $
+--         , responseDeleteBuild $
 --             deleteBuildResponse
 --
---         , testUpdateBuildResponse $
+--         , responseUpdateBuild $
 --             updateBuildResponse
 --
---         , testListFleetsResponse $
+--         , responseListFleets $
 --             listFleetsResponse
 --
---         , testDeleteAliasResponse $
+--         , responseDeleteAlias $
 --             deleteAliasResponse
 --
---         , testUpdateAliasResponse $
+--         , responseUpdateAlias $
 --             updateAliasResponse
 --
---         , testDescribeGameSessionDetailsResponse $
+--         , responseDescribeGameSessionDetails $
 --             describeGameSessionDetailsResponse
 --
---         , testDescribeFleetPortSettingsResponse $
+--         , responseDescribeFleetPortSettings $
 --             describeFleetPortSettingsResponse
 --
---         , testCreatePlayerSessionsResponse $
+--         , responseCreatePlayerSessions $
 --             createPlayerSessionsResponse
 --
---         , testCreateFleetResponse $
+--         , responseCreateFleet $
 --             createFleetResponse
 --
---         , testUpdateFleetAttributesResponse $
+--         , responseUpdateFleetAttributes $
 --             updateFleetAttributesResponse
 --
---         , testDescribePlayerSessionsResponse $
+--         , responseDescribePlayerSessions $
 --             describePlayerSessionsResponse
 --
---         , testDescribeBuildResponse $
+--         , responseDescribeBuild $
 --             describeBuildResponse
 --
---         , testUpdateFleetPortSettingsResponse $
+--         , responseUpdateFleetPortSettings $
 --             updateFleetPortSettingsResponse
 --
---         , testUpdateFleetCapacityResponse $
+--         , responseUpdateFleetCapacity $
 --             updateFleetCapacityResponse
 --
---         , testDescribeAliasResponse $
+--         , responseDescribeAlias $
 --             describeAliasResponse
 --
---         , testDescribeEC2InstanceLimitsResponse $
+--         , responseDescribeEC2InstanceLimits $
 --             describeEC2InstanceLimitsResponse
 --
---         , testUpdateGameSessionResponse $
+--         , responseUpdateGameSession $
 --             updateGameSessionResponse
 --
---         , testCreatePlayerSessionResponse $
+--         , responseCreatePlayerSession $
 --             createPlayerSessionResponse
 --
 --           ]
@@ -246,423 +246,423 @@ import Test.AWS.GameLift.Internal
 
 -- Requests
 
-testCreateGameSession :: CreateGameSession -> TestTree
-testCreateGameSession = req
+requestCreateGameSession :: CreateGameSession -> TestTree
+requestCreateGameSession = req
     "CreateGameSession"
     "fixture/CreateGameSession.yaml"
 
-testDeleteScalingPolicy :: DeleteScalingPolicy -> TestTree
-testDeleteScalingPolicy = req
+requestDeleteScalingPolicy :: DeleteScalingPolicy -> TestTree
+requestDeleteScalingPolicy = req
     "DeleteScalingPolicy"
     "fixture/DeleteScalingPolicy.yaml"
 
-testPutScalingPolicy :: PutScalingPolicy -> TestTree
-testPutScalingPolicy = req
+requestPutScalingPolicy :: PutScalingPolicy -> TestTree
+requestPutScalingPolicy = req
     "PutScalingPolicy"
     "fixture/PutScalingPolicy.yaml"
 
-testListBuilds :: ListBuilds -> TestTree
-testListBuilds = req
+requestListBuilds :: ListBuilds -> TestTree
+requestListBuilds = req
     "ListBuilds"
     "fixture/ListBuilds.yaml"
 
-testDeleteFleet :: DeleteFleet -> TestTree
-testDeleteFleet = req
+requestDeleteFleet :: DeleteFleet -> TestTree
+requestDeleteFleet = req
     "DeleteFleet"
     "fixture/DeleteFleet.yaml"
 
-testCreateBuild :: CreateBuild -> TestTree
-testCreateBuild = req
+requestCreateBuild :: CreateBuild -> TestTree
+requestCreateBuild = req
     "CreateBuild"
     "fixture/CreateBuild.yaml"
 
-testRequestUploadCredentials :: RequestUploadCredentials -> TestTree
-testRequestUploadCredentials = req
+requestRequestUploadCredentials :: RequestUploadCredentials -> TestTree
+requestRequestUploadCredentials = req
     "RequestUploadCredentials"
     "fixture/RequestUploadCredentials.yaml"
 
-testCreateAlias :: CreateAlias -> TestTree
-testCreateAlias = req
+requestCreateAlias :: CreateAlias -> TestTree
+requestCreateAlias = req
     "CreateAlias"
     "fixture/CreateAlias.yaml"
 
-testResolveAlias :: ResolveAlias -> TestTree
-testResolveAlias = req
+requestResolveAlias :: ResolveAlias -> TestTree
+requestResolveAlias = req
     "ResolveAlias"
     "fixture/ResolveAlias.yaml"
 
-testListAliases :: ListAliases -> TestTree
-testListAliases = req
+requestListAliases :: ListAliases -> TestTree
+requestListAliases = req
     "ListAliases"
     "fixture/ListAliases.yaml"
 
-testDescribeScalingPolicies :: DescribeScalingPolicies -> TestTree
-testDescribeScalingPolicies = req
+requestDescribeScalingPolicies :: DescribeScalingPolicies -> TestTree
+requestDescribeScalingPolicies = req
     "DescribeScalingPolicies"
     "fixture/DescribeScalingPolicies.yaml"
 
-testDescribeGameSessions :: DescribeGameSessions -> TestTree
-testDescribeGameSessions = req
+requestDescribeGameSessions :: DescribeGameSessions -> TestTree
+requestDescribeGameSessions = req
     "DescribeGameSessions"
     "fixture/DescribeGameSessions.yaml"
 
-testDescribeFleetUtilization :: DescribeFleetUtilization -> TestTree
-testDescribeFleetUtilization = req
+requestDescribeFleetUtilization :: DescribeFleetUtilization -> TestTree
+requestDescribeFleetUtilization = req
     "DescribeFleetUtilization"
     "fixture/DescribeFleetUtilization.yaml"
 
-testGetGameSessionLogURL :: GetGameSessionLogURL -> TestTree
-testGetGameSessionLogURL = req
+requestGetGameSessionLogURL :: GetGameSessionLogURL -> TestTree
+requestGetGameSessionLogURL = req
     "GetGameSessionLogURL"
     "fixture/GetGameSessionLogURL.yaml"
 
-testDescribeFleetAttributes :: DescribeFleetAttributes -> TestTree
-testDescribeFleetAttributes = req
+requestDescribeFleetAttributes :: DescribeFleetAttributes -> TestTree
+requestDescribeFleetAttributes = req
     "DescribeFleetAttributes"
     "fixture/DescribeFleetAttributes.yaml"
 
-testDescribeFleetEvents :: DescribeFleetEvents -> TestTree
-testDescribeFleetEvents = req
+requestDescribeFleetEvents :: DescribeFleetEvents -> TestTree
+requestDescribeFleetEvents = req
     "DescribeFleetEvents"
     "fixture/DescribeFleetEvents.yaml"
 
-testDescribeFleetCapacity :: DescribeFleetCapacity -> TestTree
-testDescribeFleetCapacity = req
+requestDescribeFleetCapacity :: DescribeFleetCapacity -> TestTree
+requestDescribeFleetCapacity = req
     "DescribeFleetCapacity"
     "fixture/DescribeFleetCapacity.yaml"
 
-testDeleteBuild :: DeleteBuild -> TestTree
-testDeleteBuild = req
+requestDeleteBuild :: DeleteBuild -> TestTree
+requestDeleteBuild = req
     "DeleteBuild"
     "fixture/DeleteBuild.yaml"
 
-testUpdateBuild :: UpdateBuild -> TestTree
-testUpdateBuild = req
+requestUpdateBuild :: UpdateBuild -> TestTree
+requestUpdateBuild = req
     "UpdateBuild"
     "fixture/UpdateBuild.yaml"
 
-testListFleets :: ListFleets -> TestTree
-testListFleets = req
+requestListFleets :: ListFleets -> TestTree
+requestListFleets = req
     "ListFleets"
     "fixture/ListFleets.yaml"
 
-testDeleteAlias :: DeleteAlias -> TestTree
-testDeleteAlias = req
+requestDeleteAlias :: DeleteAlias -> TestTree
+requestDeleteAlias = req
     "DeleteAlias"
     "fixture/DeleteAlias.yaml"
 
-testUpdateAlias :: UpdateAlias -> TestTree
-testUpdateAlias = req
+requestUpdateAlias :: UpdateAlias -> TestTree
+requestUpdateAlias = req
     "UpdateAlias"
     "fixture/UpdateAlias.yaml"
 
-testDescribeGameSessionDetails :: DescribeGameSessionDetails -> TestTree
-testDescribeGameSessionDetails = req
+requestDescribeGameSessionDetails :: DescribeGameSessionDetails -> TestTree
+requestDescribeGameSessionDetails = req
     "DescribeGameSessionDetails"
     "fixture/DescribeGameSessionDetails.yaml"
 
-testDescribeFleetPortSettings :: DescribeFleetPortSettings -> TestTree
-testDescribeFleetPortSettings = req
+requestDescribeFleetPortSettings :: DescribeFleetPortSettings -> TestTree
+requestDescribeFleetPortSettings = req
     "DescribeFleetPortSettings"
     "fixture/DescribeFleetPortSettings.yaml"
 
-testCreatePlayerSessions :: CreatePlayerSessions -> TestTree
-testCreatePlayerSessions = req
+requestCreatePlayerSessions :: CreatePlayerSessions -> TestTree
+requestCreatePlayerSessions = req
     "CreatePlayerSessions"
     "fixture/CreatePlayerSessions.yaml"
 
-testCreateFleet :: CreateFleet -> TestTree
-testCreateFleet = req
+requestCreateFleet :: CreateFleet -> TestTree
+requestCreateFleet = req
     "CreateFleet"
     "fixture/CreateFleet.yaml"
 
-testUpdateFleetAttributes :: UpdateFleetAttributes -> TestTree
-testUpdateFleetAttributes = req
+requestUpdateFleetAttributes :: UpdateFleetAttributes -> TestTree
+requestUpdateFleetAttributes = req
     "UpdateFleetAttributes"
     "fixture/UpdateFleetAttributes.yaml"
 
-testDescribePlayerSessions :: DescribePlayerSessions -> TestTree
-testDescribePlayerSessions = req
+requestDescribePlayerSessions :: DescribePlayerSessions -> TestTree
+requestDescribePlayerSessions = req
     "DescribePlayerSessions"
     "fixture/DescribePlayerSessions.yaml"
 
-testDescribeBuild :: DescribeBuild -> TestTree
-testDescribeBuild = req
+requestDescribeBuild :: DescribeBuild -> TestTree
+requestDescribeBuild = req
     "DescribeBuild"
     "fixture/DescribeBuild.yaml"
 
-testUpdateFleetPortSettings :: UpdateFleetPortSettings -> TestTree
-testUpdateFleetPortSettings = req
+requestUpdateFleetPortSettings :: UpdateFleetPortSettings -> TestTree
+requestUpdateFleetPortSettings = req
     "UpdateFleetPortSettings"
     "fixture/UpdateFleetPortSettings.yaml"
 
-testUpdateFleetCapacity :: UpdateFleetCapacity -> TestTree
-testUpdateFleetCapacity = req
+requestUpdateFleetCapacity :: UpdateFleetCapacity -> TestTree
+requestUpdateFleetCapacity = req
     "UpdateFleetCapacity"
     "fixture/UpdateFleetCapacity.yaml"
 
-testDescribeAlias :: DescribeAlias -> TestTree
-testDescribeAlias = req
+requestDescribeAlias :: DescribeAlias -> TestTree
+requestDescribeAlias = req
     "DescribeAlias"
     "fixture/DescribeAlias.yaml"
 
-testDescribeEC2InstanceLimits :: DescribeEC2InstanceLimits -> TestTree
-testDescribeEC2InstanceLimits = req
+requestDescribeEC2InstanceLimits :: DescribeEC2InstanceLimits -> TestTree
+requestDescribeEC2InstanceLimits = req
     "DescribeEC2InstanceLimits"
     "fixture/DescribeEC2InstanceLimits.yaml"
 
-testUpdateGameSession :: UpdateGameSession -> TestTree
-testUpdateGameSession = req
+requestUpdateGameSession :: UpdateGameSession -> TestTree
+requestUpdateGameSession = req
     "UpdateGameSession"
     "fixture/UpdateGameSession.yaml"
 
-testCreatePlayerSession :: CreatePlayerSession -> TestTree
-testCreatePlayerSession = req
+requestCreatePlayerSession :: CreatePlayerSession -> TestTree
+requestCreatePlayerSession = req
     "CreatePlayerSession"
     "fixture/CreatePlayerSession.yaml"
 
 -- Responses
 
-testCreateGameSessionResponse :: CreateGameSessionResponse -> TestTree
-testCreateGameSessionResponse = res
+responseCreateGameSession :: CreateGameSessionResponse -> TestTree
+responseCreateGameSession = res
     "CreateGameSessionResponse"
     "fixture/CreateGameSessionResponse.proto"
     gameLift
     (Proxy :: Proxy CreateGameSession)
 
-testDeleteScalingPolicyResponse :: DeleteScalingPolicyResponse -> TestTree
-testDeleteScalingPolicyResponse = res
+responseDeleteScalingPolicy :: DeleteScalingPolicyResponse -> TestTree
+responseDeleteScalingPolicy = res
     "DeleteScalingPolicyResponse"
     "fixture/DeleteScalingPolicyResponse.proto"
     gameLift
     (Proxy :: Proxy DeleteScalingPolicy)
 
-testPutScalingPolicyResponse :: PutScalingPolicyResponse -> TestTree
-testPutScalingPolicyResponse = res
+responsePutScalingPolicy :: PutScalingPolicyResponse -> TestTree
+responsePutScalingPolicy = res
     "PutScalingPolicyResponse"
     "fixture/PutScalingPolicyResponse.proto"
     gameLift
     (Proxy :: Proxy PutScalingPolicy)
 
-testListBuildsResponse :: ListBuildsResponse -> TestTree
-testListBuildsResponse = res
+responseListBuilds :: ListBuildsResponse -> TestTree
+responseListBuilds = res
     "ListBuildsResponse"
     "fixture/ListBuildsResponse.proto"
     gameLift
     (Proxy :: Proxy ListBuilds)
 
-testDeleteFleetResponse :: DeleteFleetResponse -> TestTree
-testDeleteFleetResponse = res
+responseDeleteFleet :: DeleteFleetResponse -> TestTree
+responseDeleteFleet = res
     "DeleteFleetResponse"
     "fixture/DeleteFleetResponse.proto"
     gameLift
     (Proxy :: Proxy DeleteFleet)
 
-testCreateBuildResponse :: CreateBuildResponse -> TestTree
-testCreateBuildResponse = res
+responseCreateBuild :: CreateBuildResponse -> TestTree
+responseCreateBuild = res
     "CreateBuildResponse"
     "fixture/CreateBuildResponse.proto"
     gameLift
     (Proxy :: Proxy CreateBuild)
 
-testRequestUploadCredentialsResponse :: RequestUploadCredentialsResponse -> TestTree
-testRequestUploadCredentialsResponse = res
+responseRequestUploadCredentials :: RequestUploadCredentialsResponse -> TestTree
+responseRequestUploadCredentials = res
     "RequestUploadCredentialsResponse"
     "fixture/RequestUploadCredentialsResponse.proto"
     gameLift
     (Proxy :: Proxy RequestUploadCredentials)
 
-testCreateAliasResponse :: CreateAliasResponse -> TestTree
-testCreateAliasResponse = res
+responseCreateAlias :: CreateAliasResponse -> TestTree
+responseCreateAlias = res
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
     gameLift
     (Proxy :: Proxy CreateAlias)
 
-testResolveAliasResponse :: ResolveAliasResponse -> TestTree
-testResolveAliasResponse = res
+responseResolveAlias :: ResolveAliasResponse -> TestTree
+responseResolveAlias = res
     "ResolveAliasResponse"
     "fixture/ResolveAliasResponse.proto"
     gameLift
     (Proxy :: Proxy ResolveAlias)
 
-testListAliasesResponse :: ListAliasesResponse -> TestTree
-testListAliasesResponse = res
+responseListAliases :: ListAliasesResponse -> TestTree
+responseListAliases = res
     "ListAliasesResponse"
     "fixture/ListAliasesResponse.proto"
     gameLift
     (Proxy :: Proxy ListAliases)
 
-testDescribeScalingPoliciesResponse :: DescribeScalingPoliciesResponse -> TestTree
-testDescribeScalingPoliciesResponse = res
+responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
+responseDescribeScalingPolicies = res
     "DescribeScalingPoliciesResponse"
     "fixture/DescribeScalingPoliciesResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeScalingPolicies)
 
-testDescribeGameSessionsResponse :: DescribeGameSessionsResponse -> TestTree
-testDescribeGameSessionsResponse = res
+responseDescribeGameSessions :: DescribeGameSessionsResponse -> TestTree
+responseDescribeGameSessions = res
     "DescribeGameSessionsResponse"
     "fixture/DescribeGameSessionsResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeGameSessions)
 
-testDescribeFleetUtilizationResponse :: DescribeFleetUtilizationResponse -> TestTree
-testDescribeFleetUtilizationResponse = res
+responseDescribeFleetUtilization :: DescribeFleetUtilizationResponse -> TestTree
+responseDescribeFleetUtilization = res
     "DescribeFleetUtilizationResponse"
     "fixture/DescribeFleetUtilizationResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeFleetUtilization)
 
-testGetGameSessionLogURLResponse :: GetGameSessionLogURLResponse -> TestTree
-testGetGameSessionLogURLResponse = res
+responseGetGameSessionLogURL :: GetGameSessionLogURLResponse -> TestTree
+responseGetGameSessionLogURL = res
     "GetGameSessionLogURLResponse"
     "fixture/GetGameSessionLogURLResponse.proto"
     gameLift
     (Proxy :: Proxy GetGameSessionLogURL)
 
-testDescribeFleetAttributesResponse :: DescribeFleetAttributesResponse -> TestTree
-testDescribeFleetAttributesResponse = res
+responseDescribeFleetAttributes :: DescribeFleetAttributesResponse -> TestTree
+responseDescribeFleetAttributes = res
     "DescribeFleetAttributesResponse"
     "fixture/DescribeFleetAttributesResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeFleetAttributes)
 
-testDescribeFleetEventsResponse :: DescribeFleetEventsResponse -> TestTree
-testDescribeFleetEventsResponse = res
+responseDescribeFleetEvents :: DescribeFleetEventsResponse -> TestTree
+responseDescribeFleetEvents = res
     "DescribeFleetEventsResponse"
     "fixture/DescribeFleetEventsResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeFleetEvents)
 
-testDescribeFleetCapacityResponse :: DescribeFleetCapacityResponse -> TestTree
-testDescribeFleetCapacityResponse = res
+responseDescribeFleetCapacity :: DescribeFleetCapacityResponse -> TestTree
+responseDescribeFleetCapacity = res
     "DescribeFleetCapacityResponse"
     "fixture/DescribeFleetCapacityResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeFleetCapacity)
 
-testDeleteBuildResponse :: DeleteBuildResponse -> TestTree
-testDeleteBuildResponse = res
+responseDeleteBuild :: DeleteBuildResponse -> TestTree
+responseDeleteBuild = res
     "DeleteBuildResponse"
     "fixture/DeleteBuildResponse.proto"
     gameLift
     (Proxy :: Proxy DeleteBuild)
 
-testUpdateBuildResponse :: UpdateBuildResponse -> TestTree
-testUpdateBuildResponse = res
+responseUpdateBuild :: UpdateBuildResponse -> TestTree
+responseUpdateBuild = res
     "UpdateBuildResponse"
     "fixture/UpdateBuildResponse.proto"
     gameLift
     (Proxy :: Proxy UpdateBuild)
 
-testListFleetsResponse :: ListFleetsResponse -> TestTree
-testListFleetsResponse = res
+responseListFleets :: ListFleetsResponse -> TestTree
+responseListFleets = res
     "ListFleetsResponse"
     "fixture/ListFleetsResponse.proto"
     gameLift
     (Proxy :: Proxy ListFleets)
 
-testDeleteAliasResponse :: DeleteAliasResponse -> TestTree
-testDeleteAliasResponse = res
+responseDeleteAlias :: DeleteAliasResponse -> TestTree
+responseDeleteAlias = res
     "DeleteAliasResponse"
     "fixture/DeleteAliasResponse.proto"
     gameLift
     (Proxy :: Proxy DeleteAlias)
 
-testUpdateAliasResponse :: UpdateAliasResponse -> TestTree
-testUpdateAliasResponse = res
+responseUpdateAlias :: UpdateAliasResponse -> TestTree
+responseUpdateAlias = res
     "UpdateAliasResponse"
     "fixture/UpdateAliasResponse.proto"
     gameLift
     (Proxy :: Proxy UpdateAlias)
 
-testDescribeGameSessionDetailsResponse :: DescribeGameSessionDetailsResponse -> TestTree
-testDescribeGameSessionDetailsResponse = res
+responseDescribeGameSessionDetails :: DescribeGameSessionDetailsResponse -> TestTree
+responseDescribeGameSessionDetails = res
     "DescribeGameSessionDetailsResponse"
     "fixture/DescribeGameSessionDetailsResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeGameSessionDetails)
 
-testDescribeFleetPortSettingsResponse :: DescribeFleetPortSettingsResponse -> TestTree
-testDescribeFleetPortSettingsResponse = res
+responseDescribeFleetPortSettings :: DescribeFleetPortSettingsResponse -> TestTree
+responseDescribeFleetPortSettings = res
     "DescribeFleetPortSettingsResponse"
     "fixture/DescribeFleetPortSettingsResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeFleetPortSettings)
 
-testCreatePlayerSessionsResponse :: CreatePlayerSessionsResponse -> TestTree
-testCreatePlayerSessionsResponse = res
+responseCreatePlayerSessions :: CreatePlayerSessionsResponse -> TestTree
+responseCreatePlayerSessions = res
     "CreatePlayerSessionsResponse"
     "fixture/CreatePlayerSessionsResponse.proto"
     gameLift
     (Proxy :: Proxy CreatePlayerSessions)
 
-testCreateFleetResponse :: CreateFleetResponse -> TestTree
-testCreateFleetResponse = res
+responseCreateFleet :: CreateFleetResponse -> TestTree
+responseCreateFleet = res
     "CreateFleetResponse"
     "fixture/CreateFleetResponse.proto"
     gameLift
     (Proxy :: Proxy CreateFleet)
 
-testUpdateFleetAttributesResponse :: UpdateFleetAttributesResponse -> TestTree
-testUpdateFleetAttributesResponse = res
+responseUpdateFleetAttributes :: UpdateFleetAttributesResponse -> TestTree
+responseUpdateFleetAttributes = res
     "UpdateFleetAttributesResponse"
     "fixture/UpdateFleetAttributesResponse.proto"
     gameLift
     (Proxy :: Proxy UpdateFleetAttributes)
 
-testDescribePlayerSessionsResponse :: DescribePlayerSessionsResponse -> TestTree
-testDescribePlayerSessionsResponse = res
+responseDescribePlayerSessions :: DescribePlayerSessionsResponse -> TestTree
+responseDescribePlayerSessions = res
     "DescribePlayerSessionsResponse"
     "fixture/DescribePlayerSessionsResponse.proto"
     gameLift
     (Proxy :: Proxy DescribePlayerSessions)
 
-testDescribeBuildResponse :: DescribeBuildResponse -> TestTree
-testDescribeBuildResponse = res
+responseDescribeBuild :: DescribeBuildResponse -> TestTree
+responseDescribeBuild = res
     "DescribeBuildResponse"
     "fixture/DescribeBuildResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeBuild)
 
-testUpdateFleetPortSettingsResponse :: UpdateFleetPortSettingsResponse -> TestTree
-testUpdateFleetPortSettingsResponse = res
+responseUpdateFleetPortSettings :: UpdateFleetPortSettingsResponse -> TestTree
+responseUpdateFleetPortSettings = res
     "UpdateFleetPortSettingsResponse"
     "fixture/UpdateFleetPortSettingsResponse.proto"
     gameLift
     (Proxy :: Proxy UpdateFleetPortSettings)
 
-testUpdateFleetCapacityResponse :: UpdateFleetCapacityResponse -> TestTree
-testUpdateFleetCapacityResponse = res
+responseUpdateFleetCapacity :: UpdateFleetCapacityResponse -> TestTree
+responseUpdateFleetCapacity = res
     "UpdateFleetCapacityResponse"
     "fixture/UpdateFleetCapacityResponse.proto"
     gameLift
     (Proxy :: Proxy UpdateFleetCapacity)
 
-testDescribeAliasResponse :: DescribeAliasResponse -> TestTree
-testDescribeAliasResponse = res
+responseDescribeAlias :: DescribeAliasResponse -> TestTree
+responseDescribeAlias = res
     "DescribeAliasResponse"
     "fixture/DescribeAliasResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeAlias)
 
-testDescribeEC2InstanceLimitsResponse :: DescribeEC2InstanceLimitsResponse -> TestTree
-testDescribeEC2InstanceLimitsResponse = res
+responseDescribeEC2InstanceLimits :: DescribeEC2InstanceLimitsResponse -> TestTree
+responseDescribeEC2InstanceLimits = res
     "DescribeEC2InstanceLimitsResponse"
     "fixture/DescribeEC2InstanceLimitsResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeEC2InstanceLimits)
 
-testUpdateGameSessionResponse :: UpdateGameSessionResponse -> TestTree
-testUpdateGameSessionResponse = res
+responseUpdateGameSession :: UpdateGameSessionResponse -> TestTree
+responseUpdateGameSession = res
     "UpdateGameSessionResponse"
     "fixture/UpdateGameSessionResponse.proto"
     gameLift
     (Proxy :: Proxy UpdateGameSession)
 
-testCreatePlayerSessionResponse :: CreatePlayerSessionResponse -> TestTree
-testCreatePlayerSessionResponse = res
+responseCreatePlayerSession :: CreatePlayerSessionResponse -> TestTree
+responseCreatePlayerSession = res
     "CreatePlayerSessionResponse"
     "fixture/CreatePlayerSessionResponse.proto"
     gameLift

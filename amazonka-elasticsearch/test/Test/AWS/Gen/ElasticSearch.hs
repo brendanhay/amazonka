@@ -28,67 +28,67 @@ import Test.AWS.ElasticSearch.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testCreateElasticsearchDomain $
+--         [ requestCreateElasticsearchDomain $
 --             createElasticsearchDomain
 --
---         , testRemoveTags $
+--         , requestRemoveTags $
 --             removeTags
 --
---         , testDescribeElasticsearchDomains $
+--         , requestDescribeElasticsearchDomains $
 --             describeElasticsearchDomains
 --
---         , testDescribeElasticsearchDomain $
+--         , requestDescribeElasticsearchDomain $
 --             describeElasticsearchDomain
 --
---         , testListDomainNames $
+--         , requestListDomainNames $
 --             listDomainNames
 --
---         , testDescribeElasticsearchDomainConfig $
+--         , requestDescribeElasticsearchDomainConfig $
 --             describeElasticsearchDomainConfig
 --
---         , testDeleteElasticsearchDomain $
+--         , requestDeleteElasticsearchDomain $
 --             deleteElasticsearchDomain
 --
---         , testUpdateElasticsearchDomainConfig $
+--         , requestUpdateElasticsearchDomainConfig $
 --             updateElasticsearchDomainConfig
 --
---         , testAddTags $
+--         , requestAddTags $
 --             addTags
 --
---         , testListTags $
+--         , requestListTags $
 --             listTags
 --
 --           ]
 
 --     , testGroup "response"
---         [ testCreateElasticsearchDomainResponse $
+--         [ responseCreateElasticsearchDomain $
 --             createElasticsearchDomainResponse
 --
---         , testRemoveTagsResponse $
+--         , responseRemoveTags $
 --             removeTagsResponse
 --
---         , testDescribeElasticsearchDomainsResponse $
+--         , responseDescribeElasticsearchDomains $
 --             describeElasticsearchDomainsResponse
 --
---         , testDescribeElasticsearchDomainResponse $
+--         , responseDescribeElasticsearchDomain $
 --             describeElasticsearchDomainResponse
 --
---         , testListDomainNamesResponse $
+--         , responseListDomainNames $
 --             listDomainNamesResponse
 --
---         , testDescribeElasticsearchDomainConfigResponse $
+--         , responseDescribeElasticsearchDomainConfig $
 --             describeElasticsearchDomainConfigResponse
 --
---         , testDeleteElasticsearchDomainResponse $
+--         , responseDeleteElasticsearchDomain $
 --             deleteElasticsearchDomainResponse
 --
---         , testUpdateElasticsearchDomainConfigResponse $
+--         , responseUpdateElasticsearchDomainConfig $
 --             updateElasticsearchDomainConfigResponse
 --
---         , testAddTagsResponse $
+--         , responseAddTags $
 --             addTagsResponse
 --
---         , testListTagsResponse $
+--         , responseListTags $
 --             listTagsResponse
 --
 --           ]
@@ -96,123 +96,123 @@ import Test.AWS.ElasticSearch.Internal
 
 -- Requests
 
-testCreateElasticsearchDomain :: CreateElasticsearchDomain -> TestTree
-testCreateElasticsearchDomain = req
+requestCreateElasticsearchDomain :: CreateElasticsearchDomain -> TestTree
+requestCreateElasticsearchDomain = req
     "CreateElasticsearchDomain"
     "fixture/CreateElasticsearchDomain.yaml"
 
-testRemoveTags :: RemoveTags -> TestTree
-testRemoveTags = req
+requestRemoveTags :: RemoveTags -> TestTree
+requestRemoveTags = req
     "RemoveTags"
     "fixture/RemoveTags.yaml"
 
-testDescribeElasticsearchDomains :: DescribeElasticsearchDomains -> TestTree
-testDescribeElasticsearchDomains = req
+requestDescribeElasticsearchDomains :: DescribeElasticsearchDomains -> TestTree
+requestDescribeElasticsearchDomains = req
     "DescribeElasticsearchDomains"
     "fixture/DescribeElasticsearchDomains.yaml"
 
-testDescribeElasticsearchDomain :: DescribeElasticsearchDomain -> TestTree
-testDescribeElasticsearchDomain = req
+requestDescribeElasticsearchDomain :: DescribeElasticsearchDomain -> TestTree
+requestDescribeElasticsearchDomain = req
     "DescribeElasticsearchDomain"
     "fixture/DescribeElasticsearchDomain.yaml"
 
-testListDomainNames :: ListDomainNames -> TestTree
-testListDomainNames = req
+requestListDomainNames :: ListDomainNames -> TestTree
+requestListDomainNames = req
     "ListDomainNames"
     "fixture/ListDomainNames.yaml"
 
-testDescribeElasticsearchDomainConfig :: DescribeElasticsearchDomainConfig -> TestTree
-testDescribeElasticsearchDomainConfig = req
+requestDescribeElasticsearchDomainConfig :: DescribeElasticsearchDomainConfig -> TestTree
+requestDescribeElasticsearchDomainConfig = req
     "DescribeElasticsearchDomainConfig"
     "fixture/DescribeElasticsearchDomainConfig.yaml"
 
-testDeleteElasticsearchDomain :: DeleteElasticsearchDomain -> TestTree
-testDeleteElasticsearchDomain = req
+requestDeleteElasticsearchDomain :: DeleteElasticsearchDomain -> TestTree
+requestDeleteElasticsearchDomain = req
     "DeleteElasticsearchDomain"
     "fixture/DeleteElasticsearchDomain.yaml"
 
-testUpdateElasticsearchDomainConfig :: UpdateElasticsearchDomainConfig -> TestTree
-testUpdateElasticsearchDomainConfig = req
+requestUpdateElasticsearchDomainConfig :: UpdateElasticsearchDomainConfig -> TestTree
+requestUpdateElasticsearchDomainConfig = req
     "UpdateElasticsearchDomainConfig"
     "fixture/UpdateElasticsearchDomainConfig.yaml"
 
-testAddTags :: AddTags -> TestTree
-testAddTags = req
+requestAddTags :: AddTags -> TestTree
+requestAddTags = req
     "AddTags"
     "fixture/AddTags.yaml"
 
-testListTags :: ListTags -> TestTree
-testListTags = req
+requestListTags :: ListTags -> TestTree
+requestListTags = req
     "ListTags"
     "fixture/ListTags.yaml"
 
 -- Responses
 
-testCreateElasticsearchDomainResponse :: CreateElasticsearchDomainResponse -> TestTree
-testCreateElasticsearchDomainResponse = res
+responseCreateElasticsearchDomain :: CreateElasticsearchDomainResponse -> TestTree
+responseCreateElasticsearchDomain = res
     "CreateElasticsearchDomainResponse"
     "fixture/CreateElasticsearchDomainResponse.proto"
     elasticSearch
     (Proxy :: Proxy CreateElasticsearchDomain)
 
-testRemoveTagsResponse :: RemoveTagsResponse -> TestTree
-testRemoveTagsResponse = res
+responseRemoveTags :: RemoveTagsResponse -> TestTree
+responseRemoveTags = res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     elasticSearch
     (Proxy :: Proxy RemoveTags)
 
-testDescribeElasticsearchDomainsResponse :: DescribeElasticsearchDomainsResponse -> TestTree
-testDescribeElasticsearchDomainsResponse = res
+responseDescribeElasticsearchDomains :: DescribeElasticsearchDomainsResponse -> TestTree
+responseDescribeElasticsearchDomains = res
     "DescribeElasticsearchDomainsResponse"
     "fixture/DescribeElasticsearchDomainsResponse.proto"
     elasticSearch
     (Proxy :: Proxy DescribeElasticsearchDomains)
 
-testDescribeElasticsearchDomainResponse :: DescribeElasticsearchDomainResponse -> TestTree
-testDescribeElasticsearchDomainResponse = res
+responseDescribeElasticsearchDomain :: DescribeElasticsearchDomainResponse -> TestTree
+responseDescribeElasticsearchDomain = res
     "DescribeElasticsearchDomainResponse"
     "fixture/DescribeElasticsearchDomainResponse.proto"
     elasticSearch
     (Proxy :: Proxy DescribeElasticsearchDomain)
 
-testListDomainNamesResponse :: ListDomainNamesResponse -> TestTree
-testListDomainNamesResponse = res
+responseListDomainNames :: ListDomainNamesResponse -> TestTree
+responseListDomainNames = res
     "ListDomainNamesResponse"
     "fixture/ListDomainNamesResponse.proto"
     elasticSearch
     (Proxy :: Proxy ListDomainNames)
 
-testDescribeElasticsearchDomainConfigResponse :: DescribeElasticsearchDomainConfigResponse -> TestTree
-testDescribeElasticsearchDomainConfigResponse = res
+responseDescribeElasticsearchDomainConfig :: DescribeElasticsearchDomainConfigResponse -> TestTree
+responseDescribeElasticsearchDomainConfig = res
     "DescribeElasticsearchDomainConfigResponse"
     "fixture/DescribeElasticsearchDomainConfigResponse.proto"
     elasticSearch
     (Proxy :: Proxy DescribeElasticsearchDomainConfig)
 
-testDeleteElasticsearchDomainResponse :: DeleteElasticsearchDomainResponse -> TestTree
-testDeleteElasticsearchDomainResponse = res
+responseDeleteElasticsearchDomain :: DeleteElasticsearchDomainResponse -> TestTree
+responseDeleteElasticsearchDomain = res
     "DeleteElasticsearchDomainResponse"
     "fixture/DeleteElasticsearchDomainResponse.proto"
     elasticSearch
     (Proxy :: Proxy DeleteElasticsearchDomain)
 
-testUpdateElasticsearchDomainConfigResponse :: UpdateElasticsearchDomainConfigResponse -> TestTree
-testUpdateElasticsearchDomainConfigResponse = res
+responseUpdateElasticsearchDomainConfig :: UpdateElasticsearchDomainConfigResponse -> TestTree
+responseUpdateElasticsearchDomainConfig = res
     "UpdateElasticsearchDomainConfigResponse"
     "fixture/UpdateElasticsearchDomainConfigResponse.proto"
     elasticSearch
     (Proxy :: Proxy UpdateElasticsearchDomainConfig)
 
-testAddTagsResponse :: AddTagsResponse -> TestTree
-testAddTagsResponse = res
+responseAddTags :: AddTagsResponse -> TestTree
+responseAddTags = res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     elasticSearch
     (Proxy :: Proxy AddTags)
 
-testListTagsResponse :: ListTagsResponse -> TestTree
-testListTagsResponse = res
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags = res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     elasticSearch

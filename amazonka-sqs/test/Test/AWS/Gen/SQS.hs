@@ -28,109 +28,109 @@ import Test.AWS.SQS.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testGetQueueURL $
+--         [ requestGetQueueURL $
 --             getQueueURL
 --
---         , testPurgeQueue $
+--         , requestPurgeQueue $
 --             purgeQueue
 --
---         , testChangeMessageVisibilityBatch $
+--         , requestChangeMessageVisibilityBatch $
 --             changeMessageVisibilityBatch
 --
---         , testSendMessage $
+--         , requestSendMessage $
 --             sendMessage
 --
---         , testRemovePermission $
+--         , requestRemovePermission $
 --             removePermission
 --
---         , testGetQueueAttributes $
+--         , requestGetQueueAttributes $
 --             getQueueAttributes
 --
---         , testListQueues $
+--         , requestListQueues $
 --             listQueues
 --
---         , testReceiveMessage $
+--         , requestReceiveMessage $
 --             receiveMessage
 --
---         , testDeleteQueue $
+--         , requestDeleteQueue $
 --             deleteQueue
 --
---         , testDeleteMessageBatch $
+--         , requestDeleteMessageBatch $
 --             deleteMessageBatch
 --
---         , testSetQueueAttributes $
+--         , requestSetQueueAttributes $
 --             setQueueAttributes
 --
---         , testListDeadLetterSourceQueues $
+--         , requestListDeadLetterSourceQueues $
 --             listDeadLetterSourceQueues
 --
---         , testAddPermission $
+--         , requestAddPermission $
 --             addPermission
 --
---         , testDeleteMessage $
+--         , requestDeleteMessage $
 --             deleteMessage
 --
---         , testCreateQueue $
+--         , requestCreateQueue $
 --             createQueue
 --
---         , testSendMessageBatch $
+--         , requestSendMessageBatch $
 --             sendMessageBatch
 --
---         , testChangeMessageVisibility $
+--         , requestChangeMessageVisibility $
 --             changeMessageVisibility
 --
 --           ]
 
 --     , testGroup "response"
---         [ testGetQueueURLResponse $
+--         [ responseGetQueueURL $
 --             getQueueURLResponse
 --
---         , testPurgeQueueResponse $
+--         , responsePurgeQueue $
 --             purgeQueueResponse
 --
---         , testChangeMessageVisibilityBatchResponse $
+--         , responseChangeMessageVisibilityBatch $
 --             changeMessageVisibilityBatchResponse
 --
---         , testSendMessageResponse $
+--         , responseSendMessage $
 --             sendMessageResponse
 --
---         , testRemovePermissionResponse $
+--         , responseRemovePermission $
 --             removePermissionResponse
 --
---         , testGetQueueAttributesResponse $
+--         , responseGetQueueAttributes $
 --             getQueueAttributesResponse
 --
---         , testListQueuesResponse $
+--         , responseListQueues $
 --             listQueuesResponse
 --
---         , testReceiveMessageResponse $
+--         , responseReceiveMessage $
 --             receiveMessageResponse
 --
---         , testDeleteQueueResponse $
+--         , responseDeleteQueue $
 --             deleteQueueResponse
 --
---         , testDeleteMessageBatchResponse $
+--         , responseDeleteMessageBatch $
 --             deleteMessageBatchResponse
 --
---         , testSetQueueAttributesResponse $
+--         , responseSetQueueAttributes $
 --             setQueueAttributesResponse
 --
---         , testListDeadLetterSourceQueuesResponse $
+--         , responseListDeadLetterSourceQueues $
 --             listDeadLetterSourceQueuesResponse
 --
---         , testAddPermissionResponse $
+--         , responseAddPermission $
 --             addPermissionResponse
 --
---         , testDeleteMessageResponse $
+--         , responseDeleteMessage $
 --             deleteMessageResponse
 --
---         , testCreateQueueResponse $
+--         , responseCreateQueue $
 --             createQueueResponse
 --
---         , testSendMessageBatchResponse $
+--         , responseSendMessageBatch $
 --             sendMessageBatchResponse
 --
---         , testChangeMessageVisibilityResponse $
+--         , responseChangeMessageVisibility $
 --             changeMessageVisibilityResponse
 --
 --           ]
@@ -138,207 +138,207 @@ import Test.AWS.SQS.Internal
 
 -- Requests
 
-testGetQueueURL :: GetQueueURL -> TestTree
-testGetQueueURL = req
+requestGetQueueURL :: GetQueueURL -> TestTree
+requestGetQueueURL = req
     "GetQueueURL"
     "fixture/GetQueueURL.yaml"
 
-testPurgeQueue :: PurgeQueue -> TestTree
-testPurgeQueue = req
+requestPurgeQueue :: PurgeQueue -> TestTree
+requestPurgeQueue = req
     "PurgeQueue"
     "fixture/PurgeQueue.yaml"
 
-testChangeMessageVisibilityBatch :: ChangeMessageVisibilityBatch -> TestTree
-testChangeMessageVisibilityBatch = req
+requestChangeMessageVisibilityBatch :: ChangeMessageVisibilityBatch -> TestTree
+requestChangeMessageVisibilityBatch = req
     "ChangeMessageVisibilityBatch"
     "fixture/ChangeMessageVisibilityBatch.yaml"
 
-testSendMessage :: SendMessage -> TestTree
-testSendMessage = req
+requestSendMessage :: SendMessage -> TestTree
+requestSendMessage = req
     "SendMessage"
     "fixture/SendMessage.yaml"
 
-testRemovePermission :: RemovePermission -> TestTree
-testRemovePermission = req
+requestRemovePermission :: RemovePermission -> TestTree
+requestRemovePermission = req
     "RemovePermission"
     "fixture/RemovePermission.yaml"
 
-testGetQueueAttributes :: GetQueueAttributes -> TestTree
-testGetQueueAttributes = req
+requestGetQueueAttributes :: GetQueueAttributes -> TestTree
+requestGetQueueAttributes = req
     "GetQueueAttributes"
     "fixture/GetQueueAttributes.yaml"
 
-testListQueues :: ListQueues -> TestTree
-testListQueues = req
+requestListQueues :: ListQueues -> TestTree
+requestListQueues = req
     "ListQueues"
     "fixture/ListQueues.yaml"
 
-testReceiveMessage :: ReceiveMessage -> TestTree
-testReceiveMessage = req
+requestReceiveMessage :: ReceiveMessage -> TestTree
+requestReceiveMessage = req
     "ReceiveMessage"
     "fixture/ReceiveMessage.yaml"
 
-testDeleteQueue :: DeleteQueue -> TestTree
-testDeleteQueue = req
+requestDeleteQueue :: DeleteQueue -> TestTree
+requestDeleteQueue = req
     "DeleteQueue"
     "fixture/DeleteQueue.yaml"
 
-testDeleteMessageBatch :: DeleteMessageBatch -> TestTree
-testDeleteMessageBatch = req
+requestDeleteMessageBatch :: DeleteMessageBatch -> TestTree
+requestDeleteMessageBatch = req
     "DeleteMessageBatch"
     "fixture/DeleteMessageBatch.yaml"
 
-testSetQueueAttributes :: SetQueueAttributes -> TestTree
-testSetQueueAttributes = req
+requestSetQueueAttributes :: SetQueueAttributes -> TestTree
+requestSetQueueAttributes = req
     "SetQueueAttributes"
     "fixture/SetQueueAttributes.yaml"
 
-testListDeadLetterSourceQueues :: ListDeadLetterSourceQueues -> TestTree
-testListDeadLetterSourceQueues = req
+requestListDeadLetterSourceQueues :: ListDeadLetterSourceQueues -> TestTree
+requestListDeadLetterSourceQueues = req
     "ListDeadLetterSourceQueues"
     "fixture/ListDeadLetterSourceQueues.yaml"
 
-testAddPermission :: AddPermission -> TestTree
-testAddPermission = req
+requestAddPermission :: AddPermission -> TestTree
+requestAddPermission = req
     "AddPermission"
     "fixture/AddPermission.yaml"
 
-testDeleteMessage :: DeleteMessage -> TestTree
-testDeleteMessage = req
+requestDeleteMessage :: DeleteMessage -> TestTree
+requestDeleteMessage = req
     "DeleteMessage"
     "fixture/DeleteMessage.yaml"
 
-testCreateQueue :: CreateQueue -> TestTree
-testCreateQueue = req
+requestCreateQueue :: CreateQueue -> TestTree
+requestCreateQueue = req
     "CreateQueue"
     "fixture/CreateQueue.yaml"
 
-testSendMessageBatch :: SendMessageBatch -> TestTree
-testSendMessageBatch = req
+requestSendMessageBatch :: SendMessageBatch -> TestTree
+requestSendMessageBatch = req
     "SendMessageBatch"
     "fixture/SendMessageBatch.yaml"
 
-testChangeMessageVisibility :: ChangeMessageVisibility -> TestTree
-testChangeMessageVisibility = req
+requestChangeMessageVisibility :: ChangeMessageVisibility -> TestTree
+requestChangeMessageVisibility = req
     "ChangeMessageVisibility"
     "fixture/ChangeMessageVisibility.yaml"
 
 -- Responses
 
-testGetQueueURLResponse :: GetQueueURLResponse -> TestTree
-testGetQueueURLResponse = res
+responseGetQueueURL :: GetQueueURLResponse -> TestTree
+responseGetQueueURL = res
     "GetQueueURLResponse"
     "fixture/GetQueueURLResponse.proto"
     sqs
     (Proxy :: Proxy GetQueueURL)
 
-testPurgeQueueResponse :: PurgeQueueResponse -> TestTree
-testPurgeQueueResponse = res
+responsePurgeQueue :: PurgeQueueResponse -> TestTree
+responsePurgeQueue = res
     "PurgeQueueResponse"
     "fixture/PurgeQueueResponse.proto"
     sqs
     (Proxy :: Proxy PurgeQueue)
 
-testChangeMessageVisibilityBatchResponse :: ChangeMessageVisibilityBatchResponse -> TestTree
-testChangeMessageVisibilityBatchResponse = res
+responseChangeMessageVisibilityBatch :: ChangeMessageVisibilityBatchResponse -> TestTree
+responseChangeMessageVisibilityBatch = res
     "ChangeMessageVisibilityBatchResponse"
     "fixture/ChangeMessageVisibilityBatchResponse.proto"
     sqs
     (Proxy :: Proxy ChangeMessageVisibilityBatch)
 
-testSendMessageResponse :: SendMessageResponse -> TestTree
-testSendMessageResponse = res
+responseSendMessage :: SendMessageResponse -> TestTree
+responseSendMessage = res
     "SendMessageResponse"
     "fixture/SendMessageResponse.proto"
     sqs
     (Proxy :: Proxy SendMessage)
 
-testRemovePermissionResponse :: RemovePermissionResponse -> TestTree
-testRemovePermissionResponse = res
+responseRemovePermission :: RemovePermissionResponse -> TestTree
+responseRemovePermission = res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
     sqs
     (Proxy :: Proxy RemovePermission)
 
-testGetQueueAttributesResponse :: GetQueueAttributesResponse -> TestTree
-testGetQueueAttributesResponse = res
+responseGetQueueAttributes :: GetQueueAttributesResponse -> TestTree
+responseGetQueueAttributes = res
     "GetQueueAttributesResponse"
     "fixture/GetQueueAttributesResponse.proto"
     sqs
     (Proxy :: Proxy GetQueueAttributes)
 
-testListQueuesResponse :: ListQueuesResponse -> TestTree
-testListQueuesResponse = res
+responseListQueues :: ListQueuesResponse -> TestTree
+responseListQueues = res
     "ListQueuesResponse"
     "fixture/ListQueuesResponse.proto"
     sqs
     (Proxy :: Proxy ListQueues)
 
-testReceiveMessageResponse :: ReceiveMessageResponse -> TestTree
-testReceiveMessageResponse = res
+responseReceiveMessage :: ReceiveMessageResponse -> TestTree
+responseReceiveMessage = res
     "ReceiveMessageResponse"
     "fixture/ReceiveMessageResponse.proto"
     sqs
     (Proxy :: Proxy ReceiveMessage)
 
-testDeleteQueueResponse :: DeleteQueueResponse -> TestTree
-testDeleteQueueResponse = res
+responseDeleteQueue :: DeleteQueueResponse -> TestTree
+responseDeleteQueue = res
     "DeleteQueueResponse"
     "fixture/DeleteQueueResponse.proto"
     sqs
     (Proxy :: Proxy DeleteQueue)
 
-testDeleteMessageBatchResponse :: DeleteMessageBatchResponse -> TestTree
-testDeleteMessageBatchResponse = res
+responseDeleteMessageBatch :: DeleteMessageBatchResponse -> TestTree
+responseDeleteMessageBatch = res
     "DeleteMessageBatchResponse"
     "fixture/DeleteMessageBatchResponse.proto"
     sqs
     (Proxy :: Proxy DeleteMessageBatch)
 
-testSetQueueAttributesResponse :: SetQueueAttributesResponse -> TestTree
-testSetQueueAttributesResponse = res
+responseSetQueueAttributes :: SetQueueAttributesResponse -> TestTree
+responseSetQueueAttributes = res
     "SetQueueAttributesResponse"
     "fixture/SetQueueAttributesResponse.proto"
     sqs
     (Proxy :: Proxy SetQueueAttributes)
 
-testListDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResponse -> TestTree
-testListDeadLetterSourceQueuesResponse = res
+responseListDeadLetterSourceQueues :: ListDeadLetterSourceQueuesResponse -> TestTree
+responseListDeadLetterSourceQueues = res
     "ListDeadLetterSourceQueuesResponse"
     "fixture/ListDeadLetterSourceQueuesResponse.proto"
     sqs
     (Proxy :: Proxy ListDeadLetterSourceQueues)
 
-testAddPermissionResponse :: AddPermissionResponse -> TestTree
-testAddPermissionResponse = res
+responseAddPermission :: AddPermissionResponse -> TestTree
+responseAddPermission = res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
     sqs
     (Proxy :: Proxy AddPermission)
 
-testDeleteMessageResponse :: DeleteMessageResponse -> TestTree
-testDeleteMessageResponse = res
+responseDeleteMessage :: DeleteMessageResponse -> TestTree
+responseDeleteMessage = res
     "DeleteMessageResponse"
     "fixture/DeleteMessageResponse.proto"
     sqs
     (Proxy :: Proxy DeleteMessage)
 
-testCreateQueueResponse :: CreateQueueResponse -> TestTree
-testCreateQueueResponse = res
+responseCreateQueue :: CreateQueueResponse -> TestTree
+responseCreateQueue = res
     "CreateQueueResponse"
     "fixture/CreateQueueResponse.proto"
     sqs
     (Proxy :: Proxy CreateQueue)
 
-testSendMessageBatchResponse :: SendMessageBatchResponse -> TestTree
-testSendMessageBatchResponse = res
+responseSendMessageBatch :: SendMessageBatchResponse -> TestTree
+responseSendMessageBatch = res
     "SendMessageBatchResponse"
     "fixture/SendMessageBatchResponse.proto"
     sqs
     (Proxy :: Proxy SendMessageBatch)
 
-testChangeMessageVisibilityResponse :: ChangeMessageVisibilityResponse -> TestTree
-testChangeMessageVisibilityResponse = res
+responseChangeMessageVisibility :: ChangeMessageVisibilityResponse -> TestTree
+responseChangeMessageVisibility = res
     "ChangeMessageVisibilityResponse"
     "fixture/ChangeMessageVisibilityResponse.proto"
     sqs

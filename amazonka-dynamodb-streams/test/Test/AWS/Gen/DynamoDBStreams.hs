@@ -28,31 +28,31 @@ import Test.AWS.DynamoDBStreams.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testGetShardIterator $
+--         [ requestGetShardIterator $
 --             getShardIterator
 --
---         , testGetRecords $
+--         , requestGetRecords $
 --             getRecords
 --
---         , testListStreams $
+--         , requestListStreams $
 --             listStreams
 --
---         , testDescribeStream $
+--         , requestDescribeStream $
 --             describeStream
 --
 --           ]
 
 --     , testGroup "response"
---         [ testGetShardIteratorResponse $
+--         [ responseGetShardIterator $
 --             getShardIteratorResponse
 --
---         , testGetRecordsResponse $
+--         , responseGetRecords $
 --             getRecordsResponse
 --
---         , testListStreamsResponse $
+--         , responseListStreams $
 --             listStreamsResponse
 --
---         , testDescribeStreamResponse $
+--         , responseDescribeStream $
 --             describeStreamResponse
 --
 --           ]
@@ -60,51 +60,51 @@ import Test.AWS.DynamoDBStreams.Internal
 
 -- Requests
 
-testGetShardIterator :: GetShardIterator -> TestTree
-testGetShardIterator = req
+requestGetShardIterator :: GetShardIterator -> TestTree
+requestGetShardIterator = req
     "GetShardIterator"
     "fixture/GetShardIterator.yaml"
 
-testGetRecords :: GetRecords -> TestTree
-testGetRecords = req
+requestGetRecords :: GetRecords -> TestTree
+requestGetRecords = req
     "GetRecords"
     "fixture/GetRecords.yaml"
 
-testListStreams :: ListStreams -> TestTree
-testListStreams = req
+requestListStreams :: ListStreams -> TestTree
+requestListStreams = req
     "ListStreams"
     "fixture/ListStreams.yaml"
 
-testDescribeStream :: DescribeStream -> TestTree
-testDescribeStream = req
+requestDescribeStream :: DescribeStream -> TestTree
+requestDescribeStream = req
     "DescribeStream"
     "fixture/DescribeStream.yaml"
 
 -- Responses
 
-testGetShardIteratorResponse :: GetShardIteratorResponse -> TestTree
-testGetShardIteratorResponse = res
+responseGetShardIterator :: GetShardIteratorResponse -> TestTree
+responseGetShardIterator = res
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse.proto"
     dynamoDBStreams
     (Proxy :: Proxy GetShardIterator)
 
-testGetRecordsResponse :: GetRecordsResponse -> TestTree
-testGetRecordsResponse = res
+responseGetRecords :: GetRecordsResponse -> TestTree
+responseGetRecords = res
     "GetRecordsResponse"
     "fixture/GetRecordsResponse.proto"
     dynamoDBStreams
     (Proxy :: Proxy GetRecords)
 
-testListStreamsResponse :: ListStreamsResponse -> TestTree
-testListStreamsResponse = res
+responseListStreams :: ListStreamsResponse -> TestTree
+responseListStreams = res
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
     dynamoDBStreams
     (Proxy :: Proxy ListStreams)
 
-testDescribeStreamResponse :: DescribeStreamResponse -> TestTree
-testDescribeStreamResponse = res
+responseDescribeStream :: DescribeStreamResponse -> TestTree
+responseDescribeStream = res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
     dynamoDBStreams

@@ -28,49 +28,49 @@ import Test.AWS.ApplicationAutoScaling.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ testDeleteScalingPolicy $
+--         [ requestDeleteScalingPolicy $
 --             deleteScalingPolicy
 --
---         , testPutScalingPolicy $
+--         , requestPutScalingPolicy $
 --             putScalingPolicy
 --
---         , testRegisterScalableTarget $
+--         , requestRegisterScalableTarget $
 --             registerScalableTarget
 --
---         , testDescribeScalingPolicies $
+--         , requestDescribeScalingPolicies $
 --             describeScalingPolicies
 --
---         , testDescribeScalableTargets $
+--         , requestDescribeScalableTargets $
 --             describeScalableTargets
 --
---         , testDescribeScalingActivities $
+--         , requestDescribeScalingActivities $
 --             describeScalingActivities
 --
---         , testDeregisterScalableTarget $
+--         , requestDeregisterScalableTarget $
 --             deregisterScalableTarget
 --
 --           ]
 
 --     , testGroup "response"
---         [ testDeleteScalingPolicyResponse $
+--         [ responseDeleteScalingPolicy $
 --             deleteScalingPolicyResponse
 --
---         , testPutScalingPolicyResponse $
+--         , responsePutScalingPolicy $
 --             putScalingPolicyResponse
 --
---         , testRegisterScalableTargetResponse $
+--         , responseRegisterScalableTarget $
 --             registerScalableTargetResponse
 --
---         , testDescribeScalingPoliciesResponse $
+--         , responseDescribeScalingPolicies $
 --             describeScalingPoliciesResponse
 --
---         , testDescribeScalableTargetsResponse $
+--         , responseDescribeScalableTargets $
 --             describeScalableTargetsResponse
 --
---         , testDescribeScalingActivitiesResponse $
+--         , responseDescribeScalingActivities $
 --             describeScalingActivitiesResponse
 --
---         , testDeregisterScalableTargetResponse $
+--         , responseDeregisterScalableTarget $
 --             deregisterScalableTargetResponse
 --
 --           ]
@@ -78,87 +78,87 @@ import Test.AWS.ApplicationAutoScaling.Internal
 
 -- Requests
 
-testDeleteScalingPolicy :: DeleteScalingPolicy -> TestTree
-testDeleteScalingPolicy = req
+requestDeleteScalingPolicy :: DeleteScalingPolicy -> TestTree
+requestDeleteScalingPolicy = req
     "DeleteScalingPolicy"
     "fixture/DeleteScalingPolicy.yaml"
 
-testPutScalingPolicy :: PutScalingPolicy -> TestTree
-testPutScalingPolicy = req
+requestPutScalingPolicy :: PutScalingPolicy -> TestTree
+requestPutScalingPolicy = req
     "PutScalingPolicy"
     "fixture/PutScalingPolicy.yaml"
 
-testRegisterScalableTarget :: RegisterScalableTarget -> TestTree
-testRegisterScalableTarget = req
+requestRegisterScalableTarget :: RegisterScalableTarget -> TestTree
+requestRegisterScalableTarget = req
     "RegisterScalableTarget"
     "fixture/RegisterScalableTarget.yaml"
 
-testDescribeScalingPolicies :: DescribeScalingPolicies -> TestTree
-testDescribeScalingPolicies = req
+requestDescribeScalingPolicies :: DescribeScalingPolicies -> TestTree
+requestDescribeScalingPolicies = req
     "DescribeScalingPolicies"
     "fixture/DescribeScalingPolicies.yaml"
 
-testDescribeScalableTargets :: DescribeScalableTargets -> TestTree
-testDescribeScalableTargets = req
+requestDescribeScalableTargets :: DescribeScalableTargets -> TestTree
+requestDescribeScalableTargets = req
     "DescribeScalableTargets"
     "fixture/DescribeScalableTargets.yaml"
 
-testDescribeScalingActivities :: DescribeScalingActivities -> TestTree
-testDescribeScalingActivities = req
+requestDescribeScalingActivities :: DescribeScalingActivities -> TestTree
+requestDescribeScalingActivities = req
     "DescribeScalingActivities"
     "fixture/DescribeScalingActivities.yaml"
 
-testDeregisterScalableTarget :: DeregisterScalableTarget -> TestTree
-testDeregisterScalableTarget = req
+requestDeregisterScalableTarget :: DeregisterScalableTarget -> TestTree
+requestDeregisterScalableTarget = req
     "DeregisterScalableTarget"
     "fixture/DeregisterScalableTarget.yaml"
 
 -- Responses
 
-testDeleteScalingPolicyResponse :: DeleteScalingPolicyResponse -> TestTree
-testDeleteScalingPolicyResponse = res
+responseDeleteScalingPolicy :: DeleteScalingPolicyResponse -> TestTree
+responseDeleteScalingPolicy = res
     "DeleteScalingPolicyResponse"
     "fixture/DeleteScalingPolicyResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy DeleteScalingPolicy)
 
-testPutScalingPolicyResponse :: PutScalingPolicyResponse -> TestTree
-testPutScalingPolicyResponse = res
+responsePutScalingPolicy :: PutScalingPolicyResponse -> TestTree
+responsePutScalingPolicy = res
     "PutScalingPolicyResponse"
     "fixture/PutScalingPolicyResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy PutScalingPolicy)
 
-testRegisterScalableTargetResponse :: RegisterScalableTargetResponse -> TestTree
-testRegisterScalableTargetResponse = res
+responseRegisterScalableTarget :: RegisterScalableTargetResponse -> TestTree
+responseRegisterScalableTarget = res
     "RegisterScalableTargetResponse"
     "fixture/RegisterScalableTargetResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy RegisterScalableTarget)
 
-testDescribeScalingPoliciesResponse :: DescribeScalingPoliciesResponse -> TestTree
-testDescribeScalingPoliciesResponse = res
+responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
+responseDescribeScalingPolicies = res
     "DescribeScalingPoliciesResponse"
     "fixture/DescribeScalingPoliciesResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy DescribeScalingPolicies)
 
-testDescribeScalableTargetsResponse :: DescribeScalableTargetsResponse -> TestTree
-testDescribeScalableTargetsResponse = res
+responseDescribeScalableTargets :: DescribeScalableTargetsResponse -> TestTree
+responseDescribeScalableTargets = res
     "DescribeScalableTargetsResponse"
     "fixture/DescribeScalableTargetsResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy DescribeScalableTargets)
 
-testDescribeScalingActivitiesResponse :: DescribeScalingActivitiesResponse -> TestTree
-testDescribeScalingActivitiesResponse = res
+responseDescribeScalingActivities :: DescribeScalingActivitiesResponse -> TestTree
+responseDescribeScalingActivities = res
     "DescribeScalingActivitiesResponse"
     "fixture/DescribeScalingActivitiesResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy DescribeScalingActivities)
 
-testDeregisterScalableTargetResponse :: DeregisterScalableTargetResponse -> TestTree
-testDeregisterScalableTargetResponse = res
+responseDeregisterScalableTarget :: DeregisterScalableTargetResponse -> TestTree
+responseDeregisterScalableTarget = res
     "DeregisterScalableTargetResponse"
     "fixture/DeregisterScalableTargetResponse.proto"
     applicationAutoScaling

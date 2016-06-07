@@ -1,6 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# LANGUAGE TemplateHaskell   #-}
 
 -- Module      : Test.AWS.APIGateway
 -- Copyright   : (c) 2013-2016 Brendan Hay
@@ -12,12 +11,34 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Test.AWS.APIGateway where
+module Test.AWS.APIGateway
+    ( tests
+    , fixtures
+    ) where
 
-import           Test.AWS.Prelude
+import           Data.Time
+import           Network.AWS.APIGateway
+import           Network.AWS.Lens        ((&), (?~))
+import           Network.AWS.Prelude
+import           Test.AWS.Gen.APIGateway
+import           Test.AWS.TH
+import           Test.Tasty
 
 tests :: [TestTree]
 tests = []
 
 fixtures :: [TestTree]
-fixtures = []
+fixtures =
+    [ testGroup "request"
+        [ requestCreateRestAPI $
+            createRestAPI "testAPI"
+        ]
+
+    , testGroup "response"
+        [ responseCreateRestAPI $
+            restAPI
+                & raId          ?~ "4x69hrdz0g"
+                & raName        ?~ "testAPI"
+                & raCreatedDate ?~ $(mkTime "2016-06-07T17:39:19+02:00")
+        ]
+    ]

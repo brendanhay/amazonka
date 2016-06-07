@@ -29,7 +29,7 @@ tests = []
 fixtures :: [TestTree]
 fixtures =
     [ testGroup "response"
-        [ testDescribeDBInstancesResponse $ describeDBInstancesResponse 200
+        [ responseDescribeDBInstances $ describeDBInstancesResponse 200
             & ddbirsDBInstances .~
                 [ dbInstance
                     & diAllocatedStorage           ?~ 5

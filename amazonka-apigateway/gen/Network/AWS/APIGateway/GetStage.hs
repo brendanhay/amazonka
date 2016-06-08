@@ -52,8 +52,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about a < Stage>
--- resource.
+-- | Requests Amazon API Gateway to get information about a < Stage> resource.
 --
 -- /See:/ 'getStage' smart constructor.
 data GetStage = GetStage'
@@ -78,8 +77,7 @@ getStage pRestAPIId_ pStageName_ =
     , _gssStageName = pStageName_
     }
 
--- | The identifier of the < RestApi> resource for the < Stage> resource to
--- get information about.
+-- | The identifier of the < RestApi> resource for the < Stage> resource to get information about.
 gssRestAPIId :: Lens' GetStage Text
 gssRestAPIId = lens _gssRestAPIId (\ s a -> s{_gssRestAPIId = a});
 

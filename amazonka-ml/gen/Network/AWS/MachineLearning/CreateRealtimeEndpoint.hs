@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a real-time endpoint for the 'MLModel'. The endpoint contains
--- the URI of the 'MLModel'; that is, the location to send real-time
--- prediction requests for the specified 'MLModel'.
+-- Creates a real-time endpoint for the 'MLModel'. The endpoint contains the URI of the 'MLModel'; that is, the location to send real-time prediction requests for the specified 'MLModel'.
 module Network.AWS.MachineLearning.CreateRealtimeEndpoint
     (
     -- * Creating a Request
@@ -106,11 +104,9 @@ instance ToQuery CreateRealtimeEndpoint where
 
 -- | Represents the output of an < CreateRealtimeEndpoint> operation.
 --
--- The result contains the 'MLModelId' and the endpoint information for the
--- 'MLModel'.
+-- The result contains the 'MLModelId' and the endpoint information for the 'MLModel'.
 --
--- The endpoint information includes the URI of the 'MLModel'; that is, the
--- location to send online prediction requests for the specified 'MLModel'.
+-- The endpoint information includes the URI of the 'MLModel'; that is, the location to send online prediction requests for the specified 'MLModel'.
 --
 -- /See:/ 'createRealtimeEndpointResponse' smart constructor.
 data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
@@ -142,8 +138,7 @@ createRealtimeEndpointResponse pResponseStatus_ =
 crersRealtimeEndpointInfo :: Lens' CreateRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
 crersRealtimeEndpointInfo = lens _crersRealtimeEndpointInfo (\ s a -> s{_crersRealtimeEndpointInfo = a});
 
--- | A user-supplied ID that uniquely identifies the 'MLModel'. This value
--- should be identical to the value of the 'MLModelId' in the request.
+-- | A user-supplied ID that uniquely identifies the 'MLModel'. This value should be identical to the value of the 'MLModelId' in the request.
 crersMLModelId :: Lens' CreateRealtimeEndpointResponse (Maybe Text)
 crersMLModelId = lens _crersMLModelId (\ s a -> s{_crersMLModelId = a});
 

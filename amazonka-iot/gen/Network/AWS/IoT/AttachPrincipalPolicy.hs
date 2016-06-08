@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches the specified policy to the specified principal (certificate or
--- other credential).
+-- Attaches the specified policy to the specified principal (certificate or other credential).
 module Network.AWS.IoT.AttachPrincipalPolicy
     (
     -- * Creating a Request
@@ -70,8 +69,7 @@ attachPrincipalPolicy pPolicyName_ pPrincipal_ =
 appPolicyName :: Lens' AttachPrincipalPolicy Text
 appPolicyName = lens _appPolicyName (\ s a -> s{_appPolicyName = a});
 
--- | The principal, which can be a certificate ARN (as returned from the
--- CreateCertificate operation) or an Amazon Cognito ID.
+-- | The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.
 appPrincipal :: Lens' AttachPrincipalPolicy Text
 appPrincipal = lens _appPrincipal (\ s a -> s{_appPrincipal = a});
 

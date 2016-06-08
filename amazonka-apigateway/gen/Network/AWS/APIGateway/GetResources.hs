@@ -76,14 +76,11 @@ getResources pRestAPIId_ =
     , _grsRestAPIId = pRestAPIId_
     }
 
--- | The maximum number of < Resource> resources in the collection to get
--- information about. The default limit is 25. It should be an integer
--- between 1 - 500.
+-- | The maximum number of < Resource> resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 grsLimit :: Lens' GetResources (Maybe Int)
 grsLimit = lens _grsLimit (\ s a -> s{_grsLimit = a});
 
--- | The position of the next set of results in the current < Resources>
--- resource to get information about.
+-- | The position of the next set of results in the current < Resources> resource to get information about.
 grsPosition :: Lens' GetResources (Maybe Text)
 grsPosition = lens _grsPosition (\ s a -> s{_grsPosition = a});
 

@@ -228,14 +228,11 @@ coCopySourceIfModifiedSince = lens _coCopySourceIfModifiedSince (\ s a -> s{_coC
 coCopySourceIfUnmodifiedSince :: Lens' CopyObject (Maybe UTCTime)
 coCopySourceIfUnmodifiedSince = lens _coCopySourceIfUnmodifiedSince (\ s a -> s{_coCopySourceIfUnmodifiedSince = a}) . mapping _Time;
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 coCopySourceSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 coCopySourceSSECustomerKeyMD5 = lens _coCopySourceSSECustomerKeyMD5 (\ s a -> s{_coCopySourceSSECustomerKeyMD5 = a});
 
--- | Specifies whether the metadata is copied from the source object or
--- replaced with metadata provided in the request.
+-- | Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
 coMetadataDirective :: Lens' CopyObject (Maybe MetadataDirective)
 coMetadataDirective = lens _coMetadataDirective (\ s a -> s{_coMetadataDirective = a});
 
@@ -247,21 +244,15 @@ coExpires = lens _coExpires (\ s a -> s{_coExpires = a}) . mapping _Time;
 coGrantReadACP :: Lens' CopyObject (Maybe Text)
 coGrantReadACP = lens _coGrantReadACP (\ s a -> s{_coGrantReadACP = a});
 
--- | Copies the object if its entity tag (ETag) is different than the
--- specified ETag.
+-- | Copies the object if its entity tag (ETag) is different than the specified ETag.
 coCopySourceIfNoneMatch :: Lens' CopyObject (Maybe Text)
 coCopySourceIfNoneMatch = lens _coCopySourceIfNoneMatch (\ s a -> s{_coCopySourceIfNoneMatch = a});
 
--- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256).
+-- | Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 coSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
 coSSECustomerAlgorithm = lens _coSSECustomerAlgorithm (\ s a -> s{_coSSECustomerAlgorithm = a});
 
--- | Specifies the customer-provided encryption key for Amazon S3 to use in
--- encrypting data. This value is used to store the object and then it is
--- discarded; Amazon does not store the encryption key. The key must be
--- appropriate for use with the algorithm specified in the
--- x-amz-server-side​-encryption​-customer-algorithm header.
+-- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
 coSSECustomerKey :: Lens' CopyObject (Maybe Text)
 coSSECustomerKey = lens _coSSECustomerKey (\ s a -> s{_coSSECustomerKey = a}) . mapping _Sensitive;
 
@@ -277,9 +268,7 @@ coGrantWriteACP = lens _coGrantWriteACP (\ s a -> s{_coGrantWriteACP = a});
 coCopySourceIfMatch :: Lens' CopyObject (Maybe Text)
 coCopySourceIfMatch = lens _coCopySourceIfMatch (\ s a -> s{_coCopySourceIfMatch = a});
 
--- | If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL.
--- Amazon S3 stores the value of this header in the object metadata.
+-- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 coWebsiteRedirectLocation :: Lens' CopyObject (Maybe Text)
 coWebsiteRedirectLocation = lens _coWebsiteRedirectLocation (\ s a -> s{_coWebsiteRedirectLocation = a});
 
@@ -291,28 +280,19 @@ coGrantRead = lens _coGrantRead (\ s a -> s{_coGrantRead = a});
 coStorageClass :: Lens' CopyObject (Maybe StorageClass)
 coStorageClass = lens _coStorageClass (\ s a -> s{_coStorageClass = a});
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 coSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 coSSECustomerKeyMD5 = lens _coSSECustomerKeyMD5 (\ s a -> s{_coSSECustomerKeyMD5 = a});
 
--- | Specifies the AWS KMS key ID to use for object encryption. All GET and
--- PUT requests for an object protected by AWS KMS will fail if not made
--- via SSL or using SigV4. Documentation on configuring any of the
--- officially supported AWS SDKs and CLI can be found at
--- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/UsingAWSSDK.html#specify-signature-version
+-- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/UsingAWSSDK.html#specify-signature-version
 coSSEKMSKeyId :: Lens' CopyObject (Maybe Text)
 coSSEKMSKeyId = lens _coSSEKMSKeyId (\ s a -> s{_coSSEKMSKeyId = a}) . mapping _Sensitive;
 
--- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
--- object.
+-- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 coGrantFullControl :: Lens' CopyObject (Maybe Text)
 coGrantFullControl = lens _coGrantFullControl (\ s a -> s{_coGrantFullControl = a});
 
--- | Specifies what content encodings have been applied to the object and
--- thus what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
+-- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 coContentEncoding :: Lens' CopyObject (Maybe Text)
 coContentEncoding = lens _coContentEncoding (\ s a -> s{_coContentEncoding = a});
 
@@ -328,14 +308,11 @@ coCacheControl = lens _coCacheControl (\ s a -> s{_coCacheControl = a});
 coContentLanguage :: Lens' CopyObject (Maybe Text)
 coContentLanguage = lens _coContentLanguage (\ s a -> s{_coContentLanguage = a});
 
--- | Specifies the customer-provided encryption key for Amazon S3 to use to
--- decrypt the source object. The encryption key provided in this header
--- must be one that was used when the source object was created.
+-- | Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
 coCopySourceSSECustomerKey :: Lens' CopyObject (Maybe Text)
 coCopySourceSSECustomerKey = lens _coCopySourceSSECustomerKey (\ s a -> s{_coCopySourceSSECustomerKey = a}) . mapping _Sensitive;
 
--- | Specifies the algorithm to use when decrypting the source object (e.g.,
--- AES256).
+-- | Specifies the algorithm to use when decrypting the source object (e.g., AES256).
 coCopySourceSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
 coCopySourceSSECustomerAlgorithm = lens _coCopySourceSSECustomerAlgorithm (\ s a -> s{_coCopySourceSSECustomerAlgorithm = a});
 
@@ -347,8 +324,7 @@ coACL = lens _coACL (\ s a -> s{_coACL = a});
 coContentDisposition :: Lens' CopyObject (Maybe Text)
 coContentDisposition = lens _coContentDisposition (\ s a -> s{_coContentDisposition = a});
 
--- | The Server-side encryption algorithm used when storing this object in S3
--- (e.g., AES256, aws:kms).
+-- | The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 coServerSideEncryption :: Lens' CopyObject (Maybe ServerSideEncryption)
 coServerSideEncryption = lens _coServerSideEncryption (\ s a -> s{_coServerSideEncryption = a});
 
@@ -360,8 +336,7 @@ coContentType = lens _coContentType (\ s a -> s{_coContentType = a});
 coBucket :: Lens' CopyObject BucketName
 coBucket = lens _coBucket (\ s a -> s{_coBucket = a});
 
--- | The name of the source bucket and key name of the source object,
--- separated by a slash (\/). Must be URL-encoded.
+-- | The name of the source bucket and key name of the source object, separated by a slash (\/). Must be URL-encoded.
 coCopySource :: Lens' CopyObject Text
 coCopySource = lens _coCopySource (\ s a -> s{_coCopySource = a});
 
@@ -510,14 +485,11 @@ corsRequestCharged = lens _corsRequestCharged (\ s a -> s{_corsRequestCharged = 
 corsVersionId :: Lens' CopyObjectResponse (Maybe ObjectVersionId)
 corsVersionId = lens _corsVersionId (\ s a -> s{_corsVersionId = a});
 
--- | If the object expiration is configured, the response includes this
--- header.
+-- | If the object expiration is configured, the response includes this header.
 corsExpiration :: Lens' CopyObjectResponse (Maybe Text)
 corsExpiration = lens _corsExpiration (\ s a -> s{_corsExpiration = a});
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 corsSSECustomerAlgorithm :: Lens' CopyObjectResponse (Maybe Text)
 corsSSECustomerAlgorithm = lens _corsSSECustomerAlgorithm (\ s a -> s{_corsSSECustomerAlgorithm = a});
 
@@ -525,19 +497,15 @@ corsSSECustomerAlgorithm = lens _corsSSECustomerAlgorithm (\ s a -> s{_corsSSECu
 corsCopySourceVersionId :: Lens' CopyObjectResponse (Maybe Text)
 corsCopySourceVersionId = lens _corsCopySourceVersionId (\ s a -> s{_corsCopySourceVersionId = a});
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header to provide round trip
--- message integrity verification of the customer-provided encryption key.
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 corsSSECustomerKeyMD5 :: Lens' CopyObjectResponse (Maybe Text)
 corsSSECustomerKeyMD5 = lens _corsSSECustomerKeyMD5 (\ s a -> s{_corsSSECustomerKeyMD5 = a});
 
--- | If present, specifies the ID of the AWS Key Management Service (KMS)
--- master encryption key that was used for the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 corsSSEKMSKeyId :: Lens' CopyObjectResponse (Maybe Text)
 corsSSEKMSKeyId = lens _corsSSEKMSKeyId (\ s a -> s{_corsSSEKMSKeyId = a}) . mapping _Sensitive;
 
--- | The Server-side encryption algorithm used when storing this object in S3
--- (e.g., AES256, aws:kms).
+-- | The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 corsServerSideEncryption :: Lens' CopyObjectResponse (Maybe ServerSideEncryption)
 corsServerSideEncryption = lens _corsServerSideEncryption (\ s a -> s{_corsServerSideEncryption = a});
 

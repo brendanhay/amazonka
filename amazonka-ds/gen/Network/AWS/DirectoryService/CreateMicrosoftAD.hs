@@ -84,21 +84,15 @@ createMicrosoftAD pName_ pPassword_ pVPCSettings_ =
     , _cmadVPCSettings = pVPCSettings_
     }
 
--- | The NetBIOS name for your domain. A short identifier for your domain,
--- such as 'CORP'. If you don\'t specify a NetBIOS name, it will default to
--- the first part of your directory DNS. For example, 'CORP' for the
--- directory DNS 'corp.example.com'.
+-- | The NetBIOS name for your domain. A short identifier for your domain, such as 'CORP'. If you don\'t specify a NetBIOS name, it will default to the first part of your directory DNS. For example, 'CORP' for the directory DNS 'corp.example.com'.
 cmadShortName :: Lens' CreateMicrosoftAD (Maybe Text)
 cmadShortName = lens _cmadShortName (\ s a -> s{_cmadShortName = a});
 
--- | A textual description for the directory. This label will appear on the
--- AWS console 'Directory Details' page after the directory is created.
+-- | A textual description for the directory. This label will appear on the AWS console 'Directory Details' page after the directory is created.
 cmadDescription :: Lens' CreateMicrosoftAD (Maybe Text)
 cmadDescription = lens _cmadDescription (\ s a -> s{_cmadDescription = a});
 
--- | The fully qualified domain name for the directory, such as
--- 'corp.example.com'. This name will resolve inside your VPC only. It does
--- not need to be publicly resolvable.
+-- | The fully qualified domain name for the directory, such as 'corp.example.com'. This name will resolve inside your VPC only. It does not need to be publicly resolvable.
 cmadName :: Lens' CreateMicrosoftAD Text
 cmadName = lens _cmadName (\ s a -> s{_cmadName = a});
 

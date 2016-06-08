@@ -130,10 +130,7 @@ describeThingResponse pResponseStatus_ =
 dtrsDefaultClientId :: Lens' DescribeThingResponse (Maybe Text)
 dtrsDefaultClientId = lens _dtrsDefaultClientId (\ s a -> s{_dtrsDefaultClientId = a});
 
--- | The attributes, which are name\/value pairs in JSON format (for example:
--- {\\\"attributes\\\":{\\\"some-name1\\\":\\\"some-value1\\\"},
--- {\\\"some-name2\\\":\\\"some-value2\\\"},
--- {\\\"some-name3\\\":\\\"some-value3\\\"}})
+-- | The attributes, which are name\/value pairs in JSON format (for example: {\\\"attributes\\\":{\\\"some-name1\\\":\\\"some-value1\\\"}, {\\\"some-name2\\\":\\\"some-value2\\\"}, {\\\"some-name3\\\":\\\"some-value3\\\"}})
 dtrsAttributes :: Lens' DescribeThingResponse (HashMap Text Text)
 dtrsAttributes = lens _dtrsAttributes (\ s a -> s{_dtrsAttributes = a}) . _Default . _Map;
 

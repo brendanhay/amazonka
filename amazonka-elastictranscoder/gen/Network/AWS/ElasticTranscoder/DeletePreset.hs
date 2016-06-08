@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The DeletePreset operation removes a preset that you\'ve added in an AWS
--- region.
+-- The DeletePreset operation removes a preset that you\'ve added in an AWS region.
 --
--- You can\'t delete the default presets that are included with Elastic
--- Transcoder.
+-- You can\'t delete the default presets that are included with Elastic Transcoder.
 module Network.AWS.ElasticTranscoder.DeletePreset
     (
     -- * Creating a Request
@@ -65,8 +63,7 @@ deletePreset pId_ =
     { _dpId = pId_
     }
 
--- | The identifier of the preset for which you want to get detailed
--- information.
+-- | The identifier of the preset for which you want to get detailed information.
 dpId :: Lens' DeletePreset Text
 dpId = lens _dpId (\ s a -> s{_dpId = a});
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables monitoring of the specified metrics for the specified Auto
--- Scaling group.
+-- Disables monitoring of the specified metrics for the specified Auto Scaling group.
 module Network.AWS.AutoScaling.DisableMetricsCollection
     (
     -- * Creating a Request
@@ -63,8 +62,7 @@ disableMetricsCollection pAutoScalingGroupName_ =
     , _dmcAutoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | One or more of the following metrics. If you omit this parameter, all
--- metrics are disabled.
+-- | One or more of the following metrics. If you omit this parameter, all metrics are disabled.
 --
 -- -   'GroupMinSize'
 --

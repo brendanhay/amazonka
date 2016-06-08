@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accept a VPC peering connection request. To accept a request, the VPC
--- peering connection must be in the 'pending-acceptance' state, and you
--- must be the owner of the peer VPC. Use the
--- 'DescribeVpcPeeringConnections' request to view your outstanding VPC
--- peering connection requests.
+-- Accept a VPC peering connection request. To accept a request, the VPC peering connection must be in the 'pending-acceptance' state, and you must be the owner of the peer VPC. Use the 'DescribeVpcPeeringConnections' request to view your outstanding VPC peering connection requests.
 module Network.AWS.EC2.AcceptVPCPeeringConnection
     (
     -- * Creating a Request
@@ -74,10 +70,7 @@ acceptVPCPeeringConnection =
 avpcVPCPeeringConnectionId :: Lens' AcceptVPCPeeringConnection (Maybe Text)
 avpcVPCPeeringConnectionId = lens _avpcVPCPeeringConnectionId (\ s a -> s{_avpcVPCPeeringConnectionId = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 avpcDryRun :: Lens' AcceptVPCPeeringConnection (Maybe Bool)
 avpcDryRun = lens _avpcDryRun (\ s a -> s{_avpcDryRun = a});
 

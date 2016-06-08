@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a conditional forwarder associated with your AWS directory.
--- Conditional forwarders are required in order to set up a trust
--- relationship with another domain. The conditional forwarder points to
--- the trusted domain.
+-- Creates a conditional forwarder associated with your AWS directory. Conditional forwarders are required in order to set up a trust relationship with another domain. The conditional forwarder points to the trusted domain.
 module Network.AWS.DirectoryService.CreateConditionalForwarder
     (
     -- * Creating a Request
@@ -46,9 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Initiates the creation of a conditional forwarder for your AWS Directory
--- Service for Microsoft Active Directory. Conditional forwarders are
--- required in order to set up a trust relationship with another domain.
+-- | Initiates the creation of a conditional forwarder for your AWS Directory Service for Microsoft Active Directory. Conditional forwarders are required in order to set up a trust relationship with another domain.
 --
 -- /See:/ 'createConditionalForwarder' smart constructor.
 data CreateConditionalForwarder = CreateConditionalForwarder'
@@ -77,18 +72,15 @@ createConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
     , _ccfDNSIPAddrs = mempty
     }
 
--- | The directory ID of the AWS directory for which you are creating the
--- conditional forwarder.
+-- | The directory ID of the AWS directory for which you are creating the conditional forwarder.
 ccfDirectoryId :: Lens' CreateConditionalForwarder Text
 ccfDirectoryId = lens _ccfDirectoryId (\ s a -> s{_ccfDirectoryId = a});
 
--- | The fully qualified domain name (FQDN) of the remote domain with which
--- you will set up a trust relationship.
+-- | The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.
 ccfRemoteDomainName :: Lens' CreateConditionalForwarder Text
 ccfRemoteDomainName = lens _ccfRemoteDomainName (\ s a -> s{_ccfRemoteDomainName = a});
 
--- | The IP addresses of the remote DNS server associated with
--- RemoteDomainName.
+-- | The IP addresses of the remote DNS server associated with RemoteDomainName.
 ccfDNSIPAddrs :: Lens' CreateConditionalForwarder [Text]
 ccfDNSIPAddrs = lens _ccfDNSIPAddrs (\ s a -> s{_ccfDNSIPAddrs = a}) . _Coerce;
 

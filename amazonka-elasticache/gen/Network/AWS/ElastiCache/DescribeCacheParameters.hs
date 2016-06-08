@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeCacheParameters/ action returns the detailed parameter list
--- for a particular cache parameter group.
+-- The /DescribeCacheParameters/ action returns the detailed parameter list for a particular cache parameter group.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheParameters
@@ -83,16 +82,11 @@ describeCacheParameters pCacheParameterGroupName_ =
     , _dcpCacheParameterGroupName = pCacheParameterGroupName_
     }
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/.
 dcpMarker :: Lens' DescribeCacheParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\ s a -> s{_dcpMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a marker is
--- included in the response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -188,8 +182,7 @@ describeCacheParametersResponse pResponseStatus_ =
     , _dcprsResponseStatus = pResponseStatus_
     }
 
--- | A list of parameters specific to a particular cache node type. Each
--- element in the list contains detailed information about one parameter.
+-- | A list of parameters specific to a particular cache node type. Each element in the list contains detailed information about one parameter.
 dcprsCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse [CacheNodeTypeSpecificParameter]
 dcprsCacheNodeTypeSpecificParameters = lens _dcprsCacheNodeTypeSpecificParameters (\ s a -> s{_dcprsCacheNodeTypeSpecificParameters = a}) . _Default . _Coerce;
 

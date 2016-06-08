@@ -20,10 +20,7 @@
 --
 -- Acquires an Elastic IP address.
 --
--- An Elastic IP address is for use either in the EC2-Classic platform or
--- in a VPC. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.AllocateAddress
     (
     -- * Creating a Request
@@ -79,10 +76,7 @@ allocateAddress =
 aaDomain :: Lens' AllocateAddress (Maybe DomainType)
 aaDomain = lens _aaDomain (\ s a -> s{_aaDomain = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 aaDryRun :: Lens' AllocateAddress (Maybe Bool)
 aaDryRun = lens _aaDryRun (\ s a -> s{_aaDryRun = a});
 
@@ -146,13 +140,11 @@ allocateAddressResponse pResponseStatus_ =
     , _aarsResponseStatus = pResponseStatus_
     }
 
--- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
--- Elastic IP address for use with instances in a VPC.
+-- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
 aarsAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
 aarsAllocationId = lens _aarsAllocationId (\ s a -> s{_aarsAllocationId = a});
 
--- | Indicates whether this Elastic IP address is for use with instances in
--- EC2-Classic ('standard') or instances in a VPC ('vpc').
+-- | Indicates whether this Elastic IP address is for use with instances in EC2-Classic ('standard') or instances in a VPC ('vpc').
 aarsDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
 aarsDomain = lens _aarsDomain (\ s a -> s{_aarsDomain = a});
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the set of CA certificates provided by Amazon RDS for this AWS
--- account.
+-- Lists the set of CA certificates provided by Amazon RDS for this AWS account.
 module Network.AWS.RDS.DescribeCertificates
     (
     -- * Creating a Request
@@ -82,9 +81,7 @@ describeCertificates =
 dcFilters :: Lens' DescribeCertificates [Filter]
 dcFilters = lens _dcFilters (\ s a -> s{_dcFilters = a}) . _Default . _Coerce;
 
--- | The user-supplied certificate identifier. If this parameter is
--- specified, information for only the identified certificate is returned.
--- This parameter isn\'t case-sensitive.
+-- | The user-supplied certificate identifier. If this parameter is specified, information for only the identified certificate is returned. This parameter isn\'t case-sensitive.
 --
 -- Constraints:
 --
@@ -94,17 +91,11 @@ dcFilters = lens _dcFilters (\ s a -> s{_dcFilters = a}) . _Default . _Coerce;
 dcCertificateIdentifier :: Lens' DescribeCertificates (Maybe Text)
 dcCertificateIdentifier = lens _dcCertificateIdentifier (\ s a -> s{_dcCertificateIdentifier = a});
 
--- | An optional pagination token provided by a previous
--- < DescribeCertificates> request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous < DescribeCertificates> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 dcMarker :: Lens' DescribeCertificates (Maybe Text)
 dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -177,10 +168,7 @@ describeCertificatesResponse pResponseStatus_ =
 dcrsCertificates :: Lens' DescribeCertificatesResponse [Certificate]
 dcrsCertificates = lens _dcrsCertificates (\ s a -> s{_dcrsCertificates = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous
--- < DescribeCertificates> request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords' .
+-- | An optional pagination token provided by a previous < DescribeCertificates> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords' .
 dcrsMarker :: Lens' DescribeCertificatesResponse (Maybe Text)
 dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 

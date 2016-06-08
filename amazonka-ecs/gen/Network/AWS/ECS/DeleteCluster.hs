@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified cluster. You must deregister all container
--- instances from this cluster before you may delete it. You can list the
--- container instances in a cluster with < ListContainerInstances> and
--- deregister them with < DeregisterContainerInstance>.
+-- Deletes the specified cluster. You must deregister all container instances from this cluster before you may delete it. You can list the container instances in a cluster with < ListContainerInstances> and deregister them with < DeregisterContainerInstance>.
 module Network.AWS.ECS.DeleteCluster
     (
     -- * Creating a Request
@@ -63,8 +60,7 @@ deleteCluster pCluster_ =
     { _dcCluster = pCluster_
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster to
--- delete.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster to delete.
 dcCluster :: Lens' DeleteCluster Text
 dcCluster = lens _dcCluster (\ s a -> s{_dcCluster = a});
 

@@ -20,25 +20,11 @@
 --
 -- Initiates a snapshot of a volume.
 --
--- AWS Storage Gateway provides the ability to back up point-in-time
--- snapshots of your data to Amazon Simple Storage (S3) for durable
--- off-site recovery, as well as import the data to an Amazon Elastic Block
--- Store (EBS) volume in Amazon Elastic Compute Cloud (EC2). You can take
--- snapshots of your gateway volume on a scheduled or ad-hoc basis. This
--- API enables you to take ad-hoc snapshot. For more information, see
--- <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working With Snapshots in the AWS Storage Gateway Console>.
+-- AWS Storage Gateway provides the ability to back up point-in-time snapshots of your data to Amazon Simple Storage (S3) for durable off-site recovery, as well as import the data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud (EC2). You can take snapshots of your gateway volume on a scheduled or ad-hoc basis. This API enables you to take ad-hoc snapshot. For more information, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working With Snapshots in the AWS Storage Gateway Console>.
 --
--- In the CreateSnapshot request you identify the volume by providing its
--- Amazon Resource Name (ARN). You must also provide description for the
--- snapshot. When AWS Storage Gateway takes the snapshot of specified
--- volume, the snapshot and description appears in the AWS Storage Gateway
--- Console. In response, AWS Storage Gateway returns you a snapshot ID. You
--- can use this snapshot ID to check the snapshot progress or later use it
--- when you want to create a volume from a snapshot.
+-- In the CreateSnapshot request you identify the volume by providing its Amazon Resource Name (ARN). You must also provide description for the snapshot. When AWS Storage Gateway takes the snapshot of specified volume, the snapshot and description appears in the AWS Storage Gateway Console. In response, AWS Storage Gateway returns you a snapshot ID. You can use this snapshot ID to check the snapshot progress or later use it when you want to create a volume from a snapshot.
 --
--- To list or delete a snapshot, you must use the Amazon EC2 API. For more
--- information, see DescribeSnapshots or DeleteSnapshot in the
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html EC2 API reference>.
+-- To list or delete a snapshot, you must use the Amazon EC2 API. For more information, see DescribeSnapshots or DeleteSnapshot in the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html EC2 API reference>.
 module Network.AWS.StorageGateway.CreateSnapshot
     (
     -- * Creating a Request
@@ -66,8 +52,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing one or more of the following fields:
 --
--- -   < CreateSnapshotInput$SnapshotDescription>
--- -   < CreateSnapshotInput$VolumeARN>
+-- -   < CreateSnapshotInput>SnapshotDescription>
+-- -   < CreateSnapshotInput>VolumeARN>
 --
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
@@ -92,15 +78,11 @@ createSnapshot pVolumeARN_ pSnapshotDescription_ =
     , _csSnapshotDescription = pSnapshotDescription_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
--- operation to return a list of gateway volumes.
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes> operation to return a list of gateway volumes.
 csVolumeARN :: Lens' CreateSnapshot Text
 csVolumeARN = lens _csVolumeARN (\ s a -> s{_csVolumeARN = a});
 
--- | Textual description of the snapshot that appears in the Amazon EC2
--- console, Elastic Block Store snapshots panel in the __Description__
--- field, and in the AWS Storage Gateway snapshot __Details__ pane,
--- __Description__ field
+-- | Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the __Description__ field, and in the AWS Storage Gateway snapshot __Details__ pane, __Description__ field
 csSnapshotDescription :: Lens' CreateSnapshot Text
 csSnapshotDescription = lens _csSnapshotDescription (\ s a -> s{_csSnapshotDescription = a});
 
@@ -170,15 +152,11 @@ createSnapshotResponse pResponseStatus_ =
     , _csrsResponseStatus = pResponseStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
--- taken.
+-- | The Amazon Resource Name (ARN) of the volume of which the snapshot was taken.
 csrsVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
 csrsVolumeARN = lens _csrsVolumeARN (\ s a -> s{_csrsVolumeARN = a});
 
--- | The snapshot ID that is used to refer to the snapshot in future
--- operations such as describing snapshots (Amazon Elastic Compute Cloud
--- API 'DescribeSnapshots') or creating a volume from a snapshot
--- (< CreateStorediSCSIVolume>).
+-- | The snapshot ID that is used to refer to the snapshot in future operations such as describing snapshots (Amazon Elastic Compute Cloud API 'DescribeSnapshots') or creating a volume from a snapshot (< CreateStorediSCSIVolume>).
 csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 

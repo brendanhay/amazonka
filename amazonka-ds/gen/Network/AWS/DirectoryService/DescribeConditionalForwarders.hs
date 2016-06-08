@@ -20,8 +20,7 @@
 --
 -- Obtains information about the conditional forwarders for this account.
 --
--- If no input parameters are provided for RemoteDomainNames, this request
--- describes all conditional forwarders for the specified directory ID.
+-- If no input parameters are provided for RemoteDomainNames, this request describes all conditional forwarders for the specified directory ID.
 module Network.AWS.DirectoryService.DescribeConditionalForwarders
     (
     -- * Creating a Request
@@ -68,14 +67,11 @@ describeConditionalForwarders pDirectoryId_ =
     , _dcfDirectoryId = pDirectoryId_
     }
 
--- | The fully qualified domain names (FQDN) of the remote domains for which
--- to get the list of associated conditional forwarders. If this member is
--- null, all conditional forwarders are returned.
+-- | The fully qualified domain names (FQDN) of the remote domains for which to get the list of associated conditional forwarders. If this member is null, all conditional forwarders are returned.
 dcfRemoteDomainNames :: Lens' DescribeConditionalForwarders [Text]
 dcfRemoteDomainNames = lens _dcfRemoteDomainNames (\ s a -> s{_dcfRemoteDomainNames = a}) . _Default . _Coerce;
 
--- | The directory ID for which to get the list of associated conditional
--- forwarders.
+-- | The directory ID for which to get the list of associated conditional forwarders.
 dcfDirectoryId :: Lens' DescribeConditionalForwarders Text
 dcfDirectoryId = lens _dcfDirectoryId (\ s a -> s{_dcfDirectoryId = a});
 

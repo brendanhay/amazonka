@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes whether information, such as queries and connection attempts,
--- is being logged for the specified Amazon Redshift cluster.
+-- Describes whether information, such as queries and connection attempts, is being logged for the specified Amazon Redshift cluster.
 module Network.AWS.Redshift.DescribeLoggingStatus
     (
     -- * Creating a Request

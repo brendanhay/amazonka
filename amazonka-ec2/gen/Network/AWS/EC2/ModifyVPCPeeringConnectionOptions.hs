@@ -18,24 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the VPC peering connection options on one side of a VPC peering
--- connection. You can do the following:
+-- Modifies the VPC peering connection options on one side of a VPC peering connection. You can do the following:
 --
--- -   Enable\/disable communication over the peering connection between an
---     EC2-Classic instance that\'s linked to your VPC (using ClassicLink)
---     and instances in the peer VPC.
+-- -   Enable\/disable communication over the peering connection between an EC2-Classic instance that\'s linked to your VPC (using ClassicLink) and instances in the peer VPC.
 --
--- -   Enable\/disable communication over the peering connection between
---     instances in your VPC and an EC2-Classic instance that\'s linked to
---     the peer VPC.
+-- -   Enable\/disable communication over the peering connection between instances in your VPC and an EC2-Classic instance that\'s linked to the peer VPC.
 --
--- If the peered VPCs are in different accounts, each owner must initiate a
--- separate request to enable or disable communication in either direction,
--- depending on whether their VPC was the requester or accepter for the VPC
--- peering connection. If the peered VPCs are in the same account, you can
--- modify the requester and accepter options in the same request. To
--- confirm which VPC is the accepter and requester for a VPC peering
--- connection, use the < DescribeVpcPeeringConnections> command.
+-- If the peered VPCs are in different accounts, each owner must initiate a separate request to enable or disable communication in either direction, depending on whether their VPC was the requester or accepter for the VPC peering connection. If the peered VPCs are in the same account, you can modify the requester and accepter options in the same request. To confirm which VPC is the accepter and requester for a VPC peering connection, use the < DescribeVpcPeeringConnections> command.
 module Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
     (
     -- * Creating a Request
@@ -101,10 +90,7 @@ mvpcoRequesterPeeringConnectionOptions = lens _mvpcoRequesterPeeringConnectionOp
 mvpcoAccepterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptions (Maybe PeeringConnectionOptionsRequest)
 mvpcoAccepterPeeringConnectionOptions = lens _mvpcoAccepterPeeringConnectionOptions (\ s a -> s{_mvpcoAccepterPeeringConnectionOptions = a});
 
--- | Checks whether you have the required permissions for the operation,
--- without actually making the request, and provides an error response. If
--- you have the required permissions, the error response is
--- 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 mvpcoDryRun :: Lens' ModifyVPCPeeringConnectionOptions (Maybe Bool)
 mvpcoDryRun = lens _mvpcoDryRun (\ s a -> s{_mvpcoDryRun = a});
 
@@ -178,13 +164,11 @@ modifyVPCPeeringConnectionOptionsResponse pResponseStatus_ =
     , _mvpcorsResponseStatus = pResponseStatus_
     }
 
--- | Information about the VPC peering connection options for the requester
--- VPC.
+-- | Information about the VPC peering connection options for the requester VPC.
 mvpcorsRequesterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptionsResponse (Maybe PeeringConnectionOptions)
 mvpcorsRequesterPeeringConnectionOptions = lens _mvpcorsRequesterPeeringConnectionOptions (\ s a -> s{_mvpcorsRequesterPeeringConnectionOptions = a});
 
--- | Information about the VPC peering connection options for the accepter
--- VPC.
+-- | Information about the VPC peering connection options for the accepter VPC.
 mvpcorsAccepterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptionsResponse (Maybe PeeringConnectionOptions)
 mvpcorsAccepterPeeringConnectionOptions = lens _mvpcorsAccepterPeeringConnectionOptions (\ s a -> s{_mvpcorsAccepterPeeringConnectionOptions = a});
 

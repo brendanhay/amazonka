@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a rule. You must remove all targets from a rule using
--- < RemoveTargets> before you can delete the rule.
+-- Deletes a rule. You must remove all targets from a rule using < RemoveTargets> before you can delete the rule.
 --
--- __Note:__ When you delete a rule, incoming events might still continue
--- to match to the deleted rule. Please allow a short period of time for
--- changes to take effect.
+-- __Note:__ When you delete a rule, incoming events might still continue to match to the deleted rule. Please allow a short period of time for changes to take effect.
 module Network.AWS.CloudWatchEvents.DeleteRule
     (
     -- * Creating a Request

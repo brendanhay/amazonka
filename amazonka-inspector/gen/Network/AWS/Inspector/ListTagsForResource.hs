@@ -60,8 +60,7 @@ listTagsForResource pResourceARN_ =
     { _ltfrResourceARN = pResourceARN_
     }
 
--- | The ARN that specifies the assessment template whose tags you want to
--- list.
+-- | The ARN that specifies the assessment template whose tags you want to list.
 ltfrResourceARN :: Lens' ListTagsForResource Text
 ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
 

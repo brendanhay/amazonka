@@ -96,8 +96,7 @@ isDiskContainer = lens _isDiskContainer (\ s a -> s{_isDiskContainer = a});
 isClientToken :: Lens' ImportSnapshot (Maybe Text)
 isClientToken = lens _isClientToken (\ s a -> s{_isClientToken = a});
 
--- | The name of the role to use when not using the default role,
--- \'vmimport\'.
+-- | The name of the role to use when not using the default role, \'vmimport\'.
 isRoleName :: Lens' ImportSnapshot (Maybe Text)
 isRoleName = lens _isRoleName (\ s a -> s{_isRoleName = a});
 
@@ -105,10 +104,7 @@ isRoleName = lens _isRoleName (\ s a -> s{_isRoleName = a});
 isDescription :: Lens' ImportSnapshot (Maybe Text)
 isDescription = lens _isDescription (\ s a -> s{_isDescription = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 isDryRun :: Lens' ImportSnapshot (Maybe Bool)
 isDryRun = lens _isDryRun (\ s a -> s{_isDryRun = a});
 

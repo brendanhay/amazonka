@@ -65,8 +65,7 @@ deleteStage pRestAPIId_ pStageName_ =
     , _dsStageName = pStageName_
     }
 
--- | The identifier of the < RestApi> resource for the < Stage> resource to
--- delete.
+-- | The identifier of the < RestApi> resource for the < Stage> resource to delete.
 dsRestAPIId :: Lens' DeleteStage Text
 dsRestAPIId = lens _dsRestAPIId (\ s a -> s{_dsRestAPIId = a});
 

@@ -20,11 +20,9 @@
 --
 -- Sets the specified receipt rule set as the active receipt rule set.
 --
--- To disable your email-receiving through Amazon SES completely, you can
--- call this API with RuleSetName set to null.
+-- To disable your email-receiving through Amazon SES completely, you can call this API with RuleSetName set to null.
 --
--- For information about managing receipt rule sets, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
+-- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.SetActiveReceiptRuleSet
@@ -66,8 +64,7 @@ setActiveReceiptRuleSet =
     { _sarrsRuleSetName = Nothing
     }
 
--- | The name of the receipt rule set to make active. Setting this value to
--- null disables all email receiving.
+-- | The name of the receipt rule set to make active. Setting this value to null disables all email receiving.
 sarrsRuleSetName :: Lens' SetActiveReceiptRuleSet (Maybe Text)
 sarrsRuleSetName = lens _sarrsRuleSetName (\ s a -> s{_sarrsRuleSetName = a});
 

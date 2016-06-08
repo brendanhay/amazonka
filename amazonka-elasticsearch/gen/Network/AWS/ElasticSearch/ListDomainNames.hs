@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the name of all Elasticsearch domains owned by the current
--- user\'s account.
+-- Returns the name of all Elasticsearch domains owned by the current user\'s account.
 module Network.AWS.ElasticSearch.ListDomainNames
     (
     -- * Creating a Request
@@ -75,8 +74,7 @@ instance ToPath ListDomainNames where
 instance ToQuery ListDomainNames where
         toQuery = const mempty
 
--- | The result of a 'ListDomainNames' operation. Contains the names of all
--- Elasticsearch domains owned by this account.
+-- | The result of a 'ListDomainNames' operation. Contains the names of all Elasticsearch domains owned by this account.
 --
 -- /See:/ 'listDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'

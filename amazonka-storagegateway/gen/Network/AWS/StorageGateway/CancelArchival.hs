@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels archiving of a virtual tape to the virtual tape shelf (VTS)
--- after the archiving process is initiated.
+-- Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated.
 module Network.AWS.StorageGateway.CancelArchival
     (
     -- * Creating a Request
@@ -73,8 +72,7 @@ cancelArchival pGatewayARN_ pTapeARN_ =
 caGatewayARN :: Lens' CancelArchival Text
 caGatewayARN = lens _caGatewayARN (\ s a -> s{_caGatewayARN = a});
 
--- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
--- archiving for.
+-- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel archiving for.
 caTapeARN :: Lens' CancelArchival Text
 caTapeARN = lens _caTapeARN (\ s a -> s{_caTapeARN = a});
 
@@ -138,8 +136,7 @@ cancelArchivalResponse pResponseStatus_ =
     , _carsResponseStatus = pResponseStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the virtual tape for which archiving
--- was canceled.
+-- | The Amazon Resource Name (ARN) of the virtual tape for which archiving was canceled.
 carsTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carsTapeARN = lens _carsTapeARN (\ s a -> s{_carsTapeARN = a});
 

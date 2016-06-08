@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an analysis scheme. For more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Deletes an analysis scheme. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DeleteAnalysisScheme
     (
     -- * Creating a Request
@@ -45,9 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DeleteAnalysisScheme' operation.
--- Specifies the name of the domain you want to update and the analysis
--- scheme you want to delete.
+-- | Container for the parameters to the 'DeleteAnalysisScheme' operation. Specifies the name of the domain you want to update and the analysis scheme you want to delete.
 --
 -- /See:/ 'deleteAnalysisScheme' smart constructor.
 data DeleteAnalysisScheme = DeleteAnalysisScheme'
@@ -108,8 +104,7 @@ instance ToQuery DeleteAnalysisScheme where
                "DomainName" =: _dasDomainName,
                "AnalysisSchemeName" =: _dasAnalysisSchemeName]
 
--- | The result of a 'DeleteAnalysisScheme' request. Contains the status of
--- the deleted analysis scheme.
+-- | The result of a 'DeleteAnalysisScheme' request. Contains the status of the deleted analysis scheme.
 --
 -- /See:/ 'deleteAnalysisSchemeResponse' smart constructor.
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'

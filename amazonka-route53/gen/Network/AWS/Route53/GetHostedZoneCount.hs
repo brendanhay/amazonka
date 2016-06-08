@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve a count of all your hosted zones, send a 'GET' request to
--- the '\/Route 53 API version\/hostedzonecount' resource.
+-- To retrieve a count of all your hosted zones, send a 'GET' request to the '\/Route 53 API version\/hostedzonecount' resource.
 module Network.AWS.Route53.GetHostedZoneCount
     (
     -- * Creating a Request
@@ -41,8 +40,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To retrieve a count of all your hosted zones, send a 'GET' request to
--- the '\/Route 53 API version\/hostedzonecount' resource.
+-- | To retrieve a count of all your hosted zones, send a 'GET' request to the '\/Route 53 API version\/hostedzonecount' resource.
 --
 -- /See:/ 'getHostedZoneCount' smart constructor.
 data GetHostedZoneCount =
@@ -78,8 +76,7 @@ instance ToPath GetHostedZoneCount where
 instance ToQuery GetHostedZoneCount where
         toQuery = const mempty
 
--- | A complex type that contains the count of hosted zones associated with
--- the current AWS account.
+-- | A complex type that contains the count of hosted zones associated with the current AWS account.
 --
 -- /See:/ 'getHostedZoneCountResponse' smart constructor.
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'

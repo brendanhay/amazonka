@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The DeleteDBCluster action deletes a previously provisioned DB cluster.
--- A successful response from the web service indicates the request was
--- received correctly. When you delete a DB cluster, all automated backups
--- for that DB cluster are deleted and cannot be recovered. Manual DB
--- cluster snapshots of the DB cluster to be deleted are not deleted.
+-- The DeleteDBCluster action deletes a previously provisioned DB cluster. A successful response from the web service indicates the request was received correctly. When you delete a DB cluster, all automated backups for that DB cluster are deleted and cannot be recovered. Manual DB cluster snapshots of the DB cluster to be deleted are not deleted.
 --
--- For more information on Amazon Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.DeleteDBCluster
     (
     -- * Creating a Request
@@ -80,11 +74,9 @@ deleteDBCluster pDBClusterIdentifier_ =
     , _ddbcDBClusterIdentifier = pDBClusterIdentifier_
     }
 
--- | The DB cluster snapshot identifier of the new DB cluster snapshot
--- created when 'SkipFinalSnapshot' is set to 'false'.
+-- | The DB cluster snapshot identifier of the new DB cluster snapshot created when 'SkipFinalSnapshot' is set to 'false'.
 --
--- Specifying this parameter and also setting the 'SkipFinalShapshot'
--- parameter to true results in an error.
+-- Specifying this parameter and also setting the 'SkipFinalShapshot' parameter to true results in an error.
 --
 -- Constraints:
 --
@@ -94,20 +86,15 @@ deleteDBCluster pDBClusterIdentifier_ =
 ddbcFinalDBSnapshotIdentifier :: Lens' DeleteDBCluster (Maybe Text)
 ddbcFinalDBSnapshotIdentifier = lens _ddbcFinalDBSnapshotIdentifier (\ s a -> s{_ddbcFinalDBSnapshotIdentifier = a});
 
--- | Determines whether a final DB cluster snapshot is created before the DB
--- cluster is deleted. If 'true' is specified, no DB cluster snapshot is
--- created. If 'false' is specified, a DB cluster snapshot is created
--- before the DB cluster is deleted.
+-- | Determines whether a final DB cluster snapshot is created before the DB cluster is deleted. If 'true' is specified, no DB cluster snapshot is created. If 'false' is specified, a DB cluster snapshot is created before the DB cluster is deleted.
 --
--- You must specify a 'FinalDBSnapshotIdentifier' parameter if
--- 'SkipFinalSnapshot' is 'false'.
+-- You must specify a 'FinalDBSnapshotIdentifier' parameter if 'SkipFinalSnapshot' is 'false'.
 --
 -- Default: 'false'
 ddbcSkipFinalSnapshot :: Lens' DeleteDBCluster (Maybe Bool)
 ddbcSkipFinalSnapshot = lens _ddbcSkipFinalSnapshot (\ s a -> s{_ddbcSkipFinalSnapshot = a});
 
--- | The DB cluster identifier for the DB cluster to be deleted. This
--- parameter isn\'t case-sensitive.
+-- | The DB cluster identifier for the DB cluster to be deleted. This parameter isn\'t case-sensitive.
 --
 -- Constraints:
 --

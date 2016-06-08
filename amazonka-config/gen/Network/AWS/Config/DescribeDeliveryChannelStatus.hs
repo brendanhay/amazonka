@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the current status of the specified delivery channel. If a
--- delivery channel is not specified, this action returns the current
--- status of all delivery channels associated with the account.
+-- Returns the current status of the specified delivery channel. If a delivery channel is not specified, this action returns the current status of all delivery channels associated with the account.
 --
 -- Currently, you can specify only one delivery channel per account.
 module Network.AWS.Config.DescribeDeliveryChannelStatus

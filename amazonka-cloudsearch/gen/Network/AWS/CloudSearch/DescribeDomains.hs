@@ -18,14 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the search domains owned by this account. Can be
--- limited to specific domains. Shows all domains by default. To get the
--- number of searchable documents in a domain, use the console or submit a
--- 'matchall' request to your domain\'s search endpoint:
--- 'q=matchall&amp;q.parser=structured&amp;size=0'. For more information,
--- see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Information about a Search Domain>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Gets information about the search domains owned by this account. Can be limited to specific domains. Shows all domains by default. To get the number of searchable documents in a domain, use the console or submit a 'matchall' request to your domain\'s search endpoint: 'q=matchall&amp;q.parser=structured&amp;size=0'. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Information about a Search Domain> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DescribeDomains
     (
     -- * Creating a Request
@@ -49,10 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeDomains' operation. By
--- default shows the status of all domains. To restrict the response to
--- particular domains, specify the names of the domains you want to
--- describe.
+-- | Container for the parameters to the 'DescribeDomains' operation. By default shows the status of all domains. To restrict the response to particular domains, specify the names of the domains you want to describe.
 --
 -- /See:/ 'describeDomains' smart constructor.
 newtype DescribeDomains = DescribeDomains'
@@ -104,8 +94,7 @@ instance ToQuery DescribeDomains where
                "DomainNames" =:
                  toQuery (toQueryList "member" <$> _ddDomainNames)]
 
--- | The result of a 'DescribeDomains' request. Contains the status of the
--- domains specified in the request or all domains owned by the account.
+-- | The result of a 'DescribeDomains' request. Contains the status of the domains specified in the request or all domains owned by the account.
 --
 -- /See:/ 'describeDomainsResponse' smart constructor.
 data DescribeDomainsResponse = DescribeDomainsResponse'

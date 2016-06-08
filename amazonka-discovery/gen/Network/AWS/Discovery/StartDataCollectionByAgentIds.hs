@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Instructs the specified agents to start collecting data. Agents can
--- reside on host servers or virtual machines in your data center.
+-- Instructs the specified agents to start collecting data. Agents can reside on host servers or virtual machines in your data center.
 module Network.AWS.Discovery.StartDataCollectionByAgentIds
     (
     -- * Creating a Request
@@ -60,13 +59,7 @@ startDataCollectionByAgentIds =
     { _sAgentIds = mempty
     }
 
--- | The IDs of the agents that you want to start collecting data. If you
--- send a request to an AWS agent ID that you do not have permission to
--- contact, according to your AWS account, the service does not throw an
--- exception. Instead, it returns the error in the /Description/ field. If
--- you send a request to multiple agents and you do not have permission to
--- contact some of those agents, the system does not throw an exception.
--- Instead, the system shows 'Failed' in the /Description/ field.
+-- | The IDs of the agents that you want to start collecting data. If you send a request to an AWS agent ID that you do not have permission to contact, according to your AWS account, the service does not throw an exception. Instead, it returns the error in the /Description/ field. If you send a request to multiple agents and you do not have permission to contact some of those agents, the system does not throw an exception. Instead, the system shows 'Failed' in the /Description/ field.
 sAgentIds :: Lens' StartDataCollectionByAgentIds [Text]
 sAgentIds = lens _sAgentIds (\ s a -> s{_sAgentIds = a}) . _Coerce;
 
@@ -130,9 +123,7 @@ startDataCollectionByAgentIdsResponse pResponseStatus_ =
     , _srsResponseStatus = pResponseStatus_
     }
 
--- | Information about agents that were instructed to start collecting data.
--- Information includes the agent ID, a description of the operation
--- performed, and whether or not the agent configuration was updated.
+-- | Information about agents that were instructed to start collecting data. Information includes the agent ID, a description of the operation performed, and whether or not the agent configuration was updated.
 srsAgentsConfigurationStatus :: Lens' StartDataCollectionByAgentIdsResponse [AgentConfigurationStatus]
 srsAgentsConfigurationStatus = lens _srsAgentsConfigurationStatus (\ s a -> s{_srsAgentsConfigurationStatus = a}) . _Default . _Coerce;
 

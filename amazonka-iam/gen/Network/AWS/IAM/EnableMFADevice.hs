@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables the specified MFA device and associates it with the specified
--- user name. When enabled, the MFA device is required for every subsequent
--- login by the user name associated with the device.
+-- Enables the specified MFA device and associates it with the specified user name. When enabled, the MFA device is required for every subsequent login by the user name associated with the device.
 module Network.AWS.IAM.EnableMFADevice
     (
     -- * Creating a Request
@@ -81,8 +79,7 @@ enableMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationC
 emdUserName :: Lens' EnableMFADevice Text
 emdUserName = lens _emdUserName (\ s a -> s{_emdUserName = a});
 
--- | The serial number that uniquely identifies the MFA device. For virtual
--- MFA devices, the serial number is the device ARN.
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.
 emdSerialNumber :: Lens' EnableMFADevice Text
 emdSerialNumber = lens _emdSerialNumber (\ s a -> s{_emdSerialNumber = a});
 

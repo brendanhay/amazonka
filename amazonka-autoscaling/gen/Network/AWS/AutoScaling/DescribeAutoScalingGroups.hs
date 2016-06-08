@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more Auto Scaling groups. If a list of names is not
--- provided, the call describes all Auto Scaling groups.
+-- Describes one or more Auto Scaling groups. If a list of names is not provided, the call describes all Auto Scaling groups.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingGroups
@@ -78,8 +77,7 @@ describeAutoScalingGroups =
 dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
 dasgAutoScalingGroupNames = lens _dasgAutoScalingGroupNames (\ s a -> s{_dasgAutoScalingGroupNames = a}) . _Default . _Coerce;
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 dasgNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
 dasgNextToken = lens _dasgNextToken (\ s a -> s{_dasgNextToken = a});
 
@@ -155,8 +153,7 @@ describeAutoScalingGroupsResponse pResponseStatus_ =
     , _dasgrsAutoScalingGroups = mempty
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dasgrsNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
 dasgrsNextToken = lens _dasgrsNextToken (\ s a -> s{_dasgrsNextToken = a});
 

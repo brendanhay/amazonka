@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the number of resources that are compliant and the number that
--- are noncompliant. You can specify one or more resource types to get
--- these numbers for each resource type. The maximum number returned is
--- 100.
+-- Returns the number of resources that are compliant and the number that are noncompliant. You can specify one or more resource types to get these numbers for each resource type. The maximum number returned is 100.
 module Network.AWS.Config.GetComplianceSummaryByResourceType
     (
     -- * Creating a Request
@@ -62,13 +59,9 @@ getComplianceSummaryByResourceType =
     { _gcsbrtResourceTypes = Nothing
     }
 
--- | Specify one or more resource types to get the number of resources that
--- are compliant and the number that are noncompliant for each resource
--- type.
+-- | Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.
 --
--- For this request, you can specify an AWS resource type such as
--- 'AWS::EC2::Instance', and you can specify that the resource type is an
--- AWS account by specifying 'AWS::::Account'.
+-- For this request, you can specify an AWS resource type such as 'AWS::EC2::Instance', and you can specify that the resource type is an AWS account by specifying 'AWS::::Account'.
 gcsbrtResourceTypes :: Lens' GetComplianceSummaryByResourceType [Text]
 gcsbrtResourceTypes = lens _gcsbrtResourceTypes (\ s a -> s{_gcsbrtResourceTypes = a}) . _Default . _Coerce;
 
@@ -137,10 +130,7 @@ getComplianceSummaryByResourceTypeResponse pResponseStatus_ =
     , _gcsbrtrsResponseStatus = pResponseStatus_
     }
 
--- | The number of resources that are compliant and the number that are
--- noncompliant. If one or more resource types were provided with the
--- request, the numbers are returned for each resource type. The maximum
--- number returned is 100.
+-- | The number of resources that are compliant and the number that are noncompliant. If one or more resource types were provided with the request, the numbers are returned for each resource type. The maximum number returned is 100.
 gcsbrtrsComplianceSummariesByResourceType :: Lens' GetComplianceSummaryByResourceTypeResponse [ComplianceSummaryByResourceType]
 gcsbrtrsComplianceSummariesByResourceType = lens _gcsbrtrsComplianceSummariesByResourceType (\ s a -> s{_gcsbrtrsComplianceSummariesByResourceType = a}) . _Default . _Coerce;
 

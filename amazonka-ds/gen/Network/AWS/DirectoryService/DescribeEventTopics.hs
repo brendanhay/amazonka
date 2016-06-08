@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Obtains information about which SNS topics receive status messages from
--- the specified directory.
+-- Obtains information about which SNS topics receive status messages from the specified directory.
 --
--- If no input parameters are provided, such as DirectoryId or TopicName,
--- this request describes all of the associations in the account.
+-- If no input parameters are provided, such as DirectoryId or TopicName, this request describes all of the associations in the account.
 module Network.AWS.DirectoryService.DescribeEventTopics
     (
     -- * Creating a Request
@@ -68,14 +66,11 @@ describeEventTopics =
     , _dTopicNames = Nothing
     }
 
--- | The Directory ID for which to get the list of associated SNS topics. If
--- this member is null, associations for all Directory IDs are returned.
+-- | The Directory ID for which to get the list of associated SNS topics. If this member is null, associations for all Directory IDs are returned.
 dDirectoryId :: Lens' DescribeEventTopics (Maybe Text)
 dDirectoryId = lens _dDirectoryId (\ s a -> s{_dDirectoryId = a});
 
--- | A list of SNS topic names for which to obtain the information. If this
--- member is null, all associations for the specified Directory ID are
--- returned.
+-- | A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned.
 --
 -- An empty list results in an 'InvalidParameterException' being thrown.
 dTopicNames :: Lens' DescribeEventTopics [Text]
@@ -141,8 +136,7 @@ describeEventTopicsResponse pResponseStatus_ =
     , _detrsResponseStatus = pResponseStatus_
     }
 
--- | A list of SNS topic names that receive status messages from the
--- specified Directory ID.
+-- | A list of SNS topic names that receive status messages from the specified Directory ID.
 detrsEventTopics :: Lens' DescribeEventTopicsResponse [EventTopic]
 detrsEventTopics = lens _detrsEventTopics (\ s a -> s{_detrsEventTopics = a}) . _Default . _Coerce;
 

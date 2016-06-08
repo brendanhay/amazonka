@@ -18,21 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the encrypted administrator password for an instance running
--- Windows.
+-- Retrieves the encrypted administrator password for an instance running Windows.
 --
--- The Windows password is generated at boot if the 'EC2Config' service
--- plugin, 'Ec2SetPassword', is enabled. This usually only happens the
--- first time an AMI is launched, and then 'Ec2SetPassword' is
--- automatically disabled. The password is not generated for rebundled AMIs
--- unless 'Ec2SetPassword' is enabled before bundling.
+-- The Windows password is generated at boot if the 'EC2Config' service plugin, 'Ec2SetPassword', is enabled. This usually only happens the first time an AMI is launched, and then 'Ec2SetPassword' is automatically disabled. The password is not generated for rebundled AMIs unless 'Ec2SetPassword' is enabled before bundling.
 --
--- The password is encrypted using the key pair that you specified when you
--- launched the instance. You must provide the corresponding key pair file.
+-- The password is encrypted using the key pair that you specified when you launched the instance. You must provide the corresponding key pair file.
 --
--- Password generation and encryption takes a few moments. We recommend
--- that you wait up to 15 minutes after launching an instance before trying
--- to retrieve the generated password.
+-- Password generation and encryption takes a few moments. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.
 module Network.AWS.EC2.GetPasswordData
     (
     -- * Creating a Request
@@ -83,10 +75,7 @@ getPasswordData pInstanceId_ =
     , _gpdInstanceId = pInstanceId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 gpdDryRun :: Lens' GetPasswordData (Maybe Bool)
 gpdDryRun = lens _gpdDryRun (\ s a -> s{_gpdDryRun = a});
 

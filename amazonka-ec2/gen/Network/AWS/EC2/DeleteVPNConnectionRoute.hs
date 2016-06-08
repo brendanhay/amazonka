@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified static route associated with a VPN connection
--- between an existing virtual private gateway and a VPN customer gateway.
--- The static route allows traffic to be routed from the virtual private
--- gateway to the VPN customer gateway.
+-- Deletes the specified static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.
 module Network.AWS.EC2.DeleteVPNConnectionRoute
     (
     -- * Creating a Request

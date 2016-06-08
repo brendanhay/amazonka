@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies attributes of a specified VPC endpoint. You can modify the
--- policy associated with the endpoint, and you can add and remove route
--- tables associated with the endpoint.
+-- Modifies attributes of a specified VPC endpoint. You can modify the policy associated with the endpoint, and you can add and remove route tables associated with the endpoint.
 module Network.AWS.EC2.ModifyVPCEndpoint
     (
     -- * Creating a Request
@@ -89,8 +87,7 @@ modifyVPCEndpoint pVPCEndpointId_ =
     , _mveVPCEndpointId = pVPCEndpointId_
     }
 
--- | A policy document to attach to the endpoint. The policy must be in valid
--- JSON format.
+-- | A policy document to attach to the endpoint. The policy must be in valid JSON format.
 mvePolicyDocument :: Lens' ModifyVPCEndpoint (Maybe Text)
 mvePolicyDocument = lens _mvePolicyDocument (\ s a -> s{_mvePolicyDocument = a});
 
@@ -98,8 +95,7 @@ mvePolicyDocument = lens _mvePolicyDocument (\ s a -> s{_mvePolicyDocument = a})
 mveRemoveRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
 mveRemoveRouteTableIds = lens _mveRemoveRouteTableIds (\ s a -> s{_mveRemoveRouteTableIds = a}) . _Default . _Coerce;
 
--- | Specify 'true' to reset the policy document to the default policy. The
--- default policy allows access to the service.
+-- | Specify 'true' to reset the policy document to the default policy. The default policy allows access to the service.
 mveResetPolicy :: Lens' ModifyVPCEndpoint (Maybe Bool)
 mveResetPolicy = lens _mveResetPolicy (\ s a -> s{_mveResetPolicy = a});
 
@@ -107,10 +103,7 @@ mveResetPolicy = lens _mveResetPolicy (\ s a -> s{_mveResetPolicy = a});
 mveAddRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
 mveAddRouteTableIds = lens _mveAddRouteTableIds (\ s a -> s{_mveAddRouteTableIds = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 mveDryRun :: Lens' ModifyVPCEndpoint (Maybe Bool)
 mveDryRun = lens _mveDryRun (\ s a -> s{_mveDryRun = a});
 

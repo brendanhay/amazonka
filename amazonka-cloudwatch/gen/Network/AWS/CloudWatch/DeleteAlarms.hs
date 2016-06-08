@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes all specified alarms. In the event of an error, no alarms are
--- deleted.
+-- Deletes all specified alarms. In the event of an error, no alarms are deleted.
 module Network.AWS.CloudWatch.DeleteAlarms
     (
     -- * Creating a Request

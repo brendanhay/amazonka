@@ -15,21 +15,13 @@
 
 AWS OpsWorks
 
-Welcome to the /AWS OpsWorks API Reference/. This guide provides
-descriptions, syntax, and usage examples about AWS OpsWorks actions and
-data types, including common parameters and error codes.
+Welcome to the /AWS OpsWorks API Reference/. This guide provides descriptions, syntax, and usage examples about AWS OpsWorks actions and data types, including common parameters and error codes.
 
-AWS OpsWorks is an application management service that provides an
-integrated experience for overseeing the complete application lifecycle.
-For information about this product, go to the
-<http://aws.amazon.com/opsworks/ AWS OpsWorks> details page.
+AWS OpsWorks is an application management service that provides an integrated experience for overseeing the complete application lifecycle. For information about this product, go to the <http://aws.amazon.com/opsworks/ AWS OpsWorks> details page.
 
 __SDKs and CLI__
 
-The most common way to use the AWS OpsWorks API is by using the AWS
-Command Line Interface (CLI) or by using one of the AWS SDKs to
-implement applications in your preferred language. For more information,
-see:
+The most common way to use the AWS OpsWorks API is by using the AWS Command Line Interface (CLI) or by using one of the AWS SDKs to implement applications in your preferred language. For more information, see:
 
 -   <http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html AWS CLI>
 -   <http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html AWS SDK for Java>
@@ -41,23 +33,17 @@ see:
 
 __Endpoints__
 
-AWS OpsWorks supports only one endpoint,
-opsworks.us-east-1.amazonaws.com (HTTPS), so you must connect to that
-endpoint. You can then use the API to direct AWS OpsWorks to create
-stacks in any AWS Region.
+AWS OpsWorks supports only one endpoint, opsworks.us-east-1.amazonaws.com (HTTPS), so you must connect to that endpoint. You can then use the API to direct AWS OpsWorks to create stacks in any AWS Region.
 
 __Chef Versions__
 
-When you call < CreateStack>, < CloneStack>, or < UpdateStack> we
-recommend you use the @ConfigurationManager@ parameter to specify the
-Chef version. The recommended value for Linux stacks is currently 12
-(the default is 11.4). Windows stacks use Chef 12.2. For more
-information, see
-<http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html Chef Versions>.
+When you call < CreateStack>, < CloneStack>, or < UpdateStack> we recommend you use the 
+    @
+    ConfigurationManager
+    @
+     parameter to specify the Chef version. The recommended value for Linux stacks is currently 12 (the default is 11.4). Windows stacks use Chef 12.2. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html Chef Versions>.
 
-You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We
-recommend migrating your existing Linux stacks to Chef 12 as soon as
-possible.
+You can specify Chef 12, 11.10, or 11.4 for your Linux stack. We recommend migrating your existing Linux stacks to Chef 12 as soon as possible.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-opsworks)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

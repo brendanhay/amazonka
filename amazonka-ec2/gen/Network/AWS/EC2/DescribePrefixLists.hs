@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes available AWS services in a prefix list format, which includes
--- the prefix list name and prefix list ID of the service and the IP
--- address range for the service. A prefix list ID is required for creating
--- an outbound security group rule that allows traffic from a VPC to access
--- an AWS service through a VPC endpoint.
+-- Describes available AWS services in a prefix list format, which includes the prefix list name and prefix list ID of the service and the IP address range for the service. A prefix list ID is required for creating an outbound security group rule that allows traffic from a VPC to access an AWS service through a VPC endpoint.
 module Network.AWS.EC2.DescribePrefixLists
     (
     -- * Creating a Request
@@ -99,24 +95,17 @@ dplFilters = lens _dplFilters (\ s a -> s{_dplFilters = a}) . _Default . _Coerce
 dplPrefixListIds :: Lens' DescribePrefixLists [Text]
 dplPrefixListIds = lens _dplPrefixListIds (\ s a -> s{_dplPrefixListIds = a}) . _Default . _Coerce;
 
--- | The token for the next set of items to return. (You received this token
--- from a prior call.)
+-- | The token for the next set of items to return. (You received this token from a prior call.)
 dplNextToken :: Lens' DescribePrefixLists (Maybe Text)
 dplNextToken = lens _dplNextToken (\ s a -> s{_dplNextToken = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dplDryRun :: Lens' DescribePrefixLists (Maybe Bool)
 dplDryRun = lens _dplDryRun (\ s a -> s{_dplDryRun = a});
 
--- | The maximum number of items to return for this request. The request
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
+-- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
 --
--- Constraint: If the value specified is greater than 1000, we return only
--- 1000 items.
+-- Constraint: If the value specified is greater than 1000, we return only 1000 items.
 dplMaxResults :: Lens' DescribePrefixLists (Maybe Int)
 dplMaxResults = lens _dplMaxResults (\ s a -> s{_dplMaxResults = a});
 
@@ -182,8 +171,7 @@ describePrefixListsResponse pResponseStatus_ =
     , _dplrsResponseStatus = pResponseStatus_
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dplrsNextToken :: Lens' DescribePrefixListsResponse (Maybe Text)
 dplrsNextToken = lens _dplrsNextToken (\ s a -> s{_dplrsNextToken = a});
 

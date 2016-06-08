@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new public virtual interface. A virtual interface is the VLAN
--- that transports AWS Direct Connect traffic. A public virtual interface
--- supports sending traffic to public services of AWS such as Amazon Simple
--- Storage Service (Amazon S3).
+-- Creates a new public virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A public virtual interface supports sending traffic to public services of AWS such as Amazon Simple Storage Service (Amazon S3).
 module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     (
     -- * Creating a Request
@@ -59,8 +56,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the CreatePublicVirtualInterface
--- operation.
+-- | Container for the parameters to the CreatePublicVirtualInterface operation.
 --
 -- /See:/ 'createPublicVirtualInterface' smart constructor.
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface'

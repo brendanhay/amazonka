@@ -76,8 +76,7 @@ listPolicies =
 lpMarker :: Lens' ListPolicies (Maybe Text)
 lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
--- | Specifies the order for results. If true, the results are returned in
--- ascending creation order.
+-- | Specifies the order for results. If true, the results are returned in ascending creation order.
 lpAscendingOrder :: Lens' ListPolicies (Maybe Bool)
 lpAscendingOrder = lens _lpAscendingOrder (\ s a -> s{_lpAscendingOrder = a});
 
@@ -141,8 +140,7 @@ listPoliciesResponse pResponseStatus_ =
     , _lprsResponseStatus = pResponseStatus_
     }
 
--- | The marker for the next set of results, or null if there are no
--- additional results.
+-- | The marker for the next set of results, or null if there are no additional results.
 lprsNextMarker :: Lens' ListPoliciesResponse (Maybe Text)
 lprsNextMarker = lens _lprsNextMarker (\ s a -> s{_lprsNextMarker = a});
 

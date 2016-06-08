@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified user. The user must not belong to any groups, have
--- any keys or signing certificates, or have any attached policies.
+-- Deletes the specified user. The user must not belong to any groups, have any keys or signing certificates, or have any attached policies.
 module Network.AWS.IAM.DeleteUser
     (
     -- * Creating a Request

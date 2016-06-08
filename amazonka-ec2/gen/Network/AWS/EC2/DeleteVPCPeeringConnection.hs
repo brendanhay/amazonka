@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a VPC peering connection. Either the owner of the requester VPC
--- or the owner of the peer VPC can delete the VPC peering connection if
--- it\'s in the 'active' state. The owner of the requester VPC can delete a
--- VPC peering connection in the 'pending-acceptance' state.
+-- Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the peer VPC can delete the VPC peering connection if it\'s in the 'active' state. The owner of the requester VPC can delete a VPC peering connection in the 'pending-acceptance' state.
 module Network.AWS.EC2.DeleteVPCPeeringConnection
     (
     -- * Creating a Request
@@ -70,10 +67,7 @@ deleteVPCPeeringConnection pVPCPeeringConnectionId_ =
     , _dvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvpcDryRun :: Lens' DeleteVPCPeeringConnection (Maybe Bool)
 dvpcDryRun = lens _dvpcDryRun (\ s a -> s{_dvpcDryRun = a});
 

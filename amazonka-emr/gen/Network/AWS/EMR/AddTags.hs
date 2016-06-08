@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds tags to an Amazon EMR resource. Tags make it easier to associate
--- clusters in various ways, such as grouping clusters to track your Amazon
--- EMR resource allocation costs. For more information, see
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
+-- Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
 module Network.AWS.EMR.AddTags
     (
     -- * Creating a Request
@@ -69,15 +66,11 @@ addTags pResourceId_ =
     , _atTags = mempty
     }
 
--- | The Amazon EMR resource identifier to which tags will be added. This
--- value must be a cluster identifier.
+-- | The Amazon EMR resource identifier to which tags will be added. This value must be a cluster identifier.
 atResourceId :: Lens' AddTags Text
 atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a});
 
--- | A list of tags to associate with a cluster and propagate to Amazon EC2
--- instances. Tags are user-defined key\/value pairs that consist of a
--- required key string with a maximum of 128 characters, and an optional
--- value string with a maximum of 256 characters.
+-- | A list of tags to associate with a cluster and propagate to Amazon EC2 instances. Tags are user-defined key\/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
 atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce;
 

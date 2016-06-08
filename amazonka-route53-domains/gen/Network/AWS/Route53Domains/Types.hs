@@ -137,20 +137,15 @@ route53Domains =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The requested item is not acceptable. For example, for an OperationId it
--- may refer to the ID of an operation that is already completed. For a
--- domain name, it may not be a valid domain name or belong to the
--- requester account.
+-- | The requested item is not acceptable. For example, for an OperationId it may refer to the ID of an operation that is already completed. For a domain name, it may not be a valid domain name or belong to the requester account.
 _InvalidInput :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInput = _ServiceError . hasCode "InvalidInput"
 
--- | The number of operations or jobs running exceeded the allowed threshold
--- for the account.
+-- | The number of operations or jobs running exceeded the allowed threshold for the account.
 _OperationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationLimitExceeded = _ServiceError . hasCode "OperationLimitExceeded"
 
--- | The number of domains has exceeded the allowed threshold for the
--- account.
+-- | The number of domains has exceeded the allowed threshold for the account.
 _DomainLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DomainLimitExceeded = _ServiceError . hasCode "DomainLimitExceeded"
 

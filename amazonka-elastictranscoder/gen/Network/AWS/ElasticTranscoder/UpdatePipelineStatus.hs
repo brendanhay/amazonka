@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The UpdatePipelineStatus operation pauses or reactivates a pipeline, so
--- that the pipeline stops or restarts the processing of jobs.
+-- The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline stops or restarts the processing of jobs.
 --
--- Changing the pipeline status is useful if you want to cancel one or more
--- jobs. You can\'t cancel jobs after Elastic Transcoder has started
--- processing them; if you pause the pipeline to which you submitted the
--- jobs, you have more time to get the job IDs for the jobs that you want
--- to cancel, and to send a < CancelJob> request.
+-- Changing the pipeline status is useful if you want to cancel one or more jobs. You can\'t cancel jobs after Elastic Transcoder has started processing them; if you pause the pipeline to which you submitted the jobs, you have more time to get the job IDs for the jobs that you want to cancel, and to send a < CancelJob> request.
 module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     (
     -- * Creating a Request
@@ -115,8 +110,7 @@ instance ToPath UpdatePipelineStatus where
 instance ToQuery UpdatePipelineStatus where
         toQuery = const mempty
 
--- | When you update status for a pipeline, Elastic Transcoder returns the
--- values that you specified in the request.
+-- | When you update status for a pipeline, Elastic Transcoder returns the values that you specified in the request.
 --
 -- /See:/ 'updatePipelineStatusResponse' smart constructor.
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
@@ -140,8 +134,7 @@ updatePipelineStatusResponse pResponseStatus_ =
     , _upsrsResponseStatus = pResponseStatus_
     }
 
--- | A section of the response body that provides information about the
--- pipeline.
+-- | A section of the response body that provides information about the pipeline.
 upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upsrsPipeline = lens _upsrsPipeline (\ s a -> s{_upsrsPipeline = a});
 

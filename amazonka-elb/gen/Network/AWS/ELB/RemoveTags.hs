@@ -64,8 +64,7 @@ removeTags pTags_ =
     , _rtTags = _List1 # pTags_
     }
 
--- | The name of the load balancer. You can specify a maximum of one load
--- balancer name.
+-- | The name of the load balancer. You can specify a maximum of one load balancer name.
 rtLoadBalancerNames :: Lens' RemoveTags [Text]
 rtLoadBalancerNames = lens _rtLoadBalancerNames (\ s a -> s{_rtLoadBalancerNames = a}) . _Coerce;
 

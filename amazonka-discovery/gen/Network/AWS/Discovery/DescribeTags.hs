@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of configuration items that are tagged with a specific
--- tag. Or retrieves a list of all tags assigned to a specific
--- configuration item.
+-- Retrieves a list of configuration items that are tagged with a specific tag. Or retrieves a list of all tags assigned to a specific configuration item.
 module Network.AWS.Discovery.DescribeTags
     (
     -- * Creating a Request
@@ -72,14 +70,11 @@ describeTags =
     , _dtMaxResults = Nothing
     }
 
--- | You can filter the list using a /key/-/value/ format. You can separate
--- these items by using logical operators. Allowed filters include
--- 'tagKey', 'tagValue', and 'configurationId'.
+-- | You can filter the list using a /key/-/value/ format. You can separate these items by using logical operators. Allowed filters include 'tagKey', 'tagValue', and 'configurationId'.
 dtFilters :: Lens' DescribeTags [TagFilter]
 dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
 
--- | A token to start the list. Use this token to get the next set of
--- results.
+-- | A token to start the list. Use this token to get the next set of results.
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 
@@ -155,9 +150,7 @@ describeTagsResponse pResponseStatus_ =
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 
--- | Depending on the input, this is a list of configuration items tagged
--- with a specific tag, or a list of tags for a specific configuration
--- item.
+-- | Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item.
 dtrsTags :: Lens' DescribeTagsResponse [ConfigurationTag]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 

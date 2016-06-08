@@ -20,8 +20,7 @@
 --
 -- Registers a device to receive push sync notifications.
 --
--- This API can only be called with temporary credentials provided by
--- Cognito Identity. You cannot call this API with developer credentials.
+-- This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.
 module Network.AWS.CognitoSync.RegisterDevice
     (
     -- * Creating a Request
@@ -83,9 +82,7 @@ registerDevice pIdentityPoolId_ pIdentityId_ pPlatform_ pToken_ =
     , _rdToken = pToken_
     }
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. Here, the ID of the pool that the identity belongs to.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.
 rdIdentityPoolId :: Lens' RegisterDevice Text
 rdIdentityPoolId = lens _rdIdentityPoolId (\ s a -> s{_rdIdentityPoolId = a});
 

@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the expressions configured for the search domain. Can be limited to
--- specific expressions by name. By default, shows all expressions and
--- includes any pending changes to the configuration. Set the 'Deployed'
--- option to 'true' to show the active configuration and exclude pending
--- changes. For more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Gets the expressions configured for the search domain. Can be limited to specific expressions by name. By default, shows all expressions and includes any pending changes to the configuration. Set the 'Deployed' option to 'true' to show the active configuration and exclude pending changes. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DescribeExpressions
     (
     -- * Creating a Request
@@ -50,11 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeDomains' operation.
--- Specifies the name of the domain you want to describe. To restrict the
--- response to particular expressions, specify the names of the expressions
--- you want to describe. To show the active configuration and exclude any
--- pending changes, set the 'Deployed' option to 'true'.
+-- | Container for the parameters to the 'DescribeDomains' operation. Specifies the name of the domain you want to describe. To restrict the response to particular expressions, specify the names of the expressions you want to describe. To show the active configuration and exclude any pending changes, set the 'Deployed' option to 'true'.
 --
 -- /See:/ 'describeExpressions' smart constructor.
 data DescribeExpressions = DescribeExpressions'
@@ -82,13 +72,11 @@ describeExpressions pDomainName_ =
     , _deDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration ('true') or include any
--- pending changes ('false'). Defaults to 'false'.
+-- | Whether to display the deployed configuration ('true') or include any pending changes ('false'). Defaults to 'false'.
 deDeployed :: Lens' DescribeExpressions (Maybe Bool)
 deDeployed = lens _deDeployed (\ s a -> s{_deDeployed = a});
 
--- | Limits the 'DescribeExpressions' response to the specified expressions.
--- If not specified, all expressions are shown.
+-- | Limits the 'DescribeExpressions' response to the specified expressions. If not specified, all expressions are shown.
 deExpressionNames :: Lens' DescribeExpressions [Text]
 deExpressionNames = lens _deExpressionNames (\ s a -> s{_deExpressionNames = a}) . _Default . _Coerce;
 
@@ -129,8 +117,7 @@ instance ToQuery DescribeExpressions where
                    (toQueryList "member" <$> _deExpressionNames),
                "DomainName" =: _deDomainName]
 
--- | The result of a 'DescribeExpressions' request. Contains the expressions
--- configured for the domain specified in the request.
+-- | The result of a 'DescribeExpressions' request. Contains the expressions configured for the domain specified in the request.
 --
 -- /See:/ 'describeExpressionsResponse' smart constructor.
 data DescribeExpressionsResponse = DescribeExpressionsResponse'

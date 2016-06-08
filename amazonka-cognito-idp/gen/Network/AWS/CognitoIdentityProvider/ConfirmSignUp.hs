@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Confirms registration of a user and handles the existing alias from a
--- previous user.
+-- Confirms registration of a user and handles the existing alias from a previous user.
 module Network.AWS.CognitoIdentityProvider.ConfirmSignUp
     (
     -- * Creating a Request
@@ -84,18 +83,11 @@ confirmSignUp pClientId_ pUsername_ pConfirmationCode_ =
     , _csuConfirmationCode = pConfirmationCode_
     }
 
--- | Boolean to be specified to force user confirmation irrespective of
--- existing alias. By default set to False. If this parameter is set to
--- True and the phone number\/email used for sign up confirmation already
--- exists as an alias with a different user, the API call will migrate the
--- alias from the previous user to the newly created user being confirmed.
--- If set to False, the API will throw an __AliasExistsException__ error.
+-- | Boolean to be specified to force user confirmation irrespective of existing alias. By default set to False. If this parameter is set to True and the phone number\/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to False, the API will throw an __AliasExistsException__ error.
 csuForceAliasCreation :: Lens' ConfirmSignUp (Maybe Bool)
 csuForceAliasCreation = lens _csuForceAliasCreation (\ s a -> s{_csuForceAliasCreation = a});
 
--- | A keyed-hash message authentication code (HMAC) calculated using the
--- secret key of a user pool client and username plus the client ID in the
--- message.
+-- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 csuSecretHash :: Lens' ConfirmSignUp (Maybe Text)
 csuSecretHash = lens _csuSecretHash (\ s a -> s{_csuSecretHash = a}) . mapping _Sensitive;
 
@@ -150,8 +142,7 @@ instance ToPath ConfirmSignUp where
 instance ToQuery ConfirmSignUp where
         toQuery = const mempty
 
--- | Represents the response from the server for the registration
--- confirmation.
+-- | Represents the response from the server for the registration confirmation.
 --
 -- /See:/ 'confirmSignUpResponse' smart constructor.
 newtype ConfirmSignUpResponse = ConfirmSignUpResponse'

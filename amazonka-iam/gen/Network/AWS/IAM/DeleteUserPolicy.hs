@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified inline policy that is embedded in the specified
--- user.
+-- Deletes the specified inline policy that is embedded in the specified user.
 --
--- A user can also have managed policies attached to it. To detach a
--- managed policy from a user, use < DetachUserPolicy>. For more
--- information about policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- A user can also have managed policies attached to it. To detach a managed policy from a user, use < DetachUserPolicy>. For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.DeleteUserPolicy
     (
     -- * Creating a Request
@@ -70,8 +65,7 @@ deleteUserPolicy pUserName_ pPolicyName_ =
     , _dupPolicyName = pPolicyName_
     }
 
--- | The name (friendly name, not ARN) identifying the user that the policy
--- is embedded in.
+-- | The name (friendly name, not ARN) identifying the user that the policy is embedded in.
 dupUserName :: Lens' DeleteUserPolicy Text
 dupUserName = lens _dupUserName (\ s a -> s{_dupUserName = a});
 

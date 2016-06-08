@@ -191,8 +191,7 @@ address =
     , _aPublicIP = Nothing
     }
 
--- | The ID representing the association of the address with an instance in a
--- VPC.
+-- | The ID representing the association of the address with an instance in a VPC.
 aAssociationId :: Lens' Address (Maybe Text)
 aAssociationId = lens _aAssociationId (\ s a -> s{_aAssociationId = a});
 
@@ -208,8 +207,7 @@ aNetworkInterfaceOwnerId = lens _aNetworkInterfaceOwnerId (\ s a -> s{_aNetworkI
 aAllocationId :: Lens' Address (Maybe Text)
 aAllocationId = lens _aAllocationId (\ s a -> s{_aAllocationId = a});
 
--- | Indicates whether this Elastic IP address is for use with instances in
--- EC2-Classic ('standard') or instances in a VPC ('vpc').
+-- | Indicates whether this Elastic IP address is for use with instances in EC2-Classic ('standard') or instances in a VPC ('vpc').
 aDomain :: Lens' Address (Maybe DomainType)
 aDomain = lens _aDomain (\ s a -> s{_aDomain = a});
 
@@ -509,31 +507,21 @@ blockDeviceMapping pDeviceName_ =
     , _bdmDeviceName = pDeviceName_
     }
 
--- | The virtual device name ('ephemeral'N). Instance store volumes are
--- numbered starting from 0. An instance type with 2 available instance
--- store volumes can specify mappings for 'ephemeral0' and 'ephemeral1'.The
--- number of available instance store volumes depends on the instance type.
--- After you connect to the instance, you must mount the volume.
+-- | The virtual device name ('ephemeral'N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for 'ephemeral0' and 'ephemeral1'.The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
 --
--- Constraints: For M3 instances, you must specify instance store volumes
--- in the block device mapping for the instance. When you launch an M3
--- instance, we ignore any instance store volumes specified in the block
--- device mapping for the AMI.
+-- Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
 bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
 bdmVirtualName = lens _bdmVirtualName (\ s a -> s{_bdmVirtualName = a});
 
--- | Suppresses the specified device included in the block device mapping of
--- the AMI.
+-- | Suppresses the specified device included in the block device mapping of the AMI.
 bdmNoDevice :: Lens' BlockDeviceMapping (Maybe Text)
 bdmNoDevice = lens _bdmNoDevice (\ s a -> s{_bdmNoDevice = a});
 
--- | Parameters used to automatically set up EBS volumes when the instance is
--- launched.
+-- | Parameters used to automatically set up EBS volumes when the instance is launched.
 bdmEBS :: Lens' BlockDeviceMapping (Maybe EBSBlockDevice)
 bdmEBS = lens _bdmEBS (\ s a -> s{_bdmEBS = a});
 
--- | The device name exposed to the instance (for example, '\/dev\/sdh' or
--- 'xvdh').
+-- | The device name exposed to the instance (for example, '\/dev\/sdh' or 'xvdh').
 bdmDeviceName :: Lens' BlockDeviceMapping Text
 bdmDeviceName = lens _bdmDeviceName (\ s a -> s{_bdmDeviceName = a});
 
@@ -1080,8 +1068,7 @@ conversionTask pConversionTaskId_ pState_ =
     , _ctState = pState_
     }
 
--- | If the task is for importing an instance, this contains information
--- about the import instance task.
+-- | If the task is for importing an instance, this contains information about the import instance task.
 ctImportInstance :: Lens' ConversionTask (Maybe ImportInstanceTaskDetails)
 ctImportInstance = lens _ctImportInstance (\ s a -> s{_ctImportInstance = a});
 
@@ -1089,13 +1076,11 @@ ctImportInstance = lens _ctImportInstance (\ s a -> s{_ctImportInstance = a});
 ctStatusMessage :: Lens' ConversionTask (Maybe Text)
 ctStatusMessage = lens _ctStatusMessage (\ s a -> s{_ctStatusMessage = a});
 
--- | If the task is for importing a volume, this contains information about
--- the import volume task.
+-- | If the task is for importing a volume, this contains information about the import volume task.
 ctImportVolume :: Lens' ConversionTask (Maybe ImportVolumeTaskDetails)
 ctImportVolume = lens _ctImportVolume (\ s a -> s{_ctImportVolume = a});
 
--- | The time when the task expires. If the upload isn\'t complete before the
--- expiration time, we automatically cancel the task.
+-- | The time when the task expires. If the upload isn\'t complete before the expiration time, we automatically cancel the task.
 ctExpirationTime :: Lens' ConversionTask (Maybe Text)
 ctExpirationTime = lens _ctExpirationTime (\ s a -> s{_ctExpirationTime = a});
 
@@ -1127,8 +1112,7 @@ instance Hashable ConversionTask
 
 instance NFData ConversionTask
 
--- | Describes the user or group to be added or removed from the permissions
--- for a volume.
+-- | Describes the user or group to be added or removed from the permissions for a volume.
 --
 -- /See:/ 'createVolumePermission' smart constructor.
 data CreateVolumePermission = CreateVolumePermission'
@@ -1151,13 +1135,11 @@ createVolumePermission =
     , _cvpUserId = Nothing
     }
 
--- | The specific group that is to be added or removed from a volume\'s list
--- of create volume permissions.
+-- | The specific group that is to be added or removed from a volume\'s list of create volume permissions.
 cvpGroup :: Lens' CreateVolumePermission (Maybe PermissionGroup)
 cvpGroup = lens _cvpGroup (\ s a -> s{_cvpGroup = a});
 
--- | The specific AWS account ID that is to be added or removed from a
--- volume\'s list of create volume permissions.
+-- | The specific AWS account ID that is to be added or removed from a volume\'s list of create volume permissions.
 cvpUserId :: Lens' CreateVolumePermission (Maybe Text)
 cvpUserId = lens _cvpUserId (\ s a -> s{_cvpUserId = a});
 
@@ -1198,13 +1180,11 @@ createVolumePermissionModifications =
     , _cvpmAdd = Nothing
     }
 
--- | Removes a specific AWS account ID or group from a volume\'s list of
--- create volume permissions.
+-- | Removes a specific AWS account ID or group from a volume\'s list of create volume permissions.
 cvpmRemove :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
 cvpmRemove = lens _cvpmRemove (\ s a -> s{_cvpmRemove = a}) . _Default . _Coerce;
 
--- | Adds a specific AWS account ID or group to a volume\'s list of create
--- volume permissions.
+-- | Adds a specific AWS account ID or group to a volume\'s list of create volume permissions.
 cvpmAdd :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
 cvpmAdd = lens _cvpmAdd (\ s a -> s{_cvpmAdd = a}) . _Default . _Coerce;
 
@@ -1267,8 +1247,7 @@ customerGateway pBGPASN_ pCustomerGatewayId_ pIPAddress_ pState_ pType_ =
 cgTags :: Lens' CustomerGateway [Tag]
 cgTags = lens _cgTags (\ s a -> s{_cgTags = a}) . _Default . _Coerce;
 
--- | The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System
--- Number (ASN).
+-- | The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 cgBGPASN :: Lens' CustomerGateway Text
 cgBGPASN = lens _cgBGPASN (\ s a -> s{_cgBGPASN = a});
 
@@ -1276,13 +1255,11 @@ cgBGPASN = lens _cgBGPASN (\ s a -> s{_cgBGPASN = a});
 cgCustomerGatewayId :: Lens' CustomerGateway Text
 cgCustomerGatewayId = lens _cgCustomerGatewayId (\ s a -> s{_cgCustomerGatewayId = a});
 
--- | The Internet-routable IP address of the customer gateway\'s outside
--- interface.
+-- | The Internet-routable IP address of the customer gateway\'s outside interface.
 cgIPAddress :: Lens' CustomerGateway Text
 cgIPAddress = lens _cgIPAddress (\ s a -> s{_cgIPAddress = a});
 
--- | The current state of the customer gateway
--- ('pending | available | deleting | deleted').
+-- | The current state of the customer gateway ('pending | available | deleting | deleted').
 cgState :: Lens' CustomerGateway Text
 cgState = lens _cgState (\ s a -> s{_cgState = a});
 
@@ -1495,15 +1472,9 @@ dFormat = lens _dFormat (\ s a -> s{_dFormat = a});
 dSize :: Lens' DiskImageDescription Integer
 dSize = lens _dSize (\ s a -> s{_dSize = a});
 
--- | A presigned URL for the import manifest stored in Amazon S3. For
--- information about creating a presigned URL for an Amazon S3 object, read
--- the \"Query String Request Authentication Alternative\" section of the
--- <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests>
--- topic in the /Amazon Simple Storage Service Developer Guide/.
+-- | A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/.
 --
--- For information about the import manifest referenced by this API action,
--- see
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
+-- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 dImportManifestURL :: Lens' DiskImageDescription Text
 dImportManifestURL = lens _dImportManifestURL (\ s a -> s{_dImportManifestURL = a});
 
@@ -1556,16 +1527,9 @@ didFormat = lens _didFormat (\ s a -> s{_didFormat = a});
 didBytes :: Lens' DiskImageDetail Integer
 didBytes = lens _didBytes (\ s a -> s{_didBytes = a});
 
--- | A presigned URL for the import manifest stored in Amazon S3 and
--- presented here as an Amazon S3 presigned URL. For information about
--- creating a presigned URL for an Amazon S3 object, read the \"Query
--- String Request Authentication Alternative\" section of the
--- <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests>
--- topic in the /Amazon Simple Storage Service Developer Guide/.
+-- | A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/.
 --
--- For information about the import manifest referenced by this API action,
--- see
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
+-- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 didImportManifestURL :: Lens' DiskImageDetail Text
 didImportManifestURL = lens _didImportManifestURL (\ s a -> s{_didImportManifestURL = a});
 
@@ -1665,38 +1629,21 @@ ebdDeleteOnTermination = lens _ebdDeleteOnTermination (\ s a -> s{_ebdDeleteOnTe
 
 -- | The size of the volume, in GiB.
 --
--- Constraints: 1-16384 for General Purpose SSD ('gp2'), 4-16384 for
--- Provisioned IOPS SSD ('io1'), 500-16384 for Throughput Optimized HDD
--- ('st1'), 500-16384 for Cold HDD ('sc1'), and 1-1024 for Magnetic
--- ('standard') volumes. If you specify a snapshot, the volume size must be
--- equal to or larger than the snapshot size.
+-- Constraints: 1-16384 for General Purpose SSD ('gp2'), 4-16384 for Provisioned IOPS SSD ('io1'), 500-16384 for Throughput Optimized HDD ('st1'), 500-16384 for Cold HDD ('sc1'), and 1-1024 for Magnetic ('standard') volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
 --
--- Default: If you\'re creating the volume from a snapshot and don\'t
--- specify a volume size, the default is the snapshot size.
+-- Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
 ebdVolumeSize :: Lens' EBSBlockDevice (Maybe Int)
 ebdVolumeSize = lens _ebdVolumeSize (\ s a -> s{_ebdVolumeSize = a});
 
--- | The number of I\/O operations per second (IOPS) that the volume
--- supports. For io1, this represents the number of IOPS that are
--- provisioned for the volume. For 'gp2', this represents the baseline
--- performance of the volume and the rate at which the volume accumulates
--- I\/O credits for bursting. For more information on General Purpose SSD
--- baseline performance, I\/O credits, and bursting, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- | The number of I\/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For 'gp2', this represents the baseline performance of the volume and the rate at which the volume accumulates I\/O credits for bursting. For more information on General Purpose SSD baseline performance, I\/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS
--- for 'gp2' volumes.
+-- Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for 'gp2' volumes.
 --
--- Condition: This parameter is required for requests to create 'io1'
--- volumes; it is not used in requests to create 'gp2', 'st1', 'sc1', or
--- 'standard' volumes.
+-- Condition: This parameter is required for requests to create 'io1' volumes; it is not used in requests to create 'gp2', 'st1', 'sc1', or 'standard' volumes.
 ebdIOPS :: Lens' EBSBlockDevice (Maybe Int)
 ebdIOPS = lens _ebdIOPS (\ s a -> s{_ebdIOPS = a});
 
--- | Indicates whether the EBS volume is encrypted. Encrypted Amazon EBS
--- volumes may only be attached to instances that support Amazon EBS
--- encryption.
+-- | Indicates whether the EBS volume is encrypted. Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption.
 ebdEncrypted :: Lens' EBSBlockDevice (Maybe Bool)
 ebdEncrypted = lens _ebdEncrypted (\ s a -> s{_ebdEncrypted = a});
 
@@ -1733,8 +1680,7 @@ instance ToQuery EBSBlockDevice where
                "VolumeType" =: _ebdVolumeType,
                "SnapshotId" =: _ebdSnapshotId]
 
--- | Describes a parameter used to set up an EBS volume in a block device
--- mapping.
+-- | Describes a parameter used to set up an EBS volume in a block device mapping.
 --
 -- /See:/ 'ebsInstanceBlockDevice' smart constructor.
 data EBSInstanceBlockDevice = EBSInstanceBlockDevice'
@@ -1792,8 +1738,7 @@ instance Hashable EBSInstanceBlockDevice
 
 instance NFData EBSInstanceBlockDevice
 
--- | Describes information used to set up an EBS volume specified in a block
--- device mapping.
+-- | Describes information used to set up an EBS volume specified in a block device mapping.
 --
 -- /See:/ 'ebsInstanceBlockDeviceSpecification' smart constructor.
 data EBSInstanceBlockDeviceSpecification = EBSInstanceBlockDeviceSpecification'
@@ -1862,8 +1807,7 @@ eventInformation =
     , _eiEventSubType = Nothing
     }
 
--- | The ID of the instance. This information is available only for
--- 'instanceChange' events.
+-- | The ID of the instance. This information is available only for 'instanceChange' events.
 eiInstanceId :: Lens' EventInformation (Maybe Text)
 eiInstanceId = lens _eiInstanceId (\ s a -> s{_eiInstanceId = a});
 
@@ -1875,49 +1819,33 @@ eiEventDescription = lens _eiEventDescription (\ s a -> s{_eiEventDescription = 
 --
 -- The following are the 'error' events.
 --
--- -   'iamFleetRoleInvalid' - The Spot fleet did not have the required
---     permissions either to launch or terminate an instance.
+-- -   'iamFleetRoleInvalid' - The Spot fleet did not have the required permissions either to launch or terminate an instance.
 --
--- -   'launchSpecTemporarilyBlacklisted' - The configuration is not valid
---     and several attempts to launch instances have failed. For more
---     information, see the description of the event.
+-- -   'launchSpecTemporarilyBlacklisted' - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event.
 --
--- -   'spotFleetRequestConfigurationInvalid' - The configuration is not
---     valid. For more information, see the description of the event.
+-- -   'spotFleetRequestConfigurationInvalid' - The configuration is not valid. For more information, see the description of the event.
 --
--- -   'spotInstanceCountLimitExceeded' - You\'ve reached the limit on the
---     number of Spot instances that you can launch.
+-- -   'spotInstanceCountLimitExceeded' - You\'ve reached the limit on the number of Spot instances that you can launch.
 --
 -- The following are the 'fleetRequestChange' events.
 --
--- -   'active' - The Spot fleet has been validated and Amazon EC2 is
---     attempting to maintain the target number of running Spot instances.
+-- -   'active' - The Spot fleet has been validated and Amazon EC2 is attempting to maintain the target number of running Spot instances.
 --
--- -   'cancelled' - The Spot fleet is canceled and has no running Spot
---     instances. The Spot fleet will be deleted two days after its
---     instances were terminated.
+-- -   'cancelled' - The Spot fleet is canceled and has no running Spot instances. The Spot fleet will be deleted two days after its instances were terminated.
 --
--- -   'cancelled_running' - The Spot fleet is canceled and will not launch
---     additional Spot instances, but its existing Spot instances continue
---     to run until they are interrupted or terminated.
+-- -   'cancelled_running' - The Spot fleet is canceled and will not launch additional Spot instances, but its existing Spot instances continue to run until they are interrupted or terminated.
 --
--- -   'cancelled_terminating' - The Spot fleet is canceled and its Spot
---     instances are terminating.
+-- -   'cancelled_terminating' - The Spot fleet is canceled and its Spot instances are terminating.
 --
--- -   'expired' - The Spot fleet request has expired. A subsequent event
---     indicates that the instances were terminated, if the request was
---     created with 'TerminateInstancesWithExpiration' set.
+-- -   'expired' - The Spot fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with 'TerminateInstancesWithExpiration' set.
 --
--- -   'modify_in_progress' - A request to modify the Spot fleet request
---     was accepted and is in progress.
+-- -   'modify_in_progress' - A request to modify the Spot fleet request was accepted and is in progress.
 --
 -- -   'modify_successful' - The Spot fleet request was modified.
 --
--- -   'price_update' - The bid price for a launch configuration was
---     adjusted because it was too high. This change is permanent.
+-- -   'price_update' - The bid price for a launch configuration was adjusted because it was too high. This change is permanent.
 --
--- -   'submitted' - The Spot fleet request is being evaluated and Amazon
---     EC2 is preparing to launch the target number of Spot instances.
+-- -   'submitted' - The Spot fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot instances.
 --
 -- The following are the 'instanceChange' events.
 --
@@ -2055,14 +1983,11 @@ exportToS3Task =
 etstS3Key :: Lens' ExportToS3Task (Maybe Text)
 etstS3Key = lens _etstS3Key (\ s a -> s{_etstS3Key = a});
 
--- | The container format used to combine disk images with metadata (such as
--- OVF). If absent, only the disk image is exported.
+-- | The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.
 etstContainerFormat :: Lens' ExportToS3Task (Maybe ContainerFormat)
 etstContainerFormat = lens _etstContainerFormat (\ s a -> s{_etstContainerFormat = a});
 
--- | The S3 bucket for the destination image. The destination bucket must
--- exist and grant WRITE and READ_ACP permissions to the AWS account
--- 'vm-import-export\'amazon.com'.
+-- | The S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account 'vm-import-export\'amazon.com'.
 etstS3Bucket :: Lens' ExportToS3Task (Maybe Text)
 etstS3Bucket = lens _etstS3Bucket (\ s a -> s{_etstS3Bucket = a});
 
@@ -2112,19 +2037,15 @@ exportToS3TaskSpecification =
     , _etstsDiskImageFormat = Nothing
     }
 
--- | The container format used to combine disk images with metadata (such as
--- OVF). If absent, only the disk image is exported.
+-- | The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.
 etstsContainerFormat :: Lens' ExportToS3TaskSpecification (Maybe ContainerFormat)
 etstsContainerFormat = lens _etstsContainerFormat (\ s a -> s{_etstsContainerFormat = a});
 
--- | The image is written to a single object in the S3 bucket at the S3 key
--- s3prefix + exportTaskId + \'.\' + diskImageFormat.
+-- | The image is written to a single object in the S3 bucket at the S3 key s3prefix + exportTaskId + \'.\' + diskImageFormat.
 etstsS3Prefix :: Lens' ExportToS3TaskSpecification (Maybe Text)
 etstsS3Prefix = lens _etstsS3Prefix (\ s a -> s{_etstsS3Prefix = a});
 
--- | The S3 bucket for the destination image. The destination bucket must
--- exist and grant WRITE and READ_ACP permissions to the AWS account
--- 'vm-import-export\'amazon.com'.
+-- | The S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account 'vm-import-export\'amazon.com'.
 etstsS3Bucket :: Lens' ExportToS3TaskSpecification (Maybe Text)
 etstsS3Bucket = lens _etstsS3Bucket (\ s a -> s{_etstsS3Bucket = a});
 
@@ -2144,9 +2065,7 @@ instance ToQuery ExportToS3TaskSpecification where
                "S3Bucket" =: _etstsS3Bucket,
                "DiskImageFormat" =: _etstsDiskImageFormat]
 
--- | A filter name and value pair that is used to return a more specific list
--- of results. Filters can be used to match a set of resources by various
--- criteria, such as tags, attributes, or IDs.
+-- | A filter name and value pair that is used to return a more specific list of results. Filters can be used to match a set of resources by various criteria, such as tags, attributes, or IDs.
 --
 -- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
@@ -2259,13 +2178,7 @@ flTrafficType = lens _flTrafficType (\ s a -> s{_flTrafficType = a});
 flDeliverLogsStatus :: Lens' FlowLog (Maybe Text)
 flDeliverLogsStatus = lens _flDeliverLogsStatus (\ s a -> s{_flDeliverLogsStatus = a});
 
--- | Information about the error that occurred. 'Rate limited' indicates that
--- CloudWatch logs throttling has been applied for one or more network
--- interfaces, or that you\'ve reached the limit on the number of
--- CloudWatch Logs log groups that you can create. 'Access error' indicates
--- that the IAM role associated with the flow log does not have sufficient
--- permissions to publish to CloudWatch Logs. 'Unknown error' indicates an
--- internal error.
+-- | Information about the error that occurred. 'Rate limited' indicates that CloudWatch logs throttling has been applied for one or more network interfaces, or that you\'ve reached the limit on the number of CloudWatch Logs log groups that you can create. 'Access error' indicates that the IAM role associated with the flow log does not have sufficient permissions to publish to CloudWatch Logs. 'Unknown error' indicates an internal error.
 flDeliverLogsErrorMessage :: Lens' FlowLog (Maybe Text)
 flDeliverLogsErrorMessage = lens _flDeliverLogsErrorMessage (\ s a -> s{_flDeliverLogsErrorMessage = a});
 
@@ -2373,8 +2286,7 @@ historyRecord pTimestamp_ pEventType_ pEventInformation_ =
     , _hrEventInformation = pEventInformation_
     }
 
--- | The date and time of the event, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+-- | The date and time of the event, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 hrTimestamp :: Lens' HistoryRecord UTCTime
 hrTimestamp = lens _hrTimestamp (\ s a -> s{_hrTimestamp = a}) . _Time;
 
@@ -2382,11 +2294,9 @@ hrTimestamp = lens _hrTimestamp (\ s a -> s{_hrTimestamp = a}) . _Time;
 --
 -- -   'error' - Indicates an error with the Spot fleet request.
 --
--- -   'fleetRequestChange' - Indicates a change in the status or
---     configuration of the Spot fleet request.
+-- -   'fleetRequestChange' - Indicates a change in the status or configuration of the Spot fleet request.
 --
--- -   'instanceChange' - Indicates that an instance was launched or
---     terminated.
+-- -   'instanceChange' - Indicates that an instance was launched or terminated.
 --
 hrEventType :: Lens' HistoryRecord EventType
 hrEventType = lens _hrEventType (\ s a -> s{_hrEventType = a});
@@ -2460,10 +2370,7 @@ host =
 hState :: Lens' Host (Maybe AllocationState)
 hState = lens _hState (\ s a -> s{_hState = a});
 
--- | Unique, case-sensitive identifier you provide to ensure idempotency of
--- the request. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/.
 hClientToken :: Lens' Host (Maybe Text)
 hClientToken = lens _hClientToken (\ s a -> s{_hClientToken = a});
 
@@ -2471,13 +2378,11 @@ hClientToken = lens _hClientToken (\ s a -> s{_hClientToken = a});
 hHostId :: Lens' Host (Maybe Text)
 hHostId = lens _hHostId (\ s a -> s{_hHostId = a});
 
--- | The number of new instances that can be launched onto the Dedicated
--- host.
+-- | The number of new instances that can be launched onto the Dedicated host.
 hAvailableCapacity :: Lens' Host (Maybe AvailableCapacity)
 hAvailableCapacity = lens _hAvailableCapacity (\ s a -> s{_hAvailableCapacity = a});
 
--- | The reservation ID of the Dedicated host. This returns a 'null' response
--- if the Dedicated host doesn\'t have an associated reservation.
+-- | The reservation ID of the Dedicated host. This returns a 'null' response if the Dedicated host doesn\'t have an associated reservation.
 hHostReservationId :: Lens' Host (Maybe Text)
 hHostReservationId = lens _hHostReservationId (\ s a -> s{_hHostReservationId = a});
 
@@ -2489,8 +2394,7 @@ hHostProperties = lens _hHostProperties (\ s a -> s{_hHostProperties = a});
 hAvailabilityZone :: Lens' Host (Maybe Text)
 hAvailabilityZone = lens _hAvailabilityZone (\ s a -> s{_hAvailabilityZone = a});
 
--- | The IDs and instance type that are currently running on the Dedicated
--- host.
+-- | The IDs and instance type that are currently running on the Dedicated host.
 hInstances :: Lens' Host [HostInstance]
 hInstances = lens _hInstances (\ s a -> s{_hInstances = a}) . _Default . _Coerce;
 
@@ -2587,8 +2491,7 @@ hostProperties =
     , _hpSockets = Nothing
     }
 
--- | The instance type size that the Dedicated host supports (for example,
--- m3.medium).
+-- | The instance type size that the Dedicated host supports (for example, m3.medium).
 hpInstanceType :: Lens' HostProperties (Maybe Text)
 hpInstanceType = lens _hpInstanceType (\ s a -> s{_hpInstanceType = a});
 
@@ -2728,8 +2631,7 @@ icmpTypeCode =
 itcCode :: Lens' ICMPTypeCode (Maybe Int)
 itcCode = lens _itcCode (\ s a -> s{_itcCode = a});
 
--- | The ICMP code. A value of -1 means all codes for the specified ICMP
--- type.
+-- | The ICMP code. A value of -1 means all codes for the specified ICMP type.
 itcType :: Lens' ICMPTypeCode (Maybe Int)
 itcType = lens _itcType (\ s a -> s{_itcType = a});
 
@@ -2785,8 +2687,7 @@ ipPermission pIPProtocol_ =
     , _ipIPProtocol = pIPProtocol_
     }
 
--- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. A value of '-1' indicates all ICMP types.
+-- | The start of port range for the TCP and UDP protocols, or an ICMP type number. A value of '-1' indicates all ICMP types.
 ipFromPort :: Lens' IPPermission (Maybe Int)
 ipFromPort = lens _ipFromPort (\ s a -> s{_ipFromPort = a});
 
@@ -2794,16 +2695,11 @@ ipFromPort = lens _ipFromPort (\ s a -> s{_ipFromPort = a});
 ipUserIdGroupPairs :: Lens' IPPermission [UserIdGroupPair]
 ipUserIdGroupPairs = lens _ipUserIdGroupPairs (\ s a -> s{_ipUserIdGroupPairs = a}) . _Default . _Coerce;
 
--- | (Valid for < AuthorizeSecurityGroupEgress>, < RevokeSecurityGroupEgress>
--- and < DescribeSecurityGroups> only) One or more prefix list IDs for an
--- AWS service. In an < AuthorizeSecurityGroupEgress> request, this is the
--- AWS service that you want to access through a VPC endpoint from
--- instances associated with the security group.
+-- | (Valid for < AuthorizeSecurityGroupEgress>, < RevokeSecurityGroupEgress> and < DescribeSecurityGroups> only) One or more prefix list IDs for an AWS service. In an < AuthorizeSecurityGroupEgress> request, this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
 ipPrefixListIds :: Lens' IPPermission [PrefixListId]
 ipPrefixListIds = lens _ipPrefixListIds (\ s a -> s{_ipPrefixListIds = a}) . _Default . _Coerce;
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP code. A
--- value of '-1' indicates all ICMP codes for the specified ICMP type.
+-- | The end of port range for the TCP and UDP protocols, or an ICMP code. A value of '-1' indicates all ICMP codes for the specified ICMP type.
 ipToPort :: Lens' IPPermission (Maybe Int)
 ipToPort = lens _ipToPort (\ s a -> s{_ipToPort = a});
 
@@ -2811,11 +2707,9 @@ ipToPort = lens _ipToPort (\ s a -> s{_ipToPort = a});
 ipIPRanges :: Lens' IPPermission [IPRange]
 ipIPRanges = lens _ipIPRanges (\ s a -> s{_ipIPRanges = a}) . _Default . _Coerce;
 
--- | The IP protocol name (for 'tcp', 'udp', and 'icmp') or number (see
--- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
+-- | The IP protocol name (for 'tcp', 'udp', and 'icmp') or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
 --
--- [EC2-VPC only] When you authorize or revoke security group rules, you
--- can use '-1' to specify all.
+-- [EC2-VPC only] When you authorize or revoke security group rules, you can use '-1' to specify all.
 ipIPProtocol :: Lens' IPPermission Text
 ipIPProtocol = lens _ipIPProtocol (\ s a -> s{_ipIPProtocol = a});
 
@@ -2870,8 +2764,7 @@ ipRange pCIdRIP_ =
     { _irCIdRIP = pCIdRIP_
     }
 
--- | The CIDR range. You can either specify a CIDR range or a source security
--- group, not both.
+-- | The CIDR range. You can either specify a CIDR range or a source security group, not both.
 irCIdRIP :: Lens' IPRange Text
 irCIdRIP = lens _irCIdRIP (\ s a -> s{_irCIdRIP = a});
 
@@ -2913,14 +2806,11 @@ idFormat =
     , _ifResource = Nothing
     }
 
--- | Indicates whether longer IDs (17-character IDs) are enabled for the
--- resource.
+-- | Indicates whether longer IDs (17-character IDs) are enabled for the resource.
 ifUseLongIds :: Lens' IdFormat (Maybe Bool)
 ifUseLongIds = lens _ifUseLongIds (\ s a -> s{_ifUseLongIds = a});
 
--- | The date in UTC at which you are permanently switched over to using
--- longer IDs. If a deadline is not yet available for this resource type,
--- this field is not returned.
+-- | The date in UTC at which you are permanently switched over to using longer IDs. If a deadline is not yet available for this resource type, this field is not returned.
 ifDeadline :: Lens' IdFormat (Maybe UTCTime)
 ifDeadline = lens _ifDeadline (\ s a -> s{_ifDeadline = a}) . mapping _Time;
 
@@ -3059,23 +2949,19 @@ image pImageId_ pImageLocation_ pState_ pOwnerId_ pPublic_ pArchitecture_ pImage
 iPlatform :: Lens' Image (Maybe PlatformValues)
 iPlatform = lens _iPlatform (\ s a -> s{_iPlatform = a});
 
--- | The AWS account alias (for example, 'amazon', 'self') or the AWS account
--- ID of the AMI owner.
+-- | The AWS account alias (for example, 'amazon', 'self') or the AWS account ID of the AMI owner.
 iImageOwnerAlias :: Lens' Image (Maybe Text)
 iImageOwnerAlias = lens _iImageOwnerAlias (\ s a -> s{_iImageOwnerAlias = a});
 
--- | The RAM disk associated with the image, if any. Only applicable for
--- machine images.
+-- | The RAM disk associated with the image, if any. Only applicable for machine images.
 iRAMDiskId :: Lens' Image (Maybe Text)
 iRAMDiskId = lens _iRAMDiskId (\ s a -> s{_iRAMDiskId = a});
 
--- | The kernel associated with the image, if any. Only applicable for
--- machine images.
+-- | The kernel associated with the image, if any. Only applicable for machine images.
 iKernelId :: Lens' Image (Maybe Text)
 iKernelId = lens _iKernelId (\ s a -> s{_iKernelId = a});
 
--- | The device name of the root device (for example, '\/dev\/sda1' or
--- '\/dev\/xvda').
+-- | The device name of the root device (for example, '\/dev\/sda1' or '\/dev\/xvda').
 iRootDeviceName :: Lens' Image (Maybe Text)
 iRootDeviceName = lens _iRootDeviceName (\ s a -> s{_iRootDeviceName = a});
 
@@ -3119,8 +3005,7 @@ iImageId = lens _iImageId (\ s a -> s{_iImageId = a});
 iImageLocation :: Lens' Image Text
 iImageLocation = lens _iImageLocation (\ s a -> s{_iImageLocation = a});
 
--- | The current state of the AMI. If the state is 'available', the image is
--- successfully registered and can be used to launch an instance.
+-- | The current state of the AMI. If the state is 'available', the image is successfully registered and can be used to launch an instance.
 iState :: Lens' Image ImageState
 iState = lens _iState (\ s a -> s{_iState = a});
 
@@ -3128,9 +3013,7 @@ iState = lens _iState (\ s a -> s{_iState = a});
 iOwnerId :: Lens' Image Text
 iOwnerId = lens _iOwnerId (\ s a -> s{_iOwnerId = a});
 
--- | Indicates whether the image has public launch permissions. The value is
--- 'true' if this image has public launch permissions or 'false' if it has
--- only implicit and explicit launch permissions.
+-- | Indicates whether the image has public launch permissions. The value is 'true' if this image has public launch permissions or 'false' if it has only implicit and explicit launch permissions.
 iPublic :: Lens' Image Bool
 iPublic = lens _iPublic (\ s a -> s{_iPublic = a});
 
@@ -3142,8 +3025,7 @@ iArchitecture = lens _iArchitecture (\ s a -> s{_iArchitecture = a});
 iImageType :: Lens' Image ImageTypeValues
 iImageType = lens _iImageType (\ s a -> s{_iImageType = a});
 
--- | The type of root device used by the AMI. The AMI can use an EBS volume
--- or an instance store volume.
+-- | The type of root device used by the AMI. The AMI can use an EBS volume or an instance store volume.
 iRootDeviceType :: Lens' Image DeviceType
 iRootDeviceType = lens _iRootDeviceType (\ s a -> s{_iRootDeviceType = a});
 
@@ -3236,8 +3118,7 @@ imageDiskContainer =
 idcFormat :: Lens' ImageDiskContainer (Maybe Text)
 idcFormat = lens _idcFormat (\ s a -> s{_idcFormat = a});
 
--- | The URL to the Amazon S3-based disk image being imported. The URL can
--- either be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..)
+-- | The URL to the Amazon S3-based disk image being imported. The URL can either be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..)
 idcURL :: Lens' ImageDiskContainer (Maybe Text)
 idcURL = lens _idcURL (\ s a -> s{_idcURL = a});
 
@@ -3359,8 +3240,7 @@ iitSnapshotDetails = lens _iitSnapshotDetails (\ s a -> s{_iitSnapshotDetails = 
 iitStatusMessage :: Lens' ImportImageTask (Maybe Text)
 iitStatusMessage = lens _iitStatusMessage (\ s a -> s{_iitStatusMessage = a});
 
--- | The ID of the Amazon Machine Image (AMI) of the imported virtual
--- machine.
+-- | The ID of the Amazon Machine Image (AMI) of the imported virtual machine.
 iitImageId :: Lens' ImportImageTask (Maybe Text)
 iitImageId = lens _iitImageId (\ s a -> s{_iitImageId = a});
 
@@ -3469,10 +3349,7 @@ iilsGroupNames = lens _iilsGroupNames (\ s a -> s{_iilsGroupNames = a}) . _Defau
 iilsSubnetId :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
 iilsSubnetId = lens _iilsSubnetId (\ s a -> s{_iilsSubnetId = a});
 
--- | The instance type. For more information about the instance types that
--- you can import, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html Before You Get Started>
--- in the Amazon Elastic Compute Cloud User Guide.
+-- | The instance type. For more information about the instance types that you can import, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html Before You Get Started> in the Amazon Elastic Compute Cloud User Guide.
 iilsInstanceType :: Lens' ImportInstanceLaunchSpecification (Maybe InstanceType)
 iilsInstanceType = lens _iilsInstanceType (\ s a -> s{_iilsInstanceType = a});
 
@@ -3488,14 +3365,11 @@ iilsUserData = lens _iilsUserData (\ s a -> s{_iilsUserData = a});
 iilsMonitoring :: Lens' ImportInstanceLaunchSpecification (Maybe Bool)
 iilsMonitoring = lens _iilsMonitoring (\ s a -> s{_iilsMonitoring = a});
 
--- | [EC2-VPC] An available IP address from the IP address range of the
--- subnet.
+-- | [EC2-VPC] An available IP address from the IP address range of the subnet.
 iilsPrivateIPAddress :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
 iilsPrivateIPAddress = lens _iilsPrivateIPAddress (\ s a -> s{_iilsPrivateIPAddress = a});
 
--- | Indicates whether an instance stops or terminates when you initiate
--- shutdown from the instance (using the operating system command for
--- system shutdown).
+-- | Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 iilsInstanceInitiatedShutdownBehavior :: Lens' ImportInstanceLaunchSpecification (Maybe ShutdownBehavior)
 iilsInstanceInitiatedShutdownBehavior = lens _iilsInstanceInitiatedShutdownBehavior (\ s a -> s{_iilsInstanceInitiatedShutdownBehavior = a});
 
@@ -3974,9 +3848,7 @@ instance' pInstanceId_ pImageId_ pAMILaunchIndex_ pInstanceType_ pLaunchTime_ pP
     , _insState = pState_
     }
 
--- | The public DNS name assigned to the instance. This name is not available
--- until the instance enters the 'running' state. For EC2-VPC, this name is
--- only available if you\'ve enabled DNS hostnames for your VPC.
+-- | The public DNS name assigned to the instance. This name is not available until the instance enters the 'running' state. For EC2-VPC, this name is only available if you\'ve enabled DNS hostnames for your VPC.
 insPublicDNSName :: Lens' Instance (Maybe Text)
 insPublicDNSName = lens _insPublicDNSName (\ s a -> s{_insPublicDNSName = a});
 
@@ -3988,18 +3860,11 @@ insPlatform = lens _insPlatform (\ s a -> s{_insPlatform = a});
 insSecurityGroups :: Lens' Instance [GroupIdentifier]
 insSecurityGroups = lens _insSecurityGroups (\ s a -> s{_insSecurityGroups = a}) . _Default . _Coerce;
 
--- | The idempotency token you provided when you launched the instance, if
--- applicable.
+-- | The idempotency token you provided when you launched the instance, if applicable.
 insClientToken :: Lens' Instance (Maybe Text)
 insClientToken = lens _insClientToken (\ s a -> s{_insClientToken = a});
 
--- | Specifies whether to enable an instance launched in a VPC to perform
--- NAT. This controls whether source\/destination checking is enabled on
--- the instance. A value of 'true' means checking is enabled, and 'false'
--- means checking is disabled. The value must be 'false' for the instance
--- to perform NAT. For more information, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- | Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source\/destination checking is enabled on the instance. A value of 'true' means checking is enabled, and 'false' means checking is disabled. The value must be 'false' for the instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/.
 insSourceDestCheck :: Lens' Instance (Maybe Bool)
 insSourceDestCheck = lens _insSourceDestCheck (\ s a -> s{_insSourceDestCheck = a});
 
@@ -4007,8 +3872,7 @@ insSourceDestCheck = lens _insSourceDestCheck (\ s a -> s{_insSourceDestCheck = 
 insVPCId :: Lens' Instance (Maybe Text)
 insVPCId = lens _insVPCId (\ s a -> s{_insVPCId = a});
 
--- | The name of the key pair, if this instance was launched with an
--- associated key pair.
+-- | The name of the key pair, if this instance was launched with an associated key pair.
 insKeyName :: Lens' Instance (Maybe Text)
 insKeyName = lens _insKeyName (\ s a -> s{_insKeyName = a});
 
@@ -4036,16 +3900,11 @@ insRootDeviceName = lens _insRootDeviceName (\ s a -> s{_insRootDeviceName = a})
 insSRIOVNetSupport :: Lens' Instance (Maybe Text)
 insSRIOVNetSupport = lens _insSRIOVNetSupport (\ s a -> s{_insSRIOVNetSupport = a});
 
--- | Indicates whether the instance is optimized for EBS I\/O. This
--- optimization provides dedicated throughput to Amazon EBS and an
--- optimized configuration stack to provide optimal I\/O performance. This
--- optimization isn\'t available with all instance types. Additional usage
--- charges apply when using an EBS Optimized instance.
+-- | Indicates whether the instance is optimized for EBS I\/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I\/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 insEBSOptimized :: Lens' Instance (Maybe Bool)
 insEBSOptimized = lens _insEBSOptimized (\ s a -> s{_insEBSOptimized = a});
 
--- | The reason for the most recent state transition. This might be an empty
--- string.
+-- | The reason for the most recent state transition. This might be an empty string.
 insStateTransitionReason :: Lens' Instance (Maybe Text)
 insStateTransitionReason = lens _insStateTransitionReason (\ s a -> s{_insStateTransitionReason = a});
 
@@ -4069,10 +3928,7 @@ insProductCodes = lens _insProductCodes (\ s a -> s{_insProductCodes = a}) . _De
 insSpotInstanceRequestId :: Lens' Instance (Maybe Text)
 insSpotInstanceRequestId = lens _insSpotInstanceRequestId (\ s a -> s{_insSpotInstanceRequestId = a});
 
--- | The private DNS name assigned to the instance. This DNS name can only be
--- used inside the Amazon EC2 network. This name is not available until the
--- instance enters the 'running' state. For EC2-VPC, this name is only
--- available if you\'ve enabled DNS hostnames for your VPC.
+-- | The private DNS name assigned to the instance. This DNS name can only be used inside the Amazon EC2 network. This name is not available until the instance enters the 'running' state. For EC2-VPC, this name is only available if you\'ve enabled DNS hostnames for your VPC.
 insPrivateDNSName :: Lens' Instance (Maybe Text)
 insPrivateDNSName = lens _insPrivateDNSName (\ s a -> s{_insPrivateDNSName = a});
 
@@ -4100,8 +3956,7 @@ insInstanceId = lens _insInstanceId (\ s a -> s{_insInstanceId = a});
 insImageId :: Lens' Instance Text
 insImageId = lens _insImageId (\ s a -> s{_insImageId = a});
 
--- | The AMI launch index, which can be used to find this instance in the
--- launch group.
+-- | The AMI launch index, which can be used to find this instance in the launch group.
 insAMILaunchIndex :: Lens' Instance Int
 insAMILaunchIndex = lens _insAMILaunchIndex (\ s a -> s{_insAMILaunchIndex = a});
 
@@ -4125,8 +3980,7 @@ insMonitoring = lens _insMonitoring (\ s a -> s{_insMonitoring = a});
 insArchitecture :: Lens' Instance ArchitectureValues
 insArchitecture = lens _insArchitecture (\ s a -> s{_insArchitecture = a});
 
--- | The root device type used by the AMI. The AMI can use an EBS volume or
--- an instance store volume.
+-- | The root device type used by the AMI. The AMI can use an EBS volume or an instance store volume.
 insRootDeviceType :: Lens' Instance DeviceType
 insRootDeviceType = lens _insRootDeviceType (\ s a -> s{_insRootDeviceType = a});
 
@@ -4218,13 +4072,11 @@ instanceBlockDeviceMapping =
     , _ibdmDeviceName = Nothing
     }
 
--- | Parameters used to automatically set up EBS volumes when the instance is
--- launched.
+-- | Parameters used to automatically set up EBS volumes when the instance is launched.
 ibdmEBS :: Lens' InstanceBlockDeviceMapping (Maybe EBSInstanceBlockDevice)
 ibdmEBS = lens _ibdmEBS (\ s a -> s{_ibdmEBS = a});
 
--- | The device name exposed to the instance (for example, '\/dev\/sdh' or
--- 'xvdh').
+-- | The device name exposed to the instance (for example, '\/dev\/sdh' or 'xvdh').
 ibdmDeviceName :: Lens' InstanceBlockDeviceMapping (Maybe Text)
 ibdmDeviceName = lens _ibdmDeviceName (\ s a -> s{_ibdmDeviceName = a});
 
@@ -4276,13 +4128,11 @@ ibdmsVirtualName = lens _ibdmsVirtualName (\ s a -> s{_ibdmsVirtualName = a});
 ibdmsNoDevice :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
 ibdmsNoDevice = lens _ibdmsNoDevice (\ s a -> s{_ibdmsNoDevice = a});
 
--- | Parameters used to automatically set up EBS volumes when the instance is
--- launched.
+-- | Parameters used to automatically set up EBS volumes when the instance is launched.
 ibdmsEBS :: Lens' InstanceBlockDeviceMappingSpecification (Maybe EBSInstanceBlockDeviceSpecification)
 ibdmsEBS = lens _ibdmsEBS (\ s a -> s{_ibdmsEBS = a});
 
--- | The device name exposed to the instance (for example, '\/dev\/sdh' or
--- 'xvdh').
+-- | The device name exposed to the instance (for example, '\/dev\/sdh' or 'xvdh').
 ibdmsDeviceName :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
 ibdmsDeviceName = lens _ibdmsDeviceName (\ s a -> s{_ibdmsDeviceName = a});
 
@@ -4327,8 +4177,7 @@ instanceCapacity =
     , _icTotalCapacity = Nothing
     }
 
--- | The number of instances that can still be launched onto the Dedicated
--- host.
+-- | The number of instances that can still be launched onto the Dedicated host.
 icAvailableCapacity :: Lens' InstanceCapacity (Maybe Int)
 icAvailableCapacity = lens _icAvailableCapacity (\ s a -> s{_icAvailableCapacity = a});
 
@@ -4336,8 +4185,7 @@ icAvailableCapacity = lens _icAvailableCapacity (\ s a -> s{_icAvailableCapacity
 icInstanceType :: Lens' InstanceCapacity (Maybe Text)
 icInstanceType = lens _icInstanceType (\ s a -> s{_icInstanceType = a});
 
--- | The total number of instances that can be launched onto the Dedicated
--- host.
+-- | The total number of instances that can be launched onto the Dedicated host.
 icTotalCapacity :: Lens' InstanceCapacity (Maybe Int)
 icTotalCapacity = lens _icTotalCapacity (\ s a -> s{_icTotalCapacity = a});
 
@@ -4379,8 +4227,7 @@ instanceCount =
 icState :: Lens' InstanceCount (Maybe ListingState)
 icState = lens _icState (\ s a -> s{_icState = a});
 
--- | The number of listed Reserved Instances in the state specified by the
--- 'state'.
+-- | The number of listed Reserved Instances in the state specified by the 'state'.
 icInstanceCount :: Lens' InstanceCount (Maybe Int)
 icInstanceCount = lens _icInstanceCount (\ s a -> s{_icInstanceCount = a});
 
@@ -4556,8 +4403,7 @@ iniStatus = lens _iniStatus (\ s a -> s{_iniStatus = a});
 iniPrivateIPAddresses :: Lens' InstanceNetworkInterface [InstancePrivateIPAddress]
 iniPrivateIPAddresses = lens _iniPrivateIPAddresses (\ s a -> s{_iniPrivateIPAddresses = a}) . _Default . _Coerce;
 
--- | Indicates whether to validate network traffic to or from this network
--- interface.
+-- | Indicates whether to validate network traffic to or from this network interface.
 iniSourceDestCheck :: Lens' InstanceNetworkInterface (Maybe Bool)
 iniSourceDestCheck = lens _iniSourceDestCheck (\ s a -> s{_iniSourceDestCheck = a});
 
@@ -4597,8 +4443,7 @@ iniPrivateDNSName = lens _iniPrivateDNSName (\ s a -> s{_iniPrivateDNSName = a})
 iniDescription :: Lens' InstanceNetworkInterface (Maybe Text)
 iniDescription = lens _iniDescription (\ s a -> s{_iniDescription = a});
 
--- | The association information for an Elastic IP associated with the
--- network interface.
+-- | The association information for an Elastic IP associated with the network interface.
 iniAssociation :: Lens' InstanceNetworkInterface (Maybe InstanceNetworkInterfaceAssociation)
 iniAssociation = lens _iniAssociation (\ s a -> s{_iniAssociation = a});
 
@@ -4662,8 +4507,7 @@ iniaPublicDNSName = lens _iniaPublicDNSName (\ s a -> s{_iniaPublicDNSName = a})
 iniaIPOwnerId :: Lens' InstanceNetworkInterfaceAssociation (Maybe Text)
 iniaIPOwnerId = lens _iniaIPOwnerId (\ s a -> s{_iniaIPOwnerId = a});
 
--- | The public IP address or Elastic IP address bound to the network
--- interface.
+-- | The public IP address or Elastic IP address bound to the network interface.
 iniaPublicIP :: Lens' InstanceNetworkInterfaceAssociation (Maybe Text)
 iniaPublicIP = lens _iniaPublicIP (\ s a -> s{_iniaPublicIP = a});
 
@@ -4717,8 +4561,7 @@ instanceNetworkInterfaceAttachment =
 iniaStatus :: Lens' InstanceNetworkInterfaceAttachment (Maybe AttachmentStatus)
 iniaStatus = lens _iniaStatus (\ s a -> s{_iniaStatus = a});
 
--- | Indicates whether the network interface is deleted when the instance is
--- terminated.
+-- | Indicates whether the network interface is deleted when the instance is terminated.
 iniaDeleteOnTermination :: Lens' InstanceNetworkInterfaceAttachment (Maybe Bool)
 iniaDeleteOnTermination = lens _iniaDeleteOnTermination (\ s a -> s{_iniaDeleteOnTermination = a});
 
@@ -4730,8 +4573,7 @@ iniaAttachmentId = lens _iniaAttachmentId (\ s a -> s{_iniaAttachmentId = a});
 iniaAttachTime :: Lens' InstanceNetworkInterfaceAttachment (Maybe UTCTime)
 iniaAttachTime = lens _iniaAttachTime (\ s a -> s{_iniaAttachTime = a}) . mapping _Time;
 
--- | The index of the device on the instance for the network interface
--- attachment.
+-- | The index of the device on the instance for the network interface attachment.
 iniaDeviceIndex :: Lens' InstanceNetworkInterfaceAttachment (Maybe Int)
 iniaDeviceIndex = lens _iniaDeviceIndex (\ s a -> s{_iniaDeviceIndex = a});
 
@@ -4803,28 +4645,19 @@ instanceNetworkInterfaceSpecification =
     , _inisDeviceIndex = Nothing
     }
 
--- | The IDs of the security groups for the network interface. Applies only
--- if creating a network interface when launching an instance.
+-- | The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
 inisGroups :: Lens' InstanceNetworkInterfaceSpecification [Text]
 inisGroups = lens _inisGroups (\ s a -> s{_inisGroups = a}) . _Default . _Coerce;
 
--- | One or more private IP addresses to assign to the network interface.
--- Only one private IP address can be designated as primary.
+-- | One or more private IP addresses to assign to the network interface. Only one private IP address can be designated as primary.
 inisPrivateIPAddresses :: Lens' InstanceNetworkInterfaceSpecification [PrivateIPAddressSpecification]
 inisPrivateIPAddresses = lens _inisPrivateIPAddresses (\ s a -> s{_inisPrivateIPAddresses = a}) . _Default . _Coerce;
 
--- | If set to 'true', the interface is deleted when the instance is
--- terminated. You can specify 'true' only if creating a new network
--- interface when launching an instance.
+-- | If set to 'true', the interface is deleted when the instance is terminated. You can specify 'true' only if creating a new network interface when launching an instance.
 inisDeleteOnTermination :: Lens' InstanceNetworkInterfaceSpecification (Maybe Bool)
 inisDeleteOnTermination = lens _inisDeleteOnTermination (\ s a -> s{_inisDeleteOnTermination = a});
 
--- | Indicates whether to assign a public IP address to an instance you
--- launch in a VPC. The public IP address can only be assigned to a network
--- interface for eth0, and can only be assigned to a new network interface,
--- not an existing one. You cannot specify more than one network interface
--- in the request. If launching into a default subnet, the default value is
--- 'true'.
+-- | Indicates whether to assign a public IP address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is 'true'.
 inisAssociatePublicIPAddress :: Lens' InstanceNetworkInterfaceSpecification (Maybe Bool)
 inisAssociatePublicIPAddress = lens _inisAssociatePublicIPAddress (\ s a -> s{_inisAssociatePublicIPAddress = a});
 
@@ -4832,30 +4665,23 @@ inisAssociatePublicIPAddress = lens _inisAssociatePublicIPAddress (\ s a -> s{_i
 inisNetworkInterfaceId :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
 inisNetworkInterfaceId = lens _inisNetworkInterfaceId (\ s a -> s{_inisNetworkInterfaceId = a});
 
--- | The ID of the subnet associated with the network string. Applies only if
--- creating a network interface when launching an instance.
+-- | The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
 inisSubnetId :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
 inisSubnetId = lens _inisSubnetId (\ s a -> s{_inisSubnetId = a});
 
--- | The private IP address of the network interface. Applies only if
--- creating a network interface when launching an instance.
+-- | The private IP address of the network interface. Applies only if creating a network interface when launching an instance.
 inisPrivateIPAddress :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
 inisPrivateIPAddress = lens _inisPrivateIPAddress (\ s a -> s{_inisPrivateIPAddress = a});
 
--- | The number of secondary private IP addresses. You can\'t specify this
--- option and specify more than one private IP address using the private IP
--- addresses option.
+-- | The number of secondary private IP addresses. You can\'t specify this option and specify more than one private IP address using the private IP addresses option.
 inisSecondaryPrivateIPAddressCount :: Lens' InstanceNetworkInterfaceSpecification (Maybe Int)
 inisSecondaryPrivateIPAddressCount = lens _inisSecondaryPrivateIPAddressCount (\ s a -> s{_inisSecondaryPrivateIPAddressCount = a});
 
--- | The description of the network interface. Applies only if creating a
--- network interface when launching an instance.
+-- | The description of the network interface. Applies only if creating a network interface when launching an instance.
 inisDescription :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
 inisDescription = lens _inisDescription (\ s a -> s{_inisDescription = a});
 
--- | The index of the device on the instance for the network interface
--- attachment. If you are specifying a network interface in a
--- < RunInstances> request, you must provide the device index.
+-- | The index of the device on the instance for the network interface attachment. If you are specifying a network interface in a < RunInstances> request, you must provide the device index.
 inisDeviceIndex :: Lens' InstanceNetworkInterfaceSpecification (Maybe Int)
 inisDeviceIndex = lens _inisDeviceIndex (\ s a -> s{_inisDeviceIndex = a});
 
@@ -4933,8 +4759,7 @@ instancePrivateIPAddress =
     , _ipiaAssociation = Nothing
     }
 
--- | Indicates whether this IP address is the primary private IP address of
--- the network interface.
+-- | Indicates whether this IP address is the primary private IP address of the network interface.
 ipiaPrimary :: Lens' InstancePrivateIPAddress (Maybe Bool)
 ipiaPrimary = lens _ipiaPrimary (\ s a -> s{_ipiaPrimary = a});
 
@@ -4946,8 +4771,7 @@ ipiaPrivateIPAddress = lens _ipiaPrivateIPAddress (\ s a -> s{_ipiaPrivateIPAddr
 ipiaPrivateDNSName :: Lens' InstancePrivateIPAddress (Maybe Text)
 ipiaPrivateDNSName = lens _ipiaPrivateDNSName (\ s a -> s{_ipiaPrivateDNSName = a});
 
--- | The association information for an Elastic IP address for the network
--- interface.
+-- | The association information for an Elastic IP address for the network interface.
 ipiaAssociation :: Lens' InstancePrivateIPAddress (Maybe InstanceNetworkInterfaceAssociation)
 ipiaAssociation = lens _ipiaAssociation (\ s a -> s{_ipiaAssociation = a});
 
@@ -4991,8 +4815,7 @@ instanceState pName_ pCode_ =
 isName :: Lens' InstanceState InstanceStateName
 isName = lens _isName (\ s a -> s{_isName = a});
 
--- | The low byte represents the state. The high byte is an opaque internal
--- value and should be ignored.
+-- | The low byte represents the state. The high byte is an opaque internal value and should be ignored.
 --
 -- -   '0' : 'pending'
 --
@@ -5109,9 +4932,7 @@ instanceStatus =
 isInstanceId :: Lens' InstanceStatus (Maybe Text)
 isInstanceId = lens _isInstanceId (\ s a -> s{_isInstanceId = a});
 
--- | Reports impaired functionality that stems from issues related to the
--- systems that support an instance, such as hardware failures and network
--- connectivity problems.
+-- | Reports impaired functionality that stems from issues related to the systems that support an instance, such as hardware failures and network connectivity problems.
 isSystemStatus :: Lens' InstanceStatus (Maybe InstanceStatusSummary)
 isSystemStatus = lens _isSystemStatus (\ s a -> s{_isSystemStatus = a});
 
@@ -5123,13 +4944,11 @@ isEvents = lens _isEvents (\ s a -> s{_isEvents = a}) . _Default . _Coerce;
 isAvailabilityZone :: Lens' InstanceStatus (Maybe Text)
 isAvailabilityZone = lens _isAvailabilityZone (\ s a -> s{_isAvailabilityZone = a});
 
--- | Reports impaired functionality that stems from issues internal to the
--- instance, such as impaired reachability.
+-- | Reports impaired functionality that stems from issues internal to the instance, such as impaired reachability.
 isInstanceStatus :: Lens' InstanceStatus (Maybe InstanceStatusSummary)
 isInstanceStatus = lens _isInstanceStatus (\ s a -> s{_isInstanceStatus = a});
 
--- | The intended state of the instance. < DescribeInstanceStatus> requires
--- that an instance be in the 'running' state.
+-- | The intended state of the instance. < DescribeInstanceStatus> requires that an instance be in the 'running' state.
 isInstanceState :: Lens' InstanceStatus (Maybe InstanceState)
 isInstanceState = lens _isInstanceState (\ s a -> s{_isInstanceState = a});
 
@@ -5178,8 +4997,7 @@ instanceStatusDetails =
 isdStatus :: Lens' InstanceStatusDetails (Maybe StatusType)
 isdStatus = lens _isdStatus (\ s a -> s{_isdStatus = a});
 
--- | The time when a status check failed. For an instance that was launched
--- and impaired, this is the time when the instance was launched.
+-- | The time when a status check failed. For an instance that was launched and impaired, this is the time when the instance was launched.
 isdImpairedSince :: Lens' InstanceStatusDetails (Maybe UTCTime)
 isdImpairedSince = lens _isdImpairedSince (\ s a -> s{_isdImpairedSince = a}) . mapping _Time;
 
@@ -5238,9 +5056,7 @@ iseCode = lens _iseCode (\ s a -> s{_iseCode = a});
 
 -- | A description of the event.
 --
--- After a scheduled event is completed, it can still be described for up
--- to a week. If the event has been completed, this description starts with
--- the following text: [Completed].
+-- After a scheduled event is completed, it can still be described for up to a week. If the event has been completed, this description starts with the following text: [Completed].
 iseDescription :: Lens' InstanceStatusEvent (Maybe Text)
 iseDescription = lens _iseDescription (\ s a -> s{_iseDescription = a});
 
@@ -5421,10 +5237,7 @@ keyPairInfo =
     , _kpiKeyName = Nothing
     }
 
--- | If you used < CreateKeyPair> to create the key pair, this is the SHA-1
--- digest of the DER encoded private key. If you used < ImportKeyPair> to
--- provide AWS the public key, this is the MD5 public key fingerprint as
--- specified in section 4 of RFC4716.
+-- | If you used < CreateKeyPair> to create the key pair, this is the SHA-1 digest of the DER encoded private key. If you used < ImportKeyPair> to provide AWS the public key, this is the MD5 public key fingerprint as specified in section 4 of RFC4716.
 kpiKeyFingerprint :: Lens' KeyPairInfo (Maybe Text)
 kpiKeyFingerprint = lens _kpiKeyFingerprint (\ s a -> s{_kpiKeyFingerprint = a});
 
@@ -5509,8 +5322,7 @@ launchPermissionModifications =
     , _lpmAdd = Nothing
     }
 
--- | The AWS account ID to remove from the list of launch permissions for the
--- AMI.
+-- | The AWS account ID to remove from the list of launch permissions for the AMI.
 lpmRemove :: Lens' LaunchPermissionModifications [LaunchPermission]
 lpmRemove = lens _lpmRemove (\ s a -> s{_lpmRemove = a}) . _Default . _Coerce;
 
@@ -5603,10 +5415,7 @@ launchSpecification =
     , _lsPlacement = Nothing
     }
 
--- | One or more security groups. When requesting instances in a VPC, you
--- must specify the IDs of the security groups. When requesting instances
--- in EC2-Classic, you can specify the names or the IDs of the security
--- groups.
+-- | One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
 lsSecurityGroups :: Lens' LaunchSpecification [GroupIdentifier]
 lsSecurityGroups = lens _lsSecurityGroups (\ s a -> s{_lsSecurityGroups = a}) . _Default . _Coerce;
 
@@ -5634,11 +5443,7 @@ lsKernelId = lens _lsKernelId (\ s a -> s{_lsKernelId = a});
 lsInstanceType :: Lens' LaunchSpecification (Maybe InstanceType)
 lsInstanceType = lens _lsInstanceType (\ s a -> s{_lsInstanceType = a});
 
--- | Indicates whether the instance is optimized for EBS I\/O. This
--- optimization provides dedicated throughput to Amazon EBS and an
--- optimized configuration stack to provide optimal EBS I\/O performance.
--- This optimization isn\'t available with all instance types. Additional
--- usage charges apply when using an EBS Optimized instance.
+-- | Indicates whether the instance is optimized for EBS I\/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I\/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 --
 -- Default: 'false'
 lsEBSOptimized :: Lens' LaunchSpecification (Maybe Bool)
@@ -5666,8 +5471,7 @@ lsAddressingType = lens _lsAddressingType (\ s a -> s{_lsAddressingType = a});
 
 -- | One or more block device mapping entries.
 --
--- Although you can specify encrypted EBS volumes in this block device
--- mapping for your Spot Instances, these volumes are not encrypted.
+-- Although you can specify encrypted EBS volumes in this block device mapping for your Spot Instances, these volumes are not encrypted.
 lsBlockDeviceMappings :: Lens' LaunchSpecification [BlockDeviceMapping]
 lsBlockDeviceMappings = lens _lsBlockDeviceMappings (\ s a -> s{_lsBlockDeviceMappings = a}) . _Default . _Coerce;
 
@@ -5756,8 +5560,7 @@ movingAddressStatus =
     , _masPublicIP = Nothing
     }
 
--- | The status of the Elastic IP address that\'s being moved to the EC2-VPC
--- platform, or restored to the EC2-Classic platform.
+-- | The status of the Elastic IP address that\'s being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.
 masMoveStatus :: Lens' MovingAddressStatus (Maybe MoveStatus)
 masMoveStatus = lens _masMoveStatus (\ s a -> s{_masMoveStatus = a});
 
@@ -5829,11 +5632,7 @@ natGateway =
 ngState :: Lens' NatGateway (Maybe NatGatewayState)
 ngState = lens _ngState (\ s a -> s{_ngState = a});
 
--- | If the NAT gateway could not be created, specifies the error code for
--- the failure. ('InsufficientFreeAddressesInSubnet' |
--- 'Gateway.NotAttached' | 'InvalidAllocationID.NotFound' |
--- 'Resource.AlreadyAssociated' | 'InternalError' |
--- 'InvalidSubnetID.NotFound')
+-- | If the NAT gateway could not be created, specifies the error code for the failure. ('InsufficientFreeAddressesInSubnet' | 'Gateway.NotAttached' | 'InvalidAllocationID.NotFound' | 'Resource.AlreadyAssociated' | 'InternalError' | 'InvalidSubnetID.NotFound')
 ngFailureCode :: Lens' NatGateway (Maybe Text)
 ngFailureCode = lens _ngFailureCode (\ s a -> s{_ngFailureCode = a});
 
@@ -5841,27 +5640,19 @@ ngFailureCode = lens _ngFailureCode (\ s a -> s{_ngFailureCode = a});
 ngVPCId :: Lens' NatGateway (Maybe Text)
 ngVPCId = lens _ngVPCId (\ s a -> s{_ngVPCId = a});
 
--- | If the NAT gateway could not be created, specifies the error message for
--- the failure, that corresponds to the error code.
+-- | If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.
 --
--- -   For InsufficientFreeAddressesInSubnet: \"Subnet has insufficient
---     free addresses to create this NAT gateway\"
+-- -   For InsufficientFreeAddressesInSubnet: \"Subnet has insufficient free addresses to create this NAT gateway\"
 --
--- -   For Gateway.NotAttached: \"Network vpc-xxxxxxxx has no Internet
---     gateway attached\"
+-- -   For Gateway.NotAttached: \"Network vpc-xxxxxxxx has no Internet gateway attached\"
 --
--- -   For InvalidAllocationID.NotFound: \"Elastic IP address
---     eipalloc-xxxxxxxx could not be associated with this NAT gateway\"
+-- -   For InvalidAllocationID.NotFound: \"Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway\"
 --
--- -   For Resource.AlreadyAssociated: \"Elastic IP address
---     eipalloc-xxxxxxxx is already associated\"
+-- -   For Resource.AlreadyAssociated: \"Elastic IP address eipalloc-xxxxxxxx is already associated\"
 --
--- -   For InternalError: \"Network interface eni-xxxxxxxx, created and
---     used internally by this NAT gateway is in an invalid state. Please
---     try again.\"
+-- -   For InternalError: \"Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again.\"
 --
--- -   For InvalidSubnetID.NotFound: \"The specified subnet subnet-xxxxxxxx
---     does not exist or could not be found.\"
+-- -   For InvalidSubnetID.NotFound: \"The specified subnet subnet-xxxxxxxx does not exist or could not be found.\"
 --
 ngFailureMessage :: Lens' NatGateway (Maybe Text)
 ngFailureMessage = lens _ngFailureMessage (\ s a -> s{_ngFailureMessage = a});
@@ -5878,8 +5669,7 @@ ngSubnetId = lens _ngSubnetId (\ s a -> s{_ngSubnetId = a});
 ngDeleteTime :: Lens' NatGateway (Maybe UTCTime)
 ngDeleteTime = lens _ngDeleteTime (\ s a -> s{_ngDeleteTime = a}) . mapping _Time;
 
--- | Information about the IP addresses and network interface associated with
--- the NAT gateway.
+-- | Information about the IP addresses and network interface associated with the NAT gateway.
 ngNatGatewayAddresses :: Lens' NatGateway [NatGatewayAddress]
 ngNatGatewayAddresses = lens _ngNatGatewayAddresses (\ s a -> s{_ngNatGatewayAddresses = a}) . _Default . _Coerce;
 
@@ -5905,8 +5695,7 @@ instance Hashable NatGateway
 
 instance NFData NatGateway
 
--- | Describes the IP addresses and network interface associated with a NAT
--- gateway.
+-- | Describes the IP addresses and network interface associated with a NAT gateway.
 --
 -- /See:/ 'natGatewayAddress' smart constructor.
 data NatGatewayAddress = NatGatewayAddress'
@@ -5941,8 +5730,7 @@ natGatewayAddress =
 ngaPrivateIP :: Lens' NatGatewayAddress (Maybe Text)
 ngaPrivateIP = lens _ngaPrivateIP (\ s a -> s{_ngaPrivateIP = a});
 
--- | The allocation ID of the Elastic IP address that\'s associated with the
--- NAT gateway.
+-- | The allocation ID of the Elastic IP address that\'s associated with the NAT gateway.
 ngaAllocationId :: Lens' NatGatewayAddress (Maybe Text)
 ngaAllocationId = lens _ngaAllocationId (\ s a -> s{_ngaAllocationId = a});
 
@@ -6143,8 +5931,7 @@ networkACLEntry =
 naeICMPTypeCode :: Lens' NetworkACLEntry (Maybe ICMPTypeCode)
 naeICMPTypeCode = lens _naeICMPTypeCode (\ s a -> s{_naeICMPTypeCode = a});
 
--- | The rule number for the entry. ACL entries are processed in ascending
--- order by rule number.
+-- | The rule number for the entry. ACL entries are processed in ascending order by rule number.
 naeRuleNumber :: Lens' NetworkACLEntry (Maybe Int)
 naeRuleNumber = lens _naeRuleNumber (\ s a -> s{_naeRuleNumber = a});
 
@@ -6164,8 +5951,7 @@ naePortRange = lens _naePortRange (\ s a -> s{_naePortRange = a});
 naeCIdRBlock :: Lens' NetworkACLEntry (Maybe Text)
 naeCIdRBlock = lens _naeCIdRBlock (\ s a -> s{_naeCIdRBlock = a});
 
--- | Indicates whether the rule is an egress rule (applied to traffic leaving
--- the subnet).
+-- | Indicates whether the rule is an egress rule (applied to traffic leaving the subnet).
 naeEgress :: Lens' NetworkACLEntry (Maybe Bool)
 naeEgress = lens _naeEgress (\ s a -> s{_naeEgress = a});
 
@@ -6338,8 +6124,7 @@ niPrivateIPAddress = lens _niPrivateIPAddress (\ s a -> s{_niPrivateIPAddress = 
 niPrivateDNSName :: Lens' NetworkInterface (Maybe Text)
 niPrivateDNSName = lens _niPrivateDNSName (\ s a -> s{_niPrivateDNSName = a});
 
--- | The ID of the entity that launched the instance on your behalf (for
--- example, AWS Management Console or Auto Scaling).
+-- | The ID of the entity that launched the instance on your behalf (for example, AWS Management Console or Auto Scaling).
 niRequesterId :: Lens' NetworkInterface (Maybe Text)
 niRequesterId = lens _niRequesterId (\ s a -> s{_niRequesterId = a});
 
@@ -6347,8 +6132,7 @@ niRequesterId = lens _niRequesterId (\ s a -> s{_niRequesterId = a});
 niDescription :: Lens' NetworkInterface (Maybe Text)
 niDescription = lens _niDescription (\ s a -> s{_niDescription = a});
 
--- | The association information for an Elastic IP associated with the
--- network interface.
+-- | The association information for an Elastic IP associated with the network interface.
 niAssociation :: Lens' NetworkInterface (Maybe NetworkInterfaceAssociation)
 niAssociation = lens _niAssociation (\ s a -> s{_niAssociation = a});
 
@@ -6502,8 +6286,7 @@ niaInstanceId = lens _niaInstanceId (\ s a -> s{_niaInstanceId = a});
 niaStatus :: Lens' NetworkInterfaceAttachment (Maybe AttachmentStatus)
 niaStatus = lens _niaStatus (\ s a -> s{_niaStatus = a});
 
--- | Indicates whether the network interface is deleted when the instance is
--- terminated.
+-- | Indicates whether the network interface is deleted when the instance is terminated.
 niaDeleteOnTermination :: Lens' NetworkInterfaceAttachment (Maybe Bool)
 niaDeleteOnTermination = lens _niaDeleteOnTermination (\ s a -> s{_niaDeleteOnTermination = a});
 
@@ -6560,8 +6343,7 @@ networkInterfaceAttachmentChanges =
     , _niacAttachmentId = Nothing
     }
 
--- | Indicates whether the network interface is deleted when the instance is
--- terminated.
+-- | Indicates whether the network interface is deleted when the instance is terminated.
 niacDeleteOnTermination :: Lens' NetworkInterfaceAttachmentChanges (Maybe Bool)
 niacDeleteOnTermination = lens _niacDeleteOnTermination (\ s a -> s{_niacDeleteOnTermination = a});
 
@@ -6611,8 +6393,7 @@ networkInterfacePrivateIPAddress =
     , _nipiaAssociation = Nothing
     }
 
--- | Indicates whether this IP address is the primary private IP address of
--- the network interface.
+-- | Indicates whether this IP address is the primary private IP address of the network interface.
 nipiaPrimary :: Lens' NetworkInterfacePrivateIPAddress (Maybe Bool)
 nipiaPrimary = lens _nipiaPrimary (\ s a -> s{_nipiaPrimary = a});
 
@@ -6624,8 +6405,7 @@ nipiaPrivateIPAddress = lens _nipiaPrivateIPAddress (\ s a -> s{_nipiaPrivateIPA
 nipiaPrivateDNSName :: Lens' NetworkInterfacePrivateIPAddress (Maybe Text)
 nipiaPrivateDNSName = lens _nipiaPrivateDNSName (\ s a -> s{_nipiaPrivateDNSName = a});
 
--- | The association information for an Elastic IP address associated with
--- the network interface.
+-- | The association information for an Elastic IP address associated with the network interface.
 nipiaAssociation :: Lens' NetworkInterfacePrivateIPAddress (Maybe NetworkInterfaceAssociation)
 nipiaAssociation = lens _nipiaAssociation (\ s a -> s{_nipiaAssociation = a});
 
@@ -6703,14 +6483,11 @@ peeringConnectionOptions =
     , _pcoAllowEgressFromLocalClassicLinkToRemoteVPC = Nothing
     }
 
--- | If true, enables outbound communication from instances in a local VPC to
--- an EC2-Classic instance that\'s linked to a peer VPC via ClassicLink.
+-- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that\'s linked to a peer VPC via ClassicLink.
 pcoAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' PeeringConnectionOptions (Maybe Bool)
 pcoAllowEgressFromLocalVPCToRemoteClassicLink = lens _pcoAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_pcoAllowEgressFromLocalVPCToRemoteClassicLink = a});
 
--- | If true, enables outbound communication from an EC2-Classic instance
--- that\'s linked to a local VPC via ClassicLink to instances in a peer
--- VPC.
+-- | If true, enables outbound communication from an EC2-Classic instance that\'s linked to a local VPC via ClassicLink to instances in a peer VPC.
 pcoAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' PeeringConnectionOptions (Maybe Bool)
 pcoAllowEgressFromLocalClassicLinkToRemoteVPC = lens _pcoAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_pcoAllowEgressFromLocalClassicLinkToRemoteVPC = a});
 
@@ -6750,14 +6527,11 @@ peeringConnectionOptionsRequest pAllowEgressFromLocalClassicLinkToRemoteVPC_ pAl
     , _pcorAllowEgressFromLocalVPCToRemoteClassicLink = pAllowEgressFromLocalVPCToRemoteClassicLink_
     }
 
--- | If true, enables outbound communication from an EC2-Classic instance
--- that\'s linked to a local VPC via ClassicLink to instances in a peer
--- VPC.
+-- | If true, enables outbound communication from an EC2-Classic instance that\'s linked to a local VPC via ClassicLink to instances in a peer VPC.
 pcorAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' PeeringConnectionOptionsRequest Bool
 pcorAllowEgressFromLocalClassicLinkToRemoteVPC = lens _pcorAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_pcorAllowEgressFromLocalClassicLinkToRemoteVPC = a});
 
--- | If true, enables outbound communication from instances in a local VPC to
--- an EC2-Classic instance that\'s linked to a peer VPC via ClassicLink.
+-- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that\'s linked to a peer VPC via ClassicLink.
 pcorAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' PeeringConnectionOptionsRequest Bool
 pcorAllowEgressFromLocalVPCToRemoteClassicLink = lens _pcorAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_pcorAllowEgressFromLocalVPCToRemoteClassicLink = a});
 
@@ -6809,13 +6583,11 @@ placement =
     , _pGroupName = Nothing
     }
 
--- | The affinity setting for the instance on the Dedicated host. This
--- parameter is not supported for the < ImportInstance> command.
+-- | The affinity setting for the instance on the Dedicated host. This parameter is not supported for the < ImportInstance> command.
 pAffinity :: Lens' Placement (Maybe Text)
 pAffinity = lens _pAffinity (\ s a -> s{_pAffinity = a});
 
--- | The ID of the Dedicted host on which the instance resides. This
--- parameter is not support for the < ImportInstance> command.
+-- | The ID of the Dedicted host on which the instance resides. This parameter is not support for the < ImportInstance> command.
 pHostId :: Lens' Placement (Maybe Text)
 pHostId = lens _pHostId (\ s a -> s{_pHostId = a});
 
@@ -6823,14 +6595,11 @@ pHostId = lens _pHostId (\ s a -> s{_pHostId = a});
 pAvailabilityZone :: Lens' Placement (Maybe Text)
 pAvailabilityZone = lens _pAvailabilityZone (\ s a -> s{_pAvailabilityZone = a});
 
--- | The tenancy of the instance (if the instance is running in a VPC). An
--- instance with a tenancy of 'dedicated' runs on single-tenant hardware.
--- The 'host' tenancy is not supported for the < ImportInstance> command.
+-- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of 'dedicated' runs on single-tenant hardware. The 'host' tenancy is not supported for the < ImportInstance> command.
 pTenancy :: Lens' Placement (Maybe Tenancy)
 pTenancy = lens _pTenancy (\ s a -> s{_pTenancy = a});
 
--- | The name of the placement group the instance is in (for cluster compute
--- instances).
+-- | The name of the placement group the instance is in (for cluster compute instances).
 pGroupName :: Lens' Placement (Maybe Text)
 pGroupName = lens _pGroupName (\ s a -> s{_pGroupName = a});
 
@@ -7061,26 +6830,17 @@ priceSchedule =
     , _psPrice = Nothing
     }
 
--- | The currency for transacting the Reserved Instance resale. At this time,
--- the only supported currency is 'USD'.
+-- | The currency for transacting the Reserved Instance resale. At this time, the only supported currency is 'USD'.
 psCurrencyCode :: Lens' PriceSchedule (Maybe CurrencyCodeValues)
 psCurrencyCode = lens _psCurrencyCode (\ s a -> s{_psCurrencyCode = a});
 
--- | The number of months remaining in the reservation. For example, 2 is the
--- second to the last month before the capacity reservation expires.
+-- | The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
 psTerm :: Lens' PriceSchedule (Maybe Integer)
 psTerm = lens _psTerm (\ s a -> s{_psTerm = a});
 
--- | The current price schedule, as determined by the term remaining for the
--- Reserved Instance in the listing.
+-- | The current price schedule, as determined by the term remaining for the Reserved Instance in the listing.
 --
--- A specific price schedule is always in effect, but only one price
--- schedule can be active at any time. Take, for example, a Reserved
--- Instance listing that has five months remaining in its term. When you
--- specify price schedules for five months and two months, this means that
--- schedule 1, covering the first three months of the remaining term, will
--- be active during months 5, 4, and 3. Then schedule 2, covering the last
--- two months of the term, will be active for months 2 and 1.
+-- A specific price schedule is always in effect, but only one price schedule can be active at any time. Take, for example, a Reserved Instance listing that has five months remaining in its term. When you specify price schedules for five months and two months, this means that schedule 1, covering the first three months of the remaining term, will be active during months 5, 4, and 3. Then schedule 2, covering the last two months of the term, will be active for months 2 and 1.
 psActive :: Lens' PriceSchedule (Maybe Bool)
 psActive = lens _psActive (\ s a -> s{_psActive = a});
 
@@ -7126,13 +6886,11 @@ priceScheduleSpecification =
     , _pssPrice = Nothing
     }
 
--- | The currency for transacting the Reserved Instance resale. At this time,
--- the only supported currency is 'USD'.
+-- | The currency for transacting the Reserved Instance resale. At this time, the only supported currency is 'USD'.
 pssCurrencyCode :: Lens' PriceScheduleSpecification (Maybe CurrencyCodeValues)
 pssCurrencyCode = lens _pssCurrencyCode (\ s a -> s{_pssCurrencyCode = a});
 
--- | The number of months remaining in the reservation. For example, 2 is the
--- second to the last month before the capacity reservation expires.
+-- | The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
 pssTerm :: Lens' PriceScheduleSpecification (Maybe Integer)
 pssTerm = lens _pssTerm (\ s a -> s{_pssTerm = a});
 
@@ -7214,8 +6972,7 @@ privateIPAddressSpecification pPrivateIPAddress_ =
     , _piasPrivateIPAddress = pPrivateIPAddress_
     }
 
--- | Indicates whether the private IP address is the primary private IP
--- address. Only one IP address can be designated as primary.
+-- | Indicates whether the private IP address is the primary private IP address. Only one IP address can be designated as primary.
 piasPrimary :: Lens' PrivateIPAddressSpecification (Maybe Bool)
 piasPrimary = lens _piasPrimary (\ s a -> s{_piasPrimary = a});
 
@@ -7542,11 +7299,7 @@ rslsKernelId = lens _rslsKernelId (\ s a -> s{_rslsKernelId = a});
 rslsInstanceType :: Lens' RequestSpotLaunchSpecification (Maybe InstanceType)
 rslsInstanceType = lens _rslsInstanceType (\ s a -> s{_rslsInstanceType = a});
 
--- | Indicates whether the instance is optimized for EBS I\/O. This
--- optimization provides dedicated throughput to Amazon EBS and an
--- optimized configuration stack to provide optimal EBS I\/O performance.
--- This optimization isn\'t available with all instance types. Additional
--- usage charges apply when using an EBS Optimized instance.
+-- | Indicates whether the instance is optimized for EBS I\/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I\/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 --
 -- Default: 'false'
 rslsEBSOptimized :: Lens' RequestSpotLaunchSpecification (Maybe Bool)
@@ -7574,8 +7327,7 @@ rslsAddressingType = lens _rslsAddressingType (\ s a -> s{_rslsAddressingType = 
 
 -- | One or more block device mapping entries.
 --
--- Although you can specify encrypted EBS volumes in this block device
--- mapping for your Spot Instances, these volumes are not encrypted.
+-- Although you can specify encrypted EBS volumes in this block device mapping for your Spot Instances, these volumes are not encrypted.
 rslsBlockDeviceMappings :: Lens' RequestSpotLaunchSpecification [BlockDeviceMapping]
 rslsBlockDeviceMappings = lens _rslsBlockDeviceMappings (\ s a -> s{_rslsBlockDeviceMappings = a}) . _Default . _Coerce;
 
@@ -7660,8 +7412,7 @@ rGroups = lens _rGroups (\ s a -> s{_rGroups = a}) . _Default . _Coerce;
 rInstances :: Lens' Reservation [Instance]
 rInstances = lens _rInstances (\ s a -> s{_rInstances = a}) . _Default . _Coerce;
 
--- | The ID of the requester that launched the instances on your behalf (for
--- example, AWS Management Console or Auto Scaling).
+-- | The ID of the requester that launched the instances on your behalf (for example, AWS Management Console or Auto Scaling).
 rRequesterId :: Lens' Reservation (Maybe Text)
 rRequesterId = lens _rRequesterId (\ s a -> s{_rRequesterId = a});
 
@@ -7712,13 +7463,11 @@ reservedInstanceLimitPrice =
     , _rilpCurrencyCode = Nothing
     }
 
--- | Used for Reserved Instance Marketplace offerings. Specifies the limit
--- price on the total order (instanceCount * price).
+-- | Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total order (instanceCount * price).
 rilpAmount :: Lens' ReservedInstanceLimitPrice (Maybe Double)
 rilpAmount = lens _rilpAmount (\ s a -> s{_rilpAmount = a});
 
--- | The currency in which the 'limitPrice' amount is specified. At this
--- time, the only supported currency is 'USD'.
+-- | The currency in which the 'limitPrice' amount is specified. At this time, the only supported currency is 'USD'.
 rilpCurrencyCode :: Lens' ReservedInstanceLimitPrice (Maybe CurrencyCodeValues)
 rilpCurrencyCode = lens _rilpCurrencyCode (\ s a -> s{_rilpCurrencyCode = a});
 
@@ -7815,9 +7564,7 @@ reservedInstances =
 riState :: Lens' ReservedInstances (Maybe ReservedInstanceState)
 riState = lens _riState (\ s a -> s{_riState = a});
 
--- | The currency of the Reserved Instance. It\'s specified using ISO 4217
--- standard currency codes. At this time, the only supported currency is
--- 'USD'.
+-- | The currency of the Reserved Instance. It\'s specified using ISO 4217 standard currency codes. At this time, the only supported currency is 'USD'.
 riCurrencyCode :: Lens' ReservedInstances (Maybe CurrencyCodeValues)
 riCurrencyCode = lens _riCurrencyCode (\ s a -> s{_riCurrencyCode = a});
 
@@ -7904,8 +7651,7 @@ instance Hashable ReservedInstances
 
 instance NFData ReservedInstances
 
--- | Describes the configuration settings for the modified Reserved
--- Instances.
+-- | Describes the configuration settings for the modified Reserved Instances.
 --
 -- /See:/ 'reservedInstancesConfiguration' smart constructor.
 data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
@@ -7936,8 +7682,7 @@ reservedInstancesConfiguration =
     , _ricAvailabilityZone = Nothing
     }
 
--- | The network platform of the modified Reserved Instances, which is either
--- EC2-Classic or EC2-VPC.
+-- | The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
 ricPlatform :: Lens' ReservedInstancesConfiguration (Maybe Text)
 ricPlatform = lens _ricPlatform (\ s a -> s{_ricPlatform = a});
 
@@ -8063,9 +7808,7 @@ reservedInstancesListing =
 rilStatus :: Lens' ReservedInstancesListing (Maybe ListingStatus)
 rilStatus = lens _rilStatus (\ s a -> s{_rilStatus = a});
 
--- | A unique, case-sensitive key supplied by the client to ensure that the
--- request is idempotent. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 rilClientToken :: Lens' ReservedInstancesListing (Maybe Text)
 rilClientToken = lens _rilClientToken (\ s a -> s{_rilClientToken = a});
 
@@ -8081,8 +7824,7 @@ rilCreateDate = lens _rilCreateDate (\ s a -> s{_rilCreateDate = a}) . mapping _
 rilPriceSchedules :: Lens' ReservedInstancesListing [PriceSchedule]
 rilPriceSchedules = lens _rilPriceSchedules (\ s a -> s{_rilPriceSchedules = a}) . _Default . _Coerce;
 
--- | The reason for the current status of the Reserved Instance listing. The
--- response can be blank.
+-- | The reason for the current status of the Reserved Instance listing. The response can be blank.
 rilStatusMessage :: Lens' ReservedInstancesListing (Maybe Text)
 rilStatusMessage = lens _rilStatusMessage (\ s a -> s{_rilStatusMessage = a});
 
@@ -8176,8 +7918,7 @@ reservedInstancesModification =
     , _rimReservedInstancesIds = Nothing
     }
 
--- | Contains target configurations along with their corresponding new
--- Reserved Instance IDs.
+-- | Contains target configurations along with their corresponding new Reserved Instance IDs.
 rimModificationResults :: Lens' ReservedInstancesModification [ReservedInstancesModificationResult]
 rimModificationResults = lens _rimModificationResults (\ s a -> s{_rimModificationResults = a}) . _Default . _Coerce;
 
@@ -8185,9 +7926,7 @@ rimModificationResults = lens _rimModificationResults (\ s a -> s{_rimModificati
 rimStatus :: Lens' ReservedInstancesModification (Maybe Text)
 rimStatus = lens _rimStatus (\ s a -> s{_rimStatus = a});
 
--- | A unique, case-sensitive key supplied by the client to ensure that the
--- request is idempotent. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 rimClientToken :: Lens' ReservedInstancesModification (Maybe Text)
 rimClientToken = lens _rimClientToken (\ s a -> s{_rimClientToken = a});
 
@@ -8258,14 +7997,11 @@ reservedInstancesModificationResult =
     , _rimrTargetConfiguration = Nothing
     }
 
--- | The ID for the Reserved Instances that were created as part of the
--- modification request. This field is only available when the modification
--- is fulfilled.
+-- | The ID for the Reserved Instances that were created as part of the modification request. This field is only available when the modification is fulfilled.
 rimrReservedInstancesId :: Lens' ReservedInstancesModificationResult (Maybe Text)
 rimrReservedInstancesId = lens _rimrReservedInstancesId (\ s a -> s{_rimrReservedInstancesId = a});
 
--- | The target Reserved Instances configurations supplied as part of the
--- modification request.
+-- | The target Reserved Instances configurations supplied as part of the modification request.
 rimrTargetConfiguration :: Lens' ReservedInstancesModificationResult (Maybe ReservedInstancesConfiguration)
 rimrTargetConfiguration = lens _rimrTargetConfiguration (\ s a -> s{_rimrTargetConfiguration = a});
 
@@ -8347,15 +8083,11 @@ reservedInstancesOffering =
     , _rioDuration = Nothing
     }
 
--- | Indicates whether the offering is available through the Reserved
--- Instance Marketplace (resale) or AWS. If it\'s a Reserved Instance
--- Marketplace offering, this is 'true'.
+-- | Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS. If it\'s a Reserved Instance Marketplace offering, this is 'true'.
 rioMarketplace :: Lens' ReservedInstancesOffering (Maybe Bool)
 rioMarketplace = lens _rioMarketplace (\ s a -> s{_rioMarketplace = a});
 
--- | The currency of the Reserved Instance offering you are purchasing. It\'s
--- specified using ISO 4217 standard currency codes. At this time, the only
--- supported currency is 'USD'.
+-- | The currency of the Reserved Instance offering you are purchasing. It\'s specified using ISO 4217 standard currency codes. At this time, the only supported currency is 'USD'.
 rioCurrencyCode :: Lens' ReservedInstancesOffering (Maybe CurrencyCodeValues)
 rioCurrencyCode = lens _rioCurrencyCode (\ s a -> s{_rioCurrencyCode = a});
 
@@ -8492,21 +8224,16 @@ rInstanceId = lens _rInstanceId (\ s a -> s{_rInstanceId = a});
 
 -- | Describes how the route was created.
 --
--- -   'CreateRouteTable' - The route was automatically created when the
---     route table was created.
+-- -   'CreateRouteTable' - The route was automatically created when the route table was created.
 --
 -- -   'CreateRoute' - The route was manually added to the route table.
 --
--- -   'EnableVgwRoutePropagation' - The route was propagated by route
---     propagation.
+-- -   'EnableVgwRoutePropagation' - The route was propagated by route propagation.
 --
 rOrigin :: Lens' Route (Maybe RouteOrigin)
 rOrigin = lens _rOrigin (\ s a -> s{_rOrigin = a});
 
--- | The state of the route. The 'blackhole' state indicates that the
--- route\'s target isn\'t available (for example, the specified gateway
--- isn\'t attached to the VPC, or the specified NAT instance has been
--- terminated).
+-- | The state of the route. The 'blackhole' state indicates that the route\'s target isn\'t available (for example, the specified gateway isn\'t attached to the VPC, or the specified NAT instance has been terminated).
 rState :: Lens' Route (Maybe RouteState)
 rState = lens _rState (\ s a -> s{_rState = a});
 
@@ -8679,8 +8406,7 @@ rtaRouteTableAssociationId = lens _rtaRouteTableAssociationId (\ s a -> s{_rtaRo
 rtaMain :: Lens' RouteTableAssociation (Maybe Bool)
 rtaMain = lens _rtaMain (\ s a -> s{_rtaMain = a});
 
--- | The ID of the subnet. A subnet ID is not returned for an implicit
--- association.
+-- | The ID of the subnet. A subnet ID is not returned for an implicit association.
 rtaSubnetId :: Lens' RouteTableAssociation (Maybe Text)
 rtaSubnetId = lens _rtaSubnetId (\ s a -> s{_rtaSubnetId = a});
 
@@ -8732,8 +8458,7 @@ instance ToQuery RunInstancesMonitoringEnabled where
         toQuery RunInstancesMonitoringEnabled'{..}
           = mconcat ["Enabled" =: _rimeEnabled]
 
--- | Describes the storage parameters for S3 and S3 buckets for an instance
--- store-backed AMI.
+-- | Describes the storage parameters for S3 and S3 buckets for an instance store-backed AMI.
 --
 -- /See:/ 's3Storage' smart constructor.
 data S3Storage = S3Storage'
@@ -8772,9 +8497,7 @@ s3Storage =
 ssPrefix :: Lens' S3Storage (Maybe Text)
 ssPrefix = lens _ssPrefix (\ s a -> s{_ssPrefix = a});
 
--- | A base64-encoded Amazon S3 upload policy that gives Amazon EC2
--- permission to upload items into Amazon S3 on your behalf. For command
--- line tools, base64 encoding is performed for you.
+-- | A base64-encoded Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf. For command line tools, base64 encoding is performed for you.
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
@@ -8784,10 +8507,7 @@ ssPrefix = lens _ssPrefix (\ s a -> s{_ssPrefix = a});
 ssUploadPolicy :: Lens' S3Storage (Maybe ByteString)
 ssUploadPolicy = lens _ssUploadPolicy (\ s a -> s{_ssUploadPolicy = a}) . mapping _Base64;
 
--- | The bucket in which to store the AMI. You can specify a bucket that you
--- already own or a new bucket that Amazon EC2 creates on your behalf. If
--- you specify a bucket that belongs to someone else, Amazon EC2 returns an
--- error.
+-- | The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
 ssBucket :: Lens' S3Storage (Maybe Text)
 ssBucket = lens _ssBucket (\ s a -> s{_ssBucket = a});
 
@@ -8795,9 +8515,7 @@ ssBucket = lens _ssBucket (\ s a -> s{_ssBucket = a});
 ssUploadPolicySignature :: Lens' S3Storage (Maybe Text)
 ssUploadPolicySignature = lens _ssUploadPolicySignature (\ s a -> s{_ssUploadPolicySignature = a});
 
--- | The access key ID of the owner of the bucket. Before you specify a value
--- for your access key ID, review and follow the guidance in
--- <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys>.
+-- | The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys>.
 ssAWSAccessKeyId :: Lens' S3Storage (Maybe Text)
 ssAWSAccessKeyId = lens _ssAWSAccessKeyId (\ s a -> s{_ssAWSAccessKeyId = a});
 
@@ -9074,8 +8792,7 @@ siaSlotDurationInHours = lens _siaSlotDurationInHours (\ s a -> s{_siaSlotDurati
 siaTotalScheduledInstanceHours :: Lens' ScheduledInstanceAvailability (Maybe Int)
 siaTotalScheduledInstanceHours = lens _siaTotalScheduledInstanceHours (\ s a -> s{_siaTotalScheduledInstanceHours = a});
 
--- | The instance type. You can specify one of the C3, C4, M4, or R3 instance
--- types.
+-- | The instance type. You can specify one of the C3, C4, M4, or R3 instance types.
 siaInstanceType :: Lens' ScheduledInstanceAvailability (Maybe Text)
 siaInstanceType = lens _siaInstanceType (\ s a -> s{_siaInstanceType = a});
 
@@ -9159,8 +8876,7 @@ scheduledInstanceRecurrence =
 sirFrequency :: Lens' ScheduledInstanceRecurrence (Maybe Text)
 sirFrequency = lens _sirFrequency (\ s a -> s{_sirFrequency = a});
 
--- | Indicates whether the occurrence is relative to the end of the specified
--- week or month.
+-- | Indicates whether the occurrence is relative to the end of the specified week or month.
 sirOccurrenceRelativeToEnd :: Lens' ScheduledInstanceRecurrence (Maybe Bool)
 sirOccurrenceRelativeToEnd = lens _sirOccurrenceRelativeToEnd (\ s a -> s{_sirOccurrenceRelativeToEnd = a});
 
@@ -9168,14 +8884,11 @@ sirOccurrenceRelativeToEnd = lens _sirOccurrenceRelativeToEnd (\ s a -> s{_sirOc
 sirOccurrenceUnit :: Lens' ScheduledInstanceRecurrence (Maybe Text)
 sirOccurrenceUnit = lens _sirOccurrenceUnit (\ s a -> s{_sirOccurrenceUnit = a});
 
--- | The interval quantity. The interval unit depends on the value of
--- 'frequency'. For example, every 2 weeks or every 2 months.
+-- | The interval quantity. The interval unit depends on the value of 'frequency'. For example, every 2 weeks or every 2 months.
 sirInterval :: Lens' ScheduledInstanceRecurrence (Maybe Int)
 sirInterval = lens _sirInterval (\ s a -> s{_sirInterval = a});
 
--- | The days. For a monthly schedule, this is one or more days of the month
--- (1-31). For a weekly schedule, this is one or more days of the week
--- (1-7, where 1 is Sunday).
+-- | The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).
 sirOccurrenceDaySet :: Lens' ScheduledInstanceRecurrence [Int]
 sirOccurrenceDaySet = lens _sirOccurrenceDaySet (\ s a -> s{_sirOccurrenceDaySet = a}) . _Default . _Coerce;
 
@@ -9233,27 +8946,19 @@ scheduledInstanceRecurrenceRequest =
 sirrFrequency :: Lens' ScheduledInstanceRecurrenceRequest (Maybe Text)
 sirrFrequency = lens _sirrFrequency (\ s a -> s{_sirrFrequency = a});
 
--- | Indicates whether the occurrence is relative to the end of the specified
--- week or month. You can\'t specify this value with a daily schedule.
+-- | Indicates whether the occurrence is relative to the end of the specified week or month. You can\'t specify this value with a daily schedule.
 sirrOccurrenceRelativeToEnd :: Lens' ScheduledInstanceRecurrenceRequest (Maybe Bool)
 sirrOccurrenceRelativeToEnd = lens _sirrOccurrenceRelativeToEnd (\ s a -> s{_sirrOccurrenceRelativeToEnd = a});
 
--- | The days. For a monthly schedule, this is one or more days of the month
--- (1-31). For a weekly schedule, this is one or more days of the week
--- (1-7, where 1 is Sunday). You can\'t specify this value with a daily
--- schedule. If the occurrence is relative to the end of the month, you can
--- specify only a single day.
+-- | The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday). You can\'t specify this value with a daily schedule. If the occurrence is relative to the end of the month, you can specify only a single day.
 sirrOccurrenceDays :: Lens' ScheduledInstanceRecurrenceRequest [Int]
 sirrOccurrenceDays = lens _sirrOccurrenceDays (\ s a -> s{_sirrOccurrenceDays = a}) . _Default . _Coerce;
 
--- | The unit for 'OccurrenceDays' ('DayOfWeek' or 'DayOfMonth'). This value
--- is required for a monthly schedule. You can\'t specify 'DayOfWeek' with
--- a weekly schedule. You can\'t specify this value with a daily schedule.
+-- | The unit for 'OccurrenceDays' ('DayOfWeek' or 'DayOfMonth'). This value is required for a monthly schedule. You can\'t specify 'DayOfWeek' with a weekly schedule. You can\'t specify this value with a daily schedule.
 sirrOccurrenceUnit :: Lens' ScheduledInstanceRecurrenceRequest (Maybe Text)
 sirrOccurrenceUnit = lens _sirrOccurrenceUnit (\ s a -> s{_sirrOccurrenceUnit = a});
 
--- | The interval quantity. The interval unit depends on the value of
--- 'Frequency'. For example, every 2 weeks or every 2 months.
+-- | The interval quantity. The interval unit depends on the value of 'Frequency'. For example, every 2 weeks or every 2 months.
 sirrInterval :: Lens' ScheduledInstanceRecurrenceRequest (Maybe Int)
 sirrInterval = lens _sirrInterval (\ s a -> s{_sirrInterval = a});
 
@@ -9305,31 +9010,21 @@ scheduledInstancesBlockDeviceMapping =
     , _sibdmDeviceName = Nothing
     }
 
--- | The virtual device name ('ephemeral'N). Instance store volumes are
--- numbered starting from 0. An instance type with two available instance
--- store volumes can specify mappings for 'ephemeral0' and 'ephemeral1'.The
--- number of available instance store volumes depends on the instance type.
--- After you connect to the instance, you must mount the volume.
+-- | The virtual device name ('ephemeral'N). Instance store volumes are numbered starting from 0. An instance type with two available instance store volumes can specify mappings for 'ephemeral0' and 'ephemeral1'.The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
 --
--- Constraints: For M3 instances, you must specify instance store volumes
--- in the block device mapping for the instance. When you launch an M3
--- instance, we ignore any instance store volumes specified in the block
--- device mapping for the AMI.
+-- Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
 sibdmVirtualName :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe Text)
 sibdmVirtualName = lens _sibdmVirtualName (\ s a -> s{_sibdmVirtualName = a});
 
--- | Suppresses the specified device included in the block device mapping of
--- the AMI.
+-- | Suppresses the specified device included in the block device mapping of the AMI.
 sibdmNoDevice :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe Text)
 sibdmNoDevice = lens _sibdmNoDevice (\ s a -> s{_sibdmNoDevice = a});
 
--- | Parameters used to set up EBS volumes automatically when the instance is
--- launched.
+-- | Parameters used to set up EBS volumes automatically when the instance is launched.
 sibdmEBS :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe ScheduledInstancesEBS)
 sibdmEBS = lens _sibdmEBS (\ s a -> s{_sibdmEBS = a});
 
--- | The device name exposed to the instance (for example, '\/dev\/sdh' or
--- 'xvdh').
+-- | The device name exposed to the instance (for example, '\/dev\/sdh' or 'xvdh').
 sibdmDeviceName :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe Text)
 sibdmDeviceName = lens _sibdmDeviceName (\ s a -> s{_sibdmDeviceName = a});
 
@@ -9391,37 +9086,23 @@ sieDeleteOnTermination = lens _sieDeleteOnTermination (\ s a -> s{_sieDeleteOnTe
 
 -- | The size of the volume, in GiB.
 --
--- Default: If you\'re creating the volume from a snapshot and don\'t
--- specify a volume size, the default is the snapshot size.
+-- Default: If you\'re creating the volume from a snapshot and don\'t specify a volume size, the default is the snapshot size.
 sieVolumeSize :: Lens' ScheduledInstancesEBS (Maybe Int)
 sieVolumeSize = lens _sieVolumeSize (\ s a -> s{_sieVolumeSize = a});
 
--- | The number of I\/O operations per second (IOPS) that the volume
--- supports. For io1 volumes, this represents the number of IOPS that are
--- provisioned for the volume. For 'gp2' volumes, this represents the
--- baseline performance of the volume and the rate at which the volume
--- accumulates I\/O credits for bursting. For more information about 'gp2'
--- baseline performance, I\/O credits, and bursting, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- | The number of I\/O operations per second (IOPS) that the volume supports. For io1 volumes, this represents the number of IOPS that are provisioned for the volume. For 'gp2' volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I\/O credits for bursting. For more information about 'gp2' baseline performance, I\/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Constraint: Range is 100-20000 IOPS for 'io1' volumes and 100-10000 IOPS
--- for 'gp2' volumes.
+-- Constraint: Range is 100-20000 IOPS for 'io1' volumes and 100-10000 IOPS for 'gp2' volumes.
 --
--- Condition: This parameter is required for requests to create
--- 'io1'volumes; it is not used in requests to create 'gp2', 'st1', 'sc1',
--- or 'standard' volumes.
+-- Condition: This parameter is required for requests to create 'io1'volumes; it is not used in requests to create 'gp2', 'st1', 'sc1', or 'standard' volumes.
 sieIOPS :: Lens' ScheduledInstancesEBS (Maybe Int)
 sieIOPS = lens _sieIOPS (\ s a -> s{_sieIOPS = a});
 
--- | Indicates whether the volume is encrypted. You can attached encrypted
--- volumes only to instances that support them.
+-- | Indicates whether the volume is encrypted. You can attached encrypted volumes only to instances that support them.
 sieEncrypted :: Lens' ScheduledInstancesEBS (Maybe Bool)
 sieEncrypted = lens _sieEncrypted (\ s a -> s{_sieEncrypted = a});
 
--- | The volume type. 'gp2' for General Purpose SSD, 'io1' for Provisioned
--- IOPS SSD, Throughput Optimized HDD for 'st1', Cold HDD for 'sc1', or
--- 'standard' for Magnetic.
+-- | The volume type. 'gp2' for General Purpose SSD, 'io1' for Provisioned IOPS SSD, Throughput Optimized HDD for 'st1', Cold HDD for 'sc1', or 'standard' for Magnetic.
 --
 -- Default: 'standard'
 sieVolumeType :: Lens' ScheduledInstancesEBS (Maybe Text)
@@ -9487,9 +9168,7 @@ instance ToQuery ScheduledInstancesIAMInstanceProfile
 
 -- | Describes the launch specification for a Scheduled Instance.
 --
--- If you are launching the Scheduled Instance in EC2-VPC, you must specify
--- the ID of the subnet. You can specify the subnet using either 'SubnetId'
--- or 'NetworkInterface'.
+-- If you are launching the Scheduled Instance in EC2-VPC, you must specify the ID of the subnet. You can specify the subnet using either 'SubnetId' or 'NetworkInterface'.
 --
 -- /See:/ 'scheduledInstancesLaunchSpecification' smart constructor.
 data ScheduledInstancesLaunchSpecification = ScheduledInstancesLaunchSpecification'
@@ -9589,11 +9268,7 @@ silsKernelId = lens _silsKernelId (\ s a -> s{_silsKernelId = a});
 silsInstanceType :: Lens' ScheduledInstancesLaunchSpecification (Maybe Text)
 silsInstanceType = lens _silsInstanceType (\ s a -> s{_silsInstanceType = a});
 
--- | Indicates whether the instances are optimized for EBS I\/O. This
--- optimization provides dedicated throughput to Amazon EBS and an
--- optimized configuration stack to provide optimal EBS I\/O performance.
--- This optimization isn\'t available with all instance types. Additional
--- usage charges apply when using an EBS-optimized instance.
+-- | Indicates whether the instances are optimized for EBS I\/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I\/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 --
 -- Default: 'false'
 silsEBSOptimized :: Lens' ScheduledInstancesLaunchSpecification (Maybe Bool)
@@ -9743,17 +9418,11 @@ scheduledInstancesNetworkInterface =
 siniGroups :: Lens' ScheduledInstancesNetworkInterface [Text]
 siniGroups = lens _siniGroups (\ s a -> s{_siniGroups = a}) . _Default . _Coerce;
 
--- | Indicates whether to delete the interface when the instance is
--- terminated.
+-- | Indicates whether to delete the interface when the instance is terminated.
 siniDeleteOnTermination :: Lens' ScheduledInstancesNetworkInterface (Maybe Bool)
 siniDeleteOnTermination = lens _siniDeleteOnTermination (\ s a -> s{_siniDeleteOnTermination = a});
 
--- | Indicates whether to assign a public IP address to instances launched in
--- a VPC. The public IP address can only be assigned to a network interface
--- for eth0, and can only be assigned to a new network interface, not an
--- existing one. You cannot specify more than one network interface in the
--- request. If launching into a default subnet, the default value is
--- 'true'.
+-- | Indicates whether to assign a public IP address to instances launched in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is 'true'.
 siniAssociatePublicIPAddress :: Lens' ScheduledInstancesNetworkInterface (Maybe Bool)
 siniAssociatePublicIPAddress = lens _siniAssociatePublicIPAddress (\ s a -> s{_siniAssociatePublicIPAddress = a});
 
@@ -9872,8 +9541,7 @@ scheduledInstancesPrivateIPAddressConfig =
     , _sipiacPrivateIPAddress = Nothing
     }
 
--- | Indicates whether this is a primary IP address. Otherwise, this is a
--- secondary IP address.
+-- | Indicates whether this is a primary IP address. Otherwise, this is a secondary IP address.
 sipiacPrimary :: Lens' ScheduledInstancesPrivateIPAddressConfig (Maybe Bool)
 sipiacPrimary = lens _sipiacPrimary (\ s a -> s{_sipiacPrimary = a});
 
@@ -9998,8 +9666,7 @@ instance Hashable SecurityGroup
 
 instance NFData SecurityGroup
 
--- | Describes the time period for a Scheduled Instance to start its first
--- schedule. The time period must span less than one day.
+-- | Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.
 --
 -- /See:/ 'slotDateTimeRangeRequest' smart constructor.
 data SlotDateTimeRangeRequest = SlotDateTimeRangeRequest'
@@ -10028,9 +9695,7 @@ slotDateTimeRangeRequest pEarliestTime_ pLatestTime_ =
 sdtrrEarliestTime :: Lens' SlotDateTimeRangeRequest UTCTime
 sdtrrEarliestTime = lens _sdtrrEarliestTime (\ s a -> s{_sdtrrEarliestTime = a}) . _Time;
 
--- | The latest date and time, in UTC, for the Scheduled Instance to start.
--- This value must be later than or equal to the earliest date and at most
--- three months in the future.
+-- | The latest date and time, in UTC, for the Scheduled Instance to start. This value must be later than or equal to the earliest date and at most three months in the future.
 sdtrrLatestTime :: Lens' SlotDateTimeRangeRequest UTCTime
 sdtrrLatestTime = lens _sdtrrLatestTime (\ s a -> s{_sdtrrLatestTime = a}) . _Time;
 
@@ -10044,8 +9709,7 @@ instance ToQuery SlotDateTimeRangeRequest where
               ["EarliestTime" =: _sdtrrEarliestTime,
                "LatestTime" =: _sdtrrLatestTime]
 
--- | Describes the time period for a Scheduled Instance to start its first
--- schedule.
+-- | Describes the time period for a Scheduled Instance to start its first schedule.
 --
 -- /See:/ 'slotStartTimeRangeRequest' smart constructor.
 data SlotStartTimeRangeRequest = SlotStartTimeRangeRequest'
@@ -10166,32 +9830,19 @@ snapshot pSnapshotId_ pOwnerId_ pVolumeId_ pVolumeSize_ pDescription_ pStartTime
     , _sEncrypted = pEncrypted_
     }
 
--- | Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot
--- copy operation fails (for example, if the proper AWS Key Management
--- Service (AWS KMS) permissions are not obtained) this field displays
--- error state details to help you diagnose why the error occurred. This
--- parameter is only returned by the < DescribeSnapshots> API operation.
+-- | Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot copy operation fails (for example, if the proper AWS Key Management Service (AWS KMS) permissions are not obtained) this field displays error state details to help you diagnose why the error occurred. This parameter is only returned by the < DescribeSnapshots> API operation.
 sStateMessage :: Lens' Snapshot (Maybe Text)
 sStateMessage = lens _sStateMessage (\ s a -> s{_sStateMessage = a});
 
--- | The AWS account alias (for example, 'amazon', 'self') or AWS account ID
--- that owns the snapshot.
+-- | The AWS account alias (for example, 'amazon', 'self') or AWS account ID that owns the snapshot.
 sOwnerAlias :: Lens' Snapshot (Maybe Text)
 sOwnerAlias = lens _sOwnerAlias (\ s a -> s{_sOwnerAlias = a});
 
--- | The data encryption key identifier for the snapshot. This value is a
--- unique identifier that corresponds to the data encryption key that was
--- used to encrypt the original volume or snapshot copy. Because data
--- encryption keys are inherited by volumes created from snapshots, and
--- vice versa, if snapshots share the same data encryption key identifier,
--- then they belong to the same volume\/snapshot lineage. This parameter is
--- only returned by the < DescribeSnapshots> API operation.
+-- | The data encryption key identifier for the snapshot. This value is a unique identifier that corresponds to the data encryption key that was used to encrypt the original volume or snapshot copy. Because data encryption keys are inherited by volumes created from snapshots, and vice versa, if snapshots share the same data encryption key identifier, then they belong to the same volume\/snapshot lineage. This parameter is only returned by the < DescribeSnapshots> API operation.
 sDataEncryptionKeyId :: Lens' Snapshot (Maybe Text)
 sDataEncryptionKeyId = lens _sDataEncryptionKeyId (\ s a -> s{_sDataEncryptionKeyId = a});
 
--- | The full ARN of the AWS Key Management Service (AWS KMS) customer master
--- key (CMK) that was used to protect the volume encryption key for the
--- parent volume.
+-- | The full ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to protect the volume encryption key for the parent volume.
 sKMSKeyId :: Lens' Snapshot (Maybe Text)
 sKMSKeyId = lens _sKMSKeyId (\ s a -> s{_sKMSKeyId = a});
 
@@ -10199,8 +9850,7 @@ sKMSKeyId = lens _sKMSKeyId (\ s a -> s{_sKMSKeyId = a});
 sTags :: Lens' Snapshot [Tag]
 sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
 
--- | The ID of the snapshot. Each snapshot receives a unique identifier when
--- it is created.
+-- | The ID of the snapshot. Each snapshot receives a unique identifier when it is created.
 sSnapshotId :: Lens' Snapshot Text
 sSnapshotId = lens _sSnapshotId (\ s a -> s{_sSnapshotId = a});
 
@@ -10408,8 +10058,7 @@ snapshotDiskContainer =
 sdcFormat :: Lens' SnapshotDiskContainer (Maybe Text)
 sdcFormat = lens _sdcFormat (\ s a -> s{_sdcFormat = a});
 
--- | The URL to the Amazon S3-based disk image being imported. It can either
--- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
+-- | The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
 sdcURL :: Lens' SnapshotDiskContainer (Maybe Text)
 sdcURL = lens _sdcURL (\ s a -> s{_sdcURL = a});
 
@@ -10685,28 +10334,17 @@ spotFleetLaunchSpecification =
     , _sflsPlacement = Nothing
     }
 
--- | One or more security groups. When requesting instances in a VPC, you
--- must specify the IDs of the security groups. When requesting instances
--- in EC2-Classic, you can specify the names or the IDs of the security
--- groups.
+-- | One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
 sflsSecurityGroups :: Lens' SpotFleetLaunchSpecification [GroupIdentifier]
 sflsSecurityGroups = lens _sflsSecurityGroups (\ s a -> s{_sflsSecurityGroups = a}) . _Default . _Coerce;
 
--- | The bid price per unit hour for the specified instance type. If this
--- value is not specified, the default is the Spot bid price specified for
--- the fleet. To determine the bid price per unit hour, divide the Spot bid
--- price by the value of 'WeightedCapacity'.
+-- | The bid price per unit hour for the specified instance type. If this value is not specified, the default is the Spot bid price specified for the fleet. To determine the bid price per unit hour, divide the Spot bid price by the value of 'WeightedCapacity'.
 sflsSpotPrice :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsSpotPrice = lens _sflsSpotPrice (\ s a -> s{_sflsSpotPrice = a});
 
--- | The number of units provided by the specified instance type. These are
--- the same units that you chose to set the target capacity in terms
--- (instances or a performance characteristic such as vCPUs, memory, or
--- I\/O).
+-- | The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms (instances or a performance characteristic such as vCPUs, memory, or I\/O).
 --
--- If the target capacity divided by this value is not a whole number, we
--- round the number of instances to the next whole number. If this value is
--- not specified, the default is 1.
+-- If the target capacity divided by this value is not a whole number, we round the number of instances to the next whole number. If this value is not specified, the default is 1.
 sflsWeightedCapacity :: Lens' SpotFleetLaunchSpecification (Maybe Double)
 sflsWeightedCapacity = lens _sflsWeightedCapacity (\ s a -> s{_sflsWeightedCapacity = a});
 
@@ -10722,9 +10360,7 @@ sflsNetworkInterfaces = lens _sflsNetworkInterfaces (\ s a -> s{_sflsNetworkInte
 sflsRAMDiskId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsRAMDiskId = lens _sflsRAMDiskId (\ s a -> s{_sflsRAMDiskId = a});
 
--- | The ID of the subnet in which to launch the instances. To specify
--- multiple subnets, separate them using commas; for example,
--- \"subnet-a61dafcf, subnet-65ea5f08\".
+-- | The ID of the subnet in which to launch the instances. To specify multiple subnets, separate them using commas; for example, \"subnet-a61dafcf, subnet-65ea5f08\".
 sflsSubnetId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsSubnetId = lens _sflsSubnetId (\ s a -> s{_sflsSubnetId = a});
 
@@ -10736,11 +10372,7 @@ sflsKernelId = lens _sflsKernelId (\ s a -> s{_sflsKernelId = a});
 sflsInstanceType :: Lens' SpotFleetLaunchSpecification (Maybe InstanceType)
 sflsInstanceType = lens _sflsInstanceType (\ s a -> s{_sflsInstanceType = a});
 
--- | Indicates whether the instances are optimized for EBS I\/O. This
--- optimization provides dedicated throughput to Amazon EBS and an
--- optimized configuration stack to provide optimal EBS I\/O performance.
--- This optimization isn\'t available with all instance types. Additional
--- usage charges apply when using an EBS Optimized instance.
+-- | Indicates whether the instances are optimized for EBS I\/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I\/O performance. This optimization isn\'t available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 --
 -- Default: 'false'
 sflsEBSOptimized :: Lens' SpotFleetLaunchSpecification (Maybe Bool)
@@ -10989,38 +10621,27 @@ spotFleetRequestConfigData pSpotPrice_ pTargetCapacity_ pIAMFleetRole_ pLaunchSp
     , _sfrcdLaunchSpecifications = _List1 # pLaunchSpecifications_
     }
 
--- | A unique, case-sensitive identifier you provide to ensure idempotency of
--- your listings. This helps avoid duplicate listings. For more
--- information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- | A unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 sfrcdClientToken :: Lens' SpotFleetRequestConfigData (Maybe Text)
 sfrcdClientToken = lens _sfrcdClientToken (\ s a -> s{_sfrcdClientToken = a});
 
--- | Indicates whether running Spot instances should be terminated if the
--- target capacity of the Spot fleet request is decreased below the current
--- size of the Spot fleet.
+-- | Indicates whether running Spot instances should be terminated if the target capacity of the Spot fleet request is decreased below the current size of the Spot fleet.
 sfrcdExcessCapacityTerminationPolicy :: Lens' SpotFleetRequestConfigData (Maybe ExcessCapacityTerminationPolicy)
 sfrcdExcessCapacityTerminationPolicy = lens _sfrcdExcessCapacityTerminationPolicy (\ s a -> s{_sfrcdExcessCapacityTerminationPolicy = a});
 
--- | The end date and time of the request, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new Spot instance
--- requests are placed or enabled to fulfill the request.
+-- | The end date and time of the request, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
 sfrcdValidUntil :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
 sfrcdValidUntil = lens _sfrcdValidUntil (\ s a -> s{_sfrcdValidUntil = a}) . mapping _Time;
 
--- | Indicates whether running Spot instances should be terminated when the
--- Spot fleet request expires.
+-- | Indicates whether running Spot instances should be terminated when the Spot fleet request expires.
 sfrcdTerminateInstancesWithExpiration :: Lens' SpotFleetRequestConfigData (Maybe Bool)
 sfrcdTerminateInstancesWithExpiration = lens _sfrcdTerminateInstancesWithExpiration (\ s a -> s{_sfrcdTerminateInstancesWithExpiration = a});
 
--- | The start date and time of the request, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The default is to start fulfilling
--- the request immediately.
+-- | The start date and time of the request, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The default is to start fulfilling the request immediately.
 sfrcdValidFrom :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
 sfrcdValidFrom = lens _sfrcdValidFrom (\ s a -> s{_sfrcdValidFrom = a}) . mapping _Time;
 
--- | Indicates how to allocate the target capacity across the Spot pools
--- specified by the Spot fleet request. The default is 'lowestPrice'.
+-- | Indicates how to allocate the target capacity across the Spot pools specified by the Spot fleet request. The default is 'lowestPrice'.
 sfrcdAllocationStrategy :: Lens' SpotFleetRequestConfigData (Maybe AllocationStrategy)
 sfrcdAllocationStrategy = lens _sfrcdAllocationStrategy (\ s a -> s{_sfrcdAllocationStrategy = a});
 
@@ -11028,16 +10649,11 @@ sfrcdAllocationStrategy = lens _sfrcdAllocationStrategy (\ s a -> s{_sfrcdAlloca
 sfrcdSpotPrice :: Lens' SpotFleetRequestConfigData Text
 sfrcdSpotPrice = lens _sfrcdSpotPrice (\ s a -> s{_sfrcdSpotPrice = a});
 
--- | The number of units to request. You can choose to set the target
--- capacity in terms of instances or a performance characteristic that is
--- important to your application workload, such as vCPUs, memory, or I\/O.
+-- | The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I\/O.
 sfrcdTargetCapacity :: Lens' SpotFleetRequestConfigData Int
 sfrcdTargetCapacity = lens _sfrcdTargetCapacity (\ s a -> s{_sfrcdTargetCapacity = a});
 
--- | Grants the Spot fleet permission to terminate Spot instances on your
--- behalf when you cancel its Spot fleet request using
--- < CancelSpotFleetRequests> or when the Spot fleet request expires, if
--- you set 'terminateInstancesWithExpiration'.
+-- | Grants the Spot fleet permission to terminate Spot instances on your behalf when you cancel its Spot fleet request using < CancelSpotFleetRequests> or when the Spot fleet request expires, if you set 'terminateInstancesWithExpiration'.
 sfrcdIAMFleetRole :: Lens' SpotFleetRequestConfigData Text
 sfrcdIAMFleetRole = lens _sfrcdIAMFleetRole (\ s a -> s{_sfrcdIAMFleetRole = a});
 
@@ -11169,8 +10785,7 @@ spotInstanceRequest =
     , _sirTags = Nothing
     }
 
--- | The instance ID, if an instance has been launched to fulfill the Spot
--- instance request.
+-- | The instance ID, if an instance has been launched to fulfill the Spot instance request.
 sirInstanceId :: Lens' SpotInstanceRequest (Maybe Text)
 sirInstanceId = lens _sirInstanceId (\ s a -> s{_sirInstanceId = a});
 
@@ -11178,16 +10793,11 @@ sirInstanceId = lens _sirInstanceId (\ s a -> s{_sirInstanceId = a});
 sirStatus :: Lens' SpotInstanceRequest (Maybe SpotInstanceStatus)
 sirStatus = lens _sirStatus (\ s a -> s{_sirStatus = a});
 
--- | The state of the Spot instance request. Spot bid status information can
--- help you track your Spot instance requests. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot Bid Status>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- | The state of the Spot instance request. Spot bid status information can help you track your Spot instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot Bid Status> in the /Amazon Elastic Compute Cloud User Guide/.
 sirState :: Lens' SpotInstanceRequest (Maybe SpotInstanceState)
 sirState = lens _sirState (\ s a -> s{_sirState = a});
 
--- | If you specified a duration and your Spot instance request was
--- fulfilled, this is the fixed hourly price in effect for the Spot
--- instance while it runs.
+-- | If you specified a duration and your Spot instance request was fulfilled, this is the fixed hourly price in effect for the Spot instance while it runs.
 sirActualBlockHourlyPrice :: Lens' SpotInstanceRequest (Maybe Text)
 sirActualBlockHourlyPrice = lens _sirActualBlockHourlyPrice (\ s a -> s{_sirActualBlockHourlyPrice = a});
 
@@ -11199,8 +10809,7 @@ sirBlockDurationMinutes = lens _sirBlockDurationMinutes (\ s a -> s{_sirBlockDur
 sirProductDescription :: Lens' SpotInstanceRequest (Maybe RIProductDescription)
 sirProductDescription = lens _sirProductDescription (\ s a -> s{_sirProductDescription = a});
 
--- | The maximum hourly price (bid) for the Spot instance launched to fulfill
--- the request.
+-- | The maximum hourly price (bid) for the Spot instance launched to fulfill the request.
 sirSpotPrice :: Lens' SpotInstanceRequest (Maybe Text)
 sirSpotPrice = lens _sirSpotPrice (\ s a -> s{_sirSpotPrice = a});
 
@@ -11208,9 +10817,7 @@ sirSpotPrice = lens _sirSpotPrice (\ s a -> s{_sirSpotPrice = a});
 sirLaunchSpecification :: Lens' SpotInstanceRequest (Maybe LaunchSpecification)
 sirLaunchSpecification = lens _sirLaunchSpecification (\ s a -> s{_sirLaunchSpecification = a});
 
--- | The Availability Zone group. If you specify the same Availability Zone
--- group for all Spot instance requests, all Spot instances are launched in
--- the same Availability Zone.
+-- | The Availability Zone group. If you specify the same Availability Zone group for all Spot instance requests, all Spot instances are launched in the same Availability Zone.
 sirAvailabilityZoneGroup :: Lens' SpotInstanceRequest (Maybe Text)
 sirAvailabilityZoneGroup = lens _sirAvailabilityZoneGroup (\ s a -> s{_sirAvailabilityZoneGroup = a});
 
@@ -11218,16 +10825,11 @@ sirAvailabilityZoneGroup = lens _sirAvailabilityZoneGroup (\ s a -> s{_sirAvaila
 sirLaunchedAvailabilityZone :: Lens' SpotInstanceRequest (Maybe Text)
 sirLaunchedAvailabilityZone = lens _sirLaunchedAvailabilityZone (\ s a -> s{_sirLaunchedAvailabilityZone = a});
 
--- | The end date of the request, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). If this is a one-time request, it
--- remains active until all instances launch, the request is canceled, or
--- this date is reached. If the request is persistent, it remains active
--- until it is canceled or this date is reached.
+-- | The end date of the request, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). If this is a one-time request, it remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date is reached.
 sirValidUntil :: Lens' SpotInstanceRequest (Maybe UTCTime)
 sirValidUntil = lens _sirValidUntil (\ s a -> s{_sirValidUntil = a}) . mapping _Time;
 
--- | The instance launch group. Launch groups are Spot instances that launch
--- together and terminate together.
+-- | The instance launch group. Launch groups are Spot instances that launch together and terminate together.
 sirLaunchGroup :: Lens' SpotInstanceRequest (Maybe Text)
 sirLaunchGroup = lens _sirLaunchGroup (\ s a -> s{_sirLaunchGroup = a});
 
@@ -11243,14 +10845,11 @@ sirSpotInstanceRequestId = lens _sirSpotInstanceRequestId (\ s a -> s{_sirSpotIn
 sirType :: Lens' SpotInstanceRequest (Maybe SpotInstanceType)
 sirType = lens _sirType (\ s a -> s{_sirType = a});
 
--- | The start date of the request, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The request becomes active at this
--- date and time.
+-- | The start date of the request, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). The request becomes active at this date and time.
 sirValidFrom :: Lens' SpotInstanceRequest (Maybe UTCTime)
 sirValidFrom = lens _sirValidFrom (\ s a -> s{_sirValidFrom = a}) . mapping _Time;
 
--- | The date and time when the Spot instance request was created, in UTC
--- format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+-- | The date and time when the Spot instance request was created, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 sirCreateTime :: Lens' SpotInstanceRequest (Maybe UTCTime)
 sirCreateTime = lens _sirCreateTime (\ s a -> s{_sirCreateTime = a}) . mapping _Time;
 
@@ -11352,14 +10951,11 @@ spotInstanceStatus =
     , _sisMessage = Nothing
     }
 
--- | The date and time of the most recent status update, in UTC format (for
--- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+-- | The date and time of the most recent status update, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 sisUpdateTime :: Lens' SpotInstanceStatus (Maybe UTCTime)
 sisUpdateTime = lens _sisUpdateTime (\ s a -> s{_sisUpdateTime = a}) . mapping _Time;
 
--- | The status code. For a list of status codes, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot Bid Status Codes>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- | The status code. For a list of status codes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot Bid Status Codes> in the /Amazon Elastic Compute Cloud User Guide/.
 sisCode :: Lens' SpotInstanceStatus (Maybe Text)
 sisCode = lens _sisCode (\ s a -> s{_sisCode = a});
 
@@ -11402,8 +10998,7 @@ spotPlacement =
 
 -- | The Availability Zone.
 --
--- [Spot fleet only] To specify multiple Availability Zones, separate them
--- using commas; for example, \"us-west-2a, us-west-2b\".
+-- [Spot fleet only] To specify multiple Availability Zones, separate them using commas; for example, \"us-west-2a, us-west-2b\".
 spAvailabilityZone :: Lens' SpotPlacement (Maybe Text)
 spAvailabilityZone = lens _spAvailabilityZone (\ s a -> s{_spAvailabilityZone = a});
 
@@ -11426,8 +11021,7 @@ instance ToQuery SpotPlacement where
               ["AvailabilityZone" =: _spAvailabilityZone,
                "GroupName" =: _spGroupName]
 
--- | Describes the maximum hourly price (bid) for any Spot instance launched
--- to fulfill the request.
+-- | Describes the maximum hourly price (bid) for any Spot instance launched to fulfill the request.
 --
 -- /See:/ 'spotPrice' smart constructor.
 data SpotPrice = SpotPrice'
@@ -11478,8 +11072,7 @@ sInstanceType = lens _sInstanceType (\ s a -> s{_sInstanceType = a});
 sAvailabilityZone :: Lens' SpotPrice (Maybe Text)
 sAvailabilityZone = lens _sAvailabilityZone (\ s a -> s{_sAvailabilityZone = a});
 
--- | The date and time the request was created, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+-- | The date and time the request was created, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 sTimestamp :: Lens' SpotPrice (Maybe UTCTime)
 sTimestamp = lens _sTimestamp (\ s a -> s{_sTimestamp = a}) . mapping _Time;
 
@@ -11524,30 +11117,21 @@ srCode = lens _srCode (\ s a -> s{_srCode = a});
 
 -- | The message for the state change.
 --
--- -   'Server.SpotInstanceTermination': A Spot instance was terminated due
---     to an increase in the market price.
+-- -   'Server.SpotInstanceTermination': A Spot instance was terminated due to an increase in the market price.
 --
--- -   'Server.InternalError': An internal error occurred during instance
---     launch, resulting in termination.
+-- -   'Server.InternalError': An internal error occurred during instance launch, resulting in termination.
 --
--- -   'Server.InsufficientInstanceCapacity': There was insufficient
---     instance capacity to satisfy the launch request.
+-- -   'Server.InsufficientInstanceCapacity': There was insufficient instance capacity to satisfy the launch request.
 --
--- -   'Client.InternalError': A client error caused the instance to
---     terminate on launch.
+-- -   'Client.InternalError': A client error caused the instance to terminate on launch.
 --
--- -   'Client.InstanceInitiatedShutdown': The instance was shut down using
---     the 'shutdown -h' command from the instance.
+-- -   'Client.InstanceInitiatedShutdown': The instance was shut down using the 'shutdown -h' command from the instance.
 --
--- -   'Client.UserInitiatedShutdown': The instance was shut down using the
---     Amazon EC2 API.
+-- -   'Client.UserInitiatedShutdown': The instance was shut down using the Amazon EC2 API.
 --
--- -   'Client.VolumeLimitExceeded': The limit on the number of EBS volumes
---     or total storage was exceeded. Decrease usage or request an increase
---     in your limits.
+-- -   'Client.VolumeLimitExceeded': The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your limits.
 --
--- -   'Client.InvalidSnapshot.NotFound': The specified snapshot was not
---     found.
+-- -   'Client.InvalidSnapshot.NotFound': The specified snapshot was not found.
 --
 srMessage :: Lens' StateReason (Maybe Text)
 srMessage = lens _srMessage (\ s a -> s{_srMessage = a});
@@ -11651,8 +11235,7 @@ subnet pAvailabilityZone_ pAvailableIPAddressCount_ pCIdRBlock_ pState_ pSubnetI
     , _subVPCId = pVPCId_
     }
 
--- | Indicates whether instances launched in this subnet receive a public IP
--- address.
+-- | Indicates whether instances launched in this subnet receive a public IP address.
 subMapPublicIPOnLaunch :: Lens' Subnet (Maybe Bool)
 subMapPublicIPOnLaunch = lens _subMapPublicIPOnLaunch (\ s a -> s{_subMapPublicIPOnLaunch = a});
 
@@ -11668,8 +11251,7 @@ subTags = lens _subTags (\ s a -> s{_subTags = a}) . _Default . _Coerce;
 subAvailabilityZone :: Lens' Subnet Text
 subAvailabilityZone = lens _subAvailabilityZone (\ s a -> s{_subAvailabilityZone = a});
 
--- | The number of unused IP addresses in the subnet. Note that the IP
--- addresses for any stopped instances are considered unavailable.
+-- | The number of unused IP addresses in the subnet. Note that the IP addresses for any stopped instances are considered unavailable.
 subAvailableIPAddressCount :: Lens' Subnet Int
 subAvailableIPAddressCount = lens _subAvailableIPAddressCount (\ s a -> s{_subAvailableIPAddressCount = a});
 
@@ -11735,15 +11317,13 @@ tag pKey_ pValue_ =
 
 -- | The key of the tag.
 --
--- Constraints: Tag keys are case-sensitive and accept a maximum of 127
--- Unicode characters. May not begin with 'aws:'
+-- Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with 'aws:'
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
 -- | The value of the tag.
 --
--- Constraints: Tag values are case-sensitive and accept a maximum of 255
--- Unicode characters.
+-- Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
 tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
@@ -11820,8 +11400,7 @@ instance Hashable TagDescription
 
 instance NFData TagDescription
 
--- | Information about items that were not successfully processed in a batch
--- call.
+-- | Information about items that were not successfully processed in a batch call.
 --
 -- /See:/ 'unsuccessfulItem' smart constructor.
 data UnsuccessfulItem = UnsuccessfulItem'
@@ -11862,9 +11441,7 @@ instance Hashable UnsuccessfulItem
 
 instance NFData UnsuccessfulItem
 
--- | Information about the error that occurred. For more information about
--- errors, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
+-- | Information about the error that occurred. For more information about errors, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
 --
 -- /See:/ 'unsuccessfulItemError' smart constructor.
 data UnsuccessfulItemError = UnsuccessfulItemError'
@@ -12065,8 +11642,7 @@ uigpVPCId = lens _uigpVPCId (\ s a -> s{_uigpVPCId = a});
 
 -- | The ID of an AWS account.
 --
--- [EC2-Classic] Required when adding or removing rules that reference a
--- security group in another AWS account.
+-- [EC2-Classic] Required when adding or removing rules that reference a security group in another AWS account.
 uigpUserId :: Lens' UserIdGroupPair (Maybe Text)
 uigpUserId = lens _uigpUserId (\ s a -> s{_uigpUserId = a});
 
@@ -12074,9 +11650,7 @@ uigpUserId = lens _uigpUserId (\ s a -> s{_uigpUserId = a});
 uigpGroupId :: Lens' UserIdGroupPair (Maybe Text)
 uigpGroupId = lens _uigpGroupId (\ s a -> s{_uigpGroupId = a});
 
--- | The name of the security group. In a request, use this parameter for a
--- security group in EC2-Classic or a default VPC only. For a security
--- group in a nondefault VPC, use the security group ID.
+-- | The name of the security group. In a request, use this parameter for a security group in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the security group ID.
 uigpGroupName :: Lens' UserIdGroupPair (Maybe Text)
 uigpGroupName = lens _uigpGroupName (\ s a -> s{_uigpGroupName = a});
 
@@ -12146,8 +11720,7 @@ vgwTelemetry =
 vtStatus :: Lens' VGWTelemetry (Maybe TelemetryStatus)
 vtStatus = lens _vtStatus (\ s a -> s{_vtStatus = a});
 
--- | The Internet-routable IP address of the virtual private gateway\'s
--- outside interface.
+-- | The Internet-routable IP address of the virtual private gateway\'s outside interface.
 vtOutsideIPAddress :: Lens' VGWTelemetry (Maybe Text)
 vtOutsideIPAddress = lens _vtOutsideIPAddress (\ s a -> s{_vtOutsideIPAddress = a});
 
@@ -12235,8 +11808,7 @@ vpcIsDefault = lens _vpcIsDefault (\ s a -> s{_vpcIsDefault = a});
 vpcCIdRBlock :: Lens' VPC Text
 vpcCIdRBlock = lens _vpcCIdRBlock (\ s a -> s{_vpcCIdRBlock = a});
 
--- | The ID of the set of DHCP options you\'ve associated with the VPC (or
--- 'default' if the default options are associated with the VPC).
+-- | The ID of the set of DHCP options you\'ve associated with the VPC (or 'default' if the default options are associated with the VPC).
 vpcDHCPOptionsId :: Lens' VPC Text
 vpcDHCPOptionsId = lens _vpcDHCPOptionsId (\ s a -> s{_vpcDHCPOptionsId = a});
 
@@ -12493,10 +12065,7 @@ vpcpcVPCPeeringConnectionId = lens _vpcpcVPCPeeringConnectionId (\ s a -> s{_vpc
 vpcpcStatus :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionStateReason)
 vpcpcStatus = lens _vpcpcStatus (\ s a -> s{_vpcpcStatus = a});
 
--- | Information about the peer VPC. CIDR block information is not returned
--- when creating a VPC peering connection, or when describing a VPC peering
--- connection that\'s in the 'initiating-request' or 'pending-acceptance'
--- state.
+-- | Information about the peer VPC. CIDR block information is not returned when creating a VPC peering connection, or when describing a VPC peering connection that\'s in the 'initiating-request' or 'pending-acceptance' state.
 vpcpcAccepterVPCInfo :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionVPCInfo)
 vpcpcAccepterVPCInfo = lens _vpcpcAccepterVPCInfo (\ s a -> s{_vpcpcAccepterVPCInfo = a});
 
@@ -12550,13 +12119,11 @@ vpcPeeringConnectionOptionsDescription =
     , _vpcodAllowEgressFromLocalClassicLinkToRemoteVPC = Nothing
     }
 
--- | Indicates whether a local VPC can communicate with a ClassicLink
--- connection in the peer VPC over the VPC peering connection.
+-- | Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC peering connection.
 vpcodAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' VPCPeeringConnectionOptionsDescription (Maybe Bool)
 vpcodAllowEgressFromLocalVPCToRemoteClassicLink = lens _vpcodAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_vpcodAllowEgressFromLocalVPCToRemoteClassicLink = a});
 
--- | Indicates whether a local ClassicLink connection can communicate with
--- the peer VPC over the VPC peering connection.
+-- | Indicates whether a local ClassicLink connection can communicate with the peer VPC over the VPC peering connection.
 vpcodAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' VPCPeeringConnectionOptionsDescription (Maybe Bool)
 vpcodAllowEgressFromLocalClassicLinkToRemoteVPC = lens _vpcodAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_vpcodAllowEgressFromLocalClassicLinkToRemoteVPC = a});
 
@@ -12601,8 +12168,7 @@ vpcPeeringConnectionStateReason =
 vpcsrCode :: Lens' VPCPeeringConnectionStateReason (Maybe VPCPeeringConnectionStateReasonCode)
 vpcsrCode = lens _vpcsrCode (\ s a -> s{_vpcsrCode = a});
 
--- | A message that provides more information about the status, if
--- applicable.
+-- | A message that provides more information about the status, if applicable.
 vpcsrMessage :: Lens' VPCPeeringConnectionStateReason (Maybe Text)
 vpcsrMessage = lens _vpcsrMessage (\ s a -> s{_vpcsrMessage = a});
 
@@ -12655,8 +12221,7 @@ vpcviVPCId = lens _vpcviVPCId (\ s a -> s{_vpcviVPCId = a});
 vpcviOwnerId :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
 vpcviOwnerId = lens _vpcviOwnerId (\ s a -> s{_vpcviOwnerId = a});
 
--- | Information about the VPC peering connection options for the accepter or
--- requester VPC.
+-- | Information about the VPC peering connection options for the accepter or requester VPC.
 vpcviPeeringOptions :: Lens' VPCPeeringConnectionVPCInfo (Maybe VPCPeeringConnectionOptionsDescription)
 vpcviPeeringOptions = lens _vpcviPeeringOptions (\ s a -> s{_vpcviPeeringOptions = a});
 
@@ -12734,11 +12299,7 @@ vpnConnection pVPNConnectionId_ pCustomerGatewayId_ pState_ pType_ =
     , _vcType = pType_
     }
 
--- | The configuration information for the VPN connection\'s customer gateway
--- (in the native XML format). This element is always present in the
--- < CreateVpnConnection> response; however, it\'s present in the
--- < DescribeVpnConnections> response only if the VPN connection is in the
--- 'pending' or 'available' state.
+-- | The configuration information for the VPN connection\'s customer gateway (in the native XML format). This element is always present in the < CreateVpnConnection> response; however, it\'s present in the < DescribeVpnConnections> response only if the VPN connection is in the 'pending' or 'available' state.
 vcCustomerGatewayConfiguration :: Lens' VPNConnection (Maybe Text)
 vcCustomerGatewayConfiguration = lens _vcCustomerGatewayConfiguration (\ s a -> s{_vcCustomerGatewayConfiguration = a});
 
@@ -12746,8 +12307,7 @@ vcCustomerGatewayConfiguration = lens _vcCustomerGatewayConfiguration (\ s a -> 
 vcRoutes :: Lens' VPNConnection [VPNStaticRoute]
 vcRoutes = lens _vcRoutes (\ s a -> s{_vcRoutes = a}) . _Default . _Coerce;
 
--- | The ID of the virtual private gateway at the AWS side of the VPN
--- connection.
+-- | The ID of the virtual private gateway at the AWS side of the VPN connection.
 vcVPNGatewayId :: Lens' VPNConnection (Maybe Text)
 vcVPNGatewayId = lens _vcVPNGatewayId (\ s a -> s{_vcVPNGatewayId = a});
 
@@ -12821,8 +12381,7 @@ vpnConnectionOptions =
     { _vcoStaticRoutesOnly = Nothing
     }
 
--- | Indicates whether the VPN connection uses static routes only. Static
--- routes must be used for devices that don\'t support BGP.
+-- | Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don\'t support BGP.
 vcoStaticRoutesOnly :: Lens' VPNConnectionOptions (Maybe Bool)
 vcoStaticRoutesOnly = lens _vcoStaticRoutesOnly (\ s a -> s{_vcoStaticRoutesOnly = a});
 
@@ -12854,8 +12413,7 @@ vpnConnectionOptionsSpecification =
     { _vcosStaticRoutesOnly = Nothing
     }
 
--- | Indicates whether the VPN connection uses static routes only. Static
--- routes must be used for devices that don\'t support BGP.
+-- | Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don\'t support BGP.
 vcosStaticRoutesOnly :: Lens' VPNConnectionOptionsSpecification (Maybe Bool)
 vcosStaticRoutesOnly = lens _vcosStaticRoutesOnly (\ s a -> s{_vcosStaticRoutesOnly = a});
 
@@ -12920,8 +12478,7 @@ vgVPCAttachments = lens _vgVPCAttachments (\ s a -> s{_vgVPCAttachments = a}) . 
 vgVPNGatewayId :: Lens' VPNGateway (Maybe Text)
 vgVPNGatewayId = lens _vgVPNGatewayId (\ s a -> s{_vgVPNGatewayId = a});
 
--- | The Availability Zone where the virtual private gateway was created, if
--- applicable. This field may be empty or not returned.
+-- | The Availability Zone where the virtual private gateway was created, if applicable. This field may be empty or not returned.
 vgAvailabilityZone :: Lens' VPNGateway (Maybe Text)
 vgAvailabilityZone = lens _vgAvailabilityZone (\ s a -> s{_vgAvailabilityZone = a});
 
@@ -12985,8 +12542,7 @@ vsrState = lens _vsrState (\ s a -> s{_vsrState = a});
 vsrSource :: Lens' VPNStaticRoute (Maybe VPNStaticRouteSource)
 vsrSource = lens _vsrSource (\ s a -> s{_vsrSource = a});
 
--- | The CIDR block associated with the local subnet of the customer data
--- center.
+-- | The CIDR block associated with the local subnet of the customer data center.
 vsrDestinationCIdRBlock :: Lens' VPNStaticRoute (Maybe Text)
 vsrDestinationCIdRBlock = lens _vsrDestinationCIdRBlock (\ s a -> s{_vsrDestinationCIdRBlock = a});
 
@@ -13075,28 +12631,15 @@ volume pAvailabilityZone_ pCreateTime_ pEncrypted_ pSize_ pSnapshotId_ pState_ p
 vAttachments :: Lens' Volume [VolumeAttachment]
 vAttachments = lens _vAttachments (\ s a -> s{_vAttachments = a}) . _Default . _Coerce;
 
--- | The number of I\/O operations per second (IOPS) that the volume
--- supports. For Provisioned IOPS SSD volumes, this represents the number
--- of IOPS that are provisioned for the volume. For General Purpose SSD
--- volumes, this represents the baseline performance of the volume and the
--- rate at which the volume accumulates I\/O credits for bursting. For more
--- information on General Purpose SSD baseline performance, I\/O credits,
--- and bursting, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- | The number of I\/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I\/O credits for bursting. For more information on General Purpose SSD baseline performance, I\/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS
--- for 'gp2' volumes.
+-- Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for 'gp2' volumes.
 --
--- Condition: This parameter is required for requests to create 'io1'
--- volumes; it is not used in requests to create 'gp2', 'st1', 'sc1', or
--- 'standard' volumes.
+-- Condition: This parameter is required for requests to create 'io1' volumes; it is not used in requests to create 'gp2', 'st1', 'sc1', or 'standard' volumes.
 vIOPS :: Lens' Volume (Maybe Int)
 vIOPS = lens _vIOPS (\ s a -> s{_vIOPS = a});
 
--- | The full ARN of the AWS Key Management Service (AWS KMS) customer master
--- key (CMK) that was used to protect the volume encryption key for the
--- volume.
+-- | The full ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to protect the volume encryption key for the volume.
 vKMSKeyId :: Lens' Volume (Maybe Text)
 vKMSKeyId = lens _vKMSKeyId (\ s a -> s{_vKMSKeyId = a});
 
@@ -13132,9 +12675,7 @@ vState = lens _vState (\ s a -> s{_vState = a});
 vVolumeId :: Lens' Volume Text
 vVolumeId = lens _vVolumeId (\ s a -> s{_vVolumeId = a});
 
--- | The volume type. This can be 'gp2' for General Purpose SSD, 'io1' for
--- Provisioned IOPS SSD, 'st1' for Throughput Optimized HDD, 'sc1' for Cold
--- HDD, or 'standard' for Magnetic volumes.
+-- | The volume type. This can be 'gp2' for General Purpose SSD, 'io1' for Provisioned IOPS SSD, 'st1' for Throughput Optimized HDD, 'sc1' for Cold HDD, or 'standard' for Magnetic volumes.
 vVolumeType :: Lens' Volume VolumeType
 vVolumeType = lens _vVolumeType (\ s a -> s{_vVolumeType = a});
 

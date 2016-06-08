@@ -68,14 +68,11 @@ listUserPools pMaxResults_ =
     , _lupMaxResults = _Nat # pMaxResults_
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lupNextToken :: Lens' ListUserPools (Maybe Text)
 lupNextToken = lens _lupNextToken (\ s a -> s{_lupNextToken = a});
 
--- | The maximum number of results you want the request to return when
--- listing the user pools.
+-- | The maximum number of results you want the request to return when listing the user pools.
 lupMaxResults :: Lens' ListUserPools Natural
 lupMaxResults = lens _lupMaxResults (\ s a -> s{_lupMaxResults = a}) . _Nat;
 
@@ -149,9 +146,7 @@ listUserPoolsResponse pResponseStatus_ =
 luprsUserPools :: Lens' ListUserPoolsResponse [UserPoolDescriptionType]
 luprsUserPools = lens _luprsUserPools (\ s a -> s{_luprsUserPools = a}) . _Default . _Coerce;
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 luprsNextToken :: Lens' ListUserPoolsResponse (Maybe Text)
 luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a});
 

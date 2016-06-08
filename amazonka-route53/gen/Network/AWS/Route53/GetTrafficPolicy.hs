@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a specific traffic policy version. To get the
--- information, send a 'GET' request to the
--- '\/Route 53 API version\/trafficpolicy' resource.
+-- Gets information about a specific traffic policy version. To get the information, send a 'GET' request to the '\/Route 53 API version\/trafficpolicy' resource.
 module Network.AWS.Route53.GetTrafficPolicy
     (
     -- * Creating a Request
@@ -45,10 +43,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | Gets information about a specific traffic policy version. To get the
--- information, send a GET request to the \//Route 53 API
--- version/\/trafficpolicy resource, and specify the ID and the version of
--- the traffic policy.
+-- | Gets information about a specific traffic policy version. To get the information, send a GET request to the \//Route 53 API version/\/trafficpolicy resource, and specify the ID and the version of the traffic policy.
 --
 -- /See:/ 'getTrafficPolicy' smart constructor.
 data GetTrafficPolicy = GetTrafficPolicy'
@@ -77,8 +72,7 @@ getTrafficPolicy pId_ pVersion_ =
 gtpId :: Lens' GetTrafficPolicy Text
 gtpId = lens _gtpId (\ s a -> s{_gtpId = a});
 
--- | The version number of the traffic policy that you want to get
--- information about.
+-- | The version number of the traffic policy that you want to get information about.
 gtpVersion :: Lens' GetTrafficPolicy Natural
 gtpVersion = lens _gtpVersion (\ s a -> s{_gtpVersion = a}) . _Nat;
 

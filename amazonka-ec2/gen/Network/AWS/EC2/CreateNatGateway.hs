@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a NAT gateway in the specified subnet. A NAT gateway can be used
--- to enable instances in a private subnet to connect to the Internet. This
--- action creates a network interface in the specified subnet with a
--- private IP address from the IP address range of the subnet. For more
--- information, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html NAT Gateways>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- Creates a NAT gateway in the specified subnet. A NAT gateway can be used to enable instances in a private subnet to connect to the Internet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html NAT Gateways> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.CreateNatGateway
     (
     -- * Creating a Request
@@ -80,9 +74,7 @@ createNatGateway pSubnetId_ pAllocationId_ =
     , _cngAllocationId = pAllocationId_
     }
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency
--- of the request. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
 --
 -- Constraint: Maximum 64 ASCII characters.
 cngClientToken :: Lens' CreateNatGateway (Maybe Text)
@@ -92,9 +84,7 @@ cngClientToken = lens _cngClientToken (\ s a -> s{_cngClientToken = a});
 cngSubnetId :: Lens' CreateNatGateway Text
 cngSubnetId = lens _cngSubnetId (\ s a -> s{_cngSubnetId = a});
 
--- | The allocation ID of an Elastic IP address to associate with the NAT
--- gateway. If the Elastic IP address is associated with another resource,
--- you must first disassociate it.
+-- | The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
 cngAllocationId :: Lens' CreateNatGateway Text
 cngAllocationId = lens _cngAllocationId (\ s a -> s{_cngAllocationId = a});
 
@@ -155,8 +145,7 @@ createNatGatewayResponse pResponseStatus_ =
     , _cngrsResponseStatus = pResponseStatus_
     }
 
--- | Unique, case-sensitive identifier to ensure the idempotency of the
--- request. Only returned if a client token was provided in the request.
+-- | Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.
 cngrsClientToken :: Lens' CreateNatGatewayResponse (Maybe Text)
 cngrsClientToken = lens _cngrsClientToken (\ s a -> s{_cngrsClientToken = a});
 

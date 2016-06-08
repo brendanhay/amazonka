@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the certificate that terminates the specified listener\'s SSL
--- connections. The specified certificate replaces any prior certificate
--- that was used on the same load balancer and port.
+-- Sets the certificate that terminates the specified listener\'s SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.
 --
--- For more information about updating your SSL certificate, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html Updating an SSL Certificate for a Load Balancer>
--- in the /Elastic Load Balancing Developer Guide/.
+-- For more information about updating your SSL certificate, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html Updating an SSL Certificate for a Load Balancer> in the /Elastic Load Balancing Developer Guide/.
 module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     (
     -- * Creating a Request

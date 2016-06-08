@@ -18,20 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches an Elastic Load Balancing load balancer to a specified layer.
--- For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/load-balancer-elb.html Elastic Load Balancing>.
+-- Attaches an Elastic Load Balancing load balancer to a specified layer. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/load-balancer-elb.html Elastic Load Balancing>.
 --
--- You must create the Elastic Load Balancing instance separately, by using
--- the Elastic Load Balancing console, API, or CLI. For more information,
--- see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/Welcome.html Elastic Load Balancing Developer Guide>.
+-- You must create the Elastic Load Balancing instance separately, by using the Elastic Load Balancing console, API, or CLI. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/Welcome.html Elastic Load Balancing Developer Guide>.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions,
--- see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     (
     -- * Creating a Request
@@ -80,8 +71,7 @@ attachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
 aelbElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer Text
 aelbElasticLoadBalancerName = lens _aelbElasticLoadBalancerName (\ s a -> s{_aelbElasticLoadBalancerName = a});
 
--- | The ID of the layer that the Elastic Load Balancing instance is to be
--- attached to.
+-- | The ID of the layer that the Elastic Load Balancing instance is to be attached to.
 aelbLayerId :: Lens' AttachElasticLoadBalancer Text
 aelbLayerId = lens _aelbLayerId (\ s a -> s{_aelbLayerId = a});
 

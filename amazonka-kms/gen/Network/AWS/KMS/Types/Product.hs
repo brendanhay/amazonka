@@ -72,14 +72,9 @@ instance Hashable AliasListEntry
 
 instance NFData AliasListEntry
 
--- | A structure for specifying the conditions under which the operations
--- permitted by the grant are allowed.
+-- | A structure for specifying the conditions under which the operations permitted by the grant are allowed.
 --
--- You can use this structure to allow the operations permitted by the
--- grant only when a specified encryption context is present. For more
--- information about encryption context, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>
--- in the /AWS Key Management Service Developer Guide/.
+-- You can use this structure to allow the operations permitted by the grant only when a specified encryption context is present. For more information about encryption context, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/.
 --
 -- /See:/ 'grantConstraints' smart constructor.
 data GrantConstraints = GrantConstraints'
@@ -102,19 +97,11 @@ grantConstraints =
     , _gcEncryptionContextSubset = Nothing
     }
 
--- | Contains a list of key-value pairs that must be present in the
--- encryption context of a subsequent operation permitted by the grant.
--- When a subsequent operation permitted by the grant includes an
--- encryption context that matches this list, the grant allows the
--- operation. Otherwise, the operation is not allowed.
+-- | Contains a list of key-value pairs that must be present in the encryption context of a subsequent operation permitted by the grant. When a subsequent operation permitted by the grant includes an encryption context that matches this list, the grant allows the operation. Otherwise, the operation is not allowed.
 gcEncryptionContextEquals :: Lens' GrantConstraints (HashMap Text Text)
 gcEncryptionContextEquals = lens _gcEncryptionContextEquals (\ s a -> s{_gcEncryptionContextEquals = a}) . _Default . _Map;
 
--- | Contains a list of key-value pairs, a subset of which must be present in
--- the encryption context of a subsequent operation permitted by the grant.
--- When a subsequent operation permitted by the grant includes an
--- encryption context that matches this list or is a subset of this list,
--- the grant allows the operation. Otherwise, the operation is not allowed.
+-- | Contains a list of key-value pairs, a subset of which must be present in the encryption context of a subsequent operation permitted by the grant. When a subsequent operation permitted by the grant includes an encryption context that matches this list or is a subset of this list, the grant allows the operation. Otherwise, the operation is not allowed.
 gcEncryptionContextSubset :: Lens' GrantConstraints (HashMap Text Text)
 gcEncryptionContextSubset = lens _gcEncryptionContextSubset (\ s a -> s{_gcEncryptionContextSubset = a}) . _Default . _Map;
 
@@ -190,8 +177,7 @@ grantListEntry =
     , _gleOperations = Nothing
     }
 
--- | The unique identifier for the customer master key (CMK) to which the
--- grant applies.
+-- | The unique identifier for the customer master key (CMK) to which the grant applies.
 gleKeyId :: Lens' GrantListEntry (Maybe Text)
 gleKeyId = lens _gleKeyId (\ s a -> s{_gleKeyId = a});
 
@@ -215,9 +201,7 @@ gleConstraints = lens _gleConstraints (\ s a -> s{_gleConstraints = a});
 gleGranteePrincipal :: Lens' GrantListEntry (Maybe Text)
 gleGranteePrincipal = lens _gleGranteePrincipal (\ s a -> s{_gleGranteePrincipal = a});
 
--- | The friendly name that identifies the grant. If a name was provided in
--- the < CreateGrant> request, that name is returned. Otherwise this value
--- is null.
+-- | The friendly name that identifies the grant. If a name was provided in the < CreateGrant> request, that name is returned. Otherwise this value is null.
 gleName :: Lens' GrantListEntry (Maybe Text)
 gleName = lens _gleName (\ s a -> s{_gleName = a});
 
@@ -291,8 +275,7 @@ instance NFData KeyListEntry
 
 -- | Contains metadata about a customer master key (CMK).
 --
--- This data type is used as a response element for the < CreateKey> and
--- < DescribeKey> operations.
+-- This data type is used as a response element for the < CreateKey> and < DescribeKey> operations.
 --
 -- /See:/ 'keyMetadata' smart constructor.
 data KeyMetadata = KeyMetadata'
@@ -344,22 +327,17 @@ keyMetadata pKeyId_ =
     , _kmKeyId = pKeyId_
     }
 
--- | Specifies whether the key is enabled. When 'KeyState' is 'Enabled' this
--- value is true, otherwise it is false.
+-- | Specifies whether the key is enabled. When 'KeyState' is 'Enabled' this value is true, otherwise it is false.
 kmEnabled :: Lens' KeyMetadata (Maybe Bool)
 kmEnabled = lens _kmEnabled (\ s a -> s{_kmEnabled = a});
 
--- | The Amazon Resource Name (ARN) of the key. For examples, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms AWS Key Management Service (AWS KMS)>
--- in the Example ARNs section of the /AWS General Reference/.
+-- | The Amazon Resource Name (ARN) of the key. For examples, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms AWS Key Management Service (AWS KMS)> in the Example ARNs section of the /AWS General Reference/.
 kmARN :: Lens' KeyMetadata (Maybe Text)
 kmARN = lens _kmARN (\ s a -> s{_kmARN = a});
 
 -- | The state of the customer master key (CMK).
 --
--- For more information about how key state affects the use of a CMK, go to
--- <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- For more information about how key state affects the use of a CMK, go to <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/.
 kmKeyState :: Lens' KeyMetadata (Maybe KeyState)
 kmKeyState = lens _kmKeyState (\ s a -> s{_kmKeyState = a});
 
@@ -367,9 +345,7 @@ kmKeyState = lens _kmKeyState (\ s a -> s{_kmKeyState = a});
 kmAWSAccountId :: Lens' KeyMetadata (Maybe Text)
 kmAWSAccountId = lens _kmAWSAccountId (\ s a -> s{_kmAWSAccountId = a});
 
--- | The cryptographic operations for which you can use the key. Currently
--- the only allowed value is 'ENCRYPT_DECRYPT', which means you can use the
--- key for the < Encrypt> and < Decrypt> operations.
+-- | The cryptographic operations for which you can use the key. Currently the only allowed value is 'ENCRYPT_DECRYPT', which means you can use the key for the < Encrypt> and < Decrypt> operations.
 kmKeyUsage :: Lens' KeyMetadata (Maybe KeyUsageType)
 kmKeyUsage = lens _kmKeyUsage (\ s a -> s{_kmKeyUsage = a});
 
@@ -377,9 +353,7 @@ kmKeyUsage = lens _kmKeyUsage (\ s a -> s{_kmKeyUsage = a});
 kmCreationDate :: Lens' KeyMetadata (Maybe UTCTime)
 kmCreationDate = lens _kmCreationDate (\ s a -> s{_kmCreationDate = a}) . mapping _Time;
 
--- | The date and time after which AWS KMS deletes the customer master key
--- (CMK). This value is present only when 'KeyState' is 'PendingDeletion',
--- otherwise this value is null.
+-- | The date and time after which AWS KMS deletes the customer master key (CMK). This value is present only when 'KeyState' is 'PendingDeletion', otherwise this value is null.
 kmDeletionDate :: Lens' KeyMetadata (Maybe UTCTime)
 kmDeletionDate = lens _kmDeletionDate (\ s a -> s{_kmDeletionDate = a}) . mapping _Time;
 
@@ -434,9 +408,7 @@ listGrantsResponse =
     , _lgNextMarker = Nothing
     }
 
--- | A flag that indicates whether there are more items in the list. If your
--- results were truncated, you can use the 'Marker' parameter to make a
--- subsequent pagination request to retrieve more items in the list.
+-- | A flag that indicates whether there are more items in the list. If your results were truncated, you can use the 'Marker' parameter to make a subsequent pagination request to retrieve more items in the list.
 lgTruncated :: Lens' ListGrantsResponse (Maybe Bool)
 lgTruncated = lens _lgTruncated (\ s a -> s{_lgTruncated = a});
 
@@ -444,8 +416,7 @@ lgTruncated = lens _lgTruncated (\ s a -> s{_lgTruncated = a});
 lgGrants :: Lens' ListGrantsResponse [GrantListEntry]
 lgGrants = lens _lgGrants (\ s a -> s{_lgGrants = a}) . _Default . _Coerce;
 
--- | When 'Truncated' is true, this value is present and contains the value
--- to use for the 'Marker' parameter in a subsequent pagination request.
+-- | When 'Truncated' is true, this value is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
 lgNextMarker :: Lens' ListGrantsResponse (Maybe Text)
 lgNextMarker = lens _lgNextMarker (\ s a -> s{_lgNextMarker = a});
 

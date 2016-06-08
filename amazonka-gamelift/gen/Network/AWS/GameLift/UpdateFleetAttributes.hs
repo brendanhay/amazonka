@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates fleet properties, including name and description, for a fleet.
--- To update metadata, specify the fleet ID and the property values you
--- want to change. If successful, the fleet ID for the updated fleet is
--- returned.
+-- Updates fleet properties, including name and description, for a fleet. To update metadata, specify the fleet ID and the property values you want to change. If successful, the fleet ID for the updated fleet is returned.
 module Network.AWS.GameLift.UpdateFleetAttributes
     (
     -- * Creating a Request
@@ -80,19 +77,14 @@ updateFleetAttributes pFleetId_ =
     , _ufaFleetId = pFleetId_
     }
 
--- | Game session protection policy to apply to all new instances created in
--- this fleet. Instances that already exist will not be affected. You can
--- set protection for individual instances using < UpdateGameSession>.
+-- | Game session protection policy to apply to all new instances created in this fleet. Instances that already exist will not be affected. You can set protection for individual instances using < UpdateGameSession>.
 --
--- -   NoProtection: The game session can be terminated during a scale-down
---     event.
--- -   FullProtection: If the game session is in an ACTIVE status, it
---     cannot be terminated during a scale-down event.
+-- -   NoProtection: The game session can be terminated during a scale-down event.
+-- -   FullProtection: If the game session is in an ACTIVE status, it cannot be terminated during a scale-down event.
 ufaNewGameSessionProtectionPolicy :: Lens' UpdateFleetAttributes (Maybe ProtectionPolicy)
 ufaNewGameSessionProtectionPolicy = lens _ufaNewGameSessionProtectionPolicy (\ s a -> s{_ufaNewGameSessionProtectionPolicy = a});
 
--- | Descriptive label associated with this fleet. Fleet names do not need to
--- be unique.
+-- | Descriptive label associated with this fleet. Fleet names do not need to be unique.
 ufaName :: Lens' UpdateFleetAttributes (Maybe Text)
 ufaName = lens _ufaName (\ s a -> s{_ufaName = a});
 
@@ -100,8 +92,7 @@ ufaName = lens _ufaName (\ s a -> s{_ufaName = a});
 ufaDescription :: Lens' UpdateFleetAttributes (Maybe Text)
 ufaDescription = lens _ufaDescription (\ s a -> s{_ufaDescription = a});
 
--- | Unique identifier for the fleet you want to update attribute metadata
--- for.
+-- | Unique identifier for the fleet you want to update attribute metadata for.
 ufaFleetId :: Lens' UpdateFleetAttributes Text
 ufaFleetId = lens _ufaFleetId (\ s a -> s{_ufaFleetId = a});
 

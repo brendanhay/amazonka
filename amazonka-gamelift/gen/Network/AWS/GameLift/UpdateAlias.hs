@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates properties for an alias. To update properties, specify the alias
--- ID to be updated and provide the information to be changed. To reassign
--- an alias to another fleet, provide an updated routing strategy. If
--- successful, the updated alias record is returned.
+-- Updates properties for an alias. To update properties, specify the alias ID to be updated and provide the information to be changed. To reassign an alias to another fleet, provide an updated routing strategy. If successful, the updated alias record is returned.
 module Network.AWS.GameLift.UpdateAlias
     (
     -- * Creating a Request
@@ -84,8 +81,7 @@ updateAlias pAliasId_ =
 uaRoutingStrategy :: Lens' UpdateAlias (Maybe RoutingStrategy)
 uaRoutingStrategy = lens _uaRoutingStrategy (\ s a -> s{_uaRoutingStrategy = a});
 
--- | Descriptive label associated with this alias. Alias names do not need to
--- be unique.
+-- | Descriptive label associated with this alias. Alias names do not need to be unique.
 uaName :: Lens' UpdateAlias (Maybe Text)
 uaName = lens _uaName (\ s a -> s{_uaName = a});
 
@@ -93,8 +89,7 @@ uaName = lens _uaName (\ s a -> s{_uaName = a});
 uaDescription :: Lens' UpdateAlias (Maybe Text)
 uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
 
--- | Unique identifier for a fleet alias. Specify the alias you want to
--- update.
+-- | Unique identifier for a fleet alias. Specify the alias you want to update.
 uaAliasId :: Lens' UpdateAlias Text
 uaAliasId = lens _uaAliasId (\ s a -> s{_uaAliasId = a});
 

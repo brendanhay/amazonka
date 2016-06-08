@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified group. The group must not contain any users or
--- have any attached policies.
+-- Deletes the specified group. The group must not contain any users or have any attached policies.
 module Network.AWS.IAM.DeleteGroup
     (
     -- * Creating a Request

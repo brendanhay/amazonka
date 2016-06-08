@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an HSM configuration that contains the information required by
--- an Amazon Redshift cluster to store and use database encryption keys in
--- a Hardware Security Module (HSM). After creating the HSM configuration,
--- you can specify it as a parameter when creating a cluster. The cluster
--- will then store its encryption keys in the HSM.
+-- Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM). After creating the HSM configuration, you can specify it as a parameter when creating a cluster. The cluster will then store its encryption keys in the HSM.
 --
--- In addition to creating an HSM configuration, you must also create an
--- HSM client certificate. For more information, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules>
--- in the Amazon Redshift Cluster Management Guide.
+-- In addition to creating an HSM configuration, you must also create an HSM client certificate. For more information, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules> in the Amazon Redshift Cluster Management Guide.
 module Network.AWS.Redshift.CreateHSMConfiguration
     (
     -- * Creating a Request
@@ -110,8 +103,7 @@ createHSMConfiguration pHSMConfigurationIdentifier_ pDescription_ pHSMIPAddress_
 chcTags :: Lens' CreateHSMConfiguration [Tag]
 chcTags = lens _chcTags (\ s a -> s{_chcTags = a}) . _Default . _Coerce;
 
--- | The identifier to be assigned to the new Amazon Redshift HSM
--- configuration.
+-- | The identifier to be assigned to the new Amazon Redshift HSM configuration.
 chcHSMConfigurationIdentifier :: Lens' CreateHSMConfiguration Text
 chcHSMConfigurationIdentifier = lens _chcHSMConfigurationIdentifier (\ s a -> s{_chcHSMConfigurationIdentifier = a});
 
@@ -119,13 +111,11 @@ chcHSMConfigurationIdentifier = lens _chcHSMConfigurationIdentifier (\ s a -> s{
 chcDescription :: Lens' CreateHSMConfiguration Text
 chcDescription = lens _chcDescription (\ s a -> s{_chcDescription = a});
 
--- | The IP address that the Amazon Redshift cluster must use to access the
--- HSM.
+-- | The IP address that the Amazon Redshift cluster must use to access the HSM.
 chcHSMIPAddress :: Lens' CreateHSMConfiguration Text
 chcHSMIPAddress = lens _chcHSMIPAddress (\ s a -> s{_chcHSMIPAddress = a});
 
--- | The name of the partition in the HSM where the Amazon Redshift clusters
--- will store their database encryption keys.
+-- | The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
 chcHSMPartitionName :: Lens' CreateHSMConfiguration Text
 chcHSMPartitionName = lens _chcHSMPartitionName (\ s a -> s{_chcHSMPartitionName = a});
 
@@ -133,8 +123,7 @@ chcHSMPartitionName = lens _chcHSMPartitionName (\ s a -> s{_chcHSMPartitionName
 chcHSMPartitionPassword :: Lens' CreateHSMConfiguration Text
 chcHSMPartitionPassword = lens _chcHSMPartitionPassword (\ s a -> s{_chcHSMPartitionPassword = a});
 
--- | The HSMs public certificate file. When using Cloud HSM, the file name is
--- server.pem.
+-- | The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 chcHSMServerPublicCertificate :: Lens' CreateHSMConfiguration Text
 chcHSMServerPublicCertificate = lens _chcHSMServerPublicCertificate (\ s a -> s{_chcHSMServerPublicCertificate = a});
 

@@ -20,8 +20,7 @@
 --
 -- Returns descriptions of all resources of the specified stack.
 --
--- For deleted stacks, ListStackResources returns resource information for
--- up to 90 days after the stack has been deleted.
+-- For deleted stacks, ListStackResources returns resource information for up to 90 days after the stack has been deleted.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStackResources
@@ -74,16 +73,13 @@ listStackResources pStackName_ =
     , _lsrStackName = pStackName_
     }
 
--- | A string that identifies the next page of stack resources that you want
--- to retrieve.
+-- | A string that identifies the next page of stack resources that you want to retrieve.
 lsrNextToken :: Lens' ListStackResources (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
 
--- | The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
 --
--- -   Running stacks: You can specify either the stack\'s name or its
---     unique stack ID.
+-- -   Running stacks: You can specify either the stack\'s name or its unique stack ID.
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
@@ -156,8 +152,7 @@ listStackResourcesResponse pResponseStatus_ =
     , _lsrrsResponseStatus = pResponseStatus_
     }
 
--- | If the output exceeds 1 MB, a string that identifies the next page of
--- stack resources. If no additional page exists, this value is null.
+-- | If the output exceeds 1 MB, a string that identifies the next page of stack resources. If no additional page exists, this value is null.
 lsrrsNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
 lsrrsNextToken = lens _lsrrsNextToken (\ s a -> s{_lsrrsNextToken = a});
 

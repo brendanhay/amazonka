@@ -18,21 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a 2048-bit RSA key pair with the specified name. Amazon EC2
--- stores the public key and displays the private key for you to save to a
--- file. The private key is returned as an unencrypted PEM encoded PKCS#8
--- private key. If a key with the specified name already exists, Amazon EC2
--- returns an error.
+-- Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public key and displays the private key for you to save to a file. The private key is returned as an unencrypted PEM encoded PKCS#8 private key. If a key with the specified name already exists, Amazon EC2 returns an error.
 --
 -- You can have up to five thousand key pairs per region.
 --
--- The key pair returned to you is available only in the region in which
--- you create it. To create a key pair that is available in all regions,
--- use < ImportKeyPair>.
+-- The key pair returned to you is available only in the region in which you create it. To create a key pair that is available in all regions, use < ImportKeyPair>.
 --
--- For more information about key pairs, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.CreateKeyPair
     (
     -- * Creating a Request
@@ -83,10 +75,7 @@ createKeyPair pKeyName_ =
     , _ckpKeyName = pKeyName_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ckpDryRun :: Lens' CreateKeyPair (Maybe Bool)
 ckpDryRun = lens _ckpDryRun (\ s a -> s{_ckpDryRun = a});
 

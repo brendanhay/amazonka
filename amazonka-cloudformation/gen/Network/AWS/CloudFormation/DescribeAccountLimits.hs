@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves your account\'s AWS CloudFormation limits, such as the maximum
--- number of stacks that you can create in your account.
+-- Retrieves your account\'s AWS CloudFormation limits, such as the maximum number of stacks that you can create in your account.
 module Network.AWS.CloudFormation.DescribeAccountLimits
     (
     -- * Creating a Request
@@ -63,8 +62,7 @@ describeAccountLimits =
     { _dalNextToken = Nothing
     }
 
--- | A string that identifies the next page of limits that you want to
--- retrieve.
+-- | A string that identifies the next page of limits that you want to retrieve.
 dalNextToken :: Lens' DescribeAccountLimits (Maybe Text)
 dalNextToken = lens _dalNextToken (\ s a -> s{_dalNextToken = a});
 
@@ -126,13 +124,11 @@ describeAccountLimitsResponse pResponseStatus_ =
     , _dalrsResponseStatus = pResponseStatus_
     }
 
--- | If the output exceeds 1 MB in size, a string that identifies the next
--- page of limits. If no additional page exists, this value is null.
+-- | If the output exceeds 1 MB in size, a string that identifies the next page of limits. If no additional page exists, this value is null.
 dalrsNextToken :: Lens' DescribeAccountLimitsResponse (Maybe Text)
 dalrsNextToken = lens _dalrsNextToken (\ s a -> s{_dalrsNextToken = a});
 
--- | An account limit structure that contain a list of AWS CloudFormation
--- account limits and their values.
+-- | An account limit structure that contain a list of AWS CloudFormation account limits and their values.
 dalrsAccountLimits :: Lens' DescribeAccountLimitsResponse [AccountLimit]
 dalrsAccountLimits = lens _dalrsAccountLimits (\ s a -> s{_dalrsAccountLimits = a}) . _Default . _Coerce;
 

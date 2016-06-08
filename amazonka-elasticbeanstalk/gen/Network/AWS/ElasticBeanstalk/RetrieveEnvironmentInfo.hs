@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the compiled information from a < RequestEnvironmentInfo>
--- request.
+-- Retrieves the compiled information from a < RequestEnvironmentInfo> request.
 --
 -- Related Topics
 --
@@ -79,23 +78,17 @@ retrieveEnvironmentInfo pInfoType_ =
 
 -- | The name of the data\'s environment.
 --
--- If no such environment is found, returns an 'InvalidParameterValue'
--- error.
+-- If no such environment is found, returns an 'InvalidParameterValue' error.
 --
--- Condition: You must specify either this or an EnvironmentId, or both. If
--- you do not specify either, AWS Elastic Beanstalk returns
--- 'MissingRequiredParameter' error.
+-- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
 rEnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
 rEnvironmentName = lens _rEnvironmentName (\ s a -> s{_rEnvironmentName = a});
 
 -- | The ID of the data\'s environment.
 --
--- If no such environment is found, returns an 'InvalidParameterValue'
--- error.
+-- If no such environment is found, returns an 'InvalidParameterValue' error.
 --
--- Condition: You must specify either this or an EnvironmentName, or both.
--- If you do not specify either, AWS Elastic Beanstalk returns
--- 'MissingRequiredParameter' error.
+-- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
 rEnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
 rEnvironmentId = lens _rEnvironmentId (\ s a -> s{_rEnvironmentId = a});
 
@@ -135,8 +128,7 @@ instance ToQuery RetrieveEnvironmentInfo where
                "EnvironmentId" =: _rEnvironmentId,
                "InfoType" =: _rInfoType]
 
--- | Result message containing a description of the requested environment
--- info.
+-- | Result message containing a description of the requested environment info.
 --
 -- /See:/ 'retrieveEnvironmentInfoResponse' smart constructor.
 data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'

@@ -75,16 +75,11 @@ describeReplicationSubnetGroups =
 drsgFilters :: Lens' DescribeReplicationSubnetGroups [Filter]
 drsgFilters = lens _drsgFilters (\ s a -> s{_drsgFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 drsgMarker :: Lens' DescribeReplicationSubnetGroups (Maybe Text)
 drsgMarker = lens _drsgMarker (\ s a -> s{_drsgMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -161,9 +156,7 @@ describeReplicationSubnetGroupsResponse pResponseStatus_ =
     , _drsgsrsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 drsgsrsMarker :: Lens' DescribeReplicationSubnetGroupsResponse (Maybe Text)
 drsgsrsMarker = lens _drsgsrsMarker (\ s a -> s{_drsgsrsMarker = a});
 

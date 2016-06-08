@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action is only used by the Amazon EC2 Container Service agent, and
--- it is not intended for use outside of the agent.
+-- This action is only used by the Amazon EC2 Container Service agent, and it is not intended for use outside of the agent.
 --
 -- Sent to acknowledge that a container changed states.
 module Network.AWS.ECS.SubmitContainerStateChange
@@ -100,8 +99,7 @@ scscNetworkBindings = lens _scscNetworkBindings (\ s a -> s{_scscNetworkBindings
 scscStatus :: Lens' SubmitContainerStateChange (Maybe Text)
 scscStatus = lens _scscStatus (\ s a -> s{_scscStatus = a});
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the container.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container.
 scscCluster :: Lens' SubmitContainerStateChange (Maybe Text)
 scscCluster = lens _scscCluster (\ s a -> s{_scscCluster = a});
 
@@ -117,8 +115,7 @@ scscReason = lens _scscReason (\ s a -> s{_scscReason = a});
 scscExitCode :: Lens' SubmitContainerStateChange (Maybe Int)
 scscExitCode = lens _scscExitCode (\ s a -> s{_scscExitCode = a});
 
--- | The task ID or full Amazon Resource Name (ARN) of the task that hosts
--- the container.
+-- | The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.
 scscTask :: Lens' SubmitContainerStateChange (Maybe Text)
 scscTask = lens _scscTask (\ s a -> s{_scscTask = a});
 

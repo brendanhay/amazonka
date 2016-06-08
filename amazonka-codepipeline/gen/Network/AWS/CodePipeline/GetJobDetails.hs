@@ -20,11 +20,7 @@
 --
 -- Returns information about a job. Only used for custom actions.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials
--- for the Amazon S3 bucket used to store artifacts for the pipeline, if
--- the action requires access to that Amazon S3 bucket for input or output
--- artifacts. Additionally, this API returns any secret values defined for
--- the action.
+-- When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns any secret values defined for the action.
 module Network.AWS.CodePipeline.GetJobDetails
     (
     -- * Creating a Request
@@ -131,8 +127,7 @@ getJobDetailsResponse pResponseStatus_ =
 
 -- | The details of the job.
 --
--- If AWSSessionCredentials is used, a long-running job can call
--- GetJobDetails again to obtain new credentials.
+-- If AWSSessionCredentials is used, a long-running job can call GetJobDetails again to obtain new credentials.
 gjdrsJobDetails :: Lens' GetJobDetailsResponse (Maybe JobDetails)
 gjdrsJobDetails = lens _gjdrsJobDetails (\ s a -> s{_gjdrsJobDetails = a});
 

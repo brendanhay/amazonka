@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops logging information, such as queries and connection attempts, for
--- the specified Amazon Redshift cluster.
+-- Stops logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
 module Network.AWS.Redshift.DisableLogging
     (
     -- * Creating a Request

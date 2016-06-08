@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the bandwidth rate limits of a gateway. By default, these limits
--- are not set, which means no bandwidth rate limiting is in effect.
+-- Returns the bandwidth rate limits of a gateway. By default, these limits are not set, which means no bandwidth rate limiting is in effect.
 --
--- This operation only returns a value for a bandwidth rate limit only if
--- the limit is set. If no limits are set for the gateway, then this
--- operation returns only the gateway ARN in the response body. To specify
--- which gateway to describe, use the Amazon Resource Name (ARN) of the
--- gateway in your request.
+-- This operation only returns a value for a bandwidth rate limit only if the limit is set. If no limits are set for the gateway, then this operation returns only the gateway ARN in the response body. To specify which gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your request.
 module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     (
     -- * Creating a Request
@@ -149,13 +144,11 @@ describeBandwidthRateLimitResponse pResponseStatus_ =
 dbrlrsGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
 dbrlrsGatewayARN = lens _dbrlrsGatewayARN (\ s a -> s{_dbrlrsGatewayARN = a});
 
--- | The average upload bandwidth rate limit in bits per second. This field
--- does not appear in the response if the upload rate limit is not set.
+-- | The average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.
 dbrlrsAverageUploadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
 dbrlrsAverageUploadRateLimitInBitsPerSec = lens _dbrlrsAverageUploadRateLimitInBitsPerSec (\ s a -> s{_dbrlrsAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat;
 
--- | The average download bandwidth rate limit in bits per second. This field
--- does not appear in the response if the download rate limit is not set.
+-- | The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.
 dbrlrsAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
 dbrlrsAverageDownloadRateLimitInBitsPerSec = lens _dbrlrsAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_dbrlrsAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
 

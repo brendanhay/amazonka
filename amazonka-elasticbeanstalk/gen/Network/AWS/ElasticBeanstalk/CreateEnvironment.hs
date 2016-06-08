@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Launches an environment for the specified application using the
--- specified configuration.
+-- Launches an environment for the specified application using the specified configuration.
 module Network.AWS.ElasticBeanstalk.CreateEnvironment
     (
     -- * Creating a Request
@@ -134,44 +133,29 @@ createEnvironment pApplicationName_ =
     , _cApplicationName = pApplicationName_
     }
 
--- | If specified, the environment attempts to use this value as the prefix
--- for the CNAME. If not specified, the CNAME is generated automatically by
--- appending a random alphanumeric string to the environment name.
+-- | If specified, the environment attempts to use this value as the prefix for the CNAME. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
 cCNAMEPrefix :: Lens' CreateEnvironment (Maybe Text)
 cCNAMEPrefix = lens _cCNAMEPrefix (\ s a -> s{_cCNAMEPrefix = a});
 
--- | The name of the configuration template to use in deployment. If no
--- configuration template is found with this name, AWS Elastic Beanstalk
--- returns an 'InvalidParameterValue' error.
+-- | The name of the configuration template to use in deployment. If no configuration template is found with this name, AWS Elastic Beanstalk returns an 'InvalidParameterValue' error.
 --
--- Condition: You must specify either this parameter or a
--- 'SolutionStackName', but not both. If you specify both, AWS Elastic
--- Beanstalk returns an 'InvalidParameterCombination' error. If you do not
--- specify either, AWS Elastic Beanstalk returns a
--- 'MissingRequiredParameter' error.
+-- Condition: You must specify either this parameter or a 'SolutionStackName', but not both. If you specify both, AWS Elastic Beanstalk returns an 'InvalidParameterCombination' error. If you do not specify either, AWS Elastic Beanstalk returns a 'MissingRequiredParameter' error.
 cTemplateName :: Lens' CreateEnvironment (Maybe Text)
 cTemplateName = lens _cTemplateName (\ s a -> s{_cTemplateName = a});
 
--- | A list of custom user-defined configuration options to remove from the
--- configuration set for this new environment.
+-- | A list of custom user-defined configuration options to remove from the configuration set for this new environment.
 cOptionsToRemove :: Lens' CreateEnvironment [OptionSpecification]
 cOptionsToRemove = lens _cOptionsToRemove (\ s a -> s{_cOptionsToRemove = a}) . _Default . _Coerce;
 
--- | If specified, AWS Elastic Beanstalk sets the specified configuration
--- options to the requested value in the configuration set for the new
--- environment. These override the values obtained from the solution stack
--- or the configuration template.
+-- | If specified, AWS Elastic Beanstalk sets the specified configuration options to the requested value in the configuration set for the new environment. These override the values obtained from the solution stack or the configuration template.
 cOptionSettings :: Lens' CreateEnvironment [ConfigurationOptionSetting]
 cOptionSettings = lens _cOptionSettings (\ s a -> s{_cOptionSettings = a}) . _Default . _Coerce;
 
 -- | The name of the application version to deploy.
 --
--- If the specified application has no associated application versions, AWS
--- Elastic Beanstalk 'UpdateEnvironment' returns an 'InvalidParameterValue'
--- error.
+-- If the specified application has no associated application versions, AWS Elastic Beanstalk 'UpdateEnvironment' returns an 'InvalidParameterValue' error.
 --
--- Default: If not specified, AWS Elastic Beanstalk attempts to launch the
--- sample application in the container.
+-- Default: If not specified, AWS Elastic Beanstalk attempts to launch the sample application in the container.
 cVersionLabel :: Lens' CreateEnvironment (Maybe Text)
 cVersionLabel = lens _cVersionLabel (\ s a -> s{_cVersionLabel = a});
 
@@ -179,37 +163,21 @@ cVersionLabel = lens _cVersionLabel (\ s a -> s{_cVersionLabel = a});
 cTier :: Lens' CreateEnvironment (Maybe EnvironmentTier)
 cTier = lens _cTier (\ s a -> s{_cTier = a});
 
--- | A unique name for the deployment environment. Used in the application
--- URL.
+-- | A unique name for the deployment environment. Used in the application URL.
 --
--- Constraint: Must be from 4 to 40 characters in length. The name can
--- contain only letters, numbers, and hyphens. It cannot start or end with
--- a hyphen. This name must be unique in your account. If the specified
--- name already exists, AWS Elastic Beanstalk returns an
--- 'InvalidParameterValue' error.
+-- Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique in your account. If the specified name already exists, AWS Elastic Beanstalk returns an 'InvalidParameterValue' error.
 --
--- Default: If the CNAME parameter is not specified, the environment name
--- becomes part of the CNAME, and therefore part of the visible URL for
--- your application.
+-- Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
 cEnvironmentName :: Lens' CreateEnvironment (Maybe Text)
 cEnvironmentName = lens _cEnvironmentName (\ s a -> s{_cEnvironmentName = a});
 
--- | This is an alternative to specifying a template name. If specified, AWS
--- Elastic Beanstalk sets the configuration values to the default values
--- associated with the specified solution stack.
+-- | This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack.
 --
--- Condition: You must specify either this or a 'TemplateName', but not
--- both. If you specify both, AWS Elastic Beanstalk returns an
--- 'InvalidParameterCombination' error. If you do not specify either, AWS
--- Elastic Beanstalk returns a 'MissingRequiredParameter' error.
+-- Condition: You must specify either this or a 'TemplateName', but not both. If you specify both, AWS Elastic Beanstalk returns an 'InvalidParameterCombination' error. If you do not specify either, AWS Elastic Beanstalk returns a 'MissingRequiredParameter' error.
 cSolutionStackName :: Lens' CreateEnvironment (Maybe Text)
 cSolutionStackName = lens _cSolutionStackName (\ s a -> s{_cSolutionStackName = a});
 
--- | The name of the group to which the target environment belongs. Specify a
--- group name only if the environment\'s name is specified in an
--- environment manifest and not with the environment name parameter. See
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
--- for details.
+-- | The name of the group to which the target environment belongs. Specify a group name only if the environment\'s name is specified in an environment manifest and not with the environment name parameter. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 cGroupName :: Lens' CreateEnvironment (Maybe Text)
 cGroupName = lens _cGroupName (\ s a -> s{_cGroupName = a});
 
@@ -223,8 +191,7 @@ cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 
 -- | The name of the application that contains the version to be deployed.
 --
--- If no application is found with this name, 'CreateEnvironment' returns
--- an 'InvalidParameterValue' error.
+-- If no application is found with this name, 'CreateEnvironment' returns an 'InvalidParameterValue' error.
 cApplicationName :: Lens' CreateEnvironment Text
 cApplicationName = lens _cApplicationName (\ s a -> s{_cApplicationName = a});
 

@@ -122,58 +122,41 @@ certificateManager =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | One or both of the values that make up the key-value pair is not valid.
--- For example, you cannot specify a tag value that begins with 'aws:'.
+-- | One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with 'aws:'.
 _InvalidTagException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTagException = _ServiceError . hasCode "InvalidTagException"
 
--- | One or more values in the < DomainValidationOption> structure is
--- incorrect.
+-- | One or more values in the < DomainValidationOption> structure is incorrect.
 _InvalidDomainValidationOptionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDomainValidationOptionsException =
     _ServiceError . hasCode "InvalidDomainValidationOptionsException"
 
--- | The request contains too many tags. Try the request again with fewer
--- tags.
+-- | The request contains too many tags. Try the request again with fewer tags.
 _TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTagsException = _ServiceError . hasCode "TooManyTagsException"
 
--- | The certificate request is in process and the certificate in your
--- account has not yet been issued.
+-- | The certificate request is in process and the certificate in your account has not yet been issued.
 _RequestInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _RequestInProgressException =
     _ServiceError . hasCode "RequestInProgressException"
 
--- | The requested Amazon Resource Name (ARN) does not refer to an existing
--- resource.
+-- | The requested Amazon Resource Name (ARN) does not refer to an existing resource.
 _InvalidARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidARNException = _ServiceError . hasCode "InvalidArnException"
 
--- | The specified certificate cannot be found in the caller\'s account, or
--- the caller\'s account cannot be found.
+-- | The specified certificate cannot be found in the caller\'s account, or the caller\'s account cannot be found.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
--- | Processing has reached an invalid state. For example, this exception can
--- occur if the specified domain is not using email validation, or the
--- current certificate status does not permit the requested operation. See
--- the exception message returned by ACM to determine which state is not
--- valid.
+-- | Processing has reached an invalid state. For example, this exception can occur if the specified domain is not using email validation, or the current certificate status does not permit the requested operation. See the exception message returned by ACM to determine which state is not valid.
 _InvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidStateException = _ServiceError . hasCode "InvalidStateException"
 
--- | An ACM limit has been exceeded. For example, you may have input more
--- domains than are allowed or you\'ve requested too many certificates for
--- your account. See the exception message returned by ACM to determine
--- which limit you have violated. For more information about ACM limits,
--- see the
--- <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits>
--- topic.
+-- | An ACM limit has been exceeded. For example, you may have input more domains than are allowed or you\'ve requested too many certificates for your account. See the exception message returned by ACM to determine which limit you have violated. For more information about ACM limits, see the <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits> topic.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 
--- | The certificate is in use by another AWS service in the caller\'s
--- account. Remove the association and try again.
+-- | The certificate is in use by another AWS service in the caller\'s account. Remove the association and try again.
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"

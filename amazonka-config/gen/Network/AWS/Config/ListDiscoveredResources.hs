@@ -18,22 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accepts a resource type and returns a list of resource identifiers for
--- the resources of that type. A resource identifier includes the resource
--- type, ID, and (if available) the custom resource name. The results
--- consist of resources that AWS Config has discovered, including those
--- that AWS Config is not currently recording. You can narrow the results
--- to include only resources that have specific resource IDs or a resource
--- name.
+-- Accepts a resource type and returns a list of resource identifiers for the resources of that type. A resource identifier includes the resource type, ID, and (if available) the custom resource name. The results consist of resources that AWS Config has discovered, including those that AWS Config is not currently recording. You can narrow the results to include only resources that have specific resource IDs or a resource name.
 --
--- You can specify either resource IDs or a resource name but not both in
--- the same request.
+-- You can specify either resource IDs or a resource name but not both in the same request.
 --
--- The response is paginated, and by default AWS Config lists 100 resource
--- identifiers on each page. You can customize this number with the 'limit'
--- parameter. The response includes a 'nextToken' string, and to get the
--- next page of results, run the request again and enter this string for
--- the 'nextToken' parameter.
+-- The response is paginated, and by default AWS Config lists 100 resource identifiers on each page. You can customize this number with the 'limit' parameter. The response includes a 'nextToken' string, and to get the next page of results, run the request again and enter this string for the 'nextToken' parameter.
 module Network.AWS.Config.ListDiscoveredResources
     (
     -- * Creating a Request
@@ -101,31 +90,23 @@ listDiscoveredResources pResourceType_ =
     , _ldrResourceType = pResourceType_
     }
 
--- | The IDs of only those resources that you want AWS Config to list in the
--- response. If you do not specify this parameter, AWS Config lists all
--- resources of the specified type that it has discovered.
+-- | The IDs of only those resources that you want AWS Config to list in the response. If you do not specify this parameter, AWS Config lists all resources of the specified type that it has discovered.
 ldrResourceIds :: Lens' ListDiscoveredResources [Text]
 ldrResourceIds = lens _ldrResourceIds (\ s a -> s{_ldrResourceIds = a}) . _Default . _Coerce;
 
--- | The custom name of only those resources that you want AWS Config to list
--- in the response. If you do not specify this parameter, AWS Config lists
--- all resources of the specified type that it has discovered.
+-- | The custom name of only those resources that you want AWS Config to list in the response. If you do not specify this parameter, AWS Config lists all resources of the specified type that it has discovered.
 ldrResourceName :: Lens' ListDiscoveredResources (Maybe Text)
 ldrResourceName = lens _ldrResourceName (\ s a -> s{_ldrResourceName = a});
 
--- | Specifies whether AWS Config includes deleted resources in the results.
--- By default, deleted resources are not included.
+-- | Specifies whether AWS Config includes deleted resources in the results. By default, deleted resources are not included.
 ldrIncludeDeletedResources :: Lens' ListDiscoveredResources (Maybe Bool)
 ldrIncludeDeletedResources = lens _ldrIncludeDeletedResources (\ s a -> s{_ldrIncludeDeletedResources = a});
 
--- | The 'nextToken' string returned on a previous page that you use to get
--- the next page of results in a paginated response.
+-- | The 'nextToken' string returned on a previous page that you use to get the next page of results in a paginated response.
 ldrNextToken :: Lens' ListDiscoveredResources (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
 
--- | The maximum number of resource identifiers returned on each page. The
--- default is 100. You cannot specify a limit greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- | The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default.
 ldrLimit :: Lens' ListDiscoveredResources (Maybe Natural)
 ldrLimit = lens _ldrLimit (\ s a -> s{_ldrLimit = a}) . mapping _Nat;
 
@@ -203,14 +184,11 @@ listDiscoveredResourcesResponse pResponseStatus_ =
     , _ldrrsResponseStatus = pResponseStatus_
     }
 
--- | The string that you use in a subsequent request to get the next page of
--- results in a paginated response.
+-- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 ldrrsNextToken :: Lens' ListDiscoveredResourcesResponse (Maybe Text)
 ldrrsNextToken = lens _ldrrsNextToken (\ s a -> s{_ldrrsNextToken = a});
 
--- | The details that identify a resource that is discovered by AWS Config,
--- including the resource type, ID, and (if available) the custom resource
--- name.
+-- | The details that identify a resource that is discovered by AWS Config, including the resource type, ID, and (if available) the custom resource name.
 ldrrsResourceIdentifiers :: Lens' ListDiscoveredResourcesResponse [ResourceIdentifier]
 ldrrsResourceIdentifiers = lens _ldrrsResourceIdentifiers (\ s a -> s{_ldrrsResourceIdentifiers = a}) . _Default . _Coerce;
 

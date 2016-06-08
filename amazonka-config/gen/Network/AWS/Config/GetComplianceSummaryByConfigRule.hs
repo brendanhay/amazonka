@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the number of AWS Config rules that are compliant and
--- noncompliant, up to a maximum of 25 for each.
+-- Returns the number of AWS Config rules that are compliant and noncompliant, up to a maximum of 25 for each.
 module Network.AWS.Config.GetComplianceSummaryByConfigRule
     (
     -- * Creating a Request
@@ -112,8 +111,7 @@ getComplianceSummaryByConfigRuleResponse pResponseStatus_ =
     , _gcsbcrrsResponseStatus = pResponseStatus_
     }
 
--- | The number of AWS Config rules that are compliant and the number that
--- are noncompliant, up to a maximum of 25 for each.
+-- | The number of AWS Config rules that are compliant and the number that are noncompliant, up to a maximum of 25 for each.
 gcsbcrrsComplianceSummary :: Lens' GetComplianceSummaryByConfigRuleResponse (Maybe ComplianceSummary)
 gcsbcrrsComplianceSummary = lens _gcsbcrrsComplianceSummary (\ s a -> s{_gcsbcrrsComplianceSummary = a});
 

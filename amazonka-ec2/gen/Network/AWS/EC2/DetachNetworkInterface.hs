@@ -73,10 +73,7 @@ detachNetworkInterface pAttachmentId_ =
 dniForce :: Lens' DetachNetworkInterface (Maybe Bool)
 dniForce = lens _dniForce (\ s a -> s{_dniForce = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dniDryRun :: Lens' DetachNetworkInterface (Maybe Bool)
 dniDryRun = lens _dniDryRun (\ s a -> s{_dniDryRun = a});
 

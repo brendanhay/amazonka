@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accept ownership of a public virtual interface created by another
--- customer.
+-- Accept ownership of a public virtual interface created by another customer.
 --
--- After the virtual interface owner calls this function, the specified
--- virtual interface will be created and made available for handling
--- traffic.
+-- After the virtual interface owner calls this function, the specified virtual interface will be created and made available for handling traffic.
 module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     (
     -- * Creating a Request
@@ -47,8 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the ConfirmPublicVirtualInterface
--- operation.
+-- | Container for the parameters to the ConfirmPublicVirtualInterface operation.
 --
 -- /See:/ 'confirmPublicVirtualInterface' smart constructor.
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'

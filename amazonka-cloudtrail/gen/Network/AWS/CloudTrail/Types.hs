@@ -151,15 +151,12 @@ cloudTrail =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Occurs if the timestamp values are invalid. Either the start time occurs
--- after the end time or the time range is outside the range of possible
--- values.
+-- | Occurs if the timestamp values are invalid. Either the start time occurs after the end time or the time range is outside the range of possible values.
 _InvalidTimeRangeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTimeRangeException =
     _ServiceError . hasCode "InvalidTimeRangeException"
 
--- | This exception is thrown when the policy on the S3 bucket is not
--- sufficient.
+-- | This exception is thrown when the policy on the S3 bucket is not sufficient.
 _InsufficientS3BucketPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientS3BucketPolicyException =
     _ServiceError . hasCode "InsufficientS3BucketPolicyException"
@@ -178,14 +175,12 @@ _UnsupportedOperationException =
 _KMSKeyDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSKeyDisabledException = _ServiceError . hasCode "KmsKeyDisabledException"
 
--- | This exception is thrown when the policy on the S3 bucket or KMS key is
--- not sufficient.
+-- | This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.
 _InsufficientEncryptionPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientEncryptionPolicyException =
     _ServiceError . hasCode "InsufficientEncryptionPolicyException"
 
--- | This exception is thrown when the policy on the SNS topic is not
--- sufficient.
+-- | This exception is thrown when the policy on the SNS topic is not sufficient.
 _InsufficientSNSTopicPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientSNSTopicPolicyException =
     _ServiceError . hasCode "InsufficientSnsTopicPolicyException"
@@ -195,15 +190,12 @@ _InvalidCloudWatchLogsRoleARNException :: AsError a => Getting (First ServiceErr
 _InvalidCloudWatchLogsRoleARNException =
     _ServiceError . hasCode "InvalidCloudWatchLogsRoleArnException"
 
--- | The number of tags per trail has exceeded the permitted amount.
--- Currently, the limit is 10.
+-- | The number of tags per trail has exceeded the permitted amount. Currently, the limit is 10.
 _TagsLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _TagsLimitExceededException =
     _ServiceError . hasCode "TagsLimitExceededException"
 
--- | This exception is thrown when an operation is called with an invalid
--- trail ARN. The format of a trail ARN is
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
+-- | This exception is thrown when an operation is called with an invalid trail ARN. The format of a trail ARN is 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
 _CloudTrailARNInvalidException :: AsError a => Getting (First ServiceError) a ServiceError
 _CloudTrailARNInvalidException =
     _ServiceError . hasCode "CloudTrailARNInvalidException"
@@ -213,15 +205,12 @@ _InvalidLookupAttributesException :: AsError a => Getting (First ServiceError) a
 _InvalidLookupAttributesException =
     _ServiceError . hasCode "InvalidLookupAttributesException"
 
--- | This exception is thrown when the provided trail name is not valid.
--- Trail names must meet the following requirements:
+-- | This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:
 --
--- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
---     underscores (_), or dashes (-)
+-- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
 -- -   Start with a letter or number, and end with a letter or number
 -- -   Be between 3 and 128 characters
--- -   Have no adjacent periods, underscores or dashes. Names like
---     'my-_namespace' and 'my--namespace' are invalid.
+-- -   Have no adjacent periods, underscores or dashes. Names like 'my-_namespace' and 'my--namespace' are invalid.
 -- -   Not be in IP address format (for example, 192.168.5.4)
 _InvalidTrailNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTrailNameException =
@@ -232,8 +221,7 @@ _InvalidSNSTopicNameException :: AsError a => Getting (First ServiceError) a Ser
 _InvalidSNSTopicNameException =
     _ServiceError . hasCode "InvalidSnsTopicNameException"
 
--- | This exception is thrown when the specified resource type is not
--- supported by CloudTrail.
+-- | This exception is thrown when the specified resource type is not supported by CloudTrail.
 _ResourceTypeNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceTypeNotSupportedException =
     _ServiceError . hasCode "ResourceTypeNotSupportedException"
@@ -243,13 +231,11 @@ _CloudWatchLogsDeliveryUnavailableException :: AsError a => Getting (First Servi
 _CloudWatchLogsDeliveryUnavailableException =
     _ServiceError . hasCode "CloudWatchLogsDeliveryUnavailableException"
 
--- | This exception is thrown when the KMS key does not exist, or when the S3
--- bucket and the KMS key are not in the same region.
+-- | This exception is thrown when the KMS key does not exist, or when the S3 bucket and the KMS key are not in the same region.
 _KMSKeyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSKeyNotFoundException = _ServiceError . hasCode "KmsKeyNotFoundException"
 
--- | This exception is thrown when the trail with the given name is not
--- found.
+-- | This exception is thrown when the trail with the given name is not found.
 _TrailNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _TrailNotFoundException = _ServiceError . hasCode "TrailNotFoundException"
 
@@ -263,8 +249,7 @@ _InvalidS3BucketNameException :: AsError a => Getting (First ServiceError) a Ser
 _InvalidS3BucketNameException =
     _ServiceError . hasCode "InvalidS3BucketNameException"
 
--- | This exception is thrown when the provided CloudWatch log group is not
--- valid.
+-- | This exception is thrown when the provided CloudWatch log group is not valid.
 _InvalidCloudWatchLogsLogGroupARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCloudWatchLogsLogGroupARNException =
     _ServiceError . hasCode "InvalidCloudWatchLogsLogGroupArnException"
@@ -274,15 +259,12 @@ _S3BucketDoesNotExistException :: AsError a => Getting (First ServiceError) a Se
 _S3BucketDoesNotExistException =
     _ServiceError . hasCode "S3BucketDoesNotExistException"
 
--- | Invalid token or token that was previously used in a request with
--- different parameters. This exception is thrown if the token is invalid.
+-- | Invalid token or token that was previously used in a request with different parameters. This exception is thrown if the token is invalid.
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _ServiceError . hasCode "InvalidNextTokenException"
 
--- | This exception is thrown when the key or value specified for the tag
--- does not match the regular expression
--- '^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-\']*)$'.
+-- | This exception is thrown when the key or value specified for the tag does not match the regular expression '^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-\']*)>'.
 _InvalidTagParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTagParameterException =
     _ServiceError . hasCode "InvalidTagParameterException"
@@ -315,8 +297,7 @@ _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a Servic
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
--- | This exception is thrown when the combination of parameters provided is
--- not valid.
+-- | This exception is thrown when the combination of parameters provided is not valid.
 _InvalidParameterCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterCombinationException =
     _ServiceError . hasCode "InvalidParameterCombinationException"
@@ -325,8 +306,7 @@ _InvalidParameterCombinationException =
 _InvalidKMSKeyIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidKMSKeyIdException = _ServiceError . hasCode "InvalidKmsKeyIdException"
 
--- | This exception is thrown when an operation is called on a trail from a
--- region other than the region in which the trail was created.
+-- | This exception is thrown when an operation is called on a trail from a region other than the region in which the trail was created.
 _InvalidHomeRegionException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidHomeRegionException =
     _ServiceError . hasCode "InvalidHomeRegionException"

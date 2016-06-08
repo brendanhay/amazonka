@@ -69,15 +69,13 @@ disableEnhancedMonitoring pStreamName_ pShardLevelMetrics_ =
     , _demShardLevelMetrics = _List1 # pShardLevelMetrics_
     }
 
--- | The name of the Amazon Kinesis stream for which to disable enhanced
--- monitoring.
+-- | The name of the Amazon Kinesis stream for which to disable enhanced monitoring.
 demStreamName :: Lens' DisableEnhancedMonitoring Text
 demStreamName = lens _demStreamName (\ s a -> s{_demStreamName = a});
 
 -- | List of shard-level metrics to disable.
 --
--- The following are the valid shard-level metrics. The value \"'ALL'\"
--- disables every metric.
+-- The following are the valid shard-level metrics. The value \"'ALL'\" disables every metric.
 --
 -- -   'IncomingBytes'
 -- -   'IncomingRecords'
@@ -88,9 +86,7 @@ demStreamName = lens _demStreamName (\ s a -> s{_demStreamName = a});
 -- -   'IteratorAgeMilliseconds'
 -- -   'ALL'
 --
--- For more information, see
--- <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch>
--- in the /Amazon Kinesis Streams Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/.
 demShardLevelMetrics :: Lens' DisableEnhancedMonitoring (NonEmpty MetricsName)
 demShardLevelMetrics = lens _demShardLevelMetrics (\ s a -> s{_demShardLevelMetrics = a}) . _List1;
 

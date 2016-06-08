@@ -388,26 +388,21 @@ _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceErr
 _AccessDeniedException =
     _ServiceError . hasStatus 403 . hasCode "AccessDeniedException"
 
--- | Elastic Transcoder encountered an unexpected exception while trying to
--- fulfill the request.
+-- | Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.
 _InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceException = _ServiceError . hasCode "InternalServiceException"
 
--- | The requested resource does not exist or is not available. For example,
--- the pipeline to which you\'re trying to add a job doesn\'t exist or is
--- still being created.
+-- | The requested resource does not exist or is not available. For example, the pipeline to which you\'re trying to add a job doesn\'t exist or is still being created.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
--- | Too many operations for a given AWS account. For example, the number of
--- pipelines exceeds the maximum allowed.
+-- | Too many operations for a given AWS account. For example, the number of pipelines exceeds the maximum allowed.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 429 . hasCode "LimitExceededException"
 
--- | The resource you are attempting to change is in use. For example, you
--- are attempting to delete a pipeline that is currently in use.
+-- | The resource you are attempting to change is in use. For example, you are attempting to delete a pipeline that is currently in use.
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException =
     _ServiceError . hasStatus 409 . hasCode "ResourceInUseException"

@@ -18,26 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a stickiness policy with sticky session lifetimes controlled
--- by the lifetime of the browser (user-agent) or a specified expiration
--- period. This policy can be associated only with HTTP\/HTTPS listeners.
+-- Generates a stickiness policy with sticky session lifetimes controlled by the lifetime of the browser (user-agent) or a specified expiration period. This policy can be associated only with HTTP\/HTTPS listeners.
 --
--- When a load balancer implements this policy, the load balancer uses a
--- special cookie to track the back-end server instance for each request.
--- When the load balancer receives a request, it first checks to see if
--- this cookie is present in the request. If so, the load balancer sends
--- the request to the application server specified in the cookie. If not,
--- the load balancer sends the request to a server that is chosen based on
--- the existing load-balancing algorithm.
+-- When a load balancer implements this policy, the load balancer uses a special cookie to track the back-end server instance for each request. When the load balancer receives a request, it first checks to see if this cookie is present in the request. If so, the load balancer sends the request to the application server specified in the cookie. If not, the load balancer sends the request to a server that is chosen based on the existing load-balancing algorithm.
 --
--- A cookie is inserted into the response for binding subsequent requests
--- from the same user to that server. The validity of the cookie is based
--- on the cookie expiration time, which is specified in the policy
--- configuration.
+-- A cookie is inserted into the response for binding subsequent requests from the same user to that server. The validity of the cookie is based on the cookie expiration time, which is specified in the policy configuration.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky-sessions.html#enable-sticky-sessions-duration Duration-Based Session Stickiness>
--- in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky-sessions.html#enable-sticky-sessions-duration Duration-Based Session Stickiness> in the /Elastic Load Balancing Developer Guide/.
 module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     (
     -- * Creating a Request
@@ -89,9 +76,7 @@ createLBCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ =
     , _clbcspPolicyName = pPolicyName_
     }
 
--- | The time period, in seconds, after which the cookie should be considered
--- stale. If you do not specify this parameter, the sticky session lasts
--- for the duration of the browser session.
+-- | The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the sticky session lasts for the duration of the browser session.
 clbcspCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicy (Maybe Integer)
 clbcspCookieExpirationPeriod = lens _clbcspCookieExpirationPeriod (\ s a -> s{_clbcspCookieExpirationPeriod = a});
 
@@ -99,9 +84,7 @@ clbcspCookieExpirationPeriod = lens _clbcspCookieExpirationPeriod (\ s a -> s{_c
 clbcspLoadBalancerName :: Lens' CreateLBCookieStickinessPolicy Text
 clbcspLoadBalancerName = lens _clbcspLoadBalancerName (\ s a -> s{_clbcspLoadBalancerName = a});
 
--- | The name of the policy being created. Policy names must consist of
--- alphanumeric characters and dashes (-). This name must be unique within
--- the set of policies for this load balancer.
+-- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
 clbcspPolicyName :: Lens' CreateLBCookieStickinessPolicy Text
 clbcspPolicyName = lens _clbcspPolicyName (\ s a -> s{_clbcspPolicyName = a});
 

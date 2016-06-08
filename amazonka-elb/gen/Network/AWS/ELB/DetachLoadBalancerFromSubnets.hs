@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified subnets from the set of configured subnets for the
--- load balancer.
+-- Removes the specified subnets from the set of configured subnets for the load balancer.
 --
--- After a subnet is removed, all EC2 instances registered with the load
--- balancer in the removed subnet go into the 'OutOfService' state. Then,
--- the load balancer balances the traffic among the remaining routable
--- subnets.
+-- After a subnet is removed, all EC2 instances registered with the load balancer in the removed subnet go into the 'OutOfService' state. Then, the load balancer balances the traffic among the remaining routable subnets.
 module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     (
     -- * Creating a Request

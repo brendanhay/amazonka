@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates one or more flow logs to capture IP traffic for a specific
--- network interface, subnet, or VPC. Flow logs are delivered to a
--- specified log group in Amazon CloudWatch Logs. If you specify a VPC or
--- subnet in the request, a log stream is created in CloudWatch Logs for
--- each network interface in the subnet or VPC. Log streams can include
--- information about accepted and rejected traffic to a network interface.
--- You can view the data in your log streams using Amazon CloudWatch Logs.
+-- Creates one or more flow logs to capture IP traffic for a specific network interface, subnet, or VPC. Flow logs are delivered to a specified log group in Amazon CloudWatch Logs. If you specify a VPC or subnet in the request, a log stream is created in CloudWatch Logs for each network interface in the subnet or VPC. Log streams can include information about accepted and rejected traffic to a network interface. You can view the data in your log streams using Amazon CloudWatch Logs.
 --
--- In your request, you must also specify an IAM role that has permission
--- to publish logs to CloudWatch Logs.
+-- In your request, you must also specify an IAM role that has permission to publish logs to CloudWatch Logs.
 module Network.AWS.EC2.CreateFlowLogs
     (
     -- * Creating a Request
@@ -101,9 +94,7 @@ createFlowLogs pResourceType_ pTrafficType_ pLogGroupName_ pDeliverLogsPermissio
     , _cflDeliverLogsPermissionARN = pDeliverLogsPermissionARN_
     }
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency
--- of the request. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
 cflClientToken :: Lens' CreateFlowLogs (Maybe Text)
 cflClientToken = lens _cflClientToken (\ s a -> s{_cflClientToken = a});
 
@@ -123,8 +114,7 @@ cflTrafficType = lens _cflTrafficType (\ s a -> s{_cflTrafficType = a});
 cflLogGroupName :: Lens' CreateFlowLogs Text
 cflLogGroupName = lens _cflLogGroupName (\ s a -> s{_cflLogGroupName = a});
 
--- | The ARN for the IAM role that\'s used to post flow logs to a CloudWatch
--- Logs log group.
+-- | The ARN for the IAM role that\'s used to post flow logs to a CloudWatch Logs log group.
 cflDeliverLogsPermissionARN :: Lens' CreateFlowLogs Text
 cflDeliverLogsPermissionARN = lens _cflDeliverLogsPermissionARN (\ s a -> s{_cflDeliverLogsPermissionARN = a});
 
@@ -202,8 +192,7 @@ createFlowLogsResponse pResponseStatus_ =
 cflrsUnsuccessful :: Lens' CreateFlowLogsResponse [UnsuccessfulItem]
 cflrsUnsuccessful = lens _cflrsUnsuccessful (\ s a -> s{_cflrsUnsuccessful = a}) . _Default . _Coerce;
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency
--- of the request.
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
 cflrsClientToken :: Lens' CreateFlowLogsResponse (Maybe Text)
 cflrsClientToken = lens _cflrsClientToken (\ s a -> s{_cflrsClientToken = a});
 

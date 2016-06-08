@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a build. This action permanently deletes the build record and
--- any uploaded build files.
+-- Deletes a build. This action permanently deletes the build record and any uploaded build files.
 --
--- To delete a build, specify its ID. Deleting a build does not affect the
--- status of any active fleets, but you can no longer create new fleets for
--- the deleted build.
+-- To delete a build, specify its ID. Deleting a build does not affect the status of any active fleets, but you can no longer create new fleets for the deleted build.
 module Network.AWS.GameLift.DeleteBuild
     (
     -- * Creating a Request

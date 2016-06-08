@@ -20,8 +20,7 @@
 --
 -- This operation adds or updates tags for a specified domain.
 --
--- All tag operations are eventually consistent; subsequent operations may
--- not immediately represent all issued operations.
+-- All tag operations are eventually consistent; subsequent operations may not immediately represent all issued operations.
 module Network.AWS.Route53Domains.UpdateTagsForDomain
     (
     -- * Creating a Request
@@ -69,9 +68,7 @@ updateTagsForDomain pDomainName_ =
     , _utfdDomainName = pDomainName_
     }
 
--- | A list of the tag keys and values that you want to add or update. If you
--- specify a key that already exists, the corresponding value will be
--- replaced.
+-- | A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
 --
 -- Type: A complex type containing a list of tags
 --
@@ -91,8 +88,7 @@ updateTagsForDomain pDomainName_ =
 --
 --     Default: None
 --
---     Valid values: Unicode characters including alphanumeric, space, and
---     \".:\/=+\\-\'\"
+--     Valid values: Unicode characters including alphanumeric, space, and \".:\/=+\\-\'\"
 --
 --     Constraints: Each key can be 1-128 characters long.
 --
@@ -106,8 +102,7 @@ updateTagsForDomain pDomainName_ =
 --
 --     Default: None
 --
---     Valid values: Unicode characters including alphanumeric, space, and
---     \".:\/=+\\-\'\"
+--     Valid values: Unicode characters including alphanumeric, space, and \".:\/=+\\-\'\"
 --
 --     Constraints: Each value can be 0-256 characters long.
 --
@@ -124,11 +119,7 @@ utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . 
 --
 -- Default: None
 --
--- Constraints: The domain name can contain only the letters a through z,
--- the numbers 0 through 9, and hyphen (-). Hyphens are allowed only when
--- they\'re surrounded by letters, numbers, or other hyphens. You can\'t
--- specify a hyphen at the beginning or end of a label. To specify an
--- Internationalized Domain Name, you must convert the name to Punycode.
+-- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Hyphens are allowed only when they\'re surrounded by letters, numbers, or other hyphens. You can\'t specify a hyphen at the beginning or end of a label. To specify an Internationalized Domain Name, you must convert the name to Punycode.
 --
 -- Required: Yes
 utfdDomainName :: Lens' UpdateTagsForDomain Text

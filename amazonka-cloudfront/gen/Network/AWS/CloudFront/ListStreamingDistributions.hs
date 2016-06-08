@@ -69,16 +69,11 @@ listStreamingDistributions =
     , _lsdMaxItems = Nothing
     }
 
--- | Use this when paginating results to indicate where to begin in your list
--- of streaming distributions. The results include distributions in the
--- list that occur after the marker. To get the next page of results, set
--- the Marker to the value of the NextMarker from the current page\'s
--- response (which is also the ID of the last distribution on that page).
+-- | Use this when paginating results to indicate where to begin in your list of streaming distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the Marker to the value of the NextMarker from the current page\'s response (which is also the ID of the last distribution on that page).
 lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMarker = lens _lsdMarker (\ s a -> s{_lsdMarker = a});
 
--- | The maximum number of streaming distributions you want in the response
--- body.
+-- | The maximum number of streaming distributions you want in the response body.
 lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMaxItems = lens _lsdMaxItems (\ s a -> s{_lsdMaxItems = a});
 

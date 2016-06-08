@@ -136,12 +136,10 @@ cloudSearchDomains =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Information about any problems encountered while processing an upload
--- request.
+-- | Information about any problems encountered while processing an upload request.
 _DocumentServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _DocumentServiceException = _ServiceError . hasCode "DocumentServiceException"
 
--- | Information about any problems encountered while processing a search
--- request.
+-- | Information about any problems encountered while processing a search request.
 _SearchException :: AsError a => Getting (First ServiceError) a ServiceError
 _SearchException = _ServiceError . hasCode "SearchException"

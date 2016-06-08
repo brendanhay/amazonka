@@ -20,9 +20,7 @@
 --
 -- Creates an AWS IoT policy.
 --
--- The created policy is the default version for the policy. This operation
--- creates a policy version with a version identifier of __1__ and sets
--- __1__ as the policy\'s default version.
+-- The created policy is the default version for the policy. This operation creates a policy version with a version identifier of __1__ and sets __1__ as the policy\'s default version.
 module Network.AWS.IoT.CreatePolicy
     (
     -- * Creating a Request
@@ -79,9 +77,7 @@ createPolicy pPolicyName_ pPolicyDocument_ =
 cpPolicyName :: Lens' CreatePolicy Text
 cpPolicyName = lens _cpPolicyName (\ s a -> s{_cpPolicyName = a});
 
--- | The JSON document that describes the policy. __policyDocument__ must
--- have a minimum length of 1, with a maximum length of 2048, excluding
--- whitespace.
+-- | The JSON document that describes the policy. __policyDocument__ must have a minimum length of 1, with a maximum length of 2048, excluding whitespace.
 cpPolicyDocument :: Lens' CreatePolicy Text
 cpPolicyDocument = lens _cpPolicyDocument (\ s a -> s{_cpPolicyDocument = a});
 

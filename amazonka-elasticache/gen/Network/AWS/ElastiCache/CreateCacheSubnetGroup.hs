@@ -20,8 +20,7 @@
 --
 -- The /CreateCacheSubnetGroup/ action creates a new cache subnet group.
 --
--- Use this parameter only when you are creating a cluster in an Amazon
--- Virtual Private Cloud (VPC).
+-- Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (VPC).
 module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     (
     -- * Creating a Request
@@ -76,11 +75,9 @@ createCacheSubnetGroup pCacheSubnetGroupName_ pCacheSubnetGroupDescription_ =
     , _ccsgSubnetIds = mempty
     }
 
--- | A name for the cache subnet group. This value is stored as a lowercase
--- string.
+-- | A name for the cache subnet group. This value is stored as a lowercase string.
 --
--- Constraints: Must contain no more than 255 alphanumeric characters or
--- hyphens.
+-- Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
 --
 -- Example: 'mysubnetgroup'
 ccsgCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup Text

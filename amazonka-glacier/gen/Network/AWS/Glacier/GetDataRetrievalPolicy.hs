@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns the current data retrieval policy for the account
--- and region specified in the GET request. For more information about data
--- retrieval policies, see
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies>.
+-- This operation returns the current data retrieval policy for the account and region specified in the GET request. For more information about data retrieval policies, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies>.
 module Network.AWS.Glacier.GetDataRetrievalPolicy
     (
     -- * Creating a Request
@@ -65,13 +62,7 @@ getDataRetrievalPolicy pAccountId_ =
     { _gdrpAccountId = pAccountId_
     }
 
--- | The 'AccountId' value is the AWS account ID. This value must match the
--- AWS account ID associated with the credentials used to sign the request.
--- You can either specify an AWS account ID or optionally a single
--- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
--- ID associated with the credentials used to sign the request. If you
--- specify your account ID, do not include any hyphens (apos-apos) in the
--- ID.
+-- | The 'AccountId' value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
 gdrpAccountId :: Lens' GetDataRetrievalPolicy Text
 gdrpAccountId = lens _gdrpAccountId (\ s a -> s{_gdrpAccountId = a});
 
@@ -101,8 +92,7 @@ instance ToPath GetDataRetrievalPolicy where
 instance ToQuery GetDataRetrievalPolicy where
         toQuery = const mempty
 
--- | Contains the Amazon Glacier response to the 'GetDataRetrievalPolicy'
--- request.
+-- | Contains the Amazon Glacier response to the 'GetDataRetrievalPolicy' request.
 --
 -- /See:/ 'getDataRetrievalPolicyResponse' smart constructor.
 data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'

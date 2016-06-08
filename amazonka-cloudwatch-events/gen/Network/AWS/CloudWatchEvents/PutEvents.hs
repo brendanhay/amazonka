@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sends custom events to Amazon CloudWatch Events so that they can be
--- matched to rules.
+-- Sends custom events to Amazon CloudWatch Events so that they can be matched to rules.
 module Network.AWS.CloudWatchEvents.PutEvents
     (
     -- * Creating a Request
@@ -64,9 +63,7 @@ putEvents pEntries_ =
     { _peEntries = _List1 # pEntries_
     }
 
--- | The entry that defines an event in your system. You can specify several
--- parameters for the entry such as the source and type of the event,
--- resources associated with the event, and so on.
+-- | The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.
 peEntries :: Lens' PutEvents (NonEmpty PutEventsRequestEntry)
 peEntries = lens _peEntries (\ s a -> s{_peEntries = a}) . _List1;
 
@@ -136,10 +133,7 @@ putEventsResponse pResponseStatus_ =
 persFailedEntryCount :: Lens' PutEventsResponse (Maybe Int)
 persFailedEntryCount = lens _persFailedEntryCount (\ s a -> s{_persFailedEntryCount = a});
 
--- | A list of successfully and unsuccessfully ingested events results. If
--- the ingestion was successful, the entry will have the event ID in it. If
--- not, then the ErrorCode and ErrorMessage can be used to identify the
--- problem with the entry.
+-- | A list of successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry will have the event ID in it. If not, then the ErrorCode and ErrorMessage can be used to identify the problem with the entry.
 persEntries :: Lens' PutEventsResponse [PutEventsResultEntry]
 persEntries = lens _persEntries (\ s a -> s{_persEntries = a}) . _Default . _Coerce;
 

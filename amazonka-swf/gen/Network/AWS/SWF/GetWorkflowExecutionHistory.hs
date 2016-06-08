@@ -18,30 +18,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the history of the specified workflow execution. The results may
--- be split into multiple pages. To retrieve subsequent pages, make the
--- call again using the 'nextPageToken' returned by the initial call.
+-- Returns the history of the specified workflow execution. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the 'nextPageToken' returned by the initial call.
 --
--- This operation is eventually consistent. The results are best effort and
--- may not exactly reflect recent updates and changes.
+-- This operation is eventually consistent. The results are best effort and may not exactly reflect recent updates and changes.
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this action\'s access to Amazon SWF
--- resources as follows:
+-- You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to
---     only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this
---     action.
+-- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
+-- -   Use an 'Action' element to allow or deny permission to call this action.
 -- -   You cannot use an IAM policy to constrain this action\'s parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action,
--- or the parameter values fall outside the specified constraints, the
--- action fails. The associated event attribute\'s __cause__ parameter will
--- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
--- see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- This operation returns paginated results.
 module Network.AWS.SWF.GetWorkflowExecutionHistory
@@ -108,29 +97,19 @@ getWorkflowExecutionHistory pDomain_ pExecution_ =
     , _gwehExecution = pExecution_
     }
 
--- | If a 'NextPageToken' was returned by a previous call, there are more
--- results available. To retrieve the next page of results, make the call
--- again using the returned token in 'nextPageToken'. Keep all other
--- arguments unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in 'nextPageToken'. Keep all other arguments unchanged.
 --
--- The configured 'maximumPageSize' determines how many results can be
--- returned in a single call.
+-- The configured 'maximumPageSize' determines how many results can be returned in a single call.
 gwehNextPageToken :: Lens' GetWorkflowExecutionHistory (Maybe Text)
 gwehNextPageToken = lens _gwehNextPageToken (\ s a -> s{_gwehNextPageToken = a});
 
--- | When set to 'true', returns the events in reverse order. By default the
--- results are returned in ascending order of the 'eventTimeStamp' of the
--- events.
+-- | When set to 'true', returns the events in reverse order. By default the results are returned in ascending order of the 'eventTimeStamp' of the events.
 gwehReverseOrder :: Lens' GetWorkflowExecutionHistory (Maybe Bool)
 gwehReverseOrder = lens _gwehReverseOrder (\ s a -> s{_gwehReverseOrder = a});
 
--- | The maximum number of results that will be returned per call.
--- 'nextPageToken' can be used to obtain futher pages of results. The
--- default is 1000, which is the maximum allowed page size. You can,
--- however, specify a page size /smaller/ than the maximum.
+-- | The maximum number of results that will be returned per call. 'nextPageToken' can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum.
 --
--- This is an upper limit only; the actual number of results returned per
--- call may be fewer than the specified maximum.
+-- This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 gwehMaximumPageSize :: Lens' GetWorkflowExecutionHistory (Maybe Natural)
 gwehMaximumPageSize = lens _gwehMaximumPageSize (\ s a -> s{_gwehMaximumPageSize = a}) . mapping _Nat;
 
@@ -191,9 +170,7 @@ instance ToPath GetWorkflowExecutionHistory where
 instance ToQuery GetWorkflowExecutionHistory where
         toQuery = const mempty
 
--- | Paginated representation of a workflow history for a workflow execution.
--- This is the up to date, complete and authoritative record of the events
--- related to all tasks and events in the life of the workflow execution.
+-- | Paginated representation of a workflow history for a workflow execution. This is the up to date, complete and authoritative record of the events related to all tasks and events in the life of the workflow execution.
 --
 -- /See:/ 'getWorkflowExecutionHistoryResponse' smart constructor.
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
@@ -221,13 +198,9 @@ getWorkflowExecutionHistoryResponse pResponseStatus_ =
     , _gwehrsEvents = mempty
     }
 
--- | If a 'NextPageToken' was returned by a previous call, there are more
--- results available. To retrieve the next page of results, make the call
--- again using the returned token in 'nextPageToken'. Keep all other
--- arguments unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in 'nextPageToken'. Keep all other arguments unchanged.
 --
--- The configured 'maximumPageSize' determines how many results can be
--- returned in a single call.
+-- The configured 'maximumPageSize' determines how many results can be returned in a single call.
 gwehrsNextPageToken :: Lens' GetWorkflowExecutionHistoryResponse (Maybe Text)
 gwehrsNextPageToken = lens _gwehrsNextPageToken (\ s a -> s{_gwehrsNextPageToken = a});
 

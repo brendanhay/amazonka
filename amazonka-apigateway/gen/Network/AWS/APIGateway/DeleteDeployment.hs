@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a < Deployment> resource. Deleting a deployment will only
--- succeed if there are no < Stage> resources associated with it.
+-- Deletes a < Deployment> resource. Deleting a deployment will only succeed if there are no < Stage> resources associated with it.
 module Network.AWS.APIGateway.DeleteDeployment
     (
     -- * Creating a Request
@@ -66,8 +65,7 @@ deleteDeployment pRestAPIId_ pDeploymentId_ =
     , _ddDeploymentId = pDeploymentId_
     }
 
--- | The identifier of the < RestApi> resource for the < Deployment> resource
--- to delete.
+-- | The identifier of the < RestApi> resource for the < Deployment> resource to delete.
 ddRestAPIId :: Lens' DeleteDeployment Text
 ddRestAPIId = lens _ddRestAPIId (\ s a -> s{_ddRestAPIId = a});
 

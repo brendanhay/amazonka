@@ -18,19 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the visibility timeout of multiple messages. This is a batch
--- version of < ChangeMessageVisibility>. The result of the action on each
--- message is reported individually in the response. You can send up to 10
--- < ChangeMessageVisibility> requests with each
--- 'ChangeMessageVisibilityBatch' action.
+-- Changes the visibility timeout of multiple messages. This is a batch version of < ChangeMessageVisibility>. The result of the action on each message is reported individually in the response. You can send up to 10 < ChangeMessageVisibility> requests with each 'ChangeMessageVisibilityBatch' action.
 --
--- Because the batch request can result in a combination of successful and
--- unsuccessful actions, you should check for batch errors even when the
--- call returns an HTTP status code of 200.
+-- Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
 --
--- Some API actions take lists of parameters. These lists are specified
--- using the 'param.n' notation. Values of 'n' are integers starting from
--- 1. For example, a parameter list with two elements looks like this:
+-- Some API actions take lists of parameters. These lists are specified using the 'param.n' notation. Values of 'n' are integers starting from 1. For example, a parameter list with two elements looks like this:
 --
 -- '&Attribute.1=this'
 --
@@ -86,8 +78,7 @@ changeMessageVisibilityBatch pQueueURL_ =
 cmvbQueueURL :: Lens' ChangeMessageVisibilityBatch Text
 cmvbQueueURL = lens _cmvbQueueURL (\ s a -> s{_cmvbQueueURL = a});
 
--- | A list of receipt handles of the messages for which the visibility
--- timeout must be changed.
+-- | A list of receipt handles of the messages for which the visibility timeout must be changed.
 cmvbEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
 cmvbEntries = lens _cmvbEntries (\ s a -> s{_cmvbEntries = a}) . _Coerce;
 
@@ -128,9 +119,7 @@ instance ToQuery ChangeMessageVisibilityBatch where
                  "ChangeMessageVisibilityBatchRequestEntry"
                  _cmvbEntries]
 
--- | For each message in the batch, the response contains a
--- < ChangeMessageVisibilityBatchResultEntry> tag if the message succeeds
--- or a < BatchResultErrorEntry> tag if the message fails.
+-- | For each message in the batch, the response contains a < ChangeMessageVisibilityBatchResultEntry> tag if the message succeeds or a < BatchResultErrorEntry> tag if the message fails.
 --
 -- /See:/ 'changeMessageVisibilityBatchResponse' smart constructor.
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'

@@ -73,13 +73,11 @@ createUserPoolClient pUserPoolId_ pClientName_ =
     , _cupcClientName = pClientName_
     }
 
--- | Boolean to specify whether you want to generate a secret for the user
--- pool client being created.
+-- | Boolean to specify whether you want to generate a secret for the user pool client being created.
 cupcGenerateSecret :: Lens' CreateUserPoolClient (Maybe Bool)
 cupcGenerateSecret = lens _cupcGenerateSecret (\ s a -> s{_cupcGenerateSecret = a});
 
--- | The user pool ID for the user pool where you want to create a user pool
--- client.
+-- | The user pool ID for the user pool where you want to create a user pool client.
 cupcUserPoolId :: Lens' CreateUserPoolClient Text
 cupcUserPoolId = lens _cupcUserPoolId (\ s a -> s{_cupcUserPoolId = a});
 

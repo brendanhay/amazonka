@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates one or more security groups with your load balancer in a
--- virtual private cloud (VPC). The specified security groups override the
--- previously associated security groups.
+-- Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-groups.html#elb-vpc-security-groups Security Groups for Load Balancers in a VPC>
--- in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-groups.html#elb-vpc-security-groups Security Groups for Load Balancers in a VPC> in the /Elastic Load Balancing Developer Guide/.
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (
     -- * Creating a Request
@@ -75,8 +71,7 @@ applySecurityGroupsToLoadBalancer pLoadBalancerName_ =
 asgtlbLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
 asgtlbLoadBalancerName = lens _asgtlbLoadBalancerName (\ s a -> s{_asgtlbLoadBalancerName = a});
 
--- | The IDs of the security groups to associate with the load balancer. Note
--- that you cannot specify the name of the security group.
+-- | The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.
 asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
 asgtlbSecurityGroups = lens _asgtlbSecurityGroups (\ s a -> s{_asgtlbSecurityGroups = a}) . _Coerce;
 

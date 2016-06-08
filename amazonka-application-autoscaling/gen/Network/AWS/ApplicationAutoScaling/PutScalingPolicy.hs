@@ -18,20 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a policy for an existing Application Auto Scaling
--- scalable target. Each scalable target is identified by service
--- namespace, a resource ID, and a scalable dimension, and a scaling policy
--- applies to a scalable target that is identified by those three
--- attributes. You cannot create a scaling policy without first registering
--- a scalable target with < RegisterScalableTarget>.
+-- Creates or updates a policy for an existing Application Auto Scaling scalable target. Each scalable target is identified by service namespace, a resource ID, and a scalable dimension, and a scaling policy applies to a scalable target that is identified by those three attributes. You cannot create a scaling policy without first registering a scalable target with < RegisterScalableTarget>.
 --
--- To update an existing policy, use the existing policy name and set the
--- parameters you want to change. Any existing parameter not changed in an
--- update to an existing policy is not changed in this update request.
+-- To update an existing policy, use the existing policy name and set the parameters you want to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.
 --
--- You can view the existing scaling policies for a service namespace with
--- < DescribeScalingPolicies>. If you are no longer using a scaling policy,
--- you can delete it with < DeleteScalingPolicy>.
+-- You can view the existing scaling policies for a service namespace with < DescribeScalingPolicies>. If you are no longer using a scaling policy, you can delete it with < DeleteScalingPolicy>.
 module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
     (
     -- * Creating a Request
@@ -101,17 +92,11 @@ putScalingPolicy pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension
     , _pspScalableDimension = pScalableDimension_
     }
 
--- | The policy type. This parameter is required if you are creating a new
--- policy.
+-- | The policy type. This parameter is required if you are creating a new policy.
 pspPolicyType :: Lens' PutScalingPolicy (Maybe PolicyType)
 pspPolicyType = lens _pspPolicyType (\ s a -> s{_pspPolicyType = a});
 
--- | The configuration for the step scaling policy. This parameter is
--- required if you are creating a new policy. For more information, see
--- <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_StepScalingPolicyConfiguration.html StepScalingPolicyConfiguration>
--- and
--- <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_StepAdjustment.html StepAdjustment>
--- in the /Application Auto Scaling API Reference/.
+-- | The configuration for the step scaling policy. This parameter is required if you are creating a new policy. For more information, see <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_StepScalingPolicyConfiguration.html StepScalingPolicyConfiguration> and <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_StepAdjustment.html StepAdjustment> in the /Application Auto Scaling API Reference/.
 pspStepScalingPolicyConfiguration :: Lens' PutScalingPolicy (Maybe StepScalingPolicyConfiguration)
 pspStepScalingPolicyConfiguration = lens _pspStepScalingPolicyConfiguration (\ s a -> s{_pspStepScalingPolicyConfiguration = a});
 
@@ -119,24 +104,15 @@ pspStepScalingPolicyConfiguration = lens _pspStepScalingPolicyConfiguration (\ s
 pspPolicyName :: Lens' PutScalingPolicy Text
 pspPolicyName = lens _pspPolicyName (\ s a -> s{_pspPolicyName = a});
 
--- | The AWS service namespace of the scalable target that this scaling
--- policy applies to. For more information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>
--- in the Amazon Web Services General Reference.
+-- | The AWS service namespace of the scalable target that this scaling policy applies to. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 pspServiceNamespace :: Lens' PutScalingPolicy ServiceNamespace
 pspServiceNamespace = lens _pspServiceNamespace (\ s a -> s{_pspServiceNamespace = a});
 
--- | The unique resource identifier string for the scalable target that this
--- scaling policy applies to. For Amazon ECS services, this value is the
--- resource type, followed by the cluster name and service name, such as
--- 'service\/default\/sample-webapp'.
+-- | The unique resource identifier string for the scalable target that this scaling policy applies to. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'.
 pspResourceId :: Lens' PutScalingPolicy Text
 pspResourceId = lens _pspResourceId (\ s a -> s{_pspResourceId = a});
 
--- | The scalable dimension of the scalable target that this scaling policy
--- applies to. The scalable dimension contains the service namespace,
--- resource type, and scaling property, such as 'ecs:service:DesiredCount'
--- for the desired task count of an Amazon ECS service.
+-- | The scalable dimension of the scalable target that this scaling policy applies to. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service.
 pspScalableDimension :: Lens' PutScalingPolicy ScalableDimension
 pspScalableDimension = lens _pspScalableDimension (\ s a -> s{_pspScalableDimension = a});
 

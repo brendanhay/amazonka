@@ -20,9 +20,7 @@
 --
 -- Deletes the SSM document and all instance associations to the document.
 --
--- Before you delete the SSM document, we recommend that you use
--- DeleteAssociation to disassociate all instances that are associated with
--- the document.
+-- Before you delete the SSM document, we recommend that you use DeleteAssociation to disassociate all instances that are associated with the document.
 module Network.AWS.SSM.DeleteDocument
     (
     -- * Creating a Request

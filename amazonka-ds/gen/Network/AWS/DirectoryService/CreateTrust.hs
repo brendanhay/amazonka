@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Directory Service for Microsoft Active Directory allows you to
--- configure trust relationships. For example, you can establish a trust
--- between your Microsoft AD in the AWS cloud, and your existing
--- on-premises Microsoft Active Directory. This would allow you to provide
--- users and groups access to resources in either domain, with a single set
--- of credentials.
+-- AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your Microsoft AD in the AWS cloud, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.
 --
--- This action initiates the creation of the AWS side of a trust
--- relationship between a Microsoft AD in the AWS cloud and an external
--- domain.
+-- This action initiates the creation of the AWS side of a trust relationship between a Microsoft AD in the AWS cloud and an external domain.
 module Network.AWS.DirectoryService.CreateTrust
     (
     -- * Creating a Request
@@ -56,16 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | AWS Directory Service for Microsoft Active Directory allows you to
--- configure trust relationships. For example, you can establish a trust
--- between your Microsoft AD in the AWS cloud, and your existing
--- on-premises Microsoft Active Directory. This would allow you to provide
--- users and groups access to resources in either domain, with a single set
--- of credentials.
+-- | AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your Microsoft AD in the AWS cloud, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.
 --
--- This action initiates the creation of the AWS side of a trust
--- relationship between a Microsoft AD in the AWS cloud and an external
--- domain.
+-- This action initiates the creation of the AWS side of a trust relationship between a Microsoft AD in the AWS cloud and an external domain.
 --
 -- /See:/ 'createTrust' smart constructor.
 data CreateTrust = CreateTrust'
@@ -116,18 +102,15 @@ ctConditionalForwarderIPAddrs = lens _ctConditionalForwarderIPAddrs (\ s a -> s{
 ctTrustType :: Lens' CreateTrust (Maybe TrustType)
 ctTrustType = lens _ctTrustType (\ s a -> s{_ctTrustType = a});
 
--- | The Directory ID of the Microsoft AD in the AWS cloud for which to
--- establish the trust relationship.
+-- | The Directory ID of the Microsoft AD in the AWS cloud for which to establish the trust relationship.
 ctDirectoryId :: Lens' CreateTrust Text
 ctDirectoryId = lens _ctDirectoryId (\ s a -> s{_ctDirectoryId = a});
 
--- | The Fully Qualified Domain Name (FQDN) of the external domain for which
--- to create the trust relationship.
+-- | The Fully Qualified Domain Name (FQDN) of the external domain for which to create the trust relationship.
 ctRemoteDomainName :: Lens' CreateTrust Text
 ctRemoteDomainName = lens _ctRemoteDomainName (\ s a -> s{_ctRemoteDomainName = a});
 
--- | The trust password. The must be the same password that was used when
--- creating the trust relationship on the external domain.
+-- | The trust password. The must be the same password that was used when creating the trust relationship on the external domain.
 ctTrustPassword :: Lens' CreateTrust Text
 ctTrustPassword = lens _ctTrustPassword (\ s a -> s{_ctTrustPassword = a}) . _Sensitive;
 

@@ -70,9 +70,7 @@ getDomainNames =
     , _gdnPosition = Nothing
     }
 
--- | The maximum number of < DomainName> resources in the collection to get
--- information about. The default limit is 25. It should be an integer
--- between 1 - 500.
+-- | The maximum number of < DomainName> resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 gdnLimit :: Lens' GetDomainNames (Maybe Int)
 gdnLimit = lens _gdnLimit (\ s a -> s{_gdnLimit = a});
 
@@ -143,8 +141,7 @@ getDomainNamesResponse pResponseStatus_ =
     , _gdnrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any < DomainName> resources in the collection of
--- < DomainName> resources.
+-- | The current page of any < DomainName> resources in the collection of < DomainName> resources.
 gdnrsItems :: Lens' GetDomainNamesResponse [DomainName]
 gdnrsItems = lens _gdnrsItems (\ s a -> s{_gdnrsItems = a}) . _Default . _Coerce;
 

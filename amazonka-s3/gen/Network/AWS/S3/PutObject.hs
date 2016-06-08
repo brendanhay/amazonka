@@ -189,8 +189,7 @@ putObject pBucket_ pKey_ pBody_ =
     , _poBody = pBody_
     }
 
--- | Size of the body in bytes. This parameter is useful when the size of the
--- body cannot be determined automatically.
+-- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
 poContentLength :: Lens' PutObject (Maybe Int)
 poContentLength = lens _poContentLength (\ s a -> s{_poContentLength = a});
 
@@ -202,16 +201,11 @@ poExpires = lens _poExpires (\ s a -> s{_poExpires = a}) . mapping _Time;
 poGrantReadACP :: Lens' PutObject (Maybe Text)
 poGrantReadACP = lens _poGrantReadACP (\ s a -> s{_poGrantReadACP = a});
 
--- | Specifies the algorithm to use to when encrypting the object (e.g.,
--- AES256).
+-- | Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 poSSECustomerAlgorithm :: Lens' PutObject (Maybe Text)
 poSSECustomerAlgorithm = lens _poSSECustomerAlgorithm (\ s a -> s{_poSSECustomerAlgorithm = a});
 
--- | Specifies the customer-provided encryption key for Amazon S3 to use in
--- encrypting data. This value is used to store the object and then it is
--- discarded; Amazon does not store the encryption key. The key must be
--- appropriate for use with the algorithm specified in the
--- x-amz-server-side​-encryption​-customer-algorithm header.
+-- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
 poSSECustomerKey :: Lens' PutObject (Maybe Text)
 poSSECustomerKey = lens _poSSECustomerKey (\ s a -> s{_poSSECustomerKey = a}) . mapping _Sensitive;
 
@@ -223,9 +217,7 @@ poRequestPayer = lens _poRequestPayer (\ s a -> s{_poRequestPayer = a});
 poGrantWriteACP :: Lens' PutObject (Maybe Text)
 poGrantWriteACP = lens _poGrantWriteACP (\ s a -> s{_poGrantWriteACP = a});
 
--- | If the bucket is configured as a website, redirects requests for this
--- object to another object in the same bucket or to an external URL.
--- Amazon S3 stores the value of this header in the object metadata.
+-- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 poWebsiteRedirectLocation :: Lens' PutObject (Maybe Text)
 poWebsiteRedirectLocation = lens _poWebsiteRedirectLocation (\ s a -> s{_poWebsiteRedirectLocation = a});
 
@@ -237,28 +229,19 @@ poGrantRead = lens _poGrantRead (\ s a -> s{_poGrantRead = a});
 poStorageClass :: Lens' PutObject (Maybe StorageClass)
 poStorageClass = lens _poStorageClass (\ s a -> s{_poStorageClass = a});
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- the encryption key was transmitted without error.
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 poSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
 poSSECustomerKeyMD5 = lens _poSSECustomerKeyMD5 (\ s a -> s{_poSSECustomerKeyMD5 = a});
 
--- | Specifies the AWS KMS key ID to use for object encryption. All GET and
--- PUT requests for an object protected by AWS KMS will fail if not made
--- via SSL or using SigV4. Documentation on configuring any of the
--- officially supported AWS SDKs and CLI can be found at
--- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/UsingAWSSDK.html#specify-signature-version
+-- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/UsingAWSSDK.html#specify-signature-version
 poSSEKMSKeyId :: Lens' PutObject (Maybe Text)
 poSSEKMSKeyId = lens _poSSEKMSKeyId (\ s a -> s{_poSSEKMSKeyId = a}) . mapping _Sensitive;
 
--- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
--- object.
+-- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 poGrantFullControl :: Lens' PutObject (Maybe Text)
 poGrantFullControl = lens _poGrantFullControl (\ s a -> s{_poGrantFullControl = a});
 
--- | Specifies what content encodings have been applied to the object and
--- thus what decoding mechanisms must be applied to obtain the media-type
--- referenced by the Content-Type header field.
+-- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 poContentEncoding :: Lens' PutObject (Maybe Text)
 poContentEncoding = lens _poContentEncoding (\ s a -> s{_poContentEncoding = a});
 
@@ -286,8 +269,7 @@ poACL = lens _poACL (\ s a -> s{_poACL = a});
 poContentDisposition :: Lens' PutObject (Maybe Text)
 poContentDisposition = lens _poContentDisposition (\ s a -> s{_poContentDisposition = a});
 
--- | The Server-side encryption algorithm used when storing this object in S3
--- (e.g., AES256, aws:kms).
+-- | The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 poServerSideEncryption :: Lens' PutObject (Maybe ServerSideEncryption)
 poServerSideEncryption = lens _poServerSideEncryption (\ s a -> s{_poServerSideEncryption = a});
 
@@ -432,31 +414,23 @@ porsETag = lens _porsETag (\ s a -> s{_porsETag = a});
 porsVersionId :: Lens' PutObjectResponse (Maybe ObjectVersionId)
 porsVersionId = lens _porsVersionId (\ s a -> s{_porsVersionId = a});
 
--- | If the object expiration is configured, this will contain the expiration
--- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
--- encoded.
+-- | If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 porsExpiration :: Lens' PutObjectResponse (Maybe Text)
 porsExpiration = lens _porsExpiration (\ s a -> s{_porsExpiration = a});
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the
--- encryption algorithm used.
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 porsSSECustomerAlgorithm :: Lens' PutObjectResponse (Maybe Text)
 porsSSECustomerAlgorithm = lens _porsSSECustomerAlgorithm (\ s a -> s{_porsSSECustomerAlgorithm = a});
 
--- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header to provide round trip
--- message integrity verification of the customer-provided encryption key.
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 porsSSECustomerKeyMD5 :: Lens' PutObjectResponse (Maybe Text)
 porsSSECustomerKeyMD5 = lens _porsSSECustomerKeyMD5 (\ s a -> s{_porsSSECustomerKeyMD5 = a});
 
--- | If present, specifies the ID of the AWS Key Management Service (KMS)
--- master encryption key that was used for the object.
+-- | If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 porsSSEKMSKeyId :: Lens' PutObjectResponse (Maybe Text)
 porsSSEKMSKeyId = lens _porsSSEKMSKeyId (\ s a -> s{_porsSSEKMSKeyId = a}) . mapping _Sensitive;
 
--- | The Server-side encryption algorithm used when storing this object in S3
--- (e.g., AES256, aws:kms).
+-- | The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 porsServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
 porsServerSideEncryption = lens _porsServerSideEncryption (\ s a -> s{_porsServerSideEncryption = a});
 

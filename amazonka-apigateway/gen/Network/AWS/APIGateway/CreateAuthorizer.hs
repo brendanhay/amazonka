@@ -121,8 +121,7 @@ caIdentityValidationExpression = lens _caIdentityValidationExpression (\ s a -> 
 caAuthorizerResultTtlInSeconds :: Lens' CreateAuthorizer (Maybe Int)
 caAuthorizerResultTtlInSeconds = lens _caAuthorizerResultTtlInSeconds (\ s a -> s{_caAuthorizerResultTtlInSeconds = a});
 
--- | Optional customer-defined field, used in Swagger imports\/exports. Has
--- no functional impact.
+-- | Optional customer-defined field, used in Swagger imports\/exports. Has no functional impact.
 caAuthType :: Lens' CreateAuthorizer (Maybe Text)
 caAuthType = lens _caAuthType (\ s a -> s{_caAuthType = a});
 
@@ -142,8 +141,7 @@ caName = lens _caName (\ s a -> s{_caName = a});
 caType :: Lens' CreateAuthorizer AuthorizerType
 caType = lens _caType (\ s a -> s{_caType = a});
 
--- | [Required] Specifies the authorizer\'s Uniform Resource Identifier
--- (URI).
+-- | [Required] Specifies the authorizer\'s Uniform Resource Identifier (URI).
 caAuthorizerURI :: Lens' CreateAuthorizer Text
 caAuthorizerURI = lens _caAuthorizerURI (\ s a -> s{_caAuthorizerURI = a});
 

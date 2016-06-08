@@ -18,23 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Replaces the existing list of server certificate thumbprints with a new
--- list.
+-- Replaces the existing list of server certificate thumbprints with a new list.
 --
--- The list that you pass with this action completely replaces the existing
--- list of thumbprints. (The lists are not merged.)
+-- The list that you pass with this action completely replaces the existing list of thumbprints. (The lists are not merged.)
 --
--- Typically, you need to update a thumbprint only when the identity
--- provider\'s certificate changes, which occurs rarely. However, if the
--- provider\'s certificate /does/ change, any attempt to assume an IAM role
--- that specifies the OIDC provider as a principal will fail until the
--- certificate thumbprint is updated.
+-- Typically, you need to update a thumbprint only when the identity provider\'s certificate changes, which occurs rarely. However, if the provider\'s certificate /does/ change, any attempt to assume an IAM role that specifies the OIDC provider as a principal will fail until the certificate thumbprint is updated.
 --
--- Because trust for the OpenID Connect provider is ultimately derived from
--- the provider\'s certificate and is validated by the thumbprint, it is a
--- best practice to limit access to the
--- 'UpdateOpenIDConnectProviderThumbprint' action to highly-privileged
--- users.
+-- Because trust for the OpenID Connect provider is ultimately derived from the provider\'s certificate and is validated by the thumbprint, it is a best practice to limit access to the 'UpdateOpenIDConnectProviderThumbprint' action to highly-privileged users.
 module Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
     (
     -- * Creating a Request
@@ -78,15 +68,11 @@ updateOpenIdConnectProviderThumbprint pOpenIdConnectProviderARN_ =
     , _uoicptThumbprintList = mempty
     }
 
--- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
--- to update the thumbprint for. You can get a list of OIDC provider ARNs
--- by using the < ListOpenIDConnectProviders> action.
+-- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to update the thumbprint for. You can get a list of OIDC provider ARNs by using the < ListOpenIDConnectProviders> action.
 uoicptOpenIdConnectProviderARN :: Lens' UpdateOpenIdConnectProviderThumbprint Text
 uoicptOpenIdConnectProviderARN = lens _uoicptOpenIdConnectProviderARN (\ s a -> s{_uoicptOpenIdConnectProviderARN = a});
 
--- | A list of certificate thumbprints that are associated with the specified
--- IAM OpenID Connect provider. For more information, see
--- < CreateOpenIDConnectProvider>.
+-- | A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see < CreateOpenIDConnectProvider>.
 uoicptThumbprintList :: Lens' UpdateOpenIdConnectProviderThumbprint [Text]
 uoicptThumbprintList = lens _uoicptThumbprintList (\ s a -> s{_uoicptThumbprintList = a}) . _Coerce;
 

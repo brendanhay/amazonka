@@ -121,11 +121,7 @@ createEndpoint pEndpointIdentifier_ pEndpointType_ pEngineName_ pUsername_ pPass
 ceExtraConnectionAttributes :: Lens' CreateEndpoint (Maybe Text)
 ceExtraConnectionAttributes = lens _ceExtraConnectionAttributes (\ s a -> s{_ceExtraConnectionAttributes = a});
 
--- | The KMS key identifier that will be used to encrypt the connection
--- parameters. If you do not specify a value for the KmsKeyId parameter,
--- then AWS DMS will use your default encryption key. AWS KMS creates the
--- default encryption key for your AWS account. Your AWS account has a
--- different default encryption key for each AWS region.
+-- | The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 ceKMSKeyId :: Lens' CreateEndpoint (Maybe Text)
 ceKMSKeyId = lens _ceKMSKeyId (\ s a -> s{_ceKMSKeyId = a});
 
@@ -137,9 +133,7 @@ ceDatabaseName = lens _ceDatabaseName (\ s a -> s{_ceDatabaseName = a});
 ceTags :: Lens' CreateEndpoint [Tag]
 ceTags = lens _ceTags (\ s a -> s{_ceTags = a}) . _Default . _Coerce;
 
--- | The database endpoint identifier. Identifiers must begin with a letter;
--- must contain only ASCII letters, digits, and hyphens; and must not end
--- with a hyphen or contain two consecutive hyphens.
+-- | The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
 ceEndpointIdentifier :: Lens' CreateEndpoint Text
 ceEndpointIdentifier = lens _ceEndpointIdentifier (\ s a -> s{_ceEndpointIdentifier = a});
 
@@ -147,8 +141,7 @@ ceEndpointIdentifier = lens _ceEndpointIdentifier (\ s a -> s{_ceEndpointIdentif
 ceEndpointType :: Lens' CreateEndpoint ReplicationEndpointTypeValue
 ceEndpointType = lens _ceEndpointType (\ s a -> s{_ceEndpointType = a});
 
--- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE,
--- POSTGRES, MARIADB, AURORA, SQLSERVER.
+-- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, SQLSERVER.
 ceEngineName :: Lens' CreateEndpoint Text
 ceEngineName = lens _ceEngineName (\ s a -> s{_ceEngineName = a});
 

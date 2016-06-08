@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches a virtual private gateway to a VPC. For more information, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- Attaches a virtual private gateway to a VPC. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.AttachVPNGateway
     (
     -- * Creating a Request
@@ -75,10 +73,7 @@ attachVPNGateway pVPNGatewayId_ pVPCId_ =
     , _avgVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 avgDryRun :: Lens' AttachVPNGateway (Maybe Bool)
 avgDryRun = lens _avgDryRun (\ s a -> s{_avgDryRun = a});
 

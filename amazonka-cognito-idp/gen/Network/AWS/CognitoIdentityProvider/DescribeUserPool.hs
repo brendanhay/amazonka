@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the configuration information and metadata of the specified user
--- pool.
+-- Returns the configuration information and metadata of the specified user pool.
 module Network.AWS.CognitoIdentityProvider.DescribeUserPool
     (
     -- * Creating a Request

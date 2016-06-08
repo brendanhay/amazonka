@@ -74,9 +74,7 @@ listDevices =
 ldArn :: Lens' ListDevices (Maybe Text)
 ldArn = lens _ldArn (\ s a -> s{_ldArn = a});
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 ldNextToken :: Lens' ListDevices (Maybe Text)
 ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
@@ -151,9 +149,7 @@ listDevicesResponse pResponseStatus_ =
     , _ldrsResponseStatus = pResponseStatus_
     }
 
--- | If the number of items that are returned is significantly large, this is
--- an identifier that is also returned, which can be used in a subsequent
--- call to this operation to return the next set of items in the list.
+-- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 ldrsNextToken :: Lens' ListDevicesResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 

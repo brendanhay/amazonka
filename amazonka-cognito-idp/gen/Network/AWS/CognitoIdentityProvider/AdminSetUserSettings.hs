@@ -72,8 +72,7 @@ adminSetUserSettings pUserPoolId_ pUsername_ =
     , _asusMFAOptions = mempty
     }
 
--- | The user pool ID for the user pool where you want to set the user\'s
--- settings, such as MFA options.
+-- | The user pool ID for the user pool where you want to set the user\'s settings, such as MFA options.
 asusUserPoolId :: Lens' AdminSetUserSettings Text
 asusUserPoolId = lens _asusUserPoolId (\ s a -> s{_asusUserPoolId = a});
 
@@ -123,8 +122,7 @@ instance ToPath AdminSetUserSettings where
 instance ToQuery AdminSetUserSettings where
         toQuery = const mempty
 
--- | Represents the response from the server to set user settings as an
--- administrator.
+-- | Represents the response from the server to set user settings as an administrator.
 --
 -- /See:/ 'adminSetUserSettingsResponse' smart constructor.
 newtype AdminSetUserSettingsResponse = AdminSetUserSettingsResponse'

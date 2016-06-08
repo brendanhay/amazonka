@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the endpoint from Amazon SNS. This action is idempotent. For
--- more information, see
--- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
+-- Deletes the endpoint from Amazon SNS. This action is idempotent. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 module Network.AWS.SNS.DeleteEndpoint
     (
     -- * Creating a Request

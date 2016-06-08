@@ -20,9 +20,7 @@
 --
 -- Describes one or more of your VPN connections.
 --
--- For more information about VPN connections, see
--- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- For more information about VPN connections, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.DescribeVPNConnections
     (
     -- * Creating a Request
@@ -77,46 +75,29 @@ describeVPNConnections =
 
 -- | One or more filters.
 --
--- -   'customer-gateway-configuration' - The configuration information for
---     the customer gateway.
+-- -   'customer-gateway-configuration' - The configuration information for the customer gateway.
 --
--- -   'customer-gateway-id' - The ID of a customer gateway associated with
---     the VPN connection.
+-- -   'customer-gateway-id' - The ID of a customer gateway associated with the VPN connection.
 --
--- -   'state' - The state of the VPN connection ('pending' | 'available' |
---     'deleting' | 'deleted').
+-- -   'state' - The state of the VPN connection ('pending' | 'available' | 'deleting' | 'deleted').
 --
--- -   'option.static-routes-only' - Indicates whether the connection has
---     static routes only. Used for devices that do not support Border
---     Gateway Protocol (BGP).
+-- -   'option.static-routes-only' - Indicates whether the connection has static routes only. Used for devices that do not support Border Gateway Protocol (BGP).
 --
--- -   'route.destination-cidr-block' - The destination CIDR block. This
---     corresponds to the subnet used in a customer data center.
+-- -   'route.destination-cidr-block' - The destination CIDR block. This corresponds to the subnet used in a customer data center.
 --
--- -   'bgp-asn' - The BGP Autonomous System Number (ASN) associated with a
---     BGP device.
+-- -   'bgp-asn' - The BGP Autonomous System Number (ASN) associated with a BGP device.
 --
--- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
---     to the resource.
+-- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned to the resource.
 --
--- -   'tag-key' - The key of a tag assigned to the resource. This filter
---     is independent of the 'tag-value' filter. For example, if you use
---     both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\",
---     you get any resources assigned both the tag key Purpose (regardless
---     of what the tag\'s value is), and the tag value X (regardless of
---     what the tag\'s key is). If you want to list only resources where
---     Purpose is X, see the 'tag':/key/=/value/ filter.
+-- -   'tag-key' - The key of a tag assigned to the resource. This filter is independent of the 'tag-value' filter. For example, if you use both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\", you get any resources assigned both the tag key Purpose (regardless of what the tag\'s value is), and the tag value X (regardless of what the tag\'s key is). If you want to list only resources where Purpose is X, see the 'tag':/key/=/value/ filter.
 --
--- -   'tag-value' - The value of a tag assigned to the resource. This
---     filter is independent of the 'tag-key' filter.
+-- -   'tag-value' - The value of a tag assigned to the resource. This filter is independent of the 'tag-key' filter.
 --
--- -   'type' - The type of VPN connection. Currently the only supported
---     type is 'ipsec.1'.
+-- -   'type' - The type of VPN connection. Currently the only supported type is 'ipsec.1'.
 --
 -- -   'vpn-connection-id' - The ID of the VPN connection.
 --
--- -   'vpn-gateway-id' - The ID of a virtual private gateway associated
---     with the VPN connection.
+-- -   'vpn-gateway-id' - The ID of a virtual private gateway associated with the VPN connection.
 --
 dvpncFilters :: Lens' DescribeVPNConnections [Filter]
 dvpncFilters = lens _dvpncFilters (\ s a -> s{_dvpncFilters = a}) . _Default . _Coerce;
@@ -127,10 +108,7 @@ dvpncFilters = lens _dvpncFilters (\ s a -> s{_dvpncFilters = a}) . _Default . _
 dvpncVPNConnectionIds :: Lens' DescribeVPNConnections [Text]
 dvpncVPNConnectionIds = lens _dvpncVPNConnectionIds (\ s a -> s{_dvpncVPNConnectionIds = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvpncDryRun :: Lens' DescribeVPNConnections (Maybe Bool)
 dvpncDryRun = lens _dvpncDryRun (\ s a -> s{_dvpncDryRun = a});
 

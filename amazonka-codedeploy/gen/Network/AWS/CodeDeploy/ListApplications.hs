@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the applications registered with the applicable IAM user or AWS
--- account.
+-- Lists the applications registered with the applicable IAM user or AWS account.
 module Network.AWS.CodeDeploy.ListApplications
     (
     -- * Creating a Request
@@ -63,8 +62,7 @@ listApplications =
     { _laNextToken = Nothing
     }
 
--- | An identifier returned from the previous list applications call. It can
--- be used to return the next set of applications in the list.
+-- | An identifier returned from the previous list applications call. It can be used to return the next set of applications in the list.
 laNextToken :: Lens' ListApplications (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
@@ -132,9 +130,7 @@ listApplicationsResponse pResponseStatus_ =
     , _larsResponseStatus = pResponseStatus_
     }
 
--- | If a large amount of information is returned, an identifier is also
--- returned. It can be used in a subsequent list applications call to
--- return the next set of applications, will also be returned. in the list.
+-- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list applications call to return the next set of applications, will also be returned. in the list.
 larsNextToken :: Lens' ListApplicationsResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 

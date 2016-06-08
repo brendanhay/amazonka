@@ -66,18 +66,11 @@ listRules pLimit_ =
     , _lrLimit = _Nat # pLimit_
     }
 
--- | If you specify a value for 'Limit' and you have more 'Rules' than the
--- value of 'Limit', AWS WAF returns a 'NextMarker' value in the response
--- that allows you to list another group of 'Rules'. For the second and
--- subsequent 'ListRules' requests, specify the value of 'NextMarker' from
--- the previous response to get information about another batch of 'Rules'.
+-- | If you specify a value for 'Limit' and you have more 'Rules' than the value of 'Limit', AWS WAF returns a 'NextMarker' value in the response that allows you to list another group of 'Rules'. For the second and subsequent 'ListRules' requests, specify the value of 'NextMarker' from the previous response to get information about another batch of 'Rules'.
 lrNextMarker :: Lens' ListRules (Maybe Text)
 lrNextMarker = lens _lrNextMarker (\ s a -> s{_lrNextMarker = a});
 
--- | Specifies the number of 'Rules' that you want AWS WAF to return for this
--- request. If you have more 'Rules' than the number that you specify for
--- 'Limit', the response includes a 'NextMarker' value that you can use to
--- get another batch of 'Rules'.
+-- | Specifies the number of 'Rules' that you want AWS WAF to return for this request. If you have more 'Rules' than the number that you specify for 'Limit', the response includes a 'NextMarker' value that you can use to get another batch of 'Rules'.
 lrLimit :: Lens' ListRules Natural
 lrLimit = lens _lrLimit (\ s a -> s{_lrLimit = a}) . _Nat;
 
@@ -147,11 +140,7 @@ listRulesResponse pResponseStatus_ =
 lrrsRules :: Lens' ListRulesResponse [RuleSummary]
 lrrsRules = lens _lrrsRules (\ s a -> s{_lrrsRules = a}) . _Default . _Coerce;
 
--- | If you have more 'Rules' than the number that you specified for 'Limit'
--- in the request, the response includes a 'NextMarker' value. To list more
--- 'Rules', submit another 'ListRules' request, and specify the
--- 'NextMarker' value from the response in the 'NextMarker' value in the
--- next request.
+-- | If you have more 'Rules' than the number that you specified for 'Limit' in the request, the response includes a 'NextMarker' value. To list more 'Rules', submit another 'ListRules' request, and specify the 'NextMarker' value from the response in the 'NextMarker' value in the next request.
 lrrsNextMarker :: Lens' ListRulesResponse (Maybe Text)
 lrrsNextMarker = lens _lrrsNextMarker (\ s a -> s{_lrrsNextMarker = a});
 

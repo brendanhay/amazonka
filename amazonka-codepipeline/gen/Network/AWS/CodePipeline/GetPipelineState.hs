@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the state of a pipeline, including the stages,
--- actions, and details about the last run of the pipeline.
+-- Returns information about the state of a pipeline, including the stages, actions, and details about the last run of the pipeline.
 module Network.AWS.CodePipeline.GetPipelineState
     (
     -- * Creating a Request
@@ -156,9 +155,7 @@ gpsrsPipelineName = lens _gpsrsPipelineName (\ s a -> s{_gpsrsPipelineName = a})
 gpsrsCreated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
 gpsrsCreated = lens _gpsrsCreated (\ s a -> s{_gpsrsCreated = a}) . mapping _Time;
 
--- | A list of the pipeline stage output information, including stage name,
--- state, most recent run details, whether the stage is disabled, and other
--- data.
+-- | A list of the pipeline stage output information, including stage name, state, most recent run details, whether the stage is disabled, and other data.
 gpsrsStageStates :: Lens' GetPipelineStateResponse [StageState]
 gpsrsStageStates = lens _gpsrsStageStates (\ s a -> s{_gpsrsStageStates = a}) . _Default . _Coerce;
 

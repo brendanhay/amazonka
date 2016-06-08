@@ -20,15 +20,9 @@
 --
 -- Removes the specified role from the specified instance profile.
 --
--- Make sure you do not have any Amazon EC2 instances running with the role
--- you are about to remove from the instance profile. Removing a role from
--- an instance profile that is associated with a running instance will
--- break any applications running on the instance.
+-- Make sure you do not have any Amazon EC2 instances running with the role you are about to remove from the instance profile. Removing a role from an instance profile that is associated with a running instance will break any applications running on the instance.
 --
--- For more information about roles, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
--- For more information about instance profiles, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+-- For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>. For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
 module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     (
     -- * Creating a Request

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts logging information, such as queries and connection attempts, for
--- the specified Amazon Redshift cluster.
+-- Starts logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
 module Network.AWS.Redshift.EnableLogging
     (
     -- * Creating a Request
@@ -83,9 +82,7 @@ enableLogging pClusterIdentifier_ pBucketName_ =
 -- Constraints:
 --
 -- -   Cannot exceed 512 characters
--- -   Cannot contain spaces( ), double quotes (\"), single quotes (\'), a
---     backslash (\\), or control characters. The hexadecimal codes for
---     invalid characters are:
+-- -   Cannot contain spaces( ), double quotes (\"), single quotes (\'), a backslash (\\), or control characters. The hexadecimal codes for invalid characters are:
 --     -   x00 to x20
 --     -   x22
 --     -   x27

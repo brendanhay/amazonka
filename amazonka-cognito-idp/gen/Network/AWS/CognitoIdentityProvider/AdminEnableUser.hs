@@ -110,8 +110,7 @@ instance ToPath AdminEnableUser where
 instance ToQuery AdminEnableUser where
         toQuery = const mempty
 
--- | Represents the response from the server for the request to enable a user
--- as an administrator.
+-- | Represents the response from the server for the request to enable a user as an administrator.
 --
 -- /See:/ 'adminEnableUserResponse' smart constructor.
 newtype AdminEnableUserResponse = AdminEnableUserResponse'

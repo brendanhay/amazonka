@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resumes the specified suspended Auto Scaling processes, or all suspended
--- process, for the specified Auto Scaling group.
+-- Resumes the specified suspended Auto Scaling processes, or all suspended process, for the specified Auto Scaling group.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes>
--- in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling Developer Guide/.
 module Network.AWS.AutoScaling.ResumeProcesses
     (
     -- * Creating a Request

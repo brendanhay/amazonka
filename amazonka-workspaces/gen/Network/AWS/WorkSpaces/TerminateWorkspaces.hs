@@ -20,15 +20,11 @@
 --
 -- Terminates the specified WorkSpaces.
 --
--- Terminating a WorkSpace is a permanent action and cannot be undone. The
--- user\'s data is not maintained and will be destroyed. If you need to
--- archive any user data, contact Amazon Web Services before terminating
--- the WorkSpace.
+-- Terminating a WorkSpace is a permanent action and cannot be undone. The user\'s data is not maintained and will be destroyed. If you need to archive any user data, contact Amazon Web Services before terminating the WorkSpace.
 --
 -- You can terminate a WorkSpace that is in any state except 'SUSPENDED'.
 --
--- This operation is asynchronous and will return before the WorkSpaces
--- have been completely terminated.
+-- This operation is asynchronous and will return before the WorkSpaces have been completely terminated.
 module Network.AWS.WorkSpaces.TerminateWorkspaces
     (
     -- * Creating a Request
@@ -139,8 +135,7 @@ terminateWorkspacesResponse pResponseStatus_ =
     , _twrsResponseStatus = pResponseStatus_
     }
 
--- | An array of structures that represent any WorkSpaces that could not be
--- terminated.
+-- | An array of structures that represent any WorkSpaces that could not be terminated.
 twrsFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeRequest]
 twrsFailedRequests = lens _twrsFailedRequests (\ s a -> s{_twrsFailedRequests = a}) . _Default . _Coerce;
 

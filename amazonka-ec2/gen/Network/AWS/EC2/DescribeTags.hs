@@ -20,9 +20,7 @@
 --
 -- Describes one or more of the tags for your EC2 resources.
 --
--- For more information about tags, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeTags
@@ -90,12 +88,7 @@ describeTags =
 --
 -- -   'resource-id' - The resource ID.
 --
--- -   'resource-type' - The resource type ('customer-gateway' |
---     'dhcp-options' | 'image' | 'instance' | 'internet-gateway' |
---     'network-acl' | 'network-interface' | 'reserved-instances' |
---     'route-table' | 'security-group' | 'snapshot' |
---     'spot-instances-request' | 'subnet' | 'volume' | 'vpc' |
---     'vpn-connection' | 'vpn-gateway').
+-- -   'resource-type' - The resource type ('customer-gateway' | 'dhcp-options' | 'image' | 'instance' | 'internet-gateway' | 'network-acl' | 'network-interface' | 'reserved-instances' | 'route-table' | 'security-group' | 'snapshot' | 'spot-instances-request' | 'subnet' | 'volume' | 'vpc' | 'vpn-connection' | 'vpn-gateway').
 --
 -- -   'value' - The tag value.
 --
@@ -106,16 +99,11 @@ dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dtDryRun :: Lens' DescribeTags (Maybe Bool)
 dtDryRun = lens _dtDryRun (\ s a -> s{_dtDryRun = a});
 
--- | The maximum number of results to return in a single call. This value can
--- be between 5 and 1000. To retrieve the remaining results, make another
--- call with the returned 'NextToken' value.
+-- | The maximum number of results to return in a single call. This value can be between 5 and 1000. To retrieve the remaining results, make another call with the returned 'NextToken' value.
 dtMaxResults :: Lens' DescribeTags (Maybe Int)
 dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a});
 
@@ -185,8 +173,7 @@ describeTagsResponse pResponseStatus_ =
     , _dtrsResponseStatus = pResponseStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- 'null' when there are no more results to return..
+-- | The token to use to retrieve the next page of results. This value is 'null' when there are no more results to return..
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 

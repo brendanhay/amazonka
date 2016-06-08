@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the descriptions of all the current mount targets, or a specific
--- mount target, for a file system. When requesting all of the current
--- mount targets, the order of mount targets returned in the response is
--- unspecified.
+-- Returns the descriptions of all the current mount targets, or a specific mount target, for a file system. When requesting all of the current mount targets, the order of mount targets returned in the response is unspecified.
 --
--- This operation requires permission for the
--- 'elasticfilesystem:DescribeMountTargets' action, on either the file
--- system id that you specify in 'FileSystemId', or on the file system of
--- the mount target that you specify in 'MountTargetId'.
+-- This operation requires permission for the 'elasticfilesystem:DescribeMountTargets' action, on either the file system id that you specify in 'FileSystemId', or on the file system of the mount target that you specify in 'MountTargetId'.
 module Network.AWS.EFS.DescribeMountTargets
     (
     -- * Creating a Request
@@ -84,26 +78,19 @@ describeMountTargets =
     , _dmtMountTargetId = Nothing
     }
 
--- | Optional. String. The ID of the file system whose mount targets you want
--- to list. It must be included in your request if 'MountTargetId' is not
--- included.
+-- | Optional. String. The ID of the file system whose mount targets you want to list. It must be included in your request if 'MountTargetId' is not included.
 dmtFileSystemId :: Lens' DescribeMountTargets (Maybe Text)
 dmtFileSystemId = lens _dmtFileSystemId (\ s a -> s{_dmtFileSystemId = a});
 
--- | Optional. String. Opaque pagination token returned from a previous
--- 'DescribeMountTargets' operation. If present, it specifies to continue
--- the list from where the previous returning call left off.
+-- | Optional. String. Opaque pagination token returned from a previous 'DescribeMountTargets' operation. If present, it specifies to continue the list from where the previous returning call left off.
 dmtMarker :: Lens' DescribeMountTargets (Maybe Text)
 dmtMarker = lens _dmtMarker (\ s a -> s{_dmtMarker = a});
 
--- | Optional. Maximum number of mount targets to return in the response. It
--- must be an integer with a value greater than zero.
+-- | Optional. Maximum number of mount targets to return in the response. It must be an integer with a value greater than zero.
 dmtMaxItems :: Lens' DescribeMountTargets (Maybe Natural)
 dmtMaxItems = lens _dmtMaxItems (\ s a -> s{_dmtMaxItems = a}) . mapping _Nat;
 
--- | Optional. String. The ID of the mount target that you want to have
--- described. It must be included in your request if 'FileSystemId' is not
--- included.
+-- | Optional. String. The ID of the mount target that you want to have described. It must be included in your request if 'FileSystemId' is not included.
 dmtMountTargetId :: Lens' DescribeMountTargets (Maybe Text)
 dmtMountTargetId = lens _dmtMountTargetId (\ s a -> s{_dmtMountTargetId = a});
 
@@ -167,19 +154,15 @@ describeMountTargetsResponse pResponseStatus_ =
     , _dmtrsResponseStatus = pResponseStatus_
     }
 
--- | Returns the file system\'s mount targets as an array of
--- 'MountTargetDescription' objects.
+-- | Returns the file system\'s mount targets as an array of 'MountTargetDescription' objects.
 dmtrsMountTargets :: Lens' DescribeMountTargetsResponse [MountTargetDescription]
 dmtrsMountTargets = lens _dmtrsMountTargets (\ s a -> s{_dmtrsMountTargets = a}) . _Default . _Coerce;
 
--- | If the request included the 'Marker', the response returns that value in
--- this field.
+-- | If the request included the 'Marker', the response returns that value in this field.
 dmtrsMarker :: Lens' DescribeMountTargetsResponse (Maybe Text)
 dmtrsMarker = lens _dmtrsMarker (\ s a -> s{_dmtrsMarker = a});
 
--- | If a value is present, there are more mount targets to return. In a
--- subsequent request, you can provide 'Marker' in your request with this
--- value to retrieve the next set of mount targets.
+-- | If a value is present, there are more mount targets to return. In a subsequent request, you can provide 'Marker' in your request with this value to retrieve the next set of mount targets.
 dmtrsNextMarker :: Lens' DescribeMountTargetsResponse (Maybe Text)
 dmtrsNextMarker = lens _dmtrsNextMarker (\ s a -> s{_dmtrsNextMarker = a});
 

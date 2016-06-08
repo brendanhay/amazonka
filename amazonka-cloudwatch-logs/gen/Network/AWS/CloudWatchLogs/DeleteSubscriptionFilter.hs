@@ -63,8 +63,7 @@ deleteSubscriptionFilter pLogGroupName_ pFilterName_ =
     , _dFilterName = pFilterName_
     }
 
--- | The name of the log group that is associated with the subscription
--- filter to delete.
+-- | The name of the log group that is associated with the subscription filter to delete.
 dLogGroupName :: Lens' DeleteSubscriptionFilter Text
 dLogGroupName = lens _dLogGroupName (\ s a -> s{_dLogGroupName = a});
 

@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all of the attributes associated with the specified item.
--- Optionally, the attributes returned can be limited to one or more
--- attributes by specifying an attribute name parameter.
+-- Returns all of the attributes associated with the specified item. Optionally, the attributes returned can be limited to one or more attributes by specifying an attribute name parameter.
 --
--- If the item does not exist on the replica that was accessed for this
--- operation, an empty set is returned. The system does not return an error
--- as it cannot guarantee the item does not exist on other replicas.
+-- If the item does not exist on the replica that was accessed for this operation, an empty set is returned. The system does not return an error as it cannot guarantee the item does not exist on other replicas.
 module Network.AWS.SDB.GetAttributes
     (
     -- * Creating a Request
@@ -82,11 +78,7 @@ getAttributes pDomainName_ pItemName_ =
     , _gaItemName = pItemName_
     }
 
--- | Determines whether or not strong consistency should be enforced when
--- data is read from SimpleDB. If 'true', any data previously written to
--- SimpleDB will be returned. Otherwise, results will be consistent
--- eventually, and the client may not see data that was written immediately
--- before your read.
+-- | Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If 'true', any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.
 gaConsistentRead :: Lens' GetAttributes (Maybe Bool)
 gaConsistentRead = lens _gaConsistentRead (\ s a -> s{_gaConsistentRead = a});
 

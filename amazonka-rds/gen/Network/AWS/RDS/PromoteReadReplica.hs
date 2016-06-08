@@ -20,10 +20,7 @@
 --
 -- Promotes a Read Replica DB instance to a standalone DB instance.
 --
--- We recommend that you enable automated backups on your Read Replica
--- before promoting the Read Replica. This ensures that no backup is taken
--- during the promotion process. Once the instance is promoted to a primary
--- instance, backups are taken based on your backup settings.
+-- We recommend that you enable automated backups on your Read Replica before promoting the Read Replica. This ensures that no backup is taken during the promotion process. Once the instance is promoted to a primary instance, backups are taken based on your backup settings.
 module Network.AWS.RDS.PromoteReadReplica
     (
     -- * Creating a Request
@@ -77,14 +74,9 @@ promoteReadReplica pDBInstanceIdentifier_ =
     , _prrDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
--- | The daily time range during which automated backups are created if
--- automated backups are enabled, using the 'BackupRetentionPeriod'
--- parameter.
+-- | The daily time range during which automated backups are created if automated backups are enabled, using the 'BackupRetentionPeriod' parameter.
 --
--- Default: A 30-minute window selected at random from an 8-hour block of
--- time per region. To see the time blocks available, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window>
--- in the /Amazon RDS User Guide./
+-- Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./
 --
 -- Constraints:
 --
@@ -95,9 +87,7 @@ promoteReadReplica pDBInstanceIdentifier_ =
 prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
 prrPreferredBackupWindow = lens _prrPreferredBackupWindow (\ s a -> s{_prrPreferredBackupWindow = a});
 
--- | The number of days to retain automated backups. Setting this parameter
--- to a positive number enables backups. Setting this parameter to 0
--- disables automated backups.
+-- | The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
 --
 -- Default: 1
 --

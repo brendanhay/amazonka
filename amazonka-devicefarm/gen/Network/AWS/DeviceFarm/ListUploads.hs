@@ -71,9 +71,7 @@ listUploads pArn_ =
     , _luArn = pArn_
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 luNextToken :: Lens' ListUploads (Maybe Text)
 luNextToken = lens _luNextToken (\ s a -> s{_luNextToken = a});
 
@@ -152,9 +150,7 @@ listUploadsResponse pResponseStatus_ =
     , _lursResponseStatus = pResponseStatus_
     }
 
--- | If the number of items that are returned is significantly large, this is
--- an identifier that is also returned, which can be used in a subsequent
--- call to this operation to return the next set of items in the list.
+-- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 lursNextToken :: Lens' ListUploadsResponse (Maybe Text)
 lursNextToken = lens _lursNextToken (\ s a -> s{_lursNextToken = a});
 

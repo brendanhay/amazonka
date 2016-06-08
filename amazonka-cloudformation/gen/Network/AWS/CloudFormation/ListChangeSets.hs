@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the ID and status of each active change set for a stack. For
--- example, AWS CloudFormation lists change sets that are in the
--- 'CREATE_IN_PROGRESS' or 'CREATE_PENDING' state.
+-- Returns the ID and status of each active change set for a stack. For example, AWS CloudFormation lists change sets that are in the 'CREATE_IN_PROGRESS' or 'CREATE_PENDING' state.
 module Network.AWS.CloudFormation.ListChangeSets
     (
     -- * Creating a Request
@@ -70,13 +68,11 @@ listChangeSets pStackName_ =
     , _lcsStackName = pStackName_
     }
 
--- | A string (provided by the < ListChangeSets> response output) that
--- identifies the next page of change sets that you want to retrieve.
+-- | A string (provided by the < ListChangeSets> response output) that identifies the next page of change sets that you want to retrieve.
 lcsNextToken :: Lens' ListChangeSets (Maybe Text)
 lcsNextToken = lens _lcsNextToken (\ s a -> s{_lcsNextToken = a});
 
--- | The name or the Amazon Resource Name (ARN) of the stack for which you
--- want to list change sets.
+-- | The name or the Amazon Resource Name (ARN) of the stack for which you want to list change sets.
 lcsStackName :: Lens' ListChangeSets Text
 lcsStackName = lens _lcsStackName (\ s a -> s{_lcsStackName = a});
 
@@ -138,13 +134,11 @@ listChangeSetsResponse pResponseStatus_ =
     , _lcsrsResponseStatus = pResponseStatus_
     }
 
--- | If the output exceeds 1 MB, a string that identifies the next page of
--- change sets. If there is no additional page, this value is null.
+-- | If the output exceeds 1 MB, a string that identifies the next page of change sets. If there is no additional page, this value is null.
 lcsrsNextToken :: Lens' ListChangeSetsResponse (Maybe Text)
 lcsrsNextToken = lens _lcsrsNextToken (\ s a -> s{_lcsrsNextToken = a});
 
--- | A list of 'ChangeSetSummary' structures that provides the ID and status
--- of each change set for the specified stack.
+-- | A list of 'ChangeSetSummary' structures that provides the ID and status of each change set for the specified stack.
 lcsrsSummaries :: Lens' ListChangeSetsResponse [ChangeSetSummary]
 lcsrsSummaries = lens _lcsrsSummaries (\ s a -> s{_lcsrsSummaries = a}) . _Default . _Coerce;
 

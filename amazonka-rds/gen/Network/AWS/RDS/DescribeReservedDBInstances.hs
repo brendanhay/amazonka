@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about reserved DB instances for this account, or
--- about a specified reserved DB instance.
+-- Returns information about reserved DB instances for this account, or about a specified reserved DB instance.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeReservedDBInstances
@@ -111,8 +110,7 @@ describeReservedDBInstances =
     , _drdiDuration = Nothing
     }
 
--- | The product description filter value. Specify this parameter to show
--- only those reservations matching the specified product description.
+-- | The product description filter value. Specify this parameter to show only those reservations matching the specified product description.
 drdiProductDescription :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdiProductDescription = lens _drdiProductDescription (\ s a -> s{_drdiProductDescription = a});
 
@@ -120,26 +118,19 @@ drdiProductDescription = lens _drdiProductDescription (\ s a -> s{_drdiProductDe
 drdiFilters :: Lens' DescribeReservedDBInstances [Filter]
 drdiFilters = lens _drdiFilters (\ s a -> s{_drdiFilters = a}) . _Default . _Coerce;
 
--- | The reserved DB instance identifier filter value. Specify this parameter
--- to show only the reservation that matches the specified reservation ID.
+-- | The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.
 drdiReservedDBInstanceId :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdiReservedDBInstanceId = lens _drdiReservedDBInstanceId (\ s a -> s{_drdiReservedDBInstanceId = a});
 
--- | The DB instance class filter value. Specify this parameter to show only
--- those reservations matching the specified DB instances class.
+-- | The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.
 drdiDBInstanceClass :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdiDBInstanceClass = lens _drdiDBInstanceClass (\ s a -> s{_drdiDBInstanceClass = a});
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 drdiMarker :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdiMarker = lens _drdiMarker (\ s a -> s{_drdiMarker = a});
 
--- | The maximum number of records to include in the response. If more than
--- the 'MaxRecords' value is available, a pagination token called a marker
--- is included in the response so that the following results can be
--- retrieved.
+-- | The maximum number of records to include in the response. If more than the 'MaxRecords' value is available, a pagination token called a marker is included in the response so that the following results can be retrieved.
 --
 -- Default: 100
 --
@@ -147,25 +138,21 @@ drdiMarker = lens _drdiMarker (\ s a -> s{_drdiMarker = a});
 drdiMaxRecords :: Lens' DescribeReservedDBInstances (Maybe Int)
 drdiMaxRecords = lens _drdiMaxRecords (\ s a -> s{_drdiMaxRecords = a});
 
--- | The Multi-AZ filter value. Specify this parameter to show only those
--- reservations matching the specified Multi-AZ parameter.
+-- | The Multi-AZ filter value. Specify this parameter to show only those reservations matching the specified Multi-AZ parameter.
 drdiMultiAZ :: Lens' DescribeReservedDBInstances (Maybe Bool)
 drdiMultiAZ = lens _drdiMultiAZ (\ s a -> s{_drdiMultiAZ = a});
 
--- | The offering identifier filter value. Specify this parameter to show
--- only purchased reservations matching the specified offering identifier.
+-- | The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.
 drdiReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdiReservedDBInstancesOfferingId = lens _drdiReservedDBInstancesOfferingId (\ s a -> s{_drdiReservedDBInstancesOfferingId = a});
 
--- | The offering type filter value. Specify this parameter to show only the
--- available offerings matching the specified offering type.
+-- | The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.
 --
 -- Valid Values: '\"Partial Upfront\" | \"All Upfront\" | \"No Upfront\" '
 drdiOfferingType :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdiOfferingType = lens _drdiOfferingType (\ s a -> s{_drdiOfferingType = a});
 
--- | The duration filter value, specified in years or seconds. Specify this
--- parameter to show only reservations for this duration.
+-- | The duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.
 --
 -- Valid Values: '1 | 3 | 31536000 | 94608000'
 drdiDuration :: Lens' DescribeReservedDBInstances (Maybe Text)
@@ -221,8 +208,7 @@ instance ToQuery DescribeReservedDBInstances where
                "OfferingType" =: _drdiOfferingType,
                "Duration" =: _drdiDuration]
 
--- | Contains the result of a successful invocation of the
--- < DescribeReservedDBInstances> action.
+-- | Contains the result of a successful invocation of the < DescribeReservedDBInstances> action.
 --
 -- /See:/ 'describeReservedDBInstancesResponse' smart constructor.
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
@@ -254,9 +240,7 @@ describeReservedDBInstancesResponse pResponseStatus_ =
 drdirsReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [ReservedDBInstance]
 drdirsReservedDBInstances = lens _drdirsReservedDBInstances (\ s a -> s{_drdirsReservedDBInstances = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 drdirsMarker :: Lens' DescribeReservedDBInstancesResponse (Maybe Text)
 drdirsMarker = lens _drdirsMarker (\ s a -> s{_drdirsMarker = a});
 

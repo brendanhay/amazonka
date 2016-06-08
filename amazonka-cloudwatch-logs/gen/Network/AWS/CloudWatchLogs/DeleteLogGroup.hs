@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the log group with the specified name and permanently deletes
--- all the archived log events associated with it.
+-- Deletes the log group with the specified name and permanently deletes all the archived log events associated with it.
 module Network.AWS.CloudWatchLogs.DeleteLogGroup
     (
     -- * Creating a Request

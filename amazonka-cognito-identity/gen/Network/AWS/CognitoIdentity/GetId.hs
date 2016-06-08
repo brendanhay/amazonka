@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates (or retrieves) a Cognito ID. Supplying multiple logins will
--- create an implicit linked account.
+-- Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit linked account.
 --
 -- This is a public API. You do not need any credentials to call this API.
 module Network.AWS.CognitoIdentity.GetId
@@ -79,14 +78,12 @@ getId pIdentityPoolId_ =
 giAccountId :: Lens' GetId (Maybe Text)
 giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
 
--- | A set of optional name-value pairs that map provider names to provider
--- tokens.
+-- | A set of optional name-value pairs that map provider names to provider tokens.
 --
 -- The available provider names for 'Logins' are as follows:
 --
 -- -   Facebook: 'graph.facebook.com'
--- -   Amazon Cognito Identity Provider:
---     'cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789'
+-- -   Amazon Cognito Identity Provider: 'cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789'
 -- -   Google: 'accounts.google.com'
 -- -   Amazon: 'www.amazon.com'
 -- -   Twitter: 'api.twitter.com'

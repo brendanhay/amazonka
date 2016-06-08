@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of configurations items according to the criteria you
--- specify in a filter. The filter criteria identify relationship
--- requirements.
+-- Retrieves a list of configurations items according to the criteria you specify in a filter. The filter criteria identify relationship requirements.
 module Network.AWS.Discovery.ListConfigurations
     (
     -- * Creating a Request
@@ -86,8 +84,7 @@ listConfigurations pConfigurationType_ =
 lcFilters :: Lens' ListConfigurations [Filter]
 lcFilters = lens _lcFilters (\ s a -> s{_lcFilters = a}) . _Default . _Coerce;
 
--- | A token to start the list. Use this token to get the next set of
--- results.
+-- | A token to start the list. Use this token to get the next set of results.
 lcNextToken :: Lens' ListConfigurations (Maybe Text)
 lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 
@@ -166,8 +163,7 @@ listConfigurationsResponse pResponseStatus_ =
     , _lcrsResponseStatus = pResponseStatus_
     }
 
--- | Returns configuration details, including the configuration ID, attribute
--- names, and attribute values.
+-- | Returns configuration details, including the configuration ID, attribute names, and attribute values.
 lcrsConfigurations :: Lens' ListConfigurationsResponse [HashMap Text Text]
 lcrsConfigurations = lens _lcrsConfigurations (\ s a -> s{_lcrsConfigurations = a}) . _Default . _Coerce;
 

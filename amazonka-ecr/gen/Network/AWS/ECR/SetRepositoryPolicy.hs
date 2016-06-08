@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Applies a repository policy on a specified repository to control access
--- permissions.
+-- Applies a repository policy on a specified repository to control access permissions.
 module Network.AWS.ECR.SetRepositoryPolicy
     (
     -- * Creating a Request
@@ -79,16 +78,11 @@ setRepositoryPolicy pRepositoryName_ pPolicyText_ =
     , _srpPolicyText = pPolicyText_
     }
 
--- | If the policy you are attempting to set on a repository policy would
--- prevent you from setting another policy in the future, you must force
--- the < SetRepositoryPolicy> operation. This is intended to prevent
--- accidental repository lock outs.
+-- | If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the < SetRepositoryPolicy> operation. This is intended to prevent accidental repository lock outs.
 srpForce :: Lens' SetRepositoryPolicy (Maybe Bool)
 srpForce = lens _srpForce (\ s a -> s{_srpForce = a});
 
--- | The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 srpRegistryId :: Lens' SetRepositoryPolicy (Maybe Text)
 srpRegistryId = lens _srpRegistryId (\ s a -> s{_srpRegistryId = a});
 

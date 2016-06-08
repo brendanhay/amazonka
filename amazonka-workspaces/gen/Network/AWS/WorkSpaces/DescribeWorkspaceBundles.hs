@@ -18,16 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Obtains information about the WorkSpace bundles that are available to
--- your account in the specified region.
+-- Obtains information about the WorkSpace bundles that are available to your account in the specified region.
 --
--- You can filter the results with either the 'BundleIds' parameter, or the
--- 'Owner' parameter, but not both.
+-- You can filter the results with either the 'BundleIds' parameter, or the 'Owner' parameter, but not both.
 --
--- This operation supports pagination with the use of the 'NextToken'
--- request and response parameters. If more results are available, the
--- 'NextToken' response member contains a token that you pass in the next
--- call to this operation to retrieve the next set of items.
+-- This operation supports pagination with the use of the 'NextToken' request and response parameters. If more results are available, the 'NextToken' response member contains a token that you pass in the next call to this operation to retrieve the next set of items.
 module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     (
     -- * Creating a Request
@@ -81,25 +76,20 @@ describeWorkspaceBundles =
     , _dwbNextToken = Nothing
     }
 
--- | An array of strings that contains the identifiers of the bundles to
--- retrieve. This parameter cannot be combined with any other filter
--- parameter.
+-- | An array of strings that contains the identifiers of the bundles to retrieve. This parameter cannot be combined with any other filter parameter.
 dwbBundleIds :: Lens' DescribeWorkspaceBundles (Maybe (NonEmpty Text))
 dwbBundleIds = lens _dwbBundleIds (\ s a -> s{_dwbBundleIds = a}) . mapping _List1;
 
--- | The owner of the bundles to retrieve. This parameter cannot be combined
--- with any other filter parameter.
+-- | The owner of the bundles to retrieve. This parameter cannot be combined with any other filter parameter.
 --
 -- This contains one of the following values:
 --
--- -   null - Retrieves the bundles that belong to the account making the
---     call.
+-- -   null - Retrieves the bundles that belong to the account making the call.
 -- -   'AMAZON' - Retrieves the bundles that are provided by AWS.
 dwbOwner :: Lens' DescribeWorkspaceBundles (Maybe Text)
 dwbOwner = lens _dwbOwner (\ s a -> s{_dwbOwner = a});
 
--- | The 'NextToken' value from a previous call to this operation. Pass null
--- if this is the first call.
+-- | The 'NextToken' value from a previous call to this operation. Pass null if this is the first call.
 dwbNextToken :: Lens' DescribeWorkspaceBundles (Maybe Text)
 dwbNextToken = lens _dwbNextToken (\ s a -> s{_dwbNextToken = a});
 
@@ -174,10 +164,7 @@ describeWorkspaceBundlesResponse pResponseStatus_ =
 dwbrsBundles :: Lens' DescribeWorkspaceBundlesResponse [WorkspaceBundle]
 dwbrsBundles = lens _dwbrsBundles (\ s a -> s{_dwbrsBundles = a}) . _Default . _Coerce;
 
--- | If not null, more results are available. Pass this value for the
--- 'NextToken' parameter in a subsequent call to this operation to retrieve
--- the next set of items. This token is valid for one day and must be used
--- within that timeframe.
+-- | If not null, more results are available. Pass this value for the 'NextToken' parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that timeframe.
 dwbrsNextToken :: Lens' DescribeWorkspaceBundlesResponse (Maybe Text)
 dwbrsNextToken = lens _dwbrsNextToken (\ s a -> s{_dwbrsNextToken = a});
 

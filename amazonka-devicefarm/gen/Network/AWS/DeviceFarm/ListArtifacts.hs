@@ -77,9 +77,7 @@ listArtifacts pArn_ pType_ =
     , _laType = pType_
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 laNextToken :: Lens' ListArtifacts (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
@@ -173,9 +171,7 @@ listArtifactsResponse pResponseStatus_ =
 larsArtifacts :: Lens' ListArtifactsResponse [Artifact]
 larsArtifacts = lens _larsArtifacts (\ s a -> s{_larsArtifacts = a}) . _Default . _Coerce;
 
--- | If the number of items that are returned is significantly large, this is
--- an identifier that is also returned, which can be used in a subsequent
--- call to this operation to return the next set of items in the list.
+-- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 larsNextToken :: Lens' ListArtifactsResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 

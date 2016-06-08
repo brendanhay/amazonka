@@ -20,8 +20,7 @@
 --
 -- Lists the CA certificates registered for your AWS account.
 --
--- The results are paginated with a default page size of 25. You can use
--- the returned marker to retrieve additional results.
+-- The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.
 module Network.AWS.IoT.ListCACertificates
     (
     -- * Creating a Request

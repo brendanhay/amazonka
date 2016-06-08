@@ -20,15 +20,9 @@
 --
 -- Purchases one or more Scheduled Instances with the specified schedule.
 --
--- Scheduled Instances enable you to purchase Amazon EC2 compute capacity
--- by the hour for a one-year term. Before you can purchase a Scheduled
--- Instance, you must call < DescribeScheduledInstanceAvailability> to
--- check for available schedules and obtain a purchase token. After you
--- purchase a Scheduled Instance, you must call < RunScheduledInstances>
--- during each scheduled time period.
+-- Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call < DescribeScheduledInstanceAvailability> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call < RunScheduledInstances> during each scheduled time period.
 --
--- After you purchase a Scheduled Instance, you can\'t cancel, modify, or
--- resell your purchase.
+-- After you purchase a Scheduled Instance, you can\'t cancel, modify, or resell your purchase.
 module Network.AWS.EC2.PurchaseScheduledInstances
     (
     -- * Creating a Request
@@ -82,16 +76,11 @@ purchaseScheduledInstances pPurchaseRequests_ =
     , _psiPurchaseRequests = _List1 # pPurchaseRequests_
     }
 
--- | Unique, case-sensitive identifier that ensures the idempotency of the
--- request. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 psiClientToken :: Lens' PurchaseScheduledInstances (Maybe Text)
 psiClientToken = lens _psiClientToken (\ s a -> s{_psiClientToken = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 psiDryRun :: Lens' PurchaseScheduledInstances (Maybe Bool)
 psiDryRun = lens _psiDryRun (\ s a -> s{_psiDryRun = a});
 

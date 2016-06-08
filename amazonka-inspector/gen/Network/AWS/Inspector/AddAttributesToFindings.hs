@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Assigns attributes (key and value pairs) to the findings that are
--- specified by the ARNs of the findings.
+-- Assigns attributes (key and value pairs) to the findings that are specified by the ARNs of the findings.
 module Network.AWS.Inspector.AddAttributesToFindings
     (
     -- * Creating a Request
@@ -66,8 +65,7 @@ addAttributesToFindings pFindingARNs_ =
     , _aatfAttributes = mempty
     }
 
--- | The ARNs that specify the findings that you want to assign attributes
--- to.
+-- | The ARNs that specify the findings that you want to assign attributes to.
 aatfFindingARNs :: Lens' AddAttributesToFindings (NonEmpty Text)
 aatfFindingARNs = lens _aatfFindingARNs (\ s a -> s{_aatfFindingARNs = a}) . _List1;
 
@@ -139,8 +137,7 @@ addAttributesToFindingsResponse pResponseStatus_ =
 aatfrsResponseStatus :: Lens' AddAttributesToFindingsResponse Int
 aatfrsResponseStatus = lens _aatfrsResponseStatus (\ s a -> s{_aatfrsResponseStatus = a});
 
--- | Attribute details that cannot be described. An error code is provided
--- for each failed item.
+-- | Attribute details that cannot be described. An error code is provided for each failed item.
 aatfrsFailedItems :: Lens' AddAttributesToFindingsResponse (HashMap Text FailedItemDetails)
 aatfrsFailedItems = lens _aatfrsFailedItems (\ s a -> s{_aatfrsFailedItems = a}) . _Map;
 

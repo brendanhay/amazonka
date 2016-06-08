@@ -21,10 +21,7 @@ import           Network.AWS.APIGateway.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | A resource that can be distributed to callers for executing < Method>
--- resources that require an API key. API keys can be mapped to any
--- < Stage> on any < RestApi>, which indicates that the callers with the
--- API key can make requests to that stage.
+-- | A resource that can be distributed to callers for executing < Method> resources that require an API key. API keys can be mapped to any < Stage> on any < RestApi>, which indicates that the callers with the API key can make requests to that stage.
 --
 -- /See:/ 'apiKey' smart constructor.
 data APIKey = APIKey'
@@ -71,8 +68,7 @@ apiKey =
 akEnabled :: Lens' APIKey (Maybe Bool)
 akEnabled = lens _akEnabled (\ s a -> s{_akEnabled = a});
 
--- | The date when the API Key was created, in
--- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
+-- | The date when the API Key was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 akCreatedDate :: Lens' APIKey (Maybe UTCTime)
 akCreatedDate = lens _akCreatedDate (\ s a -> s{_akCreatedDate = a}) . mapping _Time;
 
@@ -84,8 +80,7 @@ akName = lens _akName (\ s a -> s{_akName = a});
 akId :: Lens' APIKey (Maybe Text)
 akId = lens _akId (\ s a -> s{_akId = a});
 
--- | A list of < Stage> resources that are associated with the < ApiKey>
--- resource.
+-- | A list of < Stage> resources that are associated with the < ApiKey> resource.
 akStageKeys :: Lens' APIKey [Text]
 akStageKeys = lens _akStageKeys (\ s a -> s{_akStageKeys = a}) . _Default . _Coerce;
 
@@ -136,13 +131,11 @@ account =
     , _aThrottleSettings = Nothing
     }
 
--- | Specifies the Amazon resource name (ARN) of an Amazon CloudWatch role
--- for the current < Account> resource.
+-- | Specifies the Amazon resource name (ARN) of an Amazon CloudWatch role for the current < Account> resource.
 aCloudwatchRoleARN :: Lens' Account (Maybe Text)
 aCloudwatchRoleARN = lens _aCloudwatchRoleARN (\ s a -> s{_aCloudwatchRoleARN = a});
 
--- | Specifies the application programming interface (API) throttle settings
--- for the current < Account> resource.
+-- | Specifies the application programming interface (API) throttle settings for the current < Account> resource.
 aThrottleSettings :: Lens' Account (Maybe ThrottleSettings)
 aThrottleSettings = lens _aThrottleSettings (\ s a -> s{_aThrottleSettings = a});
 
@@ -158,8 +151,7 @@ instance Hashable Account
 
 instance NFData Account
 
--- | Represents an authorization layer for methods. If enabled on a method,
--- API Gateway will activate the authorizer when a client calls the method.
+-- | Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
 --
 -- /See:/ 'authorizer' smart constructor.
 data Authorizer = Authorizer'
@@ -210,23 +202,11 @@ authorizer =
     , _aAuthorizerCredentials = Nothing
     }
 
--- | [Required] Specifies the authorizer\'s Uniform Resource Identifier
--- (URI). For TOKEN authorizers, this must be a well-formed Lambda function
--- URI. The URI should be of the form
--- 'arn:aws:apigateway:{region}:lambda:path\/{service_api}'. 'Region' is
--- used to determine the right endpoint. In this case, 'path' is used to
--- indicate that the remaining substring in the URI should be treated as
--- the path to the resource, including the initial '\/'. For Lambda
--- functions, this is usually of the form
--- \/2015-03-31\/functions\/[FunctionARN]\/invocations
+-- | [Required] Specifies the authorizer\'s Uniform Resource Identifier (URI). For TOKEN authorizers, this must be a well-formed Lambda function URI. The URI should be of the form 'arn:aws:apigateway:{region}:lambda:path\/{service_api}'. 'Region' is used to determine the right endpoint. In this case, 'path' is used to indicate that the remaining substring in the URI should be treated as the path to the resource, including the initial '\/'. For Lambda functions, this is usually of the form \/2015-03-31\/functions\/[FunctionARN]\/invocations
 aAuthorizerURI :: Lens' Authorizer (Maybe Text)
 aAuthorizerURI = lens _aAuthorizerURI (\ s a -> s{_aAuthorizerURI = a});
 
--- | A validation expression for the incoming identity. For TOKEN
--- authorizers, this value should be a regular expression. The incoming
--- token from the client is matched against this expression, and will
--- proceed if the token matches. If the token doesn\'t match, the client
--- receives a 401 Unauthorized response.
+-- | A validation expression for the incoming identity. For TOKEN authorizers, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn\'t match, the client receives a 401 Unauthorized response.
 aIdentityValidationExpression :: Lens' Authorizer (Maybe Text)
 aIdentityValidationExpression = lens _aIdentityValidationExpression (\ s a -> s{_aIdentityValidationExpression = a});
 
@@ -238,35 +218,23 @@ aName = lens _aName (\ s a -> s{_aName = a});
 aId :: Lens' Authorizer (Maybe Text)
 aId = lens _aId (\ s a -> s{_aId = a});
 
--- | The TTL in seconds of cached authorizer results. If greater than 0, API
--- Gateway will cache authorizer responses. If this field is not set, the
--- default value is 300. The maximum value is 3600, or 1 hour.
+-- | The TTL in seconds of cached authorizer results. If greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
 aAuthorizerResultTtlInSeconds :: Lens' Authorizer (Maybe Int)
 aAuthorizerResultTtlInSeconds = lens _aAuthorizerResultTtlInSeconds (\ s a -> s{_aAuthorizerResultTtlInSeconds = a});
 
--- | Optional customer-defined field, used in Swagger imports\/exports. Has
--- no functional impact.
+-- | Optional customer-defined field, used in Swagger imports\/exports. Has no functional impact.
 aAuthType :: Lens' Authorizer (Maybe Text)
 aAuthType = lens _aAuthType (\ s a -> s{_aAuthType = a});
 
--- | [Required] The type of the authorizer. Currently, the only valid type is
--- TOKEN.
+-- | [Required] The type of the authorizer. Currently, the only valid type is TOKEN.
 aType :: Lens' Authorizer (Maybe AuthorizerType)
 aType = lens _aType (\ s a -> s{_aType = a});
 
--- | [Required] The source of the identity in an incoming request. For TOKEN
--- authorizers, this value is a mapping expression with the same syntax as
--- integration parameter mappings. The only valid source for tokens is
--- \'header\', so the expression should match
--- \'method.request.header.[headerName]\'. The value of the header
--- \'[headerName]\' will be interpreted as the incoming token.
+-- | [Required] The source of the identity in an incoming request. For TOKEN authorizers, this value is a mapping expression with the same syntax as integration parameter mappings. The only valid source for tokens is \'header\', so the expression should match \'method.request.header.[headerName]\'. The value of the header \'[headerName]\' will be interpreted as the incoming token.
 aIdentitySource :: Lens' Authorizer (Maybe Text)
 aIdentitySource = lens _aIdentitySource (\ s a -> s{_aIdentitySource = a});
 
--- | Specifies the credentials required for the authorizer, if any. Two
--- options are available. To specify an IAM Role for Amazon API Gateway to
--- assume, use the role\'s Amazon Resource Name (ARN). To use
--- resource-based permissions on the Lambda function, specify null.
+-- | Specifies the credentials required for the authorizer, if any. Two options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
 aAuthorizerCredentials :: Lens' Authorizer (Maybe Text)
 aAuthorizerCredentials = lens _aAuthorizerCredentials (\ s a -> s{_aAuthorizerCredentials = a});
 
@@ -289,8 +257,7 @@ instance Hashable Authorizer
 
 instance NFData Authorizer
 
--- | Represents the base path that callers of the API that must provide as
--- part of the URL after the domain name.
+-- | Represents the base path that callers of the API that must provide as part of the URL after the domain name.
 --
 -- /See:/ 'basePathMapping' smart constructor.
 data BasePathMapping = BasePathMapping'
@@ -321,8 +288,7 @@ basePathMapping =
 bpmStage :: Lens' BasePathMapping (Maybe Text)
 bpmStage = lens _bpmStage (\ s a -> s{_bpmStage = a});
 
--- | The base path name that callers of the API must provide as part of the
--- URL after the domain name.
+-- | The base path name that callers of the API must provide as part of the URL after the domain name.
 bpmBasePath :: Lens' BasePathMapping (Maybe Text)
 bpmBasePath = lens _bpmBasePath (\ s a -> s{_bpmBasePath = a});
 
@@ -342,8 +308,7 @@ instance Hashable BasePathMapping
 
 instance NFData BasePathMapping
 
--- | Represents a Client Certificate used to configure client-side SSL
--- authentication while sending requests to the integration endpoint.
+-- | Represents a Client Certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.
 --
 -- /See:/ 'clientCertificate' smart constructor.
 data ClientCertificate = ClientCertificate'
@@ -378,8 +343,7 @@ clientCertificate =
     , _ccDescription = Nothing
     }
 
--- | The PEM-encoded public key of the Client Certificate, that can be used
--- to configure certificate authentication in the integration endpoint .
+-- | The PEM-encoded public key of the Client Certificate, that can be used to configure certificate authentication in the integration endpoint .
 ccPemEncodedCertificate :: Lens' ClientCertificate (Maybe Text)
 ccPemEncodedCertificate = lens _ccPemEncodedCertificate (\ s a -> s{_ccPemEncodedCertificate = a});
 
@@ -387,13 +351,11 @@ ccPemEncodedCertificate = lens _ccPemEncodedCertificate (\ s a -> s{_ccPemEncode
 ccClientCertificateId :: Lens' ClientCertificate (Maybe Text)
 ccClientCertificateId = lens _ccClientCertificateId (\ s a -> s{_ccClientCertificateId = a});
 
--- | The date when the Client Certificate was created, in
--- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
+-- | The date when the Client Certificate was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 ccCreatedDate :: Lens' ClientCertificate (Maybe UTCTime)
 ccCreatedDate = lens _ccCreatedDate (\ s a -> s{_ccCreatedDate = a}) . mapping _Time;
 
--- | The date when the Client Certificate will expire, in
--- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
+-- | The date when the Client Certificate will expire, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 ccExpirationDate :: Lens' ClientCertificate (Maybe UTCTime)
 ccExpirationDate = lens _ccExpirationDate (\ s a -> s{_ccExpirationDate = a}) . mapping _Time;
 
@@ -416,9 +378,7 @@ instance Hashable ClientCertificate
 
 instance NFData ClientCertificate
 
--- | An immutable representation of a < RestApi> resource that can be called
--- by users using < Stages>. A deployment must be associated with a
--- < Stage> for it to be callable over the Internet.
+-- | An immutable representation of a < RestApi> resource that can be called by users using < Stages>. A deployment must be associated with a < Stage> for it to be callable over the Internet.
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
@@ -449,8 +409,7 @@ deployment =
     , _dDescription = Nothing
     }
 
--- | Gets a summary of the < RestApi> at the date and time that the
--- deployment resource was created.
+-- | Gets a summary of the < RestApi> at the date and time that the deployment resource was created.
 dApiSummary :: Lens' Deployment (HashMap Text (HashMap Text MethodSnapshot))
 dApiSummary = lens _dApiSummary (\ s a -> s{_dApiSummary = a}) . _Default . _Map;
 
@@ -480,8 +439,7 @@ instance Hashable Deployment
 
 instance NFData Deployment
 
--- | Represents a domain name that is contained in a simpler, more intuitive
--- URL that can be called.
+-- | Represents a domain name that is contained in a simpler, more intuitive URL that can be called.
 --
 -- /See:/ 'domainName' smart constructor.
 data DomainName = DomainName'
@@ -520,14 +478,11 @@ dnCertificateName = lens _dnCertificateName (\ s a -> s{_dnCertificateName = a})
 dnDomainName :: Lens' DomainName (Maybe Text)
 dnDomainName = lens _dnDomainName (\ s a -> s{_dnDomainName = a});
 
--- | The date when the certificate was uploaded, in
--- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
+-- | The date when the certificate was uploaded, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 dnCertificateUploadDate :: Lens' DomainName (Maybe UTCTime)
 dnCertificateUploadDate = lens _dnCertificateUploadDate (\ s a -> s{_dnCertificateUploadDate = a}) . mapping _Time;
 
--- | The domain name of the Amazon CloudFront distribution. For more
--- information, see the
--- <http://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation>.
+-- | The domain name of the Amazon CloudFront distribution. For more information, see the <http://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation>.
 dnDistributionDomainName :: Lens' DomainName (Maybe Text)
 dnDistributionDomainName = lens _dnDistributionDomainName (\ s a -> s{_dnDistributionDomainName = a});
 
@@ -603,39 +558,15 @@ iHttpMethod = lens _iHttpMethod (\ s a -> s{_iHttpMethod = a});
 iRequestTemplates :: Lens' Integration (HashMap Text Text)
 iRequestTemplates = lens _iRequestTemplates (\ s a -> s{_iRequestTemplates = a}) . _Default . _Map;
 
--- | Specifies the credentials required for the integration, if any. For AWS
--- integrations, three options are available. To specify an IAM Role for
--- Amazon API Gateway to assume, use the role\'s Amazon Resource Name
--- (ARN). To require that the caller\'s identity be passed through from the
--- request, specify the string 'arn:aws:iam::\\*:user\/\\*'. To use
--- resource-based permissions on supported AWS services, specify null.
+-- | Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To require that the caller\'s identity be passed through from the request, specify the string 'arn:aws:iam::\\*:user\/\\*'. To use resource-based permissions on supported AWS services, specify null.
 iCredentials :: Lens' Integration (Maybe Text)
 iCredentials = lens _iCredentials (\ s a -> s{_iCredentials = a});
 
--- | Represents requests parameters that are sent with the backend request.
--- Request parameters are represented as a key\/value map, with a
--- destination as the key and a source as the value. A source must match an
--- existing method request parameter, or a static value. Static values must
--- be enclosed with single quotes, and be pre-encoded based on their
--- destination in the request. The destination must match the pattern
--- 'integration.request.{location}.{name}', where 'location' is either
--- querystring, path, or header. 'name' must be a valid, unique parameter
--- name.
+-- | Represents requests parameters that are sent with the backend request. Request parameters are represented as a key\/value map, with a destination as the key and a source as the value. A source must match an existing method request parameter, or a static value. Static values must be enclosed with single quotes, and be pre-encoded based on their destination in the request. The destination must match the pattern 'integration.request.{location}.{name}', where 'location' is either querystring, path, or header. 'name' must be a valid, unique parameter name.
 iRequestParameters :: Lens' Integration (HashMap Text Text)
 iRequestParameters = lens _iRequestParameters (\ s a -> s{_iRequestParameters = a}) . _Default . _Map;
 
--- | Specifies the integration\'s Uniform Resource Identifier (URI). For HTTP
--- integrations, the URI must be a fully formed, encoded HTTP(S) URL
--- according to the
--- <https://www.ietf.org/rfc/rfc3986.txt RFC-3986 specification>. For AWS
--- integrations, the URI should be of the form
--- 'arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}\/{service_api}'.
--- 'Region', 'subdomain' and 'service' are used to determine the right
--- endpoint. For AWS services that use the 'Action=' query string
--- parameter, 'service_api' should be a valid action for the desired
--- service. For RESTful AWS service APIs, 'path' is used to indicate that
--- the remaining substring in the URI should be treated as the path to the
--- resource, including the initial '\/'.
+-- | Specifies the integration\'s Uniform Resource Identifier (URI). For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <https://www.ietf.org/rfc/rfc3986.txt RFC-3986 specification>. For AWS integrations, the URI should be of the form 'arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}\/{service_api}'. 'Region', 'subdomain' and 'service' are used to determine the right endpoint. For AWS services that use the 'Action=' query string parameter, 'service_api' should be a valid action for the desired service. For RESTful AWS service APIs, 'path' is used to indicate that the remaining substring in the URI should be treated as the path to the resource, including the initial '\/'.
 iUri :: Lens' Integration (Maybe Text)
 iUri = lens _iUri (\ s a -> s{_iUri = a});
 
@@ -647,8 +578,7 @@ iIntegrationResponses = lens _iIntegrationResponses (\ s a -> s{_iIntegrationRes
 iCacheNamespace :: Lens' Integration (Maybe Text)
 iCacheNamespace = lens _iCacheNamespace (\ s a -> s{_iCacheNamespace = a});
 
--- | Specifies the integration\'s type. The valid value is 'HTTP', 'AWS', or
--- 'MOCK'.
+-- | Specifies the integration\'s type. The valid value is 'HTTP', 'AWS', or 'MOCK'.
 iType :: Lens' Integration (Maybe IntegrationType)
 iType = lens _iType (\ s a -> s{_iType = a});
 
@@ -675,9 +605,7 @@ instance Hashable Integration
 
 instance NFData Integration
 
--- | Represents an integration response. The status code must map to an
--- existing < MethodResponse>, and parameters and templates can be used to
--- transform the backend response.
+-- | Represents an integration response. The status code must map to an existing < MethodResponse>, and parameters and templates can be used to transform the backend response.
 --
 -- /See:/ 'integrationResponse' smart constructor.
 data IntegrationResponse = IntegrationResponse'
@@ -708,33 +636,19 @@ integrationResponse =
     , _iResponseParameters = Nothing
     }
 
--- | Specifies the templates used to transform the integration response body.
--- Response templates are represented as a key\/value map, with a
--- content-type as the key and a template as the value.
+-- | Specifies the templates used to transform the integration response body. Response templates are represented as a key\/value map, with a content-type as the key and a template as the value.
 iResponseTemplates :: Lens' IntegrationResponse (HashMap Text Text)
 iResponseTemplates = lens _iResponseTemplates (\ s a -> s{_iResponseTemplates = a}) . _Default . _Map;
 
--- | Specifies the regular expression (regex) pattern used to choose an
--- integration response based on the response from the backend. If the
--- backend is an AWS Lambda function, the AWS Lambda function error header
--- is matched. For all other HTTP and AWS backends, the HTTP status code is
--- matched.
+-- | Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the backend. If the backend is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS backends, the HTTP status code is matched.
 iSelectionPattern :: Lens' IntegrationResponse (Maybe Text)
 iSelectionPattern = lens _iSelectionPattern (\ s a -> s{_iSelectionPattern = a});
 
--- | Specifies the status code that is used to map the integration response
--- to an existing < MethodResponse>.
+-- | Specifies the status code that is used to map the integration response to an existing < MethodResponse>.
 iStatusCode :: Lens' IntegrationResponse (Maybe Text)
 iStatusCode = lens _iStatusCode (\ s a -> s{_iStatusCode = a});
 
--- | Represents response parameters that can be read from the backend
--- response. Response parameters are represented as a key\/value map, with
--- a destination as the key and a source as the value. A destination must
--- match an existing response parameter in the < MethodResponse>. The
--- source can be a header from the backend response, or a static value.
--- Static values are specified using enclosing single quotes, and backend
--- response headers can be read using the pattern
--- 'integration.response.header.{name}'.
+-- | Represents response parameters that can be read from the backend response. Response parameters are represented as a key\/value map, with a destination as the key and a source as the value. A destination must match an existing response parameter in the < MethodResponse>. The source can be a header from the backend response, or a static value. Static values are specified using enclosing single quotes, and backend response headers can be read using the pattern 'integration.response.header.{name}'.
 iResponseParameters :: Lens' IntegrationResponse (HashMap Text Text)
 iResponseParameters = lens _iResponseParameters (\ s a -> s{_iResponseParameters = a}) . _Default . _Map;
 
@@ -799,10 +713,7 @@ method =
     , _mMethodIntegration = Nothing
     }
 
--- | Represents available responses that can be sent to the caller. Method
--- responses are represented as a key\/value map, with an HTTP status code
--- as the key and a < MethodResponse> as the value. The status codes are
--- available for the < Integration> responses to map to.
+-- | Represents available responses that can be sent to the caller. Method responses are represented as a key\/value map, with an HTTP status code as the key and a < MethodResponse> as the value. The status codes are available for the < Integration> responses to map to.
 mMethodResponses :: Lens' Method (HashMap Text MethodResponse)
 mMethodResponses = lens _mMethodResponses (\ s a -> s{_mMethodResponses = a}) . _Default . _Map;
 
@@ -810,25 +721,15 @@ mMethodResponses = lens _mMethodResponses (\ s a -> s{_mMethodResponses = a}) . 
 mHttpMethod :: Lens' Method (Maybe Text)
 mHttpMethod = lens _mHttpMethod (\ s a -> s{_mHttpMethod = a});
 
--- | Specifies the < Model> resources used for the request\'s content type.
--- Request models are represented as a key\/value map, with a content type
--- as the key and a < Model> name as the value.
+-- | Specifies the < Model> resources used for the request\'s content type. Request models are represented as a key\/value map, with a content type as the key and a < Model> name as the value.
 mRequestModels :: Lens' Method (HashMap Text Text)
 mRequestModels = lens _mRequestModels (\ s a -> s{_mRequestModels = a}) . _Default . _Map;
 
--- | Represents request parameters that can be accepted by Amazon API
--- Gateway. Request parameters are represented as a key\/value map, with a
--- source as the key and a Boolean flag as the value. The Boolean flag is
--- used to specify whether the parameter is required. A source must match
--- the pattern 'method.request.{location}.{name}', where 'location' is
--- either querystring, path, or header. 'name' is a valid, unique parameter
--- name. Sources specified here are available to the integration for
--- mapping to integration request parameters or templates.
+-- | Represents request parameters that can be accepted by Amazon API Gateway. Request parameters are represented as a key\/value map, with a source as the key and a Boolean flag as the value. The Boolean flag is used to specify whether the parameter is required. A source must match the pattern 'method.request.{location}.{name}', where 'location' is either querystring, path, or header. 'name' is a valid, unique parameter name. Sources specified here are available to the integration for mapping to integration request parameters or templates.
 mRequestParameters :: Lens' Method (HashMap Text Bool)
 mRequestParameters = lens _mRequestParameters (\ s a -> s{_mRequestParameters = a}) . _Default . _Map;
 
--- | Specifies the identifier of an < Authorizer> to use on this Method. The
--- authorizationType must be CUSTOM.
+-- | Specifies the identifier of an < Authorizer> to use on this Method. The authorizationType must be CUSTOM.
 mAuthorizerId :: Lens' Method (Maybe Text)
 mAuthorizerId = lens _mAuthorizerId (\ s a -> s{_mAuthorizerId = a});
 
@@ -862,9 +763,7 @@ instance Hashable Method
 
 instance NFData Method
 
--- | Represents a method response. Amazon API Gateway sends back the status
--- code to the caller as the HTTP status code. Parameters and models can be
--- used to transform the response from the method\'s integration.
+-- | Represents a method response. Amazon API Gateway sends back the status code to the caller as the HTTP status code. Parameters and models can be used to transform the response from the method\'s integration.
 --
 -- /See:/ 'methodResponse' smart constructor.
 data MethodResponse = MethodResponse'
@@ -891,9 +790,7 @@ methodResponse =
     , _mResponseParameters = Nothing
     }
 
--- | Specifies the < Model> resources used for the response\'s content-type.
--- Response models are represented as a key\/value map, with a content-type
--- as the key and a < Model> name as the value.
+-- | Specifies the < Model> resources used for the response\'s content-type. Response models are represented as a key\/value map, with a content-type as the key and a < Model> name as the value.
 mResponseModels :: Lens' MethodResponse (HashMap Text Text)
 mResponseModels = lens _mResponseModels (\ s a -> s{_mResponseModels = a}) . _Default . _Map;
 
@@ -901,14 +798,7 @@ mResponseModels = lens _mResponseModels (\ s a -> s{_mResponseModels = a}) . _De
 mStatusCode :: Lens' MethodResponse (Maybe Text)
 mStatusCode = lens _mStatusCode (\ s a -> s{_mStatusCode = a});
 
--- | Represents response parameters that can be sent back to the caller by
--- Amazon API Gateway. Response parameters are represented as a key\/value
--- map, with a destination as the key and a boolean flag as the value,
--- which is used to specify whether the parameter is required. A
--- destination must match the pattern 'method.response.header.{name}',
--- where 'name' is a valid, unique header name. Destinations specified here
--- are available to the integration for mapping from integration response
--- parameters.
+-- | Represents response parameters that can be sent back to the caller by Amazon API Gateway. Response parameters are represented as a key\/value map, with a destination as the key and a boolean flag as the value, which is used to specify whether the parameter is required. A destination must match the pattern 'method.response.header.{name}', where 'name' is a valid, unique header name. Destinations specified here are available to the integration for mapping from integration response parameters.
 mResponseParameters :: Lens' MethodResponse (HashMap Text Bool)
 mResponseParameters = lens _mResponseParameters (\ s a -> s{_mResponseParameters = a}) . _Default . _Map;
 
@@ -980,71 +870,43 @@ methodSetting =
     , _msUnauthorizedCacheControlHeaderStrategy = Nothing
     }
 
--- | Specifies the time to live (TTL) in seconds, for cached responses. The
--- higher a the TTL, the longer the response will be cached. The PATCH path
--- for this setting is '\/{method_setting_key}\/caching\/ttlInSeconds', and
--- the value is an integer.
+-- | Specifies the time to live (TTL) in seconds, for cached responses. The higher a the TTL, the longer the response will be cached. The PATCH path for this setting is '\/{method_setting_key}\/caching\/ttlInSeconds', and the value is an integer.
 msCacheTtlInSeconds :: Lens' MethodSetting (Maybe Int)
 msCacheTtlInSeconds = lens _msCacheTtlInSeconds (\ s a -> s{_msCacheTtlInSeconds = a});
 
--- | Specifies the whether data trace logging is enabled for this method,
--- which effects the log entries pushed to Amazon CloudWatch Logs. The
--- PATCH path for this setting is
--- '\/{method_setting_key}\/logging\/dataTrace', and the value is a
--- Boolean.
+-- | Specifies the whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is '\/{method_setting_key}\/logging\/dataTrace', and the value is a Boolean.
 msDataTraceEnabled :: Lens' MethodSetting (Maybe Bool)
 msDataTraceEnabled = lens _msDataTraceEnabled (\ s a -> s{_msDataTraceEnabled = a});
 
--- | Specifies the throttling burst limit. The PATCH path for this setting is
--- '\/{method_setting_key}\/throttling\/burstLimit', and the value is an
--- integer.
+-- | Specifies the throttling burst limit. The PATCH path for this setting is '\/{method_setting_key}\/throttling\/burstLimit', and the value is an integer.
 msThrottlingBurstLimit :: Lens' MethodSetting (Maybe Int)
 msThrottlingBurstLimit = lens _msThrottlingBurstLimit (\ s a -> s{_msThrottlingBurstLimit = a});
 
--- | Specifies whether the cached responses are encrypted. The PATCH path for
--- this setting is '\/{method_setting_key}\/caching\/dataEncrypted', and
--- the value is a Boolean.
+-- | Specifies whether the cached responses are encrypted. The PATCH path for this setting is '\/{method_setting_key}\/caching\/dataEncrypted', and the value is a Boolean.
 msCacheDataEncrypted :: Lens' MethodSetting (Maybe Bool)
 msCacheDataEncrypted = lens _msCacheDataEncrypted (\ s a -> s{_msCacheDataEncrypted = a});
 
--- | Specifies the logging level for this method, which effects the log
--- entries pushed to Amazon CloudWatch Logs. The PATCH path for this
--- setting is '\/{method_setting_key}\/logging\/loglevel', and the
--- available levels are 'OFF', 'ERROR', and 'INFO'.
+-- | Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this setting is '\/{method_setting_key}\/logging\/loglevel', and the available levels are 'OFF', 'ERROR', and 'INFO'.
 msLoggingLevel :: Lens' MethodSetting (Maybe Text)
 msLoggingLevel = lens _msLoggingLevel (\ s a -> s{_msLoggingLevel = a});
 
--- | Specifies whether authorization is required for a cache invalidation
--- request. The PATCH path for this setting is
--- '\/{method_setting_key}\/caching\/requireAuthorizationForCacheControl',
--- and the value is a Boolean.
+-- | Specifies whether authorization is required for a cache invalidation request. The PATCH path for this setting is '\/{method_setting_key}\/caching\/requireAuthorizationForCacheControl', and the value is a Boolean.
 msRequireAuthorizationForCacheControl :: Lens' MethodSetting (Maybe Bool)
 msRequireAuthorizationForCacheControl = lens _msRequireAuthorizationForCacheControl (\ s a -> s{_msRequireAuthorizationForCacheControl = a});
 
--- | Specifies whether responses should be cached and returned for requests.
--- A cache cluster must be enabled on the stage for responses to be cached.
--- The PATCH path for this setting is
--- '\/{method_setting_key}\/caching\/enabled', and the value is a Boolean.
+-- | Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. The PATCH path for this setting is '\/{method_setting_key}\/caching\/enabled', and the value is a Boolean.
 msCachingEnabled :: Lens' MethodSetting (Maybe Bool)
 msCachingEnabled = lens _msCachingEnabled (\ s a -> s{_msCachingEnabled = a});
 
--- | Specifies whether Amazon CloudWatch metrics are enabled for this method.
--- The PATCH path for this setting is
--- '\/{method_setting_key}\/metrics\/enabled', and the value is a Boolean.
+-- | Specifies whether Amazon CloudWatch metrics are enabled for this method. The PATCH path for this setting is '\/{method_setting_key}\/metrics\/enabled', and the value is a Boolean.
 msMetricsEnabled :: Lens' MethodSetting (Maybe Bool)
 msMetricsEnabled = lens _msMetricsEnabled (\ s a -> s{_msMetricsEnabled = a});
 
--- | Specifies the throttling rate limit. The PATCH path for this setting is
--- '\/{method_setting_key}\/throttling\/rateLimit', and the value is a
--- double.
+-- | Specifies the throttling rate limit. The PATCH path for this setting is '\/{method_setting_key}\/throttling\/rateLimit', and the value is a double.
 msThrottlingRateLimit :: Lens' MethodSetting (Maybe Double)
 msThrottlingRateLimit = lens _msThrottlingRateLimit (\ s a -> s{_msThrottlingRateLimit = a});
 
--- | Specifies the strategy on how to handle the unauthorized requests for
--- cache invalidation. The PATCH path for this setting is
--- '\/{method_setting_key}\/caching\/unauthorizedCacheControlHeaderStrategy',
--- and the available values are 'FAIL_WITH_403',
--- 'SUCCEED_WITH_RESPONSE_HEADER', 'SUCCEED_WITHOUT_RESPONSE_HEADER'.
+-- | Specifies the strategy on how to handle the unauthorized requests for cache invalidation. The PATCH path for this setting is '\/{method_setting_key}\/caching\/unauthorizedCacheControlHeaderStrategy', and the available values are 'FAIL_WITH_403', 'SUCCEED_WITH_RESPONSE_HEADER', 'SUCCEED_WITHOUT_RESPONSE_HEADER'.
 msUnauthorizedCacheControlHeaderStrategy :: Lens' MethodSetting (Maybe UnauthorizedCacheControlHeaderStrategy)
 msUnauthorizedCacheControlHeaderStrategy = lens _msUnauthorizedCacheControlHeaderStrategy (\ s a -> s{_msUnauthorizedCacheControlHeaderStrategy = a});
 
@@ -1068,8 +930,7 @@ instance Hashable MethodSetting
 
 instance NFData MethodSetting
 
--- | Represents a summary of a < Method> resource, given a particular date
--- and time.
+-- | Represents a summary of a < Method> resource, given a particular date and time.
 --
 -- /See:/ 'methodSnapshot' smart constructor.
 data MethodSnapshot = MethodSnapshot'
@@ -1147,8 +1008,7 @@ model =
     , _mContentType = Nothing
     }
 
--- | The schema for the model. For 'application\/json' models, this should be
--- <http://json-schema.org/documentation.html JSON-schema draft v4> model.
+-- | The schema for the model. For 'application\/json' models, this should be <http://json-schema.org/documentation.html JSON-schema draft v4> model.
 mSchema :: Lens' Model (Maybe Text)
 mSchema = lens _mSchema (\ s a -> s{_mSchema = a});
 
@@ -1181,9 +1041,7 @@ instance Hashable Model
 
 instance NFData Model
 
--- | A single patch operation to apply to the specified resource. Please
--- refer to http:\/\/tools.ietf.org\/html\/rfc6902#section-4 for an
--- explanation of how each operation is used.
+-- | A single patch operation to apply to the specified resource. Please refer to http:\/\/tools.ietf.org\/html\/rfc6902#section-4 for an explanation of how each operation is used.
 --
 -- /See:/ 'patchOperation' smart constructor.
 data PatchOperation = PatchOperation'
@@ -1214,16 +1072,11 @@ patchOperation =
     , _poFrom = Nothing
     }
 
--- | A patch operation whose value indicates the operation to perform. Its
--- value MUST be one of \"add\", \"remove\", \"replace\", \"move\",
--- \"copy\", or \"test\"; other values are errors.
+-- | A patch operation whose value indicates the operation to perform. Its value MUST be one of \"add\", \"remove\", \"replace\", \"move\", \"copy\", or \"test\"; other values are errors.
 poOp :: Lens' PatchOperation (Maybe Op)
 poOp = lens _poOp (\ s a -> s{_poOp = a});
 
--- | Operation objects MUST have exactly one \"path\" member. That member\'s
--- value is a string containing a \`JSON-Pointer\` value that references a
--- location within the target document (the \"target location\") where the
--- operation is performed.
+-- | Operation objects MUST have exactly one \"path\" member. That member\'s value is a string containing a \`JSON-Pointer\` value that references a location within the target document (the \"target location\") where the operation is performed.
 poPath :: Lens' PatchOperation (Maybe Text)
 poPath = lens _poPath (\ s a -> s{_poPath = a});
 
@@ -1231,9 +1084,7 @@ poPath = lens _poPath (\ s a -> s{_poPath = a});
 poValue :: Lens' PatchOperation (Maybe Text)
 poValue = lens _poValue (\ s a -> s{_poValue = a});
 
--- | The \"move\" and \"copy\" operation object MUST contain a \"from\"
--- member, which is a string containing a 'JSON Pointer' value that
--- references the location in the target document to move the value from.
+-- | The \"move\" and \"copy\" operation object MUST contain a \"from\" member, which is a string containing a 'JSON Pointer' value that references the location in the target document to move the value from.
 poFrom :: Lens' PatchOperation (Maybe Text)
 poFrom = lens _poFrom (\ s a -> s{_poFrom = a});
 
@@ -1295,8 +1146,7 @@ rPath = lens _rPath (\ s a -> s{_rPath = a});
 rId :: Lens' Resource (Maybe Text)
 rId = lens _rId (\ s a -> s{_rId = a});
 
--- | Map of methods for this resource, which is included only if the request
--- uses the __embed__ query option.
+-- | Map of methods for this resource, which is included only if the request uses the __embed__ query option.
 rResourceMethods :: Lens' Resource (HashMap Text Method)
 rResourceMethods = lens _rResourceMethods (\ s a -> s{_rResourceMethods = a}) . _Default . _Map;
 
@@ -1357,8 +1207,7 @@ restAPI =
 raWarnings :: Lens' RestAPI [Text]
 raWarnings = lens _raWarnings (\ s a -> s{_raWarnings = a}) . _Default . _Coerce;
 
--- | The date when the API was created, in
--- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
+-- | The date when the API was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 raCreatedDate :: Lens' RestAPI (Maybe UTCTime)
 raCreatedDate = lens _raCreatedDate (\ s a -> s{_raCreatedDate = a}) . mapping _Time;
 
@@ -1366,8 +1215,7 @@ raCreatedDate = lens _raCreatedDate (\ s a -> s{_raCreatedDate = a}) . mapping _
 raName :: Lens' RestAPI (Maybe Text)
 raName = lens _raName (\ s a -> s{_raName = a});
 
--- | The API\'s identifier. This identifier is unique across all of your APIs
--- in Amazon API Gateway.
+-- | The API\'s identifier. This identifier is unique across all of your APIs in Amazon API Gateway.
 raId :: Lens' RestAPI (Maybe Text)
 raId = lens _raId (\ s a -> s{_raId = a});
 
@@ -1390,8 +1238,7 @@ instance Hashable RestAPI
 
 instance NFData RestAPI
 
--- | Represents a unique identifier for a version of a deployed < RestApi>
--- that is callable by users.
+-- | Represents a unique identifier for a version of a deployed < RestApi> that is callable by users.
 --
 -- /See:/ 'stage' smart constructor.
 data Stage = Stage'
@@ -1454,9 +1301,7 @@ stage =
 sDeploymentId :: Lens' Stage (Maybe Text)
 sDeploymentId = lens _sDeploymentId (\ s a -> s{_sDeploymentId = a});
 
--- | A map that defines the stage variables for a < Stage> resource. Variable
--- names can have alphanumeric characters, and the values must match
--- '[A-Za-z0-9-._~:\/?#&=,]+'.
+-- | A map that defines the stage variables for a < Stage> resource. Variable names can have alphanumeric characters, and the values must match '[A-Za-z0-9-._~:\/?#&=,]+'.
 sVariables :: Lens' Stage (HashMap Text Text)
 sVariables = lens _sVariables (\ s a -> s{_sVariables = a}) . _Default . _Map;
 
@@ -1464,8 +1309,7 @@ sVariables = lens _sVariables (\ s a -> s{_sVariables = a}) . _Default . _Map;
 sClientCertificateId :: Lens' Stage (Maybe Text)
 sClientCertificateId = lens _sClientCertificateId (\ s a -> s{_sClientCertificateId = a});
 
--- | The date and time that the stage was created, in
--- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
+-- | The date and time that the stage was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 sCreatedDate :: Lens' Stage (Maybe UTCTime)
 sCreatedDate = lens _sCreatedDate (\ s a -> s{_sCreatedDate = a}) . mapping _Time;
 
@@ -1473,15 +1317,11 @@ sCreatedDate = lens _sCreatedDate (\ s a -> s{_sCreatedDate = a}) . mapping _Tim
 sCacheClusterStatus :: Lens' Stage (Maybe CacheClusterStatus)
 sCacheClusterStatus = lens _sCacheClusterStatus (\ s a -> s{_sCacheClusterStatus = a});
 
--- | A map that defines the method settings for a < Stage> resource. Keys are
--- defined as '{resource_path}\/{http_method}' for an individual method
--- override, or '\\*\/\\*' for the settings applied to all methods in the
--- stage.
+-- | A map that defines the method settings for a < Stage> resource. Keys are defined as '{resource_path}\/{http_method}' for an individual method override, or '\\*\/\\*' for the settings applied to all methods in the stage.
 sMethodSettings :: Lens' Stage (HashMap Text MethodSetting)
 sMethodSettings = lens _sMethodSettings (\ s a -> s{_sMethodSettings = a}) . _Default . _Map;
 
--- | The date and time that information about the stage was last updated, in
--- <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
+-- | The date and time that information about the stage was last updated, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format>.
 sLastUpdatedDate :: Lens' Stage (Maybe UTCTime)
 sLastUpdatedDate = lens _sLastUpdatedDate (\ s a -> s{_sLastUpdatedDate = a}) . mapping _Time;
 
@@ -1493,8 +1333,7 @@ sCacheClusterSize = lens _sCacheClusterSize (\ s a -> s{_sCacheClusterSize = a})
 sCacheClusterEnabled :: Lens' Stage (Maybe Bool)
 sCacheClusterEnabled = lens _sCacheClusterEnabled (\ s a -> s{_sCacheClusterEnabled = a});
 
--- | The name of the stage is the first path segment in the Uniform Resource
--- Identifier (URI) of a call to Amazon API Gateway.
+-- | The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to Amazon API Gateway.
 sStageName :: Lens' Stage (Maybe Text)
 sStageName = lens _sStageName (\ s a -> s{_sStageName = a});
 
@@ -1523,8 +1362,7 @@ instance Hashable Stage
 
 instance NFData Stage
 
--- | A reference to a unique stage identified in the format
--- '{restApiId}\/{stage}'.
+-- | A reference to a unique stage identified in the format '{restApiId}\/{stage}'.
 --
 -- /See:/ 'stageKey' smart constructor.
 data StageKey = StageKey'
@@ -1547,8 +1385,7 @@ stageKey =
     , _skStageName = Nothing
     }
 
--- | A list of < Stage> resources that are associated with the < ApiKey>
--- resource.
+-- | A list of < Stage> resources that are associated with the < ApiKey> resource.
 skRestAPIId :: Lens' StageKey (Maybe Text)
 skRestAPIId = lens _skRestAPIId (\ s a -> s{_skRestAPIId = a});
 

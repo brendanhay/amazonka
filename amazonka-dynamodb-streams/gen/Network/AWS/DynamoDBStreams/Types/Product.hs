@@ -21,14 +21,9 @@ import           Network.AWS.DynamoDBStreams.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | Represents the data for an attribute. You can set one, and only one, of
--- the elements.
+-- | Represents the data for an attribute. You can set one, and only one, of the elements.
 --
--- Each attribute in an item is a name-value pair. An attribute can be
--- single-valued or multi-valued set. For example, a book item can have
--- title and authors attributes. Each book has one title but can have many
--- authors. The multi-valued attribute is a set; duplicate values are not
--- allowed.
+-- Each attribute in an item is a name-value pair. An attribute can be single-valued or multi-valued set. For example, a book item can have title and authors attributes. Each book has one title but can have many authors. The multi-valued attribute is a set; duplicate values are not allowed.
 --
 -- /See:/ 'attributeValue' smart constructor.
 data AttributeValue = AttributeValue'
@@ -148,15 +143,9 @@ instance Hashable AttributeValue
 
 instance NFData AttributeValue
 
--- | Represents /a single element/ of a key schema. A key schema specifies
--- the attributes that make up the primary key of a table, or the key
--- attributes of an index.
+-- | Represents /a single element/ of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
 --
--- A /KeySchemaElement/ represents exactly one attribute of the primary
--- key. For example, a hash type primary key would be represented by one
--- /KeySchemaElement/. A hash-and-range type primary key would require one
--- /KeySchemaElement/ for the hash attribute, and another
--- /KeySchemaElement/ for the range attribute.
+-- A /KeySchemaElement/ represents exactly one attribute of the primary key. For example, a hash type primary key would be represented by one /KeySchemaElement/. A hash-and-range type primary key would require one /KeySchemaElement/ for the hash attribute, and another /KeySchemaElement/ for the range attribute.
 --
 -- /See:/ 'keySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
@@ -185,8 +174,7 @@ keySchemaElement pAttributeName_ pKeyType_ =
 kseAttributeName :: Lens' KeySchemaElement Text
 kseAttributeName = lens _kseAttributeName (\ s a -> s{_kseAttributeName = a});
 
--- | The attribute data, consisting of the data type and the attribute value
--- itself.
+-- | The attribute data, consisting of the data type and the attribute value itself.
 kseKeyType :: Lens' KeySchemaElement KeyType
 kseKeyType = lens _kseKeyType (\ s a -> s{_kseKeyType = a});
 
@@ -240,13 +228,11 @@ record =
     , _rEventId = Nothing
     }
 
--- | The version number of the stream record format. Currently, this is
--- /1.0/.
+-- | The version number of the stream record format. Currently, this is /1.0/.
 rEventVersion :: Lens' Record (Maybe Text)
 rEventVersion = lens _rEventVersion (\ s a -> s{_rEventVersion = a});
 
--- | The main body of the stream record, containing all of the
--- DynamoDB-specific fields.
+-- | The main body of the stream record, containing all of the DynamoDB-specific fields.
 rDynamodb :: Lens' Record (Maybe StreamRecord)
 rDynamodb = lens _rDynamodb (\ s a -> s{_rDynamodb = a});
 
@@ -265,13 +251,11 @@ rAwsRegion = lens _rAwsRegion (\ s a -> s{_rAwsRegion = a});
 rEventName :: Lens' Record (Maybe OperationType)
 rEventName = lens _rEventName (\ s a -> s{_rEventName = a});
 
--- | The AWS service from which the stream record originated. For DynamoDB
--- Streams, this is /aws:dynamodb/.
+-- | The AWS service from which the stream record originated. For DynamoDB Streams, this is /aws:dynamodb/.
 rEventSource :: Lens' Record (Maybe Text)
 rEventSource = lens _rEventSource (\ s a -> s{_rEventSource = a});
 
--- | A globally unique identifier for the event that was recorded in this
--- stream record.
+-- | A globally unique identifier for the event that was recorded in this stream record.
 rEventId :: Lens' Record (Maybe Text)
 rEventId = lens _rEventId (\ s a -> s{_rEventId = a});
 
@@ -290,8 +274,7 @@ instance Hashable Record
 
 instance NFData Record
 
--- | The beginning and ending sequence numbers for the stream records
--- contained within a shard.
+-- | The beginning and ending sequence numbers for the stream records contained within a shard.
 --
 -- /See:/ 'sequenceNumberRange' smart constructor.
 data SequenceNumberRange = SequenceNumberRange'
@@ -415,10 +398,7 @@ stream =
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --
--- Note that /LatestStreamLabel/ is not a unique identifier for the stream,
--- because it is possible that a stream from another table might have the
--- same timestamp. However, the combination of the following three elements
--- is guaranteed to be unique:
+-- Note that /LatestStreamLabel/ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
 --
 -- -   the AWS customer ID.
 --
@@ -500,26 +480,17 @@ streamDescription =
     , _sdCreationRequestDateTime = Nothing
     }
 
--- | The shard ID of the item where the operation stopped, inclusive of the
--- previous result set. Use this value to start a new operation, excluding
--- this value in the new request.
+-- | The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
 --
--- If 'LastEvaluatedShardId' is empty, then the \"last page\" of results
--- has been processed and there is currently no more data to be retrieved.
+-- If 'LastEvaluatedShardId' is empty, then the \"last page\" of results has been processed and there is currently no more data to be retrieved.
 --
--- If 'LastEvaluatedShardId' is not empty, it does not necessarily mean
--- that there is more data in the result set. The only way to know when you
--- have reached the end of the result set is when 'LastEvaluatedShardId' is
--- empty.
+-- If 'LastEvaluatedShardId' is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when 'LastEvaluatedShardId' is empty.
 sdLastEvaluatedShardId :: Lens' StreamDescription (Maybe Text)
 sdLastEvaluatedShardId = lens _sdLastEvaluatedShardId (\ s a -> s{_sdLastEvaluatedShardId = a});
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --
--- Note that /LatestStreamLabel/ is not a unique identifier for the stream,
--- because it is possible that a stream from another table might have the
--- same timestamp. However, the combination of the following three elements
--- is guaranteed to be unique:
+-- Note that /LatestStreamLabel/ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
 --
 -- -   the AWS customer ID.
 --
@@ -532,13 +503,11 @@ sdStreamLabel = lens _sdStreamLabel (\ s a -> s{_sdStreamLabel = a});
 
 -- | Indicates the current status of the stream:
 --
--- -   'ENABLING' - Streams is currently being enabled on the DynamoDB
---     table.
+-- -   'ENABLING' - Streams is currently being enabled on the DynamoDB table.
 --
 -- -   'ENABLING' - the stream is enabled.
 --
--- -   'DISABLING' - Streams is currently being disabled on the DynamoDB
---     table.
+-- -   'DISABLING' - Streams is currently being disabled on the DynamoDB table.
 --
 -- -   'DISABLED' - the stream is disabled.
 --
@@ -551,17 +520,13 @@ sdKeySchema = lens _sdKeySchema (\ s a -> s{_sdKeySchema = a}) . mapping _List1;
 
 -- | Indicates the format of the records within this stream:
 --
--- -   'KEYS_ONLY' - only the key attributes of items that were modified in
---     the DynamoDB table.
+-- -   'KEYS_ONLY' - only the key attributes of items that were modified in the DynamoDB table.
 --
--- -   'NEW_IMAGE' - entire item from the table, as it appeared after they
---     were modified.
+-- -   'NEW_IMAGE' - entire item from the table, as it appeared after they were modified.
 --
--- -   'OLD_IMAGE' - entire item from the table, as it appeared before they
---     were modified.
+-- -   'OLD_IMAGE' - entire item from the table, as it appeared before they were modified.
 --
--- -   'NEW_AND_OLD_IMAGES' - both the new and the old images of the items
---     from the table.
+-- -   'NEW_AND_OLD_IMAGES' - both the new and the old images of the items from the table.
 --
 sdStreamViewType :: Lens' StreamDescription (Maybe StreamViewType)
 sdStreamViewType = lens _sdStreamViewType (\ s a -> s{_sdStreamViewType = a});
@@ -601,8 +566,7 @@ instance Hashable StreamDescription
 
 instance NFData StreamDescription
 
--- | A description of a single data modification that was performed on an
--- item in a DynamoDB table.
+-- | A description of a single data modification that was performed on an item in a DynamoDB table.
 --
 -- /See:/ 'streamRecord' smart constructor.
 data StreamRecord = StreamRecord'
@@ -649,18 +613,15 @@ srSizeBytes = lens _srSizeBytes (\ s a -> s{_srSizeBytes = a}) . mapping _Nat;
 srSequenceNumber :: Lens' StreamRecord (Maybe Text)
 srSequenceNumber = lens _srSequenceNumber (\ s a -> s{_srSequenceNumber = a});
 
--- | The type of data from the modified DynamoDB item that was captured in
--- this stream record:
+-- | The type of data from the modified DynamoDB item that was captured in this stream record:
 --
 -- -   'KEYS_ONLY' - only the key attributes of the modified item.
 --
 -- -   'NEW_IMAGE' - the entire item, as it appears after it was modified.
 --
--- -   'OLD_IMAGE' - the entire item, as it appeared before it was
---     modified.
+-- -   'OLD_IMAGE' - the entire item, as it appeared before it was modified.
 --
--- -   'NEW_AND_OLD_IMAGES' — both the new and the old item images of the
---     item.
+-- -   'NEW_AND_OLD_IMAGES' — both the new and the old item images of the item.
 --
 srStreamViewType :: Lens' StreamRecord (Maybe StreamViewType)
 srStreamViewType = lens _srStreamViewType (\ s a -> s{_srStreamViewType = a});

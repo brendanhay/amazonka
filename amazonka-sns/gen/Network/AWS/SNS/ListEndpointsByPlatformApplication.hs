@@ -18,16 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the endpoints and endpoint attributes for devices in a supported
--- push notification service, such as GCM and APNS. The results for
--- 'ListEndpointsByPlatformApplication' are paginated and return a limited
--- list of endpoints, up to 100. If additional records are available after
--- the first page results, then a NextToken string will be returned. To
--- receive the next page, you call 'ListEndpointsByPlatformApplication'
--- again using the NextToken string received from the previous call. When
--- there are no more records to return, NextToken will be null. For more
--- information, see
--- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
+-- Lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. The results for 'ListEndpointsByPlatformApplication' are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call 'ListEndpointsByPlatformApplication' again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListEndpointsByPlatformApplication
@@ -80,14 +71,11 @@ listEndpointsByPlatformApplication pPlatformApplicationARN_ =
     , _lebpaPlatformApplicationARN = pPlatformApplicationARN_
     }
 
--- | NextToken string is used when calling ListEndpointsByPlatformApplication
--- action to retrieve additional records that are available after the first
--- page results.
+-- | NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
 lebpaNextToken :: Lens' ListEndpointsByPlatformApplication (Maybe Text)
 lebpaNextToken = lens _lebpaNextToken (\ s a -> s{_lebpaNextToken = a});
 
--- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput
--- action.
+-- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
 lebpaPlatformApplicationARN :: Lens' ListEndpointsByPlatformApplication Text
 lebpaPlatformApplicationARN = lens _lebpaPlatformApplicationARN (\ s a -> s{_lebpaPlatformApplicationARN = a});
 
@@ -165,9 +153,7 @@ listEndpointsByPlatformApplicationResponse pResponseStatus_ =
     , _lebparsResponseStatus = pResponseStatus_
     }
 
--- | NextToken string is returned when calling
--- ListEndpointsByPlatformApplication action if additional records are
--- available after the first page results.
+-- | NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
 lebparsNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
 lebparsNextToken = lens _lebparsNextToken (\ s a -> s{_lebparsNextToken = a});
 

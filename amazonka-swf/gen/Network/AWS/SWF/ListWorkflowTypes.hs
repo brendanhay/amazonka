@@ -18,27 +18,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about workflow types in the specified domain. The
--- results may be split into multiple pages that can be retrieved by making
--- the call repeatedly.
+-- Returns information about workflow types in the specified domain. The results may be split into multiple pages that can be retrieved by making the call repeatedly.
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this action\'s access to Amazon SWF
--- resources as follows:
+-- You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to
---     only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this
---     action.
+-- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
+-- -   Use an 'Action' element to allow or deny permission to call this action.
 -- -   You cannot use an IAM policy to constrain this action\'s parameters.
 --
--- If the caller does not have sufficient permissions to invoke the action,
--- or the parameter values fall outside the specified constraints, the
--- action fails. The associated event attribute\'s __cause__ parameter will
--- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
--- see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- This operation returns paginated results.
 module Network.AWS.SWF.ListWorkflowTypes
@@ -110,19 +100,13 @@ listWorkflowTypes pDomain_ pRegistrationStatus_ =
     , _lwtRegistrationStatus = pRegistrationStatus_
     }
 
--- | If a 'NextPageToken' was returned by a previous call, there are more
--- results available. To retrieve the next page of results, make the call
--- again using the returned token in 'nextPageToken'. Keep all other
--- arguments unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in 'nextPageToken'. Keep all other arguments unchanged.
 --
--- The configured 'maximumPageSize' determines how many results can be
--- returned in a single call.
+-- The configured 'maximumPageSize' determines how many results can be returned in a single call.
 lwtNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
 lwtNextPageToken = lens _lwtNextPageToken (\ s a -> s{_lwtNextPageToken = a});
 
--- | When set to 'true', returns the results in reverse order. By default the
--- results are returned in ascending alphabetical order of the 'name' of
--- the workflow types.
+-- | When set to 'true', returns the results in reverse order. By default the results are returned in ascending alphabetical order of the 'name' of the workflow types.
 lwtReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
 lwtReverseOrder = lens _lwtReverseOrder (\ s a -> s{_lwtReverseOrder = a});
 
@@ -130,13 +114,9 @@ lwtReverseOrder = lens _lwtReverseOrder (\ s a -> s{_lwtReverseOrder = a});
 lwtName :: Lens' ListWorkflowTypes (Maybe Text)
 lwtName = lens _lwtName (\ s a -> s{_lwtName = a});
 
--- | The maximum number of results that will be returned per call.
--- 'nextPageToken' can be used to obtain futher pages of results. The
--- default is 1000, which is the maximum allowed page size. You can,
--- however, specify a page size /smaller/ than the maximum.
+-- | The maximum number of results that will be returned per call. 'nextPageToken' can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum.
 --
--- This is an upper limit only; the actual number of results returned per
--- call may be fewer than the specified maximum.
+-- This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 lwtMaximumPageSize :: Lens' ListWorkflowTypes (Maybe Natural)
 lwtMaximumPageSize = lens _lwtMaximumPageSize (\ s a -> s{_lwtMaximumPageSize = a}) . mapping _Nat;
 
@@ -198,8 +178,7 @@ instance ToPath ListWorkflowTypes where
 instance ToQuery ListWorkflowTypes where
         toQuery = const mempty
 
--- | Contains a paginated list of information structures about workflow
--- types.
+-- | Contains a paginated list of information structures about workflow types.
 --
 -- /See:/ 'listWorkflowTypesResponse' smart constructor.
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
@@ -227,13 +206,9 @@ listWorkflowTypesResponse pResponseStatus_ =
     , _lwtrsTypeInfos = mempty
     }
 
--- | If a 'NextPageToken' was returned by a previous call, there are more
--- results available. To retrieve the next page of results, make the call
--- again using the returned token in 'nextPageToken'. Keep all other
--- arguments unchanged.
+-- | If a 'NextPageToken' was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in 'nextPageToken'. Keep all other arguments unchanged.
 --
--- The configured 'maximumPageSize' determines how many results can be
--- returned in a single call.
+-- The configured 'maximumPageSize' determines how many results can be returned in a single call.
 lwtrsNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
 lwtrsNextPageToken = lens _lwtrsNextPageToken (\ s a -> s{_lwtrsNextPageToken = a});
 

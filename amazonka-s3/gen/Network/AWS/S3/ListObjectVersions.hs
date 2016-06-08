@@ -121,8 +121,7 @@ lovEncodingType = lens _lovEncodingType (\ s a -> s{_lovEncodingType = a});
 lovVersionIdMarker :: Lens' ListObjectVersions (Maybe Text)
 lovVersionIdMarker = lens _lovVersionIdMarker (\ s a -> s{_lovVersionIdMarker = a});
 
--- | Sets the maximum number of keys returned in the response. The response
--- might contain fewer keys but will never contain more.
+-- | Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
 lovMaxKeys :: Lens' ListObjectVersions (Maybe Int)
 lovMaxKeys = lens _lovMaxKeys (\ s a -> s{_lovMaxKeys = a});
 
@@ -258,8 +257,7 @@ listObjectVersionsResponse pResponseStatus_ =
     , _lovrsResponseStatus = pResponseStatus_
     }
 
--- | Use this value for the next version id marker parameter in a subsequent
--- request.
+-- | Use this value for the next version id marker parameter in a subsequent request.
 lovrsNextVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsNextVersionIdMarker = lens _lovrsNextVersionIdMarker (\ s a -> s{_lovrsNextVersionIdMarker = a});
 
@@ -291,8 +289,7 @@ lovrsVersions = lens _lovrsVersions (\ s a -> s{_lovrsVersions = a}) . _Default 
 lovrsName :: Lens' ListObjectVersionsResponse (Maybe BucketName)
 lovrsName = lens _lovrsName (\ s a -> s{_lovrsName = a});
 
--- | Use this value for the key marker request parameter in a subsequent
--- request.
+-- | Use this value for the key marker request parameter in a subsequent request.
 lovrsNextKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrsNextKeyMarker = lens _lovrsNextKeyMarker (\ s a -> s{_lovrsNextKeyMarker = a});
 
@@ -304,11 +301,7 @@ lovrsVersionIdMarker = lens _lovrsVersionIdMarker (\ s a -> s{_lovrsVersionIdMar
 lovrsMaxKeys :: Lens' ListObjectVersionsResponse (Maybe Int)
 lovrsMaxKeys = lens _lovrsMaxKeys (\ s a -> s{_lovrsMaxKeys = a});
 
--- | A flag that indicates whether or not Amazon S3 returned all of the
--- results that satisfied the search criteria. If your results were
--- truncated, you can make a follow-up paginated request using the
--- NextKeyMarker and NextVersionIdMarker response parameters as a starting
--- place in another request to return the rest of the results.
+-- | A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.
 lovrsIsTruncated :: Lens' ListObjectVersionsResponse (Maybe Bool)
 lovrsIsTruncated = lens _lovrsIsTruncated (\ s a -> s{_lovrsIsTruncated = a});
 

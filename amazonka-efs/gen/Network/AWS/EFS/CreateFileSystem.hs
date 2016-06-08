@@ -18,46 +18,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new, empty file system. The operation requires a creation
--- token in the request that Amazon EFS uses to ensure idempotent creation
--- (calling the operation with same creation token has no effect). If a
--- file system does not currently exist that is owned by the caller\'s AWS
--- account with the specified creation token, this operation does the
--- following:
+-- Creates a new, empty file system. The operation requires a creation token in the request that Amazon EFS uses to ensure idempotent creation (calling the operation with same creation token has no effect). If a file system does not currently exist that is owned by the caller\'s AWS account with the specified creation token, this operation does the following:
 --
--- -   Creates a new, empty file system. The file system will have an
---     Amazon EFS assigned ID, and an initial lifecycle state \"creating\".
+-- -   Creates a new, empty file system. The file system will have an Amazon EFS assigned ID, and an initial lifecycle state \"creating\".
 -- -   Returns with the description of the created file system.
 --
--- Otherwise, this operation returns a 'FileSystemAlreadyExists' error with
--- the ID of the existing file system.
+-- Otherwise, this operation returns a 'FileSystemAlreadyExists' error with the ID of the existing file system.
 --
--- For basic use cases, you can use a randomly generated UUID for the
--- creation token.
+-- For basic use cases, you can use a randomly generated UUID for the creation token.
 --
--- The idempotent operation allows you to retry a 'CreateFileSystem' call
--- without risk of creating an extra file system. This can happen when an
--- initial call fails in a way that leaves it uncertain whether or not a
--- file system was actually created. An example might be that a transport
--- level timeout occurred or your connection was reset. As long as you use
--- the same creation token, if the initial call had succeeded in creating a
--- file system, the client can learn of its existence from the
--- 'FileSystemAlreadyExists' error.
+-- The idempotent operation allows you to retry a 'CreateFileSystem' call without risk of creating an extra file system. This can happen when an initial call fails in a way that leaves it uncertain whether or not a file system was actually created. An example might be that a transport level timeout occurred or your connection was reset. As long as you use the same creation token, if the initial call had succeeded in creating a file system, the client can learn of its existence from the 'FileSystemAlreadyExists' error.
 --
--- The 'CreateFileSystem' call returns while the file system\'s lifecycle
--- state is still \"creating\". You can check the file system creation
--- status by calling the < DescribeFileSystems> API, which among other
--- things returns the file system state.
+-- The 'CreateFileSystem' call returns while the file system\'s lifecycle state is still \"creating\". You can check the file system creation status by calling the < DescribeFileSystems> API, which among other things returns the file system state.
 --
--- After the file system is fully created, Amazon EFS sets its lifecycle
--- state to \"available\", at which point you can create one or more mount
--- targets for the file system (< CreateMountTarget>) in your VPC. You
--- mount your Amazon EFS file system on an EC2 instances in your VPC via
--- the mount target. For more information, see
--- <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html Amazon EFS: How it Works>
+-- After the file system is fully created, Amazon EFS sets its lifecycle state to \"available\", at which point you can create one or more mount targets for the file system (< CreateMountTarget>) in your VPC. You mount your Amazon EFS file system on an EC2 instances in your VPC via the mount target. For more information, see <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html Amazon EFS: How it Works>
 --
--- This operation requires permission for the
--- 'elasticfilesystem:CreateFileSystem' action.
+-- This operation requires permission for the 'elasticfilesystem:CreateFileSystem' action.
 module Network.AWS.EFS.CreateFileSystem
     (
     -- * Creating a Request
@@ -105,8 +81,7 @@ createFileSystem pCreationToken_ =
     { _cfsCreationToken = pCreationToken_
     }
 
--- | String of up to 64 ASCII characters. Amazon EFS uses this to ensure
--- idempotent creation.
+-- | String of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.
 cfsCreationToken :: Lens' CreateFileSystem Text
 cfsCreationToken = lens _cfsCreationToken (\ s a -> s{_cfsCreationToken = a});
 

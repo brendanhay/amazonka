@@ -21,8 +21,7 @@ import           Network.AWS.DirectConnect.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | A connection represents the physical network connection between the AWS
--- Direct Connect location and the customer.
+-- | A connection represents the physical network connection between the AWS Direct Connect location and the customer.
 --
 -- /See:/ 'connection' smart constructor.
 data Connection = Connection'
@@ -95,8 +94,7 @@ cConnectionName = lens _cConnectionName (\ s a -> s{_cConnectionName = a});
 
 -- | Bandwidth of the connection.
 --
--- Example: 1Gbps (for regular connections), or 500Mbps (for hosted
--- connections)
+-- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
 --
 -- Default: None
 cBandwidth :: Lens' Connection (Maybe Text)
@@ -167,16 +165,9 @@ instance NFData Connections
 
 -- | An interconnect is a connection that can host other connections.
 --
--- Like a standard AWS Direct Connect connection, an interconnect
--- represents the physical connection between an AWS Direct Connect
--- partner\'s network and a specific Direct Connect location. An AWS Direct
--- Connect partner who owns an interconnect can provision hosted
--- connections on the interconnect for their end customers, thereby
--- providing the end customers with connectivity to AWS services.
+-- Like a standard AWS Direct Connect connection, an interconnect represents the physical connection between an AWS Direct Connect partner\'s network and a specific Direct Connect location. An AWS Direct Connect partner who owns an interconnect can provision hosted connections on the interconnect for their end customers, thereby providing the end customers with connectivity to AWS services.
 --
--- The resources of the interconnect, including bandwidth and VLAN numbers,
--- are shared by all of the hosted connections on the interconnect, and the
--- owner of the interconnect determines how these resources are assigned.
+-- The resources of the interconnect, including bandwidth and VLAN numbers, are shared by all of the hosted connections on the interconnect, and the owner of the interconnect determines how these resources are assigned.
 --
 -- /See:/ 'interconnect' smart constructor.
 data Interconnect = Interconnect'
@@ -254,8 +245,7 @@ instance Hashable Interconnect
 
 instance NFData Interconnect
 
--- | An AWS Direct Connect location where connections and interconnects can
--- be requested.
+-- | An AWS Direct Connect location where connections and interconnects can be requested.
 --
 -- /See:/ 'location' smart constructor.
 data Location = Location'
@@ -278,8 +268,7 @@ location =
     , _lLocationCode = Nothing
     }
 
--- | The name of the AWS Direct Connect location. The name includes the
--- colocation partner name and the physical site of the lit building.
+-- | The name of the AWS Direct Connect location. The name includes the colocation partner name and the physical site of the lit building.
 lLocationName :: Lens' Location (Maybe Text)
 lLocationName = lens _lLocationName (\ s a -> s{_lLocationName = a});
 
@@ -298,8 +287,7 @@ instance Hashable Location
 
 instance NFData Location
 
--- | A structure containing information about a new private virtual
--- interface.
+-- | A structure containing information about a new private virtual interface.
 --
 -- /See:/ 'newPrivateVirtualInterface' smart constructor.
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
@@ -390,8 +378,7 @@ instance ToJSON NewPrivateVirtualInterface where
                   Just ("vlan" .= _nVlan), Just ("asn" .= _nAsn),
                   Just ("virtualGatewayId" .= _nVirtualGatewayId)])
 
--- | A structure containing information about a private virtual interface
--- that will be provisioned on a connection.
+-- | A structure containing information about a private virtual interface that will be provisioned on a connection.
 --
 -- /See:/ 'newPrivateVirtualInterfaceAllocation' smart constructor.
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
@@ -570,8 +557,7 @@ instance ToJSON NewPublicVirtualInterface where
                   Just
                     ("routeFilterPrefixes" .= _npviRouteFilterPrefixes)])
 
--- | A structure containing information about a public virtual interface that
--- will be provisioned on a connection.
+-- | A structure containing information about a public virtual interface that will be provisioned on a connection.
 --
 -- /See:/ 'newPublicVirtualInterfaceAllocation' smart constructor.
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
@@ -665,8 +651,7 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
                   Just
                     ("routeFilterPrefixes" .= _newRouteFilterPrefixes)])
 
--- | A route filter prefix that the customer can advertise through Border
--- Gateway Protocol (BGP) over a public virtual interface.
+-- | A route filter prefix that the customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
 --
 -- /See:/ 'routeFilterPrefix' smart constructor.
 newtype RouteFilterPrefix = RouteFilterPrefix'
@@ -685,8 +670,7 @@ routeFilterPrefix =
     { _rfpCidr = Nothing
     }
 
--- | CIDR notation for the advertised route. Multiple routes are separated by
--- commas.
+-- | CIDR notation for the advertised route. Multiple routes are separated by commas.
 --
 -- Example: 10.10.10.0\/24,10.10.11.0\/24
 rfpCidr :: Lens' RouteFilterPrefix (Maybe Text)
@@ -705,12 +689,9 @@ instance ToJSON RouteFilterPrefix where
         toJSON RouteFilterPrefix'{..}
           = object (catMaybes [("cidr" .=) <$> _rfpCidr])
 
--- | You can create one or more AWS Direct Connect private virtual interfaces
--- linking to your virtual private gateway.
+-- | You can create one or more AWS Direct Connect private virtual interfaces linking to your virtual private gateway.
 --
--- Virtual private gateways can be managed using the Amazon Virtual Private
--- Cloud (Amazon VPC) console or the
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html Amazon EC2 CreateVpnGateway action>.
+-- Virtual private gateways can be managed using the Amazon Virtual Private Cloud (Amazon VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html Amazon EC2 CreateVpnGateway action>.
 --
 -- /See:/ 'virtualGateway' smart constructor.
 data VirtualGateway = VirtualGateway'
@@ -753,8 +734,7 @@ instance Hashable VirtualGateway
 
 instance NFData VirtualGateway
 
--- | A virtual interface (VLAN) transmits the traffic between the AWS Direct
--- Connect location and the customer.
+-- | A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer.
 --
 -- /See:/ 'virtualInterface' smart constructor.
 data VirtualInterface = VirtualInterface'

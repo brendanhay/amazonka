@@ -18,21 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- When you want to create, update, or delete AWS WAF objects, get a change
--- token and include the change token in the create, update, or delete
--- request. Change tokens ensure that your application doesn\'t submit
--- conflicting requests to AWS WAF.
+-- When you want to create, update, or delete AWS WAF objects, get a change token and include the change token in the create, update, or delete request. Change tokens ensure that your application doesn\'t submit conflicting requests to AWS WAF.
 --
--- Each create, update, or delete request must use a unique change token.
--- If your application submits a 'GetChangeToken' request and then submits
--- a second 'GetChangeToken' request before submitting a create, update, or
--- delete request, the second 'GetChangeToken' request returns the same
--- value as the first 'GetChangeToken' request.
+-- Each create, update, or delete request must use a unique change token. If your application submits a 'GetChangeToken' request and then submits a second 'GetChangeToken' request before submitting a create, update, or delete request, the second 'GetChangeToken' request returns the same value as the first 'GetChangeToken' request.
 --
--- When you use a change token in a create, update, or delete request, the
--- status of the change token changes to 'PENDING', which indicates that
--- AWS WAF is propagating the change to all AWS WAF servers. Use
--- 'GetChangeTokenStatus' to determine the status of your change token.
+-- When you use a change token in a create, update, or delete request, the status of the change token changes to 'PENDING', which indicates that AWS WAF is propagating the change to all AWS WAF servers. Use 'GetChangeTokenStatus' to determine the status of your change token.
 module Network.AWS.WAF.GetChangeToken
     (
     -- * Creating a Request
@@ -118,8 +108,7 @@ getChangeTokenResponse pResponseStatus_ =
     , _gctrsResponseStatus = pResponseStatus_
     }
 
--- | The 'ChangeToken' that you used in the request. Use this value in a
--- 'GetChangeTokenStatus' request to get the current status of the request.
+-- | The 'ChangeToken' that you used in the request. Use this value in a 'GetChangeTokenStatus' request to get the current status of the request.
 gctrsChangeToken :: Lens' GetChangeTokenResponse (Maybe Text)
 gctrsChangeToken = lens _gctrsChangeToken (\ s a -> s{_gctrsChangeToken = a});
 

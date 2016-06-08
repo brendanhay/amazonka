@@ -73,8 +73,7 @@ listTargetsByRule pRule_ =
     , _ltbrRule = pRule_
     }
 
--- | The token returned by a previous call to indicate that there is more
--- data available.
+-- | The token returned by a previous call to indicate that there is more data available.
 ltbrNextToken :: Lens' ListTargetsByRule (Maybe Text)
 ltbrNextToken = lens _ltbrNextToken (\ s a -> s{_ltbrNextToken = a});
 

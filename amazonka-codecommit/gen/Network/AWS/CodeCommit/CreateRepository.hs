@@ -69,23 +69,13 @@ createRepository pRepositoryName_ =
 
 -- | A comment or description about the new repository.
 --
--- The description field for a repository accepts all HTML characters and
--- all valid Unicode characters. Applications that do not HTML-encode the
--- description and display it in a web page could expose users to
--- potentially malicious code. Make sure that you HTML-encode the
--- description field in any application that uses this API to display the
--- repository description on a web page.
+-- The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a web page could expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a web page.
 crRepositoryDescription :: Lens' CreateRepository (Maybe Text)
 crRepositoryDescription = lens _crRepositoryDescription (\ s a -> s{_crRepositoryDescription = a});
 
 -- | The name of the new repository to be created.
 --
--- The repository name must be unique across the calling AWS account. In
--- addition, repository names are limited to 100 alphanumeric, dash, and
--- underscore characters, and cannot include certain characters. For a full
--- description of the limits on repository names, see
--- <http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html Limits>
--- in the AWS CodeCommit User Guide. The suffix \".git\" is prohibited.
+-- The repository name must be unique across the calling AWS account. In addition, repository names are limited to 100 alphanumeric, dash, and underscore characters, and cannot include certain characters. For a full description of the limits on repository names, see <http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html Limits> in the AWS CodeCommit User Guide. The suffix \".git\" is prohibited.
 crRepositoryName :: Lens' CreateRepository Text
 crRepositoryName = lens _crRepositoryName (\ s a -> s{_crRepositoryName = a});
 

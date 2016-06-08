@@ -18,14 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the analysis schemes configured for a domain. An analysis scheme
--- defines language-specific text processing options for a 'text' field.
--- Can be limited to specific analysis schemes by name. By default, shows
--- all analysis schemes and includes any pending changes to the
--- configuration. Set the 'Deployed' option to 'true' to show the active
--- configuration and exclude pending changes. For more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Gets the analysis schemes configured for a domain. An analysis scheme defines language-specific text processing options for a 'text' field. Can be limited to specific analysis schemes by name. By default, shows all analysis schemes and includes any pending changes to the configuration. Set the 'Deployed' option to 'true' to show the active configuration and exclude pending changes. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     (
     -- * Creating a Request
@@ -51,11 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeAnalysisSchemes' operation.
--- Specifies the name of the domain you want to describe. To limit the
--- response to particular analysis schemes, specify the names of the
--- analysis schemes you want to describe. To show the active configuration
--- and exclude any pending changes, set the 'Deployed' option to 'true'.
+-- | Container for the parameters to the 'DescribeAnalysisSchemes' operation. Specifies the name of the domain you want to describe. To limit the response to particular analysis schemes, specify the names of the analysis schemes you want to describe. To show the active configuration and exclude any pending changes, set the 'Deployed' option to 'true'.
 --
 -- /See:/ 'describeAnalysisSchemes' smart constructor.
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
@@ -83,8 +72,7 @@ describeAnalysisSchemes pDomainName_ =
     , _dassDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration ('true') or include any
--- pending changes ('false'). Defaults to 'false'.
+-- | Whether to display the deployed configuration ('true') or include any pending changes ('false'). Defaults to 'false'.
 dassDeployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
 dassDeployed = lens _dassDeployed (\ s a -> s{_dassDeployed = a});
 
@@ -130,8 +118,7 @@ instance ToQuery DescribeAnalysisSchemes where
                    (toQueryList "member" <$> _dassAnalysisSchemeNames),
                "DomainName" =: _dassDomainName]
 
--- | The result of a 'DescribeAnalysisSchemes' request. Contains the analysis
--- schemes configured for the domain specified in the request.
+-- | The result of a 'DescribeAnalysisSchemes' request. Contains the analysis schemes configured for the domain specified in the request.
 --
 -- /See:/ 'describeAnalysisSchemesResponse' smart constructor.
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified ingress or egress entry (rule) from the specified
--- network ACL.
+-- Deletes the specified ingress or egress entry (rule) from the specified network ACL.
 module Network.AWS.EC2.DeleteNetworkACLEntry
     (
     -- * Creating a Request
@@ -77,10 +76,7 @@ deleteNetworkACLEntry pNetworkACLId_ pRuleNumber_ pEgress_ =
     , _dnaeEgress = pEgress_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dnaeDryRun :: Lens' DeleteNetworkACLEntry (Maybe Bool)
 dnaeDryRun = lens _dnaeDryRun (\ s a -> s{_dnaeDryRun = a});
 

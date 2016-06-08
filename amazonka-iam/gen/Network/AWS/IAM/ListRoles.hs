@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the roles that have the specified path prefix. If there are none,
--- the action returns an empty list. For more information about roles, go
--- to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
+-- Lists the roles that have the specified path prefix. If there are none, the action returns an empty list. For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker'
--- parameters.
+-- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListRoles
@@ -80,31 +76,19 @@ listRoles =
     , _lrMaxItems = Nothing
     }
 
--- | The path prefix for filtering the results. For example, the prefix
--- '\/application_abc\/component_xyz\/' gets all roles whose path starts
--- with '\/application_abc\/component_xyz\/'.
+-- | The path prefix for filtering the results. For example, the prefix '\/application_abc\/component_xyz\/' gets all roles whose path starts with '\/application_abc\/component_xyz\/'.
 --
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/), listing all roles.
+-- This parameter is optional. If it is not included, it defaults to a slash (\/), listing all roles.
 lrPathPrefix :: Lens' ListRoles (Maybe Text)
 lrPathPrefix = lens _lrPathPrefix (\ s a -> s{_lrPathPrefix = a});
 
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the 'Marker' element in the response that you received to
--- indicate where the next call should start.
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
 lrMarker :: Lens' ListRoles (Maybe Text)
 lrMarker = lens _lrMarker (\ s a -> s{_lrMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of
--- items you want in the response. If additional items exist beyond the
--- maximum you specify, the 'IsTruncated' response element is 'true'.
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
 --
--- This parameter is optional. If you do not include it, it defaults to
--- 100. Note that IAM might return fewer results, even when there are more
--- results available. In that case, the 'IsTruncated' response element
--- returns 'true' and 'Marker' contains a value to include in the
--- subsequent call that tells the service where to continue from.
+-- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
 lrMaxItems :: Lens' ListRoles (Maybe Natural)
 lrMaxItems = lens _lrMaxItems (\ s a -> s{_lrMaxItems = a}) . mapping _Nat;
 
@@ -177,19 +161,11 @@ listRolesResponse pResponseStatus_ =
     , _lrrsRoles = mempty
     }
 
--- | When 'IsTruncated' is 'true', this element is present and contains the
--- value to use for the 'Marker' parameter in a subsequent pagination
--- request.
+-- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
 lrrsMarker :: Lens' ListRolesResponse (Maybe Text)
 lrrsMarker = lens _lrrsMarker (\ s a -> s{_lrrsMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your
--- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more items. Note that
--- IAM might return fewer than the 'MaxItems' number of results even when
--- there are more results available. We recommend that you check
--- 'IsTruncated' after every call to ensure that you receive all of your
--- results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
 lrrsIsTruncated :: Lens' ListRolesResponse (Maybe Bool)
 lrrsIsTruncated = lens _lrrsIsTruncated (\ s a -> s{_lrrsIsTruncated = a});
 

@@ -15,9 +15,7 @@ extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
     Amazon WorkSpaces Service
 
-    This is the /Amazon WorkSpaces API Reference/. This guide provides
-    detailed information about Amazon WorkSpaces operations, data types,
-    parameters, and errors.
+    This is the /Amazon WorkSpaces API Reference/. This guide provides detailed information about Amazon WorkSpaces operations, data types, parameters, and errors.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides

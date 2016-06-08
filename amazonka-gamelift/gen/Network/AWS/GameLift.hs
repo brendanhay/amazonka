@@ -13,28 +13,13 @@
 --
 -- Amazon GameLift Service
 --
--- Welcome to the /Amazon GameLift API Reference/. Amazon GameLift is a
--- managed Amazon Web Services (AWS) service for developers who need a
--- scalable, server-based solution for multiplayer games. Amazon GameLift
--- provides setup and deployment of game servers, and handles
--- infrastructure scaling and session management. For more information
--- about the GameLift service, including a feature overview, getting
--- started guide, and tutorial, see the accompanying
--- <http://docs.aws.amazon.com/gamelift/latest/developerguide/ Amazon GameLift Developer Guide>.
+-- Welcome to the /Amazon GameLift API Reference/. Amazon GameLift is a managed Amazon Web Services (AWS) service for developers who need a scalable, server-based solution for multiplayer games. Amazon GameLift provides setup and deployment of game servers, and handles infrastructure scaling and session management. For more information about the GameLift service, including a feature overview, getting started guide, and tutorial, see the accompanying <http://docs.aws.amazon.com/gamelift/latest/developerguide/ Amazon GameLift Developer Guide>.
 --
--- This reference describes the low-level service API for GameLift. You can
--- call this API directly or use the
--- <https://aws.amazon.com/tools/ AWS SDK> for your preferred language. The
--- AWS SDK includes a set of high-level GameLift actions multiplayer game
--- sessions. Alternatively, you can use the
--- <https://aws.amazon.com/cli/ AWS command-line interface> (CLI) tool,
--- which includes commands for GameLift. For administrative actions, you
--- can use the Amazon GameLift console.
+-- This reference describes the low-level service API for GameLift. You can call this API directly or use the <https://aws.amazon.com/tools/ AWS SDK> for your preferred language. The AWS SDK includes a set of high-level GameLift actions multiplayer game sessions. Alternatively, you can use the <https://aws.amazon.com/cli/ AWS command-line interface> (CLI) tool, which includes commands for GameLift. For administrative actions, you can use the Amazon GameLift console.
 --
 -- __Managing Game and Player Sessions Through GameLift__
 --
--- Call these actions from your game clients and\/or services to create and
--- manage multiplayer game sessions.
+-- Call these actions from your game clients and\/or services to create and manage multiplayer game sessions.
 --
 -- -   __Game sessions__
 --     -   < CreateGameSession>
@@ -50,10 +35,7 @@
 --
 -- __Setting Up Game Servers__
 --
--- Use these administrative actions to configure GameLift to host your game
--- servers. When configuring GameLift, you\'ll need to (1) configure a
--- build for your game and provide build files, and (2) set up one or more
--- fleets to host game sessions.
+-- Use these administrative actions to configure GameLift to host your game servers. When configuring GameLift, you\'ll need to (1) configure a build for your game and provide build files, and (2) set up one or more fleets to host game sessions.
 --
 -- -   __Build actions:__
 --     -   < ListBuilds>

@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the user name and password-creation date for the specified
--- user. If the user has not been assigned a password, the action returns a
--- 404 ('NoSuchEntity') error.
+-- Retrieves the user name and password-creation date for the specified user. If the user has not been assigned a password, the action returns a 404 ('NoSuchEntity') error.
 module Network.AWS.IAM.GetLoginProfile
     (
     -- * Creating a Request

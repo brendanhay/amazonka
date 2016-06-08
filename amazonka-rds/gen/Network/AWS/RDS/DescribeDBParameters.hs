@@ -88,17 +88,11 @@ describeDBParameters pDBParameterGroupName_ =
 ddpFilters :: Lens' DescribeDBParameters [Filter]
 ddpFilters = lens _ddpFilters (\ s a -> s{_ddpFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous
--- 'DescribeDBParameters' request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribeDBParameters' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddpMarker :: Lens' DescribeDBParameters (Maybe Text)
 ddpMarker = lens _ddpMarker (\ s a -> s{_ddpMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -166,8 +160,7 @@ instance ToQuery DescribeDBParameters where
                "Source" =: _ddpSource,
                "DBParameterGroupName" =: _ddpDBParameterGroupName]
 
--- | Contains the result of a successful invocation of the
--- < DescribeDBParameters> action.
+-- | Contains the result of a successful invocation of the < DescribeDBParameters> action.
 --
 -- /See:/ 'describeDBParametersResponse' smart constructor.
 data DescribeDBParametersResponse = DescribeDBParametersResponse'
@@ -195,9 +188,7 @@ describeDBParametersResponse pResponseStatus_ =
     , _ddprsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 ddprsMarker :: Lens' DescribeDBParametersResponse (Maybe Text)
 ddprsMarker = lens _ddprsMarker (\ s a -> s{_ddprsMarker = a});
 

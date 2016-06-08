@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or overwrites one or more tags for the specified AWS CloudHSM
--- resource.
+-- Adds or overwrites one or more tags for the specified AWS CloudHSM resource.
 --
--- Each tag consists of a key and a value. Tag keys must be unique to each
--- resource.
+-- Each tag consists of a key and a value. Tag keys must be unique to each resource.
 module Network.AWS.CloudHSM.AddTagsToResource
     (
     -- * Creating a Request

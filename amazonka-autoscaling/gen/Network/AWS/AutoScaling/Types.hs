@@ -308,19 +308,15 @@ autoScaling =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | You already have an Auto Scaling group or launch configuration with this
--- name.
+-- | You already have an Auto Scaling group or launch configuration with this name.
 _AlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
 
--- | You have already reached a limit for your Auto Scaling resources (for
--- example, groups, launch configurations, or lifecycle hooks). For more
--- information, see < DescribeAccountLimits>.
+-- | You have already reached a limit for your Auto Scaling resources (for example, groups, launch configurations, or lifecycle hooks). For more information, see < DescribeAccountLimits>.
 _LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 
--- | The Auto Scaling group or launch configuration can\'t be deleted because
--- it is in use.
+-- | The Auto Scaling group or launch configuration can\'t be deleted because it is in use.
 _ResourceInUseFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseFault = _ServiceError . hasStatus 400 . hasCode "ResourceInUse"
 
@@ -328,14 +324,12 @@ _ResourceInUseFault = _ServiceError . hasStatus 400 . hasCode "ResourceInUse"
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
--- | The Auto Scaling group can\'t be deleted because there are scaling
--- activities in progress.
+-- | The Auto Scaling group can\'t be deleted because there are scaling activities in progress.
 _ScalingActivityInProgressFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ScalingActivityInProgressFault =
     _ServiceError . hasStatus 400 . hasCode "ScalingActivityInProgress"
 
--- | You already have a pending update to an Auto Scaling resource (for
--- example, a group, instance, or load balancer).
+-- | You already have a pending update to an Auto Scaling resource (for example, a group, instance, or load balancer).
 _ResourceContentionFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceContentionFault =
     _ServiceError . hasStatus 500 . hasCode "ResourceContention"

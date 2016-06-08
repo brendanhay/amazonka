@@ -11,12 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Route 53 is a scalable Domain Name System (DNS) web service. It
--- provides secure and reliable routing to your infrastructure that uses
--- Amazon Web Services (AWS) products, such as Amazon Elastic Compute Cloud
--- (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service
--- (Amazon S3). You can also use Amazon Route 53 to route users to your
--- infrastructure outside of AWS.
+-- Amazon Route 53 is a scalable Domain Name System (DNS) web service. It provides secure and reliable routing to your infrastructure that uses Amazon Web Services (AWS) products, such as Amazon Elastic Compute Cloud (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service (Amazon S3). You can also use Amazon Route 53 to route users to your infrastructure outside of AWS.
 module Network.AWS.Route53
     (
     -- * Service Configuration

@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of your queues that have the RedrivePolicy queue
--- attribute configured with a dead letter queue.
+-- Returns a list of your queues that have the RedrivePolicy queue attribute configured with a dead letter queue.
 --
--- For more information about using dead letter queues, see
--- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>.
+-- For more information about using dead letter queues, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>.
 module Network.AWS.SQS.ListDeadLetterSourceQueues
     (
     -- * Creating a Request
@@ -125,8 +123,7 @@ listDeadLetterSourceQueuesResponse pResponseStatus_ =
 ldlsqrsResponseStatus :: Lens' ListDeadLetterSourceQueuesResponse Int
 ldlsqrsResponseStatus = lens _ldlsqrsResponseStatus (\ s a -> s{_ldlsqrsResponseStatus = a});
 
--- | A list of source queue URLs that have the RedrivePolicy queue attribute
--- configured with a dead letter queue.
+-- | A list of source queue URLs that have the RedrivePolicy queue attribute configured with a dead letter queue.
 ldlsqrsQueueURLs :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrsQueueURLs = lens _ldlsqrsQueueURLs (\ s a -> s{_ldlsqrsQueueURLs = a}) . _Coerce;
 

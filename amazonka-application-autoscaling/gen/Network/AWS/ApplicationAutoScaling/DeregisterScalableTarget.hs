@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deregisters a scalable target that was previously registered. If you are
--- no longer using a scalable target, you can delete it with this
--- operation. When you deregister a scalable target, all of the scaling
--- policies that are associated with that scalable target are deleted.
+-- Deregisters a scalable target that was previously registered. If you are no longer using a scalable target, you can delete it with this operation. When you deregister a scalable target, all of the scaling policies that are associated with that scalable target are deleted.
 --
--- To create a new scalable target or update an existing one, see
--- < RegisterScalableTarget>.
+-- To create a new scalable target or update an existing one, see < RegisterScalableTarget>.
 module Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
     (
     -- * Creating a Request
@@ -77,24 +73,15 @@ deregisterScalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ =
     , _derScalableDimension = pScalableDimension_
     }
 
--- | The namespace for the AWS service that the scalable target is associated
--- with. For more information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>
--- in the Amazon Web Services General Reference.
+-- | The namespace for the AWS service that the scalable target is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 derServiceNamespace :: Lens' DeregisterScalableTarget ServiceNamespace
 derServiceNamespace = lens _derServiceNamespace (\ s a -> s{_derServiceNamespace = a});
 
--- | The unique identifier string for the resource associated with the
--- scalable target. For Amazon ECS services, this value is the resource
--- type, followed by the cluster name and service name, such as
--- 'service\/default\/sample-webapp'.
+-- | The unique identifier string for the resource associated with the scalable target. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'.
 derResourceId :: Lens' DeregisterScalableTarget Text
 derResourceId = lens _derResourceId (\ s a -> s{_derResourceId = a});
 
--- | The scalable dimension associated with the scalable target. The scalable
--- dimension contains the service namespace, resource type, and scaling
--- property, such as 'ecs:service:DesiredCount' for the desired task count
--- of an Amazon ECS service.
+-- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service.
 derScalableDimension :: Lens' DeregisterScalableTarget ScalableDimension
 derScalableDimension = lens _derScalableDimension (\ s a -> s{_derScalableDimension = a});
 

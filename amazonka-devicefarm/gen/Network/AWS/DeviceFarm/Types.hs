@@ -397,8 +397,7 @@ deviceFarm =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Exception gets thrown when a user is not eligible to perform the
--- specified transaction.
+-- | Exception gets thrown when a user is not eligible to perform the specified transaction.
 _NotEligibleException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotEligibleException = _ServiceError . hasCode "NotEligibleException"
 

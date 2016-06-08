@@ -47,8 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The GET request to list existing < RestApis> defined for your
--- collection.
+-- | The GET request to list existing < RestApis> defined for your collection.
 --
 -- /See:/ 'getRestAPIs' smart constructor.
 data GetRestAPIs = GetRestAPIs'
@@ -71,14 +70,11 @@ getRestAPIs =
     , _graPosition = Nothing
     }
 
--- | The maximum number of < RestApi> resources in the collection to get
--- information about. The default limit is 25. It should be an integer
--- between 1 - 500.
+-- | The maximum number of < RestApi> resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 graLimit :: Lens' GetRestAPIs (Maybe Int)
 graLimit = lens _graLimit (\ s a -> s{_graLimit = a});
 
--- | The position of the current < RestApis> resource in the collection to
--- get information about.
+-- | The position of the current < RestApis> resource in the collection to get information about.
 graPosition :: Lens' GetRestAPIs (Maybe Text)
 graPosition = lens _graPosition (\ s a -> s{_graPosition = a});
 
@@ -117,9 +113,7 @@ instance ToQuery GetRestAPIs where
           = mconcat
               ["limit" =: _graLimit, "position" =: _graPosition]
 
--- | Contains references to your APIs and links that guide you in ways to
--- interact with your collection. A collection offers a paginated view of
--- your APIs.
+-- | Contains references to your APIs and links that guide you in ways to interact with your collection. A collection offers a paginated view of your APIs.
 --
 -- /See:/ 'getRestAPIsResponse' smart constructor.
 data GetRestAPIsResponse = GetRestAPIsResponse'

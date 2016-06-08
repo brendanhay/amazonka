@@ -20,8 +20,7 @@
 --
 -- Updates the 'EvaluationName' of an 'Evaluation'.
 --
--- You can use the < GetEvaluation> operation to view the contents of the
--- updated data element.
+-- You can use the < GetEvaluation> operation to view the contents of the updated data element.
 module Network.AWS.MachineLearning.UpdateEvaluation
     (
     -- * Creating a Request
@@ -73,8 +72,7 @@ updateEvaluation pEvaluationId_ pEvaluationName_ =
 ueEvaluationId :: Lens' UpdateEvaluation Text
 ueEvaluationId = lens _ueEvaluationId (\ s a -> s{_ueEvaluationId = a});
 
--- | A new user-supplied name or description of the 'Evaluation' that will
--- replace the current content.
+-- | A new user-supplied name or description of the 'Evaluation' that will replace the current content.
 ueEvaluationName :: Lens' UpdateEvaluation Text
 ueEvaluationName = lens _ueEvaluationName (\ s a -> s{_ueEvaluationName = a});
 
@@ -139,8 +137,7 @@ updateEvaluationResponse pResponseStatus_ =
     , _uersResponseStatus = pResponseStatus_
     }
 
--- | The ID assigned to the 'Evaluation' during creation. This value should
--- be identical to the value of the 'Evaluation' in the request.
+-- | The ID assigned to the 'Evaluation' during creation. This value should be identical to the value of the 'Evaluation' in the request.
 uersEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
 uersEvaluationId = lens _uersEvaluationId (\ s a -> s{_uersEvaluationId = a});
 

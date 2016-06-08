@@ -22,11 +22,7 @@
 --
 -- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Show, Deploy, or Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeLayers
     (
     -- * Creating a Request
@@ -72,9 +68,7 @@ describeLayers =
     , _dlStackId = Nothing
     }
 
--- | An array of layer IDs that specify the layers to be described. If you
--- omit this parameter, 'DescribeLayers' returns a description of every
--- layer in the specified stack.
+-- | An array of layer IDs that specify the layers to be described. If you omit this parameter, 'DescribeLayers' returns a description of every layer in the specified stack.
 dlLayerIds :: Lens' DescribeLayers [Text]
 dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a}) . _Default . _Coerce;
 

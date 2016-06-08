@@ -20,8 +20,7 @@
 --
 -- Removes one or more tags from the specified AWS CloudHSM resource.
 --
--- To remove a tag, specify only the tag key to remove (not the value). To
--- overwrite the value for an existing tag, use < AddTagsToResource>.
+-- To remove a tag, specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use < AddTagsToResource>.
 module Network.AWS.CloudHSM.RemoveTagsFromResource
     (
     -- * Creating a Request
@@ -74,8 +73,7 @@ rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
 
 -- | The tag key or keys to remove.
 --
--- Specify only the tag key to remove (not the value). To overwrite the
--- value for an existing tag, use < AddTagsToResource>.
+-- Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use < AddTagsToResource>.
 rtfrTagKeyList :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeyList = lens _rtfrTagKeyList (\ s a -> s{_rtfrTagKeyList = a}) . _Coerce;
 

@@ -65,8 +65,7 @@ removeTagsFromResource pResourceARN_ =
     , _rtfrTagKeys = mempty
     }
 
--- | >The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be
--- removed from.
+-- | >The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be removed from.
 rtfrResourceARN :: Lens' RemoveTagsFromResource Text
 rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
 

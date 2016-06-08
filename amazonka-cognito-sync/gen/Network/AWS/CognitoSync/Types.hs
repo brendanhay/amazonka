@@ -143,8 +143,7 @@ cognitoSync =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Thrown when a request parameter does not comply with the associated
--- constraints.
+-- | Thrown when a request parameter does not comply with the associated constraints.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameter"
@@ -164,8 +163,7 @@ _InvalidConfigurationException :: AsError a => Getting (First ServiceError) a Se
 _InvalidConfigurationException =
     _ServiceError . hasStatus 400 . hasCode "InvalidConfiguration"
 
--- | An exception thrown when there is an IN_PROGRESS bulk publish operation
--- for the given identity pool.
+-- | An exception thrown when there is an IN_PROGRESS bulk publish operation for the given identity pool.
 _DuplicateRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateRequestException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateRequest"
@@ -175,8 +173,7 @@ _LambdaThrottledException :: AsError a => Getting (First ServiceError) a Service
 _LambdaThrottledException =
     _ServiceError . hasStatus 429 . hasCode "LambdaThrottled"
 
--- | An exception thrown when a bulk publish operation is requested less than
--- 24 hours after a previous bulk publish operation completed successfully.
+-- | An exception thrown when a bulk publish operation is requested less than 24 hours after a previous bulk publish operation completed successfully.
 _AlreadyStreamedException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyStreamedException =
     _ServiceError . hasStatus 400 . hasCode "AlreadyStreamed"
@@ -196,8 +193,7 @@ _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a 
 _ConcurrentModificationException =
     _ServiceError . hasStatus 400 . hasCode "ConcurrentModification"
 
--- | Thrown if an update can\'t be applied because the resource was changed
--- by another call and this would result in a conflict.
+-- | Thrown if an update can\'t be applied because the resource was changed by another call and this would result in a conflict.
 _ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceConflictException =
     _ServiceError . hasStatus 409 . hasCode "ResourceConflict"
@@ -207,8 +203,7 @@ _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a Servic
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFound"
 
--- | Thrown when the limit on the number of objects or operations has been
--- exceeded.
+-- | Thrown when the limit on the number of objects or operations has been exceeded.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 400 . hasCode "LimitExceeded"

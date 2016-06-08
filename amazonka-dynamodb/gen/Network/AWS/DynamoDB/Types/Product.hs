@@ -21,8 +21,7 @@ import           Network.AWS.DynamoDB.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | Represents an attribute for describing the key schema for the table and
--- indexes.
+-- | Represents an attribute for describing the key schema for the table and indexes.
 --
 -- /See:/ 'attributeDefinition' smart constructor.
 data AttributeDefinition = AttributeDefinition'
@@ -77,14 +76,9 @@ instance ToJSON AttributeDefinition where
                  [Just ("AttributeName" .= _adAttributeName),
                   Just ("AttributeType" .= _adAttributeType)])
 
--- | Represents the data for an attribute. You can set one, and only one, of
--- the elements.
+-- | Represents the data for an attribute. You can set one, and only one, of the elements.
 --
--- Each attribute in an item is a name-value pair. An attribute can be
--- single-valued or multi-valued set. For example, a book item can have
--- title and authors attributes. Each book has one title but can have many
--- authors. The multi-valued attribute is a set; duplicate values are not
--- allowed.
+-- Each attribute in an item is a name-value pair. An attribute can be single-valued or multi-valued set. For example, a book item can have title and authors attributes. Each book has one title but can have many authors. The multi-valued attribute is a set; duplicate values are not allowed.
 --
 -- /See:/ 'attributeValue' smart constructor.
 data AttributeValue = AttributeValue'
@@ -214,17 +208,11 @@ instance ToJSON AttributeValue where
                   ("B" .=) <$> _avB, ("SS" .=) <$> _avSS,
                   ("S" .=) <$> _avS, ("BOOL" .=) <$> _avBOOL])
 
--- | For the /UpdateItem/ operation, represents the attributes to be
--- modified, the action to perform on each, and the new value for each.
+-- | For the /UpdateItem/ operation, represents the attributes to be modified, the action to perform on each, and the new value for each.
 --
--- You cannot use /UpdateItem/ to update any primary key attributes.
--- Instead, you will need to delete the item, and then use /PutItem/ to
--- create a new item with new attributes.
+-- You cannot use /UpdateItem/ to update any primary key attributes. Instead, you will need to delete the item, and then use /PutItem/ to create a new item with new attributes.
 --
--- Attribute values cannot be null; string and binary type attributes must
--- have lengths greater than zero; and set type attributes must not be
--- empty. Requests with empty values will be rejected with a
--- /ValidationException/ exception.
+-- Attribute values cannot be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests with empty values will be rejected with a /ValidationException/ exception.
 --
 -- /See:/ 'attributeValueUpdate' smart constructor.
 data AttributeValueUpdate = AttributeValueUpdate'
@@ -251,77 +239,37 @@ attributeValueUpdate =
 avuValue :: Lens' AttributeValueUpdate (Maybe AttributeValue)
 avuValue = lens _avuValue (\ s a -> s{_avuValue = a});
 
--- | Specifies how to perform the update. Valid values are 'PUT' (default),
--- 'DELETE', and 'ADD'. The behavior depends on whether the specified
--- primary key already exists in the table.
+-- | Specifies how to perform the update. Valid values are 'PUT' (default), 'DELETE', and 'ADD'. The behavior depends on whether the specified primary key already exists in the table.
 --
 -- __If an item with the specified /Key/ is found in the table:__
 --
--- -   'PUT' - Adds the specified attribute to the item. If the attribute
---     already exists, it is replaced by the new value.
+-- -   'PUT' - Adds the specified attribute to the item. If the attribute already exists, it is replaced by the new value.
 --
--- -   'DELETE' - If no value is specified, the attribute and its value are
---     removed from the item. The data type of the specified value must
---     match the existing value\'s data type.
+-- -   'DELETE' - If no value is specified, the attribute and its value are removed from the item. The data type of the specified value must match the existing value\'s data type.
 --
---     If a /set/ of values is specified, then those values are subtracted
---     from the old set. For example, if the attribute value was the set
---     '[a,b,c]' and the /DELETE/ action specified '[a,c]', then the final
---     attribute value would be '[b]'. Specifying an empty set is an error.
+--     If a /set/ of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set '[a,b,c]' and the /DELETE/ action specified '[a,c]', then the final attribute value would be '[b]'. Specifying an empty set is an error.
 --
--- -   'ADD' - If the attribute does not already exist, then the attribute
---     and its values are added to the item. If the attribute does exist,
---     then the behavior of 'ADD' depends on the data type of the
---     attribute:
+-- -   'ADD' - If the attribute does not already exist, then the attribute and its values are added to the item. If the attribute does exist, then the behavior of 'ADD' depends on the data type of the attribute:
 --
---     -   If the existing attribute is a number, and if /Value/ is also a
---         number, then the /Value/ is mathematically added to the existing
---         attribute. If /Value/ is a negative number, then it is
---         subtracted from the existing attribute.
+--     -   If the existing attribute is a number, and if /Value/ is also a number, then the /Value/ is mathematically added to the existing attribute. If /Value/ is a negative number, then it is subtracted from the existing attribute.
 --
---         If you use 'ADD' to increment or decrement a number value for an
---         item that doesn\'t exist before the update, DynamoDB uses 0 as
---         the initial value.
+--         If you use 'ADD' to increment or decrement a number value for an item that doesn\'t exist before the update, DynamoDB uses 0 as the initial value.
 --
---         In addition, if you use 'ADD' to update an existing item, and
---         intend to increment or decrement an attribute value which does
---         not yet exist, DynamoDB uses '0' as the initial value. For
---         example, suppose that the item you want to update does not yet
---         have an attribute named /itemcount/, but you decide to 'ADD' the
---         number '3' to this attribute anyway, even though it currently
---         does not exist. DynamoDB will create the /itemcount/ attribute,
---         set its initial value to '0', and finally add '3' to it. The
---         result will be a new /itemcount/ attribute in the item, with a
---         value of '3'.
+--         In addition, if you use 'ADD' to update an existing item, and intend to increment or decrement an attribute value which does not yet exist, DynamoDB uses '0' as the initial value. For example, suppose that the item you want to update does not yet have an attribute named /itemcount/, but you decide to 'ADD' the number '3' to this attribute anyway, even though it currently does not exist. DynamoDB will create the /itemcount/ attribute, set its initial value to '0', and finally add '3' to it. The result will be a new /itemcount/ attribute in the item, with a value of '3'.
 --
---     -   If the existing data type is a set, and if the /Value/ is also a
---         set, then the /Value/ is added to the existing set. (This is a
---         /set/ operation, not mathematical addition.) For example, if the
---         attribute value was the set '[1,2]', and the 'ADD' action
---         specified '[3]', then the final attribute value would be
---         '[1,2,3]'. An error occurs if an Add action is specified for a
---         set attribute and the attribute type specified does not match
---         the existing set type.
+--     -   If the existing data type is a set, and if the /Value/ is also a set, then the /Value/ is added to the existing set. (This is a /set/ operation, not mathematical addition.) For example, if the attribute value was the set '[1,2]', and the 'ADD' action specified '[3]', then the final attribute value would be '[1,2,3]'. An error occurs if an Add action is specified for a set attribute and the attribute type specified does not match the existing set type.
 --
---         Both sets must have the same primitive data type. For example,
---         if the existing data type is a set of strings, the /Value/ must
---         also be a set of strings. The same holds true for number sets
---         and binary sets.
+--         Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the /Value/ must also be a set of strings. The same holds true for number sets and binary sets.
 --
---     This action is only valid for an existing attribute whose data type
---     is number or is a set. Do not use 'ADD' for any other data types.
+--     This action is only valid for an existing attribute whose data type is number or is a set. Do not use 'ADD' for any other data types.
 --
 -- __If no item with the specified /Key/ is found:__
 --
--- -   'PUT' - DynamoDB creates a new item with the specified primary key,
---     and then adds the attribute.
+-- -   'PUT' - DynamoDB creates a new item with the specified primary key, and then adds the attribute.
 --
 -- -   'DELETE' - Nothing happens; there is no attribute to delete.
 --
--- -   'ADD' - DynamoDB creates an item with the supplied primary key and
---     number (or set of numbers) for the attribute value. The only data
---     types allowed are number and number set; no other data types can be
---     specified.
+-- -   'ADD' - DynamoDB creates an item with the supplied primary key and number (or set of numbers) for the attribute value. The only data types allowed are number and number set; no other data types can be specified.
 --
 avuAction :: Lens' AttributeValueUpdate (Maybe AttributeAction)
 avuAction = lens _avuAction (\ s a -> s{_avuAction = a});
@@ -337,8 +285,7 @@ instance ToJSON AttributeValueUpdate where
                  [("Value" .=) <$> _avuValue,
                   ("Action" .=) <$> _avuAction])
 
--- | Represents the amount of provisioned throughput capacity consumed on a
--- table or an index.
+-- | Represents the amount of provisioned throughput capacity consumed on a table or an index.
 --
 -- /See:/ 'capacity' smart constructor.
 newtype Capacity = Capacity'
@@ -372,18 +319,13 @@ instance NFData Capacity
 
 -- | Represents the selection criteria for a /Query/ or /Scan/ operation:
 --
--- -   For a /Query/ operation, /Condition/ is used for specifying the
---     /KeyConditions/ to use when querying a table or an index. For
---     /KeyConditions/, only the following comparison operators are
---     supported:
+-- -   For a /Query/ operation, /Condition/ is used for specifying the /KeyConditions/ to use when querying a table or an index. For /KeyConditions/, only the following comparison operators are supported:
 --
 --     'EQ | LE | LT | GE | GT | BEGINS_WITH | BETWEEN'
 --
---     /Condition/ is also used in a /QueryFilter/, which evaluates the
---     query results and returns only the desired values.
+--     /Condition/ is also used in a /QueryFilter/, which evaluates the query results and returns only the desired values.
 --
--- -   For a /Scan/ operation, /Condition/ is used in a /ScanFilter/, which
---     evaluates the scan results and returns only the desired values.
+-- -   For a /Scan/ operation, /Condition/ is used in a /ScanFilter/, which evaluates the scan results and returns only the desired values.
 --
 --
 -- /See:/ 'condition' smart constructor.
@@ -408,24 +350,17 @@ condition pComparisonOperator_ =
     , _cComparisonOperator = pComparisonOperator_
     }
 
--- | One or more values to evaluate against the supplied attribute. The
--- number of values in the list depends on the /ComparisonOperator/ being
--- used.
+-- | One or more values to evaluate against the supplied attribute. The number of values in the list depends on the /ComparisonOperator/ being used.
 --
 -- For type Number, value comparisons are numeric.
 --
--- String value comparisons for greater than, equals, or less than are
--- based on ASCII character code values. For example, 'a' is greater than
--- 'A', and 'a' is greater than 'B'. For a list of code values, see
--- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
+-- String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, 'a' is greater than 'A', and 'a' is greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
--- For Binary, DynamoDB treats each byte of the binary data as unsigned
--- when it compares binary values.
+-- For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.
 cAttributeValueList :: Lens' Condition [AttributeValue]
 cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList = a}) . _Default . _Coerce;
 
--- | A comparator for evaluating attributes. For example, equals, greater
--- than, less than, etc.
+-- | A comparator for evaluating attributes. For example, equals, greater than, less than, etc.
 --
 -- The following comparison operators are available:
 --
@@ -433,148 +368,63 @@ cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList
 --
 -- The following are descriptions of each comparison operator.
 --
--- -   'EQ' : Equal. 'EQ' is supported for all datatypes, including lists
---     and maps.
+-- -   'EQ' : Equal. 'EQ' is supported for all datatypes, including lists and maps.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, Binary, String Set, Number Set, or Binary
---     Set. If an item contains an /AttributeValue/ element of a different
---     type than the one provided in the request, the value does not match.
---     For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
---     '{\"N\":\"6\"}' does not equal '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--     /AttributeValueList/ can contain only one /AttributeValue/ element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not equal '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   'NE' : Not equal. 'NE' is supported for all datatypes, including
---     lists and maps.
+-- -   'NE' : Not equal. 'NE' is supported for all datatypes, including lists and maps.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ of type
---     String, Number, Binary, String Set, Number Set, or Binary Set. If an
---     item contains an /AttributeValue/ of a different type than the one
---     provided in the request, the value does not match. For example,
---     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
---     '{\"N\":\"6\"}' does not equal '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--     /AttributeValueList/ can contain only one /AttributeValue/ of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an /AttributeValue/ of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not equal '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
 -- -   'LE' : Less than or equal.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, or Binary (not a set type). If an item
---     contains an /AttributeValue/ element of a different type than the
---     one provided in the request, the value does not match. For example,
---     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
---     '{\"N\":\"6\"}' does not compare to
---     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--     /AttributeValueList/ can contain only one /AttributeValue/ element of type String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
 -- -   'LT' : Less than.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ of type
---     String, Number, or Binary (not a set type). If an item contains an
---     /AttributeValue/ element of a different type than the one provided
---     in the request, the value does not match. For example,
---     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
---     '{\"N\":\"6\"}' does not compare to
---     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--     /AttributeValueList/ can contain only one /AttributeValue/ of type String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
 -- -   'GE' : Greater than or equal.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, or Binary (not a set type). If an item
---     contains an /AttributeValue/ element of a different type than the
---     one provided in the request, the value does not match. For example,
---     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
---     '{\"N\":\"6\"}' does not compare to
---     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--     /AttributeValueList/ can contain only one /AttributeValue/ element of type String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
 -- -   'GT' : Greater than.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, or Binary (not a set type). If an item
---     contains an /AttributeValue/ element of a different type than the
---     one provided in the request, the value does not match. For example,
---     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
---     '{\"N\":\"6\"}' does not compare to
---     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--     /AttributeValueList/ can contain only one /AttributeValue/ element of type String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for all
---     datatypes, including lists and maps.
+-- -   'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for all datatypes, including lists and maps.
 --
---     This operator tests for the existence of an attribute, not its data
---     type. If the data type of attribute \"'a'\" is null, and you
---     evaluate it using 'NOT_NULL', the result is a Boolean /true/. This
---     result is because the attribute \"'a'\" exists; its data type is not
---     relevant to the 'NOT_NULL' comparison operator.
+--     This operator tests for the existence of an attribute, not its data type. If the data type of attribute \"'a'\" is null, and you evaluate it using 'NOT_NULL', the result is a Boolean /true/. This result is because the attribute \"'a'\" exists; its data type is not relevant to the 'NOT_NULL' comparison operator.
 --
--- -   'NULL' : The attribute does not exist. 'NULL' is supported for all
---     datatypes, including lists and maps.
+-- -   'NULL' : The attribute does not exist. 'NULL' is supported for all datatypes, including lists and maps.
 --
---     This operator tests for the nonexistence of an attribute, not its
---     data type. If the data type of attribute \"'a'\" is null, and you
---     evaluate it using 'NULL', the result is a Boolean /false/. This is
---     because the attribute \"'a'\" exists; its data type is not relevant
---     to the 'NULL' comparison operator.
+--     This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute \"'a'\" is null, and you evaluate it using 'NULL', the result is a Boolean /false/. This is because the attribute \"'a'\" exists; its data type is not relevant to the 'NULL' comparison operator.
 --
 -- -   'CONTAINS' : Checks for a subsequence, or value in a set.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, or Binary (not a set type). If the target
---     attribute of the comparison is of type String, then the operator
---     checks for a substring match. If the target attribute of the
---     comparison is of type Binary, then the operator looks for a
---     subsequence of the target that matches the input. If the target
---     attribute of the comparison is a set (\"'SS'\", \"'NS'\", or
---     \"'BS'\"), then the operator evaluates to true if it finds an exact
---     match with any member of the set.
+--     /AttributeValueList/ can contain only one /AttributeValue/ element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"'SS'\", \"'NS'\", or \"'BS'\"), then the operator evaluates to true if it finds an exact match with any member of the set.
 --
---     CONTAINS is supported for lists: When evaluating \"'a CONTAINS b'\",
---     \"'a'\" can be a list; however, \"'b'\" cannot be a set, a map, or a
---     list.
+--     CONTAINS is supported for lists: When evaluating \"'a CONTAINS b'\", \"'a'\" can be a list; however, \"'b'\" cannot be a set, a map, or a list.
 --
--- -   'NOT_CONTAINS' : Checks for absence of a subsequence, or absence of
---     a value in a set.
+-- -   'NOT_CONTAINS' : Checks for absence of a subsequence, or absence of a value in a set.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, or Binary (not a set type). If the target
---     attribute of the comparison is a String, then the operator checks
---     for the absence of a substring match. If the target attribute of the
---     comparison is Binary, then the operator checks for the absence of a
---     subsequence of the target that matches the input. If the target
---     attribute of the comparison is a set (\"'SS'\", \"'NS'\", or
---     \"'BS'\"), then the operator evaluates to true if it /does not/ find
---     an exact match with any member of the set.
+--     /AttributeValueList/ can contain only one /AttributeValue/ element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"'SS'\", \"'NS'\", or \"'BS'\"), then the operator evaluates to true if it /does not/ find an exact match with any member of the set.
 --
---     NOT_CONTAINS is supported for lists: When evaluating
---     \"'a NOT CONTAINS b'\", \"'a'\" can be a list; however, \"'b'\"
---     cannot be a set, a map, or a list.
+--     NOT_CONTAINS is supported for lists: When evaluating \"'a NOT CONTAINS b'\", \"'a'\" can be a list; however, \"'b'\" cannot be a set, a map, or a list.
 --
 -- -   'BEGINS_WITH' : Checks for a prefix.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ of type
---     String or Binary (not a Number or a set type). The target attribute
---     of the comparison must be of type String or Binary (not a Number or
---     a set type).
+--     /AttributeValueList/ can contain only one /AttributeValue/ of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).
 --
 -- -   'IN' : Checks for matching elements within two sets.
 --
---     /AttributeValueList/ can contain one or more /AttributeValue/
---     elements of type String, Number, or Binary (not a set type). These
---     attributes are compared against an existing set type attribute of an
---     item. If any elements of the input set are present in the item
---     attribute, the expression evaluates to true.
+--     /AttributeValueList/ can contain one or more /AttributeValue/ elements of type String, Number, or Binary (not a set type). These attributes are compared against an existing set type attribute of an item. If any elements of the input set are present in the item attribute, the expression evaluates to true.
 --
--- -   'BETWEEN' : Greater than or equal to the first value, and less than
---     or equal to the second value.
+-- -   'BETWEEN' : Greater than or equal to the first value, and less than or equal to the second value.
 --
---     /AttributeValueList/ must contain two /AttributeValue/ elements of
---     the same type, either String, Number, or Binary (not a set type). A
---     target attribute matches if the target value is greater than, or
---     equal to, the first element and less than, or equal to, the second
---     element. If an item contains an /AttributeValue/ element of a
---     different type than the one provided in the request, the value does
---     not match. For example, '{\"S\":\"6\"}' does not compare to
---     '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to
---     '{\"NS\":[\"6\", \"2\", \"1\"]}'
+--     /AttributeValueList/ must contain two /AttributeValue/ elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not compare to '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to '{\"NS\":[\"6\", \"2\", \"1\"]}'
 --
--- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters>
--- in the /Amazon DynamoDB Developer Guide/.
+-- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/.
 cComparisonOperator :: Lens' Condition ComparisonOperator
 cComparisonOperator = lens _cComparisonOperator (\ s a -> s{_cComparisonOperator = a});
 
@@ -589,12 +439,7 @@ instance ToJSON Condition where
                  [("AttributeValueList" .=) <$> _cAttributeValueList,
                   Just ("ComparisonOperator" .= _cComparisonOperator)])
 
--- | The capacity units consumed by an operation. The data returned includes
--- the total provisioned throughput consumed, along with statistics for the
--- table and any indexes involved in the operation. /ConsumedCapacity/ is
--- only returned if the request asked for it. For more information, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
--- in the /Amazon DynamoDB Developer Guide/.
+-- | The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. /ConsumedCapacity/ is only returned if the request asked for it. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput> in the /Amazon DynamoDB Developer Guide/.
 --
 -- /See:/ 'consumedCapacity' smart constructor.
 data ConsumedCapacity = ConsumedCapacity'
@@ -629,8 +474,7 @@ consumedCapacity =
     , _ccTableName = Nothing
     }
 
--- | The amount of throughput consumed on each global index affected by the
--- operation.
+-- | The amount of throughput consumed on each global index affected by the operation.
 ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
 ccGlobalSecondaryIndexes = lens _ccGlobalSecondaryIndexes (\ s a -> s{_ccGlobalSecondaryIndexes = a}) . _Default . _Map;
 
@@ -638,13 +482,11 @@ ccGlobalSecondaryIndexes = lens _ccGlobalSecondaryIndexes (\ s a -> s{_ccGlobalS
 ccCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
 ccCapacityUnits = lens _ccCapacityUnits (\ s a -> s{_ccCapacityUnits = a});
 
--- | The amount of throughput consumed on each local index affected by the
--- operation.
+-- | The amount of throughput consumed on each local index affected by the operation.
 ccLocalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
 ccLocalSecondaryIndexes = lens _ccLocalSecondaryIndexes (\ s a -> s{_ccLocalSecondaryIndexes = a}) . _Default . _Map;
 
--- | The amount of throughput consumed on the table affected by the
--- operation.
+-- | The amount of throughput consumed on the table affected by the operation.
 ccTable :: Lens' ConsumedCapacity (Maybe Capacity)
 ccTable = lens _ccTable (\ s a -> s{_ccTable = a});
 
@@ -667,8 +509,7 @@ instance Hashable ConsumedCapacity
 
 instance NFData ConsumedCapacity
 
--- | Represents a new global secondary index to be added to an existing
--- table.
+-- | Represents a new global secondary index to be added to an existing table.
 --
 -- /See:/ 'createGlobalSecondaryIndexAction' smart constructor.
 data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
@@ -735,8 +576,7 @@ instance ToJSON CreateGlobalSecondaryIndexAction
                     ("ProvisionedThroughput" .=
                        _cgsiaProvisionedThroughput)])
 
--- | Represents a global secondary index to be deleted from an existing
--- table.
+-- | Represents a global secondary index to be deleted from an existing table.
 --
 -- /See:/ 'deleteGlobalSecondaryIndexAction' smart constructor.
 newtype DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction'
@@ -789,10 +629,7 @@ deleteRequest =
     { _drKey = mempty
     }
 
--- | A map of attribute name to attribute values, representing the primary
--- key of the item to delete. All of the table\'s primary key attributes
--- must be specified, and their data types must match those of the table\'s
--- key schema.
+-- | A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table\'s primary key attributes must be specified, and their data types must match those of the table\'s key schema.
 drKey :: Lens' DeleteRequest (HashMap Text AttributeValue)
 drKey = lens _drKey (\ s a -> s{_drKey = a}) . _Map;
 
@@ -809,28 +646,13 @@ instance ToJSON DeleteRequest where
         toJSON DeleteRequest'{..}
           = object (catMaybes [Just ("Key" .= _drKey)])
 
--- | Represents a condition to be compared with an attribute value. This
--- condition can be used with /DeleteItem/, /PutItem/ or /UpdateItem/
--- operations; if the comparison evaluates to true, the operation succeeds;
--- if not, the operation fails. You can use /ExpectedAttributeValue/ in one
--- of two different ways:
+-- | Represents a condition to be compared with an attribute value. This condition can be used with /DeleteItem/, /PutItem/ or /UpdateItem/ operations; if the comparison evaluates to true, the operation succeeds; if not, the operation fails. You can use /ExpectedAttributeValue/ in one of two different ways:
 --
--- -   Use /AttributeValueList/ to specify one or more values to compare
---     against an attribute. Use /ComparisonOperator/ to specify how you
---     want to perform the comparison. If the comparison evaluates to true,
---     then the conditional operation succeeds.
+-- -   Use /AttributeValueList/ to specify one or more values to compare against an attribute. Use /ComparisonOperator/ to specify how you want to perform the comparison. If the comparison evaluates to true, then the conditional operation succeeds.
 --
--- -   Use /Value/ to specify a value that DynamoDB will compare against an
---     attribute. If the values match, then /ExpectedAttributeValue/
---     evaluates to true and the conditional operation succeeds.
---     Optionally, you can also set /Exists/ to false, indicating that you
---     /do not/ expect to find the attribute value in the table. In this
---     case, the conditional operation succeeds only if the comparison
---     evaluates to false.
+-- -   Use /Value/ to specify a value that DynamoDB will compare against an attribute. If the values match, then /ExpectedAttributeValue/ evaluates to true and the conditional operation succeeds. Optionally, you can also set /Exists/ to false, indicating that you /do not/ expect to find the attribute value in the table. In this case, the conditional operation succeeds only if the comparison evaluates to false.
 --
--- /Value/ and /Exists/ are incompatible with /AttributeValueList/ and
--- /ComparisonOperator/. Note that if you use both sets of parameters at
--- once, DynamoDB will return a /ValidationException/ exception.
+-- /Value/ and /Exists/ are incompatible with /AttributeValueList/ and /ComparisonOperator/. Note that if you use both sets of parameters at once, DynamoDB will return a /ValidationException/ exception.
 --
 -- /See:/ 'expectedAttributeValue' smart constructor.
 data ExpectedAttributeValue = ExpectedAttributeValue'
@@ -861,52 +683,31 @@ expectedAttributeValue =
     , _eavComparisonOperator = Nothing
     }
 
--- | One or more values to evaluate against the supplied attribute. The
--- number of values in the list depends on the /ComparisonOperator/ being
--- used.
+-- | One or more values to evaluate against the supplied attribute. The number of values in the list depends on the /ComparisonOperator/ being used.
 --
 -- For type Number, value comparisons are numeric.
 --
--- String value comparisons for greater than, equals, or less than are
--- based on ASCII character code values. For example, 'a' is greater than
--- 'A', and 'a' is greater than 'B'. For a list of code values, see
--- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
+-- String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, 'a' is greater than 'A', and 'a' is greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
--- For Binary, DynamoDB treats each byte of the binary data as unsigned
--- when it compares binary values.
+-- For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.
 --
--- For information on specifying data types in JSON, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
--- in the /Amazon DynamoDB Developer Guide/.
+-- For information on specifying data types in JSON, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format> in the /Amazon DynamoDB Developer Guide/.
 eavAttributeValueList :: Lens' ExpectedAttributeValue [AttributeValue]
 eavAttributeValueList = lens _eavAttributeValueList (\ s a -> s{_eavAttributeValueList = a}) . _Default . _Coerce;
 
--- | Causes DynamoDB to evaluate the value before attempting a conditional
--- operation:
+-- | Causes DynamoDB to evaluate the value before attempting a conditional operation:
 --
--- -   If /Exists/ is 'true', DynamoDB will check to see if that attribute
---     value already exists in the table. If it is found, then the
---     operation succeeds. If it is not found, the operation fails with a
---     /ConditionalCheckFailedException/.
+-- -   If /Exists/ is 'true', DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a /ConditionalCheckFailedException/.
 --
--- -   If /Exists/ is 'false', DynamoDB assumes that the attribute value
---     does not exist in the table. If in fact the value does not exist,
---     then the assumption is valid and the operation succeeds. If the
---     value is found, despite the assumption that it does not exist, the
---     operation fails with a /ConditionalCheckFailedException/.
+-- -   If /Exists/ is 'false', DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a /ConditionalCheckFailedException/.
 --
--- The default setting for /Exists/ is 'true'. If you supply a /Value/ all
--- by itself, DynamoDB assumes the attribute exists: You don\'t have to set
--- /Exists/ to 'true', because it is implied.
+-- The default setting for /Exists/ is 'true'. If you supply a /Value/ all by itself, DynamoDB assumes the attribute exists: You don\'t have to set /Exists/ to 'true', because it is implied.
 --
 -- DynamoDB returns a /ValidationException/ if:
 --
--- -   /Exists/ is 'true' but there is no /Value/ to check. (You expect a
---     value to exist, but don\'t specify what that value is.)
+-- -   /Exists/ is 'true' but there is no /Value/ to check. (You expect a value to exist, but don\'t specify what that value is.)
 --
--- -   /Exists/ is 'false' but you also provide a /Value/. (You cannot
---     expect an attribute to have a value, while also expecting it not to
---     exist.)
+-- -   /Exists/ is 'false' but you also provide a /Value/. (You cannot expect an attribute to have a value, while also expecting it not to exist.)
 --
 eavExists :: Lens' ExpectedAttributeValue (Maybe Bool)
 eavExists = lens _eavExists (\ s a -> s{_eavExists = a});
@@ -915,8 +716,7 @@ eavExists = lens _eavExists (\ s a -> s{_eavExists = a});
 eavValue :: Lens' ExpectedAttributeValue (Maybe AttributeValue)
 eavValue = lens _eavValue (\ s a -> s{_eavValue = a});
 
--- | A comparator for evaluating attributes in the /AttributeValueList/. For
--- example, equals, greater than, less than, etc.
+-- | A comparator for evaluating attributes in the /AttributeValueList/. For example, equals, greater than, less than, etc.
 --
 -- The following comparison operators are available:
 --
@@ -924,144 +724,61 @@ eavValue = lens _eavValue (\ s a -> s{_eavValue = a});
 --
 -- The following are descriptions of each comparison operator.
 --
--- -   'EQ' : Equal. 'EQ' is supported for all datatypes, including lists
---     and maps.
+-- -   'EQ' : Equal. 'EQ' is supported for all datatypes, including lists and maps.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, Binary, String Set, Number Set, or Binary
---     Set. If an item contains an /AttributeValue/ element of a different
---     type than the one provided in the request, the value does not match.
---     For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
---     '{\"N\":\"6\"}' does not equal '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--     /AttributeValueList/ can contain only one /AttributeValue/ element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not equal '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   'NE' : Not equal. 'NE' is supported for all datatypes, including
---     lists and maps.
+-- -   'NE' : Not equal. 'NE' is supported for all datatypes, including lists and maps.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ of type
---     String, Number, Binary, String Set, Number Set, or Binary Set. If an
---     item contains an /AttributeValue/ of a different type than the one
---     provided in the request, the value does not match. For example,
---     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
---     '{\"N\":\"6\"}' does not equal '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--     /AttributeValueList/ can contain only one /AttributeValue/ of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an /AttributeValue/ of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not equal '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
 -- -   'LE' : Less than or equal.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, or Binary (not a set type). If an item
---     contains an /AttributeValue/ element of a different type than the
---     one provided in the request, the value does not match. For example,
---     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
---     '{\"N\":\"6\"}' does not compare to
---     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--     /AttributeValueList/ can contain only one /AttributeValue/ element of type String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
 -- -   'LT' : Less than.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ of type
---     String, Number, or Binary (not a set type). If an item contains an
---     /AttributeValue/ element of a different type than the one provided
---     in the request, the value does not match. For example,
---     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
---     '{\"N\":\"6\"}' does not compare to
---     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--     /AttributeValueList/ can contain only one /AttributeValue/ of type String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
 -- -   'GE' : Greater than or equal.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, or Binary (not a set type). If an item
---     contains an /AttributeValue/ element of a different type than the
---     one provided in the request, the value does not match. For example,
---     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
---     '{\"N\":\"6\"}' does not compare to
---     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--     /AttributeValueList/ can contain only one /AttributeValue/ element of type String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
 -- -   'GT' : Greater than.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, or Binary (not a set type). If an item
---     contains an /AttributeValue/ element of a different type than the
---     one provided in the request, the value does not match. For example,
---     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
---     '{\"N\":\"6\"}' does not compare to
---     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--     /AttributeValueList/ can contain only one /AttributeValue/ element of type String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for all
---     datatypes, including lists and maps.
+-- -   'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for all datatypes, including lists and maps.
 --
---     This operator tests for the existence of an attribute, not its data
---     type. If the data type of attribute \"'a'\" is null, and you
---     evaluate it using 'NOT_NULL', the result is a Boolean /true/. This
---     result is because the attribute \"'a'\" exists; its data type is not
---     relevant to the 'NOT_NULL' comparison operator.
+--     This operator tests for the existence of an attribute, not its data type. If the data type of attribute \"'a'\" is null, and you evaluate it using 'NOT_NULL', the result is a Boolean /true/. This result is because the attribute \"'a'\" exists; its data type is not relevant to the 'NOT_NULL' comparison operator.
 --
--- -   'NULL' : The attribute does not exist. 'NULL' is supported for all
---     datatypes, including lists and maps.
+-- -   'NULL' : The attribute does not exist. 'NULL' is supported for all datatypes, including lists and maps.
 --
---     This operator tests for the nonexistence of an attribute, not its
---     data type. If the data type of attribute \"'a'\" is null, and you
---     evaluate it using 'NULL', the result is a Boolean /false/. This is
---     because the attribute \"'a'\" exists; its data type is not relevant
---     to the 'NULL' comparison operator.
+--     This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute \"'a'\" is null, and you evaluate it using 'NULL', the result is a Boolean /false/. This is because the attribute \"'a'\" exists; its data type is not relevant to the 'NULL' comparison operator.
 --
 -- -   'CONTAINS' : Checks for a subsequence, or value in a set.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, or Binary (not a set type). If the target
---     attribute of the comparison is of type String, then the operator
---     checks for a substring match. If the target attribute of the
---     comparison is of type Binary, then the operator looks for a
---     subsequence of the target that matches the input. If the target
---     attribute of the comparison is a set (\"'SS'\", \"'NS'\", or
---     \"'BS'\"), then the operator evaluates to true if it finds an exact
---     match with any member of the set.
+--     /AttributeValueList/ can contain only one /AttributeValue/ element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"'SS'\", \"'NS'\", or \"'BS'\"), then the operator evaluates to true if it finds an exact match with any member of the set.
 --
---     CONTAINS is supported for lists: When evaluating \"'a CONTAINS b'\",
---     \"'a'\" can be a list; however, \"'b'\" cannot be a set, a map, or a
---     list.
+--     CONTAINS is supported for lists: When evaluating \"'a CONTAINS b'\", \"'a'\" can be a list; however, \"'b'\" cannot be a set, a map, or a list.
 --
--- -   'NOT_CONTAINS' : Checks for absence of a subsequence, or absence of
---     a value in a set.
+-- -   'NOT_CONTAINS' : Checks for absence of a subsequence, or absence of a value in a set.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, or Binary (not a set type). If the target
---     attribute of the comparison is a String, then the operator checks
---     for the absence of a substring match. If the target attribute of the
---     comparison is Binary, then the operator checks for the absence of a
---     subsequence of the target that matches the input. If the target
---     attribute of the comparison is a set (\"'SS'\", \"'NS'\", or
---     \"'BS'\"), then the operator evaluates to true if it /does not/ find
---     an exact match with any member of the set.
+--     /AttributeValueList/ can contain only one /AttributeValue/ element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set (\"'SS'\", \"'NS'\", or \"'BS'\"), then the operator evaluates to true if it /does not/ find an exact match with any member of the set.
 --
---     NOT_CONTAINS is supported for lists: When evaluating
---     \"'a NOT CONTAINS b'\", \"'a'\" can be a list; however, \"'b'\"
---     cannot be a set, a map, or a list.
+--     NOT_CONTAINS is supported for lists: When evaluating \"'a NOT CONTAINS b'\", \"'a'\" can be a list; however, \"'b'\" cannot be a set, a map, or a list.
 --
 -- -   'BEGINS_WITH' : Checks for a prefix.
 --
---     /AttributeValueList/ can contain only one /AttributeValue/ of type
---     String or Binary (not a Number or a set type). The target attribute
---     of the comparison must be of type String or Binary (not a Number or
---     a set type).
+--     /AttributeValueList/ can contain only one /AttributeValue/ of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).
 --
 -- -   'IN' : Checks for matching elements within two sets.
 --
---     /AttributeValueList/ can contain one or more /AttributeValue/
---     elements of type String, Number, or Binary (not a set type). These
---     attributes are compared against an existing set type attribute of an
---     item. If any elements of the input set are present in the item
---     attribute, the expression evaluates to true.
+--     /AttributeValueList/ can contain one or more /AttributeValue/ elements of type String, Number, or Binary (not a set type). These attributes are compared against an existing set type attribute of an item. If any elements of the input set are present in the item attribute, the expression evaluates to true.
 --
--- -   'BETWEEN' : Greater than or equal to the first value, and less than
---     or equal to the second value.
+-- -   'BETWEEN' : Greater than or equal to the first value, and less than or equal to the second value.
 --
---     /AttributeValueList/ must contain two /AttributeValue/ elements of
---     the same type, either String, Number, or Binary (not a set type). A
---     target attribute matches if the target value is greater than, or
---     equal to, the first element and less than, or equal to, the second
---     element. If an item contains an /AttributeValue/ element of a
---     different type than the one provided in the request, the value does
---     not match. For example, '{\"S\":\"6\"}' does not compare to
---     '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to
---     '{\"NS\":[\"6\", \"2\", \"1\"]}'
+--     /AttributeValueList/ must contain two /AttributeValue/ elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value does not match. For example, '{\"S\":\"6\"}' does not compare to '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to '{\"NS\":[\"6\", \"2\", \"1\"]}'
 --
 eavComparisonOperator :: Lens' ExpectedAttributeValue (Maybe ComparisonOperator)
 eavComparisonOperator = lens _eavComparisonOperator (\ s a -> s{_eavComparisonOperator = a});
@@ -1116,27 +833,19 @@ globalSecondaryIndex pIndexName_ pKeySchema_ pProjection_ pProvisionedThroughput
     , _gsiProvisionedThroughput = pProvisionedThroughput_
     }
 
--- | The name of the global secondary index. The name must be unique among
--- all other indexes on this table.
+-- | The name of the global secondary index. The name must be unique among all other indexes on this table.
 gsiIndexName :: Lens' GlobalSecondaryIndex Text
 gsiIndexName = lens _gsiIndexName (\ s a -> s{_gsiIndexName = a});
 
--- | The complete key schema for a global secondary index, which consists of
--- one or more pairs of attribute names and key types:
+-- | The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
 --
 -- -   'HASH' - partition key
 --
 -- -   'RANGE' - sort key
 --
--- The partition key of an item is also known as its /hash attribute/. The
--- term \"hash attribute\" derives from DynamoDB\' usage of an internal
--- hash function to evenly distribute data items across partitions, based
--- on their partition key values.
+-- The partition key of an item is also known as its /hash attribute/. The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 --
--- The sort key of an item is also known as its /range attribute/. The term
--- \"range attribute\" derives from the way DynamoDB stores items with the
--- same partition key physically close together, in sorted order by the
--- sort key value.
+-- The sort key of an item is also known as its /range attribute/. The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 gsiKeySchema :: Lens' GlobalSecondaryIndex (NonEmpty KeySchemaElement)
 gsiKeySchema = lens _gsiKeySchema (\ s a -> s{_gsiKeySchema = a}) . _List1;
 
@@ -1214,21 +923,13 @@ globalSecondaryIndexDescription =
     , _gsidIndexName = Nothing
     }
 
--- | Indicates whether the index is currently backfilling. /Backfilling/ is
--- the process of reading items from the table and determining whether they
--- can be added to the index. (Not all items will qualify: For example, a
--- partition key cannot have any duplicate values.) If an item can be added
--- to the index, DynamoDB will do so. After all items have been processed,
--- the backfilling operation is complete and /Backfilling/ is false.
+-- | Indicates whether the index is currently backfilling. /Backfilling/ is the process of reading items from the table and determining whether they can be added to the index. (Not all items will qualify: For example, a partition key cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed, the backfilling operation is complete and /Backfilling/ is false.
 --
--- For indexes that were created during a /CreateTable/ operation, the
--- /Backfilling/ attribute does not appear in the /DescribeTable/ output.
+-- For indexes that were created during a /CreateTable/ operation, the /Backfilling/ attribute does not appear in the /DescribeTable/ output.
 gsidBackfilling :: Lens' GlobalSecondaryIndexDescription (Maybe Bool)
 gsidBackfilling = lens _gsidBackfilling (\ s a -> s{_gsidBackfilling = a});
 
--- | The total size of the specified index, in bytes. DynamoDB updates this
--- value approximately every six hours. Recent changes might not be
--- reflected in this value.
+-- | The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 gsidIndexSizeBytes :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
 gsidIndexSizeBytes = lens _gsidIndexSizeBytes (\ s a -> s{_gsidIndexSizeBytes = a});
 
@@ -1253,22 +954,15 @@ gsidProvisionedThroughput = lens _gsidProvisionedThroughput (\ s a -> s{_gsidPro
 gsidIndexARN :: Lens' GlobalSecondaryIndexDescription (Maybe Text)
 gsidIndexARN = lens _gsidIndexARN (\ s a -> s{_gsidIndexARN = a});
 
--- | The complete key schema for a global secondary index, which consists of
--- one or more pairs of attribute names and key types:
+-- | The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
 --
 -- -   'HASH' - partition key
 --
 -- -   'RANGE' - sort key
 --
--- The partition key of an item is also known as its /hash attribute/. The
--- term \"hash attribute\" derives from DynamoDB\' usage of an internal
--- hash function to evenly distribute data items across partitions, based
--- on their partition key values.
+-- The partition key of an item is also known as its /hash attribute/. The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 --
--- The sort key of an item is also known as its /range attribute/. The term
--- \"range attribute\" derives from the way DynamoDB stores items with the
--- same partition key physically close together, in sorted order by the
--- sort key value.
+-- The sort key of an item is also known as its /range attribute/. The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
 gsidKeySchema = lens _gsidKeySchema (\ s a -> s{_gsidKeySchema = a}) . mapping _List1;
 
@@ -1276,9 +970,7 @@ gsidKeySchema = lens _gsidKeySchema (\ s a -> s{_gsidKeySchema = a}) . mapping _
 gsidProjection :: Lens' GlobalSecondaryIndexDescription (Maybe Projection)
 gsidProjection = lens _gsidProjection (\ s a -> s{_gsidProjection = a});
 
--- | The number of items in the specified index. DynamoDB updates this value
--- approximately every six hours. Recent changes might not be reflected in
--- this value.
+-- | The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 gsidItemCount :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
 gsidItemCount = lens _gsidItemCount (\ s a -> s{_gsidItemCount = a});
 
@@ -1309,11 +1001,9 @@ instance NFData GlobalSecondaryIndexDescription
 --
 -- -   A new global secondary index to be added to an existing table.
 --
--- -   New provisioned throughput parameters for an existing global
---     secondary index.
+-- -   New provisioned throughput parameters for an existing global secondary index.
 --
--- -   An existing global secondary index to be removed from an existing
---     table.
+-- -   An existing global secondary index to be removed from an existing table.
 --
 --
 -- /See:/ 'globalSecondaryIndexUpdate' smart constructor.
@@ -1341,8 +1031,7 @@ globalSecondaryIndexUpdate =
     , _gsiuUpdate = Nothing
     }
 
--- | The parameters required for creating a global secondary index on an
--- existing table:
+-- | The parameters required for creating a global secondary index on an existing table:
 --
 -- -   'IndexName '
 --
@@ -1361,8 +1050,7 @@ gsiuCreate = lens _gsiuCreate (\ s a -> s{_gsiuCreate = a});
 gsiuDelete :: Lens' GlobalSecondaryIndexUpdate (Maybe DeleteGlobalSecondaryIndexAction)
 gsiuDelete = lens _gsiuDelete (\ s a -> s{_gsiuDelete = a});
 
--- | The name of an existing global secondary index, along with new
--- provisioned throughput settings to be applied to that index.
+-- | The name of an existing global secondary index, along with new provisioned throughput settings to be applied to that index.
 gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndexAction)
 gsiuUpdate = lens _gsiuUpdate (\ s a -> s{_gsiuUpdate = a});
 
@@ -1378,10 +1066,7 @@ instance ToJSON GlobalSecondaryIndexUpdate where
                   ("Delete" .=) <$> _gsiuDelete,
                   ("Update" .=) <$> _gsiuUpdate])
 
--- | Information about item collections, if any, that were affected by the
--- operation. /ItemCollectionMetrics/ is only returned if the request asked
--- for it. If the table does not have any local secondary indexes, this
--- information is not returned in the response.
+-- | Information about item collections, if any, that were affected by the operation. /ItemCollectionMetrics/ is only returned if the request asked for it. If the table does not have any local secondary indexes, this information is not returned in the response.
 --
 -- /See:/ 'itemCollectionMetrics' smart constructor.
 data ItemCollectionMetrics = ItemCollectionMetrics'
@@ -1404,20 +1089,13 @@ itemCollectionMetrics =
     , _icmSizeEstimateRangeGB = Nothing
     }
 
--- | The partition key value of the item collection. This value is the same
--- as the partition key value of the item.
+-- | The partition key value of the item collection. This value is the same as the partition key value of the item.
 icmItemCollectionKey :: Lens' ItemCollectionMetrics (HashMap Text AttributeValue)
 icmItemCollectionKey = lens _icmItemCollectionKey (\ s a -> s{_icmItemCollectionKey = a}) . _Default . _Map;
 
--- | An estimate of item collection size, in gigabytes. This value is a
--- two-element array containing a lower bound and an upper bound for the
--- estimate. The estimate includes the size of all the items in the table,
--- plus the size of all attributes projected into all of the local
--- secondary indexes on that table. Use this estimate to measure whether a
--- local secondary index is approaching its size limit.
+-- | An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.
 --
--- The estimate is subject to change over time; therefore, do not rely on
--- the precision or accuracy of the estimate.
+-- The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
 icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics [Double]
 icmSizeEstimateRangeGB = lens _icmSizeEstimateRangeGB (\ s a -> s{_icmSizeEstimateRangeGB = a}) . _Default . _Coerce;
 
@@ -1433,19 +1111,11 @@ instance Hashable ItemCollectionMetrics
 
 instance NFData ItemCollectionMetrics
 
--- | Represents /a single element/ of a key schema. A key schema specifies
--- the attributes that make up the primary key of a table, or the key
--- attributes of an index.
+-- | Represents /a single element/ of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
 --
--- A /KeySchemaElement/ represents exactly one attribute of the primary
--- key. For example, a simple primary key would be represented by one
--- /KeySchemaElement/ (for the partition key). A composite primary key
--- would require one /KeySchemaElement/ for the partition key, and another
--- /KeySchemaElement/ for the sort key.
+-- A /KeySchemaElement/ represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one /KeySchemaElement/ (for the partition key). A composite primary key would require one /KeySchemaElement/ for the partition key, and another /KeySchemaElement/ for the sort key.
 --
--- A /KeySchemaElement/ must be a scalar, top-level attribute (not a nested
--- attribute). The data type must be one of String, Number, or Binary. The
--- attribute cannot be nested within a List or a Map.
+-- A /KeySchemaElement/ must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
 --
 -- /See:/ 'keySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
@@ -1480,15 +1150,9 @@ kseAttributeName = lens _kseAttributeName (\ s a -> s{_kseAttributeName = a});
 --
 -- -   'RANGE' - sort key
 --
--- The partition key of an item is also known as its /hash attribute/. The
--- term \"hash attribute\" derives from DynamoDB\' usage of an internal
--- hash function to evenly distribute data items across partitions, based
--- on their partition key values.
+-- The partition key of an item is also known as its /hash attribute/. The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 --
--- The sort key of an item is also known as its /range attribute/. The term
--- \"range attribute\" derives from the way DynamoDB stores items with the
--- same partition key physically close together, in sorted order by the
--- sort key value.
+-- The sort key of an item is also known as its /range attribute/. The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 kseKeyType :: Lens' KeySchemaElement KeyType
 kseKeyType = lens _kseKeyType (\ s a -> s{_kseKeyType = a});
 
@@ -1510,13 +1174,9 @@ instance ToJSON KeySchemaElement where
                  [Just ("AttributeName" .= _kseAttributeName),
                   Just ("KeyType" .= _kseKeyType)])
 
--- | Represents a set of primary keys and, for each key, the attributes to
--- retrieve from the table.
+-- | Represents a set of primary keys and, for each key, the attributes to retrieve from the table.
 --
--- For each primary key, you must provide /all/ of the key attributes. For
--- example, with a simple primary key, you only need to provide the
--- partition key. For a composite primary key, you must provide /both/ the
--- partition key and the sort key.
+-- For each primary key, you must provide /all/ of the key attributes. For example, with a simple primary key, you only need to provide the partition key. For a composite primary key, you must provide /both/ the partition key and the sort key.
 --
 -- /See:/ 'keysAndAttributes' smart constructor.
 data KeysAndAttributes = KeysAndAttributes'
@@ -1552,78 +1212,51 @@ keysAndAttributes pKeys_ =
     , _kaaKeys = _List1 # pKeys_
     }
 
--- | A string that identifies one or more attributes to retrieve from the
--- table. These attributes can include scalars, sets, or elements of a JSON
--- document. The attributes in the /ProjectionExpression/ must be separated
--- by commas.
+-- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the /ProjectionExpression/ must be separated by commas.
 --
--- If no attribute names are specified, then all attributes will be
--- returned. If any of the requested attributes are not found, they will
--- not appear in the result.
+-- If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
--- in the /Amazon DynamoDB Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/.
 --
 -- /ProjectionExpression/ replaces the legacy /AttributesToGet/ parameter.
 kaaProjectionExpression :: Lens' KeysAndAttributes (Maybe Text)
 kaaProjectionExpression = lens _kaaProjectionExpression (\ s a -> s{_kaaProjectionExpression = a});
 
--- | One or more attributes to retrieve from the table or index. If no
--- attribute names are specified then all attributes will be returned. If
--- any of the specified attributes are not found, they will not appear in
--- the result.
+-- | One or more attributes to retrieve from the table or index. If no attribute names are specified then all attributes will be returned. If any of the specified attributes are not found, they will not appear in the result.
 kaaAttributesToGet :: Lens' KeysAndAttributes (Maybe (NonEmpty Text))
 kaaAttributesToGet = lens _kaaAttributesToGet (\ s a -> s{_kaaAttributesToGet = a}) . mapping _List1;
 
--- | One or more substitution tokens for attribute names in an expression.
--- The following are some use cases for using /ExpressionAttributeNames/:
+-- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using /ExpressionAttributeNames/:
 --
--- -   To access an attribute whose name conflicts with a DynamoDB reserved
---     word.
+-- -   To access an attribute whose name conflicts with a DynamoDB reserved word.
 --
--- -   To create a placeholder for repeating occurrences of an attribute
---     name in an expression.
+-- -   To create a placeholder for repeating occurrences of an attribute name in an expression.
 --
--- -   To prevent special characters in an attribute name from being
---     misinterpreted in an expression.
+-- -   To prevent special characters in an attribute name from being misinterpreted in an expression.
 --
--- Use the __#__ character in an expression to dereference an attribute
--- name. For example, consider the following attribute name:
+-- Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:
 --
 -- -   'Percentile'
 --
--- The name of this attribute conflicts with a reserved word, so it cannot
--- be used directly in an expression. (For the complete list of reserved
--- words, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words>
--- in the /Amazon DynamoDB Developer Guide/). To work around this, you
--- could specify the following for /ExpressionAttributeNames/:
+-- The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around this, you could specify the following for /ExpressionAttributeNames/:
 --
 -- -   '{\"#P\":\"Percentile\"}'
 --
--- You could then use this substitution in an expression, as in this
--- example:
+-- You could then use this substitution in an expression, as in this example:
 --
 -- -   '#P = :val'
 --
--- Tokens that begin with the __:__ character are /expression attribute
--- values/, which are placeholders for the actual value at runtime.
+-- Tokens that begin with the __:__ character are /expression attribute values/, which are placeholders for the actual value at runtime.
 --
--- For more information on expression attribute names, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
--- in the /Amazon DynamoDB Developer Guide/.
+-- For more information on expression attribute names, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/.
 kaaExpressionAttributeNames :: Lens' KeysAndAttributes (HashMap Text Text)
 kaaExpressionAttributeNames = lens _kaaExpressionAttributeNames (\ s a -> s{_kaaExpressionAttributeNames = a}) . _Default . _Map;
 
--- | The consistency of a read operation. If set to 'true', then a strongly
--- consistent read is used; otherwise, an eventually consistent read is
--- used.
+-- | The consistency of a read operation. If set to 'true', then a strongly consistent read is used; otherwise, an eventually consistent read is used.
 kaaConsistentRead :: Lens' KeysAndAttributes (Maybe Bool)
 kaaConsistentRead = lens _kaaConsistentRead (\ s a -> s{_kaaConsistentRead = a});
 
--- | The primary key attribute values that define the items and the
--- attributes associated with the items.
+-- | The primary key attribute values that define the items and the attributes associated with the items.
 kaaKeys :: Lens' KeysAndAttributes (NonEmpty (HashMap Text AttributeValue))
 kaaKeys = lens _kaaKeys (\ s a -> s{_kaaKeys = a}) . _List1;
 
@@ -1684,27 +1317,19 @@ localSecondaryIndex pIndexName_ pKeySchema_ pProjection_ =
     , _lsiProjection = pProjection_
     }
 
--- | The name of the local secondary index. The name must be unique among all
--- other indexes on this table.
+-- | The name of the local secondary index. The name must be unique among all other indexes on this table.
 lsiIndexName :: Lens' LocalSecondaryIndex Text
 lsiIndexName = lens _lsiIndexName (\ s a -> s{_lsiIndexName = a});
 
--- | The complete key schema for the local secondary index, consisting of one
--- or more pairs of attribute names and key types:
+-- | The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
 --
 -- -   'HASH' - partition key
 --
 -- -   'RANGE' - sort key
 --
--- The partition key of an item is also known as its /hash attribute/. The
--- term \"hash attribute\" derives from DynamoDB\' usage of an internal
--- hash function to evenly distribute data items across partitions, based
--- on their partition key values.
+-- The partition key of an item is also known as its /hash attribute/. The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 --
--- The sort key of an item is also known as its /range attribute/. The term
--- \"range attribute\" derives from the way DynamoDB stores items with the
--- same partition key physically close together, in sorted order by the
--- sort key value.
+-- The sort key of an item is also known as its /range attribute/. The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 lsiKeySchema :: Lens' LocalSecondaryIndex (NonEmpty KeySchemaElement)
 lsiKeySchema = lens _lsiKeySchema (\ s a -> s{_lsiKeySchema = a}) . _List1;
 
@@ -1763,9 +1388,7 @@ localSecondaryIndexDescription =
     , _lsidIndexName = Nothing
     }
 
--- | The total size of the specified index, in bytes. DynamoDB updates this
--- value approximately every six hours. Recent changes might not be
--- reflected in this value.
+-- | The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 lsidIndexSizeBytes :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
 lsidIndexSizeBytes = lens _lsidIndexSizeBytes (\ s a -> s{_lsidIndexSizeBytes = a});
 
@@ -1773,22 +1396,15 @@ lsidIndexSizeBytes = lens _lsidIndexSizeBytes (\ s a -> s{_lsidIndexSizeBytes = 
 lsidIndexARN :: Lens' LocalSecondaryIndexDescription (Maybe Text)
 lsidIndexARN = lens _lsidIndexARN (\ s a -> s{_lsidIndexARN = a});
 
--- | The complete key schema for the local secondary index, consisting of one
--- or more pairs of attribute names and key types:
+-- | The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
 --
 -- -   'HASH' - partition key
 --
 -- -   'RANGE' - sort key
 --
--- The partition key of an item is also known as its /hash attribute/. The
--- term \"hash attribute\" derives from DynamoDB\' usage of an internal
--- hash function to evenly distribute data items across partitions, based
--- on their partition key values.
+-- The partition key of an item is also known as its /hash attribute/. The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 --
--- The sort key of an item is also known as its /range attribute/. The term
--- \"range attribute\" derives from the way DynamoDB stores items with the
--- same partition key physically close together, in sorted order by the
--- sort key value.
+-- The sort key of an item is also known as its /range attribute/. The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 lsidKeySchema :: Lens' LocalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
 lsidKeySchema = lens _lsidKeySchema (\ s a -> s{_lsidKeySchema = a}) . mapping _List1;
 
@@ -1796,9 +1412,7 @@ lsidKeySchema = lens _lsidKeySchema (\ s a -> s{_lsidKeySchema = a}) . mapping _
 lsidProjection :: Lens' LocalSecondaryIndexDescription (Maybe Projection)
 lsidProjection = lens _lsidProjection (\ s a -> s{_lsidProjection = a});
 
--- | The number of items in the specified index. DynamoDB updates this value
--- approximately every six hours. Recent changes might not be reflected in
--- this value.
+-- | The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 lsidItemCount :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
 lsidItemCount = lens _lsidItemCount (\ s a -> s{_lsidItemCount = a});
 
@@ -1822,9 +1436,7 @@ instance Hashable LocalSecondaryIndexDescription
 
 instance NFData LocalSecondaryIndexDescription
 
--- | Represents attributes that are copied (projected) from the table into an
--- index. These are in addition to the primary key attributes and index key
--- attributes, which are automatically projected.
+-- | Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 --
 -- /See:/ 'projection' smart constructor.
 data Projection = Projection'
@@ -1849,25 +1461,18 @@ projection =
 
 -- | The set of attributes that are projected into the index:
 --
--- -   'KEYS_ONLY' - Only the index and primary keys are projected into the
---     index.
+-- -   'KEYS_ONLY' - Only the index and primary keys are projected into the index.
 --
--- -   'INCLUDE' - Only the specified table attributes are projected into
---     the index. The list of projected attributes are in
---     /NonKeyAttributes/.
+-- -   'INCLUDE' - Only the specified table attributes are projected into the index. The list of projected attributes are in /NonKeyAttributes/.
 --
 -- -   'ALL' - All of the table attributes are projected into the index.
 --
 pProjectionType :: Lens' Projection (Maybe ProjectionType)
 pProjectionType = lens _pProjectionType (\ s a -> s{_pProjectionType = a});
 
--- | Represents the non-key attribute names which will be projected into the
--- index.
+-- | Represents the non-key attribute names which will be projected into the index.
 --
--- For local secondary indexes, the total count of /NonKeyAttributes/
--- summed across all of the local secondary indexes, must not exceed 20. If
--- you project the same attribute into two different indexes, this counts
--- as two distinct attributes when determining the total.
+-- For local secondary indexes, the total count of /NonKeyAttributes/ summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 pNonKeyAttributes :: Lens' Projection (Maybe (NonEmpty Text))
 pNonKeyAttributes = lens _pNonKeyAttributes (\ s a -> s{_pNonKeyAttributes = a}) . mapping _List1;
 
@@ -1890,12 +1495,9 @@ instance ToJSON Projection where
                  [("ProjectionType" .=) <$> _pProjectionType,
                   ("NonKeyAttributes" .=) <$> _pNonKeyAttributes])
 
--- | Represents the provisioned throughput settings for a specified table or
--- index. The settings can be modified using the /UpdateTable/ operation.
+-- | Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the /UpdateTable/ operation.
 --
--- For current minimum and maximum provisioned throughput values, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits>
--- in the /Amazon DynamoDB Developer Guide/.
+-- For current minimum and maximum provisioned throughput values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/.
 --
 -- /See:/ 'provisionedThroughput' smart constructor.
 data ProvisionedThroughput = ProvisionedThroughput'
@@ -1920,18 +1522,11 @@ provisionedThroughput pReadCapacityUnits_ pWriteCapacityUnits_ =
     , _ptWriteCapacityUnits = _Nat # pWriteCapacityUnits_
     }
 
--- | The maximum number of strongly consistent reads consumed per second
--- before DynamoDB returns a /ThrottlingException/. For more information,
--- see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
--- in the /Amazon DynamoDB Developer Guide/.
+-- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a /ThrottlingException/. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/.
 ptReadCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptReadCapacityUnits = lens _ptReadCapacityUnits (\ s a -> s{_ptReadCapacityUnits = a}) . _Nat;
 
--- | The maximum number of writes consumed per second before DynamoDB returns
--- a /ThrottlingException/. For more information, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
--- in the /Amazon DynamoDB Developer Guide/.
+-- | The maximum number of writes consumed per second before DynamoDB returns a /ThrottlingException/. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/.
 ptWriteCapacityUnits :: Lens' ProvisionedThroughput Natural
 ptWriteCapacityUnits = lens _ptWriteCapacityUnits (\ s a -> s{_ptWriteCapacityUnits = a}) . _Nat;
 
@@ -1947,9 +1542,7 @@ instance ToJSON ProvisionedThroughput where
                   Just
                     ("WriteCapacityUnits" .= _ptWriteCapacityUnits)])
 
--- | Represents the provisioned throughput settings for the table, consisting
--- of read and write capacity units, along with data about increases and
--- decreases.
+-- | Represents the provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.
 --
 -- /See:/ 'provisionedThroughputDescription' smart constructor.
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
@@ -1984,34 +1577,23 @@ provisionedThroughputDescription =
     , _ptdLastIncreaseDateTime = Nothing
     }
 
--- | The maximum number of strongly consistent reads consumed per second
--- before DynamoDB returns a /ThrottlingException/. Eventually consistent
--- reads require less effort than strongly consistent reads, so a setting
--- of 50 /ReadCapacityUnits/ per second provides 100 eventually consistent
--- /ReadCapacityUnits/ per second.
+-- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a /ThrottlingException/. Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 /ReadCapacityUnits/ per second provides 100 eventually consistent /ReadCapacityUnits/ per second.
 ptdReadCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
 ptdReadCapacityUnits = lens _ptdReadCapacityUnits (\ s a -> s{_ptdReadCapacityUnits = a}) . mapping _Nat;
 
--- | The date and time of the last provisioned throughput decrease for this
--- table.
+-- | The date and time of the last provisioned throughput decrease for this table.
 ptdLastDecreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe UTCTime)
 ptdLastDecreaseDateTime = lens _ptdLastDecreaseDateTime (\ s a -> s{_ptdLastDecreaseDateTime = a}) . mapping _Time;
 
--- | The maximum number of writes consumed per second before DynamoDB returns
--- a /ThrottlingException/.
+-- | The maximum number of writes consumed per second before DynamoDB returns a /ThrottlingException/.
 ptdWriteCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
 ptdWriteCapacityUnits = lens _ptdWriteCapacityUnits (\ s a -> s{_ptdWriteCapacityUnits = a}) . mapping _Nat;
 
--- | The number of provisioned throughput decreases for this table during
--- this UTC calendar day. For current maximums on provisioned throughput
--- decreases, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits>
--- in the /Amazon DynamoDB Developer Guide/.
+-- | The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> in the /Amazon DynamoDB Developer Guide/.
 ptdNumberOfDecreasesToday :: Lens' ProvisionedThroughputDescription (Maybe Natural)
 ptdNumberOfDecreasesToday = lens _ptdNumberOfDecreasesToday (\ s a -> s{_ptdNumberOfDecreasesToday = a}) . mapping _Nat;
 
--- | The date and time of the last provisioned throughput increase for this
--- table.
+-- | The date and time of the last provisioned throughput increase for this table.
 ptdLastIncreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe UTCTime)
 ptdLastIncreaseDateTime = lens _ptdLastIncreaseDateTime (\ s a -> s{_ptdLastIncreaseDateTime = a}) . mapping _Time;
 
@@ -2050,12 +1632,7 @@ putRequest =
     { _prItem = mempty
     }
 
--- | A map of attribute name to attribute values, representing the primary
--- key of an item to be processed by /PutItem/. All of the table\'s primary
--- key attributes must be specified, and their data types must match those
--- of the table\'s key schema. If any attributes are present in the item
--- which are part of an index key schema for the table, their types must
--- match the index key schema.
+-- | A map of attribute name to attribute values, representing the primary key of an item to be processed by /PutItem/. All of the table\'s primary key attributes must be specified, and their data types must match those of the table\'s key schema. If any attributes are present in the item which are part of an index key schema for the table, their types must match the index key schema.
 prItem :: Lens' PutRequest (HashMap Text AttributeValue)
 prItem = lens _prItem (\ s a -> s{_prItem = a}) . _Map;
 
@@ -2097,30 +1674,22 @@ streamSpecification =
 
 -- | The DynamoDB Streams settings for the table. These settings consist of:
 --
--- -   /StreamEnabled/ - Indicates whether DynamoDB Streams is enabled
---     (true) or disabled (false) on the table.
+-- -   /StreamEnabled/ - Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.
 --
--- -   /StreamViewType/ - When an item in the table is modified,
---     /StreamViewType/ determines what information is written to the
---     stream for this table. Valid values for /StreamViewType/ are:
+-- -   /StreamViewType/ - When an item in the table is modified, /StreamViewType/ determines what information is written to the stream for this table. Valid values for /StreamViewType/ are:
 --
---     -   /KEYS_ONLY/ - Only the key attributes of the modified item are
---         written to the stream.
+--     -   /KEYS_ONLY/ - Only the key attributes of the modified item are written to the stream.
 --
---     -   /NEW_IMAGE/ - The entire item, as it appears after it was
---         modified, is written to the stream.
+--     -   /NEW_IMAGE/ - The entire item, as it appears after it was modified, is written to the stream.
 --
---     -   /OLD_IMAGE/ - The entire item, as it appeared before it was
---         modified, is written to the stream.
+--     -   /OLD_IMAGE/ - The entire item, as it appeared before it was modified, is written to the stream.
 --
---     -   /NEW_AND_OLD_IMAGES/ - Both the new and the old item images of
---         the item are written to the stream.
+--     -   /NEW_AND_OLD_IMAGES/ - Both the new and the old item images of the item are written to the stream.
 --
 ssStreamViewType :: Lens' StreamSpecification (Maybe StreamViewType)
 ssStreamViewType = lens _ssStreamViewType (\ s a -> s{_ssStreamViewType = a});
 
--- | Indicates whether DynamoDB Streams is enabled (true) or disabled (false)
--- on the table.
+-- | Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.
 ssStreamEnabled :: Lens' StreamSpecification (Maybe Bool)
 ssStreamEnabled = lens _ssStreamEnabled (\ s a -> s{_ssStreamEnabled = a});
 
@@ -2213,14 +1782,11 @@ tableDescription =
     , _tdStreamSpecification = Nothing
     }
 
--- | The total size of the specified table, in bytes. DynamoDB updates this
--- value approximately every six hours. Recent changes might not be
--- reflected in this value.
+-- | The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 tdTableSizeBytes :: Lens' TableDescription (Maybe Integer)
 tdTableSizeBytes = lens _tdTableSizeBytes (\ s a -> s{_tdTableSizeBytes = a});
 
--- | An array of /AttributeDefinition/ objects. Each of these objects
--- describes one attribute in the table and index key schema.
+-- | An array of /AttributeDefinition/ objects. Each of these objects describes one attribute in the table and index key schema.
 --
 -- Each /AttributeDefinition/ object in this array is composed of:
 --
@@ -2231,13 +1797,11 @@ tdTableSizeBytes = lens _tdTableSizeBytes (\ s a -> s{_tdTableSizeBytes = a});
 tdAttributeDefinitions :: Lens' TableDescription [AttributeDefinition]
 tdAttributeDefinitions = lens _tdAttributeDefinitions (\ s a -> s{_tdAttributeDefinitions = a}) . _Default . _Coerce;
 
--- | The Amazon Resource Name (ARN) that uniquely identifies the latest
--- stream for this table.
+-- | The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.
 tdLatestStreamARN :: Lens' TableDescription (Maybe Text)
 tdLatestStreamARN = lens _tdLatestStreamARN (\ s a -> s{_tdLatestStreamARN = a});
 
--- | The provisioned throughput settings for the table, consisting of read
--- and write capacity units, along with data about increases and decreases.
+-- | The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.
 tdProvisionedThroughput :: Lens' TableDescription (Maybe ProvisionedThroughputDescription)
 tdProvisionedThroughput = lens _tdProvisionedThroughput (\ s a -> s{_tdProvisionedThroughput = a});
 
@@ -2258,8 +1822,7 @@ tdTableStatus = lens _tdTableStatus (\ s a -> s{_tdTableStatus = a});
 tdTableARN :: Lens' TableDescription (Maybe Text)
 tdTableARN = lens _tdTableARN (\ s a -> s{_tdTableARN = a});
 
--- | The primary key structure for the table. Each /KeySchemaElement/
--- consists of:
+-- | The primary key structure for the table. Each /KeySchemaElement/ consists of:
 --
 -- -   /AttributeName/ - The name of the attribute.
 --
@@ -2271,37 +1834,21 @@ tdTableARN = lens _tdTableARN (\ s a -> s{_tdTableARN = a});
 --
 --     -   'RANGE' - sort key
 --
---     The partition key of an item is also known as its /hash attribute/.
---     The term \"hash attribute\" derives from DynamoDB\' usage of an
---     internal hash function to evenly distribute data items across
---     partitions, based on their partition key values.
+--     The partition key of an item is also known as its /hash attribute/. The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
 --
---     The sort key of an item is also known as its /range attribute/. The
---     term \"range attribute\" derives from the way DynamoDB stores items
---     with the same partition key physically close together, in sorted
---     order by the sort key value.
+--     The sort key of an item is also known as its /range attribute/. The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 --
--- For more information about primary keys, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key>
--- in the /Amazon DynamoDB Developer Guide/.
+-- For more information about primary keys, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key> in the /Amazon DynamoDB Developer Guide/.
 tdKeySchema :: Lens' TableDescription (Maybe (NonEmpty KeySchemaElement))
 tdKeySchema = lens _tdKeySchema (\ s a -> s{_tdKeySchema = a}) . mapping _List1;
 
--- | The global secondary indexes, if any, on the table. Each index is scoped
--- to a given partition key value. Each element is composed of:
+-- | The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:
 --
--- -   /Backfilling/ - If true, then the index is currently in the
---     backfilling phase. Backfilling occurs only when a new global
---     secondary index is added to the table; it is the process by which
---     DynamoDB populates the new index with data from the table. (This
---     attribute does not appear for indexes that were created during a
---     /CreateTable/ operation.)
+-- -   /Backfilling/ - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table; it is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a /CreateTable/ operation.)
 --
 -- -   /IndexName/ - The name of the global secondary index.
 --
--- -   /IndexSizeBytes/ - The total size of the global secondary index, in
---     bytes. DynamoDB updates this value approximately every six hours.
---     Recent changes might not be reflected in this value.
+-- -   /IndexSizeBytes/ - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 --
 -- -   /IndexStatus/ - The current status of the global secondary index:
 --
@@ -2313,54 +1860,31 @@ tdKeySchema = lens _tdKeySchema (\ s a -> s{_tdKeySchema = a}) . mapping _List1;
 --
 --     -   /ACTIVE/ - The index is ready for use.
 --
--- -   /ItemCount/ - The number of items in the global secondary index.
---     DynamoDB updates this value approximately every six hours. Recent
---     changes might not be reflected in this value.
+-- -   /ItemCount/ - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 --
--- -   /KeySchema/ - Specifies the complete index key schema. The attribute
---     names in the key schema must be between 1 and 255 characters
---     (inclusive). The key schema must begin with the same partition key
---     as the table.
+-- -   /KeySchema/ - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.
 --
--- -   /Projection/ - Specifies attributes that are copied (projected) from
---     the table into the index. These are in addition to the primary key
---     attributes and index key attributes, which are automatically
---     projected. Each attribute specification is composed of:
+-- -   /Projection/ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:
 --
 --     -   /ProjectionType/ - One of the following:
 --
---         -   'KEYS_ONLY' - Only the index and primary keys are projected
---             into the index.
+--         -   'KEYS_ONLY' - Only the index and primary keys are projected into the index.
 --
---         -   'INCLUDE' - Only the specified table attributes are
---             projected into the index. The list of projected attributes
---             are in /NonKeyAttributes/.
+--         -   'INCLUDE' - Only the specified table attributes are projected into the index. The list of projected attributes are in /NonKeyAttributes/.
 --
---         -   'ALL' - All of the table attributes are projected into the
---             index.
+--         -   'ALL' - All of the table attributes are projected into the index.
 --
---     -   /NonKeyAttributes/ - A list of one or more non-key attribute
---         names that are projected into the secondary index. The total
---         count of attributes provided in /NonKeyAttributes/, summed
---         across all of the secondary indexes, must not exceed 20. If you
---         project the same attribute into two different indexes, this
---         counts as two distinct attributes when determining the total.
+--     -   /NonKeyAttributes/ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in /NonKeyAttributes/, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 --
--- -   /ProvisionedThroughput/ - The provisioned throughput settings for
---     the global secondary index, consisting of read and write capacity
---     units, along with data about increases and decreases.
+-- -   /ProvisionedThroughput/ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.
 --
--- If the table is in the 'DELETING' state, no information about indexes
--- will be returned.
+-- If the table is in the 'DELETING' state, no information about indexes will be returned.
 tdGlobalSecondaryIndexes :: Lens' TableDescription [GlobalSecondaryIndexDescription]
 tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalSecondaryIndexes = a}) . _Default . _Coerce;
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --
--- Note that /LatestStreamLabel/ is not a unique identifier for the stream,
--- because it is possible that a stream from another table might have the
--- same timestamp. However, the combination of the following three elements
--- is guaranteed to be unique:
+-- Note that /LatestStreamLabel/ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
 --
 -- -   the AWS customer ID.
 --
@@ -2371,64 +1895,37 @@ tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalS
 tdLatestStreamLabel :: Lens' TableDescription (Maybe Text)
 tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel = a});
 
--- | Represents one or more local secondary indexes on the table. Each index
--- is scoped to a given partition key value. Tables with one or more local
--- secondary indexes are subject to an item collection size limit, where
--- the amount of data within a given item collection cannot exceed 10 GB.
--- Each element is composed of:
+-- | Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:
 --
 -- -   /IndexName/ - The name of the local secondary index.
 --
--- -   /KeySchema/ - Specifies the complete index key schema. The attribute
---     names in the key schema must be between 1 and 255 characters
---     (inclusive). The key schema must begin with the same partition key
---     as the table.
+-- -   /KeySchema/ - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.
 --
--- -   /Projection/ - Specifies attributes that are copied (projected) from
---     the table into the index. These are in addition to the primary key
---     attributes and index key attributes, which are automatically
---     projected. Each attribute specification is composed of:
+-- -   /Projection/ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:
 --
 --     -   /ProjectionType/ - One of the following:
 --
---         -   'KEYS_ONLY' - Only the index and primary keys are projected
---             into the index.
+--         -   'KEYS_ONLY' - Only the index and primary keys are projected into the index.
 --
---         -   'INCLUDE' - Only the specified table attributes are
---             projected into the index. The list of projected attributes
---             are in /NonKeyAttributes/.
+--         -   'INCLUDE' - Only the specified table attributes are projected into the index. The list of projected attributes are in /NonKeyAttributes/.
 --
---         -   'ALL' - All of the table attributes are projected into the
---             index.
+--         -   'ALL' - All of the table attributes are projected into the index.
 --
---     -   /NonKeyAttributes/ - A list of one or more non-key attribute
---         names that are projected into the secondary index. The total
---         count of attributes provided in /NonKeyAttributes/, summed
---         across all of the secondary indexes, must not exceed 20. If you
---         project the same attribute into two different indexes, this
---         counts as two distinct attributes when determining the total.
+--     -   /NonKeyAttributes/ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in /NonKeyAttributes/, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 --
--- -   /IndexSizeBytes/ - Represents the total size of the index, in bytes.
---     DynamoDB updates this value approximately every six hours. Recent
---     changes might not be reflected in this value.
+-- -   /IndexSizeBytes/ - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 --
--- -   /ItemCount/ - Represents the number of items in the index. DynamoDB
---     updates this value approximately every six hours. Recent changes
---     might not be reflected in this value.
+-- -   /ItemCount/ - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 --
--- If the table is in the 'DELETING' state, no information about indexes
--- will be returned.
+-- If the table is in the 'DELETING' state, no information about indexes will be returned.
 tdLocalSecondaryIndexes :: Lens' TableDescription [LocalSecondaryIndexDescription]
 tdLocalSecondaryIndexes = lens _tdLocalSecondaryIndexes (\ s a -> s{_tdLocalSecondaryIndexes = a}) . _Default . _Coerce;
 
--- | The date and time when the table was created, in
--- <http://www.epochconverter.com/ UNIX epoch time> format.
+-- | The date and time when the table was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
 tdCreationDateTime :: Lens' TableDescription (Maybe UTCTime)
 tdCreationDateTime = lens _tdCreationDateTime (\ s a -> s{_tdCreationDateTime = a}) . mapping _Time;
 
--- | The number of items in the specified table. DynamoDB updates this value
--- approximately every six hours. Recent changes might not be reflected in
--- this value.
+-- | The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 tdItemCount :: Lens' TableDescription (Maybe Integer)
 tdItemCount = lens _tdItemCount (\ s a -> s{_tdItemCount = a});
 
@@ -2464,8 +1961,7 @@ instance Hashable TableDescription
 
 instance NFData TableDescription
 
--- | Represents the new provisioned throughput settings to be applied to a
--- global secondary index.
+-- | Represents the new provisioned throughput settings to be applied to a global secondary index.
 --
 -- /See:/ 'updateGlobalSecondaryIndexAction' smart constructor.
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'
@@ -2512,10 +2008,7 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
                     ("ProvisionedThroughput" .=
                        _ugsiaProvisionedThroughput)])
 
--- | Represents an operation to perform - either /DeleteItem/ or /PutItem/.
--- You can only request one of these operations, not both, in a single
--- /WriteRequest/. If you do need to perform both of these operations, you
--- will need to provide two separate /WriteRequest/ objects.
+-- | Represents an operation to perform - either /DeleteItem/ or /PutItem/. You can only request one of these operations, not both, in a single /WriteRequest/. If you do need to perform both of these operations, you will need to provide two separate /WriteRequest/ objects.
 --
 -- /See:/ 'writeRequest' smart constructor.
 data WriteRequest = WriteRequest'

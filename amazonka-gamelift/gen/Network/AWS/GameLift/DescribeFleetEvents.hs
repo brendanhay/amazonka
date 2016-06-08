@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves entries from the fleet event log. You can specify a time range
--- to limit the result set. Use the pagination parameters to retrieve
--- results as a set of sequential pages. If successful, a collection of
--- event log entries matching the request are returned.
+-- Retrieves entries from the fleet event log. You can specify a time range to limit the result set. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a collection of event log entries matching the request are returned.
 module Network.AWS.GameLift.DescribeFleetEvents
     (
     -- * Creating a Request
@@ -86,28 +83,19 @@ describeFleetEvents pFleetId_ =
     , _dfeFleetId = pFleetId_
     }
 
--- | Earliest date to retrieve event logs for. If no start time is specified,
--- this call returns entries starting from when the fleet was created to
--- the specified end time. Format is an integer representing the number of
--- seconds since the Unix epoch (Unix time).
+-- | Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is an integer representing the number of seconds since the Unix epoch (Unix time).
 dfeStartTime :: Lens' DescribeFleetEvents (Maybe UTCTime)
 dfeStartTime = lens _dfeStartTime (\ s a -> s{_dfeStartTime = a}) . mapping _Time;
 
--- | Token indicating the start of the next sequential page of results. Use
--- the token that is returned with a previous call to this action. To
--- specify the start of the result set, do not specify a value.
+-- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 dfeNextToken :: Lens' DescribeFleetEvents (Maybe Text)
 dfeNextToken = lens _dfeNextToken (\ s a -> s{_dfeNextToken = a});
 
--- | Most recent date to retrieve event logs for. If no end time is
--- specified, this call returns entries from the specified start time up to
--- the present. Format is an integer representing the number of seconds
--- since the Unix epoch (Unix time).
+-- | Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is an integer representing the number of seconds since the Unix epoch (Unix time).
 dfeEndTime :: Lens' DescribeFleetEvents (Maybe UTCTime)
 dfeEndTime = lens _dfeEndTime (\ s a -> s{_dfeEndTime = a}) . mapping _Time;
 
--- | Maximum number of results to return. You can use this parameter with
--- /NextToken/ to get results as a set of sequential pages.
+-- | Maximum number of results to return. You can use this parameter with /NextToken/ to get results as a set of sequential pages.
 dfeLimit :: Lens' DescribeFleetEvents (Maybe Natural)
 dfeLimit = lens _dfeLimit (\ s a -> s{_dfeLimit = a}) . mapping _Nat;
 
@@ -183,18 +171,13 @@ describeFleetEventsResponse pResponseStatus_ =
     , _dfersResponseStatus = pResponseStatus_
     }
 
--- | Token indicating where to resume retrieving results on the next call to
--- this action. If no token is returned, these results represent the end of
--- the list.
+-- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
--- If a request has a limit that exactly matches the number of remaining
--- results, a token is returned even though there are no more results to
--- retrieve.
+-- If a request has a limit that exactly matches the number of remaining results, a token is returned even though there are no more results to retrieve.
 dfersNextToken :: Lens' DescribeFleetEventsResponse (Maybe Text)
 dfersNextToken = lens _dfersNextToken (\ s a -> s{_dfersNextToken = a});
 
--- | Collection of objects containing event log entries for the specified
--- fleet.
+-- | Collection of objects containing event log entries for the specified fleet.
 dfersEvents :: Lens' DescribeFleetEventsResponse [Event]
 dfersEvents = lens _dfersEvents (\ s a -> s{_dfersEvents = a}) . _Default . _Coerce;
 

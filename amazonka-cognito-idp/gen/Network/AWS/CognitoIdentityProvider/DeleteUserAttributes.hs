@@ -69,8 +69,7 @@ deleteUserAttributes =
 duaAccessToken :: Lens' DeleteUserAttributes (Maybe Text)
 duaAccessToken = lens _duaAccessToken (\ s a -> s{_duaAccessToken = a}) . mapping _Sensitive;
 
--- | An array of strings representing the user attribute names you wish to
--- delete.
+-- | An array of strings representing the user attribute names you wish to delete.
 duaUserAttributeNames :: Lens' DeleteUserAttributes [Text]
 duaUserAttributeNames = lens _duaUserAttributeNames (\ s a -> s{_duaUserAttributeNames = a}) . _Coerce;
 

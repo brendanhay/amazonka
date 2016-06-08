@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or removes permission settings for the specified snapshot. You may
--- add or remove specified AWS account IDs from a snapshot\'s list of
--- create volume permissions, but you cannot do both in a single API call.
--- If you need to both add and remove account IDs for a snapshot, you must
--- use multiple API calls.
+-- Adds or removes permission settings for the specified snapshot. You may add or remove specified AWS account IDs from a snapshot\'s list of create volume permissions, but you cannot do both in a single API call. If you need to both add and remove account IDs for a snapshot, you must use multiple API calls.
 --
--- For more information on modifying snapshot permissions, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information on modifying snapshot permissions, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Snapshots with AWS Marketplace product codes cannot be made public.
 module Network.AWS.EC2.ModifySnapshotAttribute
@@ -121,10 +115,7 @@ msaGroupNames = lens _msaGroupNames (\ s a -> s{_msaGroupNames = a}) . _Default 
 msaOperationType :: Lens' ModifySnapshotAttribute (Maybe OperationType)
 msaOperationType = lens _msaOperationType (\ s a -> s{_msaOperationType = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 msaDryRun :: Lens' ModifySnapshotAttribute (Maybe Bool)
 msaDryRun = lens _msaDryRun (\ s a -> s{_msaDryRun = a});
 

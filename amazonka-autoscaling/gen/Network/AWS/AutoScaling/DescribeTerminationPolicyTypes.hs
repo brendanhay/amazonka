@@ -106,9 +106,7 @@ describeTerminationPolicyTypesResponse pResponseStatus_ =
     , _dtptrsResponseStatus = pResponseStatus_
     }
 
--- | The termination policies supported by Auto Scaling ('OldestInstance',
--- 'OldestLaunchConfiguration', 'NewestInstance',
--- 'ClosestToNextInstanceHour', and 'Default').
+-- | The termination policies supported by Auto Scaling ('OldestInstance', 'OldestLaunchConfiguration', 'NewestInstance', 'ClosestToNextInstanceHour', and 'Default').
 dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
 dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_dtptrsTerminationPolicyTypes = a}) . _Default . _Coerce;
 

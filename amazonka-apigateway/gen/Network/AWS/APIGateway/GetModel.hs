@@ -47,8 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to list information about a model in an existing < RestApi>
--- resource.
+-- | Request to list information about a model in an existing < RestApi> resource.
 --
 -- /See:/ 'getModel' smart constructor.
 data GetModel = GetModel'
@@ -77,8 +76,7 @@ getModel pRestAPIId_ pModelName_ =
     , _ggModelName = pModelName_
     }
 
--- | Resolves all external model references and returns a flattened model
--- schema.
+-- | Resolves all external model references and returns a flattened model schema.
 ggFlatten :: Lens' GetModel (Maybe Bool)
 ggFlatten = lens _ggFlatten (\ s a -> s{_ggFlatten = a});
 

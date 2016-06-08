@@ -20,11 +20,7 @@
 --
 -- Removes the specified managed policy from the specified group.
 --
--- A group can also have inline policies embedded with it. To delete an
--- inline policy, use the < DeleteGroupPolicy> API. For information about
--- policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- A group can also have inline policies embedded with it. To delete an inline policy, use the < DeleteGroupPolicy> API. For information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.DetachGroupPolicy
     (
     -- * Creating a Request
@@ -69,8 +65,7 @@ detachGroupPolicy pGroupName_ pPolicyARN_ =
     , _dgpPolicyARN = pPolicyARN_
     }
 
--- | The name (friendly name, not ARN) of the group to detach the policy
--- from.
+-- | The name (friendly name, not ARN) of the group to detach the policy from.
 dgpGroupName :: Lens' DetachGroupPolicy Text
 dgpGroupName = lens _dgpGroupName (\ s a -> s{_dgpGroupName = a});
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the IAM role that enables Amazon Inspector to access your AWS
--- account.
+-- Describes the IAM role that enables Amazon Inspector to access your AWS account.
 module Network.AWS.Inspector.DescribeCrossAccountAccessRole
     (
     -- * Creating a Request
@@ -128,13 +127,11 @@ describeCrossAccountAccessRoleResponse pResponseStatus_ pRoleARN_ pValid_ pRegis
 dcaarrsResponseStatus :: Lens' DescribeCrossAccountAccessRoleResponse Int
 dcaarrsResponseStatus = lens _dcaarrsResponseStatus (\ s a -> s{_dcaarrsResponseStatus = a});
 
--- | The ARN that specifies the IAM role that Amazon Inspector uses to access
--- your AWS account.
+-- | The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS account.
 dcaarrsRoleARN :: Lens' DescribeCrossAccountAccessRoleResponse Text
 dcaarrsRoleARN = lens _dcaarrsRoleARN (\ s a -> s{_dcaarrsRoleARN = a});
 
--- | A Boolean value that specifies whether the IAM role has the necessary
--- policies attached to enable Amazon Inspector to access your AWS account.
+-- | A Boolean value that specifies whether the IAM role has the necessary policies attached to enable Amazon Inspector to access your AWS account.
 dcaarrsValid :: Lens' DescribeCrossAccountAccessRoleResponse Bool
 dcaarrsValid = lens _dcaarrsValid (\ s a -> s{_dcaarrsValid = a});
 

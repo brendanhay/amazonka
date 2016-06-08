@@ -18,19 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified Availability Zones from the set of Availability
--- Zones for the specified load balancer.
+-- Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer.
 --
--- There must be at least one Availability Zone registered with a load
--- balancer at all times. After an Availability Zone is removed, all
--- instances registered with the load balancer that are in the removed
--- Availability Zone go into the 'OutOfService' state. Then, the load
--- balancer attempts to equally balance the traffic among its remaining
--- Availability Zones.
+-- There must be at least one Availability Zone registered with a load balancer at all times. After an Availability Zone is removed, all instances registered with the load balancer that are in the removed Availability Zone go into the 'OutOfService' state. Then, the load balancer attempts to equally balance the traffic among its remaining Availability Zones.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html Disable an Availability Zone from a Load-Balanced Application>
--- in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html Disable an Availability Zone from a Load-Balanced Application> in the /Elastic Load Balancing Developer Guide/.
 module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     (
     -- * Creating a Request

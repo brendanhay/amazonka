@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inform Amazon ECR that the image layer upload for a specified registry,
--- repository name, and upload ID, has completed. You can optionally
--- provide a 'sha256' digest of the image layer for data validation
--- purposes.
+-- Inform Amazon ECR that the image layer upload for a specified registry, repository name, and upload ID, has completed. You can optionally provide a 'sha256' digest of the image layer for data validation purposes.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended
--- for general use by customers. Use the 'docker' CLI to pull, tag, and
--- push images.
+-- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
 module Network.AWS.ECR.CompleteLayerUpload
     (
     -- * Creating a Request
@@ -87,9 +82,7 @@ completeLayerUpload pRepositoryName_ pUploadId_ pLayerDigests_ =
     , _cluLayerDigests = _List1 # pLayerDigests_
     }
 
--- | The AWS account ID associated with the registry to which to upload
--- layers. If you do not specify a registry, the default registry is
--- assumed.
+-- | The AWS account ID associated with the registry to which to upload layers. If you do not specify a registry, the default registry is assumed.
 cluRegistryId :: Lens' CompleteLayerUpload (Maybe Text)
 cluRegistryId = lens _cluRegistryId (\ s a -> s{_cluRegistryId = a});
 
@@ -97,8 +90,7 @@ cluRegistryId = lens _cluRegistryId (\ s a -> s{_cluRegistryId = a});
 cluRepositoryName :: Lens' CompleteLayerUpload Text
 cluRepositoryName = lens _cluRepositoryName (\ s a -> s{_cluRepositoryName = a});
 
--- | The upload ID from a previous < InitiateLayerUpload> operation to
--- associate with the image layer.
+-- | The upload ID from a previous < InitiateLayerUpload> operation to associate with the image layer.
 cluUploadId :: Lens' CompleteLayerUpload Text
 cluUploadId = lens _cluUploadId (\ s a -> s{_cluUploadId = a});
 

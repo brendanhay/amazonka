@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Submits feedback about the status of an instance. The instance must be
--- in the 'running' state. If your experience with the instance differs
--- from the instance status returned by < DescribeInstanceStatus>, use
--- < ReportInstanceStatus> to report your experience with the instance.
--- Amazon EC2 collects this information to improve the accuracy of status
--- checks.
+-- Submits feedback about the status of an instance. The instance must be in the 'running' state. If your experience with the instance differs from the instance status returned by < DescribeInstanceStatus>, use < ReportInstanceStatus> to report your experience with the instance. Amazon EC2 collects this information to improve the accuracy of status checks.
 --
--- Use of this action does not change the value returned by
--- < DescribeInstanceStatus>.
+-- Use of this action does not change the value returned by < DescribeInstanceStatus>.
 module Network.AWS.EC2.ReportInstanceStatus
     (
     -- * Creating a Request
@@ -109,10 +103,7 @@ risEndTime = lens _risEndTime (\ s a -> s{_risEndTime = a}) . mapping _Time;
 risDescription :: Lens' ReportInstanceStatus (Maybe Text)
 risDescription = lens _risDescription (\ s a -> s{_risDescription = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 risDryRun :: Lens' ReportInstanceStatus (Maybe Bool)
 risDryRun = lens _risDryRun (\ s a -> s{_risDryRun = a});
 
@@ -124,31 +115,23 @@ risInstances = lens _risInstances (\ s a -> s{_risInstances = a}) . _Coerce;
 risStatus :: Lens' ReportInstanceStatus ReportStatusType
 risStatus = lens _risStatus (\ s a -> s{_risStatus = a});
 
--- | One or more reason codes that describes the health state of your
--- instance.
+-- | One or more reason codes that describes the health state of your instance.
 --
 -- -   'instance-stuck-in-state': My instance is stuck in a state.
 --
 -- -   'unresponsive': My instance is unresponsive.
 --
--- -   'not-accepting-credentials': My instance is not accepting my
---     credentials.
+-- -   'not-accepting-credentials': My instance is not accepting my credentials.
 --
--- -   'password-not-available': A password is not available for my
---     instance.
+-- -   'password-not-available': A password is not available for my instance.
 --
--- -   'performance-network': My instance is experiencing performance
---     problems which I believe are network related.
+-- -   'performance-network': My instance is experiencing performance problems which I believe are network related.
 --
--- -   'performance-instance-store': My instance is experiencing
---     performance problems which I believe are related to the instance
---     stores.
+-- -   'performance-instance-store': My instance is experiencing performance problems which I believe are related to the instance stores.
 --
--- -   'performance-ebs-volume': My instance is experiencing performance
---     problems which I believe are related to an EBS volume.
+-- -   'performance-ebs-volume': My instance is experiencing performance problems which I believe are related to an EBS volume.
 --
--- -   'performance-other': My instance is experiencing performance
---     problems.
+-- -   'performance-other': My instance is experiencing performance problems.
 --
 -- -   'other': [explain using the description parameter]
 --

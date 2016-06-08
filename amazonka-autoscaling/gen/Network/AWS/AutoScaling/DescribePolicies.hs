@@ -83,15 +83,11 @@ describePolicies =
     , _dpsPolicyTypes = Nothing
     }
 
--- | One or more policy names or policy ARNs to be described. If you omit
--- this list, all policy names are described. If an group name is provided,
--- the results are limited to that group. This list is limited to 50 items.
--- If you specify an unknown policy name, it is ignored with no error.
+-- | One or more policy names or policy ARNs to be described. If you omit this list, all policy names are described. If an group name is provided, the results are limited to that group. This list is limited to 50 items. If you specify an unknown policy name, it is ignored with no error.
 dpsPolicyNames :: Lens' DescribePolicies [Text]
 dpsPolicyNames = lens _dpsPolicyNames (\ s a -> s{_dpsPolicyNames = a}) . _Default . _Coerce;
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 dpsNextToken :: Lens' DescribePolicies (Maybe Text)
 dpsNextToken = lens _dpsNextToken (\ s a -> s{_dpsNextToken = a});
 
@@ -103,8 +99,7 @@ dpsAutoScalingGroupName = lens _dpsAutoScalingGroupName (\ s a -> s{_dpsAutoScal
 dpsMaxRecords :: Lens' DescribePolicies (Maybe Int)
 dpsMaxRecords = lens _dpsMaxRecords (\ s a -> s{_dpsMaxRecords = a});
 
--- | One or more policy types. Valid values are 'SimpleScaling' and
--- 'StepScaling'.
+-- | One or more policy types. Valid values are 'SimpleScaling' and 'StepScaling'.
 dpsPolicyTypes :: Lens' DescribePolicies [Text]
 dpsPolicyTypes = lens _dpsPolicyTypes (\ s a -> s{_dpsPolicyTypes = a}) . _Default . _Coerce;
 
@@ -176,8 +171,7 @@ describePoliciesResponse pResponseStatus_ =
     , _dprsResponseStatus = pResponseStatus_
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dprsNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
 dprsNextToken = lens _dprsNextToken (\ s a -> s{_dprsNextToken = a});
 

@@ -88,8 +88,7 @@ defaultWorkspaceCreationProperties =
     , _dwcpDefaultOu = Nothing
     }
 
--- | The identifier of any custom security groups that are applied to the
--- WorkSpaces when they are created.
+-- | The identifier of any custom security groups that are applied to the WorkSpaces when they are created.
 dwcpCustomSecurityGroupId :: Lens' DefaultWorkspaceCreationProperties (Maybe Text)
 dwcpCustomSecurityGroupId = lens _dwcpCustomSecurityGroupId (\ s a -> s{_dwcpCustomSecurityGroupId = a});
 
@@ -101,13 +100,11 @@ dwcpUserEnabledAsLocalAdministrator = lens _dwcpUserEnabledAsLocalAdministrator 
 dwcpEnableWorkDocs :: Lens' DefaultWorkspaceCreationProperties (Maybe Bool)
 dwcpEnableWorkDocs = lens _dwcpEnableWorkDocs (\ s a -> s{_dwcpEnableWorkDocs = a});
 
--- | A public IP address will be attached to all WorkSpaces that are created
--- or rebuilt.
+-- | A public IP address will be attached to all WorkSpaces that are created or rebuilt.
 dwcpEnableInternetAccess :: Lens' DefaultWorkspaceCreationProperties (Maybe Bool)
 dwcpEnableInternetAccess = lens _dwcpEnableInternetAccess (\ s a -> s{_dwcpEnableInternetAccess = a});
 
--- | The organizational unit (OU) in the directory that the WorkSpace machine
--- accounts are placed in.
+-- | The organizational unit (OU) in the directory that the WorkSpace machine accounts are placed in.
 dwcpDefaultOu :: Lens' DefaultWorkspaceCreationProperties (Maybe Text)
 dwcpDefaultOu = lens _dwcpDefaultOu (\ s a -> s{_dwcpDefaultOu = a});
 
@@ -154,8 +151,7 @@ failedCreateWorkspaceRequest =
     , _fcwrErrorMessage = Nothing
     }
 
--- | A < WorkspaceRequest> object that contains the information about the
--- WorkSpace that could not be created.
+-- | A < WorkspaceRequest> object that contains the information about the WorkSpace that could not be created.
 fcwrWorkspaceRequest :: Lens' FailedCreateWorkspaceRequest (Maybe WorkspaceRequest)
 fcwrWorkspaceRequest = lens _fcwrWorkspaceRequest (\ s a -> s{_fcwrWorkspaceRequest = a});
 
@@ -179,9 +175,7 @@ instance Hashable FailedCreateWorkspaceRequest
 
 instance NFData FailedCreateWorkspaceRequest
 
--- | Contains information about a WorkSpace that could not be rebooted
--- (< RebootWorkspaces>), rebuilt (< RebuildWorkspaces>), or terminated
--- (< TerminateWorkspaces>).
+-- | Contains information about a WorkSpace that could not be rebooted (< RebootWorkspaces>), rebuilt (< RebuildWorkspaces>), or terminated (< TerminateWorkspaces>).
 --
 -- /See:/ 'failedWorkspaceChangeRequest' smart constructor.
 data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
@@ -232,8 +226,7 @@ instance Hashable FailedWorkspaceChangeRequest
 
 instance NFData FailedWorkspaceChangeRequest
 
--- | Contains information used with the < RebootWorkspaces> operation to
--- reboot a WorkSpace.
+-- | Contains information used with the < RebootWorkspaces> operation to reboot a WorkSpace.
 --
 -- /See:/ 'rebootRequest' smart constructor.
 newtype RebootRequest = RebootRequest'
@@ -266,8 +259,7 @@ instance ToJSON RebootRequest where
           = object
               (catMaybes [Just ("WorkspaceId" .= _rWorkspaceId)])
 
--- | Contains information used with the < RebuildWorkspaces> operation to
--- rebuild a WorkSpace.
+-- | Contains information used with the < RebuildWorkspaces> operation to rebuild a WorkSpace.
 --
 -- /See:/ 'rebuildRequest' smart constructor.
 newtype RebuildRequest = RebuildRequest'
@@ -300,8 +292,7 @@ instance ToJSON RebuildRequest where
           = object
               (catMaybes [Just ("WorkspaceId" .= _rrWorkspaceId)])
 
--- | Contains information used with the < TerminateWorkspaces> operation to
--- terminate a WorkSpace.
+-- | Contains information used with the < TerminateWorkspaces> operation to terminate a WorkSpace.
 --
 -- /See:/ 'terminateRequest' smart constructor.
 newtype TerminateRequest = TerminateRequest'
@@ -433,8 +424,7 @@ workspace =
     , _wErrorMessage = Nothing
     }
 
--- | The identifier of the AWS Directory Service directory that the WorkSpace
--- belongs to.
+-- | The identifier of the AWS Directory Service directory that the WorkSpace belongs to.
 wDirectoryId :: Lens' Workspace (Maybe Text)
 wDirectoryId = lens _wDirectoryId (\ s a -> s{_wDirectoryId = a});
 
@@ -458,8 +448,7 @@ wSubnetId = lens _wSubnetId (\ s a -> s{_wSubnetId = a});
 wBundleId :: Lens' Workspace (Maybe Text)
 wBundleId = lens _wBundleId (\ s a -> s{_wBundleId = a});
 
--- | Specifies whether the data stored on the root volume, or C: drive, is
--- encrypted.
+-- | Specifies whether the data stored on the root volume, or C: drive, is encrypted.
 wRootVolumeEncryptionEnabled :: Lens' Workspace (Maybe Bool)
 wRootVolumeEncryptionEnabled = lens _wRootVolumeEncryptionEnabled (\ s a -> s{_wRootVolumeEncryptionEnabled = a});
 
@@ -479,13 +468,11 @@ wComputerName = lens _wComputerName (\ s a -> s{_wComputerName = a});
 wWorkspaceId :: Lens' Workspace (Maybe Text)
 wWorkspaceId = lens _wWorkspaceId (\ s a -> s{_wWorkspaceId = a});
 
--- | Specifies whether the data stored on the user volume, or D: drive, is
--- encrypted.
+-- | Specifies whether the data stored on the user volume, or D: drive, is encrypted.
 wUserVolumeEncryptionEnabled :: Lens' Workspace (Maybe Bool)
 wUserVolumeEncryptionEnabled = lens _wUserVolumeEncryptionEnabled (\ s a -> s{_wUserVolumeEncryptionEnabled = a});
 
--- | If the WorkSpace could not be created, this contains a textual error
--- message that describes the failure.
+-- | If the WorkSpace could not be created, this contains a textual error message that describes the failure.
 wErrorMessage :: Lens' Workspace (Maybe Text)
 wErrorMessage = lens _wErrorMessage (\ s a -> s{_wErrorMessage = a});
 
@@ -554,8 +541,7 @@ workspaceBundle =
 wbBundleId :: Lens' WorkspaceBundle (Maybe Text)
 wbBundleId = lens _wbBundleId (\ s a -> s{_wbBundleId = a});
 
--- | The owner of the bundle. This contains the owner\'s account identifier,
--- or 'AMAZON' if the bundle is provided by AWS.
+-- | The owner of the bundle. This contains the owner\'s account identifier, or 'AMAZON' if the bundle is provided by AWS.
 wbOwner :: Lens' WorkspaceBundle (Maybe Text)
 wbOwner = lens _wbOwner (\ s a -> s{_wbOwner = a});
 
@@ -567,8 +553,7 @@ wbName = lens _wbName (\ s a -> s{_wbName = a});
 wbComputeType :: Lens' WorkspaceBundle (Maybe ComputeType)
 wbComputeType = lens _wbComputeType (\ s a -> s{_wbComputeType = a});
 
--- | A < UserStorage> object that specifies the amount of user storage that
--- the bundle contains.
+-- | A < UserStorage> object that specifies the amount of user storage that the bundle contains.
 wbUserStorage :: Lens' WorkspaceBundle (Maybe UserStorage)
 wbUserStorage = lens _wbUserStorage (\ s a -> s{_wbUserStorage = a});
 
@@ -591,8 +576,7 @@ instance Hashable WorkspaceBundle
 
 instance NFData WorkspaceBundle
 
--- | Contains information about an AWS Directory Service directory for use
--- with Amazon WorkSpaces.
+-- | Contains information about an AWS Directory Service directory for use with Amazon WorkSpaces.
 --
 -- /See:/ 'workspaceDirectory' smart constructor.
 data WorkspaceDirectory = WorkspaceDirectory'
@@ -655,15 +639,11 @@ workspaceDirectory =
     , _wdDirectoryName = Nothing
     }
 
--- | The registration code for the directory. This is the code that users
--- enter in their Amazon WorkSpaces client application to connect to the
--- directory.
+-- | The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 wdRegistrationCode :: Lens' WorkspaceDirectory (Maybe Text)
 wdRegistrationCode = lens _wdRegistrationCode (\ s a -> s{_wdRegistrationCode = a});
 
--- | The identifier of the IAM role. This is the role that allows Amazon
--- WorkSpaces to make calls to other services, such as Amazon EC2, on your
--- behalf.
+-- | The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
 wdIAMRoleId :: Lens' WorkspaceDirectory (Maybe Text)
 wdIAMRoleId = lens _wdIAMRoleId (\ s a -> s{_wdIAMRoleId = a});
 
@@ -679,8 +659,7 @@ wdState = lens _wdState (\ s a -> s{_wdState = a});
 wdCustomerUserName :: Lens' WorkspaceDirectory (Maybe Text)
 wdCustomerUserName = lens _wdCustomerUserName (\ s a -> s{_wdCustomerUserName = a});
 
--- | An array of strings that contains the identifiers of the subnets used
--- with the directory.
+-- | An array of strings that contains the identifiers of the subnets used with the directory.
 wdSubnetIds :: Lens' WorkspaceDirectory [Text]
 wdSubnetIds = lens _wdSubnetIds (\ s a -> s{_wdSubnetIds = a}) . _Default . _Coerce;
 
@@ -696,13 +675,11 @@ wdWorkspaceSecurityGroupId = lens _wdWorkspaceSecurityGroupId (\ s a -> s{_wdWor
 wdDirectoryType :: Lens' WorkspaceDirectory (Maybe WorkspaceDirectoryType)
 wdDirectoryType = lens _wdDirectoryType (\ s a -> s{_wdDirectoryType = a});
 
--- | A structure that specifies the default creation properties for all
--- WorkSpaces in the directory.
+-- | A structure that specifies the default creation properties for all WorkSpaces in the directory.
 wdWorkspaceCreationProperties :: Lens' WorkspaceDirectory (Maybe DefaultWorkspaceCreationProperties)
 wdWorkspaceCreationProperties = lens _wdWorkspaceCreationProperties (\ s a -> s{_wdWorkspaceCreationProperties = a});
 
--- | An array of strings that contains the IP addresses of the DNS servers
--- for the directory.
+-- | An array of strings that contains the IP addresses of the DNS servers for the directory.
 wdDNSIPAddresses :: Lens' WorkspaceDirectory [Text]
 wdDNSIPAddresses = lens _wdDNSIPAddresses (\ s a -> s{_wdDNSIPAddresses = a}) . _Default . _Coerce;
 
@@ -773,8 +750,7 @@ workspaceRequest pDirectoryId_ pUserName_ pBundleId_ =
     , _wrBundleId = pBundleId_
     }
 
--- | Specifies whether the data stored on the root volume, or C: drive, is
--- encrypted.
+-- | Specifies whether the data stored on the root volume, or C: drive, is encrypted.
 wrRootVolumeEncryptionEnabled :: Lens' WorkspaceRequest (Maybe Bool)
 wrRootVolumeEncryptionEnabled = lens _wrRootVolumeEncryptionEnabled (\ s a -> s{_wrRootVolumeEncryptionEnabled = a});
 
@@ -782,26 +758,19 @@ wrRootVolumeEncryptionEnabled = lens _wrRootVolumeEncryptionEnabled (\ s a -> s{
 wrVolumeEncryptionKey :: Lens' WorkspaceRequest (Maybe Text)
 wrVolumeEncryptionKey = lens _wrVolumeEncryptionKey (\ s a -> s{_wrVolumeEncryptionKey = a});
 
--- | Specifies whether the data stored on the user volume, or D: drive, is
--- encrypted.
+-- | Specifies whether the data stored on the user volume, or D: drive, is encrypted.
 wrUserVolumeEncryptionEnabled :: Lens' WorkspaceRequest (Maybe Bool)
 wrUserVolumeEncryptionEnabled = lens _wrUserVolumeEncryptionEnabled (\ s a -> s{_wrUserVolumeEncryptionEnabled = a});
 
--- | The identifier of the AWS Directory Service directory to create the
--- WorkSpace in. You can use the < DescribeWorkspaceDirectories> operation
--- to obtain a list of the directories that are available.
+-- | The identifier of the AWS Directory Service directory to create the WorkSpace in. You can use the < DescribeWorkspaceDirectories> operation to obtain a list of the directories that are available.
 wrDirectoryId :: Lens' WorkspaceRequest Text
 wrDirectoryId = lens _wrDirectoryId (\ s a -> s{_wrDirectoryId = a});
 
--- | The username that the WorkSpace is assigned to. This username must exist
--- in the AWS Directory Service directory specified by the 'DirectoryId'
--- member.
+-- | The username that the WorkSpace is assigned to. This username must exist in the AWS Directory Service directory specified by the 'DirectoryId' member.
 wrUserName :: Lens' WorkspaceRequest Text
 wrUserName = lens _wrUserName (\ s a -> s{_wrUserName = a});
 
--- | The identifier of the bundle to create the WorkSpace from. You can use
--- the < DescribeWorkspaceBundles> operation to obtain a list of the
--- bundles that are available.
+-- | The identifier of the bundle to create the WorkSpace from. You can use the < DescribeWorkspaceBundles> operation to obtain a list of the bundles that are available.
 wrBundleId :: Lens' WorkspaceRequest Text
 wrBundleId = lens _wrBundleId (\ s a -> s{_wrBundleId = a});
 

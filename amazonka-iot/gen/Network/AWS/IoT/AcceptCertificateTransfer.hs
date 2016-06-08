@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accepts a pending certificate transfer. The default state of the
--- certificate is INACTIVE.
+-- Accepts a pending certificate transfer. The default state of the certificate is INACTIVE.
 --
--- To check for pending certificate transfers, call < ListCertificates> to
--- enumerate your certificates.
+-- To check for pending certificate transfers, call < ListCertificates> to enumerate your certificates.
 module Network.AWS.IoT.AcceptCertificateTransfer
     (
     -- * Creating a Request

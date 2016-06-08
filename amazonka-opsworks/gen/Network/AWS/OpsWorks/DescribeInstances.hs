@@ -22,11 +22,7 @@
 --
 -- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Show, Deploy, or Manage permissions level for the stack, or an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeInstances
     (
     -- * Creating a Request
@@ -77,19 +73,15 @@ describeInstances =
     , _diLayerId = Nothing
     }
 
--- | An array of instance IDs to be described. If you use this parameter,
--- 'DescribeInstances' returns a description of the specified instances.
--- Otherwise, it returns a description of every instance.
+-- | An array of instance IDs to be described. If you use this parameter, 'DescribeInstances' returns a description of the specified instances. Otherwise, it returns a description of every instance.
 diInstanceIds :: Lens' DescribeInstances [Text]
 diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default . _Coerce;
 
--- | A stack ID. If you use this parameter, 'DescribeInstances' returns
--- descriptions of the instances associated with the specified stack.
+-- | A stack ID. If you use this parameter, 'DescribeInstances' returns descriptions of the instances associated with the specified stack.
 diStackId :: Lens' DescribeInstances (Maybe Text)
 diStackId = lens _diStackId (\ s a -> s{_diStackId = a});
 
--- | A layer ID. If you use this parameter, 'DescribeInstances' returns
--- descriptions of the instances associated with the specified layer.
+-- | A layer ID. If you use this parameter, 'DescribeInstances' returns descriptions of the instances associated with the specified layer.
 diLayerId :: Lens' DescribeInstances (Maybe Text)
 diLayerId = lens _diLayerId (\ s a -> s{_diLayerId = a});
 

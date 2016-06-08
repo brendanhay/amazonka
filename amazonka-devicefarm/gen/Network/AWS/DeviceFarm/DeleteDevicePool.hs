@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a device pool given the pool ARN. Does not allow deletion of
--- curated pools owned by the system.
+-- Deletes a device pool given the pool ARN. Does not allow deletion of curated pools owned by the system.
 module Network.AWS.DeviceFarm.DeleteDevicePool
     (
     -- * Creating a Request
@@ -62,8 +61,7 @@ deleteDevicePool pArn_ =
     { _ddpArn = pArn_
     }
 
--- | Represents the Amazon Resource Name (ARN) of the Device Farm device pool
--- you wish to delete.
+-- | Represents the Amazon Resource Name (ARN) of the Device Farm device pool you wish to delete.
 ddpArn :: Lens' DeleteDevicePool Text
 ddpArn = lens _ddpArn (\ s a -> s{_ddpArn = a});
 

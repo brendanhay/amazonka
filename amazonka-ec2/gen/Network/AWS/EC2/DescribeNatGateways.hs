@@ -89,8 +89,7 @@ dngNextToken = lens _dngNextToken (\ s a -> s{_dngNextToken = a});
 --
 -- -   'nat-gateway-id' - The ID of the NAT gateway.
 --
--- -   'state' - The state of the NAT gateway ('pending' | 'failed' |
---     'available' | 'deleting' | 'deleted').
+-- -   'state' - The state of the NAT gateway ('pending' | 'failed' | 'available' | 'deleting' | 'deleted').
 --
 -- -   'subnet-id' - The ID of the subnet in which the NAT gateway resides.
 --
@@ -99,12 +98,9 @@ dngNextToken = lens _dngNextToken (\ s a -> s{_dngNextToken = a});
 dngFilter :: Lens' DescribeNatGateways [Filter]
 dngFilter = lens _dngFilter (\ s a -> s{_dngFilter = a}) . _Default . _Coerce;
 
--- | The maximum number of items to return for this request. The request
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
+-- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
 --
--- Constraint: If the value specified is greater than 1000, we return only
--- 1000 items.
+-- Constraint: If the value specified is greater than 1000, we return only 1000 items.
 dngMaxResults :: Lens' DescribeNatGateways (Maybe Int)
 dngMaxResults = lens _dngMaxResults (\ s a -> s{_dngMaxResults = a});
 
@@ -174,8 +170,7 @@ describeNatGatewaysResponse pResponseStatus_ =
 dngrsNatGateways :: Lens' DescribeNatGatewaysResponse [NatGateway]
 dngrsNatGateways = lens _dngrsNatGateways (\ s a -> s{_dngrsNatGateways = a}) . _Default . _Coerce;
 
--- | The token to use to retrieve the next page of results. This value is
--- 'null' when there are no more results to return.
+-- | The token to use to retrieve the next page of results. This value is 'null' when there are no more results to return.
 dngrsNextToken :: Lens' DescribeNatGatewaysResponse (Maybe Text)
 dngrsNextToken = lens _dngrsNextToken (\ s a -> s{_dngrsNextToken = a});
 

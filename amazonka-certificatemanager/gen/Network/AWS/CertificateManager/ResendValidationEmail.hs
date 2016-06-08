@@ -18,16 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resends the email that requests domain ownership validation. The domain
--- owner or an authorized representative must approve the ACM Certificate
--- before it can be issued. The certificate can be approved by clicking a
--- link in the mail to navigate to the Amazon certificate approval website
--- and then clicking __I Approve__. However, the validation email can be
--- blocked by spam filters. Therefore, if you do not receive the original
--- mail, you can request that the mail be resent within 72 hours of
--- requesting the ACM Certificate. If more than 72 hours have elapsed since
--- your original request or since your last attempt to resend validation
--- mail, you must request a new certificate.
+-- Resends the email that requests domain ownership validation. The domain owner or an authorized representative must approve the ACM Certificate before it can be issued. The certificate can be approved by clicking a link in the mail to navigate to the Amazon certificate approval website and then clicking __I Approve__. However, the validation email can be blocked by spam filters. Therefore, if you do not receive the original mail, you can request that the mail be resent within 72 hours of requesting the ACM Certificate. If more than 72 hours have elapsed since your original request or since your last attempt to resend validation mail, you must request a new certificate.
 module Network.AWS.CertificateManager.ResendValidationEmail
     (
     -- * Creating a Request
@@ -80,11 +71,7 @@ resendValidationEmail pCertificateARN_ pDomain_ pValidationDomain_ =
     , _rveValidationDomain = pValidationDomain_
     }
 
--- | String that contains the ARN of the requested certificate. The
--- certificate ARN is generated and returned by the < RequestCertificate>
--- action as soon as the request is made. By default, using this parameter
--- causes email to be sent to all top-level domains you specified in the
--- certificate request.
+-- | String that contains the ARN of the requested certificate. The certificate ARN is generated and returned by the < RequestCertificate> action as soon as the request is made. By default, using this parameter causes email to be sent to all top-level domains you specified in the certificate request.
 --
 -- The ARN must be of the form:
 --
@@ -92,18 +79,11 @@ resendValidationEmail pCertificateARN_ pDomain_ pValidationDomain_ =
 rveCertificateARN :: Lens' ResendValidationEmail Text
 rveCertificateARN = lens _rveCertificateARN (\ s a -> s{_rveCertificateARN = a});
 
--- | The Fully Qualified Domain Name (FQDN) of the certificate that needs to
--- be validated.
+-- | The Fully Qualified Domain Name (FQDN) of the certificate that needs to be validated.
 rveDomain :: Lens' ResendValidationEmail Text
 rveDomain = lens _rveDomain (\ s a -> s{_rveDomain = a});
 
--- | The base validation domain that will act as the suffix of the email
--- addresses that are used to send the emails. This must be the same as the
--- 'Domain' value or a superdomain of the 'Domain' value. For example, if
--- you requested a certificate for 'site.subdomain.example.com' and specify
--- a __ValidationDomain__ of 'subdomain.example.com', ACM sends email to
--- the domain registrant, technical contact, and administrative contact in
--- WHOIS and the following five addresses:
+-- | The base validation domain that will act as the suffix of the email addresses that are used to send the emails. This must be the same as the 'Domain' value or a superdomain of the 'Domain' value. For example, if you requested a certificate for 'site.subdomain.example.com' and specify a __ValidationDomain__ of 'subdomain.example.com', ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS and the following five addresses:
 --
 -- -   admin\'subdomain.example.com
 --

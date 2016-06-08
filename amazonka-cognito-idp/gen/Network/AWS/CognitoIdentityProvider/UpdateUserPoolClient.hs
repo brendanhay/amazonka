@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows the developer to update the specified user pool client and
--- password policy.
+-- Allows the developer to update the specified user pool client and password policy.
 module Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient
     (
     -- * Creating a Request
@@ -78,8 +77,7 @@ updateUserPoolClient pUserPoolId_ pClientId_ =
 uupcClientName :: Lens' UpdateUserPoolClient (Maybe Text)
 uupcClientName = lens _uupcClientName (\ s a -> s{_uupcClientName = a});
 
--- | The user pool ID for the user pool where you want to update the user
--- pool client.
+-- | The user pool ID for the user pool where you want to update the user pool client.
 uupcUserPoolId :: Lens' UpdateUserPoolClient Text
 uupcUserPoolId = lens _uupcUserPoolId (\ s a -> s{_uupcUserPoolId = a});
 
@@ -125,8 +123,7 @@ instance ToPath UpdateUserPoolClient where
 instance ToQuery UpdateUserPoolClient where
         toQuery = const mempty
 
--- | Represents the response from the server to the request to update the
--- user pool client.
+-- | Represents the response from the server to the request to update the user pool client.
 --
 -- /See:/ 'updateUserPoolClientResponse' smart constructor.
 data UpdateUserPoolClientResponse = UpdateUserPoolClientResponse'
@@ -150,8 +147,7 @@ updateUserPoolClientResponse pResponseStatus_ =
     , _uupcrsResponseStatus = pResponseStatus_
     }
 
--- | The user pool client value from the response from the server when an
--- update user pool client request is made.
+-- | The user pool client value from the response from the server when an update user pool client request is made.
 uupcrsUserPoolClient :: Lens' UpdateUserPoolClientResponse (Maybe UserPoolClientType)
 uupcrsUserPoolClient = lens _uupcrsUserPoolClient (\ s a -> s{_uupcrsUserPoolClient = a});
 

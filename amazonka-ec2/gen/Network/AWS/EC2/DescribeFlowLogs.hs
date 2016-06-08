@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more flow logs. To view the information in your flow
--- logs (the log streams for the network interfaces), you must use the
--- CloudWatch Logs console or the CloudWatch Logs API.
+-- Describes one or more flow logs. To view the information in your flow logs (the log streams for the network interfaces), you must use the CloudWatch Logs console or the CloudWatch Logs API.
 module Network.AWS.EC2.DescribeFlowLogs
     (
     -- * Creating a Request
@@ -89,8 +87,7 @@ dFlowLogIds = lens _dFlowLogIds (\ s a -> s{_dFlowLogIds = a}) . _Default . _Coe
 
 -- | One or more filters.
 --
--- -   'deliver-log-status' - The status of the logs delivery ('SUCCESS' |
---     'FAILED').
+-- -   'deliver-log-status' - The status of the logs delivery ('SUCCESS' | 'FAILED').
 --
 -- -   'flow-log-id' - The ID of the flow log.
 --
@@ -103,12 +100,7 @@ dFlowLogIds = lens _dFlowLogIds (\ s a -> s{_dFlowLogIds = a}) . _Default . _Coe
 dFilter :: Lens' DescribeFlowLogs [Filter]
 dFilter = lens _dFilter (\ s a -> s{_dFilter = a}) . _Default . _Coerce;
 
--- | The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the returned 'NextToken' value. This value can be between 5 and 1000; if
--- 'MaxResults' is given a value larger than 1000, only 1000 results are
--- returned. You cannot specify this parameter and the flow log IDs
--- parameter in the same request.
+-- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned 'NextToken' value. This value can be between 5 and 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the flow log IDs parameter in the same request.
 dMaxResults :: Lens' DescribeFlowLogs (Maybe Int)
 dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a});
 
@@ -172,8 +164,7 @@ describeFlowLogsResponse pResponseStatus_ =
     , _dflsrsResponseStatus = pResponseStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- 'null' when there are no more results to return.
+-- | The token to use to retrieve the next page of results. This value is 'null' when there are no more results to return.
 dflsrsNextToken :: Lens' DescribeFlowLogsResponse (Maybe Text)
 dflsrsNextToken = lens _dflsrsNextToken (\ s a -> s{_dflsrsNextToken = a});
 

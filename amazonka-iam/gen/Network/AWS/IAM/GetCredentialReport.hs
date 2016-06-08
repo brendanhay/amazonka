@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a credential report for the AWS account. For more information
--- about the credential report, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports>
--- in the /IAM User Guide/.
+-- Retrieves a credential report for the AWS account. For more information about the credential report, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports> in the /IAM User Guide/.
 module Network.AWS.IAM.GetCredentialReport
     (
     -- * Creating a Request
@@ -127,8 +124,7 @@ getCredentialReportResponse pResponseStatus_ =
 grsContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
 grsContent = lens _grsContent (\ s a -> s{_grsContent = a}) . mapping _Base64;
 
--- | The date and time when the credential report was created, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
+-- | The date and time when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
 grsGeneratedTime :: Lens' GetCredentialReportResponse (Maybe UTCTime)
 grsGeneratedTime = lens _grsGeneratedTime (\ s a -> s{_grsGeneratedTime = a}) . mapping _Time;
 

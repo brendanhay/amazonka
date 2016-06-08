@@ -56,19 +56,15 @@ putEventsRequestEntry =
     , _pereDetail = Nothing
     }
 
--- | Timestamp of event, per
--- <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339>. If no timestamp is
--- provided, the timestamp of the < PutEvents> call will be used.
+-- | Timestamp of event, per <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339>. If no timestamp is provided, the timestamp of the < PutEvents> call will be used.
 pereTime :: Lens' PutEventsRequestEntry (Maybe UTCTime)
 pereTime = lens _pereTime (\ s a -> s{_pereTime = a}) . mapping _Time;
 
--- | Free-form string used to decide what fields to expect in the event
--- detail.
+-- | Free-form string used to decide what fields to expect in the event detail.
 pereDetailType :: Lens' PutEventsRequestEntry (Maybe Text)
 pereDetailType = lens _pereDetailType (\ s a -> s{_pereDetailType = a});
 
--- | AWS resources, identified by Amazon Resource Name (ARN), which the event
--- primarily concerns. Any number, including zero, may be present.
+-- | AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
 pereResources :: Lens' PutEventsRequestEntry [Text]
 pereResources = lens _pereResources (\ s a -> s{_pereResources = a}) . _Default . _Coerce;
 
@@ -76,8 +72,7 @@ pereResources = lens _pereResources (\ s a -> s{_pereResources = a}) . _Default 
 pereSource :: Lens' PutEventsRequestEntry (Maybe Text)
 pereSource = lens _pereSource (\ s a -> s{_pereSource = a});
 
--- | In the JSON sense, an object containing fields, which may also contain
--- nested sub-objects. No constraints are imposed on its contents.
+-- | In the JSON sense, an object containing fields, which may also contain nested sub-objects. No constraints are imposed on its contents.
 pereDetail :: Lens' PutEventsRequestEntry (Maybe Text)
 pereDetail = lens _pereDetail (\ s a -> s{_pereDetail = a});
 
@@ -122,13 +117,11 @@ putEventsResultEntry =
     , _pereEventId = Nothing
     }
 
--- | The error code representing why the event submission failed on this
--- entry.
+-- | The error code representing why the event submission failed on this entry.
 pereErrorCode :: Lens' PutEventsResultEntry (Maybe Text)
 pereErrorCode = lens _pereErrorCode (\ s a -> s{_pereErrorCode = a});
 
--- | The error message explaining why the event submission failed on this
--- entry.
+-- | The error message explaining why the event submission failed on this entry.
 pereErrorMessage :: Lens' PutEventsResultEntry (Maybe Text)
 pereErrorMessage = lens _pereErrorMessage (\ s a -> s{_pereErrorMessage = a});
 
@@ -179,13 +172,11 @@ putTargetsResultEntry =
 ptreTargetId :: Lens' PutTargetsResultEntry (Maybe Text)
 ptreTargetId = lens _ptreTargetId (\ s a -> s{_ptreTargetId = a});
 
--- | The error code representing why the target submission failed on this
--- entry.
+-- | The error code representing why the target submission failed on this entry.
 ptreErrorCode :: Lens' PutTargetsResultEntry (Maybe Text)
 ptreErrorCode = lens _ptreErrorCode (\ s a -> s{_ptreErrorCode = a});
 
--- | The error message explaining why the target submission failed on this
--- entry.
+-- | The error message explaining why the target submission failed on this entry.
 ptreErrorMessage :: Lens' PutTargetsResultEntry (Maybe Text)
 ptreErrorMessage = lens _ptreErrorMessage (\ s a -> s{_ptreErrorMessage = a});
 
@@ -201,8 +192,7 @@ instance Hashable PutTargetsResultEntry
 
 instance NFData PutTargetsResultEntry
 
--- | The ID of the target requested to be removed from the rule by Amazon
--- CloudWatch Events.
+-- | The ID of the target requested to be removed from the rule by Amazon CloudWatch Events.
 --
 -- /See:/ 'removeTargetsResultEntry' smart constructor.
 data RemoveTargetsResultEntry = RemoveTargetsResultEntry'
@@ -229,8 +219,7 @@ removeTargetsResultEntry =
     , _rtreErrorMessage = Nothing
     }
 
--- | The ID of the target requested to be removed by Amazon CloudWatch
--- Events.
+-- | The ID of the target requested to be removed by Amazon CloudWatch Events.
 rtreTargetId :: Lens' RemoveTargetsResultEntry (Maybe Text)
 rtreTargetId = lens _rtreTargetId (\ s a -> s{_rtreTargetId = a});
 
@@ -238,8 +227,7 @@ rtreTargetId = lens _rtreTargetId (\ s a -> s{_rtreTargetId = a});
 rtreErrorCode :: Lens' RemoveTargetsResultEntry (Maybe Text)
 rtreErrorCode = lens _rtreErrorCode (\ s a -> s{_rtreErrorCode = a});
 
--- | The error message explaining why the target removal failed on this
--- entry.
+-- | The error message explaining why the target removal failed on this entry.
 rtreErrorMessage :: Lens' RemoveTargetsResultEntry (Maybe Text)
 rtreErrorMessage = lens _rtreErrorMessage (\ s a -> s{_rtreErrorMessage = a});
 
@@ -255,8 +243,7 @@ instance Hashable RemoveTargetsResultEntry
 
 instance NFData RemoveTargetsResultEntry
 
--- | Contains information about a rule in Amazon CloudWatch Events. A
--- ListRulesResult contains a list of Rules.
+-- | Contains information about a rule in Amazon CloudWatch Events. A ListRulesResult contains a list of Rules.
 --
 -- /See:/ 'rule' smart constructor.
 data Rule = Rule'
@@ -311,8 +298,7 @@ rState = lens _rState (\ s a -> s{_rState = a});
 rARN :: Lens' Rule (Maybe Text)
 rARN = lens _rARN (\ s a -> s{_rARN = a});
 
--- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5
--- minutes)\".
+-- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\".
 rScheduleExpression :: Lens' Rule (Maybe Text)
 rScheduleExpression = lens _rScheduleExpression (\ s a -> s{_rScheduleExpression = a});
 
@@ -324,8 +310,7 @@ rName = lens _rName (\ s a -> s{_rName = a});
 rDescription :: Lens' Rule (Maybe Text)
 rDescription = lens _rDescription (\ s a -> s{_rDescription = a});
 
--- | The Amazon Resource Name (ARN) associated with the role that is used for
--- target invocation.
+-- | The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 rRoleARN :: Lens' Rule (Maybe Text)
 rRoleARN = lens _rRoleARN (\ s a -> s{_rRoleARN = a});
 
@@ -345,22 +330,13 @@ instance Hashable Rule
 
 instance NFData Rule
 
--- | Targets are the resources that can be invoked when a rule is triggered.
--- For example, AWS Lambda functions, Amazon Kinesis streams, and built-in
--- targets.
+-- | Targets are the resources that can be invoked when a rule is triggered. For example, AWS Lambda functions, Amazon Kinesis streams, and built-in targets.
 --
--- __Input__ and __InputPath__ are mutually-exclusive and optional
--- parameters of a target. When a rule is triggered due to a matched event,
--- if for a target:
+-- __Input__ and __InputPath__ are mutually-exclusive and optional parameters of a target. When a rule is triggered due to a matched event, if for a target:
 --
--- -   Neither __Input__ nor __InputPath__ is specified, then the entire
---     event is passed to the target in JSON form.
--- -   __InputPath__ is specified in the form of JSONPath (e.g.
---     __$.detail__), then only the part of the event specified in the path
---     is passed to the target (e.g. only the detail part of the event is
---     passed).
--- -   __Input__ is specified in the form of a valid JSON, then the matched
---     event is overridden with this constant.
+-- -   Neither __Input__ nor __InputPath__ is specified, then the entire event is passed to the target in JSON form.
+-- -   __InputPath__ is specified in the form of JSONPath (e.g. __>.detail__), then only the part of the event specified in the path is passed to the target (e.g. only the detail part of the event is passed).
+-- -   __Input__ is specified in the form of a valid JSON, then the matched event is overridden with this constant.
 --
 -- /See:/ 'target' smart constructor.
 data Target = Target'
@@ -393,15 +369,11 @@ target pId_ pARN_ =
     , _tARN = pARN_
     }
 
--- | Valid JSON text passed to the target. For more information about JSON
--- text, see
--- <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format>.
+-- | Valid JSON text passed to the target. For more information about JSON text, see <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format>.
 tInput :: Lens' Target (Maybe Text)
 tInput = lens _tInput (\ s a -> s{_tInput = a});
 
--- | The value of the JSONPath that is used for extracting part of the
--- matched event when passing it to the target. For more information about
--- JSON paths, see <http://goessner.net/articles/JsonPath/ JSONPath>.
+-- | The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. For more information about JSON paths, see <http://goessner.net/articles/JsonPath/ JSONPath>.
 tInputPath :: Lens' Target (Maybe Text)
 tInputPath = lens _tInputPath (\ s a -> s{_tInputPath = a});
 

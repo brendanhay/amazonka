@@ -48,8 +48,7 @@ cognitoIdentityProvider =
 cipClientId :: Lens' CognitoIdentityProvider (Maybe Text)
 cipClientId = lens _cipClientId (\ s a -> s{_cipClientId = a});
 
--- | The provider name for a Cognito User Identity Pool. For example,
--- 'cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789'.
+-- | The provider name for a Cognito User Identity Pool. For example, 'cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789'.
 cipProviderName :: Lens' CognitoIdentityProvider (Maybe Text)
 cipProviderName = lens _cipProviderName (\ s a -> s{_cipProviderName = a});
 
@@ -170,8 +169,7 @@ idLastModifiedDate = lens _idLastModifiedDate (\ s a -> s{_idLastModifiedDate = 
 idCreationDate :: Lens' IdentityDescription (Maybe UTCTime)
 idCreationDate = lens _idCreationDate (\ s a -> s{_idCreationDate = a}) . mapping _Time;
 
--- | A set of optional name-value pairs that map provider names to provider
--- tokens.
+-- | A set of optional name-value pairs that map provider names to provider tokens.
 idLogins :: Lens' IdentityDescription [Text]
 idLogins = lens _idLogins (\ s a -> s{_idLogins = a}) . _Default . _Coerce;
 
@@ -344,8 +342,7 @@ instance Hashable IdentityPoolShortDescription
 
 instance NFData IdentityPoolShortDescription
 
--- | An array of UnprocessedIdentityId objects, each of which contains an
--- ErrorCode and IdentityId.
+-- | An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.
 --
 -- /See:/ 'unprocessedIdentityId' smart constructor.
 data UnprocessedIdentityId = UnprocessedIdentityId'

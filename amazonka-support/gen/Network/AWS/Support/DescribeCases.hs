@@ -18,21 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of cases that you specify by passing one or more case
--- IDs. In addition, you can filter the cases by date by setting values for
--- the 'AfterTime' and 'BeforeTime' request parameters. You can set values
--- for the 'IncludeResolvedCases' and 'IncludeCommunications' request
--- parameters to control how much information is returned.
+-- Returns a list of cases that you specify by passing one or more case IDs. In addition, you can filter the cases by date by setting values for the 'AfterTime' and 'BeforeTime' request parameters. You can set values for the 'IncludeResolvedCases' and 'IncludeCommunications' request parameters to control how much information is returned.
 --
--- Case data is available for 12 months after creation. If a case was
--- created more than 12 months ago, a request for data might cause an
--- error.
+-- Case data is available for 12 months after creation. If a case was created more than 12 months ago, a request for data might cause an error.
 --
 -- The response returns the following in JSON format:
 --
 -- 1.  One or more < CaseDetails> data types.
--- 2.  One or more 'NextToken' values, which specify where to paginate the
---     returned records represented by the 'CaseDetails' objects.
+-- 2.  One or more 'NextToken' values, which specify where to paginate the returned records represented by the 'CaseDetails' objects.
 --
 -- This operation returns paginated results.
 module Network.AWS.Support.DescribeCases
@@ -117,24 +110,19 @@ describeCases =
     , _dcMaxResults = Nothing
     }
 
--- | Specifies whether resolved support cases should be included in the
--- < DescribeCases> results. The default is /false/.
+-- | Specifies whether resolved support cases should be included in the < DescribeCases> results. The default is /false/.
 dcIncludeResolvedCases :: Lens' DescribeCases (Maybe Bool)
 dcIncludeResolvedCases = lens _dcIncludeResolvedCases (\ s a -> s{_dcIncludeResolvedCases = a});
 
--- | A list of ID numbers of the support cases you want returned. The maximum
--- number of cases is 100.
+-- | A list of ID numbers of the support cases you want returned. The maximum number of cases is 100.
 dcCaseIdList :: Lens' DescribeCases [Text]
 dcCaseIdList = lens _dcCaseIdList (\ s a -> s{_dcCaseIdList = a}) . _Default . _Coerce;
 
--- | The start date for a filtered date search on support case
--- communications. Case communications are available for 12 months after
--- creation.
+-- | The start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 dcAfterTime :: Lens' DescribeCases (Maybe Text)
 dcAfterTime = lens _dcAfterTime (\ s a -> s{_dcAfterTime = a});
 
--- | The end date for a filtered date search on support case communications.
--- Case communications are available for 12 months after creation.
+-- | The end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 dcBeforeTime :: Lens' DescribeCases (Maybe Text)
 dcBeforeTime = lens _dcBeforeTime (\ s a -> s{_dcBeforeTime = a});
 
@@ -142,8 +130,7 @@ dcBeforeTime = lens _dcBeforeTime (\ s a -> s{_dcBeforeTime = a});
 dcNextToken :: Lens' DescribeCases (Maybe Text)
 dcNextToken = lens _dcNextToken (\ s a -> s{_dcNextToken = a});
 
--- | Specifies whether communications should be included in the
--- < DescribeCases> results. The default is /true/.
+-- | Specifies whether communications should be included in the < DescribeCases> results. The default is /true/.
 dcIncludeCommunications :: Lens' DescribeCases (Maybe Bool)
 dcIncludeCommunications = lens _dcIncludeCommunications (\ s a -> s{_dcIncludeCommunications = a});
 
@@ -151,10 +138,7 @@ dcIncludeCommunications = lens _dcIncludeCommunications (\ s a -> s{_dcIncludeCo
 dcDisplayId :: Lens' DescribeCases (Maybe Text)
 dcDisplayId = lens _dcDisplayId (\ s a -> s{_dcDisplayId = a});
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
 dcLanguage :: Lens' DescribeCases (Maybe Text)
 dcLanguage = lens _dcLanguage (\ s a -> s{_dcLanguage = a});
 
@@ -214,8 +198,7 @@ instance ToPath DescribeCases where
 instance ToQuery DescribeCases where
         toQuery = const mempty
 
--- | Returns an array of < CaseDetails> objects and a 'NextToken' that
--- defines a point for pagination in the result set.
+-- | Returns an array of < CaseDetails> objects and a 'NextToken' that defines a point for pagination in the result set.
 --
 -- /See:/ 'describeCasesResponse' smart constructor.
 data DescribeCasesResponse = DescribeCasesResponse'

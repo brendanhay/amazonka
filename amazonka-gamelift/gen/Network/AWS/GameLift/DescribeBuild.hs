@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties for a build. To get a build record, specify a build
--- ID. If successful, an object containing the build properties is
--- returned.
+-- Retrieves properties for a build. To get a build record, specify a build ID. If successful, an object containing the build properties is returned.
 module Network.AWS.GameLift.DescribeBuild
     (
     -- * Creating a Request

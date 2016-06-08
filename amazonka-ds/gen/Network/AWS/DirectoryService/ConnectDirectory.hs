@@ -98,8 +98,7 @@ cdShortName = lens _cdShortName (\ s a -> s{_cdShortName = a});
 cdDescription :: Lens' ConnectDirectory (Maybe Text)
 cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 
--- | The fully-qualified name of the on-premises directory, such as
--- 'corp.example.com'.
+-- | The fully-qualified name of the on-premises directory, such as 'corp.example.com'.
 cdName :: Lens' ConnectDirectory Text
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
@@ -111,8 +110,7 @@ cdPassword = lens _cdPassword (\ s a -> s{_cdPassword = a}) . _Sensitive;
 cdSize :: Lens' ConnectDirectory DirectorySize
 cdSize = lens _cdSize (\ s a -> s{_cdSize = a});
 
--- | A < DirectoryConnectSettings> object that contains additional
--- information for the operation.
+-- | A < DirectoryConnectSettings> object that contains additional information for the operation.
 cdConnectSettings :: Lens' ConnectDirectory DirectoryConnectSettings
 cdConnectSettings = lens _cdConnectSettings (\ s a -> s{_cdConnectSettings = a});
 

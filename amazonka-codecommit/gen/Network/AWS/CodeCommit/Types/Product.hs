@@ -102,11 +102,7 @@ commit =
     , _cMessage = Nothing
     }
 
--- | Information about the person who committed the specified commit, also
--- known as the committer. For more information about the difference
--- between an author and a committer in Git, see
--- <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro
--- Git by Scott Chacon and Ben Straub.
+-- | Information about the person who committed the specified commit, also known as the committer. For more information about the difference between an author and a committer in Git, see <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro Git by Scott Chacon and Ben Straub.
 cCommitter :: Lens' Commit (Maybe UserInfo)
 cCommitter = lens _cCommitter (\ s a -> s{_cCommitter = a});
 
@@ -337,18 +333,15 @@ repositoryTrigger =
     , _rtEvents = Nothing
     }
 
--- | The branches that will be included in the trigger configuration. If no
--- branches are specified, the trigger will apply to all branches.
+-- | The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
 rtBranches :: Lens' RepositoryTrigger [Text]
 rtBranches = lens _rtBranches (\ s a -> s{_rtBranches = a}) . _Default . _Coerce;
 
--- | Any custom data associated with the trigger that will be included in the
--- information sent to the target of the trigger.
+-- | Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
 rtCustomData :: Lens' RepositoryTrigger (Maybe Text)
 rtCustomData = lens _rtCustomData (\ s a -> s{_rtCustomData = a});
 
--- | The ARN of the resource that is the target for a trigger. For example,
--- the ARN of a topic in Amazon Simple Notification Service (SNS).
+-- | The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
 rtDestinationARN :: Lens' RepositoryTrigger (Maybe Text)
 rtDestinationARN = lens _rtDestinationARN (\ s a -> s{_rtDestinationARN = a});
 
@@ -356,10 +349,7 @@ rtDestinationARN = lens _rtDestinationARN (\ s a -> s{_rtDestinationARN = a});
 rtName :: Lens' RepositoryTrigger (Maybe Text)
 rtName = lens _rtName (\ s a -> s{_rtName = a});
 
--- | The repository events that will cause the trigger to run actions in
--- another service, such as sending a notification through Amazon Simple
--- Notification Service (SNS). If no events are specified, the trigger will
--- run for all repository events.
+-- | The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events.
 rtEvents :: Lens' RepositoryTrigger [RepositoryTriggerEventEnum]
 rtEvents = lens _rtEvents (\ s a -> s{_rtEvents = a}) . _Default . _Coerce;
 

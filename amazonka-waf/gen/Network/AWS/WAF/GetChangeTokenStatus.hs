@@ -18,14 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the status of a 'ChangeToken' that you got by calling
--- < GetChangeToken>. 'ChangeTokenStatus' is one of the following values:
+-- Returns the status of a 'ChangeToken' that you got by calling < GetChangeToken>. 'ChangeTokenStatus' is one of the following values:
 --
--- -   'PROVISIONED': You requested the change token by calling
---     'GetChangeToken', but you haven\'t used it yet in a call to create,
---     update, or delete an AWS WAF object.
--- -   'PENDING': AWS WAF is propagating the create, update, or delete
---     request to all AWS WAF servers.
+-- -   'PROVISIONED': You requested the change token by calling 'GetChangeToken', but you haven\'t used it yet in a call to create, update, or delete an AWS WAF object.
+-- -   'PENDING': AWS WAF is propagating the create, update, or delete request to all AWS WAF servers.
 -- -   'IN_SYNC': Propagation is complete.
 module Network.AWS.WAF.GetChangeTokenStatus
     (
@@ -68,8 +64,7 @@ getChangeTokenStatus pChangeToken_ =
     { _gctsChangeToken = pChangeToken_
     }
 
--- | The change token for which you want to get the status. This change token
--- was previously returned in the 'GetChangeToken' response.
+-- | The change token for which you want to get the status. This change token was previously returned in the 'GetChangeToken' response.
 gctsChangeToken :: Lens' GetChangeTokenStatus Text
 gctsChangeToken = lens _gctsChangeToken (\ s a -> s{_gctsChangeToken = a});
 

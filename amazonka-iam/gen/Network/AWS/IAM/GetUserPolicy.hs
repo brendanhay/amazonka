@@ -18,17 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the specified inline policy document that is embedded in the
--- specified user.
+-- Retrieves the specified inline policy document that is embedded in the specified user.
 --
--- A user can also have managed policies attached to it. To retrieve a
--- managed policy document that is attached to a user, use < GetPolicy> to
--- determine the policy\'s default version, then use < GetPolicyVersion> to
--- retrieve the policy document.
+-- A user can also have managed policies attached to it. To retrieve a managed policy document that is attached to a user, use < GetPolicy> to determine the policy\'s default version, then use < GetPolicyVersion> to retrieve the policy document.
 --
--- For more information about policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.GetUserPolicy
     (
     -- * Creating a Request

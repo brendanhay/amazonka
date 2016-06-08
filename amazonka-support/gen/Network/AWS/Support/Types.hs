@@ -193,18 +193,15 @@ support =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The expiration time of the attachment set has passed. The set expires 1
--- hour after it is created.
+-- | The expiration time of the attachment set has passed. The set expires 1 hour after it is created.
 _AttachmentSetExpired :: AsError a => Getting (First ServiceError) a ServiceError
 _AttachmentSetExpired = _ServiceError . hasCode "AttachmentSetExpired"
 
--- | The limit for the number of attachment sets created in a short period of
--- time has been exceeded.
+-- | The limit for the number of attachment sets created in a short period of time has been exceeded.
 _AttachmentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _AttachmentLimitExceeded = _ServiceError . hasCode "AttachmentLimitExceeded"
 
--- | The limit for the number of < DescribeAttachment> requests in a short
--- period of time has been exceeded.
+-- | The limit for the number of < DescribeAttachment> requests in a short period of time has been exceeded.
 _DescribeAttachmentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DescribeAttachmentLimitExceeded =
     _ServiceError . hasCode "DescribeAttachmentLimitExceeded"
@@ -217,8 +214,7 @@ _CaseIdNotFound = _ServiceError . hasCode "CaseIdNotFound"
 _AttachmentSetIdNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _AttachmentSetIdNotFound = _ServiceError . hasCode "AttachmentSetIdNotFound"
 
--- | A limit for the size of an attachment set has been exceeded. The limits
--- are 3 attachments and 5 MB per attachment.
+-- | A limit for the size of an attachment set has been exceeded. The limits are 3 attachments and 5 MB per attachment.
 _AttachmentSetSizeLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _AttachmentSetSizeLimitExceeded =
     _ServiceError . hasCode "AttachmentSetSizeLimitExceeded"

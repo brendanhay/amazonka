@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the object definitions for a set of objects associated with the
--- pipeline. Object definitions are composed of a set of fields that define
--- the properties of the object.
+-- Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of a set of fields that define the properties of the object.
 --
 -- This operation returns paginated results.
 module Network.AWS.DataPipeline.DescribeObjects
@@ -84,15 +82,11 @@ describeObjects pPipelineId_ =
     , _doObjectIds = mempty
     }
 
--- | Indicates whether any expressions in the object should be evaluated when
--- the object descriptions are returned.
+-- | Indicates whether any expressions in the object should be evaluated when the object descriptions are returned.
 doEvaluateExpressions :: Lens' DescribeObjects (Maybe Bool)
 doEvaluateExpressions = lens _doEvaluateExpressions (\ s a -> s{_doEvaluateExpressions = a});
 
--- | The starting point for the results to be returned. For the first call,
--- this value should be empty. As long as there are more results, continue
--- to call 'DescribeObjects' with the marker value from the previous call
--- to retrieve the next set of results.
+-- | The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call 'DescribeObjects' with the marker value from the previous call to retrieve the next set of results.
 doMarker :: Lens' DescribeObjects (Maybe Text)
 doMarker = lens _doMarker (\ s a -> s{_doMarker = a});
 
@@ -100,9 +94,7 @@ doMarker = lens _doMarker (\ s a -> s{_doMarker = a});
 doPipelineId :: Lens' DescribeObjects Text
 doPipelineId = lens _doPipelineId (\ s a -> s{_doPipelineId = a});
 
--- | The IDs of the pipeline objects that contain the definitions to be
--- described. You can pass as many as 25 identifiers in a single call to
--- 'DescribeObjects'.
+-- | The IDs of the pipeline objects that contain the definitions to be described. You can pass as many as 25 identifiers in a single call to 'DescribeObjects'.
 doObjectIds :: Lens' DescribeObjects [Text]
 doObjectIds = lens _doObjectIds (\ s a -> s{_doObjectIds = a}) . _Coerce;
 
@@ -189,9 +181,7 @@ describeObjectsResponse pResponseStatus_ =
 dorsHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
 dorsHasMoreResults = lens _dorsHasMoreResults (\ s a -> s{_dorsHasMoreResults = a});
 
--- | The starting point for the next page of results. To view the next page
--- of results, call 'DescribeObjects' again with this marker value. If the
--- value is null, there are no more results.
+-- | The starting point for the next page of results. To view the next page of results, call 'DescribeObjects' again with this marker value. If the value is null, there are no more results.
 dorsMarker :: Lens' DescribeObjectsResponse (Maybe Text)
 dorsMarker = lens _dorsMarker (\ s a -> s{_dorsMarker = a});
 

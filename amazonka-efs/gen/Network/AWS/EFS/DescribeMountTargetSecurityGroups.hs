@@ -18,17 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the security groups currently in effect for a mount target. This
--- operation requires that the network interface of the mount target has
--- been created and the life cycle state of the mount target is not
--- \"deleted\".
+-- Returns the security groups currently in effect for a mount target. This operation requires that the network interface of the mount target has been created and the life cycle state of the mount target is not \"deleted\".
 --
 -- This operation requires permissions for the following actions:
 --
--- -   'elasticfilesystem:DescribeMountTargetSecurityGroups' action on the
---     mount target\'s file system.
--- -   'ec2:DescribeNetworkInterfaceAttribute' action on the mount
---     target\'s network interface.
+-- -   'elasticfilesystem:DescribeMountTargetSecurityGroups' action on the mount target\'s file system.
+-- -   'ec2:DescribeNetworkInterfaceAttribute' action on the mount target\'s network interface.
 module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     (
     -- * Creating a Request

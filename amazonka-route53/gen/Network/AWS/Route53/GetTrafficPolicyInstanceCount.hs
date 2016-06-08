@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the number of traffic policy instances that are associated with the
--- current AWS account.
+-- Gets the number of traffic policy instances that are associated with the current AWS account.
 --
--- To get the number of traffic policy instances, send a 'GET' request to
--- the '\/Route 53 API version\/trafficpolicyinstancecount' resource.
+-- To get the number of traffic policy instances, send a 'GET' request to the '\/Route 53 API version\/trafficpolicyinstancecount' resource.
 module Network.AWS.Route53.GetTrafficPolicyInstanceCount
     (
     -- * Creating a Request
@@ -44,9 +42,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To retrieve a count of all your traffic policy instances, send a 'GET'
--- request to the '\/Route 53 API version\/trafficpolicyinstancecount'
--- resource.
+-- | To retrieve a count of all your traffic policy instances, send a 'GET' request to the '\/Route 53 API version\/trafficpolicyinstancecount' resource.
 --
 -- /See:/ 'getTrafficPolicyInstanceCount' smart constructor.
 data GetTrafficPolicyInstanceCount =
@@ -86,8 +82,7 @@ instance ToPath GetTrafficPolicyInstanceCount where
 instance ToQuery GetTrafficPolicyInstanceCount where
         toQuery = const mempty
 
--- | A complex type that contains information about the number of traffic
--- policy instances that are associated with the current AWS account.
+-- | A complex type that contains information about the number of traffic policy instances that are associated with the current AWS account.
 --
 -- /See:/ 'getTrafficPolicyInstanceCountResponse' smart constructor.
 data GetTrafficPolicyInstanceCountResponse = GetTrafficPolicyInstanceCountResponse'
@@ -116,8 +111,7 @@ getTrafficPolicyInstanceCountResponse pResponseStatus_ pTrafficPolicyInstanceCou
 gtpicrsResponseStatus :: Lens' GetTrafficPolicyInstanceCountResponse Int
 gtpicrsResponseStatus = lens _gtpicrsResponseStatus (\ s a -> s{_gtpicrsResponseStatus = a});
 
--- | The number of traffic policy instances that are associated with the
--- current AWS account.
+-- | The number of traffic policy instances that are associated with the current AWS account.
 gtpicrsTrafficPolicyInstanceCount :: Lens' GetTrafficPolicyInstanceCountResponse Int
 gtpicrsTrafficPolicyInstanceCount = lens _gtpicrsTrafficPolicyInstanceCount (\ s a -> s{_gtpicrsTrafficPolicyInstanceCount = a});
 

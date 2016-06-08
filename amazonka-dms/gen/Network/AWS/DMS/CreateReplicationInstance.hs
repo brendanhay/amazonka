@@ -118,15 +118,11 @@ createReplicationInstance pReplicationInstanceIdentifier_ pReplicationInstanceCl
 criEngineVersion :: Lens' CreateReplicationInstance (Maybe Text)
 criEngineVersion = lens _criEngineVersion (\ s a -> s{_criEngineVersion = a});
 
--- | Specifies the accessibility options for the replication instance. A
--- value of 'true' represents an instance with a public IP address. A value
--- of 'false' represents an instance with a private IP address. The default
--- value is 'true'.
+-- | Specifies the accessibility options for the replication instance. A value of 'true' represents an instance with a public IP address. A value of 'false' represents an instance with a private IP address. The default value is 'true'.
 criPubliclyAccessible :: Lens' CreateReplicationInstance (Maybe Bool)
 criPubliclyAccessible = lens _criPubliclyAccessible (\ s a -> s{_criPubliclyAccessible = a});
 
--- | Indicates that minor engine upgrades will be applied automatically to
--- the replication instance during the maintenance window.
+-- | Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
 --
 -- Default: 'true'
 criAutoMinorVersionUpgrade :: Lens' CreateReplicationInstance (Maybe Bool)
@@ -136,13 +132,11 @@ criAutoMinorVersionUpgrade = lens _criAutoMinorVersionUpgrade (\ s a -> s{_criAu
 criReplicationSubnetGroupIdentifier :: Lens' CreateReplicationInstance (Maybe Text)
 criReplicationSubnetGroupIdentifier = lens _criReplicationSubnetGroupIdentifier (\ s a -> s{_criReplicationSubnetGroupIdentifier = a});
 
--- | The weekly time range during which system maintenance can occur, in
--- Universal Coordinated Time (UTC).
+-- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 --
 -- Format: 'ddd:hh24:mi-ddd:hh24:mi'
 --
--- Default: A 30-minute window selected at random from an 8-hour block of
--- time per region, occurring on a random day of the week.
+-- Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
 --
 -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 --
@@ -150,26 +144,19 @@ criReplicationSubnetGroupIdentifier = lens _criReplicationSubnetGroupIdentifier 
 criPreferredMaintenanceWindow :: Lens' CreateReplicationInstance (Maybe Text)
 criPreferredMaintenanceWindow = lens _criPreferredMaintenanceWindow (\ s a -> s{_criPreferredMaintenanceWindow = a});
 
--- | The KMS key identifier that will be used to encrypt the content on the
--- replication instance. If you do not specify a value for the KmsKeyId
--- parameter, then AWS DMS will use your default encryption key. AWS KMS
--- creates the default encryption key for your AWS account. Your AWS
--- account has a different default encryption key for each AWS region.
+-- | The KMS key identifier that will be used to encrypt the content on the replication instance. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 criKMSKeyId :: Lens' CreateReplicationInstance (Maybe Text)
 criKMSKeyId = lens _criKMSKeyId (\ s a -> s{_criKMSKeyId = a});
 
--- | The EC2 Availability Zone that the replication instance will be created
--- in.
+-- | The EC2 Availability Zone that the replication instance will be created in.
 --
--- Default: A random, system-chosen Availability Zone in the endpoint\'s
--- region.
+-- Default: A random, system-chosen Availability Zone in the endpoint\'s region.
 --
 -- Example: 'us-east-1d'
 criAvailabilityZone :: Lens' CreateReplicationInstance (Maybe Text)
 criAvailabilityZone = lens _criAvailabilityZone (\ s a -> s{_criAvailabilityZone = a});
 
--- | The amount of storage (in gigabytes) to be initially allocated for the
--- replication instance.
+-- | The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 criAllocatedStorage :: Lens' CreateReplicationInstance (Maybe Int)
 criAllocatedStorage = lens _criAllocatedStorage (\ s a -> s{_criAllocatedStorage = a});
 
@@ -177,8 +164,7 @@ criAllocatedStorage = lens _criAllocatedStorage (\ s a -> s{_criAllocatedStorage
 criTags :: Lens' CreateReplicationInstance [Tag]
 criTags = lens _criTags (\ s a -> s{_criTags = a}) . _Default . _Coerce;
 
--- | The replication instance identifier. This parameter is stored as a
--- lowercase string.
+-- | The replication instance identifier. This parameter is stored as a lowercase string.
 --
 -- Constraints:
 --
@@ -190,11 +176,9 @@ criTags = lens _criTags (\ s a -> s{_criTags = a}) . _Default . _Coerce;
 criReplicationInstanceIdentifier :: Lens' CreateReplicationInstance Text
 criReplicationInstanceIdentifier = lens _criReplicationInstanceIdentifier (\ s a -> s{_criReplicationInstanceIdentifier = a});
 
--- | The compute and memory capacity of the replication instance as specified
--- by the replication instance class.
+-- | The compute and memory capacity of the replication instance as specified by the replication instance class.
 --
--- Valid Values:
--- 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
+-- Valid Values: 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
 criReplicationInstanceClass :: Lens' CreateReplicationInstance Text
 criReplicationInstanceClass = lens _criReplicationInstanceClass (\ s a -> s{_criReplicationInstanceClass = a});
 

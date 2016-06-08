@@ -21,9 +21,7 @@ import           Network.AWS.Discovery.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | Information about agents that were instructed to start collecting data.
--- Information includes the agent ID, a description of the operation, and
--- whether or not the agent configuration was updated.
+-- | Information about agents that were instructed to start collecting data. Information includes the agent ID, a description of the operation, and whether or not the agent configuration was updated.
 --
 -- /See:/ 'agentConfigurationStatus' smart constructor.
 data AgentConfigurationStatus = AgentConfigurationStatus'
@@ -54,10 +52,7 @@ agentConfigurationStatus =
 acsAgentId :: Lens' AgentConfigurationStatus (Maybe Text)
 acsAgentId = lens _acsAgentId (\ s a -> s{_acsAgentId = a});
 
--- | Information about the status of the 'StartDataCollection' and
--- 'StopDataCollection' operations. The system has recorded the data
--- collection operation. The agent receives this command the next time it
--- polls for a new command.
+-- | Information about the status of the 'StartDataCollection' and 'StopDataCollection' operations. The system has recorded the data collection operation. The agent receives this command the next time it polls for a new command.
 acsOperationSucceeded :: Lens' AgentConfigurationStatus (Maybe Bool)
 acsOperationSucceeded = lens _acsOperationSucceeded (\ s a -> s{_acsOperationSucceeded = a});
 
@@ -77,10 +72,7 @@ instance Hashable AgentConfigurationStatus
 
 instance NFData AgentConfigurationStatus
 
--- | Information about agents associated with the user’s AWS account.
--- Information includes agent IDs, IP addresses, media access control (MAC)
--- addresses, agent health, hostname where the agent resides, and agent
--- version for each agent.
+-- | Information about agents associated with the user’s AWS account. Information includes agent IDs, IP addresses, media access control (MAC) addresses, agent health, hostname where the agent resides, and agent version for each agent.
 --
 -- /See:/ 'agentInfo' smart constructor.
 data AgentInfo = AgentInfo'
@@ -119,8 +111,7 @@ agentInfo =
     , _aiVersion = Nothing
     }
 
--- | The name of the host where the agent resides. The host can be a server
--- or virtual machine.
+-- | The name of the host where the agent resides. The host can be a server or virtual machine.
 aiHostName :: Lens' AgentInfo (Maybe Text)
 aiHostName = lens _aiHostName (\ s a -> s{_aiHostName = a});
 
@@ -202,8 +193,7 @@ instance Hashable AgentNetworkInfo
 
 instance NFData AgentNetworkInfo
 
--- | Tags for a configuration item. Tags are metadata that help you
--- categorize IT assets.
+-- | Tags for a configuration item. Tags are metadata that help you categorize IT assets.
 --
 -- /See:/ 'configurationTag' smart constructor.
 data ConfigurationTag = ConfigurationTag'
@@ -238,13 +228,11 @@ configurationTag =
     , _ctKey = Nothing
     }
 
--- | The time the configuration tag was created in Coordinated Universal Time
--- (UTC).
+-- | The time the configuration tag was created in Coordinated Universal Time (UTC).
 ctTimeOfCreation :: Lens' ConfigurationTag (Maybe UTCTime)
 ctTimeOfCreation = lens _ctTimeOfCreation (\ s a -> s{_ctTimeOfCreation = a}) . mapping _Time;
 
--- | The configuration ID for the item you want to tag. You can specify a
--- list of keys and values.
+-- | The configuration ID for the item you want to tag. You can specify a list of keys and values.
 ctConfigurationId :: Lens' ConfigurationTag (Maybe Text)
 ctConfigurationId = lens _ctConfigurationId (\ s a -> s{_ctConfigurationId = a});
 
@@ -252,8 +240,7 @@ ctConfigurationId = lens _ctConfigurationId (\ s a -> s{_ctConfigurationId = a})
 ctConfigurationType :: Lens' ConfigurationTag (Maybe ConfigurationItemType)
 ctConfigurationType = lens _ctConfigurationType (\ s a -> s{_ctConfigurationType = a});
 
--- | A value to filter on. For example /key = serverType/ and /value = web
--- server/.
+-- | A value to filter on. For example /key = serverType/ and /value = web server/.
 ctValue :: Lens' ConfigurationTag (Maybe Text)
 ctValue = lens _ctValue (\ s a -> s{_ctValue = a});
 
@@ -276,8 +263,7 @@ instance Hashable ConfigurationTag
 
 instance NFData ConfigurationTag
 
--- | Information regarding the export status of the discovered data. The
--- value is an array of objects.
+-- | Information regarding the export status of the discovered data. The value is an array of objects.
 --
 -- /See:/ 'exportInfo' smart constructor.
 data ExportInfo = ExportInfo'
@@ -316,8 +302,7 @@ exportInfo pExportId_ pExportStatus_ pStatusMessage_ pExportRequestTime_ =
     , _eiExportRequestTime = _Time # pExportRequestTime_
     }
 
--- | A URL for an Amazon S3 bucket where you can review the configuration
--- data. The URL is displayed only if the export succeeded.
+-- | A URL for an Amazon S3 bucket where you can review the configuration data. The URL is displayed only if the export succeeded.
 eiConfigurationsDownloadURL :: Lens' ExportInfo (Maybe Text)
 eiConfigurationsDownloadURL = lens _eiConfigurationsDownloadURL (\ s a -> s{_eiConfigurationsDownloadURL = a});
 
@@ -325,13 +310,11 @@ eiConfigurationsDownloadURL = lens _eiConfigurationsDownloadURL (\ s a -> s{_eiC
 eiExportId :: Lens' ExportInfo Text
 eiExportId = lens _eiExportId (\ s a -> s{_eiExportId = a});
 
--- | The status of the configuration data export. The status can succeed,
--- fail, or be in-progress.
+-- | The status of the configuration data export. The status can succeed, fail, or be in-progress.
 eiExportStatus :: Lens' ExportInfo ExportStatus
 eiExportStatus = lens _eiExportStatus (\ s a -> s{_eiExportStatus = a});
 
--- | Helpful status messages for API callers. For example: Too many exports
--- in the last 6 hours. Export in progress. Export was successful.
+-- | Helpful status messages for API callers. For example: Too many exports in the last 6 hours. Export in progress. Export was successful.
 eiStatusMessage :: Lens' ExportInfo Text
 eiStatusMessage = lens _eiStatusMessage (\ s a -> s{_eiStatusMessage = a});
 
@@ -383,8 +366,7 @@ filter' pName_ pCondition_ =
     , _fCondition = pCondition_
     }
 
--- | The name of the filter. The following filter names are allowed for
--- 'SERVER' configuration items.
+-- | The name of the filter. The following filter names are allowed for 'SERVER' configuration items.
 --
 -- __Server__
 --
@@ -398,8 +380,7 @@ filter' pName_ pCondition_ =
 --
 -- -   'server.agentid'
 --
--- The name of the filter. The following filter names are allowed for
--- 'PROCESS' configuration items.
+-- The name of the filter. The following filter names are allowed for 'PROCESS' configuration items.
 --
 -- __Process__
 --
@@ -419,8 +400,7 @@ filter' pName_ pCondition_ =
 --
 -- -   'server.agentId'
 --
--- The name of the filter. The following filter names are allowed for
--- 'CONNECTION' configuration items.
+-- The name of the filter. The following filter names are allowed for 'CONNECTION' configuration items.
 --
 -- __Connection__
 --
@@ -465,19 +445,11 @@ filter' pName_ pCondition_ =
 fName :: Lens' Filter Text
 fName = lens _fName (\ s a -> s{_fName = a});
 
--- | A string value that you want to filter on. For example, if you choose
--- the 'destinationServer.osVersion' filter name, you could specify
--- 'Ubuntu' for the value.
+-- | A string value that you want to filter on. For example, if you choose the 'destinationServer.osVersion' filter name, you could specify 'Ubuntu' for the value.
 fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Coerce;
 
--- | A conditional operator. The following operators are valid: EQUALS,
--- NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the
--- system utilizes all filters as though concatenated by /AND/. If you
--- specify multiple values for a particular filter, the system
--- differentiates the values using /OR/. Calling either
--- /DescribeConfigurations/ or /ListConfigurations/ returns attributes of
--- matching configuration items.
+-- | A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by /AND/. If you specify multiple values for a particular filter, the system differentiates the values using /OR/. Calling either /DescribeConfigurations/ or /ListConfigurations/ returns attributes of matching configuration items.
 fCondition :: Lens' Filter Text
 fCondition = lens _fCondition (\ s a -> s{_fCondition = a});
 
@@ -537,8 +509,7 @@ instance ToJSON Tag where
                  [Just ("key" .= _tagKey),
                   Just ("value" .= _tagValue)])
 
--- | The name of a tag filter. Valid names are: 'tagKey', 'tagValue',
--- 'configurationId'.
+-- | The name of a tag filter. Valid names are: 'tagKey', 'tagValue', 'configurationId'.
 --
 -- /See:/ 'tagFilter' smart constructor.
 data TagFilter = TagFilter'

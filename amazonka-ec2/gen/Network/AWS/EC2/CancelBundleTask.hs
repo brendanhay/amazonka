@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels a bundling operation for an instance store-backed Windows
--- instance.
+-- Cancels a bundling operation for an instance store-backed Windows instance.
 module Network.AWS.EC2.CancelBundleTask
     (
     -- * Creating a Request
@@ -68,10 +67,7 @@ cancelBundleTask pBundleId_ =
     , _cbtBundleId = pBundleId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cbtDryRun :: Lens' CancelBundleTask (Maybe Bool)
 cbtDryRun = lens _cbtDryRun (\ s a -> s{_cbtDryRun = a});
 

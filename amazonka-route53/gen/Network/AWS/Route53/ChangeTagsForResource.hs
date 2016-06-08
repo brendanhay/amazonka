@@ -44,8 +44,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type containing information about a request to add, change, or
--- delete the tags that are associated with a resource.
+-- | A complex type containing information about a request to add, change, or delete the tags that are associated with a resource.
 --
 -- /See:/ 'changeTagsForResource' smart constructor.
 data ChangeTagsForResource = ChangeTagsForResource'
@@ -78,14 +77,11 @@ changeTagsForResource pResourceType_ pResourceId_ =
     , _ctfrResourceId = pResourceId_
     }
 
--- | A list of 'Tag' keys that you want to remove from the specified
--- resource.
+-- | A list of 'Tag' keys that you want to remove from the specified resource.
 ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (NonEmpty Text))
 ctfrRemoveTagKeys = lens _ctfrRemoveTagKeys (\ s a -> s{_ctfrRemoveTagKeys = a}) . mapping _List1;
 
--- | A complex type that contains a list of 'Tag' elements. Each 'Tag'
--- element identifies a tag that you want to add or update for the
--- specified resource.
+-- | A complex type that contains a list of 'Tag' elements. Each 'Tag' element identifies a tag that you want to add or update for the specified resource.
 ctfrAddTags :: Lens' ChangeTagsForResource (Maybe (NonEmpty Tag))
 ctfrAddTags = lens _ctfrAddTags (\ s a -> s{_ctfrAddTags = a}) . mapping _List1;
 
@@ -97,8 +93,7 @@ ctfrAddTags = lens _ctfrAddTags (\ s a -> s{_ctfrAddTags = a}) . mapping _List1;
 ctfrResourceType :: Lens' ChangeTagsForResource TagResourceType
 ctfrResourceType = lens _ctfrResourceType (\ s a -> s{_ctfrResourceType = a});
 
--- | The ID of the resource for which you want to add, change, or delete
--- tags.
+-- | The ID of the resource for which you want to add, change, or delete tags.
 ctfrResourceId :: Lens' ChangeTagsForResource Text
 ctfrResourceId = lens _ctfrResourceId (\ s a -> s{_ctfrResourceId = a});
 

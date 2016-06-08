@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the list of AWS Identity and Access Management (IAM) roles that
--- can be used by the cluster to access other AWS services.
+-- Modifies the list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
 --
 -- A cluster can have up to 10 IAM roles associated at any time.
 module Network.AWS.Redshift.ModifyClusterIAMRoles
@@ -75,20 +74,15 @@ modifyClusterIAMRoles pClusterIdentifier_ =
     , _mcirClusterIdentifier = pClusterIdentifier_
     }
 
--- | Zero or more IAM roles (in their ARN format) to disassociate from the
--- cluster. You can disassociate up to 10 IAM roles from a single cluster
--- in a single request.
+-- | Zero or more IAM roles (in their ARN format) to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
 mcirRemoveIAMRoles :: Lens' ModifyClusterIAMRoles [Text]
 mcirRemoveIAMRoles = lens _mcirRemoveIAMRoles (\ s a -> s{_mcirRemoveIAMRoles = a}) . _Default . _Coerce;
 
--- | Zero or more IAM roles (in their ARN format) to associate with the
--- cluster. You can associate up to 10 IAM roles with a single cluster in a
--- single request.
+-- | Zero or more IAM roles (in their ARN format) to associate with the cluster. You can associate up to 10 IAM roles with a single cluster in a single request.
 mcirAddIAMRoles :: Lens' ModifyClusterIAMRoles [Text]
 mcirAddIAMRoles = lens _mcirAddIAMRoles (\ s a -> s{_mcirAddIAMRoles = a}) . _Default . _Coerce;
 
--- | The unique identifier of the cluster for which you want to associate or
--- disassociate IAM roles.
+-- | The unique identifier of the cluster for which you want to associate or disassociate IAM roles.
 mcirClusterIdentifier :: Lens' ModifyClusterIAMRoles Text
 mcirClusterIdentifier = lens _mcirClusterIdentifier (\ s a -> s{_mcirClusterIdentifier = a});
 

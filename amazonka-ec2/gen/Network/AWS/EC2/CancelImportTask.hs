@@ -81,10 +81,7 @@ citCancelReason = lens _citCancelReason (\ s a -> s{_citCancelReason = a});
 citImportTaskId :: Lens' CancelImportTask (Maybe Text)
 citImportTaskId = lens _citImportTaskId (\ s a -> s{_citImportTaskId = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 citDryRun :: Lens' CancelImportTask (Maybe Bool)
 citDryRun = lens _citDryRun (\ s a -> s{_citDryRun = a});
 

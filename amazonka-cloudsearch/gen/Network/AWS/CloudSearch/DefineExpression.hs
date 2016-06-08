@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures an 'Expression' for the search domain. Used to create new
--- expressions and modify existing ones. If the expression exists, the new
--- configuration replaces the old one. For more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Configures an 'Expression' for the search domain. Used to create new expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DefineExpression
     (
     -- * Creating a Request
@@ -47,9 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DefineExpression' operation.
--- Specifies the name of the domain you want to update and the expression
--- you want to configure.
+-- | Container for the parameters to the 'DefineExpression' operation. Specifies the name of the domain you want to update and the expression you want to configure.
 --
 -- /See:/ 'defineExpression' smart constructor.
 data DefineExpression = DefineExpression'
@@ -109,8 +103,7 @@ instance ToQuery DefineExpression where
                "DomainName" =: _dDomainName,
                "Expression" =: _dExpression]
 
--- | The result of a 'DefineExpression' request. Contains the status of the
--- newly-configured expression.
+-- | The result of a 'DefineExpression' request. Contains the status of the newly-configured expression.
 --
 -- /See:/ 'defineExpressionResponse' smart constructor.
 data DefineExpressionResponse = DefineExpressionResponse'

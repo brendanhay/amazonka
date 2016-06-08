@@ -122,9 +122,7 @@ putIntegration pRestAPIId_ pResourceId_ pHttpMethod_ pType_ =
     , _pType = pType_
     }
 
--- | Specifies the templates used to transform the method request body.
--- Request templates are represented as a key\/value map, with a
--- content-type as the key and a template as the value.
+-- | Specifies the templates used to transform the method request body. Request templates are represented as a key\/value map, with a content-type as the key and a template as the value.
 pRequestTemplates :: Lens' PutIntegration (HashMap Text Text)
 pRequestTemplates = lens _pRequestTemplates (\ s a -> s{_pRequestTemplates = a}) . _Default . _Map;
 
@@ -132,23 +130,11 @@ pRequestTemplates = lens _pRequestTemplates (\ s a -> s{_pRequestTemplates = a})
 pCredentials :: Lens' PutIntegration (Maybe Text)
 pCredentials = lens _pCredentials (\ s a -> s{_pCredentials = a});
 
--- | Represents request parameters that are sent with the backend request.
--- Request parameters are represented as a key\/value map, with a
--- destination as the key and a source as the value. A source must match an
--- existing method request parameter, or a static value. Static values must
--- be enclosed with single quotes, and be pre-encoded based on their
--- destination in the request. The destination must match the pattern
--- 'integration.request.{location}.{name}', where 'location' is either
--- querystring, path, or header. 'name' must be a valid, unique parameter
--- name.
+-- | Represents request parameters that are sent with the backend request. Request parameters are represented as a key\/value map, with a destination as the key and a source as the value. A source must match an existing method request parameter, or a static value. Static values must be enclosed with single quotes, and be pre-encoded based on their destination in the request. The destination must match the pattern 'integration.request.{location}.{name}', where 'location' is either querystring, path, or header. 'name' must be a valid, unique parameter name.
 pRequestParameters :: Lens' PutIntegration (HashMap Text Text)
 pRequestParameters = lens _pRequestParameters (\ s a -> s{_pRequestParameters = a}) . _Default . _Map;
 
--- | Specifies a put integration input\'s Uniform Resource Identifier (URI).
--- When the integration type is HTTP or AWS, this field is required. For
--- integration with Lambda as an AWS service proxy, this value is of the
--- \'arn:aws:apigateway:\<region>:lambda:path\/2015-03-31\/functions\/\<functionArn>\/invocations\'
--- format.
+-- | Specifies a put integration input\'s Uniform Resource Identifier (URI). When the integration type is HTTP or AWS, this field is required. For integration with Lambda as an AWS service proxy, this value is of the \'arn:aws:apigateway:\<region>:lambda:path\/2015-03-31\/functions\/\<functionArn>\/invocations\' format.
 pUri :: Lens' PutIntegration (Maybe Text)
 pUri = lens _pUri (\ s a -> s{_pUri = a});
 
@@ -156,8 +142,7 @@ pUri = lens _pUri (\ s a -> s{_pUri = a});
 pCacheNamespace :: Lens' PutIntegration (Maybe Text)
 pCacheNamespace = lens _pCacheNamespace (\ s a -> s{_pCacheNamespace = a});
 
--- | Specifies a put integration HTTP method. When the integration type is
--- HTTP or AWS, this field is required.
+-- | Specifies a put integration HTTP method. When the integration type is HTTP or AWS, this field is required.
 pIntegrationHTTPMethod :: Lens' PutIntegration (Maybe Text)
 pIntegrationHTTPMethod = lens _pIntegrationHTTPMethod (\ s a -> s{_pIntegrationHTTPMethod = a});
 

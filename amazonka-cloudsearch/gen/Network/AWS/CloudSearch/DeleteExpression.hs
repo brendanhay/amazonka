@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes an 'Expression' from the search domain. For more information,
--- see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Removes an 'Expression' from the search domain. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DeleteExpression
     (
     -- * Creating a Request
@@ -46,9 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DeleteExpression' operation.
--- Specifies the name of the domain you want to update and the name of the
--- expression you want to delete.
+-- | Container for the parameters to the 'DeleteExpression' operation. Specifies the name of the domain you want to update and the name of the expression you want to delete.
 --
 -- /See:/ 'deleteExpression' smart constructor.
 data DeleteExpression = DeleteExpression'
@@ -108,8 +103,7 @@ instance ToQuery DeleteExpression where
                "DomainName" =: _delDomainName,
                "ExpressionName" =: _delExpressionName]
 
--- | The result of a 'DeleteExpression' request. Specifies the expression
--- being deleted.
+-- | The result of a 'DeleteExpression' request. Specifies the expression being deleted.
 --
 -- /See:/ 'deleteExpressionResponse' smart constructor.
 data DeleteExpressionResponse = DeleteExpressionResponse'

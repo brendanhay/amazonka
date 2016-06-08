@@ -20,14 +20,9 @@
 --
 -- Deletes the specified version of the specified managed policy.
 --
--- You cannot delete the default version of a policy using this API. To
--- delete the default version of a policy, use < DeletePolicy>. To find out
--- which version of a policy is marked as the default version, use
--- < ListPolicyVersions>.
+-- You cannot delete the default version of a policy using this API. To delete the default version of a policy, use < DeletePolicy>. To find out which version of a policy is marked as the default version, use < ListPolicyVersions>.
 --
--- For information about versions for managed policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
--- in the /IAM User Guide/.
+-- For information about versions for managed policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.DeletePolicyVersion
     (
     -- * Creating a Request
@@ -78,9 +73,7 @@ dpvPolicyARN = lens _dpvPolicyARN (\ s a -> s{_dpvPolicyARN = a});
 
 -- | The policy version to delete.
 --
--- For more information about managed policy versions, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
--- in the /IAM User Guide/.
+-- For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
 dpvVersionId :: Lens' DeletePolicyVersion Text
 dpvVersionId = lens _dpvVersionId (\ s a -> s{_dpvVersionId = a});
 

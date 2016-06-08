@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified subnet. You must terminate all running instances
--- in the subnet before you can delete the subnet.
+-- Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.
 module Network.AWS.EC2.DeleteSubnet
     (
     -- * Creating a Request
@@ -65,10 +64,7 @@ deleteSubnet pSubnetId_ =
     , _ddSubnetId = pSubnetId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ddDryRun :: Lens' DeleteSubnet (Maybe Bool)
 ddDryRun = lens _ddDryRun (\ s a -> s{_ddDryRun = a});
 

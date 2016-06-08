@@ -18,19 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the specified version of the specified
--- managed policy, including the policy document.
+-- Retrieves information about the specified version of the specified managed policy, including the policy document.
 --
 -- To list the available versions for a policy, use < ListPolicyVersions>.
 --
--- This API retrieves information about managed policies. To retrieve
--- information about an inline policy that is embedded in a user, group, or
--- role, use the < GetUserPolicy>, < GetGroupPolicy>, or < GetRolePolicy>
--- API.
+-- This API retrieves information about managed policies. To retrieve information about an inline policy that is embedded in a user, group, or role, use the < GetUserPolicy>, < GetGroupPolicy>, or < GetRolePolicy> API.
 --
--- For more information about the types of policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- For more information about the types of policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.GetPolicyVersion
     (
     -- * Creating a Request
@@ -139,9 +133,7 @@ getPolicyVersionResponse pResponseStatus_ =
 
 -- | Information about the policy version.
 --
--- For more information about managed policy versions, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
--- in the /IAM User Guide/.
+-- For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
 gpvrsPolicyVersion :: Lens' GetPolicyVersionResponse (Maybe PolicyVersion)
 gpvrsPolicyVersion = lens _gpvrsPolicyVersion (\ s a -> s{_gpvrsPolicyVersion = a});
 

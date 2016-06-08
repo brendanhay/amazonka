@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the user\'s sending statistics. The result is a list of data
--- points, representing the last two weeks of sending activity.
+-- Returns the user\'s sending statistics. The result is a list of data points, representing the last two weeks of sending activity.
 --
--- Each data point in the list contains statistics for a 15-minute
--- interval.
+-- Each data point in the list contains statistics for a 15-minute interval.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.GetSendStatistics

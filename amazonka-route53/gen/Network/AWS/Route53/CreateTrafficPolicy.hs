@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a traffic policy, which you use to create multiple DNS resource
--- record sets for one domain name (such as example.com) or one subdomain
--- name (such as www.example.com).
+-- Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com).
 --
--- To create a traffic policy, send a 'POST' request to the
--- '\/Route 53 API version\/trafficpolicy' resource. The request body must
--- include a document with a 'CreateTrafficPolicyRequest' element. The
--- response includes the 'CreateTrafficPolicyResponse' element, which
--- contains information about the new traffic policy.
+-- To create a traffic policy, send a 'POST' request to the '\/Route 53 API version\/trafficpolicy' resource. The request body must include a document with a 'CreateTrafficPolicyRequest' element. The response includes the 'CreateTrafficPolicyResponse' element, which contains information about the new traffic policy.
 module Network.AWS.Route53.CreateTrafficPolicy
     (
     -- * Creating a Request
@@ -53,8 +47,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the traffic policy that
--- you want to create.
+-- | A complex type that contains information about the traffic policy that you want to create.
 --
 -- /See:/ 'createTrafficPolicy' smart constructor.
 data CreateTrafficPolicy = CreateTrafficPolicy'
@@ -130,8 +123,7 @@ instance ToXML CreateTrafficPolicy where
               ["Comment" @= _ctpComment, "Name" @= _ctpName,
                "Document" @= _ctpDocument]
 
--- | A complex type that contains the response information for the
--- 'CreateTrafficPolicy' request.
+-- | A complex type that contains the response information for the 'CreateTrafficPolicy' request.
 --
 -- /See:/ 'createTrafficPolicyResponse' smart constructor.
 data CreateTrafficPolicyResponse = CreateTrafficPolicyResponse'

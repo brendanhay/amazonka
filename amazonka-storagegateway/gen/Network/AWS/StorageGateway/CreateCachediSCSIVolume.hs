@@ -18,19 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a cached volume on a specified cached gateway. This operation is
--- supported only for the gateway-cached volume architecture.
+-- Creates a cached volume on a specified cached gateway. This operation is supported only for the gateway-cached volume architecture.
 --
--- Cache storage must be allocated to the gateway before you can create a
--- cached volume. Use the < AddCache> operation to add cache storage to a
--- gateway.
+-- Cache storage must be allocated to the gateway before you can create a cached volume. Use the < AddCache> operation to add cache storage to a gateway.
 --
--- In the request, you must specify the gateway, size of the volume in
--- bytes, the iSCSI target name, an IP address on which to expose the
--- target, and a unique client token. In response, AWS Storage Gateway
--- creates the volume and returns information about it such as the volume
--- Amazon Resource Name (ARN), its size, and the iSCSI target ARN that
--- initiators can use to connect to the volume target.
+-- In the request, you must specify the gateway, size of the volume in bytes, the iSCSI target name, an IP address on which to expose the target, and a unique client token. In response, AWS Storage Gateway creates the volume and returns information about it such as the volume Amazon Resource Name (ARN), its size, and the iSCSI target ARN that initiators can use to connect to the volume target.
 module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     (
     -- * Creating a Request

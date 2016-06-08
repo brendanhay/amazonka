@@ -143,8 +143,7 @@ createInvalidationResponse pResponseStatus_ =
 cirsInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
 cirsInvalidation = lens _cirsInvalidation (\ s a -> s{_cirsInvalidation = a});
 
--- | The fully qualified URI of the distribution and invalidation batch
--- request, including the Invalidation ID.
+-- | The fully qualified URI of the distribution and invalidation batch request, including the Invalidation ID.
 cirsLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirsLocation = lens _cirsLocation (\ s a -> s{_cirsLocation = a});
 

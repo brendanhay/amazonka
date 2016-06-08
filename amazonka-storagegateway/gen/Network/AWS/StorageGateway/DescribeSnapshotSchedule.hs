@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the snapshot schedule for the specified gateway volume. The
--- snapshot schedule information includes intervals at which snapshots are
--- automatically initiated on the volume.
+-- Describes the snapshot schedule for the specified gateway volume. The snapshot schedule information includes intervals at which snapshots are automatically initiated on the volume.
 module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     (
     -- * Creating a Request
@@ -48,8 +46,7 @@ import           Network.AWS.Response
 import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
--- | A JSON object containing the < DescribeSnapshotScheduleInput$VolumeARN>
--- of the volume.
+-- | A JSON object containing the < DescribeSnapshotScheduleInput>VolumeARN> of the volume.
 --
 -- /See:/ 'describeSnapshotSchedule' smart constructor.
 newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule'
@@ -69,8 +66,7 @@ describeSnapshotSchedule pVolumeARN_ =
     { _dssVolumeARN = pVolumeARN_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes>
--- operation to return a list of gateway volumes.
+-- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes> operation to return a list of gateway volumes.
 dssVolumeARN :: Lens' DescribeSnapshotSchedule Text
 dssVolumeARN = lens _dssVolumeARN (\ s a -> s{_dssVolumeARN = a});
 

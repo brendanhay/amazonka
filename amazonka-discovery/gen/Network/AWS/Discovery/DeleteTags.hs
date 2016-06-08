@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the association between configuration items and one or more
--- tags. This API accepts a list of multiple configuration items.
+-- Deletes the association between configuration items and one or more tags. This API accepts a list of multiple configuration items.
 module Network.AWS.Discovery.DeleteTags
     (
     -- * Creating a Request
@@ -64,9 +63,7 @@ deleteTags =
     , _dtConfigurationIds = mempty
     }
 
--- | Tags that you want to delete from one or more configuration items.
--- Specify the tags that you want to delete in a /key/-/value/ format. For
--- example:
+-- | Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/-/value/ format. For example:
 --
 -- '{\"key\": \"serverType\", \"value\": \"webServer\"}'
 dtTags :: Lens' DeleteTags [Tag]

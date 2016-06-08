@@ -110,8 +110,7 @@ getDirectoryLimitsResponse pResponseStatus_ =
     , _gdlrsResponseStatus = pResponseStatus_
     }
 
--- | A < DirectoryLimits> object that contains the directory limits for the
--- current region.
+-- | A < DirectoryLimits> object that contains the directory limits for the current region.
 gdlrsDirectoryLimits :: Lens' GetDirectoryLimitsResponse (Maybe DirectoryLimits)
 gdlrsDirectoryLimits = lens _gdlrsDirectoryLimits (\ s a -> s{_gdlrsDirectoryLimits = a});
 

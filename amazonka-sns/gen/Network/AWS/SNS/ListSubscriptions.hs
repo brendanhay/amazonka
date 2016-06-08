@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the requester\'s subscriptions. Each call returns a
--- limited list of subscriptions, up to 100. If there are more
--- subscriptions, a 'NextToken' is also returned. Use the 'NextToken'
--- parameter in a new 'ListSubscriptions' call to get further results.
+-- Returns a list of the requester\'s subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a 'NextToken' is also returned. Use the 'NextToken' parameter in a new 'ListSubscriptions' call to get further results.
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListSubscriptions
@@ -136,8 +133,7 @@ listSubscriptionsResponse pResponseStatus_ =
     , _lsrsResponseStatus = pResponseStatus_
     }
 
--- | Token to pass along to the next 'ListSubscriptions' request. This
--- element is returned if there are more subscriptions to retrieve.
+-- | Token to pass along to the next 'ListSubscriptions' request. This element is returned if there are more subscriptions to retrieve.
 lsrsNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 

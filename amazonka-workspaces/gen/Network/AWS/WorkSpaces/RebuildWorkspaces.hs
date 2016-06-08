@@ -20,25 +20,14 @@
 --
 -- Rebuilds the specified WorkSpaces.
 --
--- Rebuilding a WorkSpace is a potentially destructive action that can
--- result in the loss of data. Rebuilding a WorkSpace causes the following
--- to occur:
+-- Rebuilding a WorkSpace is a potentially destructive action that can result in the loss of data. Rebuilding a WorkSpace causes the following to occur:
 --
--- -   The system is restored to the image of the bundle that the WorkSpace
---     is created from. Any applications that have been installed, or
---     system settings that have been made since the WorkSpace was created
---     will be lost.
--- -   The data drive (D drive) is re-created from the last automatic
---     snapshot taken of the data drive. The current contents of the data
---     drive are overwritten. Automatic snapshots of the data drive are
---     taken every 12 hours, so the snapshot can be as much as 12 hours
---     old.
+-- -   The system is restored to the image of the bundle that the WorkSpace is created from. Any applications that have been installed, or system settings that have been made since the WorkSpace was created will be lost.
+-- -   The data drive (D drive) is re-created from the last automatic snapshot taken of the data drive. The current contents of the data drive are overwritten. Automatic snapshots of the data drive are taken every 12 hours, so the snapshot can be as much as 12 hours old.
 --
--- To be able to rebuild a WorkSpace, the WorkSpace must have a __State__
--- of 'AVAILABLE' or 'ERROR'.
+-- To be able to rebuild a WorkSpace, the WorkSpace must have a __State__ of 'AVAILABLE' or 'ERROR'.
 --
--- This operation is asynchronous and will return before the WorkSpaces
--- have been completely rebuilt.
+-- This operation is asynchronous and will return before the WorkSpaces have been completely rebuilt.
 module Network.AWS.WorkSpaces.RebuildWorkspaces
     (
     -- * Creating a Request
@@ -148,8 +137,7 @@ rebuildWorkspacesResponse pResponseStatus_ =
     , _rwrsResponseStatus = pResponseStatus_
     }
 
--- | An array of structures that represent any WorkSpaces that could not be
--- rebuilt.
+-- | An array of structures that represent any WorkSpaces that could not be rebuilt.
 rwrsFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeRequest]
 rwrsFailedRequests = lens _rwrsFailedRequests (\ s a -> s{_rwrsFailedRequests = a}) . _Default . _Coerce;
 

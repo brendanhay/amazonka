@@ -61,8 +61,7 @@ deleteUpload pArn_ =
     { _duArn = pArn_
     }
 
--- | Represents the Amazon Resource Name (ARN) of the Device Farm upload you
--- wish to delete.
+-- | Represents the Amazon Resource Name (ARN) of the Device Farm upload you wish to delete.
 duArn :: Lens' DeleteUpload Text
 duArn = lens _duArn (\ s a -> s{_duArn = a});
 

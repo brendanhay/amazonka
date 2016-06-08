@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new private virtual interface. A virtual interface is the VLAN
--- that transports AWS Direct Connect traffic. A private virtual interface
--- supports sending traffic to a single virtual private cloud (VPC).
+-- Creates a new private virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A private virtual interface supports sending traffic to a single virtual private cloud (VPC).
 module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     (
     -- * Creating a Request
@@ -58,8 +56,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the CreatePrivateVirtualInterface
--- operation.
+-- | Container for the parameters to the CreatePrivateVirtualInterface operation.
 --
 -- /See:/ 'createPrivateVirtualInterface' smart constructor.
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'

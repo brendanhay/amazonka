@@ -20,26 +20,13 @@
 --
 -- Deletes the specified managed policy.
 --
--- Before you can delete a managed policy, you must detach the policy from
--- all users, groups, and roles that it is attached to, and you must delete
--- all of the policy\'s versions. The following steps describe the process
--- for deleting a managed policy:
+-- Before you can delete a managed policy, you must detach the policy from all users, groups, and roles that it is attached to, and you must delete all of the policy\'s versions. The following steps describe the process for deleting a managed policy:
 --
--- 1.  Detach the policy from all users, groups, and roles that the policy
---     is attached to, using the < DetachUserPolicy>, < DetachGroupPolicy>,
---     or < DetachRolePolicy> APIs. To list all the users, groups, and
---     roles that a policy is attached to, use < ListEntitiesForPolicy>.
--- 2.  Delete all versions of the policy using < DeletePolicyVersion>. To
---     list the policy\'s versions, use < ListPolicyVersions>. You cannot
---     use < DeletePolicyVersion> to delete the version that is marked as
---     the default version. You delete the policy\'s default version in the
---     next step of the process.
--- 3.  Delete the policy (this automatically deletes the policy\'s default
---     version) using this API.
+-- 1.  Detach the policy from all users, groups, and roles that the policy is attached to, using the < DetachUserPolicy>, < DetachGroupPolicy>, or < DetachRolePolicy> APIs. To list all the users, groups, and roles that a policy is attached to, use < ListEntitiesForPolicy>.
+-- 2.  Delete all versions of the policy using < DeletePolicyVersion>. To list the policy\'s versions, use < ListPolicyVersions>. You cannot use < DeletePolicyVersion> to delete the version that is marked as the default version. You delete the policy\'s default version in the next step of the process.
+-- 3.  Delete the policy (this automatically deletes the policy\'s default version) using this API.
 --
--- For information about managed policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- For information about managed policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.DeletePolicy
     (
     -- * Creating a Request

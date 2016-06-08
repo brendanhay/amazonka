@@ -18,18 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes an < IPSet>. You can\'t delete an 'IPSet' if it\'s
--- still used in any 'Rules' or if it still includes any IP addresses.
+-- Permanently deletes an < IPSet>. You can\'t delete an 'IPSet' if it\'s still used in any 'Rules' or if it still includes any IP addresses.
 --
 -- If you just want to remove an 'IPSet' from a 'Rule', use < UpdateRule>.
 --
--- To permanently delete an 'IPSet' from AWS WAF, perform the following
--- steps:
+-- To permanently delete an 'IPSet' from AWS WAF, perform the following steps:
 --
--- 1.  Update the 'IPSet' to remove IP address ranges, if any. For more
---     information, see < UpdateIPSet>.
--- 2.  Use < GetChangeToken> to get the change token that you provide in
---     the 'ChangeToken' parameter of a 'DeleteIPSet' request.
+-- 1.  Update the 'IPSet' to remove IP address ranges, if any. For more information, see < UpdateIPSet>.
+-- 2.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of a 'DeleteIPSet' request.
 -- 3.  Submit a 'DeleteIPSet' request.
 module Network.AWS.WAF.DeleteIPSet
     (
@@ -78,8 +74,7 @@ deleteIPSet pIPSetId_ pChangeToken_ =
     , _disChangeToken = pChangeToken_
     }
 
--- | The 'IPSetId' of the < IPSet> that you want to delete. 'IPSetId' is
--- returned by < CreateIPSet> and by < ListIPSets>.
+-- | The 'IPSetId' of the < IPSet> that you want to delete. 'IPSetId' is returned by < CreateIPSet> and by < ListIPSets>.
 disIPSetId :: Lens' DeleteIPSet Text
 disIPSetId = lens _disIPSetId (\ s a -> s{_disIPSetId = a});
 
@@ -144,9 +139,7 @@ deleteIPSetResponse pResponseStatus_ =
     , _disrsResponseStatus = pResponseStatus_
     }
 
--- | The 'ChangeToken' that you used to submit the 'DeleteIPSet' request. You
--- can also use this value to query the status of the request. For more
--- information, see < GetChangeTokenStatus>.
+-- | The 'ChangeToken' that you used to submit the 'DeleteIPSet' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
 disrsChangeToken :: Lens' DeleteIPSetResponse (Maybe Text)
 disrsChangeToken = lens _disrsChangeToken (\ s a -> s{_disrsChangeToken = a});
 

@@ -71,8 +71,7 @@ describeLoadBalancers pAutoScalingGroupName_ =
     , _dlbAutoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 dlbNextToken :: Lens' DescribeLoadBalancers (Maybe Text)
 dlbNextToken = lens _dlbNextToken (\ s a -> s{_dlbNextToken = a});
 
@@ -146,8 +145,7 @@ describeLoadBalancersResponse pResponseStatus_ =
 dlbrsLoadBalancers :: Lens' DescribeLoadBalancersResponse [LoadBalancerState]
 dlbrsLoadBalancers = lens _dlbrsLoadBalancers (\ s a -> s{_dlbrsLoadBalancers = a}) . _Default . _Coerce;
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 dlbrsNextToken :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrsNextToken = lens _dlbrsNextToken (\ s a -> s{_dlbrsNextToken = a});
 

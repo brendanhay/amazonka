@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeCacheEngineVersions/ action returns a list of the available
--- cache engines and their versions.
+-- The /DescribeCacheEngineVersions/ action returns a list of the available cache engines and their versions.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheEngineVersions
@@ -97,8 +96,7 @@ describeCacheEngineVersions =
 dcevEngineVersion :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevEngineVersion = lens _dcevEngineVersion (\ s a -> s{_dcevEngineVersion = a});
 
--- | The name of a specific cache parameter group family to return details
--- for.
+-- | The name of a specific cache parameter group family to return details for.
 --
 -- Constraints:
 --
@@ -108,8 +106,7 @@ dcevEngineVersion = lens _dcevEngineVersion (\ s a -> s{_dcevEngineVersion = a})
 dcevCacheParameterGroupFamily :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevCacheParameterGroupFamily = lens _dcevCacheParameterGroupFamily (\ s a -> s{_dcevCacheParameterGroupFamily = a});
 
--- | If /true/, specifies that only the default version of the specified
--- engine or engine and major version combination is to be returned.
+-- | If /true/, specifies that only the default version of the specified engine or engine and major version combination is to be returned.
 dcevDefaultOnly :: Lens' DescribeCacheEngineVersions (Maybe Bool)
 dcevDefaultOnly = lens _dcevDefaultOnly (\ s a -> s{_dcevDefaultOnly = a});
 
@@ -117,16 +114,11 @@ dcevDefaultOnly = lens _dcevDefaultOnly (\ s a -> s{_dcevDefaultOnly = a});
 dcevEngine :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevEngine = lens _dcevEngine (\ s a -> s{_dcevEngine = a});
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/.
 dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevMarker = lens _dcevMarker (\ s a -> s{_dcevMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a marker is
--- included in the response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -206,8 +198,7 @@ describeCacheEngineVersionsResponse pResponseStatus_ =
     , _dcevrsResponseStatus = pResponseStatus_
     }
 
--- | A list of cache engine version details. Each element in the list
--- contains detailed information about one cache engine version.
+-- | A list of cache engine version details. Each element in the list contains detailed information about one cache engine version.
 dcevrsCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
 dcevrsCacheEngineVersions = lens _dcevrsCacheEngineVersions (\ s a -> s{_dcevrsCacheEngineVersions = a}) . _Default . _Coerce;
 

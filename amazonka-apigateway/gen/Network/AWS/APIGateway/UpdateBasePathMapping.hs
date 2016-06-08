@@ -74,8 +74,7 @@ updateBasePathMapping pDomainName_ pBasePath_ =
     , _ubpmBasePath = pBasePath_
     }
 
--- | A list of operations describing the updates to apply to the specified
--- resource. The patches are applied in the order specified in the list.
+-- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 ubpmPatchOperations :: Lens' UpdateBasePathMapping [PatchOperation]
 ubpmPatchOperations = lens _ubpmPatchOperations (\ s a -> s{_ubpmPatchOperations = a}) . _Default . _Coerce;
 

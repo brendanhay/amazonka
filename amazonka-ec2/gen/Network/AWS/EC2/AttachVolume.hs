@@ -18,40 +18,25 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches an EBS volume to a running or stopped instance and exposes it
--- to the instance with the specified device name.
+-- Attaches an EBS volume to a running or stopped instance and exposes it to the instance with the specified device name.
 --
--- Encrypted EBS volumes may only be attached to instances that support
--- Amazon EBS encryption. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- Encrypted EBS volumes may only be attached to instances that support Amazon EBS encryption. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- For a list of supported device names, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching an EBS Volume to an Instance>.
--- Any device names that aren\'t reserved for instance store volumes can be
--- used for EBS volumes. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2 Instance Store>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For a list of supported device names, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching an EBS Volume to an Instance>. Any device names that aren\'t reserved for instance store volumes can be used for EBS volumes. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2 Instance Store> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- If a volume has an AWS Marketplace product code:
 --
 -- -   The volume can be attached only to a stopped instance.
 --
--- -   AWS Marketplace product codes are copied from the volume to the
---     instance.
+-- -   AWS Marketplace product codes are copied from the volume to the instance.
 --
 -- -   You must be subscribed to the product.
 --
--- -   The instance type and operating system of the instance must support
---     the product. For example, you can\'t detach a volume from a Windows
---     instance and attach it to a Linux instance.
+-- -   The instance type and operating system of the instance must support the product. For example, you can\'t detach a volume from a Windows instance and attach it to a Linux instance.
 --
--- For an overview of the AWS Marketplace, see
--- <https://aws.amazon.com/marketplace/help/200900000 Introducing AWS Marketplace>.
+-- For an overview of the AWS Marketplace, see <https://aws.amazon.com/marketplace/help/200900000 Introducing AWS Marketplace>.
 --
--- For more information about EBS volumes, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching Amazon EBS Volumes>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information about EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching Amazon EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.AttachVolume
     (
     -- * Creating a Request
@@ -116,15 +101,11 @@ attachVolume pVolumeId_ pInstanceId_ pDevice_ =
     , _avDevice = pDevice_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 avDryRun :: Lens' AttachVolume (Maybe Bool)
 avDryRun = lens _avDryRun (\ s a -> s{_avDryRun = a});
 
--- | The ID of the EBS volume. The volume and instance must be within the
--- same Availability Zone.
+-- | The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
 avVolumeId :: Lens' AttachVolume Text
 avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
 
@@ -132,8 +113,7 @@ avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
 avInstanceId :: Lens' AttachVolume Text
 avInstanceId = lens _avInstanceId (\ s a -> s{_avInstanceId = a});
 
--- | The device name to expose to the instance (for example, '\/dev\/sdh' or
--- 'xvdh').
+-- | The device name to expose to the instance (for example, '\/dev\/sdh' or 'xvdh').
 avDevice :: Lens' AttachVolume Text
 avDevice = lens _avDevice (\ s a -> s{_avDevice = a});
 

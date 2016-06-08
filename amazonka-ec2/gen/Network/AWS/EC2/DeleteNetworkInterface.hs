@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified network interface. You must detach the network
--- interface before you can delete it.
+-- Deletes the specified network interface. You must detach the network interface before you can delete it.
 module Network.AWS.EC2.DeleteNetworkInterface
     (
     -- * Creating a Request
@@ -65,10 +64,7 @@ deleteNetworkInterface pNetworkInterfaceId_ =
     , _dninNetworkInterfaceId = pNetworkInterfaceId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dninDryRun :: Lens' DeleteNetworkInterface (Maybe Bool)
 dninDryRun = lens _dninDryRun (\ s a -> s{_dninDryRun = a});
 

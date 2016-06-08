@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of attributes for a specific configuration ID. For
--- example, the output for a /server/ configuration item includes a list of
--- attributes about the server, including host name, operating system,
--- number of network cards, etc.
+-- Retrieves a list of attributes for a specific configuration ID. For example, the output for a /server/ configuration item includes a list of attributes about the server, including host name, operating system, number of network cards, etc.
 module Network.AWS.Discovery.DescribeConfigurations
     (
     -- * Creating a Request

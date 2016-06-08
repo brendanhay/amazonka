@@ -142,12 +142,7 @@ instance FromXML BucketVersioningStatus where
 instance ToXML BucketVersioningStatus where
     toXML = toXMLText
 
--- | Requests Amazon S3 to encode the object keys in the response and
--- specifies the encoding method to use. An object key may contain any
--- Unicode character; however, XML 1.0 parser cannot parse some characters,
--- such as characters with an ASCII value from 0 to 10. For characters that
--- are not supported in XML 1.0, you can add this parameter to request that
--- Amazon S3 encode the keys in the response.
+-- | Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
 data EncodingType =
     URL
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -614,8 +609,7 @@ instance ToHeader     ReplicationStatus
 instance FromXML ReplicationStatus where
     parseXML = parseXMLText "ReplicationStatus"
 
--- | If present, indicates that the requester was successfully charged for
--- the request.
+-- | If present, indicates that the requester was successfully charged for the request.
 data RequestCharged =
     RCRequester
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -639,11 +633,7 @@ instance ToHeader     RequestCharged
 instance FromXML RequestCharged where
     parseXML = parseXMLText "RequestCharged"
 
--- | Confirms that the requester knows that she or he will be charged for the
--- request. Bucket owners need not specify this parameter in their
--- requests. Documentation on downloading objects from requester pays
--- buckets can be found at
--- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/ObjectsinRequesterPaysBuckets.html
+-- | Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/ObjectsinRequesterPaysBuckets.html
 data RequestPayer =
     RPRequester
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)

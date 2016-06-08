@@ -18,26 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds (or updates) an inline policy document that is embedded in the
--- specified user.
+-- Adds (or updates) an inline policy document that is embedded in the specified user.
 --
--- A user can also have a managed policy attached to it. To attach a
--- managed policy to a user, use < AttachUserPolicy>. To create a new
--- managed policy, use < CreatePolicy>. For information about policies,
--- refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- A user can also have a managed policy attached to it. To attach a managed policy to a user, use < AttachUserPolicy>. To create a new managed policy, use < CreatePolicy>. For information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
--- For information about limits on the number of inline policies that you
--- can embed in a user, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
--- in the /IAM User Guide/.
+-- For information about limits on the number of inline policies that you can embed in a user, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
 --
--- Because policy documents can be large, you should use POST rather than
--- GET when calling 'PutUserPolicy'. For general information about using
--- the Query API with IAM, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
--- in the /Using IAM/ guide.
+-- Because policy documents can be large, you should use POST rather than GET when calling 'PutUserPolicy'. For general information about using the Query API with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /Using IAM/ guide.
 module Network.AWS.IAM.PutUserPolicy
     (
     -- * Creating a Request

@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the instance profiles that have the specified associated role. If
--- there are none, the action returns an empty list. For more information
--- about instance profiles, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+-- Lists the instance profiles that have the specified associated role. If there are none, the action returns an empty list. For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker'
--- parameters.
+-- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListInstanceProfilesForRole
@@ -81,22 +77,13 @@ listInstanceProfilesForRole pRoleName_ =
     , _lipfrRoleName = pRoleName_
     }
 
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the 'Marker' element in the response that you received to
--- indicate where the next call should start.
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
 lipfrMarker :: Lens' ListInstanceProfilesForRole (Maybe Text)
 lipfrMarker = lens _lipfrMarker (\ s a -> s{_lipfrMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of
--- items you want in the response. If additional items exist beyond the
--- maximum you specify, the 'IsTruncated' response element is 'true'.
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
 --
--- This parameter is optional. If you do not include it, it defaults to
--- 100. Note that IAM might return fewer results, even when there are more
--- results available. In that case, the 'IsTruncated' response element
--- returns 'true' and 'Marker' contains a value to include in the
--- subsequent call that tells the service where to continue from.
+-- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
 lipfrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Natural)
 lipfrMaxItems = lens _lipfrMaxItems (\ s a -> s{_lipfrMaxItems = a}) . mapping _Nat;
 
@@ -146,8 +133,7 @@ instance ToQuery ListInstanceProfilesForRole where
                "MaxItems" =: _lipfrMaxItems,
                "RoleName" =: _lipfrRoleName]
 
--- | Contains the response to a successful < ListInstanceProfilesForRole>
--- request.
+-- | Contains the response to a successful < ListInstanceProfilesForRole> request.
 --
 -- /See:/ 'listInstanceProfilesForRoleResponse' smart constructor.
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
@@ -179,19 +165,11 @@ listInstanceProfilesForRoleResponse pResponseStatus_ =
     , _lipfrrsInstanceProfiles = mempty
     }
 
--- | When 'IsTruncated' is 'true', this element is present and contains the
--- value to use for the 'Marker' parameter in a subsequent pagination
--- request.
+-- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
 lipfrrsMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
 lipfrrsMarker = lens _lipfrrsMarker (\ s a -> s{_lipfrrsMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your
--- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more items. Note that
--- IAM might return fewer than the 'MaxItems' number of results even when
--- there are more results available. We recommend that you check
--- 'IsTruncated' after every call to ensure that you receive all of your
--- results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
 lipfrrsIsTruncated :: Lens' ListInstanceProfilesForRoleResponse (Maybe Bool)
 lipfrrsIsTruncated = lens _lipfrrsIsTruncated (\ s a -> s{_lipfrrsIsTruncated = a});
 

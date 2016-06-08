@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a high-availability partition group. A high-availability
--- partition group is a group of partitions that spans multiple physical
--- HSMs.
+-- Creates a high-availability partition group. A high-availability partition group is a group of partitions that spans multiple physical HSMs.
 module Network.AWS.CloudHSM.CreateHAPG
     (
     -- * Creating a Request

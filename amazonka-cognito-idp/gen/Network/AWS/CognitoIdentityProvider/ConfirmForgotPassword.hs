@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows a user to enter a code provided when they reset their password to
--- update their password.
+-- Allows a user to enter a code provided when they reset their password to update their password.
 module Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
     (
     -- * Creating a Request
@@ -85,9 +84,7 @@ confirmForgotPassword pClientId_ pUsername_ pConfirmationCode_ pPassword_ =
     , _cfpPassword = _Sensitive # pPassword_
     }
 
--- | A keyed-hash message authentication code (HMAC) calculated using the
--- secret key of a user pool client and username plus the client ID in the
--- message.
+-- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 cfpSecretHash :: Lens' ConfirmForgotPassword (Maybe Text)
 cfpSecretHash = lens _cfpSecretHash (\ s a -> s{_cfpSecretHash = a}) . mapping _Sensitive;
 
@@ -95,18 +92,15 @@ cfpSecretHash = lens _cfpSecretHash (\ s a -> s{_cfpSecretHash = a}) . mapping _
 cfpClientId :: Lens' ConfirmForgotPassword Text
 cfpClientId = lens _cfpClientId (\ s a -> s{_cfpClientId = a}) . _Sensitive;
 
--- | The user name of the user for whom you want to enter a code to retrieve
--- a forgotten password.
+-- | The user name of the user for whom you want to enter a code to retrieve a forgotten password.
 cfpUsername :: Lens' ConfirmForgotPassword Text
 cfpUsername = lens _cfpUsername (\ s a -> s{_cfpUsername = a}) . _Sensitive;
 
--- | The confirmation code sent by a user\'s request to retrieve a forgotten
--- password.
+-- | The confirmation code sent by a user\'s request to retrieve a forgotten password.
 cfpConfirmationCode :: Lens' ConfirmForgotPassword Text
 cfpConfirmationCode = lens _cfpConfirmationCode (\ s a -> s{_cfpConfirmationCode = a});
 
--- | The password sent by sent by a user\'s request to retrieve a forgotten
--- password.
+-- | The password sent by sent by a user\'s request to retrieve a forgotten password.
 cfpPassword :: Lens' ConfirmForgotPassword Text
 cfpPassword = lens _cfpPassword (\ s a -> s{_cfpPassword = a}) . _Sensitive;
 
@@ -150,8 +144,7 @@ instance ToPath ConfirmForgotPassword where
 instance ToQuery ConfirmForgotPassword where
         toQuery = const mempty
 
--- | The response from the server that results from a user\'s request to
--- retrieve a forgotten password.
+-- | The response from the server that results from a user\'s request to retrieve a forgotten password.
 --
 -- /See:/ 'confirmForgotPasswordResponse' smart constructor.
 newtype ConfirmForgotPasswordResponse = ConfirmForgotPasswordResponse'

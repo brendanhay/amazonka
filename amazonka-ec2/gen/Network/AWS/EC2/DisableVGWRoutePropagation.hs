@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables a virtual private gateway (VGW) from propagating routes to a
--- specified route table of a VPC.
+-- Disables a virtual private gateway (VGW) from propagating routes to a specified route table of a VPC.
 module Network.AWS.EC2.DisableVGWRoutePropagation
     (
     -- * Creating a Request

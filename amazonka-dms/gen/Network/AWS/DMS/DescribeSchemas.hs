@@ -72,16 +72,11 @@ describeSchemas pEndpointARN_ =
     , _dsEndpointARN = pEndpointARN_
     }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 dsMarker :: Lens' DescribeSchemas (Maybe Text)
 dsMarker = lens _dsMarker (\ s a -> s{_dsMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -89,8 +84,7 @@ dsMarker = lens _dsMarker (\ s a -> s{_dsMarker = a});
 dsMaxRecords :: Lens' DescribeSchemas (Maybe Int)
 dsMaxRecords = lens _dsMaxRecords (\ s a -> s{_dsMaxRecords = a});
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 dsEndpointARN :: Lens' DescribeSchemas Text
 dsEndpointARN = lens _dsEndpointARN (\ s a -> s{_dsEndpointARN = a});
 
@@ -161,9 +155,7 @@ describeSchemasResponse pResponseStatus_ =
 dsrsSchemas :: Lens' DescribeSchemasResponse [Text]
 dsrsSchemas = lens _dsrsSchemas (\ s a -> s{_dsrsSchemas = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 dsrsMarker :: Lens' DescribeSchemasResponse (Maybe Text)
 dsrsMarker = lens _dsrsMarker (\ s a -> s{_dsrsMarker = a});
 

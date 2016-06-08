@@ -20,9 +20,7 @@
 --
 -- Confirm the creation of a hosted connection on an interconnect.
 --
--- Upon creation, the hosted connection is initially in the \'Ordering\'
--- state, and will remain in this state until the owner calls
--- ConfirmConnection to confirm creation of the hosted connection.
+-- Upon creation, the hosted connection is initially in the \'Ordering\' state, and will remain in this state until the owner calls ConfirmConnection to confirm creation of the hosted connection.
 module Network.AWS.DirectConnect.ConfirmConnection
     (
     -- * Creating a Request

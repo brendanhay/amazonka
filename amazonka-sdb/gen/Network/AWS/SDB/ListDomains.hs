@@ -18,13 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The 'ListDomains' operation lists all domains associated with the Access
--- Key ID. It returns domain names up to the limit set by
--- <#MaxNumberOfDomains MaxNumberOfDomains>. A <#NextToken NextToken> is
--- returned if there are more than 'MaxNumberOfDomains' domains. Calling
--- 'ListDomains' successive times with the 'NextToken' provided by the
--- operation returns up to 'MaxNumberOfDomains' more domain names with each
--- successive operation call.
+-- The 'ListDomains' operation lists all domains associated with the Access Key ID. It returns domain names up to the limit set by <#MaxNumberOfDomains MaxNumberOfDomains>. A <#NextToken NextToken> is returned if there are more than 'MaxNumberOfDomains' domains. Calling 'ListDomains' successive times with the 'NextToken' provided by the operation returns up to 'MaxNumberOfDomains' more domain names with each successive operation call.
 --
 -- This operation returns paginated results.
 module Network.AWS.SDB.ListDomains
@@ -74,13 +68,11 @@ listDomains =
     , _ldNextToken = Nothing
     }
 
--- | The maximum number of domain names you want returned. The range is 1 to
--- 100. The default setting is 100.
+-- | The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100.
 ldMaxNumberOfDomains :: Lens' ListDomains (Maybe Int)
 ldMaxNumberOfDomains = lens _ldMaxNumberOfDomains (\ s a -> s{_ldMaxNumberOfDomains = a});
 
--- | A string informing Amazon SimpleDB where to start the next list of
--- domain names.
+-- | A string informing Amazon SimpleDB where to start the next list of domain names.
 ldNextToken :: Lens' ListDomains (Maybe Text)
 ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
@@ -150,8 +142,7 @@ listDomainsResponse pResponseStatus_ =
 ldrsDomainNames :: Lens' ListDomainsResponse [Text]
 ldrsDomainNames = lens _ldrsDomainNames (\ s a -> s{_ldrsDomainNames = a}) . _Default . _Coerce;
 
--- | An opaque token indicating that there are more domains than the
--- specified 'MaxNumberOfDomains' still available.
+-- | An opaque token indicating that there are more domains than the specified 'MaxNumberOfDomains' still available.
 ldrsNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 

@@ -65,13 +65,11 @@ describeConfigRules =
     , _dcrNextToken = Nothing
     }
 
--- | The names of the AWS Config rules for which you want details. If you do
--- not specify any names, AWS Config returns details for all your rules.
+-- | The names of the AWS Config rules for which you want details. If you do not specify any names, AWS Config returns details for all your rules.
 dcrConfigRuleNames :: Lens' DescribeConfigRules [Text]
 dcrConfigRuleNames = lens _dcrConfigRuleNames (\ s a -> s{_dcrConfigRuleNames = a}) . _Default . _Coerce;
 
--- | The 'nextToken' string returned on a previous page that you use to get
--- the next page of results in a paginated response.
+-- | The 'nextToken' string returned on a previous page that you use to get the next page of results in a paginated response.
 dcrNextToken :: Lens' DescribeConfigRules (Maybe Text)
 dcrNextToken = lens _dcrNextToken (\ s a -> s{_dcrNextToken = a});
 
@@ -144,8 +142,7 @@ describeConfigRulesResponse pResponseStatus_ =
 dcrrsConfigRules :: Lens' DescribeConfigRulesResponse [ConfigRule]
 dcrrsConfigRules = lens _dcrrsConfigRules (\ s a -> s{_dcrrsConfigRules = a}) . _Default . _Coerce;
 
--- | The string that you use in a subsequent request to get the next page of
--- results in a paginated response.
+-- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 dcrrsNextToken :: Lens' DescribeConfigRulesResponse (Maybe Text)
 dcrrsNextToken = lens _dcrrsNextToken (\ s a -> s{_dcrrsNextToken = a});
 

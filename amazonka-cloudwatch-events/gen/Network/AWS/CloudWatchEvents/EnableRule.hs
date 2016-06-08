@@ -20,9 +20,7 @@
 --
 -- Enables a rule. If the rule does not exist, the operation fails.
 --
--- __Note:__ When you enable a rule, incoming events might not immediately
--- start matching to a newly enabled rule. Please allow a short period of
--- time for changes to take effect.
+-- __Note:__ When you enable a rule, incoming events might not immediately start matching to a newly enabled rule. Please allow a short period of time for changes to take effect.
 module Network.AWS.CloudWatchEvents.EnableRule
     (
     -- * Creating a Request

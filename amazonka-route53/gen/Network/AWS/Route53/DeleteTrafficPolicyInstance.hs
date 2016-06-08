@@ -18,16 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a traffic policy instance and all of the resource record sets
--- that Amazon Route 53 created when you created the instance.
+-- Deletes a traffic policy instance and all of the resource record sets that Amazon Route 53 created when you created the instance.
 --
--- To delete a traffic policy instance, send a 'DELETE' request to the
--- '\/Route 53 API version\/trafficpolicy\/traffic policy instance ID'
--- resource.
+-- To delete a traffic policy instance, send a 'DELETE' request to the '\/Route 53 API version\/trafficpolicy\/traffic policy instance ID' resource.
 --
--- When you delete a traffic policy instance, Amazon Route 53 also deletes
--- all of the resource record sets that were created when you created the
--- traffic policy instance.
+-- When you delete a traffic policy instance, Amazon Route 53 also deletes all of the resource record sets that were created when you created the traffic policy instance.
 module Network.AWS.Route53.DeleteTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -50,8 +45,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the traffic policy
--- instance that you want to delete.
+-- | A complex type that contains information about the traffic policy instance that you want to delete.
 --
 -- /See:/ 'deleteTrafficPolicyInstance' smart constructor.
 newtype DeleteTrafficPolicyInstance = DeleteTrafficPolicyInstance'
@@ -73,9 +67,7 @@ deleteTrafficPolicyInstance pId_ =
 
 -- | The ID of the traffic policy instance that you want to delete.
 --
--- When you delete a traffic policy instance, Amazon Route 53 also deletes
--- all of the resource record sets that were created when you created the
--- traffic policy instance.
+-- When you delete a traffic policy instance, Amazon Route 53 also deletes all of the resource record sets that were created when you created the traffic policy instance.
 dtpiId :: Lens' DeleteTrafficPolicyInstance Text
 dtpiId = lens _dtpiId (\ s a -> s{_dtpiId = a});
 

@@ -48,8 +48,7 @@ accountLimit =
 alValue :: Lens' AccountLimit (Maybe Int)
 alValue = lens _alValue (\ s a -> s{_alValue = a});
 
--- | The name of the account limit. Currently, the only account limit is
--- 'StackLimit'.
+-- | The name of the account limit. Currently, the only account limit is 'StackLimit'.
 alName :: Lens' AccountLimit (Maybe Text)
 alName = lens _alName (\ s a -> s{_alName = a});
 
@@ -62,8 +61,7 @@ instance Hashable AccountLimit
 
 instance NFData AccountLimit
 
--- | The 'Change' structure describes the changes AWS CloudFormation will
--- perform if you execute the change set.
+-- | The 'Change' structure describes the changes AWS CloudFormation will perform if you execute the change set.
 --
 -- /See:/ 'change' smart constructor.
 data Change = Change'
@@ -86,13 +84,11 @@ change =
     , _cType = Nothing
     }
 
--- | A 'ResourceChange' structure that describes the resource and action that
--- AWS CloudFormation will perform.
+-- | A 'ResourceChange' structure that describes the resource and action that AWS CloudFormation will perform.
 cResourceChange :: Lens' Change (Maybe ResourceChange)
 cResourceChange = lens _cResourceChange (\ s a -> s{_cResourceChange = a});
 
--- | The type of entity that AWS CloudFormation changes. Currently, the only
--- entity type is 'Resource'.
+-- | The type of entity that AWS CloudFormation changes. Currently, the only entity type is 'Resource'.
 cType :: Lens' Change (Maybe ChangeType)
 cType = lens _cType (\ s a -> s{_cType = a});
 
@@ -105,8 +101,7 @@ instance Hashable Change
 
 instance NFData Change
 
--- | The 'ChangeSetSummary' structure describes a change set, its status, and
--- the stack with which it\'s associated.
+-- | The 'ChangeSetSummary' structure describes a change set, its status, and the stack with which it\'s associated.
 --
 -- /See:/ 'changeSetSummary' smart constructor.
 data ChangeSetSummary = ChangeSetSummary'
@@ -157,8 +152,7 @@ changeSetSummary =
 cssCreationTime :: Lens' ChangeSetSummary (Maybe UTCTime)
 cssCreationTime = lens _cssCreationTime (\ s a -> s{_cssCreationTime = a}) . mapping _Time;
 
--- | The state of the change set, such as 'CREATE_IN_PROGRESS',
--- 'CREATE_COMPLETE', or 'FAILED'.
+-- | The state of the change set, such as 'CREATE_IN_PROGRESS', 'CREATE_COMPLETE', or 'FAILED'.
 cssStatus :: Lens' ChangeSetSummary (Maybe ChangeSetStatus)
 cssStatus = lens _cssStatus (\ s a -> s{_cssStatus = a});
 
@@ -170,9 +164,7 @@ cssChangeSetName = lens _cssChangeSetName (\ s a -> s{_cssChangeSetName = a});
 cssChangeSetId :: Lens' ChangeSetSummary (Maybe Text)
 cssChangeSetId = lens _cssChangeSetId (\ s a -> s{_cssChangeSetId = a});
 
--- | A description of the change set\'s status. For example, if your change
--- set is in the 'FAILED' state, AWS CloudFormation shows the error
--- message.
+-- | A description of the change set\'s status. For example, if your change set is in the 'FAILED' state, AWS CloudFormation shows the error message.
 cssStatusReason :: Lens' ChangeSetSummary (Maybe Text)
 cssStatusReason = lens _cssStatusReason (\ s a -> s{_cssStatusReason = a});
 
@@ -283,15 +275,11 @@ parameter =
 pParameterValue :: Lens' Parameter (Maybe Text)
 pParameterValue = lens _pParameterValue (\ s a -> s{_pParameterValue = a});
 
--- | The key associated with the parameter. If you don\'t specify a key and
--- value for a particular parameter, AWS CloudFormation uses the default
--- value that is specified in your template.
+-- | The key associated with the parameter. If you don\'t specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
 pParameterKey :: Lens' Parameter (Maybe Text)
 pParameterKey = lens _pParameterKey (\ s a -> s{_pParameterKey = a});
 
--- | During a stack update, use the existing parameter value that the stack
--- is using for a given parameter key. If you specify 'true', do not
--- specify a parameter value.
+-- | During a stack update, use the existing parameter value that the stack is using for a given parameter key. If you specify 'true', do not specify a parameter value.
 pUsePreviousValue :: Lens' Parameter (Maybe Bool)
 pUsePreviousValue = lens _pUsePreviousValue (\ s a -> s{_pUsePreviousValue = a});
 
@@ -312,9 +300,7 @@ instance ToQuery Parameter where
                "ParameterKey" =: _pParameterKey,
                "UsePreviousValue" =: _pUsePreviousValue]
 
--- | A set of criteria that AWS CloudFormation uses to validate parameter
--- values. Although other constraints might be defined in the stack
--- template, AWS CloudFormation returns only the 'AllowedValues' property.
+-- | A set of criteria that AWS CloudFormation uses to validate parameter values. Although other constraints might be defined in the stack template, AWS CloudFormation returns only the 'AllowedValues' property.
 --
 -- /See:/ 'parameterConstraints' smart constructor.
 newtype ParameterConstraints = ParameterConstraints'
@@ -402,8 +388,7 @@ pdParameterConstraints = lens _pdParameterConstraints (\ s a -> s{_pdParameterCo
 pdDefaultValue :: Lens' ParameterDeclaration (Maybe Text)
 pdDefaultValue = lens _pdDefaultValue (\ s a -> s{_pdDefaultValue = a});
 
--- | Flag that indicates whether the parameter value is shown as plain text
--- in logs and in the AWS Management Console.
+-- | Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
 pdNoEcho :: Lens' ParameterDeclaration (Maybe Bool)
 pdNoEcho = lens _pdNoEcho (\ s a -> s{_pdNoEcho = a});
 
@@ -424,9 +409,7 @@ instance Hashable ParameterDeclaration
 
 instance NFData ParameterDeclaration
 
--- | The 'ResourceChange' structure describes the resource and the action
--- that AWS CloudFormation will perform on it if you execute this change
--- set.
+-- | The 'ResourceChange' structure describes the resource and the action that AWS CloudFormation will perform on it if you execute this change set.
 --
 -- /See:/ 'resourceChange' smart constructor.
 data ResourceChange = ResourceChange'
@@ -473,8 +456,7 @@ resourceChange =
 rcLogicalResourceId :: Lens' ResourceChange (Maybe Text)
 rcLogicalResourceId = lens _rcLogicalResourceId (\ s a -> s{_rcLogicalResourceId = a});
 
--- | The resource\'s physical ID (resource name). Resources that you are
--- adding don\'t have physical IDs because they haven\'t been created.
+-- | The resource\'s physical ID (resource name). Resources that you are adding don\'t have physical IDs because they haven\'t been created.
 rcPhysicalResourceId :: Lens' ResourceChange (Maybe Text)
 rcPhysicalResourceId = lens _rcPhysicalResourceId (\ s a -> s{_rcPhysicalResourceId = a});
 
@@ -482,37 +464,21 @@ rcPhysicalResourceId = lens _rcPhysicalResourceId (\ s a -> s{_rcPhysicalResourc
 rcResourceType :: Lens' ResourceChange (Maybe Text)
 rcResourceType = lens _rcResourceType (\ s a -> s{_rcResourceType = a});
 
--- | The action that AWS CloudFormation takes on the resource, such as 'Add'
--- (adds a new resource), 'Modify' (changes a resource), or 'Remove'
--- (deletes a resource).
+-- | The action that AWS CloudFormation takes on the resource, such as 'Add' (adds a new resource), 'Modify' (changes a resource), or 'Remove' (deletes a resource).
 rcAction :: Lens' ResourceChange (Maybe ChangeAction)
 rcAction = lens _rcAction (\ s a -> s{_rcAction = a});
 
--- | For the 'Modify' action, indicates which resource attribute is
--- triggering this update, such as a change in the resource attribute\'s
--- 'Metadata', 'Properties', or 'Tags'.
+-- | For the 'Modify' action, indicates which resource attribute is triggering this update, such as a change in the resource attribute\'s 'Metadata', 'Properties', or 'Tags'.
 rcScope :: Lens' ResourceChange [ResourceAttribute]
 rcScope = lens _rcScope (\ s a -> s{_rcScope = a}) . _Default . _Coerce;
 
--- | For the 'Modify' action, a list of 'ResourceChangeDetail' structures
--- that describes the changes that AWS CloudFormation will make to the
--- resource.
+-- | For the 'Modify' action, a list of 'ResourceChangeDetail' structures that describes the changes that AWS CloudFormation will make to the resource.
 rcDetails :: Lens' ResourceChange [ResourceChangeDetail]
 rcDetails = lens _rcDetails (\ s a -> s{_rcDetails = a}) . _Default . _Coerce;
 
--- | For the 'Modify' action, indicates whether AWS CloudFormation will
--- replace the resource by creating a new one and deleting the old one.
--- This value depends on the value of the 'RequiresRecreation' property in
--- the 'ResourceTargetDefinition' structure. For example, if the
--- 'RequiresRecreation' field is 'Always' and the 'Evaluation' field is
--- 'Static', 'Replacement' is 'True'. If the 'RequiresRecreation' field is
--- 'Always' and the 'Evaluation' field is 'Dynamic', 'Replacement' is
--- 'Conditionally'.
+-- | For the 'Modify' action, indicates whether AWS CloudFormation will replace the resource by creating a new one and deleting the old one. This value depends on the value of the 'RequiresRecreation' property in the 'ResourceTargetDefinition' structure. For example, if the 'RequiresRecreation' field is 'Always' and the 'Evaluation' field is 'Static', 'Replacement' is 'True'. If the 'RequiresRecreation' field is 'Always' and the 'Evaluation' field is 'Dynamic', 'Replacement' is 'Conditionally'.
 --
--- If you have multiple changes with different 'RequiresRecreation' values,
--- the 'Replacement' value depends on the change with the most impact. A
--- 'RequiresRecreation' value of 'Always' has the most impact, followed by
--- 'Conditionally', and then 'Never'.
+-- If you have multiple changes with different 'RequiresRecreation' values, the 'Replacement' value depends on the change with the most impact. A 'RequiresRecreation' value of 'Always' has the most impact, followed by 'Conditionally', and then 'Never'.
 rcReplacement :: Lens' ResourceChange (Maybe Replacement)
 rcReplacement = lens _rcReplacement (\ s a -> s{_rcReplacement = a});
 
@@ -535,9 +501,7 @@ instance Hashable ResourceChange
 
 instance NFData ResourceChange
 
--- | For a resource with 'Modify' as the action, the 'ResourceChange'
--- structure describes the changes AWS CloudFormation will make to that
--- resource.
+-- | For a resource with 'Modify' as the action, the 'ResourceChange' structure describes the changes AWS CloudFormation will make to that resource.
 --
 -- /See:/ 'resourceChangeDetail' smart constructor.
 data ResourceChangeDetail = ResourceChangeDetail'
@@ -568,62 +532,31 @@ resourceChangeDetail =
     , _rcdTarget = Nothing
     }
 
--- | The identity of the entity that triggered this change. This entity is a
--- member of the group that is specified by the 'ChangeSource' field. For
--- example, if you modified the value of the 'KeyPairName' parameter, the
--- 'CausingEntity' is the name of the parameter ('KeyPairName').
+-- | The identity of the entity that triggered this change. This entity is a member of the group that is specified by the 'ChangeSource' field. For example, if you modified the value of the 'KeyPairName' parameter, the 'CausingEntity' is the name of the parameter ('KeyPairName').
 --
--- If the 'ChangeSource' value is 'DirectModification', no value is given
--- for 'CausingEntity'.
+-- If the 'ChangeSource' value is 'DirectModification', no value is given for 'CausingEntity'.
 rcdCausingEntity :: Lens' ResourceChangeDetail (Maybe Text)
 rcdCausingEntity = lens _rcdCausingEntity (\ s a -> s{_rcdCausingEntity = a});
 
--- | The group to which the 'CausingEntity' value belongs. There are five
--- entity groups:
+-- | The group to which the 'CausingEntity' value belongs. There are five entity groups:
 --
--- -   'ResourceReference' entities are 'Ref' intrinsic functions that
---     refer to resources in the template, such as
---     '{ \"Ref\" : \"MyEC2InstanceResource\" }'.
--- -   'ParameterReference' entities are 'Ref' intrinsic functions that get
---     template parameter values, such as
---     '{ \"Ref\" : \"MyPasswordParameter\" }'.
--- -   'ResourceAttribute' entities are 'Fn::GetAtt' intrinsic functions
---     that get resource attribute values, such as
---     '{ \"Fn::GetAtt\" : [ \"MyEC2InstanceResource\", \"PublicDnsName\" ] }'.
--- -   'DirectModification' entities are changes that are made directly to
---     the template.
--- -   'Automatic' entities are 'AWS::CloudFormation::Stack' resource
---     types, which are also known as nested stacks. If you made no changes
---     to the 'AWS::CloudFormation::Stack' resource, AWS CloudFormation
---     sets the 'ChangeSource' to 'Automatic' because the nested stack\'s
---     template might have changed. Changes to a nested stack\'s template
---     aren\'t visible to AWS CloudFormation until you run an update on the
---     parent stack.
+-- -   'ResourceReference' entities are 'Ref' intrinsic functions that refer to resources in the template, such as '{ \"Ref\" : \"MyEC2InstanceResource\" }'.
+-- -   'ParameterReference' entities are 'Ref' intrinsic functions that get template parameter values, such as '{ \"Ref\" : \"MyPasswordParameter\" }'.
+-- -   'ResourceAttribute' entities are 'Fn::GetAtt' intrinsic functions that get resource attribute values, such as '{ \"Fn::GetAtt\" : [ \"MyEC2InstanceResource\", \"PublicDnsName\" ] }'.
+-- -   'DirectModification' entities are changes that are made directly to the template.
+-- -   'Automatic' entities are 'AWS::CloudFormation::Stack' resource types, which are also known as nested stacks. If you made no changes to the 'AWS::CloudFormation::Stack' resource, AWS CloudFormation sets the 'ChangeSource' to 'Automatic' because the nested stack\'s template might have changed. Changes to a nested stack\'s template aren\'t visible to AWS CloudFormation until you run an update on the parent stack.
 rcdChangeSource :: Lens' ResourceChangeDetail (Maybe ChangeSource)
 rcdChangeSource = lens _rcdChangeSource (\ s a -> s{_rcdChangeSource = a});
 
--- | Indicates whether AWS CloudFormation can determine the target value, and
--- whether the target value will change before you execute a change set.
+-- | Indicates whether AWS CloudFormation can determine the target value, and whether the target value will change before you execute a change set.
 --
--- For 'Static' evaluations, AWS CloudFormation can determine that the
--- target value will change, and its value. For example, if you directly
--- modify the 'InstanceType' property of an EC2 instance, AWS
--- CloudFormation knows that this property value will change, and its
--- value, so this is a 'Static' evaluation.
+-- For 'Static' evaluations, AWS CloudFormation can determine that the target value will change, and its value. For example, if you directly modify the 'InstanceType' property of an EC2 instance, AWS CloudFormation knows that this property value will change, and its value, so this is a 'Static' evaluation.
 --
--- For 'Dynamic' evaluations, cannot determine the target value because it
--- depends on the result of an intrinsic function, such as a 'Ref' or
--- 'Fn::GetAtt' intrinsic function, when the stack is updated. For example,
--- if your template includes a reference to a resource that is
--- conditionally recreated, the value of the reference (the physical ID of
--- the resource) might change, depending on if the resource is recreated.
--- If the resource is recreated, it will have a new physical ID, so all
--- references to that resource will also be updated.
+-- For 'Dynamic' evaluations, cannot determine the target value because it depends on the result of an intrinsic function, such as a 'Ref' or 'Fn::GetAtt' intrinsic function, when the stack is updated. For example, if your template includes a reference to a resource that is conditionally recreated, the value of the reference (the physical ID of the resource) might change, depending on if the resource is recreated. If the resource is recreated, it will have a new physical ID, so all references to that resource will also be updated.
 rcdEvaluation :: Lens' ResourceChangeDetail (Maybe EvaluationType)
 rcdEvaluation = lens _rcdEvaluation (\ s a -> s{_rcdEvaluation = a});
 
--- | A 'ResourceTargetDefinition' structure that describes the field that AWS
--- CloudFormation will change and whether the resource will be recreated.
+-- | A 'ResourceTargetDefinition' structure that describes the field that AWS CloudFormation will change and whether the resource will be recreated.
 rcdTarget :: Lens' ResourceChangeDetail (Maybe ResourceTargetDefinition)
 rcdTarget = lens _rcdTarget (\ s a -> s{_rcdTarget = a});
 
@@ -638,8 +571,7 @@ instance Hashable ResourceChangeDetail
 
 instance NFData ResourceChangeDetail
 
--- | The field that AWS CloudFormation will change, such as the name of a
--- resource\'s property, and whether the resource will be recreated.
+-- | The field that AWS CloudFormation will change, such as the name of a resource\'s property, and whether the resource will be recreated.
 --
 -- /See:/ 'resourceTargetDefinition' smart constructor.
 data ResourceTargetDefinition = ResourceTargetDefinition'
@@ -666,22 +598,15 @@ resourceTargetDefinition =
     , _rtdName = Nothing
     }
 
--- | Indicates which resource attribute is triggering this update, such as a
--- change in the resource attribute\'s 'Metadata', 'Properties', or 'Tags'.
+-- | Indicates which resource attribute is triggering this update, such as a change in the resource attribute\'s 'Metadata', 'Properties', or 'Tags'.
 rtdAttribute :: Lens' ResourceTargetDefinition (Maybe ResourceAttribute)
 rtdAttribute = lens _rtdAttribute (\ s a -> s{_rtdAttribute = a});
 
--- | If the 'Attribute' value is 'Properties', indicates whether a change to
--- this property causes the resource to be recreated. The value can be
--- 'Never', 'Always', or 'Conditionally'. To determine the conditions for a
--- 'Conditionally' recreation, see the update behavior for that
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property>
--- in the AWS CloudFormation User Guide.
+-- | If the 'Attribute' value is 'Properties', indicates whether a change to this property causes the resource to be recreated. The value can be 'Never', 'Always', or 'Conditionally'. To determine the conditions for a 'Conditionally' recreation, see the update behavior for that <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property> in the AWS CloudFormation User Guide.
 rtdRequiresRecreation :: Lens' ResourceTargetDefinition (Maybe RequiresRecreation)
 rtdRequiresRecreation = lens _rtdRequiresRecreation (\ s a -> s{_rtdRequiresRecreation = a});
 
--- | If the 'Attribute' value is 'Properties', the name of the property. For
--- all other attributes, the value is null.
+-- | If the 'Attribute' value is 'Properties', the name of the property. For all other attributes, the value is null.
 rtdName :: Lens' ResourceTargetDefinition (Maybe Text)
 rtdName = lens _rtdName (\ s a -> s{_rtdName = a});
 
@@ -776,8 +701,7 @@ stack pStackName_ pCreationTime_ pStackStatus_ =
 sDisableRollback :: Lens' Stack (Maybe Bool)
 sDisableRollback = lens _sDisableRollback (\ s a -> s{_sDisableRollback = a});
 
--- | The time the stack was last updated. This field will only be returned if
--- the stack has been updated at least once.
+-- | The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
 sLastUpdatedTime :: Lens' Stack (Maybe UTCTime)
 sLastUpdatedTime = lens _sLastUpdatedTime (\ s a -> s{_sLastUpdatedTime = a}) . mapping _Time;
 
@@ -924,14 +848,11 @@ stackEvent pStackId_ pEventId_ pStackName_ pTimestamp_ =
 seLogicalResourceId :: Lens' StackEvent (Maybe Text)
 seLogicalResourceId = lens _seLogicalResourceId (\ s a -> s{_seLogicalResourceId = a});
 
--- | The name or unique identifier associated with the physical instance of
--- the resource.
+-- | The name or unique identifier associated with the physical instance of the resource.
 sePhysicalResourceId :: Lens' StackEvent (Maybe Text)
 sePhysicalResourceId = lens _sePhysicalResourceId (\ s a -> s{_sePhysicalResourceId = a});
 
--- | Type of resource. (For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
--- in the AWS CloudFormation User Guide.)
+-- | Type of resource. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> in the AWS CloudFormation User Guide.)
 seResourceType :: Lens' StackEvent (Maybe Text)
 seResourceType = lens _seResourceType (\ s a -> s{_seResourceType = a});
 
@@ -1036,8 +957,7 @@ stackResource pLogicalResourceId_ pResourceType_ pTimestamp_ pResourceStatus_ =
     , _srResourceStatus = pResourceStatus_
     }
 
--- | The name or unique identifier that corresponds to a physical instance ID
--- of a resource supported by AWS CloudFormation.
+-- | The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation.
 srPhysicalResourceId :: Lens' StackResource (Maybe Text)
 srPhysicalResourceId = lens _srPhysicalResourceId (\ s a -> s{_srPhysicalResourceId = a});
 
@@ -1061,9 +981,7 @@ srStackName = lens _srStackName (\ s a -> s{_srStackName = a});
 srLogicalResourceId :: Lens' StackResource Text
 srLogicalResourceId = lens _srLogicalResourceId (\ s a -> s{_srLogicalResourceId = a});
 
--- | Type of resource. (For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
--- in the AWS CloudFormation User Guide.)
+-- | Type of resource. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> in the AWS CloudFormation User Guide.)
 srResourceType :: Lens' StackResource Text
 srResourceType = lens _srResourceType (\ s a -> s{_srResourceType = a});
 
@@ -1151,8 +1069,7 @@ stackResourceDetail pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ pR
     , _srdResourceStatus = pResourceStatus_
     }
 
--- | The name or unique identifier that corresponds to a physical instance ID
--- of a resource supported by AWS CloudFormation.
+-- | The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation.
 srdPhysicalResourceId :: Lens' StackResourceDetail (Maybe Text)
 srdPhysicalResourceId = lens _srdPhysicalResourceId (\ s a -> s{_srdPhysicalResourceId = a});
 
@@ -1160,10 +1077,7 @@ srdPhysicalResourceId = lens _srdPhysicalResourceId (\ s a -> s{_srdPhysicalReso
 srdResourceStatusReason :: Lens' StackResourceDetail (Maybe Text)
 srdResourceStatusReason = lens _srdResourceStatusReason (\ s a -> s{_srdResourceStatusReason = a});
 
--- | The JSON format content of the 'Metadata' attribute declared for the
--- resource. For more information, see
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute>
--- in the AWS CloudFormation User Guide.
+-- | The JSON format content of the 'Metadata' attribute declared for the resource. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute> in the AWS CloudFormation User Guide.
 srdMetadata :: Lens' StackResourceDetail (Maybe Text)
 srdMetadata = lens _srdMetadata (\ s a -> s{_srdMetadata = a});
 
@@ -1183,9 +1097,7 @@ srdStackName = lens _srdStackName (\ s a -> s{_srdStackName = a});
 srdLogicalResourceId :: Lens' StackResourceDetail Text
 srdLogicalResourceId = lens _srdLogicalResourceId (\ s a -> s{_srdLogicalResourceId = a});
 
--- | Type of resource. ((For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
--- in the AWS CloudFormation User Guide.)
+-- | Type of resource. ((For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> in the AWS CloudFormation User Guide.)
 srdResourceType :: Lens' StackResourceDetail Text
 srdResourceType = lens _srdResourceType (\ s a -> s{_srdResourceType = a});
 
@@ -1258,8 +1170,7 @@ stackResourceSummary pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ p
     , _srsResourceStatus = pResourceStatus_
     }
 
--- | The name or unique identifier that corresponds to a physical instance ID
--- of the resource.
+-- | The name or unique identifier that corresponds to a physical instance ID of the resource.
 srsPhysicalResourceId :: Lens' StackResourceSummary (Maybe Text)
 srsPhysicalResourceId = lens _srsPhysicalResourceId (\ s a -> s{_srsPhysicalResourceId = a});
 
@@ -1271,9 +1182,7 @@ srsResourceStatusReason = lens _srsResourceStatusReason (\ s a -> s{_srsResource
 srsLogicalResourceId :: Lens' StackResourceSummary Text
 srsLogicalResourceId = lens _srsLogicalResourceId (\ s a -> s{_srsLogicalResourceId = a});
 
--- | Type of resource. (For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
--- in the AWS CloudFormation User Guide.)
+-- | Type of resource. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> in the AWS CloudFormation User Guide.)
 srsResourceType :: Lens' StackResourceSummary Text
 srsResourceType = lens _srsResourceType (\ s a -> s{_srsResourceType = a});
 
@@ -1349,8 +1258,7 @@ stackSummary pStackName_ pCreationTime_ pStackStatus_ =
     , _ssStackStatus = pStackStatus_
     }
 
--- | The time the stack was last updated. This field will only be returned if
--- the stack has been updated at least once.
+-- | The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
 ssLastUpdatedTime :: Lens' StackSummary (Maybe UTCTime)
 ssLastUpdatedTime = lens _ssLastUpdatedTime (\ s a -> s{_ssLastUpdatedTime = a}) . mapping _Time;
 
@@ -1398,8 +1306,7 @@ instance Hashable StackSummary
 
 instance NFData StackSummary
 
--- | The Tag type enables you to specify a key-value pair that can be used to
--- store information about an AWS CloudFormation stack.
+-- | The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
@@ -1422,14 +1329,11 @@ tag =
     , _tagKey = Nothing
     }
 
--- | /Required/. A string containing the value for this tag. You can specify
--- a maximum of 256 characters for a tag value.
+-- | /Required/. A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | /Required/. A string used to identify this tag. You can specify a
--- maximum of 128 characters for a tag key. Tags owned by Amazon Web
--- Services (AWS) have the reserved prefix: 'aws:'.
+-- | /Required/. A string used to identify this tag. You can specify a maximum of 128 characters for a tag key. Tags owned by Amazon Web Services (AWS) have the reserved prefix: 'aws:'.
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
@@ -1484,8 +1388,7 @@ tpParameterKey = lens _tpParameterKey (\ s a -> s{_tpParameterKey = a});
 tpDefaultValue :: Lens' TemplateParameter (Maybe Text)
 tpDefaultValue = lens _tpDefaultValue (\ s a -> s{_tpDefaultValue = a});
 
--- | Flag indicating whether the parameter should be displayed as plain text
--- in logs and UIs.
+-- | Flag indicating whether the parameter should be displayed as plain text in logs and UIs.
 tpNoEcho :: Lens' TemplateParameter (Maybe Bool)
 tpNoEcho = lens _tpNoEcho (\ s a -> s{_tpNoEcho = a});
 

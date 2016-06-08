@@ -18,15 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the destinations that are associated with the AWS account
--- making the request. The list returned in the response is ASCII-sorted by
--- destination name.
+-- Returns all the destinations that are associated with the AWS account making the request. The list returned in the response is ASCII-sorted by destination name.
 --
--- By default, this operation returns up to 50 destinations. If there are
--- more destinations to list, the response would contain a 'nextToken'
--- value in the response body. You can also limit the number of
--- destinations returned in the response by specifying the 'limit'
--- parameter in the request.
+-- By default, this operation returns up to 50 destinations. If there are more destinations to list, the response would contain a 'nextToken' value in the response body. You can also limit the number of destinations returned in the response by specifying the 'limit' parameter in the request.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeDestinations
@@ -89,9 +83,7 @@ ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
 ddLimit :: Lens' DescribeDestinations (Maybe Natural)
 ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat;
 
--- | Will only return destinations that match the provided
--- destinationNamePrefix. If you don\'t specify a value, no prefix is
--- applied.
+-- | Will only return destinations that match the provided destinationNamePrefix. If you don\'t specify a value, no prefix is applied.
 ddDestinationNamePrefix :: Lens' DescribeDestinations (Maybe Text)
 ddDestinationNamePrefix = lens _ddDestinationNamePrefix (\ s a -> s{_ddDestinationNamePrefix = a});
 

@@ -18,15 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures an 'IndexField' for the search domain. Used to create new
--- fields and modify existing ones. You must specify the name of the domain
--- you are configuring and an index field configuration. The index field
--- configuration specifies a unique name, the index field type, and the
--- options you want to configure for the field. The options you can specify
--- depend on the 'IndexFieldType'. If the field exists, the new
--- configuration replaces the old one. For more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Configures an 'IndexField' for the search domain. Used to create new fields and modify existing ones. You must specify the name of the domain you are configuring and an index field configuration. The index field configuration specifies a unique name, the index field type, and the options you want to configure for the field. The options you can specify depend on the 'IndexFieldType'. If the field exists, the new configuration replaces the old one. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DefineIndexField
     (
     -- * Creating a Request
@@ -51,9 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DefineIndexField' operation.
--- Specifies the name of the domain you want to update and the index field
--- configuration.
+-- | Container for the parameters to the 'DefineIndexField' operation. Specifies the name of the domain you want to update and the index field configuration.
 --
 -- /See:/ 'defineIndexField' smart constructor.
 data DefineIndexField = DefineIndexField'
@@ -113,8 +103,7 @@ instance ToQuery DefineIndexField where
                "DomainName" =: _defeDomainName,
                "IndexField" =: _defeIndexField]
 
--- | The result of a 'DefineIndexField' request. Contains the status of the
--- newly-configured index field.
+-- | The result of a 'DefineIndexField' request. Contains the status of the newly-configured index field.
 --
 -- /See:/ 'defineIndexFieldResponse' smart constructor.
 data DefineIndexFieldResponse = DefineIndexFieldResponse'

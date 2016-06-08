@@ -67,9 +67,7 @@ getRepositoryPolicy pRepositoryName_ =
     , _grpRepositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default registry is
--- assumed.
+-- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 grpRegistryId :: Lens' GetRepositoryPolicy (Maybe Text)
 grpRegistryId = lens _grpRegistryId (\ s a -> s{_grpRegistryId = a});
 

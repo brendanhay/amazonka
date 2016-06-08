@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Runs deployment or stack commands. For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html Deploying Apps>
--- and
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html Run Stack Commands>.
+-- Runs deployment or stack commands. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html Deploying Apps> and <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html Run Stack Commands>.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Deploy or Manage permissions level for the stack, or an attached policy
--- that explicitly grants permissions. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.CreateDeployment
     (
     -- * Creating a Request
@@ -100,20 +93,15 @@ createDeployment pStackId_ pCommand_ =
     , _cdCommand = pCommand_
     }
 
--- | A string that contains user-defined, custom JSON. It is used to override
--- the corresponding default stack configuration JSON values. The string
--- should be in the following format and must escape characters such as
--- \'\"\':
+-- | A string that contains user-defined, custom JSON. It is used to override the corresponding default stack configuration JSON values. The string should be in the following format and must escape characters such as \'\"\':
 --
 -- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'
 --
--- For more information on custom JSON, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
+-- For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
 cdCustomJSON :: Lens' CreateDeployment (Maybe Text)
 cdCustomJSON = lens _cdCustomJSON (\ s a -> s{_cdCustomJSON = a});
 
--- | The app ID. This parameter is required for app deployments, but not for
--- other deployment commands.
+-- | The app ID. This parameter is required for app deployments, but not for other deployment commands.
 cdAppId :: Lens' CreateDeployment (Maybe Text)
 cdAppId = lens _cdAppId (\ s a -> s{_cdAppId = a});
 
@@ -133,8 +121,7 @@ cdComment = lens _cdComment (\ s a -> s{_cdComment = a});
 cdStackId :: Lens' CreateDeployment Text
 cdStackId = lens _cdStackId (\ s a -> s{_cdStackId = a});
 
--- | A 'DeploymentCommand' object that specifies the deployment command and
--- any associated arguments.
+-- | A 'DeploymentCommand' object that specifies the deployment command and any associated arguments.
 cdCommand :: Lens' CreateDeployment DeploymentCommand
 cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a});
 
@@ -202,8 +189,7 @@ createDeploymentResponse pResponseStatus_ =
     , _cdrsResponseStatus = pResponseStatus_
     }
 
--- | The deployment ID, which can be used with other requests to identify the
--- deployment.
+-- | The deployment ID, which can be used with other requests to identify the deployment.
 cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
 

@@ -85,35 +85,29 @@ describeEnvironments =
     , _desIncludeDeleted = Nothing
     }
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to include only those that have the specified IDs.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.
 desEnvironmentIds :: Lens' DescribeEnvironments [Text]
 desEnvironmentIds = lens _desEnvironmentIds (\ s a -> s{_desEnvironmentIds = a}) . _Default . _Coerce;
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to include only those that have the specified names.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.
 desEnvironmentNames :: Lens' DescribeEnvironments [Text]
 desEnvironmentNames = lens _desEnvironmentNames (\ s a -> s{_desEnvironmentNames = a}) . _Default . _Coerce;
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to include only those that are associated with this application version.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.
 desVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
 desVersionLabel = lens _desVersionLabel (\ s a -> s{_desVersionLabel = a});
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to include only those that are associated with this application.
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.
 desApplicationName :: Lens' DescribeEnvironments (Maybe Text)
 desApplicationName = lens _desApplicationName (\ s a -> s{_desApplicationName = a});
 
--- | If specified when 'IncludeDeleted' is set to 'true', then environments
--- deleted after this date are displayed.
+-- | If specified when 'IncludeDeleted' is set to 'true', then environments deleted after this date are displayed.
 desIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
 desIncludedDeletedBackTo = lens _desIncludedDeletedBackTo (\ s a -> s{_desIncludedDeletedBackTo = a}) . mapping _Time;
 
 -- | Indicates whether to include deleted environments:
 --
--- 'true': Environments that have been deleted after
--- 'IncludedDeletedBackTo' are displayed.
+-- 'true': Environments that have been deleted after 'IncludedDeletedBackTo' are displayed.
 --
 -- 'false': Do not include deleted environments.
 desIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)

@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specified DB cluster parameter group. The DB cluster parameter
--- group to be deleted cannot be associated with any DB clusters.
+-- Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted cannot be associated with any DB clusters.
 --
--- For more information on Amazon Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.DeleteDBClusterParameterGroup
     (
     -- * Creating a Request

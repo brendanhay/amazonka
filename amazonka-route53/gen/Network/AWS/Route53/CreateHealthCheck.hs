@@ -20,11 +20,7 @@
 --
 -- This action creates a new health check.
 --
--- To create a new health check, send a 'POST' request to the
--- '\/Route 53 API version\/healthcheck' resource. The request body must
--- include a document with a 'CreateHealthCheckRequest' element. The
--- response returns the 'CreateHealthCheckResponse' element that contains
--- metadata about the health check.
+-- To create a new health check, send a 'POST' request to the '\/Route 53 API version\/healthcheck' resource. The request body must include a document with a 'CreateHealthCheckRequest' element. The response returns the 'CreateHealthCheckResponse' element that contains metadata about the health check.
 module Network.AWS.Route53.CreateHealthCheck
     (
     -- * Creating a Request
@@ -50,8 +46,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | >A complex type that contains information about the request to create a
--- health check.
+-- | >A complex type that contains information about the request to create a health check.
 --
 -- /See:/ 'createHealthCheck' smart constructor.
 data CreateHealthCheck = CreateHealthCheck'
@@ -76,16 +71,9 @@ createHealthCheck pCallerReference_ pHealthCheckConfig_ =
     , _chcHealthCheckConfig = pHealthCheckConfig_
     }
 
--- | A unique string that identifies the request and that allows failed
--- 'CreateHealthCheck' requests to be retried without the risk of executing
--- the operation twice. You must use a unique 'CallerReference' string
--- every time you create a health check. 'CallerReference' can be any
--- unique string; you might choose to use a string that identifies your
--- project.
+-- | A unique string that identifies the request and that allows failed 'CreateHealthCheck' requests to be retried without the risk of executing the operation twice. You must use a unique 'CallerReference' string every time you create a health check. 'CallerReference' can be any unique string; you might choose to use a string that identifies your project.
 --
--- Valid characters are any Unicode code points that are legal in an XML
--- 1.0 document. The UTF-8 encoding of the value must be less than 128
--- bytes.
+-- Valid characters are any Unicode code points that are legal in an XML 1.0 document. The UTF-8 encoding of the value must be less than 128 bytes.
 chcCallerReference :: Lens' CreateHealthCheck Text
 chcCallerReference = lens _chcCallerReference (\ s a -> s{_chcCallerReference = a});
 
@@ -127,8 +115,7 @@ instance ToXML CreateHealthCheck where
               ["CallerReference" @= _chcCallerReference,
                "HealthCheckConfig" @= _chcHealthCheckConfig]
 
--- | A complex type containing the response information for the new health
--- check.
+-- | A complex type containing the response information for the new health check.
 --
 -- /See:/ 'createHealthCheckResponse' smart constructor.
 data CreateHealthCheckResponse = CreateHealthCheckResponse'
@@ -162,8 +149,7 @@ createHealthCheckResponse pResponseStatus_ pHealthCheck_ pLocation_ =
 chcrsResponseStatus :: Lens' CreateHealthCheckResponse Int
 chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});
 
--- | A complex type that contains identifying information about the health
--- check.
+-- | A complex type that contains identifying information about the health check.
 chcrsHealthCheck :: Lens' CreateHealthCheckResponse HealthCheck
 chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 

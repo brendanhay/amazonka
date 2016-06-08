@@ -18,18 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the signing certificates associated with the
--- specified user. If there are none, the action returns an empty list.
+-- Returns information about the signing certificates associated with the specified user. If there are none, the action returns an empty list.
 --
--- Although each user is limited to a small number of signing certificates,
--- you can still paginate the results using the 'MaxItems' and 'Marker'
--- parameters.
+-- Although each user is limited to a small number of signing certificates, you can still paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
--- If the 'UserName' field is not specified, the user name is determined
--- implicitly based on the AWS access key ID used to sign the request.
--- Because this action works for access keys under the AWS account, you can
--- use this action to manage root credentials even if the AWS account has
--- no associated users.
+-- If the 'UserName' field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated users.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListSigningCertificates
@@ -89,22 +82,13 @@ listSigningCertificates =
 lUserName :: Lens' ListSigningCertificates (Maybe Text)
 lUserName = lens _lUserName (\ s a -> s{_lUserName = a});
 
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the 'Marker' element in the response that you received to
--- indicate where the next call should start.
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
 lMarker :: Lens' ListSigningCertificates (Maybe Text)
 lMarker = lens _lMarker (\ s a -> s{_lMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of
--- items you want in the response. If additional items exist beyond the
--- maximum you specify, the 'IsTruncated' response element is 'true'.
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
 --
--- This parameter is optional. If you do not include it, it defaults to
--- 100. Note that IAM might return fewer results, even when there are more
--- results available. In that case, the 'IsTruncated' response element
--- returns 'true' and 'Marker' contains a value to include in the
--- subsequent call that tells the service where to continue from.
+-- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
 lMaxItems :: Lens' ListSigningCertificates (Maybe Natural)
 lMaxItems = lens _lMaxItems (\ s a -> s{_lMaxItems = a}) . mapping _Nat;
 
@@ -147,8 +131,7 @@ instance ToQuery ListSigningCertificates where
                "UserName" =: _lUserName, "Marker" =: _lMarker,
                "MaxItems" =: _lMaxItems]
 
--- | Contains the response to a successful < ListSigningCertificates>
--- request.
+-- | Contains the response to a successful < ListSigningCertificates> request.
 --
 -- /See:/ 'listSigningCertificatesResponse' smart constructor.
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
@@ -180,19 +163,11 @@ listSigningCertificatesResponse pResponseStatus_ =
     , _lrsCertificates = mempty
     }
 
--- | When 'IsTruncated' is 'true', this element is present and contains the
--- value to use for the 'Marker' parameter in a subsequent pagination
--- request.
+-- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
 lrsMarker :: Lens' ListSigningCertificatesResponse (Maybe Text)
 lrsMarker = lens _lrsMarker (\ s a -> s{_lrsMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your
--- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more items. Note that
--- IAM might return fewer than the 'MaxItems' number of results even when
--- there are more results available. We recommend that you check
--- 'IsTruncated' after every call to ensure that you receive all of your
--- results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
 lrsIsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
 lrsIsTruncated = lens _lrsIsTruncated (\ s a -> s{_lrsIsTruncated = a});
 

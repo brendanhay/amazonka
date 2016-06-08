@@ -18,14 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified inline policy that is embedded in the specified
--- group.
+-- Deletes the specified inline policy that is embedded in the specified group.
 --
--- A group can also have managed policies attached to it. To detach a
--- managed policy from a group, use < DetachGroupPolicy>. For more
--- information about policies, refer to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
--- in the /IAM User Guide/.
+-- A group can also have managed policies attached to it. To detach a managed policy from a group, use < DetachGroupPolicy>. For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 module Network.AWS.IAM.DeleteGroupPolicy
     (
     -- * Creating a Request
@@ -70,8 +65,7 @@ deleteGroupPolicy pGroupName_ pPolicyName_ =
     , _dPolicyName = pPolicyName_
     }
 
--- | The name (friendly name, not ARN) identifying the group that the policy
--- is embedded in.
+-- | The name (friendly name, not ARN) identifying the group that the policy is embedded in.
 dGroupName :: Lens' DeleteGroupPolicy Text
 dGroupName = lens _dGroupName (\ s a -> s{_dGroupName = a});
 

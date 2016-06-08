@@ -296,15 +296,12 @@ _DuplicateTagKeysException :: AsError a => Getting (First ServiceError) a Servic
 _DuplicateTagKeysException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateTagKeys"
 
--- | A listener already exists for the specified 'LoadBalancerName' and
--- 'LoadBalancerPort', but with a different 'InstancePort', 'Protocol', or
--- 'SSLCertificateId'.
+-- | A listener already exists for the specified 'LoadBalancerName' and 'LoadBalancerPort', but with a different 'InstancePort', 'Protocol', or 'SSLCertificateId'.
 _DuplicateListenerException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateListenerException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateListener"
 
--- | The quota for the number of tags that can be assigned to a load balancer
--- has been reached.
+-- | The quota for the number of tags that can be assigned to a load balancer has been reached.
 _TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTagsException = _ServiceError . hasStatus 400 . hasCode "TooManyTags"
 
@@ -323,8 +320,7 @@ _InvalidSecurityGroupException :: AsError a => Getting (First ServiceError) a Se
 _InvalidSecurityGroupException =
     _ServiceError . hasStatus 400 . hasCode "InvalidSecurityGroup"
 
--- | The load balancer does not have a listener configured at the specified
--- port.
+-- | The load balancer does not have a listener configured at the specified port.
 _ListenerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ListenerNotFoundException =
     _ServiceError . hasStatus 400 . hasCode "ListenerNotFound"
@@ -334,8 +330,7 @@ _InvalidEndPointException :: AsError a => Getting (First ServiceError) a Service
 _InvalidEndPointException =
     _ServiceError . hasStatus 400 . hasCode "InvalidInstance"
 
--- | The specified value for the schema is not valid. You can only specify a
--- scheme for load balancers in a VPC.
+-- | The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.
 _InvalidSchemeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSchemeException =
     _ServiceError . hasStatus 400 . hasCode "InvalidScheme"
@@ -345,14 +340,12 @@ _TooManyAccessPointsException :: AsError a => Getting (First ServiceError) a Ser
 _TooManyAccessPointsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyLoadBalancers"
 
--- | The quota for the number of policies for this load balancer has been
--- reached.
+-- | The quota for the number of policies for this load balancer has been reached.
 _TooManyPoliciesException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyPoliciesException =
     _ServiceError . hasStatus 400 . hasCode "TooManyPolicies"
 
--- | The specified SSL ID does not refer to a valid SSL certificate in AWS
--- Identity and Access Management (IAM).
+-- | The specified SSL ID does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM).
 _CertificateNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateNotFoundException =
     _ServiceError . hasStatus 400 . hasCode "CertificateNotFound"

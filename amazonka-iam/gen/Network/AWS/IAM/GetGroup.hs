@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of users that are in the specified group. You can
--- paginate the results using the 'MaxItems' and 'Marker' parameters.
+-- Returns a list of users that are in the specified group. You can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.GetGroup
@@ -77,22 +76,13 @@ getGroup pGroupName_ =
     , _ggGroupName = pGroupName_
     }
 
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the 'Marker' element in the response that you received to
--- indicate where the next call should start.
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
 ggMarker :: Lens' GetGroup (Maybe Text)
 ggMarker = lens _ggMarker (\ s a -> s{_ggMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of
--- items you want in the response. If additional items exist beyond the
--- maximum you specify, the 'IsTruncated' response element is 'true'.
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
 --
--- This parameter is optional. If you do not include it, it defaults to
--- 100. Note that IAM might return fewer results, even when there are more
--- results available. In that case, the 'IsTruncated' response element
--- returns 'true' and 'Marker' contains a value to include in the
--- subsequent call that tells the service where to continue from.
+-- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
 ggMaxItems :: Lens' GetGroup (Maybe Natural)
 ggMaxItems = lens _ggMaxItems (\ s a -> s{_ggMaxItems = a}) . mapping _Nat;
 
@@ -175,19 +165,11 @@ getGroupResponse pResponseStatus_ pGroup_ =
     , _ggrsUsers = mempty
     }
 
--- | When 'IsTruncated' is 'true', this element is present and contains the
--- value to use for the 'Marker' parameter in a subsequent pagination
--- request.
+-- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
 ggrsMarker :: Lens' GetGroupResponse (Maybe Text)
 ggrsMarker = lens _ggrsMarker (\ s a -> s{_ggrsMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your
--- results were truncated, you can make a subsequent pagination request
--- using the 'Marker' request parameter to retrieve more items. Note that
--- IAM might return fewer than the 'MaxItems' number of results even when
--- there are more results available. We recommend that you check
--- 'IsTruncated' after every call to ensure that you receive all of your
--- results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
 ggrsIsTruncated :: Lens' GetGroupResponse (Maybe Bool)
 ggrsIsTruncated = lens _ggrsIsTruncated (\ s a -> s{_ggrsIsTruncated = a});
 

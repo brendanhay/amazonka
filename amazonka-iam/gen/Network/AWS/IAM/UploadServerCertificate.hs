@@ -18,30 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Uploads a server certificate entity for the AWS account. The server
--- certificate entity includes a public key certificate, a private key, and
--- an optional certificate chain, which should all be PEM-encoded.
+-- Uploads a server certificate entity for the AWS account. The server certificate entity includes a public key certificate, a private key, and an optional certificate chain, which should all be PEM-encoded.
 --
--- For more information about working with server certificates, including a
--- list of AWS services that can use the server certificates that you
--- manage with IAM, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates>
--- in the /IAM User Guide/.
+-- For more information about working with server certificates, including a list of AWS services that can use the server certificates that you manage with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/.
 --
--- For information about the number of server certificates you can upload,
--- see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html Limitations on IAM Entities and Objects>
--- in the /IAM User Guide/.
+-- For information about the number of server certificates you can upload, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html Limitations on IAM Entities and Objects> in the /IAM User Guide/.
 --
--- Because the body of the public key certificate, private key, and the
--- certificate chain can be large, you should use POST rather than GET when
--- calling 'UploadServerCertificate'. For information about setting up
--- signatures and authorization through the API, go to
--- <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>
--- in the /AWS General Reference/. For general information about using the
--- Query API with IAM, go to
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html Calling the API by Making HTTP Query Requests>
--- in the /IAM User Guide/.
+-- Because the body of the public key certificate, private key, and the certificate chain can be large, you should use POST rather than GET when calling 'UploadServerCertificate'. For information about setting up signatures and authorization through the API, go to <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests> in the /AWS General Reference/. For general information about using the Query API with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html Calling the API by Making HTTP Query Requests> in the /IAM User Guide/.
 module Network.AWS.IAM.UploadServerCertificate
     (
     -- * Creating a Request
@@ -105,28 +88,19 @@ uploadServerCertificate pServerCertificateName_ pCertificateBody_ pPrivateKey_ =
     , _uscPrivateKey = _Sensitive # pPrivateKey_
     }
 
--- | The path for the server certificate. For more information about paths,
--- see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
+-- | The path for the server certificate. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/).
+-- This parameter is optional. If it is not included, it defaults to a slash (\/).
 --
--- If you are uploading a server certificate specifically for use with
--- Amazon CloudFront distributions, you must specify a path using the
--- '--path' option. The path must begin with '\/cloudfront' and must
--- include a trailing slash (for example, '\/cloudfront\/test\/').
+-- If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the '--path' option. The path must begin with '\/cloudfront' and must include a trailing slash (for example, '\/cloudfront\/test\/').
 uscPath :: Lens' UploadServerCertificate (Maybe Text)
 uscPath = lens _uscPath (\ s a -> s{_uscPath = a});
 
--- | The contents of the certificate chain. This is typically a concatenation
--- of the PEM-encoded public key certificates of the chain.
+-- | The contents of the certificate chain. This is typically a concatenation of the PEM-encoded public key certificates of the chain.
 uscCertificateChain :: Lens' UploadServerCertificate (Maybe Text)
 uscCertificateChain = lens _uscCertificateChain (\ s a -> s{_uscCertificateChain = a});
 
--- | The name for the server certificate. Do not include the path in this
--- value. The name of the certificate cannot contain any spaces.
+-- | The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.
 uscServerCertificateName :: Lens' UploadServerCertificate Text
 uscServerCertificateName = lens _uscServerCertificateName (\ s a -> s{_uscServerCertificateName = a});
 
@@ -171,8 +145,7 @@ instance ToQuery UploadServerCertificate where
                "CertificateBody" =: _uscCertificateBody,
                "PrivateKey" =: _uscPrivateKey]
 
--- | Contains the response to a successful < UploadServerCertificate>
--- request.
+-- | Contains the response to a successful < UploadServerCertificate> request.
 --
 -- /See:/ 'uploadServerCertificateResponse' smart constructor.
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
@@ -196,8 +169,7 @@ uploadServerCertificateResponse pResponseStatus_ =
     , _ursResponseStatus = pResponseStatus_
     }
 
--- | The meta information of the uploaded server certificate without its
--- certificate body, certificate chain, and private key.
+-- | The meta information of the uploaded server certificate without its certificate body, certificate chain, and private key.
 ursServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
 ursServerCertificateMetadata = lens _ursServerCertificateMetadata (\ s a -> s{_ursServerCertificateMetadata = a});
 

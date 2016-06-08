@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers the user in the specified user pool and creates a user name,
--- password, and user attributes.
+-- Registers the user in the specified user pool and creates a user name, password, and user attributes.
 module Network.AWS.CognitoIdentityProvider.SignUp
     (
     -- * Creating a Request
@@ -95,9 +94,7 @@ signUp pClientId_ pUsername_ pPassword_ =
 suUserAttributes :: Lens' SignUp [AttributeType]
 suUserAttributes = lens _suUserAttributes (\ s a -> s{_suUserAttributes = a}) . _Default . _Coerce;
 
--- | A keyed-hash message authentication code (HMAC) calculated using the
--- secret key of a user pool client and username plus the client ID in the
--- message.
+-- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 suSecretHash :: Lens' SignUp (Maybe Text)
 suSecretHash = lens _suSecretHash (\ s a -> s{_suSecretHash = a}) . mapping _Sensitive;
 
@@ -187,8 +184,7 @@ signUpResponse pResponseStatus_ =
     , _sursResponseStatus = pResponseStatus_
     }
 
--- | A response from the server indicating that a user registration has been
--- confirmed.
+-- | A response from the server indicating that a user registration has been confirmed.
 sursUserConfirmed :: Lens' SignUpResponse (Maybe Bool)
 sursUserConfirmed = lens _sursUserConfirmed (\ s a -> s{_sursUserConfirmed = a});
 

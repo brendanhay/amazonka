@@ -20,8 +20,7 @@
 --
 -- Lists the IP address filters associated with your account.
 --
--- For information about managing IP address filters, see the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide>.
+-- For information about managing IP address filters, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide>.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.ListReceiptFilters
@@ -107,8 +106,7 @@ listReceiptFiltersResponse pResponseStatus_ =
     , _lrfrsResponseStatus = pResponseStatus_
     }
 
--- | A list of IP address filter data structures, which each consist of a
--- name, an IP address range, and whether to allow or block mail from it.
+-- | A list of IP address filter data structures, which each consist of a name, an IP address range, and whether to allow or block mail from it.
 lrfrsFilters :: Lens' ListReceiptFiltersResponse [ReceiptFilter]
 lrfrsFilters = lens _lrfrsFilters (\ s a -> s{_lrfrsFilters = a}) . _Default . _Coerce;
 

@@ -18,41 +18,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers an AMI. When you\'re creating an AMI, this is the final step
--- you must complete before you can launch an instance from the AMI. For
--- more information about creating AMIs, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- Registers an AMI. When you\'re creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- For Amazon EBS-backed instances, < CreateImage> creates and registers
--- the AMI in a single request, so you don\'t have to register the AMI
--- yourself.
+-- For Amazon EBS-backed instances, < CreateImage> creates and registers the AMI in a single request, so you don\'t have to register the AMI yourself.
 --
--- You can also use 'RegisterImage' to create an Amazon EBS-backed Linux
--- AMI from a snapshot of a root device volume. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching an Instance from a Snapshot>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- You can also use 'RegisterImage' to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching an Instance from a Snapshot> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and
--- SUSE Linux Enterprise Server (SLES), use the EC2 'billingProduct' code
--- associated with an AMI to verify subscription status for package
--- updates. Creating an AMI from an EBS snapshot does not maintain this
--- billing code, and subsequent instances launched from such an AMI will
--- not be able to connect to package update infrastructure.
+-- Some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the EC2 'billingProduct' code associated with an AMI to verify subscription status for package updates. Creating an AMI from an EBS snapshot does not maintain this billing code, and subsequent instances launched from such an AMI will not be able to connect to package update infrastructure.
 --
--- Similarly, although you can create a Windows AMI from a snapshot, you
--- can\'t successfully launch an instance from the AMI.
+-- Similarly, although you can create a Windows AMI from a snapshot, you can\'t successfully launch an instance from the AMI.
 --
--- To create Windows AMIs or to create AMIs for Linux operating systems
--- that must retain AMI billing codes to work properly, see < CreateImage>.
+-- To create Windows AMIs or to create AMIs for Linux operating systems that must retain AMI billing codes to work properly, see < CreateImage>.
 --
--- If needed, you can deregister an AMI at any time. Any modifications you
--- make to an AMI backed by an instance store volume invalidates its
--- registration. If you make changes to an image, deregister the previous
--- image and register the new image.
+-- If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.
 --
--- You can\'t register an image where a secondary (non-root) snapshot has
--- AWS Marketplace product codes.
+-- You can\'t register an image where a secondary (non-root) snapshot has AWS Marketplace product codes.
 module Network.AWS.EC2.RegisterImage
     (
     -- * Creating a Request
@@ -164,25 +144,21 @@ riRAMDiskId = lens _riRAMDiskId (\ s a -> s{_riRAMDiskId = a});
 riKernelId :: Lens' RegisterImage (Maybe Text)
 riKernelId = lens _riKernelId (\ s a -> s{_riKernelId = a});
 
--- | The name of the root device (for example, '\/dev\/sda1', or
--- '\/dev\/xvda').
+-- | The name of the root device (for example, '\/dev\/sda1', or '\/dev\/xvda').
 riRootDeviceName :: Lens' RegisterImage (Maybe Text)
 riRootDeviceName = lens _riRootDeviceName (\ s a -> s{_riRootDeviceName = a});
 
--- | Set to 'simple' to enable enhanced networking for the AMI and any
--- instances that you launch from the AMI.
+-- | Set to 'simple' to enable enhanced networking for the AMI and any instances that you launch from the AMI.
 --
 -- There is no way to disable enhanced networking at this time.
 --
--- This option is supported only for HVM AMIs. Specifying this option with
--- a PV AMI can make instances launched from the AMI unreachable.
+-- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 riSRIOVNetSupport :: Lens' RegisterImage (Maybe Text)
 riSRIOVNetSupport = lens _riSRIOVNetSupport (\ s a -> s{_riSRIOVNetSupport = a});
 
 -- | The architecture of the AMI.
 --
--- Default: For Amazon EBS-backed AMIs, 'i386'. For instance store-backed
--- AMIs, the architecture specified in the manifest file.
+-- Default: For Amazon EBS-backed AMIs, 'i386'. For instance store-backed AMIs, the architecture specified in the manifest file.
 riArchitecture :: Lens' RegisterImage (Maybe ArchitectureValues)
 riArchitecture = lens _riArchitecture (\ s a -> s{_riArchitecture = a});
 
@@ -194,18 +170,13 @@ riDescription = lens _riDescription (\ s a -> s{_riDescription = a});
 riBlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
 riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMappings = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 riDryRun :: Lens' RegisterImage (Maybe Bool)
 riDryRun = lens _riDryRun (\ s a -> s{_riDryRun = a});
 
 -- | A name for your AMI.
 --
--- Constraints: 3-128 alphanumeric characters, parentheses (()), square
--- brackets ([]), spaces ( ), periods (.), slashes (\/), dashes (-), single
--- quotes (\'), at-signs (\'), or underscores(_)
+-- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (\/), dashes (-), single quotes (\'), at-signs (\'), or underscores(_)
 riName :: Lens' RegisterImage Text
 riName = lens _riName (\ s a -> s{_riName = a});
 

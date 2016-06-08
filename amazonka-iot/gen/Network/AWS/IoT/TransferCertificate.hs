@@ -22,14 +22,11 @@
 --
 -- You can cancel the transfer until it is acknowledged by the recipient.
 --
--- No notification is sent to the transfer destination\'s account. It is up
--- to the caller to notify the transfer target.
+-- No notification is sent to the transfer destination\'s account. It is up to the caller to notify the transfer target.
 --
--- The certificate being transferred must not be in the ACTIVE state. You
--- can use the UpdateCertificate API to deactivate it.
+-- The certificate being transferred must not be in the ACTIVE state. You can use the UpdateCertificate API to deactivate it.
 --
--- The certificate must not have any policies attached to it. You can use
--- the DetachPrincipalPolicy API to detach them.
+-- The certificate must not have any policies attached to it. You can use the DetachPrincipalPolicy API to detach them.
 module Network.AWS.IoT.TransferCertificate
     (
     -- * Creating a Request

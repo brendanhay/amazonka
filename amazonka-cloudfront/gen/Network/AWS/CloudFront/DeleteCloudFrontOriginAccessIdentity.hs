@@ -64,8 +64,7 @@ deleteCloudFrontOriginAccessIdentity pId_ =
     , _dcfoaiId = pId_
     }
 
--- | The value of the ETag header you received from a previous GET or PUT
--- request. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received from a previous GET or PUT request. For example: E2QWRUHAPOMQZL.
 dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
 dcfoaiIfMatch = lens _dcfoaiIfMatch (\ s a -> s{_dcfoaiIfMatch = a});
 

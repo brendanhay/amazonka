@@ -65,14 +65,11 @@ describeTasks =
     , _dtTasks = mempty
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the task to describe. If you do not specify a cluster, the default
--- cluster is assumed.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to describe. If you do not specify a cluster, the default cluster is assumed.
 dtCluster :: Lens' DescribeTasks (Maybe Text)
 dtCluster = lens _dtCluster (\ s a -> s{_dtCluster = a});
 
--- | A space-separated list of task IDs or full Amazon Resource Name (ARN)
--- entries.
+-- | A space-separated list of task IDs or full Amazon Resource Name (ARN) entries.
 dtTasks :: Lens' DescribeTasks [Text]
 dtTasks = lens _dtTasks (\ s a -> s{_dtTasks = a}) . _Coerce;
 

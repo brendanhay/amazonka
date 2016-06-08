@@ -20,15 +20,11 @@
 --
 -- Removes one or more instances from the specified Auto Scaling group.
 --
--- After the instances are detached, you can manage them independently from
--- the rest of the Auto Scaling group.
+-- After the instances are detached, you can manage them independently from the rest of the Auto Scaling group.
 --
--- If you do not specify the option to decrement the desired capacity, Auto
--- Scaling launches instances to replace the ones that are detached.
+-- If you do not specify the option to decrement the desired capacity, Auto Scaling launches instances to replace the ones that are detached.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group>
--- in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group> in the /Auto Scaling Developer Guide/.
 module Network.AWS.AutoScaling.DetachInstances
     (
     -- * Creating a Request
@@ -89,8 +85,7 @@ diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default 
 diAutoScalingGroupName :: Lens' DetachInstances Text
 diAutoScalingGroupName = lens _diAutoScalingGroupName (\ s a -> s{_diAutoScalingGroupName = a});
 
--- | If 'True', the Auto Scaling group decrements the desired capacity value
--- by the number of instances detached.
+-- | If 'True', the Auto Scaling group decrements the desired capacity value by the number of instances detached.
 diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
 diShouldDecrementDesiredCapacity = lens _diShouldDecrementDesiredCapacity (\ s a -> s{_diShouldDecrementDesiredCapacity = a});
 
@@ -148,8 +143,7 @@ detachInstancesResponse pResponseStatus_ =
     , _dirsResponseStatus = pResponseStatus_
     }
 
--- | The activities related to detaching the instances from the Auto Scaling
--- group.
+-- | The activities related to detaching the instances from the Auto Scaling group.
 dirsActivities :: Lens' DetachInstancesResponse [Activity]
 dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Default . _Coerce;
 

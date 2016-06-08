@@ -74,8 +74,7 @@ updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ pId_
     , _ucfoaiId = pId_
     }
 
--- | The value of the ETag header you received when retrieving the
--- identity\'s configuration. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received when retrieving the identity\'s configuration. For example: E2QWRUHAPOMQZL.
 ucfoaiIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
 ucfoaiIfMatch = lens _ucfoaiIfMatch (\ s a -> s{_ucfoaiIfMatch = a});
 

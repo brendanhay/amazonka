@@ -18,20 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the configuration information of the Lambda function. This the
--- same information you provided as parameters when uploading the function
--- by using < CreateFunction>.
+-- Returns the configuration information of the Lambda function. This the same information you provided as parameters when uploading the function by using < CreateFunction>.
 --
--- If you are using the versioning feature, you can retrieve this
--- information for a specific function version by using the optional
--- 'Qualifier' parameter and specifying the function version or alias that
--- points to it. If you don\'t provide it, the API returns information
--- about the $LATEST version of the function. For more information about
--- versioning, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+-- If you are using the versioning feature, you can retrieve this information for a specific function version by using the optional 'Qualifier' parameter and specifying the function version or alias that points to it. If you don\'t provide it, the API returns information about the >LATEST version of the function. For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
--- This operation requires permission for the
--- 'lambda:GetFunctionConfiguration' operation.
+-- This operation requires permission for the 'lambda:GetFunctionConfiguration' operation.
 module Network.AWS.Lambda.GetFunctionConfiguration
     (
     -- * Creating a Request
@@ -89,28 +80,15 @@ getFunctionConfiguration pFunctionName_ =
     , _gfcFunctionName = pFunctionName_
     }
 
--- | Using this optional parameter you can specify a function version or an
--- alias name. If you specify function version, the API uses qualified
--- function ARN and returns information about the specific function
--- version. If you specify an alias name, the API uses the alias ARN and
--- returns information about the function version to which the alias
--- points.
+-- | Using this optional parameter you can specify a function version or an alias name. If you specify function version, the API uses qualified function ARN and returns information about the specific function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points.
 --
--- If you don\'t specify this parameter, the API uses unqualified function
--- ARN, and returns information about the '$LATEST' function version.
+-- If you don\'t specify this parameter, the API uses unqualified function ARN, and returns information about the '>LATEST' function version.
 gfcQualifier :: Lens' GetFunctionConfiguration (Maybe Text)
 gfcQualifier = lens _gfcQualifier (\ s a -> s{_gfcQualifier = a});
 
--- | The name of the Lambda function for which you want to retrieve the
--- configuration information.
+-- | The name of the Lambda function for which you want to retrieve the configuration information.
 --
--- You can specify a function name (for example, 'Thumbnail') or you can
--- specify Amazon Resource Name (ARN) of the function (for example,
--- 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda
--- also allows you to specify a partial ARN (for example,
--- 'account-id:Thumbnail'). Note that the length constraint applies only to
--- the ARN. If you specify only the function name, it is limited to 64
--- character in length.
+-- You can specify a function name (for example, 'Thumbnail') or you can specify Amazon Resource Name (ARN) of the function (for example, 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda also allows you to specify a partial ARN (for example, 'account-id:Thumbnail'). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
 gfcFunctionName :: Lens' GetFunctionConfiguration Text
 gfcFunctionName = lens _gfcFunctionName (\ s a -> s{_gfcFunctionName = a});
 

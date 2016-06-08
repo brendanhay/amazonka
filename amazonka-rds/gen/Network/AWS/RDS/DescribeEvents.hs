@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns events related to DB instances, DB security groups, DB
--- snapshots, and DB parameter groups for the past 14 days. Events specific
--- to a particular DB instance, DB security group, database snapshot, or DB
--- parameter group can be obtained by providing the name as a parameter. By
--- default, the past hour of events are returned.
+-- Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter groups for the past 14 days. Events specific to a particular DB instance, DB security group, database snapshot, or DB parameter group can be obtained by providing the name as a parameter. By default, the past hour of events are returned.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEvents
@@ -109,16 +105,13 @@ describeEvents =
     , _deDuration = Nothing
     }
 
--- | The beginning of the time interval to retrieve events for, specified in
--- ISO 8601 format. For more information about ISO 8601, go to the
--- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+-- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: 2009-07-08T18:00Z
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
 deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time;
 
--- | The event source to retrieve events for. If no value is specified, all
--- events are returned.
+-- | The event source to retrieve events for. If no value is specified, all events are returned.
 deSourceType :: Lens' DescribeEvents (Maybe SourceType)
 deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 
@@ -126,39 +119,28 @@ deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 deFilters :: Lens' DescribeEvents [Filter]
 deFilters = lens _deFilters (\ s a -> s{_deFilters = a}) . _Default . _Coerce;
 
--- | The identifier of the event source for which events will be returned. If
--- not specified, then all sources are included in the response.
+-- | The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response.
 --
 -- Constraints:
 --
 -- -   If SourceIdentifier is supplied, SourceType must also be provided.
--- -   If the source type is 'DBInstance', then a 'DBInstanceIdentifier'
---     must be supplied.
--- -   If the source type is 'DBSecurityGroup', a 'DBSecurityGroupName'
---     must be supplied.
--- -   If the source type is 'DBParameterGroup', a 'DBParameterGroupName'
---     must be supplied.
--- -   If the source type is 'DBSnapshot', a 'DBSnapshotIdentifier' must be
---     supplied.
+-- -   If the source type is 'DBInstance', then a 'DBInstanceIdentifier' must be supplied.
+-- -   If the source type is 'DBSecurityGroup', a 'DBSecurityGroupName' must be supplied.
+-- -   If the source type is 'DBParameterGroup', a 'DBParameterGroupName' must be supplied.
+-- -   If the source type is 'DBSnapshot', a 'DBSnapshotIdentifier' must be supplied.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 
--- | A list of event categories that trigger notifications for a event
--- notification subscription.
+-- | A list of event categories that trigger notifications for a event notification subscription.
 deEventCategories :: Lens' DescribeEvents [Text]
 deEventCategories = lens _deEventCategories (\ s a -> s{_deEventCategories = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous DescribeEvents
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous DescribeEvents request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -166,9 +148,7 @@ deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 deMaxRecords :: Lens' DescribeEvents (Maybe Int)
 deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 
--- | The end of the time interval for which to retrieve events, specified in
--- ISO 8601 format. For more information about ISO 8601, go to the
--- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+-- | The end of the time interval for which to retrieve events, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: 2009-07-08T18:00Z
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
@@ -225,8 +205,7 @@ instance ToQuery DescribeEvents where
                "Marker" =: _deMarker, "MaxRecords" =: _deMaxRecords,
                "EndTime" =: _deEndTime, "Duration" =: _deDuration]
 
--- | Contains the result of a successful invocation of the < DescribeEvents>
--- action.
+-- | Contains the result of a successful invocation of the < DescribeEvents> action.
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
@@ -258,9 +237,7 @@ describeEventsResponse pResponseStatus_ =
 dersEvents :: Lens' DescribeEventsResponse [Event]
 dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous Events request. If
--- this parameter is specified, the response includes only records beyond
--- the marker, up to the value specified by 'MaxRecords' .
+-- | An optional pagination token provided by a previous Events request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords' .
 dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 

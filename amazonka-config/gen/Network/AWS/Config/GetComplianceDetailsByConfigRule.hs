@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the evaluation results for the specified AWS Config rule. The
--- results indicate which AWS resources were evaluated by the rule, when
--- each resource was last evaluated, and whether each resource complies
--- with the rule.
+-- Returns the evaluation results for the specified AWS Config rule. The results indicate which AWS resources were evaluated by the rule, when each resource was last evaluated, and whether each resource complies with the rule.
 module Network.AWS.Config.GetComplianceDetailsByConfigRule
     (
     -- * Creating a Request
@@ -81,24 +78,19 @@ getComplianceDetailsByConfigRule pConfigRuleName_ =
 
 -- | Filters the results by compliance.
 --
--- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and
--- 'NOT_APPLICABLE'.
+-- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and 'NOT_APPLICABLE'.
 gcdbcrComplianceTypes :: Lens' GetComplianceDetailsByConfigRule [ComplianceType]
 gcdbcrComplianceTypes = lens _gcdbcrComplianceTypes (\ s a -> s{_gcdbcrComplianceTypes = a}) . _Default . _Coerce;
 
--- | The 'nextToken' string returned on a previous page that you use to get
--- the next page of results in a paginated response.
+-- | The 'nextToken' string returned on a previous page that you use to get the next page of results in a paginated response.
 gcdbcrNextToken :: Lens' GetComplianceDetailsByConfigRule (Maybe Text)
 gcdbcrNextToken = lens _gcdbcrNextToken (\ s a -> s{_gcdbcrNextToken = a});
 
--- | The maximum number of evaluation results returned on each page. The
--- default is 10. You cannot specify a limit greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- | The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default.
 gcdbcrLimit :: Lens' GetComplianceDetailsByConfigRule (Maybe Natural)
 gcdbcrLimit = lens _gcdbcrLimit (\ s a -> s{_gcdbcrLimit = a}) . mapping _Nat;
 
--- | The name of the AWS Config rule for which you want compliance
--- information.
+-- | The name of the AWS Config rule for which you want compliance information.
 gcdbcrConfigRuleName :: Lens' GetComplianceDetailsByConfigRule Text
 gcdbcrConfigRuleName = lens _gcdbcrConfigRuleName (\ s a -> s{_gcdbcrConfigRuleName = a});
 
@@ -174,13 +166,11 @@ getComplianceDetailsByConfigRuleResponse pResponseStatus_ =
     , _gcdbcrrsResponseStatus = pResponseStatus_
     }
 
--- | Indicates whether the AWS resource complies with the specified AWS
--- Config rule.
+-- | Indicates whether the AWS resource complies with the specified AWS Config rule.
 gcdbcrrsEvaluationResults :: Lens' GetComplianceDetailsByConfigRuleResponse [EvaluationResult]
 gcdbcrrsEvaluationResults = lens _gcdbcrrsEvaluationResults (\ s a -> s{_gcdbcrrsEvaluationResults = a}) . _Default . _Coerce;
 
--- | The string that you use in a subsequent request to get the next page of
--- results in a paginated response.
+-- | The string that you use in a subsequent request to get the next page of results in a paginated response.
 gcdbcrrsNextToken :: Lens' GetComplianceDetailsByConfigRuleResponse (Maybe Text)
 gcdbcrrsNextToken = lens _gcdbcrrsNextToken (\ s a -> s{_gcdbcrrsNextToken = a});
 

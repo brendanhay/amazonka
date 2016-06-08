@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the SAML provider metadocument that was uploaded when the
--- provider was created or updated.
+-- Returns the SAML provider metadocument that was uploaded when the provider was created or updated.
 --
--- This operation requires
--- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+-- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 module Network.AWS.IAM.GetSAMLProvider
     (
     -- * Creating a Request
@@ -66,8 +64,7 @@ getSAMLProvider pSAMLProviderARN_ =
     { _gsamlpSAMLProviderARN = pSAMLProviderARN_
     }
 
--- | The Amazon Resource Name (ARN) of the SAML provider to get information
--- about.
+-- | The Amazon Resource Name (ARN) of the SAML provider to get information about.
 gsamlpSAMLProviderARN :: Lens' GetSAMLProvider Text
 gsamlpSAMLProviderARN = lens _gsamlpSAMLProviderARN (\ s a -> s{_gsamlpSAMLProviderARN = a});
 
@@ -139,8 +136,7 @@ gsamlprsCreateDate = lens _gsamlprsCreateDate (\ s a -> s{_gsamlprsCreateDate = 
 gsamlprsValidUntil :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
 gsamlprsValidUntil = lens _gsamlprsValidUntil (\ s a -> s{_gsamlprsValidUntil = a}) . mapping _Time;
 
--- | The XML metadata document that includes information about an identity
--- provider.
+-- | The XML metadata document that includes information about an identity provider.
 gsamlprsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
 gsamlprsSAMLMetadataDocument = lens _gsamlprsSAMLMetadataDocument (\ s a -> s{_gsamlprsSAMLMetadataDocument = a});
 

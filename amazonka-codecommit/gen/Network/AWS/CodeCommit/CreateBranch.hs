@@ -20,8 +20,7 @@
 --
 -- Creates a new branch in a repository and points the branch to a commit.
 --
--- Calling the create branch operation does not set a repository\'s default
--- branch. To do this, call the update default branch operation.
+-- Calling the create branch operation does not set a repository\'s default branch. To do this, call the update default branch operation.
 module Network.AWS.CodeCommit.CreateBranch
     (
     -- * Creating a Request

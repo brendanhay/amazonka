@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes an 'IndexField' from the search domain. For more information,
--- see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Removes an 'IndexField' from the search domain. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DeleteIndexField
     (
     -- * Creating a Request
@@ -46,9 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DeleteIndexField' operation.
--- Specifies the name of the domain you want to update and the name of the
--- index field you want to delete.
+-- | Container for the parameters to the 'DeleteIndexField' operation. Specifies the name of the domain you want to update and the name of the index field you want to delete.
 --
 -- /See:/ 'deleteIndexField' smart constructor.
 data DeleteIndexField = DeleteIndexField'
@@ -77,8 +72,7 @@ deleteIndexField pDomainName_ pIndexFieldName_ =
 difiDomainName :: Lens' DeleteIndexField Text
 difiDomainName = lens _difiDomainName (\ s a -> s{_difiDomainName = a});
 
--- | The name of the index field your want to remove from the domain\'s
--- indexing options.
+-- | The name of the index field your want to remove from the domain\'s indexing options.
 difiIndexFieldName :: Lens' DeleteIndexField Text
 difiIndexFieldName = lens _difiIndexFieldName (\ s a -> s{_difiIndexFieldName = a});
 

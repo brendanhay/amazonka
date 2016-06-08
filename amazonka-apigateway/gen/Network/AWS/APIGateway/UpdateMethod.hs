@@ -85,8 +85,7 @@ updateMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _ummHttpMethod = pHttpMethod_
     }
 
--- | A list of operations describing the updates to apply to the specified
--- resource. The patches are applied in the order specified in the list.
+-- | A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 ummPatchOperations :: Lens' UpdateMethod [PatchOperation]
 ummPatchOperations = lens _ummPatchOperations (\ s a -> s{_ummPatchOperations = a}) . _Default . _Coerce;
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified the load balancers. If no load balancers are
--- specified, the call describes all of your load balancers.
+-- Describes the specified the load balancers. If no load balancers are specified, the call describes all of your load balancers.
 --
 -- This operation returns paginated results.
 module Network.AWS.ELB.DescribeLoadBalancers
@@ -74,13 +73,11 @@ describeLoadBalancers =
     , _dlbLoadBalancerNames = Nothing
     }
 
--- | The marker for the next set of results. (You received this marker from a
--- previous call.)
+-- | The marker for the next set of results. (You received this marker from a previous call.)
 dlbMarker :: Lens' DescribeLoadBalancers (Maybe Text)
 dlbMarker = lens _dlbMarker (\ s a -> s{_dlbMarker = a});
 
--- | The maximum number of results to return with this call (a number from 1
--- to 400). The default is 400.
+-- | The maximum number of results to return with this call (a number from 1 to 400). The default is 400.
 dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
 dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . mapping _Nat;
 
@@ -159,8 +156,7 @@ describeLoadBalancersResponse pResponseStatus_ =
 dlbrsLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
 dlbrsLoadBalancerDescriptions = lens _dlbrsLoadBalancerDescriptions (\ s a -> s{_dlbrsLoadBalancerDescriptions = a}) . _Default . _Coerce;
 
--- | The marker to use when requesting the next set of results. If there are
--- no additional results, the string is empty.
+-- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 dlbrsNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrsNextMarker = lens _dlbrsNextMarker (\ s a -> s{_dlbrsNextMarker = a});
 

@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers a device certificate with AWS IoT. If you have more than one
--- CA certificate that has the same subject field, you must specify the CA
--- certificate that was used to sign the device certificate being
--- registered.
+-- Registers a device certificate with AWS IoT. If you have more than one CA certificate that has the same subject field, you must specify the CA certificate that was used to sign the device certificate being registered.
 module Network.AWS.IoT.RegisterCertificate
     (
     -- * Creating a Request

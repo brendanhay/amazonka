@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified policy from the specified load balancer. This
--- policy must not be enabled for any listeners.
+-- Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.
 module Network.AWS.ELB.DeleteLoadBalancerPolicy
     (
     -- * Creating a Request

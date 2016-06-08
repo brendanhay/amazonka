@@ -20,14 +20,7 @@
 --
 -- Lists your delivery streams.
 --
--- The number of delivery streams might be too large to return using a
--- single call to < ListDeliveryStreams>. You can limit the number of
--- delivery streams returned, using the __Limit__ parameter. To determine
--- whether there are more delivery streams to list, check the value of
--- __HasMoreDeliveryStreams__ in the output. If there are more delivery
--- streams to list, you can request them by specifying the name of the last
--- delivery stream returned in the call in the
--- __ExclusiveStartDeliveryStreamName__ parameter of a subsequent call.
+-- The number of delivery streams might be too large to return using a single call to < ListDeliveryStreams>. You can limit the number of delivery streams returned, using the __Limit__ parameter. To determine whether there are more delivery streams to list, check the value of __HasMoreDeliveryStreams__ in the output. If there are more delivery streams to list, you can request them by specifying the name of the last delivery stream returned in the call in the __ExclusiveStartDeliveryStreamName__ parameter of a subsequent call.
 module Network.AWS.Firehose.ListDeliveryStreams
     (
     -- * Creating a Request

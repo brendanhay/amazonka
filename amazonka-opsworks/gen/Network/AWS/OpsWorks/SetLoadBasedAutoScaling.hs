@@ -18,20 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Specify the load-based auto scaling configuration for a specified layer.
--- For more information, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html Managing Load with Time-based and Load-based Instances>.
+-- Specify the load-based auto scaling configuration for a specified layer. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html Managing Load with Time-based and Load-based Instances>.
 --
--- To use load-based auto scaling, you must create a set of load-based auto
--- scaling instances. Load-based auto scaling operates only on the
--- instances from that set, so you must ensure that you have created enough
--- instances to handle the maximum anticipated load.
+-- To use load-based auto scaling, you must create a set of load-based auto scaling instances. Load-based auto scaling operates only on the instances from that set, so you must ensure that you have created enough instances to handle the maximum anticipated load.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions,
--- see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     (
     -- * Creating a Request
@@ -85,9 +76,7 @@ setLoadBasedAutoScaling pLayerId_ =
     , _slbasLayerId = pLayerId_
     }
 
--- | An 'AutoScalingThresholds' object with the upscaling threshold
--- configuration. If the load exceeds these thresholds for a specified
--- amount of time, AWS OpsWorks starts a specified number of instances.
+-- | An 'AutoScalingThresholds' object with the upscaling threshold configuration. If the load exceeds these thresholds for a specified amount of time, AWS OpsWorks starts a specified number of instances.
 slbasUpScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
 slbasUpScaling = lens _slbasUpScaling (\ s a -> s{_slbasUpScaling = a});
 
@@ -95,9 +84,7 @@ slbasUpScaling = lens _slbasUpScaling (\ s a -> s{_slbasUpScaling = a});
 slbasEnable :: Lens' SetLoadBasedAutoScaling (Maybe Bool)
 slbasEnable = lens _slbasEnable (\ s a -> s{_slbasEnable = a});
 
--- | An 'AutoScalingThresholds' object with the downscaling threshold
--- configuration. If the load falls below these thresholds for a specified
--- amount of time, AWS OpsWorks stops a specified number of instances.
+-- | An 'AutoScalingThresholds' object with the downscaling threshold configuration. If the load falls below these thresholds for a specified amount of time, AWS OpsWorks stops a specified number of instances.
 slbasDownScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
 slbasDownScaling = lens _slbasDownScaling (\ s a -> s{_slbasDownScaling = a});
 

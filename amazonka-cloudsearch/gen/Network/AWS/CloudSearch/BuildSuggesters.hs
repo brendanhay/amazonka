@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Indexes the search suggestions. For more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters Configuring Suggesters>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Indexes the search suggestions. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters Configuring Suggesters> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.BuildSuggesters
     (
     -- * Creating a Request
@@ -44,8 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'BuildSuggester' operation.
--- Specifies the name of the domain you want to update.
+-- | Container for the parameters to the 'BuildSuggester' operation. Specifies the name of the domain you want to update.
 --
 -- /See:/ 'buildSuggesters' smart constructor.
 newtype BuildSuggesters = BuildSuggesters'
@@ -97,8 +94,7 @@ instance ToQuery BuildSuggesters where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _bsDomainName]
 
--- | The result of a 'BuildSuggester' request. Contains a list of the fields
--- used for suggestions.
+-- | The result of a 'BuildSuggester' request. Contains a list of the fields used for suggestions.
 --
 -- /See:/ 'buildSuggestersResponse' smart constructor.
 data BuildSuggestersResponse = BuildSuggestersResponse'

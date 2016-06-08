@@ -87,13 +87,11 @@ listCommands =
 lcInstanceId :: Lens' ListCommands (Maybe Text)
 lcInstanceId = lens _lcInstanceId (\ s a -> s{_lcInstanceId = a});
 
--- | (Optional) One or more filters. Use a filter to return a more specific
--- list of results.
+-- | (Optional) One or more filters. Use a filter to return a more specific list of results.
 lcFilters :: Lens' ListCommands (Maybe (NonEmpty CommandFilter))
 lcFilters = lens _lcFilters (\ s a -> s{_lcFilters = a}) . mapping _List1;
 
--- | (Optional) The token for the next set of items to return. (You received
--- this token from a previous call.)
+-- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 lcNextToken :: Lens' ListCommands (Maybe Text)
 lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 
@@ -101,9 +99,7 @@ lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 lcCommandId :: Lens' ListCommands (Maybe Text)
 lcCommandId = lens _lcCommandId (\ s a -> s{_lcCommandId = a});
 
--- | (Optional) The maximum number of items to return for this call. The call
--- also returns a token that you can specify in a subsequent call to get
--- the next set of results.
+-- | (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lcMaxResults :: Lens' ListCommands (Maybe Natural)
 lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat;
 
@@ -183,8 +179,7 @@ listCommandsResponse pResponseStatus_ =
 lcrsCommands :: Lens' ListCommandsResponse [Command]
 lcrsCommands = lens _lcrsCommands (\ s a -> s{_lcrsCommands = a}) . _Default . _Coerce;
 
--- | (Optional) The token for the next set of items to return. (You received
--- this token from a previous call.)
+-- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 lcrsNextToken :: Lens' ListCommandsResponse (Maybe Text)
 lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 

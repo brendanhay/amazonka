@@ -18,17 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Assigns one or more secondary private IP addresses to the specified
--- network interface. You can specify one or more specific secondary IP
--- addresses, or you can specify the number of secondary IP addresses to be
--- automatically assigned within the subnet\'s CIDR block range. The number
--- of secondary IP addresses that you can assign to an instance varies by
--- instance type. For information about instance types, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types>
--- in the /Amazon Elastic Compute Cloud User Guide/. For more information
--- about Elastic IP addresses, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- Assigns one or more secondary private IP addresses to the specified network interface. You can specify one or more specific secondary IP addresses, or you can specify the number of secondary IP addresses to be automatically assigned within the subnet\'s CIDR block range. The number of secondary IP addresses that you can assign to an instance varies by instance type. For information about instance types, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/. For more information about Elastic IP addresses, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- AssignPrivateIpAddresses is available only in EC2-VPC.
 module Network.AWS.EC2.AssignPrivateIPAddresses
@@ -86,24 +76,17 @@ assignPrivateIPAddresses pNetworkInterfaceId_ =
     , _apiaNetworkInterfaceId = pNetworkInterfaceId_
     }
 
--- | One or more IP addresses to be assigned as a secondary private IP
--- address to the network interface. You can\'t specify this parameter when
--- also specifying a number of secondary IP addresses.
+-- | One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can\'t specify this parameter when also specifying a number of secondary IP addresses.
 --
--- If you don\'t specify an IP address, Amazon EC2 automatically selects an
--- IP address within the subnet range.
+-- If you don\'t specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.
 apiaPrivateIPAddresses :: Lens' AssignPrivateIPAddresses [Text]
 apiaPrivateIPAddresses = lens _apiaPrivateIPAddresses (\ s a -> s{_apiaPrivateIPAddresses = a}) . _Default . _Coerce;
 
--- | Indicates whether to allow an IP address that is already assigned to
--- another network interface or instance to be reassigned to the specified
--- network interface.
+-- | Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.
 apiaAllowReassignment :: Lens' AssignPrivateIPAddresses (Maybe Bool)
 apiaAllowReassignment = lens _apiaAllowReassignment (\ s a -> s{_apiaAllowReassignment = a});
 
--- | The number of secondary IP addresses to assign to the network interface.
--- You can\'t specify this parameter when also specifying private IP
--- addresses.
+-- | The number of secondary IP addresses to assign to the network interface. You can\'t specify this parameter when also specifying private IP addresses.
 apiaSecondaryPrivateIPAddressCount :: Lens' AssignPrivateIPAddresses (Maybe Int)
 apiaSecondaryPrivateIPAddressCount = lens _apiaSecondaryPrivateIPAddressCount (\ s a -> s{_apiaSecondaryPrivateIPAddressCount = a});
 

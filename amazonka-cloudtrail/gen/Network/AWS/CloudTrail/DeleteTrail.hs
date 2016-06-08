@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a trail. This operation must be called from the region in which
--- the trail was created. 'DeleteTrail' cannot be called on the shadow
--- trails (replicated trails in other regions) of a trail that is enabled
--- in all regions.
+-- Deletes a trail. This operation must be called from the region in which the trail was created. 'DeleteTrail' cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.
 module Network.AWS.CloudTrail.DeleteTrail
     (
     -- * Creating a Request
@@ -64,9 +61,7 @@ deleteTrail pName_ =
     { _dtName = pName_
     }
 
--- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The
--- format of a trail ARN is
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
+-- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a trail ARN is 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'.
 dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\ s a -> s{_dtName = a});
 
@@ -102,8 +97,7 @@ instance ToPath DeleteTrail where
 instance ToQuery DeleteTrail where
         toQuery = const mempty
 
--- | Returns the objects or data listed below if successful. Otherwise,
--- returns an error.
+-- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
 -- /See:/ 'deleteTrailResponse' smart constructor.
 newtype DeleteTrailResponse = DeleteTrailResponse'

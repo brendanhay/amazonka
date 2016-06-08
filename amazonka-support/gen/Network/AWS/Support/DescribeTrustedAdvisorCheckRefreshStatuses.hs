@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the refresh status of the Trusted Advisor checks that have the
--- specified check IDs. Check IDs can be obtained by calling
--- < DescribeTrustedAdvisorChecks>.
+-- Returns the refresh status of the Trusted Advisor checks that have the specified check IDs. Check IDs can be obtained by calling < DescribeTrustedAdvisorChecks>.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     (
     -- * Creating a Request
@@ -110,8 +108,7 @@ instance ToQuery
          DescribeTrustedAdvisorCheckRefreshStatuses where
         toQuery = const mempty
 
--- | The statuses of the Trusted Advisor checks returned by the
--- < DescribeTrustedAdvisorCheckRefreshStatuses> operation.
+-- | The statuses of the Trusted Advisor checks returned by the < DescribeTrustedAdvisorCheckRefreshStatuses> operation.
 --
 -- /See:/ 'describeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'

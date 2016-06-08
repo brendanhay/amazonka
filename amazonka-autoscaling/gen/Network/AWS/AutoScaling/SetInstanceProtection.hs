@@ -20,9 +20,7 @@
 --
 -- Updates the instance protection settings of the specified instances.
 --
--- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection Instance Protection>
--- in the /Auto Scaling Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection Instance Protection> in the /Auto Scaling Developer Guide/.
 module Network.AWS.AutoScaling.SetInstanceProtection
     (
     -- * Creating a Request
@@ -82,8 +80,7 @@ sipInstanceIds = lens _sipInstanceIds (\ s a -> s{_sipInstanceIds = a}) . _Coerc
 sipAutoScalingGroupName :: Lens' SetInstanceProtection Text
 sipAutoScalingGroupName = lens _sipAutoScalingGroupName (\ s a -> s{_sipAutoScalingGroupName = a});
 
--- | Indicates whether the instance is protected from termination by Auto
--- Scaling when scaling in.
+-- | Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
 sipProtectedFromScaleIn :: Lens' SetInstanceProtection Bool
 sipProtectedFromScaleIn = lens _sipProtectedFromScaleIn (\ s a -> s{_sipProtectedFromScaleIn = a});
 

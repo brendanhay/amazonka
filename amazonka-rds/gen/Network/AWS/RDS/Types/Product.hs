@@ -21,8 +21,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.RDS.Types.Sum
 
--- | Describes a quota for an AWS account, for example, the number of DB
--- instances allowed.
+-- | Describes a quota for an AWS account, for example, the number of DB instances allowed.
 --
 -- /See:/ 'accountQuota' smart constructor.
 data AccountQuota = AccountQuota'
@@ -172,8 +171,7 @@ instance Hashable Certificate
 
 instance NFData Certificate
 
--- | This data type is used as a response element in the action
--- < DescribeDBEngineVersions>.
+-- | This data type is used as a response element in the action < DescribeDBEngineVersions>.
 --
 -- /See:/ 'characterSet' smart constructor.
 data CharacterSet = CharacterSet'
@@ -222,8 +220,7 @@ instance NFData CharacterSet
 -- -   < ModifyDBCluster>
 -- -   < RestoreDBClusterFromSnapshot>
 --
--- This data type is used as a response element in the
--- < DescribeDBClusters> action.
+-- This data type is used as a response element in the < DescribeDBClusters> action.
 --
 -- /See:/ 'dbCluster' smart constructor.
 data DBCluster = DBCluster'
@@ -354,8 +351,7 @@ dcStatus = lens _dcStatus (\ s a -> s{_dcStatus = a});
 dcStorageEncrypted :: Lens' DBCluster (Maybe Bool)
 dcStorageEncrypted = lens _dcStorageEncrypted (\ s a -> s{_dcStorageEncrypted = a});
 
--- | Contains a user-supplied DB cluster identifier. This identifier is the
--- unique key that identifies a DB cluster.
+-- | Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
 dcDBClusterIdentifier :: Lens' DBCluster (Maybe Text)
 dcDBClusterIdentifier = lens _dcDBClusterIdentifier (\ s a -> s{_dcDBClusterIdentifier = a});
 
@@ -363,8 +359,7 @@ dcDBClusterIdentifier = lens _dcDBClusterIdentifier (\ s a -> s{_dcDBClusterIden
 dcDBClusterMembers :: Lens' DBCluster [DBClusterMember]
 dcDBClusterMembers = lens _dcDBClusterMembers (\ s a -> s{_dcDBClusterMembers = a}) . _Default . _Coerce;
 
--- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
--- zone.
+-- | Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
 dcHostedZoneId :: Lens' DBCluster (Maybe Text)
 dcHostedZoneId = lens _dcHostedZoneId (\ s a -> s{_dcHostedZoneId = a});
 
@@ -376,14 +371,11 @@ dcDBClusterParameterGroup = lens _dcDBClusterParameterGroup (\ s a -> s{_dcDBClu
 dcMasterUsername :: Lens' DBCluster (Maybe Text)
 dcMasterUsername = lens _dcMasterUsername (\ s a -> s{_dcMasterUsername = a});
 
--- | The region-unique, immutable identifier for the DB cluster. This
--- identifier is found in AWS CloudTrail log entries whenever the KMS key
--- for the DB cluster is accessed.
+-- | The region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever the KMS key for the DB cluster is accessed.
 dcDBClusterResourceId :: Lens' DBCluster (Maybe Text)
 dcDBClusterResourceId = lens _dcDBClusterResourceId (\ s a -> s{_dcDBClusterResourceId = a});
 
--- | Specifies the earliest time to which a database can be restored with
--- point-in-time restore.
+-- | Specifies the earliest time to which a database can be restored with point-in-time restore.
 dcEarliestRestorableTime :: Lens' DBCluster (Maybe UTCTime)
 dcEarliestRestorableTime = lens _dcEarliestRestorableTime (\ s a -> s{_dcEarliestRestorableTime = a}) . mapping _Time;
 
@@ -391,34 +383,27 @@ dcEarliestRestorableTime = lens _dcEarliestRestorableTime (\ s a -> s{_dcEarlies
 dcEngine :: Lens' DBCluster (Maybe Text)
 dcEngine = lens _dcEngine (\ s a -> s{_dcEngine = a});
 
--- | Specifies the latest time to which a database can be restored with
--- point-in-time restore.
+-- | Specifies the latest time to which a database can be restored with point-in-time restore.
 dcLatestRestorableTime :: Lens' DBCluster (Maybe UTCTime)
 dcLatestRestorableTime = lens _dcLatestRestorableTime (\ s a -> s{_dcLatestRestorableTime = a}) . mapping _Time;
 
--- | Specifies the weekly time range during which system maintenance can
--- occur, in Universal Coordinated Time (UTC).
+-- | Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 dcPreferredMaintenanceWindow :: Lens' DBCluster (Maybe Text)
 dcPreferredMaintenanceWindow = lens _dcPreferredMaintenanceWindow (\ s a -> s{_dcPreferredMaintenanceWindow = a});
 
--- | Provides the list of EC2 Availability Zones that instances in the DB
--- cluster can be created in.
+-- | Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
 dcAvailabilityZones :: Lens' DBCluster [Text]
 dcAvailabilityZones = lens _dcAvailabilityZones (\ s a -> s{_dcAvailabilityZones = a}) . _Default . _Coerce;
 
--- | If present, specifies the name of the character set that this cluster is
--- associated with.
+-- | If present, specifies the name of the character set that this cluster is associated with.
 dcCharacterSetName :: Lens' DBCluster (Maybe Text)
 dcCharacterSetName = lens _dcCharacterSetName (\ s a -> s{_dcCharacterSetName = a});
 
--- | If 'StorageEncrypted' is true, the KMS key identifier for the encrypted
--- DB cluster.
+-- | If 'StorageEncrypted' is true, the KMS key identifier for the encrypted DB cluster.
 dcKMSKeyId :: Lens' DBCluster (Maybe Text)
 dcKMSKeyId = lens _dcKMSKeyId (\ s a -> s{_dcKMSKeyId = a});
 
--- | Specifies the daily time range during which automated backups are
--- created if automated backups are enabled, as determined by the
--- 'BackupRetentionPeriod'.
+-- | Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the 'BackupRetentionPeriod'.
 dcPreferredBackupWindow :: Lens' DBCluster (Maybe Text)
 dcPreferredBackupWindow = lens _dcPreferredBackupWindow (\ s a -> s{_dcPreferredBackupWindow = a});
 
@@ -426,20 +411,15 @@ dcPreferredBackupWindow = lens _dcPreferredBackupWindow (\ s a -> s{_dcPreferred
 dcVPCSecurityGroups :: Lens' DBCluster [VPCSecurityGroupMembership]
 dcVPCSecurityGroups = lens _dcVPCSecurityGroups (\ s a -> s{_dcVPCSecurityGroups = a}) . _Default . _Coerce;
 
--- | Specifies the number of days for which automatic DB snapshots are
--- retained.
+-- | Specifies the number of days for which automatic DB snapshots are retained.
 dcBackupRetentionPeriod :: Lens' DBCluster (Maybe Int)
 dcBackupRetentionPeriod = lens _dcBackupRetentionPeriod (\ s a -> s{_dcBackupRetentionPeriod = a});
 
--- | Specifies information on the subnet group associated with the DB
--- cluster, including the name, description, and subnets in the subnet
--- group.
+-- | Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
 dcDBSubnetGroup :: Lens' DBCluster (Maybe Text)
 dcDBSubnetGroup = lens _dcDBSubnetGroup (\ s a -> s{_dcDBSubnetGroup = a});
 
--- | Contains the name of the initial database of this DB cluster that was
--- provided at create time, if one was specified when the DB cluster was
--- created. This same name is returned for the life of the DB cluster.
+-- | Contains the name of the initial database of this DB cluster that was provided at create time, if one was specified when the DB cluster was created. This same name is returned for the life of the DB cluster.
 dcDatabaseName :: Lens' DBCluster (Maybe Text)
 dcDatabaseName = lens _dcDatabaseName (\ s a -> s{_dcDatabaseName = a});
 
@@ -447,8 +427,7 @@ dcDatabaseName = lens _dcDatabaseName (\ s a -> s{_dcDatabaseName = a});
 dcAllocatedStorage :: Lens' DBCluster (Maybe Int)
 dcAllocatedStorage = lens _dcAllocatedStorage (\ s a -> s{_dcAllocatedStorage = a});
 
--- | Specifies the connection endpoint for the primary instance of the DB
--- cluster.
+-- | Specifies the connection endpoint for the primary instance of the DB cluster.
 dcEndpoint :: Lens' DBCluster (Maybe Text)
 dcEndpoint = lens _dcEndpoint (\ s a -> s{_dcEndpoint = a});
 
@@ -536,10 +515,7 @@ dbClusterMember =
     , _dcmDBClusterParameterGroupStatus = Nothing
     }
 
--- | A value that specifies the order in which an Aurora Replica is promoted
--- to the primary instance after a failure of the existing primary
--- instance. For more information, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>.
+-- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>.
 dcmPromotionTier :: Lens' DBClusterMember (Maybe Int)
 dcmPromotionTier = lens _dcmPromotionTier (\ s a -> s{_dcmPromotionTier = a});
 
@@ -547,13 +523,11 @@ dcmPromotionTier = lens _dcmPromotionTier (\ s a -> s{_dcmPromotionTier = a});
 dcmDBInstanceIdentifier :: Lens' DBClusterMember (Maybe Text)
 dcmDBInstanceIdentifier = lens _dcmDBInstanceIdentifier (\ s a -> s{_dcmDBInstanceIdentifier = a});
 
--- | Value that is 'true' if the cluster member is the primary instance for
--- the DB cluster and 'false' otherwise.
+-- | Value that is 'true' if the cluster member is the primary instance for the DB cluster and 'false' otherwise.
 dcmIsClusterWriter :: Lens' DBClusterMember (Maybe Bool)
 dcmIsClusterWriter = lens _dcmIsClusterWriter (\ s a -> s{_dcmIsClusterWriter = a});
 
--- | Specifies the status of the DB cluster parameter group for this member
--- of the DB cluster.
+-- | Specifies the status of the DB cluster parameter group for this member of the DB cluster.
 dcmDBClusterParameterGroupStatus :: Lens' DBClusterMember (Maybe Text)
 dcmDBClusterParameterGroupStatus = lens _dcmDBClusterParameterGroupStatus (\ s a -> s{_dcmDBClusterParameterGroupStatus = a});
 
@@ -610,12 +584,9 @@ instance Hashable DBClusterOptionGroupStatus
 
 instance NFData DBClusterOptionGroupStatus
 
--- | Contains the result of a successful invocation of the
--- < CreateDBClusterParameterGroup> action.
+-- | Contains the result of a successful invocation of the < CreateDBClusterParameterGroup> action.
 --
--- This data type is used as a request parameter in the
--- < DeleteDBClusterParameterGroup> action, and as a response element in
--- the < DescribeDBClusterParameterGroups> action.
+-- This data type is used as a request parameter in the < DeleteDBClusterParameterGroup> action, and as a response element in the < DescribeDBClusterParameterGroups> action.
 --
 -- /See:/ 'dbClusterParameterGroup' smart constructor.
 data DBClusterParameterGroup = DBClusterParameterGroup'
@@ -642,8 +613,7 @@ dbClusterParameterGroup =
     , _dcpgDescription = Nothing
     }
 
--- | Provides the name of the DB parameter group family that this DB cluster
--- parameter group is compatible with.
+-- | Provides the name of the DB parameter group family that this DB cluster parameter group is compatible with.
 dcpgDBParameterGroupFamily :: Lens' DBClusterParameterGroup (Maybe Text)
 dcpgDBParameterGroupFamily = lens _dcpgDBParameterGroupFamily (\ s a -> s{_dcpgDBParameterGroupFamily = a});
 
@@ -651,8 +621,7 @@ dcpgDBParameterGroupFamily = lens _dcpgDBParameterGroupFamily (\ s a -> s{_dcpgD
 dcpgDBClusterParameterGroupName :: Lens' DBClusterParameterGroup (Maybe Text)
 dcpgDBClusterParameterGroupName = lens _dcpgDBClusterParameterGroupName (\ s a -> s{_dcpgDBClusterParameterGroupName = a});
 
--- | Provides the customer-specified description for this DB cluster
--- parameter group.
+-- | Provides the customer-specified description for this DB cluster parameter group.
 dcpgDescription :: Lens' DBClusterParameterGroup (Maybe Text)
 dcpgDescription = lens _dcpgDescription (\ s a -> s{_dcpgDescription = a});
 
@@ -713,8 +682,7 @@ instance NFData DBClusterParameterGroupNameMessage
 -- -   < CreateDBClusterSnapshot>
 -- -   < DeleteDBClusterSnapshot>
 --
--- This data type is used as a response element in the
--- < DescribeDBClusterSnapshots> action.
+-- This data type is used as a response element in the < DescribeDBClusterSnapshots> action.
 --
 -- /See:/ 'dbClusterSnapshot' smart constructor.
 data DBClusterSnapshot = DBClusterSnapshot'
@@ -797,8 +765,7 @@ dbClusterSnapshot =
     , _dcsPort = Nothing
     }
 
--- | Provides the version of the database engine for this DB cluster
--- snapshot.
+-- | Provides the version of the database engine for this DB cluster snapshot.
 dcsEngineVersion :: Lens' DBClusterSnapshot (Maybe Text)
 dcsEngineVersion = lens _dcsEngineVersion (\ s a -> s{_dcsEngineVersion = a});
 
@@ -810,8 +777,7 @@ dcsStatus = lens _dcsStatus (\ s a -> s{_dcsStatus = a});
 dcsStorageEncrypted :: Lens' DBClusterSnapshot (Maybe Bool)
 dcsStorageEncrypted = lens _dcsStorageEncrypted (\ s a -> s{_dcsStorageEncrypted = a});
 
--- | Specifies the DB cluster identifier of the DB cluster that this DB
--- cluster snapshot was created from.
+-- | Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
 dcsDBClusterIdentifier :: Lens' DBClusterSnapshot (Maybe Text)
 dcsDBClusterIdentifier = lens _dcsDBClusterIdentifier (\ s a -> s{_dcsDBClusterIdentifier = a});
 
@@ -835,8 +801,7 @@ dcsEngine = lens _dcsEngine (\ s a -> s{_dcsEngine = a});
 dcsLicenseModel :: Lens' DBClusterSnapshot (Maybe Text)
 dcsLicenseModel = lens _dcsLicenseModel (\ s a -> s{_dcsLicenseModel = a});
 
--- | Provides the list of EC2 Availability Zones that instances in the DB
--- cluster snapshot can be restored in.
+-- | Provides the list of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
 dcsAvailabilityZones :: Lens' DBClusterSnapshot [Text]
 dcsAvailabilityZones = lens _dcsAvailabilityZones (\ s a -> s{_dcsAvailabilityZones = a}) . _Default . _Coerce;
 
@@ -844,13 +809,11 @@ dcsAvailabilityZones = lens _dcsAvailabilityZones (\ s a -> s{_dcsAvailabilityZo
 dcsSnapshotType :: Lens' DBClusterSnapshot (Maybe Text)
 dcsSnapshotType = lens _dcsSnapshotType (\ s a -> s{_dcsSnapshotType = a});
 
--- | If 'StorageEncrypted' is true, the KMS key identifier for the encrypted
--- DB cluster snapshot.
+-- | If 'StorageEncrypted' is true, the KMS key identifier for the encrypted DB cluster snapshot.
 dcsKMSKeyId :: Lens' DBClusterSnapshot (Maybe Text)
 dcsKMSKeyId = lens _dcsKMSKeyId (\ s a -> s{_dcsKMSKeyId = a});
 
--- | Provides the time when the snapshot was taken, in Universal Coordinated
--- Time (UTC).
+-- | Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
 dcsSnapshotCreateTime :: Lens' DBClusterSnapshot (Maybe UTCTime)
 dcsSnapshotCreateTime = lens _dcsSnapshotCreateTime (\ s a -> s{_dcsSnapshotCreateTime = a}) . mapping _Time;
 
@@ -858,18 +821,15 @@ dcsSnapshotCreateTime = lens _dcsSnapshotCreateTime (\ s a -> s{_dcsSnapshotCrea
 dcsAllocatedStorage :: Lens' DBClusterSnapshot (Maybe Int)
 dcsAllocatedStorage = lens _dcsAllocatedStorage (\ s a -> s{_dcsAllocatedStorage = a});
 
--- | Specifies the time when the DB cluster was created, in Universal
--- Coordinated Time (UTC).
+-- | Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
 dcsClusterCreateTime :: Lens' DBClusterSnapshot (Maybe UTCTime)
 dcsClusterCreateTime = lens _dcsClusterCreateTime (\ s a -> s{_dcsClusterCreateTime = a}) . mapping _Time;
 
--- | Specifies the percentage of the estimated data that has been
--- transferred.
+-- | Specifies the percentage of the estimated data that has been transferred.
 dcsPercentProgress :: Lens' DBClusterSnapshot (Maybe Int)
 dcsPercentProgress = lens _dcsPercentProgress (\ s a -> s{_dcsPercentProgress = a});
 
--- | Specifies the port that the DB cluster was listening on at the time of
--- the snapshot.
+-- | Specifies the port that the DB cluster was listening on at the time of the snapshot.
 dcsPort :: Lens' DBClusterSnapshot (Maybe Int)
 dcsPort = lens _dcsPort (\ s a -> s{_dcsPort = a});
 
@@ -899,8 +859,7 @@ instance Hashable DBClusterSnapshot
 
 instance NFData DBClusterSnapshot
 
--- | This data type is used as a response element in the action
--- < DescribeDBEngineVersions>.
+-- | This data type is used as a response element in the action < DescribeDBEngineVersions>.
 --
 -- /See:/ 'dbEngineVersion' smart constructor.
 data DBEngineVersion = DBEngineVersion'
@@ -955,9 +914,7 @@ devEngineVersion = lens _devEngineVersion (\ s a -> s{_devEngineVersion = a});
 devDBEngineVersionDescription :: Lens' DBEngineVersion (Maybe Text)
 devDBEngineVersionDescription = lens _devDBEngineVersionDescription (\ s a -> s{_devDBEngineVersionDescription = a});
 
--- | The default character set for new instances of this engine version, if
--- the 'CharacterSetName' parameter of the CreateDBInstance API is not
--- specified.
+-- | The default character set for new instances of this engine version, if the 'CharacterSetName' parameter of the CreateDBInstance API is not specified.
 devDefaultCharacterSet :: Lens' DBEngineVersion (Maybe CharacterSet)
 devDefaultCharacterSet = lens _devDefaultCharacterSet (\ s a -> s{_devDefaultCharacterSet = a});
 
@@ -969,8 +926,7 @@ devEngine = lens _devEngine (\ s a -> s{_devEngine = a});
 devDBParameterGroupFamily :: Lens' DBEngineVersion (Maybe Text)
 devDBParameterGroupFamily = lens _devDBParameterGroupFamily (\ s a -> s{_devDBParameterGroupFamily = a});
 
--- | A list of the character sets supported by this engine for the
--- 'CharacterSetName' parameter of the CreateDBInstance API.
+-- | A list of the character sets supported by this engine for the 'CharacterSetName' parameter of the CreateDBInstance API.
 devSupportedCharacterSets :: Lens' DBEngineVersion [CharacterSet]
 devSupportedCharacterSets = lens _devSupportedCharacterSets (\ s a -> s{_devSupportedCharacterSets = a}) . _Default . _Coerce;
 
@@ -978,8 +934,7 @@ devSupportedCharacterSets = lens _devSupportedCharacterSets (\ s a -> s{_devSupp
 devDBEngineDescription :: Lens' DBEngineVersion (Maybe Text)
 devDBEngineDescription = lens _devDBEngineDescription (\ s a -> s{_devDBEngineDescription = a});
 
--- | A list of engine versions that this database engine version can be
--- upgraded to.
+-- | A list of engine versions that this database engine version can be upgraded to.
 devValidUpgradeTarget :: Lens' DBEngineVersion [UpgradeTarget]
 devValidUpgradeTarget = lens _devValidUpgradeTarget (\ s a -> s{_devValidUpgradeTarget = a}) . _Default . _Coerce;
 
@@ -1009,8 +964,7 @@ instance NFData DBEngineVersion
 -- -   < DeleteDBInstance>
 -- -   < ModifyDBInstance>
 --
--- This data type is used as a response element in the
--- < DescribeDBInstances> action.
+-- This data type is used as a response element in the < DescribeDBInstances> action.
 --
 -- /See:/ 'dbInstance' smart constructor.
 data DBInstance = DBInstance'
@@ -1209,8 +1163,7 @@ dbInstance =
 diEngineVersion :: Lens' DBInstance (Maybe Text)
 diEngineVersion = lens _diEngineVersion (\ s a -> s{_diEngineVersion = a});
 
--- | Provides List of DB security group elements containing only
--- 'DBSecurityGroup.Name' and 'DBSecurityGroup.Status' subelements.
+-- | Provides List of DB security group elements containing only 'DBSecurityGroup.Name' and 'DBSecurityGroup.Status' subelements.
 diDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
 diDBSecurityGroups = lens _diDBSecurityGroups (\ s a -> s{_diDBSecurityGroups = a}) . _Default . _Coerce;
 
@@ -1218,29 +1171,18 @@ diDBSecurityGroups = lens _diDBSecurityGroups (\ s a -> s{_diDBSecurityGroups = 
 diStorageEncrypted :: Lens' DBInstance (Maybe Bool)
 diStorageEncrypted = lens _diStorageEncrypted (\ s a -> s{_diStorageEncrypted = a});
 
--- | If the DB instance is a member of a DB cluster, contains the name of the
--- DB cluster that the DB instance is a member of.
+-- | If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
 diDBClusterIdentifier :: Lens' DBInstance (Maybe Text)
 diDBClusterIdentifier = lens _diDBClusterIdentifier (\ s a -> s{_diDBClusterIdentifier = a});
 
--- | Specifies the accessibility options for the DB instance. A value of true
--- specifies an Internet-facing instance with a publicly resolvable DNS
--- name, which resolves to a public IP address. A value of false specifies
--- an internal instance with a DNS name that resolves to a private IP
--- address.
+-- | Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address.
 --
--- Default: The default behavior varies depending on whether a VPC has been
--- requested or not. The following list shows the default behavior in each
--- case.
+-- Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.
 --
 -- -   __Default VPC:__true
 -- -   __VPC:__false
 --
--- If no DB subnet group has been specified as part of the request and the
--- PubliclyAccessible value has not been set, the DB instance will be
--- publicly accessible. If a specific DB subnet group has been specified as
--- part of the request and the PubliclyAccessible value has not been set,
--- the DB instance will be private.
+-- If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
 diPubliclyAccessible :: Lens' DBInstance (Maybe Bool)
 diPubliclyAccessible = lens _diPubliclyAccessible (\ s a -> s{_diPubliclyAccessible = a});
 
@@ -1252,13 +1194,11 @@ diAutoMinorVersionUpgrade = lens _diAutoMinorVersionUpgrade (\ s a -> s{_diAutoM
 diMasterUsername :: Lens' DBInstance (Maybe Text)
 diMasterUsername = lens _diMasterUsername (\ s a -> s{_diMasterUsername = a});
 
--- | Contains one or more identifiers of the Read Replicas associated with
--- this DB instance.
+-- | Contains one or more identifiers of the Read Replicas associated with this DB instance.
 diReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
 diReadReplicaDBInstanceIdentifiers = lens _diReadReplicaDBInstanceIdentifiers (\ s a -> s{_diReadReplicaDBInstanceIdentifiers = a}) . _Default . _Coerce;
 
--- | The ARN for the IAM role that permits RDS to send Enhanced Monitoring
--- metrics to CloudWatch Logs.
+-- | The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
 diMonitoringRoleARN :: Lens' DBInstance (Maybe Text)
 diMonitoringRoleARN = lens _diMonitoringRoleARN (\ s a -> s{_diMonitoringRoleARN = a});
 
@@ -1270,35 +1210,27 @@ diIOPS = lens _diIOPS (\ s a -> s{_diIOPS = a});
 diInstanceCreateTime :: Lens' DBInstance (Maybe UTCTime)
 diInstanceCreateTime = lens _diInstanceCreateTime (\ s a -> s{_diInstanceCreateTime = a}) . mapping _Time;
 
--- | Contains the identifier of the source DB instance if this DB instance is
--- a Read Replica.
+-- | Contains the identifier of the source DB instance if this DB instance is a Read Replica.
 diReadReplicaSourceDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
 diReadReplicaSourceDBInstanceIdentifier = lens _diReadReplicaSourceDBInstanceIdentifier (\ s a -> s{_diReadReplicaSourceDBInstanceIdentifier = a});
 
--- | The interval, in seconds, between points when Enhanced Monitoring
--- metrics are collected for the DB instance.
+-- | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
 diMonitoringInterval :: Lens' DBInstance (Maybe Int)
 diMonitoringInterval = lens _diMonitoringInterval (\ s a -> s{_diMonitoringInterval = a});
 
--- | Provides the name of the database engine to be used for this DB
--- instance.
+-- | Provides the name of the database engine to be used for this DB instance.
 diEngine :: Lens' DBInstance (Maybe Text)
 diEngine = lens _diEngine (\ s a -> s{_diEngine = a});
 
--- | Specifies the latest time to which a database can be restored with
--- point-in-time restore.
+-- | Specifies the latest time to which a database can be restored with point-in-time restore.
 diLatestRestorableTime :: Lens' DBInstance (Maybe UTCTime)
 diLatestRestorableTime = lens _diLatestRestorableTime (\ s a -> s{_diLatestRestorableTime = a}) . mapping _Time;
 
--- | Contains the name of the compute and memory capacity class of the DB
--- instance.
+-- | Contains the name of the compute and memory capacity class of the DB instance.
 diDBInstanceClass :: Lens' DBInstance (Maybe Text)
 diDBInstanceClass = lens _diDBInstanceClass (\ s a -> s{_diDBInstanceClass = a});
 
--- | A value that specifies the order in which an Aurora Replica is promoted
--- to the primary instance after a failure of the existing primary
--- instance. For more information, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>.
+-- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>.
 diPromotionTier :: Lens' DBInstance (Maybe Int)
 diPromotionTier = lens _diPromotionTier (\ s a -> s{_diPromotionTier = a});
 
@@ -1306,8 +1238,7 @@ diPromotionTier = lens _diPromotionTier (\ s a -> s{_diPromotionTier = a});
 diLicenseModel :: Lens' DBInstance (Maybe Text)
 diLicenseModel = lens _diLicenseModel (\ s a -> s{_diLicenseModel = a});
 
--- | Specifies the weekly time range during which system maintenance can
--- occur, in Universal Coordinated Time (UTC).
+-- | Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 diPreferredMaintenanceWindow :: Lens' DBInstance (Maybe Text)
 diPreferredMaintenanceWindow = lens _diPreferredMaintenanceWindow (\ s a -> s{_diPreferredMaintenanceWindow = a});
 
@@ -1315,45 +1246,35 @@ diPreferredMaintenanceWindow = lens _diPreferredMaintenanceWindow (\ s a -> s{_d
 diCACertificateIdentifier :: Lens' DBInstance (Maybe Text)
 diCACertificateIdentifier = lens _diCACertificateIdentifier (\ s a -> s{_diCACertificateIdentifier = a});
 
--- | Contains a user-supplied database identifier. This identifier is the
--- unique key that identifies a DB instance.
+-- | Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
 diDBInstanceIdentifier :: Lens' DBInstance (Maybe Text)
 diDBInstanceIdentifier = lens _diDBInstanceIdentifier (\ s a -> s{_diDBInstanceIdentifier = a});
 
--- | If present, specifies the name of the character set that this instance
--- is associated with.
+-- | If present, specifies the name of the character set that this instance is associated with.
 diCharacterSetName :: Lens' DBInstance (Maybe Text)
 diCharacterSetName = lens _diCharacterSetName (\ s a -> s{_diCharacterSetName = a});
 
--- | If 'StorageEncrypted' is true, the KMS key identifier for the encrypted
--- DB instance.
+-- | If 'StorageEncrypted' is true, the KMS key identifier for the encrypted DB instance.
 diKMSKeyId :: Lens' DBInstance (Maybe Text)
 diKMSKeyId = lens _diKMSKeyId (\ s a -> s{_diKMSKeyId = a});
 
--- | Specifies the daily time range during which automated backups are
--- created if automated backups are enabled, as determined by the
--- 'BackupRetentionPeriod'.
+-- | Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the 'BackupRetentionPeriod'.
 diPreferredBackupWindow :: Lens' DBInstance (Maybe Text)
 diPreferredBackupWindow = lens _diPreferredBackupWindow (\ s a -> s{_diPreferredBackupWindow = a});
 
--- | Specifies the name of the Availability Zone the DB instance is located
--- in.
+-- | Specifies the name of the Availability Zone the DB instance is located in.
 diAvailabilityZone :: Lens' DBInstance (Maybe Text)
 diAvailabilityZone = lens _diAvailabilityZone (\ s a -> s{_diAvailabilityZone = a});
 
--- | Provides List of VPC security group elements that the DB instance
--- belongs to.
+-- | Provides List of VPC security group elements that the DB instance belongs to.
 diVPCSecurityGroups :: Lens' DBInstance [VPCSecurityGroupMembership]
 diVPCSecurityGroups = lens _diVPCSecurityGroups (\ s a -> s{_diVPCSecurityGroups = a}) . _Default . _Coerce;
 
--- | Specifies the number of days for which automatic DB snapshots are
--- retained.
+-- | Specifies the number of days for which automatic DB snapshots are retained.
 diBackupRetentionPeriod :: Lens' DBInstance (Maybe Int)
 diBackupRetentionPeriod = lens _diBackupRetentionPeriod (\ s a -> s{_diBackupRetentionPeriod = a});
 
--- | Specifies information on the subnet group associated with the DB
--- instance, including the name, description, and subnets in the subnet
--- group.
+-- | Specifies information on the subnet group associated with the DB instance, including the name, description, and subnets in the subnet group.
 diDBSubnetGroup :: Lens' DBInstance (Maybe DBSubnetGroup)
 diDBSubnetGroup = lens _diDBSubnetGroup (\ s a -> s{_diDBSubnetGroup = a});
 
@@ -1365,13 +1286,11 @@ diMultiAZ = lens _diMultiAZ (\ s a -> s{_diMultiAZ = a});
 diOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
 diOptionGroupMemberships = lens _diOptionGroupMemberships (\ s a -> s{_diOptionGroupMemberships = a}) . _Default . _Coerce;
 
--- | The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream
--- that receives the Enhanced Monitoring metrics data for the DB instance.
+-- | The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the Enhanced Monitoring metrics data for the DB instance.
 diEnhancedMonitoringResourceARN :: Lens' DBInstance (Maybe Text)
 diEnhancedMonitoringResourceARN = lens _diEnhancedMonitoringResourceARN (\ s a -> s{_diEnhancedMonitoringResourceARN = a});
 
--- | If present, specifies the name of the secondary Availability Zone for a
--- DB instance with multi-AZ support.
+-- | If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
 diSecondaryAvailabilityZone :: Lens' DBInstance (Maybe Text)
 diSecondaryAvailabilityZone = lens _diSecondaryAvailabilityZone (\ s a -> s{_diSecondaryAvailabilityZone = a});
 
@@ -1379,9 +1298,7 @@ diSecondaryAvailabilityZone = lens _diSecondaryAvailabilityZone (\ s a -> s{_diS
 diAllocatedStorage :: Lens' DBInstance (Maybe Int)
 diAllocatedStorage = lens _diAllocatedStorage (\ s a -> s{_diAllocatedStorage = a});
 
--- | The region-unique, immutable identifier for the DB instance. This
--- identifier is found in AWS CloudTrail log entries whenever the KMS key
--- for the DB instance is accessed.
+-- | The region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the KMS key for the DB instance is accessed.
 diDBiResourceId :: Lens' DBInstance (Maybe Text)
 diDBiResourceId = lens _diDBiResourceId (\ s a -> s{_diDBiResourceId = a});
 
@@ -1389,13 +1306,11 @@ diDBiResourceId = lens _diDBiResourceId (\ s a -> s{_diDBiResourceId = a});
 diDBParameterGroups :: Lens' DBInstance [DBParameterGroupStatus]
 diDBParameterGroups = lens _diDBParameterGroups (\ s a -> s{_diDBParameterGroups = a}) . _Default . _Coerce;
 
--- | Specifies whether tags are copied from the DB instance to snapshots of
--- the DB instance.
+-- | Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
 diCopyTagsToSnapshot :: Lens' DBInstance (Maybe Bool)
 diCopyTagsToSnapshot = lens _diCopyTagsToSnapshot (\ s a -> s{_diCopyTagsToSnapshot = a});
 
--- | The ARN from the Key Store with which the instance is associated for TDE
--- encryption.
+-- | The ARN from the Key Store with which the instance is associated for TDE encryption.
 diTDECredentialARN :: Lens' DBInstance (Maybe Text)
 diTDECredentialARN = lens _diTDECredentialARN (\ s a -> s{_diTDECredentialARN = a});
 
@@ -1407,15 +1322,11 @@ diEndpoint = lens _diEndpoint (\ s a -> s{_diEndpoint = a});
 diDBInstanceStatus :: Lens' DBInstance (Maybe Text)
 diDBInstanceStatus = lens _diDBInstanceStatus (\ s a -> s{_diDBInstanceStatus = a});
 
--- | Specifies the port that the DB instance listens on. If the DB instance
--- is part of a DB cluster, this can be a different port than the DB
--- cluster port.
+-- | Specifies the port that the DB instance listens on. If the DB instance is part of a DB cluster, this can be a different port than the DB cluster port.
 diDBInstancePort :: Lens' DBInstance (Maybe Int)
 diDBInstancePort = lens _diDBInstancePort (\ s a -> s{_diDBInstancePort = a});
 
--- | Specifies that changes to the DB instance are pending. This element is
--- only included when changes are pending. Specific changes are identified
--- by subelements.
+-- | Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
 diPendingModifiedValues :: Lens' DBInstance (Maybe PendingModifiedValues)
 diPendingModifiedValues = lens _diPendingModifiedValues (\ s a -> s{_diPendingModifiedValues = a});
 
@@ -1423,34 +1334,25 @@ diPendingModifiedValues = lens _diPendingModifiedValues (\ s a -> s{_diPendingMo
 diStorageType :: Lens' DBInstance (Maybe Text)
 diStorageType = lens _diStorageType (\ s a -> s{_diStorageType = a});
 
--- | The status of a Read Replica. If the instance is not a Read Replica,
--- this will be blank.
+-- | The status of a Read Replica. If the instance is not a Read Replica, this will be blank.
 diStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
 diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a}) . _Default . _Coerce;
 
--- | The Active Directory Domain membership records associated with the DB
--- instance.
+-- | The Active Directory Domain membership records associated with the DB instance.
 diDomainMemberships :: Lens' DBInstance [DomainMembership]
 diDomainMemberships = lens _diDomainMemberships (\ s a -> s{_diDomainMemberships = a}) . _Default . _Coerce;
 
--- | The meaning of this parameter differs according to the database engine
--- you use. For example, this value returns MySQL, MariaDB, or PostgreSQL
--- information when returning values from CreateDBInstanceReadReplica since
--- Read Replicas are only supported for these engines.
+-- | The meaning of this parameter differs according to the database engine you use. For example, this value returns MySQL, MariaDB, or PostgreSQL information when returning values from CreateDBInstanceReadReplica since Read Replicas are only supported for these engines.
 --
 -- __MySQL, MariaDB, SQL Server, PostgreSQL, Amazon Aurora__
 --
--- Contains the name of the initial database of this instance that was
--- provided at create time, if one was specified when the DB instance was
--- created. This same name is returned for the life of the DB instance.
+-- Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
 --
 -- Type: String
 --
 -- __Oracle__
 --
--- Contains the Oracle System ID (SID) of the created DB instance. Not
--- shown when the returned parameters do not apply to an Oracle DB
--- instance.
+-- Contains the Oracle System ID (SID) of the created DB instance. Not shown when the returned parameters do not apply to an Oracle DB instance.
 diDBName :: Lens' DBInstance (Maybe Text)
 diDBName = lens _diDBName (\ s a -> s{_diDBName = a});
 
@@ -1552,13 +1454,11 @@ dbInstanceStatusInfo =
     , _disiMessage = Nothing
     }
 
--- | Status of the DB instance. For a StatusType of read replica, the values
--- can be replicating, error, stopped, or terminated.
+-- | Status of the DB instance. For a StatusType of read replica, the values can be replicating, error, stopped, or terminated.
 disiStatus :: Lens' DBInstanceStatusInfo (Maybe Text)
 disiStatus = lens _disiStatus (\ s a -> s{_disiStatus = a});
 
--- | Boolean value that is true if the instance is operating normally, or
--- false if the instance is in an error state.
+-- | Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
 disiNormal :: Lens' DBInstanceStatusInfo (Maybe Bool)
 disiNormal = lens _disiNormal (\ s a -> s{_disiNormal = a});
 
@@ -1566,8 +1466,7 @@ disiNormal = lens _disiNormal (\ s a -> s{_disiNormal = a});
 disiStatusType :: Lens' DBInstanceStatusInfo (Maybe Text)
 disiStatusType = lens _disiStatusType (\ s a -> s{_disiStatusType = a});
 
--- | Details of the error if there is an error for the instance. If the
--- instance is not in an error state, this value is blank.
+-- | Details of the error if there is an error for the instance. If the instance is not in an error state, this value is blank.
 disiMessage :: Lens' DBInstanceStatusInfo (Maybe Text)
 disiMessage = lens _disiMessage (\ s a -> s{_disiMessage = a});
 
@@ -1582,12 +1481,9 @@ instance Hashable DBInstanceStatusInfo
 
 instance NFData DBInstanceStatusInfo
 
--- | Contains the result of a successful invocation of the
--- < CreateDBParameterGroup> action.
+-- | Contains the result of a successful invocation of the < CreateDBParameterGroup> action.
 --
--- This data type is used as a request parameter in the
--- < DeleteDBParameterGroup> action, and as a response element in the
--- < DescribeDBParameterGroups> action.
+-- This data type is used as a request parameter in the < DeleteDBParameterGroup> action, and as a response element in the < DescribeDBParameterGroups> action.
 --
 -- /See:/ 'dbParameterGroup' smart constructor.
 data DBParameterGroup = DBParameterGroup'
@@ -1614,8 +1510,7 @@ dbParameterGroup =
     , _dpgDescription = Nothing
     }
 
--- | Provides the name of the DB parameter group family that this DB
--- parameter group is compatible with.
+-- | Provides the name of the DB parameter group family that this DB parameter group is compatible with.
 dpgDBParameterGroupFamily :: Lens' DBParameterGroup (Maybe Text)
 dpgDBParameterGroupFamily = lens _dpgDBParameterGroupFamily (\ s a -> s{_dpgDBParameterGroupFamily = a});
 
@@ -1638,8 +1533,7 @@ instance Hashable DBParameterGroup
 
 instance NFData DBParameterGroup
 
--- | Contains the result of a successful invocation of the
--- < ModifyDBParameterGroup> or < ResetDBParameterGroup> action.
+-- | Contains the result of a successful invocation of the < ModifyDBParameterGroup> or < ResetDBParameterGroup> action.
 --
 -- /See:/ 'dbParameterGroupNameMessage' smart constructor.
 newtype DBParameterGroupNameMessage = DBParameterGroupNameMessage'
@@ -1728,8 +1622,7 @@ instance NFData DBParameterGroupStatus
 -- -   < CreateDBSecurityGroup>
 -- -   < RevokeDBSecurityGroupIngress>
 --
--- This data type is used as a response element in the
--- < DescribeDBSecurityGroups> action.
+-- This data type is used as a response element in the < DescribeDBSecurityGroups> action.
 --
 -- /See:/ 'dbSecurityGroup' smart constructor.
 data DBSecurityGroup = DBSecurityGroup'
@@ -1858,8 +1751,7 @@ instance NFData DBSecurityGroupMembership
 -- -   < CreateDBSnapshot>
 -- -   < DeleteDBSnapshot>
 --
--- This data type is used as a response element in the
--- < DescribeDBSnapshots> action.
+-- This data type is used as a response element in the < DescribeDBSnapshots> action.
 --
 -- /See:/ 'dbSnapshot' smart constructor.
 data DBSnapshot = DBSnapshot'
@@ -1982,8 +1874,7 @@ dsMasterUsername = lens _dsMasterUsername (\ s a -> s{_dsMasterUsername = a});
 dsSourceRegion :: Lens' DBSnapshot (Maybe Text)
 dsSourceRegion = lens _dsSourceRegion (\ s a -> s{_dsSourceRegion = a});
 
--- | Specifies the Provisioned IOPS (I\/O operations per second) value of the
--- DB instance at the time of the snapshot.
+-- | Specifies the Provisioned IOPS (I\/O operations per second) value of the DB instance at the time of the snapshot.
 dsIOPS :: Lens' DBSnapshot (Maybe Int)
 dsIOPS = lens _dsIOPS (\ s a -> s{_dsIOPS = a});
 
@@ -1991,8 +1882,7 @@ dsIOPS = lens _dsIOPS (\ s a -> s{_dsIOPS = a});
 dsVPCId :: Lens' DBSnapshot (Maybe Text)
 dsVPCId = lens _dsVPCId (\ s a -> s{_dsVPCId = a});
 
--- | Specifies the time when the snapshot was taken, in Universal Coordinated
--- Time (UTC).
+-- | Specifies the time when the snapshot was taken, in Universal Coordinated Time (UTC).
 dsInstanceCreateTime :: Lens' DBSnapshot (Maybe UTCTime)
 dsInstanceCreateTime = lens _dsInstanceCreateTime (\ s a -> s{_dsInstanceCreateTime = a}) . mapping _Time;
 
@@ -2012,8 +1902,7 @@ dsDBSnapshotIdentifier = lens _dsDBSnapshotIdentifier (\ s a -> s{_dsDBSnapshotI
 dsLicenseModel :: Lens' DBSnapshot (Maybe Text)
 dsLicenseModel = lens _dsLicenseModel (\ s a -> s{_dsLicenseModel = a});
 
--- | The DB snapshot Arn that the DB snapshot was copied from. It only has
--- value in case of cross customer or cross region copy.
+-- | The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
 dsSourceDBSnapshotIdentifier :: Lens' DBSnapshot (Maybe Text)
 dsSourceDBSnapshotIdentifier = lens _dsSourceDBSnapshotIdentifier (\ s a -> s{_dsSourceDBSnapshotIdentifier = a});
 
@@ -2021,23 +1910,19 @@ dsSourceDBSnapshotIdentifier = lens _dsSourceDBSnapshotIdentifier (\ s a -> s{_d
 dsSnapshotType :: Lens' DBSnapshot (Maybe Text)
 dsSnapshotType = lens _dsSnapshotType (\ s a -> s{_dsSnapshotType = a});
 
--- | Specifies the DB instance identifier of the DB instance this DB snapshot
--- was created from.
+-- | Specifies the DB instance identifier of the DB instance this DB snapshot was created from.
 dsDBInstanceIdentifier :: Lens' DBSnapshot (Maybe Text)
 dsDBInstanceIdentifier = lens _dsDBInstanceIdentifier (\ s a -> s{_dsDBInstanceIdentifier = a});
 
--- | If 'Encrypted' is true, the KMS key identifier for the encrypted DB
--- snapshot.
+-- | If 'Encrypted' is true, the KMS key identifier for the encrypted DB snapshot.
 dsKMSKeyId :: Lens' DBSnapshot (Maybe Text)
 dsKMSKeyId = lens _dsKMSKeyId (\ s a -> s{_dsKMSKeyId = a});
 
--- | Specifies the name of the Availability Zone the DB instance was located
--- in at the time of the DB snapshot.
+-- | Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
 dsAvailabilityZone :: Lens' DBSnapshot (Maybe Text)
 dsAvailabilityZone = lens _dsAvailabilityZone (\ s a -> s{_dsAvailabilityZone = a});
 
--- | Provides the time when the snapshot was taken, in Universal Coordinated
--- Time (UTC).
+-- | Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
 dsSnapshotCreateTime :: Lens' DBSnapshot (Maybe UTCTime)
 dsSnapshotCreateTime = lens _dsSnapshotCreateTime (\ s a -> s{_dsSnapshotCreateTime = a}) . mapping _Time;
 
@@ -2049,8 +1934,7 @@ dsAllocatedStorage = lens _dsAllocatedStorage (\ s a -> s{_dsAllocatedStorage = 
 dsOptionGroupName :: Lens' DBSnapshot (Maybe Text)
 dsOptionGroupName = lens _dsOptionGroupName (\ s a -> s{_dsOptionGroupName = a});
 
--- | The ARN from the Key Store with which to associate the instance for TDE
--- encryption.
+-- | The ARN from the Key Store with which to associate the instance for TDE encryption.
 dsTDECredentialARN :: Lens' DBSnapshot (Maybe Text)
 dsTDECredentialARN = lens _dsTDECredentialARN (\ s a -> s{_dsTDECredentialARN = a});
 
@@ -2058,8 +1942,7 @@ dsTDECredentialARN = lens _dsTDECredentialARN (\ s a -> s{_dsTDECredentialARN = 
 dsPercentProgress :: Lens' DBSnapshot (Maybe Int)
 dsPercentProgress = lens _dsPercentProgress (\ s a -> s{_dsPercentProgress = a});
 
--- | Specifies the port that the database engine was listening on at the time
--- of the snapshot.
+-- | Specifies the port that the database engine was listening on at the time of the snapshot.
 dsPort :: Lens' DBSnapshot (Maybe Int)
 dsPort = lens _dsPort (\ s a -> s{_dsPort = a});
 
@@ -2099,9 +1982,7 @@ instance NFData DBSnapshot
 
 -- | Contains the name and values of a manual DB snapshot attribute
 --
--- Manual DB snapshot attributes are used to authorize other AWS accounts
--- to restore a manual DB snapshot. For more information, see the
--- < ModifyDBSnapshotAttribute> API.
+-- Manual DB snapshot attributes are used to authorize other AWS accounts to restore a manual DB snapshot. For more information, see the < ModifyDBSnapshotAttribute> API.
 --
 -- /See:/ 'dbSnapshotAttribute' smart constructor.
 data DBSnapshotAttribute = DBSnapshotAttribute'
@@ -2126,18 +2007,13 @@ dbSnapshotAttribute =
 
 -- | The value(s) for the manual DB snapshot attribute.
 --
--- If the 'AttributeName' field is 'restore', then this field returns a
--- list of AWS account ids that are authorized to copy or restore the
--- manual DB snapshot. If a value of 'all' is in the list, then the manual
--- DB snapshot is public and available for any AWS account to copy or
--- restore.
+-- If the 'AttributeName' field is 'restore', then this field returns a list of AWS account ids that are authorized to copy or restore the manual DB snapshot. If a value of 'all' is in the list, then the manual DB snapshot is public and available for any AWS account to copy or restore.
 dsaAttributeValues :: Lens' DBSnapshotAttribute [Text]
 dsaAttributeValues = lens _dsaAttributeValues (\ s a -> s{_dsaAttributeValues = a}) . _Default . _Coerce;
 
 -- | The name of the manual DB snapshot attribute.
 --
--- An attribute name of 'restore' applies to the list of AWS accounts that
--- have permission to copy or restore the manual DB snapshot.
+-- An attribute name of 'restore' applies to the list of AWS accounts that have permission to copy or restore the manual DB snapshot.
 dsaAttributeName :: Lens' DBSnapshotAttribute (Maybe Text)
 dsaAttributeName = lens _dsaAttributeName (\ s a -> s{_dsaAttributeName = a});
 
@@ -2152,12 +2028,9 @@ instance Hashable DBSnapshotAttribute
 
 instance NFData DBSnapshotAttribute
 
--- | Contains the results of a successful call to the
--- < DescribeDBSnapshotAttributes> API.
+-- | Contains the results of a successful call to the < DescribeDBSnapshotAttributes> API.
 --
--- Manual DB snapshot attributes are used to authorize other AWS accounts
--- to copy or restore a manual DB snapshot. For more information, see the
--- < ModifyDBSnapshotAttribute> API.
+-- Manual DB snapshot attributes are used to authorize other AWS accounts to copy or restore a manual DB snapshot. For more information, see the < ModifyDBSnapshotAttribute> API.
 --
 -- /See:/ 'dbSnapshotAttributesResult' smart constructor.
 data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
@@ -2206,8 +2079,7 @@ instance NFData DBSnapshotAttributesResult
 -- -   < DescribeDBSubnetGroups>
 -- -   < DeleteDBSubnetGroup>
 --
--- This data type is used as a response element in the
--- < DescribeDBSubnetGroups> action.
+-- This data type is used as a response element in the < DescribeDBSubnetGroups> action.
 --
 -- /See:/ 'dbSubnetGroup' smart constructor.
 data DBSubnetGroup = DBSubnetGroup'
@@ -2324,8 +2196,7 @@ instance Hashable DescribeDBLogFilesDetails
 
 instance NFData DescribeDBLogFilesDetails
 
--- | An Active Directory Domain membership record associated with the DB
--- instance.
+-- | An Active Directory Domain membership record associated with the DB instance.
 --
 -- /See:/ 'domainMembership' smart constructor.
 data DomainMembership = DomainMembership'
@@ -2356,8 +2227,7 @@ domainMembership =
     , _dmIAMRoleName = Nothing
     }
 
--- | The status of the DB instance\'s Active Directory Domain membership,
--- such as joined, pending-join, failed etc).
+-- | The status of the DB instance\'s Active Directory Domain membership, such as joined, pending-join, failed etc).
 dmStatus :: Lens' DomainMembership (Maybe Text)
 dmStatus = lens _dmStatus (\ s a -> s{_dmStatus = a});
 
@@ -2369,8 +2239,7 @@ dmFQDN = lens _dmFQDN (\ s a -> s{_dmFQDN = a});
 dmDomain :: Lens' DomainMembership (Maybe Text)
 dmDomain = lens _dmDomain (\ s a -> s{_dmDomain = a});
 
--- | The name of the IAM role to be used when making API calls to the
--- Directory Service.
+-- | The name of the IAM role to be used when making API calls to the Directory Service.
 dmIAMRoleName :: Lens' DomainMembership (Maybe Text)
 dmIAMRoleName = lens _dmIAMRoleName (\ s a -> s{_dmIAMRoleName = a});
 
@@ -2420,13 +2289,11 @@ ec2SecurityGroup =
     , _esgEC2SecurityGroupId = Nothing
     }
 
--- | Provides the status of the EC2 security group. Status can be
--- \"authorizing\", \"authorized\", \"revoking\", and \"revoked\".
+-- | Provides the status of the EC2 security group. Status can be \"authorizing\", \"authorized\", \"revoking\", and \"revoked\".
 esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
 esgStatus = lens _esgStatus (\ s a -> s{_esgStatus = a});
 
--- | Specifies the AWS ID of the owner of the EC2 security group specified in
--- the 'EC2SecurityGroupName' field.
+-- | Specifies the AWS ID of the owner of the EC2 security group specified in the 'EC2SecurityGroupName' field.
 esgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
 esgEC2SecurityGroupOwnerId = lens _esgEC2SecurityGroupOwnerId (\ s a -> s{_esgEC2SecurityGroupOwnerId = a});
 
@@ -2481,8 +2348,7 @@ endpoint =
     , _ePort = Nothing
     }
 
--- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
--- zone.
+-- | Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
 eHostedZoneId :: Lens' Endpoint (Maybe Text)
 eHostedZoneId = lens _eHostedZoneId (\ s a -> s{_eHostedZoneId = a});
 
@@ -2504,8 +2370,7 @@ instance Hashable Endpoint
 
 instance NFData Endpoint
 
--- | Contains the result of a successful invocation of the
--- < DescribeEngineDefaultParameters> action.
+-- | Contains the result of a successful invocation of the < DescribeEngineDefaultParameters> action.
 --
 -- /See:/ 'engineDefaults' smart constructor.
 data EngineDefaults = EngineDefaults'
@@ -2532,14 +2397,11 @@ engineDefaults =
     , _edParameters = Nothing
     }
 
--- | Specifies the name of the DB parameter group family that the engine
--- default parameters apply to.
+-- | Specifies the name of the DB parameter group family that the engine default parameters apply to.
 edDBParameterGroupFamily :: Lens' EngineDefaults (Maybe Text)
 edDBParameterGroupFamily = lens _edDBParameterGroupFamily (\ s a -> s{_edDBParameterGroupFamily = a});
 
--- | An optional pagination token provided by a previous EngineDefaults
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by 'MaxRecords' .
+-- | An optional pagination token provided by a previous EngineDefaults request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords' .
 edMarker :: Lens' EngineDefaults (Maybe Text)
 edMarker = lens _edMarker (\ s a -> s{_edMarker = a});
 
@@ -2559,8 +2421,7 @@ instance Hashable EngineDefaults
 
 instance NFData EngineDefaults
 
--- | This data type is used as a response element in the < DescribeEvents>
--- action.
+-- | This data type is used as a response element in the < DescribeEvents> action.
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
@@ -2629,8 +2490,7 @@ instance Hashable Event
 
 instance NFData Event
 
--- | Contains the results of a successful invocation of the
--- < DescribeEventCategories> action.
+-- | Contains the results of a successful invocation of the < DescribeEventCategories> action.
 --
 -- /See:/ 'eventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
@@ -2672,8 +2532,7 @@ instance Hashable EventCategoriesMap
 
 instance NFData EventCategoriesMap
 
--- | Contains the results of a successful invocation of the
--- < DescribeEventSubscriptions> action.
+-- | Contains the results of a successful invocation of the < DescribeEventSubscriptions> action.
 --
 -- /See:/ 'eventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
@@ -2728,17 +2587,13 @@ eventSubscription =
 --
 -- Constraints:
 --
--- Can be one of the following: creating | modifying | deleting | active |
--- no-permission | topic-not-exist
+-- Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
 --
--- The status \"no-permission\" indicates that RDS no longer has permission
--- to post to the SNS topic. The status \"topic-not-exist\" indicates that
--- the topic was deleted after the subscription was created.
+-- The status \"no-permission\" indicates that RDS no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.
 esStatus :: Lens' EventSubscription (Maybe Text)
 esStatus = lens _esStatus (\ s a -> s{_esStatus = a});
 
--- | The AWS customer account associated with the RDS event notification
--- subscription.
+-- | The AWS customer account associated with the RDS event notification subscription.
 esCustomerAWSId :: Lens' EventSubscription (Maybe Text)
 esCustomerAWSId = lens _esCustomerAWSId (\ s a -> s{_esCustomerAWSId = a});
 
@@ -2750,8 +2605,7 @@ esCustSubscriptionId = lens _esCustSubscriptionId (\ s a -> s{_esCustSubscriptio
 esSNSTopicARN :: Lens' EventSubscription (Maybe Text)
 esSNSTopicARN = lens _esSNSTopicARN (\ s a -> s{_esSNSTopicARN = a});
 
--- | A Boolean value indicating if the subscription is enabled. True
--- indicates the subscription is enabled.
+-- | A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled.
 esEnabled :: Lens' EventSubscription (Maybe Bool)
 esEnabled = lens _esEnabled (\ s a -> s{_esEnabled = a});
 
@@ -2831,8 +2685,7 @@ instance ToQuery Filter where
               ["Name" =: _fName,
                "Values" =: toQueryList "Value" _fValues]
 
--- | This data type is used as a response element in the
--- < DescribeDBSecurityGroups> action.
+-- | This data type is used as a response element in the < DescribeDBSecurityGroups> action.
 --
 -- /See:/ 'ipRange' smart constructor.
 data IPRange = IPRange'
@@ -2855,8 +2708,7 @@ ipRange =
     , _irCIdRIP = Nothing
     }
 
--- | Specifies the status of the IP range. Status can be \"authorizing\",
--- \"authorized\", \"revoking\", and \"revoked\".
+-- | Specifies the status of the IP range. Status can be \"authorizing\", \"authorized\", \"revoking\", and \"revoked\".
 irStatus :: Lens' IPRange (Maybe Text)
 irStatus = lens _irStatus (\ s a -> s{_irStatus = a});
 
@@ -2939,13 +2791,11 @@ oOptionDescription = lens _oOptionDescription (\ s a -> s{_oOptionDescription = 
 oOptionSettings :: Lens' Option [OptionSetting]
 oOptionSettings = lens _oOptionSettings (\ s a -> s{_oOptionSettings = a}) . _Default . _Coerce;
 
--- | If the option requires access to a port, then this VPC security group
--- allows access to the port.
+-- | If the option requires access to a port, then this VPC security group allows access to the port.
 oVPCSecurityGroupMemberships :: Lens' Option [VPCSecurityGroupMembership]
 oVPCSecurityGroupMemberships = lens _oVPCSecurityGroupMemberships (\ s a -> s{_oVPCSecurityGroupMemberships = a}) . _Default . _Coerce;
 
--- | If the option requires access to a port, then this DB security group
--- allows access to the port.
+-- | If the option requires access to a port, then this DB security group allows access to the port.
 oDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
 oDBSecurityGroupMemberships = lens _oDBSecurityGroupMemberships (\ s a -> s{_oDBSecurityGroupMemberships = a}) . _Default . _Coerce;
 
@@ -3097,23 +2947,15 @@ optionGroup =
 ogOptionGroupDescription :: Lens' OptionGroup (Maybe Text)
 ogOptionGroupDescription = lens _ogOptionGroupDescription (\ s a -> s{_ogOptionGroupDescription = a});
 
--- | If __AllowsVpcAndNonVpcInstanceMemberships__ is 'false', this field is
--- blank. If __AllowsVpcAndNonVpcInstanceMemberships__ is 'true' and this
--- field is blank, then this option group can be applied to both VPC and
--- non-VPC instances. If this field contains a value, then this option
--- group can only be applied to instances that are in the VPC indicated by
--- this field.
+-- | If __AllowsVpcAndNonVpcInstanceMemberships__ is 'false', this field is blank. If __AllowsVpcAndNonVpcInstanceMemberships__ is 'true' and this field is blank, then this option group can be applied to both VPC and non-VPC instances. If this field contains a value, then this option group can only be applied to instances that are in the VPC indicated by this field.
 ogVPCId :: Lens' OptionGroup (Maybe Text)
 ogVPCId = lens _ogVPCId (\ s a -> s{_ogVPCId = a});
 
--- | Indicates whether this option group can be applied to both VPC and
--- non-VPC instances. The value 'true' indicates the option group can be
--- applied to both VPC and non-VPC instances.
+-- | Indicates whether this option group can be applied to both VPC and non-VPC instances. The value 'true' indicates the option group can be applied to both VPC and non-VPC instances.
 ogAllowsVPCAndNonVPCInstanceMemberships :: Lens' OptionGroup (Maybe Bool)
 ogAllowsVPCAndNonVPCInstanceMemberships = lens _ogAllowsVPCAndNonVPCInstanceMemberships (\ s a -> s{_ogAllowsVPCAndNonVPCInstanceMemberships = a});
 
--- | Indicates the name of the engine that this option group can be applied
--- to.
+-- | Indicates the name of the engine that this option group can be applied to.
 ogEngineName :: Lens' OptionGroup (Maybe Text)
 ogEngineName = lens _ogEngineName (\ s a -> s{_ogEngineName = a});
 
@@ -3145,8 +2987,7 @@ instance Hashable OptionGroup
 
 instance NFData OptionGroup
 
--- | Provides information on the option groups the DB instance is a member
--- of.
+-- | Provides information on the option groups the DB instance is a member of.
 --
 -- /See:/ 'optionGroupMembership' smart constructor.
 data OptionGroupMembership = OptionGroupMembership'
@@ -3169,10 +3010,7 @@ optionGroupMembership =
     , _ogmOptionGroupName = Nothing
     }
 
--- | The status of the DB instance\'s option group membership. Valid values
--- are: 'in-sync', 'pending-apply', 'pending-removal',
--- 'pending-maintenance-apply', 'pending-maintenance-removal', 'applying',
--- 'removing', and 'failed'.
+-- | The status of the DB instance\'s option group membership. Valid values are: 'in-sync', 'pending-apply', 'pending-removal', 'pending-maintenance-apply', 'pending-maintenance-removal', 'applying', 'removing', and 'failed'.
 ogmStatus :: Lens' OptionGroupMembership (Maybe Text)
 ogmStatus = lens _ogmStatus (\ s a -> s{_ogmStatus = a});
 
@@ -3252,16 +3090,11 @@ optionGroupOption =
 ogoMinimumRequiredMinorEngineVersion :: Lens' OptionGroupOption (Maybe Text)
 ogoMinimumRequiredMinorEngineVersion = lens _ogoMinimumRequiredMinorEngineVersion (\ s a -> s{_ogoMinimumRequiredMinorEngineVersion = a});
 
--- | A permanent option cannot be removed from the option group once the
--- option group is used, and it cannot be removed from the db instance
--- after assigning an option group with this permanent option.
+-- | A permanent option cannot be removed from the option group once the option group is used, and it cannot be removed from the db instance after assigning an option group with this permanent option.
 ogoPermanent :: Lens' OptionGroupOption (Maybe Bool)
 ogoPermanent = lens _ogoPermanent (\ s a -> s{_ogoPermanent = a});
 
--- | A persistent option cannot be removed from the option group once the
--- option group is used, but this option can be removed from the db
--- instance while modifying the related data and assigning another option
--- group without this option.
+-- | A persistent option cannot be removed from the option group once the option group is used, but this option can be removed from the db instance while modifying the related data and assigning another option group without this option.
 ogoPersistent :: Lens' OptionGroupOption (Maybe Bool)
 ogoPersistent = lens _ogoPersistent (\ s a -> s{_ogoPersistent = a});
 
@@ -3277,13 +3110,11 @@ ogoMajorEngineVersion = lens _ogoMajorEngineVersion (\ s a -> s{_ogoMajorEngineV
 ogoName :: Lens' OptionGroupOption (Maybe Text)
 ogoName = lens _ogoName (\ s a -> s{_ogoName = a});
 
--- | If the option requires a port, specifies the default port for the
--- option.
+-- | If the option requires a port, specifies the default port for the option.
 ogoDefaultPort :: Lens' OptionGroupOption (Maybe Int)
 ogoDefaultPort = lens _ogoDefaultPort (\ s a -> s{_ogoDefaultPort = a});
 
--- | Specifies the option settings that are available (and the default value)
--- for each option in an option group.
+-- | Specifies the option settings that are available (and the default value) for each option in an option group.
 ogoOptionGroupOptionSettings :: Lens' OptionGroupOption [OptionGroupOptionSetting]
 ogoOptionGroupOptionSettings = lens _ogoOptionGroupOptionSettings (\ s a -> s{_ogoOptionGroupOptionSettings = a}) . _Default . _Coerce;
 
@@ -3322,9 +3153,7 @@ instance Hashable OptionGroupOption
 
 instance NFData OptionGroupOption
 
--- | Option group option settings are used to display settings available for
--- each option with their default values and other information. These
--- values are used with the DescribeOptionGroupOptions action.
+-- | Option group option settings are used to display settings available for each option with their default values and other information. These values are used with the DescribeOptionGroupOptions action.
 --
 -- /See:/ 'optionGroupOptionSetting' smart constructor.
 data OptionGroupOptionSetting = OptionGroupOptionSetting'
@@ -3375,8 +3204,7 @@ ogosSettingName = lens _ogosSettingName (\ s a -> s{_ogosSettingName = a});
 ogosDefaultValue :: Lens' OptionGroupOptionSetting (Maybe Text)
 ogosDefaultValue = lens _ogosDefaultValue (\ s a -> s{_ogosDefaultValue = a});
 
--- | Boolean value where true indicates that this option group option can be
--- changed from the default value.
+-- | Boolean value where true indicates that this option group option can be changed from the default value.
 ogosIsModifiable :: Lens' OptionGroupOptionSetting (Maybe Bool)
 ogosIsModifiable = lens _ogosIsModifiable (\ s a -> s{_ogosIsModifiable = a});
 
@@ -3401,11 +3229,7 @@ instance Hashable OptionGroupOptionSetting
 
 instance NFData OptionGroupOptionSetting
 
--- | Option settings are the actual settings being applied or configured for
--- that option. It is used when you modify an option group or describe
--- option groups. For example, the NATIVE_NETWORK_ENCRYPTION option has a
--- setting called SQLNET.ENCRYPTION_SERVER that can have several different
--- values.
+-- | Option settings are the actual settings being applied or configured for that option. It is used when you modify an option group or describe option groups. For example, the NATIVE_NETWORK_ENCRYPTION option has a setting called SQLNET.ENCRYPTION_SERVER that can have several different values.
 --
 -- /See:/ 'optionSetting' smart constructor.
 data OptionSetting = OptionSetting'
@@ -3476,8 +3300,7 @@ osName = lens _osName (\ s a -> s{_osName = a});
 osDefaultValue :: Lens' OptionSetting (Maybe Text)
 osDefaultValue = lens _osDefaultValue (\ s a -> s{_osDefaultValue = a});
 
--- | A Boolean value that, when true, indicates the option setting can be
--- modified from the default.
+-- | A Boolean value that, when true, indicates the option setting can be modified from the default.
 osIsModifiable :: Lens' OptionSetting (Maybe Bool)
 osIsModifiable = lens _osIsModifiable (\ s a -> s{_osIsModifiable = a});
 
@@ -3522,8 +3345,7 @@ instance ToQuery OptionSetting where
 
 -- | Contains a list of available options for a DB instance
 --
--- This data type is used as a response element in the
--- < DescribeOrderableDBInstanceOptions> action.
+-- This data type is used as a response element in the < DescribeOrderableDBInstanceOptions> action.
 --
 -- /See:/ 'orderableDBInstanceOption' smart constructor.
 data OrderableDBInstanceOption = OrderableDBInstanceOption'
@@ -3626,8 +3448,7 @@ odioReadReplicaCapable = lens _odioReadReplicaCapable (\ s a -> s{_odioReadRepli
 odioVPC :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odioVPC = lens _odioVPC (\ s a -> s{_odioVPC = a});
 
--- | Indicates whether the DB instance supports enhanced monitoring at
--- intervals from 1 to 60 seconds.
+-- | Indicates whether the DB instance supports enhanced monitoring at intervals from 1 to 60 seconds.
 odioSupportsEnhancedMonitoring :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odioSupportsEnhancedMonitoring = lens _odioSupportsEnhancedMonitoring (\ s a -> s{_odioSupportsEnhancedMonitoring = a});
 
@@ -3656,11 +3477,9 @@ instance Hashable OrderableDBInstanceOption
 
 instance NFData OrderableDBInstanceOption
 
--- | This data type is used as a request parameter in the
--- < ModifyDBParameterGroup> and < ResetDBParameterGroup> actions.
+-- | This data type is used as a request parameter in the < ModifyDBParameterGroup> and < ResetDBParameterGroup> actions.
 --
--- This data type is used as a response element in the
--- < DescribeEngineDefaultParameters> and < DescribeDBParameters> actions.
+-- This data type is used as a response element in the < DescribeEngineDefaultParameters> and < DescribeDBParameters> actions.
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
@@ -3735,9 +3554,7 @@ pMinimumEngineVersion = lens _pMinimumEngineVersion (\ s a -> s{_pMinimumEngineV
 pSource :: Lens' Parameter (Maybe Text)
 pSource = lens _pSource (\ s a -> s{_pSource = a});
 
--- | Indicates whether ('true') or not ('false') the parameter can be
--- modified. Some parameters have security or operational implications that
--- prevent them from being changed.
+-- | Indicates whether ('true') or not ('false') the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
 pIsModifiable :: Lens' Parameter (Maybe Bool)
 pIsModifiable = lens _pIsModifiable (\ s a -> s{_pIsModifiable = a});
 
@@ -3827,20 +3644,15 @@ pendingMaintenanceAction =
     , _pmaCurrentApplyDate = Nothing
     }
 
--- | The date of the maintenance window when the action will be applied. The
--- maintenance action will be applied to the resource during its first
--- maintenance window after this date. If this date is specified, any
--- 'next-maintenance' opt-in requests are ignored.
+-- | The date of the maintenance window when the action will be applied. The maintenance action will be applied to the resource during its first maintenance window after this date. If this date is specified, any 'next-maintenance' opt-in requests are ignored.
 pmaAutoAppliedAfterDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
 pmaAutoAppliedAfterDate = lens _pmaAutoAppliedAfterDate (\ s a -> s{_pmaAutoAppliedAfterDate = a}) . mapping _Time;
 
--- | The type of pending maintenance action that is available for the
--- resource.
+-- | The type of pending maintenance action that is available for the resource.
 pmaAction :: Lens' PendingMaintenanceAction (Maybe Text)
 pmaAction = lens _pmaAction (\ s a -> s{_pmaAction = a});
 
--- | Indicates the type of opt-in request that has been received for the
--- resource.
+-- | Indicates the type of opt-in request that has been received for the resource.
 pmaOptInStatus :: Lens' PendingMaintenanceAction (Maybe Text)
 pmaOptInStatus = lens _pmaOptInStatus (\ s a -> s{_pmaOptInStatus = a});
 
@@ -3848,19 +3660,11 @@ pmaOptInStatus = lens _pmaOptInStatus (\ s a -> s{_pmaOptInStatus = a});
 pmaDescription :: Lens' PendingMaintenanceAction (Maybe Text)
 pmaDescription = lens _pmaDescription (\ s a -> s{_pmaDescription = a});
 
--- | The date when the maintenance action will be automatically applied. The
--- maintenance action will be applied to the resource on this date
--- regardless of the maintenance window for the resource. If this date is
--- specified, any 'immediate' opt-in requests are ignored.
+-- | The date when the maintenance action will be automatically applied. The maintenance action will be applied to the resource on this date regardless of the maintenance window for the resource. If this date is specified, any 'immediate' opt-in requests are ignored.
 pmaForcedApplyDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
 pmaForcedApplyDate = lens _pmaForcedApplyDate (\ s a -> s{_pmaForcedApplyDate = a}) . mapping _Time;
 
--- | The effective date when the pending maintenance action will be applied
--- to the resource. This date takes into account opt-in requests received
--- from the < ApplyPendingMaintenanceAction> API, the
--- 'AutoAppliedAfterDate', and the 'ForcedApplyDate'. This value is blank
--- if an opt-in request has not been received and nothing has been
--- specified as 'AutoAppliedAfterDate' or 'ForcedApplyDate'.
+-- | The effective date when the pending maintenance action will be applied to the resource. This date takes into account opt-in requests received from the < ApplyPendingMaintenanceAction> API, the 'AutoAppliedAfterDate', and the 'ForcedApplyDate'. This value is blank if an opt-in request has not been received and nothing has been specified as 'AutoAppliedAfterDate' or 'ForcedApplyDate'.
 pmaCurrentApplyDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
 pmaCurrentApplyDate = lens _pmaCurrentApplyDate (\ s a -> s{_pmaCurrentApplyDate = a}) . mapping _Time;
 
@@ -3877,8 +3681,7 @@ instance Hashable PendingMaintenanceAction
 
 instance NFData PendingMaintenanceAction
 
--- | This data type is used as a response element in the < ModifyDBInstance>
--- action.
+-- | This data type is used as a response element in the < ModifyDBInstance> action.
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
@@ -3941,18 +3744,15 @@ pendingModifiedValues =
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
 pmvEngineVersion = lens _pmvEngineVersion (\ s a -> s{_pmvEngineVersion = a});
 
--- | Contains the pending or in-progress change of the master credentials for
--- the DB instance.
+-- | Contains the pending or in-progress change of the master credentials for the DB instance.
 pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
 pmvMasterUserPassword = lens _pmvMasterUserPassword (\ s a -> s{_pmvMasterUserPassword = a});
 
--- | Specifies the new Provisioned IOPS value for the DB instance that will
--- be applied or is being applied.
+-- | Specifies the new Provisioned IOPS value for the DB instance that will be applied or is being applied.
 pmvIOPS :: Lens' PendingModifiedValues (Maybe Int)
 pmvIOPS = lens _pmvIOPS (\ s a -> s{_pmvIOPS = a});
 
--- | Contains the new 'DBInstanceClass' for the DB instance that will be
--- applied or is in progress.
+-- | Contains the new 'DBInstanceClass' for the DB instance that will be applied or is in progress.
 pmvDBInstanceClass :: Lens' PendingModifiedValues (Maybe Text)
 pmvDBInstanceClass = lens _pmvDBInstanceClass (\ s a -> s{_pmvDBInstanceClass = a});
 
@@ -3960,23 +3760,19 @@ pmvDBInstanceClass = lens _pmvDBInstanceClass (\ s a -> s{_pmvDBInstanceClass = 
 pmvCACertificateIdentifier :: Lens' PendingModifiedValues (Maybe Text)
 pmvCACertificateIdentifier = lens _pmvCACertificateIdentifier (\ s a -> s{_pmvCACertificateIdentifier = a});
 
--- | Contains the new 'DBInstanceIdentifier' for the DB instance that will be
--- applied or is in progress.
+-- | Contains the new 'DBInstanceIdentifier' for the DB instance that will be applied or is in progress.
 pmvDBInstanceIdentifier :: Lens' PendingModifiedValues (Maybe Text)
 pmvDBInstanceIdentifier = lens _pmvDBInstanceIdentifier (\ s a -> s{_pmvDBInstanceIdentifier = a});
 
--- | Specifies the pending number of days for which automated backups are
--- retained.
+-- | Specifies the pending number of days for which automated backups are retained.
 pmvBackupRetentionPeriod :: Lens' PendingModifiedValues (Maybe Int)
 pmvBackupRetentionPeriod = lens _pmvBackupRetentionPeriod (\ s a -> s{_pmvBackupRetentionPeriod = a});
 
--- | Indicates that the Single-AZ DB instance is to change to a Multi-AZ
--- deployment.
+-- | Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.
 pmvMultiAZ :: Lens' PendingModifiedValues (Maybe Bool)
 pmvMultiAZ = lens _pmvMultiAZ (\ s a -> s{_pmvMultiAZ = a});
 
--- | Contains the new 'AllocatedStorage' size for the DB instance that will
--- be applied or is in progress.
+-- | Contains the new 'AllocatedStorage' size for the DB instance that will be applied or is in progress.
 pmvAllocatedStorage :: Lens' PendingModifiedValues (Maybe Int)
 pmvAllocatedStorage = lens _pmvAllocatedStorage (\ s a -> s{_pmvAllocatedStorage = a});
 
@@ -4007,9 +3803,7 @@ instance Hashable PendingModifiedValues
 
 instance NFData PendingModifiedValues
 
--- | This data type is used as a response element in the
--- < DescribeReservedDBInstances> and
--- < DescribeReservedDBInstancesOfferings> actions.
+-- | This data type is used as a response element in the < DescribeReservedDBInstances> and < DescribeReservedDBInstancesOfferings> actions.
 --
 -- /See:/ 'recurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
@@ -4050,9 +3844,7 @@ instance Hashable RecurringCharge
 
 instance NFData RecurringCharge
 
--- | This data type is used as a response element in the
--- < DescribeReservedDBInstances> and
--- < PurchaseReservedDBInstancesOffering> actions.
+-- | This data type is used as a response element in the < DescribeReservedDBInstances> and < PurchaseReservedDBInstancesOffering> actions.
 --
 -- /See:/ 'reservedDBInstance' smart constructor.
 data ReservedDBInstance = ReservedDBInstance'
@@ -4202,8 +3994,7 @@ instance Hashable ReservedDBInstance
 
 instance NFData ReservedDBInstance
 
--- | This data type is used as a response element in the
--- < DescribeReservedDBInstancesOfferings> action.
+-- | This data type is used as a response element in the < DescribeReservedDBInstancesOfferings> action.
 --
 -- /See:/ 'reservedDBInstancesOffering' smart constructor.
 data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
@@ -4341,8 +4132,7 @@ resourcePendingMaintenanceActions =
     , _rpmaResourceIdentifier = Nothing
     }
 
--- | A list that provides details about the pending maintenance actions for
--- the resource.
+-- | A list that provides details about the pending maintenance actions for the resource.
 rpmaPendingMaintenanceActionDetails :: Lens' ResourcePendingMaintenanceActions [PendingMaintenanceAction]
 rpmaPendingMaintenanceActionDetails = lens _rpmaPendingMaintenanceActionDetails (\ s a -> s{_rpmaPendingMaintenanceActionDetails = a}) . _Default . _Coerce;
 
@@ -4362,8 +4152,7 @@ instance Hashable ResourcePendingMaintenanceActions
 
 instance NFData ResourcePendingMaintenanceActions
 
--- | This data type is used as a response element in the
--- < DescribeDBSubnetGroups> action.
+-- | This data type is used as a response element in the < DescribeDBSubnetGroups> action.
 --
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
@@ -4412,8 +4201,7 @@ instance Hashable Subnet
 
 instance NFData Subnet
 
--- | Metadata assigned to an Amazon RDS resource consisting of a key-value
--- pair.
+-- | Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
@@ -4436,19 +4224,11 @@ tag =
     , _tagKey = Nothing
     }
 
--- | A value is the optional value of the tag. The string value can be from 1
--- to 256 Unicode characters in length and cannot be prefixed with \"aws:\"
--- or \"rds:\". The string can only contain only the set of Unicode
--- letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\'
--- (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
+-- | A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)>\").
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | A key is the required name of the tag. The string value can be from 1 to
--- 128 Unicode characters in length and cannot be prefixed with \"aws:\" or
--- \"rds:\". The string can only contain only the set of Unicode letters,
--- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
--- regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
+-- | A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with \"aws:\" or \"rds:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)>\").
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
@@ -4464,8 +4244,7 @@ instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
 
--- | The version of the database engine that a DB instance can be upgraded
--- to.
+-- | The version of the database engine that a DB instance can be upgraded to.
 --
 -- /See:/ 'upgradeTarget' smart constructor.
 data UpgradeTarget = UpgradeTarget'
@@ -4504,8 +4283,7 @@ upgradeTarget =
 utEngineVersion :: Lens' UpgradeTarget (Maybe Text)
 utEngineVersion = lens _utEngineVersion (\ s a -> s{_utEngineVersion = a});
 
--- | A value that indicates whether a database engine will be upgraded to a
--- major version.
+-- | A value that indicates whether a database engine will be upgraded to a major version.
 utIsMajorVersionUpgrade :: Lens' UpgradeTarget (Maybe Bool)
 utIsMajorVersionUpgrade = lens _utIsMajorVersionUpgrade (\ s a -> s{_utIsMajorVersionUpgrade = a});
 
@@ -4513,13 +4291,11 @@ utIsMajorVersionUpgrade = lens _utIsMajorVersionUpgrade (\ s a -> s{_utIsMajorVe
 utEngine :: Lens' UpgradeTarget (Maybe Text)
 utEngine = lens _utEngine (\ s a -> s{_utEngine = a});
 
--- | A value that indicates whether the target version will be applied to any
--- source DB instances that have AutoMinorVersionUpgrade set to true.
+-- | A value that indicates whether the target version will be applied to any source DB instances that have AutoMinorVersionUpgrade set to true.
 utAutoUpgrade :: Lens' UpgradeTarget (Maybe Bool)
 utAutoUpgrade = lens _utAutoUpgrade (\ s a -> s{_utAutoUpgrade = a});
 
--- | The version of the database engine that a DB instance can be upgraded
--- to.
+-- | The version of the database engine that a DB instance can be upgraded to.
 utDescription :: Lens' UpgradeTarget (Maybe Text)
 utDescription = lens _utDescription (\ s a -> s{_utDescription = a});
 
@@ -4536,8 +4312,7 @@ instance Hashable UpgradeTarget
 
 instance NFData UpgradeTarget
 
--- | This data type is used as a response element for queries on VPC security
--- group membership.
+-- | This data type is used as a response element for queries on VPC security group membership.
 --
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'

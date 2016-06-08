@@ -122,9 +122,7 @@ stopDataCollectionByAgentIdsResponse pResponseStatus_ =
     , _sdcbairsResponseStatus = pResponseStatus_
     }
 
--- | Information about agents that were instructed to stop collecting data.
--- Information includes the agent ID, a description of the operation
--- performed, and whether or not the agent configuration was updated.
+-- | Information about agents that were instructed to stop collecting data. Information includes the agent ID, a description of the operation performed, and whether or not the agent configuration was updated.
 sdcbairsAgentsConfigurationStatus :: Lens' StopDataCollectionByAgentIdsResponse [AgentConfigurationStatus]
 sdcbairsAgentsConfigurationStatus = lens _sdcbairsAgentsConfigurationStatus (\ s a -> s{_sdcbairsAgentsConfigurationStatus = a}) . _Default . _Coerce;
 

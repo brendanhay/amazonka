@@ -18,18 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a stack using the input information that was provided when the
--- specified change set was created. After the call successfully completes,
--- AWS CloudFormation starts updating the stack. Use the < DescribeStacks>
--- action to view the status of the update.
+-- Updates a stack using the input information that was provided when the specified change set was created. After the call successfully completes, AWS CloudFormation starts updating the stack. Use the < DescribeStacks> action to view the status of the update.
 --
--- When you execute a change set, AWS CloudFormation deletes all other
--- change sets associated with the stack because they aren\'t valid for the
--- updated stack.
+-- When you execute a change set, AWS CloudFormation deletes all other change sets associated with the stack because they aren\'t valid for the updated stack.
 --
--- If a stack policy is associated with the stack, AWS CloudFormation
--- enforces the policy during the update. You can\'t specify a temporary
--- stack policy that overrides the current policy.
+-- If a stack policy is associated with the stack, AWS CloudFormation enforces the policy during the update. You can\'t specify a temporary stack policy that overrides the current policy.
 module Network.AWS.CloudFormation.ExecuteChangeSet
     (
     -- * Creating a Request
@@ -77,13 +70,11 @@ executeChangeSet pChangeSetName_ =
     , _ecsChangeSetName = pChangeSetName_
     }
 
--- | If you specified the name of a change set, specify the stack name or ID
--- (ARN) that is associated with the change set you want to execute.
+-- | If you specified the name of a change set, specify the stack name or ID (ARN) that is associated with the change set you want to execute.
 ecsStackName :: Lens' ExecuteChangeSet (Maybe Text)
 ecsStackName = lens _ecsStackName (\ s a -> s{_ecsStackName = a});
 
--- | The name or ARN of the change set that you want use to update the
--- specified stack.
+-- | The name or ARN of the change set that you want use to update the specified stack.
 ecsChangeSetName :: Lens' ExecuteChangeSet Text
 ecsChangeSetName = lens _ecsChangeSetName (\ s a -> s{_ecsChangeSetName = a});
 

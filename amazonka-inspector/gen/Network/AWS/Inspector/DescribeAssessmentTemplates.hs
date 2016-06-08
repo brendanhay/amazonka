@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the assessment templates that are specified by the ARNs of the
--- assessment templates.
+-- Describes the assessment templates that are specified by the ARNs of the assessment templates.
 module Network.AWS.Inspector.DescribeAssessmentTemplates
     (
     -- * Creating a Request
@@ -62,8 +61,7 @@ describeAssessmentTemplates pAssessmentTemplateARNs_ =
     { _datAssessmentTemplateARNs = _List1 # pAssessmentTemplateARNs_
     }
 
--- | The ARN that specifiesthe assessment templates that you want to
--- describe.
+-- | The ARN that specifiesthe assessment templates that you want to describe.
 datAssessmentTemplateARNs :: Lens' DescribeAssessmentTemplates (NonEmpty Text)
 datAssessmentTemplateARNs = lens _datAssessmentTemplateARNs (\ s a -> s{_datAssessmentTemplateARNs = a}) . _List1;
 
@@ -141,8 +139,7 @@ datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus
 datrsAssessmentTemplates :: Lens' DescribeAssessmentTemplatesResponse [AssessmentTemplate]
 datrsAssessmentTemplates = lens _datrsAssessmentTemplates (\ s a -> s{_datrsAssessmentTemplates = a}) . _Coerce;
 
--- | Assessment template details that cannot be described. An error code is
--- provided for each failed item.
+-- | Assessment template details that cannot be described. An error code is provided for each failed item.
 datrsFailedItems :: Lens' DescribeAssessmentTemplatesResponse (HashMap Text FailedItemDetails)
 datrsFailedItems = lens _datrsFailedItems (\ s a -> s{_datrsFailedItems = a}) . _Map;
 

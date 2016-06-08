@@ -18,16 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an Application Auto Scaling scaling policy that was previously
--- created. If you are no longer using a scaling policy, you can delete it
--- with this operation.
+-- Deletes an Application Auto Scaling scaling policy that was previously created. If you are no longer using a scaling policy, you can delete it with this operation.
 --
--- Deleting a policy deletes the underlying alarm action, but does not
--- delete the CloudWatch alarm, even if it no longer has an associated
--- action.
+-- Deleting a policy deletes the underlying alarm action, but does not delete the CloudWatch alarm, even if it no longer has an associated action.
 --
--- To create a new scaling policy or update an existing one, see
--- < PutScalingPolicy>.
+-- To create a new scaling policy or update an existing one, see < PutScalingPolicy>.
 module Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
     (
     -- * Creating a Request
@@ -90,24 +85,15 @@ deleteScalingPolicy pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimens
 dspPolicyName :: Lens' DeleteScalingPolicy Text
 dspPolicyName = lens _dspPolicyName (\ s a -> s{_dspPolicyName = a});
 
--- | The namespace for the AWS service that the scaling policy is associated
--- with. For more information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>
--- in the Amazon Web Services General Reference.
+-- | The namespace for the AWS service that the scaling policy is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 dspServiceNamespace :: Lens' DeleteScalingPolicy ServiceNamespace
 dspServiceNamespace = lens _dspServiceNamespace (\ s a -> s{_dspServiceNamespace = a});
 
--- | The unique identifier string for the resource associated with the
--- scaling policy. For Amazon ECS services, this value is the resource
--- type, followed by the cluster name and service name, such as
--- 'service\/default\/sample-webapp'.
+-- | The unique identifier string for the resource associated with the scaling policy. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'.
 dspResourceId :: Lens' DeleteScalingPolicy Text
 dspResourceId = lens _dspResourceId (\ s a -> s{_dspResourceId = a});
 
--- | The scalable dimension associated with the scaling policy. The scalable
--- dimension contains the service namespace, resource type, and scaling
--- property, such as 'ecs:service:DesiredCount' for the desired task count
--- of an Amazon ECS service.
+-- | The scalable dimension associated with the scaling policy. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service.
 dspScalableDimension :: Lens' DeleteScalingPolicy ScalableDimension
 dspScalableDimension = lens _dspScalableDimension (\ s a -> s{_dspScalableDimension = a});
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the deployment groups for an application registered with the
--- applicable IAM user or AWS account.
+-- Lists the deployment groups for an application registered with the applicable IAM user or AWS account.
 module Network.AWS.CodeDeploy.ListDeploymentGroups
     (
     -- * Creating a Request
@@ -70,13 +69,11 @@ listDeploymentGroups pApplicationName_ =
     , _ldgApplicationName = pApplicationName_
     }
 
--- | An identifier returned from the previous list deployment groups call. It
--- can be used to return the next set of deployment groups in the list.
+-- | An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
 ldgNextToken :: Lens' ListDeploymentGroups (Maybe Text)
 ldgNextToken = lens _ldgNextToken (\ s a -> s{_ldgNextToken = a});
 
--- | The name of an AWS CodeDeploy application associated with the applicable
--- IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 ldgApplicationName :: Lens' ListDeploymentGroups Text
 ldgApplicationName = lens _ldgApplicationName (\ s a -> s{_ldgApplicationName = a});
 
@@ -151,9 +148,7 @@ listDeploymentGroupsResponse pResponseStatus_ =
     , _ldgrsResponseStatus = pResponseStatus_
     }
 
--- | If a large amount of information is returned, an identifier is also
--- returned. It can be used in a subsequent list deployment groups call to
--- return the next set of deployment groups in the list.
+-- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
 ldgrsNextToken :: Lens' ListDeploymentGroupsResponse (Maybe Text)
 ldgrsNextToken = lens _ldgrsNextToken (\ s a -> s{_ldgrsNextToken = a});
 

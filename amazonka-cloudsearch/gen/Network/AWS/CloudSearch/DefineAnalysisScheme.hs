@@ -18,11 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures an analysis scheme that can be applied to a 'text' or
--- 'text-array' field to define language-specific text processing options.
--- For more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Configures an analysis scheme that can be applied to a 'text' or 'text-array' field to define language-specific text processing options. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DefineAnalysisScheme
     (
     -- * Creating a Request
@@ -47,9 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DefineAnalysisScheme' operation.
--- Specifies the name of the domain you want to update and the analysis
--- scheme configuration.
+-- | Container for the parameters to the 'DefineAnalysisScheme' operation. Specifies the name of the domain you want to update and the analysis scheme configuration.
 --
 -- /See:/ 'defineAnalysisScheme' smart constructor.
 data DefineAnalysisScheme = DefineAnalysisScheme'
@@ -110,8 +104,7 @@ instance ToQuery DefineAnalysisScheme where
                "DomainName" =: _dasaDomainName,
                "AnalysisScheme" =: _dasaAnalysisScheme]
 
--- | The result of a 'DefineAnalysisScheme' request. Contains the status of
--- the newly-configured analysis scheme.
+-- | The result of a 'DefineAnalysisScheme' request. Contains the status of the newly-configured analysis scheme.
 --
 -- /See:/ 'defineAnalysisSchemeResponse' smart constructor.
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'

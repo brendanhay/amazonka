@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a suggester. For more information, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions>
--- in the /Amazon CloudSearch Developer Guide/.
+-- Deletes a suggester. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions> in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DeleteSuggester
     (
     -- * Creating a Request
@@ -45,9 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DeleteSuggester' operation.
--- Specifies the name of the domain you want to update and name of the
--- suggester you want to delete.
+-- | Container for the parameters to the 'DeleteSuggester' operation. Specifies the name of the domain you want to update and name of the suggester you want to delete.
 --
 -- /See:/ 'deleteSuggester' smart constructor.
 data DeleteSuggester = DeleteSuggester'
@@ -107,8 +103,7 @@ instance ToQuery DeleteSuggester where
                "DomainName" =: _ddDomainName,
                "SuggesterName" =: _ddSuggesterName]
 
--- | The result of a 'DeleteSuggester' request. Contains the status of the
--- deleted suggester.
+-- | The result of a 'DeleteSuggester' request. Contains the status of the deleted suggester.
 --
 -- /See:/ 'deleteSuggesterResponse' smart constructor.
 data DeleteSuggesterResponse = DeleteSuggesterResponse'

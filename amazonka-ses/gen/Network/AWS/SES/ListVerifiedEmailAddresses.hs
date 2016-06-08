@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list containing all of the email addresses that have been
--- verified.
+-- Returns a list containing all of the email addresses that have been verified.
 --
--- The ListVerifiedEmailAddresses action is deprecated as of the May 15,
--- 2012 release of Domain Verification. The ListIdentities action is now
--- preferred.
+-- The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release of Domain Verification. The ListIdentities action is now preferred.
 --
 -- This action is throttled at one request per second.
 module Network.AWS.SES.ListVerifiedEmailAddresses

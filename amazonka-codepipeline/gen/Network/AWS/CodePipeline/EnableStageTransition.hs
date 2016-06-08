@@ -71,21 +71,15 @@ enableStageTransition pPipelineName_ pStageName_ pTransitionType_ =
     , _estTransitionType = pTransitionType_
     }
 
--- | The name of the pipeline in which you want to enable the flow of
--- artifacts from one stage to another.
+-- | The name of the pipeline in which you want to enable the flow of artifacts from one stage to another.
 estPipelineName :: Lens' EnableStageTransition Text
 estPipelineName = lens _estPipelineName (\ s a -> s{_estPipelineName = a});
 
--- | The name of the stage where you want to enable the transition of
--- artifacts, either into the stage (inbound) or from that stage to the
--- next stage (outbound).
+-- | The name of the stage where you want to enable the transition of artifacts, either into the stage (inbound) or from that stage to the next stage (outbound).
 estStageName :: Lens' EnableStageTransition Text
 estStageName = lens _estStageName (\ s a -> s{_estStageName = a});
 
--- | Specifies whether artifacts will be allowed to enter the stage and be
--- processed by the actions in that stage (inbound) or whether
--- already-processed artifacts will be allowed to transition to the next
--- stage (outbound).
+-- | Specifies whether artifacts will be allowed to enter the stage and be processed by the actions in that stage (inbound) or whether already-processed artifacts will be allowed to transition to the next stage (outbound).
 estTransitionType :: Lens' EnableStageTransition StageTransitionType
 estTransitionType = lens _estTransitionType (\ s a -> s{_estTransitionType = a});
 

@@ -75,10 +75,7 @@ listRepositories =
     , _lrSortBy = Nothing
     }
 
--- | An enumeration token that allows the operation to batch the results of
--- the operation. Batch sizes are 1,000 for list repository operations.
--- When the client sends the token back to AWS CodeCommit, another page of
--- 1,000 records is retrieved.
+-- | An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
 lrNextToken :: Lens' ListRepositories (Maybe Text)
 lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
 
@@ -168,10 +165,7 @@ listRepositoriesResponse pResponseStatus_ =
 lrrsRepositories :: Lens' ListRepositoriesResponse [RepositoryNameIdPair]
 lrrsRepositories = lens _lrrsRepositories (\ s a -> s{_lrrsRepositories = a}) . _Default . _Coerce;
 
--- | An enumeration token that allows the operation to batch the results of
--- the operation. Batch sizes are 1,000 for list repository operations.
--- When the client sends the token back to AWS CodeCommit, another page of
--- 1,000 records is retrieved.
+-- | An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
 lrrsNextToken :: Lens' ListRepositoriesResponse (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 

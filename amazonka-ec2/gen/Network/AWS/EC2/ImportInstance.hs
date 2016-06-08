@@ -18,17 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an import instance task using metadata from the specified disk
--- image. 'ImportInstance' only supports single-volume VMs. To import
--- multi-volume VMs, use < ImportImage>. After importing the image, you
--- then upload it using the 'ec2-import-volume' command in the EC2 command
--- line tools. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- Creates an import instance task using metadata from the specified disk image. 'ImportInstance' only supports single-volume VMs. To import multi-volume VMs, use < ImportImage>. After importing the image, you then upload it using the 'ec2-import-volume' command in the EC2 command line tools. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- For information about the import manifest referenced by this API action,
--- see
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
+-- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 module Network.AWS.EC2.ImportInstance
     (
     -- * Creating a Request
@@ -104,10 +96,7 @@ iiDiskImages = lens _iiDiskImages (\ s a -> s{_iiDiskImages = a}) . _Default . _
 iiDescription :: Lens' ImportInstance (Maybe Text)
 iiDescription = lens _iiDescription (\ s a -> s{_iiDescription = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 iiDryRun :: Lens' ImportInstance (Maybe Bool)
 iiDryRun = lens _iiDryRun (\ s a -> s{_iiDryRun = a});
 

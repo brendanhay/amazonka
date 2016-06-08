@@ -13,12 +13,9 @@ build-type:            Simple
 cabal-version:         >= 1.10
 extra-source-files:    README.md fixture/*.yaml fixture/*.proto
 description:
-    You can create a user pool in Amazon Cognito Identity to manage
-    directories and users. You can authenticate a user to obtain tokens
-    related to user identity and access policies.
+    You can create a user pool in Amazon Cognito Identity to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.
 
-    This API reference provides information about user pools in Amazon
-    Cognito Identity, which is a new capability that is available as a beta.
+    This API reference provides information about user pools in Amazon Cognito Identity, which is a new capability that is available as a beta.
     .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides

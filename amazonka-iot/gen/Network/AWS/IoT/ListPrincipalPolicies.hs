@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the policies attached to the specified principal. If you use an
--- Cognito identity, the ID must be in
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax AmazonCognito Identity format>.
+-- Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax AmazonCognito Identity format>.
 module Network.AWS.IoT.ListPrincipalPolicies
     (
     -- * Creating a Request
@@ -84,8 +82,7 @@ listPrincipalPolicies pPrincipal_ =
 lppMarker :: Lens' ListPrincipalPolicies (Maybe Text)
 lppMarker = lens _lppMarker (\ s a -> s{_lppMarker = a});
 
--- | Specifies the order for results. If true, results are returned in
--- ascending creation order.
+-- | Specifies the order for results. If true, results are returned in ascending creation order.
 lppAscendingOrder :: Lens' ListPrincipalPolicies (Maybe Bool)
 lppAscendingOrder = lens _lppAscendingOrder (\ s a -> s{_lppAscendingOrder = a});
 
@@ -155,8 +152,7 @@ listPrincipalPoliciesResponse pResponseStatus_ =
     , _lpprsResponseStatus = pResponseStatus_
     }
 
--- | The marker for the next set of results, or null if there are no
--- additional results.
+-- | The marker for the next set of results, or null if there are no additional results.
 lpprsNextMarker :: Lens' ListPrincipalPoliciesResponse (Maybe Text)
 lpprsNextMarker = lens _lpprsNextMarker (\ s a -> s{_lpprsNextMarker = a});
 

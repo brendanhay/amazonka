@@ -18,12 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Authorizes the specified AWS customer account to restore the specified
--- snapshot.
+-- Authorizes the specified AWS customer account to restore the specified snapshot.
 --
--- For more information about working with snapshots, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
--- in the /Amazon Redshift Cluster Management Guide/.
+-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.AuthorizeSnapshotAccess
     (
     -- * Creating a Request
@@ -78,10 +75,7 @@ authorizeSnapshotAccess pSnapshotIdentifier_ pAccountWithRestoreAccess_ =
     , _asaAccountWithRestoreAccess = pAccountWithRestoreAccess_
     }
 
--- | The identifier of the cluster the snapshot was created from. This
--- parameter is required if your IAM user has a policy containing a
--- snapshot resource element that specifies anything other than * for the
--- cluster name.
+-- | The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 asaSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
 asaSnapshotClusterIdentifier = lens _asaSnapshotClusterIdentifier (\ s a -> s{_asaSnapshotClusterIdentifier = a});
 
@@ -89,8 +83,7 @@ asaSnapshotClusterIdentifier = lens _asaSnapshotClusterIdentifier (\ s a -> s{_a
 asaSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
 asaSnapshotIdentifier = lens _asaSnapshotIdentifier (\ s a -> s{_asaSnapshotIdentifier = a});
 
--- | The identifier of the AWS customer account authorized to restore the
--- specified snapshot.
+-- | The identifier of the AWS customer account authorized to restore the specified snapshot.
 asaAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
 asaAccountWithRestoreAccess = lens _asaAccountWithRestoreAccess (\ s a -> s{_asaAccountWithRestoreAccess = a});
 

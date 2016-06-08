@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the versioning state of an existing bucket. To set the versioning
--- state, you must be the bucket owner.
+-- Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.
 module Network.AWS.S3.PutBucketVersioning
     (
     -- * Creating a Request
@@ -74,8 +73,7 @@ putBucketVersioning pBucket_ pVersioningConfiguration_ =
     , _pbvVersioningConfiguration = pVersioningConfiguration_
     }
 
--- | The concatenation of the authentication device\'s serial number, a
--- space, and the value that is displayed on your authentication device.
+-- | The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
 pbvMFA :: Lens' PutBucketVersioning (Maybe Text)
 pbvMFA = lens _pbvMFA (\ s a -> s{_pbvMFA = a});
 

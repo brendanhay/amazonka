@@ -74,8 +74,7 @@ updateStreamingDistribution pStreamingDistributionConfig_ pId_ =
     , _usdId = pId_
     }
 
--- | The value of the ETag header you received when retrieving the streaming
--- distribution\'s configuration. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received when retrieving the streaming distribution\'s configuration. For example: E2QWRUHAPOMQZL.
 usdIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
 usdIfMatch = lens _usdIfMatch (\ s a -> s{_usdIfMatch = a});
 

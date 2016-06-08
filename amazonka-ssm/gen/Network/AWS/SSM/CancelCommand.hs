@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attempts to cancel the command specified by the Command ID. There is no
--- guarantee that the command will be terminated and the underlying process
--- stopped.
+-- Attempts to cancel the command specified by the Command ID. There is no guarantee that the command will be terminated and the underlying process stopped.
 module Network.AWS.SSM.CancelCommand
     (
     -- * Creating a Request
@@ -66,9 +64,7 @@ cancelCommand pCommandId_ =
     , _ccCommandId = pCommandId_
     }
 
--- | (Optional) A list of instance IDs on which you want to cancel the
--- command. If not provided, the command is canceled on every instance on
--- which it was requested.
+-- | (Optional) A list of instance IDs on which you want to cancel the command. If not provided, the command is canceled on every instance on which it was requested.
 ccInstanceIds :: Lens' CancelCommand (Maybe (NonEmpty Text))
 ccInstanceIds = lens _ccInstanceIds (\ s a -> s{_ccInstanceIds = a}) . mapping _List1;
 
@@ -110,8 +106,7 @@ instance ToPath CancelCommand where
 instance ToQuery CancelCommand where
         toQuery = const mempty
 
--- | Whether or not the command was successfully canceled. There is no
--- guarantee that a request can be canceled.
+-- | Whether or not the command was successfully canceled. There is no guarantee that a request can be canceled.
 --
 -- /See:/ 'cancelCommandResponse' smart constructor.
 newtype CancelCommandResponse = CancelCommandResponse'

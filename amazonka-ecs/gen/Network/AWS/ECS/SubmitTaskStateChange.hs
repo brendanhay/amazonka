@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action is only used by the Amazon EC2 Container Service agent, and
--- it is not intended for use outside of the agent.
+-- This action is only used by the Amazon EC2 Container Service agent, and it is not intended for use outside of the agent.
 --
 -- Sent to acknowledge that a task changed states.
 module Network.AWS.ECS.SubmitTaskStateChange
@@ -81,8 +80,7 @@ submitTaskStateChange =
 stscStatus :: Lens' SubmitTaskStateChange (Maybe Text)
 stscStatus = lens _stscStatus (\ s a -> s{_stscStatus = a});
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the task.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.
 stscCluster :: Lens' SubmitTaskStateChange (Maybe Text)
 stscCluster = lens _stscCluster (\ s a -> s{_stscCluster = a});
 
@@ -90,8 +88,7 @@ stscCluster = lens _stscCluster (\ s a -> s{_stscCluster = a});
 stscReason :: Lens' SubmitTaskStateChange (Maybe Text)
 stscReason = lens _stscReason (\ s a -> s{_stscReason = a});
 
--- | The task ID or full Amazon Resource Name (ARN) of the task in the state
--- change request.
+-- | The task ID or full Amazon Resource Name (ARN) of the task in the state change request.
 stscTask :: Lens' SubmitTaskStateChange (Maybe Text)
 stscTask = lens _stscTask (\ s a -> s{_stscTask = a});
 

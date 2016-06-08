@@ -18,15 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides descriptive information for scaling policies with a specified
--- service namespace.
+-- Provides descriptive information for scaling policies with a specified service namespace.
 --
--- You can filter the results in a service namespace with the 'ResourceId',
--- 'ScalableDimension', and 'PolicyNames' parameters.
+-- You can filter the results in a service namespace with the 'ResourceId', 'ScalableDimension', and 'PolicyNames' parameters.
 --
--- To create a new scaling policy or update an existing one, see
--- < PutScalingPolicy>. If you are no longer using a scaling policy, you
--- can delete it with < DeleteScalingPolicy>.
+-- To create a new scaling policy or update an existing one, see < PutScalingPolicy>. If you are no longer using a scaling policy, you can delete it with < DeleteScalingPolicy>.
 module Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
     (
     -- * Creating a Request
@@ -98,45 +94,23 @@ describeScalingPolicies pServiceNamespace_ =
 dPolicyNames :: Lens' DescribeScalingPolicies [Text]
 dPolicyNames = lens _dPolicyNames (\ s a -> s{_dPolicyNames = a}) . _Default . _Coerce;
 
--- | The scalable dimension of the scalable target that the scaling policy is
--- associated with. The scalable dimension contains the service namespace,
--- resource type, and scaling property, such as 'ecs:service:DesiredCount'
--- for the desired task count of an Amazon ECS service. If you specify a
--- scalable dimension, you must also specify a resource ID.
+-- | The scalable dimension of the scalable target that the scaling policy is associated with. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service. If you specify a scalable dimension, you must also specify a resource ID.
 dScalableDimension :: Lens' DescribeScalingPolicies (Maybe ScalableDimension)
 dScalableDimension = lens _dScalableDimension (\ s a -> s{_dScalableDimension = a});
 
--- | The unique resource identifier string of the scalable target that the
--- scaling policy is associated with. For Amazon ECS services, this value
--- is the resource type, followed by the cluster name and service name,
--- such as 'service\/default\/sample-webapp'. If you specify a scalable
--- dimension, you must also specify a resource ID.
+-- | The unique resource identifier string of the scalable target that the scaling policy is associated with. For Amazon ECS services, this value is the resource type, followed by the cluster name and service name, such as 'service\/default\/sample-webapp'. If you specify a scalable dimension, you must also specify a resource ID.
 dResourceId :: Lens' DescribeScalingPolicies (Maybe Text)
 dResourceId = lens _dResourceId (\ s a -> s{_dResourceId = a});
 
--- | The 'NextToken' value returned from a previous paginated
--- 'DescribeScalingPolicies' request. Pagination continues from the end of
--- the previous results that returned the 'NextToken' value. This value is
--- 'null' when there are no more results to return.
+-- | The 'NextToken' value returned from a previous paginated 'DescribeScalingPolicies' request. Pagination continues from the end of the previous results that returned the 'NextToken' value. This value is 'null' when there are no more results to return.
 dNextToken :: Lens' DescribeScalingPolicies (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
--- | The maximum number of scaling policy results returned by
--- 'DescribeScalingPolicies' in paginated output. When this parameter is
--- used, 'DescribeScalingPolicies' returns up to 'MaxResults' results in a
--- single page along with a 'NextToken' response element. The remaining
--- results of the initial request can be seen by sending another
--- 'DescribeScalingPolicies' request with the returned 'NextToken' value.
--- This value can be between 1 and 50. If this parameter is not used, then
--- 'DescribeScalingPolicies' returns up to 50 results and a 'NextToken'
--- value, if applicable.
+-- | The maximum number of scaling policy results returned by 'DescribeScalingPolicies' in paginated output. When this parameter is used, 'DescribeScalingPolicies' returns up to 'MaxResults' results in a single page along with a 'NextToken' response element. The remaining results of the initial request can be seen by sending another 'DescribeScalingPolicies' request with the returned 'NextToken' value. This value can be between 1 and 50. If this parameter is not used, then 'DescribeScalingPolicies' returns up to 50 results and a 'NextToken' value, if applicable.
 dMaxResults :: Lens' DescribeScalingPolicies (Maybe Int)
 dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a});
 
--- | The AWS service namespace of the scalable target that the scaling policy
--- is associated with. For more information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>
--- in the Amazon Web Services General Reference.
+-- | The AWS service namespace of the scalable target that the scaling policy is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 dServiceNamespace :: Lens' DescribeScalingPolicies ServiceNamespace
 dServiceNamespace = lens _dServiceNamespace (\ s a -> s{_dServiceNamespace = a});
 
@@ -209,10 +183,7 @@ describeScalingPoliciesResponse pResponseStatus_ =
     , _drsResponseStatus = pResponseStatus_
     }
 
--- | The 'NextToken' value to include in a future 'DescribeScalingPolicies'
--- request. When the results of a 'DescribeScalingPolicies' request exceed
--- 'MaxResults', this value can be used to retrieve the next page of
--- results. This value is 'null' when there are no more results to return.
+-- | The 'NextToken' value to include in a future 'DescribeScalingPolicies' request. When the results of a 'DescribeScalingPolicies' request exceed 'MaxResults', this value can be used to retrieve the next page of results. This value is 'null' when there are no more results to return.
 drsNextToken :: Lens' DescribeScalingPoliciesResponse (Maybe Text)
 drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 

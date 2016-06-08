@@ -20,8 +20,7 @@
 --
 -- Lists the certificates registered in your AWS account.
 --
--- The results are paginated with a default page size of 25. You can use
--- the returned marker to retrieve additional results.
+-- The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.
 module Network.AWS.IoT.ListCertificates
     (
     -- * Creating a Request
@@ -79,8 +78,7 @@ listCertificates =
 lcMarker :: Lens' ListCertificates (Maybe Text)
 lcMarker = lens _lcMarker (\ s a -> s{_lcMarker = a});
 
--- | Specifies the order for results. If True, the results are returned in
--- ascending order, based on the creation date.
+-- | Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 lcAscendingOrder :: Lens' ListCertificates (Maybe Bool)
 lcAscendingOrder = lens _lcAscendingOrder (\ s a -> s{_lcAscendingOrder = a});
 
@@ -148,8 +146,7 @@ listCertificatesResponse pResponseStatus_ =
 lcrsCertificates :: Lens' ListCertificatesResponse [Certificate]
 lcrsCertificates = lens _lcrsCertificates (\ s a -> s{_lcrsCertificates = a}) . _Default . _Coerce;
 
--- | The marker for the next set of results, or null if there are no
--- additional results.
+-- | The marker for the next set of results, or null if there are no additional results.
 lcrsNextMarker :: Lens' ListCertificatesResponse (Maybe Text)
 lcrsNextMarker = lens _lcrsNextMarker (\ s a -> s{_lcrsNextMarker = a});
 

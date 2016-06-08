@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Populates the schema for the specified endpoint. This is an asynchronous
--- operation and can take several minutes. You can check the status of this
--- operation by calling the DescribeRefreshSchemasStatus operation.
+-- Populates the schema for the specified endpoint. This is an asynchronous operation and can take several minutes. You can check the status of this operation by calling the DescribeRefreshSchemasStatus operation.
 --
 module Network.AWS.DMS.RefreshSchemas
     (
@@ -69,8 +67,7 @@ refreshSchemas pEndpointARN_ pReplicationInstanceARN_ =
     , _rsReplicationInstanceARN = pReplicationInstanceARN_
     }
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 rsEndpointARN :: Lens' RefreshSchemas Text
 rsEndpointARN = lens _rsEndpointARN (\ s a -> s{_rsEndpointARN = a});
 

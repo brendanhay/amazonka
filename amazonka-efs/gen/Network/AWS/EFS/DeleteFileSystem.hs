@@ -18,23 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a file system, permanently severing access to its contents. Upon
--- return, the file system no longer exists and you will not be able to
--- access any contents of the deleted file system.
+-- Deletes a file system, permanently severing access to its contents. Upon return, the file system no longer exists and you will not be able to access any contents of the deleted file system.
 --
--- You cannot delete a file system that is in use. That is, if the file
--- system has any mount targets, you must first delete them. For more
--- information, see < DescribeMountTargets> and < DeleteMountTarget>.
+-- You cannot delete a file system that is in use. That is, if the file system has any mount targets, you must first delete them. For more information, see < DescribeMountTargets> and < DeleteMountTarget>.
 --
--- The 'DeleteFileSystem' call returns while the file system state is still
--- \"deleting\". You can check the file system deletion status by calling
--- the < DescribeFileSystems> API, which returns a list of file systems in
--- your account. If you pass file system ID or creation token for the
--- deleted file system, the < DescribeFileSystems> will return a 404
--- \"FileSystemNotFound\" error.
+-- The 'DeleteFileSystem' call returns while the file system state is still \"deleting\". You can check the file system deletion status by calling the < DescribeFileSystems> API, which returns a list of file systems in your account. If you pass file system ID or creation token for the deleted file system, the < DescribeFileSystems> will return a 404 \"FileSystemNotFound\" error.
 --
--- This operation requires permission for the
--- 'elasticfilesystem:DeleteFileSystem' action.
+-- This operation requires permission for the 'elasticfilesystem:DeleteFileSystem' action.
 module Network.AWS.EFS.DeleteFileSystem
     (
     -- * Creating a Request

@@ -18,20 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Copies the specified automated cluster snapshot to a new manual cluster
--- snapshot. The source must be an automated snapshot and it must be in the
--- available state.
+-- Copies the specified automated cluster snapshot to a new manual cluster snapshot. The source must be an automated snapshot and it must be in the available state.
 --
--- When you delete a cluster, Amazon Redshift deletes any automated
--- snapshots of the cluster. Also, when the retention period of the
--- snapshot expires, Amazon Redshift automatically deletes it. If you want
--- to keep an automated snapshot for a longer period, you can make a manual
--- copy of the snapshot. Manual snapshots are retained until you delete
--- them.
+-- When you delete a cluster, Amazon Redshift deletes any automated snapshots of the cluster. Also, when the retention period of the snapshot expires, Amazon Redshift automatically deletes it. If you want to keep an automated snapshot for a longer period, you can make a manual copy of the snapshot. Manual snapshots are retained until you delete them.
 --
--- For more information about working with snapshots, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
--- in the /Amazon Redshift Cluster Management Guide/.
+-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.CopyClusterSnapshot
     (
     -- * Creating a Request
@@ -86,10 +77,7 @@ copyClusterSnapshot pSourceSnapshotIdentifier_ pTargetSnapshotIdentifier_ =
     , _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
     }
 
--- | The identifier of the cluster the source snapshot was created from. This
--- parameter is required if your IAM user has a policy containing a
--- snapshot resource element that specifies anything other than * for the
--- cluster name.
+-- | The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 --
 -- Constraints:
 --
@@ -101,8 +89,7 @@ ccsSourceSnapshotClusterIdentifier = lens _ccsSourceSnapshotClusterIdentifier (\
 --
 -- Constraints:
 --
--- -   Must be the identifier for a valid automated snapshot whose state is
---     'available'.
+-- -   Must be the identifier for a valid automated snapshot whose state is 'available'.
 ccsSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
 ccsSourceSnapshotIdentifier = lens _ccsSourceSnapshotIdentifier (\ s a -> s{_ccsSourceSnapshotIdentifier = a});
 

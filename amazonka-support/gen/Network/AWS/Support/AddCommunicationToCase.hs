@@ -18,16 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds additional customer communication to an AWS Support case. You use
--- the 'CaseId' value to identify the case to add communication to. You can
--- list a set of email addresses to copy on the communication using the
--- 'CcEmailAddresses' value. The 'CommunicationBody' value contains the
--- text of the communication.
+-- Adds additional customer communication to an AWS Support case. You use the 'CaseId' value to identify the case to add communication to. You can list a set of email addresses to copy on the communication using the 'CcEmailAddresses' value. The 'CommunicationBody' value contains the text of the communication.
 --
 -- The response indicates the success or failure of the request.
 --
--- This operation implements a subset of the features of the AWS Support
--- Center.
+-- This operation implements a subset of the features of the AWS Support Center.
 module Network.AWS.Support.AddCommunicationToCase
     (
     -- * Creating a Request
@@ -86,19 +81,15 @@ addCommunicationToCase pCommunicationBody_ =
     , _actcCommunicationBody = pCommunicationBody_
     }
 
--- | The AWS Support case ID requested or returned in the call. The case ID
--- is an alphanumeric string formatted as shown in this example:
--- case-/12345678910-2013-c4c1d2bf33c5cf47/
+-- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 actcCaseId :: Lens' AddCommunicationToCase (Maybe Text)
 actcCaseId = lens _actcCaseId (\ s a -> s{_actcCaseId = a});
 
--- | The email addresses in the CC line of an email to be added to the
--- support case.
+-- | The email addresses in the CC line of an email to be added to the support case.
 actcCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
 actcCcEmailAddresses = lens _actcCcEmailAddresses (\ s a -> s{_actcCcEmailAddresses = a}) . _Default . _Coerce;
 
--- | The ID of a set of one or more attachments for the communication to add
--- to the case. Create the set by calling < AddAttachmentsToSet>
+-- | The ID of a set of one or more attachments for the communication to add to the case. Create the set by calling < AddAttachmentsToSet>
 actcAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
 actcAttachmentSetId = lens _actcAttachmentSetId (\ s a -> s{_actcAttachmentSetId = a});
 

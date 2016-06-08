@@ -20,11 +20,7 @@
 --
 -- Registers an Amazon RDS instance with a stack.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions,
--- see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.RegisterRDSDBInstance
     (
     -- * Creating a Request

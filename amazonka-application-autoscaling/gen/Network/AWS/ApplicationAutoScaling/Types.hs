@@ -144,19 +144,11 @@ applicationAutoScaling =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | An exception was thrown for a validation issue. Review the available
--- parameters for the API request.
+-- | An exception was thrown for a validation issue. Review the available parameters for the API request.
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException = _ServiceError . hasCode "ValidationException"
 
--- | Failed access to resources caused an exception. This exception currently
--- only applies to < DescribeScalingPolicies>. It is thrown when
--- Application Auto Scaling is unable to retrieve the alarms associated
--- with a scaling policy due to a client error, for example, if the role
--- ARN specified for a scalable target does not have the proper permissions
--- to call the CloudWatch
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html DescribeAlarms>
--- API operation on behalf of your account.
+-- | Failed access to resources caused an exception. This exception currently only applies to < DescribeScalingPolicies>. It is thrown when Application Auto Scaling is unable to retrieve the alarms associated with a scaling policy due to a client error, for example, if the role ARN specified for a scalable target does not have the proper permissions to call the CloudWatch <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html DescribeAlarms> API operation on behalf of your account.
 _FailedResourceAccessException :: AsError a => Getting (First ServiceError) a ServiceError
 _FailedResourceAccessException =
     _ServiceError . hasCode "FailedResourceAccessException"
@@ -166,9 +158,7 @@ _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a Servic
 _InvalidNextTokenException =
     _ServiceError . hasCode "InvalidNextTokenException"
 
--- | Concurrent updates caused an exception, for example, if you request an
--- update to an Application Auto Scaling resource that already has a
--- pending update.
+-- | Concurrent updates caused an exception, for example, if you request an update to an Application Auto Scaling resource that already has a pending update.
 _ConcurrentUpdateException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentUpdateException =
     _ServiceError . hasCode "ConcurrentUpdateException"
@@ -177,19 +167,10 @@ _ConcurrentUpdateException =
 _InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceException = _ServiceError . hasCode "InternalServiceException"
 
--- | The specified object could not be found. For any 'Put' or 'Register' API
--- operation, which depends on the existence of a scalable target, this
--- exception is thrown if the scalable target with the specified service
--- namespace, resource ID, and scalable dimension does not exist. For any
--- 'Delete' or 'Deregister' API operation, this exception is thrown if the
--- resource that is to be deleted or deregistered cannot be found.
+-- | The specified object could not be found. For any 'Put' or 'Register' API operation, which depends on the existence of a scalable target, this exception is thrown if the scalable target with the specified service namespace, resource ID, and scalable dimension does not exist. For any 'Delete' or 'Deregister' API operation, this exception is thrown if the resource that is to be deleted or deregistered cannot be found.
 _ObjectNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ObjectNotFoundException = _ServiceError . hasCode "ObjectNotFoundException"
 
--- | Your account exceeded a limit. This exception is thrown when a
--- per-account resource limit is exceeded. Application Auto Scaling has a
--- limit of 40 scalable targets per account for Amazon ECS services, 50
--- scaling policies per scalable target, and 20 step adjustments per step
--- scaling policy.
+-- | Your account exceeded a limit. This exception is thrown when a per-account resource limit is exceeded. Application Auto Scaling has a limit of 40 scalable targets per account for Amazon ECS services, 50 scaling policies per scalable target, and 20 step adjustments per step scaling policy.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

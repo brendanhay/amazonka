@@ -15,9 +15,7 @@
 
 AWS Directory Service
 
-This is the /AWS Directory Service API Reference/. This guide provides
-detailed information about AWS Directory Service operations, data types,
-parameters, and errors.
+This is the /AWS Directory Service API Reference/. This guide provides detailed information about AWS Directory Service operations, data types, parameters, and errors.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-ds)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).

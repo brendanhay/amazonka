@@ -18,17 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes up to ten messages from the specified queue. This is a batch
--- version of < DeleteMessage>. The result of the delete action on each
--- message is reported individually in the response.
+-- Deletes up to ten messages from the specified queue. This is a batch version of < DeleteMessage>. The result of the delete action on each message is reported individually in the response.
 --
--- Because the batch request can result in a combination of successful and
--- unsuccessful actions, you should check for batch errors even when the
--- call returns an HTTP status code of 200.
+-- Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
 --
--- Some API actions take lists of parameters. These lists are specified
--- using the 'param.n' notation. Values of 'n' are integers starting from
--- 1. For example, a parameter list with two elements looks like this:
+-- Some API actions take lists of parameters. These lists are specified using the 'param.n' notation. Values of 'n' are integers starting from 1. For example, a parameter list with two elements looks like this:
 --
 -- '&Attribute.1=this'
 --
@@ -119,9 +113,7 @@ instance ToQuery DeleteMessageBatch where
                toQueryList "DeleteMessageBatchRequestEntry"
                  _dmbEntries]
 
--- | For each message in the batch, the response contains a
--- < DeleteMessageBatchResultEntry> tag if the message is deleted or a
--- < BatchResultErrorEntry> tag if the message cannot be deleted.
+-- | For each message in the batch, the response contains a < DeleteMessageBatchResultEntry> tag if the message is deleted or a < BatchResultErrorEntry> tag if the message cannot be deleted.
 --
 -- /See:/ 'deleteMessageBatchResponse' smart constructor.
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'

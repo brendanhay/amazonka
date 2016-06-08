@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes an event source mapping. This means AWS Lambda will no longer
--- invoke the function for events in the associated source.
+-- Removes an event source mapping. This means AWS Lambda will no longer invoke the function for events in the associated source.
 --
--- This operation requires permission for the
--- 'lambda:DeleteEventSourceMapping' action.
+-- This operation requires permission for the 'lambda:DeleteEventSourceMapping' action.
 module Network.AWS.Lambda.DeleteEventSourceMapping
     (
     -- * Creating a Request

@@ -20,9 +20,7 @@
 --
 -- Gets a list of names for one or more on-premises instances.
 --
--- Unless otherwise specified, both registered and deregistered on-premises
--- instance names will be listed. To list only registered or deregistered
--- on-premises instance names, use the registration status parameter.
+-- Unless otherwise specified, both registered and deregistered on-premises instance names will be listed. To list only registered or deregistered on-premises instance names, use the registration status parameter.
 module Network.AWS.CodeDeploy.ListOnPremisesInstances
     (
     -- * Creating a Request
@@ -78,23 +76,18 @@ listOnPremisesInstances =
     , _lopiRegistrationStatus = Nothing
     }
 
--- | The on-premises instance tags that will be used to restrict the
--- corresponding on-premises instance names returned.
+-- | The on-premises instance tags that will be used to restrict the corresponding on-premises instance names returned.
 lopiTagFilters :: Lens' ListOnPremisesInstances [TagFilter]
 lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a}) . _Default . _Coerce;
 
--- | An identifier returned from the previous list on-premises instances
--- call. It can be used to return the next set of on-premises instances in
--- the list.
+-- | An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list.
 lopiNextToken :: Lens' ListOnPremisesInstances (Maybe Text)
 lopiNextToken = lens _lopiNextToken (\ s a -> s{_lopiNextToken = a});
 
 -- | The registration status of the on-premises instances:
 --
--- -   Deregistered: Include deregistered on-premises instances in the
---     resulting list.
--- -   Registered: Include registered on-premises instances in the
---     resulting list.
+-- -   Deregistered: Include deregistered on-premises instances in the resulting list.
+-- -   Registered: Include registered on-premises instances in the resulting list.
 lopiRegistrationStatus :: Lens' ListOnPremisesInstances (Maybe RegistrationStatus)
 lopiRegistrationStatus = lens _lopiRegistrationStatus (\ s a -> s{_lopiRegistrationStatus = a});
 
@@ -167,9 +160,7 @@ listOnPremisesInstancesResponse pResponseStatus_ =
     , _lopirsResponseStatus = pResponseStatus_
     }
 
--- | If a large amount of information is returned, an identifier is also
--- returned. It can be used in a subsequent list on-premises instances call
--- to return the next set of on-premises instances in the list.
+-- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list on-premises instances call to return the next set of on-premises instances in the list.
 lopirsNextToken :: Lens' ListOnPremisesInstancesResponse (Maybe Text)
 lopirsNextToken = lens _lopirsNextToken (\ s a -> s{_lopirsNextToken = a});
 

@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Tells the search domain to start indexing its documents using the latest
--- indexing options. This operation must be invoked to activate options
--- whose < OptionStatus> is 'RequiresIndexDocuments'.
+-- Tells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose < OptionStatus> is 'RequiresIndexDocuments'.
 module Network.AWS.CloudSearch.IndexDocuments
     (
     -- * Creating a Request
@@ -44,8 +42,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'IndexDocuments' operation.
--- Specifies the name of the domain you want to re-index.
+-- | Container for the parameters to the 'IndexDocuments' operation. Specifies the name of the domain you want to re-index.
 --
 -- /See:/ 'indexDocuments' smart constructor.
 newtype IndexDocuments = IndexDocuments'
@@ -97,8 +94,7 @@ instance ToQuery IndexDocuments where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _idDomainName]
 
--- | The result of an 'IndexDocuments' request. Contains the status of the
--- indexing operation, including the fields being indexed.
+-- | The result of an 'IndexDocuments' request. Contains the status of the indexing operation, including the fields being indexed.
 --
 -- /See:/ 'indexDocumentsResponse' smart constructor.
 data IndexDocumentsResponse = IndexDocumentsResponse'

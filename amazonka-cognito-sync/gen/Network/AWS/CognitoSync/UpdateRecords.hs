@@ -18,24 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Posts updates to records and adds and deletes records for a dataset and
--- user.
+-- Posts updates to records and adds and deletes records for a dataset and user.
 --
--- The sync count in the record patch is your last known sync count for
--- that record. The server will reject an UpdateRecords request with a
--- ResourceConflictException if you try to patch a record with a new value
--- but a stale sync count.
+-- The sync count in the record patch is your last known sync count for that record. The server will reject an UpdateRecords request with a ResourceConflictException if you try to patch a record with a new value but a stale sync count.
 --
--- For example, if the sync count on the server is 5 for a key called
--- highScore and you try and submit a new highScore with sync count of 4,
--- the request will be rejected. To obtain the current sync count for a
--- record, call ListRecords. On a successful update of the record, the
--- response returns the new sync count for that record. You should present
--- that sync count the next time you try to update that same record. When
--- the record does not exist, specify the sync count as 0.
+-- For example, if the sync count on the server is 5 for a key called highScore and you try and submit a new highScore with sync count of 4, the request will be rejected. To obtain the current sync count for a record, call ListRecords. On a successful update of the record, the response returns the new sync count for that record. You should present that sync count the next time you try to update that same record. When the record does not exist, specify the sync count as 0.
 --
--- This API can be called with temporary user credentials provided by
--- Cognito Identity or with developer credentials.
+-- This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.
 module Network.AWS.CognitoSync.UpdateRecords
     (
     -- * Creating a Request
@@ -65,8 +54,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to post updates to records or add and delete records for a
--- dataset and user.
+-- | A request to post updates to records or add and delete records for a dataset and user.
 --
 -- /See:/ 'updateRecords' smart constructor.
 data UpdateRecords = UpdateRecords'
@@ -121,31 +109,23 @@ urRecordPatches = lens _urRecordPatches (\ s a -> s{_urRecordPatches = a}) . _De
 urDeviceId :: Lens' UpdateRecords (Maybe Text)
 urDeviceId = lens _urDeviceId (\ s a -> s{_urDeviceId = a});
 
--- | Intended to supply a device ID that will populate the lastModifiedBy
--- field referenced in other methods. The ClientContext field is not yet
--- implemented.
+-- | Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.
 urClientContext :: Lens' UpdateRecords (Maybe Text)
 urClientContext = lens _urClientContext (\ s a -> s{_urClientContext = a});
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 urIdentityPoolId :: Lens' UpdateRecords Text
 urIdentityPoolId = lens _urIdentityPoolId (\ s a -> s{_urIdentityPoolId = a});
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 urIdentityId :: Lens' UpdateRecords Text
 urIdentityId = lens _urIdentityId (\ s a -> s{_urIdentityId = a});
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
--- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
 urDatasetName :: Lens' UpdateRecords Text
 urDatasetName = lens _urDatasetName (\ s a -> s{_urDatasetName = a});
 
--- | The SyncSessionToken returned by a previous call to ListRecords for this
--- dataset and identity.
+-- | The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.
 urSyncSessionToken :: Lens' UpdateRecords Text
 urSyncSessionToken = lens _urSyncSessionToken (\ s a -> s{_urSyncSessionToken = a});
 

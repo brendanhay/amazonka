@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new version of the specified AWS IoT policy. To update a
--- policy, create a new policy version. A managed policy can have up to
--- five versions. If the policy has five versions, you must use
--- < DeletePolicyVersion> to delete an existing version before you create a
--- new one.
+-- Creates a new version of the specified AWS IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must use < DeletePolicyVersion> to delete an existing version before you create a new one.
 --
--- Optionally, you can set the new version as the policy\'s default
--- version. The default version is the operative version (that is, the
--- version that is in effect for the certificates to which the policy is
--- attached).
+-- Optionally, you can set the new version as the policy\'s default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
 module Network.AWS.IoT.CreatePolicyVersion
     (
     -- * Creating a Request
@@ -85,10 +78,7 @@ createPolicyVersion pPolicyName_ pPolicyDocument_ =
     , _cpvPolicyDocument = pPolicyDocument_
     }
 
--- | Specifies whether the policy version is set as the default. When this
--- parameter is true, the new policy version becomes the operative version
--- (that is, the version that is in effect for the certificates to which
--- the policy is attached).
+-- | Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
 cpvSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
 cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a});
 
@@ -96,8 +86,7 @@ cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a});
 cpvPolicyName :: Lens' CreatePolicyVersion Text
 cpvPolicyName = lens _cpvPolicyName (\ s a -> s{_cpvPolicyName = a});
 
--- | The JSON document that describes the policy. Minimum length of 1.
--- Maximum length of 2048, excluding whitespaces
+-- | The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespaces
 cpvPolicyDocument :: Lens' CreatePolicyVersion Text
 cpvPolicyDocument = lens _cpvPolicyDocument (\ s a -> s{_cpvPolicyDocument = a});
 

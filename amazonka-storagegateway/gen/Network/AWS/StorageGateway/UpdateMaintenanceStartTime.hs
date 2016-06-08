@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a gateway\'s weekly maintenance start time information,
--- including day and time of the week. The maintenance time is the time in
--- your gateway\'s time zone.
+-- Updates a gateway\'s weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway\'s time zone.
 module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     (
     -- * Creating a Request
@@ -49,9 +47,9 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the following fields:
 --
--- -   < UpdateMaintenanceStartTimeInput$DayOfWeek>
--- -   < UpdateMaintenanceStartTimeInput$HourOfDay>
--- -   < UpdateMaintenanceStartTimeInput$MinuteOfHour>
+-- -   < UpdateMaintenanceStartTimeInput>DayOfWeek>
+-- -   < UpdateMaintenanceStartTimeInput>HourOfDay>
+-- -   < UpdateMaintenanceStartTimeInput>MinuteOfHour>
 --
 -- /See:/ 'updateMaintenanceStartTime' smart constructor.
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
@@ -90,15 +88,11 @@ updateMaintenanceStartTime pGatewayARN_ pHourOfDay_ pMinuteOfHour_ pDayOfWeek_ =
 umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
 umstGatewayARN = lens _umstGatewayARN (\ s a -> s{_umstGatewayARN = a});
 
--- | The hour component of the maintenance start time represented as /hh/,
--- where /hh/ is the hour (00 to 23). The hour of the day is in the time
--- zone of the gateway.
+-- | The hour component of the maintenance start time represented as /hh/, where /hh/ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
 umstHourOfDay :: Lens' UpdateMaintenanceStartTime Natural
 umstHourOfDay = lens _umstHourOfDay (\ s a -> s{_umstHourOfDay = a}) . _Nat;
 
--- | The minute component of the maintenance start time represented as /mm/,
--- where /mm/ is the minute (00 to 59). The minute of the hour is in the
--- time zone of the gateway.
+-- | The minute component of the maintenance start time represented as /mm/, where /mm/ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
 umstMinuteOfHour :: Lens' UpdateMaintenanceStartTime Natural
 umstMinuteOfHour = lens _umstMinuteOfHour (\ s a -> s{_umstMinuteOfHour = a}) . _Nat;
 
@@ -145,8 +139,7 @@ instance ToPath UpdateMaintenanceStartTime where
 instance ToQuery UpdateMaintenanceStartTime where
         toQuery = const mempty
 
--- | A JSON object containing the of the gateway whose maintenance start time
--- is updated.
+-- | A JSON object containing the of the gateway whose maintenance start time is updated.
 --
 -- /See:/ 'updateMaintenanceStartTimeResponse' smart constructor.
 data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'

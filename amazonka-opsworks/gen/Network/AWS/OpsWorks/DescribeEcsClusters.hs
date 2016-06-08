@@ -18,17 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes Amazon ECS clusters that are registered with a stack. If you
--- specify only a stack ID, you can use the 'MaxResults' and 'NextToken'
--- parameters to paginate the response. However, AWS OpsWorks currently
--- supports only one cluster per layer, so the result set has a maximum of
--- one element.
+-- Describes Amazon ECS clusters that are registered with a stack. If you specify only a stack ID, you can use the 'MaxResults' and 'NextToken' parameters to paginate the response. However, AWS OpsWorks currently supports only one cluster per layer, so the result set has a maximum of one element.
 --
--- __Required Permissions__: To use this action, an IAM user must have a
--- Show, Deploy, or Manage permissions level for the stack or an attached
--- policy that explicitly grants permission. For more information on user
--- permissions, see
--- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack or an attached policy that explicitly grants permission. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeEcsClusters
     (
     -- * Creating a Request
@@ -85,25 +77,15 @@ describeEcsClusters =
     , _decEcsClusterARNs = Nothing
     }
 
--- | If the previous paginated request did not return all of the remaining
--- results, the response object\'s'NextToken' parameter value is set to a
--- token. To retrieve the next set of results, call 'DescribeEcsClusters'
--- again and assign that token to the request object\'s 'NextToken'
--- parameter. If there are no remaining results, the previous response
--- object\'s 'NextToken' parameter is set to 'null'.
+-- | If the previous paginated request did not return all of the remaining results, the response object\'s'NextToken' parameter value is set to a token. To retrieve the next set of results, call 'DescribeEcsClusters' again and assign that token to the request object\'s 'NextToken' parameter. If there are no remaining results, the previous response object\'s 'NextToken' parameter is set to 'null'.
 decNextToken :: Lens' DescribeEcsClusters (Maybe Text)
 decNextToken = lens _decNextToken (\ s a -> s{_decNextToken = a});
 
--- | A stack ID. 'DescribeEcsClusters' returns a description of the cluster
--- that is registered with the stack.
+-- | A stack ID. 'DescribeEcsClusters' returns a description of the cluster that is registered with the stack.
 decStackId :: Lens' DescribeEcsClusters (Maybe Text)
 decStackId = lens _decStackId (\ s a -> s{_decStackId = a});
 
--- | To receive a paginated response, use this parameter to specify the
--- maximum number of results to be returned with a single call. If the
--- number of available results exceeds this maximum, the response includes
--- a 'NextToken' value that you can assign to the 'NextToken' request
--- parameter to get the next set of results.
+-- | To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a 'NextToken' value that you can assign to the 'NextToken' request parameter to get the next set of results.
 decMaxResults :: Lens' DescribeEcsClusters (Maybe Int)
 decMaxResults = lens _decMaxResults (\ s a -> s{_decMaxResults = a});
 
@@ -180,11 +162,7 @@ describeEcsClustersResponse pResponseStatus_ =
     , _decrsResponseStatus = pResponseStatus_
     }
 
--- | If a paginated request does not return all of the remaining results,
--- this parameter is set to a token that you can assign to the request
--- object\'s 'NextToken' parameter to retrieve the next set of results. If
--- the previous paginated request returned all of the remaining results,
--- this parameter is set to 'null'.
+-- | If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object\'s 'NextToken' parameter to retrieve the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to 'null'.
 decrsNextToken :: Lens' DescribeEcsClustersResponse (Maybe Text)
 decrsNextToken = lens _decrsNextToken (\ s a -> s{_decrsNextToken = a});
 

@@ -91,28 +91,23 @@ sendCommand pInstanceIds_ pDocumentName_ =
     , _scDocumentName = pDocumentName_
     }
 
--- | The directory structure within the S3 bucket where the responses should
--- be stored.
+-- | The directory structure within the S3 bucket where the responses should be stored.
 scOutputS3KeyPrefix :: Lens' SendCommand (Maybe Text)
 scOutputS3KeyPrefix = lens _scOutputS3KeyPrefix (\ s a -> s{_scOutputS3KeyPrefix = a});
 
--- | The required and optional parameters specified in the SSM document being
--- executed.
+-- | The required and optional parameters specified in the SSM document being executed.
 scParameters :: Lens' SendCommand (HashMap Text [Text])
 scParameters = lens _scParameters (\ s a -> s{_scParameters = a}) . _Default . _Map;
 
--- | If this time is reached and the command has not already started
--- executing, it will not execute.
+-- | If this time is reached and the command has not already started executing, it will not execute.
 scTimeoutSeconds :: Lens' SendCommand (Maybe Natural)
 scTimeoutSeconds = lens _scTimeoutSeconds (\ s a -> s{_scTimeoutSeconds = a}) . mapping _Nat;
 
--- | User-specified information about the command, such as a brief
--- description of what the command should do.
+-- | User-specified information about the command, such as a brief description of what the command should do.
 scComment :: Lens' SendCommand (Maybe Text)
 scComment = lens _scComment (\ s a -> s{_scComment = a});
 
--- | The name of the S3 bucket where command execution responses should be
--- stored.
+-- | The name of the S3 bucket where command execution responses should be stored.
 scOutputS3BucketName :: Lens' SendCommand (Maybe Text)
 scOutputS3BucketName = lens _scOutputS3BucketName (\ s a -> s{_scOutputS3BucketName = a});
 
@@ -120,8 +115,7 @@ scOutputS3BucketName = lens _scOutputS3BucketName (\ s a -> s{_scOutputS3BucketN
 scInstanceIds :: Lens' SendCommand (NonEmpty Text)
 scInstanceIds = lens _scInstanceIds (\ s a -> s{_scInstanceIds = a}) . _List1;
 
--- | Required. The name of the SSM document to execute. This can be an SSM
--- public document or a custom document.
+-- | Required. The name of the SSM document to execute. This can be an SSM public document or a custom document.
 scDocumentName :: Lens' SendCommand Text
 scDocumentName = lens _scDocumentName (\ s a -> s{_scDocumentName = a});
 
@@ -187,8 +181,7 @@ sendCommandResponse pResponseStatus_ =
     , _scrsResponseStatus = pResponseStatus_
     }
 
--- | The request as it was received by SSM. Also provides the command ID
--- which can be used future references to this request.
+-- | The request as it was received by SSM. Also provides the command ID which can be used future references to this request.
 scrsCommand :: Lens' SendCommandResponse (Maybe Command)
 scrsCommand = lens _scrsCommand (\ s a -> s{_scrsCommand = a});
 

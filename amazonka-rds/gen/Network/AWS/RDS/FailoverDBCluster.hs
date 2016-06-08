@@ -20,20 +20,11 @@
 --
 -- Forces a failover for a DB cluster.
 --
--- A failover for a DB cluster promotes one of the read-only instances in
--- the DB cluster to the master DB instance (the cluster writer) and
--- deletes the current primary instance.
+-- A failover for a DB cluster promotes one of the read-only instances in the DB cluster to the master DB instance (the cluster writer) and deletes the current primary instance.
 --
--- Amazon Aurora will automatically fail over to a read-only instance, if
--- one exists, when the primary instance fails. You can force a failover
--- when you want to simulate a failure of a DB instance for testing.
--- Because each instance in a DB cluster has its own endpoint address, you
--- will need to clean up and re-establish any existing connections that use
--- those endpoint addresses when the failover is complete.
+-- Amazon Aurora will automatically fail over to a read-only instance, if one exists, when the primary instance fails. You can force a failover when you want to simulate a failure of a DB instance for testing. Because each instance in a DB cluster has its own endpoint address, you will need to clean up and re-establish any existing connections that use those endpoint addresses when the failover is complete.
 --
--- For more information on Amazon Aurora, see
--- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
--- in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 module Network.AWS.RDS.FailoverDBCluster
     (
     -- * Creating a Request
@@ -76,8 +67,7 @@ failoverDBCluster =
     { _fdcDBClusterIdentifier = Nothing
     }
 
--- | A DB cluster identifier to force a failover for. This parameter is not
--- case-sensitive.
+-- | A DB cluster identifier to force a failover for. This parameter is not case-sensitive.
 --
 -- Constraints:
 --

@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Determines whether a product code is associated with an instance. This
--- action can only be used by the owner of the product code. It is useful
--- when a product code owner needs to verify whether another user\'s
--- instance is eligible for support.
+-- Determines whether a product code is associated with an instance. This action can only be used by the owner of the product code. It is useful when a product code owner needs to verify whether another user\'s instance is eligible for support.
 module Network.AWS.EC2.ConfirmProductInstance
     (
     -- * Creating a Request
@@ -77,10 +74,7 @@ confirmProductInstance pProductCode_ pInstanceId_ =
     , _cpiInstanceId = pInstanceId_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cpiDryRun :: Lens' ConfirmProductInstance (Maybe Bool)
 cpiDryRun = lens _cpiDryRun (\ s a -> s{_cpiDryRun = a});
 
@@ -151,14 +145,11 @@ confirmProductInstanceResponse pResponseStatus_ =
     , _cpirsResponseStatus = pResponseStatus_
     }
 
--- | The return value of the request. Returns 'true' if the specified product
--- code is owned by the requester and associated with the specified
--- instance.
+-- | The return value of the request. Returns 'true' if the specified product code is owned by the requester and associated with the specified instance.
 cpirsReturn :: Lens' ConfirmProductInstanceResponse (Maybe Bool)
 cpirsReturn = lens _cpirsReturn (\ s a -> s{_cpirsReturn = a});
 
--- | The AWS account ID of the instance owner. This is only present if the
--- product code is attached to the instance.
+-- | The AWS account ID of the instance owner. This is only present if the product code is attached to the instance.
 cpirsOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirsOwnerId = lens _cpirsOwnerId (\ s a -> s{_cpirsOwnerId = a});
 

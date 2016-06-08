@@ -18,16 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- When you no longer want to use a Dedicated host it can be released.
--- On-Demand billing is stopped and the host goes into 'released' state.
--- The host ID of Dedicated hosts that have been released can no longer be
--- specified in another request, e.g., ModifyHosts. You must stop or
--- terminate all instances on a host before it can be released.
+-- When you no longer want to use a Dedicated host it can be released. On-Demand billing is stopped and the host goes into 'released' state. The host ID of Dedicated hosts that have been released can no longer be specified in another request, e.g., ModifyHosts. You must stop or terminate all instances on a host before it can be released.
 --
--- When Dedicated hosts are released, it make take some time for them to
--- stop counting toward your limit and you may receive capacity errors when
--- trying to allocate new Dedicated hosts. Try waiting a few minutes, and
--- then try again.
+-- When Dedicated hosts are released, it make take some time for them to stop counting toward your limit and you may receive capacity errors when trying to allocate new Dedicated hosts. Try waiting a few minutes, and then try again.
 --
 -- Released hosts will still appear in a DescribeHosts response.
 module Network.AWS.EC2.ReleaseHosts
@@ -136,8 +129,7 @@ releaseHostsResponse pResponseStatus_ =
     , _rhrsResponseStatus = pResponseStatus_
     }
 
--- | The IDs of the Dedicated hosts that could not be released, including an
--- error message.
+-- | The IDs of the Dedicated hosts that could not be released, including an error message.
 rhrsUnsuccessful :: Lens' ReleaseHostsResponse [UnsuccessfulItem]
 rhrsUnsuccessful = lens _rhrsUnsuccessful (\ s a -> s{_rhrsUnsuccessful = a}) . _Default . _Coerce;
 

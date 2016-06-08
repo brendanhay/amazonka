@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets detailed information for specified images within a specified
--- repository. Images are specified with either 'imageTag' or
--- 'imageDigest'.
+-- Gets detailed information for specified images within a specified repository. Images are specified with either 'imageTag' or 'imageDigest'.
 module Network.AWS.ECR.BatchGetImage
     (
     -- * Creating a Request
@@ -74,9 +72,7 @@ batchGetImage pRepositoryName_ pImageIds_ =
     , _bgiImageIds = _List1 # pImageIds_
     }
 
--- | The AWS account ID associated with the registry that contains the images
--- to describe. If you do not specify a registry, the default registry is
--- assumed.
+-- | The AWS account ID associated with the registry that contains the images to describe. If you do not specify a registry, the default registry is assumed.
 bgiRegistryId :: Lens' BatchGetImage (Maybe Text)
 bgiRegistryId = lens _bgiRegistryId (\ s a -> s{_bgiRegistryId = a});
 
@@ -84,9 +80,7 @@ bgiRegistryId = lens _bgiRegistryId (\ s a -> s{_bgiRegistryId = a});
 bgiRepositoryName :: Lens' BatchGetImage Text
 bgiRepositoryName = lens _bgiRepositoryName (\ s a -> s{_bgiRepositoryName = a});
 
--- | A list of image ID references that correspond to images to describe. The
--- format of the 'imageIds' reference is 'imageTag=tag' or
--- 'imageDigest=digest'.
+-- | A list of image ID references that correspond to images to describe. The format of the 'imageIds' reference is 'imageTag=tag' or 'imageDigest=digest'.
 bgiImageIds :: Lens' BatchGetImage (NonEmpty ImageIdentifier)
 bgiImageIds = lens _bgiImageIds (\ s a -> s{_bgiImageIds = a}) . _List1;
 
@@ -155,8 +149,7 @@ batchGetImageResponse pResponseStatus_ =
     , _bgirsResponseStatus = pResponseStatus_
     }
 
--- | A list of image objects corresponding to the image references in the
--- request.
+-- | A list of image objects corresponding to the image references in the request.
 bgirsImages :: Lens' BatchGetImageResponse [Image]
 bgirsImages = lens _bgirsImages (\ s a -> s{_bgirsImages = a}) . _Default . _Coerce;
 

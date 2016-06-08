@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Return a list of connections that have been provisioned on the given
--- interconnect.
+-- Return a list of connections that have been provisioned on the given interconnect.
 module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     (
     -- * Creating a Request
@@ -42,8 +41,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the DescribeConnectionsOnInterconnect
--- operation.
+-- | Container for the parameters to the DescribeConnectionsOnInterconnect operation.
 --
 -- /See:/ 'describeConnectionsOnInterconnect' smart constructor.
 newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect'

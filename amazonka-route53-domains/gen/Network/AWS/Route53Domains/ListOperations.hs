@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns the operation IDs of operations that are not yet
--- complete.
+-- This operation returns the operation IDs of operations that are not yet complete.
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53Domains.ListOperations
@@ -71,12 +70,7 @@ listOperations =
     , _loMaxItems = Nothing
     }
 
--- | For an initial request for a list of operations, omit this element. If
--- the number of operations that are not yet complete is greater than the
--- value that you specified for 'MaxItems', you can use 'Marker' to return
--- additional operations. Get the value of 'NextPageMarker' from the
--- previous response, and submit another request that includes the value of
--- 'NextPageMarker' in the 'Marker' element.
+-- | For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for 'MaxItems', you can use 'Marker' to return additional operations. Get the value of 'NextPageMarker' from the previous response, and submit another request that includes the value of 'NextPageMarker' in the 'Marker' element.
 --
 -- Type: String
 --
@@ -170,9 +164,7 @@ listOperationsResponse pResponseStatus_ =
     , _lorsOperations = mempty
     }
 
--- | If there are more operations than you specified for 'MaxItems' in the
--- request, submit another request and include the value of
--- 'NextPageMarker' in the value of 'Marker'.
+-- | If there are more operations than you specified for 'MaxItems' in the request, submit another request and include the value of 'NextPageMarker' in the value of 'Marker'.
 --
 -- Type: String
 --

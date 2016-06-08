@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the available AWS OpsWorks agent versions. You must specify a
--- stack ID or a configuration manager. 'DescribeAgentVersions' returns a
--- list of available agent versions for the specified stack or
--- configuration manager.
+-- Describes the available AWS OpsWorks agent versions. You must specify a stack ID or a configuration manager. 'DescribeAgentVersions' returns a list of available agent versions for the specified stack or configuration manager.
 module Network.AWS.OpsWorks.DescribeAgentVersions
     (
     -- * Creating a Request
@@ -138,9 +135,7 @@ describeAgentVersionsResponse pResponseStatus_ =
     , _davrsResponseStatus = pResponseStatus_
     }
 
--- | The agent versions for the specified stack or configuration manager.
--- Note that this value is the complete version number, not the abbreviated
--- number used by the console.
+-- | The agent versions for the specified stack or configuration manager. Note that this value is the complete version number, not the abbreviated number used by the console.
 davrsAgentVersions :: Lens' DescribeAgentVersionsResponse [AgentVersion]
 davrsAgentVersions = lens _davrsAgentVersions (\ s a -> s{_davrsAgentVersions = a}) . _Default . _Coerce;
 

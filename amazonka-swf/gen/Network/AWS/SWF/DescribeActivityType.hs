@@ -18,32 +18,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the specified activity type. This includes
--- configuration settings provided when the type was registered and other
--- general information about the type.
+-- Returns information about the specified activity type. This includes configuration settings provided when the type was registered and other general information about the type.
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this action\'s access to Amazon SWF
--- resources as follows:
+-- You can use IAM policies to control this action\'s access to Amazon SWF resources as follows:
 --
--- -   Use a 'Resource' element with the domain name to limit the action to
---     only specified domains.
--- -   Use an 'Action' element to allow or deny permission to call this
---     action.
--- -   Constrain the following parameters by using a 'Condition' element
---     with the appropriate keys.
---     -   'activityType.name': String constraint. The key is
---         'swf:activityType.name'.
---     -   'activityType.version': String constraint. The key is
---         'swf:activityType.version'.
+-- -   Use a 'Resource' element with the domain name to limit the action to only specified domains.
+-- -   Use an 'Action' element to allow or deny permission to call this action.
+-- -   Constrain the following parameters by using a 'Condition' element with the appropriate keys.
+--     -   'activityType.name': String constraint. The key is 'swf:activityType.name'.
+--     -   'activityType.version': String constraint. The key is 'swf:activityType.version'.
 --
--- If the caller does not have sufficient permissions to invoke the action,
--- or the parameter values fall outside the specified constraints, the
--- action fails. The associated event attribute\'s __cause__ parameter will
--- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
--- see
--- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute\'s __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 module Network.AWS.SWF.DescribeActivityType
     (
     -- * Creating a Request
@@ -96,9 +83,7 @@ describeActivityType pDomain_ pActivityType_ =
 datDomain :: Lens' DescribeActivityType Text
 datDomain = lens _datDomain (\ s a -> s{_datDomain = a});
 
--- | The activity type to get information about. Activity types are
--- identified by the 'name' and 'version' that were supplied when the
--- activity was registered.
+-- | The activity type to get information about. Activity types are identified by the 'name' and 'version' that were supplied when the activity was registered.
 datActivityType :: Lens' DescribeActivityType ActivityType
 datActivityType = lens _datActivityType (\ s a -> s{_datActivityType = a});
 
@@ -176,15 +161,10 @@ datrsResponseStatus = lens _datrsResponseStatus (\ s a -> s{_datrsResponseStatus
 
 -- | General information about the activity type.
 --
--- The status of activity type (returned in the ActivityTypeInfo structure)
--- can be one of the following.
+-- The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.
 --
--- -   __REGISTERED__: The type is registered and available. Workers
---     supporting this type should be running.
--- -   __DEPRECATED__: The type was deprecated using
---     < DeprecateActivityType>, but is still in use. You should keep
---     workers supporting this type running. You cannot create new tasks of
---     this type.
+-- -   __REGISTERED__: The type is registered and available. Workers supporting this type should be running.
+-- -   __DEPRECATED__: The type was deprecated using < DeprecateActivityType>, but is still in use. You should keep workers supporting this type running. You cannot create new tasks of this type.
 datrsTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
 datrsTypeInfo = lens _datrsTypeInfo (\ s a -> s{_datrsTypeInfo = a});
 

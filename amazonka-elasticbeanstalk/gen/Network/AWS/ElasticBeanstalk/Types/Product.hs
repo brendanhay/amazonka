@@ -76,8 +76,7 @@ adDateCreated = lens _adDateCreated (\ s a -> s{_adDateCreated = a}) . mapping _
 adApplicationName :: Lens' ApplicationDescription (Maybe Text)
 adApplicationName = lens _adApplicationName (\ s a -> s{_adApplicationName = a});
 
--- | The names of the configuration templates associated with this
--- application.
+-- | The names of the configuration templates associated with this application.
 adConfigurationTemplates :: Lens' ApplicationDescription [Text]
 adConfigurationTemplates = lens _adConfigurationTemplates (\ s a -> s{_adConfigurationTemplates = a}) . _Default . _Coerce;
 
@@ -165,25 +164,19 @@ applicationMetrics =
     , _amDuration = Nothing
     }
 
--- | Average number of requests handled by the web server per second over the
--- last 10 seconds.
+-- | Average number of requests handled by the web server per second over the last 10 seconds.
 amRequestCount :: Lens' ApplicationMetrics (Maybe Int)
 amRequestCount = lens _amRequestCount (\ s a -> s{_amRequestCount = a});
 
--- | Represents the average latency for the slowest X percent of requests
--- over the last 10 seconds. Latencies are in seconds with one milisecond
--- resolution.
+-- | Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one milisecond resolution.
 amLatency :: Lens' ApplicationMetrics (Maybe Latency)
 amLatency = lens _amLatency (\ s a -> s{_amLatency = a});
 
--- | Represents the percentage of requests over the last 10 seconds that
--- resulted in each type of status code response.
+-- | Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response.
 amStatusCodes :: Lens' ApplicationMetrics (Maybe StatusCodes)
 amStatusCodes = lens _amStatusCodes (\ s a -> s{_amStatusCodes = a});
 
--- | The amount of time that the metrics cover (usually 10 seconds). For
--- example, you might have 5 requests ('request_count') within the most
--- recent time slice of 10 seconds ('duration').
+-- | The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests ('request_count') within the most recent time slice of 10 seconds ('duration').
 amDuration :: Lens' ApplicationMetrics (Maybe Int)
 amDuration = lens _amDuration (\ s a -> s{_amDuration = a});
 
@@ -347,10 +340,7 @@ instance Hashable AutoScalingGroup
 
 instance NFData AutoScalingGroup
 
--- | Represents CPU utilization information from the specified instance that
--- belongs to the AWS Elastic Beanstalk environment. Use the 'instanceId'
--- property to specify the application instance for which you\'d like to
--- return data.
+-- | Represents CPU utilization information from the specified instance that belongs to the AWS Elastic Beanstalk environment. Use the 'instanceId' property to specify the application instance for which you\'d like to return data.
 --
 -- /See:/ 'cpuUtilization' smart constructor.
 data CPUUtilization = CPUUtilization'
@@ -393,38 +383,31 @@ cpuUtilization =
     , _cuNice = Nothing
     }
 
--- | Percentage of time that the CPU has spent in the 'SoftIRQ' state over
--- the last 10 seconds.
+-- | Percentage of time that the CPU has spent in the 'SoftIRQ' state over the last 10 seconds.
 cuSoftIRQ :: Lens' CPUUtilization (Maybe Double)
 cuSoftIRQ = lens _cuSoftIRQ (\ s a -> s{_cuSoftIRQ = a});
 
--- | Percentage of time that the CPU has spent in the 'Idle' state over the
--- last 10 seconds.
+-- | Percentage of time that the CPU has spent in the 'Idle' state over the last 10 seconds.
 cuIdle :: Lens' CPUUtilization (Maybe Double)
 cuIdle = lens _cuIdle (\ s a -> s{_cuIdle = a});
 
--- | Percentage of time that the CPU has spent in the 'IRQ' state over the
--- last 10 seconds.
+-- | Percentage of time that the CPU has spent in the 'IRQ' state over the last 10 seconds.
 cuIRQ :: Lens' CPUUtilization (Maybe Double)
 cuIRQ = lens _cuIRQ (\ s a -> s{_cuIRQ = a});
 
--- | Percentage of time that the CPU has spent in the 'System' state over the
--- last 10 seconds.
+-- | Percentage of time that the CPU has spent in the 'System' state over the last 10 seconds.
 cuSystem :: Lens' CPUUtilization (Maybe Double)
 cuSystem = lens _cuSystem (\ s a -> s{_cuSystem = a});
 
--- | Percentage of time that the CPU has spent in the 'User' state over the
--- last 10 seconds.
+-- | Percentage of time that the CPU has spent in the 'User' state over the last 10 seconds.
 cuUser :: Lens' CPUUtilization (Maybe Double)
 cuUser = lens _cuUser (\ s a -> s{_cuUser = a});
 
--- | Percentage of time that the CPU has spent in the 'I\/O Wait' state over
--- the last 10 seconds.
+-- | Percentage of time that the CPU has spent in the 'I\/O Wait' state over the last 10 seconds.
 cuIOWait :: Lens' CPUUtilization (Maybe Double)
 cuIOWait = lens _cuIOWait (\ s a -> s{_cuIOWait = a});
 
--- | Percentage of time that the CPU has spent in the 'Nice' state over the
--- last 10 seconds.
+-- | Percentage of time that the CPU has spent in the 'Nice' state over the last 10 seconds.
 cuNice :: Lens' CPUUtilization (Maybe Double)
 cuNice = lens _cuNice (\ s a -> s{_cuNice = a});
 
@@ -501,31 +484,25 @@ configurationOptionDescription =
     , _codMinValue = Nothing
     }
 
--- | If specified, the configuration option must be a numeric value less than
--- this value.
+-- | If specified, the configuration option must be a numeric value less than this value.
 codMaxValue :: Lens' ConfigurationOptionDescription (Maybe Int)
 codMaxValue = lens _codMaxValue (\ s a -> s{_codMaxValue = a});
 
--- | If specified, the configuration option must be a string value that
--- satisfies this regular expression.
+-- | If specified, the configuration option must be a string value that satisfies this regular expression.
 codRegex :: Lens' ConfigurationOptionDescription (Maybe OptionRestrictionRegex)
 codRegex = lens _codRegex (\ s a -> s{_codRegex = a});
 
--- | If specified, the configuration option must be a string value no longer
--- than this value.
+-- | If specified, the configuration option must be a string value no longer than this value.
 codMaxLength :: Lens' ConfigurationOptionDescription (Maybe Int)
 codMaxLength = lens _codMaxLength (\ s a -> s{_codMaxLength = a});
 
 -- | An indication of whether the user defined this configuration option:
 --
--- -   'true' : This configuration option was defined by the user. It is a
---     valid choice for specifying if this as an 'Option to Remove' when
---     updating configuration settings.
+-- -   'true' : This configuration option was defined by the user. It is a valid choice for specifying if this as an 'Option to Remove' when updating configuration settings.
 --
 -- -   'false' : This configuration was not defined by the user.
 --
--- Constraint: You can remove only 'UserDefined' options from a
--- configuration.
+-- Constraint: You can remove only 'UserDefined' options from a configuration.
 --
 -- Valid Values: 'true' | 'false'
 codUserDefined :: Lens' ConfigurationOptionDescription (Maybe Bool)
@@ -535,8 +512,7 @@ codUserDefined = lens _codUserDefined (\ s a -> s{_codUserDefined = a});
 codNamespace :: Lens' ConfigurationOptionDescription (Maybe Text)
 codNamespace = lens _codNamespace (\ s a -> s{_codNamespace = a});
 
--- | If specified, values for the configuration option are selected from this
--- list.
+-- | If specified, values for the configuration option are selected from this list.
 codValueOptions :: Lens' ConfigurationOptionDescription [Text]
 codValueOptions = lens _codValueOptions (\ s a -> s{_codValueOptions = a}) . _Default . _Coerce;
 
@@ -544,18 +520,11 @@ codValueOptions = lens _codValueOptions (\ s a -> s{_codValueOptions = a}) . _De
 codName :: Lens' ConfigurationOptionDescription (Maybe Text)
 codName = lens _codName (\ s a -> s{_codName = a});
 
--- | An indication of which action is required if the value for this
--- configuration option changes:
+-- | An indication of which action is required if the value for this configuration option changes:
 --
--- -   'NoInterruption' : There is no interruption to the environment or
---     application availability.
--- -   'RestartEnvironment' : The environment is entirely restarted, all
---     AWS resources are deleted and recreated, and the environment is
---     unavailable during the process.
--- -   'RestartApplicationServer' : The environment is available the entire
---     time. However, a short application outage occurs when the
---     application servers on the running Amazon EC2 instances are
---     restarted.
+-- -   'NoInterruption' : There is no interruption to the environment or application availability.
+-- -   'RestartEnvironment' : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.
+-- -   'RestartApplicationServer' : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
 codChangeSeverity :: Lens' ConfigurationOptionDescription (Maybe Text)
 codChangeSeverity = lens _codChangeSeverity (\ s a -> s{_codChangeSeverity = a});
 
@@ -563,22 +532,16 @@ codChangeSeverity = lens _codChangeSeverity (\ s a -> s{_codChangeSeverity = a})
 codDefaultValue :: Lens' ConfigurationOptionDescription (Maybe Text)
 codDefaultValue = lens _codDefaultValue (\ s a -> s{_codDefaultValue = a});
 
--- | An indication of which type of values this option has and whether it is
--- allowable to select one or more than one of the possible values:
+-- | An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:
 --
--- -   'Scalar' : Values for this option are a single selection from the
---     possible values, or an unformatted string, or numeric value governed
---     by the 'MIN\/MAX\/Regex' constraints.
--- -   'List' : Values for this option are multiple selections from the
---     possible values.
+-- -   'Scalar' : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the 'MIN\/MAX\/Regex' constraints.
+-- -   'List' : Values for this option are multiple selections from the possible values.
 -- -   'Boolean' : Values for this option are either 'true' or 'false' .
--- -   'Json' : Values for this option are a JSON representation of a
---     'ConfigDocument'.
+-- -   'Json' : Values for this option are a JSON representation of a 'ConfigDocument'.
 codValueType :: Lens' ConfigurationOptionDescription (Maybe ConfigurationOptionValueType)
 codValueType = lens _codValueType (\ s a -> s{_codValueType = a});
 
--- | If specified, the configuration option must be a numeric value greater
--- than this value.
+-- | If specified, the configuration option must be a numeric value greater than this value.
 codMinValue :: Lens' ConfigurationOptionDescription (Maybe Int)
 codMinValue = lens _codMinValue (\ s a -> s{_codMinValue = a});
 
@@ -602,10 +565,7 @@ instance Hashable ConfigurationOptionDescription
 
 instance NFData ConfigurationOptionDescription
 
--- | A specification identifying an individual configuration option along
--- with its current value. For a list of possible option values, go to
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html Option Values>
--- in the /AWS Elastic Beanstalk Developer Guide/.
+-- | A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html Option Values> in the /AWS Elastic Beanstalk Developer Guide/.
 --
 -- /See:/ 'configurationOptionSetting' smart constructor.
 data ConfigurationOptionSetting = ConfigurationOptionSetting'
@@ -721,13 +681,11 @@ configurationSettingsDescription =
     , _csdDescription = Nothing
     }
 
--- | If not 'null', the name of the configuration template for this
--- configuration set.
+-- | If not 'null', the name of the configuration template for this configuration set.
 csdTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdTemplateName = lens _csdTemplateName (\ s a -> s{_csdTemplateName = a});
 
--- | A list of the configuration options and their values in this
--- configuration set.
+-- | A list of the configuration options and their values in this configuration set.
 csdOptionSettings :: Lens' ConfigurationSettingsDescription [ConfigurationOptionSetting]
 csdOptionSettings = lens _csdOptionSettings (\ s a -> s{_csdOptionSettings = a}) . _Default . _Coerce;
 
@@ -747,18 +705,12 @@ csdEnvironmentName = lens _csdEnvironmentName (\ s a -> s{_csdEnvironmentName = 
 csdApplicationName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdApplicationName = lens _csdApplicationName (\ s a -> s{_csdApplicationName = a});
 
--- | If this configuration set is associated with an environment, the
--- 'DeploymentStatus' parameter indicates the deployment status of this
--- configuration set:
+-- | If this configuration set is associated with an environment, the 'DeploymentStatus' parameter indicates the deployment status of this configuration set:
 --
--- -   'null': This configuration is not associated with a running
---     environment.
--- -   'pending': This is a draft configuration that is not deployed to the
---     associated environment but is in the process of deploying.
--- -   'deployed': This is the configuration that is currently deployed to
---     the associated running environment.
--- -   'failed': This is a draft configuration that failed to successfully
---     deploy.
+-- -   'null': This configuration is not associated with a running environment.
+-- -   'pending': This is a draft configuration that is not deployed to the associated environment but is in the process of deploying.
+-- -   'deployed': This is the configuration that is currently deployed to the associated running environment.
+-- -   'failed': This is a draft configuration that failed to successfully deploy.
 csdDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe ConfigurationDeploymentStatus)
 csdDeploymentStatus = lens _csdDeploymentStatus (\ s a -> s{_csdDeploymentStatus = a});
 
@@ -820,8 +772,7 @@ deployment =
     , _dVersionLabel = Nothing
     }
 
--- | The ID of the deployment. This number increases by one each time that
--- you deploy source code or change instance configuration settings.
+-- | The ID of the deployment. This number increases by one each time that you deploy source code or change instance configuration settings.
 dDeploymentId :: Lens' Deployment (Maybe Integer)
 dDeploymentId = lens _dDeploymentId (\ s a -> s{_dDeploymentId = a});
 
@@ -944,10 +895,8 @@ environmentDescription =
 -- | The current operational status of the environment:
 --
 -- -   'Launching': Environment is in the process of initial deployment.
--- -   'Updating': Environment is in the process of updating its
---     configuration settings or application version.
--- -   'Ready': Environment is available to have an action performed on it,
---     such as update or terminate.
+-- -   'Updating': Environment is in the process of updating its configuration settings or application version.
+-- -   'Ready': Environment is available to have an action performed on it, such as update or terminate.
 -- -   'Terminating': Environment is in the shut-down process.
 -- -   'Terminated': Environment is not running.
 eStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
@@ -957,13 +906,11 @@ eStatus = lens _eStatus (\ s a -> s{_eStatus = a});
 eCNAME :: Lens' EnvironmentDescription (Maybe Text)
 eCNAME = lens _eCNAME (\ s a -> s{_eCNAME = a});
 
--- | The name of the configuration template used to originally launch this
--- environment.
+-- | The name of the configuration template used to originally launch this environment.
 eTemplateName :: Lens' EnvironmentDescription (Maybe Text)
 eTemplateName = lens _eTemplateName (\ s a -> s{_eTemplateName = a});
 
--- | Indicates if there is an in-progress environment configuration update or
--- application version deployment that you can cancel.
+-- | Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel.
 --
 -- 'true:' There is an update in progress.
 --
@@ -971,9 +918,7 @@ eTemplateName = lens _eTemplateName (\ s a -> s{_eTemplateName = a});
 eAbortableOperationInProgress :: Lens' EnvironmentDescription (Maybe Bool)
 eAbortableOperationInProgress = lens _eAbortableOperationInProgress (\ s a -> s{_eAbortableOperationInProgress = a});
 
--- | For load-balanced, autoscaling environments, the URL to the
--- LoadBalancer. For single-instance environments, the IP address of the
--- instance.
+-- | For load-balanced, autoscaling environments, the URL to the LoadBalancer. For single-instance environments, the IP address of the instance.
 eEndpointURL :: Lens' EnvironmentDescription (Maybe Text)
 eEndpointURL = lens _eEndpointURL (\ s a -> s{_eEndpointURL = a});
 
@@ -989,18 +934,12 @@ eDateUpdated = lens _eDateUpdated (\ s a -> s{_eDateUpdated = a}) . mapping _Tim
 eDateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
 eDateCreated = lens _eDateCreated (\ s a -> s{_eDateCreated = a}) . mapping _Time;
 
--- | Describes the health status of the environment. AWS Elastic Beanstalk
--- indicates the failure levels for a running environment:
+-- | Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:
 --
--- -   'Red': Indicates the environment is not responsive. Occurs when
---     three or more consecutive failures occur for an environment.
--- -   'Yellow': Indicates that something is wrong. Occurs when two
---     consecutive failures occur for an environment.
+-- -   'Red': Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.
+-- -   'Yellow': Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.
 -- -   'Green': Indicates the environment is healthy and fully functional.
--- -   'Grey': Default health for a new environment. The environment is not
---     fully launched and health checks have not started or health checks
---     are suspended during an 'UpdateEnvironment' or 'RestartEnvironement'
---     request.
+-- -   'Grey': Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an 'UpdateEnvironment' or 'RestartEnvironement' request.
 --
 -- Default: 'Grey'
 eHealth :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
@@ -1030,9 +969,7 @@ eSolutionStackName = lens _eSolutionStackName (\ s a -> s{_eSolutionStackName = 
 eEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
 eEnvironmentId = lens _eEnvironmentId (\ s a -> s{_eEnvironmentId = a});
 
--- | Returns the health status of the application running in your
--- environment. For more information, see
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+-- | Returns the health status of the application running in your environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
 eHealthStatus :: Lens' EnvironmentDescription (Maybe EnvironmentHealthStatus)
 eHealthStatus = lens _eHealthStatus (\ s a -> s{_eHealthStatus = a});
 
@@ -1162,11 +1099,7 @@ instance Hashable EnvironmentInfoDescription
 
 instance NFData EnvironmentInfoDescription
 
--- | A link to another environment, defined in the environment\'s manifest.
--- Links provide connection information in system properties that can be
--- used to connect to another environment in the same group. See
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
--- for details.
+-- | A link to another environment, defined in the environment\'s manifest. Links provide connection information in system properties that can be used to connect to another environment in the same group. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 --
 -- /See:/ 'environmentLink' smart constructor.
 data EnvironmentLink = EnvironmentLink'
@@ -1206,8 +1139,7 @@ instance Hashable EnvironmentLink
 
 instance NFData EnvironmentLink
 
--- | Describes the AWS resources in use by this environment. This data is
--- live.
+-- | Describes the AWS resources in use by this environment. This data is live.
 --
 -- /See:/ 'environmentResourceDescription' smart constructor.
 data EnvironmentResourceDescription = EnvironmentResourceDescription'
@@ -1304,8 +1236,7 @@ instance Hashable EnvironmentResourceDescription
 
 instance NFData EnvironmentResourceDescription
 
--- | Describes the AWS resources in use by this environment. This data is not
--- live data.
+-- | Describes the AWS resources in use by this environment. This data is not live data.
 --
 -- /See:/ 'environmentResourcesDescription' smart constructor.
 newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription'
@@ -1452,8 +1383,7 @@ edTemplateName = lens _edTemplateName (\ s a -> s{_edTemplateName = a});
 edSeverity :: Lens' EventDescription (Maybe EventSeverity)
 edSeverity = lens _edSeverity (\ s a -> s{_edSeverity = a});
 
--- | The release label for the application version associated with this
--- event.
+-- | The release label for the application version associated with this event.
 edVersionLabel :: Lens' EventDescription (Maybe Text)
 edVersionLabel = lens _edVersionLabel (\ s a -> s{_edVersionLabel = a});
 
@@ -1518,9 +1448,7 @@ instance Hashable Instance
 
 instance NFData Instance
 
--- | Represents summary information about the health of an instance. For more
--- information, see
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+-- | Represents summary information about the health of an instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
 --
 -- /See:/ 'instanceHealthSummary' smart constructor.
 data InstanceHealthSummary = InstanceHealthSummary'
@@ -1567,38 +1495,31 @@ instanceHealthSummary =
     , _ihsInfo = Nothing
     }
 
--- | __Green.__ An instance is passing health checks and the health agent is
--- not reporting any problems.
+-- | __Green.__ An instance is passing health checks and the health agent is not reporting any problems.
 ihsOK :: Lens' InstanceHealthSummary (Maybe Int)
 ihsOK = lens _ihsOK (\ s a -> s{_ihsOK = a});
 
--- | __Grey.__ An operation is in progress on an instance within the command
--- timeout.
+-- | __Grey.__ An operation is in progress on an instance within the command timeout.
 ihsPending :: Lens' InstanceHealthSummary (Maybe Int)
 ihsPending = lens _ihsPending (\ s a -> s{_ihsPending = a});
 
--- | __Red.__ The health agent is reporting a very high number of request
--- failures or other issues for an instance or environment.
+-- | __Red.__ The health agent is reporting a very high number of request failures or other issues for an instance or environment.
 ihsSevere :: Lens' InstanceHealthSummary (Maybe Int)
 ihsSevere = lens _ihsSevere (\ s a -> s{_ihsSevere = a});
 
--- | __Grey.__ AWS Elastic Beanstalk and the health agent are reporting an
--- insufficient amount of data on an instance.
+-- | __Grey.__ AWS Elastic Beanstalk and the health agent are reporting an insufficient amount of data on an instance.
 ihsUnknown :: Lens' InstanceHealthSummary (Maybe Int)
 ihsUnknown = lens _ihsUnknown (\ s a -> s{_ihsUnknown = a});
 
--- | __Grey.__ AWS Elastic Beanstalk and the health agent are reporting no
--- data on an instance.
+-- | __Grey.__ AWS Elastic Beanstalk and the health agent are reporting no data on an instance.
 ihsNoData :: Lens' InstanceHealthSummary (Maybe Int)
 ihsNoData = lens _ihsNoData (\ s a -> s{_ihsNoData = a});
 
--- | __Yellow.__ The health agent is reporting a moderate number of request
--- failures or other issues for an instance or environment.
+-- | __Yellow.__ The health agent is reporting a moderate number of request failures or other issues for an instance or environment.
 ihsWarning :: Lens' InstanceHealthSummary (Maybe Int)
 ihsWarning = lens _ihsWarning (\ s a -> s{_ihsWarning = a});
 
--- | __Red.__ The health agent is reporting a high number of request failures
--- or other issues for an instance or environment.
+-- | __Red.__ The health agent is reporting a high number of request failures or other issues for an instance or environment.
 ihsDegraded :: Lens' InstanceHealthSummary (Maybe Int)
 ihsDegraded = lens _ihsDegraded (\ s a -> s{_ihsDegraded = a});
 
@@ -1621,8 +1542,7 @@ instance Hashable InstanceHealthSummary
 
 instance NFData InstanceHealthSummary
 
--- | Represents the average latency for the slowest X percent of requests
--- over the last 10 seconds.
+-- | Represents the average latency for the slowest X percent of requests over the last 10 seconds.
 --
 -- /See:/ 'latency' smart constructor.
 data Latency = Latency'
@@ -1669,43 +1589,35 @@ latency =
     , _lP10 = Nothing
     }
 
--- | The average latency for the slowest 25 percent of requests over the last
--- 10 seconds.
+-- | The average latency for the slowest 25 percent of requests over the last 10 seconds.
 lP75 :: Lens' Latency (Maybe Double)
 lP75 = lens _lP75 (\ s a -> s{_lP75 = a});
 
--- | The average latency for the slowest 50 percent of requests over the last
--- 10 seconds.
+-- | The average latency for the slowest 50 percent of requests over the last 10 seconds.
 lP50 :: Lens' Latency (Maybe Double)
 lP50 = lens _lP50 (\ s a -> s{_lP50 = a});
 
--- | The average latency for the slowest 15 percent of requests over the last
--- 10 seconds.
+-- | The average latency for the slowest 15 percent of requests over the last 10 seconds.
 lP85 :: Lens' Latency (Maybe Double)
 lP85 = lens _lP85 (\ s a -> s{_lP85 = a});
 
--- | The average latency for the slowest 0.1 percent of requests over the
--- last 10 seconds.
+-- | The average latency for the slowest 0.1 percent of requests over the last 10 seconds.
 lP999 :: Lens' Latency (Maybe Double)
 lP999 = lens _lP999 (\ s a -> s{_lP999 = a});
 
--- | The average latency for the slowest 10 percent of requests over the last
--- 10 seconds.
+-- | The average latency for the slowest 10 percent of requests over the last 10 seconds.
 lP90 :: Lens' Latency (Maybe Double)
 lP90 = lens _lP90 (\ s a -> s{_lP90 = a});
 
--- | The average latency for the slowest 5 percent of requests over the last
--- 10 seconds.
+-- | The average latency for the slowest 5 percent of requests over the last 10 seconds.
 lP95 :: Lens' Latency (Maybe Double)
 lP95 = lens _lP95 (\ s a -> s{_lP95 = a});
 
--- | The average latency for the slowest 1 percent of requests over the last
--- 10 seconds.
+-- | The average latency for the slowest 1 percent of requests over the last 10 seconds.
 lP99 :: Lens' Latency (Maybe Double)
 lP99 = lens _lP99 (\ s a -> s{_lP99 = a});
 
--- | The average latency for the slowest 90 percent of requests over the last
--- 10 seconds.
+-- | The average latency for the slowest 90 percent of requests over the last 10 seconds.
 lP10 :: Lens' Latency (Maybe Double)
 lP10 = lens _lP10 (\ s a -> s{_lP10 = a});
 
@@ -1907,8 +1819,7 @@ managedAction =
     , _maActionType = Nothing
     }
 
--- | The status of the managed action. If the action is 'Scheduled', you can
--- apply it immediately with < ApplyEnvironmentManagedAction>.
+-- | The status of the managed action. If the action is 'Scheduled', you can apply it immediately with < ApplyEnvironmentManagedAction>.
 maStatus :: Lens' ManagedAction (Maybe ActionStatus)
 maStatus = lens _maStatus (\ s a -> s{_maStatus = a});
 
@@ -1916,8 +1827,7 @@ maStatus = lens _maStatus (\ s a -> s{_maStatus = a});
 maActionId :: Lens' ManagedAction (Maybe Text)
 maActionId = lens _maActionId (\ s a -> s{_maActionId = a});
 
--- | The start time of the maintenance window in which the managed action
--- will execute.
+-- | The start time of the maintenance window in which the managed action will execute.
 maWindowStartTime :: Lens' ManagedAction (Maybe UTCTime)
 maWindowStartTime = lens _maWindowStartTime (\ s a -> s{_maWindowStartTime = a}) . mapping _Time;
 
@@ -2035,8 +1945,7 @@ instance Hashable ManagedActionHistoryItem
 
 instance NFData ManagedActionHistoryItem
 
--- | A regular expression representing a restriction on a string
--- configuration option value.
+-- | A regular expression representing a restriction on a string configuration option value.
 --
 -- /See:/ 'optionRestrictionRegex' smart constructor.
 data OptionRestrictionRegex = OptionRestrictionRegex'
@@ -2059,8 +1968,7 @@ optionRestrictionRegex =
     , _orrLabel = Nothing
     }
 
--- | The regular expression pattern that a string configuration option value
--- with this restriction must match.
+-- | The regular expression pattern that a string configuration option value with this restriction must match.
 orrPattern :: Lens' OptionRestrictionRegex (Maybe Text)
 orrPattern = lens _orrPattern (\ s a -> s{_orrPattern = a});
 
@@ -2211,10 +2119,7 @@ instance ToQuery S3Location where
           = mconcat
               ["S3Key" =: _slS3Key, "S3Bucket" =: _slS3Bucket]
 
--- | Represents health information from the specified instance that belongs
--- to the AWS Elastic Beanstalk environment. Use the 'InstanceId' property
--- to specify the application instance for which you\'d like to return
--- data.
+-- | Represents health information from the specified instance that belongs to the AWS Elastic Beanstalk environment. Use the 'InstanceId' property to specify the application instance for which you\'d like to return data.
 --
 -- /See:/ 'singleInstanceHealth' smart constructor.
 data SingleInstanceHealth = SingleInstanceHealth'
@@ -2273,8 +2178,7 @@ singleInstanceHealth =
 sihInstanceId :: Lens' SingleInstanceHealth (Maybe Text)
 sihInstanceId = lens _sihInstanceId (\ s a -> s{_sihInstanceId = a});
 
--- | Represents the causes, which provide more information about the current
--- health status.
+-- | Represents the causes, which provide more information about the current health status.
 sihCauses :: Lens' SingleInstanceHealth [Text]
 sihCauses = lens _sihCauses (\ s a -> s{_sihCauses = a}) . _Default . _Coerce;
 
@@ -2286,9 +2190,7 @@ sihSystem = lens _sihSystem (\ s a -> s{_sihSystem = a});
 sihApplicationMetrics :: Lens' SingleInstanceHealth (Maybe ApplicationMetrics)
 sihApplicationMetrics = lens _sihApplicationMetrics (\ s a -> s{_sihApplicationMetrics = a});
 
--- | Represents the color indicator that gives you information about the
--- health of the EC2 instance. For more information, see
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+-- | Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
 sihColor :: Lens' SingleInstanceHealth (Maybe Text)
 sihColor = lens _sihColor (\ s a -> s{_sihColor = a});
 
@@ -2300,9 +2202,7 @@ sihInstanceType = lens _sihInstanceType (\ s a -> s{_sihInstanceType = a});
 sihAvailabilityZone :: Lens' SingleInstanceHealth (Maybe Text)
 sihAvailabilityZone = lens _sihAvailabilityZone (\ s a -> s{_sihAvailabilityZone = a});
 
--- | Returns the health status of the specified instance. For more
--- information, see
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+-- | Returns the health status of the specified instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
 sihHealthStatus :: Lens' SingleInstanceHealth (Maybe Text)
 sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a});
 
@@ -2416,9 +2316,7 @@ instance ToQuery SourceConfiguration where
               ["TemplateName" =: _scTemplateName,
                "ApplicationName" =: _scApplicationName]
 
--- | Represents the percentage of requests over the last 10 seconds that
--- resulted in each type of status code response. For more information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html Status Code Definitions>.
+-- | Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html Status Code Definitions>.
 --
 -- /See:/ 'statusCodes' smart constructor.
 data StatusCodes = StatusCodes'
@@ -2449,23 +2347,19 @@ statusCodes =
     , _scStatus5xx = Nothing
     }
 
--- | The percentage of requests over the last 10 seconds that resulted in a
--- 2xx (200, 201, etc.) status code.
+-- | The percentage of requests over the last 10 seconds that resulted in a 2xx (200, 201, etc.) status code.
 scStatus2xx :: Lens' StatusCodes (Maybe Int)
 scStatus2xx = lens _scStatus2xx (\ s a -> s{_scStatus2xx = a});
 
--- | The percentage of requests over the last 10 seconds that resulted in a
--- 3xx (300, 301, etc.) status code.
+-- | The percentage of requests over the last 10 seconds that resulted in a 3xx (300, 301, etc.) status code.
 scStatus3xx :: Lens' StatusCodes (Maybe Int)
 scStatus3xx = lens _scStatus3xx (\ s a -> s{_scStatus3xx = a});
 
--- | The percentage of requests over the last 10 seconds that resulted in a
--- 4xx (400, 401, etc.) status code.
+-- | The percentage of requests over the last 10 seconds that resulted in a 4xx (400, 401, etc.) status code.
 scStatus4xx :: Lens' StatusCodes (Maybe Int)
 scStatus4xx = lens _scStatus4xx (\ s a -> s{_scStatus4xx = a});
 
--- | The percentage of requests over the last 10 seconds that resulted in a
--- 5xx (500, 501, etc.) status code.
+-- | The percentage of requests over the last 10 seconds that resulted in a 5xx (500, 501, etc.) status code.
 scStatus5xx :: Lens' StatusCodes (Maybe Int)
 scStatus5xx = lens _scStatus5xx (\ s a -> s{_scStatus5xx = a});
 
@@ -2480,8 +2374,7 @@ instance Hashable StatusCodes
 
 instance NFData StatusCodes
 
--- | Represents CPU utilization and load average information for applications
--- running in the specified environment.
+-- | Represents CPU utilization and load average information for applications running in the specified environment.
 --
 -- /See:/ 'systemStatus' smart constructor.
 data SystemStatus = SystemStatus'
@@ -2508,9 +2401,7 @@ systemStatus =
 ssCPUUtilization :: Lens' SystemStatus (Maybe CPUUtilization)
 ssCPUUtilization = lens _ssCPUUtilization (\ s a -> s{_ssCPUUtilization = a});
 
--- | Load average in the last 1-minute and 5-minute periods. For more
--- information, see
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics>.
+-- | Load average in the last 1-minute and 5-minute periods. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics>.
 ssLoadAverage :: Lens' SystemStatus [Double]
 ssLoadAverage = lens _ssLoadAverage (\ s a -> s{_ssLoadAverage = a}) . _Default . _Coerce;
 
@@ -2631,10 +2522,8 @@ vmOptionName = lens _vmOptionName (\ s a -> s{_vmOptionName = a});
 
 -- | An indication of the severity of this message:
 --
--- -   'error': This message indicates that this is not a valid setting for
---     an option.
--- -   'warning': This message is providing information you should take
---     into account.
+-- -   'error': This message indicates that this is not a valid setting for an option.
+-- -   'warning': This message is providing information you should take into account.
 vmSeverity :: Lens' ValidationMessage (Maybe ValidationSeverity)
 vmSeverity = lens _vmSeverity (\ s a -> s{_vmSeverity = a});
 

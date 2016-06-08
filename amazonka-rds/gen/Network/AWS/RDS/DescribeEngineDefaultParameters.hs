@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the default engine and system parameter information for the
--- specified database engine.
+-- Returns the default engine and system parameter information for the specified database engine.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEngineDefaultParameters
@@ -85,17 +84,11 @@ describeEngineDefaultParameters pDBParameterGroupFamily_ =
 dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
 dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous
--- 'DescribeEngineDefaultParameters' request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribeEngineDefaultParameters' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
 dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --

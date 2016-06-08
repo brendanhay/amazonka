@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeReservedCacheNodes/ action returns information about
--- reserved cache nodes for this account, or about a specified reserved
--- cache node.
+-- The /DescribeReservedCacheNodes/ action returns information about reserved cache nodes for this account, or about a specified reserved cache node.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeReservedCacheNodes
@@ -102,56 +100,37 @@ describeReservedCacheNodes =
     , _drcnReservedCacheNodesOfferingId = Nothing
     }
 
--- | The cache node type filter value. Use this parameter to show only those
--- reservations matching the specified cache node type.
+-- | The cache node type filter value. Use this parameter to show only those reservations matching the specified cache node type.
 --
 -- Valid node types are as follows:
 --
 -- -   General purpose:
---     -   Current generation: 'cache.t2.micro', 'cache.t2.small',
---         'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large',
---         'cache.m3.xlarge', 'cache.m3.2xlarge'
---     -   Previous generation: 'cache.t1.micro', 'cache.m1.small',
---         'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+--     -   Current generation: 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge'
+--     -   Previous generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
 -- -   Compute optimized: 'cache.c1.xlarge'
 -- -   Memory optimized
---     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge',
---         'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
---     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge',
---         'cache.m2.4xlarge'
+--     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge', 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
--- -   All t2 instances are created in an Amazon Virtual Private Cloud
---     (VPC).
+-- -   All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
 -- -   Redis backup\/restore is not supported for t2 instances.
--- -   Redis Append-only files (AOF) functionality is not supported for t1
---     or t2 instances.
+-- -   Redis Append-only files (AOF) functionality is not supported for t1 or t2 instances.
 --
--- For a complete listing of cache node types and specifications, see
--- <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details>
--- and
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached>
--- or
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
+-- For a complete listing of cache node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
 drcnCacheNodeType :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnCacheNodeType = lens _drcnCacheNodeType (\ s a -> s{_drcnCacheNodeType = a});
 
--- | The product description filter value. Use this parameter to show only
--- those reservations matching the specified product description.
+-- | The product description filter value. Use this parameter to show only those reservations matching the specified product description.
 drcnProductDescription :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnProductDescription = lens _drcnProductDescription (\ s a -> s{_drcnProductDescription = a});
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/.
 drcnMarker :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnMarker = lens _drcnMarker (\ s a -> s{_drcnMarker = a});
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified 'MaxRecords' value, a marker is
--- included in the response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
@@ -159,28 +138,23 @@ drcnMarker = lens _drcnMarker (\ s a -> s{_drcnMarker = a});
 drcnMaxRecords :: Lens' DescribeReservedCacheNodes (Maybe Int)
 drcnMaxRecords = lens _drcnMaxRecords (\ s a -> s{_drcnMaxRecords = a});
 
--- | The reserved cache node identifier filter value. Use this parameter to
--- show only the reservation that matches the specified reservation ID.
+-- | The reserved cache node identifier filter value. Use this parameter to show only the reservation that matches the specified reservation ID.
 drcnReservedCacheNodeId :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnReservedCacheNodeId = lens _drcnReservedCacheNodeId (\ s a -> s{_drcnReservedCacheNodeId = a});
 
--- | The offering type filter value. Use this parameter to show only the
--- available offerings matching the specified offering type.
+-- | The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type.
 --
--- Valid values:
--- '\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"'
+-- Valid values: '\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"'
 drcnOfferingType :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnOfferingType = lens _drcnOfferingType (\ s a -> s{_drcnOfferingType = a});
 
--- | The duration filter value, specified in years or seconds. Use this
--- parameter to show only reservations for this duration.
+-- | The duration filter value, specified in years or seconds. Use this parameter to show only reservations for this duration.
 --
 -- Valid Values: '1 | 3 | 31536000 | 94608000'
 drcnDuration :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnDuration = lens _drcnDuration (\ s a -> s{_drcnDuration = a});
 
--- | The offering identifier filter value. Use this parameter to show only
--- purchased reservations matching the specified offering identifier.
+-- | The offering identifier filter value. Use this parameter to show only purchased reservations matching the specified offering identifier.
 drcnReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodes (Maybe Text)
 drcnReservedCacheNodesOfferingId = lens _drcnReservedCacheNodesOfferingId (\ s a -> s{_drcnReservedCacheNodesOfferingId = a});
 
@@ -263,8 +237,7 @@ describeReservedCacheNodesResponse pResponseStatus_ =
 drcnrsMarker :: Lens' DescribeReservedCacheNodesResponse (Maybe Text)
 drcnrsMarker = lens _drcnrsMarker (\ s a -> s{_drcnrsMarker = a});
 
--- | A list of reserved cache nodes. Each element in the list contains
--- detailed information about one node.
+-- | A list of reserved cache nodes. Each element in the list contains detailed information about one node.
 drcnrsReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCacheNode]
 drcnrsReservedCacheNodes = lens _drcnrsReservedCacheNodes (\ s a -> s{_drcnrsReservedCacheNodes = a}) . _Default . _Coerce;
 

@@ -18,21 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds tasks, schedules, and preconditions to the specified pipeline. You
--- can use 'PutPipelineDefinition' to populate a new pipeline.
+-- Adds tasks, schedules, and preconditions to the specified pipeline. You can use 'PutPipelineDefinition' to populate a new pipeline.
 --
--- 'PutPipelineDefinition' also validates the configuration as it adds it
--- to the pipeline. Changes to the pipeline are saved unless one of the
--- following three validation errors exists in the pipeline.
+-- 'PutPipelineDefinition' also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one of the following three validation errors exists in the pipeline.
 --
 -- 1.  An object is missing a name or identifier field.
 -- 2.  A string or reference field is empty.
--- 3.  The number of objects in the pipeline exceeds the maximum allowed
---     objects.
+-- 3.  The number of objects in the pipeline exceeds the maximum allowed objects.
 -- 4.  The pipeline is in a FINISHED state.
 --
--- Pipeline object definitions are passed to the 'PutPipelineDefinition'
--- action and returned by the < GetPipelineDefinition> action.
+-- Pipeline object definitions are passed to the 'PutPipelineDefinition' action and returned by the < GetPipelineDefinition> action.
 module Network.AWS.DataPipeline.PutPipelineDefinition
     (
     -- * Creating a Request
@@ -105,8 +100,7 @@ ppdParameterValues = lens _ppdParameterValues (\ s a -> s{_ppdParameterValues = 
 ppdPipelineId :: Lens' PutPipelineDefinition Text
 ppdPipelineId = lens _ppdPipelineId (\ s a -> s{_ppdPipelineId = a});
 
--- | The objects that define the pipeline. These objects overwrite the
--- existing pipeline definition.
+-- | The objects that define the pipeline. These objects overwrite the existing pipeline definition.
 ppdPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
 ppdPipelineObjects = lens _ppdPipelineObjects (\ s a -> s{_ppdPipelineObjects = a}) . _Coerce;
 
@@ -184,13 +178,11 @@ putPipelineDefinitionResponse pResponseStatus_ pErrored_ =
     , _ppdrsErrored = pErrored_
     }
 
--- | The validation errors that are associated with the objects defined in
--- 'pipelineObjects'.
+-- | The validation errors that are associated with the objects defined in 'pipelineObjects'.
 ppdrsValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
 ppdrsValidationErrors = lens _ppdrsValidationErrors (\ s a -> s{_ppdrsValidationErrors = a}) . _Default . _Coerce;
 
--- | The validation warnings that are associated with the objects defined in
--- 'pipelineObjects'.
+-- | The validation warnings that are associated with the objects defined in 'pipelineObjects'.
 ppdrsValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
 ppdrsValidationWarnings = lens _ppdrsValidationWarnings (\ s a -> s{_ppdrsValidationWarnings = a}) . _Default . _Coerce;
 
@@ -198,10 +190,7 @@ ppdrsValidationWarnings = lens _ppdrsValidationWarnings (\ s a -> s{_ppdrsValida
 ppdrsResponseStatus :: Lens' PutPipelineDefinitionResponse Int
 ppdrsResponseStatus = lens _ppdrsResponseStatus (\ s a -> s{_ppdrsResponseStatus = a});
 
--- | Indicates whether there were validation errors, and the pipeline
--- definition is stored but cannot be activated until you correct the
--- pipeline and call 'PutPipelineDefinition' to commit the corrected
--- pipeline.
+-- | Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call 'PutPipelineDefinition' to commit the corrected pipeline.
 ppdrsErrored :: Lens' PutPipelineDefinitionResponse Bool
 ppdrsErrored = lens _ppdrsErrored (\ s a -> s{_ppdrsErrored = a});
 

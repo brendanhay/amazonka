@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified NAT gateway. Deleting a NAT gateway disassociates
--- its Elastic IP address, but does not release the address from your
--- account. Deleting a NAT gateway does not delete any NAT gateway routes
--- in your route tables.
+-- Deletes the specified NAT gateway. Deleting a NAT gateway disassociates its Elastic IP address, but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway routes in your route tables.
 module Network.AWS.EC2.DeleteNatGateway
     (
     -- * Creating a Request

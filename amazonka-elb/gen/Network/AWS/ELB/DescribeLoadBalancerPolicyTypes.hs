@@ -20,8 +20,7 @@
 --
 -- Describes the specified load balancer policy types.
 --
--- You can use these policy types with < CreateLoadBalancerPolicy> to
--- create policy configurations for a load balancer.
+-- You can use these policy types with < CreateLoadBalancerPolicy> to create policy configurations for a load balancer.
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     (
     -- * Creating a Request
@@ -62,8 +61,7 @@ describeLoadBalancerPolicyTypes =
     { _dlbptPolicyTypeNames = Nothing
     }
 
--- | The names of the policy types. If no names are specified, describes all
--- policy types defined by Elastic Load Balancing.
+-- | The names of the policy types. If no names are specified, describes all policy types defined by Elastic Load Balancing.
 dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
 dlbptPolicyTypeNames = lens _dlbptPolicyTypeNames (\ s a -> s{_dlbptPolicyTypeNames = a}) . _Default . _Coerce;
 

@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the assessment target that is specified by the ARN of the
--- assessment target.
+-- Deletes the assessment target that is specified by the ARN of the assessment target.
 module Network.AWS.Inspector.DeleteAssessmentTarget
     (
     -- * Creating a Request

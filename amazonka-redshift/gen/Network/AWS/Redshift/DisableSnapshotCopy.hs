@@ -18,13 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables the automatic copying of snapshots from one region to another
--- region for a specified cluster.
+-- Disables the automatic copying of snapshots from one region to another region for a specified cluster.
 --
--- If your cluster and its snapshots are encrypted using a customer master
--- key (CMK) from AWS KMS, use < DeleteSnapshotCopyGrant> to delete the
--- grant that grants Amazon Redshift permission to the CMK in the
--- destination region.
+-- If your cluster and its snapshots are encrypted using a customer master key (CMK) from AWS KMS, use < DeleteSnapshotCopyGrant> to delete the grant that grants Amazon Redshift permission to the CMK in the destination region.
 module Network.AWS.Redshift.DisableSnapshotCopy
     (
     -- * Creating a Request
@@ -68,11 +64,9 @@ disableSnapshotCopy pClusterIdentifier_ =
     { _dscClusterIdentifier = pClusterIdentifier_
     }
 
--- | The unique identifier of the source cluster that you want to disable
--- copying of snapshots to a destination region.
+-- | The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region.
 --
--- Constraints: Must be the valid name of an existing cluster that has
--- cross-region snapshot copy enabled.
+-- Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
 dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
 dscClusterIdentifier = lens _dscClusterIdentifier (\ s a -> s{_dscClusterIdentifier = a});
 

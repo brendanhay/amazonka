@@ -20,9 +20,7 @@
 --
 -- Sets the size of the specified Auto Scaling group.
 --
--- For more information about desired capacity, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html What Is Auto Scaling?>
--- in the /Auto Scaling Developer Guide/.
+-- For more information about desired capacity, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html What Is Auto Scaling?> in the /Auto Scaling Developer Guide/.
 module Network.AWS.AutoScaling.SetDesiredCapacity
     (
     -- * Creating a Request
@@ -72,11 +70,7 @@ setDesiredCapacity pAutoScalingGroupName_ pDesiredCapacity_ =
     , _sdcDesiredCapacity = pDesiredCapacity_
     }
 
--- | By default, 'SetDesiredCapacity' overrides any cooldown period
--- associated with the Auto Scaling group. Specify 'True' to make Auto
--- Scaling to wait for the cool-down period associated with the Auto
--- Scaling group to complete before initiating a scaling activity to set
--- your Auto Scaling group to its new capacity.
+-- | By default, 'SetDesiredCapacity' overrides any cooldown period associated with the Auto Scaling group. Specify 'True' to make Auto Scaling to wait for the cool-down period associated with the Auto Scaling group to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity.
 sdcHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
 sdcHonorCooldown = lens _sdcHonorCooldown (\ s a -> s{_sdcHonorCooldown = a});
 
@@ -84,8 +78,7 @@ sdcHonorCooldown = lens _sdcHonorCooldown (\ s a -> s{_sdcHonorCooldown = a});
 sdcAutoScalingGroupName :: Lens' SetDesiredCapacity Text
 sdcAutoScalingGroupName = lens _sdcAutoScalingGroupName (\ s a -> s{_sdcAutoScalingGroupName = a});
 
--- | The number of EC2 instances that should be running in the Auto Scaling
--- group.
+-- | The number of EC2 instances that should be running in the Auto Scaling group.
 sdcDesiredCapacity :: Lens' SetDesiredCapacity Int
 sdcDesiredCapacity = lens _sdcDesiredCapacity (\ s a -> s{_sdcDesiredCapacity = a});
 

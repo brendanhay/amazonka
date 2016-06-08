@@ -62,8 +62,7 @@ createApplication pApplicationName_ =
     { _caApplicationName = pApplicationName_
     }
 
--- | The name of the application. This name must be unique with the
--- applicable IAM user or AWS account.
+-- | The name of the application. This name must be unique with the applicable IAM user or AWS account.
 caApplicationName :: Lens' CreateApplication Text
 caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
 

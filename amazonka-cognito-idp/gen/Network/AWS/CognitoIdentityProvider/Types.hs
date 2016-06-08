@@ -217,20 +217,17 @@ cognitoIdentityProvider =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | This exception is thrown when the Amazon Cognito service encounters an
--- invalid parameter.
+-- | This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasCode "InvalidParameterException"
 
--- | This exception is thrown when the Amazon Cognito service encounters an
--- invalid AWS Lambda response.
+-- | This exception is thrown when the Amazon Cognito service encounters an invalid AWS Lambda response.
 _InvalidLambdaResponseException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLambdaResponseException =
     _ServiceError . hasCode "InvalidLambdaResponseException"
 
--- | This exception gets thrown when the Amazon Cognito service encounters an
--- unexpected exception with the AWS Lambda service.
+-- | This exception gets thrown when the Amazon Cognito service encounters an unexpected exception with the AWS Lambda service.
 _UnexpectedLambdaException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnexpectedLambdaException =
     _ServiceError . hasCode "UnexpectedLambdaException"
@@ -239,29 +236,24 @@ _UnexpectedLambdaException =
 _NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotAuthorizedException = _ServiceError . hasCode "NotAuthorizedException"
 
--- | This exception is thrown when Amazon Cognito encounters an internal
--- error.
+-- | This exception is thrown when Amazon Cognito encounters an internal error.
 _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalErrorException = _ServiceError . hasCode "InternalErrorException"
 
--- | This exception is thrown if the provided code does not match what the
--- server was expecting.
+-- | This exception is thrown if the provided code does not match what the server was expecting.
 _CodeMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
 _CodeMismatchException = _ServiceError . hasCode "CodeMismatchException"
 
--- | This exception gets thrown when the user has made too many requests for
--- a given operation.
+-- | This exception gets thrown when the user has made too many requests for a given operation.
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException = _ServiceError . hasCode "TooManyRequestsException"
 
--- | This exception is thrown if two or more modifications are happening
--- concurrently.
+-- | This exception is thrown if two or more modifications are happening concurrently.
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
     _ServiceError . hasCode "ConcurrentModificationException"
 
--- | This exception gets thrown when the Amazon Cognito service encounters a
--- user validation exception with the AWS Lambda service.
+-- | This exception gets thrown when the Amazon Cognito service encounters a user validation exception with the AWS Lambda service.
 _UserLambdaValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _UserLambdaValidationException =
     _ServiceError . hasCode "UserLambdaValidationException"
@@ -270,36 +262,28 @@ _UserLambdaValidationException =
 _ExpiredCodeException :: AsError a => Getting (First ServiceError) a ServiceError
 _ExpiredCodeException = _ServiceError . hasCode "ExpiredCodeException"
 
--- | This exception gets thrown when the user has made too many failed
--- attempts for a given action (e.g., sign in).
+-- | This exception gets thrown when the user has made too many failed attempts for a given action (e.g., sign in).
 _TooManyFailedAttemptsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyFailedAttemptsException =
     _ServiceError . hasCode "TooManyFailedAttemptsException"
 
--- | This exception is thrown when the Amazon Cognito service cannot find the
--- requested resource.
+-- | This exception is thrown when the Amazon Cognito service cannot find the requested resource.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
--- | This exception is thrown when a user tries to confirm the account with
--- an email or phone number that has already been supplied as an alias from
--- a different account. This exception tells user that an account with this
--- email or phone already exists.
+-- | This exception is thrown when a user tries to confirm the account with an email or phone number that has already been supplied as an alias from a different account. This exception tells user that an account with this email or phone already exists.
 _AliasExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _AliasExistsException = _ServiceError . hasCode "AliasExistsException"
 
--- | This exception is thrown when a user exceeds the limit for a requested
--- AWS resource.
+-- | This exception is thrown when a user exceeds the limit for a requested AWS resource.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 
--- | This exception is thrown when the Amazon Cognito service encounters an
--- invalid password.
+-- | This exception is thrown when the Amazon Cognito service encounters an invalid password.
 _InvalidPasswordException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPasswordException = _ServiceError . hasCode "InvalidPasswordException"
 
--- | This exception is thrown when Amazon Cognito encounters a user name that
--- already exists in the user pool.
+-- | This exception is thrown when Amazon Cognito encounters a user name that already exists in the user pool.
 _UsernameExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _UsernameExistsException = _ServiceError . hasCode "UsernameExistsException"

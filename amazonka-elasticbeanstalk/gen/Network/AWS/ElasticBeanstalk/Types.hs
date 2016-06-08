@@ -448,8 +448,7 @@ elasticBeanstalk =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | One or more input parameters is not valid. Please correct the input
--- parameters and try the operation again.
+-- | One or more input parameters is not valid. Please correct the input parameters and try the operation again.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestException"
@@ -464,8 +463,7 @@ _S3SubscriptionRequiredException :: AsError a => Getting (First ServiceError) a 
 _S3SubscriptionRequiredException =
     _ServiceError . hasStatus 400 . hasCode "S3SubscriptionRequiredException"
 
--- | Unable to perform the specified operation because another operation that
--- effects an element in this activity is already in progress.
+-- | Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.
 _OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationInProgressException =
     _ServiceError . hasStatus 400 . hasCode "OperationInProgressFailure"
@@ -481,8 +479,7 @@ _TooManyConfigurationTemplatesException =
     _ServiceError .
     hasStatus 400 . hasCode "TooManyConfigurationTemplatesException"
 
--- | The specified account does not have sufficient privileges for one of
--- more AWS services.
+-- | The specified account does not have sufficient privileges for one of more AWS services.
 _InsufficientPrivilegesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientPrivilegesException =
     _ServiceError . hasStatus 403 . hasCode "InsufficientPrivilegesException"
@@ -503,14 +500,12 @@ _ManagedActionInvalidStateException =
     _ServiceError .
     hasStatus 400 . hasCode "ManagedActionInvalidStateException"
 
--- | Unable to delete the Amazon S3 source bundle associated with the
--- application version. The application version was deleted successfully.
+-- | Unable to delete the Amazon S3 source bundle associated with the application version. The application version was deleted successfully.
 _SourceBundleDeletionException :: AsError a => Getting (First ServiceError) a ServiceError
 _SourceBundleDeletionException =
     _ServiceError . hasStatus 400 . hasCode "SourceBundleDeletionFailure"
 
--- | The specified S3 bucket does not belong to the S3 region in which the
--- service is running.
+-- | The specified S3 bucket does not belong to the S3 region in which the service is running.
 _S3LocationNotInServiceRegionException :: AsError a => Getting (First ServiceError) a ServiceError
 _S3LocationNotInServiceRegionException =
     _ServiceError .

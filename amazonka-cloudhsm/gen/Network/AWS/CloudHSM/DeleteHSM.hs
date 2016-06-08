@@ -18,8 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an HSM. After completion, this operation cannot be undone and
--- your key material cannot be recovered.
+-- Deletes an HSM. After completion, this operation cannot be undone and your key material cannot be recovered.
 module Network.AWS.CloudHSM.DeleteHSM
     (
     -- * Creating a Request

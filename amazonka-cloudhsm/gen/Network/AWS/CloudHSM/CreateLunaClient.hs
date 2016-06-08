@@ -71,8 +71,7 @@ createLunaClient pCertificate_ =
 clcLabel :: Lens' CreateLunaClient (Maybe Text)
 clcLabel = lens _clcLabel (\ s a -> s{_clcLabel = a});
 
--- | The contents of a Base64-Encoded X.509 v3 certificate to be installed on
--- the HSMs used by this client.
+-- | The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client.
 clcCertificate :: Lens' CreateLunaClient Text
 clcCertificate = lens _clcCertificate (\ s a -> s{_clcCertificate = a});
 

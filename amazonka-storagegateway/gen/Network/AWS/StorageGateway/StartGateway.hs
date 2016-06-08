@@ -18,19 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a gateway that you previously shut down (see < ShutdownGateway>).
--- After the gateway starts, you can then make other API calls, your
--- applications can read from or write to the gateway\'s storage volumes
--- and you will be able to take snapshot backups.
+-- Starts a gateway that you previously shut down (see < ShutdownGateway>). After the gateway starts, you can then make other API calls, your applications can read from or write to the gateway\'s storage volumes and you will be able to take snapshot backups.
 --
--- When you make a request, you will get a 200 OK success response
--- immediately. However, it might take some time for the gateway to be
--- ready. You should call < DescribeGatewayInformation> and check the
--- status before making any additional API calls. For more information, see
--- < ActivateGateway>.
+-- When you make a request, you will get a 200 OK success response immediately. However, it might take some time for the gateway to be ready. You should call < DescribeGatewayInformation> and check the status before making any additional API calls. For more information, see < ActivateGateway>.
 --
--- To specify which gateway to start, use the Amazon Resource Name (ARN) of
--- the gateway in your request.
+-- To specify which gateway to start, use the Amazon Resource Name (ARN) of the gateway in your request.
 module Network.AWS.StorageGateway.StartGateway
     (
     -- * Creating a Request

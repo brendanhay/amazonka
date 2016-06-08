@@ -18,10 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists all the tags attached to a vault. The operation
--- returns an empty map if there are no tags. For more information about
--- tags, see
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
+-- This operation lists all the tags attached to a vault. The operation returns an empty map if there are no tags. For more information about tags, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
 module Network.AWS.Glacier.ListTagsForVault
     (
     -- * Creating a Request
@@ -71,11 +68,7 @@ listTagsForVault pAccountId_ pVaultName_ =
     , _ltfvVaultName = pVaultName_
     }
 
--- | The 'AccountId' value is the AWS account ID of the account that owns the
--- vault. You can either specify an AWS account ID or optionally a single
--- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
--- ID associated with the credentials used to sign the request. If you use
--- an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The 'AccountId' value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
 ltfvAccountId :: Lens' ListTagsForVault Text
 ltfvAccountId = lens _ltfvAccountId (\ s a -> s{_ltfvAccountId = a});
 
@@ -132,8 +125,7 @@ listTagsForVaultResponse pResponseStatus_ =
     , _ltfvrsResponseStatus = pResponseStatus_
     }
 
--- | The tags attached to the vault. Each tag is composed of a key and a
--- value.
+-- | The tags attached to the vault. Each tag is composed of a key and a value.
 ltfvrsTags :: Lens' ListTagsForVaultResponse (HashMap Text Text)
 ltfvrsTags = lens _ltfvrsTags (\ s a -> s{_ltfvrsTags = a}) . _Default . _Map;
 

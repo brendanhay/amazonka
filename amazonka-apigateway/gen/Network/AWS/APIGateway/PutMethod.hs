@@ -106,26 +106,15 @@ putMethod pRestAPIId_ pResourceId_ pHttpMethod_ pAuthorizationType_ =
     , _putAuthorizationType = pAuthorizationType_
     }
 
--- | Specifies the < Model> resources used for the request\'s content type.
--- Request models are represented as a key\/value map, with a content type
--- as the key and a < Model> name as the value.
+-- | Specifies the < Model> resources used for the request\'s content type. Request models are represented as a key\/value map, with a content type as the key and a < Model> name as the value.
 putRequestModels :: Lens' PutMethod (HashMap Text Text)
 putRequestModels = lens _putRequestModels (\ s a -> s{_putRequestModels = a}) . _Default . _Map;
 
--- | Represents requests parameters that are sent with the backend request.
--- Request parameters are represented as a key\/value map, with a
--- destination as the key and a source as the value. A source must match an
--- existing method request parameter, or a static value. Static values must
--- be enclosed with single quotes, and be pre-encoded based on their
--- destination in the request. The destination must match the pattern
--- 'integration.request.{location}.{name}', where 'location' is either
--- querystring, path, or header. 'name' must be a valid, unique parameter
--- name.
+-- | Represents requests parameters that are sent with the backend request. Request parameters are represented as a key\/value map, with a destination as the key and a source as the value. A source must match an existing method request parameter, or a static value. Static values must be enclosed with single quotes, and be pre-encoded based on their destination in the request. The destination must match the pattern 'integration.request.{location}.{name}', where 'location' is either querystring, path, or header. 'name' must be a valid, unique parameter name.
 putRequestParameters :: Lens' PutMethod (HashMap Text Bool)
 putRequestParameters = lens _putRequestParameters (\ s a -> s{_putRequestParameters = a}) . _Default . _Map;
 
--- | Specifies the identifier of an < Authorizer> to use on this Method, if
--- the type is CUSTOM.
+-- | Specifies the identifier of an < Authorizer> to use on this Method, if the type is CUSTOM.
 putAuthorizerId :: Lens' PutMethod (Maybe Text)
 putAuthorizerId = lens _putAuthorizerId (\ s a -> s{_putAuthorizerId = a});
 

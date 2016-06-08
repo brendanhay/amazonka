@@ -140,9 +140,7 @@ cdState = lens _cdState (\ s a -> s{_cdState = a});
 --
 -- Default: None
 --
--- Constraints: Phone number must be specified in the format \"+[country
--- dialing code].[number including any area code]\". For example, a US
--- phone number might appear as '\"+1.1234567890\"'.
+-- Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as '\"+1.1234567890\"'.
 --
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
@@ -164,8 +162,7 @@ cdFax = lens _cdFax (\ s a -> s{_cdFax = a});
 cdLastName :: Lens' ContactDetail (Maybe Text)
 cdLastName = lens _cdLastName (\ s a -> s{_cdLastName = a});
 
--- | A list of name-value pairs for parameters required by certain top-level
--- domains.
+-- | A list of name-value pairs for parameters required by certain top-level domains.
 --
 -- Type: Complex
 --
@@ -227,9 +224,7 @@ cdCity = lens _cdCity (\ s a -> s{_cdCity = a});
 --
 -- Default: None
 --
--- Constraints: Phone number must be specified in the format \"+[country
--- dialing code].[number including any area code>]\". For example, a US
--- phone number might appear as '\"+1.1234567890\"'.
+-- Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as '\"+1.1234567890\"'.
 --
 -- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
@@ -279,10 +274,7 @@ cdFirstName = lens _cdFirstName (\ s a -> s{_cdFirstName = a});
 cdCountryCode :: Lens' ContactDetail (Maybe CountryCode)
 cdCountryCode = lens _cdCountryCode (\ s a -> s{_cdCountryCode = a});
 
--- | Indicates whether the contact is a person, company, association, or
--- public organization. If you choose an option other than 'PERSON', you
--- must enter an organization name, and you can\'t enable privacy
--- protection for the contact.
+-- | Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than 'PERSON', you must enter an organization name, and you can\'t enable privacy protection for the contact.
 --
 -- Type: String
 --
@@ -375,8 +367,7 @@ domainSummary pDomainName_ =
 dsExpiry :: Lens' DomainSummary (Maybe UTCTime)
 dsExpiry = lens _dsExpiry (\ s a -> s{_dsExpiry = a}) . mapping _Time;
 
--- | Indicates whether a domain is locked from unauthorized transfer to
--- another party.
+-- | Indicates whether a domain is locked from unauthorized transfer to another party.
 --
 -- Type: Boolean
 --
@@ -442,13 +433,7 @@ extraParam pName_ pValue_ =
 --
 -- Default: None
 --
--- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' |
--- 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' |
--- 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' |
--- 'CA_BUSINESS_ENTITY_TYPE' |'ES_IDENTIFICATION' |
--- 'ES_IDENTIFICATION_TYPE' | 'ES_LEGAL_FORM' | 'FI_BUSINESS_NUMBER' |
--- 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA' | 'SE_ID_NUMBER' |
--- 'SG_ID_NUMBER' | 'VAT_NUMBER'
+-- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' | 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' | 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' | 'CA_BUSINESS_ENTITY_TYPE' |'ES_IDENTIFICATION' | 'ES_IDENTIFICATION_TYPE' | 'ES_LEGAL_FORM' | 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA' | 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'
 --
 -- Parent: 'ExtraParams'
 --
@@ -456,8 +441,7 @@ extraParam pName_ pValue_ =
 epName :: Lens' ExtraParam ExtraParamName
 epName = lens _epName (\ s a -> s{_epName = a});
 
--- | Values corresponding to the additional parameter names required by some
--- top-level domains.
+-- | Values corresponding to the additional parameter names required by some top-level domains.
 --
 -- Type: String
 --
@@ -512,11 +496,7 @@ nameserver pName_ =
     , _nName = pName_
     }
 
--- | Glue IP address of a name server entry. Glue IP addresses are required
--- only when the name of the name server is a subdomain of the domain. For
--- example, if your domain is example.com and the name server for the
--- domain is ns.example.com, you need to specify the IP address for
--- ns.example.com.
+-- | Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com.
 --
 -- Type: List of IP addresses.
 --
@@ -605,9 +585,7 @@ osStatus = lens _osStatus (\ s a -> s{_osStatus = a});
 --
 -- Type: String
 --
--- Valid values: 'REGISTER_DOMAIN' | 'DELETE_DOMAIN' | 'TRANSFER_IN_DOMAIN'
--- | 'UPDATE_DOMAIN_CONTACT' | 'UPDATE_NAMESERVER' |
--- 'CHANGE_PRIVACY_PROTECTION' | 'DOMAIN_LOCK'
+-- Valid values: 'REGISTER_DOMAIN' | 'DELETE_DOMAIN' | 'TRANSFER_IN_DOMAIN' | 'UPDATE_DOMAIN_CONTACT' | 'UPDATE_NAMESERVER' | 'CHANGE_PRIVACY_PROTECTION' | 'DOMAIN_LOCK'
 osType :: Lens' OperationSummary OperationType
 osType = lens _osType (\ s a -> s{_osType = a});
 

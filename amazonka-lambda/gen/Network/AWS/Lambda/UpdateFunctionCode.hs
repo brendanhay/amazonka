@@ -18,17 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the code for the specified Lambda function. This operation must
--- only be used on an existing Lambda function and cannot be used to update
--- the function configuration.
+-- Updates the code for the specified Lambda function. This operation must only be used on an existing Lambda function and cannot be used to update the function configuration.
 --
--- If you are using the versioning feature, note this API will always
--- update the $LATEST version of your Lambda function. For information
--- about the versioning feature, see
--- <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
+-- If you are using the versioning feature, note this API will always update the >LATEST version of your Lambda function. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
--- This operation requires permission for the 'lambda:UpdateFunctionCode'
--- action.
+-- This operation requires permission for the 'lambda:UpdateFunctionCode' action.
 module Network.AWS.Lambda.UpdateFunctionCode
     (
     -- * Creating a Request
@@ -106,13 +100,11 @@ updateFunctionCode pFunctionName_ =
     , _uFunctionName = pFunctionName_
     }
 
--- | The Amazon S3 object (the deployment package) version you want to
--- upload.
+-- | The Amazon S3 object (the deployment package) version you want to upload.
 uS3ObjectVersion :: Lens' UpdateFunctionCode (Maybe Text)
 uS3ObjectVersion = lens _uS3ObjectVersion (\ s a -> s{_uS3ObjectVersion = a});
 
--- | The Amazon S3 object (the deployment package) key name you want to
--- upload.
+-- | The Amazon S3 object (the deployment package) key name you want to upload.
 uS3Key :: Lens' UpdateFunctionCode (Maybe Text)
 uS3Key = lens _uS3Key (\ s a -> s{_uS3Key = a});
 
@@ -126,26 +118,17 @@ uS3Key = lens _uS3Key (\ s a -> s{_uS3Key = a});
 uZipFile :: Lens' UpdateFunctionCode (Maybe ByteString)
 uZipFile = lens _uZipFile (\ s a -> s{_uZipFile = a}) . mapping _Base64;
 
--- | Amazon S3 bucket name where the .zip file containing your deployment
--- package is stored. This bucket must reside in the same AWS region where
--- you are creating the Lambda function.
+-- | Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS region where you are creating the Lambda function.
 uS3Bucket :: Lens' UpdateFunctionCode (Maybe Text)
 uS3Bucket = lens _uS3Bucket (\ s a -> s{_uS3Bucket = a});
 
--- | This boolean parameter can be used to request AWS Lambda to update the
--- Lambda function and publish a version as an atomic operation.
+-- | This boolean parameter can be used to request AWS Lambda to update the Lambda function and publish a version as an atomic operation.
 uPublish :: Lens' UpdateFunctionCode (Maybe Bool)
 uPublish = lens _uPublish (\ s a -> s{_uPublish = a});
 
 -- | The existing Lambda function name whose code you want to replace.
 --
--- You can specify a function name (for example, 'Thumbnail') or you can
--- specify Amazon Resource Name (ARN) of the function (for example,
--- 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda
--- also allows you to specify a partial ARN (for example,
--- 'account-id:Thumbnail'). Note that the length constraint applies only to
--- the ARN. If you specify only the function name, it is limited to 64
--- character in length.
+-- You can specify a function name (for example, 'Thumbnail') or you can specify Amazon Resource Name (ARN) of the function (for example, 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda also allows you to specify a partial ARN (for example, 'account-id:Thumbnail'). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
 uFunctionName :: Lens' UpdateFunctionCode Text
 uFunctionName = lens _uFunctionName (\ s a -> s{_uFunctionName = a});
 

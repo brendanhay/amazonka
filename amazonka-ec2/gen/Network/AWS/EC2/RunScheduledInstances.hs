@@ -20,16 +20,9 @@
 --
 -- Launches the specified Scheduled Instances.
 --
--- Before you can launch a Scheduled Instance, you must purchase it and
--- obtain an identifier using < PurchaseScheduledInstances>.
+-- Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using < PurchaseScheduledInstances>.
 --
--- You must launch a Scheduled Instance during its scheduled time period.
--- You can\'t stop or reboot a Scheduled Instance, but you can terminate it
--- as needed. If you terminate a Scheduled Instance before the current
--- scheduled time period ends, you can launch it again after a few minutes.
--- For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html Scheduled Instances>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- You must launch a Scheduled Instance during its scheduled time period. You can\'t stop or reboot a Scheduled Instance, but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends, you can launch it again after a few minutes. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html Scheduled Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.RunScheduledInstances
     (
     -- * Creating a Request
@@ -94,9 +87,7 @@ runScheduledInstances pScheduledInstanceId_ pLaunchSpecification_ =
     , _rsiLaunchSpecification = pLaunchSpecification_
     }
 
--- | Unique, case-sensitive identifier that ensures the idempotency of the
--- request. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 rsiClientToken :: Lens' RunScheduledInstances (Maybe Text)
 rsiClientToken = lens _rsiClientToken (\ s a -> s{_rsiClientToken = a});
 
@@ -106,10 +97,7 @@ rsiClientToken = lens _rsiClientToken (\ s a -> s{_rsiClientToken = a});
 rsiInstanceCount :: Lens' RunScheduledInstances (Maybe Int)
 rsiInstanceCount = lens _rsiInstanceCount (\ s a -> s{_rsiInstanceCount = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 rsiDryRun :: Lens' RunScheduledInstances (Maybe Bool)
 rsiDryRun = lens _rsiDryRun (\ s a -> s{_rsiDryRun = a});
 

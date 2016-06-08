@@ -18,12 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets whether all AWS Identity and Access Management (IAM) users under
--- your account can access the specified job flows. This action works on
--- running job flows. You can also set the visibility of a job flow when
--- you launch it using the 'VisibleToAllUsers' parameter of < RunJobFlow>.
--- The SetVisibleToAllUsers action can be called only by an IAM user who
--- created the job flow or the AWS account that owns the job flow.
+-- Sets whether all AWS Identity and Access Management (IAM) users under your account can access the specified job flows. This action works on running job flows. You can also set the visibility of a job flow when you launch it using the 'VisibleToAllUsers' parameter of < RunJobFlow>. The SetVisibleToAllUsers action can be called only by an IAM user who created the job flow or the AWS account that owns the job flow.
 module Network.AWS.EMR.SetVisibleToAllUsers
     (
     -- * Creating a Request
@@ -73,11 +68,7 @@ setVisibleToAllUsers pVisibleToAllUsers_ =
 svtauJobFlowIds :: Lens' SetVisibleToAllUsers [Text]
 svtauJobFlowIds = lens _svtauJobFlowIds (\ s a -> s{_svtauJobFlowIds = a}) . _Coerce;
 
--- | Whether the specified job flows are visible to all IAM users of the AWS
--- account associated with the job flow. If this value is set to True, all
--- IAM users of that AWS account can view and, if they have the proper IAM
--- policy permissions set, manage the job flows. If it is set to False,
--- only the IAM user that created a job flow can view and manage it.
+-- | Whether the specified job flows are visible to all IAM users of the AWS account associated with the job flow. If this value is set to True, all IAM users of that AWS account can view and, if they have the proper IAM policy permissions set, manage the job flows. If it is set to False, only the IAM user that created a job flow can view and manage it.
 svtauVisibleToAllUsers :: Lens' SetVisibleToAllUsers Bool
 svtauVisibleToAllUsers = lens _svtauVisibleToAllUsers (\ s a -> s{_svtauVisibleToAllUsers = a});
 

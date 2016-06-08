@@ -18,17 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an HSM client certificate that an Amazon Redshift cluster will
--- use to connect to the client\'s HSM in order to store and retrieve the
--- keys used to encrypt the cluster databases.
+-- Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client\'s HSM in order to store and retrieve the keys used to encrypt the cluster databases.
 --
--- The command returns a public key, which you must store in the HSM. In
--- addition to creating the HSM certificate, you must create an Amazon
--- Redshift HSM configuration that provides a cluster the information
--- needed to store and use encryption keys in the HSM. For more
--- information, go to
--- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules>
--- in the Amazon Redshift Cluster Management Guide.
+-- The command returns a public key, which you must store in the HSM. In addition to creating the HSM certificate, you must create an Amazon Redshift HSM configuration that provides a cluster the information needed to store and use encryption keys in the HSM. For more information, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules> in the Amazon Redshift Cluster Management Guide.
 module Network.AWS.Redshift.CreateHSMClientCertificate
     (
     -- * Creating a Request
@@ -81,9 +73,7 @@ createHSMClientCertificate pHSMClientCertificateIdentifier_ =
 chccTags :: Lens' CreateHSMClientCertificate [Tag]
 chccTags = lens _chccTags (\ s a -> s{_chccTags = a}) . _Default . _Coerce;
 
--- | The identifier to be assigned to the new HSM client certificate that the
--- cluster will use to connect to the HSM to use the database encryption
--- keys.
+-- | The identifier to be assigned to the new HSM client certificate that the cluster will use to connect to the HSM to use the database encryption keys.
 chccHSMClientCertificateIdentifier :: Lens' CreateHSMClientCertificate Text
 chccHSMClientCertificateIdentifier = lens _chccHSMClientCertificateIdentifier (\ s a -> s{_chccHSMClientCertificateIdentifier = a});
 

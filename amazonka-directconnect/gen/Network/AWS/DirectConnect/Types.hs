@@ -176,14 +176,12 @@ directConnect =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The API was called with invalid parameters. The error message will
--- contain additional details about the cause.
+-- | The API was called with invalid parameters. The error message will contain additional details about the cause.
 _DirectConnectClientException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectConnectClientException =
     _ServiceError . hasCode "DirectConnectClientException"
 
--- | A server-side error occurred during the API call. The error message will
--- contain additional details about the cause.
+-- | A server-side error occurred during the API call. The error message will contain additional details about the cause.
 _DirectConnectServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectConnectServerException =
     _ServiceError . hasCode "DirectConnectServerException"

@@ -18,22 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a set of DKIM tokens for a domain. DKIM /tokens/ are character
--- strings that represent your domain\'s identity. Using these tokens, you
--- will need to create DNS CNAME records that point to DKIM public keys
--- hosted by Amazon SES. Amazon Web Services will eventually detect that
--- you have updated your DNS records; this detection process may take up to
--- 72 hours. Upon successful detection, Amazon SES will be able to
--- DKIM-sign email originating from that domain.
+-- Returns a set of DKIM tokens for a domain. DKIM /tokens/ are character strings that represent your domain\'s identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain.
 --
 -- This action is throttled at one request per second.
 --
--- To enable or disable Easy DKIM signing for a domain, use the
--- 'SetIdentityDkimEnabled' action.
+-- To enable or disable Easy DKIM signing for a domain, use the 'SetIdentityDkimEnabled' action.
 --
--- For more information about creating DNS records using DKIM tokens, go to
--- the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
+-- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
 module Network.AWS.SES.VerifyDomainDkim
     (
     -- * Creating a Request
@@ -133,19 +124,11 @@ verifyDomainDkimResponse pResponseStatus_ =
 vddrsResponseStatus :: Lens' VerifyDomainDkimResponse Int
 vddrsResponseStatus = lens _vddrsResponseStatus (\ s a -> s{_vddrsResponseStatus = a});
 
--- | A set of character strings that represent the domain\'s identity. If the
--- identity is an email address, the tokens represent the domain of that
--- address.
+-- | A set of character strings that represent the domain\'s identity. If the identity is an email address, the tokens represent the domain of that address.
 --
--- Using these tokens, you will need to create DNS CNAME records that point
--- to DKIM public keys hosted by Amazon SES. Amazon Web Services will
--- eventually detect that you have updated your DNS records; this detection
--- process may take up to 72 hours. Upon successful detection, Amazon SES
--- will be able to DKIM-sign emails originating from that domain.
+-- Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign emails originating from that domain.
 --
--- For more information about creating DNS records using DKIM tokens, go to
--- the
--- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
+-- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
 vddrsDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
 vddrsDkimTokens = lens _vddrsDkimTokens (\ s a -> s{_vddrsDkimTokens = a}) . _Coerce;
 

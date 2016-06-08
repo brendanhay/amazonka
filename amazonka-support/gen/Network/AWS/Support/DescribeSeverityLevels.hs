@@ -18,9 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the list of severity levels that you can assign to an AWS
--- Support case. The severity level for a case is also a field in the
--- < CaseDetails> data type included in any < CreateCase> request.
+-- Returns the list of severity levels that you can assign to an AWS Support case. The severity level for a case is also a field in the < CaseDetails> data type included in any < CreateCase> request.
 module Network.AWS.Support.DescribeSeverityLevels
     (
     -- * Creating a Request
@@ -61,10 +59,7 @@ describeSeverityLevels =
     { _dslLanguage = Nothing
     }
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
 dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
 dslLanguage = lens _dslLanguage (\ s a -> s{_dslLanguage = a});
 
@@ -104,8 +99,7 @@ instance ToPath DescribeSeverityLevels where
 instance ToQuery DescribeSeverityLevels where
         toQuery = const mempty
 
--- | The list of severity levels returned by the < DescribeSeverityLevels>
--- operation.
+-- | The list of severity levels returned by the < DescribeSeverityLevels> operation.
 --
 -- /See:/ 'describeSeverityLevelsResponse' smart constructor.
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
@@ -129,8 +123,7 @@ describeSeverityLevelsResponse pResponseStatus_ =
     , _dslrsResponseStatus = pResponseStatus_
     }
 
--- | The available severity levels for the support case. Available severity
--- levels are defined by your service level agreement with AWS.
+-- | The available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.
 dslrsSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrsSeverityLevels = lens _dslrsSeverityLevels (\ s a -> s{_dslrsSeverityLevels = a}) . _Default . _Coerce;
 

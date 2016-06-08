@@ -18,19 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Links an EC2-Classic instance to a ClassicLink-enabled VPC through one
--- or more of the VPC\'s security groups. You cannot link an EC2-Classic
--- instance to more than one VPC at a time. You can only link an instance
--- that\'s in the 'running' state. An instance is automatically unlinked
--- from a VPC when it\'s stopped - you can link it to the VPC again when
--- you restart it.
+-- Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC\'s security groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You can only link an instance that\'s in the 'running' state. An instance is automatically unlinked from a VPC when it\'s stopped - you can link it to the VPC again when you restart it.
 --
--- After you\'ve linked an instance, you cannot change the VPC security
--- groups that are associated with it. To change the security groups, you
--- must first unlink the instance, and then link it again.
+-- After you\'ve linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.
 --
--- Linking your instance to a VPC is sometimes referred to as /attaching/
--- your instance.
+-- Linking your instance to a VPC is sometimes referred to as /attaching/ your instance.
 module Network.AWS.EC2.AttachClassicLinkVPC
     (
     -- * Creating a Request
@@ -90,15 +82,11 @@ attachClassicLinkVPC pInstanceId_ pVPCId_ =
     , _aclvGroups = mempty
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is 'DryRunOperation'.
--- Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 aclvDryRun :: Lens' AttachClassicLinkVPC (Maybe Bool)
 aclvDryRun = lens _aclvDryRun (\ s a -> s{_aclvDryRun = a});
 
--- | The ID of an EC2-Classic instance to link to the ClassicLink-enabled
--- VPC.
+-- | The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.
 aclvInstanceId :: Lens' AttachClassicLinkVPC Text
 aclvInstanceId = lens _aclvInstanceId (\ s a -> s{_aclvInstanceId = a});
 
@@ -106,8 +94,7 @@ aclvInstanceId = lens _aclvInstanceId (\ s a -> s{_aclvInstanceId = a});
 aclvVPCId :: Lens' AttachClassicLinkVPC Text
 aclvVPCId = lens _aclvVPCId (\ s a -> s{_aclvVPCId = a});
 
--- | The ID of one or more of the VPC\'s security groups. You cannot specify
--- security groups from a different VPC.
+-- | The ID of one or more of the VPC\'s security groups. You cannot specify security groups from a different VPC.
 aclvGroups :: Lens' AttachClassicLinkVPC [Text]
 aclvGroups = lens _aclvGroups (\ s a -> s{_aclvGroups = a}) . _Coerce;
 

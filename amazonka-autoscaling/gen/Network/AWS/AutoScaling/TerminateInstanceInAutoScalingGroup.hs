@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Terminates the specified instance and optionally adjusts the desired
--- group size.
+-- Terminates the specified instance and optionally adjusts the desired group size.
 --
--- This call simply makes a termination request. The instance is not
--- terminated immediately.
+-- This call simply makes a termination request. The instance is not terminated immediately.
 module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     (
     -- * Creating a Request
@@ -74,8 +72,7 @@ terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
 tiiasgInstanceId = lens _tiiasgInstanceId (\ s a -> s{_tiiasgInstanceId = a});
 
--- | If 'true', terminating the instance also decrements the size of the Auto
--- Scaling group.
+-- | If 'true', terminating the instance also decrements the size of the Auto Scaling group.
 tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
 tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacity (\ s a -> s{_tiiasgShouldDecrementDesiredCapacity = a});
 

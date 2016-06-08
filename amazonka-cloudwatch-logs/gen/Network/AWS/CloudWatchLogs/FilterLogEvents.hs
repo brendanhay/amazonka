@@ -137,8 +137,6 @@ fleLogGroupName = lens _fleLogGroupName (\ s a -> s{_fleLogGroupName = a});
 instance AWSPager FilterLogEvents where
         page rq rs
           | stop (rs ^. flersNextToken) = Nothing
-          | stop (rs ^. flersEvents) = Nothing
-          | stop (rs ^. flersSearchedLogStreams) = Nothing
           | otherwise =
             Just $ rq & fleNextToken .~ rs ^. flersNextToken
 

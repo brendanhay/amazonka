@@ -37,6 +37,7 @@ module Network.AWS.Data.Time
 import           Control.Applicative
 import           Control.DeepSeq
 import           Data.Aeson
+import qualified Data.Aeson.Types            as Aeson
 import           Data.Attoparsec.Text        (Parser)
 import qualified Data.Attoparsec.Text        as AText
 import qualified Data.ByteString.Char8       as BS
@@ -122,10 +123,6 @@ instance FromText ISO8601 where
          -- Deprecated, but ensure compatibility with examples until further investigation can be done
          <|> parseFormattedTime' (Tagged $ iso8601DateFormat (Just "%X%Q%Z"))
 
-instance FromText POSIX where
-    parser = Time . posixSecondsToUTCTime . realToFrac
-        <$> (parser :: Parser Scientific)
-
 parseFormattedTime :: forall a. TimeFormat (Time a) => Parser (Time a)
 parseFormattedTime = parseFormattedTime' format
 
@@ -169,12 +166,23 @@ instance FromJSON ISO8601   where parseJSON = parseJSONText "ISO8601"
 instance FromJSON AWSTime   where parseJSON = parseJSONText "AWSTime"
 instance FromJSON BasicTime where parseJSON = parseJSONText "BasicTime"
 
+-- This is a somewhat unfortunate hack to support the bizzare apigateway
+-- occurence of returning ISO8601 or POSIX timestamps in unknown scenarios.
+--
+-- See: https://github.com/brendanhay/amazonka/issues/291
 instance FromJSON POSIX where
-    parseJSON = withScientific "POSIX"
-        $ pure
-        . Time
-        . posixSecondsToUTCTime
-        . realToFrac
+    parseJSON o = fmap convert (str o) <|> num o
+      where
+        str :: Value -> Aeson.Parser ISO8601
+        str = parseJSON
+
+        num :: Value -> Aeson.Parser POSIX
+        num = withScientific "POSIX"
+            ( pure
+            . Time
+            . posixSecondsToUTCTime
+            . realToFrac
+            )
 
 instance ToByteString RFC822    where toBS = BS.pack . renderFormattedTime
 instance ToByteString ISO8601   where toBS = BS.pack . renderFormattedTime
@@ -190,7 +198,6 @@ instance ToXML RFC822    where toXML = toXMLText
 instance ToXML ISO8601   where toXML = toXMLText
 instance ToXML AWSTime   where toXML = toXMLText
 instance ToXML BasicTime where toXML = toXMLText
-instance ToXML POSIX     where toXML = toXMLText
 
 instance ToJSON RFC822    where toJSON = toJSONText
 instance ToJSON ISO8601   where toJSON = toJSONText
